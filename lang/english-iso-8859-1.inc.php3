@@ -652,4 +652,5 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 ?>

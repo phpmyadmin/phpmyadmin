@@ -147,7 +147,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
         $result = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'');
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             $tmpres        = PMA_mysql_fetch_array($result);
-            if (!empty($tmpres['Auto_increment'])) {
+            if (isset($GLOBALS['auto_increment']) && !empty($tmpres['Auto_increment'])) {
                 $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
             }
 

@@ -1168,6 +1168,9 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['Export']['sql_drop_table'])) {
         $cfg['Export']['sql_drop_table'] = FALSE;
     }
+    if (!isset($cfg['Export']['sql_auto_increment'])) {
+        $cfg['Export']['sql_auto_increment'] = TRUE;
+    }
     if (!isset($cfg['Export']['sql_structure'])) {
         $cfg['Export']['sql_structure'] = TRUE;
     }

@@ -670,4 +670,5 @@ $strToggleScratchboard = 'toggle scratchboard';  //to translate
 
 $strViewDumpDatabases = 'View dump (schema) of databases';//to translate
 
+$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 ?>

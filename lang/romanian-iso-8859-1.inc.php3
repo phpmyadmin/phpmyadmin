@@ -654,4 +654,5 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 // To translate
 
+$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 ?>

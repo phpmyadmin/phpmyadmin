@@ -655,4 +655,5 @@ $strZeroRemovesTheLimit = 'Примітка: Встановлення цієї опції у 0 (нуль) знімає о
 $strZip = 'запакувати в "zip"';
 // To translate
 
+$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 ?>

@@ -123,8 +123,11 @@ if ($export_type == 'server') {
                         <input type="checkbox" name="sql_structure" value="structure" id="checkbox_sql_structure" <?php PMA_exportCheckboxCheck('sql_structure'); ?> onclick="if(!this.checked && !getElement('checkbox_sql_data').checked) return false; else return true;" />
                         <label for="checkbox_sql_structure"><?php echo $strStructure; ?></label><br />
                     </legend>
+
                     <input type="checkbox" name="drop" value="1" id="checkbox_dump_drop" <?php PMA_exportCheckboxCheck('sql_drop_table'); ?> />
                     <label for="checkbox_dump_drop"><?php echo $strStrucDrop; ?></label><br />
+                    <input type="checkbox" name="auto_increment" value="1" id="checkbox_auto_increment" <?php PMA_exportCheckboxCheck('sql_auto_increment'); ?> />
+                    <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
 <?php
 // Add backquotes checkbox
 if (PMA_MYSQL_INT_VERSION >= 32306) {

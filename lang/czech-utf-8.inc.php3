@@ -30,6 +30,7 @@ $strAbsolutePathToDocSqlDir = 'Zadejte absolutní cestu docSQL adresáře na ser
 $strAccessDenied = 'Přístup odepřen';
 $strAccessDeniedExplanation = 'phpMyAdmin se pokusil připojit k&nbsp;MySQL serveru, a ten odmítl připojení. Zkontrolujte jméno serveru, uživatelské jméno a heslo v&nbsp;souboru config.inc.php3 a ujistěte se, že jsou totožné s&nbsp;těmi co máte od administrátora MySQL serveru.';
 $strAction = 'Akce';
+$strAddAutoIncrement = 'Přidat hodnotu AUTO_INCREMENT';
 $strAddDeleteColumn = 'Přidat/Smazat sloupec';
 $strAddDeleteRow = 'Přidat/Smazat řádek s&nbsp;podmínkou';
 $strAddDropDatabase = 'Přidat DROP DATABASE';

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-08 Michal Cihar  <nijel@users.sourceforge.net>
+    * config.inc.php3, tbl_properties_operations.php3,
+      libraries/config_import.lib.php3, libraries/display_export.lib.php3,
+      libraries/export/sql.php3, lang/*: Added checkbox for exporting/copying
+      AUTO_INCREMENT value (RFE #763957).
+      
 2003-07-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Send headers before exiting because of missing
       MySQL extension.
