@@ -608,4 +608,5 @@ $strTransformation_text_plain__formatted = 'Preserves original formatting of the
 $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
 $strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
 $strTransformation_image_jpeg__inline = 'Displays an image directly in the table (uses wrapper, direct blob download, i.e.).';//to translate
+$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 ?>

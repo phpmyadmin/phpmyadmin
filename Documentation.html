@@ -807,6 +807,17 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 put the table name in
                 <tt>$cfg['Servers'][$i]['column_info']</tt>
             </li>
+            <li>
+                To update your PRE-2.4.1 Column_comments Table use this:<br />
+                <tt>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_column_comments` <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD `mimetype` VARCHAR( 255 ) NOT NULL ,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD `transformation` VARCHAR( 255 ) NOT NULL ,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD `transformation_options` VARCHAR( 255 ) NOT NULL ;<br />
+                </tt>
+                and remember that the Variable in config.inc.php has been renamed
+                from <br />$cfg['Servers'][$i]['column_comments'] to $cfg['Servers'][$i]['column_info']
+            </li>
         </ul><br />
     </dd>
 

@@ -598,4 +598,5 @@ $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entitie
 $strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
 $strTransformation_image_jpeg__inline = 'Displays an image directly in the table (uses wrapper, direct blob download, i.e.).';//to translate
 $strInnodbStat = 'InnoDB Status';  //to translate
+$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 ?>

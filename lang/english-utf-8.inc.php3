@@ -598,4 +598,5 @@ $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the l
 $strZip = '"zipped"';
 
 $strInnodbStat = 'InnoDB Status';
+$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 ?>
