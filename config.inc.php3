@@ -99,7 +99,7 @@ $cfgPersistentConnections = FALSE;  // use persistent connections to MySQL datab
 $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
                                     // locked tables (since MySQL 3.23.30)
 $cfgShowSQL               = TRUE;   // show SQL queries as run
-$cfgAllowUserDropDatabase = FALSE;  // disallow users to delete their own database
+$cfgAllowUserDropDatabase = FALSE;  // show a 'Drop database' link to normal users  
 $cfgConfirm               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
 
 $cfgShowStats             = TRUE;   // allow to display statistics and space usage in
