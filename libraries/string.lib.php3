@@ -216,9 +216,11 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
         $ord_space = 32; //ord(' ')
         $ord_tab   = 9; //ord('\t')
         $ord_CR    = 13; //ord('\n')
+        $ord_NOBR  = 160; //ord('U+00A0);
         $ord_c     = ord($c);
 
-        return (($ord_c == $ord_space)
+        return (($ord_c == $ord_space) 
+                || ($ord_c == $ord_NOBR)
                 || PMA_STR_numberInRangeInclusive($ord_c, $ord_tab, $ord_CR));
     } // end of the "PMA_STR_isSpace()" function
 
