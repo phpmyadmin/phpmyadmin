@@ -5,6 +5,8 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3: bug 830437, undefined $sql_order
 
 2003-10-24 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/lithuanian: Updated, thanks to Vilius Zigmantas (viliusz).
