@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_pages.php: patch #1120466 (modified): optional column names
+      in visual scratchboard, thanks to Remco Aalbers - remcoa
+
 2005-02-17 Marc Delisle  <lem9@users.sourceforge.net>
     * header.inc.php, queryframe.php: HTML improvement, 
       thanks to Armel Fauveau
