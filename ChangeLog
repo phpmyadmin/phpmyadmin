@@ -5,8 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-04 Garvin Hicking <me@supergarv.de>
+    * libraries/transformations/text_plain__dateformat.inc.php3:
+      Bug #835252: Now allow more timestamps. Minor modification of a patch
+      submitted by anonymous poster. Thanks!
+
 2003-11-03 Garvin Hicking <me@supergarv.de>
-    * Documentation.html, tbl_row_delete.php3, 
+    * Documentation.html, tbl_row_delete.php3,
       libraries/display_tbl.lib.php3:
       Bug #828290: Fixed "Execute stored bookmark". Also made some minor
       tweaks to make PHP-Transformations with forms working again. Added
