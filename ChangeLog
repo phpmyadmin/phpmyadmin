@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-01 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * translators.html: Better link.
+
 2003-09-30 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.5.4-rc1 released
 
@@ -26,13 +29,13 @@ $Source$
     * new lang: bosnian, thanks to Samir Kobiljak
 
 2003-09-27 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_row_delete.php3, mult_submits.inc.php3, 
+    * tbl_row_delete.php3, mult_submits.inc.php3,
       libraries/display_tbl.lib.php3, /display_tbl_links.lib.php3:
       RFE 810270: multi-row delete in browse mode
     * lang/catalan: Updated, thanks to Xavier Navarro (xavin).
     * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
-   
+
 2003-09-26 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_indexes.php3: RFE #812993 (Icons for index table).
     * lang/persian-*.inc.php3, lang/sync_lang.sh,
