@@ -60,7 +60,8 @@ reset($mysql_collations);
 $i = 0;
 $table_row_count = count($mysql_charsets) + $mysql_collations_count;
 
-while (list(, $current_charset) = each($mysql_charsets)) {
+//while (list(, $current_charset) = each($mysql_charsets)) {
+foreach ($mysql_charsets as $current_charset) {
     if ($i > $table_row_count / 2) {
         $i = 0;
         echo '            </table>' . "\n"
@@ -84,8 +85,9 @@ while (list(, $current_charset) = each($mysql_charsets)) {
        . '                </td>' . "\n"
        . '            </tr>' . "\n";
     $useBgcolorOne = TRUE;
-    reset($mysql_collations[$current_charset]);
-    while (list(, $current_collation) = each($mysql_collations[$current_charset])) {
+//    reset($mysql_collations[$current_charset]);
+//    while (list(, $current_collation) = each($mysql_collations[$current_charset])) {
+    foreach ($mysql_collations[$current_charset] as $current_collation) {
         $i++;
         echo '            <tr>' . "\n"
            . '                <td bgcolor="' . ($mysql_default_collations[$current_charset] == $current_collation ? $cfg['BrowseMarkerColor'] : ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'])) . '">' . "\n"
