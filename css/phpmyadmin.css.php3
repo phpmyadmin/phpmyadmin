@@ -54,7 +54,7 @@ div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_
 .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none; display: block}
 .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none; display: none}
 .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
-.tblItem:hover {color: #FF0000; text-decoration: underline}'
+.tblItem:hover {color: #FF0000; text-decoration: underline}
             <?php
             } else { 
             ?>
