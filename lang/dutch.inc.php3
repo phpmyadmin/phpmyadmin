@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Updated by "CaliMonk" <calimonk at gmx.net> on 2002/06/06 9:20.
+ * Updated by "CaliMonk" <calimonk at gmx.net> on 2002/06/12 10:20.
  */
 
 $charset = 'iso-8859-1';
@@ -34,7 +34,7 @@ $strAddUserMessage = 'U heeft een nieuwe gebruiker toegevoegd.';
 $strAffectedRows = 'Getroffen rijen:';
 $strAfter = 'Na %s';
 $strAfterInsertBack = 'Terug';
-$strAfterInsertNewInsert = 'Voeg een nieuw record in';
+$strAfterInsertNewInsert = 'Voeg een nieuw record toe';
 $strAll = 'Alle';
 $strAlterOrderBy = 'Wijzig de tabel order bij';
 $strAnIndex = 'Een index is toegevoegd aan %s';
@@ -60,12 +60,12 @@ $strBookmarkQuery = 'Opgeslagen SQL-query';
 $strBookmarkThis = 'Sla deze SQL-query op';
 $strBookmarkView = 'Alleen bekijken';
 $strBrowse = 'Verkennen';
-$strBzip = '"ge-bzippt"';
+$strBzip = '"ge-bzipt"';
 
 $strCantLoadMySQL = 'kan de MySQL extensie niet laden,<br />controleer de PHP configuratie.';
 $strCantRenameIdxToPrimary = 'Kan index niet naar PRIMARY hernoemen';
 $strCardinality = 'Kardinaliteit';
-$strCarriage = 'Carriage return: \\r';
+$strCarriage = 'Harde return: \\r';
 $strChange = 'Veranderen';
 $strChangeDisplay = 'Kies weer te geven veld';
 $strChangePassword = 'Wijzig paswoord';
@@ -75,7 +75,8 @@ $strCheckTable = 'Controleer tabel';
 $strChoosePage = 'Kies een pagina om aan te passen';
 $strColumn = 'Kolom';
 $strColumnNames = 'Kolom namen';
-$strCompleteInserts = 'Insert voltooid';
+$strCompleteInserts = 'Invoegen voltooid';
+$strConfigFileError = 'phpMyAdmin kon het configuratie bestand niet lezen! <br />Dit kan gebeuren als php een parse error in dit bestand aantreft of dit bestand helemaal niet gevonden kan worden.<br />Roep het configuratie bestand direct aan met de snelkoppeling hieronder en lees de php foutmelding(en). In de meeste gevallen ontbreekt er ergens bijvoorbeeld een quote.<br /> Wanneer er een blanco pagina wordt weergegeven zijn er geen problemen.'; 
 $strConfigureTableCoord = 'Configureer de coördinaten voor de tabel %s';
 $strConfirm = 'Weet u zeker dat u dit wilt?';
 $strCookiesRequired = 'Cookies moeten aan staan voorbij dit punt.';
@@ -107,7 +108,7 @@ $strDisplay = 'Laat zien';
 $strDisplayOrder = 'Weergave volgorde:';
 $strDisplayPDF = 'Geef het PDF schema weer';
 $strDoAQuery = 'Voer een query op basis van een vergelijking uit (wildcard: "%")';
-$strDoYouReally = 'Weet u zeker dat u wilt ';
+$strDoYouReally = 'Weet u zeker dat u dit wilt ';
 $strDocu = 'Documentatie';
 $strDrop = 'Verwijderen';
 $strDropDB = 'Verwijder database %s';
@@ -117,11 +118,11 @@ $strDumpXRows = '%s rijen aan het dumpen, start bij rij %s.';
 $strDynamic = 'dynamisch';
 
 $strEdit = 'Wijzigen';
-$strEditPDFPages = 'PDF Paginas aanpassen';
+$strEditPDFPages = 'PDF Pagina\'s aanpassen';
 $strEditPrivileges = 'Wijzig rechten';
 $strEffective = 'Effectief';
 $strEmpty = 'Legen';
-$strEmptyResultSet = 'MySQL retourneerde een lege result set (0 rijen).';
+$strEmptyResultSet = 'MySQL retourneerde een lege resultaat set (0 rijen).';
 $strEnd = 'Einde';
 $strEnglishPrivileges = ' Aantekening: de MySQL rechten namen zijn uitgelegd in het Engels ';
 $strError = 'Fout';
@@ -147,7 +148,7 @@ $strFunction = 'Functie';
 $strGenTime = 'Generatie Tijd';
 $strGenBy = 'Gegenereerd door';
 $strGo = 'Start';
-$strGrants = 'Toekennens';
+$strGrants = 'Toekennen';
 $strGzip = '"ge-gzipt"';
 
 $strHasBeenAltered = 'is veranderd.';
@@ -173,7 +174,7 @@ $strInsertNewRow = 'Nieuwe rij invoegen';
 $strInsertTextfiles = 'Invoegen tekstbestanden in tabel';
 $strInsertedRows = 'Ingevoegde rijen:';
 $strInstructions = 'Instructies';
-$strInvalidName = '"%s" is een gereserveerd woord, je kan het niet gebruiken voor een database/tabel/veld naam.';
+$strInvalidName = '"%s" is een gereserveerd woord, je kunt het niet gebruiken voor een database/tabel/veld naam.';
 
 $strKeepPass = 'Wijzig het paswoord niet';
 $strKeyname = 'Sleutelnaam';
@@ -223,6 +224,7 @@ $strNoUsersFound = 'Geen gebruiker(s) gevonden.';
 $strNone = 'Geen';
 $strNoPhp = 'zonder PHP Code';
 $strNotNumber = 'Dit is geen cijfer!';
+$strNotSet = '<b>%s</b> tabel niet gevonden of niet ingesteld in %s';
 $strNotValidNumber = ' geen geldig rijnummer!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s overeenkomst(en) in de tabel<i>%s</i>';
@@ -243,9 +245,9 @@ $strPassword = 'Wachtwoord';
 $strPasswordEmpty = 'Het wachtwoord is leeg!';
 $strPasswordNotSame = 'De wachtwoorden zijn niet gelijk!';
 $strPdfDbSchema = 'Schema van de "%s" database - Pagina %s';
-$strPdfInvalidPageNum = 'Ongedefinieerd PDF pagina nummer!';
+$strPdfInvalidPageNum = 'Ongedefinieerde PDF pagina nummer!';
 $strPdfInvalidTblName = 'De tabel "%s" bestaat niet!';
-$strPhp = 'Creeer PHP Code';
+$strPhp = 'Creëer PHP Code';
 $strPHPVersion = 'PHP Versie';
 $strPmaDocumentation = 'phpMyAdmin Documentatie';
 $strPmaUriError = 'De <tt>$cfg[\'PmaAbsoluteUri\']</tt> richtlijn MOET gezet zijn in het configuratie bestand!';
@@ -278,7 +280,7 @@ $strRepairTable = 'Repareer tabel';
 $strReplace = 'Vervangen';
 $strReplaceTable = 'Vervang tabelgegevens met bestand';
 $strReset = 'Opnieuw';
-$strRevoke = 'Maak ongedaan';
+$strRevoke = 'Ongedaan maken';
 $strRevokeGrant = 'Trek Grant recht in';
 $strRevokeGrantMessage = 'U heeft het Grant recht ingetrokken voor %s';
 $strRevokeMessage = 'U heeft de rechten ingetrokken voor %s';
@@ -310,7 +312,7 @@ $strSearchResultsFor = 'Zoek resultaten voor "<i>%s</i>" %s:';
 $strSearchType = 'Vind:';
 $strSelect = 'Selecteren';
 $strSelectADb = 'Selecteer A.U.B. een database';
-$strSelectAll = 'Selecteer Alles';
+$strSelectAll = 'Selecteer alles';
 $strSelectFields = 'Selecteer velden (tenminste 1):';
 $strSelectNumRows = 'in query';
 $strSelectTables = 'Selecteer tabellen';
@@ -318,16 +320,16 @@ $strSend = 'verzenden';
 $strServerChoice = 'Server keuze';
 $strServerVersion = 'Server versie';
 $strSetEnumVal = 'Als het veldtype "enum" of "set" is, voer dan de waardes in volgens dit formaat: \'a\',\'b\',\'c\'...<br />Als u ooit een backslash moet plaatsen ("\") of een enkel aanhalingsteken ("\'") bij deze waardes, backslash het (voorbeeld \'\\\\xyz\' of \'a\\\'b\').';
-$strShow = 'Laat zien';
+$strShow = 'Toon';
 $strShowAll = 'Toon alles';
-$strShowColor = 'Laat kleur zien';
+$strShowColor = 'Toon kleur';
 $strShowCols = 'Toon kolommen';
-$strShowGrid = 'Laat grid zien';
+$strShowGrid = 'Toon grid';
 $strShowPHPInfo = 'Laat PHP informatie zien';
 $strShowTableDimension = 'Geef de dimensies weer van de tabellen';
 $strShowTables = 'Toon tabellen';
 $strShowThisQuery = ' Laat deze query hier weer zien ';
-$strShowingRecords = 'Records laten zien ';
+$strShowingRecords = 'Toon Records';
 $strSingly = '(apart)';
 $strSize = 'Grootte';
 $strSort = 'Sorteren';
@@ -373,7 +375,7 @@ $strUpdateProfile = 'Pas profiel aan:';
 $strUpdateProfileMessage = 'Het profiel is aangepast.';
 $strUpdateQuery = 'Wijzig Query';
 $strUsage = 'Gebruik';
-$strUseBackquotes = 'Gebruik backquotes bij tabellen en velden\' namen'; //! what are backquotes? - good question what was the original line, because i didn't set this one :-)
+$strUseBackquotes = 'Gebruik backquotes (`) bij tabellen en velden\' namen';
 $strUseTables = 'Gebruik tabellen';
 $strUser = 'Gebruiker';
 $strUserEmpty = 'De gebruikersnaam is leeg!';
@@ -392,7 +394,5 @@ $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
 
-// To translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
 ?>
+
