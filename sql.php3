@@ -174,7 +174,7 @@ else {
 
     // Do append a "LIMIT" clause?
     if (isset($pos)
-        && ($is_select && !$is_count)
+        && ($is_select && !$is_count && eregi(' FROM ', $sql_query))
         && !eregi(' LIMIT[ 0-9,]+$', $sql_query)) {
         $sql_limit_to_append = " LIMIT $pos, $cfgMaxRows";
         if (eregi('(.*)( PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)$', $sql_query, $regs)) {
