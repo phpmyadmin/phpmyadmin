@@ -113,7 +113,7 @@ function PMA_exportDBCreate($db) {
  * @access  public
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
-    $result      = PMA_DBI_query($sql_query);
+    $result      = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_UNBUFFERED);
 
     $columns_cnt = PMA_DBI_num_fields($result);
     for ($i = 0; $i < $columns_cnt; $i++) {

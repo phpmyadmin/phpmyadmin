@@ -402,19 +402,18 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
     $buffer = '';
 
-    $result      = PMA_DBI_query($sql_query);
+    // get the real types of the table's fields (in an array)
+    // the key of the array is the backquoted field name
+    $field_types = PMA_fieldTypes($db,$table,$use_backquotes);
+
+    // analyze the query to get the true column names, not the aliases
+    // (this fixes an undefined index, also if Complete inserts
+    //  are used, we did not get the true column name in case of aliases)
+    $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($sql_query));
+
+    $result      = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_UNBUFFERED);
     if ($result != FALSE) {
         $fields_cnt = PMA_DBI_num_fields($result);
-        $rows_cnt   = PMA_DBI_num_rows($result);
-
-        // get the real types of the table's fields (in an array)
-        // the key of the array is the backquoted field name
-        $field_types = PMA_fieldTypes($db,$table,$use_backquotes);
-
-        // analyze the query to get the true column names, not the aliases
-        // (this fixes an undefined index, also if Complete inserts
-        //  are used, we did not get the true column name in case of aliases)
-        $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($sql_query));
 
         // Checks whether the field is an integer or not
         for ($j = 0; $j < $fields_cnt; $j++) {
@@ -474,6 +473,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         $search       = array("\x00", "\x0a", "\x0d", "\x1a"); //\x08\\x09, not required
         $replace      = array('\0', '\n', '\r', '\Z');
         $current_row  = 0;
+        $separator    = isset($GLOBALS['extended_ins']) ? ',' : ';';
 
         while ($row = PMA_DBI_fetch_row($result)) {
             $current_row++;
@@ -524,9 +524,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             }
             unset($values);
 
-            if (!PMA_exportOutputHandler($insert_line . ((isset($GLOBALS['extended_ins']) && ($current_row < $rows_cnt)) ? ',' : ';') . $crlf)) return FALSE;
+            if (!PMA_exportOutputHandler(($current_row == 1 ? '' : $separator . $crlf) . $insert_line)) return FALSE;
 
         } // end while
+        if (!PMA_exportOutputHandler(';' . $crlf)) return FALSE;
     } // end if ($result != FALSE)
     PMA_DBI_free_result($result);
 

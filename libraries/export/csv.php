@@ -113,7 +113,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $escaped;
 
     // Gets the data from the database
-    $result      = PMA_DBI_query($sql_query);
+    $result      = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_UNBUFFERED);
     $fields_cnt  = PMA_DBI_num_fields($result);
 
     // If required, get fields name at the first line

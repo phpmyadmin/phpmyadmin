@@ -7,6 +7,10 @@ $Source$
 
 2004-03-10 Michal Cihar  <michal@cihar.com>
     * export.php: Correctly report error when export fails.
+    * libraries/database_interface.lib.php, libraries/dbi/mysql.dbi.lib.php,
+      libraries/dbi/mysqli.dbi.lib.php: Support for unbuffered queries - 
+      PMA_DBI_QUERY_UNBUFFERED and fix support of PMA_DBI_QUERY_STORE.
+    * libraries/export/*.php: Use unbuffered queries (patch #890075).
 
 2004-03-09 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, libraries/display*, lang/*: 
