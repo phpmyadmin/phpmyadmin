@@ -348,5 +348,6 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
+$strSelectADb = 'Please select a database';
 
 ?>

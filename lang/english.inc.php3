@@ -269,6 +269,7 @@ $strRunSQLQuery = 'Run SQL query/queries on database %s';
 
 $strSave = 'Save';
 $strSelect = 'Select';
+$strSelectADb = 'Please select a database';
 $strSelectAll = 'Select All';
 $strSelectFields = 'Select fields (at least one):';
 $strSelectNumRows = 'in query';

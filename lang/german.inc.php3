@@ -343,6 +343,7 @@ $strCardinality = 'Cardinality';
 $strCookiesRequired = 'Cookies must be enabled past this point.';
 $strLogin = 'Login';
 $strLogUsername = 'Username:';
+$strSelectADb = 'Please select a database';
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
 

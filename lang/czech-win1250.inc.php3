@@ -343,6 +343,7 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
+$strSelectADb = 'Please select a database';
 $strSelectAll = 'Select All';  //to translate
 $strUnselectAll = 'Unselect All';  //to translate
 ?>

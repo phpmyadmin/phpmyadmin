@@ -349,5 +349,6 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
+$strSelectADb = 'Please select a database';
 
 ?>

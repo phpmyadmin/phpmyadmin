@@ -269,6 +269,7 @@ $strRunSQLQuery = 'Exécuter une ou des <b>requêtes</b> sur la base %s';
 
 $strSave = 'Sauvegarder';
 $strSelect = 'Sélectionner';
+$strSelectADb = 'Choisissez une base de données';
 $strSelectAll = 'Tout sélectionner';
 $strSelectFields = 'Choisir les champs à afficher (au moins un)';
 $strSelectNumRows = 'dans la requête';

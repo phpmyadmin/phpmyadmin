@@ -341,9 +341,10 @@ $strZip = '"zip-нато"';
 $strCookiesRequired = 'Cookies must be enabled past this point.';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
-$strRowsModeVertical=" vertical ";  //to translate
-$strRowsModeHorizontal=" horizontal ";  //to translate
-$strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
+$strRowsModeHorizontal = 'horizontal';  //to translate
+$strRowsModeOptions = 'in %s mode and repeat headers after %s cells';  //to translate
+$strRowsModeVertical = 'vertical';  //to translate
+$strSelectADb = 'Please select a database';
 $strSelectAll = 'Select All';  //to translate
 $strUnselectAll = 'Unselect All';  //to translate
 ?>

@@ -342,6 +342,7 @@ $strYes = 'Ja';
 $strZip = '"komprimert (zip)"';
 
 // To translate
+$strSelectADb = 'Please select a database';
 $strSelectAll = 'Select All';  //to translate
 $strUnselectAll = 'Unselect All';  //to translate
 ?>

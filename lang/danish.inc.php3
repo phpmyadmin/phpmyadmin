@@ -342,9 +342,10 @@ $strNoIndexPartsDefined = 'No index parts defined!';
 $strNoIndex = 'No index defined!';
 $strPrimaryKeyName = 'The name of the primary key must be... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
-$strRowsModeVertical=" vertical ";  //to translate
-$strRowsModeHorizontal=" horizontal ";  //to translate
-$strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
+$strRowsModeHorizontal = 'horizontal';  //to translate
+$strRowsModeOptions = 'in %s mode and repeat headers after %s cells';  //to translate
+$strRowsModeVertical = 'vertical';  //to translate
+$strSelectADb = 'Please select a database';
 $strSelectAll = 'Select All';  //to translate
 $strUnselectAll = 'Unselect All';  //to translate
 ?>
