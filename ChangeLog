@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * badwords.txt: "status" is not a reserved word
+
 2003-04-16 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/sqlparser.data.php3: Added AUTO_INCREMET to reserved words.
     * tbl_properties_common.php3: Avoid displaying message twice in some cases

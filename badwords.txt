@@ -213,7 +213,6 @@ sql_small_result
 sql_warnings
 ssl
 starting
-status
 straight_join
 string
 striped
