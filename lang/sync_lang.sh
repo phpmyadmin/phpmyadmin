@@ -119,6 +119,7 @@ EOT`
 #
 IGNORE_TRANSLATIONS=`cat <<EOT
 japanese-sjis
+russian-dos-866
 EOT`
 
 ##
@@ -162,7 +163,7 @@ for base in $BASE_TRANSLATIONS ; do
 $allow_recoding = TRUE;' > $file
             echo done
         elif [ $src_charset = 'utf-8' ] ; then
-            # if we convert fomo utf-8, we should remove allow_recoding
+            # if we convert from utf-8, we should remove allow_recoding
             $CONVERTOR $(printf -- "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| grep -v allow_recoding > $file
             echo done
         else
