@@ -224,9 +224,12 @@ else {
 
     // Displays an error message if required and stop parsing the script
     if (mysql_error()) {
-        $error = mysql_error();
+        $error        = mysql_error();
         include('./header.inc.php3');
-        mysql_die($error, $full_sql_query, '', $err_url);
+        $full_err_url = (ereg('^(db_details|tbl_properties)', $err_url))
+                      ? $err_url . '&amp;show_query=y&amp;sql_query=' . urlencode($sql_query)
+                      : $err_url;
+        mysql_die($error, $full_sql_query, '', $full_err_url);
     }
 
     // Gets the number of rows affected/returned
