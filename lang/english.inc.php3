@@ -339,4 +339,9 @@ $strYes = 'Yes';
 
 $strZip = '"zipped"';
 
+// please don't touch these, will sort after:
+$strRowsModeVertical = 'vertical'; 
+$strRowsModeHorizontal = 'horizontal'; 
+$strRowsModeOptions = 'in %s mode and repeat headers after %s cells';
+
 ?>
