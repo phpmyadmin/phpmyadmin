@@ -420,7 +420,9 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
  */
 function setCheckboxes(the_form, do_check)
 {
-    var elts      = document.forms[the_form].elements['selected_tbl[]'];
+    var elts      = (typeof(document.forms[the_form].elements['selected_db[]']) != 'undefined')
+                  ? document.forms[the_form].elements['selected_db[]']
+                  : document.forms[the_form].elements['selected_tbl[]'];
     var elts_cnt  = (typeof(elts.length) != 'undefined')
                   ? elts.length
                   : 0;

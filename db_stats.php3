@@ -4,6 +4,7 @@
 /**
  * Gets the variables sent to this script and send headers
  */
+$js_to_run = 'functions.js';
 require('./libraries/grab_globals.lib.php3');
 require('./header.inc.php3');
 
@@ -168,7 +169,7 @@ if ($num_dbs > 0) {
         $col                     = 3;
     }
     ?>
-<form action="db_stats.php3">
+<form action="db_stats.php3" name="dbStatsForm">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
 
@@ -249,6 +250,16 @@ if ($num_dbs > 0) {
     uksort($dbs_array, 'PMA_dbCmp');
     reset($dbs_array);
 
+    // Check/unchek all databases url
+    $checkall_url = 'db_stats.php3'
+                  . '?lang=' . $lang
+                  . '&amp;server=' . $server
+                  . (empty($sort_by) ? '' : '&amp;sort_by=' . $sort_by)
+                  . (empty($sort_order) ? '' : '&amp;sort_order=' . $sort_order);
+    $do_check     = (empty($checkall))
+                  ? ''
+                  : ' checked="checked"';
+
     // Displays the tables stats per database
     $i = 0;
     while (list($db_name, $db_prop) = each($dbs_array)) {
@@ -260,7 +271,7 @@ if ($num_dbs > 0) {
 
         echo '    <tr>' . "\n";
         echo '        <td align="center" bgcolor="'. $bgcolor . '">' . "\n";
-        echo '            &nbsp;<input type="checkbox" name="selected_db[]" value="' . urlencode($db_name) . '" />&nbsp;' . "\n";
+        echo '            &nbsp;<input type="checkbox" name="selected_db[]" value="' . urlencode($db_name) . '"' . $do_check . ' />&nbsp;' . "\n";
         echo '        </td>' . "\n";
         echo '        <td bgcolor="'. $bgcolor . '">&nbsp;<a href="index.php3?lang=' . $lang . '&amp;server=' . $server . '&amp;db=' . urlencode($db_name) . '" target="_parent">' . htmlentities($db_name) . '</a>&nbsp;</td>' . "\n";
         echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $dbs_array[$db_name][0] . '&nbsp;</td>' . "\n";
@@ -290,6 +301,12 @@ if ($num_dbs > 0) {
     echo '    <tr>' . "\n";
     echo '        <td colspan="6">' . "\n";
     echo '            <img src="./images/arrow_' . $text_dir . '.gif" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n";
+    echo '            <a href="' . $checkall_url . '&amp;checkall=1" onclick="setCheckboxes(\'dbStatsForm\', true); return false;">' . "\n";
+    echo '                ' . $strCheckAll . '</a>' . "\n";
+    echo '            &nbsp;/&nbsp;' . "\n";
+    echo '            <a href="' . $checkall_url . '" onclick="setCheckboxes(\'dbStatsForm\', false); return false;">' . "\n";
+    echo '                ' . $strUncheckAll . '</a>' . "\n";
+    echo '            &nbsp;&nbsp;&nbsp;' . "\n";
     echo '            <i>' . $strWithChecked . '</i>&nbsp;&nbsp;<input type="submit" name="submit_mult" value="' . $strDrop . '" />' . "\n";
     echo '        </td>' . "\n";
     echo '    </tr>' . "\n";
