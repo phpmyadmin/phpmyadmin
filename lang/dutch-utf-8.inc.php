@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /*
- * Updated by "CaliMonk" <calimonk at gmx.net> on 2004/11/05.
+ * Updated by "CaliMonk" <calimonk at gmx.net> on 2004/07/01.
  */
 
 $charset = 'utf-8';
@@ -195,6 +195,7 @@ $strDeleting = 'Verwijderen van %s';
 $strDescending = 'Aflopend';
 $strDescription = 'Beschrijving';
 $strDictionary = 'Woordenboek';
+$strDisableForeignChecks = 'controle op vreemde sleutels uitschakelen'; 
 $strDisabled = 'Uitgeschakeld';
 $strDisplayFeat = 'Toon Opties';
 $strDisplayOrder = 'Weergave volgorde:';
@@ -272,6 +273,7 @@ $strHasBeenAltered = 'is veranderd.';
 $strHasBeenCreated = 'is aangemaakt.';
 $strHaveToShow = 'Er moet ten minste 1 weer te geven kolom worden gekozen';
 $strHebrew = 'Hebreeuws';
+$strHexForBinary = 'Gebruik hexadecimale voor binaire velden'; 
 $strHome = 'Home';
 $strHomepageOfficial = 'Officiële phpMyAdmin Website';
 $strHost = 'Host';
@@ -392,6 +394,7 @@ $strNoPhp = 'zonder PHP Code';
 $strNoPrivileges = 'Geen rechten';
 $strNoQuery = 'Geen SQL query!';
 $strNoRights = 'U heeft niet genoeg rechten om hier te zijn!';
+$strNoRowsSelected = 'Geen rijen geselecteerd'; 
 $strNoSpace = 'Onvoldoende ruimte om het bestand %s op te slaan.';
 $strNoTablesFound = 'Geen tabellen gevonden in de database.';
 $strNoUsersFound = 'Geen gebruiker(s) gevonden.';
@@ -566,6 +569,7 @@ $strSend = 'verzenden';
 $strSent = 'Verzonden';
 $strServer = 'Server';
 $strServerChoice = 'Server keuze';
+$strServerNotResponding = 'De server reageert niet';  
 $strServerStatus = 'Runtime Informatie';
 $strServerStatusUptime = 'Deze MySQL server draait inmiddels %s. Hij is gestart op %s.';
 $strServerTabProcesslist = 'Processen';
@@ -592,6 +596,7 @@ $strSize = 'Grootte';
 $strSort = 'Sorteren';
 $strSortByKey = 'Sorteren op sleutel';
 $strSpaceUsage = 'Ruimte gebruik';
+$strSpanish = 'Spaans';
 $strSplitWordsWithSpace = 'Woorden worden gesplit door een spatie karakter (" ").';
 $strStatCheckTime = 'Laatst gecontroleerd';
 $strStatCreateTime = 'Gecreëerd';
@@ -602,6 +607,7 @@ $strStrucCSV = 'CSV gegevens';
 $strStrucData = 'Structuur en gegevens';
 $strStrucDrop = 'DROP TABLE toevoegen';
 $strStrucExcelCSV = 'CSV voor MS Excel data';
+$strStrucNativeExcel = 'Native MS Excel data'; 
 $strStrucOnly = 'Alleen structuur';
 $strStructPropose = 'Tabel structuur voorstellen';
 $strStructure = 'Structuur';
@@ -623,12 +629,14 @@ $strTableOptions = 'Tabel opties';
 $strTableStructure = 'Tabel structuur voor tabel';
 $strTableType = 'Tabel type';
 $strTables = '%s tabel(len)';
+$strTakeIt = 'neem het'; 
 $strTblPrivileges = 'Tabel-specifieke privileges';
 $strTextAreaLength = ' Vanwege z\'n lengte,<br /> is dit veld misschien niet te wijzigen ';
 $strThai = 'Thais';
 $strTheContent = 'De inhoud van uw bestand is ingevoegd.';
 $strTheContents = 'De inhoud van het bestand vervangt de inhoud van de geselecteerde tabel voor rijen met een identieke primaire of unieke sleutel.';
 $strTheTerminator = 'De afsluiter van de velden.';
+$strTheme = 'Thema / Stijl';  
 $strThisHost = 'Deze Host';
 $strThisNotDirectory = 'Dit was geen directory';
 $strThreadSuccessfullyKilled = 'Thread %s is met succes afgesloten.';
@@ -705,16 +713,4 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) verwijderd het limiet.';
 $strZip = '"Gezipt"';
 
-// To translate:
-
-$strNoRowsSelected = 'No rows selected';  //to translate
-
-
-$strSpanish = 'Spanish';  //to translate
-$strStrucNativeExcel = 'Native MS Excel data';  //to translate
-$strDisableForeignChecks = 'Disable foreign key checks';  //to translate
-$strServerNotResponding = 'The server is not responding';  //to translate
-$strTheme = 'Theme / Style';  //to translate
-$strTakeIt = 'take it';  //to translate
-$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 ?>
