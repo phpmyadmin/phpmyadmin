@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/hungarian.inc.php3 updates, thanks to Péter Bakondy
+ 
 2002-05-09 Robin Johnson  <robbat2@users.sourceforge.net>
     * .cvsignore, libraries/common.lib.php3: Feature to stop developers 
       commiting their config.inc.php3 so easily.
