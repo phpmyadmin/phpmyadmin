@@ -60,7 +60,9 @@ $strBrowse = 'Przegl±danie';
 $strBzip = '".bz2"';
 
 $strCantLoadMySQL = 'nie mo¿na za³adowac modu³u MySQL,<br />proszê sprawdziæ konfiguracjê PHP.';
+$strCantLoadRecodeIconv = 'Nie uda³o siê za³adowaæ rozszerzeñ iconv lub recode, które s± niezbêdne do konwersji kodowania znaków, skonfiguruj php tak, by móg³ u¿ywaæ tych rozszerzeñ albo zablokuj konwersjê kodowania znaków w phpMyAdminie.';
 $strCantRenameIdxToPrimary = 'Nie mo¿na zmieniæ nazwy indeksu na PRIMARY!';
+$strCantUseRecodeIconv = 'Nie uda³o siê u¿yæ ani funkcji iconv, ani libiconv, mimo ¿e rozszerzenia zg³aszaj± siê jako za³adowane. Zprawd¼ swoj± konfiguracjê php.';
 $strCardinality = 'Moc';
 $strCarriage = 'Znak powrotu: \\r';
 $strChange = 'Zmiana';
@@ -72,6 +74,7 @@ $strCheckTable = 'Sprawdzanie tabeli';
 $strChoosePage = 'Proszê wybraæ stronê do edycji';
 $strColumn = 'Kolumna';
 $strColumnNames = 'Nazwy kolumn';
+$strComments = 'Komentarze';
 $strCompleteInserts = 'Pe³ne dodania';
 $strConfigFileError = 'phpMyAdmin nie zdo³a³ odczytaæ twojego pliku konfiguracj!<br />Mo¿e siê to zdarzyæ, je¶li php znajdzie w nim b³±d sk³adniowy lub nie mo¿e znale¼æ tego pliku.<br />Proszê wywo³aæ bezpo¶rednio plik konfiguracyjny u¿ywaj±c poni¿szego linku i odczytaæ otrzymane komunikat(y) o b³êdach. W wiêkszo¶ci przypadków brakuje gdzie¶ cudzys³owu lub ¶rednika.<br />Je¿eli otrzymasz pust± stronê, wszystko jest w porz±dku.';
 $strConfigureTableCoord = 'Proszê skonfigurowaæ wspó³rzêdnie dla tabeli %s';
@@ -151,6 +154,7 @@ $strGzip = '".gz"';
 
 $strHasBeenAltered = 'zosta³o zamienione.';
 $strHasBeenCreated = 'zosta³o utworzone.';
+$strHaveToShow = 'Musisz wybra¿ przynajmniej jedn± kolumnê do wy¶wietlenia';
 $strHome = 'Wej¶cie';
 $strHomepageOfficial = 'Oficjalna strona phpMyAdmin';
 $strHomepageSourceforge = 'Pobranie wersji Sourceforge phpMyAdmin';
@@ -192,11 +196,13 @@ $strLogout = 'Wylogowanie';
 $strLogPassword = 'Has³o:';
 $strLogUsername = 'U¿ytkownik:';$strRowsModeVertical=" vertical ";
 
+$strMissingBracket = 'Brakuj±cy nawias';
 $strModifications = 'Modyfikacje zosta³y zapamiêtane';
 $strModify = 'Modifikacja';
 $strModifyIndexTopic = 'Modyfikacja indeksu';
 $strMoveTable = 'Przeniesienie tabeli do (bazadanych<b>.</b>tabela):';
 $strMoveTableOK = 'Tabela %s zosta³a przeniosna do %s.';
+$strMySQLCharset = 'System kodowania znaków dla MySQL';
 $strMySQLReloaded = 'MySQL prze³adowany.';
 $strMySQLSaid = 'MySQL zwróci³ komunikat: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% uruchomiony na %pma_s2% jako %pma_s3%';
@@ -393,12 +399,4 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
-
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-
-$strComments = 'Comments';  //to translate
 ?>
