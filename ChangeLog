@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-29 Robin Johnson  <robbat2@users.sourceforge.net>
+    * libraries/sqlvalidator.lib.php3:
+        - Fix for bug in Alex's fix for bug #594947
+          line 67, change || to &&
+        - Fix for undefined string in error case of sqlvalidator that is
+          actually never reached. Just commented out for now
+
 2002-08-28 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: Bug 576895: matching a float field
 

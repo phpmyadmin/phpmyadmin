@@ -64,7 +64,7 @@ if (!defined('PMA_SQL_VALIDATOR_INCLUDED')) {
 
         if ($cfg['SQLValidator']['use']) {
             if (!(isset($GLOBALS['sqlvalidator_error'])
-                || !$GLOBALS['sqlvalidator_error'])) {
+                && !$GLOBALS['sqlvalidator_error'])) {
                 // create new class instance
                 $srv = new PMA_SQLValidator();
 
@@ -92,10 +92,14 @@ if (!defined('PMA_SQL_VALIDATOR_INCLUDED')) {
 
             }
 
-        } else {
+        } // end if
+       
+        /*
+        else {
             // The service is not available so note that properly
             $str = $GLOBALS['strValidatorDisabled'];
         } // end if... else...
+        */
 
         // Gives string back to caller
         return $str;
