@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-17 Alexander M. Turek  <me@derrabus.de>
+    * libraries/dbi/mysql.dbi.php: Removed debug code.
+    * libraries/dbi/mysqli.dbi.php: If connecting fails, we don't know the
+      MySQL version.
+
 2004-06-17 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: fix "original" theme colors
     * db_details_structure.php: cosmetic fix in error message
