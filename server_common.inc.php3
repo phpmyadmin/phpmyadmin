@@ -12,6 +12,15 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')) {
     include('./libraries/common.lib.php3');
 }
 
+/**
+ * Handles some variables that may have been sent by the calling script
+ */
+if (isset($db)) {
+    unset($db);
+}
+if (isset($table)) {
+    unset($table);
+}
 
 /**
  * Set parameters for links
@@ -29,6 +38,13 @@ $err_url = 'main.php3' . $url_query;
  * Displays the headers
  */
 require('./header.inc.php3');
+
+/**
+ * Displays a message
+ */
+if (!empty($message)) {
+    PMA_showMessage($message);
+}
 
 /**
  * Checks for superuser privileges

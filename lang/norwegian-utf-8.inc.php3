@@ -373,7 +373,6 @@ $strServerChoice = 'Server valg';
 $strServerStatus = 'Kjørings informasjon';
 $strServerStatusUptime = 'Denne MySQL serveren har kjørt i %s. Den startet opp den %s.';
 $strServerTabProcesslist = 'Prosesser';
-$strServerTabStatus = 'Status';
 $strServerTabVariables = 'Variabler';
 $strServerTrafficNotes = '<b>Server traffikk</b>: Disse tabellene viser statistikk over nettverkstrafikken for denne MySQL serveren siden dens oppstart.';
 $strServerVars = 'Server variabler og innstillinger';
@@ -470,4 +469,11 @@ $strZip = 'Komprimert (zip)';
 
 // To translate
 
+$strCommand = 'Command'; //to translate
+$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
+$strId = 'ID'; //to translate
+$strProcesslist = 'Process list'; //to translate
+$strStatus = 'Status'; //to translate
+$strTime = 'Time'; //to translate
+$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
 ?>

@@ -179,7 +179,7 @@ if ($server > 0) {
     // Get user's global privileges ($dbh and $userlink are links to MySQL
     // defined in the "common.lib.php3" library)
     $is_create_priv  = FALSE;
-    $is_process_priv = FALSE;
+//    $is_process_priv = FALSE;
     $is_reload_priv  = FALSE;
     $is_superuser    = @PMA_mysql_query('USE mysql', $userlink);
     if ($dbh) {
@@ -190,9 +190,12 @@ if ($server > 0) {
                 if (!$is_create_priv) {
                     $is_create_priv  = ($result_usr['Create_priv'] == 'Y');
                 }
+                /* 02-12-09 rabus: Every user has access to the process list -
+                                   at least to its own :-)
                 if (!$is_process_priv) {
                     $is_process_priv = ($result_usr['Process_priv'] == 'Y');
                 }
+                */
                 if (!$is_reload_priv) {
                     $is_reload_priv  = ($result_usr['Reload_priv'] == 'Y');
                 }
@@ -357,9 +360,9 @@ if ($server > 0) {
             <?php
         }
 
-        if ($is_process_priv) {
-            echo "\n";
-            ?>
+//        if ($is_process_priv) {
+        echo "\n";
+        ?>
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
@@ -368,8 +371,8 @@ if ($server > 0) {
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_PROCESSLIST') . "\n"; ?>
             </td>
         </tr>
-            <?php
-        } // end if
+        <?php
+//        } // end if
 
         if ($is_reload_priv) {
             echo "\n";

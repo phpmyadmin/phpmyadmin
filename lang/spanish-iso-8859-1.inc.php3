@@ -62,6 +62,7 @@ $strBookmarkView = 'Solamente ver';
 $strBrowse = 'Examinar';
 $strBzip = '"Comprimido con bzip"';
 
+$strCannotLogin = 'No se consiguió hacer login al servidor MySQL';
 $strCantLoadMySQL = 'imposible cargar la extensión MySQL,<br />por favor revise la configuración de PHP.';
 $strCantLoadRecodeIconv = 'No se puede cargar iconv o recodificar una extensión necesaria para la conversión de juegos de caracteres, configure php para permitir el uso de estas extensiones o desactive la conversión de juegos de caracteres en phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'No puede cambiar el nombre del índice a ¡PRIMARY!';
@@ -198,6 +199,7 @@ $strKeepPass = 'No cambiar la contraseña';
 $strKeyname = 'Nombre de la clave';
 $strKill = 'Matar el proceso';
 
+$strLandscape = 'Orientación horizontal';
 $strLength = 'Longitud';
 $strLengthSet = 'Longitud/Valores*';
 $strLimitNumRows = 'registros por página';
@@ -278,6 +280,7 @@ $strPdfNoTables = 'No existen tablas';
 $strPhp = 'Crear código PHP';
 $strPmaDocumentation = 'Documentación de phpMyAdmin';
 $strPmaUriError = 'La directiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> ¡DEBE constar en el fichero de configuración!';
+$strPortrait = 'Orientación vertical';
 $strPos1 = 'Empezar';
 $strPrevious = 'Previo';
 $strPrimary = 'Primaria';
@@ -363,6 +366,7 @@ $strShow = 'Mostrar';
 $strShowAll = 'Mostrar todo';
 $strShowColor = 'Mostrar color';
 $strShowCols = 'Mostrar columnas';
+$strShowDatadictAs = 'Formato del Diccionario de Datos';
 $strShowGrid = 'Mostrar cuadrícula';
 $strShowPHPInfo = 'Mostrar información de PHP';
 $strShowTableDimension = 'Mostrar la dimensión de las tablas';
@@ -437,11 +441,6 @@ $strYes = 'Sí';
 $strZip = '"comprimido con zip"';
 
 // To translate
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-$strLandscape = 'Landscape';  //to translate
-$strPortrait = 'Portrait';  //to translate
-
 $timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
 
 $strAbortedClients = 'Aborted'; //to translate
@@ -456,7 +455,6 @@ $strReceived = 'Received'; //to translate
 $strSent = 'Sent'; //to translate
 $strServerStatus = 'Runtime Information'; //to translate
 $strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
-$strServerTabStatus = 'Status'; //to translate
 $strServerTabVariables = 'Variables'; //to translate
 $strServerTabProcesslist = 'Processes'; //to translate
 $strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
@@ -464,4 +462,12 @@ $strServerVars = 'Server variables and settings'; //to translate
 $strSessionValue = 'Session value'; //to translate
 $strTraffic = 'Traffic'; //to translate
 $strVar = 'Variable'; //to translate
+
+$strCommand = 'Command'; //to translate
+$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
+$strId = 'ID'; //to translate
+$strProcesslist = 'Process list'; //to translate
+$strStatus = 'Status'; //to translate
+$strTime = 'Time'; //to translate
+$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
 ?>

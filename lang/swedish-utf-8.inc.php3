@@ -376,7 +376,6 @@ $strServer = 'Server %s';
 $strServerChoice = 'Serverval';
 $strServerStatus = 'Körningsinformation';
 $strServerStatusUptime = 'Denna MySQL-server har körts i %s. Den startade den %s.';
-$strServerTabStatus = 'Status';
 $strServerTabVariables = 'Variabler';
 $strServerTabProcesslist = 'Processer';
 $strServerTrafficNotes = '<b>Servertrafik</b>: Dessa variabler visar statistik för nätverkstrafiken hos denna MySQL-server sedan den startade.';
@@ -463,6 +462,14 @@ $strWrongUser = 'Fel användarnamn/lösenord. Åtkomst nekad.';
 $strYes = 'Ja';
 
 $strZip = '"zippad"';
+
 // To translate
 
+$strCommand = 'Command'; //to translate
+$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
+$strId = 'ID'; //to translate
+$strProcesslist = 'Process list'; //to translate
+$strStatus = 'Status'; //to translate
+$strTime = 'Time'; //to translate
+$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
 ?>

@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-10 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_*.php3, lang/*.inc.php3, main.php3:
+      - Added 'SHOW PROCESSLIST' interface;
+      - Small bugfixes.
+    * lang/spanish-*.inc.php3: Updates, thanks again to
+      Dr. med. Daniel Hinostroza C.
+
 2002-12-09 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/norwegian-*.inc.php3: Updates, thanks again to
       Sven-Erik Andersen (sven-erik).

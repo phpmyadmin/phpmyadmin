@@ -9,16 +9,6 @@
 require('./server_common.inc.php3');
 
 /**
- * Handles some variables that may have been sent by the calling script
- */
-if (isset($db)) {
-    unset($db);
-}
-if (isset($table)) {
-    unset($table);
-}
-
-/**
  * Displays the links
  */
 require('./server_links.inc.php3');
@@ -43,12 +33,12 @@ if (!$is_superuser && !$cfg['ShowMysqlVars']) {
  * Sends the queries and buffers the result
  */
 if (PMA_MYSQL_INT_VERSION >= 40003) {
-    $res = @PMA_mysql_query('SHOW SESSION VARIABLES;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW VARIABLES;');
+    $res = @PMA_mysql_query('SHOW SESSION VARIABLES;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW SESSION VARIABLES;');
     while ($row = PMA_mysql_fetch_row($res)) {
         $serverVars[$row[0]] = $row[1];
     }
     @mysql_free_result($res);
-    $res = @PMA_mysql_query('SHOW GLOBAL VARIABLES;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW VARIABLES;');
+    $res = @PMA_mysql_query('SHOW GLOBAL VARIABLES;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW GLOBAL VARIABLES;');
     while ($row = PMA_mysql_fetch_row($res)) {
         $serverVarsGlobal[$row[0]] = $row[1];
     }

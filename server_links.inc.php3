@@ -37,7 +37,7 @@ if ($is_superuser) {
 <?php
 echo PMA_printTab($strHome, 'main.php3', $url_query);
 if ($cfg['ShowMysqlInfo']) {
-    echo PMA_printTab($strServerTabStatus, 'server_status.php3', $url_query);
+    echo PMA_printTab($strStatus, 'server_status.php3', $url_query);
 }
 if ($cfg['ShowMysqlVars']) {
     echo PMA_printTab($strServerTabVariables, 'server_variables.php3', $url_query);

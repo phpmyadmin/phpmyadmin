@@ -486,4 +486,12 @@ $strServerVars = 'Server variables and settings'; //to translate
 $strSessionValue = 'Session value'; //to translate
 $strTraffic = 'Traffic'; //to translate
 $strVar = 'Variable'; //to translate
+
+$strCommand = 'Command'; //to translate
+$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
+$strId = 'ID'; //to translate
+$strProcesslist = 'Process list'; //to translate
+$strStatus = 'Status'; //to translate
+$strTime = 'Time'; //to translate
+$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
 ?>

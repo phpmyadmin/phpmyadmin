@@ -461,7 +461,6 @@ $strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries ha
 $strQueryType = 'Query type'; //to translate
 $strReceived = 'Received'; //to translate
 $strSent = 'Sent'; //to translate
-$strServerStatus = 'Runtime Information'; //to translate
 $strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
 $strServerTabStatus = 'Status'; //to translate
 $strServerTabVariables = 'Variables'; //to translate
@@ -471,4 +470,12 @@ $strServerVars = 'Server variables and settings'; //to translate
 $strSessionValue = 'Session value'; //to translate
 $strTraffic = 'Traffic'; //to translate
 $strVar = 'Variable'; //to translate
+
+$strCommand = 'Command'; //to translate
+$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
+$strId = 'ID'; //to translate
+$strProcesslist = 'Process list'; //to translate
+$strStatus = 'Status'; //to translate
+$strTime = 'Time'; //to translate
+$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
 ?>

@@ -9,16 +9,6 @@
 require('./server_common.inc.php3');
 
 /**
- * Handles some variables that may have been sent by the calling script
- */
-if (isset($db)) {
-    unset($db);
-}
-if (isset($table)) {
-    unset($table);
-}
-
-/**
  * Displays the links
  */
 require('./server_links.inc.php3');
