@@ -315,6 +315,6 @@ $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
-$strFlush = 'Flush';
+$strFlushTable = 'Flush the table ("FLUSH")';
 $strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>

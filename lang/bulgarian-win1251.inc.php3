@@ -309,7 +309,7 @@ $strZip = '"формат zip"';
 
 // To translate
 $strExtendedInserts = 'Extended inserts';
-$strFlush = 'Flush';
+$strFlushTable = 'Flush the table ("FLUSH")';
 $strFullText = 'Full Texts';//to translate
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strNoRights = 'You don\'t have enough rights to be here right now!'; //to translate

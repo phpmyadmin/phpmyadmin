@@ -313,7 +313,7 @@ $strZip = 'comprimido no formato "zipped"';
 
 // To translate
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
-$strFlush = 'Flush';
+$strFlushTable = 'Flush the table ("FLUSH")';
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
 $strNoQuery = 'No SQL query!';  //to translate

@@ -315,6 +315,6 @@ $strYes = 'Ja';
 $strZip = '"zipped"'; //to translate
 
 // To translate
-$strFlush = 'Flush';
+$strFlushTable = 'Flush the table ("FLUSH")';
 $strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>

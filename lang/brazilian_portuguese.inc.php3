@@ -300,7 +300,7 @@ $strYes = 'Sim';
 // To translate
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
-$strFlush = 'Flush';
+$strFlushTable = 'Flush the table ("FLUSH")';
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
 $strKeepPass = 'Do not change the password';//to translate

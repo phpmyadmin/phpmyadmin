@@ -316,6 +316,6 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
-$strFlush = 'Flush';
+$strFlushTable = 'Flush the table ("FLUSH")';
 $strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>
