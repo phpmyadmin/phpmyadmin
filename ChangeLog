@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-23 Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_replace.php3, bug 520242, records get inserted twice
+
 2002-02-22 Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_addfield.php3, lines 34-44; tbl_create.php3, lines 40-50: fixed php
 	  warnings (see bug #521751).
