@@ -17,6 +17,8 @@ $Source$
 	* Documentation.html, line 1-2; header.inc.php3, lines 46-47;
 	  index.php3, line 44-45; left.php3, line 60-61; libraries/auth/*:
 	  fixed bug #536550 - DOCTYPE line contains line feeds.
+	* lang/brazilian_portuguese.inc.php3: restored.
+	* lang/french.inc.php3: resorted.
 
 2002-03-29 Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3, lines 456-457: swap form fields position for consistency
