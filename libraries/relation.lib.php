@@ -106,7 +106,7 @@ function PMA_getRelationsParam($verbose = FALSE)
     $tab_query = 'SHOW TABLES FROM ' . PMA_backquote($cfgRelation['db']);
     $tab_rs    = PMA_query_as_cu($tab_query, FALSE);
 
-    while ($curr_table = @PMA_DBI_fetch_assoc($tab_rs)) {
+    while ($curr_table = @PMA_DBI_fetch_row($tab_rs)) {
         if ($curr_table[0] == $cfg['Server']['bookmarktable']) {
             $cfgRelation['bookmark']        = $curr_table[0];
         } else if ($curr_table[0] == $cfg['Server']['relation']) {
@@ -142,7 +142,7 @@ function PMA_getRelationsParam($verbose = FALSE)
             $mime_field_mimetype                = FALSE;
             $mime_field_transformation          = FALSE;
             $mime_field_transformation_options  = FALSE;
-            while ($curr_mime_field = @PMA_DBI_fetch_assoc($mime_rs)) {
+            while ($curr_mime_field = @PMA_DBI_fetch_row($mime_rs)) {
                 if ($curr_mime_field[0] == 'mimetype') {
                     $mime_field_mimetype               = TRUE;
                 } else if ($curr_mime_field[0] == 'transformation') {
