@@ -95,8 +95,8 @@ class PMA_PDF extends FPDF
      */
     var $x_min;
     var $y_min;
-    var $l_marg;
-    var $t_marg;
+    var $l_marg = 10;
+    var $t_marg = 10;
     var $scale;
     var $title;
 
@@ -278,9 +278,9 @@ class PMA_PDF extends FPDF
     function PMA_PDF_die($error_message = '')
     {
         global $cfg;
-        global $server, $lang, $db;
+        global $server, $lang, $db, $convcharset;
         global $charset, $text_dir, $strRunning, $strDatabase;
-
+echo "trace" . $convcharset;
         include('./header.inc.php3');
 
         echo '<p><b>PDF - '. $GLOBALS['strError'] . '</b></p>' . "\n";

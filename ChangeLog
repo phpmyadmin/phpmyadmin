@@ -14,6 +14,7 @@ $Source$
     * pdf_pages.php3: bug 574637 undefined index
     * db_details_structure.php3: remove a PMA_backquote added today that
       introduces a bug
+    * pdf_schema.php3: undefined variables
 
 2002-07-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3: Tried to fix bug #571409 (Zend Accelerator problems).
