@@ -8,7 +8,6 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
-
 /**
  * Defines the url to return to in case of error in a sql statement
  */
@@ -244,7 +243,7 @@ else {
         $sql_query = stripslashes($sql_query);
     }
     // Defines some variables
-    // loic1: A table have to be created -> left frame should be reloaded
+    // loic1: A table has to be created -> left frame should be reloaded
     if ((!isset($reload) || $reload == 0)
         && eregi('^CREATE TABLE[[:space:]]+(.*)', $sql_query)) {
         $reload           = 1;
@@ -328,38 +327,41 @@ else {
 
     // Executes the query
     //  only if we didn't ask to see the php code (mikebeck)
-    if (empty($GLOBALS['show_as_php'])){
+    if (!empty($GLOBALS['show_as_php'])){
+        unset($result);
+        $num_rows = 0;
+    }
+    else {
         $result   = @PMA_mysql_query($full_sql_query);
-    }
-    // Displays an error message if required and stop parsing the script
-    if (PMA_mysql_error()) {
-        $error        = PMA_mysql_error();
-        include('./header.inc.php3');
-        $full_err_url = (ereg('^(db_details|tbl_properties)', $err_url))
-                      ? $err_url . '&amp;show_query=y&amp;sql_query=' . urlencode($sql_query)
-                      : $err_url;
-        PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
-    }
+        // Displays an error message if required and stop parsing the script
+        if (PMA_mysql_error()) {
+            $error        = PMA_mysql_error();
+            include('./header.inc.php3');
+            $full_err_url = (ereg('^(db_details|tbl_properties)', $err_url))
+                          ? $err_url . '&amp;show_query=y&amp;sql_query=' . urlencode($sql_query)
+                          : $err_url;
+            PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
+        }
 
-    // tmpfile remove after convert encoding appended by Y.Kawada
-    if (function_exists('PMA_kanji_file_conv')
-        && (isset($textfile) && file_exists($textfile))) {
-        unlink($textfile);
-    }
+        // tmpfile remove after convert encoding appended by Y.Kawada
+        if (function_exists('PMA_kanji_file_conv')
+            && (isset($textfile) && file_exists($textfile))) {
+            unlink($textfile);
+        }
 
-    // Gets the number of rows affected/returned
-    if (!$is_affected) {
-        $num_rows = ($result) ? @mysql_num_rows($result) : 0;
-    } else if (!isset($num_rows)) {
-        $num_rows = @mysql_affected_rows();
-    }
+        // Gets the number of rows affected/returned
+        if (!$is_affected) {
+            $num_rows = ($result) ? @mysql_num_rows($result) : 0;
+        } else if (!isset($num_rows)) {
+            $num_rows = @mysql_affected_rows();
+        }
 
-    // Counts the total number of rows for the same 'SELECT' query without the
-    // 'LIMIT' clause that may have been programatically added
-    if (empty($sql_limit_to_append)) {
-        $unlim_num_rows         = $num_rows;
-    }
-    else if ($is_select) {
+        // Counts the total number of rows for the same 'SELECT' query without the
+        // 'LIMIT' clause that may have been programatically added
+        if (empty($sql_limit_to_append)) {
+            $unlim_num_rows         = $num_rows;
+        }
+        else if ($is_select) {
         // SK -- Patch : correct calculations for GROUP BY, HAVING, DISTINCT
 
         // Reads only the from-part of the query...
@@ -368,35 +370,36 @@ else {
         // lowercase reserved words are removed, so we have a simple split
         // pattern:
 
-        $array = split('[[:space:]]+(FROM|ORDER BY)[[:space:]]+', $sql_query);
+            $array = split('[[:space:]]+(FROM|ORDER BY)[[:space:]]+', $sql_query);
 
         // if $array[1] is empty here, there is an error in the query:
         // "... FROM [ORDER BY ...]", but the query is already executed with
         // success so this check is redundant???
 
-        if (!empty($array[1])) {
+            if (!empty($array[1])) {
             // ... and makes a count(*) to count the entries
             // Special case: SELECT DISTINCT ... FROM ...
             // the count of resulting rows can be found as:
             // SELECT COUNT(DISTINCT ...) FROM ...
-            if (eregi('^SELECT DISTINCT(.*)', $array[0], $array_dist)) {
-                $count_what = 'DISTINCT ' . $array_dist[1];
-            } else {
-                $count_what = '*';
-            }
-            $count_query = 'SELECT COUNT(' . $count_what . ') AS count FROM ' . $array[1];
-            if ($cnt_all_result = mysql_query($count_query)) {
-                if ($is_group) {
-                    $unlim_num_rows = @mysql_num_rows($cnt_all_result);
+                if (eregi('^SELECT DISTINCT(.*)', $array[0], $array_dist)) {
+                    $count_what = 'DISTINCT ' . $array_dist[1];
                 } else {
-                    $unlim_num_rows = mysql_result($cnt_all_result, 0, 'count');
+                    $count_what = '*';
                 }
-                mysql_free_result($cnt_all_result);
+                $count_query = 'SELECT COUNT(' . $count_what . ') AS count FROM ' . $array[1];
+                if ($cnt_all_result = mysql_query($count_query)) {
+                    if ($is_group) {
+                        $unlim_num_rows = @mysql_num_rows($cnt_all_result);
+                    } else {
+                        $unlim_num_rows = mysql_result($cnt_all_result, 0, 'count');
+                    }
+                    mysql_free_result($cnt_all_result);
+                }
+            } else {
+                $unlim_num_rows         = 0;
             }
-        } else {
-            $unlim_num_rows         = 0;
-        }
-    } // end rows total count
+        } // end rows total count
+    } // end else "didn't ask to see php code"
 
     // No rows returned -> move back to the calling page
     if ($num_rows < 1 || $is_affected) {
@@ -408,6 +411,8 @@ else {
             $message = $strAffectedRows . '&nbsp;' . $num_rows;
         } else if (!empty($zero_rows)) {
             $message = $zero_rows;
+        } else if (!empty($GLOBALS['show_as_php'])){ 
+            $message = $strPhp;
         } else {
             $message = $strEmptyResultSet;
         }
@@ -487,11 +492,12 @@ else {
         }
 
         // Gets the list of fields properties
-        while ($field = PMA_mysql_fetch_field($result)) {
-            $fields_meta[] = $field;
+        if (isset($result) && $result) {
+            while ($field = PMA_mysql_fetch_field($result)) {
+                $fields_meta[] = $field;
+            }
+            $fields_cnt        = count($fields_meta);
         }
-        $fields_cnt        = count($fields_meta);
-
         // Displays the results in a table
         include('./libraries/display_tbl.lib.php3');
         if (empty($disp_mode)) {
