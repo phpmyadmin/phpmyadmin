@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-11 Loïc Chapeaux  <lolo@phpheaven.net>
+    * tbl_indexes.php3: fixed bug #621295 (Incorrect URL)
+    * db_details_structure.php3: removed trailing whitespaces.
+
 2002-10-10 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/auth/config.auth.lib.php3: bug #620624 - displaying password
       from config when MySQL connection can't be established
