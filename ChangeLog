@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-02 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.5.1 released
+
 2003-06-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Happy Birthday to me :-)
     * libraries/sqlparser.lib.php3: Correct behavior for "SHOW INNODB STATUS".

@@ -6,7 +6,7 @@
    Transformations  -  FAQ  -  Developers  -  Credits  -  Translators
    ______________________________________________________________________
    
-                      phpMyAdmin 2.5.1-rc1 Documentation
+                        phpMyAdmin 2.5.1 Documentation
                                        
      * SourceForge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ] 
@@ -14,21 +14,19 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.449 2003/05/26
-       12:33:36 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.452 2003/06/02
+       00:40:13 lem9 Exp $
        
 Requirements
 
-     * PHP3 or PHP4: phpMyAdmin widely uses the 'str_replace()' PHP
+     * PHP3, PHP4 or PHP5: phpMyAdmin widely uses the 'str_replace()' PHP
        function that was added in PHP 3.0.6, but was buggy up until
        PHP 3.0.8. Then you should not run this script with PHP3 < 3.0.8.
        PHP also needs to be compiled with MySQL support;
        If you want to display inline thumbnails of JPEGs, you also need
        GD2 support in PHP.
-     * MySQL (tested with 3.21.x, 3.22.x, 3.23.x and 4.0.x);
-       Note: Because of a major change in the definition syntax of string
-       field types, this version of phpMyAdmin probably won't work
-       correctly with MySQL >= 4.1.0!
+     * MySQL (tested with 3.21.x, 3.22.x, 3.23.x, 4.0.x and 4.1.x);
+       Note: The implemented MySQL 4.1.x support is experimental!
      * a web-browser (doh!).
        
 Introduction
@@ -1510,12 +1508,15 @@ FAQ - Frequently Asked Questions
    submitted and handled by PHP. One user also said that post_max_size
    and memory_limit need to be larger than upload_max_filesize.
    
-    [1.17] Does phpMyAdmin support MySQL 4.1?
+    [1.17] Does phpMyAdmin support MySQL 4.1 and 5.0?
     
-   Because of a major change in the definition syntax of string field
-   types, this version of phpMyAdmin probably won't work correctly with
-   MySQL >= 4.1.0! We will work on the support as soon as MySQL 4.1.0 is
-   released.
+   phpMyAdmin provides limited support for MySQL 4.1. That means that you
+   can neither assign character sets to a table or field on create nor
+   change the (automatically) assigned character set.
+   When compiling php, we strongly recommend that you manually link it to
+   a MySQL 4.1 client library since the one that is currently bundled
+   with php is rather old and might cause problems.
+   MySQL 5 is not yet supported.
    
     [1.18] I'm running MySQL <= 4.0.1 having lower_case_table_names set to 1.
     If I create a new table with a capital letter in its name it is changed to
