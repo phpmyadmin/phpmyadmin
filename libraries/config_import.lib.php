@@ -799,6 +799,10 @@ if (!isset($cfg['WYSIWYG-PDF'])) {
     $cfg['WYSIWYG-PDF'] = TRUE;
 }
 
+if (!isset($cfg['NaturalOrder'])) {
+    $cfg['NaturalOrder'] = TRUE;
+}
+
 if (!isset($cfg['DefaultQueryTable'])) {
     $cfg['DefaultQueryTable'] = 'SELECT * FROM %t WHERE 1';
 }

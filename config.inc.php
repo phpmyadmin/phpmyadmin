@@ -509,6 +509,8 @@ $cfg['MaxExactCount']       = 20000;        // When approximate count < this, PM
 $cfg['WYSIWYG-PDF']         = TRUE;         // Utilize DHTML/JS capabilities to allow WYSIWYG editing of
                                             // the PDF page editor. Requires an IE6/Mozilla based browser.
 
+$cfg['NaturalOrder']        = TRUE;         // Sort table and database in natural order
+
 /**
  * Default queries.
  *  %d will be replaced by database name
