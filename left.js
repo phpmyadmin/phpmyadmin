@@ -220,8 +220,8 @@ if (capable) {
       var lstyle = '<style type="text\/css">'
                  + '<!--'
                  + 'div {color: #000000;}'
-                 + '.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '}'
-                 + '.heada_cnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '}'
+                 + '.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}'
+                 + '.heada_cnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}'
                  + '.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration:none; display: block}'
                  + '.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration:none; display: none}'
                  + '.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none; font-size: ' + fontSmall + '}'
@@ -234,8 +234,8 @@ if (capable) {
       writeln('<style type="text\/css">');
       writeln('<!--');
       writeln('div {color: #000000; }');
-      writeln('.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '}');
-      writeln('.heada_cnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '}');
+      writeln('.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}');
+      writeln('.heada_cnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}');
       if (isIE4) {
         writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; display: block}');
         writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration: none; display: none}');
@@ -257,8 +257,8 @@ else {
     writeln('<style type="text\/css">');
     writeln('<!--');
     writeln('div {color: #000000; }');
-    writeln('.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '}');
-    writeln('.heada_cnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '}');
+    writeln('.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}');
+    writeln('.heada_cnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}');
     writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none}');
     writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
     writeln('.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}');

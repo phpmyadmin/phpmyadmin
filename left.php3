@@ -112,7 +112,7 @@ if ($num_dbs > 1) {
         <style type="text/css">
         <!--
         div {color: #000000}
-        .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
+        .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
         .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
         .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
         .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}
@@ -123,7 +123,7 @@ if ($num_dbs > 1) {
 
     <style type="text/css">
     <!--
-    body {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
+    body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
     //-->
     </style>
     <?php
@@ -134,10 +134,10 @@ else if ($num_dbs == 1) {
     ?>
     <style type="text/css">
     <!--
-    body {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
+    body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
     div {color: #000000}
-    .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
-    .heada_cnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>}
+    .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
+    .heada_cnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
     .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
     .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
     .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}
@@ -154,8 +154,8 @@ else {
     <!--
     body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
     div {color: #000000}
-    .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
-    .heada_cnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>}
+    .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
+    .heada_cnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
     //-->
     </style>
     <?php
@@ -169,7 +169,7 @@ echo "\n";
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
         <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>">
-            <font color="black" class="heada"><b><?php echo $strHome; ?></b></font></a></nobr>
+            <span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
     </div>
 
    
@@ -223,7 +223,7 @@ if ($num_dbs > 1) {
         echo "\n";
         ?>
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', false)}">
-            <font color="black" class="heada"><?php echo $db; ?>&nbsp;&nbsp;<span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></font></a></nobr>
+            <span class="heada"><?php echo $db; ?>&nbsp;&nbsp;</span><span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
     </div>
 
     <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px">
@@ -284,7 +284,7 @@ else if ($num_dbs == 1) {
     ?>
     <div id="el2Parent" class="parent">
         <nobr><a class="item" href="db_details.php3?<?php echo $common_url_query; ?>">
-            <font color="black" class="heada"><?php echo $db; ?>&nbsp;&nbsp;<span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></font></a></nobr>
+            <span class="heada"><?php echo $db; ?>&nbsp;&nbsp;</span><span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
     </div>
     <div id="el2Child" class="child" style="margin-bottom: 5px">
     <?php
