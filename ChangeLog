@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-06 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.6.0-rc2 released
+
 2004-09-05 Marc Delisle  <lem9@users.sourceforge.net>
     * ldi_table.php: bug #1010652, wrong label,
       thanks to Ryan Schmidt - ryandesign for the patch
