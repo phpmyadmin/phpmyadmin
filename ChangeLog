@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php: bug 899430: left frame problem when lower_case_table_names==2
+
 2004-09-03 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php, server_privileges.php, libraries/common.lib.php:
       replace charset introducers by CONVERT USING, 
