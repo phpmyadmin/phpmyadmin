@@ -17,6 +17,95 @@ require('./server_links.inc.php');
 
 
 /**
+ * Function for displaying the table of an engine's parameters
+ *
+ * @param   array   List of MySQL variables and corresponding localized descriptions.
+ *                  The array elements should have the following format:
+ *                      $variable => array('title' => $title, 'desc' => $description);
+ * @param   string  Prefix for the SHOW VARIABLES query.
+ * @param   int     The indentation level
+ *
+ * @global  array   The global phpMyAdmin configuration.
+ *
+ * @return  string  The table that was generated based on the given information.
+ */
+define('PMA_ENGINE_DETAILS_TYPE_PLAINTEXT', 0);
+define('PMA_ENGINE_DETAILS_TYPE_SIZE',      1);
+define('PMA_ENGINE_DETAILS_TYPE_NUMERIC',   2); //Has no effect yet...
+function PMA_generateEngineDetails($variables, $prefix = NULL, $indent = 0) {
+    global $cfg;
+
+    if (empty($variables)) return '';
+
+    $spaces = '';
+    for ($i = 0; $i < $indent; $i++) {
+        $spaces .= '    ';
+    }
+
+    /**
+     * Get the variables!
+     */
+    $sql_query = 'SHOW '
+               . (PMA_MYSQL_INT_VERSION >= 40102 ? 'GLOBAL ' : '')
+	       . 'VARIABLES'
+	       . (empty($prefix) ? '' : ' LIKE \'' . $prefix . '\\_%\'')
+	       . ';';
+    $res = PMA_DBI_query($sql_query);
+    $mysql_vars = array();
+    while ($row = PMA_DBI_fetch_row($res)) {
+        if (isset($variables[$row[0]])) $mysql_vars[$row[0]] = $row[1];
+    }
+    PMA_DBI_free_result($res);
+    unset($res, $row, $sql_query);
+
+    if (empty($mysql_vars)) return '';
+
+    $dt_table          = $spaces . '<table>' . "\n";
+    $useBgcolorOne     = TRUE;
+    $has_content       = FALSE;
+
+    foreach ($variables as $var => $details) {
+        if (!isset($mysql_vars[$var])) continue;
+
+	if (!isset($details['type'])) $details['type'] = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
+	$is_num = $details['type'] == PMA_ENGINE_DETAILS_TYPE_SIZE || $details['type'] == PMA_ENGINE_DETAILS_TYPE_NUMERIC;
+
+        $bgcolor = $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
+
+        $dt_table     .= $spaces . '    <tr>' . "\n"
+	               . $spaces . '        <td bgcolor="' . $bgcolor . '">' . "\n";
+	if (!empty($variables[$var])) {
+	    $dt_table .= $spaces . '            ' . PMA_showHint($details['desc']) . "\n";
+	}
+	$dt_table     .= $spaces . '        </td>' . "\n"
+	               . $spaces . '        <td bgcolor="' . $bgcolor . '">' . "\n"
+		       . $spaces . '            &nbsp;' . $details['title'] . '&nbsp;' . "\n"
+		       . $spaces . '        </td>' . "\n"
+		       . $spaces . '        <td bgcolor="' . $bgcolor . '"' . ($is_num ? ' align="right"' : '') . '>' . "\n"
+		       . $spaces . '            &nbsp;';
+        switch ($details['type']) {
+	    case PMA_ENGINE_DETAILS_TYPE_SIZE:
+	        $parsed_size = PMA_formatByteDown($mysql_vars[$var]);
+	        $dt_table .= $parsed_size[0] . '&nbsp;' . $parsed_size[1];
+		unset($parsed_size);
+	    break;
+	    default:
+	        $dt_table .= htmlspecialchars($mysql_vars[$var]);
+	}
+	$dt_table     .= '&nbsp;' . "\n"
+		       . $spaces . '        </td>' . "\n"
+		       . $spaces . '    </tr>' . "\n";
+        $useBgcolorOne = !$useBgcolorOne;
+	$has_content   = TRUE;
+    }
+
+    if (!$has_content) return '';
+
+    return $dt_table;
+}
+
+
+/**
  * Did the user request information about a certain storage engine?
  */
 if (empty($engine) || empty($mysql_storage_engines[$engine])) {
@@ -84,19 +173,16 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
        . '        ' . htmlspecialchars($mysql_storage_engines[$engine]['Comment']) . "\n"
        . '    </i>' . "\n"
        . '</p>' . "\n";
-    $engine_supported = FALSE;
     switch ($mysql_storage_engines[$engine]['Support']) {
         case 'DEFAULT':
 	    echo '<p>'
 	       . '    ' . sprintf($strDefaultEngine, htmlspecialchars($mysql_storage_engines[$engine]['Engine'])) . "\n"
 	       . '</p>' . "\n";
-	    $engine_supported = TRUE;
 	break;
 	case 'YES':
 	    echo '<p>' . "\n"
 	       . '    ' . sprintf($strEngineAvailable, htmlspecialchars($mysql_storage_engines[$engine]['Engine'])) . "\n"
 	       . '</p>' . "\n";
-	    $engine_supported = TRUE;
 	break;
 	case 'NO':
 	    echo '<p>' . "\n"
@@ -110,30 +196,62 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
 	break;
     }
 
-    if ($engine_supported) switch ($engine) {
+    switch ($engine) {
 	case 'innodb':
 	case 'innobase':
-	    if ($res = PMA_DBI_try_query('SHOW INNODB STATUS;')) { // We might not have the privileges to do that...
-                echo '<h3>' . "\n"
-                   . '    ' . $strInnodbStat . "\n"
-                   . '</h3>' . "\n\n";
-                $row = PMA_DBI_fetch_row($res);
-                echo '<pre>' . "\n"
-                    . htmlspecialchars($row[0]) . "\n"
-                    . '</pre>' . "\n";
-                PMA_DBI_free_result($res);
-		unset($row);
-		break;
-            }
-	    unset($res);
-//	break;
+	    echo '<h3>' . "\n"
+	       . '    ' . $strInnodbStat . "\n"
+	       . '</h3>' . "\n\n";
+            $res = PMA_DBI_query('SHOW INNODB STATUS;');
+            $row = PMA_DBI_fetch_row($res);
+	    echo '<pre>' . "\n"
+	        . htmlspecialchars($row[0]) . "\n"
+	        . '</pre>' . "\n";
+	    PMA_DBI_free_result($res);
+	    unset($res, $row);
+	break;
+
+	case 'myisam':
+	    $variables = array(
+		'myisam_data_pointer_size' => array(
+		    'title' => $strMyISAMDataPointerSize,
+		    'desc'  => $strMyISAMDataPointerSizeDesc,
+		    'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE
+		),
+		'myisam_recover_options' => array(
+		    'title' => $strMyISAMRecoverOptions,
+		    'desc'  => $strMyISAMRecoverOptionsDesc
+		),
+		'myisam_max_sort_file_size' => array(
+		    'title' => $strMyISAMMaxSortFileSize,
+		    'desc'  => $strMyISAMMaxSortFileSizeDesc,
+		    'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE
+		),
+		'myisam_max_extra_sort_file_size' => array(
+		    'title' => $strMyISAMMaxExtraSortFileSize,
+		    'desc'  => $strMyISAMMaxExtraSortFileSizeDesc,
+		    'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE
+		),
+		'myisam_repair_threads' => array(
+		    'title' => $strMyISAMRepairThreads,
+		    'desc'  => $strMyISAMRepairThreadsDesc,
+		    'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC
+		),
+	        'myisam_sort_buffer_size' => array(
+		    'title' => $strMyISAMSortBufferSize,
+		    'desc'  => $strMyISAMSortBufferSizeDesc,
+		    'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE
+                )
+            );
+	    echo PMA_generateEngineDetails($variables, 'myisam');
+	break;
+
         default:
 	    echo '<p>' . "\n"
 	       . '    ' . $strNoDetailsForEngine . "\n"
 	       . '</p>' . "\n";
         break;
     }
-    unset($engine_supported);
 }
 
 
