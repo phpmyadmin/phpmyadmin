@@ -30,6 +30,7 @@ $strAccessDenied = 'Accesso negato';
 $strAccessDeniedExplanation = 'phpMyAdmin ha provato a connettersi al server MySQL, e il server ha rifiutato la connessione. Si dovrebbe controllare il nome dell\'host, l\'username e la password nel file config.inc.php ed assicurarsi che corrispondano alle informazioni fornite dall\'amministratore del server MySQL.';
 $strAction = 'Azione';
 $strAddAutoIncrement = 'Aggiungi valore AUTO_INCREMENT';
+$strAddConstraints = 'Aggiungi vincoli';
 $strAddDeleteColumn = 'Aggiungi/Cancella campo';
 $strAddDeleteRow = 'Aggiungi/Cancella criterio';
 $strAddDropDatabase = 'Aggiungi DROP DATABASE';
@@ -133,6 +134,7 @@ $strCompression = 'Compressione';
 $strConfigFileError = 'phpMyAdmin non riesce a leggere il file di configurazione!<br />Questo può accadere se il php trova un parse error in esso oppure il php non trova il file.<br />Richiamate il file di configurazione direttamente utilizzando il link sotto e leggete il/i messaggio/i di errore del php che ricevete. Nella maggior parte dei casi ci sono un apostrofo o una virgoletta mancanti.<br />Se ricevete una pagina bianca, allora è tutto a posto.';
 $strConfigureTableCoord = 'Prego, configurare le coordinate per la tabella %s';
 $strConfirm = 'Sicuro di volerlo fare?';
+$strConnectionError = 'Impossibile connettersi: impostazioni non valide.';
 $strConnections = 'Connessioni';
 $strConstraintsForDumped = 'Limiti per le tabelle scaricate';
 $strConstraintsForTable = 'Limiti per la tabella';
@@ -153,6 +155,7 @@ $strCriteria = 'Criterio';
 $strCroatian = 'Croato';
 $strCyrillic = 'Cirillico';
 $strCzech = 'Ceco';
+$strCzechSlovak = 'Ceco-Slovacco';
 
 $strDBComment = 'Commento al Database: ';
 $strDBGContext = 'Contesto';
@@ -184,6 +187,7 @@ $strDbSpecific = 'specifico del database';
 $strDefault = 'Predefinito';
 $strDefaultValueHelp = 'Per i valori predefiniti, prego inserire un singolo valore, senza backslashes escaping o virgolette, utilizzando questo formato: a';
 $strDelOld = 'La Pagina corrente contiene Riferimenti a Tabelle che non esistono più. Volete cancellare questi Riferimenti?';
+$strDelayedInserts = 'Utilizza inserimenti ritardati';
 $strDelete = 'Cancella';
 $strDeleteAndFlush = 'Cancella gli utenti e dopo ricarica i privilegi.';
 $strDeleteAndFlushDescr = 'Questa è la vita più giusta, ma il caricamento dei privilegi può durare qualche secondo.';
@@ -261,6 +265,7 @@ $strFunction = 'Funzione';
 $strGenBy = 'Generato da';
 $strGenTime = 'Generato il';
 $strGeneralRelationFeat = 'Caratteristiche Generali di Relazione';
+$strGeorgian = 'Georgiano';
 $strGerman = 'Tedesco';
 $strGlobal = 'globale';
 $strGlobalPrivileges = 'Privilegi globali';
@@ -360,6 +365,7 @@ $strMIME_transformation_note = 'Per una lista di opzioni di trasformazione dispo
 $strMIME_transformation_options = 'Opzioni di Transformation';
 $strMIME_transformation_options_note = 'Prego, immettere i valori per le opzioni di trasformazioneutilizzando questo formato: \'a\',\'b\',\'c\'...<br />Se c\'è la necessità di immettere un backslash ("\") o un apostrofo ("\'") tra questi valori, essi vanno backslashati (per es. \'\\\\xyz\' or \'a\\\'b\').';
 $strMIME_without = 'Tipi-MIME stampati in italics non hanno una funzione di trasformazione separata';
+$strMaximumSize = 'Dimensione massima: %s%s';
 $strMissingBracket = 'Parentesi mancante';
 $strModifications = 'Le modifiche sono state salvate';
 $strModify = 'Modifica';
@@ -545,6 +551,7 @@ $strRunning = 'in esecuzione su %s';
 $strRussian = 'Russo';
 
 $strSQL = 'SQL';
+$strSQLExportType = 'Tipo di esportazione';
 $strSQLOptions = 'Opzioni SQL';
 $strSQLParserBugMessage = 'C\'è la possibilità che ci sia un bug nel parser SQL. Per favore, esaminate la query accuratamente, e controllate che le virgolette siano corrette e non sbagliate. Altre possibili cause d\'errori possono essere che si stia cercando di uploadare un file binario al di fuori di un\'area di testo virgolettata. Si può anche provare la query MySQL dalla riga di comando di MySQL. L\'errore qui sotto restituito dal server MySQL, se ce n\'è uno, può anche aiutare nella diagnostica del problema. Se ci sono ancora problemi, o se il parser SQL di phpMyAdmin sbaglia quando invece l\'interfaccia a riga di comando non mostra problemi, si può ridurre la query SQL in ingresso alla singola query che causa problemi, e inviare un bug report con i dati riportati nella sezione CUT qui sotto:';
 $strSQLParserUserError = 'Pare che ci sia un errore nella query SQL immessa. L\'errore del server MySQL mostrato qui sotto, se c\'è, può anche aiutare nella risoluzione del problema';
@@ -650,6 +657,7 @@ $strTotal = 'Totali';
 $strTotalUC = 'Totale';
 $strTraditionalChinese = 'Cinese Tradizionale';
 $strTraffic = 'Traffico';
+$strTransformation_application_octetstream__download = 'Visualizza un collegamento per trasferire i dati di un campo in formato binario.  La prima opzione è il nome del file binario.  La seconda opzione è un nome di campo possibile di una riga della tabella che contiene il nome di schedario.  Se fornite una seconda opzione dovete avere la prima opzione settata ad una stringa vuota';
 $strTransformation_image_jpeg__inline = 'Mostra un thumbnalil cliccabile; opzioni: larghezza,altezza in pixel (mantiere la proporzione iniziale)';
 $strTransformation_image_jpeg__link = 'Mostra un link a questa immagine (download blob diretto, i.e.).';
 $strTransformation_image_png__inline = 'Vedi immagine/jpeg: inline';
@@ -717,16 +725,5 @@ $strYes = ' Si ';
 
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
-// To translate
 
-$strDelayedInserts = 'Use delayed inserts';  //to translate
-
-$strSQLExportType = 'Export type';  //to translate
-
-$strAddConstraints = 'Add constraints';  //to translate
-$strGeorgian = 'Georgian';  //to translate
-$strCzechSlovak = 'Czech-Slovak';  //to translate
-$strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
-$strMaximumSize = 'Maximum size: %s%s';  //to translate
- = 'Cannot connect: invalid settings.';  //to translate
 ?>
