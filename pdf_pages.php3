@@ -63,7 +63,9 @@ if ($cfgRelation['pdfwork']) {
                 break;
 
             case 'edcoord':
-                while (list($key, $arrvalue) = each($ctable)) {
+                for ($i = 0; $i < $c_table_rows; $i++) {
+                    $arrvalue = 'c_table_' . $i;
+                    $arrvalue = $$arrvalue;
                     if (!isset($arrvalue['x']) || $arrvalue['x'] == '') {
                         $arrvalue['x'] = 0;
                     }
@@ -96,7 +98,7 @@ if ($cfgRelation['pdfwork']) {
                         }
                         PMA_query_as_cu($ch_query);
                     } // end if
-                } // end while
+                } // end for
                 break;
         } // end switch
     } // end if (isset($do))
@@ -199,7 +201,7 @@ if ($cfgRelation['pdfwork']) {
             }
             echo '>';
             echo "\n" . '        <td>'
-                 . "\n" . '            <select name="ctable[' . $i . '][name]">';
+                 . "\n" . '            <select name="c_table_' . $i . '[name]">';
             reset($selectboxall);
             while (list($key, $value) = each($selectboxall)) {
                 echo "\n" . '                <option value="' . $value . '"';
@@ -211,13 +213,13 @@ if ($cfgRelation['pdfwork']) {
             echo "\n" . '            </select>'
                  . "\n" . '        </td>';
             echo "\n" . '        <td>'
-                 . "\n" . '            <input type="checkbox" name="ctable[' . $i . '][delete]" value="y" />' . $strDelete;
+                 . "\n" . '            <input type="checkbox" name="c_table_' . $i . '[delete]" value="y" />' . $strDelete;
             echo "\n" . '        </td>';
             echo "\n" . '        <td>'
-                 . "\n" . '            <input type="text" name="ctable[' . $i . '][x]" value="' . $sh_page['x'] . '" />';
+                 . "\n" . '            <input type="text" name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
             echo "\n" . '        </td>';
             echo "\n" . '        <td>'
-                 . "\n" . '            <input type="text" name="ctable[' . $i . '][y]" value="' . $sh_page['y'] . '" />';
+                 . "\n" . '            <input type="text" name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
             echo "\n" . '        </td>';
             echo "\n" . '    </tr>';
             $i++;
@@ -231,7 +233,7 @@ if ($cfgRelation['pdfwork']) {
         }
         echo '>';
         echo "\n" . '        <td>'
-             . "\n" . '            <select name="ctable[' . $i . '][name]">';
+             . "\n" . '            <select name="c_table_' . $i . '[name]">';
         reset($selectboxall);
         while (list($key, $value) = each($selectboxall)) {
             echo "\n" . '                <option value="' . $value . '">' . $value . '</option>';
@@ -239,17 +241,18 @@ if ($cfgRelation['pdfwork']) {
         echo "\n" . '            </select>'
              . "\n" . '        </td>';
         echo "\n" . '        <td>'
-             . "\n" . '            <input type="checkbox" name="ctable[' . $i . '][delete]" value="y" />' . $strDelete;
+             . "\n" . '            <input type="checkbox" name="c_table_' . $i . '[delete]" value="y" />' . $strDelete;
         echo "\n" . '        </td>';
         echo "\n" . '        <td>'
-             . "\n" . '            <input type="text" name="ctable[' . $i . '][x]" value="' . $sh_page['x'] . '" />';
+             . "\n" . '            <input type="text" name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
         echo "\n" . '        </td>';
         echo "\n" . '        <td>'
-             . "\n" . '            <input type="text" name="ctable[' . $i . '][y]" value="' . $sh_page['y'] . '" />';
+             . "\n" . '            <input type="text" name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
         echo "\n" . '        </td>';
         echo "\n" . '    </tr>';
         echo "\n" . '    </table>' . "\n";
 
+        echo "\n" . '    <input type="hidden" name="c_table_rows" value="' . ($i + 1) . '">';
         echo "\n" . '    <input type="submit" value="' . $strGo . '" />';
         echo "\n" . '</form>' . "\n\n";
     } // end if
