@@ -12,6 +12,9 @@ $Source$
 	  libraries/functions.js, lines 300-398: improved the "mark row" feature so
 	  it can be used with the "pointer" one.
 	* finnish.inc.php3: $strFlushTable thanks to Visa Kopu.
+	* user_password.php3, lines 16-18: fixed bug #534107 - Superusers can't
+	  change password, thanks to
+	  Matthias Fichtner <mfichtner at users.sourceforge.net>.
 
 2002-03-22 Marc Delisle  <lem9@users.sourceforge.net>
 	* finnish, norwegian updates

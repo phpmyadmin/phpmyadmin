@@ -13,6 +13,9 @@ require('./libraries/common.lib.php3');
  * Displays an error message and exits if the user isn't allowed to use this
  * script
  */
+if (!$cfgShowChgPassword) {
+    $cfgShowChgPassword = @mysql_query('USE mysql', $userlink);
+}
 if ($cfgServer['auth_type'] == 'config' || !$cfgShowChgPassword) {
     include('./header.inc.php3');
     echo '<p><b>' . $strError . '</b></p>' . "\n";
