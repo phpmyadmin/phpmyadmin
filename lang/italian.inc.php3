@@ -310,4 +310,7 @@ $strWithChecked = 'Se selezionati:';
 $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 
 $strYes = ' Si ';
+
+// To translate
+$strShowAll = 'Show all'; // to translate
 ?>

@@ -308,6 +308,7 @@ $strCarriage = 'Carriage return: \\r';	//to translate
 $strGrants = 'Grants';	//to translate
 $strOffSet = 'offset';	//to translate
 $strPartialText = 'Partial Texts';	//to translate
+$strShowAll = 'Show all'; // to translate
 $strStatement = 'Statements';	//to translate
 $strWithChecked = 'With checked:';	//to translate
 ?>

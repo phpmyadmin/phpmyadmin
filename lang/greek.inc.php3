@@ -309,4 +309,7 @@ $strWithChecked = 'Με επιλογή:';
 $strWrongUser = 'Λανθασμένος χρήστης/κωδικός πρόσβασης. ¶ρνηση πρόσβασης.';
 
 $strYes = 'Ναι';
+
+// To translate
+$strShowAll = 'Show all'; // to translate
 ?>

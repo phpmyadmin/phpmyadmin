@@ -313,4 +313,7 @@ $strWithChecked = 'Valitut:';
 $strWrongUser = 'Väärä käyttäjätunnus tai salasana. Pääsy kielletty.';
 
 $strYes = 'Kyllä';
+
+// To translate
+$strShowAll = 'Show all'; // to translate
 ?>

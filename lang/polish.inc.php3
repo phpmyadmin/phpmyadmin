@@ -309,5 +309,6 @@ $strYes = 'Tak';
 // To translate
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
+$strShowAll = 'Show all'; // to translate
 $strWithChecked = 'With checked:';
 ?>

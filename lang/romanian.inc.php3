@@ -311,4 +311,5 @@ $strYes = 'Da';
 
 // To translate
 $strIdxFulltext = 'Fulltext';  //to translate 
+$strShowAll = 'Show all'; // to translate
 ?>
