@@ -875,6 +875,9 @@ if (!empty($disp_message)) {
     </tr>
 
     <tr>
+        <td>
+<?php echo PMA_showHint($strUseTabKey); ?>
+        </td>
         <td colspan="3" align="right" valign="middle">
             <input type="submit" value="<?php echo $strGo; ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 6); ?>" id="buttonYes" />
             <input type="reset" value="<?php echo $strReset; ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 7); ?>" />

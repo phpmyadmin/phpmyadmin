@@ -548,9 +548,21 @@ if ($is_minimum_common == FALSE) {
                  // end of the 'PMA_showDocu()' function
 
     /**
+     * Displays a hint icon, on mouse over show the hint
+     *
+     * @param   string   the error message
+     *
+     * @access  public
+     */
+     function PMA_showHint($hint_message)
+     {
+         return '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_hint.png" width="32" height="32" border="0" alt="' . $hint_message . '" title="' . $hint_message . '" align="middle" />';  
+     }
+
+    /**
      * Displays a MySQL error message in the right frame.
      *
-     * @param   string   the error mesage
+     * @param   string   the error message
      * @param   string   the sql query that failed
      * @param   boolean  whether to show a "modify" link or not
      * @param   string   the "back" link url (full path is not required)
