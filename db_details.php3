@@ -544,30 +544,26 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
     </li>
 
 <?php
-
-// Check if the user is a Superuser - TODO: set a global variable with this information
-
-$is_superuser = FALSE;
-$result = mysql_query('SELECT * FROM mysql.user');
-$rows   = @mysql_num_rows($result);
-if (!empty($rows)) { $is_superuser = TRUE; }
-
+// Check if the user is a Superuser
+// TODO: set a global variable with this information
+$result       = mysql_query('SELECT * FROM mysql.user');
+$rows         = @mysql_num_rows($result);
+// loic1: empry <> 0 with ceratin php3 releases
+$is_superuser = (!empty($rows) || $rows != 0);
+    
 // Display the DROP DATABASE link only if allowed to do so
-
 if ($cfgAllowUserDropDatabase || $is_superuser) {
-?>
-
+    ?>
     <!-- Drop database -->
     <li>
         <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo $db; ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode($strDatabase . ' ' . htmlspecialchars(backquote($db)) . ' ' . $strHasBeenDropped); ?>&goto=main.php3&back=db_details.php3&reload=true">
             <?php echo $strDropDB . ' ' . htmlspecialchars($db); ?></a>
         <?php echo show_docu('manual_Reference.html#DROP_DATABASE') . "\n"; ?>
     </li>
-
-<?php
+    <?php
 }
+echo "\n";
 ?>
-
 
 </ul>
 

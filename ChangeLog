@@ -9,10 +9,10 @@ $Source$
 	* db_stats.php3: added list of 20 biggest db's.
 	* lib.inc.php3: fixed the socket patch, should work now.
 	* lib.inc.php3: re-fixed :)
-        * config.inc.php3, config.php3, Docs, sql.php3: added configuration variable
-          $cfgAllowUserDropDatabase (set by default to FALSE), which will display
-          or not the link "Drop database" and reject the command if the user is
-          not allowed to run it (requested by <lance@uklinux.net>).
+	* config.inc.php3, config.php3, Docs, sql.php3: added configuration
+	  variable $cfgAllowUserDropDatabase (set by default to FALSE), which will
+	  display or not the link "Drop database" and reject the command if the
+	  user is not allowed to run it (requested by <lance@uklinux.net>). 
 
 2001-08-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_stats.php3: ensured the script is XHTML1.0 compliant and fits the
@@ -36,6 +36,8 @@ $Source$
 	  tbl_properties.inc.php3; tbl_properties.php3; user_details.php3:
 	  replaced MYSQL_MAJOR_VERSION and MYSQL_MINOR_VERSION constants by
 	  MYSQL_INT_VERSION.
+	* db_details.php3; sql.php3; db_readdump.php3; lang/*: improved a bit
+	  Olivier's patch about the "Drop database" restrictions.
 
 2001-08-20  Olivier Müller  <om@omnis.ch>
 	* db_stats.php3: new file and feature (sorry :) : simply display an

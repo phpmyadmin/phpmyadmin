@@ -70,6 +70,21 @@ if (!empty($prev_sql_query)) {
     }
 }
 
+// Drop database is not allowed -> ensure the query can be run
+if (!$cfgAllowUserDropDatabase
+    && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE ', $sql_query)) {
+    // Checks if the user is a Superuser
+    // TODO: set a global variable with this information
+    $result = mysql_query('SELECT * FROM mysql.user');
+    $rows   = @mysql_num_rows($result);
+    // empty <> 0 for certain php3 releases
+    if (empty($rows) || $rows == 0) {
+        include('./header.inc.php3');
+        mysql_die($strNoDropDatabases);
+    }
+}
+define('PMA_CHK_DROP', 1);
+
 // Copy the query, used for display purposes only
 $sql_query_cpy = $sql_query;
 
