@@ -17,7 +17,8 @@
  */
 function PMA_texEscape($string) {
    $escape = array('$', '%', '{', '}',  '&',  '#', '_', '^');
-   for($k=0;$k<count($escape);$k++) {
+   $cnt_escape = count($escape);
+   for($k=0; $k < $cnt_escape; $k++) {
       $string = str_replace($escape[$k], '\\' . $escape[$k], $string);
    }
    return $string;
@@ -44,7 +45,7 @@ function PMA_exportComment($text) {
 function PMA_exportHeader() {
     global $crlf;
     global $cfg;
-    
+
     $head  =  '% phpMyAdmin LaTeX Dump' . $crlf
            .  '% version ' . PMA_VERSION . $crlf
            .  '% http://www.phpmyadmin.net' . $crlf
@@ -139,7 +140,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                    . '} \\label{' . str_replace('__TABLE__', $table, $GLOBALS['latex_data_label']) . '} \\\\';
     }
     if (!PMA_exportOutputHandler($buffer)) return FALSE;
-    
+
     // show column names
     if (isset($GLOBALS['latex_showcolumns'])) {
         $buffer = '\\hline ';

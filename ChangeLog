@@ -5,6 +5,20 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-20 Garvin Hicking <me@supergarv.de>
+    * libraries/auth/*, libraries/dbg/*, libraries/export/*
+      (work in progress)
+
+      Lots of PHP < 4.1.0 / MySQL < 3.23.32 compatibility/performance changes:
+      - Replaced "while (list() = each())" calls by foreach loops.
+      - Removed PHP3-compatibility code
+      - Removed calls to $HTTP_*_VARS (using $_* now).
+      - Replaced some TAB-characters with whitespace
+      - Removed PHP4 < 4.1.0 compatibility code
+      - Replaced "for ($i=0; $i <= count(); $i++)" loops to
+        "$cnt = count(); for ($i=0; $i <= $cnt; $i++)" structures for better
+        performance
+
 2003-11-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: first group of headers was offset by
       one column to the left

@@ -144,31 +144,29 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     $new_crlf = $crlf;
 
 
-    if (PMA_MYSQL_INT_VERSION >= 32321) {
-        $result = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'');
-        if ($result != FALSE) {
-            if (mysql_num_rows($result) > 0) {
-                $tmpres        = PMA_mysql_fetch_array($result);
-                if (isset($GLOBALS['auto_increment']) && !empty($tmpres['Auto_increment'])) {
-                    $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
-                }
-
-                if ($show_dates && isset($tmpres['Create_time']) && !empty($tmpres['Create_time'])) {
-                    $schema_create .= '# ' . $GLOBALS['strStatCreateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Create_time'])) . $crlf;
-                    $new_crlf = '#' . $crlf . $crlf;
-                }
-
-                if ($show_dates && isset($tmpres['Update_time']) && !empty($tmpres['Update_time'])) {
-                    $schema_create .= '# ' . $GLOBALS['strStatUpdateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Update_time'])) . $crlf;
-                    $new_crlf = '#' . $crlf . $crlf;
-                }
-
-                if ($show_dates && isset($tmpres['Check_time']) && !empty($tmpres['Check_time'])) {
-                    $schema_create .= '# ' . $GLOBALS['strStatCheckTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Check_time'])) . $crlf;
-                    $new_crlf = '#' . $crlf . $crlf;
-                }
-            mysql_free_result($result);
+    $result = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'');
+    if ($result != FALSE) {
+        if (mysql_num_rows($result) > 0) {
+            $tmpres        = PMA_mysql_fetch_array($result);
+            if (isset($GLOBALS['auto_increment']) && !empty($tmpres['Auto_increment'])) {
+                $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
             }
+
+            if ($show_dates && isset($tmpres['Create_time']) && !empty($tmpres['Create_time'])) {
+                $schema_create .= '# ' . $GLOBALS['strStatCreateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Create_time'])) . $crlf;
+                $new_crlf = '#' . $crlf . $crlf;
+            }
+
+            if ($show_dates && isset($tmpres['Update_time']) && !empty($tmpres['Update_time'])) {
+                $schema_create .= '# ' . $GLOBALS['strStatUpdateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Update_time'])) . $crlf;
+                $new_crlf = '#' . $crlf . $crlf;
+            }
+
+            if ($show_dates && isset($tmpres['Check_time']) && !empty($tmpres['Check_time'])) {
+                $schema_create .= '# ' . $GLOBALS['strStatCheckTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Check_time'])) . $crlf;
+                $new_crlf = '#' . $crlf . $crlf;
+            }
+        mysql_free_result($result);
         }
     }
 
@@ -179,127 +177,58 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     }
 
     // Steve Alberty's patch for complete table dump,
-    // modified by Lem9 to allow older MySQL versions to continue to work
-    if (PMA_MYSQL_INT_VERSION >= 32321) {
-        // Whether to quote table and fields names or not
-        if ($use_backquotes) {
-            PMA_mysql_query('SET SQL_QUOTE_SHOW_CREATE = 1');
-        } else {
-            PMA_mysql_query('SET SQL_QUOTE_SHOW_CREATE = 0');
-        }
-        $result = PMA_mysql_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
-        if ($result != FALSE && mysql_num_rows($result) > 0) {
-            $tmpres        = PMA_mysql_fetch_array($result);
-            // Fix for case problems with winwin, thanks to
-            // Pawe³ Szczepañski <pauluz at users.sourceforge.net>
-            $pos           = strpos($tmpres[1], ' (');
+    // Whether to quote table and fields names or not
+    if ($use_backquotes) {
+        PMA_mysql_query('SET SQL_QUOTE_SHOW_CREATE = 1');
+    } else {
+        PMA_mysql_query('SET SQL_QUOTE_SHOW_CREATE = 0');
+    }
+    $result = PMA_mysql_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
+    if ($result != FALSE && mysql_num_rows($result) > 0) {
+        $tmpres        = PMA_mysql_fetch_array($result);
+        // Fix for case problems with winwin, thanks to
+        // Pawe³ Szczepañski <pauluz at users.sourceforge.net>
+        $pos           = strpos($tmpres[1], ' (');
 
-            // Fix a problem with older versions of mysql
-            // Find the first opening parenthesys, i.e. that after the name
-            // of the table
-            $pos2          = strpos($tmpres[1], '(');
-            // Old mysql did not insert a space after table name
-            // in query "show create table ..."!
-            if ($pos2 != $pos + 1)
-            {
-                // This is the real position of the first character after
-                // the name of the table
-                $pos = $pos2;
-                // Old mysql did not even put newlines and indentation...
-                $tmpres[1] = str_replace(",", ",\n     ", $tmpres[1]);
+        // Fix a problem with older versions of mysql
+        // Find the first opening parenthesys, i.e. that after the name
+        // of the table
+        $pos2          = strpos($tmpres[1], '(');
+        // Old mysql did not insert a space after table name
+        // in query "show create table ..."!
+        if ($pos2 != $pos + 1)
+        {
+            // This is the real position of the first character after
+            // the name of the table
+            $pos = $pos2;
+            // Old mysql did not even put newlines and indentation...
+            $tmpres[1] = str_replace(",", ",\n     ", $tmpres[1]);
+        }
+
+        $tmpres[1]     = substr($tmpres[1], 0, 13)
+                       . (($use_backquotes) ? PMA_backquote($tmpres[0]) : $tmpres[0])
+                       . substr($tmpres[1], $pos);
+        $tmpres[1]     = str_replace("\n", $crlf, $tmpres[1]);
+        if (preg_match_all('((,\n[\s]*(CONSTRAINT|FOREIGN[\s]*KEY)[^\n,]+)+)', $tmpres[1], $regs)) {
+            if (!isset($sql_constraints)) {
+                $sql_constraints = $crlf . '#' . $crlf
+                                    . '# ' . $GLOBALS['strConstraintsForDumped'] . $crlf
+                                    . '#' . $crlf;
             }
-
-            $tmpres[1]     = substr($tmpres[1], 0, 13)
-                           . (($use_backquotes) ? PMA_backquote($tmpres[0]) : $tmpres[0])
-                           . substr($tmpres[1], $pos);
-            $tmpres[1]     = str_replace("\n", $crlf, $tmpres[1]);
-            if (preg_match_all('((,\n[\s]*(CONSTRAINT|FOREIGN[\s]*KEY)[^\n,]+)+)', $tmpres[1], $regs)) {
-                if (!isset($sql_constraints)) {
-                    $sql_constraints = $crlf . '#' . $crlf
-                                        . '# ' . $GLOBALS['strConstraintsForDumped'] . $crlf
-                                        . '#' . $crlf;
-                }
-                $sql_constraints .= $crlf .'#' . $crlf .'# ' . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) . $crlf . '#' . $crlf;
-                $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf
-                                 . preg_replace('/(,\n|^)([\s]*)(CONSTRAINT|FOREIGN[\s]*KEY)/', '\1\2ADD \3', substr($regs[0][0], 2))
-                                . ";\n";
-                $tmpres[1]     = preg_replace('((,\n[\s]*(CONSTRAINT|FOREIGN[\s]*KEY)[^\n,]+)+)', '', $tmpres[1]);
-            }
-            $schema_create .= $tmpres[1];
+            $sql_constraints .= $crlf .'#' . $crlf .'# ' . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) . $crlf . '#' . $crlf;
+            $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf
+                             . preg_replace('/(,\n|^)([\s]*)(CONSTRAINT|FOREIGN[\s]*KEY)/', '\1\2ADD \3', substr($regs[0][0], 2))
+                            . ";\n";
+            $tmpres[1]     = preg_replace('((,\n[\s]*(CONSTRAINT|FOREIGN[\s]*KEY)[^\n,]+)+)', '', $tmpres[1]);
         }
+        $schema_create .= $tmpres[1];
+    }
 
-        $schema_create .= $auto_increment;
+    $schema_create .= $auto_increment;
 
 
-        mysql_free_result($result);
-        return $schema_create;
-    } // end if MySQL >= 3.23.21
-
-    // For MySQL < 3.23.20
-    $schema_create .= 'CREATE TABLE ' . PMA_backquote($table, $use_backquotes) . ' (' . $crlf;
-
-    $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
-    $result        = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
-    while ($row = PMA_mysql_fetch_array($result)) {
-        $schema_create     .= '   ' . PMA_backquote($row['Field'], $use_backquotes) . ' ' . $row['Type'];
-        if (isset($row['Default']) && $row['Default'] != '') {
-            $schema_create .= ' DEFAULT \'' . PMA_sqlAddslashes($row['Default']) . '\'';
-        }
-        if ($row['Null'] != 'YES') {
-            $schema_create .= ' NOT NULL';
-        }
-        if ($row['Extra'] != '') {
-            $schema_create .= ' ' . $row['Extra'];
-        }
-
-        $schema_create     .= ',' . $crlf;
-    } // end while
     mysql_free_result($result);
-    $schema_create         = ereg_replace(',' . $crlf . '$', '', $schema_create);
-
-    $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
-    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
-    while ($row = PMA_mysql_fetch_array($result))
-    {
-        $kname    = $row['Key_name'];
-        $comment  = (isset($row['Comment'])) ? $row['Comment'] : '';
-        $sub_part = (isset($row['Sub_part'])) ? $row['Sub_part'] : '';
-
-        if ($kname != 'PRIMARY' && $row['Non_unique'] == 0) {
-            $kname = 'UNIQUE|' . $kname;
-        }
-        if ($comment == 'FULLTEXT') {
-            $kname = 'FULLTEXT|' . $kname;
-        }
-        if (!isset($index[$kname])) {
-            $index[$kname] = array();
-        }
-        if ($sub_part > 1) {
-            $index[$kname][] = PMA_backquote($row['Column_name'], $use_backquotes) . '(' . $sub_part . ')';
-        } else {
-            $index[$kname][] = PMA_backquote($row['Column_name'], $use_backquotes);
-        }
-    } // end while
-    mysql_free_result($result);
-
-    while (list($x, $columns) = @each($index)) {
-        $schema_create     .= ',' . $crlf;
-        if ($x == 'PRIMARY') {
-            $schema_create .= '   PRIMARY KEY (';
-        } else if (substr($x, 0, 6) == 'UNIQUE') {
-            $schema_create .= '   UNIQUE ' . substr($x, 7) . ' (';
-        } else if (substr($x, 0, 8) == 'FULLTEXT') {
-            $schema_create .= '   FULLTEXT ' . substr($x, 9) . ' (';
-        } else {
-            $schema_create .= '   KEY ' . $x . ' (';
-        }
-        $schema_create     .= implode($columns, ', ') . ')';
-    } // end while
-
-    $schema_create .= $crlf . ')';
-
     return $schema_create;
-
 } // end of the 'PMA_getTableDef()' function
 
 
@@ -324,7 +253,7 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
     global $sql_constraints;
 
     $schema_create = '';
-    
+
     if ($do_comments && $cfgRelation['commwork']) {
         if (!($comments_map = PMA_getComments($db, $table))) unset($comments_map);
     }
@@ -406,7 +335,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
           .  '#' . $crlf
           .  PMA_getTableDef($db, $table, $crlf, $error_url, $dates) . ';' . $crlf
           .  PMA_getTableComments($db, $table, $crlf, $relation, $comments, $mime);
-          
+
 
     return PMA_exportOutputHandler($dump);
 }
@@ -456,7 +385,7 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
         $field_types = PMA_fieldTypes($db,$table,$use_backquotes);
 
         // analyze the query to get the true column names, not the aliases
-        // (this fixes an undefined index, also if Complete inserts 
+        // (this fixes an undefined index, also if Complete inserts
         //  are used, we did not get the true column name in case of aliases)
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($sql_query));
 
@@ -496,14 +425,14 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
             } else {
                 $sql_command    = 'INSERT';
             }
-            
+
             // delayed inserts?
             if (isset($GLOBALS['delayed'])) {
                 $insert_delayed = ' DELAYED';
             } else {
                 $insert_delayed = '';
             }
-                
+
             // Sets the scheme
             if (isset($GLOBALS['showcolumns'])) {
                 $fields        = implode(', ', $field_set);
@@ -542,13 +471,13 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
 
             // should we make update?
             if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'update') {
-                
+
                 $insert_line = $schema_insert;
                 for ($i = 0; $i < $fields_no; $i++) {
                     if ($i > 0) {
                         $insert_line .= ', ';
                     }
-                    $insert_line .= $field_set[$i] . ' = ' . $values[$i]; 
+                    $insert_line .= $field_set[$i] . ' = ' . $values[$i];
                 }
 
             } else {
@@ -576,118 +505,6 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
 
     return TRUE;
 } // end of the 'PMA_getTableContentFast()' function
-
-
-/**
- * php < 4.0.5 only: get the content of $table as a series of INSERT
- * statements.
- *
- * @param   string      the current database name
- * @param   string      the current table name
- * @param   string      the end of line sequence
- * @param   string      the url to go back in case of error
- * @param   string      the sql query
- *
- * @return  bool        Whether it suceeded
- *
- * @global  boolean     whether to use backquotes to allow the use of special
- *                      characters in database, table and fields names or not
- * @global  integer     the number of records
- * @global  integer     the current record position
- *
- * @access  private
- *
- * @see     PMA_getTableContent()
- */
-function PMA_getTableContentOld($db, $table, $crlf, $error_url, $sql_query)
-{
-    global $use_backquotes;
-    global $rows_cnt;
-    global $current_row;
-
-    $eol_dlm = (isset($GLOBALS['extended_ins']) && ($GLOBALS['current_row'] < $GLOBALS['rows_cnt']))
-             ? ','
-             : ';';
-    $buffer = '';
-
-    $result       = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $error_url);
-    $current_row  = 0;
-    $fields_cnt   = mysql_num_fields($result);
-    $rows_cnt     = mysql_num_rows($result);
-
-
-    while ($row = PMA_mysql_fetch_row($result)) {
-        $current_row++;
-        $table_list     = '(';
-        for ($j = 0; $j < $fields_cnt; $j++) {
-            $table_list .= PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes) . ', ';
-        }
-        $table_list     = substr($table_list, 0, -2);
-        $table_list     .= ')';
-
-        if (isset($GLOBALS['extended_ins']) && $current_row > 1) {
-            $schema_insert = '(';
-        } else {
-            if (isset($GLOBALS['showcolumns'])) {
-                $schema_insert = 'INSERT INTO ' . PMA_backquote($table, $use_backquotes)
-                               . ' ' . $table_list . ' VALUES (';
-            } else {
-                $schema_insert = 'INSERT INTO ' . PMA_backquote($table, $use_backquotes)
-                               . ' VALUES (';
-            }
-            $is_first_row      = FALSE;
-        }
-
-
-        // get the real types of the table's fields (in an array)
-        // the key of the array is the backquoted field name
-        $field_types = PMA_fieldTypes($db,$table,$use_backquotes);
-
-        for ($j = 0; $j < $fields_cnt; $j++) {
-            if (!isset($row[$j])) {
-                $schema_insert .= ' NULL, ';
-            } else if ($row[$j] == '0' || $row[$j] != '') {
-                $type          = $field_types[PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes)];
-
-                // a number
-                if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
-                    $type == 'bigint'  || (PMA_MYSQL_INT_VERSION < 40100 && $type == 'timestamp')) {
-                    $schema_insert .= $row[$j] . ', ';
-                // blob
-                } else if (($type == 'blob' || $type == 'mediumblob' || $type == 'longblob' || $type == 'tinyblob') && !empty($row[$j])) {
-                    $schema_insert .= '0x' . bin2hex($row[$j]) . ', ';
-                // a string
-                } else {
-                    $dummy  = '';
-                    $srcstr = $row[$j];
-                    for ($xx = 0; $xx < strlen($srcstr); $xx++) {
-                        $yy = strlen($dummy);
-                        if ($srcstr[$xx] == '\\')   $dummy .= '\\\\';
-                        if ($srcstr[$xx] == '\'')   $dummy .= '\\\'';
-//                            if ($srcstr[$xx] == '"')    $dummy .= '\\"';
-                        if ($srcstr[$xx] == "\x00") $dummy .= '\0';
-                        if ($srcstr[$xx] == "\x0a") $dummy .= '\n';
-                        if ($srcstr[$xx] == "\x0d") $dummy .= '\r';
-//                            if ($srcstr[$xx] == "\x08") $dummy .= '\b';
-//                            if ($srcstr[$xx] == "\t")   $dummy .= '\t';
-                        if ($srcstr[$xx] == "\x1a") $dummy .= '\Z';
-                        if (strlen($dummy) == $yy)  $dummy .= $srcstr[$xx];
-                    }
-                    $schema_insert .= "'" . $dummy . "', ";
-                }
-            } else {
-                $schema_insert .= "'', ";
-            } // end if
-        } // end for
-        $schema_insert = trim(ereg_replace(', $', '', $schema_insert));
-        $schema_insert .= ')';
-
-        if (!PMA_exportOutputHandler($schema_insert . $eol_dlm . $crlf)) return FALSE;
-    } // end while
-    mysql_free_result($result);
-
-    return TRUE;
-} // end of the 'PMA_getTableContentOld()' function
 
 
 /**
@@ -721,11 +538,6 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
           . '#' . $crlf .$crlf;
 
     if (!PMA_exportOutputHandler($head)) return FALSE;
-    // Call the working function depending on the php version
-    if (PMA_PHP_INT_VERSION >= 40005) {
-        return PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query);
-    } else {
-        return PMA_getTableContentOld($db, $table, $crlf, $error_url, $sql_query);
-    }
+    return PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query);
 } // end of the 'PMA_exportData()' function
 ?>

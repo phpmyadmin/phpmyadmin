@@ -16,17 +16,6 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
     if (!isset($coming_from_common)) {
        exit();
     }
-    // emulate array_values() for PHP 3
-//    if (PMA_PHP_INT_VERSION < 40000) {
-      if (!@function_exists('array_values')) {
-        function array_values ($arr) {
-            $t = array();
-            while (list($k, $v) = each ($arr)) {
-                $t[] = $v;
-            }
-        return $t;
-        } // end function
-    } // end if
 
     include('./libraries/blowfish.php');
 
@@ -40,7 +29,7 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
     /**
      * String padding
      *
-     * @param   string  input string 
+     * @param   string  input string
      * @param   integer length of the result
      * @param   string  the filling string
      * @param   integer padding mode
@@ -80,18 +69,18 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
      *
      * @author  lem9
      */
-function PMA_blowfish_encrypt($data, $secret) {
-    $pma_cipher = new Horde_Cipher_blowfish;
-    $encrypt = '';
-    for ($i=0; $i<strlen($data); $i+=8) {
-        $block = substr($data, $i, 8);
-        if (strlen($block) < 8) {
-            $block = full_str_pad($block,8,"\0", 1);
+    function PMA_blowfish_encrypt($data, $secret) {
+        $pma_cipher = new Horde_Cipher_blowfish;
+        $encrypt = '';
+        for ($i=0; $i<strlen($data); $i+=8) {
+            $block = substr($data, $i, 8);
+            if (strlen($block) < 8) {
+                $block = full_str_pad($block,8,"\0", 1);
+            }
+            $encrypt .= $pma_cipher->encryptBlock($block, $secret);
         }
-        $encrypt .= $pma_cipher->encryptBlock($block, $secret);
-    } 
-    return $encrypt;
-}
+        return $encrypt;
+    }
 
    /**
      * Decryption using blowfish algorithm
@@ -105,14 +94,14 @@ function PMA_blowfish_encrypt($data, $secret) {
      *
      * @author  lem9
      */
-function PMA_blowfish_decrypt($data, $secret) {
-    $pma_cipher = new Horde_Cipher_blowfish;
-    $decrypt = '';
-    for ($i=0; $i<strlen($data); $i+=8) {
-        $decrypt .= $pma_cipher->decryptBlock(substr($data, $i, 8), $secret);
-    } 
-    return trim($decrypt);
-}
+    function PMA_blowfish_decrypt($data, $secret) {
+        $pma_cipher = new Horde_Cipher_blowfish;
+        $decrypt = '';
+        for ($i=0; $i<strlen($data); $i+=8) {
+            $decrypt .= $pma_cipher->decryptBlock(substr($data, $i, 8), $secret);
+        }
+        return trim($decrypt);
+    }
 
     /**
      * Sorts available languages by their true names
@@ -154,7 +143,6 @@ function PMA_blowfish_decrypt($data, $secret) {
         global $cfg, $available_languages;
         global $lang, $server, $convcharset;
         global $conn_error;
-        global $HTTP_COOKIE_VARS;
 
         // Tries to get the username from cookie whatever are the values of the
         // 'register_globals' and the 'variables_order' directives if last login
@@ -167,22 +155,17 @@ function PMA_blowfish_decrypt($data, $secret) {
             else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username'])) {
                 $default_user = $_COOKIE['pma_cookie_username'];
             }
-            else if (!empty($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_cookie_username'])) {
-                $default_user = $HTTP_COOKIE_VARS['pma_cookie_username'];
-            }
+
             if (isset($default_user) && get_magic_quotes_gpc()) {
                 $default_user = stripslashes($default_user);
             }
-            
+
             // server name
             if (!empty($GLOBALS['pma_cookie_servername'])) {
                 $default_server = $GLOBALS['pma_cookie_servername'];
             }
             else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_servername'])) {
                 $default_server = $_COOKIE['pma_cookie_servername'];
-            }
-            else if (!empty($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_cookie_servername'])) {
-                $default_server = $HTTP_COOKIE_VARS['pma_cookie_servername'];
             }
             if (isset($default_server) && get_magic_quotes_gpc()) {
                 $default_server = stripslashes($default_server);
@@ -242,8 +225,7 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
             echo "\n";
 
             uasort($available_languages, 'PMA_cookie_cmp');
-            reset($available_languages);
-            while (list($id, $tmplang) = each($available_languages)) {
+            foreach($available_languages AS $id => $tmplang) {
                 $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));
                 if ($lang == $id) {
                     $selected = ' selected="selected"';
@@ -317,8 +299,7 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
             <?php
             echo "\n";
             // Displays the MySQL servers choice
-            reset($cfg['Servers']);
-            while (list($key, $val) = each($cfg['Servers'])) {
+            foreach($cfg['Servers'] AS $key => $val) {
                 if (!empty($val['host']) || $val['auth_type'] == 'arbitrary') {
                     echo '                <option value="' . $key . '"';
                     if (!empty($server) && ($server == $key)) {
@@ -362,9 +343,7 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
         ?>
     <?php
     if (!empty($conn_error)) {
-        echo '<tr><td colspan="2" align="center"><p class="warning">'.
-	$conn_error.
-	'</p></td></tr>'."\n";
+        echo '<tr><td colspan="2" align="center"><p class="warning">'. $conn_error . '</p></td></tr>' . "\n";
     }
     ?>
     <tr>
@@ -426,7 +405,6 @@ if (uname.value == '') {
     function PMA_auth_check()
     {
         global $PHP_AUTH_USER, $PHP_AUTH_PW, $pma_auth_server;
-        global $HTTP_COOKIE_VARS;
         global $pma_servername, $pma_username, $pma_password, $old_usr;
         global $from_cookie;
 
@@ -464,10 +442,6 @@ if (uname.value == '') {
                     $pma_auth_server = $_COOKIE['pma_cookie_servername'];
                     $from_cookie   = TRUE;
                 }
-                else if (!empty($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_cookie_servername'])) {
-                    $pma_auth_server = $HTTP_COOKIE_VARS['pma_cookie_servername'];
-                    $from_cookie   = TRUE;
-                }
             }
             // username
             if (!empty($pma_cookie_username)) {
@@ -478,19 +452,12 @@ if (uname.value == '') {
                 $PHP_AUTH_USER = $_COOKIE['pma_cookie_username'];
                 $from_cookie   = TRUE;
             }
-            else if (!empty($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_cookie_username'])) {
-                $PHP_AUTH_USER = $HTTP_COOKIE_VARS['pma_cookie_username'];
-                $from_cookie   = TRUE;
-            }
             // password
             if (!empty($pma_cookie_password)) {
                 $PHP_AUTH_PW   = $pma_cookie_password;
             }
             else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_password'])) {
                 $PHP_AUTH_PW   = $_COOKIE['pma_cookie_password'];
-            }
-            else if (!empty($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_cookie_password'])) {
-                $PHP_AUTH_PW   = $HTTP_COOKIE_VARS['pma_cookie_password'];
             }
             else {
                 $from_cookie   = FALSE;
@@ -553,9 +520,9 @@ if (uname.value == '') {
                 }
             } // end for
         } // end if
-        
+
         $pma_server_changed = FALSE;
-        if ($GLOBALS['cfg']['AllowArbitraryServer'] 
+        if ($GLOBALS['cfg']['AllowArbitraryServer']
                 && isset($pma_auth_server) && !empty($pma_auth_server)
                 && ($cfg['Server']['host'] != $pma_auth_server)
                 ) {
@@ -601,9 +568,6 @@ if (uname.value == '') {
                 if (isset($_SERVER) && !empty($_SERVER['SERVER_SOFTWARE'])) {
                     $GLOBALS['SERVER_SOFTWARE'] = $_SERVER['SERVER_SOFTWARE'];
                 }
-                else if (isset($GLOBALS['HTTP_SERVER_VARS']) && !empty($GLOBALS['HTTP_SERVER_VARS']['SERVER_SOFTWARE'])) {
-                    $GLOBALS['SERVER_SOFTWARE'] = $GLOBALS['HTTP_SERVER_VARS']['SERVER_SOFTWARE'];
-                }
             } // end if
             if (!empty($GLOBALS['SERVER_SOFTWARE']) && $GLOBALS['SERVER_SOFTWARE'] == 'Microsoft-IIS/5.0') {
                 header('Refresh: 0; url=' . $cfg['PmaAbsoluteUri'] . 'index.php?' . PMA_generate_common_url('', '', '&'));
@@ -627,7 +591,7 @@ if (uname.value == '') {
      */
     function PMA_auth_fails()
     {
-	global $conn_error;
+    global $conn_error;
 
         // Deletes password cookie and displays the login form
         setcookie('pma_cookie_password', base64_encode(''), 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);

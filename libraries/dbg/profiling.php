@@ -5,8 +5,8 @@
 if (!defined('PMA_DBG_PROFILING_INCLUDED')) {
     define('PMA_DBG_PROFILING_INCLUDED', 1);
 
-    if (isset($GLOBALS['DBG']) && $GLOBALS['DBG'] 
-            && isset($GLOBALS['cfg']['DBG']['profile']['enable']) 
+    if (isset($GLOBALS['DBG']) && $GLOBALS['DBG']
+            && isset($GLOBALS['cfg']['DBG']['profile']['enable'])
             && $GLOBALS['cfg']['DBG']['profile']['enable']) {
 
         /**
@@ -37,8 +37,7 @@ if (!defined('PMA_DBG_PROFILING_INCLUDED')) {
                 '<td>' . $GLOBALS['strDBGContext'] . '</td>' . "\n" .
                 '</tr></thead>' . "\n" .
                 '<tbody style="vertical-align: top">' . "\n";
-            @reset($dbg_prof_results['line_no']);
-            while(list($idx, $line_no) = each($dbg_prof_results['line_no'])) {
+            foreach($dbg_prof_results['line_no'] AS $idx => $line_no) {
                 $mod_no = $dbg_prof_results['mod_no'][$idx];
                 dbg_get_module_name($mod_no, &$mod_name);
 
@@ -59,7 +58,7 @@ if (!defined('PMA_DBG_PROFILING_INCLUDED')) {
                 dbg_get_source_context($mod_no, $line_no, &$ctx_id);
 
                 //use a default context name if needed
-                if (dbg_get_context_name($ctx_id, &$ctx_name) 
+                if (dbg_get_context_name($ctx_id, &$ctx_name)
                         && strcmp($ctx_name,'') == 0) {
                     $ctx_name = "::main";
                 }
