@@ -139,6 +139,7 @@ $strDocu = 'Documentatie';
 $strDrop = 'Arunca';
 $strDropDB = 'Arunca baza de date %s';
 $strDropTable = 'Arunca tabelul';
+$strDropUsersDb = 'Arunca baza de date care are acelasi nume ca un utilizator.';
 $strDumpXRows = 'Arunca %s randuri incepand de la randul %s.';
 $strDumpingData = 'Salvarea datelor din tabel';
 $strDynamic = 'dinamic';
@@ -274,6 +275,7 @@ $strNoQuery = 'Nu exista cerere SQL!';
 $strNoRights = 'Nu detineti drepturi de acces pentru a va afla aici!';
 $strNoTablesFound = 'Nu s-a gasit nici un tabel in baza de date.';
 $strNoUsersFound = 'Nu s-a gasit nici un utilizator.';
+$strNoUsersSelected = 'Nu este selectat nici un utilizator.';
 $strNoValidateSQL = 'Sari peste validarea SQL';
 $strNone = 'Nici unul(a)';
 $strNotNumber = 'Acesta nu este un numar!';
@@ -533,6 +535,4 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 // To translate
 
-$strNoUsersSelected = 'No users selected.'; //to translate
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>
