@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-09  Loïc Chapeaux  <lolo@phpheaven.net>
+	* user_details.php3, lines 1232-1245 & 1254: fixed some bugs with modifying
+	  user privileges.
+
 2001-10-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/danish.inc.php3: updated thanks to
 	  Niels Oesten <niels at oesten.dk>.

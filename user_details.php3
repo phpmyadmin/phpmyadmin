@@ -863,7 +863,7 @@ function table_users($host = FALSE, $user = FALSE)
         <a href="<?php echo (($check_url != '') ? $check_url : '#'); ?>">
             <?php echo $GLOBALS['strGrants']; ?></a>
     </td>
--->
+//-->
     <td>
         <?php echo $row['Host'] . "\n"; ?>
     </td>
@@ -1230,14 +1230,19 @@ else if (isset($grants) && $grants) {
         } // end if
 
         $list_priv = array('Select', 'Insert', 'Update', 'Delete', 'Create', 'Drop', 'Reload',
-                           'Shutdown', 'Process', 'File', 'Grant', 'References', 'Index', 'Alter');
-        for ($i = 0; $i < 14; $i++) {
+                           'Shutdown', 'Process', 'File', 'References', 'Index', 'Alter');
+        for ($i = 0; $i < 13; $i++) {
             $priv_name = $list_priv[$i] . '_priv';
             if (isset($$priv_name)) {
                 $sql_query .= (empty($sql_query) ? $list_priv[$i] : ', ' . $list_priv[$i]) . $col_list;
             }
         } // end for
         unset($list_priv);
+        if (empty($sql_query)) {
+            $sql_query = 'USAGE' . $col_list;
+        }
+        $priv_grant = 'Grant_priv';
+        $priv_grant = (isset($$priv_grant) ? ' WITH GRANT OPTION' : '');
 
         $sql_query .= ' ON '
                    . (($anydb || empty($dbgrant)) ? '*' : backquote($dbgrant))
@@ -1246,7 +1251,7 @@ else if (isset($grants) && $grants) {
 
         $sql_query .= ' TO ' . '\'' . sql_addslashes($pma_user) . '\'' . '@' . '\'' . sql_addslashes($host) . '\'';
 
-        $sql_query  = 'GRANT ' . $sql_query;
+        $sql_query  = 'GRANT ' . $sql_query . $priv_grant;
         $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&host=' . urlencode($host) . '&pma_user=' . urlencode($pma_user) . '&grants=1');
         show_message($strAddPrivMessage);
     } // end if
