@@ -64,7 +64,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     }
 
     if ($count != 0) {
-        echo '<div style="page-break-before: always">' . "\n";
+        echo '<div style="page-break-before: always;">' . "\n";
     } else {
         echo '<div>' . "\n";
     }
@@ -160,7 +160,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     ?>
 
 <!-- TABLE INFORMATIONS -->
-<table width="100%" bordercolorlight="black" border="border" style="border-collapse: collapse;background-color: white">
+<table width="100%" style="border: 1px solid black; border-collapse: collapse; background-color: white;">
 <tr>
     <th width="50"><?php echo $strField; ?></th>
     <th width="80"><?php echo $strType; ?></th>
@@ -308,7 +308,7 @@ function printPage()
 //-->
 </script>
 <?php
-echo '<br /><br />&nbsp;<input type="button" style="visibility: ; width: 100px; height: 25px" id="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
+echo '<br /><br />&nbsp;<input type="button" style="width: 100px; height: 25px;" id="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
 
 require_once('./footer.inc.php');
 ?>
