@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-04-26 Alexander M. Turek  <rabus@users.sourceforge.net>
+2002-04-27 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Recompressed old ChangeLog without saving its path in the archive.
 
 2002-04-27 Loïc Chapeaux  <lolo@phpheaven.net>
