@@ -7,6 +7,7 @@ $Source$
 
 2004-10-13 Michal Čihař  <michal@cihar.com>
     * lang/sync_lang.sh: Do not overwrite utf-8 files in some cases.
+    * lang/czech: Fix some translations.
 
 2004-10-12 Alexander M. Turek  <me@derrabus.de>
     * db_search.php, tbl_select.php, libraries/database_interface.lib.php:
