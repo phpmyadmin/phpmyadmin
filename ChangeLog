@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * new language: basque, thanks to Axier Lopez (axierl@euskalerria.org)
+
 2003-12-07 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.5.5-rc1 released
 
