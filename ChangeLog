@@ -8,6 +8,10 @@ $Source$
 2002-09-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: update, thanks to Daniel Hinostroza
     * tbl_change.php3: bug 609614, default value for datetime ignored
+    * lang/catalan: update, thanks to Xavier Navarro
+    * lang/norwegian: update, thanks to Sven-Erik Andersen
+    * lang/finnish: update, thanks to Visa Kopu (visa)
+    * lang/swedish: update, thanks to Björn T. Hallberg
 
 2002-09-17 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_change.php3: bug 610310: spaces in drop-down for foreign values
