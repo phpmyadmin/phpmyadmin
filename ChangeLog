@@ -20,6 +20,7 @@ $Source$
       Girish Nair (girish_nair).
     * libraries/select_lang.lib.php3: The Georgian UTF-8 language file was
       offered even if $cfg['AllowAnywhereRecoding'] was set to FALSE.
+    * lang/galician-*.inc.php3: Updates, thanks again to Xosé Calvo.
 
 2002-08-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/afrikaans update, thanks to Andreas Pauley

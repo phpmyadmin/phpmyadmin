@@ -75,6 +75,7 @@ $strCarriage = 'Carácter de retorno: \\r';
 $strChange = 'Mudar';
 $strChangeDisplay = 'Escolla o campo que se há de mostrar';
 $strChangePassword = 'Trocar o contrasinal';
+$strCharsetOfFile = 'Conxunto de caracteres do ficheiro:';
 $strCheckAll = 'Marcá-los todos';
 $strCheckDbPriv = 'Verificar os privilexios do banco de datos';
 $strCheckTable = 'Verificar a tabela';
@@ -405,7 +406,7 @@ $strUserName = 'Nome do usuario';
 $strUsers = 'Usuarios';
 $strUseTables = 'Usar as tabelas';
 
-$strValidateSQL = 'Validar SQL'; 
+$strValidateSQL = 'Validar SQL';
 $strValue = 'Valor';
 $strViewDump = 'Ver o esquema do volcado da tabela';
 $strViewDumpDB = 'Ver o esquema do volcado do banco de datos';
@@ -419,7 +420,6 @@ $strYes = 'Si';
 $strZip = 'comprimido no formato "zipped"';
 
 // To translate
-$strCharsetOfFile = 'Character set of the file:'; //to translate
 $strBeginCut = 'BEGIN CUT';  //to translate
 $strEndCut = 'END CUT';  //to translate
 $strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
