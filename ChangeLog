@@ -26,6 +26,8 @@ $Source$
     * db_details*.php3; mult_submits.inc.php3; sql.php3: splitted the large
       "database details" page in parts.
     * tbl_properties_links.php3: optimized (less server work).
+    * tbl_dump.php3, lines 308-309: exporting a database with one table from
+      the "database details" page doesn't export the table.
 
 2002-04-30 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/italian.inc.php3: updated thanks to Pietro Danesi.

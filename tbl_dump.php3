@@ -190,7 +190,7 @@ if (!isset($table)) {
 if ($num_tables == 0) {
     echo '# ' . $strNoTablesFound;
 }
-// At least on table -> do the work
+// At least one table -> do the work
 else {
     // No csv or xml format -> add some comments at the top
     if ($what != 'csv' &&  $what != 'excel' && $what != 'xml') {
@@ -305,7 +305,8 @@ else {
             if (!isset($single)) {
                 $table = mysql_tablename($tables, $i);
             }
-            if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|')) || isset($single)) {
+            if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
+                || !empty($table)) {
                 $dump_buffer .= PMA_getTableXML($db, $table, $crlf, $err_url) . $crlf;
             }
             $i++;
