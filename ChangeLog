@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-15 Olivier Mueller <om@omnis.ch>
+    * left.php: RFE #859208, Logout button in left frame
+
 2004-04-14 Michal Cihar  <michal@cihar.com>
     * lang/czech: Updated.
     * tbl_select.php: Fixed undefined variable warning.

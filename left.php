@@ -360,6 +360,14 @@ echo "\n";
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
         <nobr><a class="item" href="main.php?<?php echo PMA_generate_common_url(); ?>"><span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
+<?php
+// Logout for advanced authentication   
+if ($cfg['Server']['auth_type'] != 'config') {
+?>
+        - <nobr><a class="item" href="index.php?<?php echo PMA_generate_common_url(); ?>&amp;old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent"><span class="heada"><b><?php echo $strLogout; ?></b></span></a></nobr>
+<?php
+} // end if
+?>
     </div>
 
 
