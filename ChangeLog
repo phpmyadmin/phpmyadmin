@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/slovenian update, thanks to Kositer Uros
+    * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
+
 2003-10-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * translators.html: Better link.
 
