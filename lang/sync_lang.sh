@@ -3,14 +3,17 @@
 ##
 # Shell script that synchronises all translations in phpMyAdmin
 ##
-# Any parameters will be passed to grep to filter processed translation, for
-# example: './sync_lang.sh czech' will process only czech translation,
-# './sync_lang.sh -e czech -e english' will process czech and english
-# translations.
+# Any parameters (except --iconv/--recode) will be passed to grep to filter
+# processed translation, for example: './sync_lang.sh czech' will process only
+# czech translation, './sync_lang.sh -e czech -e english' will process czech
+# and english translations.
 ##
 # Written by Michal Cihar <nijel at users.sourceforge.net>
 ##
 # Changes:
+# 2002-09-18
+#   * now accepts parameters --iconv/--recode for specifying which convertor
+#     to use
 # 2002-08-13
 #   * support for synchronisation only for selected language(s)
 # 2002-07-18
@@ -25,12 +28,25 @@
 # CONVERTOR_PARAMS is used for printf and it also receives two params: source
 # and target charset
 #
-#for iconv
-#CONVERTOR=iconv
-#CONVERTOR_PARAMS="-f %s -t %s"
-#for recode:
-CONVERTOR=recode
-CONVERTOR_PARAMS="%s..%s"
+case "$1" in
+    --iconv)
+    	echo Using iconv on user request
+        CONVERTOR=iconv
+        CONVERTOR_PARAMS="-f %s -t %s"
+        shift
+        ;;
+    --recode)
+    	echo Using recode on user request
+        CONVERTOR=recode
+        CONVERTOR_PARAMS="%s..%s"
+        shift
+        ;;
+    *)
+    	echo Using recode as default, force with --iconv/--recode
+        CONVERTOR=recode
+        CONVERTOR_PARAMS="%s..%s"
+        ;;
+esac
 
 
 ##
