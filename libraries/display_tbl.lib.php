@@ -752,7 +752,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                || ( isset($analyzed_sql[0]['select_expr'][$i]['expr'])
                    && isset($analyzed_sql[0]['select_expr'][$i]['column'])
                    && $analyzed_sql[0]['select_expr'][$i]['expr'] !=
-                   $analyzed_sql[0]['select_expr'][$i]['column']) ) {
+                   $analyzed_sql[0]['select_expr'][$i]['column']
+                  && !empty($fields_meta[$i]->table)) ) {
                 $sort_tbl = PMA_backquote($fields_meta[$i]->table) . '.';
             } else {
                 $sort_tbl = '';
