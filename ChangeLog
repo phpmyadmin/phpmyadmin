@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * scripts/create-release.sh: keep only one previous version in cvs-prev
+
 2004-04-29 Michal Cihar  <michal@cihar.com>
     * libraries/display_tbl.lib.php, libraries/sqlparser.lib.php,
       libraries/string.lib.php, libraries/dbi/mysql.dbi.lib.php: SQL parser

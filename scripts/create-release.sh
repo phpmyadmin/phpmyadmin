@@ -2,6 +2,9 @@
 #
 # $Id$
 #
+# 2004-04-29, lem9@users.sourceforge.net:
+# - keep only the previous cvs directory created
+#
 # 2004-04-16, lem9@users.sourceforge.net:
 # - daily snapshot when called with first parameter "snapshot"
 # - remove directory used for the checkout
@@ -111,11 +114,19 @@ fi
 # Goto project dir
 cd /home/groups/p/ph/phpmyadmin/htdocs
 
-# Move old cvs dir
-if [ -e cvs ];
+## Move old cvs dir
+#if [ -e cvs ];
+#then
+#    mv cvs cvs-`date +%s`
+#fi
+
+# Keep one previous version of the cvs directory
+if [ -e cvs-prev ];
 then
-    mv cvs cvs-`date +%s`
+    rm -rf cvs-prev
 fi
+mv cvs cvs-prev
+
 # Do CVS checkout
 mkdir cvs
 cd cvs
