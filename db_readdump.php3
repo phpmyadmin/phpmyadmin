@@ -78,6 +78,7 @@ $sql_query_cpy = $sql_query;
  * Executes the query
  */
 if ($sql_query != '') {
+    $sql_query    = remove_remarks($sql_query);
     $pieces       = split_sql_file($sql_query, ';');
     $pieces_count = count($pieces);
 
