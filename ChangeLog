@@ -12,6 +12,8 @@ $Source$
     * lang/galician: update, thanks to Xosé Calvo
     * lang/spanish: update, thanks to Dr. med. Daniel Hinostroza C.
     * lang/indonesian: missing semicolon
+    * lang/japanese: update, thanks to Yukihiro Kawada
+    * lang/romanian: update, thanks to Valics Lehel
 
 2003-01-08 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/url_generating.lib.php3, libraries/common.lib.php3: New URL
