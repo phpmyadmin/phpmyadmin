@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-27 Marc Delisle  <lem9@users.sourceforge.net>
+	* libraries/display_tbl.lib.php3, changed a variable name for
+	  better doc.
+
 2002-03-26 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3, lines 146-152, 519-524 & 567: fixed bug
 	  #534794 - special user can't see the db's list.
