@@ -252,14 +252,6 @@ if ($cfgRelation['displaywork']
     }
 } // end if
 
-if ($cfgRelation['commwork']
-    && isset($submit_comm) && $submit_comm == 'true') {
-    foreach ($comment AS $key => $value) {
-        // garvin: I exported the snippet here to a function (relation.lib.php) , so it can be used multiple times throughout other pages where you can set comments.
-        PMA_setComment($db, $table, $key, $value);
-    }  // end while (transferred data)
-} // end if (commwork)
-
 // If we did an update, refresh our data
 if (isset($submit_rel) && $submit_rel == 'true') {
     if ($cfgRelation['relwork']) {
@@ -271,9 +263,6 @@ if (isset($submit_rel) && $submit_rel == 'true') {
 }
 if ($cfgRelation['displaywork']) {
     $disp     = PMA_getDisplayField($db, $table);
-}
-if ($cfgRelation['commwork']) {
-    $comments = PMA_getComments($db, $table);
 }
 
 
@@ -579,43 +568,9 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         echo $tbl_type=='INNODB' ? '' : "\n\n" . '    </td>' . "\n";
     } // end if (displayworks)
 
-    if ($cfgRelation['commwork']) {
-        echo $tbl_type=='INNODB' ? "\n" : '    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>' . "\n"
-                                        . '    <td valign="top">' . "\n\n";
-        ?>
-<form method="post" action="tbl_relation.php">
-    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-    <input type="hidden" name="submit_comm" value="true" />
+// comments handling removed from this page; now only available on
+// the field properties page
 
-    <table border="0" cellpadding="2" cellspacing="1">
-    <tr>
-        <th colspan="2" align="center" class="tblHeaders"><b><?php echo $strComments; ?></b></th>
-    </tr>
-        <?php
-        for ($i = 0; $i < $saved_row_cnt; $i++) {
-            $field = $save_row[$i]['Field'];
-            echo "\n";
-            ?>
-    <tr>
-        <td align="center" bgcolor="<?php echo ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']; ?>"><b><?php echo $field; ?></b></td>
-        <td bgcolor="<?php echo ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']; ?>">
-            <input type="text" name="comment[<?php echo $field; ?>]" value="<?php echo (isset($comments[$field]) ?  htmlspecialchars($comments[$field]) : ''); ?>" />
-        </td>
-    </tr>
-            <?php
-        } // end for
-
-        echo "\n";
-        ?>
-    <tr>
-        <td colspan="2" align="center" class="tblFooters">
-            <input type="submit" value="<?php echo '  ' . $strGo . '  '; ?>" />
-        </td>
-    </tr>
-    </table>
-</form>
-        <?php
-    } //    end if (comments work)
     echo $tbl_type=='INNODB' ? '' : "\n\n" . '    </td></tr>' . "\n"
                                   . '</table>' . "\n\n";
 } // end if (we have columns in this table)

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_relation.php: removed comments handling (pmadb-style) from relation view
+
 2005-02-04 Michal Čihař  <michal@cihar.com>
     * tbl_change.php: Fix TIMESTAMP editing on MySQL 4.1 (bug #1114120).
 
