@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-21 Michael Keck <mkkeck@users.sourceforge.net>
+    * libraries/common.lib.php: feature request #1036254
+      Add a link by MySQL-Error #1062 - Duplicate entry
+
 2004-10-21 Michal Čihař  <michal@cihar.com>
     * [too many files to mention]: Cleanup of message displaying and
       navigation reloading. Messages are now displayed bellow tabs (RFE

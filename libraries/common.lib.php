@@ -641,7 +641,10 @@ if ($is_minimum_common == FALSE) {
                     . '    ' . $formatted_sql . "\n"
                     . '</p></div>' . "\n";
         } // end if
+
+        $tmp_mysql_error = ''; // for saving the original $error_message
         if (!empty($error_message)) {
+            $tmp_mysql_error = strtolower($error_message); // save the original $error_message
             $error_message = htmlspecialchars($error_message);
             $error_message = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $error_message);
         }
@@ -664,7 +667,27 @@ if ($is_minimum_common == FALSE) {
 
         echo '<code>' . "\n"
             . $error_message . "\n"
-            . '</code><br /><br />' . "\n";
+            . '</code><br />' . "\n";
+
+        // feature request #1036254:
+        // Add a link by MySQL-Error #1062 - Duplicate entry
+        // 2004-10-20 by mk.keck
+        if (strstr($tmp_mysql_error,"duplicate")) {
+            // explode the entry and the column
+            $arr_mysql_val_key = explode('entry \'',$tmp_mysql_error);
+            $arr_mysql_val_key = explode('\' for key',$arr_mysql_val_key[1]);
+            // get the duplicate value
+            $string_duplicate_val = trim(strtolower($arr_mysql_val_key[0]));
+            // get the field name ...
+            $string_duplicate_key = mysql_result(mysql_query("SHOW FIELDS FROM " . $table), ($arr_mysql_val_key[1]-1), 0);
+            $duplicate_sql_query = "SELECT * FROM " . $table . " WHERE " . $string_duplicate_key . " LIKE '" . $string_duplicate_val . "'";
+            echo '        <form method="post" action="read_dump.php" style="padding: 0px; margin: 0px">' ."\n"
+                    . '            <input type="hidden" name="sql_query" value="' . $duplicate_sql_query . '" />' . "\n"
+                    . '            ' . PMA_generate_common_hidden_inputs($db, $table) . "\n"
+                    . '            <input type="submit" name="submit" value="' . $GLOBALS['strBrowse'] . '" />' . "\n"
+                    . '        </form>' . "\n";
+        } // end of show duplicate entry
+
         echo '</div>';
 
         if (!empty($back_url) && $exit) {
