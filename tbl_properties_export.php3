@@ -17,7 +17,7 @@ require('./tbl_properties_table_info.php3');
 <form method="post" action="tbl_dump.php3" name="tbl_dump">
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />            
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
     <table cellpadding="5" border="2" align="center">

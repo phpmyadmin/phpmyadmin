@@ -9,8 +9,11 @@ require('./tbl_properties_common.php3');
 $err_url   = 'tbl_properties_operations.php3' . $err_url;
 $url_query .= '&amp;back=tbl_properties_operations.php3';
 
-require('./libraries/relation.lib.php3');
 
+/**
+ * Gets relation settings
+ */
+require('./libraries/relation.lib.php3');
 $cfgRelation = PMA_getRelationsParam();
 
 
@@ -293,7 +296,7 @@ if ($cfgRelation['relwork']) {
     // and $db is not the last of the list, because PMA_availableDatabases()
     // has made a PMA_mysql_select_db() on the last one
     PMA_mysql_select_db($db);
-    $foreign = getForeigners($db,$table);
+    $foreign = getForeigners($db, $table);
 
     if ($foreign) {
         ?>
@@ -303,7 +306,7 @@ if ($cfgRelation['relwork']) {
         <?php echo $strReferentialIntegrity; ?><br />
         <?php
         echo "\n";
-        while (list($master,$arr) = each($foreign)){
+        while (list($master, $arr) = each($foreign)){
             echo '        '
                  . '<a href="sql.php3?' . $url_query
                  . '&amp;sql_query='
