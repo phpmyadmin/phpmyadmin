@@ -609,6 +609,7 @@ $strType = 'Tipo';
 $strUncheckAll = 'Desmarcar todos';
 $strUnique = 'Único';
 $strUnselectAll = 'Deseleccione todo';
+$strUpdComTab = 'Para actualizar su tabla Columna_comentarios (Column_comments), por favor revise la documentación';
 $strUpdatePrivMessage = 'Ud. ha actualizado los privilegios para %s.';
 $strUpdateProfile = 'Actualiza el perfil:';
 $strUpdateProfileMessage = 'Se ha actualizado el perfil.';
@@ -652,7 +653,5 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
 // To translate
-
-$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table'; //to translate
 
 ?>

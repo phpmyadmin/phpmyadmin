@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-10 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
+
 2003-07-09 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php3: Fixed broken login with backslash
       in password/username (bug #747020).
