@@ -306,7 +306,7 @@ else {
                 $table = mysql_tablename($tables, $i);
             }
             if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
-                || !empty($table)) {
+                || (!isset($tmp_select) && !empty($table))) {
                 $dump_buffer .= PMA_getTableXML($db, $table, $crlf, $err_url) . $crlf;
             }
             $i++;
