@@ -840,6 +840,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         }
 
         // Displays the results
+        $is_show_processlist = eregi("^[ \n\r]*show[ \n\r]*processlist[ \n\r]*$", $sql_query);
         ?>
 
 <table border="<?php echo $GLOBALS['cfgBorder']; ?>">
@@ -850,7 +851,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             echo '    <td></td>' . "\n";
             echo '    <td></td>' . "\n";
         }
-        if(eregi("^[ \n\r]*show[ \n\r]*processlist[ \n\r]*$",$sql_query)) {
+        if ($is_show_processlist) {
             echo '    <td></td>' . "\n";
         }
         while ($field = mysql_fetch_field($dt_result)) {
@@ -919,7 +920,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
 <tr bgcolor="<?php echo $bgcolor; ?>">
             <?php
             echo "\n";
-            for ($i = 0; $i < mysql_num_fields($dt_result); ++$i) {
+            $fields_cnt = mysql_num_fields($dt_result);
+            for ($i = 0; $i < $fields_cnt; ++$i) {
                 $primary   = mysql_fetch_field($dt_result, $i);
                 $condition = ' ' . backquote($primary->name) . ' ';
                 if (!isset($row[$i])) {
@@ -929,8 +931,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     $condition .= '= \'' . str_replace('\'', '\\\'', $row[$i]) . '\' AND';
                 }
                 if ($primary->numeric == 1) {
-                    if(eregi("^[ \n\r]*show[ \n\r]*processlist[ \n\r]*$",$sql_query)) {
-
+                    if ($is_show_processlist) {
                         $Id = $row[$i];
                     }
                 }
@@ -987,7 +988,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 echo "\n";
             } // end if
 
-            if(eregi("^[ \n\r]*show[ \n\r]*processlist[ \n\r]*$",$sql_query)) {
+            if ($is_show_processlist) {
                 ?>
     <td align="right">
         <a href="sql.php3?db=mysql&sql_query=<?php echo urlencode('KILL ' . $Id); ?>&goto=main.php3">
@@ -997,9 +998,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 echo "\n";
             } // end if
 
-            // Possibility to have the modify/delete button on the left added
-            // Benjamin Gandon -- 2000-08-29
-            for ($i = 0; $i < mysql_num_fields($dt_result); ++$i) {
+            $fields_cnt = mysql_num_fields($dt_result);
+            for ($i = 0; $i < $fields_cnt; ++$i) {
                 if (!isset($row[$i])) {
                     $row[$i] = '';
                 }
@@ -1012,6 +1012,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     echo '    <td>&nbsp;' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
                 }
             } // end for
+            // Possibility to have the modify/delete button on the left added
+            // Benjamin Gandon -- 2000-08-29
             if ($GLOBALS['cfgModifyDeleteAtRight'] && !$is_simple) {
                 ?>
     <td>
