@@ -22,8 +22,8 @@ if (!defined('PHPMYADMIN_VERSION')) {
 
 // php version
 if (!defined('PHP_INT_VERSION')) {
-    if (!ereg('([0-9]).([0-9]).([0-9])', phpversion(), $match)) {
-        $result = ereg('([0-9]).([0-9])', phpversion(), $match);
+    if (!ereg('([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})', phpversion(), $match)) {
+        $result = ereg('([0-9]{1,2}).([0-9]{1,2})', phpversion(), $match);
     }
     if (isset($match) && !empty($match[1])) {
         if (!isset($match[2])) {

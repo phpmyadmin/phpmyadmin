@@ -12,6 +12,8 @@ $Source$
 	  as global ones.
 	* main.php3: the cookie shouldn't be set before authentication is
 	  completed.
+	* libraries/defines.inc.php3, lines 25-26: fixed a bad regexp thanks to
+	  Joshua Nye <josh at boxcarmedia.com>.
 
 2001-09-25  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
