@@ -26,6 +26,9 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
         parent.frames.queryframe.document.queryframeform.db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";
         parent.frames.queryframe.document.queryframeform.table.value = "<?php echo (isset($table) ? addslashes($table) : ''); ?>";
     }
+    if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.left) {
+        parent.frames.queryframe.document.left.lightm_db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";
+    }
     <?php
     }
     ?>
