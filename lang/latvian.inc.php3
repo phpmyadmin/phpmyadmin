@@ -1,8 +1,8 @@
 <?php
 /* $Id$ */
 
-/*
- * Latvian language file by Sandis Jçrics, <sandisj@parks.lv>
+/**
+ * Latvian language file by Sandis Jçrics <sandisj at parks.lv>
  */
 
 $charset = 'windows-1257';
@@ -246,6 +246,7 @@ $strQBEIns = 'Ielikt';
 $strQueryOnDb = 'SQL-vaicâjums uz datubâzes <b>%s</b>:';
 
 $strRecords = 'Ieraksti';
+$strReferentialIntegrity = 'Pârbaudît referenciâlo integritâti:';
 $strReloadFailed = 'Nesanâca pârlâdçt MySQL serveri.';
 $strReloadMySQL = 'Pârlâdçt MySQL serveri';
 $strRememberReload = 'Neaizmirstiet pârlâdçt serveri.';
@@ -351,5 +352,4 @@ $strYes = 'Jâ';
 $strZip = 'arhivçts ar zip';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

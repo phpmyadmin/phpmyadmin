@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-20 Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/latvian.inc.php3: updated thanks to Sandis Jçrics.
+
 2002-04-20 Alexander M. Turek  <rabus@users.sourceforge.net>
 	* lang/german.inc.php3: removed comments.
 	* Documentation.html: Added some notes about the
