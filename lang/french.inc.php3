@@ -119,6 +119,7 @@ $strEmptyResultSet = 'MySQL n\'a retourné aucun enregistrement.';
 $strEnd = 'Fin';
 $strEnglishPrivileges = ' Veuillez noter que les noms de privilèges sont exprimés en anglais';
 $strError = 'Erreur';
+$strExplain = 'Expliquer SQL';
 $strExport = 'Exporter';
 $strExportToXML = 'Exporter en format XML';
 $strExtendedInserts = 'Insertions étendues';
@@ -209,6 +210,7 @@ $strNoIndexPartsDefined = 'Aucune colonne n\'a été définie pour cette clef&nbsp;
 $strNoModification = 'Pas de modifications';
 $strNone = 'Nulle';
 $strNoPassword = 'aucun mot de passe';
+$strNoPhp = 'Sans source PHP';
 $strNoPrivileges = 'aucun privilège';
 $strNoQuery = 'Aucune requête SQL !';
 $strNoRights = 'Vous n\'êtes pas autorisé à accéder à cette page';
@@ -236,6 +238,7 @@ $strPasswordEmpty = 'Le mot de passe est vide';
 $strPasswordNotSame = 'Les mots de passe doivent être identiques';
 $strPdfInvalidPageNum = 'Numéro de page PDF non défini !';
 $strPdfInvalidTblName = 'La table "%s" n\'existe pas !';
+$strPhp = 'Créer source PHP';
 $strPHPVersion = 'Version de PHP';
 $strPmaDocumentation = 'Documentation de phpMyAdmin';
 $strPmaUriError = 'Le paramètre <tt>$cfg[\'PmaAbsoluteUri\']</tt> DOIT être renseigné dans votre fichier de configuration !';
@@ -379,8 +382,4 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
-// To translate
-$strExplain = 'Expliquer SQL';
-$strPhp = 'Créer source PHP';
-$strNoPhp = 'Sans source PHP';
 ?>

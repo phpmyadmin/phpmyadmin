@@ -118,6 +118,7 @@ $strEmpty = 'Empty';
 $strEmptyResultSet = 'MySQL returned an empty result set (i.e. zero rows).';
 $strEnd = 'End';
 $strEnglishPrivileges = ' Note: MySQL privilege names are expressed in English ';
+$strExplain = 'Explain SQL Code';
 $strError = 'Error';
 $strExport = 'Export';
 $strExportToXML = 'Export to XML format';
@@ -209,8 +210,9 @@ $strNoIndexPartsDefined = 'No index parts defined!';
 $strNoModification = 'No change';
 $strNone = 'None';
 $strNoPassword = 'No Password';
+$strNoPhp = 'Without PHP Code';
 $strNoPrivileges = 'No Privileges';
-$strNoQuery = 'No SQL query!';  //to translate
+$strNoQuery = 'No SQL query!';
 $strNoRights = 'You don\'t have enough rights to be here right now!';
 $strNoTablesFound = 'No tables found in database.';
 $strNotNumber = 'This is not a number!';
@@ -236,6 +238,7 @@ $strPasswordEmpty = 'The password is empty!';
 $strPasswordNotSame = 'The passwords aren\'t the same!';
 $strPdfInvalidPageNum = 'Undefined PDF page number!';
 $strPdfInvalidTblName = 'The "%s" table doesn\'t exist!';
+$strPhp = 'Create PHP Code';
 $strPHPVersion = 'PHP Version';
 $strPmaDocumentation = 'phpMyAdmin documentation';
 $strPmaUriError = 'The <tt>$cfg[\'PmaAbsoluteUri\']</tt> directive MUST be set in your configuration file!';
@@ -379,7 +382,4 @@ $strYes = 'Yes';
 
 $strZip = '"zipped"';
 
-$strExplain = 'Explain SQL Code';  //to translate
-$strPhp = 'Create PHP Code';  //to translate
-$strNoPhp = 'without PHP Code';  //to translate
 ?>
