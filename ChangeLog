@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-02 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * Happy Birthday to me :-)
+    * libraries/sqlparser.lib.php3: Correct behavior for "SHOW INNODB STATUS".
+
 2003-06-01 Michal Cihar  <nijel@users.sourceforge.net>
     * config.inc.php3, libraries/config_import.lib.php3: Default iconv
       parameters to empty string, as older iconv version don't support it

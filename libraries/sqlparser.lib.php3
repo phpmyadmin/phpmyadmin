@@ -596,6 +596,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                   $t_suffix = '_reservedWord';
                 } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_attrib, $PMA_SQPdata_column_attrib_cnt)) {
                   $t_suffix = '_columnAttrib';
+                  // INNODB is a MySQL table type, but in "SHOW INNODB STATUS",
+                  // it should be regarded as a reserved word.
+                  if ($d_cur_upper == 'INNODB' && $d_prev_upper == 'SHOW' && $d_next_upper == 'STATUS') {
+                    $t_suffix = '_reservedWord';
+                  }
                 } else {
                   // Do nothing
                 }
