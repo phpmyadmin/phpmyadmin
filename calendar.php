@@ -1,4 +1,6 @@
 <?php
+/* $Id$ */
+
 include('./libraries/grab_globals.lib.php');
 $is_minimum_common = TRUE;
 include('./libraries/common.lib.php');
