@@ -4,7 +4,7 @@
 
 if (PMA_MYSQL_INT_VERSION >= 40100){
 
-    $res = PMA_DBI_query('SHOW CHARACTER SET;');
+    $res = PMA_DBI_query('SHOW CHARACTER SET;', NULL, PMA_DBI_QUERY_STORE);
 
     $mysql_charsets = array();
     while ($row = PMA_DBI_fetch_assoc($res)) {
@@ -15,7 +15,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
     @PMA_DBI_free_result($res);
     unset($res, $row);
 
-    $res = PMA_DBI_query('SHOW COLLATION;');
+    $res = PMA_DBI_query('SHOW COLLATION;', NULL, PMA_DBI_QUERY_STORE);
 
     $mysql_charsets_count = count($mysql_charsets);
     sort($mysql_charsets, SORT_STRING);

@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-12 Marcel Tschopp <marcel.tschopp@gmx.net>
+    * left.php, tbl_properties_structure.php, libraries/mysql_charsets.lib.php,
+      libraries/relation.lib.php: Changed some queries to use 
+      MYSQLI_STORE_RESULT.
+
 2004-04-10 Marcel Tschopp <marcel.tschopp@gmx.net>
     * db_datadict.php, db_details_db_info.php, db_details_qbe.php, 
       db_details_structure.php, db_printview.php, left.php, main.php, 

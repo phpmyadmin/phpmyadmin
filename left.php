@@ -655,7 +655,7 @@ else if ($num_dbs == 1) {
         && $num_tables) {
         $tooltip = array();
         $tooltip_name = array();
-        $result  = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
+        $result  = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db), NULL, PMA_DBI_QUERY_STORE);
         while ($tmp = PMA_DBI_fetch_assoc($result)) {
                 $tooltip_name[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '');
                 $tmp['Comment'] = ($cfg['ShowTooltipAliasTB'] ? $tmp['Name'] : $tmp['Comment']);

@@ -398,13 +398,13 @@ function PMA_getComments($db, $table = '') {
         $com_qry  = 'SELECT column_name, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_info'])
                   . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                   . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-        $com_rs   = PMA_query_as_cu($com_qry);
+        $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
     } else {
         $com_qry  = 'SELECT comment FROM ' . PMA_backquote($cfgRelation['column_info'])
                   . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                   . ' AND table_name = \'\''
                   . ' AND column_name = \'(db_comment)\'';
-        $com_rs   = PMA_query_as_cu($com_qry);
+        $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
     }
 
     $i = 0;

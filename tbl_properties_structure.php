@@ -61,7 +61,7 @@ while ($row = PMA_DBI_fetch_assoc($result)) {
 PMA_DBI_free_result($result);
 
 // 3. Get fields
-$fields_rs   = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';');
+$fields_rs   = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';', NULL, PMA_DBI_QUERY_STORE);
 $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 
 
