@@ -637,8 +637,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      * @param   integer  the link id associated to the query which results have
      *                   to be displayed
      * @param   array    which elements to display
-     * @param   array    the list of fields properties
-     * @param   integer  the total number of fields returned by the sql query
+     * @param   array    the list of relations
      *
      * @return  boolean  always true
      *
@@ -862,15 +861,18 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         || (function_exists('is_null') && is_null($row[$primary->name]))) {
                         $vertical_display['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$i] != '') {
-                        $vertical_display['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">' .
-                        	( isset($map[$primary->name]) ? '<a href="sql.php3?'.
-                    			'lang=' . $lang. '&server=' . $server. '&db='. urlencode($db).
-                    			'&table=' . urlencode($map[$primary->name][0]). '&pos=0&sessionMaxRow='. $sessionMaxRow.
-	                            '&dontlimitchars=' . $dontlimitchars. '&sql_query='. urlencode('SELECT * FROM '
-                    			. PMA_backquote($map[$primary->name][0]) . ' WHERE '
-                    			. $map[$primary->name][1] . '= ' . $row[$i]). '">' . $row[$primary->name] . '</a>'
-                    			: $row[$primary->name]
-	                    	) . '</td>' . "\n";
+                        $vertical_display['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">';
+                        if (isset($map[$primary->name])) {
+                            $vertical_display['data'][$foo][$i] .= '<a href="sql.php3?'
+                                                                .  'lang=' . $lang . '&amp;server=' . $server
+                                                                .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$primary->name][0])
+                                                                .  '&amp;pos=0&amp;sessionMaxRow=' . $sessionMaxRow . '&amp;dontlimitchars=' . $dontlimitchars
+                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$primary->name][0]) . ' WHERE ' . $map[$primary->name][1] . ' = ' . $row[$i]) . '">'
+                                                                .  $row[$primary->name] . '</a>';
+                        } else {
+                            $vertical_display['data'][$foo][$i] .= $row[$primary->name];
+                        }
+                        $vertical_display['data'][$foo][$i]     .= '</td>' . "\n";
                     } else {
                         $vertical_display['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
@@ -985,7 +987,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 $vertical_display['edit'][$foo]       .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
                                                   .  '        <a href="' . $edit_url . '">' . "\n"
                                                   .  '            ' . $edit_str . '</a>' . "\n"
-                                                  .  '    </td>' . "\n";                    }
+                                                  .  '    </td>' . "\n";
+            }
 
             if (isset($del_url)) {
                 $vertical_display['delete'][$foo]     .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
@@ -995,9 +998,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 $vertical_display['delete'][$foo] .= 'onclick="return confirmLink(this, \'' . $js_conf . '\')"';
             }
             if (isset($del_str)) {
-            $vertical_display['delete'][$foo]     .= '>' . "\n"
+                $vertical_display['delete'][$foo] .= '>' . "\n"
                                                   .  '            ' . $del_str . '</a>' . "\n"
-                                                  .  '    </td>' . "\n";                    }
+                                                  .  '    </td>' . "\n";
+            }
 
             echo (($disp_direction == 'horizontal') ? "\n" : '');
             $foo++;
@@ -1128,6 +1132,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      * @global  string   the current language
      * @global  integer  the server to use (refers to the number in the
      *                   configuration file)
+     * @global  array    the current server config
      * @global  string   the database name
      * @global  string   the table name
      * @global  string   the url to go back in case of errors
@@ -1144,7 +1149,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      * @global  integer  the number of row to display between two table headers
      * @global  boolean  whether to limit the number of displayed characters of
      *                   text type fields or not
-     * @global  array    current server config
      *
      * @access  private
      *
@@ -1154,11 +1158,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      */
     function PMA_displayTable(&$dt_result, &$the_disp_mode)
     {
-        global $lang, $server, $db, $table;
+        global $lang, $server, $cfgServer, $db, $table;
         global $goto;
         global $sql_query, $num_rows, $unlim_num_rows, $pos, $fields_meta, $fields_cnt;
         global $vertical_display, $disp_direction, $repeat_cells;
-        global $dontlimitchars, $cfgServer;
+        global $dontlimitchars;
 
         // 1. ----- Prepares the work -----
 
@@ -1224,30 +1228,31 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             echo "\n" . '<br /><br />' . "\n";
         }
 
-	// 2b ----- Get field references from Database -----
+        // 2b ----- Get field references from Database -----
         // (see the 'relation' config variable)
         // (currently not available for PHP3 due to spliti()  )
 
         if (PMA_PHP_INT_VERSION >= 40000
-         && isset($cfgServer['relation']) 
-         && !empty($cfgServer['relation'])) {
-  
-	    // init map
-	    $map = array();
-	    // find tables
-	    $tabs = '(\'' . join('\',\'', spliti('`? *((on [^,]+)?,|(NATURAL )?(inner|left|right)( outer)? join) *`?',
-	    eregi_replace('^.*FROM +`?|`? *(on [^,]+)?(WHERE.*)?$', '', $sql_query))) . '\')';
+            && isset($cfgServer['relation'])
+            && !empty($cfgServer['relation'])) {
 
-            $local_query  = 'SELECT src_column, dest_table, dest_column'
-                          . ' FROM ' . $cfgServer['relation']
-                          . ' WHERE src_table IN ' . $tabs;
-            $result       = @mysql_query($local_query);
+            // init map
+            $map = array();
+            // find tables
+            $tabs = '(\'' . join('\',\'', spliti('`? *((on [^,]+)?,|(NATURAL )?(inner|left|right)( outer)? join) *`?',
+                    eregi_replace('^.*FROM +`?|`? *(on [^,]+)?(WHERE.*)?$', '', $sql_query))) . '\')';
+
+            $local_query = 'SELECT src_column, dest_table, dest_column'
+                         . ' FROM ' . $cfgServer['relation']
+                         . ' WHERE src_table IN ' . $tabs;
+            $result      = @mysql_query($local_query);
             if ($result) {
-               while ( $rel = mysql_fetch_row($result) ) {
-                   $map[$rel[0]] = array($rel[1], $rel[2]);
-               }
+                while ($rel = mysql_fetch_row($result)) {
+                    $map[$rel[0]] = array($rel[1], $rel[2]);
+                }
             }
-        }
+        } // end 2b
+
         // 3. ----- Displays the results table -----
         ?>
 <!-- Results table -->
