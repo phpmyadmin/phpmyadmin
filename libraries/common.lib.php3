@@ -34,6 +34,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * the PMA_mysqlDie() function must be before the connection to db but after
      * mysql extension has been loaded
      *
+     * the PMA_mysqlDie() function needs the PMA_format_sql() Function
+     *
      * ... so the required order is:
      *
      * - parsing of the configuration file
@@ -41,6 +43,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      *   MySQL release number)
      * - load of mysql extension (if necessary)
      * - definition of PMA_sqlAddslashes()
+     * - definition of PMA_format_sql()
      * - definition of PMA_mysqlDie()
      * - definition of PMA_isInto()
      * - definition of PMA_setFontSizes()
@@ -189,6 +192,84 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         return $a_string;
     } // end of the 'PMA_sqlAddslashes()' function
 
+    /**
+     * format sql strings
+     *
+     * @param   string   sql
+     *
+     * @return  string   the formatted sql
+     *
+     * @access  public
+     *
+     * @author  Mike Beck<mikebeck@users.sourceforge.net>
+     */
+    function PMA_format_sql ($sql) {
+        global $cfg;
+
+        $_sfuncs   = '^' . implode('$|^', $cfg['Functions']) . '$';
+        $_skeyw    = '^' . implode('$|^', $cfg['keywords']) . '$';
+        $_scoltype = '^' . implode('$|^', $cfg['ColumnTypes']) . '$';
+        $_add      = '^' . implode('$|^', $cfg['additional']) . '$';
+        //  first of all lets remove all newlines - we'll add our own later
+
+        $sql  = str_replace("\n", ' ', $sql);
+        //  there should always be blanks around = and after , ()
+        $sql  = str_replace('=', ' = ', $sql);
+        $sql  = str_replace(',', ', ', $sql);
+        $sql  = str_replace(')', ' ) ', $sql);
+        $sql  = str_replace('(', ' ( ', $sql);
+        //  now split everything by the blanks
+        $_sql_parts=explode(' ',$sql);
+        //  start a loop over the parts check each word and put them back into $sql
+        $sql  = '';
+        while (list($_num,$_word) = each($_sql_parts)) {
+            //  we might have added to many blanks when checking for = and ,
+            // which might lead to empty members in the array
+            if(strlen($_word)==0){continue;}
+            //  Anything inside quots might be more than one word
+            //  so as we splitted by the blanks we have to try to get those parts back
+            //  together
+            if (substr($_word, 0, 1) == '\'' || substr($_word, 0, 1) == '"') {
+                //  start of a string
+                $_temp = $_word;
+            } else {
+                if(isset($_temp) && strlen($_temp)>0){
+                    //  we are continuing a string
+                    $_temp .= $_word;
+                }
+            }
+            if(substr($_word, strlen($_word)-1, 1) == '\''
+                || substr($_word, strlen($_word)-1, 1) == '"') {
+                //  End of a String
+                $_word = '<font color="' . $cfg['colorStrings'] . '">' . $_temp . '</font>';
+                $_temp = '';
+            } else {
+                // no String
+                if(eregi($_sfuncs,  $_word)) {
+                    $_word = '<font color="' . $cfg['colorFunctions'].'">' . $_word . '</font>';
+                } else {
+                    if(eregi($_skeyw,  $_word)) {
+                        $_word = "\n".'<font color="' . $cfg['colorKeywords'].'">' . $_word . '</font>';
+                    } else {
+                        if(eregi($_scoltype, $_word)) {
+                            $_word = '<font color="' . $cfg['colorColType'].'">' . $_word . '</font>';
+                        } else {
+                            if(eregi($_add, $_word)) {
+                                $_word = '<font color="' . $cfg['colorAdd'].'">' . $_word . '</font>';
+                            }
+                        }
+                    }
+                }
+            }
+            if(!isset($_temp) || strlen($_temp) == 0) {
+                if($_num != 0 && $_word != '(') {
+                    $sql .= ' ';
+                }
+                $sql .= $_word;
+            }
+        }   //  End while
+        return $sql;
+    }   // End of PMA_format_sql function
 
     /**
      * Displays a MySQL error message in the right frame.
@@ -203,7 +284,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     function PMA_mysqlDie($error_message = '', $the_query = '',
                           $is_modify_link = TRUE, $back_url = '')
     {
-
+        global $cfg;
         if (empty($GLOBALS['is_header_sent'])) {
             // rabus: If we include header.inc.php3 here, we get a huge set of
             // "Undefined variable" errors (see bug #549570)!
@@ -231,7 +312,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                      . '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=y">' . $GLOBALS['strEdit'] . '</a>'
                      . ']' . "\n";
             } // end if
-            echo '<pre>' . "\n" . $query_base . "\n" . '</pre>' . "\n";
+            if($cfg['UseSyntaxColoring']){
+                echo '<pre>' . "\n" . PMA_format_sql($query_base) . "\n" . '</pre>' . "\n";
+            } else {
+                echo '<pre>' . "\n" . $query_base . "\n" . '</pre>' . "\n";
+            }
             echo '</p>' . "\n";
         } // end if
         if (!empty($error_message)) {
@@ -902,6 +987,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      */
     function PMA_showMessage($message)
     {
+        global $cfg;
         // Reloads the navigation frame via JavaScript if required
         if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
             echo "\n";
@@ -975,13 +1061,17 @@ if (typeof(document.getElementById) != 'undefined'
             $sqlnr = 1;
             if (!empty($GLOBALS['show_as_php'])) {
                 $new_line = '&quot;;<br />' . "\n" . '            $sql .= &quot;';
-            } else {
-                $new_line = '<br />' . "\n" . '            ';
+            }else{
+                $new_line = "\n";
             }
             $query_base     = htmlspecialchars($GLOBALS['sql_query']);
             $query_base     = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
             if (!empty($GLOBALS['show_as_php'])) {
                 $query_base = '$sql  = &quot;' . $query_base;
+            } else {
+                if($cfg['UseSyntaxColoring']) {
+                    $query_base = PMA_format_sql($query_base);
+                }
             }
 
             // Prepares links that may be displayed to edit/explain the query

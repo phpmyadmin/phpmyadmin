@@ -226,6 +226,14 @@ $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right s
 $cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizontal|vertical)
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
+$cfg['UseSyntaxColoring']   = TRUE;         // use syntaxcoloring on output of SQL, might be a little slower
+//  Colors used for Syntaxcoloring of SQL Statements
+$cfg['colorFunctions']      = 'red';
+$cfg['colorKeywords']       = 'blue';
+$cfg['colorStrings']        = 'green';
+$cfg['colorColType']        = '#FF9900';
+$cfg['colorAdd']            = '#9999CC';
+
 
 /**
  * MySQL settings
@@ -294,11 +302,62 @@ if ($cfg['ShowFunctionFields']) {
        'TO_DAYS',
        'UNIX_TIMESTAMP',
        'USER',
-       'WEEKDAY'
+       'WEEKDAY',
+       'CONCAT'
     );
 } // end if
 
-
+if($cfg['UseSyntaxColoring']) {
+    $cfg['keywords']=array(
+        'SELECT',
+        'INSERT',
+        'LEFT',
+        'UPDATE',
+        'REPLACE',
+        'EXPLAIN',
+        'FROM',
+        'WHERE',
+        'LIMIT',
+        'INTO',
+        'ALTER',
+        'ADD',
+        'DROP',
+        'GROUP',
+        'ORDER',
+        'CHANGE',
+        'CREATE',
+        'DELETE'
+    );
+} // end if
+if($cfg['UseSyntaxColoring']) {
+    $cfg['additional']=array(
+        'TABLE',
+        'DEFAULT',
+        'NULL',
+        'NOT',
+        'INDEX',
+        'PRIMARY',
+        'KEY',
+        'UNIQUE',
+        'BINARY',
+        'UNSIGNED',
+        'ZEROFILL',
+        'AUTO_INCREMENT',
+        'AND',
+        'OR',
+        'DISTINCT',
+        'DISTINCTROW',
+        'BY',
+        'ON',
+        'JOIN',
+        'BETWEEN',
+        'BETWEEN',
+        'IN',
+        'IF',
+        'ELSE',
+        'SET'
+    );
+}   
 /**
  * Unset magic_quotes_runtime - do not change!
  */

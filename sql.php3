@@ -508,7 +508,7 @@ else {
 
         // Do print the page if required
         if (isset($printview) && $printview == '1') {
-        	echo "\n";
+            echo "\n";
             ?>
 <script type="text/javascript" language="javascript1.2">
 <!--

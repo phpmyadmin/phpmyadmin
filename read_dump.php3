@@ -353,7 +353,7 @@ if ($sql_query != '') {
                 $a_sql_query = $pieces[$i];
                 $result = mysql_query($a_sql_query);
                 if ($result == FALSE) { // readdump failed
-                    $my_die = $a_sql_query;
+                    $my_die = PMA_format_sql($a_sql_query);
                     break;
                 }
                 if (!isset($reload) && eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $a_sql_query)) {
