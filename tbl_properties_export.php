@@ -42,7 +42,7 @@ if (isset($sql_query)) {
             $sql_query .= $conj . '( ' . $key . ' ) ';
             $conj = 'OR ';
         }
-    } else {
+    } elseif (!empty($analyzed_sql[0]['where_clause']))  {
         $sql_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
     }
     if (!empty($analyzed_sql[0]['group_by_clause'])) {

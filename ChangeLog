@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-15 Michal Čihař  <michal@cihar.com>
+    * tbl_properties_export.php: Fix export of queries with empty WHERE clause
+      (bug #990330).
+
 2004-07-15 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug 990959, undefined index for DATETIME
       field (problem in UTF-8 only!)
