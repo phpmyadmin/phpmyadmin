@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 2003-01-08 Michal Cihar  <nijel@users.sourceforge.net>
-    * libraries/url_generation.lib.php3, libraries/common.lib.php3: New URL
+    * libraries/url_generating.lib.php3, libraries/common.lib.php3: New URL
       and hidden input generating stuff.
     * almost all php3 files: Use new URL and hidden input generation stuff.
 
