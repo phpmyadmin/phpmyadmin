@@ -1706,17 +1706,6 @@ if (typeof(document.getElementById) != 'undefined'
             echo '            <b>' . $GLOBALS['strSQLQuery'] . ':</b>&nbsp;';
             echo '<br />' . "\n";
             echo '            ' . $query_base;
-            // If a 'LIMIT' clause has been programatically added to the query
-            // displays it
-            if (!empty($GLOBALS['sql_limit_to_append'])) {
-                if (!empty($GLOBALS['show_as_php'])) {
-                    echo $GLOBALS['sql_limit_to_append'];
-                } else if (!empty($GLOBALS['validatequery'])) {
-                    // skip the extra bit here
-                } else {
-                    echo '&nbsp;' . PMA_formatSql(PMA_SQP_parse($GLOBALS['sql_limit_to_append'], $GLOBALS['sql_limit_to_append']));
-                }
-            }
 
             unset($local_query);
             //Clean up the end of the PHP

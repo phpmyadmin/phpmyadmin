@@ -319,6 +319,12 @@ else {
         } else {
             $full_sql_query  = $sql_query . $sql_limit_to_append;
         }
+        if (preg_match('@((.|\n)*)(([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))|;)[[:space:]]*$@i', $display_query, $regs)) {
+            $display_query  = $regs[1] . $sql_limit_to_append . $regs[3];
+        } else {
+            $display_query  = $display_query . $sql_limit_to_append;
+        }
+        unset($sql_limit_to_append);
     } else {
         $full_sql_query      = $sql_query;
     } // end if...else
@@ -666,12 +672,9 @@ else {
         // Display previous update query (from tbl_replace)
         if (isset($disp_query) && $cfg['ShowSQL'] == TRUE) {
             $tmp_sql_query = $GLOBALS['sql_query'];
-            $tmp_sql_limit_to_append = (isset($GLOBALS['sql_limit_to_append'])?$GLOBALS['sql_limit_to_append']:'');
             $GLOBALS['sql_query'] = $disp_query;
-            $GLOBALS['sql_limit_to_append'] = '';
             PMA_showMessage($disp_message);
             $GLOBALS['sql_query'] = $tmp_sql_query;
-            $GLOBALS['sql_limit_to_append'] = $tmp_sql_limit_to_append;
         }
 
         // Displays the results in a table

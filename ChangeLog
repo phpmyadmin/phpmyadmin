@@ -17,6 +17,8 @@ $Source$
     * read_dump.php: Fix handling of comments -- and # (bug #1009494).
     * libraries/relation.lib.php: Fix typo, CONVERT is for MySQL >= 4.1 and
       not for MySQL >= 4.0.
+    * sql.php, libraries/common.lib.php: Better appending of LIMIT (bug
+      #978930).
 
 2004-08-15 Marc Delisle  <lem9@users.sourceforge.net>
     (Patches from Michael Keck)
