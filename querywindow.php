@@ -73,7 +73,6 @@ var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '
 </head>
 
 <body bgcolor="<?php echo ($cfg['QueryFrameJS'] ? $cfg['LeftBgColor'] : $cfg['RightBgColor']); ?>">
-
 <?php
 if ($cfg['QueryFrameJS'] && !isset($no_js)) {
     $querydisplay_tab = (isset($querydisplay_tab) ? $querydisplay_tab : $cfg['QueryWindowDefTab']);
@@ -89,12 +88,12 @@ if ($cfg['QueryFrameJS'] && !isset($no_js)) {
        . '                <td class="navSpacer"><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  .'" width="1" height="1" border="0" alt="" /></td>';
     }
     echo "\n";
-    echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sql.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strSQL.'" />' : '') . $strSQL, '#', '', 'onclick="javascript:query_tab_commit(\'sql\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'sql' ? TRUE : FALSE));
-    echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_import.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strImportFiles.'" />' : '') . $strImportFiles, '#', '', 'onclick="javascript:query_tab_commit(\'files\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'files' ? TRUE : FALSE));
-    echo PMA_printTab($strQuerySQLHistory, '#', '', 'onclick="javascript:query_tab_commit(\'history\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'history' ? TRUE : FALSE));
+    echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sql.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strSQL.'" />' : '') . $strSQL, '#', '', ' onclick="javascript:query_tab_commit(\'sql\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'sql' ? TRUE : FALSE));
+    echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_import.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strImportFiles.'" />' : '') . $strImportFiles, '#', '', ' onclick="javascript:query_tab_commit(\'files\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'files' ? TRUE : FALSE));
+    echo PMA_printTab($strQuerySQLHistory, '#', '', ' onclick="javascript:query_tab_commit(\'history\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'history' ? TRUE : FALSE));
 
     if ($cfg['QueryWindowDefTab'] == 'full') {
-        echo PMA_printTab($strAll, '#', '', 'onclick="javascript:query_tab_commit(\'full\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'full' ? TRUE : FALSE));
+        echo PMA_printTab($strAll, '#', '', ' onclick="javascript:query_tab_commit(\'full\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'full' ? TRUE : FALSE));
     }
 
     if (!$cfg['LightTabs']) {
@@ -112,7 +111,6 @@ if ($cfg['QueryFrameJS'] && !isset($no_js)) {
 
 ?>
 <br />
-
 <?php
 if ($cfg['PropertiesIconic'] == true) {
     // We need to copy the value or else the == 'both' check will always return true
@@ -248,10 +246,25 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     <input type="hidden" name="auto_commit" value="false" />
     <input type="hidden" name="querydisplay_tab" value="<?php echo $querydisplay_tab; ?>" />
 </form>
+
+<?php
+}
+
+$tmp_querydisplay_tab =  (isset($querydisplay_tab) ? $querydisplay_tab : $cfg['QueryWindowDefTab']);
+if ($tmp_querydisplay_tab == 'sql' || $tmp_querydisplay_tab == $cfg['QueryWindowDefTab']) {
+?>
+<script type="text/jscript" language="javascript">
+<!--
+    if (document.getElementById && typeof(document.getElementById('sqlcontainer'))!='undefined') {
+        var newWidth  = document.getElementById('sqlcontainer').offsetWidth + 40;
+        var newHeight = document.getElementById('sqlcontainer').offsetHeight + 100;
+        self.resizeTo(newWidth, newHeight);
+    }
+//-->
+</script>
 <?php
 }
 ?>
-
 </body>
 </html>
 

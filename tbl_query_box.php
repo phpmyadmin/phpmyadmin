@@ -120,11 +120,11 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) 
        . '        </noscript>';
 } else {
 ?>
-        <form method="post" action="read_dump.php"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">
+        <form method="post" action="read_dump.php"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform" style="padding: 0px; magin: 0px;">
 <?php
 }
 ?>
-            <table border="0" cellpadding="2" cellspacing="0">
+            <table border="0" cellpadding="2" cellspacing="0" id="sqlcontainer" name="sqlcontainer">
 <?php
 // for better administration
 $querybox_hidden_fields = '                    <input type="hidden" name="is_js_confirmed" value="0" />' . "\n"

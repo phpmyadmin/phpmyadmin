@@ -15,8 +15,8 @@ $cfg['BrowsePointerColor']  = '#CCFFCC';    // color of the pointer in browse mo
 $cfg['BrowseMarkerColor']   = '#FFCC99';    // color of the marker (visually marks row
                                             // by clicking on it) in browse mode
 
-$cfg['QueryWindowWidth']    = 550;          // Width of Query window
-$cfg['QueryWindowHeight']   = 310;          // Height of Query window
+$cfg['QueryWindowWidth']    = 600;          // Width of Query window
+$cfg['QueryWindowHeight']   = 400;          // Height of Query window
 
 /**
  * SQL Parser Settings

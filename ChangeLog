@@ -1,9 +1,20 @@
-----------------------
+﻿----------------------
 phpMyAdmin - Changelog
 ----------------------
 
 $Id$
 $Source$
+
+2005-01-20 Michael Keck  <mkkeck@users.sourceforge.net>
+    * new js-library: tooltip.js for tooltips (hints)
+    * libraries/common.lib.php: img tag modified for mouseover / mouseout
+      (show/hide tooltip)
+    * header.inc.php: needed div-container for tooltips
+    * footer.inc.php: linking to js-file tooltip.js
+    * themes/.../theme_right.css.php: tooltip class
+    * querywindow.php / tbl_query_box.php: resizing the querywindow if it
+      to small
+    * themes/.../layout.inc.php: increased QueryWindowHeight / QueryWindowWidth
 
 2005-01-20 Alexander M. Turek  <me@derrabus.de>
     * server_engines.php, server_links.inc.php: Use Michael's new icon for
