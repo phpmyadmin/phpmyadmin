@@ -244,7 +244,7 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     } else {
         $titles['Change']        = $strChange;
         $titles['Drop']          = $strDrop;
-        $titles['NoDrop']        = $strNoDrop;
+        $titles['NoDrop']        = $strDrop;
         $titles['Primary']       = $strPrimary;
         $titles['Index']         = $strIndex;
         $titles['Unique']        = $strUnique;

@@ -12,6 +12,7 @@ $Source$
     * sql.php3, libraries/common.lib.php3 - when $cfg['SQP']['fmtType']
       is set to 'none', positively retain any user formatting for query
       output. (RFE #769219)
+    * tbl_properties_structure.php3: fixed strNoDrop to strDrop
 
 2003-07-28 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: bug 778899, could not create a bookmark
