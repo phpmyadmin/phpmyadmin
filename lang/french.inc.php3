@@ -188,7 +188,7 @@ $strOptionally = 'OPTIONNEL';
 $strOr = 'Ou';
 $strOverhead = 'Perte';
 
-$strPartialText = 'Textes coupés';
+$strPartialText = 'Textes réduits';
 $strPassword = 'Mot de passe';
 $strPasswordEmpty = 'Le mot de passe est vide';
 $strPasswordNotSame = 'Les mots de passe doivent être identiques';
