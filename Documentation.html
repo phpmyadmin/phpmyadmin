@@ -2218,6 +2218,39 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     available starting with MySQL&nbsp;3.23.56 / 4.0.11-gamma.
 </p>
 
+<a name="faq-1-29"></a>
+<h4>
+    [1.29] When I create a table or modify a field, I get an error
+    and the fields are duplicated.
+</h4>
+<p>
+    The default configuration of Apache of some Linux distributions,
+    for example Redhat 8, has a wrong way of interpreting .php files.
+    <br /><br />
+    It uses two different (and conflicting) set of directives:
+    <br /><br />
+    <tt>
+    SetOutputFilter PHP<br />
+    SetInputFilter PHP<br />
+    </tt>  
+    <br />
+    and
+    <br />
+    <tt>
+    AddType application/x-httpd-php .php
+    </tt>
+    <br /><br />
+    In the case we saw, one set of directives was in httpd.conf, the other
+    set was in php.conf.<br />
+    The recommended way is with <tt>AddType</tt>, so just put comments
+    on the first set of lines and restart Apache:
+    <br /><br />
+    <tt><b>
+    #SetOutputFilter PHP<br />
+    #SetInputFilter PHP<br /></b>
+    </tt>  
+</p> 
+
 <a name="faqconfig"></a><br />
 <h3>[2. Configuration]</h3>
 
