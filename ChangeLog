@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-28 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.5.5 released
+
 2003-12-27 Alexander M. Turek  <tragickingdom@derrabus.de>
     * Documentation.html, README: I tested phpMyAdmin with MySQL 5.0.0-alpha.
 
