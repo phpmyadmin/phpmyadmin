@@ -241,7 +241,7 @@ if ($sql_query != '') {
         if ($pieces_count == 1 && !empty($pieces[0]['query'])) {
             $sql_query = $pieces[0]['query'];
             // .*? bellow is non greedy expansion, just in case somebody wants to understand it...
-            if (preg_match('@^((-- |#)^[\n]*|/\*.*?\*/)*(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $sql_query)) {
+            if (preg_match('@^((-- |#)[^\n]*\n|/\*.*?\*/)*(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $sql_query)) {
                 $reload = 1;
             }
             require('./sql.php');
@@ -261,7 +261,8 @@ if ($sql_query != '') {
                 $a_sql_query = $pieces[$i]['query'];
 
                 // .*? bellow is non greedy expansion, just in case somebody wants to understand it...
-                if ($i == $count - 1 && preg_match('@^((-- |#)^[\n]*|/\*.*?\*/)*(SELECT|SHOW)@i', $a_sql_query)) {
+                echo "<pre>$a_sql_query</pre>";
+                if ($i == $count - 1 && preg_match('@^((-- |#)[^\n]*\n|/\*.*?\*/)*(SELECT|SHOW)@i', $a_sql_query)) {
                     $complete_query = $sql_query;
                     $display_query = $sql_query;
                     $sql_query = $a_sql_query;
