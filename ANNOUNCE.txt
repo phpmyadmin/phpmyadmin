@@ -130,7 +130,7 @@ phpMyAdmin is intended to handle the administration of MySQL over the WWW.
       - create and read dumps of tables
       - export and import CSV data
       - support single- and multi-user configuration
-      - communicate in more than 36 different languages
+      - communicate in more than 41 different languages
 
 
 Author & Copyright
@@ -167,5 +167,5 @@ Author & Copyright
 
 
 
-EOF -- Olivier Müller / 2002.07.xx
+EOF -- Olivier Müller / 2002.08.11
 
