@@ -316,14 +316,10 @@ if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
     }
 } else {
     $GLOBALS['theme'] = $_COOKIE['pma_theme'];
-    if ($_COOKIE['pma_theme'] != 'original') {
-        $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $_COOKIE['pma_theme'] . '/img/';
-        $tmp_color_file = './' . $cfg['ThemePath'] . '/' . PMA_securePath($_COOKIE['pma_theme']) . '/colors.inc.php';
-        if (@file_exists($tmp_color_file)) {
-            include($tmp_color_file);
-        }
-    } else {
-        $pmaThemeImage = './images/';
+    $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $_COOKIE['pma_theme'] . '/img/';
+    $tmp_color_file = './' . $cfg['ThemePath'] . '/' . PMA_securePath($_COOKIE['pma_theme']) . '/colors.inc.php';
+    if (@file_exists($tmp_color_file)) {
+        include($tmp_color_file);
     }
 }
 if (!is_dir($pmaThemeImage)) {
