@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2003-11-18 Michal Cihar  <nijel@users.sourceforge.net>
+    * almost EVERYTHING: The big rename from php3 to php.
+
+2003-11-18 Michal Cihar  <nijel@users.sourceforge.net>
     * read_dump.php3: Show result of last SHOW query when multiple queries.
     * scripts/create-release.sh: Generate also sizes of files, for
       files.inc.php on homepage.

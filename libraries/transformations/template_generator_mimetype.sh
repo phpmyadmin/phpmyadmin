@@ -4,7 +4,7 @@
 # Shell script that adds a new mimetype without transform function.
 #
 # The filename should contain either 'mimetype_subtype' or 'mimetype'.
-# The suffix '.inc.php3' is appended automatically!
+# The suffix '.inc.php' is appended automatically!
 #
 # Example:  template_generator_mimetype.sh 'filename'
 # 
@@ -17,4 +17,4 @@ fi
 
 ./generator.sh 'TEMPLATE_MIMETYPE' "$1"
 echo " "
-echo "New MIMETYPE $1.inc.php3 added."
+echo "New MIMETYPE $1.inc.php added."

@@ -11,6 +11,8 @@
 # Written by Michal Cihar <nijel at users.sourceforge.net>
 ##
 # Changes:
+# 2003-11-18
+#   * switch php3 -> php
 # 2003-04-14
 #   * convert only files that are needed to convert (checks mtime), --force to
 #     avoid this checking
@@ -67,7 +69,7 @@ fi
 # names of translations to process
 ##
 # Here should be listed all translations for which conversion should be done.
-# The name is filename without inc.php3.
+# The name is filename without inc.php.
 #
 BASE_TRANSLATIONS=`cat <<EOT
 afrikaans-iso-8859-1
@@ -167,14 +169,14 @@ for base in $BASE_TRANSLATIONS ; do
     # grep language from basename
     lang=$(echo $base|sed 's%-.*%%')
     # which files will we create from current?
-    create_files=$(ls --color=none -1 $lang*.inc.php3|grep -v $base.inc.php3)
+    create_files=$(ls --color=none -1 $lang*.inc.php|grep -v $base.inc.php)
 
     for ignore in $IGNORE_TRANSLATIONS ; do
         create_files=$(echo "$create_files" | grep -v $ignore)
     done
 
     # charset of source file
-    src_charset=$(grep '\$charset' $base.inc.php3 | sed "s%^[^'\"]*['\"]\\([^'\"]*\\)['\"][^'\"]*$%\\1%")
+    src_charset=$(grep '\$charset' $base.inc.php | sed "s%^[^'\"]*['\"]\\([^'\"]*\\)['\"][^'\"]*$%\\1%")
     echo "$base [charset $src_charset]"
 
     is_utf=no
@@ -186,11 +188,11 @@ for base in $BASE_TRANSLATIONS ; do
         # grepping from file causes problems when it is empty...
         charset=$(grep '\$charset' $file | sed "s%^[^'\"]*['\"]\\([^'\"]*\\)['\"][^'\"]*$%\\1%")
         if [ -z "$charset" ] ; then
-            charset=$(echo $file | sed -e 's/^[^-]*-//' -e 's/\.inc\.php3\?$//')
+            charset=$(echo $file | sed -e 's/^[^-]*-//' -e 's/\.inc\.php\?$//')
         fi
 
         # check whether we need to update translation
-        if [ ! "$base.inc.php3" -nt "$file" -a "$FORCE" -eq 0 -a -s "$file" ] ; then
+        if [ ! "$base.inc.php" -nt "$file" -a "$FORCE" -eq 0 -a -s "$file" ] ; then
             if [ $charset = 'utf-8' ] ; then
                 is_utf=yes
             fi
@@ -202,7 +204,7 @@ for base in $BASE_TRANSLATIONS ; do
         if [ $charset = 'utf-8' ] ; then
             # if we convert to utf-8, we should add allow_recoding
             is_utf=yes
-            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
 $allow_recoding = TRUE;' > $TEMPFILE
             if [ -s $TEMPFILE ] ; then
                 cat $TEMPFILE > $file
@@ -213,7 +215,7 @@ $allow_recoding = TRUE;' > $TEMPFILE
             fi
         elif [ $src_charset = 'utf-8' ] ; then
             # if we convert from utf-8, we should remove allow_recoding
-            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| grep -v allow_recoding > $TEMPFILE
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| grep -v allow_recoding > $TEMPFILE
             if [ -s $TEMPFILE ] ; then
                 cat $TEMPFILE > $file
                 echo done
@@ -223,7 +225,7 @@ $allow_recoding = TRUE;' > $TEMPFILE
             fi
         else
             # just convert
-            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed "s/$src_charset/$charset/" > $TEMPFILE
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed "s/$src_charset/$charset/" > $TEMPFILE
             if [ -s $TEMPFILE ] ; then
                 cat $TEMPFILE > $file
                 echo done
@@ -243,8 +245,8 @@ $allow_recoding = TRUE;' > $TEMPFILE
             # we should create utf-8 translation
             echo -n " creating utf-8 translation ... "
             charset=utf-8
-            file=$lang-$charset.inc.php3
-            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
+            file=$lang-$charset.inc.php
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
 $allow_recoding = TRUE;' > $TEMPFILE
             if [ -s $TEMPFILE ] ; then
                 cat $TEMPFILE > $file

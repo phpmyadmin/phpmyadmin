@@ -17,7 +17,7 @@ if (!defined('PMA_TRANSFORMATION_[ENTER_FILENAME_HERE]')){
 
     function PMA_transformation_[enter_filename_here]($buffer, $options = array(), $meta = '') {
         // possibly use a global transform and feed it with special options:
-        // include('./libraries/transformations/global.inc.php3');
+        // include('./libraries/transformations/global.inc.php');
 
         // further operations on $buffer using the $options[] array.
 

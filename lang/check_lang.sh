@@ -7,9 +7,9 @@
 # Robin Johnson <robbat2@users.sourceforge.net>
 # August 9, 2002
 ##
-MASTER="english-iso-8859-1.inc.php3"
+MASTER="english-iso-8859-1.inc.php"
 TMPDIR="tmp-check"
-FILEPAT="*.inc.php3"
+FILEPAT="*.inc.php"
 STRINGSTRING='^[[:space:]]*\$[[:alnum:]_]*[[:blank:]]* ='
 
 rm -rf $TMPDIR

@@ -11,7 +11,7 @@ if [ $# -ne 1 ] ; then
     exit 1
 fi
     
-for file in *.inc.php3
+for file in *.inc.php
 do
     echo $file " "
     grep -v '?>' ${file} > ${file}.new

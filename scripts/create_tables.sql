@@ -9,7 +9,7 @@
 --  up with having the same password for the controluser) #
 --                                                        #
 --  Please dont forget to set up the tablenames in        #
---  config.inc.php3                                       #
+--  config.inc.php                                        #
 --                                                        #
 --  Please note that the table names might be converted   #
 --  to lower case, if the MySQL option                    #

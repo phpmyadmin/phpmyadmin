@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.510 2003/10/16
-       15:22:11 nijel Exp $
+     * Documentation version: $Id: Documentation.html,v 1.518 2003/11/07
+       18:01:55 lem9 Exp $
 
 Requirements
 
@@ -75,35 +75,28 @@ Installation
    scripts before uploading them to your server, as PHP seems not to like
    Mac-style end of lines character ("\r").
 
-   Documentation warning: when you see in this document a .php3 file
-   extension, please transpose to .php if you are using a kit with files
-   having this extension.
-
    Quick Install:
-    1. Choose and download a distribution kit with the files having the
-       extension (.php3 or .php) depending on the way your web/PHP server
-       interprets those extensions.
-    2. Untar or unzip the distribution (be sure to unzip the
+    1. Untar or unzip the distribution (be sure to unzip the
        subdirectories): tar -xzvf phpMyAdmin_x.x.x.tar.gz in your
        webserver's document root. If you don't have direct access to your
        document root, put the files in a directory on your local machine,
        and, after step 3, transfer the directory on your web server
        using, for example, ftp.
-    3. Open the file config.inc.php3 in your favorite editor and change
+    2. Open the file config.inc.php in your favorite editor and change
        the values for host, user, password and authentication mode to fit
        your environment. Here, "host" means the MySQL server. Also insert
        the correct value for $cfg['PmaAbsoluteUri']. Have a look at
        Configuration section for an explanation of all values.
-    4. It is recommended that you protect the directory in which you
+    3. It is recommended that you protect the directory in which you
        installed phpMyAdmin (unless it's on a closed intranet, or you
        wish to use HTTP or cookie authentication), for example with
        HTTP-AUTH (in a .htaccess file). See the FAQ section for
        additional information.
-    5. Open the file <www.your-host.com>/<your-install-dir>/index.php3 in
+    4. Open the file <www.your-host.com>/<your-install-dir>/index.php in
        your browser. phpMyAdmin should now display a welcome screen and
        your databases, or a login dialog if using HTTP or cookie
        authentication mode.
-    6. For a whole set of new features (bookmarks, comments, SQL-history,
+    5. For a whole set of new features (bookmarks, comments, SQL-history,
        PDF-generation, field contents transformation, etc.) you need to
        create a set of tables in your database. Please look at your
        scripts/ directory, where you should find a file called
@@ -112,12 +105,12 @@ Installation
        create the tables for you. Please be aware that you may have to
        have special (administrator) privileges to create the database and
        tables. After having imported the create_tables.sql file, you
-       should specify the table names in your config.inc.php3 file. The
+       should specify the table names in your config.inc.php file. The
        directives used for that can be found in the Configuration
        section.
 
    Upgrading from an older version:
-     * Please do not copy your older config.inc.php3 over the new one: it
+     * Please do not copy your older config.inc.php over the new one: it
        may offer new configuration variables, and the new version may
        depend on these for normal behavior. It is suggested instead to
        insert your site values in the new one.
@@ -145,7 +138,7 @@ Installation
        except "Password"), mysql.db (all columns) & mysql.tables_priv
        (all columns except "Grantor" & "Timestamp") tables.
        You must specify the details for the controluser in the
-       config.inc.php3 file under the $cfg['Servers'][$i]['controluser']&
+       config.inc.php file under the $cfg['Servers'][$i]['controluser']&
        $cfg['Servers'][$i]['controlpass'] settings.
        The following example assumes you want to use pma as the
        controluser and pmapass as the controlpass, but this is only an
@@ -234,7 +227,7 @@ Configuration
    the *nix end of line character ("\n") in your text editor before
    registering a script you have modified.
 
-   All configurable data is placed in config.inc.php3.
+   All configurable data is placed in config.inc.php.
 
    $cfg['PmaAbsoluteUri'] string
           Sets here the complete URL (with full path) to your phpMyAdmin
@@ -353,7 +346,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           for this server.
 
           + 'config' authentication ($auth_type = 'config') is the plain
-            old way: username and password are stored in config.inc.php3.
+            old way: username and password are stored in config.inc.php.
           + 'cookie' authentication mode ($auth_type = 'cookie') as
             introduced in 2.2.3 allows you to log in as any valid MySQL
             user with the help of cookies. Log name and password are
@@ -384,10 +377,18 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           since the latter does not need to send MySQL requests to build
           the available database list. But it does not replace the
           privileges rules of the MySQL database server. If set, it just
-          means only these databases will be displayed but not at all
+          means only these databases will be displayed but not that all
           other databases can't be used.
           An example of using more that one database:
           $cfg['Servers'][$i]['only_db'] = array('db1', 'db2');
+          As of phpMyAdmin 2.5.5 the order inside the array is used for
+          sorting the databases in the left frame, so that you can
+          individually arrange your databases.
+          If you want to have certain tables at the top, but don't care
+          about the others, you do not need to specify all other
+          databases. Use: $cfg['Servers'][$i]['only_db'] = array('db3',
+          'db4', '*'); instead to tell phpMyAdmin that it should display
+          db3 and db4 on top, and the rest in alphabetic order.
 
    $cfg['Servers'][$i]['verbose'] string
           Only useful when using phpMyAdmin with multiple server entries.
@@ -884,20 +885,20 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
    $cfg['DefaultTabServer'] string
           Defines the tab displayed by default on server view. Possible
-          values: "main.php3" (recommended for multi-user setups),
-          "server_databases.php3", "server_status.php3",
-          "server_variables.php3", "server_privileges.php3" or
-          "server_processlist.php3".
+          values: "main.php" (recommended for multi-user setups),
+          "server_databases.php", "server_status.php",
+          "server_variables.php", "server_privileges.php" or
+          "server_processlist.php".
 
    $cfg['DefaultTabDatabase'] string
           Defines the tab displayed by default on database view. Possible
-          values: "db_details_structure.php3", "db_details.php3" or
-          "db_search.php3".
+          values: "db_details_structure.php", "db_details.php" or
+          "db_search.php".
 
    $cfg['DefaultTabTable'] string
           Defines the tab displayed by default on table view. Possible
-          values: "tbl_properties_structure.php3", "tbl_properties.php3",
-          "tbl_select.php3" or "tbl_change.php3".
+          values: "tbl_properties_structure.php", "tbl_properties.php",
+          "tbl_select.php" or "tbl_change.php".
 
    $cfg['MySQLManualBase'] string
           If set to an URL which points to the MySQL documentation (type
@@ -918,12 +919,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
    $cfg['DefaultLang'] string
           Defines the default language to use, if not browser-defined or
           user-defined.
-          See the select_lang.inc.php3 script to know the valid values
-          for this setting.
+          See the select_lang.inc.php script to know the valid values for
+          this setting.
 
    $cfg['Lang'] string
           Force: always use this language (must be defined in the
-          select_lang.inc.php3 script).
+          select_lang.inc.php script).
 
    $cfg['DefaultCharset'] string
           Default character set to use for recoding of MySQL queries.
@@ -1057,7 +1058,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           lineup.
           The HeaderFlipType can be set to 'css' or 'faked'. When using
           'css' the rotation of the header for horizontalflipped is done
-          via CSS. If set to 'faked' PGP does the transformation for you,
+          via CSS. If set to 'faked' PHP does the transformation for you,
           but of course this does not look as good as CSS.
 
    $cfg['DefaultPropDisplay'] string
@@ -1340,14 +1341,14 @@ Transformations
    For a general overview of all available transformations and their
    options, you can consult your
    <www.your-host.com>/<your-install-dir>/libraries/transformations/overv
-   iew.php3 installation.
+   iew.php installation.
 
    For a tutorial on how to effectively use transformations, see our Link
    section on the official phpMyAdmin-homepage.
 
   [2. Usage]
 
-   Go to your tbl_properties.inc.php3 page (i.e. reached through clicking
+   Go to your tbl_properties.inc.php page (i.e. reached through clicking
    on the 'properties' link for a table). There click on "Change" (or
    change icon) and there you will see three new fields at the end of the
    line. They are called 'MIME-type', 'Browser transformation' and
@@ -1409,13 +1410,13 @@ Transformations
    different mimetype they where built for, but pay attention to option
    usage as well as what the transformation does to your field.
 
-   There is a basic file called 'global.inc.php3'. This function can be
+   There is a basic file called 'global.inc.php'. This function can be
    included by any other transform function and provides some basic
    functions.
 
    There are 5 possible file names:
     1. A mimetype+subtype transform:
-       [mimetype]_[subtype]__[transform].inc.php3
+       [mimetype]_[subtype]__[transform].inc.php
        Please not that mimetype and subtype are separated via '_', which
        shall not be contained in their names. The transform
        function/filename may contain only characters which cause no
@@ -1424,10 +1425,10 @@ Transformations
        The transform function will the be called
        'PMA_transform_[mimetype]_[subtype]__[transform]()'.
        Example:
-       text_html__formatted.inc.php3
+       text_html__formatted.inc.php
        PMA_transform_text_html__formatted()
     2. A mimetype (w/o subtype) transform:
-       [mimetype]__[transform].inc.php3
+       [mimetype]__[transform].inc.php
        Please note that there are no single '_' characters. The transform
        function/filename may contain only characters which cause no
        problems in the file system as well as the PHP function naming
@@ -1435,28 +1436,28 @@ Transformations
        The transform function will the be called
        'PMA_transform_[mimetype]__[transform]()'.
        Example:
-       text__formatted.inc.php3
+       text__formatted.inc.php
        PMA_transform_text__formatted()
     3. A mimetype+subtype without specific transform function
-       [mimetype]_[subtype].inc.php3
+       [mimetype]_[subtype].inc.php
        Please note that there are no '__' characters in the filename. Do
        not use special characters in the filename causing problems with
        the file system.
        No transformation function is defined in the file itself.
        Example:
-       text_plain.inc.php3
+       text_plain.inc.php
        (No function)
     4. A mimetype (w/o subtype) without specific transform function
-       [mimetype].inc.php3
+       [mimetype].inc.php
        Please note that there are no '_' characters in the filename. Do
        not use special characters in the filename causing problems with
        the file system.
        No transformation function is defined in the file itself.
        Example:
-       text.inc.php3
+       text.inc.php
        (No function)
     5. A global transform function with no specific mimetype
-       global__[transform].inc.php3
+       global__[transform].inc.php
        The transform function will the be called
        'PMA_transform_global__[transform]()'.
        Example:
@@ -1474,7 +1475,7 @@ Transformations
    libraries/transformations/TEMPLATE_MIMETYPE for adding a mimetype
    without a transform function. Also note the introduction of a function
    description in the language files. For each function a
-   $strTransformation_[filename without .inc.php3] has to exist.
+   $strTransformation_[filename without .inc.php] has to exist.
 
    You can use the template generator to generate new functions and
    entries in the language file.
@@ -1483,6 +1484,20 @@ Transformations
    libraries/transformations/template_generator.sh. To create a new,
    empty mimetype please see
    libraries/transformations/template_generator_mimetype.sh.
+
+   A transform function always gets passed three variables:
+    1. $buffer - Contains the text inside of the column. This is the
+       text, you want to transform.
+    2. $options - Contains any user-passed options to a transform
+       function as an array.
+    3. $meta - Contains an object with field information to your column.
+       The data is drawn from the output of the mysql_fetch_field()
+       function. This means, all object properties described on the
+       manual page are available in this variable and can be used to
+       transform a field accordingly to unsigned/zerofill/not_null/...
+       properties.
+       The $meta->mimetype variable contains the original MIME-type of
+       the field (i.e. 'text/plain', 'image/jpeg' etc.)
 
 FAQ - Frequently Asked Questions
 
@@ -1501,8 +1516,8 @@ FAQ - Frequently Asked Questions
 
    There are some known PHP bugs with output buffering and compression.
    Try to set the $cfg['OBGzip'] directive to FALSE in your
-   config.inc.php or .php3 file and the zlib.output_compression directive
-   to Off in your php configuration file.
+   config.inc.php file and the zlib.output_compression directive to Off
+   in your php configuration file.
    Furthermore, we know about such problems connected to the release
    candidates of PHP 4.2.0 (tested with PHP 4.2.0 RC1 to RC4) together
    with MS Internet Explorer. Please upgrade to the release version PHP
@@ -1545,9 +1560,9 @@ FAQ - Frequently Asked Questions
 
    This seems to be a PWS bug. Filippo Simoncini found a workaround (at
    this time there is no better fix): remove or comment the DOCTYPE
-   declarations (2 lines) from the scripts header.inc.php3,
-   header_printview.inc.php3, index.php3, left.php3 and
-   libraries/common.lib.php3.
+   declarations (2 lines) from the scripts header.inc.php,
+   header_printview.inc.php, index.php, left.php and
+   libraries/common.lib.php.
 
     [1.7] How can I GZip or Bzip a dump or a CSV export. It does not seem to
     work.
@@ -1734,10 +1749,10 @@ FAQ - Frequently Asked Questions
    should work.
 
     [1.27] I get empty page when I want to view huge page (eg.
-    db_details_structure.php3 with plenty of tables).
+    db_details_structure.php with plenty of tables).
 
    This is a PHP bug that occur when GZIP output buffering enabled. If
-   you turn off it (by $cfg['OBGzip'] = FALSE in config.inc.php3), it
+   you turn off it (by $cfg['OBGzip'] = FALSE in config.inc.php), it
    should work. This bug will be fixed in PHP 5.0.0.
 
     [1.28] My MySQL server sometimes refuses queries and returns the message
@@ -1778,7 +1793,7 @@ FAQ - Frequently Asked Questions
     [2.1] The error message "Warning: Cannot add header information - headers
     already sent by ..." is displayed, what's the problem?
 
-   Edit your config.inc.php or .php3 file and ensure there is nothing
+   Edit your config.inc.php or .php file and ensure there is nothing
    (I.E. no blank lines, no spaces, no characters...) neither before the
    <?php tag at the beginning, neither after the ?> tag at the end.
 
@@ -1811,7 +1826,7 @@ FAQ - Frequently Asked Questions
        Assuming you are using PHP 3.0.10 or better, you can specify the
        socket to use when you open the connection. To do this in
        phpMyAdmin, you need to complete the socket information in the
-       config.inc.php3.
+       config.inc.php.
        For example: $cfg['Servers'][$i]['socket'] = '/tmp/mysql.sock';
        Please also make sure that the permissions of this file allow to
        be readable by your webserver (i.e. '0755').
@@ -1916,6 +1931,39 @@ FAQ - Frequently Asked Questions
    parse_url function. The workaround is to create a primary or unique
    key.
 
+    [3.8] I cannot use (clickable) HTML-forms in fields where I put a
+    MIME-Transformation onto!
+
+   Due to a surrounding form-container (for multi-row delete checkboxes),
+   no nested forms can be put inside the table where phpMyAdmin displays
+   the results. You can, however, use any form inside of a table if keep
+   the parent form-container with the target to tbl_row_delete.php and
+   just put your own input-elements inside. If you use a custom submit
+   input field, the form will submit itself to the displaying page again,
+   where you can validate the $HTTP_POST_VARS in a transformation. For a
+   tutorial on how to effectively use transformations, see our Link
+   section on the official phpMyAdmin-homepage.
+
+    [3.9] I get error messages when using "--sql_mode=ANSI" for the MySQL
+    server
+
+   When MySQL is running in ANSI-compatibility mode, there are some major
+   differences in how SQL is structured (see
+   http://www.mysql.com/doc/en/ANSI_mode.html). Most important of all,
+   the quote-character (") is interpreted as an identifier quote
+   character and not as a string quote character, which makes many
+   internal phpMyAdmin operations into invalid SQL statements. There is
+   no workaround to this behaviour. News to this item will be posted in
+   Bug report #816858
+
+    [3.10] Homonyms and no primary key: When the results of a SELECT display
+    more that one column with the same value (for example SELECT lastname from
+    employees where firstname like 'A%' and two "Smith" values are displayed),
+    if I click Edit I cannot be sure that I am editing the intended row.
+
+   Please make sure that your table has a primary key, so that phpMyAdmin
+   can use it for the Edit and Delete links.
+
   [4. ISPs, multi-user installations ]
 
     [4.1] I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need
@@ -1937,12 +1985,12 @@ FAQ - Frequently Asked Questions
    If other people have telnet access to your server, you should use
    phpMyAdmin's HTTP authentication feature.
    Suggestions:
-     * Your config.inc.php3 file should be chmod 660.
+     * Your config.inc.php file should be chmod 660.
      * All your phpMyAdmin files should be chown phpmy.apache, where
        phpmy is a user whose password is only known to you, and apache is
        the group under which Apache runs.
      * You should use PHP safe mode, to protect from other users that try
-       to include your config.inc.php3 in their scripts.
+       to include your config.inc.php in their scripts.
 
     [4.3] I get errors about not being able to include a file in /lang or in
     /libraries.
@@ -2123,7 +2171,9 @@ FAQ - Frequently Asked Questions
 
    Since version 2.2.3, you have a checkbox for each field that can be
    null. Before 2.2.3, you had to enter "null", without the quotes, as
-   the field's value.
+   the field's value. Since version 2.5.5, you have to use the checkbox
+   to get a real NULL value, so if you enter "NULL" this means you want a
+   literal NULL in the field, and not a NULL value (this works in PHP4).
 
     [6.4] How can I backup my database or table?
 
@@ -2418,8 +2468,8 @@ FAQ - Frequently Asked Questions
     existing language, where do I start?
 
    Always use the current CVS version of your language file. For a new
-   language, start from english-iso-8859-1.inc.php3. If you don't know
-   how to get the CVS version, please ask one of the developers.
+   language, start from english-iso-8859-1.inc.php. If you don't know how
+   to get the CVS version, please ask one of the developers.
    Please note that we try not to use HTML entities like &eacute; in the
    translations, since we define the right character set in the file.
    With HTML entities, the text on JavaScript messages would not display
@@ -2491,12 +2541,12 @@ Developers Information
 
    If you're planning to contribute source, please read the following
    information:
-     * All files include header.inc.php3 (layout),
-       libraries/common.lib.php3 (common functions) and config.inc.php3.
-       All configuration data belongs in config.inc.php3. Please keep it
+     * All files include header.inc.php (layout),
+       libraries/common.lib.php (common functions) and config.inc.php.
+       All configuration data belongs in config.inc.php. Please keep it
        free from other code.
        Commonly used functions should be added to
-       libraries/common.lib.php3 and more specific ones may be added
+       libraries/common.lib.php and more specific ones may be added
        within a library stored into the libraries sub-directory.
      * Obviously, you're free to use whatever coding style you want. But
        please try to keep your code as simple as possible: beginners are
@@ -2505,10 +2555,10 @@ Developers Information
        compliant on one hand, they fit the PEAR coding standards on the
        other hand. Please pay attention to this.
      * Please try to keep up the file-naming conventions. Table-related
-       stuff goes to tbl_*.php3, db-related code to db_*.php3,
-       server-related tools to server_*.php3 and so on.
+       stuff goes to tbl_*.php, db-related code to db_*.php,
+       server-related tools to server_*.php and so on.
      * Please don't use verbose strings in your code, instead add the
-       string (at least) to english-iso-8859-1.inc.php3 and print() it
+       string (at least) to english-iso-8859-1.inc.php and print() it
        out.
      * If you want to be really helpful, write an entry for the
        ChangeLog.

@@ -2,9 +2,13 @@
 #
 # $Id$
 #
+# 2003-11-18, nijel@users.sourceforge.net:
+# - switch php3 -> php
+#
 # 2003-10-10, nijel@users.sourceforge.net:
 # - cvsserver set on just one place to ease testing
 # - echoes md5 sums to include on download page
+#
 # 2003-06-22, robbat2@users.sourceforge.net:
 # - Moved to using updatedocs.sh for updating documentation
 # - Make tarring faster by re-arranging ops
@@ -60,7 +64,7 @@ cat <<END
 
 Please ensure you have:
   1. incremented rc count or version in CVS :
-     - in libraries/defines_php.lib.php3 the line
+     - in libraries/defines_php.lib.php the line
           " define('PMA_VERSION', '$1'); "
      - in Documentation.html the 2 lines
           " <title>phpMyAdmin $1 - Documentation</title> "
@@ -73,7 +77,7 @@ Please ensure you have:
        cd lang
        ./sync_lang.sh
      and checked all language files are valid (use
-     the "./scripts/check_lang.php3" script to do it).
+     the "./scripts/check_lang.php" script to do it).
 
 Continue (y/n)?
 END
@@ -112,21 +116,12 @@ find phpMyAdmin -type f -print0 | xargs -0 chmod 644
 find phpMyAdmin \( -name '*.sh' -o -name '*.pl' \) -print0 | xargs -0 chmod 755
 mv phpMyAdmin phpMyAdmin-$1
 
-# Roll up '.php3' release
-zip -9 -r phpMyAdmin-$1-php3.zip phpMyAdmin-$1
-tar cvf phpMyAdmin-$1-php3.tar phpMyAdmin-$1
-bzip2 -9kv phpMyAdmin-$1-php3.tar
-gzip -9v phpMyAdmin-$1-php3.tar
-
-# Setup for '.php' release
-cd phpMyAdmin-$1
-./scripts/extchg.sh php3 php
-cd ..
 # Roll up '.php' release
-zip -9 -r phpMyAdmin-$1-php.zip phpMyAdmin-$1
-tar cvf phpMyAdmin-$1-php.tar phpMyAdmin-$1
-bzip2 -9kv phpMyAdmin-$1-php.tar
-gzip -9v phpMyAdmin-$1-php.tar
+zip -9 -r phpMyAdmin-$1.zip phpMyAdmin-$1
+tar cvf phpMyAdmin-$1.tar phpMyAdmin-$1
+bzip2 -9kv phpMyAdmin-$1.tar
+gzip -9v phpMyAdmin-$1.tar
+
 
 echo ""
 echo ""
@@ -177,7 +172,7 @@ Todo now:
         phpmyadmin-news@lists.sourceforge.net
         phpmyadmin-users@lists.sourceforge.net
  8. increment rc count or version in CVS :
-        - in libraries/defines_php.lib.php3 the line
+        - in libraries/defines_php.lib.php the line
               " define('PHPMYADMIN_VERSION', '2.2.2-rc1'); "
         - in Documentation.html the 2 lines
               " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "

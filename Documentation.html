@@ -145,23 +145,14 @@
     end of lines character (&quot;<tt>\r</tt>&quot;).
 </p>
 
-<p>
-    <span class="important">Documentation warning:</span> when you see in this
-    document a <i>.php3</i> file extension, please transpose to <i>.php</i>
-    if you are using a kit with files having this extension.
-</p>
-
 <p><b>Quick Install:</b></p>
 <ol>
-    <li> Choose and download a distribution kit with the files having the
-         extension (<i>.php3</i> or <i>.php</i>) depending on the way your
-         web/PHP server interprets those extensions.</li>
     <li> Untar or unzip the distribution (be sure to unzip the subdirectories):
          <tt>tar -xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's
          document root. If you don't have direct access to your document root,
          put the files in a directory on your local machine, and, after step 3,
          transfer the directory on your web server using, for example, ftp.</li>
-    <li> Open the file config.inc.php3 in your favorite editor and change
+    <li> Open the file config.inc.php in your favorite editor and change
          the values for host, user, password and authentication mode to fit
          your environment. Here, &quot;host&quot; means the MySQL server.
          Also insert the correct value for <tt>$cfg['PmaAbsoluteUri']</tt>.
@@ -175,7 +166,7 @@
          <a href="#faq">FAQ section</a> for additional
          information.</li>
     <li> Open the file
-         <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/index.php3</i>
+         <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/index.php</i>
          in your browser. phpMyAdmin should now display a welcome screen
          and your databases, or a login dialog if using HTTP or cookie
          authentication mode.</li>
@@ -186,14 +177,14 @@
          You can already use your phpMyAdmin to create the tables for you. Please be
          aware that you may have to have special (administrator) privileges to create
          the database and tables. After having imported the <i>create_tables.sql</i> file,
-         you should specify the table names in your config.inc.php3 file. The directives
+         you should specify the table names in your config.inc.php file. The directives
          used for that can be found in the <a href="#config">Configuration section</a>.</li>
 
 </ol>
 
 <p><b>Upgrading from an older version:</b></p>
 <ul>
-    <li>Please do not copy your older config.inc.php3 over the new one: it may
+    <li>Please do not copy your older config.inc.php over the new one: it may
         offer new configuration variables, and the new version may depend on
         these for normal behavior.  It is suggested instead to insert your site
         values in the new one.</li>
@@ -231,7 +222,7 @@
         columns)</i> &amp; <i>mysql.tables_priv (all columns except
         &quot;Grantor&quot; &amp; &quot;Timestamp&quot;) </i>tables.<br /> You
         must specify the details for the controluser in the
-        <i>config.inc.php3</i> file under the
+        <i>config.inc.php</i> file under the
         <tt>$cfg['Servers'][$i]['controluser']</tt>&amp;
         <tt>$cfg['Servers'][$i]['controlpass']</tt> settings.<br /> The
         following example assumes you want to use <tt>pma</tt> as the
@@ -341,7 +332,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     you have modified.
 </p>
 
-<p>All configurable data is placed in <i>config.inc.php3</i>.</p>
+<p>All configurable data is placed in <i>config.inc.php</i>.</p>
 <dl>
     <dt><b>$cfg['PmaAbsoluteUri']</b> string</dt>
     <dd>
@@ -507,7 +498,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 'config' authentication
                 (<tt>$auth_type&nbsp;=&nbsp;'config'</tt>) is the plain old
                 way: username and password are stored in
-                <i>config.inc.php3</i>.
+                <i>config.inc.php</i>.
             </li>
             <li>
                 'cookie' authentication mode
@@ -1325,27 +1316,27 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dt><b>$cfg['DefaultTabServer'] </b>string</dt>
     <dd>
         Defines the tab displayed by default on server view. Possible
-        values: &quot;main.php3&quot; (recommended for multi-user setups),
-        &quot;server_databases.php3&quot;, &quot;server_status.php3&quot;,
-        &quot;server_variables.php3&quot;, &quot;server_privileges.php3&quot;
-        or &quot;server_processlist.php3&quot;.
+        values: &quot;main.php&quot; (recommended for multi-user setups),
+        &quot;server_databases.php&quot;, &quot;server_status.php&quot;,
+        &quot;server_variables.php&quot;, &quot;server_privileges.php&quot;
+        or &quot;server_processlist.php&quot;.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['DefaultTabDatabase'] </b>string</dt>
     <dd>
         Defines the tab displayed by default on database view. Possible
-        values: &quot;db_details_structure.php3&quot;,
-        &quot;db_details.php3&quot; or &quot;db_search.php3&quot;.
+        values: &quot;db_details_structure.php&quot;,
+        &quot;db_details.php&quot; or &quot;db_search.php&quot;.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['DefaultTabTable'] </b>string</dt>
     <dd>
         Defines the tab displayed by default on table view. Possible
-        values: &quot;tbl_properties_structure.php3&quot;,
-        &quot;tbl_properties.php3&quot;, &quot;tbl_select.php3&quot; or
-        &quot;tbl_change.php3&quot;.
+        values: &quot;tbl_properties_structure.php&quot;,
+        &quot;tbl_properties.php&quot;, &quot;tbl_select.php&quot; or
+        &quot;tbl_change.php&quot;.
         <br /><br />
     </dd>
 
@@ -1378,7 +1369,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         Defines the default language to use, if not browser-defined or
         user-defined.<br />
-        See the <i>select_lang.inc.php3</i> script to know the valid values for
+        See the <i>select_lang.inc.php</i> script to know the valid values for
         this setting.
         <br /><br />
     </dd>
@@ -1386,7 +1377,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dt><b>$cfg['Lang'] </b>string</dt>
     <dd>
         Force: always use this language (must be defined in the
-        <i>select_lang.inc.php3</i> script).
+        <i>select_lang.inc.php</i> script).
         <br /><br />
     </dd>
 
@@ -1976,7 +1967,7 @@ options you can also specify strings to append/prepend to a string or the format
 want the output stored in.</p><br />
 
 <p>For a general overview of all available transformations and their options, you can
-consult your <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/libraries/transformations/overview.php3</i>
+consult your <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/libraries/transformations/overview.php</i>
 installation.</p>
 
 <p><br />For a tutorial on how to effectively use transformations, see our <a href="http://www.phpmyadmin.net/home_page/docs.php">Link section</a> on the official phpMyAdmin-homepage.</p>
@@ -1984,7 +1975,7 @@ installation.</p>
 <a name="transformationshowto"></a><br />
 <h3>[2. Usage]</h3>
 
-<p>Go to your tbl_properties.inc.php3 page (i.e. reached through clicking on the
+<p>Go to your tbl_properties.inc.php page (i.e. reached through clicking on the
 'properties' link for a table). There click on &quot;Change&quot; (or change
 icon) and there you will see three new fields at the end of the line. They are
 called 'MIME-type', 'Browser transformation' and 'Transformation options'.</p>
@@ -2046,7 +2037,7 @@ for many mimetypes. You can also use transforms on a different mimetype they whe
 for, but pay attention to option usage as well as what the transformation does to your
 field.</p><br />
 
-<p>There is a basic file called 'global.inc.php3'. This function can be included by
+<p>There is a basic file called 'global.inc.php'. This function can be included by
 any other transform function and provides some basic functions.</p><br />
 
 <p>There are 5 possible file names:</p>
@@ -2054,7 +2045,7 @@ any other transform function and provides some basic functions.</p><br />
 <ol>
 <li>A mimetype+subtype transform:<br /><br />
 
-    [mimetype]_[subtype]__[transform].inc.php3<br /><br />
+    [mimetype]_[subtype]__[transform].inc.php<br /><br />
 
     Please not that mimetype and subtype are separated via '_', which shall not be
     contained in their names. The transform function/filename may contain only
@@ -2065,12 +2056,12 @@ any other transform function and provides some basic functions.</p><br />
 
     <b>Example:</b><br /><br />
 
-    text_html__formatted.inc.php3<br />
+    text_html__formatted.inc.php<br />
     PMA_transform_text_html__formatted()</li>
 
 <li>A mimetype (w/o subtype) transform:<br /><br />
 
-    [mimetype]__[transform].inc.php3<br /><br />
+    [mimetype]__[transform].inc.php<br /><br />
 
     Please note that there are no single '_' characters.
     The transform function/filename may contain only characters which cause no problems
@@ -2080,12 +2071,12 @@ any other transform function and provides some basic functions.</p><br />
 
     <b>Example:</b><br /><br />
 
-    text__formatted.inc.php3<br />
+    text__formatted.inc.php<br />
     PMA_transform_text__formatted()</li>
 
 <li>A mimetype+subtype without specific transform function<br /><br />
 
-    [mimetype]_[subtype].inc.php3<br /><br />
+    [mimetype]_[subtype].inc.php<br /><br />
 
     Please note that there are no '__' characters in the filename. Do not use special
     characters in the filename causing problems with the file system.<br /><br />
@@ -2094,12 +2085,12 @@ any other transform function and provides some basic functions.</p><br />
 
     <b>Example:</b><br /><br />
 
-    text_plain.inc.php3<br />
+    text_plain.inc.php<br />
     (No function)</li>
 
 <li>A mimetype (w/o subtype) without specific transform function<br /><br />
 
-    [mimetype].inc.php3<br /><br />
+    [mimetype].inc.php<br /><br />
 
     Please note that there are no '_' characters in the filename. Do not use special
     characters in the filename causing problems with the file system.<br /><br />
@@ -2108,12 +2099,12 @@ any other transform function and provides some basic functions.</p><br />
 
     <b>Example:</b><br /><br />
 
-    text.inc.php3<br />
+    text.inc.php<br />
     (No function)</li>
 
 <li>A global transform function with no specific mimetype<br /><br />
 
-    global__[transform].inc.php3<br /><br />
+    global__[transform].inc.php<br /><br />
 
     The transform function will the be called 'PMA_transform_global__[transform]()'.<br /><br />
 
@@ -2133,7 +2124,7 @@ functions in the dropdown.</p><br />
 <p>Please see the libraries/transformations/TEMPLATE file for adding your own transform
 function. See the libraries/transformations/TEMPLATE_MIMETYPE for adding a mimetype
 without a transform function. Also note the introduction of a function description in
-the language files. For each function a $strTransformation_[filename without .inc.php3]
+the language files. For each function a $strTransformation_[filename without .inc.php]
 has to exist.</p><br />
 
 <p>You can use the template generator to generate new functions and entries in the
@@ -2183,7 +2174,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     There are some known PHP bugs with output buffering and compression.<br />
     Try to set the <tt>$cfg['OBGzip']</tt> directive to <tt>FALSE</tt> in your
-    <i>config.inc.php or .php3</i> file and the
+    <i>config.inc.php</i> file and the
     <tt>zlib.output_compression</tt> directive to <tt>Off</tt> in your php
     configuration file.<br />
     Furthermore, we know about such problems connected to the release
@@ -2245,9 +2236,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     This seems to be a PWS bug. Filippo Simoncini found a workaround (at this
     time there is no better fix): remove or comment the <tt>DOCTYPE</tt>
-    declarations (2 lines) from the scripts <i>header.inc.php3</i>,
-    <i>header_printview.inc.php3</i>, <i>index.php3</i>, <i>left.php3</i> and
-    <i>libraries/common.lib.php3</i>.
+    declarations (2 lines) from the scripts <i>header.inc.php</i>,
+    <i>header_printview.inc.php</i>, <i>index.php</i>, <i>left.php</i> and
+    <i>libraries/common.lib.php</i>.
 </p>
 
 <h4>
@@ -2520,12 +2511,12 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <h4>
     [1.27] I get empty page when I want to view huge page (eg.
-    db_details_structure.php3 with plenty of tables).
+    db_details_structure.php with plenty of tables).
 </h4>
 <p>
     This is a <a href="http://bugs.php.net/21079">PHP bug</a> that occur when
     GZIP output buffering enabled. If you turn off it (by <code>$cfg['OBGzip']
-    = FALSE</code> in config.inc.php3), it should work. This bug will be fixed
+    = FALSE</code> in config.inc.php), it should work. This bug will be fixed
     in PHP 5.0.0.
 </p>
 
@@ -2589,7 +2580,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     headers already sent by ...&quot; is displayed, what's the problem?
 </h4>
 <p>
-    Edit your <i>config.inc.php or .php3</i> file and ensure there is nothing
+    Edit your <i>config.inc.php or .php</i> file and ensure there is nothing
     (I.E. no blank lines, no spaces, no characters...) neither before the
     <tt>&lt;?php</tt> tag at the beginning, neither after the <tt>?&gt;</tt>
     tag at the end.
@@ -2640,7 +2631,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         Then, you need to tell PHP to use this socket.<br />Assuming you are
         using PHP 3.0.10 or better, you can specify the socket to use when you
         open the connection. To do this in phpMyAdmin, you need to complete the
-        socket information in the config.inc.php3.<br />
+        socket information in the config.inc.php.<br />
         For example:
         <tt>$cfg['Servers'][$i]['socket']&nbsp;=&nbsp;'/tmp/mysql.sock';</tt><br /><br />
         Please also make sure that the permissions of this file allow to be readable
@@ -2796,7 +2787,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     Due to a surrounding form-container (for multi-row delete checkboxes), no nested forms can be put inside the table where
     phpMyAdmin displays the results. You can, however, use any form inside of a table if keep the parent form-container with
-    the target to tbl_row_delete.php3 and just put your own input-elements inside. If you use a custom submit input field, the
+    the target to tbl_row_delete.php and just put your own input-elements inside. If you use a custom submit input field, the
     form will submit itself to the displaying page again, where you can validate the $HTTP_POST_VARS in a transformation.
 
     For a tutorial on how to effectively use transformations, see our <a href="http://www.phpmyadmin.net/home_page/docs.php">Link section</a>
@@ -2853,7 +2844,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </p>
 <ul>
     <li>
-        Your <i>config.inc.php3</i> file should be <tt>chmod 660</tt>.
+        Your <i>config.inc.php</i> file should be <tt>chmod 660</tt>.
     </li>
     <li>
         All your phpMyAdmin files should be chown phpmy.apache, where phpmy
@@ -2862,7 +2853,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     </li>
     <li>
         You should use PHP safe mode, to protect from other users that try
-        to include your <i>config.inc.php3</i> in their scripts.
+        to include your <i>config.inc.php</i> in their scripts.
     </li>
 </ul>
 
@@ -3527,7 +3518,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     Always use the current CVS version of your language file.
-    For a new language, start from <i>english-iso-8859-1.inc.php3</i>. If you
+    For a new language, start from <i>english-iso-8859-1.inc.php</i>. If you
     don't  know how to get the CVS version, please ask one of the developers.
     <br />
     Please note that we try not to use HTML entities like &amp;eacute; in
@@ -3650,15 +3641,15 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </p>
 <ul>
     <li>
-        All files include <i>header.inc.php3</i> (layout),
-        <i>libraries/common.lib.php3</i> (common functions) and
-        <i>config.inc.php3</i>.
+        All files include <i>header.inc.php</i> (layout),
+        <i>libraries/common.lib.php</i> (common functions) and
+        <i>config.inc.php</i>.
         <br />
-        All configuration data belongs in <i>config.inc.php3</i>. Please keep
+        All configuration data belongs in <i>config.inc.php</i>. Please keep
         it free from other code.
         <br />
         Commonly used functions should be added to
-        <i>libraries/common.lib.php3</i> and more specific ones may be added
+        <i>libraries/common.lib.php</i> and more specific ones may be added
         within a library stored into the <i>libraries</i> sub-directory.
     </li>
     <li>
@@ -3672,12 +3663,12 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     </li>
     <li>
         Please try to keep up the file-naming conventions. Table-related stuff
-        goes to <i>tbl_*.php3</i>, db-related code to <i>db_*.php3</i>,
-        server-related tools to <i>server_*.php3</i> and so on.
+        goes to <i>tbl_*.php</i>, db-related code to <i>db_*.php</i>,
+        server-related tools to <i>server_*.php</i> and so on.
     </li>
     <li>
         Please don't use verbose strings in your code, instead add the string
-        (at least) to <i>english-iso-8859-1.inc.php3</i> and print() it out.
+        (at least) to <i>english-iso-8859-1.inc.php</i> and print() it out.
     </li>
     <li>
         If you want to be really helpful, write an entry for the ChangeLog.
