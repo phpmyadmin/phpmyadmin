@@ -283,6 +283,8 @@ $strLines = 'Líneas';
 $strLinesTerminatedBy = 'Líneas terminadas en';
 $strLinkNotFound = 'Enlace no encontrado';
 $strLinksTo = 'Enlaces a';
+$strLoadExplanation = 'El mejor método es revisado en forma predeterminada, pero puede cambiarla si fracasa.'; 
+$strLoadMethod = 'CARGAR método';
 $strLocalhost = 'Local';
 $strLocationTextfile = 'Localización del archivo de texto';
 $strLogPassword = 'Contraseña:';
@@ -636,12 +638,13 @@ $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 
 $strZip = '"comprimido con zip"';
 // To translate
 
+$strExcelOptions = 'Excel options';  //to translate
+$strExecuteBookmarked = 'Execute bookmarked query';  //to translate
+
+$strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
+
+$strReplaceNULLBy = 'Replace NULL by';  //to translate
+
 $strUpdComTab = 'Please see Documentation on how to update your Column_comments Table'; //to translate
 
-$strLoadMethod = 'LOAD method';  //to translate
-$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
-$strExecuteBookmarked = 'Execute bookmarked query';  //to translate
-$strExcelOptions = 'Excel options';  //to translate
-$strReplaceNULLBy = 'Replace NULL by';  //to translate
-$strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
 ?>
