@@ -656,10 +656,6 @@ $strAddIntoComments = 'Add into comments';//to translate
 $strDatabaseExportOptions = 'Database export options';//to translate
 $strDatabaseNoTable = 'This database contains no table!';//to translate
 
-$strPaperSize = 'Paper size';  //to translate
-
-$strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
-
 $strViewDumpDatabases = 'View dump (schema) of databases';//to translate
 
 ?>
