@@ -519,7 +519,11 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
             $query_base = htmlspecialchars($GLOBALS['sql_query']);
             $query_base = ereg_replace("(\015\012)|(\015)|(\012)", $new_line, $query_base);
             if (!isset($GLOBALS['show_query']) || $GLOBALS['show_query'] != 'y') {
-                $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($GLOBALS['sql_query']) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
+                if (isset($GLOBALS['goto']) && $GLOBALS['goto'] == 'tbl_properties.php3') {
+                    $edit_link = '<a href="tbl_properties.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&table=' . urlencode($GLOBALS['table']) . '&sql_query=' . urlencode($GLOBALS['sql_query']) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
+                } else {
+                    $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($GLOBALS['sql_query']) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
+                }
                 echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;[' . $edit_link . ']<br />' . "\n";
             } else {
                 echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:<br />' . "\n";
@@ -691,16 +695,14 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
             }
             // ... and now in form "departments d"
             if ($data_count >= 2) {
-		$sql = eregi_replace(
-			'([^a-zA-Z0-9])'.$data[1].'\.',
-			'\1 '.$data[0].'.',
-			$sql);
-
+                $sql = eregi_replace(
+                           '([^a-zA-Z0-9])' . $data[1] . '\.',
+                           '\1 ' . $data[0] . '.',
+                           $sql);
                 if (!isset($match)) {
-                    $match = $data[0].' '.$data[1];
+                    $match = $data[0] . ' ' . $data[1];
                 }
-
-                $sql = str_replace($match,' '.$data[0],$sql);
+                $sql = str_replace($match, ' ' . $data[0], $sql);
             } // end if
         } // end while
 

@@ -121,12 +121,16 @@ if ($sql_query != '') {
 
 
 /**
- * Go back to db_details.php3
+ * Go back to the calling script
  */
-include('./header.inc.php3');
+require('./header.inc.php3');
 if (isset($my_die)) {
     mysql_die('', $my_die);
 }
 $message   = $strSuccess;
-require('./db_details.php3');
+if (!isset($goto)
+    || ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3')) {
+    $goto = 'db_details.php3';
+}
+require('./' . $goto);
 ?>

@@ -8,6 +8,18 @@
 require('./grab_globals.inc.php3');
 if (!isset($message)) {
     include('./header.inc.php3');
+    // Reloads the navigation frame via JavaScript if required
+    if (!empty($reload) && $reload == 'true') {
+        echo "\n";
+        ?>
+<script type="text/javascript" language="javascript1.2">
+<!--
+window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=<?php echo urlencode($db); ?>');
+//-->
+</script>
+        <?php
+    }
+    echo "\n";
 } else {
     show_message($message);
 }

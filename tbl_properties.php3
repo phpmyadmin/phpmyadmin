@@ -12,13 +12,45 @@ if (!isset($message)) {
 } else {
     show_message($message);
 }
+
+
+/**
+ * Defines the query to be displayed in the query textarea
+ */
+if (isset($show_query) && $show_query == 'y') {
+    // This script has been called by db_readdump.php3
+    if (isset($sql_query_cpy)) {
+        $query_to_display = $sql_query_cpy;
+    }
+    // Other cases
+    else if (get_magic_quotes_gpc()) {
+        $query_to_display = stripslashes($sql_query);
+    }
+    else {
+        $query_to_display = $sql_query;
+    }
+} else {
+    $query_to_display     = '';
+}
 unset($sql_query);
 
 
 /**
  * Selects the db that will be used during this script execution
  */
-mysql_select_db($db) or mysql_die();
+// mysql_select_db($db) or mysql_die();
+$is_db = @mysql_select_db($db);
+// Not a valid db name -> back to the welcome page
+if (!$is_db) {
+    header('Location: main.php3?lang=' . $lang . '&server=' . $server . '&reload=true');
+    exit();
+}
+$is_table = @mysql_query('SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
+// Not a valid table name -> back to the db_details.php3
+if (!@mysql_numrows($is_table)) {
+    header('Location: db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . '&reload=true');
+    exit();
+}
 
 
 /**
@@ -29,6 +61,7 @@ $url_query = 'lang=' . $lang
            . '&db=' . urlencode($db)
            . '&table=' . urlencode($table)
            . '&goto=tbl_properties.php3';
+
 
 /**
  * Gets table informations
@@ -52,17 +85,16 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 3) {
         $result      = mysql_query('ALTER TABLE ' . backquote($table) . 'ORDER BY ' . $order_field) or mysql_die();
     }
 
-    // Get table type and comments
+    // Get table type and comments and displays first browse links
     $result       = mysql_query('SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'') or mysql_die();
     $showtable    = mysql_fetch_array($result);
     $tbl_type     = strtoupper($showtable['Type']);
 
-    if (isset($showtable['Rows']) && $showtable['Rows']>0) {
-
-	?>
-
-<!-- first browse links -->
-<p> 
+    if (isset($showtable['Rows']) && $showtable['Rows'] > 0) {
+        echo "\n";
+        ?>
+<!-- first browse links --> 
+<p>
     [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0">
         <b><?php echo $strBrowse; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_select.php3?<?php echo $url_query; ?>">
@@ -72,23 +104,21 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 3) {
     [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>">
          <b><?php echo $strEmpty; ?></b></a> ]
 </p>
-<?php
-
+        <?php
     } else {
-
-?>
+        echo "\n";
+        ?>
 <!-- first browse links -->
-<p> 
+<p>
     [ <b><?php echo $strBrowse; ?></b> ]&nbsp;&nbsp;&nbsp;
     [ <b><?php echo $strSelect; ?></b> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <b><?php echo $strEmpty; ?></b> ]
 </p>
-<?php
-
-    } 
-
+        <?php
+    }
+    echo "\n";
 
     if (!empty($showtable['Comment'])) {
         $show_comment = $showtable['Comment'];
@@ -519,13 +549,17 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $strNotValidNumber)); ?>';
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="pos" value="0" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="goto" value="db_details.php3" />
+            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <input type="hidden" name="goto" value="tbl_properties.php3" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
+            <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
             <?php echo $strRunSQLQuery . htmlspecialchars($db) . ' ' . show_docu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
 <textarea name="sql_query" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual">
-SELECT * FROM <?php echo backquote($table); ?> WHERE 1
+<?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : 'SELECT * FROM ' . backquote($table) . ' WHERE 1'); ?>
 </textarea><br />
+            <input type="checkbox" name="show_query" value="y" checked="checked" />&nbsp;
+                <?php echo $strShowThisQuery; ?><br />
             </div>
 <?php
 // Bookmark Support
@@ -939,7 +973,7 @@ else { // MySQL < 3.23
 
     <!-- Deletes the table -->
     <li>
-        <a href="sql.php3?<?php echo $url_query; ?>&goto=db_details.php3&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>">
+        <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>">
             <?php echo $strDrop . ' ' . htmlspecialchars($table); ?></a> 
     </li> 
 
