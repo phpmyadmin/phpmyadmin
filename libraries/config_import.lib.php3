@@ -620,10 +620,9 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
         $cfg['SQLQuery']['Validate'] = FALSE;
     }
 
-// do not set a value here, an empty value means to not use the feature
-//    if (!isset($cfg['UploadDir'])) {
-//        $cfg['UploadDir'] = './upload/';
-//    }
+    if (!isset($cfg['UploadDir'])) {
+        $cfg['UploadDir'] = '';
+    }
 
     if (!isset($cfg['SQLValidator']['use'])) {
         $cfg['SQLValidator']['use'] = FALSE;

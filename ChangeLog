@@ -8,7 +8,9 @@ $Source$
 2002-09-28 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: $cfg['PmaAbsoluteURI'] detection did not work
       properly on IIS 6.0.
-    * libraries/config_import.lib.php3: Fixed an inconsitence.
+    * libraries/config_import.lib.php3:
+      - Fixed an inconsitence;
+      - Fixed an "undefined index" error.
 
 2002-09-27 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_qbe.php3: PHP3 fixes & coding standards.
