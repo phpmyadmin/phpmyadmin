@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-23 Garvin Hicking <me@supergarv.de>
+    * css/phpmyadmin.css.php3: Removed 'lowercase' transform 
+      (Bug #769827)
+
 2003-07-22 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/estonian update, thanks to finsoft@sourceforge.net.
     ### 2.5.2 released

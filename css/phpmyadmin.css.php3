@@ -222,7 +222,7 @@ fieldset fieldset {
 .syntax_digit_integer      {}
 .syntax_digit_float        {}
 .syntax_punct              {}
-.syntax_alpha              {text-transform: lowercase;}
+.syntax_alpha              {}
 .syntax_alpha_columnType   {text-transform: uppercase;}
 .syntax_alpha_columnAttrib {text-transform: uppercase;}
 .syntax_alpha_reservedWord {text-transform: uppercase; font-weight: bold;}
