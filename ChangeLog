@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-11 Garvin Hicking <me@supergarv.de>
+    * tbl_replace.php, tbl_replace_fields.php: Fixed #857445, #857684
+      where non-existant fields caused PHP notices.
+  
 2003-12-10 Garvin Hicking <me@supergarv.de>
     * db_datadict.php: Bug 857186: Real fix for the problem. The '@'
       delimiter slipped to the replacement's end instead of the expression's

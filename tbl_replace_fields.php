@@ -28,8 +28,8 @@ PMA_checkParameters(array('db','encoded_key'));
 $check_stop = false;
 
 // Check if a multi-edit row was found
-${'me_fields_upload_' . $encoded_key}      = (isset($enc_primary_key) && isset(${'fields_upload_' . $encoded_key}['multi_edit'])      ? ${'fields_upload_' . $encoded_key}['multi_edit'][$enc_primary_key]      : ${'fields_upload_' . $encoded_key});
-${'me_fields_uploadlocal_' . $encoded_key} = (isset($enc_primary_key) && isset(${'fields_uploadlocal_' . $encoded_key}['multi_edit']) ? ${'fields_uploadlocal_' . $encoded_key}['multi_edit'][$enc_primary_key] : ${'fields_uploadlocal_' . $encoded_key});
+${'me_fields_upload_' . $encoded_key}      = (isset($enc_primary_key) && isset(${'fields_upload_' . $encoded_key}['multi_edit'])      ? ${'fields_upload_' . $encoded_key}['multi_edit'][$enc_primary_key]      : isset(${'fields_upload_' . $encoded_key})      ? ${'fields_upload_' . $encoded_key}      : null);
+${'me_fields_uploadlocal_' . $encoded_key} = (isset($enc_primary_key) && isset(${'fields_uploadlocal_' . $encoded_key}['multi_edit']) ? ${'fields_uploadlocal_' . $encoded_key}['multi_edit'][$enc_primary_key] : isset(${'fields_uploadlocal_' . $encoded_key}) ? ${'fields_uploadlocal_' . $encoded_key} : null);
 
 if (isset(${'me_fields_upload_' . $encoded_key}) && ${'me_fields_upload_' . $encoded_key} != 'none'){
     // garvin: This fields content is a blob-file upload.
@@ -119,9 +119,9 @@ if (!$check_stop) {
     else $type = '';
     
     $f = 'field_' . md5($key);
-    $t_fval = $$f;
+    $t_fval = (isset($$f) ? $$f : null);
     
-    if (isset($t_fval['multi_edit'][$enc_primary_key])) {
+    if (isset($t_fval['multi_edit']) && isset($t_fval['multi_edit'][$enc_primary_key])) {
         $fval = &$t_fval['multi_edit'][$enc_primary_key];
     } else {
         $fval = &$t_fval;
