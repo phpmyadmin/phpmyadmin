@@ -16,10 +16,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      *
      * It uses a synthetic string that contains all the required informations.
      * In this string:
-     *   - the first two characters stand for the the action to do while
+     *   - the first two characters stand for the action to do while
      *     clicking on the "edit" link (eg 'ur' for update a row, 'nn' for no
      *     edit link...);
-     *   - the next two characters stand for the the action to do while
+     *   - the next two characters stand for the action to do while
      *     clicking on the "delete" link (eg 'kp' for kill a process, 'nn' for
      *     no delete link...);
      *   - the next characters are boolean values (1/0) and respectively stand
@@ -879,7 +879,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 // 1.2.1 Modify link(s)
                 if ($is_display['edit_lnk'] == 'ur') { // update row case
                     $lnk_goto = 'sql.php3'
-                              . '?' . str_replace('&amp;', '&', $url_query)
+                             . '?' . str_replace('&amp;', '&', $url_query)
                               . '&sql_query=' . urlencode($sql_query)
                               . '&goto=' . (empty($goto) ? 'tbl_properties.php3' : $goto);
                     $edit_url = 'tbl_change.php3'
