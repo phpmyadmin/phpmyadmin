@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-06 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * Documentation.*:
+      - The textarea bug still appears in Mozilla 1.0-final.
+      - Fixed a typo.
+
 2002-06-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/dutch.inc.php3: Updates, thanks to "CaliMonk" <calimonk at gmx.net>.
     * lang/thai.inc.php3: Updates, thanks again to Arthit Suriyawongkul.
