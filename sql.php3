@@ -279,6 +279,7 @@ else {
         }
         $js_to_run = 'functions.js';
         include('./header.inc.php3');
+
         // Defines the display mode if it wasn't passed by url
         if ($is_count) {
             $display = 'simple';
@@ -292,8 +293,25 @@ else {
             }
         }
 
+        // Defines wether to display the full/partial text button or not
+        $show_text_btn     = FALSE;
+        while ($field = mysql_fetch_field($result)) {
+            if (eregi('BLOB', $field->type)) {
+                $show_text_btn = TRUE;
+                if ($display == 'simple' || $display == 'bkmOnly') {
+                    break;
+                }
+            }
+            // loic1: maybe the fix for the second alias bug?
+            if (($display != 'simple' && $display != 'bkmOnly')
+                && $field->table == '') {
+                $display = 'simple';
+            }
+        } // end while
+        mysql_field_seek($result, 0);
+        
         // Displays the results in a table
-        display_table($result, ($display == 'simple' || $display == 'bkmOnly'));
+        display_table($result, ($display == 'simple' || $display == 'bkmOnly'), $show_text_btn);
         
         if ($display != 'simple') {
             // Insert a new row

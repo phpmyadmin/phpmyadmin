@@ -511,20 +511,20 @@ if (!defined('__LIB_INC__')){
 
 
     /**
-     * Format db/table/filed name so they can be passed to a javascript
-     * function.
+     * Format a string so it can be passed to a javascript function.
      * This function is used to displays a javascript confirmation box for
      * "DROP/DELETE/ALTER" queries.
      *
      * @param   string   the string to format
+     * @param   boolean  whether to add backquotes to the string or not
      *
      * @return  string   the formated string
      */
-    function js_format($a_string = '')
+    function js_format($a_string = '', $add_backquotes = TRUE)
     {
         $a_string = str_replace('"', '&quot;', $a_string);
         $a_string = addslashes($a_string);
-        return backquote($a_string);
+        return (($add_backquotes) ? backquote($a_string) : $a_string);
     } // end of the 'sql_addslashes()' function
 
 
@@ -896,7 +896,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         } // end move toward
 
         // cfgLimitChars stuff
-        if (!$dontlimitchars) {
+        if (!$dontlimitchars && $GLOBALS['show_text_btn']) {
             echo "\n";
             ?>
     <td>
@@ -917,7 +917,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         </form>
     </td>
             <?php
-        } else {
+        } else if ($GLOBALS['show_text_btn']) {
             echo "\n";
             ?>
     <td>
@@ -955,6 +955,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
      * @param   array   the result table to display
      * @param   mixed   whether to display navigation bar and bookmarks links
      *                  or not
+     * @param   mixed   whether to display the full/partial text button or not
      *
      * @global  string   the current language
      * @global  integer  the server to use (refers to the number in the
@@ -964,8 +965,6 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
      * @global  string   the current sql query
      * @global  string   the url to go back in case of errors
      * @global  integer  the total number of rows returned by the sql query
-     * @global  boolean  whether to limit the number of displayed charcaters of
-     *                   text type fields or not
      */
     function display_table($dt_result, $is_simple = FALSE)
     {
@@ -1036,14 +1035,12 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
 <table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding="5">
 <tr>
         <?php
+        if ($GLOBALS['cfgModifyDeleteAtLeft']
+                 && (!$is_simple || $is_show_processlist)) {
+            echo "\n" . '    <td' . ((!$is_show_processlist) ? ' colspan="2"' : '') . '></td>';
+        }
         echo "\n";
-        if ($GLOBALS['cfgModifyDeleteAtLeft'] && !$is_simple) {
-            echo '    <td></td>' . "\n";
-            echo '    <td></td>' . "\n";
-        }
-        if ($is_show_processlist) {
-            echo '    <td></td>' . "\n";
-        }
+
         while ($field = mysql_fetch_field($dt_result)) {
             // Result is more than one row long
             if (@mysql_num_rows($dt_result) > 1 && !$is_simple) {
@@ -1118,6 +1115,12 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             } // end else
             echo "\n";
         } // end while
+
+        if ($GLOBALS['cfgModifyDeleteAtRight']
+                 && (!$is_simple || $is_show_processlist)) {
+            echo "\n" . '    <td' . ((!$is_show_processlist) ? ' colspan="2"' : '') . '></td>';
+        }
+        echo "\n";
         ?>
 </tr>
 
@@ -1207,14 +1210,15 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             <?php echo $GLOBALS['strEdit']; ?></a>
     </td>
     <td>
-        <a href="<?php echo $delete_url; ?>">
+        <a href="<?php echo $delete_url; ?>"
+            onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?> WHERE <?php echo js_format(urldecode($uva_condition), FALSE); ?> LIMIT 1')">
             <?php echo $GLOBALS['strDelete']; ?></a>
     </td>
                 <?php
                 echo "\n";
             } // end if
 
-            if ($is_show_processlist) {
+            else if ($GLOBALS['cfgModifyDeleteAtLeft'] && $is_show_processlist) {
                 ?>
     <td align="right">
         <a href="sql.php3?db=mysql&sql_query=<?php echo urlencode('KILL ' . $Id); ?>&goto=main.php3">
@@ -1259,6 +1263,12 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 } else {
                     // loic1 : displays <cr>/<lf>
                     if ($row[$i] != '') {
+                        // loic1: Cut text/blob fields even if $cfgShowBlob is true
+                        if (eregi('BLOB', $primary->type)) {
+                            if (strlen($row[$i]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
+                                $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
+                            }
+                        }
                         $row[$i] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
                         echo '    <td>' . $row[$i] . '</td>' . "\n";
                     } else {
@@ -1281,6 +1291,16 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 <?php
                 echo "\n";
             } // end if
+
+            else if ($GLOBALS['cfgModifyDeleteAtRight'] && $is_show_processlist) {
+                ?>
+    <td align="right">
+        <a href="sql.php3?db=mysql&sql_query=<?php echo urlencode('KILL ' . $Id); ?>&goto=main.php3">
+            <?php echo $GLOBALS['strKill']; ?></a>
+    </td>
+                <?php
+                echo "\n";
+            } // end if
             ?>
 </tr>
             <?php
@@ -1294,7 +1314,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         <?php
         echo "\n";
         if (!$is_simple
-             && (!isset($SelectNumRows) || $SelectNumRows > 1)) {
+            && (!isset($SelectNumRows) || $SelectNumRows > 1)) {
             show_table_navigation($pos_next, $pos_prev, $dt_result);
         } else {
             echo "\n" . '<br />' . "\n";
