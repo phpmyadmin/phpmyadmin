@@ -104,7 +104,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
     <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION); ?></h1>
 </center>
 <br />
-        ?>
+        <?php
         echo "\n";
         PMA_mysqlDie($conn_error, $local_query, FALSE);
 

@@ -77,6 +77,7 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
 <!--
 body     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
 form     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold}
+td       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold}
 h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold}
 .warning {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
 //-->
@@ -140,7 +141,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
     <tr>
         <td align="<?php echo $cell_align; ?>"><?php echo $GLOBALS['strLogPassword']; ?>&nbsp;</td>
         <td align="<?php echo $cell_align; ?>">
-            <input type="text" name="pma_password" value="" size="24" onfocus="this.select()" />
+            <input type="password" name="pma_password" value="" size="24" onfocus="this.select()" />
         </td>
     </tr>
     <tr>

@@ -8,6 +8,9 @@ $Source$
 2001-12-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3, line 518: fixed bug #490951 - sorting
 	  row. Thanks to an anonymous user.
+	* libraries/auth:
+	  - basic.auth.lib.php3, line 107: fixed an horrible parse error;
+	  - cookie.auth.lib.php3: beautified a bit the display.
 
 2001-12-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* read_dump.php3; libraries/build_dump.lib.php3: sending the "fake" header
