@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/romanian updates, thanks to Valics Lehel
+    * lang/slovenian update, thanks to Kositer Uros
+
 2003-04-03 Garvin Hicking <me@supergarv.de>
     * libraries/display_tbl.lib.php3: Bug #714744 fixed. Thanks to poster.
 
