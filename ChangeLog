@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/select_lang.lib.php3: modify order of Russian lang files
+      because MSIE does not accept cp866 and users do not see anything,
+      thanks to Volckov Konstantin Michailovich (wolf at sw.ru)
+
 2003-03-18 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: removed &nbsp; from button text, as
       Konqueror doesn't like it there and it is not needed.

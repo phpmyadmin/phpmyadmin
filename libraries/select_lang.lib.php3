@@ -45,6 +45,9 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
      *
      * When there are more than one charset for a language, we put the -utf-8
      * first.
+     *
+     * For Russian, we put 1251 first, because MSIE does not accept 866
+     * and users would not see anything.
      */
     $available_languages = array(
         'af-utf-8'     => array('af|afrikaans', 'afrikaans-utf-8', 'af'),
@@ -113,10 +116,10 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
         'pt-iso-8859-1'=> array('pt([-_][[:alpha:]]{2})?|portuguese', 'portuguese-iso-8859-1', 'pt'),
         'ro-utf-8'     => array('ro|romanian', 'romanian-utf-8', 'ro'),
         'ro-iso-8859-1'=> array('ro|romanian', 'romanian-iso-8859-1', 'ro'),
+        'ru-win1251'   => array('ru|russian', 'russian-windows-1251', 'ru'),
         'ru-utf-8'     => array('ru|russian', 'russian-utf-8', 'ru'),
         'ru-dos-866'   => array('ru|russian', 'russian-dos-866', 'ru'),
         'ru-koi8-r'    => array('ru|russian', 'russian-koi8-r', 'ru'),
-        'ru-win1251'   => array('ru|russian', 'russian-windows-1251', 'ru'),
         'sk-utf-8'     => array('sk|slovak', 'slovak-utf-8', 'sk'),
         'sk-iso-8859-2'=> array('sk|slovak', 'slovak-iso-8859-2', 'sk'),
         'sk-win1250'   => array('sk|slovak', 'slovak-windows-1250', 'sk'),
