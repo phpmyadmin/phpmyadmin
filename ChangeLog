@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
+    * lang/catalan update, thanks to Xavier Navarro (xavin).
+
 2004-07-20 Alexander M. Turek  <ichkannchloggen@derrabus.de>
     * Documentation.html: added note about php5.
 
