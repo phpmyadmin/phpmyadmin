@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-08  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, line 742: Documentation is now loaded in its own window.
+	* db_details.php3: rewritten the script so it fits XHTML1.0 and PEAR
+	  standards, limit the number of "options" displayed if the is no table
+	  in the db and beautity a bit the display.
+
 2001-07-07  Armel Fauveau <armel.fauveau@globalis-ms.com>
 	* add gzip dump feature (Feature #420812)
 
