@@ -549,13 +549,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             $wi = 0;
             @reset($analyzed_sql[0]['where_clause_identifiers']);
             while(list($wci_nr, $wci) = each($analyzed_sql[0]['where_clause_identifiers'])) {
-                $wi++;
-                // garvin: We only count the even words, because uneven words are the
-                //  contents of the identifies. I guess. ;)
-                if ($wi % 2 != 0) {
-                    $highlightkey = $analyzed_sql[0]['where_clause_identifiers'][$wi-1];
-                    $highlight_columns[$highlightkey] = 'true';
-                }
+                $highlight_columns[$wci] = 'true';
             }
         }
 

@@ -1300,8 +1300,6 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                    $where_clause .= $arr[$i]['data'] . $sep;
 
                    if (($arr[$i]['type'] == 'quote_backtick')
-                    || ($arr[$i]['type'] == 'quote_double')
-                    || ($arr[$i]['type'] == 'quote_single')
                     || ($arr[$i]['type'] == 'alpha_identifier')) {
                        $where_clause_identifiers[] = $arr[$i]['data'];
                    }
