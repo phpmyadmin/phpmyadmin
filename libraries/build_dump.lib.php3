@@ -259,6 +259,12 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                 } else {
                     $field_num[$j] = FALSE;
                 }
+                // blob
+                if ($type == 'blob' || $type == 'mediumblob' || $type == 'largeblob' || $type == 'tinyblob') {
+                    $field_blob[$j] = TRUE;
+                } else {
+                    $field_blob[$j] = FALSE;
+                }
             } // end for
 
             // Sets the scheme
@@ -293,9 +299,11 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                         // a number
                         if ($field_num[$j]) {
                             $values[] = $row[$j];
-                        }
+                        // a blob
+                        } else if ($field_blob[$j]) {
+                            $values[] = '0x' . bin2hex($row[$j]);
                         // a string
-                        else {
+                        } else {
                             $values[] = "'" . str_replace($search, $replace, PMA_sqlAddslashes($row[$j])) . "'";
                         }
                     } else {
@@ -422,9 +430,11 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                     if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
                         $type == 'bigint'  ||$type == 'timestamp') {
                         $schema_insert .= $row[$j] . ', ';
-                    }
+                    // blob
+                    } else if ($type == 'blob' || $type == 'mediumblob' || $type == 'largeblob' || $type == 'tinyblob') {
+                        $schema_insert .= '0x' . bin2hex($row[$j]) . ', ';
                     // a string
-                    else {
+                    } else {
                         $dummy  = '';
                         $srcstr = $row[$j];
                         for ($xx = 0; $xx < strlen($srcstr); $xx++) {
