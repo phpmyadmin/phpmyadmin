@@ -1815,7 +1815,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </h4>
 <p>
     This can happen due to a MySQL bug when having database / table names with
-    upper case characters although <tt>lower_case_table_names</tt>.
+    upper case characters although <tt>lower_case_table_names</tt> is set to 1.
     To fix this, turn off this directive, convert all database and table names
     to lower case and turn it on again. Alternatively, there's a bugfix
     available starting with MySQL&nbsp;3.23.56 / 4.0.11-gamma.
