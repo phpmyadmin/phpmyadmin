@@ -25,6 +25,8 @@ $Source$
 	* db_details.php3, line 517; tbl_properties.php3, line 709: restored word
 	  wrapping mode for textarea (not xhtml1.0 compliant but required with IE).
 	* db_details.php3: beautified the "with selection" feature.
+	* header.inc.php3, line 53; left.php3; tbl_change.php3, line 120: added the
+	  "<base href=...>" xhtml header.
 
 2002-02-05 Marc Delisle  <lem9@users.sourceforge.net>
 	* sql.php3, bug 463683 state tracking problem

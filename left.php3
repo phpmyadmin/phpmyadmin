@@ -64,7 +64,7 @@ PMA_setFontSizes();
 
 <head>
     <title>phpMyAdmin</title>
-    <base target="phpmain" />
+    <base href="<?php echo $cfgPmaAbsoluteUri; ?>" target="phpmain" />
 <?php
 // Expandable/collapsible databases list is only used if there is more than one
 // database to display
@@ -291,7 +291,7 @@ if ($num_dbs > 1) {
                     $table_list .= '    <nobr><a target="phpmain" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($table)) . '&amp;pos=0&amp;goto=tbl_properties.php3">' . "\n";
                     $table_list .= '              <img src="images/browse.gif" border="0" alt="' . $strBrowse . ': ' . $table . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
                     if (PMA_USR_BROWSER_AGENT == 'IE') {
-                        $table_list .= '          <a class="tblItem" title="' . str_replace('"', '&quot;', $tooltip[$table]) . '" target="phpmain" href="tbl_properties.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '"><span class="tblItem">' . $table . '</span></a></nobr><br />' . "\n";
+                        $table_list .= '          <span class="tblItem"><a class="tblItem" title="' . str_replace('"', '&quot;', $tooltip[$table]) . '" target="phpmain" href="tbl_properties.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></span></nobr><br />' . "\n";
                     } else {
                         $table_list .= '          <a class="tblItem" title="' . str_replace('"', '&quot;', $tooltip[$table]) . '" target="phpmain" href="tbl_properties.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></nobr><br />' . "\n";
                     }
@@ -302,9 +302,8 @@ if ($num_dbs > 1) {
                 }
                 $selected = ' selected="selected"';
 
-                $table_list_header .= '    <nobr><img name="imEx" src="images/minus.gif" border="0" width="9" height="9" alt="-" />' . "\n";
-                $table_list_header .= '          <a class="item" target="phpmain" href="db_details.php3?' . $common_url_query . '">' . "\n";
-                $table_list_header .= '              <span class="heada">' . $db . '<bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span></a></nobr><br />' . "\n\n";
+                $table_list_header .= '    <a class="item" target="phpmain" href="db_details.php3?' . $common_url_query . '">' . "\n";
+                $table_list_header .= '        <span class="heada"><b>' . $db . '</b><bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span></a><br />' . "\n\n";
             } else {
                 $selected = '';
             } // end if... else...
