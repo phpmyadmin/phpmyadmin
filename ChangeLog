@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php3: bug 580929: do not EXPLAIN if this is
+      not a SELECT
+
 2002-07-13 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: News about bug #540671.
 

@@ -1203,8 +1203,9 @@ if (typeof(document.getElementById) != 'undefined'
                                . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y#querybox">' . $GLOBALS['strEdit'] . '</a>';
                 }
                 // Want to have the query explained (Mike Beck 2002-05-22)
-                // but do not explain an explain (lem9)
-                if (!eregi('^EXPLAIN[[:space:]]+', $GLOBALS['sql_query'])) {
+                // but only explain a SELECT (that has not been explained)
+                if (!eregi('^EXPLAIN[[:space:]]+', $GLOBALS['sql_query'])
+                && eregi('SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
                     $explain_link = '[<a href="sql.php3'
                                   . $url_qpart
                                   . '&amp;sql_query=' . urlencode('EXPLAIN ' . $GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'] . '</a>]&nbsp;';
