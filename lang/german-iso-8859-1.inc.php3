@@ -411,7 +411,6 @@ $strZip = 'Zip komprimiert';
 
 // To translate
 $strPdfNoTables = 'keine Tabellen';  //to translate
-$strGeneralRelationFeat = 'Allgemeine Verknüpfungsfunktionen';  //to translate
 $strDisplayFeat = 'Anzeige verknüpfter Daten';  //to translate
 $strCreatePdfFeat = 'Erzeugen von PDFs';  //to translate
 $strColComFeat = 'Darstellung von Spaltenkommentaren';  //to translate
@@ -419,4 +418,5 @@ $strDisabled = 'Deaktiviert';  //to translate
 $strEnabled = 'Aktiviert';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
+$strGeneralRelationFeat = 'General relation features';  //to translate
 ?>

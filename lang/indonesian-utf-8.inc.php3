@@ -1,7 +1,8 @@
 <?php
 /* $Id$ */
 
-$charset = 'iso-8859-1';
+$charset = 'utf-8';
+$allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
@@ -405,7 +406,6 @@ $strZip = '"Dikompress dengan Zip"';
 $strRelationNotWorking = 'Fasilitas tambahan untuk bekerja dengan tabel yang di-link di tidakaktifkan. Untuk mengetahui kenapa klik %disini%s.';
 $strAllTableSameWidth = 'Tampilkan semua tabel dengan ukuran lebar yang sama?';
 $strPdfNoTables = 'No tables';  //to translate
-$strGeneralRelationFeat = 'Genereal Relation Features';  //to translate
 $strDisplayFeat = 'Display Features';  //to translate
 $strCreatePdfFeat = 'Creation of PDFs';  //to translate
 $strColComFeat = 'Displaying Column Comments';  //to translate
@@ -413,4 +413,5 @@ $strDisabled = 'Disabled';  //to translate
 $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
+$strGeneralRelationFeat = 'General relation features';  //to translate
 ?>

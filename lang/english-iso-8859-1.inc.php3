@@ -401,7 +401,6 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
-$strGeneralRelationFeat = 'General Relation Features';
 $strDisplayFeat = 'Display Features';
 $strCreatePdfFeat = 'Creation of PDFs';
 $strColComFeat = 'Displaying Column Comments';
@@ -409,4 +408,5 @@ $strDisabled = 'Disabled';
 $strEnabled = 'Enabled';
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
+$strGeneralRelationFeat = 'General relation features';  //to translate
 ?>

@@ -403,8 +403,8 @@ $strWrongUser = 'Verkeerde gebruikersnaam/wachtwoord. Toegang geweigerd.';
 $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
+
 $strPdfNoTables = 'No tables';  //to translate
-$strGeneralRelationFeat = 'Genereal Relation Features';  //to translate
 $strDisplayFeat = 'Display Features';  //to translate
 $strCreatePdfFeat = 'Creation of PDFs';  //to translate
 $strColComFeat = 'Displaying Column Comments';  //to translate
@@ -412,4 +412,5 @@ $strDisabled = 'Disabled';  //to translate
 $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
+$strGeneralRelationFeat = 'General relation features';  //to translate
 ?>
