@@ -357,5 +357,4 @@ $strOperations = 'Operations';  //to translate
 $strExportToXML = 'Export to XML format'; //to translate
 $strOptions = 'Options';  //to translate
 $strStructure = 'Structure';  //to translate
-$strMain = 'Main';  //to translate
 ?>

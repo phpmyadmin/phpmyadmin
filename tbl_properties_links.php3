@@ -38,7 +38,7 @@ if ($num_rows > 0) {
 ?>
 <p>
     [ <?php echo $lnk8 . "\n"; ?>
-        <b><?php echo $strMain; ?></b><?php if ($lnk8) echo '</a>'; ?>&nbsp;|
+        <b><?php echo $strHome; ?></b><?php if ($lnk8) echo '</a>'; ?>&nbsp;|
     <?php echo $lnk1 . "\n"; ?>
         <b><?php echo $strBrowse; ?></b><?php if ($lnk1) echo '</a>'; ?>&nbsp;|
     <?php echo $lnk7 . "\n"; ?>

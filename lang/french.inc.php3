@@ -353,5 +353,4 @@ $strYes = 'Oui';
 $strZip = '"zippé"';
 
 $strStructure = 'Structure';  //to translate
-$strMain = 'Main';  //to translate
 ?>
