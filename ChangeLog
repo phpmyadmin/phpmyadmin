@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/spanish: Updates, thanks to Dr. med. Daniel Hinostroza C.
+  
 2003-05-28 Garvin Hicking <me@supergarv.de>
     * libraries/sqlvalidator.class.php3: Fix Bug #739096: Because
       the PEAR library and PHP changed the way how referenced variables
