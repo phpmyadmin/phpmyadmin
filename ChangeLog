@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-21 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.6.0-alpha1 released
+
 2004-04-20 Alexander M. Turek  <me@derrabus.de>
     * Documentation.html, README:
       - The MySQL 4.1 support is not experimental anymore;
