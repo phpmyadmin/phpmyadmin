@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-15 Olivier Mueller <om@omnis.ch>
+    * README: copyright, we're in 2005
+
 2005-01-09 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
     * lang/catalan update, thanks to Xavier Navarro (xavin).
