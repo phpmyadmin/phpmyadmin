@@ -6,9 +6,9 @@ $Id$
 $Source$
 
 2001-08-20  Olivier Müller  <om@omnis.ch>
-	* db_stats.php3: new file and feature (sorry :) : simply display
-	  an overview of all databases with their respective size + server total.
-	* lang/*: new string $strDatabasesStats
+	* db_stats.php3: new file and feature (sorry :) : simply display an
+	  overview of all databases with their respective size + server total.
+	* lang/*: new string $strDatabasesStats.
 
 2001-08-20  Marc Delisle  <lem9@users.sourceforge.net>
 	* config.inc.php3: $cfgProtectBlob is now TRUE by default, to help against
@@ -36,6 +36,7 @@ $Source$
 	* lib.inc.php3, lines 266-277; config.lib.php3, lines 43, 57 & 70;
 	  Documentation.html, lines 273-278 & 655-658: merged the socket patch from
 	  Dan Allen <bigredlinux@yahoo.com>.
+	* sql.php3: improved the way the mysql_affected_rows is used.
 
 2001-08-19  Olivier Müller  <om@omnis.ch>
 	* db_readdump.php3: if file contains mutiple queries, only show this line:
@@ -53,7 +54,7 @@ $Source$
 	* main.php3; db_details.php3; tbl_properties.php3; db_readdump.php3;
 	  lib.inc.php3: once a query has been executed phpMyAdmin now moves back
 	  to the calling script (rather than db_details.php3 everytime) as soon as
-	  the current database/table exists, else it moves  back to a "parent"
+      the current database/table exists, else it moves  back to a "parent"
 	  script (the welcome page/'db_details.php3' if the current
 	  database/table has has been dropped.
 	* header.inc.php3, lines 63-64; sql.php3; db_details.php3;
@@ -61,7 +62,7 @@ $Source$
 	  to the calling script (and not the target one used only if this statement
 	  is executed).
 	* db_readdump.php3: improved Olivier's improvement for mutiple queries (see
-	  before).
+      before).
 	* lib.inc.php3, line 524: beautify a bit the way the query is displayed.
 	* lang/english.inc.php3; lang/french.inc.php3: put $strInstructions at its
 	  right place.

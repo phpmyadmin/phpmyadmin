@@ -59,12 +59,12 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
 /**
  * Defines some "properties" of the sql query to submit
  */
-$do_confirm = ($cfgConfirm
-               && !isset($btnDrop)
-               && eregi('DROP +(TABLE|DATABASE)|ALTER TABLE +[[:alnum:]_`]* +DROP|DELETE FROM', $sql_query));
-$is_select  = eregi('^SELECT ', $sql_query);
-$is_count   = ($is_select && eregi('^SELECT COUNT\((.*\.+)?\*\) FROM ', $sql_query));
-$is_delupd  = eregi('^(DELETE|UPDATE) ', $sql_query);
+$do_confirm   = ($cfgConfirm
+                 && !isset($btnDrop)
+                 && eregi('DROP +(TABLE|DATABASE)|ALTER TABLE +[[:alnum:]_`]* +DROP|DELETE FROM', $sql_query));
+$is_select    = eregi('^SELECT ', $sql_query);
+$is_count     = ($is_select && eregi('^SELECT COUNT\((.*\.+)?\*\) FROM ', $sql_query));
+$is_affected  = eregi('^(DELETE|INSERT|LOAD DATA|UPDATE) ', $sql_query);
 
 
 /**
@@ -109,7 +109,7 @@ else {
         $sql_query = stripslashes($sql_query);
     }
 
-    //defines some variables
+    // Defines some variables
     // loic1: A table have to be created -> left frame should be reloaded
     if (!empty($reload) && eregi('^CREATE TABLE (.*)', $sql_query)) {
         $reload           = 'true';
@@ -128,8 +128,23 @@ else {
         $full_sql_query   = $sql_query . $sql_limit_to_append;
     }
 
-    // Executes the query
     mysql_select_db($db);
+
+    // If the query is a DELETE query with no WHERE clause, get the number of
+    // rows that will be deleted (mysql_affected_rows will always return 0 in
+    // this case)
+    if ($is_affected
+        && eregi('^DELETE( .+)?( FROM (.+))$', $sql_query, $parts)
+        && !eregi(' WHERE ', $parts[3])) {
+        $OPresult     = @mysql_query('SELECT COUNT(*) as count' .  $parts[2]);
+        if ($OPresult) {
+            $num_rows = mysql_result($OPresult, 0, 'count');
+        } else {
+            $num_rows = 0;
+        }
+    }
+
+    // Executes the query
     $result   = @mysql_query($full_sql_query);
 
     // Displays an error message if required and stop parsing the script
@@ -139,9 +154,12 @@ else {
         mysql_die($error, $full_sql_query);
     }
 
-    // Gets the number of rows returned ('@' is required because mysql_num_rows
-    // ran on queries that are not 'SELECT' statements returns an error
-    $num_rows = @mysql_num_rows($result);
+    // Gets the number of rows affected/returned
+    if (!$is_affected) {
+        $num_rows = @mysql_num_rows($result);
+    } else if (!isset($num_rows)) {
+        $num_rows = @mysql_affected_rows();
+    }
 
     // Counts the total number of rows for the same 'SELECT' query without the
     // 'LIMIT' clause that may have been programatically added
@@ -164,10 +182,10 @@ else {
     } // end rows total count
 
     // No rows returned -> move back to the calling page
-    if ($num_rows < 1) {
+    if ($num_rows < 1 || $is_affected) {
         if (file_exists('./' . $goto)) {
-            if ($is_delupd) {
-                $message = $strAffectedRows . '&nbsp;' . mysql_affected_rows();
+            if ($is_affected) {
+                $message = $strAffectedRows . '&nbsp;' . $num_rows;
             } else if (!empty($zero_rows)) {
                 $message = $zero_rows;
             } else {
