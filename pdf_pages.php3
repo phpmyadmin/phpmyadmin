@@ -125,8 +125,8 @@ if ($cfgRelation['pdfwork']) {
                         // now generate the coordinates for the schema,
                         // in a clockwise spiral
                        
-                        $pos_x = 500;
-                        $pos_y = 500;
+                        $pos_x = 300;
+                        $pos_y = 300;
                         $delta = 50;
                         $delta_mult = 1.34;
                         $direction = "right";

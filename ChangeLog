@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_pages.php3: automatic layout start at 300,300 for better look
+      on the dom-drag scratchboard
+
 2003-06-23 Garvin Hicking <me@supergarv.de>
     * ChangeLog, Documentation.html, config.inc.php3, pdf_pages.php3,
       css/phpmyadmin.css.php3, libraries/common.lib.php3, 
