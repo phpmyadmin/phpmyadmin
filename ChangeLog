@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-12  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/bulgarian-win1251.inc.php3 updates, thanks to Peter Petrov.
+
 2001-10-12  Loïc Chapeaux  <lolo@phpheaven.net>
 	* Most of the scripts have been modified to fix bug #468749 (Left Frame not
 	  expanding in iCab). This means the splitter between variables in urls is
