@@ -723,4 +723,5 @@ $strZip = '"comprimit amb zip"';
 
 $strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 
+$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 ?>

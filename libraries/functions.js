@@ -2,6 +2,31 @@
 
 
 /**
+ * Displays an confirmation box before to submit a "DROP DATABASE" query.
+ * This function is called while clicking links
+ *
+ * @param   object   the link
+ * @param   object   the sql query to submit
+ *
+ * @return  boolean  whether to run the query or not
+ */
+function confirmLinkDropDB(theLink, theSqlQuery)
+{
+    // Confirmation is not required in the configuration file
+    // or browser is Opera (crappy js implementation)
+    if (confirmMsg == '' || typeof(window.opera) != 'undefined') {
+        return true;
+    }
+
+    var is_confirmed = confirm(confirmMsgDropDB + '\n' + confirmMsg + ' :\n' + theSqlQuery);
+    if (is_confirmed) {
+        theLink.href += '&is_js_confirmed=1';
+    }
+
+    return is_confirmed;
+} // end of the 'confirmLink()' function
+
+/**
  * Displays an confirmation box beforme to submit a "DROP/DELETE/ALTER" query.
  * This function is called while clicking links
  *

@@ -725,4 +725,5 @@ $strYes = ' Si ';
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
+$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 ?>

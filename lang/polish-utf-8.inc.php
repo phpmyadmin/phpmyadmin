@@ -722,4 +722,5 @@ $strCzechSlovak = 'Czech-Slovak';  //to translate
 $strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
 $strMaximumSize = 'Maximum size: %s%s';  //to translate
  = 'Cannot connect: invalid settings.';  //to translate
+$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 ?>

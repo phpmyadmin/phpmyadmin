@@ -720,4 +720,5 @@ $strZeroRemovesTheLimit = 'Pastaba: nëra jokiø apribojimø jeigu reikðmë nurodyta
 $strZip = '"zip"';
 
  = 'Cannot connect: invalid settings.';  //to translate
+$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 ?>

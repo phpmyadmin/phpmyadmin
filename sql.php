@@ -45,6 +45,8 @@ if (isset($fields['dbase'])) {
 // Now we can check the parameters
 PMA_checkParameters(array('sql_query', 'db'));
 
+// instead of doing the test twice
+$is_drop_database = preg_match('@DROP[[:space:]]+DATABASE[[:space:]]+@i', $sql_query);
 
 /**
  * Check rights in case of DROP DATABASE
@@ -55,7 +57,7 @@ PMA_checkParameters(array('sql_query', 'db'));
  */
 if (!defined('PMA_CHK_DROP')
     && !$cfg['AllowUserDropDatabase']
-    && preg_match('@DROP[[:space:]]+DATABASE[[:space:]]+@i', $sql_query)) {
+    && $is_drop_database) {
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
     // loic1: optimized query
@@ -187,6 +189,9 @@ if (!$cfg['Confirm']
 if ($do_confirm) {
     $stripped_sql_query = $sql_query;
     require_once('./header.inc.php');
+    if ($is_drop_database) {
+        echo $strDropDatabaseStrongWarning . '<br />' . "\n";
+    }
     echo $strDoYouReally . '&nbsp;:<br />' . "\n";
     echo '<tt>' . htmlspecialchars($stripped_sql_query) . '</tt>&nbsp;?<br/>' . "\n";
     ?>

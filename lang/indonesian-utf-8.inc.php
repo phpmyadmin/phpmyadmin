@@ -721,4 +721,5 @@ $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) aka
 $strZip = '"Dikompress dengan Zip"';
 
 $strConnectionError = 'Cannot connect: invalid settings.';  //to translate
+$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 ?>

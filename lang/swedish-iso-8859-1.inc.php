@@ -720,4 +720,5 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) t
 $strZip = '"zippad"';
 
 $strConnectionError = 'Cannot connect: invalid settings.';  //to translate
+$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 ?>

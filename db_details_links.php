@@ -48,7 +48,7 @@ if ($cfg['AllowUserDropDatabase']) {
           . urlencode(sprintf($strDatabaseHasBeenDropped, htmlspecialchars(PMA_backquote($db))))
           . '&amp;goto=main.php&amp;back=db_details' . $sub_part . '.php&amp;reload=1&amp;purge=1';
     $att5 = 'class="drop" '
-          . 'onclick="return confirmLink(this, \'DROP DATABASE ' . PMA_jsFormat($db) . '\')"';
+          . 'onclick="return confirmLinkDropDB(this, \'DROP DATABASE ' . PMA_jsFormat($db) . '\')"';
 }
 else {
     $lnk5 = '';
