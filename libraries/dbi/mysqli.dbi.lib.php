@@ -267,6 +267,7 @@ function PMA_DBI_get_fields_meta($result) {
             }
             if (floor($f / 32768)) {
                 $flags .= 'num ';
+                $fields[$k]->numeric = 1;
                 $f -= 32768;
                 continue;
             }
@@ -301,36 +302,43 @@ function PMA_DBI_get_fields_meta($result) {
             }
             if (floor($f / 64)) {
                 $flags .= 'zerofill ';
+                $fields[$k]->zerofill = 1;
                 $f -= 64;
                 continue;
             }
             if (floor($f / 32)) {
                 $flags .= 'unsigned ';
+                $fields[$k]->unsigned = 1;
                 $f -= 32;
                 continue;
             }
             if (floor($f / 16)) {
                 $flags .= 'blob ';
+                $fields[$k]->blob = 1;
                 $f -= 16;
                 continue;
             }
             if (floor($f / 8)) {
                 $flags .= 'multiple_key ';
+                $fields[$k]->multiple_key = 1;
                 $f -= 8;
                 continue;
             }
             if (floor($f / 4)) {
                 $flags .= 'unique_key ';
+                $fields[$k]->unique_key = 1;
                 $f -= 4;
                 continue;
             }
             if (floor($f / 2)) {
                 $flags .= 'primary_key ';
+                $fields[$k]->primary_key = 1;
                 $f -= 2;
                 continue;
             }
             if (floor($f / 1)) {
                 $flags .= 'not_null ';
+                $fields[$k]->not_null = 1;
                 $f -= 1;
                 continue;
             }

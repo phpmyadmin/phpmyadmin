@@ -6,6 +6,11 @@ $Id$
 $Source$
 
 2004-03-25 Marcel Tschopp <marcel.tschopp@gmx.net>
+    * libraries/display_tpl.lib.php, mysqli.dbi.lib.php:
+      Mysql4.1 specific fix in function PMA_displayTableBody() (character set
+      conversions).
+
+2004-03-25 Marcel Tschopp <marcel.tschopp@gmx.net>
     * tbl_change.php, libraries/dbi/mysql.inc.php, libraries/dbi/mysqli.inc.php:
       Added wrapping function PMA_DBI_field_len.
     * libraries/dbi/mysqli.inc.php: Set default value '' for parameter $link 

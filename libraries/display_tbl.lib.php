@@ -1059,7 +1059,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     if ($meta->type == 'real') {
                         $condition = ' CONCAT(' . PMA_backquote($column_for_condition) . ') ';
                     } else {
-                        $condition = ' ' . PMA_backquote($column_for_condition) . ' ';
+                        // string and blob fields have to be converted using
+                        // the system character set (always utf8) since
+                        // mysql4.1 can use different charset for fields.
+                        if (PMA_MYSQL_INT_VERSION >= 40100 && ($meta->type == 'string' || $meta->type == 'blob')) {
+                            $condition = ' CONVERT(' . PMA_backquote($column_for_condition) . ' USING utf8) ';
+                        } else {
+                            $condition = ' ' . PMA_backquote($column_for_condition) . ' ';
+                        }
                     } // end if... else...
 
                     // loic1: To fix bug #474943 under php4, the row
