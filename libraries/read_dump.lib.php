@@ -70,14 +70,13 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
             } // end for
         } // end if (in string)
        
-        // let's skip c style comments
-        else if ($char == '/' && $sql[$i + 1] == '*') {
-            $i = strpos($sql, '*/', $i) + 1;
-        }
-
-        // lets skip ANSI comments
-        else if ($char == '-' && $sql[$i + 1] == '-' && $sql[$i + 2] <= ' ') {
-            $i = strpos($sql, "\n", $i);
+        // lets skip comments (/*, -- and #)
+        else if (($char == '-' && $sql[$i + 1] == '-' && $sql[$i + 2] <= ' ') || $char == '#' || ($char == '/' && $sql[$i + 1] == '*')) {
+            $i = strpos($sql, $char == '/' ? '*/' : "\n", $i) + ($char == '/' ? 1 : 0);
+            // didn't we hit end of string?
+            if ($i === FALSE) {
+                break;
+            }
         }
 
         // We are not in a string, first check for delimiter...
