@@ -555,5 +555,42 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         return TRUE;
     } // end of the 'PMA_getTableCsv()' function
 
+
+    /**
+     * Outputs the content of a table in XML format
+     *
+     * @param   string   the database name
+     * @param   string   the table name
+     * @param   string   the end of line sequence
+     * @param   string   the url to go back in case of error
+     *                   (doesn't work yet)
+     *
+     * @return  string   the XML data structure on success
+     *
+     * @access  public
+     */
+    function PMA_getTableXML($db, $table, $crlf, $error_url) {
+        $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
+        $result      = @mysql_query($local_query);
+        for ($i = 0; $row = mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
+            $columns[$i] = $row['Field'];
+        }
+        unset($i);
+        mysql_free_result($result);
+        $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+        $result      = @mysql_query($local_query);
+        $buffer      = '  <!-- ' . $GLOBALS['strTable'] . ' ' . $table . ' -->' . $crlf;
+        while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
+            $buffer         .= '    <' . $table . '>' . $crlf;
+            foreach ($columns as $column) {
+                if ($record[$column]!=NULL) {
+                    $buffer .= '        <' . $column . '>' . htmlspecialchars($record[$column])
+                            .  '</' . $column . '>' . $crlf;
+                }
+            }
+            $buffer         .= '    </' . $table . '>';
+        }
+        return $buffer;
+    } // end of the 'PMA_getTableXML()' function
 } // $__PMA_BUILD_DUMP_LIB__
 ?>

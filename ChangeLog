@@ -6,133 +6,133 @@ $Id$
 $Source$
 
 2002-04-28 Marc Delisle  <lem9@users.sourceforge.net>
-	* tbl_properties.php3, new tbl_properties_common.php3:
-	  start the split
-	* tbl_properties.php3, new tbl_properties_export.php3, 
-	  tbl_properties_links.php3, lang/*.php3: export is splitted
-	* new tbl_properties_table_info, to be able to display links
-	  on the export page
-	* new tbl_properties_operations.php3
+    * tbl_properties.php3, new tbl_properties_common.php3:
+      start the split
+    * tbl_properties.php3, new tbl_properties_export.php3,
+      tbl_properties_links.php3, lang/*.php3: export is splitted
+    * new tbl_properties_table_info, to be able to display links
+      on the export page
+    * new tbl_properties_operations.php3
 
 2002-04-28 Alexander M. Turek  <rabus@users.sourceforge.net>
-	* header.inc.php3, lines 162-170: Improved patch #548696.
-	* lang/*.php3, db_details.php3, tbl_dump.php3:
-	  prepared files for XML exports.
+    * header.inc.php3, lines 162-170: Improved patch #548696.
+    * db_details.php3, tbl_dump.php3, lang/*.php3,
+      libraries/build_dump.lib.php3: XML exports (experimental).
 
 2002-04-28 Loïc Chapeaux  <lolo@phpheaven.net>
-	* tbl_properties.php3, line 395: replaced a "require" by an include.
-	* tbl_properties_links.php3: beautified code.
-	* db_details.php3, tbl_change.php3, tbl_properties.php3, user_details.php3:
-	  xhtml fixes.
-	* lang/slovak-win1250.inc.php3: updated thanks to Peter Svec.
-	* tbl_qbe.php3, line 732: fixed again a warning.
-	* tbl_addfield.php3; tbl_alter.php3: fixed bug #548495 - Alter table not
-	  replicate.
-	* db_stats.php3; libraries/functions.js: added a check/uncheck all feature.
+    * tbl_properties.php3, line 395: replaced a "require" by an include.
+    * tbl_properties_links.php3: beautified code.
+    * db_details.php3, tbl_change.php3, tbl_properties.php3, user_details.php3:
+      xhtml fixes.
+    * lang/slovak-win1250.inc.php3: updated thanks to Peter Svec.
+    * tbl_qbe.php3, line 732: fixed again a warning.
+    * tbl_addfield.php3; tbl_alter.php3: fixed bug #548495 - Alter table not
+      replicate.
+    * db_stats.php3; libraries/functions.js: added a check/uncheck all feature.
 
 2002-04-27 Marc Delisle  <lem9@users.sourceforge.net>
-	* tbl_properties.php3, new tbl_properties_links.php3:
-	  remove duplicate links code.
+    * tbl_properties.php3, new tbl_properties_links.php3:
+      remove duplicate links code.
 
 2002-04-27 Alexander M. Turek  <rabus@users.sourceforge.net>
-	* Recompressed old ChangeLog without saving its path in the archive.
-	* header.inc.php3:
-	  - Patch #548696 (DB/Table titles should be links), thanks to
-	    Ray Black <allah03@users.sourceforge.net>.
-	  - lines: 161-164: Undefined variable.
-	* common.lib.php3, lines 162, 163, 435-437: Fixed bug #549570
-	  (Strange error if controluser is invalid).
+    * Recompressed old ChangeLog without saving its path in the archive.
+    * header.inc.php3:
+      - Patch #548696 (DB/Table titles should be links), thanks to
+        Ray Black <allah03@users.sourceforge.net>.
+      - lines: 161-164: Undefined variable.
+    * common.lib.php3, lines 162, 163, 435-437: Fixed bug #549570
+      (Strange error if controluser is invalid).
 
 2002-04-27 Loïc Chapeaux  <lolo@phpheaven.net>
-	* Documentation.html:
-	  - xhtml fixes;
-	  - added a faq entry about bug #547064 (JS error with textareas under
-	    Mozilla).
-	* libraries/display_tbl.lib.php3; libraries/functions.js: better fix
-	  against bug #547384 (Marker Color can't equal Pointer Color).
-	* libraries/auth/config.auth.lib.php3, line 111: fixed a header problem.
-	* scripts/create-release.sh: improved so a CVS branch tag may be used.
-	* lang/croatian-*; libraries/select_lang.lib.php3: new Croatian
-	  translations thanks to Sime Essert <sime@nofrx.org>.
-	* tbl_properties.php3, lines 1238-1240: fix new fields names in the
-	  relation table.
-	* tbl_printview.php3; tbl_qbe.php3: optimization, warnings and coding
-	  standards.
-	* header.inc.php3, lines 166-172: xhtml fixes.
-	* Compressed ChangeLog till the 2.2.6 release.
+    * Documentation.html:
+      - xhtml fixes;
+      - added a faq entry about bug #547064 (JS error with textareas under
+        Mozilla).
+    * libraries/display_tbl.lib.php3; libraries/functions.js: better fix
+      against bug #547384 (Marker Color can't equal Pointer Color).
+    * libraries/auth/config.auth.lib.php3, line 111: fixed a header problem.
+    * scripts/create-release.sh: improved so a CVS branch tag may be used.
+    * lang/croatian-*; libraries/select_lang.lib.php3: new Croatian
+      translations thanks to Sime Essert <sime@nofrx.org>.
+    * tbl_properties.php3, lines 1238-1240: fix new fields names in the
+      relation table.
+    * tbl_printview.php3; tbl_qbe.php3: optimization, warnings and coding
+      standards.
+    * header.inc.php3, lines 166-172: xhtml fixes.
+    * Compressed ChangeLog till the 2.2.6 release.
 
 2002-04-26 Loïc Chapeaux  <lolo@phpheaven.net>
-	* ## created 2.2.7 branch into the CVS tree ##
-	* lang/nowegian.inc.php: updated thanks to Sven-Erik Andersen.
-	* lang/brazilian_portuguese.inc.php3: updated thanks to Renato Lins.
-	* sql.php3; tbl_replace.php3: patch #547030 - file_exists $goto thanks to
-	  Melvyn Sopacua <nyvlem at users.sourceforge.net>.
-	* libraries/common.lib.php3, line 70: "invalid" path.
-	* tbl_printview.php3; tbl_qbe.php3: coding standards and warnings.
+    * ## created 2.2.7 branch into the CVS tree ##
+    * lang/nowegian.inc.php: updated thanks to Sven-Erik Andersen.
+    * lang/brazilian_portuguese.inc.php3: updated thanks to Renato Lins.
+    * sql.php3; tbl_replace.php3: patch #547030 - file_exists $goto thanks to
+      Melvyn Sopacua <nyvlem at users.sourceforge.net>.
+    * libraries/common.lib.php3, line 70: "invalid" path.
+    * tbl_printview.php3; tbl_qbe.php3: coding standards and warnings.
 
 2002-04-26 Marc Delisle  <lem9@users.sourceforge.net>
-	* tbl_qbe.php3: automatic joints from Relation table, thanks
-	  to Mike Beck (mike.beck at ibmiller.de)
-	  (experimental: some things remain to be tested)
-	* Documentation.html: example for automatic joints
-	* tbl_qbe.php3, tbl_printview.php3, libraries/display_tbl.lib.php3,
-	  Documentation.html: rename fields in the relation table
+    * tbl_qbe.php3: automatic joints from Relation table, thanks
+      to Mike Beck (mike.beck at ibmiller.de)
+      (experimental: some things remain to be tested)
+    * Documentation.html: example for automatic joints
+    * tbl_qbe.php3, tbl_printview.php3, libraries/display_tbl.lib.php3,
+      Documentation.html: rename fields in the relation table
 
 2002-04-26 Alexander M. Turek  <rabus@users.sourceforge.net>
-	* libraries/common.lib.php3: fixed a controluser bug.
-	* libraries/display_tbl.lib.php3: fixed bug #547384 (Marker Color can't
-	  equal Pointer Color)
+    * libraries/common.lib.php3: fixed a controluser bug.
+    * libraries/display_tbl.lib.php3: fixed bug #547384 (Marker Color can't
+      equal Pointer Color)
 
 2002-04-25 Alexander M. Turek  <rabus@users.sourceforge.net>
-	* lang/italian.inc.php3: updated, thanks again to Pietro Danesi.
+    * lang/italian.inc.php3: updated, thanks again to Pietro Danesi.
 
 2002-04-24 Marc Delisle  <lem9@users.sourceforge.net>
-	* tbl_*.php3: $cfg system changes
+    * tbl_*.php3: $cfg system changes
 
 2002-04-24 Alexander M. Turek  <rabus@users.sourceforge.net>
-	* libraries/*, lang/*: $cfg system changes.
-	* libraries/common.lib.php3, libraries/select_lang.php3,
-	  libraries/config_import.lib.php3: Config file backwards compatibility.
+    * libraries/*, lang/*: $cfg system changes.
+    * libraries/common.lib.php3, libraries/select_lang.php3,
+      libraries/config_import.lib.php3: Config file backwards compatibility.
 
 2002-04-24 Robin Johnson <robbat2@users.sourceforge.net>
-	* *.php3 NOT tbl_*.php, Documentation.*: $cfg system changes.
-	* scripts/extchg.sh: Updated URL
-	* scripts/convertcfg.pl: Conversion between old config files and new ones.
-	* scripts/*: Updated comments somewhat
-	* tbl_dump.php3:121: renamed $cfgServer_backup to $backup_cfgServer
-	* user_details.php3: forgot to change $GLOBALS['cfgXYZ'] to $GLOBALS['cfg']['XYZ']
-	* libraries/common.lib.php3: a single $cfgServer instance was forgotten
+    * *.php3 NOT tbl_*.php, Documentation.*: $cfg system changes.
+    * scripts/extchg.sh: Updated URL
+    * scripts/convertcfg.pl: Conversion between old config files and new ones.
+    * scripts/*: Updated comments somewhat
+    * tbl_dump.php3:121: renamed $cfgServer_backup to $backup_cfgServer
+    * user_details.php3: forgot to change $GLOBALS['cfgXYZ'] to $GLOBALS['cfg']['XYZ']
+    * libraries/common.lib.php3: a single $cfgServer instance was forgotten
 
 2002-04-23 Marc Delisle  <lem9@users.sourceforge.net>
-	* tbl_printview.php3, lang/*.php3: Relation links in printview,
-	  thanks to Mike Beck (mike.beck at ibmiller.de)
+    * tbl_printview.php3, lang/*.php3: Relation links in printview,
+      thanks to Mike Beck (mike.beck at ibmiller.de)
 
 2002-04-23 Alexander M. Turek  <rabus@users.sourceforge.net>
-	* libraries/common.lib.php3: fixed bug #547605 using Loïc's patch.
-	* tbl_printview.php3: Fixed a small bug, some php and XHTML 1.0 errors and
-	  beautified the generated code.
-	* lang/german.inc.php3: Translated the new string.
-	* Documentation.html: Changed notes concerning php 4.2.0.
+    * libraries/common.lib.php3: fixed bug #547605 using Loïc's patch.
+    * tbl_printview.php3: Fixed a small bug, some php and XHTML 1.0 errors and
+      beautified the generated code.
+    * lang/german.inc.php3: Translated the new string.
+    * Documentation.html: Changed notes concerning php 4.2.0.
 
 2002-04-22 Loïc Chapeaux  <lolo@phpheaven.net>
-	* lang/slovak-win1250.inc.php3: completed, thanks to Peter Svec.
+    * lang/slovak-win1250.inc.php3: completed, thanks to Peter Svec.
 
 2002-04-22 Marc Delisle  <lem9@users.sourceforge.net>
-	* lang/japanese* updates, thanks to Yukihiro Kawada
+    * lang/japanese* updates, thanks to Yukihiro Kawada
 
 2002-04-22 Alexander M. Turek  <rabus@users.sourceforge.net>
-	* lang/russian-koi8.inc.php3: fixed a typo (bug #546981).
-	* lang/german.inc.php3: better syntax.
-	* db_details.php3, mult_submits.inx.php3, tbl_properties.php3:
-	  Use TRUNCATE instead of DELETE when using MySQL 4.
+    * lang/russian-koi8.inc.php3: fixed a typo (bug #546981).
+    * lang/german.inc.php3: better syntax.
+    * db_details.php3, mult_submits.inx.php3, tbl_properties.php3:
+      Use TRUNCATE instead of DELETE when using MySQL 4.
 
 2002-04-21 Alexander M. Turek  <rabus@users.sourceforge.net>
-	* main.php3: Restarted work on patch #538740 (get users priv. with
-	  SHOW GRANTS).
+    * main.php3: Restarted work on patch #538740 (get users priv. with
+      SHOW GRANTS).
 
 2002-04-21 Loïc Chapeaux  <lolo@phpheaven.net>
-	* libraries/auth/http.auth.lib.php3: tried a fix to allow the use of http
-	  authentication mode with IIS.
+    * libraries/auth/http.auth.lib.php3: tried a fix to allow the use of http
+      authentication mode with IIS.
 
 2002-04-21 Marc Delisle  <lem9@users.sourceforge.net>
-	* ### 2.2.6 released ###
+    * ### 2.2.6 released ###

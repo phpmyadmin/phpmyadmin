@@ -273,29 +273,43 @@ else {
     // 'xml' case
     else if ($GLOBALS['what'] == 'xml') {
         // first add the xml tag
-        $dump_buffer .= '<?xml version="1.0" encoding="' . $charset . '"?>' . $crlf;
+        $dump_buffer .= '<?xml version="1.0" encoding="' . $charset . '"?>' . $crlf . $crlf;
         // some comments
-        $dump_buffer       .= '<!--' . $crlf
-                           .  '-' . $crlf
-                           .  '- phpMyAdmin XML-Dump' . $crlf
-                           .  '- version ' . PMA_VERSION . $crlf
-                           .  '- http://phpwizard.net/phpMyAdmin/' . $crlf
-                           .  '- http://www.phpmyadmin.net/ (download page)' . $crlf
-                           .  '-' . $crlf
-                           .  '- ' . $strHost . ': ' . $cfg['Server']['host'];
+        $dump_buffer         .= '<!--' . $crlf
+                             .  '-' . $crlf
+                             .  '- phpMyAdmin XML-Dump' . $crlf
+                             .  '- version ' . PMA_VERSION . $crlf
+                             .  '- http://phpwizard.net/phpMyAdmin/' . $crlf
+                             .  '- http://www.phpmyadmin.net/ (download page)' . $crlf
+                             .  '-' . $crlf
+                             .  '- ' . $strHost . ': ' . $cfg['Server']['host'];
         if (!empty($cfg['Server']['port'])) {
-            $dump_buffer   .= ':' . $cfg['Server']['port'];
+            $dump_buffer     .= ':' . $cfg['Server']['port'];
         }
-        $formatted_db_name = (isset($use_backquotes))
-                           ? PMA_backquote($db)
-                           : '\'' . $db . '\'';
-        $dump_buffer       .= $crlf
-                           .  '- ' . $strGenTime . ': ' . PMA_localisedDate() . $crlf
-                           .  '- ' . $strServerVersion . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
-                           .  '- ' . $strPHPVersion . ': ' . phpversion() . $crlf
-                           .  '- ' . $strDatabase . ': ' . $formatted_db_name . $crlf
-                           .  '-' . $crlf
-                           .  '-->' . $crlf;
+        $dump_buffer         .= $crlf
+                             .  '- ' . $strGenTime . ': ' . PMA_localisedDate() . $crlf
+                             .  '- ' . $strServerVersion . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
+                             .  '- ' . $strPHPVersion . ': ' . phpversion() . $crlf
+                             .  '- ' . $strDatabase . ': \'' . $db . '\'' . $crlf
+                             .  '-' . $crlf
+                             .  '-->' . $crlf . $crlf;
+        // Now build the structure
+        // todo: Make db and table names XML compatible
+        $dump_buffer         .= '<' . $db . '>' . $crlf;
+        if (isset($table_select)) {
+            $tmp_select = implode($table_select, '|');
+            $tmp_select = '|' . $tmp_select . '|';
+        }
+        while ($i < $num_tables) {
+            if (!isset($single)) {
+                $table = mysql_tablename($tables, $i);
+            }
+            if (isset($tmp_select) && is_int(strpos($tmp_select, '|' . $table . '|'))) {
+                $dump_buffer .= PMA_getTableXML($db, $table, $crlf, $err_url) . $crlf;
+            }
+            $i++;
+        }
+        $dump_buffer         .= '</' . $db . '>';
     }
     // 'csv' case
     else {
