@@ -47,7 +47,7 @@ if (!isset($message)) {
         ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./left.php3?<?php echo PMA_generate_common_url($db, '', '&'); ?>&hash=' + window.parent.frames['nav'].document.hashform.hash.value);
+window.parent.frames['nav'].location.replace('./left.php3?<?php echo PMA_generate_common_url($db, '', '&'); ?>');
 //-->
 </script>
         <?php

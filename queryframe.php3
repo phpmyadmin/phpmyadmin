@@ -104,6 +104,9 @@ document.writeln('<a href="<?php echo $href; ?>" <?php echo $target . ' ' . $onc
 </noscript>
 </center>
 
+<form name="hashform" action="queryframe.php3">
+    <input type="hidden" name="hash" value="<?php echo $hash; ?>">
+</form>
 </body>
 </html>
 

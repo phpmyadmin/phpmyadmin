@@ -8,6 +8,10 @@
  * been defined as startup option and include a core library
  */
 require('./libraries/grab_globals.lib.php3');
+if (isset($lightm_db) && !empty($lightm_db)) {
+    $db = urldecode($lightm_db);
+}
+
 if (!empty($db)) {
     $db_start = $db;
 }
@@ -61,6 +65,19 @@ PMA_setFontSizes();
     <title>phpMyAdmin</title>
     <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
     <base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> target="phpmain<?php echo $hash; ?>" />
+
+    <script type="text/javascript" language="javascript">
+    <!--
+<?php
+if (isset($lightm_db) && !empty($lightm_db)) {
+?>
+    window.parent.frames['phpmain<?php echo $hash; ?>'].location.replace('./<?php echo $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db, '', '&');?>');
+<?php 
+}
+?>
+    //-->
+    </script>
+
 <?php
 // Expandable/collapsible databases list is only used if there is more than one
 // database to display
@@ -155,8 +172,16 @@ if ($num_dbs > 1) {
 
     // Light mode -> beginning of the select combo for databases
     if ($cfg['LeftFrameLight']) {
-        echo '    <form method="post" action="index.php3" name="left" target="_parent">' . "\n";
+        ?>
+        <script type="text/javascript" language="javascript">
+            document.writeln('<form method="post" action="left.php3" name="left" target="nav">');
+        </script>
+        <noscript>
+            <form method="post" action="index.php3" name="left" target="_parent">
+        </noscript>
+        <?php
         echo PMA_generate_common_hidden_inputs();
+        echo '        <input type="hidden" name="hash" value="' . $hash . '" />' . "\n";
         echo '        <select name="lightm_db" onchange="this.form.submit()">' . "\n";
         echo '            <option value="">(' . $strDatabases . ') ...</option>' . "\n";
         $table_list = '';
@@ -439,9 +464,6 @@ else {
 echo "\n";
 ?>
 
-<form name="hashform" action="left.php3">
-    <input type="hidden" name="hash" value="<?php echo $hash; ?>">
-</form>
 </body>
 </html>
 

@@ -81,7 +81,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 ?>
         <script type="text/javascript">
         <!--
-        document.writeln('<form method="post" target="phpmain' +  <?php echo ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) ? 'opener.' : ''); ?>top.frames.nav.document.hashform.hash.value + '" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">');
+        document.writeln('<form method="post" target="phpmain' +  <?php echo ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) ? 'opener.' : '');?>top.frames.queryframe.document.hashform.hash.value + '" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">');
         //-->
         </script>
         <noscript>
@@ -297,7 +297,7 @@ if (!isset($is_inside_querywindow) ||
             ?>
 
             <script type="text/javascript">
-                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain\' + opener.top.frames.nav.document.hashform.hash.value + \'.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo addslashes($strInsertTextfiles); ?></a></div>');
+                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain\' + opener.top.frames.queryframe.document.hashform.hash.value + \'.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo addslashes($strInsertTextfiles); ?></a></div>');
             </script>
             
             <?php

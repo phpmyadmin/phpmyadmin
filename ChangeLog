@@ -18,6 +18,13 @@ $Source$
       Patch Tracker #709383 for further information.
     * libraries/display_tbl.lib.php3: Bug #728813 (title for
       relations when foreign_db != master_db)
+    * index.php3, left.php3, tbl_query_box.php3, db_details_common.php3,
+      main.php3, queryframe.php3, libraries/common.lib.php3: Should be 
+      the fix for Bug #730718.
+      Moved the hashform from the "nav"-frame to the "queryframe"-frame,
+      altered the way the form is submitted in LeftFrameLight mode to
+      keep the queryframe. Only if JavaScript is usable, otherwise it's
+      not necessary to keep the 'opener' pointer.
 
 2003-04-30 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3, bug 729517, better comment output,
