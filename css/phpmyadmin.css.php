@@ -121,10 +121,12 @@ ul.main {
     padding-right:2em;
 }
 
+/* no longer needed
 ul.main li {
     list-style-image: url(../images/dot_violet.png);
     padding-bottom: 0.1em;
 }
+*/
 
 button {
     /* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
