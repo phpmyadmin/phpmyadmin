@@ -85,7 +85,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     // Include failed
     if (!isset($cfgServers) && !isset($cfg['Servers'])) {
         // Creates fake settings
-        $cfg = array('DefaultLang' => 'en-iso-8859-1');
+        $cfg = array('DefaultLang' => 'en-iso-8859-1',
+            'AllowAnywhereRecoding' => FALSE);
         // Loads the language file
         include('./libraries/select_lang.lib.php3');
         // Sends the Content-Type header

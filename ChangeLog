@@ -14,6 +14,8 @@ $Source$
     * tbl_dump.php3, libraries/build_dump.lib.php3: Completed fix against
       bug #607896, thanks to Loïc.
     * lang/english.inc.php3: Reordered strings.
+    * libraries/common.lib.php3: Added more fake settings in case of an
+      errornous config file.
 
 2002-10-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3, header_prinview.inc.php3: Corrected value for the
