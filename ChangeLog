@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_query_box.php: bug 1050691, missing parameters
+
 2004-10-21 Michael Keck <mkkeck@users.sourceforge.net>
     * libraries/common.lib.php: feature request #1036254
       Add a link by MySQL-Error #1062 - Duplicate entry

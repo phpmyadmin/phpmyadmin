@@ -9,7 +9,10 @@ require_once('./libraries/bookmark.lib.php');
 
 $upload_dir_error='';
 
-if (!($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full'))) {
+// I don't see the purpose of the first 2 conditions
+//if (!($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full'))) {
+
+if (!(isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full'))) {
     PMA_checkParameters(array('db','table','url_query'));
 }
 
@@ -50,8 +53,6 @@ if (isset($db) && isset($table) && $table != '' && $db != '') {
 /**
  * Work on the table
  */
-// loic1: defines whether file upload is available or not
-// ($is_upload now defined in common.lib.php)
 
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full')) {
     $locking   = 'onkeypress="document.sqlform.elements[\'LockFromUpdate\'].checked = true;"';
@@ -103,6 +104,8 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] && !$db || ($cfg['QueryFrameJS'
     }
 }
 $form_items = 0;
+// ($is_upload defined in common.lib.php)
+
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow) {
 ?>
         <script type="text/javascript">
