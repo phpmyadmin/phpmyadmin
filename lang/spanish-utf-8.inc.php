@@ -719,4 +719,5 @@ $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0
 $strZip = '"comprimido con zip"';
 
 $strAddFields = 'Add %s field(s)';  //to translate
+$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 ?>

@@ -720,4 +720,5 @@ $strZip = '"zo zipované"';
 
 $strPersian = 'Persian';  //to translate
 $strAddFields = 'Add %s field(s)';  //to translate
+$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 ?>

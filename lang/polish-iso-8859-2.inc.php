@@ -718,4 +718,5 @@ $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograni
 $strZip = '".zip"';
 
 $strAddFields = 'Add %s field(s)';  //to translate
+$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 ?>

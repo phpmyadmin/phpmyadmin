@@ -723,4 +723,5 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
 $strAddFields = 'Add %s field(s)';  //to translate
+$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 ?>

@@ -303,6 +303,7 @@ $strInnodbStat = 'Stav InnoDB';
 $strInsecureMySQL = 'Máte standardní nastavení hesla uživatele root v&nbsp;MySQL. Doporučujeme změnit toto nastavení a tím podstatně zvýšit bezpečnost Vašeho serveru.';
 $strInsert = 'Vložit';
 $strInsertAsNewRow = 'Vložit jako nový řádek';
+$strInsertBookmarkTitle = 'Prosím zadejte název oblíbené položky';
 $strInsertNewRow = 'Vložit nový řádek';
 $strInsertTextfiles = 'Vložit textové soubory do tabulky';
 $strInsertedRowId = 'Id vloženého řádku:';

@@ -474,7 +474,7 @@ if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_insi
                 </tr>
                 <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
                     <td align="right"<?php echo $queryframe_thcolspan; ?>>
-                        <input type="submit" name="SQLbookmark" value="<?php echo $strGo . ' &amp; ' . $strBookmarkThis; ?>" onclick="if(document.forms['sqlform'].elements['bkm_label'].value==''){ alert('Please insert a Bookmark-Titel     ');forms['sqlform'].elements['bkm_label'].focus();return false; }"/>
+                        <input type="submit" name="SQLbookmark" value="<?php echo $strGo . ' &amp; ' . $strBookmarkThis; ?>" onclick="if(document.forms['sqlform'].elements['bkm_label'].value==''){ alert('<?php echo addslashes($strInsertBookmarkTitle); ?>');forms['sqlform'].elements['bkm_label'].focus();return false; }"/>
                     </td>
                 </tr>
 <?php

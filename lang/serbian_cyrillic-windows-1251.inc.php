@@ -724,4 +724,5 @@ $strZeroRemovesTheLimit = 'Напомена: Постављање ових опција на 0 (нулу) уклања о
 $strZip = '"зиповано"';
 
 $strAddFields = 'Add %s field(s)';  //to translate
+$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 ?>

@@ -719,4 +719,5 @@ $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el l
 $strZip = '"comprimit amb zip"';
 
 $strAddFields = 'Add %s field(s)';  //to translate
+$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 ?>

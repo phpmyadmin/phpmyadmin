@@ -718,4 +718,5 @@ $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjer
 $strZip = '"zipped"';
 
 $strAddFields = 'Add %s field(s)';  //to translate
+$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 ?>

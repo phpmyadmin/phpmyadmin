@@ -296,6 +296,7 @@ $strInnodbStat = 'InnoDB Status';
 $strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';
 $strInsert = 'Insert';
 $strInsertAsNewRow = 'Insert as a new row';
+$strInsertBookmarkTitle = 'Please insert bookmark title';
 $strInsertNewRow = 'Insert new row';
 $strInsertTextfiles = 'Insert data from a textfile into table';
 $strInsertedRowId = 'Inserted row id:';

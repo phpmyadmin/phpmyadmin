@@ -723,4 +723,5 @@ $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) 
 $strZip = '"Gezipt"';
 
 $strAddFields = 'Add %s field(s)';  //to translate
+$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 ?>

@@ -725,4 +725,5 @@ $strZeroRemovesTheLimit = '注意：将这些选项设为 0(零) 将删除限制
 $strZip = 'zip 压缩';
 
 $strAddFields = 'Add %s field(s)';  //to translate
+$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 ?>

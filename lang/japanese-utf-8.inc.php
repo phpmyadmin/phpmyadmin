@@ -740,4 +740,5 @@ $strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to trans
 
 $strPersian = 'Persian';  //to translate
 $strAddFields = 'Add %s field(s)';  //to translate
+$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 ?>

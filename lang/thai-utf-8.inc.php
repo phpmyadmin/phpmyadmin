@@ -744,4 +744,5 @@ $strWindowNotFound = 'The target browser window could not be updated. Maybe you 
 
 $strPersian = 'Persian';  //to translate
 $strAddFields = 'Add %s field(s)';  //to translate
+$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 ?>
