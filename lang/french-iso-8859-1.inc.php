@@ -722,4 +722,5 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
 ?>

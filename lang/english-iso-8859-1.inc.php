@@ -222,6 +222,7 @@ $strEndRaw = 'END RAW';
 $strEnglish = 'English';
 $strEnglishPrivileges = ' Note: MySQL privilege names are expressed in English ';
 $strError = 'Error';
+$strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';
 $strEstonian = 'Estonian';
 $strExcelEdition = 'Excel edition';
 $strExcelOptions = 'Excel options';

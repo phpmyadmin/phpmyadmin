@@ -223,6 +223,7 @@ $strEndRaw = 'END RAW';
 $strEnglish = 'English';
 $strEnglishPrivileges = ' Note: MySQL privilege names are expressed in English ';
 $strError = 'Error';
+$strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';
 $strEstonian = 'Estonian';
 $strExcelEdition = 'Excel edition';
 $strExcelOptions = 'Excel options';
@@ -683,6 +684,7 @@ $strUpgrade = 'You should upgrade to %s %s or later.';
 $strUsage = 'Usage';
 $strUseBackquotes = 'Enclose table and field names with backquotes';
 $strUseHostTable = 'Use Host Table';
+$strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';
 $strUseTables = 'Use Tables';
 $strUseTextField = 'Use text field';
 $strUseThisValue = 'Use this value';
@@ -721,5 +723,4 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
 ?>

@@ -728,4 +728,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 
 $strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
+$strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
 ?>

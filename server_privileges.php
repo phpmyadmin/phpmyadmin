@@ -1217,7 +1217,7 @@ if (empty($adduser) && empty($checkprivs)) {
                 }
                 echo '                        <input type="text" id="text_tablename" name="tablename" class="textfield" />' . "\n";
             }
-            echo '                        <input type="submit" value="' . $strGo . '" />' . "\n"
+            echo '                        <input type="submit" value="' . $strGo . '" />' . PMA_showHint($strEscapeWildcards) . "\n"
                . '                    </form>' . "\n"
                . '                </td>' . "\n"
                . '            </tr>' . "\n"

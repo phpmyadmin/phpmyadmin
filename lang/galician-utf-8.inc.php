@@ -727,4 +727,5 @@ $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) e
 $strZip = 'comprimido no formato "zip"';
 
 $strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
+$strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
 ?>

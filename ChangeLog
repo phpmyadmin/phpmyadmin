@@ -11,6 +11,7 @@ $Source$
     * tbl_change.php, libraries/common.lib.php, lang/*: new function
       PMA_showHint($message), new $strUseTabKey,
       new light bulb image (temporary)
+    * server_privileges.php: bug #916117, PMA_showHint($strEscapeWildcards)
 
 2004-10-19 Michal Čihař  <michal@cihar.com>
     * export.php: Use just \n for SQL exports (bug #1042521).
