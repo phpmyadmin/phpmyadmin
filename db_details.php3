@@ -133,9 +133,16 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
 <input type="hidden" name="lang" value="<?php echo $lang;?>">
 <input type="hidden" name="db" value="<?php echo $db;?>">
 <?php echo $strCreateNewTable.$db;?>:<br>
-<?php echo $strName.":"; ?> <input type="text" name="table"><br>
-<?php echo $strFields.":"; ?> <input type="text" name="num_fields" size=2>
-<input type="submit" value="<?php echo $strGo; ?>">
+<?php 
+	echo $strName.":"; 
+	echo "<input type=\"text\" name=\"table\">";
+	echo $strNumberIndexes.":";
+	echo "<input type=\"text\" name=\"num_indexes\" size=2>";
+	echo "<br>";
+	echo $strFields.":"; 
+	echo "<input type=\"text\" name=\"num_fields\" size=2>";
+	echo "<input type=\"submit\" value=\"" . $strGo . "\">";
+?>
 </form>
 
 <li>
