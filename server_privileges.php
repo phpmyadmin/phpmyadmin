@@ -915,12 +915,17 @@ if (empty($adduser) && empty($checkprivs)) {
         if (PMA_MYSQL_INT_VERSION >= 40002) {
             $sql_query = 'SELECT `User`, `Host`, IF(`Password` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . '\'\', \'N\', \'Y\') AS \'Password\', `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv`, `Grant_priv`, `References_priv`, `Index_priv`, `Alter_priv`, `Show_db_priv`, `Super_priv`, `Create_tmp_table_priv`, `Lock_tables_priv`, `Execute_priv`, `Repl_slave_priv`, `Repl_client_priv` FROM `user` ';
  
+            // the strtolower() is because sometimes the User field
+            // might be BINARY, so LIKE would be case sensitive
             if (isset($initial)) {
-                $sql_query .= " WHERE `User` LIKE '" . $initial . "%'";
+                $sql_query .= " WHERE " . PMA_convert_using('User')
+                 . " LIKE " . PMA_convert_using($initial . '%', 'quoted')
+                 . " OR ". PMA_convert_using('User')
+                 . " LIKE " . PMA_convert_using(strtolower($initial) . '%', 'quoted');
             }
 
             $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
-            $res = PMA_DBI_try_query($sql_query);
+            $res = PMA_DBI_try_query($sql_query, NULL, PMA_DBI_QUERY_STORE);
 
             if (!$res) {
                 // the query failed! This may have two reasons:
@@ -933,11 +938,14 @@ if (empty($adduser) && empty($checkprivs)) {
             $sql_query = 'SELECT `User`, `Host`, IF(`Password` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . '\'\', \'N\', \'Y\') AS \'Password\', `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Index_priv`, `Alter_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv` FROM `user`';
 
             if (isset($initial)) {
-                $sql_query .= " WHERE `User` LIKE '" . $initial . "%'";
+                $sql_query .= " WHERE " . PMA_convert_using('User')
+                 . " LIKE " . PMA_convert_using($initial . '%', 'quoted')
+                 . " OR ". PMA_convert_using('User')
+                 . " LIKE " . PMA_convert_using(strtolower($initial) . '%', 'quoted');
             }
 
             $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
-            $res = PMA_DBI_try_query($sql_query);
+            $res = PMA_DBI_try_query($sql_query, NULL, PMA_DBI_QUERY_STORE);
 
             if (!$res) {
                 // the query failed! This may have two reasons:
@@ -972,7 +980,7 @@ if (empty($adduser) && empty($checkprivs)) {
                 $array_initials[chr($letter_counter + 64)] = FALSE;
             }
 
-            $initials = PMA_DBI_try_query('SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC');
+            $initials = PMA_DBI_try_query('SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC', NULL, PMA_DBI_QUERY_STORE);
             while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
                 $array_initials[$tmp_initial] = TRUE;
             }
