@@ -619,24 +619,26 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
                 }
                 $sql_query = $real_sql_query;
             }
-            if ((isset($Grant_priv) && $Grant_priv == 'Y') || isset($max_questions) || isset($max_connections) || isset($max_updates)) {
+            if ((isset($Grant_priv) && $Grant_priv == 'Y') || (PMA_MYSQL_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates)))) {
                 $real_sql_query .= 'WITH';
                 $sql_query .= 'WITH';
                 if (isset($Grant_priv) && $Grant_priv == 'Y') {
                     $real_sql_query .= ' GRANT OPTION';
                     $sql_query .= ' GRANT OPTION';
                 }
-                if (isset($max_questions)) {
-                    $real_sql_query .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
-                    $sql_query .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
-                }
-                if (isset($max_connections)) {
-                    $real_sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
-                    $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
-                }
-                if (isset($max_updates)) {
-                    $real_sql_query .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
-                    $sql_query .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+                if (PMA_MYSQL_INT_VERSION >= 40002) {
+                    if (isset($max_questions)) {
+                        $real_sql_query .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
+                        $sql_query .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
+                    }
+                    if (isset($max_connections)) {
+                        $real_sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
+                        $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
+                    }
+                    if (isset($max_updates)) {
+                        $real_sql_query .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+                        $sql_query .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+                    }
                 }
             }
             $real_sql_query .= ';';
@@ -742,19 +744,21 @@ if (!empty($update_privs)) {
             $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table . ' FROM "' . PMA_sqlAddslashes($username) . '"@"' . $hostname . '";';
         }
         $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON ' . $db_and_table . ' TO "' . PMA_sqlAddslashes($username) . '"@"' . $hostname . '"';
-        if ((isset($Grant_priv) && $Grant_priv == 'Y') || (empty($dbname) && (isset($max_questions) || isset($max_connections) || isset($max_updates)))) {
+        if ((isset($Grant_priv) && $Grant_priv == 'Y') || (empty($dbname) && PMA_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates)))) {
             $sql_query2 .= 'WITH';
             if (isset($Grant_priv) && $Grant_priv == 'Y') {
                 $sql_query2 .= ' GRANT OPTION';
             }
-            if (isset($max_questions)) {
-                $sql_query2 .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
-            }
-            if (isset($max_connections)) {
-                $sql_query2 .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
-            }
-            if (isset($max_updates)) {
-                $sql_query2 .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+            if (PMA_INT_VERSION >= 40002) {
+                if (isset($max_questions)) {
+                    $sql_query2 .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
+                }
+                if (isset($max_connections)) {
+                    $sql_query2 .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
+                }
+                if (isset($max_updates)) {
+                    $sql_query2 .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+                }
             }
         }
         $sql_query2 .= ';';
