@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-17 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.4.0-rc2 released
+
 2003-02-16 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3, lang/*.inc.php3, lang/server_privileges.js:
       - Reimplemented ability to change a user's login information
