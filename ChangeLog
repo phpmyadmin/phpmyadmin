@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-08  Marc Delisle  <lem9@users.sourceforge.net>
+        * add hostname in title bar
+
 2001-06-07  Marc Delisle  <lem9@users.sourceforge.net>
         * modify/implement Steve Alberty's patch for complete table dump
         * implement Alessandro Astarita's patch for data only dump

@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>phpMyAdmin</title>
+<title>phpMyAdmin - <?php echo getenv('HTTP_HOST') ;?></title>
 </head>
 
 <frameset cols="150,*" rows="*" border="0" frameborder="0"> 
