@@ -80,7 +80,9 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     echo "\n";
 
     // The type column
-    switch (ereg_replace('\\(.*', '', $row_table_def['Type'])) {
+    $row_table_def['True_Type']=ereg_replace('\\(.*','',$row_table_def['Type']);
+    //switch (ereg_replace('\\(.*', '', $row_table_def['Type'])) {
+    switch ($row_table_def['True_Type']) {
         case 'set':
             $type         = 'set';
             $type_nowrap  = '';
@@ -121,7 +123,8 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     //       is binary 
 
     //if ((strstr($row_table_def['Type'], 'blob') || strstr($row_table_def['Type'], 'binary'))
-    if (strstr($row_table_def['Type'], 'blob') 
+    //if (strstr($row_table_def['Type'], 'blob') 
+    if (strstr($row_table_def['True_Type'], 'blob') 
         && !empty($data)
 	&& $cfgProtectBlob==TRUE) {
         echo '        <td>' . $strBinary . '</td>' . "\n";
@@ -156,7 +159,8 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     echo "\n";
 
     // The value column (depends on type)
-    if (strstr($row_table_def['Type'], 'text')) {
+    //if (strstr($row_table_def['Type'], 'text')) {
+    if (strstr($row_table_def['True_Type'], 'text')) {
         ?>
         <td>
 <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars . "\n"; ?></textarea>
@@ -167,7 +171,8 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
             echo '        <td>' . $strTextAreaLength . '</td>' . "\n";
         }
     }
-    else if (strstr($row_table_def['Type'], 'enum')) {
+    //else if (strstr($row_table_def['Type'], 'enum')) {
+    else if (strstr($row_table_def['True_Type'], 'enum')) {
         $set = str_replace('enum(', '', $row_table_def['Type']);
         $set = ereg_replace('\\)$', '', $set);
         $set = explode('\',\'', substr($set, 1, -1));
