@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * scripts/create-release.sh: the I option in tar for bzip output
+      is deprecated and no longer works on sourceforge, use j
+
 2002-06-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/sync_lang.sh: new script thanks to Michal Cihar
     * Documentation.html: typos
