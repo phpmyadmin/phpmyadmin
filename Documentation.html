@@ -1592,11 +1592,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master_field varchar(32) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_table varchar(32) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_field varchar(32) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_display_field varchar(32) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (master_table,master_field)<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'town_code', 'towns', 'town_code');<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'country_code', 'countries', 'country_code');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'town_code', 'towns', 'town_code','description');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'country_code', 'countries', 'country_code','description');<br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE towns (<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;town_code varchar(5) NOT NULL default '0',<br />
