@@ -75,6 +75,7 @@ $strColumn = 'Sarake';
 $strColumnNames = 'Sarakkeiden nimet';
 $strCompleteInserts = 'T‰ydelliset insert-lauseet';
 $strConfirm = 'Oletko varma, ett‰ haluat tehd‰ t‰m‰n?';
+$strCookiesRequired = 'Selaimessa pit‰‰ olla cookietuki p‰‰ll‰ t‰st‰ eteenp‰in.';
 $strCopyTable = 'Kopioi taulu (tietokanta<b>.</b>taulu):';
 $strCopyTableOK = 'Taulu %s on kopioitu nimelle %s.';
 $strCreate = 'Luo';
@@ -174,7 +175,10 @@ $strLineFeed = 'LF-rivinvaihto: \\n';
 $strLines = 'Rivit';
 $strLinesTerminatedBy = 'Rivien erotinmerkki';
 $strLocationTextfile = 'Tiedoston sijainti';
+$strLogin = 'Kirjaudu sis‰‰n';
 $strLogout = 'Poistu';
+$strLogPassword = 'Salasana:';
+$strLogUsername = 'K‰ytt‰j‰tunnus:';
 
 $strModifications = 'Muutokset tallennettu';
 $strModify = 'Muokkaa';
@@ -340,10 +344,6 @@ $strYes = 'Kyll‰';
 $strZip = '"zip-pakattu"';
 
 // To translate
-$strCookiesRequired = 'Cookies must be enabled past this point.';
-$strLogin = 'Login';
-$strLogPassword = 'Password:';
-$strLogUsername = 'Username:';
 
 $strRowsModeVertical=" vertical ";  //to translate
 $strRowsModeHorizontal=" horizontal ";  //to translate

@@ -71,6 +71,7 @@ $strColumn = 'Kolonne';
 $strColumnNames = 'Kolonnenavn';
 $strCompleteInserts = 'Komplette innlegg';
 $strConfirm = 'Ønsker du virkelig å gjøre det?';
+$strCookiesRequired = 'Cookies må være slått på forbi dette punkt.';
 $strCopyTable = 'Kopier tabell til (database<b>.</b>tabell):';
 $strCopyTableOK = 'Tabellen %s er kopiert til %s.';
 $strCreate = 'Opprett';
@@ -169,7 +170,10 @@ $strLineFeed = 'Linjeskift: \\n';
 $strLines = 'Linjer';
 $strLinesTerminatedBy = 'Linker avsluttet med';
 $strLocationTextfile = 'Plassering av filen';
+$strLogin = 'Logg inn';
 $strLogout = 'Logg ut';
+$strLogPassword = 'Passord:';
+$strLogUsername = 'Brukernavn:';
 
 $strModifications = 'Endringene er lagret';
 $strModify = 'Endre';
@@ -335,10 +339,6 @@ $strYes = 'Ja';
 $strZip = '"komprimert (zip)"';
 
 // To translate
-$strCookiesRequired = 'Cookies must be enabled past this point.';
-$strLogin = 'Login';
-$strLogPassword = 'Password:';
-$strLogUsername = 'Username:';
 $strRowsModeVertical=" vertical ";  //to translate
 $strRowsModeHorizontal=" horizontal ";  //to translate
 $strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate

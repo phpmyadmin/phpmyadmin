@@ -71,6 +71,7 @@ $strColumn = 'Kolumn';
 $strColumnNames = 'Kolumn-namn';
 $strCompleteInserts = 'Kompletta infogningar';
 $strConfirm = 'Vill du verkligen göra det?';
+$strCookiesRequired = 'Kakor (cookies) måste tillåtas för att gå vidare.';
 $strCopyTable = 'Kopiera tabellen till (databas<b>.</b>tabell):';
 $strCopyTableOK = 'Tabellen %s har kopierats till %s.';
 $strCreate = 'Skapa';
@@ -172,6 +173,8 @@ $strLinesTerminatedBy = 'Raderna avslutas med';
 $strLocationTextfile = 'Textfilens plats';
 $strLogin = 'Logga in';
 $strLogout = 'Logga ut';
+$strLogPassword = 'Lösenord:';
+$strLogUsername = 'Användarnamn:';
 
 $strModifications = 'Ändringarna har sparats';
 $strModify = 'Ändra';
@@ -337,9 +340,7 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
-$strCookiesRequired = 'Cookies must be enabled past this point.';
-$strLogPassword = 'Password:';
-$strLogUsername = 'Username:';
+
 $strRowsModeVertical=" vertical ";  //to translate
 $strRowsModeHorizontal=" horizontal ";  //to translate
 $strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate

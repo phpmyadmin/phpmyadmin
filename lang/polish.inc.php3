@@ -71,6 +71,7 @@ $strColumn = 'Kolumna';
 $strColumnNames = 'Nazwy kolumn';
 $strCompleteInserts = 'Pe³ne dodania';
 $strConfirm = 'Czy na pewno to zrobiæ?';
+$strCookiesRequired = 'Odt±d musi byæ w³±czona obs³uga "cookies".';
 $strCopyTable = 'Skopiowanie tabeli do (bazadanych<b>.</b>tabela):';
 $strCopyTableOK = 'Tabela %s zosta³a skopiowana do %s.';
 $strCreate = 'Utworzenie';
@@ -170,8 +171,10 @@ $strLineFeed = 'Kod wysuniêcia linii: \\n';
 $strLines = 'Linie';
 $strLinesTerminatedBy = 'Linie zakoñczone przez';
 $strLocationTextfile = 'Lokalizacja pliku tekstowego';
-$strLogin = 'Zalogowanie';
+$strLogin = 'Login';
 $strLogout = 'Wylogowanie';
+$strLogPassword = 'Has³o:';
+$strLogUsername = 'U¿ytkownik:';$strRowsModeVertical=" vertical ";  
 
 $strModifications = 'Modyfikacje zosta³y zapamiêtane';
 $strModify = 'Modifikacja';
@@ -337,9 +340,6 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
-$strCookiesRequired = 'Cookies must be enabled past this point.';
-$strLogPassword = 'Password&nbsp;:';
-$strLogUsername = 'Username&nbsp;:';
 
 $strRowsModeVertical=" vertical ";  //to translate
 $strRowsModeHorizontal=" horizontal ";  //to translate
