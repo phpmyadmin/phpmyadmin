@@ -42,7 +42,7 @@ if (isset($goto) && $goto == 'sql.php3') {
 }
 if (isset($btnDrop) && $btnDrop == $strNo) {
     if (file_exists('./' . $goto)) {
-        include('./' . preg_replace('/\.\.*/', '.', $goto));
+        include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
         header('Location: ' . $goto);
     }
@@ -161,7 +161,7 @@ else {
             } else {
                 $message = $strEmptyResultSet;
             }
-            $goto = preg_replace('/\.\.*/', '.', $goto);
+            $goto = ereg_replace('\.\.*', '.', $goto);
             if ($goto != 'main.php3') {
                 include('./header.inc.php3');
             }

@@ -175,7 +175,7 @@ if (!$result) {
     if (file_exists('./' . $goto)) {
         include('./header.inc.php3');
         $message = $strModifications;
-        include('./' . preg_replace('/\.\.*/', '.', $goto));
+        include('./' . ereg_replace('\.\.*', '.', $goto)); //preg_replace('/\.\.*/', '.', $goto));
     } else {
         header('Location: ' . $goto);
     }

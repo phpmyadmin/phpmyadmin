@@ -388,7 +388,7 @@ function table_grants($host, $user, $dbcheck = FALSE)
     $i = 0;
     while ($row = mysql_fetch_row($result)) {
 
-        if (preg_match("/GRANT (.*) ON ([^\.]+).([^\.]+) TO .*$/i", $row[0], $parts)) {
+        if (eregi("GRANT (.*) ON ([^\.]+).([^\.]+) TO .*$", $row[0], $parts)) {
             $priv = $parts[1];
             $db = $parts[2];
             $table = trim($parts[3]);

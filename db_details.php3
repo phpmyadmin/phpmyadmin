@@ -31,7 +31,7 @@ if ($num_tables > 0 && MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             while ($tmp = mysql_fetch_array($result)) {
                 // if in use memorize tablename
-                if (preg_match('/in_use=[1-9]+/', $tmp['Comment'])) {
+                if (eregi('in_use=[1-9]+', $tmp)) {
                     $sot_cache[$tmp[0]] = TRUE;
                 }
             }
@@ -443,8 +443,8 @@ if ($num_tables > 0) {
     <?php
     // gzip and bzip2 encode features
     if (PMA_INT_VERSION >= 40004) {
-        $is_gzip = ($cfgGZipDump && @function_exists('gzencode'));
-        $is_bzip = ($cfgBZipDump && @function_exists('bzcompress'));
+        $is_gzip = @function_exists('gzencode');
+        $is_bzip = @function_exists('bzcompress');
         if ($is_gzip || $is_bzip) {
             echo "\n" . '                (';
             if ($is_gzip) {
