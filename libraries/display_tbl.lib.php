@@ -592,7 +592,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
         // Start of form for multi-rows delete
 
-        if ($is_display['del_lnk'] == 'dr') {
+        if ($is_display['del_lnk'] == 'dr' || $is_display['del_lnk'] == 'kp' ) {
             echo '<form method="post" action="tbl_row_delete.php" name="rowsDeleteForm">' . "\n";
             echo PMA_generate_common_hidden_inputs($db, $table, 1);
             echo '<input type="hidden" name="disp_direction" value="' . $disp_direction . '" />' . "\n";
@@ -605,6 +605,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             $colspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
                       ? ' colspan="3"'
+                      : ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')
+                      ? ' colspan="2"'
                       : '';
         } else {
             $rowspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
@@ -619,7 +621,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                   . '&amp;pos=' . $pos
                   . '&amp;disp_direction=' . $disp_direction
                   . '&amp;repeat_cells=' . $repeat_cells
-                  . '&amp;goto=' . $goto
+                  . '&amp;goto=' . $gotXo
                   . '&amp;dontlimitchars=' . (($dontlimitchars) ? 0 : 1);
 
         //     ... before the result table
@@ -1196,6 +1198,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                               . PMA_generate_common_url('mysql')
                               . '&amp;sql_query=' . urlencode('KILL ' . $row['Id'])
                               . '&amp;goto=' . urlencode($lnk_goto);
+                    $del_query = urlencode('KILL ' . $row['Id']);
                     $js_conf  = 'KILL ' . $row['Id'];
                     if ($GLOBALS['cfg']['PropertiesIconic'] == FALSE) {
                         $del_str = $GLOBALS['strKill'];
@@ -1867,8 +1870,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
         // 4. ----- Displays the link for multi-fields delete
 
-        if ($is_display['del_lnk'] == 'dr') {
+        if ($is_display['del_lnk'] == 'dr' || $is_display['del_lnk'] == 'kp') {
 
+            $delete_text = $is_display['del_lnk'] == 'dr' ? $GLOBALS['strDelete'] : $GLOBALS['strKill'];
             $propicon = (string)$GLOBALS['cfg']['PropertiesIconic'];
 
 //        echo '&nbsp;&nbsp;&nbsp;<img src="./images/arrow_' . $GLOBALS['text_dir'] . '.gif" border="0" width="38" height="22" alt="' . $GLOBALS['strWithChecked'] . '" />';
@@ -1879,14 +1883,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 /* IE has trouble with <button> */
                 if (PMA_USR_BROWSER_AGENT != 'IE') {
                     echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '">' . "\n"
-                       . '<img src="./images/button_drop.png" title="' . $GLOBALS['strDelete'] . '" alt="' . $GLOBALS['strDelete'] . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strDelete'] : '') . "\n"
+                       . '<img src="./images/button_drop.png" title="' . $delete_text . '" alt="' . $GLOBALS['strDelete'] . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
                        . '</button>';
                 } else {
-                    echo '                    <input type="image" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strDelete'] : '');
+                    echo '                    <input type="image" name="submit_mult" value="row_delete" title="' . $delete_text . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '');
                 }
                 echo "\n";
             } else {
-                echo '                    <input type="submit" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '" />' . "\n";
+                echo '                    <input type="submit" name="submit_mult" value="row_delete" title="' . $delete_text . '" />' . "\n";
             }
             echo '<input type="hidden" name="sql_query" value="' . $sql_query . '" />' . "\n";
             echo '<input type="hidden" name="pos" value="' . $pos . '" />' . "\n";

@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2003-11-18 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/display_tbl.lib.php: Can kill more proceses (bug #844353).
+
+2003-11-18 Michal Cihar  <nijel@users.sourceforge.net>
     * almost EVERYTHING: The big rename from php3 to php.
 
 2003-11-18 Michal Cihar  <nijel@users.sourceforge.net>
