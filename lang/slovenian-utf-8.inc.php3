@@ -4,7 +4,6 @@
 /* By: uros kositer, agenda d.o.o. <urosh@agenda.si> */
 
 $charset = 'utf-8';
-$allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
@@ -532,22 +531,22 @@ $strZeroRemovesTheLimit = 'Obvestilo: Če postavite vrednost na 0 (nič), boste 
 $strZip = '"zipano"';
 // To translate
 
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
+$strDropUsersDb = 'Izbriši podatkovne baze, ki imajo enako ime kot uporabniki.';
 
-$strNoUsersSelected = 'No users selected.'; //to translate
+$strNoUsersSelected = 'Ni izbranih uporabnikov.'; //to translate
 
-$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.'; //to translate
-$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.'; //to translate
-$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.'; //to translate
+$strPrivDescMaxConnections = 'Omeji število povezav, ki jih uporabnik lahko odpre v eni uri.';
+$strPrivDescMaxQuestions = 'Omeji število poizved, ki jih uporabnik lahko pošlje strežniku v eni uri.';
+$strPrivDescMaxUpdates = 'Omeji število ukazov za spremembo tabel ali podatkovne baze, ki jih uporabnik lahko izvrši v eni uri.';
 
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-$strIgnoringFile = 'Ignoring file %s';  //to translate
-$strThisNotDirectory = 'This was not a directory';  //to translate
-$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-$strImportFiles = 'Import files';  //to translate
+$strAddedColumnComment = 'Dodan komentar za stolpec';  //to translate
+$strWritingCommentNotPossible = 'Zapisovanje komentarjev ni mogoče';  //to translate
+$strAddedColumnRelation = 'Dodana relacija za stolpec';  //to translate
+$strWritingRelationNotPossible = 'Zapisovanje relacij ni mogoče';  //to translate
+$strImportFinished = 'Uvoz končan';  //to translate
+$strFileCouldNotBeRead = 'Ne morem prebrati datoteke';  //to translate
+$strIgnoringFile = 'Prezrl datoteko %s';  //to translate
+$strThisNotDirectory = 'To ni bila mapa';  //to translate
+$strAbsolutePathToDocSqlDir = 'Vnesite absolutno pot do docSQL mape na strežniku';
+$strImportFiles = 'Uvozi datoteke';  //to translate
 ?>

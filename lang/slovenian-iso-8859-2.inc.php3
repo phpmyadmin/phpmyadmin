@@ -531,22 +531,22 @@ $strZeroRemovesTheLimit = 'Obvestilo: Èe postavite vrednost na 0 (niè), boste od
 $strZip = '"zipano"';
 // To translate
 
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
+$strDropUsersDb = 'Izbri¹i podatkovne baze, ki imajo enako ime kot uporabniki.';
 
-$strNoUsersSelected = 'No users selected.'; //to translate
+$strNoUsersSelected = 'Ni izbranih uporabnikov.'; //to translate
 
-$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.'; //to translate
-$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.'; //to translate
-$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.'; //to translate
+$strPrivDescMaxConnections = 'Omeji ¹tevilo povezav, ki jih uporabnik lahko odpre v eni uri.';
+$strPrivDescMaxQuestions = 'Omeji ¹tevilo poizved, ki jih uporabnik lahko po¹lje stre¾niku v eni uri.';
+$strPrivDescMaxUpdates = 'Omeji ¹tevilo ukazov za spremembo tabel ali podatkovne baze, ki jih uporabnik lahko izvr¹i v eni uri.';
 
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-$strIgnoringFile = 'Ignoring file %s';  //to translate
-$strThisNotDirectory = 'This was not a directory';  //to translate
-$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-$strImportFiles = 'Import files';  //to translate
+$strAddedColumnComment = 'Dodan komentar za stolpec';  //to translate
+$strWritingCommentNotPossible = 'Zapisovanje komentarjev ni mogoèe';  //to translate
+$strAddedColumnRelation = 'Dodana relacija za stolpec';  //to translate
+$strWritingRelationNotPossible = 'Zapisovanje relacij ni mogoèe';  //to translate
+$strImportFinished = 'Uvoz konèan';  //to translate
+$strFileCouldNotBeRead = 'Ne morem prebrati datoteke';  //to translate
+$strIgnoringFile = 'Prezrl datoteko %s';  //to translate
+$strThisNotDirectory = 'To ni bila mapa';  //to translate
+$strAbsolutePathToDocSqlDir = 'Vnesite absolutno pot do docSQL mape na stre¾niku';
+$strImportFiles = 'Uvozi datoteke';  //to translate
 ?>

@@ -26,6 +26,7 @@ $timespanfmt = '%s ditë, %s orë, %s minuta dhe %s sekonda';
 
 $strAPrimaryKey = 'Një kyç primar u shtua tek %s';
 $strAbortedClients = 'Dështoi';
+$strAbsolutePathToDocSqlDir = 'Ju lutem, shkruani pozicionin absolut në webserver për tek directory e docSQL';
 $strAccessDenied = 'Hyrja nuk u pranua';
 $strAction = 'Aksioni';
 $strAddDeleteColumn = 'Shto/Fshi fushën';
@@ -39,6 +40,8 @@ $strAddSearchConditions = 'Shto kushte kërkimi (trupi i specifikimit "where"):'
 $strAddToIndex = 'Shto tek treguesi i &nbsp;%s&nbsp;kolonës(ave)';
 $strAddUser = 'Shto një përdorues të ri';
 $strAddUserMessage = 'Ke shtuar një përdorues të ri.';
+$strAddedColumnComment = 'Komenti u shtua në kollonë';
+$strAddedColumnRelation = 'Relacioni u shtua për kollonën';
 $strAdministration = 'Administrimi';
 $strAffectedRows = 'Rreshtat e ndikuar:';
 $strAfter = 'Mbas %s';
@@ -145,6 +148,7 @@ $strDocu = 'Dokumentet';
 $strDrop = 'Elemino';
 $strDropDB = 'Elemino databazën %s';
 $strDropTable = 'Elemino tabelën';
+$strDropUsersDb = 'Elemino databazat që kanë emër të njëjtë me përdoruesit.';
 $strDumpXRows = 'Dump i %s rreshta duke filluar nga rreshti %s.';
 $strDumpingData = 'Dump i të dhënave për tabelën';
 $strDynamic = 'dinamik';
@@ -175,6 +179,7 @@ $strFieldsEmpty = ' Numratori i fushave është bosh! ';
 $strFieldsEnclosedBy = 'Fushë e përbërë nga';
 $strFieldsEscapedBy = 'Fushë e kufizuar nga';
 $strFieldsTerminatedBy = 'Fushë e mbaruar nga';
+$strFileCouldNotBeRead = 'File nuk mund të lexohet';
 $strFixed = 'fiks';
 $strFlushPrivilegesNote = 'Shënim: phpMyAdmin lexon privilegjet e përdoruesve direkt nga tabela e privilegjeve të MySQL. Përmbajtja e kësaj tabele mund të ndryshojë nga privilegjet e përdorur nga serveri nëse janë kryer ndryshime manuale. Në këtë rast, duhet të %srifreskoni privilegjet%s para se të vazhdoni.';
 $strFlushTable = 'Rifillo ("FLUSH") tabelën';
@@ -195,7 +200,7 @@ $strGzip = '"kompresuar me gzip"';
 
 $strHasBeenAltered = 'u modifikua.';
 $strHasBeenCreated = 'u krijua.';
-$strHaveToShow = 'Zgjidh të paktën një kolonë për t\'a vizualizuar';
+$strHaveToShow = 'Zgjidh të paktën një kolonë për ta vizualizuar';
 $strHome = 'Home';
 $strHomepageOfficial = 'Home page zyrtare e phpMyAdmin';
 $strHomepageSourceforge = 'Home page e phpMyAdmin tek sourceforge.net';
@@ -206,7 +211,10 @@ $strId = 'ID';
 $strIdxFulltext = 'Teksti komplet';
 $strIfYouWish = 'Për të ngarkuar të dhënat vetëm për disa kollona të tabelës, specifiko listën e fushave (të ndara me presje).';
 $strIgnore = 'Injoro';
+$strIgnoringFile = 'File %s u injorua';
 $strImportDocSQL = 'Importo files docSQL';
+$strImportFiles = 'Importo files';
+$strImportFinished = 'Importimi përfundoi';
 $strInUse = 'në përdorim';
 $strIndex = 'Treguesi';
 $strIndexHasBeenDropped = 'Treguesi %s u eleminua';
@@ -280,6 +288,7 @@ $strNoQuery = 'Asnjë query SQL!';
 $strNoRights = 'Nuk ke të drejta të mjaftueshme për të kryer këtë operacion!';
 $strNoTablesFound = 'Nuk gjenden tabela në databazë.';
 $strNoUsersFound = 'Nuk u gjet asnjë përdorues.';
+$strNoUsersSelected = 'Nuk është seleksionuar asnjë përdorues.';
 $strNoValidateSQL = 'Mos vleftëso SQL';
 $strNone = 'Askush';
 $strNotNumber = 'Ky nuk është një numër!';
@@ -302,7 +311,7 @@ $strOr = 'Ose';
 $strOriginalInterface = 'interfaqja origjinale';
 $strOverhead = 'Mbi limit';
 
-$strPHP40203 = 'Është në përdorim PHP 4.2.3, që përmban një bug serioz me stringat multi-byte strings (mbstring). Shiko raportin 19404 të bug PHP. Ky version i PHP nuk rekomandohet për t\'u përdorur me phpMyAdmin.';
+$strPHP40203 = 'Është në përdorim PHP 4.2.3, që përmban një bug serioz me stringat multi-byte strings (mbstring). Shiko raportin 19404 të bug PHP. Ky version i PHP nuk rekomandohet për tu përdorur me phpMyAdmin.';
 $strPHPVersion = 'Versioni i PHP';
 $strPageNumber = 'Numri i faqes:';
 $strPartialText = 'Tekst i pjesëshëm';
@@ -493,6 +502,7 @@ $strTheContent = 'Përmbajtja e file u shtua.';
 $strTheContents = 'Përmbajtja e file zëvëndëson rreshtat e tabelës me të njëjtin kyç primar apo kyç të vetëm.';
 $strTheTerminator = 'Karakteri përfundues i fushave.';
 $strThisHost = 'Këtë Host';
+$strThisNotDirectory = 'Kjo nuk është një directory';
 $strThreadSuccessfullyKilled = 'Thread %s u përfundua me sukses.';
 $strTime = 'Kohë';
 $strTotal = 'Gjithsej';
@@ -530,7 +540,9 @@ $strViewDumpDB = 'Vizualizo dump (skema) e databazë';
 $strWebServerUploadDirectory = 'directory e upload të server-it web';
 $strWebServerUploadDirectoryError = 'Directory që keni zgjedhur për upload nuk arrin të gjehet';
 $strWelcome = 'Mirësevini tek %s';
-$strWithChecked = 'N.q.s.të seleksionuar:';
+$strWithChecked = 'N.q.s. të seleksionuar:';
+$strWritingCommentNotPossible = 'I pamundur shkrimi i komentit';
+$strWritingRelationNotPossible = 'I pamundur shkrimi i Relacionit';
 $strWrongUser = 'Emri i përdoruesit apo password i gabuar. Ndalohet hyrja.';
 
 $strYes = ' Po ';
@@ -540,18 +552,4 @@ $strZip = '"kompresuar me zip"';
 
 // To translate
 
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
-
-$strNoUsersSelected = 'No users selected.'; //to translate
-
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-$strIgnoringFile = 'Ignoring file %s';  //to translate
-$strThisNotDirectory = 'This was not a directory';  //to translate
-$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-$strImportFiles = 'Import files';  //to translate
 ?>
