@@ -768,52 +768,108 @@ if (isset($Field) && count($Field) > 0) {
             //  a '=' (not for example 'like')
             while (list($key, $value) = each($where)) {
                 if ($value == '=') {
-                    $wheretabs[] = $key;
+                    $wheretabs[$key] = '=';
                 }
             }
         } // end if
 
 
         // if there was nothing starting with '=' we have to use all we got in
-        // the first place (in this case we can use & here - if it works with
-        // old versions of php ??)
+        // the first place
         if (count($wheretabs) == 0) {
-             $wheretabs = $where;
+             $wheretabs = &$where;
         }
-        // I expect it will make sense to have the table which is most often
-        // found as foreign_table as the one to start our FROM...
-        // but we have to make sure that if there is a WHERE clause then we
-        // have a master out of those that are used there
+
+        // when we want the fastest SELECT Statement, it would be great
+        // to have one Table as $master (that is the one that will be in FROM ... contrary to the
+        // rest which will just show in the LEFT JOIN lines) that has a good whereclause and is
+        // FOREIGN table to as many tables as possible
 
         // We will need this a few times:
         $incrit    = '(\'' . implode('\', \'', $alltabs) . '\')';
 
-        $rel_query     = 'SELECT master_table AS wer, COUNT(foreign_table) AS hits'
+
+        $rel_query     = 'SELECT foreign_table AS wer, COUNT(master_table) AS hits'
                        . ' FROM ' . PMA_backquote($cfgRelation['relation'])
                        . ' WHERE master_db   = \'' . $db . '\''
                        . ' AND foreign_db    = \'' . $db . '\''
                        . ' AND master_table  IN ' . $incrit
                        . ' AND foreign_table IN ' . $incrit;
         if (!empty($column)) {
-            $rel_query .= ' AND master_field = \'' . $column . '\'';
+            $rel_query .= ' AND foreign_field = \'' . $column . '\'';
         }
-        $rel_query     .= ' GROUP BY master_table ORDER BY hits DESC';
-
+        $rel_query     .= ' GROUP BY foreign_table ORDER BY hits DESC';
         $relations =  PMA_query_as_cu($rel_query);
+
+        $bpm = FALSE;
         while ($row = PMA_mysql_fetch_array($relations)) {
-            // we want the first one (highest number of hits) or the first one
-            // that is in the WHERE clause
+            // in case we will not find any foreign table that is also in the
+            //  where clause AND we do not find a master table later, then we
+            //  just use the most popular foreign table (allthough chances are remote)
             if (!isset($master)) {
                 $master = $row['wer'];
             }
-            while (list($key, $value) = each($wheretabs)) {
-                if ($row['wer'] == $key) {
+            if ($bpm == FALSE) {
+                while (list($key, $value) = each($wheretabs)) {
+                    if ($row['wer'] == $key) {
+                        $master = $row['wer'];
+                        $bpm    = TRUE; // best possible master found ;-)
+                        break;
+                    }
+                } // end while
+                reset($wheretabs);
+            }
+        } // end while
+
+        //  if we didn't find any best possible master at this point, then we will settle
+        //  for the most popular master_table in the whereclause (sbpm = second best possible master ;-)
+        //  or if that fails as well, then rather the most popular master table than the
+        //  most popular foreign_table
+        if ($bpm == FALSE) {
+            $sbpm = FALSE;
+            //  easier to just save any bad master we had and use it if we do not
+            //  find anything better
+            if (isset($master)) {
+                $badmaster = $master;
+                unset($master);
+            }
+            $rel_query     = 'SELECT master_table AS wer, COUNT(foreign_table) AS hits'
+                           . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+                           . ' WHERE master_db   = \'' . $db . '\''
+                           . ' AND foreign_db    = \'' . $db . '\''
+                           . ' AND master_table  IN ' . $incrit
+                           . ' AND foreign_table IN ' . $incrit;
+            if (!empty($column)) {
+                $rel_query .= ' AND master_field = \'' . $column . '\'';
+            }
+            $rel_query     .= ' GROUP BY master_table ORDER BY hits DESC';
+    
+            $relations =  PMA_query_as_cu($rel_query);
+            while ($row = PMA_mysql_fetch_array($relations)) {
+                // we want the first one (highest number of hits) or the first one
+                // that is in the WHERE clause
+                if (!isset($master)) {
                     $master = $row['wer'];
-                    break;
+                }
+                if ($sbpm == FALSE) {
+                    while (list($key, $value) = each($wheretabs)) {
+                        if ($row['wer'] == $key) {
+                            $master = $row['wer'];
+                            $sbpm = TRUE;
+                            break;
+                        }
+                    } // end while
+                    reset($wheretabs);
                 }
             } // end while
-            reset($wheretabs);
-        } // end while
+            if (!isset($master) && isset($badmaster)) {
+                $master = $badmaster;
+                unset($badmaster);
+            }
+        }   // end if bpm==FALSE
+
+        //  if we still don't have a master at this point we might as well
+        //  give up ;-)
 
         if (isset ($master) && $master != '') {
             $qry_from = PMA_backquote($master);
@@ -826,18 +882,25 @@ if (isset($Field) && count($Field) > 0) {
                 }
             } // end while
 
-            // now we only use everything but the first table
+            // everything but the first table
             $incrit_s = '(\'' . implode('\', \'', $reltabs) . '\')';
             $rel_query     = 'SELECT *'
                            . ' FROM ' . PMA_backquote($cfgRelation['relation'])
                            . ' WHERE master_db   = \'' . $db . '\''
-                           . ' AND foreign_db    = \'' . $db . '\''
-                           . ' AND master_table  IN ' . $incrit
-                           . ' AND foreign_table IN ' . $incrit_s;
-            if (!empty($column)) {
-                $rel_query .= ' AND master_field = \'' . $column . '\'';
+                           . ' AND foreign_db    = \'' . $db . '\'';
+            if($bpm == TRUE){       // which means that my $master is a foreign table
+                $rel_query .= ' AND master_table  IN ' . $incrit_s
+                           .  ' AND foreign_table IN ' . $incrit;
+                if (!empty($column)) {
+                    $rel_query .= ' AND foreign_field = \'' . $column . '\'';
+                }
+            } else {
+                $rel_query .= ' AND foreign_table IN ' . $incrit_s
+                           .  ' AND master_table  IN ' . $incrit;
+                if (!empty($column)) {
+                    $rel_query .= ' AND master_field = \'' . $column . '\'';
+                }
             }
-            $rel_query     .= ' ORDER BY foreign_table, master_table';
 
             if (isset($dbh)) {
                 PMA_mysql_select_db($cfgRelation['db'], $dbh);
@@ -849,21 +912,37 @@ if (isset($Field) && count($Field) > 0) {
                 PMA_mysql_select_db($db);
             }
 
-            while ($row = PMA_mysql_fetch_array($relations)) {
-                $foreign_table = $row['foreign_table'];
-                if ($rel[$foreign_table]['mcon'] == 0) {
-                    // if we already found a link to the master table we don't
-                    // want another otherwise we take whatever we get
-                    $rel[$foreign_table]['link']  = ' LEFT JOIN ' . PMA_backquote($foreign_table)
-                                                  . ' ON ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field'])
-                                                  . ' = ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field']);
-                }
-                if ($row['master_table'] == $master) {
-                    $rel[$foreign_table]['mcon']  = 1;
-                }
-            } // end while
+            if($bpm == TRUE){       // which means that my $master is a foreign table
+                while ($row = PMA_mysql_fetch_array($relations)) {
+                    $master_table = $row['master_table'];
+                    if ($rel[$master_table]['mcon'] == 0) {
+                        // if we already found a link to the master table we don't
+                        // want another otherwise we take whatever we get
+                        $rel[$master_table]['link']  = ' LEFT JOIN ' . PMA_backquote($master_table)
+                                                      . ' ON ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field'])
+                                                      . ' = ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field']);
+                        if ($row['foreign_table'] == $master) {
+                            $rel[$master_table]['mcon']  = 1;
+                        }
+                    }
+                } // end while
+            } else {
+                while ($row = PMA_mysql_fetch_array($relations)) {
+                    $foreign_table = $row['foreign_table'];
+                    if ($rel[$foreign_table]['mcon'] == 0) {
+                        // if we already found a link to the master table we don't
+                        // want another otherwise we take whatever we get
+                        $rel[$foreign_table]['link']  = ' LEFT JOIN ' . PMA_backquote($foreign_table)
+                                                      . ' ON ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field'])
+                                                      . ' = ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field']);
+                        if ($row['master_table'] == $master) {
+                            $rel[$foreign_table]['mcon']  = 1;
+                        }
+                    }
+                } // end while
+            }
             // possibly we still don't have all - there might be some that are
-            // only found as a foreign_table in relation to one of those that we
+            // only found in relation to one of those that we
             // already have
             if ($master != '') {
                 $found[]  = $master;
@@ -880,17 +959,26 @@ if (isset($Field) && count($Field) > 0) {
             if (count($rest) > 0) {
                 $incrit_d  = '(\'' . implode('\', \'', $found) . '\')';
                 $incrit_s  = '(\'' . implode('\', \'', $rest) . '\')';
-
+                if ($bpm == TRUE) {
+                    $from_table = 'foreign_table';
+                    $from_field = 'foreign_field';
+                    $to_table   = 'master_table';
+                } else {
+                    $from_table = 'master_table';
+                    $from_field = 'master_field';
+                    $to_table   = 'foreign_table';
+                }
                 $rel_query     = 'SELECT *'
                                . ' FROM ' . PMA_backquote($cfgRelation['relation'])
                                . ' WHERE master_db   = \'' . $db . '\''
                                . ' AND foreign_db    = \'' . $db . '\''
-                               . ' AND master_table  IN ' . $incrit_s
-                               . ' AND foreign_table IN ' . $incrit_d;
+                               . ' AND ' . $from_table . '  IN ' . $incrit_s
+                               . ' AND ' . $to_table . ' IN ' . $incrit_d;
                 if (!empty($column)) {
-                    $rel_query .= ' AND master_field = \'' . $column . '\'';
+                    $rel_query .= ' AND ' . $from_field . ' = \'' . $column . '\'';
                 }
-                $rel_query     .= ' ORDER BY master_table, foreign_table';
+
+
                 if (isset($dbh)) {
                     PMA_mysql_select_db($cfgRelation['db'], $dbh);
                     $relations = @PMA_mysql_query($rel_query, $dbh) or PMA_mysqlDie(PMA_mysql_error($dbh), $rel_query, '', $err_url_0);
@@ -902,7 +990,13 @@ if (isset($Field) && count($Field) > 0) {
                 }
 
                 while ($row = PMA_mysql_fetch_array($relations)) {
-                    $found_table = $row['master_table'];
+                    if ($bpm == TRUE) {
+                        $found_table = $row['foreign_table'];
+                        $other_table = $row['master_table'];
+                    } else {
+                        $found_table = $row['master_table'];
+                        $other_table = $row['foreign_table'];
+                    }
                     if ($rel[$found_table]['mcon'] == 0) {
                         // if we allready found a link to the mastertable we
                         // don't want another otherwise we take whatever we get
@@ -913,11 +1007,11 @@ if (isset($Field) && count($Field) > 0) {
                         // in extreme cases we hadn't found a master yet, so
                         // let's use the one we found now
                         if ($master == '') {
-                            $master = $row['master_table'];
+                            $master = $found_table;
                         }
-                    }
-                    if ($row["foreign_table"] == $master) {
-                        $rel[$found_table]['mcon'] = 1;
+                        if ($other_table == $master) {
+                            $rel[$found_table]['mcon'] = 1;
+                        }
                     }
                 } // end while
             } // end if
