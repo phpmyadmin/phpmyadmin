@@ -6,7 +6,7 @@
 $charset = 'windows-1250';
 $text_dir = 'ltr';
 $left_font_family = '"verdana ce", "arial ce", verdana, arial, helvetica, geneva, sans-serif';
-$right_font_family = '"verdana ce", "arial ce", helvetica, arial, geneva, sans-serif';
+$right_font_family = 'tahoma, "verdana ce", "arial ce", helvetica, arial, geneva, sans-serif';
 $number_thousands_separator = ' ';
 $number_decimal_separator = ',';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
