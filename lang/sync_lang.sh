@@ -25,7 +25,7 @@ czech-iso-8859-2
 danish-iso-8859-1
 dutch-iso-8859-1
 english-iso-8859-1
-estonian
+estonian-iso-8859-1
 finnish
 french
 galician
