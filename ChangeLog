@@ -7,6 +7,8 @@ $Source$
 
 2003-07-28 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: bug 778899, could not create a bookmark
+    * ldi_table.php3: Users with register_global=off received some
+      Missing messages, due to a missing "require" in ldi_table.php3
 
 2003-07-27 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: A user could not edit his own global privileges.

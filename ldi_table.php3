@@ -7,6 +7,8 @@
  * This file defines the forms used to insert a textfile into a table
  */
 
+require('./libraries/grab_globals.lib.php3');
+
 // Check parameters
 if (!defined('PMA_COMMON_LIB_INCLUDED')) {
     include('./libraries/common.lib.php3');
