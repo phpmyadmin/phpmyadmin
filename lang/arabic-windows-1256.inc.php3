@@ -12,7 +12,7 @@ $left_font_family = 'Tahoma, verdana, arial, helvetica, sans-serif';
 $right_font_family = '"Windows UI", Tahoma, verdana, arial, helvetica, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
-// shortcuts for Byte, Kilo, Mega, Tera, Peta, Exa
+// shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('ÈÇíÊ', 'ßíáæÈÇíÊ', 'ãíÌÇÈÇíÊ', 'ÛíÛÇÈÇíÊ');
 
 $day_of_week = array('ÇáÃÍÏ', 'ÇáÅËäíä', 'ÇáËáÇËÇÁ', 'ÇáÃÑÈÚÇÁ', 'ÇáÎãíÓ', 'ÇáÌãÚÉ', 'ÇáÓÈÊ');

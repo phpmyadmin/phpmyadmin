@@ -15,7 +15,7 @@ $left_font_family = "Sylfaen";
 $right_font_family = "Sylfaen";
 $number_thousands_separator = " ";
 $number_decimal_separator = ",";
-// shortcuts for Byte, Kilo, Mega, Tera, Peta, Exa
+// shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array("ბაიტი", "KB", "MB", "GB");
 
 $day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');

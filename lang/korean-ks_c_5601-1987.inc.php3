@@ -9,7 +9,7 @@ $left_font_family = '"굴림", sans-serif';
 $right_font_family = '"굴림", sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
-// shortcuts for Byte, Kilo, Mega, Tera, Peta, Exa
+// shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('바이트', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
 $day_of_week = array('일', '월', '화', '수', '목', '금', '토');

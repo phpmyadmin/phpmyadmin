@@ -9,7 +9,7 @@ $left_font_family = '"verdana ce", "arial ce", verdana, arial, helvetica, geneva
 $right_font_family = '"verdana ce", "arial ce", helvetica, arial, geneva, sans-serif';
 $number_thousands_separator = ' ';
 $number_decimal_separator = ',';
-// shortcuts for Byte, Kilo, Mega, Tera, Peta, Exa
+// shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('Bajtov', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
 $day_of_week = array('Ne', 'Po', 'Út', 'St', '©t', 'Pi', 'So');

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-06 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * translators.html, lang/*.inc.php3: Fixed some typos.
+
 2002-11-06 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_datadict.php3, tbl_printview.php3: code cleanup
 
