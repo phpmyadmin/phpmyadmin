@@ -96,11 +96,12 @@ if ($num_dbs > 1) {
             }
         } // end if... else if...
     } // end if
-    var fontFamily = '<?php echo $left_font_family; ?>';
-    var fontSize   = '<?php echo $font_size; ?>';
-    var fontBig    = '<?php echo $font_bigger; ?>';
-    var fontSmall  = '<?php echo $font_smaller; ?>';
-    var isServer   = <?php echo ($server > 0) ? 'true' : 'false'; ?>;
+    var fontFamily  = '<?php echo $left_font_family; ?>';
+    var fontSize    = '<?php echo $font_size; ?>';
+    var fontBig     = '<?php echo $font_bigger; ?>';
+    var fontSmall   = '<?php echo $font_smaller; ?>';
+    var isServer    = <?php echo ($server > 0) ? 'true' : 'false'; ?>;
+    var isLightMode = <?php echo ($cfgLeftFrameLight == TRUE) ? 'true' : 'false'; ?>;
     //-->
     </script>
     <script src="libraries/left.js" type="text/javascript" language="javascript1.2"></script>
@@ -237,7 +238,7 @@ if ($num_dbs > 1) {
             if (!empty($num_tables)) {
                 echo "\n";
                 ?>
-        <nobr><a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', true); return false}; else {return true}">
+        <nobr><a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', true); return false} else {return true}">
             <img name="imEx" id="el<?php echo $j; ?>Img" src="images/plus.gif" border="0" width="9" height="9" alt="+" /></a>
                 <?php
             } else {

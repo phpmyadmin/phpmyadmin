@@ -113,7 +113,7 @@ function nsShowAll() {
  */
 function initIt()
 {
-  if (!capable || !isServer || typeof(expandedDb) == 'undefined')
+  if (!capable || !isServer || isLightMode)
     return;
 
   var tempColl    = null;
@@ -289,12 +289,12 @@ if (capable) {
         document.writeln('.tblItem:hover {color: #FF0000; text-decoration: underline}');
       }
       else { // NS4 case
-      	if (typeof(expandedDb) != 'undefined') {
-          document.writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; position: absolute; visibility: hidden}');
-          document.writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; position: absolute; visibility: hidden}');
-        } else {
+      	if (isLightMode) {
           document.writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none}');
           document.writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399}');
+        } else {
+          document.writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; position: absolute; visibility: hidden}');
+          document.writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; position: absolute; visibility: hidden}');
         }
         document.writeln('.item, .tblItem {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
       }
