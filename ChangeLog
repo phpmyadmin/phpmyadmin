@@ -14,8 +14,9 @@ $Source$
 	* lang/*: $strInstructions (used in db_readdump.php3).
 
 2001-08-19  Loïc Chapeaux  <lolo@phpheaven.net>
-	* tbl_change.php3: do not modify blob/binaries if $cfgProtectBlob is true
-	  and merged a little optimization (lines 69-71).
+	* tbl_change.php3: do not modify blob/binaries if $cfgProtectBlob is true,
+	  merged a little optimization (lines 69-71) and do not display functions
+	  with enum or set fields types.
 	* main.php3; db_details.php3; tbl_properties.php3; db_readdump.php3;
 	  lib.inc.php3: once a query has been executed phpMyAdmin now moves back
 	  to the calling script (rather than db_details.php3 everytime) as soon as

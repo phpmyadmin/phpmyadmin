@@ -133,6 +133,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         && !empty($data)
         && $cfgProtectBlob == TRUE) {
         echo '        <td align="center">' . $strBinary . '</td>' . "\n";
+    } else if (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
+        echo '        <td align="center">--</td>' . "\n";
     } else {
         ?>
         <td>
