@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-15 Garvin Hicking <me@supergarv.de>
+    * tbl_properties_structure.php3: RFE #784900 (show alternate text for
+      multi-submit button)
+
 2003-08-15 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation: Synced export FAQ with export page.
     * Documentation: Fixed information about transformations.

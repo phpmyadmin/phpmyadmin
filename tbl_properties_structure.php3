@@ -380,12 +380,12 @@ $checkall_url = 'tbl_properties_structure.php3?' . PMA_generate_common_url($db,$
 if ($cfg['PropertiesIconic']) {
     /* Opera has trouble with <input type="image"> */
     echo '        <button class="mult_submit" type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '">' . "\n"
-       . '            <img src="./images/button_edit.png" title="' . $strChange . '" alt="' . $strChange . '" width="12" height="13" />' . "\n"
+       . '            <img src="./images/button_edit.png" title="' . $strChange . '" alt="' . $strChange . '" width="12" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"
        . '        </button>' . "\n";
     // Drop button if there is at least two fields
     if ($fields_cnt > 1) {
         echo '        <button class="mult_submit" type="submit" name="submit_mult" value="' . $strDrop . '" title="' . $strDrop . '">' . "\n"
-           . '            <img src="./images/button_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="11" height="13" />' . "\n"
+           . '            <img src="./images/button_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"
            . '        </button>' . "\n";
     }
 } else {
