@@ -7,6 +7,7 @@ $Source$
 
 2001-08-10  Marc Delisle  <lem9@users.sourceforge.net> 
 	* russian updates (2 files) thanks to Max Zhivluck
+	* slovak updates thanks to Lubos Klokner
 
 2001-08-10  Steve Alberty  <alberty@neptunlabs.de>
 	* defines.inc.php3: improve mysql version query, thanks to

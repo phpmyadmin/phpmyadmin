@@ -139,7 +139,7 @@ $strLength = 'Då¾ka';
 $strLengthSet = 'Då¾ka/Nastavi»';
 $strLimitNumRows = 'záznamov na stránku';
 $strLineFeed = 'Ukonèenie riadku (Linefeed): \\n';
-$strLines = 'Riadkov';
+$strLines = 'Riadky';
 $strLocationTextfile = 'Lokácia textového súboru';
 $strLogin = ''; //to translate, but its not in use ...
 $strLogout = 'Odhlási» sa';
@@ -278,11 +278,10 @@ $strWrongUser = 'Zlé pou¾ívateµské meno alebo heslo. Prístup zamietnutý.';
 
 $strYes = 'Áno';
 
-// To translate
-$strAffectedRows = ' Rows affected: ';  //to translate
-$strDisplayOrder = 'Display order:';
-$strFieldsEmpty = ' The field count is empty! ';  //to translate
-$strFormEmpty = 'Missing value in the form !';
-$strQueryOnDb = ' SQL-query on database ';  //to translate
-$strUseBackquotes = ' Use backquotes with tables and fields names ';  //to translate
+$strAffectedRows = ' Ovplyvnené riadky: ';
+$strDisplayOrder = 'Zobrazi» zoradené:';
+$strFieldsEmpty = ' Poèet polí je prázdny! ';
+$strFormEmpty = 'Chýbajúca polo¾ka vo formulári !';
+$strQueryOnDb = ' SQL dotaz v databáze ';
+$strUseBackquotes = ' Pou¾i» opaèný apostrof pri názvoch tabuliek a polí ';
 ?>
