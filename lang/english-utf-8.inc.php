@@ -29,6 +29,8 @@ $strAddConstraints = 'Add constraints';
 $strAddDeleteColumn = 'Add/Delete Field Columns';
 $strAddDeleteRow = 'Add/Delete Criteria Row';
 $strAddDropDatabase = 'Add DROP DATABASE';
+$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';
+$strAddIfNotExists = 'Add IF NOT EXISTS';
 $strAddIntoComments = 'Add into comments';
 $strAddNewField = 'Add new field';
 $strAddPriv = 'Add a new Privilege';
@@ -129,6 +131,7 @@ $strCompression = 'Compression';
 $strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you receive. In most cases a quote or a semicolon is missing somewhere.<br />If you receive a blank page, everything is fine.';
 $strConfigureTableCoord = 'Please configure the coordinates for table %s';
 $strConfirm = 'Do you really want to do it?';
+$strConnectionError = 'Cannot connect: invalid settings.';
 $strConnections = 'Connections';
 $strConstraintsForDumped = 'Constraints for dumped tables';
 $strConstraintsForTable = 'Constraints for table';
@@ -203,6 +206,7 @@ $strDoYouReally = 'Do you really want to ';
 $strDocu = 'Documentation';
 $strDrop = 'Drop';
 $strDropDB = 'Drop database %s';
+$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';
 $strDropSelectedDatabases = 'Drop Selected Databases';
 $strDropTable = 'Drop table';
 $strDropUsersDb = 'Drop the databases that have the same names as the users.';
@@ -285,6 +289,7 @@ $strId = 'ID';
 $strIdxFulltext = 'Fulltext';
 $strIfYouWish = 'If you wish to load only some of a table\'s columns, specify a comma separated field list.';
 $strIgnore = 'Ignore';
+$strIgnoreInserts = 'Use ignore inserts';
 $strIgnoringFile = 'Ignoring file %s';
 $strImportDocSQL = 'Import docSQL Files';
 $strImportFiles = 'Import files';
@@ -359,6 +364,7 @@ $strMIME_transformation_note = 'For a list of available transformation options a
 $strMIME_transformation_options = 'Transformation options';
 $strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 $strMIME_without = 'MIME-types printed in italics do not have a seperate transformation function';
+$strMaximumSize = 'Max: %s%s';
 $strMissingBracket = 'Missing Bracket';
 $strModifications = 'Modifications have been saved';
 $strModify = 'Modify';
@@ -378,6 +384,7 @@ $strMySQLShowStatus = 'Show MySQL runtime information';
 $strMySQLShowVars = 'Show MySQL system variables';
 
 $strName = 'Name';
+$strNeedPrimaryKey = 'You should define a primary key for this table.';
 $strNext = 'Next';
 $strNo = 'No';
 $strNoDatabases = 'No databases';
@@ -718,12 +725,8 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+// To translate:
+
 $strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
-$strMaximumSize = 'Max: %s%s';
-$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
-$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';
-$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
-$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
-$strIgnoreInserts = 'Use ignore inserts';  //to translate
-$strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
+
 ?>

@@ -36,6 +36,7 @@ $strAddDeleteColumn = 'Přidat/Smazat sloupec';
 $strAddDeleteRow = 'Přidat/Smazat řádek s&nbsp;podmínkou';
 $strAddDropDatabase = 'Přidat DROP DATABASE';
 $strAddHeaderComment = 'Přidat vlastní komentář do hlavičky (\\n odděluje řádky)';
+$strAddIfNotExists = 'Přidat IF NOT EXISTS';
 $strAddIntoComments = 'Přidat do komentářů';
 $strAddNewField = 'Přidat nový sloupec';
 $strAddPriv = 'Přidat nové privilegium';
@@ -294,6 +295,7 @@ $strId = 'ID';
 $strIdxFulltext = 'Fulltext';
 $strIfYouWish = 'Pokud si přejete natáhnout jen vybrané sloupce z&nbsp;tabulky, napište je jako seznam sloupců oddělených čárkou.';
 $strIgnore = 'Ignorovat';
+$strIgnoreInserts = 'Použít IGNORE';
 $strIgnoringFile = 'Ignoruji soubor %s';
 $strImportDocSQL = 'Importovat soubory docSQL';
 $strImportFiles = 'Importovat soubory';
@@ -388,6 +390,7 @@ $strMySQLShowStatus = 'Ukázat MySQL informace o&nbsp;běhu';
 $strMySQLShowVars = 'Ukázat MySQL systémové proměnné';
 
 $strName = 'Název';
+$strNeedPrimaryKey = 'Pro tuto tabulku byste měli definovat primární klíč.';
 $strNext = 'Další';
 $strNo = 'Ne';
 $strNoDatabases = 'Žádné databáze';
@@ -729,7 +732,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
-$strIgnoreInserts = 'Use ignore inserts';  //to translate
-$strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
 ?>
