@@ -132,6 +132,7 @@ $strCompression = 'Kompresjon';
 $strConfigFileError = 'phpMyAdmin kunne ikke lese din konfigurasjonsfil!<br />Dette kan skje hvis PHP finner en syntaksfeil eller ikke kan finne filen.<br />Vennligst kall opp konfigurasjonsfilen direkte via linken under og les PHP feilmeldingen(e) som du vil få. I de fleste tilfeller så mangler det et anførselstegn eller et semikolon et sted.<br />Hvis du får en blank side så er alt ok.';
 $strConfigureTableCoord = 'Vennligst konfigurer koordinatene for tabell %s';
 $strConfirm = 'Ønsker du virkelig å gjøre det?';
+$strConnectionError = 'Kan ikke koble til: ugyldige innstillinger.';
 $strConnections = 'tilkoblinger';
 $strConstraintsForDumped = 'Begrensninger for dumpede tabeller';
 $strConstraintsForTable = 'Begrensninger for tabell';
@@ -352,7 +353,6 @@ $strLogin = 'Logg inn';
 $strLoginInformation = 'Innlogingsinformasjon';
 $strLogout = 'Logg ut';
 
-$strMaximumSize = 'Maksimum størelse: %s%s';
 $strMIME_MIMEtype = 'MIME-type';
 $strMIME_available_mime = 'Tilgjengelige MIME-typer';
 $strMIME_available_transform = 'Tilgjengelige transformationer';
@@ -364,6 +364,7 @@ $strMIME_transformation_note = 'For en liste over tilgjengelige transformasjonsv
 $strMIME_transformation_options = 'Transformasjonsvalg';
 $strMIME_transformation_options_note = 'Skriv inn verdiene for transformasjon med dette formatet: \'a\',\'b\',\'c\'...<br />Hvis du trenger å bruke en skråstrek ("\") eller en enkel apostrof ("\'") blant disse verdiene så sett en skråstrek foran (eks. \'\\\\xyz\' eller \'a\\\'b\').';
 $strMIME_without = 'MIME-typer skrevet i kursiv har ikke en separat transformasjonsfunksjon';
+$strMaximumSize = 'Maksimum størelse: %s%s';
 $strMissingBracket = 'Manglende parantes';
 $strModifications = 'Endringene er lagret';
 $strModify = 'Endre';
@@ -724,9 +725,9 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjerner begrensningen.';
 $strZip = 'Komprimert (zip)';
 
-// To translate
-
-$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
+// To translate:
 $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
+
 $strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
+
 ?>
