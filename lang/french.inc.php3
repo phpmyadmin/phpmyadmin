@@ -236,6 +236,7 @@ $strPartialText = 'Textes réduits';
 $strPassword = 'Mot de passe';
 $strPasswordEmpty = 'Le mot de passe est vide';
 $strPasswordNotSame = 'Les mots de passe doivent être identiques';
+$strPdfDbSchema = 'Schema de la base "%s" - Page %s';
 $strPdfInvalidPageNum = 'Numéro de page PDF non défini !';
 $strPdfInvalidTblName = 'La table "%s" n\'existe pas !';
 $strPhp = 'Créer source PHP';

@@ -21,7 +21,7 @@ define('FPDF_FONTPATH', './libraries/fpdf/font/');
 
 
 /**
- * Extends the "fpdf" class and prepares the work
+ * Extends the "FPDF" class and prepares the work
  */
 class PMA_PDF extends FPDF
 {
@@ -30,6 +30,7 @@ class PMA_PDF extends FPDF
     var $l_marg;
     var $t_marg;
     var $scale;
+    var $title;
 
     function PMA_PDF_setScale($scale = 1, $x_min = 0, $y_min = 0, $l_marg, $t_marg)
     {
@@ -40,10 +41,10 @@ class PMA_PDF extends FPDF
         $this->t_marg = $t_marg;
     }
 
-    function PMA_PDF_cellScale($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=0)
+    function PMA_PDF_cellScale($w, $h = 0, $txt = '', $border = 0, $ln = 0, $align = '', $fill = 0)
     {
-        $h = $h/$this->scale;
-        $w = $w/$this->scale;
+        $h = $h / $this->scale;
+        $w = $w / $this->scale;
         $this->Cell($w, $h, $txt, $border, $ln, $align, $fill);
     }
 
@@ -81,6 +82,21 @@ class PMA_PDF extends FPDF
         $width = $width / $this->scale;
         $this->SetLineWidth($width);
     }
+
+    /**
+     * Aliases the "Error()" function from the FPDF class to the
+     * "PMA_PDF_die()" one
+     *
+     * @param   string   the error mesage
+     *
+     * @access  public
+     *
+     * @see     PMA_PDF_die()
+     */
+    function Error($error_message = '')
+    {
+        PMA_PDF_die($error_message);
+    } // end of the "Error()" method
 
     /**
      * Displays an error message
@@ -146,43 +162,50 @@ class PMA_RT
         global $pdf;
 
         $pdf          = new PMA_PDF('L');
+        $pdf->title   = sprintf($GLOBALS['strPdfDbSchema'], $GLOBALS['db'], $which_rel);
         $pdf->cMargin = 0;
         $pdf->Open();
+        $pdf->SetTitle($pdf->title);
+        $pdf->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $pdf->AliasNbPages();
         $pdf->Addpage();
         $pdf->SetFont($this->ff, '', 14);
         $pdf->SetAutoPageBreak('auto');
 
+        // Gets relations to display and exits if none
         $sql    = 'SELECT * FROM '
                 . PMA_backquote($GLOBALS['cfg']['Server']['relation'])
                 . ' WHERE pdf_page_number = ' . $which_rel;
         $result = mysql_query($sql);
         if (!$result || !mysql_num_rows($result)) {
             $pdf->PMA_PDF_die($GLOBALS['strPdfInvalidPageNum']);
-        }
+        } // end if
         while ($row = mysql_fetch_array($result)) {
             $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
-        }
+        } // end while
 
+        // Defines the scale factor
         if ($scale == 'auto') {
             $this->scale = ceil(max(($this->x_max - $this->x_min) / (297 - $this->r_marg - $this->l_marg), ($this->y_max - $this->y_min) / (210 - $this->t_marg - $this->b_marg)) * 100) / 100;
             $pdf->PMA_PDF_setScale($this->scale, $this->x_min, $this->y_min, $this->l_marg, $this->t_marg);
-        }
-        else {
+        } else {
             $this->scale = $scale;
             $pdf->PMA_PDF_setScale($scale);
-        }
+        } // end if... else...
+
+        // Builds and save the PDF document
         $pdf->PMA_PDF_setLineWidthScale(0.1);
 
-        $pdf->PMA_PDF_setFontSizeScale(14);
         if ($show_grid) {
+            $pdf->SetFontSize(10);
             $this->PMA_RT_strokeGrid();
         }
+        $pdf->PMA_PDF_setFontSizeScale(14);
         $this->PMA_RT_drawRelations($change_color);
         $this->PMA_RT_drawTables($show_info);
 
         $this->PMA_RT_showRt();
-    }
+    } // end of the "PMA_RT()" method
 
     function PMA_RT_addRelation($master_table , $master_field,  $foreign_table, $foreign_field)
     {
@@ -223,26 +246,41 @@ class PMA_RT
         }
     }
 
+    /**
+     * Draws the grid
+     *
+     * @global  object  the current PMA_PDF instance
+     *
+     * @access  private
+     *
+     * @see     PMA_RT()
+     */
     function PMA_RT_strokeGrid()
     {
         global $pdf;
+
         $pdf->SetMargins(0, 0);
         $pdf->SetDrawColor(200, 200, 200);
 
+        // Draws horizontal lines
         for ($l = 0; $l < 21; $l++) {
-            // horizontal line
             $pdf->line(0, $l * 10, 297, $l * 10);
-            $pdf->SetXY(0, $l * 10);
-            $pdf->cell(5, 5, round(($l * 10 - $this->t_marg) * $this->scale + $this->y_min));
-        }
+            // Avoid duplicates
+            if ($l > 0) {
+                $pdf->SetXY(0, $l * 10);
+                $label = (string) round(($l * 10 - $this->t_marg) * $this->scale + $this->y_min);
+                $pdf->Cell(5, 5, ' ' . $label);
+            } // end if
+        } // end for
 
+        // Draws vertical lines
         for ($j = 0; $j < 30 ;$j++) {
-            // vertical line
             $pdf->line($j * 10, 0, $j * 10, 210);
             $pdf->SetXY($j * 10, 0);
-            $pdf->Cell(5, 7, round(($j * 10 - $this->l_marg) * $this->scale + $this->x_min));
-        }
-    }
+            $label = (string) round(($j * 10 - $this->l_marg) * $this->scale + $this->x_min);
+            $pdf->Cell(5, 7, $label);
+        } // end for
+    } // end of the "PMA_RT_strokeGrid()" method
 
     function PMA_RT_showRt()
     {
@@ -394,7 +432,7 @@ class PMA_RT_Table
     {
         global $pdf;
 
-        foreach ($this->fields as $field ) {
+        foreach ($this->fields as $field) {
             $this->width = max($this->width, $pdf->GetStringWidth($field));
         }
         $this->width += $pdf->GetStringWidth('  ');

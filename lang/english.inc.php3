@@ -236,6 +236,7 @@ $strPartialText = 'Partial Texts';
 $strPassword = 'Password';
 $strPasswordEmpty = 'The password is empty!';
 $strPasswordNotSame = 'The passwords aren\'t the same!';
+$strPdfDbSchema = 'Schema of the the %s database - Page %s';
 $strPdfInvalidPageNum = 'Undefined PDF page number!';
 $strPdfInvalidTblName = 'The "%s" table doesn\'t exist!';
 $strPhp = 'Create PHP Code';

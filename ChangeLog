@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2002-05-27 Loïc Chapeaux  <lolo@phpheaven.net>
+    * pdf_schema.php3; lang/*.inc.php3: beautified the generated page.
+
+2002-05-27 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/czech*.inc.php3: Updated, thanks to Michal Cihaø.
 
 2002-05-27 Alexander M. Turek  <rabus@users.sourceforge.net>
