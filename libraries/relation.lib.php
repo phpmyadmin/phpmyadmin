@@ -483,7 +483,7 @@ function PMA_setComment($db, $table, $key, $value, $removekey = '') {
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         $row = PMA_DBI_fetch_assoc($test_rs);
-        PMA_DBI_free_result($res);
+        PMA_DBI_free_result($test_rs);
 
         if (strlen($value) > 0 || strlen($row['mimetype']) > 0 || strlen($row['transformation']) > 0 || strlen($row['transformation_options']) > 0) {
             $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
@@ -626,13 +626,19 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
     
     foreach ($disp AS $disp_key => $relrow) {
         $key   = $relrow[$foreign_field];
-        if (PMA_strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
-            $value  = (($foreign_display != FALSE) ? htmlspecialchars($relrow[$foreign_display]) : '');
-            $vtitle = '';
+
+        // if the display field has been defined for the foreign table
+        if ($foreign_display) {
+            if (PMA_strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
+                $value  = htmlspecialchars($relrow[$foreign_display]);
+                $vtitle = '';
+            } else {
+                $vtitle = htmlspecialchars($relrow[$foreign_display]);
+                $value  = htmlspecialchars(substr($vtitle, 0, $cfg['LimitChars']) . '...');
+            }
         } else {
-            $vtitle = htmlspecialchars($relrow[$foreign_display]);
-            $value  = (($foreign_display != FALSE) ? htmlspecialchars(substr($vtitle, 0, $cfg['LimitChars']) . '...') : '');
-        }
+            $vtitle = $value = '';
+        } // end if ($foreign_display)
 
         $reloption = '<option value="' . htmlspecialchars($key) . '"';
         if ($vtitle != '') {
@@ -646,6 +652,9 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
         $reloptions['id-content'][] = $reloption . '>' . $value . '&nbsp;-&nbsp;' . htmlspecialchars($key) .  '</option>' . "\n";
         $reloptions['content-id'][] = $reloption . '>' . htmlspecialchars($key) .  '&nbsp;-&nbsp;' . $value . '</option>' . "\n";
     } // end while
+
+    // the list of keys looks better if not sorted by description
+    asort($reloptions['content-id']);
 
     if ($max == -1 || count($reloptions['content-id']) < $max) {
         $ret .= implode('', $reloptions['content-id']);
