@@ -106,7 +106,7 @@ echo "\n";
             <input type="checkbox" name="extended_ins" value="yes" id="checkbox_dump_extended_ins" />
             <label for="checkbox_dump_extended_ins"><?php echo $strExtendedInserts; ?></label><br />
             &nbsp;&nbsp;
-            <?php echo sprintf($strDumpXRows , '<input type="text" name="limit_to" size="5" value="' . PMA_countRecords($db, $table, TRUE) . '" class="textfield" style="vertical-align: middle" onfocus="this.select()" />' , '<input type="text" name="limit_from" value="0" size="5" class="textfield" style="vertical-align: middle" onfocus="this.select()" />') . "\n"; ?>
+            <?php echo sprintf($strDumpXRows , '<input type="text" name="limit_to" size="5" value="' . (isset($unlim_num_rows)?$unlim_num_rows: PMA_countRecords($db, $table, TRUE)) . '" class="textfield" style="vertical-align: middle" onfocus="this.select()" />' , '<input type="text" name="limit_from" value="0" size="5" class="textfield" style="vertical-align: middle" onfocus="this.select()" />') . "\n"; ?>
             <br /><br />
             <!-- For CSV data -->
             <?php echo $strStrucCSV; ?><br />

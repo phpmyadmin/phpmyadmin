@@ -567,7 +567,7 @@ else {
         if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name'])
            && !isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])) {
                 echo '    <!-- Export -->' . "\n"
-                   . '    <a href="tbl_properties_export.php3' . $url_query  . '">' . $strExport . '</a>' . "\n";
+                   . '    <a href="tbl_properties_export.php3' . $url_query  . '&amp;unlim_num_rows=' . $unlim_num_rows . '">' . $strExport . '</a>' . "\n";
         }
 
         // Bookmark Support if required

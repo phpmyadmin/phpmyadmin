@@ -199,7 +199,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         global $current_row;
 
         if (!empty($sql_query)) {
-            $local_query = $sql_query;
+            $local_query = $sql_query . $add_query;
             PMA_mysql_select_db($db);
         } else {
             $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
@@ -332,7 +332,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         global $current_row;
 
         if (!empty($sql_query)) {
-            $local_query = $sql_query;
+            $local_query = $sql_query . $add_query;
             PMA_mysql_select_db($db);
         } else {
             $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
@@ -554,7 +554,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
         // Gets the data from the database
         if (!empty($sql_query)) {
-            $local_query = $sql_query;
+            $local_query = $sql_query . $add_query;
             PMA_mysql_select_db($db);
         } else {
             $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
@@ -645,7 +645,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         }
 
         if (!empty($sql_query)) {
-            $local_query = $sql_query;
+            $local_query = $sql_query . $add_query;
             PMA_mysql_select_db($db);
         } else {
             $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
@@ -704,7 +704,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         $tex_escape = array("$", "%", "{", "}",  "&",  "#", "_", "^");
 
         if (!empty($sql_query)) {
-            $local_query = $sql_query;
+            $local_query = $sql_query . $add_query;
             PMA_mysql_select_db($db);
         } else {
             $local_query = 'select * from ' . PMA_backquote($db) . '.' . PMA_backquote($table);
