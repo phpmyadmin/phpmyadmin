@@ -96,6 +96,7 @@ $strCreateNewTable = 'Create new table on database %s';
 $strCreatePage = 'Create a new Page';
 $strCreatePdfFeat = 'Creation of PDFs';
 $strCriteria = 'Criteria';
+$strCvsData = 'CSV data';
 
 $strData = 'Data';
 $strDatabase = 'Database ';
@@ -285,6 +286,7 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b
 $strPrintView = 'Print view';
 $strPrivileges = 'Privileges';
 $strProperties = 'Properties';
+$strPutColNames = 'Put fields names at first row';
 
 $strQBE = 'Query';
 $strQBEDel = 'Del';

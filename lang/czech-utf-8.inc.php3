@@ -434,4 +434,6 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 // To translate
 
+$strCvsData = 'CSV data';  //to translate
+$strPutColNames = 'Put fields names at first row';  //to translate
 ?>

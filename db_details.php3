@@ -118,7 +118,7 @@ if ($cfg['UploadDir'] != '') {
                     echo '    <i>' . $strOr . '</i> ' . $strWebServerUploadDirectory . '&nbsp;:<br />' . "\n";
                     echo '    <div style="margin-bottom: 5px">' . "\n";
                     echo '        <select size="1" name="sql_localfile">' . "\n";
-                    echo '            <option value="" selected></option>' . "\n";
+                    echo '            <option value="" selected="selected"></option>' . "\n";
                 } // end if (is_first)
                 echo '            <option value="' . htmlspecialchars($file) . '">' . htmlspecialchars($file) . '</option>' . "\n";
                 $is_first++;

@@ -450,4 +450,6 @@ $strZip = '"zipped"';
 $strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 $strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
 $strServer = 'Server %s';  //to translate
+$strCvsData = 'CSV data';  //to translate
+$strPutColNames = 'Put fields names at first row';  //to translate
 ?>

@@ -503,6 +503,24 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $add_query  = '';
         }
 
+        // If required, get fields name at the first line
+        if (isset($GLOBALS['showcsvnames']) && $GLOBALS['showcsvnames'] == 'yes') {
+            $schema_insert = '';
+            $local_query   = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
+            $result        = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+            while ($row = PMA_mysql_fetch_array($result)) {
+                if ($enc_by == '') {
+                    $schema_insert .= $row['Field'];
+                } else {
+                    $schema_insert .= $enc_by
+                                   . str_replace($enc_by, $esc_by . $enc_by, $row['Field'])
+                                   . $enc_by;
+                }
+                $schema_insert     .= $sep;
+            } // end while
+            $handler(trim(substr($schema_insert, 0, -1)));
+        } // end if
+
         // Gets the data from the database
         $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);

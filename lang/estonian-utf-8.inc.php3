@@ -429,4 +429,6 @@ $strZip = '"zipitud"';
 // To translate
 
 $strServer = 'Server %s';  //to translate
+$strCvsData = 'CSV data';  //to translate
+$strPutColNames = 'Put fields names at first row';  //to translate
 ?>

@@ -435,4 +435,6 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
+$strCvsData = 'CSV data';  //to translate
+$strPutColNames = 'Put fields names at first row';  //to translate
 ?>

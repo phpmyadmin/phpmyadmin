@@ -96,6 +96,7 @@ $strCreateNewTable = 'Créer une nouvelle table sur la base %s';
 $strCreatePage = 'Créer une page';
 $strCreatePdfFeat = 'Génération de schémas en PDF';
 $strCriteria = 'Critère';
+$strCvsData = 'Données CSV';
 
 $strData = 'Données';
 $strDatabase = 'Base de données';
@@ -285,6 +286,7 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>doit et ne peut être</b> que le nom d\'u
 $strPrintView = 'Version imprimable';
 $strPrivileges = 'Privilèges';
 $strProperties = 'Propriétés';
+$strPutColNames = 'Afficher les noms de champ en première ligne';
 
 $strQBE = 'Requête';
 $strQBEDel = 'Effacer';
@@ -341,6 +343,7 @@ $strSelectFields = 'Choisir les champs à afficher (au moins un)';
 $strSelectNumRows = 'dans la requête';
 $strSelectTables = 'Choisissez les tables';
 $strSend = 'Transmettre';
+$strServer = 'Serveur %s';
 $strServerChoice = 'Choix du serveur';
 $strServerVersion = 'Version du serveur';
 $strSetEnumVal = 'Les différentes valeurs des champs de type enum/set sont à spécifier sous la forme \'a\',\'b\',\'c\'...<br />Pour utiliser un caractère "\\" ou "\'" dans l\'une de ces valeurs, faites le précéder du caractère d\'échappement "\\" (par exemple \'\\\\xyz\' ou \'a\\\'b\').';
@@ -412,6 +415,7 @@ $strUsers = 'Utilisateurs et privilèges';
 $strUseTables = 'Utiliser les tables';
 
 $strValidateSQL = 'Valider SQL';
+$strValidatorError = 'Le validateur SQL n\'a pas pu être initialisé. Vérifiez que les extensions PHP nécessaires ont bien été installées (voir la %sdocumentation%s).';
 $strValue = 'Valeur';
 $strViewDump = '<b>Afficher le schéma</b> de la table';
 $strViewDumpDB = 'Afficher le schéma de la base ';
@@ -427,7 +431,4 @@ $strYes = 'Oui';
 $strZip = '"zippé"';
 
 // To translate
-$strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
-
-$strServer = 'Server %s';  //to translate
 ?>
