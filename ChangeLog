@@ -9,6 +9,9 @@ $Source$
 	* merge Loic's version to cvs
 	* spanish.inc.php3 updates, thanks to 
 	  gginard@navegalia.com
+	* tbl_change.php3: bug 443760: binary attribute does not mean that 
+                           the contents is binary, so they should be editable
+	* new $cfgProtectBlob, protecting editing of blobs is optional
 
 2001-07-28  Marc Delisle  <lem9@users.sourceforge.net>
 	* lib.inc.php3: establish constraints for the code, to get

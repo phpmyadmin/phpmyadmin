@@ -37,6 +37,9 @@ if (!defined('__LIB_INC__')){
      if (!isset($pos)) {
 	$pos=0;
      }
+     if (!isset($cfgProtectBlob)) {
+	$cfgProtectBlob=FALSE;
+     }
     /* ---------------------- Advanced authentification -------------------- */
 
     /**

@@ -116,8 +116,14 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
 
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data to be destroyed
-    if ((strstr($row_table_def['Type'], 'blob') || strstr($row_table_def['Type'], 'binary'))
-        && !empty($data)) {
+    // Note: from the MySQL manual: "BINARY doesn't affect how the column 
+    //       is stored or retrieved" so it does not mean that the contents
+    //       is binary 
+
+    //if ((strstr($row_table_def['Type'], 'blob') || strstr($row_table_def['Type'], 'binary'))
+    if (strstr($row_table_def['Type'], 'blob') 
+        && !empty($data)
+	&& $cfgProtectBlob==TRUE) {
         echo '        <td>' . $strBinary . '</td>' . "\n";
     } else {
         ?>
@@ -258,15 +264,25 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     }
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data destroyed
-    else if ((strstr($row_table_def['Type'], 'blob') || strstr($row_table_def['Type'], 'binary'))
-             && !empty($data)) {
-        echo "\n";
+    else if (strstr($row_table_def['Type'], 'blob') 
+                && !empty($data)) {
+	    if ($cfgProtectBlob==TRUE)  {
+               echo "\n";
         ?>
-        <td>
-            <?php echo $strBinaryDoNotEdit . "\n"; ?>
-            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" />
-        </td>
+               <td>
+               <?php echo $strBinaryDoNotEdit . "\n"; ?>
+               <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" />
+               </td>
+            <?php }
+            else {
+        ?>
+               <td>
+               <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>">
+               <?php if (!empty($special_chars)) echo $special_chars . "\n"; ?>
+               </textarea>
+
         <?php
+            }
     }
     else {
         $fieldsize = (($len > 40) ? 40 : $len);

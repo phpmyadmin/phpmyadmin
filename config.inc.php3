@@ -79,6 +79,7 @@ unset($cfgServers[0]);
 $cfgConfirm               = TRUE;
 $cfgPersistentConnections = FALSE;
 $cfgShowBlob              = FALSE;
+$cfgProtectBlob		  = FALSE;
 $cfgShowSQL               = TRUE;
 $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
                                     // locked tables (since MySQL 3.23.30)
