@@ -327,7 +327,7 @@ foreach($array_sh_page AS $key => $temp_sh_page) {
 
     echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
     while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
-        echo '<br />' . htmlspecialchars($row['Field']) . "\n";s
+        echo '<br />' . htmlspecialchars($row['Field']) . "\n";
     }
     echo '</div>' . "\n";
     PMA_DBI_free_result($fields_rs);

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-02-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_pages.php: bug 903450, typo
+
 2004-02-18 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: bug 899610, undefined variable $save_filename
 
