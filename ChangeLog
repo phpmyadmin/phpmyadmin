@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-09 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/build_dump.lib.php3: Fixed undefined index warnings in LaTeX
+      dump.
+
 2003-04-09 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*: $updComTab -> $strUpdComTab
     * libraries/relation.lib.php3: put back version 1.30 message

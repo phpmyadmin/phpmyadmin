@@ -759,7 +759,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
             // print each row
             for($i = 0; $i < $columns_cnt; $i++) {
-                if (!function_exists('is_null') || !is_null($record[$columns[$i]])) {
+                if ( isset($record[$columns[$i]]) && (!function_exists('is_null') || !is_null($record[$columns[$i]]))) {
                     $column_value = $record[$columns[$i]];
 
                     //    $ % { } & # _ ^
