@@ -68,7 +68,7 @@
  */
 function PMA_printDecodedBug($textdata)
 {
-    return '<pre>' . $textdata . '</pre><br />';
+    return '<pre>' . htmlspecialchars($textdata) . '</pre><br />';
 } // end of the "PMA_printDecodedBug()" function
 
 
