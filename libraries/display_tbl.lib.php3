@@ -1042,6 +1042,17 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     } else if ($row[$pointer] != '') {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">';
 
+                        reset($analyzed_sql[0]['select_expr']);
+                        while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
+                            $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
+                            if (!empty($alias)) {
+                                $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
+                                if ($alias == $meta->name) {
+                                    $meta->name = $true_column;
+                                } // end if
+                            } // end if
+                        } // end while
+
                         if (isset($map[$meta->name])) {
                             // Field to display from the foreign table?
                             if (!empty($map[$meta->name][2])) {
