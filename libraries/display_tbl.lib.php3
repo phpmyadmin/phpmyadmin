@@ -625,7 +625,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         //     ... before the result table
         if (($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
             && $is_display['text_btn'] == '1') {
-            $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 0;
+            $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 3 : 0;
             if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 ?>
     <td colspan="<?php echo $fields_cnt; ?>" align="center">
@@ -653,7 +653,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         //     ... at the left column of the result table header if possible
         //     and required
         else if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && $is_display['text_btn'] == '1') {
-            $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 0;
+            $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 3 : 0;
             if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 echo "\n";
                 ?>
@@ -674,7 +674,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         //     ... else if no button, displays empty(ies) col(s) if required
         else if ($GLOBALS['cfg']['ModifyDeleteAtLeft']
                  && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')) {
-            $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 0;
+            $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 3 : 0;
             if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 echo "\n";
                 ?>
@@ -858,7 +858,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         if ($GLOBALS['cfg']['ModifyDeleteAtRight']
             && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')
             && $is_display['text_btn'] == '1') {
-            $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+            $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 3 : 1;
             if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 echo "\n";
                 ?>
@@ -881,7 +881,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         else if ($GLOBALS['cfg']['ModifyDeleteAtRight']
                  && ($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
                  && (!$GLOBALS['is_header_sent'])) {
-            $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+            $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 3 : 1;
             if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 echo "\n";
                 ?>
