@@ -1,19 +1,19 @@
 <?php
 /* $Id$ */
-//Bakondy Péter <bakondyp@freeamil.hu>
+// Peter Bakondy <bakondyp@freeamil.hu>
 
 $charset = 'iso-8859-2';
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'verdana, helvetica, arial, geneva, sans-serif';
 $right_font_family = 'helvetica, arial, geneva, sans-serif';
-$number_thousands_separator = ',';
+$number_thousands_separator = ' ';
 $number_decimal_separator = '.';
 $byteUnits = array('Bájt', 'KB', 'MB', 'GB');
 
 $day_of_week = array('V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo');
-$month = array('Jan', 'Feb', 'Márc', 'Ápr', 'Máj', 'Jún', 'Júl', 'Aug', 'Szep', 'Okt', 'Nov', 'Dec');
-// See http://www.php.net/manual/en/function.strftime.php to define the
-// variable below
+$month = array('Jan', 'Feb', 'Márc', 'Ápr', 'Máj', 'Jún', 'Júl', 'Aug', 'Szept', 'Okt', 'Nov', 'Dec');
+// Leírás a $datefmt változó definiálásához:
+// http://www.php.net/manual/en/function.strftime.php
 $datefmt = '%Y. %B %d. %H:%M';
 
 
@@ -29,9 +29,9 @@ $strAddToIndex = 'Adj az indexhez &nbsp;%s&nbsp;oszlopot';
 $strAddUser = 'Új felhasználó hozzáadása';
 $strAddUserMessage = 'Az új felhasználót felvettem.';
 $strAffectedRows = 'Keresett sorok:';
-$strAfter = 'Után';
+$strAfter = '%s után';
 $strAfterInsertBack = 'Vissza az elõzõ oldalra';
-$strAfterInsertNewInsert = 'Új rekord beszúrása';
+$strAfterInsertNewInsert = 'Új sor beszúrása';
 $strAll = 'Mind';
 $strAlterOrderBy = 'Tábla megváltozása rendezve e szerint:';
 $strAnalyzeTable = 'Tábla vizsgálat';
@@ -70,7 +70,7 @@ $strCheckDbPriv = 'Adatbázis Privilégiumok Ellenõrzése';
 $strCheckTable = 'Tábla ellenõrzés';
 $strColumn = 'Oszlop';
 $strColumnNames = 'Oszlop nevek';
-$strCompleteInserts = 'Teljes beszúrások';
+$strCompleteInserts = 'Mezõneveket is hozzáadja';
 $strConfirm = 'Biztos, hogy végre akarod hajtani?';
 $strCookiesRequired = 'A Cookie-kat most engedélyeznek kell.';
 $strCopyTable = 'Tábla másolása ide (adatbázis<b>.</b>tábla):';
@@ -103,7 +103,7 @@ $strDoYouReally = 'Biztos ez akarod? ';
 $strDrop = 'Eldob';
 $strDropDB = 'Adatbázis eldobása: ';
 $strDropTable = 'Tábla eldobása';
-$strDumpingData = 'Tábla adatok kiírása';
+$strDumpingData = 'Tábla adatok:';
 $strDynamic = 'dinamikus';
 
 $strEdit = 'Szerkeszt';
@@ -122,8 +122,8 @@ $strFieldHasBeenDropped = '%s mezõt eldobtam';
 $strFields = 'Mezõk száma';
 $strFieldsEmpty = ' A mezõ számossága nulla! ';
 $strFieldsEnclosedBy = 'Mezõ lezárás';
-$strFieldsEscapedBy = 'Mezõ escape karakterek';
-$strFieldsTerminatedBy = 'Mezõk vége';
+$strFieldsEscapedBy = 'Mezõ escape karakter';
+$strFieldsTerminatedBy = 'Mezõ vége';
 $strFixed = 'rögzített';
 $strFlushTable = 'Tábla kiírása ("FLUSH")';
 $strFormat = 'Formátum';
@@ -131,14 +131,14 @@ $strFormEmpty = 'Hiányzó adat a formban !';
 $strFullText = 'Teljes Szövegek';
 $strFunction = 'Funkció';
 
-$strGenTime = 'Idõ generálás';
+$strGenTime = 'Létrehozás ideje';
 $strGo = 'Végrehajt';
 $strGrants = 'Engedélyek';
 $strGzip = '"gzip-pel tömörítve"';
 
 $strHasBeenAltered = 'megváltozott.';
 $strHasBeenCreated = 'megszületett.';
-$strHome = 'Gyökér';
+$strHome = 'Kezdõlap';
 $strHomepageOfficial = 'Hivatalos phpMyAdmin Honlap';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Letöltés Oldal';
 $strHost = 'Hoszt';
@@ -167,7 +167,7 @@ $strKill = 'Leállít';
 
 $strLength = 'Hossz';
 $strLengthSet = 'Hossz/Érték*';
-$strLimitNumRows = 'Rekordok száma oldalanként';
+$strLimitNumRows = 'Sorok száma oldalanként';
 $strLineFeed = 'Soremelés: \\n';
 $strLines = 'Sor';
 $strLinesTerminatedBy = 'Sorok vége';
@@ -184,13 +184,13 @@ $strMoveTable = 'Tábla áthelyezése ide (adatbázis<b>.</b>tábla):';
 $strMoveTableOK = '%s táblát áthelyeztem ide: %s.';
 $strMySQLReloaded = 'MySQL újratöltve.';
 $strMySQLSaid = 'MySQL jelzi: ';
-$strMySQLServerProcess = 'MySQL %pma_s1% futási helye %pma_s2%, felhasználó: %pma_s3%';
+$strMySQLServerProcess = 'MySQL %pma_s1%, szerver: %pma_s2%, felhasználó: %pma_s3%';
 $strMySQLShowProcess = 'Mutasd meg a folyamatokat';
 $strMySQLShowStatus = 'Mutasd meg a MySQL futási információkat';
 $strMySQLShowVars = 'Mutasd meg a MySQL rendszer változókat';
 
 $strName = 'Neve';
-$strNbRecords = 'Rekordok száma';
+$strNbRecords = 'Sorok száma';
 $strNext = 'Következõ';
 $strNo = 'Nem';
 $strNoDatabases = 'Nincs adatbázis';
@@ -209,7 +209,6 @@ $strNotNumber = 'Ez nem egy szám!';
 $strNotValidNumber = ' nem érvényes sorszám!';
 $strNoUsersFound = 'Nem találtam felhasználó(ka)t.';
 $strNull = 'Null';
-$strNumberIndexes = ' Fejlett indexek száma ';
 
 $strOftenQuotation = 'Gyakran idézõjel. Opcionálisan a char és varchar mezõk lezárhatók a \"lezárás\"-karakterrel.';
 $strOptimizeTable = 'Tábla optimalizálás';
@@ -240,7 +239,7 @@ $strQBEDel = 'Töröl';
 $strQBEIns = 'Beszúr';
 $strQueryOnDb = 'SQL-kérés <b>%s</b> adatbázison:';
 
-$strRecords = 'Rekordok';
+$strRecords = 'Sorok';
 $strReloadFailed = 'MySQL újratöltése sikertelen.';
 $strReloadMySQL = 'MySQL újratöltése';
 $strRememberReload = 'Ne felejtd el újratölteni a szervert.';
@@ -282,20 +281,20 @@ $strSetEnumVal = 'Ha a mezõ tipusa "enum" vagy "set", akkor az értékeket ilyen f
 $strShow = 'Mutat';
 $strShowAll = 'Mutasd mindet';
 $strShowCols = 'Mutasd az oszlopokat';
-$strShowingRecords = 'Rekordok mutatása ';
+$strShowingRecords = 'Sorok megjelenítése ';
 $strShowPHPInfo = 'PHP információ';
 $strShowTables = 'Mutasd a táblákat';
 $strShowThisQuery = ' Mutasd a parancsot itt újra ';
 $strSingly = '(egyenként)';
 $strSize = 'Méret';
-$strSort = 'Sorrendez';
+$strSort = 'Sorrendezés';
 $strSpaceUsage = 'Helyfoglalás';
 $strSQLQuery = 'SQL-kérés';
-$strStartingRecord = 'Kezdõ rekord';
+$strStartingRecord = 'Kezdõ sor';
 $strStatement = 'Adatok';
 $strStrucCSV = 'CSV adat';
 $strStrucData = 'Szerkezet és adatok';
-$strStrucDrop = 'Hozzáadja: \'tábla eldobása\'';
+$strStrucDrop = '\'Tábla eldobás\' hozzáadása';
 $strStrucExcelCSV = 'M$ Excel CSV adat';
 $strStrucOnly = 'Csak szerkezet';
 $strSubmit = 'Végrehajt';
@@ -310,7 +309,7 @@ $strTableHasBeenEmptied = '%s táblát kiürítettem';
 $strTableHasBeenFlushed = '%s táblát kiírtam';
 $strTableMaintenance = 'Tábla karbantartás';
 $strTables = '%s tábla';
-$strTableStructure = 'Tábla szerkezet';
+$strTableStructure = 'Tábla szerkezet:';
 $strTableType = 'Tábla tipusa';
 $strTextAreaLength = ' Mivel ez a hossz,<br /> ez a mezõ nem szerkeszthetõ ';
 $strTheContent = 'A fájl tartalmát beillesztettem.';
@@ -330,7 +329,7 @@ $strUsage = 'Méret';
 $strUseBackquotes = 'Idézõjelek használata a tábla- és mezõneveknél';
 $strUser = 'Felhasználó';
 $strUserEmpty = 'A felhasználói név mezõje üres!';
-$strUserName = 'FElhasználói név';
+$strUserName = 'Felhasználói név';
 $strUsers = 'Felhasználók';
 $strUseTables = 'Táblák használata';
 
