@@ -18,6 +18,7 @@ $Source$
       HTML entities fixes.
     * read_dump.php3: Fixed detection of $goto.
     * header.inc.php3: Neated URL generating.
+    * lang/czech: Updated.
 
 2003-03-24 Michal Cihar  <nijel@users.sourceforge.net>
     * db_details_structure.php3, mult_submits.inc.php: Added CHECK TABLE to
