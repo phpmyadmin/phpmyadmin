@@ -23,7 +23,7 @@ if (!empty($goto)) {
 } // end if (security checkings)
 
 if (empty($goto)) {
-    $goto         = (empty($table)) ? 'db_details.php3' : 'tbl_properties.php3';
+    $goto         = (empty($table)) ? $cfg['DefaultTabDatabase'] : $cfg['DefaultTabTable'];
     $is_gotofile  = TRUE;
 } // end if
 if (!isset($err_url)) {
@@ -204,7 +204,7 @@ if (!$cfg['Confirm']
     || !empty($GLOBALS['validatequery'])) {
     $do_confirm = FALSE;
 } else {
-     /* SQL-Parser-Analyzer */ 
+     /* SQL-Parser-Analyzer */
     $do_confirm = (eregi('DROP[[:space:]]+(IF[[:space:]]+EXISTS[[:space:]]+)?(TABLE|DATABASE[[:space:]])|ALTER[[:space:]]+TABLE[[:space:]]+((`[^`]+`)|([A-Za-z0-9_$]+))[[:space:]]+DROP[[:space:]]|DELETE[[:space:]]+FROM[[:space:]]', $sql_query));
 }
 
