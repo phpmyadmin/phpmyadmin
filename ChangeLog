@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-21 Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/slovak-win1250.inc.php3: completed, thanks to Peter Svec.
+
 2002-04-22 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/japanese* updates, thanks to Yukihiro Kawada
 

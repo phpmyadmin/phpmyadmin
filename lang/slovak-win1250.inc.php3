@@ -1,6 +1,9 @@
 <?php
 /* $Id$ */
-/* By: peter svec <petko@unitra.sk> */
+
+/**
+ * Trnalsted by: Peter Svec <petko at unitra.sk>
+ */
 
 $charset = 'windows-1250';
 $text_dir = 'ltr';
@@ -10,7 +13,7 @@ $number_thousands_separator = ' ';
 $number_decimal_separator = ',';
 $byteUnits = array('Bajtov', 'KB', 'MB', 'GB');
 
-$day_of_week = array('Ne', 'Po', 'Út', 'St', '©t', 'Pi', 'So');
+$day_of_week = array('Ne', 'Po', 'Út', 'St', 'Št', 'Pi', 'So');
 $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Máj', 'Jún', 'Júl', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
@@ -63,9 +66,10 @@ $strBzip = '"bzipped"';
 $strCantLoadMySQL = 'nie je moné nahra rozšírenie pre MySQL,<br />prosím skontrolujte konfiguráciu PHP.';
 $strCantRenameIdxToPrimary = 'Nie je moné premenova index na PRIMARY!';
 $strCardinality = 'Mohutnos';
-$strCarriage = 'Návrat vozíku (Carriage return): \\r';
+$strCarriage = 'Návrat vozíka (Carriage return): \\r';
 $strChange = 'Zmeni';
 $strCheckAll = 'Oznaèi všetko';
+$strChangePassword = 'Zmeò heslo';
 $strCheckDbPriv = 'Skontrolova privilégia databázy';
 $strCheckTable = 'Skontrolova tabu¾ku';
 $strColumn = 'Ståpec';
@@ -86,6 +90,7 @@ $strCriteria = 'Kritéria';
 $strData = 'Dáta';
 $strDatabase = 'Databáza ';
 $strDatabaseHasBeenDropped = 'Databáza %s bola zmazaná.';
+$strDatabaseWildcard = 'Databáza (divoké kraty - wildcards povolené):';
 $strDatabases = 'databáz(y)';
 $strDatabasesStats = 'Štatistiky databázy';
 $strDataOnly = 'Iba dáta';
@@ -224,6 +229,7 @@ $strPasswordEmpty = 'Heslo je prázdne!';
 $strPasswordNotSame = 'Heslá sa nezhodujú!';
 $strPHPVersion = 'Verzia PHP';
 $strPmaDocumentation = 'phpMyAdmin dokumentácia';
+$strPmaUriError = '<tt>$cfgPmaAbsoluteUri</tt> direktíva MUSÍ by nastavená v tvojom konfiguraènom súbore!';
 $strPos1 = 'Zaèiatok';
 $strPrevious = 'Predchádzajúci';
 $strPrimary = 'Primárny';
@@ -241,6 +247,7 @@ $strQBEIns = 'Vloi';
 $strQueryOnDb = ' SQL dotaz v databáze <b>%s</b>:';
 
 $strRecords = 'Záznamov';
+$strReferentialIntegrity = 'Skontroluj integritu odkazov:';
 $strReloadFailed = 'Znovu-naèítanie MySQL bolo neúspešné.';
 $strReloadMySQL = 'Znovu-naèíta MySQL';
 $strRememberReload = 'Nezabudnite znovu-naèíta MySQL server.';
@@ -344,8 +351,4 @@ $strZip = '"zozipované"';
 
 
 // To translate
-$strChangePassword = 'Change password';
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
