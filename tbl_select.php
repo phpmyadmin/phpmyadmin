@@ -37,7 +37,7 @@ if ($cfg['PropertiesIconic'] == true) {
  * LIKE works also on integers and dates so I added it in numfunctions
  */
 $numfunctions   = array('=', '>', '>=', '<', '<=', '!=', 'LIKE', 'NOT LIKE');
-$textfunctions  = array('LIKE', 'NOT LIKE', '=', '!=', 'REGEXP', 'NOT REGEXP');
+$textfunctions  = array('LIKE %...%','LIKE', 'NOT LIKE', '=', '!=', 'REGEXP', 'NOT REGEXP');
 $enumfunctions  = array('=', '!=');
 $nullfunctions  = array('IS NULL', 'IS NOT NULL');
 $unaryfunctions = array(
@@ -340,6 +340,12 @@ else {
                     $quot = '\'';
                 } else {
                     $quot = '';
+                }
+
+                // LIKE %...%
+                if ($func_type == 'LIKE %...%') {
+                    $func_type = 'LIKE';
+                    $fields[$i] = '%' . $fields[$i] . '%';
                 }
                 $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;
 

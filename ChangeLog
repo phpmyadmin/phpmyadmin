@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_select.php: patch #939197, new choice of operator LIKE %...%
+      because this syntax is so often used, thanks to Ruben Barkow (rubo77)
+
 2004-05-05 Garvin Hicking <pma@supergarv.de>
     * db_details_db_info.php, db_details_structure.php, left.php: Speed
       up table fetching when using $cfg['ShowTooltips']. Allow to only
