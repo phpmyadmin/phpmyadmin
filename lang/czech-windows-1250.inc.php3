@@ -86,6 +86,7 @@ $strColumn = 'Sloupec';
 $strColumnNames = 'Názvy sloupcù';
 $strComments = 'Komentáøe';
 $strCompleteInserts = 'Uplné inserty';
+$strCompression = 'Komprese';
 $strConfigFileError = 'phpMyAdmin nemohl naèíst konfiguraèní soubor!<br />Tato chyba mùže nastat pokud v&nbsp;nìm php najde chybu nebo nemùže tento soubor najít.<br />Po kliknutí na následující odkaz se konfigurace spustí a budou zobrazeny informace o&nbsp;chybì, ke které došlo. Pak opravte tuto chybu (nejèastìji se jedná o chybìjící støedník).<br />Pokud získáte prázdnou stránku, všechno je v poøádku.';
 $strConfigureTableCoord = 'Prosím nastavte souøadnice pro tabulku %s';
 $strConfirm = 'Opravdu chcete toto provést?';
@@ -249,7 +250,7 @@ $strNoRights = 'Nemáte dostateèná práva na provedení této akce!';
 $strNoTablesFound = 'V&nbsp;databázi nebyla nalezena ani jedna tabulka.';
 $strNoUsersFound = 'Žádný uživatel nenalezen.';
 $strNoValidateSQL = 'Bez kontroly SQL';
-$strNone = 'Žádný';
+$strNone = 'Žádná';
 $strNotNumber = 'Toto není èíslo!';
 $strNotOK = 'není OK';
 $strNotSet = '<b>%s</b> tabulka nenalezena nebo není nastavena v&nbsp;%s';
@@ -436,7 +437,6 @@ $strWrongUser = 'Špatné uživatelské jméno/heslo. Pøístup odepøen.';
 $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
-
 // To translate
-$strCompression = 'Compression'; //to translate
+
 ?>

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-18 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech*.php3: Updated translation.
+
 2002-11-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_details.php3, read_dump.php3, tbl_query_box.php3, lang/*.inc.php3:
       Feature #506106: Read compressed dump.
