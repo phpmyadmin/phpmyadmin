@@ -532,7 +532,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         // Some mac browsers need also smaller default fonts size (OmniWeb &
         // Opera)...
         else if (PMA_USR_OS == 'Mac'
-                    && (PMA_USR_BROWSER_AGENT == 'OMNIWEB' || PMA_USR_BROWSER_AGENT == 'OPERA')) {
+                    && (PMA_USR_BROWSER_AGENT == 'OMNIWEB' || PMA_USR_BROWSER_AGENT == 'OPERA' || PMA_USR_BROWSER_AGENT == 'SAFARI')) {
             $font_size     = 'x-small';
             $font_biggest  = 'large';
             $font_bigger   = 'medium';

@@ -11,6 +11,8 @@ $Source$
     * libraries/transformations/image_jpeg__inline.inc.php3,
       libraries/transformations/image_png__inline.inc.php3: Proper escaping
       of &amp;
+    * libraries/common.lib.php3, libraries/defines.lib.php3: Safari detection,
+      smaller default font size (like OPERA). Bug #752646.
     
 2003-07-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php3, config.inc.php3, user_password.php3,

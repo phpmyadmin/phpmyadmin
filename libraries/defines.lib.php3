@@ -94,6 +94,10 @@ if (!defined('PMA_USR_OS')) {
     } else if (ereg('(Konqueror/)(.*)(;)', $HTTP_USER_AGENT, $log_version)) {
         define('PMA_USR_BROWSER_VER', $log_version[2]);
         define('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
+    } else if (ereg('Mozilla/([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)
+               && ereg('Safari/([0-9]*)', $HTTP_USER_AGENT, $log_version2)) {
+        define('PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]);
+        define('PMA_USR_BROWSER_AGENT', 'SAFARI');
     } else if (ereg('Mozilla/([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)) {
         define('PMA_USR_BROWSER_VER', $log_version[1]);
         define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
