@@ -16,7 +16,10 @@ $month = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 
 // ci-dessous
 $datefmt = '%A %d %B %Y à %H:%M';
 
+$timespanfmt = '%s jours, %s heures, %s minutes and %s secondes';
+
 $strAPrimaryKey = 'Une clé primaire a été ajoutée sur %s';
+$strAbortedClients = 'Arrêts prématurés';
 $strAccessDenied = 'Accès refusé';
 $strAction = 'Action';
 $strAddDeleteColumn = 'Ajouter/effacer x colonne(s)';
@@ -80,12 +83,14 @@ $strChoosePage = 'Page à éditer';
 $strColComFeat = 'Commentaires de colonnes';
 $strColumn = 'Colonne';
 $strColumnNames = 'Nom des colonnes';
+$strCommand = 'Commande';
 $strComments = 'Commentaires';
 $strCompleteInserts = 'Insertions complètes';
 $strCompression = 'Compression';
 $strConfigFileError = 'phpMyAdmin n\'a pu lire votre fichier de configuration!<br />Il est possible qu\'il contienne une erreur de syntaxe, ou que PHP soit incapable de le trouver<br />À l\'aide du lien suivant, vous pouvez vérifier le message d\'erreur généré par PHP;<br />la plupart du temps, un apostrophe ou un point-virgule sont manquants.<br />Si vous recevez une page blanche, aucune erreur n\'a été détectée.';
 $strConfigureTableCoord = 'Les coordonnées de la table %s n\'ont pas été configurées';
 $strConfirm = 'Veuillez confirmer';
+$strConnections = 'Connexions';
 $strCookiesRequired = 'Vous devez accepter les cookies pour poursuivre.';
 $strCopyTable = '<b>Copier</b> la table vers (base<b>.</b>table)&nbsp;:';
 $strCopyTableOK = 'La table %s a été copiée vers %s.';
@@ -146,6 +151,7 @@ $strExportToXML = 'Exporter en format XML';
 $strExtendedInserts = 'Insertions étendues';
 $strExtra = 'Extra';
 
+$strFailedAttempts = 'Tentatives échouées';
 $strField = 'Champ';
 $strFieldHasBeenDropped = 'Le champ %s a été effacé';
 $strFields = 'Champs';
@@ -163,6 +169,7 @@ $strFunction = 'Fonction';
 $strGenBy = 'Généré par';
 $strGenTime = 'Généré le ';
 $strGeneralRelationFeat = 'Fonctions relationnelles';
+$strGlobalValue = 'Valeur globale';
 $strGo = 'Exécuter';
 $strGrants = 'Autres privilèges';
 $strGzip = '"gzippé"';
@@ -199,6 +206,7 @@ $strKeepPass = 'Conserver le mot de passe';
 $strKeyname = 'Nom de la clé';
 $strKill = 'Supprimer';
 
+$strLaTeX = 'LaTeX';
 $strLandscape = 'Paysage';
 $strLength = 'Long.';
 $strLengthSet = 'Taille/Valeurs*';
@@ -218,6 +226,7 @@ $strMissingBracket = 'Parenthèse manquante';
 $strModifications = 'Les modifications ont été sauvegardées.';
 $strModify = 'Modifier';
 $strModifyIndexTopic = 'Modifier une clef';
+$strMoreStatusVars = 'Autres variables d\'état';
 $strMoveTable = '<b>Déplacer</b> la table vers (base<b>.</b>table)&nbsp;:';
 $strMoveTableOK = 'La table %s a été déplacée vers %s.';
 $strMySQLCharset = 'Jeu de caractères pour MySQL';
@@ -278,6 +287,7 @@ $strPdfDbSchema = 'Schema de la base "%s" - Page %s';
 $strPdfInvalidPageNum = 'Numéro de page PDF non défini !';
 $strPdfInvalidTblName = 'La table "%s" n\'existe pas !';
 $strPdfNoTables = 'Pas de table !';
+$strPerHour = 'par heure';
 $strPhp = 'Créer source PHP';
 $strPmaDocumentation = 'Documentation de phpMyAdmin';
 $strPmaUriError = 'Le paramètre <tt>$cfg[\'PmaAbsoluteUri\']</tt> DOIT être renseigné dans votre fichier de configuration !';
@@ -292,6 +302,7 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>doit et ne peut être</b> que le nom d\'un
 $strPrint = 'Imprimer';
 $strPrintView = 'Version imprimable';
 $strPrivileges = 'Privilèges';
+$strProcesslist = 'Liste des processus';
 $strProperties = 'Propriétés';
 $strPutColNames = 'Afficher les noms de champ en première ligne';
 
@@ -299,8 +310,11 @@ $strQBE = 'Requête';
 $strQBEDel = 'Effacer';
 $strQBEIns = 'Ajouter';
 $strQueryOnDb = 'Requête SQL sur la base <b>%s</b>&nbsp;:';
+$strQueryStatistics = '<b>Statistiques sur les requêtes</b>: Depuis son démarrage, %s requêtes ont été envoyées au serveur.';
+$strQueryType = 'Type de requête';
 
 $strReType = 'Entrer à nouveau';
+$strReceived = 'Reçu';
 $strRecords = 'Enregistrements';
 $strReferentialIntegrity = 'Vérifier l\'intégrité référentielle';
 $strRelationNotWorking = 'Certaines fonctionnalités ayant trait aux tables reliées sont désactivées. Pour une analyse du problème, cliquez %sici%s.';
@@ -359,8 +373,14 @@ $strSelectFields = 'Choisir les champs à afficher (au moins un)';
 $strSelectNumRows = 'dans la requête';
 $strSelectTables = 'Choisissez les tables';
 $strSend = 'Transmettre';
+$strSent = 'Envoyé';
 $strServer = 'Serveur %s';
 $strServerChoice = 'Choix du serveur';
+$strServerStatus = 'Informations sur le serveur actif';
+$strServerStatusUptime = 'Ce serveur MySQL fonctionne depuis %s. Il a démarré le %s.';
+$strServerTabProcesslist = 'Processus';
+$strServerTabVariables = 'Variables';
+$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
 $strServerVersion = 'Version du serveur';
 $strSetEnumVal = 'Les différentes valeurs des champs de type enum/set sont à spécifier sous la forme \'a\',\'b\',\'c\'...<br />Pour utiliser un caractère "\\" ou "\'" dans l\'une de ces valeurs, faites le précéder du caractère d\'échappement "\\" (par exemple \'\\\\xyz\' ou \'a\\\'b\').';
 $strShow = 'Afficher';
@@ -380,6 +400,7 @@ $strSort = 'Tri';
 $strSpaceUsage = 'Espace utilisé';
 $strSplitWordsWithSpace = 'Séparer les mots par un espace (" ").';
 $strStatement = 'Information';
+$strStatus = 'État';
 $strStrucCSV = 'Données CSV';
 $strStrucData = 'Structure et données';
 $strStrucDrop = 'Ajouter des énoncés "drop table"';
@@ -408,11 +429,12 @@ $strTheContents = 'Le contenu du fichier remplacera le contenu de la table pour 
 $strTheTerminator = 'Le caractère qui sépare chacun des champs.';
 $strTotal = 'total';
 $strTotalUC = 'Total';
+$strTraffic = 'Trafic';
 $strType = 'Type';
 
 $strUncheckAll = 'Tout décocher';
 $strUnique = 'Unique';
-$strUnselectAll = 'Tout déselectionner';
+$strUnselectAll = 'Tout désélectionner';
 $strUpdatePrivMessage = 'Vous avez modifié les privilèges pour %s.';
 $strUpdateProfile = 'Modifier le profil :';
 $strUpdateProfileMessage = 'Le profil a été modifié.';
@@ -428,6 +450,7 @@ $strUsers = 'Utilisateurs et privilèges';
 $strValidateSQL = 'Valider SQL';
 $strValidatorError = 'Le validateur SQL n\'a pas pu être initialisé. Vérifiez que les extensions PHP nécessaires ont bien été installées (voir la %sdocumentation%s).';
 $strValue = 'Valeur';
+$strVar = 'Variable';
 $strViewDump = '<b>Afficher le schéma</b> de la table';
 $strViewDumpDB = 'Afficher le schéma de la base ';
 
@@ -440,38 +463,18 @@ $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 $strYes = 'Oui';
 
 $strZip = '"zippé"';
-
 // To translate
-$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
-
-$strAbortedClients = 'Aborted'; //to translate
-$strConnections = 'Connections'; //to translate
-$strFailedAttempts = 'Failed attempts'; //to translate
-$strGlobalValue = 'Global value'; //to translate
-$strMoreStatusVars = 'More status variables'; //to translate
-$strPerHour = 'per hour'; //to translate
-$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
-$strQueryType = 'Query type'; //to translate
-$strReceived = 'Received'; //to translate
-$strSent = 'Sent'; //to translate
-$strServerStatus = 'Runtime Information'; //to translate
-$strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
-$strServerTabVariables = 'Variables'; //to translate
-$strServerTabProcesslist = 'Processes'; //to translate
-$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
-$strServerVars = 'Server variables and settings'; //to translate
-$strSessionValue = 'Session value'; //to translate
-$strTraffic = 'Traffic'; //to translate
-$strVar = 'Variable'; //to translate
-
-$strCommand = 'Command'; //to translate
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-$strId = 'ID'; //to translate
-$strProcesslist = 'Process list'; //to translate
-$strStatus = 'Status'; //to translate
-$strTime = 'Time'; //to translate
-$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
 
 $strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
-$strLaTeX = 'LaTeX';  //to translate
+
+$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
+
+$strId = 'ID'; //to translate
+
+$strServerVars = 'Server variables and settings'; //to translate
+$strSessionValue = 'Session value'; //to translate
+
+$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
+$strTime = 'Time'; //to translate
+
 ?>
