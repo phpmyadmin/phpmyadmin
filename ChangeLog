@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-11 Michal Cihar  <nijel@users.sourceforge.net>
+    * db_details_structure.php3: Get row count by SHOW TABLE STATUS, and by
+      SELECT COUNT(*) only for small (<20000 rows) tables (RFE #708533).
+    * config.inc.php3, db_details_structure.php3, libraries/common.lib.php3:
+      $cfg['MaxExactCount'] is now used instead of hardcoded 20000 for above.
+
 2003-04-10 Michal Cihar  <nijel@users.sourceforge.net>
     * pdf_schema.php3, libraries/common.lib.php3,
       libraries/display_tbl.lib.php3, libraries/get_foreign.lib.php3: Get row

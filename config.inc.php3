@@ -412,6 +412,8 @@ $cfg['QueryWindowDefTab']   = 'sql';        // which tab to display in the query
 $cfg['QueryHistoryMax']     = 25;           // When using DB-based query history, how many entries
                                             // should be kept?
 $cfg['BrowseMIME']          = TRUE;         // Use MIME-Types (stored in column comments table) for
+$cfg['MaxExactCount']       = 20000;        // When approximate count < this, PMA will get exact count for
+                                            // table rows.
 
 /**
  * SQL Query box settings

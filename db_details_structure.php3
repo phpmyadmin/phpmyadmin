@@ -240,13 +240,17 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                 }
                 //$display_rows                   =  '&nbsp;-&nbsp;';
                 // get row count with another method
-                $local_query         = 'SELECT COUNT(*) AS count FROM '
-                                     . PMA_backquote($db) . '.'
-                                     . PMA_backquote($table);
-                $table_info_result   = PMA_mysql_query($local_query)
-                                     or PMA_mysqlDie('', $local_query, '', $err_url_0);
-                $row_count           = PMA_mysql_result($table_info_result, 0, 'count');
-                $sum_entries         += $row_count;
+                if ($sts_data['Rows'] < $cfg['MaxExactCount']) {
+                    $local_query         = 'SELECT COUNT(*) AS count FROM '
+                                         . PMA_backquote($db) . '.'
+                                         . PMA_backquote($table);
+                    $table_info_result   = PMA_mysql_query($local_query)
+                                         or PMA_mysqlDie('', $local_query, '', $err_url_0);
+                    $row_count           = PMA_mysql_result($table_info_result, 0, 'count');
+                    $sum_entries         += $row_count;
+                } else {
+                    $sum_entries         += $sts_data['Rows'];
+                }
                 $display_rows        = number_format($row_count, 0, $number_decimal_separator, $number_thousands_separator);
             }
 
