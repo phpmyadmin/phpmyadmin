@@ -113,7 +113,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         if (PMA_PHP_INT_VERSION >= 40001 && @function_exists('gzcompress')) {
             $encodedstr = gzcompress($debugstr, 9);
         }
-        $encodedstr     = nl2br(chunk_split(base64_encode($encodedstr)));
+        $encodedstr     = preg_replace("/(\015\012)|(\015)|(\012)/", '<br />' . "\n", chunk_split(base64_encode($encodedstr)));
 
         echo $GLOBALS['strSQLParserBugMessage'] . '<br />' . "\n"
              . '----' . $GLOBALS['strBeginCut'] . '----' . '<br />' . "\n"
