@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-09 Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/greek.inc.php3: update thanks to Kyriakos Xagoraris.
+	
 2002-04-09 Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/display_tbl.lib.php3, bug 541440 (Relation feature
 	  and blanks in the key), small modif to the patch thanks to Loïc

@@ -1,5 +1,6 @@
 <?php
 /* $Id$ */
+/* Translated by Kyriakos Xagoraris <theremon at users.sourceforge.net> */
 
 $charset = 'iso-8859-7';
 $text_dir = 'ltr';
@@ -242,6 +243,7 @@ $strQBEIns = 'Εισαγωγή';
 $strQueryOnDb = 'Εντολή SQL στη βάση <b>%s</b>:';
 
 $strRecords = 'Εγγραφές';
+$strReferentialIntegrity = 'Έλεγχος ακεραιότητας σχέσεων:';
 $strReloadFailed = 'Η επανεκίνηση της MySQL απέτυχε.';
 $strReloadMySQL = 'Επανεκίνηση της MySQL';
 $strRememberReload = 'Ενθύμιση της επανεκίνησης του διακομιστή.';
@@ -347,5 +349,4 @@ $strYes = 'Ναι';
 $strZip = 'συμπίεση «zip»';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';
 ?>
