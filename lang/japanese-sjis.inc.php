@@ -769,4 +769,5 @@ $strTransformation_text_plain__imagelink = 'Displays an image and a link, the fi
 $strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
 $strTruncateQueries = 'Truncate Shown Queries';  //to translate
 
+$strView = 'View';  //to translate
 ?>

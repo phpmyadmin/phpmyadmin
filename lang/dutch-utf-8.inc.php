@@ -749,4 +749,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) verwijderd het limiet.';
 $strZip = '"Gezipt"';
 
+$strView = 'View';  //to translate
 ?>

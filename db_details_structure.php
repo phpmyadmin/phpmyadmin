@@ -250,7 +250,7 @@ else {
         require_once('./libraries/bookmark.lib.php');
         $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
-        if (!empty($sts_data['Rows'])) {
+        if (!empty($sts_data['Rows']) || (PMA_MYSQL_INT_VERSION >= 50000 && $sts_data['Comment'] == 'view')) {
             echo '<a href="sql.php?' . $tbl_url_query . '&amp;sql_query='
                  . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table)))
                  . '&amp;pos=0">' . $titles['Browse'] . '</a>';
@@ -261,7 +261,7 @@ else {
                 </td>
                 <td bgcolor="<?php echo $bgcolor; ?>">
         <?php
-        if (!empty($sts_data['Rows'])) {
+        if (!empty($sts_data['Rows']) || (PMA_MYSQL_INT_VERSION >= 50000 && $sts_data['Comment'] == 'view')) {
             echo '<a href="tbl_select.php?' . $tbl_url_query . '">'
                  . $titles['Search'] . '</a>';
         } else {
@@ -410,6 +410,29 @@ else {
                 <?php
                 echo "\n";
             } // end if
+	} else if (PMA_MYSQL_INT_VERSION >= 50000 && $sts_data['Comment'] == 'view') {
+	    // rabus: We've found a view
+	    ?>
+	        <td align="right" bgcolor="<?php echo $bgcolor; ?>">
+		    &nbsp;-&nbsp;
+		</td>
+		<td bgcolor="<?php echo $bgcolor; ?>">
+                    &nbsp;<?php echo $strView ; ?>&nbsp;
+                </td>
+	        <td bgcolor="<?php echo $bgcolor; ?>">
+	            &nbsp;---&nbsp;
+	        </td>
+	    <?php
+	    if ($cfg['ShowStats']) {
+	        ?>
+               <td align="right" bgcolor="<?php echo $bgcolor; ?>">
+                  &nbsp;-&nbsp; 
+               </td>
+               <td align="right" bgcolor="<?php echo $bgcolor; ?>">
+                  &nbsp;-&nbsp; 
+               </td>
+                <?php
+            }
         } else {
             ?>
                 <td colspan="<?php echo ($structure_tbl_col_cnt - 8) ?>" align="center" bgcolor="<?php echo $bgcolor; ?>" <?php echo $click_mouse; ?>>

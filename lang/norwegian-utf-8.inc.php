@@ -754,4 +754,5 @@ $strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP con
 
 $strSQLExportCompatibility = 'SQL export compatibility';  //to translate
 
+$strView = 'View';  //to translate
 ?>

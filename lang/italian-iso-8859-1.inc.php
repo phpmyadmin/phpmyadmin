@@ -749,4 +749,5 @@ $strYes = ' Si ';
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
+$strView = 'View';  //to translate
 ?>

@@ -745,4 +745,5 @@ $strYes = 'Ya';
 $strZeroRemovesTheLimit = 'Perhatian: Perubahan pilihan ini ke posisi 0 (zero) akan menghapus batas yang telah ditentukan.';
 $strZip = 'Dikompress dengan Zip';
 
+$strView = 'View';  //to translate
 ?>

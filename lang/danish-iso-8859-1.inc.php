@@ -746,4 +746,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen.';
 $strZip = '"zippet"';
 
+$strView = 'View';  //to translate
 ?>

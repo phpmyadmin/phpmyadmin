@@ -722,6 +722,7 @@ $strValidateSQL = 'Validate SQL';
 $strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.';
 $strValue = 'Value';
 $strVar = 'Variable';
+$strView = 'View';
 $strViewDump = 'View dump (schema) of table';
 $strViewDumpDB = 'View dump (schema) of database';
 $strViewDumpDatabases = 'View dump (schema) of databases';
