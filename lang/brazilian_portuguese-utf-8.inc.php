@@ -64,7 +64,6 @@ $strBookmarkView = 'Apenas visualiza';
 $strBrowse = 'Visualiza';
 $strBzip = '"compactado com bzip"';
 
-$strCantLoadMySQL = 'não foi possível carregar extensão do MySQL,<br />por favor cheque a configuração do PHP.';
 $strCantRenameIdxToPrimary = 'Não foi possível renomear o índice para "PRIMARY"!';
 $strCardinality = 'Cardinalidade';
 $strCarriage = 'Caracter de retorno: \\r';

@@ -89,7 +89,6 @@ $strBzip = '"bzipped"';
 $strCSVOptions = 'CSV indstillinger';
 $strCannotLogin = 'Kan ikke logge ind på MySQL-serveren';
 $strCantLoad = 'kan ikke indlæse udvidelsen %s,<br />check PHP-konfigurationen!';
-$strCantLoadMySQL = 'MySQL udvidelser kan ikke loades,<br />check PHP konfigurationen.';
 $strCantLoadRecodeIconv = 'Kan ikke indlæse iconv eller omkode nødvendig udvidelse til karaktersæt-konvertering, konfigurer php til at tillade brug af disse udvidelser eller slå karaktersæt-konvertering fra i phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Kan ikke omdøbe indeks til PRIMARY!';
 $strCantUseRecodeIconv = 'Kan ikke bruge iconv ejheller libiconv eller recode_string funktionen omend udvidelsen ser ud til at være indlæst. Check din php-konfiguration.';

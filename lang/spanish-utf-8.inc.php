@@ -89,7 +89,6 @@ $strBzip = '"Comprimido con bzip"';
 $strCSVOptions = 'Opciones CSV';
 $strCannotLogin = 'No se consiguió hacer login al servidor MySQL';
 $strCantLoad = 'no se pudo cargar la extensión %s,<br />por favor revise su configuración de PHP.';
-$strCantLoadMySQL = 'imposible cargar la extensión MySQL,<br />por favor revise la configuración de PHP.';
 $strCantLoadRecodeIconv = 'No se puede cargar iconv o recodificar una extensión necesaria para la conversión de juegos de caracteres, configure php para permitir el uso de estas extensiones o desactive la conversión de juegos de caracteres en phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'No puede cambiar el nombre del índice a ¡PRIMARY!';
 $strCantUseRecodeIconv = 'No se puede utilizar iconv ni libiconv ni la función recode_string mientras se carga la extensión de informes. Comprueba la configuración de php.';

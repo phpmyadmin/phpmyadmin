@@ -90,7 +90,6 @@ $strBzip = '"bzipped"';
 $strCSVOptions = 'CSV nastavenia';
 $strCannotLogin = 'Nedá sa prihlási k MySQL serveru';
 $strCantLoad = 'nedá sa nahra rozšírenie %s,<br />prosím skontrolujte konfiguráciu PHP';
-$strCantLoadMySQL = 'nie je moné nahra rozšírenie pre MySQL,<br />prosím skontrolujte konfiguráciu PHP.';
 $strCantLoadRecodeIconv = 'Nie je moné nahra rozšírenie iconv alebo recode potrebné pre prevod znakovıch sad. Upravte nastavenie php tak aby umoòovalo poui tieto rozšírenia alebo vypnite túto vlastnos v konfigurácii phpMyAdmina.';
 $strCantRenameIdxToPrimary = 'Nie je moné premenova index na PRIMARY!';
 $strCantUseRecodeIconv = 'Nie je moné poui funkcie iconv,libiconv a recode_string aj napriek tomu, e rozšírenia sú nahrané. Skontrolujte prosím nastavenie PHP.';

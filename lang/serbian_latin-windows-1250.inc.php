@@ -95,7 +95,6 @@ $strBzip = '"bzip-ovano"';
 $strCSVOptions = 'CSV opcije';
 $strCannotLogin = 'Ne mogu da se prijavim na MySQL server';
 $strCantLoad = 'ne mogu da uèitam ekstenziju %s,<br />molim proverite PHP konfiguraciju';
-$strCantLoadMySQL = 'ne mogu da uèitam MySQL ekstenziju,<br /> molim pogledajte PHP konfiguraciju.';
 $strCantLoadRecodeIconv = 'Ne mogu da uèitam iconv ili recode ekstenzije potrebne za konverziju skupova znakova, podesite PHP da dozvoli korišæenje ovih ekstenzija ili onemoguæite konverziju skupova znakova u phpMyAdmin-u.';
 $strCantRenameIdxToPrimary = 'Ne mogu da promenim kljuè u PRIMARY (primarni) !';
 $strCantUseRecodeIconv = 'Ne mogu da koristim iconv ili libiconv ili recode_string funkcije iako ekstenzija prijavljuje da je uèitana. Proverite vašu PHP konfiguraciju.';

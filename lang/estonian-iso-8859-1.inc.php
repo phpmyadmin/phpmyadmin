@@ -88,7 +88,6 @@ $strBzip = '"bzipitud"';
 $strCSVOptions = 'CSV seaded';
 $strCannotLogin = 'Eei suuda MySQL serverisse logida';
 $strCantLoad = 'ei suutnud lugeda moodulit %s,<br />palun kontrollige PHP konfiguratsiooni';
-$strCantLoadMySQL = 'ei suutnud lugeda MySQL laiendit,<br />palun kontrollige PHP konfiguratsiooni.';
 $strCantLoadRecodeIconv = 'Ei suuda lugeda iconv või recode moodulit mida on vaja tähetabeli konvertimiseks, konfigureerige PHP-d nii, et see sisaldaks antud mooduleid või keelake tähetabeli konvertimine phpMyAdminis.';
 $strCantRenameIdxToPrimary = 'Ei suuda muuta indeksit PRIMAARSEKS!';
 $strCantUseRecodeIconv = 'Ei suuda kasutada iconv-d või libiconvi või recode_string funktsiooni kuigi moodul on installitud Kontrollige oma PHP konfiguratsiooni.';

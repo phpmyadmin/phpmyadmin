@@ -79,7 +79,6 @@ $strBzip = '"bzip"lenmiþ';
 $strCSVOptions = 'CSV variantlarý';
 $strCannotLogin = 'MySQL server-e gire bilmirem';
 $strCantLoad = '%s uzantýsýný (extension) yükleye bilmirem,<br />xahiþ edirem PHP Konfiqurasiyaný gözden keçir.';
-$strCantLoadMySQL = 'MySQL uzantýsýný (extension) yükleye bilmirem,<br />xahiþ edirem PHP Konfiqurasiyaný gözden keçir.';
 $strCantLoadRecodeIconv = 'Charset çevirmeleri üçün lazým olan iconv ve ya recode uzantýlarýný yükleye bilmirem; ya php-ni bu uzantýlarý istifade ede bilmesi üçün yeniden quraþdýrýn ya da phpMyAdmin-de charset çevirme xüsusiyyetini söndürün.';
 $strCantRenameIdxToPrimary = 'Ýndeksi Birinci Dereceli (PRIMARY) olaraq yeniden adlandýra bilmirem!';
 $strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';

@@ -93,7 +93,6 @@ $strBzip = '"compresso con bzip2"';
 $strCSVOptions = 'Opzioni CSV';
 $strCannotLogin = 'Impossibile eseguire il login nel server MySQL';
 $strCantLoad = 'Impossibile caricare l\'estensione %s,<br />prego controllare la configurazione di PHP';
-$strCantLoadMySQL = 'impossibile caricare l\'estensione MySQL,<br />controlla la configurazione di PHP.';
 $strCantLoadRecodeIconv = 'Impossibile caricare l\'estensione iconv o recode necessaria per la conversione del set di caratteri, configurare il PHP per permettere di utilizzare queste estenzioni o disabilitare la conversione dei set di caratteri in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Impossibile rinominare l\'indice a PRIMARIO!';
 $strCantUseRecodeIconv = 'Impossibile utilizzare le funzioni iconv o libiconv o recode_string in quanto l\'estensione deve essere caricata. Controllare la configurazione del PHP.';

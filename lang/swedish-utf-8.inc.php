@@ -89,7 +89,6 @@ $strBzip = '"bzippad"';
 $strCSVOptions = 'CSV-alternativ';
 $strCannotLogin = 'Kan ej logga in på MySQL-server';
 $strCantLoad = 'kan inte ladda %s-tillägg,<br />var god kontrollera PHP-konfigurationen.';
-$strCantLoadMySQL = 'kan inte ladda MySQL-tillägg,<br />var god och kontrollera PHP-konfigurationen.';
 $strCantLoadRecodeIconv = 'Kan inte ladda utökningarna iconv eller recode som behövs för teckenuppsättningsomvandling. Konfigurera php för att tillåta dessa utökningar eller stäng av teckenuppsättningsomvandling i phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Kan inte byta namn på index till "PRIMARY"!';
 $strCantUseRecodeIconv = 'Kan inte använda funktionerna iconv, libiconv eller recode_string när utökade rapporter ska laddas. Kontrollera din php-konfiguration.';

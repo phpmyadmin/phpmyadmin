@@ -64,7 +64,6 @@ $strBookmarkView = 'Vidi samo';
 $strBrowse = 'Pregled';
 $strBzip = '"bzip-ano"';
 
-$strCantLoadMySQL = 'Ne mogu učitati MySql ekstenziju,<br /> molim provjerite PHP konfiguraciju.';
 $strCantRenameIdxToPrimary = 'Ne mogu promijeniti ključ u PRIMARY (primarni) !';
 $strCardinality = 'Kardinalnost';
 $strCarriage = 'Novi red (carriage return): \\r';

@@ -87,7 +87,6 @@ $strBzip = '".bz2"';
 $strCSVOptions = 'Opcje CSV';
 $strCannotLogin = 'Nie uda³o siê zalogowaæ na serwer MySQL';
 $strCantLoad = 'nie uda³o siê za³adowaæ modu³u %s,<br />proszê sprawdziæ konfiguracjê PHP';
-$strCantLoadMySQL = 'nie mo¿na za³adowaæ modu³u MySQL,<br />proszê sprawdziæ konfiguracjê PHP.';
 $strCantLoadRecodeIconv = 'Nie uda³o siê za³adowaæ rozszerzeñ iconv lub recode, które s± niezbêdne do konwersji kodowania znaków, skonfiguruj php tak, by móg³ u¿ywaæ tych rozszerzeñ albo zablokuj konwersjê kodowania znaków w phpMyAdminie.';
 $strCantRenameIdxToPrimary = 'Nie mo¿na zmieniæ nazwy indeksu na PRIMARY!';
 $strCantUseRecodeIconv = 'Nie uda³o siê u¿yæ ani funkcji iconv, ani libiconv, mimo ¿e rozszerzenia zg³aszaj± siê jako za³adowane. Sprawd¼ swoj± konfiguracjê php.';

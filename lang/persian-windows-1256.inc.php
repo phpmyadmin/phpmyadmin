@@ -61,7 +61,6 @@ $strBinary = 'ÏæÏæíí';
 $strBrowse = 'ãÔÇåÏå';
 $strBzip = '"bzipped"';
 
-$strCantLoadMySQL = 'ÈÇÑĞÇÑí MySQL ãŞÏæÑ äãíÈÇÔÏ,<br />áØİÇ íßÑÈäÏí(æÖÚíÊ) PHP ÑÇ ÈÑÑÓí äãÇííÏ.';
 $strCantLoadRecodeIconv = 'ÈÇÑĞÇÑí iconv íÇ  recode extension ßå ÈÑÇí ÊÈÏíá ãÌãæÚå ßÇÑÇßÊÑåÇ áÇÒã ÇÓÊ ¡ ãŞÏæÑ äãíÈÇÔÏ¡ php ÑÇ ÈÑÇí ÇÌÇÒå ÇÓÊİÇÏå ÇÒ ÂäåÇ ÊäÙíã ßÑÏå æ íÇ ÊÈÏíá ãÌãæÚå ßÇÑÇßÊÑåÇ (charset conversion) ÑÇ ÏÑ phpMyAdmin ÛíÑİÚÇá äãÇííÏ.';
 $strCantRenameIdxToPrimary = 'ÈÇÒäÇãíÏä İåÑÓÊ Èå PRIMARY ãŞÏæÑ äãíÈÇÔÏ!';
 $strCarriage = 'ÑİÊä Èå ÓÑ ÓØÑ: \\r';

@@ -90,7 +90,6 @@ $strBzip = '"bzipano"';
 $strCSVOptions = 'CSV možnosti';
 $strCannotLogin = 'Ne morem se prijaviti v MySQL strežnik';
 $strCantLoad = 'ne morem naložiti podaljška %s,<br />prosim preverite PHP konfiguracijo';
-$strCantLoadMySQL = 'ni mogoče naložiti MySQL ekstenzij,<br /> prosimo, preverite PHP konfiguracijo.';
 $strCantLoadRecodeIconv = 'Ni mogoče naložiti iconv ali recode ekstenzij, ki so potrebne za pretvorbe kodnih tabel, konfigurirajte php tako, da bo omogočal uporabo teh ekstenzij ali onemogočite pretvarjanje kodnih tabel v phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Indeksa ni mogoče preimenovati v PRIMARY!';
 $strCantUseRecodeIconv = 'Ni mogoče uporabljati iconv, libiconv ali recode_string funkcij, čeprav so ekstenzije normalno naložene. Preverite konfiguracijo php.';

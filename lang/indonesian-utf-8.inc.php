@@ -89,7 +89,6 @@ $strBzip = '"Dikompress dengan BZip"';
 $strCSVOptions = 'Pilihan CSV';
 $strCannotLogin = 'Gagal login ke MySQL server';
 $strCantLoad = 'gagal loading ekstensi %s,<br />mohon periksa kembali konfigurasi PHP.';
-$strCantLoadMySQL = 'Gagal loading extensi MySQL,<br />mohon periksa kembali konfigurasi PHP.';
 $strCantLoadRecodeIconv = 'Gagal loading iconv atau perubahan kode extension untuk konversi charset diperlukan. Silakan konfigurasikan php untuk mengunakan extensions yang diperlukan atau matikan fasilitas charset conversion di phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Gagal ubah nama Indeks ke PRIMARY!';
 $strCantUseRecodeIconv = 'Gagal mengunakan iconv, libiconv atau fungsi recode_string apabila extension masih dalam keadaan di-load. Periksa kembali konfigurasi php.';

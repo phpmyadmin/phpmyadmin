@@ -71,7 +71,6 @@ $strBrowse = 'עיון';
 $strBzip = '"BZipped"';
 
 $strCannotLogin = 'התחברות לשרת ה- MySQL נכשלה';
-$strCantLoadMySQL = 'לא יכול לטעון את סיומת ה- MySQL,<br />בבקשה בדוק את קונפיגורצית ה- PHP.';
 $strCantRenameIdxToPrimary = 'לא יכול לשנות את האינדקס לעיקרי !';
 $strCardinality = 'Cardinality';
 $strCarriage = 'תו החזרת גררה: \\r';

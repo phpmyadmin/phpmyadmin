@@ -62,7 +62,6 @@ $strBinary = 'دودويي';
 $strBrowse = 'مشاهده';
 $strBzip = '"bzipped"';
 
-$strCantLoadMySQL = 'بارگذاري MySQL مقدور نمي‌باشد,<br />لطفا پيكربندي(وضعيت) PHP را بررسي نماييد.';
 $strCantLoadRecodeIconv = 'بارگذاري iconv يا  recode extension كه براي تبديل مجموعه كاراكترها لازم است ، مقدور نمي‌باشد، php را براي اجازه استفاده از آنها تنظيم كرده و يا تبديل مجموعه كاراكترها (charset conversion) را در phpMyAdmin غيرفعال نماييد.';
 $strCantRenameIdxToPrimary = 'بازناميدن فهرست به PRIMARY مقدور نمي‌باشد!';
 $strCarriage = 'رفتن به سر سطر: \\r';

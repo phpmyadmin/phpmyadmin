@@ -94,7 +94,6 @@ $strBzip = '"zabzipováno"';
 $strCSVOptions = 'Nastavení CSV exportu';
 $strCannotLogin = 'Nepodaøilo se pøihlá¹ení k MySQL serveru';
 $strCantLoad = 'nelze nahrát roz¹íøení %s,<br />prosím zkontolujte nastavení PHP';
-$strCantLoadMySQL = 'nelze nahrát roz¹íøení pro MySQL,<br />prosím zkontrolujte nastavení PHP.';
 $strCantLoadRecodeIconv = 'Nelze nahrát roz¹íøení iconv ani recode potøebná pro pøevod znakových sad. Upravte nastavení php tak aby umo¾òovalo pou¾ít tyto roz¹íøení nebo vypnìte pøevod znakových sad v&nbsp;phpMyAdminu.';
 $strCantRenameIdxToPrimary = 'Index nemù¾ete pøejmenovat na "PRIMARY"!';
 $strCantUseRecodeIconv = 'Nelze pou¾ít funkce iconv ani libiconv ani recode_string, pøesto¾e roz¹íøení jsou nahrána. Zkontrolujte nastavení php.';

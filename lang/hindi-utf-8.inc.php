@@ -339,7 +339,6 @@ $strBzip = '"bzipped"'; //to translate
 $strCSVOptions = 'CSV options';//to translate
 $strCannotLogin = 'Cannot login to MySQL server';  //to translate
 $strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
-$strCantLoadMySQL = 'cannot load MySQL extension,<br />please check PHP Configuration.'; //to translate
 $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.'; //to translate
 $strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.'; //to translate
 $strCardinality = 'Cardinality'; //to translate

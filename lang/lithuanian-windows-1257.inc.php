@@ -88,7 +88,6 @@ $strBzip = '"bzip"';
 $strCSVOptions = 'CSV parinktys';
 $strCannotLogin = 'Neprisijungia prie MySQL darbinës stoties';
 $strCantLoad = 'negalima ákrauti %s plëtinio,<br />pasitikrinkite php parinktis';
-$strCantLoadMySQL = 'negali uþkrauti MySQL proceso,<br />patikrinkite PHP nustatymus.';
 $strCantLoadRecodeIconv = 'Nepavyko uþkrauti <em>iconv</em> arba <em>recode</em> plëtiniø, reikalingø koduotës kovertavimui. Suteikite PHP teises naudotis ðiais iðplëtimais arba iðjunkite phpMyAdmin koduotës konvertavimà. ';
 $strCantRenameIdxToPrimary = 'Indeksà pervadinti PIRMINIU nepavyko!';
 $strCantUseRecodeIconv = 'Kraunant plëtiniø praneðimus, nepavyko pasinaudoti <em>iconv</em> arba <em>libiconv</em> arba <em>recode_string</em> funkcijomis. Pasitkrinkite PHP parinktis. ';

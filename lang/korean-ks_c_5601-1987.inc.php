@@ -66,7 +66,6 @@ $strBzip = '"bz 압축"';
 $strCSVOptions = 'CSV 옵션';
 $strCannotLogin = 'MySQL 서버에 로그인할 수 없습니다';
 $strCantLoad = ' %s 확장모듈을 불러올 수 없습니다.<br />PHP 환경설정을 검사하십시오.';
-$strCantLoadMySQL = 'MySQL 확장모듈을 불러올 수 없습니다.<br />PHP 설정을 검사하십시오..';
 $strCantRenameIdxToPrimary = '인덱스 이름을 기본 키로 바꿀 수 없습니다!';
 $strCarriage = '캐리지 리턴: \\r';
 $strChange = '변경';

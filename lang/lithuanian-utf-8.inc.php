@@ -89,7 +89,6 @@ $strBzip = '"bzip"';
 $strCSVOptions = 'CSV parinktys';
 $strCannotLogin = 'Neprisijungia prie MySQL darbinės stoties';
 $strCantLoad = 'negalima įkrauti %s plėtinio,<br />pasitikrinkite php parinktis';
-$strCantLoadMySQL = 'negali užkrauti MySQL proceso,<br />patikrinkite PHP nustatymus.';
 $strCantLoadRecodeIconv = 'Nepavyko užkrauti <em>iconv</em> arba <em>recode</em> plėtinių, reikalingų koduotės kovertavimui. Suteikite PHP teises naudotis šiais išplėtimais arba išjunkite phpMyAdmin koduotės konvertavimą. ';
 $strCantRenameIdxToPrimary = 'Indeksą pervadinti PIRMINIU nepavyko!';
 $strCantUseRecodeIconv = 'Kraunant plėtinių pranešimus, nepavyko pasinaudoti <em>iconv</em> arba <em>libiconv</em> arba <em>recode_string</em> funkcijomis. Pasitkrinkite PHP parinktis. ';

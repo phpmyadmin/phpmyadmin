@@ -85,7 +85,6 @@ $strBzip = 'запакувати в "bzip"';
 $strCSVOptions = 'CSV опції';
 $strCannotLogin = 'Не можу зареєструватися на MySQL сервері';
 $strCantLoad = 'не можу завантажити %s,<br />прошу перевірити конфігурацію PHP.';
-$strCantLoadMySQL = 'розширення MySQL не завантажено,<br />перевірте конфігурацію PHP.';
 $strCantLoadRecodeIconv = 'Не можу завантажити iconv чи recode extension необхідні для зміни charset-у, сконфігуруйте php так, щоб можна було використовувати ці extensions, або забороніть зміну charset-у у phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Неможливо перейменувати індекс в PRIMARY!';
 $strCantUseRecodeIconv = 'Не можу  використати ні/або iconv, ні/або libiconv, ні/або функцію recode_string поки буде завантажено extension reports. Перевірте Вашу php конфігурацію.';

@@ -93,7 +93,6 @@ $strBzip = 'Arhivçts ar bzip';
 $strCSVOptions = 'CSV opcijas';
 $strCannotLogin = 'Nevar pieslçgties MySQL serverim';
 $strCantLoad = 'nevar ielâdçt paplaðinâjumu %s,<br />lûdzu pârbaudiet PHP konfigurâciju';
-$strCantLoadMySQL = 'nevar ielâdçt MySQL paplaðinâjumu,<br />lûdzu pârbaudiet PHP konfigurâciju.';
 $strCantLoadRecodeIconv = 'Nevar ielâdçt iconv vai recode paplaðinâjumu, kas ir nepiecieðams rakstzîmju konvertâcijai, lûdzu nokonfigurçjiet php, lai varçtu lietot ðos paplaðinâjumus, vai arî atslçdziet rakstzîmju konvertâciju phpMyAdmin konfigurâcijâ.';
 $strCantRenameIdxToPrimary = 'Nevar pârsaukt indeksu par PRIMARY!';
 $strCantUseRecodeIconv = 'Nevar lietot iconv, libiconv vai recode_string funkciju, bet php saka, ka paplaðinâjums ir ielâdçts. Pârbaudiet Jûsu php konfigurâciju.';

@@ -89,7 +89,6 @@ $strBzip = '"ge-bzipt"';
 $strCSVOptions = 'CSV opties';
 $strCannotLogin = 'Kan niet inloggen op de MySQL server';
 $strCantLoad = 'Kan de %s extentie niet laden,<br />Controleer de PHP Configuratie';
-$strCantLoadMySQL = 'kan de MySQL extensie niet laden,<br />controleer de PHP configuratie.';
 $strCantLoadRecodeIconv = 'Kan iconv of recode extenties niet laden die nodig zijn voor de Karakterset conversie, configureer php om deze extensies toe te laten of schakel Karakterset conversie uit in phpMyAdmin';
 $strCantRenameIdxToPrimary = 'Kan index niet naar PRIMARY hernoemen';
 $strCantUseRecodeIconv = 'Kan iconv, libiconv en recode_string functies niet gebruiken zolang de extensies geladen moeten worden. Controleer de php configuratie.';

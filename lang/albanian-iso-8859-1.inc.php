@@ -92,7 +92,6 @@ $strBzip = '"kompresuar me bzip2"';
 $strCSVOptions = 'Opcione CSV';
 $strCannotLogin = 'E pamundur kryerja e login tek server-i MySQL';
 $strCantLoad = 'I pamundur ngarkimi i prapashtesës %s,<br />kontrollo konfigurimin e PHP';
-$strCantLoadMySQL = 'nuk arrij të ngarkoj prapashtesën MySQL,<br />kontrollo konfigurimin e PHP.';
 $strCantLoadRecodeIconv = 'I pamundur ngarkimi i prapashtesës iconv apo recode të nevoitshëm për konvertimin e karaktereve, konfiguroni php për të lejuar përdorimin e këtyre prapashtesave ose disaktivoni konvertimin e set të karaktereve në phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'I pamundur riemërtimi i treguesit në PRIMAR!';
 $strCantUseRecodeIconv = 'I pamundur përdorimi i funksioneve iconv apo libiconv apo recode_string për shkak se ekstensioni duhet të ngarkohet. Kontrolloni konfigurimin e php.';

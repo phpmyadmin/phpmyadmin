@@ -81,7 +81,6 @@ $strBzip = '"bzipped"';
 $strCSVOptions = 'ตัวเลือก CSV';
 $strCannotLogin = 'ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้';
 $strCantLoad = 'ไม่สามารถเรียกส่วนขยาย %s,<br />กรุณาตรวจสอบการตั้งค่า่ของ PHP';
-$strCantLoadMySQL = 'ไม่สามารถเรียกใช้ตัวช่วยของ MySQL,<br />กรุณาตรวจสอบการตั้งค่าของ PHP';
 $strCantLoadRecodeIconv = 'ไม่สามารถเรียกใช้ตัวช่วย iconv หรือ recode เพื่อแปลงชุดตัวอักษร, ทางเลือก: 1) ตั้งค่าให้ PHP สามารถใช้ตัวช่วยเหล่านี้ได้ หรือ 2) ตั้งค่าให้ phpMyAdmin ไม่ต้องแปลงชุดตัวอักษร';
 $strCantRenameIdxToPrimary = 'เปลี่ยนชื่อดัชนีเป็น PRIMARY ไม่ได้!';
 $strCantUseRecodeIconv = 'ไม่สามารถใช้ฟังก์ชั่น iconv หรือ libiconv หรือ recode_string ทั้งๆ ที่สามารถเรียกตัวช่วย สำหรับฟังก์ชั่นเหล่านั้นขึ้นมาได้แล้ว. ลองตรวจสอบการตั้งค่าของ PHP';

@@ -89,7 +89,6 @@ $strBzip = '"bzipped"';
 $strCSVOptions = 'Optiuni CSV';
 $strCannotLogin = 'Nu pot face conexiunea catre serverul MySQL';
 $strCantLoad = 'nu se poate incarca %s extensia,<br />va rugam verificati configuratia PHP.';
-$strCantLoadMySQL = 'extensia MySQL nu se incarca,<br />va rugam verificati configuratia PHP.';
 $strCantLoadRecodeIconv = 'Nu pot incarca extensia iconv sau recode necesar pentru conversia de caractere, configureaza PHP pentru a permite folosirea acestor extensii sau dezactiveaza conversia de caractere din phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Nu poti redenumi index-ul la un nume PRIMARY!';
 $strCantUseRecodeIconv = 'Nu pot folosi functiile iconv nici libiconv nici recode_string in timp ce extensia este incarcata. Verifica configuratia PHP.';

@@ -96,7 +96,6 @@ $strBzip = '"bzip-нато"';
 $strCSVOptions = 'CSV опции';
 $strCannotLogin = 'Не мога да се логна към MySQL сървъра';
 $strCantLoad = 'не мога да заредя разширението %s,<br />моля проверете конфигурацията на PHP';
-$strCantLoadMySQL = 'Не мога да заредя MySQL разширенията,<br />моля проверете конфигурацията на PHP.';
 $strCantLoadRecodeIconv = 'Не може да се заредят iconv или recode разширенията необходими за конвертиране на набора от символи(charset), конфигурурайте PHP така, че да позволява използване на тези разширения или отменете конвертирането на набора от символи(charset) в phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Не мога да преименувам индекса на PRIMARY!';
 $strCantUseRecodeIconv = 'Не може да се използва нито iconv нито libiconv нито recode_string функцията докато протолколите за разширенията са заредени. Проверете конфигурацията на PHP.';

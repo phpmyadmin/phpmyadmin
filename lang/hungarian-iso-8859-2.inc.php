@@ -64,7 +64,6 @@ $strBookmarkView = 'Csak megnézhet&#0337';
 $strBrowse = 'Tartalom';
 $strBzip = '"bzip-pel tömörítve"';
 
-$strCantLoadMySQL = 'nem tudom betölteni a MySQL b&#0337vítményt,<br />ellen&#0337rizd a PHP konfigurációt.';
 $strCantLoadRecodeIconv = 'Nem tudom betölteni az iconv vagy recode kiterjesztést a karakterkészlet-átalakításhoz, állítsd be a php-t, hogy engedélyezze ezeket a kiterjesztéseket vagy tiltsd le a karakterkészlet-átalakítást a phpMyAdminban.';
 $strCantRenameIdxToPrimary = 'Nem tudom átnevezni az indexet PRIMARY-vá!';
 $strCantUseRecodeIconv = 'Nem tudom használni az iconv, libiconv sem a recode_string funkciókat mialatt a kiterjesztés-jelentéseket be kell tölteni. Ellen&#0337rizd a php konfigurációt.';

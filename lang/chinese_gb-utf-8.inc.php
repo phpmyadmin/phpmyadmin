@@ -90,7 +90,6 @@ $strBzip = '"bzipped"';
 $strCSVOptions = 'CSV 选项';
 $strCannotLogin = '无法登入 MySQL 服务器';
 $strCantLoad = '无法装入 %s 扩展，<br />请检查 PHP 配置';
-$strCantLoadMySQL = '无法装入 MySQL 扩展，<br />请检查 PHP 的配置。';
 $strCantLoadRecodeIconv = '无法装入 iconv 或者进行字符集转换所需的重编码扩展程序，请配置 php 允许使用这些扩展或者在 phpMyAdmin 中禁用字符集转换功能。';
 $strCantRenameIdxToPrimary = '无法将索引更名为 PRIMARY!';
 $strCantUseRecodeIconv = '装入扩展报告时 iconv, libiconv 和 recode_string 都无法使用。请检查您的 php 配置。';

@@ -94,7 +94,6 @@ $strBzip = 'архивировать в bzip';
 $strCSVOptions = 'Опции CSV';
 $strCannotLogin = 'Невозможно войти в MySQL';
 $strCantLoad = 'не могу загрузить расширение %s,<br />проверьте конфигурацию PHP, пожалуйста';
-$strCantLoadMySQL = 'расширение MySQL не загружено,<br />проверьте конфигурацию PHP.';
 $strCantLoadRecodeIconv = 'Не могу загрузить iconv или recode, необходимые для перекодирования символов. Проверьте php-конфигурацию и разрешите их использование или запретите перекодирование символов в phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Невозможно переименовать индекс в PRIMARY!';
 $strCantUseRecodeIconv = 'Не могу использовать iconv функции: ни libiconv, ни recode_string, пока не будут загружены extension reports. Проверьте php-конфигурацию.';

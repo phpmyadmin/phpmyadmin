@@ -68,7 +68,6 @@ $strBookmarkView = 'მხოლოდ დათვალიერება';
 $strBrowse = 'ნახვა';
 $strBzip = '"bzip შეკუმშვა"';
 
-$strCantLoadMySQL = 'MySQL გაფართოება არ ჩაიტვირტა,<br />გთხოვთ შეამოწმეთ PHP კონფიგურაცია.';
 $strCantLoadRecodeIconv = 'ვერ ჩაიტვირთა iconv,რაც საჭიროა charset-ის ასამუშავებლად, შეცვალეთ php-ს კონფიგურირება თუ გინდათ ამ ფუნქციის გამოყენება, ან გამორთეთ charset ფუნქცია phpMyAdmin-ში';
 $strCantRenameIdxToPrimary = 'PRIMARY-ში ინდექსის სახელის შეცვლა შეუძლებელია!';
 $strCantUseRecodeIconv = 'iconv-ს ან libiconv-ს და recode_string-ს ვერ იყენებს, მაშინ როდესაც ფუნქცია ჩატვირთულია. შეამოწმეთ php კონფიგურაცია.';

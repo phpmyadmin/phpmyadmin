@@ -101,7 +101,6 @@ $strBzip = '"bzipped"';
 $strCSVOptions = 'CSV seçenekleri';
 $strCannotLogin = 'MySQL seçenekleri';
 $strCantLoad = '%s uzantısı yüklenemiyor,<br />PHP konfigurasyon dosyasını kontrol ediniz.';
-$strCantLoadMySQL = 'MySQL uzantısını yükleyemiyor,<br />lütfen PHP ayarlarını kontrol ediniz.';
 $strCantLoadRecodeIconv = 'Karakter seti dönüşümü için gerekli olan Iconv veya recode uzantılarını yükleyenemiyor.  Php\'nin bu uzantılara izin vermesini sağlayın veya phpMyAdmin içinde karakter dönüşümünü devre dışı bırakınız...';
 $strCantRenameIdxToPrimary = 'Indeks\'i PRIMARY olarak adlandırımazsınız!';
 $strCantUseRecodeIconv = 'Uzantı raporları yüklenmişken , ne iconv,ne libinconv,ne de recode_string fonksiyonu  kullanılamaz.  Php ayarlarınızı kontrol ediniz.';

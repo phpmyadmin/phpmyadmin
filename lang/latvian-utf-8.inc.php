@@ -94,7 +94,6 @@ $strBzip = 'Arhivēts ar bzip';
 $strCSVOptions = 'CSV opcijas';
 $strCannotLogin = 'Nevar pieslēgties MySQL serverim';
 $strCantLoad = 'nevar ielādēt paplašinājumu %s,<br />lūdzu pārbaudiet PHP konfigurāciju';
-$strCantLoadMySQL = 'nevar ielādēt MySQL paplašinājumu,<br />lūdzu pārbaudiet PHP konfigurāciju.';
 $strCantLoadRecodeIconv = 'Nevar ielādēt iconv vai recode paplašinājumu, kas ir nepieciešams rakstzīmju konvertācijai, lūdzu nokonfigurējiet php, lai varētu lietot šos paplašinājumus, vai arī atslēdziet rakstzīmju konvertāciju phpMyAdmin konfigurācijā.';
 $strCantRenameIdxToPrimary = 'Nevar pārsaukt indeksu par PRIMARY!';
 $strCantUseRecodeIconv = 'Nevar lietot iconv, libiconv vai recode_string funkciju, bet php saka, ka paplašinājums ir ielādēts. Pārbaudiet Jūsu php konfigurāciju.';

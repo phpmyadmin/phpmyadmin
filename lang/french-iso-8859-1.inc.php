@@ -89,7 +89,6 @@ $strBzip = '"bzippé"';
 $strCSVOptions = 'Options CSV';
 $strCannotLogin = 'Connexion au serveur MySQL non permise';
 $strCantLoad = 'PHP ne peut charger l\'extension %s,<br />veuillez vérifier votre configuration de PHP';
-$strCantLoadMySQL = 'ne peux charger l\'extension MySQL,<br />vérifiez la configuration PHP';
 $strCantLoadRecodeIconv = 'Erreur lors du chargement de l\'extension iconv ou recode, utilisée pour convertir le jeu de caractères; veuillez activer l\'une de ces extensions dans PHP, ou désactiver la conversion des jeux de caractères dans phpMyAdmin';
 $strCantRenameIdxToPrimary = 'La clef ne peut être renommée PRIMARY&nbsp;!';
 $strCantUseRecodeIconv = 'Erreur lors de l\'utilisation de iconv, libiconv et recode_string, alors que ces extensions semblent chargées. Veuillez vérifier votre configuration de PHP.';

@@ -91,7 +91,6 @@ $strBzip = 'comprimido no formato "bzipped"';
 $strCSVOptions = 'Opcións CSV';
 $strCannotLogin = 'Non podo conectar co servidor de MySQL';
 $strCantLoad = 'Non se pode carregar a extensión %s.<br />Comprobe a configuración do PHP.';
-$strCantLoadMySQL = 'Non foi posible carregar a extensión do MySQL;<br>comprobe, por favor, a configuración do PHP.';
 $strCantLoadRecodeIconv = 'Non se puido carregar iconv ou precísase da extensión recode para a conversión do charset. Configure o php para que se poidan usar estas extensións ou indique que non se use a conversión de charset en phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Non se pode facer que este índice sexa PRIMARIO!';
 $strCantUseRecodeIconv = 'Non se puido usar nen iconv nen libiconv nen a función recode_stringf mentres haxa extensións por carregar. Comprobe a súa configuración do php.';

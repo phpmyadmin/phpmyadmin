@@ -70,7 +70,6 @@ $strBookmarkView = 'Kyk slegs';
 $strBrowse = 'Beloer Data';
 $strBzip = '"ge-bzip"';
 
-$strCantLoadMySQL = 'kan ongelukkig nie die MySQL module laai nie, <br />kyk asb. na die PHP opstelling.';
 $strCantLoadRecodeIconv = 'Kan nie iconv laai nie, of "recode" ekstensie word benodig vir die karakterstel omskakeling, stel PHP op om hierdie ekstensies toe te laat of verwyder karakterstel omskakeling in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Kannie die indeks hernoem na PRIMARY!';
 $strCantUseRecodeIconv = 'Kan nie iconv, libiconv of recode_string funksie gebruik terwyl die extensie homself as gelaai rapporteer nie. Kyk na jou PHP opstelling.';

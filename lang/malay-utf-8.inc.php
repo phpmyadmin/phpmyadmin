@@ -89,7 +89,6 @@ $strBzError = 'phpMyAdmin tidak dapat memampatkan longgokan kerana terdapat masa
 $strBzip = 'bzipped';
 
 $strCannotLogin = 'Tidak boleh log-masuk ke server MySQL';
-$strCantLoadMySQL = 'tidak dapat memuat sambungan MySQL,<br />sila semak konfigurasi PHP.';
 $strCantLoadRecodeIconv = 'Tidak dapat memuat iconv atau kodsemula sambungan yang diperlukan untuk menukar set aksara, konfigur php utk membolehkan penggunaan sambungan ini atau abaikan pengubahan set aksara di phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Tidak boleh menukar indekx ke PRIMARY!';
 $strCantUseRecodeIconv = 'Tidak boleh menggunakan fungsi iconv mahupun libiconv mahupun recode_string apabila sambungan lapuran dimuat. Periksa konfigurasi php anda.';

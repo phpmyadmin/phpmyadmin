@@ -87,7 +87,6 @@ $strBzip = '"Bzip-ez trinkotua"';
 $strCSVOptions = 'CSV aukerak';
 $strCannotLogin = 'Ezinezkoa MySql zerbitzarian saioa hastea';
 $strCantLoad = 'ezinezkoa %s luzapena kargatzea ,<br />mesedez, berpasatu zure PHPren konfigurazioa.';
-$strCantLoadMySQL = 'ezinezkoa MySQL luzapena kargatzea,<br />mesedez, berpasatu zure PHPren konfigurazioa.';
 $strCantLoadRecodeIconv = 'Ezinezkoa iconv kargatzea edota karaktere-jokoaren bihurketarako beharrezkoa den luzapena berkodifikatzea, configure php para permitir el uso de estas extensiones o desactive la conversión de juegos de caracteres en phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Ezinezkoa indizearen izena ¡PRIMARY! berrizendatzea';
 $strCantUseRecodeIconv = 'Ezin dira erabili ez iconv, ez libiconv ezta recode_string funtzioa luzapenen txostena kargatzen den bitartean. Berpasatu php-ren konfigurazioa.';

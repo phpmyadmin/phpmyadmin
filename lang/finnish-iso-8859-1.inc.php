@@ -66,7 +66,6 @@ $strBookmarkView = 'Näytä';
 $strBrowse = 'Selaa';
 $strBzip = '"bzip-pakattu"';
 
-$strCantLoadMySQL = 'MySQL-laajennusta ei voitu ladata,<br />tarkista PHP:n asetukset.';
 $strCantLoadRecodeIconv = 'Merkistön konvertointiin tarvittavaa iconv- tai recode-laajennusta ei voitu ladata. Muokkaa PHP:n asetuksia ja salli näiden laajennusten käyttö tai muuta phpMyAdminin asetuksia niin ettei konvertointia suoriteta.';
 $strCantRenameIdxToPrimary = 'Indeksiä ei voi muuttaa PRIMARY-nimiseksi!';
 $strCantUseRecodeIconv = 'iconv-, libiconv- tai recode_string-funktioita ei voitu käyttää. Tarkista PHP:n asetukset.';

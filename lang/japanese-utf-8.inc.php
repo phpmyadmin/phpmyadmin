@@ -78,7 +78,6 @@ $strBzip = '"bzipされる"';
 
 $strCannotLogin = 'MySQLサーバーにログイン出来ません';
 $strCantLoad = '扱えない拡張子のファイルです,<br />PHPの設定をチェックしてください。';
-$strCantLoadMySQL = 'MySQLを実行できません。<br />PHPの設定を確認して下さい。';
 $strCantLoadRecodeIconv = '文字セット変換を行うためには組み込まれていない iconv または GNU recode の拡張が必要です。php に、この拡張設定を行っておくか、phpMyAdminでは文字セット変換をしない設定にして下さい。';
 $strCantRenameIdxToPrimary = 'インデックスの名前をPRIMARYに変更できません。';
 $strCantUseRecodeIconv = 'iconv、libiconv、recode_stringのどの関数も使用出来ません。php の設定をチェックしてください。';

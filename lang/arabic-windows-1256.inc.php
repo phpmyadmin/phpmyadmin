@@ -97,7 +97,6 @@ $strBzip = '"bzipped"';
 $strCSVOptions = 'нМгягй гАчМЦ гАЦщуФАи хщФгуА )CSV(';
 $strCannotLogin = 'Аг МЦъД гАонФА еАЛ нгоЦ MySQL';
 $strCantLoad = 'Аг МЦъД чягаи гАгЦйого %s║<br />ялга йцъо ЦД езогогй PHP.';
-$strCantLoadMySQL = 'АгМЦъД ймЦМА еЦйого MySQL,<br />гАялга щму езогогй PHP.';
 $strCantLoadRecodeIconv = 'АЦ МЦъД ймЦМА iconv цФ езгои йтщМя гАеЦйого гАЦьАФх АймФМА тМщяи гАцмящ║ гАялга езого PHP АМсЦм хгсйногЦ ЕпЕ гАеЦйогогй цФ зьА зЦА гАймФМА щМ phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'АгМЦъД йшММя есЦ гАщЕяс еАЛ гАцсгсМ!';
 $strCantUseRecodeIconv = 'Аг МЦъД гсйногЦ iconv ФАг libiconv ФАг зЦАМи recode_string щМ мМД Ммоо гАгЦйого цДЕ ЦмЦЬА. йцъЬо ЦД езогогй PHP.';

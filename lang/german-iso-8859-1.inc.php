@@ -96,7 +96,6 @@ $strBzip = 'BZip-komprimiert';
 $strCSVOptions = 'CSV-Optionen';
 $strCannotLogin = 'Die Anmeldung am MySQL-Server ist fehlgeschlagen.';
 $strCantLoad = 'Die Erweiterung &quot;%s&quot; kann nicht geladen werden.<br />Bitte überprüfen Sie Ihre PHP-Konfiguration.';
-$strCantLoadMySQL = 'Die MySQL-Erweiterung konnte nicht geladen werden.<br />Bitte überprüfen Sie Ihre PHP-Konfiguration!';
 $strCantLoadRecodeIconv = 'Die PHP-Erweiterungen iconv und recode, welche für die Zeichensatzkonvertierung benötigt werden, konnten nicht geladen werden. Bitte ändern Sie Ihre PHP-Konfiguration und aktivieren Sie diese Erweiterungen oder deaktivieren Sie die Zeichensatzkonvertierung in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Kann Index nicht in PRIMARY umbenennen!';
 $strCantUseRecodeIconv = 'Weder die iconv- noch libiconv- oder recode_string-Funktion konnte verwandt werden, obwohl die benötigten php-Erweiterungen angeblich geladen wurden. Bitte überprüfen Sie Ihre PHP-Konfiguration.';

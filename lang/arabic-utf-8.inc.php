@@ -98,7 +98,6 @@ $strBzip = '"bzipped"';
 $strCSVOptions = 'ÎٌÇعÇÊ Çهمٌځ ÇهځلفيهÉ ÈليÇفه )CSV(';
 $strCannotLogin = 'هÇ ٌځنو ÇهÏÎيه شهً ÎÇÏځ MySQL';
 $strCantLoad = 'هÇ ٌځنو معÇزÉ ÇهÇځÊÏÇÏ %sؤ<br />عضÇز ÊژنÏ ځو شگÏÇÏÇÊ PHP.';
-$strCantLoadMySQL = 'هÇٌځنو Êطځٌه شځÊÏÇÏ MySQL,<br />ÇهعضÇز لطف شگÏÇÏÇÊ PHP.';
 $strCantLoadRecodeIconv = 'هځ ٌځنو Êطځٌه iconv ژي شگÇÏÉ ÊÔلٌع ÇهشځÊÏÇÏ ÇهځكهيÈ هÊطيٌه ÔٌلعÉ Çهژطعلؤ ÇهعضÇز شگÏÇÏ PHP هٌـځط ÈÇـÊÎÏÇځ ىㄓى ÇهشځÊÏÇÏÇÊ ژي گكه گځه ÇهÊطيٌه لٌ phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'هÇٌځنو ÊÛٌٌع شـځ Çهلىعـ شهً ÇهژـÇـٌ!';
 $strCantUseRecodeIconv = 'هÇ ٌځنو ÇـÊÎÏÇځ iconv يهÇ libiconv يهÇ گځهٌÉ recode_string لٌ طٌو ٌطÏÏ ÇهÇځÊÏÇÏ ژوى ځطځ�ه. Êژن�Ï ځو شگÏÇÏÇÊ PHP.';

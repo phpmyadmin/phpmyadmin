@@ -95,7 +95,6 @@ $strBzip = '"bzipped"';
 $strCSVOptions = 'CSV 選項';
 $strCannotLogin = '無法登入 MySQL 伺服器';
 $strCantLoad = '無法讀取 %s 模組,<br />請檢查 PHP 設定';
-$strCantLoadMySQL = '不能載入 MySQL 模組,<br />請檢查 PHP 的組態設定';
 $strCantLoadRecodeIconv = '未能讀取 iconv 或重新編碼程式來作文字編碼轉換, 請設定 php 來啟動這些模組或取消 phpMyAdmin 使用文字編碼轉換功能.';
 $strCantRenameIdxToPrimary = '無法將索引更名為 PRIMARY!';
 $strCantUseRecodeIconv = '當文編碼模組讀取後,未能使用 iconv, libiconv 或 recode_string 功能. 請檢查您的 php 設定.';
