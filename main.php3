@@ -51,7 +51,7 @@ if ($server > 0) {
     if (!empty($cfgServer['socket'])) {
         echo ':' . $cfgServer['socket'];
     }
-    echo "</b></p>\n";
+    echo "</b></p><br />\n";
 }
 
 
@@ -414,36 +414,40 @@ if ($server > 0
             <th colspan="2">phpMyAdmin</th>
         </tr>
 
-    <?php
-
- /**
- * Displays language selection boxes
- */
-
+<?php
+// Displays language selection combo
 if (empty($cfgLang)) {
     ?>
         <!-- Language Selection -->
         <tr>
-        <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
                 <form method="get" action="index.php3?&server=<?php echo urlencode($server); ?>" target="_top">
-                Language: <select name="lang" onchange="this.form.submit();">
+                    Language:
+                    <select name="lang" onchange="this.form.submit();">
     <?php
+    echo "\n";
     reset($available_languages);
-    while (list($id,$tmplang) = each($available_languages)) {
+    while (list($id, $tmplang) = each($available_languages)) {
         $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));
-        if ($lang == $id) { $selected = " SELECTED"; } else { $selected = ""; }
+        if ($lang == $id) {
+            $selected = ' selected="selected"';
+        } else {
+            $selected = '';
+        }
+        echo '                        ';
         echo '<option value="' . $id . '"' . $selected . '>' . $lang_name . ' (' . $id . ')</option>' . "\n";
     }
-    ?>
-                </select><input type="submit" value="Go"> 
+    ?> 
+                    </select>
+                    <input type="submit" value="Go">
                 </form>
             </td>
-        </tr>
-    <?php
+       </tr>
+   <?php
 }
-
-    ?>
+echo "\n";
+?>
 
         <!-- Documentation -->
         <tr>
