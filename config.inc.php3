@@ -8,6 +8,7 @@
  * All directives are explained in Documentation.html
  */
 
+
 /**
  * Your phpMyAdmin url
  *
