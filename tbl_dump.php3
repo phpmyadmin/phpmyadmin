@@ -305,8 +305,6 @@ else {
 
     // latex case
     else if ($GLOBALS['what'] == 'latex') {
-
-
         $dump_buffer   .=    '% ' . $crlf
             .  '% phpMyAdmin LaTeX-Dump' . $crlf
             .  '% version ' . PMA_VERSION . $crlf
@@ -362,10 +360,28 @@ else {
             $add_character = str_replace('\\t', "\011", $add_character);
         } // end if
 
-        $tmp_buffer = '';
-        PMA_getTableCsv($db, $table, $limit_from, $limit_to, $separator, $enclosed, $escaped, 'PMA_myCsvHandler', $err_url
-            , (isset($sql_query)?urldecode($sql_query):''));
-        $dump_buffer .= $tmp_buffer;
+        if (isset($table_select)) {
+            $tmp_select = implode($table_select, '|');
+            $tmp_select = '|' . $tmp_select . '|';
+        }
+
+        $i = 0;
+        while ($i < $num_tables) {
+
+            if (!isset($single)) {
+                $table = PMA_mysql_tablename($tables, $i);
+            }
+            if (!isset($limit_from) || !isset($limit_to)) {
+                $limit_from = $limit_to = 0;
+            }
+            if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
+                || (!isset($tmp_select) && !empty($table))) {
+                $tmp_buffer = '';
+                $dump_buffer .= PMA_getTableCsv($db, $table, $limit_from, $limit_to, $separator, $enclosed, $escaped, 'PMA_myCsvHandler', $err_url, (isset($sql_query)?urldecode($sql_query):''));
+                $dump_buffer .= $tmp_buffer;
+            }
+            $i++;
+        }
     } // end 'csv case
 } // end building the dump
 

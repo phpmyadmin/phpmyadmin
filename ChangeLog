@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-13 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/display_export.lib.php3, tbl_dump.php3: Support for exporting
+      CSV for multiple tables, it just puts all content into one file, but
+      some people seem to want this (based on patch #735136).
+
 2003-05-14 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/defines_php.lib.php3: bug 736111: better GD2 detection
 

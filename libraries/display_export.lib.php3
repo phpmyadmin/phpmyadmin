@@ -39,9 +39,7 @@ if (isset($sql_query)) {
     /* Write h to e   */    function wH(e,h){if(l){Y=e.document;Y.write(h);Y.close();}if(e.innerHTML)e.innerHTML=h;}
     
     function hide_them_all() {
-<?php if ($export_single) { ?>
         gE("csv_options").style.display = 'none';
-<?php } ?>
         gE("latex_options").style.display = 'none';
         gE("sql_options").style.display = 'none';
         gE("none_options").style.display = 'none';
@@ -73,10 +71,6 @@ if (isset($sql_query)) {
             <label for="radio_dump_latex"><?php echo $strLaTeX; ?></label>
             <br /><br />
 
-<?php                    
-/* CSV export just for single table */
-if ($export_single) {
-?>
             <!-- Excel CSV -->
             <input type="radio" name="what" value="excel" id="radio_dump_excel"  onclick="if(this.checked) { hide_them_all(); gE('none_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_excel"><?php echo $strStrucExcelCSV; ?></label>
@@ -85,9 +79,7 @@ if ($export_single) {
             <input type="radio" name="what" value="csv" id="radio_dump_csv"  onclick="if(this.checked) { hide_them_all(); gE('csv_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_csv"><?php echo $strStrucCSV;?></label>
             <br /><br />
-<?php
-}
-?>
+
             <!-- XML -->
             <input type="radio" name="what" value="xml" id="radio_dump_xml" onclick="if(this.checked) { hide_them_all(); gE('none_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_xml"><?php echo $strXML; ?></label>&nbsp;&nbsp;
@@ -197,10 +189,6 @@ echo "\n";
              </fieldset>
              
              <!-- CSV options -->
-<?php                    
-/* CSV export just for single table */
-if ($export_single) {
-?>
             <fieldset id="csv_options">
                 <legend><?php echo $strCSVOptions; ?></legend>
                 <table border="0" cellspacing="1" cellpadding="0">
@@ -240,17 +228,14 @@ if ($export_single) {
                 <input type="checkbox" name="showcsvnames" value="yes" id="checkbox_dump_showcsvnames" />
                 <label for="checkbox_dump_showcsvnames"><?php echo $strPutColNames; ?></label>
             </fieldset>
-<?php
-}
-?>
+            
             <fieldset id="none_options">
                 <legend><?php echo $strNoOptions; ?></legend>
             </fieldset>
+
             <script type="text/javascript">
             <!--
-<?php if ($export_single) { ?>
                 gE('csv_options').style.display = 'none';
-<?php } ?>
                 gE('latex_options').style.display = 'none';
                 gE('sql_options').style.display = 'none';
                 gE('none_options').style.display = 'none';
@@ -258,10 +243,8 @@ if ($export_single) {
                     gE('sql_options').style.display = 'block';
                 } else if (document.getElementById('radio_dump_latex').checked) {
                     gE('latex_options').style.display = 'block';
-<?php if ($export_single) { ?>
                 } else if (document.getElementById('radio_dump_csv').checked) {
                     gE('csv_options').style.display = 'block';
-<?php } ?>
                 } else {
                     gE('none_options').style.display = 'block';
                 }
