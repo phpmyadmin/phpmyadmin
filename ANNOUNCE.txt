@@ -84,7 +84,7 @@ Highlights
      * empty field names on add fields page caused problems
      * the quicklinks on top of each page are now pointing to the default tabs
      * problem with recieving the database list with MySQL >= 4.0.2-alpha
-     * adjusted font sizes for Opera 7 for Windows and Konquerer
+     * adjusted font sizes for Opera 7 for Windows and Konqueror
      * problems with editing the contents of the SQL query boxes with Opera 7
        for Windows
      * query-by-example and only one table
