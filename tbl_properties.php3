@@ -644,7 +644,7 @@ echo "\n";
                     <input type="radio" name="what" value="csv" />
                     <?php echo $strStrucCSV;?>&nbsp;:<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFields . ' '. $strTerminatedBy; ?>&nbsp;
-                    <input type="text" name="separator" size="1" value=";" />&nbsp;&nbsp;<br />
+                    <input type="text" name="separator" size="2" value=";" />&nbsp;&nbsp;<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strLines . ' '. $strTerminatedBy; ?>&nbsp;
                     <input type="text" name="add_character" size="2" value="<?php echo ((which_crlf() == "\n") ? '\n' : '\r\n'); ?>" />&nbsp;&nbsp;
                 </td>
