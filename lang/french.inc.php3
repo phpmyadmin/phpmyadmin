@@ -261,7 +261,7 @@ $strRowsFrom = 'lignes à partir de';
 $strRowSize = ' Taille enr. ';
 $strRowsModeHorizontal= 'horizontal';
 $strRowsModeOptions= 'en mode %s et répéter les en-têtes à chaque groupe de %s';
-$strRowsModeVertical= 'vertical';  
+$strRowsModeVertical= 'vertical';
 $strRowsStatistic = 'Statistiques';
 $strRunning = 'sur le serveur %s';
 $strRunQuery = 'Exécuter la requête';
@@ -319,7 +319,7 @@ $strType = 'Type';
 
 $strUncheckAll = 'Tout décocher';
 $strUnique = 'Unique';
-$strUnselectAll = 'Tout déselectionner'; 
+$strUnselectAll = 'Tout déselectionner';
 $strUpdatePrivMessage = 'Vous avez modifié les privilèges pour %s.';
 $strUpdateProfile = 'Modifier le profil :';
 $strUpdateProfileMessage = 'Le profil a été modifié.';

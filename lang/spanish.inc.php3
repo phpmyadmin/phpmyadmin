@@ -343,7 +343,6 @@ $strCardinality = 'Cardinality';
 $strIgnore = 'Ignorar';
 $strNoIndexPartsDefined = 'No index parts defined!';
 $strNoIndex = 'No index defined!';
-
 $strSelectAll = 'Select All';  //to translate
 $strUnselectAll = 'Unselect All';  //to translate
 ?>

@@ -343,7 +343,6 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
-
 $strSelectAll = 'Select All';  //to translate
 $strUnselectAll = 'Unselect All';  //to translate
 ?>
