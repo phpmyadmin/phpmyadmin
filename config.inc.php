@@ -117,6 +117,7 @@ $cfg['Servers'][$i]['history']       = '';          // table to store SQL histor
 $cfg['Servers'][$i]['verbose_check'] = TRUE;        // set to FALSE if you know that your pma_* tables
                                                     // are up to date. This prevents compatibility
                                                     // checks and thereby increases performance.
+$cfg['Servers'][$i]['AllowRoot']     = TRUE;        // whether to allow root login 
 $cfg['Servers'][$i]['AllowDeny']['order']           // Host authentication order, leave blank to not use
                                      = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']           // Host authentication rules, leave blank for defaults
@@ -146,6 +147,7 @@ $cfg['Servers'][$i]['pdf_pages']       = ''; // 'pma_pdf_pages'
 $cfg['Servers'][$i]['column_info']     = ''; // 'pma_column_info'
 $cfg['Servers'][$i]['history']         = ''; // 'pma_history'
 $cfg['Servers'][$i]['verbose_check']   = TRUE;
+$cfg['Servers'][$i]['AllowRoot']       = TRUE;
 $cfg['Servers'][$i]['AllowDeny']['order']
                                        = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']
@@ -174,6 +176,8 @@ $cfg['Servers'][$i]['pdf_pages']       = ''; // 'pma_pdf_pages'
 $cfg['Servers'][$i]['column_info']     = ''; // 'pma_column_info'
 $cfg['Servers'][$i]['history']         = ''; // 'pma_history'
 $cfg['Servers'][$i]['verbose_check']   = TRUE;
+$cfg['Servers'][$i]['AllowRoot']       = TRUE;
+
 $cfg['Servers'][$i]['AllowDeny']['order']
                                        = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']

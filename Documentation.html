@@ -826,7 +826,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
-        <b>$cfg['Servers'][$i]['verbose_check']</b> string
+        <b>$cfg['Servers'][$i]['verbose_check']</b> boolean
     </dt>
     <dd>
         Because release 2.5.0 introduced the new MIME-transformation support, the
@@ -838,6 +838,13 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         should offer a performance increase.<br /><br />
 
         Recommended to set to FALSE, when you are sure, your table structure is up to date.
+        <br /><br />
+    </dd>
+    <dt>
+        <b>$cfg['Servers'][$i]['AllowRoot']</b> boolean
+    </dt>
+    <dd>
+        Whethet to allow root access, This is just simplification of rules bellow.
         <br /><br />
     </dd>
     <dt>

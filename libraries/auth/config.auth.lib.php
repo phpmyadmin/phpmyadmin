@@ -155,15 +155,20 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
     // 2002 is the error given by mysqli
     // 2003 is the error given by mysql
 
-    if (!isset($GLOBALS['errno']) || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002) && $GLOBALS['errno'] != 2003) {
-        echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
+    if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
+        echo '<p>' . $GLOBALS['strAccessDenied'] . '</p>' . "\n";
+    } else {
+        if (!isset($GLOBALS['errno']) || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002) && $GLOBALS['errno'] != 2003) {
+            echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
+        }
+        PMA_mysqlDie($conn_error, '');
     }
-    PMA_mysqlDie($conn_error, '');
 ?>
         </td>
     </tr>
 </table>
 <?php
+    require_once('./footer.inc.php');
     return TRUE;
 } // end of the 'PMA_auth_fails()' function
 

@@ -142,7 +142,7 @@ if (isset($cfg['FileRevision'])) {
 } else {
     $cfg['FileRevision'] = array(1, 1);
 }
-if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 38)) {
+if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 44)) {
     require_once('./libraries/config_import.lib.php');
 }
 
@@ -1152,6 +1152,13 @@ if ($is_minimum_common == FALSE) {
             unset($allowDeny_forbidden); //Clean up after you!
         } // end if
 
+        // is root allowed?
+        if (!$cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
+            $allowDeny_forbidden = TRUE;
+            PMA_auth_fails();
+            unset($allowDeny_forbidden); //Clean up after you!
+        }
+        
         // The user can work with only some databases
         if (isset($cfg['Server']['only_db']) && $cfg['Server']['only_db'] != '') {
             if (is_array($cfg['Server']['only_db'])) {

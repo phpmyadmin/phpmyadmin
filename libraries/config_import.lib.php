@@ -187,6 +187,10 @@ if (isset($cfg['Servers'])) {
             $cfg['Servers'][$i]['verbose_check'] = TRUE;
         }
 
+        if (!isset($cfg['Servers'][$i]['AllowRoot'])) {
+            $cfg['Servers'][$i]['AllowRoot'] = TRUE;
+        }
+
         if (!isset($cfg['Servers'][$i]['AllowDeny'])) {
             $cfg['Servers'][$i]['AllowDeny'] = array ('order' => '',
                                                       'rules' => array());

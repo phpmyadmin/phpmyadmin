@@ -679,7 +679,9 @@ global $conn_error, $server;
     // Deletes password cookie and displays the login form
     setcookie('pma_cookie_password-' . $server, '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
 
-    if (PMA_DBI_getError()) {
+    if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
+        $conn_error = $GLOBALS['strAccessDenied'];
+    } else if (PMA_DBI_getError()) {
         $conn_error = PMA_DBI_getError();
     } else if (isset($php_errormsg)) {
         $conn_error = $php_errormsg;
