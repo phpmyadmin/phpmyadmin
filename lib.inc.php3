@@ -127,25 +127,30 @@ if (!defined('__LIB_INC__')){
      *
      * @param   string   the error mesage
      * @param   string   the sql query that failed
+     * @param   boolean  whether to show a "modify" link or not
+     * @param   boolean  whether to show a "back" link or not
      */
-    function mysql_die($error_message = '', $the_query = '')
+    function mysql_die($error_message = '', $the_query = '',
+                       $is_modify_link = TRUE, $is_back_link = TRUE)
     {
         if (!$error_message) {
             $error_message = mysql_error();
         }
-        if (!$the_query) {
-            $the_query     = $GLOBALS['sql_query'];
+        if (!$the_query && !empty($GLOBALS['sql_query'])) {
+            $the_query = $GLOBALS['sql_query'];
         }
-        $hist              = (isset($GLOBALS['btnDrop'])) ? -2 : -1;
 
         echo '<b>'. $GLOBALS['strError'] . '</b>' . "\n";
         if (!empty($the_query)) {
             $query_base = htmlspecialchars($the_query);
             $query_base = ereg_replace("((\015\012)|(\015)|(\012)){3,}", "\n\n", $query_base);
             echo '<p>' . "\n";
-            $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($the_query) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
             echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;' . "\n";
-            echo '    [' . $edit_link . ']' . "\n";
+            if ($is_modify_link) {
+                echo '    ['
+                     . '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($the_query) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>'
+                     . ']' . "\n";
+            }
             echo '<pre>' . "\n" . $query_base . "\n" . '</pre>' . "\n";
             echo '</p>' . "\n";
         }
@@ -157,8 +162,10 @@ if (!defined('__LIB_INC__')){
         echo '    ' . $GLOBALS['strMySQLSaid'] . '<br />' . "\n";
         echo '<pre>' . "\n" . $error_message . "\n" . '</pre>' . "\n";
         echo '</p>' . "\n";
-        echo '<a href="javascript:window.history.go(' . $hist . ')">' . $GLOBALS['strBack'] . '</a>';
-
+        if ($is_back_link) {
+            $hist = (isset($GLOBALS['btnDrop'])) ? -2 : -1;
+            echo '<a href="javascript:window.history.go(' . $hist . ')">' . $GLOBALS['strBack'] . '</a>';
+        }
         echo "\n";
 
         include('./footer.inc.php3');
@@ -284,11 +291,18 @@ if (!defined('__LIB_INC__')){
                 $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
                                ? ''
                                : ':' . $cfgServer['socket'];
-                $dbh           = $connect_func(
+                $dbh           = @$connect_func(
                                      $cfgServer['host'] . $server_port . $server_socket,
                                      $cfgServer['stduser'],
                                      $cfgServer['stdpass']
-                                 ) or mysql_die();
+                                 );
+                if ($dbh == FALSE) {
+                    $local_query = $connect_func . '('
+                                 . $cfgServer['host'] . $server_port . $server_socket . ', '
+                                 . $cfgServer['stduser'] . ', '
+                                 . $cfgServer['stdpass'] . ')';
+                    mysql_die('', $local_query, FALSE, FALSE);
+                }
 
                 $PHP_AUTH_USER = str_replace('\'', '\\\'', $PHP_AUTH_USER);
                 $PHP_AUTH_PW   = str_replace('\'', '\\\'', $PHP_AUTH_PW);
@@ -297,7 +311,7 @@ if (!defined('__LIB_INC__')){
                             . 'WHERE '
                             .    'User = \'' . $PHP_AUTH_USER . '\' '
                             .    'AND Password = PASSWORD(\'' . $PHP_AUTH_PW . '\')';
-                $rs         = mysql_query($auth_query, $dbh) or mysql_die();
+                $rs         = mysql_query($auth_query, $dbh) or mysql_die('', $auth_query, FALSE, FALSE);
 
                 // Invalid login -> relog
                 if (@mysql_numrows($rs) <= 0) {
@@ -319,9 +333,11 @@ if (!defined('__LIB_INC__')){
                     // This maintenance is to fix code to work correctly for
                     // regular expressions.
                     if ($row['Select_priv'] != 'Y') {
-                        $rs = mysql_query('SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND User = \'' . $PHP_AUTH_USER . '\'') or mysql_die();
+                        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND User = \'' . $PHP_AUTH_USER . '\'';
+                        $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
                         if (@mysql_numrows($rs) <= 0) {
-                            $rs = mysql_query('SELECT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . $PHP_AUTH_USER . '\'') or mysql_die();
+                            $local_query = 'SELECT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . $PHP_AUTH_USER . '\'';
+                            $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
                             if (@mysql_numrows($rs) <= 0) {
                                 auth();
                             } else {
@@ -380,11 +396,19 @@ if (!defined('__LIB_INC__')){
         $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
                        ? ''
                        : ':' . $cfgServer['socket'];
-        $link          = $connect_func(
+        $link          = @$connect_func(
                              $cfgServer['host'] . $server_port . $server_socket,
                              $cfgServer['user'],
                              $cfgServer['password']
-                         ) or mysql_die();
+                         );
+        if ($link == FALSE) {
+            $local_query = $connect_func . '('
+                         . $cfgServer['host'] . $server_port . $server_socket . ', '
+                         . $cfgServer['user'] . ', '
+                         . $cfgServer['password'] . ')';
+            mysql_die('', $local_query, FALSE, FALSE);
+        }
+
     } // end server connecting
 
     /**
@@ -933,9 +957,10 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             $total = $SelectNumRows;
         }
         else if (!$is_simple && !empty($table) && !empty($db)) {
-            $result = mysql_query('SELECT COUNT(*) as total FROM ' . backquote($db) . '.' . backquote($table)) or mysql_die();
-            $row    = mysql_fetch_array($result);
-            $total  = $row['total'];
+            $local_query = 'SELECT COUNT(*) as total FROM ' . backquote($db) . '.' . backquote($table);
+            $result      = mysql_query($local_query) or mysql_die('', $local_query);
+            $row         = mysql_fetch_array($result);
+            $total       = $row['total'];
         } // end if
 
         // Defines offsets for the next and previous pages
@@ -1179,7 +1204,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     // fields type, however TEXT fields must be displayed even
                     // if $cfgShowBlob is false -> get the true type of the
                     // fields.
-                    $result_type     = mysql_query('SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($primary->table) . ' LIKE \'' . sql_addslashes($primary->name, TRUE) . '\'') or mysql_die();
+                    $local_query     = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($primary->table) . ' LIKE \'' . sql_addslashes($primary->name, TRUE) . '\'';
+                    $result_type     = mysql_query($local_query) or mysql_die('', $local_query);
                     $true_field_type = mysql_fetch_array($result_type);
                     if (eregi('BLOB', $true_field_type['Type'])) {
                         echo '    <td align="center">[BLOB]</td>' . "\n";
@@ -1295,7 +1321,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         // For MySQL < 3.23.20
         $schema_create .= 'CREATE TABLE ' . html_format(backquote($table), $use_backquotes) . ' (' . $crlf;
 
-        $result        = mysql_query('SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($table)) or mysql_die();
+        $local_query   = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($table);
+        $result        = mysql_query($local_query) or mysql_die('', $local_query);
         while ($row = mysql_fetch_array($result)) {
             $schema_create     .= '   ' . html_format(backquote($row['Field'], $use_backquotes)) . ' ' . $row['Type'];
             if (isset($row['Default']) && $row['Default'] != '') {
@@ -1311,7 +1338,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         } // end while
         $schema_create         = ereg_replace(',' . $crlf . '$', '', $schema_create);
 
-        $result = mysql_query('SHOW KEYS FROM ' . backquote($db) . '.' . backquote($table)) or mysql_die();
+        $local_query = 'SHOW KEYS FROM ' . backquote($db) . '.' . backquote($table);
+        $result      = mysql_query($local_query) or mysql_die('', $local_query);
         while ($row = mysql_fetch_array($result))
         {
             $kname    = $row['Key_name'];
@@ -1388,7 +1416,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
     {
         global $use_backquotes;
 
-        $result = mysql_query('SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query) or mysql_die();
+        $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
+        $result      = mysql_query($local_query) or mysql_die('', $local_query);
         if ($result != FALSE) {
             $fields_cnt = mysql_num_fields($result);
 
@@ -1493,9 +1522,10 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
     {
         global $use_backquotes;
 
-        $result     = mysql_query('SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query) or mysql_die();
-        $i          = 0;
-        $isFirstRow = TRUE;
+        $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
+        $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $i           = 0;
+        $isFirstRow  = TRUE;
 
         while ($row = mysql_fetch_row($result)) {
             @set_time_limit(60); // HaRa
@@ -1658,7 +1688,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         }
 
         // Gets the data from the database
-        $result = mysql_query('SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query) or mysql_die();
+        $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
+        $result      = mysql_query($local_query) or mysql_die('', $local_query);
 
         // Format the data
         $i      = 0;
@@ -1673,7 +1704,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 else if ($row[$j] != '') {
                     // loic1 : always enclose fields
                     if ($what == 'excel') {
-                        $row[$j]   = ereg_replace("\015(\012)?", "\012", $row[$j]);                          
+                        $row[$j]   = ereg_replace("\015(\012)?", "\012", $row[$j]);
                     }
                     $schema_insert .= $enc_by
                                    . str_replace($enc_by, $enc_by . $enc_by, $row[$j])

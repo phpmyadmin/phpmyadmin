@@ -18,7 +18,7 @@ function my_handler($sql_insert = '')
     global $sql_insert_data;
 
     $sql_insert = ereg_replace('INSERT INTO (`?)' . $table . '(`?)', 'INSERT INTO ' . backquote($new_name), $sql_insert);
-    $result     = mysql_query($sql_insert) or mysql_die();
+    $result     = mysql_query($sql_insert) or mysql_die('', $sql_insert);
     
     $sql_insert_data .= $sql_insert . ';' . "\n";
 } // end of the 'my_handler' function
@@ -46,7 +46,7 @@ if (isset($new_name) && trim($new_name) != '') {
 
     $sql_structure = get_table_def($db, $table, "\n");
     $sql_structure = ereg_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . backquote($new_name), $sql_structure);
-    $result        = mysql_query($sql_structure) or mysql_die();
+    $result        = mysql_query($sql_structure) or mysql_die('', $sql_structure);
     if (isset($sql_query)) {
         $sql_query .= "\n" . $sql_structure . ';';
     } else {
@@ -58,7 +58,7 @@ if (isset($new_name) && trim($new_name) != '') {
         // speedup copy table - staybyte - 22. Juni 2001
         if (MYSQL_INT_VERSION >= 32300) {
             $sql_insert_data = 'INSERT INTO ' . backquote($new_name) . ' SELECT * FROM ' . backquote($table);
-            $result          = mysql_query($sql_insert_data) or mysql_die();
+            $result          = mysql_query($sql_insert_data) or mysql_die('', $sql_insert_data);
         } // end MySQL >= 3.23
         else {
             $sql_insert_data = '';

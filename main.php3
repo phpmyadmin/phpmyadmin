@@ -58,7 +58,8 @@ if (empty($cfgLang)) {
 <?php
 // Don't display server info if $server == 0 (no server selected)
 if ($server > 0) {
-    $res_version = mysql_query('SELECT Version() as version') or mysql_die();
+    $local_query = 'SELECT Version() as version';
+    $res_version = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
     $row_version = mysql_fetch_array($res_version);
     echo '<p><b>MySQL ' . $row_version['version'] . ' ' . $strRunning . ' ' . $cfgServer['host'];
     if (!empty($cfgServer['port'])) {
@@ -75,7 +76,7 @@ if ($server > 0) {
  * Reload mysql (flush privileges)
  */
 if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $result = mysql_query('FLUSH PRIVILEGES');
+    $result = mysql_query('FLUSH PRIVILEGES') or mysql_die('', 'FLUSH PRIVILEGES', FALSE);
     echo '<p><b>';
     if ($result != 0) {
       echo $strMySQLReloaded;
@@ -165,13 +166,28 @@ if ($server > 0
     if ($cfgServer['adv_auth'])
     {
         // Get user's rights
-        if (empty($cfgServer['port'])) {
-            $stdlink  = mysql_connect($cfgServer['host'], $cfgServer['stduser'], $cfgServer['stdpass']);
-        } else {
-            $stdlink  = mysql_connect($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['stduser'], $cfgServer['stdpass']);
+        $server_port   = (empty($cfgServer['port']))
+                       ? ''
+                       : ':' . $cfgServer['port'];
+        $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
+                       ? ''
+                       : ':' . $cfgServer['socket'];
+        $stdlink       = @mysql_connect(
+                             $cfgServer['host'] . $server_port . $server_socket,
+                             $cfgServer['stduser'],
+                             $cfgServer['stdpass']
+                         );
+        if ($stdlink == FALSE) {
+            $local_query = $connect_func . '('
+                         . $cfgServer['host'] . $server_port . $server_socket . ', '
+                         . $cfgServer['stduser'] . ', '
+                         . $cfgServer['stdpass'] . ')';
+            mysql_die('', $local_query, FALSE, FALSE);
         }
+
         // Does user have global Create priv?
-        $rs_usr       = mysql_query('SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'', $stdlink);
+        $local_query  = 'SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
+        $rs_usr       = mysql_query($local_query, $stdlink) or mysql_die('', $local_query, FALSE);
         $result_usr   = mysql_fetch_array($rs_usr);
         $create       = ($result_usr['Create_priv'] == 'Y');
         $db_to_create = '';
@@ -181,12 +197,21 @@ if ($server > 0
         // find, in most cases it's probably the one he just dropped :)
         // (Note: we only get here after a browser reload, I don't know why)
         if (!$create) {
-            if (empty($cfgServer['port'])) {
-                $userlink = mysql_connect($cfgServer['host'], $cfgServer['user'], $cfgServer['password']) or mysql_die();
-            } else {
-                $userlink = mysql_connect($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['user'], $cfgServer['password']) or mysql_die();
+            $userlink      = @mysql_connect(
+                                 $cfgServer['host'] . $server_port . $server_socket,
+                                 $cfgServer['user'],
+                                 $cfgServer['password']
+                             );
+            if ($userlink == FALSE) {
+                $local_query = 'mysql_connect('
+                             . $cfgServer['host'] . $server_port . $server_socket . ', '
+                             . $cfgServer['user'] . ', '
+                             . $cfgServer['password'] . ')';
+                mysql_die('', $local_query, FALSE, FALSE);
             }
-            $rs_usr = mysql_query('SELECT Db FROM mysql.db WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'', $stdlink);
+
+            $local_query = 'SELECT Db FROM mysql.db WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
+            $rs_usr      = mysql_query($local_query, $stdlink) or mysql_die('', $local_query, FALSE);
             while ($row = mysql_fetch_array($rs_usr)) {
                 if (!mysql_select_db($row['Db'], $userlink)) {
                     $db_to_create = $row['Db'];

@@ -14,9 +14,9 @@ require('./lib.inc.php3');
  */
 if (!isset($param) || $param[0] == '') {
     include('./header.inc.php3');
-    $result = mysql_list_fields($db, $table);
+    $result = @mysql_list_fields($db, $table);
     if (!$result) {
-        mysql_die();
+        mysql_die('', 'mysql_list_fields(' . $db . ', ' . $table . ')');
     }
     else {
         // Gets the list and number of fields

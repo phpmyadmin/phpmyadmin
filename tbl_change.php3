@@ -23,12 +23,14 @@ if (get_magic_quotes_gpc()) {
 mysql_select_db($db);
 $table_def = mysql_query('SHOW FIELDS FROM ' . backquote($table));
 if (isset($primary_key)) {
-    $result = mysql_query('SELECT * FROM ' . backquote($table) . ' WHERE ' . $primary_key) or mysql_die();
-    $row    = mysql_fetch_array($result);
+    $local_query = 'SELECT * FROM ' . backquote($table) . ' WHERE ' . $primary_key;
+    $result      = mysql_query($local_query) or mysql_die('', $local_query);
+    $row         = mysql_fetch_array($result);
 }
 else
 {
-    $result = mysql_query('SELECT * FROM ' . backquote($table) . ' LIMIT 1') or mysql_die();
+    $local_query = 'SELECT * FROM ' . backquote($table) . ' LIMIT 1';
+    $result      = mysql_query($local_query) or mysql_die('', $local_query);
 }
 
 

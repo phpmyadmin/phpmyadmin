@@ -25,6 +25,13 @@ $Source$
 	* db_stats.php3, lines 14-12: optimized a bit.
 	* main.php3, lines 298-299; Documentation.html, lines 694-705: added a FAQ
 	  entry about the logout bug and a link to it at the welcome page.
+	* left.php3: optimized the way tables list is build.
+	* lang/polish.inc.php3: updated thanks to Piotr Roszatycki.
+	* db_create.php3; db_stat.php3; lib.inc.php3; left.php3; main.php3;
+	  tbl_alter.php3; tbl_change.php3; tbl_copy.php3; tbl_printview.php3;
+	  tbl_properties.php3; tbl_rename.php3; tbl_select.php3: improved the error
+	  handling system (it will be easier to debug the script since all the
+	  queries will be displayed in case of errors).
 
 2001-08-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3: fixed a syntax error (is_defined is not a function).

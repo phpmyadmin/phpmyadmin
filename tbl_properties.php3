@@ -38,7 +38,6 @@ unset($sql_query);
 /**
  * Selects the db that will be used during this script execution
  */
-// mysql_select_db($db) or mysql_die();
 $is_db = @mysql_select_db($db);
 // Not a valid db name -> back to the welcome page
 if (!$is_db) {
@@ -74,21 +73,25 @@ if (MYSQL_INT_VERSION >= 32303) {
             $comment = stripslashes($comment);
         }
         if (empty($prev_comment) || urldecode($prev_comment) != str_replace('&quot;', '"', $comment)) {
-            $result = mysql_query('ALTER TABLE ' . backquote($table) . ' COMMENT = \'' . sql_addslashes($comment) . '\'') or mysql_die();
+            $local_query = 'ALTER TABLE ' . backquote($table) . ' COMMENT = \'' . sql_addslashes($comment) . '\'';
+            $result      = mysql_query($local_query) or mysql_die('', $local_query);
         }
     }
     if (isset($submittype)) {
-        $result = mysql_query('ALTER TABLE ' . backquote($table) . " TYPE=$tbl_type") or mysql_die();
+        $local_query = 'ALTER TABLE ' . backquote($table) . ' TYPE = ' . $tbl_type;
+        $result      = mysql_query($local_query) or mysql_die('', $local_query);
     }
     if (isset($submitorderby) && !empty($order_field)) {
         $order_field = backquote(urldecode($order_field));
-        $result      = mysql_query('ALTER TABLE ' . backquote($table) . 'ORDER BY ' . $order_field) or mysql_die();
+        $local_query = 'ALTER TABLE ' . backquote($table) . 'ORDER BY ' . $order_field;
+        $result      = mysql_query($local_query) or mysql_die('', $local_query);
     }
 
     // Get table type and comments and displays first browse links
-    $result       = mysql_query('SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'') or mysql_die();
-    $showtable    = mysql_fetch_array($result);
-    $tbl_type     = strtoupper($showtable['Type']);
+    $local_query = 'SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'';
+    $result      = mysql_query($local_query) or mysql_die('', $local_query);
+    $showtable   = mysql_fetch_array($result);
+    $tbl_type    = strtoupper($showtable['Type']);
 
     if (isset($showtable['Rows']) && $showtable['Rows'] > 0) {
         echo "\n";
@@ -135,8 +138,9 @@ if (MYSQL_INT_VERSION >= 32303) {
 }
 
 // 2. Get table keys and retains them
-$result  = mysql_query('SHOW KEYS FROM ' . backquote($table)) or mysql_die();
-$primary = '';
+$local_query = 'SHOW KEYS FROM ' . backquote($table);
+$result      = mysql_query($local_query) or mysql_die('', $local_query);
+$primary     = '';
 while($row = mysql_fetch_array($result)) {
     $ret_keys[]  = $row;
     if ($row['Key_name'] == 'PRIMARY') {
@@ -145,7 +149,8 @@ while($row = mysql_fetch_array($result)) {
 }
 
 // 3. Get fields
-$result = mysql_query('SHOW FIELDS FROM ' . backquote($table)) or mysql_die();
+$local_query = 'SHOW FIELDS FROM ' . backquote($table);
+$result = mysql_query($local_query) or mysql_die('', $local_query);
 
 
 /**

@@ -73,9 +73,10 @@ else {
     } else {
         $field = sql_addslashes($field, TRUE);
     }
-    $result     = mysql_query('SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($table) . " LIKE '$field'") or mysql_die();
-    $num_fields = mysql_num_rows($result);
-    $action     = 'tbl_alter.php3';
+    $local_query = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($table) . " LIKE '$field'";
+    $result      = mysql_query($local_query) or mysql_die('', $local_query);
+    $num_fields  = mysql_num_rows($result);
+    $action      = 'tbl_alter.php3';
     include('./tbl_properties.inc.php3');
 }
 

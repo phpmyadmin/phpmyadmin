@@ -23,9 +23,10 @@ mysql_select_db($db);
 /**
  * Displays the comments of the table is MySQL >= 3.23
  */
-if (MYSQL_INT_VERSION >= 32300) {   
-    $result = mysql_query('SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'') or mysql_die();
-    $row    = mysql_fetch_array($result);
+if (MYSQL_INT_VERSION >= 32300) {
+    $local_query = 'SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'';
+    $result      = mysql_query($local_query) or mysql_die('', $local_query);
+    $row         = mysql_fetch_array($result);
     if (!empty($row['Comment'])) {
         echo $strTableComments . '&nbsp;:&nbsp;' . $row['Comment'];
     }
@@ -36,7 +37,8 @@ if (MYSQL_INT_VERSION >= 32300) {
  * Displays the table structure
  */
 // Gets fields properties
-$result = mysql_query('SHOW FIELDS FROM ' . backquote($table)) or mysql_die();
+$local_query = 'SHOW FIELDS FROM ' . backquote($table);
+$result      = mysql_query($local_query) or mysql_die('', $local_query);
 ?>
 
 <!-- TABLE INFORMATIONS -->
@@ -108,7 +110,8 @@ echo "\n";
 /**
  * Displays indexes
  */
-$result = mysql_query('SHOW KEYS FROM ' . backquote($table)) or mysql_die();
+$local_query = 'SHOW KEYS FROM ' . backquote($table);
+$result      = mysql_query($local_query) or mysql_die('', $local_query);
 if (mysql_num_rows($result) > 0) {
     ?>
 

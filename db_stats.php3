@@ -22,7 +22,7 @@ require('./header.inc.php3');
 if ($server > 0) {
     // Get the valid databases list
     $num_dbs = count($dblist);
-    $dbs     = @mysql_list_dbs() or mysql_die();
+    $dbs     = @mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()');
     while ($a_db = mysql_fetch_object($dbs)) {
         if (!$num_dbs) {
             $dblist[]                     = $a_db->Database;
@@ -131,11 +131,12 @@ if ($num_dbs > 1) {
 
         // Gets size of data and indexes
 
-        $db_clean = backquote($db);
-        $tot_data = 0;
-        $tot_idx  = 0;
-        $tot_all  = 0;
-        $result   = mysql_query('SHOW TABLE STATUS FROM ' . $db_clean) or mysql_die();
+        $db_clean    = backquote($db);
+        $tot_data    = 0;
+        $tot_idx     = 0;
+        $tot_all     = 0;
+        $local_query = 'SHOW TABLE STATUS FROM ' . $db_clean;
+        $result      = mysql_query($local_query) or mysql_die('', $local_query);
         if (mysql_num_rows($result)) {
             while ($row = mysql_fetch_array($result)) {
                 $tot_data += $row['Data_length'];
