@@ -1193,7 +1193,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     // TEXT fields type, however TEXT fields must be displayed
                     // even if $cfg['ShowBlob'] is false -> get the true type
                     // of the fields.
-
+                    $field_flags = PMA_mysql_field_flags($dt_result, $i);
                     if (eregi('BINARY', $field_flags)) {
                         $blobtext = '[BLOB';
                         if (isset($row[$pointer])) {
