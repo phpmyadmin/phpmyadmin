@@ -15,8 +15,8 @@ $Source$
     * db_details_links.php3: Display Query tab even with no tables.
     * libraries/charset_conversion.lib.php3: Default iconv parameters to empty
       string.
-    * config.inc.php3, left.php3: Optional dropdown for server list in left
-      frame (RFE #555978).
+    * config.inc.php3, left.php3, libraries/config_import.lib.php3: Optional
+      dropdown for server list in left frame (RFE #555978).
     * tbl_query_box.php3: Possibility to upload SQL file with no database
       selected (RFE #641760).
 

@@ -289,6 +289,10 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         $cfg['LeftDisplayLogo'] = TRUE;
     }
 
+    if (!isset($cfg['LeftDisplayServers'])) {
+        $cfg['LeftDisplayServers'] = FALSE;
+    }
+
     if (!isset($cfg['ShowStats'])) {
         if (isset($cfgShowStats)) {
             $cfg['ShowStats'] = $cfgShowStats;
