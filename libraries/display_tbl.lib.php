@@ -1798,15 +1798,15 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             /* IE has trouble with <button> */
             if (PMA_USR_BROWSER_AGENT != 'IE') {
                 echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="row_edit" title="' . $GLOBALS['strEdit'] . '">' . "\n"
-                   . '<img src="./images/button_edit.png" title="' . $GLOBALS['strEdit'] . '" alt="' . $GLOBALS['strEdit'] . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '') . "\n"
+                   . '<img src="./images/button_edit.png" title="' . $GLOBALS['strEdit'] . '" alt="' . $GLOBALS['strEdit'] . '" width="12" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '') . "\n"
                    . '</button>';
 
                 echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $delete_text . '">' . "\n"
-                   . '<img src="./images/button_drop.png" title="' . $delete_text . '" alt="' . $delete_text . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
+                   . '<img src="./images/button_drop.png" title="' . $delete_text . '" alt="' . $delete_text . '" width="12" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
                    . '</button>';
 
                 echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_export" title="' . $GLOBALS['strExport'] . '">' . "\n"
-                   . '<img src="./images/button_export.png" title="' . $GLOBALS['strExport'] . '" alt="' . $GLOBALS['strExport'] . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '') . "\n"
+                   . '<img src="./images/button_export.png" title="' . $GLOBALS['strExport'] . '" alt="' . $GLOBALS['strExport'] . '" width="12" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '') . "\n"
                    . '</button>';
 
             } else {
