@@ -76,6 +76,7 @@ $PMA_SQPdata_function_name = array (
     'FOUND_ROWS',
     'FROM_DAYS',
     'FROM_UNIXTIME',
+    'GET_FORMAT',
     'GET_LOCK',
     'GREATEST',
     'GROUP_CONCAT',
@@ -146,6 +147,7 @@ $PMA_SQPdata_function_name = array (
     'SQRT',
     'STD',
     'STDDEV',
+    'STR_TO_DATE',
     'STRCMP',
     'SUBDATE',
     'SUBSTRING',
@@ -170,7 +172,7 @@ $PMA_SQPdata_function_name = array (
     'YEARWEEK'
 );
 //$PMA_SQPdata_function_name_cnt = count($PMA_SQPdata_function_name);
-$PMA_SQPdata_function_name_cnt = 153;
+$PMA_SQPdata_function_name_cnt = 155;
 
 $PMA_SQPdata_column_attrib = array (
     'AUTO_INCREMENT',

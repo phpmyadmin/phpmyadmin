@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-27 Alexander M. Turek  <me@derrab.us>
+    * libraries/sqlparser.data.php: Added missing MySQL functions STR_TO_DATE
+      and GET_FORMAT (bug #1152310).
+
 2005-02-27 Michal Čihař  <michal@cihar.com>
     * server_binlog.php: MySQL 5 compatibility (bug #1151960).
 
