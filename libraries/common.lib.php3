@@ -279,7 +279,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 break;
         } // end switch
 
-        return $formattedSQL;
+        return $formatted_sql;
     } // end of the "PMA_formatSql()" function
 
 
