@@ -24,7 +24,12 @@ $err_url = 'tbl_properties.php?' . PMA_generate_common_url($db, $table);
  * The form used to define the field to add has been submitted
  */
 $abort = false;
-if (isset($submit)) {
+if (isset($submit_num_fields)) {
+    if (isset($orig_after_field)) {
+        $after_field = $orig_after_field;
+    }
+    $regenerate = TRUE;
+} else if (isset($submit)) {
     $query = '';
 
     // Transforms the radio button field_key into 3 arrays

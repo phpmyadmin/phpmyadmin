@@ -145,7 +145,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $row['Field']     = (isset($field_name) && isset($field_name[$i]) ? $field_name[$i] : FALSE);
         $row['Type']      = (isset($field_type) && isset($field_type[$i]) ? $field_type[$i] : FALSE);
         $row['Null']      = (isset($field_null) && isset($field_null[$i]) ? $field_null[$i] : '');
-        if ($row['Null'] == '') {
+        if (isset($field_type[$i]) && $row['Null'] == '') {
             $submit_null = TRUE;
         }
 
@@ -606,6 +606,12 @@ echo "\n";
 ?>
 
 <input type="submit" name="submit" value="<?php echo $strSave; ?>" />
+<?php
+if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php')
+    echo '        &nbsp;&nbsp;<em>' . $strOr . '</em>&nbsp;&nbsp;' . $strFields . ':' . "\n";
+    echo '        ' . '<input type="text" name="num_fields" size="2" class="textfield" value="' . $num_fields . '" />' . "\n";
+    echo '        ' . '&nbsp;<input type="submit" name="submit_num_fields" value="' . $strGo . '" />' . "\n";
+?>
 </form>
 
 <table>

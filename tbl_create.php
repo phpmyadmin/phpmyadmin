@@ -32,7 +32,9 @@ PMA_DBI_select_db($db);
  * The form used to define the structure of the table has been submitted
  */
 $abort = FALSE;
-if (isset($submit)) {
+if (isset($submit_num_fields)) {
+    $regenerate = TRUE;
+} else if (isset($submit)) {
     $sql_query = $query_cpy = '';
 
     // Transforms the radio button field_key into 3 arrays
