@@ -325,6 +325,9 @@ if (uname.value == '') {
             else {
                 $from_cookie   = FALSE;
             }
+            if ($PHP_AUTH_PW == "\xff(blank)") {
+                $PHP_AUTH_PW   = '';
+            }
         }
 
         // Returns whether we get authentication settings or not
@@ -389,7 +392,7 @@ if (uname.value == '') {
                 $GLOBALS['is_https']);
             // Duration = till the browser is closed for password
             setcookie('pma_cookie_password',
-                $cfg['Server']['password'],
+                (!empty($cfg['Server']['password'])) ? $cfg['Server']['password'] : "\xff(blank)",
                 0,
                 $GLOBALS['cookie_path'], '',
                 $GLOBALS['is_https']);
