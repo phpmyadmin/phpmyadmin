@@ -80,6 +80,7 @@ $strCheckAll = 'Seleziona tutti';
 $strCheckDbPriv = 'Controlla i privilegi del database';
 $strCheckTable = 'Controlla tabella';
 $strChoosePage = 'Prego scegliere una Page da modificare';
+$strColComFeat = 'Visualizzazione commenti delle colonne';
 $strColumn = 'Colonna';
 $strColumnNames = 'Nomi delle colonne';
 $strComments = 'Commenti';
@@ -96,6 +97,7 @@ $strCreateIndexTopic = 'Crea un nuovo indice';
 $strCreateNewDatabase = 'Crea un nuovo database';
 $strCreateNewTable = 'Crea una nuova tabella nel database %s';
 $strCreatePage = 'Crea una nuova Page';
+$strCreatePdfFeat = 'Creazione di PDF';
 $strCriteria = 'Criterio';
 
 $strData = 'Dati';
@@ -113,7 +115,9 @@ $strDeleteFailed = 'Cancellazione fallita!';
 $strDeleteUserMessage = 'Hai cancellato l\'utente %s.';
 $strDelPassMessage = 'Hai cancellato la password per';
 $strDescending = 'Decrescente';
+$strDisabled = 'Disabilitata';
 $strDisplay = 'Visualizza';
+$strDisplayFeat = 'Mostra Caratteristiche';
 $strDisplayOrder = 'Ordine di visualizzazione:';
 $strDisplayPDF = 'Mostra lo schema del PDF';
 $strDoAQuery = 'Esegui "query da esempio" (carattere jolly: "%")';
@@ -132,6 +136,7 @@ $strEditPrivileges = 'Modifica Privilegi';
 $strEffective = 'Effettivo';
 $strEmpty = 'Svuota';
 $strEmptyResultSet = 'MySQL ha restituito un insieme vuoto (i.e. zero righe).';
+$strEnabled = 'Abilitata';
 $strEnd = 'Fine';
 $strEnglishPrivileges = 'Nota: i nomi dei privilegi di MySQL sono in Inglese';
 $strError = 'Errore';
@@ -156,6 +161,7 @@ $strFullText = 'Testo completo';
 $strFunction = 'Funzione';
 
 $strGenBy = 'Generato da';
+$strGeneralRelationFeat = 'Caratteristiche Generali di Relazione';
 $strGenTime = 'Generato il';
 $strGo = 'Esegui';
 $strGrants = 'Permetti';
@@ -237,6 +243,7 @@ $strNoQuery = 'Nessuna query SQL!';
 $strNoRights = 'Non hai i permessi per effettuare questa operazione!';
 $strNoTablesFound = 'Non ci sono tabelle nel database.';
 $strNotNumber = 'Questo non è un numero!';
+$strNotOK = 'non OK';
 $strNotSet = '<b>%s</b> tabella non trovata o non settata in %s';
 $strNotValidNumber = ' non è una riga valida!';
 $strNoUsersFound = 'Nessun utente trovato.';
@@ -245,6 +252,7 @@ $strNumSearchResultsInTable = '%s corrisponde/ono nella tabella <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totale:</b> <i>%s</i> corrispondenza/e';
 
 $strOftenQuotation = 'In genere da doppi apici (virgolette). OPZIONALE indica che solo i campi <I>char</I> e <I>varchar</I> devono essere delimitati dal carattere indicato.';
+$strOK = 'OK';
 $strOperations = 'Operazioni';
 $strOptimizeTable = 'Ottimizza tabella';
 $strOptionalControls = 'Opzionale. Questo carattere controlla come scrivere o leggere i caratteri speciali.';
@@ -411,12 +419,4 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
 ?>
