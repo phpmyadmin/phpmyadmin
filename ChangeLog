@@ -18,6 +18,7 @@ $Source$
     * lang/slovak: Updated, thanks to Lubos Klokner (erkac).
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/slovenian update, thanks to Kositer Uros
+    * libraries/common.lib.php: patch #859034, better BLOB comparison
 
 2004-04-29 Michal Cihar  <michal@cihar.com>
     * libraries/display_tbl.lib.php, libraries/sqlparser.lib.php,

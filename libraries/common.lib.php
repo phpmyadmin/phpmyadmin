@@ -1971,7 +1971,13 @@ if (typeof(document.getElementById) != 'undefined'
                     // hexify only if this is a true not empty BLOB
                      && stristr($field_flags, 'BINARY')
                      && !empty($row[$i])) {
-                        $condition .= 'LIKE 0x' . bin2hex($row[$i]). ' AND';
+                        // use a CAST if possible, to avoid problems
+                        // if the field contains wildcard characters % or _
+                        if (PMA_MYSQL_INT_VERSION < 40002) {
+                            $condition .= 'LIKE 0x' . bin2hex($row[$i]). ' AND';
+                        } else {
+                            $condition .= '= CAST(0x' . bin2hex($row[$i]). ' AS BINARY) AND';
+                        }
                 } else {
                     $condition .= '= \'' . PMA_sqlAddslashes($row[$i], FALSE, TRUE) . '\' AND';
                 }
