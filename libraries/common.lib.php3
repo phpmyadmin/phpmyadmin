@@ -1129,7 +1129,7 @@ if (typeof(document.getElementById) != 'undefined'
     && typeof(window.parent.frames['nav']) != 'undefined'
     && typeof(window.parent.frames['nav'].document.getElementById('<?php echo $md5_tbl; ?>')) != 'undefined'
     && typeof(window.parent.frames['nav'].document.getElementById('<?php echo $md5_tbl; ?>').title) == 'string') {
-    window.parent.frames['nav'].document.getElementById('<?php echo $md5_tbl; ?>').title = '<?php echo htmlspecialchars($tooltip); ?>';
+    window.parent.frames['nav'].document.getElementById('<?php echo $md5_tbl; ?>').title = '<?php echo PMA_jsFormat($tooltip); ?>';
 }
 //-->
 </script>
