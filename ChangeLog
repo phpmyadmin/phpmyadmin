@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+
+2001-10-24  Robin Johnson  <robbat2@users.sourceforge.net>
+	* Documentation.html:
+	  - updated advanced authentication documentation
+	  - removed PCRE requirement note
+	* Documentation.txt: updated from Documentation.html
+
 2001-10-24  Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3:
 	  - taken into account wildcards in the databases names get from the

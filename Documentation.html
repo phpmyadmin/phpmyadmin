@@ -115,8 +115,7 @@
         PHP&nbsp;3.0.8.
         Then <font color="#bb0000">you should not run this script with
         PHP3&nbsp;&lt;&nbsp;3.0.8</font>.<br />
-        PHP also needs to be <font color="#bb0000">compiled with mysql
-        and PCRE support</font>;
+        PHP also needs to be <font color="#bb0000">compiled with MySQL support</font>;
     </li>
     <li>
         MySQL (tested with 3.21.x, 3.22.x and 3.23.x);
@@ -202,8 +201,8 @@
 
 <p>
     <font color="#bb0000">Warning for Mac users:</font> php seems not to like
-    Mac end of lines character ("<tt>\r</tt>") and Stuffit unstuffs with Mac
-    formats, of course.<br />
+    Mac end of lines character (&quot;<tt>\r</tt>&quot;) and Stuffit unstuffs
+    with Mac formats, of course.<br />
     So you'll have to resave as in Bbedit to unix style ALL phpMyAdmin scripts
     before uploading them to your server.
 </p>
@@ -214,10 +213,11 @@
          <tt>tar xzvf phpMyAdmin_x.x.x.tar.gz</tt></li>
     <li> Open the file config.inc.php3 in your favourite editor and change
          the values for host, user and password to fit your environment.
-         Have a look at <a class="navigation" href="#config">Configuration section</a>
-         for an explanation of all values.</li>
+         Have a look at
+         <a class="navigation" href="#config">Configuration section</a> for an
+         explanation of all values.</li>
     <li> It is recommended that you protect the directory in which
-         you installed phpMyAdmin (unless it's on a closed intranet), 
+         you installed phpMyAdmin (unless it's on a closed intranet, or you wish to use advanced authentication), 
          for example with HTTP-AUTH (in a <i>.htaccess</i> file). See the
          <a class="navigation" href="#faq">FAQ section</a> for additional
          information.</li>
@@ -232,6 +232,30 @@
     <li> Please do not copy your older config.inc.php3 over the new one: it may offer new configuration variables, and the new version may depend on these for normal behavior.  It is suggested instead to insert your site values in the new one.</li>
 </ul>
 
+<p>Using Advanced Authentication:</p>
+<ol>
+<li>
+    phpMyAdmin needs a stduser that has <b>only</b> the <tt>SELECT</tt>
+    privilege on the <i>mysql.db (Db,user,Select_priv)</i> &amp; <i>mysql.user (user,Select_priv)</i> tables. You
+    must specify the details for the stduser in the <i>config.inc.php3</i> file
+    under the <tt>$cfgServers[n]['stduser']</tt> &amp;
+    <tt>$cfgServers[n]['stdpass']</tt> settings.
+    To create the control account:<br />
+    &nbsp;&nbsp;&nbsp;<tt>GRANT USAGE ON mysql.* TO 'stduser'@localhost IDENTIFIED BY 'password';</tt><br />
+    &nbsp;&nbsp;&nbsp;<tt>GRANT SELECT (user, Select_priv) ON mysql.user TO 'stduser'@localhost;</tt><br />
+    &nbsp;&nbsp;&nbsp;<tt>GRANT SELECT (Db,user,Select_priv) ON mysql.db TO 'stduser'@localhost;</tt>
+</li>
+<li>
+    Then each of the <i>true</i> users should be granted of a set of
+    privileges on a set of perticular databases but shouldn't have any global
+    privileges. For example, to grant the user <i>real_user</i> with all
+    privileges on the database <i>user_base</i>:<br />
+    &nbsp;&nbsp;&nbsp;<tt>GRANT ALL PRIVILEGES ON user_base TO 'real_user'@localhost IDENTIFIED BY 'real_password';</tt>
+    <br />
+    What the user may now do is controlled entirely by the MySQL user management
+    system.
+</li>
+</ol>
 
 <!-- CONFIGURATION -->
 <a name="config"></a><br />
@@ -252,9 +276,10 @@
 
 <p>
     <font color="#bb0000">Warning for Mac users:</font> php seems not to like
-    Mac end of lines character ("<tt>\r</tt>"). So ensure you choose the option
-    that allows to use the *nix end of line character ("<tt>\n</tt>") in your
-    text editor before registering a script you have modified.
+    Mac end of lines character (&quot;<tt>\r</tt>&quot;). So ensure you choose
+    the option that allows to use the *nix end of line character
+    (&quot;<tt>\n</tt>&quot;) in your text editor before registering a script
+    you have modified.
 </p>
 
 <p>All configurable data is placed in <i>config.inc.php3</i>.</p>
@@ -311,13 +336,22 @@
     </dd>
 
     <dt>
-        <b>$cfgServers[n]['user']</b> string<br />
-        <b>$cfgServers[n]['password']</b> string
+        <b>$cfgServers[n]['stduser']</b> string<br />
+        <b>$cfgServers[n]['stdpass']</b> string
     </dt>
     <dd>
-        The user/password-pair which phpMyAdmin will use to connect to this
-        MySQL-server. These are not needed when advanced authentication is used,
-        and should be empty.<br /><br />
+        When using advanced authentication mode (or standard authentication
+        mode since phpMyAdmin 2.2.1-rc3), you need to supply the details
+        of a MySQL account that has <tt>SELECT</tt> access on the
+        <i>mysql.db (Db,user,Select_priv)</i> &amp; <i>mysql.user (user,Select_priv)</i> tables.<br />
+        This account is used to check what databases the user will see at login.
+	Please see the install section on &quot;Using advanced authentication&quot; for more information.
+        <br /><br />
+        Please note that if you try login to phpMyAdmin with this stduser, you
+        could get some errors, depending the exact privileges you gave to
+        the stduser. phpMyAdmin does not support a direct login with the
+        stduser.
+        <br /><br />
     </dd>
 
     <dt><b>$cfgServers[n]['adv_auth']</b> boolean</dt>
@@ -350,31 +384,30 @@
 
         Advanced authentication is secure as the MySQL passwords does not need
         to be set in the phpMyAdmin configuration file. (except for the standard
-        user -see below-). 
-
+        user -see above-).
         <br /><br />
 
-        Please see the security section in the FAQ for more information.
+	Please see the install section on &quot;Using advanced authentication&quot; for more information.
         <br /><br />
     </dd>
 
     <dt>
-        <b>$cfgServers[n]['stduser']</b> string<br />
-        <b>$cfgServers[n]['stdpass']</b> string
+        <b>$cfgServers[n]['user']</b> string<br />
+        <b>$cfgServers[n]['password']</b> string
     </dt>
     <dd>
-        When using advanced authentication mode, you need to supply the details
-        of a MySQL account that has SELECT access on the <i>mysql.db</i> &amp;
-        <i>mysql.user</i> tables. This account is used to check the privileges
-        user logins. Please see the security section in the FAQ for more
-         information.
-        <br /><br />
+        The user/password-pair which phpMyAdmin will use to connect to this
+        MySQL-server. The password is not needed when advanced authentication
+        is used, and should be empty.<br /><br />
     </dd>
 
     <dt><b>$cfgServers[n]['only_db']</b> string or array</dt>
     <dd>
         If set to a(an array of) database name(s), only this(these) database(s)
-        will be shown to the user.<br />
+        will be shown to the user.
+        This setting is an efficient way to lower the server load since the
+        latter does not need a to send requests to MySQL to build the database
+        list.<br />
         <font color="#bb0000">Warning:</font> this setting does not replace the
         privileges rules of the MySQL database server. If set, it just means
         only these databases will be displayed but <font color="#bb0000">not at
@@ -422,9 +455,10 @@
             </li>
         </ul><br />
 
-        If you are using advanced authentication, users must have
-        <tt>Select_Priv, Insert_Priv</tt> and <tt>Delete_Priv</tt> set to "Y"
-        in <i>mysql.db</i> table for the bookmark database.
+        Note that <tt>stduser</tt> must have <tt>SELECT</tt>, <tt>INSERT</tt>
+	and <tt>DELETE</tt> privileges on the bookmark table.
+	Here is a query to set up those privileges:<br />
+	<tt>GRANT SELECT,INSERT,DELETE ON &lt;bookmarkdb&gt;.&lt;bookmarktable&gt; to 'stduser'@localhost;</tt>
         <br /><br />
     </dd>
 
@@ -471,9 +505,10 @@
     <dt><b>$cfgAllowUserDropDatabase </b>boolean</dt>
     <dd>
         Defines whether standard users (non administrator) are allowed to
-        delete their own database or not. If set as FALSE, the link "Drop
-        Database" will not be shown, and even a "DROP DATABASE mydatabase"
-        will be rejected. Quite practical for ISP's with many customers.
+        delete their own database or not. If set as FALSE, the link &quot;Drop
+        Database&quot; will not be shown, and even a &quot;DROP DATABASE
+        mydatabase&quot; will be rejected. Quite practical for ISP's with many
+        customers.
         <br /><br />
      </dd>
 
@@ -509,8 +544,8 @@
 
     <dt><b>$cfgShowAll </b>boolean</dt>
     <dd>
-        Defines whether an user should be displayed a "show all (records)"
-        button in browse mode or not.
+        Defines whether an user should be displayed a
+        &quot;show all (records)&quot; button in browse mode or not.
         <br /><br />
     </dd>
 
@@ -524,9 +559,9 @@
     <dt><b>$cfgOrder </b>string [<tt>DESC</tt>|<tt>ASC</tt>|<tt>SMART</tt>]</dt>
     <dd>
         Defines whether fields are displayed in ascending (<tt>ASC</tt>) order,
-        in descending (<tt>DESC</tt>) order or in a "smart" (<tt>SMART</tt>)
-        order -ie descending order for fields of type TIME, DATE, DATETIME &
-        TIMESTAMP, ascending order else- by default.
+        in descending (<tt>DESC</tt>) order or in a &quot;smart&quot;
+        (<tt>SMART</tt>) order -ie descending order for fields of type TIME,
+        DATE, DATETIME &amp; TIMESTAMP, ascending order else- by default.
         <br /><br />
     </dd>
 
@@ -694,8 +729,8 @@
 </p>
 
 <p>
-    <b>The error message "Warning: Cannot add header information - headers
-    already sent by ..." is displayed, what's the problem?</b>
+    <b>The error message &quot;Warning: Cannot add header information - headers
+    already sent by ...&quot; is displayed, what's the problem?</b>
     <br />
     Edit your <i>config.inc.php or .php3</i> file and ensure there is nothing
     (ie no blank lines, no spaces, no characters...) neither before the
@@ -729,8 +764,8 @@
 </p>
 
 <p>
-    <b>The error message "Warning: MySQL Connection Failed: Can't connect to
-    local MySQL server through socket '/tmp/mysql.sock' (111)...") is
+    <b>The error message &quot;Warning: MySQL Connection Failed: Can't connect
+    to local MySQL server through socket '/tmp/mysql.sock' (111)...&quot;) is
     displayed. What can I do?</b>
     <br />
     Here is a fix suggested by Brad Ummer in the
@@ -763,13 +798,14 @@
 </p>
 
 <p>
-    <b>phpMyAdmin always gives "Access denied" when using advanced
+    <b>phpMyAdmin always gives &quot;Access denied&quot; when using advanced
     authentication.</b><br />
     This could happen for several reasons:
 </p>
 <ul>
     <li>
-        <tt>$cfgServers[n]['stduser']</tt> and/or <tt>$cfgServers[n]['stdpass']</tt> are wrong.
+        <tt>$cfgServers[n]['stduser']</tt> and/or
+        <tt>$cfgServers[n]['stdpass']</tt> are wrong.
     </li>
     <li>
         The username/password you specify in the login-dialog are invalid.
@@ -865,22 +901,9 @@
     your users. The development of this feature was kindly sponsored by
     NetCologne GmbH.
     This requires a properly setup MySQL user management and phpMyAdmin
-    advanced authentication.
+    advanced authentication. See the install section on &quot;Using advanced authentication&quot;
 </p>
-<p>
-    phpMyAdmin needs a control account that has <b>only</b> the <tt>SELECT</tt> privilege on the
-    <i>mysql.db</i> &amp; <i>mysql.user</i> tables. You specify the details for
-    this account in the <i>config.inc.php3</i> file under the <i>$cfgServers[n]['stduser']</i> &amp;
-    <i>$cfgServers[n]['stdpass']</i> settings.
-    To create the control account:<br />
-    <tt>GRANT USAGE ON *.* TO 'user'@localhost IDENTIFIED BY 'password';</tt><br />
-    <tt>GRANT SELECT ON mysql.db TO 'user'@localhost;</tt><br />
-    <tt>GRANT SELECT ON mysql.user TO 'user'@localhost;</tt><br />
-</p>
-<p>
-    What the user may now do is controlled entirely by the MySQL user management
-    system.
-</p>
+
 <p>
     <b>How can I GZip or Bzip a dump or a CSV export. It seem to not work?</b>
     <br />
@@ -896,16 +919,16 @@
     Error MySQL said: The file '/tmp/phpkvpp60' must be in the database
     directory or be readable by all</b>
     <br />
-    Your uploaded file is saved by PHP in the "upload dir", as defined in
-    <i>php.ini</i> by the variable <tt>upload_tmp_dir</tt> (usually the system
-    default is <i>/tmp</i>).
+    Your uploaded file is saved by PHP in the &quot;upload dir&quot;, as
+    defined in <i>php.ini</i> by the variable <tt>upload_tmp_dir</tt> (usually
+    the system default is <i>/tmp</i>).
     If this directory is not readable by all, the MySQL server (which must be
     running on the same machine) cannot open the file (except if running as
     root, which is not recommended).
     <br />
-    The system administrator can do a "<tt>chmod 777 /tmp</tt>": then the MySQL
-    server will accept to read it.  Also, the user must have File privilege.
-     
+    The system administrator can do a &quot;<tt>chmod 777 /tmp</tt>&quot;: then
+    the MySQL server will accept to read it.  Also, the user must have
+    <tt>File</tt> privilege.
 </p>
 
 <p> 
@@ -928,8 +951,7 @@
     So please download
     <a href="http://people.redhat.com/nalin/test/php-4.0.4pl1-7.i386.rpm">the fixed package</a>
     and the problem should go away. 
-    <br /> 
-
+    <br />
     And that fixes the \r\n problem with file uploads! 
 </p> 
 
@@ -958,9 +980,9 @@
     <b>I get errors about not being able to include a file in <i>/lang</i></b>
     <br />
     Check <i>php.ini</i>, or ask your sysadmin to check it. The
-    <tt>include_path</tt> must contain "." somewhere in it, and
-    <tt>open_basedir</tt>, if used, must contain "." and "./lang" to allow
-    normal operation of phpMyAdmin.
+    <tt>include_path</tt> must contain &quot;.&quot; somewhere in it, and
+    <tt>open_basedir</tt>, if used, must contain &quot;.&quot; and
+    &quot;./lang&quot; to allow normal operation of phpMyAdmin.
 </p>
 
 <p>
@@ -1132,7 +1154,7 @@ CREDITS, in chronological order
 	* moderator of the phpMyAdmin users forum at phpwizard.net
 
 [kc] - Korakot Chaovavanich &lt;korakot_at_iname.com&gt;
-	* "insert as new row" feature
+	* &quot;insert as new row&quot; feature
 
 [pk] - Pete Kelly &lt;webmaster_at_trafficg.com&gt;
 	* rewrote and fix dump code
@@ -1153,7 +1175,7 @@ or support for a new language since version 2.1.0:
 Bora Alioglu, Ricardo ?, Sven-Erik Andersen, Alessandro Astarita, Borges Botelho,
 Olivier Bussier, Michal Cihar, Neil Darlow, Kristof Hamann, Thomas Kläger,
 Lubos Klokner, Martin Marconcini, Girish Nair, David Nordenberg,
-Bernard M. Piller, Laurent Haas, "Sakamoto", www.securereality.com.au,
+Bernard M. Piller, Laurent Haas, &quot;Sakamoto&quot;, www.securereality.com.au,
 Michael Tacelosky, Daniel Villanueva, Vinay, Ignacio Vazquez-Abrams,
 Chee Wai, Jakub Wilk, Thomas Michael Winningham.
 
@@ -1182,8 +1204,8 @@ Original Credits of Version 2.1.0
     - Alexandr Bravo &lt;abravo_at_hq.admiral.ru&gt; who contributed
       tbl_select.php3, a feature to display only some fields from a table.
     - Chris Jackson &lt;chrisj_at_ctel.net&gt; added support for MySQL
-      functions in tbl_change.php3. He also added the "Query by Example"
-      feature in 2.0.
+      functions in tbl_change.php3. He also added the
+      &quot;Query by Example&quot; feature in 2.0.
     - Dave Walton &lt;walton_at_nordicdms.com&gt; added support for multiple
       servers and is a regular contributor for bug-fixes.
     - Gabriel Ash &lt;ga244_at_is8.nyu.edu&gt; contributed the random access
