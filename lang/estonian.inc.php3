@@ -242,6 +242,7 @@ $strQBEIns = 'Ins';
 $strQueryOnDb = 'SQL-päring andmebaasist <b>%s</b>:';
 
 $strRecords = 'Kirjeid';
+$strReferentialIntegrity = 'Kontrolli pärinevust:'; 
 $strReloadFailed = 'MySQL taaslaadimine ebaõnnestus.';
 $strReloadMySQL = 'Taaslae MySQL';
 $strRememberReload = 'Ärge unustage serverit taaslaadida.';
@@ -347,5 +348,4 @@ $strYes = 'Jah';
 $strZip = '"zipitud"';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
