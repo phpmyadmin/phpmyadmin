@@ -10,6 +10,8 @@ $Source$
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
     * lang/brazilian-portuguese: big update, thanks to Airon Luis Pereira
       - thedarkness
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000)
 
 2005-03-18 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Updates.
