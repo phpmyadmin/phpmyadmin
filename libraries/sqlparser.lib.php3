@@ -747,7 +747,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      * lem9:   foreign keys
      *         ------------
      * The CREATE TABLE may contain FOREIGN KEY clauses, so they get
-     * analyzed and ['foreign_keys'] is an array filled with the index list,
+     * analyzed and ['foreign_keys'] is an array filled with 
+     * the constraint name, the index list,
      * the REFERENCES table name and REFERENCES index list.
      *
      * lem9: position_of_first_select
@@ -1376,20 +1377,29 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
             $seen_foreign = FALSE;
             $seen_references = FALSE;
+            $seen_constraint = FALSE;
             $in_bracket = FALSE;
             $foreign_key_number = -1;
 
             for ($i = 0; $i < $size; $i++) {
                 if ($arr[$i]['type'] == 'alpha_reservedWord') {
                    $upper_data = strtoupper($arr[$i]['data']);
+
+                   if ($upper_data == 'CONSTRAINT') {
+                       $foreign_key_number++;
+                       $seen_foreign = FALSE;
+                       $seen_references = FALSE;
+                       $seen_constraint = TRUE;
+                   }
                    if ($upper_data == 'FOREIGN') {
                        $seen_foreign = TRUE;
                        $seen_references = FALSE;
-                       $foreign_key_number++;
+                       $seen_constraint = FALSE;
                    }
                    if ($upper_data == 'REFERENCES') {
                        $seen_foreign = FALSE;
                        $seen_references = TRUE;
+                       $seen_constraint = FALSE;
                    }
                 }
 
@@ -1406,6 +1416,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
                 if (($arr[$i]['type'] == 'quote_backtick')) {
 
+                    if ($seen_constraint) {
+                        // remove backquotes
+                        $identifier = str_replace('`','',$arr[$i]['data']);
+                        $foreign[$foreign_key_number]['constraint'] = $identifier;
+                    }
                     if ($seen_foreign && $in_bracket) {
                         // remove backquotes
                         $identifier = str_replace('`','',$arr[$i]['data']);
