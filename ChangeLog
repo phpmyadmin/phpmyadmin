@@ -5,15 +5,20 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2001-08-08  Marc Delisle  <lem9@users.sourceforge.net>
-	* tbl_change.php3, enum values were not displayed
-	* sql.php3, bug of strange display after a Select
+2001-08-09  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3:
+        - lines 10-13: Marc fix generates bugs
+        - lines 220-228: added a js test to ensure bookmark label is not empty.
+
+2001-08-08  Marc Delisle  <lem9@users.sourceforge.net> 
+	* tbl_change.php3, enum values were not displayed 
+	* sql.php3, bug of strange display after a Select 
 
 2001-08-08  Olivier Müller  <om@omnis.ch> 
 	* new script create-release.sh
 	* moved scripts to a new subdirectory "scripts/"
-	* main.php3: fix: display link to user_details.php3 also
-	  in non adv_auth mode.
+	* main.php3: fix: display link to user_details.php3 also 
+	  in non adv_auth mode
 
 2001-08-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_replace.php3: fixed some coding style inconcistencies and optimized a
