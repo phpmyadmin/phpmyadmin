@@ -8,6 +8,9 @@ $Source$
 2002-11-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/build_dump.lib.php3: fix for old MySQL, thanks to
       Flavio Poletti (flavio at polettix.it)
+    * tbl_replace.php3: bug 638275: ignore NULL checkbox is there is
+      a value for the field (possible if js is disabled, or broken browser
+      like Konqueror 2.2.2); implemented on insert or update
 
 2002-11-08 Robin Johnson  <robbat2@users.sourceforge.net>
     * lib/sqlparser.data.php3: Bug #639291 fixed

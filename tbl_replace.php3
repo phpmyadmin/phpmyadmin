@@ -143,7 +143,10 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
         } // end switch
 
         // Was the Null checkbox checked for this field?
-        if (isset($fields_null) && isset($fields_null[$encoded_key])) {
+        // (if there is a value, we ignore the Null checkbox: this could
+        // be possible if Javascript is disabled in the browser)
+        if (isset($fields_null) && isset($fields_null[$encoded_key])
+            && $val=="''") {
             $val = 'NULL';
         }
 
@@ -165,7 +168,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
         }
     } // end while
 
-    // Builds the sql upate query
+    // Builds the sql update query
     $valuelist    = ereg_replace(', $', '', $valuelist);
     if (!empty($valuelist)) {
         $query    = 'UPDATE ' . PMA_backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key
@@ -249,7 +252,10 @@ else {
         } // end switch
 
         // Was the Null checkbox checked for this field?
-        if (isset($fields_null) && isset($fields_null[$encoded_key])) {
+        // (if there is a value, we ignore the Null checkbox: this could
+        // be possible if Javascript is disabled in the browser)
+        if (isset($fields_null) && isset($fields_null[$encoded_key])
+            && $val=="''") {
             $val = 'NULL';
         }
 
