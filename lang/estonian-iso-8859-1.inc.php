@@ -63,7 +63,7 @@ $strAscending = 'Kasvav';
 $strAtBeginningOfTable = 'Tabeli algusesse';
 $strAtEndOfTable = 'Tabeli lõppu';
 $strAttr = 'Parameetrid';
-$strAutodetect = 'Autodetect';
+$strAutodetect = 'Automaatne tuvastus';
 $strAutomaticLayout = 'Automaatne väljund';
 
 $strBack = 'Tagasi';
@@ -301,7 +301,7 @@ $strInsertNewRow = 'Lisa uus rida';
 $strInsertTextfiles = 'Lisa andmed tekstifailist tabelisse';
 $strInsertedRowId = 'Lisatud rea id:';
 $strInsertedRows = 'Lisatud read:';
-$strInstructions = 'sisestused';
+$strInstructions = 'sisestust';
 $strInternalNotNecessary = '* Sisene seos ei ole vajalik kui ta eksisteerib ka InnoDB-s.';
 $strInternalRelations = 'Sisesed seosed';
 $strInvalidName = '"%s" on reserveeritud sõna, te ei saa seda kasutada andmebaasi/tabeli/välja nimena.';
