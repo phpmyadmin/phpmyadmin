@@ -594,6 +594,13 @@ if (!isset($cfg['LeftPointerColor'])) {
     } else {
         $cfg['LeftPointerColor'] = '#CCFFCC';
     }
+// no longer accept an empty value to mean "disable the pointer"
+} elseif ($cfg['LeftPointerColor'] == '') {
+    $cfg['LeftPointerColor'] = '#CCFFCC';
+}
+
+if (!isset($cfg['LeftPointerEnable'])) {
+    $cfg['LeftPointerEnable'] = TRUE;
 }
 
 if (!isset($cfg['RightBgColor'])) {

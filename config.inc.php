@@ -459,6 +459,11 @@ $cfg['AvailableCharsets'] = array(
  * The graphical settings are now located in themes/themename/colors.inc.php
  */
 
+$cfg['LeftPointerEnable']   = TRUE;         // enable the left panel pointer
+                                            // (used when LeftFrameLight is FALSE)
+                                            // see also LeftPointerColor
+                                            // in colors.inc.php
+
 $cfg['TextareaCols']        = 40;           // textarea size (columns) in edit mode
                                             // (this value will be emphasized (*2) for sql
                                             // query textareas and (*1.25) for query window)

@@ -82,7 +82,7 @@ function PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_
 
     $groupkey = $keyhistory . ($key != $keyhistory ? $GLOBALS['cfg']['LeftFrameTableSeparator'] . $key : '');
 
-    $on_mouse = (($GLOBALS['cfg']['LeftPointerColor'] == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $id . '\', \'' . $GLOBALS['cfg']['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $id . '\', \'' . $GLOBALS['cfg']['LeftBgColor'] . '\')}"');
+    $on_mouse = (($GLOBALS['cfg']['LeftPointerEnable'] == FALSE) ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $id . '\', \'' . $GLOBALS['cfg']['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $id . '\', \'' . $GLOBALS['cfg']['LeftBgColor'] . '\')}"');
 
     $countarray = $val;
     if (count($countarray) == 2 && isset($countarray['pma_name']) && isset($countarray['pma_list_item'])) {
@@ -161,7 +161,7 @@ function PMA_nestedSet($baseid, $tablestack, $key = '__protected__', $keyhistory
             $extra_indent = 0;
         }
 
-        $on_mouse = (($GLOBALS['cfg']['LeftPointerColor'] == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $keyhistory . $key . '\', \'' . $GLOBALS['cfg']['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $keyhistory . $key . '\', \'' . $GLOBALS['cfg']['LeftBgColor'] . '\')}"');
+        $on_mouse = (($GLOBALS['cfg']['LeftPointerEnable'] == FALSE) ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $keyhistory . $key . '\', \'' . $GLOBALS['cfg']['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $keyhistory . $key . '\', \'' . $GLOBALS['cfg']['LeftBgColor'] . '\')}"');
 
         $loops = 0;
         foreach ($tablestack['pma_name'] AS $tkey => $tval) {
@@ -491,7 +491,7 @@ if ($num_dbs > 1) {
         if ($cfg['LeftFrameLight'] == FALSE) {
 
             // Displays the database name
-            $on_mouse = (($cfg['LeftPointerColor'] == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfg['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfg['LeftBgColor'] . '\')}"');
+            $on_mouse = (($cfg['LeftPointerEnable'] == FALSE) ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfg['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfg['LeftBgColor'] . '\')}"');
 
             echo "\n";
             echo '    <div id="el' . $j . 'Parent" class="parent nowrap"' . $on_mouse . '>';
@@ -738,7 +738,7 @@ else if ($num_dbs == 1) {
 
     // Displays the database name
     if (!$cfg['LeftFrameLight']) {
-            $on_mouse = (($cfg['LeftPointerColor'] == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el2\', \'' . $cfg['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el2\', \'' . $cfg['LeftBgColor'] . '\')}"');
+            $on_mouse = (($cfg['LeftPointerEnable'] == FALSE) ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el2\', \'' . $cfg['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el2\', \'' . $cfg['LeftBgColor'] . '\')}"');
 
             echo "\n";
             echo '    <div id="el2Parent" class="parent"' . $on_mouse . '>';

@@ -334,7 +334,9 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 </p>
 
 <p>
-    All configurable data is placed in <i>config.inc.php</i>. Except these you
+    Almost all configurable data is placed in <i>config.inc.php</i>. The
+    parameters which relate to design (like colors) are placed in
+    <tt>themes/themename/colors.inc.php</tt>. You
     might also want to modify <i>config.footer.inc.php</i> and
     <i>config.header.inc.php</i> files to add your site specific code to be
     included on start and end of each page.
@@ -1504,7 +1506,7 @@ Defaults to FALSE (drop-down). <br />
 
     <dt><b>$cfg['LeftWidth'] </b>integer</dt>
     <dd>
-        Left frame width in pixel.
+        Left frame width in pixel. See <tt>themes/themename/colors.inc.php</tt>.
         <br /><br />
     </dd>
 
@@ -1514,6 +1516,7 @@ Defaults to FALSE (drop-down). <br />
     </dt>
     <dd>
         The background colors (HTML) used for both the frames.
+        See <tt>themes/themename/colors.inc.php</tt>.
         <br /><br />
     </dd>
 
@@ -1522,37 +1525,43 @@ Defaults to FALSE (drop-down). <br />
     </dt>
     <dd>
         The URI of the background image used for the right frame. It must be
-        an absolute URI.
+        an absolute URI. See <tt>themes/themename/colors.inc.php</tt>.
     </dd>
 
     <dt><b>$cfg['LeftPointerColor'] </b>string [HTML color]</dt>
     <dd>
         The color (HTML) used for the pointer in the left frame (does not work
-        with Netscape 4).
+        with Netscape 4). See <tt>themes/themename/colors.inc.php</tt>.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['LeftPointerEnable'] </b>boolean</dt>
+    <dd>
+        Activates the left pointer (when LeftFrameLight is FALSE). 
         <br /><br />
     </dd>
 
     <dt><b>$cfg['Border'] </b>integer</dt>
     <dd>
-        The size of a table's border.
+        The size of a table's border. See <tt>themes/themename/colors.inc.php</tt>.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['ThBgcolor'] </b>string [HTML color]</dt>
     <dd>
-        The color (HTML) used for table headers.
+        The color (HTML) used for table headers. See <tt>themes/themename/colors.inc.php</tt>.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['BgcolorOne'] </b>string [HTML color]</dt>
     <dd>
-        The color (HTML) #1 for table rows.
+        The color (HTML) #1 for table rows. See <tt>themes/themename/colors.inc.php</tt>.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['BgcolorTwo'] </b>string [HTML color]</dt>
     <dd>
-        The color (HTML) #2 for table rows.
+        The color (HTML) #2 for table rows. See <tt>themes/themename/colors.inc.php</tt>.
         <br /><br />
     </dd>
 
@@ -1567,7 +1576,7 @@ Defaults to FALSE (drop-down). <br />
         and the latter lets you visually mark/unmark rows by clicking on
         them.<br />
         You can disable both of these features by emptying the respective
-        directive.
+        directive. See <tt>themes/themename/colors.inc.php</tt>.
         <br /><br />
     </dd>
 

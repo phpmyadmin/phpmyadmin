@@ -7,7 +7,6 @@ $cfg['RightBgColor']        = '#F5F5F5';    // background color for the right fr
 $cfg['RightBgImage']        = '';           // path to a background image for the right frame
                                             // (leave blank for no background image)
 $cfg['LeftPointerColor']    = '#CCFFCC';    // color of the pointer in left frame
-                                            // (blank for no pointer)
 $cfg['Border']              = 0;            // border width on tables
 $cfg['ThBgcolor']           = '#D3DCE3';    // table header row colour
 $cfg['BgcolorOne']          = '#E5E5E5';    // table data row colour

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * left.php, config.inc.php, Documentation.html,
+      libraries/config_import.lib.php + common.lib.php, all colors.inc.php:
+      $cfg['LeftPointerEnable']
+      (I am still working for BrowsePointerEnable and BrowseMarkerEnable)
+
 2004-06-24 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/mysqli.dbi.php: Undefined variable if PMA_DBI_getError() is
       called although no error occured.
