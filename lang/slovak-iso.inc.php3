@@ -88,6 +88,7 @@ $strDatabase = 'Databáza ';
 $strDatabaseHasBeenDropped = 'Databáza %s bola zmazaná.';
 $strDatabases = 'databáz(y)';
 $strDatabasesStats = '©tatistiky databázy';
+$strDatabaseWildcard = 'DatabÃ¡za (povolenÃ© nahradzujÃºce znaky):';
 $strDataOnly = 'Iba dáta';
 $strDefault = 'Predvolené';
 $strDelete = 'Zmaza»';
@@ -98,7 +99,7 @@ $strDeleteUserMessage = 'Pou¾ívateµ %s bol zmazaný.';
 $strDescending = 'Zostupne';
 $strDisplay = 'Zobrazi»';
 $strDisplayOrder = 'Zobrazi» zoradené:';
-$strDoAQuery = 'Vykona» "dotaz podµa príkladu" (wildcard: "%")';
+$strDoAQuery = 'VykonaÅ¥ "dotaz podÄ¾a prÃ­kladu" (nahradzujÃºci znak: "%")';
 $strDocu = 'Dokumentácia';
 $strDoYouReally = 'Skutoène chcete vykona» príkaz ';
 $strDrop = 'Odstráni»';
@@ -348,5 +349,4 @@ $strZip = '"zo zipované"';
 
 
 // To translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>
