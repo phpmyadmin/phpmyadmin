@@ -828,6 +828,17 @@
 </p>
 
 <p>
+    <b>Using phpMyAdmin on IIS, I'm facing crashes and/or many error messages
+       with the advanced authentication mode.</b>
+    <br />
+    This is a known problem with the php ISAPI filter: it's not so stable. For
+    some more information and complete testings see the messages posted by
+    &quot;djdeluxe76&quot; in
+    <a href="http://www.phpwizard.net/phorum/read.php?f=1&i=6624&t=6300">this&nbsp;thread</a>
+    from the phpWizard forum.
+</p>
+
+<p>
     <b>How can I GZip or Bzip a dump or a CSV export. It seems to not work?</b>
     <br />
     These features are based on the <tt>gzencode()</tt> and
@@ -858,8 +869,7 @@
     <b>I'm having troubles when uploading files. In general file uploads don't
     work on my system and uploaded files have a <tt>Content-Type:</tt> header
     in the first line.</b> 
-    <br /> 
-
+    <br />
     It's not really phpMyAdmin related but RedHat 7.0. You have a RedHat 7.0
     and you updated your php rpm to php-4.0.4pl1-3.i386.rpm, didn't you? 
     <br /> 
@@ -878,6 +888,16 @@
     And that fixes the \r\n problem with file uploads! 
 </p> 
 
+<p>
+    <b>I'm having troubles when uploading files with phpMyAdmin running on a
+       secure server. My browser is Internet Explorer and I'm using the Apache
+       server.</b> 
+    <br />
+    As suggested by &quot;Rob M&quot; in the phpWizard forum, add this line to
+    your <i>httpd.conf</i>:<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<tt>SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown</tt><br />
+    It seems to clear up many problems between IE and SSL.
+</p>
 
 
 <h3>[Configuration]</h3>

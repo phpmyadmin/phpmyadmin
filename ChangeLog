@@ -8,6 +8,8 @@ $Source$
 2001-11-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/tbl_dump.php3 : merged a workaround against the IE downloading
 	  bug with SSL.
+	* Documentation.html: added two entries in the FAQ (IIS with advanced
+	  authentication and Apache-SSL with IE).
 	* lang/arabic.inc.php3: updated thanks to Fisal Assubieye.
 
 2001-11-14  Loïc Chapeaux  <lolo@phpheaven.net>
