@@ -7,6 +7,8 @@ $Source$
 
 2002-02-24 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/german.inc.php3: updated thanks to Alexander M. Turek.
+	* tbl_change.php3: restored default value to "NOW()" with timestamp fields
+	  in an "UPDATE" statement.
 
 2002-02-23 Marc Delisle  <lem9@users.sourceforge.net>
 	* swedish updates thanks to Björn T. Hallberg

@@ -152,9 +152,8 @@ if ($cfgShowFunctionFields) {
     </tr>
 
 <?php
-// Set if we passed the first timestamp field (loic1: in insert mode only -not
-// in edit mode-)
-$timestamp_seen = (isset($primary_key) ? 1 : 0);
+// Set if we passed the first timestamp field
+$timestamp_seen = 0;
 $fields_cnt     = mysql_num_rows($table_def);
 
 for ($i = 0; $i < $fields_cnt; $i++) {
@@ -262,29 +261,23 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 <option></option>
             <?php
             echo "\n";
-            if (!$first_timestamp) {
-                for ($j = 0; $j < count($cfgFunctions); $j++) {
-                    echo '                ';
-                    echo '<option>' . $cfgFunctions[$j] . '</option>' . "\n";
-                }
-            } else {
-            // for default function = NOW() on first timestamp field
-            // -- swix/18jul01
-                for ($j = 0; $j < count($cfgFunctions); $j++) {
-                    echo '                ';
-                    if ($cfgFunctions[$j] == 'NOW') {
-                        echo '<option selected="selected">' . $cfgFunctions[$j] . '</option>' . "\n";
-                    } else {
-                        echo '<option>' . $cfgFunctions[$j] . '</option>' . "\n";
-                    }
-                } // end for
-            }
+            $selected     = '';
+            for ($j = 0; $j < count($cfgFunctions); $j++) {
+                // for default function = NOW() on first timestamp field
+                // -- swix/18jul01
+            	$selected = ($first_timestamp && $cfgFunctions[$j] == 'NOW')
+            	          ? ' selected="selected"'
+            	          : '';
+                echo '                ';
+                echo '<option' . $selected . '>' . $cfgFunctions[$j] . '</option>' . "\n";
+            } // end for
+            unset($selected);
             ?>
             </select>
         </td>
             <?php
         }
-    }
+    } // end if ($cfgShowFunctionFields)
     echo "\n";
 
     // The null column
