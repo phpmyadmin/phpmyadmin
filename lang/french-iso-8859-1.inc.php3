@@ -92,6 +92,7 @@ $strChangeCopyModeRevoke = ' ... effacer tous les privilèges de l\'ancien utilis
 $strChangeCopyUser = 'Changement des informations de connexion / Copie d\'utilisateur';
 $strChangeDisplay = 'Champ à afficher';
 $strChangePassword = 'Modifier le mot de passe';
+$strCharset = 'Jeu de caractères';
 $strCharsetOfFile = 'Jeu de caractères du fichier:';
 $strCheckAll = 'Tout cocher';
 $strCheckDbPriv = 'Afficher les privilèges sur';
@@ -540,6 +541,7 @@ $strStructure = 'Structure';
 $strSubmit = 'Exécuter';
 $strSuccess = 'Votre requête SQL a été exécutée avec succès';
 $strSum = 'Somme';
+$strSwitchToTable = 'Se rendre à la table copiée';
 
 $strTable = 'Table';
 $strTableComments = 'Commentaires sur la table';
@@ -624,7 +626,4 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-$strSwitchToTable = 'Switch to copied table';  //to translate
-
-$strCharset = 'Charset';  //to translate
 ?>
