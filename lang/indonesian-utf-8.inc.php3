@@ -18,8 +18,6 @@ $month = array('Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', '
 $datefmt = '%d. %B %Y jam %H:%M';
 $timespanfmt = '%s hari, %s jam, %s menit dan %s detik';
 
-$strUpdComTab = 'Mohon belajari dokumentasi untuk mengetahui cara meng-update tabel Column_comments Anda';
-
 $strAPrimaryKey = 'Primary key telah ditambah pada %s';
 $strAbortedClients = 'Dibatalkan';
 $strAbsolutePathToDocSqlDir = 'Silakan isi Absolute Path di webserver yang menunjuk ke direktori docSQL';
@@ -59,6 +57,7 @@ $strAscending = 'Urutan menaik';
 $strAtBeginningOfTable = 'pada awal tabel';
 $strAtEndOfTable = 'pada akhir tabel';
 $strAttr = 'Atribut';
+$strAutodetect = 'Deteksi otomatis';
 $strAutomaticLayout = 'Layout otomatis';
 
 $strBack = 'Kembali';
@@ -514,6 +513,7 @@ $strShowAll = 'Tampilkan semua';
 $strShowColor = 'Tampilkan warna';
 $strShowCols = 'Tampilkan kolom';
 $strShowDatadictAs = 'Format dari Data Dictionary';
+$strShowFullQueries = 'Tampilkan pencarian lengkap';
 $strShowGrid = 'Tampilkan garis';
 $strShowPHPInfo = 'Tampilkan informasi tentang PHP';
 $strShowTableDimension = 'Tampilkan ukuran dari tabel';
@@ -540,6 +540,7 @@ $strStructure = 'Struktur';
 $strSubmit = 'Kirim';
 $strSuccess = 'Perintah SQL telah dilaksanakan dengan sukses';
 $strSum = 'Jumlah';
+$strSwitchToTable = 'Pindah ke tabel yang disalin';
 
 $strTable = 'Tabel';
 $strTableComments = 'Komentar tabel';
@@ -570,19 +571,24 @@ $strTransformation_image_png__inline = 'Lihat image/jpeg: inline';
 $strTransformation_text_plain__dateformat = 'Menggunakan format waktu setempat Anda untuk field TIME, TIMESTAMP atau DATETIME. Pilihan pertama adalah Offset (dalam jam) yang akan ditambahkan pada Timestamp (Default: 0). Pilihan kedua adalah Dateformat yang berbeda sesuai dengan parameter yang tersedia pada strftime() dari PHP.';
 $strTransformation_text_plain__external = 'HANYA UNTUK LINUX: Luncurkan aplikasi eksternal dan mengisi data Field dengan cara standar. Menghasilkan output standar dari aplikasi yang bersangkutan. Default-nya adalah Tidy untuk mempercantik kode HTML cetakan. Dengan alasan pengamanan sistem, Anda perlu meng-edit file libraries/transformations/text_plain__external.inc.php dan menambahkan Tools yang akan diizinkan secara manual. Pilihan pertama adalah jumlah dari program yang ingin digunakan oleh Anda dan pilihan kedua adalah parameter untuk program-program tersebut. Parameter ketiga, bila diset ke 1 akan mengubah output dengan menggunakan htmlspecialchars() (Default adalah 1). Parameter keempat, bila diset ke 1 akan menambah sebuah NOWRAP pada Content Cell dengan hasil output yang akan ditampilkan tanpa keperluan untuk format ulang (Default 1)';
 $strTransformation_text_plain__formatted = 'Menyimpan format asli dari field. Escaping tidak dilakukan.';
+$strTransformation_text_plain__imagelink = 'Tampilkan sebuah gambar dan sebuah Link, nama file berada dalam field; pilihan utama adalah awalan seperti "http://domain.com/", pilihan kedua adalah lebarnya dalam piksel, pilihan ketiga adalah tingginya.';
+$strTransformation_text_plain__link = 'Tampilkan sebuah Link, nama file berada dalam field; pilihan utama adalah awalan seperti  "http://domain.com/", pilihan kedua adalah judul untuk Link tersebut.';
 $strTransformation_text_plain__substr = 'Hanya menampilkan sebagian dari sebuah String. Pilihan pertama adalah sebuah Offset untuk menentukan tempat dari permulaan teks Anda (Default 0). Pilihan kedua adalah sebuah Offset untuk menentukan jumlah teks yang dikembalikan. Bila ditinggal kosong, seluruh teks yang tersisa akan dibalikkan. Pilihan ketiga mendefinisikan Chars yang akan ditambah pada Output bila sebuah Substring dibalikkan (Default: ...) .';
 $strTransformation_text_plain__unformatted = 'Tampilkan kode HTML sebagai perwujudan HTML. Format dari HTML tidak kelihatan.';
+$strTruncateQueries = 'Potongkan pencarian yang ditampilkan';
 $strType = 'Jenis';
 
 $strUncheckAll = 'Uncheck semua';
 $strUnique = 'Unik';
 $strUnselectAll = 'Unselect semua';
+$strUpdComTab = 'Mohon belajari dokumentasi untuk mengetahui cara meng-update tabel Column_comments Anda';
 $strUpdatePrivMessage = 'Hak Akses (privilege) untuk %s telah di-update.';
 $strUpdateProfile = 'Update profil pengguna:';
 $strUpdateProfileMessage = 'Profil pengguna telah di-update.';
 $strUpdateQuery = 'Update proses pencarian';
 $strUsage = 'Penggunaan';
 $strUseBackquotes = 'Gunakan backquotes dengan nama tabel dan nama field';
+$strUseHostTable = 'Gunakan Host Table';
 $strUseTables = 'Gunakan tabel';
 $strUseTextField = 'Gunakan text field';
 $strUser = 'Pengguna';
@@ -619,11 +625,4 @@ $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) aka
 $strZip = '"Dikompress dengan Zip"';
 // To translate
 
-$strAutodetect = 'Autodetect';  //to translate
-$strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
-$strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
-$strUseHostTable = 'Use Host Table';  //to translate
-$strShowFullQueries = 'Show Full Queries';  //to translate
-$strTruncateQueries = 'Truncate Shown Queries';  //to translate
-$strSwitchToTable = 'Switch to copied table';  //to translate
 ?>
