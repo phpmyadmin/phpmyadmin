@@ -238,8 +238,8 @@ if ($sql_query != '') {
     // really run the query?
     if ($view_bookmark == 0) {
         // Only one query to run
-        if ($pieces_count == 1 && !empty($pieces[0])) {
-            $sql_query = $pieces[0];
+        if ($pieces_count == 1 && !empty($pieces[0]['query'])) {
+            $sql_query = $pieces[0]['query'];
             if (preg_match('@^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $sql_query)) {
                 $reload = 1;
             }
