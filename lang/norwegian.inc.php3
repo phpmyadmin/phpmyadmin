@@ -109,7 +109,7 @@ $strField = 'Felt';
 $strFields = 'Felter';
 $strFixed = 'statisk';
 $strFormat = 'Format';
-$strFormEmpty = 'Manglende verdi i skjemaet !';
+$strFormEmpty = 'Manglende verdi i skjemaet!';
 $strFullText = 'Hele strenger';
 $strFunction = 'Funksjon';
 
@@ -148,7 +148,7 @@ $strLimitNumRows = 'rader per side';
 $strLineFeed = 'Linjeskift: \\n';
 $strLines = 'Linjer';
 $strLocationTextfile = 'Plassering av filen';
-$strLogin = 'Login'; //to translate, but its not in use ...
+$strLogin = ''; //to translate, but its not in use ...
 $strLogout = 'Logg ut';
 
 $strModifications = 'Endringene er lagret';
@@ -198,6 +198,7 @@ $strPrivileges = 'Privilegier';
 $strProducedAnError = 'resulterte i en feil.';
 $strProperties = 'Egenskaper';
 
+$strQBE = 'Query by Example'; //to translate
 $strQBEDel = 'Slett';
 $strQBEIns = 'Sett inn';
 $strQueryOnDb = 'SQL-spørring i database ';
@@ -291,14 +292,15 @@ $strWrongUser = 'Ugyldig brukernavn/passord. Ingen tilgang.';
 
 $strYes = 'Ja';
 
-//to translate
-$strCarriage = 'Carriage return: \\r'; //to translate
+// To translate
+$strCarriage = 'Carriage return: \\r';  //to translate
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strGrants = 'Grants'; //to translate
+$strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
 $strOffSet = 'offset'; //to translate
 $strPartialText = 'Partial Texts'; //to translate
 $strQBE = 'Query by Example'; //to translate
-$strServerChoice = 'Server Choice'; //to translate 
-$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').'; //to translate 
+$strServerChoice = 'Server Choice'; //to translate
+$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').'; //to translate
 $strStatement = 'Statements'; //to translate
 ?>

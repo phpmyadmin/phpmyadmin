@@ -290,6 +290,7 @@ $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
 $strInsertedRows = 'Inserted rows:';
 $strInstructions = 'Instructions';//to translate
+$strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
 $strNbRecords = 'no. of records';
 $strNoDatabases = 'No databases';
 $strNoDropDatabases = '"DROP DATABASE" statements are disabled.';

@@ -292,6 +292,7 @@ $strDropTable = 'Drop table';
 $strExtendedInserts = 'Extended inserts';
 $strInsertedRows = 'Inserted rows:';
 $strInstructions = 'Instructions';//to translate
+$strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
 $strNoDatabases = 'No databases';
 $strNoDropDatabases = '"DROP DATABASE" statements are disabled.';
 $strNoModification = 'No change'; // To translate

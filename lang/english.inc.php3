@@ -142,6 +142,7 @@ $strInsertNewRow = 'Insert new row';
 $strInsertTextfiles = 'Insert textfiles into table';
 $strInstructions = 'Instructions';
 $strInUse = 'in use';
+$strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.';
 
 $strKeyname = 'Keyname';
 $strKill = 'Kill';

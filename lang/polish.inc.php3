@@ -299,4 +299,7 @@ $strWelcome = 'Witamy w ';
 $strWrongUser = 'B³êdne pola u¿ytkownik/has³o. Brak dostêpu.';
 
 $strYes = 'Tak';
+
+// To translate
+$strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
 ?>

@@ -142,7 +142,7 @@ $strInsertNewRow = 'Insérer un nouvel enregistrement';
 $strInsertTextfiles = 'Insérer un fichier texte dans la table';
 $strInstructions = 'Instructions';
 $strInUse = 'utilisé';
-
+$strInvalidName = '"%s" est un mot réservé, il ne peut être utilisé comme nom de base/table/champ.';
 $strKeyname = 'Nom de la clé';
 $strKill = 'Supprimer';
 
