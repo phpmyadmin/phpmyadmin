@@ -29,6 +29,10 @@ if (isset($btnLDI) && ($textfile != 'none')) {
         $replace = '';
     }
 
+    // Kanji encoding convert appended by Y.Kawada
+    if (function_exists('PMA_kanji_file_conv')) {
+        $textfile         = PMA_kanji_file_conv($textfile, $knjenc, $xkana);
+    }
     // Formats the data posted to this script
     $textfile             = PMA_sqlAddslashes($textfile);
     if (get_magic_quotes_gpc()) {

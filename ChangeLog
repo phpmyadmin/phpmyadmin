@@ -11,6 +11,14 @@ $Source$
 	  in an "UPDATE" statement.
 	* lang/japanese-*: updated thanks to "luc".
 	* sql.php3: use "[[:space:]]" class inside all regular expressions.
+	* db_details.php3, lines 585-589 & 729-734; Documentation.html;
+	  ldi_check.php3, lines 32-35; ldi_table.php3, lines 60-69;
+	  read_dump.php3, lines 279-287; sql.php3, lines 267-271; tbl_dump.php3;
+	  tbl_properties.php3; lang/japanese-*;
+	  libraries/common.lib.php3, lines 1026-1034;
+	  libraries/kanji-encoding.lib.php3: japanese kanji encoding conversion
+	  feature thanks to Yukihiro Kawada aka "luc"
+	  <kawada at den.fujifilm.co.jp>.
 
 2002-02-23 Marc Delisle  <lem9@users.sourceforge.net>
 	* swedish updates thanks to Björn T. Hallberg

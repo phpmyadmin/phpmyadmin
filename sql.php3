@@ -264,6 +264,11 @@ else {
         PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
     }
 
+    // tmpfile remove after convert encoding appended by Y.Kawada
+    if (function_exists('PMA_kanji_file_conv') && file_exists($textfile)) {
+        unlink($textfile);
+    }
+
     // Gets the number of rows affected/returned
     if (!$is_affected) {
         $num_rows = @mysql_num_rows($result);

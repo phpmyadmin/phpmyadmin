@@ -1024,5 +1024,14 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         return strftime($date, $timestamp);
     } // end of the 'PMA_localisedDate()' function
 
+
+    // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
+    if (PMA_PHP_INT_VERSION >= 40006
+        && @function_exists('mb_convert_encoding')
+        && strpos(' ' . $lang, 'ja-')
+        && file_exists('./libraries/kanji-encoding.lib.php3')) {
+        include('./libraries/kanji-encoding.lib.php3');
+    } // end if
+
 } // $__PMA_COMMON_LIB__
 ?>

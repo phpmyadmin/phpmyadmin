@@ -582,6 +582,11 @@ if ($cfgBookmark['db'] && $cfgBookmark['table']) {
         echo '            </div>' . "\n";
     }
 }
+
+// Encoding setting form appended by Y.Kawada
+if (function_exists('PMA_set_enc_form')) {
+    echo PMA_set_enc_form('            ');
+}
 ?>
             <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
         </form>
@@ -721,6 +726,12 @@ if ($num_tables > 0) {
         }
     }
     echo "\n";
+
+    // Encoding setting form appended by Y.Kawada
+    if (function_exists('PMA_set_enc_form')) {
+        echo '                <br />' . "\n"
+             . PMA_set_enc_form('                ');
+    }
     ?>
             </td>
         </tr>

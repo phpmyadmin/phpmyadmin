@@ -57,6 +57,16 @@ require('./header.inc.php3');
         <td><input type="text" name="column_name" /></td>
         <td><?php echo $strIfYouWish; ?></td>
     </tr>
+<?php
+// 2002/2/22 appended by Y.Kawada: Kanji encoding convert controls
+if (function_exists('PMA_set_enc_form')) {
+    echo '    <tr>' . "\n"
+         . '        <td>Kanji encoding convert</td>' . "\n"
+         . '        <td colspan=2>' . "\n"
+         . PMA_set_enc_form('            ')
+         . '        </td>' . "\n"
+         . '    </tr>' . "\n";
+?>
     <tr>
         <td colspan="3" align="center"><?php print PMA_showDocuShort('L/O/LOAD_DATA.html'); ?></td>
     </tr>

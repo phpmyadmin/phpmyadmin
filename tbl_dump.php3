@@ -14,6 +14,10 @@ function PMA_myHandler($sql_insert)
 {
     global $tmp_buffer;
 
+    // Kanji encoding convert feature appended by Y.Kawada (2001/2/21)
+    if (function_exists('PMA_kanji_str_conv')) {
+        $sql_insert = PMA_kanji_str_conv($sql_insert, $GLOBALS['knjenc'], $GLOBALS['xkana']);
+    }
     // Defines the end of line delimiter to use
     $eol_dlm = (isset($GLOBALS['extended_ins']) && ($GLOBALS['current_row'] < $GLOBALS['rows_cnt']))
              ? ','
@@ -51,6 +55,10 @@ function PMA_myCsvHandler($sql_insert)
     global $add_character;
     global $tmp_buffer;
 
+    // Kanji encoding convert feature appended by Y.Kawada (2001/2/21)
+    if (function_exists('PMA_kanji_str_conv')) {
+        $sql_insert = PMA_kanji_str_conv($sql_insert, $GLOBALS['knjenc'], $GLOBALS['xkana']);
+    }
     // Result has to be displayed on screen
     if (empty($GLOBALS['asfile'])) {
         echo htmlspecialchars($sql_insert) . $add_character;
@@ -218,17 +226,25 @@ else {
                                       : '\'' . $table . '\'';
                 // If only datas, no need to displays table name
                 if ($what != 'dataonly') {
-                    $dump_buffer.= '# --------------------------------------------------------' . $crlf
-                                .  $crlf . '#' . $crlf
-                                .  '# ' . $strTableStructure . ' ' . $formatted_table_name . $crlf
-                                .  '#' . $crlf . $crlf
-                                .  PMA_getTableDef($db, $table, $crlf, $err_url) . ';' . $crlf;
+                    $dump_buffer .= '# --------------------------------------------------------' . $crlf
+                                 .  $crlf . '#' . $crlf
+                                 .  '# ' . $strTableStructure . ' ' . $formatted_table_name . $crlf
+                                 .  '#' . $crlf . $crlf
+                                 .  PMA_getTableDef($db, $table, $crlf, $err_url) . ';' . $crlf;
+                }
+                if (function_exists('PMA_kanji_str_conv')) { // Y.Kawada
+                    $dump_buffer = PMA_kanji_str_conv($dump_buffer, $knjenc, $xkana);
                 }
                 // At least data
                 if (($what == 'data') || ($what == 'dataonly')) {
-                    $dump_buffer .= $crlf . '#' . $crlf
+                    $tcmt = $crlf . '#' . $crlf
                                  .  '# ' . $strDumpingData . ' ' . $formatted_table_name . $crlf
                                  .  '#' . $crlf .$crlf;
+                    if (function_exists('PMA_kanji_str_conv')) { // Y.Kawada
+                        $dump_buffer .= PMA_kanji_str_conv($tcmt, $knjenc, $xkana);
+                    } else {
+                        $dump_buffer .= $tcmt;
+                    }
                     $tmp_buffer  = '';
                     if (!isset($limit_from) || !isset($limit_to)) {
                         $limit_from = $limit_to = 0;
@@ -239,6 +255,7 @@ else {
                         $dump_buffer = '';
                     }
                     PMA_getTableContent($db, $table, $limit_from, $limit_to, 'PMA_myHandler', $err_url);
+
                     $dump_buffer .= $tmp_buffer;
                 } // end if
                 $i++;

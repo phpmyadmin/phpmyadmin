@@ -732,6 +732,11 @@ if ($is_upload) {
 } // end if
 echo "\n";
 
+// Encoding setting form appended by Y.Kawada
+if (function_exists('PMA_set_enc_form')) {
+    echo PMA_set_enc_form('            ');
+}
+
 // Bookmark Support
 if ($cfgBookmark['db'] && $cfgBookmark['table']) {
     if (($bookmark_list = PMA_listBookmarks($db, $cfgBookmark)) && count($bookmark_list) > 0) {
@@ -898,6 +903,12 @@ if (PMA_PHP_INT_VERSION >= 40004) {
     }
 }
 echo "\n";
+
+// Encoding setting form appended by Y.Kawada
+if (function_exists('PMA_set_enc_form')) {
+    echo '<br />' . "\n"
+         . PMA_set_enc_form('                    ');
+}
 ?>
                 </td>
             </tr>

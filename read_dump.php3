@@ -275,7 +275,17 @@ if ($sql_file != 'none') {
 else if (empty($id_bookmark) && get_magic_quotes_gpc() == 1) {
     $sql_query = stripslashes($sql_query);
 }
-$sql_query = trim($sql_query);
+
+// Kanji convert SQL textfile 2002/1/4 by Y.Kawada
+if (@function_exists('PMA_kanji_str_conv')) {
+    $sql_tmp   = trim($sql_query);
+    PMA_change_enc_order();
+    $sql_query = PMA_kanji_str_conv($sql_tmp, $knjenc, $xkana);
+    PMA_change_enc_order();
+} else {
+    $sql_query = trim($sql_query);
+}
+
 // $sql_query come from the query textarea, if it's a reposted query gets its
 // 'true' value
 if (!empty($prev_sql_query)) {
