@@ -194,7 +194,7 @@ else {
         $dump_buffer       .= '# phpMyAdmin MySQL-Dump' . $crlf
                            .  '# version ' . PMA_VERSION . $crlf
                            .  '# http://phpwizard.net/phpMyAdmin/' . $crlf
-                           .  '# http://phpmyadmin.sourceforge.net/ (download page)' . $crlf
+                           .  '# http://www.phpmyadmin.net/ (download page)' . $crlf
                            .  '#' . $crlf
                            .  '# ' . $strHost . ': ' . $cfgServer['host'];
         if (!empty($cfgServer['port'])) {

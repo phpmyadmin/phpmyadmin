@@ -10,6 +10,7 @@ $Source$
 	* libraries/display_tbl.lib.php3, lines 957-991: expended cosmetic changes
 	  to allow word wrapping.
 	* libraries/auth/config.auth.lib.php3, line 111: fixed a header problem.
+	* tbl_dump.php3, line 197: new domain name (thanks to Rabus).
 
 2002-04-11 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3, line 957: cosmetic change to allow word
