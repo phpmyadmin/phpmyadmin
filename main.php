@@ -180,7 +180,7 @@ if ($server > 0) {
 // We were checking privileges with 'USE mysql' but users with the global
 // priv CREATE TEMPORARY TABLES or LOCK TABLES can do a 'USE mysql'
 // (even if they cannot see the tables)
-    $is_superuser    = PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', $userlink);
+    $is_superuser    = PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', $userlink, PMA_DBI_QUERY_STORE);
     if ($dbh) {
         $local_query = 'SELECT Create_priv, Reload_priv FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
         $rs_usr      = PMA_DBI_try_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
@@ -201,7 +201,7 @@ if ($server > 0) {
     // the first inexistant db name that we find, in most cases it's probably
     // the one he just dropped :)
     if (!$is_create_priv) {
-        $rs_usr      = PMA_DBI_try_query('SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\';', $dbh);
+        $rs_usr      = PMA_DBI_try_query('SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\';', $dbh, PMA_DBI_QUERY_STORE);
         if ($rs_usr) {
             $re0     = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
             $re1     = '(^|[^\])(\\\)+';       // escaped wildcards
@@ -221,11 +221,11 @@ if ($server > 0) {
             // Finally, let's try to get the user's privileges by using SHOW
             // GRANTS...
             // Maybe we'll find a little CREATE priv there :)
-            $rs_usr      = PMA_DBI_try_query('SHOW GRANTS FOR ' . $mysql_cur_user_and_host . ';', $dbh);
+            $rs_usr      = PMA_DBI_try_query('SHOW GRANTS FOR ' . $mysql_cur_user_and_host . ';', $dbh, PMA_DBI_QUERY_STORE);
             if (!$rs_usr) {
                 // OK, now we'd have to guess the user's hostname, but we
                 // only try out the 'username'@'%' case.
-                $rs_usr      = PMA_DBI_try_query('SHOW GRANTS FOR ' . $mysql_cur_user . ';', $dbh);
+                $rs_usr      = PMA_DBI_try_query('SHOW GRANTS FOR ' . $mysql_cur_user . ';', $dbh, PMA_DBI_QUERY_STORE);
             }
             unset($local_query);
             if ($rs_usr) {

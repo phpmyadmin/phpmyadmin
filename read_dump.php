@@ -346,7 +346,7 @@ if ($goto == 'tbl_properties.php') {
         $goto     = 'db_details.php';
     } else {
         PMA_DBI_select_db($db);
-        $is_table = PMA_DBI_try_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
+        $is_table = PMA_DBI_try_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'', NULL, PMA_DBI_QUERY_STORE);
         if (!($is_table && @PMA_DBI_num_rows($is_table))) {
             $goto = 'db_details.php';
             unset($table);

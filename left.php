@@ -417,7 +417,7 @@ if ($num_dbs > 1) {
         if (!empty($db_start) && $db == $db_start) {
             $selected_db = $j;
         }
-        $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
+        $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
         $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
         $common_url_query    = PMA_generate_common_url($db);
         if ($num_tables) {
@@ -641,7 +641,7 @@ if ($num_dbs > 1) {
 // Case where only one database has to be displayed
 else if ($num_dbs == 1) {
     $db                  = $dblist[0];
-    $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
+    $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
     $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
     $common_url_query    = PMA_generate_common_url($db);
     if ($num_tables) {

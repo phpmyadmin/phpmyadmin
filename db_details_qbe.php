@@ -114,7 +114,7 @@ if ($row < 0) {
 /**
  * Prepares the form
  */
-$tbl_result     = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
+$tbl_result     = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
 $tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
 $i              = 0;
 $k              = 0;

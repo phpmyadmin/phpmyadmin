@@ -76,7 +76,6 @@ if (isset($db) && isset($db_rename) && $db_rename == 'true') {
         $db         = $newname;
     }
 }
-
 /**
  * Prepares the tables list if the user where not redirected to this script
  * because there is no table in the database ($is_info is TRUE)
@@ -243,6 +242,8 @@ else {
             }
 
         } // end while
+        PMA_DBI_free_result($result);
+        unset($result);
     } // end if
 
     if ($cfgRelation['commwork']) {

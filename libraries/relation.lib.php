@@ -104,7 +104,7 @@ function PMA_getRelationsParam($verbose = FALSE)
     // PMA_DBI_select_db($cfgRelation['db']);
 
     $tab_query = 'SHOW TABLES FROM ' . PMA_backquote($cfgRelation['db']);
-    $tab_rs    = PMA_query_as_cu($tab_query, FALSE);
+    $tab_rs    = PMA_query_as_cu($tab_query, NULL, PMA_DBI_QUERY_STORE);
 
     while ($curr_table = @PMA_DBI_fetch_row($tab_rs)) {
         if ($curr_table[0] == $cfg['Server']['bookmarktable']) {

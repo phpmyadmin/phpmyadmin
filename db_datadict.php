@@ -53,7 +53,7 @@ if ($cfgRelation['commwork']) {
  * Selects the database and gets tables names
  */
 PMA_DBI_select_db($db);
-$rowset = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
+$rowset = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
 
 $count  = 0;
 while ($row = PMA_DBI_fetch_assoc($rowset)) {

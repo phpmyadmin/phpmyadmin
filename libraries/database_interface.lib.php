@@ -52,7 +52,7 @@ function PMA_DBI_get_dblist($link = NULL) {
 }
 
 function PMA_DBI_get_tables($database, $link = NULL) {
-    $result       = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($database) . ';');
+    $result       = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($database) . ';', NULL, PMA_DBI_QUERY_STORE);
     $tables       = array();
     while (list($current) = PMA_DBI_fetch_row($result)) {
         $tables[] = $current;

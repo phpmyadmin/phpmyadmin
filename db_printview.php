@@ -45,7 +45,7 @@ if ($cfg['SkipLockedTables'] == TRUE) {
         unset($result);
 
         if (isset($sot_cache)) {
-            $result      = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
+            $result      = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
             if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
                 while ($tmp = PMA_DBI_fetch_row($result)) {
                     if (!isset($sot_cache[$tmp[0]])) {

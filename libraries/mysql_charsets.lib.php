@@ -226,11 +226,9 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
 
     function PMA_getDbCollation($db) {
         global $userlink;
-
         if (PMA_MYSQL_INT_VERSION >= 40101) {
             // MySQL 4.1.0 does not support seperate charset settings
             // for databases.
-
             $res = PMA_DBI_query('SHOW CREATE DATABASE ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
             $row = PMA_DBI_fetch_row($res);
             PMA_DBI_free_result($res);

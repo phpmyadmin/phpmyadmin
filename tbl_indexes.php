@@ -37,7 +37,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
     }
     // Not a valid table name -> back to the default db_details sub-page
     if (!empty($table)) {
-        $is_table = PMA_DBI_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
+        $is_table = PMA_DBI_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'', NULL, PMA_DBI_QUERY_STORE);
     }
     if (empty($table)
         || !($is_table && PMA_DBI_num_rows($is_table))) {

@@ -30,7 +30,7 @@ if ($cfg['SkipLockedTables'] == TRUE) {
         PMA_DBI_free_result($db_info_result);
 
         if (isset($sot_cache)) {
-            $db_info_result = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
+            $db_info_result = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
             if ($db_info_result != FALSE && PMA_DBI_num_rows($db_info_result) > 0) {
                 while ($tmp = PMA_DBI_fetch_row($db_info_result)) {
                     if (!isset($sot_cache[$tmp[0]])) {
@@ -48,14 +48,14 @@ if ($cfg['SkipLockedTables'] == TRUE) {
     }
 }
 if (!isset($sot_ready)) {
-    $db_info_result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ';');
+    $db_info_result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
     if ($db_info_result != FALSE && PMA_DBI_num_rows($db_info_result) > 0) {
         while ($sts_tmp = PMA_DBI_fetch_assoc($db_info_result)) {
             $tables[] = $sts_tmp;
         }
-        PMA_DBI_free_result($db_info_result);
-        unset($db_info_result);
     }
+    @PMA_DBI_free_result($db_info_result);
+    unset($db_info_result);
 }
 $num_tables = (isset($tables) ? count($tables) : 0);
 

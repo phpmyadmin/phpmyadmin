@@ -22,7 +22,7 @@ if (!isset($is_db) || !$is_db) {
 if (!isset($is_table) || !$is_table) {
     // Not a valid table name -> back to the db_details.php
     if (!empty($table)) {
-        $is_table = PMA_DBI_try_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
+        $is_table = PMA_DBI_try_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';', NULL, PMA_DBI_QUERY_STORE);
     }
     if (empty($table)
         || !($is_table && @PMA_DBI_num_rows($is_table))) {

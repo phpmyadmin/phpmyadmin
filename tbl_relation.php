@@ -269,7 +269,7 @@ if ($cfgRelation['relwork']) {
     }
     // [0] of the row is the name
 
-    $tab_rs              = PMA_DBI_query($tab_query);
+    $tab_rs              = PMA_DBI_query($tab_query, NULL, PMA_DBI_QUERY_STORE);
     $selectboxall['nix'] = '--';
     $selectboxall_innodb['nix'] = '--';
 

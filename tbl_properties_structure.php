@@ -34,7 +34,7 @@ $url_query .= '&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_st
 /**
  * Prepares the table structure display
  */
-// 1. Get table information/display tabs
+// 1. Get table information/display tabs;
 require('./tbl_properties_table_info.php');
 
 /**

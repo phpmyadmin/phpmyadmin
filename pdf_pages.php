@@ -221,7 +221,7 @@ if ($cfgRelation['pdfwork']) {
 
     // We will need an array of all tables in this db
     $selectboxall = array('--');
-    $alltab_rs    = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
+    $alltab_rs    = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
     while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
         $selectboxall[] = $val[0];
     }

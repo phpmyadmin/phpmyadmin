@@ -319,7 +319,7 @@ else {
         list($usec, $sec) = explode(' ',microtime());
         $querytime_before = ((float)$usec + (float)$sec);
 
-        $result   = @PMA_DBI_try_query($full_sql_query);
+        $result   = @PMA_DBI_try_query($full_sql_query, NULL, true);
 
         list($usec, $sec) = explode(' ',microtime());
         $querytime_after = ((float)$usec + (float)$sec);
@@ -563,7 +563,7 @@ else {
                 if (!isset($table)) {
                     $goto     = 'db_details.php';
                 } else {
-                    $is_table = @PMA_DBI_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
+                    $is_table = @PMA_DBI_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';', NULL, PMA_DBI_QUERY_STORE);
                     if (!($is_table && @PMA_DBI_num_rows($is_table))) {
                         $goto = 'db_details.php';
                         unset($table);
