@@ -86,6 +86,7 @@ $strDatabase = 'Database ';
 $strDatabaseHasBeenDropped = 'Databasen %s har blitt slettet';
 $strDatabases = 'databaser';
 $strDatabasesStats = 'Statistikk for databaser';
+$strDatabaseWildcard = 'Database (asterisk er tillatt):';
 $strDataOnly = 'Bare data';
 $strDefault = 'Standard';
 $strDelete = 'Slett';
@@ -344,5 +345,4 @@ $strYes = 'Ja';
 $strZip = '"komprimert (zip)"';
 
 // To translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

@@ -90,6 +90,7 @@ $strDatabase = 'Tietokanta ';
 $strDatabases = 'tietokantaa';
 $strDatabaseHasBeenDropped = 'Tietokanta %s on pudotettu.';
 $strDatabasesStats = 'Tietokantastatistiikka';
+$strDatabaseWildcard = 'Tietokanta (voit käyttää jokerimerkkejä):';
 $strDataOnly = 'Vain data';
 $strDefault = 'Oletusarvo';
 $strDelete = 'Poista';
@@ -349,5 +350,4 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

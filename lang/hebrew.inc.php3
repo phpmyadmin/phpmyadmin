@@ -86,6 +86,7 @@ $strDatabase = 'מסד נתונים ';
 $strDatabaseHasBeenDropped = 'מסד הנתונים %s נמחק.';
 $strDatabases = 'מסדי נתונים';
 $strDatabasesStats = 'סטטיסטיקת מסד הנתונים';
+$strDatabaseWildcard = 'מסד נתונים (תווים כלליים מורשים):';
 $strDataOnly = 'מידע בלבד';
 $strDefault = 'ברירת מחדל';
 $strDelete = 'מחק';
@@ -348,5 +349,4 @@ $strYes = 'כן';
 $strZip = '"zipped"';
 
 // To translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

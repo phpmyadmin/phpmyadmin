@@ -75,6 +75,7 @@ $strData = 'Dados';
 $strDatabase = 'Banco de Dados ';
 $strDatabases = 'Banco de Dados';
 $strDatabasesStats = 'Estatisticas da base';
+$strDatabaseWildcard = 'Banco de Dados (caractéres-coringa permitidos):';
 $strDataOnly = 'Dados apenas';
 $strDefault = 'Padrão';
 $strDelete = 'Remove';
@@ -347,5 +348,4 @@ $strNoIndexPartsDefined = 'No index parts defined!';
 $strNoIndex = 'No index defined!';
 $strPrimaryKeyName = 'The name of the primary key must be... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>
