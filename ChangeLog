@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/lithuanian: Updated, thanks to Vilius Zigmantas (viliusz).
+
 2003-12-15 Garvin Hicking  <me@supergarv.de>
     * tbl_replace.php: Check all required array indizes for multi-row edit
 
