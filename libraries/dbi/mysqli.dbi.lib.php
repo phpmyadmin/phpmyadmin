@@ -176,7 +176,11 @@ function PMA_DBI_fetch_row($result) {
 }
 
 function PMA_DBI_free_result($result) {
-    return @mysqli_free_result($result);
+    if (!is_bool($result)) {
+        return mysqli_free_result($result);
+    } else {
+        return 0;
+    }
 }
 
 function PMA_DBI_getError($link = NULL) {
