@@ -587,7 +587,7 @@ function show_message($message) {
      <table border="<?php echo $GLOBALS['cfgBorder'];?>">
       <tr>
        <td bgcolor="<?php echo $GLOBALS['cfgThBgcolor'];?>">
-       <b><?php echo $message;?><b><br>
+       <b><?php echo stripslashes($message);?><b><br>
        </td>
       </tr>
     <?php
