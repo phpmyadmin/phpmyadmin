@@ -5,11 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2001-08-16  Loïc Chapeaux  <lolo@phpheaven.net>
+2001-08-17  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/polish.inc.php3: updated thanks to
 	  Jakub Wilk <ubanus@users.sourceforge.net>.
-	* tbl_addfield.php3, line 68: removed an unecessary stripslashes call.
-	* tbl_replace.php3: fixed some decoding bugs.
+	* tbl_addfield.php3: removed an unecessary stripslashes call (line 68) and
+	  replaced some remaining tabs characters.
+	* tbl_alter.php3; tbl_addfield.php3; tbl_change.php3; tbl_replace.php3;
+	  tbl_properties.php3; tbl_properties.inc.php3: fixed some
+	  encoding/decoding bugs.
+	* left.php3; left.js: added a style for the number of tables per database.
 
 2001-08-16  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_change.php3, bug 451085 Can't assign NULL value to char(1).
