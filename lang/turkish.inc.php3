@@ -60,7 +60,9 @@ $strBrowse = 'Tara';
 $strBzip = '"bzipped"';
 
 $strCantLoadMySQL = 'mySQL uzantýsýný yükleyemiyor,<br />lütfen PHP ayarlarýný kontrol ediniz.';
+$strCantLoadRecodeIconv = 'Karakter seti dönüþümü için gerekli olan Iconv veya recode uzantýlarýný yükleyenemiyor.  Php\'nin bu uzantýlara izin vermesini saðlayýn veya phpMyAdmin içinde karakter dönüþümünü devre dýþý býrakýnýz...'; 
 $strCantRenameIdxToPrimary = 'Index\'i PRIMARY olarak adland&#305;r&#305;mazs&#305;n&#305;z!';
+$strCantUseRecodeIconv = 'Uzantý raporlarý yüklenmiþken , ne iconv ne libinconv ne de recode_string fonksiyonu  kullanýlamaz.  Php ayarlarýnýzý kontrol ediniz.';
 $strCardinality = 'En önemli';
 $strCarriage = 'Enter Karakteri: \\r';
 $strChange = 'Deðiþtir';
@@ -72,6 +74,7 @@ $strCheckTable = 'Tabloyu kontrol et';
 $strChoosePage = 'Lütfen düzenlemek istediðiniz sayfayý seçin';
 $strColumn = 'Sütun';
 $strColumnNames = 'Sütun adlarý';
+$strComments = 'Yorumlar'; 
 $strCompleteInserts = 'Tamamlanmýþ eklemeler';
 $strConfigFileError ='phpMyAdmin konfigurasyon dosyanýzý okuyamadý....<br /> Bu php yorumlama hatasý bulduðu zaman veya dosyayý bulamadýðý zaman meydana gelebilir..<br /> Lütfen aþaðýdaki linki kullanarak dosyayý direkt olarak çaðýrýn ve aldýðýnýz php hata mesajlarýný okuyunuz.Çoðu durumda herhangi bir yerde týrnak veya noktalý virgül eksiktir<br /> Boþ bir sayfayla karþýlaþýrsanýz ,herþey yolunda demektir.'; 
 $strConfigureTableCoord = ' Lütfen %s tablosu için koordinatlarý yapýlandýrýnýz';
@@ -151,6 +154,7 @@ $strGzip = '"gziplenmiþ"';
 
 $strHasBeenAltered = 'düzenlendi.';
 $strHasBeenCreated = 'yaratýldý.';
+$strHaveToShow = 'Görüntülemek için en az bir sütun seçmelisiniz'; 
 $strHome = 'Ana Sayfa';
 $strHomepageOfficial = 'Resmi phpMyAdmin Web Sayfasý';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Yükleme Sayfasý';
@@ -192,11 +196,13 @@ $strLogout = 'Çýkýþ';
 $strLogPassword = '&#350;ifre:';
 $strLogUsername = 'Kullan&#305;c&#305; Ad&#305;:';
 
+$strMissingBracket = 'Parantez eksik'; 
 $strModifications = 'Deðiþiklikler kaydedildi';
 $strModify = 'Deðiþtir';
 $strModifyIndexTopic = 'Index düzenle';
 $strMoveTable = 'Tabloyu (veritabaný<b>.</b>tablo) taþý:';
 $strMoveTableOK = '%s tablosu %s üzerine taþýndý.';
+$strMySQLCharset = 'MySQL karakter seti'; 
 $strMySQLReloaded = 'MySQL yeniden yüklendi.';
 $strMySQLSaid = 'MySQL çýktýsý: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% -- çalýþtýðý ortam --) %pma_s2% çalýþtýðý sistem -- %pma_s3%';
@@ -393,10 +399,4 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiþ"';
 
 // To translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
 ?>

@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/chinese* updates, thanks to Siu Sun
+    * lang/lithuanian updates, thanks to Vilius Zigmantas
+    * lang/romanian updates, thanks to Valics Lehel
+    * lang/thai updates, thanks to Arthit Suriyawongkul.
+    * lang/turkish updates, thanks to Bora Alioglu
+
 2002-06-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/arabic.inc.php3: Changed $cfgPmaAbsoluteUri into $cfg['...'].
 
