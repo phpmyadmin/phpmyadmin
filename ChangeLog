@@ -19,6 +19,7 @@ $Source$
       Updated character sets overview for MySQL 4.1.1.
     * db_create.php, main.php: Ability to specify a default character set for a
       new database.
+    * libraries/sqlparser.lib.php: Bug #857749.
 
 2003-12-11 Garvin Hicking <me@supergarv.de>
     * header_printview.inc.php: RFE #856503, show number of rows in printview

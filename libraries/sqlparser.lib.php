@@ -598,6 +598,10 @@ if ($is_minimum_common == FALSE) {
               if ($d_cur_upper == 'INNODB' && $d_prev_upper == 'SHOW' && $d_next_upper == 'STATUS') {
                 $t_suffix = '_reservedWord';
               }
+
+              if ($d_cur_upper == 'DEFAULT' && $d_next_upper == 'CHARACTER') {
+                $t_suffix = '_reservedWord';
+              }
             } else {
               // Do nothing
             }
