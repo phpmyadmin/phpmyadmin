@@ -457,7 +457,6 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
         // Just as fallback
         $unsorted_sql_query     = $sql_query;
-        $url_sql_query          = $sql_query;
 
         // sorting by indexes, only if it makes sense
         if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
@@ -471,11 +470,6 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             $unsorted_sql_query .= $analyzed_sql[0]['select_expr_clause'];
             if (!empty($analyzed_sql[0]['from_clause'])) {
                 $unsorted_sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
-            }
-
-            // query without conditions to shorten urls when needed, 800 is just guess, it should depend on remaining url length
-            if (strlen($sql_query) > 800) {
-                $url_sql_query = $unsorted_sql_query;
             }
             
             if (!empty($analyzed_sql[0]['where_clause'])) {
@@ -970,10 +964,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
     $url_sql_query          = $sql_query;
 
-    // query without conditions to shorten urls when needed, 600 is just guess, it should depend on remaining url length
+    // query without conditions to shorten urls when needed, 200 is just
+    // guess, it should depend on remaining url length
+
     if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
         isset($analyzed_sql[0]['querytype']) && $analyzed_sql[0]['querytype'] == 'SELECT' &&
-        strlen($sql_query) > 600) {
+        strlen($sql_query) > 200) {
 
         $url_sql_query = 'SELECT ';
         if (isset($analyzed_sql[0]['queryflags']['distinct'])) {

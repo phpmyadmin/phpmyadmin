@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-28 Michal Čihař  <michal@cihar.com>
+    * libraries/display_tbl.lib.php: Decrease limit for query truncating (see
+      comments in bug #951744).
+
 2004-05-26 Michal Čihař  <michal@cihar.com>
     * lang/norwegian: Update, thanks to Sven-Erik Andersen - sven-erik.
     * lang/estonian: Update thanks to Alvar Soome - finsoft.
