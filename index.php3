@@ -41,6 +41,8 @@ $url_query = 'lang=' . $lang
            . '&amp;convcharset=' . $convcharset
            . '&amp;server=' . $server
            . (empty($db) ? '' : '&amp;db=' . urlencode($db));
+
+header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
