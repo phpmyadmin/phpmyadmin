@@ -70,10 +70,12 @@ $fields_cnt  = mysql_num_rows($fields_rs);
 
 <?php
 $i         = 0;
+$aryFields = array();
 
 while ($row = mysql_fetch_array($fields_rs)) {
     $i++;
     $bgcolor          = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
+    $aryFields[]      = $row['Field'];
 
     $type             = $row['Type'];
     // reformat mysql query output - staybyte - 9. June 2001
@@ -492,15 +494,30 @@ echo "\n";
         <div style="margin-bottom: 10px"><a href="tbl_printview.php3?<?php echo $url_query; ?>"><?php echo $strPrintView; ?></a></div>
     </li>
 
+    <!-- Add some new fields -->
+    <li>
+        <form method="post" action="tbl_addfield.php3"
+            onsubmit="return checkFormElementInRange(this, 'num_fields', 1)">
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="db" value="<?php echo $db; ?>" />
+            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <?php echo $strAddNewField; ?>&nbsp;:
+            <input type="text" name="num_fields" size="2" maxlength="2" value="1" class="textfield" style="vertical-align: middle" onfocus="this.select()" />
+            <select name="after_field" style="vertical-align: middle">
+                <option value="--end--"><?php echo $strAtEndOfTable; ?></option>
+                <option value="--first--"><?php echo $strAtBeginningOfTable; ?></option>
 <?php
-
-// Encoding setting form appended by Y.Kawada
-if (function_exists('PMA_set_enc_form')) {
-    echo PMA_set_enc_form('            ');
+reset($aryFields);
+while (list($junk, $fieldname) = each($aryFields)) {
+    echo '                <option value="' . urlencode($fieldname) . '">' . sprintf($strAfter, htmlspecialchars($fieldname)) . '</option>' . "\n";
 }
-
+unset($aryFields);
 ?>
-
+            </select>
+            <input type="submit" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
+        </form>
+    </li>
 </ul>
 
 <?php

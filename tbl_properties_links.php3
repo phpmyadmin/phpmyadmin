@@ -38,13 +38,13 @@ if ($num_rows > 0) {
 ?>
 <p>
     [ <?php echo $lnk8 . "\n"; ?>
-          <b><?php echo $strMain; ?></b><?php if ($lnk8) echo '</a>'; ?>&nbsp;|
+        <b><?php echo $strMain; ?></b><?php if ($lnk8) echo '</a>'; ?>&nbsp;|
     <?php echo $lnk1 . "\n"; ?>
-          <b><?php echo $strBrowse; ?></b><?php if ($lnk1) echo '</a>'; ?>&nbsp;|
+        <b><?php echo $strBrowse; ?></b><?php if ($lnk1) echo '</a>'; ?>&nbsp;|
     <?php echo $lnk7 . "\n"; ?>
-          <b><?php echo $strStructure; ?></b><?php if ($lnk7) echo '</a>'; ?>&nbsp;|
+        <b><?php echo $strStructure; ?></b><?php if ($lnk7) echo '</a>'; ?>&nbsp;|
     <?php echo $lnk2 . "\n"; ?>
-          <b><?php echo $strSelect; ?></b><?php if ($lnk2) echo '</a>'; ?>&nbsp;|
+        <b><?php echo $strSelect; ?></b><?php if ($lnk2) echo '</a>'; ?>&nbsp;|
     <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a>&nbsp;|
     <?php echo $lnk4 . "\n"; ?>

@@ -14,29 +14,6 @@ for ($i = 0; $row = mysql_fetch_array($result); $i++) {
 mysql_free_result($result);
 ?>
 <ul>
-    <!-- Add some new fields -->
-    <li>
-        <form method="post" action="tbl_addfield.php3"
-            onsubmit="return checkFormElementInRange(this, 'num_fields', 1)">
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
-            <?php echo $strAddNewField; ?>&nbsp;:
-            <input type="text" name="num_fields" size="2" maxlength="2" value="1" class="textfield" style="vertical-align: middle" onfocus="this.select()" />
-            <select name="after_field" style="vertical-align: middle">
-                <option value="--end--"><?php echo $strAtEndOfTable; ?></option>
-                <option value="--first--"><?php echo $strAtBeginningOfTable; ?></option>
-<?php
-reset($columns);
-while (list($junk, $fieldname) = each($columns)) {
-    echo '                <option value="' . urlencode($fieldname) . '">' . sprintf($strAfter, htmlspecialchars($fieldname)) . '</option>' . "\n";
-}
-?>
-            </select>
-            <input type="submit" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
-        </form>
-    </li>
 
 <?php
 if (PMA_MYSQL_INT_VERSION >= 32334) {
