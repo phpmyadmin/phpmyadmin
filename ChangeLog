@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-25 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_privileges.php3:
+      - Made the script compatible to MySQL < 3.22.11;
+      - Fixed the missing "LOCK TABLES" option in the privilege editor.
+
 2002-12-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
 

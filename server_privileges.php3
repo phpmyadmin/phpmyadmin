@@ -66,7 +66,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         } else {
             $privs[] = 'USAGE';
         }
-    } else if ($allPrivileges && (!isset($GLOBALS['grant_count']) || count($privs) == $GLOBALS['grant_count'])) {
+    } else if ($allPrivileges && isset($GLOBALS['grant_count']) && count($privs) == $GLOBALS['grant_count']) {
         if ($enableHTML) {
             $privs = array('<dfn title="' . $GLOBALS['strPrivDescAllPrivileges'] . '">ALL&nbsp;PRIVILEGES</dfn>');
         } else {
@@ -83,36 +83,53 @@ if (!empty($update_privs)) {
     if (empty($hostname)) {
         $hostname = '%';
     }
-    $sql_query0 = 'REVOKE ALL PRIVILEGES ON *.* FROM "' . $username . '"@"' . $hostname . '";';
-    $sql_query1 = 'REVOKE GRANT OPTION ON *.* FROM "' . $username . '"@"' . $hostname . '";';
-    $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO "' . $username . '"@"' . $hostname . '"';
-    if (isset($Grant_priv) || isset($max_questions) || isset($max_connections) || isset($max_updates)) {
-        $sql_query2 .= 'WITH';
-        if (isset($Grant_priv) && $Grant_priv == 'Y') {
-            $sql_query2 .= ' GRANT OPTION';
+    if (PMA_MYSQL_INT_VERSION >= 32211) {
+        $sql_query0 = 'REVOKE ALL PRIVILEGES ON *.* FROM "' . $username . '"@"' . $hostname . '";';
+        $sql_query1 = 'REVOKE GRANT OPTION ON *.* FROM "' . $username . '"@"' . $hostname . '";';
+        $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO "' . $username . '"@"' . $hostname . '"';
+        if (isset($Grant_priv) || isset($max_questions) || isset($max_connections) || isset($max_updates)) {
+            $sql_query2 .= 'WITH';
+            if (isset($Grant_priv) && $Grant_priv == 'Y') {
+                $sql_query2 .= ' GRANT OPTION';
+            }
+            if (isset($max_questions)) {
+                $sql_query2 .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
+            }
+            if (isset($max_connections)) {
+                $sql_query2 .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
+            }
+            if (isset($max_updates)) {
+                $sql_query2 .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+            }
         }
-        if (isset($max_questions)) {
-            $sql_query2 .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
+        $sql_query2 .= ';';
+        if (!@PMA_mysql_query($sql_query0, $userlink)) {
+            PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query0);
         }
-        if (isset($max_connections)) {
-            $sql_query2 .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
+        if (!@PMA_mysql_query($sql_query1, $userlink)) {
+            PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query1);
         }
-        if (isset($max_updates)) {
-            $sql_query2 .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+        if (!@PMA_mysql_query($sql_query2, $userlink)) {
+            PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query2);
         }
+        $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
+        $message = sprintf($strUpdatePrivMessage, '\'' . $username . '\'@\'' . $hostname . '\'');
+    } else {
+        $sql_query = 'SHOW COLUMNS FROM `user`;';
+        $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
+        $grants = array();
+        while ($row = PMA_mysql_fetch_row($res)) {
+            if (substr($row[0], -5) == '_priv') {
+                $grants[] = PMA_backquote($row[0]) . ' = "' . (empty($$row[0]) ? 'N' : 'Y') . '"';
+            }
+        }
+        mysql_free_result($res);
+        unset($res);
+        unset($row);
+        $sql_query = 'UPDATE `user` SET ' . join(', ', $grants) . ' WHERE `User` = "' . $username . '" AND `Host` = "' . $hostname . '";';
+        PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
+        $message = sprintf($strUpdatePrivMessage, '\'' . $username . '\'@\'' . $hostname . '\'') . '<br />' . "\n" . $strRememberReload;
     }
-    $sql_query2 .= ';';
-    if (!@PMA_mysql_query($sql_query0, $userlink)) {
-        PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query0);
-    }
-    if (!@PMA_mysql_query($sql_query1, $userlink)) {
-        PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query1);
-    }
-    if (!@PMA_mysql_query($sql_query2, $userlink)) {
-        PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query2);
-    }
-    $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
-    $message = sprintf($strUpdatePrivMessage, '\'' . $username . '\'@\'' . $hostname . '\'');
 }
 
 /**
@@ -356,9 +373,6 @@ if (!isset($username) && !isset($hostname)) {
         array('Delete', 'DELETE', $strPrivDescDelete),
         array('File', 'FILE', $strPrivDescFile)
     );
-    if (isset($row['Lock_tables_priv'])) {
-        $privDataAccess[1][] = array('Lock_tables', 'LOCK&nbsp;TABLES', $strPrivDescLockTables);
-    }
     $privTable[1] = array(
         array('Create', 'CREATE', $strPrivDescCreateDb),
         array('Alter', 'ALTER', $strPrivDescAlter),
@@ -383,6 +397,9 @@ if (!isset($username) && !isset($hostname)) {
     if (isset($row['Show_db_priv'])) {
         $privTable[2][] = array('Show_db', 'SHOW&nbsp;DATABASES', $strPrivDescShowDb);
     }
+    if (isset($row['Lock_tables_priv'])) {
+        $privTable[2][] = array('Lock_tables', 'LOCK&nbsp;TABLES', $strPrivDescLockTables);
+    }
     $privTable[2][] = array('References', 'REFERENCES', $strPrivDescReferences);
     if (isset($row['Execute_priv'])) {
         $privTable[2][] = array('Execute', 'EXECUTE', $strPrivDescExecute);
@@ -397,11 +414,11 @@ if (!isset($username) && !isset($hostname)) {
        . '            <input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
        . '            <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n"
        . '            <input type="hidden" name="server" value="' . $server . '" />' . "\n"
-       . '            <input type="hidden" name="username" value="' . urlencode($username) . '" />' . "\n";
+       . '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
     if ($hostname != '%') {
-        echo '            <input type="hidden" name="hostname" value="' . urlencode($hostname) . '" />' . "\n";
+        echo '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
     }
-    echo '            <input type="hidden" name="grant_count" value="' . (count($privTable[0]) + count($privTable[1]) + count($privTable[2])) . '" />' . "\n"
+    echo '            <input type="hidden" name="grant_count" value="' . (count($privTable[0]) + count($privTable[1]) + count($privTable[2]) - (isset($row['Grant_priv']) ? 1 : 0)) . '" />' . "\n"
        . '                <b>' . $strEditPrivileges . '</b><br />' . "\n"
        . '                <table border="0">' . "\n"
        . '                    <tr>' . "\n"
