@@ -78,6 +78,7 @@ $strBookmarkQuery = 'Comanda SQL salvata (Bookmarked SQL-query)';
 $strBookmarkThis = 'Salveaza aceasta comanda SQL';
 $strBookmarkView = 'Numai vizualizare';
 $strBrowse = 'Navigare';
+$strBulgarian = 'Bulgar';
 $strBzError = 'phpMyAdmin nu a reusit sa compreseze acest dump din cauza unei extensii Bz2 invalide in aceasta versiune php. Va recomandam sa setati directiva <code>$cfg[\'BZipDump\']</code> in in fisierul de configurare phpMyAdmin la <code>FALSE</code>. Daca doriti sa utilizati caracteristicile de compresie Bz2 va trebui sa upgradati la o versiune mai noua de php.  Pentru detalii revedeti raportul de erori php %s.';
 $strBzip = '"bzipped"';
 
@@ -90,6 +91,8 @@ $strCantRenameIdxToPrimary = 'Nu poti redenumi index-ul la un nume PRIMARY!';
 $strCantUseRecodeIconv = 'Nu pot folosi functiile iconv nici libiconv nici recode_string in timp ce extensia este incarcata. Verifica configuratia PHP.';
 $strCardinality = 'Cardinalitate';
 $strCarriage = 'Enter: \\r';
+$strCaseInsensitive = 'caz-insenzitiv';
+$strCaseSensitive = 'caz-senzitiv';
 $strCentralEuropean = 'European de est';
 $strChange = 'Schimbare';
 $strChangeCopyMode = 'Creaza un utilizatoru nou cu acelasi privilegii si...';
@@ -102,6 +105,8 @@ $strChangeDisplay = 'Selecteaza un camp';
 $strChangePassword = 'Schimbare parola';
 $strCharset = 'Set de caractere';
 $strCharsetOfFile = 'Setul de caractere a fisierului:';
+$strCharsets = 'Set de caractere';
+$strCharsetsAndCollations = 'Set de caractere si gestionarea acestora';
 $strCheckAll = 'Marcheaza toate';
 $strCheckDbPriv = 'Marcheaza drepturile de acces la baza de date';
 $strCheckPrivs = 'Verifica privilegiile';
@@ -109,6 +114,7 @@ $strCheckPrivsLong = 'Verifica privilegiile pentru baza de date &quot;%s&quot;.'
 $strCheckTable = 'Verificare tabel';
 $strChoosePage = 'Selecteaza o pagina pentru a fi editata';
 $strColComFeat = 'Arata comentariile coloanei';
+$strCollation = 'Gestionare';
 $strColumn = 'Coloana';
 $strColumnNames = 'Numele coloanelor';
 $strColumnPrivileges = 'Drepturi specifice de coloana';
@@ -133,7 +139,9 @@ $strCreateNewTable = 'Creaza tabela noua in baza de date %s';
 $strCreatePage = 'Creaza o noua pagina';
 $strCreatePdfFeat = 'Creare de PDF';
 $strCriteria = 'Criteriu';
+$strCroatian = 'Croat';
 $strCyrillic = 'Cyrillic';
+$strCzech = 'Ceh';
 
 $strDBComment = 'Comentarii referitoare la baza de date: ';
 $strDBGContext = 'Context';
@@ -145,6 +153,7 @@ $strDBGMinTimeMs = 'Timp minim, ms';
 $strDBGModule = 'Modul';
 $strDBGTimePerHitMs = 'Timp/Afisare, ms';
 $strDBGTotalTimeMs = 'Timp total, ms';
+$strDanish = 'Danez';
 $strData = 'Date';
 $strDataDict = 'Dictionar de date';
 $strDataOnly = 'Numai date';
@@ -173,6 +182,8 @@ $strDeleted = 'Linia a fost stearsa';
 $strDeletedRows = 'Randuri sterse:';
 $strDeleting = 'Sterge %s';
 $strDescending = 'Descrescator';
+$strDescription = 'Descriere';
+$strDictionary = 'dictionar';
 $strDisabled = 'Dezactivat';
 $strDisplay = 'Afisare';
 $strDisplayFeat = 'Arata facilitatile';
@@ -202,8 +213,10 @@ $strEnabled = 'Activat';
 $strEnd = 'Sfarsit';
 $strEndCut = 'DE TAIAT - SFARSIT';
 $strEndRaw = 'SFARSIT RAW';
+$strEnglish = 'Englez';
 $strEnglishPrivileges = ' Important: numele drepturilor de acces MySQL apar in engleza ';
 $strError = 'Eroare';
+$strEstonian = 'Estonian';
 $strExcelOptions = 'Optiuni Excel';
 $strExecuteBookmarked = 'Executare comanda marcata';
 $strExplain = 'Explica SQL';
@@ -236,6 +249,7 @@ $strFunction = 'Functie';
 $strGenBy = 'Generat de';
 $strGenTime = 'Timp de generare';
 $strGeneralRelationFeat = 'Facilitati generale';
+$strGerman = 'German';
 $strGlobal = 'global';
 $strGlobalPrivileges = 'Privilegii globale';
 $strGlobalValue = 'Valoare globala';
@@ -254,6 +268,7 @@ $strHomepageOfficial = 'Pagina oficiala phpMyAdmin';
 $strHomepageSourceforge = 'Pagina de descarcare Sourceforge phpMyAdmin';
 $strHost = 'Gazda (Host)';
 $strHostEmpty = 'Numele de gazda este gol!';
+$strHungarian = 'Unguresc';
 
 $strId = 'ID';
 $strIdxFulltext = 'Tot textul';
@@ -301,6 +316,7 @@ $strLines = 'Linii';
 $strLinesTerminatedBy = 'Linii terminate de';
 $strLinkNotFound = 'Legatura invalida';
 $strLinksTo = 'Trimitere la';
+$strLithuanian = 'Lituanian';
 $strLoadExplanation = 'Metoda cea mai buna este cea implicit selectata, dar se poate schimba.';
 $strLoadMethod = 'methoda LOAD';
 $strLocalhost = 'Local';
@@ -330,6 +346,7 @@ $strMoreStatusVars = 'Alte variabile de stare';
 $strMoveTable = 'Muta tabela la (database<b>.</b>table):';
 $strMoveTableOK = 'Tabela %s a fost mutat la %s.';
 $strMoveTableSameNames = 'Nu se poate copia tabelul pe cel existent pentru ca este acelasi!';
+$strMultilingual = 'Poliglot';
 $strMustSelectFile = 'Trebuie sa selectezi fisierul care urmeaza sa fie inserat.';
 $strMySQLCharset = 'Setul de caractere MySQL';
 $strMySQLReloaded = 'MySQL reincarcat.';
@@ -400,6 +417,7 @@ $strPdfNoTables = 'Nu exista tabele';
 $strPerHour = 'pe ora';
 $strPerMinute = 'pe minute';
 $strPerSecond = 'pe secunde';
+$strPhoneBook = 'carte de telefoane';
 $strPhp = 'Creaza cod PHP';
 $strPmaDocumentation = 'Documentatie phpMyAdmin';
 $strPmaUriError = 'Directiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> TREBUIE sa fie setat in fisierul de configurare!';
@@ -578,6 +596,7 @@ $strStructure = 'Structura';
 $strSubmit = 'Trimite';
 $strSuccess = 'Comanda dumneavoastra SQL a fost executata cu succes';
 $strSum = 'Sum';
+$strSwedish = 'Suedez';
 $strSwitchToTable = 'Schimba la tabela copiata';
 
 $strTable = 'Tabel';
@@ -618,8 +637,10 @@ $strTransformation_text_plain__link = 'Afiseaza un link, campul contine denumire
 $strTransformation_text_plain__substr = 'Afiseaza doar o parte a firului de executie. Prima optiune este un offset pentru definirea punctului de inceput a outputului de text (Default 0). A doua optiune este un offset de text returnat. Daca este gol, returneaza textul ramas. A treia optiune defineste caracterele care vor fi atasate la output la returnarea unui substring  (Default: ...) .';
 $strTransformation_text_plain__unformatted = 'Afiseaza codul HTML ca si entitate HTML. Nu se afiseaza formatarea HTML.';
 $strTruncateQueries = 'Truncare comenzi afisate';
+$strTurkish = 'Turc';
 $strType = 'Tip';
 
+$strUkrainian = 'Ukrainian'; 
 $strUncheckAll = 'Deselecteaza toate';
 $strUnicode = 'Unicode';
 $strUnique = 'Unic';
@@ -670,38 +691,5 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) se elimina restrictia.';
 $strZip = '"arhivat"';
 // To translate
-
-$strBulgarian = 'Bulgarian';  //to translate
-
-$strCaseInsensitive = 'case-insensitive';  //to translate
-$strCaseSensitive = 'case-sensitive';  //to translate
-$strCharsets = 'Charsets';  //to translate
-$strCharsetsAndCollations = 'Character Sets and Collations';  //to translate
-$strCollation = 'Collation';  //to translate
-$strCroatian = 'Croatian';  //to translate
-$strCzech = 'Czech';  //to translate
-
-$strDanish = 'Danish';  //to translate
-$strDescription = 'Description';  //to translate
-$strDictionary = 'dictionary';  //to translate
-
-$strEnglish = 'English';  //to translate
-$strEstonian = 'Estonian';  //to translate
-
-$strGerman = 'German';  //to translate
-
-$strHungarian = 'Hungarian';  //to translate
-
-$strLithuanian = 'Lithuanian';  //to translate
-
-$strMultilingual = 'multilingual';  //to translate
-
-$strPhoneBook = 'phone book';  //to translate
-
-$strSwedish = 'Swedish';  //to translate
-
-$strTurkish = 'Turkish';  //to translate
-
-$strUkrainian = 'Ukrainian';  //to translate
 
 ?>
