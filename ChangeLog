@@ -11,6 +11,13 @@ $Source$
     gave their lives for the people of Earth. ---
     * Documentation.html: Removed a bit of duplication in [7.4] and the
     Developers section
+    * libraries/dbg: New directory for DBG code
+    * libraries/dbg/setup.php3: 
+       - DBG initialization code, including module support
+    * libraries/dbg/profiling.php3: Profiling code
+    * lang/*: New strings added for DBG extension
+    * config.inc.php3: config options for DBG, off by default
+    * footer.inc.php3: DBG profiling output
 
 2003-02-01 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentati-on.*, translators.html, docs.css: New documentation layout.

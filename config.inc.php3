@@ -417,6 +417,15 @@ $cfg['SQLValidator']['use']      = FALSE;   // Make the SQL Validator available
 $cfg['SQLValidator']['username'] = '';      // If you have a custom username, specify it here (defaults to anonymous)
 $cfg['SQLValidator']['password'] = '';      // Password for username
 
+/**
+ * Developers ONLY!
+ * To use the following, please install the DBG extension from http://dd.cron.ru/dbg/
+ */
+$cfg['DBG']['enable'] = FALSE;              // Make the DBG stuff available
+$cfg['DBG']['profile']['enable'] = FALSE;   // Produce profiling results of PHP
+$cfg['DBG']['profile']['threshold'] = 0.5;  // Threshold of long running code to display
+                                            // Anything below the threshold is not displayed
+
 
 /**
  * MySQL settings
