@@ -519,6 +519,7 @@ $strSearchOption3 = 'přesnou frázi';
 $strSearchOption4 = 'jako regulární výraz';
 $strSearchResultsFor = 'Výsledny vyhledávání pro "<i>%s</i>" %s:';
 $strSearchType = 'Najít:';
+$strSecretRequired = 'Nastavte klíč pro šifrování cookies v&nbsp;kofiguračním souboru (blowfish_secret).';
 $strSelect = 'Vybrat';
 $strSelectADb = 'Prosím vyberte databázi';
 $strSelectAll = 'Vybrat vše';
@@ -658,5 +659,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
-$strSecretRequired = 'The configuration file now needs a secret passphrase (blowfish_secret).';  //to translate
 ?>
