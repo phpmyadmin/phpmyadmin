@@ -203,7 +203,8 @@
     <li> It is recommended that you protect the directory in which
          you installed phpMyAdmin (unless it's on a closed intranet), 
          for example with HTTP-AUTH (in a <i>.htaccess</i> file). See the
-         FAQ section for additional information.</li>
+         <a class="navigation" href="#faq">FAQ section</a> for additional
+         information.</li>
     <li> Open the file
          <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/index.php3</i>
          in your browser. phpMyAdmin should now display a welcome screen 
@@ -435,12 +436,12 @@
 
     <dt><b>$cfgAllowUserDropDatabase </b>boolean</dt>
     <dd>
-        Defines whether standard users (non administrator) are allowed to 
-        delete their own database or not. If set as FALSE, the link 
-        "Drop Database" will not be shown, and even a "DROP DATABASE mydatabase"
+        Defines whether standard users (non administrator) are allowed to
+        delete their own database or not. If set as FALSE, the link "Drop
+        Database" will not be shown, and even a "DROP DATABASE mydatabase"
         will be rejected. Quite practical for ISP's with many customers.
         <br /><br />
-    </dd>
+     </dd>
 
     <dt><b>$cfgShowSQL </b>boolean</dt>
     <dd>
@@ -690,6 +691,18 @@
     </li>
 </ul>
 
+<a name="login_bug"></a>
+<p>
+    <b>When using advanced authentification, an user who logged out can not
+    relogs in with the same nick.</b>
+    <br />
+    This is related to the authentification mechanism (protocol) used by
+    phpMyAdmin. We plan to change it as soon as we may find enough free time
+    to do it, but you can bypass this problem: just close all the opened
+    browser windows and then go back to phpMyAdmin. You should be able to
+    logs in again.
+</p>
+
 <p>
     <b>I would like to help out with the development of phpMyAdmin. How should
     I proceed?</b>
@@ -802,7 +815,7 @@
 </p>
 
 <p>
-    <b>How can I GZip or Bzip a dump or a CSV export. It seems to not work?</b>
+    <b>How can I GZip or Bzip a dump or a CSV export. It seem to not work?</b>
     <br />
     These features are based on the <tt>gzencode()</tt> and
     <tt>bzcompress()</tt> php functions to be more independent of the platform
@@ -852,17 +865,16 @@
 
     And that fixes the \r\n problem with file uploads! 
 </p> 
-<p>
-    <b>When I create a table, I click the Index checkbox for 2 fields
-    and phpMyAdmin generates only one index with those 2 fields.</b>
-    <br />
-    In phpMyAdmin 2.2.0, this is the way to create a multi-fields index.
-    If you want two indexes, create the first one when creating the table,
-    save, then display the table properties and click the Index link to
-    create the other index. 
-</p>
 
 <p>
+    <b>When I create a table, I click the Index checkbox for 2 fields and
+    phpMyAdmin generates only one index with those 2 fields.</b>
+    <br />
+    In phpMyAdmin 2.2.0, this is the way to create a multi-fields index. If you
+    want two indexes, create the first one when creating the table, save, then
+    display the table properties and click the Index link to create the other
+    index.
+</p>
 
 
 <!-- DEVELOPERS -->

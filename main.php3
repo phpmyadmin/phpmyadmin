@@ -295,7 +295,8 @@ if ($server > 0
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="index.php3?<?php echo$common_url_query; ?>&old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_top">
-                    <b><?php echo $strLogout; ?></b></a>
+                    <b><?php echo $strLogout; ?></b></a>&nbsp;
+                <a href="<?php echo $cfgPmaAbsoluteUri; ?>Documentation.html#login_bug" target="documentation">(*)</a>
             </td>
         </tr>
         <?php
@@ -405,11 +406,11 @@ if ($server > 0
             <th colspan="2">phpMyAdmin</th>
         </tr>
 
-        <!-- documentation -->
+        <!-- Documentation -->
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="Documentation.html" target="_new"><b><?php echo $strPmaDocumentation; ?></b></a>
+                <a href="Documentation.html" target="documentation"><b><?php echo $strPmaDocumentation; ?></b></a>
             </td>
         </tr>
 
