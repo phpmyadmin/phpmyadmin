@@ -266,7 +266,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     }
     $buffer = $alignment . '} ' . $crlf ;
 
-    $header .= ' \\hline ';
+    $header = ' \\hline ';
     $header .= '\\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strField'] . '}} & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strType'] . '}} & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strNull'] . '}} & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strDefault'] . '}}';
     if ($do_relation && $have_rel) {
         $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strLinksTo'] . '}}';

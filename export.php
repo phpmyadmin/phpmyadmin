@@ -65,7 +65,7 @@ function PMA_exportOutputHandler($line)
         $dump_buffer .= $line;
         if ($GLOBALS['onfly_compression']) {
 
-            $dump_buffer_len += strlen($dump_buffer);
+            $dump_buffer_len += strlen($line);
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 // as bzipped
@@ -82,7 +82,7 @@ function PMA_exportOutputHandler($line)
                 }
                 if ($GLOBALS['save_on_server']) {
                     $write_result = @fwrite($GLOBALS['file_handle'], $dump_buffer);
-                    if (!$write_result || ($write_result != strlen($line))) {
+                    if (!$write_result || ($write_result != strlen($dump_buffer))) {
                         $GLOBALS['message'] = sprintf($GLOBALS['strNoSpace'], htmlspecialchars($save_filename));
                         return FALSE;
                     }
