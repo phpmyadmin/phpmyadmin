@@ -217,6 +217,7 @@ $cfgFunctions = array(
    'NOW',
    'PASSWORD',
    'MD5',
+   'ENCRYPT',
    'RAND',
    'LAST_INSERT_ID',
    'COUNT',

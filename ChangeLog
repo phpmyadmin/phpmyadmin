@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 
+2001-10-27  Olivier Müller  <om@omnis.ch>
+	* config.inc.php3: put the ENCRYPT function back to the config file.
+
 2001-10-26  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_change.php3, lines 198-205: fixed a crash with binary "characters".
 	  Bug was reported by Joshua Nye <josh at boxcarmedia.com> to the
@@ -40,7 +43,7 @@ $Source$
 	  - taken into account wildcards in the databases names get from the
 	    "mysql.db" table;
 	  - get all privilege at the begenning of the script;
-###	* released 2.2.1 revision. ###
+	* ### released 2.2.1 revision. ###
 
 2001-10-24  Marc Delisle  <lem9@users.sourceforge.net>
 	* main.php3 (for Loïc): a non-empty only_db was removing the MySQL links on
