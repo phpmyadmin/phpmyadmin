@@ -110,7 +110,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 $do_display['nav_bar']   = (string) '0';
                 $do_display['ins_row']   = (string) '0';
                 $do_display['bkm_form']  = (string) '1';
-                $do_display['text_btn']  = (string) '0';
+                $do_display['text_btn']  = (string) '1';
                 $do_display['pview_lnk'] = (string) '1';
             }
             // 2.3 Other statements (ie "SELECT" ones) -> updates
@@ -118,18 +118,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             //     $do_display['text_btn'] (keeps other default values)
             else {
                 $prev_table = $fields_meta[0]->table;
+                $do_display['text_btn']  = (string) '1';
                 for ($i = 0; $i < $GLOBALS['fields_cnt']; $i++) {
                     $is_link = ($do_display['edit_lnk'] != 'nn'
                                 || $do_display['del_lnk'] != 'nn'
                                 || $do_display['sort_lnk'] != '0'
                                 || $do_display['ins_row'] != '0');
-                    // 2.3.1 Displays text cut/expand button?
-                    if ($do_display['text_btn'] == '0' && eregi('BLOB', $fields_meta[$i]->type)) {
-                        $do_display['text_btn'] = (string) '1';
-                        if (!$is_link) {
-                            break;
-                        }
-                    } // end if (2.3.1)
                     // 2.3.2 Displays edit/delete/sort/insert links?
                     if ($is_link
                         && ($fields_meta[$i]->table == '' || $fields_meta[$i]->table != $prev_table)) {

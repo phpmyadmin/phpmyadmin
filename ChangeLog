@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-09 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3: Display Full/Partial text links for
+      almost every select.
+
 2003-06-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: MySQL 4.1 users could not edit column privileges.
     * tbl_properties.inc.php3, tbl_properties_structure.inc.php3:
