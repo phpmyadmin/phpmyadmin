@@ -465,7 +465,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
             if ($disp_direction == 'horizontal') {
                 ?>
-    <td<?php echo $colspan; ?>" align="center">
+    <td<?php echo $colspan; ?> align="center">
         <a href="<?php echo $text_url; ?>">
             <img src="./images/<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
     </td>
@@ -605,7 +605,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
             if ($disp_direction == 'horizontal') {
                 ?>
-    <td<?php echo $colspan; ?>" align="center">
+    <td<?php echo $colspan; ?> align="center">
         <a href="<?php echo $text_url; ?>">
             <img src="./images/<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
     </td>
