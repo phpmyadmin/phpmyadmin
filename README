@@ -9,11 +9,16 @@ phpMyAdmin - Readme
   --------------------
   http://www.phpmyadmin.net/
 
-    Copyright (C) 1998-2000 Tobias Ratschiller <tobias@ratschiller.com>
-    Copyright (C) 2001-     Olivier Müller <om_at_omnis.ch>
-                            Loïc Chapeaux <lolo_at_phpHeaven.net>
-                Marc Delisle <DelislMa_at_CollegeSherbrooke.qc.ca>
-                [check Documentation.txt/.html file for more details]
+    Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_ratschiller.com>
+    Copyright (C) 2001-2004 Marc Delisle <DelislMa_at_CollegeSherbrooke.qc.ca>
+                            Olivier Müller <om_at_omnis.ch>
+                            Robin Johnson <robbat2_at_users.sourceforge.net>
+                            Alexander M. Turek <me_at_derrabus.de>
+                            Michal Cihar <michal_at_cihar.com>
+                            Garvin Hicking <me_at_supergarv.de>
+                            Marcel Tschopp <ne0x_at_users.sourceforge.net>
+                            + many other people
+                              (check the CREDITS section of our documentation)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -71,7 +76,7 @@ phpMyAdmin - Readme
 
 
   PS: Please, don't send us emails with question like "How do I compile
-      PHP with MySQL-support". We just don't have the time to be your 
+      PHP with MySQL-support". We just don't have the time to be your
       free helpdesk.
       Please send your questions to the appropriate mailinglists / forums.
       Before contacting us, please read the Documentation.html (esp. the
