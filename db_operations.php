@@ -9,7 +9,15 @@ require_once('./libraries/mysql_charsets.lib.php');
 /**
  * Rename database
  */
-if (isset($db) && isset($db_rename) && $db_rename == 'true') {
+if (isset($db) && 
+    ((isset($db_rename) && $db_rename == 'true') ||
+    (isset($db_copy) && $db_copy == 'true'))) {
+
+    require_once('./libraries/tbl_move_copy.php');
+
+    if (isset($db_rename) && $db_rename == 'true') $move = TRUE;
+    else $move = FALSE;
+    
     if (!isset($newname) || empty($newname)) {
         $message = $strDatabaseEmpty;
     } else {
@@ -18,61 +26,33 @@ if (isset($db) && isset($db_rename) && $db_rename == 'true') {
         PMA_DBI_query($local_query);
         $tables = PMA_DBI_get_tables($db);
         foreach ($tables as $table) {
-            $local_query = 'RENAME TABLE '
-                . PMA_backquote($db) . '.' . PMA_backquote($table)
-                . ' TO '
-                . PMA_backquote($newname) . '.' . PMA_backquote($table)
-                . ';';
+            $back = $sql_query;
+            $sql_query = '';
+            PMA_table_move_copy($db, $table, $newname, $table, isset($what) ? $what : 'data', $move);
+            $sql_query = $back . $sql_query;
+        }
+        if ($move) {
+            $local_query = 'DROP DATABASE ' . PMA_backquote($db) . ';';
             $sql_query .= "\n" . $local_query;
             PMA_DBI_query($local_query);
+            $message    = sprintf($strRenameDatabaseOK, htmlspecialchars($db), htmlspecialchars($newname));
+        } else {
+            $message    = sprintf($strCopyDatabaseOK, htmlspecialchars($db), htmlspecialchars($newname));
         }
-        $local_query = 'DROP DATABASE ' . PMA_backquote($db) . ';';
-        $sql_query .= "\n" . $local_query;
-        PMA_DBI_query($local_query);
         $reload     = TRUE;
-        $message    = sprintf($strRenameDatabaseOK, htmlspecialchars($db), htmlspecialchars($newname));
-
-        /* Update relations */
-        require_once('./libraries/relation.lib.php');
-        $cfgRelation = PMA_getRelationsParam();
-
-        if ($cfgRelation['commwork']) {
-            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['column_info'])
-                          . ' SET db_name    = \'' . PMA_sqlAddslashes($newname) . '\''
-                          . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'');
-        }
-        if ($cfgRelation['bookmarkwork']) {
-            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['bookmark'])
-                          . ' SET dbase    = \'' . PMA_sqlAddslashes($newname) . '\''
-                          . ' WHERE dbase  = \'' . PMA_sqlAddslashes($db) . '\'');
-        }
-        if ($cfgRelation['displaywork']) {
-            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['table_info'])
-                          . ' SET db_name    = \'' . PMA_sqlAddslashes($newname) . '\''
-                          . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'');
-        }
-
-        if ($cfgRelation['relwork']) {
-            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['relation'])
-                          . ' SET foreign_db    = \'' . PMA_sqlAddslashes($newname) . '\''
-                          . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\'');
-            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['relation'])
-                          . ' SET master_db    = \'' . PMA_sqlAddslashes($newname) . '\''
-                          . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\'');
-        }
-        if ($cfgRelation['historywork']) {
-            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['history'])
-                          . ' SET db    = \'' . PMA_sqlAddslashes($newname) . '\''
-                          . ' WHERE db  = \'' . PMA_sqlAddslashes($db) . '\'');
-        }
-        if ($cfgRelation['pdfwork']) {
-            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['table_info'])
-                          . ' SET db_name    = \'' . PMA_sqlAddslashes($newname) . '\''
-                          . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'');
-        }
 
         /* Change database to be used */
-        $db         = $newname;
+        if ($move) {
+            $db         = $newname;
+        } else {
+            $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
+            if (isset($switch_to_new) && $switch_to_new == 'true') {
+                setcookie('pma_switch_to_new', 'true', 0, substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), '', ($pma_uri_parts['scheme'] == 'https'));
+                $db         = $newname;
+            } else {
+                setcookie('pma_switch_to_new', '', 0, substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), '', ($pma_uri_parts['scheme'] == 'https'));
+            }
+        }
     }
 }
 /**
@@ -81,7 +61,7 @@ if (isset($db) && isset($db_rename) && $db_rename == 'true') {
  */
 if (empty($is_info)) {
     require('./db_details_common.php');
-    $url_query .= '&amp;goto=db_details_structure.php';
+    $url_query .= '&amp;goto=db_operations.php';
 
     // Gets the database structure
     $sub_part = '_structure';
@@ -141,7 +121,7 @@ if ($cfgRelation['commwork']) {
           }
           echo $strDBRename.':&nbsp;';
           ?></td></tr>
-        <form method="post" action="db_details_structure.php"
+        <form method="post" action="db_operations.php"
             onsubmit="return emptyFormElements(this, 'newname')">
                                         <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="2"><?php
           echo '<input type="hidden" name="db_rename" value="true" />'
@@ -149,6 +129,41 @@ if ($cfgRelation['commwork']) {
           ?><input type="text" name="newname" size="30" class="textfield" value="" /></td>
             <td align="right"><input type="submit" value="<?php echo $strGo; ?>" /></td>
         </form></tr>
+
+    <!-- Copy database -->
+        <tr><td colspan="3"><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td></tr>
+        <tr><td colspan="3" class="tblHeaders"><?php
+          if ($cfg['PropertiesIconic']) {
+              echo '<img src="' . $pmaThemeImage . 'b_edit.png" border="0" width="16" height="16" hspace="2" align="middle" />';
+          }
+          echo $strDBCopy.':&nbsp;';
+          ?></td></tr>
+        <form method="post" action="db_operations.php"
+            onsubmit="return emptyFormElements(this, 'newname')">
+                                        <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="3"><?php
+          echo '<input type="hidden" name="db_copy" value="true" />'
+             . PMA_generate_common_hidden_inputs($db);
+          ?><input type="text" name="newname" size="30" class="textfield" value="" /></td>
+        </tr><tr>
+            <td nowrap="nowrap" bgcolor="<?php echo $cfg['BgcolorOne']; ?>" colspan="2">
+                <input type="radio" name="what" value="structure" id="radio_copy_structure" style="vertical-align: middle" /><label for="radio_copy_structure"><?php echo $strStrucOnly; ?></label>&nbsp;&nbsp;<br />
+                <input type="radio" name="what" value="data" id="radio_copy_data" checked="checked" style="vertical-align: middle" /><label for="radio_copy_data"><?php echo $strStrucData; ?></label>&nbsp;&nbsp;<br />
+                <input type="radio" name="what" value="dataonly" id="radio_copy_dataonly" style="vertical-align: middle" /><label for="radio_copy_dataonly"><?php echo $strDataOnly; ?></label>&nbsp;&nbsp;<br />
+
+                <input type="checkbox" name="auto_increment" value="1" id="checkbox_auto_increment" style="vertical-align: middle" /><label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
+                <input type="checkbox" name="constraints" value="1" id="checkbox_constraints" style="vertical-align: middle" /><label for="checkbox_constraints"><?php echo $strAddConstraints; ?></label><br />
+                <?php
+                    if (isset($_COOKIE) && isset($_COOKIE['pma_switch_to_new']) && $_COOKIE['pma_switch_to_new'] == 'true') {
+                        $pma_switch_to_new = 'true';
+                    }
+                ?>
+                <input type="checkbox" name="switch_to_new" value="true" id="checkbox_switch"<?php echo ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true') ? ' checked="checked"' : ''); ?> style="vertical-align: middle" /><label for="checkbox_switch"><?php echo $strSwitchToTable; ?></label>&nbsp;&nbsp;
+            </td>
+            <td align="<?php echo $cell_align_right; ?>" valign="bottom" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+                <input type="submit" name="submit_copy" value="<?php echo $strGo; ?>" />
+            </td>
+        </tr>
+    </form>
 
 <?php
 
@@ -163,7 +178,7 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
     }
     echo '      <label for="select_db_collation">' . $strCollation . '</label>:&nbsp;' . "\n"
        . '    </td></tr>' . "\n"
-       . '        <form method="post" action="./db_details_structure.php">' . "\n"
+       . '        <form method="post" action="./db_operations.php">' . "\n"
        . '    <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="2" nowrap="nowrap">'
        . PMA_generate_common_hidden_inputs($db, $table, 3)
        . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', 'select_db_collation', $db_collation, FALSE, 3)

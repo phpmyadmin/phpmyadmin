@@ -730,4 +730,6 @@ $strBinLogOriginalPosition = 'Original position';  //to translate
 $strBinLogInfo = 'Information';  //to translate
 $strBinaryLog = 'Binary log';  //to translate
 $strSelectBinaryLog = 'Select binary log to view';  //to translate
+$strDBCopy = 'Copy database to';  //to translate
+$strCopyDatabaseOK = 'Database %s has been copied to %s';  //to translate
 ?>

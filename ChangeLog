@@ -26,6 +26,9 @@ $Source$
     * db_operations.php, db_details_links.php, db_details_structure.php:
       Separate operations from structure (RFE #808029).
     * tbl_move_copy.php: Remove unused PMA_myHandler().
+    * lang/*, libraries/tbl_move_copy.php, libraries/export/sql.php,
+      db_operations.php, tbl_move_copy.php: Implemented database copying (RFE
+      #996730), this forced separating code for copying tables.
 
 2004-10-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/database_interface.lib.php: bug #1041667, correctly

@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 /**
  * Marker for comments, -- is needed for ANSI SQL.
  */
-$comment_marker = '-- ';
+$GLOBALS['comment_marker'] = '-- ';
 
 /**
  * Outputs comment

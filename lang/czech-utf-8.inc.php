@@ -145,6 +145,7 @@ $strConnections = 'Připojení';
 $strConstraintsForDumped = 'Omezení pro exportované tabulky';
 $strConstraintsForTable = 'Omezení pro tabulku';
 $strCookiesRequired = 'Během tohoto kroku musíte mít povoleny cookies.';
+$strCopyDatabaseOK = 'Databáze %s byla zkopírována na %s';
 $strCopyTable = 'Kopírovat tabulku do (databáze<b>.</b>tabulka):';
 $strCopyTableOK = 'Tabulka %s byla zkopírována do %s.';
 $strCopyTableSameNames = 'Nelze kopírovat tabulku na sebe samu!';
@@ -164,6 +165,7 @@ $strCzech = 'Čeština';
 $strCzechSlovak = 'Čeština/Slovenština';
 
 $strDBComment = 'Komentář k databázi: ';
+$strDBCopy = 'Zkopírovat databázi na';
 $strDBGContext = 'Kontext';
 $strDBGContextID = 'Kontext ID';
 $strDBGHits = 'Zásahů';
