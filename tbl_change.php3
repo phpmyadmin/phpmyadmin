@@ -533,7 +533,6 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 echo "\n";
             ?>
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$protected$" />
-        </td>
             <?php
         } else if ($is_blob) {
             echo "\n";
@@ -542,7 +541,6 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             <?php echo $backup_field . "\n"; ?>
             <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>" id="field_<?php echo $i; ?>_3"
                 <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" ><?php echo $special_chars; ?></textarea>
-        </td>
             <?php
 
         } else {
@@ -557,7 +555,6 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_3" />
-        </td>
             <?php
         } // end if...elseif...else
 
@@ -566,12 +563,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         // (displayed whatever value the ProtectBinary has)
 
         if ($is_upload && $is_blob) {
-            echo '<td><input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" id="field_' . $i . '_3" />';
-            echo '<input type="checkbox" checked="checked" name="fields_upload_binary_' . urlencode($field) . '" id="field_' .  $i . '_4" />';
-            echo '<label for="fields_upload_binary_' . urlencode($field) . '">' . $strBinary . '</label>';
-            echo '<a href="Documentation.html#binary_upload" target="documentation">(' . $strDocu . ')</a>';
-            echo '</td>';
+            echo '<input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" id="field_' . $i . '_3" />';
         }
+        echo '</td>';
  
     } // end else if ( binary or blob)
     else {

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-16 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_change.php3, tbl_replace_fields.php3: Removed checkbox for binary
+      upload, upload field moved into table.
+
 2003-02-17 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.4.0-rc2 released
 
