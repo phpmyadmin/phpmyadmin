@@ -1059,11 +1059,24 @@ class PMA_RT
      */
     function PMA_RT_showRt()
     {
-        global $pdf, $db, $pdf_page_number;
+        global $pdf, $db, $pdf_page_number, $cfgRelation;
+
         $pdf->SetFontSize(14);
         $pdf->SetLineWidth(0.2);
         $pdf->SetDisplayMode('fullpage');
-        $pdf->Output($db . '_' . $pdf_page_number . '.pdf', TRUE);
+        //  Get the name of this pdfpage to use as filename (Mike Beck)
+        $_name_sql  = 'SELECT page_descr FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
+                  .   ' WHERE page_nr = ' . $pdf_page_number;
+        $_name_rs   = PMA_query_as_cu($_name_sql);
+        if ($_name_rs) {
+            $_name_row = PMA_mysql_fetch_row($_name_rs);
+            $filename = $_name_row[0] . '.pdf';
+        }
+        // i don't know if there is a chance for this to happen, but rather be on the safe side:
+        if (empty($filename)) {
+            $filename = $pdf_page_number . '.pdf';
+        }
+        $pdf->Output($db . '_' . $filename, TRUE);
         //$pdf->Output('', TRUE);
     } // end of the "PMA_RT_showRt()" method
 

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-13 Mike Beck <mikebeck@users.sourceforge.net>
+    * pdf_schema.php3: Change generated filename to
+      db_pdfname.pdf instead of db_pdfnumber.pdf
+      
 2002-12-12 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
     * lang/polish-*.inc.php3: Updates, thanks again to Jakub Wilk (ubanus).
