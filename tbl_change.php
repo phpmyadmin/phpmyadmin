@@ -66,13 +66,17 @@ require('./libraries/db_table_exists.lib.php');
 
 
 /**
- * Sets parameters for links and displays top menu
+ * Sets parameters for links
  */
 $url_query = PMA_generate_common_url($db, $table)
            . '&amp;goto=tbl_properties.php';
 
 require('./tbl_properties_table_info.php');
-echo '<br />';
+
+/**
+ * Displays top menu links
+ */
+require('./tbl_properties_links.php');
 
 /**
  * Get the list of the fields of the current table

@@ -31,14 +31,6 @@ if ($is_superuser) {
 
 
 /**
- * Displays a message
- */
-if (!empty($message)) {
-    PMA_showMessage($message);
-}
-
-
-/**
  * Displays tab links
  */
 if ($cfg['LightTabs']) {
@@ -77,6 +69,14 @@ if (!$cfg['LightTabs']) {
        . '</table>';
 } else {
     echo '<br />';
+}
+
+/**
+ * Displays a message
+ */
+if (!empty($message)) {
+    PMA_showMessage($message);
+    unset($message);
 }
 
 ?>

@@ -34,7 +34,10 @@ $url_query .= '&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_st
 /**
  * Prepares the table structure display
  */
-// 1. Get table information/display tabs;
+
+/**
+ * Gets tables informations
+ */
 require('./tbl_properties_table_info.php');
 
 /**
@@ -42,8 +45,13 @@ require('./tbl_properties_table_info.php');
  */
 if ((!empty($submit_mult) && isset($selected_fld))
     || isset($mult_btn)) {
-    PMA_showMessage($strSuccess);
+    $message = $strSuccess;
 }
+
+/**
+ * Displays top menu links
+ */
+require('./tbl_properties_links.php');
 
 // 2. Gets table keys and retains them
 $result      = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');

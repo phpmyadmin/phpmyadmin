@@ -57,7 +57,7 @@ while ($row = PMA_DBI_fetch_assoc($res)) {
 unset($res);
 unset($row);
 
-PMA_showMessage($GLOBALS['strSQLQuery']);
+PMA_showMessage($GLOBALS['strSuccess']);
 
 
 /**

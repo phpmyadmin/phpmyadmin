@@ -667,6 +667,7 @@ else {
                 require('./tbl_properties_common.php');
                 $url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
                 require('./tbl_properties_table_info.php');
+                require('./tbl_properties_links.php');
             }
             else {
                 require('./db_details_common.php');

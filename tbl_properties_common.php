@@ -29,13 +29,8 @@ require_once('./libraries/db_table_exists.lib.php');
 /**
  * Displays headers
  */
-if (!isset($message)) {
-    $js_to_run = 'functions.js';
-    require_once('./header.inc.php');
-} else {
-    PMA_showMessage($message);
-    unset($message);
-}
+$js_to_run = 'functions.js';
+require_once('./header.inc.php');
 
 
 /**

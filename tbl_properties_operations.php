@@ -57,13 +57,6 @@ if (isset($submitoptions)) {
     $message       = $strSuccess;
 }
 
-// Displays a message if a query had been submitted
-if (isset($message)) {
-    PMA_showMessage($message);
-}
-
-
-
 /**
  * Reordering the table has been requested by the user
  */
@@ -74,15 +67,18 @@ if (isset($submitorderby) && !empty($order_field)) {
         $sql_query .= ' DESC';
     }
     $result      = PMA_DBI_query($sql_query);
-    PMA_showMessage($result ? $strSuccess : $strFailed);
+    $message     = $result ? $strSuccess : $strFailed;
 } // end if
 
-
 /**
- * Gets tables informations and displays top links
+ * Gets tables informations
  */
 require('./tbl_properties_table_info.php');
 
+/**
+ * Displays top menu links
+ */
+require('./tbl_properties_links.php');
 
 /**
  * Get columns names

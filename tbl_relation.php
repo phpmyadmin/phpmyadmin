@@ -7,14 +7,25 @@
  */
 require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
-require('./tbl_properties_common.php');
+require_once('./tbl_properties_common.php');
 $url_query .= '&amp;goto=tbl_properties.php';
 
-// Note: in tbl_properties_table_info we get and display the table comment.
+
+/**
+ * Gets tables informations
+ */
+require('./tbl_properties_table_info.php');
+
+// Note: in tbl_properties_links.php we get and display the table comment.
 // For InnoDB, this comment contains the REFER information but any update
 // has not been done yet (will be done in tbl_relation.php later).
 $avoid_show_comment = TRUE;
-require('./tbl_properties_table_info.php');
+
+/**
+ * Displays top menu links
+ */
+require('./tbl_properties_links.php');
+
 require_once('./libraries/relation.lib.php');
 
 $options_array = array('CASCADE' => 'CASCADE', 'SET_NULL' => 'SET NULL', 'NO_ACTION' => 'NO ACTION', 'RESTRICT' => 'RESTRICT');

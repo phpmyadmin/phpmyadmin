@@ -96,9 +96,13 @@ if (isset($sql_query)) {
             }
         }
     }
-    // TODO: can we avoid reparsing the query here?
-    PMA_showMessage($GLOBALS['strSQLQuery']);
+    $message = $GLOBALS['strSuccess'];
 }
+
+/**
+ * Displays top menu links
+ */
+require('./tbl_properties_links.php');
 
 $export_type = 'table';
 require_once('./libraries/display_export.lib.php');

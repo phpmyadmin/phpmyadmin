@@ -127,6 +127,9 @@ if (empty($GLOBALS['is_header_sent'])) {
         <?php
     }
     echo "\n";
+
+    // Reloads the navigation frame via JavaScript if required
+    PMA_reloadNavigation();
     ?>
         <meta name="OBGZip" content="<?php echo ($cfg['OBGzip'] ? 'true' : 'false'); ?>" />
     </head>

@@ -21,6 +21,7 @@ require('./tbl_properties_common.php');
 $err_url   = 'ldi_table.php' . $err_url;
 $url_query .= '&amp;goto=ldi_table.php&amp;back=ldi_table.php';
 require('./tbl_properties_table_info.php');
+require('./tbl_properties_links.php');
 
 /**
  * Displays the form

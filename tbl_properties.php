@@ -11,9 +11,14 @@ $err_url   = 'tbl_properties.php' . $err_url;
 $url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
 
 /**
- * Top menu
+ * Get table information
  */
 require('./tbl_properties_table_info.php');
+
+/**
+ * Displays top menu links
+ */
+require('./tbl_properties_links.php');
 
 ?>
 <!-- TABLE WORK -->

@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-21 Michal Čihař  <michal@cihar.com>
+    * [too many files to mention]: Cleanup of message displaying and
+      navigation reloading. Messages are now displayed bellow tabs (RFE
+      #1005511), navigation is reloaded once in header (I'm not sure whether I
+      choose correct version of reload code, we have several diferent, but it
+      seems to work well).
+
 2004-10-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: there was already a tip icon in our collection,
       thanks to Michael Keck

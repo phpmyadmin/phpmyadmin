@@ -36,26 +36,4 @@ for ($i = 0; $i < $tmp_cnt; $i++) {
 } // end for
 unset($tmp1, $tmp);
 PMA_DBI_free_result($table_info_result);
-
-
-/**
- * Displays top menu links
- */
-echo '<!-- top menu -->' . "\n";
-require('./tbl_properties_links.php');
-
-
-/**
- * Displays table comment
- */
-if (!empty($show_comment) && !isset($avoid_show_comment)) {
-    ?>
-<!-- Table comment -->
-<p><i>
-    <?php echo htmlspecialchars($show_comment) . "\n"; ?>
-</i></p>
-    <?php
-} // end if
-
-echo "\n\n";
 ?>

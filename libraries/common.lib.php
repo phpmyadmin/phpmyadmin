@@ -1484,21 +1484,14 @@ if ($is_minimum_common == FALSE) {
         }
     } // end of the 'PMA_countRecords()' function
 
-
     /**
-     * Displays a message at the top of the "main" (right) frame
+     * Reloads navigation if needed.
      *
-     * @param   string  the message to display
-     *
-     * @global  array   the configuration array
+     * @global  bool    whehter to reload
      *
      * @access  public
      */
-    function PMA_showMessage($message)
-    {
-        global $cfg;
-
-        require_once('./header.inc.php');
+    function PMA_reloadNavigation() {
 
         // Reloads the navigation frame via JavaScript if required
         if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
@@ -1516,9 +1509,23 @@ if (typeof(window.parent) != 'undefined'
             <?php
             unset($GLOBALS['reload']);
         }
+    }
+
+    /**
+     * Displays a message at the top of the "main" (right) frame
+     *
+     * @param   string  the message to display
+     *
+     * @global  array   the configuration array
+     *
+     * @access  public
+     */
+    function PMA_showMessage($message)
+    {
+        global $cfg;
 
         // Corrects the tooltip text via JS if required
-        else if (!empty($GLOBALS['table']) && $cfg['ShowTooltip']) {
+        if (!empty($GLOBALS['table']) && $cfg['ShowTooltip']) {
             $result = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
             if ($result) {
                 $tbl_status = PMA_DBI_fetch_assoc($result);
@@ -1564,6 +1571,7 @@ if (typeof(document.getElementById) != 'undefined'
 
         echo "\n";
         ?>
+<br />
 <div align="<?php echo $GLOBALS['cell_align_left']; ?>">
     <table border="<?php echo $cfg['Border']; ?>" cellpadding="5" cellspacing="1">
     <tr>
@@ -1622,7 +1630,12 @@ if (typeof(document.getElementById) != 'undefined'
             } else if (!empty($GLOBALS['validatequery'])) {
                 $query_base = PMA_validateSQL($query_base);
             } else {
-                $parsed_sql = PMA_SQP_parse($query_base);
+                // avoid reparsing query:
+                if (isset($GLOBALS['parsed_sql']) && $query_base = $GLOBALS['parsed_sql']['raw']) {
+                    $parsed_sql = $GLOBALS['parsed_sql'];
+                } else {
+                    $parsed_sql = PMA_SQP_parse($query_base);
+                }
                 $query_base = PMA_formatSql($parsed_sql, $query_base);
             }
 

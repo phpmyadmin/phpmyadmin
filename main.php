@@ -52,20 +52,6 @@ if (isset($table)) {
 }
 $show_query = '1';
 require_once('./header.inc.php');
-if (isset($message)) {
-    PMA_showMessage($message);
-}
-else if (isset($reload) && $reload) {
-    // Reloads the navigation frame via JavaScript if required
-    echo "\n";
-    ?>
-<script type="text/javascript" language="javascript1.2">
-<!--
-window.parent.frames['nav'].location.replace('./left.php?<?php echo PMA_generate_common_url('', '', '&');?>&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>);
-//-->
-</script>
-    <?php
-}
 echo "\n";
 
 
@@ -85,6 +71,7 @@ echo "\n";
         ?>
         </h1>
 <?php
+
 // Don't display server info if $server == 0 (no server selected)
 // loic1: modified in order to have a valid words order whatever is the
 //        language used
@@ -116,6 +103,13 @@ if ($server > 0) {
     echo '<p><b>' . $full_string . '</b></p>' . "\n";
 } // end if
 
+
+// Any message to display?
+
+if (isset($message)) {
+    PMA_showMessage($message);
+    unset($message);
+}
 
 /**
  * Reload mysql (flush privileges)

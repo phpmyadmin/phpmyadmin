@@ -93,5 +93,13 @@ if (!$cfg['LightTabs']) {
 } else {
     echo '<br />';
 }
+
+/**
+ * Displays a message
+ */
+if (!empty($message)) {
+    PMA_showMessage($message);
+    unset($message);
+}
 ?>
 <br />

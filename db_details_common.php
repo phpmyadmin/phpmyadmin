@@ -44,48 +44,8 @@ if (isset($submitcollation) && !empty($db_collation) && PMA_MYSQL_INT_VERSION >=
     unset($db_charset, $db_collation);
 }
 
-// Displays headers
-if (!isset($message)) {
-    $js_to_run = 'functions.js';
-    require_once('./header.inc.php');
-    // Reloads the navigation frame via JavaScript if required
-    if (isset($reload) && $reload) {
-        echo "\n";
-        ?>
-<script type="text/javascript" language="javascript1.2">
-<!--
-var hashformDone = false;
-function hashformReload() {
-<?php
-    if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
-?>
-    if (hashformDone != true) {
-        if (typeof(window.parent.frames['queryframe'].document.hashform.hash) != 'undefined' && typeof(window.parent.frames['nav']) != 'undefined') {
-            window.parent.frames['nav'].location.replace('./left.php?<?php echo PMA_generate_common_url('', '', '&');?>&hash=' +
-                                                         window.parent.frames['queryframe'].document.hashform.hash.value);
-            hashformDone = true;
-        } else {
-            setTimeout("hashformReload();",500);
-        }
-    }
-<?php
-    } else {
-?>
-        window.parent.frames['nav'].location.replace('./left.php?<?php echo PMA_generate_common_url('', '', '&');?>&hash=' +
-                                                         '<?php echo md5($cfg['PmaAbsoluteUri']); ?>');
-<?php
-    }
-?>
-}
-setTimeout("hashformReload();",500);
-//-->
-</script>
-        <?php
-    }
-    echo "\n";
-} else {
-    PMA_showMessage($message);
-}
+$js_to_run = 'functions.js';
+require_once('./header.inc.php');
 
 /**
  * Set parameters for links

@@ -14,7 +14,9 @@
 
 require_once('./libraries/common.lib.php');
 
-PMA_checkParameters(array('db'));
+PMA_checkParameters(array('db', 'table'));
+
+echo '<!-- top menu -->' . "\n";
 
 /**
  * Count amount of navigation tabs
@@ -95,6 +97,28 @@ if (!$cfg['LightTabs']) {
        . '</table>';
 } else {
     echo '<br />';
+}
+
+/**
+ * Displays table comment
+ */
+if (!empty($show_comment) && !isset($avoid_show_comment)) {
+    ?>
+<!-- Table comment -->
+<p><i>
+    <?php echo htmlspecialchars($show_comment) . "\n"; ?>
+</i></p>
+    <?php
+} // end if
+
+echo "\n\n";
+
+/**
+ * Displays a message
+ */
+if (!empty($message)) {
+    PMA_showMessage($message);
+    unset($message);
 }
 
 ?><br />

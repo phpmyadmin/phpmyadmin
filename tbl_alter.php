@@ -14,6 +14,18 @@ require_once('./header.inc.php');
 PMA_checkParameters(array('db', 'table'));
 
 /**
+ * Gets tables informations
+ */
+require('./tbl_properties_common.php');
+require('./tbl_properties_table_info.php');
+/**
+ * Displays top menu links
+ */
+$active_page = 'tbl_properties_structure.php';
+require('./tbl_properties_links.php');
+
+
+/**
  * Defines the url to return to in case of error in a sql statement
  */
 $err_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db, $table);
