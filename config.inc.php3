@@ -234,11 +234,11 @@ $cfg['MySQLManualBase'] = 'http://www.mysql.com/doc/en';
 
 /**
  * Type of MySQL documentation:
- *   old - old style used in phpMyAdmin 2.3.0 and sooner
+ *   old        - old style used in phpMyAdmin 2.3.0 and sooner
  *   searchable - "Searchable, with user comments"
- *   chapters - "HTML, one page per chapter"
- *   big - "HTML, all on one page"
- *   none - do not show documentation links
+ *   chapters   - "HTML, one page per chapter"
+ *   big        - "HTML, all on one page"
+ *   none       - do not show documentation links
  */
 $cfg['MySQLManualType'] = 'searchable';
 

@@ -31,32 +31,34 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
             $suffix = '.so';
         }
 
-        // Initialize configuration for default, if not set:
-        if (!isset($cfg['RecodingEngine'])) $cfg['RecodingEngine'] = 'auto';
-        
+        // Initializes configuration for default, if not set:
+        if (!isset($cfg['RecodingEngine'])) {
+            $cfg['RecodingEngine'] = 'auto';
+        }
+
         if ($cfg['RecodingEngine'] == 'recode') {
-            if (! @extension_loaded('recode')) {
+            if (!@extension_loaded('recode')) {
                 dl('recode' . $suffix);
                 if (!@extension_loaded('recode')) {
                     echo $strCantLoadRecodeIconv;
                     exit();
                 }
             }
-            $PMA_recoding_engine = 'recode';
-        } elseif ($cfg['RecodingEngine'] == 'iconv') {
-            if (! @extension_loaded('iconv')) {
+            $PMA_recoding_engine             = 'recode';
+        } else if ($cfg['RecodingEngine'] == 'iconv') {
+            if (!@extension_loaded('iconv')) {
                 dl('iconv' . $suffix);
                 if (!@extension_loaded('iconv')) {
                     echo $strCantLoadRecodeIconv;
                     exit();
                 }
             }
-            $PMA_recoding_engine = 'iconv';
+            $PMA_recoding_engine             = 'iconv';
         } else {
             if (@extension_loaded('iconv')) {
                 $PMA_recoding_engine = 'iconv';
-            } elseif (@extension_loaded('recode')) {
-                $PMA_recoding_engine = 'recode';
+            } else if (@extension_loaded('recode')) {
+                $PMA_recoding_engine         = 'recode';
             } else {
                 dl('iconv' . $suffix);
                 if (!@extension_loaded('iconv')) {
@@ -68,31 +70,33 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
                         $PMA_recoding_engine = 'recode';
                     }
                 } else {
-                    $PMA_recoding_engine = 'iconv';
+                    $PMA_recoding_engine     = 'iconv';
                 }
             }
         }
     } // end load recode/iconv extension
-    
+
     define('PMA_CHARSET_NONE', 0);
     define('PMA_CHARSET_ICONV', 1);
     define('PMA_CHARSET_LIBICONV', 2);
     define('PMA_CHARSET_RECODE', 3);
 
-    // finally detect which function will we use:
+    // Finally detects which function will we use:
     if (isset($cfg['AllowAnywhereRecoding'])
         && $cfg['AllowAnywhereRecoding']
         && $allow_recoding) {
-        
-        if (!isset($PMA_recoding_engine)) $PMA_recoding_engine = $cfg['RecodingEngine'];
+
+        if (!isset($PMA_recoding_engine)) {
+            $PMA_recoding_engine = $cfg['RecodingEngine'];
+        }
         if ($PMA_recoding_engine == 'iconv') {
             if (@function_exists('iconv')) {
-                $PMA_recoding_engine = PMA_CHARSET_ICONV; 
+                $PMA_recoding_engine = PMA_CHARSET_ICONV;
             } else if (@function_exists('libiconv')) {
                 $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
             } else {
                 $PMA_recoding_engine = PMA_CHARSET_NONE;
-                
+
                 if (!isset($GLOBALS['is_header_sent'])) {
                     include('./header.inc.php3');
                 }
@@ -100,12 +104,11 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
                 include('./footer.inc.php3');
                 exit();
             }
-        } elseif ($PMA_recoding_engine == 'recode') {
+        } else if ($PMA_recoding_engine == 'recode') {
             if (@function_exists('recode_string')) {
-                $PMA_recoding_engine = PMA_CHARSET_RECODE; 
+                $PMA_recoding_engine = PMA_CHARSET_RECODE;
             } else {
                 $PMA_recoding_engine = PMA_CHARSET_NONE;
-             
 
                 if (!isset($GLOBALS['is_header_sent'])) {
                     include('./header.inc.php3');
@@ -116,14 +119,13 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
             }
         } else {
             if (@function_exists('iconv')) {
-                $PMA_recoding_engine = PMA_CHARSET_ICONV; 
+                $PMA_recoding_engine = PMA_CHARSET_ICONV;
             } else if (@function_exists('libiconv')) {
                 $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
             } elseif (@function_exists('recode_string')) {
-                $PMA_recoding_engine = PMA_CHARSET_RECODE; 
+                $PMA_recoding_engine = PMA_CHARSET_RECODE;
             } else {
                 $PMA_recoding_engine = PMA_CHARSET_NONE;
-               
 
                 if (!isset($GLOBALS['is_header_sent'])) {
                     include('./header.inc.php3');
@@ -134,8 +136,9 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
             }
         }
     } else {
-        $PMA_recoding_engine = PMA_CHARSET_NONE;
+        $PMA_recoding_engine         = PMA_CHARSET_NONE;
     }
+
 
     /**
      * Converts encoding according to current settings.
@@ -162,7 +165,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
         else if (is_array($what)) {
             $result = array();
             reset($what);
-            while(list($key, $val) = each($what)) {
+            while (list($key, $val) = each($what)) {
                 if (is_string($val) || is_array($val)) {
                     if (is_string($key)) {
                         $result[PMA_convert_display_charset($key)] = PMA_convert_display_charset($val);
@@ -249,7 +252,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
     } //  end of the "PMA_convert_charset()" function
 
     /**
-     * Converts encoding of text according to pametres with detected
+     * Converts encoding of text according to parameters with detected
      * conversion function.
      *
      * @param   string   source charset
@@ -278,8 +281,9 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
         }
     } //  end of the "PMA_convert_string()" function
 
+
     /**
-     * Converts encoding of file according to pametres with detected
+     * Converts encoding of file according to parameters with detected
      * conversion function. The old file will be unlinked and new created and
      * its file name is returned.
      *

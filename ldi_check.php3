@@ -36,7 +36,7 @@ if (isset($btnLDI) && ($textfile != 'none')) {
     if (function_exists('PMA_kanji_file_conv')) {
         $textfile         = PMA_kanji_file_conv($textfile, $knjenc, isset($xkana) ? $xkana : '');
     }
-    
+
     // Convert the file's charset if necessary
     if ($cfg['AllowAnywhereRecoding'] && $allow_recoding
         && isset($charset_of_file) && $charset_of_file != $charset) {
@@ -102,7 +102,7 @@ if (isset($btnLDI) && ($textfile != 'none')) {
         $sql_query = $query;
     }
 
-	// Set an empty sub_part to avoid an undefined variable.
+    // Set an empty sub_part to avoid an undefined variable.
     // We could also rename the ldi* scripts
     // to tbl_properties_ldi* to improve consistency with the other sub-pages.
     //

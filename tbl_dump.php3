@@ -18,14 +18,14 @@ function PMA_myHandler($sql_insert)
     if (function_exists('PMA_kanji_str_conv')) {
         $sql_insert = PMA_kanji_str_conv($sql_insert, $GLOBALS['knjenc'], isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : '');
     }
-    
+
     // Convert the charset if required.
     if ($GLOBALS['cfg']['AllowAnywhereRecoding'] && $GLOBALS['allow_recoding']
         && isset($GLOBALS['charset_of_file']) && $GLOBALS['charset_of_file'] != $GLOBALS['charset']
         && (!empty($GLOBALS['asfile']))) {
         $sql_insert = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $sql_insert);
     }
-    
+
     // Defines the end of line delimiter to use
     $eol_dlm = (isset($GLOBALS['extended_ins']) && ($GLOBALS['current_row'] < $GLOBALS['rows_cnt']))
              ? ','
@@ -265,8 +265,9 @@ else {
                                  .  '#' . $crlf .$crlf;
                     if (function_exists('PMA_kanji_str_conv')) { // Y.Kawada
                         $dump_buffer .= PMA_kanji_str_conv($tcmt, $knjenc, isset($xkana) ? $xkana : '');
-                    } elseif ($GLOBALS['cfg']['AllowAnywhereRecoding'] && $GLOBALS['allow_recoding']
-                        // Convert the charset if required.
+                    }
+                    // Converts the charset if required.
+                    else if ($GLOBALS['cfg']['AllowAnywhereRecoding'] && $GLOBALS['allow_recoding']
                         && isset($GLOBALS['charset_of_file']) && $GLOBALS['charset_of_file'] != $GLOBALS['charset']
                         && (!empty($GLOBALS['asfile']))) {
                         $dump_buffer .= PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $tcmt);

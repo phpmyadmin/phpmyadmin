@@ -52,6 +52,9 @@ $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
            // loic1: php 3.0.15 and lower bug -> always enabled
            : (PMA_PHP_INT_VERSION < 30016 || intval(@get_cfg_var('upload_max_filesize')));
 
+$auto_sel  = ($cfg['TextareaAutoSelect'])
+           ? "\n" . '             onfocus="if (typeof(document.layers) == \'undefined\' || typeof(textarea_selected) == \'undefined\') {textarea_selected = 1; this.form.elements[\'sql_query\'].select();}"'
+           : '';
 ?>
     <!-- Query box and bookmark support -->
     <li>
@@ -81,11 +84,7 @@ for ($i = 0 ; $i < $fields_cnt; $i++) {
             <input type="button" name="insert" value="<?php echo($strInsert); ?>" onclick="sqlform.sql_query.value = sqlform.sql_query.value + sqlform.dummy.value" />
             <br />
             <div style="margin-bottom: 5px">
-            <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols'] * 2; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"<?php
-if ($cfg['TextareaAutoSelect']) {
-    echo "\n" . '             onfocus="if (typeof(document.layers) == \'undefined\' || typeof(textarea_selected) == \'undefined\') {textarea_selected = 1; this.form.elements[\'sql_query\'].select();}"';
-}
-?>>
+            <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols'] * 2; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE 1'); ?>
 </textarea><br />
             <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" />&nbsp;

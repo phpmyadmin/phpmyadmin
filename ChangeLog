@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-21 Loïc Chapeaux  <lolo@phpheaven.net>
+    * config.inc.php3, db_details.php3, db_details_export.php3,
+      db_details_qbe.php3, Documentation.html, ldi_check.php3, ldi_table.php3,
+      tbl_dump.php3, tbl_properties_export.php3, tbl_query_box.php3,
+      libraries/charset_conversion.lib.php3: Coding standards.
+
 2002-08-21 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/common.lib.php3: revised to fit coding standards (by Loïc) and
       added documentation about parameters for PMA_showMySQLDocu()

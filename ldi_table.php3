@@ -26,31 +26,31 @@ require('./tbl_properties_table_info.php3');
         <td><?php echo $strLocationTextfile; ?></td>
         <td colspan="2"><input type="file" name="textfile" /></td>
     </tr>
-    <?php
-    if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
-        $temp_charset = reset($cfg['AvailableCharsets']);
-        echo   '<tr>' . "\n"
-             . '        <td>'.$strCharsetOfFile . "</td>\n"
-             . '        <td colspan="2">'. "\n"
-             . '            <select name="charset_of_file" size="1">' . "\n"
-             . '                <option value="' . $temp_charset . '"';
+<?php
+if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
+    $temp_charset = reset($cfg['AvailableCharsets']);
+    echo '    <tr>' . "\n"
+         . '        <td>' . $strCharsetOfFile . '</td>' . "\n"
+         . '        <td colspan="2">' . "\n"
+         . '            <select name="charset_of_file" size="1">' . "\n"
+         . '                <option value="' . $temp_charset . '"';
+    if ($temp_charset == $charset) {
+        echo ' selected="selected"';
+    }
+    echo '>' . $temp_charset . '</option>' . "\n";
+    while ($temp_charset = next($cfg['AvailableCharsets'])) {
+        echo '                <option value="' . $temp_charset . '"';
         if ($temp_charset == $charset) {
             echo ' selected="selected"';
         }
         echo '>' . $temp_charset . '</option>' . "\n";
-        while ($temp_charset = next($cfg['AvailableCharsets'])) {
-            echo '                <option value="' . $temp_charset . '"';
-            if ($temp_charset == $charset) {
-                echo ' selected="selected"';
-            }
-            echo '>' . $temp_charset . '</option>' . "\n";
-        } // end while
-        echo '            </select>' . "\n";
-        echo '        </td>' . "\n";
-        echo '    </tr>' . "\n";
-    } // end if
-    echo "\n";
-    ?>
+    } // end while
+    echo '            </select>' . "\n";
+    echo '        </td>' . "\n";
+    echo '    </tr>';
+} // end if
+echo "\n";
+?>
     <tr>
         <td><?php echo $strReplaceTable; ?></td>
         <td><input type="checkbox" name="replace" value="REPLACE" id="checkbox_replace" /><?php echo $strReplace; ?></td>

@@ -1141,7 +1141,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dt><b>$cfg['MySQLManualBase']</b> string</dt>
     <dd>
         If set to an URL which points to the MySQL documentation (type depends
-        on $cfg['MySQLManualType']), appropriate help links are generated.
+        on <tt>$cfg['MySQLManualType']</tt>), appropriate help links are
+        generated.
         <br />
         See <a href="http://www.mysql.com/documentation/index.html">MySQL
         Documentation page</a> for more information about MySQL manuals and
@@ -1154,9 +1155,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
          Type of MySQL documentation:
          <ul>
             <li>old - old style used in phpMyAdmin 2.3.0 and sooner</li>
-            <li>searchable - "Searchable, with user comments"</li>
-            <li>chapters - "HTML, one page per chapter"</li>
-            <li>big - "HTML, all on one page"</li>
+            <li>searchable - &quot;Searchable, with user comments&quot;</li>
+            <li>chapters - &quot;HTML, one page per chapter&quot;</li>
+            <li>big - &quot;HTML, all on one page&quot;</li>
             <li>none - do not show documentation links</li>
         </ul>
         <br /><br />
@@ -1200,7 +1201,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['RecodingEngine'] </b>string</dt>
     <dd>
-        You can select here which functions will be used for charset conversion.
+        You can select here which functions will be used for charset
+        conversion.
         Possible values are:<br />
         <ul>
             <li>auto   - automatically use available one (first is tested
@@ -1209,6 +1211,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             <li>recode - use recode_string function</li>
         </ul>
         Default is auto.
+        <br /><br />
     </dd>
 
     <dt><b>$cfg['AvailableCharsets'] </b>array</dt>
@@ -1303,8 +1306,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['TextareaAutoSelect'] </b>boolean<br />
     </dt>
     <dd>
-        Defines if the whole textarea of the query box will be selected 
-        on click.
+        Defines if the whole textarea of the query box will be selected on
+        click.
         <br /><br />
     </dd>
 
@@ -2118,7 +2121,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
 <p>
     <b>[6.5] How can I restore (upload) my database or table using a dump?
-    How can I run a &quot;.sql&quot; file?</b>
+       How can I run a &quot;.sql&quot; file?</b>
     <br />
     Click on a database name in the left frame, the properties will be
     local displayed.  Then in the &quot;Run SQL query&quot; section, type in

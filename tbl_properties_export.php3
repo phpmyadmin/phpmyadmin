@@ -92,28 +92,28 @@ echo "\n";
         <td colspan="2" align="center">
             <input type="checkbox" name="asfile" value="sendit" id="checkbox_dump_asfile" onclick="return checkTransmitDump(this.form, 'transmit')" />
             <label for="checkbox_dump_asfile"><?php echo $strSend; ?></label>
-    <?php
-    if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
-        $temp_charset = reset($cfg['AvailableCharsets']);
-        echo "\n, " . $strCharsetOfFile . "\n"
-             . '        <select name="charset_of_file" size="1">' . "\n"
-             . '                <option value="' . $temp_charset . '"';
+<?php
+// charset of file
+if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
+    $temp_charset = reset($cfg['AvailableCharsets']);
+    echo "\n" . '            , ' . $strCharsetOfFile . "\n"
+         . '            <select name="charset_of_file" size="1">' . "\n"
+         . '                <option value="' . $temp_charset . '"';
+    if ($temp_charset == $charset) {
+        echo ' selected="selected"';
+    }
+    echo '>' . $temp_charset . '</option>' . "\n";
+    while ($temp_charset = next($cfg['AvailableCharsets'])) {
+        echo '                <option value="' . $temp_charset . '"';
         if ($temp_charset == $charset) {
             echo ' selected="selected"';
         }
         echo '>' . $temp_charset . '</option>' . "\n";
-        while ($temp_charset = next($cfg['AvailableCharsets'])) {
-            echo '                <option value="' . $temp_charset . '"';
-            if ($temp_charset == $charset) {
-                echo ' selected="selected"';
-            }
-            echo '>' . $temp_charset . '</option>' . "\n";
-        } // end while
-        echo '            </select>';
-    } // end if
-    echo "\n";
-    ?>
-<?php
+    } // end while
+    echo '            </select>';
+} // end if
+echo "\n";
+
 // zip, gzip and bzip2 encode features
 if (PMA_PHP_INT_VERSION >= 40004) {
     $is_zip  = (isset($cfg['ZipDump']) && $cfg['ZipDump'] && @function_exists('gzcompress'));
