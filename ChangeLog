@@ -13,6 +13,7 @@ $Source$
     * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
     * lang/sort_lang.sh: Made POSIX sh compatible.
     * lang/check_lang.sh: Made require bash.
+    * lang/swedish*: Updated.
 
 2002-12-28 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/ukrainian: update, thanks to Markijan Baran
