@@ -1448,7 +1448,7 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '        </td>' . "\n";
             }
             echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            <a href="./server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($row1['User']) . ($row1['Host'] == '%' ? '' : '&amp;hostname=' . urlencode($row1['Host'])) . '">' . "\n"
+               . '            <a href="./server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($row1['User']) . ($row1['Host'] == '%' ? '' : '&amp;hostname=' . urlencode($row1['Host'])) . (!isset($row1['Db']) || $row1['Db'] == '*' ? '' : '&amp;dbname=' . urlencode($row1['Db'])) . '">' . "\n"
                . '                ' . $strEdit . "\n"
                . '            </a>' . "\n"
                . '        </td>' . "\n"
@@ -1483,7 +1483,7 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '        </td>' . "\n";
             }
             echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            <a href="./server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($row2['User']) . ($row2['Host'] == '%' ? '' : '&amp;hostname=' . urlencode($row2['Host'])) . '&amp;dbname=' . urlencode($checkprivs) . '">' . "\n"
+               . '            <a href="./server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($row2['User']) . ($row2['Host'] == '%' ? '' : '&amp;hostname=' . urlencode($row2['Host'])) . (!isset($row2['Db']) || $row2['Db'] == '*' ? '' : '&amp;dbname=' . urlencode($row2['Db'])) . '">' . "\n"
                . '                ' . $strEdit . "\n"
                . '            </a>' . "\n"
                . '        </td>' . "\n"

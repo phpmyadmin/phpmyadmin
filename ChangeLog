@@ -5,23 +5,23 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-
-2003-02-17 Marc Delisle  <lem9@users.sourceforge.net>
-    * sql.php3: use SQL_CALC_FOUND_ROWS on MySQL 4 to find the
-      correct number of rows
+2003-02-17 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_privileges.php3: Fixed edit link.
 
 2003-02-17 Garvin Hicking <me@supergarv.de>
     * tbl_replace_fields.php3, read_dump.php3, libraries/common.lib.php3:
       Reworked blob file upload. More security cautions, and preserve
       fields contents, if no new file was uploaded. Moved is_uploaded_file
       function from read_dump.php3 to common.lib.php3 for reusability.
-      
-2003-02-16 Michal Cihar  <nijel@users.sourceforge.net>
+
+2003-02-17 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_change.php3, tbl_replace_fields.php3: Removed checkbox for binary
       upload, upload field moved into table.
 
 2003-02-17 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.4.0-rc2 released
+    * sql.php3: use SQL_CALC_FOUND_ROWS on MySQL 4 to find the
+      correct number of rows
 
 2003-02-16 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3, lang/*.inc.php3, lang/server_privileges.js:
