@@ -235,7 +235,7 @@ if ($sql_file != 'none') {
 //    if ((file_exists($sql_file) && is_uploaded_file($sql_file))
 //        || file_exists($cfg['UploadDir'] . $sql_localfile)) {
     if (file_exists($sql_file)
-        && (($sql_file == $cfg['UploadDir'] . $sql_localfile) || is_uploaded_file($sql_file))) {
+        && ((isset($sql_localfile) && $sql_file == $cfg['UploadDir'] . $sql_localfile) || is_uploaded_file($sql_file))) {
         $open_basedir     = '';
         if (PMA_PHP_INT_VERSION >= 40000) {
             $open_basedir = @ini_get('open_basedir');

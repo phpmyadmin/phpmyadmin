@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-29 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * read_dump.php3: Fixed an "undefined variable" error.
+
 2002-09-28 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: $cfg['PmaAbsoluteURI'] detection did not work
       properly on IIS 6.0.
