@@ -34,6 +34,7 @@ if (isset($show_query) && $show_query == 'y') {
 }
 unset($sql_query);
 
+
 /**
  * Updates table type, comment and order if required
  */
@@ -55,6 +56,7 @@ if (isset($submitorderby) && !empty($order_field)) {
     $local_query = 'ALTER TABLE ' . PMA_backquote($table) . 'ORDER BY ' . $order_field;
     $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
 }
+
 /**
  * Update table options
  */
@@ -67,7 +69,9 @@ if (isset($submitoptions)) {
 }
 
 
-
+/**
+ * Prepares the table structure display
+ */
 // 1. Get table information
 require('./tbl_properties_table_info.php3');
 
@@ -86,7 +90,6 @@ while ($row = mysql_fetch_array($result)) {
     }
 } // end while
 mysql_free_result($result);
-
 
 // 3. Get fields
 $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
