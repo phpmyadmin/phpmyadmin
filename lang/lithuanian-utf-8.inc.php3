@@ -59,6 +59,7 @@ $strAscending = 'Didėjimo tvarka';
 $strAtBeginningOfTable = 'Lentelės pradžioje';
 $strAtEndOfTable = 'Lentelės pabaigoje';
 $strAttr = 'Atributai';
+$strAutodetect = 'Automatinis nustatymas';  
 $strAutomaticLayout = 'Automatinis išdėstymas';  
 
 $strBack = 'Atgal';
@@ -151,6 +152,7 @@ $strDbPrivileges = 'Specifinės duomenų bazių privilegijos';
 $strDbSpecific = 'priklausantis nuo duomenų bazės tipo';  
 $strDefault = 'Nutylint';
 $strDefaultValueHelp = 'Nenaudokite išskyrimo simbolių ar kabučiu, nurodydami reikšmę pagal nutylėjimą. Naudokitės šiuo formatu: a';
+$strDelOld = 'Šis puslapis turi nuorodų į lenteles, kurios jau neegzistuoja. Ar norite pašalinti šias nuorodas?';
 $strDelete = 'Trinti';
 $strDeleteAndFlush = 'pašalinti vartotojus ir perkrauti privilegijas.';
 $strDeleteAndFlushDescr = 'Tai yra švariausias būdas, bet privilegijų perkrovimas gali šiek tiek užtrukti.';
@@ -205,6 +207,9 @@ $strFieldsEnclosedBy = 'Laukų reikšmės apskliaustos  simboliais';
 $strFieldsEscapedBy = 'Laukų reikšmės baigiasi simboliu';
 $strFieldsTerminatedBy = 'Laukų pabaigos žymė';
 $strFileCouldNotBeRead = 'Negalima perskaityti bylos';
+$strFileNameTemplate = 'Failo pavadinimo šablonas';
+$strFileNameTemplateHelp = 'Naudokite __DB__ duomenų bazės pavadinimui, __TABLE__ lentelės pavadinimui ir funkcijos %sstrftime%s nustatymus laiko formatui. Išplėtimas bus pridedamas automatiškai. Kitas tekstas bus atvaizduotas kaip įvesta.';
+$strFileNameTemplateRemember = 'atsiminti šabloną';
 $strFixed = 'fiksuotas';
 $strFlushPrivilegesNote = 'Pastaba: phpMyAdmin gauna vartotojų teises tiesiai iš MySQL privilegijų lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo konfigūracinėse bylose nurodytų teisių. Todėl %sperkraukite teises%s, jeigu norite tęsti. ';
 $strFlushTable = 'Išvalyti lentelę ("FLUSH")';
@@ -510,6 +515,7 @@ $strShowAll = 'Rodyti viską';
 $strShowColor = 'Rodyti spalvą';
 $strShowCols = 'Rodyti stulpelius';
 $strShowDatadictAs = 'Duomenų žodyno formatas';
+$strShowFullQueries = 'Rodyti pilnas užklausas'; 
 $strShowGrid = 'Rodyti tinklelį';
 $strShowPHPInfo = 'Rodyti PHP informaciją';
 $strShowTableDimension = 'Rodyti lentelių dydžius';
@@ -563,8 +569,12 @@ $strTraffic = 'Apkrovimas';
 $strTransformation_image_jpeg__inline = 'Parodo aktyvų mažinį; nustatymai: plotis,aukštis pikseliais (išsaugo originalų santykį)';  
 $strTransformation_image_jpeg__link = 'Išvedama nuoroda į šį paveikslėlį (tiesioginis blob atsisiuntimas ir pan.).';
 $strTransformation_image_png__inline = 'Žr. image/jpeg: vidų';  
+$strTransformation_text_plain__dateformat = 'Pasiima TIME, TIMESTAMP arba DATETIME laukų reikšmes ir apipavidalina jas pagal naudojamą lokalų datos formatą. Pirmas parametras reikšmė valandomis, kuri bus pridėta prie laiko žymės (nutylint: 0). Antras parametras tai kitoks datos apipavidalinimo formatas pateiktas pagal strftime() fukciją.';
+$strTransformation_text_plain__external = 'LINUX VARTOTOJAMS: Paleidžiama išorinė aplikacija ir duomenys imami iš standartinio įvedimo. Išvedama iš aplikacijos gauta informacija. Nutylint: bus Tidy korektiškam HTML kodo išvedimui. Saugumo sumetimais Jūs turite paredaguoti libraries/transformations/text_plain__external.inc.php bylą ir įvesti tas aplikacijas, kurias naudosite. Pirmas parametras yra leidžiamų aplikacijų kiekis, kurias naudosite. Antras parametras yra specifiniai aplikacijų raktai. Jeigu trečias parametras lygus 1, tai išvedama informacija bus apdorota su htmlspecialchars() (nutylint: reikšmė lygi 1). Jeigu ketvirtas parametras lygus 1, tai išvedimo lentelės celė turės atributą NOWRAP, tam kad išvedama būtų atvaizduota be perkėlimų į kitas eilutes (nutylint: reikšmė lygi 1).';
 $strTransformation_text_plain__formatted = 'Išsaugo originalų lauko apipavidalinimą. Nevykdomas išvengimas.';
+$strTransformation_text_plain__substr = 'Rodoma tik dalis teksto. Pirmas parametras nurodo išvedamo teksto pradžią (nutylint: 0). Antrasis parametras nurodo išvedamo teksto kiekį. Jeigu antras parametras nenurodytas tai bus išvestas visas tekstas. Trečiasis parametras nurodo kurios raidės bus prijungtos prie išvedimo teksto (nutylint: ...).';
 $strTransformation_text_plain__unformatted = 'Rodo HTML kodą kaip HTML esybes. Nerodomas HTML apipavidalinimas.';
+$strTruncateQueries = 'Trumpinti rodomas užklausas'; 
 $strType = 'Tipas';
 
 $strUncheckAll = 'Nepažymėti visus(as)';
@@ -576,6 +586,7 @@ $strUpdateProfileMessage = 'Profilis papildytas.';
 $strUpdateQuery = 'Atnaujinti užklausą';
 $strUsage = 'Išnaudota';
 $strUseBackquotes = 'Lentelių ir laukų vardams naudoti šias kabutes ` `';
+$strUseHostTable = 'Naudoti Host lentelę'; 
 $strUseTables = 'Naudoti lenteles';
 $strUseTextField = 'Naudokite teksto įvedimo lauką';
 $strUser = 'Vartotojas';
@@ -612,21 +623,9 @@ $strZeroRemovesTheLimit = 'Pastaba: Nėra jokių apribojimų jeigu reikšmė nur
 $strZip = '"zip"';
 // To translate
 
-$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
+$strSwitchToTable = 'Switch to copied table';  //to translate
 
-$strFileNameTemplate = 'File name template';//to translate 
-$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
-$strFileNameTemplateRemember = 'remember template';//to translate 
-
-$strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
-$strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
-$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
-
-$strAutodetect = 'Autodetect';  //to translate
 $strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
 $strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
-$strUseHostTable = 'Use Host Table';  //to translate
-$strShowFullQueries = 'Show Full Queries';  //to translate
-$strTruncateQueries = 'Truncate Shown Queries';  //to translate
-$strSwitchToTable = 'Switch to copied table';  //to translate
+
 ?>
