@@ -836,8 +836,17 @@
     This is a known problem with the php ISAPI filter: it's not so stable. For
     some more information and complete testings see the messages posted by
     &quot;djdeluxe76&quot; in
-    <a href="http://www.phpwizard.net/phorum/read.php?f=1&i=6624&t=6300">this&nbsp;thread</a>
+    <a href="http://www.phpwizard.net/phorum/read.php?f=1&amp;i=6624&amp;t=6300">this&nbsp;thread</a>
     from the phpWizard forum.
+</p>
+
+<p>
+    <b>I can't use phpMyAdmin on PWS: nothing is displayed!</b>
+    <br />
+    This seems to be a PWS bug. Filippo Simoncini found a workaroud (at this
+    time there is no better fix): remove or comment the <tt>DOCTYPE</tt>
+    declarations (3 lines) from the scripts <i>header.inc.php3</i>,
+    <i>index.php3</i>, <i>left.php3</i> and <i>libraries/common.lib.php3</i>.
 </p>
 
 <p>
