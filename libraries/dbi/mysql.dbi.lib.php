@@ -47,7 +47,7 @@ function PMA_DBI_connect($user, $password) {
                    ? ''
                    : ':' . $cfg['Server']['socket'];
 
-    if (PMA_MYSQL_CLIENT_API >= 32349) {
+    if (PMA_PHP_INT_VERSION >= 40300 && PMA_MYSQL_CLIENT_API >= 32349) {
         $client_flags = $cfg['Server']['compress'] && defined('MYSQL_CLIENT_COMPRESS') ? MYSQL_CLIENT_COMPRESS : 0;
         // always use CLIENT_LOCAL_FILES as defined in mysql_com.h
         // for the case where the client library was not compiled
