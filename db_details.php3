@@ -266,7 +266,7 @@ else if (MYSQL_INT_VERSION >= 32300) {
                 ?>
     <td align="right" nowrap="nowrap">
         &nbsp;&nbsp;
-        <a href="tbl_properties.php3?<?php echo $url_query; ?>#showusage"><?php echo $formated_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $unit; ?></a>
+        <a href="tbl_properties.php3?<?php echo $url_query; ?>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
     </td>
                 <?php
                 echo "\n";
@@ -309,7 +309,7 @@ else if (MYSQL_INT_VERSION >= 32300) {
         ?>
     <th align="right" nowrap="nowrap">
         &nbsp;
-        <b><?php echo $sum_formated . '<bdo dir="' . $text_dir . '"> </bdo>' . $unit; ?></b>
+        <b><?php echo $sum_formated . ' ' . $unit; ?></b>
     </th>
         <?php
     }

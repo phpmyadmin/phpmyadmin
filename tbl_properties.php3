@@ -550,7 +550,7 @@ if ($cfgShowStats) {
             ?>
         <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strFormat); ?></td>
-            <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
+            <td align="<?php echo $cell_align_left; ?>" nowrap="nowrap">
             <?php
             echo '                ';
             if ($showtable['Row_format'] == 'Fixed') {
@@ -596,7 +596,7 @@ if ($cfgShowStats) {
         <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
             <td align="right" nowrap="nowrap">
-                <?php echo $avg_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $avg_unit . "\n"; ?>
+                <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
             </td>
         </tr>
             <?php
