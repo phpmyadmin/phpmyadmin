@@ -224,20 +224,23 @@ if ($num_dbs > 0) {
         $dbs_array[$db][2] = 0; // index size column
         $dbs_array[$db][3] = 0; // full size column
 
-        $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
-        $result      = @mysql_query($local_query);
-        // needs the "@" below otherwise, warnings in case of special DB names
-        if (@mysql_num_rows($result)) {
-            while ($row = mysql_fetch_array($result)) {
-                $dbs_array[$db][1] += $row['Data_length'];
-                $dbs_array[$db][2] += $row['Index_length'];
-            }
-            $dbs_array[$db][3]     = $dbs_array[$db][1] + $dbs_array[$db][2];
-            $total_array[1]        += $dbs_array[$db][1];
-            $total_array[2]        += $dbs_array[$db][2];
-            $total_array[3]        += $dbs_array[$db][3];
-        } // end if
-        mysql_free_result($result);
+        if (PMA_MYSQL_INT_VERSION >= 32303) {
+            $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
+            $result      = @mysql_query($local_query);
+            // needs the "@" below otherwise, warnings in case of special DB names
+            if (@mysql_num_rows($result)) {
+                while ($row = mysql_fetch_array($result)) {
+                    $dbs_array[$db][1] += $row['Data_length'];
+                    $dbs_array[$db][2] += $row['Index_length'];
+                }
+                $dbs_array[$db][3]     = $dbs_array[$db][1] + $dbs_array[$db][2];
+                $total_array[1]        += $dbs_array[$db][1];
+                $total_array[2]        += $dbs_array[$db][2];
+                $total_array[3]        += $dbs_array[$db][3];
+            } // end if
+            mysql_free_result($result);
+        } // end if MySQL 3.23.03+
+
     } // end for
     mysql_close();
 
