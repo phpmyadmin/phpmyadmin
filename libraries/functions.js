@@ -423,6 +423,7 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
         else if (theAction == 'click' && theMarkColor != '') {
             newColor              = theMarkColor;
             marked_row[theRowNum] = true;
+            document.getElementById('id_rows_to_delete' + theRowNum).checked = true;
         }
     }
     // 4.1.2 Current color is the pointer one
@@ -434,6 +435,7 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
         else if (theAction == 'click' && theMarkColor != '') {
             newColor              = theMarkColor;
             marked_row[theRowNum] = true;
+            document.getElementById('id_rows_to_delete' + theRowNum).checked = true;
         }
     }
     // 4.1.3 Current color is the marker one
@@ -445,6 +447,7 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
             marked_row[theRowNum] = (typeof(marked_row[theRowNum]) == 'undefined' || !marked_row[theRowNum])
                                   ? true
                                   : null;
+            document.getElementById('id_rows_to_delete' + theRowNum).checked = false;
         }
     } // end 4
 

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-05 Garvin Hicking <returnofthegarv@supergarv.de>
+    * libraries/display_tbl.lib.php, libraries/display_tbl_links.lib.php,
+      libraries/functions.js: Upon clicking on a result row, de/activate
+      the checkbox next to it. Only makes sense for horizontal mode. Can be
+      deactivated by setting BrowseMarkerColor to an empty string in config.inc.php.
+
 2004-01-05 Alexander M. Turek  <rumors@derrabus.de>
     * tbl_properties_operations.php: Changing a table's charset changed the
       charset of all fields (MySQL >= 4.1.1).
