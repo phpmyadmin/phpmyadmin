@@ -2,6 +2,10 @@
 #
 # $Id$
 #
+# 2003-06-22, robbat2@users.sourceforge.net:
+# - Moved to using updatedocs.sh for updating documentation
+# - Make tarring faster by re-arranging ops
+#
 # 2003-01-17, rabus@users.sourceforge.net:
 # - Changed the CVS hostname to cvs1 because cvs1.sourceforge.net is now blocked
 #   for the SF shell servers, too. Note: The script now works on the SF shell
@@ -59,7 +63,7 @@ Please ensure you have:
           " <h1>phpMyAdmin $1 Documentation</h1> "
      - in translators.html
   2. built the new "Documentation.txt" version using:
-       lynx --dont_wrap_pre --nolist --dump Documentation.html > Documentation.txt
+       "./scripts/updatedocs.sh"
   3. synchronized the language files:
        cd lang
        ./sync_lang.sh
@@ -75,11 +79,12 @@ if [ "$do_release" != 'y' ]; then
   exit
 fi
 
-
+# Move old cvs dir
 if [ -e cvs ];
 then
     mv cvs cvs-`date +%s`
 fi
+# Do CVS checkout
 mkdir cvs
 cd cvs
 echo "Press [ENTER]!"
@@ -94,21 +99,29 @@ if [ $? -ne 0 ] ; then
     exit 2
 fi
 
-LC_ALL=C date > phpMyAdmin/RELEASE-DATE-$1
+# Cleanup release dir
+LC_ALL=C date -u > phpMyAdmin/RELEASE-DATE-$1
 find phpMyAdmin \( -name .cvsignore -o -name CVS \) -print0 | xargs -0 rm -rf 
 find phpMyAdmin -type d -print0 | xargs -0 chmod 755
 find phpMyAdmin -type f -print0 | xargs -0 chmod 644
 find phpMyAdmin \( -name '*.sh' -o -name '*.pl' \) -print0 | xargs -0 chmod 755
 mv phpMyAdmin phpMyAdmin-$1
+
+# Roll up '.php3' release
 zip -9 -r phpMyAdmin-$1-php3.zip phpMyAdmin-$1
-tar cvzf phpMyAdmin-$1-php3.tar.gz phpMyAdmin-$1
-tar cvjf phpMyAdmin-$1-php3.tar.bz2 phpMyAdmin-$1
+tar cvf phpMyAdmin-$1-php3.tar phpMyAdmin-$1
+bzip -9kv phpMyAdmin-$1-php3.tar
+gzip -9v phpMyAdmin-$1-php3.tar
+
+# Setup for '.php' release
 cd phpMyAdmin-$1
 ./scripts/extchg.sh php3 php
 cd ..
+# Roll up '.php' release
 zip -9 -r phpMyAdmin-$1-php.zip phpMyAdmin-$1
-tar cvzf phpMyAdmin-$1-php.tar.gz phpMyAdmin-$1
-tar cvjf phpMyAdmin-$1-php.tar.bz2 phpMyAdmin-$1
+tar cvf phpMyAdmin-$1-php.tar phpMyAdmin-$1
+bzip -9kv phpMyAdmin-$1-php.tar
+gzip -9v phpMyAdmin-$1-php.tar
 
 echo ""
 echo ""
