@@ -269,6 +269,8 @@ $strRunSQLQuery = 'Kör SQL-fråga/frågor i databasen %s';
 
 $strSave = 'Spara';
 $strSelect = 'Välj';
+$strSelectADb = 'Välj en databas';
+$strSelectAll = 'Markera alla';
 $strSelectFields = 'Välj fält (minst ett):';
 $strSelectNumRows = 'i fråga';
 $strSend = 'Skicka';
@@ -318,6 +320,7 @@ $strType = 'Typ';
 
 $strUncheckAll = 'Avmarkera alla';
 $strUnique = 'Unik';
+$strUnselectAll = 'Avmarkera alla';
 $strUpdatePrivMessage = 'Du har uppdaterat privilegierna för %s.';
 $strUpdateProfile = 'Uppdatera profil:';
 $strUpdateProfileMessage = 'Profilen har uppdaterats.';
@@ -343,7 +346,4 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>

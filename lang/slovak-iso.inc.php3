@@ -271,6 +271,8 @@ $strRunSQLQuery = 'Spusti» SQL dotaz/dotazy na databázu %s';
 
 $strSave = 'Ulo¾i»';
 $strSelect = 'Vybra»';
+$strSelectADb = 'Prosím vyberte si databázu';
+$strSelectAll = 'Oznaèi» v¹etko';
 $strSelectFields = 'Zvoli» pole (najmenej jedno):';
 $strSelectNumRows = 'v dotaze';
 $strSend = 'Po¹li';
@@ -320,6 +322,7 @@ $strType = 'Typ';
 
 $strUncheckAll = 'Odznaèi» v¹etko';
 $strUnique = 'Unikátny';
+$strUnselectAll = 'Odznaèi» v¹etko';
 $strUpdatePrivMessage = 'Boli aktualizované privilégia pre %s.';
 $strUpdateProfile = 'Aktualizova» profil:';
 $strUpdateProfileMessage = 'Profil bol aktualizovaný.';
@@ -346,7 +349,4 @@ $strZip = '"zo zipované"';
 
 
 // To translate
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>
