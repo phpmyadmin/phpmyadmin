@@ -1319,7 +1319,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     echo '    </td>' . "\n";
                 }
                 if (!empty($del_url)) {
-                    echo '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . ' bgcolor="' . $bgcolor . '">' . "\n";
+                    echo '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
                     echo PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''));
                     echo '    </td>' . "\n";
                 }
