@@ -16,6 +16,7 @@ $Source$
 2002-07-18 Steve Alberty  <staybyte@users.sourceforge.net>
     * It is now possible to print stats for more than 2 GB (up to exa byte)
     * db_details_structure.php3: correct wrong link from table size to stats
+    * tbl_printview.php3: fixed warnings if relation is not defined
 
 2002-07-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/sync_lang.sh: support for multiple convertors (recode added),

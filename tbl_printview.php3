@@ -155,7 +155,7 @@ while (list($key, $table) = each($the_tables)) {
     $fields_cnt  = mysql_num_rows($result);
 
     // Check if we can use Relations (Mike Beck)
-    if ($cfgRelation['relation']) {
+    if (!empty($cfgRelation['relation'])) {
         // Find which tables are related with the current one and write it in
         // an array
         $res_rel = PMA_getForeigners($db, $table);
@@ -165,7 +165,11 @@ while (list($key, $table) = each($the_tables)) {
         } else {
             $have_rel = FALSE;
         }
-    } // end if
+    }
+    else {
+    	$have_rel = FALSE;
+    }
+     // end if
 
 
     /**
