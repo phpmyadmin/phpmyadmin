@@ -311,6 +311,7 @@ $strWrongUser = 'Λανθασμένος χρήστης/κωδικός πρόσβασης. ¶ρνηση πρόσβασης.';
 $strYes = 'Ναι';
 
 // To translate
+$strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';

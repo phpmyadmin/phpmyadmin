@@ -312,6 +312,7 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
+$strRunningAs = 'as';
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
 ?>

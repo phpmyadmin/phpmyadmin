@@ -311,6 +311,7 @@ $strYes = 'Ano';
 
 // To translate
 $strIdxFulltext = 'Fulltext';  //to translate 
+$strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';

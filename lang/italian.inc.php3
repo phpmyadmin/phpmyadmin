@@ -315,4 +315,5 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 // To translate
+$strRunningAs = 'as';
 ?>

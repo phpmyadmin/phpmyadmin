@@ -315,6 +315,7 @@ $strWrongUser = 'V‰‰r‰ k‰ytt‰j‰tunnus tai salasana. P‰‰sy kielletty.';
 $strYes = 'Kyll‰';
 
 // To translate
+$strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';

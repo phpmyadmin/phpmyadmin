@@ -240,6 +240,7 @@ $strRowsFrom = 'rows starting from';
 $strRowSize = ' Row size ';
 $strRowsStatistic = 'Row Statistic';
 $strRunning = 'running on ';
+$strRunningAs = 'as';
 $strRunQuery = 'Submit Query';
 $strRunSQLQuery = 'Run SQL query/queries on database ';
 

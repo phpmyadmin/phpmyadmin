@@ -309,6 +309,7 @@ $strGzip = '"gzipped"'; //to translate
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strNoDropDatabases = '"DROP DATABASE" statements zijn niet mogelijk.'; //to translate
 $strOffSet = 'offset'; //to translate
+$strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
