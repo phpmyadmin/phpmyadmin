@@ -632,7 +632,12 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             PMA_DBI_try_query($real_sql_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
             $message = $strAddUserMessage;
         } else {
-            $queries[] = $sql_query;
+            $queries[]             = $real_sql_query;
+            // we put the query containing the hidden password in 
+            // $queries_for_display, at the same position occupied
+            // by the real query in $queries
+            $tmp_count = count($queries);
+            $queries_for_display[$tmp_count - 1] = $sql_query;
         }
         unset($real_sql_query);
         PMA_DBI_free_result($res);
@@ -853,9 +858,16 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
  * Changes / copies a user, part V
  */
 if (!empty($change_copy)) {
+    $tmp_count = -1;
     foreach ($queries as $sql_query) {
+        $tmp_count++;
         if ($sql_query{0} != '#') {
             PMA_DBI_query($sql_query);
+        }
+        // when there is a query containing a hidden password, take it
+        // instead of the real query sent
+        if (isset($queries_for_display[$tmp_count])) {
+            $queries[$tmp_count] = $queries_for_display[$tmp_count];
         }
     }
     $message = $strSuccess;

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: bug 923171, password error when copying a user
+
 2004-03-26 Marc Delisle  <lem9@users.sourceforge.net>
     * left.php, db_details_structure.php, config.inc.php, Documentation.html,
       libraries/common.lib.php, libraries/config_import.lib.php:
