@@ -435,10 +435,32 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
         </form>
     </li>
 
-</ul>
-
-
 <?php
+
+// is this OK to check for 'class' support?
+if ( PMA_PHP_INT_VERSION >= 40000 
+    && (!empty($cfg['Server']['pdf_table_position']))) {
+?>
+
+    <!-- PDF schema -->
+    <li>
+        <form method="post" action="pdf_schema.php3">
+        <input type="hidden" name="server" value="<?php echo $server; ?>" />
+        <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+        <input type="hidden" name="db" value="<?php echo $db; ?>" />
+<?php
+echo '        ' . $strDisplayPDF . '&nbsp;:<br />' . "\n";
+echo '        ' . $strPageNumber . '&nbsp;' . "\n";
+echo '        ' . '<input type="text" name="pdf_page_number" size="3" class="textfield" />' . "\n";
+echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
+?>
+        </form>
+    </li>
+<?php
+}
+
+echo '</ul>';
+
 /**
  * Displays the footer
  */
