@@ -380,18 +380,35 @@ else {
                         $parens_close = '';
                     }
                     $enum_where = '\'' . PMA_sqlAddslashes($fields[$i][0]) . '\'';
+                    if (PMA_MYSQL_INT_VERSION >= 40100) {
+                        $enum_where = 'CONVERT(_utf8 ' . $enum_where . ' USING ' . $charsets[$i] . ')';
+                    }
                     for ($e = 1; $e < $enum_selected_count; $e++) {
-                        $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$i][$e]) . '\'';
+                        $enum_where .= ', ';
+                        $tmp_literal = '\'' . PMA_sqlAddslashes($fields[$i][$e]) . '\'';
+                        if (PMA_MYSQL_INT_VERSION >= 40100) {
+                            $tmp_literal = 'CONVERT(_utf8 ' . $tmp_literal . ' USING ' . $charsets[$i] . ')';
+                        }
+                        $enum_where .= $tmp_literal;
+                        unset($tmp_literal);
                     }
 
                     $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
                 }
 
             } elseif ($fields[$i] != '') {
-                if (preg_match('@char|blob|text|set|date|time|year@i', $types[$i])) {
+                if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types[$i])) {
                     $quot = '\'';
                 } else {
                     $quot = '';
+                }
+
+                // Make query independant from the selected connection charset.
+                if (PMA_MYSQL_INT_VERSION >= 40101 && preg_match('@char|binary|blob|text|set@i', $types[$i])) {
+                    $prefix = 'CONVERT(_utf8 ';
+                    $suffix = ' USING ' . $charsets[$i] . ')';
+                } else {
+                    $prefix = $suffix = '';
                 }
 
                 // LIKE %...%
@@ -399,7 +416,7 @@ else {
                     $func_type = 'LIKE';
                     $fields[$i] = '%' . $fields[$i] . '%';
                 }
-                $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;
+                $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type . ' ' . $prefix . $quot . PMA_sqlAddslashes($fields[$i]) . $quot . $suffix;
 
             } // end if
         } // end for
