@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-20 Loïc Chapeaux  <lolo@phpheaven.net>
+	* header.inc.php3; left.php3; libraries/left.js: CSS fixes.
+
 2002-04-19 Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html "how can I make a backup?",
 	  "how can I restore a dump?"

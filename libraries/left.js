@@ -265,7 +265,7 @@ if (capable) {
     if (isDOM) {
       var lstyle = '<style type="text\/css">'
                  + '<!--'
-                 + 'div {color: #000000}'
+                 + 'div {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}'
                  + '.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}'
                  + '.headaCnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}'
                  + '.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; display: block}'
@@ -279,7 +279,7 @@ if (capable) {
     else {
       document.writeln('<style type="text\/css">');
       document.writeln('<!--');
-      document.writeln('div {color: #000000}');
+      document.writeln('div {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}');
       document.writeln('.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}');
       document.writeln('.headaCnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}');
       if (isIE4) {
@@ -300,7 +300,7 @@ if (capable) {
 else {
     document.writeln('<style type="text\/css">');
     document.writeln('<!--');
-    document.writeln('div {color: #000000}');
+    document.writeln('div {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}');
     document.writeln('.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}');
     document.writeln('.headaCnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}');
     document.writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none}');

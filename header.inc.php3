@@ -61,6 +61,7 @@ pre, tt         {font-size: <?php echo $font_size; ?>}
 th              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #000000; background-color: <?php echo $cfgThBgcolor; ?>}
 td              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
 form            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
+input           {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
 input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
 select          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
 textarea        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}

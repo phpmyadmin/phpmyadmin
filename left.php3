@@ -106,7 +106,7 @@ if ($num_dbs > 1 && !$cfgLeftFrameLight) {
     <noscript>
         <style type="text/css">
         <!--
-        div {color: #000000}
+        div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
         .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
         .headaCnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
         .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
@@ -131,7 +131,7 @@ else if ($num_dbs == 1) {
     <style type="text/css">
     <!--
     body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
-    div {color: #000000}
+    div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
     .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
     .headaCnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
     .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
@@ -150,7 +150,8 @@ else {
     <!--
     body    {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
     div     {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-    select  {background-color: #ffffff; color: #000000}
+    input   {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
+    select  {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; background-color: #ffffff; color: #000000}
     .heada  {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
     .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
     .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
