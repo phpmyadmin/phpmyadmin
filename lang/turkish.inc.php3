@@ -170,7 +170,6 @@ $strLineFeed = 'Satýr: \\n';
 $strLines = 'Satýrlar';
 $strLinesTerminatedBy = 'Satýr sonu';
 $strLocationTextfile = 'Dosyadan yükle';
-$strLogin = ''; //to translate, but its not in use ... (so why here  :P )
 $strLogout = 'Çýkýþ';
 
 $strModifications = 'Deðiþiklikler kaydedildi';
@@ -337,4 +336,8 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiþ"';
 
 // To translate
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogin = 'Login';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 ?>

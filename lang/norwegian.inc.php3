@@ -169,7 +169,6 @@ $strLineFeed = 'Linjeskift: \\n';
 $strLines = 'Linjer';
 $strLinesTerminatedBy = 'Linker avsluttet med';
 $strLocationTextfile = 'Plassering av filen';
-$strLogin = ''; //to translate, but its not in use ...
 $strLogout = 'Logg ut';
 
 $strModifications = 'Endringene er lagret';
@@ -336,4 +335,8 @@ $strYes = 'Ja';
 $strZip = '"komprimert (zip)"';
 
 // To translate
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogin = 'Login';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 ?>

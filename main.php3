@@ -94,15 +94,13 @@ if ($server == 0 || count($cfgServers) > 1) {
 </tr>
 <tr>
     <td>
-        <form action="index.php3" target="_parent">
+        <form method="post" action="index.php3" target="_parent">
             <select name="server">
     <?php
     echo "\n";
     reset($cfgServers);
-    while (list($key, $val) = each($cfgServers))
-    {
-        if (!empty($val['host']))
-        {
+    while (list($key, $val) = each($cfgServers)) {
+        if (!empty($val['host'])) {
             echo '                <option value="' . $key . '"';
             if (!empty($server) && ($server == $key)) {
                 echo ' selected="selected"';
@@ -127,7 +125,7 @@ if ($server == 0 || count($cfgServers) > 1) {
             if (!empty($val['only_db'])) {
                 echo ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
             }
-            if (!empty($val['user']) && !($val['adv_auth'])) {
+            if (!empty($val['user']) && ($val['auth_type'] == 'basic')) {
                 echo '  (' . $val['user'] . ')';
             }
             echo '&nbsp;</option>' . "\n";
@@ -211,7 +209,7 @@ if ($server > 0) {
     // loic1: Displays the MySQL column only if at least one feature has to be
     //        displayed
     if ($is_superuser || $is_create_priv || $is_process_priv || $is_reload_priv
-        || $cfgShowMysqlInfo || $cfgShowMysqlVars || $cfgServer['adv_auth']) {
+        || $cfgShowMysqlInfo || $cfgShowMysqlVars || $cfgServer['auth_type'] != 'basic') {
         ?>
     <!-- MySQL server related links -->
     <td valign="top" align="<?php echo $cell_align_left; ?>">
@@ -328,7 +326,7 @@ if ($server > 0) {
         }
 
         // Logout for advanced authentication
-        if ($cfgServer['adv_auth']) {
+        if ($cfgServer['auth_type'] != 'basic') {
             echo "\n";
             ?>
         <tr>
@@ -413,7 +411,7 @@ if (empty($cfgLang)) {
                 </form>
             </td>
         </tr>
-   <?php
+    <?php
 }
 echo "\n";
 ?>

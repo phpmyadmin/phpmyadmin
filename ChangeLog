@@ -12,6 +12,12 @@ $Source$
 	* Documentation.html, line 282: the suggested statement to create a new
 	  user and give him grants on a db was invalid.
 	* Documentation.txt: updated.
+	* config.inc.php3; main.php3; lang/*; libraris/common.lib.php3;
+	  libraries/auth/*:
+	  - moved all the authentication work in libraries so it will be easier to
+	    add new authentication modes;
+	  - started merging patch #463127 - Cookie based authentication, thanks to
+	    Piotr Roszatycki <d3xter at users.sourceforge.net> and Dan Wilson.
 
 2001-12-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/left.js, lines 234-240: fixed a js bug with empty databases.

@@ -337,5 +337,8 @@ $strYes = 'はい';
 $strZip = '"zipされる"';
 
 // To translate
+$strCardinality = 'Cardinality';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 
 ?>

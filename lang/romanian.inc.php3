@@ -170,7 +170,6 @@ $strLineFeed = 'Dezvoltare linie: \\n';
 $strLines = 'Linii';
 $strLinesTerminatedBy = 'Linii terminate de';
 $strLocationTextfile = 'Locatia fisierului text';
-$strLogin = '';
 $strLogout = 'Deconectare';
 
 $strModifications = 'Modificarile au fost salvate';
@@ -337,5 +336,9 @@ $strYes = 'Da';
 $strZip = '"zipped"';
 
 // To translate
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogin = 'Login';
+$strLogPassword = 'Password&nbsp;:';
+$strLogUsername = 'Username&nbsp;:';
 
 ?>

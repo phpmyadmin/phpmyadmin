@@ -132,7 +132,8 @@ $strHomepageOfficial = 'Officiel phpMyAdmin hjemmeside ';
 $strHomepageSourceforge = 'Ny phpMyAdmin hjemmeside ';
 $strHost = 'Vært';
 $strHostEmpty = 'Der er intet værtsnavn!'; 
-$strIdxFulltext = 'Fuldtekst'; 
+
+$strIdxFulltext = 'Fuldtekst';
 $strIfYouWish = 'Hvis du kun ønsker at importere nogle af tabellens kolonner, angives de med en kommasepareret felt liste.';
 $strIndex = 'Indeks';
 $strIndexes = 'Indekser';
@@ -157,7 +158,6 @@ $strLineFeed = 'Linefeed: \\n';
 $strLines = 'Linier';
 $strLinesTerminatedBy = 'Linier afsluttet med';
 $strLocationTextfile = 'Tekstfilens placering';
-$strLogin = ''; //to translate, but its not in use ...
 $strLogout = 'Log af';
 
 $strModifications = 'Rettelserne er gemt!';
@@ -319,7 +319,11 @@ $strZip = '"zipped"'; //to translate
 $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Insert a new record';
 $strBookmarkDeleted = 'The bookmark has been deleted.';
+$strCookiesRequired = 'Cookies must be enabled past this point.';
 $strFlushTable = 'Flush the table ("FLUSH")';
+$strLogin = 'Login';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 $strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strTableHasBeenFlushed = 'Table %s has been flushed';
 

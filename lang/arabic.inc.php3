@@ -174,7 +174,6 @@ $strLineFeed = 'ÎØæØ ãÚÑÝå: \\n';
 $strLines = 'ÎØæØ';
 $strLinesTerminatedBy = 'ÎØæØ ãÝÕæáå ÈÜ';
 $strLocationTextfile = 'ãßÇä ãáÝ ÇáäÕæÕ';
-$strLogin = ''; //to translate, but its not in use ...
 $strLogout = 'ÊÓÌíá ÎÑæÌ';
 
 $strModifications = 'ÊãÊ ÇáÊÚÏíáÇÊ';
@@ -342,4 +341,8 @@ $strZip = '"zipped" "ãÖÛæØ"';
 
 // To translate
 $strCardinality = 'Cardinality';
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogin = 'Login';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 ?>

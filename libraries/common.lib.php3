@@ -25,15 +25,14 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      *
      * the PMA_sqlAddslashes() function must be before the connection to db
      *
-     * the PMA_auth() function must be before the connection to db but after
-     * the PMA_isInto() function
+     * the authentication libraries must be before the connection to db but
+     * after the PMA_isInto() function
      *
      * the PMA_mysqlDie() function must be before the connection to db but after
      * mysql extension has been loaded
      *
      * ... so the required order is:
      *
-     * - definition of PMA_auth()
      * - parsing of the configuration file
      * - first load of the libraries/define.lib.php3 library (won't get the
      *   MySQL release number)
@@ -41,8 +40,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * - definition of PMA_sqlAddslashes()
      * - definition of PMA_mysqlDie()
      * - definition of PMA_isInto()
+     * - loading of an authentication library
      * - db connection
-     * - advanced authentication work if required
+     * - authentication work
      * - second load of the libraries/define.lib.php3 library to get the MySQL
      *   release number)
      * - other functions, respecting dependencies 
@@ -58,43 +58,6 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     if (!isset($pos)) {
         $pos              = 0;
     }
-
-
-    /**
-     * Advanced authentication work
-     *
-     * Requires Apache loaded as a php module.
-     *
-     * @access  public
-     */
-    function PMA_auth()
-    {
-//        header('WWW-Authenticate: Basic realm="phpMyAdmin ' . trim($GLOBALS['strRunning']) . ' ' . $GLOBALS['cfgServer']['host'] . '"');
-        header('WWW-Authenticate: Basic realm="phpMyAdmin ' . sprintf($GLOBALS['strRunning'], (empty($GLOBALS['cfgServer']['verbose']) ? str_replace('\'', '\\\'',$GLOBALS['cfgServer']['host']) : str_replace('\'', '\\\'', $GLOBALS['cfgServer']['verbose']))) .  '"');
-        header('HTTP/1.0 401 Unauthorized');
-        header('status: 401 Unauthorized');
-        ?>
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][2]; ?>" lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][2]; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
-
-<head>
-<title><?php echo $GLOBALS['strAccessDenied']; ?></title>
-</head>
-
-<body bgcolor="#FFFFFF">
-<br /><br />
-<center>
-    <h1><?php echo $GLOBALS['strWrongUser']; ?></h1>
-</center>
-</body>
-
-</html>
-        <?php
-        echo "\n";
-        exit();
-    } // end of the 'PMA_auth()' function
 
 
     /**
@@ -173,7 +136,6 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         || (PMA_PHP_INT_VERSION >= 40005 && @ini_get('zlib.output_compression'))) {
         $cfgOBGzip = FALSE;
     }
-
 
 
     /**
@@ -357,137 +319,14 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                        ? ''
                        : ':' . $cfgServer['socket'];
 
-        // Advanced authentication is required
-        if ($cfgServer['adv_auth']) {
-            // Grabs the $PHP_AUTH_USER variable whatever are the values of the
-            // 'register_globals' and the 'variables_order' directives
-            // loic1 - 2001/25/11: use the new globals arrays defined with
-            //                     php 4.1+
-            if (empty($PHP_AUTH_USER)) {
-                if (!empty($_SERVER) && isset($_SERVER['PHP_AUTH_USER'])) {
-                    $PHP_AUTH_USER = $_SERVER['PHP_AUTH_USER'];
-                }
-                else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['PHP_AUTH_USER'])) {
-                    $PHP_AUTH_USER = $HTTP_SERVER_VARS['PHP_AUTH_USER'];
-                }
-                else if (isset($REMOTE_USER)) {
-                    $PHP_AUTH_USER = $REMOTE_USER;
-                }
-                else if (!empty($_ENV) && isset($_ENV['REMOTE_USER'])) {
-                    $PHP_AUTH_USER = $_ENV['REMOTE_USER'];
-                }
-                else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['REMOTE_USER'])) {
-                    $PHP_AUTH_USER = $HTTP_ENV_VARS['REMOTE_USER'];
-                }
-                else if (@getenv('REMOTE_USER')) {
-                    $PHP_AUTH_USER = getenv('REMOTE_USER');
-                }
-                // Fix from Matthias Fichtner for WebSite Professional - Part 1
-                else if (isset($AUTH_USER)) {
-                    $PHP_AUTH_USER = $AUTH_USER;
-                }
-                else if (!empty($_ENV) && isset($_ENV['AUTH_USER'])) {
-                    $PHP_AUTH_USER = $_ENV['AUTH_USER'];
-                }
-                else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['AUTH_USER'])) {
-                    $PHP_AUTH_USER = $HTTP_ENV_VARS['AUTH_USER'];
-                }
-                else if (@getenv('AUTH_USER')) {
-                    $PHP_AUTH_USER = getenv('AUTH_USER');
-                }
-            }
-            // Grabs the $PHP_AUTH_PW variable whatever are the values of the
-            // 'register_globals' and the 'variables_order' directives
-            // loic1 - 2001/25/11: use the new globals arrays defined with
-            //                     php 4.1+
-            if (empty($PHP_AUTH_PW)) {
-                if (!empty($_SERVER) && isset($_SERVER['PHP_AUTH_PW'])) {
-                    $PHP_AUTH_PW = $_SERVER['PHP_AUTH_PW'];
-                }
-                else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['PHP_AUTH_PW'])) {
-                    $PHP_AUTH_PW = $HTTP_SERVER_VARS['PHP_AUTH_PW'];
-                }
-                else if (isset($REMOTE_PASSWORD)) {
-                    $PHP_AUTH_PW = $REMOTE_PASSWORD;
-                }
-                else if (!empty($_ENV) && isset($_ENV['REMOTE_PASSWORD'])) {
-                    $PHP_AUTH_PW = $_ENV['REMOTE_PASSWORD'];
-                }
-                else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['REMOTE_PASSWORD'])) {
-                    $PHP_AUTH_PW = $HTTP_ENV_VARS['REMOTE_PASSWORD'];
-                }
-                else if (@getenv('REMOTE_PASSWORD')) {
-                    $PHP_AUTH_PW = getenv('REMOTE_PASSWORD');
-                }
-                // Fix from Matthias Fichtner for WebSite Professional - Part 2
-                else if (isset($AUTH_PASSWORD)) {
-                    $PHP_AUTH_PW = $AUTH_PASSWORD;
-                }
-                else if (!empty($_ENV) && isset($_ENV['AUTH_PASSWORD'])) {
-                    $PHP_AUTH_PW = $_ENV['AUTH_PASSWORD'];
-                }
-                else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['AUTH_PASSWORD'])) {
-                    $PHP_AUTH_PW = $HTTP_ENV_VARS['AUTH_PASSWORD'];
-                }
-                else if (@getenv('AUTH_PASSWORD')) {
-                    $PHP_AUTH_PW = getenv('AUTH_PASSWORD');
-                }
-            }
-            // Grabs the $old_usr variable whatever are the values of the
-            // 'register_globals' and the 'variables_order' directives
-            // loic1 - 2001/25/11: use the new globals arrays defined with
-            //                     php 4.1+
-            if (empty($old_usr)) {
-                if (!empty($_GET) && isset($_GET['old_usr'])) {
-                    $old_usr = $_GET['old_usr'];
-                }
-                else if (!empty($HTTP_GET_VARS) && isset($HTTP_GET_VARS['old_usr'])) {
-                    $old_usr = $HTTP_GET_VARS['old_usr'];
-                }
-            }
-
-            // First load -> checks if authentication is required
-            if (!isset($old_usr)) {
-                if (empty($PHP_AUTH_USER)) {
-                    $do_auth = TRUE;
-                } else {
-                    $do_auth = FALSE;
-                }
-            }
-            // Else ensure the username is not the same
-            else {
-                // force user to enter a different username
-                if (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER) {
-                    $do_auth = TRUE;
-                } else {
-                    $do_auth = FALSE;
-                }
-            }
-
-            // Calls the authentication window or store user's login/password
-            if ($do_auth) {
-                PMA_auth();
-            } else {
-                if (get_magic_quotes_gpc()) {
-                    $PHP_AUTH_USER = stripslashes($PHP_AUTH_USER);
-                    $PHP_AUTH_PW   = stripslashes($PHP_AUTH_PW);
-                }
-                // Ensures the valid 'only_db' setting is used
-                if ($cfgServer['user'] != $PHP_AUTH_USER) {
-                    $servers_cnt = count($cfgServers);
-                    for ($i = 1; $i <= $servers_cnt; $i++) {
-                        if (isset($cfgServers[$i])
-                            && ($cfgServers[$i]['host'] == $cfgServer['host'] && $cfgServers[$i]['user'] == $PHP_AUTH_USER)) {
-                            $server    = $i;
-                            $cfgServer = $cfgServers[$i];
-                            break;
-                        }
-                    } // end for
-                 } // end if
-                $cfgServer['user']     = $PHP_AUTH_USER;
-                $cfgServer['password'] = $PHP_AUTH_PW;
-            } // end else
-        } // end advanced authentication
+        // Gets the authentication library that fits the cfgServer settings
+        // and run authentication
+        include('./libraries/auth/' . $cfgServer['auth_type'] . '.auth.lib.php3');
+        if (!PMA_auth_check()) {
+            PMA_auth();
+        } else {
+            PMA_auth_set_user();
+        }
 
         // The user can work with only some databases
         if (isset($cfgServer['only_db']) && $cfgServer['only_db'] != '') {
@@ -535,23 +374,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                              $cfgServer['password']
                          );
         if ($userlink == FALSE) {
-            // Advanced authentication case
-            if ($cfgServer['adv_auth']) {
-                PMA_auth();
-            }
-            // Standard authentication case
-            else if (mysql_error()) {
-                $conn_error = mysql_error();
-            } else if (isset($php_errormsg)) {
-                $conn_error = $php_errormsg;
-            } else {
-                $conn_error = 'Cannot connect: invalid settings.';
-            }
-            $local_query    = $connect_func . '('
-                            . $cfgServer['host'] . $server_port . $server_socket . ', '
-                            . $cfgServer['user'] . ', '
-                            . $cfgServer['password'] . ')';
-            PMA_mysqlDie($conn_error, $local_query, FALSE);
+            PMA_auth_fails();
         } // end if
 
         if (PMA_PHP_INT_VERSION >= 40000) {

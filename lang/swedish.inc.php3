@@ -170,7 +170,7 @@ $strLineFeed = 'Radframmatning: \\n';
 $strLines = 'Rader';
 $strLinesTerminatedBy = 'Raderna avslutas med';
 $strLocationTextfile = 'Textfilens plats';
-$strLogin = 'Logga in'; //to translate, but its not in use ...
+$strLogin = 'Logga in';
 $strLogout = 'Logga ut';
 
 $strModifications = 'Ändringarna har sparats';
@@ -336,4 +336,8 @@ $strYes = 'Ja';
 
 $strZip = '"zippad"';
 
+// To translate
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 ?>

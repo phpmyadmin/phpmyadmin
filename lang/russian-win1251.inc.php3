@@ -170,7 +170,7 @@ $strLineFeed = 'Символ окончания линии: \\n';
 $strLines = 'Линии';
 $strLinesTerminatedBy = 'Строки разделены';
 $strLocationTextfile = 'Месторасположение текстового файла';
-$strLogin = 'Вход в систему';  // To translate, but its not in use ...
+$strLogin = 'Вход в систему';
 $strLogout = 'Выйти из системы';
 
 $strModifications = 'Модификации были сохранены';
@@ -337,4 +337,7 @@ $strYes = 'Да';
 $strZip = 'упаковать в "zip"';
 
 // To translate
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 ?>

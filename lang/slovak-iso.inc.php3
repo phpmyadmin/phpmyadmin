@@ -172,7 +172,6 @@ $strLineFeed = 'Ukonèenie riadku (Linefeed): \\n';
 $strLines = 'Riadky';
 $strLinesTerminatedBy = 'Riadky ukonèené';
 $strLocationTextfile = 'Lokácia textového súboru';
-$strLogin = ''; //to translate, but its not in use ...
 $strLogout = 'Odhlási» sa';
 
 $strModifications = 'Zmeny boli ulo¾ené';
@@ -340,5 +339,9 @@ $strZip = '"zo zipované"';
 
 
 // To translate
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogin = 'Login';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 
 ?>

@@ -169,7 +169,6 @@ $strLineFeed = 'Zeilenvorschub: \\n';
 $strLines = 'Zeilen';
 $strLinesTerminatedBy = 'Zeilen getrennt mit';
 $strLocationTextfile = 'Datei';
-$strLogin = ''; //to translate, but its not in use ...
 $strLogout = 'Neu einloggen';
 
 $strModifications = 'Änderungen gespeichert.';
@@ -334,9 +333,11 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
+$strCardinality = 'Cardinality';
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogin = 'Login';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
-
-// Indexes
-$strCardinality = 'Cardinality';
 ?>

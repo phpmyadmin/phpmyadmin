@@ -170,7 +170,7 @@ $strLineFeed = 'Символ за край на ред: \\n';
 $strLines = 'Редове';
 $strLinesTerminatedBy = 'Линиите завършват с';
 $strLocationTextfile = 'Местоположение на текстовия файл';
-$strLogin = 'Вход'; //keep it, even if its not in use ...
+$strLogin = 'Вход';
 $strLogout = 'Изход от системата';
 
 $strModifications = 'Промените бяха съхранени';
@@ -338,5 +338,7 @@ $strYes = 'да';
 $strZip = '"zip-нато"';
 
 // To translate
-
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 ?>

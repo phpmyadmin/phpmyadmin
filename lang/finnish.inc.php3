@@ -174,7 +174,6 @@ $strLineFeed = 'LF-rivinvaihto: \\n';
 $strLines = 'Rivit';
 $strLinesTerminatedBy = 'Rivien erotinmerkki';
 $strLocationTextfile = 'Tiedoston sijainti';
-$strLogin = ''; //to translate, but its not in use ...
 $strLogout = 'Poistu';
 
 $strModifications = 'Muutokset tallennettu';
@@ -341,5 +340,9 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogin = 'Login';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 
 ?>

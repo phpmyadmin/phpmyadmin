@@ -170,7 +170,6 @@ $strLineFeed = 'Carácter de alimentación de liña: \\n';
 $strLines = 'Liñas';
 $strLinesTerminatedBy = 'As liñas rematan por';
 $strLocationTextfile = 'Localización do arquivo de texto';
-$strLogin = 'Login'; //to translate, but its not in use ...
 $strLogout = 'Sair';
 
 $strModifications = 'As modificacións foron gardadas';
@@ -337,5 +336,9 @@ $strYes = 'Si';
 $strZip = 'comprimido no formato "zipped"';
 
 // To translate
+$strCardinality = 'Cardinality';
+$strLogin = 'Login';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 
 ?>

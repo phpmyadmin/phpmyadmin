@@ -337,5 +337,8 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogPassword = 'Password&nbsp;:';
+$strLogUsername = 'Username&nbsp;:';
 
 ?>

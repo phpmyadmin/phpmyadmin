@@ -172,7 +172,6 @@ $strLineFeed = 'Fine riga: \\n';
 $strLines = 'Record';
 $strLinesTerminatedBy = 'Linee terminate da';
 $strLocationTextfile = 'Percorso del file';
-$strLogin = ''; //to translate, but its not in use ...
 $strLogout = 'Disconnetti';
 
 $strModifications = 'Le modifiche sono state salvate';
@@ -339,4 +338,8 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogin = 'Login';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 ?>

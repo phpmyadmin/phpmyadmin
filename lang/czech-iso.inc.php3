@@ -170,7 +170,6 @@ $strLineFeed = 'Ukonèení øádku (Linefeed): \\n';
 $strLines = 'Øádek';
 $strLinesTerminatedBy = 'Øádky ukonèené';
 $strLocationTextfile = 'Umístìní textového souboru';
-$strLogin = ''; //to translate, but its not in use ...
 $strLogout = 'Odhlásit se';
 
 $strModifications = 'Zmìny byly ulo¾eny';
@@ -335,5 +334,11 @@ $strWrongUser = '©patné u¾ivatelské jméno/heslo. Pøístup odepøen.';
 $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
+
+// To translate
+$strCookiesRequired = 'Cookies must be enabled past this point.';
+$strLogin = 'Login';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Username:';
 
 ?>
