@@ -115,6 +115,7 @@ $strConnections = 'Koneksi';
 $strCookiesRequired = 'Cookies harus diaktifkan mulai dari sini.';
 $strCopyTable = 'Salin tabel ke (database<b>.</b>nama tabel):';
 $strCopyTableOK = 'Tabel %s telah disalin ke %s.';
+$strCopyTableSameNames = 'Menyalinkan tabel ke diri-sendiri tidak bisa dilakukan!';
 $strCouldNotKill = 'phpMyAdmin gagal menutup Thread %s. Kemungkinan Thread tersebut sudah ditutup';
 $strCreate = 'Buat';
 $strCreateIndex = 'Buat indeks pada kolom &nbsp;%s&nbsp;';
@@ -270,6 +271,7 @@ $strKeyname = 'Keyname';
 $strKill = 'Tutup';
 
 $strLaTeX = 'LaTeX';
+$strLaTeXOptions = 'Pilihan LaTeX';
 $strLandscape = 'Landscape';
 $strLength = 'Ukuran Panjang';
 $strLengthSet = 'Ukuran Panjang/Nilai*';
@@ -305,6 +307,8 @@ $strModifyIndexTopic = 'Ubah indeks';
 $strMoreStatusVars = 'Variabel tentang status lebih lengkap';
 $strMoveTable = 'Pindahkan tabel ke (database<b>.</b>tabel):';
 $strMoveTableOK = 'Tabel %s telah dipindahkan ke %s.';
+$strMoveTableSameNames = 'Memindahkan tabel ke diri-sendiri tidak bisa dilakukan!';
+$strMustSelectFile = 'Anda perlu pilih file untuk disisipkan terlebih dahulu.';
 $strMySQLCharset = 'Charset MySQL';
 $strMySQLReloaded = 'MySQL telah di-reload.';
 $strMySQLSaid = 'MySQL menyatakan: ';
@@ -437,6 +441,7 @@ $strReferentialIntegrity = 'Cek integriti referensial:';
 $strRelationNotWorking = 'Fasilitas tambahan untuk bekerja dengan tabel yang di-link di nonaktifkan. Untuk mengetahui soal klik %sdisini%s.';
 $strRelationView = 'Tampilan relasi';
 $strRelationalSchema = 'Skema Relational';
+$strRelations = 'Relasi';
 $strReloadFailed = 'MySQL gagal di-reload.';
 $strReloadMySQL = 'Reload MySQL';
 $strReloadingThePrivileges = 'Reload Hak Istimewa (Privileges)';
@@ -626,16 +631,17 @@ $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) aka
 $strZip = '"Dikompress dengan Zip"';
 // To translate
 
-$strLaTeXOptions = 'LaTeX options';  //to translate
-$strRelations = 'Relations';  //to translate
-$strMoveTableSameNames = 'Can\'t move table to same one!';  //to translate
-$strCopyTableSameNames = 'Can\'t copy table to same one!';  //to translate
-$strMustSelectFile = 'You should select file which you want to insert.';  //to translate
-$strSaveOnServer = 'Save on server in %s directory';  //to translate
-$strOverwriteExisting = 'Overwrite existing file(s)';  //to translate
-$strFileAlreadyExists = 'File %s already exists on server, change filename or check overwrite option.';  //to translate
 $strDumpSaved = 'Dump has been saved to file %s.';  //to translate
+
+$strFileAlreadyExists = 'File %s already exists on server, change filename or check overwrite option.';  //to translate
+
+$strInsertedRowId = 'Inserted row id:';  //to translate
+
 $strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
 $strNoSpace = 'Insufficient space to save the file %s.';  //to translate
-$strInsertedRowId = 'Inserted row id:';  //to translate
+
+$strOverwriteExisting = 'Overwrite existing file(s)';  //to translate
+
+$strSaveOnServer = 'Save on server in %s directory';  //to translate
+
 ?>
