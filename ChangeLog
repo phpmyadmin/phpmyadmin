@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * ### 2.3.2 released ###
+
 2002-10-05 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php3: get true row count for InnoDB tables
     * lang/albanian: update, thanks to Laurent Dhima

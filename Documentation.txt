@@ -1,5 +1,5 @@
 
-                        phpMyAdmin 2.3.1 Documentation
+                        phpMyAdmin 2.3.2 Documentation
                                        
      * Sourceforge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ]
@@ -7,8 +7,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.347 2002/09/30
-       00:37:42 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.351 2002/10/08
+       19:07:27 lem9 Exp $
    ______________________________________________________________________
    
    Top  -  Requirements  -  Introduction  -  Installation  -
@@ -130,7 +130,8 @@ Installation
        config.inc.php3 file under the $cfg['Servers'][$i]['controluser']&
        $cfg['Servers'][$i]['controlpass'] settings.
        This example assumes you want to use pma as the controluser and
-       pmapass as the controlpass:
+       pmapass as the controlpass, but this is only an example: use
+       something else in your file:
        
        GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY
    'pmapass';
@@ -351,12 +352,12 @@ CRIPT_NAME'], '/')+1);
           
           + create a new database for phpmyadmin:
               CREATE DATABASE phpmyadmin;
-            Note that "controluser" must have SELECT, INSERT and DELETE
-            privileges on this database. Here is a query to set up those
-            privileges (using "phpmyadmin" as the database name, and
-            "pma" as the controluser):
-              GRANT SELECT,INSERT,DELETE ON phpmyadmin.* to
-            'pma'@localhost;
+            Note that "controluser" must have SELECT, INSERT, UPDATE and
+            DELETE privileges on this database. Here is a query to set up
+            those privileges (using "phpmyadmin" as the database name,
+            and "pma" as the controluser):
+              GRANT SELECT,INSERT,UPDATE,DELETE ON phpmyadmin.* to
+            'pma'@'localhost';
             do not give any other user rights on this database.
           + enter the databasename in $cfg['Servers'][$i]['pmadb']
             
