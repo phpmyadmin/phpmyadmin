@@ -184,7 +184,12 @@ for base in $BASE_TRANSLATIONS ; do
     fi
     echo "$base [charset $src_charset]"
 
-    is_utf=no
+    # do we already have utf-8 translation?
+    if [ $src_charset = 'utf-8' ] ; then
+        is_utf=yes
+    else
+        is_utf=no
+    fi
 
     # at first update existing translations
     for file in $create_files ; do
@@ -196,11 +201,12 @@ for base in $BASE_TRANSLATIONS ; do
             charset=$(echo $file | sed -e 's/^[^-]*-//' -e 's/\.inc\.php\?$//')
         fi
 
+        if [ $charset = 'utf-8' ] ; then
+            is_utf=yes
+        fi
+
         # check whether we need to update translation
         if [ ! "$base.inc.php" -nt "$file" -a "$FORCE" -eq 0 -a -s "$file" ] ; then
-            if [ $charset = 'utf-8' ] ; then
-                is_utf=yes
-            fi
             echo " $file is not needed to update"
             continue
         fi
