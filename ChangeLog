@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_pages.php3: feature: deleting a pdf page
+
 2003-01-14 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3:
       - Lookup database / table lists if possible;

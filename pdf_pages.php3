@@ -53,6 +53,19 @@ if ($cfgRelation['pdfwork']) {
     // Now is the time to work on all changes
     if (isset($do)) {
         switch ($do) {
+            case 'choosepage':
+                if ($action_choose=="1") {
+                    $ch_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_coords'])
+                              .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+                              .   ' AND   pdf_page_number = ' . $chpage;
+                    PMA_query_as_cu($ch_query);
+                
+                    $ch_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
+                              .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+                              .   ' AND   page_nr = ' . $chpage;
+                    PMA_query_as_cu($ch_query);
+                }
+                break;
             case 'createpage':
                 if (!isset($newpage) || $newpage == '') {
                     $newpage = $strNoDescription;
@@ -135,6 +148,11 @@ if ($cfgRelation['pdfwork']) {
         echo "\n";
         ?>
     </select>
+    <input type="radio" name="action_choose" value="0" id="radio_choose0" checked="checked" style="vertical-align: middle" /> <label for="radio_choose0">
+<?php echo $strEdit; ?> </label>
+    <input type="radio" name="action_choose" value="1" id="radio_choose1"  style="vertical-align: middle" /> <label for="radio_choose1">
+<?php echo $strDelete; ?> </label>
+
     <input type="submit" value="<?php echo $strGo; ?>" />
 </form>
         <?php
