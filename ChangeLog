@@ -8,6 +8,8 @@ $Source$
 2005-01-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/bookmark.lib.php: bug #1103289: num_rows and MYSQL_USE_RESULT,
       and fix a typo "boommark"
+    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
 
 2005-01-20 Michael Keck  <mkkeck@users.sourceforge.net>
     * themes/.../theme_right.css.php: new class for disabled (not available)
