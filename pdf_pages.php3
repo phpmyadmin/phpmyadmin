@@ -323,7 +323,19 @@ while (list($key, $temp_sh_page) = each($array_sh_page)) {
     $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[x]"].value = "2"' . "\n";
     $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[y]"].value = "' . (15 * $i) . '"' . "\n";
 
-    echo '<div id="table_' . $i . '" class="pdflayout_table">' . $temp_sh_page['table_name'] . '</div>' . "\n";
+    $local_query = 'SHOW FIELDS FROM ' 
+                 .  PMA_backquote($temp_sh_page['table_name'] )
+                . ' FROM ' . PMA_backquote($db);
+    $fields_rs = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+    $fields_cnt = mysql_num_rows($fields_rs);
+
+    echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
+    while ($row = PMA_mysql_fetch_array($fields_rs)) {
+        echo "<br>".htmlspecialchars($row['Field'])."\n";
+    }
+    echo '</div>' . "\n";
+    mysql_free_result($fields_rs);
+
     $i++;
 }
 reset($array_sh_page);

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_pages.php3: Patch 825672: show fields in Edit PDF scratchboard,
+      thanks to Chris Walsh (chriswalshaz)
+
 2003-10-20 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation, config.inc.php3, tbl_change.php3,
       libraries/common.lib.php3, libraries/config_import.lib.php3: Make
