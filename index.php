@@ -63,15 +63,22 @@ $phpmain_hash_js = time();
 <?php
 $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_left.png';
 $query_frame_height = 0;
-if (@file_exists($logo_image)) {
-   $tmp_imgsize = @getimagesize($logo_image);
-   $query_frame_height = ($tmp_imgsize[1] + 15 + ((!isset($_COOKIE['pma_theme']) || $_COOKIE['pma_theme']=='original') ? 25 : 0));
+if ($cfg['LeftDisplayLogo'] && @file_exists($logo_image)) {
+    $tmp_imgsize = @getimagesize($logo_image);
+    $query_frame_height = ($tmp_imgsize[1] + 60);
+    // increase the height to take into account font size differences in 
+    // theme 'original'? (TODO: improve with a parameter in layout.inc.php)
+    $query_frame_height += ((!isset($GLOBALS['theme']) || $GLOBALS['theme']=='original') ? 25 : 0);
 }
 if ($query_frame_height == 0) {
     $query_frame_height = 60;
 }
+// increase the height to take into account font size differences in 
+// theme 'original'? (TODO: improve with a parameter in layout.inc.php)
+$query_frame_height += ((!isset($GLOBALS['theme']) || $GLOBALS['theme']=='original') ? 15 : 0);
+
 if ($cfg['LeftDisplayServers'] && !$cfg['DisplayServersList']) {
-    $query_frame_height = $query_frame_height + 40;
+    $query_frame_height += 40;
 }
 if ($server > 0) {
     PMA_availableDatabases(); // this function is defined in "common.lib.php"
@@ -80,11 +87,8 @@ if ($server > 0) {
 }
 if ($num_dbs > 1) {
     if ($cfg['LeftFrameLight']) {
-        $query_frame_height = $query_frame_height + 40;
+        $query_frame_height += 20;
     }
-}
-if ($cfg['LeftDisplayLogo']) {
-    $query_frame_height = $query_frame_height + 50;
 }
 if ($cfg['QueryFrame']) {
     /* Will we show list of servers? */
