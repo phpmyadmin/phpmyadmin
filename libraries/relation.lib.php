@@ -604,7 +604,7 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
     
     foreach($disp AS $disp_key => $relrow) {
         $key   = $relrow[$foreign_field];
-        if (strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
+        if (PMA_strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
             $value  = (($foreign_display != FALSE) ? htmlspecialchars($relrow[$foreign_display]) : '');
             $vtitle = '';
         } else {

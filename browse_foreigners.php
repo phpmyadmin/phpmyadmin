@@ -186,7 +186,7 @@ if (isset($disp_row) && is_array($disp_row)) {
             $vtitle = '';
         } else {
             $vtitle = htmlspecialchars($val);
-            $value  = htmlspecialchars(substr($val, 0, $cfg['LimitChars']) . '...');
+            $value  = htmlspecialchars(PMA_substr($val, 0, $cfg['LimitChars']) . '...');
         }
 
         $key_equals_data = isset($data) && $key == $data;

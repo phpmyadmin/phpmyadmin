@@ -251,9 +251,7 @@ if ($is_minimum_common == FALSE) {
      * Charset conversion.
      */
     require_once('./libraries/charset_conversion.lib.php');
-}
 
-if ($is_minimum_common == FALSE) {
     /**
      * String handling
      */

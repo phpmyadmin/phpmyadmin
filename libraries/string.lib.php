@@ -15,18 +15,61 @@
  * The SQL Parser code relies heavily on these functions.
  */
 
-
 // This is for handling input better
 if (defined('PMA_MULTIBYTE_ENCODING')) {
-    $GLOBALS['PMA_strlen']  = 'mb_strlen';
     $GLOBALS['PMA_strpos']  = 'mb_strpos';
     $GLOBALS['PMA_strrpos'] = 'mb_strrpos';
-    $GLOBALS['PMA_substr']  = 'mb_substr';
 } else {
-    $GLOBALS['PMA_strlen']  = 'strlen';
     $GLOBALS['PMA_strpos']  = 'strpos';
     $GLOBALS['PMA_strrpos'] = 'strrpos';
-    $GLOBALS['PMA_substr']  = 'substr';
+}
+
+$GLOBALS['PMA_has_mbstr'] = @function_exists('mb_strlen');
+
+/**
+ * Returns length of string depending on current charset.
+ *
+ * @param   string   string to count
+ *
+ * @return  int      string length
+ *
+ * @access  public
+ *
+ * @author  nijel
+ */
+function PMA_strlen($string)
+{
+    if (defined('PMA_MULTIBYTE_ENCODING')) {
+        return mb_strlen($string);
+    } elseif($GLOBALS['PMA_has_mbstr']) {
+        return mb_strlen($string, $GLOBALS['charset']);
+    } else {
+        return strlen($string);
+    }
+}
+
+/**
+ * Returns substring from string, works depending on current charset.
+ *
+ * @param   string   string to count
+ * @param   int      start of substring
+ * @param   int      length of substring
+ *
+ * @return  int      string length
+ *
+ * @access  public
+ *
+ * @author  nijel
+ */
+function PMA_substr($string, $start, $length = 2147483647)
+{
+    if (defined('PMA_MULTIBYTE_ENCODING')) {
+        return mb_substr($string, $start, $length);
+    } elseif($GLOBALS['PMA_has_mbstr']) {
+        return mb_substr($string, $start, $length, $GLOBALS['charset']);
+    } else {
+        return substr($string, $start, $length);
+    }
 }
 
 

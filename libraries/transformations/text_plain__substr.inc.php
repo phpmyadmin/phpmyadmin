@@ -21,9 +21,9 @@ function PMA_transformation_text_plain__substr($buffer, $options = array(), $met
 
     $newtext = '';
     if ($options[1] != 'all') {
-        $newtext = substr($buffer, $options[0], $options[1]);
+        $newtext = PMA_substr($buffer, $options[0], $options[1]);
     } else {
-        $newtext = substr($buffer, $options[0]);
+        $newtext = PMA_substr($buffer, $options[0]);
     }
 
     $length = strlen($newtext);

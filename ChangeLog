@@ -10,6 +10,11 @@ $Source$
       conversion.
     * libraries/dbi/mysql.dbi.lib.php, libraries/dbi/mysqli.dbi.lib.php: Fix
       PMA_mysql_fetch_array return value for last result (bug #905223).
+    * browse_foreigners.php, libraries/common.lib.php,
+      libraries/display_tbl.lib.php, libraries/relation.lib.php,
+      libraries/sqlparser.lib.php, libraries/string.lib.php,
+      libraries/transformations/text_plain__substr.inc.php: Use charset aware
+      substr and strlen functions (bugs #854755 and #910575).
 
 2004-03-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug 909752, floating point digit

@@ -211,7 +211,7 @@ if ($is_minimum_common == FALSE) {
         $sql = str_replace("\r\n", "\n", $sql);
         $sql = str_replace("\r", "\n", $sql);
 
-        $len = $GLOBALS['PMA_strlen']($sql);
+        $len = PMA_strlen($sql);
         if ($len == 0) {
             return array();
         }
@@ -288,7 +288,7 @@ if ($is_minimum_common == FALSE) {
                         break;
                 } // end switch
                 $count2 = ($pos < $count2) ? $len : $pos;
-                $str    = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
+                $str    = PMA_substr($sql, $count1, $count2 - $count1);
                 PMA_SQP_arrayAdd($sql_array, 'comment_' . $type, $str, $arraysize);
                 continue;
             } // end if
@@ -348,7 +348,7 @@ if ($is_minimum_common == FALSE) {
                     default:
                         break;
                 } // end switch
-                $data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
+                $data = PMA_substr($sql, $count1, $count2 - $count1);
                 PMA_SQP_arrayAdd($sql_array, $type, $data, $arraysize);
                 continue;
             }
@@ -387,7 +387,7 @@ if ($is_minimum_common == FALSE) {
                 if ($l == 1) {
                     $punct_data = $c;
                 } else {
-                    $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $l);
+                    $punct_data = PMA_substr($sql, $count1, $l);
                 }
 
                 // Special case, sometimes, althought two characters are
@@ -424,10 +424,10 @@ if ($is_minimum_common == FALSE) {
                         $punct_data = $first;
                     } else if (($last2 == '/*') || ($last2 == '--')) {
                         $count2     -= 2;
-                        $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
+                        $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
                     } else if (($last == '-') || ($last == '+') || ($last == '!')) {
                         $count2--;
-                        $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
+                        $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
                     // TODO: for negation operator, split in 2 tokens ?
                     // "select x&~1 from t"
                     // becomes "select x & ~ 1 from t" ?
@@ -475,7 +475,7 @@ if ($is_minimum_common == FALSE) {
                             continue;
                         } else {
                             $debugstr = $GLOBALS['strSQPBugInvalidIdentifer'] . ' @ ' . ($count1+1) . "\n"
-                                      . 'STR: ' . $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
+                                      . 'STR: ' . PMA_substr($sql, $count1, $count2 - $count1);
                             PMA_SQP_throwError($debugstr, $sql);
                             return $sql;
                         }
@@ -503,7 +503,7 @@ if ($is_minimum_common == FALSE) {
                 } // end while
 
                 $l    = $count2 - $count1;
-                $str  = $GLOBALS['PMA_substr']($sql, $count1, $l);
+                $str  = PMA_substr($sql, $count1, $l);
 
                 $type = '';
                 if ($is_digit) {
@@ -532,7 +532,7 @@ if ($is_minimum_common == FALSE) {
             $count2++;
 
             $debugstr = 'C1 C2 LEN: ' . $count1 . ' ' . $count2 . ' ' . $len .  "\n"
-                      . 'STR: ' . $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1) . "\n";
+                      . 'STR: ' . PMA_substr($sql, $count1, $count2 - $count1) . "\n";
             PMA_SQP_bug($debugstr, $sql);
             return $sql;
 
@@ -1567,7 +1567,7 @@ if ($is_minimum_common == FALSE) {
         $i         = $GLOBALS['PMA_strpos']($arr['type'], '_');
         $class     = '';
         if ($i > 0) {
-            $class = 'syntax_' . $GLOBALS['PMA_substr']($arr['type'], 0, $i) . ' ';
+            $class = 'syntax_' . PMA_substr($arr['type'], 0, $i) . ' ';
         }
 
         $class     .= 'syntax_' . $arr['type'];

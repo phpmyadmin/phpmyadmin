@@ -1362,8 +1362,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                         $vertical_display['data'][$row_no][$i] = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
                         // garvin: if a transform function for blob is set, none of these replacements will be made
-                        if (strlen($row[$pointer]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
-                            $row[$pointer] = substr($row[$pointer], 0, $GLOBALS['cfg']['LimitChars']) . '...';
+                        if (PMA_strlen($row[$pointer]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
+                            $row[$pointer] = PMA_substr($row[$pointer], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                         }
                         // loic1: displays all space characters, 4 space
                         // characters for tabulations and <cr>/<lf>
@@ -1384,8 +1384,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     $relation_id = $row[$pointer];
 
                     // nijel: Cut all fields to $cfg['LimitChars']
-                    if (strlen($row[$pointer]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
-                        $row[$pointer] = substr($row[$pointer], 0, $GLOBALS['cfg']['LimitChars']) . '...';
+                    if (PMA_strlen($row[$pointer]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
+                        $row[$pointer] = PMA_substr($row[$pointer], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                     }
 
                     // loic1: displays special characters from binaries
