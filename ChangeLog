@@ -6,7 +6,8 @@ $Id$
 $Source$
 
 2002-04-19 Marc Delisle  <lem9@users.sourceforge.net>
-	* Documentation.html "how can I make a backup?"
+	* Documentation.html "how can I make a backup?",
+	  "how can I restore a dump?"
 
 2002-04-19 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/select_lang.lib.php3, lines 45-46: bug #545667 - Wrong default
