@@ -115,12 +115,6 @@
         PHP&nbsp;3.0.8.
         Then <font color="#bb0000">you should not run this script with
         PHP3&nbsp;&lt;&nbsp;3.0.8</font>.<br />
-        Furthermore, we encountered crashes of the php module / binary when
-        working with PHP 4.2.0 (tested with PHP 4.2.0 RC1 to RC4) and trying to
-        download a (zipped) dump file using MS Internet Explorer. That is why
-        <font color="#bb0000">we recommend not to run phpMyAdmin with PHP
-        4.2.0</font>.
-        <br />
         PHP also needs to be <font color="#bb0000">compiled with MySQL
         support</font>;
     </li>
@@ -1003,10 +997,9 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <i>config.inc.php or .php3</i> file and the
     <tt>zlib.output_compression</tt> directive to <tt>Off</tt> in your php
     configuration file.<br />
-    Furthermore, we know about such problems connected to php 4.2.0 (tested
-    with php 4.2.0 RC1 to RC4) together with MS Internet Explorer.
-    Unfortunatly, the only solution for this bug seems to be switching back to
-    an earlier php version.
+    Furthermore, we know about such problems connected to the release
+    candidates of php 4.2.0 (tested with php 4.2.0 RC1 to RC4) together with
+    MS Internet Explorer. Please upgrade to the release version php 4.2.0.
 </p>
 
 <p>
@@ -1061,8 +1054,8 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
     So, you must have PHP4&nbsp;>=&nbsp;4.0.4 and Zlib/Bzip2 support
     (<tt>--with-zlib</tt> and <tt>--with-bz2</tt>).<br />
     We faced php crashes when trying to download a dump with MS Internet
-    Explorer when phpMyAdmin is run with php 4.2.0 (tested with php 4.2.0 RC1
-    to RC4). In this case you should switch back to an earlier php version.
+    Explorer when phpMyAdmin is run with a release candidate of php 4.2.0. In
+    this case you should switch to the release version of php 4.2.0.
 </p>
 
 <p>

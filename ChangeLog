@@ -14,6 +14,7 @@ $Source$
     * tbl_printview.php3: Fixed a small bug, some php and XHTML 1.0 errors and
       beautified the generated code.
     * lang/german.inc.php3: Translated the new string.
+    * Documentation.html: Changed notes concerning php 4.2.0.
 
 2002-04-22 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/slovak-win1250.inc.php3: completed, thanks to Peter Svec.
