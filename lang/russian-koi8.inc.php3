@@ -140,4 +140,6 @@ $strHomepageOfficial=" Official phpMyAdmin Homepage ";  //to translate
 $strHomepageSourceforge=" new (but still unofficial) phpMyAdmin Homepage ";  //to translate
 $strTextAreaLength=" Because of its length,<br> this field might not be editable ";  //to translate
 $strNumberIndexes=" Number of advanced indexes ";  //to translate
+$strSequence=" Sequence ";  //to translate
+$strLength=" Length ";  //to translate
 ?>

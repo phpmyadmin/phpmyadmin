@@ -30,12 +30,17 @@ elseif($action == "tbl_addfield.php3")
 
 <?php
 if($action == "tbl_create.php3" || $action == "tbl_addfield.php3")
-{
-    ?>
-    <th><?php echo $strPrimary; ?></th>
-    <th><?php echo $strIndex; ?></th>
-    <th><?php echo $strUnique; ?></th>
-    <?php
+{ if (empty($num_indexes))
+  {
+    echo "<th>$strPrimary</th>";
+    echo "<th>$strIndex</th>";
+    echo "<th>$strUnique</th>\n";
+  }
+  else { for ($i=0; $i<$num_indexes; $i++) {
+	  echo "<th>$strSequence</th>";
+	  echo "<th>$strLength</th>\n";
+         }
+  }
 }
 ?>
 </tr>
@@ -153,6 +158,8 @@ for($i=0 ; $i<$num_fields; $i++)
     <?php
     if($action == "tbl_create.php3" || $action == "tbl_addfield.php3")
     {
+       if (empty($num_indexes))
+        {
         ?>
         <td align="center">
         <input type="checkbox" name="field_primary[]" value="<?php echo $i;?>"
@@ -179,6 +186,9 @@ for($i=0 ; $i<$num_fields; $i++)
         >
         </td>
         <?php
+     }
+     else {
+     }
     }
     ?>
     </tr>

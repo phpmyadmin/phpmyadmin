@@ -156,4 +156,6 @@ $strBookmarkLabel	= "Label";
 $strBookmarkView	= "View only";
 $strTextAreaLength=" Because of its length,<br> this field might not be editable ";  
 $strNumberIndexes=" Number of advanced indexes ";  
+$strSequence=" Sequence ";  
+$strLength=" Length ";  
 ?>

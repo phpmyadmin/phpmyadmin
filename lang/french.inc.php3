@@ -174,4 +174,6 @@ $strBookmarkLabel	= "Intitulé";
 $strBookmarkView	= "Voir uniquement";
 $strTextAreaLength="Il est possible que ce champ<br>ne soit pas éditable<br>en raison de sa longueur";
 $strNumberIndexes=" Nombre d'index spéciaux ";  
+$strSequence="Séquence";  
+$strLength="Longueur";  
 ?>

@@ -138,4 +138,6 @@ $strBookmarkLabel	= "Label";	// To translate
 $strBookmarkView	= "View only";	// To translate
 $strTextAreaLength=" Because of its length,<br> this field might not be editable ";  //to translate
 $strNumberIndexes=" Number of advanced indexes ";  //to translate
+$strSequence=" Sequence ";  //to translate
+$strLength=" Length ";  //to translate
 ?>
