@@ -3472,7 +3472,12 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <tt>"pear install Net_Socket Net_URL HTTP_Request Mail_Mime Net_DIME
       SOAP"</tt> to get the necessary PEAR modules for usage.
     <br />
-    If you use it, you should be aware that any SQL statement you
+    On a more recent pear version, I had problems with the state of Net_DIME
+    being beta, so this single command
+    <tt>"pear -d preferred_state=beta install -a SOAP"</tt> installed
+    all the needed modules.
+    <br />
+    If you use the Validator, you should be aware that any SQL statement you
     submit will be stored anonymously (database/table/column names,
     strings, numbers replaced with generic values). The Mimer SQL
     Validator itself, is &copy; 2001 Upright Database Technology.
