@@ -5,10 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-28 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * README: Updated php / MySQL versions.
+
 2003-08-28 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_export.lib.php3: Allow xml to be also default export
       (bug #796706).
-    
+
 2003-08-27 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_relation.php3: User forgot to define an index on the master table
       before adding a foreign key constraint: trap the error, warn the user
@@ -19,7 +22,7 @@ $Source$
 
 2003-08-27 Michal Cihar  <nijel@users.sourceforge.net>
     * sql.php3, lang/*: Print view with full texts (RFE #742123).
-    
+
 2003-08-27 Alexander M. Turek  <rabus@users.sourceforge.net>
     * browse_foreigners.php3: undefined variable.
 
