@@ -13,6 +13,9 @@ $Source$
 	* main.php3:
 	  - lines 425-426: form is submitted with post method;
 	  - lines 431-447: languages are sorted by their true names.
+	* tbl_dump.php3, lines 101-123: improved mime types and http headers used
+	  when exporting dumps to files thanks to Dan Allen &
+	  Ignacio Vazquez-Abrams.
 
 2001-08-28  Olivier Müller  <om@omnis.ch>
 	* db_stats.php3: fixed the sql query so that the script won't die, even if

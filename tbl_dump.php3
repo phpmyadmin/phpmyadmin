@@ -98,25 +98,29 @@ if (empty($asfile)) {
 
 // Download
 else {
-    // Defines filename and extension
+    // Defines filename and extension, and also mime types
     if (!isset($table)) {
         $filename = $db;
     } else {
         $filename = $table;
     }
     if (isset($bzip) && $bzip == 'bzip') {
-        $ext = 'bz2';
+        $ext       = 'bz2';
+        $mime_type = 'application/x-bzip';
     } else if (isset($gzip) && $gzip == 'gzip') {
-        $ext = 'gz';
+        $ext       = 'gz';
+        $mime_type = 'application/x-gzip';
     } else if ($what == 'csv' || $what == 'excel') {
-        $ext = 'csv';
+        $ext       = 'csv';
+        $mime_type = 'text/x-csv';
     } else {
-        $ext = 'sql';
+        $ext       = 'sql';
+        $mime_type = 'application/octetstream';
     }
 
     // Send headers
-    header('Content-Type: application/octetstream');
-    header('Content-Disposition: filename="' . $filename . '.' . $ext . '"');
+    header('Content-Type: ' . $mime_type);
+    header('Content-Disposition: attachment; filename="' . $filename . '.' . $ext . '"');
     header('Pragma: no-cache');
     header('Expires: 0');
 } // end download
