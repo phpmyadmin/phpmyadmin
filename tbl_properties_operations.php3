@@ -16,7 +16,7 @@ $url_query .= '&amp;back=tbl_properties_operations.php3';
 if (isset($submitorderby) && !empty($order_field)) {
     $sql_query   = 'ALTER TABLE ' . PMA_backquote($table)
                  . ' ORDER BY ' . PMA_backquote(urldecode($order_field));
-    $result      = mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+    $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
     PMA_showMessage((get_magic_quotes_gpc()) ? addslashes($strSuccess) : $strSuccess);
 } // end if
 
@@ -31,8 +31,8 @@ require('./tbl_properties_table_info.php3');
  * Get columns names
  */
 $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-$result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
-for ($i = 0; $row = mysql_fetch_array($result); $i++) {
+$result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+for ($i = 0; $row = PMA_mysql_fetch_array($result); $i++) {
         $columns[$i] = $row['Field'];
 }
 mysql_free_result($result);
@@ -52,6 +52,7 @@ if (PMA_MYSQL_INT_VERSION >= 32334) {
         <form method="post" action="tbl_properties_operations.php3">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <?php echo $strAlterOrderBy; ?>&nbsp;:
@@ -81,6 +82,7 @@ echo "\n";
                 onsubmit="return emptyFormElements(this, 'new_name')">
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
                 <input type="hidden" name="db" value="<?php echo $db; ?>" />
                 <input type="hidden" name="table" value="<?php echo $table; ?>" />
                 <input type="hidden" name="reload" value="1" />
@@ -101,6 +103,7 @@ echo "\n";
                 onsubmit="return emptyFormElements(this, 'new_name')">
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
                 <input type="hidden" name="db" value="<?php echo $db; ?>" />
                 <input type="hidden" name="table" value="<?php echo $table; ?>" />
                 <input type="hidden" name="reload" value="1" />
@@ -143,6 +146,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
                 onsubmit="return emptyFormElements(this, 'new_name')">
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
                 <input type="hidden" name="db" value="<?php echo $db; ?>" />
                 <input type="hidden" name="table" value="<?php echo $table; ?>" />
                 <input type="hidden" name="reload" value="1" />
@@ -285,12 +289,12 @@ if (!empty($cfg['Server']['relation'])) {
                  . ' FROM ' . $cfg['Server']['relation']
                  . ' WHERE master_table = \'' . $table . '\';';
 
-    // we need this mysql_select_db if the user has access to more than one db
+    // we need this PMA_mysql_select_db if the user has access to more than one db
     // and $db is not the last of the list, because PMA_availableDatabases()
-    // has made a mysql_select_db() on the last one
-    mysql_select_db($db);
+    // has made a PMA_mysql_select_db() on the last one
+    PMA_mysql_select_db($db);
 
-    $result      = @mysql_query($local_query);
+    $result      = @PMA_mysql_query($local_query);
 
     if ($result != FALSE && mysql_num_rows($result) > 0) {
         ?>
@@ -300,7 +304,7 @@ if (!empty($cfg['Server']['relation'])) {
         <?php echo $strReferentialIntegrity; ?><br />
         <?php
         echo "\n";
-        while ($rel = mysql_fetch_row($result)) {
+        while ($rel = PMA_mysql_fetch_row($result)) {
             echo '        '
                  . '<a href="sql.php3?' . $url_query
                  . '&amp;sql_query='

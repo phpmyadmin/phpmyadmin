@@ -28,19 +28,20 @@ if (!isset($param) || $param[0] == '') {
     // Defines the url to return to in case of error in the next sql statement
     $err_url   = $goto
                . '?lang=' . $lang
+               . '&amp;convcharset=' . $convcharset
                . '&amp;server=' . $server
                . '&amp;db=' . urlencode($db)
                . '&amp;table=' . urlencode($table);
 
     // Gets the list and number of fields
     $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-    $result      = @mysql_query($local_query);
+    $result      = @PMA_mysql_query($local_query);
     if (!$result) {
         PMA_mysqlDie('', $local_query, '', $err_url);
     }
     else {
         $fields_cnt        = mysql_num_rows($result);
-        while ($row = mysql_fetch_array($result)) {
+        while ($row = PMA_mysql_fetch_array($result)) {
             $fields_list[] = $row['Field'];
             $type          = $row['Type'];
             // reformat mysql query output - staybyte - 9. June 2001
@@ -63,6 +64,7 @@ if (!isset($param) || $param[0] == '') {
 <form method="post" action="tbl_select.php3">
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />

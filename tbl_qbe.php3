@@ -104,7 +104,7 @@ if ($row < 0) {
 /**
  * Prepares the form
  */
-$tbl_result     = mysql_list_tables($db);
+$tbl_result     = PMA_mysql_list_tables($db);
 $tbl_result_cnt = mysql_num_rows($tbl_result);
 $i              = 0;
 $k              = 0;
@@ -118,8 +118,8 @@ if (!empty($TableList)) {
 
 // The tables list gets from MySQL
 while ($i < $tbl_result_cnt) {
-    $tbl             = mysql_tablename($tbl_result, $i);
-    $fld_results     = mysql_list_fields($db, $tbl);
+    $tbl             = PMA_mysql_tablename($tbl_result, $i);
+    $fld_results     = PMA_mysql_list_fields($db, $tbl);
     $fld_results_cnt = mysql_num_fields($fld_results);
     $j               = 0;
 
@@ -133,7 +133,7 @@ while ($i < $tbl_result_cnt) {
     if ($tbl_names[$tbl] == ' selected="selected"') {
         $fld[$k++] =  PMA_backquote($tbl) . '.*';
         while ($j < $fld_results_cnt) {
-            $fld[$k] = mysql_field_name($fld_results, $j);
+            $fld[$k] = PMA_mysql_field_name($fld_results, $j);
             $fld[$k] = PMA_backquote($tbl) . '.' . PMA_backquote($fld[$k]);
 
             // increase the width if necessary
@@ -620,7 +620,7 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 while (list($key, $val) = each($tbl_names)) {
     echo '                        ';
-    echo '<option value="' . urlencode($key) . '"' . $val . '>' . htmlspecialchars($key) . '</option>' . "\n";
+    echo '<option value="' . $key . '"' . $val . '>' . htmlspecialchars($key) . '</option>' . "\n";
 }
 ?>
                     </select>
@@ -664,6 +664,7 @@ $w--;
                     <input type="submit" name="modify" value="<?php echo $strUpdateQuery; ?>" />
                     <input type="hidden" name="server" value="<?php echo $server; ?>" />
                     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
                 </td>
             </tr>
             <!-- Executes a query -->
@@ -728,8 +729,8 @@ if (isset($Field) && count($Field) > 0) {
         }
     } // end while
     if ($cfg['Server']['relation']) {
-        $tables   = @mysql_query('SELECT COUNT(*) AS count FROM ' . PMA_backquote($cfg['Server']['relation']));
-        $rel_work = ($tables) ? mysql_result($tables, 0, 'count') : FALSE;
+        $tables   = @PMA_mysql_query('SELECT COUNT(*) AS count FROM ' . PMA_backquote($cfg['Server']['relation']));
+        $rel_work = ($tables) ? PMA_mysql_result($tables, 0, 'count') : FALSE;
     } // end if
     if ($rel_work && count($alltabs) > 0) {
 
@@ -773,10 +774,10 @@ if (isset($Field) && count($Field) > 0) {
                    . ' WHERE master_table IN ' . $incrit . ' AND foreign_table IN ' . $incrit
                    . ' GROUP BY master_table ORDER BY hits DESC';
 
-        $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
+        $rel_id    = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
 
         // if we don't find anything we try the other way round
-        while ($row = mysql_fetch_array($rel_id)) {
+        while ($row = PMA_mysql_fetch_array($rel_id)) {
             // we want the first one (highest number of hits) or the first one
             // that is in the WHERE clause
             if (!isset($master)) {
@@ -809,9 +810,9 @@ if (isset($Field) && count($Field) > 0) {
                        . ' WHERE master_table IN ' . $incrit . ' AND foreign_table IN ' . $incrit_s
                        . ' ORDER BY foreign_table, master_table';
 
-            $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
+            $rel_id    = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
 
-            while ($row = mysql_fetch_array($rel_id)) {
+            while ($row = PMA_mysql_fetch_array($rel_id)) {
                 $foreign_table = $row['foreign_table'];
                 if ($rel[$foreign_table]['mcon'] == 0) {
                     // if we already found a link to the mastertable we don't
@@ -843,12 +844,12 @@ if (isset($Field) && count($Field) > 0) {
                 $incrit_d  = '(\'' . implode('\', \'', $found) . '\')';
                 $incrit_s  = '(\'' . implode('\', \'', $rest) . '\')';
 
-                $rel_query = 'SELECT * FROM ' . $cfg['Server']['relation']
+                $rel_query = 'SELECT * FROM ' . PMA_backquote($cfg['Server']['relation'])
                            . ' WHERE master_table IN ' . $incrit_s . ' AND foreign_table IN ' . $incrit_d
                            . ' ORDER BY master_table, foreign_table';
-                $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
+                $rel_id    = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
 
-                while ($row = mysql_fetch_array($rel_id)) {
+                while ($row = PMA_mysql_fetch_array($rel_id)) {
                     $found_table = $row['master_table'];
                     if ($rel[$found_table]['mcon'] == 0) {
                         // if we allready found a link to the mastertable we
@@ -884,9 +885,9 @@ if (isset($Field) && count($Field) > 0) {
                 } else if ($varr['mcon'] == 0) {
                     // those that have no link with the mastertable we will
                     // show at the end
-                    $lj           .= $varr['link'];
+                    $lj           .= PMA_backquote($varr['link']);
                 } else {
-                    $ljm          .= $varr['link'];
+                    $ljm          .= PMA_backquote($varr['link']);
                 }
             } // end while
 
@@ -909,7 +910,7 @@ if (isset($Field) && count($Field) > 0) {
         while (list($k, $v) = each ($_temp)) {
             $alltabs[] = $k;
         }
-        $qry_from = implode(', ', $alltabs);
+        $qry_from = implode(', ', PMA_backquote($alltabs));
     }
 
 } // end count($Field) > 0

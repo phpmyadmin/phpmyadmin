@@ -18,7 +18,7 @@ function PMA_myHandler($sql_insert = '')
     global $sql_insert_data;
 
     $sql_insert = eregi_replace('INSERT INTO (`?)' . $table . '(`?)', 'INSERT INTO ' . $target, $sql_insert);
-    $result     = mysql_query($sql_insert) or PMA_mysqlDie('', $sql_insert, '', $GLOBALS['err_url']);
+    $result     = PMA_mysql_query($sql_insert) or PMA_mysqlDie('', $sql_insert, '', $GLOBALS['err_url']);
 
     $sql_insert_data .= $sql_insert . ';' . "\n";
 } // end of the 'PMA_myHandler()' function
@@ -36,6 +36,7 @@ require('./libraries/common.lib.php3');
  */
 $err_url = 'tbl_properties.php3'
          . '?lang=' . $lang
+         . '&amp;convcharset=' . $convcharset
          . '&amp;server=' . $server
          . '&amp;db=' . urlencode($db)
          . '&amp;table=' . urlencode($table);
@@ -80,8 +81,8 @@ if (isset($new_name) && trim($new_name) != '') {
 
     $sql_structure = PMA_getTableDef($db, $table, "\n", $err_url);
     $sql_structure = eregi_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . $target, $sql_structure);
-    $result        = @mysql_query($sql_structure);
-    if (mysql_error()) {
+    $result        = @PMA_mysql_query($sql_structure);
+    if (PMA_mysql_error()) {
         include('./header.inc.php3');
         PMA_mysqlDie('', $sql_structure, '', $err_url);
     } else if (isset($sql_query)) {
@@ -95,8 +96,8 @@ if (isset($new_name) && trim($new_name) != '') {
         // speedup copy table - staybyte - 22. Juni 2001
         if (PMA_MYSQL_INT_VERSION >= 32300) {
             $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
-            $result          = @mysql_query($sql_insert_data);
-            if (mysql_error()) {
+            $result          = @PMA_mysql_query($sql_insert_data);
+            if (PMA_mysql_error()) {
                 include('./header.inc.php3');
                 PMA_mysqlDie('', $sql_insert_data, '', $err_url);
             }
@@ -111,8 +112,8 @@ if (isset($new_name) && trim($new_name) != '') {
     // Drops old table if the user has requested to move it
     if (isset($submit_move)) {
         $sql_drop_table = 'DROP TABLE ' . $source;
-        $result         = @mysql_query($sql_drop_table);
-        if (mysql_error()) {
+        $result         = @PMA_mysql_query($sql_drop_table);
+        if (PMA_mysql_error()) {
             include('./header.inc.php3');
             PMA_mysqlDie('', $sql_drop_table, '', $err_url);
         }

@@ -17,12 +17,14 @@ if (!isset($selected_tbl)) {
 if (isset($table)) {
     $err_url = 'tbl_properties.php3'
              . '?lang=' . $lang
+             . '&amp;convcharset=' . $convcharset
              . '&amp;server=' . $server
              . '&amp;db=' . urlencode($db)
              . '&amp;table=' . urlencode($table);
 } else {
     $err_url = 'db_details.php3'
              . '?lang=' . $lang
+             . '&amp;convcharset=' . $convcharset
              . '&amp;server=' . $server
              . '&amp;db=' . urlencode($db);
 }
@@ -67,15 +69,15 @@ while (list($key, $table) = each($the_tables)) {
     // The 'show table' statement works correct since 3.23.03
     if (PMA_MYSQL_INT_VERSION >= 32303) {
         $local_query  = 'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
-        $result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-        $showtable    = mysql_fetch_array($result);
+        $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        $showtable    = PMA_mysql_fetch_array($result);
         $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
         $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
     } else {
         $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
-        $result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
         $showtable    = array();
-        $num_rows     = mysql_result($result, 0, 'count');
+        $num_rows     = PMA_mysql_result($result, 0, 'count');
         $show_comment = '';
     } // end display comments
     if ($result) {
@@ -87,7 +89,7 @@ while (list($key, $table) = each($the_tables)) {
      * Gets table keys and retains them
      */
     $local_query  = 'SHOW KEYS FROM ' . PMA_backquote($table);
-    $result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     $primary      = '';
     $indexes      = array();
     $lastIndex    = '';
@@ -95,7 +97,7 @@ while (list($key, $table) = each($the_tables)) {
     $indexes_data = array();
     $pk_array     = array(); // will be use to emphasis prim. keys in the table
                              // view
-    while ($row = mysql_fetch_array($result)) {
+    while ($row = PMA_mysql_fetch_array($result)) {
         // Backups the list of primary keys
         if ($row['Key_name'] == 'PRIMARY') {
             $primary .= $row['Column_name'] . ', ';
@@ -129,14 +131,14 @@ while (list($key, $table) = each($the_tables)) {
      * Gets fields properties
      */
     $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
-    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     $fields_cnt  = mysql_num_rows($result);
 
     // check if we can use Relations (Mike Beck)
     $have_rel     = FALSE;
     if ($cfg['Server']['relation']) {
-        $tables   = @mysql_query('SELECT COUNT(*) AS count FROM ' . PMA_backquote($cfg['Server']['relation']));
-        $have_rel = ($tables) ? mysql_result($tables, 0, 'count') : FALSE;
+        $tables   = @PMA_mysql_query('SELECT COUNT(*) AS count FROM ' . PMA_backquote($cfg['Server']['relation']));
+        $have_rel = ($tables) ? PMA_mysql_result($tables, 0, 'count') : FALSE;
     } // end if
     if ($have_rel) {
         // Find which tables are related with the current one and write it in
@@ -145,9 +147,9 @@ while (list($key, $table) = each($the_tables)) {
                      . ' FROM ' . PMA_backquote($cfg['Server']['relation'])
                      . ' WHERE master_table = \'' . urldecode($table) .'\'';
 
-        $relations   = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
+        $relations   = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
         $res_rel     = array();
-        while ($relrow = @mysql_fetch_array($relations)) {
+        while ($relrow = @PMA_mysql_fetch_array($relations)) {
             $col           = $relrow['master_field'];
             $res_rel[$col] = $relrow['rel'];
         }
@@ -190,7 +192,7 @@ while (list($key, $table) = each($the_tables)) {
 
     <?php
     $i = 0;
-    while ($row = mysql_fetch_array($result)) {
+    while ($row = PMA_mysql_fetch_array($result)) {
         $bgcolor = ($i % 2) ?$cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         $i++;
 

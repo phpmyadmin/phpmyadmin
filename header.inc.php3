@@ -179,6 +179,7 @@ if ($cfg['RightBgImage'] != '') echo '" background="' . $cfg['RightBgImage'];
 <?php
 if (isset($db)) {
     $header_url_qry = '?lang=' . urlencode($lang)
+                    . '&amp;convcharset=' . $convcharset
                     . '&amp;server=' . $server;
     echo '<h1>' . "\n";
     echo '    ' . $strDatabase . ' <i><a class="h1" href="db_details.php3' . $header_url_qry . '&amp;db=' . urlencode($db) . '">' . htmlspecialchars($db) . '</a></i>' . "\n";

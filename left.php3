@@ -167,8 +167,7 @@ echo "\n";
 <body bgcolor="<?php echo $cfg['LeftBgColor']; ?>">
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
-        <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>">
-            <span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
+        <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;convcharset=<?php echo $convcharset;?>"><span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
     </div>
 
 
@@ -188,6 +187,7 @@ if ($num_dbs > 1) {
     if ($cfg['LeftFrameLight']) {
         echo '    <form method="post" action="index.php3" name="left" target="_parent">' . "\n";
         echo '        <input type="hidden" name="lang" value="' . $lang . '" />' . "\n";
+        echo '        <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n";
         echo '        <input type="hidden" name="server" value="' . $server . '" />' . "\n";
         echo '        <select name="lightm_db" onchange="this.form.submit()">' . "\n";
         echo '            <option value=""> - </option>' . "\n";
@@ -205,9 +205,10 @@ if ($num_dbs > 1) {
         if (!empty($db_start) && $db == $db_start) {
             $selected_db = $j;
         }
-        $tables              = @mysql_list_tables($db);
+        $tables              = @PMA_mysql_list_tables($db);
         $num_tables          = ($tables) ? @mysql_numrows($tables) : 0;
         $common_url_query    = 'lang=' . $lang
+                             . '&amp;convcharset=' . $convcharset
                              . '&amp;server=' . $server
                              . '&amp;db=' . urlencode($db);
         if ($num_tables) {
@@ -221,8 +222,8 @@ if ($num_dbs > 1) {
             && $num_tables
             && (!$cfg['LeftFrameLight'] || $selected_db == $j)) {
             $tooltip = array();
-            $result  = mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
-            while ($tmp = mysql_fetch_array($result)) {
+            $result  = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
+            while ($tmp = PMA_mysql_fetch_array($result)) {
                 $tooltip[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '')
                                        . '(' . (isset($tmp['Rows']) ? $tmp['Rows'] : '0') . ' ' . $strRows . ')';
             } // end while
@@ -260,7 +261,7 @@ if ($num_dbs > 1) {
             <?php
             // Displays the list of tables from the current database
             for ($t = 0; $t < $num_tables; $t++) {
-                $table     = mysql_tablename($tables, $t);
+                $table     = PMA_mysql_tablename($tables, $t);
                 $url_title = (!empty($tooltip) && isset($tooltip[$table]))
                            ? str_replace('"', '&quot;', $tooltip[$table])
                            : '';
@@ -290,7 +291,7 @@ if ($num_dbs > 1) {
             if (!empty($db_start) && $db == $db_start) {
                 // Gets the list of tables from the current database
                 for ($t = 0; $t < $num_tables; $t++) {
-                    $table      = mysql_tablename($tables, $t);
+                    $table      = PMA_mysql_tablename($tables, $t);
                     $url_title  = (!empty($tooltip) && isset($tooltip[$table]))
                                 ? str_replace('"', '&quot;', $tooltip[$table])
                                 : '';
@@ -372,7 +373,7 @@ if ($num_dbs > 1) {
 // Case where only one database has to be displayed
 else if ($num_dbs == 1) {
     $db                  = $dblist[0];
-    $tables              = @mysql_list_tables($db);
+    $tables              = @PMA_mysql_list_tables($db);
     $num_tables          = ($tables) ? @mysql_numrows($tables) : 0;
     $common_url_query    = 'lang=' . $lang
                          . '&amp;server=' . $server
@@ -387,8 +388,8 @@ else if ($num_dbs == 1) {
     if ($cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303
         && $num_tables) {
         $tooltip = array();
-        $result  = mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
-        while ($tmp = mysql_fetch_array($result)) {
+        $result  = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
+        while ($tmp = PMA_mysql_fetch_array($result)) {
             $tooltip[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '')
                                    . '(' . (isset($tmp['Rows']) ? $tmp['Rows'] : '0') . ' ' . $strRows . ')';
         } // end while
@@ -405,7 +406,7 @@ else if ($num_dbs == 1) {
     <?php
     // Displays the list of tables from the current database
     for ($j = 0; $j < $num_tables; $j++) {
-        $table     = mysql_tablename($tables, $j);
+        $table     = PMA_mysql_tablename($tables, $j);
         $url_title = (!empty($tooltip) && isset($tooltip[$table]))
                    ? str_replace('"', '&quot;', $tooltip[$table])
                    : '';

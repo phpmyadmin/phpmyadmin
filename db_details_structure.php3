@@ -42,6 +42,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     ?>
 <form method="post" action="db_details_structure.php3" name="tablesForm">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
 
@@ -252,6 +253,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     // Check all tables url
     $checkall_url = 'db_details_structure.php3'
                   . '?lang=' . $lang
+                  . '&amp;convcharset=' . $convcharset
                   . '&amp;server=' . $server
                   . '&amp;db=' . urlencode($db);
     echo "\n";
@@ -304,6 +306,7 @@ else {
     ?>
 <form action="db_details_structure.php3">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
 
@@ -363,6 +366,7 @@ else {
     // Check all tables url
     $checkall_url = 'db_details_structure.php3'
                   . '?lang=' . $lang
+                  . '&amp;convcharset=' . $convcharset
                   . '&amp;server=' . $server
                   . '&amp;db=' . urlencode($db);
     ?>
@@ -422,6 +426,7 @@ if ($num_tables > 0) {
             onsubmit="return (emptyFormElements(this, 'table') && checkFormElementInRange(this, 'num_fields', 1))">
         <input type="hidden" name="server" value="<?php echo $server; ?>" />
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+        <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
         <input type="hidden" name="db" value="<?php echo $db; ?>" />
 <?php
 echo '        ' . sprintf($strCreateNewTable, htmlspecialchars($db)) . '&nbsp;:<br />' . "\n";
@@ -450,21 +455,22 @@ if (!empty($cfg['Server']['table_coords'])
     <!-- PDF schema -->
     <?php
     //  We only show this if we find something in the new pdf_pages table
-    @mysql_select_db($db);
+    @PMA_mysql_select_db($db);
     $test_query = 'SELECT * FROM ' . PMA_backquote($cfg['Server']['pdf_pages']);
-    $test_rs    = mysql_query($test_query) or PMA_mysqlDie('', $test_query, '', $err_url_0);
+    $test_rs    = PMA_mysql_query($test_query) or PMA_mysqlDie('', $test_query, '', $err_url_0);
     if(mysql_num_rows($test_rs) > 0){
         ?>
         <li>
             <form method="post" action="pdf_schema.php3">
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
                 <input type="hidden" name="db" value="<?php echo $db; ?>" />
                 <?php echo $strDisplayPDF; ?>&nbsp;:<br />
                 <?php echo $strPageNumber; ?>&nbsp;
                 <select name="pdf_page_number">
                 <?php
-                    while ($pages = @mysql_fetch_array($test_rs)) {
+                    while ($pages = @PMA_mysql_fetch_array($test_rs)) {
                         echo '<option value="'.$pages['page_nr'].'">'.$pages['page_nr'].': '.$pages['page_descr'].'</option>'."\n";
                     }
                 ?>

@@ -187,6 +187,7 @@ if (!isset($goto)
 }
 $err_url  = $goto
           . '?lang=' . $lang
+          . '&amp;convcharset=' . $convcharset
           . '&amp;server=' . $server
           . '&amp;db=' . urlencode($db)
           . (($goto == 'tbl_properties.php3') ? '&amp;table=' . urlencode($table) : '');
@@ -304,8 +305,8 @@ if (!$cfg['AllowUserDropDatabase']
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
     // loic1: optimized query
-    $result = @mysql_query('USE mysql');
-    if (mysql_error()) {
+    $result = @PMA_mysql_query('USE mysql');
+    if (PMA_mysql_error()) {
         include('./header.inc.php3');
         PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
     }
@@ -349,11 +350,11 @@ if ($sql_query != '') {
         }
 
         // Runs multiple queries
-        else if (mysql_select_db($db)) {
+        else if (PMA_mysql_select_db($db)) {
             $mult = TRUE;
             for ($i = 0; $i < $pieces_count; $i++) {
                 $a_sql_query = $pieces[$i];
-                $result = mysql_query($a_sql_query);
+                $result = PMA_mysql_query($a_sql_query);
                 if ($result == FALSE) { // readdump failed
                     $my_die = $a_sql_query;
                     break;
@@ -393,7 +394,7 @@ if ($goto == 'tbl_properties.php3') {
     if (!isset($table)) {
         $goto     = 'db_details.php3';
     } else {
-        $is_table = @mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
+        $is_table = @PMA_mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
         if (!($is_table && @mysql_numrows($is_table))) {
             $goto = 'db_details.php3';
             unset($table);
@@ -407,7 +408,7 @@ if ($goto == 'db_details.php3') {
     if (!isset($db)) {
         $goto     = 'main.php3';
     } else {
-        $is_db    = @mysql_select_db($db);
+        $is_db    = @PMA_mysql_select_db($db);
         if (!$is_db) {
             $goto = 'main.php3';
             unset($db);

@@ -14,7 +14,7 @@ require('./libraries/common.lib.php3');
  * script
  */
 if (!$cfg['ShowChgPassword']) {
-    $cfg['ShowChgPassword'] = @mysql_query('USE mysql', $userlink);
+    $cfg['ShowChgPassword'] = @PMA_mysql_query('USE mysql', $userlink);
 }
 if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
     include('./header.inc.php3');
@@ -49,12 +49,15 @@ if (isset($nopass)) {
         }
 
         // Defines the url to return to in case of error in the sql statement
-        $common_url_query = 'lang=' . $lang . '&amp;server=' . $server;
+        $common_url_query = 'lang=' . $lang 
+                          . '&amp;server=' . $server;
+                          . '&amp;convcharset=' . $convcharset
+
         $err_url          = 'user_password.php3?' . $common_url_query;
 
         $sql_query        = 'SET password = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . ereg_replace('.', '*', $pma_pw) . '\')');
         $local_query      = 'SET password = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . PMA_sqlAddslashes($pma_pw) . '\')');
-        $result           = @mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url);
+        $result           = @PMA_mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url);
 
         // Changes password cookie if required
         if ($cfg['Server']['auth_type'] == 'cookie') {

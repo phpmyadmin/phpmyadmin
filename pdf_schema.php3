@@ -254,6 +254,7 @@ class PMA_PDF extends FPDF
 
         echo '<a href="db_details_structure.php3'
              . '?lang=' . $lang
+             . '&amp;convcharset=' . $convcharset
              . '&amp;server=' . $server
              . '&amp;db=' . urlencode($db)
              . '">' . $GLOBALS['strBack'] . '</a>';
@@ -279,7 +280,6 @@ class PMA_PDF extends FPDF
         $this->PMA_PDF_die($error_message);
     } // end of the "Error()" method
 } // end of the "PMA_PDF" class
-
 
 
 /**
@@ -406,12 +406,12 @@ class PMA_RT_Table
 
         $this->table_name = $table_name;
         $sql              = 'DESCRIBE ' .  PMA_backquote($table_name);
-        $result           = mysql_query($sql);
+        $result           = PMA_mysql_query($sql);
         if (!$result || !mysql_num_rows($result)) {
             $pdf->PMA_PDF_die(sprintf($GLOBALS['strPdfInvalidTblName'], $table_name));
         }
         // load fields
-        while ($row = mysql_fetch_array($result)) {
+        while ($row = PMA_mysql_fetch_array($result)) {
             $this->fields[] = $row[0];
         }
 
@@ -424,30 +424,30 @@ class PMA_RT_Table
                 . PMA_backquote($GLOBALS['cfg']['Server']['table_coords'])
                 . ' WHERE table_name = \'' . PMA_sqlAddslashes($table_name) . '\''
                 . ' AND pdf_page_number = ' . $pdf_page_number;
-        $result = mysql_query($sql);
+        $result = PMA_mysql_query($sql);
         if (!$result || !mysql_num_rows($result)) {
             $pdf->PMA_PDF_die(sprintf($GLOBALS['strConfigureTableCoord'], $table_name));
         }
-        list($this->x, $this->y) = mysql_fetch_array($result);
+        list($this->x, $this->y) = PMA_mysql_fetch_array($result);
         $this->x = (double) $this->x;
         $this->y = (double) $this->y;
         
         //displayfield
         $sql    =  'SELECT display_field from '.PMA_backquote($GLOBALS['cfg']['Server']['table_info'])
                 . ' WHERE table_name = \'' . PMA_sqlAddslashes($table_name) . '\'';
-        $result = mysql_query($sql);
+        $result = PMA_mysql_query($sql);
         if(mysql_num_rows($result)>0){
-            list($this->displayfield) = mysql_fetch_array($result);
+            list($this->displayfield) = PMA_mysql_fetch_array($result);
         }
-        while ($row = mysql_fetch_array($result)) {
+        while ($row = PMA_mysql_fetch_array($result)) {
             $this->displayfield = $row['display_field '];
          }
         // index
         $sql    =  'SHOW index from '.PMA_backquote($table_name);
-        $result = mysql_query($sql);
+        $result = PMA_mysql_query($sql);
 
         if(mysql_num_rows($result)>0){
-            while ($row = mysql_fetch_array($result)) {
+            while ($row = PMA_mysql_fetch_array($result)) {
                 if($row['Key_name'] == 'PRIMARY'){
                     $this->primary = $row['Column_name'];
                 }
@@ -806,8 +806,8 @@ class PMA_RT
         //  get tables on this page
         $tab_sql = 'SELECT table_name from '.PMA_backquote($GLOBALS['cfg']['Server']['table_coords']) .
                    ' WHERE pdf_page_number = ' . $which_rel;
-        $tab_rs  = mysql_query($tab_sql) or PMA_mysqlDie('', $tab_sql, '', $err_url_0);
-        while ($curr_table = @mysql_fetch_array($tab_rs)) {
+        $tab_rs  = PMA_mysql_query($tab_sql) or PMA_mysqlDie('', $tab_sql, '', $err_url_0);
+        while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
             $alltables[]     = $curr_table['table_name'];
             $intable         = "'" . implode("','",$alltables) . "'";
         }
@@ -815,11 +815,11 @@ class PMA_RT
                 . PMA_backquote($GLOBALS['cfg']['Server']['relation'])
                 . ' WHERE master_table in (' . $intable . ') '
                 . ' AND foreign_table   in (' . $intable . ')';
-        $result = mysql_query($sql);
+        $result = PMA_mysql_query($sql);
         if (!$result || !mysql_num_rows($result)) {
             $pdf->PMA_PDF_die($GLOBALS['strPdfInvalidPageNum']);
         }
-        while ($row = mysql_fetch_array($result)) {
+        while ($row = PMA_mysql_fetch_array($result)) {
             $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
         }
         

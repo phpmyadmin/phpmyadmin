@@ -19,6 +19,7 @@ if (!isset($submit_mult)) {
  */
 $err_url = 'tbl_properties_structure.php3'
          . '?lang=' . $lang
+         . '&amp;convcharset=' . $convcharset
          . '&amp;server=' . $server
          . '&amp;db=' . urlencode($db)
          . '&amp;table=' . urlencode($table);
@@ -86,10 +87,10 @@ if (isset($submit)) {
     // To allow replication, we first select the db to use and then run queries
     // on this db.
     $sql_query     = 'USE ' . PMA_backquote($db);
-    $result        = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+    $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     // Optimization fix - 2 May 2001 - Robbat2
     $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' CHANGE ' . $query;
-    $result    = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+    $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
     $btnDrop   = 'Fake';
     include('./tbl_properties_structure.php3');
@@ -120,8 +121,8 @@ else {
             $field = PMA_sqlAddslashes($selected[$i], TRUE);
         }
         $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . " LIKE '$field'";
-        $result        = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-        $fields_meta[] = mysql_fetch_array($result);
+        $result        = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        $fields_meta[] = PMA_mysql_fetch_array($result);
         mysql_free_result($result);
     }
 

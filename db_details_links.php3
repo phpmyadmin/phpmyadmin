@@ -17,8 +17,8 @@ else {
 // Drop link if allowed
 if (!$cfg['AllowUserDropDatabase']) {
     // Check if the user is a Superuser
-    $result                       = @mysql_query('USE mysql');
-    $cfg['AllowUserDropDatabase'] = (!mysql_error());
+    $result                       = @PMA_mysql_query('USE mysql');
+    $cfg['AllowUserDropDatabase'] = (!PMA_mysql_error());
 }
 if ($cfg['AllowUserDropDatabase']) {
     $lnk5 = '<a href="sql.php3?' . $url_query . '&amp;sql_query='

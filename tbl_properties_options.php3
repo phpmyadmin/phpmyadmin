@@ -19,13 +19,13 @@ if (isset($submitcomment)) {
     }
     if (empty($prev_comment) || urldecode($prev_comment) != $comment) {
         $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
-        $result    = mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+        $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
         $message   = $strSuccess;
     }
 }
 if (isset($submittype)) {
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' TYPE = ' . $tbl_type;
-    $result        = mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+    $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
     $message       = $strSuccess;
 }
 if (isset($submitoptions)) {
@@ -33,7 +33,7 @@ if (isset($submitoptions)) {
                    . (isset($pack_keys) ? ' pack_keys=1': ' pack_keys=0')
                    . (isset($checksum) ? ' checksum=1': ' checksum=0')
                    . (isset($delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0');
-    $result        = mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+    $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
     $message       = $strSuccess;
 }
 
@@ -73,9 +73,9 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
     <?php
     // modify robbat2 code - staybyte - 11. June 2001
     $query  = 'SHOW VARIABLES LIKE \'have_%\'';
-    $result = mysql_query($query);
+    $result = PMA_mysql_query($query);
     if ($result != FALSE && mysql_num_rows($result) > 0) {
-        while ($tmp = mysql_fetch_array($result)) {
+        while ($tmp = PMA_mysql_fetch_array($result)) {
             if (isset($tmp['Variable_name'])) {
                 switch ($tmp['Variable_name']) {
                     case 'have_bdb':

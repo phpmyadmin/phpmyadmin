@@ -45,11 +45,13 @@ $available_languages = array(
     'bg-koi8r'     => array('bg|bulgarian', 'bulgarian-koi8', 'bg'),
     'ca'           => array('ca|catalan', 'catala', 'ca'),
     'cs-iso'       => array('cs|czech', 'czech-iso', 'cs'),
+    'cs-utf8'      => array('cs|czech', 'czech-utf8', 'cs'),
     'cs-win1250'   => array('cs|czech', 'czech-win1250', 'cs'),
     'da'           => array('da|danish', 'danish', 'da'),
     'de'           => array('de([-_][[:alpha:]]{2})?|german', 'german', 'de'),
     'el'           => array('el|greek',  'greek', 'el'),
     'en'           => array('en([-_][[:alpha:]]{2})?|english',  'english', 'en'),
+    'en-utf8'      => array('en([-_][[:alpha:]]{2})?|english',  'english-utf8', 'en'),
     'es'           => array('es([-_][[:alpha:]]{2})?|spanish', 'spanish', 'es'),
     'et'           => array('et|estonian', 'estonian', 'et'),
     'fi'           => array('fi|finnish', 'finnish', 'fi'),
@@ -208,6 +210,9 @@ if (empty($lang) && !empty($HTTP_USER_AGENT)) {
 if (empty($lang)) {
     $lang = $cfg['DefaultLang'];
 }
+
+$allow_recoding = FALSE; // Default fallback value
+if (!isset($convcharset) || empty($convcharset)) $convcharset = $cfg['DefaultCharset'];
 
 // 4. Defines the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php3';

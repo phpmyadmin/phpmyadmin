@@ -60,13 +60,13 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         if (PMA_MYSQL_INT_VERSION >= 32321) {
             // Whether to quote table and fields names or not
             if ($use_backquotes) {
-                mysql_query('SET SQL_QUOTE_SHOW_CREATE = 1');
+                PMA_mysql_query('SET SQL_QUOTE_SHOW_CREATE = 1');
             } else {
-                mysql_query('SET SQL_QUOTE_SHOW_CREATE = 0');
+                PMA_mysql_query('SET SQL_QUOTE_SHOW_CREATE = 0');
             }
-            $result = mysql_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
+            $result = PMA_mysql_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
             if ($result != FALSE && mysql_num_rows($result) > 0) {
-                $tmpres        = mysql_fetch_array($result);
+                $tmpres        = PMA_mysql_fetch_array($result);
                 // Fix for case problems with winwin, thanks to
                 // Pawe³ Szczepañski <pauluz at users.sourceforge.net>
                 $pos           = strpos($tmpres[1], ' (');
@@ -83,8 +83,8 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         $schema_create .= 'CREATE TABLE ' . PMA_htmlFormat(PMA_backquote($table), $use_backquotes) . ' (' . $crlf;
 
         $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-        $result        = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
-        while ($row = mysql_fetch_array($result)) {
+        $result        = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+        while ($row = PMA_mysql_fetch_array($result)) {
             $schema_create     .= '   ' . PMA_htmlFormat(PMA_backquote($row['Field'], $use_backquotes)) . ' ' . $row['Type'];
             if (isset($row['Default']) && $row['Default'] != '') {
                 $schema_create .= ' DEFAULT \'' . PMA_htmlFormat(PMA_sqlAddslashes($row['Default'])) . '\'';
@@ -101,8 +101,8 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         $schema_create         = ereg_replace(',' . $crlf . '$', '', $schema_create);
 
         $local_query = 'SHOW KEYS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
-        while ($row = mysql_fetch_array($result))
+        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+        while ($row = PMA_mysql_fetch_array($result))
         {
             $kname    = $row['Key_name'];
             $comment  = (isset($row['Comment'])) ? $row['Comment'] : '';
@@ -181,15 +181,15 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         global $current_row;
 
         $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         if ($result != FALSE) {
             $fields_cnt = mysql_num_fields($result);
             $rows_cnt   = mysql_num_rows($result);
 
             // Checks whether the field is an integer or not
             for ($j = 0; $j < $fields_cnt; $j++) {
-                $field_set[$j] = PMA_backquote(mysql_field_name($result, $j), $use_backquotes);
-                $type          = mysql_field_type($result, $j);
+                $field_set[$j] = PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes);
+                $type          = PMA_mysql_field_type($result, $j);
                 if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
                     $type == 'bigint'  ||$type == 'timestamp') {
                     $field_num[$j] = TRUE;
@@ -221,7 +221,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                 $time0    = time();
             }
 
-            while ($row = mysql_fetch_row($result)) {
+            while ($row = PMA_mysql_fetch_row($result)) {
                 $current_row++;
                 for ($j = 0; $j < $fields_cnt; $j++) {
                     if (!isset($row[$j])) {
@@ -308,7 +308,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         global $current_row;
 
         $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
-        $result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+        $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         $current_row  = 0;
         $fields_cnt   = mysql_num_fields($result);
         $rows_cnt     = mysql_num_rows($result);
@@ -322,11 +322,11 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $time0    = time();
         }
 
-        while ($row = mysql_fetch_row($result)) {
+        while ($row = PMA_mysql_fetch_row($result)) {
             $current_row++;
             $table_list     = '(';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                $table_list .= PMA_backquote(mysql_field_name($result, $j), $use_backquotes) . ', ';
+                $table_list .= PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes) . ', ';
             }
             $table_list     = substr($table_list, 0, -2);
             $table_list     .= ')';
@@ -348,7 +348,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                 if (!isset($row[$j])) {
                     $schema_insert .= ' NULL, ';
                 } else if ($row[$j] == '0' || $row[$j] != '') {
-                    $type          = mysql_field_type($result, $j);
+                    $type          = PMA_mysql_field_type($result, $j);
                     // a number
                     if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
                         $type == 'bigint'  ||$type == 'timestamp') {
@@ -505,14 +505,14 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
         // Gets the data from the database
         $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         $fields_cnt  = mysql_num_fields($result);
 
         @set_time_limit($GLOBALS['cfg']['ExecTimeLimit']);
 
         // Format the data
         $i = 0;
-        while ($row = mysql_fetch_row($result)) {
+        while ($row = PMA_mysql_fetch_row($result)) {
             $schema_insert = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (!isset($row[$j])) {
@@ -570,8 +570,8 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      */
     function PMA_getTableXML($db, $table, $limit_from = 0, $limit_to = 0, $crlf, $error_url) {
         $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
-        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
-        for ($i = 0; $row = mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
+        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+        for ($i = 0; $row = PMA_mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
             $columns[$i] = $row['Field'];
         }
         $columns_cnt     = count($columns);
@@ -588,9 +588,9 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         }
 
         $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         $buffer      = '  <!-- ' . $GLOBALS['strTable'] . ' ' . $table . ' -->' . $crlf;
-        while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
+        while ($record = PMA_mysql_fetch_array($result, MYSQL_ASSOC)) {
             $buffer         .= '    <' . $table . '>' . $crlf;
             for ($i = 0; $i < $columns_cnt; $i++) {
                 // There is no way to dectect a "NULL" value with PHP3

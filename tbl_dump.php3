@@ -89,6 +89,7 @@ require('./libraries/zip.lib.php3');
  */
 $err_url = 'tbl_properties.php3'
          . '?lang=' . $lang
+         . '&amp;convcharset=' . $convcharset
          . '&amp;server=' . $server
          . '&amp;db=' . urlencode($db)
          . (isset($table) ? '&amp;table=' . urlencode($table) : '');
@@ -179,7 +180,7 @@ else {
  */
 // Gets the number of tables if a dump of a database has been required
 if (!isset($table)) {
-    $tables     = mysql_list_tables($db);
+    $tables     = PMA_mysql_list_tables($db);
     $num_tables = ($tables) ? @mysql_numrows($tables) : 0;
 } else {
     $num_tables = 1;
@@ -219,7 +220,7 @@ else {
         }
         while ($i < $num_tables) {
             if (!isset($single)) {
-                $table = mysql_tablename($tables, $i);
+                $table = PMA_mysql_tablename($tables, $i);
             }
             if (isset($tmp_select) && !strpos(' ' . $tmp_select, '|' . $table . '|')) {
                 $i++;
@@ -303,7 +304,7 @@ else {
         $i = 0;
         while ($i < $num_tables) {
             if (!isset($single)) {
-                $table = mysql_tablename($tables, $i);
+                $table = PMA_mysql_tablename($tables, $i);
             }
             if (!isset($limit_from) || !isset($limit_to)) {
                 $limit_from = $limit_to = 0;

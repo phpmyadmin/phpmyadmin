@@ -50,14 +50,14 @@ if (!defined('PMA_IS_WINDOWS')) {
 // MySQL Version
 if (!defined('PMA_MYSQL_INT_VERSION') && isset($userlink)) {
     if (!empty($server)) {
-        $result = mysql_query('SELECT VERSION() AS version');
+        $result = PMA_mysql_query('SELECT VERSION() AS version');
         if ($result != FALSE && @mysql_num_rows($result) > 0) {
-            $row   = mysql_fetch_array($result);
+            $row   = PMA_mysql_fetch_array($result);
             $match = explode('.', $row['version']);
         } else {
-            $result = @mysql_query('SHOW VARIABLES LIKE \'version\'');
+            $result = @PMA_mysql_query('SHOW VARIABLES LIKE \'version\'');
             if ($result != FALSE && @mysql_num_rows($result) > 0){
-                $row   = mysql_fetch_row($result);
+                $row   = PMA_mysql_fetch_row($result);
                 $match = explode('.', $row[1]);
             }
         }

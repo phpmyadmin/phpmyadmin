@@ -15,6 +15,7 @@ require('./header.inc.php3');
  */
 $err_url = 'main.php3'
          . '?lang=' . $lang
+         . '&amp;convcharset=' . $convcharset
          . '&amp;server=' . $server;
 
 
@@ -33,7 +34,7 @@ if (PMA_MYSQL_INT_VERSION < 32306) {
  * Executes the db creation sql query
  */
 $local_query = 'CREATE DATABASE ' . PMA_backquote($db);
-$result      = mysql_query('CREATE DATABASE ' . PMA_backquote($db)) or PMA_mysqlDie('', $local_query, FALSE, $err_url);
+$result      = PMA_mysql_query('CREATE DATABASE ' . PMA_backquote($db)) or PMA_mysqlDie('', $local_query, FALSE, $err_url);
 
 
 /**

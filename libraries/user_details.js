@@ -143,6 +143,7 @@ function change(the_field) {
     else {
         if (lpos <= 0) {
             l        += '?lang=' + the_form['lang'].value
+		     += '&convcharset=' . the_form['convcharset'].value
                      +  '&server=' + the_form['server'].value
                      +  '&grants=1'
                      +  '&host=' + escape(the_form['host'].value)

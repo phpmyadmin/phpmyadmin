@@ -14,6 +14,7 @@ require('./header.inc.php3');
  */
 $err_url = 'db_details.php3'
          . '?lang=' . $lang
+         . '&amp;convcharset=' . $convcharset
          . '&amp;server=' . $server
          . '&amp;db=' . urlencode($db);
 
@@ -27,10 +28,10 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
     if ($cfg['SkipLockedTables'] == TRUE && PMA_MYSQL_INT_VERSION >= 32330) {
         $local_query  = 'SHOW OPEN TABLES FROM ' . PMA_backquote($db);
-        $result        = mysql_query($query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        $result        = PMA_mysql_query($query) or PMA_mysqlDie('', $local_query, '', $err_url);
         // Blending out tables in use
         if ($result != FALSE && mysql_num_rows($result) > 0) {
-            while ($tmp = mysql_fetch_array($result)) {
+            while ($tmp = PMA_mysql_fetch_array($result)) {
                 // if in use memorize tablename
                 if (eregi('in_use=[1-9]+', $tmp)) {
                     $sot_cache[$tmp[0]] = TRUE;
@@ -40,13 +41,13 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
 
             if (isset($sot_cache)) {
                 $local_query = 'SHOW TABLES FROM ' . PMA_backquote($db);
-                $result      = mysql_query($query) or PMA_mysqlDie('', $local_query, '', $err_url);
+                $result      = PMA_mysql_query($query) or PMA_mysqlDie('', $local_query, '', $err_url);
                 if ($result != FALSE && mysql_num_rows($result) > 0) {
-                    while ($tmp = mysql_fetch_array($result)) {
+                    while ($tmp = PMA_mysql_fetch_array($result)) {
                         if (!isset($sot_cache[$tmp[0]])) {
                             $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\'';
-                            $sts_result  = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-                            $sts_tmp     = mysql_fetch_array($sts_result);
+                            $sts_result  = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+                            $sts_tmp     = PMA_mysql_fetch_array($sts_result);
                             $tables[]    = $sts_tmp;
                         } else { // table in use
                             $tables[]    = array('Name' => $tmp[0]);
@@ -60,9 +61,9 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     }
     if (!isset($sot_ready)) {
         $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
-        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
         if ($result != FALSE && mysql_num_rows($result) > 0) {
-            while ($sts_tmp = mysql_fetch_array($result)) {
+            while ($sts_tmp = PMA_mysql_fetch_array($result)) {
                 $tables[] = $sts_tmp;
             }
             mysql_free_result($result);
@@ -71,10 +72,10 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     $num_tables = (isset($tables) ? count($tables) : 0);
 } // end if (PMA_MYSQL_INT_VERSION >= 32303)
 else {
-    $result     = mysql_list_tables($db);
+    $result     = PMA_mysql_list_tables($db);
     $num_tables = ($result) ? @mysql_numrows($result) : 0;
     for ($i = 0; $i < $num_tables; $i++) {
-        $tables[] = mysql_tablename($result, $i);
+        $tables[] = PMA_mysql_tablename($result, $i);
     }
     mysql_free_result($result);
 }

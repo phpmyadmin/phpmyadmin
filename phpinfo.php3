@@ -12,7 +12,7 @@ require('./libraries/common.lib.php3');
 /**
  * Displays PHP information
  */
-$is_superuser = @mysql_query('USE mysql', $userlink);
+$is_superuser = @PMA_mysql_query('USE mysql', $userlink);
 if ($is_superuser || $cfg['ShowPhpInfo']) {
     phpinfo();
 }

@@ -17,6 +17,7 @@ require('./header.inc.php3');
  */
 $err_url = 'tbl_properties.php3'
          . '?lang=' . $lang
+         . '&amp;convcharset=' . $convcharset
          . '&amp;server=' . $server
          . '&amp;db=' . urlencode($db)
          . '&amp;table=' . urlencode($table);
@@ -118,9 +119,9 @@ if (isset($submit)) {
     // To allow replication, we first select the db to use and then run queries
     // on this db.
     $sql_query     = 'USE ' . PMA_backquote($db);
-    $result        = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+    $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD ' . $query;
-    $result        = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+    $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $sql_query_cpy = $sql_query . ';';
 
     // Builds the primary keys statements and updates the table
@@ -134,7 +135,7 @@ if (isset($submit)) {
         $primary     = ereg_replace(', $', '', $primary);
         if (!empty($primary)) {
             $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')';
-            $result         = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+            $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
@@ -150,7 +151,7 @@ if (isset($submit)) {
         $index     = ereg_replace(', $', '', $index);
         if (!empty($index)) {
             $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX (' . $index . ')';
-            $result         = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+            $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
@@ -166,7 +167,7 @@ if (isset($submit)) {
         $unique = ereg_replace(', $', '', $unique);
         if (!empty($unique)) {
             $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE (' . $unique . ')';
-            $result         = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+            $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
@@ -183,7 +184,7 @@ if (isset($submit)) {
         $fulltext = ereg_replace(', $', '', $fulltext);
         if (!empty($fulltext)) {
             $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT (' . $fulltext . ')';
-            $result         = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+            $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if

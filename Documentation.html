@@ -1053,6 +1053,33 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['DefaultCharset'] </b>string</dt>
+    <dd>
+        Default charset to use for recoding of MySQL queries. This must be
+        enabled and it's described by $cfg['AllowAnywhereRecoding'] option. 
+        You can give here any charset which is in $cfg['AvailableCharsets']
+        array and this is just default choice, user can select any of them.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['AllowAnywhereRecoding'] </b>string</dt>
+    <dd>
+        Allow charset recoding of MySQL queries. You need recode or iconv
+        support (compiled in or module) in php to allow MySQL queries recoding
+        and used language file must have it enabled (by default only these
+        which are in unicode, just to avoid losing some characters).
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['AvailableCharsets'] </b>array</dt>
+    <dd>
+        Available charsets for MySQL conversion. You can add your own (any of
+        supported by recode/iconv) or remove these which you don't use.
+        Charsets will be shown in same order as here listed, so if you
+        frequently use some of these move them to the top.
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['LeftWidth'] </b>integer</dt>
     <dd>
         Left frame width in pixel.

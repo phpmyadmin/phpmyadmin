@@ -28,11 +28,11 @@ require('./tbl_properties_table_info.php3');
 
 // 2. Gets table keys and retains them
 $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
-$result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+$result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
 $primary     = '';
 $ret_keys    = array();
 $pk_array    = array(); // will be use to emphasis prim. keys in the table view
-while ($row = mysql_fetch_array($result)) {
+while ($row = PMA_mysql_fetch_array($result)) {
     $ret_keys[]  = $row;
     // Backups the list of primary keys
     if ($row['Key_name'] == 'PRIMARY') {
@@ -44,7 +44,7 @@ mysql_free_result($result);
 
 // 3. Get fields
 $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
-$fields_rs   = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+$fields_rs   = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
 $fields_cnt  = mysql_num_rows($fields_rs);
 
 
@@ -78,7 +78,7 @@ $fields_cnt  = mysql_num_rows($fields_rs);
 $i         = 0;
 $aryFields = array();
 
-while ($row = mysql_fetch_array($fields_rs)) {
+while ($row = PMA_mysql_fetch_array($fields_rs)) {
     $i++;
     $bgcolor          = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
     $aryFields[]      = $row['Field'];

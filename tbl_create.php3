@@ -17,6 +17,7 @@ require('./header.inc.php3');
  */
 $err_url = 'tbl_properties.php3'
          . '?lang=' . $lang
+         . '&amp;convcharset=' . $convcharset
          . '&amp;server=' . $server
          . '&amp;db=' . urlencode($db)
          . '&amp;table=' . urlencode($table);
@@ -204,7 +205,7 @@ if (isset($submit)) {
     }
 
     // Executes the query
-    $result    = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+    $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $sql_query = $query_cpy . ';';
     unset($query_cpy);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;

@@ -13,6 +13,7 @@ if (!empty($message)) {
         $goto_cpy      = $goto;
         $goto          = 'tbl_properties.php3'
                        . '?lang=' . $lang
+                       . '&amp;convcharset=' . $convcharset
                        . '&amp;server=' . $server
                        . '&amp;db=' . urlencode($db)
                        . '&amp;table=' . urlencode($table)
@@ -59,6 +60,7 @@ if ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3') {
 } else {
     $err_url = $goto
              . '?lang=' . $lang
+             . '&amp;convcharset=' . $convcharset
              . '&amp;server=' . $server
              . '&amp;db=' . urlencode($db)
              . (($goto == 'tbl_properties.php3') ? '&amp;table=' . urlencode($table) : '');
@@ -69,11 +71,11 @@ if ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3') {
  * Get the list of the fields of the current table
  */
 mysql_select_db($db);
-$table_def = mysql_query('SHOW FIELDS FROM ' . PMA_backquote($table));
+$table_def = PMA_mysql_query('SHOW FIELDS FROM ' . PMA_backquote($table));
 if (isset($primary_key)) {
     $local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key;
-    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-    $row         = mysql_fetch_array($result);
+    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $row         = PMA_mysql_fetch_array($result);
     // No row returned
     if (!$row) {
         unset($row);
@@ -81,6 +83,7 @@ if (isset($primary_key)) {
         $goto_cpy          = $goto;
         $goto              = 'tbl_properties.php3'
                            . '?lang=' . $lang
+                           . '&amp;convcharset=' . $convcharset
                            . '&amp;server=' . $server
                            . '&amp;db=' . urlencode($db)
                            . '&amp;table=' . urlencode($table)
@@ -103,7 +106,7 @@ if (isset($primary_key)) {
 else
 {
     $local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1';
-    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     unset($row);
 }
 
@@ -123,6 +126,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
 <!-- Change table properties form -->
 <form method="post" action="tbl_replace.php3" name="insertForm">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
@@ -161,7 +165,7 @@ $timestamp_seen = 0;
 $fields_cnt     = mysql_num_rows($table_def);
 
 for ($i = 0; $i < $fields_cnt; $i++) {
-    $row_table_def   = mysql_fetch_array($table_def);
+    $row_table_def   = PMA_mysql_fetch_array($table_def);
     $field           = $row_table_def['Field'];
     if ($row_table_def['Type'] == 'datetime' && empty($row[$field])) {
         $row[$field] = date('Y-m-d H:i:s', time());

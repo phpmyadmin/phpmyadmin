@@ -117,6 +117,16 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     }
 
     /**
+     * Include MySQL wrappers.
+     */
+    include('./libraries/mysql_wrappers.lib.php3');
+    
+    /**
+     * Include charset conversion.
+     */
+    include('./libraries/charset_conversion.lib.php3');
+    
+    /**
      * Gets constants that defines the PHP, MySQL... releases.
      * This include must be located physically before any code that needs to
      * reference the constants, else PHP 3.0.16 won't be happy; and must be
@@ -331,7 +341,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         }
 
         if (!$error_message) {
-            $error_message = mysql_error();
+            $error_message = PMA_mysql_error();
         }
         if (!$the_query && !empty($GLOBALS['sql_query'])) {
             $the_query = $GLOBALS['sql_query'];
@@ -348,7 +358,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;' . "\n";
             if ($is_modify_link) {
                 echo '    ['
-                     . '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=y">' . $GLOBALS['strEdit'] . '</a>'
+                     . '<a href="db_details.php3?convcharset=' . $GLOBALS['convcharset'] . '&amp;lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=y">' . $GLOBALS['strEdit'] . '</a>'
                      . ']' . "\n";
             } // end if
             if($cfg['UseSyntaxColoring']){
@@ -632,8 +642,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                       $cfg['Server']['controlpass']
                                   );
             if ($dbh == FALSE) {
-                if (mysql_error()) {
-                    $conn_error = mysql_error();
+                if (PMA_mysql_error()) {
+                    $conn_error = PMA_mysql_error();
                 } else if (isset($php_errormsg)) {
                     $conn_error = $php_errormsg;
                 } else {
@@ -689,18 +699,18 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             for ($i = 0; $i < $dblist_cnt; $i++) {
                 if ($is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i])) {
                     $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
-                    $rs          = mysql_query($local_query, $dbh);
+                    $rs          = PMA_mysql_query($local_query, $dbh);
                     // "SHOW DATABASES" statement is disabled
                     if ($i == 0
-                        && (mysql_error() && mysql_errno() == 1045)) {
+                        && (PMA_mysql_error() && mysql_errno() == 1045)) {
                         $true_dblist[] = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
                         $is_show_dbs   = FALSE;
                     }
                     // Debug
-                    // else if (mysql_error()) {
+                    // else if (PMA_mysql_error()) {
                     //    PMA_mysqlDie('', $local_query, FALSE);
                     // }
-                    while ($row = @mysql_fetch_row($rs)) {
+                    while ($row = @PMA_mysql_fetch_row($rs)) {
                         $true_dblist[] = $row[0];
                     } // end while
                     if ($rs) {
@@ -720,13 +730,13 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             //     (if MYSQL supports this)
             if (PMA_MYSQL_INT_VERSION >= 32330) {
                 $local_query      = 'SHOW VARIABLES LIKE \'safe_show_database\'';
-                $rs               = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-                $is_safe_show_dbs = ($rs) ? @mysql_result($rs, 0, 'Value') : FALSE;
+                $rs               = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+                $is_safe_show_dbs = ($rs) ? @PMA_mysql_result($rs, 0, 'Value') : FALSE;
 
                 // ... and if on, try to get the available dbs list
                 if ($is_safe_show_dbs && strtoupper($is_safe_show_dbs) != 'OFF') {
                     $uva_alldbs   = mysql_list_dbs($userlink);
-                    while ($uva_row = mysql_fetch_array($uva_alldbs)) {
+                    while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
                         $dblist[] = $uva_row[0];
                     } // end while
                     $dblist_cnt   = count($dblist);
@@ -740,7 +750,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $auth_query   = 'SELECT User, Select_priv '
                               . 'FROM mysql.user '
                               . 'WHERE User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
-                $rs           = mysql_query($auth_query, $dbh); // Debug: or PMA_mysqlDie('', $auth_query, FALSE);
+                $rs           = PMA_mysql_query($auth_query, $dbh); // Debug: or PMA_mysqlDie('', $auth_query, FALSE);
             } // end
         } // end if (!$dblist_cnt)
 
@@ -748,7 +758,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         // usable db list
         if (!$dblist_cnt
             && ($rs && @mysql_numrows($rs))) {
-            $row = mysql_fetch_array($rs);
+            $row = PMA_mysql_fetch_array($rs);
             mysql_free_result($rs);
             // Correction uva 19991215
             // Previous code assumed database "mysql" admin table "db" column
@@ -765,7 +775,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 // 1. get allowed dbs from the "mysql.db" table
                 // lem9: User can be blank (anonymous user)
                 $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\' OR User = \'\')';
-                $rs          = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+                $rs          = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
                 if ($rs && @mysql_numrows($rs)) {
                     // Will use as associative array of the following 2 code
                     // lines:
@@ -777,7 +787,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     // populating $dblist[], as previous code did. But it is
                     // now populated with actual database names instead of
                     // with regular expressions.
-                    while ($row = mysql_fetch_array($rs)) {
+                    while ($row = PMA_mysql_fetch_array($rs)) {
                         // loic1: all databases cases - part 1
                         if (empty($row['Db']) || $row['Db'] == '%') {
                             $uva_mydbs['%'] = 1;
@@ -792,12 +802,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     $uva_alldbs = mysql_list_dbs($dbh);
                     // loic1: all databases cases - part 2
                     if (isset($uva_mydbs['%'])) {
-                        while ($uva_row = mysql_fetch_array($uva_alldbs)) {
+                        while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
                             $dblist[] = $uva_row[0];
                         } // end while
                     } // end if
                     else {
-                        while ($uva_row = mysql_fetch_array($uva_alldbs)) {
+                        while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
                             $uva_db = $uva_row[0];
                             if (isset($uva_mydbs[$uva_db]) && $uva_mydbs[$uva_db] == 1) {
                                 $dblist[]           = $uva_db;
@@ -826,9 +836,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
                 // 2. get allowed dbs from the "mysql.tables_priv" table
                 $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
-                $rs          = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+                $rs          = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
                 if ($rs && @mysql_numrows($rs)) {
-                    while ($row = mysql_fetch_array($rs)) {
+                    while ($row = PMA_mysql_fetch_array($rs)) {
                         if (PMA_isInto($row['Db'], $dblist) == -1) {
                             $dblist[] = $row['Db'];
                         }
@@ -870,7 +880,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if ($num_dbs) {
             $true_dblist = array();
             for ($i = 0; $i < $num_dbs; $i++) {
-                $dblink  = @mysql_select_db($dblist[$i]);
+                $dblink  = @PMA_mysql_select_db($dblist[$i]);
                 if ($dblink) {
                     $true_dblist[] = $dblist[$i];
                 } // end if
@@ -888,8 +898,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $num_dbs      = ($dbs) ? @mysql_num_rows($dbs) : 0;
             $real_num_dbs = 0;
             for ($i = 0; $i < $num_dbs; $i++) {
-                $db_name_tmp = mysql_dbname($dbs, $i);
-                $dblink      = @mysql_select_db($db_name_tmp);
+                $db_name_tmp = PMA_mysql_dbname($dbs, $i);
+                $dblink      = @PMA_mysql_select_db($db_name_tmp);
                 if ($dblink) {
                     $dblist[] = $db_name_tmp;
                     $real_num_dbs++;
@@ -912,10 +922,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Since MySQL 3.23.6 this allows to use non-alphanumeric characters in
      * these names.
      *
-     * @param   string   the database, table or field name to "backquote"
+     * @param   mixed    the database, table or field name to "backquote" or
+     *                   array of it
      * @param   boolean  a flag to bypass this function (used by dump functions)
      *
-     * @return  string   the "backquoted" database, table or field name if the
+     * @return  mixed    the "backquoted" database, table or field name if the
      *                   current MySQL release is >= 3.23.6, the original one
      *                   else
      *
@@ -926,7 +937,17 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if ($do_it
             && PMA_MYSQL_INT_VERSION >= 32306
             && !empty($a_name) && $a_name != '*') {
-            return '`' . $a_name . '`';
+            
+            if (is_array($a_name)) {
+                 $result = array();
+                 reset($a_name);
+                 while(list($key,$val) = each($a_name)) {
+                     $result[$key] = '`' . $val . '`';
+                 }
+                 return $result;
+            } else {
+                return '`' . $a_name . '`';
+            }
         } else {
             return $a_name;
         }
@@ -1005,8 +1026,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      */
     function PMA_countRecords($db, $table, $ret = FALSE)
     {
-        $result = mysql_query('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
-        $num    = ($result) ? mysql_result($result, 0, 'num') : 0;
+        $result = PMA_mysql_query('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
+        $num    = ($result) ? PMA_mysql_result($result, 0, 'num') : 0;
         mysql_free_result($result);
         if ($ret) {
             return $num;
@@ -1031,7 +1052,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
             echo "\n";
             $reload_url = './left.php3'
-                        . '?lang=' . $GLOBALS['lang']
+                        . '?convcharset=' . $GLOBALS['convcharset']
+                        . '&lang=' . $GLOBALS['lang']
                         . '&server=' . $GLOBALS['server']
                         . ((!empty($GLOBALS['db'])) ? '&db=' . urlencode($GLOBALS['db']) : '');
             ?>
@@ -1045,9 +1067,9 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
 
         // Corrects the tooltip text via JS if required
         else if (isset($GLOBALS['table']) && $GLOBALS['cfg']['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303) {
-            $result = @mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
+            $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
             if ($result) {
-                $tmp     = mysql_fetch_array($result, MYSQL_ASSOC);
+                $tmp     = PMA_mysql_fetch_array($result, MYSQL_ASSOC);
                 $tooltip = (empty($tmp['Comment']))
                          ? ''
                          : $tmp['Comment'] . ' ';
@@ -1083,6 +1105,7 @@ if (typeof(document.getElementById) != 'undefined'
         if ($GLOBALS['cfg']['ShowSQL'] == TRUE && !empty($GLOBALS['sql_query'])) {
             // Basic url query part
             $url_qpart = '?lang=' . $GLOBALS['lang']
+                       . '&amp;convcharset=' . $GLOBALS['convcharset']
                        . '&amp;server=' . $GLOBALS['server']
                        . ((!empty($GLOBALS['db'])) ? '&amp;db=' . urlencode($GLOBALS['db']) : '')
                        . ((!empty($GLOBALS['table'])) ? '&amp;table=' . urlencode($GLOBALS['table']) : '');

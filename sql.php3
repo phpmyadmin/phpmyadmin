@@ -29,6 +29,7 @@ if (empty($goto)) {
 if (!isset($err_url)) {
     $err_url = (!empty($back) ? $back : $goto)
              . '?lang=' . $lang
+             . '&amp;convcharset=' . $convcharset
              . '&amp;server=' . $server
              . (isset($db) ? '&amp;db=' . urlencode($db) : '')
              . ((strpos(' ' . $goto, 'db_details') != 1 && isset($table)) ? '&amp;table=' . urlencode($table) : '');
@@ -48,8 +49,8 @@ if (!defined('PMA_CHK_DROP')
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
     // loic1: optimized query
-    $result = @mysql_query('USE mysql');
-    if (mysql_error()) {
+    $result = @PMA_mysql_query('USE mysql');
+    if (PMA_mysql_error()) {
         include('./header.inc.php3');
         PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
     } // end if
@@ -106,6 +107,7 @@ if ($is_select) {
 if ($goto == 'sql.php3') {
     $goto = 'sql.php3'
           . '?lang=' . $lang
+          . '&amp;convcharset=' . $convcharset
           . '&amp;server=' . $server
           . '&amp;db=' . urlencode($db)
           . '&amp;table=' . urlencode($table)
@@ -160,6 +162,7 @@ if ($do_confirm) {
     ?>
 <form action="sql.php3" method="post">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo isset($table) ? $table : ''; ?>" />
@@ -246,7 +249,7 @@ else {
     } // end if...else
 
 
-    mysql_select_db($db);
+    PMA_mysql_select_db($db);
 
     // If the query is a DELETE query with no WHERE clause, get the number of
     // rows that will be deleted (mysql_affected_rows will always return 0 in
@@ -254,9 +257,9 @@ else {
     if ($is_delete
         && eregi('^DELETE([[:space:]].+)?([[:space:]]FROM[[:space:]](.+))$', $sql_query, $parts)
         && !eregi('[[:space:]]WHERE[[:space:]]', $parts[3])) {
-        $cnt_all_result = @mysql_query('SELECT COUNT(*) as count' .  $parts[2]);
+        $cnt_all_result = @PMA_mysql_query('SELECT COUNT(*) as count' .  $parts[2]);
         if ($cnt_all_result) {
-            $num_rows   = mysql_result($cnt_all_result, 0, 'count');
+            $num_rows   = PMA_mysql_result($cnt_all_result, 0, 'count');
             mysql_free_result($cnt_all_result);
         } else {
             $num_rows   = 0;
@@ -264,11 +267,11 @@ else {
     }
 
     // Executes the query
-    $result   = @mysql_query($full_sql_query);
+    $result   = @PMA_mysql_query($full_sql_query);
 
     // Displays an error message if required and stop parsing the script
-    if (mysql_error()) {
-        $error        = mysql_error();
+    if (PMA_mysql_error()) {
+        $error        = PMA_mysql_error();
         include('./header.inc.php3');
         $full_err_url = (ereg('^(db_details|tbl_properties)', $err_url))
                       ? $err_url . '&amp;show_query=y&amp;sql_query=' . urlencode($sql_query)
@@ -307,9 +310,9 @@ else {
         if (!empty($array[1])) {
             // ... and makes a count(*) to count the entries
             $count_query        = 'SELECT COUNT(*) AS count FROM ' . $array[1];
-            $cnt_all_result     = mysql_query($count_query);
+            $cnt_all_result     = PMA_mysql_query($count_query);
             if ($cnt_all_result) {
-                $unlim_num_rows = mysql_result($cnt_all_result, 0, 'count');
+                $unlim_num_rows = PMA_mysql_result($cnt_all_result, 0, 'count');
                 mysql_free_result($cnt_all_result);
             }
         } else {
@@ -345,7 +348,7 @@ else {
                 if (!isset($table)) {
                     $goto     = 'db_details.php3';
                 } else {
-                    $is_table = @mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
+                    $is_table = @PMA_mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
                     if (!($is_table && @mysql_numrows($is_table))) {
                         $goto = 'db_details.php3';
                         unset($table);
@@ -359,7 +362,7 @@ else {
                 if (!isset($db)) {
                     $goto     = 'main.php3';
                 } else {
-                    $is_db    = @mysql_select_db($db);
+                    $is_db    = @PMA_mysql_select_db($db);
                     if (!$is_db) {
                         $goto = 'main.php3';
                         unset($db);
@@ -397,7 +400,7 @@ else {
         }
 
         // Gets the list of fields properties
-        while ($field = mysql_fetch_field($result)) {
+        while ($field = PMA_mysql_fetch_field($result)) {
             $fields_meta[] = $field;
         }
         $fields_cnt        = count($fields_meta);
@@ -420,6 +423,7 @@ else {
             if ($disp_mode[6] == '1') {
                 $lnk_goto  = 'sql.php3'
                            . '?lang=' . $lang
+                           . '&amp;convcharset=' . $convcharset
                            . '&amp;server=' . $server
                            . '&amp;db=' . urlencode($db)
                            . '&amp;table=' . urlencode($table)
@@ -429,6 +433,7 @@ else {
                            . '&amp;repeat_cells=' . $repeat_cells
                            . '&amp;sql_query=' . urlencode($sql_query);
                 $url_query = '?lang=' . $lang
+                           . '&amp;convcharset=' . $convcharset
                            . '&amp;server=' . $server
                            . '&amp;db=' . urlencode($db)
                            . '&amp;table=' . urlencode($table)
@@ -450,6 +455,7 @@ else {
             // Displays "printable view" link if required
             if ($disp_mode[9] == '1') {
                 $url_query = '?lang=' . $lang
+                           . '&amp;convcharset=' . $convcharset
                            . '&amp;server=' . $server
                            . '&amp;db=' . urlencode($db)
                            . '&amp;table=' . urlencode($table)
@@ -475,6 +481,7 @@ else {
 
             $goto = 'sql.php3'
                   . '?lang=' . $lang
+                  . '&amp;convcharset=' . $convcharset
                   . '&amp;server=' . $server
                   . '&amp;db=' . urlencode($db)
                   . '&amp;table=' . urlencode($table)

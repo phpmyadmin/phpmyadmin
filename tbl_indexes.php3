@@ -31,19 +31,19 @@ if (PMA_MYSQL_INT_VERSION >= 32323) {
 if (!defined('PMA_IDX_INCLUDED')) {
     // Not a valid db name -> back to the welcome page
     if (!empty($db)) {
-        $is_db = @mysql_select_db($db);
+        $is_db = @PMA_mysql_select_db($db);
     }
     if (empty($db) || !$is_db) {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?lang=' . $lang . '&convcharset=' . $convcharset . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     }
     // Not a valid table name -> back to the db_details.php3
     if (!empty($table)) {
-        $is_table = @mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
+        $is_table = @PMA_mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
     }
     if (empty($table)
         || !($is_table && @mysql_numrows($is_table))) {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'db_details.php3?lang=' . $lang . '&convcharset=' . $convcharset . '&server=' . $server .'&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     } else if (isset($is_table)) {
         mysql_free_result($is_table);
@@ -61,6 +61,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
 if (defined('PMA_IDX_INCLUDED')) {
     $err_url_0 = 'db_details.php3'
                . '?lang=' . $lang
+               . '&amp;convcharset=' . $convcharset
                . '&amp;server=' . $server
                . '&amp;db=' . urlencode($db);
 }
@@ -75,12 +76,12 @@ if (defined('PMA_IDX_INCLUDED')) {
     $idx_cnt     = count($ret_keys);
 } else {
     $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
-    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
     $idx_cnt     = mysql_num_rows($result);
 }
 
 for ($i = 0; $i < $idx_cnt; $i++) {
-    $row = (defined('PMA_IDX_INCLUDED') ? $ret_keys[$i] : mysql_fetch_array($result));
+    $row = (defined('PMA_IDX_INCLUDED') ? $ret_keys[$i] : PMA_mysql_fetch_array($result));
 
     if ($row['Key_name'] != $prev_index ){
         $indexes[]  = $row['Key_name'];
@@ -115,13 +116,13 @@ if (defined('PMA_IDX_INCLUDED')) {
     mysql_data_seek($fields_rs, 0);
 } else {
     $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
-    $fields_rs   = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+    $fields_rs   = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
     $fields_cnt  = mysql_num_rows($fields_rs);
 }
 
 $fields_names           = array();
 $fields_types           = array();
-while ($row = mysql_fetch_array($fields_rs)) {
+while ($row = PMA_mysql_fetch_array($fields_rs)) {
     $fields_names[]     = $row['Field'];
     // loic1: set or enum types: slashes single quotes inside options
     if (eregi('^(set|enum)\((.+)\)$', $row['Type'], $tmp)) {
@@ -159,6 +160,7 @@ if (!defined('PMA_IDX_INCLUDED')
 
     $err_url     = 'tbl_indexes.php3'
                  . '?lang=' . $lang
+                 . '&amp;convcharset=' . $convcharset
                  . '&amp;server=' . $server
                  . '&amp;db=' . urlencode($db)
                  . '&amp;table=' . urlencode($table);
@@ -218,7 +220,7 @@ if (!defined('PMA_IDX_INCLUDED')
         $sql_query .= $index_fields . ')';
     }
 
-    $result    = mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
+    $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
 
     include('./tbl_properties.php3');
@@ -293,6 +295,7 @@ else if (!defined('PMA_IDX_INCLUDED')
 <form action="tbl_indexes.php3" method="post" name="index_frm"
     onsubmit="if (typeof(this.elements['index'].disabled) != 'undefined') {this.elements['index'].disabled = false}">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
@@ -410,6 +413,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     <!-- Indexes form -->
     <form action="tbl_indexes.php3" method="post">
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+        <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
         <input type="hidden" name="server" value="<?php echo $server; ?>" />
         <input type="hidden" name="db" value="<?php echo $db; ?>" />
         <input type="hidden" name="table" value="<?php echo $table; ?>" />

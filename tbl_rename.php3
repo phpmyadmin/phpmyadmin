@@ -15,6 +15,7 @@ require('./libraries/common.lib.php3');
  */
 $err_url = 'tbl_properties.php3'
          . '?lang=' . $lang
+         . '&amp;convcharset=' . $convcharset
          . '&amp;server=' . $server
          . '&amp;db=' . urlencode($db)
          . '&amp;table=' . urlencode($table);
@@ -39,9 +40,9 @@ if (isset($new_name) && trim($new_name) != '') {
     }
 
     include('./header.inc.php3');
-    mysql_select_db($db);
+    PMA_mysql_select_db($db);
     $sql_query = 'ALTER TABLE ' . PMA_backquote($old_name) . ' RENAME ' . PMA_backquote($new_name);
-    $result    = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+    $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $message   = sprintf($strRenameTableOK, $old_name, $table);
     $reload    = 1;
 }

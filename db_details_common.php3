@@ -15,9 +15,11 @@ require('./libraries/bookmark.lib.php3');
  */
 $err_url_0 = 'main.php3'
            . '?lang=' . $lang
+           . '&amp;convcharset=' . $convcharset
            . '&amp;server=' . $server;
 $err_url   = 'db_details.php3'
            . '?lang=' . $lang
+           . '&amp;convcharset=' . $convcharset
            . '&amp;server=' . $server
            . '&amp;db=' . urlencode($db);
 
@@ -29,10 +31,10 @@ $err_url   = 'db_details.php3'
 if (!isset($is_db) || !$is_db) {
     // Not a valid db name -> back to the welcome page
     if (!empty($db)) {
-        $is_db = @mysql_select_db($db);
+        $is_db = @PMA_mysql_select_db($db);
     }
     if (empty($db) || !$is_db) {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?lang=' . $lang . '&convcharset=' . $convcharset . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     }
 } // end if (ensures db exists)
@@ -47,7 +49,7 @@ if (!isset($message)) {
         ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=<?php echo urlencode($db); ?>');
+window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?> &convcharset=<?php echo $convcharset; ?>&server=<?php echo $server; ?>&db=<?php echo urlencode($db); ?>');
 //-->
 </script>
         <?php
@@ -62,6 +64,7 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang;
  * Set parameters for links
  */
 $url_query = 'lang=' . $lang
+           . '&amp;convcharset=' . $convcharset
            . '&amp;server=' . $server
            . '&amp;db=' . urlencode($db);
 

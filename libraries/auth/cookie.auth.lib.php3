@@ -45,6 +45,7 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
      * @global  array     the list of available translations
      * @global  string    the current language
      * @global  integer   the current server id
+     * @global  string    the currect charset for MySQL
      * @global  array     the array of cookie variables if register_globals is
      *                    off
      *
@@ -56,7 +57,7 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
     {
         global $right_font_family, $font_size, $font_bigger;
         global $cfg, $available_languages;
-        global $lang, $server;
+        global $lang, $server, $convcharset;
         global $HTTP_COOKIE_VARS;
 
         // Tries to get the username from cookie whatever are the values of the
@@ -226,6 +227,7 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
         echo "\n";
         ?>
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="submit" value="<?php echo $GLOBALS['strLogin']; ?>" />
         </td>
     </tr>

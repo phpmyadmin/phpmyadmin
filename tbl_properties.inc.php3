@@ -6,6 +6,7 @@
 <form method="post" action="<?php echo $action; ?>">
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
 <?php
@@ -296,9 +297,9 @@ if ($action == 'tbl_create.php3' && PMA_MYSQL_INT_VERSION >= 32300) {
     if ($action == 'tbl_create.php3') {
         // find mysql capability - staybyte - 11. June 2001
         $query = 'SHOW VARIABLES LIKE \'have_%\'';
-        $result = mysql_query($query);
+        $result = PMA_mysql_query($query);
         if ($result != FALSE && mysql_num_rows($result) > 0) {
-            while ($tmp = mysql_fetch_array($result)) {
+            while ($tmp = PMA_mysql_fetch_array($result)) {
                 if (isset($tmp['Variable_name'])) {
                     switch ($tmp['Variable_name']) {
                         case 'have_bdb':

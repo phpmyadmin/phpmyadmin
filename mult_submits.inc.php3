@@ -102,6 +102,7 @@ if (!empty($submit_mult) && !empty($what)) {
     ?>
 <form action="<?php echo $action; ?>" method="post">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <?php
     echo "\n";
@@ -176,17 +177,17 @@ else if ((get_magic_quotes_gpc() && stripslashes($mult_btn) == $strYes)
             $sql_query .= $a_query . ';' . "\n";
 
             if ($query_type != 'drop_db') {
-                mysql_select_db($db);
+                PMA_mysql_select_db($db);
             }
-            $result = @mysql_query($a_query) or PMA_mysqlDie('', $a_query, FALSE, $err_url);
+            $result = @PMA_mysql_query($a_query) or PMA_mysqlDie('', $a_query, FALSE, $err_url);
         } // end if
     } // end for
 
     if ($query_type == 'drop_tbl'
         || $query_type == 'drop_fld'
         || $query_type == 'optimize_tbl') {
-        mysql_select_db($db);
-        $result = @mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
+        PMA_mysql_select_db($db);
+        $result = @PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
     }
 
     PMA_showMessage($strSuccess);

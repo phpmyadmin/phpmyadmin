@@ -74,8 +74,8 @@ if (!defined('PMA_CONFIG_AUTH_INCLUDED')) {
         global $right_font_family, $font_size, $font_bigger;
         global $is_header_sent;
 
-        if (mysql_error()) {
-            $conn_error = mysql_error();
+        if (PMA_mysql_error()) {
+            $conn_error = PMA_mysql_error();
         } else if (isset($php_errormsg)) {
             $conn_error = $php_errormsg;
         } else {

@@ -28,9 +28,9 @@ require('./tbl_properties_table_info.php3');
 if (!empty($cfg['Server']['pdf_pages'])){
     //  First we get all tables in the current db
     $tab_query           = 'SHOW TABLES FROM ' . PMA_backquote($db);
-    $tab_rs              = mysql_query($tab_query) or PMA_mysqlDie('', $tab_query, '', $err_url_0);
+    $tab_rs              = PMA_mysql_query($tab_query) or PMA_mysqlDie('', $tab_query, '', $err_url_0);
     $selectboxall[] = '--';
-    while ($curr_table = @mysql_fetch_array($tab_rs)) {
+    while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
         //  i'd like to check if all required tables are present
         //  and otherwise give some hint
         if($curr_table[0] == $cfg['Server']['relation']){$relex =1;}else{
@@ -69,7 +69,7 @@ if (!empty($cfg['Server']['pdf_pages'])){
                 }
                 $ins_query = 'INSERT INTO ' . PMA_backquote($cfg['Server']['pdf_pages']) .
                              ' (page_descr) VALUES (\'' . $newpage . '\')';
-                mysql_query($ins_query) or PMA_mysqlDie('', $ins_query, '', $err_url_0);
+                PMA_mysql_query($ins_query) or PMA_mysqlDie('', $ins_query, '', $err_url_0);
                 break;
             case 'edcoord':
                 while (list($key,$arrvalue) = each($ctable)) {
@@ -79,7 +79,7 @@ if (!empty($cfg['Server']['pdf_pages'])){
                         $test_query = 'SELECT * FROM '.PMA_backquote($cfg['Server']['table_coords']) .
                                       ' WHERE table_name = \''.$arrvalue['name'] . '\'' .
                                       ' AND pdf_page_number = '.$chpage;
-                        $test_rs = mysql_query($test_query) or PMA_mysqlDie('', $test_query, '', $err_url_0);
+                        $test_rs = PMA_mysql_query($test_query) or PMA_mysqlDie('', $test_query, '', $err_url_0);
                         if(mysql_num_rows($test_rs)>0){
                             if($arrvalue['delete'] == 'y'){
                                 $ch_query = 'DELETE FROM '.PMA_backquote($cfg['Server']['table_coords']) .
@@ -96,7 +96,7 @@ if (!empty($cfg['Server']['pdf_pages'])){
                                         ' VALUES (\''.$arrvalue['name'].'\','.$chpage.','.
                                         $arrvalue['x'].','.$arrvalue['y'].')';
                         }
-                        mysql_query($ch_query) or PMA_mysqlDie('', $ch_query, '', $err_url_0);
+                        PMA_mysql_query($ch_query) or PMA_mysqlDie('', $ch_query, '', $err_url_0);
                     }
                 }
                 break;
@@ -104,19 +104,20 @@ if (!empty($cfg['Server']['pdf_pages'])){
     }
     //  now first show some possibility to choose a page for the pdf
     $page_query           = 'SELECT * FROM ' .PMA_backquote($cfg['Server']['pdf_pages']);
-    $page_rs              = mysql_query($page_query) or PMA_mysqlDie('', $page_query, '', $err_url_0);
+    $page_rs              = PMA_mysql_query($page_query) or PMA_mysqlDie('', $page_query, '', $err_url_0);
     if(mysql_num_rows($page_rs)>0){
         ?>
         <form action="pdf_pages.php3" method="post" name="selpage">
         <?php echo $strChoosePage; ?>
         <input type="hidden" name="db" value="<?php echo $db; ?>" />
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+        <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
         <input type="hidden" name="server" value="<?php echo $server; ?>" />
         <input type="hidden" name="table" value="<?php echo $table; ?>" />
         <input type="hidden" name="do" value="choosepage" />
         <select name="chpage" onChange="this.form.submit()">
         <?php
-        while ($curr_page = @mysql_fetch_array($page_rs)) {
+        while ($curr_page = @PMA_mysql_fetch_array($page_rs)) {
             echo '<option value="'.$curr_page['page_nr'].'"';
                 if($chpage==$curr_page['page_nr']){echo ' selected="selected"';}
                 echo '>';
@@ -134,6 +135,7 @@ if (!empty($cfg['Server']['pdf_pages'])){
         <?php echo $strCreatePage; ?>
         <input type="hidden" name="db" value="<?php echo $db; ?>" />
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+        <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
         <input type="hidden" name="server" value="<?php echo $server; ?>" />
         <input type="hidden" name="table" value="<?php echo $table; ?>" />
         <input type="hidden" name="do" value="createpage" />
@@ -148,6 +150,7 @@ if (!empty($cfg['Server']['pdf_pages'])){
         <form action="pdf_pages.php3" method="post" name="edcoord">
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="chpage" value="<?php echo $chpage; ?>" />
@@ -158,9 +161,9 @@ if (!empty($cfg['Server']['pdf_pages'])){
         if(isset($ctable)){unset($ctable);}
         $page_query = 'SELECT * FROM' . PMA_backquote($cfg['Server']['table_coords']) .
                                  ' WHERE pdf_page_number='.$chpage;
-        $page_rs   = mysql_query($page_query) or PMA_mysqlDie('', $page_query, '', $err_url_0);
+        $page_rs   = PMA_mysql_query($page_query) or PMA_mysqlDie('', $page_query, '', $err_url_0);
         $i=0;
-        while ($sh_page = @mysql_fetch_array($page_rs)) {
+        while ($sh_page = @PMA_mysql_fetch_array($page_rs)) {
             echo '<tr ';
             if($i % 2==0){
                 echo 'bgcolor="'.$cfg['BgcolorOne'].'"';

@@ -34,7 +34,7 @@ else if (isset($reload) && $reload) {
     ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>');
+window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&convcharset=<?php echo $convcharset; ?>&server=<?php echo $server; ?>');
 //-->
 </script>
     <?php
@@ -61,11 +61,11 @@ if ($server > 0) {
     //     $server_info .= ':' . $cfg['Server']['socket'];
     // }
     $local_query             = 'SELECT VERSION() as version, USER() as user';
-    $res                     = mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, '');
-    $mysql_cur_user_and_host = mysql_result($res, 0, 'user');
+    $res                     = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, '');
+    $mysql_cur_user_and_host = PMA_mysql_result($res, 0, 'user');
     $mysql_cur_user          = substr($mysql_cur_user_and_host, 0, strpos($mysql_cur_user_and_host, '@'));
 
-    $full_string     = str_replace('%pma_s1%', mysql_result($res, 0, 'version'), $strMySQLServerProcess);
+    $full_string     = str_replace('%pma_s1%', PMA_mysql_result($res, 0, 'version'), $strMySQLServerProcess);
     $full_string     = str_replace('%pma_s2%', $server_info, $full_string);
     $full_string     = str_replace('%pma_s3%', $mysql_cur_user_and_host, $full_string);
 
@@ -77,7 +77,7 @@ if ($server > 0) {
  * Reload mysql (flush privileges)
  */
 if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $result = mysql_query('FLUSH PRIVILEGES'); // Debug: or PMA_mysqlDie('', 'FLUSH PRIVILEGES', FALSE, 'main.php3?lang=' . $lang . '&amp;server=' . $server);
+    $result = PMA_mysql_query('FLUSH PRIVILEGES'); // Debug: or PMA_mysqlDie('', 'FLUSH PRIVILEGES', FALSE, 'main.php3?lang=' . $lang . '&amp;server=' . $server);
     echo '<p><b>';
     if ($result != 0) {
       echo $strMySQLReloaded;
@@ -140,6 +140,7 @@ if ($server == 0 || count($cfg['Servers']) > 1) {
     ?>
             </select>
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="submit" value="<?php echo $strGo; ?>" />
         </form>
     </td>
@@ -165,12 +166,12 @@ if ($server > 0) {
     $is_create_priv  = FALSE;
     $is_process_priv = FALSE;
     $is_reload_priv  = FALSE;
-    $is_superuser    = @mysql_query('USE mysql', $userlink);
+    $is_superuser    = @PMA_mysql_query('USE mysql', $userlink);
     if ($dbh) {
         $local_query = 'SELECT Create_priv, Process_priv, Reload_priv FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
-        $rs_usr      = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+        $rs_usr      = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
-            while ($result_usr = mysql_fetch_array($rs_usr)) {
+            while ($result_usr = PMA_mysql_fetch_array($rs_usr)) {
                 if (!$is_create_priv) {
                     $is_create_priv  = ($result_usr['Create_priv'] == 'Y');
                 }
@@ -190,13 +191,13 @@ if ($server > 0) {
     // the one he just dropped :)
     if (!$is_create_priv) {
         $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
-        $rs_usr      = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+        $rs_usr      = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
             $re0     = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
             $re1     = '(^|[^\])(\\\)+';       // escaped wildcards
-            while ($row = mysql_fetch_array($rs_usr)) {
+            while ($row = PMA_mysql_fetch_array($rs_usr)) {
                 if (ereg($re0 . '(%|_)', $row['Db'])
-                    || (!mysql_select_db(ereg_replace($re1 . '(%|_)', '\\1\\3', $row['Db']), $userlink) && @mysql_errno() != 1044)) {
+                    || (!PMA_mysql_select_db(ereg_replace($re1 . '(%|_)', '\\1\\3', $row['Db']), $userlink) && @mysql_errno() != 1044)) {
                     $db_to_create   = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $row['Db']));
                     $db_to_create   = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
                     $is_create_priv = TRUE;
@@ -210,16 +211,16 @@ if ($server > 0) {
             // GRANTS...
             // Maybe we'll find a little CREATE priv there :)
             $local_query = 'SHOW GRANTS FOR ' . $mysql_cur_user_and_host;
-            $rs_usr      = mysql_query($local_query, $dbh);
+            $rs_usr      = PMA_mysql_query($local_query, $dbh);
             if (!$rs_usr) {
                 // OK, now we'd have to guess the user's hostname, but we
                 // only try out the 'username'@'%' case.
                 $local_query = 'SHOW GRANTS FOR ' . $mysql_cur_user;
-                $rs_usr      = mysql_query($local_query, $dbh);
+                $rs_usr      = PMA_mysql_query($local_query, $dbh);
             }
             if ($rs_usr) {
                 $re      = '(^|(\\\\\\\\)+|[^\])';
-                while ($row = mysql_fetch_row($rs_usr)) {
+                while ($row = PMA_mysql_fetch_row($rs_usr)) {
                     $show_grants_dbname = substr($row[0], strpos($row[0], ' ON ') + 4,(strpos($row[0], '.', strpos($row[0], ' ON ')) - strpos($row[0], ' ON ') - 4));
                     $show_grants_str    = substr($row[0],6,(strpos($row[0],' ON ')-6));
                     if (($show_grants_str == 'ALL') || ($show_grants_str == 'ALL PRIVILEGES') || ($show_grants_str == 'CREATE') || strpos($show_grants_str, 'CREATE')) {
@@ -228,7 +229,7 @@ if ($server > 0) {
                             $db_to_create   = '';
                             break;
                         } // end if
-                        else if (ereg($re . '%|_', $show_grants_dbname) || !mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
+                        else if (ereg($re . '%|_', $show_grants_dbname) || !PMA_mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
                             $show_grants_dbname = ereg_replace($re . '%', '\\1...', ereg_replace($re . '_', '\\1?', $show_grants_dbname));
                             $db_to_create       = $show_grants_dbname;
                             $is_create_priv     = TRUE;
@@ -246,7 +247,7 @@ if ($server > 0) {
         $db_to_create = '';
     } // end else
 
-    $common_url_query = 'lang=' . $lang . '&amp;server=' . $server;
+    $common_url_query = 'lang=' . $lang . '&amp;server=' . $server . '&amp;convcharset=' . $convcharset;
 
     if ($is_superuser) {
         $cfg['ShowMysqlInfo']   = TRUE;
@@ -282,6 +283,7 @@ if ($server > 0) {
                 <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showDocuShort('C/R/CREATE_DATABASE.html'); ?><br />
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
                 <input type="hidden" name="reload" value="1" />
                 <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" />
                 <input type="submit" value="<?php echo $strCreate; ?>" />
@@ -441,6 +443,7 @@ if (empty($cfg['Lang'])) {
             <td nowrap="nowrap">
                 <form method="post" action="index.php3" target="_parent">
                     <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
                     Language <a href="./translators.html" target="documentation">(*)</a>:
                     <select name="lang" dir="ltr" onchange="this.form.submit();">
     <?php
@@ -482,6 +485,40 @@ if (empty($cfg['Lang'])) {
     <?php
 }
 echo "\n";
+?>
+<?php
+if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
+?>
+        <!-- Charset Selection -->
+        <tr>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
+            <td nowrap="nowrap">
+                <form method="post" action="index.php3" target="_parent">
+                    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                    <?php echo $strMySQLCharset;?>:
+                    <select name="convcharset" dir="ltr" onchange="this.form.submit();">
+    <?php
+    echo "\n";
+    reset($cfg['AvailableCharsets']);
+    while (list($id, $tmpcharset) = each($cfg['AvailableCharsets'])) {
+        if ($convcharset == $tmpcharset) {
+            $selected = ' selected="selected"';
+        } else {
+            $selected = '';
+        }
+        echo '                        ';
+        echo '<option value="' . $tmpcharset . '"' . $selected . '>' . $tmpcharset . '</option>' . "\n";
+    }
+    ?>
+                    </select>
+                    <noscript><input type="submit" value="Go" /></noscript>
+                </form>
+            </td>
+        </tr>
+    <?php
+    echo "\n";
+}
 ?>
 
         <!-- Documentation -->

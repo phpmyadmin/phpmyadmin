@@ -19,9 +19,9 @@ if (!empty($cfg['Server']['relation'])
     //  first check if there is a entry allready
     $upd_query  = 'SELECT master_field, foreign_table, foreign_field FROM ' . PMA_backquote($cfg['Server']['relation'])
                 . ' WHERE master_table = \'' . PMA_sqlAddslashes($table) . '\'';
-    $upd_rs     = mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
+    $upd_rs     = PMA_mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
 
-    while ($foundrel = @mysql_fetch_array($upd_rs)) {
+    while ($foundrel = @PMA_mysql_fetch_array($upd_rs)) {
         $currfield            = $foundrel['master_field'];
         $existrel[$currfield] = $foundrel['foreign_table'] . '.' . $foundrel['foreign_field'];
     }
@@ -36,19 +36,19 @@ if (!empty($cfg['Server']['relation'])
                             . '\'' . PMA_sqlAddslashes($key)  . '\', '
                             . '\'' . PMA_sqlAddslashes($for[0]) . '\', '
                             . '\'' . PMA_sqlAddslashes($for[1]) . '\')';
-                $upd_rs     = mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
+                $upd_rs     = PMA_mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
             } else if ($existrel[$key] != $value) {
                 $for        = explode('.', $destination[$key]);
                 $upd_query  = 'UPDATE ' . PMA_backquote($cfg['Server']['relation']) . ' SET'
                             . ' foreign_table = \'' . PMA_sqlAddslashes($for[0]) . '\', foreign_field = \'' . PMA_sqlAddslashes($for[1]) . '\' '
                             . ' WHERE master_table = \'' . PMA_sqlAddslashes($table) . '\' AND master_field = \'' . PMA_sqlAddslashes($key) . '\'';
-                $upd_rs     = mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
+                $upd_rs     = PMA_mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
             } // end if... else....
         } else if (isset($existrel[$key])) {
             $for            = explode('.', $destination[$key]);
             $upd_query      = 'DELETE FROM ' . PMA_backquote($cfg['Server']['relation'])
                             . ' WHERE master_table = \'' . PMA_sqlAddslashes($table) . '\' AND master_field = \'' . PMA_sqlAddslashes($key) . '\'';
-            $upd_rs         = mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
+            $upd_rs         = PMA_mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
         } // end if... else....
     } // end while
 } // end if
@@ -57,16 +57,16 @@ if (!empty($cfg['Server']['table_info'])
     && isset($submit_show) && $submit_show == 'true') {
     $test_query   = 'SELECT display_field FROM ' . PMA_backquote($cfg['Server']['table_info'])
                   . ' WHERE table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-    $test_rs      = mysql_query($test_query) or PMA_mysqlDie('', $test_query, '', $err_url_0);
+    $test_rs      = PMA_mysql_query($test_query) or PMA_mysqlDie('', $test_query, '', $err_url_0);
     if ($test_rs && mysql_num_rows($test_rs) > 0) {
        $upd_query = 'UPDATE ' . PMA_backquote($cfg['Server']['table_info']) . ' SET'
                   . ' display_field = \'' . PMA_sqlAddslashes($display_field) . '\''
                   . ' WHERE table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-       $upd_rs    = mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
+       $upd_rs    = PMA_mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
     } else {
        $ins_query = 'INSERT INTO ' . PMA_backquote($cfg['Server']['table_info']) . ' (table_name, display_field)'
                   . ' VALUES(\'' . PMA_sqlAddslashes($table) . '\', \'' . PMA_sqlAddslashes($display_field) .'\')';
-       $ins_rs    = mysql_query($ins_query) or PMA_mysqlDie('', $ins_query, '', $err_url_0);
+       $ins_rs    = PMA_mysql_query($ins_query) or PMA_mysqlDie('', $ins_query, '', $err_url_0);
     }
 } // end if
 
@@ -78,14 +78,14 @@ if ($cfg['Server']['relation']) {
     $rel_work            = FALSE;
     // Mike Beck: get all Table-Fields to choose relation
     $tab_query           = 'SHOW TABLES FROM ' . PMA_backquote($db);
-    $tab_rs              = mysql_query($tab_query) or PMA_mysqlDie('', $tab_query, '', $err_url_0);
+    $tab_rs              = PMA_mysql_query($tab_query) or PMA_mysqlDie('', $tab_query, '', $err_url_0);
     $selectboxall['nix'] = '--';
-    while ($curr_table = @mysql_fetch_array($tab_rs)) {
+    while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
         if (($curr_table[0] != $table) && ($curr_table[0] != $cfg['Server']['relation'])) {
             $fi_query = 'SHOW KEYS FROM ' . PMA_backquote($curr_table[0]);
-            $fi_rs    = mysql_query($fi_query) or PMA_mysqlDie('', $fi_query, '', $err_url_0);
+            $fi_rs    = PMA_mysql_query($fi_query) or PMA_mysqlDie('', $fi_query, '', $err_url_0);
             if ($fi_rs && mysql_num_rows($fi_rs) > 0) {
-                while ($curr_field = mysql_fetch_array($fi_rs)) {
+                while ($curr_field = PMA_mysql_fetch_array($fi_rs)) {
                     if (isset($curr_field['Key_name']) && $curr_field['Key_name'] == 'PRIMARY') {
                         $field_full = $curr_field['Table'] . '.' . $curr_field['Column_name'];
                         $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
@@ -112,9 +112,9 @@ if ($cfg['Server']['relation']) {
         $rel_query = 'SELECT master_field, concat(foreign_table, \'.\', foreign_field) AS rel'
                    . ' FROM ' . PMA_backquote($cfg['Server']['relation'])
                    . ' WHERE master_table = \'' . PMA_sqlAddslashes($table) . '\'';
-        $relations = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
+        $relations = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
 
-        while ($relrow = @mysql_fetch_array($relations)) {
+        while ($relrow = @PMA_mysql_fetch_array($relations)) {
             $rel_col            = $relrow['master_field'];
             $rel_dest[$rel_col] = $relrow['rel'];
         } // end while
@@ -123,7 +123,7 @@ if ($cfg['Server']['relation']) {
 
 // now find out the columns of our $table
 $col_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table);
-$col_rs    = mysql_query($col_query) or PMA_mysqlDie('', $col_query, '', $err_url_0);
+$col_rs    = PMA_mysql_query($col_query) or PMA_mysqlDie('', $col_query, '', $err_url_0);
 
 if ($col_rs && mysql_num_rows($col_rs) > 0) {
     ?>
@@ -141,7 +141,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
     </tr>
     <?php
 
-    while ($row = mysql_fetch_array($col_rs)) {
+    while ($row = PMA_mysql_fetch_array($col_rs)) {
         echo "\n";
         ?>
     <tr>
@@ -183,8 +183,8 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         // Get "display_filed" infos
         $disp_query = 'SELECT display_field FROM ' .  PMA_backquote($cfg['Server']['table_info'])
                   . ' WHERE table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-        $disp_rs    = mysql_query($disp_query) or PMA_mysqlDie('', $disp_query, '', $err_url_0);
-        $row        = ($disp_rs ? mysql_fetch_array($disp_rs) : '');
+        $disp_rs    = PMA_mysql_query($disp_query) or PMA_mysqlDie('', $disp_query, '', $err_url_0);
+        $row        = ($disp_rs ? PMA_mysql_fetch_array($disp_rs) : '');
         if (isset($row['display_field'])) {
             $disp   = $row['display_field'];
         }
@@ -203,7 +203,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         <?php
         echo "\n";
         mysql_data_seek($col_rs, 0);
-        while ($row = @mysql_fetch_array($col_rs)) {
+        while ($row = @PMA_mysql_fetch_array($col_rs)) {
             echo '        <option value="' . htmlspecialchars($row['Field']) . '"';
             if (isset($disp) && $row['Field'] == $disp) {
                 echo ' selected="selected"';

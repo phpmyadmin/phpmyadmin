@@ -12,7 +12,7 @@ require('./header.inc.php3');
 /**
  * Ensures the current user is super-user
  */
-if (!@mysql_query('USE mysql', $userlink)) {
+if (!@PMA_mysql_query('USE mysql', $userlink)) {
     echo '<p><b>' . $strError . '</b></p>' . "\n";
     echo '<p>&nbsp;&nbsp;&nbsp;&nbsp;' .  $strNoRights . '</p>' . "\n";
     include('./footer.inc.php3');
@@ -27,6 +27,7 @@ if ((!empty($submit_mult) && isset($selected_db))
     || isset($mult_btn)) {
     $err_url    = 'db_stats.php3'
                 . '?lang=' . $lang
+                . '&amp;convcharset=' . $convcharset
                 . '&amp;server=' . $server;
     $action     = 'db_stats.php3';
     $show_query = 'y';
@@ -82,7 +83,7 @@ if ($server > 0) {
     // Get the valid databases list
     $num_dbs = count($dblist);
     $dbs     = @mysql_list_dbs() or PMA_mysqlDie('', 'mysql_list_dbs()', '', 'main.php3?lang' . $lang . '&amp;server=' . $server);
-    while ($a_db = mysql_fetch_object($dbs)) {
+    while ($a_db = PMA_mysql_fetch_object($dbs)) {
         if (!$num_dbs) {
             $dblist[]                     = $a_db->Database;
         } else {
@@ -140,7 +141,7 @@ if ($server > 0) {
  */
 if ($num_dbs > 0) {
     // Defines the urls used to sort the table
-    $common_url     = 'db_stats.php3?lang=' . $lang . '&amp;server=' . $server;
+    $common_url     = 'db_stats.php3?lang=' . $lang . '&amp;server=' . $server . '&amp;convcharset=' . $convcharset;
     if (empty($sort_by)) {
         $sort_by                 = 'db_name';
         $sort_order              = 'asc';
@@ -182,6 +183,7 @@ if ($num_dbs > 0) {
     ?>
 <form action="db_stats.php3" name="dbStatsForm">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
 
     <table align="center" border="<?php echo $cfg['Border']; ?>">
@@ -225,7 +227,7 @@ if ($num_dbs > 0) {
     // Gets the tables stats per database
     for ($i = 0; $i < $num_dbs; $i++) {
         $db         = $dblist[$i];
-        $tables     = @mysql_list_tables($db);
+        $tables     = @PMA_mysql_list_tables($db);
 
         // Number of tables
         $dbs_array[$db][0] = ($tables) ? @mysql_numrows($tables) : 0;
@@ -239,10 +241,10 @@ if ($num_dbs > 0) {
 
         if (PMA_MYSQL_INT_VERSION >= 32303) {
             $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
-            $result      = @mysql_query($local_query);
+            $result      = @PMA_mysql_query($local_query);
             // needs the "@" below otherwise, warnings in case of special DB names
             if ($result && @mysql_num_rows($result)) {
-                while ($row = mysql_fetch_array($result)) {
+                while ($row = PMA_mysql_fetch_array($result)) {
                     $dbs_array[$db][1] += $row['Data_length'];
                     $dbs_array[$db][2] += $row['Index_length'];
                 }
@@ -264,6 +266,7 @@ if ($num_dbs > 0) {
     // Check/unchek all databases url
     $checkall_url = 'db_stats.php3'
                   . '?lang=' . $lang
+                  . '&amp;convcharset=' . $convcharset
                   . '&amp;server=' . $server
                   . (empty($sort_by) ? '' : '&amp;sort_by=' . $sort_by)
                   . (empty($sort_order) ? '' : '&amp;sort_order=' . $sort_order);
@@ -284,7 +287,7 @@ if ($num_dbs > 0) {
         echo '        <td align="center" bgcolor="'. $bgcolor . '">' . "\n";
         echo '            &nbsp;<input type="checkbox" name="selected_db[]" value="' . urlencode($db_name) . '"' . $do_check . ' />&nbsp;' . "\n";
         echo '        </td>' . "\n";
-        echo '        <td bgcolor="'. $bgcolor . '">&nbsp;<a href="index.php3?lang=' . $lang . '&amp;server=' . $server . '&amp;db=' . urlencode($db_name) . '" target="_parent">' . htmlentities($db_name) . '</a>&nbsp;</td>' . "\n";
+        echo '        <td bgcolor="'. $bgcolor . '">&nbsp;<a href="index.php3?lang=' . $lang . '&amp;server=' . $server . '&amp;db=' . urlencode($db_name) . '&amp;convcharset=' . $convcharset . '" target="_parent">' . $db_name . '</a>&nbsp;</td>' . "\n";
         echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $dbs_array[$db_name][0] . '&nbsp;</td>' . "\n";
         echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $data_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $data_unit . '&nbsp;</td>' . "\n";
         echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $idx_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $idx_unit . '&nbsp;</td>' . "\n";

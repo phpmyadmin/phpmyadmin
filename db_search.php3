@@ -20,10 +20,10 @@ $url_query .= '&amp;goto=db_search.php3';
 /**
  * Get the list of tables from the current database
  */
-$list_tables  = mysql_list_tables($db);
+$list_tables  = PMA_mysql_list_tables($db);
 $num_tables   = ($list_tables ? mysql_num_rows($list_tables) : 0);
 for ($i = 0; $i < $num_tables; $i++) {
-    $tables[] = mysql_tablename($list_tables, $i);
+    $tables[] = PMA_mysql_tablename($list_tables, $i);
 }
 if ($num_tables) {
     mysql_free_result($list_tables);
@@ -64,10 +64,10 @@ if (isset($submit_search)) {
 
         // Fields to select
         $local_query           = 'SHOW FIELDS FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
-        $res                   = @mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, $err_url);
+        $res                   = @PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, $err_url);
         $res_cnt               = ($res ? mysql_num_rows($res) : 0);
         for ($i = 0; $i < $res_cnt; $i++) {
-            $tblfields[]       = PMA_backquote(mysql_result($res, $i, 'field'));
+            $tblfields[]       = PMA_backquote(PMA_mysql_result($res, $i, 'field'));
         } // end if
         $sqlstr_fieldstoselect = ' ' . implode(', ', $tblfields);
         $tblfields_cnt         = count($tblfields);
@@ -189,6 +189,7 @@ if (isset($submit_search)) {
 <form method="post" action="sql.php3" name="db_search_results_form">
     <input type="hidden" name="is_js_confirmed" value="0" />
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="goto" value="db_details.php3" />
@@ -206,9 +207,9 @@ if (isset($submit_search)) {
 
             // Executes the "COUNT" statement
             $local_query   = $newsearchsqls['select_count'];
-            $res           = @mysql_query($local_query)  or PMA_mysqlDie('', $local_query, FALSE, $err_url);
+            $res           = @PMA_mysql_query($local_query)  or PMA_mysqlDie('', $local_query, FALSE, $err_url);
             if ($res) {
-                $res_cnt   = mysql_result($res, 0, 'count');
+                $res_cnt   = PMA_mysql_result($res, 0, 'count');
                 mysql_free_result($res);
             } else {
                 $res_cnt   = 0;
@@ -240,9 +241,9 @@ if (isset($submit_search)) {
 
                 // Executes the "COUNT" statement
                 $local_query   = $newsearchsqls['select_count'];
-                $res           = @mysql_query($local_query)  or PMA_mysqlDie('', $local_query, FALSE, $err_url);
+                $res           = @PMA_mysql_query($local_query)  or PMA_mysqlDie('', $local_query, FALSE, $err_url);
                 if ($res) {
-                    $res_cnt   = mysql_result($res, 0, 'count');
+                    $res_cnt   = PMA_mysql_result($res, 0, 'count');
                     mysql_free_result($res);
                 } else {
                     $res_cnt   = 0;
@@ -310,6 +311,7 @@ if (empty($search_option)) {
 <a name="db_search"></a>
 <form method="post" action="db_search.php3" name="db_search">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
 

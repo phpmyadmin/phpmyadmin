@@ -159,8 +159,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         else if (($do_display['nav_bar'] == '1' || $do_display['sort_lnk'] == '1')
                  && (!empty($db) && !empty($table))) {
             $local_query = 'SELECT COUNT(*) AS total FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-            $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-            $the_total   = mysql_result($result, 0, 'total');
+            $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+            $the_total   = PMA_mysql_result($result, 0, 'total');
             mysql_free_result($result);
         }
 
@@ -189,6 +189,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      * @param   string   the url-encoded query
      *
      * @global  string   the current language
+     * @global  string   the currect charset for MySQL
      * @global  integer  the server to use (refers to the number in the
      *                   configuration file)
      * @global  string   the database name
@@ -210,7 +211,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      */
     function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
     {
-        global $lang, $server, $db, $table;
+        global $lang, $convcharset, $server, $db, $table;
         global $goto;
         global $num_rows, $unlim_num_rows, $pos, $session_max_rows;
         global $disp_direction, $repeat_cells;
@@ -239,6 +240,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
     <td>
         <form action="sql.php3" method="post">
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
@@ -255,6 +257,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
     <td>
         <form action="sql.php3" method="post">
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
@@ -279,6 +282,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         <form action="sql.php3" method="post"
             onsubmit="return (checkFormElementInRange(this, 'session_max_rows', 1) && checkFormElementInRange(this, 'pos', 0, <?php echo $unlim_num_rows - 1; ?>))">
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
@@ -327,6 +331,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
     <td>
         <form action="sql.php3" method="post">
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
@@ -344,6 +349,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         <form action="sql.php3" method="post"
             onsubmit="return <?php echo (($pos + $session_max_rows < $unlim_num_rows && $num_rows >= $session_max_rows) ? 'true' : 'false'); ?>">
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
@@ -370,6 +376,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
     <td>
         <form action="sql.php3" method="post">
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
@@ -404,6 +411,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      * @return  boolean  always true
      *
      * @global  string   the current language
+     * @global  string   the current charset for MySQL
      * @global  integer  the server to use (refers to the number in the
      *                   configuration file)
      * @global  string   the database name
@@ -425,7 +433,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      */
     function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0)
     {
-        global $lang, $server, $db, $table;
+        global $lang, $convcharset, $server, $db, $table;
         global $goto;
         global $sql_query, $num_rows, $pos, $session_max_rows;
         global $vertical_display, $disp_direction, $repeat_cells;
@@ -455,6 +463,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         }
         $text_url = 'sql.php3'
                   . '?lang=' . $lang
+                  . '&amp;convcharset=' . $convcharset
                   . '&amp;server=' . $server
                   . '&amp;db=' . urlencode($db)
                   . '&amp;table=' . urlencode($table)
@@ -601,6 +610,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     $sorted_sql_query = $unsorted_sql_query . $sort_order;
                 }
                 $url_query = 'lang=' . $lang
+                           . '&amp;convcharset=' . $convcharset
                            . '&amp;server=' . $server
                            . '&amp;db=' . urlencode($db)
                            . '&amp;table=' . urlencode($table)
@@ -704,6 +714,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      * @return  boolean  always true
      *
      * @global  string   the current language
+     * @global  string   the current charset for MySQL
      * @global  integer  the server to use (refers to the number in the
      *                   configuration file)
      * @global  string   the database name
@@ -726,7 +737,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      */
     function PMA_displayTableBody(&$dt_result, &$is_display, $map)
     {
-        global $lang, $server, $db, $table;
+        global $lang, $convcharset, $server, $db, $table;
         global $goto;
         global $sql_query, $pos, $session_max_rows, $fields_meta, $fields_cnt;
         global $vertical_display, $disp_direction, $repeat_cells;
@@ -757,10 +768,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // table being displayed has one or more keys; but to display
         // delete/edit options correctly for tables without keys.
 
-        // loic1: use 'mysql_fetch_array' rather than 'mysql_fetch_row' to get
+        // loic1: use 'PMA_mysql_fetch_array' rather than 'PMA_mysql_fetch_row' to get
         //        the NULL values
 
-        while ($row = mysql_fetch_array($dt_result)) {
+        while ($row = PMA_mysql_fetch_array($dt_result)) {
 
             // lem9: "vertical display" mode stuff
             if (($row_no != 0) && ($repeat_cells != 0) && !($row_no % $repeat_cells) && $disp_direction == 'horizontal') {
@@ -824,7 +835,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         //        php4 function is available or not
                         $pointer = (function_exists('is_null') ? $i : $meta->name);
 
-                        if (!isset($row[$meta->name])
+                        if (!isset($row[$pointer])
                             || (function_exists('is_null') && is_null($row[$pointer]))) {
                             $condition .= 'IS NULL AND';
                         } else {
@@ -853,6 +864,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
                 // 1.2 Defines the urls for the modify/delete link(s)
                 $url_query  = 'lang=' . $lang
+                            . '&amp;convcharset=' . $convcharset
                             . '&amp;server=' . $server
                             . '&amp;db=' . urlencode($db)
                             . '&amp;table=' . urlencode($table)
@@ -898,6 +910,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                               . '&goto=main.php3';
                     $del_url  = 'sql.php3'
                               . '?lang=' . $lang
+                              . '&amp;convcharset=' . $convcharset
                               . '&amp;server=' . $server
                               . '&amp;db=mysql'
                               . '&amp;sql_query=' . urlencode('KILL ' . $row['Id'])
@@ -941,7 +954,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 $pointer = (function_exists('is_null') ? $i : $meta->name);
 
                 if ($meta->numeric == 1) {
-                    if (!isset($row[$meta->name])
+                    if (!isset($row[$pointer])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
@@ -953,9 +966,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                                              . ' FROM ' . PMA_backquote($map[$meta->name][0])
                                              . ' WHERE ' . PMA_backquote($map[$meta->name][1])
                                              . ' = ' . $row[$pointer];
-                                $dispresult  = mysql_query($dispsql);
+                                $dispresult  = PMA_mysql_query($dispsql);
                                 if ($dispresult && mysql_num_rows($dispresult) > 0) {
-                                    $dispval = mysql_result($dispresult, 0);
+                                    $dispval = PMA_mysql_result($dispresult, 0);
                                 }
                                 else {
                                     $dispval = $GLOBALS['strLinkNotFound'];
@@ -968,6 +981,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
                                                                    .  'lang=' . $lang . '&amp;server=' . $server
+                                                                   . '&amp;convcharset=' . $convcharset
                                                                    .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                    .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = ' . $row[$pointer]) . '"' . $title . '>'
@@ -980,15 +994,15 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
                 } else if ($GLOBALS['cfg']['ShowBlob'] == FALSE && eregi('BLOB', $meta->type)) {
-                    // loic1 : mysql_fetch_fields returns BLOB in place of TEXT
+                    // loic1 : PMA_mysql_fetch_fields returns BLOB in place of TEXT
                     // fields type, however TEXT fields must be displayed even
                     // if $cfg['ShowBlob'] is false -> get the true type of the
                     // fields.
-                    $field_flags = mysql_field_flags($dt_result, $i);
+                    $field_flags = PMA_mysql_field_flags($dt_result, $i);
                     if (eregi('BINARY', $field_flags)) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB]</td>' . "\n";
                     } else {
-                        if (!isset($row[$meta->name])
+                        if (!isset($row[$pointer])
                             || (function_exists('is_null') && is_null($row[$pointer]))) {
                             $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                         } else if ($row[$pointer] != '') {
@@ -1006,7 +1020,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         }
                     }
                 } else {
-                    if (!isset($row[$meta->name])
+                    if (!isset($row[$pointer])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
@@ -1020,7 +1034,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             }
                         }
                         // loic1: displays special characters from binaries
-                        $field_flags = mysql_field_flags($dt_result, $i);
+                        $field_flags = PMA_mysql_field_flags($dt_result, $i);
                         if (eregi('BINARY', $field_flags)) {
                             $row[$pointer]     = str_replace("\x00", '\0', $row[$pointer]);
                             $row[$pointer]     = str_replace("\x08", '\b', $row[$pointer]);
@@ -1045,9 +1059,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                                              . ' FROM ' . PMA_backquote($map[$meta->name][0])
                                              . ' WHERE ' . PMA_backquote($map[$meta->name][1])
                                              . ' = \'' . PMA_sqlAddslashes($row[$pointer]) . '\'';
-                                $dispresult  = @mysql_query($dispsql);
+                                $dispresult  = @PMA_mysql_query($dispsql);
                                 if ($dispresult && mysql_num_rows($dispresult) > 0) {
-                                    $dispval = mysql_result($dispresult, 0);
+                                    $dispval = PMA_mysql_result($dispresult, 0);
                                 }
                                 else {
                                     $dispval = $GLOBALS['strLinkNotFound'];
@@ -1060,6 +1074,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
                                                                    .  'lang=' . $lang . '&amp;server=' . $server
+                                                                   . '&amp;convcharset=' . $convcharset
                                                                    .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                    .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '"' . $title . '>'
@@ -1386,17 +1401,17 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             $local_query = 'SELECT master_field, foreign_table, foreign_field'
                          . ' FROM ' . PMA_backquote($cfg['Server']['relation'])
                          . ' WHERE master_table IN ' . $tabs;
-            $result      = @mysql_query($local_query);
+            $result      = @PMA_mysql_query($local_query);
             if ($result) {
-                while ($rel = mysql_fetch_row($result)) {
+                while ($rel = PMA_mysql_fetch_row($result)) {
                     // check for display field?
                     if (!empty($cfg['Server']['table_info'])) {
                         $ti_query  = 'SELECT display_field'
                                    . ' FROM ' . PMA_backquote($cfg['Server']['table_info'])
                                    . ' WHERE table_name = \'' . PMA_sqlAddslashes($rel[1]) . '\'';
-                        $result_ti = @mysql_query($ti_query);
+                        $result_ti = @PMA_mysql_query($ti_query);
                         if ($result_ti) {
-                           list($display_field) = mysql_fetch_row($result_ti);
+                           list($display_field) = PMA_mysql_fetch_row($result_ti);
                         } else {
                            $display_field = '';
                         }

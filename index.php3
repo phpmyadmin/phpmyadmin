@@ -38,6 +38,7 @@ if (isset($lightm_db)) {
     unset($lightm_db);
 }
 $url_query = 'lang=' . $lang
+           . '&amp;convcharset=' . $convcharset
            . '&amp;server=' . $server
            . (empty($db) ? '' : '&amp;db=' . urlencode($db));
 ?>

@@ -20,6 +20,7 @@ $is_gotofile = FALSE;
 if (isset($after_insert) && $after_insert == 'new_insert') {
     $goto = 'tbl_change.php3'
           . '?lang=' . $lang
+          . '&convcharset=' . $convcharset
           . '&server=' . $server
           . '&db=' . urlencode($db)
           . '&table=' . urlencode($table)
@@ -32,6 +33,7 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
 } else if ($goto == 'sql.php3') {
     $goto = 'sql.php3?'
           . 'lang=' . $lang
+          . '&convcharset=' . $convcharset
           . '&server=' . $server
           . '&db=' . urlencode($db)
           . '&table=' . urlencode($table)
@@ -242,10 +244,10 @@ else {
  */
 mysql_select_db($db);
 $sql_query = $query . ';';
-$result    = mysql_query($query);
+$result    = PMA_mysql_query($query);
 
 if (!$result) {
-    $error = mysql_error();
+    $error = PMA_mysql_error();
     include('./header.inc.php3');
     PMA_mysqlDie($error, '', '', $err_url);
 } else {

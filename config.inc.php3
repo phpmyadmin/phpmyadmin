@@ -192,6 +192,16 @@ $cfg['ManualBaseShort'] = 'http://www.mysql.com/doc';
  */
 // Default language to use, if not browser-defined or user-defined
 $cfg['DefaultLang'] = 'en';
+
+/**
+ * Charset conversion settings
+ */
+// Default charset to use for recoding of MySQL queries
+// (see $cfg['AvailableCharsets'] to possible choices, you can add your own)
+$cfg['DefaultCharset'] = 'iso-8859-2';
+// Allow charset recoding of MySQL queries, must be also enabled in language
+// file to make harder using other language files than unicode.
+$cfg['AllowAnywhereRecoding'] = TRUE;
 // Force: always use this language - must be defined in
 //        libraries/select_lang.lib.php3
 // $cfg['Lang']     = 'en';
@@ -237,6 +247,45 @@ $cfg['colorStrings']        = '#008000';
 $cfg['colorColType']        = '#FF9900';
 $cfg['colorAdd']            = '#0000FF';
 
+/** 
+ * Available charsets for MySQL conversion. currently contains all which could
+ * be found in lang/* files and few more.
+ * 
+ * Charsets will be shown in same order as here listed, so if you frequently
+ * use some of these move them to the top.
+ */
+
+$cfg['AvailableCharsets'] = array(
+    'iso-8859-1',
+    'iso-8859-2',
+    'iso-8859-3',
+    'iso-8859-4',
+    'iso-8859-5',
+    'iso-8859-6',
+    'iso-8859-7',
+    'iso-8859-8',
+    'iso-8859-9',
+    'iso-8859-10',
+    'iso-8859-11',
+    'iso-8859-12',
+    'iso-8859-13',
+    'iso-8859-14',
+    'iso-8859-15',
+    'windows-1250',
+    'windows-1251',
+    'windows-1252',
+    'windows-1257',
+    'koi8-r',
+    'big5',
+    'gb2312',
+    'utf-8',
+    'utf-7',
+    'x-user-defined',
+    'euc-jp',
+    'ks_c_5601-1987',
+    'tis-620',
+    'SHIFT_JIS'
+);
 
 /**
  * MySQL settings

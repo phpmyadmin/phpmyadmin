@@ -14,6 +14,7 @@ require('./libraries/common.lib.php3');
  */
 $err_url = 'user_details.php3'
          . '?lang=' . $lang
+         . '&amp;convcharset=' . $convcharset
          . '&amp;server=' . $server
          . '&amp;db=mysql'
          . '&amp;table=user';
@@ -29,8 +30,10 @@ $err_url = 'user_details.php3'
  * @return  boolean  always true
  *
  * @global  string   the current language
+ * @global  string   the current charset for MySQL
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
+ * @global  string   the current charset for MySQL
  *
  * @see     PMA_checkDb()
  *
@@ -39,7 +42,7 @@ $err_url = 'user_details.php3'
  *          user while these privileges applies to all users.
  */
 function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
-    global $lang, $server;
+    global $lang, $convcharset, $server, $convertcharset;
     ?>
 
 <!-- Table of grants -->
@@ -69,16 +72,16 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
     echo "\n";
 
     // 2. Table body
-    $url_query  = 'lang=' . $lang . '&amp;server=' . $server . '&amp;db=mysql&amp;table=user';
+    $url_query  = 'lang=' . $lang . '&amp;server=' . $server . '&amp;db=mysql&amp;table=user&amp;convcharset=' . $convcharset;
 
-    while ($row = (is_array($host_db_result) ? $host_db_result : mysql_fetch_array($host_db_result))) {
+    while ($row = (is_array($host_db_result) ? $host_db_result : PMA_mysql_fetch_array($host_db_result))) {
         $local_query = 'SHOW GRANTS FOR \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'';
-        $result      = mysql_query($local_query);
+        $result      = PMA_mysql_query($local_query);
         $grants_cnt  = ($result) ? @mysql_num_rows($result) : 0;
 
         if ($grants_cnt) {
             $i = 0;
-            while ($usr_row = mysql_fetch_row($result)) {
+            while ($usr_row = PMA_mysql_fetch_row($result)) {
                 if (eregi('GRANT (.*) ON ([^.]+).([^.]+) TO .*$', $usr_row[0], $parts)) {
                     // loic1: bug #487673 - revoke 'reference'
                     if ($parts[1] == 'USAGE') {
@@ -220,7 +223,7 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
 function PMA_checkDb($dbcheck)
 {
     $local_query  = 'SELECT Host, User FROM mysql.user ORDER BY Host, User';
-    $result       = mysql_query($local_query);
+    $result       = PMA_mysql_query($local_query);
     $host_usr_cnt = ($result) ? @mysql_num_rows($result) : 0;
 
     if (!$host_usr_cnt) {
@@ -321,19 +324,20 @@ function PMA_tablePrivileges($form, $row = FALSE)
  * @global  string   the current language
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
+ * @global  string   the current charset for MySQL
  *
  * @see     PMA_tablePrivileges()
  */
 function PMA_normalOperations()
 {
-    global $lang, $server;
+    global $lang, $server, $convcharset;
     ?>
 
 <ul>
 
     <li>
         <div style="margin-bottom: 10px">
-        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;mode=reload">
+        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;mode=reload&amp;convcharset=<?php echo $convcharset; ?>">
             <?php echo $GLOBALS['strReloadMySQL']; ?></a>&nbsp;
         <?php echo PMA_showDocuShort('F/L/FLUSH.html') . "\n"; ?>
         </div>
@@ -349,9 +353,9 @@ function PMA_normalOperations()
                     <select name="db">
     <?php
     echo "\n";
-    $result = mysql_query('SHOW DATABASES');
+    $result = PMA_mysql_query('SHOW DATABASES');
     if ($result && @mysql_num_rows($result)) {
-        while ($row = mysql_fetch_row($result)) {
+        while ($row = PMA_mysql_fetch_row($result)) {
             echo '                        ';
             echo '<option value="' . str_replace('"', '&quot;', $row[0]) . '">' . htmlspecialchars($row[0]) . '</option>' . "\n";
         } // end while
@@ -359,6 +363,7 @@ function PMA_normalOperations()
     ?>
                     </select>
                     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
                     <input type="hidden" name="server" value="<?php echo $server; ?>" />
                     <input type="hidden" name="check" value="1" />
                     <input type="submit" value="<?php echo $GLOBALS['strGo']; ?>" />
@@ -430,6 +435,7 @@ function PMA_normalOperations()
     PMA_tablePrivileges('addUserForm');
     ?>
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="submit" name="submit_addUser" value="<?php echo $GLOBALS['strGo']; ?>" />
         </form>
@@ -452,6 +458,7 @@ function PMA_normalOperations()
  * @global  string   the current language
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
+ * @global  string   the current charset for MySQL
  * @global  string   the host name to check grants for
  * @global  string   the username to check grants for
  * @global  string   the database to check grants for
@@ -461,7 +468,7 @@ function PMA_normalOperations()
  */
 function PMA_grantOperations($grants)
 {
-    global $lang, $server, $host, $pma_user;
+    global $lang, $server, $convcharset, $host, $pma_user;
     global $dbgrant, $tablegrant, $newdb;
     ?>
 
@@ -469,7 +476,7 @@ function PMA_grantOperations($grants)
 
     <li>
         <div style="margin-bottom: 10px">
-        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user">
+        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;convcharset=<?php echo $convcharset; ?>">
             <?php echo $GLOBALS['strBack']; ?></a>
         </div>
     </li>
@@ -477,6 +484,7 @@ function PMA_grantOperations($grants)
     <li>
         <form action="user_details.php3" method="post" name="userGrants">
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="grants" value="1" />
             <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
@@ -504,9 +512,9 @@ function PMA_grantOperations($grants)
 //        echo '<option></option>' . "\n";
 //    }
     $is_selected_db = FALSE;
-    $result         = mysql_query('SHOW DATABASES');
+    $result         = PMA_mysql_query('SHOW DATABASES');
     if ($result && @mysql_num_rows($result)) {
-        while ($row = mysql_fetch_row($result)) {
+        while ($row = PMA_mysql_fetch_row($result)) {
             $selected           = (($row[0] == $dbgrant) ? ' selected="selected"' : '');
             if (!empty($selected)) {
                 $is_selected_db = TRUE;
@@ -543,9 +551,9 @@ function PMA_grantOperations($grants)
 //        echo '<option></option>' . "\n";
 //    }
     if (isset($dbgrant)) {
-        $result = mysql_query('SHOW TABLES FROM ' . PMA_backquote($dbgrant));
+        $result = PMA_mysql_query('SHOW TABLES FROM ' . PMA_backquote($dbgrant));
         if ($result && @mysql_num_rows($result)) {
-            while ($row = mysql_fetch_row($result)) {
+            while ($row = PMA_mysql_fetch_row($result)) {
                 $selected = ((isset($tablegrant) && $row[0] == $tablegrant) ? ' selected="selected"' : '');
                 echo '                        ';
                 echo '<option' . $selected . '>' . $row[0] . '</option>' . "\n";
@@ -579,11 +587,11 @@ function PMA_grantOperations($grants)
         echo '                    ' . '</select>' . "\n";
     }
     else {
-        $result = mysql_query('SHOW COLUMNS FROM ' . PMA_backquote($dbgrant) . '.' . PMA_backquote($tablegrant));
+        $result = PMA_mysql_query('SHOW COLUMNS FROM ' . PMA_backquote($dbgrant) . '.' . PMA_backquote($tablegrant));
         if ($result && @mysql_num_rows($result)) {
             echo '                    '
                  . '<select name="colgrant[]" multiple="multiple" onchange="anycolumn[1].checked = true">' . "\n";
-            while ($row = mysql_fetch_row($result)) {
+            while ($row = PMA_mysql_fetch_row($result)) {
                 echo '                        ';
                 echo '<option value="' . str_replace('"', '&quot;', $row[0]) . '">' . $row[0] . '</option>' . "\n";
             } // end while
@@ -647,28 +655,29 @@ function PMA_grantOperations($grants)
  * @global  string   the current language
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
+ * @global  string   the current charset for MySQL
  *
  * @see     PMA_tablePrivileges()
  */
 function PMA_editOperations($host, $user)
 {
-    global $lang, $server;
+    global $lang, $server, $convcharset;
 
-    $result = mysql_query('SELECT * FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($user) . '\' AND Host = \'' . PMA_sqlAddslashes($host) . '\'');
+    $result = PMA_mysql_query('SELECT * FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($user) . '\' AND Host = \'' . PMA_sqlAddslashes($host) . '\'');
     $rows   = ($result) ? @mysql_num_rows($result) : 0;
 
     if (!$rows) {
         return FALSE;
     }
 
-    $row = mysql_fetch_array($result);
+    $row = PMA_mysql_fetch_array($result);
     ?>
 
 <ul>
 
     <li>
         <div style="margin-bottom: 10px">
-        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user">
+        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;convcharset=<?php echo $convcharset; ?>">
             <?php echo $GLOBALS['strBack']; ?></a>
         </div>
     </li>
@@ -734,6 +743,7 @@ function PMA_editOperations($host, $user)
             </tr>
             </table>
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
             <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $user); ?>" />
@@ -749,6 +759,7 @@ function PMA_editOperations($host, $user)
     echo "\n";
     ?>
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
             <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $user); ?>" />
@@ -775,10 +786,11 @@ function PMA_editOperations($host, $user)
  * @global  string   the current language
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
+ * @global  string   the current charset for MySQL
  */
 function PMA_tableUsers($host = FALSE, $user = FALSE)
 {
-    global $lang, $server;
+    global $lang, $server, $convcharset;
 
     $local_query     = 'SELECT * FROM mysql.user ';
     if ($host || $user) {
@@ -789,7 +801,7 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
         $local_query .= ' AND User = \'' . PMA_sqlAddslashes($user) . '\'';
     }
     $local_query     .= ' ORDER BY Host, User';
-    $result          = mysql_query($local_query);
+    $result          = PMA_mysql_query($local_query);
     $rows            = ($result) ? @mysql_num_rows($result) : 0;
 
     if (!$rows) {
@@ -807,7 +819,7 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
     echo '</tr>' . "\n";
 
     $i = 0;
-    while ($row = mysql_fetch_array($result)) {
+    while ($row = PMA_mysql_fetch_array($result)) {
 
         $bgcolor = ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
 
@@ -858,10 +870,11 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
             $strPriv = '<span style="color: #002E80">' . $GLOBALS['strNoPrivileges'] . '</span>';
         }
 
-        $query          = 'lang=' . $lang . '&amp;server=' . $server . '&amp;db=mysql&amp;table=user';
+        $query          = 'lang=' . $lang . '&amp;server=' . $server . '&amp;db=mysql&amp;table=user&amp;convcharset=' . $convcharset;
         if (!$user) {
             $edit_url   = 'user_details.php3'
                         . '?lang=' . $lang . '&amp;server=' . $server
+                        . '&amp;convcharset=' . $convcharset
                         . '&amp;edit=1&amp;host=' . urlencode($row['Host']) . '&amp;pma_user=' . urlencode($row['User']);
         }
         $delete_url     = 'user_details.php3'
@@ -869,6 +882,7 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
                         . '&amp;delete=1&amp;confirm=1&amp;delete_host=' . urlencode($row['Host']) . '&amp;delete_user=' . urlencode($row['User']);
         $check_url      = 'user_details.php3'
                         . '?lang=' . $lang . '&amp;server=' . $server
+                        . '&amp;convcharset=' . $convcharset
                         . '&amp;grants=1&amp;host=' . urlencode($row['Host']) . '&amp;pma_user=' . urlencode($row['User']);
         ?>
 
@@ -937,9 +951,10 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
  * @global  string   the current language
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
+ * @global  string   the current charset for MySQL
  */
 function PMA_confirm($the_host, $the_user) {
-    global $lang, $server;
+    global $lang, $server, $convcharset;
 
     if (get_magic_quotes_gpc() == 1) {
         $the_host = stripslashes($the_host);
@@ -951,6 +966,7 @@ function PMA_confirm($the_host, $the_user) {
     ?>
 <form action="user_details.php3" method="post">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="mysql" />
     <input type="hidden" name="table" value="user" />
@@ -972,16 +988,16 @@ function PMA_confirm($the_host, $the_user) {
  * Ensures the user is super-user and gets the case sensitive password field
  * name
  */
-$result         = @mysql_query('USE mysql');
-if (mysql_error()) {
+$result         = @PMA_mysql_query('USE mysql');
+if (PMA_mysql_error()) {
     include('./header.inc.php3');
     echo '<p><b>' . $strError . '</b></p>' . "\n";
     echo '<p>&nbsp;&nbsp;&nbsp;&nbsp;' .  $strNoRights . '</p>' . "\n";
     include('./footer.inc.php3');
     exit();
 }
-$result         = @mysql_query('SELECT COUNT(Password) FROM mysql.user');
-$password_field = (($result && mysql_result($result, 0)) ? 'Password' : 'password');
+$result         = @PMA_mysql_query('SELECT COUNT(Password) FROM mysql.user');
+$password_field = (($result && PMA_mysql_result($result, 0)) ? 'Password' : 'password');
 
 
 /**
@@ -1048,7 +1064,7 @@ if (isset($confirm) && $confirm) {
 
 // Reloads mysql
 else if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $result = mysql_query('FLUSH PRIVILEGES');
+    $result = PMA_mysql_query('FLUSH PRIVILEGES');
     if ($result != 0) {
         echo '<p><b>' . $strMySQLReloaded . '</b></p>' . "\n";
     } else {
@@ -1068,17 +1084,17 @@ else if (isset($delete) && $delete
     // Delete Grants First!
     $sql_query       = 'DELETE FROM mysql.db' . $common_where;
     $sql_query_cpy   = $sql_query;
-    mysql_query($sql_query);
+    PMA_mysql_query($sql_query);
     $sql_query       = 'DELETE FROM mysql.tables_priv' . $common_where;
     $sql_query_cpy   .= ";\n" . $sql_query;
-    mysql_query($sql_query);
+    PMA_mysql_query($sql_query);
     $sql_query       = 'DELETE FROM mysql.columns_priv' . $common_where;
     $sql_query_cpy   .= ";\n" . $sql_query;
-    mysql_query($sql_query);
+    PMA_mysql_query($sql_query);
 
     $sql_query       = 'DELETE FROM mysql.user' . $common_where;
     $sql_query_cpy   .= ";\n" . $sql_query;
-    $result          = mysql_query($sql_query);
+    $result          = PMA_mysql_query($sql_query);
 
     $sql_query       = $sql_query_cpy;
     unset($sql_query_cpy);
@@ -1137,7 +1153,7 @@ else if (isset($submit_addUser)) {
         $sql_query    = 'INSERT INTO mysql.user '
                       . 'SET Host = \'' . PMA_sqlAddslashes($host) . '\', User = \'' . PMA_sqlAddslashes($pma_user) . '\', ' . $password_field . ' = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . ereg_replace('.', '*', $pma_pw) . '\')')
                       . ', ' . $sql_query;
-        $result       = @mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url);
+        $result       = @PMA_mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url);
         unset($host);
         unset($pma_user);
         PMA_showMessage($strAddUserMessage . '<br />' . $strRememberReload);
@@ -1211,19 +1227,19 @@ else if (isset($submit_updProfile)) {
         // Updates profile
         $local_query        = 'UPDATE user SET ' . $local_query . $common_where;
         $sql_query_cpy      = 'UPDATE user SET ' . $sql_query . $common_where;
-        $result             = @mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;edit=1');
+        $result             = @PMA_mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;edit=1');
 
         // Updates grants
         if (isset($new_server) || isset($new_user)) {
             $sql_query      = 'UPDATE mysql.db SET ' . $common_upd . $common_where;
             $sql_query_cpy  .= ";\n" . $sql_query;
-            mysql_query($sql_query);
+            PMA_mysql_query($sql_query);
             $sql_query      = 'UPDATE mysql.tables_priv SET ' . $common_upd . $common_where;
             $sql_query_cpy  .= ";\n" . $sql_query;
-            mysql_query($sql_query);
+            PMA_mysql_query($sql_query);
             $sql_query      = 'UPDATE mysql.columns_priv SET ' . $common_upd . $common_where;
             $sql_query_cpy  .= ";\n" . $sql_query;
-            mysql_query($sql_query);
+            PMA_mysql_query($sql_query);
             unset($common_upd);
         }
 
@@ -1274,7 +1290,7 @@ else if (isset($submit_chgPriv)) {
     $sql_query = 'UPDATE user SET '
                . $sql_query
                . ' WHERE Host = \'' . PMA_sqlAddslashes($host) . '\' AND User = \'' . PMA_sqlAddslashes($pma_user) . '\'';
-    $result     = @mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;edit=1');
+    $result     = @PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;edit=1');
     PMA_showMessage(sprintf($strUpdatePrivMessage, '<span style="color: #002E80">' . $pma_user . '@' . $host . '</span>') . '<br />' . $strRememberReload);
 }
 
@@ -1350,7 +1366,7 @@ else if (isset($grants) && $grants) {
         $sql_query     .= ' TO ' . '\'' . PMA_sqlAddslashes($pma_user) . '\'' . '@' . '\'' . PMA_sqlAddslashes($host) . '\'';
 
         $sql_query     = 'GRANT ' . $sql_query . $priv_grant;
-        $result        = @mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;grants=1');
+        $result        = @PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;grants=1');
         PMA_showMessage($strAddPrivMessage . '.<br />' . $strRememberReload);
     } // end if
 }
@@ -1381,8 +1397,8 @@ else if (isset($grants) && $grants) {
     $list_priv_new = array();
 
     // Gets globals privileges
-    $result = mysql_query('SELECT * FROM mysql.user WHERE (Host = \'' . PMA_sqlAddslashes($host) . '\' OR Host = \'%\') AND (User = \'' . PMA_sqlAddslashes($pma_user) . '\' OR User = \'\')');
-    $row    = ($result) ? @mysql_fetch_array($result) : FALSE;
+    $result = PMA_mysql_query('SELECT * FROM mysql.user WHERE (Host = \'' . PMA_sqlAddslashes($host) . '\' OR Host = \'%\') AND (User = \'' . PMA_sqlAddslashes($pma_user) . '\' OR User = \'\')');
+    $row    = ($result) ? @PMA_mysql_fetch_array($result) : FALSE;
     if ($row) {
         while (list(,$priv) = each($list_priv)) {
             $priv_priv = $priv . '_priv';
@@ -1404,8 +1420,8 @@ else if (isset($grants) && $grants) {
         if (get_magic_quotes_gpc()) {
             $dbgrant = stripslashes($dbgrant);
         }
-        $result      = mysql_query('SELECT * FROM mysql.db WHERE (Host = \'' . PMA_sqlAddslashes($host) . '\' OR Host = \'%\') AND (User = \'' . PMA_sqlAddslashes($pma_user) . '\' OR User = \'\') AND Db = \'' . PMA_sqlAddslashes($dbgrant) . '\'');
-        $row         = ($result) ? @mysql_fetch_array($result) : FALSE;
+        $result      = PMA_mysql_query('SELECT * FROM mysql.db WHERE (Host = \'' . PMA_sqlAddslashes($host) . '\' OR Host = \'%\') AND (User = \'' . PMA_sqlAddslashes($pma_user) . '\' OR User = \'\') AND Db = \'' . PMA_sqlAddslashes($dbgrant) . '\'');
+        $row         = ($result) ? @PMA_mysql_fetch_array($result) : FALSE;
         if ($row) {
             while (list(,$priv) = each($list_priv)) {
                 $priv_priv = $priv . '_priv';
@@ -1427,8 +1443,8 @@ else if (isset($grants) && $grants) {
         if (get_magic_quotes_gpc()) {
             $tablegrant = stripslashes($tablegrant);
         }
-        $result         = mysql_query('SELECT * FROM mysql.tables_priv WHERE (Host = \'' . PMA_sqlAddslashes($host) . '\' OR Host = \'%\') AND (User = \'' . PMA_sqlAddslashes($pma_user) . '\' OR User = \'\') AND Db = \'' . PMA_sqlAddslashes($dbgrant) . '\' AND Table_name = \'' . PMA_sqlAddslashes($tablegrant) . '\'');
-        $row            = ($result) ? @mysql_fetch_array($result) : FALSE;
+        $result         = PMA_mysql_query('SELECT * FROM mysql.tables_priv WHERE (Host = \'' . PMA_sqlAddslashes($host) . '\' OR Host = \'%\') AND (User = \'' . PMA_sqlAddslashes($pma_user) . '\' OR User = \'\') AND Db = \'' . PMA_sqlAddslashes($dbgrant) . '\' AND Table_name = \'' . PMA_sqlAddslashes($tablegrant) . '\'');
+        $row            = ($result) ? @PMA_mysql_fetch_array($result) : FALSE;
         if ($row && $row['Table_priv']) {
             while (list(,$priv) = each($list_priv)) {
                 $priv_priv = $priv . '_priv';
@@ -1456,7 +1472,7 @@ else if (isset($check) && $check) {
     ?>
 <ul>
     <li>
-        <a href="user_details.php3?lang=<?php echo $lang;?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user">
+        <a href="user_details.php3?lang=<?php echo $lang;?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;convcharset=<?php echo $convcharset; ?>">
             <?php echo $strBack; ?></a>
     </li>
 </ul>
