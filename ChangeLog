@@ -5,12 +5,21 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-18  Pete Kelly  <webmaster@trafficg.com>
+	* db_readdump.php3 & lib.inc.php3: finally fixed all the special characters
+	  problems (Bug #421889)
+
+2001-05-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3, lines 65: fixed a warning
+	* tbl_select.php3: fixed a bug if number of registrations to display is not
+	  specified (bug #424278 and patch from Alain Brissaud)
+
 2001-05-15  Marc Delisle  <lem9@users.sourceforge.net>
-        * support key length in table copy/dump
+	* support key length in table copy/dump
 	* doc. changes for Loïc
 
 2001-05-15  Armel Fauveau  <armel.fauveau@globalis-ms.com>
-    * Added "Bookmarked SQL-query" combo box when you click on a table (Feature #423065)
+	* Added "Bookmarked SQL-query" combo box when you click on a table (Feature #423065)
 
 2001-05-11  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, lines 76, 81 and 612: fixed a bug if a field contains html

@@ -628,54 +628,37 @@ function show_message($message) {
     <?php
 }
 
-function split_string($sql, $delimiter) {
+
+// Output the sql error and corresonding line of sql
+// Version 2 18th May 2001 - Last Modified By Pete Kelly
+function mysql_die2($sql) {
+  $error = "";
+  global $strError, $strMySQLSaid, $strBack, $strSQLQuery;
+
+  echo "<b> $strError </b><p>";
+  echo "$strSQLQuery: <pre>".htmlspecialchars($sql)."</pre><p>";
+  if(empty($error)) 
+    echo "$strMySQLSaid ".mysql_error();
+  else 
+    echo "$strMySQLSaid ".htmlspecialchars($error);
+  echo "\n<br><a href=\"javascript:history.go(-1)\">$strBack</a>";
+
+  include("footer.inc.php3");
+  exit;
+}
+
+// Split up large sql files into individual queries
+// Version 2 18th May 2001 - Last Modified By Pete Kelly
+function split_sql_file($sql, $delimiter) {
   $sql = trim($sql);
   $char = "";
   $last_char = "";
   $ret = array();
-  $in_string = false;
+  $in_string = true;
 
-  $i = 0; 
-  $in_string = FALSE;
-  $escaped = FALSE; 
-  while($i < strlen($sql)) 
-  { 
-    if($sql[$i] == "#" and ($sql[$i-1] == "\n" or $i==0) and !$in_string) 
-    { 
-      $j=1; 
-      while($sql[$i+$j] != "\n")
-        $j++; 
-      $sql = substr($sql,0,$i) . substr($sql,$i+$j); 
-    } 
-    else 
-    { 
-      if($escaped)
-        $escaped = FALSE; 
-      else 
-      {
-        if($sql[$i] == "\\") 
-        {
-          $escaped = TRUE;
-        } 
-        else 
-        { 
-          if($sql[$i] == "'" or $sql[$i] == "\"") 
-          { 
-            if($in_string == $sql[$i]) 
-              $in_string = FALSE; 
-            else 
-              $in_string = $sql[$i]; 
-          } 
-        } 
-      } 
-    } 
-    $i++; 
-  } 
-  // $sql = ereg_replace("#[^\n]*\n", "", $sql); !! NOT !! 
-  
-  
-  for($i=0; $i<strlen($sql); ++$i) {
+  for($i=0; $i<strlen($sql); $i++) {
     $char = $sql[$i];
+
     // if delimiter found, add the parsed part to the returned array
     if($char == $delimiter && !$in_string) {
       $ret[] = substr($sql, 0, $i);
@@ -683,26 +666,34 @@ function split_string($sql, $delimiter) {
       $i = 0;
       $last_char = "";
     }
-    // if we are in a string, check for end of string
-    if($in_string && ($char == $in_string) && $last_char != "\\") {
-      $in_string = false;
-    } 
-    // if not in a string, check for start of a string
-    elseif(!$in_string && ($char == "\"" || $char == "'") && ($last_char != "\\")) {
-      $in_string = $char;
-    }
+
+    if($last_char == $in_string && $char == ")")  $in_string = false;
+    if($char == $in_string && $last_char != "\\") $in_string = false;
+    elseif(!$in_string && ($char == "\"" || $char == "'") && ($last_char != "\\")) $in_string = $char;
     $last_char = $char;
   }
-  // if there is a rest, add it to the returned array
-  if (!empty($sql)) {
-    $ret[] = $sql;
-  }
-  
+
+  if (!empty($sql)) $ret[] = $sql;
   return($ret);
 }
 
-// Bookmark Support
+// Remove # type remarks from large sql files
+// Version 2 18th May 2001 - Last Modified By Pete Kelly
+function remove_remarks($sql) {
+  $i = 0; 
+  while($i < strlen($sql)) { 
+    if($sql[$i] == "#" and ($sql[$i-1] == "\n" or $i==0)) { 
+      $j=1;
+      while($sql[$i+$j] != "\n") $j++;
+      $sql = substr($sql,0,$i) . substr($sql,$i+$j);
+    }
+    $i++;
+  }
+  return($sql);
+}
 
+
+// Bookmark Support
 function get_bookmarks_param() {
     global $cfgServers;
     global $cfgServer;
