@@ -1,12 +1,12 @@
-       _           __  __          _       _           _       
- _ __ | |__  _ __ |  \/  |_   _   / \   __| |_ __ ___ (_)_ __  
-| '_ \| '_ \| '_ \| |\/| | | | | / _ \ / _` | '_ ` _ \| | '_ \ 
+       _           __  __          _       _           _
+ _ __ | |__  _ __ |  \/  |_   _   / \   __| |_ __ ___ (_)_ __
+| '_ \| '_ \| '_ \| |\/| | | | | / _ \ / _` | '_ ` _ \| | '_ \
 | |_) | | | | |_) | |  | | |_| |/ ___ \ (_| | | | | | | | | | |
 | .__/|_| |_| .__/|_|  |_|\__, /_/   \_\__,_|_| |_| |_|_|_| |_|
 |_|         |_|           |___/                                  2.3.0
-				                 http://phpmyadmin.net
+                                 http://phpmyadmin.net
 
-phpMyAdmin 2.3.0 - xx. July 2002
+phpMyAdmin 2.3.0 - 11. August 2002
 ================================
 
   A set of PHP-scripts to administrate MySQL over the WWW.
@@ -15,7 +15,7 @@ phpMyAdmin 2.3.0 - xx. July 2002
 Announcement
 ------------
 
-   After 12 months of work and 3 release candidate versions,
+   After 12 months of work and 4 release candidate versions,
    the phpMyAdmin developers are pleased to announce the availability
    of phpMyAdmin 2.3.0.
 
@@ -48,7 +48,7 @@ Highlights
      * XML export
      * query-by-example: automatic joins
      * faster table delete under MySQL 4
-     
+
   Some fixes:
 
      * CURDATE did not work in the function list
@@ -59,7 +59,7 @@ Highlights
      * bad limit of the number of characters for numeric fields
      * problem with headers in Apache 2
 
-  Detailed list of changes since version 2.2.0 is available under 
+  Detailed list of changes since version 2.2.0 is available under
   http://www.phpmyadmin.net/ChangeLog.txt
 
 
@@ -68,14 +68,14 @@ Availability
     This software is available under the GNU General Public License V2.0.
 
     You can get the newest version at http://www.phpmyadmin.net/
-    Available file formats are: .zip, .tar.gz and .tar.bz2. 
+    Available file formats are: .zip, .tar.gz and .tar.bz2.
 
     If you install phpMyAdmin on your system, it's recommended to
     subscribe to the news mailing list by adding your address under
-       http://lists.sourceforge.net/lists/listinfo/phpmyadmin-news 
+       http://lists.sourceforge.net/lists/listinfo/phpmyadmin-news
 
     This way, you will be informed of new updates and security fixes.
-    It is a read only list, and traffic is not greater than a few 
+    It is a read only list, and traffic is not greater than a few
     mail every year.
 
 
@@ -94,14 +94,14 @@ Support and Documentation
        http://sourceforge.net/projects/phpmyadmin/   [click on "Bugs"]
 
     In addition, there are also a number of discussion lists
-    related to phpMyAdmin.  A list of mailing lists with archives 
+    related to phpMyAdmin.  A list of mailing lists with archives
     is available at:
 
        http://sourceforge.net/mail/?group_id=23067  or
        http://sourceforge.net/projects/phpmyadmin/   [click on "Lists"]
 
     Finally, an users support forum is also available under:
- 
+
        http://sourceforge.net/forum/forum.php?forum_id=72909
 
 
@@ -110,7 +110,7 @@ Known bugs
 
   * ...
 
-  To be informed about new releases fixing these problems, please 
+  To be informed about new releases fixing these problems, please
   subscribe to the news mailing list under
     http://lists.sourceforge.net/lists/listinfo/phpmyadmin-news
   or regularly check the sourceforge bugs tracker.
