@@ -209,11 +209,17 @@ function initCalendar() {
 			str += "</tr><tr>";
 			dayInWeek = 0;
 		}
+        
         dispmonth = 1 + month;
+        
+        yearstring = (year < 1000 ? year < 100 ? year < 10 ? '000' : '00' : '0' : '') + year;
+        monthstring = (dispmonth < 10 ? '0' : '') + dispmonth;
+        daystring = (i < 10 ? '0' : '') + i;
+        
         if (window.opener.dateType == 'datetime' || window.opener.dateType == 'date') {
-		    actVal = year + "-" + dispmonth + "-" + i;
+		    actVal = yearstring + "-" + monthstring + "-" + daystring;
         } else {
-		    actVal = "" + (year < 1000 ? year < 100 ? year < 10 ? '000' : '00' : '0' : '') + year + (dispmonth < 10 ? '0' : '') + dispmonth + (i < 10 ? '0' : '') + i;
+		    actVal = "" + yearstring + monthstring + daystring;
         }
         if (i == day) {
             style = ' class="selected"';
