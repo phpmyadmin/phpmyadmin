@@ -56,7 +56,7 @@ unset($row);
 ?>
 <table border="0">
     <tr>
-        <th><?php echo PMA_MYSQL_INT_VERSION < 32307 ? '' : '<a href="./server_processlist.php?'. $url_query . (empty($full) ? '&amp;full=1' : '') . '" title="' . (empty($full) ? $strShowFullQueries : $strTruncateQueries) . '"><img src="./images/' . (empty($full) ? 'full' : 'partial') . 'text.png" width="50" height="20" border="0" alt="' . (empty($full) ? $strShowFullQueries : $strTruncateQueries) . '" /></a>';  ?></th>
+        <th><a href="./server_processlist.php?<?php echo $url_query . (empty($full) ? '&amp;full=1' : ''); ?>" title="<?php echo empty($full) ? $strShowFullQueries : $strTruncateQueries; ?>"><img src="./images/<?php echo empty($full) ? 'full' : 'partial'; ?>text.png" width="50" height="20" border="0" alt="<?php echo empty($full) ? $strShowFullQueries : $strTruncateQueries; ?>" /></a></th>
         <th>&nbsp;<?php echo $strId; ?>&nbsp;</th>
         <th>&nbsp;<?php echo $strUser; ?>&nbsp;</th>
         <th>&nbsp;<?php echo $strHost; ?>&nbsp;</th>

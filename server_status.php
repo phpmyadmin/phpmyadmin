@@ -179,11 +179,11 @@ unset($tmp_array);
 
 $useBgcolorOne = TRUE;
 $countRows = 0;
-while (list($name, $value) = each($queryStats)) {
+foreach ($queryStats as $name => $value) {
 
 // For the percentage column, use Questions - Connections, because
 // the number of connections is not an item of the Query types
-// but is included in Questions. Then the total of the percentages is 100. 
+// but is included in Questions. Then the total of the percentages is 100.
 ?>
                         <tr>
                             <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo htmlspecialchars($name); ?>&nbsp;</td>

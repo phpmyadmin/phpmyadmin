@@ -100,7 +100,7 @@ echo '<h2>' . "\n"
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (!empty($dbstats) && (!$is_superuser || PMA_MYSQL_INT_VERSION < 32303)) {
+if (!empty($dbstats) && !$is_superuser) {
     echo $strNoPrivileges . "\n";
     include('./footer.inc.php');
     exit;
@@ -221,15 +221,15 @@ if (count($statistics) > 0) {
         'idx_sz' => 0,
         'tot_sz' => 0
     );
-    while (list(, $current) = each($statistics)) {
+    foreach ($statistics as $current) {
         list($data_size, $data_unit) = PMA_formatByteDown($current['data_sz'], 3, 1);
         list($idx_size, $idx_unit)   = PMA_formatByteDown($current['idx_sz'], 3, 1);
         list($tot_size, $tot_unit)   = PMA_formatByteDown($current['tot_sz'], 3, 1);
         $total_calc['db_cnt']++;
         $total_calc['tbl_cnt'] += $current['tbl_cnt'];
         $total_calc['data_sz'] += $current['data_sz'];
-        $total_calc['idx_sz'] += $current['idx_sz'];
-        $total_calc['tot_sz'] += $current['tot_sz'];
+        $total_calc['idx_sz']  += $current['idx_sz'];
+        $total_calc['tot_sz']  += $current['tot_sz'];
         echo '        <tr>' . "\n";
         if ($is_superuser || $cfg['AllowUserDropDatabase']) {
             echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
@@ -336,7 +336,7 @@ if (count($statistics) > 0) {
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
         echo '    <ul>' . "\n";
     }
-    if ($is_superuser && empty($dbstats) && PMA_MYSQL_INT_VERSION >= 32303) {
+    if ($is_superuser && empty($dbstats)) {
         echo '        <li>' . "\n"
            . '            <b>' . "\n"
            . '                <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1" title="' . $strDatabasesStatsEnable . '">' . "\n"

@@ -78,7 +78,7 @@ echo '&nbsp;</th>' . "\n";
     </tr>
 <?php
 $useBgcolorOne = TRUE;
-while (list($name, $value) = each($serverVars)) {
+foreach ($serverVars as $name => $value) {
 ?>
     <tr>
         <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">
