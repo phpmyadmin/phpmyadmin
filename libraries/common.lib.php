@@ -1117,11 +1117,13 @@ if ($is_minimum_common == FALSE) {
      *
      * @global  array    the list of available databases
      * @global  integer  the number of available databases
+     * @global  array    current configuration
      */
     function PMA_availableDatabases($error_url = '')
     {
         global $dblist;
         global $num_dbs;
+        global $cfg;
 
         $num_dbs = count($dblist);
 
@@ -1140,10 +1142,9 @@ if ($is_minimum_common == FALSE) {
             unset($true_dblist);
             $num_dbs     = count($dblist);
         } // end if
-
         // 2. Allowed database list is empty -> gets the list of all databases
         //    on the server
-        else {
+        else if (!isset($cfg['Server']['only_db']) || $cfg['Server']['only_db'] == '') {
             $dblist = PMA_DBI_get_dblist(); // needed? or PMA_mysqlDie('', 'SHOW DATABASES;', FALSE, $error_url);
             $num_dbs = count($dblist);
         } // end else
