@@ -32,6 +32,7 @@ if (!isset($param) || $param[0] == '') {
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <?php echo $strSelectFields; ?>&nbsp;:<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -177,7 +178,7 @@ else {
                . '&sql_query=' . urlencode($sql_query)  
                . '&pos=0'
                . '&sessionMaxRows=' . $sessionMaxRows
-               . '&goto=db_details.php3';
+               . '&goto='. $goto;
     header('Location: ' . $cfgPmaAbsoluteUri . 'sql.php3?' . $url_query);
 }
 
