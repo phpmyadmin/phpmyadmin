@@ -465,7 +465,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     ?>
     <!-- Work on PDF Pages -->
     <li>
-        <a href="pdf_pages.php3?<?php echo $takeaway; ?>"><?php echo $strEditPDFPages; ?></a>
+        <div style="margin-bottom: 10px"><a href="pdf_pages.php3?<?php echo $takeaway; ?>"><?php echo $strEditPDFPages; ?></a></div>
     </li>
 
     <!-- PDF schema -->
