@@ -290,7 +290,7 @@ if ($server > 0) {
                     <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?></b><br />
                     <?php echo PMA_generate_common_hidden_inputs(5); ?>
                     <input type="hidden" name="reload" value="1" />
-                    <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" id="listTable" /><br />
+                    <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" id="listTable" />
                     <?php
             if (PMA_MYSQL_INT_VERSION >= 40101) {
                 require_once('./libraries/mysql_charsets.lib.php');
@@ -338,9 +338,7 @@ if ($server > 0) {
             echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_variables.php?'.$common_url_query.'">','s_vars.png',$strMySQLShowVars,'</a>') : $str_normal_list);
 ?>
         <td>
-                <a href="./server_variables.php?<?php echo $common_url_query; ?>">
-                <?php echo $strMySQLShowVars;?></a>&nbsp;
-                <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_VARIABLES') . "\n"; ?>
+                <a href="./server_variables.php?<?php echo $common_url_query; ?>"><?php echo $strMySQLShowVars;?></a>&nbsp;<?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_VARIABLES') . "\n"; ?>
         </td>
     </tr>
         <?php
