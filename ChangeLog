@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-04 Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_replace.php3, better correction for bug 508024
+
 2002-02-04  Olivier Müller  <om@omnis.ch>
 	* left.php3: small cosmetic fixe in lightmode
 
