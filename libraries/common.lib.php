@@ -306,7 +306,7 @@ if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
         $tmp_theme_mainpath = './' . $cfg['ThemePath'];
         $tmp_theme_fullpath = './' . $cfg['ThemePath'] . '/' .$cfg['ThemeDefault'];
         if (@is_dir($tmp_theme_mainpath)) {
-            if (isset($cfg['ThemeDefault']) && $cfg['ThemeDefault']!='original' && @is_dir($tmp_theme_fullpath)) {
+            if (isset($cfg['ThemeDefault']) && @is_dir($tmp_theme_fullpath)) {
                 $ThemeDefaultOk = TRUE;
             }
         }
