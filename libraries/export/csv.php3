@@ -134,7 +134,6 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     } // end if
 
     // Format the data
-    $i = 0;
     while ($row = PMA_mysql_fetch_row($result)) {
         $schema_insert = '';
         for ($j = 0; $j < $fields_cnt; $j++) {
@@ -162,9 +161,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                 $schema_insert .= $separator;
             }
         } // end for
-        $schema_insert  =trim($schema_insert);
         if (!PMA_exportOutputHandler($schema_insert . $add_character)) return FALSE;
-        $i++;
     } // end while
     mysql_free_result($result);
 

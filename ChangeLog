@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-12 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/export/csv.php3: Don't trim resulting line (bug #782483).
+
 2003-08-11 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/csv.php3, libraries/export/latex.php3,
       libraries/export/xml.php3: Added some stripslashes to generate correct
