@@ -1712,7 +1712,8 @@ if (typeof(document.getElementById) != 'undefined'
      */
     function PMA_linkOrButton($url, $message, $js_conf, $allow_button = TRUE)
     {
-        if (strlen($url) <= 2047) {
+        // previously the limit was set to 2047, it seems 1000 is better
+        if (strlen($url) <= 1000) {
             $onclick_url        = (empty($js_conf) ? '' : ' onclick="return confirmLink(this, \'' . $js_conf . '\')"');
             $link_or_button     = '        <a href="' . $url . '"' . $onclick_url . '>' . "\n"
                                 . '           ' . $message . '</a>' . "\n";
