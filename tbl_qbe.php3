@@ -161,7 +161,7 @@ mysql_free_result($tbl_result);
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (isset($InsCol[$x]) && $InsCol[$x] == 'on') {
+    if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
         <td align="center" bgcolor="<?php echo $cfgBgcolorOne; ?>">
             <select style="width: <?php echo $widem; ?>" name="Field[<?php echo $z; ?>]" size="1">
@@ -185,7 +185,7 @@ for ($x = 0; $x < $col; $x++) {
     } // end if
     echo "\n";
 
-    if (isset($DelCol[$x]) && $DelCol[$x] == 'on') {
+    if (!empty($DelCol) && isset($DelCol[$x]) && $DelCol[$x] == 'on') {
         continue;
     }
     ?>
@@ -222,7 +222,7 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (isset($InsCol[$x]) && $InsCol[$x] == 'on') {
+    if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
         <td align="center" bgcolor="<?php echo $cfgBgcolorTwo; ?>">
             <select style="width: <?php echo $widem; ?>" name="Sort[<?php echo $z; ?>]" size="1">
@@ -236,7 +236,7 @@ for ($x = 0; $x < $col; $x++) {
     } // end if
     echo "\n";
 
-    if (isset($DelCol[$x]) && $DelCol[$x] == 'on') {
+    if (!empty($DelCol) && isset($DelCol[$x]) && $DelCol[$x] == 'on') {
         continue;
     }
     ?>
@@ -279,7 +279,7 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (isset($InsCol[$x]) && $InsCol[$x] == 'on') {
+    if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
         <td align="center" bgcolor="<?php echo $cfgBgcolorOne; ?>">
             <input type="checkbox" name="Show[<?php echo $z; ?>]" />
@@ -289,7 +289,7 @@ for ($x = 0; $x < $col; $x++) {
     } // end if
     echo "\n";
 
-    if (isset($DelCol[$x]) && $DelCol[$x] == 'on') {
+    if (!empty($DelCol) && isset($DelCol[$x]) && $DelCol[$x] == 'on') {
         continue;
     }
     if (isset($Show[$x])) {
@@ -317,7 +317,7 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (isset($InsCol[$x]) && $InsCol[$x] == 'on') {
+    if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
         <td align="center" bgcolor="<?php echo $cfgBgcolorTwo; ?>">
             <input type="text" name="Criteria[<?php echo $z; ?>]" value="" style="width: <?php echo $widem; ?>" size="20" />
@@ -327,7 +327,7 @@ for ($x = 0; $x < $col; $x++) {
     } // end if
     echo "\n";
 
-    if (isset($DelCol[$x]) && $DelCol[$x] == 'on') {
+    if (!empty($DelCol) && isset($DelCol[$x]) && $DelCol[$x] == 'on') {
         continue;
     }
     if (isset($Criteria[$x])) {
@@ -337,7 +337,7 @@ for ($x = 0; $x < $col; $x++) {
             $stripped_Criteria = $Criteria[$x];
         }
     }
-    if (!isset($prev_Criteria[$x])
+    if ((empty($prev_Criteria) || !isset($prev_Criteria[$x]))
         || urldecode($prev_Criteria[$x]) != htmlspecialchars($stripped_Criteria)) {
         $curCriteria[$z]   = $stripped_Criteria;
         $encoded_Criteria  = urlencode($stripped_Criteria);
@@ -480,7 +480,7 @@ for ($y = 0; $y <= $row; $y++) {
     <?php
     $z = 0;
     for ($x = 0; $x < $col; $x++) {
-        if (isset($InsCol[$x]) && $InsCol[$x] == 'on') {
+        if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
             echo "\n";
             $or = 'Or' . $w . '[' . $z . ']';
             ?>
@@ -490,7 +490,7 @@ for ($y = 0; $y <= $row; $y++) {
             <?php
             $z++;
         } // end if
-        if (isset($DelCol[$x]) && $DelCol[$x] == 'on') {
+        if (!empty($DelCol) && isset($DelCol[$x]) && $DelCol[$x] == 'on') {
             continue;
         }
 
@@ -499,7 +499,7 @@ for ($y = 0; $y <= $row; $y++) {
         if (!isset(${$or})) {
             ${$or} = '';
         }
-        if (isset(${$or}[$x])) {
+        if (!empty(${$or}) && isset(${$or}[$x])) {
             if (get_magic_quotes_gpc()) {
                 $stripped_or = stripslashes(${$or}[$x]);
             } else {
@@ -513,7 +513,7 @@ for ($y = 0; $y <= $row; $y++) {
             <textarea cols="20" rows="2" style="width: <?php echo $widem; ?>" name="Or<?php echo $w . '[' . $z . ']'; ?>"><?php echo htmlspecialchars($stripped_or); ?></textarea>
         </td>
         <?php
-        if (isset(${$or}[$x])) {
+        if (!empty(${$or}) && isset(${$or}[$x])) {
             ${'cur' . $or}[$z] = ${$or}[$x];
         }
         $z++;
@@ -535,7 +535,7 @@ for ($y = 0; $y <= $row; $y++) {
 <?php
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (isset($InsCol[$x]) && $InsCol[$x] == 'on') {
+    if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         $curAndOrCol[$z] = $AndOrCol[$y];
         if ($AndOrCol[$z] == 'or') {
             $chk['or']  = ' checked="checked"';
@@ -561,7 +561,7 @@ for ($x = 0; $x < $col; $x++) {
     } // end if
     echo "\n";
 
-    if (isset($DelCol[$x]) && $DelCol[$x] == 'on') {
+    if (!empty($DelCol) && isset($DelCol[$x]) && $DelCol[$x] == 'on') {
         continue;
     }
 
