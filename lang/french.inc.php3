@@ -170,7 +170,7 @@ $strOftenQuotation = "Souvent des guillemets. OPTIONNEL signifie que seulement l
 $strOptimizeTable = "Optimiser la table";
 $strOptionalControls = "Optionnel. Indique le caractère qui permet d'enlever l'effet des caractères spéciaux.";
 $strOptionally = "OPTIONNEL";
-$strOr = "ou";
+$strOr = "Ou";
 $strOverhead = "Perte";
 
 $strPassword = "Mot de passe";

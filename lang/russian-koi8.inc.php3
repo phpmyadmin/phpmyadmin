@@ -161,7 +161,7 @@ $strOftenQuotation = "Обычно кавычки. ПО ВЫБОРУ означает, что только поля char и
 $strOptimizeTable = "Optimize table"; //to translate
 $strOptionalControls = "По выбору. Контролирует как читать или писать специальные символы.";
 $strOptionally = "ПО ВЫБОРУ";
-$strOr = "Или";
+$strOr = "или";
 $strOverhead = "Overhead"; //to translate
 
 $strPassword = "Password"; //to translate
