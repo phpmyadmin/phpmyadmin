@@ -491,7 +491,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     }
 
     if (!isset($cfg['IconvExtraParams'])) {
-        $cfg['IconvExtraParams'] = '//IGNORE';
+        $cfg['IconvExtraParams'] = '';
     }
 
     if (!isset($cfg['Lang']) &&isset($cfgLang)) {

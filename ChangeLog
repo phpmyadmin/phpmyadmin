@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-01 Michal Cihar  <nijel@users.sourceforge.net>
+    * config.inc.php3, libraries/config_import.lib.php3: Default iconv
+      parameters to empty string, as older iconv version don't support it
+      (bug #747164).
+
 2003-06-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/catalan-*.inc.php3: Updates, thanks to Xavier Navarro (xavin).
 
