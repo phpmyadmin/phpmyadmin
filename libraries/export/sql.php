@@ -176,7 +176,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                 $schema_create .= '# ' . $GLOBALS['strStatCheckTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Check_time'])) . $crlf;
                 $new_crlf = '#' . $crlf . $crlf;
             }
-        mysql_free_result($result);
+        PMA_DBI_free_result($result);
         }
     }
 
@@ -243,7 +243,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     $schema_create .= $auto_increment;
 
 
-    mysql_free_result($result);
+    PMA_DBI_free_result($result);
     return $schema_create;
 } // end of the 'PMA_getTableDef()' function
 
@@ -521,7 +521,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
         } // end while
     } // end if ($result != FALSE)
-    mysql_free_result($result);
+    PMA_DBI_free_result($result);
 
     return TRUE;
 } // end of the 'PMA_exportData()' function

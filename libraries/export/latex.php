@@ -184,7 +184,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     $buffer = ' \\end{longtable}' . $crlf;
     if (!PMA_exportOutputHandler($buffer)) return FALSE;
 
-    mysql_free_result($result);
+    PMA_DBI_free_result($result);
     return TRUE;
 
 } // end getTableLaTeX
@@ -378,7 +378,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 
         if (!PMA_exportOutputHandler($buffer)) return FALSE;
     } // end while
-    mysql_free_result($result);
+    PMA_DBI_free_result($result);
 
     $buffer = ' \\end{longtable}' . $crlf;
     return PMA_exportOutputHandler($buffer);

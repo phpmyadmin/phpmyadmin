@@ -13,7 +13,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         $mysql_charsets_maxlen[$row['Charset']] = $row['Maxlen'];
         $mysql_charsets_descriptions[$row['Charset']] = $row['Description'];
     }
-    @mysql_free_result($res);
+    @PMA_DBI_free_result($res);
     unset($res, $row);
 
     $res = PMA_mysql_query('SHOW COLLATION;', $userlink)
@@ -43,7 +43,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         reset($mysql_collations[$key]);
     }
 
-    @mysql_free_result($res);
+    @PMA_DBI_free_result($res);
     unset($res, $row);
 
     function PMA_getCollationDescr($collation) {
@@ -236,7 +236,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             $sql_query = 'SHOW CREATE DATABASE `' . $db . '`;';
             $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
             $row = PMA_mysql_fetch_row($res);
-            mysql_free_result($res);
+            PMA_DBI_free_result($res);
             $tokenized = explode(' ', $row[1]);
             unset($row, $res, $sql_query);
 

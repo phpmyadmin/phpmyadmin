@@ -163,7 +163,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         } // end for
         if (!PMA_exportOutputHandler($schema_insert . $add_character)) return FALSE;
     } // end while
-    mysql_free_result($result);
+    PMA_DBI_free_result($result);
 
     return TRUE;
 } // end of the 'PMA_getTableCsv()' function

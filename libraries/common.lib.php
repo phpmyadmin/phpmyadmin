@@ -592,7 +592,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
     if (!$dblist_cnt
         && ($rs && @PMA_DBI_num_rows($rs))) {
         $row = PMA_mysql_fetch_array($rs);
-        mysql_free_result($rs);
+        PMA_DBI_free_result($rs);
         // Correction uva 19991215
         // Previous code assumed database "mysql" admin table "db" column
         // "db" contains literal name of user database, and works if so.
@@ -631,7 +631,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
                         $uva_mydbs[$row['Db']] = 1;
                     }
                 } // end while
-                mysql_free_result($rs);
+                PMA_DBI_free_result($rs);
                 $uva_alldbs = mysql_list_dbs($GLOBALS['dbh']);
                 // loic1: all databases cases - part 2
                 if (isset($uva_mydbs['%'])) {
@@ -662,7 +662,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
                         } // end if ... else if....
                     } // end while
                 } // end else
-                mysql_free_result($uva_alldbs);
+                PMA_DBI_free_result($uva_alldbs);
                 unset($uva_mydbs);
             } // end if
 
@@ -675,7 +675,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
                         $dblist[] = $row['Db'];
                     }
                 } // end while
-                mysql_free_result($rs);
+                PMA_DBI_free_result($rs);
             } // end if
         } // end if
     } // end building available dbs from the "mysql" db
@@ -1059,7 +1059,7 @@ if ($is_minimum_common == FALSE) {
                         $true_dblist[] = $row[0];
                     } // end while
                     if ($rs) {
-                        mysql_free_result($rs);
+                        PMA_DBI_free_result($rs);
                     }
                 } else {
                     $true_dblist[]     = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
@@ -1252,12 +1252,12 @@ if ($is_minimum_common == FALSE) {
         if ($num < $cfg['MaxExactCount']) {
             unset($num);
         }
-        mysql_free_result($result);
+        PMA_DBI_free_result($result);
 
         if (!isset($num)) {
             $result = PMA_mysql_query('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)) or PMA_mysqlDie('', $local_query, '', $err_url);
             $num    = ($result) ? PMA_mysql_result($result, 0, 'num') : 0;
-            mysql_free_result($result);
+            PMA_DBI_free_result($result);
         }
         if ($ret) {
             return $num;
@@ -1309,7 +1309,7 @@ if (typeof(window.parent) != 'undefined'
                             ? ''
                             : $tbl_status['Comment'] . ' ';
                 $tooltip .= '(' . $tbl_status['Rows'] . ' ' . $GLOBALS['strRows'] . ')';
-                mysql_free_result($result);
+                PMA_DBI_free_result($result);
                 $md5_tbl = md5($GLOBALS['table']);
                 echo "\n";
                 ?>
@@ -1336,7 +1336,7 @@ if (typeof(document.getElementById) != 'undefined'
                 $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
                 if ($result) {
                     $tbl_status = PMA_mysql_fetch_array($result, MYSQL_ASSOC);
-                    mysql_free_result($result);
+                    PMA_DBI_free_result($result);
                 }
             }
             if (isset($tbl_status) && (int) $tbl_status['Index_length'] > 1024) {

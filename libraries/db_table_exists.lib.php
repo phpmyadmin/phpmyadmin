@@ -31,7 +31,7 @@ if (!isset($is_table) || !$is_table) {
         }
         exit;
     } else if (isset($is_table)) {
-        mysql_free_result($is_table);
+        PMA_DBI_free_result($is_table);
     }
 } // end if (ensures table exists)
 ?>

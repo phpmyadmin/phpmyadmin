@@ -137,7 +137,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         
         if (!PMA_exportOutputHandler($buffer)) return FALSE;
     }
-    mysql_free_result($result);
+    PMA_DBI_free_result($result);
 
     return TRUE;
 } // end of the 'PMA_getTableXML()' function

@@ -185,7 +185,7 @@ function PMA_getRelationsParam($verbose = FALSE)
         $cfgRelation['allworks'] = TRUE;
     }
     if ($tab_rs) {
-        mysql_free_result($tab_rs);
+        PMA_DBI_free_result($tab_rs);
     } else {
         $cfg['Server']['pmadb'] = FALSE;
     }
