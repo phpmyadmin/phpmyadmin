@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-04  Loïc Chapeaux  <lolo@phpheaven.net>
+	* grab_globals.inc.php3 handles now the $HTTP_POST_FILES array
+	* db_readdump.php3, line 24: added a trick to enforce reloading of the left
+	  frame if a table has to be created (not tested enough to be add to the
+	  stable version yet)
+
 2001-05-04  Marc Delisle <lem9@users.sourceforge.net>
 	* outsource some strings in main.php3
 	* kill the bug in main.php3 about Create privilege
