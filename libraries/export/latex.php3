@@ -306,7 +306,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         if ($do_relation && $have_rel) {
             $local_buffer .= "\000";
             if (isset($res_rel[$field_name])) {
-                $local_buffer .= $res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'];
+                $local_buffer .= $res_rel[$field_name]['foreign_table'] . ' (' . $res_rel[$field_name]['foreign_field'] . ')';
             }
         }
         if ($do_comments && $cfgRelation['commwork']) {
