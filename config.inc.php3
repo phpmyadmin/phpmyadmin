@@ -139,6 +139,7 @@ $cfgProtectBinary         = 'blob'; // disallow editing of binary fields
                                     //   FALSE  allow editing
                                     //   'blob' allow editing except for BLOB fields
                                     //   'all'  disallow editing
+$cfgShowFunctionFields    = TRUE;   // Display the function fields in edit/insert mode
 
 $cfgZipDump               = TRUE;   // Allow the use of zip/gzip/bzip
 $cfgGZipDump              = TRUE;   // compression for
@@ -234,32 +235,34 @@ $cfgAttributeTypes = array(
 );
 
 // Available functions
-$cfgFunctions = array(
-   'ASCII',
-   'CHAR',
-   'SOUNDEX',
-   'LCASE',
-   'UCASE',
-   'NOW',
-   'PASSWORD',
-   'MD5',
-   'ENCRYPT',
-   'RAND',
-   'LAST_INSERT_ID',
-   'COUNT',
-   'AVG',
-   'SUM',
-   'CURDATE',
-   'CURTIME',
-   'FROM_DAYS',
-   'FROM_UNIXTIME',
-   'PERIOD_ADD',
-   'PERIOD_DIFF',
-   'TO_DAYS',
-   'UNIX_TIMESTAMP',
-   'USER',
-   'WEEKDAY'
-);
+if ($cfgShowFunctionFields) {
+    $cfgFunctions = array(
+       'ASCII',
+       'CHAR',
+       'SOUNDEX',
+       'LCASE',
+       'UCASE',
+       'NOW',
+       'PASSWORD',
+       'MD5',
+       'ENCRYPT',
+       'RAND',
+       'LAST_INSERT_ID',
+       'COUNT',
+       'AVG',
+       'SUM',
+       'CURDATE',
+       'CURTIME',
+       'FROM_DAYS',
+       'FROM_UNIXTIME',
+       'PERIOD_ADD',
+       'PERIOD_DIFF',
+       'TO_DAYS',
+       'UNIX_TIMESTAMP',
+       'USER',
+       'WEEKDAY'
+    );
+} // end if
 
 
 /**

@@ -24,6 +24,10 @@ $Source$
 	  with <base href=""> thanks to Alexander M. Turek.
 	* main.php3, lines 11-14; libraries/grab_globals.lib.php3, lines 27-32;
 	  libraries/auth/cookie.auth.lib.php3: improved patch #495360.
+	* config.inc.php3, lines 142 & 238-265; Documentation.html, lines 746-752;
+	  tbl_change.php3; libraries/common.lib.php3, lines 105-107:
+	  patch #515268 - Feature Request #511816 (enable/disable functions fields)
+	  thanks to Alexander M. Turek <rabus at users.sourceforge.net>.
 
 2002-02-08 Marc Delisle  <lem9@users.sourceforge.net>
 	* ukrainian updates thanks to Markijan Baran.

@@ -732,7 +732,7 @@
         <br /><br />
     </dd>
 
-    <dt><b>$cfgProtectBinary </b>boolean</dt>
+    <dt><b>$cfgProtectBinary </b>boolean or string</dt>
     <dd>
         Defines whether <tt>BLOB</tt> or <tt>BINARY</tt> fields are protected
         from edition when browsing a table's content or not.
@@ -740,6 +740,13 @@
         - <tt>FALSE</tt> to allow edition of all fields;<br />
         - <tt>blob</tt> to allow edition of all fields except <tt>BLOBS</tt>;<br />
         - <tt>all</tt> to disallow edition of all <tt>BINARY</tt> or <tt>BLOB</tt> fields.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfgShowFunctionFields </b>boolean</dt>
+    <dd>
+        Defines whether MySQL functions fields should be displayed or not in edit/insert
+        mode.
         <br /><br />
     </dd>
 

@@ -142,7 +142,11 @@ echo "\n";
     <tr>
         <th><?php echo $strField; ?></th>
         <th><?php echo $strType; ?></th>
-        <th><?php echo $strFunction; ?></th>
+<?php
+if ($cfgShowFunctionFields) {
+    echo '        <th>' . $strFunction . '</th>' . "\n";
+}
+?>
         <th><?php echo $strNull; ?></th>
         <th><?php echo $strValue; ?></th>
     </tr>
@@ -224,7 +228,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                        ? ''
                        : '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="' . urlencode($row[$field]) . '" />';
     } else {
-        // loic1: display default values 
+        // loic1: display default values
         if (!isset($row_table_def['Default'])) {
             $row_table_def['Default'] = '';
             $data                     = 'NULL';
@@ -242,40 +246,42 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // Note: from the MySQL manual: "BINARY doesn't affect how the column is
     //       stored or retrieved" so it does not mean that the contents is
     //       binary
-    if ((($cfgProtectBinary && $is_blob)
-         || ($cfgProtectBinary == 'all' && $is_binary))
-        && !empty($data)) {
-        echo '        <td align="center" bgcolor="'. $bgcolor . '">' . $strBinary . '</td>' . "\n";
-    } else if (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
-        echo '        <td align="center" bgcolor="'. $bgcolor . '">--</td>' . "\n";
-    } else {
-        ?>
+    if ($cfgShowFunctionFields) {
+	    if ((($cfgProtectBinary && $is_blob)
+    	     || ($cfgProtectBinary == 'all' && $is_binary))
+        	&& !empty($data)) {
+	        echo '        <td align="center" bgcolor="'. $bgcolor . '">' . $strBinary . '</td>' . "\n";
+    	} else if (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
+        	echo '        <td align="center" bgcolor="'. $bgcolor . '">--</td>' . "\n";
+	    } else {
+    	    ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <select name="funcs[<?php echo urlencode($field); ?>]">
                 <option></option>
-        <?php
-        echo "\n";
-        if (!$first_timestamp) {
-            for ($j = 0; $j < count($cfgFunctions); $j++) {
-                echo '                ';
-                echo '<option>' . $cfgFunctions[$j] . '</option>' . "\n";
-            }
-        } else {
+	        <?php
+    	    echo "\n";
+        	if (!$first_timestamp) {
+	            for ($j = 0; $j < count($cfgFunctions); $j++) {
+    	            echo '                ';
+        	        echo '<option>' . $cfgFunctions[$j] . '</option>' . "\n";
+	            }
+    	    } else {
             // for default function = NOW() on first timestamp field
             // -- swix/18jul01
-            for ($j = 0; $j < count($cfgFunctions); $j++) {
-                echo '                ';
-                if ($cfgFunctions[$j] == 'NOW') {
-                    echo '<option selected="selected">' . $cfgFunctions[$j] . '</option>' . "\n";
-                } else {
-                    echo '<option>' . $cfgFunctions[$j] . '</option>' . "\n";
-                }
-            } // end for
-        }
-        ?>
+        	    for ($j = 0; $j < count($cfgFunctions); $j++) {
+            	    echo '                ';
+                	if ($cfgFunctions[$j] == 'NOW') {
+	                    echo '<option selected="selected">' . $cfgFunctions[$j] . '</option>' . "\n";
+    	            } else {
+        	            echo '<option>' . $cfgFunctions[$j] . '</option>' . "\n";
+            	    }
+	            } // end for
+    	    }
+	        ?>
             </select>
         </td>
-        <?php
+            <?php
+    	}
     }
     echo "\n";
 
@@ -350,7 +356,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 }
                 echo '>' . htmlspecialchars($enum_atom) . '</option>' . "\n";
             } // end for
-             
+
             ?>
             </select>
             <?php
@@ -361,7 +367,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 // Removes automatic MySQL escape format
                 $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
                 echo '            ';
-                echo '<input type="radio" name="field_' . md5($field) . '[]" value="' . urlencode($enum_atom) . '"' . ' onclick="if (typeof(document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) . ']\']) != \'undefined\') {document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false}"'; 
+                echo '<input type="radio" name="field_' . md5($field) . '[]" value="' . urlencode($enum_atom) . '"' . ' onclick="if (typeof(document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) . ']\']) != \'undefined\') {document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false}"';
                 if ($data == $enum_atom
                     || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
                         && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {

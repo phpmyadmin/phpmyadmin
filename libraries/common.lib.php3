@@ -45,7 +45,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * - authentication work
      * - second load of the libraries/define.lib.php3 library to get the MySQL
      *   release number)
-     * - other functions, respecting dependencies 
+     * - other functions, respecting dependencies
      */
 
 
@@ -101,6 +101,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         } else {
             $cfgProtectBinary   = 'blob';
         }
+    }
+    if (!isset($cfgShowFunctionFields)) {
+        $cfgShowFunctionFields  = TRUE;
     }
     if (!isset($cfgZipDump)) {
         $cfgZipDump             = (isset($cfgGZipDump) ? $cfgGZipDump : TRUE);
@@ -200,7 +203,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             $a_string = str_replace('\\', '\\\\', $a_string);
         }
         $a_string = str_replace('\'', '\\\'', $a_string);
-    
+
         return $a_string;
     } // end of the 'PMA_sqlAddslashes()' function
 
@@ -299,7 +302,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             unset($cfgServers[$key]);
         }
     }
- 
+
     if (empty($server) || !isset($cfgServers[$server]) || !is_array($cfgServers[$server])) {
         $server = $cfgServerDefault;
     }
@@ -602,7 +605,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                 }
             } // end for
             mysql_free_result($dbs);
-            $num_dbs = $real_num_dbs; 
+            $num_dbs = $real_num_dbs;
         } // end else
 
         return TRUE;
@@ -954,7 +957,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
 
     /**
      * Ensures a database/table/field's name is not a reserved word (for MySQL
-     * releases < 3.23.6) 
+     * releases < 3.23.6)
      *
      * @param    string   the name to check
      * @param    string   the url to go back in case of error
@@ -972,7 +975,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         if (!ereg('^[a-zA-Z_]+$', $the_name)) {
             return true;
         }
-        
+
         // Else do the work
         $filename = 'badwords.txt';
         if (file_exists($filename)) {
