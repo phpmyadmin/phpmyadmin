@@ -1091,8 +1091,16 @@
 <p>
     <b>I get an error 'No SQL query' when trying to execute a bookmark.</b>
     <br />
-    If PHP does not have read/write access to its <i>upload_tmp_dir</i>, it
+    If PHP does not have read/write access to its <tt>upload_tmp_dir</tt>, it
     cannot access the uploaded query.
+</p>
+
+<p>
+    <b>I get an error 'No SQL query' when trying to submit a query from the
+       convenient text area.</b>
+    <br />
+    Check the <tt>post_max_size<tt> directive from your php configuration file
+    and try to increase it.
 </p>
 
 <p>
