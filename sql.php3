@@ -297,10 +297,9 @@ else {
     if (isset($pos)
         && (!$cfg['ShowAll'] || $session_max_rows != 'all')
         && $is_select
-        && !($is_count || $is_export || $is_func)
+        && !($is_count || $is_export || $is_func || $is_analyse)
         && eregi('[[:space:]]FROM[[:space:]]', $sql_query)
         && !eregi('[[:space:]]LIMIT[[:space:]0-9,]+$', $sql_query)) {
-
         $sql_limit_to_append = " LIMIT $pos, ".$cfg['MaxRows'];
         if (eregi('(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))$', $sql_query, $regs)) {
             $full_sql_query  = $regs[1] . $sql_limit_to_append . $regs[2];

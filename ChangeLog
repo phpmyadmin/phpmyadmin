@@ -18,6 +18,8 @@ $Source$
     * lang/polish update, thanks to Jakub Wilk
     * lang/galician update, thanks to Xosé Calvo
     * lang/romanian update, thanks to Valics Lehel
+    * sql.php3, bug 582356, Propose table structure was not working when
+      $cfg['ShowAll'] was FALSE
 
 2002-07-18 Steve Alberty  <staybyte@users.sourceforge.net>
     * It is now possible to print stats for more than 2 GB (up to exa byte)
