@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-05 Alexander M. Turek  <me@derrabus.de>
+    * libraries/sqlparser.data.php: Parser support for SHOW STORAGE ENGINES.
+
 2004-09-05 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Add information about theme versions and names.
 
