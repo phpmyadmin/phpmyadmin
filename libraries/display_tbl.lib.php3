@@ -1203,7 +1203,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             // loic1: displays all space characters, 4 space
                             // characters for tabulations and <cr>/<lf>
 
-                            $row[$pointer]     = ($default_function != $transform_function ? $transform_function('BLOB', $transform_options) : $default_function($row[$pointer]));
+                            $row[$pointer]     = ($default_function != $transform_function ? $transform_function($row[$pointer], $transform_options) : $default_function($row[$pointer]));
                             $row[$pointer]     = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
 
