@@ -513,6 +513,7 @@ $strSearchOption3 = 'cała fraza';
 $strSearchOption4 = 'jako wyrażenie regularne';
 $strSearchResultsFor = 'Szukaj w rezultatach dla "<i>%s</i>" %s:';
 $strSearchType = 'Znajdź:';
+$strSecretRequired = 'Plik konfiguracyjny wymaga teraz tajnej frazy kodującej (blowfish_secret).';
 $strSelect = 'Wybór';
 $strSelectADb = 'Proszę wybrać bazę danych';
 $strSelectAll = 'Zaznaczenie wszystkich';
@@ -574,6 +575,7 @@ $strTableHasBeenEmptied = 'Tabela %s została opróżniona';
 $strTableHasBeenFlushed = 'Tabela %s została przeładowana';
 $strTableMaintenance = 'Zarządzanie tabelą';
 $strTableOfContents = 'Spis treści';
+$strTableOptions = 'Opcje tabeli';
 $strTableStructure = 'Struktura tabeli dla ';
 $strTableType = 'Typ tabeli';
 $strTables = '%s tabel(a)';
@@ -586,6 +588,7 @@ $strThisHost = 'Ten host';
 $strThisNotDirectory = 'To nie był katalog';
 $strThreadSuccessfullyKilled = 'Wątek %s został pomyślnie unicestwiony.';
 $strTime = 'Czas';
+$strToggleScratchboard = 'włącz / wyłącz scratchboard';
 $strTotal = 'wszystkich';
 $strTotalUC = 'Sumarycznie';
 $strTraffic = 'Ruch';
@@ -650,8 +653,6 @@ $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograni
 $strZip = '".zip"';
 // To translate
 
-$strToggleScratchboard = 'toggle scratchboard';  //to translate
-$strTableOptions = 'Table options';  //to translate
-$strSecretRequired = 'The configuration file now needs a secret passphrase (blowfish_secret).';  //to translate
 $strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in config.inc.php and make sure that they correspond to the information given by the administrator of the MySQL server.';  //to translate
+
 ?>
