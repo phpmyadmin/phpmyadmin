@@ -205,6 +205,7 @@ $strDBGTotalTimeMs = 'Celkový čas, ms';
 $strDbPrivileges = 'Oprávnění pro jednotlivé databáze';
 $strDBRename = 'Přejmenovat databázi na';
 $strDbSpecific = 'závislé na databázi';
+$strDefaultEngine = '%s je výchozí úložiště na tomto MySQL serveru.';
 $strDefaultValueHelp = 'Výchozí hodnotu zadejte jen jednu hodnotu bez uvozovek a escapování znaků, například: a';
 $strDefault = 'Výchozí';
 $strDefragment = 'Defragmentovat tabulku';
@@ -248,8 +249,10 @@ $strEncloseInTransaction = 'Uzavřít příkazy v&nbsp;transakci';
 $strEndCut = 'KONEC VÝPISU';
 $strEnd = 'Konec';
 $strEndRaw = 'KONEC VÝPISU';
-$strEngineAvailable = '%s není dostupný v&nbsp;tomto MySQL serveru.';
-$strEngineDisabled = '%s je vypnutý v&nbsp;tomto MySQL serveru.';
+$strEngineAvailable = 'Úložiště %s není dostupné na tomto MySQL serveru.';
+$strEngineDisabled = 'Úložiště %s je vypnuté na tomto MySQL serveru.';
+$strEngines = 'Úložiště';
+$strEngineUnsupported = 'Tento MySQL server nepodporuje úložiště %s.';
 $strEnglish = 'Anglicky';
 $strEnglishPrivileges = 'Poznámka: názvy oprávnění v&nbsp;MySQL jsou uváděny anglicky';
 $strError = 'Chyba';
@@ -446,6 +449,7 @@ $strNoActivity = 'Byli jste příliš dlouho neaktivní (déle než %s sekund), 
 $strNoDatabasesSelected = 'Nebyla vybrána žádná databáze.';
 $strNoDatabases = 'Žádné databáze';
 $strNoDescription = 'žádný popisek';
+$strNoDetailsForEngine = 'Nejsou dostupné podrobnější informace o tomto úložišti.';
 $strNoDropDatabases = 'Příkaz "DROP DATABASE" je vypnutý.';
 $strNoExplain = 'Bez vysvětlení (EXPLAIN) SQL';
 $strNoFrames = 'phpMyAdmin se lépe používá v&nbsp;prohlížeči podporujícím rámy ("FRAME").';
@@ -679,6 +683,8 @@ $strStatCreateTime = 'Vytvoření';
 $strStatement = 'Údaj';
 $strStatUpdateTime = 'Poslední změna';
 $strStatus = 'Stav';
+$strStorageEngines = 'Úložiště';
+$strStorageEngine = 'Úložiště';
 $strStrucCSV = 'CSV';
 $strStrucData = 'Strukturu a data';
 $strStrucDrop = 'Přidat DROP TABLE';
@@ -795,17 +801,5 @@ $strYes = 'Ano';
 
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
-
-// To translate:
-
-$strDefaultEngine = '%s is the default storage engine on this MySQL server.';  //to translate
-
-$strEngines = 'Engines';  //to translate
-$strEngineUnsupported = 'This MySQL server does not support the %s storage engine.';  //to translate
-
-$strNoDetailsForEngine = 'There is no detailed status information available for this storage engine.';  //to translate
-
-$strStorageEngines = 'Storage Engines';  //to translate
-$strStorageEngine = 'Storage Engine';  //to translate
 
 ?>

@@ -14,8 +14,8 @@ $Source$
       libraries/config_import.lib.php, libraries/export/htmlexcel.php,
       libraries/export/htmlword.php, lang/*: Added Microsoft Word and Excel
       2000 export (RFE #1155122).
-    * lang/czech: Updated, still missing "storage engine" translation, can't
-      find any ;-).
+    * lang/czech: Updated, thanks to Michal Marek (twofish) for "storage
+      engine" translation.
     * lang/english: Nothing to translate here.
     * Documentation.html: Document new Excel export.
     * config.inc.php, libraries/config_import.lib.php,
