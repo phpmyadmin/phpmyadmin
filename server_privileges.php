@@ -1230,7 +1230,7 @@ if (empty($adduser) && empty($checkprivs)) {
         }
         if (empty($dbname)) {
             echo '    <li>' . "\n"
-               . '        <form action="server_privileges.php" method="post" onsubmit="checkPassword(this);">' . "\n"
+               . '        <form action="server_privileges.php" method="post" onsubmit="return checkPassword(this);">' . "\n"
                . PMA_generate_common_hidden_inputs('', '', 3)
                . '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
                . '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
@@ -1259,7 +1259,7 @@ if (empty($adduser) && empty($checkprivs)) {
                . '        </form>' . "\n"
                . '    </li>' . "\n"
                . '    <li>' . "\n"
-               . '        <form action="server_privileges.php" method="post" onsubmit="checkPassword(this);">' . "\n"
+               . '        <form action="server_privileges.php" method="post" onsubmit="return checkPassword(this);">' . "\n"
                . PMA_generate_common_hidden_inputs('', '', 3)
                . '            <input type="hidden" name="old_username" value="' . htmlspecialchars($username) . '" />' . "\n"
                . '            <input type="hidden" name="old_hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"

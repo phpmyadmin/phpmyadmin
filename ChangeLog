@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: stay on the form when passwords don't match
+      (after the js alert)
+
 2004-09-14 Michal Čihař  <michal@cihar.com>
     * themes.php, libraries/common.lib.php, libraries/defines.lib.php,
       libraries/select_theme.lib.php, themes/darkblue_orange/info.inc.php,
