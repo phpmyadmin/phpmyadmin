@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-17 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * Documentation.html: Added some notes about the MySQL 4.1 branch. See bug
+      report #623665 for more details.
+
 2002-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/dutch: update, thanks to Ivo Teel.
 

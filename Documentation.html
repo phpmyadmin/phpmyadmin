@@ -126,7 +126,10 @@
         support</font>;
     </li>
     <li>
-        MySQL (tested with 3.21.x, 3.22.x, 3.23.x and 4.0.x);
+        MySQL (tested with 3.21.x, 3.22.x, 3.23.x and 4.0.x);<br />
+        <font color="#bb0000">Note: Because of a major change in the definition
+        syntax of string field types, this version of phpMyAdmin probably won't
+        work correctly with MySQL&nbsp;&gt;=&nbsp;4.1.0!</font>
     </li>
     <li>
         a web-browser (doh!).
@@ -1739,8 +1742,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     to use php&nbsp;&gt;=&nbsp;4.1 since older versions of php are not
     compatible to MySQL&nbsp;4.<br />
     Furthermore, several users reported problems with phpMyAdmin related to
-    bugs in MySQL&nbsp;4. <font color="#bb0000">MySQL&nbsp;4 is still an alpha
+    bugs in MySQL&nbsp;4. <font color="#bb0000">MySQL&nbsp;4 is still a beta
     release and should be used for test purposes only!</font>
+    Because of a major change in the definition syntax of string field types,
+    this version of phpMyAdmin probably won't work correctly with
+    MySQL&nbsp;&gt;=&nbsp;4.1.0! We will work on the support as soon as
+    MySQL&nbsp;4.1.0 is released.
 </p>
 
 <p>
