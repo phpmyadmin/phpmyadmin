@@ -40,7 +40,8 @@ echo '<h2>' . "\n"
  * Sends the query and buffers the result
  */
 $serverProcesses = array();
-$res = @PMA_mysql_query('SHOW PROCESSLIST;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW PROCESSLIST;');
+$sql_query = 'SHOW' . (empty($full) ? '' : ' FULL') . ' PROCESSLIST;';
+$res = @PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
 while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
     $serverProcesses[] = $row;
 }
@@ -55,7 +56,7 @@ unset($row);
 ?>
 <table border="0">
     <tr>
-        <th></th>
+        <th><?php echo PMA_MYSQL_INT_VERSION < 32307 ? '' : '<a href="./server_processlist.php3?'. $url_query . (empty($full) ? '&amp;full=1' : '') . '" title="' . (empty($full) ? $strShowFullQueries : $strTruncateQueries) . '"><img src="./images/' . (empty($full) ? 'full' : 'partial') . 'text.png" width="50" height="20" border="0" alt="' . (empty($full) ? $strShowFullQueries : $strTruncateQueries) . '" /></a>';  ?></th>
         <th>&nbsp;<?php echo $strId; ?>&nbsp;</th>
         <th>&nbsp;<?php echo $strUser; ?>&nbsp;</th>
         <th>&nbsp;<?php echo $strHost; ?>&nbsp;</th>
