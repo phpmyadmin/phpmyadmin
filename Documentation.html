@@ -890,13 +890,23 @@
     <b>I get an out of memory error, and my controls are non-functional, when
     trying to create a table with more than 14 fields.</b>
     <br />
-    This is a problem under investigation.  Seems to be OS and/or browser-
-    dependent.  For now, create a smaller number of fields, then come back to
+    We could reproduce this problem only under Win98/98SE. Testing under
+    WinNT4 or Win2K, we could easily create more than 60 fields.
+    <br />
+    A workaround is to create a smaller number of fields, then come back to
     your table properties and add the other fields.
 </p>
 
 <p>
-    <b>I have found a bug. How do I inform developpers?</b>
+    <b>I get errors about not being able to include a file in /lang</b>
+    <br />
+    Check php.ini, or ask your sysadmin to check it. The <i>include_path</i>
+    must contain "." somewhere in it, and <i>open_basedir</i>, if used,
+    must contain "." and "./lang" to allow normal operation of phpMyAdmin.
+</p>
+
+<p>
+    <b>I have found a bug. How do I inform developers?</b>
     <br />
     Our Bug Tracker is located at <a href="http://sourceforge.net/projects/phpmyadmin">
         http://sourceforge.net/projects/phpmyadmin</a> under the Bugs section.

@@ -7,6 +7,7 @@ $Source$
 
 2001-08-31  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/norwegian.inc.php3 other updates, thanks to Sven-Erik Andersen.
+	* Documentation.html updates
 
 2001-08-31  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3:
