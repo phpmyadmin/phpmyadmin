@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-18 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_databases.php3:
+      - Fixed bug #688360 (Database privileges and AllowUserDropDatabase);
+      - The link "check privileges" is now only displayed to superusers.
+
 2003-02-17 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
     * Documentation.html: Removed obsolete FAQ 6.17 about binary upload.

@@ -7,9 +7,6 @@
  * Checks if the left frame has to be reloaded
  */
 require('./libraries/grab_globals.lib.php3');
-if (!empty($drop_selected_dbs)) {
-    $reload = 1;
-}
 
 
 /**
@@ -57,7 +54,7 @@ if ($server > 0 && empty($dblist)) {
 /**
  * Drops multiple databases
  */
-if (!empty($drop_selected_dbs)) {
+if (!empty($drop_selected_dbs) && ($is_superuser || $cfg['AllowUserDropDatabase'])) {
     if (empty($selected_db)) {
         $message = $strNoDatabasesSelected;
     } else {
@@ -76,6 +73,7 @@ if (!empty($drop_selected_dbs)) {
         $message = sprintf($strDatabasesDropped, count($selected_db));
         // we need to reload the database list now.
         PMA_availableDatabases();
+        $reload = 1;
     }
 }
 
@@ -155,7 +153,7 @@ if (count($statistics) > 0) {
        . '    <input type="hidden" name="sort_order" value="' . $sort_order . '" />' . "\n"
        . '    <table border="0">' . "\n"
        . '        <tr>' . "\n"
-       . '            <th>&nbsp;</th>' . "\n"
+       . ($is_superuser || $cfg['AllowUserDropDatabase'] ? '            <th>&nbsp;</th>' . "\n" : '')
        . '            <th>' . "\n"
        . '                &nbsp;';
     if (empty($dbstats)) {
@@ -204,10 +202,12 @@ if (count($statistics) > 0) {
            . '                &nbsp;' . "\n"
            . '            </th>' . "\n";
     }
-    echo '            <th>' . "\n"
-       . '                &nbsp;' . $strAction . '&nbsp;' . "\n"
-       . '            </th>' . "\n"
-       . '        </tr>' . "\n";
+    if ($is_superuser) {
+        echo '            <th>' . "\n"
+           . '                &nbsp;' . $strAction . '&nbsp;' . "\n"
+           . '            </th>' . "\n";
+    }
+    echo '        </tr>' . "\n";
     $useBgcolorOne = TRUE;
     $total_calc = array(
         'db_cnt' => 0,
@@ -225,11 +225,13 @@ if (count($statistics) > 0) {
         $total_calc['data_sz'] += $current['data_sz'];
         $total_calc['idx_sz'] += $current['idx_sz'];
         $total_calc['tot_sz'] += $current['tot_sz'];
-        echo '        <tr>' . "\n"
-           . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-           . '                <input type="checkbox" name="selected_db[]" title="' . htmlspecialchars($current['db_name']) . '" value="' . htmlspecialchars($current['db_name']) . '" ' . (empty($checkall) ? '' : 'checked="checked" ') . '/>' . "\n"
-           . '            </td>' . "\n"
-           . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
+        echo '        <tr>' . "\n";
+        if ($is_superuser || $cfg['AllowUserDropDatabase']) {
+            echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
+               . '                <input type="checkbox" name="selected_db[]" title="' . htmlspecialchars($current['db_name']) . '" value="' . htmlspecialchars($current['db_name']) . '" ' . (empty($checkall) ? '' : 'checked="checked" ') . '/>' . "\n"
+               . '            </td>' . "\n";
+        }
+        echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
            . '                <a href="' . $cfg['DefaultTabDatabase'] . '?' . $url_query . '&amp;db=' . urlencode($current['db_name']) . '" title="' . sprintf($strJumpToDB, htmlspecialchars($current['db_name'])) . '">' . "\n"
            . '                    ' . htmlspecialchars($current['db_name']) . "\n"
            . '                </a>' . "\n"
@@ -261,12 +263,14 @@ if (count($statistics) > 0) {
                . '                </b>' . "\n"
                . '            </td>' . "\n";
         }
-        echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-           . '                <a href="./server_privileges.php3?' . $url_query . '&amp;checkprivs=' . urlencode($current['db_name']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['db_name'])) . '">'. "\n"
-           . '                    ' . $strCheckPrivs . "\n"
-           . '                </a>' . "\n"
-           . '            </td>' . "\n"
-           . '        </tr>' . "\n";
+        if ($is_superuser) {
+            echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
+               . '                <a href="./server_privileges.php3?' . $url_query . '&amp;checkprivs=' . urlencode($current['db_name']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['db_name'])) . '">'. "\n"
+               . '                    ' . $strCheckPrivs . "\n"
+               . '                </a>' . "\n"
+               . '            </td>' . "\n";
+        }
+        echo '        </tr>' . "\n";
         $useBgcolorOne = !$useBgcolorOne;
     } // end while
     if (!empty($dbstats)) {
@@ -337,14 +341,16 @@ if (count($statistics) > 0) {
            . '                </a>' . "\n"
            . '            </b>' . "\n";
     }
-    echo '        </li><br /><br />' . "\n"
-       . '        <li>' . "\n"
-       . '            <b>' . "\n"
-       . '                ' . $strDropSelectedDatabases . "\n"
-       . '            </b><br />' . "\n"
-       . '            <input type="submit" name="drop_selected_dbs" value="' . $strGo . '" />' . "\n"
-       . '        </li>' . "\n"
-       . '    </ul>' . "\n"
+    if ($is_superuser || $cfg['AllowUserDropDatabase']) {
+        echo '        </li><br /><br />' . "\n"
+           . '        <li>' . "\n"
+           . '            <b>' . "\n"
+           . '                ' . $strDropSelectedDatabases . "\n"
+           . '            </b><br />' . "\n"
+           . '            <input type="submit" name="drop_selected_dbs" value="' . $strGo . '" />' . "\n"
+           . '        </li>' . "\n";
+    }
+    echo '    </ul>' . "\n"
        . '</form>' . "\n";
 } else {
     echo $strNoDatabases . "\n";
