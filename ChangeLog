@@ -28,6 +28,8 @@ $Source$
       #1039193).
     * server_privileges.php: Make non-js checkall work also for adding new
       user (bug #1028055).
+    * libraries/zip.lib.php: Drop unneed part of header which causes troubles
+      to some programs (bug #1037737).
 
 2004-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish update, thanks to boralioglu.
