@@ -66,6 +66,7 @@ else {
     if(isset($sessionMaxRows))
         $cfgMaxRows = $sessionMaxRows;
     $sql_limit = (isset($pos) && eregi("^SELECT", $sql_query) && !eregi("LIMIT[ 0-9,]+$", $sql_query)) ? " LIMIT $pos, $cfgMaxRows" : '';
+    mysql_select_db($db);
     $result = mysql_query($sql_query.$sql_order.$sql_limit);
     // the same SELECT without LIMIT
     if(eregi("^SELECT", $sql_query))
@@ -78,6 +79,7 @@ else {
 
     if(!$result)
     {
+	echo "t12";
         $error = mysql_error();
         include("./header.inc.php3");
         mysql_die($error);
