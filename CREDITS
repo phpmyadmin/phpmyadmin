@@ -40,7 +40,9 @@ CREDITS, in chronological order
 
 [kc] - Korakot Chaovavanich <korakot@iname.com>
 [pk] - Pete Kelly <webmaster@trafficg.com>
-
+[sa] - Steve Alberty <alberty@neptunlabs.de>
+	* rewrote dump code for PHP4
+	* MySQL Table Statistics
 
 The following people have contributed minor changes, enhancements, bugfixes or
 or support for a new language since version 2.1.0:
