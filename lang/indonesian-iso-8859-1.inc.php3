@@ -15,8 +15,10 @@ $month = array('Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', '
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%d. %B %Y jam %H:%M';
+$timespanfmt = '%s hari, %s jam, %s menit dan %s detik';
 
 $strAPrimaryKey = 'Primary key telah ditambah pada %s';
+$strAbortedClients = 'Dibatalkan';
 $strAccessDenied = 'Akses ditolak';
 $strAction = 'Aksi';
 $strAddDeleteColumn = 'Tambah/Hapus kolom';
@@ -28,6 +30,7 @@ $strAddSearchConditions = 'Tambah kriteria pencarian (Argumen untuk WHERE-Statem
 $strAddToIndex = 'Tambah ke indeks &nbsp;%s&nbsp;kolom';
 $strAddUser = 'Tambah pengguna baru';
 $strAddUserMessage = 'Pengguna baru telah ditambah.';
+$strAdministration = 'Administrasi';
 $strAffectedRows = 'Baris yang terlibat:';
 $strAfter = 'Sisipkan setelah %s';
 $strAfterInsertBack = 'Kembali';
@@ -60,8 +63,10 @@ $strBookmarkQuery = 'Bookmark query SQL ';
 $strBookmarkThis = 'Bookmark SQL-query ini';
 $strBookmarkView = 'Hanya melihat';
 $strBrowse = 'Browse';
+$strBzError = 'phpMyAdmin gagal menkompres Dump (Skema) disebabkan oleh ekstensi Bz2 dalam versi PHP yang digunakan. Disarankan untuk merubah direktif <code>$cfg[\'BZipDump\']</code> dalam file konfigurasi phpMyAdmin Anda ke <code>FALSE</code>. Bila Anda ingin mengunakan fasilitas kompresi Bz2 disarankan untuk meng-upgrade versi PHP yang lebih tinggi. Perhatikan PHP Bug Report %s untuk informasi yang lebih detail.';
 $strBzip = '"Dikompress dengan BZip"';
 
+$strCannotLogin = 'Gagal login ke MySQL server';
 $strCantLoadMySQL = 'Gagal loading extensi MySQL,<br />mohon periksa kembali konfigurasi PHP.';
 $strCantLoadRecodeIconv = 'Gagal loading iconv atau perubahan kode extension untuk konversi charset diperlukan. Silakan konfigurasikan php untuk mengunakan extensions yang diperlukan atau matikan fasilitas charset conversion di phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Gagal ubah nama Indeks ke PRIMARY!';
@@ -79,12 +84,16 @@ $strChoosePage = 'Silakan pilih halaman untuk diubah';
 $strColComFeat = 'Tampilkan komentar kolom';
 $strColumn = 'Kolom';
 $strColumnNames = 'Nama kolom';
+$strCommand = 'Perintah';
 $strComments = 'Komentar';
 $strCompleteInserts = 'Penyisipan lengkap';
+$strCompression = 'Kompresi';
 $strConfigFileError = 'phpMyAdmin gagal membaca file konfigurasi!<br />Hal ini diakibatkan oleh parse error atau file tidak ditemukan.<br />Silakan buka file konfigurasi secara langsung dengan gunakan link dibawah. Mohon perhatikan php error message(s) yang akan tertampil. Serinkali sebuah quote atau semicolon tertinggal.<br />Jika sebuah halaman kosong yang muncul berarti tidak ada masalah.';
 $strConfigureTableCoord = 'Silakan konfigurasikan koordinasi bagi tabel %s';
 $strConfirm = 'Anda yakin ingin melakukannya?';
+$strConnections = 'Koneksi';
 $strCookiesRequired = 'Cookies harus diaktifkan mulai dari sini.';
+$strCouldNotKill = 'phpMyAdmin gagal menutup Thread %s. Kemungkinan Thread tersebut sudah ditutup';
 $strCopyTable = 'Salin tabel ke (database<b>.</b>nama tabel):';
 $strCopyTableOK = 'Tabel %s telah disalin ke %s.';
 $strCreate = 'Buat';
@@ -97,6 +106,7 @@ $strCreatePdfFeat = 'Pembuatan PDF';
 $strCriteria = 'Kriteria';
 
 $strData = 'Data';
+$strDataDict = 'Kamus Data';
 $strDataOnly = 'Data saja';
 $strDatabase = 'Database ';
 $strDatabaseHasBeenDropped = 'Database %s telah dihapus.';
@@ -105,10 +115,13 @@ $strDatabases = 'database';
 $strDatabasesStats = 'Statistik Database';
 $strDefault = 'Default';
 $strDelete = 'Hapus';
+$strDeleteAndFlush = 'Hapus Pengguna dan Reload Hak Istimewa (Privileges).';
+$strDeleteAndFlushDescr = 'Ini cara terbaik tetapi akan memakan waktu.';
 $strDeleteFailed = 'Penghapusan gagal!';
 $strDeleteUserMessage = 'Penguna %s telah dihapus.';
 $strDeleted = 'Baris telah dihapus';
 $strDeletedRows = 'Baris yang dihapus:';
+$strDeleting = 'Menghapus %s';
 $strDescending = 'Menurun';
 $strDisabled = 'Tidak aktif';
 $strDisplay = 'Tampilkan';
@@ -143,6 +156,7 @@ $strExportToXML = 'Ekspor ke format XML';
 $strExtendedInserts = 'Penyisipan diperluas';
 $strExtra = 'Ekstra';
 
+$strFailedAttempts = 'Percobaan yang telah gagal';
 $strField = 'Field';
 $strFieldHasBeenDropped = 'Field %s telah dihapus';
 $strFields = 'Field';
@@ -151,6 +165,7 @@ $strFieldsEnclosedBy = 'Field ditutup dengan';
 $strFieldsEscapedBy = 'Field dikembalikan oleh';
 $strFieldsTerminatedBy = 'Fields diputus oleh';
 $strFixed = 'telah diperbaiki';
+$strFlushPrivilegesNote = 'Perhatian: phpMyAdmin mengambil data hak dari Penguna secara langsung dari tabel Hak Istimewa (Privileges) MySQL. Isi dari tabel tersebut bisa berbeda dari Hak Istimewa (Privileges) yang digunakan oleh Server bila pernah diubah. Bila begitu disarankan untuk %sReload Hak Istimewa (Privileges)%s sebelum melanjut.';
 $strFlushTable = 'Tutup tabel ("FLUSH")';
 $strFormEmpty = 'Kurang data dalam form !';
 $strFormat = 'Format';
@@ -160,7 +175,10 @@ $strFunction = 'Fungsi';
 $strGenBy = 'Diadakan oleh';
 $strGenTime = 'Waktu pembuatan';
 $strGeneralRelationFeat = 'Ciri-ciri dari General Relation';
+$strGlobalPrivileges = 'Hak Istimewa (Privileges) Global';
+$strGlobalValue = 'Nilai Global';
 $strGo = 'Go';
+$strGrantOption = 'Mengizinkan';
 $strGrants = 'Hak (Grants)';
 $strGzip = '"Dikompress dengan GZip"';
 
@@ -173,6 +191,7 @@ $strHomepageSourceforge = 'Halaman download phpMyAdmin di Sourceforge';
 $strHost = 'Host';
 $strHostEmpty = 'Nama Host harus diisi!';
 
+$strId = 'ID';
 $strIdxFulltext = 'Teks penuh';
 $strIfYouWish = 'Jika Anda hanya ingin memuat beberapa kolom dari tabel, gunakan tanda koma sebagai pemisah.';
 $strIgnore = 'Abaikan';
@@ -192,10 +211,15 @@ $strInsertedRows = 'Baris yang disisipkan:';
 $strInstructions = 'Petunjuk';
 $strInvalidName = '"%s" adalah kata khusus dan tidak dapat dipergunakan sebagai nama database,tabel atau field.';
 
+$strJustDelete = 'Tinggal hapuskan penguna dari tabel Hak Istimewa (Privileges).';
+$strJustDeleteDescr = 'Penguna yang &quot;dihapus&quot; tetap berhak untuk mengakses Server seperti biasa sampai Hak Istimewa (Privileges) di-reload.';
+
 $strKeepPass = 'Kata Sandi jangan dirubah';
 $strKeyname = 'Keyname';
 $strKill = 'Tutup';
 
+$strLaTeX = 'LaTeX';
+$strLandscape = 'Landscape';
 $strLength = 'Ukuran Panjang';
 $strLengthSet = 'Ukuran Panjang/Nilai*';
 $strLimitNumRows = 'Jumlah baris per halaman';
@@ -214,6 +238,7 @@ $strMissingBracket = 'Kekurangan tanda kurung';
 $strModifications = 'Modifikasi telah disimpan';
 $strModify = 'Ubah';
 $strModifyIndexTopic = 'Ubah indeks';
+$strMoreStatusVars = 'Variabel tentang status lebih lengkap';
 $strMoveTable = 'Pindahkan tabel ke (database<b>.</b>tabel):';
 $strMoveTableOK = 'Tabel %s telah dipindahkan ke %s.';
 $strMySQLCharset = 'Charset MySQL';
@@ -251,6 +276,7 @@ $strNotValidNumber = ' bukan nomor baris yang berlaku!';
 $strNull = 'Kosong';
 $strNumSearchResultsInTable = '%s Rekord dalam tabel <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Jumlah:</b> <i>%s</i> rekord';
+$strNumTables = 'Tabel';
 
 $strOK = 'Oke';
 $strOftenQuotation = 'Terlalu banyak tanda kutip. PILIHAN berarti hanya field dengan tipe char dan varchar yang ditutup oleh karakter "ditutup oleh" tersebut.';
@@ -260,21 +286,26 @@ $strOptionalControls = 'Pilihan. Mengontrol cara menulis dan membaca karakter kh
 $strOptionally = 'PILIHAN';
 $strOptions = 'Setingan';
 $strOr = 'Atau';
+$strOriginalInterface = 'Interface aslinya';
 $strOverhead = 'Kelebihan (Overhead)';
 
+$strPHP40203 = 'Anda memakai versi PHP 4.2.3 yang diketahui mengandung Bug yang serius dengan multi-byte strings (mbstring). Perhatikan PHP Bug Report 19404. Versi PHP ini tidak disarankan untuk dipakai dengan program phpMyAdmin.';
 $strPHPVersion = 'Versi PHP';
 $strPageNumber = 'Halaman no.:';
 $strPartialText = 'Teks yang disingkat';
 $strPassword = 'Kata Sandi';
+$strPasswordChanged = 'Sukses mengubah Kata Sandi untuk %s .';
 $strPasswordEmpty = 'Kata Sandi kosong!';
 $strPasswordNotSame = 'Kata Sandi tidak sama!';
 $strPdfDbSchema = 'Skema dari database "%s"  - Halaman %s';
 $strPdfInvalidPageNum = 'Nomor halaman PDF tidak ditentukan!';
 $strPdfInvalidTblName = 'Tabel "%s" tidak ditemukan!';
 $strPdfNoTables = 'Tabel tidak ditemukan';
+$strPerHour = 'dalam sejam';
 $strPhp = 'Ciptakan kode PHP';
 $strPmaDocumentation = 'Dokumentasi phpMyAdmin';
 $strPmaUriError = 'Directif <tt>$cfg[\'PmaAbsoluteUri\']</tt> WAJIB diset dalam file konfigurasi!';
+$strPortrait = 'Gambaran';
 $strPos1 = 'Awal';
 $strPrevious = 'Sebelumnya';
 $strPrimary = 'PRIMARY';
@@ -282,12 +313,38 @@ $strPrimaryKey = 'Primary key';
 $strPrimaryKeyHasBeenDropped = 'Primary key telah dihapus';
 $strPrimaryKeyName = 'Nama primary key mesti... PRIMARY!';
 $strPrimaryKeyWarning = '(Tanda nama "PRIMARY" <b>wajib</b> sebagai satu-satunya nama dan <b>hanya</b> sebagai Primary Key saja!)';
+$strPrint = 'Cetak';
 $strPrintView = 'Pandangan cetak';
-$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
-$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
-$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.';
+$strPrivDescAllPrivileges = 'Mengunakan seluruh Hak Istimewa (Privileges) selain GRANT.'
+$strPrivDescAlter = 'Mengizinkan untuk merubah struktur dari tabel yang ada.';
+$strPrivDescCreateDb = 'Mengizinkan untuk buat Database dan tabel yang baru.';
+$strPrivDescCreateTbl = 'Mengizinkan untuk buat tabel baru.';
+$strPrivDescCreateTmpTable = 'Mengizinkan untuk buat tabel yang bersifat temporer.';
+$strPrivDescDelete = 'Mengizinkan untuk hapus data.';
+$strPrivDescDropDb = 'Mengizinkan untuk drop Database dan tabel.';
+$strPrivDescDropTbl = 'Mengizinkan untuk drop tabel.';
+$strPrivDescExecute = 'Mengizinkan untuk berjalan dengan prosedur yang tersimpan; tidak ada efek dalam versi MySQL ini.';
+$strPrivDescFile = 'Mengizinkan untuk impor data dari file dan ekspor data kedalam file.';
+$strPrivDescGrant = 'Mengizinkan untuk tambah penguna dan Hak Istimewa (Privileges) tampah harus me-reload tabel Hak Istimewa tersebut.';
+$strPrivDescIndex = 'Mengizinkan untuk buat dan hapus Indeks.';
+$strPrivDescInsert = 'Mengizinkan untuk nambah dan ganti data.';
+$strPrivDescLockTables = 'Mengizinkan untuk kunci tabel dalam Thread yang berjalan.';
+$strPrivDescProcess3 = 'Mengizinkan untuk hentikan proses yang dimiliki penguna lain.';
+$strPrivDescProcess4 = 'Mengizinkan untuk tampilkan seluruh pencarian dalam daftar proses.';
+$strPrivDescReferences = 'Tidak ada efek dalam versi MySQL yang digunakan.';
+$strPrivDescReload = 'Mengizinkan untuk reload settingan dari server dan flush cache dari server.';
+$strPrivDescReplClient = 'Memberi hak kepada penguna untuk menanya lokasi dari slaves / masters.';
+$strPrivDescReplSlave = 'Digunakan untuk replikasi dari slaves.';
+$strPrivDescSelect = 'Mengizinkan untuk baca data.';
+$strPrivDescShowDb = 'Memberi akses ke seluruh daftar dari database.';
+$strPrivDescShutdown = 'Mengizinkan untuk shut-down server.';
+$strPrivDescSuper = 'Mengizinkan untuk tetap konek meskipun jumlah batas koneksi telah tercapai; diperlukan untuk hampir semua operasi administratif seperti setingan variabel global atau untuk mematikan sebuah Thread dari penguna lain.';
+$strPrivDescUpdate = 'Mengizinkan untuk ubah data.';
+$strPrivDescUsage = 'Tanpa Hak Istimewa (Privileges).';
 $strPrivileges = 'Hak Akses (Privilege)';
+$strPrivilegesReloaded = 'Sukses reload Hak Istimewa (Privileges).';
 $strProperties = 'Properties';
+$strProcesslist = 'Daftar proses';
 $strPutColNames = 'Letakkan nama Fields pada baris pertama';
 
 $strQBE = 'Cari berdasarkan data contoh';
@@ -295,22 +352,30 @@ $strQBEDel = 'Hapus';
 $strQBEIns = 'Sisipkan';
 $strQueryOnDb = 'Query SQL dalam database <b>%s</b>:';
 $strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
+$strQueryType = 'Tipe Pencarian';
 
 $strReType = 'Ketik ulang';
+$strReceived = 'Diterima';
 $strRecords = 'Rekord';
 $strReferentialIntegrity = 'Cek integriti referensial:';
 $strRelationNotWorking = 'Fasilitas tambahan untuk bekerja dengan tabel yang di-link di nonaktifkan. Untuk mengetahui soal klik %sdisini%s.';
 $strRelationView = 'Tampilan relasi';
+$strRelationalSchema = 'Skema Relational';
 $strReloadFailed = 'MySQL gagal di-reload.';
 $strReloadMySQL = 'Reload MySQL';
+$strReloadingThePrivileges = 'Reload Hak Istimewa (Privileges)';
 $strRememberReload = 'Ingatlah me-reload server.';
+$strRemoveSelectedUsers = 'Hapus penguna yang dipilih';
 $strRenameTable = 'Ubah nama tabel menjadi ';
 $strRenameTableOK = 'Nama tabel %s telah diubah menjadi %s';
 $strRepairTable = 'Perbaiki tabel';
 $strReplace = 'Ganti';
 $strReplaceTable = 'Ganti data tabel dengan file';
 $strReset = 'Reset';
+$strResourceLimits = 'Resource limits';
 $strRevoke = 'Cabut';
+$strRevokeAndDelete = 'Hapus penguna setelah cabut seluruh Hak Istimewa (Privileges) yang aktif dari penguna tersebut.';
+$strRevokeAndDeleteDescr = 'Penguna yang bersangkutan tetap memiliki hak untuk USAGE sampai seluruh Hak Istimewa (Privileges) di-reload kembali.';
 $strRevokeGrant = 'Cabut hak akses berstatus Grant';
 $strRevokeGrantMessage = 'Hak akses berstatus Grant untuk %s telah dicabut';
 $strRevokeMessage = 'Hak akses untuk %s telah dicabut';
@@ -354,15 +419,23 @@ $strSelectFields = 'Pilih fields (minimal satu):';
 $strSelectNumRows = 'dalam susunan pemeriksaan';
 $strSelectTables = 'Pilih tabel';
 $strSend = 'Kirim ke';
+$strSent = 'Dikirim';
 $strServer = 'Server %s';
 $strServerChoice = 'Pilihan Server';
+$strServerStatus = 'Informasi Runtime';
+$strServerStatusUptime = 'MySQL server ini sudah berjalan secara berturut selama %s. Server dijalankan pada %s.';
+$strServerTabProcesslist = 'Proses-Proses';
+$strServerTabVariables = 'Variabel';
 $strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
+$strServerVars = 'Variabel dan setingan dari server';
 $strServerVersion = 'Versi Server';
+$strSessionValue = 'Nilai dari Session';
 $strSetEnumVal = 'Jika tipe field sama dengan "enum" atau "set", silakan masukkan nilai dengan format: \'a\',\'b\',\'c\'...<br />Jika sebuah backslash ("\") atau satu tanda kutip ("\'") diperlukan, tanda tersebut perlu ditutupi dengan tanda backslash (seb. contoh \'\\\\xyz\' atau \'a\\\'b\').';
 $strShow = 'Tampilkan';
 $strShowAll = 'Tampilkan semua';
 $strShowColor = 'Tampilkan warna';
 $strShowCols = 'Tampilkan kolom';
+$strShowDatadictAs = 'Format dari Data Dictionary';
 $strShowGrid = 'Tampilkan garis';
 $strShowPHPInfo = 'Tampilkan informasi tentang PHP';
 $strShowTableDimension = 'Tampilkan ukuran dari tabel';
@@ -375,6 +448,7 @@ $strSort = 'Urutkan';
 $strSpaceUsage = 'Penggunaan ruang';
 $strSplitWordsWithSpace = 'Kata dipisahkan oleh karakter spasi (" ").';
 $strStatement = 'Pernyataan';
+$strStatus = 'Status';
 $strStrucCSV = 'Data CSV';
 $strStrucData = 'Struktur dan data';
 $strStrucDrop = 'Tambah \'Hapus tabel\'';
@@ -393,6 +467,7 @@ $strTableHasBeenDropped = 'Tabel %s telah dihapus';
 $strTableHasBeenEmptied = 'Tabel %s telah dikosongkan';
 $strTableHasBeenFlushed = 'Tabel %s telah dibuangkan';
 $strTableMaintenance = 'Pemeliharaan tabel';
+$strTableOfContents = 'Daftar Isi';
 $strTableStructure = 'Struktur dari tabel';
 $strTableType = 'Jenis tabel';
 $strTables = 'tabel %s';
@@ -400,7 +475,11 @@ $strTextAreaLength = ' Dikarenakan panjangnya,<br /> field ini tidak dapat di-ed
 $strTheContent = 'Isi file telah disisipkan.';
 $strTheContents = 'Isi file telah digantikan dengan isi tabel yang dipilih dengan primary atau unique key.';
 $strTheTerminator = 'Pemisah field.';
+$strThreadSuccessfullyKilled = 'Sukses hentikan Thread %s.';
+$strTime = 'Waktu';
 $strTotal = 'jumlah';
+$strTotalUC = 'Jumlah';
+$strTraffic = 'Traffic';
 $strType = 'Jenis';
 
 $strUncheckAll = 'Uncheck semua';
@@ -416,11 +495,14 @@ $strUseTables = 'Gunakan tabel';
 $strUser = 'Pengguna';
 $strUserEmpty = 'Kata pengguna masih kosong!';
 $strUserName = 'Nama pengguna';
+$strUserOverview = 'Pandangan Umum Penguna';
 $strUsers = 'Pengguna-Pengguna';
+$strUsersDeleted = 'Penguna yang dipilih telah dihapus dengan sukses.';
 
 $strValidateSQL = 'Mengesahkan (validate) SQL';
 $strValidatorError = 'Pengesahan SQL tidak dapat disahkan. Mohon periksa kembali ekstension PHP yang diperlukan seperti tercatat dalam %sdocumentation%s.';
 $strValue = 'Nilai';
+$strVar = 'Variabel';
 $strViewDump = 'Tampilkan Dump (Skema) dari tabel';
 $strViewDumpDB = 'Tampilkan Dump (Skema) dari database';
 
@@ -432,113 +514,13 @@ $strWrongUser = 'Nama Pengguna/Kata Sandi salah. Akses ditolak.';
 
 $strYes = 'Ya';
 
+$strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) akan menghapus limit yang telah ditentukan.';
 $strZip = '"Dikompress dengan Zip"';
+
 // To translate
-$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
-
-$strAbortedClients = 'Aborted'; //to translate
-$strAdministration = 'Administration'; //to translate
-
-$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
-
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
-$strCommand = 'Command'; //to translate
-$strCompression = 'Compression'; //to translate
-$strConnections = 'Connections'; //to translate
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-
-$strDataDict = 'Data Dictionary';  //to translate
-$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
-$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
-$strDeleting = 'Deleting %s'; //to translate
-
-$strFailedAttempts = 'Failed attempts'; //to translate
-$strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
-
-$strGlobalPrivileges = 'Global privileges'; //to translate
-$strGlobalValue = 'Global value'; //to translate
-$strGrantOption = 'Grant'; //to translate
-
-$strId = 'ID'; //to translate
-
-$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
-$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
-
-$strLaTeX = 'LaTeX';  //to translate
-$strLandscape = 'Landscape';  //to translate
-
-$strMoreStatusVars = 'More status variables'; //to translate
-
-$strNumTables = 'Tables'; //to translate
-
-$strOriginalInterface = 'original interface';  //to translate
-
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
-$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
-$strPerHour = 'per hour'; //to translate
-$strPortrait = 'Portrait';  //to translate
-$strPrint = 'Print';  //to translate
-$strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
-$strPrivDescAlter = 'Allows altering the structure of existing tables.'; //to translate
-$strPrivDescCreateDb = 'Allows creating new databases and tables.'; //to translate
-$strPrivDescCreateTbl = 'Allows creating new tables.'; //to translate
-$strPrivDescCreateTmpTable = 'Allows creating temporary tables.'; //to translate
-$strPrivDescDelete = 'Allows deleting data.'; //to translate
-$strPrivDescDropDb = 'Allows dropping databases and tables.'; //to translate
-$strPrivDescDropTbl = 'Allows dropping tables.'; //to translate
-$strPrivDescExecute = 'Allows running stored procedures; Has no effect in this MySQL version.'; //to translate
-$strPrivDescFile = 'Allows importing data from and exporting data into files.'; //to translate
-$strPrivDescGrant = 'Allows adding users and privileges without reloading the privilege tables.'; //to translate
-$strPrivDescIndex = 'Allows creating and dropping indexes.'; //to translate
-$strPrivDescInsert = 'Allows inserting and replacing data.'; //to translate
-$strPrivDescLockTables = 'Allows locking tables for the current thread.'; //to translate
-$strPrivDescProcess3 = 'Allows killing processes of other users.'; //to translate
-$strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.'; //to translate
-$strPrivDescReferences = 'Has no effect in this MySQL version.'; //to translate
-$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
-$strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
-$strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
-$strPrivDescSelect = 'Allows reading data.'; //to translate
-$strPrivDescShowDb = 'Gives access to the complete list of databases.'; //to translate
-$strPrivDescShutdown = 'Allows shutting down the server.'; //to translate
-$strPrivDescSuper = 'Allows connectiong, even if maximum number of connections is reached; Required for most administrative operations like setting global variables or killing threads of other users.'; //to translate
-$strPrivDescUpdate = 'Allows changing data.'; //to translate
-$strPrivDescUsage = 'No privileges.'; //to translate
-$strPrivilegesReloaded = 'The privileges were reloaded successfully.'; //to translate
-$strProcesslist = 'Process list'; //to translate
-
-$strQueryType = 'Query type'; //to translate
-
-$strReceived = 'Received'; //to translate
-$strRelationalSchema = 'Relational schema';  //to translate
-$strReloadingThePrivileges = 'Reloading the privileges'; //to translate
-$strRemoveSelectedUsers = 'Remove selected users'; //to translate
-$strResourceLimits = 'Resource limits'; //to translate
-$strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
-$strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
-
-$strSent = 'Sent'; //to translate
-$strServerStatus = 'Runtime Information'; //to translate
-$strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
-$strServerTabProcesslist = 'Processes'; //to translate
-$strServerTabVariables = 'Variables'; //to translate
-$strServerVars = 'Server variables and settings'; //to translate
-$strSessionValue = 'Session value'; //to translate
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-$strStatus = 'Status'; //to translate
-
-$strTableOfContents = 'Table of contents';  //to translate
-$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
-$strTime = 'Time'; //to translate
-$strTotalUC = 'Total'; //to translate
-$strTraffic = 'Traffic'; //to translate
-
-$strUserOverview = 'User overview'; //to translate
-$strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
-
-$strVar = 'Variable'; //to translate
-
-$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
+$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.'; //to translate
+$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.'; //to translate
+$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.'; //to translate
 
 $strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate
 $strAddPrivilegesOnTbl = 'Add privileges on the following table'; //to translate

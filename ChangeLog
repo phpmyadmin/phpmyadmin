@@ -10,13 +10,21 @@ $Source$
 
 2003-01-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: Sorting user list.
+    * translators.html: Typo.
+    * lang/catalan-*.inc.php3: Updates, thanks to Xavier Navarro (xavin).
+    * lang/indonesian-*.inc.php3: Updates, thanks to Rachim Tamsjadi (tamsy).
+    * lang/italian-*.inc.php3: Updates, thanks to Pietro Danesi (danone).
+    * lang/lithuanian-*.inc.php3: Updates, thanks to Vilius Zigmantas (viliusz).
+    * lang/norwegian-*.inc.php3: Updates, thanks to
+      Sven-Erik Andersen (sven-erik).
+    * lang/spanish-*.inc.php3: Updates, thanks to Dr. med. Daniel Hinostroza C.
 
 2003-01-07 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: clarification about cookie/http modes
     * lang/dutch update, thanks to Ivo Teel
     * lang/japanese: update, thanks to Yukihiro Kawada
     * lang/ukrainian: remove duplicate messages
-    
+
 2003-01-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3:
       - Interface cosmetic;

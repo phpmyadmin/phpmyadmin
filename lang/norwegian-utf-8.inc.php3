@@ -111,33 +111,36 @@ $strCreatePdfFeat = 'Lag PDF-dokumenter';
 $strCriteria = 'Kriterier';
 
 $strData = 'Data';
-$strDataDict = 'Dataordbok';
-$strDataOnly = 'Bare data';
 $strDatabase = 'Database ';
 $strDatabaseHasBeenDropped = 'Databasen %s har blitt slettet';
-$strDatabaseWildcard = 'Database (asterisk er tillatt):';
 $strDatabases = 'databaser';
 $strDatabasesStats = 'Statistikk for databaser';
+$strDatabaseWildcard = 'Database (jokertegn er tillatt):';
+$strDataDict = 'Dataordbok';
+$strDataOnly = 'Bare data';
 $strDefault = 'Standard';
 $strDelete = 'Slett';
-$strDeleteFailed = 'Slettingen mislyktes!';
-$strDeleteUserMessage = 'Du har slettet brukeren %s.';
+$strDeleteAndFlush = 'Slett brukeren og oppfrisk privilegiene etterpå.';
+$strDeleteAndFlushDescr = 'Dette er den beste måten, men oppfrisking av privilegiene kan ta litt tid.';
 $strDeleted = 'Raden er slettet';
 $strDeletedRows = 'Slettede rader:';
+$strDeleteFailed = 'Slettingen mislyktes!';
+$strDeleteUserMessage = 'Du har slettet brukeren %s.';
+$strDeleting = 'Sletter %s';
 $strDescending = 'Synkende';
 $strDisabled = 'Avslått';
 $strDisplay = 'Vis';
 $strDisplayFeat = 'Vis egenskaper';
 $strDisplayOrder = 'Visningsrekkefølge:';
 $strDisplayPDF = 'Vis PDF-skjema';
-$strDoAQuery = 'Utfør en "query by example" (wildcard: "%")';
-$strDoYouReally = 'Vil du virkelig ';
+$strDoAQuery = 'Utfør en "spørring ved eksempel" (jokertegn: "%")';
 $strDocu = 'Dokumentasjon';
+$strDoYouReally = 'Vil du virkelig ';
 $strDrop = 'Slett';
 $strDropDB = 'Slett databasen %s';
 $strDropTable = 'Slett tabell';
-$strDumpXRows = 'Dumpe %s rader fra rad %s.';
 $strDumpingData = 'Dataark for tabell';
+$strDumpXRows = 'Dumpe %s rader fra rad %s.';
 $strDynamic = 'dynamisk';
 
 $strEdit = 'Endre';
@@ -213,6 +216,9 @@ $strInsertedRows = 'Innsatte rader:';
 $strInstructions = 'Instruksjoner';
 $strInvalidName = '"%s" er ett reservert ord, du kan ikke bruke det som et database-, tabell- eller feltnavn.';
 
+$strJustDelete = 'Bare slett brukerne fra privilegium tabellene.';
+$strJustDeleteDescr = 'Den &quot;slettede&quot; brukeren vil fortsatt kunne bruke serveren som normalt inntill privilegiene er oppfrisket.';
+
 $strKeepPass = 'Ikke endre passordet';
 $strKeyname = 'Nøkkel';
 $strKill = 'Avslutt';
@@ -285,6 +291,7 @@ $strOptionalControls = 'Valgfritt. Angir hvordan spesialtegn skrives eller leses
 $strOptionally = 'Valgfritt';
 $strOptions = 'Innstillinger';
 $strOr = 'Eller';
+$strOriginalInterface = 'originalt brukergrensesnitt';
 $strOverhead = 'Overheng';
 
 $strPHP40203 = 'Du bruker PHP 4.2.3, som har en alvorlig feil med flerbyte-strenger (mbstring). Se PHP-feilrapport 19404. Denne versjonen av PHP er ikke anbefalt for bruk med phpMyAdmin.';
@@ -292,6 +299,7 @@ $strPHPVersion = 'PHP-Versjon';
 $strPageNumber = 'Sidenummer:';
 $strPartialText = 'Delvis tekst';
 $strPassword = 'Passord';
+$strPasswordChanged = 'Passordet til %s er endret.';
 $strPasswordEmpty = 'Passordet er blankt!';
 $strPasswordNotSame = 'Passordene er ikke like!';
 $strPdfDbSchema = 'Skjema for "%s"-databasen - Side %s';
@@ -362,8 +370,10 @@ $strRelationNotWorking = 'Tilleggsfunksjonene for å kunne jobbe med koblede tab
 $strRelationView = 'Relasjonsvisning';
 $strRelationalSchema = 'Relasjonsskjema';
 $strReloadFailed = 'Omstart av MySQL feilet.';
+$strReloadingThePrivileges = 'Oppfrisker privilegiene';
 $strReloadMySQL = 'Omstart av MySQL';
 $strRememberReload = 'Husk å restarte tjeneren.';
+$strRemoveSelectedUsers = 'Fjern valgte brukere';
 $strRenameTable = 'Endre tabellens navn';
 $strRenameTableOK = 'Tabellen %s har fått nytt navn %s';
 $strRepairTable = 'Reparer tabell';
@@ -372,6 +382,8 @@ $strReplaceTable = 'Erstatt tabell med filen';
 $strReset = 'Tøm skjema';
 $strResourceLimits = 'Ressursbegrensninger';
 $strRevoke = 'Tilbakekall';
+$strRevokeAndDelete = 'Tilbakekall alle aktive privilegier fra brukerne og slett dem etterpå.';
+$strRevokeAndDeleteDescr = 'Inntill privilegiene er oppfrisket vil brukerne fortsatt ha USAGE privilegiet.';
 $strRevokeGrant = 'Tilbakekall Grant';
 $strRevokeGrantMessage = 'Du har tilbakekalt Grant-privilegiet til %s';
 $strRevokeMessage = 'Du har fjernet privilegiene til %s';
@@ -388,6 +400,7 @@ $strRunQuery = 'Kjør spørring';
 $strRunSQLQuery = 'Kjør SQL spørring/spørringer mot databasen %s';
 $strRunning = 'som kjører på %s';
 
+
 $strSQL = 'SQL';
 $strSQLParserBugMessage = 'Det er en mulighet for at du har funnet en feil i SQL-parseren. Vennligst kontroller din spørring nøye og kontroller at anførselstegn er korrekte og matsjer hverandre. En annen mulig feilårsak kan være at du overfører en fil med binærkode som ikke ligger innenfor anførselstegn. Du kan også teste din spørring i MYSQLs kommandolinjegrensesnitt. Feilmeldingen fra MySQL-tjeneren nedenfor, hvis det var en, kan også hjelpe deg med å analysere problemet. Hvis du fortsatt har problemer eller parseren feiler hvor kommandolinjegrensesnittet lyktes, vennligst reduser din SQL-spørring til den spørringen som forårsaker problemet og send en feilrapport med datastykket i CUT-seksjonen nedenfor:';
 $strSQLParserUserError = 'Det ser ut til å være en feil i din SQL-spørring. En eventuell feilmelding fra MySQL-tjeneren er skrevet ut nedenfor, kan kanskje hjelpe deg med å finne feilen.';
@@ -401,7 +414,7 @@ $strScaleFactorSmall = 'Skaleringsfaktoren er for liten til å romme alt på en 
 $strSearch = 'Søk';
 $strSearchFormTitle = 'Søk i database';
 $strSearchInTables = 'I tabell(ene):';
-$strSearchNeedle = 'Ord eller verdi(er) å søke etter (wildcard: "%"):';
+$strSearchNeedle = 'Ord eller verdi(er) å søke etter (jokertegn: "%"):';
 $strSearchOption1 = 'minst ett av ordene';
 $strSearchOption2 = 'alle ordene';
 $strSearchOption3 = 'med den nøyaktige setningen';
@@ -431,6 +444,7 @@ $strShow = 'Vis';
 $strShowAll = 'Vis alle';
 $strShowColor = 'Vis farger';
 $strShowCols = 'Vis kolonner';
+$strShowDatadictAs = 'Data Ordbok Format';
 $strShowGrid = 'Vis rutenett';
 $strShowPHPInfo = 'Vis PHP-informasjon';
 $strShowTableDimension = 'Vis tabelldimensjoner';
@@ -492,6 +506,7 @@ $strUserEmpty = 'Brukernavnet er tomt!';
 $strUserName = 'Brukernavn';
 $strUserOverview = 'Brukeroversikt';
 $strUsers = 'Brukere';
+$strUsersDeleted = 'De valgte brukerne har blitt slettet.';
 
 $strValidateSQL = 'Test SQL';
 $strValidatorError = 'SQL-kontrolleren kunne ikke startes. Vennligst sjekk at du har installert de nødvendige php-tilleggene som beskrevet i %sdokumentasjonen%s.';
@@ -510,28 +525,8 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjerner begrensningen.';
 $strZip = 'Komprimert (zip)';
+
 // To translate
-
-$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
-$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
-$strDeleting = 'Deleting %s'; //to translate
-
-$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
-$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
-
-$strOriginalInterface = 'original interface';  //to translate
-
-$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
-
-$strReloadingThePrivileges = 'Reloading the privileges'; //to translate
-$strRemoveSelectedUsers = 'Remove selected users'; //to translate
-$strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
-$strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
-
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-
-$strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
-
 $strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate
 $strAddPrivilegesOnTbl = 'Add privileges on the following table'; //to translate
 $strColumnPrivileges = 'Column-specific privileges'; //to translate
@@ -543,5 +538,4 @@ $strThisHost = 'This Host'; //to translate
 $strUserNotFound = 'The selected user was not found in the privilege table.'; //to translate
 $strUserAlreadyExists = 'The user %s already exists!'; //to translate
 $strUseTextField = 'Use text field'; //to translate
-
 ?>
