@@ -459,18 +459,17 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         } // end if...elseif...else
     } // end else if
     else {
-
-// for char or varchar, respect the maximum length (M);
-// for other types (int or float), the length is not a limit on the values
-// that can be entered, so let's be generous (20)
-// (we could also use the real limits for each numeric type)
-         if ($is_char) {
-             $fieldsize = (($len > 40) ? 40 : $len);
-             $maxlength = $len;
-         }
-         else {
-             $fieldsize = $maxlength = 20;
-         } // end if 
+        // For char or varchar, respect the maximum length (M); for other
+        // types (int or float), the length is not a limit on the values that
+        // can be entered, so let's be generous (20) (we could also use the
+        // real limits for each numeric type)
+        if ($is_char) {
+            $fieldsize = (($len > 40) ? 40 : $len);
+            $maxlength = $len;
+        }
+        else {
+            $fieldsize = $maxlength = 20;
+        } // end if... else...
         echo "\n";
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
