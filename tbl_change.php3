@@ -477,9 +477,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         }
     }
     else if ($type == 'enum') {
-        $enum        = str_replace('enum(', '', $row_table_def['Type']);
-        $enum        = ereg_replace('\\)$', '', $enum);
-        $enum        = explode('\',\'', substr($enum, 1, -1));
+        $enum        = PMA_getEnumSetOptions($row_table_def['Type']);
         $enum_cnt    = count($enum);
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
@@ -538,9 +536,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         echo "\n";
     }
     else if ($type == 'set') {
-        $set = str_replace('set(', '', $row_table_def['Type']);
-        $set = ereg_replace('\)$', '', $set);
-        $set = explode(',', $set);
+        $set = PMA_getEnumSetOptions($row_table_def['Type']);
 
         if (isset($vset)) {
             unset($vset);
@@ -548,7 +544,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         for ($vals = explode(',', $data); list($t, $k) = each($vals);) {
             $vset[$k] = 1;
         }
-        $size = min(4, count($set));
+        $countset = count($set);
+        $size = min(4, $countset);
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
@@ -557,17 +554,13 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_3">
         <?php
         echo "\n";
-        $countset = count($set);
-        for ($j = 0; $j < $countset;$j++) {
-            $subset = substr($set[$j], 1, -1);
-            // Removes automatic MySQL escape format
-            $subset = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $subset));
+        for ($j = 0; $j < $countset; $j++) {
             echo '                ';
-            echo '<option value="'. htmlspecialchars($subset) . '"';
-            if (isset($vset[$subset]) && $vset[$subset]) {
+            echo '<option value="'. htmlspecialchars($set[$j]) . '"';
+            if (isset($vset[$set[$j]]) && $vset[$set[$j]]) {
                 echo ' selected="selected"';
             }
-            echo '>' . htmlspecialchars($subset) . '</option>' . "\n";
+            echo '>' . htmlspecialchars($set[$j]) . '</option>' . "\n";
         } // end for
         ?>
             </select>

@@ -240,7 +240,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         || (PMA_PHP_INT_VERSION >= 40005 && @ini_get('zlib.output_compression'))) {
         $cfg['OBGzip'] = FALSE;
     }
-    
+
     // disable output-buffering (if set to 'auto') for IE6, else enable it.
     if (strtolower($cfg['OBGzip']) == 'auto') {
         if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER < 7) {
@@ -1581,6 +1581,28 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
             return array($return_value, $unit);
         } // end of the 'PMA_formatByteDown' function
+        
+        
+        /**
+         * Extracts ENUM / SET options from a type definition string
+         *
+         * @param   string   The column type definition
+         *
+         * @return  array    The options or
+         *          boolean  FALSE in case of an error.
+         *
+         * @author  rabus
+         */
+        function PMA_getEnumSetOptions($type_def) {
+            $open = strpos($type_def, '(');
+            $close = strpos($type_def, ')');
+            if (!$open || !$close) {
+                return FALSE;
+            }
+            $options = substr($type_def, $open + 2, $close - $open - 3);
+            $options = explode('\',\'', $options);
+            return $options;
+        } // end of the 'PMA_getEnumSetOptions' function
 
 
         /**
