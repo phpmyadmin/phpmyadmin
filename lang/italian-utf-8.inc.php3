@@ -198,6 +198,8 @@ $strEndCut = 'FINE CUT';
 $strEndRaw = 'FINE RAW';
 $strEnglishPrivileges = 'Nota: i nomi dei privilegi di MySQL sono in Inglese';
 $strError = 'Errore';
+$strExcelOptions = 'Opzioni di Excel';
+$strExecuteBookmarked = 'Esegue la query dalle preferite';
 $strExplain = 'Spiega SQL';
 $strExport = 'Esporta';
 $strExportToXML = 'Esporta in formato XML';
@@ -289,6 +291,8 @@ $strLines = 'Record';
 $strLinesTerminatedBy = 'Linee terminate da';
 $strLinkNotFound = 'Link non trovato';
 $strLinksTo = 'Collegamenti a';
+$strLoadExplanation = 'Il metodo migliore è selezionato di default, ma lo potete cambiare se fallisce.';
+$strLoadMethod = 'Metodo di CARICAMENTO';
 $strLocalhost = 'Locale';
 $strLocationTextfile = 'Percorso del file';
 $strLogPassword = 'Password:';
@@ -373,6 +377,7 @@ $strOverwriteExisting = 'Sovrascrivi file(s) esistente/i';
 $strPHP40203 = 'Si sta utilizzando PHP 4.2.3, che presenta un serio bug con le stringhe multi-byte (mbstring). Vedi report PHP 19404. Questa versione di PHP non è raccomandata per l\'utilizzo con phpMyAdmin.';
 $strPHPVersion = 'Versione PHP';
 $strPageNumber = 'Numero pagina:';
+$strPaperSize = 'Dimensioni carta';
 $strPartialText = 'Testo parziale';
 $strPassword = 'Password';
 $strPasswordChanged = 'La password per l\'utente %s è cambiata con successo.';
@@ -444,6 +449,7 @@ $strQuerySQLHistory = 'Storico dell\'SQL';
 $strQueryStatistics = '<b>Statistiche delle Query</b>: Dal suo avvio, sono state inviate al server %s queries.';
 $strQueryTime = 'La query ha impiegato %01.4f sec';
 $strQueryType = 'Tipo di Query';
+$strQueryWindowLock = 'Non sovrascrivere questa query da fuori della finestra';
 
 $strReType = 'Reinserisci';
 $strReceived = 'Ricevuti';
@@ -462,6 +468,7 @@ $strRenameTable = 'Rinomina la tabella in';
 $strRenameTableOK = 'La tabella %s è stata rinominata %s';
 $strRepairTable = 'Ripara tabella';
 $strReplace = 'Sostituisci';
+$strReplaceNULLBy = 'Sostituisci NULL con';
 $strReplaceTable = 'Sostituisci i dati della tabella col file';
 $strReset = 'Riavvia';
 $strResourceLimits = 'Limiti di risorse';
@@ -642,17 +649,5 @@ $strYes = ' Si ';
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
-
-$strExcelOptions = 'Opzioni di Excel';  //to translate
-$strExecuteBookmarked = 'Esegue la query dalle preferite';  //to translate
-
-$strLoadExplanation = 'Il metodo migliore è selezionato di default, ma lo potete cambiare se fallisce.';  //to translate
-$strLoadMethod = 'Metodo di CARICAMENTO';  //to translate
-
-$strPaperSize = 'Dimensioni carta';  //to translate
-
-$strQueryWindowLock = 'Non sovrascrivere questa query da fuori della finestra';  //to translate
-
-$strReplaceNULLBy = 'Sostituisci NULL con';  //to translate
 
 ?>
