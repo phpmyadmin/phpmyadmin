@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Does the common work
  */
@@ -1347,11 +1346,27 @@ if (empty($adduser) && empty($checkprivs)) {
     if (PMA_MYSQL_INT_VERSION >= 40000) {
         // Starting with MySQL 4.0.0, we may use UNION SELECTs and this makes
         // the job much easier here!
-        //$sql_query = '(SELECT `User`, `Host`, `Db`, `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `db` WHERE ' . PMA_charsetIntroducerCollate($checkprivs) . ' LIKE `Db` AND NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" AND `Grant_priv` = "N" AND `References_priv` = "N")) UNION (SELECT `User`, `Host`, "*" AS "Db", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `user` WHERE NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" AND `Grant_priv` = "N" AND `References_priv` = "N")) ORDER BY `User` ASC, `Host` ASC, `Db` ASC;';
-        $no = PMA_charsetIntroducerCollate('N'); 
-        // FIXME: illegal mix of collations for operation UNION
-        $sql_query = '(SELECT `User`, `Host`, `Db`, `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `db` WHERE `Db` LIKE ' . PMA_charsetIntroducerCollate($checkprivs) . ' AND NOT (`Select_priv` = ' . $no . ' AND `Insert_priv` = ' . $no . ' AND `Update_priv` = ' . $no . ' AND `Delete_priv` = ' . $no . ' AND `Create_priv` = ' . $no . ' AND `Drop_priv` = ' . $no . ' AND `Grant_priv` = ' . $no . ' AND `References_priv` = ' . $no . ')) UNION (SELECT `User`, `Host`, "*" AS "Db", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `user` WHERE NOT (`Select_priv` = ' . $no . ' AND `Insert_priv` = ' . $no . ' AND `Update_priv` = ' . $no . ' AND `Delete_priv` = ' . $no . ' AND `Create_priv` = ' . $no . ' AND `Drop_priv` = ' . $no . ' AND `Grant_priv` = ' . $no . ' AND `References_priv` = ' . $no . ')) ORDER BY `User` ASC, `Host` ASC, `Db` ASC;';
+
+        function PMA_convert_using($string, $mode='variable') {
+
+            if (PMA_MYSQL_INT_VERSION >= 40100) {
+                list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
+                $converted_string = "CONVERT(" . ($mode=='constant'?"'":"") . $string . ($mode=='constant'?"'":"") . " USING " . $conn_charset . ")";
+            } else {
+                $converted_string = ($mode=='constant'?"'":"") . $string . ($mode=='constant'?"'":"");
+            }
+            return $converted_string;
+        } // end function
+
+        $no = PMA_convert_using('N', 'constant');
+
+        $list_of_privileges = PMA_convert_using('Select_priv') . ' AS Select_priv, ' . PMA_convert_using('Insert_priv') . ' AS Insert_priv, ' . PMA_convert_using('Update_priv') . ' AS Update_priv, ' . PMA_convert_using('Delete_priv') . ' AS Delete_priv, ' . PMA_convert_using('Create_priv') . ' AS Create_priv, ' . PMA_convert_using('Drop_priv') . ' AS Drop_priv, ' . PMA_convert_using('Grant_priv') . ' AS Grant_priv, '. PMA_convert_using('References_priv') . ' AS References_priv'; 
+
+        $list_of_compared_privileges = PMA_convert_using('Select_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Insert_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Update_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Delete_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Create_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Drop_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Grant_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('References_priv') . ' = ' . $no; 
+
+        $sql_query = '(SELECT ' . PMA_convert_using('User') . ' AS User,' . PMA_convert_using('Host') . ' AS Host,' . PMA_convert_using('Db') . ' AS Db,' . $list_of_privileges . ' FROM `db` WHERE ' . PMA_convert_using($checkprivs, 'constant') . ' LIKE ' .  PMA_convert_using('Db') . ' AND NOT (' . $list_of_compared_privileges. ')) UNION (SELECT ' . PMA_convert_using('User') . ' AS User, ' . PMA_convert_using('Host') . ' AS Host, ' . PMA_convert_using('*', 'constant') . ' AS Db, ' . $list_of_privileges . ' FROM `user` WHERE NOT (' . $list_of_compared_privileges . ')) ORDER BY User ASC, Host ASC, Db ASC;';
         $res = PMA_DBI_query($sql_query);
+
         $row = PMA_DBI_fetch_assoc($res);
         if ($row) {
             $found = TRUE;

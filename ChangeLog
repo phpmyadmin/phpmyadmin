@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: bug 1007870, illegal mix of collations
+      for operation UNION
+
 2004-08-28 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php, tbl_properties.inc.php,
       libraries/sqlparser.data.php, /database_interface.lib.php:
