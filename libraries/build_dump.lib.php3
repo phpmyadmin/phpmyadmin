@@ -71,6 +71,22 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                 // Fix for case problems with winwin, thanks to
                 // Pawe³ Szczepañski <pauluz at users.sourceforge.net>
                 $pos           = strpos($tmpres[1], ' (');
+
+                // Fix a problem with older versions of mysql
+                // Find the first opening parenthesys, i.e. that after the name
+                // of the table
+                $pos2          = strpos($tmpres[1], '(');
+                // Old mysql did not insert a space after table name
+                // in query "show create table ..."!
+                if ($pos2 != $pos + 1)
+                {
+                    // This is the real position of the first character after
+                    // the name of the table
+                    $pos = $pos2;
+                    // Old mysql did not even put newlines and indentation...
+                    $tmpres[1] = str_replace(",", ",\n     ", $tmpres[1]);
+                }
+
                 $tmpres[1]     = substr($tmpres[1], 0, 13)
                                . (($use_backquotes) ? PMA_backquote($tmpres[0]) : $tmpres[0])
                                . substr($tmpres[1], $pos);
@@ -78,7 +94,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             }
             mysql_free_result($result);
             return $schema_create;
-        } // end if MySQL >= 3.23.20
+        } // end if MySQL >= 3.23.21
 
         // For MySQL < 3.23.20
         $schema_create .= 'CREATE TABLE ' . PMA_htmlFormat(PMA_backquote($table), $use_backquotes) . ' (' . $crlf;

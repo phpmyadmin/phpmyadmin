@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/build_dump.lib.php3: fix for old MySQL, thanks to
+      Flavio Poletti (flavio at polettix.it)
+
 2002-11-08 Robin Johnson  <robbat2@users.sourceforge.net>
     * lib/sqlparser.data.php3: Bug #639291 fixed
 
