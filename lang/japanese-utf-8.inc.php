@@ -17,11 +17,11 @@ $number_decimal_separator = '.';
 $byteUnits = array('バイト', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
 $day_of_week = array('日', '月', '火', '水', '木', '金', '土');
-$month = array('1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月');
+$month = array('1 月','2 月','3 月','4 月','5 月','6 月','7 月','8 月','9 月','10 月','11 月','12 月');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%Y 年 %B %d 日 %H:%M';
-$timespanfmt = '%s 日, %s 時, %s 分 %s 秒';
+$timespanfmt = '%s 日 %s 時間 %s 分 %s 秒';
 
 $strAPrimaryKey = '主キーが%sに追加されました。';
 $strAbortedClients = '中断';
@@ -49,9 +49,10 @@ $strAddedColumnComment = 'カラムのコメント追加されました。';
 $strAddedColumnRelation = 'カラムのリレーションが追加されました。';
 $strAdministration = '管理';
 $strAffectedRows = '影響された行数:';
-$strAfter = '後に %s';
+$strAfter = '指定カラムの後に %s';
 $strAfterInsertBack = '戻る';
 $strAfterInsertNewInsert = '新レコードの追加';
+$strAfterInsertNext = '次の行を編集する';
 $strAfterInsertSame = 'このページに戻る';
 $strAll = '全部';
 $strAllTableSameWidth = '全てのテーブルを同じ幅で表示しますか?';
@@ -62,11 +63,12 @@ $strAnd = 'AND';
 $strAny = '全て';
 $strAnyHost = '全てのホスト';
 $strAnyUser = '全てのユーザー';
+$strApproximateCount = '近似かもしれません。FAQ 3.11 を参照してください。';
 $strArabic = 'アラビア語';
 $strArmenian = 'アルメニア語';
 $strAscending = '昇順';
-$strAtBeginningOfTable = 'テーブルの最初';
-$strAtEndOfTable = 'テーブルの最後';
+$strAtBeginningOfTable = 'テーブルの先頭';
+$strAtEndOfTable = 'テーブルの末尾';
 $strAttr = '表示';
 $strAutodetect = '自動検知';
 $strAutomaticLayout = '自動レイアウト';
@@ -133,6 +135,8 @@ $strColumnNames = '列(コラム)名';
 $strColumnPrivileges = 'コラム特定 特権';
 $strCommand = 'コマンド';
 $strComments = 'コメント';
+$strCommentsForTable = 'COMMENTS FOR TABLE';
+$strCompatibleHashing = 'MySQL&nbsp;4.0 互換';
 $strCompleteInserts = '完全な INSERT 文を作成する';
 $strCompression = '圧縮';
 $strConfigFileError = 'phpMyAdmin がコンフィグレーションファイルを読み込むことが出来ません! <br />文法エラーが起きたか、ファイルが見つかりません。<br />下のリンクからコンフィグレーションファイルを直接読み込んで、php のエラーメッセージを確認して下さい。 大抵の場合、区切り文字やセミコロンを忘れています。<br />もし空白のページが現れたら全てうまく行っています。';
@@ -142,6 +146,7 @@ $strConnections = '接続';
 $strConstraintsForDumped = 'ダンプ済みテーブルの制限';
 $strConstraintsForTable = 'テーブルの制限';
 $strCookiesRequired = 'ここから先はクッキーが許可されている必要があります。';
+$strCopyDatabaseOK = 'データベース %s は %s にコピーされました。';
 $strCopyTable = 'テーブルを(database<b>.</b>table)にコピーする:';
 $strCopyTableOK = '%s テーブルを %s にコピーしました。';
 $strCopyTableSameNames = '同じテーブルにコピーできません!';
@@ -161,6 +166,8 @@ $strCzech = 'チェコ語';
 $strCzechSlovak = 'チェコのスロバキア語';
 
 $strDBComment = 'データベースコメント: ';
+$strDBCopy = 'データベースをコピー コピー先:';
+$strDBCopy = '下記へデータベースをコピー';
 $strDBGContext = 'コンテキスト';
 $strDBGContextID = 'コンテキストID';
 $strDBGHits = 'ヒット';
@@ -214,7 +221,7 @@ $strDrop = '削除';
 $strDropSelectedDatabases = '選択されたデータベースの削除';
 $strDropUsersDb = 'ユーザーと同じ名前を持つデータベースを削除する';
 $strDumpSaved = 'ダンプをファイル %s に保存しました。';
-$strDumpXRows = '%s 列をダンプ。始める列は %s です。';
+$strDumpXRows = '%s 列をダンプ。開始列は %s です。';
 $strDumpingData = 'テーブルのダンプデータ';
 $strDynamic = 'ダイナミック';
 
@@ -233,6 +240,8 @@ $strEndRaw = 'RAW 終了';
 $strEnglish = '英語';
 $strEnglishPrivileges = ' 注意: MySQLの特権の名前は英語で表示しています。';
 $strError = 'エラー';
+$strEscapeWildcards = 'ワイルドカード「_」および「%」はそれらを文字通りに使用するために「\」でエスケープ(回避)するべきです。';
+$strEscapeWildcards = 'ワイルドカード「_」と「%」は、それらを文字通りに使用するために「\」で回避する必要があります。';
 $strEstonian = 'エストニア語';
 $strExcelEdition = 'Excel の種類';
 $strExcelOptions = 'Excel オプション';
@@ -281,7 +290,7 @@ $strHasBeenCreated = 'を作成しました。';
 $strHaveToShow = '表示するために、少なくてもひとつのカラムを選択しなければなりません。';
 $strHebrew = 'ヘブライ語';
 $strHexForBinary = 'バイナリフィールドは 16 進数を使用する';
-$strHome = 'メーンページへ';
+$strHome = 'メインページへ';
 $strHomepageOfficial = 'phpMyAdmin ホーム';
 $strHost = 'ホスト';
 $strHostEmpty = 'ホスト名は空です!';
@@ -301,7 +310,12 @@ $strInUse = '使用中';
 $strIndex = 'インデックス';
 $strIndexHasBeenDropped = 'インデックス %s が削除されました';
 $strIndexName = 'インデックス名&nbsp;:';
-$strIndexType = 'インデックスのタイプ&nbsp;:';
+$strIndexType = 'インデックスの種類&nbsp;:';
+$strIndexWarningMultiple = '1 個を越える INDEX キーがカラム `%s` 用に作成されました。';
+$strIndexWarningPrimary = 'PRIMARY と INDEX のキーは両方とも、カラム `%s` に設定されるべきではありません。';
+$strIndexWarningTable = 'テーブル `%s` のインデックスに関する問題';
+$strIndexWarningTable = 'テーブル `%s` のインデックスに関する問題です。';
+$strIndexWarningUnique = 'UNIQUE と INDEX のキーは両方とも、カラム `%s` に設定されるべきではありません。';
 $strIndexes = 'インデックス数';
 $strInnodbStat = 'InnoDB ステータス';
 $strInsecureMySQL = 'あなたのコンフィグレーションファイルの設定が MySQL デフォルトの特権アカウントになっています (root ユーザーでパスワードなし) 。 MySQL サーバーもこのデフォルト設定で動作しているので、侵入者に対して無防備です。このセキュリティーホールは必ず閉ざして下さい。';
@@ -333,6 +347,7 @@ $strLandscape = 'ランドスケープ';
 $strLatexCaption = 'テーブルキャプション';
 $strLatexContent = 'テーブル __TABLE__ の内容';
 $strLatexContinued = '(続ける)';
+$strLatexContinuedCaption = '継続時のテーブルキャプション';
 $strLatexIncludeCaption = 'テーブルキャプションを含む';
 $strLatexLabel = 'ラベルキー';
 $strLatexStructure = 'テーブル __TABLE__ の構造';
@@ -355,10 +370,17 @@ $strLogin = 'ログイン';
 $strLoginInformation = 'ログイン情報';
 $strLogout = 'ログアウト';
 
+$strMIMETypesForTable = 'MIME TYPES FOR TABLE';
 $strMIME_MIMEtype = 'MIME タイプ';
 $strMIME_available_mime = '有効な MIME タイプ';
+$strMIME_available_transform = '変換有効';
 $strMIME_description = '説明';
+$strMIME_transformation = 'ブラウザー変換';
+$strMIME_transformation_options = '変換オプション';
+$strMIME_without = 'イタリック体で印刷されたMIME タイプは個別の変換関数を持っていません。';
 $strMaximumSize = '最大サイズ: %s%s';
+$strMbExtensionMissing = 'mbstring PHP 拡張は見つかりませんでした。また、マルチバイト文字セットを使用しているように見えます。phpMyAdmin は mbstring 拡張なしでは文字列を正確に分割することができず、また、予期しない結果が返ってくるかもしれません。';
+$strMbOverloadWarning = 'PHP の設定で mbstring.func_overload が有効です。このオプションは phpMyAdmin と互換性がなく、あるデータの破壊を引き起こすかもしれません!';
 $strModifications = 'を正しく修正しました。';
 $strModify = '修正';
 $strModifyIndexTopic = 'インデックスの変更';
@@ -381,6 +403,7 @@ $strName = '名前';
 $strNeedPrimaryKey = 'このテーブルはプライマリキーを定義すべきです';
 $strNext = '次へ';
 $strNo = 'いいえ';
+$strNoActivity = '%s 秒以上操作をしていません。再度ログインをしてください。';
 $strNoDatabases = 'データベース数';
 $strNoDatabasesSelected = 'データベースが選択されていません。';
 $strNoDescription = '記述がありません';
@@ -398,6 +421,7 @@ $strNoPrivileges = '特権無し';
 $strNoQuery = 'SQL クエリー無し';
 $strNoRights = '現在特権を持ってないのでここに入れません。';
 $strNoRowsSelected = '行は選択されませんでした。';
+$strNoSpace = 'ファイル %s を保存するには空き容量が不十分です。';
 $strNoTablesFound = '現在の DB にテーブルはありません。';
 $strNoThemeSupport = 'テーマをサポートしていません。設定とテーマディレクトリ %s を確認してください。';
 $strNoUsersFound = '該当ユーザーは見つかりませんでした。';
@@ -407,9 +431,9 @@ $strNotNumber = 'これは番号ではありません。';
 $strNotOK = 'OK ではありません。';
 $strNotSet = '<b>%s</b> テーブルが見つからないか、%s がありません。';
 $strNotValidNumber = ' は行の正しい番号ではありません ';
-$strNull = '空の値(Null)';
-$strNumSearchResultsInTable = '%s 件が <i>%s</i> テーブルで見つかりました';
-$strNumSearchResultsTotal = '<b>件数:</b> <i>%s</i> が見つかりました';
+$strNull = '空の値(NULL)';
+$strNumSearchResultsInTable = '%s 件が <i>%s</i> テーブルで見つかりました。';
+$strNumSearchResultsTotal = '<b>件数:</b> <i>%s</i> が見つかりました。';
 $strNumTables = 'テーブル';
 
 $strOK = 'OK';
@@ -476,7 +500,7 @@ $strPrivDescReferences = 'この MySQL バージョンでは意味ありませ�
 $strPrivDescReload = 'サーバーのリロード、キャッシュのクリアを許可します。';
 $strPrivDescReplClient = 'スレーブかマスターを要求出来る権利をユーザーに与えます。';
 $strPrivDescReplSlave = 'レプリケーションスレーブが必要です。';
-$strPrivDescSelect = 'データの読み出し許可。';
+$strPrivDescSelect = 'データの読み出し許可';
 $strPrivDescShowDb = 'データベースの完全なリストへのアクセス件を与えます。';
 $strPrivDescShutdown = 'サーバーのシャットダウンを許可します。';
 $strPrivDescSuper = '最大の接続数に達しても接続を許可します。多くの管理操作はグローバル変数や他ユーザープロセスの終了が出来るような設定が必要です。';
@@ -485,7 +509,7 @@ $strPrivDescUsage = '特権がありません。';
 $strPrivileges = '特権';
 $strPrivilegesReloaded = '特権はリロードされました。';
 $strProcesslist = 'プロセスリスト';
-$strPutColNames = '最初の 1 行目にフィールド名を追加';
+$strPutColNames = '最初の 1 行目にフィールド名を追加する';
 
 $strQBE = 'クエリー';
 $strQBEDel = '削除';
@@ -494,6 +518,7 @@ $strQueryFrame = 'クエリーウィンドウ';
 $strQueryOnDb = 'データベースの SQL クエリー <b>%s</b>:';
 $strQuerySQLHistory = 'SQL 履歴';
 $strQueryStatistics = '<b>クエリー統計</b>: 起動から %s クエリーがサーバーに送られています。';
+$strQueryTime = 'クエリー実行 %01.4f 秒';
 $strQueryType = 'クエリータイプ';
 $strQueryWindowLock = 'ウィンドウの外からこのクエリーを書き換え出来ません。';
 
@@ -506,6 +531,7 @@ $strRelationNotWorking = 'リレーション機能を動かすためのリンク
 $strRelationView = 'リレーション表示';
 $strRelationalSchema = 'リレーショナルスキーマ';
 $strRelations = 'リレーション';
+$strRelationsForTable = 'RELATIONS FOR TABLE';
 $strReloadFailed = 'MySQL のリロードに失敗しました。';
 $strReloadMySQL = 'MySQL のリロード';
 $strReloadingThePrivileges = '特権をリロード中';
@@ -538,6 +564,7 @@ $strRunning = 'が実行中です。 %s';
 $strRussian = 'ロシア語';
 
 $strSQL = 'SQL';
+$strSQLExportCompatibility = 'SQL エクスポート互換';
 $strSQLExportType = 'エクスポート形式';
 $strSQLOptions = 'SQL オプション';
 $strSQLParserBugMessage = 'あなたは SQL パーサーでバグを見つけられるかもしれません。あなたのクエリーを念入りに確かめて、引用符が正しくミスマッチがないかチェックしましょう。その他の失敗にはテキストエリアで引用した外側にバイナリーコードが付いてファイルがアップロードされてしまったような原因が考えられます。また、あなたのクエリーを MySQL のコマンドラインを使って試すことも出来ます。MySQL サーバーは以下のようにエラーを出します。そこには問題を解決する手助けがあるでしょう。コマンドラインでは成功しても、まだ問題がある場合、パーサーが失敗する場合には、問題のある SQL クエリーをひとつの文に減らしてみて下さい。そして以下のセクションでデータを切り取ってバグ報告を送って下さい:';
@@ -563,6 +590,8 @@ $strSearchType = '検索条件:';
 $strSecretRequired = '設定ファイルは今は秘密パスフレーズを必要とします(blowfish_secret)。';
 $strSelectADb = 'データベースを選択してください';
 $strSelectAll = '全選択';
+$strSelectBinaryLog = '選択したバイナリログを閲覧';
+$strSelectBinaryLog = '選択したバイナリログを閲覧する';
 $strSelectFields = 'フィールドの選択(一つ以上):';
 $strSelectNumRows = 'クエリー';
 $strSelectTables = 'テーブルの選択';
@@ -650,6 +679,10 @@ $strTotalUC = '合計';
 $strTraditionalChinese = '伝統的な中国語';
 $strTraditionalSpanish = '伝統的なスペイン語';
 $strTraffic = 'トラフィック';
+$strTransformation_image_jpeg__inline = 'クリック可能なサムネイルを表示します; オプション: width・height をピクセルで指定 (元の比率を保ちます)';
+$strTransformation_image_jpeg__link = 'この画像へのリンクを表示 (例えば blob を直接ダウンロード).';
+$strTransformation_text_plain__substr = '文字列の一部のみ表示します。一つ目のオプションはテキストの出力がどこで開始するかオフセットを定義します (デフォルトは「0」です)二つ目のオプションはどれだけのテキストを返すかのオフセットです。空の場合、残りのテキストをすべて返します。三つ目のオプションは、文字列の一部が返される時、どの文字を出力に追加するか定義します。 (デフォルトは「...」です)';
+$strTransformation_text_plain__unformatted = 'HTML コードを HTML 実態として表示します。HTML を書式化して表示しません。';
 $strTurkish = 'トルコ語';
 $strType = 'フィールドタイプ';
 
@@ -659,6 +692,7 @@ $strUnicode = 'ユニコード';
 $strUnique = '唯一';
 $strUnknown = '不明';
 $strUnselectAll = '全解放';
+$strUpdComTab = 'Column_comments テーブルのアップグレード方法のドキュメントを参照してください';
 $strUpdatePrivMessage = '%s の特権を更新しました。';
 $strUpdateProfileMessage = 'プロファイルを更新しました。';
 $strUpdateQuery = 'クエリーの更新';
@@ -666,6 +700,7 @@ $strUpgrade = '%s %s かそれ移行にアップグレードするべきです�
 $strUsage = '使用量';
 $strUseBackquotes = '逆クオートでテーブル名やフィールド名を囲む';
 $strUseHostTable = 'ホストテーブルを使う';
+$strUseTabKey = '値から値まで移るにはTABキーを、もしくはいろんな場所でも移動するにはCTRL+カーソルを使用します。';
 $strUseTables = '使うテーブル';
 $strUseTextField = 'テキストフィールドを使用';
 $strUseThisValue = 'この値を使用';
@@ -676,6 +711,7 @@ $strUserName = 'ユーザー名';
 $strUserNotFound = '選択されたユーザーは特権テーブルに見つかりませんでした。';
 $strUserOverview = 'ユーザー概略';
 $strUsersDeleted = '選択されたユーザーは削除されました。';
+$strUsersHavingAccessToDb = 'ユーザーは &quot;%s&quot; へのアクセス権限を所持しています';
 
 $strValidateSQL = 'SQL の検証';
 $strValidatorError = 'SQL 検証機能の初期化が出来ません。%sdocumentation%sに記述されているようにPHP 拡張ライブラリがインストールされているかチェックして下さい。';
@@ -705,69 +741,33 @@ $strZeroRemovesTheLimit = '注意: オプションを 0 (ゼロ)に設定する�
 $strZip = '"zip 方式"';
 
 // To translate:
-$strApproximateCount = 'May be approximate. See FAQ 3.11';  //to translate
 
 $strBinLogOriginalPosition = 'Original position';  //to translate
 
-$strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
-$strCompatibleHashing = 'MySQL&nbsp;4.0 互換';  //to translate
-$strCopyDatabaseOK = 'Database %s has been copied to %s';  //to translate
-
-$strDBCopy = 'Copy database to';  //to translate
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
-
-$strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
 
 $strIndexWarningMultiple = 'More than one %s key was created for column `%s`';//to translate
 $strIndexWarningPrimary = 'PRIMARY and INDEX keys should not both be set for column `%s`';//to translate
-$strIndexWarningTable = 'Problems with indexes of table `%s`';//to translate
 $strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
 
-$strLatexContinuedCaption = 'Continued table caption';//to translate
-
-$strMIMETypesForTable = 'MIME TYPES FOR TABLE';  //to translate
-$strMIME_available_transform = 'Available transformations';//to translate
-$strMIME_nodescription = 'No Description is available for this transformation.<br />Please ask the author, what %s does.';//to translate
-$strMIME_transformation = 'Browser transformation';//to translate
+$strMIME_nodescription = 'この変換には有効な説明がありません。<br />Please ask the author, what %s does.';//to translate
 $strMIME_transformation_note = 'For a list of available transformation options and their MIME-type transformations, click on %stransformation descriptions%s';//to translate
-$strMIME_transformation_options = 'Transformation options';//to translate
 $strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';//to translate
-$strMIME_without = 'MIME-types printed in italics do not have a seperate transformation function';//to translate
-
-$strNoActivity = 'No activity since %s seconds or more, please login again';  //to translate
-$strNoSpace = 'Insufficient space to save the file %s.';  //to translate
 
 $strOperator = 'Operator';  //to translate
 
 $strPasswordHashing = 'Password Hashing';  //to translate
 
-$strQueryTime = 'Query took %01.4f sec';//to translate
-
-$strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
 $strRowsModeFlippedHorizontal = 'horizontal (rotated headers)';//to translate
-
-$strSelectBinaryLog = 'Select binary log to view';  //to translate
 
 $strTakeIt = 'take it';  //to translate
 $strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
-$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
-$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
 $strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
 $strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
 $strTransformation_text_plain__external = 'LINUX のみ: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
 $strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
 $strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
 $strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
-$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
-$strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
 $strTruncateQueries = 'Truncate Shown Queries';  //to translate
 
-$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
-$strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
-$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
-
-$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
-$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
-$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
-$strAfterInsertNext = 'Edit next row';  //to translate
 ?>
