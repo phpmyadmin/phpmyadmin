@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-28 Olivier L. Müller  <om@omnis.ch>
+    * ANNOUNCE.txt: preparing 2.3.0 announcement... Feel free
+      to improve and check
+
 2002-06-28 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3, tbl_properties_common.php3, 
       new libraries/db_table_exists.lib.php3: menu on insert/edit
