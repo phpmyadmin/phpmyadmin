@@ -65,15 +65,14 @@ $strHiddenFields = '        <input type="hidden" name="is_js_confirmed" value="0
 <!-- Query box, sql file loader and bookmark support -->
 <a name="querybox"></a>
 <table border="0" cellpadding="2" cellspacing="0">
-<form method="post" action="read_dump.php"
-    onsubmit="return checkSqlQuery(this)">
+<form method="post" action="read_dump.php"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">
 <tr><td class="tblHeaders" colspan="2">
-    <?php 
+    <?php
             echo $strHiddenFields;
            // if you want navigation:
            $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . $header_url_qry . '&amp;db=' . urlencode($db) . '">'
                       . htmlspecialchars($db) . '</a>';
-           // else use 
+           // else use
            // $strDBLink = htmlspecialchars($db);
             echo '&nbsp;' . sprintf($strRunSQLQuery, $strDBLink) . ':&nbsp;' . PMA_showMySQLDocu('Reference', 'SELECT');
 
@@ -112,7 +111,7 @@ if ($is_upload) {
 <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
   <td colspan="2" align="center">
     <input type="file" name="sql_file" class="textfield" />&nbsp;
-    <?php 
+    <?php
     echo PMA_displayMaximumUploadSize($max_upload_size) . '<br />';
     // some browsers should respect this :)
     echo '    ' . PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
@@ -183,7 +182,7 @@ if (!empty($cfg['UploadDir'])) {
         //   showing UploadDir Error at the end of all option for SQL-Queries
         $strErrorUploadDir = '    <tr><td colspan="2"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
         $strErrorUploadDir.= '    <tr><td colspan="2" class="tblHeadError">';
-        if ($cfg['PropertiesIconic']){ 
+        if ($cfg['PropertiesIconic']){
            $strErrorUploadDir.= '<img src="./images/s_error.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
         }
         $strErrorUploadDir.= '    ' . $strError . '' . "\n";
@@ -217,7 +216,7 @@ if ($is_upload || $is_upload_dir) {
         echo '    <td align="right"><input type="submit" name="SQL" value="' . $strGo . '" /></td>' . "\n";
         echo '    </tr>' . "\n";
     }else{
-        echo '   <tr bgcolor="' . $cfg['BgcolorTwo'] . '"><td align="right" colspan="2"><input type="submit" name="SQL" value="' . $strGo . '" /></td></tr>' . "\n\n";  
+        echo '   <tr bgcolor="' . $cfg['BgcolorTwo'] . '"><td align="right" colspan="2"><input type="submit" name="SQL" value="' . $strGo . '" /></td></tr>' . "\n\n";
     } // end if (recoding)
 }
 // Bookmark Support
@@ -242,7 +241,7 @@ if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
 								  echo '(<a href="./Documentation.html#faqbookmark" target="documentation">' . $strDocu . '</a>):&nbsp;';
         }
         echo '        <input type="text" name="bookmark_variable" class="textfield" size="10" />' . "\n";
-        echo '    </td></tr><tr bgcolor="' . $cfg['BgcolorOne'] . '"><td>';  
+        echo '    </td></tr><tr bgcolor="' . $cfg['BgcolorOne'] . '"><td>';
         echo '        <input type="radio" name="action_bookmark" value="0" id="radio_bookmark0" checked="checked" style="vertical-align: middle" /><label for="radio_bookmark0">' . $strSubmit . '</label>' . "\n";
         echo '        &nbsp;<input type="radio" name="action_bookmark" value="1" id="radio_bookmark1" style="vertical-align: middle" /><label for="radio_bookmark1">' . $strBookmarkView . '</label>' . "\n";
         echo '        &nbsp;<input type="radio" name="action_bookmark" value="2" id="radio_bookmark2" style="vertical-align: middle" /><label for="radio_bookmark2">' . $strDelete . '</label>' . "\n";
