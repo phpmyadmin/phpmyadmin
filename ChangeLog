@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2003-04-15 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/sqlparser.data.php3: Added AUTO_INCREMET to reserved words.
+
+2003-04-15 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_query_box.php3: Only display charset selection when a DB is
       selected.
     * libraries/display_tbl.lib.php3: Fix edit link for table without primary
