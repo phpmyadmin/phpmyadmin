@@ -242,6 +242,7 @@ $strQBEIns = 'Ins';
 $strQueryOnDb = 'Veritabaný üzerinde SQL-sorgusu&nbsp;<b>%s</b>:';
 
 $strRecords = 'Kayýtlar';
+$strReferentialIntegrity = 'Referans bütünlüðünü kontrol et.';
 $strReloadFailed = 'MySQL yeniden yüklenmesi gerçekleþtirilemedi.';
 $strReloadMySQL = 'MySQL\'i yeniden yükle';
 $strRememberReload = 'Server\'ý yeniden yüklemeyi unutmayýnýz.';
@@ -347,5 +348,4 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiþ"';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
