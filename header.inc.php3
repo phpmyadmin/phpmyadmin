@@ -1,7 +1,7 @@
 <?php
 /* $Id$ */
 
-require("./lib.inc.php3");
+require('./lib.inc.php3');
 
 /**
  * Send http headers
@@ -24,7 +24,7 @@ header('Content-Type: text/html; charset=' . $charset);
 <!--
 body          {font-family: <?php echo $right_font_family; ?>; font-size: 10pt}
 th            {font-family: <?php echo $right_font_family; ?>; font-size: 10pt; font-weight: bold; background-color: <?php echo $cfgThBgcolor;?>}
-td            {font-family: <?php echo $right_font_family; ?>; font-size: 10pt;}
+td            {font-family: <?php echo $right_font_family; ?>; font-size: 10pt}
 form          {font-family: <?php echo $right_font_family; ?>; font-size: 10pt}
 h1            {font-family: <?php echo $right_font_family; ?>; font-size: 16pt; font-weight: bold}
 A:link        {font-family: <?php echo $right_font_family; ?>; font-size: 10pt; text-decoration: none; color: #0000ff}
@@ -40,13 +40,11 @@ A:hover.nav   {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
 
 <body bgcolor="#F5F5F5" text="#000000" background="images/bkg.gif">
 <?php
-if(isset($db))
-{
+if (isset($db)) {
     echo "<h1> $strDatabase $db";
-    if (isset($table) && !isset($btnDrop))
-    {
+    if (isset($table) && !isset($btnDrop)) {
         echo " - $strTable $table";
     }
-    echo "</h1>";
+    echo '</h1>' . "\n";
 }
 ?>
