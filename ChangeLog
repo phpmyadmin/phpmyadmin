@@ -12,6 +12,7 @@ $Source$
     * server_privileges: Better code for "check privileges"; This should fix
       bug #687808 and a few other problems.
     * ANNOUNCE.txt: Updated list of known bugs.
+    * server_variables.php3: Modified generated XHTML code.
 
 2003-02-22 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/italian update, thanks to Pietro Danesi

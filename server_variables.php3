@@ -81,12 +81,18 @@ $useBgcolorOne = TRUE;
 while (list($name, $value) = each($serverVars)) {
 ?>
     <tr>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?>&nbsp;</td>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo htmlspecialchars($value); ?>&nbsp;</td>
+        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">
+            <?php echo htmlspecialchars(str_replace('_', ' ', $name)) . "\n"; ?>
+        </td>
+        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">
+            <?php echo htmlspecialchars($value) . "\n"; ?>
+        </td>
 <?php
     if (PMA_MYSQL_INT_VERSION >= 40003) {
 ?>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo htmlspecialchars($serverVarsGlobal[$name]); ?>&nbsp;</td>
+        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">
+            <?php echo htmlspecialchars($serverVarsGlobal[$name]) . "\n"; ?>
+        </td>
 <?php
         $useBgcolorOne = !$useBgcolorOne;
     }
