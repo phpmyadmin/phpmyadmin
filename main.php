@@ -409,6 +409,24 @@ if ($server > 0) {
     </tr>
             <?php
         }
+
+        $binlogs = PMA_DBI_try_query('SHOW MASTER LOGS', NULL, PMA_DBI_QUERY_STORE);
+        if ($binlogs) {
+            if (PMA_DBI_num_rows($binlogs) > 0) {
+                ?>
+    <tr><?php
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_binlog.php?'.$common_url_query.'">','s_tbl.png',$strBinaryLog,'</a>') : $str_normal_list);
+?>
+        <td>
+                <a href="server_binlog.php?<?php echo $common_url_query; ?>">
+                    <?php echo $strBinaryLog; ?></a>&nbsp;
+        </td>
+    </tr>
+                <?php
+            }
+            PMA_DBI_free_result($binlogs);
+        }
+        unset($binlogs);
         ?>
     <tr><?php
             echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_databases.php?'.$common_url_query.'">','s_db.png',$strDatabases,'</a>') : $str_normal_list);

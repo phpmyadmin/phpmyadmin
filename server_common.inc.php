@@ -46,4 +46,17 @@ if ($is_superuser) {
     $is_superuser = FALSE;
 }
 
+$has_binlogs = FALSE;
+$binlogs = PMA_DBI_try_query('SHOW MASTER LOGS', NULL, PMA_DBI_QUERY_STORE);
+if ($binlogs) {
+    if (PMA_DBI_num_rows($binlogs) > 0) {
+        $binary_logs = array();
+        while ($row = PMA_DBI_fetch_array($binlogs)) {
+            $binary_logs[] = $row[0];
+        }
+        $has_binlogs = TRUE;
+    }
+    PMA_DBI_free_result($binlogs);
+}
+unset($binlogs);
 ?>

@@ -727,4 +727,12 @@ $strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 $strNoThemeSupport = 'No themes support, please check your configuration and/or your themes in directory %s.';  //to translate
 $strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
 $strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
+$strBinLogName = 'Log name';  //to translate
+$strBinLogPosition = 'Position';  //to translate
+$strBinLogEventType = 'Event type';  //to translate
+$strBinLogServerId = 'Server ID';  //to translate
+$strBinLogOriginalPosition = 'Original position';  //to translate
+$strBinLogInfo = 'Information';  //to translate
+$strBinaryLog = 'Binary log';  //to translate
+$strSelectBinaryLog = 'Select binary log to view';  //to translate
 ?>

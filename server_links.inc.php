@@ -64,6 +64,9 @@ if (PMA_MYSQL_INT_VERSION >= 40100) {
 if ($is_superuser) {
     echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_rights.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strPrivileges.'" />' : '') . $strPrivileges, 'server_privileges.php', $url_query);
 }
+if ($has_binlogs) {
+    echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_tbl.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strBinaryLog.'" />' : '') . $strBinaryLog, 'server_binlog.php', $url_query);
+}
 echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_process.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strServerTabProcesslist.'" />' : '') . $strServerTabProcesslist, 'server_processlist.php', $url_query);
 echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_export.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strExport.'" />' : '') . $strExport, 'server_export.php', $url_query);
 if (!$cfg['LightTabs']) {

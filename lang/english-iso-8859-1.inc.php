@@ -722,4 +722,12 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+$strBinLogName = 'Log name';  //to translate
+$strBinLogPosition = 'Position';  //to translate
+$strBinLogEventType = 'Event type';  //to translate
+$strBinLogServerId = 'Server ID';  //to translate
+$strBinLogOriginalPosition = 'Original position';  //to translate
+$strBinLogInfo = 'Information';  //to translate
+$strBinaryLog = 'Binary log';  //to translate
+$strSelectBinaryLog = 'Select binary log to view';  //to translate
 ?>
