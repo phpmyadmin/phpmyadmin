@@ -997,11 +997,11 @@ if (PMA_mysql_error()) {
 //$result         = @PMA_mysql_query('SELECT COUNT(Password) FROM mysql.user');
 //$password_field = (($result && PMA_mysql_result($result, 0)) ? 'Password' : 'password');
 
-$result         = @PMA_mysql_query('Select * from user limit 1');
+// using a syntax that works with older and recent MySQL,
+// and assumes that the field name ends with "assword":
+$result         = @PMA_mysql_query('SHOW FIELDS FROM user FROM mysql LIKE \'%assword\'');
 if ($result) {
-// assumes that the password is always the third field of mysql.user
-   $field_info = PMA_mysql_fetch_field($result,2);
-   $password_field = $field_info->name;
+    $password_field = PMA_mysql_result($result, 0);
 }
 
 /**
