@@ -147,7 +147,7 @@ if ($num_tables == 0) {
 // 2. Shows table informations on mysql >= 3.23 - staybyte - 11 June 2001
 else if (PMA_MYSQL_INT_VERSION >= 32300) {
     ?>
-<form name="tablesForm" action="db_details.php3" method="post">
+<form method="post" action="db_details.php3" name="tablesForm">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
@@ -333,13 +333,13 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
 </tr>
 <tr>
     <td>
-       <a href="" onclick="setCheckboxes('tablesForm', true); return false;">
-        <?php echo $GLOBALS['strCheckAll']; ?></a> 
+        <a href="#" onclick="setCheckboxes('tablesForm', true); return false;">
+            <?php echo $GLOBALS['strCheckAll']; ?></a>
     </td>
     <td>&nbsp;</td>
     <td>
-       <a href="" onclick="setCheckboxes('tablesForm', false); return false;">
-        <?php echo $GLOBALS['strUncheckAll']; ?></a>
+        <a href="#" onclick="setCheckboxes('tablesForm', false); return false;">
+            <?php echo $GLOBALS['strUncheckAll']; ?></a>
     </td>
 </tr>
 </table>
@@ -421,13 +421,13 @@ else {
 </tr>
 <tr>
     <td>
-       <a href="" onclick="setCheckboxes('tablesForm', true); return false;">
-        <?php echo $GLOBALS['strCheckAll']; ?></a>
+        <a href="#" onclick="setCheckboxes('tablesForm', true); return false;">
+            <?php echo $GLOBALS['strCheckAll']; ?></a>
     </td>
     <td>&nbsp;</td>
     <td>
-       <a href="" onclick="setCheckboxes('tablesForm', false); return false;">
-        <?php echo $GLOBALS['strUncheckAll']; ?></a>
+        <a href="#" onclick="setCheckboxes('tablesForm', false); return false;">
+            <?php echo $GLOBALS['strUncheckAll']; ?></a>
     </td>
 </tr>
 </table>

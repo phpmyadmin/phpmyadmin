@@ -5,18 +5,21 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-01-03  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3: invalid xhtml statements.
+
 2002-01-02  Marc Delisle  <lem9@users.sourceforge.net>
-        * db_details.php3, libraries/functions.js: feature 474742: add
-          check all/uncheck all in the table list
+	* db_details.php3, libraries/functions.js: feature 474742: add check
+	  all/uncheck all in the table list.
 
 2002-01-01  Marc Delisle  <lem9@users.sourceforge.net>
-        * tbl_replace.php3, bug 497919: $funcs was being reset()
-          but was not defined (for example, only 1 field of type 'set')
+	* tbl_replace.php3, bug 497919: $funcs was being reset() but was not
+	  defined (for example, only 1 field of type 'set').
 
 2001-12-29  Marc Delisle  <lem9@users.sourceforge.net>
-        * tbl_change.php3, tbl_replace.php3, Documentation.html:
-          feature 442855: checkboxes for null values, 
-          modifications by Marc and Loïc
+	* tbl_change.php3, tbl_replace.php3, Documentation.html:
+	  feature 442855: checkboxes for null values, modifications by Marc and
+	  Loïc.
 
 2001-12-29  Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3, lines 60-62; libraries/defines.lib.php3, lines 102-103;
