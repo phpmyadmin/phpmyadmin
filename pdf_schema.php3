@@ -11,7 +11,25 @@
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
+require('./libraries/relation.lib.php3');
 
+$cfgRelation = PMA_getRelationsParam();
+if(!$cfgRelation['relwork']) {
+    echo sprintf($strNotSet,'relation','config.inc.php3') . '<br /><a href="Documentation.html#relation" target="documentation">' . $strDocu . '</a>';
+    die();
+}
+if(!$cfgRelation['displaywork']) {
+    echo sprintf($strNotSet,'table_info','config.inc.php3') . '<br /><a href="Documentation.html#table_info" target="documentation">' . $strDocu . '</a>';
+    die();
+}
+if(!isset($cfgRelation['table_coords'])){
+    echo sprintf($strNotSet,'table_coords','config.inc.php3') . '<br /><a href="Documentation.html#table_coords" target="documentation">' . $strDocu . '</a>';
+    die();
+}
+if(!isset($cfgRelation['pdf_pages'])) {
+    echo sprintf($strNotSet,'pdf_page','config.inc.php3') . '<br /><a href="Documentation.html#pdf_pages" target="documentation">' . $strDocu . '</a>';
+    die();
+}
 
 /**
  * Gets the "fpdf" libraries and defines the pdf font path
@@ -402,7 +420,7 @@ class PMA_RT_Table
      */
     function PMA_RT_Table($table_name, $ff)
     {
-        global $pdf, $pdf_page_number;
+        global $pdf, $pdf_page_number,$cfgRelation,$db;
 
         $this->table_name = $table_name;
         $sql              = 'DESCRIBE ' .  PMA_backquote($table_name);
@@ -421,27 +439,22 @@ class PMA_RT_Table
 
         //x and y
         $sql    = 'SELECT x, y FROM '
-                . PMA_backquote($GLOBALS['cfg']['Server']['table_coords'])
-                . ' WHERE table_name = \'' . PMA_sqlAddslashes($table_name) . '\''
+                . PMA_backquote($cfgRelation['table_coords'])
+                . ' WHERE       db_name = \'' . PMA_sqlAddslashes($db) . '\''
+                . ' AND      table_name = \'' . PMA_sqlAddslashes($table_name) . '\''
                 . ' AND pdf_page_number = ' . $pdf_page_number;
-        $result = PMA_mysql_query($sql);
+        $result = PMA_query_as_cu($sql);
+
         if (!$result || !mysql_num_rows($result)) {
             $pdf->PMA_PDF_die(sprintf($GLOBALS['strConfigureTableCoord'], $table_name));
         }
         list($this->x, $this->y) = PMA_mysql_fetch_array($result);
         $this->x = (double) $this->x;
         $this->y = (double) $this->y;
-        
+
         //displayfield
-        $sql    =  'SELECT display_field from '.PMA_backquote($GLOBALS['cfg']['Server']['table_info'])
-                . ' WHERE table_name = \'' . PMA_sqlAddslashes($table_name) . '\'';
-        $result = PMA_mysql_query($sql);
-        if(mysql_num_rows($result)>0){
-            list($this->displayfield) = PMA_mysql_fetch_array($result);
-        }
-        while ($row = PMA_mysql_fetch_array($result)) {
-            $this->displayfield = $row['display_field '];
-         }
+        $this->displayfield = getDisplayField($db,$table_name);
+
         // index
         $sql    =  'SHOW index from '.PMA_backquote($table_name);
         $result = PMA_mysql_query($sql);
@@ -786,7 +799,7 @@ class PMA_RT
      */
     function PMA_RT($scale, $which_rel, $show_info = 0, $change_color = 0 , $show_grid = 0)
     {
-        global $pdf;
+        global $pdf, $db, $cfgRelation;;
 
         // Font face depends on the current language
         $this->ff     = str_replace('"', '', substr($GLOBALS['right_font_family'], 0, strpos($GLOBALS['right_font_family'], ',')));
@@ -804,18 +817,24 @@ class PMA_RT
         $pdf->SetAutoPageBreak('auto');
 
         //  get tables on this page
-        $tab_sql = 'SELECT table_name from '.PMA_backquote($GLOBALS['cfg']['Server']['table_coords']) .
-                   ' WHERE pdf_page_number = ' . $which_rel;
-        $tab_rs  = PMA_mysql_query($tab_sql) or PMA_mysqlDie('', $tab_sql, '', $err_url_0);
+        $tab_sql  = 'SELECT table_name FROM ' . PMA_backquote($cfgRelation['table_coords'])
+                  . ' WHERE db_name = \'' . $db . '\''
+                  . ' AND pdf_page_number=' .$which_rel;
+        $tab_rs   = PMA_query_as_cu($tab_sql);
+
         while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
             $alltables[]     = $curr_table['table_name'];
             $intable         = "'" . implode("','",$alltables) . "'";
         }
-        $sql    = 'SELECT * FROM '
-                . PMA_backquote($GLOBALS['cfg']['Server']['relation'])
-                . ' WHERE master_table in (' . $intable . ') '
-                . ' AND foreign_table   in (' . $intable . ')';
-        $result = PMA_mysql_query($sql);
+
+        $sql = 'SELECT *'
+             . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+             . ' WHERE master_db   = \'' . $db . '\' '
+             . ' AND foreign_db    = \'' . $db . '\' '
+             . ' AND master_table  IN (' . $intable .')'
+             . ' AND foreign_table IN (' . $intable .')';
+        $result =  PMA_query_as_cu($sql);
+
         if (!$result || !mysql_num_rows($result)) {
             $pdf->PMA_PDF_die($GLOBALS['strPdfInvalidPageNum']);
         }

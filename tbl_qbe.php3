@@ -778,16 +778,8 @@ if (isset($Field) && count($Field) > 0) {
         if(!empty($column)){
             $_rel_query .= ' AND master_field = \'' . $column . '\'';
         }
-        if (isset($dbh)) {
-            PMA_mysql_select_db($cfgRelation['db'],$dbh);
-            $_relations = @PMA_mysql_query($_rel_query, $GLOBALS['dbh']) or PMA_mysqlDie(mysql_error($GLOBALS['dbh']), $_rel_query, '', $err_url_0);
-            PMA_mysql_select_db($db,$dbh);
-        } else {
-            PMA_mysql_select_db($cfgRelation['db']);
-            $_relations = @PMA_mysql_query($_rel_query) or PMA_mysqlDie('', $_rel_query, '', $err_url_0);
-            PMA_mysql_select_db($db);
-        }
 
+        $_relations =  PMA_query_as_cu($_rel_query);
         while ($row = PMA_mysql_fetch_array($_relations)) {
             // we want the first one (highest number of hits) or the first one
             // that is in the WHERE clause
