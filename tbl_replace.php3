@@ -41,10 +41,10 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&sql_query=' . urlencode($sql_query);
 }
 // Defines the url to return in case of failure of the query
-if (isset($url_err)) {
-    $url_err = urldecode($url_err);
+if (isset($err_url)) {
+    $err_url = urldecode($err_url);
 } else {
-    $url_err = str_replace('&', '&amp;', $goto)
+    $err_url = str_replace('&', '&amp;', $goto)
              . (empty($primary_key) ? '' : '&amp;primary_key=' . $primary_key);
 }
 // Resets tables defined in the configuration file
@@ -233,7 +233,7 @@ $result    = mysql_query($query);
 if (!$result) {
     $error = mysql_error();
     include('./header.inc.php3');
-    PMA_mysqlDie($error, '', '', $url_err);
+    PMA_mysqlDie($error, '', '', $err_url);
 } else {
     if (@mysql_affected_rows()) {
         $message .= @mysql_affected_rows();
