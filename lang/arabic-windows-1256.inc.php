@@ -725,7 +725,7 @@ $strPrintViewFull = 'Print view (with full texts)';  //to translate
 
 $strSortByKey = 'Sort by key';  //to translate
 
-$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
+$strUpgrade = 'You should upgrade to %s %s or later.';  //to translate
 
 $strExcelEdition = 'Excel edition';  //to translate
 $strDelayedInserts = 'Use delayed inserts';  //to translate

@@ -469,7 +469,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         if ($tbl_type=='INNODB') {
             echo $strInternalNotNecessary . '<br />';
                 if (PMA_MYSQL_INT_VERSION < 40013) {
-                    echo '** ' . sprintf($strUpgradeMySQL, '4.0.13') . '<br />';
+                    echo '** ' . sprintf($strUpgrade, 'MySQL', '4.0.13') . '<br />';
                 }
         }
     ?>

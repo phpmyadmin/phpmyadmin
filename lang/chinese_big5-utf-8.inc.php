@@ -707,7 +707,7 @@ $strWindowNotFound = '目地的視窗無法更新. 可能你已關閉此視窗�
 
 $strInternalRelations = '內部關聯';
 $strInternalNotNecessary = '* 當內部關聯在 InnoDB 已存在時是無需要的.';
-$strUpgradeMySQL = '您應該更新到 MySQL %s 或之後.';
+$strUpgrade = '您應該更新到 %s %s 或之後.';
 $strLatexStructure = '資料表 __TABLE__ 結構';
 $strLatexContinued = '(連續)';
 $strLatexContent = '資料表 __TABLE__ 內容';

@@ -702,7 +702,7 @@ $strZip = 'comprimido no formato "zip"';
 
 $strInternalRelations = 'Internal relations';  //to translate
 $strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
-$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
+$strUpgrade = 'You should upgrade to %s %s or later.';  //to translate
 $strLatexStructure = 'Structure of table __TABLE__';//to translate
 $strLatexContinued = '(continued)';//to translate
 $strLatexContent = 'Content of table __TABLE__';//to translate
