@@ -69,12 +69,14 @@ $strChangePassword = 'Schimbare parola';
 $strCheckAll = 'Marcheaza toate';
 $strCheckDbPriv = 'Marcheaza drepturile de acces la baza de date';
 $strCheckTable = 'Verificare tabel';
+$strChoosePage = 'Selecteaza o pagina pentru a fi editata';
 $strColumn = 'Coloana';
 $strColumnNames = 'Numele coloanelor';
 $strCompleteInserts = 'Rezolva inserarea';
 $strConfigureTableCoord = 'Configureaza coordonatelepentru tabela %s';
 $strConfirm = 'Sunteti sigur ca doriti sa continuati?';
 $strCookiesRequired = 'Trebuie sa aveti activat "cookies".';
+$strCoordsNotSet = 'Tabela table_coords nu exista sau nu este definit in config.inc.php3';
 $strCopyTable = 'Copiaza tabela la (database<b>.</b>table):';
 $strCopyTableOK = 'Tabelul %s a fost copiat la %s.';
 $strCreate = 'Creaza';
@@ -82,6 +84,7 @@ $strCreateIndex = 'Creaza un index pe&nbsp;%s&nbsp;coloana';
 $strCreateIndexTopic = 'Creaza un nou index';
 $strCreateNewDatabase = 'Creaza baza de date noua';
 $strCreateNewTable = 'Creaza tabela noua in baza de date %s';
+$strCreatePage = 'Creaza o noua pagina';
 $strCriteria = 'Criteriu';
 
 $strData = 'Date';
@@ -112,6 +115,7 @@ $strDumpXRows = 'Arunca %s randuri incepand de la randul %s.';
 $strDynamic = 'dinamic';
 
 $strEdit = 'Editare';
+$strEditPDFPages = 'Editeaza paginile PDF';
 $strEditPrivileges = 'Editeaza drepturile de acces';
 $strEffective = 'Efectiv';
 $strEmpty = 'Goleste';
@@ -161,6 +165,7 @@ $strIndexes = 'Indexuri';
 $strIndexHasBeenDropped = 'Index %s a fost aruncat';
 $strIndexName = 'Nume index&nbsp;:';
 $strIndexType = 'Tip index&nbsp;:';
+$strInfoNotSet = 'Tabela table_info table nu exista sau nu este definit in config.inc.php3';
 $strInsert = 'Inserare';
 $strInsertAsNewRow = 'Insereaza ca o noua linie';
 $strInsertedRows = 'Randuri inserate:';
@@ -205,6 +210,7 @@ $strNext = 'Urmatorul';
 $strNo = 'Nu';
 $strNoDropDatabases = 'Comenzile "DROP DATABASE" sunt dezactivate.';
 $strNoDatabases = 'Nu sunt baze de date';
+$strNoDescription = 'Nu exista descriere';
 $strNoFrames = 'phpMyAdmin are o interfata mai prietenoasa cu navigator care lucreaza cu <b>frame-uri</b>.';
 $strNoIndex = 'Index nu este definit!';
 $strNoIndexPartsDefined = 'Nu sunt definite parti din index!';
@@ -262,6 +268,7 @@ $strQueryOnDb = 'Comanda SQL pe baza de date <b>%s</b>:';
 
 $strRecords = 'Inregistrari';
 $strReferentialIntegrity = 'Verificarea integritatii referentiei:';
+$strRelationNotSet = 'Tabela relationala (Relationtable) nu exista sau nu este definit in config.inc.php3';
 $strRelationView = 'Vizualizare relationala';
 $strReloadFailed = 'Reincarcare MySQL nereusita.';
 $strReloadMySQL = 'Reincarcare MySQL';
@@ -307,6 +314,7 @@ $strSelectADb = 'Selectati baza de date';
 $strSelectAll = 'Selecteaza tot';
 $strSelectFields = 'Selecteaza campurile (cel putin unul):';
 $strSelectNumRows = 'in comanda (in query)';
+$strSelectTables = 'Selecteaza tabele';
 $strSend = 'Trimite';
 $strServerChoice = 'Alegerea serverului';
 $strServerVersion = 'Versiune server';
@@ -387,12 +395,4 @@ $strZip = '"arhivat"';
 
 // To translate
 
-$strEditPDFPages = 'Edit PDF Pages';  //to translate
-$strNoDescription = 'no Description';  //to translate
-$strRelationNotSet = 'Relationtable not found or not set in config.inc.php3';  //to translate
-$strInfoNotSet = 'table_info table not found or not set in config.inc.php3';  //to translate
-$strCoordsNotSet = 'table_coords table not found or not set in config.inc.php3';  //to translate
-$strChoosePage = 'Please choose a Page to edit';  //to translate
-$strCreatePage = 'Create a new Page';  //to translate
-$strSelectTables = 'Select Tables';  //to translate
 ?>
