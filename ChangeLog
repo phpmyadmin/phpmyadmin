@@ -10,7 +10,8 @@ $Source$
 	  Taiyen Hung ¬x®õ¤¸<yen789@pchome.com.tw>.
 	* db_details.php3, lines 292-296: queries retained and displayed into the
 	  textearea when stripslashed one time more than required.
-	* tbl_properties.php3: fixed some coding inconcistencies (tabs, ...).
+	* tbl_properties.php3: fixed some coding inconcistencies (tabs, ...) and
+	  added a link to empty the current table.
 	* ob_lib.inc.php3, line 34: ini_get is a php4 only function and may be
 	  disabled -> put an @ before it is called to avoid errors. 
 
