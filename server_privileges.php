@@ -545,6 +545,12 @@ if (!empty($change_copy)) {
     } else {
         $row = PMA_DBI_fetch_assoc($res);
         extract($row, EXTR_OVERWRITE);
+        // Recent MySQL versions have the field "Password" in mysql.user,
+        // so the previous extract creates $Password but this script
+        // uses $password
+        if (!isset($password) && isset($Password)) {
+            $password=$Password;
+        }
         PMA_DBI_free_result($res);
         $queries = array();
     }
