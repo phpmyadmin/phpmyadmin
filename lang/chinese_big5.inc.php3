@@ -322,4 +322,20 @@ $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strUseBackquotes = ' Use backquotes with tables and fields names ';  //to translate
 $strWithChecked = 'With selected:';
 $strZip = '"zipped"';  //to translate
+
+// Indexes
+$strAddToIndex = 'Add to index &nbsp;%s&nbsp;column(s)';
+$strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';
+$strCardinality = 'Cardinality';
+$strCreateIndex = 'Create an index on&nbsp;%s&nbsp;columns';
+$strCreateIndexTopic = 'Create a new index';
+$strIgnore = 'Ignore';
+$strIndexName = 'Index name&nbsp;:';
+$strIndexType = 'Index type&nbsp;:';
+$strModifyIndexTopic = 'Modify an index';
+$strNone = 'None';
+$strNoIndexPartsDefined = 'No index parts defined!';
+$strNoIndex = 'No index defined!';
+$strPrimaryKeyName = 'The name of the primary key must be... PRIMARY!';
+$strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
 ?>

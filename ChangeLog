@@ -17,6 +17,10 @@ $Source$
 	* libraries/display_tbl.lib.php3, lines 715-724: return to the browse mode
 	  once a "KILL" statement has been run. Thanks to
 	  Florian Perrichot <perrich at club-internet.fr> for this suggestion.
+	* header.inc.php3; tbl_indexes.php3; tbl_printview.php3;
+	  tbl_properties.php3; libraries/indexes.js; lang/*: commited patch
+	  #458014 - Advanced index generation/editing thanks to
+	  Michal Cihar <nijel at users.sourceforge.net>.
 
 2001-11-08  Robin Johnson  <robbat2@users.sourceforge.net>
 	* config.inc.php3; main.php3; phpinfo.php3: fixed bug #479303

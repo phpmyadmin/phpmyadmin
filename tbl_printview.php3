@@ -42,40 +42,51 @@ if (MYSQL_INT_VERSION >= 32303) {
     $num_rows     = mysql_result($result, 0, 'count');
     $show_comment = '';
 } // end display comments
-mysql_free_result($result);
+if ($result) {
+    mysql_free_result($result);
+}
 
 
 /**
  * Gets table keys and retains them
  */
-$local_query = 'SHOW KEYS FROM ' . backquote($table);
-$result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
-$primary     = '';
-$prev_key    = '';
-$prev_seq    = 0;
-$i           = 0;
-$pk_array    = array(); // will be use to emphasis prim. keys in the table view
+$local_query  = 'SHOW KEYS FROM ' . backquote($table);
+$result       = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+$primary      = '';
+$indexes      = array();
+$lastIndex    = '';
+$indexes_info = array();
+$indexes_data = array();
+$pk_array     = array(); // will be use to emphasis prim. keys in the table view
 while ($row = mysql_fetch_array($result)) {
-    $ret_keys[]  = $row;
-    // Unset the 'Seq_in_index' value if it's not a composite index - part 1
-    if ($i > 0 && $row['Key_name'] != $prev_key && $prev_seq == 1) {
-        unset($ret_keys[$i-1]['Seq_in_index']);
-    }
-    $prev_key    = $row['Key_name'];
-    $prev_seq    = $row['Seq_in_index'];
     // Backups the list of primary keys
     if ($row['Key_name'] == 'PRIMARY') {
         $primary .= $row['Column_name'] . ', ';
         $pk_array[$row['Column_name']] = 1;
     }
-    $i++;
-} // end while
-// Unset the 'Seq_in_index' value if it's not a composite index - part 2
-if ($i > 0 && $row['Key_name'] != $prev_key && $prev_seq == 1) {
-    unset($ret_keys[$i-1]['Seq_in_index']);
-}
-mysql_free_result($result);
+    // Retains keys informations
+    if ($row['Key_name'] != $lastIndex ){
+        $indexes[] = $row['Key_name'];
+        $lastIndex = $row['Key_name'];
+    }
+    $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
+    $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
+    if (isset($row['Cardinality'])) {
+        $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
+    }
+//    I don't know what does following column mean....
+//    $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
+    $indexes_info[$row['Key_name']]['Comment']         = $row['Comment'];
 
+    $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
+    if (isset($row['Sub_part'])) {
+        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
+    }
+
+} // end while
+if ($result) {
+    mysql_free_result($result);
+}
 
 /**
  * Gets fields properties
@@ -181,8 +192,8 @@ echo "\n";
 /**
  * Displays indexes
  */
-$index_count = (isset($ret_keys))
-             ? count($ret_keys)
+$index_count = (isset($indexes))
+             ? count($indexes)
              : 0;
 if ($index_count > 0) {
     ?>
@@ -191,69 +202,59 @@ if ($index_count > 0) {
 <!-- Indexes -->
 &nbsp;<big><?php echo $strIndexes . '&nbsp;:'; ?></big>
 <table border="<?php echo $cfgBorder; ?>">
-<tr>
-    <th><?php echo $strKeyname; ?></th>
-    <th><?php echo $strUnique; ?></th>
+    <tr>
+        <th><?php echo $strKeyname; ?></th>
+        <th><?php echo $strType; ?></th>
+        <th><?php echo $strCardinality; ?></th>
+        <th colspan="2"><?php echo $strField; ?></th>
+    </tr>
     <?php
-    if (MYSQL_INT_VERSION >= 32323) {
-        echo "\n";
-        ?>
-    <th><?php echo $strIdxFulltext; ?></th>
-        <?php
-    }
     echo "\n";
-    ?>
-    <th><?php echo $strField; ?></th>
-</tr>
-    <?php
-    $prev_key = '';
-    $j        = 0;
-    for ($i = 0 ; $i < $index_count; $i++) {
-        $row     = $ret_keys[$i];
-        if (isset($row['Seq_in_index'])) {
-            $key_name = htmlspecialchars($row['Key_name']) . '<nobr>&nbsp;<small>-' . $row['Seq_in_index'] . '-</small></nobr>';
-        } else {
-            $key_name = htmlspecialchars($row['Key_name']);
-        }
-        if (!isset($row['Sub_part'])) {
-            $row['Sub_part'] = '';
-        }
+    while (list($index_no, $index_name) = each($indexes)) {
+        $cell_bgd = (($index_no % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo);
+        $index_td = '            <td bgcolor="' . $cell_bgd . '" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
+        echo '        <tr>' . "\n";
+        echo $index_td
+             . '                ' . htmlspecialchars($index_name) . "\n"
+             . '            </td>' . "\n";
 
-        if ($row['Key_name'] != $prev_key) {
-            $j++;
-            $prev_key = $row['Key_name'];
-        }
-        $bgcolor = ($j % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
-        echo "\n";
-        ?>
-<tr bgcolor="<?php echo $bgcolor; ?>">
-    <td><?php echo $key_name; ?></td>
-    <td><?php echo (($row['Non_unique'] == '0') ? $strYes : $strNo); ?></td>
-        <?php
-        if (MYSQL_INT_VERSION >= 32323) {
-            echo "\n";
-            ?>
-    <td><?php echo (($row['Comment'] == 'FULLTEXT') ? $strYes : $strNo); ?></td>
-            <?php
-        }
-        if (!empty($row['Sub_part'])) {
-            echo "\n";
-            ?>
-    <td><?php echo htmlspecialchars($row['Column_name']); ?></td>
-    <td align="right">&nbsp;<?php echo $row['Sub_part']; ?></td>
-            <?php
+        if ($indexes_info[$index_name]['Comment'] == 'FULLTEXT') {
+            $index_type = 'FULLTEXT';
+        } else if ($index_name == 'PRIMARY') {
+            $index_type = 'PRIMARY';
+        } else if ($indexes_info[$index_name]['Non_unique'] == '0') {
+            $index_type = 'UNIQUE';
         } else {
-            echo "\n";
-            ?>
-    <td colspan="2"><?php echo htmlspecialchars($row['Column_name']); ?></td>
-            <?php
+            $index_type = 'INDEX';
         }
-        echo "\n";
-        ?>
-</tr>
-        <?php
-    } // end for
-    echo "\n";
+        echo $index_td
+             . '                ' . $index_type . "\n"
+             . '            </td>' . "\n";
+
+        echo $index_td
+             . '                ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $strNone) . "\n"
+             . '            </td>' . "\n";
+
+        while (list($row_no, $seq_index) = each($indexes_info[$index_name]['Sequences'])) {
+            if ($row_no > 0) {
+                echo '        <tr>' . "\n";
+            }
+            if (!empty($indexes_data[$index_name][$seq_index]['Sub_part'])) {
+                echo '            <td bgcolor="' . $cell_bgd . '">' . "\n"
+                     . '                ' . $indexes_data[$index_name][$seq_index]['Column_name'] . "\n"
+                     . '            </td>' . "\n";
+                echo '            <td align="right" bgcolor="' . $cell_bgd . '">' . "\n"
+                     . '                ' . $indexes_data[$index_name][$seq_index]['Sub_part'] . "\n"
+                     . '            </td>' . "\n";
+                echo '        </tr>' . "\n";
+            } else {
+                echo '            <td bgcolor="' . $cell_bgd . '" colspan="2">' . "\n"
+                     . '                ' . $indexes_data[$index_name][$seq_index]['Column_name'] . "\n"
+                     . '            </td>' . "\n";
+                echo '        </tr>' . "\n";
+            }
+        } // end while
+    } // end while
     ?>
 </table>
     <?php

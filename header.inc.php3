@@ -105,6 +105,17 @@ var jsPasswordNotSame = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPassw
 </script>
 <script src="libraries/user_details.js" type="text/javascript" language="javascript"></script>
     <?php
+} else if (isset($js_to_run) && $js_to_run == 'indexes.js') {
+    echo "\n";
+    ?>
+// js index validation stuff
+var errorMsg0   = '<?php echo str_replace('\'', '\\\'', $strFormEmpty); ?>';
+var errorMsg1   = '<?php echo str_replace('\'', '\\\'', $strNotNumber); ?>';
+var errorMsg2   = '<?php echo str_replace('\'', '\\\'', $strNotValidNumber); ?>';
+//-->
+</script>
+<script src="libraries/indexes.js" type="text/javascript" language="javascript"></script>
+    <?php
 } else {
     echo "\n";
     ?>

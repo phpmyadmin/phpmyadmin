@@ -192,36 +192,23 @@ if (!empty($show_comment)) {
 $local_query = 'SHOW KEYS FROM ' . backquote($table);
 $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
 $primary     = '';
-$prev_key    = '';
-$prev_seq    = 0;
-$i           = 0;
+$ret_keys    = array();
 $pk_array    = array(); // will be use to emphasis prim. keys in the table view
 while ($row = mysql_fetch_array($result)) {
     $ret_keys[]  = $row;
-    // Unset the 'Seq_in_index' value if it's not a composite index - part 1
-    if ($i > 0 && $row['Key_name'] != $prev_key && $prev_seq == 1) {
-        unset($ret_keys[$i-1]['Seq_in_index']);
-    }
-    $prev_key    = $row['Key_name'];
-    $prev_seq    = $row['Seq_in_index'];
     // Backups the list of primary keys
     if ($row['Key_name'] == 'PRIMARY') {
         $primary .= $row['Column_name'] . ', ';
         $pk_array[$row['Column_name']] = 1;
     }
-    $i++;
 } // end while
-// Unset the 'Seq_in_index' value if it's not a composite index - part 2
-if ($i > 0 && $row['Key_name'] != $prev_key && $prev_seq == 1) {
-    unset($ret_keys[$i-1]['Seq_in_index']);
-}
 mysql_free_result($result);
 
 
 // 3. Get fields
 $local_query = 'SHOW FIELDS FROM ' . backquote($table);
-$result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
-$fields_cnt  = mysql_num_rows($result);
+$fields_rs   = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
+$fields_cnt  = mysql_num_rows($fields_rs);
 
 
 
@@ -254,7 +241,7 @@ $fields_cnt  = mysql_num_rows($result);
 $i         = 0;
 $aryFields = array();
 
-while ($row = mysql_fetch_array($result)) {
+while ($row = mysql_fetch_array($fields_rs)) {
     $i++;
     $bgcolor          = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
     $aryFields[]      = $row['Field'];
@@ -362,7 +349,6 @@ while ($row = mysql_fetch_array($result)) {
     <?php
 } // end while
 
-mysql_free_result($result);
 echo "\n";
 ?>
 
@@ -440,103 +426,14 @@ echo "\n\n";
 <br />
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
+    <td>
 <?php
-$index_count = (isset($ret_keys))
-             ? count($ret_keys)
-             : 0;
-if ($index_count > 0) {
-    ?>
-
-    <!-- Indexes -->
-    <td valign="top" align="left">
-        <?php echo $strIndexes . '&nbsp;:' . "\n"; ?>
-        <table border="<?php echo $cfgBorder; ?>">
-        <tr>
-            <th><?php echo $strKeyname; ?></th>
-            <th><?php echo $strUnique; ?></th>
-    <?php
-    if (MYSQL_INT_VERSION >= 32323) {
-        echo "\n";
-        ?>
-            <th><?php echo $strIdxFulltext; ?></th>
-        <?php
-    }
-    echo "\n";
-    ?>
-            <th colspan="2"><?php echo $strField; ?></th>
-            <th><?php echo $strAction; ?></th>
-        </tr>
-    <?php
-    $prev_key = '';
-    $j        = 0;
-    for ($i = 0; $i < $index_count; $i++) {
-        $row     = $ret_keys[$i];
-        if (isset($row['Seq_in_index'])) {
-            $key_name = htmlspecialchars($row['Key_name']) . '<nobr>&nbsp;<small>-' . $row['Seq_in_index'] . '-</small></nobr>';
-        } else {
-            $key_name = htmlspecialchars($row['Key_name']);
-        }
-        if (!isset($row['Sub_part'])) {
-            $row['Sub_part'] = '';
-        }
-        if ($row['Key_name'] == 'PRIMARY') {
-            $sql_query = urlencode('ALTER TABLE ' . backquote($table) . ' DROP PRIMARY KEY');
-            $js_msg    = 'ALTER TABLE ' . js_format($table) . ' DROP PRIMARY KEY';
-            $zero_rows = urlencode($strPrimaryKeyHasBeenDropped);
-        } else {
-            $sql_query = urlencode('ALTER TABLE ' . backquote($table) . ' DROP INDEX ' . backquote($row['Key_name']));
-            $js_msg    = 'ALTER TABLE ' . js_format($table) . ' DROP INDEX ' . js_format($row['Key_name']);
-            $zero_rows = urlencode(sprintf($strIndexHasBeenDropped, htmlspecialchars($row['Key_name'])));
-        }
-
-        if ($row['Key_name'] != $prev_key) {
-            $j++;
-            $prev_key = $row['Key_name'];
-        }
-        $bgcolor = ($j % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
-        echo "\n";
-        ?>
-        <tr bgcolor="<?php echo $bgcolor; ?>">
-            <td><?php echo $key_name; ?></td>
-            <td><?php echo (($row['Non_unique'] == '0') ? $strYes : $strNo); ?></td>
-        <?php
-        if (MYSQL_INT_VERSION >= 32323) {
-            echo "\n";
-            ?>
-            <td><?php echo (($row['Comment'] == 'FULLTEXT') ? $strYes : $strNo); ?></td>
-            <?php
-        }
-        if (!empty($row['Sub_part'])) {
-            echo "\n";
-            ?>
-            <td><?php echo htmlspecialchars($row['Column_name']); ?></td>
-            <td align="right">&nbsp;<?php echo $row['Sub_part']; ?></td>
-            <?php
-        } else {
-            echo "\n";
-            ?>
-            <td colspan="2"><?php echo htmlspecialchars($row['Column_name']); ?></td>
-            <?php
-        }
-        echo "\n";
-        ?>
-            <td>
-                <a href="sql.php3?<?php echo $url_query . '&amp;sql_query=' . $sql_query . '&amp;zero_rows=' . $zero_rows; ?>"
-                    onclick="return confirmLink(this, '<?php echo $js_msg; ?>')">
-                    <?php echo $strDrop; ?></a>
-            </td>
-        </tr>
-        <?php
-    } // end for
-    echo "\n";
-    ?>
-        </table>
-        <?php echo show_docu('manual_MySQL_Optimization.html#MySQL_indexes') . "\n"; ?>
+define('_IDX_INCLUDED_', 1);
+require ('./tbl_indexes.php3');
+?>
     </td>
-    <?php
-} // end display indexes
 
-
+<?php
 /**
  * Displays Space usage and row statistics
  */
@@ -568,12 +465,10 @@ if ($cfgShowStats) {
         }
 
         // Displays them
-        if ($index_count > 0) {
-            echo '    <td width="20">&nbsp;</td>' . "\n";
-        }
         ?>
 
     <!-- Space usage -->
+    <td width="20">&nbsp;</td>
     <td valign="top">
         <?php echo $strSpaceUsage . '&nbsp;:' . "\n"; ?>
         <a name="showusage"></a>
@@ -1242,7 +1137,7 @@ else { // MySQL < 3.23.22
     <li>
         <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
             onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
-            <?php echo $strDropTable . ' ' . htmlspecialchars($table); ?></a>
+            <?php echo $strDropTable; ?></a>
     </li>
 
 </ul>
