@@ -5,10 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-08-01 Robin Johnson  <robbat2@users.sourceforge.net>
+2002-08-02 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/defines*:
         - Add another set of defines to make the original
-          version datas available as strings.
+          version datas available as strings
+    * libraries/common.lib.php3:
+        - Cleaned up SQL Query links
+        - Made customizable in $cfg
+    * config.inc.php3:
+        - Added $cfg['SQLQuery']* for customizing SQL Query links
+        - Set defaults of $cfg['SQLQuery']* to act like old behavior
+    * lang/*:
+        - Changed $strExplain to say 'Query' instead of code
+        - Added $strNoExplain for reverse of Explain state
 
 2002-08-02 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/portuguese: update, thanks to Lopo Pizarro

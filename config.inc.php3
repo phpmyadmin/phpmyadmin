@@ -286,7 +286,15 @@ $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right s
 $cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizontal|vertical)
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
-
+/**
+ * SQL Query box settings
+ * These are the links display in all of the SQL Query boxes
+ */
+$cfg['SQLQuery']['Edit']      = TRUE;       // Edit link to change a query
+$cfg['SQLQuery']['Explain']   = TRUE;       // EXPLAIN on SELECT queries
+$cfg['SQLQuery']['ShowAsPHP'] = TRUE;       // Wrap a query in PHP
+$cfg['SQLQuery']['Validate']  = FALSE;      // Validate a query (see $cfg['SQLValidator'] as well)
+ 
 /**
  * SQL Parser Settings
  */
@@ -313,7 +321,6 @@ $cfg['SQP']['fmtColor']     = array(        // Syntax colouring data
     'quote_single'       => '',
     'quote_backtick'     => ''
 );
-
 
 /**
  * Available charsets for MySQL conversion. currently contains all which could

@@ -1111,8 +1111,6 @@ if (typeof(document.getElementById) != 'undefined'
             $sqlnr = 1;
             if (!empty($GLOBALS['show_as_php'])) {
                 $new_line = '&quot;;<br />' . "\n" . '            $sql .= &quot;';
-//            } else if ($cfg['UseSyntaxColoring'] == FALSE) {
-//                $new_line = '<br />' . "\n";
             }
             if (isset($new_line)) {
                 $query_base = htmlspecialchars($GLOBALS['sql_query']);
@@ -1122,7 +1120,6 @@ if (typeof(document.getElementById) != 'undefined'
             }
             if (!empty($GLOBALS['show_as_php'])) {
                 $query_base = '$sql  = &quot;' . $query_base;
-//            } else if ($cfg['UseSyntaxColoring']) {
             } else {
                 $parsed_sql = PMA_SQP_parse($query_base);
                 $query_base = PMA_formatSql($parsed_sql);
@@ -1137,44 +1134,81 @@ if (typeof(document.getElementById) != 'undefined'
                 } else {
                     $edit_target = '';
                 }
-                if ($edit_target == 'tbl_properties.php3') {
-                    $edit_link = '<a href="tbl_properties.php3'
-                               . $url_qpart
-                               . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y#querybox">' . $GLOBALS['strEdit'] . '</a>';
-                } else if ($edit_target != '') {
-                    $edit_link = '<a href="db_details.php3'
-                               . $url_qpart
-                               . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y#querybox">' . $GLOBALS['strEdit'] . '</a>';
+                
+                if (isset($cfg['SQLQuery']['Edit']) && $cfg['SQLQuery']['Edit'] == TRUE) {
+                    if ($edit_target == 'tbl_properties.php3') {
+                        $edit_link = '<a href="tbl_properties.php3'
+                                   . $url_qpart
+                                   . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y#querybox">' . $GLOBALS['strEdit'] . '</a>';
+                    } else if ($edit_target != '') {
+                        $edit_link = '<a href="db_details.php3'
+                                   . $url_qpart
+                                   . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y#querybox">' . $GLOBALS['strEdit'] . '</a>';
+                    }
+                    $edit_link = '&nbsp;[' . $edit_link . ']';
+                } else {
+                    $edit_link = '';
                 }
+                
                 // Want to have the query explained (Mike Beck 2002-05-22)
                 // but only explain a SELECT (that has not been explained)
-                if (eregi('^SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
-                    $explain_link = '[<a href="sql.php3'
+                /* SQL-Parser-Analyzer */
+                if (isset($cfg['SQLQuery']['Explain']) && $cfg['SQLQuery']['Explain'] == TRUE) {
+                    $explain_link = '&nbsp;[<a href="sql.php3'
                                   . $url_qpart
-                                  . '&amp;sql_query=' . urlencode('EXPLAIN ' . $GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'] . '</a>]&nbsp;';
+                                  . '&amp;sql_query=';
+                    if (eregi('^SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
+                        $explain_link .= urlencode('EXPLAIN ' . $GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'];
+                    } else if (eregi('^EXPLAIN[[:space:]]+SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
+                        $explain_link .= substr($GLOBALS['sql_query'],8) . '">' . $GLOBALS['strNoExplain'];
+                    } else {
+                        $explain_link = '';
+                    }
+                    if(!empty($explain_link)) {
+                        $explain_link .= '</a>]';
+                    }
                 } else {
                     $explain_link = '';
                 }
+                
                 // Also we would like to get the SQL formed in some nice
                 // php-code (Mike Beck 2002-05-22)
-                if (!empty($GLOBALS['show_as_php'])) {
-                    $php_link = '<a href="sql.php3'
-                              . $url_qpart
-                              . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_as_php=0">' . $GLOBALS['strNoPhp'] . '</a>';
+                if (isset($cfg['SQLQuery']['ShowAsPHP']) && $cfg['SQLQuery']['ShowAsPHP'] == TRUE) {
+                    if (!empty($GLOBALS['show_as_php'])) {
+                        $php_link = '<a href="sql.php3' 
+                                  . $url_qpart 
+                                  . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_as_php=0">' . $GLOBALS['strNoPhp'] . '</a>';
+                    } else {
+                        $php_link = '<a href="sql.php3' 
+                                  . $url_qpart 
+                                  . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_as_php=1">' . $GLOBALS['strPhp'] . '</a>';
+                    }
+                    $php_link = '&nbsp;[' . $php_link . ']';
                 } else {
-                    $php_link = '<a href="sql.php3'
-                              . $url_qpart
-                              . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_as_php=1">' . $GLOBALS['strPhp'] . '</a>';
+                    $php_link = '';
+                }
+
+                if (isset($cfg['SQLQuery']['Validate']) && $cfg['SQLQuery']['Validate'] == TRUE) {
+                    $validate_link = '&nbsp;[<a href="sql.php3'
+                                   . $url_qpart
+                                   . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;validatequery=';
+                    if (!empty($GLOBALS['validatequery'])) {
+                        $validate_link .= '0">' /*.  $GLOBALS['strNoValidateSQL'] */;
+                    } else {
+                        $validate_link .= '1">'/*. $GLOBALS['strValidateSQL'] */;
+                    }
+                    $validate_link .= '</a>]';
+                } else {
+                    $validate_link = '';
                 }
             } // end if (prepare links)
 
             // Displays the message
             echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:';
             if (!empty($edit_target)) {
-                echo '&nbsp;[' . $edit_link . ']&nbsp;' . $explain_link . '[' . $php_link . ']<br />' . "\n";
-            } else {
-                echo '<br />' . "\n";
-            }
+                echo $edit_link . $explain_link . $php_link . $validate_link;
+            } 
+            echo '<br />' . "\n";
             echo '            ' . $query_base;
             // If a 'LIMIT' clause has been programatically added to the query
             // displays it
