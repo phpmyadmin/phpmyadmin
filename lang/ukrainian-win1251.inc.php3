@@ -86,6 +86,7 @@ $strDatabase = 'БД ';
 $strDatabaseHasBeenDropped = 'Базу даних %s знищено.';
 $strDatabases = 'Бази Даних';
 $strDatabasesStats = 'Статистика баз даних';
+$strDatabaseWildcard = 'База даних (дозволено використання шаблонів):';
 $strDataOnly = 'Лише дані';
 $strDefault = 'По замовчуванню';
 $strDelete = 'Видалити';
@@ -346,5 +347,4 @@ $strZip = 'запакувати в "zip"';
 
 // To translate
 $strChangePassword = 'Change password';
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>
