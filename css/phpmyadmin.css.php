@@ -293,6 +293,7 @@ li form {
 ul.main {
     margin: 0px;
     padding-left:2em;
+    padding-right:2em;
 }
 
 ul.main li {
