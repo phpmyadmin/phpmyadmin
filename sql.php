@@ -345,7 +345,7 @@ else {
         // This could happen if the user sends a query like "USE `database`;"
         $res = PMA_mysql_query('SELECT DATABASE() AS "db";');
         $row = PMA_mysql_fetch_array($res);
-        if ($db != $row['db']) {
+        if (is_array($row) && isset($row['db']) && $db != $row['db']) {
             $db     = $row['db'];
             $reload = 1;
         }
