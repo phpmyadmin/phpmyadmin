@@ -640,8 +640,7 @@ $strMustSelectFile = 'Bitte geben Sie eine Datei an, die eingefügt werden soll.'
 $strSaveOnServer = 'Datei auf dem Server in Verzeichnis %s speichern';
 $strOverwriteExisting = 'Bestehende Datei(en) überschreiben';
 $strFileAlreadyExists = 'Die Datei %s besteht bereits auf dem Server. Bitte ändern Sie den Dateinamen oder wählen Sie die Überschreibungs-Option.';
-$strFileNotWriteble = 'Kein Schreibzugriff für Datei %s, prüfen Sie bitte Ihre Konfiguration.';
-$strCanNotOpenFile = 'Datei %s kann nicht geöffnet werden, prüfen Sie bitte Ihre Konfiguration.';
-$strCanNotWriteFile = 'Datei %s kann nicht geschrieben werden, prüfen Sie bitte Ihre Konfiguration.';
 $strDumpSaved = 'Dump (Schema) wurde in Datei %s gespeichert.';
+$strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
+$strNoSpace = 'Insufficient space to save the file %s.';  //to translate
 ?>

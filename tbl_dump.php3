@@ -436,18 +436,19 @@ if (!empty($asfile)) {
 
     /* Should ve save on server? */
     if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir']) && !empty($onserver) ) {
-        $fname = $cfg['SaveDir'] . $filename . '.' . $ext;
+        $fname = $cfg['SaveDir'] . ereg_replace('[/\\]','_',$filename) . '.' . $ext;
         if (file_exists($fname) && empty($onserverover)) {
             $message = sprintf($strFileAlreadyExists, $fname);
         } else {
             if (is_file($fname) && !is_writable($fname)) {
-                $message = sprintf($strFileNotWriteble, $fname);
+                $message = sprintf($strNoPermission, $fname);
             } else {
-                if (!$file = fopen($fname, 'w')) {
-                    $message = sprintf($strCanNotOpenFile, $fname);
+                if (!$file = @fopen($fname, 'w')) {
+                    $message = sprintf($strNoPermission, $fname);
                 } else {
-                    if (!fwrite($file, $dump_buffer)) {
-                        $message = sprintf($strCanNotWriteFile, $fname);
+                    $write_result = @fwrite($file, $dump_buffer);
+                    if (!$write_result || ($write_result != strlen($dump_buffer))) {
+                        $message = sprintf($strNoSpace, $fname);
                     } else {
                         fclose($file);
                         $message = sprintf($strDumpSaved, $fname);

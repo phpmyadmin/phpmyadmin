@@ -212,7 +212,6 @@ $strFileCouldNotBeRead = 'Le fichier n\'a pu être lu';
 $strFileNameTemplate = 'Modèle de nom de fichier';
 $strFileNameTemplateHelp = 'Utilisez __DB__ comme nom de base, __TABLE__ comme nom de table et %stoute option valide de strftime%s comme indicateur de date/heure, le suffixe sera ajouté automatiquement. Tout autre texte sera préservé.';
 $strFileNameTemplateRemember = 'se souvenir du modèle';
-$strFileNotWriteble = 'On ne peut écrire sur le fichier %s, veuillez vérifier votre configuration';
 $strFixed = 'fixe';
 $strFlushPrivilegesNote = 'Note: phpMyAdmin obtient la liste des privilèges directement à partir des tables MySQL. Le contenu de ces tables peut être différent des privilèges effectifs, si des changements manuels ont été apportés. Dans ce cas, vous devriez %srecharger les privilèges%s avant de continuer.';
 $strFlushTable = 'Recharger la table ("FLUSH")';
@@ -636,7 +635,7 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-$strCanNotOpenFile = 'Can not open file %s for writing, check your configuration.';  //to translate
-$strCanNotWriteFile = 'Can not write to file %s, check your configuration.';  //to translate
 
+$strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
+$strNoSpace = 'Insufficient space to save the file %s.';  //to translate
 ?>

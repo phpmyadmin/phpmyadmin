@@ -641,8 +641,7 @@ $strMustSelectFile = 'You should select file which you want to insert.';  //to t
 $strSaveOnServer = 'Save on server in %s directory';  //to translate
 $strOverwriteExisting = 'Overwrite existing file(s)';  //to translate
 $strFileAlreadyExists = 'File %s already exists on server, change filename or check overwrite option.';  //to translate
-$strFileNotWriteble = 'File %s is not writable, check your configuration.';  //to translate
-$strCanNotOpenFile = 'Can not open file %s for writing, check your configuration.';  //to translate
-$strCanNotWriteFile = 'Can not write to file %s, check your configuration.';  //to translate
 $strDumpSaved = 'Dump has been saved to file %s.';  //to translate
+$strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
+$strNoSpace = 'Insufficient space to save the file %s.';  //to translate
 ?>
