@@ -288,10 +288,15 @@ if (capable) {
         document.writeln('.item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
         document.writeln('.tblItem:hover {color: #FF0000; text-decoration: underline}');
       }
-      else {
-        document.writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; position: absolute; visibility: hidden}');
-        document.writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; position: absolute; visibility: hidden}');
-        document.writeln('.item, .tblItem {font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
+      else { // NS4 case
+      	if (typeof(expandedDb) != 'undefined') {
+          document.writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; position: absolute; visibility: hidden}');
+          document.writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; position: absolute; visibility: hidden}');
+        } else {
+          document.writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none}');
+          document.writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399}');
+        }
+        document.writeln('.item, .tblItem {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
       }
       document.writeln('\/\/-->');
       document.writeln('<\/style>');
