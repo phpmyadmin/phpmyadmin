@@ -105,7 +105,6 @@ foreach ($ret_keys as $row) {
 // fields had already been grabbed in "tbl_properties.php"
 if (!defined('PMA_IDX_INCLUDED')) {
     $fields_rs   = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';');
-    $fields_cnt  = PMA_DBI_num_rows($fields_rs);
     $save_row   = array();
     while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $save_row[] = $row;
