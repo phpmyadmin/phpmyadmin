@@ -130,10 +130,11 @@ $strDatabase = 'Database ';
 $strDatabaseHasBeenDropped = 'Database %s telah dihapus.';
 $strDatabaseWildcard = 'Database (wildcards diizinkan):';
 $strDatabases = 'database';
+$strDatabasesDropped = '%s database telah di-drop dengan sukses.';
 $strDatabasesStats = 'Statistik Database';
-$strDatabasesStatsHeavyTraffic = 'Perhatian: Menggiatkan statistik database dengan kemungkinan besar mengakibatkan traffic yang cukup tinggi diantara webserver dan server dari MySQL.';
 $strDatabasesStatsDisable = 'Mencacatkan Statistik';
 $strDatabasesStatsEnable = 'Menggiatkan Statistik';
+$strDatabasesStatsHeavyTraffic = 'Perhatian: Menggiatkan statistik database dengan kemungkinan besar mengakibatkan traffic yang cukup tinggi diantara webserver dan server dari MySQL.';
 $strDbPrivileges = 'Hak (privileges) khusus terhadap Database';
 $strDefault = 'Default';
 $strDefaultValueHelp = 'Untuk nilai (value) default cukup diisi single value saja tanpa mengunakan backslash, escaping atau quotes dan dengan mengunakan format sbb.: a';
@@ -156,6 +157,7 @@ $strDoYouReally = 'Apakah anda ingin ';
 $strDocu = 'Dokumentasi';
 $strDrop = 'Hapus Field ini';
 $strDropDB = 'Hapus database %s';
+$strDropSelectedDatabases = 'Drop database pilihan';
 $strDropTable = 'Hapus tabel:';
 $strDropUsersDb = 'Hapus database yang miliki nama yang sama dengan pengunanya.';
 $strDumpXRows = 'Dump %s baris bermula pada baris %s.';
@@ -284,6 +286,7 @@ $strName = 'Nama';
 $strNext = 'Berikutnya';
 $strNo = 'Tidak';
 $strNoDatabases = 'Database tidak ditemukan';
+$strNoDatabasesSelected = 'Tidak ada database yang dipilih.';
 $strNoDescription = 'tanpa keterangan';
 $strNoDropDatabases = 'Perintah "DROP DATABASE" dimatikan.';
 $strNoExplain = 'Melewati keterangan SQL';
@@ -558,10 +561,6 @@ $strYes = 'Ya';
 
 $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) akan menghapus batas yang telah ditentukan.';
 $strZip = '"Dikompress dengan Zip"';
-
 // To translate
-$strDropSelectedDatabases = 'Drop Selected Databases';  //to translate
-$strNoDatabasesSelected = 'No databases selected.';  //to translate
-$strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate
 
 ?>

@@ -135,6 +135,7 @@ $strDatabase = 'Database ';
 $strDatabaseHasBeenDropped = 'Il Database %s è stato eliminato.';
 $strDatabaseWildcard = 'Database (wildcards permesse):';
 $strDatabases = 'Database';
+$strDatabasesDropped = '%s databases sono stati cancellati correttamente.';
 $strDatabasesStats = 'Statistiche dei databases';
 $strDatabasesStatsDisable = 'Disabilita le Statistiche';
 $strDatabasesStatsEnable = 'Abilita le Statistiche';
@@ -161,6 +162,7 @@ $strDoYouReally = 'Confermi: ';
 $strDocu = 'Documentazione';
 $strDrop = 'Elimina';
 $strDropDB = 'Elimina database %s';
+$strDropSelectedDatabases = 'Elimina i Databases selezionati';
 $strDropTable = 'Elimina la tabella';
 $strDropUsersDb = 'Elimina i databases gli stessi nomi degli utenti.';
 $strDumpXRows = 'Dump di %s righe a partire dalla riga %s.';
@@ -289,6 +291,7 @@ $strName = 'Nome';
 $strNext = 'Prossimo';
 $strNo = ' No ';
 $strNoDatabases = 'Nessun database';
+$strNoDatabasesSelected = 'Nessun database selezionato.';
 $strNoDescription = 'nessuna Description';
 $strNoDropDatabases = 'I comandi "DROP DATABASE" sono disabilitati.';
 $strNoExplain = 'Non Spiegare SQL';
@@ -565,7 +568,4 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strDropSelectedDatabases = 'Drop Selected Databases';  //to translate
-$strNoDatabasesSelected = 'No databases selected.';  //to translate
-$strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate
 ?>
