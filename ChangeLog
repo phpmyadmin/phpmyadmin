@@ -24,6 +24,7 @@ $Source$
 	* libraries/display_tbl.lib.php3, lines 724-730: fixed a js bug.
 	* db_details.php3, line 517; tbl_properties.php3, line 709: restored word
 	  wrapping mode for textarea (not xhtml1.0 compliant but required with IE).
+	* db_details.php3: beautified the "with selection" feature.
 
 2002-02-05 Marc Delisle  <lem9@users.sourceforge.net>
 	* sql.php3, bug 463683 state tracking problem

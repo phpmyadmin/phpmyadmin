@@ -329,15 +329,14 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
     echo "\n";
     ?>
 <tr>
-    <td colspan="5">
+    <td colspan="<?php echo (($cfgShowStats) ? '11' : '10'); ?>" valign="bottom">
         <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
             <?php echo $strCheckAll; ?></a>
         &nbsp;/&nbsp;
         <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('tablesForm', false); return false;">
             <?php echo $strUncheckAll; ?></a>
-    </td>
-    <td colspan="5">
+        &nbsp;&nbsp;&nbsp;
         <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
         <select name="submit_mult" dir="ltr" onchange="this.form.submit();"> 
     <?php
