@@ -55,13 +55,14 @@ if ($PMA_ThemeAvailable == TRUE){ // check after default theme
 } // end check default theme
 
 if ($PMA_ThemeAvailable == TRUE) { // themeManager is available
-    if ($PMA_ThemeDefault == TRUE) {
+    /*if ($PMA_ThemeDefault == TRUE) {
         // we must add default theme, because it has no directory
         $available_themes_choices[]='original';
-    }
+    }*/
     if ($handleThemes = opendir($cfg['ThemePath'])) { // check for themes directory
         while (false !== ($PMA_Theme = readdir($handleThemes))) { // get themes
-            if ($PMA_Theme != "." && $PMA_Theme != ".." && $PMA_Theme!='original' && $PMA_Theme!=$cfg['ThemeDefault'] && $PMA_Theme != 'CVS') { // file check
+            //if ($PMA_Theme != "." && $PMA_Theme != ".." && $PMA_Theme!='original' && $PMA_Theme!=$cfg['ThemeDefault'] && $PMA_Theme != 'CVS') { // file check
+            if ($PMA_Theme != "." && $PMA_Theme != ".."  && $PMA_Theme!=$cfg['ThemeDefault'] && $PMA_Theme != 'CVS') { // file check
                 if (@is_dir($cfg['ThemePath'].'/'.$PMA_Theme)) { // check the theme
                     $available_themes_choices[]=$PMA_Theme;
                 } // end check the theme

@@ -5,6 +5,16 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-16 Marc Delisle  <lem9@users.sourceforge.net>
+    Changes, thanks to Michael Keck (mkkeck):
+    * libraries/auth/config.auth.lib.php +  http.auth.lib.php:
+      style for error messages
+    * main.php, themes.php, libraries/select_theme.lib.php,
+      css/phpmyadmin.css.php, themes/original/img + css:
+      put original theme under the same structure as darkblue_orange
+ 
+      TODO: fix some table header colors
+
 2004-06-16 Michal Čihař  <michal@cihar.com>
     * header.inc.php: Use rather _SERVER than GLOBALS, should fix bug #973602.
 

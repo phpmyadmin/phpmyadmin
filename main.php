@@ -272,7 +272,7 @@ if ($server > 0) {
 <!-- MySQL server related links -->
 <table cellpadding="3" cellspacing="0">
     <tr>
-        <th<?php if($theme!='original'){ ?> class="tblHeaders"<?php } echo $str_iconic_colspan; ?>>&nbsp;&nbsp;MySQL</th>
+        <th class="tblHeaders"<?php echo $str_iconic_colspan; ?>>&nbsp;&nbsp;MySQL</th>
     </tr>
     <tr><?php
         echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','b_newdb.png',$strCreateNewDatabase,'') : $str_normal_list); 
@@ -466,7 +466,7 @@ echo "\n";
 <td valign="top">
 <table border="0" cellpadding="3" cellspacing="0">
     <tr>
-        <th<?php if($theme!='original'){ ?> class="tblHeaders"<?php } echo $str_iconic_colspan; ?>>&nbsp;&nbsp;phpMyAdmin</th>
+        <th class="tblHeaders"<?php echo $str_iconic_colspan; ?>>&nbsp;&nbsp;phpMyAdmin</th>
     </tr>
 <?php
 // Displays language selection combo
@@ -575,7 +575,7 @@ echo "\n";
 
 if (count($available_themes_choices)>1) {
     $theme_selected = FALSE;
-    $theme_preview_path= './open.php?get=./' . $cfg['ThemePath'] . '/index.php';
+    $theme_preview_path= './themes.php';
     $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" onclick="'
                         . "window.open('" . $theme_preview_path . "','themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes');"
                         . '">';
@@ -583,7 +583,7 @@ if (count($available_themes_choices)>1) {
     <!-- Theme Manager -->
     <tr>
 <?php
-        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,$theme_preview_href,'s_theme.png','Theme (Style)','</a>') : $str_normal_list) . "\n";
+        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,$theme_preview_href,'s_theme.png',(isset($strTheme) ? $strTheme : 'Theme (Style)'),'</a>') : $str_normal_list) . "\n";
 ?>
         <td>
             <form name="setTheme" method="post" action="index.php" target="_parent">

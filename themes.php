@@ -1,8 +1,8 @@
 <?php
-if (!isset($path_to_themes) || empty($path_to_themes)) {
-    $path_to_themes = './'; // set up the path to themes if not exists
-}
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 /* Theme Select */
+$path_to_themes = './' . $cfg['ThemePath'] . '/';
 echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -64,9 +64,10 @@ echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
 
             <tr><td>&nbsp;</td></tr>
 <?php
+    /*
     $org_theme_screen = $path_to_themes . 'original/screen.png';
     if(@file_exists($org_theme_screen)){ // check if original theme have a screen
-?>
+
             <tr>
                 <td>
                     <?php
@@ -80,11 +81,12 @@ echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
                     ?>
                 </td>
             </tr>
-<?php
+
     } // end original theme screen
+    */
     if ($handleThemes = opendir($path_to_themes)) { // open themes
         while (false !== ($PMA_Theme = readdir($handleThemes))) {  // get screens
-            if ($PMA_Theme != "." && $PMA_Theme != ".." && !strstr($PMA_Theme,'original')) { // but not the original
+            if ($PMA_Theme != "." && $PMA_Theme != "..") { // && !strstr($PMA_Theme,'original')) { // but not the original
                 $screen_directory = $path_to_themes . $PMA_Theme;
                 if (is_dir($screen_directory) && @file_exists($screen_directory.'/screen.png')) { // if screen exists then output
 ?>
@@ -106,7 +108,7 @@ echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
             </tr>
 <?php   
                 } // end 'screen output'
-            } // end 'check if not original'
+            } // end 'check theme'
         } // end 'get screens'
         closedir($handleThemes); 
     } // end 'open themes'
