@@ -1,7 +1,7 @@
 <?php
 /* $Id$ */
 
-/** 
+/**
  * Updated by "CaliMonk" <calimonk at gmx.net> on 2002/06/04 12:44.
  */
 
@@ -19,7 +19,7 @@ $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sept', '
 // variable below
 $datefmt = ' %e %B %Y om %H:%M';
 
-$strAPrimaryKey = 'Een primaire sleutel is toegevoogd aan %s';
+$strAPrimaryKey = 'Een primaire sleutel is toegevoegd aan %s';
 $strAccessDenied = 'Toegang geweigerd ';
 $strAction = 'Actie';
 $strAddDeleteColumn = 'Toevoegen/Verwijderen Veld Kolommen';
@@ -37,7 +37,7 @@ $strAfterInsertBack = 'Terug';
 $strAfterInsertNewInsert = 'Voeg een nieuw record in';
 $strAll = 'Alle';
 $strAlterOrderBy = 'Wijzig de tabel order bij';
-$strAnIndex = 'Een index is toegevoegd aad %s';
+$strAnIndex = 'Een index is toegevoegd aan %s';
 $strAnalyzeTable = 'Analyseer tabel';
 $strAnd = 'En';
 $strAny = 'Elke'; //! Willekeurige?
@@ -74,15 +74,15 @@ $strCheckDbPriv = 'Controleer database rechten';
 $strCheckTable = 'Controleer tabel';
 $strColumn = 'Kolom';
 $strColumnNames = 'Kolom namen';
-$strCompleteInserts = 'Complete inserts'; //to translate
+$strCompleteInserts = 'Insert voltooid';
 $strConfigureTableCoord = 'Configureer de coördinaten voor de tabel %s';
 $strConfirm = 'Weet u zeker dat u dit wilt?';
 $strCookiesRequired = 'Cookies moeten aan staan voorbij dit punt.';
-$strCopyTable = 'Kopiëer rabel naar (database<b>.</b>tabel):';
+$strCopyTable = 'Kopieer tabel naar (database<b>.</b>tabel):';
 $strCopyTableOK = 'Tabel %s is gekopieerd naar %s.';
 $strCreate = 'Aanmaken';
-$strCreateIndex = 'Creër een index op kolommen&nbsp;%s&nbsp;';
-$strCreateIndexTopic = 'Creër een nieuwe index';
+$strCreateIndex = 'Creëer een index op kolommen&nbsp;%s&nbsp;';
+$strCreateIndexTopic = 'Creëer een nieuwe index';
 $strCreateNewDatabase = 'Nieuwe database aanmaken';
 $strCreateNewTable = 'Nieuwe tabel aanmaken in database %s';
 $strCriteria = 'Criteria';
@@ -125,7 +125,7 @@ $strError = 'Fout';
 $strExplain = 'Geef uitleg over de SQL Code';
 $strExport = 'Exporteer';
 $strExportToXML = 'Exporteer naar XML formaat';
-$strExtendedInserts = 'Uitgebreidde invoegingen';
+$strExtendedInserts = 'Uitgebreide invoegingen';
 $strExtra = 'Extra';
 
 $strField = 'Veld';
@@ -136,7 +136,7 @@ $strFieldsEnclosedBy = 'Velden ingesloten door';
 $strFieldsEscapedBy = 'Velden ontsnapt door';
 $strFieldsTerminatedBy = 'Velden beëindigd door';
 $strFixed = 'vast';
-$strFormEmpty = 'Er mist een waarde in het formulier !';
+$strFormEmpty = 'Er mist een waarde in het formulier!';
 $strFormat = 'Formatteren';
 $strFullText = 'Volledige teksten';
 $strFunction = 'Functie';
@@ -270,7 +270,7 @@ $strReloadFailed = 'Opnieuw laden van MySQL mislukt.';
 $strReloadMySQL = 'MySQL opnieuw laden.';
 $strRememberReload = 'Vergeet niet de server opnieuw te starten.';
 $strRenameTable = 'Tabel hernoemen naar';
-$strRenameTableOK = 'Tabel %s is hernoemd naar %s';
+$strRenameTableOK = 'Tabel %s is hernoemt naar %s';
 $strRepairTable = 'Repareer tabel';
 $strReplace = 'Vervangen';
 $strReplaceTable = 'Vervang tabelgegevens met bestand';
