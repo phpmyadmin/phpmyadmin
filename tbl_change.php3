@@ -138,7 +138,8 @@ else
 // <markus@noga.de>
 // retrieve keys into foreign fields, if any
 $cfgRelation = PMA_getRelationsParam();
-$foreigners  = PMA_getForeigners($db, $table);
+$foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
+
 
 /**
  * Displays the form
@@ -369,33 +370,36 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // <markus@noga.de>
     // selection box for foreign keys
 
-    // lem9: array_key_exists() only in PHP >= 4.1.0
-    // if (array_key_exists($field, $foreigners)) {
-
-    if (isset($foreigners[$field])) {
+    // lem9: we always show the foreign field in the drop-down; if a display
+    // field is defined, we show it besides the foreign field
+    if ($foreigners && isset($foreigners[$field])) {
         $foreigner       = $foreigners[$field];
         $foreign_db      = $foreigner['foreign_db'];
         $foreign_table   = $foreigner['foreign_table'];
         $foreign_field   = $foreigner['foreign_field'];
-        $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
 
-        $dispsql = 'SELECT ' . PMA_backquote($foreign_field) . ', ' . PMA_backquote($foreign_display)
+        // foreign_display can be FALSE if no display field defined:
+        $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
+        $dispsql = 'SELECT ' . PMA_backquote($foreign_field) 
+                 . ($foreign_display==FALSE? '': ', ' . PMA_backquote($foreign_display))
                  . ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table);
         // lem9: put a LIMIT in case of big foreign table (looking for better
         //       solution, maybe a configurable limit, or a message?)
         $dispsql .= ' LIMIT 100';
         $disp    = PMA_mysql_query($dispsql);
+    }
 
+    if (isset($disp) && $disp) {
         echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
         echo '            <select name="fields[' . urlencode($field) .  ']">' . "\n";
         while ($relrow = @PMA_mysql_fetch_array($disp)) {
             $key   = $relrow[$foreign_field];
-            $value = $relrow[$foreign_display];
+            $value = ($foreign_display!=FALSE ? '-' . htmlspecialchars($relrow[$foreign_display]):'');
             echo '            <option value="' . urlencode($key) . '"';
             if ($key == $data) {
                echo ' selected="selected"';
             } // end if
-            echo '>' . htmlspecialchars($key) . '-' .  htmlspecialchars($value) . '</option>' . "\n";
+            echo '>' . htmlspecialchars($key) . $value . '</option>' . "\n";
         } // end while
         echo '            </select>' . "\n";
         echo '        </td>' . "\n";
