@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-27 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.6.0 released
+
 2004-09-26 Marc Delisle  <lem9@users.sourceforge.net>
     * read_dump.php: improvements in detection and reload
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.

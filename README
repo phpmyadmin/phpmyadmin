@@ -3,10 +3,10 @@ $Id$
 phpMyAdmin - Readme
 ===================
 
-  A set of PHP-scripts to administrate MySQL over the web.
+  A set of PHP-scripts to manage MySQL over the web.
 
-  Version 2.6.0-rc4
-  -----------------
+  Version 2.6.0
+  -------------
   http://www.phpmyadmin.net/
 
     Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_ratschiller.com>
