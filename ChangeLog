@@ -8,6 +8,7 @@ $Source$
 2002-07-19 Loïc Chapeaux  <lolo@phpheaven.net>
     * pdf_page.php3; libraries/common.lib.php3: PHP3 fixes.
     * tbl_properties_structure.php3: coding standards.
+    * sql.php3, line 302: fixed bug 583236 (LIMIT error)
 
 2002-07-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/select_lang.lib.php3: Don't include
