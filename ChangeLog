@@ -7,6 +7,9 @@ $Source$
 
 2003-12-08 Garvin Hicking <embatag@supergarv.de>
     * tbl_change.php: Fixed Bug #856436 (not displaying default values)
+    * lang/german*: Translations
+    * left.php: Escape single quotes in single-table cases as well
+      (Bug #855771)
 
 2003-12-08 Marc Delisle  <lem9@users.sourceforge.net>
     * new language: basque, thanks to Axier Lopez (axierl@euskalerria.org)
