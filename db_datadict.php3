@@ -19,6 +19,10 @@ require('./libraries/transformations.lib.php3');
 
 $cfgRelation  = PMA_getRelationsParam();
 
+/**
+ * Check parameters
+ */
+PMA_checkParameters(array('db'));
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -50,7 +54,11 @@ if ($cfgRelation['commwork']) {
  */
 PMA_mysql_select_db($db);
 $sql    = 'SHOW TABLES FROM ' . PMA_backquote($db);
-$rowset = mysql_query($sql);
+$rowset = @PMA_mysql_query($sql);
+
+if (!$rowset) {
+    exit();
+}
 $count  = 0;
 while ($row = mysql_fetch_array($rowset)) {
     if (PMA_MYSQL_INT_VERSION >= 32303) {
