@@ -3,44 +3,17 @@
 
 require("./config.inc.php3");
 
-/* ---- DEFINE CONSTANTS ---- */
-
 if(!defined("__LIB_INC__")){
 	define("__LIB_INC__", 1);
 
-	define("PHPMYADMIN_VERSION", "2.3.0alpha-20010626"); // PHPMYADMIN VERSION STRING
-
-// to recognize windows systems and old php versions
-// set PHP_INT_VERSION to a 5-6 digit number (int)
-//		(eg: 30017 instead of 3.0.17 or 40006 instead of 4.0.6RC3)
-// an it set PHP_WINDOWS if PHP running on a Windows Server
-// because some php commands working different on windows or not stable
-	if (!ereg("([0-9]).([0-9]).([0-9])", phpversion(), $match))
-		$result=ereg("([0-9]).([0-9])",phpversion(),$match);
-	if (isset($match) && !empty($match[1])){
-		if (!isset($match[2])) $match[2]=0;
-		if (!isset($match[3])) $match[3]=0;
-		define ("PHP_INT_VERSION", (int)sprintf("%d%02d%02d",$match[1],$match[2],$match[3]));
-		unset ($match);
-	}
-	if (defined("PHP_OS") && eregi("win", PHP_OS)) define ("PHP_WINDOWS", true);
-	else define ("PHP_WINDOWS", false);
-
 // load the mysql extensions or not - staybyte - 26. June 2001
-	if (PHP_INT_VERSION >= 30010){
-		$suffix=(PHP_WINDOWS)?".dll":".so";
-		if (!extension_loaded("mysql")) @dl("mysql".$suffix);
-		if (!extension_loaded("mysql")){
-			echo $strCantLoadMySQL;
-		}
+	if (defined("PHP_OS") && eregi("win", PHP_OS)) $suffix=".dll";
+	else $suffix=".so";
+	if (!extension_loaded("mysql")) @dl("mysql".$suffix);
+	if (!extension_loaded("mysql")){
+		echo $strCantLoadMySQL;
+		exit;
 	}
-
-	$result = mysql_query("SELECT VERSION() AS version") or mysql_die();
-	$row = mysql_fetch_array($result);
-	define("MYSQL_MAJOR_VERSION", substr($row["version"], 0, 4));
-	define("MYSQL_MINOR_VERSION", substr($row["version"], 5));
-
-/* ------------------------- */
 
 function show_table_navigation($pos_next, $pos_prev, $dt_result) {
   global $pos, $cfgMaxRows, $lang, $server, $db, $table, $sql_query; 
@@ -585,7 +558,58 @@ function get_table_def($db, $table, $crlf)
 // Get the content of $table as a series of INSERT statements.
 // After every row, a custom callback function $handler gets called.
 // $handler must accept one parameter ($sql_insert);
-function get_table_content($db, $table, $handler)
+
+function get_table_content ($db, $table, $handler){
+	if (PMA_INT_VERSION>40005) get_table_content_fast($db, $table, $handler);
+	else get_table_content_old($db, $table, $handler);
+}
+
+
+// only php > 4.0.5 - staybyte - 27. June 2001
+function get_table_content_fast($db, $table, $handler){
+	$result = mysql_query("SELECT * FROM $db.$table") or mysql_die();
+	if ($result!=false){
+		for($j=0; $j<mysql_num_fields($result);$j++){
+			$field_set[$j]= mysql_field_name($result,$j);
+			$type=mysql_field_type($result,$j);
+			if ($type=="tinyint"||$type=="smallint"||$type=="mediumint"||$type=="int"||$type=="bigint"||$type=="timestamp")
+				$field_num[$j]=true;
+			else $field_num[$j]=false;
+		}
+
+		if(isset($GLOBALS["showcolumns"])){
+			$fields=implode(", ",$field_set);
+			$schema_insert = "INSERT INTO $table ($fields) VALUES (";
+		}
+		else $schema_insert = "INSERT INTO $table VALUES (";
+
+		$field_count=mysql_num_fields($result);
+
+		$search=array("\x0a","\x0d","\x1a"); //\x08\\x09, not required
+		$replace=array("\\n","\\r","\Z");
+
+		@set_time_limit(1200); // 20 Minutes
+
+		while($row = mysql_fetch_row($result)){
+
+			for($j=0; $j < $field_count; $j++){
+				if (isset($row[$j])){
+					if ($field_num[$j]) $values[]=$row[$j]; // a number
+					else $values[]="'".str_replace($search,$replace,AddSlashes($row[$j]))."'"; // string
+				}
+				else if(!isset($row[$j])) $values[]="NULL";
+				else $values[]="''";
+			}
+
+			$insert_line = $schema_insert.implode (",",$values).")";
+			unset ($values);
+
+			$handler($insert_line);
+		}
+	}
+}
+
+function get_table_content_old($db, $table, $handler)
 {
     $result = mysql_query("SELECT * FROM $db.$table") or mysql_die();
     $i = 0;
@@ -883,6 +907,7 @@ function format_byte_down($value,$limes=6,$comma=0){
 	return array($returnvalue,$unit);
 }
 
+include ("./defines.inc.php3");
 
 } // $__LIB_INC__
 // -----------------------------------------------------------------
