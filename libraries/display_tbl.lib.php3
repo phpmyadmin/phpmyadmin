@@ -779,8 +779,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             if (strlen($row[$primary->name]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
                                 $row[$primary->name] = substr($row[$primary->name], 0, $GLOBALS['cfgLimitChars']) . '...';
                             }
-                            // loic1: displays <cr>/<lf>
-                            $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$primary->name]));
+                            // loic1: displays all space characters, 4 space
+                            // characters for tabulations and <cr>/<lf>
+                            $row[$primary->name] = htmlspecialchars($row[$primary->name]);
+                            $row[$primary->name] = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace(' ', '&nbsp;', $row[$primary->name]));
+                            $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$primary->name]);
                             echo '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
                         } else {
                             echo '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
@@ -806,9 +809,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             $row[$primary->name] = str_replace("\x0d", '\r', $row[$primary->name]);
                             $row[$primary->name] = str_replace("\x1a", '\Z', $row[$primary->name]);
                         }
-                        // loic1: displays <cr>/<lf>
+                        // loic1: displays all space characters, 4 space
+                        // characters for tabulations and <cr>/<lf>
                         else {
-                            $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$primary->name]));
+                            $row[$primary->name] = htmlspecialchars($row[$primary->name]);
+                            $row[$primary->name] = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace(' ', '&nbsp;', $row[$primary->name]));
+                            $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$primary->name]);
                         }
                         echo '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
                     } else {
