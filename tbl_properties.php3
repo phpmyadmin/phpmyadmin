@@ -345,7 +345,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         echo "\n";
         ?>
             <td><?php echo ucfirst($strFormat); ?></td>
-            <td>
+            <td align="right">
         <?php
         echo '        ';
         if ($showtable['Row_format'] == 'Fixed') echo $strFixed;
