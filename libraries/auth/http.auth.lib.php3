@@ -3,7 +3,7 @@
 
 // +--------------------------------------------------------------------------+
 // | Set of functions used to run http authentication.                        |
-// | NOTE: Requires Apache loaded as a php module.                            |
+// | NOTE: Requires PHP loaded as a Apache module.                            |
 // +--------------------------------------------------------------------------+
 
 
