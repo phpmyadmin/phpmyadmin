@@ -12,7 +12,8 @@
 /**
  * Sends bufferized data
  */
-if (isset($cfgOBGzip) && isset($ob_mode)) {
+if (isset($cfgOBGzip) && $cfgOBGzip
+    && isset($ob_mode) && $ob_mode) {
      out_buffer_post($ob_mode);
 }
 ?> 
