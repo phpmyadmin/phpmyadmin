@@ -536,4 +536,14 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
+$strAddedColumnComment = 'Added comment for column';  //to translate
+$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
+$strAddedColumnRelation = 'Added relation for column';  //to translate
+$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
+$strImportFinished = 'Import finished';  //to translate
+$strFileCouldNotBeRead = 'File could not be read';  //to translate
+$strIgnoringFile = 'Ignoring file %s';  //to translate
+$strThisNotDirectory = 'This was not a directory';  //to translate
+$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
+$strImportFiles = 'Import files';  //to translate
 ?>

@@ -533,4 +533,14 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+$strAddedColumnComment = 'Added comment for column';  
+$strWritingCommentNotPossible = 'Writing of comment not possible';  
+$strAddedColumnRelation = 'Added relation for column';  
+$strWritingRelationNotPossible = 'Writing of relation not possible';  
+$strImportFinished = 'Import finished';  
+$strFileCouldNotBeRead = 'File could not be read';  
+$strIgnoringFile = 'Ignoring file %s';  
+$strThisNotDirectory = 'This was not a directory';  
+$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  
+$strImportFiles = 'Import files';  
 ?>
