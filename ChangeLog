@@ -5,8 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-09  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/common.lib.php3, function 'show_message()': no reson to display
+	  the "modify" link in $goto = main.php3.
+	* libraries/mult_submits.lib.php3: optimized the "DROP FIELD" case (all
+	  statements are now run at once).
+	* tbl_addfield.php3: optimized a bit and fixed an error in the FULLTEXT
+	  statement.
+	* tbl_create.php3: optimized a bit.
+	* tbl_replace.php3: message associated to the query wasn't displayed if the
+	  location header is used.
+
 2001-09-09  Marc Delisle  <lem9@users.sourceforge.net>
-	* lang/italian.inc.php3 updates thanks to Pietro Danesi
+	* lang/italian.inc.php3 updates thanks to Pietro Danesi.
 
 2001-09-08  Loïc Chapeaux  <lolo@phpheaven.net>
     * IMPORTANT UPDATE: "lib.inc.php3" has been splitted into smaller libraries
