@@ -94,7 +94,7 @@ unset($cfgServers[0]);
 /**
  * Other core phpMyAdmin settings
  */
-$cfgOBGzip 		          = TRUE;   // use GZIP output buffering if possible
+$cfgOBGzip                = TRUE;   // use GZIP output buffering if possible
 $cfgPersistentConnections = FALSE;  // use persistent connections to MySQL database
 $cfgExecTimeLimit         = 300;    // maximum execution time in seconds (0 for no limit)
 $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
@@ -106,7 +106,7 @@ $cfgConfirm               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
 $cfgShowStats             = TRUE;   // allow to display statistics and space usage in
                                     // the pages about database details and table
                                     // properties
-$cfgShowTooltip	          = TRUE;	// display table comment as tooltip in left frame
+$cfgShowTooltip           = TRUE;   // display table comment as tooltip in left frame
 
 // In the main frame, at startup...
 $cfgShowMysqlInfo         = FALSE;  // whether to display the "MySQL runtime
