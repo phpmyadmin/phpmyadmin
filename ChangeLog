@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+
+2002-08-07 Robin Johnson  <robbat2@users.sourceforge.net>
+    * lang/slovak-iso-8859-2.inc.php3:
+        - Updates, thanks to Lubos Klokner (erkac)
+    * indonesian-iso-8859-1.inc.php3:
+        - Updates, thanks to Rachim Tamsjadi (tamsy)
+
 2002-08-06 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlvalidator.php3, libraries/sqlvalidator.lib.php3:
         - Renamed libraries/sqlvalidator.php3 to libraries/sqlvalidator.lib.php3
@@ -16,7 +23,6 @@ $Source$
         - More PHP3 compatibility
     * lang/*:
         - New variables for SQL Parser error messages
-
         
 2002-08-06 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php3: bug 590867: avoid undefined variable
