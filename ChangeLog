@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/catalan update, thanks to Xavier Navarro (xavin).
+    * lang/russian update, thanks to gunsky
+    * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
+
 2005-03-18 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/estonian: Update thanks to Alvar Soome - finsoft.
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
