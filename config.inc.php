@@ -531,7 +531,7 @@ $cfg['SetHttpHostTitle']    = '';              // if ShowHttpHostTitle=true, ple
                                              // or an other string, wich should be shown in browsers window title.
                                              // If not set (or empty), the PMA will get your real Host-Adress.
 
-$cfg['ErrorIconic']          = TRUE;    // show some icons for warnings, errors and informations (true|false)?
+$cfg['ErrorIconic']          = TRUE;    // show some icons for warning, error and information messages (true|false)?
 $cfg['MainPageIconic']       = TRUE;    // show icons in list on main page, on right panel top menu (server db table)  and on menu tabs (true|false)?
 $cfg['ReplaceHelpImg']       = TRUE;    // show help button instead of strDocumentation (true|false)?
 
