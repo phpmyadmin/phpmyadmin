@@ -3,7 +3,7 @@
 /* $Id$ */
 
 /**
- * Translated by Yukihiro Kawada <luc at ceres.dti.ne.jp>
+ * Translated by Yukihiro Kawada <kawada at den.fujifilm.co.jp>
  */
 
 $charset = 'euc-jp';
@@ -190,6 +190,7 @@ $strIndexHasBeenDropped = 'インデックス%sが削除されました';
 $strIndexName = 'インデックス名&nbsp;:';
 $strIndex = 'インデックス';
 $strIndexType = 'インデックスのタイプ&nbsp;:';
+$strInsecureMySQL = 'あなたのコンフィグレーションファイルの設定がMySQLデフォルトの特権アカウントになっています (rootユーザでパスワードなし) 。 MySQLサーバーもこのデフォルト設定で動作しているので、侵入者に対して無防備です。このセキュリティーホールは必ず閉ざして下さい。';
 $strInsert = '追加';
 $strInsertAsNewRow = '新しい行としての追加';
 $strInsertedRows = '追加された行数:';
@@ -435,5 +436,4 @@ $strYes = 'はい';
 $strZip = '"zipされる"';
 // To translate
 
-$strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';  //to translate
 ?>
