@@ -84,16 +84,19 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
        . '        ' . htmlspecialchars($mysql_storage_engines[$engine]['Comment']) . "\n"
        . '    </i>' . "\n"
        . '</p>' . "\n";
+    $engine_supported = FALSE;
     switch ($mysql_storage_engines[$engine]['Support']) {
         case 'DEFAULT':
 	    echo '<p>'
 	       . '    ' . sprintf($strDefaultEngine, htmlspecialchars($mysql_storage_engines[$engine]['Engine'])) . "\n"
 	       . '</p>' . "\n";
+	    $engine_supported = TRUE;
 	break;
 	case 'YES':
 	    echo '<p>' . "\n"
 	       . '    ' . sprintf($strEngineAvailable, htmlspecialchars($mysql_storage_engines[$engine]['Engine'])) . "\n"
 	       . '</p>' . "\n";
+	    $engine_supported = TRUE;
 	break;
 	case 'NO':
 	    echo '<p>' . "\n"
@@ -107,25 +110,30 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
 	break;
     }
 
-    switch ($engine) {
+    if ($engine_supported) switch ($engine) {
 	case 'innodb':
 	case 'innobase':
-	    echo '<h3>' . "\n"
-	       . '    ' . $strInnodbStat . "\n"
-	       . '</h3>' . "\n\n";
-            $res = PMA_DBI_query('SHOW INNODB STATUS;');
-            $row = PMA_DBI_fetch_row($res);
-	    echo '<pre>' . "\n"
-	        . htmlspecialchars($row[0]) . "\n"
-	        . '</pre>' . "\n";
-	    PMA_DBI_free_result($res);
-	break;
+	    if ($res = PMA_DBI_try_query('SHOW INNODB STATUS;')) { // We might not have the privileges to do that...
+                echo '<h3>' . "\n"
+                   . '    ' . $strInnodbStat . "\n"
+                   . '</h3>' . "\n\n";
+                $row = PMA_DBI_fetch_row($res);
+                echo '<pre>' . "\n"
+                    . htmlspecialchars($row[0]) . "\n"
+                    . '</pre>' . "\n";
+                PMA_DBI_free_result($res);
+		unset($row);
+		break;
+            }
+	    unset($res);
+//	break;
         default:
 	    echo '<p>' . "\n"
 	       . '    ' . $strNoDetailsForEngine . "\n"
 	       . '</p>' . "\n";
         break;
     }
+    unset($engine_supported);
 }
 
 
