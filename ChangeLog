@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-24  Steve ALberty  <alberty@neptunlabs.de>
+	* tbl_copy.php3: fix parameter count, thanks Marc
+
 2001-07-24  Geert Lund  <glund@silversoft.dk>
   * danish language file code cleanup (only changed order of stings)
   * added $strQBEDel and $strQBEIns strings to all language files
