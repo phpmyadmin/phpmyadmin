@@ -197,28 +197,45 @@ for($i=0 ; $i<$num_fields; $i++)
 ?>
 </table>
 <?php
-if($action == "tbl_create.php3" && MYSQL_MAJOR_VERSION == "3.23")
+if($action == "tbl_create.php3" && MYSQL_MAJOR_VERSION >= "3.23")
 {
     echo "$strTableComments:<br>";
     ?>
     <input type="text" name="comment" style="width: <?php echo $cfgMaxInputsize;?>" maxlength="80">
     <?php
-}
-//BEGIN - Table Type - 2 May 2001 - Robbat2
+//BEGIN - Table Type - 2 May 2001 - Robbat2 - change by staybyte - 11 June 2001
 if($action == "tbl_create.php3")
 {
+// find mysql capability - staybyte - 11. June 2001
+$query="SHOW VARIABLES like 'have_%'";
+$result=mysql_query($query);
+if ($result!=false && mysql_num_rows($result)>0){
+	while($tmp=mysql_fetch_array($result)){
+		if (isset($tmp["Variable_name"])) switch ($tmp["Variable_name"]){
+			case 'have_bdb': if (isset($tmp["Variable_name"]) && $tmp["Value"]=='YES') $tbl_bdb=true; break;
+			case 'have_gemini': if (isset($tmp["Variable_name"]) && $tmp["Value"]=='YES') $tbl_gemini=true; break;
+			case 'have_innodb': if (isset($tmp["Variable_name"]) && $tmp["Value"]=='YES') $tbl_innodb=true; break;
+			case 'have_isam': if (isset($tmp["Variable_name"]) && $tmp["Value"]=='YES') $tbl_isam=true; break;
+		}
+	}
+}
+
 echo $strTableType.":"; ?>
 <select name="tbl_type">
 <option value="Default"><?php if (isset($strDefault)) echo $strDefault;?></option>
-<option value="BDB">BerkeleyDB</option>
-<?php // Not yet in MySQL <option value="GEMINI">Gemini</option> ?>
-<option value="HEAP">Heap</option>
-<option value="ISAM">ISAM</option>
-<?php // Not yet in MySQL <option value="InnoDB">InnoDB</option> ?>
-<option value="MERGE">Merge</option>
+<?php
+?>
 <option value="MYISAM">MyISAM</option>
+<option value="HEAP">Heap</option>
+<option value="MERGE">Merge</option>
+<?php if (isset($tbl_bdb)){ ?><option value="BDB">Berkeley DB</option><?php }?>
+<?php if (isset($tbl_gemini)){ ?><option value="GEMINI">Gemini</option><?php }?>
+<?php if (isset($tbl_innodb)){ ?><option value="InnoDB">INNO DB</option><?php }?>
+<?php if (isset($tbl_isam)){ ?><option value="ISAM">ISAM</option><?php }?>
+?>
 </select>
 <?php
+}
 }
 //END - Table Type - 2 May 2001 - Robbat2
 ?>

@@ -439,15 +439,15 @@ echo " </select>\n";
 </td></tr></table>
 </td></tr>
 <?php
-if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>=3)
+if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>=22)
 {
 ?>
 <tr><td valign=top><li>&nbsp;</td><td colspan=2>
-<table><tr><td><?php echo $strTableMaintenance . ":"; ?> </td>
+<table border=0 cellspacing=0 cellpadding=0><tr><td><?php echo $strTableMaintenance . ":"; ?>&nbsp;</td>
  <td><a href="sql.php3?sql_query=<?php echo urlencode("CHECK TABLE $table");?>&display=simple&<?php echo $query;?>">
         <?php echo $strCheckTable; ?></a>
         &nbsp;<?php echo show_docu("manual_Reference.html#CHECK_TABLE"); ?>
- </td><td>-</td>
+ </td><td>&nbsp;-&nbsp;</td>
  <td><a href="sql.php3?sql_query=<?php echo urlencode("ANALYZE TABLE $table");?>&display=simple&<?php echo $query;?>">
         <?php echo $strAnalyzeTable; ?>
         </a>&nbsp;<?php echo show_docu("manual_Reference.html#ANALYZE_TABLE");?>
@@ -455,12 +455,14 @@ if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>=3)
  <td> <a href="sql.php3?sql_query=<?php echo urlencode("REPAIR TABLE $table");?>&display=simple&<?php echo $query;?>">
         <?php echo $strRepairTable; ?>
         </a>&nbsp;<?php echo show_docu("manual_Reference.html#REPAIR_TABLE"); ?>
- </td><td>-</td>
+ </td><td>&nbsp;-&nbsp;</td>
 <td><a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table");?>&display=simple&<?php echo $query;?>">
         <?php echo $strOptimizeTable; ?>
         </a>&nbsp;<?php echo show_docu("manual_Reference.html#OPTIMIZE_TABLE");
 ?> </td> </tr> </table>
 </td></tr>
+
+<tr><td>&nbsp;</td></tr>
 
 <tr><td><li>&nbsp;</td><td><?php echo "$strTableComments:&nbsp;";?></td>
 <td>
@@ -476,19 +478,34 @@ if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>=3)
 </td></tr>
 <tr><td><li>&nbsp;</td><td><?php echo "$strTableType:&nbsp;";?></td>
 <td>
+<?php
+// modify robbat2 code - staybyte - 11. June 2001
+	$query="SHOW VARIABLES like 'have_%'";
+	$result=mysql_query($query);
+	if ($result!=false && mysql_num_rows($result)>0){
+		while($tmp=mysql_fetch_array($result)){
+			if (isset($tmp["Variable_name"])) switch ($tmp["Variable_name"]){
+				case 'have_bdb': if (isset($tmp["Variable_name"]) && $tmp["Value"]=='YES') $tbl_bdb=true; break;
+				case 'have_gemini': if (isset($tmp["Variable_name"]) && $tmp["Value"]=='YES') $tbl_gemini=true; break;
+				case 'have_innodb': if (isset($tmp["Variable_name"]) && $tmp["Value"]=='YES') $tbl_innodb=true; break;
+				case 'have_isam': if (isset($tmp["Variable_name"]) && $tmp["Value"]=='YES') $tbl_isam=true; break;
+			}
+		}
+	}
+?>
 <form method='post' action='tbl_properties.php3' style="margin:0px;">
     <input type="hidden" name="server" value="<?php echo $server;?>">
     <input type="hidden" name="lang" value="<?php echo $lang;?>">
     <input type="hidden" name="db" value="<?php echo $db;?>">
     <input type="hidden" name="table" value="<?php echo $table;?>">
     <select name='tbl_type'>
-    <option <?php if($tbl_type == "BDB") echo 'selected';?> value="BDB">Berkeley DB</option>
-<?php //Not in MySQL yet <option <?php if($tbl_type == "GEMINI") echo 'selected' ;? >value="GEMINI">Gemini</option> ?>
-    <option <?php if($tbl_type == "HEAP") echo 'selected';?> value="HEAP">Heap</option>
-    <option <?php if($tbl_type == "ISAM") echo 'selected';?> value="ISAM">ISAM</option>
-<?php //Not in MySQL yet <option <?php if($tbl_type == "INNODB") echo 'selected' ;? > value="InnoDB">InnoDB</option> ?>
-    <option <?php if($tbl_type == "MRG_MYISAM") echo 'selected';?> value="MERGE">Merge</option>
     <option <?php if($tbl_type == "MYISAM") echo 'selected';?> value="MYISAM">MyISAM</option>
+    <option <?php if($tbl_type == "HEAP") echo 'selected';?> value="HEAP">Heap</option>
+<?php if (isset($tbl_bdb)){ ?><option <?php if($tbl_type == "BDB") echo 'selected';?> value="BDB">Berkeley DB</option><?php }?>
+<?php if (isset($tbl_gemini)){ ?><option <?php if($tbl_type == "GEMINI") echo 'selected';?> value="GEMINI">Gemini</option><?php }?>
+<?php if (isset($tbl_innodb)){ ?><option <?php if($tbl_type == "INNODB") echo 'selected';?> value="INNODB">INNO DB</option><?php }?>
+<?php if (isset($tbl_isam)){ ?><option <?php if($tbl_type == "ISAM") echo 'selected';?> value="ISAM">ISAM</option><?php }?>
+    <option <?php if($tbl_type == "MRG_MYISAM") echo 'selected';?> value="MERGE">Merge</option>
     </select>&nbsp;<input type='submit' name='submittype' value='<?php echo $strGo; ?>'></form>
     </td></tr>
 <?php
