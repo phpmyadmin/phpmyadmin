@@ -824,6 +824,31 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
 </script>
             <?php
         }
+        // Corrects the tooltip text via JS if required
+        else if (isset($GLOBALS['table']) && $GLOBALS['cfg']['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303) {
+            $result = mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']));
+            while ($tmp = mysql_fetch_array($result, MYSQL_ASSOC)) {
+                if ($tmp['Name'] == $GLOBALS['table']) {
+                    if (empty($tmp['Comment'])) {
+                        $tooltip = '';
+                    } else {
+                        $tooltip = $tmp['Comment'] . ' ';
+                    }
+                    $tooltip .= '(' . $tmp['Rows'] . ' ' . $GLOBALS['strRows'] . ')';
+                    unset($tmp);
+                    break;
+                }
+            }
+            ?>
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (typeof(document.getElementById) != 'undefined') {
+    window.parent.frames['nav'].document.getElementById('a_tbl_<?php echo htmlspecialchars($GLOBALS['table']); ?>').title = '<?php echo $tooltip; ?>';
+}
+//-->
+</script>
+            <?php
+        }
         echo "\n";
         ?>
 <div align="<?php echo $GLOBALS['cell_align_left']; ?>">
