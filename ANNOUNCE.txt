@@ -154,19 +154,27 @@ Known bugs
 Description
 -----------
 
-phpMyAdmin is intended to handle the administration of MySQL over the WWW.
+  phpMyAdmin is intended to handle the administration of MySQL over the WWW. It
+  can manage a whole MySQL server as well as a single database.
+
     Currently it can:
       - create and drop databases
-      - create, copy, drop and alter tables
+      - create, copy, drop, rename and alter tables
+      - do table maintenance
       - delete, edit and add fields
       - execute any SQL-statement, even batch-queries
       - manage keys on fields
       - load text files into tables
       - create and read dumps of tables
-      - export and import CSV data
-      - support single- and multi-user configuration
-      - add, delete and edit MySQL users
-      - communicate in more than 42 different languages
+      - export data to CSV, XML and Latex formats
+      - administer multiple servers
+      - manage MySQL users and privileges
+      - check referential integrity
+      - using Query-by-example (QBE), create complex queries automatically
+        connecting required tables
+      - create PDF graphics of your Database layout
+      - search globally in a database or a subset of it
+      - communicate in 42 different languages
 
 
 Author & Copyright

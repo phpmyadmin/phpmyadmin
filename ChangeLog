@@ -10,6 +10,10 @@ $Source$
 
 2003-02-17 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: Fixed edit link.
+    * Documentation.html:
+      - Reformulated some passages;
+      - FAQ 1.28.
+    * ANNOUNCE.txt: Synchronized features list with documentation.
 
 2003-02-17 Garvin Hicking <me@supergarv.de>
     * tbl_replace_fields.php3, read_dump.php3, libraries/common.lib.php3:
