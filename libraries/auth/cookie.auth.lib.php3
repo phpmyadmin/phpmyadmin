@@ -383,6 +383,13 @@ if (uname.value == '') {
                 $GLOBALS['is_https']);
         } // end if
 
+        // Force reload when cookies are created for the first time to ensure
+        // the client accept cookies
+        if (!$from_cookie) {
+            header('Location: ' . $cfg['PmaAbsoluteUri'] . 'index.php3?lang=' . $GLOBALS['lang'] . '&server=' . $server);
+            exit();
+        }
+
         return TRUE;
     } // end of the 'PMA_auth_set_user()' function
 
