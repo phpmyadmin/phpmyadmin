@@ -107,6 +107,7 @@ $strDrop = '刪除';
 $strDropDB = '刪除資料庫 %s';
 $strDropTable = '刪除資料表';
 $strDumpingData = '列出以下資料庫的數據：';
+$strDumpXRows = '備份 %s 行, 由 %s 行開始.';
 $strDynamic = '動態';
 
 $strEdit = '編輯';
@@ -117,6 +118,8 @@ $strEmptyResultSet = 'MySQL 傳回的查詢結果為空 (原因可能為：沒有找到符合條件的記
 $strEnd = '最後一頁';
 $strEnglishPrivileges = '注意: MySQL 權限名稱會以英語顯示';
 $strError = '錯誤';
+$strExport = '輸出';
+$strExportToXML = '輸出為 XML 格式';
 $strExtendedInserts = '伸延新增模式';
 $strExtra = '附加';
 
@@ -174,6 +177,7 @@ $strLimitNumRows = '筆記錄/每頁';
 $strLineFeed = '換行: \\n';
 $strLines = '行數';
 $strLinesTerminatedBy = '「下一行」使用字元：';
+$strLinksTo = '連結到';
 $strLocationTextfile = '文字檔案的位置';
 $strLogin = '登入';
 $strLogout = '登出系統';
@@ -213,9 +217,11 @@ $strNoUsersFound = '找不到使用者';
 $strNull = 'Null'; //should expressed in English
 
 $strOftenQuotation = '最常用的是引號，「非必須」表示只有 char 和 varchar 欄位會被包括起來';
+$strOperations = '管理';
 $strOptimizeTable = '最佳化資料表';
 $strOptionalControls = '非必要選項，用來讀寫特殊字元';
 $strOptionally = '非必須';
+$strOptions = '選項';
 $strOr = '或';
 $strOverhead = '多餘';
 
@@ -244,6 +250,7 @@ $strQueryOnDb = '在資料庫 <b>%s</b> 執行 SQL 語法:';
 
 $strRecords = '記錄';
 $strReferentialIntegrity = '檢查指示完整性:';
+$strRelationView = '關聯檢視';
 $strReloadFailed = '重新載入MySQL失敗';
 $strReloadMySQL = '重新載入 MySQL';
 $strRememberReload = '請記著重新啟動伺服器.';
@@ -300,6 +307,7 @@ $strStrucData = '結構與資料';
 $strStrucDrop = '增加 \'drop table\'';
 $strStrucExcelCSV = 'Ms Excel 的 CSV 格式';
 $strStrucOnly = '只有結構';
+$strStructure = '結構';
 $strSubmit = '送出';
 $strSuccess = '您的SQL語法已順利執行';
 $strSum = '總計';
@@ -348,12 +356,5 @@ $strYes = ' 是 ';
 
 $strZip = '"zipped"';
 
-$strLinksTo = 'Links to';  //to translate
-$strExport = 'Export';  //to translate
-$strOperations = 'Operations';  //to translate
-$strExportToXML = 'Export to XML format'; //to translate
-$strOptions = 'Options';  //to translate
-$strStructure = 'Structure';  //to translate
-$strRelationView = 'Relation view';  //to translate
-$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
+// To translate
 ?>

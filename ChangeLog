@@ -10,6 +10,7 @@ $Source$
       fails.
     * libraries/auth/cookie.auth.lib.php3: fixed an infinite loop problem.
     * tbl_qbe.php3: cleaned up a bit.
+    * lang/chinese-*: updated thanks to Siu Sun.
 
 2002-05-03 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/italian.inc.php3: updated, thanks to Pietro Danesi.
