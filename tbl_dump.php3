@@ -344,6 +344,8 @@ if (isset($zip) && $zip == 'zip') {
     if (PMA_PHP_INT_VERSION >= 40000 && @function_exists('gzcompress')) {
         if ($what == 'csv' || $what == 'excel') {
             $extbis = '.csv';
+        } else if ($what == 'xml') {
+            $extbis = '.xml';
         } else {
             $extbis = '.sql';
         }
