@@ -3,8 +3,8 @@
 /* By: lubos klokner <erkac@vault-tec.sk> */
 
 $charset = 'iso-8859-2';
-$left_font_family = 'verdana CE, Arial CE, verdana, helvetica, arial, geneva, sans-serif';
-$right_font_family = 'verdana CE, Arial CE, helvetica, arial, geneva, sans-serif';
+$left_font_family = '"verdana CE", "Arial CE", verdana, helvetica, arial, geneva, sans-serif';
+$right_font_family = '"verdana CE", "Arial CE", helvetica, arial, geneva, sans-serif';
 $number_thousands_separator = ' ';
 $number_decimal_separator = ',';
 $byteUnits = array('Bajtov', 'KB', 'MB', 'GB');
