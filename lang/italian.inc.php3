@@ -121,6 +121,8 @@ $strEmptyResultSet = 'MySQL ha restituito un insieme vuoto (i.e. zero righe).';
 $strEnd = 'Fine';
 $strEnglishPrivileges = 'Nota: i nomi dei privilegi di MySQL sono in Inglese';
 $strError = 'Errore';
+$strExport = 'Esporta';
+$strExportToXML = 'Esporta in formato XML';
 $strExtendedInserts = 'Inserimenti estesi';
 $strExtra = 'Extra';
 
@@ -219,6 +221,7 @@ $strNoUsersFound = 'Nessun utente trovato.';
 $strNull = 'Null';
 
 $strOftenQuotation = 'In genere da doppi apici (virgolette). OPZIONALE indica che solo i campi <I>char</I> e <I>varchar</I> devono essere delimitati dal carattere indicato.';
+$strOperations = 'Operazioni';
 $strOptimizeTable = 'Ottimizza tabella';
 $strOptionalControls = 'Opzionale. Questo carattere controlla come scrivere o leggere i caratteri speciali.';
 $strOptionally = 'OPZIONALE';
@@ -356,8 +359,5 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
-$strExport = 'Export';  //to translate
-$strOperations = 'Operations';  //to translate
-$strExportToXML = 'Export to XML format'; //to translate
 $strOptions = 'Options';  //to translate
 ?>

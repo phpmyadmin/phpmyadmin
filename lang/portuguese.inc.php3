@@ -40,7 +40,7 @@ $strAfterInsertBack = 'Voltar atrás';
 $strAfterInsertNewInsert = 'Inserir novo registo';
 $strAll = 'Todas';
 $strAlterOrderBy = 'Alterar a ordem da tabela por';
-$strAnIndex = 'Um indíce foi adicionado a %s';
+$strAnIndex = 'Um índice foi adicionado a %s';
 $strAnalyzeTable = 'Analizar tabela';
 $strAnd = 'E';
 $strAny = 'Todos';
@@ -117,10 +117,12 @@ $strEdit = 'Edita';
 $strEditPrivileges = 'Alterar Privilegios';
 $strEffective = 'Em uso';
 $strEmpty = 'Limpa';
-$strEmptyResultSet = 'MySQL não retornou nenum registo.';
+$strEmptyResultSet = 'MySQL não retornou nenhum registo.';
 $strEnd = 'Fim';
 $strEnglishPrivileges = ' Nota: os nomes dos privilégios do MySQL são em Inglês ';
 $strError = 'Erro';
+$strExport = 'Exportar';
+$strExportToXML = 'Exportar para o formato XML';
 $strExtendedInserts = 'Instrucções de inserção múltiplas';
 $strExtra = 'Extra'; // written the same in portuguese
 
@@ -178,13 +180,14 @@ $strLimitNumRows = 'Número de registos por página';
 $strLineFeed = 'Mudança de linha: \\n';
 $strLines = 'Linhas';
 $strLinesTerminatedBy = 'Linhas terminadas por';
+$strLinksTo = 'Links para';
 $strLocationTextfile = 'Localização do arquivo de texto';
 $strLogPassword = 'Senha&nbsp;:';
 $strLogUsername = 'Utilizador&nbsp;:';
 $strLogin = 'Entrada';
 $strLogout = 'Sair';
 
-$strModifications = 'Modificações foram Guardadas';
+$strModifications = 'Modificações foram guardadas';
 $strModify = 'Modifica';
 $strModifyIndexTopic = 'Modificar um índice';
 $strMoveTable = 'Move tabela para (base de dados<b>.</b>tabela):';
@@ -218,6 +221,7 @@ $strNotValidNumber = ' não é um número de registo válido!';
 $strNull = 'Nulo';
 
 $strOftenQuotation = 'Normalmente aspas. OPTIONALLY significa que apenas os campos "char" e "varchar" são delimitados pelo caractere delimitador.';
+$strOperations = 'Operações';
 $strOptimizeTable = 'Optimizar tabela';
 $strOptionalControls = 'Opcional. Comanda o modo de escrita e leitura dos caracteres especiais.';
 $strOptionally = 'OPCIONAL';
@@ -355,9 +359,5 @@ $strZip = '"Compressão zip"';
 
 
 // To translate
-$strLinksTo = 'Links to';  //to translate
-$strExport = 'Export';  //to translate
-$strOperations = 'Operations';  //to translate
-$strExportToXML = 'Export to XML format'; //to translate
 $strOptions = 'Options';  //to translate
 ?>
