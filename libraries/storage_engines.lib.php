@@ -45,7 +45,8 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
         'bdb'     => 'BDB',
         'csv'     => 'CSV',
         'innodb'  => 'InnoDB',
-        'isam'    => 'ISAM'
+        'isam'    => 'ISAM',
+        'gemini'  => 'Gemini'
     );
     $res = PMA_DBI_query('SHOW VARIABLES LIKE \'have\\_%\';');
     while ($row = PMA_DBI_fetch_row($res)) {
