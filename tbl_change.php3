@@ -335,11 +335,11 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             echo "\n";
             $selected     = '';
             
-            // garvin: Find the current type in the RestricColumnTypes. Will result in 'FUNC_CHAR'
-            // or something similar. Then directly look up the entry in the RestricFunctions array,
+            // garvin: Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
+            // or something similar. Then directly look up the entry in the RestrictFunctions array,
             // which will then reveal the available dropdown options
-            if (isset($cfg['RestricFunctions']) && isset($cfg['RestricColumnTypes']) && isset($cfg['RestricColumnTypes'][strtoupper($row_table_def['True_Type'])]) && isset($cfg['RestricFunctions'][$cfg['RestricColumnTypes'][strtoupper($row_table_def['True_Type'])]])) {
-                $dropdown = $cfg['RestricFunctions'][$cfg['RestricColumnTypes'][strtoupper($row_table_def['True_Type'])]];
+            if (isset($cfg['RestrictFunctions']) && isset($cfg['RestrictColumnTypes']) && isset($cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])]) && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])]])) {
+                $dropdown = $cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])]];
             } else {
                 $dropdown = array();
             }

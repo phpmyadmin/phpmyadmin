@@ -555,7 +555,7 @@ if ($cfg['ShowFunctionFields']) {
     );
     
     // Which column types will be mapped to which Group?
-    $cfg['RestricColumnTypes'] = array(
+    $cfg['RestrictColumnTypes'] = array(
        'VARCHAR'      => 'FUNC_CHAR',
        'TINYINT'      => 'FUNC_NUMBER',
        'TEXT'         => 'FUNC_CHAR',
@@ -584,7 +584,7 @@ if ($cfg['ShowFunctionFields']) {
     );
 
     // Map above defined groups to any function
-    $cfg['RestricFunctions'] = array(
+    $cfg['RestrictFunctions'] = array(
         'FUNC_CHAR'   => array(
             'ASCII',
             'CHAR',

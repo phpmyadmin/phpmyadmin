@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-14 Robin Johnson  <robbat2@users.sourceforge.net>
+    * config.inc.php3, libraries/config_import.lib.php3 tbl_change.php3:
+        - Typo fixes:
+        s/RestricColumnTypes/RestrictColumnTypes/
+        s/RestricFunctions/RestrictFunctions/
+
 2003-03-13 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_status.php3: Fixed the Garvin's calculations.
     * server_variables.php3: Fixed the display for MySQL <= 4.0.3-beta.
