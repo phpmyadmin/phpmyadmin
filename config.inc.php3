@@ -114,16 +114,15 @@ $cfgAllowUserDropDatabase = FALSE;  // show a 'Drop database' link to normal use
 $cfgConfirm               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
 $cfgLoginCookieRecall     = TRUE;   // recall previous login in cookie auth. mode or not
 
-$cfgShowStats             = TRUE;   // allow to display statistics and space usage in
-                                    // the pages about database details and table
-                                    // properties
-$cfgShowTooltip           = TRUE;   // display table comment as tooltip in left frame
-
 // Left frame setup
 $cfgLeftFrameLight        = TRUE;   // use a select-based menu and display only the
                                     // current tables in the left frame.  (experimental)
+$cfgShowTooltip           = TRUE;   // display table comment as tooltip in left frame
 
 // In the main frame, at startup...
+$cfgShowStats             = TRUE;   // allow to display statistics and space usage in
+                                    // the pages about database details and table
+                                    // properties
 $cfgShowMysqlInfo         = FALSE;  // whether to display the "MySQL runtime
 $cfgShowMysqlVars         = FALSE;  // information", "MySQL system variables", "PHP
 $cfgShowPhpInfo           = FALSE;  // information" and "change password" links for
@@ -148,6 +147,7 @@ $cfgProtectBinary         = 'blob'; // disallow editing of binary fields
                                     //   'all'  disallow editing
 $cfgShowFunctionFields    = TRUE;   // Display the function fields in edit/insert mode
 
+// For the export features...
 $cfgZipDump               = TRUE;   // Allow the use of zip/gzip/bzip
 $cfgGZipDump              = TRUE;   // compression for
 $cfgBZipDump              = TRUE;   // dump files
