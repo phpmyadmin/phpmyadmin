@@ -8,7 +8,6 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
-PMA_checkParameters(array('sql_query', 'db'));
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -37,6 +36,15 @@ if (!isset($err_url)) {
 if (isset($fields['query'])) {
     $sql_query = $fields['query'];
 }
+
+// This one is just to fill $db
+if (isset($fields['dbase'])) {
+    $db = $fields['dbase'];
+}
+
+// Now we can check the parameters
+PMA_checkParameters(array('sql_query', 'db'));
+
 
 /**
  * Check rights in case of DROP DATABASE

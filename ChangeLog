@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php3: bug 778899, could not create a bookmark
+
 2003-07-27 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: A user could not edit his own global privileges.
 
