@@ -146,7 +146,8 @@ else {
 
             // Bookmark Support
 
-            if($cfgBookmark['db'] && $cfgBookmark['table'] && $db!=$cfgBookmark['db'] && empty($id_bookmark))
+            // if($cfgBookmark['db'] && $cfgBookmark['table'] && $db!=$cfgBookmark['db'] && empty($id_bookmark))
+	    if($cfgBookmark['db'] && $cfgBookmark['table'] && empty($id_bookmark))  
             {
                 echo "<form method=\"post\" action=\"tbl_replace.php3\">\n";
                	if ($display != 'bkmOnly') {
