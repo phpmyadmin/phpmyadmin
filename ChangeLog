@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_alter.php, tbl_addfield.php, db_datadict.php, pdf_schema.php,
+      tbl_create.php, libraries/common.lib.php, /relation.lib.php,
+      /database_interface.lib.php: MySQL 4.1.x native comments
+      (First phase of merge, so it's experimental.
+       TODO: export and native comments; tbl_move_copy)
+
 2005-03-05 Alexander M. Turek  <me@derrabus.de>
     * server_engines.php, lang/*.inc.php, libraries/storage_engines.lib.php
       libraries/engines/berkeleydb.lib.php, libraries/engines/bdb.lib.php,
@@ -26,6 +33,7 @@ $Source$
     * header.inc.php: Wrong icon for views.
     * libraries/sqlparser.data.php: Added more missing date / time functions.
 
+>>>>>>> 2.958
 2005-03-02 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php, libraries/display_export.lib.php: Do not offer
       modes not available in current MySQL version, do not fail on error when
