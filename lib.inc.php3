@@ -771,7 +771,8 @@ function get_bookmarks_param() {
     global $cfgServer;
     global $server;
 
-		$cfgBookmark=false;
+    $cfgBookmark=false;
+    $cfgBookmark="";
 
     $i=1;
     while($i<=sizeof($cfgServers)) {
