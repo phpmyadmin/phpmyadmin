@@ -127,13 +127,11 @@ if ($server > 0) {
             $table = mysql_tablename($tables, $j);
             echo "\n";
             ?>
-        <nobr>
-            <img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
-            <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0&goto=tbl_properties.php3">
-                <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
-            <a class="item" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
-                <?php echo $table; ?></a>
-        </nobr><br />
+        <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
+        <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0&goto=tbl_properties.php3">
+            <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
+        <a class="item" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
+            <?php echo $table; ?></a></nobr><br />
             <?php
         } // end for $j (tables list)
         echo "\n";

@@ -8,9 +8,10 @@ $Source$
 2001-07-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_details.php3: fixed many little scripting bugs.
 	* function.js: rewritten to fit javascript standards (eval function was
-      deprecated a long time ago)
-	* sql.php3, lines 39-41: fixed bug #438895 (No mixed " and ' possible)
+      deprecated a long time ago).
+	* sql.php3, lines 39-41: fixed bug #438895 (No mixed " and ' possible).
 	* tbl_properties.php3, line 233: removed an unnecessary ';'!
+	* left.php3: fixed bug ##438987 (Blank lines with IE5+)
 
 2001-07-06  Marc Delisle  <lem9@users.sourceforge.net>
 	* bug #438749 Database lockout: main.php3, we now show "Create
