@@ -195,7 +195,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             @dl($extension.$suffix);
         }
         if (!@extension_loaded($extension)) {
-            echo $strCantLoadMySQL;
+            echo $strCantLoadMySQL . '<br /> ' 
+            . '<a href="Documentation.html#faqmysql">' 
+            . $GLOBALS['strDocu'] . '</a>';
             exit();
         }
     } // end load mysql extension

@@ -1613,7 +1613,21 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     these files.
 </p>
 
-
+<a name="faqmysql"></a>
+<p>
+    <b>I receive the error 'cannot load MySQL extension, please check 
+       PHP Configuration'.</b>
+    <br />
+    To connect to a MySQL server, PHP needs a set of MySQL functions called
+    &quot;MySQL extension&quot;.
+    This extension may be part of the PHP server (compiled-in), otherwise
+    it needs to be loaded dynamically. phpMyAdmin tried to load the extension
+    but failed. 
+    <br /><br />
+    Usually, the problem is solved by installing a software package called
+    &quot;PHP-MySQL&quot; or something similar.
+ 
+</p>
 <a name="faqconfig"></a>
 <h3>[Configuration]</h3>
 

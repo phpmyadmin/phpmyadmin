@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html, libraries/common.lib.php3: added a faq about
+      mysql extension, and a link to it when the error occurs
+
 2002-07-20 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties*: missing $sub_part for back links (bug 584069)
 
