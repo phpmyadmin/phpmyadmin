@@ -68,6 +68,7 @@ $strBookmarkQuery = 'Oblíbený SQL dotaz';
 $strBookmarkThis = 'Pøidat tento SQL dotaz do oblíbených';
 $strBookmarkView = 'Jen zobrazit';
 $strBrowse = 'Projít';
+$strBzError = 'phpMyAdminovi se nepodaøilo zkomprimovat výpis, protože rozšíøení pro kompresi Bz2 je v této verzi php chybné. Doporuèujeme nastavit <code>$cfg[\'BZipDump\']</code> v nastaveních phpMyAdmina na <code>FALSE</code>. Pokud chcete používat kompresi Bz2, mìli byste nainstalovat novìjší verzi php. Více informací o tomto probnélu je u popisu chyby %s.';
 $strBzip = '"zabzipováno"';
 
 $strCannotLogin = 'Nepodaøilo se pøihlášení k MySQL serveru';
@@ -473,7 +474,6 @@ $strWrongUser = 'Špatné uživatelské jméno/heslo. Pøístup odepøen.';
 $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
-
 // To translate
-$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
+
 ?>
