@@ -48,7 +48,9 @@ if (!empty($id_bookmark)) {
  */
 // Gets the query from a file if required 
 if ($sql_file != 'none') {
-    if (ereg('^php[0-9A-Za-z_.-]+$', basename($sql_file))) {
+// loic1: php < 4.05 for windows seems not to list the regexp test
+//    if (ereg('^php[0-9A-Za-z_.-]+$', basename($sql_file))) {
+    if (file_exists($sql_file)) {
         $sql_query = fread(fopen($sql_file, 'r'), filesize($sql_file));
         if (get_magic_quotes_runtime() == 1) {
             $sql_query = stripslashes($sql_query);
