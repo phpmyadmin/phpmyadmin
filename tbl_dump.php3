@@ -82,7 +82,7 @@ $crlf        = PMA_whichCrlf();
  * Ensure zipped formats are associated with the download feature
  */
 if (empty($asfile)
-    && (!empty($zip) || !empty($gzip) || !empty($bzip))) {
+    && (isset($compression) && ($compression == 'zip' | $compression == 'gzip' | $compression == 'bzip'))) {
     $asfile = 1;
 }
 
@@ -136,13 +136,13 @@ else {
 
     // If dump is going to be copressed, set correct mime_type and add
     // compression to extension
-    if (isset($bzip) && $bzip == 'bzip') {
+    if (isset($compression) && $compression == 'bzip') {
         $ext       .= '.bz2';
         $mime_type = 'application/x-bzip';
-    } else if (isset($gzip) && $gzip == 'gzip') {
+    } else if (isset($compression) && $compression == 'gzip') {
         $ext       .= '.gz';
         $mime_type = 'application/x-gzip';
-    } else if (isset($zip) && $zip == 'zip') {
+    } else if (isset($compression) && $compression == 'zip') {
         $ext       .= '.zip';
         $mime_type = 'application/x-zip';
     }
@@ -369,7 +369,7 @@ if (!empty($asfile)) {
 
     // Do the compression
     // 1. as a gzipped file
-    if (isset($zip) && $zip == 'zip') {
+    if (isset($compression) && $compression == 'zip') {
         if (PMA_PHP_INT_VERSION >= 40000 && @function_exists('gzcompress')) {
             if ($what == 'csv' || $what == 'excel') {
                 $extbis = '.csv';
@@ -384,7 +384,7 @@ if (!empty($asfile)) {
         }
     }
     // 2. as a bzipped file
-    else if (isset($bzip) && $bzip == 'bzip') {
+    else if (isset($compression) && $compression == 'bzip') {
         if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
             $dump_buffer = bzcompress($dump_buffer);
             if ($dump_buffer === -8) {
@@ -396,7 +396,7 @@ if (!empty($asfile)) {
         }
     }
     // 3. as a gzipped file
-    else if (isset($gzip) && $gzip == 'gzip') {
+    else if (isset($compression) && $compression == 'gzip') {
         if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('gzencode')) {
             // without the optional parameter level because it bug
             $dump_buffer = gzencode($dump_buffer);
