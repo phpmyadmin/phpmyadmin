@@ -367,7 +367,7 @@ $cfg['BrowseMarkerColor']   = '#FFCC99';    // color of the marker (visually mar
                                             // (blank for no marker)
 $cfg['TextareaCols']        = 40;           // textarea size (columns) in edit mode
                                             // (this value will be emphasized (*2) for sql
-                                            // query textareas)
+                                            // query textareas and (*1.25) for query window)
 $cfg['TextareaRows']        = 7;            // textarea size (rows) in edit mode
 $cfg['TextareaAutoSelect']  = TRUE;         // autoselect when clicking in the textarea of the querybox
 $cfg['CharTextareaCols']    = 40;           // textarea size (columns) for CHAR/VARCHAR
@@ -392,8 +392,8 @@ $cfg['QueryFrame']          = TRUE;         // displays a new frame where a link
 $cfg['QueryFrameJS']        = TRUE;         // whether to use JavaScript functions for opening a new window for SQL commands.
                                             // if set to 'false', the target of the querybox is always the right frame.
 $cfg['QueryFrameDebug']     = FALSE;        // display JS debugging link (DEVELOPERS only)
-$cfg['QueryWindowWidth']    = 750;          // Width of Query window
-$cfg['QueryWindowHeight']   = 300;          // Height of Query window
+$cfg['QueryWindowWidth']    = 550;          // Width of Query window
+$cfg['QueryWindowHeight']   = 310;          // Height of Query window
 $cfg['QueryHistoryDB']      = FALSE;         // Set to TRUE if you want DB-based query history.
                                             // If FALSE, this utilizes JS-routines to display
                                             // query history (lost by window close)

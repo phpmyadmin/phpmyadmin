@@ -130,7 +130,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Includes compatibility code for older config.inc.php3 revisions
      * if necessary
      */
-    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 166) {
+    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 167) {
         include('./libraries/config_import.lib.php3');
     }
 
@@ -1569,9 +1569,9 @@ if (typeof(document.getElementById) != 'undefined'
             $out = '';
             if (strlen($link) > 0) {
                 $out .= '<a href="' . $link . $sep . $args . '"' . $attr . '>'
-                     .  '<b>' . $text . '</b></a>';
+                     .  '<nobr><b>' . $text . '</b></a></nobr>';
             } else {
-                $out .= '<b>' . $text . '</b>';
+                $out .= '<nobr><b>' . $text . '</b></nobr>';
             }
             $out = '[ ' . $out . ' ]&nbsp;&nbsp;&nbsp;';
         } else {
@@ -1580,9 +1580,9 @@ if (typeof(document.getElementById) != 'undefined'
                      . "\n" . '            ';
             if (strlen($link) > 0) {
                 $out .= '<a href="' . $link . $sep . $args . '"' . $attr . '>'
-                     .  '<b>' . $text . '</b></a>';
+                     .  '<nobr><b>' . $text . '</b></a></nobr>';
             } else {
-                $out .= '<b>' . $text . '</b>';
+                $out .= '<nobr><b>' . $text . '</b></nobr>';
             }
             $out     .= "\n" . '        '
                      .  '</td>'

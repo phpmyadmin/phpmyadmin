@@ -695,11 +695,11 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     }
 
     if (!isset($cfg['QueryWindowWidth'])) {
-        $cfg['QueryWindowWidth'] = 750;
+        $cfg['QueryWindowWidth'] = 550;
     }
 
     if (!isset($cfg['QueryWindowHeight'])) {
-        $cfg['QueryWindowHeight'] = 300;
+        $cfg['QueryWindowHeight'] = 310;
     }
 
     if (!isset($cfg['QueryHistoryMax'])) {

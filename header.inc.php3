@@ -247,8 +247,8 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     ?>
     
     if (top.frames.queryframe) {
-        <?php echo (isset($db) ? 'top.frames.queryframe.document.queryframeform.db.value = "' . htmlspecialchars($db) . '";' : ''); ?>
-        <?php echo (isset($table) ? 'top.frames.queryframe.document.queryframeform.table.value = "' . htmlspecialchars($table) . '";' : ''); ?>
+        top.frames.queryframe.document.queryframeform.db.value = "<?php echo (isset($db) ? htmlspecialchars($db) : ''); ?>";
+        top.frames.queryframe.document.queryframeform.table.value = "<?php echo (isset($table) ? htmlspecialchars($table) : ''); ?>";
     }
 
     function reload_querywindow () {
