@@ -215,8 +215,8 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
         echo implode("\n", $input_query_history);
     }
 ?>
-    <input type="hidden" name="db" value="<?php echo (isset($db) && $db != '' ? $db : ''); ?>" />
-    <input type="hidden" name="table" value="<?php echo (isset($table) && $table != '' ? $table : ''); ?>" />
+    <input type="hidden" name="db" value="<?php echo (empty($db) ? '' : htmlspecialchars($db)); ?>" />
+    <input type="hidden" name="table" value="<?php echo (empty($table) ? '' : htmlspecialchars($table)); ?>" />
 
     <input type="hidden" name="query_history_latest" value="" />
     <input type="hidden" name="query_history_latest_db" value="" />

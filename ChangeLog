@@ -7,7 +7,8 @@ $Source$
 
 2003-03-25 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_query_box.php3, tbl_properties_operations.php3,
-      libraries/common.lib.php3, tbl_query_box.php3: More HTML entities fixes.
+      libraries/common.lib.php3, tbl_query_box.php3, querywindow.php3: More
+      HTML entities fixes.
     * read_dump.php3: Fixed detection of $goto.
     * header.inc.php3: Neated URL generating.
 
