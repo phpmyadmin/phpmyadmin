@@ -2459,7 +2459,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </p>
 
 <h4>
-    [1.17a] I cannot connect to the MySQL server. It alaways returns the error
+    [1.17a] I cannot connect to the MySQL server. It always returns the error
     message, &quot;Client does not support authentication protocol requested
     by server; consider upgrading MySQL client&quot;
 </h4>
@@ -2794,6 +2794,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     </p>
     <p>
     To create a theme:
+    </p>
     <ul>
         <li>make a new subdirectory (for example &quot;your_theme_name&quot;) under <tt>$cfg['ThemePath']</tt> (by default <tt>themes</tt>)</li>
         <li>copy the files and directories from &quot;original&quot; to &quot;your_theme_name&quot;</li>
@@ -2805,12 +2806,11 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         <li>make a new screenshot of your theme and save it under &quot;your_theme_name/screen.png&quot;</li>
     </ul>
     <br />
-    </p>
     <p>
     In theme directory there is file <tt>info.inc.php</tt> which contains
     theme verbose name, theme generation and theme version. These versions and
     generations are enumerated from 1 and do not have any direct dependance on
-    phpMyAdmin version. Themes within same generation should be bacward
+    phpMyAdmin version. Themes within same generation should be backwards
     compatible - theme with version 2 should work in phpMyAdmin requiring
     version 1. Themes with different generation are incompatible.
     </p>
