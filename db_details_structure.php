@@ -354,11 +354,6 @@ else {
                     <a href="tbl_properties_structure.php?<?php echo $tbl_url_query; ?>">
                         <?php echo $titles['Properties']; ?></a>
                             </td>
-                            <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-                    <a href="sql.php?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
-                        onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
-                        <?php echo $titles['Drop']; ?></a>
-                </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
         if (!empty($sts_data['Rows'])) {
@@ -380,6 +375,11 @@ else {
              echo $titles['NoEmpty'];
         }
         ?>
+                </td>
+                            <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+                    <a href="sql.php?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
+                        onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
+                        <?php echo $titles['Drop']; ?></a>
                 </td>
         <?php
         echo "\n";

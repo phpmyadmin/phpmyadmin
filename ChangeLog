@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-12 Michal Čihař  <michal@cihar.com>
+    * db_details_structure.php: Inconsistency of drop/empty links (bug
+      #989705).
+
 2004-08-11 Michal Čihař  <michal@cihar.com>
     * tbl_replace.php: Do not empty protected values (bug #1006812).
     * libraries/display_tbl.lib.php: Wrong parameters for PMA_DBI_free_result
