@@ -726,218 +726,233 @@ if (!empty($qry_select)) {
 
 // Create LEFT JOINS out of Relations
 // Code originally by Mike Beck <mike.beck@ibmiller.de>
-//    If we can use Relations we could make some left joins
-//    First find out if relations are available in this database
+// If we can use Relations we could make some left joins.
+// First find out if relations are available in this database.
 
 // Debugging:
-//echo "</textarea><pre style=\"background-color:white;\">";
-// First we need the really needed Tables - those in TableList might
-// still be all Tables.
+//echo '</textarea><pre style="background-color: white;">';
+// First we need the really needed Tables - those in TableList might still be
+// all Tables.
 if (isset($Field) && count($Field) > 0) {
 
     // Initialize some variables
     $tab_all    = array();
     $col_all    = array();
+    $tab_wher   = array();
     $tab_know   = array();
     $tab_left   = array();
     $col_where  = array();
     $fromclause = '';
 
-    //  we only start this if we have fields, otherwise it would be dumb
+    // We only start this if we have fields, otherwise it would be dumb
 //echo "get everything\n";
     while (list(, $value) = each($Field)) {
-        $_parts            = explode('.', $value);
-        if (!empty($_parts[0]) && !empty($_parts[1])) {
-        	$_tab_raw  = urldecode($_parts[0]);
-            $_tab      = str_replace('`', '', $_tab_raw);
-//echo "new Tab: " . $_tab . "\n";
-            $tab_all[$_tab] = $_tab;
-            $_col_raw  = urldecode($_parts[1]);
-            $col_all[] = $_tab . '.' . str_replace('`', '', $_col_raw);
-//echo "new col:" . $_tab . '.' . str_replace('`', '', $_col_raw) . "\n";
+        $parts             = explode('.', $value);
+        if (!empty($parts[0]) && !empty($parts[1])) {
+            $tab_raw       = urldecode($parts[0]);
+            $tab           = str_replace('`', '', $tab_raw);
+//echo 'new Tab: ' . $tab . "\n";
+            $tab_all[$tab] = $tab;
+            $col_raw       = urldecode($parts[1]);
+            $col_all[]     = $tab . '.' . str_replace('`', '', $col_raw);
+//echo 'new col: ' . $tab . '.' . str_replace('`', '', $col_raw) . "\n";
          }
     } // end while
 
 //echo "check whereclauses\n";
     if ($cfgRelation['relwork'] && count($tab_all) > 0) {
-        // now we need all tables that we have in the whereclause
+        // Now we need all tables that we have in the whereclause
         for ($x = 0; $x < count($Criteria); $x++) {
-            $_tab_wher = explode('.', urldecode($Field[$x]));
-            if(!empty($_tab_wher[0]) && !empty($_tab_wher[1])) {
-                $_tab_raw  = urldecode($_tab_wher[0]);
-                $_tab      = str_replace('`', '', $_tab_raw);
+            $tab_wher     = explode('.', urldecode($Field[$x]));
+            if (!empty($tab_wher[0]) && !empty($tab_wher[1])) {
+                $tab_raw  = urldecode($tab_wher[0]);
+                $tab      = str_replace('`', '', $tab_raw);
 
-                $_col_raw  = urldecode($_tab_wher[1]);
-                $_col      = str_replace('`', '', $_col_raw);
-                $_col = $_tab . '.' . $_col;
-                //	now we know that our array has the same numbers as $Criteria
-                //	we can check which of our columns has a whereclause
+                $col_raw  = urldecode($tab_wher[1]);
+                $col      = str_replace('`', '', $col_raw);
+                $col      = $tab . '.' . $col;
+                // Now we know that our array has the same numbers as $Criteria
+                // we can check which of our columns has a whereclause
                 if (!empty($Criteria[$x])) {
-                	if (substr($Criteria[$x],0,1) == '=' || eregi('is',$Criteria[$x])) {
-                    	$col_where[$_col] = $_col;
-                        $tab_where[$_tab] = $_tab;
-// echo "new Whereclause:".$_tab."\n";
+                    if (substr($Criteria[$x],0,1) == '=' || eregi('is', $Criteria[$x])) {
+                        $col_where[$col] = $col;
+                        $tab_wher[$tab] = $tab;
+//echo 'new Whereclause: ' . $tab . "\n";
                     }
                 }
             }
         } // end for
 
-         //	clean temp vars w/o further use
-         unset($_tab_raw,$_col_raw);
+        // Cleans temp vars w/o further use
+        unset($tab_raw, $col_raw);
 
-
-        if (count($tab_where) == 1) {
-            // if there is exactly one column that has a decent where-clause
+        if (count($tab_wher) == 1) {
+            // If there is exactly one column that has a decent where-clause
             // we will just use this
-            $master = key($tab_where);
-// echo "nur ein where: master =".$master . "\n";
+            $master = key($tab_wher);
+//echo 'nur ein where: master = ' . $master . "\n";
         } else {
-        	// now let's find out which of the tables has an index
-// echo "prüfe indexe:\n";
-			while (list(, $_tab) = each($tab_all)) {
-				$ind_qry  = 'SHOW INDEX FROM ' . PMA_backquote($_tab);
+            // Now let's find out which of the tables has an index
+//echo "prüfe indexe:\n";
+            while (list(, $tab) = each($tab_all)) {
+                $ind_qry  = 'SHOW INDEX FROM ' . PMA_backquote($tab);
                 $ind_rs   = PMA_mysql_query($ind_qry);
                 while ($ind = PMA_mysql_fetch_array($ind_rs)) {
-                	$_col = $_tab . '.' . $ind['Column_name'];
-					if (isset($col_all[$_col])) {
+                    $col = $tab . '.' . $ind['Column_name'];
+                    if (isset($col_all[$col])) {
                         if ($ind['non_unique'] == 0) {
-                            if (isset($col_where[$_col])) {
-                                $col_unique[$_col] = 'Y';
+                            if (isset($col_where[$col])) {
+                                $col_unique[$col] = 'Y';
                             } else {
-                                $col_unique[$_col] = 'N';
+                                $col_unique[$col] = 'N';
                             }
-//echo "neuen unique index gefunden:".$_col."\n";
+//echo 'neuen unique index gefunden: ' . $col . "\n";
                         } else {
-                            if (isset($col_where[$_col])) {
-                                $col_index[$_col] = 'Y';
+                            if (isset($col_where[$col])) {
+                                $col_index[$col] = 'Y';
                             } else {
-                                $col_index[$_col] = 'N';
+                                $col_index[$col] = 'N';
                             }
-//echo "neuen index gefunden:".$_col."\n";
+//echo 'neuen index gefunden: ' . $col . "\n";
                         }
-    				}
-                }	// End while (each col of tab)
-			}	//	End while (each tab)
+                    }
+                } // end while (each col of tab)
+            } // end while (each tab)
             // now we want to find the best.
-			if (isset($col_unique) && count($col_unique)>0) {
-            	$col_cand = $col_unique;
-// echo "Kandidaten sind jetzt alle mit unique index\n";
-                $_needsort= 1;
-            } elseif (isset($col_index) && count($col_index) > 0) {
-            	$col_cand = $col_index;
-                $_needsort= 1;
-// echo "Kandidaten sind jetzt alle mit index\n";
-            } elseif (isset($col_where) && count($col_where) > 0) {
-            	$col_cand = $tab_where;
-// echo "Kandidaten sind jetzt alle im whereclause\n";
-                $_needsort= 0;
+            if (isset($col_unique) && count($col_unique) > 0) {
+                $col_cand = $col_unique;
+//echo "Kandidaten sind jetzt alle mit unique index\n";
+                $needsort = 1;
+            } else if (isset($col_index) && count($col_index) > 0) {
+                $col_cand = $col_index;
+                $needsort = 1;
+//echo "Kandidaten sind jetzt alle mit index\n";
+            } else if (isset($col_where) && count($col_where) > 0) {
+                $col_cand = $tab_wher;
+//echo "Kandidaten sind jetzt alle im whereclause\n";
+                $needsort = 0;
             } else {
-            	$col_cand = $tab_all;
-                $_needsort= 0;
-// echo "Kandidaten sind jetzt alle \n";
+                $col_cand = $tab_all;
+                $needsort = 0;
+//echo "Kandidaten sind jetzt alle \n";
             }
-			
-            //	if we came up with $col_unique (very good) or
-            //	$col_index (still good) as $col_cand we want to check
-            //  if we have any 'Y' there (that would mean that 
-            //	they were also found in the whereclauses which would be
-            //	great). if yes, we take only those
-            if ($_needsort == 1) {
-            	while (list($_col,$_iswhere) = each($col_cand)) {
-                	$_tab = explode('.',$_col);
-                    $_tab = $_tab[0];
-                	if ($_iswhere == 'Y') {
-                    	$_vg[$_col]  = $_tab;
+
+            // If we came up with $col_unique (very good) or $col_index (still
+            // good) as $col_cand we want to check if we have any 'Y' there
+            // (that would mean that they were also found in the whereclauses
+            // which would be great). if yes, we take only those
+            if ($needsort == 1) {
+                while (list($col, $is_where) = each($col_cand)) {
+                    $tab           = explode('.', $col);
+                    $tab           = $tab[0];
+                    if ($is_where == 'Y') {
+                        $vg[$col]  = $tab;
                     } else {
-                    	$_sg[$_col]  = $_tab;
+                        $sg[$col]  = $tab;
                     }
-               	}
-               	if (isset($vg)) {
-                	$col_cand = $vg;
-// echo "Kandidaten konnten auf index+where beschränkt werden\n";
+                }
+                if (isset($vg)) {
+                    $col_cand      = $vg;
+//echo "Kandidaten konnten auf index+where beschränkt werden\n";
                 } else {
-                	$col_cand = $sg;
-// echo "keiner der Kandidaten mit Index ist im wherclause\n";
+                    $col_cand      = $sg;
+//echo "keiner der Kandidaten mit Index ist im wherclause\n";
                 }
             }
 
-            // if our array of candidates has more than one member
-            //	we'll just find the smallest table.
-            //	of course the actual query would be faster if we check 
-            //	for the Criteria which gives the smallest resultset
-            //  in its table, but it would take too much time to check this
-
-            if (count($col_cand)>1) {
+            // If our array of candidates has more than one member we'll just
+            // find the smallest table.
+            // Of course the actual query would be faster if we check for
+            // the Criteria which gives the smallest result set in its table,
+            // but it would take too much time to check this
+            if (count($col_cand) > 1) {
 //echo "wir haben immer noch mehr als einen Kandidaten. Prüfe Größe\n";
-            	//	of course we only want to check each table once
-                $_checked_tables = $col_cand;
-                while (list(, $_tab) = each($col_cand)) {
-                    if ($_checked_tables[$_tab] != 1 ) {
-//echo "prüfe jetzt: Tabelle ".$_tab. "\n";
-                        $rows_qry = 'SELECT count(1) as anz '
-                                  . 'FROM ' . PMA_backquote($_tab);
+                // Of course we only want to check each table once
+                $checked_tables = $col_cand;
+                while (list(, $tab) = each($col_cand)) {
+                    if ($checked_tables[$tab] != 1 ) {
+//echo 'prüfe jetzt: Tabelle ' . $tab . "\n";
+                        $rows_qry = 'SELECT COUNT(1) AS anz '
+                                  . 'FROM ' . PMA_backquote($tab);
                         $rows_rs  = PMA_mysql_query($rows_qry);
-                		while ($res = PMA_mysql_fetch_array($rows_rs)) {
-							$_tsize[$_tab] = $res['anz'];
-//echo "$_tab hat:" .$_tsize[$_tab]."\n";
+                        while ($res = PMA_mysql_fetch_array($rows_rs)) {
+                            $tsize[$tab] = $res['anz'];
+//echo "$tab hat: "  . $tsize[$tab] . "\n";
                         }
-                        $_checked_tables[$_tab] =1;
+                        $checked_tables[$tab] = 1;
                     }
-                    $_csize[$_tab] = $_tsize[$_tab];
-//echo "erster csize: ".$_csize[$_tab]."\n";
+                    $csize[$tab] = $tsize[$tab];
+//echo 'erster csize: ' . $csize[$tab] . "\n";
                 }
-                asort($_csize);
-                reset($_csize);
-                $master = key($_csize);
-//echo "kleinste Datei: " . $master . "\n";
+                asort($csize);
+                reset($csize);
+                $master = key($csize);
+//echo 'kleinste Datei: ' . $master . "\n";
             } else {
-            	$master = $col_cand[0];
-//echo "master ist der einzige Kandidat: " . $master . "\n";
+                $master = $col_cand[0];
+//echo 'master ist der einzige Kandidat: ' . $master . "\n";
             }
         } // end if (exactly one where clause)
-//echo "ich habe mich entschieden: " . $master;
+//echo 'ich habe mich entschieden: ' . $master;
 //die;
 
-  		// i will need something to remove unwanted entries from
-        // arrays which works with php3
-        function array_short($array,$key)
+
+        /**
+         * Removes unwanted entries from an array (PHP3 compliant)
+         *
+         * @param   array  the array to work with
+         * @param   array  the list of keys to remove
+         *
+         * @return  array  the cleaned up array
+         *
+         * @access  private
+         */
+        function PMA_arrayShort($array, $key)
         {
             while (list($k, $v) = each($array)) {
                 if ($k != $key) {
                     $reta[$k] = $v;
                 }
             }
-            if(!isset($reta)){
-            	$reta = array();
+            if (!isset($reta)){
+                $reta = array();
             }
+
             return $reta;
-        }
+        } // end of the "PMA_arrayShort()" function
 
-        // now we will often need a function to find all
-        // related tables. what we will have is an array
-        // of allready connected tables $tab_know and one
-        // of tables that we still couldn't connect $tab_left
-        // all we start with is $tab_all and the knowledge of
-        // our $master
-        // as we need to work with php3 we cannot give the variables
-        // by & so i need to make them global ;-(
-        //	the only thing we give  is wether to go from
-        // master to foreign or vice versa
 
-        function getrelatives($from) {
-        	global $tab_left,$tab_know,$fromclause,$db,$cfgRelation,$dbh;
+        /**
+         * Finds all related tables
+         *
+         * @param   string   wether to go from master to foreign or vice versa
+         *
+         * @return  boolean  always TRUE
+         *
+         * @global  array    the list of tables that we still couldn't connect
+         * @global  array    the list of allready connected tables
+         * @global  string   the current databse name
+         * @global  string   the super user connection id
+         * @global  array    the list of relation settings
+         *
+         * @access  private
+         */
+        function PMA_getRelatives($from) {
+            global $tab_left, $tab_know, $fromclause;
+            global $dbh, $db, $cfgRelation;
+
             if ($from == 'master') {
-            	$to    = 'foreign';
+                $to    = 'foreign';
             } else {
-            	$to    = 'master';
+                $to    = 'master';
             }
-			$in_know = '(\'' . implode('\', \'', $tab_know) . '\')';
+            $in_know = '(\'' . implode('\', \'', $tab_know) . '\')';
             $in_left = '(\'' . implode('\', \'', $tab_left) . '\')';
 
             $rel_query = 'SELECT *'
                        . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                       . ' WHERE ' . $from . '_db   = \'' . $db . '\''
-                       . ' AND   ' . $to   . '_db   = \'' . $db . '\''
+                       . ' WHERE ' . $from . '_db   = \'' . PMA_sqlAddslashes($db) . '\''
+                       . ' AND ' . $to   . '_db   = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND ' . $from . '_table IN ' . $in_know
                        . ' AND ' . $to   . '_table IN ' . $in_left;
             if (isset($dbh)) {
@@ -950,49 +965,52 @@ if (isset($Field) && count($Field) > 0) {
                 PMA_mysql_select_db($db);
             }
             while ($row = PMA_mysql_fetch_array($relations)) {
-                $found_table = $row[$to.'_table'];
+                $found_table                = $row[$to . '_table'];
                 if (isset($tab_left[$found_table])) {
-                    $fromclause .= "\n LEFT JOIN "
-                        . PMA_backquote($row[$to  . '_table']) . ' ON '
-                        . PMA_backquote($row[$from. '_table']) . '.'
-                            . PMA_backquote($row[$from. '_field']) . ' = '
-                        . PMA_backquote($row[$to  . '_table']) . '.'
-                            . PMA_backquote($row[$to  . '_field']) .' ';
+                    $fromclause             .= "\n" . ' LEFT JOIN '
+                                            . PMA_backquote($row[$to . '_table']) . ' ON '
+                                            . PMA_backquote($row[$from . '_table']) . '.'
+                                            . PMA_backquote($row[$from . '_field']) . ' = '
+                                            . PMA_backquote($row[$to . '_table']) . '.'
+                                            . PMA_backquote($row[$to . '_field']) . ' ';
                     $tab_know[$found_table] = $found_table;
-                    $tab_left = array_short($tab_left,$found_table);
-             	}
+                    $tab_left               = PMA_arrayShort($tab_left, $found_table);
+                }
             } // end while
-		} // End of Function
+
+            return TRUE;
+        } // end of the "PMA_getRelatives()" function
 
 
-        $tab_left = array_short($tab_all,$master);
+        $tab_left          = PMA_arrayShort($tab_all, $master);
         $tab_know[$master] = $master;
 
-        $run=0;$emerg='';
-		while (count($tab_left)>0) {
-        	if ($run % 2 ==0) {
-            	getrelatives('master');
+        $run   = 0;
+        $emerg = '';
+        while (count($tab_left) > 0) {
+            if ($run % 2 == 0) {
+                PMA_getRelatives('master');
             } else {
-            	getrelatives('foreign');
+                PMA_getRelatives('foreign');
             }
             $run++;
-            if ($run>5) {
+            if ($run > 5) {
 
-            	while ( list(,$_tab) = each($tab_left)) {
-                	$emerg .= ', '.$_tab;
-            		$tab_left=array_short($tab_left,$_tab);
+                while (list(, $tab) = each($tab_left)) {
+                    $emerg    .= ', ' . $tab;
+                    $tab_left = PMA_arrayShort($tab_left, $tab);
                 }
             }
-         }
-         $qry_from = $master . $emerg . $fromclause;
-    }
+        } // end while
+        $qry_from = $master . $emerg . $fromclause;
+    } // end if ($cfgRelation['relwork'] && count($tab_all) > 0)
 
 } // end count($Field) > 0
 
-// now let's see what we got
+// Now let's see what we got
 if (!empty($qry_from)) {
-    $encoded_qry .= urlencode('FROM ' . $qry_from . "\n");
-    echo  'FROM ' . htmlspecialchars($qry_from) . "\n";
+    $encoded_qry  .= urlencode('FROM ' . $qry_from . "\n");
+    echo 'FROM ' . htmlspecialchars($qry_from) . "\n";
 }
 
 // 3. WHERE
