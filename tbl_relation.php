@@ -128,7 +128,7 @@ if (isset($submit_rel) && $submit_rel == 'true') {
                     // backquotes but MySQL 4.0.16 did not like the syntax
                     // (for example: `base2`.`table1` )
 
-                    $upd_query  = 'ALTER TABLE ' . $table
+                    $upd_query  = 'ALTER TABLE ' . PMA_backquote($table)
                                 . ' ADD FOREIGN KEY ('
                                 . PMA_backquote(PMA_sqlAddslashes($master_field)) . ')'
                                 . ' REFERENCES '
@@ -155,7 +155,7 @@ if (isset($submit_rel) && $submit_rel == 'true') {
 
                     // remove existing key
                     if (PMA_MYSQL_INT_VERSION >= 40013) {
-                        $upd_query  = 'ALTER TABLE ' . $table
+                        $upd_query  = 'ALTER TABLE ' . PMA_backquote($table)
                                     . ' DROP FOREIGN KEY '
                                     . PMA_backquote($existrel_innodb[$master_field]['constraint']);
 
@@ -164,7 +164,7 @@ if (isset($submit_rel) && $submit_rel == 'true') {
                     }
 
                     // add another
-                    $upd_query  = 'ALTER TABLE ' . $table
+                    $upd_query  = 'ALTER TABLE ' . PMA_backquote($table)
                                 . ' ADD FOREIGN KEY ('
                                 . PMA_backquote(PMA_sqlAddslashes($master_field)) . ')'
                                 . ' REFERENCES '
@@ -182,7 +182,7 @@ if (isset($submit_rel) && $submit_rel == 'true') {
                 } // end if... else....
             } else if (isset($existrel_innodb[$master_field])) {
                     if (PMA_MYSQL_INT_VERSION >= 40013) {
-                        $upd_query  = 'ALTER TABLE ' . $table
+                        $upd_query  = 'ALTER TABLE ' . PMA_backquote($table)
                                 . ' DROP FOREIGN KEY '
                                 . PMA_backquote($existrel_innodb[$master_field]['constraint']);
                     }
