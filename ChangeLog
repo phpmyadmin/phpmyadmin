@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-31 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * config.inc.php3, Documentation.html, libraries/common.lib.php3,
+      libraries/config_import.lib.php3: Added experimental support for encrypted
+      and compressed connections to the MySQL server.
+
 2003-01-30 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php3, libraries/fpdf/fpdf.php3: better browser
       support, thanks to Jose Fandos (jose.fandos at sonnd.com)

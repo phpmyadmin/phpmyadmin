@@ -513,6 +513,22 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['Servers'][$i]['ssl']</b> boolean</dt>
+    <dd>
+        Wheather to use an SSL connection to the MySQL server or not
+        (experimental).<br />
+        This feature requires PHP&nbsp;&gt;=&nbsp;4.3.0 and
+        MySQL&nbsp;&gt;=&nbsp;4.0.0 compiled <tt>--with-openssl</tt>.
+        Please also read <a href="#faqwinssl">this FAQ entry</a>.
+    </dd>
+
+    <dt><b>$cfg['Servers'][$i]['compress']</b> boolean</dt>
+    <dd>
+        Wheather to use a compressed protocol for the MySQL server connection
+        or not (experimental).<br />
+        This feature requires PHP&nbsp;&gt;=&nbsp;4.3.0.
+    </dd>
+
     <dt>
         <b>$cfg['Servers'][$i]['controluser']</b> string<br />
         <b>$cfg['Servers'][$i]['controlpass']</b> string
@@ -1840,9 +1856,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>[1.26] I just installed phpMyAdmin in my document root of IIS but
-    I get the error &quot;No input file specified&quot; when trying to
-    run phpMyAdmin.</b>
+    <b>[1.26] I just installed phpMyAdmin in my document root of IIS but I get
+       the error &quot;No input file specified&quot; when trying to run
+       phpMyAdmin.</b>
     <br />
     This is a permission problem. Right-click on the phpmyadmin folder
     and choose properties. Under the tab Security, click on &quot;Add&quot;
@@ -1852,12 +1868,21 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
 <p>
     <b>[1.27] I get empty page when I want to view huge page (eg.
-    db_details_structure.php3 with plenty of dabases).</b>
+       db_details_structure.php3 with plenty of dabases).</b>
     <br />
     This is a <a href="http://bugs.php.net/21079">PHP bug</a> that occur when
     GZIP output buffering enabled. If you turn it off (by <code>$cfg['OBGzip']
     = FALSE</code> in config.inc.php3), it should work. This bug will be fixed
     in PHP 5.0.0.
+</p>
+
+<a name="faqwinssl"></a>
+<p>
+    <b>[1.28] On my Windows machine, I have enabled SSL my MySQL server
+       connection, but PHP tells me something about an undefined constant
+       <tt>MYSQL_CLIENT_SSL</tt>.</b>
+    <br />
+    This seems to be a <a href="http://bugs.php.net/21981">PHP bug</a>.
 </p>
 
 <a name="faqconfig"></a>

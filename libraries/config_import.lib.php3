@@ -62,6 +62,14 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
                 unset($cfg['Servers'][$i]['adv_auth']);
             }
 
+            if (!isset($cfg['Servers'][$i]['ssl'])) {
+                $cfg['Servers'][$i]['ssl'] = FALSE;
+            }
+
+            if (!isset($cfg['Servers'][$i]['compress'])) {
+                $cfg['Servers'][$i]['compress'] = FALSE;
+            }
+
             if (!isset($cfg['Servers'][$i]['user'])) {
                 $cfg['Servers'][$i]['user'] = 'root';
             }

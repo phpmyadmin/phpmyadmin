@@ -130,7 +130,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Includes compatibility code for older config.inc.php3 revisions
      * if necessary
      */
-    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 144) {
+    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 153) {
         include('./libraries/config_import.lib.php3');
     }
 
@@ -328,7 +328,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                           $is_modify_link = TRUE, $back_url = '')
     {
         global $cfg;
-        
+
         if (empty($GLOBALS['is_header_sent'])) {
             include('./header.inc.php3');
         }
@@ -340,7 +340,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $the_query = $GLOBALS['sql_query'];
         }
 
-        // --- Added to solve bug #641765 
+        // --- Added to solve bug #641765
         // Robbat2 - 12 January 2003, 9:46PM
         // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
         if (PMA_SQP_isError()) {
@@ -355,7 +355,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         // respond, do not show the query that would reveal the
         // username/password
         if (!empty($the_query) && !strstr($the_query, 'connect')) {
-            // --- Added to solve bug #641765 
+            // --- Added to solve bug #641765
             // Robbat2 - 12 January 2003, 9:46PM
             // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
             if (PMA_SQP_isError()) {
@@ -385,7 +385,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
              . $error_message . "\n"
              . '</pre>' . "\n";
 
-             
+
         if (!empty($back_url)) {
             echo '<a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a>';
         }
@@ -607,6 +607,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         $server_socket = (empty($cfg['Server']['socket']) || PMA_PHP_INT_VERSION < 30010)
                        ? ''
                        : ':' . $cfg['Server']['socket'];
+        if (PMA_PHP_INT_VERSION >= 40300) {
+            $client_flags = ($cfg['Server']['ssl'] ? MYSQL_CLIENT_SSL : 0)
+                          & ($cfg['Server']['compress'] ? MYSQL_CLIENT_COMPRESS : 0);
+        }
 
         // Gets the authentication library that fits the $cfg['Server'] settings
         // and run authentication
@@ -676,11 +680,21 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         // must be open after this one so it would be default one for all the
         // scripts)
         if ($cfg['Server']['controluser'] != '') {
-            $dbh                = @$connect_func(
+            if (PMA_PHP_INT_VERSION >= 40300) {
+                $dbh            = @$connect_func(
+                                      $cfg['Server']['host'] . $server_port . $server_socket,
+                                      $cfg['Server']['controluser'],
+                                      $cfg['Server']['controlpass'],
+                                      FALSE,
+                                      $client_flags
+                                  );
+            } else {
+                $dbh            = @$connect_func(
                                       $cfg['Server']['host'] . $server_port . $server_socket,
                                       $cfg['Server']['controluser'],
                                       $cfg['Server']['controlpass']
                                   );
+            }
             if ($dbh == FALSE) {
                 if (PMA_mysql_error()) {
                     $conn_error = PMA_mysql_error();
@@ -692,7 +706,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $local_query    = $connect_func . '('
                                 . $cfg['Server']['host'] . $server_port . $server_socket . ', '
                                 . $cfg['Server']['controluser'] . ', '
-                                . $cfg['Server']['controlpass'] . ')';
+                                . $cfg['Server']['controlpass']
+                                . (PMA_PHP_INT_VERSION >= 40300 ? ', FALSE, ' . $client_flags : '')
+                                . ')';
                 if (empty($GLOBALS['is_header_sent'])) {
                     include('./header.inc.php3');
                 }
@@ -705,11 +721,22 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         // Robbat2 - May 11, 2002
 
         // Connects to the server (validates user's login)
-        $userlink               = @$connect_func(
+        if (PMA_PHP_INT_VERSION >= 40300) {
+            $userlink           = @$connect_func(
+                                      $cfg['Server']['host'] . $server_port . $server_socket,
+                                      $cfg['Server']['user'],
+                                      $cfg['Server']['password'],
+                                      FALSE,
+                                      $client_flags
+                                  );
+        } else {
+            $userlink           = @$connect_func(
                                       $cfg['Server']['host'] . $server_port . $server_socket,
                                       $cfg['Server']['user'],
                                       $cfg['Server']['password']
                                   );
+
+        }
         if ($userlink == FALSE) {
             PMA_auth_fails();
         } // end if
