@@ -416,16 +416,15 @@ $strYes = 'Ya';
 
 $strZip = '"Dikompress dengan Zip"';
 
-
 // To translate
-$strCharsetOfFile = 'Character set of the file:'; //to translate
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strEndCut = 'END CUT';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
+$strCharsetOfFile = 'Kumpulan karakter (Character set) dari file:';
+$strBeginCut = 'Mulai potong (CUT)';
+$strEndCut = 'Akhiri potong (CUT)';
+$strSQPBugInvalidIdentifer = 'Identifer tidak valid';
+$strSQPBugUnknownPunctation = 'Punctation String tidak dikenal';
+$strSQPBugUnclosedQuote = 'Kutipan tidak ditutup';
+$strBeginRaw = 'NULAI RAW';
+$strEndRaw = 'AKHIRI RAW';
+$strSQLParserBugMessage = 'Kemungkinan Anda telah temukan sebuah Bug dalam parser SQL. Mohon periksa ulang Query SQL dengan teliti dan perhatikan apakah semua tanda kutip benar dan seimbang. Penyebab kegagalan bisa terjadi bila Anda meng-upload sebuah file binari diluar teks kutipan. Silakan Anda menjalankan Query tersebut dengan mengunakan command line interface. Hasil dari MySQL server error, jika tertampil, akan menolong Anda untuk mengetahui penyebab dari problem. Bila problem tersebut tetap muncul atau Parser dari kami masih juga gagal tetapi command line interface berhasil mohon kurangi input pada SQL query sampai Query yang bermasalah ditemukan. Mohon kirimkan sebuah Bug Report dengan sisipan data dalam bagian Potong (CUT) yang dibawah ini kepada kami:';
+$strSQLParserUserError = 'Rupanya ada Error pada Query SQL. Hasil dari MySQL server error dibawa ini, jika tertampil, akan menolong Anda untuk mengetahui penyebab dari problem tersebut.';
 ?>
