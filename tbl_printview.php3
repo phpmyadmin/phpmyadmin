@@ -65,12 +65,17 @@ while($row= mysql_fetch_array($result))
     } else {
       $Type = $row["Type"];
     }
+   	// reformat mysql query output - staybyte - 9. June 2001
+    $shorttype=substr($Type,0,3);
+    if ($shorttype=="set" || $shorttype=="enu"){
+    	$Type=eregi_replace (",",", ",$Type);
+    }
     $Type = eregi_replace("BINARY", "", $Type);
     $Type = eregi_replace("ZEROFILL", "", $Type);
     $Type = eregi_replace("UNSIGNED", "", $Type);
-	echo $Type;
-	?>&nbsp;</td>
-         <td>
+    if (!empty($Type)) echo $Type;
+    else echo "&nbsp;";
+?></td><td>
     <?php 
     $binary   = eregi("BINARY", $row["Type"], $test);
     $unsigned = eregi("UNSIGNED", $row["Type"], $test);
@@ -81,11 +86,11 @@ while($row= mysql_fetch_array($result))
     if ($unsigned) 
         $strAttribute="UNSIGNED";
     if ($zerofill) 
-        $strAttribute="UNSIGNED ZEROFILL";  
-	echo $strAttribute;
+        $strAttribute="UNSIGNED ZEROFILL";
+    if (!empty($strAttribute)) echo $strAttribute;
+    else echo "&nbsp;";
     $strAttribute="";
-	?>
-	 &nbsp;</td>
+	?></td>
 	 <td><?php if ($row["Null"] == "") { echo $strNo;} else {echo $strYes;}?>&nbsp;</td>
          <td><?php if(isset($row["Default"])) echo $row["Default"];?>&nbsp;</td>
          <td><?php echo $row["Extra"];?>&nbsp;</td>
