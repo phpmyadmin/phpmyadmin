@@ -5,6 +5,17 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-17 Alexander M. Turek  <rabus@users.sourceforge.net>
+	* badwords.txt: Updated and reordered badwords, made it MySQL 4 compatible.
+
+2002-04-17 Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/common.lib.php3, line 128: improved compatibility with older
+	  config files.
+	* libraries/display, line 1291: improved fix against bug #542524 (Wrong
+      interval is displayed).
+    * lang/portuguese.inc.php3: updated thanks to
+      Lopo Pizarro <lopopizarro at users.sourceforge.net>.
+
 2002-04-15 Marc Delisle  <lem9@users.sourceforge.net>
 	* config.inc.php3: put the most popular column types first in the list,
 	  (Feature #544066)
