@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-15 Marc Delisle  <lem9@users.sourceforge.net>
+    (Patches from Michael Keck)
+    * left.php, queryframe.php, themes.php: bug #1005479: was using
+      a hardcoded charset
+    * themes/.../themes_left.css, /themes_right.css: new style for
+      better vertical alignment
+
 2004-08-13 Michal Čihař  <michal@cihar.com>
     * libraries/read_dump.lib.php: Fix possible undefined index (bug
       #1008232).
