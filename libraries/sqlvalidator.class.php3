@@ -2,16 +2,14 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
 * PHP interface to MimerSQL Validator
 *
-* Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
+* Copyright 2002, 2003 Robin Johnson <robbat2@users.sourceforge.net>
 * http://www.orbis-terrarum.net/?l=people.robbat2
 *
 * All data is transported over HTTP-SOAP
 * And uses the PEAR SOAP Module
-* You also need the PHP overload module!
 *
 * Install instructions for PEAR SOAP
 * Make sure you have a really recent PHP with PEAR support
@@ -22,13 +20,15 @@
 * phpMyAdmin CVS tree as 
 * $Source$
 *
+* This code that also used to depend on the PHP overload module, but that has been
+* removed now.
+*
 * @access   public
 *
 * @author   Robin Johnson <robbat2@users.sourceforge.net>
 *
 * @version  $Id$
 */
-
 
 if (!defined('PMA_SQL_VALIDATOR_CLASS_INCLUDED')) {
     define('PMA_SQL_VALIDATOR_CLASS_INCLUDED', 1);
@@ -37,10 +37,8 @@ if (!defined('PMA_SQL_VALIDATOR_CLASS_INCLUDED')) {
 
     if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
         $GLOBALS['sqlvalidator_error'] = TRUE;
-    }
-    else {
-
-        // Ok, so we have SOAP Support, so let's use it!
+    } else {
+        // Ok, we have SOAP Support, so let's use it!
 
         class PMA_SQLValidator {
 
@@ -107,11 +105,14 @@ if (!defined('PMA_SQL_VALIDATOR_CLASS_INCLUDED')) {
                                           $connection_technology, $connection_technology_version,
                                           $interactive)
             {
-                $ret = $obj->openSession($username, $password,
+                $ret = $obj->call("openSession",array( "a_userName" => $username, "a_password" => $password, "a_callingProgram" => $calling_program, "a_callingProgramVersion" => $calling_program_version, "a_targetDbms" => $target_dbms, "a_targetDbmsVersion" => $target_dbms_version, "a_connectionTechnology" => $connection_technology, "a_connectionTechnologyVersion" => $connection_technology_version, "a_interactive" => $interactive));
+               
+               // This is the old version that needed the overload extension
+               /* $ret = $obj->openSession($username, $password,
                                          $calling_program, $calling_program_version,
                                          $target_dbms, $target_dbms_version,
                                          $connection_technology, $connection_technology_version,
-                                         $interactive);
+                                         $interactive); */
 
                 return $ret;
             } // end of the "_openSession()" function
@@ -131,7 +132,11 @@ if (!defined('PMA_SQL_VALIDATOR_CLASS_INCLUDED')) {
              */
             function _validateSQL($obj, $session, $sql, $method)
             {
-                $res = $obj->validateSQL($session->sessionId, $session->sessionKey, $sql, $this->output_type);
+
+                $res = $obj->call("validateSQL",array("a_sessionId" => $session->sessionId, "a_sessionKey" => $session->sessionKey, "a_SQL" => $sql, "a_resultType" => $this->output_type));
+
+               // This is the old version that needed the overload extension
+               // $res = $obj->validateSQL($session->sessionId, $session->sessionKey, $sql, $this->output_type);
                 return $res;
             } // end of the "validateSQL()" function
 
@@ -325,7 +330,9 @@ if (!defined('PMA_SQL_VALIDATOR_CLASS_INCLUDED')) {
              */
             function startService()
             {
+
                 $this->service_link = $this->_openService($this->url . '/' . $this->service_name . $this->wsdl);
+
             } // end of the "startService()" function
 
 
@@ -392,6 +399,7 @@ if (!defined('PMA_SQL_VALIDATOR_CLASS_INCLUDED')) {
             {
                 $res = $this->_validate($sql);
                 return $res->data;
+
             } // end of the "validationString()" function
         } // end class PMA_SQLValidator
     } // end else
