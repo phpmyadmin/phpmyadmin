@@ -1104,9 +1104,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                         // We don't want more than one asterisk inside our 'only_db'.
                         continue;
                     }
-
-                    //if ($is_show_dbs && preg_match('@(^|[^\])(_|%)@', $dblist[$i])) {
-                    if ($is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i])) {
+                    if ($is_show_dbs && preg_match('@(^|[^\\\\])(_|%)@', $dblist[$i])) {
                         $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
                         $rs          = PMA_mysql_query($local_query, $dbh);
                         // "SHOW DATABASES" statement is disabled
