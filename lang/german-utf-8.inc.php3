@@ -9,8 +9,7 @@
  *     Alexander M. Turek <rabus at users.sourceforge.net>.
  */
 
-$charset = 'utf-8';
-$allow_recoding = TRUE;
+$charset = 'iso-8859-1';
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
@@ -42,6 +41,7 @@ $strAfter = 'Nach %s';
 $strAfterInsertBack = 'zurück';
 $strAfterInsertNewInsert = 'Neuen Datensatz einfügen';
 $strAll = 'Alle';
+$strAllTableSameWidth = 'Sollen alle Tabellen mit der gleichen Breite angezeigt werden?';
 $strAlterOrderBy = 'Tabelle sortieren nach';
 $strAnalyzeTable = 'Analysiere Tabelle';
 $strAnd = 'und';
@@ -284,6 +284,7 @@ $strQueryOnDb = ' SQL-Befehl in der Datenbank <b>%s</b>:';
 
 $strRecords = 'Einträge';
 $strReferentialIntegrity = 'Prüfe referentielle Integrität:';
+$strRelationNotWorking = 'Die zusätzlichen Funktionen für verknüpfte Tabellen wurden automatisch deaktiviert. Klicken Sie %shier%s um herauszufinden warum.';
 $strRelationView = 'Beziehungsübersicht';
 $strReloadFailed = 'MySQL Neuladen fehlgeschlagen.';
 $strReloadMySQL = 'MySQL neu starten';
@@ -409,6 +410,4 @@ $strYes = 'Ja';
 $strZip = 'Zip komprimiert';
 
 // To translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>
