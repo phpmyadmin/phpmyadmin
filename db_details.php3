@@ -84,8 +84,9 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
             echo "<option value=\"".htmlentities($value)."\">".htmlentities($key)."</option>\n";
         }
         echo "</select>\n";
-        echo "<input type=\"radio\" name=\"action_bookmark\" value=\"0\">".$strBookmarkView;
-        echo "<input type=\"radio\" name=\"action_bookmark\" value=\"1\">".$strDelete;
+        echo "<input type=\"radio\" name=\"action_bookmark\" value=\"0\" checked>".$strSubmit;
+        echo "<input type=\"radio\" name=\"action_bookmark\" value=\"1\">".$strBookmarkView;
+        echo "<input type=\"radio\" name=\"action_bookmark\" value=\"2\">".$strDelete;
         echo "<br>\n";
     }
 }
