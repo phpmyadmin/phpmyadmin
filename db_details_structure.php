@@ -35,6 +35,7 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
 
 // Display function
 function pma_TableHeader($alternate = FALSE) {
+    $cnt = 0; // Let's count the columns...
     echo '            <table border="' . $GLOBALS['cfg']['Border'] . '" cellpadding="2" cellspacing="1">' . "\n"
        . '            <tr>' . "\n"
        . '                <td></td>' . "\n"
@@ -47,15 +48,18 @@ function pma_TableHeader($alternate = FALSE) {
        . '                <th>' . "\n"
        . '                    &nbsp;' .  $GLOBALS['strRecords'] . PMA_showHint($GLOBALS['strApproximateCount']) . '&nbsp;' . "\n"
        . '                </th>' . "\n";
+    $cnt += 4;
     if (!$alternate) {
         if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
             echo '                <th>' . "\n"
                . '                    &nbsp;' . $GLOBALS['strType'] . '&nbsp;' . "\n"
                . '                </th>' . "\n";
+	    $cnt++;
             if (PMA_MYSQL_INT_VERSION >= 40100) {
                 echo '                <th>' . "\n"
                    . '                    &nbsp;' . $GLOBALS['strCollation'] . '&nbsp;' . "\n"
                    . '                </th>' . "\n";
+		$cnt++;
             }
         }
         if ($GLOBALS['cfg']['ShowStats']) {
@@ -65,10 +69,12 @@ function pma_TableHeader($alternate = FALSE) {
                . '                <th>' . "\n"
                . '                    &nbsp;' . $GLOBALS['strOverhead'] . '&nbsp;' . "\n"
                . '                </th>' . "\n";
+	    $cnt += 2;
         }
         echo "\n";
     }
     echo '            </tr>' . "\n";
+    $GLOBALS['structure_tbl_col_cnt'] = $cnt;
 }
 
 
@@ -406,7 +412,7 @@ else {
             } // end if
         } else {
             ?>
-                <td colspan="4" align="center" bgcolor="<?php echo $bgcolor; ?>" <?php echo $click_mouse; ?>>
+                <td colspan="<?php echo ($structure_tbl_col_cnt - 8) ?>" align="center" bgcolor="<?php echo $bgcolor; ?>" <?php echo $click_mouse; ?>>
                     <?php echo $strInUse . "\n"; ?>
                 </td>
             <?php
@@ -468,20 +474,9 @@ else {
     $checkall_url = 'db_details_structure.php?' . PMA_generate_common_url($db);
     echo "\n";
 
-    $basecolspan = 9;
-    if (!($cfg['PropertiesNumColumns'] > 1)) {
-        $basecolspan++;
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
-            $basecolspan++;
-        }
-    }
-
-    if ($cfg['ShowStats']) {
-        $basecolspan += 2;
-    }
     ?>
             <tr>
-                <td colspan="<?php echo $basecolspan; ?>" valign="bottom">
+                <td colspan="<?php echo $structure_tbl_col_cnt; ?>" valign="bottom">
                     <img src="<?php echo $pmaThemeImage .'arrow_'.$text_dir.'.png'; ?>" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
                     <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
                         <?php echo $strCheckAll; ?></a>
