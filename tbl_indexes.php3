@@ -307,7 +307,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     <tr>
         <td><?php echo $strIndexName; ?>&nbsp;</td>
         <td>
-            <input type="text" name="index" value="<?php echo htmlspecialchars($index); ?>" />
+            <input type="text" name="index" value="<?php echo htmlspecialchars($index); ?>" onfocus="this.select()" />
             &nbsp;<?php echo $strPrimaryKeyWarning . "\n"; ?>
         </td>
     </tr>
@@ -375,7 +375,7 @@ else if (!defined('PMA_IDX_INCLUDED')
             </select>
         </td>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <input type="text" size="5" name="sub_part[]"<?php echo $sub_part; ?> />
+            <input type="text" size="5" name="sub_part[]"<?php echo $sub_part; ?> onfocus="this.select()" />
         </td>
     </tr>
         <?php
@@ -396,7 +396,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         echo '    <input type="hidden" name="idx_num_fields" value="' . $idx_num_fields . '" />' . "\n";
     }
     echo '    <hr /><br />' . "\n";
-    echo '    ' . sprintf($strAddToIndex,  '<input type="text" name="added_fields" size="4" value="1" />') . "\n";
+    echo '    ' . sprintf($strAddToIndex,  '<input type="text" name="added_fields" size="4" value="1" onfocus="this.select()" />') . "\n";
     echo '    &nbsp;<input type="submit" name="add_fields" value="' . $strGo . '" onclick="return checkFormElementInRange(this.form, \'added_fields\', 1)" />' . "\n";
 
 } else {

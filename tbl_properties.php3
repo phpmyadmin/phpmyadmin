@@ -705,7 +705,7 @@ echo "\n";
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
             <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . PMA_showDocu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
-<textarea name="sql_query" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual">
+<textarea name="sql_query" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" onfocus="this.select()">
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE 1'); ?>
 </textarea><br />
             <input type="checkbox" name="show_query" value="y" checked="checked" />&nbsp;
@@ -758,7 +758,7 @@ if ($cfgBookmark['db'] && $cfgBookmark['table']) {
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <?php echo $strAddNewField; ?>&nbsp;:
-            <input name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" />
+            <input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />
             <select name="after_field" style="vertical-align: middle">
                 <option value="--end--"><?php echo $strAtEndOfTable; ?></option>
                 <option value="--first--"><?php echo $strAtBeginningOfTable; ?></option>
@@ -892,9 +892,9 @@ echo "\n";
             <tr>
                 <td colspan="2">
                     &nbsp;<?php echo $strStartingRecord; ?>&nbsp;
-                    <input type="text" name="limit_from" value="0" size="5" style="vertical-align: middle" />
+                    <input type="text" name="limit_from" value="0" size="5" style="vertical-align: middle" onfocus="this.select()" />
                     &nbsp;--&nbsp;<?php echo $strNbRecords; ?>&nbsp;
-                    <input type="text" name="limit_to" size="5" value="<?php echo PMA_countRecords($db, $table, TRUE); ?>" style="vertical-align: middle" />
+                    <input type="text" name="limit_to" size="5" value="<?php echo PMA_countRecords($db, $table, TRUE); ?>" style="vertical-align: middle" onfocus="this.select()" />
                 </td>
             </tr>
             <tr>
@@ -917,7 +917,7 @@ echo "\n";
                 <input type="hidden" name="table" value="<?php echo $table; ?>" />
                 <input type="hidden" name="reload" value="1" />
                 <?php echo $strRenameTable; ?>&nbsp;:
-                <input type="text" size="20" name="new_name" value="<?php echo htmlspecialchars($table); ?>" />&nbsp;
+                <input type="text" size="20" name="new_name" value="<?php echo htmlspecialchars($table); ?>" onfocus="this.select()" />&nbsp;
                 <input type="submit" value="<?php echo $strGo; ?>" />
             </form>
         </div>
@@ -958,7 +958,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
 ?>
                         </select>
                         &nbsp;<b>.</b>&nbsp;
-                        <input type="text" size="20" name="new_name" value="<?php echo $table; ?>" />
+                        <input type="text" size="20" name="new_name" value="<?php echo $table; ?>" onfocus="this.select()" />
                     </td>
                 </tr>
                 <tr>
@@ -1000,7 +1000,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
 ?>
                         </select>
                         &nbsp;<b>.</b>&nbsp;
-                        <input type="text" size="20" name="new_name" />
+                        <input type="text" size="20" name="new_name" onfocus="this.select()" />
                     </td>
                 </tr>
                 <tr>
@@ -1101,7 +1101,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <?php echo $strTableComments; ?>&nbsp;:&nbsp;
             <input type="hidden" name="prev_comment" value="<?php echo urlencode($show_comment); ?>" />&nbsp;
-            <input type="text" name="comment" maxlength="60" size="30" value="<?php echo str_replace('"', '&quot;', $show_comment); ?>" style="vertical-align: middle" />&nbsp;
+            <input type="text" name="comment" maxlength="60" size="30" value="<?php echo str_replace('"', '&quot;', $show_comment); ?>" style="vertical-align: middle" onfocus="this.select()" />&nbsp;
             <input type="submit" name="submitcomment" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
         </form>
     </li>
