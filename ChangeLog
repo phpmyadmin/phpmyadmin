@@ -5,8 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-01-04  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3: beautify the displayed page.
+
 2002-01-03  Marc Delisle  <lem9@users.sourceforge.net>
-        * 2.2.3-rc1 released
+	* 2.2.3-rc1 released.
 
 2001-01-03  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/build_dump.php3, lines 508-514: fixed a php error if there is

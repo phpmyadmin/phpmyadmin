@@ -321,18 +321,6 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
     ?>
 </tr>
 
-<tr>
-    <td colspan="<?php echo (($cfgShowStats) ? '11' : '10'); ?>">
-        <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
-        <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
-        &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
-        &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strPrintView; ?>" />
-    </td>
-</tr>
-
     <?php
     // Check all tables url
     $checkall_url = 'db_details.php3'
@@ -342,14 +330,25 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
     echo "\n";
     ?>
 <tr>
-    <td>
+    <td colspan="<?php echo (($cfgShowStats) ? '11' : '10'); ?>">
+        <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
-            <?php echo $GLOBALS['strCheckAll']; ?></a>
-    </td>
-    <td>&nbsp;</td>
-    <td>
+            <?php echo $strCheckAll; ?></a>
+        &nbsp;/&nbsp;
         <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('tablesForm', false); return false;">
-            <?php echo $GLOBALS['strUncheckAll']; ?></a>
+            <?php echo $strUncheckAll; ?></a>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="<?php echo (($cfgShowStats) ? '11' : '10'); ?>">
+        <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
+        <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
+        &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
+        &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strPrintView; ?>" />
     </td>
 </tr>
 </table>
@@ -420,34 +419,31 @@ else {
         $i++;
     } // end while
     echo "\n";
-    ?>
-<tr>
-    <td colspan="9">
-        <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
-        <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
-        &nbsp;<?php $strOr . "\n"; ?>&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
-    </td>
-</tr>
 
-    <?php
     // Check all tables url
     $checkall_url = 'db_details.php3'
                   . '?lang=' . $lang
                   . '&amp;server=' . $server
                   . '&amp;db=' . urlencode($db);
-    echo "\n";
     ?>
 <tr>
-    <td>
-        <a href="<?php $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
-            <?php echo $GLOBALS['strCheckAll']; ?></a>
+    <td colspan="9">
+        <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+        <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
+            <?php echo $strCheckAll; ?></a>
+        &nbsp;/&nbsp;
+        <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('tablesForm', false); return false;">
+            <?php echo $strUncheckAll; ?></a>
     </td>
-    <td>&nbsp;</td>
-    <td>
-        <a href="<?php $checkall_url; ?>" onclick="setCheckboxes('tablesForm', false); return false;">
-            <?php echo $GLOBALS['strUncheckAll']; ?></a>
+</tr>
+
+<tr>
+    <td colspan="9">
+        <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
+        <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
+        &nbsp;<?php $strOr . "\n"; ?>&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
     </td>
 </tr>
 </table>
