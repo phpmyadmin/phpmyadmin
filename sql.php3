@@ -1,7 +1,7 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-error_reporting(E_ALL);
+
 /**
  * Gets some core libraries
  */
@@ -358,31 +358,42 @@ else {
             $unlim_num_rows         = $num_rows;
         }
         else if ($is_select) {
-        // SK -- Patch : correct calculations for GROUP BY, HAVING, DISTINCT
 
-        // Reads only the from-part of the query...
-        // NOTE: here the presence of LIMIT is impossible, HAVING and GROUP BY
-        // are necessary for correct calculation, and extra spaces and
-        // lowercase reserved words are removed, so we have a simple split
-        // pattern:
+                //    c o u n t    q u e r y
 
-            $array = split('[[:space:]]+(FROM|ORDER BY)[[:space:]]+', $sql_query);
-
-        // if $array[1] is empty here, there is an error in the query:
-        // "... FROM [ORDER BY ...]", but the query is already executed with
-        // success so this check is redundant???
-
-            if (!empty($array[1])) {
-            // ... and makes a count(*) to count the entries
-            // Special case: SELECT DISTINCT ... FROM ...
-            // the count of resulting rows can be found as:
-            // SELECT COUNT(DISTINCT ...) FROM ...
-                if (eregi('^SELECT DISTINCT(.*)', $array[0], $array_dist)) {
-                    $count_what = 'DISTINCT ' . $array_dist[1];
+                if (eregi('DISTINCT(.*)', $sql_query)) {
+                    $count_what = 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
                 } else {
                     $count_what = '*';
                 }
-                $count_query = 'SELECT COUNT(' . $count_what . ') AS count FROM ' . $array[1];
+
+                $count_query = 'SELECT COUNT(' . $count_what . ') AS count';
+
+                // add the remaining of select expression if there is 
+                // a GROUP BY or HAVING clause
+                if ($count_what =='*'
+                 && (!empty($analyzed_sql[0]['group_by_clause'])
+                    || !empty($analyzed_sql[0]['having_clause']))) {
+                    $count_query .= ' ,' . $analyzed_sql[0]['select_expr_clause'];
+                }
+                if (!empty($analyzed_sql[0]['from_clause'])) {
+                    $count_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
+                }
+
+                if (!empty($analyzed_sql[0]['where_clause'])) {
+                    $count_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
+                }
+                if (!empty($analyzed_sql[0]['group_by_clause'])) {
+                    $count_query .= ' GROUP BY ' . $analyzed_sql[0]['group_by_clause'];
+                }
+
+                if (!empty($analyzed_sql[0]['having_clause'])) {
+                    $count_query .= ' HAVING ' . $analyzed_sql[0]['having_clause'];
+                }
+
+                // do not put the order_by_clause, it interferes
+
+                // run the count query
                 if ($cnt_all_result = mysql_query($count_query)) {
                     if ($is_group) {
                         $unlim_num_rows = @mysql_num_rows($cnt_all_result);
@@ -391,9 +402,10 @@ else {
                     }
                     mysql_free_result($cnt_all_result);
                 }
-            } else {
-                $unlim_num_rows         = 0;
-            }
+ //TODO in which cases is this needed?
+ //           } else {
+ //               $unlim_num_rows         = 0;
+ //           }
         } // end rows total count
     } // end else "didn't ask to see php code"
 
