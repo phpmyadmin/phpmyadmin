@@ -878,10 +878,13 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
                 // 1.2.1 Modify link(s)
                 if ($is_display['edit_lnk'] == 'ur') { // update row case
-                    $lnk_goto = 'sql.php3'
-                             . '?' . str_replace('&amp;', '&', $url_query)
-                              . '&sql_query=' . urlencode($sql_query)
-                              . '&goto=' . (empty($goto) ? 'tbl_properties.php3' : $goto);
+//                    $lnk_goto = 'sql.php3'
+//                             . '?' . str_replace('&amp;', '&', $url_query)
+//                              . '&sql_query=' . urlencode($sql_query)
+//                              . '&goto=' . (empty($goto) ? 'tbl_properties.php3' : $goto);
+// to reduce the length of the URL, because of some browsers limitations:
+                    $lnk_goto = 'sql.php3';
+
                     $edit_url = 'tbl_change.php3'
                               . '?' . $url_query
                               . '&amp;primary_key=' . $uva_condition

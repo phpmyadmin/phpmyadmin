@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3: bug 579785, Edit links URLs too long
+      for some browsers
+
 2002-07-18 Steve Alberty  <staybyte@users.sourceforge.net>
     * db_details_structure.php3: correct wrong link from table size to stats
 
