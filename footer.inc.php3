@@ -8,12 +8,10 @@
 /**
  * Close MySql non-persistent connections
  */
-if (!$cfgPersistentConnections
-    && (isset($dbh) && $dbh)) {
+if (isset($dbh) && $dbh) {
     @mysql_close($dbh);
 }
-if (!$cfgPersistentConnections
-    && (isset($userlink) && $userlink)) {
+if (isset($userlink) && $userlink) {
     @mysql_close($userlink);
 }
 ?>
