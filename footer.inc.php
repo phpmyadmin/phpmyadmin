@@ -21,6 +21,14 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 <!--
 <?php
     if (!isset($no_history) && (!isset($error_message) || $error_message == '')) {
+        $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
+        $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
+        $common_url_query    = PMA_generate_common_url($db);
+        if ($num_tables) {
+            $num_tables_disp = ' (' . $num_tables . ')';
+        } else {
+            $num_tables_disp = ' (-)';
+        }
     ?>
     if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.queryframeform) {
         parent.frames.queryframe.document.queryframeform.db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";
@@ -28,6 +36,13 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     }
     if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.left) {
         parent.frames.queryframe.document.left.lightm_db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";
+        for (i=0;i<parent.frames.queryframe.document.left.lightm_db.options.length;i++) {
+            if (parent.frames.queryframe.document.left.lightm_db.options[i].selected) {
+                noption=new Option("<?php echo addslashes($db) . $num_tables_disp; ?>","<?php echo addslashes($db); ?>");
+                parent.frames.queryframe.document.left.lightm_db.options[i]=noption;
+                parent.frames.queryframe.document.left.lightm_db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";
+            }
+        }
     }
     <?php
     }
