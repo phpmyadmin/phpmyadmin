@@ -15,6 +15,7 @@ $Source$
     * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
     * lang/romanian: Updated, thanks to Valics Lehel.
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * mult_submits.inc.php3: Fixed undefined variable warning (bug #767740).
       
 2003-07-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Send headers before exiting because of missing
