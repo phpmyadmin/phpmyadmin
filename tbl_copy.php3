@@ -1,6 +1,7 @@
 <?php
 /* $Id$ */
 
+
 /**
  * Insert datas from one table to another one
  *
@@ -35,6 +36,7 @@ require('./header.inc.php3');
  */
 mysql_select_db($db);
 
+
 /**
  * A target table name has been sent to this script -> do the work
  */
@@ -45,7 +47,6 @@ if (isset($new_name) && trim($new_name) != '') {
     $sql_structure = get_table_def($db, $table, "\n");
     $sql_structure = ereg_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . backquote($new_name), $sql_structure);
     $result        = mysql_query($sql_structure) or mysql_die();
-    
     if (isset($sql_query)) {
         $sql_query .= "\n" . $sql_structure . ';';
     } else {
@@ -53,7 +54,7 @@ if (isset($new_name) && trim($new_name) != '') {
     }
 
     // Copy the data
-    if ($what == 'data') {
+    if ($result != FALSE && $what == 'data') {
         // speedup copy table - staybyte - 22. Juni 2001
         if (MYSQL_MAJOR_VERSION >= 3.23) {
             $sql_insert_data = 'INSERT INTO ' . backquote($new_name) . ' SELECT * FROM ' . backquote($table);
@@ -75,7 +76,6 @@ if (isset($new_name) && trim($new_name) != '') {
  * No new name for the table!
  */
 else {
-//    include('./header.inc.php3');
     mysql_die($strTableEmpty);
 } 
 
