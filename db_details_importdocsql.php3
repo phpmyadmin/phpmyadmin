@@ -49,7 +49,7 @@ if (isset($do) && $do == 'import') {
                         $inf     = explode('|',$line);
                         if (!empty($inf[1]) && strlen(trim($inf[1])) > 0) {
                             $qry = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_comments'])
-                                 . ' (db_name, table_name, column_name, comment) '
+                                 . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ') '
                                  . ' VALUES('
                                  . '\'' . PMA_sqlAddslashes($db) . '\','
                                  . '\'' . PMA_sqlAddslashes(trim($tab)) . '\','

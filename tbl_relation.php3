@@ -105,7 +105,7 @@ if ($cfgRelation['displaywork']
 if ($cfgRelation['commwork']
     && isset($submit_comm) && $submit_comm == 'true') {
     while (list($key, $value) = each($comment)) {
-        $test_qry  = 'SELECT comment FROM ' . PMA_backquote($cfgRelation['column_comments'])
+        $test_qry  = 'SELECT ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_comments'])
                    . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                    . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                    . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
@@ -113,7 +113,7 @@ if ($cfgRelation['commwork']
         if ($test_rs && mysql_num_rows($test_rs) > 0) {
             if (strlen($value) > 0) {
                 $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_comments'])
-                           . ' SET comment = \'' . PMA_handleSlashes($value) . '\''
+                           . ' SET ' . PMA_backquote('comment') . ' = \'' . PMA_handleSlashes($value) . '\''
                            . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                            . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                            . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
@@ -125,7 +125,7 @@ if ($cfgRelation['commwork']
             }
         } else if (strlen($value) > 0) {
             $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_comments'])
-                       . ' (db_name, table_name, column_name, comment) '
+                       . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ') '
                        . ' VALUES('
                        . '\'' . PMA_sqlAddslashes($db) . '\','
                        . '\'' . PMA_sqlAddslashes($table) . '\','

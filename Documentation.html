@@ -769,7 +769,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db_name varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table_name varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column_name varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comment varchar(255) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`comment` varchar(255) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (id),<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNIQUE KEY db_name (db_name, table_name, column_name)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Comments for Columns';<br />

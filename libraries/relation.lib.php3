@@ -297,7 +297,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
     function PMA_getComments($db, $table) {
         global $cfgRelation;
 
-        $com_qry  = 'SELECT column_name, comment FROM ' . PMA_backquote($cfgRelation['column_comments'])
+        $com_qry  = 'SELECT column_name, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_comments'])
                   . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                   . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
         $com_rs   = PMA_query_as_cu($com_qry);
