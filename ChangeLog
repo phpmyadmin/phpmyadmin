@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * querywindow.php3: bug 825668: js errors in SQL-history,
+      thanks to Jenik Kaspar (jenix)
+
 2003-10-26 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: bug 830437, undefined $sql_order
     * querywindow.php3: bug 829737, cosmetic change: added &nbsp; for
