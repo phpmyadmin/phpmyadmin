@@ -45,6 +45,9 @@ if ($export_type == 'server') {
     if (!isset($single_table)) {
         $hide_structure = true;
         $hide_sql       = true;
+    } else {
+        // just to keep this value for possible next display of this form after saving on server
+        echo '    <input type="hidden" name="single_table" value="TRUE" />';
     }
 }
 echo '    <input type="hidden" name="export_type" value="' . $export_type . '" />';
