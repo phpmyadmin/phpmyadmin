@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-28  Marc Delisle  <lem9@users.sourceforge.net>
+	* ldi_table.php3, lang/*: remove unused messages
+
 2001-09-27  Marc Delisle  <lem9@users.sourceforge.net>
 	* main.php3, bug 465534: db stats only available if MySQL>=32303
 

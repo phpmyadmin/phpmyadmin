@@ -30,12 +30,12 @@ require('./header.inc.php3');
         <td><?php echo $strTheContents; ?></td>
     </tr>
     <tr>
-        <td><?php echo $strFields; ?><br /><?php echo $strTerminatedBy; ?></td>
+        <td><?php echo $strFieldsTerminatedBy; ?></td>
         <td><input type="text" name="field_terminater" size="2" maxlength="2" value=";" /></td>
         <td><?php echo $strTheTerminator; ?></td>
     </tr>
     <tr>
-        <td><?php echo $strFields; ?><br /><?php echo $strEnclosedBy; ?></td>
+        <td><?php echo $strFieldsEnclosedBy; ?></td>
         <td>
             <input type="text" name="enclosed" size="1" maxlength="1" value="&quot;" />
             <input type="checkbox" name="enclose_option" value="OPTIONALLY" /><?php echo $strOptionally . "\n"; ?>
@@ -43,12 +43,12 @@ require('./header.inc.php3');
         <td><?php echo $strOftenQuotation; ?></td>
     </tr>
     <tr>
-        <td><?php echo $strFields; ?><br /><?php echo $strEscapedBy; ?></td>
+        <td><?php echo $strFieldsEscapedBy; ?></td>
         <td><input type="text" name="escaped" size="2" maxlength="2" value="\" /></td>
         <td><?php echo $strOptionalControls; ?></td>
     </tr>
     <tr>
-        <td><?php echo $strLines; ?><br /><?php echo $strTerminatedBy; ?></td>
+        <td><?php echo $strLinesTerminatedBy; ?></td>
         <td><input type="text" name="line_terminator" size="8" maxlength="8" value="<?php echo ((which_crlf() == "\n") ? '\n' : '\r\n'); ?>" /></td>
         <td><?php echo $strCarriage; ?><br /><?php echo $strLineFeed; ?></td>
     </tr>
