@@ -52,6 +52,9 @@ if ($is_minimum_common == FALSE) {
     require_once('./libraries/mysql_charsets.lib.php');
     if (!isset($mysql_charsets)) {
         $mysql_charsets = array();
+        $mysql_charsets_count = 0;
+        $mysql_collations_flat = array();
+        $mysql_collations_count = 0;
     }
 
     if (!defined('DEBUG_TIMING')) {
@@ -191,6 +194,9 @@ if ($is_minimum_common == FALSE) {
      * @global integer  MySQL column types count
      * @global integer  MySQL function names count
      * @global array    List of available character sets
+     * @global array    List of available collations
+     * @global integer  Character sets count
+     * @global integer  Collations count
      *
      * @access public
      */
@@ -199,7 +205,7 @@ if ($is_minimum_common == FALSE) {
         global $cfg;
         global $PMA_SQPdata_column_attrib, $PMA_SQPdata_reserved_word, $PMA_SQPdata_column_type, $PMA_SQPdata_function_name,
                $PMA_SQPdata_column_attrib_cnt, $PMA_SQPdata_reserved_word_cnt, $PMA_SQPdata_column_type_cnt, $PMA_SQPdata_function_name_cnt;
-        global $mysql_charsets;
+        global $mysql_charsets, $mysql_collations_flat, $mysql_charsets_count, $mysql_collations_count;
 
         // rabus: Convert all line feeds to Unix style
         $sql = str_replace("\r\n", "\n", $sql);
@@ -623,7 +629,8 @@ if ($is_minimum_common == FALSE) {
                   ) && PMA_STR_binarySearchInArr($d_cur, $mysql_charsets, count($mysql_charsets))) {
                   $t_suffix = '_charset';
               }
-            } elseif (PMA_STR_binarySearchInArr($d_cur, $mysql_charsets, count($mysql_charsets))) {
+            } elseif (PMA_STR_binarySearchInArr($d_cur, $mysql_charsets, $mysql_charsets_count)
+              || PMA_STR_binarySearchInArr($d_cur, $mysql_collations_flat, $mysql_collations_count)) {
               $t_suffix = '_charset';
             } else {
               // Do nothing

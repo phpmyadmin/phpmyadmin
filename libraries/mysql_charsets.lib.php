@@ -19,24 +19,26 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
     $res = PMA_mysql_query('SHOW COLLATION;', $userlink)
         or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW COLLATION;');
 
+    $mysql_charsets_count = count($mysql_charsets);
     sort($mysql_charsets, SORT_STRING);
 
     $mysql_collations = array_flip($mysql_charsets);
-    $mysql_default_collations = array();;
+    $mysql_default_collations = $mysql_collations_flat = array();;
     while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
         if (!is_array($mysql_collations[$row['Charset']])) {
             $mysql_collations[$row['Charset']] = array($row['Collation']);
         } else {
             $mysql_collations[$row['Charset']][] = $row['Collation'];
         }
+        $mysql_collations_flat[] = $row['Collation'];
         if ((isset($row['D']) && $row['D'] == 'Y') || (isset($row['Default']) && $row['Default'] == 'Yes')) {
             $mysql_default_collations[$row['Charset']] = $row['Collation'];
         }
     }
 
-    $mysql_collations_count = 0;
+    $mysql_collations_count = count($mysql_collations_flat);
+    sort($mysql_collations_flat, SORT_STRING);
     foreach($mysql_collations AS $key => $value) {
-        $mysql_collations_count += count($mysql_collations[$key]);
         sort($mysql_collations[$key], SORT_STRING);
         reset($mysql_collations[$key]);
     }

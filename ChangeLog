@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-02 Alexander M. Turek  <wecantdance@derrabus.de>
+    * libraries/mysql_charsets.lib.php, libraries/sqlparser.lib.php:
+      MySQL collations are now parsed and highlighted.
+    * libraries/export/sql.php: Include charset / collation information in db
+      export.
+
 2004-01-02 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: bug 868996, debug code still in place,
       thanks to Matthias Fichtner (mfichtner)
