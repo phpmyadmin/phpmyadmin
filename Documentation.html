@@ -571,13 +571,12 @@
         Defines whether to display the &quot;MySQL runtime information&quot;,
         &quot;MySQL system variables&quot; and &quot;PHP information&quot;
         links or not for simple users at the starting main (right) frame.
-	This setting does not check MySQL commands entered directly.
+        This setting does not check MySQL commands entered directly.
         <br /><br />
 
         Please note that to block the usage of phpinfo() in scripts, you
-        have to put this in your php.ini:
-        <br />
-        disable_functions = phpinfo()
+        have to put this in your php.ini:<br />
+        <tt>disable_functions = phpinfo()</tt>
         <br /><br />
     </dd>
 
@@ -672,7 +671,7 @@
     </dd>
 
     <dt>
-        <b>$cfgLeftBgColor </b>string [HTML color]
+        <b>$cfgLeftBgColor </b>string [HTML color]<br />
         <b>$cfgRightBgColor </b>string [HTML color]
     </dt>
     <dd>
@@ -787,8 +786,8 @@
 <h3>[Server]</h3>
 <p>
     <b>I'm running php 4+ and my server is crashing each time a specific action
-    is required or phpMyAdmin sends a blank page to my browser, what can I
-    do?</b>
+    is required or phpMyAdmin sends a blank page or a page full of cryptic
+    characters to my browser, what can I do?</b>
     <br />
     There are some known php bugs with output buffering and compression.<br />
     Try to set the <tt>$cfgOBGzip</tt> directive to <tt>FALSE</tt> in your
@@ -807,6 +806,7 @@
     If your server keeps crashing, please ask for help in the various
     Apache support groups.
 </p>
+
 <p>
     <b>Using phpMyAdmin on IIS, I'm displayed the error message: &quot;The
        specified CGI application misbehaved by not returning a complete set of
@@ -819,7 +819,7 @@
 </p>
 
 <p>
-    <b>How can I GZip or Bzip a dump or a CSV export. It seem to not work?</b>
+    <b>How can I GZip or Bzip a dump or a CSV export. It seems to not work?</b>
     <br />
     These features are based on the <tt>gzencode()</tt> and
     <tt>bzcompress()</tt> php functions to be more independent of the platform
@@ -845,7 +845,7 @@
     <tt>File</tt> privilege.
 </p>
 
-<p> 
+<p>
     <b>I'm having troubles when uploading files. In general file uploads don't
     work on my system and uploaded files have a <tt>Content-Type:</tt> header
     in the first line.</b> 
