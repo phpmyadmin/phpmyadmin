@@ -94,6 +94,11 @@ $cfg['Servers'][$i]['pdf_pages']     = '';          // table to describe pages o
                                                     //   - leave blank if you don't want to use this
 $cfg['Servers'][$i]['column_info']   = '';          // table to store column information
                                                     //   - leave blank if you don't want to use this
+$cfg['Servers'][$i]['history']       = '';          // table to store SQL history
+                                                    //   - leave blank if you don't want to use this
+$cfg['Servers'][$i]['verbose_check'] = TRUE;        // set to FALSE if you know that your PMA_* tables
+                                                    // are up to date. This prevents compatibility
+                                                    // checks and thereby increases performance.
 $cfg['Servers'][$i]['AllowDeny']['order']           // Host authentication order, leave blank to not use
                                      = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']           // Host authentication rules, leave blank for defaults

@@ -77,3 +77,14 @@ CREATE TABLE `PMA_column_comments` (
     PRIMARY KEY (id),
     UNIQUE KEY db_name (db_name, table_name, column_name)
     ) TYPE=MyISAM COMMENT='Comments for Columns';
+
+CREATE TABLE `PMA_history` (
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `username` VARCHAR( 64 ) NOT NULL ,
+    `db` VARCHAR( 64 ) NOT NULL ,
+    `table` VARCHAR( 64 ) NOT NULL ,
+    `timevalue` TIMESTAMP NOT NULL ,
+    `sqlquery` TEXT NOT NULL ,
+    PRIMARY KEY ( `id` ) ,
+    INDEX ( `username` , `db` , `table` , `timevalue` ) 
+    ) TYPE=MyISAM COMMENT='SQL history';

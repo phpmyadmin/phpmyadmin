@@ -84,6 +84,8 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         $cfgRelation['displaywork'] = FALSE;
         $cfgRelation['pdfwork']     = FALSE;
         $cfgRelation['commwork']    = FALSE;
+        $cfgRelation['mimework']    = FALSE;
+        $cfgRelation['historywork'] = FALSE;
         $cfgRelation['allworks']    = FALSE;
 
         // No server selected -> no bookmark table
@@ -127,6 +129,8 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                 $cfgRelation['column_info'] = $curr_table[0];
             } else if ($curr_table[0] == $cfg['Server']['pdf_pages']) {
                 $cfgRelation['pdf_pages']       = $curr_table[0];
+            } else if ($curr_table[0] == $cfg['Server']['history']) {
+                $cfgRelation['history'] = $curr_table[0];
             }
         } // end while
         if (isset($cfgRelation['relation'])) {
@@ -139,11 +143,42 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             }
             if (isset($cfgRelation['column_info'])) {
                 $cfgRelation['commwork']    = TRUE;
+                
+                if ($cfg['Server']['verbose_check']) {
+                    $mime_query  = 'SHOW FIELDS FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']);
+                    $mime_rs     = PMA_query_as_cu($mime_query, FALSE);
+                    
+                    $mime_field_mimetype                = FALSE;
+                    $mime_field_transformation          = FALSE;
+                    $mime_field_transformation_options  = FALSE;
+                    while ($curr_mime_field = @PMA_mysql_fetch_array($mime_rs)) {
+                        if ($curr_mime_field[0] == 'mimetype') {
+                            $mime_field_mimetype               = TRUE;
+                        } else if ($curr_mime_field[0] == 'transformation') {
+                            $mime_field_transformation         = TRUE; 
+                        } else if ($curr_mime_field[0] == 'transformation_options') {
+                            $mime_field_transformation_options = TRUE; 
+                        }
+                    }
+                    
+                    if ($mime_field_mimetype == TRUE
+                        && $mime_field_transformation == TRUE
+                        && $mime_field_transformation_options == TRUE) {
+                        $cfgRelation['mimework'] = TRUE;
+                    }
+                } else {
+                    $cfgRelation['mimework'] = TRUE;
+                }
             }
         } // end if
+        
+        if (isset($cfgRelation['history'])) {
+            $cfgRelation['historywork']     = TRUE;
+        }
 
         if ($cfgRelation['relwork'] == TRUE && $cfgRelation['displaywork'] == TRUE
-            && $cfgRelation['pdfwork'] == TRUE && $cfgRelation['commwork'] == TRUE) {
+            && $cfgRelation['pdfwork'] == TRUE && $cfgRelation['commwork'] == TRUE
+            && $cfgRelation['mimework'] && $cfgRelation['historywork']) {
             $cfgRelation['allworks'] = TRUE;
         }
         if ($tab_rs) {
@@ -197,6 +232,19 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strColComFeat'] . ': '
                  . (($cfgRelation['commwork'] == TRUE) ? $enabled : $disabled)
                  . '</td></tr>' . "\n";
+            echo '    <tr><td colspan=2 align="center">MIME: '
+                 . (($cfgRelation['mimework'] == TRUE) ? $enabled : $disabled)
+                 . '</td></tr>' . "\n";
+
+//                 . '<br />(MIME: ' . (($cfgRelation['mimework'] == TRUE) ? $enabled : $disabled) . ')'
+
+            echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'history\'] ... </th><td align="right">'
+                 . ((isset($cfgRelation['history'])) ? $hit : sprintf($shit, 'history'))
+                 . '</td></tr>' . "\n";
+            echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strQuerySQLHistory'] . ': '
+                 . (($cfgRelation['historywork'] == TRUE) ? $enabled : $disabled)
+                 . '</td></tr>' . "\n";
+
             echo '</table>' . "\n";
         } // end if ($verbose == TRUE) {
 

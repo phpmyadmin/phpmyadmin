@@ -120,6 +120,14 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
                 $cfg['Servers'][$i]['pdf_pages'] = '';
             }
 
+            if (!isset($cfg['Servers'][$i]['history'])) {
+                $cfg['Servers'][$i]['history'] = '';
+            }
+
+            if (!isset($cfg['Servers'][$i]['verbose_check'])) {
+                $cfg['Servers'][$i]['verbose_check'] = TRUE;
+            }
+
             if (!isset($cfg['Servers'][$i]['AllowDeny'])) {
                 $cfg['Servers'][$i]['AllowDeny'] = array ('order' => '',
                                                           'rules' => array());

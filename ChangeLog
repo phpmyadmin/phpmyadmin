@@ -10,6 +10,16 @@ $Source$
     * libraries/display_tbl.lib.php3: Fixed transformation-link variable
       usage for special queries like 'SHOW FIELDS', where certain variables are
       not set.
+    * config.inc.php3, tbl_addfield.php3, tbl_alter.php3, tbl_create.php3,
+      tbl_move_copy.php3, tbl_properties.inc.php3, tbl_properties_structure.php3,
+      transformation_wrapper.php3, libraries/config_import.lib.php3,
+      libraries/display_tbl.lib.php3, libraries/relation.lib.php3,
+      scripts/create_tables.sql:
+       Test if MIME-feature are really available. Preparation for PMA_db-based 
+       SQL-History.
+       Removed a dupe for inserting comments, fixed integrity check when
+       moving/renaming tables and keeping comments.
+
     
 2003-02-25 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php3: undefined variable $comment

@@ -51,7 +51,7 @@ if ($cfgRelation['commwork']) {
     $comments_map = PMA_getComments($db, $table);
     echo '<th>' . $strComments . '</th>';
 
-    if ($cfg['BrowseMIME']) {
+    if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
         $mime_map = PMA_getMIME($db, $table);
         $available_mime = PMA_getAvailableMIMEtypes();
 
@@ -255,7 +255,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
 
     // garvin: MIME-types
-    if ($cfg['BrowseMIME'] && $cfgRelation['commwork']) {
+    if ($cfgRelation['mimework'] && $cfg['BrowseMIME'] && $cfgRelation['commwork']) {
     ?>
         <td bgcolor="<?php echo $bgcolor; ?>" valign="top">
             <select id="field_<?php echo $i; ?>_8" size="1" name="field_mimetype[]">
@@ -462,7 +462,7 @@ echo "\n";
 </tr>
 
 <?php
-if ($cfgRelation['commwork'] && $cfg['BrowseMIME']) {
+if ($cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
 ?>
 <tr>
     <td valign="top" rowspan="2">***&nbsp;</td>

@@ -527,7 +527,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             $comments_map = array();
         }
         
-        if ($GLOBALS['cfgRelation']['commwork'] && $GLOBALS['cfg']['BrowseMIME']) {
+        if ($GLOBALS['cfgRelation']['commwork'] && $GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
             require('./libraries/transformations.lib.php3');
             $GLOBALS['mime_map'] = PMA_getMIME($db, $table);
         }
@@ -1001,7 +1001,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 $transform_function = $default_function;
                 $transform_options = array();
                 
-                if ($GLOBALS['cfg']['BrowseMIME']) {
+                if ($GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
 
                     if (isset($GLOBALS['mime_map'][$meta->name]['mimetype']) && isset($GLOBALS['mime_map'][$meta->name]['transformation'])) {
                         // garvin: for security, never allow to break out from transformations directory

@@ -208,7 +208,7 @@ if (isset($submit)) {
     }
 
     // garvin: Update comment table for mime types [MIME]
-    if (is_array($field_mimetype) && $cfgRelation['commwork'] && $cfg['BrowseMIME']) {
+    if (is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
         @reset($field_mimetype);
         while(list($fieldindex, $mimetype) = each($field_mimetype)) {
             PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);

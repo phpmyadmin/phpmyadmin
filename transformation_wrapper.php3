@@ -130,7 +130,7 @@ else
 
 $default_ct = 'application/octet-stream';
 
-if ($cfgRelation['commwork']) {
+if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     $mime_map = PMA_getMime($db, $table);
     $mime_options = PMA_transformation_getOptions((isset($mime_map[urldecode($transform_key)]['transformation_options']) ? $mime_map[urldecode($transform_key)]['transformation_options'] : ''));
 

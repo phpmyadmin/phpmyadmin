@@ -85,7 +85,7 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
     if ($cfgRelation['commwork']) {
         $comments_map = PMA_getComments($db, $table);
     
-        if ($cfg['BrowseMIME']) {
+        if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
             $mime_map = PMA_getMIME($db, $table, true);
         }
     }
@@ -126,7 +126,7 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     }
 
     // garvin: Display basic mimetype [MIME]
-    if ($cfg['BrowseMIME'] && isset($mime_map[$row['Field']]['mimetype'])) {
+    if ($cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME'] && isset($mime_map[$row['Field']]['mimetype'])) {
         $type .= '<br />MIME: ' . str_replace('_', '/', $mime_map[$row['Field']]['mimetype']);
     }
 

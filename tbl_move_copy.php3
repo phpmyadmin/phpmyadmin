@@ -142,9 +142,24 @@ if (isset($new_name) && trim($new_name) != '') {
     } else {
         // garvin: Create new entries as duplicates from old comments
         if ($cfgRelation['commwork']) {
+            // Write every comment as new copied entry. [MIME]
+            while ($comments_copy_row = @PMA_mysql_fetch_array($comments_copy_rs)) {
+                $new_comment_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_comments'])
+                            . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ', mimetype, transformation, transformation_options) '
+                            . ' VALUES('
+                            . '\'' . PMA_sqlAddslashes($target_db) . '\','
+                            . '\'' . PMA_sqlAddslashes($new_name) . '\','
+                            . '\'' . PMA_handleSlashes($comments_copy_row['column_name']) . '\','
+                            . '\'' . PMA_handleSlashes($comments_copy_row['comment']) . '\','
+                            . '\'' . PMA_handleSlashes($comments_copy_row['mimetype']) . '\','
+                            . '\'' . PMA_handleSlashes($comments_copy_row['transformation']) . '\','
+                            . '\'' . PMA_handleSlashes($comments_copy_row['transformation_options']) . '\')';
+                $new_comment_rs    = PMA_query_as_cu($new_comment_query);
+            } // end while
+
             // Get all comments and MIME-Types for current table
             $comments_copy_query = 'SELECT
-                                        column_name, ' . PMA_backquote('comment') . '
+                                        column_name, ' . PMA_backquote('comment') . ($cfgRelation['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
                                     FROM ' . PMA_backquote($cfgRelation['column_info']) . '
                                     WHERE
                                         db_name = \'' . PMA_sqlAddslashes($db) . '\' AND
@@ -154,11 +169,16 @@ if (isset($new_name) && trim($new_name) != '') {
             // Write every comment as new copied entry. [MIME]
             while ($comments_copy_row = @PMA_mysql_fetch_array($comments_copy_rs)) {
                 $new_comment_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_info'])
-                           . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ') '
-                           . ' VALUES('
-                           . '\'' . PMA_sqlAddslashes($target_db) . '\','
-                          . '\'' . PMA_sqlAddslashes($new_name) . '\','
-                          . '\'' . PMA_handleSlashes($comments_copy_row['comment']) . '\')';
+                            . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ($cfgRelation['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
+                            . ' VALUES('
+                            . '\'' . PMA_sqlAddslashes($target_db) . '\','
+                            . '\'' . PMA_sqlAddslashes($new_name) . '\','
+                            . '\'' . PMA_handleSlashes($comments_copy_row['column_name']) . '\''
+                            . ($cfgRelation['mimework'] ? ',\'' . PMA_handleSlashes($comments_copy_row['comment']) . '\','
+                                    . '\'' . PMA_handleSlashes($comments_copy_row['mimetype']) . '\','
+                                    . '\'' . PMA_handleSlashes($comments_copy_row['transformation']) . '\','
+                                    . '\'' . PMA_handleSlashes($comments_copy_row['transformation_options']) . '\'' : '')
+                            . ')';
                 $new_comment_rs    = PMA_query_as_cu($new_comment_query);
             } // end while
         }
