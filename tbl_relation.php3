@@ -173,7 +173,7 @@ if ($cfgRelation['relwork']) {
                         $field_full = $db . '.' .$curr_field['Table'] . '.' . $curr_field['Column_name'];
                         $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
                         break;
-                    } else if (isset($curr_field['non_unique']) && $curr_field['non_unique'] == 0) {
+                    } else if (isset($curr_field['Non_unique']) && $curr_field['Non_unique'] == 0) {
                         // if we can't find a primary key we take any unique one
                         $field_full = $db . '.' . $curr_field['Table'] . '.' . $curr_field['Column_name'];
                         $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
