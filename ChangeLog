@@ -6,7 +6,10 @@ $Id$
 $Source$
 
 
-2003-02-06 Robin Johnson  <robbat2@users.sourceforge.net>
+2003-02-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/catalan: update, thanks to Xavier Navarro
+
+2003-02-09 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/Galician*: Updates thanks to xosecalvo
 
 2003-02-09 Michal Cihar  <nijel@users.sourceforge.net>
