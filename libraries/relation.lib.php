@@ -24,14 +24,14 @@
  *
  * @author  Mike Beck <mikebeck@users.sourceforge.net>
  */
- function PMA_query_as_cu($sql, $show_error = TRUE) {
+ function PMA_query_as_cu($sql, $show_error = TRUE, $options) {
     global $err_url_0, $db, $dbh, $cfgRelation;
 
     PMA_DBI_select_db($cfgRelation['db'], $dbh);
     if ($show_error) {
-        $result = PMA_DBI_query($sql, $dbh);
+        $result = PMA_DBI_query($sql, $dbh, $options);
     } else {
-        $result = PMA_DBI_try_query($sql, $dbh);
+        $result = PMA_DBI_try_query($sql, $dbh, $options);
     } // end if... else...
     PMA_DBI_select_db($db, $dbh);
 
@@ -104,7 +104,7 @@ function PMA_getRelationsParam($verbose = FALSE)
     // PMA_DBI_select_db($cfgRelation['db']);
 
     $tab_query = 'SHOW TABLES FROM ' . PMA_backquote($cfgRelation['db']);
-    $tab_rs    = PMA_query_as_cu($tab_query, NULL, PMA_DBI_QUERY_STORE);
+    $tab_rs    = PMA_query_as_cu($tab_query, FALSE, PMA_DBI_QUERY_STORE);
 
     while ($curr_table = @PMA_DBI_fetch_row($tab_rs)) {
         if ($curr_table[0] == $cfg['Server']['bookmarktable']) {

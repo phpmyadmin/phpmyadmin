@@ -6,15 +6,15 @@ $Id$
 $Source$
 
 2004-04-10 Marcel Tschopp <marcel.tschopp@gmx.net>
-    db_datadict.php, db_details_db_info.php, db_details_qbe.php, 
-    db_details_structure.php, db_printview.php, left.php, main.php, 
-    pdf_pages.php, read_dump.php, server_privileges.php, sql.php, 
-    tbl_change.php, tbl_indexes.php, tbl_properties_structure.php, 
-    tbl_relation.php, tbl_select.php, libraries/database_interface.lib.php, 
-    libraries/db_table_exists.lib.php, libraries/mysql_charsets.lib.php, 
-    libraries/relation.lib.php, libraries/dbi/mysqli.dbi.lib.php:
-    Changed some queries to use MYSQLI_STORE_RESULT. phpMyAdmin now works
-    with MYSQLI_USE_RESULT as default.
+    * db_datadict.php, db_details_db_info.php, db_details_qbe.php, 
+      db_details_structure.php, db_printview.php, left.php, main.php, 
+      pdf_pages.php, read_dump.php, server_privileges.php, sql.php, 
+      tbl_change.php, tbl_indexes.php, tbl_properties_structure.php, 
+      tbl_relation.php, tbl_select.php, libraries/database_interface.lib.php, 
+      libraries/db_table_exists.lib.php, libraries/mysql_charsets.lib.php, 
+      libraries/relation.lib.php, libraries/dbi/mysqli.dbi.lib.php:
+      Changed some queries to use MYSQLI_STORE_RESULT. phpMyAdmin now works
+      with MYSQLI_USE_RESULT as default.
     
 2004-04-07 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php, lang/*: feature 788608: new features for Search:

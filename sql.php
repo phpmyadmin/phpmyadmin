@@ -319,7 +319,7 @@ else {
         list($usec, $sec) = explode(' ',microtime());
         $querytime_before = ((float)$usec + (float)$sec);
 
-        $result   = @PMA_DBI_try_query($full_sql_query, NULL, true);
+        $result   = @PMA_DBI_try_query($full_sql_query, NULL, PMA_DBI_QUERY_STORE);
 
         list($usec, $sec) = explode(' ',microtime());
         $querytime_after = ((float)$usec + (float)$sec);
