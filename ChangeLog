@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-13 Loïc Chapeaux  <lolo@phpheaven.net>
+    * left.php3, libraries/common.lib.php3: fixed xhtml bugs and optimized the
+      fix against bug #546011 (Navigation tooltips).
+
 2002-05-13 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/hungarian.inc.php3 updates, thanks to Péter Bakondy
  

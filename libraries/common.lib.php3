@@ -832,31 +832,34 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
 </script>
             <?php
         }
+
         // Corrects the tooltip text via JS if required
         else if (isset($GLOBALS['table']) && $GLOBALS['cfg']['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303) {
-            $result = mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']));
-            while ($tmp = mysql_fetch_array($result, MYSQL_ASSOC)) {
-                if ($tmp['Name'] == $GLOBALS['table']) {
-                    if (empty($tmp['Comment'])) {
-                        $tooltip = '';
-                    } else {
-                        $tooltip = $tmp['Comment'] . ' ';
-                    }
-                    $tooltip .= '(' . $tmp['Rows'] . ' ' . $GLOBALS['strRows'] . ')';
-                    unset($tmp);
-                    break;
-                }
-            }
-            ?>
+            $result = @mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
+            if ($result) {
+                $tmp     = mysql_fetch_array($result, MYSQL_ASSOC);
+                $tooltip = (empty($tmp['Comment']))
+                         ? ''
+                         : $tmp['Comment'] . ' ';
+                $tooltip .= '(' . $tmp['Rows'] . ' ' . $GLOBALS['strRows'] . ')';
+                mysql_free_result($result);
+                unset($tmp);
+                $md5_tbl = md5($GLOBALS['table']);
+                echo "\n";
+                ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-if (typeof(document.getElementById) != 'undefined') {
-    window.parent.frames['nav'].document.getElementById('a_tbl_<?php echo htmlspecialchars($GLOBALS['table']); ?>').title = '<?php echo $tooltip; ?>';
+if (typeof(document.getElementById) != 'undefined'
+    && typeof(window.parent.frames['nav'].document.getElementById('<?php echo $md5_tbl; ?>')) != 'undefined'
+    && typeof(window.parent.frames['nav'].document.getElementById('<?php echo $md5_tbl; ?>').title) == 'string') {
+    window.parent.frames['nav'].document.getElementById('<?php echo $md5_tbl; ?>').title = '<?php echo htmlspecialchars($tooltip); ?>';
 }
 //-->
 </script>
-            <?php
-        }
+                <?php
+            } // end if
+        } // end if... else if
+
         echo "\n";
         ?>
 <div align="<?php echo $GLOBALS['cell_align_left']; ?>">
