@@ -271,7 +271,7 @@ while (list($key, $table) = each($the_tables)) {
         echo '&nbsp;</td>' . "\n";
     }
     if ($cfgRelation['commwork']) {
-        echo '    <td width="400" class="print">';
+        echo '    <td class="print">';
         $comments = PMA_getComments($db, $table);
         if (isset($comments[$field_name])) {
             echo htmlspecialchars($comments[$field_name]);
