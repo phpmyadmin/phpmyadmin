@@ -79,17 +79,25 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] && !$db || ($cfg['QueryFrameJS'
 
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 ?>
-        <script>
+        <script type="text/javascript">
+        <!--
         document.writeln('<form method="post" target="phpmain' +  <?php echo ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) ? 'opener.' : ''); ?>top.frames.nav.document.hashform.hash.value + '" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?>');
+
+        document.writeln('onsubmit="return checkSqlQuery(this)" name="sqlform">');
+        //-->
         </script>
+        <noscript>
+            <form method="post" target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
+            onsubmit="return checkSqlQuery(this)" name="sqlform">
+        </noscript>
 <?php
 } else {
 ?>
         <form method="post" target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
+            onsubmit="return checkSqlQuery(this)" name="sqlform">
 <?php
 }
 ?>
-            onsubmit="return checkSqlQuery(this)" name="sqlform">
             <input type="hidden" name="is_js_confirmed" value="0" />
             <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="pos" value="0" />
