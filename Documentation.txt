@@ -9,8 +9,8 @@
           + Version history: [3]ChangeLog
           + General notes: [4]README
           + License: [5]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.53 2001/08/23
-       07:21:03 swix Exp $
+     * Documentation version: $Id: Documentation.html,v 1.58 2001/08/30
+       18:45:45 swix Exp $
    ______________________________________________________________________
    
    [6]Top  -  [7]Requirements  -  [8]Introduction  -  [9]Installation  -
@@ -140,9 +140,7 @@ Configuration
             don't want them to play around with others.
             
           Advanced authentication is secure as the standard user needs
-          just read-only-access to the mysql database. MySQL passwords
-          cannot be decrypted easily, so there's no chance for a normal
-          user to look at other users' plaintext passwords.
+          just read-only-access to the mysql database.
           All you have to provide in config.inc is a standard user which
           can connect to MySQL and read the mysql user/db table (see
           $cfgServers[n]['stduser']).
@@ -150,16 +148,16 @@ Configuration
           
    $cfgServers[n]['stduser'] string
           $cfgServers[n]['stdpass'] string
-          A user/pasword pair used to verify the real user/password pair
-          when using advanced authentification. This user must be able to
+          A user/password pair used to verify the real user/password pair
+          when using advanced authentication. This user must be able to
           connect to MySQL and read the mysql user table.
-          Not needed when using basic authentification.
+          Not needed when using basic authentication.
           
    $cfgServers[n]['user'] string
           $cfgServers[n]['password'] string
           The user/password-pair which phpMyAdmin will use to connect to
-          this MySQL-server when using basic authentification.
-          Not needed when using advanced authentification.
+          this MySQL-server when using basic authentication.
+          Not needed when using advanced authentication.
           
    $cfgServers[n]['only_db'] string or array
           If set to a(an array of) database name(s), only this(these)
@@ -191,7 +189,7 @@ Configuration
             and $cfgServers[n]['bookmarktable'] so phpMyAdmin will be
             able to find the bookmark table.
             
-          If you are using advanced authentification, stduser must have
+          If you are using advanced authentication, stduser must have
           Select_Priv, Insert_Priv and Delete_Priv set to "Y" in mysql.db
           table for the bookmark database.
           
@@ -239,10 +237,11 @@ Configuration
           resultset contains more rows, Previous/Next links will be
           shown.
           
-   $cfgOrder string ["DESC"|"ASC"]
-          Defines whether fields are displayed in ascending ("ASC") order
-          or in descending ("DESC") order when you click on the
-          field-name.
+   $cfgOrder string [DESC|ASC|SMART]
+          Defines whether fields are displayed in ascending (ASC) order,
+          in descending (DESC) order or in a "smart" (SMART) order -ie
+          descending order for fields of type TIME, DATE, DATETIME &
+          TIMESTAMP, ascending order else- by default.
           
    $cfgOBGzip boolean
           Defines whether to use gzip output buffering for increased
@@ -284,7 +283,8 @@ Configuration
           Number of columns and rows for the textareas.
           
    $cfgLimitChars integer
-          Maximal number of Chars showed in a field on browse view.
+          Maximal number of Chars showed in a TEXT field on browse view.
+          Can be turned off by a toggle button on the browse page.
           
    $cfgModifyDeleteAtLeft boolean
           $cfgModifyDeleteAtRight boolean
@@ -353,7 +353,7 @@ FAQ - Frequently Asked Questions
        For example: $cfgServers[n]['socket'] = '/tmp/mysql.sock';
        
    phpMyAdmin always gives "Access denied" when using advanced
-   authentification.
+   authentication.
    This could happen for some reasons:
      * $stduser/$stdpassword is wrong. Try to turn off $adv_auth and use
        this username and password to connect to MySQL.
@@ -361,11 +361,11 @@ FAQ - Frequently Asked Questions
        Try the same as above and see if it works.
      * You have already setup a security mechanism for the
        phpMyAdmin-directory, eg. a .htaccess file. This would interfere
-       with phpMyAdmin's authentification, so remove it.
+       with phpMyAdmin's authentication, so remove it.
        
-   When using advanced authentification, an user who logged out can not
+   When using advanced authentication, an user who logged out can not
    relogs in with the same nick.
-   This is related to the authentification mechanism (protocol) used by
+   This is related to the authentication mechanism (protocol) used by
    phpMyAdmin. We plan to change it as soon as we may find enough free
    time to do it, but you can bypass this problem: just close all the
    opened browser windows and then go back to phpMyAdmin. You should be
@@ -398,7 +398,7 @@ FAQ - Frequently Asked Questions
    it's sufficient to use the directory protection bundled with your
    webserver (with Apache you can use .htaccess files, for example).
    If other people have telnet access to your server, you should use
-   phpMyAdmin's advanced authentification feature.
+   phpMyAdmin's advanced authentication feature.
    Suggestions:
      * Your config.inc.php3 file should be chmod 660.
      * All your phpMyAdmin files should be chown phpmy.apache, where
@@ -483,10 +483,24 @@ FAQ - Frequently Asked Questions
    If you want two indexes, create the first one when creating the table,
    save, then display the table properties and click the Index link to
    create the other index.
+   
+   I get an out of memory error, and my controls are non-functional, when
+   trying to create a table with more than 14 fields.
+   This is a problem under investigation. Seems to be OS and/or browser-
+   dependent. For now, create a smaller number of fields, then come back
+   to your table properties and add the other fields.
+   
+   I have found a bug. How do I inform developpers?
+   Our Bug Tracker is located at
+   [53]http://sourceforge.net/projects/phpmyadmin under the Bugs section.
+   But please first discuss your bug with other users:
+   [54]http://sourceforge.net/projects/phpmyadmin (and choose Forums)
+   [55]http://www.phpwizard.net/projects/phpMyAdmin (and choose Support
+   Forum)
    ______________________________________________________________________
    
-   [53]Top  -  [54]Requirements  -  [55]Introduction  -  [56]Installation
-    -  [57]Configuration  -  [58]FAQ  -  [59]Developers  -  [60]Credits
+   [56]Top  -  [57]Requirements  -  [58]Introduction  -  [59]Installation
+    -  [60]Configuration  -  [61]FAQ  -  [62]Developers  -  [63]Credits
    ______________________________________________________________________
    
 Developers Information
@@ -506,7 +520,7 @@ Developers Information
        please try to keep your code as simple as possible: beginners are
        using phpMyAdmin as an example application.
        By the way, we're currently updating all the scripts so they will
-       be XHTML1.0 and CSS2 compliant on one hand, they will fit [61]PEAR
+       be XHTML1.0 and CSS2 compliant on one hand, they will fit [64]PEAR
        coding standards on the other hand. Please pay attention to this.
      * Please try to keep up the file-naming conventions. Table-related
        stuff goes to tbl_*.php3, db-related code to db_*.php3 and so on.
@@ -529,7 +543,7 @@ Developers Information
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
        tracker of the phpMyAdmin SourceForge account
-       ([62]http://sourceforge.net/projects/phpmyadmin/)
+       ([65]http://sourceforge.net/projects/phpmyadmin/)
        
    Write access to the CVS tree is granted only to developers who have
    already contributed something useful to phpMyAdmin. If you're
@@ -537,8 +551,8 @@ Developers Information
    mailing list.
    ______________________________________________________________________
    
-   [63]Top  -  [64]Requirements  -  [65]Introduction  -  [66]Installation
-    -  [67]Configuration  -  [68]FAQ  -  [69]Developers  -  [70]Credits
+   [66]Top  -  [67]Requirements  -  [68]Introduction  -  [69]Installation
+    -  [70]Configuration  -  [71]FAQ  -  [72]Developers  -  [73]Credits
    ______________________________________________________________________
    
 Credits
@@ -627,7 +641,7 @@ Original Credits of Version 2.1.0
       well as a bug-report. Plus many smaller improvements.
     - Jan Legenhausen <jan_at_nrw.net>: He made many of the changes that
       were introduced in 1.3.0 (including quite significant ones like the
-      authentification). For 1.4.1 he enhanced the table-dump feature. Plus
+      authentication). For 1.4.1 he enhanced the table-dump feature. Plus
       bug-fixes and help.
     - Marc Delisle <DelislMa_at_CollegeSherbrooke.qc.ca> made phpMyAdmin
       language-independent by outsourcing the strings to a separate file. He
@@ -652,11 +666,11 @@ Original Credits of Version 2.1.0
     and or just some feedback.
    ______________________________________________________________________
    
-   [71]Top  -  [72]Requirements  -  [73]Introduction  -  [74]Installation
-    -  [75]Configuration  -  [76]FAQ  -  [77]Developers  -  [78]Credits
+   [74]Top  -  [75]Requirements  -  [76]Introduction  -  [77]Installation
+    -  [78]Configuration  -  [79]FAQ  -  [80]Developers  -  [81]Credits
    ______________________________________________________________________
    
-                                [79]Valid XHTML 1.0!      [80]Valid CSS! 
+                                [82]Valid XHTML 1.0!      [83]Valid CSS! 
 
 References
 
@@ -667,7 +681,10 @@ References
   50. http://www.php.net/bugs.php?id=8966
   51. http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933
   52. http://people.redhat.com/nalin/test/php-4.0.4pl1-7.i386.rpm
-  61. http://pear.php.net/
-  62. http://sourceforge.net/projects/phpmyadmin/
-  79. http://validator.w3.org/check/referer
-  80. http://jigsaw.w3.org/css-validator/
+  53. http://sourceforge.net/projects/phpmyadmin
+  54. http://sourceforge.net/projects/phpmyadmin
+  55. http://www.phpwizard.net/projects/phpMyAdmin
+  64. http://pear.php.net/
+  65. http://sourceforge.net/projects/phpmyadmin/
+  82. http://validator.w3.org/check/referer
+  83. http://jigsaw.w3.org/css-validator/
