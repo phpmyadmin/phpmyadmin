@@ -4,7 +4,6 @@
 /* By: uros kositer, agenda d.o.o. <urosh@agenda.si> */
 
 $charset = 'iso-8859-2';
-$allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
@@ -63,8 +62,10 @@ $strBookmarkQuery = 'Oznaèena SQL-poizvedba';
 $strBookmarkThis = 'Oznaèi to SQL-poizvedbo';
 $strBookmarkView = 'Samo pogled';
 $strBrowse = 'Prebrskaj';
+$strBzError = 'phpMyAdmin ni mogel stisniti odlo¾enih podatkov zaradi pokvarjenega Bz2 modula v tej razlièici PHP. Priporoèamo, da v konfiguracijski datoteki postavite zapis <code>$cfg[\'BZipDump\']</code> na <code>FALSE</code>. Èe ¾elite uporabljati stiskanje Bz2, morate nadgraditi va¹o verzijo PHP. Za podrobnosti poglejte PHP poroèilo %s.';
 $strBzip = '"bzipano"';
 
+$strCannotLogin = 'Ne morem se prijaviti v MySQL stre¾nik';
 $strCantLoadMySQL = 'ni mogoèe nalo¾iti MySQL ekstenzij,<br /> prosimo, preverite PHP konfiguracijo.';
 $strCantLoadRecodeIconv = 'Ni mogoèe nalo¾iti iconv ali recode ekstenzij, ki so potrebne za pretvorbe kodnih tabel, konfigurirajte php tako, da bo omogoèal uporabo teh ekstenzij ali onemogoèite pretvarjanje kodnih tabel v phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Indeksa ni mogoèe preimenovati v PRIMARY!';
@@ -82,6 +83,7 @@ $strChoosePage = 'Izberite stran za urejanje';
 $strColComFeat = 'Prikazovanje komentarjev stolpcev';
 $strColumn = 'Stolpec';
 $strColumnNames = 'Imena stolpcev';
+$strCommand = 'Ukaz';
 $strComments = 'Komentarji';
 $strCompleteInserts = 'Popolne \'insert\' poizvedbe';
 $strCompression = 'Stiskanje';
@@ -91,6 +93,7 @@ $strConfirm = 'Ali res ¾elite to storiti?';
 $strCookiesRequired = 'Èe ¾elite ¹e dalje uporabljati program, morate omogoèiti pi¹kotke.';
 $strCopyTable = 'Kopiraj tabelo v (podatkovna_baza<b>.</b>tabela):';
 $strCopyTableOK = 'Tabela %s je skopirana v %s.';
+$strCouldNotKill = 'phpMyAdmin ni mogel unièiti niti %s. Verjetno je ¾e unièena.';
 $strCreate = 'Ustvari';
 $strCreateIndex = 'Ustvari indeks na&nbsp;%s&nbsp;stolpcih';
 $strCreateIndexTopic = 'Ustvari nov indeks';
@@ -178,6 +181,7 @@ $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page';
 $strHost = 'Gostitelj';
 $strHostEmpty = 'Ime gostitelja je prazno!';
 
+$strId = 'ID';
 $strIdxFulltext = 'Polno besedilo';
 $strIfYouWish = 'Èe bi radi nalo¾ili samo nekatere stolpce tabele, jih navedite v seznamu, kjer jih loèite z vejico.';
 $strIgnore = 'Prezri';
@@ -201,7 +205,9 @@ $strKeepPass = 'Ne spreminjaj gesla';
 $strKeyname = 'Ime kljuèa';
 $strKill = 'Ubij proces';
 
+$strLandscape = 'Le¾eèe';
 $strLanguage = 'Jezik';
+$strLaTeX = 'LaTeX';
 $strLength = 'Dol¾ina';
 $strLengthSet = 'Dol¾ina/Vrednosti*';
 $strLimitNumRows = '©tevilo vrstic na stran';
@@ -257,6 +263,7 @@ $strNotValidNumber = ' ni veljavna ¹tevilka vrstice!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s zadetek(ov) v tabeli <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Skupaj:</b> <i>%s</i> zadetek(ov)';
+$strNumTables = 'Ttabel';
 
 $strOK = 'V redu';
 $strOftenQuotation = 'Pogosti narekovaji. OPCIJSKO pomeni, da so samo polja tipa \'char\' in \'varchar\' obdana s temi znaki.';
@@ -282,6 +289,8 @@ $strPdfNoTables = 'Ni tabel';
 $strPhp = 'Ustvari PHP kodo';
 $strPmaDocumentation = 'phpMyAdmin dokumentacija';
 $strPmaUriError = 'Ukaz <tt>$cfg[\'PmaAbsoluteUri\']</tt> mora biti definiran v konfiguracijski datoteki!';
+$strPortrait = 'Pokonèno';
+$strProcesslist = 'Spisek procesov';
 $strPos1 = 'Zaèetek';
 $strPrevious = 'Prej¹nji';
 $strPrimary = 'Primarni';
@@ -303,6 +312,7 @@ $strQueryOnDb = 'SQL-poizvedba na podatkovni bazi <b>%s</b>:';
 $strReType = 'Ponovno vnesi';
 $strRecords = 'Zapisi';
 $strReferentialIntegrity = 'Preveri referenèno integriteto:';
+$strRelationalSchema = 'Relacijska shema';
 $strRelationNotWorking = 'Dodatne funkcije za delo s povezanimi tabelami so bile izkjuèene. Èe ¾elite izvedeti zakaj, kliknite %stukaj%s.';
 $strRelationView = 'Pogled relacij';
 $strReloadFailed = 'Ponovno nalaganje MySQL ni uspelo.';
@@ -366,6 +376,7 @@ $strShow = 'Poka¾i';
 $strShowAll = 'Poka¾i vse';
 $strShowColor = 'Poka¾i barvo';
 $strShowCols = 'Poka¾i stolpce';
+$strShowDatadictAs = 'Oblika podatkovnega slovarja';
 $strShowGrid = 'Poka¾i mre¾o';
 $strShowPHPInfo = 'Poka¾i podatke o PHP';
 $strShowTableDimension = 'Poka¾i dimenzije tabel';
@@ -378,6 +389,7 @@ $strSort = 'Sortiraj';
 $strSpaceUsage = 'Poraba prostora';
 $strSplitWordsWithSpace = 'Besede so loèene s presledkom (" ").';
 $strStatement = 'Izjave';
+$strStatus = 'Status';
 $strStrucCSV = 'CSV podatki';
 $strStrucData = 'Struktura in podatki';
 $strStrucDrop = 'Dodaj \'drop table\' poizvedbo';
@@ -396,6 +408,7 @@ $strTableHasBeenDropped = 'Tabela %s je zavr¾ena';
 $strTableHasBeenEmptied = 'Tabela %s je izpraznjena';
 $strTableHasBeenFlushed = 'Tabela %s je osve¾ena';
 $strTableMaintenance = 'Vzdr¾evanje tabele';
+$strTableOfContents = 'Vsebina';
 $strTableStructure = 'Struktura tabele';
 $strTableType = 'Vrsta tabele';
 $strTables = '%s tabel';
@@ -403,7 +416,10 @@ $strTextAreaLength = ' Zaradi njegove dol¾ine<br /> polja ne bo mogoèe urejati '
 $strTheContent = 'Vsebina datoteke je vne¹ena.';
 $strTheContents = 'Vsebina datoteke zamenja vsebino izbrane tabele v vrsticah z identiènim primarnim ali unikatnim kljuèem.';
 $strTheTerminator = 'Zakljuèni znak polj.';
+$strThreadSuccessfullyKilled = 'Nit %s je uspe¹no unièena.';
+$strTime = 'Èas';
 $strTotal = 'skupaj';
+$strTotalUC = 'Skupaj';
 $strType = 'Vrsta';
 
 $strUncheckAll = 'Odznaèi vse';
@@ -438,15 +454,6 @@ $strYes = 'Da';
 $strZip = '"zipano"';
 
 // To translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
-$strRelationalSchema = 'Relational schema';  //to translate
-$strTableOfContents = 'Table of contents';  //to translate
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-$strLandscape = 'Landscape';  //to translate
-$strPortrait = 'Portrait';  //to translate
-
 $timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
 
 $strAbortedClients = 'Aborted'; //to translate
@@ -455,7 +462,7 @@ $strFailedAttempts = 'Failed attempts'; //to translate
 $strGlobalValue = 'Global value'; //to translate
 $strMoreStatusVars = 'More status variables'; //to translate
 $strPerHour = 'per hour'; //to translate
-$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
+$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.'; //to translate
 $strQueryType = 'Query type'; //to translate
 $strReceived = 'Received'; //to translate
 $strSent = 'Sent'; //to translate
@@ -469,14 +476,4 @@ $strSessionValue = 'Session value'; //to translate
 $strTraffic = 'Traffic'; //to translate
 $strVar = 'Variable'; //to translate
 
-$strCommand = 'Command'; //to translate
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-$strId = 'ID'; //to translate
-$strProcesslist = 'Process list'; //to translate
-$strStatus = 'Status'; //to translate
-$strTime = 'Time'; //to translate
-$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
-
-$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
-$strLaTeX = 'LaTeX';  //to translate
 ?>
