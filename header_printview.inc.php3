@@ -14,6 +14,10 @@ if ($cfg['OBGzip']) {
     }
 }
 
+// Check parameters
+
+PMA_checkParameters(array('db', 'full_sql_query'));
+
 
 // garvin: For re-usability, moved http-headers
 // to a seperate file. It can now be included by header.inc.php3,
