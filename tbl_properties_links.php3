@@ -60,3 +60,4 @@ echo printTab($strDrop,"sql.php3",$arg7,$att7);
 
 	</tr>
 </table>
+<br />
