@@ -9,6 +9,7 @@ $Source$
     * lang/sync_lang.sh: new script thanks to Michal Cihar
     * Documentation.html: typos
     * lang/hebrew.inc.php3 updates, thanks to Yuval Sarna
+    * lang/turkish.inc.php3 updates, thanks to Bora Alioglu
 
 2002-06-15 Mike Beck <mikebeck@users.sourceforge.net>
     more changes because of new centralized db for pma
