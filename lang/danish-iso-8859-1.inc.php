@@ -18,6 +18,8 @@ $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'O
 $datefmt = '%d/%m %Y kl. %H:%M:%S';
 $timespanfmt = '%s dage, %s timer, %s minutter og %s sekunder';
 
+ 
+
 $strAPrimaryKey = 'Der er føjet en primær nøgle til %s';
 $strAbortedClients = 'Afbrudt';
 $strAbsolutePathToDocSqlDir = 'Indtast venligst absolut sti på webserveren til docSQL mappen';
@@ -29,6 +31,8 @@ $strAddConstraints = 'Tilføj begrænsninger';
 $strAddDeleteColumn = 'Tilføj/Slet felt kolonne';
 $strAddDeleteRow = 'Tilføj/Slet kriterie række';
 $strAddDropDatabase = 'Tilføj DROP DATABASE';
+$strAddHeaderComment = "Tilføj tilpassede kommentarer i headeren (\\n deler linier)";
+$strAddIfNotExists = "Tilføj IF NOT EXISTS";
 $strAddIntoComments = 'Tilføj til kommentarer';
 $strAddNewField = 'Tilføj nyt felt';
 $strAddPriv = 'Tilføj nyt privilegium';
@@ -46,6 +50,7 @@ $strAffectedRows = 'Berørte rækker:';
 $strAfter = 'Efter %s';
 $strAfterInsertBack = 'Retur';
 $strAfterInsertNewInsert = 'Indsæt en ny record';
+$strAfterInsertSame = "Gå tilbage til denne side";
 $strAll = 'Alle';
 $strAllTableSameWidth = 'vis alle tabeller med samme bredde?';
 $strAlterOrderBy = 'Arranger rækkeorden efter';
@@ -87,6 +92,7 @@ $strBzError = 'phpMyAdmin kunne ikke komprimere dumpet pga. en ødelagt Bz2-udvid
 $strBzip = '"bzipped"';
 
 $strCSVOptions = 'CSV indstillinger';
+$strCalendar = "Kalender";
 $strCannotLogin = 'Kan ikke logge ind på MySQL-serveren';
 $strCantLoad = 'kan ikke indlæse udvidelsen %s,<br />check PHP-konfigurationen!';
 $strCantLoadRecodeIconv = 'Kan ikke indlæse iconv eller omkode nødvendig udvidelse til karaktersæt-konvertering, konfigurer php til at tillade brug af disse udvidelser eller slå karaktersæt-konvertering fra i phpMyAdmin.';
@@ -124,11 +130,13 @@ $strColumnNames = 'Kolonne navne';
 $strColumnPrivileges = 'Kolonne-specifikke privilegier';
 $strCommand = 'Kommando';
 $strComments = 'Kommentarer';
+$strCommentsForTable = "COMMENTS FOR TABLE (tabel-kommentarer)";
 $strCompleteInserts = 'Lav komplette inserts';
 $strCompression = 'Komprimering';
 $strConfigFileError = 'phpMyAdmin kunne ikke læse din konfigurationsfil!<br />Dette kan ske hvis php finder en parser-fejl i den, eller php kan ikke finde filen.<br />Kald konfigurationsfilen direkte fra nedenstående link og læs de(n) phpfejlmeddelse(r) du får. I de fleste tilfælde mangler der et anførselstegn eller et semikolon et sted.<br />Hvis du får en blank side, er alt i orden.';
 $strConfigureTableCoord = 'Konfigurér venligst koordinaterne for tabel %s';
 $strConfirm = 'Ikke du sikker på at du vil gøre det?';
+$strConnectionError = "Kan ikke forbinde: ugyldige indstillinger.";
 $strConnections = 'Forbindelser';
 $strConstraintsForDumped = 'Begrænsninger for dumpede tabeller';
 $strConstraintsForTable = 'Begrænsninger for tabel';
@@ -161,11 +169,13 @@ $strDBGMinTimeMs = 'Min tid, ms';
 $strDBGModule = 'Modul';
 $strDBGTimePerHitMs = 'Tid/Hit, ms';
 $strDBGTotalTimeMs = 'Total tid, ms';
+$strDBRename = "Omdøb database til";
 $strDanish = 'Dansk';
 $strData = 'Data';
 $strDataDict = 'Data Dictionary';
 $strDataOnly = 'Kun data';
-$strDatabase = 'Database:';
+$strDatabase = 'Database';
+$strDatabaseEmpty = "Databasenavnet er tomt!";
 $strDatabaseExportOptions = 'Database eksport indstillinger';
 $strDatabaseHasBeenDropped = 'Database %s er slettet.';
 $strDatabaseNoTable = 'Denne database indeholder ikke nogen tabel!';
@@ -203,6 +213,7 @@ $strDoYouReally = 'Er du sikker på at du vil ';
 $strDocu = 'Dokumentation';
 $strDrop = 'Slet';
 $strDropDB = 'Slet database %s';
+$strDropDatabaseStrongWarning = "Du er ved at DESTRUERE en komplet database!";
 $strDropSelectedDatabases = 'Drop (slet) valgte Databaser';
 $strDropTable = 'Slet tabel';
 $strDropUsersDb = 'Drop databaser der har samme navne som brugernes.';
@@ -219,6 +230,7 @@ $strEffective = 'Effektiv';
 $strEmpty = 'Tøm';
 $strEmptyResultSet = 'MySQL returnerede ingen data (fx ingen rækker).';
 $strEnabled = 'Slået til';
+$strEncloseInTransaction = "Inkludér eksport i en transaktion";
 $strEnd = 'Slut';
 $strEndCut = 'SLUT KLIP';
 $strEndRaw = 'SLUT RÅ';
@@ -285,6 +297,7 @@ $strId = 'ID';
 $strIdxFulltext = 'Fuldtekst';
 $strIfYouWish = 'Hvis du kun ønsker at importere nogle af tabellens kolonner, angives de med en kommasepareret felt liste.';
 $strIgnore = 'Ignorer';
+$strIgnoreInserts = "Brug ignorér inserts";
 $strIgnoringFile = 'Ignorerer fil %s';
 $strImportDocSQL = 'Importer docSQL Filer';
 $strImportFiles = 'Importér filer';
@@ -348,6 +361,7 @@ $strLogin = 'Login';
 $strLoginInformation = 'Login Information';
 $strLogout = 'Log af';
 
+$strMIMETypesForTable = "MIME TYPES FOR TABLE (MIME-typer for tabellen)";
 $strMIME_MIMEtype = 'MIME-type';
 $strMIME_available_mime = 'Tilgængelige MIME-typer';
 $strMIME_available_transform = 'Tilgængelige transformationer';
@@ -379,6 +393,7 @@ $strMySQLShowStatus = 'Vis MySQL runtime information';
 $strMySQLShowVars = 'Vis MySQL system variable';
 
 $strName = 'Navn';
+$strNeedPrimaryKey = "Du burde definere en primær nøgle for denne tabel.";
 $strNext = 'Næste';
 $strNo = 'Nej';
 $strNoDatabases = 'Ingen databaser';
@@ -415,6 +430,7 @@ $strNumTables = 'Tabeller';
 $strOK = 'OK';
 $strOftenQuotation = 'Ofte anførselstegn. OPTIONALLY betyder at kun char og varchar felter er omsluttet med det valgte "tekstkvalifikator"-tegn.'; //skal muligvis ændres
 $strOperations = 'Operationer';
+$strOperator = "Operatør";
 $strOptimizeTable = 'Optimer tabel';
 $strOptionalControls = 'Valgfrit. Kontrollerer hvordan specialtegn skrives eller læses.';
 $strOptionally = 'OPTIONALLY';
@@ -510,11 +526,13 @@ $strRelationNotWorking = 'De yderligere features for at arbejde med linkede tabe
 $strRelationView = 'Se Relationer';
 $strRelationalSchema = 'Relationel skematik';
 $strRelations = 'Relationer';
+$strRelationsForTable = "RELATIONS FOR TABLE (Relationer for tabellen)";
 $strReloadFailed = 'Genstart af MySQL fejlede.';
 $strReloadMySQL = 'Genstart MySQL';
 $strReloadingThePrivileges = 'Genindlæs privilegierne';
 $strRememberReload = 'Husk at indlæse serveren.';
 $strRemoveSelectedUsers = 'Fjern valgte brugere';
+$strRenameDatabaseOK = "Database %s er blevet omdøbt til %s";
 $strRenameTable = 'Omdøb tabel til';
 $strRenameTableOK = 'Tabellen %s er nu omdøbt til: %s';
 $strRepairTable = 'Reparer tabel';
@@ -722,25 +740,12 @@ $strZip = '"zipped"';
 
 // To translate:
 
-$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
-
-$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
-$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
-$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
-$strIgnoreInserts = 'Use ignore inserts';  //to translate
-$strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
-$strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
-$strMIMETypesForTable = 'MIME TYPES FOR TABLE';  //to translate
-$strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
-$strAfterInsertSame = 'Go back to this page';  //to translate
-$strRenameDatabaseOK = 'Database %s has been renamed to %s';  //to translate
-$strDatabaseEmpty = 'The database name is empty!';  //to translate
-$strDBRename = 'Rename database to';  //to translate
-$strOperator = 'Operator';  //to translate
-$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
-$strCalendar = 'Calendar';  //to translate
-$strRefresh = 'Refresh';  //to translate
 $strDefragment = 'Defragment table';  //to translate
+
 $strNoRowsSelected = 'No rows selected';  //to translate
+
+$strRefresh = 'Refresh';  //to translate
+
 $strSQPBugSyntaxError = 'Syntax error';  //to translate
+
 ?>

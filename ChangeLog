@@ -9,6 +9,7 @@ $Source$
     * libraries/read_dump.lib.php: Do not strip comments here.
     * libraries/sqlparser.lib.php: Handle correctly all MySQL comments (-- can
       be followed with any control char) (patch #965106).
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
 
 2004-06-04 Garvin Hicking <me@supergarv.de>
     * Bug #959320: Broken row highlighting in vertical
