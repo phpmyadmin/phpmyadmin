@@ -1,9 +1,10 @@
 <?php
 /* $Id$ */
 
-/* By: uros kositer <urosh@agenda.si> */
+/* By: uros kositer, agenda d.o.o. <urosh@agenda.si> */
 
 $charset = 'utf-8';
+$allow_recoding = TRUE;
 $allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
@@ -17,6 +18,7 @@ $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Avg', 'Sep', 'O
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%d %B %Y ob %I:%M %p';
+
 
 $strAccessDenied = 'Dostop zavrnjen';
 $strAction = 'Akcija';
@@ -52,6 +54,8 @@ $strAtEndOfTable = 'Na koncu tabele';
 $strAttr = 'Atributi';
 
 $strBack = 'Nazaj';
+$strBeginCut = 'ZAČETEK IZREZA';
+$strBeginRaw = 'BEGIN RAW';  
 $strBinary = 'Binarno';
 $strBinaryDoNotEdit = 'Binarno - ne urejaj';
 $strBookmarkDeleted = 'Zaznamek je odstranjen.';
@@ -71,14 +75,15 @@ $strCarriage = 'Znak za pomik na začetek vrste (Carriage return): \\r';
 $strChange = 'Spremeni';
 $strChangeDisplay = 'Izberite polje za prikaz';
 $strChangePassword = 'Spremeni geslo';
+$strCharsetOfFile = 'Nabor znakov datoteke:'; 
 $strCheckAll = 'Označi vse';
 $strCheckDbPriv = 'Preveri privilegije podatkovne baze';
 $strCheckTable = 'Preveri tabelo';
 $strChoosePage = 'Izberite stran za urejanje';
+$strComments = 'Komentarji';
 $strColComFeat = 'Prikazovanje komentarjev stolpcev';
 $strColumn = 'Stolpec';
 $strColumnNames = 'Imena stolpcev';
-$strComments = 'Komentarji';
 $strCompleteInserts = 'Popolne \'insert\' poizvedbe';
 $strConfigFileError = 'phpMyAdmin ni mogel prebrati konfiguracijske datoteke!<br />To se lahko zgodi, če php pri prevajanju konfiguracijske datoteke najde napako ali pa ne najde datoteke.<br />Prosimo, odprite konfiguracijsko datoteko s povezavo, ki je navedena spodaj in preberite dobljeno sporočilo o napaki. V večini primerov gre za manjkajoči narekovaj ali podpičje.<br />Če dobite prazno stran, je vse v redu.';
 $strConfigureTableCoord = 'Prosimo, konfigurirajte koordinate za tabelo %s';
@@ -132,6 +137,8 @@ $strEmpty = 'Izprazni';
 $strEmptyResultSet = 'MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic).';
 $strEnabled = 'Omogočeno';
 $strEnd = 'Konec';
+$strEndCut = 'KONEC IZREZA';
+$strEndRaw = 'END RAW';  
 $strEnglishPrivileges = ' Opomba: Imena MySQL privilegijev so zapisana v angleščini ';
 $strError = 'Napaka';
 $strExplain = 'Razloži SQL stavek';
@@ -154,8 +161,8 @@ $strFormEmpty = 'V obliki manjka vrednost !';
 $strFullText = 'Polna besedila';
 $strFunction = 'Funkcija';
 
-$strGenBy = 'Ustvaril';
 $strGeneralRelationFeat = 'Splošne lastnosti relacij';
+$strGenBy = 'Ustvaril';
 $strGenTime = 'Čas nastanka';
 $strGo = 'Izvedi';
 $strGrants = 'Dovoljenja';
@@ -238,8 +245,8 @@ $strNoPrivileges = 'Brez privilegijev';
 $strNoQuery = 'Brez SQL poizvedbe!';
 $strNoRights = 'Nimate dovolj pravic, da bi bili sedaj tukaj!';
 $strNoTablesFound = 'V podatkovni bazi ni mogoče najti tabel.';
-$strNotNumber = 'To ni število!';
 $strNotOK = 'Ni v redu';
+$strNotNumber = 'To ni število!';
 $strNotSet = 'Tabele <b>%s</b> ni mogoče najti ali pa ni v %s';
 $strNotValidNumber = ' ni veljavna številka vrstice!';
 $strNoUsersFound = 'Ni mogoče najti uporabnika(ov).';
@@ -356,8 +363,13 @@ $strSort = 'Sortiraj';
 $strSpaceUsage = 'Poraba prostora';
 $strSplitWordsWithSpace = 'Besede so ločene s presledkom (" ").';
 $strSQL = 'SQL';
+$strSQLParserBugMessage = 'Obstaja možnost, da ste v SQL razčlenjevalniku naleteli na hrošča. Temeljito preglejte poizvedbo in preverite, če so citati pravilni in če se ujemajo. Možno je tudi, da prenašate binarno datoteko, ki je izven področja besedila citata. Poizvedbo lahko preizkusite tudi na vmesniku ukazne vrstice MySQL. Če je strežnik MySQL izpisal napako, vam le-ta lahko pomaga pri ugotavljanju težav. Če se bodo težave nadaljevale, ali če razčlenjevalniku ne uspe tam, kjer vmesniku ukazne vrstice uspe, potem zmanjšajte vnešeno SQL poizvedbo na tisto poizvedbo, ki povzroča težave in pošljite poročilo o napaki skupaj s podatki iz spodnjega odseka IZREZA.';
+$strSQLParserUserError = 'Izgleda, da je v SQL poizvedbi prišlo do napake. Če je strežnik MySQL izpisal napako, vam le-ta lahko pomaga pri ugotavljanju težav.';
 $strSQLQuery = 'SQL-poizvedba';
 $strSQLResult = 'Rezultat SQL';
+$strSQPBugInvalidIdentifer = 'Neveljavni identifikator';
+$strSQPBugUnknownPunctation = 'Neznan niz ločil'; 
+$strSQPBugUnclosedQuote = 'Odprt citat'; 
 $strStatement = 'Izjave';
 $strStrucCSV = 'CSV podatki';
 $strStrucData = 'Struktura in podatki';
@@ -402,8 +414,8 @@ $strUserName = 'Uporabniško ime';
 $strUsers = 'Uporabniki';
 $strUseTables = 'Uporabi tabele';
 
-$strValidateSQL = 'Preveri pravilnost SQL stavka';
 $strValue = 'Vrednost';
+$strValidateSQL = 'Preveri pravilnost SQL stavka';
 $strViewDump = 'Preglej dump (shemo) tabele';
 $strViewDumpDB = 'Preglej dump (shemo) podatkovne baze';
 
@@ -414,20 +426,6 @@ $strWrongUser = 'Napačno uporabniško ime/geslo. Dostop zavrnjen.';
 $strYes = 'Da';
 
 $strZip = '"zipano"';
+
 // To translate
-
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-
-$strCharsetOfFile = 'Character set of the file:'; //to translate
-
-$strEndCut = 'END CUT';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-
 ?>
