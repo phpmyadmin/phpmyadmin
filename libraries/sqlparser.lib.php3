@@ -1573,3 +1573,4 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     } // end of the "PMA_SQP_formatText()" function
 
 } // $__PMA_SQP_LIB__
+?>
