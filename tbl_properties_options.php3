@@ -56,7 +56,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
         <form method="post" action="tbl_properties_options.php3">
             <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <?php echo $strTableComments; ?>&nbsp;:&nbsp;
-            <?php $comment = ereg_replace('; InnoDB free:[^;]*$' , '', $show_comment); ?>
+            <?php $comment = ereg_replace('; InnoDB free:[^;]*$' , '', ereg_replace('^InnoDB free:[^;]*$', '', $show_comment)); ?>
             <input type="hidden" name="prev_comment" value="<?php echo urlencode($comment); ?>" />&nbsp;
             <input type="text" name="comment" maxlength="60" size="30" value="<?php echo htmlspecialchars($comment); ?>" class="textfield" style="vertical-align: middle" onfocus="this.select()" />&nbsp;
             <input type="submit" name="submitcomment" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
