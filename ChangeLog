@@ -10,6 +10,8 @@ $Source$
     * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
     * lang/dutch update, thanks to Ivo Teel
+    * lang/catalan: Updated, thanks to Xavier Navarro (xavin)
+    * lang/estonian: Updated, thanks to Alvar Soome (finsoft).
 
 2004-02-05 Alexander M. Turek  <chaos@derrabus.de>
     * Documentation.html: Added FAQ 1.17a about error message, "Client does not
