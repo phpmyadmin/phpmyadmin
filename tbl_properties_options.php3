@@ -2,12 +2,19 @@
 /* $Id$ */
 
 
+/**
+ * Gets tables informations and displays top links
+ */
 require('./tbl_properties_common.php3');
 require('./tbl_properties_table_info.php3');
 
-echo "<ul>\n";
+
+/**
+ * Displays form controls
+ */
 if (PMA_MYSQL_INT_VERSION >= 32322) {
-?>
+    ?>
+<ul>
     <!-- Table comments -->
     <li>
         <form method="post" action="tbl_properties.php3">
@@ -79,35 +86,48 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <?php echo PMA_showDocuShort('T/a/Table_types.html') . "\n"; ?>
         </form>
     </li>
-    <?php
-    echo "\n";
-} // end MySQL >= 3.23.22
 
-if (PMA_MYSQL_INT_VERSION >= 32322) {
-?>
     <!-- Table options -->
-    <li>
-        <form method="post" action="tbl_properties.php3">
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
-
-            <input type="checkbox" name="pack_keys" 
-               <?php echo (isset($pack_keys) && $pack_keys==1) ? ' checked="checked"': ''; ?> />pack_keys <br />
-
-            <input type="checkbox" name="checksum" 
-               <?php echo (isset($checksum) && $checksum==1) ? ' checked="checked"': ''; ?> />checksum <br />
-
-            <input type="checkbox" name="delay_key_write" 
-               <?php echo (isset($delay_key_write) && $delay_key_write==1) ? ' checked="checked"': ''; ?> />delay_key_write 
-            <input type="submit" name="submitoptions" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
-        </form>
+    <li style="vertical-align: top">
+        <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <form method="post" action="tbl_properties.php3">
+                    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+                    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+ 
+                    <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="pack_keys" id="pack_keys_opt"
+                                <?php echo (isset($pack_keys) && $pack_keys == 1) ? ' checked="checked"' : ''; ?> />
+                            <label for="pack_keys_opt">pack_keys</label>&nbsp;&nbsp;
+                            <br />
+                            <input type="checkbox" name="checksum" id="checksum_opt"
+                                <?php echo (isset($checksum) && $checksum == 1) ? ' checked="checked"' : ''; ?> />
+                            <label for="checksum_opt">checksum</label>&nbsp;&nbsp;
+                            <br />
+                            <input type="checkbox" name="delay_key_write" id="delay_key_write_opt"
+                                <?php echo (isset($delay_key_write) && $delay_key_write == 1) ? ' checked="checked"' : ''; ?> />
+                            <label for="delay_key_write_opt">delay_key_write</label>&nbsp;&nbsp;
+                            &nbsp;&nbsp;
+                        </td>
+                        <td>
+                            <input type="submit" name="submitoptions" value="<?php echo $strGo; ?>" />
+                        </td>
+                    </tr>
+                    </table>
+                </form>
+            </td>
+        </tr>
+        </table>
     </li>
-<?php
-}
+</ul>
+    <?php
+} // end if (PMA_MYSQL_INT_VERSION >= 32322)
 
-echo "</ul>\n";
 
 /**
  * Displays the footer
