@@ -158,12 +158,11 @@ if (!isset($param) || $param[0] == '') {
         // we got a bug report: in some cases, even if $disp is true,
         // there are no rows, so we add a fetch_array
 
-        if ($foreigners && isset($foreigners[$field]) && isset($disp) && $disp && PMA_DBI_fetch_row($disp)) {
+        if ($foreigners && isset($foreigners[$field]) && isset($disp_row) && is_array($disp_row)) {
             // f o r e i g n    k e y s
             echo '                    <select name="fields[]">' . "\n";
             // go back to first row
-            mysql_data_seek($disp,0); // !UNWRAPPED FUNCTION!
-            echo PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, 100);
+            echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data, 100);
             echo '                    </select>' . "\n";
         } else if (isset($foreign_link) && $foreign_link == true) {
         ?>

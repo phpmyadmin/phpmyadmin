@@ -505,8 +505,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         <option value="">---</option>
         <?php
         echo "\n";
-        mysql_data_seek($col_rs, 0); // !UNWRAPPED FUNCTION!
-        while ($row = @PMA_DBI_fetch_array($col_rs)) {
+        foreach($save_row AS $row) {
             echo '        <option value="' . htmlspecialchars($row['Field']) . '"';
             if (isset($disp) && $row['Field'] == $disp) {
                 echo ' selected="selected"';

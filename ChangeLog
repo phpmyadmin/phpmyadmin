@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-28 Garvin Hicking <MyDoom@supergarv.de>
+    * browser_foreigners, tbl_change.php, tbl_indexes.php,
+      tbl_properties_structure.php, tbl_relation.php, tbl_select.php,
+      libraries/get_foreign.lib.php, libraries/relation.lib.php:
+      Get rid of mysql_data_seek(). Use pre-cached PHP array for
+      mysqli compatibility and bandwidth saving.
+
 2004-01-27 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: bug 884606, MySQL version check before server choice
 

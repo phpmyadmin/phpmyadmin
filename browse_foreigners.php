@@ -138,7 +138,7 @@ $header = '    <tr>
 
 echo $header;
 
-if (isset($disp) && $disp) {
+if (isset($disp_row) && is_array($disp_row)) {
     function dimsort($arrayA, $arrayB) {
         $keyA = key($arrayA);
         $keyB = key($arrayB);
@@ -153,7 +153,7 @@ if (isset($disp) && $disp) {
     $mysql_key_relrow = array();
     $mysql_val_relrow = array();
     $count = 0;
-    while ($relrow = @PMA_DBI_fetch_assoc($disp)) {
+    foreach($disp_row AS $disp_row_key => $relrow) {
         if ($foreign_display != FALSE) {
             $val = $relrow[$foreign_display];
         } else {

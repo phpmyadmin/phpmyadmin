@@ -109,16 +109,18 @@ if (defined('PMA_IDX_INCLUDED')) {
 
 // Get fields and stores their name/type
 // fields had already been grabbed in "tbl_properties.php"
-if (defined('PMA_IDX_INCLUDED')) {
-    mysql_data_seek($fields_rs, 0); // !UNWRAPPED FUNCTION!
-} else {
+if (!defined('PMA_IDX_INCLUDED')) {
     $fields_rs   = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';');
     $fields_cnt  = PMA_DBI_num_rows($fields_rs);
+    $save_row   = array();
+    while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
+        $save_row[] = $row;
+    }
 }
 
 $fields_names           = array();
 $fields_types           = array();
-while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
+foreach($save_row AS $saved_row_key => $row) {
     $fields_names[]     = $row['Field'];
     // loic1: set or enum types: slashes single quotes inside options
     if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {

@@ -112,8 +112,10 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 $i         = 0;
 $aryFields = array();
 $checked   = (!empty($checkall) ? ' checked="checked"' : '');
+$save_row  = array();
 
 while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
+    $save_row[] = $row;
     $i++;
     $bgcolor          = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
     $aryFields[]      = $row['Field'];

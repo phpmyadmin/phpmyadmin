@@ -601,7 +601,8 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
     $ret = '<option value=""></option>' . "\n";
 
     $reloptions = array('content-id' => array(), 'id-content' => array());
-    while ($relrow = @PMA_DBI_fetch_assoc($disp)) {
+    
+    foreach($disp AS $disp_key => $relrow) {
         $key   = $relrow[$foreign_field];
         if (strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
             $value  = (($foreign_display != FALSE) ? htmlspecialchars($relrow[$foreign_display]) : '');
