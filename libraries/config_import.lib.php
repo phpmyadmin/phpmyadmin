@@ -1051,6 +1051,7 @@ if (!isset($cfg['AvailableCharsets'])) {
         'koi8-r',
         'big5',
         'gb2312',
+        'gbk',
         'utf-8',
         'utf-7',
         'x-user-defined',

@@ -5,11 +5,16 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-23 Alexander M. Turek  <me@derrabus.de>
+    * config.inc.php, libraries/config_import.lib.php,
+      libraries/select_lang.lib.php: Made phpMyAdmin aware that there is a
+      charset called gbk.
+
 2004-07-20 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
     * lang/catalan update, thanks to Xavier Navarro (xavin).
 
-2004-07-20 Alexander M. Turek  <ichkannchloggen@derrabus.de>
+2004-07-20 Alexander M. Turek  <me@derrabus.de>
     * Documentation.html: added note about php5.
 
 2004-07-18 Marc Delisle  <lem9@users.sourceforge.net>

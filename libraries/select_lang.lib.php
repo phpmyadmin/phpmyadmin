@@ -244,6 +244,7 @@ $mysql_charset_map = array(
     'euc-jp'       => 'ujis',
     'euc-kr'       => 'euckr',
     'gb2312'       => 'gb2312',
+    'gbk'          => 'gbk',
     'iso-8859-1'   => 'latin1',
     'iso-8859-2'   => 'latin2',
     'iso-8859-7'   => 'greek',
