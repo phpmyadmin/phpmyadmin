@@ -63,6 +63,18 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         while ($tmp = PMA_mysql_fetch_array($result)) {
             $tooltip_truename[$tmp['Name']] = ($cfg['ShowTooltipAliasTB'] ? (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']) : $tmp['Name']);
             $tooltip_aliasname[$tmp['Name']] = ($cfg['ShowTooltipAliasTB'] ? $tmp['Name'] : (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : ''));
+            if (isset($tmp['Create_time']) && !empty($tmp['Create_time'])) {
+                $tooltip_aliasname[$tmp['Name']] .= ', ' . $strStatCreateTime . ': ' . PMA_localisedDate(strtotime($tmp['Create_time']));
+            }
+
+            if (isset($tmp['Update_time']) && !empty($tmp['Update_time'])) {
+                $tooltip_aliasname[$tmp['Name']] .= ', ' . $strStatUpdateTime . ': ' . PMA_localisedDate(strtotime($tmp['Update_time']));
+            }
+
+            if (isset($tmp['Check_time']) && !empty($tmp['Check_time'])) {
+                $tooltip_aliasname[$tmp['Name']] .= ', ' . $strStatCheckTime . ': ' . PMA_localisedDate(strtotime($tmp['Check_time']));
+            }
+
         } // end while
     } // end if
 

@@ -613,4 +613,7 @@ $strSQLOptions = 'SQL-Optionen';
 $strXML = 'XML';
 $strCSVOptions = 'CSV-Optionen';
 $strNoOptions = 'Für dieses Format sind keine Optionen vorhanden';
+$strStatCreateTime = 'Erzeugt am';
+$strStatUpdateTime = 'Aktualisiert am';
+$strStatCheckTime = 'Letzter Check am';
 ?>

@@ -551,6 +551,48 @@ while (list($key, $table) = each($the_tables)) {
                 <?php
             }
             echo "\n";
+
+            if (isset($showtable['Create_time'])) {
+                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+                echo "\n";
+                ?>
+        <tr>
+            <td class="print"><?php echo $strStatCreateTime; ?></td>
+            <td align="right" class="print" nowrap="nowrap">
+                <?php echo PMA_localisedDate(strtotime($showtable['Create_time'])) . "\n"; ?>
+            </td>
+        </tr>
+                <?php
+            }
+            echo "\n";
+
+            if (isset($showtable['Update_time'])) {
+                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+                echo "\n";
+                ?>
+        <tr>
+            <td class="print"><?php echo $strStatUpdateTime; ?></td>
+            <td align="right" class="print" nowrap="nowrap">
+                <?php echo PMA_localisedDate(strtotime($showtable['Update_time'])) . "\n"; ?>
+            </td>
+        </tr>
+                <?php
+            }
+            echo "\n";
+
+            if (isset($showtable['Check_time'])) {
+                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+                echo "\n";
+                ?>
+        <tr>
+            <td class="print"><?php echo $strStatCheckTime; ?></td>
+            <td align="right" class="print" nowrap="nowrap">
+                <?php echo PMA_localisedDate(strtotime($showtable['Check_time'])) . "\n"; ?>
+            </td>
+        </tr>
+                <?php
+            }
+            echo "\n";
             ?>
         </table>
     </td>

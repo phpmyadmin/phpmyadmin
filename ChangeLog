@@ -6,6 +6,11 @@ $Id$
 $Source$
 
 2003-03-13 Garvin Hicking <me@supergarv.de>
+    * libraries/build_dump.lib.php3, db_details_structure.php3, db_printview.php3,
+      pdf_schema.php3, tbl_dump.php3, tbl_printview.php3, tbl_properties_structure.php3,
+      lang/*: RFE #7000385: Export AUTO_INCREMENT field.
+      Display Create/Update/Check_time in PDF-Pages, printview, DB/Table structure and table 
+      dumps, if information is available (gathered by 'SHOW TABLE STATUS' for MySQL 3.23.XX).
     * config.inc.php3 - Altered comments for PMA_* tables for easier integration and more 
       clarity. Make it easier to enable defaults (RFE #695265)
 2003-03-12 Garvin Hicking <me@supergarv.de>

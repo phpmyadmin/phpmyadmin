@@ -1269,12 +1269,18 @@ function PMA_RT_DOC($alltables ){
              $showtable    = PMA_mysql_fetch_array($result);
              $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
              $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
+             $create_time  = (isset($showtable['Create_time']) ? PMA_localisedDate(strtotime($showtable['Comment'])) : '');
+             $update_time  = (isset($showtable['Update_time']) ? PMA_localisedDate(strtotime($showtable['Comment'])) : '');
+             $check_time   = (isset($showtable['Check_time']) ? PMA_localisedDate(strtotime($showtable['Comment'])) : '');
         } else {
              $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
              $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
              $showtable    = array();
              $num_rows     = PMA_mysql_result($result, 0, 'count');
              $show_comment = '';
+             $create_time  = '';
+             $update_time  = '';
+             $check_time   = '';
         } // end display comments
         if ($result) {
              mysql_free_result($result);
@@ -1353,11 +1359,32 @@ function PMA_RT_DOC($alltables ){
          * Displays the comments of the table if MySQL >= 3.23
          */
     
+        $break = false;
         if (!empty($show_comment)) {
-            $pdf->Cell(0,8,$GLOBALS['strTableComments'] . ' : ' . $show_comment,0,1);
+            $pdf->Cell(0,3,$GLOBALS['strTableComments'] . ' : ' . $show_comment,0,1);
+            $break = true;
+        }
+        
+        if (!empty($create_time)) {
+            $pdf->Cell(0,3,$GLOBALS['strStatCreateTime'] . ': ' . $create_time,0,1);
+            $break = true;
+        }
+        
+        if (!empty($update_time)) {
+            $pdf->Cell(0,3,$GLOBALS['strStatUpdateTime'] . ': ' . $update_time,0,1);
+            $break = true;
+        }
+        
+        if (!empty($check_time)) {
+            $pdf->Cell(0,3,$GLOBALS['strStatCheckTime'] . ': ' . $check_time,0,1);
+            $break = true;
+        }
+        
+        if ($break == true) {
+            $pdf->Cell(0,3,'',0,1);
             $pdf->Ln();
         }
-    
+
         $i = 0;
         $pdf->SetFont('', 'B');
         if (isset($orientation) && $orientation == 'L') {

@@ -628,4 +628,7 @@ $strSQLOptions = 'SQL options';//to translate
 $strXML = 'XML';//to translate
 $strCSVOptions = 'CSV options';//to translate
 $strNoOptions = 'This format has no options';//to translate
+$strStatCreateTime = 'Creation';//to translate
+$strStatUpdateTime = 'Last update';//to translate
+$strStatCheckTime = 'Last check';//to translate
 ?>

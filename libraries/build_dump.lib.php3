@@ -53,6 +53,37 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         global $use_backquotes;
 
         $schema_create = '';
+        $auto_increment = '';
+        $new_crlf = $crlf;
+
+        if (PMA_MYSQL_INT_VERSION >= 32321) {
+            $result = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'');
+            if ($result != FALSE && mysql_num_rows($result) > 0) {
+                $tmpres        = PMA_mysql_fetch_array($result);
+                if (!empty($tmpres['Auto_increment'])) {
+                    $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
+                }
+                
+                if (isset($tmpres['Create_time']) && !empty($tmpres['Create_time'])) {
+                    $schema_create .= '# ' . $GLOBALS['strStatCreateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Create_time'])) . $crlf;
+                    $new_crlf = '#' . $crlf . $crlf;
+                }
+
+                if (isset($tmpres['Update_time']) && !empty($tmpres['Update_time'])) {
+                    $schema_create .= '# ' . $GLOBALS['strStatUpdateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Update_time'])) . $crlf;
+                    $new_crlf = '#' . $crlf . $crlf;
+                }
+
+                if (isset($tmpres['Check_time']) && !empty($tmpres['Check_time'])) {
+                    $schema_create .= '# ' . $GLOBALS['strStatCheckTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Check_time'])) . $crlf;
+                    $new_crlf = '#' . $crlf . $crlf;
+                }
+            }
+            mysql_free_result($result);
+        }
+
+        $schema_create .= $new_crlf;
+        
         if (!empty($drop)) {
             $schema_create .= 'DROP TABLE IF EXISTS ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes) . ';' . $crlf;
         }
@@ -98,18 +129,21 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                                . (($use_backquotes) ? PMA_backquote($tmpres[0]) : $tmpres[0])
                                . substr($tmpres[1], $pos);
                 $schema_create .= str_replace("\n", $crlf, PMA_htmlFormat($tmpres[1]));
-
-                // garvin: Because replacing within a direct mysql result is a bit dangerous, just insert comments after that.
-                if ($comments && is_array($comments_map) && count($comments_map) > 0) {
-                    $schema_create .= $crlf . $crlf . '/* COMMENTS FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
-                    @reset($comments_map);
-                    while(list($comment_field, $comment) = each($comments_map)) {
-                        $schema_create .= '    ' . PMA_backquote($comment_field, $use_backquotes) . $crlf . '        ' . PMA_backquote($comment, $use_backquotes) . $crlf;
-                        // omitting html_format is intentional. No use for htmlchars in the dump.
-                    }
-                    $schema_create .= '*/';
-                }
             }
+            
+            $schema_create .= $auto_increment;
+
+            // garvin: Because replacing within a direct mysql result is a bit dangerous, just insert comments after that.
+            if ($comments && is_array($comments_map) && count($comments_map) > 0) {
+                $schema_create .= $crlf . $crlf . '/* COMMENTS FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
+                @reset($comments_map);
+                while(list($comment_field, $comment) = each($comments_map)) {
+                    $schema_create .= '    ' . PMA_backquote($comment_field, $use_backquotes) . $crlf . '        ' . PMA_backquote($comment, $use_backquotes) . $crlf;
+                    // omitting html_format is intentional. No use for htmlchars in the dump.
+                }
+                $schema_create .= '*/';
+            }
+
             mysql_free_result($result);
             return $schema_create;
         } // end if MySQL >= 3.23.21

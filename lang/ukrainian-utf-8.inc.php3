@@ -619,4 +619,7 @@ $strWritingRelationNotPossible = 'Writing of relation not possible';  //to trans
 
 $strXML = 'XML';//to translate
 
+$strStatCreateTime = 'Creation';//to translate
+$strStatUpdateTime = 'Last update';//to translate
+$strStatCheckTime = 'Last check';//to translate
 ?>

@@ -605,4 +605,7 @@ $strSQLOptions = 'SQL options';
 $strXML = 'XML';
 $strCSVOptions = 'CSV options';
 $strNoOptions = 'This format has no options';
+$strStatCreateTime = 'Creation';
+$strStatUpdateTime = 'Last update';
+$strStatCheckTime = 'Last check';
 ?>

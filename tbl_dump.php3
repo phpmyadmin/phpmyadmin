@@ -218,7 +218,7 @@ else {
                     $dump_buffer .= '# --------------------------------------------------------' . $crlf
                                  .  $crlf . '#' . $crlf
                                  .  '# ' . $strTableStructure . ' ' . $formatted_table_name . $crlf
-                                 .  '#' . $crlf . $crlf
+                                 .  '#' . $crlf
                                  .  PMA_getTableDef($db, $table, $crlf, $err_url, $use_comments_work) . ';' . $crlf;
                 }
                 

@@ -515,6 +515,48 @@ if ($cfg['ShowStats']) {
             <?php
         }
         echo "\n";
+
+        if (isset($showtable['Create_time'])) {
+            $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+            echo "\n";
+            ?>
+        <tr>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strStatCreateTime; ?></td>
+            <td style="font-size: <?php echo $font_smaller; ?>" align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+                <?php echo PMA_localisedDate(strtotime($showtable['Create_time'])) . "\n"; ?>
+            </td>
+        </tr>
+                <?php
+        }
+        echo "\n";
+
+        if (isset($showtable['Update_time'])) {
+            $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+            echo "\n";
+            ?>
+        <tr>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strStatUpdateTime; ?></td>
+            <td style="font-size: <?php echo $font_smaller; ?>" align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+                <?php echo PMA_localisedDate(strtotime($showtable['Update_time'])) . "\n"; ?>
+            </td>
+        </tr>
+                <?php
+        }
+        echo "\n";
+
+        if (isset($showtable['Check_time'])) {
+            $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+            echo "\n";
+            ?>
+        <tr>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strStatCheckTime; ?></td>
+            <td style="font-size: <?php echo $font_smaller; ?>" align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+                <?php echo PMA_localisedDate(strtotime($showtable['Check_time'])) . "\n"; ?>
+            </td>
+        </tr>
+            <?php
+        }
+        echo "\n";
         ?>
         </table>
     </td>
