@@ -7,11 +7,18 @@ $Source$
 
 2001-09-02  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/dutch.inc.php3: other updates thanks to Paul Koster.
+	* tbl_addfield.php3, lines 9-11: fixed a js error.
+	* lib.inc.php3; sql.php3: optimized a bit (buffering the fields meta in an
+	  array, then seekink into this array is baout 5 times faster in php4 than
+	  calling the mysql_fetch_field function each time) and added some
+	  comments.
+	* lib.inc.php3, line 526: fixed a js error ("#" character msut be escaped).
+	* main.php3: target for links should never be "_top" but "_parent".
 
 2001-09-01  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_stat.php3: cleaned and improved the code.
 	* header.php3: cosmetic change.
-	* db_create.php3, line9; db_readdump.php3, line 135: fixed a js error.
+	* db_create.php3, line 9; db_readdump.php3, line 135: fixed a js error.
 	* lang/dutch.inc.php3: updated thanks to Paul Koster.
 	* lib.inc.php3; sql.php3, lines 296-311:
 	  - display the full/partial text button only if a field is concerned;
