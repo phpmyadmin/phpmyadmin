@@ -120,11 +120,11 @@ if ($cfgRelation['pdfwork']) {
         ?>
 <form method="post" action="pdf_pages.php3" name="selpage">
     <?php echo $strChoosePage . "\n"; ?>
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
     <input type="hidden" name="do" value="choosepage" />
     <select name="chpage" onchange="this.form.submit()">
         <?php
@@ -152,8 +152,8 @@ if ($cfgRelation['pdfwork']) {
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
     <input type="hidden" name="do" value="createpage" />
     <input type="text" name="newpage" size="20" maxlength="50" />
     <input type="submit" value="<?php echo $strGo; ?>" />
@@ -171,8 +171,8 @@ if ($cfgRelation['pdfwork']) {
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
     <input type="hidden" name="chpage" value="<?php echo $chpage; ?>" />
     <input type="hidden" name="do" value="edcoord" />
     <table border="0">
@@ -264,7 +264,7 @@ if ($cfgRelation['pdfwork']) {
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
     <input type="hidden" name="pdf_page_number" value="<?php echo $chpage; ?>" />
     <?php echo $strDisplayPDF; ?>&nbsp;:<br />
     <input type="checkbox" name="show_grid" id="show_grid_opt" />

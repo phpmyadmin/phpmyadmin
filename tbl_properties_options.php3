@@ -61,8 +61,8 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
         <form method="post" action="tbl_properties_options.php3">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+            <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
             <?php echo $strTableComments; ?>&nbsp;:&nbsp;
             <input type="hidden" name="prev_comment" value="<?php echo urlencode($show_comment); ?>" />&nbsp;
             <input type="text" name="comment" maxlength="60" size="30" value="<?php echo htmlspecialchars($show_comment); ?>" class="textfield" style="vertical-align: middle" onfocus="this.select()" />&nbsp;
@@ -111,8 +111,8 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
         <form method="post" action="tbl_properties_options.php3">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+            <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
             <?php echo $strTableType; ?>&nbsp;:&nbsp;
             <select name="tbl_type" style="vertical-align: middle">
                 <option value="MYISAM"<?php if ($tbl_type == 'MYISAM') echo ' selected="selected"'; ?>>MyISAM</option>
@@ -157,8 +157,8 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
                 <form method="post" action="tbl_properties_options.php3">
                     <input type="hidden" name="server" value="<?php echo $server; ?>" />
                     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-                    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+                    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+                    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
 
                     <table border="0" cellspacing="0" cellpadding="0">
                     <tr>

@@ -649,7 +649,7 @@ while (list($key, $val) = each($tbl_names)) {
                     </select>
                 </td>
                 <td align="<?php echo $cell_align_right; ?>" valign="bottom">
-                    <input type="hidden" value="<?php echo $db; ?>" name="db" />
+                    <input type="hidden" value="<?php echo htmlspecialchars($db); ?>" name="db" />
                     <input type="hidden" value="<?php echo $z; ?>" name="Columns" />
 <?php
 $w--;

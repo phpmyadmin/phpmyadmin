@@ -45,10 +45,10 @@ $rowset = mysql_query($sql);
 $count  = 0;
 while ($row = mysql_fetch_array($rowset)) {
     if (PMA_MYSQL_INT_VERSION >= 32303) {
-        $myfieldname = 'Tables_in_' . $db;
+        $myfieldname = 'Tables_in_' . htmlspecialchars($db);
     }
     else {
-        $myfieldname = 'Tables in ' . $db;
+        $myfieldname = 'Tables in ' . htmlspecialchars($db);
     }
     $table        = $row[$myfieldname];
     $cfgRelation  = PMA_getRelationsParam();
@@ -273,7 +273,7 @@ while ($row = mysql_fetch_array($rowset)) {
     <?php
     echo '</div>' . "\n";
 
-	$count++;
+    $count++;
 } //ends main while
 
 

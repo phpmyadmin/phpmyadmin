@@ -60,7 +60,7 @@ if ($num_tables > 1) {
                   . '?lang=' . $lang
                   . '&amp;convcharset=' . $convcharset
                   . '&amp;server=' . $server
-                  . '&amp;db=' . $db
+                  . '&amp;db=' . urlencode($db)
                   . '&amp;goto=db_details_export.php3';
     ?>
             <br />
@@ -181,7 +181,7 @@ if (function_exists('PMA_set_enc_form')) {
     </table>
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="lang" value="<?php echo $lang;?>" />
-    <input type="hidden" name="db" value="<?php echo $db;?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db);?>" />
 </form>
 
 <a href="./Documentation.html#faqexport" target="documentation"><?php echo $strDocu; ?></a>

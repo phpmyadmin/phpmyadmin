@@ -105,12 +105,12 @@ if (function_exists('PMA_set_enc_form')) {
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+            <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
             <input type="hidden" name="zero_rows" value="<?php echo $strTheContent; ?>" />
             <input type="hidden" name="goto" value="tbl_properties.php3" />
             <input type="hidden" name="back" value="ldi_table.php3" />
-            <input type="hidden" name="into_table" value="<?php echo $table; ?>" />
+            <input type="hidden" name="into_table" value="<?php echo htmlspecialchars($table); ?>" />
             <input type="submit" name="btnLDI" value="<?php echo $strSubmit; ?>" />&nbsp;&nbsp;
             <input type="reset" value="<?php echo $strReset; ?>" />
         </td>

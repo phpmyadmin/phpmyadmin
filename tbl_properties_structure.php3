@@ -60,8 +60,8 @@ $fields_cnt  = mysql_num_rows($fields_rs);
 <form action="tbl_properties_structure.php3">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
 
 <table border="<?php echo $cfg['Border']; ?>">
 <tr>
@@ -294,7 +294,7 @@ require ('./tbl_indexes.php3');
 //                      statistics whatever is the table type
 if ($cfg['ShowStats']) {
     $nonisam     = FALSE;
-    $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB'); 
+    $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
     if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
         $nonisam = TRUE;
     }
@@ -506,8 +506,8 @@ echo "\n";
             onsubmit="return checkFormElementInRange(this, 'num_fields', 1)">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+            <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
             <?php echo $strAddNewField; ?>&nbsp;:
             <input type="text" name="num_fields" size="2" maxlength="2" value="1" class="textfield" style="vertical-align: middle" onfocus="this.select()" />
             <select name="after_field" style="vertical-align: middle">

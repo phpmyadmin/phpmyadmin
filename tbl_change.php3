@@ -160,7 +160,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0; ?>" />

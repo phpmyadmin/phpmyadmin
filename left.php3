@@ -265,7 +265,7 @@ if ($num_dbs > 1) {
             echo "\n";
             ?>
         <a class="item" href="<?php echo $cfg['DefaultTabDatabase']; ?>?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', false)}">
-            <span class="heada"><?php echo $db; ?><bdo dir="<?php echo($text_dir); ?>">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
+            <span class="heada"><?php echo htmlspecialchars($db); ?><bdo dir="<?php echo($text_dir); ?>">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
     </div>
 
     <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px"<?php echo $on_mouse; ?>>
@@ -275,15 +275,15 @@ if ($num_dbs > 1) {
             for ($t = 0; $t < $num_tables; $t++) {
                 $table     = PMA_mysql_tablename($tables, $t);
                 $url_title = (!empty($tooltip) && isset($tooltip[$table]))
-                           ? str_replace('"', '&quot;', $tooltip[$table])
+                           ? htmlspecialchars($tooltip[$table])
                            : '';
                 echo "\n";
                 ?>
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
-        <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>">
-            <img src="images/browse.gif" width="8" height="8" border="0" alt="<?php echo "$strBrowse: $table"; ?>" title="<?php echo "$strBrowse: $table"; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
+        <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>" title="<?php echo $strBrowse . ': ' . htmlspecialchars($table); ?>">
+            <img src="images/browse.gif" width="8" height="8" border="0" alt="<?php echo $strBrowse . ': ' . htmlspecialchars($table); ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
         <a class="tblItem" id="tbl_<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
-            <?php echo $table; ?></a></nobr><br />
+            <?php echo htmlspecialchars($table); ?></a></nobr><br />
                 <?php
             } // end for $t (tables list)
             echo "\n";
@@ -308,11 +308,11 @@ if ($num_dbs > 1) {
                                 ? str_replace('"', '&quot;', $tooltip[$table])
                                 : '';
                     $table_list .= '    <nobr><a target="phpmain" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($table)) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '">' . "\n";
-                    $table_list .= '              <img src="images/browse.gif" width="8" height="8" border="0" alt="' . $strBrowse . ': ' . $table . '" title="' . $strBrowse . ': ' . $table . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
+                    $table_list .= '              <img src="images/browse.gif" width="8" height="8" border="0" alt="' . $strBrowse . ': ' . $table . '" title="' . $strBrowse . ': ' . htmlspecialchars($table) . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
                     if (PMA_USR_BROWSER_AGENT == 'IE') {
-                        $table_list .= '          <span class="tblItem"><a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></span></nobr><br />' . "\n";
+                        $table_list .= '          <span class="tblItem"><a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . htmlspecialchars($table) . '</a></span></nobr><br />' . "\n";
                     } else {
-                        $table_list .= '          <a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></nobr><br />' . "\n";
+                        $table_list .= '          <a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . htmlspecialchars($table) . '</a></nobr><br />' . "\n";
                     }
                 } // end for $t (tables list)
 
@@ -323,15 +323,15 @@ if ($num_dbs > 1) {
                 $selected = ' selected="selected"';
 
                 $table_list_header .= '    <a class="item" target="phpmain" href="' . $cfg['DefaultTabDatabase'] . '?' . $common_url_query . '">' . "\n";
-                $table_list_header .= '        <span class="heada"><b>' . $db . '</b><bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span></a><br />' . "\n\n";
+                $table_list_header .= '        <span class="heada"><b>' . htmlspecialchars($db) . '</b><bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span></a><br />' . "\n\n";
             } else {
                 $selected = '';
             } // end if... else...
 
             if (!empty($num_tables)) {
-                echo '            <option value="' . urlencode($db) . '"' . $selected . '>' . $db . ' (' . $num_tables . ')</option>' . "\n";
+                echo '            <option value="' . urlencode($db) . '"' . $selected . '>' . htmlspecialchars($db) . ' (' . $num_tables . ')</option>' . "\n";
             } else {
-                echo '            <option value="' . urlencode($db) . '"' . $selected . '>' . $db . ' (-)</option>' . "\n";
+                echo '            <option value="' . urlencode($db) . '"' . $selected . '>' . htmlspecialchars($db) . ' (-)</option>' . "\n";
             } // end if... else...
 
         } // end if (light mode)
@@ -411,7 +411,7 @@ else if ($num_dbs == 1) {
     ?>
     <div id="el2Parent" class="parent">
         <nobr><a class="item" href="<?php echo $cfg['DefaultTabDatabase']; ?>?<?php echo $common_url_query; ?>">
-            <span class="heada"><?php echo $db; ?><bdo dir="<?php echo($text_dir); ?>">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
+            <span class="heada"><?php echo htmlspecialchars($db); ?><bdo dir="<?php echo($text_dir); ?>">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
     </div>
     <div id="el2Child" class="child" style="margin-bottom: 5px">
     <?php
@@ -423,10 +423,10 @@ else if ($num_dbs == 1) {
                    : '';
         echo "\n";
         ?>
-        <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>">
-                  <img src="images/browse.gif" width="8" height="8" border="0" alt="<?php echo "$strBrowse: $table"; ?>" title="<?php echo "$strBrowse: $table"; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
+        <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>" title="<?php echo $strBrowse . ': ' . htmlspecialchars($table); ?>">
+                  <img src="images/browse.gif" width="8" height="8" border="0" alt="<?php echo $strBrowse . ': ' . htmlspecialchars($table); ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
               <a class="tblItem" id="tbl_<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
-                  <?php echo $table; ?></a></nobr><br />
+                  <?php echo htmlspecialchars($table); ?></a></nobr><br />
         <?php
     } // end for $j (tables list)
     echo "\n";

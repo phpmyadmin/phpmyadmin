@@ -233,7 +233,7 @@ if (isset($GLOBALS['db'])) {
     if (!empty($GLOBALS['table'])) {
         echo '    - ' . $GLOBALS['strTable'] . ' <i><a class="h1" href="tbl_properties.php3' . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '">' . htmlspecialchars($GLOBALS['table']) . '</a></i>' . "\n";
     }
-    echo '    ' . sprintf($GLOBALS['strRunning'], ' <i>' . (($GLOBALS['cfg']['Server']['verbose']) ? $GLOBALS['cfg']['Server']['verbose'] : $GLOBALS['cfg']['Server']['host']) . '</i>') . "\n";
+    echo '    ' . sprintf($GLOBALS['strRunning'], ' <i>' . (($GLOBALS['cfg']['Server']['verbose']) ? htmlspecialchars($GLOBALS['cfg']['Server']['verbose']) : $GLOBALS['cfg']['Server']['host']) . '</i>') . "\n";
     echo '</h1>' . "\n";
 }
 echo "\n";

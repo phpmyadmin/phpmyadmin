@@ -178,8 +178,8 @@ if ($do_confirm) {
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="table" value="<?php echo isset($table) ? $table : ''; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <input type="hidden" name="table" value="<?php echo isset($table) ? htmlspecialchars($table) : ''; ?>" />
     <input type="hidden" name="sql_query" value="<?php echo urlencode(addslashes($sql_query)); ?>" />
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? $zero_rows : ''; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
@@ -303,7 +303,7 @@ else {
                           : $err_url;
             PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
         }
-        
+
         // Checks if the current database has changed
         // This could happen if the user sends a query like "USE `database`;"
         $res = PMA_mysql_query('SELECT DATABASE() AS "db";');
@@ -580,7 +580,7 @@ else {
     <?php echo $strBookmarkLabel; ?>&nbsp;:
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-    <input type="hidden" name="fields[dbase]" value="<?php echo $db; ?>" />
+    <input type="hidden" name="fields[dbase]" value="<?php echo htmlspecialchars($db); ?>" />
     <input type="hidden" name="fields[user]" value="<?php echo $cfg['Bookmark']['user']; ?>" />
     <input type="hidden" name="fields[query]" value="<?php echo urlencode($sql_query); ?>" />
     <input type="text" name="fields[label]" value="" />

@@ -20,8 +20,8 @@ require('./tbl_properties_table_info.php3');
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
     <table cellpadding="5" border="2" align="center">
     <tr>
 

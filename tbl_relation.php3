@@ -37,10 +37,6 @@ function PMA_handleSlashes($val) {
 /**
  * Updates
  */
-if (get_magic_quotes_gpc()) {
-    $db    = stripslashes($db);
-    $table = stripslashes($table);
-}
 
 if ($cfgRelation['relwork']) {
     $existrel = PMA_getForeigners($db, $table);
@@ -220,8 +216,8 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
 <form method="post" action="tbl_relation.php3">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
     <input type="hidden" name="submit_rel" value="true" />
 
     <table>
@@ -283,8 +279,8 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
 <form method="post" action="tbl_relation.php3">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
     <input type="hidden" name="submit_show" value="true" />
 
     <p><?php echo $strChangeDisplay; ?></p>
@@ -320,8 +316,8 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
 <form method="post" action="tbl_relation.php3">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
     <input type="hidden" name="submit_comm" value="true" />
 
     <table>

@@ -221,10 +221,6 @@ else {
     }
     // Table name and number of fields are valid -> show the form
     else {
-        // Ensures the table name is valid
-        if (get_magic_quotes_gpc()) {
-            $table = stripslashes($table);
-        }
         if (PMA_MYSQL_INT_VERSION < 32306) {
             PMA_checkReservedWords($table, $err_url);
         }

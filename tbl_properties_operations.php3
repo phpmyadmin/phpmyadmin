@@ -61,8 +61,8 @@ if (PMA_MYSQL_INT_VERSION >= 32334) {
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+            <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
             <?php echo $strAlterOrderBy; ?>&nbsp;:
             <select name="order_field" style="vertical-align: middle">
     <?php
@@ -91,8 +91,8 @@ echo "\n";
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-                <input type="hidden" name="db" value="<?php echo $db; ?>" />
-                <input type="hidden" name="table" value="<?php echo $table; ?>" />
+                <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+                <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
                 <input type="hidden" name="reload" value="1" />
                 <?php echo $strRenameTable; ?>&nbsp;:
                 <input type="text" size="20" name="new_name" value="<?php echo htmlspecialchars($table); ?>" class="textfield" onfocus="this.select()" />&nbsp;
@@ -112,8 +112,8 @@ echo "\n";
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-                <input type="hidden" name="db" value="<?php echo $db; ?>" />
-                <input type="hidden" name="table" value="<?php echo $table; ?>" />
+                <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+                <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
                 <input type="hidden" name="reload" value="1" />
                 <input type="hidden" name="what" value="data" />
                 <table border="0" cellspacing="0" cellpadding="0">
@@ -155,8 +155,8 @@ for ($i = 0; $i < $num_dbs; $i++) {
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-                <input type="hidden" name="db" value="<?php echo $db; ?>" />
-                <input type="hidden" name="table" value="<?php echo $table; ?>" />
+                <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+                <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
                 <input type="hidden" name="reload" value="1" />
                 <table border="0" cellspacing="0" cellpadding="0">
                 <tr>

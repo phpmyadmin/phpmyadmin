@@ -23,9 +23,6 @@ $err_url = 'main.php3'
 /**
  * Ensures the db name is valid
  */
-if (get_magic_quotes_gpc()) {
-    $db      = stripslashes($db);
-}
 if (PMA_MYSQL_INT_VERSION < 32306) {
     PMA_checkReservedWords($db, $err_url);
 }

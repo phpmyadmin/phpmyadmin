@@ -60,7 +60,7 @@ $auto_sel  = ($cfg['TextareaAutoSelect'])
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
     <input type="hidden" name="pos" value="0" />
     <input type="hidden" name="goto" value="db_details.php3" />
     <input type="hidden" name="zero_rows" value="<?php echo htmlspecialchars($strSuccess); ?>" />

@@ -5,6 +5,17 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-19 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * db_create.php3, db_datadict.php3, db_details.php3, db_details_export.php3,
+      db_details_import.php3, db_details_qbe.php3, db_details_structure.php3,
+      db_stats.php3, header.inc.php3, ldi_table.php3, left.php3,
+      mult_submits.php3, pdf_pages.php3, sql.php3, tbl_change.php3,
+      tbl_create.php3, tbl_indexes.php3, tbl_properties.inc.php3,
+      tbl_properties_export.php3, tbl_properties_operations.php3,
+      tbl_properties_options.php3, tbl_properties_structure.php3,
+      tbl_query_box.php3, tbl_relation.php3, tbl_select.php3:
+      Fixed bug #640055 (HTML entities in db / table name) partly.
+
 2002-11-19 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.3.3-rc1 released
 

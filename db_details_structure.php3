@@ -53,7 +53,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
 
 <table border="<?php echo $cfg['Border']; ?>">
 <tr>
@@ -329,7 +329,7 @@ else {
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
 
 <table border="<?php echo $cfg['Border']; ?>">
 <tr>
@@ -451,7 +451,7 @@ if ($num_tables > 0) {
         <input type="hidden" name="server" value="<?php echo $server; ?>" />
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
         <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-        <input type="hidden" name="db" value="<?php echo $db; ?>" />
+        <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
 <?php
 echo '        ' . sprintf($strCreateNewTable, htmlspecialchars($db)) . '&nbsp;:<br />' . "\n";
 echo '        ' . $strName . '&nbsp;:&nbsp;' . "\n";
@@ -499,7 +499,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
+            <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
             <?php echo $strDisplayPDF; ?>&nbsp;:<br />
             <?php echo $strPageNumber; ?>&nbsp;
             <select name="pdf_page_number">

@@ -113,13 +113,13 @@ if (!empty($submit_mult) && !empty($what)) {
     <?php
     echo "\n";
     if (strpos(' ' . $action, 'db_details') == 1) {
-        echo '    <input type="hidden" name="db" value="' . $db . '" />' . "\n";
+        echo '    <input type="hidden" name="db" value="' . htmlspecialchars($db) . '" />' . "\n";
     } else if (strpos(' ' . $action, 'tbl_properties') == 1) {
-        echo '    <input type="hidden" name="db" value="' . $db . '" />' . "\n";
-        echo '    <input type="hidden" name="table" value="' . $table . '" />' . "\n";
+        echo '    <input type="hidden" name="db" value="' . htmlspecialchars($db) . '" />' . "\n";
+        echo '    <input type="hidden" name="table" value="' . htmlspecialchars($table) . '" />' . "\n";
     }
     for ($i = 0; $i < $selected_cnt; $i++) {
-        echo '    <input type="hidden" name="selected[]" value="' . $selected[$i] . '" />' . "\n";
+        echo '    <input type="hidden" name="selected[]" value="' . htmlspecialchars($selected[$i]) . '" />' . "\n";
     }
     ?>
     <input type="hidden" name="query_type" value="<?php echo $what; ?>" />
