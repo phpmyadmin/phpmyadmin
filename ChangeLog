@@ -8,6 +8,7 @@ $Source$
 2003-02-24 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_change.php3, tbl_replace_fields.php3: Move magic words used for
       fields type into special variable. Fixes #647689.
+    * db_details_structure.php3: Removed extra /. Fixes #692171.
 
 2003-02-23 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.4.0 released
