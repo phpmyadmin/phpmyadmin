@@ -61,8 +61,15 @@ $phpmain_hash_js = time();
 </head>
 
 <?php
-//  adjust for new logo, but TODO: move into theme config
-$query_frame_height = 75;
+$logo_image = $GLOBALS['pmaThemeImage'] . 'logo_left.png';
+$query_frame_height = 0;
+if (@file_exists($logo_image)) {
+   $tmp_imgsize = @getimagesize($logo_image);
+   $query_frame_height = ($tmp_imgsize[1] + 15);
+}
+if ($query_frame_height == 0) {
+    $query_frame_height = 60;
+}
 if ($cfg['LeftDisplayServers'] && !$cfg['DisplayServersList']) {
     $query_frame_height = $query_frame_height + 40;
 }
