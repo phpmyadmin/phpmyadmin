@@ -21,6 +21,10 @@ if (count($pieces) == 1 && !empty($pieces[0])) {
   } else {
     $sql_query = trim($pieces[0]);
   }
+  // Enforce reloading of the left frame when a table has to be created 
+  if (eregi('^CREATE TABLE (.+)', $sql_query)) {
+    $reload = "true";
+  }
   include ("sql.php3");
   exit;
 }
