@@ -80,7 +80,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
 
         //while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
         while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
-            if($curr_table[0] == $cfg['Servers']['Server']['bookmarktable']) {
+            if($curr_table[0] == $cfg['Server']['bookmarktable']) {
                 continue;
             } else if ($curr_table[0] == $GLOBALS['cfg']['Server']['relation']) {
                 $cfgRelation['relation']        = $curr_table[0];
