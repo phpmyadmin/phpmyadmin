@@ -29,6 +29,8 @@ $Source$
 	  dependant, size units also.
 	* tbl_dump.php3, lines 78: Added a '#' before 'No tables found' so the
 	  generated dump file may be imported later even if there is no table.
+	* tbl_dump.php3, lines 9-11: Fixed a bug if an user requires a gziped dump
+	  but forget to check the transmit checkbox.
 	* db_printview.php3, line 29: Cosmetic change in column case name.
 
 2001-07-06  Loïc Chapeaux  <lolo@phpheaven.net>

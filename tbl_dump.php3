@@ -6,6 +6,10 @@ require("./grab_globals.inc.php3");
 @set_time_limit(600);
 $crlf="\n";
 
+if (empty($asfile) && !empty($gzip)) {
+    $asfile = 1;
+}
+
 if(empty($asfile)) 
 { 
 	include("./header.inc.php3");
