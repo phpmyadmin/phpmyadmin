@@ -266,3 +266,5 @@ else
     echo
     echo "!!!SOME CONVERSION FAILED!!!"
 fi
+
+cleanup
