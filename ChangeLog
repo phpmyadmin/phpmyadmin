@@ -15,6 +15,7 @@ $Source$
 
 2003-05-12 Michal Cihar  <nijel@users.sourceforge.net>
     * index.php3: Better fix for #736003.
+    * libraries/common.lib.php3: Light tabs were displayed wrong, bug #736590.
 
 2003-05-11 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation.html, config.inc.php3,
