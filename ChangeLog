@@ -20,6 +20,8 @@ $Source$
         - New script to neaten all language files
     * lang/check_lang.sh:
         - New script to check language files for consistancy
+    * lang/*.sh:
+        - Added CVS tags to scripts
 
 2002-08-08 Robin Johnson  <robbat2@users.sourceforge.net>
     * Documentation.html:

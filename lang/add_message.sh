@@ -1,4 +1,5 @@
 #!/bin/bash
+# $Id$
 #
 # Shell script that adds a message to all message files (Lem9)
 #

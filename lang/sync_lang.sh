@@ -1,4 +1,5 @@
 #!/bin/sh
+# $Id$
 ##
 # Shell script that synchronises all translations in phpMyAdmin
 ##

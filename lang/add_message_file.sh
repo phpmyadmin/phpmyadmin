@@ -1,4 +1,5 @@
 #!/bin/bash
+# $Id$
 #
 # Shell script that adds a message file to all message files 
 # adding "//to translate" on each line 

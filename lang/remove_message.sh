@@ -1,4 +1,5 @@
 #!/bin/bash
+# $Id$
 #
 # Shell script that removes a message from all message files (Lem9)
 # it checks for the message, followed by a space
