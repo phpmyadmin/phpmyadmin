@@ -237,9 +237,11 @@ if (count($statistics) > 0) {
         $total_calc['tot_sz']  += $current['tot_sz'];
         echo '        <tr>' . "\n";
         if ($is_superuser || $cfg['AllowUserDropDatabase']) {
-            echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '                <input type="checkbox" name="selected_db[]" title="' . htmlspecialchars($current['db_name']) . '" value="' . htmlspecialchars($current['db_name']) . '" ' . (empty($checkall) ? '' : 'checked="checked" ') . '/>' . "\n"
-               . '            </td>' . "\n";
+            echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n";
+            if (PMA_MYSQL_INT_VERSION < 50002 || $current['db_name'] != 'information_schema') {
+                echo '                <input type="checkbox" name="selected_db[]" title="' . htmlspecialchars($current['db_name']) . '" value="' . htmlspecialchars($current['db_name']) . '" ' . (empty($checkall) ? '' : 'checked="checked" ') . '/>' . "\n";
+            }
+            echo '            </td>' . "\n";
         }
         echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
            . '                <a onclick="reload_window(\'' . urlencode($current['db_name']) . '\'); return true;" href="' . $cfg['DefaultTabDatabase'] . '?' . $url_query . '&amp;db=' . urlencode($current['db_name']) . '" title="' . sprintf($strJumpToDB, htmlspecialchars($current['db_name'])) . '">' . "\n"
