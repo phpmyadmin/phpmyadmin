@@ -428,4 +428,9 @@ set_magic_quotes_runtime(0);
  */
 error_reporting($old_error_rep);
 unset($old_error_rep);
+
+/**
+ * File Revision - do not change either!
+ */
+$cfg['FileRevision'] = '$Revision$';
 ?>
