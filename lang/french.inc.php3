@@ -358,4 +358,5 @@ $strZip = '"zippé"';
 // To translate
 $strConfigureTableCoord = 'Les coordonnées de la table %s n\'ont pas été configurées';
 $strScaleFactorSmall = 'Veuillez augmenter l\'échelle car le schéma déborde la page ';
+$strDisplayPDF = 'Afficher le schéma en PDF'; 
 ?>

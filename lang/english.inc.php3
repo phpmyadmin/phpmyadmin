@@ -356,4 +356,5 @@ $strYes = 'Yes';
 $strZip = '"zipped"';
 $strConfigureTableCoord = 'Please configure the coordinates for table %s';  //to translate
 $strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
+$strDisplayPDF = 'Display PDF schema';  //to translate
 ?>
