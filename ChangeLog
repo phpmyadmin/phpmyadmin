@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_qbe.php3: show upper links
+
 2002-06-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/config_import.lib.php3, libraries/common.lib.php3:
       Backwards compatibility for config files < rev. 1.113.
