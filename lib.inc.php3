@@ -95,7 +95,9 @@ if (!defined('__LIB_INC__')){
     }
  
     // defines wants to connect mysql, and at this place there are no connexion yet...
-    // include('./defines.inc.php3');
+    $nomysql = 1;
+    include('./defines.inc.php3');
+    $nomysql = 0;
 
 
 

@@ -46,6 +46,8 @@ if (!defined('PMA_WINDOWS')) {
     }
 }
 
+if (!$nomysql) {  // small hack (temporary)
+
 // MySQL Version
 if (!defined('MYSQL_MAJOR_VERSION')) {
     if (!empty($server)) {
@@ -67,5 +69,7 @@ if (!defined('MYSQL_MAJOR_VERSION')) {
         define('MYSQL_MAJOR_VERSION', 3.21);
         define('MYSQL_MINOR_VERSION', 0);
     } // end if
+}
+
 }
 ?>
