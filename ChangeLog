@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-15  Marc Delisle  <lem9@users.sourceforge.net>
+        * support key length in table copy/dump
+
 2001-05-15  Armel Fauveau  <armel.fauveau@globalis-ms.com>
     * Added "Bookmarked SQL-query" combo box when you click on a table (Feature #423065)
 

@@ -451,6 +451,8 @@ function get_table_def($db, $table, $crlf)
     {
 	$kname=$row['Key_name'];
         $comment=$row['Comment'];
+        $sub_part=$row['Sub_part'];
+
         if(($kname != "PRIMARY") && ($row['Non_unique'] == 0))
             $kname="UNIQUE|$kname";
 
@@ -458,6 +460,10 @@ function get_table_def($db, $table, $crlf)
             $kname="FULLTEXT|$kname";
          if(!isset($index[$kname]))
              $index[$kname] = array();
+
+        if ($sub_part>1)
+         $index[$kname][] = $row['Column_name'] . "(" . $sub_part . ")";
+        else
          $index[$kname][] = $row['Column_name'];
     }
 
