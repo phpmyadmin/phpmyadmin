@@ -1,5 +1,7 @@
 <?php
 /* $Id$ */
+// vim: expandtab sw=4 ts=4 sts=4 foldmarker={,} fdm=marker:
+
 
 /**
  * This test script checks all the language files to ensure there is no errors

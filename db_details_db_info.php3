@@ -1,6 +1,6 @@
 <?php
 /* $Id$ */
-
+// vim: expandtab sw=4 ts=4 sts=4:
 
 /**
  * Gets the list of the table in the current db and informations about these

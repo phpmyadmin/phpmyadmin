@@ -1,5 +1,6 @@
 <?php
 /* $Id$ */
+// vim: expandtab sw=4 ts=4 sts=4:
 
 // this should be recoded as functions, to avoid messing with global
 // variables

@@ -8,7 +8,8 @@ $Source$
 
 2002-10-22 Robin Johnson  <robbat2@users.sourceforge.net>
     * user_password.php3: From Patch #625703.
-    * Changelog: Added VIM modelines for filetype and folding.
+    * Changelog: Added VIM modelines for filetype, folding and indentation
+    * `find -name '*.php3'`: Added vim modelines for PEAR style indentation
 
 2002-10-22 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3: undefined variable, fix thanks to 

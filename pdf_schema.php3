@@ -1,5 +1,7 @@
 <?php
 /* $Id$ */
+// vim: expandtab sw=4 ts=4 sts=4:
+
 
 /**
  * Contributed by Maxime Delorme and merged by lem9

@@ -1,6 +1,6 @@
 <?php
 /* $Id$ */
-
+// vim: expandtab sw=4 ts=4 sts=4:
 
 // In this file you may add PHP or HTML statements that will be used to define
 // the footer for phpMyAdmin pages.
