@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-11  Olivier Müller  <om@omnis.ch>
+	* lang/*: added $strSelectAll / $strUnselectAll, used in db_details.php3
+
 2002-01-10  Marc Delisle  <lem9@users.sourceforge.net>
         * lang/slovak-iso updates, thanks to Lubos Klokner
         * lang/finnish updates, thanks to Visa Kopu

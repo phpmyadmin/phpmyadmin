@@ -342,4 +342,6 @@ $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
 
+$strSelectAll = 'Select All';  //to translate
+$strUnselectAll = 'Unselect All';  //to translate
 ?>

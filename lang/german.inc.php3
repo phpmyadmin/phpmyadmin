@@ -170,6 +170,7 @@ $strLines = 'Zeilen';
 $strLinesTerminatedBy = 'Zeilen getrennt mit';
 $strLocationTextfile = 'Datei';
 $strLogout = 'Neu einloggen';
+$strLogPassword = 'Kennwort:';
 
 $strModifications = 'Änderungen gespeichert.';
 $strModify = 'Verändern';
@@ -264,6 +265,7 @@ $strRunSQLQuery = 'SQL-Befehl(e) ausführen in Datenbank %s';
 
 $strSave = 'Speichern';
 $strSelect = 'Teilw. anzeigen';
+$strSelectAll = 'Alle auswählen';  
 $strSelectFields = 'Felder auswählen (mind. eines):';
 $strSelectNumRows = 'in der Abfrage';
 $strSend = 'Senden';
@@ -311,6 +313,7 @@ $strType = 'Typ';
 
 $strUncheckAll = 'Auswahl entfernen';
 $strUnique = 'Unique';
+$strUnselectAll = 'Auswahl entfernen'; 
 $strUpdatePrivMessage = 'Die Rechte wurden geändert %s.';
 $strUpdateProfile = 'Benutzer ändern:';
 $strUpdateProfileMessage = 'Benutzer wurde geändert.';
@@ -339,7 +342,6 @@ $strZip = '"Zip komprimiert"';
 $strCardinality = 'Cardinality';
 $strCookiesRequired = 'Cookies must be enabled past this point.';
 $strLogin = 'Login';
-$strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';

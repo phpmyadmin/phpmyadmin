@@ -349,4 +349,6 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b
 $strRowsModeVertical=" vertical ";  //to translate
 $strRowsModeHorizontal=" horizontal ";  //to translate
 $strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
+$strSelectAll = 'Select All';  //to translate
+$strUnselectAll = 'Unselect All';  //to translate
 ?>

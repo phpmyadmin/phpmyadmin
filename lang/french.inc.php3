@@ -269,6 +269,7 @@ $strRunSQLQuery = 'Exécuter une ou des <b>requêtes</b> sur la base %s';
 
 $strSave = 'Sauvegarder';
 $strSelect = 'Sélectionner';
+$strSelectAll = 'Tout sélectionner';
 $strSelectFields = 'Choisir les champs à afficher (au moins un)';
 $strSelectNumRows = 'dans la requête';
 $strSend = 'Transmettre';
@@ -318,6 +319,7 @@ $strType = 'Type';
 
 $strUncheckAll = 'Tout décocher';
 $strUnique = 'Unique';
+$strUnselectAll = 'Tout déselectionner'; 
 $strUpdatePrivMessage = 'Vous avez modifié les privilèges pour %s.';
 $strUpdateProfile = 'Modifier le profil :';
 $strUpdateProfileMessage = 'Le profil a été modifié.';

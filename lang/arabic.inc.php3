@@ -348,4 +348,6 @@ $strLogUsername = 'Username:';
 $strRowsModeVertical=" vertical ";  //to translate
 $strRowsModeHorizontal=" horizontal ";  //to translate
 $strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
+$strSelectAll = 'Select All';  //to translate
+$strUnselectAll = 'Unselect All';  //to translate
 ?>

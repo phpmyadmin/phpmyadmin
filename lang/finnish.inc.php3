@@ -348,4 +348,6 @@ $strZip = '"zip-pakattu"';
 
 // To translate
 
+$strSelectAll = 'Select All';  //to translate
+$strUnselectAll = 'Unselect All';  //to translate
 ?>

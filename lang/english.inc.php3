@@ -269,6 +269,7 @@ $strRunSQLQuery = 'Run SQL query/queries on database %s';
 
 $strSave = 'Save';
 $strSelect = 'Select';
+$strSelectAll = 'Select All';  
 $strSelectFields = 'Select fields (at least one):';
 $strSelectNumRows = 'in query';
 $strSend = 'Save as file';
@@ -318,6 +319,7 @@ $strType = 'Type';
 
 $strUncheckAll = 'Uncheck All';
 $strUnique = 'Unique';
+$strUnselectAll = 'Unselect All'; 
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';
 $strUpdateProfile = 'Update profile:';
 $strUpdateProfileMessage = 'The profile has been updated.';

@@ -613,9 +613,9 @@ if ($num_tables > 0) {
         echo "\n";
     ?>
                 <br />
-                <a href="<?php echo $checkall_url; ?>&amp;selectall=1#dumpdb" onclick="setSelectOptions('db_dump', 'table_select[]', true); return false;"><?php echo $strCheckAll; ?></a>
+                <a href="<?php echo $checkall_url; ?>&amp;selectall=1#dumpdb" onclick="setSelectOptions('db_dump', 'table_select[]', true); return false;"><?php echo $strSelectAll; ?></a>
                 &nbsp;/&nbsp;
-                <a href="<?php echo $checkall_url; ?>#dumpdb" onclick="setSelectOptions('db_dump', 'table_select[]', false); return false;"><?php echo $strUncheckAll; ?></a>
+                <a href="<?php echo $checkall_url; ?>#dumpdb" onclick="setSelectOptions('db_dump', 'table_select[]', false); return false;"><?php echo $strUnselectAll; ?></a>
     <?php
     }  // end if
     echo "\n";

@@ -347,4 +347,6 @@ $strZip = '"zo zipované"';
 
 // To translate
 
+$strSelectAll = 'Select All';  //to translate
+$strUnselectAll = 'Unselect All';  //to translate
 ?>
