@@ -7,6 +7,11 @@ $Source$
 
 2003-02-03 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.4.0-rc1 released
+    and after the release:
+    * lang/romanian: update, thanks to Valics Lehel
+    * lang/spanish: update, thanks to Daniel Hinostroza C.
+    * lang/catalan: update, thanks to Xavier Navarro
+    * lang/dutch update, thanks to Ivo Teel
 
 2003-02-02 Olivier L. Müller  <om@omnis.ch>
     * tbl_addfield.php3: ignore empty fields on alter table
