@@ -189,6 +189,7 @@ $strIndexes = 'Indizes';
 $strIndexHasBeenDropped = 'Index %s wurde entfernt.';
 $strIndexName = 'Index Name&nbsp;:';
 $strIndexType = 'Index Typ&nbsp;:';
+$strInsecureMySQL = 'Ihre Konfigurationsdatei enthält Einstellungen (Benutzer &quot;root&quot; ohne Passwort), welche denen des MySQL-Stardardbenutzers entsprechen. Wird Ihr MySQL-Server mit diesen Einstellungen betrieben, so können Unbefugte leicht von außen auf ihn zugreifen. Sie sollten diese Sicherheitslücke unbedingt schließen!';
 $strInsert = 'Einfügen';
 $strInsertAsNewRow = ' Als neuen Datensatz speichern ';
 $strInsertedRows = 'Eingefügte Zeilen:';
@@ -431,5 +432,4 @@ $strYes = 'Ja';
 $strZip = 'Zip-komprimiert';
 // To translate
 
-$strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';  //to translate
 ?>
