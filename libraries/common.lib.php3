@@ -448,9 +448,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     {
         global $font_size, $font_biggest, $font_bigger, $font_smaller, $font_smallest;
 
-        // IE (<6)/Opera for win case: needs smaller fonts than anyone else
+        // IE (<6)/Opera (<7) for win case: needs smaller fonts than anyone else
         if (PMA_USR_OS == 'Win'
-            && ((PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 6) || PMA_USR_BROWSER_AGENT == 'OPERA')) {
+            && ((PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 6)
+            || (PMA_USR_BROWSER_AGENT == 'OPERA' && PMA_USR_BROWSER_VER < 7))) {
             $font_size     = 'x-small';
             $font_biggest  = 'large';
             $font_bigger   = 'medium';

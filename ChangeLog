@@ -6,8 +6,10 @@ $Id$
 $Source$
 
 2003-02-04 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * common.lib.php3: Patch #669255 (Initial DB list for MySQL > 4.0.2), thanks
-      to Charles Bailey (charles_bailey).
+    * common.lib.php3:
+      - Patch #669255 (Initial DB list for MySQL > 4.0.2), thanks to Charles
+        Bailey (charles_bailey);
+      - Don't use small fonts for Opera 7.
     * ldi_check.php3: Backslahes should be escaped.
     * Documentation.html: Added a note about Opera 7.
 
