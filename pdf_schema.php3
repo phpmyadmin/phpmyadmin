@@ -1137,6 +1137,7 @@ class PMA_RT
             $alltables[] = PMA_sqlAddslashes($curr_table['table_name']);
             $intable     = '\'' . implode('\', \'', $alltables) . '\'';
         }
+
         //              make doc                    //
         if ($with_doc) {
             $pdf->SetAutoPageBreak('auto',15);
@@ -1187,29 +1188,47 @@ class PMA_RT
         $pdf->PMA_PDF_setFontSizeScale(14);
 
 
-                                /* start snip */
+//        $sql    = 'SELECT * FROM ' . PMA_backquote($cfgRelation['relation'])
+//                .   ' WHERE master_db   = \'' . PMA_sqlAddslashes($db) . '\' '
+//                .   ' AND foreign_db    = \'' . PMA_sqlAddslashes($db) . '\' '
+//                .   ' AND master_table  IN (' . $intable . ')'
+//                .   ' AND foreign_table IN (' . $intable . ')';
+//        $result =  PMA_query_as_cu($sql);
+//
+// lem9: 
+// previous logic was checking master tables and foreign tables
+// but I think that looping on every table of the pdf page as a master
+// and finding its foreigns is OK (then we can support innodb)
 
-        $sql    = 'SELECT * FROM ' . PMA_backquote($cfgRelation['relation'])
-                .   ' WHERE master_db   = \'' . PMA_sqlAddslashes($db) . '\' '
-                .   ' AND foreign_db    = \'' . PMA_sqlAddslashes($db) . '\' '
-                .   ' AND master_table  IN (' . $intable . ')'
-                .   ' AND foreign_table IN (' . $intable . ')';
-        $result =  PMA_query_as_cu($sql);
+        $seen_a_relation = FALSE;
+        reset($alltables);
+        while (list(,$one_table) = each($alltables)) {
+
+            $exist_rel = PMA_getForeigners($db, $one_table, '', 'both');
+            if ($exist_rel) {
+                $seen_a_relation = TRUE;
+                while (list($master_field,$rel) = each($exist_rel)) {
+                    $this->PMA_RT_addRelation($one_table , $master_field, $rel['foreign_table'], $rel['foreign_field']);
+
+                } // end while
+            } // end if
+        } // end while
 
         // loic1: also show tables without relations
-        $norelations     = TRUE;
-        if ($result && mysql_num_rows($result) > 0) {
-            $norelations = FALSE;
-            while ($row = PMA_mysql_fetch_array($result)) {
-                $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
-            }
-        }
+//        $norelations     = TRUE;
+//        if ($result && mysql_num_rows($result) > 0) {
+//            $norelations = FALSE;
+//            while ($row = PMA_mysql_fetch_array($result)) {
+//                $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
+//            }
+//        }
 
-                                /* end snip */
 
-        if ($norelations == FALSE) {
+//        if ($norelations == FALSE) {
+        if ($seen_a_relation) {
             $this->PMA_RT_drawRelations($change_color);
         }
+
         $this->PMA_RT_drawTables($show_info);
 
         $this->PMA_RT_showRt();
