@@ -272,7 +272,7 @@ $strBinary=" Bin&auml;r ";
 $strBinaryDoNotEdit=" Bin&auml;r - nicht editierbar !";
 $strEnglishPrivileges=" Anmerkung: MySQL Rechtename werden in Englisch angegeben ";
 $strNotNumber = "Das ist keine Zahl!";
-$strNotValidNumber = " ist keine g&uuml;ltige Zeilennummer!";
+$strNotValidNumber = " ist keine gültige Zeilennummer!"; // do not html quote
 
 // export Zip (July 07, 2001, 19:48am)
 $strBzip = "\"BZip komprimiert\"";
@@ -281,8 +281,8 @@ $strOffSet = "Offset";
 $strNbRecords = "Datens&auml;tze";
 $strRowSize = "Zeilengr&ouml;&szlig;e";
 $strShowThisQuery = "SQL Befehl hier wieder anzeigen";
-$strUseBackquotes=" Tabellen- und Feldnamen in einfachen Anführungszeichen  ";  //to translate
-$strQueryOnDb=" SQL-query on database ";  //to translate
+$strUseBackquotes=" Tabellen- und Feldnamen in einfachen Anführungszeichen  ";
+$strQueryOnDb=" SQL-query on database ";  //to translate (tbl_qbe.php3)
 $strFieldsEmpty=" Sie müssen angeben wieviele Felder die Tabelle haben soll! ";
-$strAffectedRows=" Rows affected: ";  //to translate
+$strAffectedRows=" Betroffene Datens&auml;tze: ";
 ?>
