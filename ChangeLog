@@ -13,6 +13,8 @@ $Source$
 	  screen to be confirmed.
 	* ldi_check.php3, lines 34-44: Fixed a slashes bug thanks to
 	  Dan Allen <bigredlinux@yahoo.com>.
+	* grab_globals.inc.php3, lines 14 & 18: Use the 'extract()' function if
+	  possible.
 
 2001-08-14  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3; db_readdump.php3, lines 85-88: Fixed some coding style
