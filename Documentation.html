@@ -1182,7 +1182,7 @@
     is limited by the system administrator, and time limit is enforced.
 </p>
 
-<h3>[ISPs]</h3>
+<h3>[ISPs, multi-user installations ]</h3>
 <p>
     <b>I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to
     install it for each customer?</b>
@@ -1250,7 +1250,21 @@
         phpMyAdmin's authentication, so remove it.
     </li>
 </ul>
+</p>
 
+<p>
+    <b>Is it possible to let users create their own databases?</b>
+    <br />
+    Yes, but currently (phpMyAdmin 2.2.4) there is no visual way
+    to do this in our user management page. For example, let's say users
+    should be able to create databases with a name starting like their
+    username, type this in a query box:
+    </br>
+    </br>
+
+    <tt>GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER
+        ON `username%`.* TO 'username'@localhost;</tt>
+</p>
 
 <h3>[Browsers or client OS]</h3>
 <p>

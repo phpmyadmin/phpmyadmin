@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-27 Marc Delisle  <lem9@users.sourceforge.net>
+	* Documentation.html: new faq about letting users create their dbs
+
 2002-02-27 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3, lines 146-164: back to previous version.
 	* db_stats, lines 227.243: "SHOW TABLE STATUS" requires MySQL 3.23.03+.
