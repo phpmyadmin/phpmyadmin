@@ -568,6 +568,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 $d_next       = '';
                 $d_next_upper = '';
               }
+
+              //DEBUG echo "[prev: <b>".$d_prev."</b> ".$t_prev."][cur: <b>".$d_cur."</b> ".$t_cur."][next: <b>".$d_next."</b> ".$t_next."]<br>"; 
+
               if ($t_cur == 'alpha') {
                 $t_suffix     = '_identifier';
                 if (($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
@@ -577,17 +580,29 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                   $t_suffix = '_functionName';
                 } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_type, $PMA_SQPdata_column_type_cnt))  {
                   $t_suffix = '_columnType';
-                      // Temporary fix for BUG #621357
+
+                  // Temporary fix for BUG #621357
                   //TODO FIX PROPERLY NEEDS OVERHAUL OF SQL TOKENIZER
                   if ($d_cur_upper == 'SET' && $t_next != 'punct_bracket_open_round') {
                     $t_suffix = '_reservedWord';
                   }
                   //END OF TEMPORARY FIX
+
                   // CHARACTER is a synonym for CHAR, but can also be meant as
                   // CHARACTER SET. In this case, we have a reserved word.
                   if ($d_cur_upper == 'CHARACTER' && $d_next_upper == 'SET') {
                     $t_suffix = '_reservedWord';
                   }
+
+                  // experimental
+                  // current is a column type, so previous must not be
+                  // a reserved word but an identifier
+                  // CREATE TABLE SG_Persons (first varchar(64))
+
+                  //if ($sql_array[$i-1]['type'] =='alpha_reservedWord') {
+                  //    $sql_array[$i-1]['type'] = 'alpha_identifier';
+                  //}
+
                 } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_reserved_word, $PMA_SQPdata_reserved_word_cnt)) {
                   $t_suffix = '_reservedWord';
                 } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_attrib, $PMA_SQPdata_column_attrib_cnt)) {
