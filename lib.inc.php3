@@ -1675,7 +1675,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                         $row[$j]     = ereg_replace("\015(\012)?", "\012", $row[$j]);                          
                         $re_test     = "$enc_by|$sep|\012";
                     } else {
-                        $re_test     = "[$enc_by$sep]";
+                        $re_test     = "[$enc_by$sep]|" . $GLOBALS['add_character'];
                     }
                     if (ereg($re_test, $row[$j])) {
                         $row[$j] = $enc_by . str_replace($enc_by, $enc_by . $enc_by, $row[$j]) . $enc_by;

@@ -45,20 +45,6 @@ function my_csvhandler($sql_insert)
     global $add_character;
     global $tmp_buffer;
 
-    // Handles the EOL character
-    if ($GLOBALS['what'] == 'excel') {
-        $add_character = "\r\n";
-    } else if (empty($add_character)) {
-        $add_character = $GLOBALS['crlf'];
-    } else {
-        if (get_magic_quotes_gpc()) {
-            $add_character = stripslashes($add_character);
-        }
-        $add_character = str_replace('\\r', "\015", $add_character);
-        $add_character = str_replace('\\n', "\012", $add_character);
-        $add_character = str_replace('\\t', "\011", $add_character);
-    } // end if
-
     // Result will be displays on screen
     if (empty($GLOBALS['asfile'])) {
         $tmp_buffer .= htmlspecialchars($sql_insert) . $add_character;
@@ -219,6 +205,20 @@ else {
 
     // 'csv' case
     else {
+        // Handles the EOL character
+        if ($GLOBALS['what'] == 'excel') {
+            $add_character = "\015\012";
+        } else if (empty($add_character)) {
+            $add_character = $GLOBALS['crlf'];
+        } else {
+            if (get_magic_quotes_gpc()) {
+                $add_character = stripslashes($add_character);
+            }
+            $add_character = str_replace('\\r', "\015", $add_character);
+            $add_character = str_replace('\\n', "\012", $add_character);
+            $add_character = str_replace('\\t', "\011", $add_character);
+        } // end if
+
         $tmp_buffer = '';
         get_table_csv($db, $table, $limit_from, $limit_to, $separator, $enclosed, 'my_csvhandler');
         $dump_buffer .= $tmp_buffer;

@@ -9,6 +9,8 @@ $Source$
 	* sql.php3: fixed a syntax error (is_defined is not a function).
 	* lib.inc.php3: beautify a but the design of the table in browse mode.
 	* lang/english.inc.inc.php3: fixed a typo.
+	* tbl_dump.php3; lib.inc.php3: if a field value contains the
+	  "end of record" sequence, enclosed it.
 
 2001-08-21  Olivier Müller  <om@omnis.ch>
 	* db_stats.php3: added list of 20 biggest db's.
