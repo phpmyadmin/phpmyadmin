@@ -32,6 +32,7 @@ $Source$
 	* badwords.txt; db_create.php3; lib.inc.php3; db_create.php3;
 	  tbl_addfield.php3; tbl_alter.php3; lan/*: added patch #455752 - Check
 	  forbidden words thanks to Dell'Aiera Pol & Olivier Blin.
+	* defines.inc.php3; Documentation.html: let's start 2.2.1-dev :)
 
 2001-08-31  Olivier Müller  <om@omnis.ch>
 	* releasing phpMyAdmin 2.2.0-final
