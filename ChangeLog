@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-10 Garvin Hicking <me@supergarv.de>
+    * libraries/display_tbl.lib.php3: Let the default function take
+      the honor to replace special strings, so that a non-default function
+      does not necessary have them introduced. Very convenient for the
+      text/plain->formatted display, which would otherwise get every
+      CR/LF converted to a <br> and introduce nasty skew.
+
 2003-07-10 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3: do not display a foreign table if it's not selected
       by user to be on the schema

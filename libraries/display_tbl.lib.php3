@@ -1085,7 +1085,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 }
 
                 // garvin: Wrap MIME-transformations. [MIME]
-                $default_function = 'htmlspecialchars'; // default_function
+                $default_function = 'default_function'; // default_function
                 $transform_function = $default_function;
                 $transform_options = array();
 
@@ -1214,8 +1214,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             // loic1: displays all space characters, 4 space
                             // characters for tabulations and <cr>/<lf>
                             $row[$pointer]     = ($default_function != $transform_function ? $transform_function($row[$pointer], $transform_options) : $default_function($row[$pointer]));
-                            $row[$pointer]     = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
-                            $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
 
                             $vertical_display['data'][$row_no][$i] = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '">' . $row[$pointer] . '</td>' . "\n";
                         } else {
@@ -1250,8 +1248,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         // characters for tabulations and <cr>/<lf>
                         else {
                             $row[$pointer]     = ($default_function != $transform_function ? $transform_function($row[$pointer], $transform_options) : $default_function($row[$pointer]));
-                            $row[$pointer]     = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
-                            $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
                         }
 
                         // garvin: transform functions may enable nowrapping:
@@ -1674,5 +1670,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         }
     } // end of the 'PMA_displayTable()' function
 
+    function default_function($buffer) {
+        $buffer = htmlspecialchars($buffer);
+        $buffer = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $buffer));
+        $buffer = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $buffer);
+        
+        return $buffer;
+    }
 } // $__PMA_DISPLAY_TBL_LIB__
 ?>
