@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/auth/config.auth.lib.php3, lang/*.php3:
+      $strAccessDeniedExplanation
+
 2003-07-05 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
     

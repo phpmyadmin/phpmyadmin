@@ -54,7 +54,7 @@ if (!defined('PMA_CONFIG_AUTH_INCLUDED')) {
      * User is not allowed to login to MySQL -> authentication failed
      *
      * @global  string    the MySQL error message PHP returns
-     * @global  string    the connection type (persitent or not)
+     * @global  string    the connection type (persistent or not)
      * @global  string    the MySQL server port to use
      * @global  string    the MySQL socket port to use
      * @global  array     the current server settings
@@ -74,7 +74,6 @@ if (!defined('PMA_CONFIG_AUTH_INCLUDED')) {
         global $connect_func, $server_port, $server_socket, $cfg;
         global $right_font_family, $font_size, $font_bigger;
         global $is_header_sent;
-
         if (PMA_mysql_error()) {
             $conn_error = PMA_mysql_error();
         } else if (isset($php_errormsg)) {
@@ -119,10 +118,11 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
         <?php
         echo "\n";
         $is_header_sent = TRUE;
+        echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
         PMA_mysqlDie($conn_error, $local_query, FALSE);
 
         return TRUE;
-    } // end of the 'PMA_auth()' function
+    } // end of the 'PMA_auth_fails()' function
 
 } // $__PMA_CONFIG_AUTH_LIB__
 ?>
