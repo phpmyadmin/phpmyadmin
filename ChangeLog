@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-12-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/norwegian: Update, thanks to Sven-Erik Andersen
+    * lang/latvian: Updated, thanks to Sandis Jerics (saaa2002).
+
 2004-12-30 Michal Čihař  <michal@cihar.com>
     * libraries/fpdf/ufpdf.php: Fix some warnings.
 
