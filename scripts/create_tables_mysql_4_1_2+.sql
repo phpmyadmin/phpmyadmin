@@ -2,10 +2,10 @@
 -- SQL Commands to set up the pmadb as described in Documentation.html.
 --
 -- This file is meant for use with MySQL 4.1.2 and above!
--- For older MySQL releases, please use create_tables.old.sql
+-- For older MySQL releases, please use create_tables.sql
 --
 -- If you are running one MySQL 4.1.0 or 4.1.1, please create the tables using
--- create_tables.old.sql and upgrade their collation settings according to our
+-- create_tables.sql and upgrade their collation settings according to our
 -- manual.
 --                                                 
 -- This script expects the user pma to already be existing. If we would put a

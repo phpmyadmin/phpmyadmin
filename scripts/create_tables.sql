@@ -2,7 +2,7 @@
 -- SQL Commands to set up the pmadb as described in Documentation.html.
 -- 
 -- DON'T RUN THIS SCRIPT ON MySQL 4.1.2 AND ABOVE!
--- Instead, please run create_tables.sql.
+-- Instead, please run create_tables_mysql_4_1_2+.sql.
 --                                                 
 -- This script expects the user pma to already be existing. If we would put a
 -- line here to create him too many users might just use this script and end
