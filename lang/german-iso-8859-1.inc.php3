@@ -148,7 +148,7 @@ $strEnglishPrivileges = ' Anmerkung: MySQL-Rechte werden auf Englisch angegeben.
 $strError = 'Fehler';
 $strExplain = 'SQL erklären';
 $strExport = 'Exportieren';
-$strExportToXML = 'Ins XML-Fromat exportieren';
+$strExportToXML = 'Ins XML-Format exportieren';
 $strExtendedInserts = 'Erweiterte \'INSERT\'s';
 $strExtra = 'Extra';
 

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-10 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german-*.inc.php3: Fixed a typo.
+
 2002-11-08 Robin Johnson  <robbat2@users.sourceforge.net>
     * config.inc.php3 sql.php3 tbl_move_copy.php3 libraries/common.lib.php3
       libraries/sqlparser.lib.php3: Committed Marc's patches to the SQL parser
