@@ -26,6 +26,7 @@ $strAccessDenied = 'Accès refusé';
 $strAccessDeniedExplanation = 'phpMyAdmin a tenté de se connecter au serveur MySQL, et le serveur a rejeté la connexion. Veuillez vérifier les valeurs de "host", "username" et "password" dans config.inc.php et vous assurer qu\'elles correspondent aux informations fournies par l\'administrateur du serveur MySQL.';
 $strAction = 'Action';
 $strAddAutoIncrement = 'Inclure la valeur courante de l\'AUTO_INCREMENT';
+$strAddConstraints = 'Inclure les contraintes de clés étrangères';
 $strAddDeleteColumn = 'Ajouter/effacer x colonne(s)';
 $strAddDeleteRow = 'Ajouter/effacer x ligne(s)';
 $strAddDropDatabase = 'Ajouter DROP DATABASE';
@@ -718,5 +719,4 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-$strAddConstraints = 'Add constraints';  //to translate
 ?>
