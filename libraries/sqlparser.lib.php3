@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /** SQL Parser Functions for phpMyAdmin
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
@@ -573,6 +572,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         );
         $subresult_empty = $subresult;
         $seek_queryend   = FALSE;
+        $seen_end_of_table_ref = FALSE;
 
 /* Description of analyzer results
  *
@@ -612,6 +612,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 //            'LOCK IN SHARE MODE',
 //            'ORDER BY',
 //            'PROCEDURE',
+//            'UNION',
 //            'WHERE'
 //        );
         $words_ending_table_ref = array(
@@ -622,9 +623,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             'LOCK',
             'ORDER',
             'PROCEDURE',
+            'UNION',
             'WHERE'
         );
-        $words_ending_table_ref_cnt = count($words_ending_table_ref);
+        $words_ending_table_ref_cnt = 9; //count($words_ending_table_ref);
 
         // must be sorted
         $supported_query_types = array(
@@ -660,6 +662,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 } // end if (type == punct_queryend)
             } // end if ($seek_queryend)
 
+            // TODO: when we find a UNION, should we split
+            // in another subresult?
             if ($arr[$i]['type'] == 'punct_queryend') {
                 $result[]  = $subresult;
                 $subresult = $subresult_empty;
