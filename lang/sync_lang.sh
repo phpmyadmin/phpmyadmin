@@ -73,6 +73,7 @@ BASE_TRANSLATIONS=`cat <<EOT
 afrikaans-iso-8859-1
 albanian-iso-8859-1
 arabic-windows-1256
+azerbaijani-iso-8859-9
 brazilian_portuguese-iso-8859-1
 bulgarian-windows-1251
 catalan-iso-8859-1

@@ -54,6 +54,8 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
         'af-iso-8859-1'=> array('af|afrikaans', 'afrikaans-iso-8859-1', 'af'),
         'ar-utf-8'     => array('ar([-_][[:alpha:]]{2})?|arabic', 'arabic-utf-8', 'ar'),
         'ar-win1256'   => array('ar([-_][[:alpha:]]{2})?|arabic', 'arabic-windows-1256', 'ar'),
+        'az-utf-8'     => array('az|azerbaijani', 'azerbaijani-utf-8', 'az'),
+        'az-iso-8859-9'=> array('az|azerbaijani', 'azerbaijani-iso-8859-9', 'az'),
         'bg-utf-8'     => array('bg|bulgarian', 'bulgarian-utf-8', 'bg'),
         'bg-win1251'   => array('bg|bulgarian', 'bulgarian-windows-1251', 'bg'),
         'bg-koi8-r'    => array('bg|bulgarian', 'bulgarian-koi8-r', 'bg'),
