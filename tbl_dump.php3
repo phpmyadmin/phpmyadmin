@@ -20,6 +20,9 @@ else
 	include("./lib.inc.php3");
 	$ext = "sql";
 	if($what == "csv") $ext = "csv";
+    if(isset($gzip))
+        if($gzip == "gzip") $ext = "gz";
+
 	header('Content-Type: application/octetstream');
 	header('Content-Disposition: filename="' . $filename . '.' . $ext . '"');
 	header('Pragma: no-cache');
@@ -48,10 +51,12 @@ else
 function my_handler($sql_insert)
 {
 	global $crlf, $asfile;
+    global $tmp_buffer;
+
 	if(empty($asfile))
-		echo htmlspecialchars("$sql_insert;$crlf");
+		$tmp_buffer.= htmlspecialchars("$sql_insert;$crlf");
 	else
-		echo "$sql_insert;$crlf";
+		$tmp_buffer.= "$sql_insert;$crlf";
 }
 
 function my_csvhandler($sql_insert)
@@ -59,11 +64,15 @@ function my_csvhandler($sql_insert)
 	// 2001-05-07, Lem9: added $add_character
 
 	global $crlf, $add_character, $asfile;
+    global $tmp_buffer;
+
 	if(empty($asfile))
-		echo htmlspecialchars($sql_insert . $add_character . $crlf);
+		$tmp_buffer.= htmlspecialchars($sql_insert . $add_character . $crlf);
 	else
-		echo $sql_insert . $add_character . $crlf;
+		$tmp_buffer.= $sql_insert . $add_character . $crlf;
 }
+
+$dump_buffer="";
 
 if (!isset($table)){
 	$tables = mysql_list_tables($db);
@@ -81,18 +90,18 @@ else
 {
 	if($what != "csv") 
 	{
-		echo "# phpMyAdmin MySQL-Dump$crlf";
-		echo "# version ".PHPMYADMIN_VERSION."$crlf";
-		echo "# http://phpwizard.net/phpMyAdmin/$crlf";
-		echo "# http://phpmyadmin.sourceforge.net/ (download page)$crlf";
-		echo "#$crlf";
-		echo "# $strHost: ".$cfgServer['host'];
-		if(!empty($cfgServer['port'])) echo ":" . $cfgServer['port'];
-		echo $crlf;
-		echo "# $strGenTime: ".date("F j, Y, g:i a")."$crlf";
-		echo "# $strServerVersion: ".MYSQL_MAJOR_VERSION.".".MYSQL_MINOR_VERSION."$crlf";
-		echo "# $strPHPVersion: ".phpversion()."$crlf";
-		echo "# $strDatabase: $db$crlf";
+		$dump_buffer.= "# phpMyAdmin MySQL-Dump$crlf";
+		$dump_buffer.= "# version ".PHPMYADMIN_VERSION."$crlf";
+		$dump_buffer.= "# http://phpwizard.net/phpMyAdmin/$crlf";
+		$dump_buffer.= "# http://phpmyadmin.sourceforge.net/ (download page)$crlf";
+		$dump_buffer.= "#$crlf";
+		$dump_buffer.= "# $strHost: ".$cfgServer['host'];
+		if(!empty($cfgServer['port'])) $dump_buffer.= ":" . $cfgServer['port'];
+		$dump_buffer.= $crlf;
+		$dump_buffer.= "# $strGenTime: ".date("F j, Y, g:i a")."$crlf";
+		$dump_buffer.= "# $strServerVersion: ".MYSQL_MAJOR_VERSION.".".MYSQL_MINOR_VERSION."$crlf";
+		$dump_buffer.= "# $strPHPVersion: ".phpversion()."$crlf";
+		$dump_buffer.= "# $strDatabase: $db$crlf";
 
 		$i = 0;
 		if (isset($table_select)) {
@@ -109,32 +118,43 @@ else
 
 				if($what != "dataonly")
 				{
-					echo "# --------------------------------------------------------$crlf";
-					echo "$crlf#$crlf";
-					echo "# $strTableStructure '$table'$crlf";
-					echo "#$crlf$crlf";
+					$dump_buffer.= "# --------------------------------------------------------$crlf";
+					$dump_buffer.= "$crlf#$crlf";
+					$dump_buffer.= "# $strTableStructure '$table'$crlf";
+					$dump_buffer.= "#$crlf$crlf";
 
-					echo get_table_def($db, $table, $crlf).";$crlf";
+					get_table_def($db, $table, $crlf).";$crlf";
+                    $dump_buffer.=$tmp_buffer;
 				}
 
 				if(($what == "data") || ($what == "dataonly"))
 				{
-					echo "$crlf#$crlf";
-					echo "# $strDumpingData '$table'$crlf"; 
-					echo "#$crlf$crlf";
+					$dump_buffer.= "$crlf#$crlf";
+					$dump_buffer.= "# $strDumpingData '$table'$crlf"; 
+					$dump_buffer.= "#$crlf$crlf";
 
 					get_table_content($db, $table, "my_handler");
+                    $dump_buffer.=$tmp_buffer;
+
 				}
 				$i++;
 			}
 		}
-		echo "$crlf"; // Don't remove, it makes easier to select & copy from browser - staybyte
+        $dump_buffer.= "$crlf"; // Don't remove, it makes easier to select & copy from browser - staybyte
 	} 
 	else 
 	{ // $what != "csv"
 		get_table_csv($db, $table, $separator, "my_csvhandler");
+        $dump_buffer.=$tmp_buffer;
 	}
 }
+
+if(isset($gzip)) {
+    if($gzip == "gzip" && function_exists("gzencode"))
+        echo gzencode($dump_buffer); // without the optional parameter level because it bug
+}
+else
+    echo $dump_buffer;
 
 if(empty($asfile))
 {
