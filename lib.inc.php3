@@ -2,12 +2,45 @@
 /* $Id$ */
 
 require("./config.inc.php3");
-//if (isset($db)) {
-//  mysql_select_db($db);
-//}
 
-if(!defined("__LIB_INC__")) {
-  define("__LIB_INC__", 1);
+/* ---- DEFINE CONSTANTS ---- */
+
+if(!defined("__LIB_INC__")){
+	define("__LIB_INC__", 1);
+
+	define("PHPMYADMIN_VERSION", "2.3.0alpha-20010626"); // PHPMYADMIN VERSION STRING
+
+// to recognize windows systems and old php versions
+// set PHP_INT_VERSION to a 5-6 digit number (int)
+//		(eg: 30017 instead of 3.0.17 or 40006 instead of 4.0.6RC3)
+// an it set PHP_WINDOWS if PHP running on a Windows Server
+// because some php commands working different on windows or not stable
+	if (!ereg("([0-9]).([0-9]).([0-9])", phpversion(), $match))
+		$result=ereg("([0-9]).([0-9])",phpversion(),$match);
+	if (isset($match) && !empty($match[1])){
+		if (!isset($match[2])) $match[2]=0;
+		if (!isset($match[3])) $match[3]=0;
+		define ("PHP_INT_VERSION", (int)sprintf("%d%02d%02d",$match[1],$match[2],$match[3]));
+		unset ($match);
+	}
+	if (defined("PHP_OS") && eregi("win", PHP_OS)) define ("PHP_WINDOWS", true);
+	else define ("PHP_WINDOWS", false);
+
+// load the mysql extensions or not - staybyte - 26. June 2001
+	if (PHP_INT_VERSION >= 30010){
+		$suffix=(PHP_WINDOWS)?".dll":".so";
+		if (!extension_loaded("mysql")) @dl("mysql".$suffix);
+		if (!extension_loaded("mysql")){
+			echo $strCantLoadMySQL;
+		}
+	}
+
+	$result = mysql_query("SELECT VERSION() AS version") or mysql_die();
+	$row = mysql_fetch_array($result);
+	define("MYSQL_MAJOR_VERSION", substr($row["version"], 0, 4));
+	define("MYSQL_MINOR_VERSION", substr($row["version"], 5));
+
+/* ------------------------- */
 
 function show_table_navigation($pos_next, $pos_prev, $dt_result) {
   global $pos, $cfgMaxRows, $lang, $server, $db, $table, $sql_query; 
@@ -18,16 +51,14 @@ function show_table_navigation($pos_next, $pos_prev, $dt_result) {
      <!--  beginning of table navigation bar -->
      <table border=0><tr>
        <td>
-       <form method="post"
-	onsubmit="return <?php  echo ( $pos > 0 ? "true" : "false" ); ?>"
+       <form method="post" onsubmit="return <?php  echo ( $pos > 0 ? "true" : "false" ); ?>"
           action=<?php echo
           "\"sql.php3?server=$server&lang=$lang&db=$db&table=$table&sql_query=".urlencode($sql_query)."&sql_order=".urlencode($sql_order)."&pos=0&sessionMaxRows=$sessionMaxRows\"";?>
         ><input type="submit" value="<?php echo $strPos1 . " &lt;&lt;" ; ?>" >
         </form>
         </td>
         <td>
-        <form method="post" 
-	onsubmit="return <?php  echo ( $pos > 0 ? "true" : "false" ); ?>"
+        <form method="post" onsubmit="return <?php  echo ( $pos > 0 ? "true" : "false" ); ?>"
           action=<?php echo
           "\"sql.php3?server=$server&&lang=$lang&db=$db&table=$table&sql_query=".urlencode($sql_query)."&sql_order=".urlencode($sql_order)."&pos=$pos_prev&sessionMaxRows=$sessionMaxRows\"";?>
         ><input type="submit" value="<?php echo $strPrevious ." &lt;" ; ?>"  >
@@ -276,13 +307,6 @@ if($server == 0) {
   } else {
     $link = $connect_func($cfgServer['host'].":".$cfgServer['port'], $cfgServer['user'], $cfgServer['password']) or mysql_die();
   }
-
-  $result = mysql_query("SELECT VERSION() AS version") or mysql_die();
-  $row = mysql_fetch_array($result);
-  define("MYSQL_MAJOR_VERSION", substr($row["version"], 0, 4));
-  //BEGIN - Additional Version Info - 2 May 2001 - Robbat2
-  define("MYSQL_MINOR_VERSION", substr($row["version"], 5)); //skip the .
-  //END - Additional Version Info - 2 May 2001 - Robbat2
 }
 else{
 	echo $strHostEmpty;
