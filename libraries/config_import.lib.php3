@@ -613,6 +613,105 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         }
     }
 
+    if (!isset($cfg['HeaderFlipType'])) {
+        if (isset($cfgHeaderFlipType)) {
+            $cfg['HeaderFlipType'] = $cfgHeaderFlipType;
+            unset($cfgHeaderFlipType);
+        } else {
+            $cfg['HeaderFlipType'] = 'css';
+        }
+    }
+
+    if (!isset($cfg['ShowBrowseComments'])) {
+        if (isset($cfgShowBrowseComments)) {
+            $cfg['ShowBrowseComments'] = $cfgShowBrowseComments;
+            unset($cfgShowBrowseComments);
+        } else {
+            $cfg['ShowBrowseComments'] = TRUE;
+        }
+    }
+
+    if (!isset($cfg['ShowPropertyComments'])) {
+        if (isset($cfgShowPropertyComments)) {
+            $cfg['ShowPropertyComments'] = $cfgShowPropertyComments;
+            unset($cfgShowPropertyComments);
+        } else {
+            $cfg['ShowPropertyComments'] = TRUE;
+        }
+    }
+
+    if (!isset($cfg['QueryFrame'])) {
+        if (isset($cfgQueryFrame)) {
+            $cfg['QueryFrame'] = $cfgQueryFrame;
+            unset($cfgQueryFrame);
+        } else {
+            $cfg['QueryFrame'] = TRUE;
+        }
+    }
+
+    if (!isset($cfg['QueryFrameJS'])) {
+        if (isset($cfgQueryFrameJS)) {
+            $cfg['QueryFrameJS'] = $cfgQueryFrameJS;
+            unset($cfgQueryFrameJS);
+        } else {
+            $cfg['QueryFrameJS'] = TRUE;
+        }
+    }
+
+    if (!isset($cfg['QueryFrameDebug'])) {
+        if (isset($cfgQueryFrameDebug)) {
+            $cfg['QueryFrameDebug'] = $cfgQueryFrameDebug;
+            unset($cfgQueryFrameDebug);
+        } else {
+            $cfg['QueryFrameDebug'] = FALSE;
+        }
+    }
+
+    if (!isset($cfg['QueryWindowWidth'])) {
+        if (isset($cfgQueryWindowWidth)) {
+            $cfg['QueryWindowWidth'] = $cfgQueryWindowWidth;
+            unset($cfgQueryWindowWidth);
+        } else {
+            $cfg['QueryWindowWidth'] = 750;
+        }
+    }
+
+    if (!isset($cfg['QueryWindowHeight'])) {
+        if (isset($cfgQueryWindowHeight)) {
+            $cfg['QueryWindowHeight'] = $cfgQueryWindowHeight;
+            unset($cfgQueryWindowHeight);
+        } else {
+            $cfg['QueryWindowHeight'] = 300;
+        }
+    }
+
+    if (!isset($cfg['BrowseMIME'])) {
+        if (isset($cfgBrowseMIME)) {
+            $cfg['BrowseMIME'] = $cfgBrowseMIME;
+            unset($cfgBrowseMIME);
+        } else {
+            $cfg['BrowseMIME'] = TRUE;
+        }
+    }
+
+    if (!isset($cfg['ShowTooltipAliasDB'])) {
+        if (isset($cfgShowTooltipAliasDB)) {
+            $cfg['ShowTooltipAliasDB'] = $cfgShowTooltipAliasDB;
+            unset($cfgShowTooltipAliasDB);
+        } else {
+            $cfg['ShowTooltipAliasDB'] = FALSE;
+        }
+    }
+
+    if (!isset($cfg['ShowTooltipAliasTB'])) {
+        if (isset($cfgShowTooltipAliasTB)) {
+            $cfg['ShowTooltipAliasTB'] = $cfgShowTooltipAliasTB;
+            unset($cfgShowTooltipAliasTB);
+        } else {
+            $cfg['ShowTooltipAliasTB'] = FALSE;
+        }
+    }
+
     if (!isset($cfg['SQLQuery']['Edit'])) {
         $cfg['SQLQuery']['Edit'] = TRUE;
     }

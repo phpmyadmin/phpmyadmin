@@ -380,7 +380,7 @@ $cfg['QueryFrameDebug']     = FALSE;        // display JS debugging link (DEVELO
 $cfg['QueryWindowWidth']     = 750;          // Width of Query window
 $cfg['QueryWindowHeight']    = 300;          // Height of Query window
  
-+$cfg['BrowseMIME']          = TRUE;         // Use MIME-Types (stored in column comments table) for
+$cfg['BrowseMIME']          = TRUE;         // Use MIME-Types (stored in column comments table) for
 
 /**
  * SQL Query box settings

@@ -42,8 +42,8 @@ $Source$
 
     * Display MIME types to transform any table cell. You can only choose from a
         list of pre-defined MIME-types. The list gets built by a function searching
-        a directory for valid transforms. For further information see README-file and soon
-        documentation. ;)
+        a directory for valid transforms. For further information see
+        libraries/transformations/README-file and soon in documentation. ;)
         Files: tbl_properties.inc.php3, transformations.lib.php3, relation.lib.php3,
         create_tables.sql, tbl_addfield.php3, tbl_alter.php3, tbl_create.php3,
         tbl_move_copy.php3, transformation_wrapper.php3,
