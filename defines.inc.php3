@@ -30,7 +30,7 @@ if (!defined('PHP_INT_VERSION')) {
         if (!isset($match[3])) {
             $match[3] = 0;
         }
-	    define('PHP_INT_VERSION', (int)sprintf('%d%02d%02d', $match[1], $match[2], $match[3]));
+        define('PHP_INT_VERSION', (int)sprintf('%d%02d%02d', $match[1], $match[2], $match[3]));
         unset($match);
     } else {
         define('PHP_INT_VERSION', FALSE);
@@ -68,5 +68,4 @@ if (!defined('MYSQL_MAJOR_VERSION') && isset($link)) {
         define('MYSQL_MINOR_VERSION', 0);
     } // end if
 }
-
 ?>
