@@ -8,6 +8,8 @@ $Source$
 2003-04-18 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: faq about double auth windows
     * lang/ukrainian: update, thanks to Markijan Baran
+    * tbl_relation.php3: bug 696215: can now choose all segments
+      of the primary key
 
 2003-04-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/ukrainian: update, thanks to Markijan Baran

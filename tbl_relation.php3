@@ -123,21 +123,27 @@ if ($cfgRelation['relwork']) {
             $fi_query = 'SHOW KEYS FROM ' . PMA_backquote($curr_table[0]);
             $fi_rs    = PMA_mysql_query($fi_query) or PMA_mysqlDie('', $fi_query, '', $err_url_0);
             if ($fi_rs && mysql_num_rows($fi_rs) > 0) {
+                $seen_a_primary=FALSE;
                 while ($curr_field = PMA_mysql_fetch_array($fi_rs)) {
                     if (isset($curr_field['Key_name']) && $curr_field['Key_name'] == 'PRIMARY') {
+                        $seen_a_primary=TRUE;
                         $field_full = $db . '.' .$curr_field['Table'] . '.' . $curr_field['Column_name'];
                         $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
-                        break;
-                    } else if (isset($curr_field['Non_unique']) && $curr_field['Non_unique'] == 0) {
+                        $selectboxall[$field_full] =  $field_v;
+                        // there could be more than one segment of the primary
+                        // so do not break
+
+                    } else if (isset($curr_field['Non_unique']) && $curr_field['Non_unique'] == 0 && $seen_a_primary==FALSE) {
                         // if we can't find a primary key we take any unique one
+                        // (in fact, we show all segments of unique keys
+                        //  and all unique keys)
                         $field_full = $db . '.' . $curr_field['Table'] . '.' . $curr_field['Column_name'];
                         $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
+                        $selectboxall[$field_full] =  $field_v;
                     } // end if
                 } // end while over keys
-                if (isset($field_full) && isset($field_v)) {
-                    $selectboxall[$field_full] =  $field_v;
-                }
             } // end if (mysql_num_rows)
+
         // Mike Beck - 24.07.02: i've been asked to add all keys of the
         // current table (see bug report #574851)
         }
