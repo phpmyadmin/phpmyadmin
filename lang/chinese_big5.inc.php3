@@ -226,6 +226,7 @@ $strPasswordEmpty = '請輸入密碼!';
 $strPasswordNotSame = '二次輸入的密碼不同!';
 $strPHPVersion = 'PHP版本';
 $strPmaDocumentation = 'phpMyAdmin 說明文件';
+$strPmaUriError = ' 必須設定 <tt>$cfgPmaAbsoluteUri</tt> 在設定檔內！';
 $strPos1 = '第一頁';
 $strPrevious = '前一頁';
 $strPrimary = '主鍵';
@@ -277,6 +278,7 @@ $strSelectAll = '全選';
 $strSelectFields = '選擇欄位 (至少一個)';
 $strSelectNumRows = '查詢中';
 $strSend = '下載儲存';
+$strSequence = '序列';
 $strServerChoice = '選擇伺服器';
 $strServerVersion = '資料庫版本';
 $strSetEnumVal = '如欄位格式是 "enum" 或 "set", 請使用以下的格式輸入: \'a\',\'b\',\'c\'...<br />如在數值上需要輸入反斜線 (\) 或單引號 (\') , 請再加上反斜線 (例如 \'\\\\xyz\' or \'a\\\'b\').';
@@ -348,5 +350,4 @@ $strYes = ' 是 ';
 $strZip = '"zipped"';
 
 // To translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>
