@@ -809,7 +809,7 @@ $strBufferPoolActivity = 'Buffer Pool Activity';  //to translate
 $strReadRequests = 'Read requests';  //to translate
 $strWriteRequests = 'Write requests';  //to translate
 $strBufferReadMisses = 'Read misses';  //to translate
-$strBufferWriteWaitTime = 'Total write wait time';  //to translate
 $strBufferReadMissesInPercent = 'Read misses in %';  //to translate
-$strAverageBufferWriteWaitTimePerRequest = '&oslash; write wait time per request';  //to translate
+$strBufferWriteWaits = 'Write waits';  //to translate
+$strBufferWriteWaitsInPercent = 'Write waits in %';  //to translate
 ?>

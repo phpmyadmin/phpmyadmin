@@ -67,7 +67,6 @@ $strAtEndOfTable = 'At End of Table';
 $strAttr = 'Attributes';
 $strAutodetect = 'Autodetect';
 $strAutomaticLayout = 'Automatic layout';
-$strAverageBufferWriteWaitTimePerRequest = '&oslash; write wait time per request';
 
 $strBack = 'Back';
 $strBaltic = 'Baltic';
@@ -96,7 +95,6 @@ $strBufferPool = 'Buffer Pool';
 $strBufferPoolUsage = 'Buffer Pool Usage';
 $strBufferReadMissesInPercent = 'Read misses in %';
 $strBufferReadMisses = 'Read misses';
-$strBufferWriteWaitTime = 'Total write wait time';
 $strBulgarian = 'Bulgarian';
 $strBusyPages = 'Busy pages';
 $strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.';
@@ -789,4 +787,6 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+$strBufferWriteWaits = 'Write waits';  //to translate
+$strBufferWriteWaitsInPercent = 'Write waits in %';  //to translate
 ?>
