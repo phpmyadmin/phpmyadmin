@@ -7,6 +7,7 @@ $Source$
 
 2002-02-05 Marc Delisle  <lem9@users.sourceforge.net>
 	* sql.php3, bug 463683 state tracking problem
+	* db_details.php3, drop-down for Check All actions
 
 2002-02-04 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_replace.php3, better correction for bug 508024

@@ -329,7 +329,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
     echo "\n";
     ?>
 <tr>
-    <td colspan="<?php echo (($cfgShowStats) ? '11' : '10'); ?>">
+    <td colspan="5">
         <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
             <?php echo $strCheckAll; ?></a>
@@ -337,19 +337,27 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
         <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('tablesForm', false); return false;">
             <?php echo $strUncheckAll; ?></a>
     </td>
-</tr>
-
-<tr>
-    <td colspan="<?php echo (($cfgShowStats) ? '11' : '10'); ?>">
+    <td colspan="5">
         <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
-        <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
-        &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
-        &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strPrintView; ?>" />
-        &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strOptimizeTable; ?>" />
+        <select name="submit_mult" dir="ltr" onchange="this.form.submit();"> 
+        <?php echo "\n";
+        echo '         <option value="' . $strWithChecked . '" selected="selected">' 
+           . $strWithChecked . '</option>';
+        echo "\n";
+        echo '         <option value="' . $strDrop . '" >' 
+           . $strDrop . '</option>';
+        echo "\n";
+        echo '         <option value="' . $strEmpty . '" >' 
+           . $strEmpty . '</option>';
+        echo "\n";
+        echo '         <option value="' . $strPrintView . '" >' 
+           . $strPrintView . '</option>';
+        echo "\n";
+        echo '         <option value="' . $strOptimizeTable . '" >' 
+           . $strOptimizeTable . '</option>';
+        echo "\n";
+        echo '       </select>';
+        echo "\n"; ?>
     </td>
 </tr>
 </table>
