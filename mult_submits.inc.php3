@@ -39,9 +39,9 @@ if (!empty($submit_mult)
                 break;
 
             case 'drop_tbl':
-                $full_query .= 'DROP TABLE '
+                $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
                             . backquote(htmlspecialchars(urldecode($selected[$i])))
-                            . ';<br />';
+                            . (($i == $selected_cnt - 1) ? ';<br />' : '');
                 break;
 
             case 'empty_tbl':
@@ -110,42 +110,32 @@ else if ((get_magic_quotes_gpc() && stripslashes($btnDrop) == $strYes)
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
             case 'drop_db':
-                $a_query = 'DROP DATABASE '
-                         . backquote(urldecode($selected[$i]));
-                $reload  = 1;
+                $a_query   = 'DROP DATABASE '
+                           . backquote(urldecode($selected[$i]));
+                $reload    = 1;
                 break;
 
             case 'drop_tbl':
-                $a_query = 'DROP TABLE '
-                         . backquote(urldecode($selected[$i]));
-                $reload  = 1;
+                $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ')
+                           . backquote(urldecode($selected[$i]))
+                           . (($i == $selected_cnt-1) ? ';' : '');
+                $reload    = 1;
                 break;
 
             case 'empty_tbl':
-                $a_query = 'DELETE FROM '
-                         . backquote(urldecode($selected[$i]));
+                $a_query   = 'DELETE FROM '
+                           . backquote(urldecode($selected[$i]));
                 break;
 
             case 'drop_fld':
-                if ($sql_query == '') {
-                    $sql_query .= 'ALTER TABLE '
-                               . backquote($table)
-                               . ' DROP '
-                               . backquote(urldecode($selected[$i]))
-                               . ',';
-                } else {
-                    $sql_query .= ' DROP '
-                               . backquote(urldecode($selected[$i]))
-                               . ',';
-                }
-                if ($i == $selected_cnt-1) {
-                    $sql_query = ereg_replace(',$', ';', $sql_query);
-                }
+                $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . backquote($table) : ',')
+                           . ' DROP ' . backquote(urldecode($selected[$i]))
+                           . (($i == $selected_cnt-1) ? ';' : '');
                 break;
         } // end switch
 
-        // All "drop field" statements will be run at once below
-        if ($query_type != 'drop_fld') {
+        // All "DROP TABLE" and "DROP FIELD" statements will be run at once below
+        if ($query_type != 'drop_tbl' && $query_type != 'drop_fld') {
             $sql_query .= $a_query . ';' . "\n";
 
             if ($query_type != 'drop_db') {
@@ -155,7 +145,7 @@ else if ((get_magic_quotes_gpc() && stripslashes($btnDrop) == $strYes)
         } // end if
     } // end for
 
-    if ($query_type == 'drop_fld') {
+    if ($query_type == 'drop_tbl' || $query_type == 'drop_fld') {
         mysql_select_db($db);
         $result = @mysql_query($sql_query) or mysql_die('', '', FALSE);
     }
