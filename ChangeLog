@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-16 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * header.inc.php3: Use include() instead of require().
+
 2002-07-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries: charset_conversion.lib.php3, common.lib.php3: bug 581577:
       a better if, because sometimes the test for PHP3 succeeds even
