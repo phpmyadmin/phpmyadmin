@@ -628,7 +628,6 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             'DELETE',
             'INSERT',
             'REPLACE',
-            'SELECT'
             'TRUNCATE',
             'UPDATE'
             'EXPLAIN',
