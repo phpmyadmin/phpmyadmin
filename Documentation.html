@@ -8,7 +8,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>phpMyAdmin 2.5.4-rc2 - Documentation</title>
+    <title>phpMyAdmin 2.5.5-dev - Documentation</title>
     <link rel="stylesheet" type="text/css" href="docs.css" />
 </head>
 
@@ -31,7 +31,7 @@
 <hr noshade="noshade" width="100%" />
 </div>
 
-<h1>phpMyAdmin 2.5.4-rc2 Documentation</h1>
+<h1>phpMyAdmin 2.5.5-dev Documentation</h1>
 
 
 <!-- TOP MENU -->
@@ -1088,7 +1088,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Defaults to TRUE.
         <br /><br />
     </dd>
-    
+
     <dt><b>$cfg['AllowArbitraryServer'] </b>boolean</dt>
     <dd>
         If enabled allows you to login to arbitrary server using cookie auth.
@@ -2519,7 +2519,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     AddType application/x-httpd-php .php
     </tt>
     <br /><br />
-    In the case we saw, one set of directives was in 
+    In the case we saw, one set of directives was in
     <tt>/etc/httpd/conf/httpd.conf</tt>, while
     the other set was in <tt>/etc/httpd/conf/addon-modules/php.conf</tt>.<br />
     The recommended way is with <tt>AddType</tt>, so just comment out
@@ -3389,7 +3389,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     Upgrading to MySQL 4 usually gives users those global privileges: CREATE
-    TEMPORARY TABLES, SHOW DATABASES, LOCK TABLES. Those privileges also 
+    TEMPORARY TABLES, SHOW DATABASES, LOCK TABLES. Those privileges also
     enables users to see all the database names, until you upgrade the grant
     tables as described in the MySQL manual, section 2.5.6.
     See this <a href="http://bugs.mysql.com/179">bug report</a>.    <br /><br />

@@ -16,7 +16,7 @@
  */
 // phpMyAdmin release
 if (!defined('PMA_VERSION')) {
-    define('PMA_VERSION', '2.5.4-rc2');
+    define('PMA_VERSION', '2.5.5-dev');
 }
 
 // php version
@@ -96,7 +96,7 @@ function PMA_dl($module) {
     } else {
         return FALSE;
     }
-    
+
 }
 
 // Whether GD2 is present
