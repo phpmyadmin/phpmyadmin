@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-01  Marc Delisle  <lem9@users.sourceforge.net>
+	* user_details.php3, lang/*: privileges in MySQL-speak
+	* new script lang/remove_message.sh
+
 2001-07-01  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.php3: rewritten so it becomes as far as possible xhtml1.0 compliant.
 	* spacer.gif was broken (strange display with NS).
