@@ -17,6 +17,7 @@ $Source$
 	* lang/portuguese.inc.php3: updated thanks to António Raposo.
 	* lang/bulgarian-*: completed by Georgi Georgiev.
 	* lang/galician.inc.php3: completed by Xosé Calvo.
+	* lang/russian-*: completed by Artyom Rabzonov.
 	* Documentation.html: added a second example for the
 	  "$cfgPmaAbsoluteUri" directive.
 

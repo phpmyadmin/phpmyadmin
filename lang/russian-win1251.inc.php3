@@ -1,6 +1,11 @@
 <?php
 /* $Id$ */
 
+/**
+ * Translated by Gosha Sakovich <gt2 at users.sourceforge.net>
+ *               Artyom Rabzonov <tyomych at gmx.net>
+ */
+
 $charset = 'windows-1251';
 $text_dir = 'ltr';
 $left_font_family = 'sans-serif';
@@ -242,6 +247,7 @@ $strQBEIns = 'Вставить';
 $strQueryOnDb = 'SQL-запрос БД <b>%s</b>:';
 
 $strRecords = 'Записи';
+$strReferentialIntegrity = 'Проверить целостность данных:';
 $strReloadFailed = 'Не удалось перезагрузить MySQL.';
 $strReloadMySQL = 'Перезагрузить MySQL';
 $strRememberReload = 'Не забудьте перезагрузить сервер.';
@@ -347,5 +353,4 @@ $strYes = 'Да';
 $strZip = 'упаковать в "zip"';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

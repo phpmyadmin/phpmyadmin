@@ -1,6 +1,11 @@
 <?php
 /* $Id$ */
 
+/**
+ * Translated by Gosha Sakovich <gt2 at users.sourceforge.net>
+ *               Artyom Rabzonov <tyomych at gmx.net>
+ */
+
 $charset = 'koi8-r';
 $text_dir = 'ltr';
 $left_font_family = 'sans-serif';
@@ -64,6 +69,7 @@ $strCantRenameIdxToPrimary = 'Невозмозможно переименовать индекс в PRIMARY!';
 $strCarriage = 'Возврат каретки: \\r';
 $strCardinality = 'Количество элементов';
 $strChange = 'Изменить';
+$strChangePassword = 'Изменить пароль';
 $strCheckAll = 'Отметить все';
 $strCheckDbPriv = 'Проверить Привилегии Базы Данных';
 $strCheckTable = 'Проверить таблицу';
@@ -86,6 +92,7 @@ $strDatabase = 'БД ';
 $strDatabaseHasBeenDropped = 'База данных %s была удалена.';
 $strDatabases = 'Базы Данных';
 $strDatabasesStats = 'Статистика баз данных';
+$strDatabaseWildcard = 'База данных (возможно использование  шаблонов):';
 $strDataOnly = 'Только данные';
 $strDefault = 'По умолчанию';
 $strDelete = 'Удалить';
@@ -222,6 +229,7 @@ $strPasswordEmpty = 'Пустой пароль!';
 $strPasswordNotSame = 'Пароли не одинаковы!';
 $strPHPVersion = 'Версия PHP';
 $strPmaDocumentation = 'Документация по phpMyAdmin';
+$strPmaUriError = 'Директива <tt>$cfgPmaAbsoluteUri</tt>' должна быть установлена в Вашем конфигурационном файле!;
 $strPos1 = 'Начало';
 $strPrevious = 'Назад';
 $strPrimary = 'Первичный';
@@ -239,6 +247,7 @@ $strQBEIns = 'Вставить';
 $strQueryOnDb = 'SQL-запрос БД <b>%s</b>:';
 
 $strRecords = 'Записи';
+$strReferentialIntegrity = 'Проверить целостность данных:';
 $strReloadFailed = 'Не удалось перезагрузить MySQL.';
 $strReloadMySQL = 'Перезагрузить MySQL';
 $strRememberReload = 'Не забудьте перезагрузить сервер.';
@@ -344,8 +353,4 @@ $strYes = 'Да';
 $strZip = 'упаковать в "zip"';
 
 // To translate
-$strChangePassword = 'Change password';
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
