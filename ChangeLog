@@ -10,7 +10,7 @@ $Source$
     * lang/japanese-*.inc.php3: remove control Ms
     ### 2.3.3 released
 
-2002-12-01 Alexander M. Turek  <rabus@users.sourceforge.net>
+2002-12-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/grab_globals.lib.php3: Back to previous version.
 
 2002-12-01 Alexander M. Turek  <rabus@users.sourceforge.net>
