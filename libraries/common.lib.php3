@@ -1095,11 +1095,10 @@ if (typeof(document.getElementById) != 'undefined'
                     mysql_free_result($result);
                 }
             }
-            if (isset($tbl_status) && (int)$tbl_status['Index_length'] > 1024) {
+            if (isset($tbl_status) && (int) $tbl_status['Index_length'] > 1024) {
                 @PMA_mysql_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
             }
         }
-
         unset($tbl_status);
 
         echo "\n";
@@ -1286,7 +1285,8 @@ if (typeof(document.getElementById) != 'undefined'
     /**
      * Displays a link to the official MySQL documentation
      *
-     * @param   string  an anchor to move to
+     * @param   chapter of "HTML, one page per chapter" documentation
+     * @param   contains name of page/anchor that is being linked
      *
      * @return  string  the html link
      *
