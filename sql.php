@@ -74,7 +74,7 @@ if (!defined('PMA_CHK_DROP')
 if (isset($store_bkm)) {
     require_once('./libraries/bookmark.lib.php');
     PMA_addBookmarks($fields, $cfg['Bookmark'], (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false));
-    header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto);
+    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto);
 } // end if
 
 
@@ -167,7 +167,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
         $active_page = $goto;
         require('./' . preg_replace('@\.\.*@', '.', $goto));
     } else {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto));
+        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto));
     }
     exit();
 } // end if
@@ -604,7 +604,7 @@ else {
             require('./' . $goto);
         } // end if file_exist
         else {
-            header('Location: ' . $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message));
+            PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message));
         } // end else
         exit();
     } // end no rows returned
