@@ -199,8 +199,8 @@ if (!defined('__LIB_BUILD_DUMP__')){
                                . ' VALUES (';
             }
         
-            $search     = array("\x0a","\x0d","\x1a"); //\x08\\x09, not required
-            $replace    = array("\\n","\\r","\Z");
+            $search     = array("\x00", "\x0a", "\x0d", "\x1a"); //\x08\\x09, not required
+            $replace    = array("\\0", "\\n", "\\r", "\Z");
             $isFirstRow = TRUE;
 
             @set_time_limit(1200); // 20 Minutes

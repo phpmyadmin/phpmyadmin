@@ -8,6 +8,8 @@ $Source$
 2001-10-13  Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html, lines 504-506: added some words about requirement for
 	  table sizes.
+	* libraries/build_dump.lib.php3, lines 202-203: tried to fix bug #469416
+	  (Dumps with binary data dont work mysql).
 
 2001-10-12  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/bulgarian-win1251.inc.php3 updates, thanks to Peter Petrov.
