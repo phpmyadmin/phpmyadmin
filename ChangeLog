@@ -10,6 +10,8 @@ $Source$
 	* db_stats, lines 227.243: "SHOW TABLE STATUS" requires MySQL 3.23.03+.
 	* db_details.php3, db_printview.php3: fixed bug #522626 - Incorrect table
 	  info for MySQL 3.23.2-a.
+	* db_details.php3, lines 531-533; tbl_properties.php3, lines 691-693:
+	  "fixed" bug #523408 - error with php3 compatibility.
 
 2002-02-26 Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3, lines 11-15; libraries/grab_globals.lib.php3;
