@@ -10,6 +10,7 @@ $Source$
     * server_privileges.php (top index): MySQLi compatibility,
       use PMA_convert_using() in case of non-latin1 user table,
       and fix bug #1054467 (in case of BINARY User field)
+    * header.inc.php: bug #1053310, undefined index under OmniSecure server
 
 2004-10-28 Alexander M. Turek  <me@derrabus.de>
     * user_password.php, lang/*.inc.php: Allow usage of old password hashing
