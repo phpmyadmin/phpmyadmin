@@ -14,6 +14,7 @@ $Source$
       - Reformulated some passages;
       - FAQ 1.28.
     * ANNOUNCE.txt: Synchronized features list with documentation.
+    * server_databases.php3: Fixed bug #688271 (missing "?").
 
 2003-02-17 Garvin Hicking <me@supergarv.de>
     * tbl_replace_fields.php3, read_dump.php3, libraries/common.lib.php3:
