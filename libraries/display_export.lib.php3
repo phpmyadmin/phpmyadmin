@@ -252,7 +252,7 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                 <?php
                 // charset of file
                 if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
-                    echo '<label for="select_charset_of_file">' . $strCharsetOfFile . '</label>';
+                    echo '<br /><label for="select_charset_of_file">' . $strCharsetOfFile . '</label>';
                     echo "\n";
 
                     $temp_charset = reset($cfg['AvailableCharsets']);
