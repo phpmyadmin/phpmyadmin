@@ -6,6 +6,12 @@
 #
 # Example:  remove_message.sh 'strMessageToRemove' 
 #
+
+if [ $# -ne 1 ] ; then
+    echo "usage: remove_message.sh 'strMessageToRemove'"
+    exit 1
+fi
+    
 for file in *.inc.php3
 do
     echo "lines before:" `wc -l $file`
