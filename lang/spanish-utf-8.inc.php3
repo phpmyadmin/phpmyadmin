@@ -81,6 +81,12 @@ $strCantUseRecodeIconv = 'No se puede utilizar iconv ni libiconv ni la función 
 $strCardinality = 'Cardinalidad';
 $strCarriage = 'Retorno de carro: \\r';
 $strChange = 'Cambiar';
+$strChangeCopyMode = 'Crear un nuevo usuario con los mismos privilegios y...';
+$strChangeCopyModeCopy = '... mantenga el anterior.';
+$strChangeCopyModeJustDelete = ' ... borre el viejo de las tablas de usuario.';
+$strChangeCopyModeRevoke = ' ... revocar todos los privilegios activos del viejo y elimínelos después.';
+$strChangeCopyModeDeleteAndReload = ' ... borre el viejo de las tablas de usuario y luego recargue los privilegios.';
+$strChangeCopyUser = 'Cambie la información de Login / Copiar Usuario';
 $strChangeDisplay = 'Elija el campo a mostrar';
 $strChangePassword = 'Cambio de contraseña';
 $strCharsetOfFile = 'Codificación de los caracteres del archivo:';
@@ -131,6 +137,7 @@ $strDatabaseWildcard = 'Bases de datos (se permiten comodines):';
 $strDatabases = 'Bases de datos';
 $strDatabasesStats = 'Estadísticas de la base';
 $strDbPrivileges = 'Privilegios específicos para la base de datos';
+$strDbSpecific = 'específico para la base de datos';
 $strDefault = 'Predeterminado';
 $strDefaultValueHelp = 'Para valores predeterminados, por favor ingrese solamente un valor, sin "backslash escaping" ni comillas, usando este formato: a';
 $strDelete = 'Borrar';
@@ -196,6 +203,7 @@ $strFunction = 'Función';
 $strGenBy = 'Generado por';
 $strGenTime = 'Tiempo de generación';
 $strGeneralRelationFeat = 'Opciones de relación general';  //Features = ¿opciones, componentes?
+$strGlobal = 'global';
 $strGlobalPrivileges = 'Privilegios globales';
 $strGlobalValue = 'Valor global';
 $strGo = 'Continúe';
@@ -219,7 +227,7 @@ $strIgnore = 'Ignorar';
 $strIgnoringFile = 'Ignorando el archivo %s';
 $strImportDocSQL = 'Importar archivos docSQL';
 $strImportFiles = 'Importar archivos';
-$strImportFinished = 'Importación culminada'; 
+$strImportFinished = 'Importación culminada';
 $strInUse = 'en uso';
 $strIndex = 'Índice';
 $strIndexHasBeenDropped = 'El índice %s ha sido eliminado';
@@ -533,6 +541,7 @@ $strUserNotFound = 'El usuario que seleccionó no fue hallado en la tabla de pri
 $strUserOverview = 'Vista global del usuario';
 $strUsers = 'Usuarios';
 $strUsersDeleted = 'Los usuarios seleccionados fueron borrados exitosamente.';
+$strUsersHavingAccessToDb = 'Usuarios con acceso a &quot;%s&quot;';
 
 $strValidateSQL = 'Validar el SQL';
 $strValidatorError = 'El validador de SQL no pudo inicializarse. Por favor revise si ha instalado las extensiones php necesarias, como fueron descritas en la %sdocumentación%s.';
@@ -544,6 +553,7 @@ $strViewDumpDB = 'Ver el volcado esquema de la base de datos';
 $strWebServerUploadDirectory = 'directorio en el servidor web para subir los archivos';
 $strWebServerUploadDirectoryError = 'No está disponible el directorio que usted habilitó para subir las tareas';
 $strWelcome = 'Bienvenido a %s';
+$strWildcard = 'comodín';
 $strWithChecked = 'Con marca:';
 $strWritingCommentNotPossible = 'No fue posible escribir el comentario';
 $strWritingRelationNotPossible = 'No fue posible escribir la relación';
@@ -554,6 +564,7 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: cambiando los parámetros de estas opciones a 0 (cero) remueven el límite.';
 $strZip = '"comprimido con zip"';
 
+// To translate
 $strCheckPrivs = 'Check Privileges';  //to translate
 $strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.';  //to translate
 
@@ -567,14 +578,4 @@ $strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
 
 $strNoDatabasesSelected = 'No databases selected.';  //to translate
 
-$strGlobal = 'global';  //to translate
-$strDbSpecific = 'database-specific';  //to translate
-$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
-$strChangeCopyUser = 'Change Login Information / Copy User';  //to translate
-$strChangeCopyMode = 'Create a new user with the same privileges and ...';  //to translate
-$strChangeCopyModeCopy = '... keep the old one.';  //to translate
-$strChangeCopyModeJustDelete = ' ... delete the old one from the user tables.';  //to translate
-$strChangeCopyModeRevoke = ' ... revoke all active privileges from the old one and delete it afterwards.';  //to translate
-$strChangeCopyModeDeleteAndReload = ' ... delete the old one from the user tables and reload the privileges afterwards.';  //to translate
-$strWildcard = 'wildcard';  //to translate
 ?>

@@ -7,6 +7,10 @@ $Source$
 
 2003-02-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: Coding standards.
+    * lang/romanian-*.inc.php3: Updates, thanks to Valics Lehel.
+    * lang/spanish-*.inc.php3: Updates, thanks to Dr. med. Daniel Hinostroza C.
+    * lang/galician-*.inc.php3: Updates, thanks to Xosé Calvo.
+    * lang/catalan-*.inc.php3: Updates, thanks to Xavier Navarro.
 
 2003-02-18 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: bug 649665: undefined variables with UNION, and
