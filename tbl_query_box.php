@@ -219,7 +219,7 @@ if ($is_upload && (!isset($is_inside_querywindow) ||
     $form_items++;
 ?>
             <tr>
-                <td<?php echo $queryframe_thcolspan; ?>><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td>
+                <td<?php echo $queryframe_thcolspan; ?>><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td>
             </tr>
             <tr>
                 <td class="tblHeaders"<?php echo $queryframe_thcolspan; ?>>
@@ -324,14 +324,14 @@ if (!empty($cfg['UploadDir']) && !isset($is_inside_querywindow) ||
     else {
         // modified by mkkeck 2004-05-08
         //   showing UploadDir Error at the end of all option for SQL-Queries
-        $upload_dir_error.= '        <tr><td' . $queryframe_thcolspan . '><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
+        $upload_dir_error.= '        <tr><td' . $queryframe_thcolspan . '><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
                           . '        <tr>' . "\n"
                           . '            <th' . $queryframe_thcolspan . ' class="tblHeadError"><div class="errorhead">' . $strError . '</div></th>' . "\n"
                           . '        </tr>' . "\n"
                           . '        <tr>' . "\n"
                           . '            <td' . $queryframe_thcolspan . ' class="tblError">' . wordwrap($strWebServerUploadDirectoryError,80,'<br />&nbsp;') . '</td>' . "\n"
                           . '        </tr>' . "\n"
-                          . '        <tr><td' . $queryframe_thcolspan . '><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
+                          . '        <tr><td' . $queryframe_thcolspan . '><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
     }
 } // end if (web-server upload directory)
 echo "\n";
@@ -403,7 +403,7 @@ if (!isset($is_inside_querywindow) ||
     if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
         if (($bookmark_list = PMA_listBookmarks($db, $cfg['Bookmark'])) && count($bookmark_list) > 0) {
             $form_items++;
-            echo '    <tr><td' . $queryframe_thcolspan . '><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
+            echo '    <tr><td' . $queryframe_thcolspan . '><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
             echo '    <tr><td' . $queryframe_thcolspan . ' class="tblHeaders">' . "\n";
             echo "            " . ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab == 'full') || !isset($is_inside_querywindow) ? "<i>$strOr</i>" : '') . " $strBookmarkQuery:&nbsp;\n";
             echo '    </td></tr>' . "\n";
@@ -453,7 +453,7 @@ if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_insi
                //&& $querydisplay_tab != 'history'))) {
                && $querydisplay_tab == 'sql'))) {
 ?>
-                <tr><td<?php echo $queryframe_thcolspan; ?>><img src="images/spacer.gif" border="0" width="1" height="1" /></td></tr>
+                <tr><td<?php echo $queryframe_thcolspan; ?>><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" border="0" width="1" height="1" /></td></tr>
                 <tr><th<?php echo $queryframe_thcolspan; ?> align="left"><?php echo $strBookmarkThis; ?>:</th>
                 <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
                     <td<?php echo $queryframe_thcolspan; ?>>
