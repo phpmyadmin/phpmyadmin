@@ -5,9 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2005-03-18 Alexander M. Turek  <me@derrabus.de>
+2005-03-19 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Translations #1120157 (bad translation of
       $strAddSearchConditions).
+    * libraries/select_lang.lib.php, lang/polish-windows-1250.inc.php:
+      Translations #1161402 (added pl-win1250), thanks to Jakub Wilk (ubanus).
+    * libraries/select_lang.lib.php, lang/german-iso-8859-15.inc.php,
+      lang/french-iso-8859-15.inc.php: Added ISO-8859-15 (latin1@euro) editions
+      of the German and French language files for testing.
 
 2005-03-19 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan update, thanks to Xavier Navarro (xavin).
