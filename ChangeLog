@@ -10,6 +10,7 @@ $Source$
       needed with the new fpdf library; also now output inline,
       I find it faster this way, please tell me if you prefer
       the old dialog method and why.
+    * tbl_change.php: bug #1038401, tabbing from value to value
 
 2004-10-13 Michal Čihař  <michal@cihar.com>
     * libraries/fpdf/fpdf.php: Updated to 1.52.
