@@ -571,32 +571,14 @@ if ($is_minimum_common == FALSE) {
  * @access  private
  */
 function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cfg, $dblist) {
-
     if ($only_db_check == FALSE) {
-        // ... first checks whether the "safe_show_database" is on or not
-        //     (if MYSQL supports this)
-        $is_safe_show_dbs = FALSE;
-        if (PMA_MYSQL_INT_VERSION >= 40002) {
-            $is_safe_show_dbs = 'ON';
-        }
-        else {
-            $local_query      = 'SHOW VARIABLES LIKE \'safe\\_show\\_database\'';
-            $rs               = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-            $is_safe_show_dbs = ($rs) ? @PMA_mysql_result($rs, 0, 'Value') : FALSE;
-            mysql_free_result($rs);
-        }
+        // try to get the available dbs list
+        // use userlink by default
+        $dblist = PMA_DBI_get_dblist();
+        $dblist_cnt   = count($dblist);
 
-        // ... and if on, try to get the available dbs list
-        if ($is_safe_show_dbs && strtoupper($is_safe_show_dbs) != 'OFF') {
-            $uva_alldbs   = mysql_list_dbs($userlink);
-            while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
-                  $dblist[] = $uva_row[0];
-            } // end while
-            $dblist_cnt   = count($dblist);
-            unset($uva_alldbs);
-        } // end if ($is_safe_show_dbs)
-
-        // ... else checks for available databases in the "mysql" db
+        // did not work so check for available databases in the "mysql" db;
+        // I don't think we can fall here now...
         if (!$dblist_cnt) {
             $auth_query   = 'SELECT User, Select_priv '
                           . 'FROM mysql.user '
@@ -650,7 +632,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
                     }
                 } // end while
                 mysql_free_result($rs);
-                $uva_alldbs = mysql_list_dbs($dbh);
+                $uva_alldbs = mysql_list_dbs($GLOBALS['dbh']);
                 // loic1: all databases cases - part 2
                 if (isset($uva_mydbs['%'])) {
                     while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
@@ -1142,19 +1124,8 @@ if ($is_minimum_common == FALSE) {
         // 2. Allowed database list is empty -> gets the list of all databases
         //    on the server
         else {
-            $dbs          = mysql_list_dbs() or PMA_mysqlDie('', 'SHOW DATABASES;', FALSE, $error_url);
-            $num_dbs      = ($dbs) ? @mysql_num_rows($dbs) : 0;
-            $real_num_dbs = 0;
-            for ($i = 0; $i < $num_dbs; $i++) {
-                $db_name_tmp = PMA_mysql_dbname($dbs, $i);
-                $dblink      = @PMA_mysql_select_db($db_name_tmp);
-                if ($dblink) {
-                    $dblist[] = $db_name_tmp;
-                    $real_num_dbs++;
-                }
-            } // end for
-            mysql_free_result($dbs);
-            $num_dbs = $real_num_dbs;
+            $dblist = PMA_DBI_get_dblist(); // needed? or PMA_mysqlDie('', 'SHOW DATABASES;', FALSE, $error_url);
+            $num_dbs = count($dblist);
         } // end else
 
         return TRUE;

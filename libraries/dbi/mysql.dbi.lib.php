@@ -169,4 +169,28 @@ function PMA_DBI_close($link = '') {
     @mysql_close($link);
 }
 
+function PMA_DBI_get_dblist($link = '') {
+    if (empty($link)) {
+        $link = $GLOBALS['userlink'];
+    }
+    $res = PMA_DBI_try_query('SHOW DATABASES;', $link);
+    $dbs_array = array();
+    while ($row = PMA_DBI_fetch_row($res)) {
+       // not sure if we have to convert before the (possible) select_db()
+       $dbname = PMA_convert_display_charset($row[0]);
+
+       // Before MySQL 4.0.2, SHOW DATABASES could send the
+       // whole list, so check if we really have access:
+       if (PMA_MYSQL_CLIENT_API < 40002) {
+           $dblink = @PMA_mysql_select_db($dbname);
+           if (!dblink) {
+               continue;
+           }
+       }
+       $dbs_array[] = $dbname;
+    } 
+    PMA_DBI_free_result($res);
+    unset($res);
+    return $dbs_array;   
+}
 ?>
