@@ -11,7 +11,7 @@
 function checkPassword(the_form)
 {
     // Gets the elements pointers
-    if (the_form.name == 'addUserForm') {
+    if (the_form.name == 'addUserForm' || the_form.name == 'chgPassword') {
         var pswd_index = 1;
         var pswd1_name = 'pma_pw';
         var pswd2_name = 'pma_pw2';

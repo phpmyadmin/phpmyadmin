@@ -343,6 +343,7 @@ $strYes = 'Sim';
 
 // To translate
 $strBzip = '"bzipped"';  //to translate
+$strChangePassword = 'Change password';
 $strGzip = '"gzipped"';  //to translate
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page'; //to translate
 $strZip = '"zipped"';  //to translate

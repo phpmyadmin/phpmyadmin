@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';
 $strCardinality = 'Cardinality';
 $strCarriage = 'Carriage return: \\r';
 $strChange = 'Change';
+$strChangePassword = 'Change password';
 $strCheckAll = 'Check All';
 $strCheckDbPriv = 'Check Database Privileges';
 $strCheckTable = 'Check table';

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-09 Loïc Chapeaux  <lolo@phpheaven.net>
+	* config.inc.php3, lines 127-130; Documentation.html, lines 677-701;
+	  main.php3; user_password.php3 (new script); lang/*;
+	  libraries/user_details.js: patch #525250 - Added 'Change Password' to
+	  phpMyAdmin, thanks to Taco Scargo <tscargo at users.sourceforge.net>.
+
 2002-03-08 Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html: little changes (<tt> is for code, <i> for pathes,
 	  quotations...).

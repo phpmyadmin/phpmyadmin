@@ -349,4 +349,5 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
+$strChangePassword = 'Change password';
 ?>

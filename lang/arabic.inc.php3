@@ -340,6 +340,7 @@ $strZip = '"zipped" "„÷€Êÿ"';
 
 // To translate
 $strCardinality = 'Cardinality';
+$strChangePassword = 'Change password';
 $strCookiesRequired = 'Cookies must be enabled past this point.';
 $strLogin = 'Login';
 $strLogPassword = 'Password:';

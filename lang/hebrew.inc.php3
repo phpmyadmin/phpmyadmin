@@ -346,4 +346,5 @@ $strYes = 'λο';
 $strZip = '"Zipped"';
 
 // To translate
+$strChangePassword = 'Change password';
 ?>

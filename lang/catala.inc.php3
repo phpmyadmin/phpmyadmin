@@ -346,4 +346,5 @@ $strYes = 'Si';
 $strZip = '"comprimit amb zip"';
 
 // To translate
+$strChangePassword = 'Change password';
 ?>

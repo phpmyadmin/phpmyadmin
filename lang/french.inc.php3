@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'La clef ne peut être renommée PRIMARY&nbsp;!';
 $strCardinality = 'Cardinalité';
 $strCarriage = 'Retour de chariot : \\r';
 $strChange = 'Modifier';
+$strChangePassword = 'Modifier le mot de passe';
 $strCheckAll = 'Tout cocher';
 $strCheckDbPriv = 'Afficher les privilèges sur';
 $strCheckTable = 'Vérifier la table';

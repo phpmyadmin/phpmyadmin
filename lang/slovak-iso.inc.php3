@@ -349,4 +349,5 @@ $strZip = '"zo zipované"';
 
 
 // To translate
+$strChangePassword = 'Change password';
 ?>

@@ -347,6 +347,7 @@ $strZip = 'comprimido no formato "zipped"';
 
 // To translate
 $strCardinality = 'Cardinality';
+$strChangePassword = 'Change password';
 $strLogin = 'Login';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';

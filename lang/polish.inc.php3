@@ -346,4 +346,5 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
+$strChangePassword = 'Change password';
 ?>

@@ -347,4 +347,5 @@ $strYes = 'Igen';
 $strZip = '"zippel tömörítve"';
 
 // To translate
+$strChangePassword = 'Change password';
 ?>

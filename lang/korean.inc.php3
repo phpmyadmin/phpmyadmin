@@ -268,6 +268,7 @@ $strAfterInsertNewInsert = 'Insert a new record';
 $strAnIndex = 'An index has been added on %s';//to translate
 $strAPrimaryKey = 'A primary key has been added on %s';//to translate
 $strBookmarkDeleted = 'The bookmark has been deleted.';
+$strChangePassword = 'Change password';
 $strCookiesRequired = 'Cookies must be enabled past this point.';
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate

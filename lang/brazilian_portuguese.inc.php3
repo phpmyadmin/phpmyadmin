@@ -301,6 +301,7 @@ $strYes = 'Sim';
 $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Insert a new record';
 $strBookmarkDeleted = 'The bookmark has been deleted.';
+$strChangePassword = 'Change password';
 $strCookiesRequired = 'Cookies must be enabled past this point.';
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate

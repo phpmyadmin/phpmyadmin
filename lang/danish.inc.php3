@@ -339,6 +339,7 @@ $strZip = '"zipped"'; //to translate
 // To translate
 $strAddToIndex = 'Add to index &nbsp;%s&nbsp;column(s)';
 $strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';
+$strChangePassword = 'Change password';
 $strCreateIndex = 'Create an index on&nbsp;%s&nbsp;columns';
 $strNoIndexPartsDefined = 'No index parts defined!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';

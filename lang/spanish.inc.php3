@@ -318,6 +318,7 @@ $strYes = 'Si';
 // To translate
 $strAfterInsertBack = 'Return';
 $strBzip = '"bzipped"';
+$strChangePassword = 'Change password';
 $strFlushTable = 'Flush the table ("FLUSH")';
 $strFullText = 'Full Texts';
 $strGzip = '"gzipped"';

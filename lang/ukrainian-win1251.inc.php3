@@ -345,5 +345,6 @@ $strYes = 'Так';
 $strZip = 'запакувати в "zip"';
 
 // To translate
+$strChangePassword = 'Change password';
 $strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

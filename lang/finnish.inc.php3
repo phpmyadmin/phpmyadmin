@@ -350,4 +350,5 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
+$strChangePassword = 'Change password';
 ?>

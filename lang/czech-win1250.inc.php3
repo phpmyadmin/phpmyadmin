@@ -345,7 +345,8 @@ $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
 
-// To translate
 
+// To translate
+$strChangePassword = 'Change password';
 ?>
 

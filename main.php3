@@ -212,10 +212,20 @@ if ($server > 0) {
 
     $common_url_query = 'lang=' . $lang . '&amp;server=' . $server;
 
+    if ($is_superuser) {
+        $cfgShowMysqlInfo   = TRUE;
+        $cfgShowMysqlVars   = TRUE;
+        $cfgShowChgPassword = TRUE;
+    }
+    if ($cfgServer['auth_type'] == 'config') {
+        $cfgShowChgPassword = FALSE;
+    }
+
     // loic1: Displays the MySQL column only if at least one feature has to be
     //        displayed
     if ($is_superuser || $is_create_priv || $is_process_priv || $is_reload_priv
-        || $cfgShowMysqlInfo || $cfgShowMysqlVars || $cfgServer['auth_type'] != 'config') {
+        || $cfgShowMysqlInfo || $cfgShowMysqlVars || $cfgShowChgPassword
+        || $cfgServer['auth_type'] != 'config') {
         ?>
     <!-- MySQL server related links -->
     <td valign="top" align="<?php echo $cell_align_left; ?>">
@@ -250,7 +260,7 @@ if ($server > 0) {
         ?>
         <!-- server-related links -->
         <?php
-        if ($is_superuser || $cfgShowMysqlInfo) {
+        if ($cfgShowMysqlInfo) {
             echo "\n";
             ?>
         <tr>
@@ -263,7 +273,7 @@ if ($server > 0) {
         </tr>
             <?php
         } // end if
-        if ($is_superuser || $cfgShowMysqlVars) {
+        if ($cfgShowMysqlVars) {
             echo "\n";
             ?>
         <tr>
@@ -330,6 +340,20 @@ if ($server > 0) {
                 <?php
             }
         }
+
+        // Change password (needs another message)
+        if ($cfgShowChgPassword) {
+            echo "\n";
+            ?>
+        <tr>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="user_password.php3?<?php echo $common_url_query; ?>">
+                    <?php echo ($strChangePassword); ?></a>
+            </td>
+        </tr>
+            <?php
+        } // end if
 
         // Logout for advanced authentication
         if ($cfgServer['auth_type'] != 'config') {

@@ -125,8 +125,9 @@ $cfgLeftFrameLight        = TRUE;   // use a select-based menu and display only 
 
 // In the main frame, at startup...
 $cfgShowMysqlInfo         = FALSE;  // whether to display the "MySQL runtime
-$cfgShowMysqlVars         = FALSE;  // information", "MySQL system variables" and "PHP
-$cfgShowPhpInfo           = FALSE;  // information" links for simple users or not
+$cfgShowMysqlVars         = FALSE;  // information", "MySQL system variables", "PHP
+$cfgShowPhpInfo           = FALSE;  // information" and "change password" links for
+$cfgShowChgPassword       = FALSE;  // simple users or not
 
 // In browse mode...
 $cfgShowBlob              = FALSE;  // display blob field contents
