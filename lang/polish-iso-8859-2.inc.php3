@@ -649,4 +649,6 @@ $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograni
 $strZip = '".zip"';
 // To translate
 
+$strReset = 'reset';  //to translate
+$strToggleScratchboard = 'toggle scratchboard';  //to translate
 ?>

@@ -656,4 +656,6 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
+$strReset = 'reset';  //to translate
+$strToggleScratchboard = 'toggle scratchboard';  //to translate
 ?>
