@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-03 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3, tbl_change.php3: Show blob size (RFE #678729).
+    * tbl_replace_fields.php3, tbl_change.php3: Allow binary uploads.
+    
 2003-02-03 Garvin Hicking <me@supergarv.de>
     * pdf_schema.php3, libraries/dbg/profiling.php3, 
     libraries/xpath/XPath.class.php: Backwards compatibility (foreach loops)

@@ -10,10 +10,17 @@
         if (isset(${"fields_upload_" . $key}) && !empty(${"fields_upload_" . $key})) {
             $data_file = ${"fields_upload_" . $key};
             $val = fread(fopen($data_file, "rb"), filesize($data_file));
-            // must always add slashes for an uploaded file:
-            //  - do not use PMA_sqlAddslashes()
-            //  - do not check get_magic_quotes_gpc()
-            $val = "'" . addslashes($val) . "'";
+            if (isset(${"fields_upload_binary_" . $key})) {
+                // nijel: This is probably the best way how to put binary data
+                // into MySQL and it also allow not to care about charset
+                // conversion that would otherwise corrupt the data.
+                $val = '0x' . bin2hex($val);
+            } else {
+                // must always add slashes for an uploaded file:
+                //  - do not use PMA_sqlAddslashes()
+                //  - do not check get_magic_quotes_gpc()
+                $val = "'" . addslashes($val) . "'";
+            }
         } else {
 
         // f i e l d    v a l u e    i n    t h e    f o r m
