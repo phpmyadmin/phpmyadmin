@@ -326,4 +326,3 @@ $strZip = '"zo zipované"';
 
 // To translate
 ?>
-
