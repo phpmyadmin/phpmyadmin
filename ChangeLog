@@ -5,12 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser*.php: bug 965026, support of GROUP_CONCAT()
+
 2004-07-28 Michal Čihař  <michal@cihar.com>
     * tbl_properties_structure.php: Allow to create primary key when there was
       none before (bug #996246).
 
 2004-07-27 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/sqlparser.lib.php /sqlparser.data.php: bug 981343,
+    * libraries/sqlparser*.php: bug 981343,
       cannot copy a table with a timestamp (MySQL 4.1.2)
 
 2004-07-25 Marc Delisle  <lem9@users.sourceforge.net>

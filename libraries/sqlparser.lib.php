@@ -1177,7 +1177,7 @@ if ($is_minimum_common == FALSE) {
         // -------------------------------------------------------
         // This is a big hunk of debugging code by Marc for this.
         // -------------------------------------------------------
-        /*
+        /* 
           if (isset($current_select_expr)) {
            for ($trace=0; $trace<=$current_select_expr; $trace++) {
 
@@ -1197,7 +1197,7 @@ if ($is_minimum_common == FALSE) {
            echo "table ref $trace $key => $val<br />\n";
            }
           }
-        */
+        */ 
         // -------------------------------------------------------
 
 
