@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-22 Michal Cihar  <nijel@users.sourceforge.net>
+    * read_dump.php3, tbl_alter.php3: Tabs highlighting...
+
 2003-05-22 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian updates, thanks to Valics Lehel
 

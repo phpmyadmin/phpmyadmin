@@ -144,7 +144,8 @@ if (isset($submit)) {
                 PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
             }
         }
-    
+        
+        $active_page = 'tbl_properties_structure.php3';
         include('./tbl_properties_structure.php3');
         exit();
     } else {

@@ -283,5 +283,6 @@ if ($goto == 'db_details.php3' || $goto == 'tbl_properties.php3') {
 if ($goto != 'main.php3') {
     include('./header.inc.php3');
 }
+$active_page = $goto;
 require('./' . $goto);
 ?>
