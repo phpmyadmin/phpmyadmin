@@ -132,6 +132,7 @@ if ($sql_query != '') {
 /**
  * Go back to the calling script
  */
+$js_to_run = 'functions.js';
 require('./header.inc.php3');
 if (isset($my_die)) {
     mysql_die('', $my_die);

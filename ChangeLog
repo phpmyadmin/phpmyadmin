@@ -8,6 +8,7 @@ $Source$
 2001-09-01  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_stat.php3: cleaned and improved the code.
 	* header.php3: cosmetic change.
+	* db_create.php3, line9; db_readdump.php3, line 135: fixed a js error.
 
 2001-08-31  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/norwegian.inc.php3 other updates, thanks to Sven-Erik Andersen.
