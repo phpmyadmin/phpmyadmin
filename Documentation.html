@@ -21,7 +21,9 @@
     <a href="#require">Requirements</a> &nbsp;-&nbsp;
     <a href="#intro">Introduction</a> &nbsp;-&nbsp;
     <a href="#setup">Installation</a> &nbsp;-&nbsp;
-    <a href="#config">Configuration</a> &nbsp;-&nbsp;
+    <a href="#config">Configuration</a>
+    <br />
+    <a href="#transformations">Transformations</a> &nbsp;-&nbsp;
     <a href="#faq">FAQ</a> &nbsp;-&nbsp;
     <a href="#developers">Developers</a> &nbsp;-&nbsp;
     <a href="#credits">Credits</a> &nbsp;-&nbsp;
@@ -108,6 +110,8 @@
     <li>using Query-by-example (QBE), create complex queries automatically connecting required tables</li>
     <li>create PDF graphics of your Database layout</li>
     <li>search globally in a database or a subset of it</li>
+    <li>transform stored data into any format using a set of predefined functions, 
+        like displaying BLOB-data as image or download-link or ...</li>
     <li>
         communicate in
         <a href="./translators.html">42 different languages</a>
@@ -175,6 +179,15 @@
          in your browser. phpMyAdmin should now display a welcome screen
          and your databases, or a login dialog if using http or cookie
          authentication mode.</li>
+    <li> For a whole set of new features (bookmarks, comments, sql-history, pdf-generation) 
+         you need to create a set of tables in your database. Please look at your scripts/
+         directory, where you should find a file called <i>create_tables.sql</i>.
+         You can already use your phpMyAdmin to create the tables for you. Please be
+         aware that you may have to have special (adminstrator) privileges to create
+         the database and tables. After having imported the <i>create_tables.sql</i> file,
+         you should specify the table names in your config.inc.php3 file. The directives 
+         used for that can be found in the <a href="#config">Configuration section</a>.</li>
+
 </ol>
 
 <p><b>Upgrading from an older version:</b></p>
@@ -758,7 +771,17 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <!-- This part requires a content update! -->
         Since release 2.3.0 you can store comments to describe each column
         for each table. These will then be shown on the &quot;printview&quot;.
-        <br />
+        <br /><br />
+        Starting with release 2.5.0, comments are consequently used on the table property 
+        pages and table browse view, showing up as tooltips above the column name (properties page)
+        or embedded withing the header of table in browse view. They can also be shown
+        in a table dump. Please see the relevant configuration directives later on.
+        <br /><br />
+        Also new in release 2.5.0 is a mime-transformation system which is also based on
+        the following table structure. See <a href="transformations">Transformations</a>
+        for further information. To use the mime-transformation system, your column_info
+        table has to have the three new fields 'mimetype', 'transformation', 'transformation_options'.
+        <br /><br />
         To allow the usage of this functionality the superuser has to:
         <ul>
             <li>set up &quot;pmadb&quot; as described above</li>
@@ -772,6 +795,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table_name varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column_name varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`comment` varchar(255) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mimetype varchar(255) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transformation varchar(255) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transformation_options varchar(255) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (id),<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNIQUE KEY db_name (db_name, table_name, column_name)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Comments for Columns';<br />
@@ -784,6 +810,67 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         </ul><br />
     </dd>
 
+    <dt>
+        <a name="history"></a><br />
+        <b>$cfg['Servers'][$i]['history']</b> string
+    </dt>
+    <dd>
+        Since release 2.5.0 you can store your SQL history, which means all querys you
+        entered manually into the phpMyAdmin interface. If you don't want to use a table-
+        based history, you can use the JavaScript-based history. Using that, all your
+        history items are deleted when closing the window.<br /><br />
+        
+        Using <b>$cfg['QueryHistoryMax']</b> you can specify an amount of history items
+        you want to have on hold. On every login, this list gets cut to the maximum amount.
+        <br /><br />
+        
+        The query history is only available if you use the JavaScript-based query window,
+        see <b>$cfg['QueryFrame']</b>.
+        <br /><br />
+        
+        To allow the usage of this functionality the superuser has to:
+        <ul>
+            <li>set up &quot;pmadb&quot; as described above</li>
+            <li>
+                within this database create a table following this scheme:
+                <br />
+                <tt>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_history` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`username` VARCHAR( 64 ) NOT NULL ,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db` VARCHAR( 64 ) NOT NULL ,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table` VARCHAR( 64 ) NOT NULL ,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`timevalue` TIMESTAMP NOT NULL ,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`sqlquery` TEXT NOT NULL ,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY ( `id` ) ,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INDEX ( `username` , `db` , `table` , `timevalue` )<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='SQL history';<br />
+                </tt>
+            </li>
+            <li>
+                put the table name in
+                <tt>$cfg['Servers'][$i]['history']</tt>
+            </li>
+        </ul><br />
+    </dd>
+
+    <dt>
+        <a name="history"></a><br />
+        <b>$cfg['Servers'][$i]['verbose_check']</b> string
+    </dt>
+    <dd>
+        Because release 2.5.0 introduced the new MIME-transformation support, the
+        column_info table got enhanced with thre new fields. If the above variable is
+        set to TRUE (default) phpMyAdmin will check if you have the latest table structure
+        available. If not, it will emit a warning to the superuser.<br /><br />
+        
+        You can disable this checking behavior by setting the variable to false, which
+        should offer a performance increase.<br /><br />
+        
+        Recommended to set to FALSE, when you are sure, your table structure is up to date.
+        <br /><br />
+    </dd>
+    
     <dt>
         <b>$cfg['Servers'][$i]['AllowDeny']['order']</b> string
     </dt>
@@ -939,6 +1026,21 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['ShowTooltipAliasDB'] </b>boolean</dt>
+    <dd>
+        If tooltips are enabled and a DB comment is set, this will flip the comment
+        and the real name. That means, if you have a table called 'user0001' and add
+        the comment 'MyName' on it, you will see the name 'MyName' used consequently
+        in the left frame and the tooltip shows the real name of the DB.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['ShowTooltipAliasTB'] </b>boolean</dt>
+    <dd>
+        Same as $cfg['ShowTooltipAliasDB'], except this works for table names.
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['ShowStats'] </b>boolean</dt>
     <dd>
         Defines whether to display space usage and statistics about databases
@@ -1066,6 +1168,22 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['LightTabs'] </b>string</dt>
+    <dd>
+        If set to True, do use less graphically intense tabs on the top of the mainframe.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['DefaultTabServer'] </b>string</dt>
+    <dd>
+        Defines the tab displayed by default on server view. Possible
+        values: &quot;main.php3&quot; (recommended,
+        &quot;server_databases.php3&quot;, &quot;server_status.php3&quot;,
+        &quot;server_variables.php3&quot;, &quot;server_privileges.php3&quot; or
+        &quot;server_processlist.php3&quot;.
+        <br /><br />
+    </dd>
+    
     <dt><b>$cfg['DefaultTabDatabase'] </b>string</dt>
     <dd>
         Defines the tab displayed by default on database view. Possible
@@ -1281,10 +1399,39 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt><b>$cfg['DefaultDisplay'] </b>string</dt>
+    <dt><b>$cfg['DefaultDisplay'] </b>string<br />
+        <b>$cfg['HeaderFlipType'] </b>string
+    </dt>
     <dd>
-        There are 2 display modes: horizontal and vertical. Define which one is
-        displayed by default.
+        There are 3 display modes: horizontal, horizontalflipped and vertical. Define 
+        which one is displayed by default. The first mode displays each row on a
+        horiztonal line, the second rotates the headers by 90 degrees, so you can use
+        descriptive headers even though fields only contain small values and still
+        print them out. The vertical mode sorts each row on a vertical lineup.<br /><br />
+        The HeaderFlipType can be set to 'css' or 'faked'. When using 'css' the rotation
+        of the header for horizontalflipped is done via CSS. If set to 'faked' php
+        does the transformation for you, but of course this does not look as good as CSS.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['DefaultPropDisplay'] </b>string</dt>
+    <dd>
+        When editing/creating new columns in a table all fields normally get lined up
+        one field a line. (default: 'horizontal'). If you set this to 'vertical' you
+        can have each field lined up vertically beneath each other. You can save up
+        a lot of place on the horizontal direction and no longer have to scroll.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['ShowBrowseComments'] </b>boolean<br />
+        <b>$cfg['ShowPropertyComments'] </b>boolean<br />    
+    </dt>
+    <dd>
+        By setting the corresponding variable to TRUE you can enable the display of
+        column comments in Browse or Property display. In browse mode, the comments
+        are show inside the header. In property mode, comments are displayed using
+        a css-formatted dashed-line below the name of the field. The comment is shown
+        as a tooltip for that field.
         <br /><br />
     </dd>
 
@@ -1307,7 +1454,52 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['RepeatCells'] </b>integer</dt>
     <dd>
-    Repeat the headers every X cells, or 0 to deactivate.
+        Repeat the headers every X cells, or 0 to deactivate.
+    <br /><br />
+    </dd>
+
+    <dt><b>$cfg['QueryFrame'] </b>boolean<br />
+        <b>$cfg['QueryFrameJS'] </b>boolean<br />
+        <b>$cfg['QueryFrameDebug'] </b>boolean<br />
+        <b>$cfg['QueryWindowWidth'] </b>integer<br />
+        <b>$cfg['QueryWindowHeight'] </b>integer<br />
+        <b>$cfg['QueryHistoryDB'] </b>boolean<br />
+        <b>$cfg['QueryWindowDefTab'] </b>string<br />
+        <b>$cfg['QueryHistoryMax'] </b>integer
+    </dt>
+    <dd>
+        All those variables affect the new query frame/window. When $cfg['QueryFrame']
+        is set to true a new frame is embedded on the left with a small area. Clicking
+        on that results in opening a direct interface to enter SQL queries.<br /><br />
+        When $cfg['QueryFrameJS'] is set to true, clicking on that link opens a new
+        custom sized browser window ($cfg['QueryWindowWidth'], $cfg['QueryWindowWidth'] -
+        both integers for the size in pixels). If set to false, clicking on the link
+        only opens the sql input in the mainframe.<br /><br />
+        The usage of the JavaScript query window is recommended if you have a JavaScript
+        enabled browser. Basic functions are used to exchange quite a few variables, so
+        most 4th generation browsers should be capable to use that feature. It currently
+        is only tested with IE6 and Mozilla 1.x.<br /><br />
+        If $cfg['QueryHistoryDB'] is set to TRUE, all your Queries are logged to a table,
+        which has to be created by you (see <a href="history">$cfg['Servers'][$i]['history']</a>).
+        If set to FALSE, all your queries will be appended to the form, but only as long
+        as your window is opened they remain saved.<br /><br />
+        When using the JavaScript based query window, it will always get updated when you
+        click on a new table/db to browse and will focus if you click on "Edit SQL" after
+        using a query.<br /><br />
+        If $cfg['QueryHistoryDB'] is set to TRUE you can specify the amount of saved
+        history items using $cfg['QueryHistoryMax'].<br /><br />
+        The query window also has a custom tabbed look to group the features. Using the
+        variable $cfg['QueryWindowDefTab'] you can specify the default tab to be used
+        when opening the query window. It can be set to either 'sql', 'files', 'history'
+        or 'full'.<br /><br />
+        The variable $cfg['QueryFrameDebug'] can be used by developers for easier future 
+        feature integration.
+    <br /><br />
+    </dd>
+
+    <dt><b>$cfg['BrowseMIME'] </b>boolean</dt>
+    <dd>
+        Enable <a href="transformations">MIME-transformations</a>.
     <br /><br />
     </dd>
 
@@ -1455,6 +1647,198 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
 </dl>
 
+<!-- TRANSFORMATIONS -->
+<a name="transformations"></a><br />
+<h2>Transformations</h2>
+
+<p>
+<a href="#transformationsintro">Introduction</a> &nbsp;-&nbsp;
+<a href="#transformationshowto">Usage</a> &nbsp;-&nbsp;
+<a href="#transformationsfiles">File structure</a> &nbsp;-&nbsp;
+</p>
+
+<a name="transformationsintro"></a><br />
+<h3>[1. Introduction]</h3>
+
+<p>To enable transformations, you have to setup the column_info table and the proper 
+directives. Please see the <a href="#config">Configuration section</a> on how to do so.</p>
+<br />
+
+<p>You can apply different transformations to the contents of each field. The 
+transformation will take the content of each field and transform it with 
+certain rules defined in the selected transformation.</p><br />
+
+<p>Say you have a field 'filename' which contains a filename. Normale you would see 
+in phpMyAdmin only this filename. Using transformations you can transform that filename 
+into a html link, so you can click inside of the phpMyAdmin structure on the field's 
+link and will see the file displayed in a new browser window. Using transformation
+options you can also specify strings to append/prepend to a string or the format you 
+want the output stored in.</p><br />
+
+<p>For a general overview of all available transformations and their options, you can 
+consult your <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/libraries/transformations/overview.php3</i>
+installation.</p><br />
+<br />
+
+<a name="transformationshowto"></a><br />
+<h3>[2. Usage]</h3>
+
+<p>Go to your tbl_properties.inc.php3 page (i.e. reached through clicking on the 
+'properties' link for a table). There you will see three new fields at the end of the 
+line. They are called 'MIME-type', 'Browser transformation' and 'Transformation options'.</p>
+<br />
+
+<ul>
+<li>The field 'MIME-type' is a dropdown field. You have the options to leave that field 
+empty or to use 'auto' [this feature is not yet available]. Please note that 
+transformations are inactive as long as no mimetype is selected.</li><br /><br />
+
+<li>The field 'Browser transformation' is a dropdown field. You can choose from a 
+hopefully growing amount of pre-defined transformations. See below for information on 
+how to build your own transformation.<br /><br />
+
+There are global transformations and mimetype-bound transformations. Global transformations 
+can be used for any mimetype. They will take the mimetype, if neccessary, into regard. 
+Mimetype-bound transformations usually only operate on a certain mimetype. There are 
+transformations which operate on the main mimetype (like 'image'), which will most likely 
+take the subtype into regard, and those who only operate on a 
+specific subtype (like 'image/jpeg').<br /><br />
+
+You can use transformations on mimetypes for which the function was not defined for. There 
+is no security check for you selected the right transformation, so take care of what the 
+output will be like.</li><br /><br />
+
+<li>The field 'Transformation options' is a free-type textfield. You have to enter 
+transform-function specific options here. Usually the transforms can operate with default 
+options, but it is generally a good idea to look up the overview to see which options are 
+neccessary.<br /><br />
+
+Much like the ENUM/SET-Fields, you have to split up several options using the format 
+'a','b','c',...(NOTE THE MISSING BLANKS). This is because internally the options will be 
+parsed as an array, leaving the first value the first element in the array, and so
+forth.<br /><br />
+
+If you want to specify a MIME charset you can define it in the transformation_options. 
+You have to put that outside of the pre-defined options of the specific mime-transform, 
+as the last value of the set. Use the format "'; charset=XXX'". If you use a transform, 
+for which you can specify 2 options and you want to append a charset, enter "'first 
+parameter','second parameter','charset=us-ascii'". You can, however use the defaults for 
+the parameters: "'','','charset=us-ascii'".</li><br /><br />
+</ul>
+
+<a name="transformationsfiles"></a><br />
+<h3>[3. File structure]</h3>
+
+<p>All mimetypes and their transformations are defined through single files in 
+the directory 'libraries/transformations/'.</p><br />
+
+<p>They are stored in files to ease up customization and easy adding of new 
+transformations.</p><br />
+
+<p>Because the user cannot enter own mimetypes, it is kept sure that transformations 
+always work. It makes no sense to apply a transformation to a mimetype, the 
+transform-function doesn't know to handle.</p><br />
+
+<p>One can, however, use empty mime-types and global transformations which should work 
+for many mimetypes. You can also use transforms on a different mimetype they where built 
+for, but pay attention to option usage as well as what the transformation does to your 
+field.</p><br />
+
+<p>There is a basic file called 'global.inc.php3'. This function can be included by 
+any other transform function and provides some basic functions.</p><br />
+
+<p>There are 5 possible file names:</p>
+
+<ol>
+<li>A mimetype+subtype transform:<br /><br />
+    
+    [mimetype]_[subtype]__[transform].inc.php3<br /><br />
+    
+    Please not that mimetype and subtype are seperated via '_', which shall not be 
+    contained in their names. The transform function/filename may contain only 
+    characters which cause no problems in the file system as well as the PHP function 
+    naming convention.<br /><br />
+    
+    The transform function will the be called 'PMA_transform_[mimetype]_[subtype]__[transform]()'.<br /><br />
+    
+    <b>Example:</b><br /><br />
+    
+    text_html__formatted.inc.php3<br />
+    PMA_transform_text_html__formatted()</li><br /><br />
+
+<li>A mimetype (w/o subtype) transform:<br /><br />
+    
+    [mimetype]__[transform].inc.php3<br /><br />
+    
+    Please note that there are no single '_' characters.
+    The transform function/filename may contain only characters which cause no problems 
+    in the file system as well as the PHP function naming convention.<br /><br />
+
+    The transform function will the be called 'PMA_transform_[mimetype]__[transform]()'.<br /><br />
+    
+    <b>Example:</b><br /><br />
+    
+    text__formatted.inc.php3<br />
+    PMA_transform_text__formatted()</li><br /><br />
+
+<li>A mimetype+subtype without specific transform function<br /><br />
+    
+    [mimetype]_[subtype].inc.php3<br /><br />
+    
+    Please note that there are no '__' characters in the filename. Do not use special 
+    characters in the filename causing problems with the file system.<br /><br />
+    
+    No transformation function is defined in the file itself.<br /><br />
+    
+    <b>Example:</b><br /><br />
+    
+    text_plain.inc.php3<br />
+    (No function)</li><br /><br />
+
+<li>A mimetype (w/o subtype) without specific transform function<br /><br />
+    
+    [mimetype].inc.php3<br /><br />
+    
+    Please note that there are no '_' characters in the filename. Do not use special 
+    characters in the filename causing problems with the file system.<br /><br />
+    
+    No transformation function is defined in the file itself.<br /><br />
+    
+    <b>Example:</b><br /><br />
+    
+    text.inc.php3<br />
+    (No function)</li><br /><br />
+    
+<li>A global transform function with no specific mimetype<br /><br />
+    
+    global__[transform].inc.php3<br /><br />
+    
+    The transform function will the be called 'PMA_transform_global__[transform]()'.<br /><br />
+    
+    <b>Example:</b><br /><br />
+    
+    global__formatted<br />
+    PMA_transform_global__formatted()</li>
+</ol>
+
+<br />
+<p>So generally use '_' to split up mimetype and subtype, and '__' to provide a 
+transform function.</p><br />
+
+<p>All filenames containing no '__' in themselves are not shown as valid transform 
+functions in the dropdown.</p><br />
+
+<p>Please see the libraries/transformations/TEMPLATE file for adding your own transform 
+function. See the libraries/transformations/TEMPLATE_MIMETYPE for adding a mimetype 
+without a transform function. Also note the introduction of a function description in 
+the language files. For each function a $strTransformation_[filename without .inc.php3] 
+has to exist.</p><br />
+
+<p>You can use the template generator to generate new functions and entries in the 
+language file.</p><br />
+
+<p>To create a new transform function please see libraries/transformations/template_generator.sh. 
+To create a new, empty mimetype please see libraries/transformations/template_generator_mimetype.sh.</p><br />
 
 <!-- FAQ -->
 <a name="faq"></a><br />
@@ -1467,7 +1851,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <a href="#faqmultiuser">Multi-user</a> &nbsp;-&nbsp;
 <a href="#faqbrowsers">Browsers</a> &nbsp;-&nbsp;
 <a href="#faqusing">Usage tips</a> &nbsp;-&nbsp;
-<a href="#faqproject">Project</a>
+<a href="#faqproject">Project</a> &nbsp;-&nbsp;
 </p>
 
 <a name="faqserver"></a><br />
@@ -2470,7 +2854,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     once the INSERT verb and the table name.<br />
     &quot;Enclose table and field names with backquotes&quot; ensures that
     field and table names formed with special characters are protected.<br />
-</p>
+    &quot;Include column comments as inline SQL-comments&quot; includes any
+    column comments set in the PMA-DB in the dump as SQL comments (<i>/* xxx */</i>).<br /></p>
 
 <h4>
     [6.13] I would like to create a database with a dot in its name.
@@ -2518,7 +2903,24 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </h4>
 <p>
     You can use Ctrl+arrows for moving on most pages with plenty editing
-    fields (table structure changes, row editing, etc.).
+    fields (table structure changes, row editing, etc.). You can also have
+    a look at the directive $cfg['DefaultPropDisplay'] ('vertical') and see
+    if this eases up editing for you.
+    <br />
+</p>
+
+<h4>
+    [6.17] Transformations: I can't enter my own mimetype! WTF is this feature 
+    then useful for?
+</h4>
+<p>
+    Slow down :). Defining mimetypes is of no use, if you can't put transformations on them.
+    Otherwise you could just put a comment on the field. Because entering your own mimetype will
+    cause serious syntax checking issues and validation, this introduces a high-risk false-user-input
+    situation. Instead you have to initialize mimetypes using functions or empty mimetype definitions.
+    <br />   
+    Plus, you have a whole overview of available mimetypes. Who knows all those mimetypes by heart so
+    he/she can enter it at will?
     <br />
 </p>
 
@@ -2593,8 +2995,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     Also, have a look at the
     <a href="#developers">Developers section</a>.
 </p>
-
-
 
 <!-- DEVELOPERS -->
 <a name="developers"></a><br />
@@ -2749,6 +3149,12 @@ CREDITS, in chronological order
 
 - Garvin Hicking &lt;hicking_at_faktor-e.de&gt;
     * built the patch for vertical display of table rows
+    * built the Javascript based Query window + SQL history
+    * Improvement of column/db comments
+    * (MIME)-Transformations for columns
+    * Use custom alias names for Databases in left frame
+    * vertical display of column properties page
+    * some bugfixes, smaller features
 
 - Yukihiro Kawada &lt;kawada_at_den.fujifilm.co.jp&gt;
     * japanese kanji encoding conversion feature
@@ -2780,7 +3186,7 @@ Bernard M. Piller, Laurent Haas, &quot;Sakamoto&quot;, Yuval Sarna,
 www.securereality.com.au, Alvar Soome, Siu Sun, Peter Svec, Michael Tacelosky,
 Rachim Tamsjadi, Kositer Uros, Luís V., Martijn W. van der Lee,
 Algis Vainauskas, Daniel Villanueva, Vinay, Ignacio Vazquez-Abrams, Chee Wai,
-Jakub Wilk, Thomas Michael Winningham, Vilius Zigmantas.
+Jakub Wilk, Thomas Michael Winningham, Vilius Zigmantas, &quot;Manuzhai&quot;.
 
 
 Original Credits of Version 2.1.0

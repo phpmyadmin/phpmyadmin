@@ -125,6 +125,8 @@ $cfg['Servers'][$i]['table_info']      = '';
 $cfg['Servers'][$i]['table_coords']    = '';
 $cfg['Servers'][$i]['pdf_pages']       = '';
 $cfg['Servers'][$i]['column_info']     = '';
+$cfg['Servers'][$i]['history']         = '';
+$cfg['Servers'][$i]['verbose_check']   = TRUE;
 $cfg['Servers'][$i]['AllowDeny']['order']
                                        = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']
@@ -150,6 +152,9 @@ $cfg['Servers'][$i]['table_info']      = '';
 $cfg['Servers'][$i]['table_coords']    = '';
 $cfg['Servers'][$i]['pdf_pages']       = '';
 $cfg['Servers'][$i]['column_info']     = '';
+$cfg['Servers'][$i]['history']         = '';
+$cfg['Servers'][$i]['verbose_check']   = TRUE;
+
 $cfg['Servers'][$i]['AllowDeny']['order']
                                        = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']
