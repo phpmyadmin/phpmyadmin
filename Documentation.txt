@@ -1,5 +1,5 @@
 
-                        phpMyAdmin 2.2.4 Documentation
+                      phpMyAdmin 2.2.5-dev Documentation
                                        
      * Official phpMyAdmin project homepage    [
        http://www.phpwizard.net/projects/phpMyAdmin/ ]
@@ -9,8 +9,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.151 2002/02/19
-       23:30:45 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.160 2002/03/07
+       13:33:03 lem9 Exp $
    ______________________________________________________________________
    
    Top  -  Requirements  -  Introduction  -  Installation  -
@@ -69,21 +69,28 @@ Installation
    So you'll have to resave as in Bbedit to unix style ALL phpMyAdmin
    scripts before uploading them to your server.
    
+   Documentation warning: when you see in this document a .php3 file
+   extension, please transpose to .php if you are using a kit with files
+   having this extension.
+   
    Quick Install:
-    1. Untar or unzip the distribution (be sure to unzip the
+    1. Use a distribution kit with the files having the extension (.php3
+       or .php) depending on the way your web/PHP server interprets those
+       extensions.
+    2. Untar or unzip the distribution (be sure to unzip the
        subdirectories): tar xzvf phpMyAdmin_x.x.x.tar.gz in your
        webserver's document root.
-    2. Open the file config.inc.php3 in your favourite editor and change
+    3. Open the file config.inc.php3 in your favourite editor and change
        the values for host, user, password and authentication mode to fit
        your environment. Also insert the correct value for
        $cfgPmaAbsoluteUri. Have a look at Configuration section for an
        explanation of all values.
-    3. It is recommended that you protect the directory in which you
+    4. It is recommended that you protect the directory in which you
        installed phpMyAdmin (unless it's on a closed intranet, or you
        wish to use http or cookie authentication), for example with
        HTTP-AUTH (in a .htaccess file). See the FAQ section for
        additional information.
-    4. Open the file <www.your-host.com>/<your-install-dir>/index.php3 in
+    5. Open the file <www.your-host.com>/<your-install-dir>/index.php3 in
        your browser. phpMyAdmin should now display a welcome screen and
        your databases, or a login dialog if using http or cookie
        authentication mode.
@@ -100,32 +107,32 @@ Installation
        their own database and don't want them to play around with others.
      * Http and cookie authentication modes are secure: the MySQL
        password does not need to be set in the phpMyAdmin configuration
-       file. (except for the "standard user" -see the Configuration
+       file. (except for the "controluser" -see the Configuration
        section-).
        In cookie mode, we send the password in a temporary cookie, so
        most browsers should not store the password in their cookie file.
-     * For 'http' and 'cookie' modes, phpMyAdmin needs a stduser that has
-       only the SELECT privilege on the mysql.user (all columns except
-       "Password"), mysql.db (all columns) & mysql.tables_priv (all
-       columns except "Grantor" & "Timestamp") tables.
-       You must specify the details for the stduser in the
-       config.inc.php3 file under the $cfgServers[n]['stduser'] &
-       $cfgServers[n]['stdpass'] settings.
-       To create the control account (<stduser> and <stdpass> have to be
-       replaced by your own values, of course):
+     * For 'http' and 'cookie' modes, phpMyAdmin needs a controluser that
+       has only the SELECT privilege on the mysql.user (all columns
+       except "Password"), mysql.db (all columns) & mysql.tables_priv
+       (all columns except "Grantor" & "Timestamp") tables.
+       You must specify the details for the controluser in the
+       config.inc.php3 file under the $cfgServers[n]['controluser'] &
+       $cfgServers[n]['controlpass'] settings.
+       This example assumes you want to use pma as the controluser and
+       pmapass as the controlpass:
        
-       GRANT USAGE ON mysql.* TO '<stduser>'@'localhost' IDENTIFIED BY
-   '<stdpass>';
+       GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY
+   'pmapass';
    GRANT SELECT (Host, User, Select_priv, Insert_priv, Update_priv,
    Delete_priv, Create_priv, Drop_priv, Reload_priv, Shutdown_priv,
    Process_priv, File_priv, Grant_priv, References_priv, Index_priv,
-   Alter_priv) ON mysql.user TO '<stduser>'@'localhost';
-   GRANT SELECT ON mysql.db TO '<stduser>'@'localhost';
+   Alter_priv) ON mysql.user TO 'pma'@'localhost';
+   GRANT SELECT ON mysql.db TO 'pma'@'localhost';
    GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv) ON
-   mysql.tables_priv TO '<stduser>'@'localhost';
+   mysql.tables_priv TO 'pma'@'localhost';
    ... and if you want to use the bookmark feature:
        GRANT SELECT, INSERT, DELETE ON <bookmark_db>.<bookmark_table> TO
-   '<stduser>'@'localhost';
+   'pma'@'localhost';
      * Then each of the true users should be granted of a set of
        privileges on a set of perticular databases but shouldn't have any
        global privileges. For example, to grant the user real_user with
@@ -154,8 +161,8 @@ Installation
    'config' authentication mode:
      * This mode is the less secure one because it requires you to fill
        the $cfgServers[n]['user'] and $cfgServers[n]['password'] fields.
-       But usually you don't need to setup a "standard user" here: using
-       the $cfgServers[n]['only_db'] might be enough.
+       But you don't need to setup a "controluser" here: using the
+       $cfgServers[n]['only_db'] might be enough.
        In the ISP FAQ section, there is an entry explaining how to
        protect your configuration file.
    ______________________________________________________________________
@@ -205,8 +212,8 @@ Configuration
           guarenteed to be available on all MySQL servers, while sockets
           are not supported on some platforms.
           
-   $cfgServers[n]['stduser'] string
-          $cfgServers[n]['stdpass'] string
+   $cfgServers[n]['controluser'] string
+          $cfgServers[n]['controlpass'] string
           When using http or cookie authentication modes (or 'config'
           authentication mode since phpMyAdmin 2.2.1), you need to supply
           the details of a MySQL account that has SELECT privilege on the
@@ -216,10 +223,11 @@ Configuration
           databases the user will see at login.
           Please see the install section on "Using http authentication"
           for more information.
-          Note that if you try login to phpMyAdmin with this "stduser",
-          you could get some errors, depending the exact privileges you
-          gave to the "stduser". phpMyAdmin does not support a direct
-          login with the "stduser".
+          Note that if you try login to phpMyAdmin with this
+          "controluser", you could get some errors, depending the exact
+          privileges you gave to the "controluser". phpMyAdmin does not
+          support a direct login with the "controluser".
+          In versions before 2.2.5, those were called stduser/stdpass.
           
    $cfgServers[n]['auth_type'] string ['http'|'cookie'|'config']
           Whether config or cookie or http authentication should be used
@@ -242,8 +250,8 @@ Configuration
    $cfgServers[n]['user'] string
           $cfgServers[n]['password'] string
           The user/password-pair which phpMyAdmin will use to connect to
-          this MySQL-server. The password is not needed when http or
-          cookie authentication is used, and should be empty.
+          this MySQL-server. This user/password pair is not needed when
+          http or cookie authentication is used, and should be empty.
           
    $cfgServers[n]['only_db'] string or array
           If set to a(an array of) database name(s), only this(these)
@@ -286,18 +294,17 @@ Configuration
             table names you've choosen so phpMyAdmin will be able to find
             the bookmarks.
             
-          Note that stduser must have SELECT, INSERT and DELETE
+          Note that controluser must have SELECT, INSERT and DELETE
           privileges on the bookmark table. Here is a query to set up
-          those privileges:
+          those privileges (using "pma" as the controluser:
           GRANT SELECT,INSERT,DELETE ON <bookmarkdb>.<bookmarktable> to
-          'stduser'@localhost;
+          'pma'@localhost;
           
    $cfgServers[n]['relation'] string
           Since release 2.2.4 you can describe in a relation table which
           field is a key in another table. phpMyAdmin currently uses this
           to make clickable the data values that point to another table.
-          Currently, the keys must be numeric, and you must be running
-          PHP 4.
+          Currently, the keys must be numeric.
           To use this functionality you have to:
           
           + create in the same database a table (for example 'relation')
@@ -344,8 +351,8 @@ Configuration
           displayed or not.
           
    $cfgAllowUserDropDatabase boolean
-          Defines whether standard users (non administrator) are allowed
-          to delete their own database or not. If set as FALSE, the link
+          Defines whether normal users (non-administrator) are allowed to
+          delete their own database or not. If set as FALSE, the link
           "Drop Database" will not be shown, and even a "DROP DATABASE
           mydatabase" will be rejected. Quite practical for ISP's with
           many customers.
@@ -611,6 +618,11 @@ FAQ - Frequently Asked Questions
    If PHP does not have read/write access to its upload_tmp_dir, it
    cannot access the uploaded query.
    
+   I have problems with mysql.user field names.
+   In older MySQL versions, the User and Password fields were named user
+   and password. Please modify your field names to align with current
+   standards.
+   
   [Configuration]
   
    The error message "Warning: Cannot add header information - headers
@@ -677,7 +689,7 @@ FAQ - Frequently Asked Questions
    in environments where PHP is in safe mode: access to system programs
    is is limited by the system administrator, and time limit is enforced.
    
-  [ISPs]
+  [ISPs, multi-user installations ]
   
    I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to
    install it for each customer?
@@ -711,13 +723,21 @@ FAQ - Frequently Asked Questions
    phpMyAdmin always gives "Access denied" when using http
    authentication.
    This could happen for several reasons:
-     * $cfgServers[n]['stduser'] and/or $cfgServers[n]['stdpass'] are
-       wrong.
+     * $cfgServers[n]['controluser'] and/or $cfgServers[n]['controlpass']
+       are wrong.
      * The username/password you specify in the login-dialog are invalid.
      * You have already setup a security mechanism for the
        phpMyAdmin-directory, eg. a .htaccess file. This would interfere
        with phpMyAdmin's authentication, so remove it.
        
+   Is it possible to let users create their own databases?
+   Yes, but currently (phpMyAdmin 2.2.4) there is no visual way to do
+   this in our user management page. For example, let's say users should
+   be able to create databases with a name starting like their username,
+   type this in a query box:
+        GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER
+   ON `username%`.* TO 'username'@localhost;
+   
   [Browsers or client OS]
   
    I get an out of memory error, and my controls are non-functional, when
@@ -955,6 +975,8 @@ code since version 2.1.0:
   for multiple table printviews.
 - Garvin Hicking <hicking at faktor-e.de> who builds the patch for
   vertical display of table rows.
+- Yukihiro Kawada <kawada at den.fujifilm.co.jp> for the japanese kanji
+  encoding conversion feature.
 - Piotr Roszatycki <d3xter at users.sourceforge.net> and Dan Wilson, for
   the Cookie authentication mode.
 - Axel Sander <n8falke at users.sourceforge.net> for the table
@@ -967,9 +989,8 @@ Péter Bakondy, Borges Botelho, Olivier Bussier, Neil Darlow,
 Kristof Hamann, Thomas Kläger, Lubos Klokner, Martin Marconcini,
 Girish Nair, David Nordenberg, Bernard M. Piller, Laurent Haas,
 "Sakamoto", Yuval Sarna, www.securereality.com.au,
-Peter Svec, Michael Tacelosky,
-Daniel Villanueva, Vinay, Ignacio Vazquez-Abrams, Chee Wai, Jakub Wilk,
-Thomas Michael Winningham.
+Peter Svec, Michael Tacelosky, Daniel Villanueva, Vinay,
+Ignacio Vazquez-Abrams, Chee Wai, Jakub Wilk, Thomas Michael Winningham.
 
 
 Original Credits of Version 2.1.0
