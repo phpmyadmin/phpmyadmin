@@ -9,6 +9,8 @@ $Source$
     * libraries/grab_globals.lib.php: More hotfixes against bug #1149381.
     * libraries/mysql_charsets.lib.php: Detection for new Japanese charsets
       (cp932 and eucjpms) that will be introduced with MySQL 5.0.3.
+    * libraries/select_lang.lib.php: Removed the UTF-8 deactivation code that
+      we had already commented out a long time ago.
 
 2005-02-22 Alexander M. Turek  <me@derrabus.de>
     * libraries/grab_globals.lib.php: Hotfix against bug #1149381 and parts

@@ -219,26 +219,6 @@ if (!isset($cfg['DefaultLang']) && isset($cfgDefaultLang)) {
     unset($cfgLang);
 }
 
-/**
- *
- * 2004-02-15 rabus: Deactivated the code temporarily:
- *            We need to allow UTF-8 in order to be MySQL 4.1 compatible!
-
-// Disable UTF-8 if $cfg['AllowAnywhereRecoding'] has been set to FALSE.
-if (!isset($cfg['AllowAnywhereRecoding']) || !$cfg['AllowAnywhereRecoding']) {
-    $available_language_files               = $available_languages;
-    $available_languages                    = array();
-    foreach ($available_language_files AS $tmp_lang => $tmp_lang_data) {
-        if (substr($tmp_lang, -5) != 'utf-8') {
-            $available_languages[$tmp_lang] = $tmp_lang_data;
-        }
-    } // end while
-    unset($tmp_lang, $tmp_lang_data, $available_language_files);
-} // end if
-
- *
- */
-
 // MySQL charsets map
 $mysql_charset_map = array(
     'big5'         => 'big5',
