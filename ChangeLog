@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2005-03-25 Alexander M. Turek  <me@derrabus.de>
+2005-03-26 Alexander M. Turek  <me@derrabus.de>
     * libraries/engines/innodb.lib.php: Caught possible devision by zero.
 
 2005-03-25 Marc Delisle  <lem9@users.sourceforge.net>
