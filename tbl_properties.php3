@@ -26,7 +26,7 @@ $err_url   = 'tbl_properties.php3'
 
 /**
  * Ensures the database and the table exist (else move to the "parent" script)
- * and diplays headers
+ * and displays headers
  */
 if (!isset($is_db) || !$is_db) {
     // Not a valid db name -> back to the welcome page
@@ -1215,7 +1215,12 @@ if (!empty($cfgServer['relation'])) {
     $local_query = 'SELECT src_column, dest_table, dest_column'
                  . ' FROM ' . $cfgServer['relation']
                  . ' WHERE src_table =\'' . $table . '\';';
-//    mysql_select_db($db);
+
+// we need this mysql_select_db if the user has access to more than one db
+// and $db is not the last of the list, because
+// PMA_availableDatabases() has made a mysql_select_db() on the last one
+    mysql_select_db($db);
+
     $result      = @mysql_query($local_query);
 
     if ($result != FALSE && mysql_num_rows($result) > 0) {
