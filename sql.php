@@ -437,13 +437,20 @@ else {
                 } else { // n o t   " j u s t   b r o w s i n g "
 
                     if (PMA_MYSQL_INT_VERSION < 40000) {
-                        // TODO: detect DISTINCT in the parser
-                        if (stristr($sql_query, 'DISTINCT')) {
-                            $count_what = 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
-                        } else {
-                            $count_what = '*';
-                        }
 
+                        // detect this case:
+                        // SELECT DISTINCT x AS foo, y AS bar FROM sometable
+
+                        if (isset($analyzed_sql[0]['queryflags']['distinct'])) {
+                            $count_what = 'DISTINCT ';
+                            $first_expr = TRUE;
+                            foreach($analyzed_sql[0]['select_expr'] as $part) {
+                                $count_what .= (!$first_expr ? ', ' : '') . $part['expr'];
+                                $first_expr = FALSE;
+                            }
+                         } else {
+                             $count_what = '*';
+                         }
                         $count_query = 'SELECT COUNT(' . $count_what . ') AS count';
                     }
 
