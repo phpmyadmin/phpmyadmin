@@ -19,8 +19,6 @@ $datefmt = '%B %d, %Y at %I:%M %p';
 
 $timespanfmt = '%s zile, %s ore, %s minute si %s secunde';
 
-$strUpdComTab = 'Parcurgeti documentatia pentru modul de updatare a Column_comments Table';
-
 $strAPrimaryKey = 'A fost adaugat o cheie primara la %s';
 $strAbortedClients = 'Intrerupt';
 $strAbsolutePathToDocSqlDir = 'Va rugam introduceti calea absoluta al serverului web la directorul docSQL';
@@ -95,6 +93,7 @@ $strChangeCopyModeRevoke = ' ... revoca toate privilegiile active de la utilizat
 $strChangeCopyUser = 'Schimba informatiile de autentificare / Copiaza utilizator';
 $strChangeDisplay = 'Selecteaza un camp';
 $strChangePassword = 'Schimbare parola';
+$strCharset = 'Set de caractere';
 $strCharsetOfFile = 'Setul de caractere a fisierului:';
 $strCheckAll = 'Marcheaza toate';
 $strCheckDbPriv = 'Marcheaza drepturile de acces la baza de date';
@@ -543,6 +542,7 @@ $strStructure = 'Structura';
 $strSubmit = 'Trimite';
 $strSuccess = 'Comanda dumneavoastra SQL a fost executata cu succes';
 $strSum = 'Sum';
+$strSwitchToTable = 'Schimba la tabela copiata';
 
 $strTable = 'Tabel';
 $strTableComments = 'Comentarii tabel';
@@ -583,6 +583,7 @@ $strType = 'Tip';
 $strUncheckAll = 'Deselecteaza toate';
 $strUnique = 'Unic';
 $strUnselectAll = 'Deselecteaza tot';
+$strUpdComTab = 'Parcurgeti documentatia pentru modul de updatare a Column_comments Table';
 $strUpdatePrivMessage = 'Ati actualizat privilegiile pentru %s.';
 $strUpdateProfile = 'Actualizarea profilului:';
 $strUpdateProfileMessage = 'Profilul a fost actualizat.';
@@ -626,7 +627,4 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 // To translate
 
-$strSwitchToTable = 'Switch to copied table';  //to translate
-
-$strCharset = 'Charset';  //to translate
 ?>
