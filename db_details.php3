@@ -264,9 +264,12 @@ if ($num_tables > 0) {
  rows="<?php echo $cfgTextareaRows; ?>"
  cols="<?php echo $cfgTextareaCols; ?>"
 >
-<?php if (isset($show_query)) {
-         echo $show_query=="y" ? $sql_query : '';
-      }
+<?php
+if (isset($show_query)) {
+    echo $show_query=="y" ? $sql_query : '';
+} else {
+    echo stripslashes($sql_query);
+}
 ?>
 </textarea><br />
 <INPUT type=checkbox name='show_query' value="y" checked /><?php echo $strShowThisQuery; ?><br />

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-19  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3 & lib.inc.php3: patch from Laurent Haas <mci@free.fr>
+      that allows to remember and modify a sql query submitted.
+
 2001-07-19  Marc Delisle  <lem9@users.sourceforge.net>
 	* config.inc.php3, tbl_change.php3, db_details.php3, lib.inc.php3,
 	  tbl_properties.php3, tbl_properties_inc.php3, tbl_select.php3,
