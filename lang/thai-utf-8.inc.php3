@@ -2,7 +2,7 @@
 /* $Id$ */
 
 // first created 2002/04/29 Arthit Suriyawongkul & Warit Wanasathian
-// last modified 2002/12/08 Arthit Suriyawongkul
+// last modified 2003/03/12 Arthit Suriyawongkul
 
 $charset = 'utf-8';
 $allow_recoding = TRUE;
@@ -73,6 +73,7 @@ $strBrowse = 'เปิดดู';
 $strBzError = 'phpMyAdmin ไม่สามารถบีบอัดข้อมูล dump ได้ เนื่องจากส่วนขยาย Bz2 ใน php รุ่นนี้นั้นเสีย. ขอแนะนำเป็นอย่างยิ่งให้ตั้งไดเรกทีฟ <code>$cfg[\'BZipDump\']</code> ในไฟล์คอนฟิกของ phpMyAdmin เป็น <code>FALSE</code>. ถ้าคุณต้องการที่จะใช้ความสามารถของส่วนขยายการบีบอัด Bz2, คุณควรจะอัพเกรด php เป็นรุ่นถัดไป. รายละเอียดดูได้ที่ php bug report %s.';
 $strBzip = '"bzipped"';
 
+$strCSVOptions = 'ตัวเลือก CSV';
 $strCannotLogin = 'ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้';
 $strCantLoad = 'ไม่สามารถเรียกส่วนขยาย %s,<br />กรุณาตรวจสอบการตั้งค่า่ของ PHP';
 $strCantLoadMySQL = 'ไม่สามารถเรียกใช้ตัวช่วยของ MySQL,<br />กรุณาตรวจสอบการตั้งค่าของ PHP';
@@ -119,6 +120,9 @@ $strCreatePage = 'เริ่มหน้าใหม่';
 $strCreatePdfFeat = 'การสร้างเอกสาร PDF';
 $strCriteria = 'เงื่อนไข';
 
+$strDBComment = 'หมายเหตุของฐานข้อมูล: ';
+$strDBGContext = 'คอนเท็กซ์';
+$strDBGContextID = 'หมายเลขคอนเท็กซ์';
 $strDBGHits = 'ฮิต';
 $strDBGLine = 'บรรทัด';
 $strDBGMaxTimeMs = 'เวลามากสุด, มิลลิวินาที';
@@ -141,6 +145,7 @@ $strDbPrivileges = 'สิทธิเจาะจงเฉพาะฐานข
 $strDbSpecific = 'เฉพาะฐานข้อมูล';
 $strDefault = 'ค่าปริยาย';
 $strDelete = 'ลบ';
+$strDeleteAndFlushDescr = 'นี่เป็นวิธีที่หมดจดที่สุด แต่การโหลดสิทธิใช้งานใหม่ จะต้องใช้เวลาสักระยะ.';
 $strDeleteFailed = 'ลบไม่สำเร็จ!';
 $strDeleteUserMessage = 'คุณได้ลบผู้ใช้ %s ไปแล้ว';
 $strDeleted = 'ลบเรียบร้อยแล้ว';
@@ -157,7 +162,10 @@ $strDoYouReally = 'ต้องการจะ ';
 $strDocu = 'เอกสารอ้างอิง';
 $strDrop = 'โยนทิ้ง';
 $strDropDB = 'โยนฐานข้อมูล %s ทิ้ง';
+$strDropSelectedDatabases = 'โยนฐานข้อมูลที่เลือกไว้ทิ้ง';
 $strDropTable = 'โยนตารางทิ้ง';
+$strDropUsersDb = 'โยนฐานข้อมูลที่มีชื่อเดียวกับผู้ใช้ทิ้ง.';
+$strDumpComments = 'ใส่หมายเหตุของคอลัมน์ เหมือนเป็น inline SQL-comments';
 $strDumpXRows = 'ดัมพ์แถว %s แถว เริ่มที่แถว %s';
 $strDumpingData = 'dump ตาราง';
 $strDynamic = 'ไม่คงที่';
@@ -239,6 +247,7 @@ $strInsertedRows = 'แถวที่ถูกแทรก:';
 $strInstructions = 'วิธีใช้';
 $strInvalidName = '"%s" เป็นคำสงวน นำมาใช้ตั้งชื่อ ฐานข้อมูล/ ตาราง/ฟิลด์ ไม่ได้';
 
+$strJumpToDB = 'กระโดดไปที่ฐานข้อมูล &quot;%s&quot;.';
 $strJustDelete = 'แค่ลบผู้ใช้ออกจากตารางแสดงสิทธิเข้าถึง';
 
 $strKeepPass = 'กรุณาอย่าเปลี่ยนรหัสผ่าน';
@@ -263,6 +272,12 @@ $strLogin = 'เข้าสู่ระบบ';
 $strLoginInformation = 'ข้อมูลล็อกอิน';
 $strLogout = 'ออกจากระบบ';
 
+$strMIME_MIMEtype = 'MIME-type';
+$strMIME_available_mime = 'MIME-types ที่มีอยู่';
+$strMIME_available_transform = 'การแปลงที่เรียกใช้ได้';
+$strMIME_description = 'รายละเอียด';
+$strMIME_file = 'ชื่อไฟล์';
+$strMIME_nodescription = 'ไม่ปรากฏรายละเอียดสำหรับการแปลงนี้.<br />กรุณาสอบถามผู้เขียนว่า,  %s ทำอะไร.';
 $strMissingBracket = 'วงเล็บก้ามปู [] ไม่ครบ';
 $strModifications = 'บันทึกการแก้ไขเรียบร้อยแล้ว';
 $strModify = 'แก้ไข';
@@ -290,6 +305,7 @@ $strNoFrames = 'เบราเซอร์ที่<b>ใช้เฟรมไ�
 $strNoIndex = 'ยังไม่ได้กำหนดดัชนีใดๆ!';
 $strNoIndexPartsDefined = 'ไม่ได้กำหนดส่วนใดๆ ของดัชนี!';
 $strNoModification = 'ไม่มีการเปลี่ยนแปลง';
+$strNoOptions = 'รูปแบบนี้ไม่มีตัวเลือก';
 $strNoPassword = 'ไม่มีรหัสผ่าน';
 $strNoPhp = 'ไม่เอาโค้ด PHP';
 $strNoPrivileges = 'ไม่มีสิทธิ';
@@ -345,6 +361,11 @@ $strPrimaryKeyName = 'ชื่อของไพรมารีคีย์ จ
 $strPrimaryKeyWarning = '(ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> "PRIMARY" เท่านั้น!)';
 $strPrint = 'พิมพ์';
 $strPrintView = 'แสดง';
+$strPrivDescAllPrivileges = 'ให้สิทธิทุกอย่าง ยกเว้นการให้สิทธิแก่ผู้อื่น (GRANT).';
+$strPrivDescAlter = 'อนุญาตให้เปลี่ยนโครงสร้างของตารางที่มีอยู่เดิม.';
+$strPrivDescCreateDb = 'อนุญาตให้สร้างฐานข้อมูล และตารางใหม่.';
+$strPrivDescCreateTbl = 'อนุญาตให้สร้างตารางใหม่.';
+$strPrivDescCreateTmpTable = 'อนุญาตให้สร้างตารางชั่วคราว.';
 $strPrivDescDelete = 'อนุญาตให้ลบข้อมูล';
 $strPrivDescDropDb = 'อนุญาตให้ทิ้งฐานข้อมูล และตาราง';
 $strPrivDescDropTbl = 'อนุญาตให้ทิ้งตาราง';
@@ -368,14 +389,19 @@ $strPrivDescUpdate = 'อนุญาตให้เปลี่ยนข้อ�
 $strPrivDescUsage = 'ไม่มีสิทธิใดๆ.';
 $strPrivileges = 'สิทธิ';
 $strPrivilegesReloaded = 'สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว';
+$strProcesslist = 'รายการโพรเซส';
 $strProperties = 'คุณสมบัติ';
 $strPutColNames = 'ใส่ชื่อฟิลด์ที่แถวแรก';
 
 $strQBE = 'คำค้นจากตัวอย่าง';
 $strQBEDel = 'ลบ';
 $strQBEIns = 'เพิ่ม';
+$strQueryFrame = 'หน้าต่างคำค้น';
+$strQueryFrameDebug = 'ข้อมูลดีบัก';
 $strQueryOnDb = 'คำค้นบนฐานข้อมูล <b>%s</b>:';
+$strQuerySQLHistory = 'SQL-history';
 $strQueryStatistics = '<b>สถิติคำค้น</b>: มี %s คำค้น ถูกส่งไปที่เซิร์ฟเวอร์ นับตั้งแต่เริ่มระบบ.';
+$strQueryTime = 'คำค้นใช้เวลา %01.4f วินาที';
 $strQueryType = 'ชนิดคำค้น';
 
 $strReType = 'พิมพ์ใหม่';
@@ -406,6 +432,7 @@ $strRowLength = 'ความยาวแถว';
 $strRowSize = ' ขนาดแถว ';
 $strRows = 'แถว';
 $strRowsFrom = 'แถว เริ่มจากแถวที่';
+$strRowsModeFlippedHorizontal = 'แนวนอน (หมุนหัวเรื่อง)';
 $strRowsModeHorizontal = 'แนวนอน';
 $strRowsModeOptions = 'อยู่ใน %s และซ้ำหัวแถวทุกๆ %s เซลล์';
 $strRowsModeVertical = 'แนวตั้ง';
@@ -415,6 +442,7 @@ $strRunSQLQuery = 'ประมวลผลคำค้นบนฐานข้�
 $strRunning = 'ทำงานอยู่บน %s';
 
 $strSQL = 'SQL';
+$strSQLOptions = 'ตัวเลือก SQL';
 $strSQLParserBugMessage = 'อาจจะมีการเปลี่ยนแปลงบางอย่าง ที่คุณพบว่ามันเป็นข้อผิดพลาดของตัวอ่านคำสั่ง SQL. กรุณาตรวจสอบคำค้นของคุณให้ถี่ถ้วน โดยเฉพาะการเปิด/ปิดเครื่องหมายคำพูด (quotes) ให้ถูกต้อง. อีกสาเหตุหนึ่งที่เป็นไปได้คือ คุณอาจจะอัพโหลดไฟล์ไบนารีข้างนอกช่วงของเครื่องหมายคำพูด. คุณสามารถที่จะลองคำค้นของคุณที่คอมมานด์ไลน์ของ MySQL ซึ่งคุณอาจจะพบข้อผิดพลาดบางอย่างในนั้น. หาก MySQL server ได้แจ้งข้อผิดพลาดมาด้านล่างนี้ ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น. ถ้าคุณยังพบปัญหากับ parser ใน phpMyAdmin อยู่ แต่ไม่พบปัญหากับ parser ใน command line, ให้ลองลดความยาวของคำค้น SQL ลง จนกระทั่งเหลือคำค้น SQL เดี่ยวๆ ที่ยังทำให้เกิดปัญหาอยู่อีก, แล้วแจ้งข้อผิดพลาดดังกล่าวมาที่เรา ส่งมันมาพร้อมกับตัวข้อมูลที่คุณค้น ซึ่งได้จากส่วนของ CUT ด้านล่าง.';
 $strSQLParserUserError = 'อาจจะมีข้อผิดพลาดบางอย่างในคำค้น SQL ของคุณ. หาก MySQL server ได้แจ้งข้อผิดพลาดมาด้านล่างนี้ ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น';
 $strSQLQuery = 'คำค้น SQL';
@@ -446,6 +474,8 @@ $strServer = 'เซิร์ฟเวอร์ %s';
 $strServerChoice = 'ตัวเลือกเซิร์ฟเวอร์';
 $strServerStatus = 'ข้อมูลรันไทม์';
 $strServerStatusUptime = 'เซิร์ฟเวอร์ MySQL นี้รันมาเป็นเวลา %s. เริ่มตอน %s.';
+$strServerTabProcesslist = 'โพรเซส';
+$strServerTabVariables = 'ตัวแปร';
 $strServerTrafficNotes = '<b>การจราจรของเซิร์ฟเวอร์</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
 $strServerVars = 'ตัวแปร และค่ากำหนด ของเซิร์ฟเวอร์';
 $strServerVersion = 'รุ่นของเซิร์ฟเวอร์';
@@ -483,8 +513,8 @@ $strSum = 'ผลรวม';
 $strTable = 'ตาราง ';
 $strTableComments = 'หมายเหตุของตาราง';
 $strTableEmpty = 'ชื่อตารางยังว่างอยู่!';
-$strTableHasBeenDropped = 'โยนตาราง %s ทิ้งไปเรียบร้อย แล้ว';
-$strTableHasBeenEmptied = 'ลบข้อมูลในตาราง %s เรียบร้อย แล้ว';
+$strTableHasBeenDropped = 'โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว';
+$strTableHasBeenEmptied = 'ลบข้อมูลในตาราง %s เรียบร้อยแล้ว';
 $strTableHasBeenFlushed = 'ล้างตาราง %s เรียบร้อยแล้ว';
 $strTableMaintenance = 'การดูแลรักษาตาราง';
 $strTableOfContents = 'สารบัญ';
@@ -523,6 +553,8 @@ $strUserName = 'ชื่อผู้ใช้';
 $strUserNotFound = 'ผู้ใช้ที่เลือก ไม่พบในตารางแสดงสิทธิ';
 $strUserOverview = 'ข้อมูลทั่วไปของผู้ใช้';
 $strUsers = 'ผู้ใช้';
+$strUsersDeleted = 'ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว.';
+$strUsersHavingAccessToDb = 'ผู้ใช้มีสิทธิเข้าถึงฐานข้อมูล &quot;%s&quot;';
 
 $strValidateSQL = 'ตรวจสอบ SQL';
 $strValidatorError = 'ไม่สามารถเริ่มตัวตรวจสอบ SQL ได้. กรุณาตรวจสอบว่า คุณได้ติดตั้ง php extensions ที่จำเป็น ดังที่อธิบายไว้ใน %sdocumentation%s เรียบร้อยแล้ว';
@@ -536,100 +568,70 @@ $strWebServerUploadDirectoryError = 'ไม่สามารถใช้งา�
 $strWelcome = '%s ยินดีต้อนรับ';
 $strWildcard = 'ไวล์การ์ด';
 $strWithChecked = 'ทำกับที่เลือก:';
+$strWritingCommentNotPossible = 'การเขียนหมายเหตุนั้นเป็นไปไม่ได้';
+$strWritingRelationNotPossible = 'การเขียนรีเลชันนั้นเป็นไปไม่ได้';
 $strWrongUser = 'อนุญาตให้เข้าใช้ไม่ได้ ชื่อผู้ใช้หรือรหัสผ่านผิด';
+
+$strXML = 'XML';
 
 $strYes = 'ใช่';
 
+$strZeroRemovesTheLimit = 'โปรดทราบ: ถ้าเปลี่ยนค่าเหล่านี้เป็น 0 (ศูนย์) จะหมายถึง ไม่มีขีดจำกัด.';
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
-// To translate
+$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 
 $strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
 $strAddedColumnComment = 'Added comment for column';  //to translate
 $strAddedColumnRelation = 'Added relation for column';  //to translate
+$strAutomaticLayout = 'Automatic layout';  //to translate
 
 $strChangeCopyModeDeleteAndReload = ' ... delete the old one from the user tables and reload the privileges afterwards.';  //to translate
 $strChangeCopyModeRevoke = ' ... revoke all active privileges from the old one and delete it afterwards.';  //to translate
 $strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
 
-$strDBGContext = 'Context';  //to translate
-$strDBGContextID = 'Context ID';  //to translate
-$strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
+$strDatabasesStatsHeavyTraffic = 'โปรดทราบ: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
 $strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
+$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
 $strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
-$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
-$strDropSelectedDatabases = 'Drop Selected Databases';  //to translate
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 
+$strFileNameTemplate = 'File name template';//to translate 
+$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
+$strFileNameTemplateRemember = 'remember template';//to translate 
 $strFlushPrivilegesNote = 'โปรดทราบ: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
 
-$strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
+$strInnodbStat = 'InnoDB Status';  //to translate
+
 $strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
 
-$strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
-$strPrivDescAlter = 'Allows altering the structure of existing tables.'; //to translate
-$strPrivDescCreateDb = 'Allows creating new databases and tables.'; //to translate
-$strPrivDescCreateTbl = 'Allows creating new tables.'; //to translate
-$strPrivDescCreateTmpTable = 'Allows creating temporary tables.'; //to translate
+$strMIME_transformation = 'Browser transformation';//to translate
+$strMIME_transformation_note = 'For a list of available transformation options and their MIME-type transformations, click on %stransformation descriptions%s';//to translate
+$strMIME_transformation_options = 'Transformation options';//to translate
+$strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';//to translate
+$strMIME_without = 'MIME-types printed in italics do not have a seperate transformation function';//to translate
+
+$strPerMinute = 'per minute';//to translate
+$strPerSecond = 'per second';//to translate
 $strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
 $strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
 $strPrivDescSuper = 'อนุญาตให้เชื่อมต่อ, แม้ว่าจำนวนการเชื่อมต่อจะถึงระดับสูงสุดแล้ว; Required for most administrative operations like setting global variables or killing threads of other users.'; //to translate
-$strProcesslist = 'Process list'; //to translate
+
+$strQueryFrameDebugBox = 'Active variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nCurrent variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nOpener location: %s\nFrameset location: %s.';//to translate
 
 $strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
 $strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
 
-$strServerTabProcesslist = 'Processes'; //to translate
-$strServerTabVariables = 'Variables'; //to translate
-
-$strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
-$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
-
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
-
-$strZeroRemovesTheLimit = 'โปรดทราบ: Setting these options to 0 (zero) removes the limit.'; //to translate
-$strRowsModeFlippedHorizontal = 'horizontal (rotated headers)';//to translate
-$strQueryTime = 'Query took %01.4f sec';//to translate
-$strDumpComments = 'Include column comments as inline SQL-comments';//to translate
-$strDBComment = 'Database comment: ';//to translate
-$strQueryFrame = 'Query window';//to translate
-$strQueryFrameDebug = 'Debugging information';//to translate
-$strQueryFrameDebugBox = 'Active variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nCurrent variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nOpener location: %s\nFrameset location: %s.';//to translate
-$strQuerySQLHistory = 'SQL-history';//to translate
-$strMIME_MIMEtype = 'MIME-type';//to translate
-$strMIME_transformation = 'Browser transformation';//to translate
-$strMIME_transformation_options = 'Transformation options';//to translate
-$strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';//to translate
-$strMIME_transformation_note = 'For a list of available transformation options and their MIME-type transformations, click on %stransformation descriptions%s';//to translate
-$strMIME_available_mime = 'Available MIME-types';//to translate
-$strMIME_available_transform = 'Available transformations';//to translate
-$strMIME_without = 'MIME-types printed in italics do not have a seperate transformation function';//to translate
-$strMIME_description = 'Description';//to translate
-$strMIME_nodescription = 'No Description is available for this transformation.<br />Please ask the author, what %s does.';//to translate
-$strMIME_file = 'Filename';//to translate
-$strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link for it. First options argument is a possible prepended string like http://...';//to translate
-$strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
-$strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
-$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
-$strInnodbStat = 'InnoDB Status';  //to translate
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
-$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
-$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
-$strSQLOptions = 'SQL options';//to translate
-$strXML = 'XML';//to translate
-$strCSVOptions = 'CSV options';//to translate
-$strNoOptions = 'This format has no options';//to translate
+$strStatCheckTime = 'Last check';//to translate
 $strStatCreateTime = 'Creation';//to translate
 $strStatUpdateTime = 'Last update';//to translate
-$strStatCheckTime = 'Last check';//to translate
-$strPerMinute = 'per minute';//to translate
-$strPerSecond = 'per second';//to translate
-$strAutomaticLayout = 'Automatic layout';  //to translate
-$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
-$strFileNameTemplate = 'File name template';//to translate 
-$strFileNameTemplateRemember = 'remember template';//to translate 
-$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
+
+$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
+$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
+$strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link for it. First options argument is a possible prepended string like http://...';//to translate
+$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
 $strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
-$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
 $strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
+$strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
+$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
+$strTransformation_text_plain__unformatted = 'แสดงโค้ด HTML เป็น HTML entities. No HTML formatting is shown.';//to translate
+
 ?>
