@@ -81,6 +81,7 @@ $strColumn = 'Colonne';
 $strColumnNames = 'Nom des colonnes';
 $strComments = 'Commentaires';
 $strCompleteInserts = 'Insertions complètes';
+$strCompression = 'Compression';
 $strConfigFileError = 'phpMyAdmin n\'a pu lire votre fichier de configuration!<br />Il est possible qu\'il contienne une erreur de syntaxe, ou que PHP soit incapable de le trouver<br />À l\'aide du lien suivant, vous pouvez vérifier le message d\'erreur généré par PHP;<br />la plupart du temps, un apostrophe ou un point-virgule sont manquants.<br />Si vous recevez une page blanche, aucune erreur n\'a été détectée.';
 $strConfigureTableCoord = 'Les coordonnées de la table %s n\'ont pas été configurées';
 $strConfirm = 'Veuillez confirmer';
@@ -244,7 +245,7 @@ $strNoRights = 'Vous n\'êtes pas autorisé à accéder à cette page';
 $strNoTablesFound = 'Aucune table n\'a été trouvée dans cette base.';
 $strNoUsersFound = 'Il n\'y a aucun utilisateur';
 $strNoValidateSQL = 'Ne pas valider SQL';
-$strNone = 'Nulle';
+$strNone = 'aucune';
 $strNotNumber = 'Ce n\'est pas un nombre !';
 $strNotOK = 'en erreur';
 $strNotSet = 'La table <b>%s</b> est absente ou non définie dans %s';
@@ -431,7 +432,6 @@ $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 $strYes = 'Oui';
 
 $strZip = '"zippé"';
-
 // To translate
-$strCompression = 'Compression'; //to translate
+
 ?>
