@@ -10,6 +10,9 @@ $Source$
       (bug #990330).
     * libraries/display_export.lib.php: Display SQL export after saving file
       on server	(bug #989657).
+    * tbl_properties_export.php: In case we don't need to reconstruct complete
+      query just drop LIMIT part (workaround for bug #955175 and should fix
+      bug #990724).
 
 2004-07-15 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug 990959, undefined index for DATETIME
