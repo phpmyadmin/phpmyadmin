@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-24 Robin Johnson  <robbat2@users.sourceforge.net>
+    * config.inc.php3, libraries/sqlparser.lib.php3:
+        - Fix code to work around CSS bug in Mozilla/Konqueror with 'inherit'
+          value.
+
 2002-07-25 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, clarify about mysql extensions
     * tbl_properties_options.php3, tbl_properties_table_info.php3:

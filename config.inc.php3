@@ -294,12 +294,12 @@ $cfg['SQP']['fmtInd']       = '1';          // Amount to indent each level (floa
 $cfg['SQP']['fmtIndUnit']   = 'em';         // Units for indenting each level (CSS Types - {em,px,pt})
 $cfg['SQP']['fmtColor']     = array(        // Syntax colouring data
     'comment'            => '#808000',
-    'digit'              => 'inherit',
+    'digit'              => '',
     'digit_hex'          => 'teal',
     'digit_integer'      => 'teal',
     'digit_float'        => 'aqua',
     'punct'              => 'fuchsia',
-    'alpha'              => 'inherit',
+    'alpha'              => '',
     'alpha_columnType'   => '#FF9900',
     'alpha_columnAttrib' => '#0000FF',
     'alpha_reservedWord' => '#990099',
@@ -307,9 +307,9 @@ $cfg['SQP']['fmtColor']     = array(        // Syntax colouring data
     'alpha_identifier'   => 'black',
     'alpha_variable'     => '#800000',
     'quote'              => '#008000',
-    'quote_double'       => 'inherit',
-    'quote_single'       => 'inherit',
-    'quote_backtick'     => 'inherit'
+    'quote_double'       => '',
+    'quote_single'       => '',
+    'quote_backtick'     => ''
 );
 
 

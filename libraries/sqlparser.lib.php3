@@ -755,13 +755,18 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     } // end of the "PMA_SQP_formatHtml()" function
 
 
-    function PMA_SQP_buildCssRule($classname, $property, $value)
+    function PMA_SQP_BuildCssRule($classname, $property, $value)
     {
-        return '.' . $classname . ' { ' . $property . ': ' . $value . '; } ' . "\n";
+        $str = '.' . $classname . ' {';
+        if($value != '') {
+            $str .= $property . ': ' . $value . '; ';
+        } 
+        $str .= '}' . "\n";
+        return $str; 
     } // end of the "PMA_SQP_buildCssRule()" function
 
 
-    function PMA_SQP_buildCssData()
+    function PMA_SQP_BuildCssData()
     {
         global $cfg;
 
