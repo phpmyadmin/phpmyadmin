@@ -358,7 +358,7 @@ $strQBEDel = '移除';
 $strQBEIns = '新增';
 $strQueryOnDb = '在資料庫 <b>%s</b> 執行 SQL 語法:';
 $strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
-$strQueryType = '查詢方式'
+$strQueryType = '查詢方式';
 
 $strReType = '確認密碼';
 $strReceived = '接收';
