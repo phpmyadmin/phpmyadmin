@@ -93,7 +93,7 @@ $strDocu = 'Documentazione';
 $strDoYouReally = 'Confermi: ';
 $strDrop = 'Elimina';
 $strDropDB = 'Elimina database ';
-$strDropTable = 'Elimina table';
+$strDropTable = 'Elimina la tabella';
 $strDumpingData = 'Dump dei dati per la tabella';
 $strDynamic = 'dinamico';
 
@@ -116,7 +116,7 @@ $strFieldsEnclosedBy = 'Campo composto da';
 $strFieldsEscapedBy = 'Campo impedito da';
 $strFieldsTerminatedBy = 'Campo terminato da';
 $strFixed = 'fisso';
-$strFlushTable = 'Inizializza la tabella ("FLUSH")';
+$strFlushTable = 'Inizializza ("FLUSH") la tabella';
 $strFormat = 'Formato';
 $strFormEmpty = 'Valore mancante nel form!';
 $strFullText = 'Testo completo';
