@@ -1,8 +1,8 @@
 <?php
 /* $Id$ */
 
-/**
- * Updated by "CaliMonk" <calimonk at gmx.net> on 2002/11/07.
+/*
+ * Updated by "CaliMonk" <calimonk at gmx.net> on 2004/28/01.
  */
 
 $charset = 'iso-8859-1';
@@ -28,6 +28,7 @@ $strAccessDenied = 'Toegang geweigerd ';
 $strAccessDeniedExplanation = 'phpMyAdmin probeerde met de MySQL server te verbinden maar de server weigerde de verbinding. Controleer de host, de gebruikersnaam en het wachtwoord in config.inc.php en zorg er voor dat deze overeenkomen met de informatie die u van de Beheerder van de MySQL server kreeg.';
 $strAction = 'Actie';
 $strAddAutoIncrement = 'Voeg AUTO_INCREMENT waarde toe';
+$strAddConstraints = 'Voeg beperkingen toe';
 $strAddDeleteColumn = 'Toevoegen/Verwijderen Veld Kolommen';
 $strAddDeleteRow = 'Toevoegen/Verwijderen Criteria Rij';
 $strAddDropDatabase = 'Voeg DROP DATABASE toe';
@@ -75,8 +76,10 @@ $strBeginCut = 'Begin KNIP';
 $strBeginRaw = 'Begin RAW';
 $strBinary = ' Binair ';
 $strBinaryDoNotEdit = ' Binair - niet aanpassen ';
+$strBookmarkAllUsers = 'Geef elke gebruiker toegang tot deze bookmark';
 $strBookmarkDeleted = 'De boekenlegger (Bookmark) is verwijderd.';
 $strBookmarkLabel = 'Label';
+$strBookmarkOptions = 'Bookmark opties';
 $strBookmarkQuery = 'Opgeslagen SQL-query';
 $strBookmarkThis = 'Sla deze SQL-query op';
 $strBookmarkView = 'Alleen bekijken';
@@ -112,6 +115,7 @@ $strCharsets = 'Karaktersets';
 $strCharsetsAndCollations = 'Karakter Sets en Collations';
 $strCheckAll = 'Selecteer alles';
 $strCheckDbPriv = 'Controleer database rechten';
+$strCheckOverhead = 'Controleer Overhead';
 $strCheckPrivs = 'Controleer privileges';
 $strCheckPrivsLong = 'Controleer privileges voor database &quot;%s&quot;.';
 $strCheckTable = 'Controleer tabel';
@@ -128,7 +132,10 @@ $strCompression = 'Compressie';
 $strConfigFileError = 'phpMyAdmin kon het configuratie bestand niet lezen! <br />Dit kan gebeuren als php een parse error in dit bestand aantreft of dit bestand helemaal niet gevonden kan worden.<br />Roep het configuratie bestand direct aan met de snelkoppeling hieronder en lees de php foutmelding(en). In de meeste gevallen ontbreekt er ergens bijvoorbeeld een quote.<br /> Wanneer er een blanco pagina wordt weergegeven zijn er geen problemen.';
 $strConfigureTableCoord = 'Configureer de coördinaten voor de tabel %s';
 $strConfirm = 'Weet u zeker dat u dit wilt?';
+$strConnectionError = 'Kan niet verbinden: ongeldige instellingen.';
 $strConnections = 'Connecties';
+$strConstraintsForDumped = 'Beperkingen voor gedumpte tabellen';
+$strConstraintsForTable = 'Beperkingen voor tabel';
 $strCookiesRequired = 'Cookies moeten aan staan voorbij dit punt.';
 $strCopyTable = 'Kopieer tabel naar (database<b>.</b>tabel):';
 $strCopyTableOK = 'Tabel %s is gekopieerd naar %s.';
@@ -141,10 +148,12 @@ $strCreateNewDatabase = 'Nieuwe database aanmaken';
 $strCreateNewTable = 'Nieuwe tabel aanmaken in database %s';
 $strCreatePage = 'Creëer een nieuwe pagina';
 $strCreatePdfFeat = 'Aanmaken van PDF bestanden';
+$strCreationDates = 'Creatie/Update/Controleer datum';
 $strCriteria = 'Criteria';
 $strCroatian = 'Croaties';
 $strCyrillic = 'Cyrillic';
 $strCzech = 'Tsjechisch';
+$strCzechSlovak = 'Tsjechisch-Slowaaks';
 
 $strDBComment = 'Database commentaar: ';
 $strDBGContext = 'Context';
@@ -176,6 +185,7 @@ $strDbSpecific = 'database-specifiek';
 $strDefault = 'Standaardwaarde';
 $strDefaultValueHelp = 'Voer voor standaard waarden aub een enkele waarde in, zonder backslash of aanhalingstekens, gebruik makend van dit formaat: a';
 $strDelOld = 'De huidige pagina heeft referenties met tabellen die niet langer bestaan. Wilt u deze referenties verwijderen?';
+$strDelayedInserts = 'Gebruik vertraagde inserts';
 $strDelete = 'Verwijderen';
 $strDeleteAndFlush = 'Verwijder de gebruikers en vernieuw de privileges daarna.';
 $strDeleteAndFlushDescr = 'Dit is de nette manier, maar het vernieuwen van de privileges kan even duren.';
@@ -220,6 +230,7 @@ $strEnglish = 'Engels';
 $strEnglishPrivileges = ' Aantekening: de namen van de MySQL rechten zijn uitgelegd in het Engels ';
 $strError = 'Fout';
 $strEstonian = 'Estonian';
+$strExcelEdition = 'Excel editie';
 $strExcelOptions = 'Excel opties';
 $strExecuteBookmarked = 'Voor de gebookmarkte query uit';
 $strExplain = 'Verklaar SQL';
@@ -252,6 +263,7 @@ $strFunction = 'Functie';
 $strGenBy = 'Gegenereerd door';
 $strGenTime = 'Generatie Tijd';
 $strGeneralRelationFeat = 'Basis relatie opties';
+$strGeorgian = 'Georgisch';
 $strGerman = 'Duits';
 $strGlobal = 'globaal';
 $strGlobalPrivileges = 'Globale privileges';
@@ -334,6 +346,7 @@ $strLoadMethod = 'LOAD methode';
 $strLocalhost = 'Local';
 $strLocationTextfile = 'Locatie van het tekstbestand';
 $strLogPassword = 'Wachtwoord:';
+$strLogServer = 'Server';
 $strLogUsername = 'Gebruikers naam:';
 $strLogin = 'Inloggen';
 $strLoginInformation = 'Login Informatie';
@@ -350,6 +363,7 @@ $strMIME_transformation_note = 'Voor een lijst met beschikbare transformatie opt
 $strMIME_transformation_options = 'Transformatie opties';
 $strMIME_transformation_options_note = 'Voeg de waardes voor transformatie optie in het volgende formaat in: \'a\',\'b\',\'c\'...<br />Wanneer u een backslash ("\") of een enkele quote ("\'") moet invoegen in deze waardes, backslashes het dan (bijvoorbeeld \'\\\\xyz\' of \'a\\\'b\').';
 $strMIME_without = 'MIME-types die in italics staan (Schuin) hebben geen aparte transformatie functies';
+$strMaximumSize = 'Maximale grootte: %s%s';
 $strMissingBracket = 'Er ontbreekt een bracket';
 $strModifications = 'Wijzigingen opgeslagen.';
 $strModify = 'Aanpassen';
@@ -535,6 +549,7 @@ $strRunning = 'wordt uitgevoerd op %s';
 $strRussian = 'Russisch';
 
 $strSQL = 'SQL';
+$strSQLExportType = 'Export type';
 $strSQLOptions = 'SQL opties';
 $strSQLParserBugMessage = 'Er is een kans dat u een fout heeft aangetroffen in de SQL parser. Let er goed op, dat de query op de correcte plaatsen quotes heeft. Een ander mogelijkheid voor deze foutmelding kan zijn dat u het ge-quote text gedeelte in bineary mode heeft. U kunt ook uw query proberen in de command line van MySQL. De MySQL server foutmelding hieronder, mocht die aanwezig zijn, kan ook helpen met het opsporen van fouten. Blijft u problemen houden of als de parser fouten geeft terwijl het goed gaat in de command line van MySQL, probeer dan de SQL query in te korten en een bug report met het stukje data te sturen van het CUT gedeelte hieronder:';
 $strSQLParserUserError = 'Er schijnt een fout te zijn in uw SQL query. Mocht de MySQL server een error hebben terug gegeven, probeer dan of uw hiermee uw fout kunt oplossen.';
@@ -592,6 +607,7 @@ $strSimplifiedChinese = 'Vereenvoudigd Chinese';
 $strSingly = '(apart)';
 $strSize = 'Grootte';
 $strSort = 'Sorteren';
+$strSortByKey = 'Sorteren op sleutel';
 $strSpaceUsage = 'Ruimte gebruik';
 $strSplitWordsWithSpace = 'Woorden worden gesplit door een spatie karakter (" ").';
 $strStatCheckTime = 'Laatst gecontroleerd';
@@ -639,6 +655,7 @@ $strTotal = 'totaal';
 $strTotalUC = 'Totaal';
 $strTraditionalChinese = 'Traditioneel Chinees';
 $strTraffic = 'Verkeer';
+$strTransformation_application_octetstream__download = 'Toon een link om de binaire data van een veld te downloaden. Eerste optie is de bestandsnaam van het binaire bestand. De tweede optie is een mogelijke veldnaam van een rij van de tabel welke de bestandsnaam bevat. Wanneer de tweede optie wordt gekozen is het vereist dat de eerste optie leeg is.';
 $strTransformation_image_jpeg__inline = 'Toont een klik bare thumbnail; opties: width,height in pixels (houdt de originele ratio)';
 $strTransformation_image_jpeg__link = 'Toont een link naar deze image (directe blob download, i.e.).';
 $strTransformation_image_png__inline = 'Zie image/jpeg: inline';
@@ -706,27 +723,9 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) verwijderd het limiet.';
 $strZip = '"Gezipt"';
-// To translate
 
+// To translate:
 
-$strLogServer = 'Server';  //to translate
-
-$strSortByKey = 'Sort by key';  //to translate
-
-$strBookmarkAllUsers = 'Let every user access this bookmark';  //to translate
-$strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
-$strConstraintsForTable = 'Constraints for table';  //to translate
-$strBookmarkOptions = 'Bookmark options';  //to translate
-$strCreationDates = 'Creation/Update/Check dates';  //to translate
-$strCheckOverhead = 'Check overheaded';  //to translate
-$strExcelEdition = 'Excel edition';  //to translate
-$strDelayedInserts = 'Use delayed inserts';  //to translate
-$strSQLExportType = 'Export type';  //to translate
-$strAddConstraints = 'Add constraints';  //to translate
-$strGeorgian = 'Georgian';  //to translate
-$strCzechSlovak = 'Czech-Slovak';  //to translate
-$strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
-$strMaximumSize = 'Maximum size: %s%s';  //to translate
-$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
+
 ?>
