@@ -192,7 +192,7 @@ $strProperties = 'Eigenschappen';
 $strQBE = 'Query opbouwen';
 $strQBEDel = 'Verwijder';
 $strQBEIns = 'Toevoegen';
-$strQueryOnDb = 'SQL-query op database ';
+$strQueryOnDb = 'SQL-query op database <b>%s</b>:';
 
 $strRecords = 'Records';
 $strReloadFailed = 'Opnieuw laden van MySQL mislukt.';

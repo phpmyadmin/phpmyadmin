@@ -233,7 +233,7 @@ $strProperties = 'Atribute';
 $strQBE = 'Comanda prin exemplu (Query by Example)';
 $strQBEDel = 'Del';
 $strQBEIns = 'Ins';
-$strQueryOnDb = 'Comanda SQL pe baza de date';
+$strQueryOnDb = 'Comanda SQL pe baza de date <b>%s</b>:';
 
 $strRecords = 'Inregistrari';
 $strReloadFailed = 'Reincarcare MySQL nereusita.';

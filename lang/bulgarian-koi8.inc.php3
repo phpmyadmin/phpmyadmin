@@ -235,7 +235,7 @@ $strProperties = 'Свойства';
 $strQBE = 'Запитване по пример';
 $strQBEDel = 'Изтрий';
 $strQBEIns = 'Вмъкни';
-$strQueryOnDb = 'SQL-заявка към базата от данни ';
+$strQueryOnDb = 'SQL-заявка към базата от данни <b>%s</b>:';
 
 $strRecords = 'Записи';
 $strReloadFailed = 'Неуспешен опит за презареждане на MySQL.';

@@ -234,7 +234,7 @@ $strProperties = 'プロパティ';
 $strQBE = '例からクエリー実行';
 $strQBEDel = '削除';
 $strQBEIns = '入';
-$strQueryOnDb = 'データベースのSQLクエりー ';
+$strQueryOnDb = 'データベースのSQLクエりー <b>%s</b>:';
 
 $strRecords = 'レコード数';
 $strReloadFailed = 'MySQLのリロードに失敗しました。';

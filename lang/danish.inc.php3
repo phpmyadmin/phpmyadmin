@@ -214,7 +214,7 @@ $strProperties = 'Egenskaber';
 $strQBE = 'Query by Example';
 $strQBEDel = 'Del';  //to translate (used in tbl_qbe.php)
 $strQBEIns = 'Ins';  //to translate (used in tbl_qbe.php)
-$strQueryOnDb = 'SQL-forespørgsel til database ';
+$strQueryOnDb = 'SQL-forespørgsel til database <b>%s</b>:';
 
 $strRecords = 'Poster';
 $strReloadFailed = 'Genstart af MySQL fejlede.';

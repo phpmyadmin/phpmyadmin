@@ -234,7 +234,7 @@ $strProperties = 'W³asciwo¶ci';
 $strQBE = 'Zapytanie przez przyk³ad';
 $strQBEDel = 'Usuñ'; 
 $strQBEIns = 'Wstaw';
-$strQueryOnDb = 'Zapytanie SQL dla bazy danych ';
+$strQueryOnDb = 'Zapytanie SQL dla bazy danych <b>%s</b>:';
 
 $strRecords = 'Rekordy';
 $strReloadFailed = 'Nie powiod³o siê prze³adowanie MySQL.';

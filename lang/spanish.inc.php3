@@ -192,7 +192,7 @@ $strProperties = 'Propiedades';
 $strQBE = 'Query de ejemplo';
 $strQBEDel = 'Del';  //to translate (used in tbl_qbe.php3)
 $strQBEIns = 'Ins';  //to translate (used in tbl_qbe.php3)
-$strQueryOnDb = 'SQL-query en la Base de datos ';
+$strQueryOnDb = 'SQL-query en la Base de datos <b>%s</b>:';
 
 $strRecords = 'Campos';
 $strReloadFailed = 'El reinicio de MySQL ha fallado.';

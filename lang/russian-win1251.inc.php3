@@ -234,7 +234,7 @@ $strProperties = 'Свойства';
 $strQBE = 'Запрос по примеру';
 $strQBEDel = 'Удалить';
 $strQBEIns = 'Вставить';
-$strQueryOnDb = 'SQL-запрос БД ';
+$strQueryOnDb = 'SQL-запрос БД <b>%s</b>:';
 
 $strRecords = 'Записи';
 $strReloadFailed = 'Не удалось перезагрузить MySQL.';

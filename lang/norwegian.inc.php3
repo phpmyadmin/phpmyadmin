@@ -232,7 +232,7 @@ $strProperties = 'Egenskaper';
 $strQBE = 'Spørring ved eksempel';
 $strQBEDel = 'Slett';
 $strQBEIns = 'Sett inn';
-$strQueryOnDb = 'SQL-spørring i database ';
+$strQueryOnDb = 'SQL-spørring i database <b>%s</b>:';
 
 $strRecords = 'Rader';
 $strReloadFailed = 'Omstart av MySQL feilet.';

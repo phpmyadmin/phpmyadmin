@@ -235,7 +235,7 @@ $strProperties = 'Vlastnosti';
 $strQBE = 'Dotaz podµa príkladu';
 $strQBEDel = 'Zmaza»';
 $strQBEIns = 'Vlo¾i»';
-$strQueryOnDb = ' SQL dotaz v databáze ';
+$strQueryOnDb = ' SQL dotaz v databáze <b>%s</b>:';
 
 $strRecords = 'Záznamov';
 $strReloadFailed = 'Znovu-naèítanie MySQL bolo neúspe¹né.';

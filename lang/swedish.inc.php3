@@ -234,7 +234,7 @@ $strProperties = 'Inställningar';
 $strQBE = 'Skapa fråga mha formulär (Query by Example)';
 $strQBEDel = 'Ta bort';
 $strQBEIns = 'Infoga';
-$strQueryOnDb = 'SQL-fråga i databas ';
+$strQueryOnDb = 'SQL-fråga i databas <b>%s</b>:';
 
 $strRecords = 'Rader';
 $strReloadFailed = 'Omstart av MySQL misslyckades.';

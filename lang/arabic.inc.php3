@@ -237,7 +237,7 @@ $strProperties = 'ÎÕÇÆÕ';
 $strQBE = 'ÅÓÊÚáÇã ÈæÇÓØÉ ãËÇá';
 $strQBEDel = 'Del';
 $strQBEIns = 'Ins';
-$strQueryOnDb = 'İí ŞÇÚÏÉ ÇáÈíÇäÇÊ SQL-ÅÓÊÚáÇã ';
+$strQueryOnDb = 'İí ŞÇÚÏÉ ÇáÈíÇäÇÊ SQL-ÅÓÊÚáÇã <b>%s</b>:';
 
 $strRecords = 'ÇáÓÌáÇÊ';
 $strReloadFailed = ' ÅÚÇÏÉ ÊÍãíá ÎÇØÆåMySQL.';

@@ -237,7 +237,7 @@ $strProperties = 'Propriétés';
 $strQBE = 'Requête par un exemple';
 $strQBEDel = 'Effacer';  
 $strQBEIns = 'Ajouter';  
-$strQueryOnDb = 'Requête SQL sur la base ';
+$strQueryOnDb = 'Requête SQL sur la base <b>%s</b>&nbsp;:';
 
 $strRecords = 'Enregistrements';
 $strReloadFailed = 'MySQL n\'a pu être rechargé.';

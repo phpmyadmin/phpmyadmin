@@ -232,7 +232,7 @@ $strProperties = 'Eigenschaften';
 $strQBE = 'Suche über Beispielwerte';
 $strQBEDel = 'Entf.';
 $strQBEIns = 'Einf.';
-$strQueryOnDb = ' SQL-Befehl in der Datenbank ';
+$strQueryOnDb = ' SQL-Befehl in der Datenbank <b>%s</b>:';
 
 $strRecords = 'Einträge';
 $strReloadFailed = 'MySQL Neuladen fehlgeschlagen.';

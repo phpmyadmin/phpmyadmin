@@ -197,7 +197,7 @@ $strProperties = 'Ιδιότητες';
 $strQBE = 'Επερώτηση κατά παράδειγμα';
 $strQBEDel = 'Διαγραφή';
 $strQBEIns = 'Εισαγωγή';
-$strQueryOnDb = 'Επερώτηση SQL στη βάση ';
+$strQueryOnDb = 'Επερώτηση SQL στη βάση <b>%s</b>:';
 
 $strRecords = 'Εγγραφές';
 $strReloadFailed = 'Η επαναφόρτωση της MySQL απέτυχε.';

@@ -233,7 +233,7 @@ $strProperties = 'Özellikler';
 $strQBE = 'Örnekle sorgula';
 $strQBEDel = 'Del';
 $strQBEIns = 'Ins';
-$strQueryOnDb = 'Veritabaný üzerinde SQL-sorgusu&nbsp';
+$strQueryOnDb = 'Veritabaný üzerinde SQL-sorgusu&nbsp;<b>%s</b>:';
 
 $strRecords = 'Kayýtlar';
 $strReloadFailed = 'MySQL yeniden yüklenmesi gerçekleþtirilemedi.';

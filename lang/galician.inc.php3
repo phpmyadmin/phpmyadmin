@@ -232,7 +232,7 @@ $strProperties = 'Propiedades';
 $strQBE = 'Procurar pondo un exemplo ("QBE")';
 $strQBEDel = 'Eliminar';
 $strQBEIns = 'Inserir';
-$strQueryOnDb = 'Procura tipo SQL no banco de datos';
+$strQueryOnDb = 'Procura tipo SQL no banco de datos <b>%s</b>:';
 
 $strRecords = 'Rexistros';
 $strReloadFailed = 'A reinicialización do MySQL fallou.';

@@ -665,7 +665,7 @@ $w--;
         </td>
         <td>
             <!-- Displays the current query -->
-            <?php echo $strQueryOnDb; ?><b><?php echo htmlspecialchars($db); ?></b>&nbsp;:<br />
+            <?php echo sprintf($strQueryOnDb, htmlspecialchars($db)); ?><br />
 <textarea cols="30" rows="7" name="sql_query">
 <?php 
 // 1. SELECT

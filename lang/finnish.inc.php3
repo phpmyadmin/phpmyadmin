@@ -237,7 +237,7 @@ $strProperties = 'Asetukset';
 $strQBE = 'Esimerkin mukainen haku';
 $strQBEDel = 'Poista';
 $strQBEIns = 'Lis‰‰';
-$strQueryOnDb = 'Suorita SQL-lause tietokannassa ';
+$strQueryOnDb = 'Suorita SQL-lause tietokannassa <b>%s</b>:';
 
 $strRecords = 'rivi‰';
 $strReloadFailed = 'MySQL:n uudelleenlataus ep‰onnistui.';

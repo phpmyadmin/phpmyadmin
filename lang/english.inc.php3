@@ -237,7 +237,7 @@ $strProperties = 'Properties';
 $strQBE = 'Query by Example';
 $strQBEDel = 'Del';
 $strQBEIns = 'Ins';
-$strQueryOnDb = 'SQL-query on database ';
+$strQueryOnDb = 'SQL-query on database <b>%s</b>:';
 
 $strRecords = 'Records';
 $strReloadFailed = 'MySQL reload failed.';

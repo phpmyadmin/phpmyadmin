@@ -235,7 +235,7 @@ $strProperties = 'Vlastnosti';
 $strQBE = 'Dotaz podle pøíkladu';
 $strQBEDel = 'pøidat';
 $strQBEIns = 'smazat';
-$strQueryOnDb = 'SQL dotaz na databázi ';
+$strQueryOnDb = 'SQL dotaz na databázi <b>%s</b>:';
 
 $strRecords = 'Záznamù';
 $strReloadFailed = 'Znovunaètení MySQL selhalo.';
