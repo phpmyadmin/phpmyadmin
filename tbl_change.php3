@@ -148,7 +148,7 @@ document.onkeydown = onKeyDownArrowsHandler;
 </script>
 
 <!-- Change table properties form -->
-<form method="post" action="tbl_replace.php3" name="insertForm" enctype="multipart/form-data">
+<form method="post" action="tbl_replace.php3" name="insertForm" <?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?>>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0; ?>" />
