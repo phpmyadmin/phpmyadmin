@@ -304,8 +304,18 @@ if (!empty($adduser_submit)) {
         case 'localhost':
             $hostname = 'localhost';
             break;
+        case 'thishost':
+            $res = PMA_mysql_query('SELECT USER();', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SELECT USER();');
+            $row = PMA_mysql_fetch_row($res);
+            mysql_free_result($res);
+            unset($res);
+            $hostname = substr($row[0], (strrpos($row[0], '@') + 1));
+            unset($row);
+            break;
     }
-    $res = PMA_mysql_query('SELECT "foo" FROM `user` WHERE `User` = "' . $username . '" AND `Host` = "' . $hostname . '";', $userlink);
+    $local_query = 'SELECT "foo" FROM `user` WHERE `User` = "' . $username . '" AND `Host` = "' . $hostname . '";';
+    $res = PMA_mysql_query($local_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $local_query);
+    unset($local_query);
     if (mysql_affected_rows($userlink) == 1) {
         $message = sprintf($strUserAlreadyExists, '<i>\'' . $username . '\'@\'' . $hostname . '\'</i>');
         $adduser = 1;
@@ -550,7 +560,7 @@ if (!$is_superuser) {
 }
 
 if (empty($adduser)) {
-    if (!isset($username) && !isset($hostname)) {
+    if (!isset($username)) {
         // No username is given --> display the overview
         echo '<h2>' . "\n"
            . '    ' . $strUserOverview . "\n"
@@ -590,9 +600,9 @@ if (empty($adduser)) {
                    . '    Please run the script <tt>mysql_fix_privilege_tables</tt> that should be included in your MySQL server distribution to solve this problem!' . "\n"
                    . '</div><br />' . "\n";
             }
-            echo '<form name="usersForm" action="server_privileges.php3" method="post" />' . "\n";
-            echo PMA_generate_common_hidden_inputs('', '', 1);
-            echo '    <table border="0">' . "\n"
+            echo '<form name="usersForm" action="server_privileges.php3" method="post" />' . "\n"
+               . PMA_generate_common_hidden_inputs('', '', 1)
+               . '    <table border="0">' . "\n"
                . '        <tr>' . "\n"
                . '            <th></th>' . "\n"
                . '            <th>&nbsp;' . $strUser . '&nbsp;</th>' . "\n"
@@ -686,9 +696,9 @@ if (empty($adduser)) {
         unset($res);
         echo '<ul>' . "\n"
            . '    <li>' . "\n"
-           . '        <form action="server_privileges.php3" method="post">' . "\n";
-        echo PMA_generate_common_hidden_inputs('', '', 3);
-        echo '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
+           . '        <form action="server_privileges.php3" method="post">' . "\n"
+           . PMA_generate_common_hidden_inputs('', '', 3)
+           . '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
         if ($hostname != '%') {
             echo '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
         }
@@ -799,9 +809,9 @@ if (empty($adduser)) {
             unset($row);
             echo '            <tr>' . "\n"
                . '                <td colspan="' .(PMA_MYSQL_INT_VERSION >= 32211 ? '5' : '4') . '">' . "\n"
-               . '                    <form action="server_privileges.php3" method="post">' . "\n";
-            echo PMA_generate_common_hidden_inputs('', '', 6);
-            echo '                        <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
+               . '                    <form action="server_privileges.php3" method="post">' . "\n"
+               . PMA_generate_common_hidden_inputs('', '', 6)
+               . '                        <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
             if ($hostname != '%') {
                 echo '                        <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
             }
@@ -822,9 +832,9 @@ if (empty($adduser)) {
         }
         if (empty($dbname)) {
             echo '    <li>' . "\n"
-               . '        <form action="server_privileges.php3" method="post" onsubmit="checkPassword(this);">' . "\n";
-            echo PMA_generate_common_hidden_inputs('', '', 3);
-            echo '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
+               . '        <form action="server_privileges.php3" method="post" onsubmit="checkPassword(this);">' . "\n"
+               . PMA_generate_common_hidden_inputs('', '', 3)
+               . '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
             if ($hostname != '%') {
                 echo '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
             }
@@ -854,17 +864,15 @@ if (empty($adduser)) {
                . '    </li>' . "\n";
         }
         echo '</ul>' . "\n";
-    } else if (isset($hostname)) {
-        // TODO: Host privilege editor
-    } // end if (!isset($username) && !isset($hostname)) ... else if ... else if ...
+    }
 } else {
     // Add a new user
     echo '<h2>' . "\n"
        . '    ' . $strAddUser . "\n"
        . '</h2>' . "\n"
-       . '<form action="server_privileges.php3" method="post" onsubmit="return checkAddUser(this);">' . "\n";
-    echo PMA_generate_common_hidden_inputs('', '', 1);
-    echo '    <table border="0">' . "\n"
+       . '<form action="server_privileges.php3" method="post" onsubmit="return checkAddUser(this);">' . "\n"
+       . PMA_generate_common_hidden_inputs('', '', 1)
+       . '    <table border="0">' . "\n"
        . '        <tr>' . "\n"
        . '            <th colspan="3">' . "\n"
        . '                ' . $strLoginInformation . "\n"
