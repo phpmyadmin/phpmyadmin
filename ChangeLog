@@ -9,6 +9,7 @@ $Source$
     * server_databases.php: Bug #1172782 (Don't allow to drop
       information_schema).
     * libraries/mysql_charsets.lib.php: Typo.
+    * lang/german-*.inc.php: Better translation.
 
 2005-03-30 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: Patch #1164699, clarification about PmaAbsoluteURI,
