@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-24 Olivier L. Müller  <om@omnis.ch>
+    * libraries/common.lib.php3: if $cfg['PmaAbsoluteUri'] is empty and 
+      port == 80 or port == 443, do not add ":80" or ":443" anymore to the 
+      generated URL -> prevents a double password query with some browsers 
+      (Safari) in case of http authentication.  (tested with https, http and 
+      http running on port 8080)
+
 2003-02-24 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_change.php3, tbl_replace_fields.php3: Move magic words used for
       fields type into special variable. Fixes #647689.

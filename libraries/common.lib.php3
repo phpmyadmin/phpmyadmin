@@ -523,9 +523,17 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     if (empty($cfg['PmaAbsoluteUri'])) {
         $port_in_HTTP_HOST              = (strpos($HTTP_SERVER_VARS['HTTP_HOST'], ':') > 0);
         $cfg['PmaAbsoluteUri']          = ((!empty($HTTP_SERVER_VARS['HTTPS']) && strtolower($HTTP_SERVER_VARS['HTTPS']) != 'off') ? 'https' : 'http') . '://'
-                                        . $HTTP_SERVER_VARS['HTTP_HOST']
-                                        . ((!empty($HTTP_SERVER_VARS['SERVER_PORT']) && !$port_in_HTTP_HOST) ? ':' . $HTTP_SERVER_VARS['SERVER_PORT'] : '')
-                                        . substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') + 1);
+                                        . $HTTP_SERVER_VARS['HTTP_HOST'];
+
+        // if $cfg['PmaAbsoluteUri'] is empty and port == 80 or port == 443, do not add ":80" or ":443" 
+        // to the generated URL -> prevents a double password query in case of http authentication. 
+
+        if (!(!$port_in_HTTP_HOST && !empty($HTTP_SERVER_VARS['SERVER_PORT']) && ($HTTP_SERVER_VARS['SERVER_PORT'] == 80 || $HTTP_SERVER_VARS['SERVER_PORT'] == 443))) {
+            $cfg['PmaAbsoluteUri']      .= ((!empty($HTTP_SERVER_VARS['SERVER_PORT']) && !$port_in_HTTP_HOST) ? ':' . $HTTP_SERVER_VARS['SERVER_PORT'] : '');
+        }
+
+        $cfg['PmaAbsoluteUri']          .= substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') + 1);
+
         // We display the warning by default, but not if it is disabled thru
         // via the $cfg['PmaAbsoluteUri_DisableWarning'] variable.
         // This is intended for sysadmins that actually want the default
