@@ -21,7 +21,7 @@ require('./header.inc.php3');
 if (isset($message)) {
     show_message($message);
 }
-else if (!empty($reload) && $reload == 'true') {
+else if (isset($reload) && $reload) {
     // Reloads the navigation frame via JavaScript if required
     echo "\n";
     ?>
@@ -219,7 +219,7 @@ if ($server > 0
                 <?php echo $strCreateNewDatabase . '&nbsp;' . show_docu('manual_Reference.html#CREATE_DATABASE'); ?><br />
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                <input type="hidden" name="reload" value="true" />
+                <input type="hidden" name="reload" value="1" />
                 <input type="text" name="db" value="<?php echo $db_to_create; ?>" />
                 <input type="submit" value="<?php echo $strCreate; ?>" />
             </form>
@@ -326,7 +326,7 @@ if ($server > 0
                 <?php echo $strCreateNewDatabase . ' &nbsp;' . show_docu('manual_Reference.html#CREATE_DATABASE'); ?><br />
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                <input type="hidden" name="reload" value="true" />
+                <input type="hidden" name="reload" value="1" />
                 <input type="text" name="db" />
                 <input type="submit" value="<?php echo $strCreate; ?>" />
             </form>
