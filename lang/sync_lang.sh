@@ -40,7 +40,7 @@ korean-ks_c_5601-1987
 latvian-windows-1257
 lithuanian-windows-1257
 norwegian-iso-8859-1
-polish
+polish-iso-8859-2
 portuguese
 romanian
 russian-koi8
