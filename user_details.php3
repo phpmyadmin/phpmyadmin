@@ -1340,7 +1340,7 @@ else if (isset($grants) && $grants) {
         // Escape wilcard characters if required
         if (isset($dbgrant) && !$anydb && !$newdb) {
             $re      = '(^|(\\\\\\\\)+|[^\])(_|%)'; // non-escaped wildcards
-            $dbgrant = ereg_replace($re, '\\\\3', $dbgrant);
+            $dbgrant = ereg_replace($re, '\\1\\\\3', $dbgrant);
         }
 
         if (!$newdb) {
