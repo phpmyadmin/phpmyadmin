@@ -14,6 +14,24 @@ require('./lib.inc.php3');
 
 
 /**
+ * Get the list and number of available databases.
+ * Skipped if no server selected: in this case no database should be displayed
+ * before the user choose among available ones at the welcome screen.
+ */
+if ($server > 0) {
+    // Get databases list
+    if (empty($dblist)) {
+        $dbs     = mysql_list_dbs();
+        $num_dbs = mysql_numrows($dbs);
+    } else {
+        $num_dbs = count($dblist);
+    }
+} else {
+        $num_dbs = 0;
+}
+
+
+/**
  * Send http headers
  */
 // Don't use cache (required for Opera)
@@ -37,6 +55,12 @@ header('Content-Type: text/html; charset=' . $charset);
 <head>
     <title>phpMyAdmin</title>
     <base target="phpmain" />
+<?php
+// Expandable/collapsible databases list is only used if there is more than one
+// database to display
+if ($num_dbs > 1) {
+    echo "\n";
+    ?>
     <!-- Collapsible tables list scripts -->
     <script type="text/javascript" language="javascript1.2">
     <!--
@@ -68,11 +92,47 @@ header('Content-Type: text/html; charset=' . $charset);
         //-->
         </style>
     </noscript>
+
     <style type="text/css">
     <!--
     body {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
     //-->
     </style>
+    <?php
+} // end if ($num_dbs > 1)
+
+else if ($num_dbs == 1) {
+    echo "\n";
+    ?>
+    <style type="text/css">
+    <!--
+    body {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
+    div {color: #000000}
+    .heada {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
+    .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
+    .child {font-family: <?php echo $left_font_family; ?>; font-size: 8pt; color: #333399; text-decoration: none}
+    .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}
+    .tblItem:hover {color: #FF0000; text-decoration: underline}
+    //-->
+    </style>
+    <?php
+} // end if ($num_dbs == 1)
+
+else {
+    echo "\n";
+    ?>
+    <style type="text/css">
+    <!--
+    body {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
+    div {color: #000000}
+    .heada {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
+    //-->
+    </style>
+    <?php
+} // end if ($num_dbs < 1)
+
+echo "\n";
+?>
 </head>
 
 <body bgcolor="#D0DCE0">
@@ -85,21 +145,18 @@ header('Content-Type: text/html; charset=' . $charset);
    
     <!-- Databases and tables list -->
 <?php
-$selected_db = 0;
-// Don't display database info if $server==0 (no server selected)
-// This is the case when there are multiple servers and
-// '$cfgServerDefault = 0' is set.  In that case, we want the welcome
-// to appear with no database info displayed.
-if ($server > 0) {
-    // Get databases list
-    if (empty($dblist)) {
-        $dbs     = mysql_list_dbs();
-        $num_dbs = mysql_numrows($dbs);
-    } else {
-        $num_dbs = count($dblist);
-    }
+// Don't display expansible/collapsible database info if:
+// 1. $server == 0 (no server selected)
+//    This is the case when there are multiple servers and
+//    '$cfgServerDefault = 0' is set. In that case, we want the welcome screen
+//    to appear with no database info displayed.
+// 2. there is only one database available (ie either only one database exists
+//    or $cfgServers['only_db'] is defined)
+//    In this case, the database should not be collapsible/expandable
+if ($num_dbs > 1) {
+    $selected_db = 0;
 
-    // Get tables list per database
+    // Gets the tables list per database
     for ($i = 0; $i < $num_dbs; $i++) {
         if (empty($dblist)) {
             $db  = mysql_dbname($dbs, $i);
@@ -114,6 +171,7 @@ if ($server > 0) {
         $num_tables       = @mysql_numrows($tables);
         $common_url_query = "server=$server&lang=$lang&db=$db";
 
+        // Displays the database name
         echo "\n";
         echo '    <div id="el' . $j . 'Parent" class="parent">';
 
@@ -134,8 +192,11 @@ if ($server > 0) {
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="expandBase('el<?php echo $j; ?>', false);">
             <font color="black" class="heada"><?php echo $db; ?></font></a>
     </div>
+
     <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px">
+
         <?php
+        // Displays the list of tables from the current database
         for ($j = 0; $j < $num_tables; $j++) {
             $table = mysql_tablename($tables, $j);
             echo "\n";
@@ -169,8 +230,47 @@ if ($server > 0) {
     //-->
     </script>
     <?php
-} // end if ($server > 0)
+} // end if ($server > 1)
+
+// Case where only one database has to be displayed
+else if ($num_dbs == 1) {
+    // Get tables list of the database
+    if (empty($dblist)) {
+        $db  = mysql_dbname($dbs, 0);
+    } else {
+        $db  = $dblist[0];
+    }
+    $tables           = @mysql_list_tables($db);
+    $num_tables       = @mysql_numrows($tables);
+    $common_url_query = "server=$server&lang=$lang&db=$db";
+
+    // Displays the database name
+    echo "\n";
+    ?>
+    <div id="el2Parent" class="parent">
+        <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>">
+            <font color="black" class="heada"><?php echo $db; ?></font></a>
+    </div>
+    <div id="el2Child" class="child" style="margin-bottom: 5px">
+    <?php
+    // Displays the list of tables from the current database
+    for ($j = 0; $j < $num_tables; $j++) {
+        $table = mysql_tablename($tables, $j);
+        echo "\n";
+        ?>
+        <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0&goto=tbl_properties.php3">
+                  <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
+              <a class="tblItem" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
+                  <?php echo $table; ?></a></nobr><br />
+        <?php
+    } // end for $j (tables list)
+    echo "\n";
+    ?>
+    </div>
+    <?php
+} // end if ($server == 1)
 echo "\n";
 ?>
+
 </body>
 </html>

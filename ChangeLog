@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-13  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.php3: no DHTML if there is only one table to display
+	  (feature #440420)
+
 2001-07-12  Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html: added a FAQ entry about upload errors
 
