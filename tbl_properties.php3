@@ -148,12 +148,12 @@ while ($row = mysql_fetch_array($result)) {
     echo "\n";
     ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
-    <td><?php echo $row['Field']; ?>&nbsp;</td>
-    <td><?php echo $type; ?></td>
-    <td><?php echo $strAttribute; ?></td>
+    <td nowrap="nowrap"><?php echo $row['Field']; ?>&nbsp;</td>
+    <td nowrap="nowrap"><?php echo $type; ?></td>
+    <td nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
-    <td><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
-    <td><?php echo $row['Extra']; ?>&nbsp;</td>
+    <td nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
+    <td nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
     <?php
     if (empty($printer_friendly)) {
         echo "\n";
