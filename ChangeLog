@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html, clarify about mysql extensions
+    * tbl_properties_options.php3, tbl_properties_table_info.php3:
+      bug 586230, thanks to Loïc
+    * common.lib.php3: fix bad variable name
+
 2002-07-25 Loïc Chapeaux  <lolo@phpheaven.net>
     * coding standard: common.lib.php3, config.inc.php3, Documentation.html,
       header.inc.php3, sqlparser.data.php3, sqlparser.lib.php3,

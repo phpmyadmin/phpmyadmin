@@ -65,7 +65,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <?php echo $strTableComments; ?>&nbsp;:&nbsp;
             <input type="hidden" name="prev_comment" value="<?php echo urlencode($show_comment); ?>" />&nbsp;
-            <input type="text" name="comment" maxlength="60" size="30" value="<?php echo str_replace('"', '&quot;', $show_comment); ?>" class="textfield" style="vertical-align: middle" onfocus="this.select()" />&nbsp;
+            <input type="text" name="comment" maxlength="60" size="30" value="<?php echo htmlspecialchars($show_comment); ?>" class="textfield" style="vertical-align: middle" onfocus="this.select()" />&nbsp;
             <input type="submit" name="submitcomment" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
         </form>
     </li>
