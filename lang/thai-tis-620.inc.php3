@@ -3,7 +3,7 @@
 
 // Thai translation
 // first created 2002/04/29 Arthit Suriyawongkul & Warit Wanasathian
-// last modified 2002/07/31 Arthit Suriyawongkul
+// last modified 2002/08/07 Arthit Suriyawongkul
 
 $charset = 'tis-620';
 $text_dir = 'ltr';
@@ -54,6 +54,8 @@ $strAtEndOfTable = 'ที่จุดสุดท้ายของตาราง';
 $strAttr = 'แอตทริบิวต์';
 
 $strBack = 'ย้อนกลับ';
+$strBeginCut = 'BEGIN CUT (จุดตัดเริ่ม)';
+$strBeginRaw = 'BEGIN RAW (เริ่ม RAW)';
 $strBinary = ' ข้อมูลไบนารี ';
 $strBinaryDoNotEdit = ' ข้อมูลไบนารี - ห้ามแก้ไข ';
 $strBookmarkDeleted = 'ลบคำค้นที่จดไว้เรียบร้อยแล้ว';
@@ -73,6 +75,7 @@ $strCarriage = 'ปัดแคร่: \\r';
 $strChange = 'เปลี่ยน';
 $strChangeDisplay = 'เลือกฟิลด์ที่ต้องการแสดง';
 $strChangePassword = 'เปลี่ยนรหัสผ่าน';
+$strCharsetOfFile = 'ชุดอักขระของไฟล์ (character set):';
 $strCheckAll = 'เลือกทั้งหมด';
 $strCheckDbPriv = 'ตรวจสอบสิทธิในฐานข้อมูล';
 $strCheckTable = 'ตรวจสอบตาราง';
@@ -134,8 +137,11 @@ $strEmpty = 'ลบข้อมูล';
 $strEmptyResultSet = 'MySQL คืนผลลัพธ์ว่างเปล่า (null) กลับมา (0 แถว).';
 $strEnabled = 'เปิดใช้อยู่';
 $strEnd = 'ท้ายสุด';
+$strEndCut = 'END CUT (จุดตัดสิ้นสุด)';
+$strEndRaw = 'END RAW (สิ้นสุด RAW)';
 $strEnglishPrivileges = ' โปรดทราบ: ชื่อของสิทธิใน MySQL จะแสดงเป็นภาษาอังกฤษ ';
 $strError = 'ผิดพลาด';
+$strExplain = 'อธิบาย SQL';
 $strExport = 'ส่งออก';
 $strExportToXML = 'ส่งออกเป็นรูปแบบ XML';
 $strExtendedInserts = 'แทรกหลายระเบียนในคราวเดียว';
@@ -226,6 +232,7 @@ $strNo = 'ไม่';
 $strNoDatabases = 'ไม่มีฐานข้อมูล';
 $strNoDescription = 'ไม่มีรายละเอียด';
 $strNoDropDatabases = 'คำสั่ง "DROP DATABASE" ถูกปิดไว้';
+$strNoExplain = 'ไม่ต้องอธิบาย SQL';
 $strNoFrames = 'เบราเซอร์ที่<b>ใช้เฟรมได้</b> จะช่วยให้ใช้ phpMyAdmin ได้ง่ายขึ้น';
 $strNoIndex = 'ยังไม่ได้กำหนดดัชนีใดๆ!';
 $strNoIndexPartsDefined = 'ไม่ได้กำหนดส่วนใดๆ ของดัชนี!';
@@ -242,6 +249,7 @@ $strNotOK = 'ไม่ตกลง';
 $strNotSet = 'ไม่พบตาราง <b>%s</b> ใน %s';
 $strNotValidNumber = ' ไม่ใช่หมายเลขแถวที่ถูกต้อง!';
 $strNoUsersFound = 'ไม่พบผู้ใช้ใดๆ.';
+$strNoValidateSQL = 'ไม่ต้องตรวจสอบ SQL';
 $strNull = 'ว่างเปล่า (null)';
 $strNumSearchResultsInTable = 'พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>';
 $strNumSearchResultsTotal = '<b>รวม:</b> <i>%s</i> ผลลัพธ์ที่ตรง';
@@ -354,8 +362,13 @@ $strSort = 'เรียง';
 $strSpaceUsage = 'เนื้อที่ที่ใช้';
 $strSplitWordsWithSpace = 'คำถูกแบ่งด้วยช่องว่าง (" ").';
 $strSQL = 'SQL';
+$strSQLParserBugMessage = 'อาจจะมีการเปลี่ยนแปลงบางอย่างที่คุณพบว่ามันเป็นข้อผิดพลาดของ SQL parser. กรุณาตรวจสอบคำค้นของคุณให้ถี่ถ้วน โดยเฉพาะการเปิด/ปิดเครื่องหมายคำพูด (quotes) ให้ถูกต้อง. อีกสาเหตุหนึ่งที่เป็นไปได้ของข้อผิดพลาดคือ คุณอาจจะอัพโหลดไฟล์ไบนารีข้างนอกช่วงของเครื่องหมายคำพูด. คุณสามารถที่จะลองคำค้นของคุณที่คอมมานด์ไลน์ของ MySQL ซึ่งคุณอาจจะพบข้อผิดพลาดบางอย่างในนั้น. หาก MySQL server ได้แจ้งข้อผิดพลาดมาด้านล่างนี้ ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น. ถ้าคุณยังพบปัญหากับ parser ใน phpMyAdmin อยู่ แต่ไม่พบปัญหากับ parser ใน command line, ให้ลองลดความยาวของคำค้น SQL ลง จนกระทั่งเหลือคำค้น SQL เดี่ยวๆ ที่ยังทำให้เกิดปัญหาอยู่อีก, แล้วแจ้งข้อผิดพลาดดังกล่าวมาที่เรา ส่งมันมาพร้อมกับตัวข้อมูลที่คุณค้น ซึ่งได้จากส่วนของ CUT ด้านล่าง.';
+$strSQLParserUserError = 'อาจจะมีข้อผิดพลาดบางอย่างในคำค้น SQL ของคุณ. หาก MySQL server ได้แจ้งข้อผิดพลาดมาด้านล่างนี้ ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น';
 $strSQLQuery = 'คำค้น SQL';
 $strSQLResult = 'ผลลัพธ์ SQL';
+$strSQPBugInvalidIdentifer = 'ชื่อตัวแปรไม่ถูกต้อง';
+$strSQPBugUnknownPunctuation = 'มีเครื่องหมายวรรคตอนที่ไม่รู้จัก';
+$strSQPBugUnclosedQuote = 'ไม่ได้ปิดเครื่องหมายคำพูด';
 $strStatement = 'คำสั่ง';
 $strStrucExcelCSV = 'ข้อมูล CSV สำหรับไมโครซอฟต์เอ็กเซล';
 $strStrucCSV = 'ข้อมูล CSV';
@@ -400,6 +413,7 @@ $strUserName = 'ชื่อผู้ใช้';
 $strUsers = 'ผู้ใช้';
 $strUseTables = 'ใช้ตาราง';
 
+$strValidateSQL = 'ตรวจสอบ SQL';
 $strValue = 'ค่า';
 $strViewDump = 'ดูโครงสร้างของตาราง';
 $strViewDumpDB = 'ดูโครงสร้างของฐานข้อมูล';
@@ -412,18 +426,5 @@ $strYes = 'ใช่';
 
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
 
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
-$strCharsetOfFile = 'Character set of the file:'; //to translate
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strEndCut = 'END CUT';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
+// To translate
 ?>
