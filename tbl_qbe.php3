@@ -1,6 +1,7 @@
 <?php
 /* $Id$ */
 
+
 /**
  * Gets the values of the variables posted or sent to this script and displays
  * the headers
@@ -728,7 +729,7 @@ if (isset($Field) && count($Field) > 0) {
             $wtable = explode('.', urldecode($Field[$x]));
             $ctable = str_replace('`', '', $wtable[0]);
             if (!empty($Field[$x]) && !empty($Criteria[$x])) {
-                if ($where[$ctable] != '=') {
+                if (isset($where[$ctable]) && $where[$ctable] != '=') {
                     $where[$ctable] = substr($Criteria[$x], 0, 1);
                 }
             }
@@ -767,7 +768,8 @@ if (isset($Field) && count($Field) > 0) {
 
         // if we don't find anything we try the other way round
         /*
-        removed this again - i think those that are only connected as a foreign key should not have a chance to be master
+        removed this again - i think those that are only connected as a foreign
+        key should not have a chance to be master
         if (mysql_num_rows($rel_id) == 0) {
             $rel_query = 'SELECT foreign_table AS wer, COUNT(master_table) AS hits FROM ' . PMA_backquote($cfg['Server']['relation'])
                        . ' WHERE master_table IN ' . $incrit . ' AND foreign_table IN ' . $incrit
@@ -779,7 +781,7 @@ if (isset($Field) && count($Field) > 0) {
         while ($row = mysql_fetch_array($rel_id)) {
             // we want the first one (highest number of hits) or the first one
             // that is in the WHERE clause
-             if (!isset($master)) {
+            if (!isset($master)) {
                 $master = $row['wer'];
             } else {
                 // remember that we found more than one because this means we
@@ -790,12 +792,17 @@ if (isset($Field) && count($Field) > 0) {
                 if ($row['wer'] == $key) {
                     $master = $row['wer'];
                     $ex     = 1;
-                     break;
+                    break;
                 }
             } // end while
             reset($wheretabs);
         } // end while
-         if ($master!='') {
+
+        if ($ex == 1 || $hit != 2) {
+            // if $ex is not 1 then obviously none of the tables that are used
+            // in the whereclause could be found - that means that using left
+            // joins doesn't make much sense anyway
+
             if ($master != '') {
                 $qry_from = PMA_backquote($master);
             }
@@ -853,18 +860,19 @@ if (isset($Field) && count($Field) > 0) {
                            . ' WHERE master_table IN ' . $incrit_s . ' AND foreign_table IN ' . $incrit_d
                            . ' ORDER BY master_table, foreign_table';
                 $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
+
                 while ($row = mysql_fetch_array($rel_id)) {
                     $found_table = $row['master_table'];
                     if ($rel[$found_table]['mcon'] == 0) {
                         // if we allready found a link to the mastertable we
                         // don't want another otherwise we take whatever we get
                         $rel[$found_table]['link'] = ' LEFT JOIN ' . $found_table
-                                                     . ' ON ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field'])
-                                                     . ' = ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field']);
+                                                   . ' ON ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field'])
+                                                   . ' = ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field']);
 
                         // in extreme cases we hadn't found a master yet, so
                         // let's use the one we found now
-                        if($master ==''){
+                        if ($master == '') {
                             $master = $row['master_table'];
                         }
                     }
