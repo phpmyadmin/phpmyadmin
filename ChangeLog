@@ -32,6 +32,9 @@ $Source$
     * tbl_properties.php3; tbl_properties_operations.php3: moved tables
       comments and type features and referential integrity checkings to the
       "table operations" page.
+    * config.inc.php3, lines 184-185; db_details.php3, line 572;
+      Documentation.html, lines 916-917; tbl_properties.php3, line 556:
+      emphasized the sql query texteareas.
 
 2002-04-27 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.php3, new tbl_properties_links.php3:
