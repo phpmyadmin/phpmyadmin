@@ -1399,7 +1399,7 @@ if (empty($adduser) && empty($checkprivs)) {
         $row1 = PMA_mysql_fetch_array($res1, MYSQL_ASSOC);
         $sql_query = 'SELECT * FROM `db` WHERE "' . $checkprivs . '" LIKE `Db` AND NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" ' . (PMA_MYSQL_INT_VERSION >= 32211 ? 'AND `Grant_priv` = "N" ' : '') . 'AND `References_priv` = "N") ORDER BY `User` ASC, `Host` ASC;';
         $res2 = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
-        $row2 = PMA_mysql_fetch_array($res1, MYSQL_ASSOC);
+        $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC);
         if ($row1 || $row2) {
             $found = TRUE;
         }
