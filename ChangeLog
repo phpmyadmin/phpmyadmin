@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/charset_conversion.lib.php3: wrong function called,
+      thanks to Michal Cihar
+
 2002-07-09 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php3: fix from Loïc for bug 579017
 

@@ -83,7 +83,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
 //Debug: echo 'PMA_convert_display_charset: ' . $what . '->' . iconv($convcharset, $charset, $what) . "\n<br />";
                 return iconv($convcharset, $charset, $what);
             } else if (@function_exists('libiconv')) {
-                return iconv($convcharset, $charset, $what);
+                return libiconv($convcharset, $charset, $what);
             } else if (@function_exists('recode_string')) {
                 return recode_string($convcharset . '..'  . $charset, $what);
             } else {
@@ -138,7 +138,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
 //Debug: echo 'PMA_convert_charset: ' . $what . '->' . iconv($charset, $convcharset, $what) . "\n<br />";
                 return iconv($charset, $convcharset, $what);
             } else if (@function_exists('libiconv')) {
-                return iconv($charset, $convcharset, $what);
+                return libiconv($charset, $convcharset, $what);
             } else if (@function_exists('recode_string')) {
                 return recode_string($charset . '..'  . $convcharset, $what);
             } else {
