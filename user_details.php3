@@ -308,7 +308,7 @@ function grant_operations()
     </td>
     </tr></table>
 
-    <table><tr><td><br>Privileges:<br></td></tr></table>
+    <table><tr><td><br><?php echo $strPrivileges; ?>:<br></td></tr></table>
     <? table_privileges("userForm") ?>
     <input type="button" value="<? echo $strGo; ?>" onclick="addGrant(userForm)"></p>
     </form>
