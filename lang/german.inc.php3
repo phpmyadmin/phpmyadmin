@@ -232,6 +232,7 @@ $strSequence = ' Sequenz ';
 $strServerVersion = 'Server Version';
 $strShow = 'Zeige';
 $strShowingRecords = 'Zeige Datensätze ';
+$strShowPHPInfo = 'PHP Informationen anzeigen';
 $strShowThisQuery = 'SQL Befehl hier wieder anzeigen';
 $strSingly = '(einmalig)';
 $strSize = 'Größe';
@@ -285,5 +286,4 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
-$strShowPHPInfo = 'Show PHP information';  // To translate
 ?>
