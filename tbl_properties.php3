@@ -295,7 +295,7 @@ while ($row = mysql_fetch_array($fields_rs)) {
         <input type="checkbox" name="selected_fld[]" value="<?php echo urlencode($row['Field']); ?>" />
     </td>
     <td nowrap="nowrap">&nbsp;<?php echo $field_name; ?>&nbsp;</td>
-    <td<?php echo $type_nowrap; ?>><?php echo $type; ?></td>
+    <td<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
     <td nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
     <td nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>

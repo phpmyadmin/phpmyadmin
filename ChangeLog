@@ -10,6 +10,8 @@ $Source$
 	  bug with SSL.
 	* Documentation.html: added two entries in the FAQ (IIS with advanced
 	  authentication and Apache-SSL with IE).
+	* tbl_properties.php3, line 298; tbl_printview.php3, line 176: fixed some
+	  display bugs with right to left text direction (Arabic language).
 	* lang/arabic.inc.php3: updated thanks to Fisal Assubieye.
 
 2001-11-14  Loïc Chapeaux  <lolo@phpheaven.net>
