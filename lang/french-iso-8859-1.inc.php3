@@ -22,6 +22,7 @@ $strAPrimaryKey = 'Une clé primaire a été ajoutée sur %s';
 $strAbortedClients = 'Arrêts prématurés';
 $strAbsolutePathToDocSqlDir = 'Veuillez entrer le chemin absolu du répertoire docSQL sur le serveur web';
 $strAccessDenied = 'Accès refusé';
+$strAccessDeniedExplanation = 'phpMyAdmin a tenté de se connecter au serveur MySQL, et le serveur a rejeté la connexion. Veuillez vérifier les valeurs de "host", "username" et "password" dans config.inc.php et vous assurer qu\'elles correspondent aux informations fournies par l\'administrateur du serveur MySQL.';
 $strAction = 'Action';
 $strAddDeleteColumn = 'Ajouter/effacer x colonne(s)';
 $strAddDeleteRow = 'Ajouter/effacer x ligne(s)';
@@ -653,5 +654,4 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-$strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in config.inc.php and make sure that they correspond to the information given by the administrator of the MySQL server.';  //to translate
 ?>
