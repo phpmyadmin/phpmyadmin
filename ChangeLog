@@ -6,7 +6,8 @@ $Id$
 $Source$
 
 2004-09-05 Alexander M. Turek  <me@derrabus.de>
-    * libraries/sqlparser.data.php: Parser support for SHOW STORAGE ENGINES.
+    * libraries/sqlparser.data.php: Parser support for SHOW STORAGE ENGINES and
+      SHOW TABLE TYPES.
     * tbl_create.php: Use default tab.
     * tbl_properties.inc.php: Don't offer the BINARY field attribute in
       MySQL 4.1.
