@@ -119,12 +119,14 @@ foreach($dblist AS $current_db) {
         'tot_sz' => 0
     );
     if (!empty($dbstats)) {
-        $res = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($current_db) . ';', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW TABLE STATUS FROM ' . PMA_backquote($current_db) . ';');
-        while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
+        $res = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($current_db) . ';');
+        while ($row = PMA_DBI_fetch_assoc($res)) {
             $tmp_array['tbl_cnt']++;
             $tmp_array['data_sz'] += $row['Data_length'];
             $tmp_array['idx_sz'] += $row['Index_length'];
         }
+        PMA_DBI_free_result($res);
+        unset($res);
     }
     $tmp_array['tot_sz'] = $tmp_array['data_sz'] + $tmp_array['idx_sz'];
     $statistics[] = $tmp_array;

@@ -8,6 +8,7 @@ $Source$
 2004-02-13 Alexander M. Turek  <resist@derrabus.de>
     * libraries/common.lib.php: Fixed bug #890186 (PMA chokes on undefined
       parser functions if one of the very first queries fails.
+    * server_databases.php: Removed forgotten calls to mysql_wrappers.lib.
 
 2004-02-11 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: bug 818654, password not copied
