@@ -6,12 +6,14 @@
 // the footer for phpMyAdmin pages.
 
 /**
- * Close MySql connections
+ * Close MySql non-persistent connections
  */
-if (isset($dbh) && $dbh) {
+if (!$cfgPersistentConnections
+    && (isset($dbh) && $dbh)) {
     @mysql_close($dbh);
 }
-if (isset($userlink) && $userlink) {
+if (!$cfgPersistentConnections
+    && (isset($userlink) && $userlink)) {
     @mysql_close($userlink);
 }
 ?>
