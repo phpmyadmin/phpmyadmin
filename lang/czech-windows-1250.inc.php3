@@ -229,6 +229,7 @@ $strEnglish = 'Anglicky';
 $strEnglishPrivileges = 'Poznámka: názvy oprávnìní v&nbsp;MySQL jsou uvádìny anglicky';
 $strError = 'Chyba';
 $strEstonian = 'Estonsky';
+$strExcelEdition = 'Verze Excelu';
 $strExcelOptions = 'Nastavení exportu do Excelu';
 $strExecuteBookmarked = 'Spustit oblíbený dotaz';
 $strExplain = 'Vysvìtlit (EXPLAIN) SQL';
@@ -719,5 +720,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
-$strExcelEdition = 'Excel edition';  //to translate
 ?>

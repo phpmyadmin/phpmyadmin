@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-03 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech: Updated.
+
 2003-11-03 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Grammar.
     * config.inc.php3, libraries/common.lib.php3,
