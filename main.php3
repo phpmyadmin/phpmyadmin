@@ -181,7 +181,11 @@ if ($server > 0) {
     $is_create_priv  = FALSE;
     $is_process_priv = TRUE;
     $is_reload_priv  = FALSE;
-    $is_superuser    = @PMA_mysql_query('USE mysql', $userlink);
+
+// We were checking privileges with 'USE mysql' but users with the global
+// priv CREATE TEMPORARY TABLES or LOCK TABLES can do a 'USE mysql' 
+// (even if they cannot see the tables)
+    $is_superuser    = @PMA_mysql_query('SELECT COUNT(*) FROM mysql.user', $userlink);
     if ($dbh) {
         $local_query = 'SELECT Create_priv, Process_priv, Reload_priv FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
         $rs_usr      = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php3: replace the 'USE mysql' test, as users with a global
+      priv like CREATE TEMPORARY TABLES can do a 'USE mysql'
+
 2003-03-25 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_query_box.php3, tbl_properties_operations.php3,
       libraries/common.lib.php3, tbl_query_box.php3, querywindow.php3: More
