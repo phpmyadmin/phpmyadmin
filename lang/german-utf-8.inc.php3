@@ -218,6 +218,7 @@ $strKeyname = 'Name';
 $strKill = 'Beenden';
 
 $strLandscape = 'Querformat';
+$strLaTeX = 'LaTeX';
 $strLength = ' Länge ';
 $strLengthSet = 'Länge/Set*';
 $strLimitNumRows = 'Einträge pro Seite';
@@ -477,6 +478,4 @@ $strWrongUser = 'Falscher Benutzername/Kennwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 $strZip = 'Zip-komprimiert';
-
-$strLaTeX = 'LaTeX';  //to translate
 ?>

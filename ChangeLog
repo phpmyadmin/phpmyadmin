@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-11 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german-*.inc.php3: Updates.
+
 2002-12-11 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_dump.php3: Fix exporting of structure and data to file, fix and make
       cleaner charset conversion for export.
@@ -15,7 +18,7 @@ $Source$
 2002-12-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/galician: update, thanks to Xosé Calvo
     * libraries/sqlparser.lib.php3: bug 649665 undefined vars with UNION,
-      but there is still some work to do about how to split a UNION 
+      but there is still some work to do about how to split a UNION
     * tbl_properties_options.php3, bug 651522 wrong back-link,
       thanks to Mischka ( stollner at uni-muenster dot de )
 
