@@ -8,6 +8,7 @@ $Source$
 2002-10-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3, header_prinview.inc.php3: Corrected value for the
       'Expires' HTTP header.
+    * lang/german-utf-8.inc.php3: Wrong $charset value.
 
 2002-10-02 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_change.php3, bug 617029: tabindex for linked fields
