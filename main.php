@@ -292,22 +292,31 @@ if ($server > 0) {
         <?php
         // The user is allowed to create a db
         if ($is_create_priv) {
-            echo "\n";
-            ?>
-        <!-- db creation form -->
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
-            <form method="post" action="db_create.php">
-                <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?><br />
-                <?php echo PMA_generate_common_hidden_inputs(); ?>
-                <input type="hidden" name="reload" value="1" />
-                <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" />
-                <input type="submit" value="<?php echo $strCreate; ?>" />
-            </form>
-            </td>
-        </tr>
-            <?php
+            echo "\n"
+               . '        <!-- db creation form -->' . "\n"
+               . '        <tr>' . "\n"
+               . '            <td valign="baseline"><img src="' . $item_img . '" width="7" height="7" alt="item" /></td>' . "\n"
+               . '            <td>' . "\n"
+               . '                <form method="post" action="db_create.php">' . "\n"
+               . '                    ' . $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE') . "\n"
+               . '<br />' . "\n"
+               . PMA_generate_common_hidden_inputs(5)
+               . '                    <input type="hidden" name="reload" value="1" />' . "\n"
+               . '                    <input type="text" name="db" value="' . $db_to_create . '" maxlength="64" class="textfield" />' . "\n";
+            if (PMA_MYSQL_INT_VERSION >= 40101) {
+                require_once('./libraries/mysql_charsets.lib.php');
+                echo '                    <select name="db_charset">' . "\n"
+                   . '                        <option value="">' . $strCharset . '</option>' . "\n"
+                   . '                        <option value=""></option>' . "\n";
+                for ($i = 0; isset($mysql_charsets[$i]); $i++) {
+                    echo '                        <option value="' . htmlspecialchars($mysql_charsets[$i]) . '">' . htmlspecialchars($mysql_charsets[$i]) . '</option>' . "\n";
+                }
+                echo '                    </select>' . "\n";
+            }
+            echo '                    <input type="submit" value="' . $strCreate . '" />' . "\n"
+               . '                </form>' . "\n"
+               . '            </td>' . "\n"
+               . '        </tr>' . "\n";
         } else {
             echo "\n";
             ?>

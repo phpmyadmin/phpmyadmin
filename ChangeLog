@@ -17,10 +17,12 @@ $Source$
 2003-12-11 Alexander M. Turek  <bleibtallesanders@derrabus.de>
     * server_collations.php, lang/*.inc.php, libraries/mysql_charsets.lib.php:
       Updated character sets overview for MySQL 4.1.1.
+    * db_create.php, main.php: Ability to specify a default character set for a
+      new database.
 
 2003-12-11 Garvin Hicking <me@supergarv.de>
     * header_printview.inc.php: RFE #856503, show number of rows in printview
-    * tbl_change.php, tbl_replace.php, tbl_replace_fields.php: Fixed #857445, 
+    * tbl_change.php, tbl_replace.php, tbl_replace_fields.php: Fixed #857445,
       #857684 where non-existant fields caused PHP notices.
     * db_details.php: Removed unneccessary whitespace
     * sql.php: Bug #857742: When dropping the only remaining database, an
