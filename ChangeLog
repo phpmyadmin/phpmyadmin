@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-07 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.6.0-alpha2 released
+
 2004-05-07 Garvin Hicking <pma@supergarv.de>
     * db_details_db_info.php: When $cfg['ShowTooltipAliasTB'] is set to
       'nested', the displayed table names should always be the real names,
