@@ -8,6 +8,7 @@ $Source$
 2005-02-17 Marc Delisle  <lem9@users.sourceforge.net>
     * header.inc.php, queryframe.php: HTML improvement, 
       thanks to Armel Fauveau
+    * server_privileges.php: bug #1113788, escaping character removed by error
 
 2005-02-16 Alexander M. Turek  <me@derrabus.de>
     * db_details_export.php: Views are not exportable yet.

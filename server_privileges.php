@@ -729,18 +729,33 @@ if (!empty($update_privs)) {
     // escaping a wildcard character in a GRANT is only accepted at the global
     // or database level, not at table level; this is why I remove
     // the escaping character
-    // Note: in the Database-specific privileges, we will have for example
+    // Note: in the phpMyAdmin list of Database-specific privileges,
+    //  we will have for example
     //  test\_db  SELECT (this one is for privileges on a db level)
     //  test_db   USAGE  (this one is for table-specific privileges)
     //
-    // It looks curious but reflects IMO the way MySQL works
+    // It looks curious but reflects the way MySQL works
 
-    $db_and_table = empty($dbname) ? '*.*' : str_replace('\\','',PMA_backquote($dbname)) . '.' . (empty($tablename) ? '*' : PMA_backquote($tablename));
+    if (empty($dbname)) {
+        $db_and_table = '*.*';
+    } else {
+        if (!empty($tablename)) {
+            $db_and_table = str_replace('\\','',PMA_backquote($dbname))
+                          . '.' . PMA_backquote($tablename);
+        } else {
+            // do not remove the escaping character when working at db level 
+            $db_and_table = PMA_backquote($dbname)
+                          . '.*'; 
+        }
+    }
+
+
     $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
     if (!isset($Grant_priv) || $Grant_priv != 'Y') {
         $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
     }
     $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON ' . $db_and_table . ' TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
+
     if ((isset($Grant_priv) && $Grant_priv == 'Y') || (empty($dbname) && PMA_MYSQL_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates)))) {
         $sql_query2 .= 'WITH';
         if (isset($Grant_priv) && $Grant_priv == 'Y') {
