@@ -294,7 +294,9 @@ else {
             $num_rows   = 0;
         }
     }
-    // Executes the query
+
+    //  E x e c u t e    t h e    q u e r y
+
     // Only if we didn't ask to see the php code (mikebeck)
     if (!empty($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         unset($result);
@@ -302,6 +304,7 @@ else {
     }
     else {
         $result   = @PMA_mysql_query($full_sql_query);
+
         // Displays an error message if required and stop parsing the script
         if (PMA_mysql_error()) {
             $error        = PMA_mysql_error();
@@ -310,6 +313,16 @@ else {
                           ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
                           : $err_url;
             PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
+        }
+
+        // Gets the number of rows affected/returned
+        // (This must be done immediately after the query because
+        // mysql_affected_rows() reports about the last query done)
+
+        if (!$is_affected) {
+            $num_rows = ($result) ? @mysql_num_rows($result) : 0;
+        } else if (!isset($num_rows)) {
+            $num_rows = @mysql_affected_rows();
         }
 
         // Checks if the current database has changed
@@ -328,13 +341,6 @@ else {
         if (function_exists('PMA_kanji_file_conv')
             && (isset($textfile) && file_exists($textfile))) {
             unlink($textfile);
-        }
-
-        // Gets the number of rows affected/returned
-        if (!$is_affected) {
-            $num_rows = ($result) ? @mysql_num_rows($result) : 0;
-        } else if (!isset($num_rows)) {
-            $num_rows = @mysql_affected_rows();
         }
 
         // Counts the total number of rows for the same 'SELECT' query without the
