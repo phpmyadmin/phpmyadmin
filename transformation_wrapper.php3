@@ -155,8 +155,8 @@ if (!isset($resize)) {
     // it sets $resize to 1 
    
     $srcImage = imagecreatefromstring($row[urldecode($transform_key)]);
-    $newWidth = $suggested_size;
-    $newHeight = $suggested_size;
+    //$newWidth = $suggested_size;
+    //$newHeight = $suggested_size;
     $srcWidth = ImageSX( $srcImage );
     $srcHeight = ImageSY( $srcImage );
 
