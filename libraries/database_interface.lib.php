@@ -157,8 +157,12 @@ function PMA_DBI_postConnect($link) {
         $collation_connection = PMA_DBI_get_variable('collation_connection', PMA_DBI_GETVAR_SESSION, $link);
 
         // Add some field types to the list
-        $GLOBALS['cfg']['ColumnTypes'][] = 'BINARY';
-        $GLOBALS['cfg']['ColumnTypes'][] = 'VARBINARY';
+        // (we pass twice here; feel free to code something better :)
+        if (!defined('PMA_ADDED_FIELD_TYPES')) {
+            $GLOBALS['cfg']['ColumnTypes'][] = 'BINARY';
+            $GLOBALS['cfg']['ColumnTypes'][] = 'VARBINARY';
+            define('PMA_ADDED_FIELD_TYPES',1);
+        }
 
     } else {
         require_once('./libraries/charset_conversion.lib.php');

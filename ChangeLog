@@ -9,6 +9,8 @@ $Source$
     * main.php, server_privileges.php, libraries/common.lib.php:
       replace charset introducers by CONVERT USING, 
       to support servers where the mysql.* tables are not in latin1
+    * libraries/database_interface.lib.php: do not add BINARY and VARBINARY
+      twice in the drop-down list of field types
 
 2004-09-02 Alexander M. Turek  <me@derrabus.de>
     * Documentation.html: Typos; added a note about the deprecated MySQL
