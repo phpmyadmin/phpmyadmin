@@ -97,11 +97,6 @@ if ($sql_query != '') {
     $pieces       = split_sql_file($sql_query, ';');
     $pieces_count = count($pieces);
 
-    // Handles table aliases
-    for ($i = 0; $i < $pieces_count; $i++) {
-        $pieces[$i] = expand_sql_query($pieces[$i]);
-    }
-
     // Only one query to run
     if ($pieces_count == 1 && !empty($pieces[0]) && $view_bookmark == 0) {
         $sql_query = trim($pieces[0]);
