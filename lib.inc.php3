@@ -1692,42 +1692,6 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
     } // end of the 'split_sql_file()' function
 
 
-    /**
-     * Removes # type remarks from large sql files
-     *
-     * Version 3 20th May 2001 - Last Modified By Pete Kelly
-     *
-     * @param   string   the sql commands
-     *
-     * @return  string   the cleaned sql commands
-     */
-    function remove_remarks($sql)
-    {
-        $i = 0;
-
-        while ($i < strlen($sql)) {
-            // Patch from Chee Wai
-            // (otherwise, if $i==0 and $sql[$i] == "#", the original order
-            // in the second part of the AND bit will fail with illegal index)
-            //    if ($sql[$i] == "#" and ($sql[$i-1] == "\n" or $i==0)) {
-            if ($sql[$i] == '#' && ($i == 0 || $sql[$i-1] == "\n")) { 
-                $j = 1;
-                while ($sql[$i+$j] != "\n") {
-                    $j++;
-                    if ($j+$i > strlen($sql)) {
-                        break;
-                    }
-                } // end while
-                $sql = substr($sql, 0, $i) . substr($sql, $i+$j);
-            } // end if
-            $i++;
-        } // end while
-
-        return $sql;
-    } // end of the 'remove_remarks()' function
-
-
-
     /* ------------------------ The bookmark feature ----------------------- */
 
     /**
