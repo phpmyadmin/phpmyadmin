@@ -23,9 +23,13 @@ if (!@function_exists('mysql_connect')) {
 
 // MySQL client API
 if (!defined('PMA_MYSQL_CLIENT_API')) {
-    $client_api = explode('.', mysql_get_client_info());
-    define('PMA_MYSQL_CLIENT_API', (int)sprintf('%d%02d%02d', $client_api[0], $client_api[1], intval($client_api[2])));
-    unset($client_api);
+    if (function_exists('mysql_get_client_info')) {
+        $client_api = explode('.', mysql_get_client_info());
+        define('PMA_MYSQL_CLIENT_API', (int)sprintf('%d%02d%02d', $client_api[0], $client_api[1], intval($client_api[2])));
+        unset($client_api);
+    } else {
+        define('PMA_MYSQL_CLIENT_API', 32332); // always expect the worst...
+    }
 }
 
 function PMA_DBI_connect($user, $password) {

@@ -8,6 +8,8 @@ $Source$
 2004-02-29 Alexander M. Turek  <howcanisleepwithyourvoiceinmyhead@derrabus.de>
     * tbl_select.php: Fixed bug #887505 (PMA does not add MySQL charsets to
       WHERE clauses).
+    * libraries/dbi/mysql.dbi.lib.php: Yet another ungly fix concerning the
+      missing mysql_get_client_info() function.
 
 2004-02-27 Michal Cihar  <imback@cihar.com>
     * config.inc.php, libraries/config_import.lib.php,
