@@ -7,6 +7,7 @@ $Source$
 
 2002-07-08 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_create.php3: Fixed bug #578321 (Wrong page after table creation).
+    * libraries/common.lib.php3: Fixed bug #578404 (js error in no-frame mode).
 
 2002-07-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: bug 577645: extra space in the cell

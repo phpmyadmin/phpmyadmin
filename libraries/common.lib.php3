@@ -1126,6 +1126,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
 <script type="text/javascript" language="javascript1.2">
 <!--
 if (typeof(document.getElementById) != 'undefined'
+    && typeof(window.parent.frames['nav']) != 'undefined'
     && typeof(window.parent.frames['nav'].document.getElementById('<?php echo $md5_tbl; ?>')) != 'undefined'
     && typeof(window.parent.frames['nav'].document.getElementById('<?php echo $md5_tbl; ?>').title) == 'string') {
     window.parent.frames['nav'].document.getElementById('<?php echo $md5_tbl; ?>').title = '<?php echo htmlspecialchars($tooltip); ?>';
