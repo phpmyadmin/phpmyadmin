@@ -172,7 +172,7 @@ if (!defined('__LIB_INC__')){
         echo '</p>' . "\n";
         if ($is_back_link) {
             $hist = (isset($GLOBALS['btnDrop'])) ? -2 : -1;
-            echo '<a href="javascript:window.history.go(' . $hist . ')">' . $GLOBALS['strBack'] . '</a>';
+            echo '<a href="#" onclick="window.history.go(' . $hist . '); return false">' . $GLOBALS['strBack'] . '</a>';
         }
         echo "\n";
 
@@ -786,7 +786,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
     </td>
     <td>
         <form action="sql.php3" method="post"
-            onsubmit="return (checkFormElementInRange(this, 'pos', 0, <?php echo $SelectNumRows-1; ?>) && checkFormElementInRange(this, 'sessionMaxRows'))">
+            onsubmit="return (checkFormElementInRange(this, 'sessionMaxRows', 1) && checkFormElementInRange(this, 'pos', 0, <?php echo $SelectNumRows-1; ?>))">
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
@@ -924,20 +924,6 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             $GLOBALS['sessionMaxRows'] = $GLOBALS['cfgMaxRows'];
         }
 
-        // Loads a javascript library that does quick validations
-        ?>
-
-<script type="text/javascript" language="javascript">
-<!--
-var errorMsg1 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotNumber'])); ?>';
-var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumber'])); ?>';
-//-->
-</script>
-<script src="functions.js" type="text/javascript" language="javascript"></script>
-
-        <?php
-        echo "\n";
-
         // Counts the number of rows in the table if required
         if (isset($SelectNumRows) && $SelectNumRows != '') {
             $total = $SelectNumRows;
@@ -980,7 +966,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             $table = $field->table;
         }
         mysql_field_seek($dt_result, 0);
-        if (!$is_simple 
+        if (!$is_simple
             && (!isset($SelectNumRows) || $SelectNumRows > 1)) {
             show_table_navigation($pos_next, $pos_prev, $dt_result);
         } else {

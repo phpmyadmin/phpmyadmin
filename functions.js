@@ -2,37 +2,105 @@
 
 
 /**
+ * Displays an error message if a "DROP DATABASE" statement is submitted
+ * while it isn't allowed, else confirms a "DROP/DELETE/ALTER" query before
+ * sumitting it if required.
+ * This function is called by the 'checkSqlQuery()' js function.
+ *
+ * @param   object   the form
+ * @param   object   the sql query textarea
+ *
+ * @return  boolean  whether to run the query or not
+ *
+ * @see     checkSqlQuery()
+ */
+function confirmQuery(theForm1, sqlQuery1)
+{
+    // The replace function (js1.2) isn't supported
+    if (typeof(sqlQuery1.value.replace) == 'undefined') {
+        return true;
+    }
+
+    // js1.2+ -> validation with regular expressions 
+    else {
+        // "DROP DATABASE" statement isn't allowed
+        if (noDropDbMsg) {
+            var drop_re = new RegExp('DROP\\s+(IF EXISTS\\s+)?DATABASE', 'i');
+            if (drop_re.test(sqlQuery1.value)) {
+                alert(noDropDbMsg);
+                theForm1.reset();
+                sqlQuery1.focus();
+                return false;
+            } // end if
+        } // end if
+
+        // Confirms a "DROP/DELETE/ALTER" statement
+        var do_confirm_re_0 = new RegExp('DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE)', 'i');
+        var do_confirm_re_1 = new RegExp('ALTER TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP', 'i');
+        var do_confirm_re_2 = new RegExp('DELETE FROM', 'i');
+        if (do_confirm_re_0.test(sqlQuery1.value)
+            || do_confirm_re_1.test(sqlQuery1.value)
+            || do_confirm_re_2.test(sqlQuery1.value)) {
+            var is_confirmed = confirm(confirmMsg + ' :\n' + sqlQuery1.value);
+            // drop/delete/alter statement is confirmed -> update the
+            // "is_js_confirmed" form field so the confirm test won't be
+            // run on the server side and allows to submit the form
+            if (is_confirmed) {
+                theForm1.elements['is_js_confirmed'].value = 1;
+                return true;
+            }
+            // "DROP/DELETE/ALTER" statement is rejected -> do not submit
+            // the form
+            else {
+                window.focus();
+                sqlQuery1.focus();
+                return false;
+            } // end if (handle confirm box result)
+        } // end if (display confirm box)
+    } // end confirmation stuff
+
+    return true;
+} // end of the 'confirmQuery()' function
+
+
+/**
  * Displays an error message if the user submitted the sql query form with no
- * sql query
+ * sql query else checks for "DROP/DELETE/ALTER" statements
  *
  * @param   object   the form
  *
  * @return  boolean  always false
+ *
+ * @see     confirmQuery()
  */
-function emptySqlQuery(theForm)
+function checkSqlQuery(theForm)
 {
-    var sqlQuery1 = theForm.elements['sql_query'];
-    var isRegExp  = (typeof(sqlQuery1.value.replace) != 'undefined');
+    var sqlQuery = theForm.elements['sql_query'];
 
     // The replace function (js1.2) isn't supported -> basic tests
-    if (!isRegExp) {
-        var isEmpty  = (sqlQuery1.value == '') ? 1 : 0;
+    if (typeof(sqlQuery.value.replace) == 'undefined') {
+        var isEmpty  = (sqlQuery.value == '') ? 1 : 0;
         if (isEmpty && typeof(theForm.elements['sql_file']) != 'undefined') {
             isEmpty  = (theForm.elements['sql_file'].value == '') ? 1 : 0;
         }
         if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined') {
-            isEmpty  = (theForm.elements['id_bookmark'].value == '') ? 1 : 0;
+            isEmpty  = (theForm.elements['id_bookmark'].value == null || theForm.elements['id_bookmark'].value == '');
         }
     }
     // js1.2+ -> validation with regular expressions 
     else {
         var space_re = new RegExp('\\s+');
-        var isEmpty  = (sqlQuery1.value.replace(space_re, '') == '') ? 1 : 0;
+        var isEmpty  = (sqlQuery.value.replace(space_re, '') == '') ? 1 : 0;
+        // Checks for "DROP/DELETE/ALTER" statements
+        if (!isEmpty && !confirmQuery(theForm, sqlQuery)) {
+            return false;
+        }
         if (isEmpty && typeof(theForm.elements['sql_file']) != 'undefined') {
             isEmpty  = (theForm.elements['sql_file'].value.replace(space_re, '') == '') ? 1 : 0;
         }
         if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined') {
-            isEmpty  = (theForm.elements['id_bookmark'].value == '') ? 1 : 0;
+            isEmpty  = (theForm.elements['id_bookmark'].value == null || theForm.elements['id_bookmark'].value == '');
+            isEmpty  = (theForm.elements['id_bookmark'].selectedIndex == 0);
         }
         if (isEmpty) {
             theForm.reset();
@@ -40,14 +108,14 @@ function emptySqlQuery(theForm)
     }
 
     if (isEmpty) {
-        sqlQuery1.select();
+        sqlQuery.select();
         alert(errorMsg0);
-        sqlQuery1.focus();
+        sqlQuery.focus();
         return false;
     }
 
     return true;
-} // end of the 'emptySqlQuery()' function
+} // end of the 'checkSqlQuery()' function
 
 
 /**
@@ -97,7 +165,13 @@ function checkFormElementInRange(theForm, theFieldName, min, max)
 {
     var theField         = theForm.elements[theFieldName];
     var val              = parseInt(theField.value);
-    var isRange          = (typeof(min) != 'undefined' && typeof(max) != 'undefined');
+
+    if (typeof(min) == 'undefined') {
+        min = 0;
+    }
+    if (typeof(max) == 'undefined') {
+        max = Number.MAX_VALUE;
+    }
 
     // It's not a number
     if (isNaN(val)) {
@@ -107,7 +181,7 @@ function checkFormElementInRange(theForm, theFieldName, min, max)
         return false;
     }
     // It's a number but it is not between min and max
-    else if (isRange && (val < min || val > max)) {
+    else if (val < min || val > max) {
         theField.select();
         alert(val + errorMsg2);
         theField.focus();

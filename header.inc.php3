@@ -54,6 +54,26 @@ A:hover.nav   {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
 .nav          {font-family: <?php echo $right_font_family; ?>; color: #000000}
 //-->
 </style>
+<?php
+// Add some javascript instructions if required
+if (isset($js_to_run) && $js_to_run == 'functions.js') {
+    echo "\n";
+    ?>
+<!-- js form validation stuff -->
+<script type="text/javascript" language="javascript">
+<!--
+var errorMsg0   = '<?php echo str_replace('\'', '\\\'', $strFormEmpty); ?>';
+var errorMsg1   = '<?php echo str_replace('\'', '\\\'', $strNotNumber); ?>';
+var errorMsg2   = '<?php echo str_replace('\'', '\\\'', $strNotValidNumber); ?>';
+var noDropDbMsg = '<?php echo((!$cfgAllowUserDropDatabase) ? str_replace('\'', '\\\'', $strNoDropDatabases) : ''); ?>';
+var confirmMsg  = '<?php echo str_replace('\'', '\\\'', $strDoYouReally); ?>';
+//-->
+</script>
+<script src="functions.js" type="text/javascript" language="javascript"></script>
+    <?php
+}
+echo "\n";
+?>
 </head>
 
 <body bgcolor="#F5F5F5" text="#000000" background="images/bkg.gif">

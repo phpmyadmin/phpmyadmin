@@ -8,6 +8,7 @@
 require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
 if (!isset($message)) {
+    $js_to_run = 'functions.js';
     include('./header.inc.php3');
 } else {
     show_message($message);
@@ -541,15 +542,6 @@ echo "\n";
  */
 ?>
 <!-- TABLE WORK -->
-<script type="text/javascript" language="javascript">
-<!--
-var errorMsg0 = '<?php echo(str_replace('\'', '\\\'', $strFormEmpty)); ?>';
-var errorMsg1 = '<?php echo(str_replace('\'', '\\\'', $strNotNumber)); ?>';
-var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $strNotValidNumber)); ?>';
-//-->
-</script>
-<script src="functions.js" type="text/javascript" language="javascript"></script>
-
 <ul>
 
     <!-- Printable view of the table -->
@@ -560,7 +552,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $strNotValidNumber)); ?>';
     <!-- Query box and bookmark support -->
     <li>
         <form method="post" action="db_readdump.php3"
-            onsubmit="return emptySqlQuery(this)">
+            onsubmit="return checkSqlQuery(this)">
+            <input type="hidden" name="is_js_confirmed" value="0" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="pos" value="0" />
@@ -619,7 +612,7 @@ if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
     <!-- Add some new fields -->
     <li>
         <form method="post" action="tbl_addfield.php3"
-            onsubmit="return checkFormElementInRange(this, 'num_fields', 1, 99)">
+            onsubmit="return checkFormElementInRange(this, 'num_fields', 1)">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />

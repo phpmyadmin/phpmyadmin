@@ -10,8 +10,12 @@ require('./lib.inc.php3');
 
 
 /** 
- * Check rights in case of DROP DATABASE 
- */ 
+ * Check rights in case of DROP DATABASE
+ *
+ * This test may be bypassed if $is_js_confirmed = 1 (already checked with js)
+ * but since a malicious user may pass this variable by url/form, we don't take
+ * into account this case.
+ */
 if (!defined('PMA_CHK_DROP')
     && !$cfgAllowUserDropDatabase
     && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE ', $sql_query)) {
@@ -85,10 +89,19 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
 
 /**
  * Displays the confirm page if required
+ *
+ * This part of the script is bypassed if $is_js_confirmed = 1 (already checked
+ * with js) because possible security issue is not so important here: at most,
+ * the confirm message isn't displayed.
  */
-$do_confirm   = ($cfgConfirm
-                 && !isset($btnDrop)
-                 && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)|ALTER TABLE +[[:alnum:]_`]* +DROP|DELETE FROM', $sql_query));
+if (!$cfgConfirm
+    || (isset($is_js_confirmed) && $is_js_confirmed)
+    || isset($btnDrop)) {
+    $do_confirm = FALSE;
+} else {
+    $do_confirm = (eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)|ALTER TABLE +((`[^`]+`)|([A-Za-z0-9_$]+)) +DROP|DELETE FROM', $sql_query));
+}
+
 if ($do_confirm) {
     if (get_magic_quotes_gpc()) {
         $stripped_sql_query = stripslashes($sql_query);
@@ -240,11 +253,14 @@ else {
                 $message = $strEmptyResultSet;
             }
             $goto = ereg_replace('\.\.*', '.', $goto);
-            if ($goto != 'main.php3') {
-                include('./header.inc.php3');
-            }
             if ($goto == 'db_details.php3' && !empty($table)) {
                 unset($table);
+            }
+            if ($goto == 'db_details.php3' || $goto == 'tbl_properties.php3') {
+                $js_to_run = 'functions.js';
+            }
+            if ($goto != 'main.php3') {
+                include('./header.inc.php3');
             }
             include('./' . $goto);
         } // end if file_exist
@@ -261,6 +277,7 @@ else {
         if (isset($show_query)) {
             unset($show_query);
         }
+        $js_to_run = 'functions.js';
         include('./header.inc.php3');
         // Defines the display mode if it wasn't passed by url
         if ($is_count) {
