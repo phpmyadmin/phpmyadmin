@@ -884,7 +884,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
            }
 
            if (($arr[$i]['type'] == 'alpha_reservedWord')
-            && ($upper_data =='ON')) {
+            && ($upper_data =='ON' || $upper_data =='USING')) {
                $save_table_ref = FALSE;
            } // end if (data == ON)
 
