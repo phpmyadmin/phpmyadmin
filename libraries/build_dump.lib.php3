@@ -677,14 +677,14 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         mysql_free_result($result);
 
         $tex_escape = array("$", "%", "{", "}",  "&",  "#", "_", "^");
-        
+
         $local_query = 'select * from ' . PMA_backquote($db) . '.' . PMA_backquote($table);
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
 
-        $buffer	     .= '\begin{table} ' . $crlf 
-            . ' \begin{longtable}{|';
-	
-	    for($index=0;$index<$columns_cnt;$index++) {
+        $buffer      = '\begin{table} ' . $crlf
+                     . ' \begin{longtable}{|';
+
+        for($index=0;$index<$columns_cnt;$index++) {
            $buffer .= 'c|';
         }
         $buffer .= '} ' . $crlf ;
@@ -693,13 +693,13 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
         // print the whole table
         while ($record = PMA_mysql_fetch_array($result, MYSQL_ASSOC)) {
-            
+
             // print each row
             for($i = 0; $i < $columns_cnt; $i++) {
                 if (!function_exists('is_null') || !is_null($record[$columns[$i]])) {
                     $column_value = $record[$columns[$i]];
 
-                    //	$ % { } & # _ ^
+                    //    $ % { } & # _ ^
                     // escaping special characters
                     for($k=0;$k<count($tex_escape);$k++) {
                         $column_value = str_replace($tex_escape[$k], '\\' . $tex_escape[$k], $column_value);
@@ -720,7 +720,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
         mysql_free_result($result);
         return $buffer;
-    
+
     } // end getTableLatex
 
 

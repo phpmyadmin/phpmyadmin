@@ -8,6 +8,9 @@ $Source$
 2002-12-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Updates.
     * lang/catalan-*.inc.php3: Updates, thanks again to Xavier Navarro (xavin).
+    * libraries/build_dump.php3:
+      - Fixed part 2 of bug #652311 (Undefined variables);
+      - Coding standards.
 
 2002-12-11 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_dump.php3: Fix exporting of structure and data to file, fix and make
