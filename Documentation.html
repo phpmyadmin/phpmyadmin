@@ -1166,6 +1166,39 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['UseSyntaxColoring'] </b>boolean</dt>
+    <dd>
+        Introduced in 2.3.0 PhpMyAdmin is now able to show SQL in Syntaxcoloring.
+        To use this feature set this value to TRUE (the default). If not everything
+        you want is colored or to influence where a newline is inserted see the
+        Configurationarrays $cfg['keywords'] and $cfg['additional']
+    </dd>
+    <dt><b>$cfg['colorFunctions'] </b>string [HTML color]</dt>
+    <dd>
+        If you use Syntaxcoloring then this defines the Color of
+        Functionnames. e.g. all that are found in $cfg['Functions'].
+    </dd>
+    <dt><b>$cfg['colorKeywords'] </b>string [HTML color]</dt>
+    <dd>
+        If you use Syntaxcoloring then this defines the Color of
+        Keywords. e.g. all that are found in $cfg['keywords'].
+    </dd>
+    <dt><b>$cfg['colorStrings'] </b>string [HTML color]</dt>
+    <dd>
+        If you use Syntaxcoloring then this defines the Color of
+        Strings. e.g. all that are between ' or &quot;
+    </dd>
+    <dt><b>$cfg['colorColType'] </b>string [HTML color]</dt>
+    <dd>
+        If you use Syntaxcoloring then this defines the Color of
+        ColumnTypes.  e.g. all that are found in $cfg['ColumnTypes'].
+    </dd>
+    <dt><b>$cfg['colorAdd'] </b>string [HTML color]</dt>
+    <dd>
+        If you use Syntaxcoloring then this defines the Color of
+        additional Keywords that do not get a newline.  e.g. all that
+         are found in $cfg['additional'].
+    </dd>
     <dt><b>$cfg['ColumnTypes'] </b>array</dt>
     <dd>
         All possible types of a MySQL column. In most cases you don't need to
@@ -1183,6 +1216,19 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         A list of functions MySQL supports. In most cases you don't need to
         edit this.
+    </dd>
+
+    <dt><b>$cfg['keywords'] </b>array</dt>
+    <dd>
+        A list of Keywords that is used for Syntaxcoloring. All Keywords that
+        are in this list will also get a new line before them. Usually you won't need
+        to change those.
+    </dd>
+    <dt><b>$cfg['additional'] </b>array</dt>
+    <dd>
+        A list of additional Keywords that is used for Syntaxcoloring. All Keywords that
+        are in this list will <b>not</b> get a new line before them. Usually you won't need
+        to change those.
         <br /><br />
     </dd>
 </dl>
@@ -1210,7 +1256,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <a class="navigation" href="#faqmultiuser">Multi-user</a> &nbsp;-&nbsp;
 <a class="navigation" href="#faqbrowsers">Browsers</a> &nbsp;-&nbsp;
 <a class="navigation" href="#faqusing">Usage tips</a> &nbsp;-&nbsp;
-<a class="navigation" href="#faqproject">Project</a>
+<a class="navigation" href="#faqproject">Project</a> &nbsp;-&nbsp;
+<a class="navigation" href="#faqsyntaxcoloring">Syntax Coloring</a>
+
 
 
 <a name="faqserver"></a>
@@ -1919,7 +1967,29 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
          in the navigation on top</li>
     </ul>
 </p>
-
+<a name="faqsyntaxcoloring"></a>
+<p>
+    <b>I don't like the way syntaxcoloring displays my query</b>
+    <br />
+    There is two things about the way how the Syntaxcoloring works that
+    you can easily change yourself:
+    <ul>
+        <li><b>number of newlines within your statement</b><br />
+            All Words that are in $cfg['keywords'] will get a newline in front of them,
+            all words in $cfg['additional'] don't. So say you don't like to have
+             a newline in front of every WHERE, you need to remove it from the  $cfg['keywords'] array
+             and enter it in the $cfg['additional'] array instead.</li>
+        <li><b>Colors</b><br />
+            The colors are easily changed using the variables
+            <ul>
+                <li>$cfg['colorFunctions']</li>
+                <li>$cfg['colorKeywords']</li>
+                <li>$cfg['colorStrings']</li>
+                <li>$cfg['colorColType']</li>
+                <li>$cfg['colorAdd']</li>
+            </ul></li>
+    </ul>
+</p>
 <a name="faqproject"></a>
 <h3>[phpMyAdmin project]</h3>
 <p>
