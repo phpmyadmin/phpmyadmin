@@ -109,7 +109,8 @@ if ($cfgRelation['relwork']
 
 
     // u p d a t e s   f o r   I n n o D B
-    // ( for now, same db only, and one index name)
+    // ( for now, one index name; we keep the definitions if the
+    // foreign db is not the same)
     if (isset($destination_innodb)) {
         foreach($destination_innodb AS $master_field => $foreign_string) {
             if ($foreign_string != 'nix') {
@@ -119,11 +120,16 @@ if ($cfgRelation['relwork']
 
                     // The next few lines are repeated below, so they
                     // could be put in an include file
+                    // Note: I tried to enclose the db and table name with
+                    // backquotes but MySQL 4.0.16 did not like the syntax
+                    // (for example: `base2`.`table1` )
+
                     $upd_query  = 'ALTER TABLE ' . $table
                                 . ' ADD FOREIGN KEY ('
                                 . PMA_backquote(PMA_sqlAddslashes($master_field)) . ')'
                                 . ' REFERENCES '
-                                . PMA_backquote(PMA_sqlAddslashes($foreign_table)) . '('
+                                . PMA_backquote(PMA_sqlAddslashes($foreign_db) . '.'
+                                . PMA_sqlAddslashes($foreign_table)) . '('
                                 . PMA_backquote(PMA_sqlAddslashes($foreign_field)) . ')';
 
                     if (${$master_field . '_on_delete'} != 'nix') {
@@ -158,7 +164,8 @@ if ($cfgRelation['relwork']
                                 . ' ADD FOREIGN KEY ('
                                 . PMA_backquote(PMA_sqlAddslashes($master_field)) . ')'
                                 . ' REFERENCES '
-                                . PMA_backquote(PMA_sqlAddslashes($foreign_table)) . '('
+                                . PMA_backquote(PMA_sqlAddslashes($foreign_db) . '.'
+                                . PMA_sqlAddslashes($foreign_table)) . '('
                                 . PMA_backquote(PMA_sqlAddslashes($foreign_field)) . ')';
 
                     if (${$master_field . '_on_delete'} != 'nix') {
@@ -422,14 +429,26 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
             } else {
                 $foreign_field    = FALSE;
             }
+
+            $found_foreign_field = FALSE;
             foreach($selectboxall_innodb AS $key => $value) {
                 echo '                '
                      . '<option value="' . htmlspecialchars($key) . '"';
                 if ($foreign_field && $key == $foreign_field) {
                     echo ' selected="selected"';
+                    $found_foreign_field = TRUE;
                 }
                 echo '>' . $value . '</option>'. "\n";
             } // end while
+
+            // we did not find the foreign field in the tables of current db,
+            // must be defined in another db so show it to avoid erasing it
+            if (!$found_foreign_field && $foreign_field) {
+                echo '                '
+                     . '<option value="' . htmlspecialchars($foreign_field) . '"';
+                echo ' selected="selected"';
+                echo '>' . $foreign_field . '</option>'. "\n";
+            }
 
         ?>
                 </select>
