@@ -9,6 +9,8 @@ $Source$
     * lang/galician: update, thanks to Xosé Calvo
     * libraries/sqlparser.lib.php3: bug 649665 undefined vars with UNION,
       but there is still some work to do about how to split a UNION 
+    * tbl_properties_options.php3, bug 651522 wrong back-link,
+      thanks to Mischka ( stollner at uni-muenster dot de )
 
 2002-12-10 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech*.php3: Updated translation.
