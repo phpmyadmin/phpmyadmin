@@ -4,7 +4,13 @@ phpMyAdmin - Changelog
 
 $Id$
 $Source$
-
+2002-06-14 Mike Beck    <mikebeck@users.sourceforge.net>
+    * tbl_qbe:  Bugfixing
+      - Don't try to use a generated SQL Statement without
+        a SELECT (if none of the Columns is marked as display
+        this could happen)
+      - if no LEFT JOINS are generated make sure that the
+        array containing tablenames is unique
 2002-06-12 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/turkish.inc.php3: Updates, thanks again to
       Bora Alioglu <bora@risc01.ktu.edu.tr>.

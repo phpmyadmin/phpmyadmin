@@ -400,6 +400,5 @@ $strWrongUser = 'Falscher Benutzername/Kennwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 $strZip = 'Zip komprimiert';
-
-// To translate
+$strHaveToShow = 'Bitte wählen Sie mindestens eine anzuzeigende Spalte';
 ?>

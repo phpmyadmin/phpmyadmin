@@ -395,4 +395,5 @@ $strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
 $strReferentialIntegrity = 'Check referential integrity:';
 
 $strMissingBracket = 'Missing Bracket';  //to translate
+$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
 ?>

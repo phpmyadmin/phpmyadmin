@@ -51,7 +51,9 @@ $cfg['Servers'][$i]['only_db']       = '';          // If set to a db-name, only
                                                     // It may also be an array
                                                     // of db-names
 $cfg['Servers'][$i]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
-$cfg['Servers'][$i]['bookmarkdb']    = '';          // Bookmark db - leave blank for no bookmark support
+
+$cfg['Servers'][$i]['pmadb']         = '';          // Database used for Relation, Bookmark and PDF Features
+                                                    // - leave blank for no support
 $cfg['Servers'][$i]['bookmarktable'] = '';          // Bookmark table - leave blank for no bookmark support
 $cfg['Servers'][$i]['relation']      = '';          // table to describe the relation between links (see doc)
                                                     //   - leave blank for no relation-links support
@@ -59,6 +61,8 @@ $cfg['Servers'][$i]['table_info']    = '';          // table to describe the dis
                                                     //   - leave blank for no display fields support
 $cfg['Servers'][$i]['table_coords']  = '';          // table to describe the tables position for the PDF
                                                     //   schema - leave blank for no PDF schema support
+$cfg['Servers'][$i]['column_comments']='';          // table to store columncomments
+                                                    // - leave blank if you don't want to use this                                                    
 $cfg['Servers'][$i]['pdf_pages']     = '';          // table to describe pages of relationpdf
 $cfg['Servers'][$i]['AllowDeny']['order']           // Host authentication order, leave blank to not use
                                      = '';

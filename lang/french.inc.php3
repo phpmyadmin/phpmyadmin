@@ -393,4 +393,5 @@ $strYes = 'Oui';
 $strZip = '"zippé"';
 
 $strMissingBracket = 'Missing Bracket';  //to translate
+$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
 ?>

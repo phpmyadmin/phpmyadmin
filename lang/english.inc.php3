@@ -392,4 +392,5 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
+$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
 ?>

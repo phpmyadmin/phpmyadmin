@@ -403,4 +403,5 @@ $strPrimaryKeyName = 'The name of the primary key must be... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
 $strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
 $strMissingBracket = 'Missing Bracket';  //to translate
+$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
 ?>

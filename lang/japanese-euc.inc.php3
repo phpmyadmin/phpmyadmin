@@ -404,4 +404,5 @@ $strXkana = '全角カナへ変換する'; // convert to X208-kana
 
 $strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
 $strMissingBracket = 'Missing Bracket';  //to translate
+$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
 ?>

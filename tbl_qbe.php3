@@ -13,7 +13,7 @@ require('./libraries/common.lib.php3');
 /**
  * A query has been submitted -> executes it, else displays the headers
  */
-if (isset($submit_sql)) {
+if (isset($submit_sql) && eregi('^SELECT',$encoded_sql_query)) {
     $goto      = 'db_details.php3';
     $zero_rows = htmlspecialchars($strSuccess);
     $sql_query = urldecode($encoded_sql_query);
@@ -26,7 +26,9 @@ if (isset($submit_sql)) {
     include('./header.inc.php3');
 }
 
-
+if(isset($submit_sql) && !eregi('^SELECT',$encoded_sql_query)) {
+    echo '<p class="warning">' . $strHaveToShow . '</p>';
+}
 /**
  * Initializes some variables
  */
@@ -896,6 +898,17 @@ if (isset($Field) && count($Field) > 0) {
     } // end rel work and $alltabs > 0
 
     if (empty($qry_from) && count($alltabs)) {
+        //  there might be more than one mentioning of the table in here
+        // as array_unique is only PHP4 we have to do this by hand
+        $_temp = array();
+        while (list($k, $v) = each ($alltabs)) {
+            $_temp[$v] = 1;
+        }
+        unset($alltabs);
+        $alltabs = array();
+        while (list($k, $v) = each ($_temp)) {
+            $alltabs[] = $k;
+        }
         $qry_from = implode(', ', $alltabs);
     }
 
