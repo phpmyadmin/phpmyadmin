@@ -5,12 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-08 Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html: little changes (<tt> is for code, <i> for pathes,
+	  quotations...).
+	* libraries/common.lib.php3: removed trailing whitespaces.
+	* lang/poutuguese.inc.php3: updated thanks to
+	  Luís V. <luis.v at mail.pt>.
+
 2002-03-07 Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html, config.inc.php3, libraries/common.lib.php3:
 	  stduser/stdpass are now controluser/controlpass
 
 2002-03-04 Marc Delisle  <lem9@users.sourceforge.net>
-	* libraries/display_tbl.lib.php3, undefined variable
+	* libraries/display_tbl.lib.php3, undefined variable.
 
 2002-03-04 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3, line 1306: fixed a bug reported by Marc
