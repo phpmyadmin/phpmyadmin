@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-31 Marc Delisle  <lem9@users.sourceforge.net>
+    * header.inc.php: bug #963414, when PropertiesIconic was false,
+      the code did not define the icon variables. Also, remove hardcoded
+      'Server' string
+
 2004-05-30 Michal Čihař  <michal@cihar.com>
     * libraries/display_tbl.lib.php: Return back to browsing after editing
       row.

@@ -185,14 +185,18 @@ if (empty($GLOBALS['is_header_sent'])) {
                        );
         if (isset($GLOBALS['db'])) {
             if ($cfg['PropertiesIconic']){
-              $host_icon_img='<img src="./images/s_host.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
+                $host_icon_img='<img src="./images/s_host.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
+            } else {
+                $host_icon_img = '';
             }
-            echo '<td nowrap="nowrap">Server:&nbsp;</td>'
+            echo '<td nowrap="nowrap">' . sprintf($GLOBALS['strServer'],'') . ':&nbsp;</td>'
                . '<td nowrap="nowrap"><b>'
                . '<a href="' . $GLOBALS['cfg']['DefaultTabServer'] . $header_url_qry . '">' . $host_icon_img . htmlspecialchars($server_info) . '</a>'
                . '</b></td>';
             if ($cfg['PropertiesIconic']){
               $db_icon_img='<img src="./images/s_db.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
+            } else {
+              $db_icon_img = '';
             }
             echo '<td nowrap="nowrap">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</td>';
             echo '<td nowrap="nowrap">' . $GLOBALS['strDatabase'] . ':&nbsp;</td>'
@@ -203,6 +207,8 @@ if (empty($GLOBALS['is_header_sent'])) {
             if (!empty($GLOBALS['table'])) {
               if ($cfg['PropertiesIconic']){
                 $tbl_icon_img='<img src="./images/s_tbl.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
+              } else {
+                $tbl_icon_img = '';
               }
               echo '<td nowrap="nowrap">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</td>';
               echo '<td nowrap="nowrap">' . $GLOBALS['strTable'] . ':&nbsp;</td>'
@@ -215,6 +221,8 @@ if (empty($GLOBALS['is_header_sent'])) {
         } else {
            if ($cfg['PropertiesIconic']){
              $host_icon_img='<img src="./images/s_host.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
+            } else {
+                $host_icon_img = '';
             }
             echo '<tr><td nowrap="nowrap">Server:&nbsp;</td>'
                . '<td nowrap="nowrap"><b><a href="' . $GLOBALS['cfg']['DefaultTabServer'] . $header_url_qry . '">'
