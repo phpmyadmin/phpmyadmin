@@ -87,7 +87,7 @@ $strDatabase = 'Baza de date ';
 $strDatabaseHasBeenDropped = 'Baza de date %s a fost aruncat.';
 $strDatabases = 'Baze de date';
 $strDatabasesStats = 'Statisticile bazelor de date';
-$strDatabaseWildcard = 'Baza de date (sunt permise caractere speciale):';
+$strDatabaseWildcard = 'Baza de date (permis caractere inlocuitoare):';
 $strDataOnly = 'Numai date';
 $strDefault = 'Setare de baza';
 $strDelete = 'Sterge';
@@ -345,8 +345,7 @@ $strWithChecked = 'Verificat cu:';
 
 $strYes = 'Da';
 
-$strZip = '"zipped"';
+$strZip = '"arhivat"';
 
 // To translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

@@ -27,7 +27,7 @@ $strAddToIndex = 'A&ntilde;adido al indice &nbsp;%s&nbsp;columna(s)';
 $strAddUser = 'Agregar nuevo usuario';
 $strAddUserMessage = 'Ud. ha agregado un nuevo usuario.';
 $strAffectedRows = 'Filas afectadas: ';
-$strAfter = 'Despues %s';
+$strAfter = 'Despues de %s';
 $strAfterInsertBack = 'Volver';
 $strAfterInsertNewInsert = 'Insertar un nuevo registro';
 $strAll = 'Todos/as';
@@ -125,13 +125,14 @@ $strFieldsEnclosedBy = 'Campos encerrados por';
 $strFieldsEscapedBy = 'Campos escapados por';
 $strFieldsTerminatedBy = 'Campos terminados en';
 $strFixed = 'fijo';
+$strFlushTable = 'Vaciar el caché de la tabla ("FLUSH")';
 $strFormat = 'Formato';
 $strFormEmpty = 'Falta un valor en el formulario !';
 $strFullText = 'Textos completos';
 $strFunction = 'Funci&oacute;n';
 
 $strGenTime = 'Tiempo de Generacion';
-$strGo = 'Siga';
+$strGo = 'Sigue';
 $strGrants = 'Permisos';
 $strGzip = '"Comprimido con gzip"';
 
@@ -139,7 +140,7 @@ $strHasBeenAltered = 'se ha Modificado.';
 $strHasBeenCreated = 'se ha creado.';
 $strHome = 'Home';
 $strHomepageOfficial = 'Pagina Oficial de phpMyAdmin';
-$strHomepageSourceforge = 'Bajar phpMyAdmin de Sourceforge';
+$strHomepageSourceforge = 'Descargar phpMyAdmin de Sourceforge';
 $strHost = 'servidor';
 $strHostEmpty = 'El nombre del servidor esta vacio!!';
 
@@ -303,9 +304,9 @@ $strSum = 'Tama&ntilde;o de las tablas';
 $strTable = 'tabla ';
 $strTableComments = 'Comentarios de la Tabla';
 $strTableEmpty = 'El nombre de la tabla esta vacio!';
-$strTableHasBeenDropped = 'La tabla %s ha sido eliminada';
-$strTableHasBeenEmptied = 'La tabla %s ha sido vaciada';
-$strTableHasBeenFlushed = 'Table %s has been flushed';//to translate
+$strTableHasBeenDropped = 'Se ha eliminado la tabla %s';
+$strTableHasBeenEmptied = 'Se ha vaciado la tabla %s';
+$strTableHasBeenFlushed = 'Se ha vaciado el caché de la tabla %s';
 $strTableMaintenance = 'Mantenimiento de la tabla';
 $strTables = '%s tabla(s)';
 $strTableStructure = 'Estructura de tabla para tabla';
@@ -345,5 +346,4 @@ $strYes = 'Si';
 $strZip = '"comprimido con zip"';
 
 // To translate
-$strFlushTable = 'Flush the table ("FLUSH")';//to translate
 ?>
