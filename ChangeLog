@@ -22,6 +22,10 @@ $Source$
       activity statistics.
     * server_status.php: Removed InnoDB Status sub-page. It is now part of
       server_engines.php.
+    * lang/*.inc.php, libraries/engines/innodb.lib.php: Buffer pool size
+      indicators.
+    * libraries/mysql_charsets.lib.php: Don't check the character set of the
+      virtual database "information_schema" (MySQL 5.0).
 
 2005-03-05 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_alter.php, tbl_addfield.php, db_datadict.php, pdf_schema.php,

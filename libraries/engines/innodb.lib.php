@@ -16,6 +16,11 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine {
                 'title' => $GLOBALS['strInnoDBAutoextendIncrement'],
                 'desc'  => $GLOBALS['strInnoDBAutoextendIncrementDesc'],
                 'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC
+            ),
+            'innodb_buffer_pool_size' => array(
+                'title' => $GLOBALS['strInnoDBBufferPoolSize'],
+                'desc'  => $GLOBALS['strInnoDBBufferPoolSizeDesc'],
+                'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE
             )
         );
     }
@@ -44,7 +49,10 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine {
                 if (PMA_MYSQL_INT_VERSION < 50002) {
                     return FALSE;
                 }
-                $res = PMA_DBI_query('SHOW STATUS LIKE \'Innodb\\_buffer\\_pool\\_%\'');
+                // rabus: The following query is only possible because we know
+                // that we are on MySQL 5 here (checked above)!
+                // side note: I love MySQL 5 for this. :-)
+                $res = PMA_DBI_query('SHOW STATUS WHERE Variable_name LIKE \'Innodb\\_buffer\\_pool\\_%\' OR Variable_name = \'Innodb_page_size\';');
                 $status = array();
                 while ($row = PMA_DBI_fetch_row($res)) {
                     $status[$row[0]] = $row[1];
@@ -64,8 +72,8 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine {
                         . '            <th>' . "\n"
                         . '                ' . $GLOBALS['strTotalUC'] . "\n"
                         . '            </th>' . "\n"
-                        . '            <th>' . "\n"
-                        . '                ' . htmlspecialchars($status['Innodb_buffer_pool_pages_total']) . "\n"
+                        . '            <th colspan="3">' . "\n"
+                        . '                ' . htmlspecialchars($status['Innodb_buffer_pool_pages_total']) . '&nbsp;' . $GLOBALS['strInnoDBPages'] . '&nbsp;/ ' . join('&nbsp;', PMA_formatByteDown($status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size'])) . "\n"
                         . '            </th>' . "\n"
                         . '        </tr>' . "\n"
                         . '    </tfoot>' . "\n"
