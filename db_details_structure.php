@@ -295,7 +295,7 @@ else {
         } else {
            $on_mouse = '';
         }
-        if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
+        if ($GLOBALS['cfg']['BrowseMarkerEnable'] == TRUE) {
             $on_mouse .= ' onmousedown="setPointer(this, ' . $i . ', \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
         }
 

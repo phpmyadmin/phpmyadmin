@@ -468,6 +468,10 @@ $cfg['BrowsePointerEnable'] = FALSE;        // enable the browse pointer
                                             // see also BrowsePointerColor
                                             // in colors.inc.php
 
+$cfg['BrowseMarkerEnable'] = FALSE;         // enable the browse marker
+                                            // see also BrowseMarkerColor
+                                            // in colors.inc.php
+
 $cfg['TextareaCols']        = 40;           // textarea size (columns) in edit mode
                                             // (this value will be emphasized (*2) for sql
                                             // query textareas and (*1.25) for query window)

@@ -14,7 +14,6 @@ $cfg['BgcolorTwo']          = '#D5D5D5';    // table data row colour, alternate
 $cfg['BrowsePointerColor']  = '#CCFFCC';    // color of the pointer in browse mode
 $cfg['BrowseMarkerColor']   = '#FFCC99';    // color of the marker (visually marks row
                                             // by clicking on it) in browse mode
-                                            // (blank for no marker)
 /**
  * SQL Parser Settings
  */

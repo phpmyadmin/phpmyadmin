@@ -668,6 +668,10 @@ if (!isset($cfg['BrowsePointerColor'])) {
     $cfg['BrowsePointerColor'] = '#CCFFCC';
 }
 
+if (!isset($cfg['BrowseMarkerEnable'])) {
+    $cfg['BrowseMarkerEnable'] = TRUE;
+}
+
 if (!isset($cfg['BrowseMarkerColor'])) {
     if (isset($cfgBrowseMarkerColor)) {
         $cfg['BrowseMarkerColor'] = $cfgBrowseMarkerColor;
@@ -685,6 +689,9 @@ if (!isset($cfg['BrowseMarkerColor'])) {
     } else {
         $cfg['BrowseMarkerColor'] = '#FFCC99';
     }
+// no longer accept an empty value to mean "disable the marker"
+} elseif ($cfg['BrowseMarkerColor'] == '') {
+    $cfg['BrowseMarkerColor'] = '#FFCC99';
 }
 
 if (!isset($cfg['TextareaCols'])) {

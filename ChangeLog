@@ -14,7 +14,10 @@ $Source$
       libraries/config_import.lib.php + common.lib.php + display_tbl.lib.php,
       all colors.inc.php:
       $cfg['BrowsePointerEnable']
-      (I am still working for BrowseMarkerEnable)
+    * db_details_structure.php, tbl_properties_structure.php, config.inc.php,
+      Documentation.html, all colors.inc.php,
+      libraries/config_import.lib.php + common.lib.php + display_tbl.lib.php:
+      $cfg['BrowseMarkerEnable']
 
 2004-06-24 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/mysqli.dbi.php: Undefined variable if PMA_DBI_getError() is
