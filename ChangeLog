@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-20  Loïc Chapeaux  <lolo@phpheaven.net>
+	* main.php3: fixed an error I've done while merging patch #462787.
+	* config.inc.php3; Documentation.html: added the $cfgShowStats setting and
+	  resorted the core phpMyAdmin settings in a more logical way.
+	* db_details.php3; db_printview.php3; tbl_properties.php3;
+	  tbl_printview.php3: added the $cfgShowStats setting.
+	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
+
 2001-09-19  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_properties.php3, db_details.php3, lang/*: start to merge new messages
 	  with parameters.

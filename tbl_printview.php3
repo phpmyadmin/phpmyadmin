@@ -256,33 +256,34 @@ if ($index_count > 0) {
  *
  * staybyte - 9 June 2001
  */
-$nonisam     = FALSE;
-if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
-    $nonisam = TRUE;
-}
-if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
-    // Gets some sizes
-    $mergetable     = FALSE;
-    if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
-        $mergetable = TRUE;
+if ($cfgShowStats) {
+    $nonisam     = FALSE;
+    if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
+        $nonisam = TRUE;
     }
-    list($data_size, $data_unit)         = format_byte_down($showtable['Data_length']);
-    if ($mergetable == FALSE) {
-        list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
-    }
-    if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
-        list($free_size, $free_unit)     = format_byte_down($showtable['Data_free']);
-        list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
-    } else {
-        list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
-    }
-    list($tot_size, $tot_unit)           = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
-    if ($num_rows > 0) {
-        list($avg_size, $avg_unit)       = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
-    }
+    if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
+        // Gets some sizes
+        $mergetable     = FALSE;
+        if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
+            $mergetable = TRUE;
+        }
+        list($data_size, $data_unit)         = format_byte_down($showtable['Data_length']);
+        if ($mergetable == FALSE) {
+            list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
+        }
+        if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
+            list($free_size, $free_unit)     = format_byte_down($showtable['Data_free']);
+            list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
+        } else {
+            list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
+        }
+        list($tot_size, $tot_unit)           = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
+        if ($num_rows > 0) {
+            list($avg_size, $avg_unit)       = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
+        }
 
-    // Displays them
-    ?>
+        // Displays them
+        ?>
 <br /><br />
 
 <table border="0" cellspacing="0" cellpadding="0">
@@ -301,20 +302,20 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
             <td align="right" nowrap="nowrap"><?php echo $data_size; ?></td>
             <td><?php echo $data_unit; ?></td>
         </tr>
-    <?php
-    if (isset($index_size)) {
-        echo "\n";
-        ?>
-        <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>">
-            <td style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
-            <td align="right" nowrap="nowrap"><?php echo $index_size; ?></td>
-            <td><?php echo $index_unit; ?></td>
-        </tr>
         <?php
-    }
-    if (isset($free_size)) {
-        echo "\n";
-        ?>
+        if (isset($index_size)) {
+            echo "\n";
+            ?>
+            <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>">
+                <td style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
+                <td align="right" nowrap="nowrap"><?php echo $index_size; ?></td>
+                <td><?php echo $index_unit; ?></td>
+            </tr>
+            <?php
+        }
+        if (isset($free_size)) {
+            echo "\n";
+            ?>
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="color: #bb0000">
             <td style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
             <td align="right" nowrap="nowrap"><?php echo $free_size; ?></td>
@@ -325,20 +326,20 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
             <td align="right" nowrap="nowrap"><?php echo $effect_size; ?></td>
             <td><?php echo $effect_unit; ?></td>
         </tr>
-        <?php
-    }
-    if (isset($tot_size) && $mergetable == FALSE) {
-        echo "\n";
-        ?>
+            <?php
+        }
+        if (isset($tot_size) && $mergetable == FALSE) {
+            echo "\n";
+            ?>
         <tr bgcolor="<?php echo $cfgBgcolorOne; ?>">
             <td style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
             <td align="right" nowrap="nowrap"><?php echo $tot_size; ?></td>
             <td><?php echo $tot_unit; ?></td>
         </tr>
-        <?php
-    }
-    echo "\n";
-    ?>
+            <?php
+        }
+        echo "\n";
+        ?>
         </table>
     </td>
 
@@ -352,82 +353,83 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
             <th><?php echo $strStatement; ?></th>
             <th align="center"><?php echo $strValue; ?></th>
         </tr>
-    <?php
-    $i = 0;
-    if (isset($showtable['Row_format'])) {
-        echo "\n";
-        ?>
+        <?php
+        $i = 0;
+        if (isset($showtable['Row_format'])) {
+            echo "\n";
+            ?>
         <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strFormat); ?></td>
             <td align="right" nowrap="nowrap">
-        <?php
-        echo '        ';
-        if ($showtable['Row_format'] == 'Fixed') {
-            echo $strFixed;
-        } else if ($showtable['Row_format'] == 'Dynamic') {
-            echo $strDynamic;
-        } else {
-            echo $showtable['Row_format'];
-        }
-        echo "\n";
-        ?>
+            <?php
+            echo '                ';
+            if ($showtable['Row_format'] == 'Fixed') {
+                echo $strFixed;
+            } else if ($showtable['Row_format'] == 'Dynamic') {
+                echo $strDynamic;
+            } else {
+                echo $showtable['Row_format'];
+            }
+            echo "\n";
+            ?>
             </td>
         </tr>
-        <?php
-    }
-    if (isset($showtable['Rows'])) {
-        echo "\n";
-        ?>
+            <?php
+        }
+        if (isset($showtable['Rows'])) {
+            echo "\n";
+            ?>
         <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strRows); ?></td>
             <td align="right" nowrap="nowrap">
                 <?php echo number_format($showtable['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
         </tr>
-        <?php
-    }
-    if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
-        echo "\n";
-        ?>
+            <?php
+        }
+        if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
+            echo "\n";
+            ?>
         <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
             <td align="right" nowrap="nowrap">
                 <?php echo number_format($showtable['Avg_row_length'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
         </tr>
-        <?php
-    }
-    if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
-        echo "\n";
-        ?>
+            <?php
+        }
+        if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
+            echo "\n";
+            ?>
         <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
             <td align="right" nowrap="nowrap">
                 <?php echo "$avg_size $avg_unit\n"; ?>
             </td>
         </tr>
-        <?php
-    }
-    if (isset($showtable['Auto_increment'])) {
-        echo "\n";
-        ?>
+            <?php
+        }
+        if (isset($showtable['Auto_increment'])) {
+            echo "\n";
+            ?>
         <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
             <td align="right" nowrap="nowrap">
                 <?php echo number_format($showtable['Auto_increment'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
         </tr>
-        <?php
-    }
-    echo "\n";
-    ?>
+            <?php
+        }
+        echo "\n";
+        ?>
         </table>
     </td>
 </tr>
 </table>
 
-    <?php
-} // end if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE)
+        <?php
+    } // end if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE)
+} // end if ($cfgShowStats)
 
 
 /**

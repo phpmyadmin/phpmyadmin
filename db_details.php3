@@ -139,7 +139,12 @@ else if (MYSQL_INT_VERSION >= 32300) {
     <th colspan="6"><?php echo ucfirst($strAction); ?></th>
     <th><?php echo ucfirst($strRecords); ?></th>
     <th><?php echo ucfirst($strType); ?></th>
-    <th><?php echo ucfirst($strSize); ?></th>
+    <?php
+    if ($cfgShowStats) {
+        echo '<th>' . ucfirst($strSize) . '</th>';
+    }
+    echo "\n";
+    ?>
 </tr>
     <?php
     $i = $sum_entries = $sum_size = 0;
@@ -201,7 +206,7 @@ else if (MYSQL_INT_VERSION >= 32300) {
 
         if (isset($sts_data['Rows'])) {
             if ($mergetable == FALSE) {
-                if ($nonisam == FALSE) {
+                if ($cfgShowStats && $nonisam == FALSE) {
                     $tblsize                        =  $sts_data['Data_length'] + $sts_data['Index_length'];
                     $sum_size                       += $tblsize;
                     if ($tblsize > 0) {
@@ -209,20 +214,18 @@ else if (MYSQL_INT_VERSION >= 32300) {
                     } else {
                         list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
                     }
-                } else {
+                } else if ($cfgShowStats) {
                     $formated_size                  = '&nbsp;-&nbsp;';
                     $unit                           = '';
                 }
-                if (isset($sts_data['Rows'])) {
-                    $sum_entries                    += $sts_data['Rows'];
-                }
+                $sum_entries                        += $sts_data['Rows'];
             }
             // MyISAM MERGE Table
-            else if ($mergetable == TRUE) {
+            else if ($cfgShowStats && $mergetable == TRUE) {
                 $formated_size = '&nbsp;-&nbsp;';
                 $unit          = '';
             }
-            else {
+            else if ($cfgShowStats) {
                 $formated_size = 'unknown';
                 $unit          = '';
             }
@@ -240,11 +243,17 @@ else if (MYSQL_INT_VERSION >= 32300) {
     <td nowrap="nowrap">
         &nbsp;<?php echo (isset($sts_data['Type']) ? $sts_data['Type'] : '&nbsp;'); ?>&nbsp;
     </td>
+            <?php
+            if ($cfgShowStats) {
+                echo "\n";
+                ?>
     <td align="right" nowrap="nowrap">
         &nbsp;&nbsp;
         <a href="tbl_properties.php3?<?php echo $url_query; ?>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
     </td>
-            <?php
+                <?php
+                echo "\n";
+            } // end if
         } else {
             ?>
     <td colspan="3" align="center">
@@ -258,7 +267,9 @@ else if (MYSQL_INT_VERSION >= 32300) {
         <?php
     }
     // Show Summary
-    list($sum_formated,$unit) = format_byte_down($sum_size,3,1);
+    if ($cfgShowStats) {
+        list($sum_formated, $unit) = format_byte_down($sum_size, 3, 1);
+    }
     echo "\n";
     ?>
 <tr>
@@ -275,13 +286,21 @@ else if (MYSQL_INT_VERSION >= 32300) {
     <th align="center">
         <b>--</b>
     </td>
+    <?php
+    if ($cfgShowStats) {
+        echo "\n";
+        ?>
     <th align="right" nowrap="nowrap">
         <b><?php echo $sum_formated . ' '. $unit; ?></b>
     </th>
+        <?php
+    }
+    echo "\n";
+    ?>
 </tr>
 
 <tr>
-    <td colspan="11">
+    <td colspan="<?php echo (($cfgShowStats) ? '11' : '10'); ?>">
         <img src="./images/arrow.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
