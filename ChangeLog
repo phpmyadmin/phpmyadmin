@@ -21,6 +21,7 @@ $Source$
       - BerkeleyDB version information.
     * tbl_properties_operations.php, libraries/storage_engines.lib.php:
       Auto-generated engine selection dropdown.
+    * header.inc.php, libraries/common.lib.php: Finger pointer for lightbulbs.
 
 2005-01-17 Michael Keck  <mkkeck@users.sourceforge.net>
     * libraries/common.lib.php: modified function for

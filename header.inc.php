@@ -61,6 +61,11 @@ if (empty($GLOBALS['is_header_sent'])) {
         && typeof(parent.document.title) == 'string') {
         parent.document.title = '<?php echo $title; ?>';
     }
+
+    document.write('<style type="text/css">');
+    document.write('img.lightbulb { cursor: pointer; }');
+    document.write('</style>');
+    
     <?php
     // Add some javascript instructions if required
     if (isset($js_to_run) && $js_to_run == 'functions.js') {
