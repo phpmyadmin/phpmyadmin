@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-23 Olivier L. Müller  <om@omnis.ch>
+    * docs.css: highlight FAQ questions in blue -> more readble.
+
 2003-02-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges: Better code for "check privileges"; This should fix
       bug #687808 and a few other problems.
