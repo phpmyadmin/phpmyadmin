@@ -454,17 +454,17 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         $cfg['DefaultTabTable'] = 'tbl_properties_structure.php3';
     }
 
-    if (!isset($cfg['ManualBase'])) {
+    if (!isset($cfg['MySQLManualBase'])) {
         if (isset($cfgManualBaseShort)) {
-            $cfg['ManualBase'] = $cfgManualBaseShort;
+            $cfg['MySQLManualBase'] = $cfgManualBaseShort;
             $cfg['MySQLManualType'] = 'old';
             unset($cfgManualBaseShort);
         } else if (isset($cfg['ManualBaseShort'])) {
-            $cfg['ManualBase'] = $cfg['ManualBaseShort'];
+            $cfg['MySQLManualBase'] = $cfg['ManualBaseShort'];
             $cfg['MySQLManualType'] = 'old';
             unset($cfg['ManualBaseShort']);
         } else {
-            $cfg['ManualBase'] = 'http://www.mysql.com/doc/en';
+            $cfg['MySQLManualBase'] = 'http://www.mysql.com/doc/en';
             $cfg['MySQLManualType'] = 'searchable';
         }
     }

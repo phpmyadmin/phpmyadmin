@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-03 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/config_import.lib.php3: Fixed MySQLManualType/MySQLManualBase
+      setting.
+
 2003-06-03 Garvin Hicking <me@supergarv.de>
     * lang/*, tbl_query_box.php3, Documentation.html, footer.inc.php3: 
       (Experimental)
