@@ -212,6 +212,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'BACKUP',
         'BEGIN',
         'BETWEEN',
+        'BINLOG',
         'BOTH',
         'BY',
         'CASCADE',
@@ -256,6 +257,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'END',
         'ESCAPE',
         'ESCAPED',
+        'EVENTS',
         'EXECUTE',
         'EXISTS',
         'EXPLAIN',
@@ -450,7 +452,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'YEAR_MONTH'
     );
     //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-    $PMA_SQPdata_reserved_word_cnt = 249;
+    $PMA_SQPdata_reserved_word_cnt = 256;
 
     $PMA_SQPdata_column_type = array (
         'BIGINT',

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-14 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/sqlparser.data.php3: SHOW BINLOG EVENTS.
+
 2003-07-14 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.5.2-rc2 released
 
