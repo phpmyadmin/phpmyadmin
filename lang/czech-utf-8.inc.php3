@@ -145,6 +145,7 @@ $strDocu = 'Dokumentace';
 $strDrop = 'Odstranit';
 $strDropDB = 'Odstranit databázi %s';
 $strDropTable = 'Smazat tabulku';
+$strDropUsersDb = 'Odstranit databáze se stejnými jmény jako uživatelé.';
 $strDumpXRows = 'Vypsat %s řádků od %s.';
 $strDumpingData = 'Dumpuji data pro tabulku';
 $strDynamic = 'dynamický';
@@ -280,6 +281,7 @@ $strNoQuery = 'Žádný SQL dotaz!';
 $strNoRights = 'Nemáte dostatečná práva na provedení této akce!';
 $strNoTablesFound = 'V&nbsp;databázi nebyla nalezena ani jedna tabulka.';
 $strNoUsersFound = 'Žádný uživatel nenalezen.';
+$strNoUsersSelected = 'Nebyl vybrán žádný uživatel.';
 $strNoValidateSQL = 'Bez kontroly SQL';
 $strNone = 'Žádná';
 $strNotNumber = 'Toto není číslo!';
@@ -539,6 +541,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
-$strNoUsersSelected = 'No users selected.'; //to translate
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>

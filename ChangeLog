@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-10 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech*: Updated.
+
 2003-01-09 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3, libraries/sqlparser.lib.php3: bug 664951, add
       support for the EXTRACT ... FROM syntax which is not a real
