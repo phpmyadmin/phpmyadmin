@@ -119,10 +119,19 @@ else {
                           : '';
     $full_sql_query       = $sql_query . $sql_order . $sql_limit_to_append;
 
-    // Executes the query and gets the number of rows returned
+    // Executes the query
     mysql_select_db($db);
     $result   = @mysql_query($full_sql_query);
-    $num_rows = @mysql_num_rows($result);
+
+    // Displays an error message if required and stop parsing the script
+    if (mysql_error()) {
+        $error = mysql_error();
+        include('./header.inc.php3');
+        mysql_die($error, $full_sql_query);
+    }
+
+    // Gets the number of rows returned
+    $num_rows = mysql_num_rows($result);
 
     // Counts the total number of rows for the same 'SELECT' query without the
     // 'LIMIT' clause that may have been programatically added
@@ -140,16 +149,9 @@ else {
                 $SelectNumRows = mysql_result($OPresult, 0, 'count');
             }
         } else {
-            $SelectNumRows     = 0; 
+            $SelectNumRows     = 0;
         }
     } // end rows total count
-
-    // Displays an error message if required
-    if (!$result) {
-        $error = mysql_error();
-        include('./header.inc.php3');
-        mysql_die($error);
-    } // end if
 
     // No rows returned -> move back to the calling page
     if ($num_rows < 1) {

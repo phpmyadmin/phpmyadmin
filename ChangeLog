@@ -8,6 +8,7 @@ $Source$
 2001-08-06  Marc Delisle  <lem9@users.sourceforge.net>
 	* lib.inc.php3, new code from Loic to avoid showing BLOB
 	  when displaying a TEXT field
+	* sql.php3, bug 448226 (Missing MySQL messages), correction from Loic.
 
 2001-08-06  Steve Alberty  <alberty@nepunlabs.de>
 	* index.php3: remove warning under Apache 2.0.23-dev
