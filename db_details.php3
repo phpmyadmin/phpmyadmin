@@ -24,7 +24,7 @@ if ($num_tables>0 && MYSQL_MAJOR_VERSION>=3.23 && intval(MYSQL_MINOR_VERSION)>=3
 		// Blending out tables in use
 		if ($result!=false && mysql_num_rows($result)>0){
 			while ($tmp=mysql_fetch_array($result)){
-				if (preg_match("/in_use=[1-9]+/",$tmp["Comment"])){ // in use?
+				if (preg_match("/in_use=[1-9]+/",$tmp['Comment'])){ // in use?
 					// memorize tablename
 					$sot_cache[$tmp[0]]=true;
 				}
