@@ -827,16 +827,16 @@ if (!isset($cfg['ReplaceHelpImg'])) {
     $cfg['ReplaceHelpImg'] = TRUE;
 }
 
-if (!isset($cfg['ThemePath'])){
-    $cfg['ThemePath']='';
-    $cfg['ThemeDefault']='';
-    $cfg['ThemeManager'] = FALSE;
+if (!isset($cfg['ThemePath'])) {
+    $cfg['ThemePath'] = 'themes';
+    $cfg['ThemeDefault'] = 'original';
+    $cfg['ThemeManager'] = TRUE;
 } else {
     if (!isset($cfg['ThemeDefault'])){
-        $cfg['ThemeDefault']='original';
+        $cfg['ThemeDefault'] = 'original';
     }
     if (!isset($cfg['ThemeManager'])){
-        $cfg['ThemeManager'] = FALSE;
+        $cfg['ThemeManager'] = TRUE;
     }
 }
 

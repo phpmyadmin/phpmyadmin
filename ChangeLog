@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-09 Alexander M. Turek  <me@derrabus.de>
+    * libraries/config_import.lib.php: The default settings should be merged.
+
 2004-06-14 Marc Delisle  <lem9@users.sourceforge.net>
     Changes, thanks to Michael Keck (mkkeck):
     * images/b_tblops.png, themes/darkblue_orange/img/b_tblops.png: new icon
