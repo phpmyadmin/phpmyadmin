@@ -11,8 +11,8 @@ CREDITS, in chronological order
 	* maintainer from 1998 to summer 2000
 
 [md] - Marc Delisle <DelislMa@CollegeSherbrooke.qc.ca>
-        * multi-language version
-        * various fixes
+	* multi-language version
+	* various fixes
 
 [om] - Olivier Müller <om@omnis.ch>
 	* started sourceforge phpMyAdmin project
@@ -43,6 +43,8 @@ CREDITS, in chronological order
 [sa] - Steve Alberty <alberty@neptunlabs.de>
 	* rewrote dump code for PHP4
 	* MySQL Table Statistics
+
+Benjamin Gandon <gandon@isia.cma.fr> is the main author of the version 2.1.0.1
 
 The following people have contributed minor changes, enhancements, bugfixes or
 or support for a new language since version 2.1.0:

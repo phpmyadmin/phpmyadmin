@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-17  Loïc Chapeaux  <lolo@phpheaven.net>
+	* added credits for Benjamin Gandon <gandon@isia.cma.fr> in this file,
+	  credits and documentation.
+
 2001-07-17  Marc Delisle  <lem9@users.sourceforge.net>
 	* user_details.php3, bugs 441987, 441990:
 	  corrections thanks to vinay and girish @sanisoft.com
@@ -631,7 +635,9 @@ $Source$
                            containing '\n' or '\t'-characters (e.g. in binary
                            fields or blobs)
 
- v 2.1.0.1 - 28-aug-2000 + Added French translation strings in french.inc.php3
+ v 2.1.0.1 - 28-aug-2000 - Merge with the version from
+                           Benjamin Gandon <gandon@isia.cma.fr>
+                         + Added French translation strings in french.inc.php3
                          + Bugfix: split_string() in lib.inc.php3
                          + Bugfix: split_sql() in db_readdump.php3
                          + Removed necessity of magic_quotes_gpc
