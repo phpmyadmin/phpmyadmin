@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * themes.php: use standard headers. A iso-8859-1 charset was hardcoded
+      in this script, but it's better to use libraries/header_http.inc.php
+
 2004-06-18 Marc Delisle  <lem9@users.sourceforge.net>
     * themes/original/img/item*.png, themes/original/css/theme_right.css.php,
       libraries/common.lib.php, libraries/display_export.lib.php,
