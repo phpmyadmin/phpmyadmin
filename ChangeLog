@@ -7,6 +7,7 @@ $Source$
 
 2003-07-10 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
+    * lang/italian: Updated, thanks to Pietro Danesi (danone).
 
 2003-07-09 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php3: Fixed broken login with backslash

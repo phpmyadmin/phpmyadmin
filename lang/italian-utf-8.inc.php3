@@ -29,6 +29,7 @@ $strAbsolutePathToDocSqlDir = 'Prego, immettere il path assoluto sul webserver a
 $strAccessDenied = 'Accesso negato';
 $strAccessDeniedExplanation = 'phpMyAdmin ha provato a connettersi al server MySQL, e il server ha rifiutato la connessione. Si dovrebbe controllare il nome dell\'host, l\'username e la password nel file config.inc.php ed assicurarsi che corrispondano alle informazioni fornite dall\'amministratore del server MySQL.';
 $strAction = 'Azione';
+$strAddAutoIncrement = 'Aggiungi valore AUTO_INCREMENT';
 $strAddDeleteColumn = 'Aggiungi/Cancella campo';
 $strAddDeleteRow = 'Aggiungi/Cancella criterio';
 $strAddDropDatabase = 'Aggiungi DROP DATABASE';
@@ -659,5 +660,4 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 ?>
