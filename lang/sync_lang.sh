@@ -67,6 +67,7 @@ japanese-euc
 korean-ks_c_5601-1987
 latvian-windows-1257
 lithuanian-windows-1257
+malay-iso-8859-1
 norwegian-iso-8859-1
 polish-iso-8859-2
 portuguese-iso-8859-1
