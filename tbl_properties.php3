@@ -278,12 +278,12 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         </tr>
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>">
             <td style="padding-right: 10px"><?php echo ucfirst($strData); ?></td>
-            <td align="right"><?php echo $data_size; ?></td>
+            <td align="right" nowrap="nowrap"><?php echo $data_size; ?></td>
             <td><?php echo $data_unit; ?></td>
         </tr>
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>">
         <td style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
-            <td align="right"><?php echo $index_size; ?></td>
+            <td align="right" nowrap="nowrap"><?php echo $index_size; ?></td>
             <td><?php echo $index_unit; ?></td>
         </tr>
     <?php
@@ -292,12 +292,12 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         ?>
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="color: #bb0000">
         <td style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
-            <td align="right"><?php echo $free_size; ?></td>
+            <td align="right" nowrap="nowrap"><?php echo $free_size; ?></td>
             <td><?php echo $free_unit; ?></td>
         </tr>
         <tr bgcolor="<?php echo $cfgBgcolorOne; ?>">
         <td style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
-            <td align="right"><?php echo $effect_size; ?></td>
+            <td align="right" nowrap="nowrap"><?php echo $effect_size; ?></td>
             <td><?php echo $effect_unit; ?></td>
         </tr>
         <?php
@@ -306,7 +306,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
     ?>
         <tr bgcolor="<?php echo $cfgBgcolorOne; ?>">
         <td style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
-            <td align="right"><?php echo $tot_size; ?></td>
+            <td align="right" nowrap="nowrap"><?php echo $tot_size; ?></td>
             <td><?php echo $tot_unit; ?></td>
         </tr>
     <?php
@@ -345,7 +345,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         echo "\n";
         ?>
             <td><?php echo ucfirst($strFormat); ?></td>
-            <td align="right">
+            <td align="right" nowrap="nowrap">
         <?php
         echo '        ';
         if ($showtable['Row_format'] == 'Fixed') {
@@ -369,7 +369,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         echo "\n";
         ?>
             <td><?php echo ucfirst($strRows); ?></td>
-            <td align="right">
+            <td align="right" nowrap="nowrap">
                 <?php echo $showtable['Rows'] . "\n"; ?>
             </td>
         </tr>
@@ -382,7 +382,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         echo "\n";
         ?>
             <td><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
-            <td align="right">
+            <td align="right" nowrap="nowrap">
                 <?php echo $showtable['Avg_row_length'] . "\n"; ?>
             </td>
         </tr>
@@ -408,7 +408,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         echo "\n";
         ?>
             <td><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
-            <td align="right">
+            <td align="right" nowrap="nowrap">
                 <?php echo $showtable['Auto_increment'] . "\n"; ?>
             </td>
         </tr>

@@ -130,7 +130,7 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
     <td align="right">
         <?php echo number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
     </td>
-    <td align="right">
+    <td align="right" nowrap="nowrap">
         &nbsp;&nbsp;
         <a href="tbl_properties.php3<?php echo $query; ?>>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
     </td>
