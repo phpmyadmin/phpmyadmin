@@ -748,7 +748,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                             if (strlen($row[$primary->name]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
                                 $row[$primary->name] = substr($row[$primary->name], 0, $GLOBALS['cfgLimitChars']) . '...';
                             }
-                            // loic1 : displays <cr>/<lf>
+                            // loic1: displays <cr>/<lf>
                             $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$primary->name]));
                             echo '    <td>' . $row[$primary->name] . '</td>' . "\n";
                         } else {
@@ -765,8 +765,19 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                                 $row[$primary->name] = substr($row[$primary->name], 0, $GLOBALS['cfgLimitChars']) . '...';
                             }
                         }
-                        // loic1 : displays <cr>/<lf>
-                        $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$primary->name]));
+                        // loic1: displays special characters from binaries
+                        $field_flags = mysql_field_flags($dt_result, $i);
+                        if (eregi('BINARY', $field_flags)) {
+                            $row[$primary->name] = str_replace("\x00", '\0', $row[$primary->name]);
+                            $row[$primary->name] = str_replace("\x08", '\b', $row[$primary->name]);
+                            $row[$primary->name] = str_replace("\x0a", '\n', $row[$primary->name]);
+                            $row[$primary->name] = str_replace("\x0d", '\r', $row[$primary->name]);
+                            $row[$primary->name] = str_replace("\x1a", '\Z', $row[$primary->name]);
+                        }
+                        // loic1: displays <cr>/<lf>
+                        else {
+                            $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$primary->name]));
+                        }
                         echo '    <td>' . $row[$primary->name] . '</td>' . "\n";
                     } else {
                         echo '    <td>&nbsp;</td>' . "\n";
