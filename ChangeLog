@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-06 Mike Beck <mikebeck@users.sourceforge.net>
+    * pdf_pages.php3,pdf_schema.php3,db_details_structure.php3:
+      Choose between Landscape and Portrait for the
+      Datadictionary in PDF Pages
+    * pdf_schema.php3: lineheight for Textrows in Datadictionary
+      was equal to textheight, i added one mm above and below text
+      (hope your tables are not too big not to fit on a page now ;)
+
 2002-12-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german.inc.php3: Updates.
 
