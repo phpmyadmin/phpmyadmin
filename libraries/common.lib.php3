@@ -19,6 +19,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * before they are referenced
      *
      * some functions need the constants of libraries/defines.lib.php3
+     * and defines_php.lib.php3
      *
      * the PMA_setFontSizes() function must be before the call to the
      * libraries/auth/cookie.auth.lib.php3 library
@@ -123,7 +124,19 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     include('./libraries/mysql_wrappers.lib.php3');
 
     /**
-     * Gets constants that defines the PHP, MySQL... releases.
+     * Gets constants that defines the PHP version number.
+     * This include must be located physically before any code that needs to
+     * reference the constants, else PHP 3.0.16 won't be happy.
+     */
+    include('./libraries/defines_php.lib.php3');
+
+    /**
+     * Charset conversion.
+     */
+    include('./libraries/charset_conversion.lib.php3');
+
+    /**
+     * Gets constants that defines the MySQL version number.
      * This include must be located physically before any code that needs to
      * reference the constants, else PHP 3.0.16 won't be happy; and must be
      * located after we are connected to db to get the MySql version (see
@@ -131,10 +144,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      */
     include('./libraries/defines.lib.php3');
 
-    /**
-     * Include charset conversion.
-     */
-    include('./libraries/charset_conversion.lib.php3');
 
     // For compatibility with old config.inc.php3
     if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 116) {
