@@ -435,7 +435,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Starting with version 2.5.2, the 'cookie' auth_type uses blowfish
         algorithm to encrypt the password.
         <br />
-        If you are using the 'cookie' auth_type, enter here a random 
+        If you are using the 'cookie' auth_type, enter here a random
         passphrase of your choice. It will be used internally by the blowfish
         algorithm: you won't be prompted for this passphrase. The maximum
         number of characters for this parameter seems to be 46.
@@ -2703,12 +2703,12 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in ISAPI
-    mode under IIS 5.1. 
+    mode under IIS 5.1.
     <ol>
         <li>In your <tt>php.ini</tt> file, set <tt>cgi.rfc2616_headers = 0</tt></li>
- 
+
         <li>In <tt>Web Site Properties -> File/Directory Security -> Anonymous Access</tt> dialog box, check the <tt>Anonymous access</tt> checkbox and uncheck any other checkboxes (i.e. uncheck <tt>Basic authentication</tt>, <tt>Integrated Windows authentication</tt>, and <tt>Digest</tt> if it's enabled.) Click <tt>OK</tt>. </li>
- 
+
         <li>In <tt>Custom Errors</tt>, select the range of <tt>401;1</tt> through <tt>401;5</tt> and click the <tt>Set to Default</tt> button. </li>
     </ol>
 </p>
@@ -2878,12 +2878,12 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     Here are a few points to check:
     <ul>
         <li>
-        In <tt>config.inc.php</tt>, try to leave the 
-        <tt>$cfg['PmaAbsoluteUri']</tt>directive empty. See also FAQ 4.7. 
+        In <tt>config.inc.php</tt>, try to leave the
+        <tt>$cfg['PmaAbsoluteUri']</tt>directive empty. See also FAQ 4.7.
         </li>
         <li>
         Maybe you have a broken PHP installation or you need to upgrade
-        your Zend Optimizer. See 
+        your Zend Optimizer. See
         <a href="http://bugs.php.net/bug.php?id=31134">
         http://bugs.php.net/bug.php?id=31134</a>.
         </li>
@@ -3311,14 +3311,14 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </p>
 <h4>
     [5.16] With Internet Explorer, I get &quot;Access is denied&quot;
-    Javascript errors. Or I cannot make phpMyAdmin work under Windows. 
+    Javascript errors. Or I cannot make phpMyAdmin work under Windows.
 </h4>
 <p>
     Please check the following points:
     <ul>
         <li>
-            Maybe you have defined your <tt>PmaAbsoluteUri</tt> setting 
-            in <tt>config.inc.php</tt> to an IP address and you are starting 
+            Maybe you have defined your <tt>PmaAbsoluteUri</tt> setting
+            in <tt>config.inc.php</tt> to an IP address and you are starting
             phpMyAdmin with a URL containing a domain name, or the reverse situation.
         </li>
         <li>
@@ -3330,7 +3330,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
             allow http ports (80 or 443) and MySQL port (usually 3306)
             in the &quot;in&quot; and &quot;out&quot; directions.
         </li>
-    </ul> 
+    </ul>
 </p>
 
 <a name="faqusing"></a><br />
@@ -3763,18 +3763,20 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </p>
 <h4>
     <a name="faq6_23"></a>
-    [6.23] Export: I heard phpMyAdmin can export MS Excel files, how can I
-    enable that?
+    [6.23] Export: I heard phpMyAdmin can export Microsoft Excel files, how
+    can I enable that?
 </h4>
 <p>
-    You can either export as CSV suitable for MS Excel, which works out of the
-    box or you can try native <b>experimental</b> MS Excel exporter. <b>This
-    export has several problems, most important are limitation of cell content
-    to 255 chars and no support for charsets, so think carefully whether you
-    want to enable this.</b>.  For enabling this you need to set
-    $cfg['TempDir'] to place where web server user can write (for example
-    <tt>'./tmp'</tt>) and install PEAR module Spreadsheet_Excel_Writer into
-    php include path. The installation can be done by following command:
+    Current version does support direct export ot Microsoft Excel and Word
+    versions 2000 and newer. If you need export older versions, you can use
+    CSV suitable for Microsoft Excel, which works out of the box or you can
+    try native <b>experimental</b> MS Excel exporter. <b>This export has
+    several problems, most important are limitation of cell content to 255
+    chars and no support for charsets, so think carefully whether you want to
+    enable this.</b>.  For enabling this you need to set $cfg['TempDir'] to
+    place where web server user can write (for example <tt>'./tmp'</tt>) and
+    install PEAR module Spreadsheet_Excel_Writer into php include path. The
+    installation can be done by following command:
 </p>
 <pre>
     pear -d preferred_state=beta install -a Spreadsheet_Excel_Writer
@@ -3974,7 +3976,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     [8.3] About new security alerts
 </h4>
 <p>
-    Please refer to 
+    Please refer to
     <a href="http://www.phpmyadmin.net">http://www.phpmyadmin.net</a>
     for the complete list of security alerts.
 </p>

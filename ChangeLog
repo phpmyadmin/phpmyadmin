@@ -13,6 +13,7 @@ $Source$
     * lang/czech: Updated, still missing "storage engine" translation, can't
       find any ;-).
     * lang/english: Nothing to translate here.
+    * Documentation.html: Document new Excel export.
 
 2005-03-06 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php, /display_export.lib.php,
