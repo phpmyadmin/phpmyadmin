@@ -412,7 +412,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
         </tr>
     </form>
 </table>
-<img src="./images/spacer.gif" width="25" height="1" border="0" align="left" />
+<img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="25" height="1" border="0" align="left" />
 
 <!----->
 <table border="0" cellpadding="3" cellspacing="0">
