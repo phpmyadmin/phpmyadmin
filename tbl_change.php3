@@ -138,7 +138,7 @@ else
 // <markus@noga.de>
 // retrieve keys into foreign fields, if any
 $cfgRelation = PMA_getRelationsParam();
-$foreigners  = PMA_getForeigners($db,$table);
+$foreigners  = PMA_getForeigners($db, $table);
 
 /**
  * Displays the form
@@ -370,38 +370,37 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // selection box for foreign keys
 
     // lem9: array_key_exists() only in PHP >= 4.1.0
-    // if(array_key_exists($field,$foreigners)) {
+    // if (array_key_exists($field, $foreigners)) {
 
     if (isset($foreigners[$field])) {
-        $foreigner      =$foreigners[$field];
-        $foreign_db     =$foreigner['foreign_db'];
-        $foreign_table  =$foreigner['foreign_table'];
-        $foreign_field  =$foreigner['foreign_field'];
-        $foreign_display=PMA_getDisplayField($foreign_db,$foreign_table);
+        $foreigner       = $foreigners[$field];
+        $foreign_db      = $foreigner['foreign_db'];
+        $foreign_table   = $foreigner['foreign_table'];
+        $foreign_field   = $foreigner['foreign_field'];
+        $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
 
-     // FIXME: not using foreign_db
-        $dispsql= "SELECT $foreign_field,$foreign_display FROM $foreign_table";
+        $dispsql = 'SELECT ' . PMA_backquote($foreign_field) . ', ' . PMA_backquote($foreign_display)
+                 . ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table);
+        // lem9: put a LIMIT in case of big foreign table (looking for better
+        //       solution, maybe a configurable limit, or a message?)
+        $dispsql .= ' LIMIT 100';
+        $disp    = PMA_mysql_query($dispsql);
 
-     // lem9: put a LIMIT in case of big foreign table (looking for better
-     //       solution, maybe a configurable limit, or a message?)
-        $dispsql .= " LIMIT 100";
-        $disp   = PMA_mysql_query($dispsql);
-        echo '<td bgcolor="$bgcolor">' . "\n";
-        echo '    <select name="fields[' . urlencode($field) .  ']">' . "\n";
+        echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
+        echo '            <select name="fields[' . urlencode($field) .  ']">' . "\n";
         while ($relrow = @PMA_mysql_fetch_array($disp)) {
-            $key  =$relrow[$foreign_field];
-            $value=$relrow[$foreign_display];
-            echo '        <option value="' . $key. '"';
+            $key   = $relrow[$foreign_field];
+            $value = $relrow[$foreign_display];
+            echo '            <option value="' . urlencode($key) . '"';
             if ($key == $data) {
-               echo ' selected="selected" ';
+               echo ' selected="selected"';
             } // end if
-            echo '>' . $key . '-' .  $value. '</option>' . "\n";
+            echo '>' . htmlspecialchars($key) . '-' .  htmlspecialchars($value) . '</option>' . "\n";
         } // end while
-        echo '    </select>' . "\n";
-        echo '</td>' . "\n";
-    } else
-
-    if (strstr($row_table_def['True_Type'], 'text')) {
+        echo '            </select>' . "\n";
+        echo '        </td>' . "\n";
+    }
+    else if (strstr($row_table_def['True_Type'], 'text')) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>

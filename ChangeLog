@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-04 Loïc Chapeaux  <lolo@phpheaven.net>
+    * tbl_change.php3: protect with backquotes
+
 2002-09-03 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3: drop-down for foreign keys, patch 603939,
       thanks to markus at noga.de
