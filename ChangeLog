@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-08  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_replace.php3: remove warning in a new row if a 'set' field
+	  is not selected
+
 2001-08-07  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* user_details.php3, line 664: fixed '<?echo' to '<?php echo' for XML compatiblity
 

@@ -131,11 +131,15 @@ else {
                 } else {
                     $f = "field_$key";
                 }
-                if (get_magic_quotes_gpc()) {
-                    $val = "'" . (($$f) ? implode(',', $$f) : '') . "'";
-                } else {
-                    $val = "'" . addslashes(($$f) ? implode(',', $$f) : '') . "'";
+                if (isset($$f)) {
+                    if (get_magic_quotes_gpc()) {
+                        $val = "'" . (($$f) ? implode(',', $$f) : '') . "'";
+                    } else {
+                        $val = "'" . addslashes(($$f) ? implode(',', $$f) : '') . "'";
+                    }
                 }
+                else
+                    $val = "''";
                 break;
             default:
                 if (get_magic_quotes_gpc()) {
