@@ -264,7 +264,7 @@ if ($fields_cnt > 20) {
 <!-- Browse links -->
     <?php
     echo "\n";
-    //$sub_part = '_structure';
+    $sub_part = '_structure';
     include('./tbl_properties_links.php3');
 } // end if ($fields_cnt > 20)
 echo "\n\n";

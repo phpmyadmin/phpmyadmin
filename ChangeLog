@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-31 Robin Johnson  <robbat2@users.sourceforge.net>
+    * tbl_properties_structure.php3 +40: Fix for a warning notice 
+    * libraries/sqlparser.lib.php3: Fix for another minor formatting quirk
+
 2002-07-31 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/thai: update, thanks to Arthit Suriyawongkul
 

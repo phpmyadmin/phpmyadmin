@@ -180,10 +180,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
                     // Checks for MySQL escaping using a \
                     // And checks for ANSI escaping using the $quotetype character
-                    if (PMA_STR_charIsEscaped($sql, $pos)) {
+                    if ( ($pos < $len) && PMA_STR_charIsEscaped($sql, $pos)) {
                         $pos ++;
                         continue;
-                    } else if (($sql[$pos] == $quotetype) && ($sql[$pos + 1] == $quotetype)) {
+                    } else if ( ($pos+1 < $len) && ($sql[$pos] == $quotetype) && ($sql[$pos + 1] == $quotetype)) {
                         $pos = $pos + 2;
                         continue;
                     } else {
@@ -553,6 +553,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
         $keywords_with_brackets_1before            = array(
             'INDEX',
+            'KEY',
             'ON',
             'USING'
         );
