@@ -240,7 +240,8 @@ if ($sql_query != '') {
         // Only one query to run
         if ($pieces_count == 1 && !empty($pieces[0]['query'])) {
             $sql_query = $pieces[0]['query'];
-            if (preg_match('@^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $sql_query)) {
+            // .*? bellow is non greedy expansion, just in case somebody wants to understand it...
+            if (preg_match('@^((-- |#)^[\n]*|/\*.*?\*/)*(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $sql_query)) {
                 $reload = 1;
             }
             require('./sql.php');
@@ -259,7 +260,8 @@ if ($sql_query != '') {
             for ($i = 0; $i < $count; $i++) {
                 $a_sql_query = $pieces[$i]['query'];
 
-                if ($i == $count - 1 && preg_match('@^(SELECT|SHOW)@i', $a_sql_query)) {
+                // .*? bellow is non greedy expansion, just in case somebody wants to understand it...
+                if ($i == $count - 1 && preg_match('@^((-- |#)^[\n]*|/\*.*?\*/)*(SELECT|SHOW)@i', $a_sql_query)) {
                     $complete_query = $sql_query;
                     $display_query = $sql_query;
                     $sql_query = $a_sql_query;
@@ -304,11 +306,13 @@ if ($sql_query != '') {
                 }
 
                 // If a 'USE <db>' SQL-clause was found and the query succeeded, set our current $db to the new one
-                if ($result != FALSE && preg_match('@^USE[[:space:]]*([^[:space]+)@i', $a_sql_query, $match)) {
+                // .*? bellow is non greedy expansion, just in case somebody wants to understand it...
+                if ($result != FALSE && preg_match('@^((-- |#)^[\n]*|/\*.*?\*/)*USE[[:space:]]*([^[:space]+)@i', $a_sql_query, $match)) {
                     $db = trim($match[0]);
                 }
 
-                if (!isset($reload) && preg_match('@^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $a_sql_query)) {
+                // .*? bellow is non greedy expansion, just in case somebody wants to understand it...
+                if (!isset($reload) && preg_match('@^((-- |#)^[\n]*|/\*.*?\*/)*(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $a_sql_query)) {
                     $reload = 1;
                 }
             } // end for

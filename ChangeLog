@@ -15,6 +15,9 @@ $Source$
     * libraries/display_export.lib.php: Add back key checking disabling.
     * libraries/export/sql.php: Brand new CREATE query rewriter from LinuxTag,
       fixes bug #979635.
+    * read_dump.php: Lets handle better comments, current detection still
+      doesn't work with comments inside checked SQL commands, but I thing
+      checking these would be overhead (bug #978114).
 
 2004-06-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * queryframe.php: Undefined index errors.
