@@ -510,6 +510,9 @@ else {
             // libraries/display_tbl.lib.php3
             $disp_mode = 'urdr111101';
         }
+        if (!isset($dontlimitchars)) {
+            $dontlimitchars = 0;
+        }
         PMA_displayTable($result, $disp_mode);
         mysql_free_result($result);
 
@@ -529,6 +532,7 @@ else {
                            . '&amp;session_max_rows=' . $session_max_rows
                            . '&amp;disp_direction=' . $disp_direction
                            . '&amp;repeat_cells=' . $repeat_cells
+                           . '&amp;dontlimitchars=' . $dontlimitchars
                            . '&amp;sql_query=' . urlencode($sql_query);
                 $url_query = '?lang=' . $lang
                            . '&amp;convcharset=' . $convcharset
@@ -539,6 +543,7 @@ else {
                            . '&amp;session_max_rows=' . $session_max_rows
                            . '&amp;disp_direction=' . $disp_direction
                            . '&amp;repeat_cells=' . $repeat_cells
+                           . '&amp;dontlimitchars=' . $dontlimitchars
                            . '&amp;sql_query=' . urlencode($sql_query)
                            . '&amp;goto=' . urlencode($lnk_goto);
 
@@ -587,6 +592,7 @@ else {
                   . '&amp;session_max_rows=' . $session_max_rows
                   . '&amp;disp_direction=' . $disp_direction
                   . '&amp;repeat_cells=' . $repeat_cells
+                  . '&amp;dontlimitchars=' . $dontlimitchars
                   . '&amp;sql_query=' . urlencode($sql_query)
                   . '&amp;id_bookmark=1';
             ?>

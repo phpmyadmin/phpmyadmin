@@ -166,6 +166,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
     <input type="hidden" name="session_max_rows" value="<?php echo isset($session_max_rows) ? $session_max_rows : ''; ?>" />
     <input type="hidden" name="disp_direction" value="<?php echo isset($disp_direction) ? $disp_direction : ''; ?>" />
     <input type="hidden" name="repeat_cells" value="<?php echo isset($repeat_cells) ? $repeat_cells : ''; ?>" />
+    <input type="hidden" name="dontlimitchars" value="<?php echo (isset($dontlimitchars) ? $dontlimitchars : 0); ?>" />
     <input type="hidden" name="err_url" value="<?php echo urlencode($err_url); ?>" />
     <input type="hidden" name="sql_query" value="<?php echo isset($sql_query) ? urlencode($sql_query) : ''; ?>" />
 <?php
@@ -219,10 +220,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     $field           = $row_table_def['Field'];
     // loic1: current date should not be set as default if the field is NULL
     //        for the current row
-    // lem9:  but do not put here the current datetime if there is a default 
-    //        value (the real default value will be set in the 
+    // lem9:  but do not put here the current datetime if there is a default
+    //        value (the real default value will be set in the
     //        Default value logic below)
-
     if (($row_table_def['Type'] == 'datetime')
         && (!isset($row_table_def['Default']))) {
         // INSERT case

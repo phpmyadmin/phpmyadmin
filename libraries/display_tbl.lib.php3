@@ -474,7 +474,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                   . '&amp;disp_direction=' . $disp_direction
                   . '&amp;repeat_cells=' . $repeat_cells
                   . '&amp;goto=' . $goto
-                  . '&amp;dontlimitchars=' . (empty($dontlimitchars) ? 0 : 1);
+                  . '&amp;dontlimitchars=' . (($dontlimitchars) ? 0 : 1);
 
         //     ... before the result table
         if (($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
@@ -618,7 +618,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                            . '&amp;session_max_rows=' . $session_max_rows
                            . '&amp;disp_direction=' . $disp_direction
                            . '&amp;repeat_cells=' . $repeat_cells
-                           . '&amp;dontlimitchars=' . (empty($dontlimitchars) ? 0 : 1)
+                           . '&amp;dontlimitchars=' . $dontlimitchars
                            . '&amp;sql_query=' . urlencode($sorted_sql_query);
 
                 // 2.1.5 Displays the sorting url
@@ -924,7 +924,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             . '&amp;session_max_rows=' . $session_max_rows
                             . '&amp;disp_direction=' . $disp_direction
                             . '&amp;repeat_cells=' . $repeat_cells
-                            . '&amp;dontlimitchars=' . (empty($dontlimitchars) ? 0 : 1);
+                            . '&amp;dontlimitchars=' . $dontlimitchars;
 
                 // 1.2.1 Modify link(s)
                 if ($is_display['edit_lnk'] == 'ur') { // update row case

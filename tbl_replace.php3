@@ -16,6 +16,9 @@ require('./libraries/common.lib.php3');
 if (isset($sql_query)) {
     $sql_query = urldecode($sql_query);
 }
+if (!isset($dontlimitchars)) {
+    $dontlimitchars = 0;
+}
 $is_gotofile = FALSE;
 if (isset($after_insert) && $after_insert == 'new_insert') {
     $goto = 'tbl_change.php3'
@@ -29,6 +32,7 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&session_max_rows=' . $session_max_rows
           . '&disp_direction=' . $disp_direction
           . '&repeat_cells=' . $repeat_cells
+          . '&dontlimitchars=' . $dontlimitchars
           . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
 } else if ($goto == 'sql.php3') {
     $goto = 'sql.php3?'
@@ -41,6 +45,7 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&session_max_rows=' . $session_max_rows
           . '&disp_direction=' . $disp_direction
           . '&repeat_cells=' . $repeat_cells
+          . '&dontlimitchars=' . $dontlimitchars
           . '&sql_query=' . urlencode($sql_query);
 } else if (!empty($goto)) {
     // Security checkings
