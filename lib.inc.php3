@@ -1052,7 +1052,8 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 } else {
                     $unsorted_sql_query     = $sql_query;
                 }
-                // 3.2.2 Checks if the current column is used to sort the result
+                // 3.2.2 Checks if the current column is used to sort the
+                //       results
                 if (empty($sql_order)) {
                     $is_in_sort = FALSE;
                 } else {
@@ -1138,7 +1139,6 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         while ($row = mysql_fetch_row($dt_result)) {
 
             // 4.1 Prepares the row (gets primary keys to use)
-
             $primary_key              = '';
             $uva_nonprimary_condition = '';
             $bgcolor                  = ($foo % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
@@ -1176,6 +1176,8 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             }
             $uva_condition     = urlencode(ereg_replace(' ?AND$', '', $uva_condition));
 
+            // 4.2 Defines the urls for the modify/delete link(s) and displays
+            //     them at the left column if required
             $url_query  = 'lang=' . $lang
                         . '&server=' . $server
                         . '&db=' . urlencode($db)

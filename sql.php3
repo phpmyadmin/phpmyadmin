@@ -112,7 +112,7 @@ if ($do_confirm) {
     echo $strDoYouReally . '&nbsp;:<br />' . "\n";
     echo '<tt>' . htmlspecialchars($stripped_sql_query) . '</tt>&nbsp;?<br/>' . "\n";
     ?>
-<form action="sql.php3" method="post" enctype="application/x-www-form-urlencoded">
+<form action="sql.php3" method="post">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
