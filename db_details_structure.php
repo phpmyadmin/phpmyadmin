@@ -220,32 +220,7 @@ if ($num_tables == 0) {
 }
 // 2. Shows table informations - staybyte - 11 June 2001
 else {
-    // Get additional information about tables for tooltip
-    if ($cfg['ShowTooltip']) {
-        $tooltip_truename = array();
-        $tooltip_aliasname = array();
-
-        $result  = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ';');
-        while ($tmp = PMA_DBI_fetch_assoc($result)) {
-            $tooltip_truename[$tmp['Name']] = ($cfg['ShowTooltipAliasTB'] ? (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']) : $tmp['Name']);
-            $tooltip_aliasname[$tmp['Name']] = ($cfg['ShowTooltipAliasTB'] ? $tmp['Name'] : (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : ''));
-            if (isset($tmp['Create_time']) && !empty($tmp['Create_time'])) {
-                $tooltip_aliasname[$tmp['Name']] .= ', ' . $strStatCreateTime . ': ' . PMA_localisedDate(strtotime($tmp['Create_time']));
-            }
-
-            if (isset($tmp['Update_time']) && !empty($tmp['Update_time'])) {
-                $tooltip_aliasname[$tmp['Name']] .= ', ' . $strStatUpdateTime . ': ' . PMA_localisedDate(strtotime($tmp['Update_time']));
-            }
-
-            if (isset($tmp['Check_time']) && !empty($tmp['Check_time'])) {
-                $tooltip_aliasname[$tmp['Name']] .= ', ' . $strStatCheckTime . ': ' . PMA_localisedDate(strtotime($tmp['Check_time']));
-            }
-
-        } // end while
-        PMA_DBI_free_result($result);
-        unset($result);
-    } // end if
-
+    // Get additional information about tables for tooltip is done in db_details_db_info.php only once
     if ($cfgRelation['commwork']) {
         $comment = PMA_getComments($db);
 
@@ -305,7 +280,7 @@ else {
 
         $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$table]))
                    ? htmlspecialchars($tooltip_aliasname[$table])
-                   : htmlspecialchars($sts_data['Name']);
+                   :  htmlspecialchars($sts_data['Name']);
         $truename = (!empty($tooltip_truename) && isset($tooltip_truename[$table]))
                    ? htmlspecialchars($tooltip_truename[$table])
                    : htmlspecialchars($sts_data['Name']);
@@ -344,7 +319,7 @@ else {
                     <input type="checkbox" name="selected_tbl[]" value="<?php echo $table_encoded; ?>" id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> />
                 </td>
                 <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap" <?php echo $click_mouse; ?>>
-                    &nbsp;<b><label for="checkbox_tbl_<?php echo $i; ?>" title="<?php echo $alias; ?>"><?php echo $truename; ?></label>&nbsp;</b>&nbsp;
+                    &nbsp;<b><label onclick="(document.getElementById('checkbox_tbl_<?php echo $i; ?>') ? return false : return true)" for="checkbox_tbl_<?php echo $i; ?>" title="<?php echo $alias; ?>"><?php echo $truename; ?></label>&nbsp;</b>&nbsp;
                 </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php

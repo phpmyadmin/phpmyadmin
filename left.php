@@ -78,6 +78,7 @@ function PMA_indent($spaces) {
 function PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_level, $val, $childout = true) {
     $name = $key;
     $id = preg_replace('@[^a-z0-9]*@i', '', $baseid . $keyhistory . $key) . $indent;
+    $groupkey = $keyhistory . ($key != $keyhistory ? $GLOBALS['cfg']['LeftFrameTableSeparator'] . $key : '');
 
     $on_mouse = (($GLOBALS['cfg']['LeftPointerColor'] == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $id . '\', \'' . $GLOBALS['cfg']['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $id . '\', \'' . $GLOBALS['cfg']['LeftBgColor'] . '\')}"');
 
@@ -94,9 +95,9 @@ function PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_
 
     echo "\n";
     echo PMA_indent($indent * 5) . '<div id="el' . $id . 'Parent" class="parent"' . $on_mouse . '>' . "\n";
-    echo PMA_indent($indent * 6) . '<div class="nowrap"><img src="images/spacer.gif" border="0" width="' . (($indent - 1) * $indent_level) . '" height="9" alt="" /><a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '" onclick="if (capable) {expandBase(\'el' . $id . '\', true); return false} else {return true}">';
+    echo PMA_indent($indent * 6) . '<div class="nowrap"><img src="images/spacer.gif" border="0" width="' . (($indent - 1) * $indent_level) . '" height="9" alt="" /><a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '&amp;tbl_group=' . htmlspecialchars($groupkey) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', true); return false} else {return true}">';
     echo '<img name="imEx" id="el' . $id . 'Img" src="images/plus.png" border="0" width="9" height="9" alt="+" /></a>' . "\n";
-    echo PMA_indent($indent * 6) . '<a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '" title="' . htmlspecialchars($name) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', false)}"><span class="heada">' . htmlspecialchars($name) . '<bdo dir="' . $GLOBALS['text_dir'] . '">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(' . $counter . ')</span></a></div>' . "\n";
+    echo PMA_indent($indent * 6) . '<a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '&amp;tbl_group=' . htmlspecialchars($groupkey) . '" title="' . htmlspecialchars($name) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', false)}"><span class="heada">' . htmlspecialchars($name) . '<bdo dir="' . $GLOBALS['text_dir'] . '">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(' . $counter . ')</span></a></div>' . "\n";
     echo PMA_indent($indent * 5) . '</div><!-- class="PMA_nestedSetHeaderParent" -->' . "\n";
     echo "\n";
 
@@ -118,9 +119,9 @@ function PMA_nestedSetHeader($baseid, $tablestack, $keyhistory, $indent, $indent
             }
 
             if (isset($val['pma_name']) && isset($val['pma_list_item']) && count($val) == 2) {
-                PMA_nestedSet($baseid, $val, $key, $keyhistory . $key, false, ($indent + 1));
+                PMA_nestedSet($baseid, $val, $key, $keyhistory . ($keyhistory != '' ? $GLOBALS['cfg']['LeftFrameTableSeparator'] : '') . $key, false, ($indent + 1));
             } else {
-                PMA_nestedSet($baseid, $val, $key, $keyhistory . $key, true, ($indent + 1));
+                PMA_nestedSet($baseid, $val, $key, $keyhistory . ($keyhistory != '' ? $GLOBALS['cfg']['LeftFrameTableSeparator'] : '') . $key, true, ($indent + 1));
             }
 
             if ($headerOut) {
