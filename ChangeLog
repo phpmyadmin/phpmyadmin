@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-30  Marc Delisle  <lem9@users.sourceforge.net>
+	* merge Loic's version to cvs
+	* spanish.inc.php3 updates, thanks to 
+	  gginard@navegalia.com
+
 2001-07-28  Marc Delisle  <lem9@users.sourceforge.net>
 	* lib.inc.php3: establish constraints for the code, to get
 	  PHP3 compatibility
@@ -40,7 +45,7 @@ req.: #443959)
 2001-07-23  Marc Delisle  <lem9@users.sourceforge.net>
         * updates to italian thanks to Alessandro Astarita <aleast@libero.it>
         * updates to catala  thanks to Jordi Bruguera <jordi@t800.grn.es>
-        * updates to spanish thanks to Gabriel Ginard <gginard@naveglia.com>
+        * updates to spanish thanks to Gabriel Ginard <gginard@navegalia.com>
         * updates to czech-iso and czech-win1250,thanks to Michal Cihar (nijel)
         * config.inc.php3, Documentation.html, footer.inc.php3,
           header.inc.php3
