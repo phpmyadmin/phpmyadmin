@@ -7,6 +7,8 @@ $Source$
 
 2003-01-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/estonian*, malay*: remove control M
+    * lang/romanian: update, thanks to Valics Lehel
+    * lang/galician: update, thanks to Xosé Calvo
 
 2003-01-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german*: Updated.
