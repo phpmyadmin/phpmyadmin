@@ -64,7 +64,9 @@ $strBrowse = 'Shfaq';
 $strBzip = '"kompresuar me bzip2"';
 
 $strCantLoadMySQL = 'nuk arrij të ngarkoj ekstensionin MySQL,<br />kontrollo konfigurimin e PHP.';
+$strCantLoadRecodeIconv = 'I pamundur ngarkimi i ekstensionit iconv apo recode të nevoitshëm për konvertimin e karaktereve, konfiguroni php për të lejuar përdorimin e këtyre ekstensioneve ose disaktivoni konvertimin e set të karaktereve në phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'I pamundur riemërtimi i treguesit në PRIMAR!';
+$strCantUseRecodeIconv = 'I pamundur përdorimi i funksioneve iconv apo libiconv apo recode_string për shkak se ekstensioni duhet të ngarkohet. Kontrolloni konfigurimin e php.';
 $strCardinality = '';
 $strCarriage = 'Kthimi në fillim: \\r';
 $strChange = 'Modifiko';
@@ -77,6 +79,7 @@ $strChoosePage = 'Ju lutem zgjidhni faqen që dëshironi të modifikoni';
 $strColumn = 'Kollona';
 $strColumnNames = 'Emrat e kollonave';
 $strCompleteInserts = 'Të shtuarat komplet';
+$strConfigFileError = 'phpMyAdmin nuk arrin të lexojë file e konfigurimit!<br />Kjo mund të ndodhë kur php gjen një parse error në të apo kur php nuk arrin t\'a gjejë këtë file.<br />Ju lutem ngarkoheni direkt file e konfigurimit duke përdorur link-un e mëposhtëm dhe lexoni mesazhin(et) e gabimeve php që merrni. Në shumicën e rasteve mund t\'ju mungojë një apostrofë apo një presje.<br />Nëse faqja që do t\'ju hapet është bosh (e bardhë), atëhere gjithçka është në rregull.';
 $strConfigureTableCoord = 'Ju lutem, konfiguroni koordinatat për tabelën %s';
 $strConfirm = 'I sigurt që dëshiron t\'a bësh?';
 $strCookiesRequired = 'Nga kjo pikë e tutje, cookies duhet të jenë të aktivuara.';
@@ -155,6 +158,7 @@ $strGzip = '"kompresuar me gzip"';
 
 $strHasBeenAltered = 'u modifikua.';
 $strHasBeenCreated = 'u krijua.';
+$strHaveToShow = 'Zgjidh të paktën një Kolonë për t\'a vizualizuar';
 $strHome = 'Home';
 $strHomepageOfficial = 'Home page zyrtare e phpMyAdmin';
 $strHomepageSourceforge = 'Home page e phpMyAdmin tek sourceforge.net';
@@ -196,11 +200,13 @@ $strLogout = 'Shkëput';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Emri i përdoruesit:';
 
+$strMissingBracket = 'Mungojnë Thonjëza';
 $strModifications = 'Ndryshimet u shpëtuan';
 $strModify = 'Modifiko';
 $strModifyIndexTopic = 'Modifiko një tregues';
 $strMoveTable = 'Sposto tabelën në (database<b>.</b>tabela):';
 $strMoveTableOK = 'Tabela %s u spostua tek %s.';
+$strMySQLCharset = 'Set karakteresh MySQL';
 $strMySQLReloaded = 'MySQL u rifillua.';
 $strMySQLSaid = 'Mesazh nga MySQL: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% në ekzekutim tek %pma_s2% si %pma_s3%';
@@ -226,6 +232,7 @@ $strNoQuery = 'Asnjë query SQL!';
 $strNoRights = 'Nuk ke të drejta të mjaftueshme për të kryer këtë operacion!';
 $strNoTablesFound = 'Nuk gjenden tabela në database.';
 $strNotNumber = 'Ky nuk është një numër!';
+$strNotSet = '<b>%s</b> tabela nuk u gjet ose nuk është përcaktuar tek %s';
 $strNotValidNumber = ' nuk është një rrjesht i vlefshëm!';
 $strNoUsersFound = 'Nuk u gjet asnjë përdorues.';
 $strNull = 'Null';
@@ -396,11 +403,4 @@ $strYes = ' Po ';
 $strZip = '"kompresuar me zip"';
 
 // To translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
 ?>
