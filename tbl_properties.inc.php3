@@ -368,4 +368,4 @@ echo "\n";
 </table>
 <br />
 
-<center><?php echo PMA_showDocu('manual_Reference.html#CREATE_TABLE'); ?></center>
+<center><?php echo PMA_showDocuShort('C/R/CREATE_TABLE.html'); ?></center>
