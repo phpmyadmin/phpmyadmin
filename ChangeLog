@@ -10,6 +10,7 @@ $Source$
 	  disabled.
 	* headers.inc.php3, line 23: fixed bug #493385 - Cache headers not working
 	  with IE 5.5SP2.
+	* scripts/create-release.sh: added some reminders at beginning.
 
 2001-12-14  Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/auth/cookies.auth.lib.php3, use $strGo

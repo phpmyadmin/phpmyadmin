@@ -16,6 +16,29 @@ then
   exit
 fi
 
+
+cat <<END
+
+Please ensure you have:
+  1. incremented rc count or version in CVS :
+     - in libraries/defines.lib.php3 the line
+          " define('PHPMYADMIN_VERSION', '$1'); "
+     - in Documentation.html the line
+          " <h1>phpMyAdmin $1 Documentation</h1> "
+  2. built the new "Documentation.txt" version using the Lynx "print" command
+     on the "Documentation.html" file.
+
+Continue (y/n)?
+END
+printf "\a"
+read do_release
+
+if [ $do_release != 'y' ]
+then
+  exit
+fi
+
+
 (mv cvs cvs-`date +%s`)
 mkdir cvs
 cd cvs
@@ -43,8 +66,11 @@ echo "------"
 
 ls -la *.gz *.zip *.bz2
 cd ..
+chmod 775 cvs
+
 
 cat <<END
+
 
 Todo now:
 ---------
