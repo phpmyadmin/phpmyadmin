@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-15 Garvin Hicking <me@supergarv.de>
+    * footer.inc.php3, queryframe.php3: Changed anchor target
+      and window name of queryframe as suggested by Armel
+      Fauveau (thanks!)
+
 2003-04-14 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php3: bug 647705: 'NO' is not
       a reserved word in MySQL
