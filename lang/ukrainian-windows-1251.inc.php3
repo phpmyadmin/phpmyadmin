@@ -70,6 +70,7 @@ $strBzError = 'phpMyAdmin не може скомпресувати dump через пошкоджене Bz2 доповн
 $strBzip = 'запакувати в "bzip"';
 
 $strCannotLogin = 'Не можу зареєструватися на MySQL сервері';
+$strCantLoad = 'не можу завантажити %s,<br />прошу перевірити конфігурацію PHP.';
 $strCantLoadMySQL = 'розширення MySQL не завантажено,<br />перевірте конфігурацію PHP.';
 $strCantLoadRecodeIconv = 'Не можу завантажити iconv чи recode extension необхідні для зміни charset-у, сконфігуруйте php так, щоб можна було використовувати ці extensions, або забороніть зміну charset-у у phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Неможливо перейменувати індекс в PRIMARY!';
@@ -77,11 +78,19 @@ $strCantUseRecodeIconv = 'Не можу  використати ні/або iconv, ні/або libiconv, ні
 $strCardinality = 'Кількість елементів';
 $strCarriage = 'Повернення каретки: \\r';
 $strChange = 'Змінити';
+$strChangeCopyMode = 'Створити нового користувача з такими ж правами і ...';
+$strChangeCopyModeCopy = '... залишити старого.';
+$strChangeCopyModeDeleteAndReload = ' ... знищити старого з таблиці користувачів та перевантажити права після того.';
+$strChangeCopyModeJustDelete = ' ... знищити старого з таблиці користувачів.';
+$strChangeCopyModeRevoke = ' ... анулювати всі активні права старого користувача, знищивши його після того.';
+$strChangeCopyUser = 'Змінити реєстраційні дані / Копіювати користувача';
 $strChangeDisplay = 'Виберіть поля для відображення';
 $strChangePassword = 'Змінити пароль';
 $strCharsetOfFile = 'Кодування файлу:';
 $strCheckAll = 'Відмітити все';
 $strCheckDbPriv = 'Перевірити привілеї бази даних';
+$strCheckPrivs = 'Перевірити права';
+$strCheckPrivsLong = 'Перевірити права для бази даних &quot;%s&quot;.';
 $strCheckTable = 'Перевірити таблицю';
 $strChoosePage = 'Прошу вибрати сторінку для редагування';
 $strColComFeat = 'Показувати коментарі стовпців';
@@ -108,6 +117,15 @@ $strCreatePage = 'Створити нову сторінку';
 $strCreatePdfFeat = 'Створити PDF-файл';
 $strCriteria = 'Критерій';
 
+$strDBGContext = 'Контекст';
+$strDBGContextID = 'Контекст ID';
+$strDBGHits = 'Hits';
+$strDBGLine = 'Рядок';
+$strDBGMaxTimeMs = 'Макс час, мс';
+$strDBGMinTimeMs = 'Мін час, мс';
+$strDBGModule = 'Модуль';
+$strDBGTimePerHitMs = 'Time/Hit, мс';
+$strDBGTotalTimeMs = 'Загальний час, мс';
 $strData = 'Дані';
 $strDataDict = 'Словник даних';
 $strDataOnly = 'Лише дані';
@@ -115,9 +133,15 @@ $strDatabase = 'БД ';
 $strDatabaseHasBeenDropped = 'Базу даних %s знищено.';
 $strDatabaseWildcard = 'База даних (дозволено використання шаблонів):';
 $strDatabases = 'Бази Даних';
+$strDatabasesDropped = '%s баз(а\и) даних успішно знищено.';
 $strDatabasesStats = 'Статистика баз даних';
+$strDatabasesStatsDisable = 'Заборонити статистику';
+$strDatabasesStatsEnable = 'Дозволити статистику';
+$strDatabasesStatsHeavyTraffic = 'Примітка: Активізація збору статистики бази даних може спричинити значний трафік між веб сервером та базою даних MySQL.';
 $strDbPrivileges = 'Права, які стосуються бази даних';
+$strDbSpecific = 'специфічний для бази даних';
 $strDefault = 'По замовчуванню';
+$strDefaultValueHelp = 'Для значень за замовчуванням, введіть лише значення, без використання зворотніх слешів чи лапок, у такому форматі: a';
 $strDelete = 'Видалити';
 $strDeleteAndFlush = 'Усунути користувачів і перезавантажити права після цього.';
 $strDeleteAndFlushDescr = 'Це кращий спосіб, проте перезавантаження прав може потривати певний час.';
@@ -137,6 +161,7 @@ $strDoYouReally = 'Ви насправді хочете ';
 $strDocu = 'Документація';
 $strDrop = 'Знищити';
 $strDropDB = 'Знищити БД %s';
+$strDropSelectedDatabases = 'Знищити вибрані бази даних';
 $strDropTable = 'Видалити таблицю';
 $strDumpXRows = 'Зґенерувати дамп %s рядків починаючи з %s -го.';
 $strDumpingData = 'Дамп даних таблиці';
@@ -179,6 +204,7 @@ $strFunction = 'Функція';
 $strGenBy = 'Згенеровано';
 $strGenTime = 'Час створення';
 $strGeneralRelationFeat = 'Загальні можливості';
+$strGlobal = 'глобальний';
 $strGlobalPrivileges = 'Глобальні права';
 $strGlobalValue = 'Загальне значення';
 $strGo = 'Вперед';
@@ -215,6 +241,7 @@ $strInsertedRows = 'Додані рядки:';
 $strInstructions = 'Інструкції';
 $strInvalidName = '"%s" - зарезервоване слово, ви не можете використовувати його для назви бази даних/таблиці/поля.';
 
+$strJumpToDB = 'Перейти до бази даних &quot;%s&quot;.';
 $strJustDelete = 'Щойно усунуто користувачів з таблиці прав.';
 $strJustDeleteDescr = '&quot;Усунуті&quot; користувачі все ще матимуть доступ до сервера до тих пір, поки не будуть перезавантажені права.';
 
@@ -259,6 +286,7 @@ $strName = 'Назва';
 $strNext = 'Дальше';
 $strNo = 'Ні';
 $strNoDatabases = 'БД відсутні';
+$strNoDatabasesSelected = 'Не вибрано бази даних.';
 $strNoDescription = 'без опису';
 $strNoDropDatabases = 'Оператори "DROP DATABASE" заборонені.';
 $strNoExplain = 'Не тлумачити SQL';
@@ -511,6 +539,7 @@ $strUserNotFound = 'Вказаного користувача не знайдено в таблиці прав.';
 $strUserOverview = 'Огляд користувачів';
 $strUsers = 'Користувачі';
 $strUsersDeleted = 'Відмічених користувачів успішно усунуто.';
+$strUsersHavingAccessToDb = 'Користувачі, котрі мають доступ до &quot;%s&quot;';
 
 $strValidateSQL = 'Перевірити SQL';
 $strValidatorError = 'Не можу запустити перевірку SQL. Прошу проконтролювати чи заінстальовано необхідні php extensions як описано в %sдокументації%s.';
@@ -522,6 +551,7 @@ $strViewDumpDB = 'Переглянути дамп (схему) БД';
 $strWebServerUploadDirectory = 'каталог веб-сервера для завантаження файлів (upload directory)';
 $strWebServerUploadDirectoryError = 'Встановлений Вами каталог для завантаження файлів недоступний';
 $strWelcome = 'Ласкаво просимо до %s';
+$strWildcard = 'шаблон';
 $strWithChecked = 'З відміченими:';
 $strWrongUser = 'Невірний логін/пароль. Доступ не дозволено.';
 
@@ -530,83 +560,62 @@ $strYes = 'Так';
 $strZeroRemovesTheLimit = 'Примітка: Встановлення цієї опції у 0 (нуль) знімає обмеження.';
 $strZip = 'запакувати в "zip"';
 // To translate
+$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 
+$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
+$strAddedColumnComment = 'Added comment for column';  //to translate
+$strAddedColumnRelation = 'Added relation for column';  //to translate
+
+$strCSVOptions = 'CSV options';//to translate
 $strCompression = 'Compression'; //to translate
 
+$strDBComment = 'Database comment: ';//to translate
 $strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
+$strDumpComments = 'Include column comments as inline SQL-comments';//to translate
 
+$strFileCouldNotBeRead = 'File could not be read';  //to translate
+
+$strIgnoringFile = 'Ignoring file %s';  //to translate
+$strImportFiles = 'Import files';  //to translate
+$strImportFinished = 'Import finished';  //to translate
+$strInnodbStat = 'InnoDB Status';  //to translate
+
+$strMIME_MIMEtype = 'MIME-type';//to translate
+$strMIME_available_mime = 'Available MIME-types';//to translate
+$strMIME_available_transform = 'Available transformations';//to translate
+$strMIME_description = 'Description';//to translate
+$strMIME_file = 'Filename';//to translate
+$strMIME_nodescription = 'No Description is available for this transformation.<br />Please ask the author, what %s does.';//to translate
+$strMIME_transformation = 'Browser transformation';//to translate
+$strMIME_transformation_note = 'For a list of available transformation options and their MIME-type transformations, click on %stransformation descriptions%s';//to translate
+$strMIME_transformation_options = 'Transformation options';//to translate
+$strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';//to translate
+$strMIME_without = 'MIME-types printed in italics do not have a seperate transformation function';//to translate
+
+$strNoOptions = 'This format has no options';//to translate
 $strNoUsersSelected = 'No users selected.'; //to translate
 
-
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-$strIgnoringFile = 'Ignoring file %s';  //to translate
-$strThisNotDirectory = 'This was not a directory';  //to translate
-$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-$strImportFiles = 'Import files';  //to translate
-$strDBGModule = 'Module';  //to translate
-$strDBGLine = 'Line';  //to translate
-$strDBGHits = 'Hits';  //to translate
-$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
-$strDBGTotalTimeMs = 'Total time, ms';  //to translate
-$strDBGMinTimeMs = 'Min time, ms';  //to translate
-$strDBGMaxTimeMs = 'Max time, ms';  //to translate
-$strDBGContextID = 'Context ID';  //to translate
-$strDBGContext = 'Context';  //to translate
-$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
-$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
-$strCheckPrivs = 'Check Privileges';  //to translate
-$strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.';  //to translate
-$strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
-$strDatabasesStatsDisable = 'Disable Statistics';  //to translate
-$strDatabasesStatsEnable = 'Enable Statistics';  //to translate
-$strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
-$strDropSelectedDatabases = 'Drop Selected Databases';  //to translate
-$strNoDatabasesSelected = 'No databases selected.';  //to translate
-$strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate
-$strGlobal = 'global';  //to translate
-$strDbSpecific = 'database-specific';  //to translate
-$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
-$strChangeCopyUser = 'Change Login Information / Copy User';  //to translate
-$strChangeCopyMode = 'Create a new user with the same privileges and ...';  //to translate
-$strChangeCopyModeCopy = '... keep the old one.';  //to translate
-$strChangeCopyModeJustDelete = ' ... delete the old one from the user tables.';  //to translate
-$strChangeCopyModeRevoke = ' ... revoke all active privileges from the old one and delete it afterwards.';  //to translate
-$strChangeCopyModeDeleteAndReload = ' ... delete the old one from the user tables and reload the privileges afterwards.';  //to translate
-$strWildcard = 'wildcard';  //to translate
-$strRowsModeFlippedHorizontal = 'horizontal (rotated headers)';//to translate
-$strQueryTime = 'Query took %01.4f sec';//to translate
-$strDumpComments = 'Include column comments as inline SQL-comments';//to translate
-$strDBComment = 'Database comment: ';//to translate
 $strQueryFrame = 'Query window';//to translate
 $strQueryFrameDebug = 'Debugging information';//to translate
 $strQueryFrameDebugBox = 'Active variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nCurrent variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nOpener location: %s\nFrameset location: %s.';//to translate
 $strQuerySQLHistory = 'SQL-history';//to translate
-$strMIME_MIMEtype = 'MIME-type';//to translate
-$strMIME_transformation = 'Browser transformation';//to translate
-$strMIME_transformation_options = 'Transformation options';//to translate
-$strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';//to translate
-$strMIME_transformation_note = 'For a list of available transformation options and their MIME-type transformations, click on %stransformation descriptions%s';//to translate
-$strMIME_available_mime = 'Available MIME-types';//to translate
-$strMIME_available_transform = 'Available transformations';//to translate
-$strMIME_without = 'MIME-types printed in italics do not have a seperate transformation function';//to translate
-$strMIME_description = 'Description';//to translate
-$strMIME_nodescription = 'No Description is available for this transformation.<br />Please ask the author, what %s does.';//to translate
-$strMIME_file = 'Filename';//to translate
+$strQueryTime = 'Query took %01.4f sec';//to translate
+
+$strRowsModeFlippedHorizontal = 'horizontal (rotated headers)';//to translate
+
+$strSQLOptions = 'SQL options';//to translate
+
+$strThisNotDirectory = 'This was not a directory';  //to translate
+$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
+$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
 $strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link for it. First options argument is a possible prepended string like http://...';//to translate
+$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
 $strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
 $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
-$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
-$strInnodbStat = 'InnoDB Status';  //to translate
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
-$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
-$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
-$strSQLOptions = 'SQL options';//to translate
+
+$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
+$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
+
 $strXML = 'XML';//to translate
-$strCSVOptions = 'CSV options';//to translate
-$strNoOptions = 'This format has no options';//to translate
+
 ?>
