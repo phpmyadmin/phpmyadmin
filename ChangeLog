@@ -13,6 +13,8 @@ $Source$
 	* Documentation.html; sql.php3; libraries/display_tbl.lib.php3:
 	  - coding standards (tabs);
 	  - fixed xhtml1.0 errors.
+	* Documentation.html, lines 1547-1548: added credits to Axel Sander for the
+	  table relation feature. 
 	* config.inc.php3, lines 55-56: lowered the line size to avoid automatic
 	  add of <cr><lf> while ediding this file.
 
