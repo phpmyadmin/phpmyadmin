@@ -15,8 +15,9 @@ $Source$
 2003-05-13 Michal Cihar  <nijel@users.sourceforge.net>
     * left.php3: Fixed displaying of tables with quote in name.
     * main.php3: $pma_uri_parts['scheme'] might be sometimes unset...
-    * tbl_move_copy.php3: Check for same table and db name when moving (RFE
-      #734985).
+    * tbl_move_copy.php3, lang/: Check for same table and db name when moving
+      (RFE #734985).
+    * libraries/relation.lib.php3: Fixed warning in PMA_purgeHistory.
 
 2003-05-12 Garvin Hicking <me@supergarv.de>
     * queryframe.php3: Remove left/bottom margin to better fit the link title

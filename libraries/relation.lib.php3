@@ -546,7 +546,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         $i = 0;
         $row = @PMA_mysql_fetch_array($purge_rs);
         
-        if (is_array($row) && $row[0] > 0) {
+        if (is_array($row) && isset($row[0]) && $row[0] > 0) {
             $maxtime = $row[0];
             $remove_rs = PMA_query_as_cu('DELETE FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE timevalue <= ' . $maxtime);
         }
