@@ -604,7 +604,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             $bgcolor = ($foo % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
 
             ?>
-<tr bgcolor="<?php echo $bgcolor; ?>" onmouseover="if (typeof(this.style) != 'undefined') this.style.backgroundColor = '#CCFFCC'" onmouseout="if (typeof(this.style) != 'undefined') this.style.backgroundColor = ''">
+<tr bgcolor="<?php echo $bgcolor; ?>" onmouseover="if (typeof(this.style) != 'undefined') this.style.backgroundColor = '<?php echo $GLOBALS['cfgPointerColor']; ?>'" onmouseout="if (typeof(this.style) != 'undefined') this.style.backgroundColor = ''">
             <?php
             echo "\n";
 

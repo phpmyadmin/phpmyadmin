@@ -155,6 +155,7 @@ $cfgBorder              = 0;            // border width on tables
 $cfgThBgcolor           = '#D3DCE3';    // table header row colour
 $cfgBgcolorOne          = '#CCCCCC';    // table data row colour
 $cfgBgcolorTwo          = '#DDDDDD';    // table data row colour, alternate
+$cfgPointerColor        = '#CCFFCC';    // color of the pointer in browse mode
 $cfgTextareaCols        = 40;           // textarea size (columns) in edit mode
 $cfgTextareaRows        = 7;            // textarea size (rows) in edit mode
 $cfgLimitChars          = 50;           // max field data length in browse mode
