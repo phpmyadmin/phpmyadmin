@@ -2221,7 +2221,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     names to align with current standards.
 </p>
 <h4>
-    [1.16] I cannot upload big dump files.
+    [1.16] I cannot upload big dump files (memory, http or timeout problems).
 </h4>
 <p>
     The first things to check (or ask your host provider to check) are the
@@ -2231,6 +2231,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     All of these three settings limit the maximum size of data that can be
     submitted and handled by PHP. One user also said that post_max_size
     and memory_limit need to be larger than upload_max_filesize.
+    <br />
+    If you get a timeout problem, look at the <tt>$cfg['UploadDir']</tt>
+    feature.
 </p>
 
 <h4>
