@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php3, bug 759568, row count, DISTINCT and MySQL 4
+
 2003-06-23 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3: automatic layout start at 300,300 for better look
       on the dom-drag scratchboard

@@ -227,8 +227,7 @@ else {
     //                "SELECT COUNT(...) FROM ... GROUP BY ..."
     $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = FALSE;
     if ($is_select) { // see line 141
-        $is_group = eregi('[[:space:]]+(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+', $sql_query);
-
+        $is_group = eregi('(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+', $sql_query);
         $is_func =  !$is_group && (eregi('[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(', $sql_query));
         $is_count = !$is_group && (eregi('^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)', $sql_query));
         $is_export   = (eregi('[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+', $sql_query));
@@ -355,13 +354,12 @@ else {
                 // because SQL_CALC_FOUND_ROWS
                 // is not quick on large InnoDB tables
 
-                if (!isset($analyzed_sql[0]['table_ref'][1]['table_name'])
+                if (!$is_group && !isset($analyzed_sql[0]['table_ref'][1]['table_name'])
                  && (empty($analyzed_sql[0]['where_clause'])
                    || $analyzed_sql[0]['where_clause'] == '1 ')) {
 
                     // "just browsing"
                     $unlim_num_rows = PMA_countRecords($db, $table, TRUE);
-
                 } else { // not "just browsing"
 
                     if (PMA_MYSQL_INT_VERSION < 40000) {
@@ -388,7 +386,11 @@ else {
 
                     // add select expression after the SQL_CALC_FOUND_ROWS
                     if (PMA_MYSQL_INT_VERSION >= 40000) {
-                        $count_query .= $analyzed_sql[0]['select_expr_clause'];
+                        if (eregi('DISTINCT(.*)', $sql_query)) {
+                            $count_query .= 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
+                        } else {
+                            $count_query .= $analyzed_sql[0]['select_expr_clause'];
+                        }
                     }
 
 
