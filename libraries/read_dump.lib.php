@@ -39,7 +39,7 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
                 // No end of string found -> add the current substring to the
                 // returned array
                 if (!$i) {
-                    $ret[] = $sql;
+                    $ret[] = array('query' => $sql, 'empty' => $nothing);
                     return TRUE;
                 }
                 // Backquotes or no backslashes before quotes: it's indeed the
@@ -72,7 +72,7 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
                 } // end if...elseif...else
             } // end for
         } // end if (in string)
-       
+
         // lets skip comments (/*, -- and #)
         else if (($char == '-' && $sql_len > $i + 2 && $sql[$i + 1] == '-' && $sql[$i + 2] <= ' ') || $char == '#' || ($char == '/' && $sql_len > $i + 1 && $sql[$i + 1] == '*')) {
             $i = strpos($sql, $char == '/' ? '*/' : "\n", $i);
