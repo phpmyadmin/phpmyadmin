@@ -58,6 +58,7 @@ $available_languages = array(
     'gl'         => array('gl|galician', 'galician', 'gl'),
     'he'         => array('he|hebrew', 'hebrew', 'he'),
     'hu'         => array('hu|hungarian', 'hungarian', 'hu'),
+    'id'         => array('id|indonesian', 'indonesian', 'id'),
     'it'         => array('it|italian', 'italian', 'it'),
     'ja-euc'     => array('ja|japanese', 'japanese-euc', 'ja'),
     'ja-sjis'    => array('ja|japanese', 'japanese-sjis', 'ja'),
