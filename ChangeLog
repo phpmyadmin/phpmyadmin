@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-21 Michal Cihar  <nijel@users.sourceforge.net>
+    * ldi_check.php3: Use $sql_query instead of $query to put query correctly
+      to sql.php3.
+
 2003-03-20 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/hebrew update, thanks to Yuval Sarna
 

@@ -54,7 +54,7 @@ if (isset($btnLDI) && ($textfile != 'none')) {
     chmod($textfile, 0777);
 
     // Builds the query
-    $query     =  'LOAD DATA';
+    $sql_query     =  'LOAD DATA';
 
     // for versions before 3.23.49, we use the LOCAL keyword, because
     // there was a version (cannot find which one, and it does not work
@@ -66,7 +66,7 @@ if (isset($btnLDI) && ($textfile != 'none')) {
     // for speed
 
     if (PMA_MYSQL_INT_VERSION < 32349) {
-        $query     .= ' LOCAL';
+        $sql_query     .= ' LOCAL';
     }
 
     if (PMA_MYSQL_INT_VERSION > 40003) {
@@ -75,45 +75,45 @@ if (isset($btnLDI) && ($textfile != 'none')) {
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             $tmp = PMA_mysql_fetch_row($result);
             if ($tmp[1] == 'ON') {
-                $query     .= ' LOCAL';
+                $sql_query     .= ' LOCAL';
             }
         }
         mysql_free_result($result);
     }
 
-    $query     .= ' INFILE \'' . $textfile . '\'';
+    $sql_query     .= ' INFILE \'' . $textfile . '\'';
     if (!empty($replace)) {
-        $query .= ' ' . $replace;
+        $sql_query .= ' ' . $replace;
     }
-    $query     .= ' INTO TABLE ' . PMA_backquote($into_table);
+    $sql_query     .= ' INTO TABLE ' . PMA_backquote($into_table);
     if (isset($field_terminater)) {
-        $query .= ' FIELDS TERMINATED BY \'' . $field_terminater . '\'';
+        $sql_query .= ' FIELDS TERMINATED BY \'' . $field_terminater . '\'';
     }
     if (isset($enclose_option) && strlen($enclose_option) > 0) {
-        $query .= ' OPTIONALLY';
+        $sql_query .= ' OPTIONALLY';
     }
     if (strlen($enclosed) > 0) {
-        $query .= ' ENCLOSED BY \'' . $enclosed . '\'';
+        $sql_query .= ' ENCLOSED BY \'' . $enclosed . '\'';
     }
     if (strlen($escaped) > 0) {
-        $query .= ' ESCAPED BY \'' . $escaped . '\'';
+        $sql_query .= ' ESCAPED BY \'' . $escaped . '\'';
     }
     if (strlen($line_terminator) > 0){
-        $query .= ' LINES TERMINATED BY \'' . $line_terminator . '\'';
+        $sql_query .= ' LINES TERMINATED BY \'' . $line_terminator . '\'';
     }
     if (strlen($column_name) > 0) {
         if (PMA_MYSQL_INT_VERSION >= 32306) {
-            $query .= ' (';
+            $sql_query .= ' (';
             $tmp   = split(',( ?)', $column_name);
             for ($i = 0; $i < count($tmp); $i++) {
                 if ($i > 0) {
-                    $query .= ', ';
+                    $sql_query .= ', ';
                 }
-                $query     .= PMA_backquote(trim($tmp[$i]));
+                $sql_query     .= PMA_backquote(trim($tmp[$i]));
             } // end for
-            $query .= ')';
+            $sql_query .= ')';
         } else {
-            $query .= ' (' . $column_name . ')';
+            $sql_query .= ' (' . $column_name . ')';
         }
     }
 
