@@ -300,7 +300,7 @@ if ($server > 0) {
             ?>
                 <form method="post" action="db_create.php"><b>
                     <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?></b><br />
-                    <?php echo PMA_generate_common_hidden_inputs(5); ?>
+                    <?php echo PMA_generate_common_hidden_inputs('', '', 5); ?>
                     <input type="hidden" name="reload" value="1" />
                     <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" />
                     <?php
@@ -618,7 +618,7 @@ if (isset($available_themes_choices) && $available_themes_choices > 1) {
         <td>
             <form name="setTheme" method="post" action="index.php" target="_parent">
                 <?php 
-                echo PMA_generate_common_hidden_inputs(5);
+                echo PMA_generate_common_hidden_inputs('', '', 5);
                 echo $theme_preview_href
                    . (isset($strTheme) ? $strTheme : 'Theme (Style)')
                    . '</a>:' . "\n";

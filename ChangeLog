@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php: bug #992211, wrong parameters to 
+      PMA_generate_common_hidden_inputs(), thanks to Ryan Schmidt
+
 2004-09-07 Michal Čihař  <michal@cihar.com>
     * calendar.php: Minimal common.lib.php doesn't fix absolute path, so use
       full one (bug #1023444).
