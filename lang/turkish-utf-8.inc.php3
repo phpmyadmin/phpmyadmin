@@ -109,7 +109,7 @@ $strDeletedRows = 'Silinen satırlar:';
 $strDeleteFailed = 'Silme sırasında hata oluştu!';
 $strDeleteUserMessage = '%s kullanıcısını sildiniz.';
 $strDescending = 'Azalan';
-$strDisabled = 'Kapalı';
+$strDisabled = 'Etkin değil';
 $strDisplay = 'Görüntüle';
 $strDisplayFeat = 'Özellikleri Göster';
 $strDisplayOrder = 'Görünüm düzeni:';
@@ -131,6 +131,7 @@ $strEffective = 'Efektif';
 $strEmpty = 'Boşalt';
 $strEmptyResultSet = 'MySQL boş bir sonuc kümesi döndürdü ( sıfır satır).';
 $strEnabled = 'Açık';
+$strEnabled = 'Etkin';
 $strEnd = 'Son';
 $strEnglishPrivileges = ' Not: mySQL  öncelik adları İngilizce olarak belirtilmiştir ';
 $strError = 'Hata';
@@ -263,6 +264,7 @@ $strPasswordNotSame = 'Girilen şifreler aynı değil!';
 $strPdfDbSchema = ' "%s" veritabanının şeması - Sayfa %s';
 $strPdfInvalidPageNum = 'Tanımlanmamış PDF sayfa numarası!';
 $strPdfInvalidTblName = ' "%s" tablosu bulunamıyor !';
+$strPdfNoTables = 'Tablo yok';
 $strPhp = 'PHP kodu oluştur';
 $strPHPVersion = 'PHP Sürümü';
 $strPmaDocumentation = 'phpMyAdmin dökümantasyonu';
@@ -411,6 +413,5 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiş"';
 
 // To translate
-$strPdfNoTables = 'No tables';  //to translate
 
 ?>

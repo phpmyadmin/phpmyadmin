@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * config.inc.php3: how to test auto-detect
+    * lang/turkish update, thanks to Bora Alioglu
+   
 2002-07-30 Loïc Chapeaux  <lolo@phpheaven.net>
     * Documentation.html: coding standards (line size <= 80).
     * db_details_structure.php3, lines 456-460: beautified generated page.
