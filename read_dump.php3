@@ -262,7 +262,7 @@ if ($sql_query != '') {
             
             for ($i = 0; $i < $pieces_count; $i++) {
                 $a_sql_query = $pieces[$i];
-                if ($i == $pieces_count - 1 && eregi('^SELECT', $a_sql_query)) {
+                if ($i == $pieces_count - 1 && eregi('^(SELECT|SHOW)', $a_sql_query)) {
                     $complete_query = $sql_query;
                     $display_query = $sql_query;
                     $sql_query = $a_sql_query;
@@ -353,6 +353,7 @@ if (isset($table) && $table == '') {
 if (isset($db) && $db == '') {
     unset($db);
 }
+
 $is_db = $is_table = FALSE;
 if ($goto == 'tbl_properties.php3') {
     if (!isset($table)) {
