@@ -7,7 +7,7 @@ $Source$
 
 2004-09-29 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php, libraries/common.lib.php: bug #1036678, incorrect appending
-      of LIMIT to queries
+      of LIMIT to queries, and bug #1037004, UPDATE statement not showing
 
 2004-09-29 Michal Čihař  <michal@cihar.com>
     * tbl_addfield.php, tbl_create.php, tbl_properties.inc.php, lang/*: Better

@@ -1583,12 +1583,17 @@ if (typeof(document.getElementById) != 'undefined'
             // Here we append the LIMIT added for navigation, to
             // enable its display. Adding it higher in the code
             // to $local_query would create a problem when
-            // using the Refresh or Edit links
+            // using the Refresh or Edit links.
+
+            // Only append it on SELECTs.
 
             // FIXME: what would be the best to do when someone
             // hits Refresh: use the current LIMITs ?
 
-            if (isset($GLOBALS['sql_limit_to_append'])) {
+            // TODO: use the parser instead of preg_match()
+
+            if (preg_match('@^SELECT[[:space:]]+@i', $query_base)
+             && isset($GLOBALS['sql_limit_to_append'])) {
                 $query_base .= $GLOBALS['sql_limit_to_append'];
             }
 
