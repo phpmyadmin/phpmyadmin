@@ -230,8 +230,8 @@
 
 <p><b>Quick Install:</b></p>
 <ol>
-    <li> Choose and download a distribution kit with the files having the 
-         extension (<i>.php3</i> or <i>.php</i>) depending on the way your 
+    <li> Choose and download a distribution kit with the files having the
+         extension (<i>.php3</i> or <i>.php</i>) depending on the way your
          web/PHP server interprets those extensions.</li>
     <li> Untar or unzip the distribution (be sure to unzip the subdirectories):
          <tt>tar xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's
@@ -452,7 +452,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dt><b>$cfg['PmaNoRelation_DisableWarning']</b> boolean</dt>
     <dd>
         Starting with version 2.3.0 phpMyAdmin offers a lot of features to work
-        with master / foreign - tables (see 
+        with master / foreign - tables (see
         <a class="navigation" href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>).
         <br />
         If you tried to set this up and it does not work for you, have a look on
@@ -610,9 +610,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         to work with master / foreign - tables. To use those as well as
         the bookmark feature you need special tables with a
         predefined structure, which we explain below.<br />
-        If you are the only user of this phpMyAdmin installation, you can 
+        If you are the only user of this phpMyAdmin installation, you can
         use your current database to store those special tables; in this
-        case, just put your current database name in 
+        case, just put your current database name in
         <tt>$cfg['Servers'][$i]['pmadb']</tt>.
         <br /><br />
         If you are setting up a multi-user phpMyAdmin installation,
@@ -624,10 +624,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 create a new database for phpmyadmin:<br />
                 <tt>&nbsp;&nbsp;CREATE DATABASE phpmyadmin;</tt><br />
                 Note that &quot;controluser&quot; must have
-                <tt>SELECT, INSERT, UPDATE</tt> and <tt>DELETE</tt> 
-                privileges on this database. Here is a query to set up 
-                those privileges (using &quot;phpmyadmin&quot; 
-                as the database name, and &quot;pma&quot; as the 
+                <tt>SELECT, INSERT, UPDATE</tt> and <tt>DELETE</tt>
+                privileges on this database. Here is a query to set up
+                those privileges (using &quot;phpmyadmin&quot;
+                as the database name, and &quot;pma&quot; as the
                 controluser):<br />
                 <tt>
                 &nbsp;&nbsp;GRANT SELECT,INSERT,UPDATE,DELETE ON phpmyadmin.* to 'pma'@'localhost';
@@ -2145,6 +2145,16 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     This is a known Netscape 4.75 bug: it adds some line feeds when exporting
     data in octet-stream mode. Since we can't detect the specific Netscape
     version, we cannot workaround this bug.
+</p>
+
+<p>
+    <b>[5.11] Extended-ASCII characters like German umlauts are displayed
+       wrong.</b>
+    <br />
+    Please ensure that you have set your browser's charset to the one of the
+    language file you have selected on phpMyAdmin's start page.
+    Alternatively, you can try the auto detection mode that is supported by the
+    recent versions of the most browsers.
 </p>
 
 <a name="faqusing"></a>

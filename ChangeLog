@@ -5,9 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-15 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * Documentation.html: FAQ entry about browser charset settings.
+
 2002-10-15 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/auth/cookie.auth.lib.php3: let them use a blank password, 
-      thanks to Juliano Ravasi Ferraz (jferraz) 
+    * libraries/auth/cookie.auth.lib.php3: let them use a blank password,
+      thanks to Juliano Ravasi Ferraz (jferraz)
     * main.php3: extend the warning about blank root password to all auth modes
 
 2002-10-14 Alexander M. Turek  <rabus@users.sourceforge.net>
