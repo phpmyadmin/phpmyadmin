@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties*: missing $sub_part for back links (bug 584069)
+
 2002-07-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_properties_links.php3: Fixed bug #583969.
     * lang/german-*.inc.php3: Updates.

@@ -31,6 +31,7 @@ if (isset($submitorderby) && !empty($order_field)) {
 /**
  * Gets tables informations and displays top links
  */
+$sub_part = '_operations';
 require('./tbl_properties_table_info.php3');
 
 

@@ -24,6 +24,7 @@ if ((!empty($submit_mult) && isset($selected_fld))
  * Prepares the table structure display
  */
 // 1. Get table information
+$sub_part = '_structure';
 require('./tbl_properties_table_info.php3');
 
 // 2. Gets table keys and retains them
@@ -263,7 +264,7 @@ if ($fields_cnt > 20) {
 <!-- Browse links -->
     <?php
     echo "\n";
-    $sub_part = '_structure';
+    //$sub_part = '_structure';
     include('./tbl_properties_links.php3');
 } // end if ($fields_cnt > 20)
 echo "\n\n";

@@ -46,6 +46,7 @@ if (isset($message)) {
 /**
  * Gets tables informations and displays top links
  */
+$sub_part = '_options';
 require('./tbl_properties_table_info.php3');
 
 
