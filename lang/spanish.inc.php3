@@ -303,4 +303,5 @@ $strStrucExcelCSV = 'CSV for Ms Excel data';
 $strFullText = 'Full Texts';//to translate
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
 $strPartialText = 'Partial Texts';//to translate
+$strWithChecked = 'With checked:';
 ?>

@@ -303,4 +303,5 @@ $strGzip = '"gzipped"'; //to translate
 $strNoDropDatabases = '"DROP DATABASE" statements zijn niet mogelijk.'; //to translate
 $strOffSet = 'offset'; //to translate
 $strUseBackquotes = 'Gebruik backquotes bij tabellen en velden\' namen'; // what are backquotes?
+$strWithChecked = 'With checked:';
 ?>

@@ -307,4 +307,5 @@ $strServerChoice = 'Server Choice';//to translate
 $strPmaDocumentation = 'phpMyAdmin Documentation';//to translate 
 $strFullText = 'Full Texts';//to translate
 $strPartialText = 'Partial Texts';//to translate
+$strWithChecked = 'With checked:';
 ?>

@@ -302,4 +302,5 @@ $strTables = '%s table(s)'; // To translate
 $strUpdateQuery = 'Update Query'; // To translate
 $strFullText = 'Full Texts';//to translate
 $strPartialText = 'Partial Texts';//to translate
+$strWithChecked = 'With checked:';
 ?>

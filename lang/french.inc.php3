@@ -297,6 +297,7 @@ $strViewDump = '<b>Afficher le schéma</b> de la table';
 $strViewDumpDB = 'Afficher le schéma de la base ';
 
 $strWelcome = 'Bienvenue à';
+$strWithChecked = 'Pour la sélection :';
 $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 
 $strYes = 'Oui';
