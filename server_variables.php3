@@ -94,8 +94,8 @@ while (list($name, $value) = each($serverVars)) {
             <?php echo htmlspecialchars($serverVarsGlobal[$name]) . "\n"; ?>
         </td>
 <?php
-        $useBgcolorOne = !$useBgcolorOne;
     }
+    $useBgcolorOne = !$useBgcolorOne;
 ?>
     </tr>
 <?php
