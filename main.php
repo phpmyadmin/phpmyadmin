@@ -22,6 +22,7 @@ setcookie('pma_lang', $lang, time() + 60*60*24*30, $cookie_path, '', $is_https);
 if (isset($convcharset)) {
     setcookie('pma_charset', $convcharset, time() + 60*60*24*30, $cookie_path, '', $is_https);
 }
+
 /**
  * Includes the ThemeManager
  */
@@ -572,10 +573,25 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
        .'        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLCharset,'') : $str_normal_list) . "\n" 
        . '        <td>' . "\n"
        . '            ' . $strMySQLCharset . ': '
-       . '        <b>'
+       . '            <b>'
        . '               ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
        . '               (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
-       . '        </b></td>' . "\n"
+       . '            </b>' . "\n"
+       . '        </td>' . "\n"
+       . '    </tr>' . "\n"
+       . '    <!-- MySQL Connection Collation -->' . "\n"
+       . '    <tr>' .  "\n"
+       .'        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLCharset,'') : $str_normal_list) . "\n" 
+       . '        <td>' . "\n"
+       . '            <form method="post" action="index.php" target="_parent">' . "\n"
+       . PMA_generate_common_hidden_inputs(NULL, NULL, 4, 'collation_connection')
+       . '                <label for="select_collation_connection">' . "\n"
+       . '                    ' . $strMySQLConnectionCollation . ': ' . "\n"
+       . '                </label>' . "\n"
+       . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, TRUE, 4, TRUE)
+       . '                <noscript><input type="submit" value="' . $strGo . '" style="vertical-align: middle" /></noscript>' . "\n"
+       . '            </form>' . "\n"
+       . '        </td>' . "\n"
        . '    </tr>' . "\n";
 }
 echo "\n";

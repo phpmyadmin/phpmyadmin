@@ -365,6 +365,7 @@ $strMoveTableSameNames = 'Can\'t move table to same one!';
 $strMultilingual = 'multilingual';
 $strMustSelectFile = 'You should select file which you want to insert.';
 $strMySQLCharset = 'MySQL charset';
+$strMySQLConnectionCollation = 'MySQL connection collation';
 $strMySQLReloaded = 'MySQL reloaded.';
 $strMySQLSaid = 'MySQL said: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% running on %pma_s2% as %pma_s3%';

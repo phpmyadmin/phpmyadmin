@@ -716,4 +716,5 @@ $strRomanian = 'Romanian';  //to translate
 $strSlovenian = 'Slovenian';  //to translate
 $strTraditionalSpanish = 'Traditional Spanish';  //to translate
 $strSlovak = 'Slovak';  //to translate
+$strMySQLConnectionCollation = 'MySQL connection collation';  //to translate
 ?>

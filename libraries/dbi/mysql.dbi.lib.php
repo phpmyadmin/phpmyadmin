@@ -65,30 +65,8 @@ function PMA_DBI_connect($user, $password) {
     if (empty($link)) {
         PMA_auth_fails();
     } // end if
-
-    if (!defined('PMA_MYSQL_INT_VERSION')) {
-        $result = mysql_query('SELECT VERSION() AS version', $link);
-        if ($result != FALSE && @mysql_num_rows($result) > 0) {
-            $row   = mysql_fetch_row($result);
-            $match = explode('.', $row[0]);
-            mysql_free_result($result);
-        }
-        if (!isset($row)) {
-            define('PMA_MYSQL_INT_VERSION', 32332);
-            define('PMA_MYSQL_STR_VERSION', '3.23.32');
-        } else{
-            define('PMA_MYSQL_INT_VERSION', (int)sprintf('%d%02d%02d', $match[0], $match[1], intval($match[2])));
-            define('PMA_MYSQL_STR_VERSION', $row[0]);
-            unset($result, $row, $match);
-        }
-    }
-
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        $mysql_charset = $GLOBALS['mysql_charset_map'][$GLOBALS['charset']];
-        mysql_query('SET CHARACTER SET ' . $mysql_charset . ';', $link);
-    } else {
-        require_once('./libraries/charset_conversion.lib.php');
-    }
+    
+    PMA_DBI_postConnect($link);
 
     return $link;
 }
@@ -115,7 +93,7 @@ function PMA_DBI_try_query($query, $link = NULL, $options = 0) {
             return FALSE;
         }
     }
-    if (PMA_MYSQL_INT_VERSION < 40100) {
+    if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 40100) {
         $query = PMA_convert_charset($query);
     }
     if ($options == ($options | PMA_DBI_QUERY_STORE)) {
@@ -141,7 +119,7 @@ function PMA_mysql_fetch_array($result, $type = FALSE) {
     /* No data returned => do not touch it */
     if (! $data) return $data;
     
-    if (PMA_MYSQL_INT_VERSION >= 40100
+    if (!defined('PMA_MYSQL_INT_VERSION') || PMA_MYSQL_INT_VERSION >= 40100
         || !(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
         /* No recoding -> return data as we got them */
         return $data;

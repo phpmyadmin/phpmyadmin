@@ -5,6 +5,21 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-17 Alexander M. Turek  <me@derrabus.de>
+    * libraries/database_interface.lib.php, libraries/dbi/*.dbi.lib.php:
+      moved redundant post-connect code into database_interface.lib.php.
+    * libraries/url_generating.lib.php: Added ability to skip certain hidden
+      input fields.
+    * libraries/database_interface.lib.php: Added new function for retreiving
+      MySQL variables.
+    * libraries/mysql_charsets.lib.php: Added optional onchange-submit feature
+      to collation dropdown box.
+    * main.php, lang/*.inc.php, libraries/database_interface.lib.php,
+      libraries/url_generating.lib.php: The user may now choose his connection
+      character set. This should fix bug #984912.
+      WARNING: The pmadb needs to be converted to UTF-8 now!
+      TODO: Handle non-UTF-8 pmadb more nicely.
+
 2004-07-16 Marc Delisle  <lem9@users.sourceforge.net>
     * index.php: left frame display problems under IE
 

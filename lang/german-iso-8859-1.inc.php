@@ -372,6 +372,7 @@ $strMoveTableSameNames = 'Tabelle kann nicht mit gleichem Namen verschoben werde
 $strMultilingual = 'multilingual';
 $strMustSelectFile = 'Bitte geben Sie eine Datei an, die eingefügt werden soll.';
 $strMySQLCharset = 'MySQL-Zeichensatz';
+$strMySQLConnectionCollation = 'Zeichensatz / Sortierung der MySQL-Verbindung';
 $strMySQLReloaded = 'Die MySQL-Benutzertabellen wurden neu geladen.';
 $strMySQLSaid = 'MySQL meldet: ';
 $strMySQLServerProcess = 'Verbunden mit MySQL %pma_s1% auf %pma_s2% als %pma_s3%';

@@ -19,6 +19,7 @@
  *
  * @global  string   the current language
  * @global  string   the current conversion charset
+ * @global  string   the current connection collation
  * @global  string   the current server
  * @global  array    the configuration array
  * @global  boolean  whether recoding is allowed or not
@@ -27,10 +28,14 @@
  *
  * @author  nijel
  */
-function PMA_generate_common_hidden_inputs ($db = '', $table = '', $indent = 0)
+function PMA_generate_common_hidden_inputs ($db = '', $table = '', $indent = 0, $skip = array())
 {
-    global $lang, $convcharset, $server;
+    global $lang, $convcharset, $collation_connection, $server;
     global $cfg, $allow_recoding;
+    
+    if (!is_array($skip)) {
+        $skip = array($skip);
+    }
 
     $spaces = '';
     for ($i = 0; $i < $indent; $i++) {
@@ -39,11 +44,13 @@ function PMA_generate_common_hidden_inputs ($db = '', $table = '', $indent = 0)
 
     $result = $spaces . '<input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
             . $spaces . '<input type="hidden" name="server" value="' . $server . '" />' . "\n";
-    if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)
+    if (!in_array('convcharset', $skip) && isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)
         $result .= $spaces . '<input type="hidden" name="convcharset" value="' . $convcharset . '" />'  . "\n";
-    if (!empty($db))
+    if (!in_array('collation_connection', $skip) && isset($collation_connection))
+        $result .= $spaces . '<input type="hidden" name="collation_connection" value="' . $collation_connection . '" />'  . "\n";
+    if (!in_array('db', $skip) && !empty($db))
         $result .= $spaces . '<input type="hidden" name="db" value="'.htmlspecialchars($db).'" />' . "\n";
-    if (!empty($table))
+    if (!in_array('table', $skip) && !empty($table))
         $result .= $spaces . '<input type="hidden" name="table" value="'.htmlspecialchars($table).'" />' . "\n";
     return $result;
 }
@@ -60,6 +67,7 @@ function PMA_generate_common_hidden_inputs ($db = '', $table = '', $indent = 0)
  *
  * @global  string   the current language
  * @global  string   the current conversion charset
+  * @global  string   the current connection collation
  * @global  string   the current server
  * @global  array    the configuration array
  * @global  boolean  whether recoding is allowed or not
@@ -70,13 +78,15 @@ function PMA_generate_common_hidden_inputs ($db = '', $table = '', $indent = 0)
  */
 function PMA_generate_common_url ($db = '', $table = '', $amp = '&amp;')
 {
-    global $lang, $convcharset, $server;
+    global $lang, $convcharset, $collation_connection, $server;
     global $cfg, $allow_recoding;
 
     $result = 'lang=' . $lang
        . $amp . 'server=' . $server;
     if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)
-        $result .= $amp . 'convcharset=' . $convcharset;
+        $result .= $amp . 'convcharset=' . urlencode($convcharset);
+    if (isset($collation_connection))
+        $result .= $amp . 'collation_connection=' . urlencode($collation_connection);
     if (!empty($db))
         $result .= $amp . 'db='.urlencode($db);
     if (!empty($table))

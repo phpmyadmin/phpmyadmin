@@ -722,4 +722,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
+$strMySQLConnectionCollation = 'MySQL connection collation';  //to translate
 ?>

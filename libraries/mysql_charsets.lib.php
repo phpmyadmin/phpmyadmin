@@ -285,7 +285,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
     define('PMA_CSDROPDOWN_COLLATION', 0);
     define('PMA_CSDROPDOWN_CHARSET',   1);
     
-    function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION, $name = NULL, $id = NULL, $default = NULL, $label = TRUE, $indent = 0) {
+    function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION, $name = NULL, $id = NULL, $default = NULL, $label = TRUE, $indent = 0, $submitOnChange = FALSE) {
         global $mysql_charsets, $mysql_charsets_descriptions, $mysql_collations;
 
         if (empty($name)) {
@@ -299,7 +299,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         $spacer = '';
         for ($i = 1; $i <= $indent; $i++) $spacer .= '    ';
 
-        $return_str  = $spacer . '<select name="' . htmlspecialchars($name) . '"' . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"') . '>' . "\n";
+        $return_str  = $spacer . '<select name="' . htmlspecialchars($name) . '"' . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"') . ($submitOnChange ? ' onchange="this.form.submit();"' : '') . '>' . "\n";
         if ($label) {
             $return_str .= $spacer . '    <option value="">' . ($type == PMA_CSDROPDOWN_COLLATION ? $GLOBALS['strCollation'] : $GLOBALS['strCharset']) . '</option>' . "\n";
         }
