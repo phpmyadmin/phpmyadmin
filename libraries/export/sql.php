@@ -57,7 +57,7 @@ function PMA_exportHeader() {
     global $cfg;
 
     if (PMA_MYSQL_INT_VERSION >= 40100 && isset($GLOBALS['sql_compat']) && $GLOBALS['sql_compat'] != 'NONE') {
-        PMA_DBI_query('SET SQL_MODE="' . $GLOBALS['sql_compat'] . '"');
+        PMA_DBI_try_query('SET SQL_MODE="' . $GLOBALS['sql_compat'] . '"');
     }
 
     $head  =  $GLOBALS['comment_marker'] . 'phpMyAdmin SQL Dump' . $crlf

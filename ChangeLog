@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-02 Michal Čihař  <michal@cihar.com>
+    * libraries/export/sql.php, libraries/display_export.lib.php: Do not offer
+      modes not available in current MySQL version, do not fail on error when
+      setting SQL_MODE (bug #1155209).
+
 2005-03-02 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: bug #1154307, wrong text for alt,
       thanks to Isaac Bennetch - ibennetch
@@ -12,7 +17,7 @@ $Source$
       thanks to Isaac Bennetch - ibennetch
 
 2005-03-01 Marc Delisle  <lem9@users.sourceforge.net>
-    * Documentation.html: bug #1153684, wrong doc for PDF pages generation, 
+    * Documentation.html: bug #1153684, wrong doc for PDF pages generation,
       thanks to Ryan Schmidt
     * libraries/auth/config.auth.lib.php: bug #1149565, tooltip.js undefined
       var
