@@ -8,6 +8,7 @@ $Source$
 2001-08-25  Marc Delisle  <lem9@users.sourceforge.net>
 	* lib.inc.php3, bug 455088, avoid to reveal username/password
 	  from config file when they are wrong or MySQL server does not answer
+	* Documentation.html, FAQ about how to send bug reports
 
 2001-08-23  Marc Delisle  <lem9@users.sourceforge.net>
 	* lib.inc.php3, bug 454477, added LIMIT 1 to delete only one instance
