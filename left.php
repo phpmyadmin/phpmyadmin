@@ -891,6 +891,31 @@ else {
     echo '<p>' . $strNoDatabases . '</p>';
 } // end if ($num_dbs == 0)
 echo "\n";
+
+// 2004-08-05 added by Michael Keck
+//            reload queryframe if it exists and we delete a database
+//            or select a database from the db_list.
+$my_lightm_db = '';
+if (isset($lightm_db) && $lightm_db!='') {
+    $my_lightm_db = $lightm_db;
+}
+
+if ($cfg['LeftFrameLight'] && $cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
+    if (!isset($table_array) || count($table_array)==0) {
+        $my_url_query = PMA_generate_common_url('', '', '&');
+?>
+<script language="JavaScript" type="text/javascript">
+<!--
+    if (typeof(window.parent.frames['queryframe'])!='undefined' && typeof(window.parent.frames['queryframe'].document.forms['left'])!='undefined') {
+        if (window.parent.frames['queryframe'].document.forms['left'].elements['lightm_db'].value!='<?php echo $my_lightm_db; ?>') {
+            window.parent.frames['queryframe'].location.replace('<?php echo 'queryframe.php?' . $my_url_query . '&hash=' . $hash; ?>');
+        }
+    }
+//-->
+</script>
+<?php
+    }
+}
 ?>
 
 </body>

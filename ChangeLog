@@ -9,6 +9,7 @@ $Source$
     (Patches from Michael Keck)
     * index.php: names and ids for framesets in the noscript section
     * updated themes screenshots
+    * left.php: bug 998698, db dropdown refresh
     (me)
     * lang/galician: Updated, thanks to Xosé Calvo.
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
