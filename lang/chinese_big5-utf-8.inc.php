@@ -8,6 +8,7 @@
 
 $charset = 'utf-8';
 $allow_recoding = TRUE;
+$allow_recoding = TRUE;
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'helvetica, sans-serif';
@@ -732,4 +733,7 @@ $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //t
 $strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
 $strIgnoreInserts = 'Use ignore inserts';  //to translate
 $strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
+$strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
+$strMIMETypesForTable = 'MIME TYPES FOR TABLE';  //to translate
+$strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
 ?>

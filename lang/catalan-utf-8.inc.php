@@ -726,4 +726,7 @@ $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //t
 $strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
 $strIgnoreInserts = 'Use ignore inserts';  //to translate
 $strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
+$strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
+$strMIMETypesForTable = 'MIME TYPES FOR TABLE';  //to translate
+$strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
 ?>
