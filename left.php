@@ -310,27 +310,27 @@ if ($cfg['LeftDisplayLogo']) {
 }
 echo "\n";
 if ($cfg['LeftDisplayServers']) {
-	if ($cfg['LeftDisplayServersList']){
+    if ($cfg['LeftDisplayServersList']){
 ?>
 
-	<br />
+    <br />
 
 <?php
-	}else{
+    }else{
 ?>
 
         <form method="post" action="index.php" target="_parent">
             <select name="server" onchange="this.form.submit();">
     <?php
-	}
+    }
 
     foreach($cfg['Servers'] AS $key => $val) {
         if (!empty($val['host'])) {
 
-		$selected = 0;
+            $selected = 0;
 
             if (!empty($server) && ($server == $key)) {
-		$selected = 1;
+                $selected = 1;
             }
             if (!empty($val['verbose'])) {
                 $label = $val['verbose'];
@@ -355,29 +355,22 @@ if ($cfg['LeftDisplayServers']) {
                 $label .= '  (' . $val['user'] . ')';
             }
 
-		if ($cfg['LeftDisplayServersList']){
-
-			if ($selected){
-				echo "&raquo; <b>$label</b><br />";
-			}else{
-				echo "&raquo; <a href=\"index.php?server=$key&lang=$lang&convcharset=$convcharset\" target=\"_top\">$label</a><br />";
-			}
-
-		} else {
-
-			echo "		<option value=\"$key\"".($selected?' selected':'').">$label</option>\n";
-		}
-
+            if ($cfg['LeftDisplayServersList']){
+                if ($selected) {
+                    echo '&raquo; <b>' . $label . '</b><br />';
+                }else{
+                    echo '&raquo; <a href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . $label . '</a><br />';
+                }
+            } else {
+                echo '      <option value="' . $key . '" ' . ($selected ? ' selected="selected"' : '') . '>' . $label . '</option>' . "\n";
+            }
 
         } // end if (!empty($val['host']))
     } // end while
-	if ($cfg['LeftDisplayServersList']){
-    ?>
 
-	<br />
-
-<?php
-	}else{
+    if ($cfg['LeftDisplayServersList']){
+        echo '<br />';
+    } else {
 ?>
             </select>
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
@@ -385,7 +378,7 @@ if ($cfg['LeftDisplayServers']) {
             <noscript><input type="submit" value="<?php echo $strGo; ?>" /></noscript>
         </form>
 <?php
-	}
+    }
 }
 echo "\n";
 ?>
@@ -393,7 +386,7 @@ echo "\n";
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
         <nobr><a class="item" href="main.php?<?php echo PMA_generate_common_url(); ?>"><span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
 <?php
-// Logout for advanced authentication   
+// Logout for advanced authentication
 if ($cfg['Server']['auth_type'] != 'config') {
 ?>
         - <nobr><a class="item" href="index.php?<?php echo PMA_generate_common_url(); ?>&amp;old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent"><span class="heada"><b><?php echo $strLogout; ?></b></span></a></nobr>
@@ -439,7 +432,7 @@ if ($num_dbs > 1) {
 
     $selected_db = 0;
 
-    // natural order for db list 
+    // natural order for db list
     if ($cfg['NaturalOrder'] && $num_dbs > 0) {
         $dblist_temp = $dblist;
         natsort($dblist_temp);
@@ -579,8 +572,11 @@ if ($num_dbs > 1) {
 
             // Builds the databases' names list
             if (!empty($db_start) && $db == $db_start) {
+                $table_title = array();
+                $table_array = array();
                 // Gets the list of tables from the current database
                 while (list($table) = PMA_DBI_fetch_row($tables)) {
+                    $table_array[$table] = '';
                     $url_title  = (!empty($tooltip) && isset($tooltip[$table]))
                                 ? htmlentities($tooltip[$table])
                                 : '';
@@ -593,7 +589,6 @@ if ($num_dbs > 1) {
                     // natural order or not, use an array for the table list
 
                     $table_array[$table] .= '    <nobr><a target="phpmain' . $hash . '" href="sql.php?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '">' . "\n";
-
                     $table_array[$table] .= '              <img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" title="' . $strBrowse . ': ' . $url_title . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
 
                     if (PMA_USR_BROWSER_AGENT == 'IE') {
@@ -606,14 +601,15 @@ if ($num_dbs > 1) {
 
                 } // end while (tables list)
 
-                if ($cfg['NaturalOrder'] && $num_tables > 0) {
-                    natsort($table_title);
-                }
-                foreach (array_keys($table_title) as $each){
-                    $table_list .= " $table_array[$each]";
-                }
+                if (count($table_title) > 0) {
+                    if ($cfg['NaturalOrder'] && $num_tables > 0) {
+                        natsort($table_title);
+                    }
 
-                if (!$table_list) {
+                    foreach($table_title as $each_key => $each_val) {
+                        $table_list .= ' ' . $table_array[$each_key];
+                    }
+                } else {
                     $table_list = '    <br /><br />' . "\n"
                                 . '    <div>' . $strNoTablesFound . '</div>' . "\n";
                 }

@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
+    * left.php: Fixed bug #942374 - Undefined indizes in left frame
+      for light mode. Improved performance. Fixed tab-formatted code and
+      adjusted to coding guidelines.
     * read_dump.php: Fixed bug #942390 - When entering a "USE database"
       query together with multiple other queries, the db was reset to
       the first one.
