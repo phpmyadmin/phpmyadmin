@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 
+2002-08-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/afrikaans update, thanks to Andreas Pauley
+
 2002-08-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/turkish-*.inc.php3: Updates, thanks again to
       Bora Alioglu <bora at risc01.ktu.edu.tr>.

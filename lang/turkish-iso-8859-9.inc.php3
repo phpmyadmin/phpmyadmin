@@ -137,6 +137,7 @@ $strEnabled = 'Etkin';
 $strEnd = 'Son';
 $strEnglishPrivileges = ' Not: mySQL  öncelik adlarý Ýngilizce olarak belirtilmiþtir ';
 $strError = 'Hata';
+$strExplain = 'SQL\'i açýkla';
 $strExport = 'Dönüþtür';
 $strExportToXML = 'XML formatýna dönüþtür';
 $strExtendedInserts = 'Geniþletilmiþ eklemeler';
@@ -227,6 +228,7 @@ $strNo = 'Hayýr';
 $strNoDatabases = 'Veritabaný yok';
 $strNoDescription = 'Tanýmlama yok';
 $strNoDropDatabases = '"DROP DATABASE" cümlesi burada kullanýlamaz.';
+$strNoExplain = 'SQL açýklamasýný yapma';
 $strNoFrames = 'phpMyAdmin frame destekli bir taray&#305;c&#305; ile daha iyi çal&#305;&#351;maktad&#305;r...';
 $strNoIndex = 'Index tan&#305;mlanmad&#305;!';
 $strNoIndexPartsDefined = 'Index k&#305;sm&#305; tan&#305;mlanmad&#305;!';
@@ -243,6 +245,7 @@ $strNotOK = 'Tamam deðil';
 $strNotSet = '<b>%s</b> tablosu bulunamadý veya %s içinde tanýmlanmadý';
 $strNotValidNumber = ' geçerli bir satýr sayýsý deðil!';
 $strNoUsersFound = 'Kullanýcý(lar) bulunamadý.';
+$strNoValidateSQL = 'SQL doðrulamasýný yapma';
 $strNull = 'Boþ';
 $strNumSearchResultsInTable = '%s eþleþim : %s tablosu içinde';
 $strNumSearchResultsTotal = 'Toplam: %s eþleþim';
@@ -400,6 +403,7 @@ $strUserName = 'Kullanýcý ismi';
 $strUsers = 'Kullanýcýlar';
 $strUseTables = 'Tablolarý kullan';
 
+$strValidateSQL = 'SQL\'i doðrula'; 
 $strValue = 'Deðer';
 $strViewDump = 'Tablo\'nun döküm(þema)\'ünü göster';
 $strViewDumpDB = 'Veritabaný\'nýn döküm(þema)\'ünü göster';
@@ -413,11 +417,8 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiþ"';
 
 // To translate
+
 $strPdfNoTables = 'No tables';  //to translate
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
 $strBeginCut = 'BEGIN CUT';  //to translate
 $strEndCut = 'END CUT';  //to translate
 $strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
