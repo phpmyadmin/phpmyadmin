@@ -9,6 +9,7 @@ $Source$
 	* index.php3; libraries/common.lib.php3; libraries/defines.lib.php3;
 	  libraries/grab_globals.lib.php3; libraries/select_lang.lib.php3:
 	  taken into account the new $_* globals arrays defined with php 4.1+.
+	* read_dump.php3, lines 131-152 & 217: fixed a possible security issue.
 
 2001-11-24  Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3, line 200: fixed bug #485116 - No logout option for users.
