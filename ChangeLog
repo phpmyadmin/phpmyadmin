@@ -11,21 +11,24 @@ $Source$
 	  (removed check about 'References_priv').
 	* lang/*: added $strServerChoice and $strPmaDocumentation.
 	* images/item.gif: used on main.php3.
-	* main.php3: language selection now via a pulldown menu
+	* main.php3: language selection now via a pulldown menu.
 
 2001-08-22  Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html: added a FAQ about index creation.
 
 2001-08-22  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_properties.php3, line 983; lang/*: added $strDropTable.
-	* lib.inc.php3, lines 1674-1680: enclose all fields in cvs generated files
-	  if this option has been checked.
+	* lib.inc.php3:
+	  - lines 1674-1680: enclose all fields in cvs generated files if this
+	    option has been checked.
+	  - split_sql_file(): fix a bug when a backquoted table/field name ends
+	    with a backslash.
 	* main.php3: XHTML1.0 fixes.
 	* footer.inc.php3, lines 9-10; lib.inc.php3, line 162: the "</body>" html
 	  tag was lacking.
 	* db_stats.php3, lines 14-12: optimized a bit.
 	* main.php3, lines 298-299; Documentation.html, lines 694-705: added a FAQ
-	  entry about the logout bug and a link to it at the welcome page.
+	  entry about the logout bug.
 	* left.php3: optimized the way tables list is build.
 	* lang/polish.inc.php3: updated thanks to Piotr Roszatycki.
 	* db_create.php3; db_stat.php3; lib.inc.php3; left.php3; main.php3;
@@ -33,6 +36,7 @@ $Source$
 	  tbl_properties.php3; tbl_rename.php3; tbl_select.php3: improved the error
 	  handling system (it will be easier to debug the script since all the
 	  queries will be displayed in case of errors).
+	* main.php3: fixed an xhtml1.0 error and removed the js "onchange" handler.
 
 2001-08-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3: fixed a syntax error (is_defined is not a function).
