@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-19 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * tbl_properties_links.php3: Fixed bug #583969.
+
 2002-07-19 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3, bug 583833: should not complain if some tables
       are missing
