@@ -350,4 +350,5 @@ $strZip = '"zippad"';
 // To translate
 $strLinksTo = 'Links to';  //to translate
 $strExport = 'Export';  //to translate
+$strOperations = 'Operations';  //to translate
 ?>

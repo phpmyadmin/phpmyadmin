@@ -10,8 +10,9 @@ $Source$
 	  start the split
 	* tbl_properties.php3, new tbl_properties_export.php3, 
 	  tbl_properties_links.php3, lang/*.php3: export is splitted
-	* new tbl_properties_table_info, to be able to display links
+	* new tbl_properties_table_info.php3, to be able to display links
 	  on the export page
+	* new tbl_properties_operations.php3
 
 2002-04-28 Alexander M. Turek  <rabus@users.sourceforge.net>
 	* header.inc.php3, lines 162-170: Improved patch #548696.

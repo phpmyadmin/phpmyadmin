@@ -350,4 +350,5 @@ $strZip = '"Zip komprimiert"';
 
 // To translate
 $strExport = 'Export';  //to translate
+$strOperations = 'Operations';  //to translate
 ?>
