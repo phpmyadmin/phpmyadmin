@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-13 Robin Johnson  <robbat2@users.sourceforge.net>
+    * libraries/sqlparser.lib.php3: bug #621357
+
 2002-10-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php3: bug 620624
 
