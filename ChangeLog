@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/*: bug 1009667: do not spell Ms Excel but MS Excel
+
 2004-08-19 Michal Čihař  <michal@cihar.com>
     * read_dump.php: Fixed one case of reload detection (I forgot to update
       second regexp on 2004-08-16) (bug #1011479).
