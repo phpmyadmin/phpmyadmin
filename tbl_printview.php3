@@ -38,7 +38,7 @@ mysql_select_db($db);
  * Multi-tables printview thanks to Christophe Gesché from the "MySQL Form
  * Generator for PHPMyAdmin" (http://sourceforge.net/projects/phpmysqlformgen/)
  */
-if (is_array($selected_tbl)) {
+if (isset($selected_tbl) && is_array($selected_tbl)) {
     $the_tables   = $selected_tbl;
 } else if (isset($table)) {
     $the_tables[] = $table; 
@@ -163,11 +163,11 @@ while (list($key, $table) = each($the_tables)) {
 
         $type             = $row['Type'];
         // reformat mysql query output - staybyte - 9. June 2001
-        $shorttype        = substr($type, 0, 3);
-        if ($shorttype == 'set' || $shorttype == 'enu') {
-            $type         = eregi_replace(',', ', ', $type);
-            // Removes automatic MySQL escape format
-            $type         = str_replace('\'\'', '\\\'', $type);
+        // loic1: set or enum types: slashes single quotes inside options
+        if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
+            $tmp[2]       = ereg_replace('([^,])\'([^,])', '\\1\\\'\\2', ',' . $tmp[2] . ',');
+            $tmp[2]       = substr($tmp[2], 1, -1);
+            $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
             $type_nowrap  = '';
         } else {
             $type_nowrap  = ' nowrap="nowrap"';

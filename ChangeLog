@@ -10,6 +10,8 @@ $Source$
 	  the code and the results of the patch #484112.
 	* sql.php3, lines 92 & 278; tbl_replace.php3, line 130: fixed bug #489770 -
 	  File name too long in tbl_replace.php.
+	* tbl_printview.php3; tbl_properties.php3; tbl_properties.inc.php3: fixed
+	  bug #489440 - enum fields in tbl_properties.php.
 
 2001-12-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/japanese.inc.php3; lang/bulgarian-*.inc.php3: completed thanks to

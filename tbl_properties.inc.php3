@@ -87,24 +87,30 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     $type   = eregi_replace('BINARY', '', $type);
     $type   = eregi_replace('ZEROFILL', '', $type);
     $type   = eregi_replace('UNSIGNED', '', $type);
-    $length = $type;
-    $type   = chop(eregi_replace('\\(.*\\)', '', $type));
-    if (!empty($type)) {
-        $length = eregi_replace("^$type\(", '', $length);
-        $length = eregi_replace('\)$', '', trim($length));
-    }
-    // Removes automatic MySQL escape format
-    $length = str_replace('\'\'', '\\\'', $length);
-    if ($length == $type) {
-        $length = '';
-    }
+    // set or enum types: slashes single quotes inside options
+    if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
+        $type   = $tmp[1];
+        $length = ereg_replace('([^,])\'([^,])', '\\1\\\'\\2', ',' . $tmp[2] . ',');
+        $length = substr($length, 1, -1);
+    } else {
+        $length = $type;
+        $type   = chop(eregi_replace('\\(.*\\)', '', $type));
+        if (!empty($type)) {
+            $length = eregi_replace("^$type\(", '', $length);
+            $length = eregi_replace('\)$', '', trim($length));
+        }
+        if ($length == $type) {
+            $length = '';
+        }
+    } // end if else
+
     for ($j = 0; $j < count($cfgColumnTypes); $j++) {
         echo '                <option value="'. $cfgColumnTypes[$j] . '"';
         if (strtoupper($type) == strtoupper($cfgColumnTypes[$j])) {
             echo ' selected="selected"';
         }
         echo ">$cfgColumnTypes[$j]</option>\n";
-    }
+    } // end for
     ?>
             </select>
         </td>
