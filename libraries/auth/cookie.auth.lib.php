@@ -11,7 +11,7 @@
 
 
 if (!isset($coming_from_common)) {
-   exit();
+   exit;
 }
 
 require_once('./libraries/blowfish.php');

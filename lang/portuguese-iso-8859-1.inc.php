@@ -234,7 +234,7 @@ $strFieldsEmpty = ' Número de campos inválido! ';
 $strFieldsEnclosedBy = 'Campos delimitados por';
 $strFieldsEscapedBy = 'Campos precedidos por';
 $strFieldsTerminatedBy = 'Campos terminados por';
-$strFileAlreadyExists = 'O ficheiro  %s já existe no servidor, mude o nome do ficheiro ou verifique a opção de substituição (re-escrita).'; 
+$strFileAlreadyExists = 'O ficheiro  %s já existe no servidor, mude o nome do ficheiro ou verifique a opção de substituição (re-escrita).';
 $strFileCouldNotBeRead = 'Não foi possível ler o ficheiro';
 $strFileNameTemplate = 'Nome do ficheiro modelo';
 $strFileNameTemplateHelp = 'Usar __DB__ para nome da Base de Dados, __TABLE__ para nome da tabela e %sany strftime%s opções para especificção do tempo , a extensão será acrescentada automaticamente. Qualquer outro texto será preservado.';
@@ -653,7 +653,7 @@ $strUpdatePrivMessage = 'Actualizou os privilégios de %s.';
 $strUpdateProfile = 'Actualiza o prefil:';
 $strUpdateProfileMessage = 'O prefil foi actualizado.';
 $strUpdateQuery = 'Actualiza Comando SQL';
-$strUpgrade = 'deve actualizar para %s %s ou mais recente.'; 
+$strUpgrade = 'deve actualizar para %s %s ou mais recente.';
 $strUsage = 'Utilização';
 $strUseBackquotes = 'Usar apóstrofes com os nomes das tabelas e campos';
 $strUseHostTable = 'Usar a tabela do anfitrião';
@@ -740,4 +740,5 @@ $strViewDumpDatabases = 'View dump (schema) of databases';//to translate
 $strWildcard = 'wildcard';  //to translate
 $strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
 
+$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 ?>

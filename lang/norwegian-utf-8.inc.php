@@ -727,4 +727,5 @@ $strZip = 'Komprimert (zip)';
 
 // To translate
 
+$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 ?>

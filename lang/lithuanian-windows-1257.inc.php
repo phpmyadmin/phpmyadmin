@@ -720,4 +720,5 @@ $strYes = 'Taip';
 $strZeroRemovesTheLimit = 'Pastaba: nëra jokiø apribojimø jeigu reikðmë nurodyta lygi 0 (nuliui).';
 $strZip = '"zip"';
 
+ = 'Cannot connect: invalid settings.';  //to translate
 ?>

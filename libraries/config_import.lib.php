@@ -94,6 +94,10 @@ if (isset($cfg['Servers'])) {
             $cfg['Servers'][$i]['connect_type'] = 'tcp';
         }
 
+        if (!isset($cfg['Servers'][$i]['extension'])) {
+            $cfg['Servers'][$i]['extension'] = 'mysql';
+        }
+
         if (!isset($cfg['Servers'][$i]['controluser']) && isset($cfg['Servers'][$i]['stduser'])) {
             $cfg['Servers'][$i]['controluser'] = $cfg['Servers'][$i]['stduser'];
             $cfg['Servers'][$i]['controlpass'] = $cfg['Servers'][$i]['stdpass'];

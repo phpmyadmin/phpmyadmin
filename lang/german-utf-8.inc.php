@@ -729,4 +729,5 @@ $strZip = 'Zip-komprimiert';
 
 $strTransformation_application_octetstream__download = 'Zeigt einen Link an, um die binären Daten eines Feldes downloaden zu können. Die erste Option benennt den Dateinamen. Die zweite Option kann einen Spaltennamen der Tabelle benennen, aus dem der Dateiname geholt werden soll. Sollte die zweite Option gesetzt sein ist es notwendig, die erste Option auf einen Leerstring zu setzen (\'\')';
 $strMaximumSize = 'Maximum size: %s%s';  //to translate
+$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 ?>

@@ -24,7 +24,7 @@ $datefmt = '%e %B %Y в %H:%M';
 
 $timespanfmt = '%s дена, %s часа, %s минути и %s секунди';
 
- 
+
 
 $strAPrimaryKey = 'Бeшe добавен първичен ключ към ';
 $strAbortedClients = 'Прекъснати';
@@ -139,7 +139,7 @@ $strConfigureTableCoord = 'Моля конфигурирайте координ�
 $strConfirm = 'Действително ли желаете да го направите?';
 $strConnections = 'Конекции';
 $strConstraintsForDumped = 'Ограничения за дъмпнати таблици';
-$strConstraintsForTable = 'Ограничения за таблица'; 
+$strConstraintsForTable = 'Ограничения за таблица';
 $strCookiesRequired = 'Оттук нататък са необходими "Cookies".';
 $strCopyTable = 'Копиране на таблица (база от данни<b>.</b>таблица):';
 $strCopyTableOK = 'Таблица %s беше копирана в %s.';
@@ -154,7 +154,7 @@ $strCreatePage = 'Създай нова Страница';
 $strCreatePdfFeat = 'Създаване на PDF-и';
 $strCreationDates = 'Създаване/Обновяване/Проверка на дати';
 $strCriteria = 'Критерий';
-$strCroatian = 'Хърватски';  
+$strCroatian = 'Хърватски';
 $strCyrillic = 'Кирилица';
 $strCzech = 'Чешки';
 
@@ -234,7 +234,7 @@ $strEnglishPrivileges = ' Забележка: Имената на привиле
 $strError = 'Грешка';
 $strEstonian = 'Естонски';
 $strExcelEdition = 'Excel-ска редакция';
-$strExcelOptions = 'Опции на Excel'; 
+$strExcelOptions = 'Опции на Excel';
 $strExecuteBookmarked = 'Стартиране на запазена SQL-заявка';
 $strExplain = 'Explain SQL';
 $strExport = 'Експортиране';
@@ -458,7 +458,7 @@ $strPrimaryKeyName = 'Името на главния ключ трябва да 
 $strPrimaryKeyWarning = '("PRIMARY" <b>трябва</b> да е името на <b>и единствено на</b> главния ключ!)';
 $strPrint = 'Изпечатай';
 $strPrintView = 'Изглед за печат';
-$strPrintViewFull = 'Преглед за печат (с пълните текстове)'; 
+$strPrintViewFull = 'Преглед за печат (с пълните текстове)';
 $strPrivDescAllPrivileges = 'Включва всички привилегии освен GRANT.';
 $strPrivDescAlter = 'Позволява променяне на структурата на съществуващи таблици.';
 $strPrivDescCreateDb = 'Позволява създаване на нови бази данни и таблици.';
@@ -572,7 +572,7 @@ $strSearchOption3 = 'точната фраза';
 $strSearchOption4 = 'като регулярен израз';
 $strSearchResultsFor = 'Резултати от търсенето на "<i>%s</i>" %s:';
 $strSearchType = 'Намери:';
-$strSecretRequired = 'Конфигурационния файл има нужда от тайна парола (blowfish_secret).'; 
+$strSecretRequired = 'Конфигурационния файл има нужда от тайна парола (blowfish_secret).';
 $strSelect = 'Избери';
 $strSelectADb = 'Моля изберете база данни';
 $strSelectAll = 'Селектирай всичко';
@@ -733,4 +733,5 @@ $strGeorgian = 'Georgian';  //to translate
 $strCzechSlovak = 'Czech-Slovak';  //to translate
 $strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
 $strMaximumSize = 'Maximum size: %s%s';  //to translate
+$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 ?>

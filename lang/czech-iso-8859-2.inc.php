@@ -726,4 +726,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
+$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 ?>

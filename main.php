@@ -72,7 +72,7 @@ if ($server > 0) {
     //     $server_info .= ':' . $cfg['Server']['socket'];
     // }
     $local_query             = 'SELECT VERSION() as version, USER() as user';
-    $res                     = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, '');
+    $res                     = PMA_DBI_query($local_query);
     $mysql_cur_user_and_host = PMA_mysql_result($res, 0, 'user');
     $mysql_cur_user          = substr($mysql_cur_user_and_host, 0, strrpos($mysql_cur_user_and_host, '@'));
 
@@ -88,7 +88,7 @@ if ($server > 0) {
  * Reload mysql (flush privileges)
  */
 if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $result = PMA_mysql_query('FLUSH PRIVILEGES'); // Debug: or PMA_mysqlDie('', 'FLUSH PRIVILEGES', FALSE, 'main.php?' . PMA_generate_common_url());
+    $result = PMA_DBI_query('FLUSH PRIVILEGES'); // Debug: or PMA_mysqlDie('', 'FLUSH PRIVILEGES', FALSE, 'main.php?' . PMA_generate_common_url());
     echo '<p><b>';
     if ($result != 0) {
       echo $strMySQLReloaded;
@@ -177,10 +177,10 @@ if ($server > 0) {
 // We were checking privileges with 'USE mysql' but users with the global
 // priv CREATE TEMPORARY TABLES or LOCK TABLES can do a 'USE mysql'
 // (even if they cannot see the tables)
-    $is_superuser    = @PMA_mysql_query('SELECT COUNT(*) FROM mysql.user', $userlink);
+    $is_superuser    = PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', $userlink);
     if ($dbh) {
         $local_query = 'SELECT Create_priv, Process_priv, Reload_priv FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
-        $rs_usr      = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+        $rs_usr      = PMA_DBI_try_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
             while ($result_usr = PMA_mysql_fetch_array($rs_usr)) {
                 if (!$is_create_priv) {
@@ -204,7 +204,7 @@ if ($server > 0) {
     // the one he just dropped :)
     if (!$is_create_priv) {
         $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
-        $rs_usr      = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+        $rs_usr      = PMA_DBI_try_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
             $re0     = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
             $re1     = '(^|[^\])(\\\)+';       // escaped wildcards
@@ -224,12 +224,12 @@ if ($server > 0) {
             // GRANTS...
             // Maybe we'll find a little CREATE priv there :)
             $local_query = 'SHOW GRANTS FOR ' . $mysql_cur_user_and_host;
-            $rs_usr      = PMA_mysql_query($local_query, $dbh);
+            $rs_usr      = PMA_DBI_try_query($local_query, $dbh);
             if (!$rs_usr) {
                 // OK, now we'd have to guess the user's hostname, but we
                 // only try out the 'username'@'%' case.
                 $local_query = 'SHOW GRANTS FOR ' . $mysql_cur_user;
-                $rs_usr      = PMA_mysql_query($local_query, $dbh);
+                $rs_usr      = PMA_DBI_try_query($local_query, $dbh);
             }
             if ($rs_usr) {
                 $re0 = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards

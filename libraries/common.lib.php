@@ -147,7 +147,7 @@ require_once('./libraries/select_lang.lib.php');
 
 if ($is_minimum_common == FALSE) {
     /**
-     * Include MySQL wrappers.
+     * Include MySQL wrappers (discounted).
      */
     require_once('./libraries/mysql_wrappers.lib.php');
 }
@@ -280,24 +280,6 @@ if ($is_minimum_common == FALSE) {
      * Include URL/hidden inputs generating.
      */
     require_once('./libraries/url_generating.lib.php');
-
-    /**
-     * Loads the mysql extensions if it is not loaded yet
-     */
-    if (!@function_exists('mysql_connect')) {
-        PMA_dl('mysql');
-    }
-
-    // check whether mysql is available
-    if (!@function_exists('mysql_connect')) {
-        if (empty($is_header_sent)) {
-            require_once('./libraries/header_http.inc.php');
-        }
-        echo $strCantLoadMySQL . '<br />' . "\n"
-             . '<a href="./Documentation.html#faqmysql" target="documentation">' . $GLOBALS['strDocu'] . '</a>' . "\n";
-        exit();
-    }
-
 
     /**
      * Add slashes before "'" and "\" characters so a value containing them can
@@ -904,13 +886,7 @@ if ($is_minimum_common == FALSE) {
         }
     }
 
-
-    /**
-     * Use mysql_connect() or mysql_pconnect()?
-     */
-    $connect_func = ($cfg['PersistentConnections']) ? 'mysql_pconnect' : 'mysql_connect';
     $dblist       = array();
-
 
     /**
      * Gets the valid servers list and parameters
@@ -955,19 +931,10 @@ if ($is_minimum_common == FALSE) {
     else if (isset($cfg['Servers'][$server])) {
         $cfg['Server'] = $cfg['Servers'][$server];
 
-        // Check how the config says to connect to the server
-        $server_port   = (empty($cfg['Server']['port']))
-                       ? ''
-                       : ':' . $cfg['Server']['port'];
-        if (strtolower($cfg['Server']['connect_type']) == 'tcp') {
-            $cfg['Server']['socket'] = '';
-        }
-        $server_socket = (empty($cfg['Server']['socket']))
-                       ? ''
-                       : ':' . $cfg['Server']['socket'];
-        if (PMA_MYSQL_CLIENT_API >= 32349) {
-            $client_flags = $cfg['Server']['compress'] && defined('MYSQL_CLIENT_COMPRESS') ? MYSQL_CLIENT_COMPRESS : 0;
-        }
+        /**
+         * Loads the proper database interface for this server
+         */
+        require_once('./libraries/database_interface.lib.php');
 
         // Gets the authentication library that fits the $cfg['Server'] settings
         // and run authentication
@@ -1039,63 +1006,14 @@ if ($is_minimum_common == FALSE) {
         // must be open after this one so it would be default one for all the
         // scripts)
         if ($cfg['Server']['controluser'] != '') {
-            if (empty($client_flags)) {
-                $dbh            = @$connect_func(
-                                      $cfg['Server']['host'] . $server_port . $server_socket,
-                                      $cfg['Server']['controluser'],
-                                      $cfg['Server']['controlpass']
-                                  );
-            } else {
-                $dbh            = @$connect_func(
-                                      $cfg['Server']['host'] . $server_port . $server_socket,
-                                      $cfg['Server']['controluser'],
-                                      $cfg['Server']['controlpass'],
-                                      FALSE,
-                                      $client_flags
-                                  );
-            }
-            if ($dbh == FALSE) {
-                if (PMA_mysql_error()) {
-                    $conn_error = PMA_mysql_error();
-                } else if (isset($php_errormsg)) {
-                    $conn_error = $php_errormsg;
-                } else {
-                    $conn_error = 'Cannot connect: invalid settings.';
-                }
-                $local_query    = $connect_func . '('
-                                . $cfg['Server']['host'] . $server_port . $server_socket . ', '
-                                . $cfg['Server']['controluser'] . ', '
-                                . $cfg['Server']['controlpass']
-                                . (empty($client_flags) ? '' : ', FALSE, ' . $client_flags)
-                                . ')';
-                require_once('./header.inc.php');
-                //PMA_mysqlDie($conn_error, $local_query, FALSE);
-                PMA_mysqlDie($conn_error, '', FALSE);
-            } // end if
+            $dbh = PMA_DBI_connect($cfg['Server']['controluser'], $cfg['Server']['controlpass']);
         } // end if
 
         // Pass #1 of DB-Config to read in master level DB-Config will go here
         // Robbat2 - May 11, 2002
 
         // Connects to the server (validates user's login)
-        if (empty($client_flags)) {
-            $userlink           = @$connect_func(
-                                      $cfg['Server']['host'] . $server_port . $server_socket,
-                                      $cfg['Server']['user'],
-                                      $cfg['Server']['password']
-                                  );
-        } else {
-            $userlink           = @$connect_func(
-                                      $cfg['Server']['host'] . $server_port . $server_socket,
-                                      $cfg['Server']['user'],
-                                      $cfg['Server']['password'],
-                                      FALSE,
-                                      $client_flags
-                                  );
-        }
-        if ($userlink == FALSE) {
-            PMA_auth_fails();
-        } // end if
+        $userlink = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password']);
 
         // Pass #2 of DB-Config to read in user level DB-Config will go here
         // Robbat2 - May 11, 2002

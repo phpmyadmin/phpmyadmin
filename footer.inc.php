@@ -120,13 +120,13 @@ if (isset($focus_querywindow) && $focus_querywindow == "true") {
 
 
 /**
- * Close MySql non-persistent connections
+ * Close database connections
  */
 if (isset($GLOBALS['dbh']) && $GLOBALS['dbh']) {
-    @mysql_close($GLOBALS['dbh']);
+    @PMA_DBI_close($GLOBALS['dbh']);
 }
 if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
-    @mysql_close($GLOBALS['userlink']);
+    @PMA_DBI_close($GLOBALS['userlink']);
 }
 ?>
 

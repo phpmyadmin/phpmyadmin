@@ -720,4 +720,5 @@ $strYes = 'Ya';
 $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) akan menghapus batas yang telah ditentukan.';
 $strZip = '"Dikompress dengan Zip"';
 
+ = 'Cannot connect: invalid settings.';  //to translate
 ?>

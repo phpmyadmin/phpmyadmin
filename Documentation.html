@@ -449,11 +449,29 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['Servers'][$i]['extension']</b> string</dt>
+    <dd>
+        What php MySQL extension to use for the connection. Valid options are:
+        <br /><br />
+        <tt><i>mysql</i></tt>&nbsp;:&nbsp;
+        The classic MySQL extension. This is the recommended and default
+        method at this time.
+        <br /><br />
+        <tt><i>mysqli</i></tt>&nbsp;:&nbsp;
+        The improved MySQL extension. This extension became available
+        with php 5.0.0 and is the recommended way to connect to a server
+        running MySQL 4.1.x.
+        <br />
+        Note: phpMyAdmin's MySQL 4.1 support is experimental!
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['Servers'][$i]['compress']</b> boolean</dt>
     <dd>
         Whether to use a compressed protocol for the MySQL server connection
         or not (experimental).<br />
         This feature requires PHP&nbsp;&gt;=&nbsp;4.3.0.
+        <br /><br />
     </dd>
 
     <dt>
