@@ -2396,19 +2396,21 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     that the older your MySQL version is, the more limitations you will have to
     face.
     <br />
-    phpMyAdmin provides experimental support for MySQL&nbsp;4.1. That means that
-    although you can assign character sets to a table or field, phpMyAdmin will
-    not recode the data when inserting or extracting it. Instead, it will still
-    use the character set you specified for the MySQL connection.<br />
+    phpMyAdmin provides experimental support for MySQL&nbsp;4.1 and 5.0. That
+    means that although you can assign character sets to a table or field,
+    phpMyAdmin will not recode the data when inserting or extracting it.
+    Instead, it will still use the character set you specified for the MySQL 
+    onnection.<br />
     When compiling php, we strongly recommend that you manually link the MySQL
     extension to a MySQL client library of at least the same version since the
-    one that is bundled with php 4.x is rather old and might cause problems.
+    one that is bundled with current php distributions is rather old and might
+    cause problems.
     <br />
     Also, we do not yet support the imporoved MySQL extension (mysqli) that
     comes with php&nbsp;5. For the moment, the old MySQL extension should also
     work fine here, if compiled correctly.
     <br />
-    MySQL 5.0 and 5.1 are not yet supported.
+    MySQL&nbsp;5.1 is not yet supported.
 </p>
 
 <h4>

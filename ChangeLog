@@ -5,8 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-27 Alexander M. Turek  <tragickingdom@derrabus.de>
+    * Documentation.html, README: I tested phpMyAdmin with MySQL 5.0.0-alpha.
+
 2003-12-25 Marc Delisle  <lem9@users.sourceforge.net>
-    * db_details_qbe.php: error when generating joins 
+    * db_details_qbe.php: error when generating joins
     * Documentation.html: FAQ 6.22: default bookmark execution
 
 2003-12-23 Marc Delisle  <lem9@users.sourceforge.net>
@@ -43,7 +46,7 @@ $Source$
     * tbl_change.php: max BLOB upload size
 
 2003-12-12 Marc Delisle  <lem9@users.sourceforge.net>
-    * db_details.php, libraries/common.lib.php, lang/*: 
+    * db_details.php, libraries/common.lib.php, lang/*:
       new feature to display the maximum upload size
       TODO: detect if upload succeeded
 
