@@ -776,7 +776,7 @@ if (isset($Field) && count($Field) > 0) {
                 	if (substr($Criteria[$x],0,1) == '=' || eregi('is',$Criteria[$x])) {
                     	$col_where[$_col] = $_col;
                         $tab_where[$_tab] = $_tab;
-//echo "new Whereclause:".$_tab."\n";
+// echo "new Whereclause:".$_tab."\n";
                     }
                 }
             }
@@ -786,14 +786,14 @@ if (isset($Field) && count($Field) > 0) {
          unset($_tab_raw,$_col_raw);
 
 
-        if (count($col_where) == 1) {
+        if (count($tab_where) == 1) {
             // if there is exactly one column that has a decent where-clause
             // we will just use this
-            $master = $col_where[0];
-//echo "nur ein where: master =".$master . "\n";
+            $master = key($tab_where);
+// echo "nur ein where: master =".$master . "\n";
         } else {
         	// now let's find out which of the tables has an index
-//echo "prüfe indexe:\n";
+// echo "prüfe indexe:\n";
 			while (list(, $_tab) = each($tab_all)) {
 				$ind_qry  = 'SHOW INDEX FROM ' . PMA_backquote($_tab);
                 $ind_rs   = PMA_mysql_query($ind_qry);
@@ -821,20 +821,20 @@ if (isset($Field) && count($Field) > 0) {
             // now we want to find the best.
 			if (isset($col_unique) && count($col_unique)>0) {
             	$col_cand = $col_unique;
-//echo "Kandidaten sind jetzt alle mit unique index\n";
+// echo "Kandidaten sind jetzt alle mit unique index\n";
                 $_needsort= 1;
             } elseif (isset($col_index) && count($col_index) > 0) {
             	$col_cand = $col_index;
                 $_needsort= 1;
-//echo "Kandidaten sind jetzt alle mit index\n";
+// echo "Kandidaten sind jetzt alle mit index\n";
             } elseif (isset($col_where) && count($col_where) > 0) {
             	$col_cand = $tab_where;
-//echo "Kandidaten sind jetzt alle im whereclause\n";
+// echo "Kandidaten sind jetzt alle im whereclause\n";
                 $_needsort= 0;
             } else {
             	$col_cand = $tab_all;
                 $_needsort= 0;
-//echo "Kandidaten sind jetzt alle \n";
+// echo "Kandidaten sind jetzt alle \n";
             }
 			
             //	if we came up with $col_unique (very good) or
@@ -854,10 +854,10 @@ if (isset($Field) && count($Field) > 0) {
                	}
                	if (isset($vg)) {
                 	$col_cand = $vg;
-//echo "Kandidaten konnten auf index+where beschränkt werden\n";
+// echo "Kandidaten konnten auf index+where beschränkt werden\n";
                 } else {
                 	$col_cand = $sg;
-//echo "keiner der Kandidaten mit Index ist im wherclause\n";
+// echo "keiner der Kandidaten mit Index ist im wherclause\n";
                 }
             }
 
@@ -979,7 +979,7 @@ if (isset($Field) && count($Field) > 0) {
             if ($run>5) {
 
             	while ( list(,$_tab) = each($tab_left)) {
-                	$emerg .= ', '.$t_tab;
+                	$emerg .= ', '.$_tab;
             		$tab_left=array_short($tab_left,$_tab);
                 }
             }
