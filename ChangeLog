@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-01  Steve Alberty  <alberty@neptunlabs.se>
+	* db_details.php3: Fixed problems with cfgSkipLockedTables
+
 2001-10-01  Geert Lund  <glund@silversoft.dk>
 	* db_stats.php3, line 261: fixed error where server and language setting
 	  wasen't in link, thanx to Joshua Nye <josh at boxcarmedia.com>
