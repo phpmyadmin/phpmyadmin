@@ -3,8 +3,8 @@
 
 $charset = 'windows-1250';
 $text_dir = 'ltr';
-$left_font_family = '"verdana CE", "Arial CE", verdana, helvetica, arial, geneva, sans-serif';
-$right_font_family = '"verdana CE", "Arial CE", helvetica, arial, geneva, sans-serif';
+$left_font_family = 'sans-serif';
+$right_font_family = 'sans-serif';
 $number_thousands_separator = ' ';
 $number_decimal_separator = '.';
 $byteUnits = array('Bajtù', 'KB', 'MB', 'GB');
@@ -71,6 +71,7 @@ $strColumn = 'Sloupec';
 $strColumnNames = 'Názvy sloupcù';
 $strCompleteInserts = 'Uplné inserty';
 $strConfirm = 'Opravdu chcete toto provést?';
+$strCookiesRequired = 'Bìhem tohoto kroku musíte mít povoleny cookies.';
 $strCopyTable = 'Kopírovat tabulku do (databáze<b>.</b>tabulka):';
 $strCopyTableOK = 'Tabulka %s byla zkopírována do %s.';
 $strCreate = 'Vytvoøit';
@@ -143,8 +144,7 @@ $strHost = 'Hostitel';
 $strHostEmpty = 'Jméno hostitele je prázdné!';
 
 $strIdxFulltext = 'Fulltext';
-$strIfYouWish = 'Pokud si pøeješ natáhnout jenom urèité sloupce z tabulky,
-specifikuj je jako seznam polí oddìlených èárkou.';
+$strIfYouWish = 'Pokud si pøeješ natáhnout jenom urèité sloupce z tabulky, specifikuj je jako seznam polí oddìlených èárkou.';
 $strIgnore = 'Ignorovat';
 $strIndex = 'Index';
 $strIndexes = 'Indexy'; 
@@ -171,7 +171,10 @@ $strLineFeed = 'Ukonèení øádku (Linefeed): \\n';
 $strLines = 'Øádek';
 $strLinesTerminatedBy = 'Øádky ukonèené';
 $strLocationTextfile = 'Umístìní textového souboru';
+$strLogin = 'Pøihlášení';
+$strLogPassword = 'Heslo:';
 $strLogout = 'Odhlásit se';
+$strLogUsername = 'Jméno:';
 
 $strModifications = 'Zmìny byly uloženy';
 $strModify = 'Úpravy';
@@ -207,8 +210,7 @@ $strNoUsersFound = 'Žádný uživatel nenalezen.';
 $strNull = 'Nulový';
 $strNumberIndexes = ' Poèet rozšíøených indexù ';
 
-$strOftenQuotation = 'Èasto uvozující znaky. OPTIONALLY znamená, že pouze pole
-typu CHAR a VARCHAR jsou uzavøeny do "uzavíracích " znakù.';
+$strOftenQuotation = 'Èasto uvozující znaky. OPTIONALLY znamená, že pouze pole typu CHAR a VARCHAR jsou uzavøeny do "uzavíracích " znakù.';
 $strOptimizeTable = 'Optimalizovat tabulku';
 $strOptionalControls = 'Volitelné. Urèuje jak zapisovat nebo èíst speciální znaky.';
 $strOptionally = 'Volitelnì';
@@ -257,6 +259,9 @@ $strRowLength = 'Délka øádku';
 $strRows = 'Øádkù'; 
 $strRowsFrom = 'øádkù zaèínající od';
 $strRowSize = ' Velikost øádku '; 
+$strRowsModeVertical='svislém'; 
+$strRowsModeHorizontal='vodorovném';  
+$strRowsModeOptions=' ve %s režimu a opakovat hlavièky po %s øádcích.'; 
 $strRowsStatistic = 'Statistika øádkù'; 
 $strRunning = 'bìžící na %s';
 $strRunQuery = 'Provést dotaz';
@@ -337,12 +342,4 @@ $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
 
-// To translate
-$strCookiesRequired = 'Cookies must be enabled past this point.';
-$strLogin = 'Login';
-$strLogPassword = 'Password:';
-$strLogUsername = 'Username:';
-$strRowsModeVertical=" vertical ";  //to translate
-$strRowsModeHorizontal=" horizontal ";  //to translate
-$strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
 ?>

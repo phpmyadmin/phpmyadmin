@@ -258,6 +258,9 @@ $strRowLength = 'Lonxitude da fila';
 $strRows = 'Filas';
 $strRowsFrom = 'filas, a comezar da';
 $strRowSize= ' Tamaño da fila ';
+$strRowsModeVertical= 'vertical';
+$strRowsModeHorizontal= 'horizontal';
+$strRowsModeOptions= 'en modo %s e repetir os cabezallos de cada %s celas';
 $strRowsStatistic = 'Estatistícas da Fila';
 $strRunning = 'a rodar no servidor %s';
 $strMySQLServerProcess = 'MySQL %pma_s1% a rodar no servidor %pma_s2% como %pma_s3%';
@@ -345,7 +348,4 @@ $strLogin = 'Login';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
 
-$strRowsModeVertical=" vertical ";  //to translate
-$strRowsModeHorizontal=" horizontal ";  //to translate
-$strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
 ?>

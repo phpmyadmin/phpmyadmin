@@ -258,6 +258,9 @@ $strRowLength = 'Rad lengde';
 $strRows = 'Rader';
 $strRowsFrom = 'rader fra';
 $strRowSize = ' Rad størelse ';
+$strRowsModeVertical= 'loddrett';
+$strRowsModeHorizontal= 'vannrett';
+$strRowsModeOptions= 'i %s modus og gjenta headers etter %s celler';
 $strRowsStatistic = 'Rad statistikk';
 $strRunning = 'som kjører på %s';
 $strRunQuery = 'Kjør spørring';
@@ -339,7 +342,4 @@ $strYes = 'Ja';
 $strZip = '"komprimert (zip)"';
 
 // To translate
-$strRowsModeVertical=" vertical ";  //to translate
-$strRowsModeHorizontal=" horizontal ";  //to translate
-$strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
 ?>

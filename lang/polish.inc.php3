@@ -260,6 +260,9 @@ $strRows = 'Ilo¶æ rekordów';
 $strRowSize = ' Rozmiar rekordu ';
 $strRowsFrom = 'rekordów pocz±wszy od';
 $strRowsStatistic = 'Statystyka rekordów';
+$strRowsModeVertical= 'pionowo';
+$strRowsModeHorizontal= 'poziomo';
+$strRowsModeOptions= 'w trybie %s powtórz nag³ówki po %s komórkach';
 $strRunning = 'uruchomiony na %s';
 $strRunQuery = 'Wykonanie zapytania';
 $strRunSQLQuery = 'Wykonanie zapytania/zapytañ SQL do bazy danych %s';
@@ -341,7 +344,4 @@ $strZip = '".zip"';
 
 // To translate
 
-$strRowsModeVertical=" vertical ";  //to translate
-$strRowsModeHorizontal=" horizontal ";  //to translate
-$strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
 ?>
