@@ -56,7 +56,7 @@ $fields_cnt  = mysql_num_rows($fields_rs);
 
 <!-- TABLE INFORMATIONS -->
 
-<form action="tbl_properties_structure.php3">
+<form action="tbl_properties_structure.php3" name="fieldsForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 
 <table border="<?php echo $cfg['Border']; ?>">
@@ -74,6 +74,7 @@ $fields_cnt  = mysql_num_rows($fields_rs);
 <?php
 $i         = 0;
 $aryFields = array();
+$checked   = (!empty($checkall) ? ' checked="checked"' : '');
 
 while ($row = PMA_mysql_fetch_array($fields_rs)) {
     $i++;
@@ -128,7 +129,7 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     ?>
 <tr>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <input type="checkbox" name="selected_fld[]" value="<?php echo $field_encoded; ?>" id="checkbox_row_<?php echo $i; ?>" />
+        <input type="checkbox" name="selected_fld[]" value="<?php echo $field_encoded; ?>" id="checkbox_row_<?php echo $i; ?>" <?php echo $checked; ?> />
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<label for="checkbox_row_<?php echo $i; ?>"><?php echo $field_name; ?></label>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
@@ -226,11 +227,19 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
 } // end while
 
 echo "\n";
+
+$checkall_url = 'tbl_properties_structure.php3?' . PMA_generate_common_url($db,$table);
 ?>
 
 <tr>
     <td colspan="<?php echo((PMA_MYSQL_INT_VERSION >= 32323) ? '13' : '12'); ?>">
         <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+        <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('fieldsForm', true); return false;">
+            <?php echo $strCheckAll; ?></a>
+        &nbsp;/&nbsp;
+        <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('fieldsForm', false); return false;">
+            <?php echo $strUncheckAll; ?></a>
+        &nbsp;&nbsp;&nbsp;
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strChange; ?>" />
 <?php

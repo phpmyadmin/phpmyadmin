@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-14444chal Cihar  <nijel@users.sourceforge.net>
+    * tbl_properties_structure.php3,libraries/functions.js: Added (un)check
+      all for fields selection.
+
 2002-01-13 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlvalidator.class.php3:
       - Removed dependency on overload extension
