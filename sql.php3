@@ -342,9 +342,9 @@ else {
                     $unlim_num_rows = @mysql_num_rows($cnt_all_result);
                 } else {
                     $unlim_num_rows = mysql_result($cnt_all_result, 0, 'count');
+                }
             }
-            mysql_free_result($cna_all_result);
-            }
+            @mysql_free_result($cna_all_result);
         } else {
             $unlim_num_rows     = 0;
         }
