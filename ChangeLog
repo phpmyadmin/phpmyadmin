@@ -11,6 +11,12 @@ $Source$
 	* tbl_indexes.php3, lines 95-97: better fix for bug #538074 (MySQL alpha or
 	  beta versions are somewhat buggy and even if detected version is 3.23.23
 	  row['Comment'] sometimes do not exists).
+	* lang/brazilian_portuguese.inc.php3: restored end of lines.
+	* lang/serbian-win1250.inc.php3; libraries/select_lang.lib.php3, line 78:
+	  new translation thanks to Igor Mladenovic <mligor at zimco.com> and
+	  David Trajkovic <tdavid at ptt.yu>.
+	* lang/greek.inc.php3: updated thanks to
+	  Kyriakos Xagoraris <theremon at users.sourceforge.net>.
 
 2002-04-04 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/german.inc.php3 big update thanks to Alexander M. Turek (rabus)
