@@ -49,7 +49,7 @@ PMA_setFontSizes();
             opener.document.insertForm.elements['field_' + field + '[]'].value = key;
             self.close();
         } else {
-            alert('<?php echo $strWindowNotFound; ?>');
+            alert('<?php echo PMA_jsFormat($strWindowNotFound); ?>');
         }
     }
     </script>

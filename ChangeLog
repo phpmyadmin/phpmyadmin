@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * browse_foreigners.php3: bug 825473: PMA_jsFormat() needed on alert()
+
 2003-10-16 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/zip.lib.php3: Calculate offset progressively (patch #824122).
     * scripts/convertcfg.pl: Perl in most cases lives in /usr/bin/perl.
