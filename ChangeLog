@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * config.inc.php, left.php, Documentation.html,
+      libraries/config_import.lib.php, libraries/common.lib.php:
+      $cfg['LeftDisplayServersList'] to display the server choice as links,
+      thanks to Cal Henderson
+
 2004-04-26 Michal Cihar  <michal@cihar.com>
     * libraries/string.lib.php: mb_* functions don't know some windows-*
       charsets (bug #940638).

@@ -310,50 +310,82 @@ if ($cfg['LeftDisplayLogo']) {
 }
 echo "\n";
 if ($cfg['LeftDisplayServers']) {
+	if ($cfg['LeftDisplayServersList']){
 ?>
+
+	<br />
+
+<?php
+	}else{
+?>
+
         <form method="post" action="index.php" target="_parent">
             <select name="server" onchange="this.form.submit();">
     <?php
-    echo "\n";
+	}
+
     foreach($cfg['Servers'] AS $key => $val) {
         if (!empty($val['host'])) {
-            echo '                <option value="' . $key . '"';
+
+		$selected = 0;
+
             if (!empty($server) && ($server == $key)) {
-                echo ' selected="selected"';
+		$selected = 1;
             }
-            echo '>';
             if (!empty($val['verbose'])) {
-                echo $val['verbose'];
+                $label = $val['verbose'];
             } else {
-                echo $val['host'];
+                $label = $val['host'];
                 if (!empty($val['port'])) {
-                    echo ':' . $val['port'];
+                    $label .= ':' . $val['port'];
                 }
                 // loic1: skip this because it's not a so good idea to display
                 //        sockets used to everybody
                 // if (!empty($val['socket']) && PMA_PHP_INT_VERSION >= 30010) {
-                //     echo ':' . $val['socket'];
+                //     $label .= ':' . $val['socket'];
                 // }
             }
             // loic1: if 'only_db' is an array and there is more than one
             //        value, displaying such informations may not be a so good
             //        idea
             if (!empty($val['only_db'])) {
-                echo ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
+                $label .= ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
             }
             if (!empty($val['user']) && ($val['auth_type'] == 'config')) {
-                echo '  (' . $val['user'] . ')';
+                $label .= '  (' . $val['user'] . ')';
             }
-            echo '&nbsp;</option>' . "\n";
+
+		if ($cfg['LeftDisplayServersList']){
+
+			if ($selected){
+				echo "&raquo; <b>$label</b><br />";
+			}else{
+				echo "&raquo; <a href=\"index.php?server=$key&lang=$lang&convcharset=$convcharset\" target=\"_top\">$label</a><br />";
+			}
+
+		} else {
+
+			echo "		<option value=\"$key\"".($selected?' selected':'').">$label</option>\n";
+		}
+
+
         } // end if (!empty($val['host']))
     } // end while
+	if ($cfg['LeftDisplayServersList']){
     ?>
+
+	<br />
+
+<?php
+	}else{
+?>
             </select>
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <noscript><input type="submit" value="<?php echo $strGo; ?>" /></noscript>
         </form>
 <?php
+	}
 }
 echo "\n";
 ?>
