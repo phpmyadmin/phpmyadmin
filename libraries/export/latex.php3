@@ -233,6 +233,16 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     } // end if
 
     /**
+     * Get the unique keys in the table
+     */
+    $keys_query     = 'SHOW KEYS FROM ' . PMA_backquote($table) . ' FROM '. PMA_backquote($db);
+    $keys_result    = PMA_mysql_query($keys_query) or PMA_mysqlDie('', $keys_query, '', $error_url);
+    $unique_keys    = array();
+    while($key = PMA_mysql_fetch_array($keys_result)) {
+        if ($key['Non_unique'] == 0) $unique_keys[] = $key['Column_name'];
+    }
+
+    /**
      * Displays the table structure
      */
     $buffer      = $crlf . '%' . $crlf . '% ' . $GLOBALS['strStructure'] . ': ' . $table  . $crlf . '%' . $crlf
@@ -357,6 +367,10 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         if ($row['Key']=='PRI') {
             $pos=strpos($local_buffer, "\000");
             $local_buffer = '\\textit{' . substr($local_buffer,0,$pos) . '}' . substr($local_buffer,$pos);
+        }
+        if (in_array($field_name, $unique_keys)) {
+            $pos=strpos($local_buffer, "\000");
+            $local_buffer = '\\textbf{' . substr($local_buffer,0,$pos) . '}' . substr($local_buffer,$pos);
         }
         $buffer = str_replace("\000", ' & ', $local_buffer);
         $buffer .= ' \\\\ \\hline ' . $crlf;
