@@ -752,9 +752,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt>
         <a name="col_com"></a><br />
-        <b>$cfg['Servers'][$i]['column_comments']</b> string
+        <b>$cfg['Servers'][$i]['column_info']</b> string
     </dt>
     <dd>
+        <!-- This part requires a content update! -->
         Since release 2.3.0 you can store comments to describe each column
         for each table. These will then be shown on the &quot;printview&quot;.
         <br />
@@ -765,7 +766,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 within this database create a table following this scheme:
                 <br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_column_comments` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_column_info` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(5) unsigned NOT NULL auto_increment,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db_name varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table_name varchar(64) NOT NULL default '',<br />
@@ -778,7 +779,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             </li>
             <li>
                 put the table name in
-                <tt>$cfg['Servers'][$i]['column_comments']</tt>
+                <tt>$cfg['Servers'][$i]['column_info']</tt>
             </li>
         </ul><br />
     </dd>

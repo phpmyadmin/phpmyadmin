@@ -46,8 +46,8 @@ if (isset($new_name) && trim($new_name) != '') {
     include('./libraries/relation.lib.php3');
     $cfgRelation = PMA_getRelationsParam();
     if ($cfgRelation['commwork']) {
-        $remove_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_comments'])
-                      . ' SET 	table_name = \'' . PMA_sqlAddslashes($table) . '\''
+        $remove_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
+                      . ' SET     table_name = \'' . PMA_sqlAddslashes($table) . '\''
                       . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                       . ' AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
         $rmv_rs    = PMA_query_as_cu($remove_query);

@@ -78,7 +78,7 @@ if (isset($new_name) && trim($new_name) != '') {
     $parsed_sql =  PMA_SQP_parse($sql_structure);
     // no need to PMA_backquote()
     $parsed_sql[2]['data'] = $target;
-    $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only'); 
+    $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
 
     // do not create the table if dataonly
     if ($what != 'dataonly') {
@@ -127,9 +127,9 @@ if (isset($new_name) && trim($new_name) != '') {
 
         // garvin: Move old entries from comments to new table
         if ($cfgRelation['commwork']) {
-            $remove_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_comments'])
-                          . ' SET 	table_name = \'' . PMA_sqlAddslashes($new_name) . '\', '
-                          . '		db_name    = \'' . PMA_sqlAddslashes($target_db) . '\''
+            $remove_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
+                          . ' SET     table_name = \'' . PMA_sqlAddslashes($new_name) . '\', '
+                          . '        db_name    = \'' . PMA_sqlAddslashes($target_db) . '\''
                           . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                           . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
             $rmv_rs    = PMA_query_as_cu($remove_query);
@@ -143,10 +143,10 @@ if (isset($new_name) && trim($new_name) != '') {
         // garvin: Create new entries as duplicates from old comments
         if ($cfgRelation['commwork']) {
             // Get all comments and MIME-Types for current table
-            $comments_copy_query = 'SELECT 
+            $comments_copy_query = 'SELECT
                                         column_name, ' . PMA_backquote('comment') . '
-                                    FROM ' . PMA_backquote($cfgRelation['column_comments']) . ' 
-                                    WHERE 
+                                    FROM ' . PMA_backquote($cfgRelation['column_info']) . '
+                                    WHERE
                                         db_name = \'' . PMA_sqlAddslashes($db) . '\' AND
                                         table_name = \'' . PMA_sqlAddslashes($table) . '\'';
             $comments_copy_rs    = PMA_query_as_cu($comments_copy_query);

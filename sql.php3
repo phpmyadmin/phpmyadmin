@@ -110,13 +110,13 @@ if ($is_select) {
     if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name'])) {
         $table = $analyzed_sql[0]['table_ref'][0]['table_true_name'];
     }
-    if (isset($analyzed_sql[0]['table_ref'][0]['db']) 
+    if (isset($analyzed_sql[0]['table_ref'][0]['db'])
        && !empty($analyzed_sql[0]['table_ref'][0]['db'])) {
         $db    = $analyzed_sql[0]['table_ref'][0]['db'];
     }
     else {
         $db = $prev_db;
-    } 
+    }
     $reload  = ($db == $prev_db) ? 0 : 1;
 }
 
@@ -124,7 +124,7 @@ if ($is_select) {
  * Sets or modifies the $goto variable if required
  */
 if ($goto == 'sql.php3') {
-    $goto = 'sql.php3?' 
+    $goto = 'sql.php3?'
           . PMA_generate_common_url($db, $table)
           . '&amp;pos=' . $pos
           . '&amp;sql_query=' . urlencode($sql_query);
@@ -297,14 +297,14 @@ else {
     }
     else {
         // garvin: Measure query time. TODO-Item http://sourceforge.net/tracker/index.php?func=detail&aid=571934&group_id=23067&atid=377411
-        list($usec, $sec) = explode(' ',microtime()); 
-        $querytime_before = ((float)$usec + (float)$sec); 
+        list($usec, $sec) = explode(' ',microtime());
+        $querytime_before = ((float)$usec + (float)$sec);
 
         $result   = @PMA_mysql_query($full_sql_query);
 
-        list($usec, $sec) = explode(' ',microtime()); 
+        list($usec, $sec) = explode(' ',microtime());
         $querytime_after = ((float)$usec + (float)$sec);
-        
+
         $GLOBALS['querytime'] = $querytime_after - $querytime_before;
 
         // Displays an error message if required and stop parsing the script
@@ -368,7 +368,7 @@ else {
                     $count_query = 'SELECT SQL_CALC_FOUND_ROWS ';
                 }
 
-                // add the remaining of select expression if there is 
+                // add the remaining of select expression if there is
                 // a GROUP BY or HAVING clause
                 if (PMA_MYSQL_INT_VERSION < 40000
                  && $count_what =='*'
@@ -382,7 +382,7 @@ else {
                     $count_query .= $analyzed_sql[0]['select_expr_clause'];
                 }
 
- 
+
                 if (!empty($analyzed_sql[0]['from_clause'])) {
                     $count_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
                 }
@@ -411,7 +411,7 @@ else {
                     } else {
                         if (mysql_error()) {
                             // there are some cases where the generated
-                            // count_query (for MySQL 3) is wrong, 
+                            // count_query (for MySQL 3) is wrong,
                             // so we get here.
                             //TODO: use a big unlimited query to get
                             // the correct number of rows (depending
@@ -423,7 +423,7 @@ else {
                     mysql_query($count_query);
                     if (mysql_error()) {
                     // void. I tried the case
-                    // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`) 
+                    // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
                     // UNION (SELECT `User`, `Host`, "%" AS "Db",
                     // `Select_priv`
                     // FROM `user`) ORDER BY `User`, `Host`, `Db`;
@@ -442,22 +442,22 @@ else {
         if (isset($purge)) {
             include('./libraries/relation.lib.php3');
             $cfgRelation = PMA_getRelationsParam();
-        
+
             if ($cfgRelation['commwork']) {
                 if (isset($table) && isset($db) && !empty($table) && !empty($db)) {
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_comments'])
+                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
                                 . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                                 . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
                     $rmv_rs    = PMA_query_as_cu($remove_query);
                     unset($rmv_query);
                 } elseif (isset($db) && !empty($db)) {
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_comments'])
+                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
                                 . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'';
                     $rmv_rs    = PMA_query_as_cu($remove_query);
                     unset($rmv_query);
                 }
- 			} // end if relation-stuff
- 		} // end if ($purge)
+             } // end if relation-stuff
+         } // end if ($purge)
     } // end else "didn't ask to see php code"
 
 
@@ -595,7 +595,7 @@ else {
 
             // Displays "Insert a new row" link if required
             if ($disp_mode[6] == '1') {
-                $lnk_goto  = 'sql.php3?' 
+                $lnk_goto  = 'sql.php3?'
                            . PMA_generate_common_url($db, $table)
                            . '&amp;pos=' . $pos
                            . '&amp;session_max_rows=' . $session_max_rows
@@ -654,7 +654,7 @@ else {
             && !empty($sql_query)) {
             echo "\n";
 
-            $goto = 'sql.php3?' 
+            $goto = 'sql.php3?'
                   . PMA_generate_common_url($db, $table)
                   . '&amp;pos=' . $pos
                   . '&amp;session_max_rows=' . $session_max_rows

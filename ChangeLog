@@ -5,11 +5,16 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2003-02-24 Alexander M. Turek  <rabus@users.sourceforge.net>
+2003-02-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/bulgarian-*.inc.php3, lang/czech-*.inc.php3, lang/dutch-*.inc.php3,
       lang/swedish-*.inc.php3, lang/thai-*.inc.php3: Removed problematic %e from
       $datefmt (translations #692065).
     * lang/japanese-*.inc.php3: Fixed some inconsistences.
+    * config.inc.php3, db_details_importdocsql.php3, Documentation.html,
+      sql.php3, tbl_move_copy.php3, tbl_rename.php3,
+      libraries/config_import.lib.php3, libraries/relation.lib.php3,
+      libraries/transformations.lib.php3: Changed 'column_comments' to
+      'column_info'.
 
 2003-02-25 Garvin Hicking <me@supergarv.de>
     * tbl_properties.inc.php3: Fixed duped display of comments due to
