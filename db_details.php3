@@ -207,7 +207,7 @@ else {
         <a href="sql.php3<?php echo $query; ?>&sql_query=<?php echo urlencode("DELETE FROM $table"); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . $table . ' ' . $strHasBeenEmptied); ?>"><?php echo $strEmpty; ?></a>
     </td>
     <td align="right">
-        <?php echo number_format(count_records($db, $table), 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
+        <?php count_records($db, $table); echo "\n"; ?>
     </td>
 </tr>
         <?php
