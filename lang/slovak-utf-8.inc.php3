@@ -26,6 +26,7 @@ $strAbsolutePathToDocSqlDir = 'Prosím zadajte absolútnu cestu k adresáru docS
 $strAccessDenied = 'Prístup zamietnutý';
 $strAccessDeniedExplanation = 'phpMyAdmin sa pokúsil pripojiť k MySQL serveru ale ten spojenie odmietol. Skontrolujte prosím meno serveru, používateľské meno a heslo v súbore config.inc.php3 a s tým, ktoré ste dostali o administrátora MySQL servera.';
 $strAction = 'Akcia';
+$strAddAutoIncrement = 'Pridať hodnotu AUTO_INCREMENT';
 $strAddDeleteColumn = 'Pridať/Odobrať polia stĺpcov';
 $strAddDeleteRow = 'Pridať/Odobrať kritéria riadku';
 $strAddDropDatabase = 'Pridať DROP DATABASE';
@@ -654,7 +655,5 @@ $strYes = 'Áno';
 
 $strZeroRemovesTheLimit = 'Poznámka: Nastavenie týchto parametrov na 0 (nulu) odstráni obmedzenia.';
 $strZip = '"zo zipované"';
-
-$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 
 ?>

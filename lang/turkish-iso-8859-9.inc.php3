@@ -21,6 +21,7 @@ $datefmt = '%B %d, %Y at %I:%M %p';
 
 $strAPrimaryKey = '%s üzerinde birincil index eklendi';
 $strAccessDenied = 'Eriþim engellendi';
+$strAccessDeniedExplanation = 'phpMyAdmin MySQL sunucusuna baðlanmayý denedi,ve sunucu baðlantýyý reddetti . config.inc içerisindeki bilgisayar adresini(host) , kullanýcý adýný ve þifreyi kontrol edin ve MySQL sunucusunun admini tarafýndan size verilen bilgiyle uyuþtuðundan emin olun.';
 $strAction = 'Eylem';
 $strAddDeleteColumn = 'Sütun alaný Ekle/Sil';
 $strAddDeleteRow = 'Kriter satýrý Ekle/Sil';
@@ -450,6 +451,7 @@ $timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
 
 $strAbortedClients = 'Aborted'; //to translate
 $strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
+$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 $strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate
 $strAddPrivilegesOnTbl = 'Add privileges on the following table'; //to translate
 $strAddedColumnComment = 'Added comment for column';  //to translate
@@ -674,6 +676,4 @@ $strWritingRelationNotPossible = 'Writing of relation not possible';  //to trans
 $strXML = 'XML';//to translate
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
-$strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in config.inc.php and make sure that they correspond to the information given by the administrator of the MySQL server.';  //to translate
-$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 ?>
