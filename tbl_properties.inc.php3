@@ -228,6 +228,11 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         } else {
             $checked_unique   = '';
         }
+        if (empty($checked_primary)
+            && empty($checked_index)
+            && empty($checked_unique)) {
+            $checked_none = ' checked="checked"';
+        }
         if (PMA_MYSQL_INT_VERSION >= 32323
             &&(isset($row) && isset($row['Comment']) && $row['Comment'] == 'FULLTEXT')) {
             $checked_fulltext = ' checked="checked"';
@@ -246,7 +251,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             <input type="radio" name="field_key_<?php echo $i; ?>" value="unique_<?php echo $i; ?>"<?php echo $checked_unique; ?> />
         </td>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <input type="radio" name="field_key_<?php echo $i; ?>" value="none_<?php echo $i; ?>" />
+            <input type="radio" name="field_key_<?php echo $i; ?>" value="none_<?php echo $i; ?>"<?php echo $checked_none; ?> />
         </td>
         <?php
         if (PMA_MYSQL_INT_VERSION >= 32323) {
