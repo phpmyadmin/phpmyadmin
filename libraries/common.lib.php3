@@ -788,7 +788,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     function PMA_countRecords($db, $table, $ret = FALSE)
     {
         $result = mysql_query('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
-        $num    = mysql_result($result, 0, 'num');
+        $num    = ($result) ? mysql_result($result, 0, 'num') : 0;
         mysql_free_result($result);
         if ($ret) {
             return $num;

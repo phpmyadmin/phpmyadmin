@@ -10,6 +10,10 @@ $Source$
     * tbl_properties_options.php3: added labels and beautified display.
     * db_stats.php3, lines 12-22: ensure this script can only be ran by a
       super-user.
+    * libraries/grab_globals.lib.php3: fixed a bug with the "extact()" function
+      under php 3.0.12 thanks to Kris Wood <kris at navi.net>.
+    * libraries/common.lib.php3, line 791: fixed a warning thanks to
+      Kris Wood <kris at navi.net>.
 
 2002-04-30 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/italian.inc.php3: updated thanks to Pietro Danesi.

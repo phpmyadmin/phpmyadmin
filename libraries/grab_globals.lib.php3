@@ -13,15 +13,15 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
     define('PMA_GRAB_GLOBALS_INCLUDED', 1);
 
     if (!empty($_GET)) {
-        extract($_GET);
+        extract($_GET, EXTR_OVERWRITE);
     } else if (!empty($HTTP_GET_VARS)) {
-        extract($HTTP_GET_VARS);
+        extract($HTTP_GET_VARS, EXTR_OVERWRITE);
     } // end if
 
     if (!empty($_POST)) {
-        extract($_POST);
+        extract($_POST, EXTR_OVERWRITE);
     } else if (!empty($HTTP_POST_VARS)) {
-        extract($HTTP_POST_VARS);
+        extract($HTTP_POST_VARS, EXTR_OVERWRITE);
     } // end if
 
     if (!empty($_FILES)) {
