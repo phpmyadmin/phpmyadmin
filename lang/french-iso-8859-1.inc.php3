@@ -137,6 +137,7 @@ $strDatabasesStatsDisable = 'Désactiver les statistiques';
 $strDatabasesStatsEnable = 'Activer les statistiques';
 $strDatabasesStatsHeavyTraffic = 'Note: L\'activation des statistiques peut causer un trafic important entre le serveur web et le serveur MySQL.';
 $strDbPrivileges = 'Privilèges spécifiques à une base de données';
+$strDbSpecific = 'spécifique à cette base de données';
 $strDefault = 'Défaut';
 $strDefaultValueHelp = 'Pour les valeurs par défaut, veuillez n\'entrer qu\'une seule valeur, sans caractère d\'échappement ou apostrophes, sous la forme: a'; 
 $strDelete = 'Effacer';
@@ -203,6 +204,7 @@ $strFunction = 'Fonction';
 $strGenBy = 'Généré par';
 $strGenTime = 'Généré le ';
 $strGeneralRelationFeat = 'Fonctions relationnelles';
+$strGlobal = 'global';
 $strGlobalPrivileges = 'Privilèges globaux';
 $strGlobalValue = 'Valeur globale';
 $strGo = 'Exécuter';
@@ -542,6 +544,7 @@ $strUserNotFound = 'L\'utilisateur choisi n\'existe pas dans la table des privil
 $strUserOverview = 'Vue d\'ensemble des utilisateurs';
 $strUsers = 'Utilisateurs et privilèges';
 $strUsersDeleted = 'Les utilisateurs sélectionnés ont été effacés.';
+$strUsersHavingAccessToDb = 'Utilisateurs ayant accès à &quot;%s&quot;';
 
 $strValidateSQL = 'Valider SQL';
 $strValidatorError = 'Le validateur SQL n\'a pas pu être initialisé. Vérifiez que les extensions PHP nécessaires ont bien été installées (voir la %sdocumentation%s).';
@@ -564,9 +567,4 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-$strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
-
-$strGlobal = 'global';  //to translate
-$strDbSpecific = 'database-specific';  //to translate
-$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
 ?>
