@@ -71,10 +71,21 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
     }
     echo "<td>$type</td>\n";
 
+   // THE VALUE COLUMN
+    if(isset($row) && isset($row[$field]))
+    {
+        $special_chars = htmlspecialchars($row[$field]);
+        $data = $row[$field];
+    }
+    else
+    {
+        $data = $special_chars = "";
+    }
+
     // THE FUNCTION COLUMN
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data to be destroyed
-    if(strstr($row_table_def["Type"], "blob") || strstr($row_table_def["Type"], "binary") )
+    if((strstr($row_table_def["Type"], "blob") || strstr($row_table_def["Type"], "binary")) && !empty($data))
     {
         echo "<td>$strBinary</td>";
     }
@@ -87,22 +98,11 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
     	echo "</select></td>\n";
     }
 
-   // THE VALUE COLUMN
-    if(isset($row) && isset($row[$field]))
-    {
-        $special_chars = htmlspecialchars($row[$field]);
-        $data = $row[$field];
-    }
-    else
-    {
-        $data = $special_chars = "";
-    }
-
     if(strstr($row_table_def["Type"], "text"))
     {
         echo "<td><textarea name=fields[$field] style=\"width:$cfgMaxInputsize;\" rows=5>$special_chars</textarea></td>\n";
-	if (strlen($special_chars) > 32000)
-                echo "<td>$strTextAreaLength</td>";
+        if (strlen($special_chars) > 32000)
+            echo "<td>$strTextAreaLength</td>";
     }
     elseif(strstr($row_table_def["Type"], "enum"))
     {
@@ -186,7 +186,7 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
     }
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data destroyed
-    elseif(strstr($row_table_def["Type"], "blob") || strstr($row_table_def["Type"], "binary"))
+    elseif((strstr($row_table_def["Type"], "blob") || strstr($row_table_def["Type"], "binary")) && !empty($data))
     {
         echo "<td>" . $strBinaryDoNotEdit . "</td>";
     }
