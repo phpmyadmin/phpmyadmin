@@ -6,8 +6,11 @@ $Id$
 $Source$
 
 2001-12-16  Marc Delisle  <lem9@users.sourceforge.net>
-	* start merging Vertical/horizontal browsing patch:
+	* merge and adapt Vertical/horizontal browsing patch #492470
+          thanks to Garvin Hicking (hicking at faktor-e.de)
           - config.inc.php3
+          - libraries/display_tbl.lib.php3
+          - lang/*
 
 2001-12-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3:

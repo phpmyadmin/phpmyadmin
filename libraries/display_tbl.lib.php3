@@ -192,7 +192,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
     {
         global $lang, $server, $db, $table;
         global $goto;
-        global $num_rows, $unlim_num_rows, $pos, $session_max_rows;
+        global $num_rows, $unlim_num_rows, $pos, $session_max_rows, $displaymode, $repeatcells;
         global $dontlimitchars;
         ?>
 
@@ -263,7 +263,33 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             <input type="submit" name="navig" value="<?php echo $GLOBALS['strShow']; ?>&nbsp;:" />
             <input type="text" name="session_max_rows" size="3" value="<?php echo (($session_max_rows != 'all') ? $session_max_rows : $GLOBALS['cfgMaxRows']); ?>" onfocus="this.select()" />
             <?php echo $GLOBALS['strRowsFrom'] . "\n"; ?>
-            <input type="text" name="pos" size="3" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" onfocus="this.select()" />
+            <input type="text" name="pos" size="3" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" onfocus="this.select()"/>
+			<br />
+
+<?php echo sprintf($GLOBALS['strRowsModeOptions'], 
+
+// first parameter
+    "<select name=\"displaymode\">
+       <option value=\"horizontal\"" .
+        (($displaymode == "horizontal" 
+         or $GLOBALS['cfgDefaultDisplay'] == "horizontal") ?
+          " selected=\"selected\" ": "") . ">" .
+        $GLOBALS['strRowsModeHorizontal'] . "</option>" .
+        "<option value=\"vertical\" " .
+        (($displaymode == "vertical" 
+         or $GLOBALS['cfgDefaultDisplay'] == "vertical") ?
+          " selected=\"selected\" ": "") . ">" .
+        $GLOBALS['strRowsModeVertical']  . "</option>" .
+" </select>",
+
+// second parameter
+    "<input type=\"text\" size=\"3\" name=\"repeatcells\"" .
+     " value=\"" .
+      (!($repeatcells) ? $GLOBALS['cfgRepeatCells'] : $repeatcells) .
+       "\" />" 
+    ); 
+?>			
+
         </form>
     </td>
     <td>
@@ -384,12 +410,18 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         global $goto;
         global $sql_query, $num_rows, $pos, $session_max_rows;
         global $dontlimitchars;
+		global $verticaldisplay, $displaymode, $repeatcells;
 
-        ?>
+        if (!($displaymode) or ($displaymode=="horizontal")) {
+		?>
 <!-- Results table headers -->
 <tr>
         <?php
-        echo "\n";
+	        echo "\n";
+		}
+		
+		$verticaldisplay["emptypre"] = 0;
+		$verticaldisplay["emptyafter"] = 0;
         
         // 1. Displays the full/partial text button (part 1)...
         $colspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
@@ -410,6 +442,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         //     ... before the result table
         if (($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
             && $is_display['text_btn'] == '1') {
+				$verticaldisplay["emptypre"] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+		        if (!($displaymode) or ($displaymode=="horizontal")) {
             ?>
     <td colspan="<?php echo $fields_cnt; ?>" align="center">
         <a href="<?php echo $text_url; ?>">
@@ -418,26 +452,33 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 </tr>
 
 <tr>
-            <?php
+           	<?php
+			}
         }
         //     ... at the left column of the result table header if possible
         //     and required
         else if ($GLOBALS['cfgModifyDeleteAtLeft'] && $is_display['text_btn'] == '1') {
             echo "\n";
+			$verticaldisplay["emptypre"] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+	        if (!($displaymode) or ($displaymode=="horizontal")) {
             ?>
     <td<?php echo $colspan; ?>" align="center">
         <a href="<?php echo $text_url; ?>">
             <img src="./images/<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
     </td>
             <?php
+			}
         }
         //     ... else if no button, displays empty(ies) col(s) if required
         else if ($GLOBALS['cfgModifyDeleteAtLeft']
                  && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')) {
             echo "\n";
+			$verticaldisplay["emptypre"] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+	        if (!($displaymode) or ($displaymode=="horizontal")) {
             ?>
     <td<?php echo $colspan; ?>></td>
             <?php
+			}
         }
         echo "\n";
 
@@ -515,25 +556,39 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                            . '&amp;table=' . urlencode($table)
                            . '&amp;pos=' . $pos
                            . '&amp;session_max_rows=' . $session_max_rows
-                           . '&amp;dontlimitchars=' . $dontlimitchars
+                           . '&amp;dontlimitchars' . $dontlimitchars
                            . '&amp;sql_query=' . urlencode($sorted_sql_query);
                 // 2.1.5 Displays the sorting url
+
+		        if (!($displaymode) or ($displaymode=="horizontal")) {
                 ?>
     <th>
         <a href="sql.php3?<?php echo $url_query; ?>">
             <?php echo htmlspecialchars($fields_meta[$i]->name); ?></a><?php echo $order_img . "\n"; ?>
     </th>
                 <?php
-            } // end if (2.1)
+				}
+            
+				$verticaldisplay["desc"][] = '    <th>' . "\n"
+								 . '        <a href="sql.php3?' . $url_query . '">' . "\n"
+								 . '            ' . htmlspecialchars($fields_meta[$i]->name) . '</a>' . $order_img . "\n"
+								 . '    </th>';
+			} // end if (2.1)
 
             // 2.2 Results can't be sorted
             else {
-                echo "\n";
+		        if (!($displaymode) or ($displaymode=="horizontal")) {
+	                echo "\n";
                 ?>
     <th>
         <?php echo htmlspecialchars($fields_meta[$i]->name) . "\n"; ?>
     </th>
                 <?php
+				}
+				$verticaldisplay["desc"][] = '    <th>' . "\n"
+								 . '        ' . htmlspecialchars($fields_meta[$i]->name) . "\n"
+								 . '    </th>';
+
             } // end else (2.2)
             echo "\n";
         } // end for
@@ -544,24 +599,32 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')
             && $is_display['text_btn'] == '1') {
             echo "\n";
+			$verticaldisplay["emptyafter"] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+	        if (!($displaymode) or ($displaymode=="horizontal")) {
            ?>
     <td<?php echo $colspan; ?>" align="center">
         <a href="<?php echo $text_url; ?>">
             <img src="./images/<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
     </td>
             <?php
+			}
         }
         //     ... else if no button, displays empty cols if required
         else if ($GLOBALS['cfgModifyDeleteAtRight']
                  && ($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')) {
             echo "\n" . '    <td' . $colspan . '></td>';
+			$verticaldisplay["emptyafter"] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
         }
-        echo "\n";
+
+        if (!($displaymode) or ($displaymode=="horizontal")) echo "\n";
+
+        if (!($displaymode) or ($displaymode=="horizontal")) {
         ?>
 </tr>
         <?php
-        echo "\n";
-
+			echo "\n";
+		}
+		
         return true;
     } // end of the 'PMA_displayTableHeaders()' function
 
@@ -601,6 +664,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         global $goto;
         global $sql_query, $pos, $sessionMaxRow, $fields_meta, $fields_cnt;
         global $dontlimitchars;
+		global $verticaldisplay, $displaymode, $repeatcells;
 
         ?>
 <!-- Results table body -->
@@ -608,6 +672,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         echo "\n";
 
         $foo = 0;
+		$verticaldisplay["edit"] = array();
+		$verticaldisplay["delete"] = array();
+		$verticaldisplay["data"] = array();
 
         // Correction uva 19991216 in the while below
         // Previous code assumed that all tables have keys, specifically that
@@ -625,17 +692,41 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         //        the NULL values
 
         while ($row = mysql_fetch_array($dt_result)) {
-            $bgcolor = ($foo % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
-            // loic1: pointer code part
-            $on_mouse = ($GLOBALS['cfgBrowsePointerColor'] == '')
-                      ? ''
-                      : ' onmouseover="setPointer(this, \'' . $GLOBALS['cfgBrowsePointerColor'] . '\')" onmouseout="setPointer(this, \'' . $bgcolor . '\')"';
+            
+			if (($foo != 0) and ($repeatcells != 0) and !($foo % $repeatcells) and $displaymode == "horizontal") {
+				echo "<tr>";
+				
+				for ($foo_i=0;$foo_i<$verticaldisplay["emptypre"];$foo_i++) {
+					echo "<td>&nbsp;</td>";
+				}
 
+				reset($verticaldisplay["desc"]);
+				while(list($key, $val) = each($verticaldisplay["desc"])) {
+					echo $val;
+				}
+
+				for ($foo_i=0;$foo_i<$verticaldisplay["emptyafter"];$foo_i++) {
+					echo "<td>&nbsp;</td>";
+				}
+
+				echo "</tr>";
+			}
+			
+			$bgcolor = ($foo % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
+
+	        if (!($displaymode) or ($displaymode=="horizontal")) {
+ // loic1: pointer code part
+$on_mouse = ($GLOBALS['cfgBrowsePointerColor'] == '')
+          ? ''
+ : ' onmouseover="setPointer(this, \'' .
+ $GLOBALS['cfgBrowsePointerColor'] . '\')" onmouseout="setPointer(this, \'' .
+ $bgcolor . '\')"';
             ?>
 <tr<?php echo $on_mouse; ?>>
             <?php
-            echo "\n";
-
+				echo "\n";
+			}
+			
             // 1. Prepares the row (gets primary keys to use)
             if ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn') {
                 $primary_key              = '';
@@ -732,7 +823,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 } // end if (1.2.2)
 
                 // 1.3 Displays the links at left if required
-                if ($GLOBALS['cfgModifyDeleteAtLeft']) {
+                if ($GLOBALS['cfgModifyDeleteAtLeft'] AND (!($displaymode) or ($displaymode=="horizontal"))) {
                     if (!empty($edit_url)) {
                         ?>
     <td bgcolor="<?php echo $bgcolor; ?>">
@@ -740,7 +831,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             <?php echo $edit_str; ?></a>
     </td>
                         <?php
-                    }
+					}
                     if (!empty($del_url)) {
                         echo "\n";
                         ?>
@@ -752,7 +843,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         <?php
                     }
                 } // end if (1.3)
-                echo "\n";
+                if (!($displaymode) or ($displaymode=="horizontal")) echo "\n";
             } // end if (1)
 
             // 2. Displays the rows' values
@@ -761,11 +852,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 if ($primary->numeric == 1) {
                     if (!isset($row[$primary->name])
                         || (function_exists('is_null') && is_null($row[$primary->name]))) {
-                        echo '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
+                        $verticaldisplay["data"][$foo][$i] = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$i] != '') {
-                        echo '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
+                        $verticaldisplay["data"][$foo][$i] = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
                     } else {
-                        echo '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                        $verticaldisplay["data"][$foo][$i] = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
                 } else if ($GLOBALS['cfgShowBlob'] == FALSE && eregi('BLOB', $primary->type)) {
                     // loic1 : mysql_fetch_fields returns BLOB in place of TEXT
@@ -774,11 +865,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     // fields.
                     $field_flags = mysql_field_flags($dt_result, $i);
                     if (eregi('BINARY', $field_flags)) {
-                        echo '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB]</td>' . "\n";
+                        $verticaldisplay["data"][$foo][$i] = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB]</td>' . "\n";
                     } else {
                         if (!isset($row[$primary->name])
                             || (function_exists('is_null') && is_null($row[$primary->name]))) {
-                            echo '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
+                            $verticaldisplay["data"][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                         } else if ($row[$primary->name] != '') {
                             if (strlen($row[$primary->name]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
                                 $row[$primary->name] = substr($row[$primary->name], 0, $GLOBALS['cfgLimitChars']) . '...';
@@ -788,15 +879,15 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             $row[$primary->name] = htmlspecialchars($row[$primary->name]);
                             $row[$primary->name] = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace(' ', '&nbsp;', $row[$primary->name]));
                             $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$primary->name]);
-                            echo '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
+                            $verticaldisplay["data"][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
                         } else {
-                            echo '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                            $verticaldisplay["data"][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                         }
                     }
                 } else {
                     if (!isset($row[$primary->name])
                         || (function_exists('is_null') && is_null($row[$primary->name]))) {
-                        echo '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
+                        $verticaldisplay["data"][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$primary->name] != '') {
                         // loic1: Cut text/blob fields even if $cfgShowBlob is true
                         if (eregi('BLOB', $primary->type)) {
@@ -820,15 +911,22 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             $row[$primary->name] = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace(' ', '&nbsp;', $row[$primary->name]));
                             $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$primary->name]);
                         }
-                        echo '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
+                        $verticaldisplay["data"][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
                     } else {
-                        echo '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                        $verticaldisplay["data"][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
                 }
+
+				// output stored cell
+		        if (!($displaymode) or ($displaymode=="horizontal")) {
+					echo $verticaldisplay["data"][$foo][$i];
+				}
+				
+				$verticaldisplay["rowdata"][$i][$foo] .= $verticaldisplay["data"][$foo][$i];
             } // end for (2)
 
             // 3. Displays the modify/delete links on the right if required
-            if ($GLOBALS['cfgModifyDeleteAtRight']) {
+            if ($GLOBALS['cfgModifyDeleteAtRight'] AND (!($displaymode) or ($displaymode=="horizontal"))) {
                 if (!empty($edit_url)) {
                     ?>
     <td bgcolor="<?php echo $bgcolor; ?>">
@@ -848,14 +946,31 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     <?php
                 }
             } // end if (3)
+
+	        if (!($displaymode) or ($displaymode=="horizontal")) {
             ?>
 </tr>
             <?php
-            echo "\n";
+			}
+
+			// 4. Gather links of del_urls and edit_urls in an array for later output
+			$verticaldisplay["edit"][$foo] .= '    <td bgcolor="' . $bgcolor . '">' . "\n";
+			$verticaldisplay["edit"][$foo] .= '        <a href="' . $edit_url . '">' . "\n";
+			$verticaldisplay["edit"][$foo] .= '            ' . $edit_str . '</a>' . "\n";
+			$verticaldisplay["edit"][$foo] .= '    </td>' . "\n";
+
+			$verticaldisplay["delete"][$foo] .= '    <td bgcolor="' . $bgcolor . '">' . "\n";
+			$verticaldisplay["delete"][$foo] .= '        <a href="' . $del_url . '"';
+			if (isset($js_conf)) $verticaldisplay["delete"][$foo] .= 'onclick="return confirmLink(this, \'' . $js_conf . '\')"';
+			$verticaldisplay["delete"][$foo] .= '>' . "\n";
+			$verticaldisplay["delete"][$foo] .= '            ' . $del_str . '</a>' . "\n";
+			$verticaldisplay["delete"][$foo] .= '    </td>' . "\n";
+
+            if (!($displaymode) or ($displaymode=="horizontal")) echo "\n";
             $foo++;
         } // end while
 
-        return true;
+		return true;
     } // end of the 'PMA_displayTableBody()' function
 
 
@@ -896,6 +1011,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         global $goto;
         global $sql_query, $num_rows, $unlim_num_rows, $pos, $fields_meta, $fields_cnt;
         global $dontlimitchars;
+		global $verticaldisplay, $displaymode, $repeatcells;
 
         // 1. ----- Prepares the work -----
 
@@ -963,17 +1079,119 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
         // 3. ----- Displays the results table -----
 
-        ?>
+		// horizontal output?
+        if (!($displaymode) or ($displaymode == "horizontal"))
+		{
+		?>
 <!-- Results table -->
 <table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding="5">
-        <?php
-        echo "\n";
-        PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $encoded_sql_query);
-        PMA_displayTableBody($dt_result, $is_display);
-        ?>
+	        <?php
+	        echo "\n";
+	        PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $encoded_sql_query);
+	        PMA_displayTableBody($dt_result, $is_display);
+	        ?>
 </table>
 <br />
         <?php
+		}
+		 else
+		{
+		?>
+<!-- Results table -->
+<table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding="5">
+	        <?php
+	        echo "\n";
+	        PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $encoded_sql_query);
+	        PMA_displayTableBody($dt_result, $is_display);
+			reset($verticaldisplay);
+	
+			if ($GLOBALS['cfgModifyDeleteAtTop'] AND is_array($verticaldisplay["edit"])) {
+				echo "<tr>\n";
+				echo "<td>&nbsp;</td>";
+				reset($verticaldisplay["edit"]);
+				$foo_counter=0;
+				while(list($key, $val) = each($verticaldisplay["edit"])) {
+					if (($foo_counter != 0) and ($repeatcells != 0) and !($foo_counter % $repeatcells)) {
+						echo "<td>&nbsp;</td>";
+					}
+	
+					echo $val;
+					$foo_counter++;
+				}
+				echo "</tr>\n";
+			}
+				
+			if ($GLOBALS['cfgModifyDeleteAtTop'] AND is_array($verticaldisplay["delete"])) {
+				echo "<tr>\n";
+				echo "<td>&nbsp;</td>";
+				reset($verticaldisplay["delete"]);
+				$foo_counter=0;
+				while(list($key, $val) = each($verticaldisplay["delete"])) {
+					if (($foo_counter != 0) and ($repeatcells != 0) and !($foo_counter % $repeatcells)) {
+						echo "<td>&nbsp;</td>";
+					}
+	
+					echo $val;
+					$foo_counter++;
+				}
+				echo "</tr>\n";
+			}
+	
+			reset($verticaldisplay["desc"]);
+			while(list($key, $val) = each($verticaldisplay["desc"])) {
+				echo "<tr>\n";
+				echo $val;
+	
+				$foo_counter = 0;
+				while(list($subkey, $subval) = each($verticaldisplay["rowdata"][$key])) {
+					if (($foo_counter != 0) and ($repeatcells != 0) and !($foo_counter % $repeatcells)) {
+						echo $val;
+					}
+					
+					echo $subval;
+					$foo_counter++;
+				}
+	
+				echo "</tr>\n";
+			}
+	
+			if ($GLOBALS['cfgModifyDeleteAtBottom'] AND is_array($verticaldisplay["edit"])) {
+				echo "<tr>\n";
+				echo "<td>&nbsp;</td>";
+				reset($verticaldisplay["edit"]);
+				$foo_counter=0;
+				while(list($key, $val) = each($verticaldisplay["edit"])) {
+					if (($foo_counter != 0) and ($repeatcells != 0) and !($foo_counter % $repeatcells)) {
+						echo "<td>&nbsp;</td>";
+					}
+	
+					echo $val;
+					$foo_counter++;
+				}
+				echo "</tr>\n";
+			}
+				
+			if ($GLOBALS['cfgModifyDeleteAtBottom'] AND is_array($verticaldisplay["delete"])) {
+				echo "<tr>\n";
+				echo "<td>&nbsp;</td>";
+				reset($verticaldisplay["delete"]);
+				$foo_counter=0;
+				while(list($key, $val) = each($verticaldisplay["delete"])) {
+					if (($foo_counter != 0) and ($repeatcells != 0) and !($foo_counter % $repeatcells)) {
+						echo "<td>&nbsp;</td>";
+					}
+	
+					echo $val;
+					$foo_counter++;
+				}
+				echo "</tr>\n";
+			}
+	        ?>
+</table>
+<br />
+			<?php
+		} // end if (check $displaymode)
+
         echo "\n";
 
         // 4. ----- Displays the navigation bar at the bottom if required -----

@@ -259,6 +259,9 @@ $strRowLength = 'Row length';
 $strRows = 'Rows';
 $strRowsFrom = 'rows starting from';
 $strRowSize = ' Row size ';
+$strRowsModeHorizontal = 'horizontal'; 
+$strRowsModeOptions = 'in %s mode and repeat headers after %s cells';
+$strRowsModeVertical = 'vertical'; 
 $strRowsStatistic = 'Row Statistic';
 $strRunning = 'running on %s';
 $strRunQuery = 'Submit Query';
@@ -338,10 +341,5 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
-
-// please don't touch these, will sort after:
-$strRowsModeVertical = 'vertical'; 
-$strRowsModeHorizontal = 'horizontal'; 
-$strRowsModeOptions = 'in %s mode and repeat headers after %s cells';
 
 ?>
