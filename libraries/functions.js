@@ -571,7 +571,10 @@ function setVerticalPointer(theRow, theRowNum, theAction, theDefaultColor1, theD
                 newColor              = thePointerColor;
             } else if (theAction == 'click' && theMarkColor != '') {
                 newColor              = theMarkColor;
-                marked_row[theRowNum] = true;
+//                marked_row[theRowNum] = true;
+                marked_row[theRowNum] = (typeof(marked_row[theRowNum]) == 'undefined' || !marked_row[theRowNum])
+                                        ? true
+                                        : null;
             }
         }
         // 4.1.2 Current color is the pointer one
@@ -586,7 +589,10 @@ function setVerticalPointer(theRow, theRowNum, theAction, theDefaultColor1, theD
             }
             else if (theAction == 'click' && theMarkColor != '') {
                 newColor              = theMarkColor;
-                marked_row[theRowNum] = true;
+//                marked_row[theRowNum] = true;
+                marked_row[theRowNum] = (typeof(marked_row[theRowNum]) == 'undefined' || !marked_row[theRowNum])
+                                        ? true
+                                        : null;
             }
         }
         // 4.1.3 Current color is the marker one
@@ -657,16 +663,63 @@ function setCheckboxes(the_form, do_check)
  *
  * @return  boolean  always true
  */
+// modified 2004-05-08 by Michael Keck <mail_at_michaelkeck_dot_de>
+// - set the other checkboxes (if available) too
 function setCheckboxesRange(the_form, do_check, basename, min, max)
-{
+{  
     for (var i = min; i < max; i++) {
         if (typeof(document.forms[the_form].elements[basename + i]) != 'undefined') {
             document.forms[the_form].elements[basename + i].checked = do_check;
+        }
+        if (typeof(document.forms[the_form].elements[basename + i + 'r']) != 'undefined') {
+            document.forms[the_form].elements[basename + i + 'r'].checked = do_check;
         }
     }
 
     return true;
 } // end of the 'setCheckboxesRange()' function
+
+// added 2004-05-08 by Michael Keck <mail_at_michaelkeck_dot_de>
+//   copy the checked from left to right or from right to left
+//   so it's easier for users to see, if $cfg['ModifyAtRight']=true, what they've checked ;)
+function copyCheckboxesRange(the_form, the_name, the_clicked)
+{
+    if (typeof(document.forms[the_form].elements[the_name]) != 'undefined' && typeof(document.forms[the_form].elements[the_name + 'r']) != 'undefined') {
+        if (the_clicked !== 'r') {
+            if (document.forms[the_form].elements[the_name].checked == true) {
+                document.forms[the_form].elements[the_name + 'r'].checked = true;
+            }else {
+                document.forms[the_form].elements[the_name + 'r'].checked = false;
+            }
+        } else if (the_clicked == 'r') {
+            if (document.forms[the_form].elements[the_name + 'r'].checked == true) {
+                document.forms[the_form].elements[the_name].checked = true;
+            }else {
+                document.forms[the_form].elements[the_name].checked = false;
+            }
+       }
+    }
+}
+
+
+// added 2004-05-08 by Michael Keck <mail_at_michaelkeck_dot_de>
+//  - this was directly written to each td, so why not a function ;)
+//  setCheckboxColumn(\'id_rows_to_delete' . $row_no . ''\');
+function setCheckboxColumn(theCheckbox){
+    if (document.getElementById(theCheckbox)) {
+        document.getElementById(theCheckbox).checked = (document.getElementById(theCheckbox).checked ? false : true);
+        if (document.getElementById(theCheckbox + 'r')) {
+            document.getElementById(theCheckbox + 'r').checked = document.getElementById(theCheckbox).checked;
+        }
+    } else {
+        if (document.getElementById(theCheckbox + 'r')) {
+            document.getElementById(theCheckbox + 'r').checked = (document.getElementById(theCheckbox +'r').checked ? false : true);
+            if (document.getElementById(theCheckbox)) {
+                document.getElementById(theCheckbox).checked = document.getElementById(theCheckbox + 'r').checked;
+            }
+        }
+    }
+}
 
 
 /**

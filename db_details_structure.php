@@ -244,7 +244,7 @@ else {
 ?>
 <table cellspacing="0" cellpadding="0" border="0">
     <tr>
-        <td valign="top">
+        <td valign="top" bgcolor="#cc0000">
 <?php
     }
 

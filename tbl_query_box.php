@@ -89,21 +89,20 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] && !$db || ($cfg['QueryFrameJS'
 }
 
 $form_items = 0;
-
+?><table border="0" cellpadding="0" cellspacing="0"><tr><td>
+<?php
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow) {
 ?>
         <script type="text/javascript">
         <!--
         document.writeln('<form method="post" target="phpmain' +  <?php echo ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) ? 'opener.' : '');?>parent.frames.queryframe.document.hashform.hash.value + '" action="read_dump.php"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">');
         //-->
-        </script>
-        <noscript>
+        </script><noscript>
             <form method="post" target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" action="read_dump.php"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> name="sqlform">
         </noscript>
 <?php
 } else {
-?>
-    <li>
+?>    
         <form method="post" action="read_dump.php"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">
 <?php
 }
@@ -127,12 +126,18 @@ if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
 }
 ?>
     <a name="querybox"></a>
-            <table cellpadding="1" cellspacing="1">
-                <tr>
-                    <td>
-                        <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . $queryframe_db_list . (isset($is_inside_querywindow) ? '<br />' : ' ') . PMA_showMySQLDocu('Reference', 'SELECT'); ?>
-                        <br />
-                        <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? ceil($cfg['TextareaCols'] * 1.25) : $cfg['TextareaCols'] * 2); ?>" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
+            <table border="0" cellpadding="2" cellspacing="0">
+                <tr class="tblHeaders">
+                    <td nowrap="nowrap">
+                        <?php
+                           echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . $queryframe_db_list . PMA_showMySQLDocu('Reference', 'SELECT'); ?>
+                    </td>
+                        <?php if (isset($table) && $fields_cnt > 0) { ?>
+                    <td nowrap="nowrap">&nbsp;&nbsp;&nbsp;</td><td nowrap="nowrap"><?php echo $strFields; ?>&nbsp;:</td>
+                        <?php } ?>
+                    </tr>
+                    <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+                    <td valign="top"><textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? ceil($cfg['TextareaCols'] * 1.25) : $cfg['TextareaCols'] * 2); ?>" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
 <?php
 if (!empty($query_to_display)) {
     echo htmlspecialchars($query_to_display);
@@ -141,11 +146,17 @@ if (!empty($query_to_display)) {
 } else {
     echo htmlspecialchars(str_replace('%d', PMA_backquote($db), $cfg['DefaultQueryDatabase']));
 }
-?></textarea>
-                    </td>
-                        <?php if (isset($table) && $fields_cnt > 0) { ?>
-                    <td align="center" valign="top"><?php echo (isset($is_inside_querywindow) ? '<br />' : '') . $strFields; ?>:<br />
-                            <select name="dummy" size="4" multiple="multiple">
+?></textarea></td>
+                       <?php if (isset($table) && $fields_cnt > 0) { ?>
+                    <td valign="middle"><?php
+                        if ($cfg['PropertiesIconic']) {
+                            echo '<input type="button" name="insert" value="<<" onclick="insertValueQuery()" title="' . $strInsert. '" />';
+                        } else {
+                            echo '<input type="button" name="insert" value="' . $strInsert . '" onclick="insertValueQuery()" />';
+                        }
+                    ?></td>   
+                    <td valign="top">   
+                            <select name="dummy" size="<?php echo $cfg['TextareaRows']; ?>" multiple="multiple" class="textfield">
                        <?php
                            echo "\n";
                            for ($i = 0 ; $i < $fields_cnt; $i++) {
@@ -153,19 +164,19 @@ if (!empty($query_to_display)) {
                                     . '<option value="' . PMA_backquote(htmlspecialchars($fields_list[$i])) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
                            }
                        ?>
-                            </select><br /><br />
-                            <input type="button" name="insert" value="<?php echo($strInsert); ?>" onclick="insertValueQuery()" />
+                            </select>
+                            
                     </td>
                         <?php
                         }
                         ?>
                 </tr>
-            </table>
-            <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" />&nbsp;
-                <label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label><br />
+                <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td>
+            <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" />&nbsp;<label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label>
             <?php
             if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
             ?>
+            <br />
             <script type="text/javascript">
                 document.writeln('<input type="checkbox" name="LockFromUpdate" value="1" id="checkbox_lock" />&nbsp;');
                 document.writeln('    <label for="checkbox_lock"><?php echo $strQueryWindowLock; ?></label><br />');
@@ -175,6 +186,8 @@ if (!empty($query_to_display)) {
 
             $form_items++;
             ?>
+												</td><td colspan="2" align="right"><input type="submit" name="SQL" value="<?php echo $strGo; ?>" /></td></tr>
+            </table>
 <?php
 } else {
 ?>
@@ -380,9 +393,9 @@ if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_insi
         }
 }
 ?>
-    </form>
+    </form></td></tr></table>
 <?php
-if (!isset($is_inside_querywindow) || !$is_inside_querywindow) echo "</li>\n";
+//if (!isset($is_inside_querywindow) || !$is_inside_querywindow) echo "</li>\n";
 if (!isset($is_inside_querywindow) ||
     (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')) && isset($db) && $db != '') {
 
@@ -390,7 +403,7 @@ if (!isset($is_inside_querywindow) ||
     $ldi_target = 'ldi_table.php?' . $url_query . (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '&amp;focus_querywindow=true' : '');
 
     if ($is_upload && isset($db) && isset($table)) {
-        if (!isset($is_inside_querywindow) || !$is_inside_querywindow) echo "<li>\n";
+        //if (!isset($is_inside_querywindow) || !$is_inside_querywindow) echo "<li>\n";
         ?>
         <!-- Insert a text file -->
             <?php
@@ -421,7 +434,7 @@ if (!isset($is_inside_querywindow) ||
                <a href="<?php echo $ldi_target; ?>"><?php echo $strInsertTextfiles; ?></a>
             </noscript>
         <?php
-        if (!isset($is_inside_querywindow) || !$is_inside_querywindow) echo "</li>\n";
+        //if (!isset($is_inside_querywindow) || !$is_inside_querywindow) echo "</li>\n";
     }
 }
 echo "\n";

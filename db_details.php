@@ -48,19 +48,38 @@ $auto_sel  = ($cfg['TextareaAutoSelect']
                && !(PMA_USR_OS == 'Win' && PMA_USR_BROWSER_AGENT == 'OPERA' && PMA_USR_BROWSER_VER >= 7))
            ? "\n" . '             onfocus="if (typeof(document.layers) == \'undefined\' || typeof(textarea_selected) == \'undefined\') {textarea_selected = 1; this.form.elements[\'sql_query\'].select();}"'
            : '';
+
+
+// added by mkkeck
+$strErrorUploadDir = '';
+// is needed to check if an error in $cfg['UploadDir'] (or this dir not exist)
+
+// for better administration
+$strHiddenFields = '        <input type="hidden" name="is_js_confirmed" value="0" />'  ."\n"
+                 . '        ' .PMA_generate_common_hidden_inputs($db) . "\n"
+                 . '        <input type="hidden" name="pos" value="0" />' . "\n"
+                 . '        <input type="hidden" name="goto" value="db_details.php" />' . "\n"
+                 . '        <input type="hidden" name="zero_rows" value="' . htmlspecialchars($strSuccess) . '" />' . "\n"
+                 . '        <input type="hidden" name="prev_sql_query" value="' . ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : '') . '" />' . "\n";
 ?>
 <!-- Query box, sql file loader and bookmark support -->
 <a name="querybox"></a>
-<form method="post" action="read_dump.php"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
+<table border="0" cellpadding="2" cellspacing="0">
+<form method="post" action="read_dump.php"
     onsubmit="return checkSqlQuery(this)">
-    <input type="hidden" name="is_js_confirmed" value="0" />
-    <?php echo PMA_generate_common_hidden_inputs($db); ?>
-    <input type="hidden" name="pos" value="0" />
-    <input type="hidden" name="goto" value="db_details.php" />
-    <input type="hidden" name="zero_rows" value="<?php echo htmlspecialchars($strSuccess); ?>" />
-    <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : ''); ?>" />
-    <?php echo sprintf($strRunSQLQuery, htmlspecialchars($db)) . ' ' . PMA_showMySQLDocu('Reference', 'SELECT'); ?>&nbsp;:<br />
-    <div style="margin-bottom: 5px">
+<tr><td class="tblHeaders" colspan="2">
+    <?php 
+            echo $strHiddenFields;
+           // if you want navigation:
+           $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . $header_url_qry . '&amp;db=' . urlencode($db) . '">'
+                      . htmlspecialchars($db) . '</a>';
+           // else use 
+           // $strDBLink = htmlspecialchars($db);
+            echo '&nbsp;' . sprintf($strRunSQLQuery, $strDBLink) . ':&nbsp;' . PMA_showMySQLDocu('Reference', 'SELECT');
+
+    ?>
+</td></tr>
+<tr align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="2">
 <textarea name="sql_query" cols="<?php echo $cfg['TextareaCols'] * 2; ?>" rows="<?php echo $cfg['TextareaRows']; ?>" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
 <?php
 if (!empty($query_to_display)) {
@@ -68,48 +87,60 @@ if (!empty($query_to_display)) {
 } else {
     echo htmlspecialchars(str_replace('%d', PMA_backquote($db), $cfg['DefaultQueryDatabase']));
 }
-?></textarea><br />
-        <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" />&nbsp;
-        <label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label><br />
-    </div>
+?></textarea>
+</td></tr>
+<tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+    <td>
+        <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" />
+        <label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label>
+    </td>
+    <td align="right"><input type="submit" name="SQL" value="<?php echo $strGo; ?>" /></td>
+</tr>
 <?php
 // loic1: displays import dump feature only if file upload available
 if ($is_upload) {
-    echo '    <i>' . $strOr . '</i> ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
-    ?>
-    <div style="margin-bottom: 5px">
-        <input type="file" name="sql_file" class="textfield" />&nbsp;<?php echo PMA_displayMaximumUploadSize($max_upload_size);?><br />
+?>
+<tr><td colspan="2"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>
+<tr>
+    <td colspan="2" class="tblHeaders">
     <?php
+        echo '    <i>&nbsp;' . $strOr . '</i>' . "\n";
+    ?>
+    </td>
+</tr>
+<tr><td colspan="2" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><b>&nbsp;<?php echo $strLocationTextfile . ':'; ?></b></td></tr>
+<tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+  <td colspan="2" align="center">
+    <input type="file" name="sql_file" class="textfield" />&nbsp;
+    <?php 
+    echo PMA_displayMaximumUploadSize($max_upload_size) . '<br />';
     // some browsers should respect this :)
     echo '    ' . PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
-
     $is_gzip = ($cfg['GZipDump'] && @function_exists('gzopen'));
     $is_bzip = ($cfg['BZipDump'] && @function_exists('bzdecompress'));
     if ($is_bzip || $is_gzip) {
-        echo '        ' . $strCompression . ':' . "\n"
-           . '            <input type="radio" id="radio_sql_file_compression_auto" name="sql_file_compression" value="" checked="checked" />' . "\n"
-           . '            <label for="radio_sql_file_compression_auto">' . $strAutodetect . '</label>&nbsp;&nbsp;&nbsp;' . "\n"
-           . '            <input type="radio" id="radio_sql_file_compression_plain" name="sql_file_compression" value="text/plain" />' . "\n"
-           . '            <label for="radio_sql_file_compression_plain">' . $strNone . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
+        echo '    </td>' . "\n"
+           . '</tr>'   . "\n"
+           . '<tr bgcolor="' . $cfg['BgcolorOne'] . '">' . "\n"
+           . '    <td colspan="2">' . "\n";
+        echo '        &nbsp;&nbsp;' . $strCompression . ':<br />&nbsp;&nbsp;&nbsp;' . "\n"
+           . '            <input type="radio" id="radio_sql_file_compression_auto" name="sql_file_compression" value="" checked="checked" /><label for="radio_sql_file_compression_auto">' . $strAutodetect . '</label>&nbsp;&nbsp;' . "\n"
+           . '            <input type="radio" id="radio_sql_file_compression_plain" name="sql_file_compression" value="text/plain" /><label for="radio_sql_file_compression_plain">' . $strNone . '</label>&nbsp;&nbsp' . "\n";
         if ($is_gzip) {
-            echo '            <input type="radio" id="radio_sql_file_compression_gzip" name="sql_file_compression" value="application/x-gzip" />' . "\n"
-               . '            <label for="radio_sql_file_compression_gzip">' . $strGzip . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
+            echo '            <input type="radio" id="radio_sql_file_compression_gzip" name="sql_file_compression" value="application/x-gzip" /><label for="radio_sql_file_compression_gzip">' . $strGzip . '</label>&nbsp;&nbsp;' . "\n";
         }
         if ($is_bzip) {
-            echo '            <input type="radio" id="radio_sql_file_compression_bzip" name="sql_file_compression" value="application/x-bzip" />' . "\n"
-               . '            <label for="radio_sql_file_compression_bzip">' . $strBzip . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
+            echo '            <input type="radio" id="radio_sql_file_compression_bzip" name="sql_file_compression" value="application/x-bzip" /><label for="radio_sql_file_compression_bzip">' . $strBzip . '</label>&nbsp;&nbsp;' . "\n";
         }
     } else {
-        echo '        <input type="hidden" name="sql_file_compression" value="text/plain" />' . "\n";
-    }
     ?>
-    </div>
+        <input type="hidden" name="sql_file_compression" value="text/plain" />
+    </td>
+</tr>
     <?php
+    }
 } // end if (is upload)
-echo "\n";
-
 // web-server upload directory
-
 $is_upload_dir = false;
 if (!empty($cfg['UploadDir'])) {
     if (substr($cfg['UploadDir'], -1) != '/') {
@@ -122,8 +153,16 @@ if (!empty($cfg['UploadDir'])) {
                 if ($is_first == 0) {
                     $is_upload_dir = true;
                     echo "\n";
-                    echo '    <i>' . $strOr . '</i> ' . $strWebServerUploadDirectory . '&nbsp;:<br />' . "\n";
-                    echo '    <div style="margin-bottom: 5px">' . "\n";
+                    echo '    <tr><td colspan=2" bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n";
+                    echo '        &nbsp;<b>' . $strWebServerUploadDirectory . ':</b>&nbsp;' . "\n";
+                    echo '    </td></tr>' . "\n";
+                    echo '    <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="2">' . "\n";
+                    // add 2004-05-08 by mkkeck
+                    // todo: building a php script for indexing files in UploadDir
+                    //if ($cfg['UploadDirIndex']) {
+                    //    echo '&nbsp;<a href="' . $cfg['UploadDir'] . '" target="_blank">' . $cfg['UploadDir'] . '</a>&nbsp;';
+                    //}
+                    // end indexing
                     echo '        <select size="1" name="sql_localfile">' . "\n";
                     echo '            <option value="" selected="selected"></option>' . "\n";
                 } // end if (is_first)
@@ -133,24 +172,33 @@ if (!empty($cfg['UploadDir'])) {
         } // end while
         if ($is_first > 0) {
             echo '        </select>' . "\n"
-                 . '    </div>' . "\n\n";
+               . '    </td>'
+               . '    </tr>' . "\n\n";
         } // end if (isfirst > 0)
         @closedir($handle);
+        $strErrorUploadDir=''; // please see 'else {' below ;)
     }
     else {
-        echo '    <div style="margin-bottom: 5px">' . "\n";
-        echo '        <font color="red">' . $strError . '</font><br />' . "\n";
-        echo '        ' . $strWebServerUploadDirectoryError . "\n";
-        echo '    </div>' . "\n";
+        // modified by mkkeck 2004-05-08
+        //   showing UploadDir Error at the end of all option for SQL-Queries
+        $strErrorUploadDir = '    <tr><td colspan="2"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
+        $strErrorUploadDir.= '    <tr><td colspan="2" class="tblHeadError">';
+        if($cfg['PropertiesIconic']){ 
+           $strErrorUploadDir.= '<img src="./images/s_error.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+        }
+        $strErrorUploadDir.= '    ' . $strError . '' . "\n";
+        $strErrorUploadDir.= '</td><tr>';
+        $strErrorUploadDir.= '<td colspan="2" class="tblError">';
+        $strErrorUploadDir.= '        &nbsp;' . wordwrap($strWebServerUploadDirectoryError,80,'<br />&nbsp;') . "\n";
+        $strErrorUploadDir.= '    </td></tr>' . "\n";
     }
 } // end if (web-server upload directory)
-
 // Charset conversion options
 if ($is_upload || $is_upload_dir) {
     if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
-        echo '    <div style="margin-bottom: 5px">' . "\n";
+        echo '    <tr bgcolor="' .$cfg['BgcolorTwo'] . '"><td>' . "\n";
         $temp_charset = reset($cfg['AvailableCharsets']);
-        echo $strCharsetOfFile . "\n"
+        echo '&nbsp;' . $strCharsetOfFile . "\n"
              . '    <select name="charset_of_file" size="1">' . "\n"
              . '            <option value="' . $temp_charset . '"';
         if ($temp_charset == $charset) {
@@ -165,39 +213,57 @@ if ($is_upload || $is_upload_dir) {
             echo '>' . $temp_charset . '</option>' . "\n";
         }
         echo '        </select><br />' . "\n" . '    ';
-        echo '    </div>' . "\n";
+        echo '    </td>' . "\n";
+        echo '    <td align="right"><input type="submit" name="SQL" value="' . $strGo . '" /></td>' . "\n";
+        echo '    </tr>' . "\n";
+    }else{
+        echo '   <tr bgcolor="' . $cfg['BgcolorTwo'] . '"><td align="right" colspan="2"><input type="submit" name="SQL" value="' . $strGo . '" /></td></tr>' . "\n\n";  
     } // end if (recoding)
 }
-
 // Bookmark Support
 if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
     if (($bookmark_list = PMA_listBookmarks($db, $cfg['Bookmark'])) && count($bookmark_list) > 0) {
-        echo "    <i>$strOr</i> $strBookmarkQuery&nbsp;:<br />\n";
-        echo '    <div style="margin-bottom: 5px">' . "\n";
+        echo '    <tr><td colspan="2"><img src="./images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
+        echo '    <tr><td colspan="2" class="tblHeaders">&nbsp;<i>' . $strOr . '</i></td></tr>' . "\n";
+        echo '    <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="2">' . "\n";
+        echo '        <b>' . $strBookmarkQuery . ':</b>&nbsp;' . "\n";
         echo '        <select name="id_bookmark">' . "\n";
         echo '            <option value=""></option>' . "\n";
         foreach($bookmark_list AS $key => $value) {
             echo '            <option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($key) . '</option>' . "\n";
         }
-        echo '        </select>' . "<br />\n";
-        echo '            ' . $strVar . ' (<a href="./Documentation.html#faqbookmark" target="documentation">' . $strDocu . '</a>): <input type="text" name="bookmark_variable" class="textfield" size="10" />' . "\n";
+        echo '        </select>' . "\n";
+        echo '    </td></tr><tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="2">';
+        echo '            ' . $strVar . ' ';
+        if($cfg['ReplaceHelpImg']){
+          echo '<a href="./Documentation.html#faqbookmark" target="documentation">'
+             . '<img src="./images/b_help.png" border="0" width="11" height="11" align="absmiddle" alt="' . $strDocu . '" /></a>';
+								}else{
+								  echo '(<a href="./Documentation.html#faqbookmark" target="documentation">' . $strDocu . '</a>):&nbsp;';
+        }
+        echo '        <input type="text" name="bookmark_variable" class="textfield" size="10" />' . "\n";
+        echo '    </td></tr><tr bgcolor="' . $cfg['BgcolorOne'] . '"><td>';  
         echo '        <input type="radio" name="action_bookmark" value="0" id="radio_bookmark0" checked="checked" style="vertical-align: middle" /><label for="radio_bookmark0">' . $strSubmit . '</label>' . "\n";
         echo '        &nbsp;<input type="radio" name="action_bookmark" value="1" id="radio_bookmark1" style="vertical-align: middle" /><label for="radio_bookmark1">' . $strBookmarkView . '</label>' . "\n";
         echo '        &nbsp;<input type="radio" name="action_bookmark" value="2" id="radio_bookmark2" style="vertical-align: middle" /><label for="radio_bookmark2">' . $strDelete . '</label>' . "\n";
-        echo '        <br />' . "\n";
-        echo '    </div>' . "\n";
-    }
+        echo '        </td>' . "\n";
+        echo '        <td align="right"><input type="submit" name="SQL" value="' . $strGo . '" /></td>';
+        echo '    </tr>' . "\n";
+   }
 }
 
 // Encoding setting form appended by Y.Kawada
 if (function_exists('PMA_set_enc_form')) {
     echo PMA_set_enc_form('    ');
 }
+// modified by mkkeck 2004-05-08
+//   showing UploadDir Error at the end of all option for SQL-Queries
+if ($strErrorUploadDir!='') {
+    echo "\n\n" . '<!-- UploadDir not found -->' . "\n" . $strErrorUploadDir . "\n\n";
+}
 ?>
-    <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
 </form>
-
-
+</table>
 <?php
 /**
  * Displays the footer

@@ -277,8 +277,10 @@ else if (!defined('PMA_IDX_INCLUDED')
     ?>
 
 <!-- Build index form -->
-<form action="tbl_indexes.php" method="post" name="index_frm"
+<table border="0" cellpadding="2" cellspacing="1">
+<form action="./tbl_indexes.php" method="post" name="index_frm"
     onsubmit="if (typeof(this.elements['index'].disabled) != 'undefined') {this.elements['index'].disabled = false}">
+				<tr><th class="tblHeaders" colspan="2">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <?php
     if (isset($create_index)) {
@@ -287,19 +289,23 @@ else if (!defined('PMA_IDX_INCLUDED')
     echo "\n";
     ?>
     <input type="hidden" name="old_index" value="<?php echo (isset($create_index) ? '' : htmlspecialchars($old_index)); ?>" />
-    <b><?php echo '------ ' . (isset($create_index) ? $strCreateIndexTopic : $strModifyIndexTopic) . ' ------'; ?></b>
-    <br /><br />
+    <?php echo ' ' . (isset($create_index) ? $strCreateIndexTopic : $strModifyIndexTopic) . ' '; ?>
+    </th></tr>
 
-    <table border="0">
+
     <tr>
-        <td><?php echo $strIndexName; ?>&nbsp;</td>
+        <td align="right"><b><?php echo $strIndexName; ?></b>&nbsp;</th>
         <td>
-            <input type="text" name="index" value="<?php echo htmlspecialchars($index); ?>" class="textfield" onfocus="this.select()" />
-            &nbsp;<?php echo $strPrimaryKeyWarning . "\n"; ?>
+            <input type="text" name="index" value="<?php echo htmlspecialchars($index); ?>" size="25" onfocus="this.select()" />
         </td>
     </tr>
+				<tr><td align="right"><?php
+				  if($cfg['ErrorIconic']){
+        echo '<img src="./images/s_warn.png" width="16" height="16" border="0" alt="Attention" />';
+      }
+?></td><td><?php echo $strPrimaryKeyWarning . "\n"; ?></td></tr>
     <tr>
-        <td><?php echo $strIndexType; ?>&nbsp;</td>
+        <td align="right"><b><?php echo $strIndexType; ?></b>&nbsp;</td>
         <td>
             <select name="index_type" onchange="return checkIndexName()">
     <?php
@@ -319,13 +325,12 @@ else if (!defined('PMA_IDX_INCLUDED')
         } // end if... else...
     } // end for
     ?>
-            </select>&nbsp;
+            </select>
             <?php echo PMA_showMySQLDocu('Reference', 'ALTER_TABLE') . "\n"; ?>
         </td>
     </tr>
-    </table><br />
 
-    <table border="<?php echo $cfg['Border']; ?>" cellpadding="5">
+    <tr><td valign="top" align="right"><b><?php echo $strFields; ?> :</b>&nbsp;</td><td><table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
     <tr>
         <th><?php echo $strField; ?></th>
         <th><?php echo $strSize; ?></th>
@@ -369,11 +374,7 @@ else if (!defined('PMA_IDX_INCLUDED')
 
     echo "\n";
     ?>
-    </table><br />
-
-    <input type="submit" name="do_save_data" value="<?php echo $strSave; ?>" /><br />
-
-    <?php
+				<tr><td colspan="2"><?php
     echo "\n";
     if (isset($added_fields)) {
         echo '    <input type="hidden" name="prev_add_fields" value="' . $added_fields . '" />';
@@ -381,22 +382,31 @@ else if (!defined('PMA_IDX_INCLUDED')
     if (isset($idx_num_fields)) {
         echo '    <input type="hidden" name="idx_num_fields" value="' . $idx_num_fields . '" />' . "\n";
     }
-    echo '    <hr /><br />' . "\n";
-    echo '    ' . sprintf($strAddToIndex,  '<input type="text" name="added_fields" size="4" value="1" class="textfield" onfocus="this.select()" />') . "\n";
-    echo '    &nbsp;<input type="submit" name="add_fields" value="' . $strGo . '" onclick="return checkFormElementInRange(this.form, \'added_fields\', 1)" />' . "\n";
-
+    echo '    ' . "\n";
+    echo '    ' . sprintf($strAddToIndex,  '<input type="text" name="added_fields" size="2" value="1" onfocus="this.select()" style="vertical-align: middle;" />') . "\n";
+    echo '    &nbsp;<input type="submit" name="add_fields" value="' . $strGo . '" onclick="return checkFormElementInRange(this.form, \'added_fields\', 1)" style="vertical-align: middle;" />' . "\n";
+?></td>
+</tr>
+    </table></td></tr>
+<tr><td colspan="2" class="tblFooters" align="center">
+    <input type="submit" name="do_save_data" value="<?php echo $strSave; ?>" /></td></tr>
+</form>
+</table><?php
 } else {
     /**
      * Display indexes
      */
     ?>
     <!-- Indexes form -->
-    <form action="tbl_indexes.php" method="post">
+    <table border="0" cellpadding="2" cellspacing="1">
+    <form action="./tbl_indexes.php" method="post">
+    <tr><td class="tblHeaders" colspan="7">
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <?php
     echo "\n";
-    echo '        ' . $strIndexes . '&nbsp;:' . "\n";
-    echo '        ' . PMA_showMySQLDocu('MySQL_Optimisation', 'Optimising_Database_Structure') . '<br />' ."\n";
+    echo '        ' . $strIndexes . ':' . "\n";
+    echo '        ' . PMA_showMySQLDocu('MySQL_Optimisation', 'Optimising_Database_Structure') . "\n";
+?></td></tr><?php
     $edit_link_text = '';
     $drop_link_text = '';
 
@@ -404,21 +414,22 @@ else if (!defined('PMA_IDX_INCLUDED')
     $propicon = (string)$cfg['PropertiesIconic'];
     
     if ($cfg['PropertiesIconic'] === true || $propicon == 'both') {
-        $edit_link_text = '<img src="./images/button_edit.png" width="12" height="13" hspace="7" border="0" title="' . $strEdit . '" alt="' . $strEdit . '" />';
-        $drop_link_text = '<img src="./images/button_drop.png" width="11" height="12" hspace="7" border="0" title="' . $strDrop . '" alt="' . $strDrop . '" />';
+        $edit_link_text = '<img src="./images/b_edit.png" width="16" height="16" hspace="2" border="0" title="' . $strEdit . '" alt="' . $strEdit . '">';
+        $drop_link_text = '<img src="./images/b_drop.png" width="16" height="16" hspace="2" border="0" title="' . $strDrop . '" alt="' . $strDrop . '">';
     }
+    //print_r($cfg['PropertiesIconic']);
     if ($cfg['PropertiesIconic'] === false || $propicon == 'both') {
         $edit_link_text .= $strEdit;
         $drop_link_text .= $strDrop;
     }
     if ($propicon == 'both') {
-        $edit_link_text = '<div class="nowrap">' . $edit_link_text . '</div>';
-        $drop_link_text = '<div class="nowrap">' . $drop_link_text . '</div>';
+        $edit_link_text = '<nobr>' . $edit_link_text . '</nobr>';
+        $drop_link_text = '<nobr>' . $drop_link_text . '</nobr>';
     }
 
     if ($idx_cnt > 0) {
         ?>
-        <table border="<?php echo $cfg['Border']; ?>">
+        <!--table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1"-->
         <tr>
             <th><?php echo $strKeyname; ?></th>
             <th><?php echo $strType; ?></th>
@@ -492,26 +503,29 @@ else if (!defined('PMA_IDX_INCLUDED')
             } // end while
         } // end while
         ?>
-        </table><br />
+        <!--/table><br /-->
         <?php
         echo "\n\n";
     } // end display indexes
     else {
         // none indexes
-        echo "\n" . '        <br />' . "\n";
-        echo '        <i>' . $strNoIndex . '</i><br /><br />' . "\n\n";
+        echo "\n" . '        <tr><td colspan=7" align="center">' . "\n";
+        if($cfg['ErrorIconic']){
+          echo '<img src="./images/s_warn.png" width="16" height="16" border="0" alt="Warning" hspace="2" align="absmiddle" />';
+        }
+        echo '        <b>' . $strNoIndex . '</b></td></tr>' . "\n\n";
     }
 
-    echo '        ' . sprintf($strCreateIndex, '<input type="text" size="4" name="idx_num_fields" value="1" class="textfield" />') . "\n";
-    echo '        &nbsp;<input type="submit" name="create_index" value="' . $strGo . '" onclick="return checkFormElementInRange(this.form, \'idx_num_fields\', 1)" />' . "\n";
-    echo '    ';
+    echo '<tr><td colspan="7" class="tblFooters" nowrap="nowrap" align="center">        '
+       . sprintf($strCreateIndex, '<input type="text" size="2" name="idx_num_fields" value="1" style="vertical-align: middle;" />') . "\n";
+    echo '        &nbsp;<input type="submit" name="create_index" value="' . $strGo . '" onclick="return checkFormElementInRange(this.form, \'idx_num_fields\', 1)" style="vertical-align: middle;" />' . "\n";
+    echo '</td></tr>    ';
+?>
+</form></table>
+<?php
 } // end display indexes
 
-?>
-</form>
 
-
-<?php
 /**
  * Displays the footer
  */

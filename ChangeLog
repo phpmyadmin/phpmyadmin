@@ -5,6 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-16 Alexander M. Turek  <me@derrabus.de>
+    * db_details.php, db_details_structure.php, sql.php, tbl_indexes.php,
+      tbl_properties_structure.php, tbl_query_box.php,
+      images/b_dbstatistics.png, images/b_tbloptimize.png,
+      images/b_useradd.png, images/b_usercheck.png, images/b_userdrop.png,
+      images/b_useredit, libraries/display_tbl.lib.php,
+      libraries/display_tbl_links.lib.php:
+      Patch #947190 (Redesign) - Part 2, thanks to Michael Keck (mkkeck).
+    * libraries/functions.js: Bugfix for (un)check all features if
+      $cfg['ModifyAtLeft'] and $cfg['ModifyAtRight'] are enabled both, thanks
+      to Michael Keck (mkkeck).
+
 2004-05-14 Michal Čihař  <michal@cihar.com>
     * libraries/auth/cookie.auth.lib.php: Use one cookie set for each server,
       not just one global (patch #952917, bug #687009).

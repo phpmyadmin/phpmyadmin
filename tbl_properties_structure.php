@@ -76,7 +76,7 @@ $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 <form method="post" action="tbl_properties_structure.php" name="fieldsForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 
-<table border="<?php echo $cfg['Border']; ?>">
+<table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
 <tr>
     <td></td>
     <th>&nbsp;<?php echo $strField; ?>&nbsp;</th>
@@ -231,17 +231,18 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             $iconic_spacer = '';
         }
 
-        $titles['Change']        = $iconic_spacer . '<img hspace="7" width="12" height="13" src="images/button_edit.png" alt="' . $strChange . '" title="' . $strChange . '" border="0" />';
-        $titles['Drop']          = $iconic_spacer . '<img hspace="7" width="11" height="12" src="images/button_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
-        $titles['NoDrop']        = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
-        $titles['Primary']       = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
-        $titles['Index']         = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
-        $titles['Unique']        = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
-        $titles['IdxFulltext']   = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_fulltext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
-        $titles['NoPrimary']     = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_noprimary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
-        $titles['NoIndex']       = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_noindex.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
-        $titles['NoUnique']      = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_nounique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
-        $titles['NoIdxFulltext'] = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_nofulltext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
+        // images replaced 2004-05-08 by mkkeck
+        $titles['Change']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_edit.png" alt="' . $strChange . '" title="' . $strChange . '" border="0" />';
+        $titles['Drop']          = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
+        $titles['NoDrop']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
+        $titles['Primary']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
+        $titles['Index']         = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
+        $titles['Unique']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
+        $titles['IdxFulltext']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
+        $titles['NoPrimary']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
+        $titles['NoIndex']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
+        $titles['NoUnique']      = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
+        $titles['NoIdxFulltext'] = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
 
         if ($propicon == 'both') {
             $titles['Change']        .= '&nbsp;' . $strChange . '</div>';
@@ -283,7 +284,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
     <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <a href="tbl_alter.php?<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>">
+        <a href="tbl_alter.php?<?php echo $url_query; ?>&field=<?php echo $field_encoded; ?>">
             <?php echo $titles['Change']; ?></a>
     </td>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
@@ -292,7 +293,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         if ($fields_cnt > 1) {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;cpurge=1&amp;purgekey=<?php echo urlencode($row['Field']); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strFieldHasBeenDropped, htmlspecialchars($row['Field']))); ?>"
+        <a href="sql.php?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&cpurge=1&purgekey=<?php echo urlencode($row['Field']); ?>&zero_rows=<?php echo urlencode(sprintf($strFieldHasBeenDropped, htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table); ?> DROP <?php echo PMA_jsFormat($row['Field']); ?>')">
             <?php echo $titles['Drop']; ?></a>
             <?php
@@ -309,7 +310,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         } else {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY, ADD PRIMARY KEY(' . $primary . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAPrimaryKey, htmlspecialchars($row['Field']))); ?>"
+        <a href="sql.php?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY, ADD PRIMARY KEY(' . $primary . PMA_backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode(sprintf($strAPrimaryKey, htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table); ?> DROP PRIMARY KEY, ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
             <?php echo $titles['Primary']; ?></a>
             <?php
@@ -324,7 +325,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         } else {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex ,htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode(sprintf($strAnIndex ,htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Index']; ?></a>
             <?php
         }
@@ -338,7 +339,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         } else {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Unique']; ?></a>
             <?php
         }
@@ -351,7 +352,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             echo "\n";
             ?>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['IdxFulltext']; ?></a>
     </td>
             <?php
@@ -397,19 +398,19 @@ if ($cfg['PropertiesIconic']) {
     /* IE has trouble with <button> */
     if (PMA_USR_BROWSER_AGENT != 'IE') {
         echo '<button class="mult_submit" type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '">' . "\n"
-           . '<img src="./images/button_edit.png" title="' . $strChange . '" alt="' . $strChange . '" width="12" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"
+           . '<img src="./images/b_edit.png" title="' . $strChange . '" alt="' . $strChange . '" width="16" height="16" />' . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"
            . '</button>' . "\n";
     } else {
-        echo '                    <input type="image" name="submit_mult_change" value="' .$strChange . '" title="' . $strChange . '" src="./images/button_edit.png" />'  . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n";
+        echo '                    <input type="image" name="submit_mult_change" value="' .$strChange . '" title="' . $strChange . '" src="./images/b_edit.png" />'  . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n";
     }
     // Drop button if there is at least two fields
     if ($fields_cnt > 1) {
         if (PMA_USR_BROWSER_AGENT != 'IE') {
             echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="' . $strDrop . '" title="' . $strDrop . '">' . "\n"
-               . '<img src="./images/button_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n"
+               . '<img src="./images/b_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="16" height="16" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n"
                . '</button>' . "\n";
         } else {
-            echo '                    <input type="image" name="submit_mult_drop" value="' .$strDrop . '" title="' . $strDrop . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n";
+            echo '                    <input type="image" name="submit_mult_drop" value="' .$strDrop . '" title="' . $strDrop . '" src="./images/b_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n";
         }
     }
 } else {
@@ -428,9 +429,78 @@ if ($cfg['PropertiesIconic']) {
     </td>
 </tr>
 </table>
-
 </form>
 
+<hr />
+
+
+<?php
+/**
+ * Work on the table
+ */
+?>
+<!-- TABLE WORK -->
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr><td>
+    <!-- Printable view of the table -->
+        <a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
+            if($cfg['PropertiesIconic']){
+                echo '<img src="./images/b_print.png" border="0" hspace="2" align="absmiddle" width="16" height="16" />';
+            }
+            echo $strPrintView; 
+            ?></a>&nbsp;&nbsp;
+                    
+<?php
+if ($cfg['Server']['relation']) {
+    ?>
+    <!-- Work on Relations -->
+        <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
+            if($cfg['PropertiesIconic']){
+                echo '<img src="./images/b_relations.png" border="0" hspace="2" align="absmiddle" width="16" height="16" />';
+            }
+            echo $strRelationView;
+        ?></a>&nbsp;&nbsp;
+    <?php
+}
+?>
+    <!-- Let MySQL propose the optimal structure -->
+        <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
+            if($cfg['PropertiesIconic']){
+                echo '<img src="./images/b_tblanalyse.png" border="0" hspace="2" align="absmiddle" width="16" height="16" />';
+            }
+            echo $strStructPropose;
+        ?></a><?php 
+            echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
+        ?>
+        </td></tr>
+    <!-- Add some new fields -->
+        <form method="post" action="tbl_addfield.php"
+            onsubmit="return checkFormElementInRange(this, 'num_fields', 1)">
+       <tr><td>
+            <?php 
+                  echo PMA_generate_common_hidden_inputs($db, $table);
+                  if ($cfg['PropertiesIconic']) {
+                       echo '<img src="./images/b_insrow.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
+                  }
+                  echo $strAddNewField . ':&nbsp;';
+            ?>
+            <input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />
+            <select name="after_field" style="vertical-align: middle">
+                <option value="--end--"><?php echo $strAtEndOfTable; ?></option>
+                <option value="--first--"><?php echo $strAtBeginningOfTable; ?></option>
+                  <optgroup label="<?php printf($strAfter, ''); ?>" title="<?php printf($strAfter, ''); ?>">
+<?php
+foreach($aryFields AS $junk => $fieldname) {
+    echo '                <option value="' . htmlspecialchars($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
+}
+unset($aryFields);
+?>
+                 </optgroup>
+            </select>
+            <input type="submit" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
+        </td></tr></form>
+</table>
+<hr />
 
 <?php
 /**
@@ -452,7 +522,6 @@ echo "\n\n";
  */
 ?>
 <!-- Indexes, space usage and row statistics -->
-<br />
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
     <td valign="top">
@@ -503,9 +572,9 @@ if ($cfg['ShowStats']) {
     <!-- Space usage -->
     <td width="20">&nbsp;</td>
     <td valign="top">
-        <?php echo $strSpaceUsage . '&nbsp;:' . "\n"; ?>
         <a name="showusage"></a>
-        <table border="<?php echo $cfg['Border']; ?>">
+        <table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
+        <tr><td class="tblHeaders" colspan="3"><?php echo $strSpaceUsage . ':&nbsp;' . "\n"; ?></td></tr>
         <tr>
             <th><?php echo $strType; ?></th>
             <th colspan="2" align="center"><?php echo $strUsage; ?></th>
@@ -556,8 +625,13 @@ if ($cfg['ShowStats']) {
             echo "\n";
             ?>
         <tr>
-            <td colspan="3" align="center">
-                [<a href="sql.php?<?php echo $url_query; ?>&amp;pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php echo $strOptimizeTable; ?></a>]
+            <td colspan="3" align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+                <a href="sql.php?<?php echo $url_query; ?>&pos=0&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php 
+                    if ($cfg['PropertiesIconic']) {
+                       echo '<img src="./images/b_tbloptimize.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="' . $strOptimizeTable. '" />';
+                    }
+                    echo $strOptimizeTable;
+                ?></a>
             </td>
         </tr>
             <?php
@@ -570,8 +644,8 @@ if ($cfg['ShowStats']) {
     <!-- Rows Statistic -->
     <td width="20">&nbsp;</td>
     <td valign="top">
-        <?php echo $strRowsStatistic . '&nbsp;:' . "\n"; ?>
-        <table border="<?php echo $cfg['Border']; ?>">
+        <table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
+        <tr><td class="tblHeaders" colspan="2"><?php echo $strRowsStatistic . ':&nbsp;' . "\n"; ?></td></tr>
         <tr>
             <th><?php echo $strStatement; ?></th>
             <th align="center"><?php echo $strValue; ?></th>
@@ -718,73 +792,13 @@ echo "\n";
 </tr>
 </table>
 <hr />
-
-
-<?php
-/**
- * Work on the table
- */
-?>
-<!-- TABLE WORK -->
-<ul>
-
-    <!-- Printable view of the table -->
-    <li>
-        <a href="tbl_printview.php?<?php echo $url_query; ?>"><?php echo $strPrintView; ?></a>
-    </li>
-
-    <!-- Add some new fields -->
-    <li>
-        <form method="post" action="tbl_addfield.php"
-            onsubmit="return checkFormElementInRange(this, 'num_fields', 1)">
-            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-            <?php echo $strAddNewField; ?>&nbsp;:
-            <input type="text" name="num_fields" size="2" maxlength="2" value="1" class="textfield" style="vertical-align: middle" onfocus="this.select()" />
-            <select name="after_field" style="vertical-align: middle">
-                <option value="--end--"><?php echo $strAtEndOfTable; ?></option>
-                <option value="--first--"><?php echo $strAtBeginningOfTable; ?></option>
-<?php
-foreach($aryFields AS $junk => $fieldname) {
-    echo '                <option value="' . htmlspecialchars($fieldname) . '">' . sprintf($strAfter, htmlspecialchars($fieldname)) . '</option>' . "\n";
-}
-unset($aryFields);
-?>
-            </select>
-            <input type="submit" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
-        </form>
-    </li>
-
-<?php
-if ($cfg['Server']['relation']) {
-    ?>
-    <!-- Work on Relations -->
-    <li>
-        <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php echo $strRelationView; ?></a>
-    </li>
-    <?php
-}
-echo "\n";
-?>
-
-    <!-- Let MySQL propose the optimal structure -->
-    <li>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>">
-            <?php echo $strStructPropose; ?></a>
-        <?php echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n"; ?>
-    </li>
-
 <?php
 /**
  * Query box, bookmark, insert data from textfile
  */
 $goto = 'tbl_properties_structure.php';
 require('./tbl_query_box.php');
-?>
 
-</ul>
-
-
-<?php
 /**
  * Displays the footer
  */

@@ -203,7 +203,7 @@ if ($do_confirm) {
     if ($is_drop_database) {
         echo $strDropDatabaseStrongWarning . '<br />' . "\n";
     }
-    echo $strDoYouReally . '&nbsp;:<br />' . "\n";
+    echo $strDoYouReally . ':<br />' . "\n";
     echo '<tt>' . htmlspecialchars($stripped_sql_query) . '</tt>&nbsp;?<br/>' . "\n";
     ?>
 <form action="sql.php" method="post">
@@ -217,8 +217,8 @@ if ($do_confirm) {
     <input type="hidden" name="cpurge" value="<?php echo isset($cpurge) ? $cpurge : ''; ?>" />
     <input type="hidden" name="purgekey" value="<?php echo isset($purgekey) ? $purgekey : ''; ?>" />
     <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? $show_query : ''; ?>" />
-    <input type="submit" name="btnDrop" value="<?php echo $strYes; ?>" />
-    <input type="submit" name="btnDrop" value="<?php echo $strNo; ?>" />
+    <input type="submit" name="btnDrop" value="<?php echo $strYes; ?>" style="font-weight: bold; color: #ffffff; background-color: #009900; width:80px;" />
+    <input type="submit" name="btnDrop" value="<?php echo $strNo; ?>" style="font-weight: bold; color: #ffffff; background-color: #CC0000; width:80px;" />
 </form>
     <?php
     echo "\n";
@@ -669,7 +669,7 @@ else {
 
         if ($disp_mode[6] == '1' || $disp_mode[9] == '1') {
             echo "\n";
-            echo '<p>' . "\n";
+            echo '<hr />' . "\n";
 
             // Displays "Insert a new row" link if required
             if ($disp_mode[6] == '1') {
@@ -692,9 +692,9 @@ else {
                            . '&amp;goto=' . urlencode($lnk_goto);
 
                 echo '    <!-- Insert a new row -->' . "\n"
-                   . '    <a href="tbl_change.php' . $url_query . '">' . $strInsertNewRow . '</a>';
+                   . '    <a href="tbl_change.php' . $url_query . '">' . ($cfg['PropertiesIconic'] ? '<img src="./images/b_insrow.png" border="0" height="16" width="16" align="absmiddle" hspace="2" />' : '') . $strInsertNewRow . '</a>';
                 if ($disp_mode[9] == '1') {
-                    echo '<br />';
+                    echo '&nbsp;&nbsp;';
                 }
                 echo "\n";
             } // end insert new row
@@ -712,16 +712,20 @@ else {
                 echo '    <!-- Print view -->' . "\n"
                    . '    <a href="sql.php' . $url_query
                    . ((isset($dontlimitchars) && $dontlimitchars == '1') ? '&amp;dontlimitchars=1' : '')
-                   . '" target="print_view">' . $strPrintView . '</a>' . "\n";
+                   . '" target="print_view">' 
+                   . ($cfg['PropertiesIconic'] ? '<img src="./images/b_print.png" border="0" height="16" width="16" align="absmiddle" hspace="2" />' : '')
+																			. $strPrintView . '</a>' . "\n";
                 if (!$dontlimitchars) {
-                   echo   '    <br />' . "\n"
+                   echo   '    &nbsp;&nbsp;' . "\n"
                         . '    <a href="sql.php' . $url_query
                         . '&amp;dontlimitchars=1'
-                        . '" target="print_view">' . $strPrintViewFull . '</a>' . "\n";
+                        . '" target="print_view">'
+                        . ($cfg['PropertiesIconic'] ? '<img src="./images/b_print.png" border="0" height="16" width="16" align="absmiddle" hspace="2" />' : '')
+                        . $strPrintViewFull . '</a>&nbsp;&nbsp;' . "\n";
                 }
             } // end displays "printable view"
 
-            echo '</p>' . "\n";
+            echo "\n";
         }
 
         // Export link
@@ -735,10 +739,12 @@ else {
                 $single_table   = '';
             }
             echo '    <!-- Export -->' . "\n"
-                   . '    <a href="tbl_properties_export.php' . $url_query
+                   . '    &nbsp;&nbsp;<a href="tbl_properties_export.php' . $url_query
                    . '&amp;unlim_num_rows=' . $unlim_num_rows
                    . $single_table
-                   . '">' . $strExport . '</a>' . "\n";
+                   . '">' 
+                   . ($cfg['PropertiesIconic'] ? '<img src="./images/b_tblexport.png" border="0" height="16" width="16" align="absmiddle" hspace="2" />' : '')
+                   . $strExport . '</a>' . "\n";
         }
 
         // Bookmark Support if required
@@ -758,24 +764,36 @@ else {
                   . '&amp;id_bookmark=1';
             ?>
 <!-- Bookmark the query -->
-<form action="sql.php" method="post" onsubmit="return emptyFormElements(this, 'fields[label]');">
             <?php
             echo "\n";
             if ($disp_mode[3] == '1') {
                 echo '    <i>' . $strOr . '</i>' . "\n";
-            }
+            }else echo '<br /><br />';
             ?>
-    <br /><br />
+<table border="0" cellpadding="2" cellspacing="0">
+<tr><td class="tblHeaders" colspan="2"><?php
+     echo ($cfg['PropertiesIconic'] ? '<img src="images/b_bookmark.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />' : '')
+     . $strBookmarkThis;
+?></td></tr>
+<form action="sql.php" method="post" onsubmit="return emptyFormElements(this, 'fields[label]');">
+<tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td>
     <?php echo $strBookmarkLabel; ?>:
     <?php echo PMA_generate_common_hidden_inputs(); ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="fields[dbase]" value="<?php echo htmlspecialchars($db); ?>" />
     <input type="hidden" name="fields[user]" value="<?php echo $cfg['Bookmark']['user']; ?>" />
     <input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
+				</td><td>
     <input type="text" name="fields[label]" value="" />
-    <input type="checkbox" name="bkm_all_users" id="bkm_all_users" value="true" /><label for="bkm_all_users"><?php echo $strBookmarkAllUsers; ?></label>
+				</td></tr>
+<tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td align="right" valign="top">
+    <input type="checkbox" name="bkm_all_users" id="bkm_all_users" value="true" /></td>
+				<td><label for="bkm_all_users"><?php echo $strBookmarkAllUsers; ?></label></td>
+				</tr>
+<tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="2" align="right">
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
-</form>
+				</td></tr>
+</form></table>
             <?php
         } // end bookmark support
 
