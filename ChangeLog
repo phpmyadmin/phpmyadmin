@@ -13,8 +13,9 @@ $Source$
       was equal to textheight, i added one mm above and below text
       (hope your tables are not too big not to fit on a page now ;)
 
-2002-12-05 Alexander M. Turek  <rabus@users.sourceforge.net>
+2002-12-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german.inc.php3: Updates.
+    * main.php3: Fixed bug #649641 (usernames containing '@' character).
 
 2002-12-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*.php3, pdf_schema.php3, pdf_pages.php3, db_details_structure.php3:

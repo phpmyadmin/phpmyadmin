@@ -75,7 +75,7 @@ if ($server > 0) {
     $local_query             = 'SELECT VERSION() as version, USER() as user';
     $res                     = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, '');
     $mysql_cur_user_and_host = PMA_mysql_result($res, 0, 'user');
-    $mysql_cur_user          = substr($mysql_cur_user_and_host, 0, strpos($mysql_cur_user_and_host, '@'));
+    $mysql_cur_user          = substr($mysql_cur_user_and_host, 0, strrpos($mysql_cur_user_and_host, '@'));
 
     $full_string     = str_replace('%pma_s1%', PMA_mysql_result($res, 0, 'version'), $strMySQLServerProcess);
     $full_string     = str_replace('%pma_s2%', $server_info, $full_string);
