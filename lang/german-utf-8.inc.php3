@@ -619,4 +619,5 @@ $strStatUpdateTime = 'Aktualisiert am';
 $strStatCheckTime = 'Letzter Check am';
 $strPerMinute = 'pro Minute';
 $strPerSecond = 'pro Sekunde';
+$strAutomaticLayout = 'Automatic layout';  //to translate
 ?>

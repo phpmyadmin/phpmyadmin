@@ -74,6 +74,100 @@ if ($cfgRelation['pdfwork']) {
                              . ' (db_name, page_descr)'
                              . ' VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($newpage) . '\')';
                 PMA_query_as_cu($ins_query);
+
+                // A u t o m a t i c    l a y o u t
+
+                if (isset($autolayout)) {
+                    // save the page number
+                    $pdf_page_number = mysql_insert_id((isset($dbh)?$dbh:''));
+
+                    // get the tables that have relations, by descending 
+                    // number of links
+                    $master_tables = 'SELECT COUNT(master_table), master_table'
+                                . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+                                . ' WHERE master_db = \'' . $db . '\''
+                                . ' GROUP BY master_table'
+                                . ' ORDER BY ' . PMA_backquote('COUNT(master_table)') . ' DESC ';
+                    $master_tables_rs = PMA_query_as_cu($master_tables);
+                    if ($master_tables_rs && mysql_num_rows($master_tables_rs) > 0) {
+                        // first put all the master tables at beginning
+                        // of the list, so they are near the center of
+                        // the schema
+                        while (list(,$master_table) = mysql_fetch_row($master_tables_rs)) {
+                            $all_tables[] = $master_table;
+                        }
+
+                        // then for each master, add its foreigns into an array
+                        // of foreign tables, if not already there
+                        // (a foreign might be foreign for more than
+                        // one table, and might be a master itself)
+
+                        $foreign_tables = array();
+                        while (list(,$master_table) = each($all_tables)) {
+                            $foreigners = PMA_getForeigners($db, $master_table);
+                            while (list(, $foreigner) = each($foreigners)) {
+                                if (!in_array($foreigner['foreign_table'], $foreign_tables)) {
+                                    $foreign_tables[] = $foreigner['foreign_table'];
+                                } 
+                            } 
+                        } 
+
+                        // then merge the arrays
+
+                        while (list(,$foreign_table) = each($foreign_tables)) {
+                            if (!in_array($foreign_table, $all_tables)) {
+                                $all_tables[] = $foreign_table;
+                            } 
+
+                        }
+                        // now generate the coordinates for the schema,
+                        // in a clockwise spiral
+                       
+                        $pos_x = 500;
+                        $pos_y = 500;
+                        $delta = 50;
+                        $delta_mult = 1.34;
+                        $direction = "right";
+                        reset($all_tables);
+
+                        while (list(,$current_table) = each($all_tables)) {
+
+                            // save current table's coordinates
+                            $insert_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['table_coords']) . ' '
+                                          . '(db_name, table_name, pdf_page_number, x, y) '
+                                          . 'VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($current_table) . '\',' . $pdf_page_number . ',' . $pos_x . ',' . $pos_y . ')';
+                            PMA_query_as_cu($insert_query);
+
+
+                            // compute for the next table
+                            switch ($direction) {
+                                case 'right':
+                                    $pos_x += $delta;
+                                    $direction = "down";
+                                    $delta *= $delta_mult;
+                                    break;
+                                case 'down':
+                                    $pos_y += $delta;
+                                    $direction = "left";
+                                    $delta *= $delta_mult;
+                                    break;
+                                case 'left':
+                                    $pos_x -= $delta;
+                                    $direction = "up";
+                                    $delta *= $delta_mult;
+                                    break;
+                                case 'up':
+                                    $pos_y -= $delta;
+                                    $direction = "right";
+                                    $delta *= $delta_mult;
+                                    break;
+                            } // end switch
+                        } // end while
+                    } // end if there are master tables
+
+                    $chpage = $pdf_page_number;
+                } // end if isset autolayout
+
                 break;
 
             case 'edcoord':
@@ -166,10 +260,12 @@ if ($cfgRelation['pdfwork']) {
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="do" value="createpage" />
     <input type="text" name="newpage" size="20" maxlength="50" />
+    <input type="checkbox" name="autolayout" />
+    <?php echo '(' . $strAutomaticLayout . ')' . "\n"; ?>
     <input type="submit" value="<?php echo $strGo; ?>" />
 </form>
     <?php
-    // Now if we allready have choosen a page number then we should show the
+    // Now if we already have chosen a page number then we should show the
     // tables involved
     if (isset($chpage) && $chpage > 0) {
         echo "\n";
@@ -264,7 +360,14 @@ if ($cfgRelation['pdfwork']) {
         echo "\n" . '</form>' . "\n\n";
     } // end if
 
-    if (isset($do) && ($do == 'edcoord' || $do == 'choosepage')) {
+    //    ------------------------------------
+    //    d i s p l a y   p d f    s c h e m a
+    //    ------------------------------------
+
+    if (isset($do) 
+    && ($do == 'edcoord' 
+       || $do == 'choosepage' 
+       || ($do == 'createpage' && isset($chpage)))) {
         ?>
 <form method="post" action="pdf_schema.php3">
     <?php echo PMA_generate_common_hidden_inputs($db); ?>

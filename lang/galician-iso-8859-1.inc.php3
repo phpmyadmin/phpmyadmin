@@ -613,4 +613,5 @@ $strStatUpdateTime = 'Last update';//to translate
 $strStatCheckTime = 'Last check';//to translate
 $strPerMinute = 'per minute';//to translate
 $strPerSecond = 'per second';//to translate
+$strAutomaticLayout = 'Automatic layout';  //to translate
 ?>

@@ -58,6 +58,7 @@ $strAscending = 'Ascending';
 $strAtBeginningOfTable = 'At Beginning of Table';
 $strAtEndOfTable = 'At End of Table';
 $strAttr = 'Attributes';
+$strAutomaticLayout = 'Automatic layout';
 
 $strBack = 'Back';
 $strBeginCut = 'BEGIN CUT';
@@ -73,6 +74,7 @@ $strBrowse = 'Browse';
 $strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.';
 $strBzip = '"bzipped"';
 
+$strCSVOptions = 'CSV options';
 $strCannotLogin = 'Cannot login to MySQL server';
 $strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';
 $strCantLoadMySQL = 'cannot load MySQL extension,<br />please check PHP Configuration.';
@@ -318,6 +320,7 @@ $strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser
 $strNoIndex = 'No index defined!';
 $strNoIndexPartsDefined = 'No index parts defined!';
 $strNoModification = 'No change';
+$strNoOptions = 'This format has no options';
 $strNoPassword = 'No Password';
 $strNoPhp = 'Without PHP Code';
 $strNoPrivileges = 'No Privileges';
@@ -360,6 +363,8 @@ $strPdfInvalidPageNum = 'Undefined PDF page number!';
 $strPdfInvalidTblName = 'The "%s" table doesn\'t exist!';
 $strPdfNoTables = 'No tables';
 $strPerHour = 'per hour';
+$strPerMinute = 'per minute';
+$strPerSecond = 'per second';
 $strPhp = 'Create PHP Code';
 $strPmaDocumentation = 'phpMyAdmin documentation';
 $strPmaUriError = 'The <tt>$cfg[\'PmaAbsoluteUri\']</tt> directive MUST be set in your configuration file!';
@@ -460,6 +465,7 @@ $strRunSQLQuery = 'Run SQL query/queries on database %s';
 $strRunning = 'running on %s';
 
 $strSQL = 'SQL';
+$strSQLOptions = 'SQL options';
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';
 $strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';
 $strSQLQuery = 'SQL-query';
@@ -514,6 +520,9 @@ $strSize = 'Size';
 $strSort = 'Sort';
 $strSpaceUsage = 'Space usage';
 $strSplitWordsWithSpace = 'Words are separated by a space character (" ").';
+$strStatCheckTime = 'Last check';
+$strStatCreateTime = 'Creation';
+$strStatUpdateTime = 'Last update';
 $strStatement = 'Statements';
 $strStatus = 'Status';
 $strStrucCSV = 'CSV data';
@@ -595,18 +604,11 @@ $strWritingCommentNotPossible = 'Writing of comment not possible';
 $strWritingRelationNotPossible = 'Writing of relation not possible';
 $strWrongUser = 'Wrong username/password. Access denied.';
 
+$strXML = 'XML';
+
 $strYes = 'Yes';
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strSQLOptions = 'SQL options';
-$strXML = 'XML';
-$strCSVOptions = 'CSV options';
-$strNoOptions = 'This format has no options';
-$strStatCreateTime = 'Creation';
-$strStatUpdateTime = 'Last update';
-$strStatCheckTime = 'Last check';
-$strPerMinute = 'per minute';
-$strPerSecond = 'per second';
 ?>

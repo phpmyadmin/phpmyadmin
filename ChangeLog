@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_pages.php3: Automatic layout of tables on the schema
+
 2003-03-15 Garvin Hicking <me@supergarv.de>
     * pdf_schema.php3: Fixed typo.
 
