@@ -135,12 +135,11 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     $buffer      = '  <!-- ' . $GLOBALS['strTable'] . ' ' . $table . ' -->' . $crlf;
     if (!PMA_exportOutputHandler($buffer)) return FALSE;
 
-    while ($record = PMA_DBI_fetch_assoc($result)) {
+    while ($record = PMA_DBI_fetch_row($result)) {
         $buffer         = '    <' . $table . '>' . $crlf;
         for ($i = 0; $i < $columns_cnt; $i++) {
-            // There is no way to dectect a "NULL" value with PHP3
-            if ( isset($record[$columns[$i]]) && (!function_exists('is_null') || !is_null($record[$columns[$i]]))) {
-                $buffer .= '        <' . $columns[$i] . '>' . htmlspecialchars(stripslashes($record[$columns[$i]]))
+            if ( isset($record[$i]) && !is_null($record[$i])) {
+                $buffer .= '        <' . $columns[$i] . '>' . htmlspecialchars($record[$i])
                         .  '</' . $columns[$i] . '>' . $crlf;
             }
         }

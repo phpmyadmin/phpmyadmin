@@ -17,6 +17,8 @@ $Source$
       libraries/export/*: Support for enclosing SQL export in transaction (RFE
       #930827).
     * libraries/export/csv.php: Do not strip export too much (bug #913988).
+    * libraries/export/xml.php: Use PMA_DBI_fetch_row and drop PHP 3
+      compatibility code.
     
 2004-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: bug 930445 when PMA_table_info not defined,
