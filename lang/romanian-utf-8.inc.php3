@@ -178,6 +178,7 @@ $strHostEmpty = 'Numele de gazda este gol!';
 $strIdxFulltext = 'Tot textul';
 $strIfYouWish = 'In cazul in care doriti sa incarcati numai o parte a coloanelor tabelului, specificati o lista separata prin virgula.';
 $strIgnore = 'Ignora';
+$strImportDocSQL = 'Import de fisiere docSQL';
 $strInUse = 'in folosinta';
 $strIndex = 'Index';
 $strIndexHasBeenDropped = 'Index %s a fost aruncat';
@@ -432,7 +433,5 @@ $strYes = 'Da';
 
 $strZip = '"arhivat"';
 // To translate
-
-$strImportDocSQL = 'Import docSQL Files';  //to translate
 
 ?>
