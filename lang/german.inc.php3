@@ -172,6 +172,7 @@ $strLimitNumRows = 'Einträge pro Seite';
 $strLineFeed = 'Zeilenvorschub: \\n';
 $strLines = 'Zeilen';
 $strLinesTerminatedBy = 'Zeilen getrennt mit';
+$strLinksTo = 'Verweise';
 $strLocationTextfile = 'Datei';
 $strLogin = 'Login';
 $strLogout = 'Neu einloggen';
@@ -348,5 +349,4 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
-$strLinksTo = 'Links to';  //to translate
 ?>
