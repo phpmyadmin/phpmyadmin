@@ -8,7 +8,7 @@ $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
-// shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
+// abreviatures de Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 $timespanfmt = '%s dies, %s hores, %s minuts i %s segons';
 
@@ -139,6 +139,7 @@ $strDocu = 'Documentació';
 $strDrop = 'Eliminar';
 $strDropDB = 'Eliminar base de dades %s';
 $strDropTable = 'Esborrar taula';
+$strDropUsersDb = 'Esborra les bases de dades que tenen els mateixos noms que els usuaris.';
 $strDumpXRows = 'Volcar %s files començant a la fila %s.';
 $strDumpingData = 'Volcant dades de la taula';
 $strDynamic = 'dinàmic';
@@ -274,6 +275,7 @@ $strNoQuery = 'No és una consulta SQL!';
 $strNoRights = 'No tens prou privilegis per visualitzar aquesta informació!';
 $strNoTablesFound = 'Base de dades sense taules.';
 $strNoUsersFound = 'No s\'han trobat usuaris.';
+$strNoUsersSelected = 'No s\'han sel.leccionat usuaris.';
 $strNoValidateSQL = 'Saltar la Validació de l\'SQL';
 $strNone = 'Res';
 $strNotNumber = 'Aquest valor no és un número!';
@@ -534,6 +536,4 @@ $strZip = '"comprimit amb zip"';
 
 // To translate
 
-$strNoUsersSelected = 'No users selected.'; //to translate
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>

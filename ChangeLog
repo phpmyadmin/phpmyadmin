@@ -10,6 +10,11 @@ $Source$
       - Lookup database / table lists if possible;
       - The database name was displayed instead of the table name in the sub
         page heading.
+    * lang/slovenian-*.inc.php3: Updates, thanks to Kositer Uros (urosh).
+    * lang/norwegian-*.inc.php3: Updates, thanks to
+      Sven-Erik Andersen (sven-erik).
+    * lang/albanian-*.inc.php3: Updates, thanks to Laurent Dhima (laurenti).
+    * lang/catalan-*.inc.php3: Updates, thanks to Xavier Navarro (xavin).
 
 2003-01-14 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/galician: update, thanks to Xosé Calvo
