@@ -7,6 +7,7 @@ $Source$
 
 2003-11-02 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/arabic: big update, thanks to Ossama Khayat (okhayat)
+    * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
 
 2003-11-01 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php3: bug 826880, quotes added
