@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-18 Loïc Chapeaux  <lolo@phpheaven.net>
+    * tbl_printview.php3: fix for #611499 (empty comment column)
+    * libraries/common.lib.php3: fix for #593971 (common.lib.php3 js error)
+    
 2002-09-19 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation.html, config.inc.php3, tbl_change.php3,
       libraries/config_import.lib.php3: fix for #581494 - problems with \n in
