@@ -24,6 +24,8 @@ $datefmt = '%a %d. %b %Y, %H:%M';
 
 $timespanfmt = '%s dnů, %s hodin, %s minut a %s sekund';
 
+$updComTab = 'Podívejte se prosím do dokumentace, jak aktualizovat tabulku s&nbsp;informacemi o&nbsp; sloupcích (Column_comments Table)';
+
 $strAPrimaryKey = 'V&nbsp;tabulce %s byl vytvořen primární klíč';
 $strAbortedClients = 'Přerušené';
 $strAbsolutePathToDocSqlDir = 'Zadejte absolutní cestu docSQL adresáře na serveru';
@@ -63,6 +65,7 @@ $strAscending = 'Vzestupně';
 $strAtBeginningOfTable = 'Na začátku tabulky';
 $strAtEndOfTable = 'Na konci tabulky';
 $strAttr = 'Vlastnosti';
+$strAutomaticLayout = 'automatické rozvržení';
 
 $strBack = 'Zpět';
 $strBeginCut = 'ZAČÁTEK VÝPISU';
@@ -78,6 +81,7 @@ $strBrowse = 'Projít';
 $strBzError = 'phpMyAdminovi se nepodařilo zkomprimovat výpis, protože rozšíření pro kompresi Bz2 je v&nbsp;této verzi php chybné. Doporučujeme nastavit <code>$cfg[\'BZipDump\']</code> v&nbsp;nastaveních phpMyAdmina na <code>FALSE</code>. Pokud chcete používat kompresi Bz2, měli byste nainstalovat novější verzi php. Více informací o&nbsp;tomto probnélu je u popisu chyby %s.';
 $strBzip = '"zabzipováno"';
 
+$strCSVOptions = 'Nastavení CSV exportu';
 $strCannotLogin = 'Nepodařilo se přihlášení k MySQL serveru';
 $strCantLoad = 'nelze nahrát rozšíření %s,<br />prosím zkontolujte nastavení PHP';
 $strCantLoadMySQL = 'nelze nahrát rozšíření pro MySQL,<br />prosím zkontrolujte nastavení PHP.';
@@ -153,6 +157,7 @@ $strDbPrivileges = 'Oprávnění pro jednotlivé databáze';
 $strDbSpecific = 'závislé na databázi';
 $strDefault = 'Výchozí';
 $strDefaultValueHelp = 'Výchozí hodnotu zadejte jen jednu hodnotu bez uvozovek a escapování znaků, například: a';
+$strDelOld = 'Aktuální stránka se odkazuje na tabulky, které již neexistují. Chcete odstranit tyto odkazy?';
 $strDelete = 'Smazat';
 $strDeleteAndFlush = 'Odstranit uživatele a znovunačíst oprávnění.';
 $strDeleteAndFlushDescr = 'Toto je nejčistčí řešení, ale načítání oprávnění může trvat dlouho.';
@@ -249,6 +254,7 @@ $strIndexHasBeenDropped = 'Index %s byl odstraněn';
 $strIndexName = 'Jméno indexu&nbsp;:';
 $strIndexType = 'Typ indexu&nbsp;:';
 $strIndexes = 'Indexy';
+$strInnodbStat = 'Stav InnoDB';
 $strInsecureMySQL = 'Váš konfigurační soubor obsahuje nastavení (uživatel root bez hesla), které je výchozí pro MySQL. Váš MySQL server s&nbsp;tímto výchozím nastavením je snadno napadnutelný, a proto byste měli změnit toto nastavení a tím podstatně zvýšit bezpečnost Vašeho serveru.';
 $strInsert = 'Vložit';
 $strInsertAsNewRow = 'Vložit jako nový řádek';
@@ -322,6 +328,7 @@ $strNoFrames = 'phpMyAdmin se lépe používá v&nbsp;prohlížeči podporujíc�
 $strNoIndex = 'Žádný index nebyl definován!';
 $strNoIndexPartsDefined = 'Žádná část indexu nebyla definována!';
 $strNoModification = 'Žádná změna';
+$strNoOptions = 'Tento formát nemá žádná nastavení';
 $strNoPassword = 'Žádné heslo';
 $strNoPhp = 'Bez PHP kódu';
 $strNoPrivileges = 'Bez oprávnění';
@@ -364,6 +371,8 @@ $strPdfInvalidPageNum = 'Nedefinované číslo stránky v&nbsp;PDF!';
 $strPdfInvalidTblName = 'Tabulka "%s" neexistuje!';
 $strPdfNoTables = 'žádné tabulky';
 $strPerHour = 'za hodinu';
+$strPerMinute = 'za minutu';
+$strPerSecond = 'za sekundu';
 $strPhp = 'Zobrazit PHP kód';
 $strPmaDocumentation = 'Dokumentace phpMyAdmina';
 $strPmaUriError = 'Parametr <tt>$cfg[\'PmaAbsoluteUri\']</tt> MUSÍ být nastaven v&nbsp;konfiguračním souboru!';
@@ -415,7 +424,7 @@ $strPutColNames = 'Přidat jména sloupců na první řádek';
 $strQBE = 'Dotaz';
 $strQBEDel = 'smazat';
 $strQBEIns = 'přidat';
-$strQueryFrame = 'Dotazové okno';
+$strQueryFrame = 'SQL okno';
 $strQueryFrameDebug = 'Ladicí informace';
 $strQueryFrameDebugBox = 'Aktivní proměnné pro formulář dotazu:\nDB: %s\nTabulka: %s\nServer: %s\n\nSou4asn0 hodnoty prom2nn7ch pro formul85 dotazu:\nDB: %s\nTabulke: %s\nServer: %s\n\nOtevřeno z: %s\nFrameset: %s.';
 $strQueryOnDb = 'SQL dotaz na databázi <b>%s</b>:';
@@ -464,6 +473,7 @@ $strRunSQLQuery = 'Spustit SQL dotaz(y) na databázi %s';
 $strRunning = 'na %s';
 
 $strSQL = 'SQL';
+$strSQLOptions = 'Nastavení SQL exportu';
 $strSQLParserBugMessage = 'Je možné, že jste našli chybu v&nbsp;SQL parseru. Prosím prozkoumejte podrobně SQL dotaz, především jestli jsou správně uvozovky a jestli nejsou proházené. Další možnost selhání je pokud nahráváte soubor s&nbsp;binárními daty nezapsanými v&nbsp;uvozovkách. Můžete také vyzkoušet příkazovou řádku MySQL. Níže uvedený výstup z&nbsp;MySQL serveru (pokud je nějaký) Vám také může pomoci při zkoumání problému. Pokud stále máte problémy nebo pokud SQL parser ohlásí chybu u dotazu, který na příkazové řádce funguje, prosím pokuste se zredukovat dotaz na co nejmenší, ve kterém se problém ještě vyskytne, a ohlašte chybu na stránkách phpMyAdmina spolu se sekcí VÝPIS uvedenou níže:';
 $strSQLParserUserError = 'Pravděpodobně máte v&nbsp;SQL dotazu chybu. Níže uvedený výstup MySQL serveru (pokud je nějaký) Vám také může pomoci při zkoumání problému';
 $strSQLQuery = 'SQL-dotaz';
@@ -518,6 +528,9 @@ $strSize = 'Velikost';
 $strSort = 'Řadit';
 $strSpaceUsage = 'Využití místa';
 $strSplitWordsWithSpace = 'Slova jsou oddělena mezerou (" ").';
+$strStatCheckTime = 'Poslední kontrola';
+$strStatCreateTime = 'Vytvoření';
+$strStatUpdateTime = 'Poslední změna';
 $strStatement = 'Údaj';
 $strStatus = 'Stav';
 $strStrucCSV = 'CSV data';
@@ -554,6 +567,8 @@ $strTime = 'Čas';
 $strTotal = 'celkem';
 $strTotalUC = 'Celkem';
 $strTraffic = 'Provoz';
+$strTransformation_image_jpeg__link = 'Zobrazí odkaz na obrázek (například stáhnutí pole blob).';
+$strTransformation_image_png__inline = 'Viz image/jpeg: inline';
 $strType = 'Typ';
 
 $strUncheckAll = 'Odškrtnout vše';
@@ -593,30 +608,17 @@ $strWritingCommentNotPossible = 'Nelze zapsat komentář';
 $strWritingRelationNotPossible = 'Nelze zapsat relaci';
 $strWrongUser = 'Špatné uživatelské jméno nebo heslo. Přístup odepřen.';
 
+$strXML = 'XML';
+
 $strYes = 'Ano';
 
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 // To translate
 
-$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
+$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
 $strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link for it. First options argument is a possible prepended string like http://...';//to translate
 $strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
 $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
 
-$strInnodbStat = 'InnoDB Status';  //to translate
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
-$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
-$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
-$strSQLOptions = 'SQL options';//to translate
-$strXML = 'XML';//to translate
-$strCSVOptions = 'CSV options';//to translate
-$strNoOptions = 'This format has no options';//to translate
-$strStatCreateTime = 'Creation';//to translate
-$strStatUpdateTime = 'Last update';//to translate
-$strStatCheckTime = 'Last check';//to translate
-$strPerMinute = 'per minute';//to translate
-$strPerSecond = 'per second';//to translate
-$strAutomaticLayout = 'Automatic layout';  //to translate
-$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
 ?>
