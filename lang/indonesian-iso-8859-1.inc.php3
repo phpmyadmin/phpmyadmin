@@ -70,6 +70,7 @@ $strCarriage = 'Carriage return: \\r';
 $strChange = 'Ubah';
 $strChangeDisplay = 'Pilih Field untuk ditampilkan';
 $strChangePassword = 'Ubah Kata Sandi';
+$strCharsetOfFile = 'Kumpulan karakter (Character set) dari file:';
 $strCheckAll = 'Conteng semua';
 $strCheckDbPriv = 'Cek Hak Akses dari Database';
 $strCheckTable = 'Cek tabel';
