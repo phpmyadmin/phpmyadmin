@@ -5,10 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-28 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * translators.html: Typo.
+
 2003-05-28 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updates, thanks to Dr. med. Daniel Hinostroza C.
     * lang/chinese_gb: Update thanks to Wang (fundawang).
-  
+
 2003-05-28 Garvin Hicking <me@supergarv.de>
     * libraries/sqlvalidator.class.php3: Fix Bug #739096: Because
       the PEAR library and PHP changed the way how referenced variables
@@ -26,7 +29,7 @@ $Source$
 2003-05-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/chinese_big5: Updated, thanks to Siu Sun
     ### 2.5.1-rc1 released
-    
+
 2003-05-26 michal cihar  <nijel@users.sourceforge.net>
     * documentation, config.inc.php3, tbl_change.php3,
       tbl_properties.inc.php3, libraries/config_import.lib.php3: possibility
@@ -45,7 +48,7 @@ $Source$
     * Documentation.html: talk about left frame levels
     * lang/galician: update, thanks to Xosé Calvo
     * lang/turkish: update, thanks to Bora Alioglu
-    
+
 2003-05-24 Garvin Hicking <me@supergarv.de>
     * left.php3: Fix bug #742632, thanks to Kai Butchkau!
     * read_dump.php3: Bug #741256
@@ -100,7 +103,7 @@ $Source$
     * tbl_change.php3: Fixed table layout when LongtextDoubleTextarea is
       false.
     * tbl_select.php3: Fixed problems with empty value in enum (bug #740420).
-    
+
 2003-05-18 Marc Delisle  <lem9@users.sourceforge.net>
     * left.php3, index.php3: bug 739348: because the db name is no longer
       encoded in left.php3 (to accomodate html entities), we have to stop
@@ -234,7 +237,7 @@ $Source$
      * libraries/build_dump.lib.php3: bug 731866: text fields were
        exported hexified, because mysql_field_type() was used and
        it returns 'blob' for 'text' fields, so use a new PMA_fieldTypes()
- 
+
 2003-05-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/get_foreign.lib.php3: bug 731480: was not counting
       the rows of the foreign, thanks to Stefan Elssner
@@ -249,7 +252,7 @@ $Source$
     * libraries/display_tbl.lib.php3: Bug #728813 (title for
       relations when foreign_db != master_db)
     * index.php3, left.php3, tbl_query_box.php3, db_details_common.php3,
-      main.php3, queryframe.php3, libraries/common.lib.php3: Should be 
+      main.php3, queryframe.php3, libraries/common.lib.php3: Should be
       the fix for Bug #730718.
       Moved the hashform from the "nav"-frame to the "queryframe"-frame,
       altered the way the form is submitted in LeftFrameLight mode to
@@ -272,7 +275,7 @@ $Source$
 2003-04-29 Garvin Hicking <me@supergarv.de>
     * tbl_move_copy.php3: Bug #729416
     * tbl_query_box.php3, queryframe.php3: Bug #729446, maybe #728571
-    * index.php3: Typo    
+    * index.php3: Typo
     * db_details_structure.php3: Prevent uninitialized variable
 
 2003-04-28 Garvin Hicking <me@supergarv.de>
@@ -379,7 +382,7 @@ $Source$
 2003-04-14 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php3: bug 647705: 'NO' is not
       a reserved word in MySQL
-    * libraries/sqlparser.data.php3: bug 708887: MONTH() and YEAR() 
+    * libraries/sqlparser.data.php3: bug 708887: MONTH() and YEAR()
       are functions
     * libraries/common.lib.php3: bug 721278: Skip Explain SQL
 
@@ -419,7 +422,7 @@ $Source$
 2003-04-13 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/bulgarian-windows-1251.inc.php3, lang/croatian-windows-1250.inc.php3,
       lang/czech-windows-1250.inc.php3, lang/russian-koi8-r.inc.php3:
-      Added $strCharset.      
+      Added $strCharset.
 
 2003-04-13 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/{slovenian,russian,croatian,bulgarian}: We don't
