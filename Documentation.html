@@ -542,6 +542,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         means only these databases will be displayed but
         <span class="important">not at all other databases can't be used.</span>
         <br /><br />
+        An example of using more that one database:
+        <tt>$cfg['Servers'][$i]['only_db'] = array('db1', 'db2'); </tt>
     </dd>
 
     <dt><b>$cfg['Servers'][$i]['verbose']</b> string</dt>
