@@ -3,6 +3,129 @@
 
 
 /**
+ * Removes comment lines and splits up large sql files into individual queries
+ *
+ * Last revision: September 11, 2001 - loic1
+ *
+ * @param   string   the sql commands
+ * @param   string   the end of command line delimiter
+ * @param   integer  the MySQL release number (because certains php3 versions
+ *                   can't get the value of a constant from within a function)
+ *
+ * @return  array    the splitted sql commands
+ *
+ * @access	public
+ */
+function split_sql_file($sql, $delimiter, $release)
+{
+    $sql               = trim($sql);
+    $sql_len           = strlen($sql);
+    $char              = '';
+    $ret               = array();
+    $string_start      = '';
+    $in_string         = FALSE;
+    $in_comment        = FALSE;
+
+    for ($i = 0; $i < $sql_len; ++$i) {
+        $char = $sql[$i];
+
+        // We are in a string, check for not escaped end of strings except for
+        // backquotes than cannot be escaped
+        if ($in_string) {
+            while (1) {
+                $i = strpos($sql, $string_start, $i);
+                // No end of string found -> add the current substring to the
+                // returned array
+                if (!$i) {
+                    $ret[] = $sql;
+                    return $ret;
+                }
+                // It's trully the end of the string -> move to the next
+                // character
+                else if (($string_start == '`')
+                         || (($i > 1 && $sql[$i-1] . $sql[$i-2] != '\\\\')
+                             || ($sql[0] != '\\'))) {
+                    $string_start      = '';
+                    $in_string         = FALSE;
+                    break;
+                } // end if... elseif
+            } // end while
+        } // end if ($in_string)
+
+        // We are in a comment, add the parsed part to the returned array and
+        // move to the next end of line
+        else if ($in_comment) {
+            // comment starting position in string depends on the comment type
+            $ret_end   = (($sql[$i-1] == '#') ? $i-1 : $i-3);
+            if (ereg('[^[:space:]]+', substr($sql, 0, $ret_end))) {
+                $ret[] = substr($sql, 0, $ret_end);
+            }
+            // if no "\n" exits in the remaining string, checks for "\r" (Mac
+            // eol style)
+            $eol_to_find    = (strpos($sql, "\012", $i)) ? "\012" : "\015";
+            $sql            = strstr($sql, $eol_to_find);
+            if ($sql == '' || empty($sql[1])) {
+                // The submited statement(s) end(s) by a comment -> stop
+                // parsing
+                return $ret;
+            } else {
+                $sql            = ltrim(substr($sql, 1));
+                $sql_len        = strlen($sql);
+                if ($sql_len) {
+                    $i          = -1;
+                    $in_comment = FALSE;
+                } else {
+                    // The submited statement(s) end(s) here
+                    return $ret;
+                } // end if...else
+            } // end if...else
+        } // end if ($in_comment)
+
+        // If delimiter found, add the parsed part to the returned array
+        else if ($char == $delimiter) {
+            $ret[]      = substr($sql, 0, $i);
+            $sql        = ltrim(substr($sql, min($i + 2, $sql_len)));
+            $sql_len    = strlen($sql);
+            if ($sql_len) {
+                $i      = -1;
+            } else {
+               // The submited statement(s) end(s) here
+               return $ret;
+            }
+        } // end if ($char == $delimiter)
+
+        // We are neither in a string nor in a comment, and nor the current
+        // character is a delimiter...
+        else {
+            // ... first check for start of strings...
+            if (($char == '"') || ($char == '\'') || ($char == '`')) {
+                $in_string    = TRUE;
+                $string_start = $char;
+            }
+            // ... then check for start of a comment...
+            else if ($char == '#'
+                     || ($char == ' ' && $i > 1 && $sql[$i-2] . $sql[$i-1] == '--')) {
+                $in_comment   = TRUE;
+            }
+            // ... and finally disactivate the "/*!...*/" syntax if
+            // MySQL < 3.22.07
+            else if ($release < 32270
+                     && ($char == '!' && $i > 1  && $sql[$i-2] . $sql[$i-1] == '/*')) {
+                $sql[$i] = ' ';
+            }
+        } // end else
+    } // end for
+
+    // add any rest to the returned array
+    if (!empty($sql)) {
+        $ret[] = $sql;
+    }
+    return $ret;
+} // end of the 'split_sql_file()' function
+
+
+
+/**
  * Increases the max. allowed time to run a script
  */
 @set_time_limit(10000);
@@ -85,19 +208,21 @@ if (!$cfgAllowUserDropDatabase
 }
 define('PMA_CHK_DROP', 1);
 
-// Copy the query, used for display purposes only
-$sql_query_cpy = $sql_query;
-
 
 /**
  * Executes the query
  */
 if ($sql_query != '') {
-    include('./libraries/read_dump.lib.php3');
-
-    $sql_query    = remove_remarks($sql_query);
-    $pieces       = split_sql_file($sql_query, ';');
+    $pieces       = split_sql_file($sql_query, ';', MYSQL_INT_VERSION);
     $pieces_count = count($pieces);
+
+    // Copy of the cleaned sql statement for display purpose only (see near the
+    // beginning of "db_details.php3" & "tbl_properties.php3")
+    if ($sql_file != 'none' && $pieces_count > 10) {
+        $sql_query_cpy = $sql_query = '';
+    } else {
+        $sql_query_cpy = implode(";\n", $pieces) . ';';
+    }
 
     // Only one query to run
     if ($pieces_count == 1 && !empty($pieces[0]) && $view_bookmark == 0) {
@@ -132,6 +257,7 @@ if ($sql_query != '') {
             }
         } // end for
     } // end else if
+    unset($pieces);
 } // end if
 
 
@@ -144,9 +270,7 @@ if (isset($my_die)) {
     mysql_die('', $my_die);
 }
 // Be nice with bandwidth...
-if ($sql_file != 'none' && $pieces_count > 10) {
-    $sql_query = '';
-    unset($sql_query_cpy);
+if ($sql_query_cpy == '') {
     $message   = "$strSuccess&nbsp:<br />$strTheContent ($pieces_count $strInstructions)&nbsp;";
 } else {
     $message   = $strSuccess;
