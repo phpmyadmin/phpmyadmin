@@ -14,8 +14,11 @@ $Source$
 	* user_details.php3: optimized the 'check_rights()' function.
 	* sql.php3; tbl_replace.php3: fix an error about whether to display table
 	  name or not at the top of the page.
-	* tbl_select.php3: the script to returns to was hard coded, now it's the
-	  one that calls tbl_select.php3.
+	* tbl_replace.php3: improved messages displayed as results of queries.
+	* tbl_select.php3:
+	  - the script to returns to was hard coded, now it's the one that calls
+	    tbl_select.php3;
+	  - ensure the "null" string can be used in the "value" box.
 	* tbl_copy.php3; tbl_properties.php3: re-enabled the ability to copy a
 	  table to another database (bug #456434). Need to be tested with
 	  MySQL < 3.23 releases.
