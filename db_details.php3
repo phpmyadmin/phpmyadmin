@@ -79,10 +79,12 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
 <!-- TABLE LIST -->
 
 <table border="<?php echo $cfgBorder; ?>">
-<th><?php echo ucfirst($strTable); ?></th>
-<th colspan="6"><?php echo ucfirst($strAction); ?></th>
-<th><?php echo ucfirst($strRecords); ?></th>
-<th><?php echo ((!empty($strSize)) ? ucfirst($strSize) : '&nbsp;'); ?></th>
+<tr>
+    <th><?php echo ucfirst($strTable); ?></th>
+    <th colspan="6"><?php echo ucfirst($strAction); ?></th>
+    <th><?php echo ucfirst($strRecords); ?></th>
+    <th><?php echo ((!empty($strSize)) ? ucfirst($strSize) : '&nbsp;'); ?></th>
+</tr>
     <?php
     $i = $sum_entries = $sum_size = 0;
     while (list($keyname, $sts_data) = each($tbl_cache)) {
@@ -170,9 +172,11 @@ else {
 <!-- TABLE LIST -->
 
 <table border="<?php echo $cfgBorder; ?>">
-<th><?php echo ucfirst($strTable); ?></th>
-<th colspan="6"><?php echo ucfirst($strAction); ?></th>
-<th><?php echo ucfirst($strRecords); ?></th>
+<tr>
+    <th><?php echo ucfirst($strTable); ?></th>
+    <th colspan="6"><?php echo ucfirst($strAction); ?></th>
+    <th><?php echo ucfirst($strRecords); ?></th>
+</tr>
     <?php
     while ($i < $num_tables) {
         $table   = mysql_tablename($tables, $i);
@@ -411,4 +415,5 @@ require('./footer.inc.php3');
 echo "\n";
 ?>
 
+</body>
 </html>
