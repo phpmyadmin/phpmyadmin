@@ -7,6 +7,7 @@ $Source$
 
 2004-08-06 Michal Čihař  <michal@cihar.com>
     * tbl_change.php: Do not free result, we need it later.
+    * tbl_relation.php: Some functions do not take parameters (bug #1000021).
     
 2004-08-05 Marc Delisle  <lem9@users.sourceforge.net>
     (Patches from Michael Keck)

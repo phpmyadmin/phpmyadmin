@@ -130,8 +130,7 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
 
         if (empty($me_funcs[$encoded_key])) {
             $cur_value = $val . ', ';
-        } else if ($val == '\'\''
-                   && (preg_match('@^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$@', $me_funcs[$encoded_key]))) {
+        } else if (preg_match('@^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$@', $me_funcs[$encoded_key])) {
             $cur_value = $me_funcs[$encoded_key] . '(), ';
         } else {
             $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
