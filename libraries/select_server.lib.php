@@ -5,13 +5,13 @@
  */
 
 if (count($cfg['Servers']) > 1) {
-    if (!$cfg['DisplayServersList']) { 
+    if (!$cfg['DisplayServersList']) {
     ?>
     <form method="post" action="index.php" target="_parent" style="margin: 0px; padding: 0px;">
     <?php
-    } 
+    }
     if ($show_server_left) {
-        echo '<div class="heada">' . $strServer . ':</div>'; 
+        echo '<div class="heada">' . $strServer . ':</div>';
     } else {
     ?>
 <!-- MySQL servers choice form -->
@@ -23,12 +23,12 @@ if (count($cfg['Servers']) > 1) {
         <td>
     <?php
     }
-    if (!$cfg['DisplayServersList']) { 
+    if (!$cfg['DisplayServersList']) {
     ?>
     <form method="post" action="index.php" target="_parent" style="margin: 0px; padding: 0px;">
         <select name="server" onchange="this.form.submit();">
     <?php
-    } 
+    }
     foreach ($cfg['Servers'] AS $key => $val) {
         if (!empty($val['host'])) {
              $selected = 0;
@@ -54,7 +54,7 @@ if (count($cfg['Servers']) > 1) {
             }
 
             if ($cfg['DisplayServersList']){
-                if ($selected) {
+                if ($selected && !$show_server_left) {
                     echo '&raquo; <b>' . $label . '</b><br />';
                 }else{
                     echo '&raquo; <a class="item" href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . $label . '</a><br />';

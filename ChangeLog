@@ -18,6 +18,8 @@ $Source$
     * read_dump.php, server_privileges.php, server_status.php, sql.php: Work
       better in ANSI mode (bug #816858).
     * lang/czech: Reordered some words.
+    * libraries/select_server.lib.php: Clickable active server in left frame
+      (RFE # 1044678).
 
 2004-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish update, thanks to boralioglu.
