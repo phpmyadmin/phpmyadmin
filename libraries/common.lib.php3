@@ -929,9 +929,19 @@ if (typeof(document.getElementById) != 'undefined'
             echo "\n";
             // The nl2br function isn't used because its result isn't a valid
             // xhtml1.0 statement before php4.0.5 ("<br>" and not "<br />")
-            $new_line   = '<br />' . "\n" . '            ';
+            //  if we want to show some sql code it is easiest to create it here
+            $sqlnr = 1;
+            if(isset($GLOBALS['showasphp'])){$showasphp = &$GLOBALS['showasphp'];}
+            if(isset($showasphp) and ($showasphp=='true')){
+                $new_line   = '&quot;;<br />' . "\n" . '            $sql .= &quot;';
+            }else{
+                $new_line   = '<br />' . "\n" . '            ';
+            }
             $query_base = htmlspecialchars($GLOBALS['sql_query']);
             $query_base = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
+            if(isset($showasphp) and ($showasphp=='true')){
+                $query_base = '$sql  = &quot;'.$query_base;
+            }
             if (!isset($GLOBALS['show_query']) || $GLOBALS['show_query'] != 'y') {
                 if (!isset($GLOBALS['goto'])) {
                     $edit_target = (isset($GLOBALS['table'])) ? 'tbl_properties.php3' : 'db_details.php3';
@@ -945,9 +955,23 @@ if (typeof(document.getElementById) != 'undefined'
                 } else if ($edit_target != '') {
                     $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y#querybox">' . $GLOBALS['strEdit'] . '</a>';
                 }
+                // want to have the query explained (Mike Beck 2002-05-22)
+                // but do not explain an explain (lem9)
+                //
+                if (!ereg('EXPLAIN',$GLOBALS['sql_query'])) {;
+                    $explain_link='[<a href="sql.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '&amp;sql_query=' . urlencode('EXPLAIN '.$GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'] . '</a>]&nbsp;';
+                } else {
+                    $explain_link='';
+                }
+                //  Also i would like to get the SQL formed in some nice php-code (Mike Beck 2002-05-22)
+                if(isset($showasphp) and ($showasphp=='true')){
+                    $php_link    ='<a href="sql.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;showasphp=false">' . $GLOBALS['strNoPhp'] . '</a>';
+                }else{
+                    $php_link    ='<a href="sql.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;showasphp=true">' . $GLOBALS['strPhp'] . '</a>';
+                }
             }
             if (!empty($edit_target)) {
-                echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;[' . $edit_link . ']<br />' . "\n";
+                echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;[' . $edit_link . ']&nbsp;' . $explain_link . '[' . $php_link . ']<br />' . "\n";
             } else {
                 echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:<br />' . "\n";
             }
@@ -957,6 +981,9 @@ if (typeof(document.getElementById) != 'undefined'
             if (!empty($GLOBALS['sql_limit_to_append'])) {
                 echo $GLOBALS['sql_limit_to_append'];
             }
+            }
+            if(isset($showasphp) and ($showasphp=='true')){
+                echo  '&quot;;';
             echo "\n";
             ?>
         </td>
