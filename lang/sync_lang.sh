@@ -43,7 +43,7 @@ norwegian-iso-8859-1
 polish-iso-8859-2
 portuguese-iso-8859-1
 romanian-iso-8859-1
-russian-koi8
+russian-koi8-r
 serbian-win1250
 slovak-iso-8859-2
 spanish
