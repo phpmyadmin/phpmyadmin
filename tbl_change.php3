@@ -81,7 +81,6 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
 
     // The type column
     $row_table_def['True_Type']=ereg_replace('\\(.*','',$row_table_def['Type']);
-    //switch (ereg_replace('\\(.*', '', $row_table_def['Type'])) {
     switch ($row_table_def['True_Type']) {
         case 'set':
             $type         = 'set';
@@ -159,7 +158,6 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     echo "\n";
 
     // The value column (depends on type)
-    //if (strstr($row_table_def['Type'], 'text')) {
     if (strstr($row_table_def['True_Type'], 'text')) {
         ?>
         <td>
@@ -171,7 +169,6 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
             echo '        <td>' . $strTextAreaLength . '</td>' . "\n";
         }
     }
-    //else if (strstr($row_table_def['Type'], 'enum')) {
     else if (strstr($row_table_def['True_Type'], 'enum')) {
         $set = str_replace('enum(', '', $row_table_def['Type']);
         $set = ereg_replace('\\)$', '', $set);
@@ -193,9 +190,9 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
                     || ($data == '' 
 		  	&& isset($row_table_def['Default'])
 			&& $set[$j] == $row_table_def['Default'])) {
-                    echo ' "selected"';
+                    echo ' selected';
                 }
-                echo '>' . htmlspecialchars($set[$j]) . '</option>' . "\n";
+                echo '>'  .htmlspecialchars($set[$j]) . '</option>' . "\n";
              } // end for
              ?>
              </select>

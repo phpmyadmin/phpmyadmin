@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 
+2001-08-03  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change.php3: current value of enums was lost
+
 2001-08-02  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_properties.php3, db_details.php3: fixed problem with table
 	  size display and MERGE tables
