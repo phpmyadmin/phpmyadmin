@@ -8,6 +8,7 @@ $Source$
 2003-06-30 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_properties_operations.php3, lang/*: Reorganised layout a bit, added
       CHECK link for InnoDB, use correct table type name fo BerkeleyDB.
+    * tbl_query_box.php3: Moved load text files link outside form.
 
 2003-06-27 Garvin Hicking <dont_sobic.c_me_please@supergarv.de>
     * left.php3: Removed debugging code
