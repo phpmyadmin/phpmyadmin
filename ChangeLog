@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_addfield.php: bug #1082680, undefined $field_charset when adding
+      a FLOAT field in MySQL 4.1.x
+
 2005-01-07 Michal Čihař  <michal@cihar.com>
     * Documentation.html, tbl_change.php, tbl_properties.inc.php,
       libraries/functions.js, libraries/tbl_change.js,

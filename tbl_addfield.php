@@ -62,7 +62,7 @@ if (isset($submit_num_fields)) {
         }
         if ($field_attribute[$i] != '') {
             $query .= ' ' . $field_attribute[$i];
-        } else if (PMA_MYSQL_INT_VERSION >= 40100 && $field_charset[$i] != '') {
+        } else if (PMA_MYSQL_INT_VERSION >= 40100 && isset($field_charset[$i]) && $field_charset[$i] != '') {
             $query .= ' CHARACTER SET ' . $field_charset[$i];
         }
         if ($field_default[$i] != '') {
