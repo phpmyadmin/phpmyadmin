@@ -2,20 +2,10 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-/**
- * Plugin function TEMPLATE (Garvin Hicking).
- * -----------------------------------------
- *
- * For instructions, read the libraries/transformations/README file.
- *
- * The string ENTER_FILENAME_HERE shall be substituted with the filename without the '.inc.php'
- * extension. For further information regarding naming conventions see the README file.
- */
-
 if (!defined('PMA_TRANSFORMATION_TEXT_PLAIN__DATEFORMAT')){
     define('PMA_TRANSFORMATION_TEXT_PLAIN__DATEFORMAT', 1);
 
-    function PMA_transformation_text_plain__dateformat($buffer, $options = array()) {
+    function PMA_transformation_text_plain__dateformat($buffer, $options = array(), $meta = '') {
         // possibly use a global transform and feed it with special options:
         // include('./libraries/transformations/global.inc.php');
 

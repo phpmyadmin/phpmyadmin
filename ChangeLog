@@ -12,6 +12,11 @@ $Source$
       formatting has been altered to preserve those.
     * libraries/transformations/text_plain__dateformat.inc.php3:
       Remove obsolete code, thanks to Thiemo Maettig!
+    * Documentation.html, libraries/display_tbl.lib.php3,
+      libraries/transformations/*:
+      The $meta field information is now passed to the transformation plugins
+      to allow future (and easier) usage of field information
+      (zerofill/unsigned/not_null/...).
 
 2003-11-04 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: bug 833900, added known limitation in FAQ 3.10

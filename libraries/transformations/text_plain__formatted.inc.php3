@@ -4,8 +4,8 @@
 
 if (!defined('PMA_TRANSFORMATION_TEXT_PLAIN__FORMATTED')){
     define('PMA_TRANSFORMATION_TEXT_PLAIN__FORMATTED', 1);
-    
-    function PMA_transformation_text_plain__formatted($buffer, $options = array()) {
+
+    function PMA_transformation_text_plain__formatted($buffer, $options = array(), $meta = '') {
         return $buffer;
     }
 }

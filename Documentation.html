@@ -2134,6 +2134,16 @@ language file.</p><br />
 <p>To create a new transform function please see libraries/transformations/template_generator.sh.
 To create a new, empty mimetype please see libraries/transformations/template_generator_mimetype.sh.</p><br />
 
+<p>A transform function always gets passed three variables:</p>
+<ol>
+    <li><b>$buffer</b> - Contains the text inside of the column. This is the text, you want to transform.</li>
+    <li><b>$options</b> - Contains any user-passed options to a transform function as an array.</li>
+    <li><b>$meta</b> - Contains an object with field information to your column. The data is drawn from the output of the
+    <a href="http://www.php.net/mysql_fetch_field">mysql_fetch_field()</a> function. This means, all object properties described
+    on the <a href="http://www.php.net/mysql_fetch_field">manual page</a> are available in this variable and can be used to
+    transform a field accordingly to unsigned/zerofill/not_null/... properties.</li>
+</ol>
+
 <!-- FAQ -->
 <a name="faq"></a><br />
 <h2>FAQ - Frequently Asked Questions</h2>
@@ -2793,9 +2803,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <h4>
     [3.10] Homonyms and no primary key: When the results of a SELECT display
-    more that one column with the same value 
+    more that one column with the same value
     (for example <tt>SELECT lastname from employees where firstname like 'A%'</tt> and two &quot;Smith&quot; values are displayed),
-    if I click Edit I cannot be sure that I am editing the intended row. 
+    if I click Edit I cannot be sure that I am editing the intended row.
 </h4>
 <p>
     Please make sure that your table has a primary key, so that phpMyAdmin

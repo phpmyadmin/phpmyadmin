@@ -1237,7 +1237,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     if (isset($GLOBALS['mime_map'][$meta->name]['mimetype']) && isset($GLOBALS['mime_map'][$meta->name]['transformation']) && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])) {
                         // garvin: for security, never allow to break out from transformations directory
                         $include_file = eregi_replace('\.\.*', '.', $GLOBALS['mime_map'][$meta->name]['transformation']);
-
                         if (file_exists('./libraries/transformations/' . $include_file)) {
                             $transformfunction_name = str_replace('.inc.php3', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
 
@@ -1315,9 +1314,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                                                                    .  PMA_generate_common_url($map[$meta->name][3], $map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                    .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = ' . $row[$pointer]) . '"' . $title . '>'
-                                                                   .  ($transform_function != $default_function ? $transform_function($row[$pointer], $transform_options) : $transform_function($row[$pointer])) . '</a>';
+                                                                   .  ($transform_function != $default_function ? $transform_function($row[$pointer], $transform_options, $meta) : $transform_function($row[$pointer], array(), $meta)) . '</a>';
                         } else {
-                            $vertical_display['data'][$row_no][$i] .= ($transform_function != $default_function ? $transform_function($row[$pointer], $transform_options) : $transform_function($row[$pointer]));
+                            $vertical_display['data'][$row_no][$i] .= ($transform_function != $default_function ? $transform_function($row[$pointer], $transform_options, $meta) : $transform_function($row[$pointer], array(), $meta));
                         }
                         $vertical_display['data'][$row_no][$i]     .= '</td>' . "\n";
                     } else {
@@ -1341,7 +1340,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         }
 
                         $blobtext .= ']';
-                        $blobtext = ($default_function != $transform_function ? $transform_function($blobtext, $transform_options) : $default_function($blobtext));
+                        $blobtext = ($default_function != $transform_function ? $transform_function($blobtext, $transform_options, $meta) : $default_function($blobtext, array(), $meta));
 
                         $vertical_display['data'][$row_no][$i]      = '    <td align="center" ' . $column_style . ' valign="top" bgcolor="' . $bgcolor . '">' . $blobtext . '</td>';
                     } else {
@@ -1356,7 +1355,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             }
                             // loic1: displays all space characters, 4 space
                             // characters for tabulations and <cr>/<lf>
-                            $row[$pointer]     = ($default_function != $transform_function ? $transform_function($row[$pointer], $transform_options) : $default_function($row[$pointer]));
+                            $row[$pointer]     = ($default_function != $transform_function ? $transform_function($row[$pointer], $transform_options, $meta) : $default_function($row[$pointer], array(), $meta));
 
                             $vertical_display['data'][$row_no][$i] = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '">' . $row[$pointer] . '</td>' . "\n";
                         } else {
@@ -1385,12 +1384,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $row[$pointer]     = str_replace("\x0a", '\n', $row[$pointer]);
                             $row[$pointer]     = str_replace("\x0d", '\r', $row[$pointer]);
                             $row[$pointer]     = str_replace("\x1a", '\Z', $row[$pointer]);
-                            $row[$pointer]     = ($default_function != $transform_function ? $transform_function('BLOB', $transform_options) : $default_function($row[$pointer]));
+                            $row[$pointer]     = ($default_function != $transform_function ? $transform_function($row[$pointer], $transform_options, $meta) : $default_function($row[$pointer], array(), $meta));
                         }
                         // loic1: displays all space characters, 4 space
                         // characters for tabulations and <cr>/<lf>
                         else {
-                            $row[$pointer]     = ($default_function != $transform_function ? $transform_function($row[$pointer], $transform_options) : $default_function($row[$pointer]));
+                            $row[$pointer]     = ($default_function != $transform_function ? $transform_function($row[$pointer], $transform_options, $meta) : $default_function($row[$pointer], array(), $meta));
                         }
 
                         // garvin: transform functions may enable nowrapping:
