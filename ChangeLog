@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-08 Robin Johnson  <robbat2@users.sourceforge.net>
+    * lib/sqlparser.data.php3: Bug #639291 fixed
+
 2002-11-16 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_indexes.php3: Fixed bug #638321 (FULLTEXT is not detected correctly
       with MySQL >= 4.0.2-alpha).

@@ -268,6 +268,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'IGNORE',
         'IN',
         'INDEX',
+        'INDEXES',
         'INFILE',
         'INNER',
         'INSERT',
@@ -419,7 +420,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'YEAR_MONTH'
     );
     //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-    $PMA_SQPdata_reserved_word_cnt = 239;
+    $PMA_SQPdata_reserved_word_cnt = 240;
 
     $PMA_SQPdata_column_type = array (
         'BIGINT',
