@@ -6,7 +6,7 @@
    Transformations  -  FAQ  -  Developers  -  Credits  -  Translators
    ______________________________________________________________________
    
-                        phpMyAdmin 2.5.2 Documentation
+                      phpMyAdmin 2.5.3-rc1 Documentation
                                        
      * SourceForge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ] 
@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.478 2003/07/22
-       19:22:01 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.484 2003/07/29
+       20:25:04 lem9 Exp $
        
 Requirements
 
@@ -299,7 +299,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           free the hostname of the other $cfg['Server']-entries.
           
    $cfg['Servers'][$i]['host'] string
-          The hostname of your $i-th MySQL-server. E.g. localhost.
+          The hostname or IP address of your $i-th MySQL-server. E.g.
+          localhost.
           
    $cfg['Servers'][$i]['port'] string
           The port-number of your $i-th MySQL-server. Default is 3306
@@ -718,6 +719,16 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           Define whether the "search string inside database" is enabled
           or not.
           
+   $cfg['IgnoreMultiSubmitErrors'] boolean
+          Define whether phpMyAdmin will continue executing a multi-query
+          statement if one of the queries fails. Default is to abort
+          execution.
+          
+   $cfg['VerboseMultiSubmit'] boolean
+          Define whether phpMyAdmin will output the results of each query
+          of a multi-query statement embedded into the SQL output as
+          inline comments. Defaults to TRUE.
+          
    $cfg['LeftFrameLight'] boolean
           Defines whether to use select-based menu and display only the
           current tables in the left frame (smaller page). Only in
@@ -835,6 +846,19 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
    $cfg['LightTabs'] string
           If set to True, do use less graphically intense tabs on the top
           of the mainframe.
+          
+   $cfg['PropertiesIconic'] string
+          If set to True, will display icons instead of text for db and
+          table properties links (like 'Browse', 'Select', 'Insert',
+          ...).
+          Can be set to 'both' if you want icons AND text.
+          When set to False, will only show text.
+          
+   $cfg['PropertiesNumColumns'] integer
+          How many columns will be utilized to display the tables on the
+          database property view? Default is 1 column. When setting this
+          to a value larger than 1, the type of the database will be
+          omitted for more display space.
           
    $cfg['DefaultTabServer'] string
           Defines the tab displayed by default on server view. Possible
@@ -2493,14 +2517,17 @@ CREDITS, in chronological order
   (http://sourceforge.net/projects/phpmysqlformgen/)
     * suggested the patch for multiple table printviews
 
-- Garvin Hicking <hicking_at_faktor-e.de>
+- Garvin Hicking <me_at_supergarv.de>
     * built the patch for vertical display of table rows
     * built the Javascript based Query window + SQL history
     * Improvement of column/db comments
     * (MIME)-Transformations for columns
     * Use custom alias names for Databases in left frame
+    * hierarchical/nested table display
+    * PDF-scratchboard for WYSIWYG-distribution of PDF relations
+    * new icon sets
     * vertical display of column properties page
-    * some bugfixes, smaller features
+    * some bugfixes, features, support, german language additions
 
 - Yukihiro Kawada <kawada_at_den.fujifilm.co.jp>
     * japanese kanji encoding conversion feature
