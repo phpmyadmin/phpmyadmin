@@ -751,11 +751,11 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                 $primary = $fields_meta[$i];
                 if ($primary->numeric == 1) {
                     if (!isset($row[$primary->name])) {
-                        echo '    <td align="right"><i>NULL</i></td>' . "\n";
+                        echo '    <td align="right" valign="top"><i>NULL</i></td>' . "\n";
                     } else if ($row[$i] != '') {
-                        echo '    <td align="right">' . $row[$primary->name] . '</td>' . "\n";
+                        echo '    <td align="right" valign="top">' . $row[$primary->name] . '</td>' . "\n";
                     } else {
-                        echo '    <td align="right">&nbsp;</td>' . "\n";
+                        echo '    <td align="right" valign="top">&nbsp;</td>' . "\n";
                     }
                 } else if ($GLOBALS['cfgShowBlob'] == FALSE && eregi('BLOB', $primary->type)) {
                     // loic1 : mysql_fetch_fields returns BLOB in place of TEXT
@@ -764,7 +764,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                     // fields.
                     $field_flags = mysql_field_flags($dt_result, $i);
                     if (eregi('BINARY', $field_flags)) {
-                        echo '    <td align="center">[BLOB]</td>' . "\n";
+                        echo '    <td align="center" valign="top">[BLOB]</td>' . "\n";
                     } else {
                         if (!isset($row[$primary->name])) {
                             echo '    <td><i>NULL</i></td>' . "\n";
@@ -774,14 +774,14 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                             }
                             // loic1: displays <cr>/<lf>
                             $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$primary->name]));
-                            echo '    <td>' . $row[$primary->name] . '</td>' . "\n";
+                            echo '    <td valign="top">' . $row[$primary->name] . '</td>' . "\n";
                         } else {
-                            echo '    <td>&nbsp;</td>' . "\n";
+                            echo '    <td valign="top">&nbsp;</td>' . "\n";
                         }
                     }
                 } else {
                     if (!isset($row[$primary->name])) {
-                        echo '    <td><i>NULL</i></td>' . "\n";
+                        echo '    <td valign="top"><i>NULL</i></td>' . "\n";
                     } else if ($row[$primary->name] != '') {
                         // loic1: Cut text/blob fields even if $cfgShowBlob is true
                         if (eregi('BLOB', $primary->type)) {
@@ -802,9 +802,9 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                         else {
                             $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$primary->name]));
                         }
-                        echo '    <td>' . $row[$primary->name] . '</td>' . "\n";
+                        echo '    <td valign="top">' . $row[$primary->name] . '</td>' . "\n";
                     } else {
-                        echo '    <td>&nbsp;</td>' . "\n";
+                        echo '    <td valign="top">&nbsp;</td>' . "\n";
                     }
                 }
             } // end for (2)

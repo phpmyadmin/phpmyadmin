@@ -9,11 +9,12 @@ $Source$
 	* sql.php3, lines 225-233: in case of erroneous query, it is now
 	  re-displayed in the query textearea of the calling script.
 	* lang/slovak.inc.php3: eol was missing at the end of the file.
+	* libraries/display_tbl.lib.php3: patch #477498 Cosmetic Change.
 
 2001-11-02  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/slovak-iso.inc.php3: updates thanks to Lubos Klokner, tests
 	  with Loïc: this file must be sent gzipped, otherwise Windows will
-	  corrupt some characters
+	  corrupt some characters.
 	* main.php3, lang/*: new $strWelcome
 
 2001-10-29  Loïc Chapeaux  <lolo@phpheaven.net>
