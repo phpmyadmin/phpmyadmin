@@ -11,7 +11,7 @@ $Source$
       config files.
     * config.inc.php3: Beautified code.
     * header.inc.php3, footer.inc.php3, libraries/common.lib.php3:
-      Header and footer my now be included inside a function as well
+      Header and footer may now be included inside a function as well
       (Better fix against bug #549570).
 
 2002-06-19 Marc Delisle  <lem9@users.sourceforge.net>
