@@ -32,7 +32,9 @@ $Source$
     * Documentation.html: Updated for my new features. Should include
       everyting, I hope. But seriously needs a proofread.
     * config.inc.php3: Inserted new directives for empty
-      $cfg['Servers'][$i].
+      $cfg['Servers'][$i]. (history, verbose_check)
+    * tbl_create.php3, tbl_addfield.php3, tbl_alter.php3: Added more checks
+      to suppress Notices/Warnings when MIME-types are not enabled.
 
 2003-02-26 Garvin Hicking <me@supergarv.de>
     * lang/german-*: better grammar. ;)
