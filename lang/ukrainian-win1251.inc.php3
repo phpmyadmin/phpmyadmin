@@ -242,6 +242,7 @@ $strQBEIns = 'Вставити';
 $strQueryOnDb = 'SQL-запит до БД <b>%s</b>:';
 
 $strRecords = 'Записи';
+$strReferentialIntegrity = 'Перевір цілісність даних на рівні посилань:';
 $strReloadFailed = 'Не вдалось перезавантажити MySQL.';
 $strReloadMySQL = 'Перезавантажити MySQL';
 $strRememberReload = 'Не забудьте перезавантажити сервер.';
@@ -347,5 +348,4 @@ $strYes = 'Так';
 $strZip = 'запакувати в "zip"';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

@@ -241,6 +241,7 @@ $strQBEIns = 'Inserir';
 $strQueryOnDb = 'Procura tipo SQL no banco de datos <b>%s</b>:';
 
 $strRecords = 'Rexistros';
+$strReferentialIntegrity = 'Comprobar a integridade das referencias:';
 $strReloadFailed = 'A reinicialización do MySQL fallou.';
 $strReloadMySQL = 'Reinicializar o MySQL';
 $strRememberReload = 'Lembre-se recarregar o servidor.';
@@ -351,5 +352,4 @@ $strCardinality = 'Cardinality';
 $strLogin = 'Login';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

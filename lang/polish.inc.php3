@@ -242,6 +242,7 @@ $strQBEIns = 'Wstaw';
 $strQueryOnDb = 'Zapytanie SQL dla bazy danych <b>%s</b>:';
 
 $strRecords = 'Rekordy';
+$strReferentialIntegrity = 'Sprawdzenie spójno¶ci powi±zañ:';
 $strReloadFailed = 'Nie powiod³o siê prze³adowanie MySQL.';
 $strReloadMySQL = 'Prze³adowanie MySQL';
 $strRememberReload = 'Proszê pamiêtaæ o prze³adowaniu serwera.';
@@ -347,5 +348,4 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
