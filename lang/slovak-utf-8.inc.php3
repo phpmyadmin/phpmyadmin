@@ -100,6 +100,7 @@ $strCreatePdfFeat = 'Vytváranie PDF';
 $strCriteria = 'Kritéria';
 
 $strData = 'Dáta';
+$strDataDict = 'Dátový slovník';
 $strDataOnly = 'Iba dáta';
 $strDatabase = 'Databáza ';
 $strDatabaseHasBeenDropped = 'Databáza %s bola zmazaná.';
@@ -265,6 +266,7 @@ $strOptions = 'Voľby';
 $strOr = 'alebo';
 $strOverhead = 'Naviac';
 
+$strPHP40203 = 'Používate PHP 4.2.3, ktoré ma vážnu chybu pri práci s viac bajtovými znakmi (mbstring). V PHP je táto chyba zdokumentovaná pod číslom 19404. Nedoporučuje sa používať túto verziu PHP s phpMyAdminom.';
 $strPHPVersion = 'Verzia PHP';
 $strPageNumber = 'Číslo stránky:';
 $strPartialText = 'Čiastočné texty';
@@ -285,6 +287,7 @@ $strPrimaryKey = 'Primárny kľúč';
 $strPrimaryKeyHasBeenDropped = 'Primárny kľúč bol zrušený';
 $strPrimaryKeyName = 'Názov primárneho kľúča musí byť... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>musí</b> byť <b>iba</b> meno primárneho kľúča!)';
+$strPrint = 'Vytlačiť';
 $strPrintView = 'Náhľad k tlači';
 $strPrivileges = 'Privilégia';
 $strProperties = 'Vlastnosti';
@@ -433,7 +436,4 @@ $strYes = 'Áno';
 $strZip = '"zo zipované"';
 // To translate
 
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 ?>
