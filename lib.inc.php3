@@ -478,6 +478,19 @@ function get_table_def($db, $table, $crlf)
     if(!empty($drop))
         $schema_create .= "DROP TABLE IF EXISTS $table;$crlf";
 
+// Steve Alberty's patch for complete table dump,
+// modified by Lem9 to allow older MySQL versions to continue to work
+
+    if(MYSQL_MAJOR_VERSION == "3.23"){
+                $result=mysql_query("show create table $db.$table");
+                if ($result!=false && mysql_num_rows($result)>0){
+                        $tmpres=mysql_fetch_array($result);
+                        $tmp=$tmpres[1];
+                        $schema_create.=str_replace("\n",$crlf,$tmp);
+                }
+                return $schema_create;
+    }
+
     $schema_create .= "CREATE TABLE $table ($crlf";
 
     $result = mysql_query("SHOW FIELDS FROM $db.$table") or mysql_die();
