@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-31  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_create.php3: add warning if table name empty
+
 2001-07-30  Marc Delisle  <lem9@users.sourceforge.net>
 	* merge Loic's version to cvs
 	* spanish.inc.php3 updates, thanks to 
