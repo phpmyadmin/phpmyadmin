@@ -181,6 +181,7 @@ $strIndexes = 'Index';
 $strIndexHasBeenDropped = 'L\'index %s a été effacé';
 $strIndexName = 'Nom de la clef&nbsp;:';
 $strIndexType = 'Type de clef&nbsp;:';
+$strInsecureMySQL = 'Votre fichier de configuration fait référence à l\'utilisateur root sans mot de passe, ce qui correspond à la valeur par défaut de MySQL.  Votre serveur MySQL est donc ouvert aux intrusions, et vous devriez corriger ce problème de sécurité.';
 $strInsert = 'Insérer';
 $strInsertAsNewRow = 'Insérer en tant que nouvel enregistrement';
 $strInsertedRows = 'Nombre d\'enregistrements insérés :';

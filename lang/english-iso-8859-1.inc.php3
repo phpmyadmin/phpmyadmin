@@ -181,6 +181,7 @@ $strIndexes = 'Indexes';
 $strIndexHasBeenDropped = 'Index %s has been dropped';
 $strIndexName = 'Index name&nbsp;:';
 $strIndexType = 'Index type&nbsp;:';
+$strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';
 $strInsert = 'Insert';
 $strInsertAsNewRow = 'Insert as a new row';
 $strInsertedRows = 'Inserted rows:';

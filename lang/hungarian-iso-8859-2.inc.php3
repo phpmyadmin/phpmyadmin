@@ -427,4 +427,5 @@ $strNoQuery = 'Nincs SQL kérés!';  //to translate
 
 $strSearchOption1 = 'at least one of the words';//to translate
 
+$strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';  //to translate
 ?>

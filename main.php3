@@ -574,6 +574,14 @@ if ($display_pmaAbsoluteUri_warning) {
     echo '<p class="warning">' . $strPmaUriError . '</p>' . "\n";
 }
 
+/**
+ * Warning if using the default MySQL privileged account
+ */
+if ($cfg['Server']['auth_type'] == 'config' 
+    && $cfg['Server']['user'] == 'root' 
+    && $cfg['Server']['password'] == '') {
+    echo '<p class="warning">' . $strInsecureMySQL . '</p>' . "\n";
+}
 
 /**
  * Displays the footer

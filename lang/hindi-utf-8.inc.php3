@@ -443,4 +443,5 @@ $strWithChecked = 'With selected:'; //to translate
 $strWrongUser = 'Wrong username/password. Access denied.'; //to translate
 
 $strZip = '"zipped"'; //to translate
+$strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';  //to translate
 ?>
