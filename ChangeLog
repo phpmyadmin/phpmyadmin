@@ -10,6 +10,7 @@ $Source$
       conditional statements.
     * pdf_schema.php3; libraries/fpdf/fpdf.php3: upgraded to the 1.51 release
       of the FPDF library.
+    * libraries/build_dump.lib.php3: fixed a parse error.
 
 2002-10-03 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php3, tbl_change.php3,
