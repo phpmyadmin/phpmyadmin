@@ -8,7 +8,9 @@ $Source$
 2003-04-12 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Better fix against possible "wrong parameter
       count" errors.
-    * server_privileges.php3: Fixed a broken link in the user overview table.
+    * server_privileges.php3:
+      - Fixed a broken link in the user overview table;
+      - Fixed bug #539756 again.
 
 2003-04-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php3, config_import.lib.php3:
