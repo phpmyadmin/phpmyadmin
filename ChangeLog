@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-19  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/user_details.JS, lines 126-130: url has to changed whatever is
+	  the control that called the "change" function.
+
 2001-10-18  Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html; header.inc.php3; index.php3; left.php3;
 	  libraries/common.lib.php3: removed the xml declaration because even if

@@ -123,11 +123,9 @@ function change(the_field) {
     var l        = location.href;
     var box_name = the_field.name;
 
-    if (box_name == 'dbgrant') {
-        var lpos = l.indexOf('&' + box_name);
-        if (lpos >= 0) {
-            l = l.substring(0, lpos);
-        }
+    var lpos = l.indexOf('&' + box_name);
+    if (lpos > 0) {
+        l = l.substring(0, lpos);
     } // end if
 
     location.href = l + '&' + box_name + '=' + getSelected(the_field);
