@@ -38,14 +38,20 @@ $lang_path = 'lang/';
  * alphabetical reverse order in the array) is important: 'zh-tw' (chinese
  * traditional) must be detected before 'zh' (chinese simplified) for
  * example.
+ *
+ * When there are more than one charset for a language, we put the -utf-8 
+ * first.
  */
 $available_languages = array(
+    'ar-utf-8'     => array('ar([-_][[:alpha:]]{2})?|arabic', 'arabic-utf-8', 'ar'),
     'ar-win1256'   => array('ar([-_][[:alpha:]]{2})?|arabic', 'arabic-windows-1256', 'ar'),
+    'bg-utf-8'     => array('bg|bulgarian', 'bulgarian-utf-8', 'bg'),
     'bg-win1251'   => array('bg|bulgarian', 'bulgarian-windows-1251', 'bg'),
     'bg-koi8-r'    => array('bg|bulgarian', 'bulgarian-koi8-r', 'bg'),
+    'ca-utf-8'     => array('ca|catalan', 'catalan-utf-8', 'ca'),
     'ca-iso-8859-1'=> array('ca|catalan', 'catalan-iso-8859-1', 'ca'),
-    'cs-iso-8859-2'=> array('cs|czech', 'czech-iso-8859-2', 'cs'),
     'cs-utf-8'     => array('cs|czech', 'czech-utf-8', 'cs'),
+    'cs-iso-8859-2'=> array('cs|czech', 'czech-iso-8859-2', 'cs'),
     'cs-win1250'   => array('cs|czech', 'czech-windows-1250', 'cs'),
     'da-iso-8859-1'=> array('da|danish', 'danish-iso-8859-1', 'da'),
     'de-iso-8859-1'=> array('de([-_][[:alpha:]]{2})?|german', 'german-iso-8859-1', 'de'),
@@ -56,6 +62,7 @@ $available_languages = array(
     'es-iso-8859-1'=> array('es([-_][[:alpha:]]{2})?|spanish', 'spanish-iso-8859-1', 'es'),
     'et-iso-8859-1'=> array('et|estonian', 'estonian-iso-8859-1', 'et'),
     'fi-iso-8859-1'=> array('fi|finnish', 'finnish-iso-8859-1', 'fi'),
+    'fr-utf-8'     => array('fr([-_][[:alpha:]]{2})?|french', 'french-utf-8', 'fr'),
     'fr-iso-8859-1'=> array('fr([-_][[:alpha:]]{2})?|french', 'french-iso-8859-1', 'fr'),
     'gl-iso-8859-1'=> array('gl|galician', 'galician-iso-8859-1', 'gl'),
     'he-iso-8859-8-i'=> array('he|hebrew', 'hebrew-iso-8859-8-i', 'he'),
@@ -73,6 +80,7 @@ $available_languages = array(
     'nl-iso-8859-1'=> array('nl([-_][[:alpha:]]{2})?|dutch', 'dutch-iso-8859-1', 'nl'),
     'no-iso-8859-1'=> array('no|norwegian', 'norwegian-iso-8859-1', 'no'),
     'pl-iso-8859-2'=> array('pl|polish', 'polish-iso-8859-2', 'pl'),
+    'pt-br-utf-8' => array('pt[-_]br|brazilian portuguese', 'brazilian_portuguese-utf-8', 'pt-BR'),
     'pt-br-iso-8859-1' => array('pt[-_]br|brazilian portuguese', 'brazilian_portuguese-iso-8859-1', 'pt-BR'),
     'pt-iso-8859-1'=> array('pt([-_][[:alpha:]]{2})?|portuguese', 'portuguese-iso-8859-1', 'pt'),
     'ro-iso-8859-1'=> array('ro|romanian', 'romanian-iso-8859-1', 'ro'),
@@ -80,12 +88,14 @@ $available_languages = array(
     'ru-win1251'   => array('ru|russian', 'russian-windows-1251', 'ru'),
     'sk-iso-8859-2'=> array('sk|slovak', 'slovak-iso-8859-2', 'sk'),
     'sk-win1250'   => array('sk|slovak', 'slovak-windows-1250', 'sk'),
+    'sq-utf-8'     => array('sq|albanian', 'albanian-utf-8', 'sq'),
     'sq-iso-8859-1'=> array('sq|albanian', 'albanian-iso-8859-1', 'sq'),
     'sr-win1250'   => array('sr|serbian', 'serbian-windows-1250', 'sr'),
     'sv-iso-8859-1'=> array('sv|swedish', 'swedish-iso-8859-1', 'sv'),
     'th-tis-620'   => array('th|thai', 'thai-tis-620', 'th'),
     'tr-iso-8859-9'=> array('tr|turkish', 'turkish-iso-8859-9', 'tr'),
     'uk-win1251'   => array('uk|ukrainian', 'ukrainian-windows-1251', 'uk'),
+    'zh-tw-utf-8'  => array('zh[-_]tw|chinese traditional', 'chinese_big5-utf-8', 'zh-TW'),
     'zh-tw'        => array('zh[-_]tw|chinese traditional', 'chinese_big5', 'zh-TW'),
     'zh'           => array('zh|chinese simplified', 'chinese_gb', 'zh')
 );
@@ -190,8 +200,9 @@ if (!empty($cfg['Lang'])) {
 if (!empty($lang) && empty($available_languages[$lang])) {
     $lang = '';
 }
+
 // Language is not defined yet :
-// 1. try to findout users language by checking it's HTTP_ACCEPT_LANGUAGE
+// 1. try to findout user's language by checking its HTTP_ACCEPT_LANGUAGE
 //    variable
 if (empty($lang) && !empty($HTTP_ACCEPT_LANGUAGE)) {
     $accepted    = explode(',', $HTTP_ACCEPT_LANGUAGE);
@@ -201,7 +212,7 @@ if (empty($lang) && !empty($HTTP_ACCEPT_LANGUAGE)) {
         PMA_langDetect($accepted[$i], 1);
     }
 }
-// 2. try to findout users language by checking it's HTTP_USER_AGENT variable
+// 2. try to findout user's language by checking its HTTP_USER_AGENT variable
 if (empty($lang) && !empty($HTTP_USER_AGENT)) {
     PMA_langDetect($HTTP_USER_AGENT, 2);
 }
