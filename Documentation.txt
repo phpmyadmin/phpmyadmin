@@ -9,8 +9,8 @@
           + Version history: [3]ChangeLog
           + General notes: [4]README
           + License: [5]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.98 2001/11/15
-       21:26:41 loic1 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.102 2001/11/23
+       19:19:12 loic1 Exp $
    ______________________________________________________________________
    
    [6]Top  -  [7]Requirements  -  [8]Introduction  -  [9]Installation  -
@@ -463,6 +463,12 @@ FAQ - Frequently Asked Questions
    For some more information and complete testings see the messages
    posted by "djdeluxe76" in [50]this thread from the phpWizard forum.
    
+   I can't use phpMyAdmin on PWS: nothing is displayed!
+   This seems to be a PWS bug. Filippo Simoncini found a workaroud (at
+   this time there is no better fix): remove or comment the DOCTYPE
+   declarations (3 lines) from the scripts header.inc.php3, index.php3,
+   left.php3 and libraries/common.lib.php3.
+   
    How can I GZip or Bzip a dump or a CSV export. It seems to not work?
    These features are based on the gzencode() and bzcompress() php
    functions to be more independent of the platform (Unix/Windows, Safe
@@ -537,6 +543,12 @@ FAQ - Frequently Asked Questions
        
    Have also a look at the [55]corresponding section of the MySQL
    documentation.
+   
+   Each time I want to insert or change a record or drop a database or a
+   table, an error 404 (page not found) is displayed or, with advanced
+   authentication, I'm asked to login again. What's wrong?
+   Check the value you set for the $cfgPmaAbsoluteUri directive in the
+   phpMyAdmin configuration file.
    
   [Known limitations]
   
