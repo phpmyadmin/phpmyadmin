@@ -108,8 +108,8 @@ if (!empty($cfg['Server']['pdf_pages'])){
         <input type="hidden" name="server" value="<?php echo $server; ?>" />
         <input type="hidden" name="table" value="<?php echo $table; ?>" />
         <input type="hidden" name="do" value="choosepage" />
+        <select name="chpage" onChange="this.form.submit()">
         <?php
-        echo '<select name="chpage" onChange="this.form.submit()">';
         while ($curr_page = @mysql_fetch_array($page_rs)) {
             echo '<option value="'.$curr_page['page_nr'].'"';
                 if($chpage==$curr_page['page_nr']){echo ' selected="selected"';}
@@ -117,6 +117,7 @@ if (!empty($cfg['Server']['pdf_pages'])){
                 echo $curr_page['page_nr'] . ': '.$curr_page['page_descr'].'</option>';
         }
         ?>
+        </select>
         <input type="submit" value="<?php echo $strGo; ?>" />
         </form>
         <?php
