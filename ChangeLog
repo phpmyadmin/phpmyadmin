@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html, config.inc.php3: new LimitChars behavior
+
 2003-06-06 Michal Cihar  <nijel@users.sourceforge.net>
     * mult_submits.inc.php3: Missing ;.
     * libraries/relation_cleanup.lib.php3, mult_submits.inc.php3, sql.php3:
