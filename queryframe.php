@@ -52,7 +52,7 @@ $cfgRelation = PMA_getRelationsParam();
     <title>phpMyAdmin</title>
     <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
     <base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> />
-    <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php?lang=<?php echo $lang; ?>&amp;js_frame=left&num_dbs=0" />
+    <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php?lang=<?php echo $lang; ?>&amp;js_frame=left&amp;num_dbs=0" />
 <?php
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 ?>
@@ -94,7 +94,7 @@ if ($cfg['LeftDisplayLogo']) {
     if (@file_exists($pmaThemeImage . 'logo_left.png')) {
     ?>
     <div align="center">
-        <a href="http://www.phpmyadmin.net" target="_blank"><img src="<?php echo '' . $pmaThemeImage . 'logo_left.png'; ?>" alt="phpMyAdmin" vspace="3" border="0" /></a></td>
+        <a href="http://www.phpmyadmin.net" target="_blank"><img src="<?php echo '' . $pmaThemeImage . 'logo_left.png'; ?>" alt="phpMyAdmin" vspace="3" border="0" /></a>
     </div>
     <?php
     } else {
@@ -136,7 +136,7 @@ $anchor = 'querywindow.php?' . PMA_generate_common_url('', '');
 if ($cfg['QueryFrameJS']) {
     $href = $anchor;
     $target = '';
-    $onclick = 'onClick="javascript:open_querywindow(this.href); return false;"';
+    $onclick = 'onclick="javascript:open_querywindow(this.href); return false;"';
 } else {
     $href = $anchor;
     $target = 'target="phpmain' . $hash . '"';
@@ -161,7 +161,7 @@ if ($cfg['MainPageIconic']) {
     <?php
 
 if ($cfg['MainPageIconic']) {
-    echo '<img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  .'" width="2" height="1" border="0" />'
+    echo '<img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  .'" width="2" height="1" border="0" alt="" />'
        . '<a href="Documentation.html" target="documentation" class="item">'
        . '<img src="' . $pmaThemeImage . 'b_docs.png" border="0" hspace="1" width="16" height="16" alt="' . $strPmaDocumentation . '" title="' . $strPmaDocumentation . '"'
        . ' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="absmiddle" />'
@@ -336,7 +336,7 @@ if ($num_dbs > 1) {
         <input type="hidden" name="framename" value="queryframe" />
     </form>
     <form name="hashform" action="queryframe.php">
-        <input type="hidden" name="hash" value="<?php echo $hash; ?>">
+        <input type="hidden" name="hash" value="<?php echo $hash; ?>" />
     </form>
 
 </body>
