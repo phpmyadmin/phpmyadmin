@@ -154,7 +154,7 @@ function PMA_auth()
         else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username'])) {
             $default_user = $_COOKIE['pma_cookie_username'];
         }
-        $decrypted_user = PMA_blowfish_decrypt($default_user, $GLOBALS['cfg']['blowfish_secret']);
+        $decrypted_user = isset($default_user) ? PMA_blowfish_decrypt($default_user, $GLOBALS['cfg']['blowfish_secret']) : '';
         $pos = strrpos($decrypted_user, ':');
         $default_user = substr($decrypted_user, 0, $pos);
 
