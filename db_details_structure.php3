@@ -249,7 +249,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                     $row_count           = PMA_mysql_result($table_info_result, 0, 'count');
                     $sum_entries         += $row_count;
                 } else {
-                    $row_count           = 0;
+                    $row_count           = $sts_data['Rows'];
                     $sum_entries         += $sts_data['Rows'];
                 }
                 $display_rows        = number_format($row_count, 0, $number_decimal_separator, $number_thousands_separator);

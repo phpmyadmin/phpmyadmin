@@ -16,6 +16,10 @@ $Source$
      * lang/latvian: Update thanks to Sandis Jerics (saaa2002).
      * lang/chinese: Update thanks to Wang (fundawang).
      * lang/sync_lang.sh: Fix for POSIX sh.
+     * db_details_structure.php3: Don't display 0 for InnoDB tables as records
+       count - fixes #735441.
+     * libraries/display_tbl.lib.php3: Fix not displaying content of TEXT
+       fields (was treated like BLOB).
 
 2003-05-09 Marc Delisle  <lem9@users.sourceforge.net>
      * libraries/display_tbl.lib.php3: bug 731367: hexifying all
