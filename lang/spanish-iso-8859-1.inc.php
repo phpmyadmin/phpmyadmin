@@ -28,6 +28,8 @@ $strAddConstraints = 'Añada constreñimientos';
 $strAddDeleteColumn = 'Añadir/borrar columna de criterio';
 $strAddDeleteRow = 'Añadir/borrar fila de criterio';
 $strAddDropDatabase = 'Añada DROP DATABASE';
+$strAddHeaderComment = 'Añada su propio comentario en el encabezado (\\n segmenta las oraciones)';
+$strAddIfNotExists = 'Añada en CASO DE NO EXISTIR';
 $strAddIntoComments = 'Añada en los comentarios';
 $strAddNewField = 'Insertar nuevo campo';
 $strAddPriv = 'Agregar nuevo privilegio';
@@ -45,6 +47,7 @@ $strAffectedRows = 'Filas afectadas: ';
 $strAfter = 'Después de %s';
 $strAfterInsertBack = 'Volver';
 $strAfterInsertNewInsert = 'Insertar un nuevo registro';
+$strAfterInsertSame = 'Volver a esta página';
 $strAll = 'Todos/as';
 $strAllTableSameWidth = '¿Mostrar todas las tablas que tienen el mismo ancho?';
 $strAlterOrderBy = 'Modificar el "Order By" de la tabla';
@@ -86,6 +89,7 @@ $strBzError = 'Si desea usar las opciones de compresión Bz2, deberá actualizar s
 $strBzip = '"Comprimido con bzip"';
 
 $strCSVOptions = 'Opciones CSV';
+$strCalendar = 'Calendario';
 $strCannotLogin = 'No se consiguió hacer login al servidor MySQL';
 $strCantLoad = 'no se pudo cargar la extensión %s,<br />por favor revise su configuración de PHP.';
 $strCantLoadRecodeIconv = 'No se puede cargar iconv o recodificar una extensión necesaria para la conversión de juegos de caracteres, configure php para permitir el uso de estas extensiones o desactive la conversión de juegos de caracteres en phpMyAdmin.';
@@ -123,11 +127,13 @@ $strColumnNames = 'Nombre de las columnas';
 $strColumnPrivileges = 'Privilegios específicos para la columna';
 $strCommand = 'Comando';
 $strComments = 'Comentarios';
+$strCommentsForTable = 'COMENTARIOS PARA LA TABLA';
 $strCompleteInserts = 'Completar los "Inserts"';
 $strCompression = 'Compresión';
 $strConfigFileError = '¡phpMyAdmin no puede leer el fichero de configuración!<br />Esto puede suceder si php encuentra un error sintáctico en él o bien php no puede encontrar el fichero.<br />Intente acceder al fichero de configuración directamente mediante el siguiente enlace y compruebe el(los) mensaje(s) de error que reciba. En muchas ocasiones falta una coma o punto y coma en algún sitio.<br />Si recibe una página en blanco, todo está correcto.';
 $strConfigureTableCoord = 'Configure las coordenadas para la tabla %s';
 $strConfirm = '¿Realmente quiere hacerlo?';
+$strConnectionError = 'No se estableció la conexión: los parámetros están incorrectos.';
 $strConnections = 'Conexiones';
 $strConstraintsForDumped = 'Filtros para las tablas descargadas (dump)';
 $strConstraintsForTable = 'Filtros para la tabla';
@@ -160,11 +166,13 @@ $strDBGMinTimeMs = 'Tiempo mínimo, ms';
 $strDBGModule = 'Módulo';
 $strDBGTimePerHitMs = 'Tiempo/Hit, ms';
 $strDBGTotalTimeMs = 'Tiempo total, ms';
+$strDBRename = 'Cambiar el nombre de la base de datos a';
 $strDanish = 'Danés';
 $strData = 'Datos';
 $strDataDict = 'Diccionario Datos';
 $strDataOnly = 'Solamente datos';
 $strDatabase = 'Base de datos';
+$strDatabaseEmpty = 'El nombre de la base de datos está vacía!';
 $strDatabaseExportOptions = 'Opciones de exportación de la base de datos';
 $strDatabaseHasBeenDropped = 'La base de datos %s ha sido eliminada.';
 $strDatabaseNoTable = '¡Esta base de datos no contiene tablas!';
@@ -179,6 +187,7 @@ $strDbPrivileges = 'Privilegios específicos para la base de datos';
 $strDbSpecific = 'específico para la base de datos';
 $strDefault = 'Predeterminado';
 $strDefaultValueHelp = 'Para valores predeterminados, por favor ingrese solamente un valor, sin "escaping backslash" ni comillas, usando este formato: a';
+$strDefragment = 'Defragmentar la tabla';
 $strDelOld = 'La página actual tiene referencias a tablas que ya no existen.  ¿Desea eliminar esas referencias?';
 $strDelayedInserts = 'Use "inserts" con retraso';
 $strDelete = 'Borrar';
@@ -203,6 +212,7 @@ $strDoYouReally = 'Realmente desea ';
 $strDocu = 'Documentación';
 $strDrop = 'Eliminar';
 $strDropDB = 'Eliminar la base de datos %s';
+$strDropDatabaseStrongWarning = 'Usted está a punto de DESTRUIR una base de datos completa!';
 $strDropSelectedDatabases = 'Elimine la base de datos seleccionada';
 $strDropTable = 'Borrar la tabla';
 $strDropUsersDb = 'Eliminar las bases de datos que tienen los mismos nombres de los usuarios.';
@@ -219,6 +229,7 @@ $strEffective = 'Efectivo/a';
 $strEmpty = 'Vaciar';
 $strEmptyResultSet = 'MySQL ha devuelto un valor vacío (i.e. cero columnas).';
 $strEnabled = 'Habilitado';
+$strEncloseInTransaction = 'Incluya lo exportado en una transacción';
 $strEnd = 'Fin';
 $strEndCut = 'FIN DEL CORTE';
 $strEndRaw = 'FIN DEL VOLCADO';
@@ -285,6 +296,7 @@ $strId = 'Identificación';
 $strIdxFulltext = 'Texto completo';
 $strIfYouWish = 'Si desea cargar solamente una de las columnas de la tabla, especifíquelo, separando los campos con una coma.';
 $strIgnore = 'Ignorar';
+$strIgnoreInserts = 'Use la opción ignore inserts';
 $strIgnoringFile = 'Ignorando el archivo %s';
 $strImportDocSQL = 'Importar archivos docSQL';
 $strImportFiles = 'Importar archivos';
@@ -348,6 +360,7 @@ $strLogin = 'Identificación';
 $strLoginInformation = 'Información acerca del login';
 $strLogout = 'Salir';
 
+$strMIMETypesForTable = 'MIME TYPES PARA LA TABLA';
 $strMIME_MIMEtype = 'MIME-type';
 $strMIME_available_mime = 'MIME-types disponibles';
 $strMIME_available_transform = 'Transformaciones disponibles';
@@ -379,6 +392,7 @@ $strMySQLShowStatus = 'Mostrar información de marcha de MySQL';
 $strMySQLShowVars = 'Mostrar las variables del sistema MySQL';
 
 $strName = 'Nombre';
+$strNeedPrimaryKey = 'Usted debe definir una llave primaria para esta tabla.';
 $strNext = 'Próxima';
 $strNo = 'No';
 $strNoDatabases = 'No hay bases de datos';
@@ -397,6 +411,7 @@ $strNoPhp = 'Sin código PHP';
 $strNoPrivileges = 'Sin privilegios';
 $strNoQuery = '¡No existe la consulta SQL!';
 $strNoRights = '¡Usted no tiene suficientes privilegios para estar aquí ahora!';
+$strNoRowsSelected = 'No se seleccionaron filas';
 $strNoSpace = 'No hay suficiente espacio para guardar el archivo %s.';
 $strNoTablesFound = 'No se han encontrado tablas en la base de datos.';
 $strNoUsersFound = 'Usuario(s) no encontrado(s).';
@@ -415,6 +430,7 @@ $strNumTables = 'Tablas';
 $strOK = 'OK';
 $strOftenQuotation = 'A menudo son comillas. OPCIONALMENTE significa que únicamente los campos char y varchar están encerrados por el caracter "comillas".';
 $strOperations = 'Operaciones';
+$strOperator = 'Operador';
 $strOptimizeTable = 'Optimizar la tabla';
 $strOptionalControls = 'Es opcional. Controla el modo de escribir o leer caracteres especiales.';
 $strOptionally = 'OPCIONALMENTE';
@@ -506,15 +522,18 @@ $strReType = 'Re-escriba';
 $strReceived = 'Recibido';
 $strRecords = 'Registros';
 $strReferentialIntegrity = 'Compruebe la integridad referencial:';
+$strRefresh = 'Actualizar';
 $strRelationNotWorking = 'Las opciones adicionales para trabajar con tablas vinculadas fueron desactivadas. Para saber porqué, dé clic %saquí%s.';  //Features = ¿opciones, componentes?
 $strRelationView = 'Vista de relaciones';
 $strRelationalSchema = 'Esquema relacionado';
 $strRelations = 'Relaciones';
+$strRelationsForTable = 'RELACIONES PARA LA TABLA';
 $strReloadFailed = 'El reinicio de MySQL ha fallado.';
 $strReloadMySQL = 'Reinicio de MySQL';
 $strReloadingThePrivileges = 'Cargando los privilegios nuevamente';
 $strRememberReload = 'Recuerde reiniciar el servidor.';
 $strRemoveSelectedUsers = 'Retire a los usuarios seleccionados';
+$strRenameDatabaseOK = 'La base de datos %s ha sido cambiada de nombre a %s';
 $strRenameTable = 'Cambiar el nombre de la tabla a';
 $strRenameTableOK = 'Tabla %s ahora se llama %s';
 $strRepairTable = 'Reparar la tabla';
@@ -552,6 +571,7 @@ $strSQLParserUserError = 'Parece haber un error en su consulta de SQL. La salida
 $strSQLQuery = 'consulta SQL';
 $strSQLResult = 'Resultado SQL';
 $strSQPBugInvalidIdentifer = 'El identificador no es válido';
+$strSQPBugSyntaxError = 'Error de sintaxis';
 $strSQPBugUnclosedQuote = 'Comillas sin cerrar';
 $strSQPBugUnknownPunctuation = 'Signo de puntuación desconocido';
 $strSave = 'Grabar';
@@ -722,36 +742,5 @@ $strYes = 'Sí';
 
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
-
-// To translate:
-$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
-$strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
-$strAfterInsertSame = 'Go back to this page';  //to translate
-
-$strCalendar = 'Calendar';  //to translate
-$strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
-$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
-
-$strDBRename = 'Rename database to';  //to translate
-$strDatabaseEmpty = 'The database name is empty!';  //to translate
-$strDefragment = 'Defragment table';  //to translate
-$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
-
-$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
-
-$strIgnoreInserts = 'Use ignore inserts';  //to translate
-
-$strMIMETypesForTable = 'MIME TYPES FOR TABLE';  //to translate
-
-$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
-$strNoRowsSelected = 'No rows selected';  //to translate
-
-$strOperator = 'Operator';  //to translate
-
-$strRefresh = 'Refresh';  //to translate
-$strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
-$strRenameDatabaseOK = 'Database %s has been renamed to %s';  //to translate
-
-$strSQPBugSyntaxError = 'Syntax error';  //to translate
 
 ?>
