@@ -119,7 +119,7 @@ $strFieldsEmpty = 'Il faut indiquer le nombre de champs';
 $strFixed = 'fixe'; 
 $strFormat = 'format'; 
 $strFormEmpty = 'Formulaire incomplet !';
-$strFullText = 'Textes entiers';
+$strFullText = 'Textes complets';
 $strFunction = 'Fonction';
 
 $strGenTime = 'Généré le ';
