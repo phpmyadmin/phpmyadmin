@@ -7,6 +7,8 @@ $Source$
 
 2004-02-24 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php: bug 903450, typo
+    * tbl_row_delete.php: bug 878995: mult_submits.inc.php should not be
+      called twice
 
 2004-02-18 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: bug 899610, undefined variable $save_filename

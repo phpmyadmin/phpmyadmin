@@ -84,6 +84,11 @@ if (!empty($submit_mult)) {
                 $pos       = $original_pos;
             }
             
+            // this is because sql.php could call tbl_properties_structure
+            // which would think it needs to call mult_submits.inc.php:
+            unset($submit_mult);
+            unset($mult_btn);
+
             require('./sql.php');
             
             /**
