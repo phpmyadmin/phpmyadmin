@@ -388,6 +388,12 @@
         use such a kind of code:
         <pre>
 $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
+                   . $HTTP_HOST . (!empty($SERVER_PORT) ? ':' . $SERVER_PORT : '')
+                   . substr($PHP_SELF, 0, strrpos($PHP_SELF, '/')+1);
+
+    or
+
+$cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
                    . $SERVER_NAME . (!empty($SERVER_PORT) ? ':' . $SERVER_PORT : '')
                    . substr($SCRIPT_NAME, 0, strrpos($SCRIPT_NAME, '/')+1);
         </pre>

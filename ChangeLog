@@ -10,6 +10,8 @@ $Source$
 	* lang/italian.inc.php3: updated thanks to
 	  "DPhantom" <dphantom at users.sourceforge.net>.
 	* lang/portuguese.inc.php3: updated thanks to António Raposo.
+	* Documentation.html: added a second example for the
+	  "$cfgPmaAbsoluteUri" directive.
 
 2002-04-19 Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html "how can I make a backup?",
