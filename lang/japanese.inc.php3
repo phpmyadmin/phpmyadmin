@@ -172,6 +172,8 @@ $strLinesTerminatedBy = '行の終了文字';
 $strLocationTextfile = 'SQLのダンプデータが保存されているテキストファイル';
 $strLogin = 'ログイン';
 $strLogout = 'ログアウト';
+$strLogPassword = 'パスワード:';
+$strLogUsername = 'ユーザー名:';
 
 $strModifications = 'を正しく修正しました。';
 $strModify = '修正';
@@ -256,6 +258,8 @@ $strRowLength = '行の長さ';
 $strRows = '行';
 $strRowsFrom = '開始行';
 $strRowSize = ' 行のサイズ ';
+$strRowsModeHorizontal = '水平';
+$strRowsModeVertical = '重直';
 $strRowsStatistic = '行の統計';
 $strRunning = 'が実行中です。 %s';
 $strRunQuery = 'クエりーの実行';
@@ -263,6 +267,8 @@ $strRunSQLQuery = 'データベース%sにSQLクエりー実行';
 
 $strSave = '保存';
 $strSelect = '選択';
+$strSelectADb = 'データベースを選択してください';
+$strSelectAll = '全選択';
 $strSelectFields = 'フィールドの選択(一つ以上):';
 $strSelectNumRows = 'クエリー';
 $strSend = '送信';
@@ -312,6 +318,7 @@ $strType = 'フィールドタイプ';
 
 $strUncheckAll = '全てのマークの削除';
 $strUnique = '唯一';
+$strUnselectAll = '全解雇';
 $strUpdatePrivMessage = '%sの特権をアップデートしました。';
 $strUpdateProfile = 'プロファイルのアップデート:';
 $strUpdateProfileMessage = 'プロファイルをアップデートしました。';
@@ -338,12 +345,5 @@ $strZip = '"zipされる"';
 
 // To translate
 $strCardinality = 'Cardinality';
-$strLogPassword = 'Password:';
-$strLogUsername = 'Username:';
-$strRowsModeHorizontal = 'horizontal';  //to translate
 $strRowsModeOptions = 'in %s mode and repeat headers after %s cells';  //to translate
-$strRowsModeVertical = 'vertical';  //to translate
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>

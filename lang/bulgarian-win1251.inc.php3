@@ -172,6 +172,8 @@ $strLinesTerminatedBy = 'Линиите завършват с';
 $strLocationTextfile = 'Местоположение на текстовия файл';
 $strLogin = 'Вход';
 $strLogout = 'Изход от системата';
+$strLogPassword = 'Парола:';
+$strLogUsername = 'Име:';
 
 $strModifications = 'Промените бяха съхранени';
 $strModify = 'Промени';
@@ -257,6 +259,8 @@ $strRowLength = 'Дължина на реда';
 $strRows = 'Редове';
 $strRowsFrom = 'реда започвайки от';
 $strRowSize = ' Размер на ред ';
+$strRowsModeHorizontal = 'хоризонтален';
+$strRowsModeVertical = 'вертикален';
 $strRowsStatistic = 'Статистика за редовете';
 $strRunning = 'работи на %s';
 $strRunQuery = 'Изпълни заявката';
@@ -264,6 +268,8 @@ $strRunSQLQuery = 'Стартиране SQL заявка/заявки към база от данни %s';
 
 $strSave = 'Запиши';
 $strSelect = 'Избери';
+$strSelectADb = 'Моля изберете база данни';
+$strSelectAll = 'Селектирай всичко';
 $strSelectFields = 'Избери поле (минимум едно):';
 $strSelectNumRows = 'в запитването';
 $strSend = 'Изпрати';
@@ -313,6 +319,7 @@ $strType = 'Тип';
 
 $strUncheckAll = 'Размаркирай всичко';
 $strUnique = 'Уникално';
+$strUnselectAll = 'Деселектирай всичко';
 $strUpdatePrivMessage = 'Вие променихте привилегиите за %s.';
 $strUpdateProfile = 'Обновяване на профил:';
 $strUpdateProfileMessage = 'Профила беше обновен.';
@@ -339,12 +346,5 @@ $strZip = '"zip-нато"';
 
 // To translate
 $strCookiesRequired = 'Cookies must be enabled past this point.';
-$strLogPassword = 'Password:';
-$strLogUsername = 'Username:';
-$strRowsModeHorizontal = 'horizontal';  //to translate
 $strRowsModeOptions = 'in %s mode and repeat headers after %s cells';  //to translate
-$strRowsModeVertical = 'vertical';  //to translate
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>
