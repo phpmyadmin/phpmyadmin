@@ -407,7 +407,6 @@ else if (!defined('PMA_IDX_INCLUDED')
         $edit_link_text = '<img src="./images/button_edit.png" width="12" height="13" hspace="7" border="0" title="' . $strEdit . '" alt="' . $strEdit . '">';
         $drop_link_text = '<img src="./images/button_drop.png" width="11" height="12" hspace="7" border="0" title="' . $strDrop . '" alt="' . $strDrop . '">';
     }
-    print_r($cfg['PropertiesIconic']);
     if ($cfg['PropertiesIconic'] === false || $propicon == 'both') {
         $edit_link_text .= $strEdit;
         $drop_link_text .= $strDrop;

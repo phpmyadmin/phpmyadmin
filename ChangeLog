@@ -14,6 +14,7 @@ $Source$
 2004-04-26 Michal Cihar  <michal@cihar.com>
     * libraries/string.lib.php: mb_* functions don't know some windows-*
       charsets (bug #940638).
+    * tbl_indexes.php: Remove print_r (bug #942383).
 
 2004-04-22 Michal Cihar  <michal@cihar.com>
     * libraries/export/sql.php: Invalid SQL on empty table export (bug
