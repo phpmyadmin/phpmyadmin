@@ -232,6 +232,62 @@ var errorMsg2   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strNotValidNum
     <?php
 }
 echo "\n";
+
+// If query window is wanted and open, update with latest selected db/table.
+if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
+?>
+<script>
+<?php
+    if ($cfg['QueryFrameDebug']) {
+    ?>
+        document.writeln("Updating query window. DB: <?php echo (isset($db) ? $db : 'FALSE'); ?>, Table: <?php echo (isset($table) ? $table : 'FALSE'); ?><br>");
+        document.writeln("Window: " + top.frames.queryframe.querywindow.location + "<br>");
+    <?php
+    }
+    ?>
+    
+    if (top.frames.queryframe) {
+        <?php echo (isset($db) ? 'top.frames.queryframe.document.queryframeform.db.value = "' . htmlspecialchars($db) . '";' : ''); ?>
+        <?php echo (isset($table) ? 'top.frames.queryframe.document.queryframeform.table.value = "' . htmlspecialchars($table) . '";' : ''); ?>
+    }
+
+    function reload_querywindow () {
+        if (top.frames.queryframe && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
+            <?php echo ($cfg['QueryFrameDebug'] ? 'document.writeln("<a href=\'#\' onClick=\'top.frames.queryframe.querywindow.focus(); return false;\'>Query Window</a> can be updated.<br>");' : ''); ?>
+    
+            top.frames.queryframe.querywindow.document.querywindow.db.value = "<?php echo (isset($db) ? htmlspecialchars($db) : '') ?>";
+            top.frames.queryframe.querywindow.document.querywindow.query_history_latest_db.value = "<?php echo (isset($db) ? htmlspecialchars($db) : '') ?>";
+            top.frames.queryframe.querywindow.document.querywindow.table.value = "<?php echo (isset($table) ? htmlspecialchars($table) : '') ?>";
+            top.frames.queryframe.querywindow.document.querywindow.query_history_latest_table.value = "<?php echo (isset($table) ? htmlspecialchars($table) : '') ?>";
+    
+            <?php echo (isset($sql_query) ? 'top.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = "' . urlencode($sql_query) . '";' : ''); ?>
+    
+            <?php echo ($cfg['QueryFrameDebug'] ? 'alert(\'Querywindow submits. Last chance to check variables.\');' : ''); ?>
+            top.frames.queryframe.querywindow.document.querywindow.submit();
+        }
+    }
+
+    function focus_querywindow() {
+        if (top.frames.queryframe.querywindow && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
+            top.frames.queryframe.querywindow.focus();
+        } else {
+            top.frames.queryframe.querywindow=window.open('querywindow.php3?<?php echo PMA_generate_common_url('', ''); ?>&db=<?php echo (isset($db) ? htmlspecialchars($db) : ''); ?>&table=<?php echo (isset($table) ? htmlspecialchars($table) : ''); ?>', 'js_querywindow','toolbar=0,location=0,directories=0,status=1,menubar=0,scrollbars=yes,resizable=yes,width=<?php echo $cfg['QueryWindowWidth']; ?>,height=<?php echo $cfg['QueryWindowHeight']; ?>');
+    
+            if (!top.frames.queryframe.querywindow.opener) {
+               top.frames.queryframe.querywindow.opener = top.frames.queryframe;
+            }
+
+            reload_querywindow();
+        }
+    }
+
+    reload_querywindow();
+    self.focus();
+    
+
+</script>
+<?php
+}
 ?>
 </head>
 

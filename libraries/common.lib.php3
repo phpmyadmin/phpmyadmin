@@ -1265,10 +1265,15 @@ if (typeof(document.getElementById) != 'undefined'
                 && ($cfg['SQLQuery']['Edit'] == TRUE )
                 && (!empty($edit_target))) {
 
+                $onclick = '';
+                if ($cfg['QueryFrameJS'] && $cfg['QueryFrame']) {
+                    $onclick = 'onclick="focus_querywindow(); return false;"';
+                }
+                
                 $edit_link = '&nbsp;[<a href="'
                            . $edit_target
                            . $url_qpart
-                           . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=1#querybox">' . $GLOBALS['strEdit'] . '</a>]';
+                           . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=1#querybox" ' . $onclick . '>' . $GLOBALS['strEdit'] . '</a>]';
             } else {
                 $edit_link = '';
             }

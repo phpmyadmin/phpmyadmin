@@ -50,8 +50,10 @@ $Source$
         libraries/display_tbl.lib.php3, libraries/transformations/*
         TODO: Add predefined functions!
 
-    * IN PROGRESS: Display a (javascript) based query window as a new frame below the left
-        frame with query history [#526008]
+    * Display a (javascript) based query window as a new frame below the left
+        frame with query history [#526008]. Currently a bit experimental, works with
+        IE6 and Mozilla 1.2. Utilizes pretty basic JavaScript functions which *should*
+        work with any browser.
         Files: queryframe.php3, querywindow.php3, header.inc.php3,
         tbl_query_box.php3, common.lib.php3
 

@@ -23,10 +23,11 @@ if (isset($show_query) && $show_query == '1') {
 }
 unset($sql_query);
 
-
 /**
  * Get the list and number of fields
  */
+$fields_cnt = 0;
+if (isset($db) && isset($table) && $table != '' && $db != '') {
 $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
 $result      = @PMA_mysql_query($local_query);
 if (!$result) {
@@ -39,7 +40,7 @@ else {
     } // end while
     mysql_free_result($result);
 }
-
+}
 
 /**
  * Work on the table
@@ -53,11 +54,37 @@ $auto_sel  = ($cfg['TextareaAutoSelect']
                && !(PMA_USR_OS == 'Win' && PMA_USR_BROWSER_AGENT == 'OPERA' && PMA_USR_BROWSER_VER >= 7))
            ? "\n" . '             onfocus="if (typeof(document.layers) == \'undefined\' || typeof(textarea_selected) == \'undefined\') {textarea_selected = 1; this.form.elements[\'sql_query\'].select();}"'
            : '';
+
+// garvin: If non-JS query window is embedded, display a list of databases to choose from.
+//         Apart from that, a non-js query window sucks badly.
+
+if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] || ($cfg['QueryFrameJS'] && !$db))) {
+    /**
+     * Get the list and number of available databases.
+     */
+    if ($server > 0) {
+        PMA_availableDatabases(); // this function is defined in "common.lib.php3"
+    } else {
+        $num_dbs = 0;
+    }
+    
+    if ($num_dbs > 0) {
+        $queryframe_db_list = '<select size=1 name="db">';
+        for ($i = 0; $i < $num_dbs; $i++) {
+            $t_db = $dblist[$i];
+            $queryframe_db_list .= '<option value="' . htmlspecialchars($t_db) . '">' . htmlspecialchars($t_db) . '</option>';
+        }
+        $queryframe_db_list .= '</select>';
+    }
+} else {
+    $queryframe_db_list = '';
+}
+
 ?>
     <!-- Query box and bookmark support -->
     <li>
         <a name="querybox"></a>
-        <form method="post" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
+        <form method="post" target="phpmain" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
             onsubmit="return checkSqlQuery(this)" name="sqlform">
             <input type="hidden" name="is_js_confirmed" value="0" />
             <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
@@ -65,7 +92,7 @@ $auto_sel  = ($cfg['TextareaAutoSelect']
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
-            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . PMA_showMySQLDocu('Reference', 'SELECT') . '&nbsp;&nbsp;&nbsp;' . $strFields . ':' . "\n"; ?>
+            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . $queryframe_db_list . ' ' . PMA_showMySQLDocu('Reference', 'SELECT') . '&nbsp;&nbsp;&nbsp;' . $strFields . ':' . "\n"; ?>
             <select name="dummy" size="1">
 <?php
 echo "\n";
@@ -163,7 +190,7 @@ if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
 
 <?php
 // loic1: displays import dump feature only if file upload available
-if ($is_upload) {
+if ($is_upload && isset($db) && isset($table)) {
     ?>
     <!-- Insert a text file -->
     <li>

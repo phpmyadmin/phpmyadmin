@@ -56,8 +56,15 @@ body  {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $fo
 </head>
 
 <frameset cols="<?php echo $cfg['LeftWidth']; ?>,*" rows="*">
-    <frame src="left.php3?<?php echo $url_query; ?>" name="nav" frameborder="1" />
-    <frame src="<?php echo (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase']; ?>?<?php echo $url_query; ?>" name="phpmain" />
+    <?php if ($cfg['QueryFrame']) {?>
+    <frameset rows="*, 50" framespacing="0" frameborder="0" border="0">
+    <?php } ?>
+    <frame src="left.php3?<?php echo $url_query; ?>" name="nav" frameborder="0" />
+    <?php if ($cfg['QueryFrame']) { ?>
+    <frame src="queryframe.php3?<?php echo $url_query; ?>" name="queryframe" frameborder="0" />
+    </frameset>
+    <?php } ?>
+    <frame src="<?php echo (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase']; ?>?<?php echo $url_query; ?>" name="phpmain" frameborder="1" />
 
     <noframes>
         <body bgcolor="#FFFFFF">

@@ -377,8 +377,8 @@ $cfg['QueryFrame']          = TRUE;         // displays a new frame where a link
 $cfg['QueryFrameJS']        = TRUE;         // whether to use JavaScript functions for opening a new window for SQL commands.
                                             // if set to 'false', the target of the querybox is always the right frame.
 $cfg['QueryFrameDebug']     = FALSE;        // display JS debugging link (DEVELOPERS only)
-$cfg['QueryFrameWidth']     = 750;          // Width of Query window
-$cfg['QueryFrameHeight']    = 300;          // Height of Query window
+$cfg['QueryWindowWidth']     = 750;          // Width of Query window
+$cfg['QueryWindowHeight']    = 300;          // Height of Query window
  
 +$cfg['BrowseMIME']          = TRUE;         // Use MIME-Types (stored in column comments table) for
 
