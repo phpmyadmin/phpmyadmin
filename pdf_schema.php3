@@ -733,7 +733,6 @@ class PMA_RT_Table
         list($this->x, $this->y) = PMA_mysql_fetch_array($result);
         $this->x = (double) $this->x;
         $this->y = (double) $this->y;
-
         // displayfield
         $this->displayfield = PMA_getDisplayField($db, $table_name);
 
@@ -1208,7 +1207,14 @@ class PMA_RT
             if ($exist_rel) {
                 $seen_a_relation = TRUE;
                 while (list($master_field,$rel) = each($exist_rel)) {
-                    $this->PMA_RT_addRelation($one_table , $master_field, $rel['foreign_table'], $rel['foreign_field']);
+                    // put the foreign table on the schema only if selected
+                    // by the user 
+                    // (do not use array_search() because we would have to
+                    // to do a === FALSE and this is not PHP3 compatible)
+
+                    if (PMA_isInto($rel['foreign_table'], $alltables)> -1) {
+                        $this->PMA_RT_addRelation($one_table , $master_field, $rel['foreign_table'], $rel['foreign_field']);
+                    }
 
                 } // end while
             } // end if
