@@ -15,13 +15,6 @@ require('./header.inc.php3');
 
 
 /**
- * Gets the list of available tables
- */
-$tables     = mysql_list_tables($db);
-$num_tables = @mysql_numrows($tables);
-
-
-/**
  * Displays the form
  */
 ?>
