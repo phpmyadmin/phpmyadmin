@@ -258,7 +258,7 @@ if ($num_dbs > 0) {
         echo '        <td align="center">' . "\n";
         echo '            &nbsp;<input type="checkbox" name="selected_db[]" value="' . urlencode($db_name) . '" />&nbsp;' . "\n";
         echo '        </td>' . "\n";
-        echo '        <td>&nbsp;<a href="index.php3?db=' . urlencode($db_name) . '" target="_parent">' . htmlentities($db_name) . '</a>&nbsp;</td>' . "\n";
+        echo '        <td>&nbsp;<a href="index.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db_name) . '" target="_parent">' . htmlentities($db_name) . '</a>&nbsp;</td>' . "\n";
         echo '        <td align="right">&nbsp;' . $dbs_array[$db_name][0] . '&nbsp;</td>' . "\n";
         echo '        <td align="right">&nbsp;' . $data_size . ' ' . $data_unit . '&nbsp;</td>' . "\n";
         echo '        <td align="right">&nbsp;' . $idx_size . ' ' . $idx_unit . '&nbsp;</td>' . "\n";

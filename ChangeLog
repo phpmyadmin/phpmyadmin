@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-01  Geert Lund  <glund@silversoft.dk>
+	* db_stats.php3, line 261: fixed error where server and language setting
+	  wasen't in link, thanx to Joshua Nye <josh at boxcarmedia.com>
+
 2001-09-30  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3, lines 489-493: fixed "backslashed backslash"
 	  before wildcards problem in databases names.
