@@ -857,7 +857,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="1" />
-            <input type="submit" name="navig" value="<?php echo $GLOBALS['str1']; ?> all chars" />
+            <input type="submit" name="navig" value="<?php echo $GLOBALS['strFullStrings']; ?>" />
         </form>
     </td>
             <?php
@@ -878,7 +878,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="0" />
-            <input type="submit" name="navig" value="<?php echo $GLOBALS['str2'] . ' ' . $GLOBALS['cfgLimitChars']; ?> chars" />
+            <input type="submit" name="navig" value="<?php echo $GLOBALS['strCuttedStrings']; ?>" />
         </form>
     </td>
             <?php
