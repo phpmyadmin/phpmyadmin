@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-04 Alexander M. Turek  <me@derrabus.de>
+    * lang/german-*.inc.php:
+      - Updates and small corrections;
+      - Synchronized translation with the German MySQL documentation.
+
 2005-01-03 Michal Čihař  <michal@cihar.com>
     * export.php: Use standardised mime types and use content encoding for
       gzip/bzip2. I hope this will fix double gzip compression as in bug
