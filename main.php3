@@ -6,6 +6,14 @@
  * Gets some core libraries and displays a top message if required
  */
 require('./grab_globals.inc.php3');
+// Handles some variables that may have been sent by the calling script
+if (isset($db)) {
+    unset($db);
+}
+if (isset($table)) {
+    unset($table);
+}
+$show_query = 'y';
 require('./header.inc.php3');
 if (isset($message)) {
     show_message($message);

@@ -488,10 +488,14 @@ if (!defined('__LIB_INC__')){
         // Reloads the navigation frame via JavaScript if required
         if (!empty($GLOBALS['reload']) && ($GLOBALS['reload'] == 'true')) {
             echo "\n";
+            $reload_url = './left.php3'
+                        . '?lang=' . $GLOBALS['lang']
+                        . '&server=' . $GLOBALS['server']
+                        . ((!empty($GLOBALS['db'])) ? '&db=' . urlencode($GLOBALS['db']) : '');
             ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBALS['lang']; ?>&server=<?php echo $GLOBALS['server']; ?>&db=<?php echo urlencode($GLOBALS['db']); ?>');
+window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
 //-->
 </script>
             <?php
