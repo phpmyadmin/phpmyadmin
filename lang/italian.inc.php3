@@ -241,6 +241,7 @@ $strRowsFrom = 'righe a partire da';
 $strRowSize = 'Dimensione riga';
 $strRowsStatistic = 'Statistiche righe';
 $strRunning = 'in esecuzione su ';
+$strRunningAs = 'come';
 $strRunQuery = 'Invia Query';
 $strRunSQLQuery = 'Esegui una/più query SQL sul database ';
 
@@ -315,5 +316,4 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 // To translate
-$strRunningAs = 'as';
 ?>
