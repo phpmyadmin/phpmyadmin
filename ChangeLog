@@ -18,6 +18,7 @@ $Source$
     * lang/german.inc.php3: Translated $strOptions.
     * tbl_properties_operations.php3: Added documentation link for 'FLUSH'.
     * header.inc.php3, tbl_properties_links.php3: New link design.
+    * header.inc.php3: removed db_stats link.
 
 2002-04-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_qbe.php3: corrections from Mike Beck for better joints

@@ -170,13 +170,7 @@ if (isset($db)) {
     if (!empty($table)) {
         echo '    - ' . $strTable . ' <i><a class="h1" href="tbl_properties.php3' . $header_url_qry . '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($table) . '">' . htmlspecialchars($table) . '</a></i>' . "\n";
     }
-    echo '    ';
-    // todo: Limitate this feature on superusers.
-    if (PMA_MYSQL_INT_VERSION >= 32303) {
-        echo sprintf($strRunning, ' <i><a class="h1" href="db_stats.php3' . $header_url_qry . '">' . (($cfg['Server']['verbose']) ? $cfg['Server']['verbose'] : $cfg['Server']['host']) . '</a></i>') . "\n";
-    } else {
-        echo sprintf($strRunning, ' <i>' . (($cfg['Server']['verbose']) ? $cfg['Server']['verbose'] : $cfg['Server']['host']) . '</i>') . "\n";
-    }
+    echo '    ' . sprintf($strRunning, ' <i>' . (($cfg['Server']['verbose']) ? $cfg['Server']['verbose'] : $cfg['Server']['host']) . '</i>') . "\n";
     echo '</h1>' . "\n";
 }
 echo "\n";
