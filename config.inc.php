@@ -760,6 +760,7 @@ if ($cfg['ShowFunctionFields']) {
             'ENCRYPT',
             'RAND',
             'LAST_INSERT_ID',
+            'UNIX_TIMESTAMP',
             'COUNT',
             'AVG',
             'SUM'
