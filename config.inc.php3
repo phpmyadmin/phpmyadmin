@@ -82,20 +82,30 @@ $cfg['Servers'][$i]['only_db']       = '';          // If set to a db-name, only
 $cfg['Servers'][$i]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
 
 $cfg['Servers'][$i]['pmadb']         = '';          // Database used for Relation, Bookmark and PDF Features
-                                                    // - leave blank for no support
-$cfg['Servers'][$i]['bookmarktable'] = '';          // Bookmark table - leave blank for no bookmark support
+                                                    // (see scripts/create_tables.sql)
+                                                    //   - leave blank for no support
+                                                    //     DEFAULT: 'phpmyadmin'
+$cfg['Servers'][$i]['bookmarktable'] = '';          // Bookmark table
+                                                    //   - leave blank for no bookmark support
+                                                    //     DEFAULT: 'PMA_bookmark'
 $cfg['Servers'][$i]['relation']      = '';          // table to describe the relation between links (see doc)
                                                     //   - leave blank for no relation-links support
+                                                    //     DEFAULT: 'PMA_relation'
 $cfg['Servers'][$i]['table_info']    = '';          // table to describe the display fields
                                                     //   - leave blank for no display fields support
-$cfg['Servers'][$i]['table_coords']  = '';          // table to describe the tables position for the PDF
-                                                    //   schema - leave blank for no PDF schema support
+                                                    //     DEFAULT: 'PMA_table_info'
+$cfg['Servers'][$i]['table_coords']  = '';          // table to describe the tables position for the PDF schema
+                                                    //   - leave blank for no PDF schema support
+                                                    //     DEFAULT: 'PMA_table_coords'
 $cfg['Servers'][$i]['pdf_pages']     = '';          // table to describe pages of relationpdf
                                                     //   - leave blank if you don't want to use this
+                                                    //     DEFAULT: 'PMA_pdf_pages'
 $cfg['Servers'][$i]['column_info']   = '';          // table to store column information
-                                                    //   - leave blank if you don't want to use this
+                                                    //   - leave blank for no column comments/mime types
+                                                    //     DEFAULT: 'PMA_column_info'
 $cfg['Servers'][$i]['history']       = '';          // table to store SQL history
-                                                    //   - leave blank if you don't want to use this
+                                                    //   - leave blank for no SQL query history
+                                                    //     DEFAULT: 'PMA_history'
 $cfg['Servers'][$i]['verbose_check'] = TRUE;        // set to FALSE if you know that your PMA_* tables
                                                     // are up to date. This prevents compatibility
                                                     // checks and thereby increases performance.
@@ -118,14 +128,14 @@ $cfg['Servers'][$i]['user']            = 'root';
 $cfg['Servers'][$i]['password']        = '';
 $cfg['Servers'][$i]['only_db']         = '';
 $cfg['Servers'][$i]['verbose']         = '';
-$cfg['Servers'][$i]['pmadb']           = '';
-$cfg['Servers'][$i]['bookmarktable']   = '';
-$cfg['Servers'][$i]['relation']        = '';
-$cfg['Servers'][$i]['table_info']      = '';
-$cfg['Servers'][$i]['table_coords']    = '';
-$cfg['Servers'][$i]['pdf_pages']       = '';
-$cfg['Servers'][$i]['column_info']     = '';
-$cfg['Servers'][$i]['history']         = '';
+$cfg['Servers'][$i]['pmadb']           = ''; // 'phpmyadmin' - see scripts/create_tables.sql
+$cfg['Servers'][$i]['bookmarktable']   = ''; // 'PMA_bookmark'
+$cfg['Servers'][$i]['relation']        = ''; // 'PMA_relation'
+$cfg['Servers'][$i]['table_info']      = ''; // 'PMA_table_info'
+$cfg['Servers'][$i]['table_coords']    = ''; // 'PMA_table_coords'
+$cfg['Servers'][$i]['pdf_pages']       = ''; // 'PMA_pdf_page'
+$cfg['Servers'][$i]['column_info']     = ''; // 'PMA_column_info'
+$cfg['Servers'][$i]['history']         = ''; // 'PMA_history'
 $cfg['Servers'][$i]['verbose_check']   = TRUE;
 $cfg['Servers'][$i]['AllowDeny']['order']
                                        = '';
@@ -145,16 +155,15 @@ $cfg['Servers'][$i]['user']            = 'root';
 $cfg['Servers'][$i]['password']        = '';
 $cfg['Servers'][$i]['only_db']         = '';
 $cfg['Servers'][$i]['verbose']         = '';
-$cfg['Servers'][$i]['pmadb']           = '';
-$cfg['Servers'][$i]['bookmarktable']   = '';
-$cfg['Servers'][$i]['relation']        = '';
-$cfg['Servers'][$i]['table_info']      = '';
-$cfg['Servers'][$i]['table_coords']    = '';
-$cfg['Servers'][$i]['pdf_pages']       = '';
-$cfg['Servers'][$i]['column_info']     = '';
-$cfg['Servers'][$i]['history']         = '';
+$cfg['Servers'][$i]['pmadb']           = ''; // 'phpmyadmin' - see scripts/create_tables.sql
+$cfg['Servers'][$i]['bookmarktable']   = ''; // 'PMA_bookmark'
+$cfg['Servers'][$i]['relation']        = ''; // 'PMA_relation'
+$cfg['Servers'][$i]['table_info']      = ''; // 'PMA_table_info'
+$cfg['Servers'][$i]['table_coords']    = ''; // 'PMA_table_coords'
+$cfg['Servers'][$i]['pdf_pages']       = ''; // 'PMA_pdf_page'
+$cfg['Servers'][$i]['column_info']     = ''; // 'PMA_column_info'
+$cfg['Servers'][$i]['history']         = ''; // 'PMA_history'
 $cfg['Servers'][$i]['verbose_check']   = TRUE;
-
 $cfg['Servers'][$i]['AllowDeny']['order']
                                        = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']

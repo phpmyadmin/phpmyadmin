@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-13 Garvin Hicking <me@supergarv.de>
+    * config.inc.php3 - Altered comments for PMA_* tables for easier integration and more 
+      clarity. Make it easier to enable defaults (RFE #695265)
 2003-03-12 Garvin Hicking <me@supergarv.de>
     * db_details_structure.php3: When using Alias-Displays for Tables, fix bug when a tablename
       was not displayed if it has no comment.
