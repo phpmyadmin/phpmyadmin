@@ -7,8 +7,9 @@ $Source$
 
 2002-06-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.*:
-      - The textarea bug still appears in Mozilla 1.0-final.
-      - Fixed a typo.
+      - The textarea bug still appears in Mozilla 1.0-final;
+      - Fixed a typo;
+      - Updated credits.
     * lang/albanian.inc.php3: Updates, thanks again to
       Laurent Dhima <laurent at users.sourceforge.net>.
     * lang/german.inc.php3: Updates, added feedback link.
