@@ -15,6 +15,10 @@
 require('./libraries/grab_globals.lib.php3');
 require('./header.inc.php3');
 
+//require common added for string importing - Robbat2, 15 January 2003 9.34PM
+//all hardcoded strings converted by Robbat2, 15 January 2003 9.34PM
+require('./libraries/common.lib.php3');
+
 
 /**
  * Executes import if required
@@ -52,9 +56,9 @@ if (isset($do) && $do == 'import') {
                                  . '\'' . PMA_sqlAddslashes(trim($inf[0])) . '\','
                                  . '\'' . PMA_sqlAddslashes(trim($inf[1])) . '\')';
                             if (PMA_query_as_cu($qry)) {
-                                echo '<p>Added comment for column ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . '</p>';
+                                echo '<p>' . $strAddedColumnComment . ' ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . '</p>';
                             } else {
-                                echo '<p>Writing of comment not possible</p>';
+                                echo '<p>' . $strWritingCommentNotPossible . '</p>';
                             }
                             echo "\n";
                         } // end inf[1] exists
@@ -70,23 +74,23 @@ if (isset($do) && $do == 'import') {
                                    . '\'' . PMA_sqlAddslashes(trim($for[0])) . '\','
                                    . '\'' . PMA_sqlAddslashes(trim($for[1])) . '\')';
                             if (PMA_query_as_cu($qry)) {
-                                echo '<p>Added relation for column ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . ' to ' . htmlspecialchars($for) . '</p>';
+                                echo '<p>' . $strAddedColumnRelation . ' ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . ' to ' . htmlspecialchars($for) . '</p>';
                             } else {
-                                echo "<p>writing of Relation not possible</p>";
+                                echo '<p>' . $strWritingRelationNotPossible . '</p>';
                             }
                             echo "\n";
                         } // end inf[2] exists
                     }
-                    echo '<p><font color="green">Import finished</font></p>' . "\n";
+                    echo '<p><font color="green">' . $strImportFinished . '</font></p>' . "\n";
                 } else {
-                    echo '<p><font color="red">File could not be read</font></p>' . "\n";
+                    echo '<p><font color="red">' . $strFileCouldNotBeRead . '</font></p>' . "\n";
                 }
             } else {
-                echo '<p><font color="yellow">Ignoring file ' . $file . '</font></p>' . "\n";
+                echo '<p><font color="yellow">' . sprintf($strIgnoringFile, ' ' . $file) . '</font></p>' . "\n";
             } // end working on table
         } // end while
     } else {
-        echo 'This was not a Directory' . "\n";
+        echo $strThisNotDirectory . "\n";
     }
 }
 
@@ -126,10 +130,10 @@ if (empty($DOCUMENT_ROOT)) {
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <input type="hidden" name="submit_show" value="true" />
     <input type="hidden" name="do" value="import" />
-    <b>Please enter absolute path on webserver to docSQL Directory:</b>
+    <b><?php echo $strAbsolutePathToDocSqlDir; ?>:</b>
     <br /><br />
     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="docpath" size="50" value="<?php echo htmlspecialchars($DOCUMENT_ROOT); ?>" />
-    &nbsp;<input type="submit" value="Import files" />
+    &nbsp;<input type="submit" value="<?php echo $strImportFiles; ?>" />
 </form>
 
 <?php
