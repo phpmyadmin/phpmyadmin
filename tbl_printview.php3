@@ -49,17 +49,19 @@ if ($multi_tables) {
     $tbl_list     = '';
     while (list($key, $table) = each($the_tables)) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
-                  . PMA_backquote($table);
+                  . PMA_backquote(urldecode($table));
     }
     echo '<b>'.  $strShowTables . '&nbsp;:&nbsp;' . $tbl_list . '</b>' . "\n";
+    echo '<hr />' . "\n";
 } // end if
 reset($the_tables);
 
 while (list($key, $table) = each($the_tables)) {
-    if ($multi_tables) {
+    $table = urldecode($table);
+//    if ($multi_tables) {
         echo '<div style="page-break-after: always;">' . "\n";
         echo '<h1>' . $table . '</h1>' . "\n";
-    } // end if
+//    } // end if
 
     /**
      * Gets table informations

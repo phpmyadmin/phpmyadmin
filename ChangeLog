@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-12 Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_printview.php3, missing urldecode, layout improvement, 
+	  thanks to Marcus Börger (helly)
+
 2002-02-11 Marc Delisle  <lem9@users.sourceforge.net>
 	* sql.php3: $table was emptied when the query was not a Select
 	* lang/norwegian.inc.php3 updates thanks to Sven-Erik Andersen
