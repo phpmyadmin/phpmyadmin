@@ -78,6 +78,7 @@ $strBzError = 'phpMyAdminovi se nepodaøilo zkomprimovat výpis, protože rozšíøení
 $strBzip = '"zabzipováno"';
 
 $strCannotLogin = 'Nepodaøilo se pøihlášení k MySQL serveru';
+$strCantLoad = 'nelze nahrát rozšíøení %s,<br />prosím zkontolujte nastavení PHP';
 $strCantLoadMySQL = 'nelze nahrát rozšíøení pro MySQL,<br />prosím zkontrolujte nastavení PHP.';
 $strCantLoadRecodeIconv = 'Nelze nahrát rozšíøení iconv ani recode potøebná pro pøevod znakových sad. Upravte nastavení php tak aby umožòovalo použít tyto rozšíøení nebo vypnìte pøevod znakových sad v&nbsp;phpMyAdminu.';
 $strCantRenameIdxToPrimary = 'Index nemùžete pøejmenovat na "PRIMARY"!';
@@ -117,6 +118,15 @@ $strCreatePage = 'Vytvoøit novou stránku';
 $strCreatePdfFeat = 'Vytváøení PDF';
 $strCriteria = 'Podmínka';
 
+$strDBGContext = 'Kontext';
+$strDBGContextID = 'Kontext ID';
+$strDBGHits = 'Zásahù';
+$strDBGLine = 'Øádka';
+$strDBGMinTimeMs = 'Max. èas, ms';
+$strDBGMinTimeMs = 'Min. èas, ms';
+$strDBGModule = 'Modul';
+$strDBGTimePerHitMs = 'Èas/Zásah, ms';
+$strDBGTotalTimeMs = 'Celkový èas, ms';
 $strData = 'Data';
 $strDataDict = 'Datový slovník';
 $strDataOnly = ' Jen data';
@@ -550,14 +560,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
-$strDBGModule = 'Module';  //to translate
-$strDBGLine = 'Line';  //to translate
-$strDBGHits = 'Hits';  //to translate
-$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
-$strDBGTotalTimeMs = 'Total time, ms';  //to translate
-$strDBGMinTimeMs = 'Min time, ms';  //to translate
-$strDBGMinTimeMs = 'Max time, ms';  //to translate
-$strDBGContextID = 'Context ID';  //to translate
-$strDBGContext = 'Context';  //to translate
-$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
 ?>
