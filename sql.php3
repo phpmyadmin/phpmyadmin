@@ -85,7 +85,8 @@ if (isset($btnDrop) || isset($navig)) {
 
 $parsed_sql = PMA_SQP_parse((get_magic_quotes_gpc() ? stripslashes($sql_query) : $sql_query));
 $analyzed_sql = PMA_SQP_analyze($parsed_sql);
-$sql_query = PMA_SQP_formatHtml($parsed_sql, 'query_only');
+// Bug #641765 - Robbat2 - 12 January 2003, 10:49PM
+//$sql_query = PMA_SQP_formatHtml($parsed_sql, 'query_only');
 
 // here we are sure that SELECT is uppercase
 $is_select = eregi('^SELECT[[:space:]]+', $sql_query);

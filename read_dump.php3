@@ -369,7 +369,6 @@ if (!$cfg['AllowUserDropDatabase']
 }
 define('PMA_CHK_DROP', 1);
 
-
 /**
  * Executes the query
  */
@@ -430,6 +429,7 @@ if ($sql_query != '') {
     } // end if (really run the query)
     unset($pieces);
 } // end if
+
 
 
 /**

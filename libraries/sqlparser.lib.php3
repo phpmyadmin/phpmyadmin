@@ -84,15 +84,19 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         $debugstr = 'ERROR: ' . $message . "\n";
         $debugstr .= 'SQL: ' . $sql;
 
-        echo $GLOBALS['strSQLParserUserError'] . '<br />' . "\n"
+        global $SQP_errorString;
+        $SQP_errorString = '<p>'.$GLOBALS['strSQLParserUserError'] . '</p>' . "\n"
              . '<pre>' . "\n"
              . $debugstr . "\n"
              . '</pre>' . "\n";
 
+        /*
+        // Removed to solve bug #641765 - Robbat2 - 12 January 2003, 9:46PM
         flush();
         if (PMA_PHP_INT_VERSION >= 40200 && @function_exists('ob_flush')) {
             ob_flush();
         }
+        */
     } // end of the "PMA_SQP_throwError()" function
 
 

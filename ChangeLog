@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-12 Robin Johnson  <robbat2@users.sourceforge.net>
+    * read_dump.php3, sql.php3,libraries/common.lib.php3,
+    libraries/sqlparser.lib.php3:
+      - Fixed bug #641765, see mailing list post
+
 2003-01-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_*.php3:
       - The messages are now displayed by server_links.inc.php3, so

@@ -323,6 +323,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                           $is_modify_link = TRUE, $back_url = '')
     {
         global $cfg;
+        global $SQP_errorString;
 
         if (empty($GLOBALS['is_header_sent'])) {
             include('./header.inc.php3');
@@ -335,13 +336,27 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $the_query = $GLOBALS['sql_query'];
         }
 
-        $parsed_sql = PMA_SQP_parse($the_query);
+        // --- Added to solve bug #641765 
+        // Robbat2 - 12 January 2003, 9:46PM
+        if (isset($SQP_errorString) && !empty($SQP_errorString)) {
+            $parsed_sql = $the_query;
+        } else {
+            $parsed_sql = PMA_SQP_parse($the_query);
+        }
+        // ---
 
         echo '<p><b>'. $GLOBALS['strError'] . '</b></p>' . "\n";
         // if the config password is wrong, or the MySQL server does not
         // respond, do not show the query that would reveal the
         // username/password
         if (!empty($the_query) && !strstr($the_query, 'connect')) {
+            // --- Added to solve bug #641765 
+            // Robbat2 - 12 January 2003, 9:46PM
+            if (isset($SQP_errorString) && !empty($SQP_errorString)) {
+                flush();
+                echo $SQP_errorString;
+            }
+            // ---
             echo '<p>' . "\n";
             echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;' . "\n";
             if ($is_modify_link && isset($db)) {
@@ -364,6 +379,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         echo '<pre>' . "\n"
              . $error_message . "\n"
              . '</pre>' . "\n";
+
+             
         if (!empty($back_url)) {
             echo '<a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a>';
         }
