@@ -20,7 +20,10 @@ $month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'O
 // variable below
 $datefmt = '%B %d, %Y at %I:%M %p';
 
+$timespanfmt = '%s días, %s horas, %s minutos e %s segundos';
+
 $strAPrimaryKey = 'Adicionouse unha chave primaria a %s';
+$strAbortedClients = 'Cancelado';
 $strAccessDenied = 'Acceso Negado';
 $strAction = 'Acción';
 $strAddDeleteColumn = 'Adicionar/Eliminar columnas de campo';
@@ -64,6 +67,7 @@ $strBookmarkQuery = 'A procura de SQL foi gardada';
 $strBookmarkThis = 'Gardar esta procura de SQL';
 $strBookmarkView = 'Só visualizar';
 $strBrowse = 'Visualizar';
+$strBzError = 'phpMyAdmin foi incapaz de comprimir os resultados debido a que esta versión do php ten unha extensión de Bz2 con erros.  Recoméndase que configure a directiva <code>$cfg[\'BZipDump\']</code> do seu ficheiro de configuración do phpMyAdmin para que sexa <code>FALSE</code>. Se quer usar a funcionalidade de compresión Bz2, actualice a unha versión posterior do php. Consulte o informe de erros %s para máis detalles.';
 $strBzip = 'comprimido no formato "bzipped"';
 
 $strCantLoadMySQL = 'Non foi posible carregar a extensión do MySQL;<br>comprobe, por favor, a configuración do PHP.';
@@ -83,15 +87,18 @@ $strChoosePage = 'Escolla unha páxina para modificar';
 $strColComFeat = 'Mostrando os comentarios das columnas';
 $strColumn = 'Columna';
 $strColumnNames = 'Nomes das Columnas';
+$strCommand = 'Comando';
 $strComments = 'Comentarios';
 $strCompleteInserts = 'Insercións completas';
 $strCompression = 'Compresión';
 $strConfigFileError = 'phpMyAdmin non puido ler o seu ficheiro de configuración<br/>Isto podería deberse a que php atopou un erro nel ou a que php non puido atopar o ficheiro.<br/>Invoque o ficheiro de configuración directamente mediante o vínculo que hai máis abaixo e lea a mensaxe de erro de php que receba. Na maioría dos casos simplesmente faltan unha aspa ou un ponto e vírcula <br/>Se recebe unha páxina en branco é que todo está ben.';
 $strConfigureTableCoord = 'Configure as coordenadas da tabela %s';
 $strConfirm = 'Está seguro/a?';
+$strConnections = 'Conexións';
 $strCookiesRequired = 'A partir de aqui debe permitir cookies.';
 $strCopyTable = 'Copiar a tabela a (base_de_datos<b>.</b>tabela):';
 $strCopyTableOK = 'Tabela \$table copiada para \$new_name.';
+$strCouldNotKill = 'phpMyAdmin foi incapaz de finalizar o fío %s.  Probablemente xa está fechado.';
 $strCreate = 'Crear';
 $strCreateIndex = 'Crear un índice en&nbsp;%s&nbsp;colunas';
 $strCreateIndexTopic = 'Crear un novo índice';
@@ -149,6 +156,7 @@ $strExportToXML = 'Exportar no formato XML';
 $strExtendedInserts = 'Insercións extendidas';
 $strExtra = 'Extra';
 
+$strFailedAttempts = 'Tentativas falidas';
 $strField = 'Campo';
 $strFieldHasBeenDropped = 'Eliminouse o campo %s';
 $strFields = 'Campos';
@@ -166,6 +174,7 @@ $strFunction = 'Funcións';
 $strGenBy = 'Xerado por';
 $strGenTime = 'Xerado en';
 $strGeneralRelationFeat = 'Características xerais das relacións';
+$strGlobalValue = 'Valor global';
 $strGo = 'Executar';
 $strGrants = 'Conceder';
 $strGzip = 'comprimido no formato "gzipped"';
@@ -179,6 +188,7 @@ $strHomepageSourceforge = 'Páxina do phpMyAdmin en Sourceforge';
 $strHost = 'Servidor';
 $strHostEmpty = 'O nome do servidor está vacío!';
 
+$strId = 'ID';
 $strIdxFulltext = 'Texto completo';
 $strIfYouWish = 'Para carregar só algunhas columnas da tabela, faga unha lista separada por vírgulas.';
 $strIgnore = 'Ignorar';
@@ -201,6 +211,7 @@ $strKeepPass = 'Non mude o contrasinal';
 $strKeyname = 'Nome chave';
 $strKill = 'Matar (kill)';
 
+$strLaTeX = 'LaTeX';
 $strLandscape = 'Horizontal';
 $strLength = 'Tamaño';
 $strLengthSet = 'Tamaño/Definir*';
@@ -220,6 +231,7 @@ $strMissingBracket = 'Falta un paréntese';
 $strModifications = 'As modificacións foron gardadas';
 $strModify = 'Modificar';
 $strModifyIndexTopic = 'Modificar un índice';
+$strMoreStatusVars = 'Máis variables de estado';
 $strMoveTable = 'Mover a tabela a (base_de_datos<b>.</b>tabela):';
 $strMoveTableOK = 'Moveuse a tabela %s para %s.';
 $strMySQLCharset = 'Código de caracteres (Charset) MySQL';
@@ -279,6 +291,7 @@ $strPdfDbSchema = 'Esquema da base de datos "%s" - Páxina %s';
 $strPdfInvalidPageNum = 'O número de páxina PDF non está definido';
 $strPdfInvalidTblName = 'Non existe a tabela "%s".';
 $strPdfNoTables = 'Sen tabelas';
+$strPerHour = 'por hora';
 $strPhp = 'Crear código PHP';
 $strPmaDocumentation = 'Documentación do phpMyAdmin';
 $strPmaUriError = 'A directiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> DEBE estar asignada no seu ficheiro de configuración.';
@@ -293,6 +306,7 @@ $strPrimaryKeyWarning = '("PRIMARIA" <b>debe</b> ser o nome de e <b>só de</b> un
 $strPrint = 'Imprimir';
 $strPrintView = 'Visualización previa da impresión';
 $strPrivileges = 'Privilexios';
+$strProcesslist = 'Listaxe dos procesos';
 $strProperties = 'Propiedades';
 $strPutColNames = 'Pór os nomes dos campos na primeira fileira';
 
@@ -300,9 +314,12 @@ $strQBE = 'Procurar pondo un exemplo ("QBE")';
 $strQBEDel = 'Eliminar';
 $strQBEIns = 'Inserir';
 $strQueryOnDb = 'Procura tipo SQL no banco de datos <b>%s</b>:';
+$strQueryStatistics = '<b>Estatística das procuras</b>: Desde que se iniciou, enviáronselle ao servidor %s procuras.';
 $strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
+$strQueryType = 'Tipo de procura';
 
 $strReType = 'Reescreber';
+$strReceived = 'Recibido';
 $strRecords = 'Rexistros';
 $strReferentialIntegrity = 'Comprobar a integridade das referencias:';
 $strRelationNotWorking = 'Desactivouse a funcionalidade adicional para o traballo con tabelas vinculadas. Para saber o por que, faga click%saqu&iacute;%s.';
@@ -360,10 +377,18 @@ $strSelectFields = 'Seleccione os campos (mínimo 1)';
 $strSelectNumRows = 'a procurar';
 $strSelectTables = 'Seleccionar tabelas';
 $strSend = 'Enviar <I>(gravar nun ficheiro)</I><br>';
+$strSent = 'Enviado';
 $strServer = 'Servidor %s';
 $strServerChoice = 'Escolla de Servidor';
+$strServerStatus = 'Información sobre o runtime';
+$strServerStatusUptime = 'Este servidor de MySQL leva funcionando %s. Iniciouse às %s.';
+$strServerTabProcesslist = 'Procesos';
+$strServerTabVariables = 'Variables';
 $strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
+$strServerTrafficNotes = '<b>Tráfico do servidor</b>: Estas tabelas mostran as estatísticas do tráfico da rede neste servidor de MySQL desde que se iniciou.';
+$strServerVars = 'Variables e configuración do servidor';
 $strServerVersion = 'Versión do servidor';
+$strSessionValue = 'Valor da sesión';
 $strSetEnumVal = 'Se o tipo de campo é "enum" ou "set", introduza os valores usando este formato: \'a\',\'b\',\'c\'...<br />Se precisar pór unha barra invertida (" \ ") ou aspas simples (" \' ") entre estes valores, preceda a barra e as aspas de barras invertidas (por exemplo \'\\\\xyz\' ou \'a\\\'b\').';
 $strShow = 'Mostrar';
 $strShowAll = 'Ver todos os rexistros';
@@ -382,6 +407,7 @@ $strSort = 'Ordenar';
 $strSpaceUsage = 'Uso do espazo';
 $strSplitWordsWithSpace = 'As palabras divídense cun carácter de espazo (" ").';
 $strStatement = 'Informacións';
+$strStatus = 'Estado';
 $strStrucCSV = 'Datos CSV';
 $strStrucData = 'Estructura e datos';
 $strStrucDrop = 'Adicionar \'Eliminar tabela anterior se existe\'';
@@ -407,7 +433,10 @@ $strTextAreaLength = ' Por causa da sua lonxitude,<br> este campo pode non ser e
 $strTheContent = 'O conteúdo do seu arquivo foi inserido';
 $strTheContents = 'O conteúdo do arquivo substituíu o conteúdo da tabela que tiña a mesma chave primaria ou única';
 $strTheTerminator = 'O carácter que separa os campos.';
+$strThreadSuccessfullyKilled = 'Finalizouse o fío %s.';
+$strTime = 'Tempo';
 $strTotal = 'total';
+$strTraffic = 'Tráfico';
 $strType = 'Tipo';
 
 $strUncheckAll = 'Quitar-lles as marcas a todos';
@@ -428,6 +457,7 @@ $strUsers = 'Usuarios';
 $strValidateSQL = 'Validar SQL';
 $strValidatorError = 'Non foi posible iniciar o comprobador de SQL. Comprobe que ten instaladas todas as extensións de php tal e como se descrebe na %sdocumentación%s.';
 $strValue = 'Valor';
+$strVar = 'Variable';
 $strViewDump = 'Ver o esquema do volcado da tabela';
 $strViewDumpDB = 'Ver o esquema do volcado do banco de datos';
 
@@ -441,52 +471,5 @@ $strYes = 'Si';
 
 $strZip = 'comprimido no formato "zipped"';
 // To translate
-$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
 
-$strAbortedClients = 'Aborted'; //to translate
-
-$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
-
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
-$strCommand = 'Command'; //to translate
-$strConnections = 'Connections'; //to translate
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-
-$strFailedAttempts = 'Failed attempts'; //to translate
-
-$strGlobalValue = 'Global value'; //to translate
-
-$strId = 'ID'; //to translate
-$strImportDocSQL = 'Import docSQL Files';  //to translate
-
-$strMoreStatusVars = 'More status variables'; //to translate
-
-$strNumTables = 'Tables'; //to translate
-
-$strPerHour = 'per hour'; //to translate
-$strProcesslist = 'Process list'; //to translate
-
-$strQueryType = 'Query type'; //to translate
-
-$strReceived = 'Received'; //to translate
-$strRelationalSchema = 'Relational schema';  //to translate
-
-$strSent = 'Sent'; //to translate
-$strServerStatus = 'Runtime Information'; //to translate
-$strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
-$strServerTabProcesslist = 'Processes'; //to translate
-$strServerTabVariables = 'Variables'; //to translate
-$strServerVars = 'Server variables and settings'; //to translate
-$strSessionValue = 'Session value'; //to translate
-$strStatus = 'Status'; //to translate
-
-$strTableOfContents = 'Table of contents';  //to translate
-$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
-$strTime = 'Time'; //to translate
-$strTotalUC = 'Total'; //to translate
-$strTraffic = 'Traffic'; //to translate
-
-$strVar = 'Variable'; //to translate
-
-$strLaTeX = 'LaTeX';  //to translate
 ?>
