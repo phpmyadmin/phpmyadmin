@@ -514,4 +514,15 @@ $strUserOverview = 'User overview'; //to translate
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 
 $strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
+
+$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
+$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
+$strDeleting = 'Deleting %s'; //to translate
+$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
+$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
+$strReloadingThePrivileges = 'Reloading the privileges'; //to translate
+$strRemoveSelectedUsers = 'Remove selected users'; //to translate
+$strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
+$strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
+$strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
 ?>

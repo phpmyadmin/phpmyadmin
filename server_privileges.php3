@@ -143,6 +143,53 @@ if (!empty($change_pw)) {
 }
 
 /**
+ * Deletes users
+ */
+if (!empty($delete)) {
+    PMA_mysql_query('USE `mysql`;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'USE `mysql`;');
+    $is_superuser = TRUE;
+    $queries = array();
+    for ($i = 0; isset($selected_usr[$i]); $i++) {
+        list($this_user, $this_host) = explode('@', $selected_usr[$i]);
+        $queries[] = '# ' . sprintf($strDeleting, '\'' . $this_user . '\'@\'' . $this_host . '\'') . ' ...';
+        if ($mode == 2) {
+            // The SHOW GRANTS query may fail if the user has not been loaded
+            // into memory
+            $res = PMA_mysql_query('SHOW GRANTS FOR "' . $this_user . '"@"' . $this_host . '";', $userlink);
+            if ($res) {
+                $queries[] = 'REVOKE ALL PRIVILEGES ON *.* FROM "' . $this_user . '"@"' . $this_host . '";';
+                while ($row = PMA_mysql_fetch_row($res)) {
+                    $this_table = substr($row[0], (strpos($row[0], 'ON') + 3), -(9 + strlen($this_user . $this_host)));
+                    if ($this_table != '*.*') {
+                        $queries[] = 'REVOKE ALL PRIVILEGES ON ' . $this_table . ' FROM "' . $this_user . '"@"' . $this_host . '";';
+                    }
+                    unset($this_table);
+                }
+                mysql_free_result($res);
+            }
+            unset($res);
+        }
+        $queries[] = 'DELETE FROM `user` WHERE `User` = "' . $this_user . '" AND `Host` = "' . $this_host . '";';
+        if ($mode != 2) {
+            // If we REVOKE the table grants, we should not need to modify the
+            // `db`, `tables_priv` and `columns_priv` tables manually...
+            $queries[] = 'DELETE FROM `db` WHERE `User` = "' . $this_user . '" AND `Host` = "' . $this_host . '";';
+            $queries[] = 'DELETE FROM `tables_priv` WHERE `User` = "' . $this_user . '" AND `Host` = "' . $this_host . '";';
+            $queries[] = 'DELETE FROM `columns_priv` WHERE `User` = "' . $this_user . '" AND `Host` = "' . $this_host . '";';
+        }
+    }
+    if ($mode == 3) {
+        $queries[] = '# ' . $strReloadingThePrivileges . ' ...' . "\n" . 'FLUSH PRIVILEGES;';
+    }
+    while (list(, $sql_query) = each($queries)) {
+        PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
+    }
+    $sql_query = join("\n", $queries);
+    unset($queries);
+    $message = $strUsersDeleted;
+}
+
+/**
  * Reloads the privilege tables into memory
  */
 if (!empty($flush_privileges)) {
@@ -217,41 +264,75 @@ if (!isset($username) && !isset($hostname)) {
                . '    Please run the script <tt>mysql_fix_privilege_tables</tt> that should be included in your MySQL server distribution to solve this problem!' . "\n"
                . '</div><br />' . "\n";
         }
-        echo '<table border="0">' . "\n"
-           . '    <tr>' . "\n"
-           . '        <th></th>' . "\n"
-           . '        <th>&nbsp;' . $strUser . '&nbsp;</th>' . "\n"
-           . '        <th>&nbsp;' . $strHost . '&nbsp;</th>' . "\n"
-           . '        <th>&nbsp;' . $strPassword . '&nbsp;</th>' . "\n"
-           . '        <th>&nbsp;' . $strGlobalPrivileges . '&nbsp;</th>' . "\n"
-           . '        <th>&nbsp;' . $strGrantOption . '&nbsp;</th>' . "\n"
-           . '        <th>&nbsp;' . $strAction . '&nbsp;</th>' . "\n";
-        echo '    </tr>' . "\n";
+        echo '<form name="usersForm" action="server_privileges.php3" method="post" />' . "\n"
+           . '    <input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
+           . '    <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n"
+           . '    <input type="hidden" name="server" value="' . $server . '" />' . "\n"
+           . '    <table border="0">' . "\n"
+           . '        <tr>' . "\n"
+           . '            <th></th>' . "\n"
+           . '            <th>&nbsp;' . $strUser . '&nbsp;</th>' . "\n"
+           . '            <th>&nbsp;' . $strHost . '&nbsp;</th>' . "\n"
+           . '            <th>&nbsp;' . $strPassword . '&nbsp;</th>' . "\n"
+           . '            <th>&nbsp;' . $strGlobalPrivileges . '&nbsp;</th>' . "\n"
+           . '            <th>&nbsp;' . $strGrantOption . '&nbsp;</th>' . "\n"
+           . '            <th>&nbsp;' . $strAction . '&nbsp;</th>' . "\n";
+        echo '        </tr>' . "\n";
         $useBgcolorOne = TRUE;
-        while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
-            echo '    <tr>' . "\n"
-               . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"></td>' . "\n"
-               . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . (empty($row['User']) ? '<span style="color: #FF0000">' . $strAny . '</span>' : htmlspecialchars($row['User'])) . '</td>' . "\n"
-               . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . htmlspecialchars($row['Host']) . '</td>' . "\n";
+        for ($i = 0; $row = PMA_mysql_fetch_array($res, MYSQL_ASSOC); $i++) {
+            echo '        <tr>' . "\n"
+               . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_' . $i . '" value="' . htmlspecialchars($row['User'] . '@' . $row['Host']) . '"' . (empty($checkall) ?  '' : ' checked="checked"') . ' /></td>' . "\n"
+               . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><label for="checkbox_sel_users_' . $i . '">' . (empty($row['User']) ? '<span style="color: #FF0000">' . $strAny . '</span>' : htmlspecialchars($row['User'])) . '</label></td>' . "\n"
+               . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . htmlspecialchars($row['Host']) . '</td>' . "\n";
             $privs = PMA_extractPrivInfo($row, TRUE);
-            echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . ($row['Password'] == 'Y' ? $strYes : '<span style="color: #FF0000">' . $strNo . '</span>') . '</td>' . "\n"
-               . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><tt>' . "\n"
-               . '            ' . join(',' . "\n" . '            ', $privs) . "\n"
-               . '        </tt></td>' . "\n"
-               . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . ($row['Grant_priv'] == 'Y' ? $strYes : $strNo) . '</td>' . "\n"
-               . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($row['User']) . ($row['Host'] == '%' ? '' : '&amp;hostname=' . urlencode($row['Host'])) . '">' . $strEdit . '</a></td>' . "\n"
-               . '    </tr>' . "\n";
+            echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . ($row['Password'] == 'Y' ? $strYes : '<span style="color: #FF0000">' . $strNo . '</span>') . '</td>' . "\n"
+               . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><tt>' . "\n"
+               . '                ' . join(',' . "\n" . '            ', $privs) . "\n"
+               . '            </tt></td>' . "\n"
+               . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . ($row['Grant_priv'] == 'Y' ? $strYes : $strNo) . '</td>' . "\n"
+               . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($row['User']) . ($row['Host'] == '%' ? '' : '&amp;hostname=' . urlencode($row['Host'])) . '">' . $strEdit . '</a></td>' . "\n"
+               . '        </tr>' . "\n";
             $useBgcolorOne = !$useBgcolorOne;
         }
         @mysql_free_result($res);
         unset($res);
         unset ($row);
-        echo '    <tr>' . "\n"
-           . '        <td colspan="6">' . "\n"
-           . '            &nbsp;<i>' . $strEnglishPrivileges . '</i>&nbsp;' . "\n"
-           . '        </td>' . "\n"
-           . '    </tr>' . "\n"
-           . '</table><br />' . "\n"
+        echo '        <tr>' . "\n"
+           . '            <td></td>' . "\n"
+           . '            <td colspan="5">' . "\n"
+           . '                &nbsp;<i>' . $strEnglishPrivileges . '</i>&nbsp;' . "\n"
+           . '            </td>' . "\n"
+           . '        </tr>' . "\n"
+           . '        <tr>' . "\n"
+           . '            <td colspan="6" valign="bottom">' . "\n"
+           . '                <img src="./images/arrow_' . $text_dir . '.gif" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n"
+           . '                <a href="./*server_privileges.php3?' . $url_query .  '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', true); return false;">' . $strCheckAll . '</a>' . "\n"
+           . '                &nbsp;/&nbsp;' . "\n"
+           . '                <a href="server_privileges.php3' . $url_query .  '" onclick="setCheckboxes(\'usersForm\', false); return false;">' . $strUncheckAll . '</a>' . "\n"
+           . '            </td>' . "\n"
+           . '        </tr>' . "\n"
+           . '    </table>' . "\n"
+           . '    <ul>' . "\n"
+           . '        <li>' . "\n"
+           . '            <b>' . $strRemoveSelectedUsers . '</b><br>' . "\n"
+           . '            <input type="radio" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '" name="mode" id="radio_mode_1" value="1" checked="checked" />' . "\n"
+           . '            <label for="radio_mode_1" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '">' . "\n"
+           . '                ' . $strJustDelete . "\n"
+           . '            </label><br />' . "\n";
+        if (PMA_MYSQL_INT_VERSION >= 32304) {
+            echo '            <input type="radio" title="' . $strRevokeAndDelete . ' ' . $strRevokeAndDeleteDescr . '" name="mode" id="radio_mode_2" value="2" />' . "\n"
+               . '            <label for="radio_mode_2" title="' . $strRevokeAndDelete . ' ' . $strRevokeAndDeleteDescr . '">' . "\n"
+               . '                ' . $strRevokeAndDelete . "\n"
+               . '            </label><br />' . "\n";
+        }
+        echo '            <input type="radio" title="' . $strDeleteAndFlush . ' ' . $strDeleteAndFlushDescr . '" name="mode" id="radio_mode_3" value="3" />' . "\n"
+           . '            <label for="radio_mode_3" title="' . $strDeleteAndFlush . ' ' . $strDeleteAndFlushDescr . '">' . "\n"
+           . '                ' . $strDeleteAndFlush . "\n"
+           . '            </label><br />' . "\n"
+           . '            <input type="submit" name="delete" value="' . $strGo . '" />' . "\n"
+           . '        </li>' . "\n"
+           . '    </ul>' . "\n"
+           . '</form>' . "\n"
            . '<div>' . "\n"
            . '    ' . sprintf($strFlushPrivilegesNote, '<a href="server_privileges.php3?' . $url_query . '&amp;flush_privileges=1">', '</a>');
     }
