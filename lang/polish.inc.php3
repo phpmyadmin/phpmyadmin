@@ -6,6 +6,7 @@ $left_font_family = "sans-serif";
 $right_font_family = "sans-serif";
 $number_thousands_separator = ",";
 $number_decimal_separator = ".";
+$byteUnits = array("Bytes", "KB", "MB", "GB");
 
 $strAccessDenied = "Brak dostêpu";
 $strAction = "Dzia³anie";

@@ -6,6 +6,7 @@ $left_font_family = "sans-serif";
 $right_font_family = "sans-serif";
 $number_thousands_separator = ",";
 $number_decimal_separator = ".";
+$byteUnits = array("Bytes", "KB", "MB", "GB");
 
 $strAccessDenied = "접근이 거부되었습니다.";
 $strAction = "실행";

@@ -922,33 +922,44 @@ function delete_bookmarks($db, $cfgBookmark, $id) {
 $cfgBookmark=get_bookmarks_param();
 
 
-// formats $value to byte view - staybyte - 15. June 2001
-// $comma <= how many comma
-// $limes <= sensitiveness
-function format_byte_down($value,$limes=6,$comma=0){
-	$dh=pow(10,$comma);
-	$li=pow(10,$limes);
-	$returnvalue=$value;
-	$unit="Byte";
-	if ($value >= $li*1000000){
-		$value=round($value/(1073741824/$dh))/$dh;
-		$unit="GB";
+/**
+ * Formats $value to byte view
+ *
+ * @param    double   the value to format
+ * @param    integer  the sensitiveness
+ * @param    integer  the number of decimals to retain
+ *
+ * @return   array    the formatted value and its unit
+ *
+ * @author   staybyte
+ * @version  1.1 - 07 July 2001
+ */
+function format_byte_down($value, $limes = 6, $comma = 0)
+{
+	$dh           = pow(10, $comma);
+	$li           = pow(10, $limes);
+	$return_value = $value;
+	$unit         = $GLOBALS['byteUnits'][0];
+	if ($value >= $li*1000000) {
+		$value = round($value/(1073741824/$dh))/$dh;
+		$unit  = $GLOBALS['byteUnits'][3];
 	}
-	else if ($value >= $li*1000){
-		$value=round($value/(1048576/$dh))/$dh;
-		$unit="MB";
+	else if ($value >= $li*1000) {
+		$value = round($value/(1048576/$dh))/$dh;
+		$unit  = $GLOBALS['byteUnits'][2];
 	}
-	else if ($value >= $li){
-		$value=round($value/(1024/$dh))/$dh;
-		$unit="KB";
+	else if ($value >= $li) {
+		$value = round($value/(1024/$dh))/$dh;
+		$unit  = $GLOBALS['byteUnits'][1];
 	}
-	if ($unit!="Byte") {
+	if ($unit != 'Byte') {
 	    $return_value = number_format($value, $comma, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
 	} else {
 	    $return_value = number_format($value, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
 	}
 	return array($return_value, $unit);
-}
+} // end of the 'format_byte_down' function
+
 
 // to support special characters in db names: Lem9, 2001-06-27
 

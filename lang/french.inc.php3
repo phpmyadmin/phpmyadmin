@@ -6,6 +6,7 @@ $left_font_family = "verdana, helvetica, arial, geneva, sans-serif";
 $right_font_family = "helvetica, arial, geneva, sans-serif";
 $number_thousands_separator = " ";
 $number_decimal_separator = ",";
+$byteUnits = array("Octets", "Ko", "Mo", "Go");
 
 $strAccessDenied = "Accès refusé";
 $strAction = "Action";

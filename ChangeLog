@@ -23,7 +23,7 @@ $Source$
 	  commited some cosmetic changes.
 	* lib.inc.php3, lines 706 & 946-950; db_details.php3, lines 96 & 118;
 	  language files: thousands and decimal separators are now language
-	  dependant.
+	  dependant, size units also.
 	* tbl_dump.php3, lines 78: Added a '#' before 'No tables found' so the
 	  generated dump file may be imported later even if there is no table.
 	* db_printview.php3, line 29: Cosmetic change in column case name.
