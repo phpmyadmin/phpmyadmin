@@ -746,11 +746,11 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strView = 'View';  //to translate
-$strViewHasBeenDropped = 'View %s has been dropped';  //to translate
-$strEngines = 'Engines';  //to translate
-$strStorageEngines = 'Storage Engines';  //to translate
-$strStorageEngine = 'Storage Engine';  //to translate
+$strView = 'Vue';
+$strViewHasBeenDropped = 'La vue %s a été supprimée';
+$strEngines = 'Moteurs';
+$strStorageEngines = 'Moteurs de stockage';
+$strStorageEngine = 'Moteur de stockage';
 $strNoDetailsForEngine = 'There is no detailed status information available for this storage engine.';  //to translate
 $strDefaultEngine = '%s is the default storage engine on this MySQL server.';  //to translate
 $strEngineAvailable = '%s is available on this MySQL server.';  //to translate
