@@ -2,12 +2,79 @@
 /* $Id$ */
 
 /** 
- * Gets the variables sent to this script, retains the db name that may have
- * been defined as startup option and include a core library
+ * Gets the variables sent to this script and send headers
  */
 require('./grab_globals.inc.php3');
+$js_to_run = 'functions.js';
 require('./header.inc.php3');
 
+
+/* ---------------- The user requires some db to be dropped ---------------- */
+
+if (!empty($submit) || isset($btnDrop)) {
+
+    /**
+     * Confirmation form
+     */
+    if (!empty($submit) && !empty($selected_db)) {
+
+        // 1.1 Builds the query
+        $full_query     = '';
+        $drop_cnt       = count($selected_db);
+        for ($i = 0; $i < $drop_cnt; $i++) {
+            $full_query .= 'DROP DATABASE ' . backquote(htmlspecialchars(urldecode($selected_db[$i]))) . ';<br />';
+        }
+
+        // 1.2 Displays the form
+        echo $strDoYouReally . '&nbsp;:<br />' . "\n";
+        echo '<tt>' . $full_query . '</tt>&nbsp;?<br/>' . "\n";
+        ?>
+<form action="db_stats.php3" method="post">
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+        <?php
+        echo "\n";
+        for ($i = 0; $i < $drop_cnt; $i++) {
+            echo '    <input type="hidden" name="selected_db[]" value="' . $selected_db[$i] . '" />' . "\n";
+        }
+        ?>
+    <input type="submit" name="btnDrop" value="<?php echo $strYes; ?>" />
+    <input type="submit" name="btnDrop" value="<?php echo $strNo; ?>" />
+</form>
+        <?php
+        echo"\n";
+
+        include('./footer.inc.php3');
+        exit();
+    }
+
+    /**
+     * Executes the query
+     */
+    else if ((get_magic_quotes_gpc() && stripslashes($btnDrop) == $strYes)
+             || $btnDrop == $strYes) {
+        echo "\n";
+
+        $drop_cnt         = count($selected_db);
+        for ($i = 0; $i < $drop_cnt; $i++) {
+            $a_drop_query = 'DROP DATABASE ' . backquote(urldecode($selected_db[$i]));
+            $result       = @mysql_query($a_drop_query) or mysql_die('', $a_drop_query, FALSE);
+        }
+        ?>
+<script type="text/javascript" language="javascript1.2">
+<!--
+window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>');
+//-->
+</script>
+        <?php
+    }
+
+    echo "\n";
+} // end db drop
+
+
+
+/* --------------------------- Displays the page --------------------------- */
 
 /**
  * Sorts the databases array according to the user's choice
@@ -87,6 +154,7 @@ if ($server > 0) {
 }
 
 
+
 /**
  * Displays the page
  */
@@ -114,8 +182,12 @@ if ($server > 0) {
 if ($num_dbs > 0) {
     // Defines the urls used to sort the table
     $common_url     = 'db_stats.php3?lang=' . $lang . '&server=' . $server;
-    if (empty($sort_order)) {
-        $sort_order = ((empty($sort_by) || $sort_by == 'db_name') ? 'asc' : 'desc');
+    if (empty($sort_by)) {
+        $sort_by                 = 'db_name';
+        $sort_order              = 'asc';
+    }
+    else if (empty($sort_order)) {
+        $sort_order              = (($sort_by == 'db_name') ? 'asc' : 'desc');
     }
     $img_tag        = '&nbsp;' . "\n"
                     . '            '
@@ -126,7 +198,7 @@ if ($num_dbs > 0) {
         $url_sort[$i]['order']   = (($i == 0) ? 'asc' : 'desc');
         $url_sort[$i]['img_tag'] = '';
     }
-    if (empty($sort_by) || $sort_by == 'db_name') {
+    if ($sort_by == 'db_name') {
         $url_sort[0]['order']    = (($sort_order == 'asc') ? 'desc' : 'asc');
         $url_sort[0]['img_tag']  = $img_tag;
         $col                     = 'key'; // used in 'pmaDbCmp()'
@@ -148,35 +220,39 @@ if ($num_dbs > 0) {
         $col                     = 3;
     }
     ?>
-<table align="center" border="<?php echo $cfgBorder; ?>">
-<tr>
-    <th>&nbsp;</th>
-    <th>
-        &nbsp;
-        <a href="<?php echo $common_url . '&sort_by=db_name&sort_order=' . $url_sort[0]['order']; ?>">
-            <?php echo ucfirst($strDatabase) . $url_sort[0]['img_tag']; ?></a>&nbsp;
-    </th>
-    <th>
-        &nbsp;
-        <a href="<?php echo $common_url . '&sort_by=tbl_cnt&sort_order=' . $url_sort[1]['order']; ?>">
-            <?php echo ucfirst(trim(sprintf($strTables, ''))) . $url_sort[1]['img_tag']; ?></a>&nbsp;
-    </th>
-    <th>
-        &nbsp;
-        <a href="<?php echo $common_url . '&sort_by=data_sz&sort_order=' . $url_sort[2]['order']; ?>">
-            <?php echo ucfirst($strData) . $url_sort[2]['img_tag']; ?></a>&nbsp;
-    </th>
-    <th>
-        &nbsp;
-        <a href="<?php echo $common_url . '&sort_by=idx_sz&sort_order=' . $url_sort[3]['order']; ?>">
-            <?php echo ucfirst($strIndexes) . $url_sort[3]['img_tag']; ?></a>&nbsp;
-    </th>
-    <th>
-        &nbsp;
-        <a href="<?php echo $common_url . '&sort_by=tot_sz&sort_order=' . $url_sort[4]['order']; ?>">
-            <?php echo ucfirst($strTotal) . $url_sort[4]['img_tag']; ?></a>&nbsp;
-    </th>
-</tr>
+<form action="db_stats.php3">
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+
+    <table align="center" border="<?php echo $cfgBorder; ?>">
+    <tr>
+        <th>&nbsp;</th>
+        <th>
+            &nbsp;
+            <a href="<?php echo $common_url . '&sort_by=db_name&sort_order=' . $url_sort[0]['order']; ?>">
+                <?php echo ucfirst($strDatabase) . $url_sort[0]['img_tag']; ?></a>&nbsp;
+        </th>
+        <th>
+            &nbsp;
+            <a href="<?php echo $common_url . '&sort_by=tbl_cnt&sort_order=' . $url_sort[1]['order']; ?>">
+                <?php echo ucfirst(trim(sprintf($strTables, ''))) . $url_sort[1]['img_tag']; ?></a>&nbsp;
+        </th>
+        <th>
+            &nbsp;
+            <a href="<?php echo $common_url . '&sort_by=data_sz&sort_order=' . $url_sort[2]['order']; ?>">
+                <?php echo ucfirst($strData) . $url_sort[2]['img_tag']; ?></a>&nbsp;
+        </th>
+        <th>
+            &nbsp;
+            <a href="<?php echo $common_url . '&sort_by=idx_sz&sort_order=' . $url_sort[3]['order']; ?>">
+                <?php echo ucfirst($strIndexes) . $url_sort[3]['img_tag']; ?></a>&nbsp;
+        </th>
+        <th>
+            &nbsp;
+            <a href="<?php echo $common_url . '&sort_by=tot_sz&sort_order=' . $url_sort[4]['order']; ?>">
+                <?php echo ucfirst($strTotal) . $url_sort[4]['img_tag']; ?></a>&nbsp;
+        </th>
+    </tr>
     <?php
     unset($url_sort);
     echo "\n";
@@ -215,12 +291,9 @@ if ($num_dbs > 0) {
         }
     } // end for
 
-    // Sorts the dbs arrays (already sorted if 'db_name' ascending order)
-    if (!empty($sort_by)
-        && !($sort_by == 'db_name' && $sort_order == 'asc')) {
-        uksort($dbs_array, 'pmaDbCmp');
-        reset($dbs_array);
-    }    
+    // Sorts the dbs arrays
+    uksort($dbs_array, 'pmaDbCmp');
+    reset($dbs_array);
 
     // Displays the tables stats per database
     $i = 0;
@@ -231,14 +304,16 @@ if ($num_dbs > 0) {
         list($idx_size, $idx_unit)   = format_byte_down($dbs_array[$db_name][2], 3, 1);
         list($tot_size, $tot_unit)   = format_byte_down($dbs_array[$db_name][3], 3, 1);
 
-        echo '<tr bgcolor="'. $bgcolor . '">' . "\n";
-        echo '    <td align="right">&nbsp;' . ($i + 1) . '&nbsp;</td>' . "\n";
-        echo '    <td>&nbsp;<a href="index.php3?db=' . urlencode($db_name) . '" target="_parent">' . htmlentities($db_name) . '</a>&nbsp;</td>' . "\n";
-        echo '    <td align="right">&nbsp;' . $dbs_array[$db_name][0] . '&nbsp;</td>' . "\n";
-        echo '    <td align="right">&nbsp;' . $data_size . ' ' . $data_unit . '&nbsp;</td>' . "\n";
-        echo '    <td align="right">&nbsp;' . $idx_size . ' ' . $idx_unit . '&nbsp;</td>' . "\n";
-        echo '    <td align="right">&nbsp;<b>' . $tot_size . ' ' . $tot_unit . '</b>&nbsp;</td>' . "\n";
-        echo '</tr>' . "\n";
+        echo '    <tr bgcolor="'. $bgcolor . '">' . "\n";
+        echo '        <td align="center">' . "\n";
+        echo '            &nbsp;<input type="checkbox" name="selected_db[]" value="' . urlencode($db_name) . '" />&nbsp;' . "\n";
+        echo '        </td>' . "\n";
+        echo '        <td>&nbsp;<a href="index.php3?db=' . urlencode($db_name) . '" target="_parent">' . htmlentities($db_name) . '</a>&nbsp;</td>' . "\n";
+        echo '        <td align="right">&nbsp;' . $dbs_array[$db_name][0] . '&nbsp;</td>' . "\n";
+        echo '        <td align="right">&nbsp;' . $data_size . ' ' . $data_unit . '&nbsp;</td>' . "\n";
+        echo '        <td align="right">&nbsp;' . $idx_size . ' ' . $idx_unit . '&nbsp;</td>' . "\n";
+        echo '        <td align="right">&nbsp;<b>' . $tot_size . ' ' . $tot_unit . '</b>&nbsp;</td>' . "\n";
+        echo '    </tr>' . "\n";
 
         $i++;
     } // end while
@@ -249,15 +324,25 @@ if ($num_dbs > 0) {
     list($idx_size, $idx_unit)   = format_byte_down($total_array[2], 3, 1);
     list($tot_size, $tot_unit)   = format_byte_down($total_array[3], 3, 1);
 
-    echo '<tr>' . "\n";
-    echo '    <th>&nbsp;</th>' . "\n";
-    echo '    <th>&nbsp;' . $strSum . ':&nbsp;' . $num_dbs . '</th>' . "\n";
-    echo '    <th align="right">&nbsp;' . $total_array[0] . '&nbsp;</th>' . "\n";
-    echo '    <th align="right">&nbsp;' . $data_size . ' ' . $data_unit . '&nbsp;</th>' . "\n";
-    echo '    <th align="right">&nbsp;' . $idx_size . ' ' . $idx_unit . '&nbsp;</th>' . "\n";
-    echo '    <th align="right">&nbsp;<b>' . $tot_size . ' ' . $tot_unit . '</b>&nbsp;</th>' . "\n";
-    echo '</tr>' . "\n";
-    echo '</table>' . "\n";
+    echo '    <tr>' . "\n";
+    echo '        <th>&nbsp;</th>' . "\n";
+    echo '        <th>&nbsp;' . $strSum . ':&nbsp;' . $num_dbs . '</th>' . "\n";
+    echo '        <th align="right">&nbsp;' . $total_array[0] . '&nbsp;</th>' . "\n";
+    echo '        <th align="right">&nbsp;' . $data_size . ' ' . $data_unit . '&nbsp;</th>' . "\n";
+    echo '        <th align="right">&nbsp;' . $idx_size . ' ' . $idx_unit . '&nbsp;</th>' . "\n";
+    echo '        <th align="right">&nbsp;<b>' . $tot_size . ' ' . $tot_unit . '</b>&nbsp;</th>' . "\n";
+    echo '    </tr>' . "\n\n";
+
+    echo '    <tr>' . "\n";
+    echo '        <td colspan="6">' . "\n";
+    echo '            <img src="./images/arrow.gif" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n";
+    echo '            <i>' . $strWithChecked . '</i>&nbsp;&nbsp;<input type="submit" name="submit" value="DROP" />' . "\n";
+    echo '        </td>' . "\n";
+    echo '    <tr>' . "\n";
+
+    echo '    </table>' . "\n\n";
+
+    echo '</form>' . "\n";
 
     unset($total_array);
 } // end if ($num_dbs > 0)
@@ -272,7 +357,10 @@ else {
     <?php
 } // end if ($num_dbs == 0)
 echo "\n";
-?>
 
-</body>
-</html>
+
+/**
+ * Displays the footer
+ */
+require('./footer.inc.php3');
+?>
