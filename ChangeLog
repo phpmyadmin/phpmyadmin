@@ -7,10 +7,17 @@ $Source$
 
 2002-08-10 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/string.lib.php3:
-        - Fix for bug #593386 might need more work depending on character set
-          research. We will need to end up knowing the character set MySQL is
-          using to do it totally right.
-
+        - Fix for bug #593386
+          Might need more work depending on character set
+          research. We will need to end up knowing the 
+          character set MySQL is using to do it totally right.
+    * libraries/common.lib.php3:
+        - Fix for bug #582890
+          Just detects for connect_type == 'tcp' before 
+          empty host. Might need better long term fix to 
+          detect socket connect_type, and check that a 
+          value exists for it, even if it is only the default.
+          
 2002-08-10 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french: update.
 

@@ -514,7 +514,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     reset($cfg['Servers']);
     while (list($key, $val) = each($cfg['Servers'])) {
         // Don't use servers with no hostname
-        if (empty($val['host'])) {
+        if ( ($val['connect_type'] == 'tcp') && empty($val['host']) ) {
             unset($cfg['Servers'][$key]);
         }
     }
@@ -1116,7 +1116,7 @@ if (typeof(document.getElementById) != 'undefined'
              /* SQL-Parser-Analyzer */
             $sqlnr = 1;
             if (!empty($GLOBALS['show_as_php'])) {
-                $new_line = '&quot;;<br />' . "\n" . '            $sql .= &quot;';
+                $new_line = '\';<br />' . "\n" . '            $sql .= \'';
             }
             if (isset($new_line)) {
                  /* SQL-Parser-Analyzer */
@@ -1127,7 +1127,7 @@ if (typeof(document.getElementById) != 'undefined'
                 $query_base = $GLOBALS['sql_query'];
             }
             if (!empty($GLOBALS['show_as_php'])) {
-                $query_base = '$sql  = &quot;' . $query_base;
+                $query_base = '$sql  = \'' . PMA_sqlAddslashes($query_base);
             } else if (!empty($GLOBALS['validatequery'])) {
                 $query_base = PMA_validateSQL($query_base);
             } else {
@@ -1250,7 +1250,7 @@ if (typeof(document.getElementById) != 'undefined'
 
             //Clean up the end of the PHP
             if (!empty($GLOBALS['show_as_php'])) {
-                echo '&quot;;';
+                echo '\';';
             }
             echo "\n";
             ?>
