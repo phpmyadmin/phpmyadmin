@@ -6,8 +6,9 @@ $Id$
 $Source$
 
 2002-06-19 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * libraries/common.lib.php3, libraries/config_import.lib.php3:
-      Rewrote the whole backwards compatibility code for old config files.
+    * libraries/common.lib.php3, libraries/config_import.lib.php3,
+      config.inc.php3: Rewrote the whole backwards compatibility code for old
+      config files.
     * config.inc.php3: Beautified code.
 
 2002-06-19 Marc Delisle  <lem9@users.sourceforge.net>
