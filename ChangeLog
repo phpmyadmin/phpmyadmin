@@ -11,6 +11,7 @@ $Source$
 	* lib.inc.php3, lines 14-15: fixed bug #440430 with php3.
 	* grab_globals.inc.php3, tbl_printview.php3: removed the '^M' at the end of
 	  some lines.
+	* select_lang.php3: function_exists() is available since php 3.0.7 only.
 	* Documentation.html: rewritten to validates xhtml1.0 & css2, added some
 	  words about a common socket error, removed link to deepthought.texsci.edu
 	  (no long exists) and updated credits.
