@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-08 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/english-*.inc.php3: Fixed a typo.
+
 2003-01-07 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
 
