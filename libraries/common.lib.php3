@@ -63,16 +63,19 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         $pos              = 0;
     }
 
-
     /**
      * Parses the configuration file and gets some constants used to define
      * versions of phpMyAdmin/php/mysql...
      */
     include('./config.inc.php3');
 
-    // For compatibility with old config.inc.php3
-    if (!isset($cfg)) {
-        include('./config_import.inc.php3');
+    /**
+     * Reads in the developer edition config file. This is used exclusively during
+     * the development cycle of PMA, to prevent the accident of the developers ever
+     * submitting their config.inc.php3 file.
+     */
+    if (file_exists('./config.inc.developer.php3')) {
+        include('./config.inc.developer.php3');
     }
 
     /**
@@ -83,6 +86,11 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * below).
      */
     include('./libraries/defines.lib.php3');
+
+    // For compatibility with old config.inc.php3
+    if (!isset($cfg)) {
+        include('./config_import.inc.php3');
+    }
 
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run

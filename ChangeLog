@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-09 Robin Johnson  <robbat2@users.sourceforge.net>
+    * .cvsignore, libraries/common.lib.php3: Feature to stop developers 
+      commiting their config.inc.php3 so easily.
+
 2002-05-09 Alexander M. Turek  <rabus@users.sourceforge.net>
     * left.php3, libraries/common.lib.php3:
       Fixed bug #546011 (Navigation tooltips).
