@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * scripts/extchg.sh: bug 839081: generator.sh was not converted
+
 2003-11-07 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3, tbl_replace_fields.php3, Documentation.html:
       bug 835783: now (if using PHP4) users can enter NULL in a field

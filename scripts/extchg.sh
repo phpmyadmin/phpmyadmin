@@ -25,3 +25,11 @@ for i in `find . -name "*.$1"`
 	 rm $i
 	done;
 
+for i in `find . -name "generator.sh"`
+	 do 
+	 echo $i
+	 sed -e 's/\.'$1'/\.'$2'/g' $i > $i.new 
+	 rm $i
+         mv $i.new $i
+	done;
+
