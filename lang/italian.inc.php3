@@ -226,6 +226,7 @@ $strPasswordEmpty = 'La password è vuota!';
 $strPasswordNotSame = 'La password non coincide!';
 $strPHPVersion = 'Versione PHP';
 $strPmaDocumentation = 'Documentazione di phpMyAdmin';
+$strPmaUriError = 'La direttiva <tt>$cfgPmaAbsoluteUri</tt> DEVE essere impostata nel file di configurazione!';
 $strPos1 = 'Inizio';
 $strPrevious = 'Precedente';
 $strPrimary = 'Primaria';
@@ -350,5 +351,5 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
+
 ?>
