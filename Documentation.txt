@@ -1,20 +1,20 @@
 
                       phpMyAdmin 2.2.3-dev Documentation
                                        
-     * [1]Official phpMyAdmin project homepage    [
+     * Official phpMyAdmin project homepage    [
        http://www.phpwizard.net/projects/phpMyAdmin/ ]
-     * [2]Sourceforge phpMyAdmin download page    [
+     * Sourceforge phpMyAdmin download page    [
        http://phpmyadmin.sourceforge.net/ ]
      * Local documents:
-          + Version history: [3]ChangeLog
-          + General notes: [4]README
-          + License: [5]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.109 2001/12/05
-       17:48:48 lem9 Exp $
+          + Version history: ChangeLog
+          + General notes: README
+          + License: LICENSE
+     * Documentation version: $Id: Documentation.html,v 1.121 2002/01/03
+       16:49:48 lem9 Exp $
    ______________________________________________________________________
    
-   [6]Top  -  [7]Requirements  -  [8]Introduction  -  [9]Installation  -
-   [10]Configuration  -  [11]FAQ  -  [12]Developers  -  [13]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 Requirements
@@ -27,16 +27,16 @@ Requirements
      * a web-browser (doh!).
    ______________________________________________________________________
    
-   [14]Top  -  [15]Requirements  -  [16]Introduction  -  [17]Installation
-    -  [18]Configuration  -  [19]FAQ  -  [20]Developers  -  [21]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 Introduction
 
-   phpMyAdmin can administer a whole MySQL-server (needs a super-user)
-   but also a single database. To accomplish the latter you'll need a
+   phpMyAdmin can manage a whole MySQL-server (needs a super-user) but
+   also a single database. To accomplish the latter you'll need a
    properly set up MySQL-user who can read/write only the desired
-   database. It's up to you to look up the appropiate part in the MySQL
+   database. It's up to you to look up the appropriate part in the MySQL
    manual. Currently phpMyAdmin can:
      * create and drop databases
      * create, copy, drop and alter tables
@@ -54,8 +54,8 @@ Introduction
    (--with-zlib) and/or Bzip2 support (--with-bz2).
    ______________________________________________________________________
    
-   [22]Top  -  [23]Requirements  -  [24]Introduction  -  [25]Installation
-    -  [26]Configuration  -  [27]FAQ  -  [28]Developers  -  [29]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 Installation
@@ -74,17 +74,17 @@ Installation
        subdirectories): tar xzvf phpMyAdmin_x.x.x.tar.gz
     2. Open the file config.inc.php3 in your favourite editor and change
        the values for host, user and password to fit your environment.
-       Have a look at [30]Configuration section for an explanation of all
+       Have a look at Configuration section for an explanation of all
        values.
     3. It is recommended that you protect the directory in which you
        installed phpMyAdmin (unless it's on a closed intranet, or you
-       wish to use advanced authentication), for example with HTTP-AUTH
-       (in a .htaccess file). See the [31]FAQ section for additional
-       information.
+       wish to use http or cookie authentication), for example with
+       HTTP-AUTH (in a .htaccess file). See the FAQ section for
+       additional information.
     4. Open the file <www.your-host.com>/<your-install-dir>/index.php3 in
        your browser. phpMyAdmin should now display a welcome screen and
-       your databases, or a login dialog if using advanced
-       authentication.
+       your databases, or a login dialog if using http or cookie
+       authentication mode.
        
    Upgrading from an older version:
      * Please do not copy your older config.inc.php3 over the new one: it
@@ -92,11 +92,20 @@ Installation
        depend on these for normal behavior. It is suggested instead to
        insert your site values in the new one.
        
-   Using Advanced Authentication:
-    1. phpMyAdmin needs a stduser that has only the SELECT privilege on
-       the mysql.user (all columns except "Password"), mysql.db (all
-       columns) & mysql.tables_priv (all columns except "Grantor" &
-       "Timestamp") tables.
+   Using authentication modes:
+     * Http and cookie authentication modes are recommended in a
+       multi-user environment where you want to give users access to
+       their own database and don't want them to play around with others.
+     * Http and cookie authentication modes are secure: the MySQL
+       password does not need to be set in the phpMyAdmin configuration
+       file. (except for the "standard user" -see the Configuration
+       section-).
+       In cookie mode, we send the password in a temporary cookie, so
+       most browsers should not store the password in their cookie file.
+     * For 'http' and 'cookie' modes, phpMyAdmin needs a stduser that has
+       only the SELECT privilege on the mysql.user (all columns except
+       "Password"), mysql.db (all columns) & mysql.tables_priv (all
+       columns except "Grantor" & "Timestamp") tables.
        You must specify the details for the stduser in the
        config.inc.php3 file under the $cfgServers[n]['stduser'] &
        $cfgServers[n]['stdpass'] settings.
@@ -115,7 +124,7 @@ Installation
    ... and if you want to use the bookmark feature:
        GRANT SELECT, INSERT, DELETE ON <bookmark_db>.<bookmark_table> TO
    '<stduser>'@'localhost';
-    2. Then each of the true users should be granted of a set of
+     * Then each of the true users should be granted of a set of
        privileges on a set of perticular databases but shouldn't have any
        global privileges. For example, to grant the user real_user with
        all privileges on the database user_base:
@@ -123,10 +132,34 @@ Installation
        IDENTIFIED BY 'real_password';
        What the user may now do is controlled entirely by the MySQL user
        management system.
+       With http or cookie auth mode, you don't need to fill the
+       user/password fields inside the $cfgServers array.
+       
+   'http' authentication mode:
+     * Was called 'advanced' in versions before 2.2.3.
+     * Introduced in 1.3.0, it uses Basic HTTP authentication method and
+       allows you to login as any valid MySQL user.
+     * Is only supported with PHP running as an Apache module, not with
+       cgi.
+       
+   'cookie' authentication mode:
+     * You can use this method as a replacement for the http
+       authentication (for example, if you're running IIS).
+     * Obviously, the user must enable cookies in the browser.
+     * With this mode, the use can truly logout of phpMyAdmin and login
+       back with the same username.
+       
+   'config' authentication mode:
+     * This mode is the less secure one because it requires you to fill
+       the $cfgServers[n]['user'] and $cfgServers[n]['password'] fields.
+       But usually you don't need to setup a "standard user" here: using
+       the $cfgServers[n]['only_db'] might be enough.
+       In the ISP FAQ section, there is an entry explaining how to
+       protect your configuration file.
    ______________________________________________________________________
    
-   [32]Top  -  [33]Requirements  -  [34]Introduction  -  [35]Installation
-    -  [36]Configuration  -  [37]FAQ  -  [38]Developers  -  [39]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 Configuration
@@ -172,48 +205,43 @@ Configuration
           
    $cfgServers[n]['stduser'] string
           $cfgServers[n]['stdpass'] string
-          When using advanced authentication mode (or standard
+          When using http or cookie authentication modes (or 'config'
           authentication mode since phpMyAdmin 2.2.1), you need to supply
           the details of a MySQL account that has SELECT privilege on the
           mysql.user (all columns except "Password"), mysql.db (all
           columns) & mysql.tables_priv (all columns except "Grantor" &
           "Timestamp") tables. This account is used to check what
           databases the user will see at login.
-          Please see the [40]install section on "Using advanced
-          authentication" for more information.
+          Please see the install section on "Using http authentication"
+          for more information.
           Note that if you try login to phpMyAdmin with this "stduser",
           you could get some errors, depending the exact privileges you
           gave to the "stduser". phpMyAdmin does not support a direct
           login with the "stduser".
           
-   $cfgServers[n]['adv_auth'] boolean
-          Whether basic or advanced authentication should be used for
-          this server.
-          Basic authentication ($adv_auth = FALSE) is the plain old way:
-          username and password are stored in config.inc.php3. Advanced
-          authentication ($adv_auth = TRUE) as introduced in 1.3.0 allows
-          you to log in as any valid MySQL user via HTTP-Auth.
-          Please note that this authentication mode is only supported
-          with PHP running as an Apache module, and not with cgi.
-          Using advanced authentication is recommended:
+   $cfgServers[n]['auth_type'] string ['http'|'cookie'|'config']
+          Whether config or cookie or http authentication should be used
+          for this server.
           
-          + when phpMyAdmin is running in a multi-user environment where
-            people have shell-access that you don't want to know the
-            username/password for MySQL.
-          + when you want to give users access to their own database and
-            don't want them to play around with others.
+          + 'config' authentication ($auth_type = 'config') is the plain
+            old way: username and password are stored in config.inc.php3.
+          + 'cookie' authentication mode ($auth_type = 'cookie') as
+            introduced in 2.2.3 allows you to log in as any valid MySQL
+            user with the help of... cookies. Log name and password are
+            stored in cookies during the session and password is deleted
+            when it ends.
+          + 'http' authentication (was called 'advanced' in older
+            versions) ($auth_type = 'http') as introduced in 1.3.0 allows
+            you to log in as any valid MySQL user via HTTP-Auth.
             
-          Advanced authentication is secure as the MySQL passwords does
-          not need to be set in the phpMyAdmin configuration file.
-          (except for the standard user -see above-).
-          Please see the install section on "Using advanced
-          authentication " for more information.
+          Please see the install section on "Using authentication modes"
+          for more information.
           
    $cfgServers[n]['user'] string
           $cfgServers[n]['password'] string
           The user/password-pair which phpMyAdmin will use to connect to
-          this MySQL-server. The password is not needed when advanced
-          authentication is used, and should be empty.
+          this MySQL-server. The password is not needed when http or
+          cookie authentication is used, and should be empty.
           
    $cfgServers[n]['only_db'] string or array
           If set to a(an array of) database name(s), only this(these)
@@ -362,9 +390,9 @@ Configuration
           Defines whether to allow the use of zip/gzip/bzip compression
           when creating a dump file or not.
           
-   $cfgManualBase string
-          If set to an URL which points to the MySQL documentation,
-          appropriate help links are generated.
+   $cfgManualBaseShort string
+          If set to an URL which points to the MySQL documentation (on
+          short pages), appropriate help links are generated.
           
    $cfgDefaultLang string
           Defines the default language to use, if not browser-defined or
@@ -416,7 +444,15 @@ Configuration
           $cfgModifyDeleteAtRight boolean
           Defines the place where modify and delete links would be put
           when tables contents are displayed (you may have them displayed
-          both at the left and at the right).
+          both at the left and at the right). "Left" and "right" are
+          parsed as "top" and "bottom" with vertical display mode.
+          
+   $cfgDefaultDisplay string
+          There are 2 display modes: horizontal and vertical. Define
+          which one is displayed by default.
+          
+   $cfgRepeatCells integer
+          Repeat the headers every X cells, or 0 to deactivate.
           
    $cfgColumnTypes array
           All possible types of a MySQL column. In most cases you don't
@@ -431,8 +467,8 @@ Configuration
           need to edit this.
    ______________________________________________________________________
    
-   [41]Top  -  [42]Requirements  -  [43]Introduction  -  [44]Installation
-    -  [45]Configuration  -  [46]FAQ  -  [47]Developers  -  [48]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 FAQ - Frequently Asked Questions
@@ -458,15 +494,16 @@ FAQ - Frequently Asked Questions
    specified CGI application misbehaved by not returning a complete set
    of HTTP headers...."
    You just forgot to read the install.txt file from the php
-   distribution. Have a look at the last message in this [49]bug report
-   from the official php bug database.
+   distribution. Have a look at the last message in this bug report from
+   the official php bug database.
    
    Using phpMyAdmin on IIS, I'm facing crashes and/or many error messages
-   with the advanced authentication mode.
+   with the http or advanced authentication mode.
    This is a known problem with the php ISAPI filter: it's not so stable.
    For some more information and complete testings see the messages
-   posted by André B. aka "djdeluxe76" in [50]this thread from the
-   phpWizard forum.
+   posted by André B. aka "djdeluxe76" in this thread from the phpWizard
+   forum.
+   Please use instead the cookie authentication mode.
    
    I can't use phpMyAdmin on PWS: nothing is displayed!
    This seems to be a PWS bug. Filippo Simoncini found a workaroud (at
@@ -501,12 +538,11 @@ FAQ - Frequently Asked Questions
    7.0 and you updated your php rpm to php-4.0.4pl1-3.i386.rpm, didn't
    you?
    So the problem is that this package has a serious bug that was
-   corrected ages ago in php (2001-01-28: see [51]php's bug tracking
-   system for more details). The problem is that the bugged package is
-   still available though it was corrected (see [52]redhat's bugzilla for
-   more details).
-   So please download [53]the fixed package and the problem should go
-   away.
+   corrected ages ago in php (2001-01-28: see php's bug tracking system
+   for more details). The problem is that the bugged package is still
+   available though it was corrected (see redhat's bugzilla for more
+   details).
+   So please download the fixed package and the problem should go away.
    And that fixes the \r\n problem with file uploads!
    
    I'm having troubles when uploading files with phpMyAdmin running on a
@@ -534,7 +570,7 @@ FAQ - Frequently Asked Questions
    The error message "Warning: MySQL Connection Failed: Can't connect to
    local MySQL server through socket '/tmp/mysql.sock' (111)...") is
    displayed. What can I do?
-   Here is a fix suggested by Brad Ummer in the [54]phpwizard forum:
+   Here is a fix suggested by Brad Ummer in the phpwizard forum:
      * First, you need to determine what socket is being used by MySQL.
        To do this, telnet to your server and go to the MySQL bin
        directory. In this directory there should be a file named
@@ -548,7 +584,7 @@ FAQ - Frequently Asked Questions
        config.inc.php3.
        For example: $cfgServers[n]['socket'] = '/tmp/mysql.sock';
        
-   Have also a look at the [55]corresponding section of the MySQL
+   Have also a look at the corresponding section of the MySQL
    documentation.
    
    Nothing is displayed by my browser when I try to run phpMyAdmin, what
@@ -560,15 +596,15 @@ FAQ - Frequently Asked Questions
    idea, please upgrade to a plain revision.
    
    Each time I want to insert or change a record or drop a database or a
-   table, an error 404 (page not found) is displayed or, with advanced
-   authentication, I'm asked to login again. What's wrong?
+   table, an error 404 (page not found) is displayed or, with http or
+   cookie authentication, I'm asked to login again. What's wrong?
    Check the value you set for the $cfgPmaAbsoluteUri directive in the
    phpMyAdmin configuration file.
    
   [Known limitations]
   
-   When using advanced authentication, an user who logged out can not
-   relogs in with the same nick.
+   When using http authentication, an user who logged out can not relog
+   in with the same nick.
    This is related to the authentication mechanism (protocol) used by
    phpMyAdmin. We plan to change it as soon as we may find enough free
    time to do it, but you can bypass this problem: just close all the
@@ -582,8 +618,8 @@ FAQ - Frequently Asked Questions
    Since version 2.0.3, you can setup a central copy of phpMyAdmin for
    all your users. The development of this feature was kindly sponsored
    by NetCologne GmbH. This requires a properly setup MySQL user
-   management and phpMyAdmin advanced authentication. See the install
-   section on "Using advanced authentication"
+   management and phpMyAdmin http authentication. See the install section
+   on "Using http authentication".
    
    What's the preferred way of making phpMyAdmin secure against evil
    access?
@@ -592,7 +628,7 @@ FAQ - Frequently Asked Questions
    it's sufficient to use the directory protection bundled with your
    webserver (with Apache you can use .htaccess files, for example).
    If other people have telnet access to your server, you should use
-   phpMyAdmin's advanced authentication feature.
+   phpMyAdmin's http authentication feature.
    Suggestions:
      * Your config.inc.php3 file should be chmod 660.
      * All your phpMyAdmin files should be chown phpmy.apache, where
@@ -606,7 +642,7 @@ FAQ - Frequently Asked Questions
    contain "." somewhere in it, and open_basedir, if used, must contain
    "." and "./lang" to allow normal operation of phpMyAdmin.
    
-   phpMyAdmin always gives "Access denied" when using advanced
+   phpMyAdmin always gives "Access denied" when using http
    authentication.
    This could happen for several reasons:
      * $cfgServers[n]['stduser'] and/or $cfgServers[n]['stdpass'] are
@@ -639,6 +675,10 @@ FAQ - Frequently Asked Questions
    Konqueror, or else they disappear. Gzip dumps give an error message.
    Testing needs to be done for Konqueror 2.2.2.
    
+   I refresh (reload) my browser, and come back to the welcome page.
+   Some browsers support right-clicking into the frame you want to
+   refresh, just do this in the right frame.
+   
   [Using phpMyAdmin]
   
    I can't insert new rows into a table - MySQL brings up a SQL-error.
@@ -659,18 +699,18 @@ FAQ - Frequently Asked Questions
    the Index link to create the other index.
    
    How can I insert a null value into my table?
-   Enter "null", without the quotes, as the field's value. This is
-   especially useful for Timestamp or AutoIncrement fields.
+   Since version 2.2.3, you have a checkbox for each field that can be
+   null. Before 2.2.3, you had to enter "null", without the quotes, as
+   the field's value.
    
   [phpMyAdmin project]
   
    I have found a bug. How do I inform developers?
    Our Bug Tracker is located at
-   [56]http://sourceforge.net/projects/phpmyadmin/ under the Bugs
-   section.
+   http://sourceforge.net/projects/phpmyadmin/ under the Bugs section.
    But please first discuss your bug with other users:
-   [57]http://sourceforge.net/projects/phpmyadmin/ (and choose Forums)
-   [58]http://www.phpwizard.net/projects/phpMyAdmin/ (and choose Support
+   http://sourceforge.net/projects/phpmyadmin/ (and choose Forums)
+   http://www.phpwizard.net/projects/phpMyAdmin/ (and choose Support
    Forum)
    
    I want to translate the messages to a new language or upgrade an
@@ -697,15 +737,15 @@ FAQ - Frequently Asked Questions
        [This will create a new sub-directory named phpMyAdmin]
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
-       tracker of the [59]phpMyAdmin SourceForge account.
+       tracker of the phpMyAdmin SourceForge account.
        
    Write access to the CVS tree is granted only to experienced developers
    who have already contributed something useful to phpMyAdmin.
-   Also, have a look at the [60]Developers section.
+   Also, have a look at the Developers section.
    ______________________________________________________________________
    
-   [61]Top  -  [62]Requirements  -  [63]Introduction  -  [64]Installation
-    -  [65]Configuration  -  [66]FAQ  -  [67]Developers  -  [68]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 Developers Information
@@ -727,7 +767,7 @@ Developers Information
        please try to keep your code as simple as possible: beginners are
        using phpMyAdmin as an example application.
        By the way, we're currently updating all the scripts so they will
-       be XHTML1.0 and CSS2 compliant on one hand, they will fit [69]PEAR
+       be XHTML1.0 and CSS2 compliant on one hand, they will fit PEAR
        coding standards on the other hand. Please pay attention to this.
      * Please try to keep up the file-naming conventions. Table-related
        stuff goes to tbl_*.php3, db-related code to db_*.php3 and so on.
@@ -750,7 +790,7 @@ Developers Information
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
        tracker of the phpMyAdmin SourceForge account
-       ([70]http://sourceforge.net/projects/phpmyadmin/)
+       (http://sourceforge.net/projects/phpmyadmin/)
        
    Write access to the CVS tree is granted only to developers who have
    already contributed something useful to phpMyAdmin. If you're
@@ -758,8 +798,8 @@ Developers Information
    mailing list.
    ______________________________________________________________________
    
-   [71]Top  -  [72]Requirements  -  [73]Introduction  -  [74]Installation
-    -  [75]Configuration  -  [76]FAQ  -  [77]Developers  -  [78]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 Credits
@@ -823,13 +863,25 @@ CREDITS, in chronological order
         * bugfixes
 
 
-The following people have contributed minor changes, enhancements, bugfixes or
-or support for a new language since version 2.1.0:
+Thanks to those guy who send us some major improvements to merge into the
+code since version 2.1.0:
+- Michal Cihar  who implemented the enhanced
+  index creation/display feature.
+- Christophe Gesché from the "MySQL Form Generator for PHPMyAdmin"
+  (http://sourceforge.net/projects/phpmysqlformgen/) who suggested the patch
+  for multiple table printviews.
+- Garvin Hicking  who builds the patch for vertical
+  display of table rows.
+- Piotr Roszatycki  and Dan Wilson, for the
+  Cookie authentication mode.
+
+And also to the following people who have contributed minor changes,
+enhancements, bugfixes or support for a new language since version 2.1.0:
 Bora Alioglu, Ricardo ?, Sven-Erik Andersen, Alessandro Astarita, Borges Botelh
 o,
-Olivier Bussier, Michal Cihar, Neil Darlow, Kristof Hamann, Thomas Kläger,
-Lubos Klokner, Martin Marconcini, Girish Nair, David Nordenberg,
-Bernard M. Piller, Laurent Haas, "Sakamoto", www.securereality.com.au,
+Olivier Bussier, Neil Darlow, Kristof Hamann, Thomas Kläger, Lubos Klokner,
+Martin Marconcini, Girish Nair, David Nordenberg, Bernard M. Piller,
+Laurent Haas, "Sakamoto", www.securereality.com.au,
 Michael Tacelosky, Daniel Villanueva, Vinay, Ignacio Vazquez-Abrams,
 Chee Wai, Jakub Wilk, Thomas Michael Winningham.
 
@@ -875,99 +927,8 @@ Original Credits of Version 2.1.0
     and or just some feedback.
    ______________________________________________________________________
    
-   [79]Top  -  [80]Requirements  -  [81]Introduction  -  [82]Installation
-    -  [83]Configuration  -  [84]FAQ  -  [85]Developers  -  [86]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
-                                [87]Valid XHTML 1.0!      [88]Valid CSS! 
-
-References
-
-   1. http://www.phpwizard.net/projects/phpMyAdmin/
-   2. http://phpmyadmin.sourceforge.net/
-   3. http://localhost/phpMyAdmin-devel/ChangeLog
-   4. http://localhost/phpMyAdmin-devel/README
-   5. http://localhost/phpMyAdmin-devel/LICENSE
-   6. http://localhost/phpMyAdmin-devel/Documentation.html#top
-   7. http://localhost/phpMyAdmin-devel/Documentation.html#require
-   8. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-   9. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  10. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  11. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  12. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  13. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  14. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  15. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  16. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  17. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  18. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  19. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  20. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  21. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  22. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  23. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  24. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  25. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  26. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  27. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  28. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  29. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  30. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  31. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  32. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  33. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  34. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  35. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  36. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  37. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  38. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  39. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  40. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  41. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  42. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  43. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  44. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  45. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  46. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  47. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  48. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  49. http://bugs.php.net/bug.php?id=12061
-  50. http://www.phpwizard.net/phorum/read.php?f=1&i=6624&t=6300
-  51. http://www.php.net/bugs.php?id=8966
-  52. http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933
-  53. http://people.redhat.com/nalin/test/php-4.0.4pl1-7.i386.rpm
-  54. http://www.phpwizard.net/phorum/list.php?f=1
-  55. http://www.mysql.com/doc/C/a/Can_not_connect_to_server.html
-  56. http://sourceforge.net/projects/phpmyadmin/
-  57. http://sourceforge.net/projects/phpmyadmin/
-  58. http://www.phpwizard.net/projects/phpMyAdmin/
-  59. https://sourceforge.net/projects/phpmyadmin/
-  60. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  61. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  62. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  63. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  64. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  65. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  66. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  67. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  68. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  69. http://pear.php.net/
-  70. http://sourceforge.net/projects/phpmyadmin/
-  71. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  72. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  73. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  74. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  75. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  76. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  77. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  78. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  79. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  80. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  81. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  82. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  83. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  84. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  85. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  86. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  87. http://validator.w3.org/check/referer
-  88. http://jigsaw.w3.org/css-validator/
+                                        Valid XHTML 1.0!      Valid CSS! 
