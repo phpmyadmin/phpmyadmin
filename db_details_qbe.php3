@@ -729,183 +729,217 @@ if (!empty($qry_select)) {
 //    If we can use Relations we could make some left joins
 //    First find out if relations are available in this database
 
+// Debugging:
+//echo "</textarea><pre style=\"background-color:white;\">";
 // First we need the really needed Tables - those in TableList might
 // still be all Tables.
 if (isset($Field) && count($Field) > 0) {
 
     // Initialize some variables
-    $alltabs   = array();
-    $where     = array();
-    $wheretabs = array();
-    $reltabs   = array();
-    $rel       = array();
-    $rest      = array();
-    $found     = array();
+    $tab_all    = array();
+    $col_all    = array();
+    $tab_know   = array();
+    $tab_left   = array();
+    $col_where  = array();
+    $fromclause = '';
 
     //  we only start this if we have fields, otherwise it would be dumb
+//echo "get everything\n";
     while (list(, $value) = each($Field)) {
-        $parts            = explode('.', $value);
-        if (urldecode($parts[0]) != '') {
-            $alltabs[]    = substr(urldecode($parts[0]), 1, strlen(urldecode($parts[0])) - 2);
-        }
+        $_parts            = explode('.', $value);
+        if (!empty($_parts[0]) && !empty($_parts[1])) {
+        	$_tab_raw  = urldecode($_parts[0]);
+            $_tab      = str_replace('`', '', $_tab_raw);
+//echo "new Tab: " . $_tab . "\n";
+            $tab_all[$_tab] = $_tab;
+            $_col_raw  = urldecode($_parts[1]);
+            $col_all[] = $_tab . '.' . str_replace('`', '', $_col_raw);
+//echo "new col:" . $_tab . '.' . str_replace('`', '', $_col_raw) . "\n";
+         }
     } // end while
 
-    if ($cfgRelation['relwork'] && count($alltabs) > 0) {
-
+//echo "check whereclauses\n";
+    if ($cfgRelation['relwork'] && count($tab_all) > 0) {
         // now we need all tables that we have in the whereclause
         for ($x = 0; $x < count($Criteria); $x++) {
-            $wtable = explode('.', urldecode($Field[$x]));
-            $ctable = str_replace('`', '', $wtable[0]);
-            if (!empty($Field[$x]) && !empty($Criteria[$x])) {
-                if (empty($where[$ctable]) || $where[$ctable] != '=') {
-                    $where[$ctable] = substr($Criteria[$x], 0, 1);
+            $_tab_wher = explode('.', urldecode($Field[$x]));
+            if(!empty($_tab_wher[0]) && !empty($_tab_wher[1])) {
+                $_tab_raw  = urldecode($_tab_wher[0]);
+                $_tab      = str_replace('`', '', $_tab_raw);
+
+                $_col_raw  = urldecode($_tab_wher[1]);
+                $_col      = str_replace('`', '', $_col_raw);
+                $_col = $_tab . '.' . $_col;
+                //	now we know that our array has the same numbers as $Criteria
+                //	we can check which of our columns has a whereclause
+                if (!empty($Criteria[$x])) {
+                	if (substr($Criteria[$x],0,1) == '=' || eregi('is',$Criteria[$x])) {
+                    	$col_where[$_col] = $_col;
+                        $tab_where[$_tab] = $_tab;
+//echo "new Whereclause:".$_tab."\n";
+                    }
                 }
             }
         } // end for
 
-        if (count($where) > 1) {
-            //  if we have enough whereclauses then we want those that have
-            //  a '=' (not for example 'like')
-            while (list($key, $value) = each($where)) {
-                if ($value == '=') {
-                    $wheretabs[$key] = '=';
-                }
-            }
-        } // end if
+         //	clean temp vars w/o further use
+         unset($_tab_raw,$_col_raw);
 
 
-        // if there was nothing starting with '=' we have to use all we got in
-        // the first place (we can't use an "&=" assignment because of PHP3
-        // compliance)
-        if (count($wheretabs) == 0) {
-             $wheretabs = $where;
-        }
-
-        // When we want the fastest SELECT Statement, it would be great
-        // to have one Table as $master (that is the one that will be in
-        // FROM ... contrary to the rest which will just show in the LEFT JOIN
-        // lines) that has a good whereclause and is FOREIGN table to as many
-        // tables as possible
-
-        // We will need this a few times:
-        $incrit    = '(\'' . implode('\', \'', $alltabs) . '\')';
-
-
-        $rel_query     = 'SELECT foreign_table AS wer, COUNT(master_table) AS hits'
-                       . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                       . ' WHERE master_db   = \'' . PMA_sqlAddslashes($db) . '\''
-                       . ' AND foreign_db    = \'' . PMA_sqlAddslashes($db) . '\''
-                       . ' AND master_table  IN ' . $incrit
-                       . ' AND foreign_table IN ' . $incrit;
-        if (!empty($column)) {
-            $rel_query .= ' AND foreign_field = \'' . PMA_sqlAddslashes($column) . '\'';
-        }
-        $rel_query     .= ' GROUP BY foreign_table ORDER BY hits DESC';
-        $relations =  PMA_query_as_cu($rel_query);
-
-        $bpm = FALSE;
-        while ($row = PMA_mysql_fetch_array($relations)) {
-            // in case we will not find any foreign table that is also in the
-            // where clause AND we do not find a master table later, then we
-            // just use the most popular foreign table (allthough chances are
-            // remote)
-            if (!isset($master)) {
-                $master = $row['wer'];
-            }
-            if ($bpm == FALSE) {
-                while (list($key, $value) = each($wheretabs)) {
-                    if ($row['wer'] == $key) {
-                        $master = $row['wer'];
-                        $bpm    = TRUE; // best possible master found ;-)
-                        break;
-                    }
-                } // end while
-                reset($wheretabs);
-            }
-        } // end while
-
-        // if we didn't find any best possible master at this point, then we
-        // will settle for the most popular master_table in the where clause
-        // (sbpm = second best possible master ;-) or if that fails as well,
-        // then rather the most popular master table than the most popular
-        // foreign_table
-        if ($bpm == FALSE) {
-            $sbpm = FALSE;
-            // Easier to just save any bad master we had and use it if we do
-            // not find anything better
-            if (isset($master)) {
-                $badmaster = $master;
-                unset($master);
-            }
-            $rel_query     = 'SELECT master_table AS wer, COUNT(foreign_table) AS hits'
-                           . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                           . ' WHERE master_db   = \'' . PMA_sqlAddslashes($db) . '\''
-                           . ' AND foreign_db    = \'' . PMA_sqlAddslashes($db) . '\''
-                           . ' AND master_table  IN ' . $incrit
-                           . ' AND foreign_table IN ' . $incrit;
-            if (!empty($column)) {
-                $rel_query .= ' AND master_field = \'' . PMA_sqlAddslashes($column) . '\'';
-            }
-            $rel_query     .= ' GROUP BY master_table ORDER BY hits DESC';
-
-            $relations = PMA_query_as_cu($rel_query);
-            while ($row = PMA_mysql_fetch_array($relations)) {
-                // we want the first one (highest number of hits) or the first one
-                // that is in the WHERE clause
-                if (!isset($master)) {
-                    $master         = $row['wer'];
-                }
-                if ($sbpm == FALSE) {
-                    while (list($key, $value) = each($wheretabs)) {
-                        if ($row['wer'] == $key) {
-                            $master = $row['wer'];
-                            $sbpm   = TRUE;
-                            break;
+        if (count($col_where) == 1) {
+            // if there is exactly one column that has a decent where-clause
+            // we will just use this
+            $master = $col_where[0];
+//echo "nur ein where: master =".$master . "\n";
+        } else {
+        	// now let's find out which of the tables has an index
+//echo "prüfe indexe:\n";
+			while (list(, $_tab) = each($tab_all)) {
+				$ind_qry  = 'SHOW INDEX FROM ' . PMA_backquote($_tab);
+                $ind_rs   = PMA_mysql_query($ind_qry);
+                while ($ind = PMA_mysql_fetch_array($ind_rs)) {
+                	$_col = $_tab . '.' . $ind['Column_name'];
+					if (isset($col_all[$_col])) {
+                        if ($ind['non_unique'] == 0) {
+                            if (isset($col_where[$_col])) {
+                                $col_unique[$_col] = 'Y';
+                            } else {
+                                $col_unique[$_col] = 'N';
+                            }
+//echo "neuen unique index gefunden:".$_col."\n";
+                        } else {
+                            if (isset($col_where[$_col])) {
+                                $col_index[$_col] = 'Y';
+                            } else {
+                                $col_index[$_col] = 'N';
+                            }
+//echo "neuen index gefunden:".$_col."\n";
                         }
-                    } // end while
-                    reset($wheretabs);
-                }
-            } // end while
-            if (!isset($master) && isset($badmaster)) {
-                $master             = $badmaster;
-                unset($badmaster);
-            }
-        }   // end if bpm == FALSE
-
-        //  if we still don't have a master at this point we might as well
-        //  give up ;-)
-
-        if (isset($master) && $master != '') {
-            $qry_from = PMA_backquote($master);
-
-            // now we want one Array that has all tablenames but master
-            while (list(, $value) = each($alltabs)) {
-                if ($value != $master) {
-                    $reltabs[]           = $value;
-                    $rel[$value]['mcon'] = 0;
-                }
-            } // end while
-
-            // everything but the first table
-            $incrit_s          = '(\'' . implode('\', \'', $reltabs) . '\')';
-            $rel_query         = 'SELECT *'
-                               . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                               . ' WHERE master_db = \'' . PMA_sqlAddslashes($db) . '\''
-                               . ' AND foreign_db  = \'' . PMA_sqlAddslashes($db) . '\'';
-            if ($bpm == TRUE) { // means that my $master is a foreign table
-                $rel_query     .= ' AND master_table  IN ' . $incrit_s
-                               .  ' AND foreign_table IN ' . $incrit;
-                if (!empty($column)) {
-                    $rel_query .= ' AND foreign_field = \'' . PMA_sqlAddslashes($column) . '\'';
-                }
+    				}
+                }	// End while (each col of tab)
+			}	//	End while (each tab)
+            // now we want to find the best.
+			if (isset($col_unique) && count($col_unique)>0) {
+            	$col_cand = $col_unique;
+//echo "Kandidaten sind jetzt alle mit unique index\n";
+                $_needsort= 1;
+            } elseif (isset($col_index) && count($col_index) > 0) {
+            	$col_cand = $col_index;
+                $_needsort= 1;
+//echo "Kandidaten sind jetzt alle mit index\n";
+            } elseif (isset($col_where) && count($col_where) > 0) {
+            	$col_cand = $tab_where;
+//echo "Kandidaten sind jetzt alle im whereclause\n";
+                $_needsort= 0;
             } else {
-                $rel_query     .= ' AND foreign_table IN ' . $incrit_s
-                               .  ' AND master_table  IN ' . $incrit;
-                if (!empty($column)) {
-                    $rel_query .= ' AND master_field = \'' . $column . '\'';
+            	$col_cand = $tab_all;
+                $_needsort= 0;
+//echo "Kandidaten sind jetzt alle \n";
+            }
+			
+            //	if we came up with $col_unique (very good) or
+            //	$col_index (still good) as $col_cand we want to check
+            //  if we have any 'Y' there (that would mean that 
+            //	they were also found in the whereclauses which would be
+            //	great). if yes, we take only those
+            if ($_needsort == 1) {
+            	while (list($_col,$_iswhere) = each($col_cand)) {
+                	$_tab = explode('.',$_col);
+                    $_tab = $_tab[0];
+                	if ($_iswhere == 'Y') {
+                    	$_vg[$_col]  = $_tab;
+                    } else {
+                    	$_sg[$_col]  = $_tab;
+                    }
+               	}
+               	if (isset($vg)) {
+                	$col_cand = $vg;
+//echo "Kandidaten konnten auf index+where beschränkt werden\n";
+                } else {
+                	$col_cand = $sg;
+//echo "keiner der Kandidaten mit Index ist im wherclause\n";
                 }
             }
 
+            // if our array of candidates has more than one member
+            //	we'll just find the smallest table.
+            //	of course the actual query would be faster if we check 
+            //	for the Criteria which gives the smallest resultset
+            //  in its table, but it would take too much time to check this
+
+            if (count($col_cand)>1) {
+//echo "wir haben immer noch mehr als einen Kandidaten. Prüfe Größe\n";
+            	//	of course we only want to check each table once
+                $_checked_tables = $col_cand;
+                while (list(, $_tab) = each($col_cand)) {
+                    if ($_checked_tables[$_tab] != 1 ) {
+//echo "prüfe jetzt: Tabelle ".$_tab. "\n";
+                        $rows_qry = 'SELECT count(1) as anz '
+                                  . 'FROM ' . PMA_backquote($_tab);
+                        $rows_rs  = PMA_mysql_query($rows_qry);
+                		while ($res = PMA_mysql_fetch_array($rows_rs)) {
+							$_tsize[$_tab] = $res['anz'];
+//echo "$_tab hat:" .$_tsize[$_tab]."\n";
+                        }
+                        $_checked_tables[$_tab] =1;
+                    }
+                    $_csize[$_tab] = $_tsize[$_tab];
+//echo "erster csize: ".$_csize[$_tab]."\n";
+                }
+                asort($_csize);
+                reset($_csize);
+                $master = key($_csize);
+//echo "kleinste Datei: " . $master . "\n";
+            } else {
+            	$master = $col_cand[0];
+//echo "master ist der einzige Kandidat: " . $master . "\n";
+            }
+        } // end if (exactly one where clause)
+//echo "ich habe mich entschieden: " . $master;
+//die;
+
+  		// i will need something to remove unwanted entries from
+        // arrays which works with php3
+        function array_short($array,$key)
+        {
+            while (list($k, $v) = each($array)) {
+                if ($k != $key) {
+                    $reta[$k] = $v;
+                }
+            }
+            if(!isset($reta)){
+            	$reta = array();
+            }
+            return $reta;
+        }
+
+        // now we will often need a function to find all
+        // related tables. what we will have is an array
+        // of allready connected tables $tab_know and one
+        // of tables that we still couldn't connect $tab_left
+        // all we start with is $tab_all and the knowledge of
+        // our $master
+        // as we need to work with php3 we cannot give the variables
+        // by & so i need to make them global ;-(
+        //	the only thing we give  is wether to go from
+        // master to foreign or vice versa
+
+        function getrelatives($from) {
+        	global $tab_left,$tab_know,$fromclause,$db,$cfgRelation;
+            if ($from == 'master') {
+            	$to    = 'foreign';
+            } else {
+            	$to    = 'master';
+            }
+			$in_know = '(\'' . implode('\', \'', $tab_know) . '\')';
+            $in_left = '(\'' . implode('\', \'', $tab_left) . '\')';
+
+            $rel_query = 'SELECT *'
+                       . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+                       . ' WHERE ' . $from . '_db   = \'' . $db . '\''
+                       . ' AND   ' . $to   . '_db   = \'' . $db . '\''
+                       . ' AND ' . $from . '_table IN ' . $in_know
+                       . ' AND ' . $to   . '_table IN ' . $in_left;
             if (isset($dbh)) {
                 PMA_mysql_select_db($cfgRelation['db'], $dbh);
                 $relations = @PMA_mysql_query($rel_query, $dbh) or PMA_mysqlDie(PMA_mysql_error($dbh), $rel_query, '', $err_url_0);
@@ -915,155 +949,47 @@ if (isset($Field) && count($Field) > 0) {
                 $relations = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url_0);
                 PMA_mysql_select_db($db);
             }
+            while ($row = PMA_mysql_fetch_array($relations)) {
+                $found_table = $row[$to.'_table'];
+                if (isset($tab_left[$found_table])) {
+                    $fromclause .= "\n LEFT JOIN "
+                        . PMA_backquote($row[$to  . '_table']) . ' ON '
+                        . PMA_backquote($row[$from. '_table']) . '.'
+                            . PMA_backquote($row[$from. '_field']) . ' = '
+                        . PMA_backquote($row[$to  . '_table']) . '.'
+                            . PMA_backquote($row[$to  . '_field']) .' ';
+                    $tab_know[$found_table] = $found_table;
+                    $tab_left = array_short($tab_left,$found_table);
+             	}
+            } // end while
+		} // End of Function
 
-            if ($bpm == TRUE) { // means that my $master is a foreign table
-                while ($row = PMA_mysql_fetch_array($relations)) {
-                    $master_table = $row['master_table'];
-                    if ($rel[$master_table]['mcon'] == 0) {
-                        // if we already found a link to the master table we don't
-                        // want another otherwise we take whatever we get
-                        $rel[$master_table]['link']  = ' LEFT JOIN ' . PMA_backquote($master_table)
-                                                      . ' ON ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field'])
-                                                      . ' = ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field']);
-                        if ($row['foreign_table'] == $master) {
-                            $rel[$master_table]['mcon']  = 1;
-                        }
-                    }
-                } // end while
+
+        $tab_left = array_short($tab_all,$master);
+        $tab_know[$master] = $master;
+
+        $run=0;$emerg='';
+		while (count($tab_left)>0) {
+        	if ($run % 2 ==0) {
+            	getrelatives('master');
             } else {
-                while ($row = PMA_mysql_fetch_array($relations)) {
-                    $foreign_table = $row['foreign_table'];
-                    if ($rel[$foreign_table]['mcon'] == 0) {
-                        // if we already found a link to the master table we don't
-                        // want another otherwise we take whatever we get
-                        $rel[$foreign_table]['link']  = ' LEFT JOIN ' . PMA_backquote($foreign_table)
-                                                      . ' ON ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field'])
-                                                      . ' = ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field']);
-                        if ($row['master_table'] == $master) {
-                            $rel[$foreign_table]['mcon']  = 1;
-                        }
-                    }
-                } // end while
+            	getrelatives('foreign');
             }
-            // possibly we still don't have all - there might be some that are
-            // only found in relation to one of those that we already have
-            if ($master != '') {
-                $found[]  = $master;
-                $qry_from = PMA_backquote($master);
-            } // end if
+            $run++;
+            if ($run>5) {
 
-            while (list($key, $varr) = each($rel)) {
-                if (!isset($varr['link']) || $varr['link'] == '') {
-                    $rest[]  = $key;
-                } else {
-                    $found[] = $key;
+            	while ( list(,$_tab) = each($tab_left)) {
+                	$emerg .= ', '.$t_tab;
+            		$tab_left=array_short($tab_left,$_tab);
                 }
-            } // end while
-            if (count($rest) > 0) {
-                $incrit_d       = '(\'' . implode('\', \'', $found) . '\')';
-                $incrit_s       = '(\'' . implode('\', \'', $rest) . '\')';
-                if ($bpm == TRUE) {
-                    $from_table = 'foreign_table';
-                    $from_field = 'foreign_field';
-                    $to_table   = 'master_table';
-                } else {
-                    $from_table = 'master_table';
-                    $from_field = 'master_field';
-                    $to_table   = 'foreign_table';
-                }
-                $rel_query      = 'SELECT *'
-                                . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                                . ' WHERE master_db   = \'' . PMA_sqlAddslashes($db) . '\''
-                                . ' AND foreign_db    = \'' . PMA_sqlAddslashes($db) . '\''
-                                . ' AND ' . $from_table . '  IN ' . $incrit_s
-                                . ' AND ' . $to_table . ' IN ' . $incrit_d;
-                if (!empty($column)) {
-                    $rel_query  .= ' AND ' . $from_field . ' = \'' . PMA_sqlAddslashes($column) . '\'';
-                }
-
-                if (isset($dbh)) {
-                    PMA_mysql_select_db($cfgRelation['db'], $dbh);
-                    $relations = @PMA_mysql_query($rel_query, $dbh) or PMA_mysqlDie(PMA_mysql_error($dbh), $rel_query, '', $err_url_0);
-                    PMA_mysql_select_db($db, $dbh);
-                } else {
-                    PMA_mysql_select_db($cfgRelation['db']);
-                    $relations = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url_0);
-                    PMA_mysql_select_db($db);
-                }
-
-                while ($row = PMA_mysql_fetch_array($relations)) {
-                    if ($bpm == TRUE) {
-                        $found_table = $row['foreign_table'];
-                        $other_table = $row['master_table'];
-                    } else {
-                        $found_table = $row['master_table'];
-                        $other_table = $row['foreign_table'];
-                    }
-                    if ($rel[$found_table]['mcon'] == 0) {
-                        // if we allready found a link to the mastertable we
-                        // don't want another otherwise we take whatever we get
-                        $rel[$found_table]['link'] = ' LEFT JOIN ' . $found_table
-                                                   . ' ON ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field'])
-                                                   . ' = ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field']);
-
-                        // in extreme cases we hadn't found a master yet, so
-                        // let's use the one we found now
-                        if ($master == '') {
-                            $master                    = $found_table;
-                        }
-                        if ($other_table == $master) {
-                            $rel[$found_table]['mcon'] = 1;
-                        }
-                    }
-                } // end while
-            } // end if
-
-            // now let's see what we found - every table that doesn't have a
-            // link gets added directly to the FROM the links go to a second
-            // variable $lj which is added afterwards
-            $lj  = '';
-            $ljm = '';
-            reset($rel);
-            while (list($key, $varr) = each($rel)) {
-                if ($varr['link'] == '') {
-                    if ($qry_from != '') {
-                        $qry_from .= ', ';
-                    }
-                    $qry_from     .= PMA_backquote($key);
-                    // debug echo "add ". $key . ": " . PMA_backquote($key) . "\n";
-                } else if ($varr['mcon'] == 0) {
-                    // those that have no link with the mastertable we will
-                    // show at the end
-                    $lj           .= $varr['link'];
-                } else {
-                    $ljm          .= $varr['link'];
-                }
-            } // end while
-
-            // on one occasion i had qry_from at this point end with a , as I
-            // can't find why this happened i check this now:
-            $qry_from = ereg_replace(', $', '', $qry_from);
-            $qry_from .= $ljm . $lj;
-        } // end if ($master != '')
-    } // end rel work and $alltabs > 0
-
-    if (empty($qry_from) && count($alltabs)) {
-        // there might be more than one mentioning of the table in here
-        // as array_unique is only PHP4 we have to do this by hand
-        $temp = array();
-        while (list($k, $v) = each($alltabs)) {
-            $temp[$v] = 1;
-        }
-        unset($alltabs);
-        $alltabs = array();
-        while (list($k, $v) = each($temp)) {
-            $alltabs[] = $k;
-        }
-        $qry_from = implode(', ', PMA_backquote($alltabs));
+            }
+         }
+         $qry_from = $master . $emerg . $fromclause;
     }
 
 } // end count($Field) > 0
 
+// now let's see what we got
 if (!empty($qry_from)) {
     $encoded_qry .= urlencode('FROM ' . $qry_from . "\n");
     echo  'FROM ' . htmlspecialchars($qry_from) . "\n";
