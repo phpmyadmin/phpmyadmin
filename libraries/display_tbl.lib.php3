@@ -1023,10 +1023,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 }
 
                 $transform_options['wrapper_link'] = '?'
-                                                    . $url_query
-                                                    . '&amp;primary_key=' . $uva_condition
-                                                    . '&amp;sql_query=' . urlencode($sql_query)
-                                                    . '&amp;goto=' . urlencode($lnk_goto)
+                                                    . (isset($url_query) ? $url_query : '')
+                                                    . '&amp;primary_key=' . (isset($uva_condition) ? $uva_condition : '')
+                                                    . '&amp;sql_query=' . (isset($sql_query) ? urlencode($sql_query) : '')
+                                                    . '&amp;goto=' . (isset($sql_goto) ? urlencode($lnk_goto) : '')
                                                     . '&amp;transform_key=' . urlencode($meta->name);
 
 

@@ -7,6 +7,9 @@ $Source$
 
 2003-02-26 Garvin Hicking <me@supergarv.de>
     * lang/german-*: better grammar. ;)
+    * libraries/display_tbl.lib.php3: Fixed transformation-link variable
+      usage for special queries like 'SHOW FIELDS', where certain variables are
+      not set.
     
 2003-02-25 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php3: undefined variable $comment
