@@ -17,6 +17,7 @@ $Source$
       inserting when multiple inserts after changing value (RFE #749733).
     * header.inc.php: Simplified title generating.
     * lang/czech: Fixed untranslated word (translation #952551).
+    * scripts/create_tables.sql: Cleaned up description, regenerated dump.
 
 2004-05-12 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: bug #951143, undefined $header_url_qry
