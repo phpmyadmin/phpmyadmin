@@ -1033,7 +1033,13 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     // of the fields.
                     $field_flags = PMA_mysql_field_flags($dt_result, $i);
                     if (eregi('BINARY', $field_flags)) {
-                        $vertical_display['data'][$row_no][$i]     = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB]</td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]      = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB';
+                        if (isset($row[$pointer])) {
+                            $blob_size = PMA_formatByteDown(strlen($row[$pointer]), 3, 1);
+                            $vertical_display['data'][$row_no][$i] .= ' - '. $blob_size [0] . ' ' . $blob_size[1];
+                            unset($blob_size);
+                        }
+                        $vertical_display['data'][$row_no][$i]     .= ']</td>' . "\n";
                     } else {
                         //if (!isset($row[$meta->name])
                         if (!isset($row[$pointer])

@@ -523,7 +523,15 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             echo "\n";
             ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <?php echo $strBinaryDoNotEdit . "\n"; ?>
+            <?php 
+                echo $strBinaryDoNotEdit;
+                if (isset($data)) {
+                    $data_size = PMA_formatByteDown(strlen(stripslashes($data)), 3, 1);
+                    echo ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
+                    unset($data_size);
+                }
+                echo "\n";
+            ?>
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$protected$" />
         </td>
             <?php
@@ -558,7 +566,10 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         // TODO: check if uploads are allowed by PHP
 
         if ($is_upload) {
-            echo '<td><input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" /></td>';
+            echo '<td><input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" />';
+            echo '<input type="checkbox" checked="checked" name="fields_upload_binary_' . urlencode($field) . '" />';
+            echo '<label for="fields_upload_binary_' . urlencode($field) . '">' . $strBinary . '</label>';
+            echo '</td>';
         }
  
     } // end else if ( binary or blob)
