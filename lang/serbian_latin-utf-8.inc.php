@@ -715,4 +715,11 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja limite.';
 $strZip = '"zipovano"';
 
+$strIcelandic = 'Icelandic';  //to translate
+$strLatvian = 'Latvian';  //to translate
+$strPolish = 'Polish';  //to translate
+$strRomanian = 'Romanian';  //to translate
+$strSlovenian = 'Slovenian';  //to translate
+$strTraditionalSpanish = 'Traditional Spanish';  //to translate
+$strSlovak = 'Slovak';  //to translate
 ?>

@@ -97,8 +97,14 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             case 'hungarian':
                 $descr = $GLOBALS['strHungarian'];
                 break;
+            case 'icelandic':
+                $descr = $GLOBALS['strIcelandic'];
+                break;
             case 'japanese':
                 $descr = $GLOBALS['strJapanese'];
+                break;
+            case 'latvian':
+                $descr = $GLOBALS['strLatvian'];
                 break;
             case 'lithuanian':
                 $descr = $GLOBALS['strLithuanian'];
@@ -106,8 +112,26 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             case 'korean':
                 $descr = $GLOBALS['strKorean'];
                 break;
+            case 'polish':
+                $descr = $GLOBALS['strPolish'];
+                break;
+            case 'roman':
+                $descr = $GLOBALS['strWestEuropean'];
+                break;
+            case 'romanian':
+                $descr = $GLOBALS['strRomanian'];
+                break;
+            case 'slovak':
+                $descr = $GLOBALS['strSlovak'];
+                break;
+            case 'slovenian':
+                $descr = $GLOBALS['strSlovenian'];
+                break;
             case 'spanish':
                 $descr = $GLOBALS['strSpanish'];
+                break;
+            case 'spanish2':
+                $descr = $GLOBALS['strTraditionalSpanish'];
                 break;
             case 'swedish':
                 $descr = $GLOBALS['strSwedish'];
@@ -120,6 +144,9 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
                 break;
             case 'ukrainian':
                 $descr = $GLOBALS['strUkrainian'];
+                break;
+            case 'unicode':
+                $descr = $GLOBALS['strUnicode'] . ' (' . $GLOBALS['strMultilingual'] . ')';
                 break;
             case 'bin':
                 $is_bin = TRUE;
@@ -215,7 +242,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
                     $descr .= ', ' . $GLOBALS['strBinary'];
                 }
                 break;
-            default: return '';
+            default: $descr = $GLOBALS['strUnknown'];
         }
         if (!empty($parts[2])) {
             if ($parts[2] == 'ci') {

@@ -713,4 +713,11 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) verwijderd het limiet.';
 $strZip = '"Gezipt"';
 
+$strIcelandic = 'Icelandic';  //to translate
+$strLatvian = 'Latvian';  //to translate
+$strPolish = 'Polish';  //to translate
+$strRomanian = 'Romanian';  //to translate
+$strSlovenian = 'Slovenian';  //to translate
+$strTraditionalSpanish = 'Traditional Spanish';  //to translate
+$strSlovak = 'Slovak';  //to translate
 ?>

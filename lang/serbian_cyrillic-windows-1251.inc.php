@@ -714,4 +714,11 @@ $strYes = 'Да';
 $strZeroRemovesTheLimit = 'Напомена: Постављање ових опција на 0 (нулу) уклања ограничења.';
 $strZip = '"зиповано"';
 
+$strIcelandic = 'Icelandic';  //to translate
+$strLatvian = 'Latvian';  //to translate
+$strPolish = 'Polish';  //to translate
+$strRomanian = 'Romanian';  //to translate
+$strSlovenian = 'Slovenian';  //to translate
+$strTraditionalSpanish = 'Traditional Spanish';  //to translate
+$strSlovak = 'Slovak';  //to translate
 ?>

@@ -709,4 +709,11 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el limit.';
 $strZip = '"comprimit amb zip"';
 
+$strIcelandic = 'Icelandic';  //to translate
+$strLatvian = 'Latvian';  //to translate
+$strPolish = 'Polish';  //to translate
+$strRomanian = 'Romanian';  //to translate
+$strSlovenian = 'Slovenian';  //to translate
+$strTraditionalSpanish = 'Traditional Spanish';  //to translate
+$strSlovak = 'Slovak';  //to translate
 ?>

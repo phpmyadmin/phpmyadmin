@@ -733,4 +733,11 @@ $strServerNotResponding = 'The server is not responding';  //to translate
 $strTheme = 'Theme / Style';  //to translate
 $strTakeIt = 'take it';  //to translate
 $strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
+$strIcelandic = 'Icelandic';  //to translate
+$strLatvian = 'Latvian';  //to translate
+$strPolish = 'Polish';  //to translate
+$strRomanian = 'Romanian';  //to translate
+$strSlovenian = 'Slovenian';  //to translate
+$strTraditionalSpanish = 'Traditional Spanish';  //to translate
+$strSlovak = 'Slovak';  //to translate
 ?>

@@ -716,4 +716,11 @@ $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkun
 $strZip = 'Zip-komprimiert';
 
 $strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
+$strIcelandic = 'Icelandic';  //to translate
+$strLatvian = 'Latvian';  //to translate
+$strPolish = 'Polish';  //to translate
+$strRomanian = 'Romanian';  //to translate
+$strSlovenian = 'Slovenian';  //to translate
+$strTraditionalSpanish = 'Traditional Spanish';  //to translate
+$strSlovak = 'Slovak';  //to translate
 ?>

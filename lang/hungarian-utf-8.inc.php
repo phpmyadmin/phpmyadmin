@@ -712,4 +712,11 @@ $strZeroRemovesTheLimit = 'Megjegyzés: A 0 (nulla) beállítása törli a limit
 $strZip = '"zippel tömörítve"';
 
 $strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
+$strIcelandic = 'Icelandic';  //to translate
+$strLatvian = 'Latvian';  //to translate
+$strPolish = 'Polish';  //to translate
+$strRomanian = 'Romanian';  //to translate
+$strSlovenian = 'Slovenian';  //to translate
+$strTraditionalSpanish = 'Traditional Spanish';  //to translate
+$strSlovak = 'Slovak';  //to translate
 ?>
