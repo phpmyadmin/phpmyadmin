@@ -1,22 +1,22 @@
 <?php
 /* $Id$ */
 
+
 /** SQL Parser Matching Data
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
  * http://www.orbis-terrarum.net/?l=people.robbat2
  *
- * This data is used by the SQL Parser to recognize keywords 
- * 
- * It has been extracted from the lex.h file in the MySQL BK tree 
- * (around 4.0.2) as well as the MySQL documentation.
+ * This data is used by the SQL Parser to recognize keywords
  *
+ * It has been extracted from the lex.h file in the MySQL BK tree
+ * (around 4.0.2) as well as the MySQL documentation.
  */
-    
+
 if (!defined('PMA_SQP_DATA_INCLUDED')) {
     define('PMA_SQP_DATA_INCLUDED', 1);
 
-    $PMA_SQPdata_FunctionName = array (
+    $PMA_SQPdata_function_name = array (
         'ABS',
         'ACOS',
         'ADDDATE',
@@ -152,10 +152,10 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'WEEKDAY',
         'YEARWEEK'
     );
-    //$PMA_SQPdata_FunctionNameLen = count($PMA_SQPdata_FunctionName);
-    $PMA_SQPdata_FunctionNameLen = 134;
+    //$PMA_SQPdata_function_name_cnt = count($PMA_SQPdata_function_name);
+    $PMA_SQPdata_function_name_cnt = 134;
 
-    $PMA_SQPdata_ColumnAttrib = array (
+    $PMA_SQPdata_column_attrib = array (
         'AUTO_INCREMENT',
         'BDB',
         'BERKELEYDB',
@@ -172,10 +172,10 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'VARYING',
         'ZEROFILL'
     );
-    //$PMA_SQPdata_ColumnAttribLen = count($PMA_SQPdata_ColumnAttrib);
-    $PMA_SQPdata_ColumnAttribLen = 15;
+    //$PMA_SQPdata_column_attrib_cnt = count($PMA_SQPdata_column_attrib);
+    $PMA_SQPdata_column_attrib_cnt = 15;
 
-    $PMA_SQPdata_ReservedWord = array (
+    $PMA_SQPdata_reserved_word = array (
         'ACTION',
         'ADD',
         'AFTER',
@@ -417,10 +417,10 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'WRITE',
         'YEAR_MONTH'
     );
-    //$PMA_SQPdata_ReservedWordLen = count($PMA_SQPdata_ReservedWord);
-    $PMA_SQPdata_ReservedWordLen = 239;
+    //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
+    $PMA_SQPdata_reserved_word_cnt = 239;
 
-    $PMA_SQPdata_ColumnType = array (
+    $PMA_SQPdata_column_type = array (
         'BIGINT',
         'BIT',
         'BLOB',
@@ -465,10 +465,8 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'VARCHAR',
         'YEAR'
     );
-    //$PMA_SQPdata_ColumnTypeLen = count($PMA_SQPdata_ColumnType);
-    $PMA_SQPdata_ColumnTypeLen = 43;
+    //$PMA_SQPdata_column_type_cnt = count($PMA_SQPdata_column_type);
+    $PMA_SQPdata_column_type_cnt = 43;
 
-    
 } // $__PMA_SQP_DATA__
-
 ?>

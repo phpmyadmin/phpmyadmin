@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-25 Loïc Chapeaux  <lolo@phpheaven.net>
+    * coding standard: common.lib.php3, config.inc.php3, Documentation.html,
+      header.inc.php3, sqlparser.data.php3, sqlparser.lib.php3,
+      string.lib.php3, translators.html
+
 2002-07-24 Marc Delisle  <lem9@users.sourceforge.net>
     * new lang: slovenian, thanks to Kositer Uros (urosh)
 

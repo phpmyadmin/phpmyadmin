@@ -28,7 +28,7 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      *
      * @return  boolean  whether the needle is in the haystack or not
      */
-    function PMA_STR_StrInStr($needle, $haystack)
+    function PMA_STR_strInStr($needle, $haystack)
     {
         // strpos($haystack, $needle) !== FALSE
         // return (is_integer(strpos($haystack, $needle)));
@@ -45,7 +45,7 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      *
      * @return  boolean  whether the character is escaped or not
      */
-    function PMA_STR_charIsEscaped($string, $pos, $start=0)
+    function PMA_STR_charIsEscaped($string, $pos, $start = 0)
     {
         $len = strlen($string);
         // Base case:
@@ -67,7 +67,7 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
         }
 
         return $escaped;
-    } // end of the "PMA_STR_strInStr()" function
+    } // end of the "PMA_STR_charIsEscaped()" function
 
 
     /**
@@ -79,10 +79,10 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      *
      * @return  boolean  whether the number is in the range or not
      */
-    function PMA_STR_NumberInRangeInclusive($num, $lower, $upper)
+    function PMA_STR_numberInRangeInclusive($num, $lower, $upper)
     {
         return (($num >= $lower) && ($num <= $upper));
-    } // end of the "PMA_STR_NumberInRangeInclusive()" function
+    } // end of the "PMA_STR_numberInRangeInclusive()" function
 
 
     /**
@@ -92,16 +92,16 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      *
      * @return  boolean  whether the character is a digit or not
      *
-     * @see     PMA_STR_NumberInRangeInclusive()
+     * @see     PMA_STR_numberInRangeInclusive()
      */
-    function PMA_STR_IsDigit($c)
+    function PMA_STR_isDigit($c)
     {
         $ord_zero = 48; //ord('0');
         $ord_nine = 57; //ord('9');
         $ord_c    = ord($c);
 
-        return PMA_STR_NumberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
-    } // end of the "PMA_STR_IsDigit()" function
+        return PMA_STR_numberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
+    } // end of the "PMA_STR_isDigit()" function
 
 
     /**
@@ -111,9 +111,9 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      *
      * @return  boolean  whether the character is an hexadecimal digit or not
      *
-     * @see     PMA_STR_NumberInRangeInclusive()
+     * @see     PMA_STR_numberInRangeInclusive()
      */
-    function PMA_STR_IsHexDigit($c)
+    function PMA_STR_isHexDigit($c)
     {
         $ord_Aupper = 65;  //ord('A');
         $ord_Fupper = 70;  //ord('F');
@@ -123,10 +123,10 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
         $ord_nine   = 57;  //ord('9');
         $ord_c      = ord($c);
 
-        return (PMA_STR_NumberInRangeInclusive($ord_c, $ord_zero, $ord_nine)
-                || PMA_STR_NumberInRangeInclusive($ord_c, $ord_Aupper, $ord_Fupper)
-                || PMA_STR_NumberInRangeInclusive($ord_c, $ord_Alower, $ord_Flower));
-    } // end of the "PMA_STR_IsHexDigit()" function
+        return (PMA_STR_numberInRangeInclusive($ord_c, $ord_zero, $ord_nine)
+                || PMA_STR_numberInRangeInclusive($ord_c, $ord_Aupper, $ord_Fupper)
+                || PMA_STR_numberInRangeInclusive($ord_c, $ord_Alower, $ord_Flower));
+    } // end of the "PMA_STR_isHexDigit()" function
 
 
     /**
@@ -137,16 +137,16 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      * @return  boolean  whether the character is an upper alphabetic one or
      *                   not
      *
-     * @see     PMA_STR_NumberInRangeInclusive()
+     * @see     PMA_STR_numberInRangeInclusive()
      */
-    function PMA_STR_IsUpper($c)
+    function PMA_STR_isUpper($c)
     {
         $ord_zero = 65; //ord('A');
         $ord_nine = 90; //ord('Z');
         $ord_c    = ord($c);
 
-        return PMA_STR_NumberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
-    } // end of the "PMA_STR_IsUpper()" function
+        return PMA_STR_numberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
+    } // end of the "PMA_STR_isUpper()" function
 
 
     /**
@@ -157,16 +157,16 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      * @return  boolean  whether the character is a lower alphabetic one or
      *                   not
      *
-     * @see     PMA_STR_NumberInRangeInclusive()
+     * @see     PMA_STR_numberInRangeInclusive()
      */
-    function PMA_STR_IsLower($c)
+    function PMA_STR_isLower($c)
     {
         $ord_zero = 97;  //ord('a');
         $ord_nine = 122; //ord('z');
         $ord_c    = ord($c);
 
-        return PMA_STR_NumberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
-    } // end of the "PMA_STR_IsLower()" function
+        return PMA_STR_numberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
+    } // end of the "PMA_STR_isLower()" function
 
 
     /**
@@ -176,13 +176,13 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      *
      * @return  boolean  whether the character is an alphabetic one or not
      *
-     * @see     PMA_STR_IsUpper()
-     * @see     PMA_STR_IsLower()
+     * @see     PMA_STR_isUpper()
+     * @see     PMA_STR_isLower()
      */
-    function PMA_STR_IsAlpha($c)
+    function PMA_STR_isAlpha($c)
     {
-        return (PMA_STR_IsUpper($c) || PMA_STR_IsLower($c));
-    } // end of the "PMA_STR_IsAlpha()" function
+        return (PMA_STR_isUpper($c) || PMA_STR_isLower($c));
+    } // end of the "PMA_STR_isAlpha()" function
 
 
     /**
@@ -192,14 +192,14 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      *
      * @return  boolean  whether the character is an alphanumeric one or not
      *
-     * @see     PMA_STR_IsUpper()
-     * @see     PMA_STR_IsLower()
-     * @see     PMA_STR_IsDigit()
+     * @see     PMA_STR_isUpper()
+     * @see     PMA_STR_isLower()
+     * @see     PMA_STR_isDigit()
      */
-    function PMA_STR_IsAlnum($c)
+    function PMA_STR_isAlnum($c)
     {
-        return (PMA_STR_IsUpper($c) || PMA_STR_IsLower($c) || PMA_STR_IsDigit($c));
-    } // end of the "PMA_STR_IsAlnum()" function
+        return (PMA_STR_isUpper($c) || PMA_STR_isLower($c) || PMA_STR_isDigit($c));
+    } // end of the "PMA_STR_isAlnum()" function
 
 
     /**
@@ -209,18 +209,18 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      *
      * @return  boolean  whether the character is a space one or not
      *
-     * @see     PMA_STR_NumberInRangeInclusive()
+     * @see     PMA_STR_numberInRangeInclusive()
      */
-    function PMA_STR_IsSpace($c)
+    function PMA_STR_isSpace($c)
     {
         $ord_space = 32; //ord(' ')
-        $ord_tab = 9; //ord('\t')
-        $ord_CR  = 13; //ord('\n')
-        $ord_c   = ord($c);
+        $ord_tab   = 9; //ord('\t')
+        $ord_CR    = 13; //ord('\n')
+        $ord_c     = ord($c);
 
         return (($ord_c == $ord_space)
-                || PMA_STR_NumberInRangeInclusive($ord_c, $ord_tab, $ord_CR));
-    } // end of the "PMA_STR_IsSpace()" function
+                || PMA_STR_numberInRangeInclusive($ord_c, $ord_tab, $ord_CR));
+    } // end of the "PMA_STR_isSpace()" function
 
 
     /**
@@ -231,14 +231,14 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      *
      * @return  boolean  whether the character is an SQL identifier or not
      *
-     * @see     PMA_STR_IsAlnum()
+     * @see     PMA_STR_isAlnum()
      */
-    function PMA_STR_IsSqlIdentifier($c, $dot_is_valid = FALSE)
+    function PMA_STR_isSqlIdentifier($c, $dot_is_valid = FALSE)
     {
-        return (PMA_STR_IsAlnum($c)
+        return (PMA_STR_isAlnum($c)
                 || ($c == '_') || ($c == '$')
                 || (($dot_is_valid != FALSE) && ($c == '.')));
-    } // end of the "PMA_STR_IsSqlIdentifier()" function
+    } // end of the "PMA_STR_isSqlIdentifier()" function
 
 
     /**

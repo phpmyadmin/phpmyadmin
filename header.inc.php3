@@ -94,7 +94,7 @@ a.h1:visited    {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 a.h1:hover      {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #FF0000}
 a.drop:link     {font-family: <?php echo $right_font_family; ?>; color: #ff0000}
 a.drop:visited  {font-family: <?php echo $right_font_family; ?>; color: #ff0000}
-a.drop:hover    {font-family: <?php echo $right_font_family; ?>; color: #ffffff; background-color:#ff0000; text-decoration:none}
+a.drop:hover    {font-family: <?php echo $right_font_family; ?>; color: #ffffff; background-color:#ff0000; text-decoration: none}
 .nav            {font-family: <?php echo $right_font_family; ?>; color: #000000}
 .warning        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
 td.topline      {font-size: 1px}
@@ -113,24 +113,24 @@ table.tabs      {
     border-bottom: 1px solid #666;
 }
 
-.syntax { font-family: sans-serif; font-size: small; }
-.syntax_comment { }
-.syntax_digit { }
-.syntax_digit_hex { }
-.syntax_digit_integer { }
-.syntax_digit_float { }
-.syntax_punct { }
-.syntax_alpha { text-transform: lowercase; }
-.syntax_alpha_columnType { text-transform: uppercase; }
-.syntax_alpha_columnAttrib { text-transform: uppercase; }
-.syntax_alpha_reservedWord { text-transform: uppercase; font-weight: bold; }
-.syntax_alpha_functionName { text-transform: uppercase; }
-.syntax_alpha_identifier { }
-.syntax_alpha_variable { }
-.syntax_quote { }
-.syntax_quote_backtick { }
+.syntax {font-family: sans-serif; font-size: <?php echo $font_smaller; ?>;}
+.syntax_comment            {}
+.syntax_digit              {}
+.syntax_digit_hex          {}
+.syntax_digit_integer      {}
+.syntax_digit_float        {}
+.syntax_punct              {}
+.syntax_alpha              {text-transform: lowercase;}
+.syntax_alpha_columnType   {text-transform: uppercase;}
+.syntax_alpha_columnAttrib {text-transform: uppercase;}
+.syntax_alpha_reservedWord {text-transform: uppercase; font-weight: bold;}
+.syntax_alpha_functionName {text-transform: uppercase;}
+.syntax_alpha_identifier   {}
+.syntax_alpha_variable     {}
+.syntax_quote              {}
+.syntax_quote_backtick     {}
 <?php
-echo PMA_SQP_BuildCssData();
+echo PMA_SQP_buildCssData();
 ?>
 //-->
 </style>

@@ -168,14 +168,14 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     /**
      * String handling
      */
-     include('./libraries/string.lib.php3');
+    include('./libraries/string.lib.php3');
 
-     /**
-      * SQL Parser data and code
-      */
-     include('./libraries/sqlparser.data.php3');
-     include('./libraries/sqlparser.lib.php3');
-     
+    /**
+     * SQL Parser data and code
+     */
+    include('./libraries/sqlparser.data.php3');
+    include('./libraries/sqlparser.lib.php3');
+
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run
     if (PMA_PHP_INT_VERSION < 40000
@@ -240,7 +240,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     /**
      * format sql strings
      *
-     * @param   struct    pre-parsed SQL structure
+     * @param   mixed    pre-parsed SQL structure
      *
      * @return  string   the formatted sql
      *
@@ -249,39 +249,38 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      *
      * @access  public
      *
-     * @author  Robin Johnson <robbat2@users.sourceforge.net> 
+     * @author  Robin Johnson <robbat2@users.sourceforge.net>
      */
-    function PMA_format_sql ($ParsedSQL)
+    function PMA_formatSql($parsed_sql)
     {
         global $cfg;
-        
+
         // Check that we actually have a valid set of parsed data
         // well, not quite
-        if(!is_array($ParsedSQL)) {
-            // We don,t so just return the input directly
+        if (!is_array($parsed_sql)) {
+            // We don't so just return the input directly
             // This is intended to be used for when the SQL Parser is turned off
-            return $ParsedSQL;
-            }
+            return $parsed_sql;
+        }
 
-        $formattedSQL = '';
+        $formatted_sql        = '';
 
-        switch($cfg['SQP']['fmtType']) {
+        switch ($cfg['SQP']['fmtType']) {
             case 'none':
-                $formattedSQL = PMA_SQP_FormatNone($ParsedSQL);
+                $formatted_sql = PMA_SQP_formatNone($parsed_sql);
                 break;
             case 'html':
-                $formattedSQL = PMA_SQP_FormatHTML($ParsedSQL);
+                $formatted_sql = PMA_SQP_formatHtml($parsed_sql);
                 break;
             case 'text':
-                $formattedSQL = PMA_SQP_FormatText($ParsedSQL);
+                $formatted_sql = PMA_SQP_formatText($parsed_sql);
                 break;
             default:
                 break;
-        }
-        
+        } // end switch
+
         return $formattedSQL;
-        
-    } // end of the "PMA_format_sql()" function
+    } // end of the "PMA_formatSql()" function
 
 
     /**
@@ -314,7 +313,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $the_query = $GLOBALS['sql_query'];
         }
 
-        $ParsedSQL = PMA_SQP_Parse($the_query);
+        $parsed_sql = PMA_SQP_parse($the_query);
 
         echo '<p><b>'. $GLOBALS['strError'] . '</b></p>' . "\n";
         // if the config password is wrong, or the MySQL server does not
@@ -330,7 +329,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             } // end if
             echo '</p>' . "\n"
                  . '<p>' . "\n"
-                 . '    ' . PMA_format_sql($ParsedSQL) . "\n"
+                 . '    ' . PMA_formatSql($parsed_sql) . "\n"
                  . '</p>' . "\n";
         } // end if
         if (!empty($error_message)) {
@@ -1112,9 +1111,9 @@ if (typeof(document.getElementById) != 'undefined'
             $sqlnr = 1;
             if (!empty($GLOBALS['show_as_php'])) {
                 $new_line = '&quot;;<br />' . "\n" . '            $sql .= &quot;';
-            } /* else if ($cfg['UseSyntaxColoring'] == FALSE) {
-                $new_line = '<br />' . "\n";
-            } */
+//            } else if ($cfg['UseSyntaxColoring'] == FALSE) {
+//                $new_line = '<br />' . "\n";
+            }
             if (isset($new_line)) {
                 $query_base = htmlspecialchars($GLOBALS['sql_query']);
                 $query_base = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
@@ -1123,10 +1122,10 @@ if (typeof(document.getElementById) != 'undefined'
             }
             if (!empty($GLOBALS['show_as_php'])) {
                 $query_base = '$sql  = &quot;' . $query_base;
-//            } else d$if ($cfg['UseSyntaxColoring']) {
+//            } else if ($cfg['UseSyntaxColoring']) {
             } else {
-                $ParsedSQL = PMA_SQP_Parse($query_base);
-                $query_base = PMA_format_sql($ParsedSQL);
+                $parsed_sql = PMA_SQP_parse($query_base);
+                $query_base = PMA_formatSql($parsed_sql);
             }
 
             // Prepares links that may be displayed to edit/explain the query
@@ -1180,7 +1179,7 @@ if (typeof(document.getElementById) != 'undefined'
             // If a 'LIMIT' clause has been programatically added to the query
             // displays it
             if (!empty($GLOBALS['sql_limit_to_append'])) {
-                echo PMA_format_sql(PMA_SQP_Parse($GLOBALS['sql_limit_to_append']));
+                echo PMA_formatSql(PMA_SQP_parse($GLOBALS['sql_limit_to_append']));
             }
             if (!empty($GLOBALS['show_as_php'])) {
                 echo '&quot;;';

@@ -47,7 +47,8 @@ $cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
  * Disable the default warning that is displayed on the DB Details Structure page if
  * any of the required Tables for the relationfeatures could not be found
  */
- $cfg['PmaNoRelation_DisableWarning'] = FALSE;
+$cfg['PmaNoRelation_DisableWarning']  = FALSE;
+
 
 /**
  * Server(s) configuration
@@ -283,6 +284,7 @@ $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right s
 $cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizontal|vertical)
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
+
 /**
  * SQL Parser Settings
  */
@@ -290,25 +292,26 @@ $cfg['SQP']['enable']       = TRUE;         // Totally turn off the SQL Parser (
 $cfg['SQP']['fmtType']      = 'html';       // Pretty-printing style to use on queries (html, none)
 $cfg['SQP']['fmtInd']       = '1';          // Amount to indent each level (floats ok)
 $cfg['SQP']['fmtIndUnit']   = 'em';         // Units for indenting each level (CSS Types - {em,px,pt})
-$cfg['SQP']['fmtColor']     = array(        // Syntax colouring data 
-    'comment' => '#808000',
-    'digit' => 'inherit',
-    'digit_hex' => 'teal',
-    'digit_integer' => 'teal',
-    'digit_float' => 'aqua',
-    'punct' => 'fuchsia',
-    'alpha' => 'inherit',
-    'alpha_columnType' => '#FF9900',
+$cfg['SQP']['fmtColor']     = array(        // Syntax colouring data
+    'comment'            => '#808000',
+    'digit'              => 'inherit',
+    'digit_hex'          => 'teal',
+    'digit_integer'      => 'teal',
+    'digit_float'        => 'aqua',
+    'punct'              => 'fuchsia',
+    'alpha'              => 'inherit',
+    'alpha_columnType'   => '#FF9900',
     'alpha_columnAttrib' => '#0000FF',
     'alpha_reservedWord' => '#990099',
     'alpha_functionName' => '#FF0000',
-    'alpha_identifier' => 'black',
-    'alpha_variable' => '#800000',
-    'quote' => '#008000',
-    'quote_double' => 'inherit',
-    'quote_single' => 'inherit',
-    'quote_backtick' => 'inherit'
-    );
+    'alpha_identifier'   => 'black',
+    'alpha_variable'     => '#800000',
+    'quote'              => '#008000',
+    'quote_double'       => 'inherit',
+    'quote_single'       => 'inherit',
+    'quote_backtick'     => 'inherit'
+);
+
 
 /**
  * Available charsets for MySQL conversion. currently contains all which could
@@ -421,6 +424,7 @@ if ($cfg['ShowFunctionFields']) {
        'CONCAT'
     );
 } // end if
+
 
 /**
  * Unset magic_quotes_runtime - do not change!
