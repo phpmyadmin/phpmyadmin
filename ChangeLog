@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-08  Olivier Müller  <om@omnis.ch> 
+	* new script create-release.sh
+	* moved scripts to a new subdirectory "scripts/"
+	
 2001-08-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_replace.php3: fixed some coding style inconcistencies and optimized a
 	  bit both the '$set$' switch cases.
