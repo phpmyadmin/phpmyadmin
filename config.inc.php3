@@ -108,6 +108,10 @@ $cfgShowStats             = TRUE;   // allow to display statistics and space usa
                                     // properties
 $cfgShowTooltip           = TRUE;   // display table comment as tooltip in left frame
 
+// Left frame setup
+$cfgLeftFrameLight        = TRUE;   // use a select-based menu and display only the 
+                                    // current tables in the left frame.  (experimental)
+
 // In the main frame, at startup...
 $cfgShowMysqlInfo         = FALSE;  // whether to display the "MySQL runtime
 $cfgShowMysqlVars         = FALSE;  // information", "MySQL system variables" and "PHP

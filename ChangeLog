@@ -7,6 +7,14 @@ $Source$
 
 2002-01-11  Olivier Müller  <om@omnis.ch>
 	* lang/*: added $strSelectAll / $strUnselectAll, used in db_details.php3
+	* leftlight.php3, config.inc.php3, db_details.php3, index.php3, main.php3, 
+	  libraries/common.lib.php3, Documentation.html:
+	  started to work on the "LeftLight" concept. TODO:
+		- better fonts & html
+		- add strings for leftlight.php specific messages
+		- javascript: update both frames on DB selection
+		- give the user the possibility to choose between the
+		  "standard" and the "light" view.
 
 2002-01-10  Marc Delisle  <lem9@users.sourceforge.net>
         * lang/slovak-iso updates, thanks to Lubos Klokner

@@ -28,6 +28,14 @@ if (empty($HTTP_HOST)) {
     }
 }
 
+// Select the file to be displayed
+
+if ($cfgLeftFrameLight) {
+    $leftFrame = "leftlight.php3";
+} else {
+    $leftFrame = "left.php3";
+}
+
 
 /**
  * Defines the frameset
@@ -50,7 +58,7 @@ body  {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $fo
 </head>
 
 <frameset cols="<?php echo $cfgLeftWidth; ?>,*" rows="*">
-    <frame src="left.php3?<?php echo $url_query; ?>" name="nav" frameborder="1" />
+    <frame src="<?php echo $leftFrame; ?>?<?php echo $url_query; ?>" name="nav" frameborder="1" />
     <frame src="<?php echo (empty($db)) ? 'main.php3' : 'db_details.php3'; ?>?<?php echo $url_query; ?>" name="phpmain" />
 
     <noframes>

@@ -807,10 +807,17 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      */
     function PMA_showMessage($message)
     {
+
+        if (isset($GLOBALS['cfgLeftFrameLight']) && $GLOBALS['cfgLeftFrameLight']) {
+            $leftFrame = "leftlight.php3";
+        } else {
+            $leftFrame = "left.php3";
+        } 
+ 
         // Reloads the navigation frame via JavaScript if required
         if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
             echo "\n";
-            $reload_url = './left.php3'
+            $reload_url = './' . $leftFrame
                         . '?lang=' . $GLOBALS['lang']
                         . '&server=' . $GLOBALS['server']
                         . ((!empty($GLOBALS['db'])) ? '&db=' . urlencode($GLOBALS['db']) : '');

@@ -37,6 +37,15 @@ if (!isset($is_db) || !$is_db) {
     }
 } // end if (ensures db exists)
 
+// Select the file to be displayed
+
+if ($cfgLeftFrameLight) {
+    $leftFrame = "leftlight.php3";
+} else {
+    $leftFrame = "left.php3";
+}
+
+
 // Displays headers
 if (!isset($message)) {
     $js_to_run = 'functions.js';
@@ -47,7 +56,7 @@ if (!isset($message)) {
         ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=<?php echo urlencode($db); ?>');
+window.parent.frames['nav'].location.replace('./<?php echo $leftFrame; ?>?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=<?php echo urlencode($db); ?>');
 //-->
 </script>
         <?php
