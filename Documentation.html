@@ -307,7 +307,7 @@
     </li>
     <li>
         Then each of the <i>true</i> users should be granted of a set of
-        privileges on a set of perticular databases but shouldn't have any
+        privileges on a set of particular databases but shouldn't have any
         global privileges. For example, to grant the user <i>real_user</i> with
         all privileges on the database <i>user_base</i>:<br />
         &nbsp;&nbsp;&nbsp;<tt>GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';</tt>
@@ -592,7 +592,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
            </li>
            <li>
               display in an optional tooltip the &quot;display field&quot;
-              when browsing the master table, if 
+              when browsing the master table, if
               you move the mouse to a column containing a foreign key;
            </li>
            <li>
@@ -646,8 +646,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE src_column master_field VARCHAR(32) NOT NULL<br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE dest_table foreign_table VARCHAR(32) NOT NULL<br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE dest_column foreign_field VARCHAR(32) NOT NULL<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `relation` ADD `foreign_display_field` VARCHAR(32) NOT NULL;<br /> 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `relation` ADD `pdf_page_number` int(11) NOT NULL;<br /> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `relation` ADD `foreign_display_field` VARCHAR(32) NOT NULL;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `relation` ADD `pdf_page_number` int(11) NOT NULL;<br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `relation` ADD INDEX(`pdf_page_number`);<br />
         </tt><br />
     </dd>
@@ -659,11 +659,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         Since release 2.3.0 you can describe, in a special 'pdf_table_position'
         table, the coordinates where each table will be placed on a PDF schema
         output. This configuration variable will hold the name of this special
-        table.     
-        <br /><br />   
+        table.
+        <br /><br />
         This feature is supported under PHP4, and you must be using also
         the 'relation' feature.
-        <br /><br />   
+        <br /><br />
         To use this functionality you have to:
         <ul>
             <li>
@@ -1676,14 +1676,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
 <p>
     <b>How can I produce a PDF schema of my database?</b>
     <br />
-    First you have to fill the 'relation' and 'pdf_table_position' 
+    First you have to fill the 'relation' and 'pdf_table_position'
     configuration variables.
     <br /><br />
     Then, think about your schema layout: which tables will go on which
-    pages.  You have to fill in the 'relation' table the page number for 
+    pages.  You have to fill in the 'relation' table the page number for
     each master-foreign link.
     <br /><br />
-    Then manually fill the pdf_table_position table with the coordinates, 
+    Then manually fill the pdf_table_position table with the coordinates,
     x being the width and y the height, and (0,0) at the upper left corner.
     For example, x=100 and y=200 means that the table will be at 200 mm
     down and 100 mm right from the upper left corner.
@@ -1871,55 +1871,55 @@ CREDITS, in chronological order
 -------------------------------
 
 [tr] - Tobias Ratschiller &lt;tobias_at_phpwizard.net&gt;
-	* creator of the phpmyadmin project
-	* maintainer from 1998 to summer 2000
+    * creator of the phpmyadmin project
+    * maintainer from 1998 to summer 2000
 
 [md] - Marc Delisle &lt;DelislMa_at_CollegeSherbrooke.qc.ca&gt;
-	* multi-language version
-	* various fixes and improvements
+    * multi-language version
+    * various fixes and improvements
 
 [om] - Olivier Müller &lt;om_at_omnis.ch&gt;
-	* started SourceForge phpMyAdmin project in March 2001
-	* sync'ed different existing CVS trees with new features and bugfixes
-	* multi-language improvements, dynamic language selection
-	* current project maintainer, with Marc and Loic
+    * started SourceForge phpMyAdmin project in March 2001
+    * sync'ed different existing CVS trees with new features and bugfixes
+    * multi-language improvements, dynamic language selection
+    * current project maintainer, with Marc and Loic
 
 [lc] - Loïc Chapeaux &lt;lolo_at_phpheaven.net&gt;
-	* rewrote and optimized javascript, DHTML and DOM stuff
-	* rewrote the scripts so they fit the PEAR coding standards and
-	  generate XHTML1.0 and CSS2 compliant codes
-	* improved the language detection system
-	* many bugfixes and improvements
+    * rewrote and optimized javascript, DHTML and DOM stuff
+    * rewrote the scripts so they fit the PEAR coding standards and
+      generate XHTML1.0 and CSS2 compliant codes
+    * improved the language detection system
+    * many bugfixes and improvements
 
 [rj] - Robin Johnson &lt;robbat2_at_users.sourceforge.net&gt;
-	* database maintence controls
-	* table type code
+    * database maintence controls
+    * table type code
 
 [af] - Armel Fauveau &lt;armel.fauveau_at_globalis-ms.com&gt;
-	* bookmarks feature
-	* multiple dump feature
-	* gzip dump feature
-	* zip dump feature
+    * bookmarks feature
+    * multiple dump feature
+    * gzip dump feature
+    * zip dump feature
 
 [gl] - Geert Lund &lt;glund_at_silversoft.dk&gt;
-	* various fixes
-	* moderator of the phpMyAdmin users forum at phpwizard.net
+    * various fixes
+    * moderator of the phpMyAdmin users forum at phpwizard.net
 
 [kc] - Korakot Chaovavanich &lt;korakot_at_iname.com&gt;
-	* &quot;insert as new row&quot; feature
+    * &quot;insert as new row&quot; feature
 
 [pk] - Pete Kelly &lt;webmaster_at_trafficg.com&gt;
-	* rewrote and fix dump code
-	* bugfixes
+    * rewrote and fix dump code
+    * bugfixes
 
 [sa] - Steve Alberty &lt;alberty_at_neptunlabs.de&gt;
-	* rewrote dump code for PHP4
-	* mySQL table statistics
-	* bugfixes
+    * rewrote dump code for PHP4
+    * mySQL table statistics
+    * bugfixes
 
 [bg] - Benjamin Gandon &lt;gandon_at_isia.cma.fr&gt;
-	* main author of the version 2.1.0.1
-	* bugfixes
+    * main author of the version 2.1.0.1
+    * bugfixes
 
 [at] - Alexander M. Turek &lt;rabus_at_bugfixes.info&gt;
     * various small features and fixes
@@ -1943,7 +1943,7 @@ code since version 2.1.0:
   relation-links feature.
 - Mike Beck &lt;mike.beck at ibmiller.de&gt; for his work on the Relation table
   feature: automatic joint in QBE, links column in printview, Relation view.
-- Maxime Delorme &lt;delorme.maxime at free.fr&gt; for the PDF schema output; 
+- Maxime Delorme &lt;delorme.maxime at free.fr&gt; for the PDF schema output;
   thanks also to Olivier Plathey for the fpdf library (www.fpdf.org).
 
 And also to the following people who have contributed minor changes,
