@@ -35,6 +35,9 @@ unset($sql_query);
  * Work on the table
  */
 // loic1: defines wether file upload is available or not
+// lem9: we should check if PHP 4.0.0 really implements the "file_uploads"
+// variable, because I got a support request and his 4.0.0 did not have it
+ 
 $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
            ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
            // loic1: php 3.0.15 and lower bug -> always enabled
