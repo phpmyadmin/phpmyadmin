@@ -201,7 +201,7 @@ function PMA_DBI_num_rows($result) {
     return mysql_num_rows($result);
 }
 
-function PMA_DBI_insert_id($link) {
+function PMA_DBI_insert_id($link = '') {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
