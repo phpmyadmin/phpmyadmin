@@ -71,6 +71,8 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
         'es-iso-8859-1'=> array('es([-_][[:alpha:]]{2})?|spanish', 'spanish-iso-8859-1', 'es'),
         'et-utf-8'     => array('et|estonian', 'estonian-utf-8', 'et'),
         'et-iso-8859-1'=> array('et|estonian', 'estonian-iso-8859-1', 'et'),
+        'fa-utf-8'     => array('fa([-_][[:alpha:]]{2})?|farsi', 'farsi-utf-8', 'fa'),
+        'fa-win1256'   => array('fa([-_][[:alpha:]]{2})?|farsi', 'farsi-windows-1256', 'fa'),
         'fi-utf-8'     => array('fi|finnish', 'finnish-utf-8', 'fi'),
         'fi-iso-8859-1'=> array('fi|finnish', 'finnish-iso-8859-1', 'fi'),
         'fr-utf-8'     => array('fr([-_][[:alpha:]]{2})?|french', 'french-utf-8', 'fr'),

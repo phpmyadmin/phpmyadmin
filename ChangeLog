@@ -9,6 +9,9 @@ $Source$
     * lang/swedish*: Updates, thanks to Björn T. Hallberg (bth)
     * lang/italian*: Updates, thanks to Pietro Danesi (danone)
     * lang/english*: Resorted and Resynced.
+    * lang/farsi*: Added ready for Farsi translation
+    * lang/sync_lang.sh, libraries/select_lang.lib.php3: 
+        - Updates ready for Farsi translation
 
 2003-01-21 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: checkType function
