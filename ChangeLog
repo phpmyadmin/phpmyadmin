@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * ldi_check.php3: bug 530255 (LOAD DATA LOCAL INFILE)
+
 2002-12-13 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_dump.php3: Fix output order of inserts/creates, generate file
       extension to include also file type, not only compression (now it

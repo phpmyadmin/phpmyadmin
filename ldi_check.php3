@@ -58,8 +58,29 @@ if (isset($btnLDI) && ($textfile != 'none')) {
         $column_name      = PMA_sqlAddslashes($column_name);
     }
 
+    // (try to) make sure the file is readable:
+    chmod($textfile, 0777);
+
     // Builds the query
-    $query     = 'LOAD DATA LOCAL INFILE \'' . $textfile . '\'';
+    $query     =  'LOAD DATA';
+
+    // for versions before 3.23.49, we use the LOCAL keyword, because
+    // there was a version (cannot find which one, and it does not work
+    // with 3.23.38) where the user can LOAD, even if the user does not 
+    // have FILE priv, and even if the file is on the server 
+    // (which is the present case)
+    //
+    // if we find how to check the server about --local-infile 
+    // and --enable-local-infile, we could modify the code
+    // to use LOCAL for version >= 32349 if the server accepts it
+    //
+    // we could also code our own loader, but LOAD DATA INFILE is optimized
+    // for speed
+
+    if (PMA_MYSQL_INT_VERSION < 32349) {
+        $query     .= ' LOCAL';
+    }
+    $query     .= ' INFILE \'' . $textfile . '\'';
     if (!empty($replace)) {
         $query .= ' ' . $replace;
     }
