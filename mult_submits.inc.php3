@@ -9,9 +9,6 @@
 if (!empty($submit_mult)
     && (!empty($selected_db) || !empty($selected_tbl) || !empty($selected_fld))) {
 
-    if (get_magic_quotes_gpc()) {
-        $submit_mult  = stripslashes($submit_mult);
-    }
     if (!empty($selected_db)) {
         $selected     = $selected_db;
         $what         = 'drop_db';
@@ -31,12 +28,12 @@ if (!empty($submit_mult)
                case $strOptimizeTable:
                    unset($submit_mult);
                    $query_type = 'optimize_tbl';
-                   $mult_btn   = (get_magic_quotes_gpc() ? addslashes($strYes) : $strYes);
+                   $mult_btn   = $strYes;
                    break;
                case $strRepairTable:
                    unset($submit_mult);
                    $query_type = 'repair_tbl';
-                   $mult_btn   = (get_magic_quotes_gpc() ? addslashes($strYes) : $strYes);
+                   $mult_btn   = $strYes;
                    break;
            } // end switch
         }
@@ -133,8 +130,7 @@ if (!empty($submit_mult) && !empty($what)) {
 /**
  * Executes the query
  */
-else if ((get_magic_quotes_gpc() && stripslashes($mult_btn) == $strYes)
-         || $mult_btn == $strYes) {
+else if ($mult_btn == $strYes) {
 
     $sql_query      = '';
     $selected_cnt   = count($selected);

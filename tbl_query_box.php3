@@ -12,9 +12,6 @@ if (isset($show_query) && $show_query == '1') {
         $query_to_display = $sql_query_cpy;
     }
     // Other cases
-    else if (get_magic_quotes_gpc()) {
-        $query_to_display = stripslashes($sql_query);
-    }
     else {
         $query_to_display = $sql_query;
     }
@@ -67,7 +64,7 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] || ($cfg['QueryFrameJS'] && !$d
     } else {
         $num_dbs = 0;
     }
-    
+
     if ($num_dbs > 0) {
         $queryframe_db_list = '<select size=1 name="db">';
         for ($i = 0; $i < $num_dbs; $i++) {
@@ -217,10 +214,10 @@ if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_insi
 
 if (!isset($is_inside_querywindow) ||
     (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full'))) {
-    
+
     // loic1: displays import dump feature only if file upload available
     $ldi_target = 'ldi_table.php3?' . $url_query;
-    
+
     if ($is_upload && isset($db) && isset($table)) {
         ?>
         <!-- Insert a text file -->

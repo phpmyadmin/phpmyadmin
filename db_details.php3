@@ -19,9 +19,6 @@ if (isset($show_query) && $show_query == '1') {
         $query_to_display = $sql_query_cpy;
     }
     // Other cases
-    else if (get_magic_quotes_gpc()) {
-        $query_to_display = stripslashes($sql_query);
-    }
     else {
         $query_to_display = $sql_query;
     }

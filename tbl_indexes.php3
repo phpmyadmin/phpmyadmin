@@ -144,19 +144,6 @@ if ($fields_rs) {
 
 
 /**
- * Stipslashes some variables if required
- */
-if (get_magic_quotes_gpc()) {
-    if (isset($index)) {
-        $index     = stripslashes($index);
-    }
-    if (isset($old_index)) {
-        $old_index = stripslashes($old_index);
-    }
-} // end if
-
-
-/**
  * Do run the query to build the new index and moves back to
  * "tbl_properties.php3"
  */
@@ -212,7 +199,7 @@ if (!defined('PMA_IDX_INCLUDED')
     while (list($i, $name) = each($column)) {
         if ($name != '--ignore--') {
             $index_fields .= (empty($index_fields) ? '' : ',')
-                          . PMA_backquote(get_magic_quotes_gpc() ? stripslashes($name) : $name)
+                          . PMA_backquote($name)
                           . (empty($sub_part[$i]) ? '' : '(' . $sub_part[$i] . ')');
         }
     } // end while

@@ -25,9 +25,6 @@ if (isset($submit_sql) && eregi('^SELECT', $encoded_sql_query)) {
     $goto      = 'db_details.php3';
     $zero_rows = htmlspecialchars($strSuccess);
     $sql_query = urldecode($encoded_sql_query);
-    if (get_magic_quotes_gpc()) {
-        $sql_query = addslashes($sql_query);
-    }
     include('./sql.php3');
     exit();
 } else {
@@ -365,11 +362,7 @@ for ($x = 0; $x < $col; $x++) {
         continue;
     }
     if (isset($Criteria[$x])) {
-        if (get_magic_quotes_gpc()) {
-            $stripped_Criteria = stripslashes($Criteria[$x]);
-        } else {
-            $stripped_Criteria = $Criteria[$x];
-        }
+        $stripped_Criteria = $Criteria[$x];
     }
     if ((empty($prev_Criteria) || !isset($prev_Criteria[$x]))
         || urldecode($prev_Criteria[$x]) != htmlspecialchars($stripped_Criteria)) {
@@ -534,11 +527,7 @@ for ($y = 0; $y <= $row; $y++) {
             ${$or} = '';
         }
         if (!empty(${$or}) && isset(${$or}[$x])) {
-            if (get_magic_quotes_gpc()) {
-                $stripped_or = stripslashes(${$or}[$x]);
-            } else {
-                $stripped_or = ${$or}[$x];
-            }
+            $stripped_or = ${$or}[$x];
         } else {
             $stripped_or     = '';
         }
@@ -893,7 +882,7 @@ if (isset($Field) && count($Field) > 0) {
             } else {
                 //$master = $col_cand[0];
                 reset($col_cand);
-                $master = current($col_cand); 
+                $master = current($col_cand);
 //echo 'master ist der einzige Kandidat: ' . $master . "\n";
             }
         } // end if (exactly one where clause)
@@ -1048,7 +1037,7 @@ for ($y = 0; $y <= $row; $y++) {
         if (!empty($curField[$x]) && !empty(${'curOr' . $y}[$x])) {
             $qry_orwhere  .= '(' . $curField[$x]
                           .  ' '
-                          .  (get_magic_quotes_gpc() ? stripslashes(${'curOr' . $y}[$x]) : ${'curOr' . $y}[$x])
+                          .  ${'curOr' . $y}[$x]
                           .  ')';
             $last_orwhere = $x;
             $criteria_cnt++;

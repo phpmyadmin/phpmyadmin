@@ -8,14 +8,14 @@
         // f i e l d    u p l o a d e d    f r o m    a    f i l e
 
         // garvin: original if-clause checked, whether input was stored in a possible fields_upload_XX var.
-        // Now check, if the field is set. If it is empty or a malicious file, do not alter fields contents. 
+        // Now check, if the field is set. If it is empty or a malicious file, do not alter fields contents.
         // If an empty or invalid file is specified, the binary data gets deleter. Maybe a nice
         // new text-variable is appropriate to document this behaviour.
-        
+
         // garvin: security cautions! You could trick the form and submit any file the webserver has access to
         // for upload to a binary field. Shouldn't be that easy! ;)
-        
-        // garvin: default is to advance to the field-value parsing. Will only be set to true when a 
+
+        // garvin: default is to advance to the field-value parsing. Will only be set to true when a
         // binary file is uploaded, thus bypassing further manipulation of $val.
 
         $check_stop = false;
@@ -34,7 +34,7 @@
                     // nijel: This is probably the best way how to put binary data
                     // into MySQL and it also allow not to care about charset
                     // conversion that would otherwise corrupt the data.
-                    
+
                     if (!empty($val)) {
                         // garvin: The upload was valid. Check in new blob-field's contents.
                         $val = '0x' . bin2hex($val);
@@ -117,11 +117,7 @@
 
                             break;
                         default:
-                            if (get_magic_quotes_gpc()) {
-                                $val = "'" . str_replace('\\"', '"', $val) . "'";
-                            } else {
-                                $val = "'" . PMA_sqlAddslashes($val) . "'";
-                            }
+                            $val = "'" . PMA_sqlAddslashes($val) . "'";
                             break;
                     }
                     break;

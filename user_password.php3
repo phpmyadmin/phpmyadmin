@@ -45,10 +45,6 @@ if (isset($nopass)) {
     // here $nopass could be == 1
     if (empty($error_msg)) {
 
-        if (get_magic_quotes_gpc() && $pma_pw != '') {
-            $pma_pw = stripslashes($pma_pw);
-        }
-
         // Defines the url to return to in case of error in the sql statement
         $common_url_query = PMA_generate_common_url();
 
@@ -72,7 +68,7 @@ if (isset($nopass)) {
         include('./header.inc.php3');
         echo '<h1>' . $strChangePassword . '</h1>' . "\n\n";
         $show_query = 'y';
-        PMA_showMessage(get_magic_quotes_gpc() ? addslashes($strUpdateProfileMessage) : $strUpdateProfileMessage);
+        PMA_showMessage($strUpdateProfileMessage);
         ?>
         <a href="index.php3?<?php echo $common_url_query . $http_logout; ?>" target="_parent">
             <b><?php echo $strBack; ?></b></a>

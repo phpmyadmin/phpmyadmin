@@ -28,7 +28,7 @@ $cfgRelation = PMA_getRelationsParam();
 if (!empty($message)) {
     if (isset($goto)) {
         $goto_cpy      = $goto;
-        $goto          = 'tbl_properties.php3?' 
+        $goto          = 'tbl_properties.php3?'
                        . PMA_generate_common_url($db, $table)
                        . '&amp;$show_query=1'
                        . '&amp;sql_query=' . urlencode($disp_query);
@@ -40,7 +40,7 @@ if (!empty($message)) {
         unset($sql_query);
     }
     if (isset($disp_query)) {
-        $sql_query     = (get_magic_quotes_gpc() ? stripslashes($disp_query) : $disp_query);
+        $sql_query     = $disp_query;
     }
     PMA_showMessage($message);
     if (isset($goto_cpy)) {
@@ -52,14 +52,6 @@ if (!empty($message)) {
         unset($sql_query_cpy);
     }
 }
-if (get_magic_quotes_gpc()) {
-    if (!empty($sql_query)) {
-        $sql_query   = stripslashes($sql_query);
-    }
-    if (!empty($primary_key)) {
-        $primary_key = stripslashes($primary_key);
-    }
-} // end if
 
 
 /**

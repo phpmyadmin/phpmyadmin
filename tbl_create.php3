@@ -49,19 +49,12 @@ if (isset($submit)) {
         if (empty($field_name[$i])) {
             continue;
         }
-        if (get_magic_quotes_gpc()) {
-            $field_name[$i] = stripslashes($field_name[$i]);
-        }
         if (PMA_MYSQL_INT_VERSION < 32306) {
             PMA_checkReservedWords($field_name[$i], $err_url);
         }
         $query = PMA_backquote($field_name[$i]) . ' ' . $field_type[$i];
         if ($field_length[$i] != '') {
-            if (get_magic_quotes_gpc()) {
-                $query .= '(' . stripslashes($field_length[$i]) . ')';
-            } else {
-                $query .= '(' . $field_length[$i] . ')';
-            }
+            $query .= '(' . $field_length[$i] . ')';
         }
         if ($field_attribute[$i] != '') {
             $query .= ' ' . $field_attribute[$i];
@@ -69,8 +62,6 @@ if (isset($submit)) {
         if ($field_default[$i] != '') {
             if (strtoupper($field_default[$i]) == 'NULL') {
                 $query .= ' DEFAULT NULL';
-            } else if (get_magic_quotes_gpc()) {
-                $query .= ' DEFAULT \'' . PMA_sqlAddslashes(stripslashes($field_default[$i])) . '\'';
             } else {
                 $query .= ' DEFAULT \'' . PMA_sqlAddslashes($field_default[$i]) . '\'';
             }
@@ -96,9 +87,6 @@ if (isset($submit)) {
     for ($i = 0; $i < $primary_cnt; $i++) {
         $j = $field_primary[$i];
         if (!empty($field_name[$j])) {
-            if (get_magic_quotes_gpc()) {
-                $field_name[$j] = stripslashes($field_name[$j]);
-            }
             $primary .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
@@ -116,9 +104,6 @@ if (isset($submit)) {
     for ($i = 0;$i < $index_cnt; $i++) {
         $j = $field_index[$i];
         if (!empty($field_name[$j])) {
-            if (get_magic_quotes_gpc()) {
-                $field_name[$j] = stripslashes($field_name[$j]);
-            }
             $index .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
@@ -136,9 +121,6 @@ if (isset($submit)) {
     for ($i = 0; $i < $unique_cnt; $i++) {
         $j = $field_unique[$i];
         if (!empty($field_name[$j])) {
-            if (get_magic_quotes_gpc()) {
-                $field_name[$j] = stripslashes($field_name[$j]);
-            }
            $unique .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
@@ -156,9 +138,6 @@ if (isset($submit)) {
     for ($i = 0; $i < $fulltext_cnt; $i++) {
         $j = $field_fulltext[$i];
         if (!empty($field_name[$j])) {
-            if (get_magic_quotes_gpc()) {
-                $field_name[$j] = stripslashes($field_name[$j]);
-            }
            $fulltext .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
@@ -180,9 +159,6 @@ if (isset($submit)) {
         $query_cpy .= ' TYPE = ' . $tbl_type;
     }
     if (PMA_MYSQL_INT_VERSION >= 32300 && !empty($comment)) {
-        if (get_magic_quotes_gpc()) {
-            $comment = stripslashes($comment);
-        }
         $sql_query .= ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
         $query_cpy .= "\n" . 'COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
     }

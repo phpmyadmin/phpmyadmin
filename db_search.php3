@@ -93,7 +93,7 @@ if (isset($submit_search)) {
                 for ($j = 0; $j < $tblfields_cnt; $j++) {
                     $thefieldlikevalue[] = $tblfields[$j]
                                          . ' ' . $like_or_regex
-                                         . ' \'' 
+                                         . ' \''
                                          . $automatic_wildcard
                                          . $search_words[$i]
                                          . $automatic_wildcard . '\'';
@@ -117,24 +117,6 @@ if (isset($submit_search)) {
 
         return $sql;
     } // end of the "PMA_getSearchSqls()" function
-
-
-    /**
-     * Strip slashes if necessary
-     */
-    if (get_magic_quotes_gpc()) {
-        $search_str               = stripslashes($search_str);
-        if (isset($table)) {
-            $table                = stripslashes($table);
-        }
-        else if (isset($table_select)) {
-            $table_select_cnt     = count($table_select);
-            reset($table_select);
-            for ($i = 0; $i < $table_select_cnt; $i++) {
-                $table_select[$i] = stripslashes($table_select[$i]);
-            } // end for
-        } // end if... else if...
-    } // end if
 
 
     /**
@@ -220,11 +202,11 @@ if (isset($submit_search)) {
                  . '    <table><tr><td>' . sprintf($strNumSearchResultsInTable, $res_cnt, htmlspecialchars($onetable)) . "</td>\n";
 
             if ($res_cnt > 0) {
-                   echo '<td>' . PMA_linkOrButton('sql.php3?' . $url_sql_query 
+                   echo '<td>' . PMA_linkOrButton('sql.php3?' . $url_sql_query
                     . '&amp;sql_query=' .urlencode($newsearchsqls['select_fields']),
                     $strBrowse, '') .  "</td>\n";
 
-                   echo '<td>' . PMA_linkOrButton('sql.php3?' . $url_sql_query 
+                   echo '<td>' . PMA_linkOrButton('sql.php3?' . $url_sql_query
                     . '&amp;sql_query=' .urlencode($newsearchsqls['delete']),
                     $strDelete, $newsearchsqls['delete']) .  "</td>\n";
 
@@ -259,11 +241,11 @@ if (isset($submit_search)) {
                      . '            <table><tr><td>' . sprintf($strNumSearchResultsInTable, $res_cnt, htmlspecialchars($table_select[$i])) . "</td>\n";
 
                 if ($res_cnt > 0) {
-                   echo '<td>' . PMA_linkOrButton('sql.php3?' . $url_sql_query 
+                   echo '<td>' . PMA_linkOrButton('sql.php3?' . $url_sql_query
                     . '&amp;sql_query=' .urlencode($newsearchsqls['select_fields']),
                     $strBrowse, '') .  "</td>\n";
 
-                   echo '<td>' . PMA_linkOrButton('sql.php3?' . $url_sql_query 
+                   echo '<td>' . PMA_linkOrButton('sql.php3?' . $url_sql_query
                     . '&amp;sql_query=' .urlencode($newsearchsqls['delete']),
                     $strDelete, $newsearchsqls['delete']) .  "</td>\n";
 

@@ -66,9 +66,6 @@ if (isset($funcs)) {
 }
 
 // Misc
-if (get_magic_quotes_gpc()) {
-    $submit_type = stripslashes($submit_type);
-}
 $seen_binary = FALSE;
 
 /**

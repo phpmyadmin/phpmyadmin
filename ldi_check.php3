@@ -46,17 +46,9 @@ if (isset($btnLDI) && ($textfile != 'none')) {
 
     // Formats the data posted to this script
     $textfile             = PMA_sqlAddslashes($textfile);
-    if (get_magic_quotes_gpc()) {
-        $field_terminater = stripslashes($field_terminater);
-        $enclosed         = PMA_sqlAddslashes(stripslashes($enclosed));
-        $escaped          = PMA_sqlAddslashes(stripslashes($escaped));
-        $line_terminator  = stripslashes($line_terminator);
-        $column_name      = PMA_sqlAddslashes(stripslashes($column_name));
-    } else {
-        $enclosed         = PMA_sqlAddslashes($enclosed);
-        $escaped          = PMA_sqlAddslashes($escaped);
-        $column_name      = PMA_sqlAddslashes($column_name);
-    }
+    $enclosed             = PMA_sqlAddslashes($enclosed);
+    $escaped              = PMA_sqlAddslashes($escaped);
+    $column_name          = PMA_sqlAddslashes($column_name);
 
     // (try to) make sure the file is readable:
     chmod($textfile, 0777);
@@ -123,14 +115,6 @@ if (isset($btnLDI) && ($textfile != 'none')) {
         } else {
             $query .= ' (' . $column_name . ')';
         }
-    }
-
-    // Executes the query
-    // sql.php3 will stripslash the query if 'magic_quotes_gpc' is set to on
-    if (get_magic_quotes_gpc()) {
-        $sql_query = addslashes($query);
-    } else {
-        $sql_query = $query;
     }
 
     // We could rename the ldi* scripts to tbl_properties_ldi* to improve

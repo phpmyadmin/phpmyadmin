@@ -289,7 +289,7 @@ else {
             }
             if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
                 || (!isset($tmp_select) && !empty($table))) {
-                $dump_buffer .= PMA_getTableXML($db, $table, $limit_from, $limit_to, $crlf, $err_url, 
+                $dump_buffer .= PMA_getTableXML($db, $table, $limit_from, $limit_to, $crlf, $err_url,
                     (isset($sql_query)?urldecode($sql_query):''));
             }
             $i++;
@@ -327,7 +327,7 @@ else {
                 || (!isset($tmp_select) && !empty($table))) {
 
                 // to do: add option for the formatting ( c, l, r, p)
-                $dump_buffer .= PMA_getTableLatex($db, $table, $environment, $limit_from, $limit_to, $crlf, $err_url, 
+                $dump_buffer .= PMA_getTableLatex($db, $table, $environment, $limit_from, $limit_to, $crlf, $err_url,
                     (isset($sql_query)?urldecode($sql_query):''));
             }
             $i++;
@@ -343,9 +343,6 @@ else {
         } else if (empty($add_character)) {
             $add_character = $GLOBALS['crlf'];
         } else {
-            if (get_magic_quotes_gpc()) {
-                $add_character = stripslashes($add_character);
-            }
             $add_character = str_replace('\\r', "\015", $add_character);
             $add_character = str_replace('\\n', "\012", $add_character);
             $add_character = str_replace('\\t', "\011", $add_character);

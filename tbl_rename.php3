@@ -23,9 +23,6 @@ $err_url = 'tbl_properties.php3?' . PMA_generate_common_url($db, $table);
 if (isset($new_name) && trim($new_name) != '') {
     $old_name     = $table;
     $table        = $new_name;
-    if (get_magic_quotes_gpc()) {
-        $new_name = stripslashes($new_name);
-    }
 
     // Ensure the target is valid
     if (count($dblist) > 0 && PMA_isInto($db, $dblist) == -1) {

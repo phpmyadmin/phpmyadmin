@@ -5,10 +5,27 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-02 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * db_details.php3, db_details_qbe.php3, db_search.php3, ldi_check.php3,
+      mult_submits.inc.php3, read_dump.php3, sql.php3, tbl_addfield.php3,
+      tbl_change.php3, tbl_create.php3, tbl_dump.php3, tbl_indexes.php3,
+      tbl_move_copy.php3, tbl_properties.inc.php3,
+      tbl_properties_operations.php3, tbl_properties_options.php3,
+      tbl_query_box.php3, tbl_rename.php3, tbl_replace.php3,
+      tbl_replace_fields.php3, tbl_select.php3, transformation_wrapper.php3,
+      user_password.php3, libraries/build_dump.php3, libraries/common.lib.php3,
+      libraries/display_tbl.lib.php3, libraries/grab_globals.php3:
+      If magic_quotes_gpc is enabled, grab_globals calls stripslashes when
+      extracting the arrays $_GET and $_POST. This should replace a lots of
+      workarounds and avoid present and future problems with magic_quotes_gpc.
+    * server_privileges.php3, libraries/common.lib.php3:
+      - Escape wildcard characters in the database and table dropdown boxes;
+      - CSS fixes.
+
 2003-03-01 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/english: typo
     * tbl_dump.php3: undefined variable $use_comments
-    * tbl_properties_export.php3: bug 692143: now we remove the 
+    * tbl_properties_export.php3: bug 692143: now we remove the
       LIMIT clause from the original query to use the limits entered
       on the export form
     * pdf_schema.php3: better header/footer for long pages,
@@ -19,9 +36,9 @@ $Source$
       index.
 
 2003-03-01 Robin Johnson  <robbat2@users.sourceforge.net>
-    * libraries/xpath/XPath.class.php, libraries/xpath/: 
+    * libraries/xpath/XPath.class.php, libraries/xpath/:
     - Removed (was part of the early DB config prototype)
-    * lang/translatecount.sh: 
+    * lang/translatecount.sh:
     - Counts just how out of date the translations are!
 
 2003-02-28 Michal Cihar  <nijel@users.sourceforge.net>

@@ -82,13 +82,13 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
     // Cell index: If certain fields get left out, the counter shouldn't chage.
     $ci = 0;
-    
+
     if ($is_backup) {
         $content_cells[$i][$ci] = "\n" . '<input type="hidden" name="field_orig[]" value="' . (isset($row) && isset($row['Field']) ? urlencode($row['Field']) : '') . '" />' . "\n";
     } else {
         $content_cells[$i][$ci] = '';
     }
-    
+
     $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_1" type="text" name="field_name[]" size="10" maxlength="64" value="' . (isset($row) && isset($row['Field']) ? str_replace('"', '&quot;', $row['Field']) : '') . '" class="textfield" />';
     $ci++;
     $content_cells[$i][$ci] = '<select name="field_type[]" id="field_' . $i . '_2">' . "\n";
@@ -96,9 +96,6 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     if (empty($row['Type'])) {
         $row['Type'] = '';
         $type        = '';
-    }
-    else if (get_magic_quotes_gpc()) {
-        $type        = stripslashes($row['Type']);
     }
     else {
         $type        = $row['Type'];
@@ -130,19 +127,19 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         }
         $content_cells[$i][$ci] .= '>' . $cfg['ColumnTypes'][$j] . '</option>' . "\n";
     } // end for
-    
+
     $content_cells[$i][$ci] .= '    </select>';
     $ci++;
-    
+
     if ($is_backup) {
         $content_cells[$i][$ci] = "\n" . '<input type="hidden" name="field_length_orig[]" value="' . urlencode($length) . '" />';
     } else {
         $content_cells[$i][$ci] = '';
     }
-    
+
     $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_3" type="text" name="field_length[]" size="8" value="' . str_replace('"', '&quot;', $length) . '" class="textfield" />' . "\n";
     $ci++;
-    
+
     $content_cells[$i][$ci] = '<select name="field_attribute[]" id="field_' . $i . '_4">' . "\n";
 
     if (eregi('^(set|enum)$', $type)) {
@@ -171,10 +168,10 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         }
         $content_cells[$i][3] .= '>' . $cfg['AttributeTypes'][$j] . '</option>' . "\n";
     }
-    
+
     $content_cells[$i][$ci] .= '</select>';
     $ci++;
-    
+
     $content_cells[$i][$ci] = '<select name="field_null[]" id="field_' . $i . '_5">';
 
     if (!isset($row) || empty($row['Null'])) {
@@ -189,7 +186,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
     $content_cells[$i][$ci] .= "\n" . '</select>';
     $ci++;
-    
+
     if (isset($row)
         && !isset($row['Default']) && !empty($row['Null'])) {
         $row['Default'] = 'NULL';
@@ -200,10 +197,10 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     } else {
         $content_cells[$i][5] = "\n";
     }
-    
+
     $content_cells[$i][$ci] .= '<input id="field_' . $i . '_6" type="text" name="field_default[]" size="8" value="' . (isset($row) && isset($row['Default']) ? str_replace('"', '&quot;', $row['Default']) : '') . '" class="textfield" />';
     $ci++;
-    
+
     $content_cells[$i][$ci] = '<select name="field_extra[]" id="field_' . $i . '_7">';
 
     if(!isset($row) || empty($row['Extra'])) {
@@ -215,7 +212,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $content_cells[$i][$ci] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";
         $content_cells[$i][$ci] .= '<option value=""></option>' . "\n";
     }
-    
+
     $content_cells[$i][$ci] .= "\n" . '</select>';
     $ci++;
 
@@ -238,7 +235,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
                 $content_cells[$i][$ci] .= '    <option value="' . str_replace('/', '_', $mimetype) . '" ' . $checked . '>' . htmlspecialchars($mimetype) . '</option>';
             }
         }
-        
+
         $content_cells[$i][$ci] .= '</select>';
         $ci++;
 
@@ -251,7 +248,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
                 $content_cells[$i][$ci] .= '<option value="' . $available_mime['transformation_file'][$mimekey] . '" ' . $checked . '>' . htmlspecialchars($transform) . '</option>' . "\n";
             }
         }
-        
+
         $content_cells[$i][$ci] .= '</select>';
         $ci++;
 
@@ -287,19 +284,19 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         } else {
             $checked_fulltext = '';
         }
-        
+
         $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="primary_' . $i . '"' . $checked_primary . ' />';
         $ci++;
-        
+
         $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="index_' . $i . '"' .  $checked_index . ' />';
         $ci++;
-        
+
         $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="unique_' . $i . '"' .  $checked_unique . ' />';
         $ci++;
-        
+
         $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="none_' . $i . '"' .  $checked_none . ' />';
         $ci++;
-        
+
         if (PMA_MYSQL_INT_VERSION >= 32323) {
             $content_cells[$i][$ci] = '<input type="checkbox" name="field_fulltext[]" value="' . $i . '"' . $checked_fulltext . ' />';
         } // end if (PMA_MYSQL_INT_VERSION >= 32323)
@@ -327,7 +324,7 @@ while(@list($content_nr, $content_row) = @each($content_cells)) {
     echo "\n" . '<tr>' . "\n";
 
     $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
-    
+
     while(list($content_row_nr, $content_row_val) = @each($content_row)) {
 ?>
         <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $content_row_val; ?></td>

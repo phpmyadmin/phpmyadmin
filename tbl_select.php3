@@ -227,7 +227,7 @@ else {
     $sql_query .= ' FROM ' . PMA_backquote($table);
     // The where clause
     if ($where != '') {
-        $sql_query .= ' WHERE ' . ((get_magic_quotes_gpc()) ? stripslashes($where) : $where);
+        $sql_query .= ' WHERE ' . $where;
     }
     else {
         $sql_query .= ' WHERE 1';
@@ -251,12 +251,7 @@ else {
         $sql_query .= ' ORDER BY ' . PMA_backquote(urldecode($orderField)) . ' ' . $order;
     } // end if
 
-    // The query will be stripslashed in sql.php3 if "magic_quotes_gpc" is on
-    if (get_magic_quotes_gpc()) {
-        $sql_query = addslashes($sql_query);
-    }
     include('./sql.php3');
-
 }
 
 ?>

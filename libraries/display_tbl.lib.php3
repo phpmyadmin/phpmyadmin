@@ -526,7 +526,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         } else {
             $comments_map = array();
         }
-        
+
         if ($GLOBALS['cfgRelation']['commwork'] && $GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
             require('./libraries/transformations.lib.php3');
             $GLOBALS['mime_map'] = PMA_getMIME($db, $table);
@@ -1000,7 +1000,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 $default_function = 'htmlspecialchars'; // default_function
                 $transform_function = $default_function;
                 $transform_options = array();
-                
+
                 if ($GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
 
                     if (isset($GLOBALS['mime_map'][$meta->name]['mimetype']) && isset($GLOBALS['mime_map'][$meta->name]['transformation'])) {
@@ -1019,7 +1019,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         }
 
                     }
-                    
+
                 }
 
                 $transform_options['wrapper_link'] = '?'
@@ -1110,10 +1110,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $blobtext .= ' - '. $blob_size [0] . ' ' . $blob_size[1];
                             unset($blob_size);
                         }
-                        
+
                         $blobtext .= ']';
                         $blobtext = ($default_function != $transform_function ? $transform_function($blobtext, $transform_options) : $default_function($blobtext));
-                        
+
                         $vertical_display['data'][$row_no][$i]      = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">' . $blobtext . '</td>';
                     } else {
                         //if (!isset($row[$meta->name])
@@ -1127,11 +1127,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             }
                             // loic1: displays all space characters, 4 space
                             // characters for tabulations and <cr>/<lf>
-                            
+
                             $row[$pointer]     = ($default_function != $transform_function ? $transform_function('BLOB', $transform_options) : $default_function($row[$pointer]));
                             $row[$pointer]     = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
-                            
+
                             $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$pointer] . '</td>' . "\n";
                         } else {
                             $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
@@ -1169,7 +1169,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $row[$pointer]     = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
                         }
-                        
+
                         // loic1: do not wrap if date field type
                         $nowrap = (eregi('DATE|TIME', $meta->type) ? ' nowrap="nowrap"' : '');
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"' . $nowrap . '>';
@@ -1487,14 +1487,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             }
         } // end if
 
-        // 1.3 Urlencodes the query to use in input form fields ($sql_query
-        //     will be stripslashed in 'sql.php3' if the 'magic_quotes_gpc'
-        //     directive is set to 'on')
-        if (get_magic_quotes_gpc()) {
-            $encoded_sql_query = urlencode(addslashes($sql_query));
-        } else {
-            $encoded_sql_query = urlencode($sql_query);
-        }
+        // 1.3 Urlencodes the query to use in input form fields
+        $encoded_sql_query = urlencode($sql_query);
 
         // 2. ----- Displays the top of the page -----
 

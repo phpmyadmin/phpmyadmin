@@ -43,9 +43,6 @@ if (isset($submit)) {
         if (empty($field_name[$i])) {
             continue;
         }
-        if (get_magic_quotes_gpc()) {
-            $field_name[$i] = stripslashes($field_name[$i]);
-        }
         if (PMA_MYSQL_INT_VERSION < 32306) {
             PMA_checkReservedWords($field_name[$i], $err_url);
         }
@@ -53,11 +50,7 @@ if (isset($submit)) {
         $query .= PMA_backquote($field_name[$i]) . ' ' . $field_type[$i];
         if ($field_length[$i] != ''
             && !eregi('^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$', $field_type[$i])) {
-            if (get_magic_quotes_gpc()) {
-                $query .= '(' . stripslashes($field_length[$i]) . ')';
-            } else {
-                $query .= '(' . $field_length[$i] . ')';
-            }
+            $query .= '(' . $field_length[$i] . ')';
         }
         if ($field_attribute[$i] != '') {
             $query .= ' ' . $field_attribute[$i];
@@ -65,8 +58,6 @@ if (isset($submit)) {
         if ($field_default[$i] != '') {
             if (strtoupper($field_default[$i]) == 'NULL') {
                 $query .= ' DEFAULT NULL';
-            } else if (get_magic_quotes_gpc()) {
-                $query .= ' DEFAULT \'' . PMA_sqlAddslashes(stripslashes($field_default[$i])) . '\'';
             } else {
                 $query .= ' DEFAULT \'' . PMA_sqlAddslashes($field_default[$i]) . '\'';
             }
@@ -95,18 +86,10 @@ if (isset($submit)) {
                 if ($after_field == '--first--') {
                     $query .= ' FIRST';
                 } else {
-                    if (get_magic_quotes_gpc()) {
-                        $query .= ' AFTER ' . PMA_backquote(stripslashes(urldecode($after_field)));
-                    } else {
-                        $query .= ' AFTER ' . PMA_backquote(urldecode($after_field));
-                    }
+                    $query .= ' AFTER ' . PMA_backquote(urldecode($after_field));
                 }
             } else {
-                if (get_magic_quotes_gpc()) {
-                    $query .= ' AFTER ' . PMA_backquote(stripslashes($field_name[$i-1]));
-                } else {
-                    $query .= ' AFTER ' . PMA_backquote($field_name[$i-1]);
-                }
+                $query .= ' AFTER ' . PMA_backquote($field_name[$i-1]);
             }
         }
         $query .= ', ADD ';
@@ -205,7 +188,7 @@ if (isset($submit)) {
             PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
         }
     }
-    
+
     // garvin: Update comment table for mime types [MIME]
     if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
         @reset($field_mimetype);

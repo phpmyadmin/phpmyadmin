@@ -477,7 +477,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
        . $spaces . '        </label>' . "\n"
        . $spaces . '    </td>' . "\n"
        . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
-       . $spaces . '        <select name="pred_username" id="select_pred_username" title="' . $GLOBALS['strUserName'] . '" class="textfield"' . "\n"
+       . $spaces . '        <select name="pred_username" id="select_pred_username" title="' . $GLOBALS['strUserName'] . '"' . "\n"
        . $spaces . '            onchange="if (this.value == \'any\') { username.value = \'\'; } else if (this.value == \'userdefined\') { username.focus(); username.select(); }">' . "\n"
        . $spaces . '            <option value="any"' . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '') . '>' . $GLOBALS['strAnyUser'] . '</option>' . "\n"
        . $spaces . '            <option value="userdefined"' . ((!isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
@@ -494,7 +494,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
        . $spaces . '        </label>' . "\n"
        . $spaces . '    </td>' . "\n"
        . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
-       . $spaces . '        <select name="pred_hostname" id="select_pred_hostname" title="' . $GLOBALS['strHost'] . '" class="textfield"' . "\n";
+       . $spaces . '        <select name="pred_hostname" id="select_pred_hostname" title="' . $GLOBALS['strHost'] . '"' . "\n";
     $res = PMA_mysql_query('SELECT USER();', $userlink);
     $row = @PMA_mysql_fetch_row($res);
     @mysql_free_result($res);
@@ -529,7 +529,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
        . $spaces . '        </label>' . "\n"
        . $spaces . '    </td>' . "\n"
        . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
-       . $spaces . '        <select name="pred_password" id="select_pred_password" title="' . $GLOBALS['strPassword'] . '" class="textfield"' . "\n"
+       . $spaces . '        <select name="pred_password" id="select_pred_password" title="' . $GLOBALS['strPassword'] . '"' . "\n"
        . $spaces . '            onchange="if (this.value == \'none\') { pma_pw.value = \'\'; pma_pw2.value = \'\'; } else if (this.value == \'userdefined\') { pma_pw.focus(); pma_pw.select(); }">' . "\n"
        . ($mode == 'change' ? $spaces . '            <option value="keep" selected="selected">' . $GLOBALS['strKeepPass'] . '</option>' . "\n" : '')
        . $spaces . '            <option value="none">' . $GLOBALS['strNoPassword'] . '</option>' . "\n"
@@ -1218,10 +1218,10 @@ if (empty($adduser) && empty($checkprivs)) {
                 unset($res);
                 unset($row);
                 if (!empty($pred_db_array)) {
-                    echo '                        <select name="pred_dbname" class="textfield" onchange="this.form.submit();">' . "\n"
+                    echo '                        <select name="pred_dbname" onchange="this.form.submit();">' . "\n"
                        . '                            <option value="" selected="selected">' . $strUseTextField . ':</option>' . "\n";
                     while (list(, $current_db) = each($pred_db_array)) {
-                        echo '                            <option value="' . htmlspecialchars($current_db) . '">' . htmlspecialchars($current_db) . '</option>' . "\n";
+                        echo '                            <option value="' . htmlspecialchars(PMA_escape_mysql_wildcards($current_db)) . '">' . htmlspecialchars($current_db) . '</option>' . "\n";
                     }
                     echo '                        </select>' . "\n";
                 }
@@ -1240,10 +1240,10 @@ if (empty($adduser) && empty($checkprivs)) {
                     unset($res);
                     unset($row);
                     if (!empty($pred_tbl_array)) {
-                        echo '                        <select name="pred_tablename" class="textfield" onchange="this.form.submit();">' . "\n"
+                        echo '                        <select name="pred_tablename" onchange="this.form.submit();">' . "\n"
                            . '                            <option value="" selected="selected">' . $strUseTextField . ':</option>' . "\n";
                         while (list(, $current_table) = each($pred_tbl_array)) {
-                            echo '                            <option value="' . htmlspecialchars($current_table) . '">' . htmlspecialchars($current_table) . '</option>' . "\n";
+                            echo '                            <option value="' . htmlspecialchars(PMA_escape_mysql_wildcards($current_table)) . '">' . htmlspecialchars($current_table) . '</option>' . "\n";
                         }
                         echo '                        </select>' . "\n";
                     }

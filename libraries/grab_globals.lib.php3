@@ -5,24 +5,43 @@
 
 /**
  * This library grabs the names and values of the variables sent or posted to a
- * script in the '$HTTP_*_VARS' arrays and sets simple globals variables from
- * them. It does the same work for the $PHP_SELF variable.
+ * script in the '$HTTP_*_VARS' / $_* arrays and sets simple globals variables
+ * from them. It does the same work for the $PHP_SELF variable.
  *
  * loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
  */
 if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
     define('PMA_GRAB_GLOBALS_INCLUDED', 1);
 
+    function PMA_gpc_extract($array, &$target) {
+        if (!is_array($array)) {
+            return FALSE;
+        }
+        $is_magic_quotes = get_magic_quotes_gpc();
+        reset($array);
+        while (list($key, $value) = each($array)) {
+            if (is_array($value)) {
+                PMA_gpc_extract($value, $target[$key]);
+            } else if ($is_magic_quotes) {
+                $target[$key] = stripslashes($value);
+            } else {
+                $target[$key] = $value;
+            }
+        }
+        reset($array);
+        return TRUE;
+    }
+
     if (!empty($_GET)) {
-        extract($_GET, EXTR_OVERWRITE);
+        PMA_gpc_extract($_GET, $GLOBALS);
     } else if (!empty($HTTP_GET_VARS)) {
-        extract($HTTP_GET_VARS, EXTR_OVERWRITE);
+        PMA_gpc_extract($HTTP_GET_VARS, $GLOBALS);
     } // end if
 
     if (!empty($_POST)) {
-        extract($_POST, EXTR_OVERWRITE);
+        PMA_gpc_extract($_POST, $GLOBALS);
     } else if (!empty($HTTP_POST_VARS)) {
-        extract($HTTP_POST_VARS, EXTR_OVERWRITE);
+        PMA_gpc_extract($HTTP_POST_VARS, $GLOBALS);
     } // end if
 
     if (!empty($_FILES)) {
@@ -45,16 +64,6 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
     if (isset($goto) && strpos(' ' . $goto, '/') > 0 && substr($goto, 0, 2) != './') {
         unset($goto);
     } // end if
-
-    // Strip slahes from $db / $table values
-    if (get_magic_quotes_gpc()) {
-        if (isset($db)) {
-            $db = stripslashes($db);
-        }
-        if (isset($table)) {
-            $table = stripslashes($table);
-        }
-    }
 
 } // $__PMA_GRAB_GLOBALS_LIB__
 ?>

@@ -50,15 +50,6 @@ if (isset($new_name) && trim($new_name) != '') {
     $use_backquotes = 1;
     $asfile         = 1;
 
-    if (get_magic_quotes_gpc()) {
-        if (!empty($target_db)) {
-            $target_db = stripslashes($target_db);
-        } else {
-            $target_db = stripslashes($db);
-        }
-        $new_name      = stripslashes($new_name);
-    }
-
     // Ensure the target is valid
     if (count($dblist) > 0 &&
         (PMA_isInto($db, $dblist) == -1 || PMA_isInto($target_db, $dblist) == -1)) {

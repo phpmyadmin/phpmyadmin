@@ -508,7 +508,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      * @param   string   the handler (function) to call. It must accept one
      *                   parameter ($sql_insert)
      * @param   string   the url to go back in case of error
-     * @param   string   sql query (optional) 
+     * @param   string   sql query (optional)
      *
      * @global  string   whether to obtain an excel compatible csv format or a
      *                   simple csv one
@@ -527,17 +527,12 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         } else if (!isset($sep)) {
             $sep     = '';
         } else {
-            if (get_magic_quotes_gpc()) {
-                $sep = stripslashes($sep);
-            }
             $sep     = str_replace('\\t', "\011", $sep);
         }
         if ($what == 'excel') {
             $enc_by  = '"';
         } else if (!isset($enc_by)) {
             $enc_by  = '';
-        } else if (get_magic_quotes_gpc()) {
-            $enc_by  = stripslashes($enc_by);
         }
         if ($what == 'excel'
             || (empty($esc_by) && $enc_by != '')) {
@@ -545,8 +540,6 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $esc_by  = $enc_by;
         } else if (!isset($esc_by)) {
             $esc_by  = '';
-        } else if (get_magic_quotes_gpc()) {
-            $esc_by  = stripslashes($esc_by);
         }
 
         // Defines the offsets to use

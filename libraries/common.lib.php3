@@ -266,6 +266,26 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
 
     /**
+     * Add slashes before "_" and "%" characters for using them in MySQL
+     * database, table and field names.
+     * Note: This function does not escape backslashes!
+     *
+     * @param   string   the string to escape
+     *
+     * @return  string   the escaped string
+     *
+     * @access  public
+     */
+    function PMA_escape_mysql_wildcards($name)
+    {
+        $name = str_replace('_', '\\_', $name);
+        $name = str_replace('%', '\\%', $name);
+
+        return $name;
+    } // end of the 'PMA_escape_mysql_wildcards()' function
+
+
+    /**
      * format sql strings
      *
      * @param   mixed    pre-parsed SQL structure
@@ -1208,7 +1228,7 @@ if (typeof(document.getElementById) != 'undefined'
     <table border="<?php echo $cfg['Border']; ?>" cellpadding="5">
     <tr>
         <td bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
-            <b><?php echo (get_magic_quotes_gpc()) ? stripslashes($message) : $message; ?></b><br />
+            <b><?php echo $message; ?></b><br />
         </td>
     </tr>
         <?php

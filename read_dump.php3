@@ -307,9 +307,6 @@ if ($sql_file != 'none') {
         }
     } // end uploaded file stuff
 }
-else if (empty($id_bookmark) && get_magic_quotes_gpc() == 1) {
-    $sql_query = stripslashes($sql_query);
-}
 
 // Kanji convert SQL textfile 2002/1/4 by Y.Kawada
 if (@function_exists('PMA_kanji_str_conv')) {
@@ -373,12 +370,7 @@ if ($sql_query != '') {
     if ($view_bookmark == 0) {
         // Only one query to run
         if ($pieces_count == 1 && !empty($pieces[0])) {
-            // sql.php3 will stripslash the query if get_magic_quotes_gpc
-            if (get_magic_quotes_gpc() == 1) {
-                $sql_query = addslashes($pieces[0]);
-            } else {
-                $sql_query = $pieces[0];
-            }
+            $sql_query = $pieces[0];
             if (eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $sql_query)) {
                 $reload = 1;
             }

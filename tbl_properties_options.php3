@@ -14,9 +14,6 @@ $url_query .= '&amp;goto=tbl_properties_options.php3&amp;back=tbl_properties_opt
  * Updates table comment, type and options if required
  */
 if (isset($submitcomment)) {
-    if (get_magic_quotes_gpc()) {
-        $comment = stripslashes($comment);
-    }
     if (empty($prev_comment) || urldecode($prev_comment) != $comment) {
         $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
         $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
@@ -39,7 +36,7 @@ if (isset($submitoptions)) {
 
 // Displays a message if a query had been submitted
 if (isset($message)) {
-    PMA_showMessage((get_magic_quotes_gpc()) ? addslashes($message) : $message);
+    PMA_showMessage($message);
 }
 
 

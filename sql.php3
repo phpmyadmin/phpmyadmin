@@ -61,9 +61,6 @@ if (!defined('PMA_CHK_DROP')
  * Bookmark add
  */
 if (isset($store_bkm)) {
-    if (get_magic_quotes_gpc()) {
-        $fields['label'] = stripslashes($fields['label']);
-    }
     include('./libraries/bookmark.lib.php3');
     PMA_addBookmarks($fields, $cfg['Bookmark']);
     header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto);
@@ -83,7 +80,7 @@ if (isset($btnDrop) || isset($navig)) {
  * Reformat the query
  */
 
-$parsed_sql = PMA_SQP_parse((get_magic_quotes_gpc() ? stripslashes($sql_query) : $sql_query));
+$parsed_sql = PMA_SQP_parse($sql_query);
 $analyzed_sql = PMA_SQP_analyze($parsed_sql);
 // Bug #641765 - Robbat2 - 12 January 2003, 10:49PM
 // Reverted - Robbat2 - 13 January 2003, 2:40PM
@@ -172,8 +169,6 @@ if (!$cfg['Confirm']
 }
 
 if ($do_confirm) {
-    // already stripped at beginning of script
-    //$stripped_sql_query = (get_magic_quotes_gpc() ? stripslashes($sql_query) : $sql_query);
     $stripped_sql_query = $sql_query;
     include('./header.inc.php3');
     echo $strDoYouReally . '&nbsp;:<br />' . "\n";
@@ -202,10 +197,6 @@ else {
     if (!isset($sql_query)) {
         $sql_query = '';
     }
-    // already stripped at beginning of script
-    // else if (get_magic_quotes_gpc()) {
-    //    $sql_query = stripslashes($sql_query);
-    //}
     // Defines some variables
     // loic1: A table has to be created -> left frame should be reloaded
     if ((!isset($reload) || $reload == 0)

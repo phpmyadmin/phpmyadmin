@@ -18,7 +18,7 @@ require('./libraries/relation.lib.php3'); // foreign keys
 if (!empty($message)) {
     if (isset($goto)) {
         $goto_cpy      = $goto;
-        $goto          = 'tbl_properties.php3?' 
+        $goto          = 'tbl_properties.php3?'
                        . PMA_generate_common_url($db, $table)
                        . '&amp;$show_query=1'
                        . '&amp;sql_query=' . urlencode($disp_query);
@@ -30,7 +30,7 @@ if (!empty($message)) {
         unset($sql_query);
     }
     if (isset($disp_query)) {
-        $sql_query     = (get_magic_quotes_gpc() ? stripslashes($disp_query) : $disp_query);
+        $sql_query     = $disp_query;
     }
     PMA_showMessage($message);
     if (isset($goto_cpy)) {
@@ -42,14 +42,6 @@ if (!empty($message)) {
         unset($sql_query_cpy);
     }
 }
-if (get_magic_quotes_gpc()) {
-    if (!empty($sql_query)) {
-        $sql_query   = stripslashes($sql_query);
-    }
-    if (!empty($primary_key)) {
-        $primary_key = stripslashes($primary_key);
-    }
-} // end if
 
 
 /**
@@ -528,7 +520,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             echo "\n";
             ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <?php 
+            <?php
                 echo $strBinaryDoNotEdit;
                 if (isset($data)) {
                     $data_size = PMA_formatByteDown(strlen(stripslashes($data)), 3, 1);
@@ -572,7 +564,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             echo '<input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" id="field_' . $i . '_3" />';
         }
         echo '</td>';
- 
+
     } // end else if ( binary or blob)
     else {
         // For char or varchar, respect the maximum length (M); for other

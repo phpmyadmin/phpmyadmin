@@ -25,7 +25,7 @@ if (isset($submitorderby) && !empty($order_field)) {
     $sql_query   = 'ALTER TABLE ' . PMA_backquote($table)
                  . ' ORDER BY ' . PMA_backquote(urldecode($order_field));
     $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
-    PMA_showMessage((get_magic_quotes_gpc()) ? addslashes($strSuccess) : $strSuccess);
+    PMA_showMessage($strSuccess);
 } // end if
 
 
