@@ -327,14 +327,16 @@ if ($server > 0) {
 
         // Logout for advanced authentication
         if ($cfgServer['auth_type'] != 'basic') {
+            $http_logout = ($cfgServer['auth_type'] == 'http')
+                         ? "\n" . '                <a href="' . $cfgPmaAbsoluteUri . 'Documentation.html#login_bug" target="documentation">(*)</a>'
+                         : '';
             echo "\n";
             ?>
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="index.php3?<?php echo $common_url_query; ?>&amp;old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent">
-                    <b><?php echo $strLogout; ?></b></a>&nbsp;
-                <a href="<?php echo $cfgPmaAbsoluteUri; ?>Documentation.html#login_bug" target="documentation">(*)</a>
+                    <b><?php echo $strLogout; ?></b></a>&nbsp;<?php echo $http_logout . "\n"; ?>
             </td>
         </tr>
             <?php

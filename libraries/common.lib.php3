@@ -818,9 +818,9 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                     $edit_target = '';
                 }
                 if ($edit_target == 'tbl_properties.php3') {
-                    $edit_link = '<a href="tbl_properties.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y">' . $GLOBALS['strEdit'] . '</a>';
+                    $edit_link = '<a href="tbl_properties.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y#querybox">' . $GLOBALS['strEdit'] . '</a>';
                 } else if ($edit_target != '') {
-                    $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y">' . $GLOBALS['strEdit'] . '</a>';
+                    $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y#querybox">' . $GLOBALS['strEdit'] . '</a>';
                 }
             }
             if (!empty($edit_target)) {

@@ -11,6 +11,11 @@ $Source$
 	* libraries/auth:
 	  - basic.auth.lib.php3, line 107: fixed an horrible parse error;
 	  - cookie.auth.lib.php3: beautified a bit the display.
+	* db_details.php3, line 461; tbl_properties.php3, line 694;
+	  libraries/common.lib.php3, lines 821 & 823: patch from Cal Henderson
+	  to be taken right to the edit box after clicking on a "Modify" link.
+	* main.php3: the link to the logout problem with http authentication mode
+	  was also displayed with cookie authentication mode.
 
 2001-12-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* read_dump.php3; libraries/build_dump.lib.php3: sending the "fake" header
