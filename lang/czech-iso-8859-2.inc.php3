@@ -122,8 +122,8 @@ $strDBGContext = 'Kontext';
 $strDBGContextID = 'Kontext ID';
 $strDBGHits = 'Zásahù';
 $strDBGLine = 'Øádka';
-$strDBGMinTimeMs = 'Max. èas, ms';
 $strDBGMaxTimeMs = 'Min. èas, ms';
+$strDBGMinTimeMs = 'Max. èas, ms';
 $strDBGModule = 'Modul';
 $strDBGTimePerHitMs = 'Èas/Zásah, ms';
 $strDBGTotalTimeMs = 'Celkový èas, ms';
@@ -137,6 +137,7 @@ $strDatabases = 'databáze';
 $strDatabasesStats = 'Statistiky databází';
 $strDbPrivileges = 'Oprávnìní pro jednotlivé databáze';
 $strDefault = 'Výchozí';
+$strDefaultValueHelp = 'Výchozí hodnotu zadejte jen jednu hodnotu bez uvozovek a escapování znakù, napøíklad: a';
 $strDelete = 'Smazat';
 $strDeleteAndFlush = 'Odstranit u¾ivatele a znovunaèíst oprávnìní.';
 $strDeleteAndFlushDescr = 'Toto je nejèistèí øe¹ení, ale naèítání oprávnìní mù¾e trvat dlouho.';
@@ -559,5 +560,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
-$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 ?>
