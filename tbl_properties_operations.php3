@@ -308,21 +308,31 @@ if ($cfgRelation['relwork']) {
         <?php
         echo "\n";
         while (list($master, $arr) = each($foreign)){
+            $join_query  = 'SELECT ' . PMA_backquote($table) . '.* FROM '
+                         . PMA_backquote($table) . ' LEFT JOIN '
+                         . PMA_backquote($arr['foreign_table']);
+            if ($arr['foreign_table'] == $table) {
+                $foreign_table = $table . '1';
+                $join_query .= ' AS ' . PMA_backquote($foreign_table);
+            } else {
+                $foreign_table = $arr['foreign_table'];
+            }
+            $join_query .= ' ON '
+                         . PMA_backquote($table) . '.' . PMA_backquote($master)
+                         . ' = ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($arr['foreign_field'])
+                         . ' WHERE '
+                         . PMA_backquote($foreign_table) . '.' . PMA_backquote($arr['foreign_field'])
+                         . ' IS NULL AND '
+                         . PMA_backquote($table) . '.' . PMA_backquote($master)
+                         . ' IS NOT NULL';
             echo '        '
                  . '<a href="sql.php3?' . $url_query
                  . '&amp;sql_query='
-                 . urlencode('SELECT ' . PMA_backquote($table) . '.* FROM '
-                             . PMA_backquote($table) . ' LEFT JOIN '
-                             . PMA_backquote($arr['foreign_table']) . ' ON '
-                             . PMA_backquote($table) . '.' . PMA_backquote($master)
-                             . ' = ' . PMA_backquote($arr['foreign_table']) . '.' . PMA_backquote($arr['foreign_field'])
-                             . ' WHERE '
-                             . PMA_backquote($arr['foreign_table']) . '.' . PMA_backquote($arr['foreign_field'])
-                             . ' IS NULL AND '
-                             . PMA_backquote($table) . '.' . PMA_backquote($master)
-                             . ' IS NOT NULL')
+                 . urlencode($join_query)
                  . '">' . $master . '&nbsp;->&nbsp;' . $arr['foreign_table'] . '.' . $arr['foreign_field']
                  . '</a><br />' . "\n";
+            unset($foreign_table);
+            unset($join_query);
         } //  end while
         ?>
         </div>

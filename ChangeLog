@@ -8,8 +8,9 @@ $Source$
 2002-11-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/config_import.lib.php3: Fixed a small inconsistance.
     * config.inc.php3: Added a note about bug #634931.
-    * tbl_properties_operations.php3: Fixed bug #628581 (Check referential
-      integrity and NULL foreign key).
+    * tbl_properties_operations.php3:
+      - Fixed bug #628581 (Check referential integrity and NULL foreign key).
+      - Fixed bug #628583 (Check referential integrity and self-linked table).
 
 2002-11-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * translators.html, lang/*.inc.php3: Fixed some typos.
