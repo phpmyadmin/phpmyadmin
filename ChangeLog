@@ -8,6 +8,8 @@ $Source$
 2003-04-15 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_query_box.php3: Only display charset selection when a DB is
       selected.
+    * libraries/display_tbl.lib.php3: Fix edit link for table without primary
+      key and with BLOB field (bug #708182).
 
 2003-04-15 Garvin Hicking <me@supergarv.de>
     * footer.inc.php3, queryframe.php3: Changed anchor target

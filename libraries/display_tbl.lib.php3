@@ -947,7 +947,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             || (function_exists('is_null') && is_null($row[$pointer]))) {
                             $condition .= 'IS NULL AND';
                         } else {
-                            $condition .= '= \'' . PMA_sqlAddslashes($row[$pointer], FALSE, TRUE) . '\' AND';
+                            if ($meta->type == 'blob') {
+                                $condition .= 'LIKE 0x' . bin2hex($row[$pointer]). ' AND';
+                            } else {
+                                $condition .= '= \'' . PMA_sqlAddslashes($row[$pointer], FALSE, TRUE) . '\' AND';
+                            }
                         }
                         if ($meta->primary_key > 0) {
                             $primary_key .= $condition;
