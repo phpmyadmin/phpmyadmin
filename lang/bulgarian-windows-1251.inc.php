@@ -279,6 +279,7 @@ $strHost = 'Хост';
 $strHostEmpty = 'Името на хоста е празно!';
 $strHungarian = 'Унгарски';
 
+$strIcelandic = 'Исландски';
 $strId = 'ID';
 $strIdxFulltext = 'Пълнотекстово';
 $strIfYouWish = 'Ако желаете да заредите само някои колони от таблицата, укажете списък на полетата разделени със запетаи.';
@@ -325,6 +326,7 @@ $strLatexContinuedCaption = 'Продължение на заглавието на таблицата';
 $strLatexIncludeCaption = 'Включване на заглавие на таблицата';
 $strLatexLabel = 'Етикет на ключа';
 $strLatexStructure = 'Структура на таблица __TABLE__';
+$strLatvian = 'Латвийски';
 $strLengthSet = 'Дължина/Стойност*';
 $strLimitNumRows = 'реда на страница';
 $strLineFeed = 'Символ за край на ред: \\n';
@@ -437,6 +439,7 @@ $strPhoneBook = 'Телефонен бележник';
 $strPhp = 'Създай PHP код';
 $strPmaDocumentation = 'phpMyAdmin документация';
 $strPmaUriError = 'На <tt>$cfg[\'PmaAbsoluteUri\']</tt> ТРЯБВА да се зададе стойност в конфигурационния файл!';
+$strPolish = 'Полски';
 $strPortrait = 'Потртетно';
 $strPos1 = 'Начало';
 $strPrevious = 'Предишен';
@@ -520,6 +523,7 @@ $strRevoke = 'Отмени';
 $strRevokeAndDelete = 'Отмяна на висички активни привилегии от потребителите и след това изтриване.';
 $strRevokeAndDeleteDescr = 'Потребителите все още ще имат USAGE привилегия докато не се презаредят привилегиите.';
 $strRevokeMessage = 'Вие отменихте привилегиите за %s';
+$strRomanian = 'Румънски';
 $strRowLength = 'Дължина на реда';
 $strRowSize = ' Размер на ред ';
 $strRows = 'Редове';
@@ -591,6 +595,8 @@ $strShowingRecords = 'Показва записи ';
 $strSimplifiedChinese = 'Опростен китайски';
 $strSingly = '(еднократно)';
 $strSize = 'Размер';
+$strSlovak = 'Словашки';
+$strSlovenian = 'Словенски';
 $strSort = 'Сортиране';
 $strSortByKey = 'Сортиране по ключ';
 $strSpaceUsage = 'Използвано място';
@@ -632,6 +638,7 @@ $strThai = 'Тайландски';
 $strTheContent = 'Съдържанието на файла беше импортирано.';
 $strTheContents = 'Съдържанието на файла замества съдържанието на таблицата за редове с идентични първични или уникални ключове.';
 $strTheTerminator = 'Символ за край на поле.';
+$strTheme = 'Тема / Стил';
 $strThisHost = 'Този Хост';
 $strThisNotDirectory = 'Това не беше директория';
 $strThreadSuccessfullyKilled = 'Нишка %s беше успешно отстранена.';
@@ -639,6 +646,7 @@ $strTime = 'Време';
 $strTotal = 'Общо';
 $strTotalUC = 'Общо';
 $strTraditionalChinese = 'Традиционен китайски';
+$strTraditionalSpanish = 'Традиционен Испански';
 $strTraffic = 'Трафик';
 $strTransformation_application_octetstream__download = 'Показва връзка за сваляне на двоичните данни н аполето. Първата опция е файловото име на двоичния файл. Втората опция е вероятното име на полето на реда на таблицата съдържащо файловото име. Ако напишете втора опция, трябва първата ви опция да е установена на празен низ.';
 $strTransformation_image_jpeg__inline = 'Показва thumbnail; опции: ширина, височина в пиксели (запазва оригиналната пропорция)';
@@ -692,7 +700,7 @@ $strViewDumpDatabases = 'Преглед на дъмп (схема) на база данни';
 $strWebServerUploadDirectory = 'директорията за upload на уеб сървъра';
 $strWebServerUploadDirectoryError = 'Директорията която сте указали за upload не може да бъде достигната';
 $strWelcome = 'Добре дошли в %s';
-$strWestEuropean = 'Западно европейски';
+$strWestEuropean = 'Западно-европейски';
 $strWildcard = 'символ за заместване';
 $strWindowNotFound = 'Прозореца на браузъра не може да бъде обновен. Може би сте затворили отварящият го прозорец или браузърът Ви е блокирал обновяване на данни от един прозорец в друг от съображения за сигурност';
 $strWithChecked = 'Когато има отметка:';
@@ -711,21 +719,15 @@ $strZip = '"zip-нато"';
 
 $strCheckOverhead = 'Check overheaded';  //to translate
 
+$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
+
 $strIgnoreInserts = 'Use ignore inserts';  //to translate
+
+$strMySQLConnectionCollation = 'MySQL connection collation';  //to translate
 
 $strStrucNativeExcel = 'Native MS Excel data';  //to translate
 
 $strTakeIt = 'take it';  //to translate
-$strTheme = 'Theme / Style';  //to translate
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
 
-$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
-$strIcelandic = 'Icelandic';  //to translate
-$strLatvian = 'Latvian';  //to translate
-$strPolish = 'Polish';  //to translate
-$strRomanian = 'Romanian';  //to translate
-$strSlovenian = 'Slovenian';  //to translate
-$strTraditionalSpanish = 'Traditional Spanish';  //to translate
-$strSlovak = 'Slovak';  //to translate
-$strMySQLConnectionCollation = 'MySQL connection collation';  //to translate
 ?>
