@@ -1,5 +1,4 @@
 <?php
-
 /* $Id$ */
 
 $charset = 'iso-8859-2';
@@ -52,6 +51,8 @@ $strAtEndOfTable = 'Na koñcu tabeli';
 $strAttr = 'Atrybuty';
 
 $strBack = 'Powrót';
+$strBeginCut = 'POCZ¡TEK CUT';
+$strBeginRaw = 'POCZ¡TEK RAW';
 $strBinary = ' Binarne ';
 $strBinaryDoNotEdit = ' Binarne - nie do edycji ';
 $strBookmarkDeleted = 'Zapamiêtane zapytanie SQL zosta³o usuniête.';
@@ -71,6 +72,7 @@ $strCarriage = 'Znak powrotu: \\r';
 $strChangeDisplay = 'Wybierz wy¶wietlane pole';
 $strChangePassword = 'Zmiana has³a';
 $strChange = 'Zmiana';
+$strCharsetOfFile = 'System kodowanie znaków dla pliku:';
 $strCheckAll = 'Zaznaczenie wszystkich';
 $strCheckDbPriv = 'Sprawdzanie uprawnieñ bazy danych';
 $strCheckTable = 'Sprawdzanie tabeli';
@@ -132,6 +134,8 @@ $strEmptyResultSet = 'MySQL zwróci³ pusty wynik (np. zero rekordów).';
 $strEmpty = 'Wyczyszczenie';
 $strEnabled = 'w³±czone';
 $strEnd = 'Koniec';
+$strEndCut = 'KONIEC CUT';
+$strEndRaw = 'KONIEC RAW';
 $strEnglishPrivileges = ' Uwaga: Uprawnienia MySQL s± oznaczone w jêz. angielskim ';
 $strError = 'B³±d';
 $strExplain = 'Wyja¶nienie SQL';
@@ -354,9 +358,14 @@ $strSize = 'Rozmiar';
 $strSort = 'Sortuj';
 $strSpaceUsage = 'Wykorzystanie przestrzeni';
 $strSplitWordsWithSpace = 'S³owa s± rozdzielane znakiem spacji (" ").';
+$strSQL = 'SQL';
+$strSQLParserBugMessage = 'Istnieje szanse, ¿e w³a¶nie znalaz³e¶ b³±d w analizatorze sk³adni SQL. Zbadaj bli¿ej swoje zapytanie i sprawd¼, czy cudzys³owy s± poprawne i dobrze sparowane. Inn± mo¿liw± przyczyn± niepowodzenia mo¿e byæ to, ¿e wysy³asz plik ze znakami binarnymi poza obszarem tekstu ujêtego w cudzys³owy. Mo¿esz równie¿ sprawdziæ swoje zapytanie SQL poprzez liniê poleceñ MySQL. W znalezieniu przyczyny problemu mo¿e pomóæ tak¿e - je¶li siê pojawi - poni¿szy opis b³êdu serwera MySQL. Je¶li nadam masz problemy lub analizator sk³adni zg³asza usterkê a linia poleceñ - nie, ogranicz sekwencjê zapytañ SQL do pojedynczego, które powoduje problemy i zg³o¶æ b³±d, do³±czaj±c fragment danych zawarty w poni¿szej sekcji CUT:';
+$strSQLParserUserError = 'Wygl±da na to, ¿e w twoim zapytaniu SQL jest b³±d. W znalezieniu przyczyny problemu mo¿e pomóæ tak¿e - je¶li siê pojawi - poni¿szy opis b³êdu serwera MySQL.';
 $strSQLQuery = 'zapytanie SQL';
 $strSQLResult = 'Rezultat SQL';
-$strSQL = 'SQL';
+$strSQPBugInvalidIdentifer = 'Nieprawid³owy identyfikator';
+$strSQPBugUnclosedQuote = 'Niezamkniêty cudzys³ów';
+$strSQPBugUnknownPunctuation = 'Nieznany znak przestankowy';
 $strStatement = 'Cecha';
 $strStrucCSV = 'dane CSV';
 $strStrucData = 'Struktura i dane';
@@ -401,7 +410,7 @@ $strUsers = 'U¿ytkownicy';
 $strUser = 'U¿ytkownik';
 $strUseTables = 'U¿ycie tabel';
 
-$strValidateSQL = 'Sprawdzanie proprawno¶ci SQL'; 
+$strValidateSQL = 'Sprawdzanie proprawno¶ci SQL';
 $strValue = 'Warto¶æ';
 $strViewDumpDB = 'Zrzut bazy danych';
 $strViewDump = 'Zrzut tabeli';
@@ -413,21 +422,6 @@ $strWrongUser = 'B³êdne pola u¿ytkownik/has³o. Brak dostêpu.';
 $strYes = 'Tak';
 
 $strZip = '".zip"';
+
 // To translate
-
-
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-
-$strCharsetOfFile = 'Character set of the file:'; //to translate
-
-$strEndCut = 'END CUT';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-
 ?>
