@@ -807,7 +807,6 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      */
     function PMA_showMessage($message)
     {
-
         // Reloads the navigation frame via JavaScript if required
         if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
             echo "\n";
