@@ -62,7 +62,7 @@ $cfg['Servers'][$i]['table_info']    = '';          // table to describe the dis
 $cfg['Servers'][$i]['table_coords']  = '';          // table to describe the tables position for the PDF
                                                     //   schema - leave blank for no PDF schema support
 $cfg['Servers'][$i]['column_comments']='';          // table to store columncomments
-                                                    // - leave blank if you don't want to use this                                                    
+                                                    // - leave blank if you don't want to use this
 $cfg['Servers'][$i]['pdf_pages']     = '';          // table to describe pages of relationpdf
 $cfg['Servers'][$i]['AllowDeny']['order']           // Host authentication order, leave blank to not use
                                      = '';
@@ -71,50 +71,52 @@ $cfg['Servers'][$i]['AllowDeny']['rules']           // Host authentication rules
 
 
 $i++;
-$cfg['Servers'][$i]['host']          = '';
-$cfg['Servers'][$i]['port']          = '';
-$cfg['Servers'][$i]['socket']        = '';
-$cfg['Servers'][$i]['connect_type']  = 'tcp';
-$cfg['Servers'][$i]['controluser']   = '';
-$cfg['Servers'][$i]['controlpass']   = '';
-$cfg['Servers'][$i]['auth_type']     = 'config';
-$cfg['Servers'][$i]['user']          = 'root';
-$cfg['Servers'][$i]['password']      = '';
-$cfg['Servers'][$i]['only_db']       = '';
-$cfg['Servers'][$i]['verbose']       = '';
-$cfg['Servers'][$i]['bookmarkdb']    = '';
-$cfg['Servers'][$i]['bookmarktable'] = '';
-$cfg['Servers'][$i]['relation']      = '';
-$cfg['Servers'][$i]['table_info']    = '';
-$cfg['Servers'][$i]['table_coords']  = '';
-$cfg['Servers'][$i]['pdf_pages']     = '';
+$cfg['Servers'][$i]['host']            = '';
+$cfg['Servers'][$i]['port']            = '';
+$cfg['Servers'][$i]['socket']          = '';
+$cfg['Servers'][$i]['connect_type']    = 'tcp';
+$cfg['Servers'][$i]['controluser']     = '';
+$cfg['Servers'][$i]['controlpass']     = '';
+$cfg['Servers'][$i]['auth_type']       = 'config';
+$cfg['Servers'][$i]['user']            = 'root';
+$cfg['Servers'][$i]['password']        = '';
+$cfg['Servers'][$i]['only_db']         = '';
+$cfg['Servers'][$i]['verbose']         = '';
+$cfg['Servers'][$i]['pmadb']      = '';
+$cfg['Servers'][$i]['bookmarktable']   = '';
+$cfg['Servers'][$i]['relation']        = '';
+$cfg['Servers'][$i]['table_info']      = '';
+$cfg['Servers'][$i]['table_coords']    = '';
+$cfg['Servers'][$i]['column_comments'] ='';
+$cfg['Servers'][$i]['pdf_pages']       = '';
 $cfg['Servers'][$i]['AllowDeny']['order']
-                                     = '';
+                                       = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']
-                                     = array();
+                                       = array();
 
 $i++;
-$cfg['Servers'][$i]['host']          = '';
-$cfg['Servers'][$i]['port']          = '';
-$cfg['Servers'][$i]['socket']        = '';
-$cfg['Servers'][$i]['connect_type']  = 'tcp';
-$cfg['Servers'][$i]['controluser']   = '';
-$cfg['Servers'][$i]['controlpass']   = '';
-$cfg['Servers'][$i]['auth_type']     = 'config';
-$cfg['Servers'][$i]['user']          = 'root';
-$cfg['Servers'][$i]['password']      = '';
-$cfg['Servers'][$i]['only_db']       = '';
-$cfg['Servers'][$i]['verbose']       = '';
-$cfg['Servers'][$i]['bookmarkdb']    = '';
-$cfg['Servers'][$i]['bookmarktable'] = '';
-$cfg['Servers'][$i]['relation']      = '';
-$cfg['Servers'][$i]['table_info']    = '';
-$cfg['Servers'][$i]['table_coords']  = '';
-$cfg['Servers'][$i]['pdf_pages']     = '';
+$cfg['Servers'][$i]['host']            = '';
+$cfg['Servers'][$i]['port']            = '';
+$cfg['Servers'][$i]['socket']          = '';
+$cfg['Servers'][$i]['connect_type']    = 'tcp';
+$cfg['Servers'][$i]['controluser']     = '';
+$cfg['Servers'][$i]['controlpass']     = '';
+$cfg['Servers'][$i]['auth_type']       = 'config';
+$cfg['Servers'][$i]['user']            = 'root';
+$cfg['Servers'][$i]['password']        = '';
+$cfg['Servers'][$i]['only_db']         = '';
+$cfg['Servers'][$i]['verbose']         = '';
+$cfg['Servers'][$i]['pmadb']      = '';
+$cfg['Servers'][$i]['bookmarktable']   = '';
+$cfg['Servers'][$i]['relation']        = '';
+$cfg['Servers'][$i]['table_info']      = '';
+$cfg['Servers'][$i]['table_coords']    = '';
+$cfg['Servers'][$i]['column_comments'] ='';
+$cfg['Servers'][$i]['pdf_pages']       = '';
 $cfg['Servers'][$i]['AllowDeny']['order']
-                                     = '';
+                                       = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']
-                                     = array();
+                                       = array();
 
 // If you have more than one server configured, you can set $cfg['ServerDefault']
 // to any one of them to autoconnect to that server when phpMyAdmin is started,

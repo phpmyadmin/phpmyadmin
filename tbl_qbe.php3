@@ -8,7 +8,9 @@
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
+require('./libraries/relation.lib.php3');
 
+$cfgRelation = PMA_getRelationsParam();
 
 /**
  * A query has been submitted -> executes it, else displays the headers
@@ -719,7 +721,6 @@ if (isset($Field) && count($Field) > 0) {
     $rel       = array();
     $rest      = array();
     $found     = array();
-    $rel_work  = FALSE;
 
     //  we only start this if we have fields, otherwise it would be dumb
     while (list(, $value) = each($Field)) {
@@ -728,11 +729,8 @@ if (isset($Field) && count($Field) > 0) {
             $alltabs[]    = substr(urldecode($parts[0]), 1, strlen(urldecode($parts[0])) - 2);
         }
     } // end while
-    if ($cfg['Server']['relation']) {
-        $tables   = @PMA_mysql_query('SELECT COUNT(*) AS count FROM ' . PMA_backquote($cfg['Server']['relation']));
-        $rel_work = ($tables) ? PMA_mysql_result($tables, 0, 'count') : FALSE;
-    } // end if
-    if ($rel_work && count($alltabs) > 0) {
+
+    if ($cfgRelation['relwork'] && count($alltabs) > 0) {
 
         // now we need all tables that we have in the whereclause
         for ($x = 0; $x < count($Criteria); $x++) {
@@ -770,14 +768,27 @@ if (isset($Field) && count($Field) > 0) {
         // We will need this a few times:
         $incrit    = '(\'' . implode('\', \'', $alltabs) . '\')';
 
-        $rel_query = 'SELECT master_table AS wer, COUNT(foreign_table) AS hits FROM ' . PMA_backquote($cfg['Server']['relation'])
-                   . ' WHERE master_table IN ' . $incrit . ' AND foreign_table IN ' . $incrit
+        $_rel_query = 'SELECT master_table AS wer, COUNT(foreign_table) AS hits'
+                   . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+                   . ' WHERE master_db   = \'' . $db . '\' '
+                   . ' AND foreign_db    = \'' . $db . '\' '
+                   . ' AND master_table  IN ' . $incrit
+                   . ' AND foreign_table IN ' . $incrit
                    . ' GROUP BY master_table ORDER BY hits DESC';
+        if(!empty($column)){
+            $_rel_query .= ' AND master_field = \'' . $column . '\'';
+        }
+        if (isset($dbh)) {
+            PMA_mysql_select_db($cfgRelation['db'],$dbh);
+            $_relations = @PMA_mysql_query($_rel_query, $GLOBALS['dbh']) or PMA_mysqlDie(mysql_error($GLOBALS['dbh']), $_rel_query, '', $err_url_0);
+            PMA_mysql_select_db($db,$dbh);
+        } else {
+            PMA_mysql_select_db($cfgRelation['db']);
+            $_relations = @PMA_mysql_query($_rel_query) or PMA_mysqlDie('', $_rel_query, '', $err_url_0);
+            PMA_mysql_select_db($db);
+        }
 
-        $rel_id    = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
-
-        // if we don't find anything we try the other way round
-        while ($row = PMA_mysql_fetch_array($rel_id)) {
+        while ($row = PMA_mysql_fetch_array($_relations)) {
             // we want the first one (highest number of hits) or the first one
             // that is in the WHERE clause
             if (!isset($master)) {
@@ -805,14 +816,27 @@ if (isset($Field) && count($Field) > 0) {
 
             //  now we only use everything but the first table
             $incrit_s = '(\'' . implode('\', \'', $reltabs) . '\')';
-
-            $rel_query = 'SELECT * FROM ' . PMA_backquote($cfg['Server']['relation'])
-                       . ' WHERE master_table IN ' . $incrit . ' AND foreign_table IN ' . $incrit_s
+            $_rel_query = 'SELECT *'
+                       . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+                       . ' WHERE master_db   = \'' . $db . '\' '
+                       . ' AND foreign_db    = \'' . $db . '\' '
+                       . ' AND master_table  IN ' . $incrit
+                       . ' AND foreign_table IN ' . $incrit_s
                        . ' ORDER BY foreign_table, master_table';
+            if(!empty($column)){
+                $_rel_query .= ' AND master_field = \'' . $column . '\'';
+            }
+            if (isset($dbh)) {
+                PMA_mysql_select_db($cfgRelation['db'],$dbh);
+                $_relations = @PMA_mysql_query($_rel_query, $GLOBALS['dbh']) or PMA_mysqlDie(mysql_error($GLOBALS['dbh']), $_rel_query, '', $err_url_0);
+                PMA_mysql_select_db($db,$dbh);
+            } else {
+                PMA_mysql_select_db($cfgRelation['db']);
+                $_relations = @PMA_mysql_query($_rel_query) or PMA_mysqlDie('', $_rel_query, '', $err_url_0);
+                PMA_mysql_select_db($db);
+            }
 
-            $rel_id    = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
-
-            while ($row = PMA_mysql_fetch_array($rel_id)) {
+            while ($row = PMA_mysql_fetch_array($_relations)) {
                 $foreign_table = $row['foreign_table'];
                 if ($rel[$foreign_table]['mcon'] == 0) {
                     // if we already found a link to the mastertable we don't
@@ -844,12 +868,27 @@ if (isset($Field) && count($Field) > 0) {
                 $incrit_d  = '(\'' . implode('\', \'', $found) . '\')';
                 $incrit_s  = '(\'' . implode('\', \'', $rest) . '\')';
 
-                $rel_query = 'SELECT * FROM ' . PMA_backquote($cfg['Server']['relation'])
-                           . ' WHERE master_table IN ' . $incrit_s . ' AND foreign_table IN ' . $incrit_d
+                $_rel_query = 'SELECT *'
+                           . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+                           . ' WHERE master_db   = \'' . $db . '\' '
+                           . ' AND foreign_db    = \'' . $db . '\' '
+                           . ' AND master_table  IN ' . $incrit_s
+                           . ' AND foreign_table IN ' . $incrit_d
                            . ' ORDER BY master_table, foreign_table';
-                $rel_id    = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
+                if(!empty($column)){
+                    $_rel_query .= ' AND master_field = \'' . $column . '\'';
+                }
+                if (isset($dbh)) {
+                    PMA_mysql_select_db($cfgRelation['db'],$dbh);
+                    $_relations = @PMA_mysql_query($_rel_query, $GLOBALS['dbh']) or PMA_mysqlDie(mysql_error($GLOBALS['dbh']), $_rel_query, '', $err_url_0);
+                    PMA_mysql_select_db($db,$dbh);
+                } else {
+                    PMA_mysql_select_db($cfgRelation['db']);
+                    $_relations = @PMA_mysql_query($_rel_query) or PMA_mysqlDie('', $_rel_query, '', $err_url_0);
+                    PMA_mysql_select_db($db);
+                }
 
-                while ($row = PMA_mysql_fetch_array($rel_id)) {
+                while ($row = PMA_mysql_fetch_array($_relations)) {
                     $found_table = $row['master_table'];
                     if ($rel[$found_table]['mcon'] == 0) {
                         // if we allready found a link to the mastertable we
@@ -882,12 +921,13 @@ if (isset($Field) && count($Field) > 0) {
                         $qry_from .= ', ';
                     }
                     $qry_from     .= PMA_backquote($key);
+                    // debug echo "add ". $key . ": " . PMA_backquote($key) . "\n";
                 } else if ($varr['mcon'] == 0) {
                     // those that have no link with the mastertable we will
                     // show at the end
-                    $lj           .= PMA_backquote($varr['link']);
+                    $lj           .= $varr['link'];
                 } else {
-                    $ljm          .= PMA_backquote($varr['link']);
+                    $ljm          .= $varr['link'];
                 }
             } // end while
 
@@ -897,7 +937,6 @@ if (isset($Field) && count($Field) > 0) {
             $qry_from .= $ljm . $lj;
         } // end if ($master != '')
     } // end rel work and $alltabs > 0
-
     if (empty($qry_from) && count($alltabs)) {
         //  there might be more than one mentioning of the table in here
         // as array_unique is only PHP4 we have to do this by hand

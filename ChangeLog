@@ -5,6 +5,27 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-15 Mike Beck <mikebeck@users.sourceforge.net>
+    started putting the relationtables in a central db
+    with the bookmarktable
+    * config.inc.php3
+      - renamed $cfg['Servers'][$i]['bookmarkdb'] to
+        $cfg['Servers'][$i]['pmadb']
+      - allready added $cfg['Servers'][$i]['column_comments']
+    * tbl_relation.lib.php3  new file
+      - PMA_getRelationsParam(): get and test config
+      - getForeigners() get an array of tables/fields
+        related to the one you supply
+      - getDisplayField() get the tables display column
+      - PMA_query_as_cu() query the pmadb using the controluser
+        if possible, otherwise normal user
+    changes to use new place of tables are allready finished for
+    those files:
+    * tbl_relation.php3
+    * db_details_structure.php3
+    * pdf_pages.php3
+    * tbl_qbe.php3
+
 2002-06-14 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german.inc.php3: Updates.
     * libraries/select_lang.lib.php3, lang/german-utf8.inc.php3:

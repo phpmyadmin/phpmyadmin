@@ -22,6 +22,11 @@ if (empty($is_info)) {
    include('./db_details_db_info.php3');
    echo "\n";
 }
+/**
+ * Settings for Relationstuff
+ */
+require('./libraries/relation.lib.php3');
+$cfgRelation = PMA_getRelationsParam();
 
 
 /**
@@ -442,22 +447,22 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 
 <?php
 // is this OK to check for 'class' support?
-if (!empty($cfg['Server']['table_coords'])
-    && $num_tables > 0) {
+if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     ?>
     <!-- Work on PDF Pages -->
     <li>
         <?php
-            $takeaway = $url_query . '&amp;table=' . urlencode($cfg['Server']['pdf_pages']);
+            $takeaway = $url_query . '&amp;table=' . urlencode($table);
         ?>
         <a href="pdf_pages.php3?<?php echo $takeaway; ?>"><?php echo $strEditPDFPages ;?></a>
     </li>
     <!-- PDF schema -->
     <?php
     //  We only show this if we find something in the new pdf_pages table
-    @PMA_mysql_select_db($db);
-    $test_query = 'SELECT * FROM ' . PMA_backquote($cfg['Server']['pdf_pages']);
-    $test_rs    = PMA_mysql_query($test_query) or PMA_mysqlDie('', $test_query, '', $err_url_0);
+
+    $test_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
+                . ' WHERE db_name = \'' . $db . '\'';
+    $test_rs    = PMA_query_as_cu($test_query);
     if(mysql_num_rows($test_rs) > 0){
         ?>
         <li>
@@ -497,4 +502,3 @@ echo "\n" . '</ul>';
 echo "\n";
 require('./footer.inc.php3');
 ?>
-
