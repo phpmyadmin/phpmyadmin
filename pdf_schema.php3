@@ -853,7 +853,7 @@ class PMA_RT
                   .   ' AND pdf_page_number = ' . $which_rel;
         $tab_rs   = PMA_query_as_cu($tab_sql);
         if (!$tab_rs || !mysql_num_rows($tab_rs) > 0) {
-            $pdf->PMA_PDF_die($GLOBALS['strPdfNoTables'];
+            $pdf->PMA_PDF_die($GLOBALS['strPdfNoTables']);
 //            die('No tables');
         }
         while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
