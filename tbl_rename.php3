@@ -50,6 +50,45 @@ if (isset($new_name) && trim($new_name) != '') {
         $rmv_rs    = PMA_query_as_cu($remove_query);
         unset($rmv_query);
     }
+
+    if ($cfgRelation['displaywork']) {
+        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_info'])
+                        . ' SET     table_name = \'' . PMA_sqlAddslashes($table) . '\''
+                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                        . ' AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
+        $tb_rs    = PMA_query_as_cu($table_query);
+        unset($table_query);
+        unset($tb_rs);
+    }
+
+    if ($cfgRelation['relwork']) {
+        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['relation'])
+                        . ' SET     foreign_table = \'' . PMA_sqlAddslashes($table) . '\''
+                        . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\''
+                        . ' AND foreign_table = \'' . PMA_sqlAddslashes($old_name) . '\'';
+        $tb_rs    = PMA_query_as_cu($table_query);
+        unset($table_query);
+        unset($tb_rs);
+
+        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['relation'])
+                        . ' SET     master_table = \'' . PMA_sqlAddslashes($table) . '\''
+                        . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
+                        . ' AND master_table = \'' . PMA_sqlAddslashes($old_name) . '\'';
+        $tb_rs    = PMA_query_as_cu($table_query);
+        unset($table_query);
+        unset($tb_rs);
+    }
+    
+    if ($cfgRelation['pdfwork']) {
+        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_coords'])
+                        . ' SET     table_name = \'' . PMA_sqlAddslashes($table) . '\''
+                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                        . ' AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
+        $tb_rs    = PMA_query_as_cu($table_query);
+        unset($table_query);
+        unset($tb_rs);
+    }
+
 }
 
 

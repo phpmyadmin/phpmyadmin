@@ -99,6 +99,45 @@ if (isset($submit)) {
                 PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, $field_orig[$fieldindex]);
             }
         }
+        
+        // garvin: Rename relations&display fields, if altered.
+        if (($cfgRelation['displaywork'] || $cfgRelation['relwork']) && isset($field_orig) && is_array($field_orig)) {
+            @reset($field_orig);
+            while(list($fieldindex, $fieldcontent) = each($field_orig)) {
+                if ($field_name[$fieldindex] != $fieldcontent) {
+                    if ($cfgRelation['displaywork']) {
+                        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_info'])
+                                      . ' SET     display_field = \'' . PMA_sqlAddslashes($field_name[$fieldindex]) . '\''
+                                      . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                                      . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
+                                      . ' AND display_field = \'' . PMA_sqlAddslashes($fieldcontent) . '\'';
+                        $tb_rs    = PMA_query_as_cu($table_query);
+                        unset($table_query);
+                        unset($tb_rs);
+                    }
+
+                    if ($cfgRelation['relwork']) {
+                        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['relation'])
+                                      . ' SET     master_field = \'' . PMA_sqlAddslashes($field_name[$fieldindex]) . '\''
+                                      . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
+                                      . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
+                                      . ' AND master_field = \'' . PMA_sqlAddslashes($fieldcontent) . '\'';
+                        $tb_rs    = PMA_query_as_cu($table_query);
+                        unset($table_query);
+                        unset($tb_rs);
+    
+                        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['relation'])
+                                      . ' SET     foreign_field = \'' . PMA_sqlAddslashes($field_name[$fieldindex]) . '\''
+                                      . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\''
+                                      . ' AND foreign_table = \'' . PMA_sqlAddslashes($table) . '\''
+                                      . ' AND foreign_field = \'' . PMA_sqlAddslashes($fieldcontent) . '\'';
+                        $tb_rs    = PMA_query_as_cu($table_query);
+                        unset($table_query);
+                        unset($tb_rs);
+                    } // end if relwork
+                } // end if fieldname has changed
+            } // end while check fieldnames
+        } // end if relations/display has to be changed
     
         // garvin: Update comment table for mime types [MIME]
         if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {

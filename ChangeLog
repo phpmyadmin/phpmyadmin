@@ -6,8 +6,15 @@ $Id$
 $Source$
 
 2003-03-12 Garvin Hicking <me@supergarv.de>
-    * New $sql_structure variable for the new table export design broke
-      DB export functionality. Fixed this.
+    * sql.php3, tbl_alter.php3, tbl_move_copy.php3, tbl_properties_structure.php3,
+      tbl_rename.php3, libraries/relation.lib.php3:
+      Bugfix #579256 / RFE #577328 : Automatic update of relations,
+      display fields, comments, bookmarks, ... on update, delete and duplicate.
+      Automatic duplication/moving of PDF pages does not yet work. Would the
+      original author please be so kind to have a look at the tbl_move_copy.php
+      script, search for '[TODO]' and apply necessary fixes? ;)
+    * tbl_dump.php3: New $sql_structure variable for the new table export 
+      design broke DB export functionality. Fixed this.
 
 2003-03-12 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/ukrainian: update, thanks to Markijan Baran

@@ -82,6 +82,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         $cfgRelation                = array();
         $cfgRelation['relwork']     = FALSE;
         $cfgRelation['displaywork'] = FALSE;
+        $cfgRelation['bookmarkwork']= FALSE;
         $cfgRelation['pdfwork']     = FALSE;
         $cfgRelation['commwork']    = FALSE;
         $cfgRelation['mimework']    = FALSE;
@@ -118,7 +119,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
 
         while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
             if ($curr_table[0] == $cfg['Server']['bookmarktable']) {
-                continue;
+                $cfgRelation['bookmark']        = $curr_table[0];
             } else if ($curr_table[0] == $cfg['Server']['relation']) {
                 $cfgRelation['relation']        = $curr_table[0];
             } else if ($curr_table[0] == $cfg['Server']['table_info']) {
@@ -176,9 +177,14 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             $cfgRelation['historywork']     = TRUE;
         }
 
+        if (isset($cfgRelation['bookmark'])) {
+            $cfgRelation['bookmarkwork']     = TRUE;
+        }
+
         if ($cfgRelation['relwork'] == TRUE && $cfgRelation['displaywork'] == TRUE
             && $cfgRelation['pdfwork'] == TRUE && $cfgRelation['commwork'] == TRUE
-            && $cfgRelation['mimework'] && $cfgRelation['historywork']) {
+            && $cfgRelation['mimework'] == TRUE && $cfgRelation['historywork'] == TRUE
+            && $cfgRelation['bookmarkwork'] == TRUE) {
             $cfgRelation['allworks'] = TRUE;
         }
         if ($tab_rs) {
@@ -231,6 +237,9 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                  . '</td></tr>' . "\n";
             echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strColComFeat'] . ': '
                  . (($cfgRelation['commwork'] == TRUE) ? $enabled : $disabled)
+                 . '</td></tr>' . "\n";
+            echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strBookmarkQuery'] . ': '
+                 . (($cfgRelation['bookmarkwork'] == TRUE) ? $enabled : $disabled)
                  . '</td></tr>' . "\n";
             echo '    <tr><td colspan=2 align="center">MIME: '
                  . (($cfgRelation['mimework'] == TRUE) ? $enabled : $disabled)
