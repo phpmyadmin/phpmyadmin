@@ -138,8 +138,9 @@ if ($num_dbs > 0) {
     }
     $img_tag        = '&nbsp;' . "\n"
                     . '            '
-                    . '<img src="./images/' . $sort_order . '_order.gif" border="0" width="7" height="7" alt="'
-                    . (($sort_order == 'asc') ? $strAscending : $strDescending) . '" />';
+                    . '<img src="./images/' . $sort_order . '_order.gif" border="0" width="7" height="7"'
+                    . ' alt="' . (($sort_order == 'asc') ? $strAscending : $strDescending) . '"'
+                    . ' title="' . (($sort_order == 'asc') ? $strAscending : $strDescending) . '" />';
     // Default order is ascending for db name, descending for sizes
     for ($i = 0; $i < 5; $i++) {
         $url_sort[$i]['order']   = (($i == 0) ? 'asc' : 'desc');
