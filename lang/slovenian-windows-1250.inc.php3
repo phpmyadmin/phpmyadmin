@@ -1,5 +1,6 @@
 <?php
 /* $Id$ */
+
 /* By: uros kositer <urosh@agenda.si> */
 
 $charset = 'windows-1250';
@@ -76,6 +77,7 @@ $strCheckDbPriv = 'Preveri privilegije podatkovne baze';
 $strCheckTable = 'Preveri tabelo';
 $strChoosePage = 'Izberite stran za urejanje';
 $strComments = 'Komentarji';
+$strColComFeat = 'Prikazovanje komentarjev stolpcev';
 $strColumn = 'Stolpec';
 $strColumnNames = 'Imena stolpcev';
 $strCompleteInserts = 'Popolne \'insert\' poizvedbe';
@@ -91,6 +93,7 @@ $strCreateIndexTopic = 'Ustvari nov indeks';
 $strCreateNewDatabase = 'Ustvari novo podatkovno bazo';
 $strCreateNewTable = 'Ustvari novo tabelo v podatkovni bazi %s';
 $strCreatePage = 'Ustvari novo stran';
+$strCreatePdfFeat = 'Ustvarjanje PDF datotek';
 $strCriteria = 'Kriteriji';
 
 $strData = 'Podatki';
@@ -107,7 +110,9 @@ $strDeletedRows = 'Izbrisane vrstice:';
 $strDeleteFailed = 'Brisanje ni uspelo!';
 $strDeleteUserMessage = 'Izbrisali ste uporabnika %s.';
 $strDescending = 'Padajoèe';
+$strDisabled = 'Onemogoèeno';
 $strDisplay = 'Prikaži';
+$strDisplayFeat = 'Prikaži lastnosti';
 $strDisplayOrder = 'Vrstni red prikaza:';
 $strDisplayPDF = 'Prikaži PDF shemo';
 $strDoAQuery = 'Izvedi "query by example" (nadomestni znak: "%")';
@@ -126,9 +131,11 @@ $strEditPrivileges = 'Uredi privilegije';
 $strEffective = 'Uèinkovito';
 $strEmpty = 'Izprazni';
 $strEmptyResultSet = 'MySQL je vrnil kot rezultat prazno množico (npr. niè vrstic).';
+$strEnabled = 'Omogoèeno';
 $strEnd = 'Konec';
 $strEnglishPrivileges = ' Opomba: Imena MySQL privilegijev so zapisana v anglešèini ';
 $strError = 'Napaka';
+$strExplain = 'Razloži SQL stavek';
 $strExport = 'Izvozi';
 $strExportToXML = 'Izvozi v XML obliko';
 $strExtendedInserts = 'Razširjene \'insert\' poizvedbe';
@@ -148,8 +155,9 @@ $strFormEmpty = 'V obliki manjka vrednost !';
 $strFullText = 'Polna besedila';
 $strFunction = 'Funkcija';
 
+$strGeneralRelationFeat = 'Splošne lastnosti relacij';
 $strGenTime = 'Èas nastanka';
-$strGenBy = 'Ustvaril'; 
+$strGenBy = 'Ustvaril';
 $strGo = 'Izvedi';
 $strGrants = 'Dovoljenja';
 $strGzip = '"gzipano"';
@@ -201,7 +209,7 @@ $strLogUsername = 'Uporabniško ime:';
 
 $strMissingBracket = 'Manjkajoè oklepaj';
 $strModifications = 'Spremembe so shranjene';
-$strModify = 'Spremeni'; 
+$strModify = 'Spremeni';
 $strModifyIndexTopic = 'Spremeni indeks';
 $strMoveTable = 'Premakni tabelo v (podatkovna_baza<b>.</b>tabela):';
 $strMoveTableOK = 'Tabela %s je bila premaknjena v %s.';
@@ -219,6 +227,7 @@ $strNo = 'Ne';
 $strNoDatabases = 'Brez podatkovnih baz';
 $strNoDescription = 'brez opisa';
 $strNoDropDatabases = '"DROP DATABASE" poizvedbe so izkljuèene.';
+$strNoExplain = 'Preskoèi razlago SQL stavka';
 $strNoFrames = 'phpMyAdmin je prijaznejši z brskalnikom, ki podpira okvirje.';
 $strNoIndex = 'Ni definiranega indeksa!';
 $strNoIndexPartsDefined = 'Ni definiranega dela indeksa!';
@@ -229,16 +238,19 @@ $strNoPhp = 'Brez kode PHP';
 $strNoPrivileges = 'Brez privilegijev';
 $strNoQuery = 'Brez SQL poizvedbe!';
 $strNoRights = 'Nimate dovolj pravic, da bi bili sedaj tukaj!';
-$strNoTablesFound = 'V podatkovni bazi ni mogoèe najti tabel.'; 
+$strNoTablesFound = 'V podatkovni bazi ni mogoèe najti tabel.';
 $strNotNumber = 'To ni število!';
+$strNotOK = 'Ni v redu';
 $strNotSet = 'Tabele <b>%s</b> ni mogoèe najti ali pa ni v %s';
 $strNotValidNumber = ' ni veljavna številka vrstice!';
-$strNoUsersFound = 'Ni mogoèe najti uporabnika(ov).'; 
+$strNoUsersFound = 'Ni mogoèe najti uporabnika(ov).';
+$strNoValidateSQL = 'Preskoèi preverjanje pravilnosti SQL stavka';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s zadetek(ov) v tabeli <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Skupaj:</b> <i>%s</i> zadetek(ov)';
 
 $strOftenQuotation = 'Pogosti narekovaji. OPCIJSKO pomeni, da so samo polja tipa \'char\' in \'varchar\' obdana s temi znaki.';
+$strOK = 'V redu';
 $strOperations = 'Operacije';
 $strOptimizeTable = 'Optimiraj tabelo';
 $strOptionalControls = 'Opcijsko. Narekuje naèin pisanja in branja posebnih znakov.';
@@ -255,6 +267,7 @@ $strPasswordNotSame = 'Gesli se ne ujemata!';
 $strPdfDbSchema = 'Shema podatkovne baze "%s" - Stran %s';
 $strPdfInvalidPageNum = 'Nedefinirna številka PDF strani!';
 $strPdfInvalidTblName = 'Tabela "%s" ne obstaja!';
+$strPdfNoTables = 'Ni tabel';
 $strPhp = 'Ustvari PHP kodo';
 $strPHPVersion = 'Razlièica PHP';
 $strPmaDocumentation = 'phpMyAdmin dokumentacija';
@@ -315,7 +328,7 @@ $strSearchNeedle = 'Iskane besede ali vrednosti (nadomestni znak: "%"):';
 $strSearchOption1 = 'katerokoli besedo';
 $strSearchOption2 = 'vse besede';
 $strSearchOption3 = 'toèno doloèeno frazo';
-$strSearchOption4 = 'kot \'regular expression\''; 
+$strSearchOption4 = 'kot \'regular expression\'';
 $strSearchResultsFor = 'Rezultati iskanja "<i>%s</i>" %s:';
 $strSearchType = 'Najdi:';
 $strSelect = 'Izberi';
@@ -390,6 +403,7 @@ $strUserName = 'Uporabniško ime';
 $strUsers = 'Uporabniki';
 $strUseTables = 'Uporabi tabele';
 
+$strValidateSQL = 'Preveri pravilnost SQL stavka';
 $strValue = 'Vrednost';
 $strViewDump = 'Preglej dump (shemo) tabele';
 $strViewDumpDB = 'Preglej dump (shemo) podatkovne baze';
@@ -401,17 +415,6 @@ $strWrongUser = 'Napaèno uporabniško ime/geslo. Dostop zavrnjen.';
 $strYes = 'Da';
 
 $strZip = '"zipano"';
-$strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
+
+// To translate
 ?>

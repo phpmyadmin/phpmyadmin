@@ -7,6 +7,7 @@ $Source$
 
 2002-08-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * translators.html: Added a small note in order to avoid annoying emails.
+    * lang/slovenian-*.inc.php3: Updates, thanks again to Kositer Uros (urosh).
 
 2002-08-04 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_indexes.php3: was corrupting the query displayed in query box
