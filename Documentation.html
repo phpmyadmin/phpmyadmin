@@ -376,9 +376,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                        . (!empty($_SERVER['SERVER_PORT']) ? ':' . $_SERVER['SERVER_PORT'] : '')
                        . substr($_SERVER['SCRIPT_NAME'], 0, strrpos($_SERVER['SCRIPT_NAME'], '/')+1);
         </pre>
-        Please note that the <tt>$_SERVER</tt> array doesn't exist in
-        PHP&nbsp;&lt;&nbsp;4.1.0. Try to replace <tt>$_SERVER</tt> by
-        <tt>$HTTP_SERVER_VARS</tt> or <tt>$GLOBALS</tt> in this case.
         <br /><br />
     </dd>
     <dt><b>$cfg['PmaAbsoluteUri_DisableWarning']</b> boolean</dt>
