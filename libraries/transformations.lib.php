@@ -186,7 +186,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation, $transformat
 function PMA_sanitizeTransformationFile(&$filename) {
     // garvin: for security, never allow to break out from transformations directory
 
-    $include_file = preg_replace('@\.\.*@', '.', $filename);
+    $include_file = PMA_securePath($filename);
 
     // This value can also contain a 'php3' value, in which case we map this filename to our new 'php' variant
     $testfile = preg_replace('@\.inc\.php3$@', '.inc.php', $include_file);

@@ -183,7 +183,7 @@ if (empty($valuelist) && empty($query)) {
     if ($is_gotofile) {
         $js_to_run = 'functions.js';
         require_once('./header.inc.php');
-        require('./' . preg_replace('@\.\.*@', '.', $goto));
+        require('./' . PMA_securePath($goto));
     } else {
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . '&disp_query=');
 
@@ -235,7 +235,7 @@ if ($is_gotofile) {
     $js_to_run = 'functions.js';
     $active_page = $goto;
     require_once('./header.inc.php');
-    require('./' . preg_replace('@\.\.*@', '.', $goto));
+    require('./' . PMA_securePath($goto));
 } else {
     // I don't understand this one:
     //$add_query = (strpos(' ' . $goto, 'tbl_change') ? '&disp_query=' . urlencode($sql_query) : '');

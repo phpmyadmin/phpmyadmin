@@ -201,7 +201,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
         } else {
 
             // echo '<h1>Starting Import</h1>';
-            $docpath = $cfg['docSQLDir'] . preg_replace('@\.\.*@', '.', $docpath);
+            $docpath = $cfg['docSQLDir'] . PMA_securePath($docpath);
             if (substr($docpath, -1) != '/') {
                 $docpath .= '/';
             }

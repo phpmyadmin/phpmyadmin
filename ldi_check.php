@@ -48,7 +48,7 @@ if (isset($btnLDI) && isset($local_textfile) && $local_textfile != '') {
     if (substr($cfg['UploadDir'], -1) != '/') {
         $cfg['UploadDir'] .= '/';
     }
-    $textfile = $DOCUMENT_ROOT . dirname($PHP_SELF) . '/' . preg_replace('@^./@s', '', $cfg['UploadDir']) . preg_replace('@\.\.*@', '.', $local_textfile);
+    $textfile = $DOCUMENT_ROOT . dirname($PHP_SELF) . '/' . preg_replace('@^./@s', '', $cfg['UploadDir']) . PMA_securePath($local_textfile);
     if (file_exists($textfile)) {
         $open_basedir = @ini_get('open_basedir');
 

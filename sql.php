@@ -165,7 +165,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
             unset($table);
         }
         $active_page = $goto;
-        require('./' . preg_replace('@\.\.*@', '.', $goto));
+        require('./' . PMA_securePath($goto));
     } else {
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto));
     }
@@ -580,7 +580,7 @@ else {
         $message .= ' ' . (isset($GLOBALS['querytime']) ? '(' . sprintf($strQueryTime, $GLOBALS['querytime']) . ')' : '');
 
         if ($is_gotofile) {
-            $goto = preg_replace('@\.\.*@', '.', $goto);
+            $goto = PMA_securePath($goto);
             // Checks for a valid target script
             if (isset($table) && $table == '') {
                 unset($table);

@@ -7,6 +7,9 @@ $Source$
 
 2004-06-15 Marc Delisle  <lem9@users.sourceforge.net>
     * queryframe.php: undefined $cfgRelation, thanks to Michael Keck (mkkeck)
+    * export.php, sql.php, db_details_importdocsql.php, ldi_check.php,
+      tbl_replace.php, libraries/common.lib.php, 
+      libraries/transformations.lib.php: new function PMA_securePATH()
 
 2004-06-15 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
