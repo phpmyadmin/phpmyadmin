@@ -11,6 +11,11 @@ $Source$
       libraries/kanji-encoding.lib.php3; libraries/sqlparser.lib.php3
       libraries/string.lib.php3; user_password.php3: coding standards.
     * libraries/auth/cookie.auth.php3: fixes a PHP3 bug.
+    * libraries/functiuons.js: fixed bug #627567 - Javascript bug in
+      setPointer() function thanks to Christopher Bloom
+      <xangelusx at users.sourceforge.net>
+    * libraries/display_tbl.lib.php3, lines 1123-1124: fixed bug
+      #626366 - "date" columns wrap in browse mode.
 
 2002-10-25 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, clarification about using Relation View

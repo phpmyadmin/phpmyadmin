@@ -1120,7 +1120,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $row[$pointer]     = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
                         }
-                        $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">';
+                        // loic1: do not wrap if date field type
+                        $nowrap = (eregi('DATE|TIME', $meta->type) ? ' nowrap="nowrap"' : '');
+                        $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"' . $nowrap . '>';
 
                         if (isset($map[$meta->name])) {
                             // Field to display from the foreign table?
