@@ -225,6 +225,7 @@ $strPasswordEmpty = 'A jelszó mezõ üres!';
 $strPasswordNotSame = 'A jelszavak nem azonosak!';
 $strPHPVersion = 'PHP Verzió';
 $strPmaDocumentation = 'phpMyAdmin dokumentáció';
+$strPmaUriError = '<tt>$cfgPmaAbsoluteUri</tt> erteket a konfiguracios fajlban KELL beallitani!';
 $strPos1 = 'Kezdet';
 $strPrevious = 'ELõzõ';
 $strPrimary = 'Elsõdleges';
@@ -347,5 +348,4 @@ $strYes = 'Igen';
 $strZip = '"zippel tömörítve"';
 
 // To translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>
