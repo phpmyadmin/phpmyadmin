@@ -630,7 +630,8 @@ if ($is_minimum_common == FALSE) {
                   $t_suffix = '_charset';
               }
             } elseif (PMA_STR_binarySearchInArr($d_cur, $mysql_charsets, $mysql_charsets_count)
-              || PMA_STR_binarySearchInArr($d_cur, $mysql_collations_flat, $mysql_collations_count)) {
+              || PMA_STR_binarySearchInArr($d_cur, $mysql_collations_flat, $mysql_collations_count)
+              || ($d_cur{0} == '_' && PMA_STR_binarySearchInArr(substr($d_cur, 1), $mysql_charsets, $mysql_charsets_count))) {
               $t_suffix = '_charset';
             } else {
               // Do nothing

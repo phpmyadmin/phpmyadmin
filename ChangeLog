@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-06 Alexander M. Turek  <singwhenyourewinning@derrabus.de>
+    * libraries/sqlparser.lib.php: Support for _charset syntax.
+
 2004-01-09 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php: bug 873236 SQL_CALC_FOUND_ROWS
 
