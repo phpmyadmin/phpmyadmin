@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-20 ALexander M. Turek  <rabus@users.sourceforge.net>
+	* lang/german.inc.php3: removed comments
+
 2002-04-20 Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3; left.php3; libraries/left.js: CSS fixes.
 	* lang/italian.inc.php3: updated thanks to
@@ -98,7 +101,7 @@ $Source$
 
 2002-04-09 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/greek.inc.php3: update thanks to Kyriakos Xagoraris.
-	
+
 2002-04-09 Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/display_tbl.lib.php3, bug 541440 (Relation feature
 	  and blanks in the key), small modif to the patch thanks to Loïc
@@ -142,7 +145,7 @@ $Source$
 2002-04-04 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/german.inc.php3 big update thanks to Alexander M. Turek (rabus)
 	* lang/dutch.inc.php3 big update thanks to Martijn W. van der Lee (mwvdlee)
- 
+
 2002-04-03 Olivier Müller  <om@omnis.ch>
 	* activated www.phpmyadmin.net as project homepage, and
 	  updated the urls in the documentation/links.
@@ -240,7 +243,7 @@ $Source$
 	  change password, thanks to
 	  Matthias Fichtner <mfichtner at users.sourceforge.net>.
 	* Documentation.html, lines 382-388: added some words about setting
-	  dynamically $cfgPmaAbsoluteUri. 
+	  dynamically $cfgPmaAbsoluteUri.
 
 2002-03-22 Marc Delisle  <lem9@users.sourceforge.net>
 	* finnish, norwegian updates
@@ -295,7 +298,7 @@ $Source$
 2002-03-14 Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/common.lib.php3, PMA_MYSQL_INT_VERSION is not yet defined
 	  before the connection
-	* libraries/select_lang.lib.php3, lang/estonian.inc.php3: 
+	* libraries/select_lang.lib.php3, lang/estonian.inc.php3:
 	  new language, thanks to Alvar Soome (finsoft at sourceforge.net)
 
 2002-03-13 Marc Delisle  <lem9@users.sourceforge.net>
@@ -466,7 +469,7 @@ $Source$
 	  Jakub Wilk (ubanus).
 
 2002-02-16 Marc Delisle  <lem9@users.sourceforge.net>
-	* db_details.php3, no links if no data, 
+	* db_details.php3, no links if no data,
 	  thanks to Alexander M. Turek (rabus)
 
 2002-02-15 Loïc Chapeaux  <lolo@phpheaven.net>
@@ -571,14 +574,14 @@ $Source$
 	* tbl_replace.php3, better correction for bug 508024
 	* tbl_change.php3, bug 511324, form sent to the http server
 	  even if hosted on the https server
-	* new language: hungarian, thanks to Bakondy Péter 
+	* new language: hungarian, thanks to Bakondy Péter
 	  (bakondyp at freemail.hu)
 
 2002-02-04  Olivier Müller  <om@omnis.ch>
 	* left.php3: small cosmetic fixe in lightmode
 
 2002-02-02 Marc Delisle  <lem9@users.sourceforge.net>
-	* db_stats.php3, db_details.php3, mult_submits.inc.php3, 
+	* db_stats.php3, db_details.php3, mult_submits.inc.php3,
           tbl_properties.php3: Button to optimize many tables
 	* user_details.php3, bug 512254, missing comma for REFERENCES
 
@@ -586,11 +589,11 @@ $Source$
 	* tbl_properties.inc.php3, add a link to doc for column types
 
 2002-01-30  Olivier Müller  <om@omnis.ch>
-	* left.php3: display database name as well in lightmode, with link to 
+	* left.php3: display database name as well in lightmode, with link to
 	  db properties page
 
 2002-01-29 Marc Delisle  <lem9@users.sourceforge.net>
-	* libraries/functions.js, libraries/display_tbl.lib.php3, 
+	* libraries/functions.js, libraries/display_tbl.lib.php3,
 	  config.inc.php3: new $cfgBrowseMarkRow support, thanks
 	  to Wolfram Schlich
 
@@ -620,7 +623,7 @@ $Source$
 	  - coding standards (tabs);
 	  - fixed xhtml1.0 errors.
 	* Documentation.html, lines 1547-1548: added credits to Axel Sander for the
-	  table relation feature. 
+	  table relation feature.
 	* config.inc.php3, lines 55-56: lowered the line size to avoid automatic
 	  add of <cr><lf> while ediding this file.
 	* tbl_change.php3: fixed javascript bugs.
@@ -644,9 +647,9 @@ $Source$
 2002-01-22  Marc Delisle  <lem9@users.sourceforge.net>
 	* german updates thanks to Michael Hauptmann
 	* libraries/display_tbl.lib.php3, config.inc.php3, Documentation.html:
-          merged Patch #504887: Table relation-links, thanks to 
-          Axel Sander (n8falke) 
-	* slovak updates thanks to Lubos Klokner 
+          merged Patch #504887: Table relation-links, thanks to
+          Axel Sander (n8falke)
+	* slovak updates thanks to Lubos Klokner
 	* swedish updates thanks to Björn T. Hallberg
 	* turkish updates thanks to Bora Alioglu
 	* romanian updates thanks to Valics Lehel
@@ -684,10 +687,10 @@ $Source$
 2002-01-18  Olivier Müller  <om@omnis.ch>
 	* left.php3 db_details.php3, index.php3, main.php3, libraries/common.lib.php3:
 	  removed the leftlight.php3 file, and put all the code in left.php3: it
-	  should be cleaner and "nicer" this way.  
+	  should be cleaner and "nicer" this way.
 
 2002-01-15  Marc Delisle  <lem9@users.sourceforge.net>
-        * read_dump.php3, Documentation.html: support for open_basedir, 
+        * read_dump.php3, Documentation.html: support for open_basedir,
           thanks to Alessandro Ranellucci for the idea
         * Documentation.html, FAQ about lost MySQL root password
 
@@ -705,7 +708,7 @@ $Source$
 
 2002-01-11  Olivier Müller  <om@omnis.ch>
 	* lang/*: added $strSelectAll / $strUnselectAll, used in db_details.php3
-	* leftlight.php3, config.inc.php3, db_details.php3, index.php3, main.php3, 
+	* leftlight.php3, config.inc.php3, db_details.php3, index.php3, main.php3,
 	  libraries/common.lib.php3, Documentation.html:
 	  started to work on the "LeftLight" concept. TODO:
 		- better fonts & html
@@ -727,7 +730,7 @@ $Source$
 	* scripts/create-release.sh, lines 98-100: added a note about chmoding.
 
 2002-01-07  Marc Delisle  <lem9@users.sourceforge.net>
-	* libraries/select_lang.lib.php3, standard code for swedish, 
+	* libraries/select_lang.lib.php3, standard code for swedish,
 	  thanks to Christian Rose.
         * libraries/display_tbl.lib.php3: bug 500462
 
@@ -819,7 +822,7 @@ $Source$
 	  - libraries/common.lib.php3  PMA_showDocuShort()
 
 2001-12-21  Marc Delisle  <lem9@users.sourceforge.net>
-	* test and merge patch from Loïc for bug 495112: 
+	* test and merge patch from Loïc for bug 495112:
 	  - libraries/common.lib.php3
 
 2001-12-19  Loïc Chapeaux  <lolo@phpheaven.net>
@@ -956,7 +959,7 @@ $Source$
 2001-12-05  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/norwegian.inc.php3 updates thanks to Sven-Erik Andersen
 	* Documentation.html: faq entry about safe mode and uploads
-	* db_details.php3, tbl_printview.php3: patch #484112, 
+	* db_details.php3, tbl_printview.php3: patch #484112,
 	  thanks to Christophe Gesché (moosh_fr at sourceforge.net)
 
 2001-12-04  Loïc Chapeaux  <lolo@phpheaven.net>
@@ -1608,10 +1611,10 @@ $Source$
 	  rewrtitten the users script so it validates xhtml1.0, and fix a security
 	  issue removing most of the javascript work.
 
-2001-09-15  Marc Delisle  <lem9@users.sourceforge.net> 
+2001-09-15  Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/common.lib.php3, bug #460475: user can be blank in mysql.db
 	  (anonymous user), as stated in MySQL doc.
-    
+
 2001-09-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_change.php3, lines 351-352: fixed bug #461623 (wrong maxlength in
 	  table_change.php).
@@ -1705,7 +1708,7 @@ $Source$
 	* db_printview.php3; tbl_printview.php3: extended so the generated pages
 	  contains the same informations that the one in the calling page. Based on
 	  patch #444128 (display & dump index length) thanks to
-	  Marcus Börger <helly at users.sourceforge.net>. 
+	  Marcus Börger <helly at users.sourceforge.net>.
 	* db_details.php3; db_readdump.php3; sql.php3; lib.inc.php3; main.php3;
 	  tbl_copy.php3; tbl_properties.inc.php3; tbl_properties.php3;
 	  tbl_rename.php3; mult_submits.inc.php3: $reload has now true boolean
@@ -1787,7 +1790,7 @@ $Source$
 	* defines.inc.php3; header.inc.php3; left.js; left.php3; lib.inc.php3:
 	  improved font size definition.
 	* tbl_replace.php3:
-	  - lines 107-108: maybe fixed bugs #458324 - Editing fields and 
+	  - lines 107-108: maybe fixed bugs #458324 - Editing fields and
 	    #457260 - update (LIMIT 1);
 	  - fixed a js. bug.
 	* lang/italian.inc.php3: updated thanks to
@@ -2076,7 +2079,7 @@ $Source$
 	* config.inc.php3, config.php3, Docs, sql.php3: added configuration
 	  variable $cfgAllowUserDropDatabase (set by default to FALSE), which will
 	  display or not the link "Drop database" and reject the command if the
-	  user is not allowed to run it (requested by <lance@uklinux.net>). 
+	  user is not allowed to run it (requested by <lance@uklinux.net>).
 
 2001-08-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_stats.php3: ensured the script is XHTML1.0 compliant and fits the
@@ -2200,8 +2203,8 @@ $Source$
 	* tbl_properties.inc.php3, lines 306-314; lang/*: added some words about
 	  enums and set fields.
 
-2001-08-17  Robin Johnson  <robbat2@orbis-terrarum.net> 
-	* config.inc.php3 
+2001-08-17  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* config.inc.php3
 	  - Added comments about what many of the configuration variables do
 	  - Replaced multiple spaces with tabs for alignment
 
@@ -2235,7 +2238,7 @@ $Source$
 2001-08-15  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* Bug #450374 - (RC4) + becomes space - patched in tbl_replace.php3
 
-2001-08-15  Steve Alberty  <alberty@neptunlabs.de> 
+2001-08-15  Steve Alberty  <alberty@neptunlabs.de>
 	* lib.inc.php3: prevent to use dl() if dl not exists (PHP5).
 
 2001-08-15  Loïc Chapeaux  <lolo@phpheaven.net>
@@ -2275,7 +2278,7 @@ $Source$
 	* tbl_change.php3, line 2: fixed $id issue.
 	* define.php3: optimized a bit the MySQL version query.
 
-2001-08-10  Marc Delisle  <lem9@users.sourceforge.net> 
+2001-08-10  Marc Delisle  <lem9@users.sourceforge.net>
 	* russian updates (2 files) thanks to Max Zhivluck.
 	* slovak updates thanks to Lubos Klokner.
 	* defines.inc.php3, bug 449800, missing @.
@@ -2311,14 +2314,14 @@ $Source$
 	* lang/polish.inc.php3, documentation.html, credits: updated translation
 	  thanks to Jakub Wilk <ubanus@users.sourceforge.net>.
 
-2001-08-08  Marc Delisle  <lem9@users.sourceforge.net> 
-	* tbl_change.php3, enum values were not displayed 
-	* sql.php3, bug of strange display after a Select 
+2001-08-08  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change.php3, enum values were not displayed
+	* sql.php3, bug of strange display after a Select
 
-2001-08-08  Olivier Müller  <om@omnis.ch> 
+2001-08-08  Olivier Müller  <om@omnis.ch>
 	* new script create-release.sh
 	* moved scripts to a new subdirectory "scripts/"
-	* main.php3: fix: display link to user_details.php3 also 
+	* main.php3: fix: display link to user_details.php3 also
 	  in non adv_auth mode
 
 2001-08-08  Loïc Chapeaux  <lolo@phpheaven.net>
@@ -2349,17 +2352,17 @@ $Source$
 	* db_details.php3, tbl_properties.php3, lang/*: improved js validation
 	  tests (and reduced server charge).
 
-2001-08-07  Marc Delisle  <lem9@users.sourceforge.net> 
-	* bug 448737 user_details.php typos 
+2001-08-07  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug 448737 user_details.php typos
 
 2001-08-06  Marc Delisle  <lem9@users.sourceforge.net>
 	* lib.inc.php3, new code from Loic to avoid showing BLOB when displaying
 	  a TEXT field
 	* sql.php3, bug 448226 (Missing MySQL messages), correction from Loic.
-	* tbl_change.php3, bug 442778, Edit record with two similar SET fields 
+	* tbl_change.php3, bug 442778, Edit record with two similar SET fields
 	* tbl_replace.php3, could not save a row with a set which has no value
   	  selected
-	* sql.php3, bug 444749 SQL DATE & TIME FUNCTION ERROR 
+	* sql.php3, bug 444749 SQL DATE & TIME FUNCTION ERROR
 
 2001-08-06  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_change.php3, line 250: fixed a bug with set fields.
@@ -2399,7 +2402,7 @@ $Source$
 	* tbl_properties.php3: fixed some coding inconcistencies (tabs, ...) and
 	  added a link to empty the current table.
 	* ob_lib.inc.php3, line 34: ini_get is a php4 only function and may be
-	  disabled -> put an @ before it is called to avoid errors. 
+	  disabled -> put an @ before it is called to avoid errors.
 
 2001-08-03  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/*: updated so they are xhtml1.0 valid and fits PEAR codding
@@ -2424,14 +2427,14 @@ $Source$
 2001-08-03  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_change.php3: current value of enums was lost.
 	* bug 445348, if ob_gzhandler already set in php.ini, patch by
-	  Garth Gillespie, modified by me 
+	  Garth Gillespie, modified by me
 
 2001-08-03  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_properties.php3, db_details.php3: fixed problem with table size
 	  display and Non-ISAM tables.
 	* tbl_qbe.php3: remove some warnings in higher errorlevel
 
-2001-08-03  Olivier Müller  <om@omnis.ch> 
+2001-08-03  Olivier Müller  <om@omnis.ch>
 	* Generated Documentation.txt based on Documentation.html (not everybody is
 	  having a webbrowser on their servers... :)
 	  But please do continue to work *ONLY* on Documentation.html. And then
@@ -2442,30 +2445,30 @@ $Source$
 	* removed contents of INSTALL (now points to the Documentation) and updated
 	  README.
 
-2001-08-02  Marc Delisle  <lem9@users.sourceforge.net> 
+2001-08-02  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_qbe.php3: workaround a PHP3 problem.
 	* tbl_change.php3: bug 446830 (enums), adapted patch from
 	  Ignacio Vazquez-Abrams (ivazquezabrams).
-	* tbl_change.php3: bug 445722 when one of the enums is a datatype 
+	* tbl_change.php3: bug 445722 when one of the enums is a datatype
 	  enum('text','audio','image','video','data','application','other').
 	* removed DEVELOPERS (merged in Documentation.html).
 
-2001-08-02  Benjamin Gandon <gandon@isia.cma.fr> 
+2001-08-02  Benjamin Gandon <gandon@isia.cma.fr>
 	* Documentation.html: added a FAQ entry about the buggy php package still
 	  available for RedHat 7.0 update.
 	* lib.inc.php3: corrected the original bug of split_sql() (present much
 	  before 2.1.0). Removed the quick hack to handle queries containing
 	  "('\\')". The alorithm is ok now.
 
-2001-08-02  Steve Alberty  <alberty@neptunlabs.de> 
+2001-08-02  Steve Alberty  <alberty@neptunlabs.de>
 	* sql.php3: fix confirm bug with the new backquotes.
 	* db_readdump.php3: mysql_die2 to mysql_die.
 
-2001-08-01  Marc Delisle  <lem9@users.sourceforge.net> 
-	* executed remove_control_m.sh on *.php3 
+2001-08-01  Marc Delisle  <lem9@users.sourceforge.net>
+	* executed remove_control_m.sh on *.php3
 
-2001-08-01  Armel Fauveau <armel.fauveau@globalis-ms.com> 
-	* extchg.sh : \r\n to \n and patch request #444789 
+2001-08-01  Armel Fauveau <armel.fauveau@globalis-ms.com>
+	* extchg.sh : \r\n to \n and patch request #444789
 
 2001-07-31  Armel Fauveau <armel.fauveau@globalis-ms.com>
 	* bookmark support now advanced auth
@@ -2483,14 +2486,14 @@ $Source$
 	* spanish.inc.php3 updates, thanks to
 	  Gabriel Ginard <gginard@navegalia.com>
 	* tbl_change.php3: bug 443760: binary attribute does not mean that the
-	  contents is binary, so they should be editable 
+	  contents is binary, so they should be editable
 	* new $cfgProtectBlob, protecting editing of blobs is optional
 
 2001-07-28  Marc Delisle  <lem9@users.sourceforge.net>
 	* lib.inc.php3: establish constraints for the code, to get PHP3
 	  compatibility
 	* tbl_qbe.php3: add checks for unset variables
-    
+
 2001-07-27  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_select.php3 and dynamic field size
 
@@ -2499,7 +2502,7 @@ $Source$
 
 2001-07-24  Marc Delisle  <lem9@users.sourceforge.net>
 	* updates to french
-	* select_lang.inc.php3, lang/: new slovak translation thanks to 
+	* select_lang.inc.php3, lang/: new slovak translation thanks to
 	  Lubos Klokner <erkac@vault-tec.sk>
 	* main.php3: bug 443710 Create New Database option: was working only if
 	  stduser has Global privileges on all databases.
@@ -2557,7 +2560,7 @@ $Source$
 	* ob.lib.inc.php3, lines 50-54 & 73-76: fixed a bug with php3.
 
 2001-07-20  Marc Delisle  <lem9@users.sourceforge.net>
-	* HTTP compression patch thanks to Jeremy Brand <jeremy@nirvani.net> 
+	* HTTP compression patch thanks to Jeremy Brand <jeremy@nirvani.net>
 	header.inc.php3, footer.inc.php3, ob_lib.inc.php3
 
 2001-07-20  Steve Alberty  <alberty@neptunlabs.de>
@@ -2595,7 +2598,7 @@ $Source$
 	* set current version number to 2.2.0rc3 (which should become 2.2.0-final)
 	* tbl_change.php3: feature #442402: while editing a record, the function
 	  of the first timestamp field will be set by default to "NOW()" :
-	  same behaviour as the command line mysql client. 
+	  same behaviour as the command line mysql client.
 
 2001-07-17  Loïc Chapeaux  <lolo@phpheaven.net>
 	* added credits for Benjamin Gandon <gandon@isia.cma.fr> in this file,
@@ -2604,13 +2607,13 @@ $Source$
 2001-07-17  Marc Delisle  <lem9@users.sourceforge.net>
 	* user_details.php3, bugs 441987, 441990:
 	  corrections thanks to vinay and girish @sanisoft.com
-	* tbl_properties.php3, new link to drop table, thanks to 
-	  Stuart Logan <logan69@users.sourceforge.net> for the idea 
+	* tbl_properties.php3, new link to drop table, thanks to
+	  Stuart Logan <logan69@users.sourceforge.net> for the idea
 
 2001-07-17  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_addfield.php3: add trouble detection if insert field failed
 	* tbl_rename.php3,tbl_copy.php3: block table rename if newname empty
-	
+
 2001-07-16  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_change.php3, bug 441689, "Insert as new row" was not copying blobs.
 
@@ -2628,12 +2631,12 @@ $Source$
 	* small patch from vinay and girish @sanisoft.com:
 	  db_details.php3: new checkbox for optional re-display of query
 	  (lang/*.php3)
-  
+
 2001-07-15  Olivier Müller  <om@omnis.ch>
 	* releasing 2.2.0rc2
 
 2001-07-15  Marc Delisle  <lem9@users.sourceforge.net>
-	* new script remove_control_m.sh 
+	* new script remove_control_m.sh
 	* all php3 files which had control M
 
 2001-07-15  Loïc Chapeaux  <lolo@phpheaven.net>
@@ -2751,7 +2754,7 @@ $Source$
 	* bug 439709, tbl_properties.php3: show table maintenance options
 	  based on table type
 	* bug 439565, lib.inc.php3, db_readdump.php3, could not do:
-	  DELETE FROM inscrit WHERE pseudo='test&#039;ap'; 
+	  DELETE FROM inscrit WHERE pseudo='test&#039;ap';
 
 2001-07-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, line 742: Documentation is now loaded in its own window.
@@ -2812,7 +2815,7 @@ $Source$
 	  database).
 
 2001-07-04  Marc Delisle  <lem9@users.sourceforge.net>
-	* bug #438319 (IE 5.5 and "Add a new user"): user_details.php3, 
+	* bug #438319 (IE 5.5 and "Add a new user"): user_details.php3,
 	  thanks to Loïc Chapeaux  <lolo@phpheaven.net>
 
 2001-07-04  Olivier Müller  <om@omnis.ch>   [uid23515]
@@ -2824,7 +2827,7 @@ $Source$
 
 2001-07-03  Marc Delisle  <lem9@users.sourceforge.net>
 	* lib.inc.php3: patch from Chee Wai for illegal index
-	* lang/brazilian_portuguese.inc.php3 update from 
+	* lang/brazilian_portuguese.inc.php3 update from
 	  Flavio Borges Botelho <nuncanada@ig.com.br>
 
 2001-07-03  Steve Alberty  <alberty@neptunlabs.de>
@@ -2847,7 +2850,7 @@ $Source$
 	* spacer.gif was broken (strange display with NS).
 
 2001-06-30  Marc Delisle  <lem9@users.sourceforge.net>
-	* tbl_change.php3, lang/*: merge patch: "do not edit blobs" from 
+	* tbl_change.php3, lang/*: merge patch: "do not edit blobs" from
 	  Bernard M. Piller <bernard@bmpsystems.com>
 
 2001-06-30  Olivier Müller  <om@omnis.ch>
@@ -2869,7 +2872,7 @@ $Source$
 	  Inheritence) suggested by Thomas Michael Winningham.
 	* header.inc.php3: added headers to vaoid the use of cached files (required
 	  for Opera)
-  
+
 2001-06-29  Marc Delisle  <lem9@users.sourceforge.net>
 	* user_details.php3, js code to protect db and table names
 
@@ -2900,7 +2903,7 @@ $Source$
 
 2001-06-23  Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3: Rewrote this script so it fits PEAR codding standards and
-	  produces an xhtml compliant output. 
+	  produces an xhtml compliant output.
 	* main.php3, user_details.php3, db_details.php3, tbl_properties.inc.php3:
 	  fixed bad anchors case in links to the documentation thanks to
 	  Laurent HAAS <mci@free.fr>.
@@ -3155,7 +3158,7 @@ $Source$
 	  users to grab the current pre-release version from SouceForge.
 
 2001-05-03  Olivier Müller  <om@omnis.ch>
-	* started devel-branch : "phpMyAdmin-devel". To be used for experimental 
+	* started devel-branch : "phpMyAdmin-devel". To be used for experimental
 	  stuff and new features.
 
 2001-05-02  Robin Johnson  <robbat2@users.sourceforge.net>
@@ -3174,13 +3177,13 @@ $Source$
 2001-04-29  Olivier Müller  <om@omnis.ch>
 	* added lang file for Thai. Thanks to Korakot Chaovavanich (korakot)
 	* tbl_select.php3, line 19: replaced GET by POST (SF bugfix)
-	* tbl_properties.php3: added textfield for mysql input (patch from korakot)	
+	* tbl_properties.php3: added textfield for mysql input (patch from korakot)
 	* tbl_properties.php3: <? -> <?php (patch from robbat2)
 	* added lang file for Swedish. Tack till David Nordenberg.
 	* Norwegian lang file update by Sven-Erik Andersen.
 
 2001-04-28  Olivier Müller  <om@omnis.ch>
-	* applied security patch from 
+	* applied security patch from
  	  http://www.securereality.com.au/patches/phpMyAdmin-SecureReality.diff
 	  (thx to Geert Lund for the info)
 	* now using explode() instead of split_string() in tbl_change.php3
@@ -3209,7 +3212,7 @@ $Source$
 
  v 2.1.0.2 - 26-mar-2001 + Removed necessity of register_globals and added the
                            "grab_globals.inc.php3" library to this end
-                           Now, phpMyAdmin detects what to do according to 
+                           Now, phpMyAdmin detects what to do according to
                            the configuration you chosed!
                          + Bugfix: a warning may be displayed because a string
                            was appent to an unset variable in 'tbl_copy.php3'
@@ -3233,7 +3236,7 @@ $Source$
                          + Bugfix: split_string() in lib.inc.php3
                          + Bugfix: split_sql() in db_readdump.php3
                          + Removed necessity of magic_quotes_gpc
-                           Now, phpMyAdmin detects what to do according to 
+                           Now, phpMyAdmin detects what to do according to
                            the configuration you chosed!
                          + clicking on a database name in left frame
                            don't unexpand it anymore. You have to click oh the
@@ -3245,7 +3248,7 @@ $Source$
                            buttons on the left or on the right of rows (or both)
                          + Some corrections in spanish.inc.php3 and some other
                            languages files.
-                         + Bugfix: mesage display after reading a dump or 
+                         + Bugfix: mesage display after reading a dump or
                            executing a single query
 
  v 2.1.x - 03/02/2001  + Added dynamic multiple language support, with
