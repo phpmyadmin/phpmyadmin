@@ -97,7 +97,7 @@ function PMA_DBI_try_query($query, $link = NULL, $options = 0) {
     } elseif ($options == ($options | PMA_DBI_QUERY_UNBUFFERED)) {
         $method = MYSQLI_USE_RESULT;
     } else {
-        $method = MYSQLI_USE_RESULT;
+        $method = MYSQLI_STORE_RESULT;
     }
 
     if (empty($link)) {
@@ -154,6 +154,10 @@ function PMA_mysqli_fetch_array($result, $type = FALSE) {
         }
         return $ret;
     }
+}
+
+function PMA_DBI_fetch_array($result) {
+    return PMA_mysqli_fetch_array($result, MYSQLI_BOTH);
 }
 
 function PMA_DBI_fetch_assoc($result) {
@@ -223,7 +227,117 @@ function PMA_DBI_affected_rows($link) {
 }
 
 function PMA_DBI_get_fields_meta($result) {
-    return mysqli_fetch_fields($result);
+
+    $typeAr[MYSQLI_TYPE_DECIMAL] = 'real';
+    $typeAr[MYSQLI_TYPE_TINY] = 'int';
+    $typeAr[MYSQLI_TYPE_SHORT] = 'int';
+    $typeAr[MYSQLI_TYPE_LONG] = 'int';
+    $typeAr[MYSQLI_TYPE_FLOAT] = 'real';
+    $typeAr[MYSQLI_TYPE_DOUBLE] = 'real';
+    $typeAr[MYSQLI_TYPE_NULL] = 'null';
+    $typeAr[MYSQLI_TYPE_TIMESTAMP] = 'timestamp';
+    $typeAr[MYSQLI_TYPE_LONGLONG] = 'int';
+    $typeAr[MYSQLI_TYPE_INT24] = 'int';
+    $typeAr[MYSQLI_TYPE_DATE] = 'date';
+    $typeAr[MYSQLI_TYPE_TIME] = 'time';
+    $typeAr[MYSQLI_TYPE_DATETIME] = 'datetime';
+    $typeAr[MYSQLI_TYPE_YEAR] = 'year';
+    $typeAr[MYSQLI_TYPE_NEWDATE] = 'date';
+    $typeAr[MYSQLI_TYPE_ENUM] = 'unknown';
+    $typeAr[MYSQLI_TYPE_SET] = 'unknown';
+    $typeAr[MYSQLI_TYPE_TINY_BLOB] = 'blob';
+    $typeAr[MYSQLI_TYPE_MEDIUM_BLOB] = 'blob';
+    $typeAr[MYSQLI_TYPE_LONG_BLOB] = 'blob';
+    $typeAr[MYSQLI_TYPE_BLOB] = 'blob';
+    $typeAr[MYSQLI_TYPE_VAR_STRING] = 'string';
+    $typeAr[MYSQLI_TYPE_STRING] = 'string';
+    $typeAr[MYSQLI_TYPE_CHAR] = 'string';
+    $typeAr[MYSQLI_TYPE_GEOMETRY] = 'unknown';
+
+    $fields = mysqli_fetch_fields($result);
+    foreach($fields as $k => $field) {
+        $fields[$k]->type = $typeAr[$field->type];
+        $f = $field->flags;
+        $flags = '';
+        while ($f > 0) { 
+            if (floor($f / 65536)) {
+                $flags .= 'unique ';
+                $f -= 65536;
+                continue; 
+            }
+            if (floor($f / 32768)) {
+                $flags .= 'num ';
+                $f -= 32768;
+                continue;
+            }
+            if (floor($f / 16384)) {
+                $flags .= 'part_key ';
+                $f -= 16384;
+                continue;
+            }
+            if (floor($f / 2048)) {
+                $flags .= 'set ';
+                $f -= 2048;
+                continue;
+            }
+            if (floor($f / 1024)) {
+                $flags .= 'timestamp ';
+                $f -= 1024;
+                continue;
+            }if (floor($f / 512)) {
+                $flags .= 'auto_increment ';
+                $f -= 512;
+                continue;
+            }
+            if (floor($f / 256)) {
+                $flags .= 'enum ';
+                $f -= 256;
+                continue;
+            }
+            if (floor($f / 128)) {
+                $flags .= 'binary ';
+               $f -= 128;
+                continue;
+            }
+            if (floor($f / 64)) {
+                $flags .= 'zerofill ';
+                $f -= 64;
+                continue;
+            }
+            if (floor($f / 32)) {
+                $flags .= 'unsigned ';
+                $f -= 32;
+                continue;
+            }
+            if (floor($f / 16)) {
+                $flags .= 'blob ';
+                $f -= 16;
+                continue;
+            }
+            if (floor($f / 8)) {
+                $flags .= 'multiple_key ';
+                $f -= 8;
+                continue;
+            }
+            if (floor($f / 4)) {
+                $flags .= 'unique_key ';
+                $f -= 4;
+                continue;
+            }
+            if (floor($f / 2)) {
+                $flags .= 'primary_key ';
+                $f -= 2;
+                continue;
+            }
+            if (floor($f / 1)) {
+                $flags .= 'not_null ';
+                $f -= 1;
+                continue;
+            }
+        }
+        $fields[$k]->flags = trim($flags);
+    }
+    return $fields;
 }
 
 function PMA_DBI_num_fields($result) {

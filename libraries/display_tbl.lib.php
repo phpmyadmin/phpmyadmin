@@ -977,7 +977,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     // rabus: This function needs a little rework.
     //        Using MYSQL_BOTH just pollutes the memory!
 
-    while ($row = PMA_mysql_fetch_array($dt_result)) { // !UNWRAPPED FUNCTION!
+    // ne0x:  Use function PMA_DBI_fetch_array() due to mysqli
+    //        compatibility. Now this function is wrapped.
+
+    while ($row = PMA_DBI_fetch_array($dt_result)) {
 
         // lem9: "vertical display" mode stuff
         if (($row_no != 0) && ($repeat_cells != 0) && !($row_no % $repeat_cells) && ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped')) {
@@ -1034,7 +1037,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 for ($i = 0; $i < $fields_cnt; ++$i) {
                     $field_flags = PMA_mysql_field_flags($dt_result, $i); // !UNWRAPPED FUNCTION!
                     $meta      = $fields_meta[$i];
-
                     // do not use an alias in a condition
                     $column_for_condition = $meta->name;
                     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {

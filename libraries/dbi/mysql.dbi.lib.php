@@ -172,6 +172,10 @@ function PMA_mysql_fetch_array($result, $type = FALSE) {
     }
 }
 
+function PMA_DBI_fetch_array($result) {
+    return PMA_mysql_fetch_array($result);
+}
+
 function PMA_DBI_fetch_assoc($result) {
     return PMA_mysql_fetch_array($result, MYSQL_ASSOC);
 }

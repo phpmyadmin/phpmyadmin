@@ -46,7 +46,100 @@ function PMA_mysql_fetch_row($result) {
 }
 
 function PMA_mysql_field_flags($result, $field_offset) {
-    return PMA_convert_display_charset(mysql_field_flags($result, $field_offset));
+    /* ne0x/swix: added a switch for the mysqli extention because mysqli does not know 
+       the function mysqli_field_flags */
+
+    global $cfg;
+    
+    switch ($cfg['Server']['extension']) {
+        case "mysqli":
+            $f = mysqli_fetch_field_direct($result, $field_offset);
+            $f = $f->flags;
+            $flags = '';
+            while ($f > 0) {
+                if (floor($f / 65536)) {
+                    $flags .= 'unique ';
+                    $f -= 65536;
+                    continue;
+                }
+                if (floor($f / 32768)) {
+                    $flags .= 'num ';
+                    $f -= 32768;
+                    continue;
+                }
+                if (floor($f / 16384)) {
+                    $flags .= 'part_key ';
+                    $f -= 16384;
+                    continue;
+                }
+                if (floor($f / 2048)) {
+                    $flags .= 'set ';
+                    $f -= 2048;
+                    continue;
+                }
+                if (floor($f / 1024)) {
+                    $flags .= 'timestamp ';
+                    $f -= 1024;
+                    continue;
+                }if (floor($f / 512)) {
+                    $flags .= 'auto_increment ';
+                    $f -= 512;
+                    continue;
+                }
+                if (floor($f / 256)) {
+                    $flags .= 'enum ';
+                    $f -= 256;
+                    continue;
+                }
+                if (floor($f / 128)) {
+                    $flags .= 'binary ';
+                    $f -= 128;
+                    continue;
+                }
+                if (floor($f / 64)) {
+                    $flags .= 'zerofill ';
+                    $f -= 64;
+                    continue;
+                }
+                if (floor($f / 32)) {
+                    $flags .= 'unsigned ';
+                    $f -= 32;
+                    continue;
+                }
+                if (floor($f / 16)) {
+                    $flags .= 'blob ';
+                    $f -= 16;
+                    continue;
+                }
+                if (floor($f / 8)) {
+                    $flags .= 'multiple_key ';
+                    $f -= 8;
+                    continue;
+                }
+                if (floor($f / 4)) {
+                    $flags .= 'unique_key ';
+                    $f -= 4;
+                    continue;
+                }
+                if (floor($f / 2)) {
+                    $flags .= 'primary_key ';
+                    $f -= 2;
+                    continue;
+                }
+                if (floor($f / 1)) {
+                    $flags .= 'not_null ';
+                    $f -= 1;
+                    continue;
+                }
+            }
+            return PMA_convert_display_charset(trim($flags));
+
+        case "mysql":
+        default:
+            return PMA_convert_display_charset(mysql_field_flags($result, $field_offset));
+
+
+    }
 }
 
 function PMA_mysql_field_name($result, $field_index) {

@@ -5,6 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-23 Olivier Mueller <om@omnis.ch>
+    * libraries/mysql_wrappers.lib.php: added mysqli support to the
+      PMA_mysql_field_flags function because mysqli does not know the function
+      mysqli_field_flags (submitted by Marcel Tschopp - aka 'ne0x' on SF).
+    * libraries/dbi/mysqli.dbi.lib.php: changed default query mode from 
+      MYSQLI_USE_RESULT to MYSQLI_STORE_RESULT in the 
+      PMA_DBI_try_query function (ne0x)
+    * libraries/dbi/mysql.dbi.lib.php, libraries/dbi/mysqli.dbi.lib.php:
+      Added wrapping function PMA_DBI_fetch_array() (ne0x)
+    * libraries/display_tbl.lib.php: PMA_displayTableBody() function now uses
+      the new PMA_DBI_fetch_array() function instead of 
+      PMA_mysql_fetch_array() (ne0x)
+
 2004-03-22 Michal Cihar  <michal@cihar.com>
     * libraries/auth/config.auth.lib.php: Set correct variable to avoid
       attempting sending headers twice.
