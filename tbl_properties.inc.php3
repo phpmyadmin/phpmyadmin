@@ -2,6 +2,14 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+// Check parameters
+
+if (!defined('PMA_COMMON_LIB_INCLUDED')) {
+    include('./libraries/common.lib.php3');
+}
+
+PMA_checkParameters(array('db','table','action','num_fields'));
+
 
 // Get available character sets (MySQL >= 4.1)
 if (PMA_MYSQL_INT_VERSION >= 40100 && !defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')) {

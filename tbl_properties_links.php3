@@ -9,6 +9,14 @@
 error_reporting(E_ALL);
 
 
+// Check parameters
+
+if (!defined('PMA_COMMON_LIB_INCLUDED')) {
+    include('./libraries/common.lib.php3');
+}
+
+PMA_checkParameters(array('db'));
+
 /**
  * Count amount of navigation tabs
  */

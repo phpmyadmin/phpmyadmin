@@ -5,6 +5,14 @@
 // this should be recoded as functions, to avoid messing with global
 // variables
 
+// Check parameters
+
+if (!defined('PMA_COMMON_LIB_INCLUDED')) {
+    include('./libraries/common.lib.php3');
+}
+
+PMA_checkParameters(array('db', 'table', 'err_url_0'));
+
 /**
  * Gets table informations
  */
