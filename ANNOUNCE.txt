@@ -23,6 +23,11 @@ Announcement
    the Web, and is now one of the most popular PHP script used
    worldwide: more than 3.1 million download in the past year!
 
+   SourceForge gave phpMyAdmin the "Project of the Month" award in 
+   December: look at the article http://sourceforge.net/pom_1202.php
+   to learn more about the project's history.
+
+
    phpMyAdmin 2.4.0 includes the following highlights:
 
 
