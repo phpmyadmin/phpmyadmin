@@ -92,6 +92,8 @@ $strChangePassword = 'パスワードの変更';
 $strCharsetOfFile = 'ファイルの文字セット:';
 $strCheckAll = '全てをマーク';
 $strCheckDbPriv = 'データベースの特権の確認';
+$strCheckPrivs = '特権のチェック';
+$strCheckPrivsLong = 'データベース &quot;%s&quot; の特権チェック。';
 $strCheckTable = 'テーブルをチェックします。';
 $strChoosePage = '編集するページを選択して下さい';
 $strColComFeat = '列コメント表示機' . "\x94\x5c";
@@ -135,9 +137,14 @@ $strDatabase = 'データベース';
 $strDatabaseHasBeenDropped = 'データベース%sを正常に削除しました。';
 $strDatabaseWildcard = 'データベース(ワイルドカード使用可):';
 $strDatabases = 'データベース';
+$strDatabasesDropped = '%s データベースは削除されました。';
 $strDatabasesStats = 'データベースの統計';
+$strDatabasesStatsDisable = '統計を無効';
+$strDatabasesStatsEnable = '統計を許可';
+$strDatabasesStatsHeavyTraffic = '注意: データベース統計を許可するとMySQLとWEBサーバーの間で重いトラフィックが発生するかもしれません。';
 $strDbPrivileges = 'データベース特定 特権';
 $strDefault = '基本値';
+$strDefaultValueHelp = 'デフォルト値のために、バックスラッシュエスケープや引用符なしの1個だけの値を入れて下さい, このフォーマットは: a';
 $strDelete = '削除';
 $strDeleteAndFlush = 'ユーザーを削除して特権をリロードします。';
 $strDeleteAndFlushDescr = 'これはクリアーです。特権をリロードするので少々時間がかかります。';
@@ -157,6 +164,7 @@ $strDoYouReally = '本当に実行しても良いですか？ --> ';
 $strDocu = 'ヘルプ';
 $strDrop = '削除';
 $strDropDB = 'データベース%sの削除 ';
+$strDropSelectedDatabases = '選択されたデータベースの削除';
 $strDropTable = 'テーブルの削除';
 $strDropUsersDb = 'ユーザーと同じ名前を持つデータベースを削除します。';
 $strDumpXRows = '%s 列をダンプ。始める列は %s.';
@@ -241,6 +249,7 @@ $strInsertedRows = '追加された行数:';
 $strInstructions = '実施例';
 $strInvalidName = '"%s"は予約語ですから「データベース／テーブル／フィールド」名には使えません。';
 
+$strJumpToDB = '&quot;%s&quot; データベースへジャンプ.';
 $strJustDelete = '特権テーブルからユーザーを即削除します。';
 $strJustDeleteDescr = '&quot;削除済&quot; ユーザーは特権がリロードされるまでサーバーにアクセス可能です。';
 
@@ -286,6 +295,7 @@ $strName = '名前';
 $strNext = '次へ';
 $strNo = 'いいえ';
 $strNoDatabases = 'データベース数';
+$strNoDatabasesSelected = 'データベースが選択されていません。';
 $strNoDescription = '記述がありません';
 $strNoDropDatabases = '"DROP DATABASE"ステートメントは禁止される。';
 $strNoExplain = 'Explain SQLをスキップ';
@@ -563,17 +573,10 @@ $strYes = 'はい';
 $strZeroRemovesTheLimit = '注意: オプションを 0 (ゼロ)に設定すると制限がなくなります。';
 $strZip = '"zipされる"';
 
-$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
-$strCheckPrivs = 'Check Privileges';  //to translate
-$strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.';  //to translate
-$strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
-$strDatabasesStatsDisable = 'Disable Statistics';  //to translate
-$strDatabasesStatsEnable = 'Enable Statistics';  //to translate
-$strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
-$strDropSelectedDatabases = 'Drop Selected Databases';  //to translate
-$strNoDatabasesSelected = 'No databases selected.';  //to translate
-$strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate
-$strGlobal = 'global';  //to translate
 $strDbSpecific = 'database-specific';  //to translate
+
+$strGlobal = 'global';  //to translate
+
 $strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
+
 ?>
