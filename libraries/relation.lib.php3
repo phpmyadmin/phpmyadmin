@@ -159,12 +159,12 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             $disabled = '<font color="red">'   . $GLOBALS['strDisabled'] . '</font>';
 
             echo '<table>' . "\n";
-            echo '    <tr><th align="left">PMA Database ... </th><td align="right">'
+            echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'pmadb\'] ... </th><td align="right">'
                  . (($cfg['Server']['pmadb'] == FALSE) ? sprintf($shit, 'pmadb') : $hit)
                  . '</td></tr>' . "\n";
             echo '    <tr><td>&nbsp;</td></tr>' . "\n";
 
-            echo '    <tr><th align="left">relation Table ... </th><td align="right">'
+            echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'relation\'] ... </th><td align="right">'
                  . ((isset($cfgRelation['relation'])) ? $hit : sprintf($shit, 'relation'))
                  . '</td></tr>' . "\n";
             echo '    <tr><td colspan=2 align="center">'. $GLOBALS['strGeneralRelationFeat'] . ': '
@@ -172,7 +172,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                  . '</td></tr>' . "\n";
             echo '    <tr><td>&nbsp;</td></tr>' . "\n";
 
-            echo '    <tr><th align="left">table_info   ... </th><td align="right">'
+            echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'table_info\']   ... </th><td align="right">'
                  . (($cfgRelation['displaywork'] == FALSE) ? sprintf($shit, 'table_info') : $hit)
                  . '</td></tr>' . "\n";
             echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strDisplayFeat'] . ': '
@@ -180,10 +180,10 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                  . '</td></tr>' . "\n";
             echo '    <tr><td>&nbsp;</td></tr>' . "\n";
 
-            echo '    <tr><th align="left">table_coords ... </th><td align="right">'
+            echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'table_coords\'] ... </th><td align="right">'
                  . ((isset($cfgRelation['table_coords'])) ? $hit : sprintf($shit, 'table_coords'))
                  . '</td></tr>' . "\n";
-            echo '    <tr><th align="left">pdf_pages ... </th><td align="right">'
+            echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'pdf_pages\'] ... </th><td align="right">'
                  . ((isset($cfgRelation['pdf_pages'])) ? $hit : sprintf($shit, 'table_coords'))
                  . '</td></tr>' . "\n";
             echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strCreatePdfFeat'] . ': '
@@ -191,7 +191,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                  . '</td></tr>' . "\n";
             echo '    <tr><td>&nbsp;</td></tr>' . "\n";
 
-            echo '    <tr><th align="left">column_comments ... </th><td align="right">'
+            echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'column_comments\'] ... </th><td align="right">'
                  . ((isset($cfgRelation['column_comments'])) ? $hit : sprintf($shit, 'col_com'))
                  . '</td></tr>' . "\n";
             echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strColComFeat'] . ': '
