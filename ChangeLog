@@ -23,6 +23,11 @@ $Source$
 2003-02-25 Garvin Hicking <me@supergarv.de>
     * tbl_properties.inc.php3: Fixed duped display of comments due to
       merging diff conflict.
+    * lang/german*: German translations, only missing transformation
+      descriptions. They shouldn't be translated at that early point, I guess.
+    * libraries/config_import.lib.php3, libraries/relation.lib.php3,
+      libraries/transformations.lib.php3: 'column_info', they were somehow
+      not included in rabus' commit?!
 
 2003-02-24 Alexander M. Turek  <rabus@users.sourceforge.net>
     * common.lib.php3: Backwards compatibility.

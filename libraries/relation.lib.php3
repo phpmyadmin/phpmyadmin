@@ -123,8 +123,8 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                 $cfgRelation['table_info']      = $curr_table[0];
             } else if ($curr_table[0] == $cfg['Server']['table_coords']) {
                 $cfgRelation['table_coords']    = $curr_table[0];
-            } else if ($curr_table[0] == $cfg['Server']['column_comments']) {
-                $cfgRelation['column_comments'] = $curr_table[0];
+            } else if ($curr_table[0] == $cfg['Server']['column_info']) {
+                $cfgRelation['column_info'] = $curr_table[0];
             } else if ($curr_table[0] == $cfg['Server']['pdf_pages']) {
                 $cfgRelation['pdf_pages']       = $curr_table[0];
             }
@@ -137,7 +137,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             if (isset($cfgRelation['table_coords']) && isset($cfgRelation['pdf_pages'])) {
                 $cfgRelation['pdfwork']     = TRUE;
             }
-            if (isset($cfgRelation['column_comments'])) {
+            if (isset($cfgRelation['column_info'])) {
                 $cfgRelation['commwork']    = TRUE;
             }
         } // end if
@@ -191,8 +191,8 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                  . '</td></tr>' . "\n";
             echo '    <tr><td>&nbsp;</td></tr>' . "\n";
 
-            echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'column_comments\'] ... </th><td align="right">'
-                 . ((isset($cfgRelation['column_comments'])) ? $hit : sprintf($shit, 'col_com'))
+            echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'column_info\'] ... </th><td align="right">'
+                 . ((isset($cfgRelation['column_info'])) ? $hit : sprintf($shit, 'col_com'))
                  . '</td></tr>' . "\n";
             echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strColComFeat'] . ': '
                  . (($cfgRelation['commwork'] == TRUE) ? $enabled : $disabled)
@@ -298,12 +298,12 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         global $cfgRelation;
 
         if ($table != '') {
-            $com_qry  = 'SELECT column_name, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_comments'])
+            $com_qry  = 'SELECT column_name, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_info'])
                       . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                       . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
             $com_rs   = PMA_query_as_cu($com_qry);
         } else {
-            $com_qry  = 'SELECT comment FROM ' . PMA_backquote($cfgRelation['column_comments'])
+            $com_qry  = 'SELECT comment FROM ' . PMA_backquote($cfgRelation['column_info'])
                       . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                       . ' AND table_name = \'\''
                       . ' AND column_name = \'(db_comment)\'';
@@ -360,7 +360,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         global $cfgRelation;
 
         if ($removekey != '' AND $removekey != $key) {
-            $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_comments'])
+            $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
                         . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                         . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                         . ' AND column_name = \'' . PMA_handleSlashes($removekey) . '\'';
@@ -368,7 +368,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             unset($rmv_query);
         }
 
-        $test_qry  = 'SELECT ' . PMA_backquote('comment') . ', mimetype, transformation, transformation_options FROM ' . PMA_backquote($cfgRelation['column_comments'])
+        $test_qry  = 'SELECT ' . PMA_backquote('comment') . ', mimetype, transformation, transformation_options FROM ' . PMA_backquote($cfgRelation['column_info'])
                     . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                     . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
@@ -378,19 +378,19 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             $row = @PMA_mysql_fetch_array($test_rs);
 
             if (strlen($value) > 0 || strlen($row['mimetype']) > 0 || strlen($row['transformation']) > 0 || strlen($row['transformation_options']) > 0) {
-                $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_comments'])
+                $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
                        . ' SET ' . PMA_backquote('comment') . ' = \'' . PMA_handleSlashes($value) . '\''
                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                        . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
             } else {
-                $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_comments'])
+                $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                        . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
             }
         } else if (strlen($value) > 0) {
-            $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_comments'])
+            $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_info'])
                        . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ') '
                        . ' VALUES('
                        . '\'' . PMA_sqlAddslashes($db) . '\','
