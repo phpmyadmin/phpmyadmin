@@ -179,7 +179,7 @@ if ($server > 0) {
 // can do a 'USE mysql' (even if they cannot see the tables)
     $is_superuser    = PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', $userlink, PMA_DBI_QUERY_STORE);
 
-function PMA_analyseShowGrant($rs_usr, &$is_create_priv, &$db_to_create) {
+function PMA_analyseShowGrant($rs_usr, &$is_create_priv, &$db_to_create, &$is_reload_priv) {
 
     $re0 = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
     $re1 = '(^|[^\])(\\\)+'; // escaped wildcards
@@ -190,6 +190,7 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_priv, &$db_to_create) {
         if (($show_grants_str == 'ALL') || ($show_grants_str == 'ALL PRIVILEGES') || ($show_grants_str == 'CREATE') || strpos($show_grants_str, 'CREATE')) {
             if ($show_grants_dbname == '*') {
                 $is_create_priv = TRUE;
+                $is_reload_priv = TRUE;
                 $db_to_create   = '';
                 break;
             } // end if
@@ -215,7 +216,7 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_priv, &$db_to_create) {
     if (PMA_MYSQL_INT_VERSION >= 40102) {
         $rs_usr = PMA_DBI_try_query('SHOW GRANTS', $userlink, PMA_DBI_QUERY_STORE);
         if ($rs_usr) {
-            PMA_analyseShowGrant($rs_usr,$is_create_priv, $db_to_create);
+            PMA_analyseShowGrant($rs_usr,$is_create_priv, $db_to_create, $is_reload_priv);
             PMA_DBI_free_result($rs_usr);
             unset($rs_usr);
         }
@@ -275,7 +276,7 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_priv, &$db_to_create) {
                 }
                 unset($local_query);
                 if ($rs_usr) {
-                    PMA_analyseShowGrant($rs_usr,$is_create_priv, $db_to_create);
+                    PMA_analyseShowGrant($rs_usr,$is_create_priv, $db_to_create, $is_reload_priv);
                     PMA_DBI_free_result($rs_usr);
                     unset($rs_usr);
                 } // end if

@@ -8,6 +8,7 @@ $Source$
 2005-02-26 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: added FAQ 5.16 about various IE and Windows
       problems. Thanks to Michael Keck.
+    * main.php: bug #1143528, Reload MySQL not seen on MySQL 4.1.2
 
 2005-02-24 Alexander M. Turek  <me@derrabus.de>
     * libraries/grab_globals.lib.php: Fixed the fix, thanks to Marc. :-)
