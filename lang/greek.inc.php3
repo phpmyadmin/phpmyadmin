@@ -27,7 +27,7 @@ $strAddSearchConditions = 'Προσθήκη νέου όρου (σώμα της "where" πρότασης):';
 $strAddUser = 'Προσθήκη νέου Χρήστη';
 $strAddUserMessage = 'Προσθέσατε ένα νέο χρήστη.';
 $strAffectedRows = 'Επηρεαζόμενες γραμμές:';
-$strAfter = 'Μετά το';
+$strAfter = 'Μετά το %s';
 $strAll = 'Όλα';
 $strAlterOrderBy = 'Αλλαγή ταξινόμησης Πίνακα κατά';
 $strAnalyzeTable = 'Ανάλυση Πίνακα';
@@ -171,7 +171,6 @@ $strNotNumber = 'Αυτό δεν είναι αριθμός!';
 $strNotValidNumber = ' δεν είναι υπαρκτός αριθμός Γραμμής!';
 $strNoUsersFound = 'Δεν βρέθηκαν χρήστες.';
 $strNull = 'Κενό';
-$strNumberIndexes = ' Αριθμός των προηγμένων ευρετηρίων ';
 
 $strOftenQuotation = 'Συχνά εισαγωγικά. Το OPTIONALLY σημαίνει ότι μόνο τα πεδία char και varchar εμπεριέχονται με τον χαρακτήρα «περιστοιχίζεται από».';
 $strOptimizeTable = 'Βελτιστοποίηση Πίνακα';

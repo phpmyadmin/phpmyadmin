@@ -29,7 +29,7 @@ $strAddToIndex = 'Prida» do indexu &nbsp;%s&nbsp;ståpec';
 $strAddUser = 'Prida» nového pou¾ívateµa';
 $strAddUserMessage = 'Pou¾ívateµ bol pridaný.';
 $strAffectedRows = ' Ovplyvnené riadky: ';
-$strAfter = 'Po';
+$strAfter = 'Po %s';
 $strAfterInsertBack = 'Spä»';
 $strAfterInsertNewInsert = 'Vlo¾i» nový záznam';
 $strAll = 'V¹etko';
@@ -210,7 +210,6 @@ $strNotNumber = 'Toto nieje èíslo!';
 $strNotValidNumber = ' nieje platné èíslo riadku!';
 $strNoUsersFound = 'Nebol nájdený ¾iadny pou¾ívateµ.';
 $strNull = 'Nulový';
-$strNumberIndexes = ' Poèet roz¹írených indexov ';
 
 $strOftenQuotation = 'Èasto uvodzujúce znaky. Voliteµne znamena, ¾e iba polia typu char a varchar sú uzatvorené do "uzatváracích" znakov.';
 $strOptimizeTable = 'Optimalozova» tabuµku';

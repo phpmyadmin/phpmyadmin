@@ -27,7 +27,7 @@ $strAddSearchConditions = 'Tilføj søgekriterier (kroppen af "WHERE" sætningen):'
 $strAddUser = 'Tilføj en ny bruger';
 $strAddUserMessage = 'Du har tilføjet en ny bruger.';
 $strAffectedRows = 'Berørte rækker:';
-$strAfter = 'Efter';
+$strAfter = 'Efter %s';
 $strAfterInsertBack = 'Retur';
 $strAfterInsertNewInsert = 'Indsæt en ny record';
 $strAll = 'Alle';
@@ -204,7 +204,6 @@ $strNotNumber = 'Dette er ikke et tal!';
 $strNotValidNumber = ' er ikke et gyldigt rækkenummer!';
 $strNoUsersFound = 'Ingen bruger(e) fundet.'; 
 $strNull = 'Nulværdi';
-$strNumberIndexes = ' Antal udvidede indeks ';
 
 $strOftenQuotation = 'Ofte anførselstegn. OPTIONALLY betyder at kun char og varchar felter er omsluttet med det valgte "tekstkvalifikator"-tegn.'; //skal muligvis ændres
 $strOptimizeTable = 'Optimer tabel';

@@ -29,7 +29,7 @@ $strAddToIndex = 'Aggiungi all\'indice &nbsp;%s&nbsp;colonna/e';
 $strAddUser = 'Aggiungi un nuovo utente';
 $strAddUserMessage = 'Hai aggiunto un nuovo utente.';
 $strAffectedRows = 'Righe affette:';
-$strAfter = 'Dopo';
+$strAfter = 'Dopo %s';
 $strAfterInsertBack = 'Indietro';
 $strAfterInsertNewInsert = 'Inserisci un nuovo record';
 $strAll = 'Tutti';
@@ -210,7 +210,6 @@ $strNotNumber = 'Questo non è un numero!';
 $strNotValidNumber = ' non è una riga valida!';
 $strNoUsersFound = 'Nessun utente trovato.';
 $strNull = 'Null';
-$strNumberIndexes = 'Numero di indici avanzati';
 
 $strOftenQuotation = 'In genere da doppi apici (virgolette). OPZIONALE indica che solo i campi <I>char</I> e <I>varchar</I> devono essere delimitati dal carattere indicato.';
 $strOptimizeTable = 'Ottimizza tabella';

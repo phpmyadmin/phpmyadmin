@@ -28,7 +28,7 @@ $strAddToIndex = 'Add to index &nbsp;%s&nbsp;column(s)';
 $strAddUser = 'Add a new User';
 $strAddUserMessage = 'You have added a new user.';
 $strAffectedRows = 'Affected rows:';
-$strAfter = 'After';
+$strAfter = 'After %s';
 $strAfterInsertBack = 'Go back to previous page';
 $strAfterInsertNewInsert = 'Insert a new record';
 $strAll = 'All';
@@ -208,7 +208,6 @@ $strNotNumber = 'This is not a number!';
 $strNotValidNumber = ' is not a valid row number!';
 $strNoUsersFound = 'No user(s) found.';
 $strNull = 'Null';
-$strNumberIndexes = ' Number of advanced indexes ';
 
 $strOftenQuotation = 'Often quotation marks. OPTIONALLY means that only char and varchar fields are enclosed by the "enclosed by"-character.';
 $strOptimizeTable = 'Optimize table';

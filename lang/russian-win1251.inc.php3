@@ -28,7 +28,7 @@ $strAddToIndex = 'Добавить к индексу&nbsp;%s&nbsp;колоноку(и)';
 $strAddUser = 'Добавить нового пользователя';
 $strAddUserMessage = 'Была добавлен новый пользователь.';
 $strAffectedRows = 'Затронутые ряды:';
-$strAfter = 'После';
+$strAfter = 'После %s';
 $strAfterInsertBack = 'Возврат';
 $strAfterInsertNewInsert = 'Вставить новую запись';
 $strAll = 'Все';
@@ -208,7 +208,6 @@ $strNotNumber = 'Это не число!';
 $strNotValidNumber = ' недопустимое количество рядов!';
 $strNoUsersFound = 'Не найден пользователь.';
 $strNull = 'Ноль';
-$strNumberIndexes = ' Количество расширенных индексов ';
 
 $strOftenQuotation = 'Обычно кавычки. ПО ВЫБОРУ означает, что только поля char и varchar заключаются в кавычки.';
 $strOptimizeTable = 'Оптимизировать таблицу';

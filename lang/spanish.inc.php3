@@ -28,7 +28,7 @@ $strAddToIndex = 'Añadido al indice &nbsp;%s&nbsp;columna(s)';
 $strAddUser = 'Agregar nuevo usuario'; 
 $strAddUserMessage = 'Ud. ha agregado un nuevo usuario.'; 
 $strAffectedRows = 'Filas afectadas: ';
-$strAfter = 'Despues'; 
+$strAfter = 'Despues %s'; 
 $strAfterInsertNewInsert = 'Insertar un nuevo registro';
 $strAll = 'Todos/as'; 
 $strAlterOrderBy = 'Modificar el Order By de la tabla'; 
@@ -192,7 +192,6 @@ $strNotNumber = 'Esto no es un numero!';
 $strNotValidNumber = ' no es un numero de fila valido!';
 $strNoUsersFound = 'Usuario(s) no encontrado(s).'; 
 $strNull = 'Null';
-$strNumberIndexes = ' Numero de indices avanzados '; 
 
 $strOftenQuotation = 'A menudo comillas. OPCIONALMENTE signif&iacute;ca que &uacute;nicamente los campos char y varchar estan encerrados por el "enclosed by"-character.';
 $strOptimizeTable = 'Optimizar tabla'; 

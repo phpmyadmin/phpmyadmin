@@ -30,7 +30,7 @@ $strAddToIndex = '新增 &nbsp;%s&nbsp; 組索引欄';
 $strAddUser = '新增使用者';
 $strAddUserMessage = '您已新增了一個新使用者.';
 $strAffectedRows = '影響列數: ';
-$strAfter = 'After'; //should expressed in English
+$strAfter = 'After %s'; //should expressed in English
 $strAfterInsertBack = '返回';
 $strAfterInsertNewInsert = '新增一筆記錄';
 $strAll = '全部';
@@ -209,7 +209,6 @@ $strNotNumber = '請輸入數字!';
 $strNotValidNumber = '不是有效的列數!';
 $strNoUsersFound = '沒有找到使用者';
 $strNull = 'Null'; //should expressed in English
-$strNumberIndexes = ' Number of advanced indexes '; //dunno where is the msg show. 進階索引數目
 
 $strOftenQuotation = '最常用的是引號，「非必須」表示只有 char 和 varchar 欄位會被包括起來';
 $strOptimizeTable = '最佳化資料表';

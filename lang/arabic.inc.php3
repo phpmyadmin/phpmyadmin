@@ -33,7 +33,7 @@ $strAddToIndex = 'ÅÖÇİå ßİåÑÓ &nbsp;%s&nbsp;Õİ(Üæİ)';
 $strAddUser = 'ÃÖİ ãÓÊÎÏã ÌÏíÏ';
 $strAddUserMessage = 'áŞÏ ÃÖİÊ ãÓÊÎÏã ÌÏíÏ.';
 $strAffectedRows = 'Õİæİ ãÄËÑå:';
-$strAfter = 'ÈÚÏ';
+$strAfter = 'ÈÚÏ %s';
 $strAfterInsertBack = 'ÅÑÌÇÚ';
 $strAfterInsertNewInsert = 'ÅÏÎÇá ÓÌá ÌÏíÏ';
 $strAll = 'Çáßá';
@@ -208,7 +208,6 @@ $strNotNumber = 'åĞÇ áíÓ ÑŞã!';
 $strNotValidNumber = ' åĞÇ áíÓ ÚÏÏ Õİ ÕÍíÍ!';
 $strNoUsersFound = 'ÇáãÓÎÏã(Üíä) áã íÊã ÅíÌÇÏåã.';
 $strNull = 'ÎÇáí';
-$strNumberIndexes = ' ÚÏÏ ÇáİåÇÑÓ ÇáãÊŞÏãå ';
 
 $strOftenQuotation = 'ÛÇáÈÇğ ÚáÇãÇÊ ÇáÅŞÊÈÇÓ. ÅÎÊíÇÑí íÚäí ÈÃä ÇáÍŞæá  char æ varchar ÊÑİŞ ÈÜ " ".';
 $strOptimizeTable = 'ãÍÓä ÇáÌÏæá';

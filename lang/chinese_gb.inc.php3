@@ -26,7 +26,7 @@ $strAddPrivMessage = 'You have added a new privilege.'; //to translate
 $strAddSearchConditions = '添加检索条件 ("where" 语句的主体)：';
 $strAddUser = 'Add a new User'; //to translate
 $strAddUserMessage = 'You have added a new user.'; //to translate
-$strAfter = 'After'; //to translate
+$strAfter = 'After %s'; //to translate
 $strAll = 'All'; //to translate
 $strAlterOrderBy = 'Alter table order by'; //to translate
 $strAnalyzeTable = 'Analyze table'; //to translate
@@ -147,7 +147,6 @@ $strNoRights = 'You don\'t have enough rights to be here right now!'; //to trans
 $strNoTablesFound = '数据库中没有数据表。';
 $strNoUsersFound = 'No user(s) found.'; //to translate
 $strNull = 'Null';
-$strNumberIndexes = ' Number of advanced indexes '; //to translate
 
 $strOftenQuotation = '通常为引号。 ”选中“ 表示使用引号。因为只有 char 和 varchar 类型的数据需要用引号括起来。';
 $strOptimizeTable = 'Optimize table'; //to translate

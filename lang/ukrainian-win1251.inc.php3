@@ -28,7 +28,7 @@ $strAddToIndex = 'Додати до індексу&nbsp;%s&nbsp;колоноку(и)';
 $strAddUser = 'Додати нового користувача';
 $strAddUserMessage = 'Було додано нового користувача.';
 $strAffectedRows = 'Задіяні рядки:';
-$strAfter = 'Після';
+$strAfter = 'Після %s';
 $strAfterInsertBack = 'Повернутись';
 $strAfterInsertNewInsert = 'Вставити новий запис';
 $strAll = 'Все';
@@ -208,7 +208,6 @@ $strNotNumber = 'Це не число!';
 $strNotValidNumber = ' недопустима кількість рядків!';
 $strNoUsersFound = 'Не знайдено користувача.';
 $strNull = 'Нуль';
-$strNumberIndexes = ' Кількість розширених індексів ';
 
 $strOftenQuotation = 'Звичайно лапки. ПО ВИБОРУ означає, що лише поля char і varchar беруться в лапки.';
 $strOptimizeTable = 'Оптимізувати таблицю';

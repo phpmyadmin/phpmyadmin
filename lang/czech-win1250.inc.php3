@@ -28,7 +28,7 @@ $strAddToIndex = 'Pøidat do indexu  &nbsp;%s&nbsp;sloupcù';
 $strAddUser = 'Pøidat nového uživatele';
 $strAddUserMessage = 'Uživatel byl pøidán.';
 $strAffectedRows = 'Ovlivnìné øádky:';
-$strAfter = 'Po';
+$strAfter = 'Po %s';
 $strAfterInsertBack = 'Zpìt';
 $strAfterInsertNewInsert = 'Vložit další øádek';
 $strAll = 'Všechno';
@@ -208,7 +208,6 @@ $strNotNumber = 'Toto není èíslo!';
 $strNotValidNumber = ' není platné èíslo øádku!'; 
 $strNoUsersFound = 'Žádný uživatel nenalezen.';
 $strNull = 'Nulový';
-$strNumberIndexes = ' Poèet rozšíøených indexù ';
 
 $strOftenQuotation = 'Èasto uvozující znaky. OPTIONALLY znamená, že pouze pole typu CHAR a VARCHAR jsou uzavøeny do "uzavíracích " znakù.';
 $strOptimizeTable = 'Optimalizovat tabulku';

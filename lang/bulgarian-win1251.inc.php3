@@ -28,7 +28,7 @@ $strAddToIndex = ' &nbsp;%s&nbsp;колона(и) бяха добавени към индекса ';
 $strAddUser = 'Добавяне на нов потребител.';
 $strAddUserMessage = 'Вие добавихте нов потребител.';
 $strAffectedRows = 'Засегнати реда:';
-$strAfter = 'След';
+$strAfter = 'След %s';
 $strAfterInsertBack = 'се върни';
 $strAfterInsertNewInsert = 'вмъкни нов запис';
 $strAll = 'всички';
@@ -207,7 +207,6 @@ $strNotNumber = 'Това не е число!';
 $strNotValidNumber = ' не е валиден номер на ред!';
 $strNoUsersFound = 'Няма потребител(и).';
 $strNull = 'Празно';
-$strNumberIndexes = ' Брой сложни индекси ';
 
 $strOffSet = 'Отместване';
 $strOftenQuotation = 'Обикновено кавички. ПО ИЗБОР означава, че само полета char и varchar се заграждат в кавички.';

@@ -26,7 +26,7 @@ $strAddPrivMessage = 'You have added a new privilege.'; //to translate
 $strAddSearchConditions = '검색 조건 문법을 추가하십시요. ("where" 쿼리문):';
 $strAddUser = 'Add a new User'; //to translate
 $strAddUserMessage = 'You have added a new user.'; //to translate
-$strAfter = '다음에-->';
+$strAfter = '다음에 %s';
 $strAll = 'All'; //to translate
 $strAlterOrderBy = 'Alter table order by'; //to translate
 $strAnalyzeTable = '테이블 분석';
@@ -147,7 +147,6 @@ $strNoRights = 'You don\'t have enough rights to be here right now!'; //to trans
 $strNoTablesFound = '현재의 DB에는 테이블이 없습니다.';
 $strNoUsersFound = 'No user(s) found.'; //to translate
 $strNull = 'Null';
-$strNumberIndexes = ' Number of advanced indexes '; //to translate
 
 $strOftenQuotation = '인용 기호입니다. 옵션은, char 혹은 varchar 필드만이 " "로 감싸여진 것을 의미합니다.';
 $strOptimizeTable = '테이블 최적화';

@@ -9,6 +9,9 @@ $Source$
 	* lang/chinese_big5.inc.php3, russian-*.inc.php3: updated thanks to
 	  Siu Sun <siusun at users.sourceforge.net> and
 	  Gosha Sakovich <gt2 at users.sourceforge.net>.
+	* db_details.php3, lines 719-720; lang/*: cleanup.
+	* tbl_properties.php3, line 769; lang/*: changed $strAfter to allow
+	  valid translations whatever is the words order.
 
 2002-01-25  Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html: FAQ about compressed dumps

@@ -28,7 +28,7 @@ $strAddSearchConditions = 'Suchkondition (Argumente für das WHERE-Statement):';
 $strAddUser = 'Neuen Benutzer hinzufügen';
 $strAddUserMessage = 'Der Benutzer wurde hinzugefügt.';
 $strAffectedRows = ' Betroffene Datensätze: ';
-$strAfter = 'Nach';
+$strAfter = 'Nach %s';
 $strAfterInsertBack = 'zurück';
 $strAfterInsertNewInsert = 'Neuen Datensatz einfügen';
 $strAll = 'Alle';
@@ -208,7 +208,6 @@ $strNotNumber = 'Das ist keine Zahl!';
 $strNotValidNumber = ' ist keine gültige Zeilennummer!';
 $strNoUsersFound = 'Keine(n) Benutzer gefunden.';
 $strNull = 'Null';
-$strNumberIndexes = ' Anzahl der erweiterten Indizes ';
 
 $strOftenQuotation = 'Häufig Anführungszeichen. Optional bedeutet, daß nur Textfelder von den angegeben Zeichen eingeschlossen sind.';
 $strOptimizeTable = 'Optimiere Tabelle';

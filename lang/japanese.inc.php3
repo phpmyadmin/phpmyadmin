@@ -28,7 +28,7 @@ $strAddToIndex = ' &nbsp;%s&nbsp;の列をインデックスに追加しました';
 $strAddUser = 'ユーザーの追加';
 $strAddUserMessage = 'ユーザーを追加しました。';
 $strAffectedRows = '影響された行数:';
-$strAfter = '後に-->';
+$strAfter = '後に %s';
 $strAfterInsertBack = '帰る';
 $strAfterInsertNewInsert = '新レコードの追加';
 $strAll = '全部';
@@ -207,7 +207,6 @@ $strNotNumber = 'これは番号ではありません。';
 $strNotValidNumber = ' は行の正しい番号ではありません ';
 $strNoUsersFound = 'ユーザーは見つかりませんでした。';
 $strNull = '空の値(Null)';
-$strNumberIndexes = ' 高等インデックス数 ';
 
 $strOftenQuotation = '引用符号です。オプションは、charまたはvarcharフィールドのみ" "で囲まれていることを意味します。';
 $strOptimizeTable = 'テーブルを最適化します。';

@@ -26,7 +26,7 @@ $strAddPrivMessage = 'You have added a new privilege.'; //to translate
 $strAddSearchConditions = 'เพิ่มเงื่อนไขค้นหา (ในส่วนของ where):';
 $strAddUser = 'Add a new User'; //to translate
 $strAddUserMessage = 'You have added a new user.'; //to translate
-$strAfter = 'หลัง';
+$strAfter = 'หลัง %s';
 $strAll = 'All'; //to translate
 $strAlterOrderBy = 'Alter table order by'; //to translate
 $strAnalyzeTable = 'Analyze table'; //to translate
@@ -147,7 +147,6 @@ $strNoRights = 'You don\'t have enough rights to be here right now!'; //to trans
 $strNoTablesFound = 'ไม่พบตารางใด ๆ ในฐานข้อมูล';
 $strNoUsersFound = 'No user(s) found.'; //to translate
 $strNull = 'Null'; //to translate
-$strNumberIndexes = ' Number of advanced indexes '; //to translate
 
 $strOftenQuotation = 'Often quotation marks. OPTIONALLY means that only char and varchar fields are enclosed by the "enclosed by"-character.'; //to translate
 $strOptimizeTable = 'Optimize table'; //to translate

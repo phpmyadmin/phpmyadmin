@@ -28,7 +28,7 @@ $strAddToIndex = 'Lägg till&nbsp;%s&nbsp;kolumn(er) till index';
 $strAddUser = 'Lägg till ny användare';
 $strAddUserMessage = 'Du har lagt till en ny användare.';
 $strAffectedRows = 'Påverkade rader:';
-$strAfter = 'Efter';
+$strAfter = 'Efter %s';
 $strAfterInsertBack = 'Tillbaka';
 $strAfterInsertNewInsert = 'Lägg till en ny rad';
 $strAll = 'Alla';
@@ -208,7 +208,6 @@ $strNotNumber = 'Det är inte ett nummer!';
 $strNotValidNumber = ' är inte ett giltigt radnummer!';
 $strNoUsersFound = 'Hittade ingen användare.';
 $strNull = 'Null';
-$strNumberIndexes = ' Antal avancerade index ';
 
 $strOftenQuotation = 'Ofta citattecken. Frivilligt betyder att bara \'char\' och \'varchar\' fälten omgivs av det angivna tecken.';
 $strOptimizeTable = 'Optimera tabell';

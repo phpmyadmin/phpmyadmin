@@ -28,7 +28,7 @@ $strAddToIndex = '%s sütununu(sütunlar&#305;na) index ekle';
 $strAddUser = 'Yeni kullanýcý ekle';
 $strAddUserMessage = 'Yeni bir kullanýcý eklediniz.';
 $strAffectedRows = 'Etkilenen satýrlar:';
-$strAfter = 'Sonuna:';
+$strAfter = 'Sonuna %s';
 $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Yeni kayit ekle';
 $strAll = 'Tümü';
@@ -208,7 +208,6 @@ $strNotNumber = 'Bu bir sayý deðil!';
 $strNotValidNumber = ' geçerli bir satýr sayýsý deðil!';
 $strNoUsersFound = 'Kullanýcý(lar) bulunamadý.';
 $strNull = 'Boþ';
-$strNumberIndexes = ' Geliþmiþ index sayýsý ';
 
 $strOftenQuotation = 'Sýk kullanýlan aktarma iþaretleri.SEÇÝME BAÐLI,sadece char ve varchar alanlarýnýn "enclosed-by" karakteri ile çevreneleceði anlamýna gelir..';
 $strOptimizeTable = 'Tabloyu optimize et';

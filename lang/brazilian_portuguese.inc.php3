@@ -27,7 +27,7 @@ $strAddSearchConditions = 'Condição de Pesquisa (Complemento da clausula "onde")
 $strAddUser = 'Adicionar um novo usuário';
 $strAddUserMessage = 'Usuário adcionado.';
 $strAffectedRows = 'Registro afetados:';
-$strAfter = 'Depois';
+$strAfter = 'Depois %s';
 $strAll = 'Todos';
 $strAlterOrderBy = 'Alterar tabela ordenada por';
 $strAnalyzeTable = 'Analizar tabela';
@@ -178,7 +178,6 @@ $strNotNumber = 'Isto não é um número!';
 $strNotValidNumber = ' não é um número de registro valido!';
 $strNoUsersFound = 'Nenhum usuário(s) encontrado.';
 $strNull = 'Nulo';
-$strNumberIndexes = ' Número de índices avançados ';
 
 $strOftenQuotation = 'Em geral aspas. OPCIONAL significa que apenas campos de caracteres são delimitados por caracteres "delimitadores"';
 $strOptimizeTable = 'Optimizar tabela';

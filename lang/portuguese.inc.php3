@@ -28,7 +28,7 @@ $strAddToIndex = 'Add to index &nbsp;%s&nbsp;column(s)';
 $strAddUser = 'Acrescenta um utilizador';
 $strAddUserMessage = 'Acrescentou um novo utilizador.';
 $strAffectedRows = 'Affected rows:';
-$strAfter = 'Depois';
+$strAfter = 'Depois %s';
 $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Insert a new record';
 $strAll = 'Todas';
@@ -207,7 +207,6 @@ $strNone = 'Nenhum';
 $strNotNumber = 'Isto não é um número!';
 $strNotValidNumber = ' não é um número de registo válido!';
 $strNull = 'Nulo';
-$strNumberIndexes = ' Number of advanced indexes '; //to translate
 
 $strOftenQuotation = 'Normalmente aspas. OPTIONALLY significa que apenas os campos "char" e "varchar" são delimitados pelo caractere delimitador.';
 $strOptimizeTable = 'Optimizar tabela';

@@ -28,7 +28,7 @@ $strAddToIndex = 'Legg til indeks &nbsp;%s&nbsp;kolonne(r)';
 $strAddUser = 'Legg til en ny bruker';
 $strAddUserMessage = 'Du har lagt til en ny bruker.';
 $strAffectedRows = 'Berørte rader:';
-$strAfter = 'Etter';
+$strAfter = 'Etter %s';
 $strAfterInsertBack = 'Returner';
 $strAfterInsertNewInsert = 'Sett inn en ny post';
 $strAll = 'Alle';
@@ -207,7 +207,6 @@ $strNotNumber = 'Dette er ikke ett tall!';
 $strNotValidNumber = ' er ikke et gyldig rad nummer!';
 $strNoUsersFound = 'Ingen bruker(e) funnet.';
 $strNull = 'Null';
-$strNumberIndexes = ' Antall avanserte indekser ';
 
 $strOftenQuotation = 'Ofte anførselstegn. Valgfritt innebærer at kun tekstfelter ("char" og "varchar") felter er omfattet av tegnet.';
 $strOptimizeTable = 'Optimiser tabell';

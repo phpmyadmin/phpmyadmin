@@ -28,7 +28,7 @@ $strAddToIndex = 'Dodanie do indeksu &nbsp;%s&nbsp;kolumn';
 $strAddUser = 'Dodanie nowego u¿ytkownika';
 $strAddUserMessage = 'Dodany zosta³ nowy uzytkownik.';
 $strAffectedRows = 'Zmodyfikowanych rekordów:';
-$strAfter = 'Po';
+$strAfter = 'Po %s';
 $strAfterInsertBack = 'Powrót';
 $strAfterInsertNewInsert = 'Wstawienie nowego rekordu';
 $strAll = 'Wszystko';
@@ -208,7 +208,6 @@ $strNotNumber = 'To nie jest liczba!';
 $strNotValidNumber = ' nie jest poprawnym numerem rekordu!';
 $strNoUsersFound = 'Nie znaleziono u¿ytkownika(ów).';
 $strNull = 'Null';
-$strNumberIndexes = ' ilo¶æ zaawansowanych indeksów ';
 
 $strOftenQuotation = 'Znaki cudzys³owu. OPCJONALNIE oznacza, ¿e tylko pola char oraz varchar s± zawarte w "cudzys³owach".';
 $strOptimizeTable = 'Optymalizacja tabeli';

@@ -26,7 +26,7 @@ $strAddPrivMessage = 'U heeft nieuwe rechten toegevoegd.';
 $strAddSearchConditions = 'Zoekcondities toevoegen (het "where" gedeelte van de query):';
 $strAddUser = 'Voeg een nieuwe gebruiker toe';
 $strAddUserMessage = 'U heeft een nieuwe gebruiker toegevoegd.';
-$strAfter = 'Na';
+$strAfter = 'Na %s';
 $strAll = 'All'; //to translate
 $strAlterOrderBy = 'Wijzig de tabel order bij';
 $strAnalyzeTable = 'Analyseer tabel';
@@ -166,7 +166,6 @@ $strNotNumber = 'Dit is geen cijfer!';
 $strNotValidNumber = ' geen geldig rijnummer!';
 $strNoUsersFound = 'Geen gebruiker(s) gevonden.';
 $strNull = 'Null';
-$strNumberIndexes = ' Aantal geavanceerde indices ';
 
 $strOftenQuotation = 'Meestal aanhalingstekens. OPTIONEEL betekent dat alleen char en varchar velden omsloten worden met het "omsloten met"-karakter.';
 $strOptimizeTable = 'Optimaliseer tabel';

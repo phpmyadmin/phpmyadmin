@@ -26,7 +26,7 @@ $strAddPrivMessage = 'Has afegit un privilegi nou.';
 $strAddSearchConditions = 'Afegeix condicions de recerca (cos de la clàusula "where"):';
 $strAddUser = 'Afegir un usuari nou';
 $strAddUserMessage = 'Has afegit un usuari nou.';
-$strAfter = 'Després';
+$strAfter = 'Després %s';
 $strAll = 'Tot';
 $strAlterOrderBy = 'Altera la taula i ordena per';
 $strAnalyzeTable = 'Analitza la taula';
@@ -155,7 +155,6 @@ $strNotNumber = 'Aquest valor no és un número!';
 $strNotValidNumber = ' no es un número de col.lumna vàlid!'; 
 $strNoUsersFound = 'No s\'han trobat usuaris.';
 $strNull = 'Nul';
-$strNumberIndexes = ' Número d\'indexs avançats ';
 
 $strOftenQuotation = 'Marques sintàctiques. OPCIONALMENT vol dir que només els camps de tipus char i varchar van "tancats dins" "-aquest caràcter.';
 $strOptimizeTable = 'Optimitza la taula';

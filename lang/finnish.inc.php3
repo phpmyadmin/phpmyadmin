@@ -32,7 +32,7 @@ $strAddToIndex = 'Lisää indeksi &nbsp;%s&nbsp;sarakkeisiin';
 $strAddUser = 'Lisää uusi käyttäjä';
 $strAddUserMessage = 'Olet lisännyt uuden käyttäjän.';
 $strAffectedRows = 'Rivejä:';
-$strAfter = 'Jälkeen sarakkeen:';
+$strAfter = 'Jälkeen sarakkeen %s';
 $strAfterInsertBack = 'Takaisin';
 $strAfterInsertNewInsert = 'Lisää uusi rivi';
 $strAll = 'Kaikki';
@@ -212,7 +212,6 @@ $strNotNumber = 'Tämä ei ole numero!';
 $strNotValidNumber = ' ei ole hyväksyttävä rivin numero!';
 $strNoUsersFound = 'Käyttäjiä ei löytynyt.';
 $strNull = 'Tyhjä';
-$strNumberIndexes = ' Kehittyneiden indeksien määrä ';
 
 $strOftenQuotation = 'Yleensä lainausmerkki. "Valinnaisesti" tarkoittaa, että vain char- ja varchar-tyyppiset sarakkeet ympäröidään annetulla ympäröintimerkillä.';
 $strOptimizeTable = 'Optimoi taulu';

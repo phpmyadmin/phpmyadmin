@@ -28,7 +28,7 @@ $strAddToIndex = 'Adicionar ao índice &nbsp;%s&nbsp;coluna(s)';
 $strAddUser = 'Adicionar un novo usuario';
 $strAddUserMessage = 'Usuario adicionado.';
 $strAffectedRows = 'Filas que van ser afectadas:';
-$strAfter = 'Despois de';
+$strAfter = 'Despois de %s';
 $strAfterInsertBack = 'Voltar';
 $strAfterInsertNewInsert = 'Inserir un novo rexistro';
 $strAll = 'Todos';
@@ -207,7 +207,6 @@ $strNotNumber = 'Non é un número!';
 $strNotValidNumber = ' non é un número válido para unha fila!';
 $strNoUsersFound = 'Non se achou nengun(s) usuario(s).';
 $strNull = 'Nulo';
-$strNumberIndexes = ' Número de índices avanzados ';
 
 $strOftenQuotation = 'Xeralmente son aspas. OPCIONAL significa que só os campos de caracteres son delimitados por caracteres "delimitadores"';
 $strOptimizeTable = 'Optimizar a tabela';

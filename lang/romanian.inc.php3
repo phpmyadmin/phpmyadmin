@@ -28,7 +28,7 @@ $strAddToIndex = 'Adauga la coloana(ele) index &nbsp;%s&nbsp;';
 $strAddUser = 'Adauga un utilizator nou';
 $strAddUserMessage = 'Ati adaugat un nou utilizator.';
 $strAffectedRows = 'Linii afectate:';
-$strAfter = 'Dupa';
+$strAfter = 'Dupa %s';
 $strAfterInsertBack = 'Revenire';
 $strAfterInsertNewInsert = 'Adauga o noua inregistrare';
 $strAll = 'Toate';
@@ -208,7 +208,6 @@ $strNotNumber = 'Acesta nu este un numar!';
 $strNotValidNumber = 'Nu este un numar valid de linie!';
 $strNoUsersFound = 'Nu s-a gasit nici un utilizator.';
 $strNull = 'Nul';
-$strNumberIndexes = ' Numarul indexurilor avansate ';
 
 $strOftenQuotation = 'Adesea ghilimele. OPTIONAL inseamna ca numai campurile char si varchar sunt incluse intre caracterele "incadrat intre".';
 $strOptimizeTable = 'Optimizare tabel';
