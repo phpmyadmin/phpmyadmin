@@ -48,10 +48,10 @@ $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
 
 ?>
 <!-- DATABASE WORK -->
+<a name="querybox"></a>
 <ul>
     <!-- Query box, sql file loader and bookmark support -->
     <li>
-        <a name="querybox"></a>
         <form method="post" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
             onsubmit="return checkSqlQuery(this)">
             <input type="hidden" name="is_js_confirmed" value="0" />

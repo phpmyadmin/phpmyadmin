@@ -47,10 +47,10 @@ require('./tbl_properties_table_info.php3');
 
 ?>
 <!-- TABLE WORK -->
+<a name="querybox"></a>
 <ul>
     <!-- Query box and bookmark support -->
     <li>
-        <a name="querybox"></a>
         <form method="post" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
             onsubmit="return checkSqlQuery(this)">
             <input type="hidden" name="is_js_confirmed" value="0" />
