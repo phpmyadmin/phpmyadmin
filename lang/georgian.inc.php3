@@ -360,4 +360,5 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b
 $strLinksTo = 'Links to';  //to translate
 $strExport = 'Export';  //to translate
 $strOperations = 'Operations';  //to translate
+$strExportToXML = 'Export to XML format'; //to translate
 ?>

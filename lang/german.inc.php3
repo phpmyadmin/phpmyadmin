@@ -115,6 +115,8 @@ $strEmptyResultSet = 'MySQL lieferte ein leeres Resultat zurück (d.h. null Zeile
 $strEnd = 'Ende';
 $strEnglishPrivileges = ' Anmerkung: MySQL-Rechte werden auf Englisch angegeben. ';
 $strError = 'Fehler';
+$strExport = 'Exportieren';
+$strExportToXML = 'Ins XML-Fromat exportieren';
 $strExtendedInserts = 'Erweiterte \'INSERT\'s';
 $strExtra = 'Extra';
 
@@ -213,6 +215,7 @@ $strNoUsersFound = 'Es wurden keine Benutzer gefunden.';
 $strNull = 'Null';
 
 $strOftenQuotation = 'Häufig Anführungszeichen. Optional bedeutet, dass nur Textfelder von den angegeben Zeichen eingeschlossen sind.';
+$strOperations = 'Operationen';
 $strOptimizeTable = 'Optimiere Tabelle';
 $strOptionalControls = 'Optional. Bestimmt, wie Sonderzeichen kenntlich gemacht werden.';
 $strOptionally = 'optional';
@@ -349,6 +352,4 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
-$strExport = 'Export';  //to translate
-$strOperations = 'Operations';  //to translate
 ?>

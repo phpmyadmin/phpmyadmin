@@ -355,4 +355,5 @@ $strZip = '"zip-pakattu"';
 $strLinksTo = 'Links to';  //to translate
 $strExport = 'Export';  //to translate
 $strOperations = 'Operations';  //to translate
+$strExportToXML = 'Export to XML format'; //to translate
 ?>

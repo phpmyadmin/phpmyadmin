@@ -116,6 +116,7 @@ $strEnd = 'Fin';
 $strEnglishPrivileges = ' Veuillez noter que les noms de privilèges sont exprimés en anglais';
 $strError = 'Erreur';
 $strExport = 'Exporter';
+$strExportToXML = 'Exporter en format XML';
 $strExtendedInserts = 'Insertions étendues';
 $strExtra = 'Extra';
 

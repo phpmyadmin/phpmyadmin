@@ -356,4 +356,5 @@ $strZip = '"zip-ano"';
 $strLinksTo = 'Links to';
 $strExport = 'Export';  //to translate
 $strOperations = 'Operations';  //to translate
+$strExportToXML = 'Export to XML format'; //to translate
 ?>

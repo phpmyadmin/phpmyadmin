@@ -116,6 +116,7 @@ $strEnd = 'End';
 $strEnglishPrivileges = ' Note: MySQL privilege names are expressed in English ';
 $strError = 'Error';
 $strExport = 'Export';
+$strExportToXML = 'Export to XML format';
 $strExtendedInserts = 'Extended inserts';
 $strExtra = 'Extra';
 
