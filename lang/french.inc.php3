@@ -231,7 +231,7 @@ $strRows = 'Enregistrements';
 $strRowsFrom = 'lignes à partir de';
 $strRowSize = ' Taille enr. ';
 $strRowsStatistic = 'Statistiques';
-$strRunning = 'sur serveur ';
+$strRunning = 'sur le serveur ';
 $strRunQuery = 'Exécuter la requête';
 $strRunSQLQuery = 'Exécuter une ou des <b>requêtes</b> sur la base ';
 
