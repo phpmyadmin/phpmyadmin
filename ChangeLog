@@ -5,9 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-02 Alexander M. Turek  <me@derrabus.de>
+    * lang/german-*.inc.php: Fixed a typo.
+
 2004-04-01 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: bug 922054, when there is no control user, the detection
-      of the grants does not take into account all cases; 
+      of the grants does not take into account all cases;
       thanks to Thomas ( jacob@internet24.de)
 
 2004-03-30 Michal Cihar  <michal@cihar.com>
@@ -31,7 +34,7 @@ $Source$
 2004-03-25 Marcel Tschopp <marcel.tschopp@gmx.net>
     * tbl_change.php, libraries/dbi/mysql.inc.php, libraries/dbi/mysqli.inc.php:
       Added wrapping function PMA_DBI_field_len.
-    * libraries/dbi/mysqli.inc.php: Set default value '' for parameter $link 
+    * libraries/dbi/mysqli.inc.php: Set default value '' for parameter $link
       from function PMA_DBI_insert_id().
 
 2004-03-25 Michal Cihar  <michal@cihar.com>
@@ -46,24 +49,24 @@ $Source$
 
 2004-03-24 Michal Cihar  <michal@cihar.com>
     * lang/*: Added missing "$strConnectionError" (bug #922006).
-    
+
 2004-03-23 Olivier Mueller <om@omnis.ch>
     * libraries/mysql_wrappers.lib.php: added mysqli support to the
       PMA_mysql_field_flags function because mysqli does not know the function
       mysqli_field_flags (submitted by Marcel Tschopp - aka 'ne0x' on SF).
-    * libraries/dbi/mysqli.dbi.lib.php: changed default query mode from 
-      MYSQLI_USE_RESULT to MYSQLI_STORE_RESULT in the 
+    * libraries/dbi/mysqli.dbi.lib.php: changed default query mode from
+      MYSQLI_USE_RESULT to MYSQLI_STORE_RESULT in the
       PMA_DBI_try_query function (ne0x)
     * libraries/dbi/mysql.dbi.lib.php, libraries/dbi/mysqli.dbi.lib.php:
       Added wrapping function PMA_DBI_fetch_array() (ne0x)
     * libraries/display_tbl.lib.php: PMA_displayTableBody() function now uses
-      the new PMA_DBI_fetch_array() function instead of 
+      the new PMA_DBI_fetch_array() function instead of
       PMA_mysql_fetch_array() (ne0x)
 
 2004-03-22 Michal Cihar  <michal@cihar.com>
     * libraries/auth/config.auth.lib.php: Set correct variable to avoid
       attempting sending headers twice.
-    
+
 2004-03-22 Garvin Hicking <pma@supergarv.de>
     * lang/german-*: Update
 
@@ -71,19 +74,19 @@ $Source$
     * lang/romanian: Updated, thanks to Valics Lehel.
     * libraries/common.lib.php: bug 913704, delete link in db search
     * libraries/sqlparser.lib.php: bug 906551, GRANT...TO: another case
-    
+
 2004-03-13 Marc Delisle  <lem9@users.sourceforge.net>
-    * sql.php: bug 913630: did not detect correctly DELETE FROM table 
-      and even if detected, was calling a non-existent PMA_DBI_result()       
-      
+    * sql.php: bug 913630: did not detect correctly DELETE FROM table
+      and even if detected, was calling a non-existent PMA_DBI_result()
+
 2004-03-10 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/relation.lib.php: bug 877359, no CONSTRAINT in 
+    * libraries/relation.lib.php: bug 877359, no CONSTRAINT in
       SHOW CREATE TABLE on older MySQL versions
 
 2004-03-10 Michal Cihar  <michal@cihar.com>
     * export.php: Correctly report error when export fails.
     * libraries/database_interface.lib.php, libraries/dbi/mysql.dbi.lib.php,
-      libraries/dbi/mysqli.dbi.lib.php: Support for unbuffered queries - 
+      libraries/dbi/mysqli.dbi.lib.php: Support for unbuffered queries -
       PMA_DBI_QUERY_UNBUFFERED and fix support of PMA_DBI_QUERY_STORE.
     * libraries/export/*.php: Use unbuffered queries (patch #890075).
     * libraries/export/sql.php, libraries/display_export.lib.php, lang/*,
@@ -104,7 +107,7 @@ $Source$
       (RFE #856517).
 
 2004-03-09 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/common.lib.php, libraries/display*, lang/*: 
+    * libraries/common.lib.php, libraries/display*, lang/*:
       bug 887933: avoid generating a nested form, and show a warning
       when user should define a primary key to get the Edit and Delete links
     * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
