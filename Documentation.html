@@ -443,8 +443,12 @@
 
     <dt><b>$cfgProtectBlob </b>boolean</dt>
     <dd>
-        Defines whether <tt>BLOB</tt> fields are protected from edition when
-        browsing a table's content or not.
+        Defines whether <tt>BLOB</tt> or <tt>BINARY</tt> fields are protected
+        from edition when browsing a table's content or not.
+        Valid values are:<br />
+        - <tt>FALSE</tt> to allow edition of all fields;
+        - <tt>blob</tt> to allow edition of all fields except <tt>BLOBS</TT>;
+        - <tt>all</tt> to disallow edition of all <tt>BINARY</tt> or <tt>BLOB</tt> fields.
         <br /><br />
     </dd>
 

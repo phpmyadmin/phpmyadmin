@@ -47,13 +47,13 @@ if (!defined('__LIB_COMMON__')){
      * Avoids undefined variables in PHP3
      */
     if (!isset($use_backquotes)) {
-        $use_backquotes = 0;
+        $use_backquotes   = 0;
     }
     if (!isset($pos)) {
-        $pos            = 0;
+        $pos              = 0;
     }
-    if (!isset($cfgProtectBlob)) {
-        $cfgProtectBlob = FALSE;
+    if (!isset($cfgProtectBinary)) {
+        $cfgProtectBinary = FALSE;
     }
 
 

@@ -97,7 +97,11 @@ unset($cfgServers[0]);
 $cfgConfirm               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
 $cfgPersistentConnections = FALSE;  // use persistent connections to MySQL database
 $cfgShowBlob              = FALSE;  // display blob field contents in browse mode
-$cfgProtectBlob		      = TRUE;  // disallow editing of blob fields in edit mode
+$cfgProtectBinary         = 'blob'; // disallow editing of binary fields in edit mode
+                                    // valid values are:
+                                    //   FALSE  allow editing
+                                    //   'blob' allow editing except for BLOB fields
+                                    //   'all'  disallow editing
 $cfgAllowUserDropDatabase = FALSE;  // disallow users to delete their own database
 $cfgShowSQL               = TRUE;   // show SQL queries as run
 $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show

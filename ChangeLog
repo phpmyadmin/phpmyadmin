@@ -12,6 +12,9 @@ $Source$
 	* db_readdump.php3 has been renamed to read_dump.php3.
 	* lang/italian.inc.php3: updated thanks to
 	  Pietro Danesi <danone at aruba.it>.
+	* config.lib.php3, lines 100-104; libraries/common.lib.php3, lines 55-56;
+	  Documentation.html, lines 446-451; tbl_change.php3: improved binay fields
+      protection.
 
 2001-09-07  Loïc Chapeaux  <lolo@phpheaven.net>
     * main.php3, line 208: fixed an invalid link id.

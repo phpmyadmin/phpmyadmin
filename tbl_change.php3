@@ -88,6 +88,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     echo "\n";
 
     // The type column
+    $is_binary                  = eregi(' binary', $row_table_def['Type']);
+    $is_blob                    = eregi('blob', $row_table_def['Type']);
     $row_table_def['True_Type'] = ereg_replace('\\(.*', '', $row_table_def['Type']);
     switch ($row_table_def['True_Type']) {
         case 'set':
@@ -129,9 +131,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // Note: from the MySQL manual: "BINARY doesn't affect how the column is
     //       stored or retrieved" so it does not mean that the contents is
     //       binary
-    if (strstr($row_table_def['True_Type'], 'blob')
-        && !empty($data)
-        && $cfgProtectBlob == TRUE) {
+    if ((($cfgProtectBinary && $is_blob)
+         || ($cfgProtectBinary == 'all' && $is_binary))
+        && !empty($data)) {
         echo '        <td align="center">' . $strBinary . '</td>' . "\n";
     } else if (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
         echo '        <td align="center">--</td>' . "\n";
@@ -303,15 +305,16 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     }
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data destroyed
-    else if (strstr($row_table_def['Type'], 'blob')) {
-        if ($cfgProtectBlob == TRUE) {
+    else if ($is_binary || $is_blob) {
+        if (($cfgProtectBinary && $is_blob)
+            || ($cfgProtectBinary == 'all' && $is_binary)) {
             echo "\n";
             ?>
         <td align="center">
             <?php echo $strBinaryDoNotEdit . "\n"; ?>
         </td>
             <?php
-        } else {
+        } else if ($is_blob) {
             echo "\n";
             ?>
         <td>
@@ -319,7 +322,21 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars; ?></textarea>
         </td>
             <?php
-        } // end if...else
+        } else {
+            if ($len < 4) {
+                $fieldsize = $maxlength = 4;
+            } else {
+                $fieldsize = $len;
+                $maxlength = (($len > 40) ? 40 : $len);
+            }
+            echo "\n";
+            ?>
+        <td>
+            <?php echo $backup_field . "\n"; ?>
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" />
+        </td>
+            <?php
+        } // end if...elseif...else
     } // end else if
     else {
         if ($len < 4) {
