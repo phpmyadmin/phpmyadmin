@@ -774,12 +774,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Since release 2.3.0 you can store comments to describe each column
         for each table. These will then be shown on the &quot;printview&quot;.
         <br /><br />
-        Starting with release 2.4.1, comments are consequently used on the table property
+        Starting with release 2.5.0, comments are consequently used on the table property
         pages and table browse view, showing up as tool-tips above the column name (properties page)
         or embedded within the header of table in browse view. They can also be shown
         in a table dump. Please see the relevant configuration directives later on.
         <br /><br />
-        Also new in release 2.4.1 is a mime-transformation system which is also based on
+        Also new in release 2.5.0 is a mime-transformation system which is also based on
         the following table structure. See <a href="#transformations">Transformations</a>
         for further information. To use the mime-transformation system, your column_info
         table has to have the three new fields 'mimetype', 'transformation', 'transformation_options'.
@@ -810,7 +810,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 <tt>$cfg['Servers'][$i]['column_info']</tt>
             </li>
             <li>
-                To update your PRE-2.4.1 Column_comments Table use this:<br />
+                To update your PRE-2.5.0 Column_comments Table use this:<br />
                 <tt>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_column_comments` <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD `mimetype` VARCHAR( 255 ) NOT NULL ,<br />
@@ -828,7 +828,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['Servers'][$i]['history']</b> string
     </dt>
     <dd>
-        Since release 2.4.1 you can store your SQL history, which means all queries you
+        Since release 2.5.0 you can store your SQL history, which means all queries you
         entered manually into the phpMyAdmin interface. If you don't want to use a table-
         based history, you can use the JavaScript-based history. Using that, all your
         history items are deleted when closing the window.<br /><br />
@@ -872,7 +872,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['Servers'][$i]['verbose_check']</b> string
     </dt>
     <dd>
-        Because release 2.4.1 introduced the new MIME-transformation support, the
+        Because release 2.5.0 introduced the new MIME-transformation support, the
         column_info table got enhanced with three new fields. If the above variable is
         set to TRUE (default) phpMyAdmin will check if you have the latest table structure
         available. If not, it will emit a warning to the superuser.<br /><br />
@@ -2999,7 +2999,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     As soon as you have stored a bookmark, it is related to the database you run the query on. You can
     now access a bookmark dropdown on each page, the query box appears on for that database.<br />
     <br />
-    Since phpMyAdmin 2.4.1 you are also able to store variables for the bookmarks. Just use the string
+    Since phpMyAdmin 2.5.0 you are also able to store variables for the bookmarks. Just use the string
     <b>/*[VARIABLE]*/</b> anywhere in your query. Everything which is put into the <i>value</i> input
     box on the query box page will replace the string &quot;/*[VARIABLE]*/&quot; in your stored query. 
     Just be aware of that you HAVE to create a valid query, otherwise your query won't be even able to be 

@@ -1,3 +1,4 @@
+
    ______________________________________________________________________
 
    Top  -  Requirements  -  Introduction  -  Installation  -
@@ -5,16 +6,16 @@
    Transformations  -  FAQ  -  Developers  -  Credits  -  Translators
    ______________________________________________________________________
 
-                      phpMyAdmin 2.4.1-dev Documentation
+                      phpMyAdmin 2.5.0-dev Documentation
 
      * SourceForge phpMyAdmin project page   [ http://www.phpmyadmin.net/
-       ]
+       ] 
      * Local documents:
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.413 2003/03/05
-       10:49:20 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.421 2003/03/18
+       11:40:06 lem9 Exp $
 
 Requirements
 
@@ -22,6 +23,8 @@ Requirements
        function that was added in PHP 3.0.6, but was buggy up until
        PHP 3.0.8. Then you should not run this script with PHP3 < 3.0.8.
        PHP also needs to be compiled with MySQL support;
+       If you want to display inline thumbnails of JPEGs, you also need
+       GD2 support in PHP.
      * MySQL (tested with 3.21.x, 3.22.x, 3.23.x and 4.0.x);
        Note: Because of a major change in the definition syntax of string
        field types, this version of phpMyAdmin probably won't work
@@ -511,13 +514,13 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           Since release 2.3.0 you can store comments to describe each
           column for each table. These will then be shown on the
           "printview".
-          Starting with release 2.4.1, comments are consequently used on
+          Starting with release 2.5.0, comments are consequently used on
           the table property pages and table browse view, showing up as
           tool-tips above the column name (properties page) or embedded
           within the header of table in browse view. They can also be
           shown in a table dump. Please see the relevant configuration
           directives later on.
-          Also new in release 2.4.1 is a mime-transformation system which
+          Also new in release 2.5.0 is a mime-transformation system which
           is also based on the following table structure. See
           Transformations for further information. To use the
           mime-transformation system, your column_info table has to have
@@ -541,7 +544,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                    UNIQUE KEY db_name (db_name, table_name, column_name)
                  ) TYPE=MyISAM COMMENT='Comments for Columns';
           + put the table name in $cfg['Servers'][$i]['column_info']
-          + To update your PRE-2.4.1 Column_comments Table use this:
+          + To update your PRE-2.5.0 Column_comments Table use this:
                  ALTER TABLE `PMA_column_comments`
                    ADD `mimetype` VARCHAR( 255 ) NOT NULL ,
                    ADD `transformation` VARCHAR( 255 ) NOT NULL ,
@@ -552,7 +555,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             $cfg['Servers'][$i]['column_info']
 
    $cfg['Servers'][$i]['history'] string
-          Since release 2.4.1 you can store your SQL history, which means
+          Since release 2.5.0 you can store your SQL history, which means
           all queries you entered manually into the phpMyAdmin interface.
           If you don't want to use a table- based history, you can use
           the JavaScript-based history. Using that, all your history
@@ -579,7 +582,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           + put the table name in $cfg['Servers'][$i]['history']
 
    $cfg['Servers'][$i]['verbose_check'] string
-          Because release 2.4.1 introduced the new MIME-transformation
+          Because release 2.5.0 introduced the new MIME-transformation
           support, the column_info table got enhanced with three new
           fields. If the above variable is set to TRUE (default)
           phpMyAdmin will check if you have the latest table structure
@@ -1537,10 +1540,10 @@ FAQ - Frequently Asked Questions
     [1.29] When I create a table or modify a field, I get an error and the
     fields are duplicated.
 
-   The default configuration of Apache in some Linux distributions, such
-   as RedHat 8, have an error in their setup regarding .php files.
-   The configurations contain two different (and conflicting) sets of
-   directives:
+   It is possible to configure Apache in such a way that PHP has problems
+   interpreting .php files.
+   The problems occur when two different (and conflicting) set of
+   directives are used:
    SetOutputFilter PHP
    SetInputFilter PHP
    &
@@ -1551,7 +1554,7 @@ FAQ - Frequently Asked Questions
    of lines and restart Apache:
    #SetOutputFilter PHP
    #SetInputFilter PHP
-
+   
   [2. Configuration]
 
     [2.1] The error message "Warning: Cannot add header information - headers
@@ -1611,6 +1614,20 @@ FAQ - Frequently Asked Questions
 
    Check the value you set for the $cfg['PmaAbsoluteUri'] directive in
    the phpMyAdmin configuration file.
+
+    [2.6] I get an "Access denied for user: 'root@localhost' (Using password:
+    YES)"-error when trying to access a MySQL-Server on a host which is
+    port-forwarded for my localhost
+
+   When you are using a port on your localhost, which you redirect via
+   port-forwarding to another host, MySQL is not resolving the localhost
+   as expected.
+   Erik Wasser explains: The solution is: if your host is "localhost"
+   MySQL (the commandline tool 'mysql' as well) always tries to use the
+   socket connection for speeding up things. And that doesn't work in
+   this configuration with port forwarding.
+   If you enter "127.0.0.1" as hostname, everything is right and MySQL
+   uses the TCP connection.
 
   [3. Known limitations]
 
@@ -2043,6 +2060,45 @@ FAQ - Frequently Asked Questions
    Plus, you have a whole overview of available mimetypes. Who knows all
    those mimetypes by heart so he/she can enter it at will?
 
+    [6.17] Bookmarks: Where can I store bookmarks? Why can't I see any
+    bookmarks below the query box? What is this variable for?
+
+   Any query you have executed can be stored as a bookmark on the page
+   where the results are displayed. You will find a button labeled
+   'Bookmark this query' just at the end of the page.
+   As soon as you have stored a bookmark, it is related to the database
+   you run the query on. You can now access a bookmark dropdown on each
+   page, the query box appears on for that database.
+   Since phpMyAdmin 2.5.0 you are also able to store variables for the
+   bookmarks. Just use the string /*[VARIABLE]*/ anywhere in your query.
+   Everything which is put into the value input box on the query box page
+   will replace the string "/*[VARIABLE]*/" in your stored query. Just be
+   aware of that you HAVE to create a valid query, otherwise your query
+   won't be even able to be stored in the database.
+   Also remember, that everything else inside the /*[VARIABLE]*/ string
+   for your query will remain the way it is, but will be stripped of the
+   /**/ chars. So you can use:
+   /*, [VARIABLE] AS myname */
+   which will be expanded to
+   , VARIABLE as myname
+   in your query, where VARIABLE is the string you entered in the input
+   box. If an empty string is provided, no replacements are made.
+   A more complex example. Say you have stored this query:
+   SELECT Name, Address FROM addresses WHERE 1 /* AND Name LIKE
+   '%[VARIABLE]%' */
+   Say, you now enter "phpMyAdmin" as the variable for the stored query,
+   the full query will be:
+   SELECT Name, Address FROM addresses WHERE 1 AND Name LIKE
+   '%phpMyAdmin%'
+   You can use multiple occurences of /*[VARIABLE]*/ in a single query.
+   NOTE THE ABSENCE OF SPACES inside the "/**/" construct. Any spaces
+   inserted there will be later also inserted as spaces in your query and
+   may lead to unexpected results especially when using the variable
+   expansion inside of a "LIKE ''" expression.
+   Your initial query which is going to be stored as a bookmark has to
+   yield at least one result row so you can store the bookmark. You may
+   have that to work around using well positioned "/**/" comments.
+
   [7. phpMyAdmin project]
 
     [7.1] I have found a bug. How do I inform developers?
@@ -2251,8 +2307,9 @@ Péter Bakondy, Borges Botelho, Olivier Bussier, Neil Darlow,
 Mats Engstrom, Ian Davidson, Laurent Dhima, Kristof Hamann, Thomas Kläger,
 Lubos Klokner, Martin Marconcini, Girish Nair, David Nordenberg, Andreas Pauley,
 Bernard M. Piller, Laurent Haas, "Sakamoto", Yuval Sarna,
-www.securereality.com.au, Alvar Soome, Siu Sun, Peter Svec, Michael Tacelosky,
-Rachim Tamsjadi, Kositer Uros, Luís V., Martijn W. van der Lee,
+www.securereality.com.au, Alexis Soulard, Alvar Soome, Siu Sun, Peter Svec,
+Michael Tacelosky, Rachim Tamsjadi, Kositer Uros,
+Luís V., Martijn W. van der Lee,
 Algis Vainauskas, Daniel Villanueva, Vinay, Ignacio Vazquez-Abrams, Chee Wai,
 Jakub Wilk, Thomas Michael Winningham, Vilius Zigmantas, "Manuzhai".
 
@@ -2297,4 +2354,4 @@ Original Credits of Version 2.1.0
     And thanks to everyone else who sent me email with suggestions, bug-reports
     and or just some feedback.
 
-                                         Valid XHTML 1.0!      Valid CSS!
+                                        Valid XHTML 1.0!      Valid CSS! 
