@@ -182,6 +182,7 @@ $strHostEmpty = 'Jméno počítače je prázdné!';
 $strIdxFulltext = 'Fulltext';
 $strIfYouWish = 'Pokud si přejete natáhnout jen vybrané sloupce z&nbsp;tabulky, napište je jako seznam sloupců oddělených čárkou.';
 $strIgnore = 'Ignorovat';
+$strImportDocSQL = 'Importovat soubory docSQL';
 $strInUse = 'právě se používá';
 $strIndex = 'Index';
 $strIndexHasBeenDropped = 'Index %s byl odstraněn';
@@ -435,5 +436,4 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 // To translate
 
-$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>

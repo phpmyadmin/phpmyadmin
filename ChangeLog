@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-18 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech-*.inc.php3: update
+    
 2002-09-23 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/japanese: update, thanks to Yukihiro Kawada
     * lang/italian: update, thanks to Pietro Danesi
