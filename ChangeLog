@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_relation.php3: User forgot to define an index on the master table
+      before adding a foreign key constraint: trap the error, warn the user
+      and show him a link to the relevant doc
+
 2003-08-27 Garvin Hicking <me@supergarv.de>
     * lang/german*: Update
 
