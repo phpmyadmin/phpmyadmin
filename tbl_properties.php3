@@ -20,19 +20,22 @@ mysql_select_db($db);
 // 'show table' works correct since 3.23.03
 if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>=3)
 {
+	if(isset($submitcomment))
+		$result = mysql_query("ALTER TABLE $table comment='$comment'") or mysql_die();
+	if(isset($submittype)){
+		$result = mysql_query("ALTER TABLE $table TYPE=$tbl_type") or mysql_die();
+	}
+
 	$result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
 	$showtable = mysql_fetch_array($result);
 	$show_comment=$showtable['Comment'];
-	$tbl_type=strtoupper($showtable['Type']);
 
-	if(isset($submitcomment))
-		$result = mysql_query("ALTER TABLE $table comment='$comment'") or mysql_die();
-	if(isset($submittype))
-		$result = mysql_query("ALTER TABLE $table TYPE=$tbl_type") or mysql_die();
 	if (!empty($showtable['Comment'])){
 		echo "<i>" . $showtable['Comment'] . "</i><br><br>\n";
 		$show_comment=$showtable['Comment'];
 	}
+
+	$tbl_type=strtoupper($showtable['Type']);
 }
 
 $result = mysql_query("SHOW KEYS FROM $table") or mysql_die();
@@ -501,7 +504,7 @@ if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>=22)
     <select name='tbl_type'>
     <option <?php if($tbl_type == "MYISAM") echo 'selected';?> value="MYISAM">MyISAM</option>
     <option <?php if($tbl_type == "HEAP") echo 'selected';?> value="HEAP">Heap</option>
-<?php if (isset($tbl_bdb)){ ?><option <?php if($tbl_type == "BDB") echo 'selected';?> value="BDB">Berkeley DB</option><?php }?>
+<?php if (isset($tbl_bdb)){ ?><option <?php if($tbl_type=="BERKELEYDB") echo 'selected';?> value="BDB">Berkeley DB</option><?php }?>
 <?php if (isset($tbl_gemini)){ ?><option <?php if($tbl_type == "GEMINI") echo 'selected';?> value="GEMINI">Gemini</option><?php }?>
 <?php if (isset($tbl_innodb)){ ?><option <?php if($tbl_type == "INNODB") echo 'selected';?> value="INNODB">INNO DB</option><?php }?>
 <?php if (isset($tbl_isam)){ ?><option <?php if($tbl_type == "ISAM") echo 'selected';?> value="ISAM">ISAM</option><?php }?>
@@ -522,7 +525,6 @@ else{ // MySQL < 3.23
 ?>
 </table>
 <?php
-
 echo "</div>";
 require("./footer.inc.php3");
 ?>
