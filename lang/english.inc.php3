@@ -115,6 +115,7 @@ $strEmptyResultSet = 'MySQL returned an empty result set (i.e. zero rows).';
 $strEnd = 'End';
 $strEnglishPrivileges = ' Note: MySQL privilege names are expressed in English ';
 $strError = 'Error';
+$strExport = 'Export';
 $strExtendedInserts = 'Extended inserts';
 $strExtra = 'Extra';
 
@@ -348,5 +349,4 @@ $strYes = 'Yes';
 
 $strZip = '"zipped"';
 
-$strExport = 'Export';  //to translate
 ?>

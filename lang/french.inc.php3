@@ -115,6 +115,7 @@ $strEmptyResultSet = 'MySQL n\'a retourné aucun enregistrement.';
 $strEnd = 'Fin';
 $strEnglishPrivileges = ' Veuillez noter que les noms de privilèges sont exprimés en anglais';
 $strError = 'Erreur';
+$strExport = 'Exporter';
 $strExtendedInserts = 'Insertions étendues';
 $strExtra = 'Extra';
 
@@ -348,5 +349,4 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
-$strExport = 'Export';  //to translate
 ?>
