@@ -372,20 +372,28 @@ $checkall_url = 'tbl_properties_structure.php3?' . PMA_generate_common_url($db,$
             <?php echo $strUncheckAll; ?></a>
         &nbsp;&nbsp;&nbsp;
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
-        <?php /* Opera has trouble with <input type="image"> */ ?>
-        <button type="submit" name="submit_mult" value="<?php echo $strChange; ?>" title="<?php echo $strChange; ?>">
-            <img src="./images/button_edit.png" title="<?php echo $strChange; ?>" alt="<?php echo $strChange; ?>" width="12" height="13" />
-        </button>
 <?php
-// Drop button if there is at least two fields
-if ($fields_cnt > 1) {
-    ?>
-        <button type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" title="<?php echo $strDrop; ?>">
-            <img src="./images/button_drop.png" title="<?php echo $strDrop; ?>" alt="<?php echo $strDrop; ?>" width="11" height="13" />
-        </button>
-    <?php
+
+if ($cfg['PropertiesIconic']) {
+    /* Opera has trouble with <input type="image"> */
+    echo '        <button type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '">' . "\n"
+       . '            <img src="./images/button_edit.png" title="' . $strChange . '" alt="' . $strChange . '" width="12" height="13" />' . "\n"
+       . '        </button>' . "\n";
+    // Drop button if there is at least two fields
+    if ($fields_cnt > 1) {
+        echo '        <button type="submit" name="submit_mult" value="' . $strDrop . '" title="' . $strDrop . '">' . "\n"
+           . '            <img src="./images/button_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="11" height="13" />' . "\n"
+           . '        </button>' . "\n";
+    }
+} else {
+    echo '        <input type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '" />' . "\n";
+    // Drop button if there is at least two fields
+    if ($fields_cnt > 1) {
+        echo '        &nbsp;<i>' . $strOr . '</i>&nbsp;' . "\n"
+           . '        <input type="submit" name="submit_mult" value="' . $strDrop . '" title="' . $strDrop . '" />' . "\n";
+    }
 }
-echo "\n";
+
 ?>
     </td>
 </tr>
