@@ -22,9 +22,7 @@ $month = array('Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Ию
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%B %d %Y г., %H:%M';
-
-$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; 
-
+$timespanfmt = '%s дней, %s часов, %s минут и %s секунд';
 $strAPrimaryKey = 'Был добавлен первичный ключ к %s';
 $strAbortedClients = 'Отменены'; 
 $strAccessDenied = 'В доступе отказано';

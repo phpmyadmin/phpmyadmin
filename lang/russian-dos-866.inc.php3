@@ -22,7 +22,7 @@ $month = array('Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'О
 // variable below
 $datefmt = '%B %d %Y г., %H:%M';
 
-$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; 
+$timespanfmt = '%s дней, %s часов, %s минут и %s секунд';
 
 $strAPrimaryKey = 'Был добавлен первичный ключ к %s';
 $strAbortedClients = 'Отменены'; 
