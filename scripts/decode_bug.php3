@@ -56,7 +56,13 @@
 /**
  * If the form has been submitted -> decodes the bug report
  */
-if (!empty($_POST) && isset($_POST['bug_encoded'])) {
+function PMA_printDecodedBug($textdata)
+{
+    return 'Decoded:<br />' . "\n"
+    . '<pre>' . $textdata . '</pre><br />' . "\n";
+    }
+ 
+ if (!empty($_POST) && isset($_POST['bug_encoded'])) {
     $bug_encoded = $_POST['bug_encoded'];
 }
 else if (!empty($HTTP_POST_VARS) && isset($HTTP_POST_VARS['bug_encoded'])) {
@@ -72,17 +78,16 @@ if (!empty($bug_encoded)) {
     $bug_decoded     = base64_decode($bug_encoded);
     if (substr($bug_encoded, 0, 2) == 'eN') {
         if (function_exists('gzuncompress')) {
-            $result  = '    Decoded:<br />' . "\n"
-                     . '    ' . gzuncompress($bug_decoded) . '<br />' . "\n";
-        } else {
+            $result  = PMA_printDecodedBug(gzuncompress($bug_decoded));
+            } else {
             $result  = 'Error: &quot;gzuncompress()&quot; is unavailable!' . "\n";
         }
     }
     else {
-        $result      = '    Decoded:<br />' . "\n"
-                     . '    ' . $bug_decoded . '<br />'. "\n";
+        $result  = PMA_printDecodedBug($bug_decoded);
     } // end if... else...
 
+   
     echo '<p>' . "\n" . $result . '</p>' . "\n";
 } // end if
 ?>
