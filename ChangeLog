@@ -17,8 +17,9 @@ $Source$
 	  ASC/DESC) suggested by Thomas Michael Winningham.
 	* lib.inc.php3, lines 341-343, 385-387: applied patch #437129 (Table Edit
 	  Inheritence) suggested by Thomas Michael Winningham.
+	* header.inc.php3: added headers to vaoid the use of cached files (required
+	  for Opera)
   
-
 2001-06-29  Marc Delisle  <lem9@users.sourceforge.net>
 	* user_details.php3, js code to protect db and table names
 

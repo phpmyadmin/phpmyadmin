@@ -2,6 +2,18 @@
 /* $Id$ */
 
 require("./lib.inc.php3");
+
+/**
+ * Send http headers
+ */
+// Don't use cache (required for Opera)
+$now = gmdate('D, d M Y H:i:s') . ' GMT';
+header('Expires: ' . $now);
+header('Last-Modified: ' . $now);
+header('Cache-Control: no-store, no-cache, must-revalidate'); // HTTP/1.1
+header('Cache-Control: pre-check=0, post-check=0, max-age=0'); // HTTP/1.1
+header('Pragma: no-cache'); // HTTP/1.0
+// Define the charset to be used
 header('Content-Type: text/html; charset=' . $charset);
 
 ?>
@@ -24,12 +36,6 @@ A:hover.nav {  font-family: Verdana, Arial, Helvetica, sans-serif; color: red;}
 .nav {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000}
 //-->
 </style>
-<!--
-<META HTTP-EQUIV="Expires" CONTENT="Fri, Jun 12 1981 08:20:00 GMT">
-<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
-<META HTTP-EQUIV="Content-Type: text/html; charset=<?php echo $charset; ?>">
--->
 </head>
 
 <body bgcolor="#F5F5F5" text="#000000" background="images/bkg.gif">
