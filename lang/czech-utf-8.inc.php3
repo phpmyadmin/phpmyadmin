@@ -87,6 +87,12 @@ $strCantUseRecodeIconv = 'Nelze použít funkce iconv ani libiconv ani recode_st
 $strCardinality = 'Mohutnost';
 $strCarriage = 'Návrat vozíku (CR): \\r';
 $strChange = 'Změnit';
+$strChangeCopyMode = 'Vytvořit nového uživatele se stejnými oprávněními a ...';
+$strChangeCopyModeCopy = '... zachovat původního uživatele.';
+$strChangeCopyModeDeleteAndReload = ' ... smazat uživatele a poté znovu načíst oprávnění.';
+$strChangeCopyModeJustDelete = ' ... smazat původního uživatele ze všech tabulek.';
+$strChangeCopyModeRevoke = ' ... odebrat všechna oprávnění půodnímu uživateli a poté ho smazat.';
+$strChangeCopyUser = 'Změnit informace o&nbsp;uživateli / Kopírovat uživatele';
 $strChangeDisplay = 'Zvolte které sloupce zobrazit';
 $strChangePassword = 'Změnit heslo';
 $strCharsetOfFile = 'Znaková sada souboru:';
@@ -139,9 +145,9 @@ $strDatabaseWildcard = 'Databáze (zástupné znaky povoleny):';
 $strDatabases = 'Databáze';
 $strDatabasesDropped = '%s databáze byla úspěšně zrušena.';
 $strDatabasesStats = 'Statistiky databází';
-$strDatabasesStatsDisable = 'Zapnout statistiky';
-$strDatabasesStatsEnable = 'Vypnout statistiky';
-$strDatabasesStatsHeavyTraffic = 'Poznámka: Zapnutí statistik o&nbsp;databáchích může způsobit značné zvýšení provozu mezi webDerverem a MySQL serverem.';
+$strDatabasesStatsDisable = 'Skrýt podrobnosti';
+$strDatabasesStatsEnable = 'Zobrazit podrobnosti';
+$strDatabasesStatsHeavyTraffic = 'Poznámka: Zobrazení podrobností o&nbsp;databáchích může způsobit značné zvýšení provozu mezi webserverem a MySQL serverem.';
 $strDbPrivileges = 'Oprávnění pro jednotlivé databáze';
 $strDbSpecific = 'závislé na databázi';
 $strDefault = 'Výchozí';
@@ -562,10 +568,11 @@ $strViewDumpDB = 'Zobrazit výpis (dump) databáze';
 $strWebServerUploadDirectory = 'soubor z&nbsp;adresáře pro upload';
 $strWebServerUploadDirectoryError = 'Adresář určený pro upload souborů nemohl být otevřen';
 $strWelcome = 'Vítej v&nbsp;%s';
+$strWildcard = 'maska';
 $strWithChecked = 'Zaškrtnuté:';
 $strWritingCommentNotPossible = 'Nelze zapsat komentář';
 $strWritingRelationNotPossible = 'Nelze zapsat relaci';
-$strWrongUser = 'Špatné uživatelské jméno/heslo. Přístup odepřen.';
+$strWrongUser = 'Špatné uživatelské jméno nebo heslo. Přístup odepřen.';
 
 $strYes = 'Ano';
 
@@ -573,11 +580,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
-$strChangeCopyUser = 'Change Login Information / Copy User';  //to translate
-$strChangeCopyMode = 'Create a new user with the same privileges and ...';  //to translate
-$strChangeCopyModeCopy = '... keep the old one.';  //to translate
-$strChangeCopyModeJustDelete = ' ... delete the old one from the user tables.';  //to translate
-$strChangeCopyModeRevoke = ' ... revoke all active privileges from the old one and delete it afterwards.';  //to translate
-$strChangeCopyModeDeleteAndReload = ' ... delete the old one from the user tables and reload the privileges afterwards.';  //to translate
-$strWildcard = 'wildcard';  //to translate
 ?>
