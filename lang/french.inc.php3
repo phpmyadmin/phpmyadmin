@@ -298,4 +298,6 @@ $strWelcome = 'Bienvenue à';
 $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 
 $strYes = 'Oui';
+$strFullStrings = 'Full Strings';//to translate
+$strCuttedStrings = 'Cutted Strings';//to translate
 ?>

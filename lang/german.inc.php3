@@ -299,4 +299,6 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 
 $strYes = 'Ja';
 
+$strFullStrings = 'Full Strings';//to translate
+$strCuttedStrings = 'Cutted Strings';//to translate
 ?>

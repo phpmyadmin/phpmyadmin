@@ -300,4 +300,6 @@ $strBzip = '"bzipped"';  //to translate
 $strGzip = '"gzipped"';  //to translate
 $strOffSet = 'offset';  //to translate
 $strStrucExcelCSV = 'CSV for Ms Excel data';
+$strFullStrings = 'Full Strings';//to translate
+$strCuttedStrings = 'Cutted Strings';//to translate
 ?>

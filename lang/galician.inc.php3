@@ -299,4 +299,6 @@ $strSort = 'Sort'; // To translate
 $strStrucExcelCSV = 'CSV for Ms Excel data'; // To translate
 $strTables = '%s table(s)'; // To translate
 $strUpdateQuery = 'Update Query'; // To translate
+$strFullStrings = 'Full Strings';//to translate
+$strCuttedStrings = 'Cutted Strings';//to translate
 ?>

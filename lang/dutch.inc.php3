@@ -300,4 +300,6 @@ $strGzip = '"gzipped"';
 $strNoDropDatabases = '"DROP DATABASE" statements are disabled.';
 $strOffSet = 'offset';
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
+$strFullStrings = 'Full Strings';//to translate
+$strCuttedStrings = 'Cutted Strings';//to translate
 ?>

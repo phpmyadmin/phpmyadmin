@@ -301,4 +301,6 @@ $strTables = '%s table(s)';  //to translate
 $strUseBackquotes = ' Use backquotes with tables and fields names ';  //to translate
 $strServerChoice = 'Server Choice';//to translate 
 $strPmaDocumentation = 'phpMyAdmin Documentation';//to translate 
+$strFullStrings = 'Full Strings';//to translate
+$strCuttedStrings = 'Cutted Strings';//to translate
 ?>

@@ -300,4 +300,6 @@ $strStrucExcelCSV = 'CSV for Ms Excel data';
 $strTables = '%s table(s)';  //to translate
 $strServerChoice = 'Server Choice';//to translate 
 $strPmaDocumentation = 'phpMyAdmin Documentation';//to translate 
+$strFullStrings = 'Full Strings';//to translate
+$strCuttedStrings = 'Cutted Strings';//to translate
 ?>

@@ -298,4 +298,6 @@ $strWelcome = 'Bun venit la ';
 $strWrongUser = 'Nume de utilizator/Parola incorecta. Accesul interzis.';
 
 $strYes = 'Da';
+$strFullStrings = 'Full Strings';//to translate
+$strCuttedStrings = 'Cutted Strings';//to translate
 ?>
