@@ -32,8 +32,7 @@ if (isset($submit)) {
         if ($field_default[$i] != '') {
             if (strtoupper($field_default[$i]) == 'NULL') {
                 $query .= ' DEFAULT NULL';
-            }
-            else if (get_magic_quotes_gpc()) {
+            } else if (get_magic_quotes_gpc()) {
                 $query .= ' DEFAULT \'' . sql_addslashes(stripslashes($field_default[$i])) . '\'';
             } else {
                 $query .= ' DEFAULT \'' . sql_addslashes($field_default[$i]) . '\'';
