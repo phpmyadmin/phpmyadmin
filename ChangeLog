@@ -5,17 +5,25 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2001-08-07  Marc Delisle  <lem9@users.sourceforge.net>
-	* bug 448737 user_details.php typos
+2001-08-07  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3 & sql.php3: fix for the order bugs (need to be tested).
+	* tbl_change.php3, line 244-246: fixed a possible warning.
+	* db_details.php3, db_readdump.php3: fixed a slashes bug.
+
+2001-08-07  Marc Delisle  <lem9@users.sourceforge.net> 
+	* bug 448737 user_details.php typos 
 
 2001-08-06  Marc Delisle  <lem9@users.sourceforge.net>
-	* lib.inc.php3, new code from Loic to avoid showing BLOB
-	  when displaying a TEXT field
+	* lib.inc.php3, new code from Loic to avoid showing BLOB when displaying
+	  a TEXT field
 	* sql.php3, bug 448226 (Missing MySQL messages), correction from Loic.
 	* tbl_change.php3, bug 442778, Edit record with two similar SET fields 
-	* tbl_replace.php3, could not save a row with a set which has no
-  	  value selected
+	* tbl_replace.php3, could not save a row with a set which has no value
+  	  selected
 	* sql.php3, bug 444749 SQL DATE & TIME FUNCTION ERROR 
+
+2001-08-06  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_change.php3, line 250: fixed a bug with set fields.
 
 2001-08-06  Steve Alberty  <alberty@nepunlabs.de>
 	* index.php3: remove warning under Apache 2.0.23-dev
