@@ -7,6 +7,8 @@ $Source$
 
 2004-04-18 Michal Cihar  <michal@cihar.com>
     * libraries/tbl_change.js: Fixed caledar behavior for DATE fields.
+    * libraries/auth/cookie.auth.lib.php: Fix LoginCookieValidity behaviour.
+    * libraries/tbl_change.js, tbl_change.php: Add support for DATETIME.
 
 2004-04-18 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Updates.

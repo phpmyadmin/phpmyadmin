@@ -138,7 +138,7 @@ function initCalendar() {
         /* Called for first time */
         if (window.opener.dateField.value) {
             value = window.opener.dateField.value;
-            if (window.opener.dateType == 'date') {
+            if (window.opener.dateType == 'datetime' || window.opener.dateType == 'date') {
                 date = value.split("-");
                 day = parseInt(date[2]);
                 month = parseInt(date[1]) - 1;
@@ -157,8 +157,14 @@ function initCalendar() {
         }
 	} else {
         /* Moving in calendar */
-        if (month > 11) {month = 0; year++;}
-        if (month < 0) {month = 11; year--;}
+        if (month > 11) {
+            month = 0; 
+            year++;
+        }
+        if (month < 0) {
+            month = 11; 
+            year--;
+        }
     }
 	
 	if (document.getElementById) {
@@ -170,8 +176,17 @@ function initCalendar() {
 	cnt.innerHTML = "";
 	
 	str = ""
-	
-	str += '<table class="calendar"><tr><th><a href="#" onclick="month--; initCalendar();">&laquo;</a> ' + month_names[month] + ' <a href="#" onclick="month++; initCalendar();">&raquo;</a></th><th><a href="#" onclick="year--; initCalendar();">&laquo;</a> ' + year + ' <a href="#" onclick="year++; initCalendar();">&raquo;</a></th></tr></table>';
+
+    //heading table
+	str += '<table class="calendar"><tr><th width="50%">';
+    str += '<a href="#" onclick="month--; initCalendar();">&laquo;</a> ';
+    str += month_names[month];
+    str += ' <a href="#" onclick="month++; initCalendar();">&raquo;</a>';
+    str += '</th><th width="50%">';
+    str += '<a href="#" onclick="year--; initCalendar();">&laquo;</a> ';
+    str += year;
+    str += ' <a href="#" onclick="year++; initCalendar();">&raquo;</a>';
+    str += '</th></tr></table>';
 
 	str += '<table class="calendar"><tr>';
 	for (i = 0; i < 7; i++) {
@@ -195,7 +210,7 @@ function initCalendar() {
 			dayInWeek = 0;
 		}
         dispmonth = 1 + month;
-        if (window.opener.dateType == 'date') {
+        if (window.opener.dateType == 'datetime' || window.opener.dateType == 'date') {
 		    actVal = year + "-" + dispmonth + "-" + i;
         } else {
 		    actVal = "" + (year < 1000 ? year < 100 ? year < 10 ? '000' : '00' : '0' : '') + year + (dispmonth < 10 ? '0' : '') + dispmonth + (i < 10 ? '0' : '') + i;

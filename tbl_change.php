@@ -770,7 +770,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
                 ?>
                 <input type="text" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $vkey; ?>')" tabindex="<?php echo (($i * $m_rows) + 1); ?>" id="field_<?php echo ($i * $m_rows); ?>_3" />
                 <?php
-                if ($type == 'date' || substr($type, 0, 9) == 'timestamp') {
+                if ($type == 'date' || $type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
                     ?>
                     <script type="text/javascript">
                     <!--
