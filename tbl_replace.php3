@@ -138,7 +138,8 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     // Builds the sql upate query
     $valuelist = ereg_replace(', $', '', $valuelist);
     if (!empty($valuelist)) {
-        $query = 'UPDATE ' . backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key;
+        $query = 'UPDATE ' . backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key . ' LIMIT 1';
+        $message   = $strAffectedRows . '&nbsp;';
     }
     // No change -> move back to the calling script
     else {
@@ -241,6 +242,7 @@ else {
     $fieldlist = ereg_replace(', $', '', $fieldlist);
     $valuelist = ereg_replace(', $', '', $valuelist);
     $query     = 'INSERT INTO ' . backquote($table) . ' (' . $fieldlist . ') VALUES (' . $valuelist . ')';
+    $message   = $strInsertedRows . '&nbsp;';
 } // end row insertion
 
 
@@ -262,7 +264,11 @@ if (!$result) {
             unset($table);
         }
         include('./header.inc.php3');
-        $message = $strModifications;
+        if (@mysql_affected_rows()) {
+            $message .= @mysql_affected_rows();
+        } else {
+            $message = $strModifications;
+        }
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
         header('Location: ' . $cfgPmaAbsoluteUri . $goto);
