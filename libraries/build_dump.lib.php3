@@ -421,7 +421,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
 
         // Handles the "separator" and the optionnal "enclosed by" characters
         if ($what == 'excel') {
-            $sep     = ';';
+            $sep     = ',';
         } else if (!isset($sep)) {
             $sep     = '';
         } else {

@@ -18,6 +18,7 @@ $Source$
 	  tbl_printview.php3: added the $cfgShowStats setting.
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
 	* tbl_change.php3: fixed bad field size/maxsize.
+	* libraries/build_dump.php3: Excel csv field separator should be a comma.
 
 2001-09-19  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_properties.php3, db_details.php3, lang/*: start to merge new messages
