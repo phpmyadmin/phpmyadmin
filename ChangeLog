@@ -9,6 +9,7 @@ $Source$
     * lang/ukrainian: update, thanks to Markijan Baran
     * user_details.php3: add $strGrantOption
     * lang/french update
+    * main.php3, lang/*.php3: $strOriginalInterface
 
 2002-12-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3:

@@ -395,7 +395,7 @@ if ($server > 0) {
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="user_details.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;table=user">
-                    <?php echo $strUsers; ?></a>&nbsp;(old school)&nbsp;
+                    <?php echo $strUsers; ?></a>&nbsp;(<?php echo $strOriginalInterface;; ?>)&nbsp;
             </td>
         </tr>
         <tr>
