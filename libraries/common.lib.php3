@@ -55,9 +55,6 @@ if (!defined('__LIB_COMMON__')){
     if (!isset($pos)) {
         $pos              = 0;
     }
-    if (!isset($cfgProtectBinary)) {
-        $cfgProtectBinary = FALSE;
-    }
 
 
     /**
@@ -101,20 +98,50 @@ if (!defined('__LIB_COMMON__')){
      * versions of phpMyAdmin/php/mysql...
      */
     include('./config.inc.php3');
+
     // For compatibility with old config.inc.php3
+    if (!isset($cfgShowStats)) {
+        $cfgShowStats         = TRUE;
+    }
+    if (!isset($cfgShowTooltip)) {
+        $cfgShowTooltip       = TRUE;
+    }
+    if (!isset($cfgShowAll)) {
+        $cfgShowAll           = FALSE;
+    }
+    if (!isset($cfgProtectBinary)) {
+        if (isset($cfgProtectBlob)) {
+            $cfgProtectBinary = ($cfgProtectBlob ? 'blob' : FALSE);
+            unset($cfgProtectBlob);
+        } else {
+            $cfgProtectBinary = 'blob';
+        }
+    }
+    if (!isset($cfgZipDump)) {
+        $cfgZipDump           = (isset($cfgGZipDump) ? $cfgGZipDump : TRUE);
+    }
+    if (!isset($cfgLeftBgColor)) {
+        $cfgLeftBgColor       = '#D0DCE0';
+    }
+    if (!isset($cfgRightBgColor)) {
+        $cfgRightBgColor      = '#F5F5F5';
+    }
     if (!isset($cfgTextareaCols)) {
-        $cfgTextareaCols = 40;
+        $cfgTextareaCols      = 40;
     }
     if (!isset($cfgTextareaRows)) {
-        $cfgTextareaRows = 7;
+        $cfgTextareaRows      = 7;
     }
+
     // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
     // exist
     if ($cfgPmaAbsoluteUri != '' && substr($cfgPmaAbsoluteUri, -1) != '/') {
         $cfgPmaAbsoluteUri .= '/';
     }
+
     // Gets some constants
     include('./libraries/defines.lib.php3');
+
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run
     if (PHP_INT_VERSION < 40000
