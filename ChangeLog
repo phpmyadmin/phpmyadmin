@@ -7,6 +7,7 @@ $Source$
 
 2003-06-10 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_qbe.php3: bug 751787, missing FROM part in query generator
+    * libraries/export/sql.php3: typo largeblob -> longblob
 
 2003-06-10 Michal Cihar  <nijel@users.sourceforge.net>
     * scripts/create-release.sh: Set correct permissions before releasing.

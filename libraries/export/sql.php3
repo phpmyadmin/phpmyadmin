@@ -433,7 +433,7 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
                 $field_num[$j] = FALSE;
             }
             // blob
-            if ($type == 'blob' || $type == 'mediumblob' || $type == 'largeblob' || $type == 'tinyblob') {
+            if ($type == 'blob' || $type == 'mediumblob' || $type == 'longblob' || $type == 'tinyblob') {
                 $field_blob[$j] = TRUE;
             } else {
                 $field_blob[$j] = FALSE;
@@ -581,7 +581,7 @@ function PMA_getTableContentOld($db, $table, $crlf, $error_url, $sql_query)
                     $type == 'bigint'  ||$type == 'timestamp') {
                     $schema_insert .= $row[$j] . ', ';
                 // blob
-                } else if (($type == 'blob' || $type == 'mediumblob' || $type == 'largeblob' || $type == 'tinyblob') && !empty($row[$j])) {
+                } else if (($type == 'blob' || $type == 'mediumblob' || $type == 'longblob' || $type == 'tinyblob') && !empty($row[$j])) {
                     $schema_insert .= '0x' . bin2hex($row[$j]) . ', ';
                 // a string
                 } else {
