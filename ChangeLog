@@ -7,6 +7,9 @@ $Source$
 
 2002-07-30 Robin Johnson  <robbat2@users.sourceforge.net>
     * scripts/decode_bug.php3: Parser BUG decoder merged
+    * lang/russian: Update thanks to http://psyonline.ru/
+    * lang/spanish: Update thanks to Daniel ?
+    * lang/*: ran sync_lang.sh
 
 2002-07-30 Marc Delisle  <lem9@users.sourceforge.net>
     * config.inc.php3: how to test auto-detect

@@ -303,7 +303,7 @@ $strRunSQLQuery = 'Ejecute la/s consulta/s SQL en la base de datos %s';
 $strRunning = 'ejecutándose en %s';
 
 $strSQL = 'SQL';
-$strSQLQuery = 'petición SQL';
+$strSQLQuery = 'consulta SQL';
 $strSQLResult = 'Resultado SQL';
 $strSave = 'Grabar';
 $strScaleFactorSmall = 'El factor de la escala es demasiado pequeño para poner el esquema en una página';
@@ -398,15 +398,15 @@ $strYes = 'Sí';
 
 $strZip = '"comprimido con zip"';
 
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
-$strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
+$strRelationNotWorking = 'Los componentes adicionales para trabajar con tablas vinculadas fueron desactivados. Para saber porqué, dé clic %saquí%s.';  //Features = ¿componentes?
+$strAllTableSameWidth = '¿Mostrar todas las tablas que tienen el mismo ancho?';
+$strPdfNoTables = 'No existen tablas';  
+$strDisplayFeat = 'Mostrar los componentes';  //Features = ¿componentes?
+$strCreatePdfFeat = 'Creación de los PDF';  
+$strColComFeat = 'Mostrando los comentarios de la columna';  
+$strDisabled = 'Deshabilitado';
+$strEnabled = 'Habilitado';
+$strOK = 'OK';  
+$strNotOK = 'no recibió el OK';
+$strGeneralRelationFeat = 'Componentes de relación general';  //Features = ¿componentes?
 ?>
