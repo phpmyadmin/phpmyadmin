@@ -13,6 +13,10 @@ $Source$
 	  Note there is still a problem when altering a field: one can set it as an
       "auto_increment" field but there is no way to tell the script it must be
 	  then the primary key.
+	* main.php3, lines 47-56; lang/*: feature #458452 (display the logged in
+	  user).
+	* index.php3, lines 11-12: calling the "set_font_sizes()" function is
+	  required to get the "$font_size" variable.
 
 2001-09-17  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_detail.php3: fixed some bugs with the "other privileges" feature.
