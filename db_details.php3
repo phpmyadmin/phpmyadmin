@@ -35,7 +35,7 @@ if (isset($show_query) && $show_query == 'y') {
  */
 $sub_part    = '';
 require('./db_details_db_info.php3');
-if ($num_tables == 0) {
+if ($num_tables == 0 && empty($db_query_force)) {
 	$is_info = TRUE;
     include('./db_details_structure.php3');
     exit();

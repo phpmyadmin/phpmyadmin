@@ -38,7 +38,7 @@ else {
 ?>
 <p>
     [&nbsp;
-    <a href="db_details.php3?<?php echo $url_query; ?>">
+    <a href="db_details.php3?<?php echo $url_query; ?>&amp;db_query_force=1">
         <b><?php echo $strHome; ?></b></a>&nbsp;|
     <a href="db_details_structure.php3?<?php echo $url_query; ?>">
         <b><?php echo $strStructure; ?></b></a>&nbsp;|

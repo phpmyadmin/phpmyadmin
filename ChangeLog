@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-02 Loïc Chapeaux  <lolo@phpheaven.net>
+    * lang/*.inc.php3: cleanup.
+    * db_details.php3, line 38; db_details_links.php3, line 41: the start db
+      details page couldn't be reached with an empty database.
+
 2002-05-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_properties_export.php3, lang/*.inc.php3: Clarified the interface.
     * lang/italian.inc.php3: Updates, thanks again to
