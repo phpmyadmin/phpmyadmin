@@ -9,6 +9,7 @@ $Source$
     * db_details.php3, tbl_query_box.php3: Disabled the autoselect feature of
       the SQL query box for Opera 7 for Windows in order to avoid trouble here.
     * Documentation.html: Removed FAQ entry about Opera 7.
+    * db_stats.php3: One <img> tag still pointed to a GIF file.
 
 2003-02-05 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_replace.php3, tbl_replace_fields.php3: do not display the
