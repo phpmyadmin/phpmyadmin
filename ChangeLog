@@ -8,6 +8,7 @@ $Source$
 2004-05-09 Alexander M. Turek  <me@derrabus.de>
     * db_datadict.php: Patch #950726 (minor CSS fixes) thanks to
       Adam Shantz (musus).
+    * lang/german-*.inc.php: Updates.
 
 2004-05-09 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_operations.php, lang/*: InnoDB table defragmentation

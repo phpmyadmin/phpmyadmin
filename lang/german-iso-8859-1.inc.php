@@ -195,6 +195,7 @@ $strDbPrivileges = 'Datenbankspezifische Rechte';
 $strDbSpecific = 'datenbankspezifisch';
 $strDefault = 'Standard';
 $strDefaultValueHelp = 'Bitte geben Sie jeweils nur einen Standardwert ohne Escape- oder Anführungszeichen an.';
+$strDefragment = 'Tabelle defragmentieren';
 $strDelOld = 'Auf der aktuellen Seite bestehen Referenzen zu Tabellen, die nicht mehr existieren. Sollen diese Referenzen gelöscht werden?';
 $strDelayedInserts = 'Verzögerten INSERT-Befehl verwenden';
 $strDelete = 'Löschen';
@@ -744,5 +745,4 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 
-$strDefragment = 'Defragment table';  //to translate
 ?>
