@@ -25,6 +25,7 @@ $strAccessDenied = 'Ligipääs keelatud';
 $strAccessDeniedExplanation = 'phpMyAdmin proovis ühenduda MySQL serveriga ja server lükkas ühenduse tagasi. Te peaksite kontrollima serverit, kasutajanime ja parooli config.inc.php failis ning kontrollima, et need vastaks infole mis te saite oma MySQL serveri administraatori käest.';
 $strAction = 'Tegevus';
 $strAddAutoIncrement = 'Lisa AUTO_INCREMENT väärtus';
+$strAddConstraints = 'Lisa piirangud';
 $strAddDeleteColumn = 'Lisa/Kustuta välja veerud';
 $strAddDeleteRow = 'Lisa/Kustuta kriteeriumirida';
 $strAddDropDatabase = 'Lisa DROP DATABASE';
@@ -34,8 +35,8 @@ $strAddPriv = 'Lisa uus privileeg';
 $strAddPrivMessage = 'Te lisasite uue privileegi.';
 $strAddPrivilegesOnDb = 'Lisa privileegid antud andmebaasile';
 $strAddPrivilegesOnTbl = 'Lisa privileegid antud tabelile';
-$strAddSearchConditions = 'Lisa otsinguparameetrid ("where" lause sisu):';
-$strAddToIndex = 'Lisa indeksisse &nbsp;%s&nbsp;rida(ead)';
+$strAddSearchConditions = 'Lisa otsinguparameetrid ("WHERE" lause sisu):';
+$strAddToIndex = 'Lisa indeksisse &nbsp;%s&nbsp;rida/read';
 $strAddUser = 'Lisa uus kasutaja';
 $strAddUserMessage = 'Te lisasite uue kasutaja.';
 $strAddedColumnComment = 'Kommentaar lisatud väljale';
@@ -180,6 +181,7 @@ $strDbSpecific = 'andmebaasipõhine';
 $strDefault = 'Vaikimisi';
 $strDefaultValueHelp = 'Vaikimisi väärtuse jaoks sisestage lihtsalt üksik väärtus, ilma kaldkriipsudega varjestamata ning jutumärkideta, kasutades järgmist kirjakuju: a';
 $strDelOld = 'Antud lehel on viiteid tabelitele mida enam ei ole. Kas te soovite kustutada need viited?';
+$strDelayedInserts = 'Kasuta ajastatud lisamisi';
 $strDelete = 'Kustuta';
 $strDeleteAndFlush = 'Kustutage kasutajad ja taaslaadige privileegid pärast seda.';
 $strDeleteAndFlushDescr = 'See on parim tee, kuid privileegide taaslaadimine võib võtta aega.';
@@ -541,6 +543,7 @@ $strRunning = 'jookseb masinas %s';
 $strRussian = 'Vene';
 
 $strSQL = 'SQL';
+$strSQLExportType = 'Ekspordi tüüp';
 $strSQLOptions = 'SQL seaded';
 $strSQLParserBugMessage = 'On võimalus, et te leidsite vea SQL parseris. Palun kontrollige oma päringut täpsemalt ja kontrollige, et jutumärgid/ülakomad oleks korrektselt lõpetatud. Veel on võimalik, et te loete sisse faili kus on binaarne info väljaspool varjestatud tekstiala. Samuti võiksite te proovida oma päringut MySQLi käsureal. MySQLi viga väljastatakse päringu all, kui seal tõesti on mõni viga, siis see võib aidata teil leida vea algpõhjuseid. Kui teil on peale seda ikka veel probleeme või kui mu parser keeldub töötamast ning MySQL käsurida töötab, siis palun vähendage oma päringuid üksiku päringuni, mis põhjustab probleeme ja sisestage vea raport koos viga põhjustanud päringuga LÕIGET sektsioonis allpool:';
 $strSQLParserUserError = 'Tundub, et teie SQL päringus on viga. MySQLi serveri error peaks ilmuma allpool, kui seal on midagi, siis peaks see teil aitama leia vea põhjust.';
@@ -692,7 +695,7 @@ $strValidateSQL = 'Kontrolli SQL-i';
 $strValidatorError = 'SQL-i valideerijat ei suudetud avada. Palun kontrollige, et te olete installinud vastavad php moodulid nagu on kirjeldatud %sdokumentatsioonis%s.';
 $strValue = 'Väärtus';
 $strVar = 'Muutuja';
-$strViewDump = 'Vaata tabeli väljundit(skeemi)';
+$strViewDump = 'Vaata tabeli väljundit (skeemi)';
 $strViewDumpDB = 'Vaata andmebaasi väljundit (skeemi)';
 $strViewDumpDatabases = 'Näita andmebaaside sisu (skeemi)';
 
@@ -713,9 +716,5 @@ $strYes = 'Jah';
 
 $strZeroRemovesTheLimit = 'Märkus: Märkides antud seaded 0 (null) , eemaldate limiidi.';
 $strZip = '"zipitud"';
-// To translate
 
-$strDelayedInserts = 'Use delayed inserts';  //to translate
-$strSQLExportType = 'Export type';  //to translate
-$strAddConstraints = 'Add constraints';  //to translate
 ?>
