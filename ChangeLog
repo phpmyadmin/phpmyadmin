@@ -5,12 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-12-18 Alexander M. Turek  <rabus@users.sourceforge.net>
+2002-12-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/norwegian-*.inc.php3:
       - Corrections, thanks to Tore Longva <longva at stud.ntnu.no>.
       - Updates, thanks again to Sven-Erik Andersen (sven-erik).
     * lang/malay-*.inc.php3: Updates, thanks again to Shafique (sicksand).
     * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
+    * lang/german-*.inc.php3: Updates.
+    * lang/*.inc.php3: Fixed a typo.
 
 2002-12-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * main.php3, header.inc.php3, server_privileges.php3, server_links.php3,
