@@ -6,7 +6,8 @@ $Id$
 $Source$
 
 2002-08-12 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/japanese*: updates, thanks to Yukihiro Kawada
+    * lang/japanese update, thanks to Yukihiro Kawada
+    * lang/slovenian update, thanks to Kositer Uros (urosh)
 
 2002-08-12 Mike Beck  <mikebeck@users.sourceforge.net>
     * tbl_select.php3: Bugfix: it created IS 'NULL'

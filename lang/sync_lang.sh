@@ -60,6 +60,7 @@ portuguese-iso-8859-1
 romanian-iso-8859-1
 russian-windows-1251
 serbian-windows-1250
+slovenian-iso-8859-2
 slovak-iso-8859-2
 spanish-iso-8859-1
 swedish-iso-8859-1
