@@ -611,6 +611,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             // 1. Prepares the row (gets primary keys to use)
             if ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn') {
                 $primary_key              = '';
+                $unique_key               = '';
                 $uva_nonprimary_condition = '';
 
                 // 1.1 Results from a "SELECT" statement -> builds the
@@ -626,15 +627,19 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                         }
                         if ($primary->primary_key > 0) {
                             $primary_key .= $condition;
+                        } else if ($primary->unique_key > 0) {
+                            $unique_key  .= $condition;
                         }
                         $uva_nonprimary_condition .= $condition;
                     } // end for
 
-                    // Correction uva 19991216: prefer primary keys for
-                    // condition, but use conjunction of all values if no
+                    // Correction uva 19991216: prefer primary or unique keys
+                    // for condition, but use conjunction of all values if no
                     // primary key
                     if ($primary_key) {
                         $uva_condition = $primary_key;
+                    } else if ($unique_key) {
+                        $uva_condition = $unique_key;
                     } else {
                         $uva_condition = $uva_nonprimary_condition;
                     }
