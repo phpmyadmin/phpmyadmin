@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-11 Robin Johnson  <robbat2@users.sourceforge.net>
+    * libraries/common.inc.php3: Fix for case where HTTP_HOST contains 
+      the port already, as adding HTTP_PORT is wrong then.
+
 2002-07-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/charset_conversion.lib.php3: wrong function called,
       thanks to Michal Cihar
