@@ -8,6 +8,8 @@ $Source$
 2003-08-06 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: bug 782925: fix "Showing rows..." message when user has
       put a LIMIT in the query
+    * libraries/relation.lib.php3: bug 784143: SHOW CREATE TABLE on older
+      MySQL versions
 
 2003-08-06 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/common.lib.php3: Parse better enum fields (bug #784154).

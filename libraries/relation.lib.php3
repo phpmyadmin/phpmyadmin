@@ -305,11 +305,12 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             } // end while
         }
 
-        if (($source == 'both' || $source == 'innodb') && !empty($table)) {
+        if (PMA_MYSQL_INT_VERSION >= 32320 && ($source == 'both' || $source == 'innodb') && !empty($table)) {
             $show_create_table_query = 'SHOW CREATE TABLE ' 
                 . PMA_backquote($db) . '.' . PMA_backquote($table);
             $show_create_table_res = PMA_mysql_query($show_create_table_query);
             list(,$show_create_table) = PMA_mysql_fetch_row($show_create_table_res);
+
             $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
             while (list(,$one_key) = each ($analyzed_sql[0]['foreign_keys'])) {
 
