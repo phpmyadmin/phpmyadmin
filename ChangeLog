@@ -15,6 +15,7 @@ $Source$
 
 2004-08-16 Michal Čihař  <michal@cihar.com>
     * read_dump.php: Fix handling of comments -- and # (bug #1009494).
+    * libraries/relation.lib.php: Fix typo.
 
 2004-08-15 Marc Delisle  <lem9@users.sourceforge.net>
     (Patches from Michael Keck)

@@ -651,7 +651,7 @@ function PMA_purgeHistory($username) {
     global $cfgRelation, $cfg;
 
     $purge_query  = 'SELECT timevalue FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE ';
-    if (PMA_MYSQL_INT_VERION >= 40100) {
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
         list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
         $purge_query .= 'CONVERT(username USING ' . $conn_charset . ')';
         unset($conn_charset);
