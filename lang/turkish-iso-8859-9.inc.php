@@ -1,6 +1,7 @@
 <?php
 /* $Id$ */
 
+//son güncelleme:07.08.2004 (in trapezunta)
 // Türkçe Çeviri ® Bora Alioðlu
 // mail: boralioglu@yahoo.co.uk
 // icq uin: 20940178
@@ -8,7 +9,7 @@
 // çeviri hakkýndaki her türlü düzeltme ve önerileriniz
 // için benimle temasa geçebilirsiniz...
 // #######################################################
-// son güncelleme:31.07.2004 (in trapezunta)
+// son güncelleme:07.08.2004 (in trapezunta)
 //                                    
 //                                       "ego lente festino"
 
@@ -41,7 +42,7 @@ $strAddConstraints = 'Sýnýrlama ekle';
 $strAddDeleteColumn = 'Sütun alaný Ekle/Sil';
 $strAddDeleteRow = 'Kriter satýrý Ekle/Sil';
 $strAddDropDatabase = '<b>DROP DATABASE</b> ekle';
-$strAddHeaderComment = 'Baþlýða özel yorum ekle (\\n satýr atlar)'; 
+$strAddHeaderComment = 'Baþlýða yorum ekle (\\n satýr atlar)'; 
 $strAddIfNotExists = 'IF NOT EXISTS ekle';  
 $strAddIntoComments = 'Yorumlara ekle';
 $strAddNewField = 'Yeni alan ekle';
@@ -57,11 +58,11 @@ $strAdministration = 'Yönetim';
 $strAffectedRows = 'Etkilenen satýrlar:';
 $strAfter = '%s tablosundan sonra';
 $strAfterInsertBack = 'Önceki sayfaya geri dön';
-$strAfterInsertNewInsert = 'Baþka  yeni bir kayýt ekle';
+$strAfterInsertNewInsert = 'Yeni kayýt ekle';
 $strAfterInsertSame = 'Bu sayfaya geri dön';  
 $strAll = 'Tümü';
 $strAllTableSameWidth = 'Bütün tablolarý ayný geniþlikte göster';
-$strAlterOrderBy = 'Tablo asýný þuna göre deðiþtir';
+$strAlterOrderBy = 'Tablo sýralamasýný þuna göre deðiþtir';
 $strAnIndex = '%s üzerinde yeni bir indeks eklendi';
 $strAnalyzeTable = 'Tabloyu analiz et';
 $strAnd = 'Ve';
@@ -190,12 +191,12 @@ $strDatabasesStatsHeavyTraffic = 'Not: Burada veritabaný istatistiklerini  açmak
 $strDbPrivileges = 'Veritabanýna özgü yetkiler';
 $strDbSpecific = 'Veritabanýna özgü';
 $strDefault = 'Varsayýlan';
-$strDefaultValueHelp = 'Varsayýlan deðerler için,týrnak iþareti veya slash koymayarak ,lütfen tek bir deðer giriniz:þu þekilde : a';  
+$strDefaultValueHelp = 'Varsayýlan deðerler için týrnak iþareti veya slash koymak yerine tek deðer giriniz.Mesela : a';  
 $strDefragment = 'Tabloyu birleþtir';  
-$strDelOld = 'Þu anki sayfada kullanýlmayan tablolara referanslar bulunuyor. Bu referanslarý silmek ister misiniz?';
-$strDelayedInserts = 'Bekletilen eklemeleri kullan';
+$strDelOld = 'Þu anki sayfada kullanýlmayan tablolara verilmiþ referanslar bulunuyor. Bu referanslarý silmek ister misiniz?';
+$strDelayedInserts = 'Gecikmiþ kayýt eklemeleri kullan';
 $strDelete = 'Sil';
-$strDeleteAndFlush = 'Kullanýcýlarý ve sonra yetkileri sil.';
+$strDeleteAndFlush = 'Kullanýcýlarý sonra da yetkileri sil.';
 $strDeleteAndFlushDescr = 'Bu en kýsa yoldur fakat yetkileri yeniden yüklemek zaman alabilir.';
 $strDeleted = 'Satýr silindi.';
 $strDeletedRows = 'Silinen satýrlar:';
@@ -227,7 +228,7 @@ $strEffective = 'Efektif';
 $strEmpty = 'Boþalt';
 $strEmptyResultSet = 'MySQL boþ bir sonuç kümesi döndürdü ( sýfýr satýr).';
 $strEnabled = 'Etkin';
-$strEncloseInTransaction = 'Ýþlemlerde dönüþtürü(export) ekle';  
+$strEncloseInTransaction = 'Ýþlemlerde dönüþtürü ekle';  
 $strEnd = 'Son';
 $strEndCut = 'END CUT'; 
 $strEndRaw = 'END RAW'; 
@@ -257,8 +258,8 @@ $strFileNameTemplate = 'Dosya ismi þablonu';
 $strFileNameTemplateHelp = 'Veritabaný ismi için __DB__ , tablo ismi için __TABLE__ ve  zaman bildirimi için %sherhangi bir strftime%s deðeri kullanýn,uzantý otomatik olarak eklenecek,herhangi diðer bir metin korunacaktýr.';
 $strFileNameTemplateRemember = 'þablonu hatýrla';
 $strFixed = 'Sabit';
-$strFlushPrivilegesNote = 'Not: phpMyAdmin kullanýcýlarýn yetkilerini direkt olarak MySQL\'ün yetki tablolarýndan alýr.Bu tablolarýn içerikleri,eðer elle  deðiþiklik yapýlmýþsa,sunucunun kullandýðý yetkilerden farklý olabilir.Bu durumda,devam etmeden önce %syetkileri yeniden yüklemeniz gerekir%s .'; 
-$strFlushTable = 'Tabloyu yeniden yükle'; 
+$strFlushPrivilegesNote = 'Not: phpMyAdmin kullanýcýlarýn yetkilerini direkt olarak MySQL\'ün yetki tablolarýndan alýr.Bu tablolarýn içerikleri eðer elle  deðiþiklik yapýlmýþsa sunucunun kullandýðý yetkilerden farklý olabilir.Bu durumda devam etmeden önce %syetkileri yeniden yüklemeniz gerekir%s .'; 
+$strFlushTable = 'Tabloyu yeniden yükle("FLUSH")'; 
 $strFormEmpty = 'Form\'da eksik deðer !';
 $strFormat = 'Biçim';
 $strFullText = 'Tüm metinler';
@@ -307,7 +308,7 @@ $strIndexes = 'Ýndeksler';
 $strInnodbStat = 'InnoDB durumu';  
 $strInsecureMySQL = 'Konfigurasyon dosyanýz (þifresiz root) varsayýlan MySQL yetki dosyasýyla aynen uyuþan ayarlar içeriyor.MySQL sunucunuz bu varsayýlan ayarlarla çalýþýyor,dýþardan giriþe açýk,ve bu güvenlik açýðýný hemen düzeltmeniz gerekmektedir.'; 
 $strInsert = 'Ekle';
-$strInsertAsNewRow = 'Yeni bir satýr olarak ekle';
+$strInsertAsNewRow = 'Yeni satýr olarak ekle';
 $strInsertNewRow = 'Yeni satýr ekle';
 $strInsertTextfiles = 'Tablo içine metin dosyasý ekle';
 $strInsertedRowId = 'Satýr id\'si eklendi:';
@@ -386,7 +387,7 @@ $strMySQLShowStatus = 'MySQL çalýþma zamaný bilgisini göster';
 $strMySQLShowVars = 'MySQL sistem deðiþkenlerini göster';
 
 $strName = 'Ýsim';
-$strNeedPrimaryKey = 'Bu tablo için birinci anahtar tanýmlamanýz gerekir.'; 
+$strNeedPrimaryKey = 'Bu tablo için birincil anahtar tanýmlamanýz gerekir.'; 
 $strNext = 'Sonraki';
 $strNo = 'Hayýr';
 $strNoDatabases = 'Veritabaný yok';
@@ -481,7 +482,7 @@ $strPrivDescMaxUpdates = 'Kullanýcýnýn,saat baþýna çalýþtýrabileceði,herhangi bi
 $strPrivDescProcess3 = 'Diðer kullanýcýlarýn iþlemlerinin kapatýlmasýna izin verir.';
 $strPrivDescProcess4 = 'Ýþlem listesindeki bütün sorgularýn görüntülenmesine izin verir.';
 $strPrivDescReferences = 'Bu MySQL sürümünde etkisi yoktur.';
-$strPrivDescReload = 'Sunucu ayarlarýnýn yeniden yüklenmesine ve flush\'a izin ver.(hafýza çýktýsý)';
+$strPrivDescReload = 'Sunucu ayarlarýnýn yeniden yüklenmesine ve önbelleðin silinmesine izin verir';
 $strPrivDescReplClient = 'Slave ve Master\'larýn nerede olduðunu sorma  hakký verir.';
 $strPrivDescReplSlave = 'Kopya slave\'ler için zorunlu.';
 $strPrivDescSelect = 'Veri okunmasýna izin ver.';
@@ -522,7 +523,7 @@ $strReloadMySQL = 'MySQL\' i yeniden yükle';
 $strReloadingThePrivileges = 'Ýmtiyazlarý yeniden yüklüyor'; 
 $strRemoveSelectedUsers = 'Seçili kullanýcýlarý kaldýr'; 
 $strRenameDatabaseOK = '%s veritabaný %s olarak yeniden adlandýrýldý';
-$strRenameTable = 'Tablonun ismini þuna deðiþtir';
+$strRenameTable = 'Tabloyu yeniden adlandýr';
 $strRenameTableOK = '%s tablosu %s olarak yeniden adlandýrýldý';
 $strRepairTable = 'Tablo\'yu onar';
 $strReplace = 'Yerdeðiþtir';
@@ -591,7 +592,7 @@ $strServerTrafficNotes = '<b>Sunucu Yoðunluðu</b>: Bu tablolar baþlama zamanýnda
 $strServerVars = 'Sunucu deðiþkenleri ve ayarlarý'; 
 $strServerVersion = 'Server sürümü';
 $strSessionValue = 'Oturum deðeri';
-$strSetEnumVal = 'Eðer alan tipi "enum" veya  "set" ise , lütfen verileri þu formata göre giriniz: \'a\',\'b\',\'c\'...<br />Eðer bu deðerler arasýna backslash ("\") veya tek týrnak koymanýz gerekirse ("\'"),bunun için backslash kullanýn (mesela \'\\\\xyz\' veya \'a\\\'b\').';
+$strSetEnumVal = 'Eðer alan tipi "enum" veya "set" ise verileri þu formata göre giriniz: \'a\',\'b\',\'c\'...<br />Eðer bu deðerler arasýna backslash ("\") veya tek týrnak koymanýz gerekirse (\'),bunun için backslash kullanýn.Mesela: \'\\\\xyz\' veya \'a\\\'b\') gibi.';
 $strShow = 'Göster';
 $strShowAll = 'Tümünü göster';
 $strShowColor = 'Rengi göster';
