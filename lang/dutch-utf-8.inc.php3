@@ -587,9 +587,9 @@ $strDBComment = 'Database comment: ';//to translate
 $strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
 $strDumpComments = 'Include column comments as inline SQL-comments';//to translate
 
-$strFileNameTemplate = 'File name template';//to translate 
+$strFileNameTemplate = 'File name template';//to translate
 $strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
-$strFileNameTemplateRemember = 'remember template';//to translate 
+$strFileNameTemplateRemember = 'remember template';//to translate
 
 $strInnodbStat = 'InnoDB Status';  //to translate
 
