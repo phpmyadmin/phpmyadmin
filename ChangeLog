@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-27  Marc Delisle  <lem9@users.sourceforge.net>
+        * bug #426357: mysql_db_query deprecated
+
 2001-05-24  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, line 131+: fixed the authentification failure with advanced
 	  mode and 'register_globals' disabled (bug #425369)

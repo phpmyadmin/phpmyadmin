@@ -88,8 +88,9 @@ if(isset($primary_key) && ($submit_type != $strInsertNewRow)) {
   $query = "INSERT INTO $table ($fieldlist) VALUES ($valuelist)";
 }
 
+mysql_select_db($db);
 $sql_query = $query;
-$result = mysql_db_query($db, $query);
+$result = mysql_query($query);
 
 if(!$result) {
   $error = mysql_error();

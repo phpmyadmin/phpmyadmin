@@ -81,9 +81,9 @@ if($server > 0) {
 	  $dbh = mysql_connect($cfgServer['host'].":".$cfgServer['port'],$cfgServer['stduser'],$cfgServer['stdpass']);
 	}
 
-	$rs_usr=mysql_db_query("mysql","select * from user where User=\"".$cfgServer['user']."\"",$dbh);
+	$rs_usr=mysql_query("select * from mysql.user where User=\"".$cfgServer['user']."\"",$dbh);
 	$result_usr=mysql_fetch_array($rs_usr);
-	$rs_db=mysql_db_query("mysql","select * from db where User=\"".$cfgServer['user']."\"",$dbh);
+	$rs_db=mysql_query("select * from mysql.db where User=\"".$cfgServer['user']."\"",$dbh);
 	
 	if(mysql_num_rows($rs_db)>0) {
 	  $result_db=mysql_fetch_array($rs_db);

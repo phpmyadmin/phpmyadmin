@@ -6,18 +6,19 @@ require("./grab_globals.inc.php3");
  
 require("./header.inc.php3");
 
-$table_def = mysql_db_query($db, "SHOW FIELDS FROM $table");
+mysql_select_db($db);
+$table_def = mysql_query("SHOW FIELDS FROM $table");
 
 if(isset($primary_key)) {
   if(get_magic_quotes_gpc()) {
     $primary_key = stripslashes($primary_key);
   }
-  $result = mysql_db_query($db, "SELECT * FROM $table WHERE $primary_key");
+  $result = mysql_query("SELECT * FROM $table WHERE $primary_key");
   $row = mysql_fetch_array($result);
 }
 else
 {
-    $result = mysql_db_query($db, "SELECT * FROM $table LIMIT 1");
+    $result = mysql_query("SELECT * FROM $table LIMIT 1");
 }
 
 ?>

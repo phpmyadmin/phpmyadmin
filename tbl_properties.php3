@@ -15,11 +15,13 @@ else
 }
 
 unset($sql_query);
+mysql_select_db($db);
+
 if(MYSQL_MAJOR_VERSION == "3.23")
     {
     if(isset($submitcomment))
-        $result = mysql_db_query($db, "ALTER TABLE $table comment='$comment'") or mysql_die();
-    $result = mysql_db_query($db, "SHOW TABLE STATUS LIKE '$table'") or mysql_die();
+        $result = mysql_query("ALTER TABLE $table comment='$comment'") or mysql_die();
+    $result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
     $row = mysql_fetch_array($result);
     //Fix to Comment editing so that you can add comments - 2 May 2001 - Robbat2
     ?>
@@ -33,8 +35,8 @@ if(MYSQL_MAJOR_VERSION == "3.23")
 
     //BEGIN - Table Type - 2 May 2001 - Robbat2
     if(isset($submittype))
-        $result = mysql_db_query($db, "ALTER TABLE $table TYPE=$tbl_type") or mysql_die();
-    $result = mysql_db_query($db, "SHOW TABLE STATUS LIKE '$table'") or mysql_die();
+        $result = mysql_query("ALTER TABLE $table TYPE=$tbl_type") or mysql_die();
+    $result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
     $row = mysql_fetch_array($result);
     $tbl_type=strtoupper($row['Type']);
     ?>
@@ -58,14 +60,14 @@ if(MYSQL_MAJOR_VERSION == "3.23")
     //END - Table Type - 2 May 2001 - Robbat2
 }
 
-$result = mysql_db_query($db, "SHOW KEYS FROM $table") or mysql_die();
+$result = mysql_query("SHOW KEYS FROM $table") or mysql_die();
 $primary = "";
 
 while($row = mysql_fetch_array($result))
     if ($row["Key_name"] == "PRIMARY")
         $primary .= "$row[Column_name], ";
 
-$result = mysql_db_query($db, "SHOW FIELDS FROM $table") or mysql_die();
+$result = mysql_query("SHOW FIELDS FROM $table") or mysql_die();
 
 ?>
 <table border=<?php echo $cfgBorder;?>>
@@ -142,7 +144,7 @@ while($row= mysql_fetch_array($result))
 </table>
 <?php
 
-$result = mysql_db_query($db, "SHOW KEYS FROM ".$table) or mysql_die();
+$result = mysql_query("SHOW KEYS FROM ".$table) or mysql_die();
 if(mysql_num_rows($result)>0)
 {
     ?>

@@ -9,7 +9,8 @@ $old_name = $table;
 $table = $new_name;
 require("./header.inc.php3");
 
-$result = mysql_db_query($db, "ALTER TABLE $old_name RENAME $new_name") or mysql_die();
+mysql_select_db($db);
+$result = mysql_query("ALTER TABLE $old_name RENAME $new_name") or mysql_die();
 $table = $old_name;
 eval("\$message =  \"$strRenameTableOK\";");
 $table = $new_name;

@@ -17,7 +17,8 @@ else
 unset($sql_query);
 if(MYSQL_MAJOR_VERSION == "3.23")
     {   
-    $result = mysql_db_query($db, "SHOW TABLE STATUS LIKE '$table'") or mysql_die();
+    mysql_select_db($db);
+    $result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
     $row = mysql_fetch_array($result);
     if(!empty($row["Comment"]))
     {
@@ -25,14 +26,14 @@ if(MYSQL_MAJOR_VERSION == "3.23")
     }
 }
 
-$result = mysql_db_query($db, "SHOW KEYS FROM $table") or mysql_die();
+$result = mysql_query("SHOW KEYS FROM $table") or mysql_die();
 $primary = "";
 
 while($row = mysql_fetch_array($result))
     if ($row["Key_name"] == "PRIMARY")
         $primary .= "$row[Column_name], ";
 
-$result = mysql_db_query($db, "SHOW FIELDS FROM $table") or mysql_die();
+$result = mysql_query("SHOW FIELDS FROM $table") or mysql_die();
 
 ?>
 <table border=<?php echo $cfgBorder;?>>
@@ -95,7 +96,7 @@ while($row= mysql_fetch_array($result))
 </table>
 <?php
 
-$result = mysql_db_query($db, "SHOW KEYS FROM ".$table) or mysql_die();
+$result = mysql_query("SHOW KEYS FROM ".$table) or mysql_die();
 if(mysql_num_rows($result)>0)
 {
     ?>

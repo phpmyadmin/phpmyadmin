@@ -66,13 +66,13 @@ else {
     if(isset($sessionMaxRows))
         $cfgMaxRows = $sessionMaxRows;
     $sql_limit = (isset($pos) && eregi("^SELECT", $sql_query) && !eregi("LIMIT[ 0-9,]+$", $sql_query)) ? " LIMIT $pos, $cfgMaxRows" : '';
-    $result = mysql_db_query($db, $sql_query.$sql_order.$sql_limit);
+    $result = mysql_query($sql_query.$sql_order.$sql_limit);
     // the same SELECT without LIMIT
     if(eregi("^SELECT", $sql_query))
     {
         $array=split('from|FROM',$sql_query,2); //read only the from-part of the query
 		$count_query="select count(*) as count from $array[1]"; //and make a count(*) to count the entries
-		$OPresult = mysql_db_query($db, $count_query);
+		$OPresult = mysql_query($count_query);
 		$SelectNumRows = mysql_result($OPresult,'0','count');
     }
 

@@ -5,6 +5,7 @@
 require("./grab_globals.inc.php3");
  
 require("./header.inc.php3");
+mysql_select_db($db);
 
 if(isset($submit))
 {
@@ -85,7 +86,7 @@ if(isset($submit))
     //END - Table Type - 2 May 2001 - Robbat2
     if(MYSQL_MAJOR_VERSION == "3.23" && !empty($comment))
         $sql_query .= " comment = '$comment'";
-    $result = mysql_db_query($db, $sql_query) or mysql_die();
+    $result = mysql_query($sql_query) or mysql_die();
     $message = "$strTable $table $strHasBeenCreated";
     include("./tbl_properties.php3");
     exit;

@@ -2,6 +2,7 @@
 /* $Id$ */
 
 require("./config.inc.php3");
+mysql_select_db($db);
 
 if(!defined("__LIB_INC__")) {
   define("__LIB_INC__", 1);
@@ -192,7 +193,9 @@ if($server == 0) {
       }
       $PHP_AUTH_USER = addslashes($PHP_AUTH_USER);
       $PHP_AUTH_PW = addslashes($PHP_AUTH_PW);
-      $rs = mysql_db_query("mysql", "SELECT User, Password, Select_priv FROM user where User = '$PHP_AUTH_USER' AND Password = PASSWORD('$PHP_AUTH_PW')", $dbh) or mysql_die();
+      $rs = mysql_query("SELECT User, Password, Select_priv FROM mysql.user 
+	where User = '$PHP_AUTH_USER' 
+	AND Password = PASSWORD('$PHP_AUTH_PW')", $dbh) or mysql_die();
       if(@mysql_numrows($rs) <= 0) {
 	auth();
       } else {
@@ -211,10 +214,14 @@ if($server == 0) {
 	  //regular expressions.
 	  //begin correction uva 19991215 pt. 1 ---------------------------
 	  //add "DISTINCT" to next line:  need single row only
-	  $rs = mysql_db_query("mysql", "SELECT DISTINCT Db FROM db WHERE Select_priv = 'Y' AND User = '$PHP_AUTH_USER'") or mysql_die();
+	  $rs = mysql_query("SELECT DISTINCT Db FROM mysql.db 
+		WHERE Select_priv = 'Y' AND User = '$PHP_AUTH_USER'") 
+	    or mysql_die();
 	  //end correction uva 19991215 pt. 1 -----------------------------
 	  if (@mysql_numrows($rs) <= 0) {
-	    $rs = mysql_db_query("mysql", "SELECT Db FROM tables_priv WHERE Table_priv like '%Select%' AND User = '$PHP_AUTH_USER'") or mysql_die();
+	    $rs = mysql_query("SELECT Db FROM mysql.tables_priv 
+		WHERE Table_priv like '%Select%' AND User = '$PHP_AUTH_USER'")
+	     or mysql_die();
 	    if (@mysql_numrows($rs) <= 0) {
 	      auth();
 	    } else {
@@ -293,7 +300,7 @@ function display_table ($dt_result) {
 
   $primary = false;
   if(!empty($table) && !empty($db)) {
-    $result = mysql_db_query($db, "SELECT COUNT(*) as total FROM $table") or mysql_die();
+    $result = mysql_query("SELECT COUNT(*) as total FROM $db.$table") or mysql_die();
     $row = mysql_fetch_array($result);
     $total = $row["total"];
   }
@@ -465,7 +472,7 @@ function get_table_def($db, $table, $crlf)
 
     $schema_create .= "CREATE TABLE $table ($crlf";
 
-    $result = mysql_db_query($db, "SHOW FIELDS FROM $table") or mysql_die();
+    $result = mysql_query("SHOW FIELDS FROM $db.$table") or mysql_die();
     while($row = mysql_fetch_array($result))
     {
         $schema_create .= "   $row[Field] $row[Type]";
@@ -479,7 +486,7 @@ function get_table_def($db, $table, $crlf)
         $schema_create .= ",$crlf";
     }
     $schema_create = ereg_replace(",".$crlf."$", "", $schema_create);
-    $result = mysql_db_query($db, "SHOW KEYS FROM $table") or mysql_die();
+    $result = mysql_query("SHOW KEYS FROM $db.$table") or mysql_die();
     while($row = mysql_fetch_array($result))
     {
         $kname=$row['Key_name'];
@@ -528,7 +535,7 @@ function get_table_def($db, $table, $crlf)
 // $handler must accept one parameter ($sql_insert);
 function get_table_content($db, $table, $handler)
 {
-    $result = mysql_db_query($db, "SELECT * FROM $table") or mysql_die();
+    $result = mysql_query("SELECT * FROM $db.$table") or mysql_die();
     $i = 0;
     while($row = mysql_fetch_row($result))
     {
@@ -584,7 +591,7 @@ function get_table_content($db, $table, $handler)
 
 function count_records ($db,$table)
 {
-    $result = mysql_db_query($db, "select count(*) as num from $table");
+    $result = mysql_query("select count(*) as num from $db.$table");
     $num = mysql_result($result,0,"num");
     echo $num;
 }
@@ -595,7 +602,7 @@ function count_records ($db,$table)
 // $handler must accept one parameter ($sql_insert);
 function get_table_csv($db, $table, $sep, $handler)
 {
-    $result = mysql_db_query($db, "SELECT * FROM $table") or mysql_die();
+    $result = mysql_query("SELECT * FROM $db.$table") or mysql_die();
     $i = 0;
     while($row = mysql_fetch_row($result))
     {
@@ -761,7 +768,8 @@ function get_bookmarks_param() {
 
 function list_bookmarks($db, $cfgBookmark) {
     $query="SELECT label, id FROM ".$cfgBookmark['db'].".".$cfgBookmark['table']." WHERE dbase='$db'";
-    $result=mysql_db_query($cfgBookmark['db'], $query);
+//    $result=mysql_db_query($cfgBookmark['db'], $query);
+    $result=mysql_query($query);
 
     if($result>0 && mysql_num_rows($result)>0)
     {
@@ -779,7 +787,8 @@ function list_bookmarks($db, $cfgBookmark) {
 
 function query_bookmarks($db, $cfgBookmark, $id) {
     $query="SELECT query FROM ".$cfgBookmark['db'].".".$cfgBookmark['table']." WHERE dbase='$db' AND id='$id'";
-    $result=mysql_db_query($cfgBookmark['db'], $query);
+//    $result=mysql_db_query($cfgBookmark['db'], $query);
+    $result=mysql_query($query);
     $bookmark_query=mysql_result($result,0,"query");
 
     return $bookmark_query;
@@ -787,7 +796,8 @@ function query_bookmarks($db, $cfgBookmark, $id) {
 
 function delete_bookmarks($db, $cfgBookmark, $id) {
     $query="DELETE FROM ".$cfgBookmark['db'].".".$cfgBookmark['table']." WHERE id='$id'";
-    $result=mysql_db_query($cfgBookmark['db'], $query);
+//    $result=mysql_db_query($cfgBookmark['db'], $query);
+    $result=mysql_query($query);
 }
 
 $cfgBookmark=get_bookmarks_param();

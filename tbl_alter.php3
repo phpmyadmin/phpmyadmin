@@ -23,15 +23,15 @@ if(isset($submit))
      $query = stripslashes($query);
    }
    //optimization fix - 2 May 2001 - Robbat2
-   $sql_query = "ALTER TABLE $table CHANGE $query";
-   $result = mysql_db_query($db, $sql_query) or mysql_die();
+   $sql_query = "ALTER TABLE $db.$table CHANGE $query";
+   $result = mysql_query($sql_query) or mysql_die();
    $message = "$strTable $table $strHasBeenAltered";
    include("./tbl_properties.php3");
    exit;
 }
 else
 {
-    $result = mysql_db_query($db, "SHOW FIELDS FROM $table LIKE '$field'") or mysql_die();
+    $result = mysql_query("SHOW FIELDS FROM $db.$table LIKE '$field'") or mysql_die();
     $num_fields = mysql_num_rows($result);
     $action = "tbl_alter.php3";
     include("./tbl_properties.inc.php3");
