@@ -1,5 +1,6 @@
 <?php
 /* $Id$ */
+
 //çeviride eksik veya hatalý olduðunu düþündüðünüz kýsýmlarý bora@ktu.edu.tr adresine gönderebilirsiniz...
 //bora alioðlu 02.08.2002...tempus fugit...
 
@@ -69,6 +70,7 @@ $strCantRenameIdxToPrimary = 'Index\'i PRIMARY olarak adland&#305;r&#305;mazs&#3
 $strCantUseRecodeIconv = 'Uzantý raporlarý yüklenmiþken , ne iconv ne libinconv ne de recode_string fonksiyonu  kullanýlamaz.  Php ayarlarýnýzý kontrol ediniz.';
 $strCardinality = 'En önemli';
 $strCarriage = 'Enter Karakteri: \\r';
+$strCharsetOfFile = 'Dosyanýn karakter seti:';
 $strChange = 'Deðiþtir';
 $strChangeDisplay = 'Görmek istediðiniz alaný seçiniz';
 $strChangePassword = 'Þifre Deðiþtir';
@@ -416,7 +418,6 @@ $strNoValidateSQL = 'Skip Validate SQL';  //to translate
 $strValidateSQL = 'Validate SQL';  //to translate
 $strNoExplain = 'Skip Explain SQL';  //to translate
 $strExplain = 'Explain SQL';  //to translate
-$strCharsetOfFile = 'Character set of the file:'; //to translate
 $strBeginCut = 'BEGIN CUT';  //to translate
 $strEndCut = 'END CUT';  //to translate
 $strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate

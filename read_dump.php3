@@ -275,10 +275,11 @@ if ($sql_file != 'none') {
             $sql_query = stripslashes($sql_query);
         }
         // Convert the file's charset if necessary
-        if ($cfg['AllowAnywhereRecoding'] && $allow_recoding && isset($charset_of_file) && $charset_of_file != $charset) {
+        if ($cfg['AllowAnywhereRecoding'] && $allow_recoding
+            && isset($charset_of_file) && $charset_of_file != $charset) {
             $sql_query = iconv($charset_of_file, $charset, $sql_query);
         }
-    }
+    } // end uploaded file stuff
 }
 else if (empty($id_bookmark) && get_magic_quotes_gpc() == 1) {
     $sql_query = stripslashes($sql_query);

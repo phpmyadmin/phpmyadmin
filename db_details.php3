@@ -75,26 +75,27 @@ if ($is_upload) {
     ?>
     <div style="margin-bottom: 5px">
         <input type="file" name="sql_file" class="textfield" /><br />
-<?php
+    <?php
     if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
         $temp_charset = reset($cfg['AvailableCharsets']);
         echo $strCharsetOfFile . "\n"
-           . '            <select name="charset_of_file" size="1">' . "\n"
-           . '                <option value="' . $temp_charset . '"';
+             . '    <select name="charset_of_file" size="1">' . "\n"
+             . '            <option value="' . $temp_charset . '"';
         if ($temp_charset == $charset) {
             echo ' selected="selected"';
         }
         echo '>' . $temp_charset . '</option>' . "\n";
         while ($temp_charset = next($cfg['AvailableCharsets'])) {
-            echo '                <option value="' . $temp_charset . '"';
+            echo '            <option value="' . $temp_charset . '"';
             if ($temp_charset == $charset) {
                 echo ' selected="selected"';
             }
             echo '>' . $temp_charset . '</option>' . "\n";
         }
-    echo '            </select>';
-    }
-?>
+        echo '        </select>';
+    } // end if
+    echo "\n";
+    ?>
     </div>
     <?php
 } // end if
