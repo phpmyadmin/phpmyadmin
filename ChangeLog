@@ -18,6 +18,8 @@ $Source$
     * libraries/grab_globals.lib.php3: Fixed bug #638548 (table name with a
       quote).
     * Documentation.txt: Update.
+    * lang/thai-*.inc.php3: Updates, thanks again to Arthit Suriyawongkul
+      (bacteria).
 
 2002-11-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/build_dump.lib.php3: fix for old MySQL, thanks to

@@ -2,7 +2,7 @@
 /* $Id$ */
 
 // first created 2002/04/29 Arthit Suriyawongkul & Warit Wanasathian
-// last modified 2002/11/06 Arthit Suriyawongkul
+// last modified 2002/11/18 Arthit Suriyawongkul
 
 $charset = 'tis-620';
 $text_dir = 'ltr';
@@ -84,6 +84,7 @@ $strColumn = 'คอลัมน์';
 $strColumnNames = 'ชื่อคอลัมน์';
 $strComments = 'หมายเหตุ';
 $strCompleteInserts = 'คำสั่ง INSERT เต็มรูปแบบ';
+$strCompression = 'บีบอัดข้อมูล';
 $strConfigFileError = 'phpMyAdmin ไม่สามารถอ่านไฟล์คอนฟิกูเรชั่นของคุณได้<br />โดยปกติ อาจจะเป็นเพราะตัว PHP หาไฟล์ไม่เจอ หรือไม่สามารถประมวลผล (parse) ไฟล์ได้<br />ลองเรียกไฟล์คอนฟิกูเรชั่นขึ้นมาโดยตรง (กดลิงค์ด้านล่าง) และดูว่ามี error message อะไรหรือไม่  ลองตรวจสอบดูเครื่องหมาย quote หรือ semicolon ว่าใส่ครบหรือเปล่า<br />ถ้าคุณเห็นหน้าว่างๆ แสดงว่าทุกอย่างเป็นปกติดี';
 $strConfigureTableCoord = 'กรุณาตั้งค่าโคออร์ดิเนตของตาราง %s';
 $strConfirm = 'คุณยืนยันที่จะทำสิ่งนี้?';
@@ -283,10 +284,10 @@ $strPmaDocumentation = 'เอกสารการใช้ phpMyAdmin';
 $strPmaUriError = '<b>ต้อง</b>กำหนดค่า <tt>$cfg[\'PmaAbsoluteUri\']</tt> ในไฟล์คอนฟิกูเรชั่นเสียก่อน';
 $strPos1 = 'จุดเริ่มต้น';
 $strPrevious = 'ก่อนหน้า';
-$strPrimary = 'Primary';
-$strPrimaryKey = 'Primary key';
+$strPrimary = 'ไพรมารี';
+$strPrimaryKey = 'ไพรมารีคีย์';
 $strPrimaryKeyHasBeenDropped = 'โยนไพรมารีคีย์ทิ้งไปเรียบร้อยแล้ว';
-$strPrimaryKeyName = 'ชื่อของไพรมารีคีย์ จะต้องเป็น... PRIMARY!';
+$strPrimaryKeyName = 'ชื่อของไพรมารีคีย์ จะต้องเป็น PRIMARY เท่านั้น';
 $strPrimaryKeyWarning = '(ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> "PRIMARY" เท่านั้น!)';
 $strPrint = 'พิมพ์';
 $strPrintView = 'แสดง';
@@ -343,11 +344,11 @@ $strScaleFactorSmall = 'อัตราย่อน้อยเกินไปที่จะจัดให้ schema อยู่ในหน้าเดียว';
 $strSearch = 'ค้นหา';
 $strSearchFormTitle = 'ค้นหาในฐานข้อมูล';
 $strSearchInTables = 'ในตาราง:';
-$strSearchNeedle = 'คำหรือค่าที่ต้องการค้นหา (wildcard: "%"):';
+$strSearchNeedle = 'คำ หรือ ค่าที่ต้องการค้นหา (wildcard: "%"):';
 $strSearchOption1 = 'อย่างน้อยหนึ่งคำ';
 $strSearchOption2 = 'ทุกคำ';
 $strSearchOption3 = 'เหมือนทั้งวลี';
-$strSearchOption4 = 'ค้นแบบ regular expression';
+$strSearchOption4 = 'รูปแบบคำพ้อง (regular expression)';
 $strSearchResultsFor = 'ผลการค้นหา "<i>%s</i>" %s:';
 $strSearchType = 'ค้น:';
 $strSelect = 'เลือก';
@@ -435,7 +436,4 @@ $strWrongUser = 'อนุญาตให้เข้าใช้ไม่ได้ ชื่อผู้ใช้หรือรหัสผ่านผิด';
 $strYes = 'ใช่';
 
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
-
-// To translate
-$strCompression = 'Compression'; //to translate
 ?>
