@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-25 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_query_box.php3: One more HTML entities fix.
+
 2003-03-24 Michal Cihar  <nijel@users.sourceforge.net>
     * db_details_structure.php3, mult_submits.inc.php: Added CHECK TABLE to
       multisubmit actions (RFE #622603).
