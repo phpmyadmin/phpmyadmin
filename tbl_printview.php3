@@ -9,7 +9,9 @@ if (!isset($selected_tbl)) {
     include('./libraries/grab_globals.lib.php3');
     include('./header.inc.php3');
 }
+require('./libraries/relation.lib.php3');
 
+$cfgRelation = PMA_getRelationsParam();
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -135,24 +137,12 @@ while (list($key, $table) = each($the_tables)) {
     $fields_cnt  = mysql_num_rows($result);
 
     // check if we can use Relations (Mike Beck)
-    $have_rel     = FALSE;
-    if ($cfg['Server']['relation']) {
-        $tables   = @PMA_mysql_query('SELECT COUNT(*) AS count FROM ' . PMA_backquote($cfg['Server']['relation']));
-        $have_rel = ($tables) ? PMA_mysql_result($tables, 0, 'count') : FALSE;
-    } // end if
-    if ($have_rel) {
+
+    if ( $cfgRelation['relation']) {
         // Find which tables are related with the current one and write it in
         // an array
-        $rel_query   = 'SELECT master_field, concat(foreign_table, \'->\', foreign_field) AS rel '
-                     . ' FROM ' . PMA_backquote($cfg['Server']['relation'])
-                     . ' WHERE master_table = \'' . urldecode($table) .'\'';
+        $res_rel = getForeigners($db,$table);
 
-        $relations   = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
-        $res_rel     = array();
-        while ($relrow = @PMA_mysql_fetch_array($relations)) {
-            $col           = $relrow['master_field'];
-            $res_rel[$col] = $relrow['rel'];
-        }
         if (count($res_rel) > 0) {
             $have_rel = TRUE;
         } else {
@@ -255,7 +245,7 @@ while (list($key, $table) = each($the_tables)) {
     if ($have_rel) {
         echo '<td bgcolor="' . $bgcolor . '" nowrap="nowrap">';
         if (isset($res_rel[$field_name])) {
-            echo htmlspecialchars($res_rel[$field_name]);
+            echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . '->' . $res_rel[$field_name]['foreign_field'] );
         }
         echo '&nbsp;</td>';
     }
