@@ -732,8 +732,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $server_socket = (empty($cfg['Server']['socket']) || PMA_PHP_INT_VERSION < 30010)
                            ? ''
                            : ':' . $cfg['Server']['socket'];
-            if (PMA_PHP_INT_VERSION >= 40300) {
-                $client_flags = ($cfg['Server']['compress'] ? MYSQL_CLIENT_COMPRESS : 0);
+            if (PMA_PHP_INT_VERSION >= 40300 && PMA_MYSQL_CLIENT_API >= 32349) {
+                $client_flags = $cfg['Server']['compress'] && defined('MYSQL_CLIENT_COMPRESS') ? MYSQL_CLIENT_COMPRESS : 0;
             }
 
             // Gets the authentication library that fits the $cfg['Server'] settings
@@ -804,20 +804,19 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             // must be open after this one so it would be default one for all the
             // scripts)
             if ($cfg['Server']['controluser'] != '') {
-                // rabus: 3.23.49 is the MySQL client API bundled with php 4.3.0.
-                if (PMA_PHP_INT_VERSION >= 40300 && PMA_MYSQL_CLIENT_API >= 32349) {
+                if (empty($client_flags)) {
+                    $dbh            = @$connect_func(
+                                          $cfg['Server']['host'] . $server_port . $server_socket,
+                                          $cfg['Server']['controluser'],
+                                          $cfg['Server']['controlpass']
+                                      );
+                } else {
                     $dbh            = @$connect_func(
                                           $cfg['Server']['host'] . $server_port . $server_socket,
                                           $cfg['Server']['controluser'],
                                           $cfg['Server']['controlpass'],
                                           FALSE,
                                           $client_flags
-                                      );
-                } else {
-                    $dbh            = @$connect_func(
-                                          $cfg['Server']['host'] . $server_port . $server_socket,
-                                          $cfg['Server']['controluser'],
-                                          $cfg['Server']['controlpass']
                                       );
                 }
                 if ($dbh == FALSE) {
@@ -832,7 +831,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                     . $cfg['Server']['host'] . $server_port . $server_socket . ', '
                                     . $cfg['Server']['controluser'] . ', '
                                     . $cfg['Server']['controlpass']
-                                    . (PMA_PHP_INT_VERSION >= 40300 ? ', FALSE, ' . $client_flags : '')
+                                    . (empty($client_flags) ? '' : ', FALSE, ' . $client_flags)
                                     . ')';
                     if (empty($GLOBALS['is_header_sent'])) {
                         include('./header.inc.php3');
@@ -846,7 +845,13 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             // Robbat2 - May 11, 2002
 
             // Connects to the server (validates user's login)
-            if (PMA_PHP_INT_VERSION >= 40300) {
+            if (empty($client_flags)) {
+                $userlink           = @$connect_func(
+                                          $cfg['Server']['host'] . $server_port . $server_socket,
+                                          $cfg['Server']['user'],
+                                          $cfg['Server']['password']
+                                      );
+            } else {
                 $userlink           = @$connect_func(
                                           $cfg['Server']['host'] . $server_port . $server_socket,
                                           $cfg['Server']['user'],
@@ -854,13 +859,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                           FALSE,
                                           $client_flags
                                       );
-            } else {
-                $userlink           = @$connect_func(
-                                          $cfg['Server']['host'] . $server_port . $server_socket,
-                                          $cfg['Server']['user'],
-                                          $cfg['Server']['password']
-                                      );
-
             }
             if ($userlink == FALSE) {
                 PMA_auth_fails();
