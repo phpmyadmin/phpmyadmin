@@ -8,7 +8,16 @@ $Source$
 2002-08-06 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlvalidator.php3, libraries/sqlvalidator.lib.php3:
         - Renamed libraries/sqlvalidator.php3 to libraries/sqlvalidator.lib.php3
+    * scripts/decode_bug.php3:
+        - Cleaned up code to use <pre> arouund output
+    * libraries/sqlparser.lib.php3:
+        - Converted code to use $str* variables
+        - BUG() code cleaned up (PMA_SQP_BUG, PMA_SQP_throwError)
+        - More PHP3 compatibility
+    * lang/*:
+        - New variables for SQL Parser error messages
 
+        
 2002-08-06 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php3: bug 590867: avoid undefined variable
       and add comments in the code for a future correction
