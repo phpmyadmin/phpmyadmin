@@ -17,6 +17,8 @@ $Source$
       caused HTML entities to be quoted twice.
     * tbl_indexes.php3: Fixed editing of index with HTML entities.
     * lang/czech: Updated.
+    * tbl_properties_structure.php3: Fix enabling/disabling links to index
+      creating (it requires type, but there was also MIME type added).
 
 2003-03-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3, libraries/config_import.lib.php3,
