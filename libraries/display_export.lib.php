@@ -549,7 +549,7 @@ if (!$hide_structure) { ?>
                         </th>
                    </tr>
                    <tr><td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-                    <input type="checkbox" name="htmlword_structure" value="structure" id="checkbox_htmlword_structure" <?php PMA_exportCheckboxCheck('htmlword_structure'); ?> onclick="if (!this.checked &amp;&amp; (!getElement('checkbox_htmlword_structure') || !getElement('checkbox_htmlword_structure').checked)) return false; else return true;" style="vertical-align: middle" /><label for="checkbox_htmlword_structure"><b><?php echo $strStructure; ?></b></label><br />
+                    <input type="checkbox" name="htmlword_structure" value="structure" id="checkbox_htmlword_structure" <?php PMA_exportCheckboxCheck('htmlword_structure'); ?> onclick="if (!this.checked &amp;&amp; (!getElement('checkbox_htmlword_data') || !getElement('checkbox_htmlword_data').checked)) return false; else return true;" style="vertical-align: middle" /><label for="checkbox_htmlword_structure"><b><?php echo $strStructure; ?></b></label><br />
                     </td></tr>
                    <tr><td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
                     <input type="checkbox" name="htmlword_data" value="data" id="checkbox_htmlword_data" <?php PMA_exportCheckboxCheck('htmlword_data'); ?> onclick="if (!this.checked &amp;&amp; (!getElement('checkbox_htmlword_structure') || !getElement('checkbox_htmlword_structure').checked)) return false; else return true;" style="vertical-align: middle" /><label for="checkbox_htmlword_data"><b><?php echo $strData; ?>:</b></label><br />
