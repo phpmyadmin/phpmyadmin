@@ -129,18 +129,18 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 
 
 <!-- Login form -->
-<form method="post" action="index.php3">
+<form method="post" action="index.php3" name="login_form">
     <table cellpadding="5">
     <tr>
         <td align="<?php echo $cell_align; ?>"><?php echo $GLOBALS['strLogUsername']; ?>&nbsp;</td>
         <td align="<?php echo $cell_align; ?>">
-            <input type="text" name="pma_username" value="<?php echo (isset($default_user) ? $default_user : ''); ?>" size="24" />
+            <input type="text" name="pma_username" value="<?php echo (isset($default_user) ? $default_user : ''); ?>" size="24" onfocus="this.select()" />
         </td>
     </tr>
     <tr>
         <td align="<?php echo $cell_align; ?>"><?php echo $GLOBALS['strLogPassword']; ?>&nbsp;</td>
         <td align="<?php echo $cell_align; ?>">
-            <input type="text" name="pma_password" value="" size="24" />
+            <input type="text" name="pma_password" value="" size="24" onfocus="this.select()" />
         </td>
     </tr>
     <tr>
@@ -196,6 +196,16 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
     </table>
 </form>
 </center>
+
+<script type="text/javascript" language="javascript">
+var uname = document.forms['login_form'].elements['pma_username'];
+var uname = document.forms['login_form'].elements['pma_password'];
+if (uname.value == '') { 
+    uname.focus();
+} else {
+    pword.focus();
+}
+</script>
 </body>
 
 </html>
