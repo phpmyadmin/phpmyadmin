@@ -586,4 +586,7 @@ $strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here mi
 $strDatabasesStatsDisable = 'Disable Statistics';  //to translate
 $strDatabasesStatsEnable = 'Enable Statistics';  //to translate
 $strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
+$strDropSelectedDatabases = 'Drop Selected Databases';  //to translate
+$strNoDatabasesSelected = 'No databases selected.';  //to translate
+$strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate
 ?>

@@ -224,6 +224,7 @@ $cfg['DefaultTabServer']      = 'main.php3';
                                    // Possible values:
                                    // 'main.php3' = the welcome page
                                    // (recommended for multiuser setups)
+                                   // 'server_databases.php3' = list of databases
                                    // 'server_status.php3' = runtime information
                                    // 'server_variables.php3' = MySQL server variables
                                    // 'server_privileges.php3' = user management

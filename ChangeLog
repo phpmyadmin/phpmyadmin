@@ -6,15 +6,19 @@ $Id$
 $Source$
 
 2003-02-09 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * server_databases.php3: Bugfixes & interface cosmetic.
+    * server_databases.php3, lang/*.inc.php3:
+      - Bugfixes & interface cosmetic;
+      - Drop multiple databases.
+    * db_stats.php3: Removed, the file is replaced by server_databases.php3.
+    * lang/german-*.inc.php3: Updates.
+    * config.inc.php3: Added a note about another possible setting.
 
 2003-02-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * config.inc.php3, lang/add_message.sh: Typos.
     * lang/italian.inc.php3: Updates, thanks to Pietro Danesi (danone).
     * server_databases.php3, server_links.inc.php3, lang/*.inc.php3:
       Reworte db_stats.php3 to be conform with the new server_ pages.
-      TODO: - reimplement "check privileges" feature;
-            - reimplement "drop selected databases" feature.
+      TODO: reimplement "check privileges" feature.
 
 2003-02-07 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.

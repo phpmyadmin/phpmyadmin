@@ -397,19 +397,16 @@ if ($server > 0) {
             </td>
         </tr>
             <?php
-            if (PMA_MYSQL_INT_VERSION >= 32303) {
-                echo "\n";
-                ?>
+        }
+        ?>
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="db_stats.php3?<?php echo $common_url_query; ?>">
-                    <?php echo $strDatabasesStats; ?></a>
+                <a href="./server_databases.php3?<?php echo $common_url_query; ?>">
+                    <?php echo $strDatabases; ?></a>
             </td>
         </tr>
-                <?php
-            }
-        }
+        <?php
 
         // Change password (needs another message)
         if ($cfg['ShowChgPassword']) {
