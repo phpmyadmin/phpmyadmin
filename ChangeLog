@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_search.php3, libraries/display_tbl.lib.php3, libraries/common.lib.php3
+      bug 633422, use a button if search result would generate a too big URL
+
 2002-12-06 Mike Beck <mikebeck@users.sourceforge.net>
     * pdf_pages.php3,pdf_schema.php3,db_details_structure.php3:
       Choose between Landscape and Portrait for the

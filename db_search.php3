@@ -221,18 +221,19 @@ if (isset($submit_search)) {
 
             echo '    <!-- Search results in table ' . $onetable . ' (' . $res_cnt . ') -->' . "\n"
                  . '    <br />' . "\n"
-                 . '    ' . sprintf($strNumSearchResultsInTable, $res_cnt, htmlspecialchars($onetable)) . "\n";
+                 . '    <table><tr><td>' . sprintf($strNumSearchResultsInTable, $res_cnt, htmlspecialchars($onetable)) . "</td>\n";
 
             if ($res_cnt > 0) {
-                echo '   &nbsp;&nbsp;<a href="sql.php3?' . $url_sql_query 
-                . '&amp;sql_query=' .urlencode($newsearchsqls['select_fields'])
-                . '">' . $strBrowse . '</a>' . "\n";
+                   echo '<td>' . PMA_linkOrButton('sql.php3?' . $url_sql_query 
+                    . '&amp;sql_query=' .urlencode($newsearchsqls['select_fields']),
+                    $strBrowse, '') .  "</td>\n";
 
-                echo '   &nbsp;&nbsp;<a href="sql.php3?' . $url_sql_query 
-                . '&amp;sql_query=' .urlencode($newsearchsqls['delete'])
-                . '">' . $strDelete . '</a>' . "\n";
+                   echo '<td>' . PMA_linkOrButton('sql.php3?' . $url_sql_query 
+                    . '&amp;sql_query=' .urlencode($newsearchsqls['delete']),
+                    $strDelete, $newsearchsqls['delete']) .  "</td>\n";
 
             } // end if
+            echo '</tr></table>' . "\n";
         } // end only one table
 
         // Several tables defined in the array $table_select
@@ -259,20 +260,20 @@ if (isset($submit_search)) {
 
                 echo '        <!-- Search results in table ' . $table_select[$i] . ' (' . $res_cnt . ') -->' . "\n"
                      . '        <li>' . "\n"
-                     . '            ' . sprintf($strNumSearchResultsInTable, $res_cnt, htmlspecialchars($table_select[$i])) . "\n";
+                     . '            <table><tr><td>' . sprintf($strNumSearchResultsInTable, $res_cnt, htmlspecialchars($table_select[$i])) . "</td>\n";
 
                 if ($res_cnt > 0) {
-                    echo '   &nbsp;&nbsp;<a href="sql.php3?' . $url_sql_query 
-                    . '&amp;sql_query=' .urlencode($newsearchsqls['select_fields'])
-                    . '">' . $strBrowse . '</a>' . "\n";
+                   echo '<td>' . PMA_linkOrButton('sql.php3?' . $url_sql_query 
+                    . '&amp;sql_query=' .urlencode($newsearchsqls['select_fields']),
+                    $strBrowse, '') .  "</td>\n";
 
-                    echo '   &nbsp;&nbsp;<a href="sql.php3?' . $url_sql_query 
-                    . '&amp;sql_query=' .urlencode($newsearchsqls['delete'])
-                    . '">' . $strDelete . '</a>' . "\n";
+                   echo '<td>' . PMA_linkOrButton('sql.php3?' . $url_sql_query 
+                    . '&amp;sql_query=' .urlencode($newsearchsqls['delete']),
+                    $strDelete, $newsearchsqls['delete']) .  "</td>\n";
 
                 } // end if
 
-                echo '        </li>' . "\n";
+                echo '        </tr></table></li>' . "\n";
             } // end for
 
             echo '    </ul>' . "\n";

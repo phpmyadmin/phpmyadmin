@@ -730,41 +730,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
     } // end of the 'PMA_displayTableHeaders()' function
 
 
-    /**
-     * Displays a link, or a button if the link's URL is too large, to
-     * accommodate some browsers' limitations
-     *
-     * @param  string  the URL
-     * @param  string  the link message
-     * @param  string  js confirmation
-     *
-     * @return string  the results to be echoed or saved in an array
-     */
-    function PMA_linkOrButton($url, $message, $js_conf)
-    {
-        if (strlen($url) <= 2047) {
-            $onclick_url        = (empty($js_conf) ? '' : ' onclick="return confirmLink(this, \'' . $js_conf . '\')"');
-            $link_or_button     = '        <a href="' . $url . '"' . $onclick_url . '>' . "\n"
-                                . '           ' . $message . '</a>' . "\n";
-        }
-        else {
-            $edit_url_parts     = parse_url($url);
-            $query_parts        = explode('&', $edit_url_parts['query']);
-            $link_or_button     = '        <form action="'
-                                . $edit_url_parts['path']
-                                . '" method="post">' . "\n";
-            reset ($query_parts);
-            while (list(, $query_pair) = each($query_parts)) {
-                list($eachvar, $eachval) = explode('=', $query_pair);
-                $link_or_button .= '            <input type="hidden" name="' . str_replace('amp;', '', $eachvar) . '" value="' . htmlspecialchars(urldecode($eachval)) . '" />' . "\n";
-            } // end while
-            $link_or_button     .= '            <input type="submit" value="'
-                                . htmlspecialchars($message) . '" />' . "\n" . '</form>' . "\n";
-        } // end if... else...
-
-        return $link_or_button;
-    } // end of the 'PMA_linkOrButton()' function
-
 
     /**
      * Displays the body of the results table
