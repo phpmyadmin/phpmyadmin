@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php3: do not check both radios (confuses Netscape 4.8)
+
 2003-08-13 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_addfield.php3: Highlight correct tab after changing structure.
 

@@ -735,16 +735,23 @@ echo "\n";
 
 // Defines whether "insert a new row after the current insert" should be
 // checked or not (keep this choice sticky)
-$checked = !empty($disp_message) ? ' checked="checked"' : '';
+// but do not check both radios, because Netscape 4.8 would display both checked
+if (!empty($disp_message)) {
+    $checked_after_insert_new_insert = ' checked="checked"';
+    $checked_after_insert_back = '';
+} else {
+    $checked_after_insert_back = ' checked="checked"';
+    $checked_after_insert_new_insert = '';
+}
 ?>
         </td>
         <td valign="middle">
             &nbsp;&nbsp;&nbsp;<b>-- <?php echo $strAnd; ?> --</b>&nbsp;&nbsp;&nbsp;
         </td>
         <td valign="middle" nowrap="nowrap">
-            <input type="radio" name="after_insert" value="back" id="radio_after_insert_back" checked="checked" tabindex="<?php echo ((3 * $fields_cnt) + 3); ?>" /><label for="radio_after_insert_back"><?php echo $strAfterInsertBack; ?></label><br />
+            <input type="radio" name="after_insert" value="back" id="radio_after_insert_back" <?php echo $checked_after_insert_back; ?> tabindex="<?php echo ((3 * $fields_cnt) + 3); ?>" /><label for="radio_after_insert_back"><?php echo $strAfterInsertBack; ?></label><br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
-            <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked; ?> tabindex="<?php echo ((3 * $fields_cnt) + 4); ?>" /><label for="radio_after_insert_new_insert"><?php echo $strAfterInsertNewInsert; ?></label>
+            <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ((3 * $fields_cnt) + 4); ?>" /><label for="radio_after_insert_new_insert"><?php echo $strAfterInsertNewInsert; ?></label>
         </td>
     </tr>
 
