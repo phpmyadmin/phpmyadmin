@@ -408,6 +408,6 @@ $strKanjiEncodConvert = '漢字コード変換'; // kanji code convert
 $strXkana = '全角カナへ変換する'; // convert to X208-kana
 
 // To translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
+$strRelationNotWorking = 'リレーション機能を動かすためのリンクテーブルが有効になっていません。 %sここ%sをクリックして原因を見つけて下さい。';
+$strAllTableSameWidth = '全てのテーブルを同じ幅で表示しますか?';
 ?>
