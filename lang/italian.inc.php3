@@ -72,6 +72,7 @@ $strColumn = 'Colonna';
 $strColumnNames = 'Nomi delle colonne';
 $strCompleteInserts = 'Inserimenti completi';
 $strConfirm = 'Sicuro di volerlo fare?';
+$strCookiesRequired = 'Da questo punto in poi, i cookies devono essere abilitati.';
 $strCopyTable = 'Copia la tabella nel (database<b>.</b>tabella):';
 $strCopyTableOK = 'La tabella %s è stata copiata su %s.';
 $strCreate = 'Crea';
@@ -172,7 +173,10 @@ $strLineFeed = 'Fine riga: \\n';
 $strLines = 'Record';
 $strLinesTerminatedBy = 'Linee terminate da';
 $strLocationTextfile = 'Percorso del file';
+$strLogin = 'Connetti';
 $strLogout = 'Disconnetti';
+$strLogPassword = 'Password:';
+$strLogUsername = 'Nome utente:';
 
 $strModifications = 'Le modifiche sono state salvate';
 $strModify = 'Modifica';
@@ -235,7 +239,7 @@ $strProperties = 'Proprietà';
 $strQBE = 'Query da esempio';
 $strQBEDel = 'Cancella';
 $strQBEIns = 'Aggiungi';
-$strQueryOnDb = 'SQL-query sul database ';
+$strQueryOnDb = 'SQL-query sul database <b>%s</b>:';
 
 $strRecords = 'Record';
 $strReloadFailed = 'Riavvio di MySQL fallito.';
@@ -338,8 +342,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strCookiesRequired = 'Cookies must be enabled past this point.';
-$strLogin = 'Login';
-$strLogPassword = 'Password:';
-$strLogUsername = 'Username:';
+
 ?>
