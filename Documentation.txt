@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.421 2003/03/18
-       11:40:06 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.426 2003/04/01
+       18:17:45 lem9 Exp $
 
 Requirements
 
@@ -147,18 +147,33 @@ Installation
        You must specify the details for the controluser in the
        config.inc.php3 file under the $cfg['Servers'][$i]['controluser']&
        $cfg['Servers'][$i]['controlpass'] settings.
-       This example assumes you want to use pma as the controluser and
-       pmapass as the controlpass, but this is only an example: use
-       something else in your file:
+       The following example assumes you want to use pma as the
+       controluser and pmapass as the controlpass, but this is only an
+       example: use something else in your file!
+       Of course you have to replace localhost by the webserver's host if
+       it's not the same as the MySQL server's one.
 
 GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
-GRANT SELECT (Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv,
-    Drop_priv, Reload_priv, Shutdown_priv, Process_priv, File_priv,
-    Grant_priv, References_priv, Index_priv, Alter_priv)
-    ON mysql.user TO 'pma'@'localhost';
+GRANT SELECT (
+    Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv,
+    Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv,
+    File_priv, Grant_priv, References_priv, Index_priv, Alter_priv,
+    Show_db_priv, Super_priv, Create_tmp_table_priv, Lock_tables_priv,
+    Execute_priv, Repl_slave_priv, Repl_client_priv
+    ) ON mysql.user TO 'pma'@'localhost';
 GRANT SELECT ON mysql.db TO 'pma'@'localhost';
+GRANT SELECT ON mysql.host TO 'pma'@'localhost';
 GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv)
     ON mysql.tables_priv TO 'pma'@'localhost';
+
+       If you are using an old MySQL version (below 4.0.2), please use
+       this query instead of the second one:
+
+GRANT SELECT (
+    Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv,
+    Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv,
+    File_priv, Grant_priv, References_priv, Index_priv, Alter_priv
+    ) ON mysql.user TO 'pma'@'localhost';
 
        ... and if you want to use the many new relation and bookmark
        features:
@@ -167,6 +182,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db> TO 'pma'@'localhost';
 
        (this of course requires you to have a special DB for phpMyAdmin,
        the contents will be explained later)
+       Of course, the above queries only work if your MySQL version
+       supports the GRANT command. This is the case since 3.22.11.
      * Then each of the true users should be granted a set of privileges
        on a set of particular databases. Normally you shouldn't give
        global privileges to an ordinary user, unless you understand the
@@ -1015,15 +1032,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
    $cfg['BrowseMIME'] boolean
           Enable MIME-transformations.
 
-   $cfg['SQP']['enable'] boolean
-          As of phpMyAdmin 2.3.0, we now have a fully functional SQL
-          Parser system. It is enabled by default, as it is used to
-          format the SQL queries.
-          As of 2.3.1, it will become an integral part of phpMyAdmin, as
-          it will analyze certain queries to improve the behavior of
-          phpMyAdmin. But as it is very new, and not yet heavily used, we
-          offer you an option to turn it off.
-
    $cfg['SQP']['fmtType'] string [html|none]
           The main use of the new SQL Parser is to pretty-print SQL
           queries. By default we use HTML to format the query, but you
@@ -1492,8 +1500,8 @@ FAQ - Frequently Asked Questions
    defaults to 1 (ON) in the Win32 version of MySQL. You can change this
    behavior by simply changing the directive to 0 (OFF):
    Just edit you my.ini file that should be located in your Windows
-   directory and add the following line:
-   set-variable = lower-case-table-names=0
+   directory and add the following line to the group [mysqld]:
+   set-variable = lower_case_table_names=0
    Next, save the file and restart the MySQL service. You can always
    check the value of this directive using the query
    SHOW VARIABLES LIKE 'lower_case_table_names';
@@ -1723,9 +1731,10 @@ FAQ - Frequently Asked Questions
     [4.5] Is it possible to let users create their own databases?
 
    Starting with 2.2.5, in the user management page, you can enter a
-   wildcard database name for a user, and put the privileges you want.
-   For example, adding SELECT, INSERT, UPDATE, DELETE, CREATE, DROP,
-   INDEX, ALTER would let a user create/manage his/her database(s).
+   wildcard database name for a user (for example "joe%"), and put the
+   privileges you want. For example, adding SELECT, INSERT, UPDATE,
+   DELETE, CREATE, DROP, INDEX, ALTER would let a user create/manage
+   his/her database(s).
 
     [4.6] How can I use the Host-based authentication additions?
 

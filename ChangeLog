@@ -11,6 +11,7 @@ $Source$
       count by SHOW TABLE STATUS, and by SELECT COUNT(*) only for small
       (<20000 rows) tables (RFE #708533).
     * tbl_printview.php3: Make javascript work on more browsers than MSIE.
+    * Documentation.*: Fixed typo and corrected FAQ 1.23 (bug #718569).
 
 2003-04-09 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/build_dump.lib.php3: Fixed undefined index warnings in LaTeX
