@@ -13,8 +13,15 @@ require('./lib.inc.php3');
  * A new name has been submitted -> do the work
  */
 if (isset($new_name) && trim($new_name) != '') { 
-    $old_name = $table;
-    $table    = $new_name;
+    $old_name     = $table;
+    $table        = $new_name;
+    if (get_magic_quotes_gpc()) {
+        $new_name = stripslashes($new_name);
+    }
+    if (MYSQL_INT_VERSION < 32306) {
+        check_reserved_words($new_name);
+    }
+
     include('./header.inc.php3');
     mysql_select_db($db);
     $local_query = 'ALTER TABLE ' . backquote($old_name) . ' RENAME ' . backquote($new_name);

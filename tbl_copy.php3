@@ -52,6 +52,11 @@ if (isset($new_name) && trim($new_name) != '') {
         }
         $new_name      = stripslashes($new_name);
     }
+    if (MYSQL_INT_VERSION < 32306) {
+        check_reserved_words($db);
+        check_reserved_words($table);
+    }
+
     $source = backquote($db) . '.' . backquote($table);
     $target = backquote($target_db) . '.' . backquote($new_name);
 
