@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-14 Garvin Hicking <me@supergarv.de>
+    * libraries/display_tbl.lib.php3, db_details_importdocsql.php3: Fixed
+    '../' safety issues, display transformations only if file exists 
+    (Bug #703555)
+
 2003-03-14 Robin Johnson  <robbat2@users.sourceforge.net>
     * config.inc.php3, libraries/config_import.lib.php3 tbl_change.php3:
         - Typo fixes:

@@ -1046,24 +1046,22 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
                 if ($GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
 
-                    if (isset($GLOBALS['mime_map'][$meta->name]['mimetype']) && isset($GLOBALS['mime_map'][$meta->name]['transformation'])) {
+                    if (isset($GLOBALS['mime_map'][$meta->name]['mimetype']) && isset($GLOBALS['mime_map'][$meta->name]['transformation']) && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])) {
                         // garvin: for security, never allow to break out from transformations directory
-                        $include_file = eregi_replace('^[\./]*(.*)', '\1', $GLOBALS['mime_map'][$meta->name]['transformation']);
+                        $include_file = eregi_replace('\.\.*', '.', $GLOBALS['mime_map'][$meta->name]['transformation']);
 
-                        $transformfunction_name = str_replace('.inc.php3', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
-
-                        include('./libraries/transformations/' . $include_file);
-
-                        if (defined('PMA_TRANSFORMATION_' . strtoupper($transformfunction_name)) && function_exists('PMA_transformation_' . $transformfunction_name)) {
-
-                            $transform_function = 'PMA_transformation_' . $transformfunction_name;
-                            $transform_options = PMA_transformation_getOptions((isset($GLOBALS['mime_map'][$meta->name]['transformation_options']) ? $GLOBALS['mime_map'][$meta->name]['transformation_options'] : ''));
-
-                        }
-
-                    }
-
-                }
+                        if (file_exists('./libraries/transformations/' . $include_file)) {
+                            $transformfunction_name = str_replace('.inc.php3', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
+    
+                            @include('./libraries/transformations/' . $include_file);
+    
+                            if (defined('PMA_TRANSFORMATION_' . strtoupper($transformfunction_name)) && function_exists('PMA_transformation_' . $transformfunction_name)) {
+                                $transform_function = 'PMA_transformation_' . $transformfunction_name;
+                                $transform_options = PMA_transformation_getOptions((isset($GLOBALS['mime_map'][$meta->name]['transformation_options']) ? $GLOBALS['mime_map'][$meta->name]['transformation_options'] : ''));
+                            }
+                        } // end if file_exists
+                    } // end if transformation is set
+                } // end if mime/transformation works.
 
                 $transform_options['wrapper_link'] = '?'
                                                     . (isset($url_query) ? $url_query : '')

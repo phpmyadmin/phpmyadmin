@@ -206,7 +206,7 @@ if (isset($do) && $do == 'import') {
     } else {
         
         // echo '<h1>Starting Import</h1>';
-        $docpath = $DOCUMENT_ROOT . dirname($PHP_SELF) . '/' . str_replace('../', './', $docpath);
+        $docpath = $DOCUMENT_ROOT . dirname($PHP_SELF) . '/' . eregi_replace('\.\.*', '.', $docpath);
         if (substr($docpath, strlen($docpath) - 2, 1) != '/') {
             $docpath = $docpath . '/';
         }
