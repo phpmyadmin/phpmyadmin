@@ -12,6 +12,13 @@ require_once('./libraries/common.lib.php');
 PMA_checkParameters(array('db', 'table'));
 
 /**
+ * Defining global variables, in case this script is included by a function.
+ * This is necessary because this script can be included by header.inc.php.
+ */
+global $showtable, $tbl_is_view, $tbl_type, $show_comment, $tbl_collation,
+       $table_info_num_rows, $auto_increment;
+
+/**
  * Gets table informations
  */
 // The 'show table' statement works correct since 3.23.03
@@ -29,7 +36,7 @@ if (PMA_MYSQL_INT_VERSION >= 50000 && !isset($showtable['Type']) && isset($showt
     $tbl_type        = isset($showtable['Type']) ? strtoupper($showtable['Type']) : '';
     $show_comment    = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
 }
-$tbl_collation   = empty($showtable['Collation']) ? '' : $showtable['Collation'];
+$tbl_collation       = empty($showtable['Collation']) ? '' : $showtable['Collation'];
 $table_info_num_rows = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
 $auto_increment      = (isset($showtable['Auto_increment']) ? $showtable['Auto_increment'] : '');
 

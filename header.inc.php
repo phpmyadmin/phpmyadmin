@@ -192,12 +192,17 @@ if (empty($GLOBALS['is_header_sent'])) {
                . '</td>' . "\n\n";
 
             if (!empty($GLOBALS['table'])) {
+                if (PMA_MYSQL_INT_VERSION >= 50000) {
+                    require_once('./tbl_properties_table_info.php');
+                } else {
+                    $tbl_is_view = FALSE;
+                }
                 echo '        '
                    . '<td class="serverinfo"><div></div></td>' . "\n" . '            '
-                   . '<td class="serverinfo">' . $GLOBALS['strTable'] . ':&nbsp;'
+                   . '<td class="serverinfo">' . ($GLOBALS['tbl_is_view'] ? $GLOBALS['strView'] : $GLOBALS['strTable']) . ':&nbsp;'
                    . '<a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']) . '">';
                 if ($GLOBALS['cfg']['MainPageIconic']) {
-                    echo '<img src="' . $GLOBALS['pmaThemeImage'] . 's_tbl.png" width="16" height="16" border="0" alt="' . htmlspecialchars($GLOBALS['table']) . '" />';
+                    echo '<img src="' . $GLOBALS['pmaThemeImage'] . ($GLOBALS['tbl_is_view'] ? 'b_view' : 's_tbl') . '.png" width="16" height="16" border="0" alt="' . htmlspecialchars($GLOBALS['table']) . '" />';
                 }
                 echo htmlspecialchars($GLOBALS['table']) . '</a>' . "\n"
                    . '</td>' . "\n\n";
