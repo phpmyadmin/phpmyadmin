@@ -10,6 +10,7 @@ $Source$
     * lang/slovak: Updated, thanks to Lubos Klokner (erkac)
     * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
     * lang/dutch: bug 1000683, backslash typo
+    * libraries/mysql_charsets.lib.php: bug 1005120, duplicated line
 
 2004-08-06 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_operations.php: bug 1004523, now display table options

@@ -262,7 +262,6 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             $res = PMA_DBI_query('SHOW CREATE DATABASE ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
             $row = PMA_DBI_fetch_row($res);
             PMA_DBI_free_result($res);
-            PMA_DBI_free_result($res);
             $tokenized = explode(' ', $row[1]);
             unset($row, $res, $sql_query);
 
