@@ -125,7 +125,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         $cfgBrowsePointerColor  = '';
     }
     if (!isset($cfgBrowseMarkerColor)) {
-        $cfgBrowseMarkerColor  = (!empty($cfgBrowsePointerColor))
+        $cfgBrowseMarkerColor  = (!empty($cfgBrowsePointerColor) && !empty($cfgBrowseMarkRow))
                                   ? '#FFCC99'
                                   : '';
     }
