@@ -896,7 +896,7 @@ if(count($Field)>0){
             $qry_from .= $ljm.$lj;
             } //    End $ex==1 (testing if it is worth the pain
         }//    End rel work and $alltabs>0
-        if(empty($qry_from)) {
+        if(empty($qry_from) && is_array($alltabs)) {
             $qry_from=implode(',',$alltabs);
         }
 } //    End count($Field)>0
