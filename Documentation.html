@@ -146,10 +146,10 @@
          <tt>tar -xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's
          document root. If you don't have direct access to your document root,
          put the files in a directory on your local machine, and, after step 3,
-         transfer the directory on your web server using, for example, ftp.</li>    <li> Ensure that all the scripts have the appropriate owner (if PHP is 
+         transfer the directory on your web server using, for example, ftp.</li>    <li> Ensure that all the scripts have the appropriate owner (if PHP is
          running in safe mode, having some scripts with an owner different
          from the owner of other scripts will be a
-         problem). See <a href="#faq4_2">FAQ 4.2</a> for suggestions.</li> 
+         problem). See <a href="#faq4_2">FAQ 4.2</a> for suggestions.</li>
     <li> Open the file config.inc.php in your favorite editor and change
          the values for host, user, password and authentication mode to fit
          your environment. Here, &quot;host&quot; means the MySQL server.
@@ -172,18 +172,18 @@
 <a name="linked-tables"></a>
 <h3>Linked-tables infrastructure</h3>
  <p>
-     For a whole set of new features (bookmarks, comments, SQL-history, 
+     For a whole set of new features (bookmarks, comments, SQL-history,
      PDF-generation, field contents transformation, etc.)
      you need to create a set of special tables. Those tables can be located
-     in your own database, or in a central database for a multi-user 
-     installation (this database would then be accessed by the controluser, 
+     in your own database, or in a central database for a multi-user
+     installation (this database would then be accessed by the controluser,
      so no other user should have rights to it).
      <br /> <br />
      Please look at your scripts/
          directory, where you should find a file called <i>create_tables.sql</i>.
          (If you are using a Windows server, pay special attention to <a href="#faq1_23">FAQ 1.23</a>).
      <br /> <br />
-         If your MySQL server's version is 4.1.2 or later, please use 
+         If your MySQL server's version is 4.1.2 or later, please use
          <i>create_tables_mysql_4_1_2+.sql</i> instead, for a new installation.
      <br /> <br />
          If you already had this infrastructure and upgraded to MySQL 4.1.2
@@ -614,7 +614,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <dd>
         The name of the database containing the linked-tables infrastructure.
         <br /><br />
-        See the <a href="#linked-tables">Linked-tables infrastructure</a> 
+        See the <a href="#linked-tables">Linked-tables infrastructure</a>
         section in this document to see the benefits of this infrastructure,
         and for a quick way of creating this database and the needed tables.
         <br /><br />
@@ -1417,7 +1417,7 @@ Defaults to FALSE (drop-down). <br />
 
     <dt><b>$cfg['LeftPointerEnable'] </b>boolean</dt>
     <dd>
-        A value of TRUE activates the left pointer (when LeftFrameLight is FALSE). 
+        A value of TRUE activates the left pointer (when LeftFrameLight is FALSE).
         <br /><br />
     </dd>
 
@@ -1653,12 +1653,12 @@ Defaults to FALSE (drop-down). <br />
         interface to enter SQL queries.
         <br /><br />
         When $cfg['QueryFrameJS'] is set to true, clicking on that link opens
-        the query box, a new custom sized browser window 
-        ($cfg['QueryWindowWidth'], $cfg['QueryWindowWidth'] - both integers 
-        for the size in pixels). 
-        Also, a click on [Edit] from the results page (in the &quot;Showing 
-        Rows&quot; section) opens the query box and puts the current query 
-        inside it.  If set to false, clicking on the link only opens the SQL 
+        the query box, a new custom sized browser window
+        ($cfg['QueryWindowWidth'], $cfg['QueryWindowWidth'] - both integers
+        for the size in pixels).
+        Also, a click on [Edit] from the results page (in the &quot;Showing
+        Rows&quot; section) opens the query box and puts the current query
+        inside it.  If set to false, clicking on the link only opens the SQL
         input in the main frame.
         <br /><br />
         The usage of the JavaScript query window is recommended if you have a
@@ -1752,7 +1752,7 @@ Defaults to FALSE (drop-down). <br />
 
     <dt><b>$cfg['ShowHttpHostTitle'] </b>boolean</dt>
     <dd>
-        Shows the HTTP host name in window's title bar. 
+        Shows the HTTP host name in window's title bar.
     <br /><br />
     </dd>
 
@@ -1974,7 +1974,7 @@ Defaults to FALSE (drop-down). <br />
     <dt><b>$cfg['TextOperators'] </b>array</dt>
     <dd>
         Operators available for search operations on character fields.
-        Note that we put <code>LIKE</code> by default instead of 
+        Note that we put <code>LIKE</code> by default instead of
         <code>LIKE %...%</code>, to avoid unintended performance problems
         in case of huge tables.
         <br /><br />
@@ -1985,14 +1985,14 @@ Defaults to FALSE (drop-down). <br />
         Operators available for search operations on enum fields.
         <br /><br />
     </dd>
- 
+
     <dt><b>$cfg['NullOperators'] </b>array</dt>
     <dd>
         Additionnal operators available for search operations when the
         field can be null.
         <br /><br />
     </dd>
- 
+
 </dl>
 
 <!-- TRANSFORMATIONS -->
@@ -2775,20 +2775,20 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <a name="faqthemes"></a><br />
 <h4>
-    [2.7] Using and creating themes 
+    [2.7] Using and creating themes
 </h4>
 <p>
     Themes are configured with <tt>$cfg['ThemePath']</tt>,
     <tt>$cfg['ThemeManager']</tt> and <tt>$cfg['ThemeDefault']</tt>.<br />
     <br />
-    Under <tt>$cfg['ThemePath']</tt>, you should not delete the directory 
+    Under <tt>$cfg['ThemePath']</tt>, you should not delete the directory
     &quot;original&quot; or its underlying structure, because this is
-    the system theme used by phpMyAdmin. &quot;original&quot; contains all 
+    the system theme used by phpMyAdmin. &quot;original&quot; contains all
     images and styles, for backwards compatibility and for all themes that
     would not include images or css-files.<br />
     <br />
-    If <tt>$cfg['ThemeManager']</tt> is enabled, you can select your 
-    favorite theme on the main page. Your selected theme will be stored 
+    If <tt>$cfg['ThemeManager']</tt> is enabled, you can select your
+    favorite theme on the main page. Your selected theme will be stored
     in a cookie.<br />
     <br />
     </p>
@@ -2808,16 +2808,14 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     </p>
     <p>
     In theme directory there is file <tt>info.inc.php</tt> which contains
-    theme verbose name and theme version. These versions are enumerated from 1
-    and do not have any direct dependance on phpMyAdmin version. Themes with
-    higher version should work also in older phpMyAdmin versions because we
-    currently expect these will only grow (new css classes or more images),
-    but this behaviour will be probably changed in future, in case phpMyAdmin
-    will start to use some templates and these will require completely
-    different themes.
+    theme verbose name, theme generation and theme version. These versions and
+    generations are enumerated from 1 and do not have any direct dependance on
+    phpMyAdmin version. Themes within same generation should be bacward
+    compatible - theme with version 2 should work in phpMyAdmin requiring
+    version 1. Themes with different generation are incompatible.
     </p>
     <p>
-    If you do not want to use your own symbols and buttons, remove the 
+    If you do not want to use your own symbols and buttons, remove the
     directory &quot;img&quot; in &quot;your_theme_name&quot;. phpMyAdmin will
     use the default icons and buttons (from the system-theme &quot;original&quot;).
     </p>
@@ -3681,7 +3679,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <pre>
     cd phpMyAdmin
     mkdir tmp
-    chmod o+rwx tmp 
+    chmod o+rwx tmp
 </pre>
 <a name="faqproject"></a><br />
 <h3>[7. phpMyAdmin project]</h3>
@@ -3820,10 +3818,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     The phpMyAdmin development team received notice of this security alert:
     <a href="http://securityfocus.com/archive/1/367486/2004-06-26/2004-07-02/0" target="_blank">http://securityfocus.com/archive/1/367486/2004-06-26/2004-07-02/0</a>
     <br /><br />
-    We would like to put emphasis on the disappointment we feel when a 
-    bugreporter does not contact the authors of a software first, before 
-    posting any exploits. The common way to report this, is to give the 
-    developers a reasonable amount of time to respond to an exploit before 
+    We would like to put emphasis on the disappointment we feel when a
+    bugreporter does not contact the authors of a software first, before
+    posting any exploits. The common way to report this, is to give the
+    developers a reasonable amount of time to respond to an exploit before
     it is made public.
     <br /><br />
     We acknowledge that phpMyAdmin versions 2.5.1 to 2.5.7 are vulnerable

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-20 Michal Čihař  <michal@cihar.com>
+	* Documentation.html: Add info about theme generations.
+
 2004-09-19 Alexander M. Turek  <me@derrabus.de>
     * Documentation.html: Clarification.
 
