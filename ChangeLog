@@ -8,6 +8,8 @@ $Source$
 2001-10-22  Loïc Chapeaux  <lolo@phpheaven.net>
 	* Ducumentation.html, line 299: added some requirements for sockets.
 	* main.php3: ensured sockets aren't displayed and used if php < 3.0.10.
+	* libraries/common.lib.php3: ensured the same rules apply whatever is the
+	  authentication mode and that the cfgServers[i]['only_db'] is really used.
 
 2001-10-22  Robin Johnson  <robbat2@users.sourceforge.net>
 	* config.inc.php3: remove ENCODE, DECODE, ENCRYPT functions.

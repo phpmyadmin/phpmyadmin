@@ -23,6 +23,8 @@ if (!defined('__LIB_COMMON__')){
      * the include of libraries/defines.lib.php3 must be after the connection
      * to db to get the MySql version
      *
+     * the sql_addslashes() function must be before the connection to db
+     *
      * the auth() function must be before the connection to db but after the
      * pmaIsInto() function
      *
@@ -36,6 +38,7 @@ if (!defined('__LIB_COMMON__')){
      * - first load of the libraries/define.lib.php3 library (won't get the
      *   MySQL release number)
      * - load of mysql extension (if necessary)
+     * - definition of sql_addslashes()
      * - definition of mysql_die()
      * - definition of pmaIsInto()
      * - db connection
@@ -176,6 +179,31 @@ if (!defined('__LIB_COMMON__')){
             exit();
         }
     } // end load mysql extension
+
+
+    /**
+     * Add slashes before "'" and "\" characters so a value containing them can
+     * be used in a sql comparison.
+     *
+     * @param   string   the string to slash
+     * @param   boolean  whether the string will be used in a 'LIKE' clause
+     *                   (it then requires two more escaped sequences) or not
+     *
+     * @return  string   the slashed string
+     *
+     * @access  public
+     */
+    function sql_addslashes($a_string = '', $is_like = FALSE)
+    {
+        if ($is_like) {
+            $a_string = str_replace('\\', '\\\\\\\\', $a_string);
+        } else {
+            $a_string = str_replace('\\', '\\\\', $a_string);
+        }
+        $a_string = str_replace('\'', '\\\'', $a_string);
+    
+        return $a_string;
+    } // end of the 'sql_addslashes()' function
 
 
     /**
@@ -394,156 +422,145 @@ if (!defined('__LIB_COMMON__')){
                 }
             }
 
-            // Calls the authentication window or validates user's login
+            // Calls the authentication window or store user's login/password
             if ($do_auth) {
                 auth();
             } else {
-                $bkp_track_err   = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
-                $dbh             = @$connect_func(
-                                     $cfgServer['host'] . $server_port . $server_socket,
-                                     $cfgServer['stduser'],
-                                     $cfgServer['stdpass']
-                                 );
-                if ($dbh == FALSE) {
-                    if (mysql_error()) {
-                        $conn_error = mysql_error();
-                    } else if (isset($php_errormsg)) {
-                        $conn_error = $php_errormsg;
-                    } else {
-                        $conn_error = 'Cannot connect: invalid settings.';
-                    }
-                    if (PHP_INT_VERSION >= 40000) {
-                        @ini_set('track_errors', $bkp_track_err);
-                    }
-                    $local_query    = $connect_func . '('
-                                    . $cfgServer['host'] . $server_port . $server_socket . ', '
-                                    . $cfgServer['stduser'] . ', '
-                                    . $cfgServer['stdpass'] . ')';
-                    mysql_die($conn_error, $local_query, FALSE);
-                } else if (PHP_INT_VERSION >= 40000) {
-                    @ini_set('track_errors', $bkp_track_err);
-                }
-
-                if (get_magic_quotes_gpc()) {
-                    $PHP_AUTH_USER = str_replace('\\"', '"', str_replace('\\\\', '\\', $PHP_AUTH_USER));
-                    $PHP_AUTH_PW   = str_replace('\\"', '"', str_replace('\\\\', '\\', $PHP_AUTH_PW));
-                } else {
-                    $PHP_AUTH_USER = str_replace('\'', '\\\'', $PHP_AUTH_USER);
-                    $PHP_AUTH_PW   = str_replace('\'', '\\\'', $PHP_AUTH_PW);
-                }
-
-                $auth_query = 'SELECT User, Password, Select_priv '
-                            . 'FROM mysql.user '
-                            . 'WHERE '
-                            .    'User = \'' . $PHP_AUTH_USER . '\' '
-                            .    'AND Password = PASSWORD(\'' . $PHP_AUTH_PW . '\')';
-                $rs         = mysql_query($auth_query, $dbh) or mysql_die('', $auth_query, FALSE);
-
-                // Invalid login -> relog
-                if (@mysql_numrows($rs) <= 0) {
-                    auth();
-                }
-                // Seems to be a valid login...
-                else {
-                    $row = mysql_fetch_array($rs);
-                    mysql_free_result($rs);
-                    // Correction uva 19991215
-                    // Previous code assumed database "mysql" admin table "db"
-                    // column "db" contains literal name of user database, and
-                    // works if so.
-                    // Mysql usage generally (and uva usage specifically)
-                    // allows this column to contain regular expressions (we
-                    // have all databases owned by a given
-                    // student/faculty/staff beginning with user i.d. and
-                    // governed by default by a single set of privileges with
-                    // regular expression as key). This breaks previous code.
-                    // This maintenance is to fix code to work correctly for
-                    // regular expressions.
-                    if ($row['Select_priv'] != 'Y') {
-                        // lem9: User can be blank (anonymous user)
-                        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . $PHP_AUTH_USER . '\' OR User = \'\')';
-                        $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE);
-                        if (@mysql_numrows($rs) <= 0) {
-                            $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . $PHP_AUTH_USER . '\'';
-                            $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE);
-                            if (@mysql_numrows($rs) <= 0) {
-                                auth();
-                            } else {
-                                while ($row = mysql_fetch_array($rs)) {
-                                    // loic1: avoid multiple entries for dbs
-                                    if (pmaIsInto($row['Db'], $dblist) == -1) {
-                                        $dblist[] = $row['Db'];
-                                    }
-                                }
-                                mysql_free_result($rs);
-                            }
-                        } else {
-                            // Will use as associative array of the following 2
-                            // code lines:
-                            //   the 1st is the only line intact from before
-                            //     correction,
-                            //   the 2nd replaces $dblist[] = $row['Db'];
-                            $uva_mydbs = array();
-                            // Code following those 2 lines in correction
-                            // continues populating $dblist[], as previous code
-                            // did. But it is now populated with actual
-                            // database names instead of with regular
-                            // expressions.
-                            while ($row = mysql_fetch_array($rs)) {
-                                // loic1: all databases cases - part 1
-                                if (empty($row['Db']) || $row['Db'] == '%') {
-                                    $uva_mydbs['%'] = 1;
-                                    break;
-                                }
-                                // loic1: avoid multiple entries for dbs
-                                if (!isset($uva_mydbs[$row['Db']])) {
-                                    $uva_mydbs[$row['Db']] = 1;
-                                }
-                            }
-                            mysql_free_result($rs);
-                            $uva_alldbs = mysql_list_dbs();
-                            // loic1: all databases cases - part 2
-                            if (isset($uva_mydbs['%'])) {
-                                while ($uva_row = mysql_fetch_array($uva_alldbs)) {
-                                    $dblist[] = $uva_row[0];
-                                } // end while
-                            } // end if
-                            else {
-                                while ($uva_row = mysql_fetch_array($uva_alldbs)) {
-                                    $uva_db = $uva_row[0];
-                                    if (isset($uva_mydbs[$uva_db]) && $uva_mydbs[$uva_db] == 1) {
-                                        $dblist[]           = $uva_db;
-                                        $uva_mydbs[$uva_db] = 0;
-                                    } else if (!isset($dblist[$uva_db])) {
-                                        reset($uva_mydbs);
-                                        while (list($uva_matchpattern, $uva_value) = each($uva_mydbs)) {
-                                            // loic1: fixed bad regexp
-                                            // TODO: db names may contain
-                                            //       characters that are regexp
-                                            //       instructions
-                                            $re        = '(^|(\\\\\\\\)+|[^\])';
-                                            $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
-                                            // Fixed db name matching
-                                            // 2000-08-28 -- Benjamin Gandon
-                                            if (ereg('^' . $uva_regex . '$', $uva_db)) {
-                                                $dblist[] = $uva_db;
-                                                break;
-                                            }
-                                        } // end while
-                                    } // end if ... else if ....
-                                } // end while
-                            } // end else
-                            mysql_free_result($uva_alldbs);
-                            unset($uva_mydbs);
-                        } // end else
-                    } // end if
-                } // end else
+                $cfgServer['user']     = (get_magic_quotes_gpc() ? stripslashes($PHP_AUTH_USER) : $PHP_AUTH_USER);
+                $cfgServer['password'] = (get_magic_quotes_gpc() ? stripslashes($PHP_AUTH_PW) : $PHP_AUTH_PW);
             }
+        } // end advanced authentication
 
-            // Validation achived -> store user's login/password
-            $cfgServer['user']     = $PHP_AUTH_USER;
-            $cfgServer['password'] = $PHP_AUTH_PW;
-        } // end Advanced authentication
+        // Connects to the server (validates user's login)
+        $bkp_track_err = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
+        $dbh           = @$connect_func(
+                             $cfgServer['host'] . $server_port . $server_socket,
+                             $cfgServer['user'],
+                             $cfgServer['password']
+                         );
+        if ($dbh == FALSE) {
+            // Advanced authentication case
+            if ($cfgServer['adv_auth']) {
+                auth();
+            }
+            // Standard authentication case
+            else if (mysql_error()) {
+                $conn_error = mysql_error();
+            } else if (isset($php_errormsg)) {
+                $conn_error = $php_errormsg;
+            } else {
+                $conn_error = 'Cannot connect: invalid settings.';
+            }
+            if (PHP_INT_VERSION >= 40000) {
+                @ini_set('track_errors', $bkp_track_err);
+            }
+            $local_query    = $connect_func . '('
+                            . $cfgServer['host'] . $server_port . $server_socket . ', '
+                            . $cfgServer['user'] . ', '
+                            . $cfgServer['password'] . ')';
+            mysql_die($conn_error, $local_query, FALSE);
+        } else if (PHP_INT_VERSION >= 40000) {
+            @ini_set('track_errors', $bkp_track_err);
+        }
+
+        // if 'only_db' is set for the current user, there is no need to checks for
+        // available databases in the "mysql" db
+        $do_get_dbs     = (count($dblist) == 0);
+        if ($do_get_dbs) {
+            $auth_query = 'SELECT User, Password, Select_priv '
+                        . 'FROM mysql.user '
+                        . 'WHERE '
+                        .    'User = \'' . sql_addslashes($cfgServer['user']) . '\' '
+                        .    'AND Password = PASSWORD(\'' . sql_addslashes($cfgServer['password']) . '\')';
+            $rs         = mysql_query($auth_query, $dbh); // Debug: or mysql_die('', $auth_query, FALSE);
+        } // end if
+
+        // Access to "mysql" db allowed -> gets the usable db list
+        if ($do_get_dbs && @mysql_numrows($rs)) {
+            $row = mysql_fetch_array($rs);
+            mysql_free_result($rs);
+            // Correction uva 19991215
+            // Previous code assumed database "mysql" admin table "db" column
+            // "db" contains literal name of user database, and works if so.
+            // Mysql usage generally (and uva usage specifically) allows this
+            // column to contain regular expressions (we have all databases
+            // owned by a given student/faculty/staff beginning with user i.d.
+            // and governed by default by a single set of privileges with
+            // regular expression as key). This breaks previous code.
+            // This maintenance is to fix code to work correctly for regular
+            // expressions.
+            if ($row['Select_priv'] != 'Y') {
+                // lem9: User can be blank (anonymous user)
+                $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . sql_addslashes($cfgServer['user']) . '\' OR User = \'\')';
+                $rs          = mysql_query($local_query); // Debug: or mysql_die('', $local_query, FALSE);
+                if (@mysql_numrows($rs) <= 0) {
+                    $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . sql_addslashes($cfgServer['user']) . '\'';
+                    $rs          = mysql_query($local_query); // Debug: or mysql_die('', $local_query, FALSE);
+                    if (@mysql_numrows($rs)) {
+                        while ($row = mysql_fetch_array($rs)) {
+                            $dblist[] = $row['Db'];
+                        }
+                        mysql_free_result($rs);
+                    }
+                } else {
+                    // Will use as associative array of the following 2 code
+                    // lines:
+                    //   the 1st is the only line intact from before
+                    //     correction,
+                    //   the 2nd replaces $dblist[] = $row['Db'];
+                    $uva_mydbs = array();
+                    // Code following those 2 lines in correction continues
+                    // populating $dblist[], as previous code did. But it is
+                    // now populated with actual database names instead of
+                    // with regular expressions.
+                    while ($row = mysql_fetch_array($rs)) {
+                        // loic1: all databases cases - part 1
+                        if (empty($row['Db']) || $row['Db'] == '%') {
+                            $uva_mydbs['%'] = 1;
+                            break;
+                        }
+                        // loic1: avoid multiple entries for dbs
+                        if (!isset($uva_mydbs[$row['Db']])) {
+                            $uva_mydbs[$row['Db']] = 1;
+                        }
+                    } // end while
+                    mysql_free_result($rs);
+                    $uva_alldbs = mysql_list_dbs();
+                    // loic1: all databases cases - part 2
+                    if (isset($uva_mydbs['%'])) {
+                        while ($uva_row = mysql_fetch_array($uva_alldbs)) {
+                            $dblist[] = $uva_row[0];
+                        } // end while
+                    } // end if
+                    else {
+                        while ($uva_row = mysql_fetch_array($uva_alldbs)) {
+                            $uva_db = $uva_row[0];
+                            if (isset($uva_mydbs[$uva_db]) && $uva_mydbs[$uva_db] == 1) {
+                                $dblist[]           = $uva_db;
+                                $uva_mydbs[$uva_db] = 0;
+                            } else if (!isset($dblist[$uva_db])) {
+                                reset($uva_mydbs);
+                                while (list($uva_matchpattern, $uva_value) = each($uva_mydbs)) {
+                                    // loic1: fixed bad regexp
+                                    // TODO: db names may contain characters
+                                    //       that are regexp instructions
+                                    $re        = '(^|(\\\\\\\\)+|[^\])';
+                                    $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
+                                    // Fixed db name matching
+                                    // 2000-08-28 -- Benjamin Gandon
+                                    if (ereg('^' . $uva_regex . '$', $uva_db)) {
+                                        $dblist[] = $uva_db;
+                                        break;
+                                    }
+                                } // end while
+                            } // end if ... else if....
+                        } // end while
+                    } // end else
+                    mysql_free_result($uva_alldbs);
+                    unset($uva_mydbs);
+                } // end else
+            } // end if
+        } // end building available dbs from the "mysql" db
 
         // Do connect to the user's database
         $bkp_track_err   = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
@@ -732,31 +749,6 @@ if (!defined('__LIB_COMMON__')){
             return $a_name;
         }
     } // end of the 'backquote()' function
-
-
-    /**
-     * Add slashes before "'" and "\" characters so a value containing them can
-     * be used in a sql comparison.
-     *
-     * @param   string   the string to slash
-     * @param   boolean  whether the string will be used in a 'LIKE' clause
-     *                   (it then requires two more escaped sequences) or not
-     *
-     * @return  string   the slashed string
-     *
-     * @access  public
-     */
-    function sql_addslashes($a_string = '', $is_like = FALSE)
-    {
-        if ($is_like) {
-            $a_string = str_replace('\\', '\\\\\\\\', $a_string);
-        } else {
-            $a_string = str_replace('\\', '\\\\', $a_string);
-        }
-        $a_string = str_replace('\'', '\\\'', $a_string);
-    
-        return $a_string;
-    } // end of the 'sql_addslashes()' function
 
 
     /**
