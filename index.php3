@@ -54,8 +54,8 @@ if ($cfg['QueryHistoryDB'] && $cfgRelation['historywork']) {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
 <head>
 <title>phpMyAdmin <?php echo PMA_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
-<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=right" />
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
+<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?lang=<?php echo $lang; ?>&amp;js_frame=right" />
 </head>
 
 <frameset cols="<?php echo $cfg['LeftWidth']; ?>,*" rows="*">

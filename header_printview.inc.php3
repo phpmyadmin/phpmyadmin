@@ -15,7 +15,7 @@ if ($cfg['OBGzip']) {
 }
 
 
-// garvin: For re-usability, moved http-headers 
+// garvin: For re-usability, moved http-headers
 // to a seperate file. It can now be included by header.inc.php3,
 // queryframe.php3, querywindow.php3.
 
@@ -42,7 +42,7 @@ if ($text_dir == 'ltr') {
 <head>
 <title><?php echo $strSQLResult; ?> - phpMyAdmin <?php echo PMA_VERSION ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
-<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=print" />
+<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?lang=<?php echo $lang; ?>&amp;js_frame=print" />
 </style>
 </head>
 

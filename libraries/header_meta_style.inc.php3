@@ -28,4 +28,4 @@ if (!empty($GLOBALS['cfg']['PmaAbsoluteUri'])) {
     echo '<base href="' . $GLOBALS['cfg']['PmaAbsoluteUri'] . '" />' . "\n";
 }
 ?>
-<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=right" />
+<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?lang=<?php echo $GLOBALS['lang']; ?>&amp;js_frame=right" />

@@ -60,11 +60,11 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')) {
     /**
      * Minimum inclusion? (i.e. for the stylesheet builder)
      */
-     
+
     if (!isset($is_minimum_common)) {
         $is_minimum_common = FALSE;
     }
-    
+
     /**
      * Avoids undefined variables in PHP3
      */
@@ -141,28 +141,28 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 167) {
         include('./libraries/config_import.lib.php3');
     }
-    
+
+    /**
+     * Includes the language file if it hasn't been included yet
+     */
+    if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
+        include('./libraries/select_lang.lib.php3');
+    }
+
     if ($is_minimum_common == FALSE) {
-        /**
-         * Includes the language file if it hasn't been included yet
-         */
-        if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
-            include('./libraries/select_lang.lib.php3');
-        }
-    
         /**
          * Include MySQL wrappers.
          */
         include('./libraries/mysql_wrappers.lib.php3');
     }
-    
+
     /**
      * Gets constants that defines the PHP version number.
      * This include must be located physically before any code that needs to
      * reference the constants, else PHP 3.0.16 won't be happy.
      */
     include('./libraries/defines_php.lib.php3');
-    
+
     if ($is_minimum_common == FALSE) {
         /**
          * Define $is_upload
@@ -171,9 +171,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
           //     ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
                // loic1: php 3.0.15 and lower bug -> always enabled
           //     : (PMA_PHP_INT_VERSION < 30016 || intval(@get_cfg_var('upload_max_filesize')));
-    
-          // Note: PHP <40300 returns TRUE for function_exists, even 
-          // if the function is disabled; 
+
+          // Note: PHP <40300 returns TRUE for function_exists, even
+          // if the function is disabled;
           // PHP < 30016 had problems with get_cfg_var;
           //  so if we cannot detect that uploads
           //  are disabled, we assume they are enabled
@@ -185,19 +185,19 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                  || @ini_get('file_uploads') == 0)) {
               $is_upload = FALSE;
           }
-          if (PMA_PHP_INT_VERSION >= 30016 
+          if (PMA_PHP_INT_VERSION >= 30016
               && PMA_PHP_INT_VERSION < 40000
               && !intval(@get_cfg_var('upload_max_filesize'))) {
               $is_upload = FALSE;
           }
 
-    
+
         /**
          * Charset conversion.
          */
         include('./libraries/charset_conversion.lib.php3');
     }
-    
+
     /**
      * Gets constants that defines the MySQL version number.
      * This include must be located physically before any code that needs to
@@ -206,48 +206,48 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * below).
      */
     include('./libraries/defines.lib.php3');
-    
+
     if ($is_minimum_common == FALSE) {
         /**
          * String handling
          */
         include('./libraries/string.lib.php3');
     }
-    
+
     if ($is_minimum_common == FALSE) {
         /**
          * SQL Parser data
          */
         include('./libraries/sqlparser.data.php3');
     }
-    
+
     /**
      * SQL Parser code
      */
 
     include('./libraries/sqlparser.lib.php3');
-    
+
     if ($is_minimum_common == FALSE) {
         /**
          * SQL Validator interface code
          */
         include('./libraries/sqlvalidator.lib.php3');
     }
-    
+
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run
     if (PMA_PHP_INT_VERSION < 40000
         || (PMA_PHP_INT_VERSION >= 40005 && @ini_get('zlib.output_compression'))) {
         $cfg['OBGzip'] = FALSE;
     }
-    
+
     if ($is_minimum_common == FALSE) {
         /**
          * Include URL/hidden inputs generating.
          */
         include('./libraries/url_generating.lib.php3');
-    
-    
+
+
         /**
          * Loads the mysql extensions if it is not loaded yet
          * staybyte - 26. June 2001
@@ -274,15 +274,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 exit();
             }
         } // end load mysql extension
-    
+
         // check whether mysql is available
         if (!@function_exists('mysql_connect')) {
             echo $strCantLoadMySQL . '<br />' . "\n"
                  . '<a href="./Documentation.html#faqmysql" target="documentation">' . $GLOBALS['strDocu'] . '</a>' . "\n";
             exit();
         }
-    
-    
+
+
         /**
          * Add slashes before "'" and "\" characters so a value containing them can
          * be used in a sql comparison.
@@ -304,19 +304,19 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             } else {
                 $a_string = str_replace('\\', '\\\\', $a_string);
             }
-            
+
             if ($crlf) {
                 $a_string = str_replace("\n", '\n', $a_string);
                 $a_string = str_replace("\r", '\r', $a_string);
                 $a_string = str_replace("\t", '\t', $a_string);
             }
-            
+
             $a_string = str_replace('\'', '\\\'', $a_string);
-    
+
             return $a_string;
         } // end of the 'PMA_sqlAddslashes()' function
-    
-    
+
+
         /**
          * Add slashes before "_" and "%" characters for using them in MySQL
          * database, table and field names.
@@ -332,11 +332,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         {
             $name = str_replace('_', '\\_', $name);
             $name = str_replace('%', '\\%', $name);
-    
+
             return $name;
         } // end of the 'PMA_escape_mysql_wildcards()' function
-    
-    
+
+
         /**
          * format sql strings
          *
@@ -354,7 +354,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         function PMA_formatSql($parsed_sql)
         {
             global $cfg;
-    
+
             // Check that we actually have a valid set of parsed data
             // well, not quite
             // first check for the SQL parser having hit an error
@@ -370,9 +370,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                 . '</pre>';
                 return $formatted_sql;
             }
-    
+
             $formatted_sql        = '';
-    
+
             switch ($cfg['SQP']['fmtType']) {
                 case 'none':
                     $formatted_sql = PMA_SQP_formatNone($parsed_sql);
@@ -387,11 +387,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 default:
                     break;
             } // end switch
-    
+
             return $formatted_sql;
         } // end of the "PMA_formatSql()" function
-    
-    
+
+
         /**
          * Displays a MySQL error message in the right frame.
          *
@@ -410,18 +410,18 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                 $exit = TRUE)
         {
             global $cfg;
-    
+
             if (empty($GLOBALS['is_header_sent'])) {
                 include('./header.inc.php3');
             }
-    
+
             if (!$error_message) {
                 $error_message = PMA_mysql_error();
             }
             if (!$the_query && !empty($GLOBALS['sql_query'])) {
                 $the_query = $GLOBALS['sql_query'];
             }
-    
+
             // --- Added to solve bug #641765
             // Robbat2 - 12 January 2003, 9:46PM
             // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
@@ -431,7 +431,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $parsed_sql = PMA_SQP_parse($the_query);
             }
             // ---
-    
+
             echo '<p><b>'. $GLOBALS['strError'] . '</b></p>' . "\n";
             // if the config password is wrong, or the MySQL server does not
             // respond, do not show the query that would reveal the
@@ -466,20 +466,20 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             echo '<pre>' . "\n"
                     . $error_message . "\n"
                     . '</pre>' . "\n";
-    
-    
+
+
             if (!empty($back_url) && $exit) {
                 echo '<a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a>';
             }
             echo "\n";
-    
+
             if ($exit) {
                 include('./footer.inc.php3');
                 exit();
             }
         } // end of the 'PMA_mysqlDie()' function
-    
-    
+
+
         /**
          * Defines whether a string exists inside an array or not
          *
@@ -497,11 +497,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             for ($i = 0; $i < $max && ($toFind != $in[$i]); $i++) {
                 // void();
             }
-    
+
             return ($i < $max) ? $i : -1;
         }  // end of the 'PMA_isInto()' function
     }
-    
+
     /**
      * Determines the font sizes to use depending on the os and browser of the
      * user.
@@ -584,8 +584,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
         return TRUE;
     } // end of the 'PMA_setFontSizes()' function
-    
-    
+
+
     if ($is_minimum_common == FALSE) {
         /**
          * $cfg['PmaAbsoluteUri'] is a required directive else cookies won't be
@@ -593,7 +593,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
          * record might fail
          */
         $display_pmaAbsoluteUri_warning = 0;
-    
+
         // Olivier: Setup a default value to let the people and lazy syadmins
         //          work anyway, but display a big warning on the main.php3
         //          page.
@@ -623,14 +623,14 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $port_in_HTTP_HOST              = (strpos($HTTP_HOST, ':') > 0);
             $cfg['PmaAbsoluteUri']          = ((!empty($HTTPS) && strtolower($HTTPS) != 'off') ? 'https' : 'http') . '://'
                                             . $HTTP_HOST;
-    
+
             // if $cfg['PmaAbsoluteUri'] is empty and port == 80 or port == 443, do not add ":80" or ":443"
             // to the generated URL -> prevents a double password query in case of http authentication.
-    
+
             if (!(!$port_in_HTTP_HOST && !empty($SERVER_PORT) && ($SERVER_PORT == 80 || $SERVER_PORT == 443))) {
                 $cfg['PmaAbsoluteUri']      .= ((!empty($SERVER_PORT) && !$port_in_HTTP_HOST) ? ':' . $SERVER_PORT : '');
             }
-    
+
             // rabus: if php is in CGI mode, $PHP_SELF often contains the path to the CGI executable.
             //   This is why we try to get the path from $REQUEST_URI or $PATH_INFO first.
             if (isset($REQUEST_URI)) {
@@ -640,7 +640,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             } else {
                 $cfg['PmaAbsoluteUri']      .= substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') + 1);
             }
-    
+
             // We display the warning by default, but not if it is disabled thru
             // via the $cfg['PmaAbsoluteUri_DisableWarning'] variable.
             // This is intended for sysadmins that actually want the default
@@ -656,8 +656,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         else if (substr($cfg['PmaAbsoluteUri'], -1) != '/') {
             $cfg['PmaAbsoluteUri'] .= '/';
         }
-    
-    
+
+
         /**
          * Make sure $cfg['DefaultTabDatabase'] and $cfg['DefaultTabTable'] are set.
          * Todo: check if it is set to a *valid* value.
@@ -665,19 +665,19 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if (empty($cfg['DefaultTabDatabase'])) {
             $cfg['DefaultTabDatabase'] = 'db_details_structure.php3';
         }
-    
+
         if (empty($cfg['DefaultTabTable'])) {
             $cfg['DefaultTabTable']    = 'tbl_properties_structure.php3';
         }
-    
-    
+
+
         /**
          * Use mysql_connect() or mysql_pconnect()?
          */
         $connect_func = ($cfg['PersistentConnections']) ? 'mysql_pconnect' : 'mysql_connect';
         $dblist       = array();
-    
-    
+
+
         /**
          * Gets the valid servers list and parameters
          */
@@ -687,7 +687,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             if ( ($val['connect_type'] == 'tcp') && empty($val['host']) ) {
                 unset($cfg['Servers'][$key]);
             }
-    
+
             // Final solution to bug #582890
             // If we are using a socket connection
             // and there is nothing in the verbose server name
@@ -698,12 +698,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $val['verbose']                  = sprintf($GLOBALS['strServer'],$key);
             }
         }
-    
+
         if (empty($server) || !isset($cfg['Servers'][$server]) || !is_array($cfg['Servers'][$server])) {
             $server = $cfg['ServerDefault'];
         }
-    
-    
+
+
         /**
          * If no server is selected, make sure that $cfg['Server'] is empty (so
          * that nothing will work), and skip server authentication.
@@ -715,13 +715,13 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if ($server == 0) {
             $cfg['Server'] = array();
         }
-    
+
         /**
          * Otherwise, set up $cfg['Server'] and do the usual login stuff.
          */
         else if (isset($cfg['Servers'][$server])) {
             $cfg['Server'] = $cfg['Servers'][$server];
-    
+
             // Check how the config says to connect to the server
             $server_port   = (empty($cfg['Server']['port']))
                            ? ''
@@ -735,7 +735,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             if (PMA_PHP_INT_VERSION >= 40300) {
                 $client_flags = ($cfg['Server']['compress'] ? MYSQL_CLIENT_COMPRESS : 0);
             }
-    
+
             // Gets the authentication library that fits the $cfg['Server'] settings
             // and run authentication
             include('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php3');
@@ -744,7 +744,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             } else {
                 PMA_auth_set_user();
             }
-    
+
             // Check IP-based Allow/Deny rules as soon as possible to reject the
             // user
             // Based on mod_access in Apache:
@@ -753,7 +753,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             // Robbat2 - May 10, 2002
             if (isset($cfg['Server']['AllowDeny']) && $cfg['Server']['AllowDeny']['order']) {
                 include('./libraries/ip_allow_deny.lib.php3');
-    
+
                 $allowDeny_forbidden         = FALSE; // default
                 if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
                     $allowDeny_forbidden     = TRUE;
@@ -778,14 +778,14 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                         $allowDeny_forbidden = TRUE;
                     }
                 } // end if... else if... else if
-    
+
                 // Ejects the user if banished
                 if ($allowDeny_forbidden) {
                    PMA_auth_fails();
                 }
                 unset($allowDeny_forbidden); //Clean up after you!
             } // end if
-    
+
             // The user can work with only some databases
             if (isset($cfg['Server']['only_db']) && $cfg['Server']['only_db'] != '') {
                 if (is_array($cfg['Server']['only_db'])) {
@@ -794,11 +794,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     $dblist[] = $cfg['Server']['only_db'];
                 }
             } // end if
-    
+
             if (PMA_PHP_INT_VERSION >= 40000) {
                 $bkp_track_err = @ini_set('track_errors', 1);
             }
-    
+
             // Try to connect MySQL with the control user profile (will be used to
             // get the privileges list for the current user but the true user link
             // must be open after this one so it would be default one for all the
@@ -840,10 +840,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     PMA_mysqlDie($conn_error, '', FALSE);
                 } // end if
             } // end if
-    
+
             // Pass #1 of DB-Config to read in master level DB-Config will go here
             // Robbat2 - May 11, 2002
-    
+
             // Connects to the server (validates user's login)
             if (PMA_PHP_INT_VERSION >= 40300) {
                 $userlink           = @$connect_func(
@@ -859,29 +859,29 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                           $cfg['Server']['user'],
                                           $cfg['Server']['password']
                                       );
-    
+
             }
             if ($userlink == FALSE) {
                 PMA_auth_fails();
             } // end if
-    
+
             // Pass #2 of DB-Config to read in user level DB-Config will go here
             // Robbat2 - May 11, 2002
-    
+
             if (PMA_PHP_INT_VERSION >= 40000) {
                 @ini_set('track_errors', $bkp_track_err);
             }
-    
+
             // If controluser isn't defined, use the current user settings to get
             // his rights
             if ($cfg['Server']['controluser'] == '') {
                 $dbh = $userlink;
             }
-    
+
             // Runs the "defines.lib.php3" for the second time to get the mysql
             // release number
             include('./libraries/defines.lib.php3');
-    
+
             // if 'only_db' is set for the current user, there is no need to check for
             // available databases in the "mysql" db
             $dblist_cnt = count($dblist);
@@ -915,7 +915,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $dblist       = $true_dblist;
                 unset($true_dblist);
             } // end if
-    
+
             // 'only_db' is empty for the current user...
             else {
                 // ... first checks whether the "safe_show_database" is on or not
@@ -941,7 +941,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                         unset($uva_alldbs);
                     } // end if ($is_safe_show_dbs)
                 } //end if (PMA_MYSQL_INT_VERSION)
-    
+
                 // ... else checks for available databases in the "mysql" db
                 if (!$dblist_cnt) {
                     $auth_query   = 'SELECT User, Select_priv '
@@ -950,7 +950,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     $rs           = PMA_mysql_query($auth_query, $dbh); // Debug: or PMA_mysqlDie('', $auth_query, FALSE);
                 } // end
             } // end if (!$dblist_cnt)
-    
+
             // Access to "mysql" db allowed and dblist still empty -> gets the
             // usable db list
             if (!$dblist_cnt
@@ -968,7 +968,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 // This maintenance is to fix code to work correctly for regular
                 // expressions.
                 if ($row['Select_priv'] != 'Y') {
-    
+
                     // 1. get allowed dbs from the "mysql.db" table
                     // lem9: User can be blank (anonymous user)
                     $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\' OR User = \'\')';
@@ -1030,7 +1030,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                         mysql_free_result($uva_alldbs);
                         unset($uva_mydbs);
                     } // end if
-    
+
                     // 2. get allowed dbs from the "mysql.tables_priv" table
                     $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
                     $rs          = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
@@ -1044,7 +1044,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     } // end if
                 } // end if
             } // end building available dbs from the "mysql" db
-    
+
         } // end server connecting
         /**
          * Missing server hostname
@@ -1052,8 +1052,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         else {
             echo $strHostEmpty;
         }
-    
-    
+
+
         /**
          * Get the list and number of available databases.
          *
@@ -1068,9 +1068,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         {
             global $dblist;
             global $num_dbs;
-    
+
             $num_dbs = count($dblist);
-    
+
             // 1. A list of allowed databases has already been defined by the
             //    authentification process -> gets the available databases list
             if ($num_dbs) {
@@ -1086,7 +1086,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 unset($true_dblist);
                 $num_dbs     = count($dblist);
             } // end if
-    
+
             // 2. Allowed database list is empty -> gets the list of all databases
             //    on the server
             else {
@@ -1104,15 +1104,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 mysql_free_result($dbs);
                 $num_dbs = $real_num_dbs;
             } // end else
-    
+
             return TRUE;
         } // end of the 'PMA_availableDatabases()' function
-    
-    
-    
+
+
+
         /* ----------------------- Set of misc functions ----------------------- */
-    
-    
+
+
         /**
          * Adds backquotes on both sides of a database, table or field name.
          * Since MySQL 3.23.6 this allows to use non-alphanumeric characters in
@@ -1134,7 +1134,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             if ($do_it
                 && PMA_MYSQL_INT_VERSION >= 32306
                 && !empty($a_name) && $a_name != '*') {
-    
+
                 if (is_array($a_name)) {
                      $result = array();
                      reset($a_name);
@@ -1149,8 +1149,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 return $a_name;
             }
         } // end of the 'PMA_backquote()' function
-    
-    
+
+
         /**
          * Format a string so it can be passed to a javascript function.
          * This function is used to displays a javascript confirmation box for
@@ -1173,11 +1173,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $a_string = str_replace("\012", '\\\\n', $a_string);
                 $a_string = str_replace("\015", '\\\\r', $a_string);
             }
-    
+
             return (($add_backquotes) ? PMA_backquote($a_string) : $a_string);
         } // end of the 'PMA_jsFormat()' function
-    
-    
+
+
         /**
          * Defines the <CR><LF> value depending on the user OS.
          *
@@ -1188,7 +1188,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         function PMA_whichCrlf()
         {
             $the_crlf = "\n";
-    
+
             // The 'PMA_USR_OS' constant is defined in "./libraries/defines.lib.php3"
             // Win case
             if (PMA_USR_OS == 'Win') {
@@ -1202,11 +1202,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             else {
                 $the_crlf = "\n";
             }
-    
+
             return $the_crlf;
         } // end of the 'PMA_whichCrlf()' function
-    
-    
+
+
         /**
          * Counts and displays the number of records in a table
          *
@@ -1233,8 +1233,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 return TRUE;
             }
         } // end of the 'PMA_countRecords()' function
-    
-    
+
+
         /**
          * Displays a message at the top of the "main" (right) frame
          *
@@ -1247,7 +1247,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         function PMA_showMessage($message)
         {
             global $cfg;
-    
+
             // Reloads the navigation frame via JavaScript if required
             if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
                 echo "\n";
@@ -1264,7 +1264,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 <?php
                 unset($GLOBALS['reload']);
             }
-    
+
             // Corrects the tooltip text via JS if required
             else if (!empty($GLOBALS['table']) && $cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303) {
                 $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
@@ -1292,7 +1292,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     <?php
                 } // end if
             } // end if... else if
-    
+
             // Checks if the table needs to be repaired after a TRUNCATE query.
             if (PMA_MYSQL_INT_VERSION >= 40000
                 && isset($GLOBALS['table']) && isset($GLOBALS['sql_query'])
@@ -1309,7 +1309,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 }
             }
             unset($tbl_status);
-    
+
             echo "\n";
             ?>
     <div align="<?php echo $GLOBALS['cell_align_left']; ?>">
@@ -1354,12 +1354,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     $parsed_sql = PMA_SQP_parse($query_base);
                     $query_base = PMA_formatSql($parsed_sql);
                 }
-    
+
                 // Prepares links that may be displayed to edit/explain the query
                 // (don't go to default pages, we must go to the page
                 // where the query box is available)
                 // (also, I don't see why we should check the goto variable)
-    
+
                 //if (!isset($GLOBALS['goto'])) {
                     //$edit_target = (isset($GLOBALS['table'])) ? $cfg['DefaultTabTable'] : $cfg['DefaultTabDatabase'];
                 $edit_target = isset($GLOBALS['db']) ? (isset($GLOBALS['table']) ? 'tbl_properties.php3' : 'db_details.php3') : '';
@@ -1368,16 +1368,16 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 //} else {
                 //    $edit_target = '';
                 //}
-    
+
                 if (isset($cfg['SQLQuery']['Edit'])
                     && ($cfg['SQLQuery']['Edit'] == TRUE )
                     && (!empty($edit_target))) {
-    
+
                     $onclick = '';
                     if ($cfg['QueryFrameJS'] && $cfg['QueryFrame']) {
                         $onclick = 'onclick="focus_querywindow(); return false;"';
                     }
-    
+
                     $edit_link = '&nbsp;[<a href="'
                                . $edit_target
                                . $url_qpart
@@ -1385,13 +1385,13 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 } else {
                     $edit_link = '';
                 }
-    
+
                 // Want to have the query explained (Mike Beck 2002-05-22)
                 // but only explain a SELECT (that has not been explained)
                 /* SQL-Parser-Analyzer */
                 if (isset($cfg['SQLQuery']['Explain'])
                     && $cfg['SQLQuery']['Explain'] == TRUE) {
-    
+
                     // Detect if we are validating as well
                     // To preserve the validate uRL data
                     if (!empty($GLOBALS['validatequery'])) {
@@ -1399,12 +1399,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     } else {
                         $explain_link_validate = '';
                     }
-    
+
                     $explain_link = '&nbsp;[<a href="sql.php3'
                                   . $url_qpart
                                   . $explain_link_validate
                                   . '&amp;sql_query=';
-    
+
                     if (eregi('^SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
                         $explain_link .= urlencode('EXPLAIN ' . $GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'];
                     } else if (eregi('^EXPLAIN[[:space:]]+SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
@@ -1418,7 +1418,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 } else {
                     $explain_link = '';
                 } //show explain
-    
+
                 // Also we would like to get the SQL formed in some nice
                 // php-code (Mike Beck 2002-05-22)
                 if (isset($cfg['SQLQuery']['ShowAsPHP'])
@@ -1428,7 +1428,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                               . '&amp;show_query=1'
                               . '&amp;sql_query=' . urlencode($GLOBALS['sql_query'])
                               . '&amp;show_as_php=';
-    
+
                     if (!empty($GLOBALS['show_as_php'])) {
                         $php_link .= '0">' . $GLOBALS['strNoPhp'];
                     } else {
@@ -1438,7 +1438,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 } else {
                     $php_link = '';
                 } //show as php
-    
+
                 if (isset($cfg['SQLValidator']['use'])
                     && $cfg['SQLValidator']['use'] == TRUE
                     && isset($cfg['SQLQuery']['Validate'])
@@ -1457,7 +1457,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 } else {
                     $validate_link = '';
                 } //validator
-    
+
                 // Displays the message
                 echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:';
                 if (!empty($edit_target)) {
@@ -1476,7 +1476,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                         echo '&nbsp;' . PMA_formatSql(PMA_SQP_parse($GLOBALS['sql_limit_to_append']));
                     }
                 }
-    
+
                 //Clean up the end of the PHP
                 if (!empty($GLOBALS['show_as_php'])) {
                     echo '\';';
@@ -1493,8 +1493,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     </div><br />
             <?php
         } // end of the 'PMA_showMessage()' function
-    
-    
+
+
         /**
          * Displays a link to the official MySQL documentation
          *
@@ -1536,8 +1536,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 }
             }
         } // end of the 'PMA_showDocuShort()' function
-    
-    
+
+
         /**
          * Formats $value to byte view
          *
@@ -1558,7 +1558,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $li           = pow(10, $limes);
             $return_value = $value;
             $unit         = $GLOBALS['byteUnits'][0];
-    
+
             for ( $d = 6, $ex = 15; $d >= 1; $d--, $ex-=3 ) {
                 if (isset($GLOBALS['byteUnits'][$d]) && $value >= $li * pow(10, $ex)) {
                     $value = round($value / ( pow(1024, $d) / $dh) ) /$dh;
@@ -1566,17 +1566,17 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     break 1;
                 } // end if
             } // end for
-    
+
             if ($unit != $GLOBALS['byteUnits'][0]) {
                 $return_value = number_format($value, $comma, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
             } else {
                 $return_value = number_format($value, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
             }
-    
+
             return array($return_value, $unit);
         } // end of the 'PMA_formatByteDown' function
-    
-    
+
+
         /**
          * Ensures a database/table/field's name is not a reserved word (for MySQL
          * releases < 3.23.6)
@@ -1597,7 +1597,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             if (!ereg('^[a-zA-Z_]+$', $the_name)) {
                 return TRUE;
             }
-    
+
             // Else do the work
             $filename = 'badwords.txt';
             if (file_exists($filename)) {
@@ -1606,7 +1606,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $contents  = fread($fd, filesize($filename) - 1);
                 fclose ($fd);
                 $word_list = explode("\n", $contents);
-    
+
                 // Do the checking
                 $word_cnt  = count($word_list);
                 for ($i = 0; $i < $word_cnt; $i++) {
@@ -1616,8 +1616,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 } // end for
             } // end if
         } // end of the 'PMA_checkReservedWords' function
-    
-    
+
+
         /**
          * Writes localised date
          *
@@ -1630,18 +1630,18 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         function PMA_localisedDate($timestamp = -1)
         {
             global $datefmt, $month, $day_of_week;
-    
+
             if ($timestamp == -1) {
                 $timestamp = time();
             }
-    
+
             $date = ereg_replace('%[aA]', $day_of_week[(int)strftime('%w', $timestamp)], $datefmt);
             $date = ereg_replace('%[bB]', $month[(int)strftime('%m', $timestamp)-1], $date);
-    
+
             return strftime($date, $timestamp);
         } // end of the 'PMA_localisedDate()' function
-    
-    
+
+
         /**
          * Prints out a tab for tabbed navigation.
          * If the variables $link and $args ar left empty, an inactive tab is created
@@ -1660,19 +1660,19 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         function PMA_printTab($text, $link, $args = '', $attr = '', $sep = '?', $active = false) {
             global $PHP_SELF, $cfg;
             global $db_details_links_count_tabs;
-    
+
             if ((basename($PHP_SELF) == $link || $active)
                 && ($text != $GLOBALS['strEmpty'] && $text != $GLOBALS['strDrop'])) {
                 $bgcolor = 'silver';
             } else {
                 $bgcolor = '#DFDFDF';
             }
-    
+
             $db_details_links_count_tabs++;
             if (!empty($attr)) {
                 $attr = ' ' . $attr;
             }
-    
+
             if ($cfg['LightTabs']) {
                 $out = '';
                 if (strlen($link) > 0) {
@@ -1697,11 +1697,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                          .  "\n" . '        '
                          .  '<td width="8">&nbsp;</td>';
             }
-    
+
             return $out;
         } // end of the 'PMA_printTab()' function
-    
-    
+
+
         /**
          * Displays a link, or a button if the link's URL is too large, to
          * accommodate some browsers' limitations
@@ -1733,11 +1733,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $link_or_button     .= '            <input type="submit" value="'
                                     . htmlspecialchars($message) . '" />' . "\n" . '</form>' . "\n";
             } // end if... else...
-    
+
             return $link_or_button;
         } // end of the 'PMA_linkOrButton()' function
-    
-    
+
+
         /**
          * Returns a given timespan value in a readable format.
          *
@@ -1762,8 +1762,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             }
             return sprintf($GLOBALS['timespanfmt'], (string)$days, (string)$hours, (string)$minutes, (string)$seconds);
         }
-    
-    
+
+
         if (!function_exists('in_array')) {
             /**
              * Searches $haystack for $needle and returns TRUE if it is found in
@@ -1783,7 +1783,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 return FALSE;
             }
         }
-    
+
         /**
          * Takes a string and outputs each character on a line for itself. Used mainly for horizontalflipped display mode.
          * Takes care of special html-characters.
@@ -1799,11 +1799,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         function PMA_flipstring($string, $seperator = "<br />\n") {
             $format_string = '';
             $charbuff = false;
-    
+
             for ($i = 0; $i <= strlen($string); $i++) {
                 $char = substr($string, $i, 1);
                 $append = false;
-    
+
                 if ($char == '&') {
                     $format_string .= $charbuff;
                     $charbuff = $char;
@@ -1820,15 +1820,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     $format_string .= $char;
                     $append = true;
                 }
-    
+
                 if ($append && ($i != strlen($string))) {
                     $format_string .= $seperator;
                 }
             }
-    
+
             return $format_string;
         }
-    
+
         // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
         if (PMA_PHP_INT_VERSION >= 40006
             && @function_exists('mb_convert_encoding')
@@ -1837,7 +1837,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             include('./libraries/kanji-encoding.lib.php3');
             define('PMA_MULTIBYTE_ENCODING', 1);
         } // end if
-    
+
         // garvin: moved from read_dump.php3 because this should be used in tbl_replace_fields.php3 as well.
         if (!function_exists('is_uploaded_file')) {
             /**
@@ -1858,7 +1858,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     $tmp_file = dirname($tmp_file);
                 }
                 $tmp_file     .= '/' . basename($filename);
-    
+
                 // User might have trailing slash in php.ini...
                 return (ereg_replace('/+', '/', $tmp_file) == $filename);
             } // end of the 'is_uploaded_file()' emulated function

@@ -94,11 +94,11 @@ if ($num_dbs > 1 && !$cfg['LeftFrameLight']) {
 
     var isServer    = <?php echo ($server > 0) ? 'true' : 'false'; ?>;
 
-    document.writeln('<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=left&amp;js_capable=' + capable + '&amp;js_isDOM=' + isDOM + '&amp;js_isIE4=' + isIE4 + '" />');
+    document.writeln('<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?lang=<?php echo $lang; ?>&amp;js_frame=left&amp;js_capable=' + capable + '&amp;js_isDOM=' + isDOM + '&amp;js_isIE4=' + isIE4 + '" />');
     //-->
     </script>
     <noscript>
-        <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=left&amp;js_capable=0&amp;js_isDOM=0&amp;js_isIE4=0" />
+        <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?lang=<?php echo $lang; ?>&amp;js_frame=left&amp;js_capable=0&amp;js_isDOM=0&amp;js_isIE4=0" />
     </noscript>
 
     <script src="libraries/left.js" type="text/javascript" language="javascript1.2"></script>
@@ -205,7 +205,7 @@ if ($num_dbs > 1) {
                 $db_tooltip = implode(' ', $tmp_db_tooltip);
             }
         }
-        
+
         // No light mode -> displays the expandible/collapsible db list
         if ($cfg['LeftFrameLight'] == FALSE) {
 
@@ -245,7 +245,7 @@ if ($num_dbs > 1) {
                 $url_title = (!empty($tooltip) && isset($tooltip[$table]))
                            ? htmlspecialchars($tooltip[$table])
                            : '';
-                
+
                 echo "\n";
                 ?>
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />

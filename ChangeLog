@@ -9,13 +9,16 @@ $Source$
     * translators.html: Another mechanism against stupid people who use the
       translator list as a list of localised support hotlines or try to get a
       translation by mail order... :o)
+    * header_printview.inc.php3, index.php3, left.php3, queryframe.php3,
+      libraries/common.lib.php3, libraries/header_meta_style.inc.php3: Ensured
+      that the correct font families are used.
 
 2003-03-10 Garvin Hicking <me@supergarv.de>
     * sql.php3: Fixed another occurence of addslashes() where it no longer
       belongs.
-    * tbl_addfield.php3, tbl_alter.php3, tbl_create.php3, 
-      tbl_properties.inc.php3, libraries/common.lib.php3: Goodie for you all 
-      - when creating/altering/adding table fields you can now change the 
+    * tbl_addfield.php3, tbl_alter.php3, tbl_create.php3,
+      tbl_properties.inc.php3, libraries/common.lib.php3: Goodie for you all
+      - when creating/altering/adding table fields you can now change the
       wrong form input, instead of losing all your data. Have fun. :-)
     * tbl_dump.php3, tbl_properties_export.php3, css/phpmyadmin.css.php3,
       lang/*:

@@ -45,15 +45,15 @@ PMA_setFontSizes();
     <title>phpMyAdmin</title>
     <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
     <base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> />
-    <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=left&num_dbs=0" />
+    <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?lang=<?php echo $lang; ?>&amp;js_frame=left&num_dbs=0" />
 <?php
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 ?>
-<script type="text/javascript" language="javascript">    
+<script type="text/javascript" language="javascript">
 var querywindow = '';
 
 function open_querywindow(url) {
-    
+
     if (!querywindow.closed && querywindow.location) {
         querywindow.focus();
     } else {
@@ -67,7 +67,7 @@ function open_querywindow(url) {
     if (window.focus) {
         querywindow.focus();
     }
-    
+
     return false;
 }
 </script>
