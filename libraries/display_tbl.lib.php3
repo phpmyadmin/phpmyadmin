@@ -1237,12 +1237,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         // loic1: support blanks in the key
                         $relation_id = $row[$pointer];
 
-                        // loic1: Cut text/blob fields even if $cfg['ShowBlob'] is true
-                        if (eregi('BLOB', $meta->type)) {
-                            if (strlen($row[$pointer]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
-                                $row[$pointer] = substr($row[$pointer], 0, $GLOBALS['cfg']['LimitChars']) . '...';
-                            }
+                        // nijel: Cut all fields to $cfg['LimitChars']
+                        if (strlen($row[$pointer]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
+                            $row[$pointer] = substr($row[$pointer], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                         }
+
                         // loic1: displays special characters from binaries
                         $field_flags = PMA_mysql_field_flags($dt_result, $i);
                         if (eregi('BINARY', $field_flags)) {
