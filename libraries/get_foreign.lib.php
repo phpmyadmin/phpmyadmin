@@ -50,9 +50,9 @@ if ($foreigners && isset($foreigners[$field])) {
         }
     }
     else {
-        unset($disp);
+        unset($disp_row);
         $foreign_link = true;
     }
-} // end if $foreigners
+}  // end if $foreigners
 
 ?>
