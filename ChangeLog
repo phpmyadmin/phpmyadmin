@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-08 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_privileges.php3: MySQL 4.1 users could not edit column privileges.
+
 2003-06-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Incremented required config.inc.php3 revision
       number.

@@ -194,7 +194,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         unset($sql_query);
         $row1 = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
         mysql_free_result($res);
-        $av_grants = explode ('\',\'' , substr($row1['Type'], 5, strlen($row1['Type']) - 7));
+        $av_grants = explode ('\',\'' , substr($row1['Type'], strpos($row1['Type'], '(') + 2, strpos($row1['Type'], ')') - strpos($row1['Type'], '(') - 3));
         unset($row1);
         $users_grants = explode(',', $row['Table_priv']);
         while (list(, $current_grant) = each($av_grants)) {
