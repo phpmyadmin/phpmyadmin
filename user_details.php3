@@ -1187,7 +1187,8 @@ else if (isset($submit_updProfile)) {
     }
 
     if (isset($nopass) && $nopass == -1) {
-        $sql_query = $common_upd;
+        $sql_query   = $common_upd;
+        $local_query = $common_upd;
     }
     else if ((!isset($nopass) || $nopass == 0) && $new_pw == '') {
         echo '<h1>' . "\n";
@@ -1211,7 +1212,6 @@ else if (isset($submit_updProfile)) {
 
     if (!empty($sql_query)) {
         $common_where       = ' WHERE Host = \'' . PMA_sqlAddslashes($host) . '\' AND User = \'' . PMA_sqlAddslashes($pma_user) . '\'';
-        $sql_query_cpy      = '';
 
         // Updates profile
         $local_query        = 'UPDATE user SET ' . $local_query . $common_where;
