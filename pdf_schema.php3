@@ -785,11 +785,18 @@ class PMA_RT_Relation
      *
      * @access  private
      */
-    function PMA_RT_Relation_getXy($table, $column)
+    function PMA_RT_Relation_getXy($table, $column, $same_wide, $tablewidth)
     {
         $pos = array_search($column, $table->fields);
+  
+    		if($same_wide) {
+    			$width = $tablewidth;
+    		} else {
+    			$width = $table->width;
+    		}
+          
         // x_left, x_right, y
-        return array($table->x, $table->x + $table->width, $table->y + ($pos + 1.5) * $table->height_cell);
+        return array($table->x, $table->x + $width, $table->y + ($pos + 1.5) * $table->height_cell);
     } // end of the "PMA_RT_Relation_getXy()" method
 
 
@@ -859,10 +866,10 @@ class PMA_RT_Relation
      *
      * @see     PMA_RT_Relation::PMA_RT_Relation_getXy
      */
-    function PMA_RT_Relation($master_table, $master_field,  $foreign_table, $foreign_field)
+    function PMA_RT_Relation($master_table, $master_field,  $foreign_table, $foreign_field, $same_wide, $tablewidth)
     {
-        $src_pos    = $this->PMA_RT_Relation_getXy($master_table , $master_field);
-        $dest_pos   = $this->PMA_RT_Relation_getXy($foreign_table, $foreign_field);
+        $src_pos    = $this->PMA_RT_Relation_getXy($master_table , $master_field, $same_wide, $tablewidth);
+        $dest_pos   = $this->PMA_RT_Relation_getXy($foreign_table, $foreign_field, $same_wide, $tablewidth);
         $src_left   = $src_pos[0] - $this->w_tick;
         $src_right  = $src_pos[1] + $this->w_tick;
         $dest_left  = $dest_pos[0] - $this->w_tick;
@@ -967,7 +974,7 @@ class PMA_RT
             $this->tables[$foreign_table] = new PMA_RT_Table($foreign_table, $this->ff, $this->tablewidth);
             $this->PMA_RT_setMinMax($this->tables[$foreign_table]);
         }
-        $this->relations[] = new PMA_RT_Relation($this->tables[$master_table], $master_field, $this->tables[$foreign_table], $foreign_field);
+        $this->relations[] = new PMA_RT_Relation($this->tables[$master_table], $master_field, $this->tables[$foreign_table], $foreign_field, $this->same_wide, $this->tablewidth);
     } // end of the "PMA_RT_addRelation()" method
 
 
@@ -1161,22 +1168,8 @@ class PMA_RT
             $this->b_marg = 18;
         }
 
+				/* snip */
 
-        $sql    = 'SELECT * FROM ' . PMA_backquote($cfgRelation['relation'])
-                .   ' WHERE master_db   = \'' . PMA_sqlAddslashes($db) . '\' '
-                .   ' AND foreign_db    = \'' . PMA_sqlAddslashes($db) . '\' '
-                .   ' AND master_table  IN (' . $intable . ')'
-                .   ' AND foreign_table IN (' . $intable . ')';
-        $result =  PMA_query_as_cu($sql);
-
-        // loic1: also show tables without relations
-        $norelations     = TRUE;
-        if ($result && mysql_num_rows($result) > 0) {
-            $norelations = FALSE;
-            while ($row = PMA_mysql_fetch_array($result)) {
-                $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
-            }
-        }
         reset ($alltables);
         while (list(, $table) = each ($alltables)) {
             if (!isset($this->tables[$table])) {
@@ -1202,10 +1195,32 @@ class PMA_RT
             $this->PMA_RT_strokeGrid();
         }
         $pdf->PMA_PDF_setFontSizeScale(14);
+
+        $this->PMA_RT_drawTables($show_info);
+
+				/* start snip */
+				
+        $sql    = 'SELECT * FROM ' . PMA_backquote($cfgRelation['relation'])
+                .   ' WHERE master_db   = \'' . PMA_sqlAddslashes($db) . '\' '
+                .   ' AND foreign_db    = \'' . PMA_sqlAddslashes($db) . '\' '
+                .   ' AND master_table  IN (' . $intable . ')'
+                .   ' AND foreign_table IN (' . $intable . ')';
+        $result =  PMA_query_as_cu($sql);
+
+        // loic1: also show tables without relations
+        $norelations     = TRUE;
+        if ($result && mysql_num_rows($result) > 0) {
+            $norelations = FALSE;
+            while ($row = PMA_mysql_fetch_array($result)) {
+                $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
+            }
+        }
+        
+				/* end snip */
+
         if ($norelations == FALSE) {
             $this->PMA_RT_drawRelations($change_color);
         }
-        $this->PMA_RT_drawTables($show_info);
 
         $this->PMA_RT_showRt();
     } // end of the "PMA_RT()" method
