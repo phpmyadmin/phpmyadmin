@@ -225,6 +225,7 @@ $strIndexes = 'Indexes'; //to translate
 $strIndexHasBeenDropped = 'Index %s has been dropped'; //to translate
 $strIndexName = 'Index name&nbsp;:'; //to translate
 $strIndexType = 'Index type&nbsp;:'; //to translate
+$strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';  //to translate
 $strInsert = 'Insert'; //to translate
 $strInsertAsNewRow = 'Insert as a new row'; //to translate
 $strInsertedRows = 'Inserted rows:'; //to translate
@@ -435,15 +436,16 @@ $strUsage = 'Usage'; //to translate
 $strUseBackquotes = 'Enclose table and field names with backquotes'; //to translate
 $strUserEmpty = 'The user name is empty!'; //to translate
 
+$strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
 $strValidateSQL = 'Validate SQL'; //to translate
 $strViewDump = 'View dump (schema) of table'; //to translate
 $strViewDumpDB = 'View dump (schema) of database'; //to translate
 
+$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
+$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 $strWithChecked = 'With selected:'; //to translate
 $strWrongUser = 'Wrong username/password. Access denied.'; //to translate
 
 $strZip = '"zipped"'; //to translate
-$strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';  //to translate
-$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
-$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
+
 ?>

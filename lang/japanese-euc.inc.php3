@@ -438,4 +438,5 @@ $strYes = 'はい';
 $strZip = '"zipされる"';
 // To translate
 
+$strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
 ?>

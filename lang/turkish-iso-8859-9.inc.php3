@@ -402,7 +402,7 @@ $strUserName = 'Kullanýcý ismi';
 $strUsers = 'Kullanýcýlar';
 $strUseTables = 'Tablolarý kullan';
 
-$strValidateSQL = 'SQL\'i doðrula'; 
+$strValidateSQL = 'SQL\'i doðrula';
 $strValue = 'Deðer';
 $strViewDump = 'Tablo\'nun döküm(þema)\'ünü göster';
 $strViewDumpDB = 'Veritabaný\'nýn döküm(þema)\'ünü göster';
@@ -433,4 +433,5 @@ $strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
 $strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';  //to translate
 $strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 $strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
+$strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
 ?>

@@ -188,7 +188,7 @@ $strIndexHasBeenDropped = 'Index %s byl odstraněn';
 $strIndexName = 'Jméno indexu&nbsp;:';
 $strIndexType = 'Typ indexu&nbsp;:';
 $strIndexes = 'Indexy';
-$strInsecureMySQL = 'Váš konfigurační soubor obsahuje nastavení (uživatel root bez hesla), které je výchozí pro MySQL. Váš MySQL server s&nbsp;tímto výchozím nastavením je snadno napadnutelný, a proto byste měli změnit tuto nastavení a tím podstatně zvýšit bezpečnost Vašeho serveru.';  
+$strInsecureMySQL = 'Váš konfigurační soubor obsahuje nastavení (uživatel root bez hesla), které je výchozí pro MySQL. Váš MySQL server s&nbsp;tímto výchozím nastavením je snadno napadnutelný, a proto byste měli změnit tuto nastavení a tím podstatně zvýšit bezpečnost Vašeho serveru.';
 $strInsert = 'Vložit';
 $strInsertAsNewRow = 'Vložit jako nový řádek';
 $strInsertNewRow = 'Vložit nový řádek';
@@ -432,4 +432,5 @@ $strZip = '"zazipováno"';
 
 $strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 $strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
+$strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
 ?>

@@ -419,11 +419,13 @@ $strUsers = 'Benutzer';
 $strUseTables = 'Verwendete Tabellen';
 
 $strValidateSQL = 'SQL validieren';
+$strValidatorError = 'Bei der Initialisierung des SQL-Validators ist ein Fehler aufgetreten. Bitte überprüfen Sie, ob Sie die in der %sDokumentation%s beschriebenen php-Erweiterungen installiert haben.';
 $strValue = 'Wert';
 $strViewDump = 'Dump (Schema) der Tabelle anzeigen';
 $strViewDumpDB = 'Dump (Schema) der Datenbank anzeigen';
 
 $strWebServerUploadDirectory = 'Upload-Verzeichnis auf dem Webserver';
+$strWebServerUploadDirectoryError = 'Auf das festgelegte Upload-Verzeichnis kann nicht zugegriffen werden.';
 $strWelcome = 'Willkommen bei %s';
 $strWithChecked = 'markierte:';
 $strWrongUser = 'Falscher Benutzername/Kennwort. Zugriff verweigert.';
@@ -433,5 +435,4 @@ $strYes = 'Ja';
 $strZip = 'Zip-komprimiert';
 // To translate
 
-$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 ?>

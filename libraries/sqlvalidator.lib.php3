@@ -62,30 +62,35 @@ if (!defined('PMA_SQL_VALIDATOR_INCLUDED')) {
 
         $str = '';
 
-        if ($cfg['SQLValidator']['use']
-            && !(isset($GLOBALS['sqlvalidator_error'])
-            && $GLOBALS['sqlvalidator_error'])) {
-            // create new class instance
-            $srv = new PMA_SQLValidator();
+        if ($cfg['SQLValidator']['use']) {
+            if (!(isset($GLOBALS['sqlvalidator_error'])
+                || !$GLOBALS['sqlvalidator_error'])) {
+                // create new class instance
+                $srv = new PMA_SQLValidator();
 
-            // Checks for username settings
-            // The class defaults to anonymous with an empty password
-            // automatically
-            if ($cfg['SQLValidator']['username'] != '') {
-                $srv->setCredentials($cfg['SQLValidator']['username'], $cfg['SQLValidator']['password']);
+                // Checks for username settings
+                // The class defaults to anonymous with an empty password
+                // automatically
+                if ($cfg['SQLValidator']['username'] != '') {
+                    $srv->setCredentials($cfg['SQLValidator']['username'], $cfg['SQLValidator']['password']);
+                }
+
+                // Identify ourselves to the server properly...
+                $srv->appendCallingProgram('phpMyAdmin', PMA_VERSION);
+
+                // ... and specify what database system we are using
+                $srv->setTargetDbms('MySQL', PMA_MYSQL_STR_VERSION);
+
+                // Log on to service
+                $srv->start();
+
+                // Do service validation
+                $str = $srv->validationString($sql);
+
+            } else {
+                $str = sprintf($GLOBALS['strValidatorError'], '<a href="./Documentation.html#faqsqlvalidator" target="documentation">', '</a>');
+
             }
-
-            // Identify ourselves to the server properly...
-            $srv->appendCallingProgram('phpMyAdmin', PMA_VERSION);
-
-            // ... and specify what database system we are using
-            $srv->setTargetDbms('MySQL', PMA_MYSQL_STR_VERSION);
-
-            // Log on to service
-            $srv->start();
-
-            // Do service validation
-            $str = $srv->validationString($sql);
 
         } else {
             // The service is not available so note that properly
