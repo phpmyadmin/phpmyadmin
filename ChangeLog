@@ -11,6 +11,8 @@ $Source$
 
 2001-07-24  Steve ALberty  <alberty@neptunlabs.de>
 	* tbl_copy.php3: fix parameter count, thanks Marc
+	* Documentation.html: order $cfg sequence and add description
+	  of cfgSkipLockedTables and cfgLeftWidth
 
 2001-07-24  Geert Lund  <glund@silversoft.dk>
 	* danish language file code cleanup (only changed order of stings)
