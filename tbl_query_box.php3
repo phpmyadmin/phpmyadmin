@@ -98,7 +98,7 @@ if (!isset($is_inside_querywindow) ||
     <li>
         <a name="querybox"></a>
             <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . $queryframe_db_list . ' ' . PMA_showMySQLDocu('Reference', 'SELECT'); ?>
-<?php if (isset($table) && $table > 0) { ?>
+<?php if (isset($table) && $fields_cnt > 0) { ?>
              &nbsp;&nbsp;&nbsp;<?php echo $strFields; ?>:
              <select name="dummy" size="1">
     <?php
