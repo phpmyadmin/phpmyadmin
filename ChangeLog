@@ -5,22 +5,30 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-29 Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3, lines 456-457: swap form fields position for consistency
+	  ("server" is always the first one).
+	* tbl_properties.php3, lines 1212-1249: fixed bad dislays with Opera and
+      removed trailing whitespaces.
+	* Documentaion.html: removed trailing whitespaces.
+	* libraries/display_tbl.lib.php3: very very light optimizations.
+
 2002-03-28 Marc Delisle  <lem9@users.sourceforge.net>
-	* sql.php3, bug #535648: bookmarks can't be saved on the second server
+	* sql.php3, bug #535648: bookmarks can't be saved on the second server.
 
 2002-03-27 Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/display_tbl.lib.php3, changed a variable name for
 	  better doc.
-	* tbl_properties.php3, lang/*, Documentation.html: 
-	  new feature: Referential integrity
+	* tbl_properties.php3, lang/*, Documentation.html:
+	  new feature: Referential integrity.
 
 2002-03-26 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3, lines 146-152, 519-524 & 567: fixed bug
 	  #534794 - special user can't see the db's list.
 
 2002-03-26 Marc Delisle  <lem9@users.sourceforge.net>
-	* libraries/display_tbl.lib.php3, Documentation.html:
-	  support for non-numeric keys in the 'relation' feature
+	* libraries/display_tbl.lib.php3, Documentation.html: support for
+	  non-numeric keys in the 'relation' feature.
 
 2002-03-25 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/estonian.inc.php3; lang/latvian.inc.php3;
