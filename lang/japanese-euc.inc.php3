@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'インデックスの名前をPRIMARYに変更できません。';
 $strCardinality = 'カーディナリティ';
 $strCarriage = 'キャリッジリターン: \\r';
 $strChange = '変更';
+$strChangePassword = 'パスワードの変更';
 $strCheckAll = '全てをマーク';
 $strCheckDbPriv = 'データベースの特権の確認';
 $strCheckTable = 'テーブルをチェックします。';
@@ -86,6 +87,7 @@ $strDatabase = 'データベース';
 $strDatabaseHasBeenDropped = 'データベース%sを正常に削除しました。';
 $strDatabases = 'データベース';
 $strDatabasesStats = 'データベースの統計';
+$strDatabaseWildcard = 'データベース(ワイルドカード使用可):';
 $strDataOnly = 'データのみ';
 $strDefault = '基本値';
 $strDelete = '削除';
@@ -350,6 +352,4 @@ $strKanjiEncodConvert = '漢字コード変換'; // kanji code convert
 $strXkana = '全角カナへ変換する'; // convert to X208-kana
 
 // To translate
-$strChangePassword = 'Change password';
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>
