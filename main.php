@@ -646,7 +646,7 @@ echo "\n";
     </tr> 
     <tr>
 <?php
-        echo '<td><img src="./images/spacer.gif" width="1" height="1" border="0" /></td>'; 
+        echo '<td><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  . '" width="1" height="1" border="0" /></td>'; 
 ?>
        <td nowrap="nowrap">
             [<a href="ChangeLog" target="_blank">ChangeLog</a>]

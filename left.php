@@ -97,7 +97,7 @@ function PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_
 
     echo "\n";
     echo PMA_indent($indent * 5) . '<div id="el' . $id . 'Parent" class="parent"' . $on_mouse . '>' . "\n";
-    echo PMA_indent($indent * 6) . '<div class="nowrap"><img src="images/spacer.gif" border="0" width="' . (($indent - 1) * $indent_level) . '" height="9" alt="" /><a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '&amp;tbl_group=' . htmlspecialchars($groupkey) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', true); return false} else {return true}">';
+    echo PMA_indent($indent * 6) . '<div class="nowrap"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" border="0" width="' . (($indent - 1) * $indent_level) . '" height="9" alt="" /><a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '&amp;tbl_group=' . htmlspecialchars($groupkey) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', true); return false} else {return true}">';
     echo '<img name="imEx" id="el' . $id . 'Img" src="' . $GLOBALS['pmaThemeImage'] . 'b_plus.png" border="0" width="9" height="9" alt="+" /></a>' . "\n";
     echo PMA_indent($indent * 6) . '<a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '&amp;tbl_group=' . htmlspecialchars($groupkey) . '" title="' . htmlspecialchars($name) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', false)}"><span class="heada">' . htmlspecialchars($name) . '<bdo dir="' . $GLOBALS['text_dir'] . '">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(' . $counter . ')</span></a></div>' . "\n";
     echo PMA_indent($indent * 5) . '</div><!-- class="PMA_nestedSetHeaderParent" -->' . "\n";
@@ -166,7 +166,7 @@ function PMA_nestedSet($baseid, $tablestack, $key = '__protected__', $keyhistory
         $loops = 0;
         foreach ($tablestack['pma_name'] AS $tkey => $tval) {
 
-            echo PMA_indent($indent * 5) . '<img src="images/spacer.gif" border="0" width="' . (($indent+$extra_indent) * $indent_level) . '" height="9" alt="" />';
+            echo PMA_indent($indent * 5) . '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' .'" border="0" width="' . (($indent+$extra_indent) * $indent_level) . '" height="9" alt="" />';
             $items = explode("\n", $tablestack['pma_list_item'][$tkey]);
             foreach ($items AS $ikey => $ival) {
                 echo "\n";
@@ -336,7 +336,7 @@ if ($cfg['LeftDisplayLogo'] && !$cfg['QueryFrame']) {
 <?php
     } else {
         echo '<div align="center"><a href="http://www.phpmyadmin.net" target="_blank">';
-        echo '<img src="./images/pma_logo2.png" alt="phpMyAdmin" border="0" />';
+        echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png' . '" alt="phpMyAdmin" border="0" />';
         echo '</a></div>' . "\n";
     }
     echo '<hr />';
@@ -371,7 +371,7 @@ if (!$cfg['QueryFrame']) {
            . '</a>';
     } // end if
     if ($cfg['MainPageIconic']) {
-        echo '<img src="./images/spacer.gif" width="2" height="1" border="0" />'
+        echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="2" height="1" border="0" />'
            . '<a href="Documentation.html" target="documentation" class="item">'
            . '<img src="' . $pmaThemeImage . 'b_docs.png" border="0" hspace="1" width="16" height="16" alt="' . $strPmaDocumentation . '" title="' . $strPmaDocumentation . '"'
            .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="absmiddle" />'

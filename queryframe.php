@@ -99,7 +99,7 @@ if ($cfg['LeftDisplayLogo']) {
     } else {
         echo '    '
            . '<div align="center"><a href="http://www.phpmyadmin.net" target="_blank">'
-           . '<img src="./images/pma_logo2.png" alt="phpMyAdmin" border="0" />'
+           . '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png'  .'" alt="phpMyAdmin" border="0" />'
            . '</a></div>' . "\n";
     }
     echo '<hr />';
@@ -160,7 +160,7 @@ if ($cfg['MainPageIconic']) {
     <?php
 
 if ($cfg['MainPageIconic']) {
-    echo '<img src="./images/spacer.gif" width="2" height="1" border="0" />'
+    echo '<img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  .'" width="2" height="1" border="0" />'
        . '<a href="Documentation.html" target="documentation" class="item">'
        . '<img src="' . $pmaThemeImage . 'b_docs.png" border="0" hspace="1" width="16" height="16" alt="' . $strPmaDocumentation . '" title="' . $strPmaDocumentation . '"'
        . ' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="absmiddle" />'
