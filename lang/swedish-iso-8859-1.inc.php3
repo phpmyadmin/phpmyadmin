@@ -66,6 +66,7 @@ $strCantRenameIdxToPrimary = 'Kan inte byta namn på index till "PRIMARY"!';
 $strCantUseRecodeIconv = 'Kan inte använda funktionerna iconv, libiconv eller recode_string när utökade rapporter ska laddas. Kontrollera din php-konfiguration.';
 $strCardinality = 'Kardinalitet';
 $strCarriage = 'Vagnretur: \\r';
+$strCharsetOfFile = 'Filens teckenuppsättning:';
 $strChange = 'Ändra';
 $strChangeDisplay = 'Välj fält som ska visas';
 $strChangePassword = 'Byt lösenord';
@@ -414,7 +415,6 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
-$strCharsetOfFile = 'Character set of the file:'; //to translate
 $strBeginCut = 'BEGIN CUT';  //to translate
 $strEndCut = 'END CUT';  //to translate
 $strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
