@@ -36,7 +36,7 @@ div.header {
     top: 0px;
     position: fixed;
     /* following MSIE hack was originally written by Riki Fridrich
-     * <http://www.fczbkk.sk> */
+     * <http://www.fczbkk.com> */
     position: expression("absolute");
     width: expression(document.body.clientWidth);
     top: expression(document.body.scrollTop + this.offsetHeight - this.offsetHeight);
