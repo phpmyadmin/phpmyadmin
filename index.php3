@@ -48,6 +48,13 @@ $cfgRelation = PMA_getRelationsParam();
 if ($cfg['QueryHistoryDB'] && $cfgRelation['historywork']) {
     PMA_purgeHistory($cfg['Server']['user']);
 }
+
+if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
+    $phpmain_hash = md5($cfg['PmaAbsoluteUri'] . time());
+} else {
+    $phpmain_hash = md5($cfg['PmaAbsoluteUri']);
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
@@ -62,12 +69,12 @@ if ($cfg['QueryHistoryDB'] && $cfgRelation['historywork']) {
     <?php if ($cfg['QueryFrame']) {?>
     <frameset rows="*, 50" framespacing="0" frameborder="0" border="0">
     <?php } ?>
-    <frame src="left.php3?<?php echo $url_query; ?>" name="nav" frameborder="0" />
+    <frame src="left.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash; ?>" name="nav" frameborder="0" />
     <?php if ($cfg['QueryFrame']) { ?>
-    <frame src="queryframe.php3?<?php echo $url_query; ?>" name="queryframe" frameborder="0" />
+    <frame src="queryframe.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash; ?>" name="queryframe" frameborder="0" />
     </frameset>
     <?php } ?>
-    <frame src="<?php echo (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase']; ?>?<?php echo $url_query; ?>" name="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" frameborder="1" />
+    <frame src="<?php echo (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase']; ?>?<?php echo $url_query; ?>" name="phpmain<?php echo $phpmain_hash; ?>" frameborder="1" />
 
     <noframes>
         <body bgcolor="#FFFFFF">

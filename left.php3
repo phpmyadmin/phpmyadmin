@@ -60,7 +60,7 @@ PMA_setFontSizes();
 <head>
     <title>phpMyAdmin</title>
     <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
-    <base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" />
+    <base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> target="phpmain<?php echo $hash; ?>" />
 <?php
 // Expandable/collapsible databases list is only used if there is more than one
 // database to display
@@ -252,10 +252,10 @@ if ($num_dbs > 1) {
                 $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
                 ?>
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
-        <a target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>" title="<?php echo $strBrowse . ': ' . htmlspecialchars($url_title); ?>">
+        <a target="phpmain<?php echo $hash; ?>" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>" title="<?php echo $strBrowse . ': ' . htmlspecialchars($url_title); ?>">
             <img src="images/browse.png" width="8" height="8" border="0" alt="<?php echo $strBrowse . ': ' . $url_title; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
         <a class="tblItem" id="tbl_<?php echo md5($table); ?>" title="<?php echo htmlspecialchars($url_title); ?>"
-target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
+target="phpmain<?php echo $hash; ?>" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
             <?php echo ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)); ?></a></nobr><br />
                 <?php
             } // end for $t (tables list)
@@ -286,12 +286,12 @@ target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" href="<?php echo $cfg
 
                     $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
-                    $table_list .= '    <nobr><a target="phpmain' . md5($cfg['PmaAbsoluteUri']) . '" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '">' . "\n";
+                    $table_list .= '    <nobr><a target="phpmain' . $hash . '" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '">' . "\n";
                     $table_list .= '              <img src="images/browse.png" width="8" height="8" border="0" alt="' . $strBrowse . ': ' . $url_title . '" title="' . $strBrowse . ': ' . htmlspecialchars($url_title) . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
                     if (PMA_USR_BROWSER_AGENT == 'IE') {
-                        $table_list .= '          <span class="tblItem"><a class="tblItem" id="tbl_' . md5($table) . '" title="' . htmlspecialchars($url_title) . '" target="phpmain' . md5($cfg['PmaAbsoluteUri']) . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></span></nobr><br />' . "\n";
+                        $table_list .= '          <span class="tblItem"><a class="tblItem" id="tbl_' . md5($table) . '" title="' . htmlspecialchars($url_title) . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></span></nobr><br />' . "\n";
                     } else {
-                        $table_list .= '          <a class="tblItem" id="tbl_' . md5($table) . '" title="' . htmlspecialchars($url_title) . '" target="phpmain' . md5($cfg['PmaAbsoluteUri']) . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></nobr><br />' . "\n";
+                        $table_list .= '          <a class="tblItem" id="tbl_' . md5($table) . '" title="' . htmlspecialchars($url_title) . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></nobr><br />' . "\n";
                     }
                 } // end for $t (tables list)
 
@@ -301,7 +301,7 @@ target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" href="<?php echo $cfg
                 }
                 $selected = ' selected="selected"';
 
-                $table_list_header .= '    <a class="item" target="phpmain' . md5($cfg['PmaAbsoluteUri']) . '" href="' . $cfg['DefaultTabDatabase'] . '?' . $common_url_query . '">' . "\n";
+                $table_list_header .= '    <a class="item" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabDatabase'] . '?' . $common_url_query . '">' . "\n";
                 $table_list_header .= '        <span class="heada"><b>' . ($db_tooltip != '' && $cfg['ShowTooltipAliasTB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)) . '</b><bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span></a><br />' . "\n\n";
             } else {
                 $selected = '';
@@ -418,9 +418,9 @@ else if ($num_dbs == 1) {
 
         echo "\n";
         ?>
-        <nobr><a target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>" title="<?php echo $strBrowse . ': ' . htmlspecialchars($table); ?>">
+        <nobr><a target="phpmain<?php echo $hash; ?>" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>" title="<?php echo $strBrowse . ': ' . htmlspecialchars($table); ?>">
                   <img src="images/browse.png" width="8" height="8" border="0" alt="<?php echo $strBrowse . ': ' . htmlspecialchars($table); ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
-              <a class="tblItem" id="tbl_<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
+              <a class="tblItem" id="tbl_<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain<?php echo $hash; ?>" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
                   <?php echo ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)); ?></a></nobr><br />
         <?php
     } // end for $j (tables list)
@@ -439,6 +439,9 @@ else {
 echo "\n";
 ?>
 
+<form name="hashform" action="left.php3">
+    <input type="hidden" name="hash" value="<?php echo $hash; ?>">
+</form>
 </body>
 </html>
 

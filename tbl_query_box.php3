@@ -55,7 +55,7 @@ $auto_sel  = ($cfg['TextareaAutoSelect']
 // garvin: If non-JS query window is embedded, display a list of databases to choose from.
 //         Apart from that, a non-js query window sucks badly.
 
-if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] || ($cfg['QueryFrameJS'] && !$db))) {
+if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] && !$db || ($cfg['QueryFrameJS'] && !$db))) {
     /**
      * Get the list and number of available databases.
      */
@@ -77,8 +77,18 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] || ($cfg['QueryFrameJS'] && !$d
     $queryframe_db_list = '';
 }
 
+if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
+?>
+        <script>
+        document.writeln('<form method="post" target="phpmain' +  <?php echo ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) ? 'opener.' : ''); ?>top.frames.nav.document.hashform.hash.value + '" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?>');
+        </script>
+<?php
+} else {
 ?>
         <form method="post" target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
+<?php
+}
+?>
             onsubmit="return checkSqlQuery(this)" name="sqlform">
             <input type="hidden" name="is_js_confirmed" value="0" />
             <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
@@ -278,7 +288,23 @@ if (!isset($is_inside_querywindow) ||
         <!-- Insert a text file -->
         <br /><br />
         <li>
+            <?php
+            if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
+            ?>
+
+            <script>
+                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain\' + opener.top.frames.nav.document.hashform.hash.value + \'.location.href = \'' . $ldi_target . '\'; return false;"' : ''); ?>><?php echo $strInsertTextfiles; ?></a></div>');
+            </script>
+
+            <?php
+            } else {
+            ?>
+
             <div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain' . md5($cfg['PmaAbsoluteUri']) . '.location.href = \'' . $ldi_target . '\'; return false;"' : ''); ?>><?php echo $strInsertTextfiles; ?></a></div>
+
+            <?php
+            }
+            ?>
         </li>
         <?php
     }

@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-20 Garvin Hicking <me@supergarv.de>
+    * libraries/display_tbl.lib.php3, index.php3, left.php3,
+      tbl_query_box.php3, queryframe.php3, querywindow.php3:
+      Fixed Bug #723955, 723736, 723713 (Query Frame). Workaround for
+      (serious) issues with multiple instances of phpMyAdmin and
+      the query window. Also made sure that disabling the QueryFrame
+      is possible without seeing errors. Of course, this is
+      extremely reduced usability without JS.
+
 2003-04-18 Garvin Hicking <me@supergarv.de>
     * left.php3, index.php3, tbl_query_box.php3,
       libraries/display_tbl.lib.php3, queryframe.php3:

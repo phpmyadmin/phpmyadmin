@@ -92,27 +92,32 @@ var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '
 <body bgcolor="<?php echo ($cfg['QueryFrameJS'] ? $cfg['LeftBgColor'] : $cfg['RightBgColor']); ?>">
 
 <?php
-$querydisplay_tab = (isset($querydisplay_tab) ? $querydisplay_tab : $cfg['QueryWindowDefTab']);
+if ($cfg['QueryFrameJS']) {
+    $querydisplay_tab = (isset($querydisplay_tab) ? $querydisplay_tab : $cfg['QueryWindowDefTab']);
+    
+    if ($cfg['LightTabs']) {
+        echo '&nbsp;';
+    } else {
+        echo '<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">
+        <tr>
+            <td width="8">&nbsp;</td>';
+    }
+    echo "\n";
+    echo PMA_printTab($strSQL, '#', '', 'onClick="javascript:query_tab_commit(\'sql\');return false;"', '', (isset($querydisplay_tab) && $querydisplay_tab == 'sql' ? TRUE : FALSE));
+    echo PMA_printTab($strImportFiles, '#', '', 'onClick="javascript:query_tab_commit(\'files\');return false;"', '', (isset($querydisplay_tab) && $querydisplay_tab == 'files' ? TRUE : FALSE));
+    echo PMA_printTab($strQuerySQLHistory, '#', '', 'onClick="javascript:query_tab_commit(\'history\');return false;"', '', (isset($querydisplay_tab) && $querydisplay_tab == 'history' ? TRUE : FALSE));
 
-if ($cfg['LightTabs']) {
-    echo '&nbsp;';
-} else {
-    echo '<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">
-    <tr>
-        <td width="8">&nbsp;</td>';
-}
-echo "\n";
-echo PMA_printTab($strSQL, '#', '', 'onClick="javascript:query_tab_commit(\'sql\');return false;"', '', (isset($querydisplay_tab) && $querydisplay_tab == 'sql' ? TRUE : FALSE));
-echo PMA_printTab($strImportFiles, '#', '', 'onClick="javascript:query_tab_commit(\'files\');return false;"', '', (isset($querydisplay_tab) && $querydisplay_tab == 'files' ? TRUE : FALSE));
-echo PMA_printTab($strQuerySQLHistory, '#', '', 'onClick="javascript:query_tab_commit(\'history\');return false;"', '', (isset($querydisplay_tab) && $querydisplay_tab == 'history' ? TRUE : FALSE));
-if ($cfg['QueryWindowDefTab'] == 'full') {
-    echo PMA_printTab($strAll, '#', '', 'onClick="javascript:query_tab_commit(\'full\');return false;"', '', (isset($querydisplay_tab) && $querydisplay_tab == 'full' ? TRUE : FALSE));
-}
+    if ($cfg['QueryWindowDefTab'] == 'full') {
+        echo PMA_printTab($strAll, '#', '', 'onClick="javascript:query_tab_commit(\'full\');return false;"', '', (isset($querydisplay_tab) && $querydisplay_tab == 'full' ? TRUE : FALSE));
+    }
 
-if (!$cfg['LightTabs']) {
-    echo '</tr></table>';
+    if (!$cfg['LightTabs']) {
+        echo '</tr></table>';
+    } else {
+        echo '<br />';
+    }
 } else {
-    echo '<br />';
+    $querydisplay_tab = 'full';
 }
 
 ?>
