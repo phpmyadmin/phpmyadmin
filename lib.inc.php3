@@ -980,8 +980,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             $table = $field->table;
         }
         mysql_field_seek($dt_result, 0);
-        if (!$is_simple) {
-            // && (!isset($SelectNumRows) || $SelectNumRows > 1)) {
+        if (!$is_simple 
+            && (!isset($SelectNumRows) || $SelectNumRows > 1)) {
             show_table_navigation($pos_next, $pos_prev, $dt_result);
         } else {
             echo "\n" . '<br /><br />' . "\n";
@@ -1253,8 +1253,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
 
         <?php
         echo "\n";
-        if (!$is_simple) {
-            // && (!isset($SelectNumRows) || $SelectNumRows > 1)) {
+        if (!$is_simple
+             && (!isset($SelectNumRows) || $SelectNumRows > 1)) {
             show_table_navigation($pos_next, $pos_prev, $dt_result);
         } else {
             echo "\n" . '<br />' . "\n";
