@@ -15,7 +15,7 @@
  */
 // phpMyAdmin release
 if (!defined('PHPMYADMIN_VERSION')) {
-    define('PHPMYADMIN_VERSION', '2.2.0rc5');
+    define('PHPMYADMIN_VERSION', '2.2.0-final');
 }
 
 // php version
