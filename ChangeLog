@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-28 Marc Delisle  <lem9@users.sourceforge.net>
+	* sql.php3, bug #535648: bookmarks can't be saved on the second server
+
 2002-03-27 Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/display_tbl.lib.php3, changed a variable name for
 	  better doc.

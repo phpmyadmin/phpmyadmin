@@ -1,14 +1,11 @@
 <?php
 /* $Id$ */
 
-
 /**
  * Gets some core libraries
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
-
-
 /**
  * Defines the url to return to in case of error in a sql statement
  */
@@ -454,6 +451,7 @@ else {
     <br /><br />
     <?php echo $strBookmarkLabel; ?>&nbsp;:
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="fields[dbase]" value="<?php echo $db; ?>" />
     <input type="hidden" name="fields[user]" value="<?php echo $cfgBookmark['user']; ?>" />
     <input type="hidden" name="fields[query]" value="<?php echo urlencode($sql_query); ?>" />
