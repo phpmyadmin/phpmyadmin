@@ -198,7 +198,7 @@ $fields_cnt     = mysql_num_rows($table_def);
 // Set a flag here because the 'if' would not be valid in the loop
 // if we set a value in some field
 $insert_mode = (!isset($row) ? TRUE : FALSE);
-$loop_array  = (isset($row) ? $row : array(0 => array(0 => 0)));
+$loop_array  = (isset($row) ? $row : array(0 => FALSE));
 
 while ($trow = PMA_mysql_fetch_array($table_def)) {
     $trow_table_def[] = $trow;
@@ -206,6 +206,10 @@ while ($trow = PMA_mysql_fetch_array($table_def)) {
 
 $o_rows = 0;
 foreach($loop_array AS $vrowcount => $vrow) {
+    if ($vrow === FALSE) {
+        unset($vrow);
+    }
+
     $vresult = (isset($result) && is_array($result) && isset($result[$vrowcount]) ? $result[$vrowcount] : $result);
 ?>
     <table border="<?php echo $cfg['Border']; ?>">
@@ -278,7 +282,11 @@ foreach($loop_array AS $vrowcount => $vrow) {
             && (!isset($row_table_def['Default']))) {
             // INSERT case
             if ($insert_mode) {
-                $vrow[$rowfield] = date('Y-m-d H:i:s', time());
+                if (isset($vrow)) {
+                    $vrow[$rowfield] = date('Y-m-d H:i:s', time());
+                } else {
+                    $vrow = array($rowfield => date('Y-m-d H:i:s', time()));
+                }
             }
             // UPDATE case with an empty and not NULL value under PHP4
             else if (empty($vrow[$rowfield]) && is_null($vrow[$rowfield])) {
@@ -457,7 +465,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
         if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary))
             && $row_table_def['Null'] == 'YES') {
             echo '            <input type="checkbox" tabindex="' . ((2 * $fields_cnt) + ($i * $m_rows) + 1) . '"'
-                 . ' name="fields_null[' . urlencode($field) . ']"';
+                 . ' name="fields_null' . $vkey . '[' . urlencode($field) . ']"';
             //if ($data == 'NULL' && !$first_timestamp) {
             if ($real_null_value && !$first_timestamp) {
                 echo ' checked="checked"';

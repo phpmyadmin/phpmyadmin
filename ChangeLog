@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-08 Garvin Hicking <embatag@supergarv.de>
+    * tbl_change.php: Fixed Bug #856436 (not displaying default values)
+
 2003-12-08 Marc Delisle  <lem9@users.sourceforge.net>
     * new language: basque, thanks to Axier Lopez (axierl@euskalerria.org)
 
