@@ -84,7 +84,7 @@ foreach ($mysql_charsets as $current_charset) {
     $useBgcolorOne = TRUE;
     foreach ($mysql_collations[$current_charset] as $current_collation) {
         $i++;
-        echo '            <tr>' . "\n"
+        echo '            <tr' . ($mysql_collations_available[$current_collation] ? '' : ' class="disabled"') . '>' . "\n"
            . '                <td bgcolor="' . ($mysql_default_collations[$current_charset] == $current_collation ? $cfg['BrowseMarkerColor'] : ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'])) . '">' . "\n"
            . '                    &nbsp;' . htmlspecialchars($current_collation) . '&nbsp;' . "\n"
            . '                </td>' . "\n"
