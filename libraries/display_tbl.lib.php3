@@ -704,6 +704,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         return TRUE;
     } // end of the 'PMA_displayTableHeaders()' function
 
+
     /**
      * Displays a link, or a button if the link's URL is too large, to
      * accomodate some browsers' limitations
@@ -714,28 +715,35 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      *
      * @return  boolean  always true
      */
-    function PMA_linkOrButton($url, $message, $js_conf)  
-    { 
-        if (strlen($url)<=1024) {?>
-                    <a href="<?php echo $url; ?>"
-            <?php if (!empty($js_conf)) echo 'onclick="return confirmLink(this, \'' . $js_conf . '\')"'; ?>
-                    ><?php echo $message; ?></a><?php
-        } else { 
-            $edit_url_parts=parse_url($url);?>
-        <form action="<?php echo $edit_url_parts["path"] ?>" method="post">
-<?php
-			$query_parts=explode("&",$edit_url_parts["query"]);
-			foreach($query_parts as $query_pair){
-				list($eachvar,$eachval)=explode("=",$query_pair)
-				?>            <input type="hidden" name="<?php echo str_replace("amp;", "", $eachvar); ?>" value="<?php echo urldecode($eachval);
-?>"><?php echo "\n";
-		}
-                ?>            <input type="submit" value="<?php echo $message; ?>">
+    function PMA_linkOrButton($url, $message, $js_conf)
+    {
+        if (strlen($url) <= 1024) {
+            $onclick_url    = (empty($js_conf) ? '' : ' onclick="return confirmLink(this, \'' . $js_conf . '\')"');
+            echo '        <a href="' . $url . '"' . $onclick_url . '>' . "\n"
+                 . '            ' . $message . '</a>' . "\n";
+        }
+        else {
+            $edit_url_parts = parse_url($url);
+            $query_parts    = explode('&', $edit_url_parts['query']);
+            ?>
+        <form action="<?php echo $edit_url_parts['path'] ?>" method="post">
+            <?php
+            echo "\n";
+            reset ($query_parts);
+            while (list(, $query_pair) = each ($query_parts)) {
+                list($eachvar, $eachval) = explode('=', $query_pair);
+                echo '            <input type="hidden" name="' . str_replace('amp;', '', $eachvar) . '" value="' . urldecode($eachval) . '" />' . "\n";
+            } // end while
+            ?>
+            <input type="submit" value="<?php echo $message; ?>" />
         </form>
-<?php
-        } // end if
-   
-    } // end of PMA_linkOrButton()
+            <?php
+            echo "\n";
+        } // end if... else...
+
+        return TRUE;
+    } // end of the 'PMA_linkOrButton()' function
+
 
     /**
      * Displays the body of the results table
@@ -971,19 +979,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 if ($GLOBALS['cfg']['ModifyDeleteAtLeft']
                     && ($disp_direction == 'horizontal')) {
                     if (!empty($edit_url)) {
-                        ?>
-    <td bgcolor="<?php echo $bgcolor; ?>">
-<?php PMA_linkOrButton($edit_url, $edit_str,''); ?>
-    </td>
-                        <?php
+                        echo '    <td bgcolor="' . $bgcolor . '">' . "\n";
+                        PMA_linkOrButton($edit_url, $edit_str, '');
+                        echo '    </td>' . "\n";
                     }
                     if (!empty($del_url)) {
-                        echo "\n";
-                        ?>
-    <td bgcolor="<?php echo $bgcolor; ?>">
-<?php PMA_linkOrButton($del_url, $del_str, (isset($js_conf)? $js_conf: '')); ?>
-    </td>
-                        <?php
+                        echo '    <td bgcolor="' . $bgcolor . '">' . "\n";
+                        PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''));
+                        echo '    </td>' . "\n";
                     }
                 } // end if (1.3)
                 echo (($disp_direction == 'horizontal') ? "\n" : '');
@@ -1149,19 +1152,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             if ($GLOBALS['cfg']['ModifyDeleteAtRight']
                 && ($disp_direction == 'horizontal')) {
                 if (!empty($edit_url)) {
-                    ?>
-    <td bgcolor="<?php echo $bgcolor; ?>">
-<?php PMA_linkOrButton($edit_url, $edit_str, ''); ?>
-    </td>
-                    <?php
+                    echo '    <td bgcolor="' . $bgcolor . '">' . "\n";
+                    PMA_linkOrButton($edit_url, $edit_str, '');
+                    echo '    </td>' . "\n";
                 }
                 if (!empty($del_url)) {
-                    echo "\n";
-                    ?>
-    <td bgcolor="<?php echo $bgcolor; ?>">
-<?php PMA_linkOrButton($del_url, $del_str, (isset($js_conf)? $js_conf: '')); ?>
-    </td>
-                    <?php
+                    echo '    <td bgcolor="' . $bgcolor . '">' . "\n";
+                    PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''));
+                    echo '    </td>' . "\n";
                 }
             } // end if (3)
 

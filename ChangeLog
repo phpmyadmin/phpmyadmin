@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-03 Loïc Chapeaux  <lolo@phpheaven.net>
+    * libraries/display_tbl.lib.php3:
+      - fix a PHP3 problem (foreach function was called);
+      - XHTML fixes;
+      - coding standards.
+
 2002-09-02 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php3, mult_submits.inc.php3: Patch 582904:
       add REPAIR TABLE choice in drop-down of db view, thanks to
