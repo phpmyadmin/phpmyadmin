@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/sync_lang.sh: support for multiple convertors (recode added),
+      thanks to Michal Cihar
+
 2002-07-17 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/config_import.lib.php3: Added
       $cfg['PmaNoRelation_DisableWarning'] to the backwards compatibility code.
