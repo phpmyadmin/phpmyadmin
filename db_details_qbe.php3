@@ -31,9 +31,9 @@ if (isset($submit_sql) && eregi('^SELECT', $encoded_sql_query)) {
     exit();
 } else {
     $sub_part  = '_qbe';
-    require('./db_details_common.php3');
+    include('./db_details_common.php3');
     $url_query .= '&amp;goto=db_details_qbe.php3';
-    require('./db_details_db_info.php3');
+    include('./db_details_db_info.php3');
 }
 
 if (isset($submit_sql) && !eregi('^SELECT', $encoded_sql_query)) {
@@ -131,7 +131,7 @@ if (!empty($TableList)) {
 // The tables list gets from MySQL
 while ($i < $tbl_result_cnt) {
     $tbl             = PMA_mysql_tablename($tbl_result, $i);
-    $fld_results     = @PMA_mysql_list_fields($db, $tbl) or PMA_mysqlDie(PMA_mysql_error(), 'PMA_mysql_list_fields(' . $db . ', ' . $tbl . ')', FALSE, $err_url_0);
+    $fld_results     = @PMA_mysql_list_fields($db, $tbl) or PMA_mysqlDie(PMA_mysql_error(), 'PMA_mysql_list_fields(' . $db . ', ' . $tbl . ')', FALSE, $err_url);
     $fld_results_cnt = ($fld_results) ? mysql_num_fields($fld_results) : 0;
     $j               = 0;
 
@@ -143,7 +143,7 @@ while ($i < $tbl_result_cnt) {
 
     // The fields list per selected tables
     if ($tbl_names[$tbl] == ' selected="selected"') {
-        $fld[$k++] =  PMA_backquote($tbl) . '.*';
+        $fld[$k++]   =  PMA_backquote($tbl) . '.*';
         while ($j < $fld_results_cnt) {
             $fld[$k] = PMA_mysql_field_name($fld_results, $j);
             $fld[$k] = PMA_backquote($tbl) . '.' . PMA_backquote($fld[$k]);
