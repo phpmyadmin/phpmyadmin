@@ -302,10 +302,11 @@ function checkTransmitDump(theForm, theAction)
  *
  * @param   object   the table row
  * @param   object   the color to use for this row
+ * @param   object   the background color
  *
  * @return  boolean  whether pointer is set or not
  */
-function setPointer(theRow, thePointerColor)
+function setPointer(theRow, thePointerColor, theNormalBgColor)
 {
     var theCells = null;
 
@@ -324,12 +325,15 @@ function setPointer(theRow, thePointerColor)
 
     var rowCellsCnt  = theCells.length;
     for (var c = 0; c < rowCellsCnt; c++) {
-        theCells[c].style.backgroundColor = thePointerColor;
+        if (theCells[c].style.backgroundColor.toLowerCase() == thePointerColor.toLowerCase()) {
+            theCells[c].style.backgroundColor = theNormalBgColor;
+        } else {
+            theCells[c].style.backgroundColor = thePointerColor;
+        }
     }
 
     return true;
 } // end of the 'setPointer()' function
-
 
 /**
  * Checks/unchecks all tables
@@ -372,4 +376,3 @@ function setSelectOptions(the_form, the_select, do_check)
 
     return true;
 } // end of the 'setSelectOptions()' function
-

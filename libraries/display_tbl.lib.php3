@@ -723,8 +723,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 // loic1: pointer code part
                 $on_mouse = ($GLOBALS['cfgBrowsePointerColor'] == '')
                           ? ''
-                          : ' onmouseover="setPointer(this, \'' . $GLOBALS['cfgBrowsePointerColor'] . '\')" onmouseout="setPointer(this, \'' . $bgcolor . '\')"';
+                          : ' onmouseover="setPointer(this, \'' . $GLOBALS['cfgBrowsePointerColor'] . '\', \''.$bgcolor.'\')" onmouseout="setPointer(this, \'' . $bgcolor . '\', \''.$bgcolor.'\')"';
 
+                if ($GLOBALS['cfgBrowseMarkRow'] == '1') {
+                   $on_mouse = ' onmousedown="setPointer(this, \'' . $GLOBALS['cfgBrowsePointerColor'] . '\', \''.$bgcolor.'\')"';
+                }
                 ?>
 <tr<?php echo $on_mouse; ?>>
                 <?php
