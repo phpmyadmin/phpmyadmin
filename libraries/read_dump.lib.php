@@ -69,6 +69,16 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
                 } // end if...elseif...else
             } // end for
         } // end if (in string)
+       
+        // let's skip c style comments
+        else if ($char == '/' && $sql[$i + 1] == '*') {
+            $i = strpos($sql, '*/', $i) + 1;
+        }
+
+        // lets skip ANSI comments
+        else if ($char == '-' && $sql[$i + 1] == '-' && $sql[$i + 2] <= ' ') {
+            $i = strpos($sql, "\n", $i);
+        }
 
         // We are not in a string, first check for delimiter...
         else if ($char == ';') {
@@ -89,12 +99,6 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
             $in_string    = TRUE;
             $string_start = $char;
         } // end else if (is start of string)
-
-        // ... and finally disactivate the "/*!...*/" syntax if MySQL < 3.22.07
-        else if ($release < 32270
-                 && ($char == '!' && $i > 1  && $sql[$i-2] . $sql[$i-1] == '/*')) {
-            $sql[$i] = ' ';
-        } // end else if
 
         // loic1: send a fake header each 30 sec. to bypass browser timeout
         $time1     = time();

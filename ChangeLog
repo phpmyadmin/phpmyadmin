@@ -8,6 +8,8 @@ $Source$
 2004-06-24 Michal Čihař  <michal@cihar.com>
     * main.php, changelog.php: Add headers to ChangeLog display.
     * scripts/create_tables.sql: Add IF EXISTS.
+    * libraries/read_dump.lib.php: Ignore comments for SQL splitting,
+      otherwise unmatched quotes cause problems (bug #978113).
     
 2004-06-23 Marc Delisle  <lem9@users.sourceforge.net>
     * many files: remove references to older /images, and
