@@ -75,6 +75,7 @@ $strCheckAll = 'Zaznaczenie wszystkich';
 $strCheckDbPriv = 'Sprawdzanie uprawnień bazy danych';
 $strCheckTable = 'Sprawdzanie tabeli';
 $strChoosePage = 'Proszę wybrać stronę do edycji';
+$strColComFeat = 'Wyświetlanie komentarzy dla kolumn';
 $strColumn = 'Kolumna';
 $strColumnNames = 'Nazwy kolumn';
 $strComments = 'Komentarze';
@@ -91,6 +92,7 @@ $strCreateIndexTopic = 'Utworzenie nowego indeksu';
 $strCreateNewDatabase = 'Utworzenie nowej bazy danych';
 $strCreateNewTable = 'Utworzenie nowej tabeli dla bazy danych %s';
 $strCreatePage = 'Utworzenie nowej strony';
+$strCreatePdfFeat = 'Tworzenie PDF-ów';
 $strCriteria = 'Kryteria';
 
 $strData = 'Dane';
@@ -107,7 +109,9 @@ $strDeletedRows = 'Skasowane rekordy:';
 $strDeleteFailed = 'Kasowanie nie powiodło sie!';
 $strDeleteUserMessage = 'Usunales uzytkownika  %s.';
 $strDescending = 'Malejąco';
+$strDisabled = 'wyłączone';
 $strDisplay = 'Pokaż';
+$strDisplayFeat = 'Funkcje wyświetlania';
 $strDisplayOrder = 'Kolejność wyświetlania:';
 $strDisplayPDF = 'Wyświetl schemat PDF';
 $strDoAQuery = 'Wykonaj "zapytanie przez przykład" (znak globalny: "%")';
@@ -126,6 +130,7 @@ $strEditPrivileges = 'Edycja uprawnień';
 $strEffective = 'Efektywne';
 $strEmpty = 'Wyczyszczenie';
 $strEmptyResultSet = 'MySQL zwrócił pusty wynik (np. zero rekordów).';
+$strEnabled = 'włączone';
 $strEnd = 'Koniec';
 $strEnglishPrivileges = ' Uwaga: Uprawnienia MySQL są oznaczone w jęz. angielskim ';
 $strError = 'Błąd';
@@ -150,6 +155,7 @@ $strFullText = 'Pełny tekst';
 $strFunction = 'Funkcja';
 
 $strGenBy = 'Wygenerowany przez';
+$strGeneralRelationFeat = 'Ogólne funkcje relacyjne';
 $strGenTime = 'Czas wygenerowania';
 $strGo = 'Wykonanie';
 $strGrants = 'Nadanie';
@@ -231,6 +237,7 @@ $strNoQuery = 'Brak zapytania SQL!';
 $strNoRights = 'Brak wystarczajacych uprawnień!';
 $strNoTablesFound = 'Nie znaleziono tabeli w bazie danych.';
 $strNotNumber = 'To nie jest liczba!';
+$strNotOK = 'błąd';
 $strNotSet = 'Tabela <b>%s</b> nie została znaleziona lub nie jest ustawiona w %s';
 $strNotValidNumber = ' nie jest poprawnym numerem rekordu!';
 $strNoUsersFound = 'Nie znaleziono użytkownika(ów).';
@@ -239,6 +246,7 @@ $strNumSearchResultsInTable = '%s trafień wewnątrz tabeli <i>%s</i>';
 $strNumSearchResultsTotal = '<b>W sumie:</b> <i>%s</i> trafień';
 
 $strOftenQuotation = 'Znaki cudzysłowu. OPCJONALNIE oznacza, że tylko pola char oraz varchar są zawarte w "cudzysłowach".';
+$strOK = 'OK';
 $strOperations = 'Operacje';
 $strOptimizeTable = 'Optymalizacja tabeli';
 $strOptionalControls = 'Opcjonalnie. Określenie w jaki sposób zapisać lub odczytać znaki specjalne.';
@@ -404,12 +412,5 @@ $strZip = '".zip"';
 
 // To translate
 $strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
+
 ?>
