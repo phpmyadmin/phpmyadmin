@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-20  Geert Lund <glund@silversoft.dk>
+	* security issue fix: added checking for valid user and password to the
+	  phpinfo.php3 file, probitting non authorized users getting valuable
+	  information about the server phpMyAdmin runs on.
+
 2001-09-20  Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3: fixed an error I've done while merging patch #462787.
 	* config.inc.php3; Documentation.html: added the $cfgShowStats setting and
