@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-26 Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_qbe.php3: automatic joints from Relation table, thanks
+	  to Mike Beck (mike.beck at ibmiller.de)
+          (experimental: some things remain to be tested)
+
 2002-04-26 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: fixed a controluser bug.
 
