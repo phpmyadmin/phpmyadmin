@@ -162,8 +162,9 @@ if (!$cfg['Confirm']
     || !empty($GLOBALS['validatequery'])) {
     $do_confirm = FALSE;
 } else {
-     /* SQL-Parser-Analyzer */
-    $do_confirm = (eregi('DROP[[:space:]]+(IF[[:space:]]+EXISTS[[:space:]]+)?(TABLE|DATABASE[[:space:]])|ALTER[[:space:]]+TABLE[[:space:]]+((`[^`]+`)|([A-Za-z0-9_$]+))[[:space:]]+DROP[[:space:]]|DELETE[[:space:]]+FROM[[:space:]]', $sql_query));
+    //$do_confirm = (eregi('DROP[[:space:]]+(IF[[:space:]]+EXISTS[[:space:]]+)?(TABLE|DATABASE[[:space:]])|ALTER[[:space:]]+TABLE[[:space:]]+((`[^`]+`)|([A-Za-z0-9_$]+))[[:space:]]+DROP[[:space:]]|DELETE[[:space:]]+FROM[[:space:]]', $sql_query));
+
+    $do_confirm = isset($analyzed_sql[0]['queryflags']['need_confirm']);
 }
 
 if ($do_confirm) {

@@ -567,6 +567,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         $size            = $arr['len'];
         $subresult       = array(
             'querytype'      => '',
+            'queryflags'     => array(),
             'select_expr'    => array(),
             'table_ref'      => array()
         );
@@ -648,10 +649,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         );
         $supported_query_types_cnt = count($supported_query_types);
 
-        // main loop for each token
+        // loop #1 for each token: select_expr, table_ref for SELECT
 
         for ($i = 0; $i < $size; $i++) {
-//echo "trace <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
+//echo "trace 1<b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
 
             // High speed seek for locating the end of the current query
             if ($seek_queryend == TRUE) {
@@ -828,8 +829,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             } // end if (save a select expr)
 
 
-//=========================
+            //======================================
             //    s a v e    a    t a b l e    r e f
+            //======================================
+
             // maybe we just saw the end of table refs
             // but the last table ref has to be saved
             // or we are at the last token (TODO: there could be another 
@@ -895,7 +898,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             } // end if (set the true names)
 
 
-           // e n d    o f    l o o p
+           // e n d i n g    l o o p  #1
            // set the $previous_was_identifier to FALSE if the current
            // token is not an identifier
            if (($arr[$i]['type'] != 'alpha_identifier')
@@ -946,8 +949,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                $save_table_ref = FALSE;
            } // end if
 
-
-        } // end for $i (main loop)
+        } // end for $i (loop #1)
 
         // -------------------------------------------------------
         // This is a big hunk of debugging code by Marc for this.
@@ -969,6 +971,56 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
            }
         */ 
         // -------------------------------------------------------
+
+
+        // loop #2: for queryflags
+        //          and querytype (for queries != 'SELECT')
+        //
+        // This is not in the loop 1 to keep logic simple
+
+        $seen_reserved_word = FALSE;
+
+        for ($i = 0; $i < $size; $i++) {
+//echo "trace 2<b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
+           // c o n f i r m a t i o n    r e q u e s t s
+           //
+           // check for reserved words that will have to generate
+           // a confirmation request later in sql.php3
+           // the cases are:
+           //   DROP TABLE
+           //   DROP DATABASE
+           //   ALTER TABLE... DROP
+           //   DELETE FROM... 
+           //
+           // this code is not used for confirmations coming from functions.js 
+
+           // TODO: check for punct_queryend
+
+           if ($arr[$i]['type'] == 'alpha_reservedWord') {
+               $upper_data = strtoupper($arr[$i]['data']);
+               if (!$seen_reserved_word) {
+                   $first_reserved_word = $upper_data;
+                   $subresult['querytype'] = $upper_data;
+                   $seen_reserved_word = TRUE;
+ 
+                   // if the first reserved word is DROP or DELETE,
+                   // we know this is a query that needs to be confirmed
+                   if ($first_reserved_word=='DROP' 
+                       || $first_reserved_word == 'DELETE') {
+                      $subresult['queryflags']['need_confirm'] = 1;
+                      break; 
+                   }
+               } else {
+                   if ($upper_data=='DROP' && $first_reserved_word=='ALTER') {
+                      $subresult['queryflags']['need_confirm'] = 1;
+                      break;
+ 
+                   } 
+               }
+           }
+
+        } // end for $i (loop #2)
+
 
         // They are naughty and didn't have a trailing semi-colon,
         // then still handle it properly

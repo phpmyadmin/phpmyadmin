@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php3, libraries/functions.js,
+      sql.php3: use the parser for confirmation requests
+
 2003-01-08 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/url_generating.lib.php3, libraries/common.lib.php3: New URL
       and hidden input generating stuff.
