@@ -19,7 +19,10 @@ $Source$
     * lang/german-*.inc.php3: Updates.
     * lang/afrikaans-*.inc.php3: Tidied up a bit.
     * Documentation.html, ANNOUNCE.txt: We now have 41 languages, don't we?
-    * Documentation.html: Beautified XHTML code.
+    * Documentation.html:
+      - Beautified XHTML code;
+      - Edited my credit;
+      - Fixed a typo.
     * tbl_properties.inc.php3: Tried to work around bug #590481 (By default
       radio button for primary key).
 
