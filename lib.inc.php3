@@ -16,14 +16,15 @@ function show_table_navigation($pos_next, $pos_prev, $dt_result) {
      <table border=0><tr>
        <td>
        <form method="post"
-         onsubmit="return <?php  echo ( $pos >= $cfgMaxRows ? "true" : "false" ); ?>"
+	onsubmit="return <?php  echo ( $pos > 0 ? "true" : "false" ); ?>"
           action=<?php echo
           "\"sql.php3?server=$server&lang=$lang&db=$db&table=$table&sql_query=".urlencode($sql_query)."&sql_order=".urlencode($sql_order)."&pos=0&sessionMaxRows=$sessionMaxRows\"";?>
         ><input type="submit" value="<?php echo $strPos1 . " &lt;&lt;" ; ?>" >
         </form>
         </td>
         <td>
-        <form method="post" onsubmit="return <?php  echo ( $pos >= $cfgMaxRows ? "true" : "false" ); ?>"
+        <form method="post" 
+	onsubmit="return <?php  echo ( $pos > 0 ? "true" : "false" ); ?>"
           action=<?php echo
           "\"sql.php3?server=$server&&lang=$lang&db=$db&table=$table&sql_query=".urlencode($sql_query)."&sql_order=".urlencode($sql_order)."&pos=$pos_prev&sessionMaxRows=$sessionMaxRows\"";?>
         ><input type="submit" value="<?php echo $strPrevious ." &lt;" ; ?>"  >
@@ -268,6 +269,10 @@ function display_table ($dt_result) {
     $pos = 0;
   $pos_next = $pos + $cfgMaxRows;
   $pos_prev = $pos - $cfgMaxRows;
+
+   if ($pos_prev < 0) {
+       $pos_prev = 0;
+   }
 
   if(isset($total) && $total>1) {
     if(isset($SelectNumRows) && $SelectNumRows!=$total)
