@@ -381,4 +381,5 @@ $strWithChecked = 'მონიშნულებთან:';
 $strWrongUser = 'არასწორი სახელი/პაროლი. მიმართვა ბლოკირებულია';
 $strYes = 'კი';
 $strZip = '"zip-ში შეკუმშვა"';
+$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
 ?>

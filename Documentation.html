@@ -5,7 +5,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>phpMyAdmin 2.3.0-rc4 - Documentation</title>
+    <title>phpMyAdmin 2.3.0-rc3 - Documentation</title>
     <style type="text/css">
     <!--
     .navigation {
@@ -74,7 +74,7 @@
 
 <body bgcolor="#FFFFFF">
 <a name="top"></a>
-<h1>phpMyAdmin 2.3.0-rc4 Documentation</h1>
+<h1>phpMyAdmin 2.3.0-rc3 Documentation</h1>
 
 
 <!-- TOP MENU -->
@@ -417,6 +417,19 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['PmaNoRelation_DisableWarning']</b> bool</dt>
+    <dd>
+        Starting with version 2.3.0 phpMyAdmin offers a lot of features
+        to work with master / foreign - tables. These features require the
+        PMA Administrator to set up a special Database for PMA.
+        (see <a href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>) Its Contents
+        and use will be explained further down. If you tried to set this up and
+        it does not work for you have a look on the Structure page of one Database
+        where you would like to use it. You will find a link that will analyze
+        why those features have been disabled.<br />
+        If you do not want to use those features set this variable to TRUE
+        to stop this Message from appearing.<br /><br />
+    </dd>
     <dt><b>$cfg['Servers']</b> array</dt>
     <dd>
         Since version 1.4.2, phpMyAdmin supports the administration of multiple
@@ -554,6 +567,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <a name="pmadb"></a>
     <dt><b>$cfg['Servers'][$i]['pmadb']</b> string</dt>
     <dd>
         Starting with version 2.3.0 phpMyAdmin offers a lot of features
@@ -777,7 +791,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt><b>$cfg['Servers'][$i]['column_comments']</b> string</dt>
+    <dt>
+        <a name="col_com"></a>
+        <b>$cfg['Servers'][$i]['column_comments']</b> string</dt>
     <dd>
         Since release 2.3.0 you can store comments to describe each column
         for each table. These will then be shown on the &quot;printview&quot;.
@@ -1360,7 +1376,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <a class="navigation" href="#faqmultiuser">Multi-user</a> &nbsp;-&nbsp;
 <a class="navigation" href="#faqbrowsers">Browsers</a> &nbsp;-&nbsp;
 <a class="navigation" href="#faqusing">Usage tips</a> &nbsp;-&nbsp;
-<a class="navigation" href="#faqproject">Project</a>
+<a class="navigation" href="#faqproject">Project</a> &nbsp;-&nbsp;
+<a class="navigation" href="#faqsyntaxcoloring">Syntax coloring</a>
+
+
 
 <a name="faqserver"></a>
 <h3>[Server]</h3>
@@ -1569,15 +1588,17 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I'm running MySQL&nbsp;&lt;=&nbsp;4.0.1 having
-       <tt>lower_case_table_names</tt> set to 1. If I create a new table with a
-       capital letter in its name it is changed to lowercase as it should. But
-       if I try to DROP this table MySQL is unable to find the corresponding
-       file.</b>
+    <b>I'm running MySQL&nbsp;4.0.1 on a Windows&nbsp;NT machine. Each time I
+       create a table the table name is changed to lowercase.</b>
     <br />
-    This is a bug of MySQL&nbsp;&lt;=&nbsp;4.0.1. Please upgrade to at least
-    MySQL&nbsp;4.0.2 or turn off your <tt>lower_case_table_names</tt>
-    directive.
+    This seems to be a bug of MySQL&nbsp;4.0.1 because it also appears when
+    using the MySQL commandline. Currently we only know about its appearance on
+    Windows&nbsp;NT systems, but it is possible that it appears on other
+    systems, too.<br />
+    If you encounter this bug together with another OS and/or MySQL version or
+    you know how to work around it, please post a message into
+    <a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=540671&amp;group_id=23067&amp;atid=377408" target="_blank">
+    our bug tracker</a> at SourceForge.
 </p>
 
 <p>
@@ -2118,7 +2139,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br />
     No, it's MySQL that is doing <a class="navigation" href="http://www.mysql.com/doc/S/i/Silent_column_changes.html">silent column type changing</a>.
 </p>
-
 <a name="underscore"></a>
 <p>
     <b>My database has an underscore in it's name, and when I grant privileges
@@ -2136,18 +2156,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <b>What is the curious symbol &oslash; in the table statistics?</b><br />
     It means &quot;average&quot;.
 </p>
-
-<a name="faqexport"></a>
-<p>
-    <b>I want to understand some Export options.</b><br />
-    &quot;Complete inserts&quot; adds the column names on every INSERT command,
-    for better documentation (but resulting file is bigger).<br />
-    &quot;Extended inserts&quot; provides a shorter dump file by using only
-    once the INSERT verb and the table name.<br />
-    &quot;Enclose table and field names with backquotes&quot; ensures that
-    field and table names formed with special characters are protected.<br />
-</p>
-
 <a name="faqproject"></a>
 <h3>[phpMyAdmin project]</h3>
 <p>

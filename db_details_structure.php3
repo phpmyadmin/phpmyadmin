@@ -31,6 +31,7 @@ require('./libraries/relation.lib.php3');
 $cfgRelation = PMA_getRelationsParam();
 
 
+
 /**
  * Displays the tables list
  */
@@ -448,6 +449,12 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
     </li>
 
 <?php
+if($num_tables>0 && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE){
+    echo '<font color="red">' . $strError . '</font><br />';
+    $urltogoto = '<a href="'.$cfg['PmaAbsoluteUri'].'chk_rel.php3?'.$url_query.'">';
+    echo sprintf($strRelationNotWorking,$urltogoto,'</a>');
+}
+
 // is this OK to check for 'class' support?
 if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     $takeaway = $url_query . '&amp;table=' . urlencode($table);
@@ -457,7 +464,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
         <a href="pdf_pages.php3?<?php echo $takeaway; ?>"><?php echo $strEditPDFPages; ?></a>
     </li>
 
-	<!-- PDF schema -->
+        <!-- PDF schema -->
     <?php
     // We only show this if we find something in the new pdf_pages table
     $test_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])

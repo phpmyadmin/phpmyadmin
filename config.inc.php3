@@ -12,9 +12,7 @@
 /**
  * Sets the php error reporting - Please do not change this line!
  */
-if (!isset($old_error_reporting)) {
-    error_reporting(E_ALL);
-}
+$old_error_rep = error_reporting(E_ALL);
 
 
 /**
@@ -43,6 +41,11 @@ $cfg['PmaAbsoluteUri'] = '';
  */
 $cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
 
+/**
+ * Disable the default warning that is displayed on the DB Details Structure page if
+ * any of the required Tables for the relationfeatures could not be found
+ */
+ $cfg['PmaNoRelation_DisableWarning'] = FALSE;
 
 /**
  * Server(s) configuration
@@ -236,9 +239,7 @@ $cfg['DefaultCharset'] = 'iso-8859-1';
 
 // Allow charset recoding of MySQL queries, must be also enabled in language
 // file to make harder using other language files than unicode.
-// Default value is FALSE to avoid problems on servers without the iconv
-// extension and where dl() is not supported
-$cfg['AllowAnywhereRecoding'] = FALSE;
+$cfg['AllowAnywhereRecoding'] = TRUE;
 
 // Force: always use this language - must be defined in
 //        libraries/select_lang.lib.php3
@@ -460,6 +461,13 @@ if ($cfg['UseSyntaxColoring']) {
  * Unset magic_quotes_runtime - do not change!
  */
 set_magic_quotes_runtime(0);
+
+
+/**
+ * Restore old error_reporting mode - do not change either!
+ */
+error_reporting($old_error_rep);
+unset($old_error_rep);
 
 
 /**

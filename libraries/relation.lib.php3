@@ -70,7 +70,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
      *
      * @author  Mike Beck <mikebeck@users.sourceforge.net>
      */
-    function PMA_getRelationsParam()
+    function PMA_getRelationsParam($verbose=FALSE)
     {
         global $cfg, $server, $err_url_0, $db, $table;
 
@@ -79,6 +79,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         $cfgRelation['displaywork'] = FALSE;
         $cfgRelation['pdfwork']     = FALSE;
         $cfgRelation['commwork']    = FALSE;
+        $cfgRelation['allworks']    = FALSE;
 
         // No server selected -> no bookmark table
         // we return the array with the FALSEs in it,
@@ -129,11 +130,30 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             }
         } // end if
 
+        if($cfgRelation['relwork'] == TRUE && $cfgRelation['displaywork'] == TRUE
+            && $cfgRelation['pdfwork'] == TRUE && $cfgRelation['commwork'] == TRUE){
+            $cfgRelation['allworks'] = TRUE;
+        }
         if ($tab_rs) {
             mysql_free_result($tab_rs);
         } else {
             $cfg['Server']['pmadb'] = FALSE;
         }
+        if($verbose==TRUE){
+                $shit='<font color="red">not OK</font> [ <a href="Documentation.html#%s">Help</a> ]';
+                $hit ='<font color="green">OK</font>';
+                echo 'checking PMA Database ...',$cfg['Server']['pmadb'] == FALSE?sprintf($shit,'pmadb'):$hit,'<br />';
+                echo 'checking relation Table ...',isset($cfgRelation['relation'])?$hit:sprintf($shit,'relation'),'<br />';
+                echo '<b>',$cfgRelation['relwork']==TRUE?'General Relationfeatures enabled':'General Relationfeatures disabled','</b><br />';
+                echo 'checking table_info   ...',$cfgRelation['displaywork'] == FALSE?sprintf($shit,'table_info'):$hit,'<br />';
+                echo '<b>',$cfgRelation['displaywork']==TRUE?'Displayfeatures enabled':'Displayfeatures disabled','</b><br />';
+                echo 'checking table_coords ...',isset($cfgRelation['table_coords'])?$hit:sprintf($shit,'table_coords'),'<br />';
+                echo 'checking pdf_pages ...',isset($cfgRelation['pdf_pages'])?$hit:sprintf($shit,'table_coords'),'<br />';
+                echo '<b>',$cfgRelation['pdfwork']==TRUE?'Creation of PDFs enabled':'Creation of PDFs disabled','</b><br />';
+                echo 'checking column_comments ...',isset($cfgRelation['column_comments'])?$hit:sprintf($shit,'col_com'),'<br />';
+                echo '<b>',$cfgRelation['commwork']==TRUE?'Displaying Column Comments enabled':'Displaying Column Comments disabled','</b><br />';
+        }
+
 
         return $cfgRelation;
     } // end of the 'PMA_getRelationsParam()' function

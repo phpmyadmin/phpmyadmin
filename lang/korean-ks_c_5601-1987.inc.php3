@@ -400,4 +400,5 @@ $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for cha
 $strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
 $strMySQLCharset = 'MySQL Charset';  //to translate
 $strComments = 'Comments';  //to translate
+$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
 ?>

@@ -398,4 +398,5 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
+$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
 ?>
