@@ -191,7 +191,7 @@ if ($num_dbs > 1) {
         echo '        <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n";
         echo '        <input type="hidden" name="server" value="' . $server . '" />' . "\n";
         echo '        <select name="lightm_db" onchange="this.form.submit()">' . "\n";
-        echo '            <option value=""> - </option>' . "\n";
+        echo '            <option value="">(' .$strDatabases. ') ...</option>' . "\n"; 
         $table_list = '';
         $table_list_header = '';
         $db_name    = '';
