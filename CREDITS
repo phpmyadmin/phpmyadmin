@@ -10,6 +10,10 @@ CREDITS, in chronological order
 	* creator of the phpmyadmin project
 	* maintainer from 1998 to summer 2000
 
+[md] - Marc Delisle <DelislMa@CollegeSherbrooke.qc.ca>
+        * multi-language version
+        * various fixes
+
 [om] - Olivier Müller <om@omnis.ch>
 	* started sourceforge project
 	* sync'ed different existing CVS trees with 
