@@ -175,8 +175,13 @@ if (count($statistics) > 0) {
            . ($sort_by == 'db_name' ? '                    <img src="' . $pmaThemeImage . 's_' . $sort_order . '.png" border="0" width="11" height="9"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
            . '                </a>' . "\n"
            . '                &nbsp;' . "\n"
-           . '            </th>' . "\n"
-           . '            <th>' . "\n"
+           . '            </th>' . "\n";
+        if (PMA_MYSQL_INT_VERSION >= 40101) {
+            echo '            <th>' . "\n"
+               . '                &nbsp;' . $strCollation . '&nbsp;' . "\n"
+               . '            </th>' . "\n";
+        }
+        echo '            <th>' . "\n"
            . '                &nbsp;' . "\n"
            . '                <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1&amp;sort_by=tbl_cnt&amp;sort_order=' . (($sort_by == 'tbl_cnt' && $sort_order == 'desc') ? 'asc' : 'desc') . '">' . "\n"
            . '                    ' . $strNumTables . "\n"
@@ -244,6 +249,14 @@ if (count($statistics) > 0) {
            . '                </a>' . "\n"
            . '            </td>' . "\n";
         if (!empty($dbstats)) {
+            if (PMA_MYSQL_INT_VERSION >= 40101) {
+                $current_collation = PMA_getDbCollation($current['db_name']);
+                echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
+                   . '                <dfn title="' . htmlspecialchars(PMA_getCollationDescr($current_collation)) . '">' . "\n"
+                   . '                    ' . htmlspecialchars($current_collation) . "\n"
+                   . '                </dfn>' . "\n"
+                   . '            </td>' . "\n";
+            }
             echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '" align="right">' . "\n"
                . '                ' . $current['tbl_cnt'] . "\n"
                . '            </td>' . "\n"
@@ -288,8 +301,11 @@ if (count($statistics) > 0) {
            . '            <th>&nbsp;</th>' . "\n"
            . '            <th>' . "\n"
            . '                &nbsp;' . $strTotalUC . ':&nbsp;' . $total_calc['db_cnt'] . '&nbsp;' . "\n"
-           . '            </th>' . "\n"
-           . '            <th align="right">' . "\n"
+           . '            </th>' . "\n";
+        if (PMA_MYSQL_INT_VERSION >= 40101) {
+            echo '            <th>&nbsp;</th>' . "\n";
+        }
+        echo '            <th align="right">' . "\n"
            . '                &nbsp;' . $total_calc['tbl_cnt'] . '&nbsp;' . "\n"
            . '            </th>' . "\n"
            . '            <th align="right">' . "\n"
