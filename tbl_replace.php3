@@ -10,7 +10,6 @@ $sql_query=urldecode($sql_query);
 if($goto == "sql.php3")
 {
     $goto = "sql.php3?server=$server&lang=$lang&db=$db&table=$table&pos=$pos&sql_query=".urlencode($sql_query);
-
 }
 
 reset($fields);
@@ -31,16 +30,18 @@ if(isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
       // if we have a set, then construct the value
       $f = "field_$key";
       if(get_magic_quotes_gpc()) {
-	$val = "'".($$f?implode(',',$$f):'')."'";
+      	if (isset($$f)) $val = "'".($$f?implode(',',$$f):'')."'";
+      	else  $val = "''";
       } else {
-	$val = "'".addslashes($$f?implode(',',$$f):'')."'";
+      	if (isset($$f)) $val = "'".addslashes($$f?implode(',',$$f):'')."'";
+      	else  $val = "''";
       }
       break;
     default:
       if(get_magic_quotes_gpc()) {
-	$val = "'".$val."'";
+        $val = "'".$val."'";
       } else {
-	$val = "'".addslashes($val)."'";
+        $val = "'".addslashes($val)."'";
       }
       break;
     }
