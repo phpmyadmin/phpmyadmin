@@ -7,6 +7,7 @@ $Source$
 
 2002-07-14 Alexander M. Turek  <rabus@users.sourceforge.net>
     * config.inc.php3, libraries/common.lib.php3: Fixed bug #576018.
+    * lang/german-*.inc.php3: Clarification.
 
 2002-07-14 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, db_details_exports.php3, tbl_properties_export.php3:
