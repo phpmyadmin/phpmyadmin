@@ -1309,10 +1309,13 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 }
                 if ($is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i])) {
                     $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
-                    $rs          = PMA_DBI_query($local_query, $dbh);
-                    // "SHOW DATABASES" statement is disabled
+                    // here, a PMA_DBI_query() could fail silently
+                    // if SHOW DATABASES is disabled
+                    $rs          = PMA_DBI_try_query($local_query, $dbh);
+
                     if ($i == 0
                         && (substr(PMA_DBI_getError($dbh), 1, 4) == 1045)) {
+                        // "SHOW DATABASES" statement is disabled
                         $true_dblist[] = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
                         $is_show_dbs   = FALSE;
                     }

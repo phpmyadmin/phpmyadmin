@@ -11,6 +11,8 @@ $Source$
       it expects a result resource 
     * libraries/tbl_move_copy.php: bug #1117112, commands out of sync when
       using "copy table" operation
+    * libraries/common.lib.php: bug #1114363, error when SHOW DATABASES is
+      disabled
 
 2005-02-07 Alexander M. Turek  <me@derrabus.de>
     * libraries/mcrypt.lib.php: Bug #1117907 ("wrong parameter count" with
