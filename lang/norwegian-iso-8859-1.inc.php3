@@ -438,4 +438,6 @@ $strYes = 'Ja';
 $strZip = 'Komprimert (zip)';
 
 // To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

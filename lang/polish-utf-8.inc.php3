@@ -433,6 +433,8 @@ $strWrongUser = 'Błędne pola użytkownik/hasło. Brak dostępu.';
 $strYes = 'Tak';
 
 $strZip = '".zip"';
-// To translate
 
+// To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>
