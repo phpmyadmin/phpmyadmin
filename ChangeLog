@@ -8,6 +8,7 @@ $Source$
 2004-06-30 Marc Delisle  <lem9@users.sourceforge.net>
     * left.php: fix against security alert, thanks to Garvin
     * Documentation.html: FAQ 8.2 for security alert
+    ### 2.5.7-pl1 released
 
 2004-06-30 Alexander M. Turek  <me@derrabus.de>
     * libraries/common.lib.php: Fix against $_REQUEST['cfg'] exploits.
