@@ -833,22 +833,33 @@ function delete_bookmarks($db, $cfgBookmark, $id) {
 
 $cfgBookmark=get_bookmarks_param();
 
-function format_byte_down($value){
+
+function format_byte_down($value,$limes=6,$comma=0){
+/*
+			if ($tblsize>1000000000) $tblsize_format=number_format(round($tblsize/107374182.4)/10,1,','.')." GB";
+			else if ($tblsize>1000000) $tblsize_format=number_format(round($tblsize/104857.6)/10,1,','.')." MB";
+			else if ($tblsize>1000) $tblsize_format=number_format(round($tblsize/102.4)/10,1)." KB";
+*/
+	$dh=pow(10,$comma);
+	$li=pow(10,$limes);
 	$returnvalue=$value;
 	$unit="Byte";
-	if ($value>1000000000000){
-		$value=$value/1073741824;
+	if ($value >= $li*1000000){
+		echo "$value - $dh<br>";
+		$value=round($value/(1073741824/$dh))/$dh;
+		echo "$value - $dh<br>";
 		$unit="GB";
 	}
-	else if ($value >= 1000000000){
-		$value=$value/1048576;
+	else if ($value >= $li*1000){
+		$value=round($value/(1048576/$dh))/$dh;
 		$unit="MB";
 	}
-	else if ($value >= 1000000){
-		$value=round($value/1024);
+	else if ($value >= $li){
+		$value=round($value/(1024/$dh))/$dh;
 		$unit="KB";
 	}
-	$returnvalue=number_format($value,0,',','.');
+	if ($unit!="Byte") $returnvalue=number_format($value,$comma,',','.');
+	else $returnvalue=number_format($value,0,',','.');
 	return array($returnvalue,$unit);
 }
 
