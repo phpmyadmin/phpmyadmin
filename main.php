@@ -233,6 +233,7 @@ if ($server > 0) {
                 $re1 = '(^|[^\])(\\\)+'; // escaped wildcards
                 while ($row = PMA_DBI_fetch_row($rs_usr)) {
                     $show_grants_dbname = substr($row[0], strpos($row[0], ' ON ') + 4,(strpos($row[0], '.', strpos($row[0], ' ON ')) - strpos($row[0], ' ON ') - 4));
+                    $show_grants_dbname = ereg_replace('^`(.*)`','\\1',  $show_grants_dbname);
                     $show_grants_str    = substr($row[0],6,(strpos($row[0],' ON ')-6));
                     if (($show_grants_str == 'ALL') || ($show_grants_str == 'ALL PRIVILEGES') || ($show_grants_str == 'CREATE') || strpos($show_grants_str, 'CREATE')) {
                         if ($show_grants_dbname == '*') {
@@ -240,11 +241,10 @@ if ($server > 0) {
                             $db_to_create   = '';
                             break;
                         } // end if
-                        else if (ereg($re0 . '%|_', $show_grants_dbname) || !PMA_DBI_try_query('USE ' . $show_grants_dbname) && substr(PMA_DBI_getError(), 1, 4) != 1044) {
+                        else if ( (!PMA_DBI_try_query('USE ' . ereg_replace($re1 .'(%|_)', '\\1\\3', $show_grants_dbname)) && substr(PMA_DBI_getError(), 1, 4) != 1044)
+                            ) {
                             $db_to_create = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $show_grants_dbname));
                             $db_to_create = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
-                            // and remove backquotes
-                            $db_to_create = str_replace('`','',$db_to_create);
                             $is_create_priv     = TRUE;
                             break;
                         } // end elseif

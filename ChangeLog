@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php: bug 922054, when there is no control user, the detection
+      of the grants does not take into account all cases; 
+      thanks to Thomas ( jacob@internet24.de)
+
 2004-03-30 Michal Cihar  <michal@cihar.com>
     * tbl_indexes.php: Use properly $cfg['PropertiesIconic']  (bug #918072).
 
