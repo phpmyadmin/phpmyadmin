@@ -505,11 +505,6 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
           if ($t_cur == 'alpha') {
             $t_suffix     = '_identifier';
             $d_cur_upper  = strtoupper($sql_array[$i]['data']);
-            
-            if($d_cur_upper == 'SET') {
-              echo "T: $t_next\n";
-              }
-
             if (($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
               $t_suffix = '_identifier';
             } else if (($t_next == 'punct_bracket_open_round')
