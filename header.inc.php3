@@ -66,7 +66,7 @@ body {
     color: #000000;
 <?php
 if ($GLOBALS['cfg']['RightBgImage'] == '') {
-    echo '    background-image: url(\'./images/vertical_line.gif\');' . "\n"
+    echo '    background-image: url(\'./images/vertical_line.png\');' . "\n"
          . '    background-repeat: repeat-y;' . "\n";
 } else {
     echo '    background-image: url(\'' . $GLOBALS['cfg']['RightBgImage'] . '\');' . "\n";

@@ -595,11 +595,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 }
                 else if (eregi('[[:space:]]ASC$', $sql_order)) {
                     $sort_order .= ' DESC';
-                    $order_img   = '&nbsp;<img src="./images/asc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" />';
+                    $order_img   = '&nbsp;<img src="./images/asc_order.png" border="0" width="7" height="7" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" />';
                 }
                 else if (eregi('[[:space:]]DESC$', $sql_order)) {
                     $sort_order .= ' ASC';
-                    $order_img   = '&nbsp;<img src="./images/desc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" />';
+                    $order_img   = '&nbsp;<img src="./images/desc_order.png" border="0" width="7" height="7" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" />';
                 }
                 if (eregi('(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))', $unsorted_sql_query, $regs3)) {
                     $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];

@@ -24,7 +24,7 @@ if (!isset($pma_uri_parts)) {
 }
 setcookie('lang', $lang, time() + 60*60*24*30, $cookie_path, '', $is_https);
 // Defines the "item" image depending on text direction
-$item_img = 'images/item_' . $text_dir . '.gif';
+$item_img = 'images/item_' . $text_dir . '.png';
 // Handles some variables that may have been sent by the calling script
 if (isset($db)) {
     unset($db);

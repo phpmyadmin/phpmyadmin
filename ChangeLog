@@ -15,6 +15,15 @@ $Source$
     * lang/polish*: Updates, thanks to Jakub Wilk (ubanus)
     * fulltext.png, partialtext.png, pma_logo.png:
         - Ran PNGCRUSH on files to reduce size optimially.
+    * plus.gif, browse.gif, desc_order.gif, asc_order.gif, minus.gif,
+    vertical_line.gif, item_rtl.gif, item_ltr.gif:
+        - Old image files removed and replaced with PNG files (feature
+        #458895)
+    * plus.png, browse.png, desc_order.png, asc_order.png, minus.png,
+    vertical_line.png, item_rtl.png, item_ltr.png:
+        - New PNG image files (feature #458895)
+    * header.inc.php3, left.php3, main.php3, libraries/display_tbl.lib.php3:
+        - Code changes for PNG images (feature #458895)
 
 2003-01-21 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: checkType function
