@@ -14,6 +14,11 @@ FILEPAT="*.inc.php"
 STRINGMATCH='^[[:space:]]*\$[[:alnum:]_]+[[:blank:]]+='
 IGNOREMATCH='strEncto|strKanjiEncodConvert|strXkana|allow_recoding'
 
+if [ "`which diffstat`" = "" ] ; then
+    echo 'You need diffstat to use this!'
+    exit 1
+fi
+
 rm -rf $TMPDIR
 mkdir -p $TMPDIR
 

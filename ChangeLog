@@ -5,9 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-29 Michal Čihař  <michal@cihar.com>
+    * lang/check_lang.sh: Checks for diffstat presence.
+
 2004-06-28 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/slovak: Updated, thanks to Lubos Klokner (erkac)
     ### 2.6.0-beta2 released
+
 
 2004-06-27 Michal Čihař  <michal@cihar.com>
     * lang/*: Make all export choices look simmilar ('drop table' -> DROP
