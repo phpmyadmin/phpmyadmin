@@ -236,22 +236,34 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         <?php
         echo "\n";
         reset($selectboxall);
+        $myfield = $save_row[$i]['Field'];
+        if (isset($existrel[$myfield])) {
+            $foreign_field    = $existrel[$myfield]['foreign_db'] . '.'
+                     . $existrel[$myfield]['foreign_table'] . '.'
+                     . $existrel[$myfield]['foreign_field'];
+        } else {
+            $foreign_field    = FALSE;
+        }
+        $seen_key = FALSE;
         while (list($key, $value) = each($selectboxall)) {
-            $myfield = $save_row[$i]['Field'];
-            if (isset($existrel[$myfield])) {
-                $test    = $existrel[$myfield]['foreign_db'] . '.'
-                         . $existrel[$myfield]['foreign_table'] . '.'
-                         . $existrel[$myfield]['foreign_field'];
-            } else {
-                $test    = FALSE;
-            }
             echo '                '
                  . '<option value="' . htmlspecialchars($key) . '"';
-            if ($test && $key == $test) {
+            if ($foreign_field && $key == $foreign_field) {
                 echo ' selected="selected"';
+                $seen_key = TRUE;
             }
             echo '>' . $value . '</option>'. "\n";
         } // end while
+
+        // if the link defined in relationtable points to a foreign field
+        // that is not a key in the foreign table, we show the link 
+        // (will not be shown with an arrow)
+        if ($foreign_field && !$seen_key) {
+            echo '                '
+                 . '<option value="' . htmlspecialchars($foreign_field) . '"';
+            echo ' selected="selected"';
+            echo '>' . $foreign_field . '</option>'. "\n";
+        }
         ?>
             </select>
         </td>

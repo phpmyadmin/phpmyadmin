@@ -9,6 +9,8 @@ $Source$
     * libraries/display_tbl.lib.php3: clicking on a COUNT() column to sort
     * read_dump.php3: bug 634074: we now use is_writeable() on the tmp
       subdir, instead of looking for a dot in the open_basedir path
+    * tbl_relation.php3: show a field in "Links to" if it has been defined
+      manually in the relationtable, even if it's not a key in the foreign table
 
 2002-11-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: numeric foreign keys used as alias
