@@ -41,6 +41,7 @@ Please ensure you have:
           " define('PMA_VERSION', '$1'); "
      - in Documentation.html the 2 lines
           " <h1>phpMyAdmin $1 Documentation</h1> "
+     - in translators.html
   2. built the new "Documentation.txt" version using the Lynx "print" command
      on the "Documentation.html" file.
 
@@ -100,17 +101,17 @@ Todo now:
  4. add SF news item to phpMyAdmin project
  5. update the download page: /home/groups/p/ph/phpmyadmin/htdocs
  6. announce release on freshmeat (http://freshmeat.net/projects/phpmyadmin/)
- 7. announce release on http://phpwizard.net/phorum/list.php?f=1
- 8. send a short mail (with list of major changes) to 
+ 7. send a short mail (with list of major changes) to 
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
         phpmyadmin-users@lists.sourceforge.net
- 9. increment rc count or version in CVS :
+ 8. increment rc count or version in CVS :
         - in libraries/defines.lib.php3 the line
               " define('PHPMYADMIN_VERSION', '2.2.2-rc1'); "
         - in Documentation.html the line
               " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
-10. update the demo subdirectory:
+        - in translators.html
+ 9. update the demo subdirectory:
         - in htdocs, cvs update phpMyAdmin
         - and don't forget to give write rights for the updated scripts to the
           whole group
