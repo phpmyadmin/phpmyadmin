@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/italian update, thanks to Pietro Danesi
+    * lang/slovak update, thanks to Lubos Klokner
+    * lang/polish: update, thanks to Jakub Wilk
+    * lang/thai: update, thanks to Arthit Suriyawongkul
+
 2003-02-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: Coding standards.
     * lang/romanian-*.inc.php3: Updates, thanks to Valics Lehel.
