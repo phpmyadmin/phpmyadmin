@@ -2,8 +2,8 @@
 /* $Id$*/
 
 
-require("./grab_globals.inc.php3");
-require("./lib.inc.php3");
+require('./grab_globals.inc.php3');
+require('./lib.inc.php3');
 
 function check_operations()
 {
@@ -672,15 +672,23 @@ function edit_operations($host, $user)
     <?php
 }
 
+/**
+ * Checks whether the current user is a super-user or not
+ *
+ * @return  boolean  true as soon as the current user is super-user, no return
+ *                   else
+ *
+ * @access	private
+ */
 function check_rights()
 {
-    global $strNoRights;
-
-    $result = mysql_query("SELECT * FROM mysql.user");
-    $rows = @mysql_num_rows($result);
-
-    if (!isset($rows)) mysql_die($strNoRights);
-}
+    $result = @mysql_query('USE mysql');
+    if (mysql_error()) {
+        mysql_die($GLOBALS['strNoRights']);
+    }
+    
+    return true;
+} // end of the 'check_rights()' function
 
 
 function table_users($host = FALSE, $user = FALSE)
@@ -814,7 +822,7 @@ function confirm() {
 
 if(!isset($message))
 {
-    include("./header.inc.php3");
+    include('./header.inc.php3');
 }
 else
 {
@@ -882,6 +890,6 @@ if (isset($edit) && $edit) { # Edit an user
   normal_operations();
 }
 
-require("./footer.inc.php3");
+require('./footer.inc.php3');
 
 ?>

@@ -11,6 +11,7 @@ $Source$
 	  main.php3; sql.php3; tbl_properties.php3; tbl_select.php3;
 	  tbl_replace.php3: the $server variable do not need to be urlencoded (it's
 	  an integer).
+	* user_details.php3: optimized the 'check_rights()' function.
 
 2001-08-28  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/galician.inc.php3, select_lang.inc.php3: new Galician lang thanks to
