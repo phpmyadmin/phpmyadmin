@@ -10,7 +10,8 @@ $Source$
 
 2002-07-05 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: about html entities in translations
-    * common.lib.php: charset_conversion needs the constants
+    * libraries/common.lib.php3: charset_conversion needs the constants
+    * libraries/select_lang.lib.php3, /lang: -utf8 files renamed -utf-8
 
 2002-07-01 Loïc Chapeaux  <lolo@phpheaven.net>
     * Documentation.html: coding standards and xhtml fixes.
