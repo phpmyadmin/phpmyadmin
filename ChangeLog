@@ -5,7 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2005-06-07 Alexander M. Turek  <me@derrabus.de>
+2005-02-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/dbi/*: PMA_DBI_free_result(): do not send a boolean
+      to mysqli_free_result() or mysql_free_result(), it expects a result resource 
+
+2005-02-07 Alexander M. Turek  <me@derrabus.de>
     * libraries/mcrypt.lib.php: Bug #1117907 ("wrong parameter count" with
       php 4.1.x.
 
