@@ -167,7 +167,7 @@ while (list($key, $table) = each($the_tables)) {
         }
     }
     else {
-    	$have_rel = FALSE;
+   	    $have_rel = FALSE;
     }
      // end if
 

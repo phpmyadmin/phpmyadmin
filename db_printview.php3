@@ -28,12 +28,12 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
     if ($cfg['SkipLockedTables'] == TRUE && PMA_MYSQL_INT_VERSION >= 32330) {
         $local_query  = 'SHOW OPEN TABLES FROM ' . PMA_backquote($db);
-        $result        = PMA_mysql_query($query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        $result        = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
         // Blending out tables in use
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             while ($tmp = PMA_mysql_fetch_array($result)) {
                 // if in use memorize tablename
-                if (eregi('in_use=[1-9]+', $tmp)) {
+                if (eregi('in_use=[1-9]+', $tmp[0])) {
                     $sot_cache[$tmp[0]] = TRUE;
                 }
             }
@@ -41,7 +41,7 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
 
             if (isset($sot_cache)) {
                 $local_query = 'SHOW TABLES FROM ' . PMA_backquote($db);
-                $result      = PMA_mysql_query($query) or PMA_mysqlDie('', $local_query, '', $err_url);
+                $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
                 if ($result != FALSE && mysql_num_rows($result) > 0) {
                     while ($tmp = PMA_mysql_fetch_array($result)) {
                         if (!isset($sot_cache[$tmp[0]])) {
