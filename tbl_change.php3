@@ -198,9 +198,13 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     echo "\n";
 
     // Prepares the field value
-    if (isset($row) && isset($row[$field])) {
+    if (isset($row)) {
+        // loic1: null field value
+        if (!isset($row[$field])) {
+            $row[$field] = 'NULL';
+        }
         // loic1: special binary "characters"
-        if ($is_binary || $is_blob) {
+        else if ($is_binary || $is_blob) {
             $row[$field] = str_replace("\x00", '\0', $row[$field]);
             $row[$field] = str_replace("\x08", '\b', $row[$field]);
             $row[$field] = str_replace("\x0a", '\n', $row[$field]);

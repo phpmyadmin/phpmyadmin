@@ -9,6 +9,8 @@ $Source$
 	* lang/spanish.inc.php3: updated thanks to
 	  Gabriel Ginard <gginard at navegalia.com>.
 	* lang/*.sh: codding standards.
+	* tbl_change.php3, lines 201-207: fields with "NULL" value were affected
+	  their default value (thanks to Marc Delisle).
 
 2001-12-27  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/left.js, line 81: fixed bug #496491 - JS error with NS 4.73 on
