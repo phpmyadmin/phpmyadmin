@@ -817,7 +817,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 <th <?php echo $column_style; ?> <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>>
     <?php echo $comments_table_wrap_pre; ?>
     <a href="sql.php?<?php echo $url_query; ?>" <?php echo (($disp_direction == 'horizontalflipped' AND $GLOBALS['cfg']['HeaderFlipType'] == 'css') ? 'style="direction: ltr; writing-mode: tb-rl;"' : '') . ' title="' . $GLOBALS['strSort'] . '"'; ?>>
-        <?php echo ($disp_direction == 'horizontalflipped'  && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name)); ?> </a><?php echo $order_img . "\n"; ?>
+        <?php echo ($disp_direction == 'horizontalflipped'  && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars(PMA_convert_display_charset($fields_meta[$i]->name)), "<br />\n") : htmlspecialchars(PMA_convert_display_charset($fields_meta[$i]->name))); ?> </a><?php echo $order_img . "\n"; ?>
     <?php echo $comments_table_wrap_post; ?>
 </th>
                 <?php
@@ -837,7 +837,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 ?>
 <th <?php echo $column_style; ?> <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>  <?php echo ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'css' ? 'style="direction: ltr; writing-mode: tb-rl;"' : ''); ?>>
     <?php echo $comments_table_wrap_pre; ?>
-    <?php echo ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'fake'? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name)) . "\n"; ?>
+    <?php echo ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'fake'? PMA_flipstring(PMA_convert_display_charset(htmlspecialchars($fields_meta[$i]->name)), "<br />\n") : htmlspecialchars(PMA_convert_display_charset($fields_meta[$i]->name))) . "\n"; ?>
     <?php echo $comments_table_wrap_post; ?>
 </th>
                 <?php

@@ -11,6 +11,8 @@ $Source$
       #927554) [still missing images/button_export.png, waiting for somebody
       to make it :-)].
     * libraries/auth/cookie.auth.lib.php: Fix possible undefined variable use.
+    * libraries/display_tbl.lib.php: Convert charset for column fields (thanks
+      to Marc for noticing this).
 
 2004-04-15 Olivier Mueller <om@omnis.ch>
     * left.php: RFE #859208, Logout button in left frame
