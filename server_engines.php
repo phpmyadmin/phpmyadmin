@@ -32,6 +32,7 @@ require('./server_links.inc.php');
 define('PMA_ENGINE_DETAILS_TYPE_PLAINTEXT', 0);
 define('PMA_ENGINE_DETAILS_TYPE_SIZE',      1);
 define('PMA_ENGINE_DETAILS_TYPE_NUMERIC',   2); //Has no effect yet...
+define('PMA_ENGINE_DETAILS_TYPE_BOOLEAN',   3); // 'ON' or 'OFF'
 function PMA_generateEngineDetails($variables, $like = NULL, $indent = 0) {
     global $cfg;
 
@@ -69,36 +70,36 @@ function PMA_generateEngineDetails($variables, $like = NULL, $indent = 0) {
     foreach ($variables as $var => $details) {
         if (!isset($mysql_vars[$var])) continue;
 
-	if (!isset($details['type'])) $details['type'] = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
-	$is_num = $details['type'] == PMA_ENGINE_DETAILS_TYPE_SIZE || $details['type'] == PMA_ENGINE_DETAILS_TYPE_NUMERIC;
+        if (!isset($details['type'])) $details['type'] = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
+        $is_num = $details['type'] == PMA_ENGINE_DETAILS_TYPE_SIZE || $details['type'] == PMA_ENGINE_DETAILS_TYPE_NUMERIC;
 
         $bgcolor = $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
 
         $dt_table     .= $spaces . '    <tr>' . "\n"
-	               . $spaces . '        <td bgcolor="' . $bgcolor . '">' . "\n";
-	if (!empty($variables[$var]['desc'])) {
-	    $dt_table .= $spaces . '            ' . PMA_showHint($details['desc']) . "\n";
-	}
-	$dt_table     .= $spaces . '        </td>' . "\n"
-	               . $spaces . '        <td bgcolor="' . $bgcolor . '">' . "\n"
-		       . $spaces . '            &nbsp;' . $details['title'] . '&nbsp;' . "\n"
-		       . $spaces . '        </td>' . "\n"
-		       . $spaces . '        <td bgcolor="' . $bgcolor . '"' . ($is_num ? ' align="right"' : '') . '>' . "\n"
-		       . $spaces . '            &nbsp;';
+                       . $spaces . '        <td bgcolor="' . $bgcolor . '">' . "\n";
+        if (!empty($variables[$var]['desc'])) {
+            $dt_table .= $spaces . '            ' . PMA_showHint($details['desc']) . "\n";
+        }
+        $dt_table     .= $spaces . '        </td>' . "\n"
+    	               . $spaces . '        <td bgcolor="' . $bgcolor . '">' . "\n"
+                       . $spaces . '            &nbsp;' . $details['title'] . '&nbsp;' . "\n"
+                       . $spaces . '        </td>' . "\n"
+                       . $spaces . '        <td bgcolor="' . $bgcolor . '"' . ($is_num ? ' align="right"' : '') . '>' . "\n"
+                       . $spaces . '            &nbsp;';
         switch ($details['type']) {
-	    case PMA_ENGINE_DETAILS_TYPE_SIZE:
-	        $parsed_size = PMA_formatByteDown($mysql_vars[$var]);
-	        $dt_table .= $parsed_size[0] . '&nbsp;' . $parsed_size[1];
-		unset($parsed_size);
-	    break;
-	    default:
-	        $dt_table .= htmlspecialchars($mysql_vars[$var]);
-	}
-	$dt_table     .= '&nbsp;' . "\n"
-		       . $spaces . '        </td>' . "\n"
-		       . $spaces . '    </tr>' . "\n";
+            case PMA_ENGINE_DETAILS_TYPE_SIZE:
+                $parsed_size = PMA_formatByteDown($mysql_vars[$var]);
+                $dt_table .= $parsed_size[0] . '&nbsp;' . $parsed_size[1];
+                unset($parsed_size);
+            break;
+            default:
+                $dt_table .= htmlspecialchars($mysql_vars[$var]);
+        }
+        $dt_table     .= '&nbsp;' . "\n"
+                      . $spaces . '        </td>' . "\n"
+                      . $spaces . '    </tr>' . "\n";
         $useBgcolorOne = !$useBgcolorOne;
-	$has_content   = TRUE;
+        $has_content   = TRUE;
     }
 
     if (!$has_content) return '';
