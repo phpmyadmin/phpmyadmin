@@ -14,8 +14,10 @@ $Source$
 	* tbl_properties.php3, line 1051: added a link to the MySql documentation.
 	* defines.inc.php3; header.inc.php3; left.js; left.php3; lib.inc.php3:
 	  improved font size definition.
-	* tbl_replace.php3, lines 107-108: maybe fixed bugs #458324 - Editing
-	  fields and #457260 - update (LIMIT 1).
+	* tbl_replace.php3:
+	  - lines 107-108: maybe fixed bugs #458324 - Editing fields and 
+	    #457260 - update (LIMIT 1);
+	  - fixed a js. bug.
 	* lang/italian.inc.php3: updated thanks to
 	  Pietro Danesi <danone at aruba.it>.
 	* tbl_alter.php3, lines 9-11; tbl_create.php3, lines 9-11: fixed a js
@@ -27,6 +29,8 @@ $Source$
 	* db_details.php3, tbl_properties.php3: started merging patch #444128
 	  (display & dump index length) submitted by
 	  Marcus Börger (helly at users.sourceforge.net).
+	* tbl_change.php3, lines 324-329: field size should always be at least 4 to
+	  allow the use of the 'null' value.
 
 2001-09-03  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/czech-iso.inc.php3 & czech-win1250.inc.php3: updated thanks to
