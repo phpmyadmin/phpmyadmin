@@ -9,6 +9,8 @@ $Source$
     * lang/norwegian-*.inc.php3: Updates, thanks again to
       Sven-Erik Andersen (sven-erik).
     * lang/swedish-*.inc.php3: Updates, thanks again to Björn T. Hallberg (bth).
+    * lang/spanish-*.inc.php3: Updates, thanks again to
+      Dr. med. Daniel Hinostroza C.
 
 2002-12-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html, header.inc.php3, header_printview.inc.php3, main.php3,

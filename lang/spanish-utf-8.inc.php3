@@ -253,6 +253,7 @@ $strNotValidNumber = '¡no es un número de fila válido!';
 $strNull = 'Nulo';
 $strNumSearchResultsInTable = '%s resultado(s) en la tabla <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> resultado(s)';
+$strNumTables = 'Tablas';
 
 $strOK = 'OK';
 $strOftenQuotation = 'A menudo son comillas. OPCIONALMENTE significa que únicamente los campos char y varchar están encerrados por el caracter "comillas".';
@@ -299,6 +300,7 @@ $strQueryOnDb = 'Consulta a la base de datos <b>%s</b>:';
 $strReType = 'Re-escriba';
 $strRecords = 'Registros';
 $strReferentialIntegrity = 'Compruebe la integridad referencial:';
+$strRelationalSchema = 'Esquema relacionado';
 $strRelationNotWorking = 'Los componentes adicionales para trabajar con tablas vinculadas fueron desactivados. Para saber porqué, dé clic %saquí%s.';  //Features = ¿componentes?
 $strRelationView = 'Vista de relaciones';
 $strReloadFailed = 'El reinicio de MySQL ha fallado.';
@@ -392,6 +394,7 @@ $strTableHasBeenDropped = 'Se ha eliminado la tabla %s';
 $strTableHasBeenEmptied = 'Se ha vaciado la tabla %s';
 $strTableHasBeenFlushed = 'Se ha vaciado el caché de la tabla %s';
 $strTableMaintenance = 'Mantenimiento de la tabla';
+$strTableOfContents = 'Tabla de contenido';
 $strTableStructure = 'Estructura de tabla para la tabla';
 $strTableType = 'Tipo de tabla';
 $strTables = '%s tabla(s)';
@@ -400,6 +403,7 @@ $strTheContent = 'El contenido de su archivo ha sido insertado.';
 $strTheContents = 'El contenido del archivo reemplaza el contenido de la tabla seleccionada para las columnas idénticas primarias o únicas.';
 $strTheTerminator = 'El terminador de los campos.';
 $strTotal = 'total';
+$strTotalUC = 'Total';
 $strType = 'Tipo';
 
 $strUncheckAll = 'Desmarcar todos';
@@ -434,10 +438,6 @@ $strYes = 'Sí';
 $strZip = '"comprimido con zip"';
 
 // To translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
-$strRelationalSchema = 'Relational schema';  //to translate
-$strTableOfContents = 'Table of contents';  //to translate
 $strCannotLogin = 'Cannot login to MySQL server';  //to translate
 $strShowDatadictAs = 'Data Dictionary Format';  //to translate
 $strLandscape = 'Landscape';  //to translate
