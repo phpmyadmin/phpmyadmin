@@ -127,11 +127,39 @@ if($server == 0) {
   if(isset($cfgServer['only_db']) && !empty($cfgServer['only_db']))
     $dblist[] = $cfgServer['only_db'];
 
-  if($cfgServer['adv_auth']) {
-    if (empty($PHP_AUTH_USER) && isset($REMOTE_USER))
-      $PHP_AUTH_USER=$REMOTE_USER;
-    if(empty($PHP_AUTH_PW) && isset($REMOTE_PASSWORD))
-      $PHP_AUTH_PW=$REMOTE_PASSWORD;
+  if ($cfgServer['adv_auth']) {
+    // Grab the $PHP_AUTH_USER variable whatever are the values of the
+    // 'register_globals' and the 'variables_order' directives
+    if (empty($PHP_AUTH_USER)) {
+      if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['PHP_AUTH_USER'])) {
+        $PHP_AUTH_USER = $HTTP_SERVER_VARS['PHP_AUTH_USER'];
+      }
+      else if (isset($REMOTE_USER)) {
+        $PHP_AUTH_USER = $REMOTE_USER;
+      }
+      else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['REMOTE_USER'])) {
+        $REMOTE_USER = $HTTP_ENV_VARS['REMOTE_USER'];
+      }
+      else if (@getenv('REMOTE_USER')) {
+        $REMOTE_USER = getenv('REMOTE_USER');
+      }
+    }
+    // Grab the $PHP_AUTH_PW variable whatever are the values of the
+    // 'register_globals' and the 'variables_order' directives
+    if (empty($PHP_AUTH_PW)) {
+      if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['PHP_AUTH_PW'])) {
+        $PHP_AUTH_PW = $HTTP_SERVER_VARS['PHP_AUTH_PW'];
+      }
+      else if (isset($REMOTE_PASSWORD)) {
+        $PHP_AUTH_PW = $REMOTE_PASSWORD;
+      }
+      else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['REMOTE_PASSWORD'])) {
+        $PHP_AUTH_PW = $HTTP_ENV_VARS['REMOTE_PASSWORD'];
+      }
+      else if (@getenv('REMOTE_PASSWORD')) {
+        $PHP_AUTH_PW = getenv('REMOTE_PASSWORD');
+      }
+    }
 
     if(!isset($old_usr)) {
       if(empty($PHP_AUTH_USER)) {
