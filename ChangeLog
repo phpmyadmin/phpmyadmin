@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-23  Marc Delisle  <lem9@users.sourceforge.net>
+	* updates to italian thanks to Alessandro Astarita <aleast@libero.it> 
+	* updates to catala  thanks to Jordi Bruguera <jordi@t800.grn.es>
+	* updates to spanish thanks to Gabriel Ginard <gginard@naveglia.com>
+ 	* config.inc.php3, Documentation.html, footer.inc.php3,
+	  header.inc.php3, ob_lib.inc.php3: 
+           bug 443318 Undefined variable: ob_mode
+	   fix thanks to Jeremy Brand <jeremy@nirvani.net>
+	
 2001-07-23  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_properties.php3: correct small display bugs
 	* sql.php3: complement list of 'show' options to

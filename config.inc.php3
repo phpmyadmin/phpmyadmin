@@ -91,6 +91,8 @@ $cfgDefaultLang = "en";       // default language to use, if not browser-defined
 // $cfgLang = "en";           // force: always use this language - must be defined in select_lang.inc.php3
 require("./select_lang.inc.php3");	// load language file
 
+// GZIP output buffering
+$cfgOBGzip = true;
 
 $cfgColumnTypes = array(
    "TINYINT",
