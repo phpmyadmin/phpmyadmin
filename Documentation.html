@@ -8,7 +8,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>phpMyAdmin 2.5.2-rc3 - Documentation</title>
+    <title>phpMyAdmin 2.5.2 - Documentation</title>
     <link rel="stylesheet" type="text/css" href="docs.css" />
 </head>
 
@@ -31,7 +31,7 @@
 <hr noshade="noshade" width="100%" />
 </div>
 
-<h1>phpMyAdmin 2.5.2-rc3 Documentation</h1>
+<h1>phpMyAdmin 2.5.2 Documentation</h1>
 
 
 <!-- TOP MENU -->
@@ -3348,7 +3348,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     [8.1] Security alert, dated 2003-06-18.
 </h4>
 <p>
-    Last update of this FAQ: 2003-07-02.
+    Last update of this FAQ: 2003-07-22.
     <br /><br />
     The phpMyAdmin development team received notice of this security alert:
     <a href="http://www.securityfocus.com/archive/1/325641" target="_blank">http://www.securityfocus.com/archive/1/325641.</a>
@@ -3375,7 +3375,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         <li>&quot;Remote internal directory listing&quot;
         <br /><br />
         It was possible to retrieve the list of phpMyAdmin's directory (which we
-        doubt can cause any damage), but we fixed this in the upcoming
+        doubt can cause any damage), but we fixed this in the 
         2.5.2 version.
         <br /><br />
         </li>
@@ -3383,15 +3383,16 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         <li>&quot;XSS and Path disclosures&quot;
         <br /><br />
         Most of the XSS problems have been fixed in version 2.5.0. The rest
-        have been fixed in the upcoming 2.5.2 version.
+        have been fixed in the 2.5.2 version.
         <br /><br />
-        We are currently looking at the Path disclosure issue.
+        We believe that the Path disclosures problems have also been fixed
+        in version 2.5.2.
         <br /><br />
         </li>
         <li>&quot;Information encoding weakness&quot;
         <br /><br />
         We believe that an exploit for this weakness would be difficult 
-        to achieve.  However version 2.5.2-dev now encrypts the password
+        to achieve.  However version 2.5.2 now encrypts the password
         with the well-known blowfish algorithm.
         <br /><br />
         </li>

@@ -6,7 +6,7 @@
    Transformations  -  FAQ  -  Developers  -  Credits  -  Translators
    ______________________________________________________________________
    
-                      phpMyAdmin 2.5.2-rc2 Documentation
+                        phpMyAdmin 2.5.2 Documentation
                                        
      * SourceForge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ] 
@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.472 2003/07/10
-       13:30:34 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.478 2003/07/22
+       19:22:01 lem9 Exp $
        
 Requirements
 
@@ -23,8 +23,8 @@ Requirements
        function that was added in PHP 3.0.6, but was buggy up until
        PHP 3.0.8. Then you should not run this script with PHP3 < 3.0.8.
        PHP also needs to be compiled with MySQL support;
-       If you want to display inline thumbnails of JPEGs, you also need
-       GD2 support in PHP.
+       If you want to display inline thumbnails of JPEGs with the
+       original aspect ratio, you also need GD2 support in PHP.
      * MySQL (tested with 3.21.x, 3.22.x, 3.23.x, 4.0.x and 4.1.x);
        Note: The implemented MySQL 4.1.x support is experimental!
      * a web-browser (doh!).
@@ -136,8 +136,8 @@ Installation
        section).
        However, keep in mind that the password travels in plain text,
        unless you are using the HTTPS protocol.
-       In cookie mode, we send the password in a temporary cookie, so
-       most browsers should not store the password in their cookie file.
+       In cookie mode, the password is stored, encrypted with the
+       blowfish algorithm, in a temporary cookie.
      * For 'HTTP' and 'cookie' modes, phpMyAdmin needs a controluser that
        has only the SELECT privilege on the mysql.user (all columns
        except "Password"), mysql.db (all columns) & mysql.tables_priv
@@ -1273,6 +1273,9 @@ Transformations
    <www.your-host.com>/<your-install-dir>/libraries/transformations/overv
    iew.php3 installation.
    
+   For a tutorial on how to effectively use transformations, see our Link
+   section on the official phpMyAdmin-homepage.
+   
   [2. Usage]
   
    Go to your tbl_properties.inc.php3 page (i.e. reached through clicking
@@ -1415,6 +1418,10 @@ FAQ - Frequently Asked Questions
 
    Server  -  Configuration  -  Limitations  -  Multi-user  -  Browsers
    -  Usage tips  -  Project  -  Security
+   
+   Please have a look at our Link section on the official phpMyAdmin
+   homepage for in-depth coverage of phpMyAdmin's features and/or
+   interface.
    
   [1. Server]
   
@@ -1648,7 +1655,7 @@ FAQ - Frequently Asked Questions
    should work.
    
     [1.27] I get empty page when I want to view huge page (eg.
-    db_details_structure.php3 with plenty of dabases).
+    db_details_structure.php3 with plenty of databases).
     
    This is a PHP bug that occur when GZIP output buffering enabled. If
    you turn off it (by $cfg['OBGzip'] = FALSE in config.inc.php3), it
@@ -2334,7 +2341,7 @@ FAQ - Frequently Asked Questions
   
     [8.1] Security alert, dated 2003-06-18.
     
-   Last update of this FAQ: 2003-07-02.
+   Last update of this FAQ: 2003-07-22.
    The phpMyAdmin development team received notice of this security
    alert: http://www.securityfocus.com/archive/1/325641.
    The team regrets that the author did not communicate with us before
@@ -2350,15 +2357,16 @@ FAQ - Frequently Asked Questions
      * "Remote internal directory listing"
        It was possible to retrieve the list of phpMyAdmin's directory
        (which we doubt can cause any damage), but we fixed this in the
-       upcoming 2.5.2 version.
+       2.5.2 version.
      * "XSS and Path disclosures"
        Most of the XSS problems have been fixed in version 2.5.0. The
-       rest have been fixed in the upcoming 2.5.2 version.
-       We are currently looking at the Path disclosure issue.
+       rest have been fixed in the 2.5.2 version.
+       We believe that the Path disclosures problems have also been fixed
+       in version 2.5.2.
      * "Information encoding weakness"
        We believe that an exploit for this weakness would be difficult to
-       achieve. However version 2.5.2-dev now encrypts the password with
-       the well-known blowfish algorithm.
+       achieve. However version 2.5.2 now encrypts the password with the
+       well-known blowfish algorithm.
        
 Developers Information
 

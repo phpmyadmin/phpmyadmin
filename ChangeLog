@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/estonian update, thanks to finsoft@sourceforge.net.
+    ### 2.5.2 released
+
 2003-07-20 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_operations.php3: Do not display the
       "Referential integrity check" section for InnoDB tables
