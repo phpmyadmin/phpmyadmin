@@ -26,9 +26,6 @@ function PMA_gpc_extract($array, &$target, $sanitize = TRUE) {
          *
          * Currently, the following variable names are rejected when found in
          * $_GET or $_POST: cfg, GLOBALS, str* and _*
-         *
-         * Warning: this also affects array keys:
-         * Variables like $_GET['harmless']['cfg'] will also be rejected!
          */
         if ($sanitize && is_string($key) && (
             $key == 'cfg'
