@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * queryframe.php: improve XHTML
+    * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
+    * lang/dutch: Update thanks to Ivo Teel - calimonk.
+
 2004-06-30 Marc Delisle  <lem9@users.sourceforge.net>
     * left.php: fix against security alert, thanks to Garvin
     * Documentation.html: FAQ 8.2 for security alert
