@@ -253,6 +253,7 @@ $strServerChoice = 'Escolla de Servidor';
 $strServerVersion = 'Versión do servidor';
 $strSetEnumVal = 'Se o tipo de campo é "enum" ou "set", introduza os valores usando este formato: \'a\',\'b\',\'c\'...<br />Se precisar pór unha barra invertida (" \ ") ou aspas simples (" \' ") entre estes valores, preceda a barra e as aspas de barras invertidas (por exemplo \'\\\\xyz\' ou \'a\\\'b\').';
 $strShow = 'Mostrar';
+$strShowAll: 'Ver todos os rexistros';
 $strShowCols = 'Mostrar as columnas';
 $strShowingRecords = 'Mostrando rexistros ';
 $strShowPHPInfo = 'Mostrar información sobre o PHP';
@@ -309,6 +310,7 @@ $strViewDump = 'Ver o esquema do volcado da tabela';
 $strViewDumpDB = 'Ver o esquema do volcado do banco de datos';
 
 $strWelcome = 'Benvido/a ao ';
+$strWithChecked: 'Todos os marcados';
 $strWrongUser = 'Usuario ou contrasinal errado. Acceso negado.';
 
 $strYes = 'Si';
@@ -320,6 +322,4 @@ $strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
 $strNoQuery = 'No SQL query!';  //to translate
-$strShowAll = 'Show all'; // to translate
-$strWithChecked = 'With checked:';
 ?>
