@@ -944,7 +944,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     $row[$i]   = '';
                     $condition .= 'IS NULL AND';
                 } else {
-                    $condition .= '= \'' . str_replace('\'', '\\\'', $row[$i]) . '\' AND';
+                    $condition .= '= \'' . sql_addslashes($row[$i]) . '\' AND';
                 }
                 if ($primary->numeric == 1) {
                     if ($is_show_processlist) {
@@ -964,7 +964,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             } else {
                 $uva_condition = $uva_nonprimary_condition;
             }
-            $uva_condition     = urlencode(ereg_replace('AND$', '', $uva_condition));
+            $uva_condition     = urlencode(ereg_replace(' ?AND$', '', $uva_condition));
             
             $url_query  = 'lang=' . $lang
                         . '&server=' . urlencode($server)
