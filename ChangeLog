@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-10  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_properties.php3: add avg row size
+
 2001-07-10  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_properties.php3, feature 439394 (browse link at top of page)
 
