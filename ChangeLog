@@ -11,6 +11,9 @@ $Source$
       reach the End of rows, and count the exact number of rows to 
       go to the real end
       TODO: page number selector
+    * common.lib.php: PMA_showHint(): now the lightbulb is clickable,
+      to reveal the full message for browsers who truncate it,
+      thanks to Alexander for the suggestion 
 
 2005-01-18 Alexander M. Turek  <me@derrabus.de>
     * server_engines.php, server_links.php libraries/storage_engines.lib.php:
