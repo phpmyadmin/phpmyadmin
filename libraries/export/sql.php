@@ -238,42 +238,26 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     } else {
         PMA_DBI_query('SET SQL_QUOTE_SHOW_CREATE = 0');
     }
-    $result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table), NULL, PMA_DBI_QUERY_STORE);
-    if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
-        $tmpres        = PMA_DBI_fetch_row($result);
-        // Fix for case problems with winwin, thanks to
-        // Paweł Szczepański <pauluz at users.sourceforge.net>
-        $pos           = strpos($tmpres[1], ' (');
 
-        // Fix a problem with older versions of mysql
-        // Find the first opening parenthesys, i.e. that after the name
-        // of the table
-        $pos2          = strpos($tmpres[1], '(');
-        // Old mysql did not insert a space after table name
-        // in query "show create table ..."!
-        if ($pos2 != $pos + 1)
-        {
-            // This is the real position of the first character after
-            // the name of the table
-            $pos = $pos2;
-            // Old mysql did not even put newlines and indentation...
-            $tmpres[1] = str_replace(",", ",\n     ", $tmpres[1]);
-        }
+    $result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table), NULL, PMA_DBI_QUERY_UNBUFFERED);
+    if ($result != FALSE && ($row = PMA_DBI_fetch_row($result))) {
+        $create_query = $row[1];
+        unset($row);
 
-        $tmpres[1]     = substr($tmpres[1], 0, 13)
-                       . (($use_backquotes) ? PMA_backquote($tmpres[0]) : $tmpres[0])
-                       . substr($tmpres[1], $pos);
-        $tmpres[1]     = str_replace("\n", $crlf, $tmpres[1]);
-
+        // Should we use IF NOT EXISTS?
         if (isset($GLOBALS['if_not_exists'])) { 
-            $tmpres[1]     = preg_replace('/^CREATE TABLE/', 'CREATE TABLE IF NOT EXISTS', $tmpres[1]);
+            $create_query     = preg_replace('/^CREATE TABLE/', 'CREATE TABLE IF NOT EXISTS', $create_query);
         }
 
         // are there any constraints to cut out?
-        if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $tmpres[1])) {
+        if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $create_query)) {
             
             // split the query into lines, so we can easilly handle it
-            $sql_lines = preg_split('@\r?\n@', $tmpres[1]);
+            if (strpos(",\r\n ", $create_query) === FALSE) {
+                $sql_lines = preg_split('@\r|\n@', $create_query);
+            } else {
+                $sql_lines = preg_split('@\r\n@', $create_query);
+            }
             $sql_count = count($sql_lines);
 
             // lets find first line with constraints
@@ -289,15 +273,17 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                 if (isset($GLOBALS['no_constraints_comments'])) {
                     $sql_constraints = '';
                 } else {
-                    $sql_constraints = $crlf . $GLOBALS['comment_marker'] . $crlf
-                                        . $GLOBALS['comment_marker'] . $GLOBALS['strConstraintsForDumped'] . $crlf
-                                        . $GLOBALS['comment_marker'] . $crlf;
+                    $sql_constraints = $crlf . $GLOBALS['comment_marker'] . 
+                                       $crlf . $GLOBALS['comment_marker'] . $GLOBALS['strConstraintsForDumped'] . 
+                                       $crlf . $GLOBALS['comment_marker'] . $crlf;
                 }
             }
 
             // comments for current table
             if (!isset($GLOBALS['no_constraints_comments'])) {
-                $sql_constraints .= $crlf .$GLOBALS['comment_marker'] . $crlf .$GLOBALS['comment_marker'] . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) . $crlf . $GLOBALS['comment_marker'] . $crlf;
+                $sql_constraints .= $crlf . $GLOBALS['comment_marker'] . 
+                                    $crlf . $GLOBALS['comment_marker'] . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) . 
+                                    $crlf . $GLOBALS['comment_marker'] . $crlf;
             }
 
             // let's do the work
@@ -320,10 +306,10 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                 }
             }
             $sql_constraints .= ';' . $crlf;
-            $tmpres[1] = implode($crlf, array_slice($sql_lines, 0, $i)) . $crlf . implode($crlf, array_slice($sql_lines, $j, $sql_count - 1));
+            $create_query = implode($crlf, array_slice($sql_lines, 0, $i)) . $crlf . implode($crlf, array_slice($sql_lines, $j, $sql_count - 1));
             unset($sql_lines);
         }
-        $schema_create .= $tmpres[1];
+        $schema_create .= $create_query;
     }
 
     $schema_create .= $auto_increment;

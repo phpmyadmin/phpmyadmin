@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-16 Michal Čihař  <michal@cihar.com>
+    * libraries/export/sql.php: Remove code for old MySQL version, do not
+      store query, better handle various end of lines (probably bug #979635).
+
 2004-07-15 Alexander M. Turek  <me@derrabus.de>
     * scripts/create_tables.old.sql, scripts/create_tables.sql: Force UTF-8
       for PMA database in MySQL 4.1 and above.
