@@ -12,6 +12,8 @@ $Source$
     * tbl_move_copy.php, tbl_properties_operations.php, lang/*: Cleanup in
       table moving/copying and allow to keep constraints over these
       operations.
+    * server_databases.php: Add correct parameters to left frame to keep
+      server choice, language, etc. (bug #845397).
 
 2003-11-20 Garvin Hicking <me@supergarv.de>
     * libraries/auth/*, libraries/dbg/*, libraries/export/*
