@@ -1108,6 +1108,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
                 // n u m e r i c
                 if ($meta->numeric == 1) {
+                    
 
                 // lem9: if two fields have the same name (this is possible
                 //       with self-join queries, for example), using $meta->name
@@ -1141,7 +1142,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             // Field to display from the foreign table?
                             if (!empty($map[$meta->name][2])) {
                                 $dispsql     = 'SELECT ' . PMA_backquote($map[$meta->name][2])
-                                             . ' FROM ' . PMA_backquote($map[$meta->name][0])
+                                             . ' FROM ' . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
                                              . ' WHERE ' . PMA_backquote($map[$meta->name][1])
                                              . ' = ' . $row[$pointer];
                                 $dispresult  = PMA_mysql_query($dispsql);
@@ -1268,7 +1269,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             // Field to display from the foreign table?
                             if (!empty($map[$meta->name][2])) {
                                 $dispsql     = 'SELECT ' . PMA_backquote($map[$meta->name][2])
-                                             . ' FROM ' . PMA_backquote($map[$meta->name][0])
+                                             . ' FROM ' . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
                                              . ' WHERE ' . PMA_backquote($map[$meta->name][1])
                                              . ' = \'' . PMA_sqlAddslashes($row[$pointer]) . '\'';
                                 $dispresult  = @PMA_mysql_query($dispsql);
@@ -1628,7 +1629,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 while ($rel = PMA_mysql_fetch_row($result)) {
                     // check for display field?
                     if ($cfgRelation['displaywork']) {
-                        $display_field = PMA_getDisplayField($db, $rel[2]);
+                        $display_field = PMA_getDisplayField($rel[1], $rel[2]);
                         $map[$rel[0]] = array($rel[2], $rel[3], $display_field, $rel[1]);
                     } // end if
                 } // end while

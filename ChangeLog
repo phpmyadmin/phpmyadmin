@@ -12,6 +12,8 @@ $Source$
       thanks to Ryan)
     * Added scripts/inno2pma (from Ernie Hershey). Please see
       Patch Tracker #709383 for further information.
+    * libraries/display_tbl.lib.php3: Bug #728813 (title for
+      relations when foreign_db != master_db)
 
 2003-04-30 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3, bug 729517, better comment output,
