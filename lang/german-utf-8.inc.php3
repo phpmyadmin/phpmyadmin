@@ -71,6 +71,7 @@ $strBookmarkView = 'Nur zeigen';
 $strBrowse = 'Anzeigen';
 $strBzip = 'BZip-komprimiert';
 
+$strCannotLogin = 'Die Anmeldung am MySQL-Server ist fehlgeschlagen.';
 $strCantLoadMySQL = 'Die MySQL-Erweiterung konnte nicht geladen werden.<br />Bitte überprüfen Sie Ihre PHP-Konfiguration!';
 $strCantLoadRecodeIconv = 'Die PHP-Erweiterungen iconv und recode, welche für die Zeichensatzkonvertierung benötigt werden, konnten nicht geladen werden. Bitte ändern Sie Ihre PHP-Konfiguration und aktivieren Sie diese Erweiterungen oder deaktivieren Sie die Zeichensatzkonvertierung in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Kann Index nicht in PRIMARY umbenennen!';
@@ -308,6 +309,7 @@ $strQueryOnDb = ' SQL-Befehl in der Datenbank <b>%s</b>:';
 
 $strRecords = 'Einträge';
 $strReferentialIntegrity = 'Prüfe referentielle Integrität:';
+$strRelationalSchema = 'Bezeihnungsschema';
 $strRelationNotWorking = 'Die zusätzlichen Funktionen für verknüpfte Tabellen wurden automatisch deaktiviert. Klicken Sie %shier%s um herauszufinden warum.';
 $strRelationView = 'Beziehungsübersicht';
 $strReloadFailed = 'MySQL Neuladen fehlgeschlagen.';
@@ -402,6 +404,7 @@ $strTableHasBeenDropped = 'Die Tabelle %s wurde gelöscht.';
 $strTableHasBeenEmptied = 'Die Tabelle %s wurde geleert.';
 $strTableHasBeenFlushed = 'Die Tabelle %s wurde geschlossen und zwischengespeicherte Daten gespeichert.';
 $strTableMaintenance = 'Hilfsmittel';
+$strTableOfContents = 'Inhalt';
 $strTables = '%s Tabellen';
 $strTableStructure = 'Tabellenstruktur für Tabelle';
 $strTableType = 'Tabellentyp';
@@ -443,8 +446,4 @@ $strWrongUser = 'Falscher Benutzername/Kennwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 $strZip = 'Zip-komprimiert';
-
-$strRelationalSchema = 'Relational schema';  //to translate
-$strTableOfContents = 'Table of contents';  //to translate
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
 ?>
