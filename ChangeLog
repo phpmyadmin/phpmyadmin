@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php, /display_tbl_links.lib.php:
+      bug 857743, SHOW errors
+
 2004-01-06 Alexander M. Turek  <therising@derrabus.de>
     * libraries/charset_conversion.lib.php: Skip charset conversion code if
       input charset and output charset are the same.

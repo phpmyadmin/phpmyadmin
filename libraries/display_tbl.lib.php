@@ -93,7 +93,7 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
         else if ($GLOBALS['is_show']) {
             // 2.2.1 TODO : defines edit/delete links depending on show statement
             $tmp = preg_match('@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS)@i', $GLOBALS['sql_query'], $which);
-            if (strpos(' ' . strtoupper($which[1]), 'PROCESSLIST') > 0) {
+            if (isset($which[1]) && strpos(' ' . strtoupper($which[1]), 'PROCESSLIST') > 0) {
                 $do_display['edit_lnk'] = 'nn'; // no edit link
                 $do_display['del_lnk']  = 'kp'; // "kill process" type edit link
             }
@@ -1488,7 +1488,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
         }
 
 
-        if (!empty($del_url)) {
+        if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
             $vertical_display['row_delete'][$row_no] .= '    <td width="10" align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
                                                      .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '" name="rows_to_delete[' . $uva_condition . ']" value="' . $del_query . '" />' . "\n"
                                                      .  '    </td>' . "\n";
