@@ -289,6 +289,8 @@ $strLines = 'Øádek';
 $strLinesTerminatedBy = 'Øádky ukonèené';
 $strLinkNotFound = 'Odkaz nenalezen';
 $strLinksTo = 'Odkazuje na';
+$strLoadExplanation = 'Automaticky jsou zvoleny nejvodnìjší parametry, pokud toto nastavení selže, mùžete zkusit druhou možnost.';
+$strLoadMethod = 'Parametry pro pøíkaz LOAD';
 $strLocalhost = 'Lokální';
 $strLocationTextfile = 'textový soubor';
 $strLogPassword = 'Heslo:';
@@ -643,6 +645,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
-$strLoadMethod = 'LOAD method';  //to translate
-$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>

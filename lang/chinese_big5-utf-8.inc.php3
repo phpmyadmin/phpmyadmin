@@ -194,7 +194,7 @@ $strGlobalPrivileges = '整體權限';
 $strGlobalValue = '整體值';
 $strGo = '執行';
 $strGrantOption = '授權';
-$strGrants = '授權';
+$strGrants = 'Grants'; //should expressed in English
 $strGzip = '"gzipped"';
 
 $strHasBeenAltered = '已經修改';
@@ -524,9 +524,7 @@ $strXML = 'XML'; //USE ENG
 $strYes = ' 是 ';
 
 $strZip = '"zipped"';
-
 // To translate
-
 $strUpdComTab = '請參看說明文件查詢如何更新 Column_comments 資料表';
 
 $strAbsolutePathToDocSqlDir = '請輸入 docSQL 目錄於網頁伺服器的絕對路徑';

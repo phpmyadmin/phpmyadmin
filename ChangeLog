@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-29 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech: Updated.
+
 2003-05-29 Marc Delisle  <lem9@users.sourceforge.net>
     * ldi_check.php3, ldi_table.php3, lang/*: bug 740607, now autodetect
       the best method (LOCAL or not) in the LOAD dialog, and allow user
