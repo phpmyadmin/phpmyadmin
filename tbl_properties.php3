@@ -708,7 +708,7 @@ echo "\n";
                     <?php echo $strSend . "\n"; ?>
 <?php
 // gzip and bzip2 encode features
-if (PMA_INT_VERSION >= 40004) {
+if (PHP_INT_VERSION >= 40004) {
     $is_gzip = (isset($cfgGZipDump) && $cfgGZipDump && @function_exists('gzencode'));
     $is_bzip = (isset($cfgBZipDump) && $cfgBZipDump && @function_exists('bzcompress'));
     if ($is_gzip || $is_bzip) {
