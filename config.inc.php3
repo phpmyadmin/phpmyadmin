@@ -44,7 +44,7 @@ $cfg['PmaAbsoluteUri'] = '';
  * You should use this if and ONLY if the PmaAbsoluteUri auto-detection
  * works perfectly.
  */
-$cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
+$cfg['PmaAbsoluteUri_DisableWarning'] = true;
 
 /**
  * Disable the default warning that is displayed on the DB Details Structure page if
@@ -68,7 +68,7 @@ $cfg['Servers'][$i]['controluser']   = '';          // MySQL control user settin
                                                     // (this user must have read-only
 $cfg['Servers'][$i]['controlpass']   = '';          // access to the "mysql/user"
                                                     // and "mysql/db" tables)
-$cfg['Servers'][$i]['auth_type']     = 'config';    // Authentication method (config, http or cookie based)?
+$cfg['Servers'][$i]['auth_type']     = 'cookie';    // Authentication method (config, http or cookie based)?
 $cfg['Servers'][$i]['user']          = 'root';      // MySQL user
 $cfg['Servers'][$i]['password']      = '';          // MySQL password (only needed
                                                     // with 'config' auth_type)
@@ -181,10 +181,10 @@ $cfg['LeftDisplayLogo']       = TRUE;   // display logo at top of left frame
 $cfg['ShowStats']             = TRUE;   // allow to display statistics and space usage in
                                         // the pages about database details and table
                                         // properties
-$cfg['ShowMysqlInfo']         = FALSE;  // whether to display the "MySQL runtime
-$cfg['ShowMysqlVars']         = FALSE;  // information", "MySQL system variables", "PHP
-$cfg['ShowPhpInfo']           = FALSE;  // information" and "change password" links for
-$cfg['ShowChgPassword']       = FALSE;  // simple users or not
+$cfg['ShowMysqlInfo']         = TRUE;  // whether to display the "MySQL runtime
+$cfg['ShowMysqlVars']         = TRUE;  // information", "MySQL system variables", "PHP
+$cfg['ShowPhpInfo']           = TRUE;  // information" and "change password" links for
+$cfg['ShowChgPassword']       = TRUE;  // simple users or not
 $cfg['SuggestDBName']         = TRUE;   // suggest a new DB name if possible (false = keep empty)
 
 // In browse mode...
@@ -258,13 +258,13 @@ $cfg['DefaultLang'] = 'en-iso-8859-1';
 // any effect when charsets recoding is switched off by
 // $cfg['AllowAnywhereRecoding'] or in language file
 // (see $cfg['AvailableCharsets'] to possible choices, you can add your own)
-$cfg['DefaultCharset'] = 'iso-8859-1';
+$cfg['DefaultCharset'] = 'iso-8859-2';
 
 // Allow charset recoding of MySQL queries, must be also enabled in language
 // file to make harder using other language files than unicode.
 // Default value is FALSE to avoid problems on servers without the iconv
 // extension and where dl() is not supported
-$cfg['AllowAnywhereRecoding'] = FALSE;
+$cfg['AllowAnywhereRecoding'] = TRUE;
 
 // You can select here which functions will be used for charset conversion.
 // Possible values are:
@@ -279,8 +279,9 @@ $cfg['RecodingEngine'] = 'auto';
 // Charsets will be shown in same order as here listed, so if you frequently
 // use some of these move them to the top.
 $cfg['AvailableCharsets'] = array(
-    'iso-8859-1',
     'iso-8859-2',
+    'iso-8859-1',
+    'utf-8',
     'iso-8859-3',
     'iso-8859-4',
     'iso-8859-5',
@@ -301,7 +302,6 @@ $cfg['AvailableCharsets'] = array(
     'koi8-r',
     'big5',
     'gb2312',
-    'utf-8',
     'utf-7',
     'x-user-defined',
     'euc-jp',

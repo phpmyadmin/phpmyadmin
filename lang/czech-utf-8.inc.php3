@@ -180,7 +180,7 @@ $strHost = 'Počítač';
 $strHostEmpty = 'Jméno počítače je prázdné!';
 
 $strIdxFulltext = 'Fulltext';
-$strIfYouWish = 'Pokud si přeješ natáhnout jenom určité sloupce z tabulky, specifikuj je jako seznam sloupců oddělených čárkou.';
+$strIfYouWish = 'Pokud si přejete natáhnout jen vybrané sloupce z&nbsp;tabulky, napište je jako seznam sloupců oddělených čárkou.';
 $strIgnore = 'Ignorovat';
 $strInUse = 'právě se používá';
 $strIndex = 'Index';
@@ -198,7 +198,7 @@ $strInstructions = 'Instrukce';
 $strInvalidName = '"%s" je rezervované slovo a proto ho nemůžete požít jako jméno databáze/tabulky/sloupce.';
 
 $strKeepPass = 'Neměnit heslo';
-$strKeyname = 'Klíčovy název';
+$strKeyname = 'Klíčový název';
 $strKill = 'Zabít';
 
 $strLength = 'Délka';
@@ -209,7 +209,7 @@ $strLines = 'Řádek';
 $strLinesTerminatedBy = 'Řádky ukončené';
 $strLinkNotFound = 'Odkaz nenalezen';
 $strLinksTo = 'Odkazuje na';
-$strLocationTextfile = 'Umístění textového souboru';
+$strLocationTextfile = 'textový soubor';
 $strLogPassword = 'Heslo:';
 $strLogUsername = 'Jméno:';
 $strLogin = 'Přihlášení';
@@ -381,7 +381,7 @@ $strStrucOnly = 'Pouze strukturu';
 $strStructPropose = 'Navrhnout strukturu tabulky';
 $strStructure = 'Struktura';
 $strSubmit = 'Odešli';
-$strSuccess = 'Tvůj SQL-dotaz byl úspěšně vykonán';
+$strSuccess = 'Váš SQL-dotaz byl úspěšně vykonán';
 $strSum = 'Celkem';
 
 $strTable = 'Tabulka ';
@@ -417,10 +417,13 @@ $strUserName = 'Jméno uživatele';
 $strUsers = 'Uživatelé';
 
 $strValidateSQL = 'Zkontrolovat SQL';
+$strValidatorError = 'SQL validator nemohl být inicializován. Prosím zkontrolujte jestli máte nainstalované potřebné rozšíření php, jak je popsáno v %sdokumentaci%s.';
 $strValue = 'Hodnota';
-$strViewDump = 'Ukaž výpis (dump) tabulky';
-$strViewDumpDB = 'Ukaž výpis (dump) databáze';
+$strViewDump = 'Zobrazit výpis (dump) tabulky';
+$strViewDumpDB = 'Zobrazit výpis (dump) databáze';
 
+$strWebServerUploadDirectory = 'soubor z&nbsp;adresáře pro upload';
+$strWebServerUploadDirectoryError = 'Adresář určený pro upload souborů nemohl být otevřen';
 $strWelcome = 'Vítej v %s';
 $strWithChecked = 'Zaškrtnuté:';
 $strWrongUser = 'Špatné uživatelské jméno/heslo. Přístup odepřen.';
@@ -430,7 +433,4 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 // To translate
 
-$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
-$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
-$strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
 ?>
