@@ -9,6 +9,8 @@ $Source$
     * footer.inc.php3, querywindow.php3: Fix bug #736197
       (clicking on edit link from a sql-query now switches
        to sql tab of the query window)
+    * left.php3: Improved performance by using str_replace instead
+      of ereg_replace.
 
 2003-05-13 Michal Cihar  <nijel@users.sourceforge.net>
     * left.php3: Fixed displaying of tables with quote in name.

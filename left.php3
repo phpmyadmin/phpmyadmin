@@ -465,7 +465,7 @@ if ($num_dbs > 1) {
                 
                 // garvin: Check whether to display nested sets
                 if (!empty($cfg['LeftFrameTableSeparator'])) {
-                    $_table = explode($cfg['LeftFrameTableSeparator'],  ereg_replace('\'', '\\\'',$table));
+                    $_table = explode($cfg['LeftFrameTableSeparator'],  str_replace('\'', '\\\'',$table));
                     if (is_array($_table)) {
                         reset($_table);
                         while(list($key, $val) = each($_table)) {
@@ -477,8 +477,8 @@ if ($num_dbs > 1) {
                         unset($_table[count($_table)-1]);
                         $_table = PMA_reduceNest($_table);
                         
-                        $eval_string = '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_name\'][] = \'' . ereg_replace('\'', '\\\'', $table) . '\';';
-                        $eval_string .= '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_list_item\'][] = \'' . ereg_replace('\'', '\\\'', $list_item) . '\';';
+                        $eval_string = '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_name\'][] = \'' . str_replace('\'', '\\\'', $table) . '\';';
+                        $eval_string .= '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_list_item\'][] = \'' . str_replace('\'', '\\\'', $list_item) . '\';';
                         eval($eval_string);
                     } else {
                         $tablestack['__protected__']['pma_name'][] = $table;
