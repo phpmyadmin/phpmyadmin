@@ -23,7 +23,7 @@ $err_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db, $table
  * Modifications have been submitted -> updates the table
  */
 $abort = false;
-if (isset($submit)) {
+if (isset($do_save_data)) {
     $field_cnt = count($field_orig);
     for ($i = 0; $i < $field_cnt; $i++) {
         // to "&quot;" in tbl_properties.php
