@@ -91,7 +91,7 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
         'ja-euc'       => array('ja|japanese', 'japanese-euc', 'ja'),
         'ja-sjis'      => array('ja|japanese', 'japanese-sjis', 'ja'),
         'ko-ks_c_5601-1987'=> array('ko|korean', 'korean-ks_c_5601-1987', 'ko'),
-        'ka-utf8'      => array('ka|georgian', 'georgian-utf-8', 'ka'),
+        'ka-utf-8'     => array('ka|georgian', 'georgian-utf-8', 'ka'),
         'lt-utf-8'     => array('lt|lithuanian', 'lithuanian-utf-8', 'lt'),
         'lt-win1257'   => array('lt|lithuanian', 'lithuanian-windows-1257', 'lt'),
         'lv-utf-8'     => array('lv|latvian', 'latvian-utf-8', 'lv'),
