@@ -2,3 +2,5 @@ config.inc.developer.php
 phpmyadmin.wpj
 upload
 save
+.htaccess
+.vimrc

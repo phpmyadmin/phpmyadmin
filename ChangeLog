@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-13 Robin Johnson <robbat2@users.sourceforge.net>
+    * Documentation.html: Slight update to what I've done
+
 2004-01-12 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
