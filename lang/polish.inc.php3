@@ -224,6 +224,7 @@ $strPasswordEmpty = 'Puste has³o!';
 $strPasswordNotSame = 'Has³a nie s± identyczne!';
 $strPHPVersion = 'Wersja PHP';
 $strPmaDocumentation = 'Dokumentacja dla phpMyAdmin';
+$strPmaUriError = 'Dyrektywa <tt>$cfgPmaAbsoluteUri</tt> musi byæ ustawiona w pliku konfiguracyjnym!';
 $strPos1 = 'Pocz±tek';
 $strPrevious = 'Poprzednie';
 $strPrimary = 'Podstawowy';
@@ -347,5 +348,4 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>

@@ -224,6 +224,7 @@ $strPasswordEmpty = 'Порожній пароль!';
 $strPasswordNotSame = 'Паролі не однакові!';
 $strPHPVersion = 'Версія PHP';
 $strPmaDocumentation = 'Документація по phpMyAdmin';
+$strPmaUriError = 'Змінна <tt>$cfgPmaAbsoluteUri</tt> ПОВИННА бути встановалена у Вашому конфігураційному файлі!';
 $strPos1 = 'Початок';
 $strPrevious = 'Назад';
 $strPrimary = 'Первинний';
@@ -347,5 +348,3 @@ $strYes = 'Так';
 $strZip = 'запакувати в "zip"';
 
 // To translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
-?>

@@ -223,6 +223,7 @@ $strPasswordEmpty = 'O contrasinal está vacío!';
 $strPasswordNotSame = 'Os contrasinais non son os mesmos!';
 $strPHPVersion = 'Versión do PHP';
 $strPmaDocumentation = 'Documentación do phpMyAdmin';
+$strPmaUriError = 'A directiva <tt>$cfgPmaAbsoluteUri</tt> DEBE estar asignada no seu ficheiro de configuración.';
 $strPos1 = 'Inicio';
 $strPrevious = 'Anterior';
 $strPrimary = 'Primaria';
@@ -351,5 +352,4 @@ $strCardinality = 'Cardinality';
 $strLogin = 'Login';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>

@@ -223,6 +223,7 @@ $strPassword = 'Parola';
 $strPasswordEmpty = 'Parola este goala!';
 $strPasswordNotSame = 'Parolele nu corespund!';
 $strPmaDocumentation = 'Documentatie phpMyAdmin';
+$strPmaUriError = 'Directiva <tt>$cfgPmaAbsoluteUri</tt> TREBUIE sa fie setat in fisierul de configurare!';
 $strPHPVersion = 'Versiune PHP';
 $strPos1 = 'Incepe';
 $strPrevious = 'Anterior';
@@ -348,5 +349,4 @@ $strZip = '"zipped"';
 
 // To translate
 $strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>

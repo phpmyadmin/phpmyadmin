@@ -224,6 +224,7 @@ $strPasswordEmpty = 'La contrasenya és buida!';
 $strPasswordNotSame = 'Les contrasenyes no coincideixen!';
 $strPHPVersion = 'PHP versió';
 $strPmaDocumentation = 'Documentació de phpMyAdmin';
+$strPmaUriError = 'La directiva <tt>$cfgPmaAbsoluteUri</tt> HA d\'estar al fitxer de configuraci&oacute;!';
 $strPos1 = 'Inici';
 $strPrevious = 'Anterior';
 $strPrimary = 'Primària';
@@ -347,5 +348,4 @@ $strYes = 'Si';
 $strZip = '"comprimit amb zip"';
 
 // To translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>

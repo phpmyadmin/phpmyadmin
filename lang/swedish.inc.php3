@@ -224,6 +224,7 @@ $strPasswordEmpty = 'Lösenordet är tomt!';
 $strPasswordNotSame = 'Lösenorden är inte lika!';
 $strPHPVersion = 'PHP-version';
 $strPmaDocumentation = 'phpMyAdmin dokumentation';
+$strPmaUriError = 'Variabeln <tt>$cfgPmaAbsoluteUri</tt> MÅSTE anges i din konfigurationsfil!';
 $strPos1 = 'Början';
 $strPrevious = 'Föregående';
 $strPrimary = 'Primär';
@@ -347,5 +348,4 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-19 Marc Delisle  <lem9@users.sourceforge.net>
+	* polish, catalan, spanish, romanian, swedish, galician, ukrainian
+	  updates, thanks to usual translators
+
 2002-03-17 Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3:
 	  - no long displays the true password on screen;

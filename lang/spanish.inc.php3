@@ -221,6 +221,7 @@ $strPasswordEmpty = 'La Contrase&ntilde;a esta vacía!';
 $strPasswordNotSame = 'Las contrase&ntilde;as no coinciden!';
 $strPHPVersion = 'Version del PHP';
 $strPmaDocumentation = 'Documentacion de phpMyAdmin';
+$strPmaUriError = 'La directiva <tt>$cfgPmaAbsoluteUri</tt> DEBE constar en el fichero de configuraci&oacute;n!';
 $strPos1 = 'Empezar';
 $strPrevious = 'Previo';
 $strPrimary = 'Primaria';
@@ -345,5 +346,4 @@ $strZip = '"comprimido con zip"';
 
 // To translate
 $strFlushTable = 'Flush the table ("FLUSH")';//to translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>
