@@ -279,13 +279,16 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                             } else {
                                 if($_word=='(') {
                                     $_brack_o[]=$s_nr;
+                                    //debug echo "offen " . count($_brack_o) . "<br />";
                                 } else {
                                     if($_word==')') {
                                         if(isset($_brack_o)){
                                             unset($_brack_o[count($_brack_o)-1]);
                                             if(count($_brack_o)==0){ unset($_brack_o);}
+                                            // debug echo "zu ";if(isset($_brack_o)){echo count($_brack_o);}echo "<br />";
                                         } else {
                                             $_brack_c[]=$s_nr;
+                                            // debug echo "überflüssig";
                                         }
                                     } else {
                                         if($_word==';') {
@@ -318,6 +321,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         }
         $sql = implode(' ',$_sql_p);
         $sql = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', $sql);
+        $sql = ereg_replace('<br />[ ]*<br />','<br />', $sql);
         return $sql;
     }   // End of PMA_format_sql function
 
