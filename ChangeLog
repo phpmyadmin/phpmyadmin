@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-01-05  Loïc Chapeaux  <lolo@phpheaven.net>
+	* main.php3, line 234: maximum database name size is 64 characters.
+
 2001-01-04  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3: beautify the displayed page.
 

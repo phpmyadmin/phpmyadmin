@@ -231,7 +231,7 @@ if ($server > 0) {
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <input type="hidden" name="reload" value="1" />
-                <input type="text" name="db" value="<?php echo $db_to_create; ?>" />
+                <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" />
                 <input type="submit" value="<?php echo $strCreate; ?>" />
             </form>
             </td>
