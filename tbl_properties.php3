@@ -16,6 +16,15 @@ if (!isset($message)) {
 
 
 /**
+ * Drop/delete mutliple tables if required
+ */
+if (!empty($submit_mult) || isset($btnDrop)) {
+    $action = 'tbl_properties.php3';
+    include('./mult_drops.inc.php3');
+}
+
+
+/**
  * Defines the query to be displayed in the query textarea
  */
 if (isset($show_query) && $show_query == 'y') {
@@ -177,22 +186,36 @@ $result = mysql_query($local_query) or mysql_die('', $local_query);
 
 
 <!-- TABLE INFORMATIONS -->
+
+<?php
+// Drop button if there is at least two fields
+if (mysql_num_rows($result) > 1) {
+    ?>
+<form action="tbl_properties.php3">
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <?php
+}
+echo "\n";
+?>
+
 <table border="<?php echo $cfgBorder; ?>">
 <tr>
-    <th><?php echo ucfirst($strField); ?></th>
+<?php
+// Drop button if there is at least two fields
+if (mysql_num_rows($result) > 1) {
+    echo '    <td></td>' . "\n";
+}
+?>
+    <th>&nbsp;<?php echo ucfirst($strField); ?>&nbsp;</th>
     <th><?php echo ucfirst($strType); ?></th>
     <th><?php echo ucfirst($strAttr); ?></th>
     <th><?php echo ucfirst($strNull); ?></th>
     <th><?php echo ucfirst($strDefault); ?></th>
     <th><?php echo ucfirst($strExtra); ?></th>
-<?php
-if (empty($printer_friendly)) {
-    ?>
     <th colspan="5"><?php echo ucfirst($strAction); ?></th>
-    <?php
-}
-echo "\n";
-?>
 </tr>
 
 <?php
@@ -245,16 +268,23 @@ while ($row = mysql_fetch_array($result)) {
     echo "\n";
     ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
+    <?php
+    // Drop button if there is at least two fields
+    if (mysql_num_rows($result) > 1) {
+        ?>
+    <td align="center">
+        <input type="checkbox" name="selected_fld[]" value="<?php echo urlencode($row['Field']); ?>" />
+    </td>
+        <?php
+    }
+    echo "\n";
+    ?>
     <td nowrap="nowrap"><?php echo htmlspecialchars($row['Field']); ?>&nbsp;</td>
     <td<?php echo $type_nowrap; ?>><?php echo $type; ?></td>
     <td nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
     <td nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
     <td nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
-    <?php
-    if (empty($printer_friendly)) {
-        echo "\n";
-        ?>
     <td>
         <a href="tbl_alter.php3?<?php echo $url_query; ?>&field=<?php echo urlencode($row['Field']); ?>">
             <?php echo $strChange; ?></a>
@@ -288,16 +318,33 @@ while ($row = mysql_fetch_array($result)) {
         <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD UNIQUE(' . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode($strAnIndex . ' ' . htmlspecialchars($row['Field'])); ?>">
             <?php echo $strUnique; ?></a>
     </td>
-        <?php
-    }
-    echo "\n";
-    ?>
 </tr>
     <?php
 } // end while
 echo "\n";
-?>
+
+// Drop button if there is at least two fields
+if (mysql_num_rows($result) > 1) {
+    ?>
+<tr>
+    <td colspan="12">
+        <img src="./images/arrow.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+        <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
+    </td>
+<tr>
 </table>
+
+</form>
+    <?php
+} else {
+    echo "\n"
+    ?>
+</table>
+    <?php
+}
+echo "\n";
+?>
 <br />
 
 
@@ -582,11 +629,11 @@ echo "\n";
         <form method="post" action="db_readdump.php3"
             onsubmit="return checkSqlQuery(this)">
             <input type="hidden" name="is_js_confirmed" value="0" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="pos" value="0" />
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <input type="hidden" name="pos" value="0" />
             <input type="hidden" name="goto" value="tbl_properties.php3" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />

@@ -27,6 +27,15 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang;
 
 
 /**
+ * Drop/delete mutliple tables if required
+ */
+if (!empty($submit_mult) || isset($btnDrop)) {
+    $action = 'db_details.php3';
+    include('./mult_drops.inc.php3');
+}
+
+
+/**
  * Displays an html table with all the tables contained into the current
  * database
  */
@@ -97,9 +106,15 @@ else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
 
 <!-- TABLE LIST -->
 
+<form action="db_details.php3">
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+
 <table border="<?php echo $cfgBorder; ?>">
 <tr>
-    <th><?php echo ucfirst($strTable); ?></th>
+    <td></td>
+    <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
     <th colspan="6"><?php echo ucfirst($strAction); ?></th>
     <th><?php echo ucfirst($strRecords); ?></th>
     <th><?php echo ucfirst($strSize); ?></th>
@@ -118,8 +133,11 @@ else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
         echo "\n";
         ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
+    <td align="center">
+        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($table); ?>" />
+    </td>
     <td nowrap="nowrap">
-        <b><?php echo htmlspecialchars($table); ?>&nbsp;</b>
+        &nbsp;<b><?php echo htmlspecialchars($table); ?>&nbsp;</b>&nbsp;
     </td>
     <td>
         <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0">
@@ -218,21 +236,34 @@ else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
     list($sum_formated,$unit) = format_byte_down($sum_size,3,1);
     echo "\n";
     ?>
-<tr bgcolor="<?php echo $cfgThBgcolor; ?>">
-    <td align="center">
-        <b><?php echo sprintf($strTables, number_format($num_tables, 0, $number_decimal_separator, $number_thousands_separator)); ?></b>
-    </td>
-    <td colspan="6" align="center">
+<tr>
+    <td></td>
+    <th align="center">
+        &nbsp;<b><?php echo sprintf($strTables, number_format($num_tables, 0, $number_decimal_separator, $number_thousands_separator)); ?></b>&nbsp;
+    </th>
+    <th colspan="6" align="center">
         <b><?php echo $strSum; ?></b>
-    </td>
-    <td align="right" nowrap="nowrap">
+    </th>
+    <th align="right" nowrap="nowrap">
         <b><?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator); ?></b>
-    </td>
-    <td align="right" nowrap="nowrap">
+    </th>
+    <th align="right" nowrap="nowrap">
         <b><?php echo $sum_formated . ' '. $unit; ?></b>
-    </td>
+    </th>
 </tr>
+
+<tr>
+    <td colspan="10">
+        <img src="./images/arrow.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+        <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
+        &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
+    </td>
+<tr>
 </table>
+
+</form>
     <?php
 } // end case mysql >= 3.23
 
@@ -245,9 +276,15 @@ else {
 
 <!-- TABLE LIST -->
 
+<form action="db_details.php3">
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+
 <table border="<?php echo $cfgBorder; ?>">
 <tr>
-    <th><?php echo ucfirst($strTable); ?></th>
+    <td></td>
+    <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
     <th colspan="6"><?php echo ucfirst($strAction); ?></th>
     <th><?php echo ucfirst($strRecords); ?></th>
 </tr>
@@ -264,8 +301,11 @@ else {
         echo "\n";
         ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
+    <td align="center">
+        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($table); ?>" />
+    </td>
     <td class="data">
-        <b><?php echo $table; ?></b>
+        <b>&nbsp;<?php echo $table; ?>&nbsp;</b>
     </td>
     <td>
         <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0"><?php echo $strBrowse; ?></a>
@@ -294,7 +334,19 @@ else {
     }
     echo "\n";
     ?>
+<tr>
+    <td colspan="9">
+        <img src="./images/arrow.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+        <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
+        &nbsp;<?php $strOr . "\n"; ?>&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
+    </td>
+<tr>
+
 </table>
+
+</form>
 	<?php
 } // end case mysql < 3.23
 
@@ -345,10 +397,10 @@ if ($num_tables > 0) {
         <form method="post" action="db_readdump.php3" enctype="multipart/form-data"
             onsubmit="return checkSqlQuery(this)">
             <input type="hidden" name="is_js_confirmed" value="0" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="pos" value="0" />
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
+            <input type="hidden" name="pos" value="0" />
             <input type="hidden" name="goto" value="db_details.php3" />
             <input type="hidden" name="zero_rows" value="<?php echo htmlspecialchars($strSuccess); ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
