@@ -88,7 +88,7 @@ $strDynamic = "dinamico/a";
 
 $strEdit = "Editar";
 $strEditPrivileges = "Editar Privilegios"; 
-$strEffective = "Efectivo/a"; e
+$strEffective = "Efectivo/a"; 
 $strEmpty = "Vaciar";
 $strEmptyResultSet = "MySQL ha devuelto un valor vac&iacute;o (i.e. cero columnas).";
 $strEnableMagicQuotes = "<b>Atencion:</b> Ud. no ha activado magic_quotes_gpc en la configuracion de PHP. PhpMyAdmin necesita esta opcion para funcionar correctamente. Por favor revise la seccion de configuracion en el manual de PHP para informacion de como activar dicha opcion."; 
