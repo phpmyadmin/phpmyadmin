@@ -85,6 +85,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
 <head>
 <title>phpMyAdmin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
 <style type="text/css">
 <!--
 body  {font-family: sans-serif; font-size: small; color: #000000; background-color: #F5F5F5}

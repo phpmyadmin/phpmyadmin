@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-07 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/common.lib.php3: Forgot a <meta /> tag in the config file error
+      message.
+
 2002-07-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/charset_conversion.lib.php3: $strCantUseRecodeIconv has to be
       accessed via the $GLOBALS[] array.
