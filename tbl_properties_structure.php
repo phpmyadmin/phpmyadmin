@@ -84,6 +84,9 @@ $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 /**
  * Displays the table structure ('show table' works correct since 3.23.03)
  */
+
+$i = 0;
+
 ?>
 
 <!-- TABLE INFORMATION -->
@@ -92,18 +95,19 @@ $fields_cnt  = PMA_DBI_num_rows($fields_rs);
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
 <tr>
-    <th id="th1">&nbsp;</th>
-    <th id="th2">&nbsp;<?php echo $strField; ?>&nbsp;</th>
-    <th id="th3"><?php echo $strType; ?></th>
-<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <th>' . $strCollation . '</th>' . "\n" : ''; ?>
-    <th id="th4"><?php echo $strAttr; ?></th>
-    <th id="th5"><?php echo $strNull; ?></th>
-    <th id="th6"><?php echo $strDefault; ?></th>
-    <th id="th7"><?php echo $strExtra; ?></th>
-    <th colspan="6" id="th8"><?php echo $strAction; ?></th>
+    <th id="th<?php echo ++$i; ?>">&nbsp;</th>
+    <th id="th<?php echo ++$i; ?>">&nbsp;<?php echo $strField; ?>&nbsp;</th>
+    <th id="th<?php echo ++$i; ?>"><?php echo $strType; ?></th>
+<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <th id="th' . ++$i . '">' . $strCollation . '</th>' . "\n" : ''; ?>
+    <th id="th<?php echo ++$i; ?>"><?php echo $strAttr; ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo $strNull; ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo $strDefault; ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo $strExtra; ?></th>
+    <th colspan="6" id="th<?php echo ++$i; ?>"><?php echo $strAction; ?></th>
 </tr>
 
 <?php
+unset($i);
 $comments_map = array();
 $mime_map = array();
 

@@ -9,6 +9,7 @@ $Source$
     * libraries/relation.lib.php:
       - Removed redundant code;
       - Fixed some comments.
+    * tbl_properties_structure.php: Corrected TH numbering.
 
 2005-01-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysqli.dbi.lib.php: bug #1076213, headers sent
