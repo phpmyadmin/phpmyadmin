@@ -261,7 +261,20 @@ if ($server > 0
         <?php echo $strReloadMySQL; ?></a>&nbsp;<?php echo show_docu('manual_Reference.html#FLUSH') . "\n"; ?>
     </li>
     <br /><br />
+
         <?php
+        $result = mysql_query('SELECT * FROM mysql.user');
+        $rows   = @mysql_num_rows($result);
+        if (!empty($rows)) {
+            ?>
+    <li>
+        <a href="user_details.php3?<?php echo $common_url_query; ?>&db=mysql&table=user">
+        <?php echo $strUsers; ?></a>&nbsp;<?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
+    </li>
+            <?php
+            echo "\n";
+        }
+
     } // end of 2.2 (no AdvAuth case)
 } // end of 2: if ($server > 0)
 ?>
