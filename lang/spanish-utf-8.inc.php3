@@ -545,7 +545,6 @@ $strSQLQuery = 'consulta SQL';
 $strSQLResult = 'Resultado SQL';
 $strSQPBugInvalidIdentifer = 'El identificador no es válido';
 $strSQPBugUnclosedQuote = 'Comillas sin cerrar';
-$strSQPBugUnclosedQuote = 'hay una comilla sencilla sin cerrar';
 $strSQPBugUnknownPunctuation = 'Signo de puntuación desconocido';
 $strSave = 'Grabar';
 $strSaveOnServer = 'Guardar en el servidor, en el directorio %s ';

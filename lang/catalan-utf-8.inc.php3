@@ -545,7 +545,6 @@ $strSQLQuery = 'crida SQL';
 $strSQLResult = 'Resultat SQL';
 $strSQPBugInvalidIdentifer = 'Identificador Incorrecte';
 $strSQPBugUnclosedQuote = 'Cometa no tancada';
-$strSQPBugUnclosedQuote = 'Cometes sense tancar';
 $strSQPBugUnknownPunctuation = 'Signe de puntuació desconegut';
 $strSave = 'Guardar';
 $strSaveOnServer = 'Guardar al servidor al directori %s';

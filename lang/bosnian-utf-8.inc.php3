@@ -700,6 +700,30 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja limite.';
 $strZip = '"zipovano"';
 
-$strCreationDates = 'Creation/Update/Check dates';  //to translate
+$strBookmarkAllUsers = 'Let every user access this bookmark';  //to translate
+$strBookmarkOptions = 'Bookmark options';  //to translate
+
 $strCheckOverhead = 'Check overheaded';  //to translate
+$strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
+$strConstraintsForTable = 'Constraints for table';  //to translate
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
+
+$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
+$strInternalRelations = 'Internal relations';  //to translate
+
+$strLatexCaption = 'Table caption';  //to translate
+$strLatexContent = 'Content of table __TABLE__';  //to translate
+$strLatexContinued = '(continued)';  //to translate
+$strLatexContinuedCaption = 'Continued table caption';  //to translate
+$strLatexIncludeCaption = 'Include table caption';  //to translate
+$strLatexLabel = 'Label key';  //to translate
+$strLatexStructure = 'Structure of table __TABLE__';  //to translate
+$strLogServer = 'Server';  //to translate
+
+$strPrintViewFull = 'Print view (with full texts)';  //to translate
+
+$strSortByKey = 'Sort by key';  //to translate
+
+$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
+
 ?>

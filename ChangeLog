@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+
+2003-10-24 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/lithuanian: Updated, thanks to Vilius Zigmantas (viliusz).
+    * lang/serbian: utf-8 translations contained no strings, regenerated.
+    * lang/other: Added missing strings.
+
 2003-10-20 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/sql.php3: Fix undefined variable for MySQL < 3.23.20
       (bug #828370).

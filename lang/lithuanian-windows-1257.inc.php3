@@ -691,27 +691,27 @@ $strZeroRemovesTheLimit = 'Pastaba: nëra jokiø apribojimø jeigu reikðmë nurodyta
 $strZip = '"zip"';
 // To translate
 
-$strUseThisValue = 'Use this value';  //to translate
-$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
-$strBrowseForeignValues = 'Browse foreign values';  //to translate
-$strInternalRelations = 'Internal relations';  //to translate
-$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
-$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
-$strLatexStructure = 'Structure of table __TABLE__';//to translate
-$strLatexContinued = '(continued)';//to translate
-$strLatexContent = 'Content of table __TABLE__';//to translate
-$strLatexIncludeCaption = 'Include table caption';//to translate
-$strLatexCaption = 'Table caption';//to translate
-$strLatexLabel = 'Label key';//to translate
-$strLatexContinuedCaption = 'Continued table caption';//to translate
+$strUseThisValue = 'Naudokite ðià reikðmæ';
+$strWindowNotFound = 'Tikslo langas neatnaujintas. Galbût Jûs uþdarëte pagrindiná langà arba Jûsø narðyklë blokuoja atnaujinimus tarp langø dël nustatyto saugumo.';
+$strBrowseForeignValues = 'Narðyti iðorines reikðmes';
+$strInternalRelations = 'Vidiniai sàryðiai';
+$strInternalNotNecessary = '* Galite nenaudoti vidiniø sàryðiø, jeigu jie jau apibrëþti InnoDB.';
+$strUpgradeMySQL = 'Rekomenduojame atnaujint MySQL iki %s ar vëlesnës versijos.';
+$strLatexStructure = 'Lentelës __TABLE__ struktûra';
+$strLatexContinued = '(tæsinys)';
+$strLatexContent = 'Lentelës __TABLE__ turinys';
+$strLatexIncludeCaption = 'Áterpti lentelës antraðtæ';
+$strLatexCaption = 'Lentelës antraðtë';
+$strLatexLabel = 'Pavadinimo raktas';
+$strLatexContinuedCaption = 'Lentelës antraðtë (tæsinys)';
 
-$strPrintViewFull = 'Print view (with full texts)';  //to translate
-$strLogServer = 'Server';  //to translate
-$strSortByKey = 'Sort by key';  //to translate
-$strBookmarkAllUsers = 'Let every user access this bookmark';  //to translate
-$strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
-$strConstraintsForTable = 'Constraints for table';  //to translate
-$strBookmarkOptions = 'Bookmark options';  //to translate
+$strPrintViewFull = 'Spausdinti vaizdà (su pilnai tekstais)';
+$strLogServer = 'Darbinë stotis';
+$strSortByKey = 'Rûðiuoti pagal raktà';
+$strBookmarkAllUsers = 'Leisti kitiems vartotojams naudotis ðia þyme';
+$strConstraintsForDumped = 'Apribojimai eksportuotom lentelëm';
+$strConstraintsForTable = 'Apribojimai lentelei';
+$strBookmarkOptions = 'Þymiø parinktys';
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
 $strCheckOverhead = 'Check overheaded';  //to translate
 ?>

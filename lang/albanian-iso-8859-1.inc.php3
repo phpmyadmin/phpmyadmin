@@ -7,7 +7,6 @@
 
 $charset = 'iso-8859-1';
 $allow_recoding = TRUE;
-$allow_recoding = TRUE;
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
@@ -549,8 +548,8 @@ $strSQPBugInvalidIdentifer = 'Identifikues i pavlefshëm';
 $strSQPBugUnclosedQuote = 'Thonjëza të pambyllura';
 $strSQPBugUnknownPunctuation = 'Stringë Punctuation e panjohur';
 $strSave = 'Shpëto';
-$strScaleFactorSmall = 'Faktori i shkallës është shumë i vogël për të plotësuar skemën në faqe';
 $strSaveOnServer = 'Ruaje në server tek directory %s';
+$strScaleFactorSmall = 'Faktori i shkallës është shumë i vogël për të plotësuar skemën në faqe';
 $strSearch = 'Kërko';
 $strSearchFormTitle = 'Kërko në databazë';
 $strSearchInTables = 'Tek tabela(at):';
@@ -714,9 +713,11 @@ $strZeroRemovesTheLimit = 'Shënim: Vendosja e këtyre opcioneve në 0 (zero) do të
 $strZip = '"kompresuar me zip"';
 // To translate
 
+$strCheckOverhead = 'Check overheaded';  //to translate
 $strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
 $strConstraintsForTable = 'Constraints for table';  //to translate
-
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
-$strCheckOverhead = 'Check overheaded';  //to translate
+
+$strLatexCaption = 'Table caption';  //to translate
+
 ?>
