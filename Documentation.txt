@@ -1,5 +1,5 @@
 
-                      phpMyAdmin 2.3.0-rc4 Documentation
+                        phpMyAdmin 2.3.0 Documentation
                                        
      * Sourceforge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ]
@@ -7,8 +7,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.301 2002/07/26
-       14:50:47 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.314 2002/08/11
+       23:47:45 lem9 Exp $
    ______________________________________________________________________
    
    Top  -  Requirements  -  Introduction  -  Installation  -
@@ -48,7 +48,7 @@ Introduction
      * check referential integrity
      * create complex queries automatically connecting required tables
      * create PDF graphics of your Database layout
-     * communicate in more than 38 different languages
+     * communicate in more than 41 different languages
        
    (*)  phpMyAdmin can compress (Zip, GZip -RFC 1952- or Bzip2 formats)
    dumps and CSV exports if you use PHP4 >= 4.0.4 with Zlib support
@@ -63,7 +63,8 @@ Installation
 
    NOTE: phpMyAdmin does not apply any special security methods to the
    MySQL database server. It is still the sysadmin's job to grant
-   permissions on the MySQL databases properly.
+   permissions on the MySQL databases properly. phpMyAdmin's "Users" page
+   can be used for this.
    
    Warning for Mac users: php seems not to like Mac end of lines
    character ("\r") and Stuffit unstuffs with Mac formats, of course.
@@ -111,7 +112,7 @@ Installation
        also a bit buggy in this area!
      * Http and cookie authentication modes are more secure: the MySQL
        password does not need to be set in the phpMyAdmin configuration
-       file. (except for the "controluser" -see the Configuration
+       file (except for the "controluser" -see the Configuration
        section-).
        However, keep in mind that the password travels in plain text,
        unless you are using the https protocol.
@@ -197,11 +198,16 @@ Configuration
           Sets here the complete url (with full path) to your phpMyAdmin
           version. E.g.
           http://www.your_web.net/path_to_your_phpMyAdmin_directory/.
+          phpMyAdmin needs this setting, because of requirements of the
+          HTTP protocol, explained in RFC2616, section 14.30.
           Don't forget the slash at the end of your url. The url must
           contain characters that are valid for a url, and on some
           servers, the path is case-sensitive.
-          This setting can be dynamically completed. For example, you can
-          try to use such a kind of code:
+          Starting with version 2.3.0, you can try to leave this
+          parameter empty, because the program tries to auto-detect its
+          proper value. Additional details are in the configuration file.
+          Alternatively, this setting can be dynamically completed. For
+          example, you can try to use such a kind of code:
           
 $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                        . $_SERVER['HTTP_HOST']
@@ -223,6 +229,13 @@ CRIPT_NAME'], '/')+1);
           Please note that the $_SERVER array doesn't exist in
           PHP < 4.1.0. Try to replace $_SERVER by $HTTP_SERVER_VARS or
           $GLOBALS in this case.
+          
+   $cfg['PmaAbsoluteUri_DisableWarning'] boolean
+          By default, when you leave $cfg['PmaAbsoluteUri'] empty, and
+          the system detects your absolute URI automatically, we display
+          a warning to remind you. If you have tested the automatic
+          detection, and it works perfectly for your setup, then you can
+          set this variable to squelch the warning.
           
    $cfg['PmaNoRelation_DisableWarning'] boolean
           Starting with version 2.3.0 phpMyAdmin offers a lot of features
@@ -360,13 +373,6 @@ CRIPT_NAME'], '/')+1);
                  ) TYPE=MyISAM COMMENT='Bookmarks';
           + enter the tablename in $cfg['Servers'][$i]['bookmarktable']
             
-          Note that "controluser" must have SELECT, INSERT and DELETE
-          privileges on the bookmark table. Here is a query to set up
-          those privileges (using "pma" as the controluser and phpmyadmin
-          as databasename):
-            GRANT SELECT,INSERT,DELETE ON <phpmyadmin> to
-          'pma'@localhost;
-          
    $cfg['Servers'][$i]['relation'] string
           Since release 2.2.4 you can describe, in a special 'relation'
           table, which field is a key in another table (a foreign key).
@@ -403,9 +409,9 @@ CRIPT_NAME'], '/')+1);
                  ) TYPE=MyISAM COMMENT='Relation table';
           + put the relation table name in
             $cfg['Servers'][$i]['relation']
-          + now as normal user open phpMyAdmin and for each table where
-            you want to use this feature, click "Structure/Relation
-            view/" and choose foreign fields.
+          + now as normal user open phpMyAdmin and for each one of your
+            tables where you want to use this feature, click
+            "Structure/Relation view/" and choose foreign fields.
             
           Please note that in the current (2.3.0) version, master_db must
           be the same as foreign_db. Those fields have been put in future
@@ -575,13 +581,28 @@ CRIPT_NAME'], '/')+1);
           Whether a warning ("Are your really sure..") should be
           displayed when you're about to loose data.
           
-   $cfg['ShowTooltip'] boolean
-          Defines whether to display table comment as tooltip in left
-          frame or not.
+   $cfg['LoginCookieRecall'] boolean
+          Define whether the previous login should be recalled or not in
+          cookie authentication mode.
+          
+   $cfg['UseDbSearch'] boolean
+          Define whether the "search string inside database" is enabled
+          or not.
           
    $cfg['LeftFrameLight'] boolean
           Defines whether to use select-based menu and display only the
           current tables in the left frame (smaller page).
+          
+   $cfg['ShowTooltip'] boolean
+          Defines whether to display table comment as tooltip in left
+          frame or not.
+          
+   $cfg['ShowStats'] boolean
+          Defines whether to display space usage and statistics about
+          databases and tables or not.
+          Note that statistics requires at least MySQL 3.23.3 and that,
+          at this date, MySQL doesn't return such information for
+          Berkeley DB tables.
           
    $cfg['ShowMysqlInfo'] boolean
           $cfg['ShowMysqlVars'] boolean
@@ -603,21 +624,6 @@ CRIPT_NAME'], '/')+1);
    $cfg['SuggestDBName'] boolean
           Defines whether to suggest a database name on the "Create
           Database" form or to keep the textfield empty.
-          
-   $cfg['LoginCookieRecall'] boolean
-          Define whether the previous login should be recalled or not in
-          cookie authentication mode.
-          
-   $cfg['UseDbSearch'] boolean
-          Define whether the "search string inside database" is enabled
-          or not.
-          
-   $cfg['ShowStats'] boolean
-          Defines whether to display space usage and statistics about
-          databases and tables or not.
-          Note that statistics requires at least MySQL 3.23.3 and that,
-          at this date, MySQL doesn't return such information for
-          Berkeley DB tables.
           
    $cfg['ShowBlob'] boolean
           Defines whether BLOB fields are shown when browsing a table's
@@ -767,6 +773,73 @@ CRIPT_NAME'], '/')+1);
    $cfg['RepeatCells'] integer
           Repeat the headers every X cells, or 0 to deactivate.
           
+   $cfg['SQP']['enable'] boolean
+          As of phpMyAdmin 2.3.0, we now have a fully functional SQL
+          Parser system. It is enabled by default, as it is used to
+          format the SQL queries.
+          As of 2.3.1, it will become an integral part of phpMyAdmin, as
+          it will analyze certain queries to improve the behavior of
+          phpMyAdmin. But as it is very new, and not yet heavily used, we
+          offer you an option to turn it off.
+          
+   $cfg['SQP']['fmtType'] string [html|none]
+          The main use of the new SQL Parser is to pretty-print SQL
+          queries. By default we use HTML to format the query, but you
+          can disable this by setting this varible to 'none'
+          
+   $cfg['SQP']['fmtInd'] float
+          $cfg['SQP']['fmtIndUnit'] string [em|px|pt|ex]
+          For the pretty-printing of SQL queries, under some cases the
+          part of a query inside a bracket is indented. By changing
+          $cfg['SQP']['fmtInd'] you can change the amount of this indent.
+          Related in purpose is $cfg['SQP']['fmtIndUnit'] which specifies
+          the units of the indent amount that you specified. This is used
+          via stylesheets.
+          
+   $cfg['SQP']['fmtColor'] array of string tuples
+          This array is used to define the colours for each type of
+          element of the pretty-printed SQL queries. The tuple format is
+          class => [HTML colour code | empty string]
+          If you specify an empty string for the color of a class, it is
+          ignored in creating the stylesheet. You should not alter the
+          class names, only the colour strings.
+          Class name key:
+          
+          + comment Applies to all comment sub-classes
+          + comment_mysql Comments as "#...\n"
+          + comment_ansi Comments as "-- ...\n"
+          + comment_c Comments as "/*...*/"
+          + digit Applies to all digit sub-classes
+          + digit_hex Hexadecimal numbers
+          + digit_integer Integer numbers
+          + digit_float Floating point numbers
+          + punct Applies to all punctuation sub-classes
+          + punct_bracket_open_round Opening brackets"("
+          + punct_bracket_close_round Closing brackets ")"
+          + punct_listsep List item seperator ","
+          + punct_qualifier Table/Column Qualifer "."
+          + punct_queryend End of query marker ";"
+          + alpha Applies to all alphabetic classes
+          + alpha_columnType Identifers matching a column type
+          + alpha_columnAttrib Identifers matching a
+            database/table/column attribute
+          + alpha_functionName Identifiers matching a MySQL function name
+          + alpha_reservedWord Identifiers matching any other reserved
+            word
+          + alpha_variable Identifers matching a SQL variable "@foo"
+          + alpha_identifier All other identifiers
+          + quote Applies to all quotation mark classes
+          + quote_double Double quotes "
+          + quote_single Single quotes '
+          + quote_backtick Backtick quotes `
+            
+   $cfg['SQLValidator']['use'] boolean
+          TODO
+          
+   $cfg['SQLValidator']['username'] string
+          $cfg['SQLValidator']['password'] string
+          TODO
+          
    $cfg['ColumnTypes'] array
           All possible types of a MySQL column. In most cases you don't
           need to edit this.
@@ -778,12 +851,6 @@ CRIPT_NAME'], '/')+1);
    $cfg['Functions'] array
           A list of functions MySQL supports. In most cases you don't
           need to edit this.
-          
-   $cfg['keywords'] array
-          A list of keywords that is used for syntax coloring. All
-          keywords that are in this list will also get a new line before
-          them.
-          Usually you won't need to change those.
    ______________________________________________________________________
    
    Top  -  Requirements  -  Introduction  -  Installation  -
@@ -961,6 +1028,10 @@ FAQ - Frequently Asked Questions
    Usually, the problem is solved by installing a software package called
    "PHP-MySQL" or something similar.
    
+   [1.21] I am running the CGI version of PHP under Unix, and I cannot
+   login using cookie auth.
+   In php.ini, set mysql.max_links higher than 1.
+   
   [2. Configuration]
   
    [2.1] The error message "Warning: Cannot add header information -
@@ -977,7 +1048,7 @@ FAQ - Frequently Asked Questions
    
    [2.3] The error message "Warning: MySQL Connection Failed: Can't
    connect to local MySQL server through socket '/tmp/mysql.sock'
-   (111)...") is displayed. What can I do?
+   (111)..." is displayed. What can I do?
    For RedHat users, Harald Legner suggests this on the mailing list:
    On my RedHat-Box the socket of mysql is /var/lib/mysql/mysql.sock. In
    your php.ini you will find a line
@@ -1210,7 +1281,7 @@ FAQ - Frequently Asked Questions
    
    [6.5] How can I restore (upload) my database or table using a dump?
    Click on a database name in the left frame, the properties will be
-   displayed. Then in the "Run SQL query" section, type in your local
+   local displayed. Then in the "Run SQL query" section, type in your
    dump filename, or use the Browse button. Then click Go.
    For additional help on this subject, look for the word "upload" in
    this document.
@@ -1306,7 +1377,7 @@ FAQ - Frequently Asked Questions
    
    [6.10] My database has an underscore in it's name, and when I grant
    privileges to a user for this database, a backslash is added before
-   the underscore. 
+   the underscore.
    This is normal and means that the grant is done only for this
    database. If there was no backslash, this would be a wildcard grant,
    and the underscore would mean "any character". So, if the database
@@ -1325,6 +1396,15 @@ FAQ - Frequently Asked Questions
    INSERT verb and the table name.
    "Enclose table and field names with backquotes" ensures that field and
    table names formed with special characters are protected.
+   
+   [6.13] I would like to create a database with a dot in its name.
+   This is a bad idea, because in MySQL the syntax "database.table" is
+   the normal way to reference a database and table name. Worse, MySQL
+   will usually let you create a database with a dot, but then you cannot
+   work with it, nor delete it.
+   
+   [6.14] How do I set up the SQL validator?
+   TODO
    
   [7. phpMyAdmin project]
   
@@ -1451,6 +1531,7 @@ CREDITS, in chronological order
     * sync'ed different existing CVS trees with new features and bugfixes
     * multi-language improvements, dynamic language selection
     * current project maintainer
+    * many bugfixes and improvements
 
 [lc] - Loïc Chapeaux <lolo_at_phpheaven.net>
     * rewrote and optimized javascript, DHTML and DOM stuff
@@ -1463,7 +1544,10 @@ CREDITS, in chronological order
     * database maintence controls
     * table type code
     * Host authentication IP Allow/Deny
-    * DB-based configuration
+    * DB-based configuration (Not completed)
+    * SQL parser
+    * SQL validator
+    * many bugfixes and improvements
 
 [af] - Armel Fauveau <armel.fauveau_at_globalis-ms.com>
     * bookmarks feature
@@ -1492,11 +1576,13 @@ CREDITS, in chronological order
     * bugfixes
 
 [at] - Alexander M. Turek <rabus_at_bugfixes.info>
+    * XML exports
     * various small features and fixes
     * German language file updates
+    * many bugfixes and improvements
 
-[mb] - Mike Beck <mike.beck at ibmiller.de>
-    * automatic joint in QBE
+[mb] - Mike Beck <mike.beck_at_ibmiller.de>
+    * automatic joins in QBE
     * links column in printview
     * Relation view
 
@@ -1521,7 +1607,7 @@ code since version 2.1.0:
 - Maxime Delorme <delorme.maxime at free.fr> for the PDF schema output;
   thanks also to Olivier Plathey for the "FPDF" library
   (see http://www.fpdf.org/).
-
+- Olof Edlund <olof.edlund at upright.se> for the SQL validator server.
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version 2.1.0:
@@ -1529,7 +1615,7 @@ enhancements, bugfixes or support for a new language since version 2.1.0:
 Bora Alioglu, Ricardo ?, Sven-Erik Andersen, Alessandro Astarita,
 Péter Bakondy, Borges Botelho, Olivier Bussier, Neil Darlow, Laurent Dhima,
 Kristof Hamann, Thomas Kläger, Lubos Klokner, Martin Marconcini,
-Girish Nair, David Nordenberg, Bernard M. Piller, Laurent Haas,
+Girish Nair, David Nordenberg, Andreas Pauley, Bernard M. Piller, Laurent Haas,
 "Sakamoto", Yuval Sarna, www.securereality.com.au,
 Alvar Soome, Siu Sun, Peter Svec, Michael Tacelosky, Rachim Tamsjadi,
 Kositer Uros, Luís V., Martijn W. van der Lee, Algis Vainauskas,
