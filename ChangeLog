@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/serbian update, thanks to Mihailo Stefanovic
+    * lang/romanian: Updated, thanks to Valics Lehel.
+    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/bulgarian:  Updated, thanks to Stanislav Yordanov (stanprog).
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
+    * lang/chinese_gb: Updated, thanks to Wang (fundawang).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+
 2003-08-06 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: bug 782925: fix "Showing rows..." message when user has
       put a LIMIT in the query
