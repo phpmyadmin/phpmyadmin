@@ -4,7 +4,7 @@
 $charset = "windows-1250";
 $left_font_family = "verdana CE, Arial CE, verdana, helvetica, arial, geneva, sans-serif";
 $right_font_family = "verdana CE, Arial CE, helvetica, arial, geneva, sans-serif";
-$number_thousands_separator = "&nbsp;";
+$number_thousands_separator = " ";
 $number_decimal_separator = ".";
 $byteUnits = array("Bajtù", "KB", "MB", "GB");
 
