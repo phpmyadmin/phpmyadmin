@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: XSS vulnerability on convcharset
+
 2005-03-29 Alexander M. Turek  <me@derrabus.de>
     * server_collations.php, libraries/mysql_charsets.lib.php: Don't offer
       unavailable collations (bug #1172517).

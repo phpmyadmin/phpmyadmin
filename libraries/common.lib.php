@@ -157,6 +157,36 @@ require_once('./libraries/select_lang.lib.php');
  */
 require_once('./libraries/defines.lib.php');
 
+
+/**
+ * Sanitizes $message, taking into account our special codes
+ * for formatting
+ *
+ * @param   string   the message
+ *
+ * @return  string   the sanitized message
+ *
+ * @access  public
+ */
+function PMA_sanitize($message)
+{
+    $replace_pairs = array(
+        '<'     => '&lt;',
+        '>'     => '&gt;',
+        '[i]'   => '<i>',
+        '[/i]'  => '</i>',
+        '[b]'   => '<b>',
+        '[br]'  => '<br />',
+        '[/b]'  => '</b>',
+    );
+    return strtr($message, $replace_pairs);
+}
+
+// XSS
+if (isset($convcharset)) {
+    $convcharset = PMA_sanitize($convcharset);
+}
+
 if ($is_minimum_common == FALSE) {
     /**
      * Define $is_upload
@@ -1598,30 +1628,6 @@ if (typeof(window.parent) != 'undefined'
             <?php
             unset($GLOBALS['reload']);
         }
-    }
-
-    /**
-     * Sanitizes $message, taking into account our special codes
-     * for formatting
-     *
-     * @param   string   the message
-     *
-     * @return  string   the sanitized message
-     *
-     * @access  public
-     */
-    function PMA_sanitize($message)
-    {
-        $replace_pairs = array(
-            '<'     => '&lt;',
-            '>'     => '&gt;',
-            '[i]'   => '<i>',
-            '[/i]'  => '</i>',
-            '[b]'   => '<b>',
-            '[br]'  => '<br />',
-            '[/b]'  => '</b>',
-        );
-        return strtr($message, $replace_pairs);
     }
 
     /**
