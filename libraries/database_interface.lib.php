@@ -124,7 +124,7 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = NULL
     }
 }
 
-function PMA_DBI_postConnect($link) {
+function PMA_DBI_postConnect($link, $is_controluser = FALSE) {
     global $collation_connection, $charset_connection;
     if (!defined('PMA_MYSQL_INT_VERSION')) {
         $result = PMA_DBI_query('SELECT VERSION() AS version', $link, PMA_DBI_QUERY_STORE);
@@ -169,7 +169,7 @@ function PMA_DBI_postConnect($link) {
         }
 
         $mysql_charset = $GLOBALS['mysql_charset_map'][$GLOBALS['charset']];
-        if (empty($collation_connection) || (strpos($collation_connection, '_') ? substr($collation_connection, 0, strpos($collation_connection, '_')) : $collation_connection) == $mysql_charset) {
+        if ($is_controluser || empty($collation_connection) || (strpos($collation_connection, '_') ? substr($collation_connection, 0, strpos($collation_connection, '_')) : $collation_connection) == $mysql_charset) {
             PMA_DBI_query('SET NAMES ' . $mysql_charset . ';', $link, PMA_DBI_QUERY_STORE);
         } else {
             PMA_DBI_query('SET CHARACTER SET ' . $mysql_charset . ';', $link, PMA_DBI_QUERY_STORE);
@@ -177,8 +177,10 @@ function PMA_DBI_postConnect($link) {
         if (!empty($collation_connection)) {
             PMA_DBI_query('SET collation_connection = \'' . $collation_connection . '\';', $link, PMA_DBI_QUERY_STORE);
         }
-        $collation_connection = PMA_DBI_get_variable('collation_connection',     PMA_DBI_GETVAR_SESSION, $link);
-        $charset_connection   = PMA_DBI_get_variable('character_set_connection', PMA_DBI_GETVAR_SESSION, $link);
+        if (!$is_controluser) {
+            $collation_connection = PMA_DBI_get_variable('collation_connection',     PMA_DBI_GETVAR_SESSION, $link);
+            $charset_connection   = PMA_DBI_get_variable('character_set_connection', PMA_DBI_GETVAR_SESSION, $link);
+        }
 
         // Add some field types to the list
         // (we pass twice here; feel free to code something better :)

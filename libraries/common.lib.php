@@ -1258,18 +1258,16 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         // must be open after this one so it would be default one for all the
         // scripts)
         if ($cfg['Server']['controluser'] != '') {
-            $dbh = PMA_DBI_connect($cfg['Server']['controluser'], $cfg['Server']['controlpass']);
+            $dbh = PMA_DBI_connect($cfg['Server']['controluser'], $cfg['Server']['controlpass'], TRUE);
+        } else {
+            $dbh = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password'], TRUE);
         } // end if ... else
 
         // Pass #1 of DB-Config to read in master level DB-Config will go here
         // Robbat2 - May 11, 2002
 
         // Connects to the server (validates user's login)
-        $userlink = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password']);
-
-        if (empty($dbh)) {
-            $dbh = $userlink;
-        }
+        $userlink = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password'], FALSE);
 
         // Pass #2 of DB-Config to read in user level DB-Config will go here
         // Robbat2 - May 11, 2002

@@ -46,7 +46,7 @@ define('NUM_FLAG',          32768);
 define('PART_KEY_FLAG',     16384);
 define('UNIQUE_FLAG',       65536);
 
-function PMA_DBI_connect($user, $password) {
+function PMA_DBI_connect($user, $password, $is_controluser = FALSE) {
     global $cfg, $php_errormsg;
 
     $server_port   = (empty($cfg['Server']['port']))
@@ -74,7 +74,7 @@ function PMA_DBI_connect($user, $password) {
         PMA_auth_fails();
     } // end if
 
-    PMA_DBI_postConnect($link);
+    PMA_DBI_postConnect($link, $is_controluser);
 
     return $link;
 }
