@@ -513,6 +513,7 @@ $strSearchOption3 = 'phrase exacte';
 $strSearchOption4 = 'expression réguliére';
 $strSearchResultsFor = 'Résultats de la recherche de "<i>%s</i>" %s :';
 $strSearchType = 'Type de recherche :';
+$strSecretRequired = 'Vous devez ajouter dans le fichier de configuration une phrase de passe secrète (blowfish_secret).';
 $strSelect = 'Sélectionner';
 $strSelectADb = 'Choisissez une base de données';
 $strSelectAll = 'Tout sélectionner';
@@ -652,5 +653,4 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-$strSecretRequired = 'The configuration file now needs a secret passphrase (blowfish_secret).';  //to translate
 ?>
