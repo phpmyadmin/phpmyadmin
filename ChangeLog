@@ -5,14 +5,19 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
-2001-05-11  Armel Fauveau  <armel.fauveau@globalis-ms.com>
-        * Added a "execute" option in the phpMyBookmark patch
+2001-05-11  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, lines 496 & 563: put an "@" in front of the calls to the
+	  set_time_limit() function (Feature #423374)
+	* main.php3: add some empty lines to beautify the start screen and a test that
+	  allow to display language selection only if language is not forced in the
+	  configuration file
 
 2001-05-11  Marc Delisle  <lem9@users.sourceforge.net>
-        * support FULLTEXT in table copy or dump
+	* support FULLTEXT in table copy or dump
 
 2001-05-11  Armel Fauveau  <armel.fauveau@globalis-ms.com>
-        * Added a "delete" option in the phpMyBookmark patch (Olivier Mueller)
+	* Added a "delete" option in the phpMyBookmark patch (Olivier Mueller)
+	* Added a "execute" option in the phpMyBookmark patch
 
 2001-05-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_readdump.php3: fixed all the special characters problems (Bug #421889)
