@@ -526,7 +526,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
                                           : '';
             unset($cfgBrowseMarkRow);
         } else {
-            $cfg['BrowseMarkerColor'] = '';
+            $cfg['BrowseMarkerColor'] = '#FFCC99';
         }
     }
 
