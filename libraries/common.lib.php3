@@ -479,9 +479,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $font_smallest = '7pt';
         }
         // ... but most of them (except IE 5+ & NS 6+) need bigger fonts
-        else if (PMA_USR_OS == 'Mac'
+        else if ((PMA_USR_OS == 'Mac'
                  && ((PMA_USR_BROWSER_AGENT != 'IE' && PMA_USR_BROWSER_AGENT != 'MOZILLA')
-                     || PMA_USR_BROWSER_VER < 5)) {
+                     || PMA_USR_BROWSER_VER < 5))
+                || PMA_USR_BROWSER_AGENT == 'KONQUEROR') {
             $font_size     = 'medium';
             $font_biggest  = 'x-large';
             $font_bigger   = 'large';
@@ -930,7 +931,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         } // end building available dbs from the "mysql" db
 
     } // end server connecting
-
     /**
      * Missing server hostname
      */

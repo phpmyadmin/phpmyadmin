@@ -16,6 +16,8 @@ $Source$
     * lang/slovenian update, thanks to Kositer Uros
     * lang/swedish: update, thanks to Björn T. Hallberg
     * tbl_change.php3: upload field only to BLOBs
+    * libraries/defines.lib.php3, libraries/common.lib.php3: adjust Konqueror
+      font size
 
 2003-02-11 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_replace_fields.php3: sometimes we receive "none" as the file
