@@ -298,7 +298,8 @@ function grant_operations()
 <?php
 
     if (isset($dbgrant) && isset($tablegrant)) {
-       $result = mysql_query("SHOW COLUMNS FROM ".db_name($dbgrant).".$tablegrant");
+       $result = mysql_query("SHOW COLUMNS FROM ".db_name($dbgrant)."." .
+	tbl_name($tablegrant));
        if (@mysql_num_rows($result))
            while ($row = mysql_fetch_row($result))
                echo "<option>" . $row[0] . "</option>\n";
@@ -400,7 +401,8 @@ function table_grants($host, $user, $dbcheck = false)
         # Revoke
         $query = "server=$server&lang=$lang&db=mysql&table=user";
         $revoke_url  = "sql.php3";
-        $revoke_url .= "?sql_query=".urlencode("REVOKE $priv ON ".db_name($db).".$table FROM '$user'@'$host'");
+        $revoke_url .= "?sql_query=".urlencode("REVOKE $priv ON ".
+		db_name($db)."." . tbl_name($table) . " FROM '$user'@'$host'");
         $revoke_url .= "&$query";
         $revoke_url .= "&zero_rows=" . urlencode("$strRevokeMessage <font color=#002E80>$user@$host</font>");
         $revoke_url .= "&goto=$self";
@@ -408,7 +410,8 @@ function table_grants($host, $user, $dbcheck = false)
         # Revoke GRANT OPTION
         $revoke_grant_url  = "sql.php3";
         $revoke_grant_url .= "?sql_query="
-	 .urlencode("REVOKE GRANT OPTION ON ".db_name($db).".$table FROM '$user'@'$host'");
+	 .urlencode("REVOKE GRANT OPTION ON ".
+		db_name($db)."." . tbl_name($table) . " FROM '$user'@'$host'");
         $revoke_grant_url .= "&$query";
         $revoke_grant_url .= "&zero_rows=" . urlencode("$strRevokeGrantMessage <font color=#002E80>$user@$host</font>");
         $revoke_grant_url .= "&goto=$self";

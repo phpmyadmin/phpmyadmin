@@ -63,7 +63,8 @@ if(isset($submit))
     }
 
     $sql_query = "ALTER TABLE $table ADD $query";
-    $result = mysql_query("ALTER TABLE ".db_name($db).".$table ADD $query");
+    $result = mysql_query("ALTER TABLE ".db_name($db)."."
+	. tbl_name($table) . " ADD $query");
 
     $primary = '';
     

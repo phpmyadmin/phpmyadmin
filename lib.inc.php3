@@ -303,7 +303,8 @@ function display_table ($dt_result, $is_simple = false) {
 
   $primary = false;
   if(!$is_simple && !empty($table) && !empty($db)) {
-    $result = mysql_query("SELECT COUNT(*) as total FROM " .db_name($db).".$table") or mysql_die();
+    $result = mysql_query("SELECT COUNT(*) as total FROM " .db_name($db).
+	"." . tbl_name($table)) or mysql_die();
     $row = mysql_fetch_array($result);
     $total = $row["total"];
   }
@@ -915,6 +916,14 @@ function db_name ($db) {
                 return "`" . $db . "`";
         }
         else return $db;
+}
+
+function tbl_name ($tbl) {
+        if (MYSQL_MAJOR_VERSION >= "3.23"
+            && intval(MYSQL_MINOR_VERSION) >= 6) {
+                return "`" . $tbl . "`";
+        }
+        else return $tbl;
 }
 
 include ("./defines.inc.php3");
