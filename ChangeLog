@@ -5,10 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-23  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_select.php3, lines 202-206: fixed bug #472728 - Many fields / IE 5.5
+	  or IE 6.
+
 2001-12-22  Marc Delisle  <lem9@users.sourceforge.net>
 	* start new MySQL short documentation structure:
-          - config.inc.php3  $cfgManualBaseShort
-          - libraries/common.lib.php3  PMA_showDocuShort()
+	  - config.inc.php3  $cfgManualBaseShort
+	  - libraries/common.lib.php3  PMA_showDocuShort()
 
 2001-12-21  Marc Delisle  <lem9@users.sourceforge.net>
 	* test and merge patch from Loïc for bug 495112: 

@@ -199,15 +199,12 @@ else {
         $sql_query .= ' ORDER BY ' . PMA_backquote(urldecode($orderField)) . ' ' . $order;
     } // end if
 
-    $url_query = 'lang=' . $lang
-               . '&server=' . $server
-               . '&db=' . urlencode($db)
-               . '&table=' . urlencode($table)
-               . '&sql_query=' . urlencode($sql_query)  
-               . '&pos=0'
-               . '&session_max_rows=' . $session_max_rows
-               . '&goto='. $goto;
-    header('Location: ' . $cfgPmaAbsoluteUri . 'sql.php3?' . $url_query);
+    // The query will be stripslashed in sql.php3 if "magic_quotes_gpc" is on
+    if (get_magic_quotes_gpc()) {
+        $sql_query = addslashes($sql_query);
+    }
+    include('./sql.php3');
+
 }
 
 ?>
