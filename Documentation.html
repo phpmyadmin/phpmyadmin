@@ -1119,7 +1119,20 @@
     <b>The error message &quot;Warning: MySQL Connection Failed: Can't connect
     to local MySQL server through socket '/tmp/mysql.sock' (111)...&quot;) is
     displayed. What can I do?</b>
+    <br /><br />
+    For RedHat users, Harald Legner suggests this on the mailing list:
+    <br /><br />
+    On my RedHat-Box the socket of mysql is /var/lib/mysql/mysql.sock. In your 
+    php.ini you will find a line
     <br />
+    <tt>mysql.default_socket = /tmp/mysql.sock</tt>
+    <br />
+    change it to
+    <br />
+    <tt>mysql.default_socket = /var/lib/mysql/mysql.sock</tt>
+    <br />
+    Then restart apache and it will work.
+    <br /><br />
     Here is a fix suggested by Brad Ummer in the
     <a class="navigation" href="http://www.phpwizard.net/phorum/list.php?f=1" target="_blank">
          phpwizard forum</a>:
