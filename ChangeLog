@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-18 Marc Delisle  <lem9@users.sourceforge.net>
+	* new language: lang/hebrew.inc.php3, thanks to
+	  Yuval "Etus" Sarna (sarna at netvision.net.il)
+
 2002-02-17 Loïc Chapeaux  <lolo@phpheaven.net>
 	* read_dump.php3; libraries/build_dump.lib.php3: tried a fix for
 	  bug #508746 - PMA_splitSqlFile() crashes server. Thanks to
