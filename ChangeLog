@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-10  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* Feature 445699, New link "Show PHP information" - Added on main.php3
+
 2001-08-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_replace.php3, lines 76, 78, 86, 88, 137, 139, 147, 149: fixed some
 	  others slashes bugs.

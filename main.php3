@@ -278,6 +278,10 @@ if ($server > 0
     } // end of 2.2 (no AdvAuth case)
 } // end of 2: if ($server > 0)
 ?>
+    <!-- PHP Information -->
+    <li>
+	<a href="phpinfo.php3" target="_new"><?php echo $strShowPHPInfo; ?></a>
+    </li>
 
     <!-- documentation -->
     <li>
