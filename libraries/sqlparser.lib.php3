@@ -622,15 +622,15 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
         // must be sorted
         $supported_query_types = array(
+            'SELECT'
+            /*
+            // Support for these additional query types will come later on.
             'DELETE',
             'INSERT',
             'REPLACE',
-            'SELECT',
+            'SELECT'
             'TRUNCATE',
             'UPDATE'
-            /*
-            // Support for these additional query types will come later on.
-            // They are not needed yet
             'EXPLAIN',
             'DESCRIBE',
             'SHOW',
@@ -989,7 +989,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
         $class     .= 'syntax_' . $arr['type'];
 
-        return '<span class="' . $class . '">' . htmlspecialchars($arr['data']) . '</span>' . "\n";
+        //TODO: check why adding a "\n" after the </span> would cause extra 
+        //      blanks to be displayed:
+        //      SELECT p . person_name
+
+        return '<span class="' . $class . '">' . htmlspecialchars($arr['data']) . '</span>';
     } // end of the "PMA_SQP_formatHtml_colorize()" function
 
 
@@ -1188,7 +1192,12 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             && PMA_STR_binarySearchInArr(strtoupper($arr[$i - 1]['data']), $keywords_no_newline, $keywords_no_newline_cnt)))
                         && ($typearr[1] != 'punct_level_plus')
                         && (!PMA_STR_binarySearchInArr($upper, $keywords_no_newline, $keywords_no_newline_cnt))) {
-                        $before    .= $space_alpha_reserved_word;
+                        // do not put a space before the first token, because
+                        // we use a lot of eregi() checking for the first
+                        // reserved word at beginning of query
+                        if ($i > 0) {
+                            $before    .= $space_alpha_reserved_word;
+                        }
                     } else {
                         $before    .= ' ';
                     }

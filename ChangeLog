@@ -7,6 +7,8 @@ $Source$
 
 2002-11-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: bug 636575 (unquoted identifiers)
+    * libraries/sqlparser.lib.php3, libraries/common.lib.php3, sql.php3:
+      bug 636563 undefined variable when deleting a row
 
 2002-11-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libaries/common.lib.php3: Fixed bug #636345 (Error when modifying table

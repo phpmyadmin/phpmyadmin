@@ -81,8 +81,12 @@ if (isset($btnDrop) || isset($navig)) {
 /**
  * Reformat the query
  */
-$parsed_sql = PMA_SQP_parse((get_magic_quotes_gpc() ? stripslashes($sql_query) : $sql_query));
+
+$sql_query = (get_magic_quotes_gpc() ? stripslashes($sql_query) : $sql_query);
+$parsed_sql = PMA_SQP_parse($sql_query);
+$is_select = eregi('^SELECT[[:space:]]+', $sql_query);
 $analyzed_sql = PMA_SQP_analyze($parsed_sql);
+
 $sql_query = PMA_SQP_formatHtml($parsed_sql, 'query_only');
 
 // If the query is a Select, extract the db and table names and modify
@@ -96,7 +100,6 @@ $sql_query = PMA_SQP_formatHtml($parsed_sql, 'query_only');
 // - do not show a table name in the page header
 // - do not display the sub-pages links)
 
-$is_select = eregi('^SELECT[[:space:]]+', $sql_query);
 if ($is_select) {
     eregi('^SELECT[[:space:]]+(.*)[[:space:]]+FROM[[:space:]]+(`[^`]+`|[A-Za-z0-9_$]+)([\.]*)(`[^`]*`|[A-Za-z0-9_$]*)', $sql_query, $tmp);
 
@@ -472,9 +475,6 @@ else {
         if (!isset($dontlimitchars)) {
             $dontlimitchars = 0;
         }
-
-        //$parsed_sql = PMA_SQP_parse($sql_query);
-        //$analyzed_sql = PMA_SQP_analyze($parsed_sql);
 
         PMA_displayTable($result, $disp_mode, $analyzed_sql);
         mysql_free_result($result);

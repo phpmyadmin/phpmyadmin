@@ -1278,7 +1278,7 @@ if (typeof(document.getElementById) != 'undefined'
                 } else if (!empty($GLOBALS['validatequery'])) {
                     // skip the extra bit here
                 } else {
-                    echo PMA_formatSql(PMA_SQP_parse($GLOBALS['sql_limit_to_append']));
+                    echo '&nbsp;' . PMA_formatSql(PMA_SQP_parse($GLOBALS['sql_limit_to_append']));
                 }
             }
 
