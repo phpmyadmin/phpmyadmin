@@ -37,7 +37,7 @@ if ($cfg['PropertiesIconic'] == true) {
  * LIKE works also on integers and dates so I added it in numfunctions
  */
 $numfunctions   = array('=', '>', '>=', '<', '<=', '!=', 'LIKE', 'NOT LIKE');
-$textfunctions  = array('LIKE', 'NOT LIKE', '=', '!=');
+$textfunctions  = array('LIKE', 'NOT LIKE', '=', '!=', 'REGEXP', 'NOT REGEXP');
 $enumfunctions  = array('=', '!=');
 $nullfunctions  = array('IS NULL', 'IS NOT NULL');
 $unaryfunctions = array(
@@ -67,7 +67,7 @@ if (!isset($param) || $param[0] == '') {
         $fields_list[] = $row['Field'];
         $type          = $row['Type'];
         // reformat mysql query output - staybyte - 9. June 2001
-        if (strncasecmp($type, 'set', 3) == 0 
+        if (strncasecmp($type, 'set', 3) == 0
             || strncasecmp($type, 'enum', 4) == 0) {
             $type      = str_replace(',', ', ', $type);
         } else {
@@ -102,7 +102,7 @@ if (!isset($param) || $param[0] == '') {
 <!--
 function PMA_tbl_select_operator(f, index, multiple) {
     switch (f.elements["func[" + index + "]"].options[f.elements["func[" + index + "]"].selectedIndex].value) {
-<?php 
+<?php
         reset($unaryfunctions);
         while (list($operator) = each($unaryfunctions)) {
             echo '        case "' . $operator . "\":\r\n";
@@ -319,12 +319,12 @@ else {
                         $func_type    = $func[$i] = 'IN';
                         $parens_open  = '(';
                         $parens_close = ')';
-                        
+
                     } elseif ($func_type == '!=' && $enum_selected_count > 1) {
                         $func_type    = $func[$i] = 'NOT IN';
                         $parens_open  = '(';
                         $parens_close = ')';
-                        
+
                     } else {
                         $parens_open  = '';
                         $parens_close = '';
@@ -347,7 +347,7 @@ else {
 
             } // end if
         } // end for
-        
+
         if ($w) {
             $sql_query .= ' WHERE ' . implode(' AND ', $w);
         }

@@ -10,6 +10,7 @@ $Source$
       calendar.
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
+    * tbl_select.php: RFE #940194 - Add REGEXP to table search options
     * read_dump.php: Bug #925913 - Uploading with UploadDir/open_basedir
       fails.
     * querywindow.php: Bug #942395 - Missing space
