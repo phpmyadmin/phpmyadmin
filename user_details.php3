@@ -240,10 +240,25 @@ function PMA_checkDb($dbcheck)
  *
  * @return  boolean  always true
  *
+ * @global  integer  whether all/none of the privileges have to be checked or
+ *                   not
+ *
  * @see     PMA_normalOperations()
  */
 function PMA_tablePrivileges($form, $row = FALSE)
 {
+    global $checkpriv;
+
+    $checkpriv_url               = $GLOBALS['cfgPmaAbsoluteUri']
+                                 . 'user_details.php3?';
+    if (empty($GLOBALS['QUERY_STRING'])) {
+        $GLOBALS['QUERY_STRING'] = (isset($_SERVER))
+                                 ? $_SERVER['QUERY_STRING']
+                                 : $GLOBALS['HTTP_SERVER_VARS']['QUERY_STRING'];
+    }
+    if (!empty($GLOBALS['QUERY_STRING'])) {
+        $checkpriv_url           .= $GLOBALS['QUERY_STRING'] . '&amp;';
+    }
     ?>
 
             <table>
@@ -253,8 +268,12 @@ function PMA_tablePrivileges($form, $row = FALSE)
                        'Shutdown', 'Process', 'File', 'Grant', 'References', 'Index', 'Alter');
     $item      = 0;
     while ((list(,$priv) = each($list_priv)) && ++$item) {
-        $priv_priv = $priv . '_priv';
-        $checked   = ($row && $row[$priv_priv] == 'Y') ?  ' checked="checked"' : '';
+        $priv_priv   = $priv . '_priv';
+        if (isset($checkpriv)) {
+            $checked = ($checkpriv == 'all') ?  ' checked="checked"' : '';
+        } else {
+            $checked = ($row && $row[$priv_priv] == 'Y') ?  ' checked="checked"' : '';
+        }
         if ($item % 2 == 1) {
             echo '            <tr>' . "\n";
         } else {
@@ -277,12 +296,12 @@ function PMA_tablePrivileges($form, $row = FALSE)
             <table>
             <tr>
                 <td>
-                    <a href="#" onclick="checkForm('<?php echo $form; ?>', true); return false">
+                    <a href="<?php echo $checkpriv_url; ?>checkpriv=all" onclick="checkForm('<?php echo $form; ?>', true); return false">
                         <?php echo $GLOBALS['strCheckAll']; ?></a>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <a href="#" onclick="checkForm('<?php echo $form; ?>', false); return false">
+                    <a href="<?php echo $checkpriv_url; ?>checkpriv=none" onclick="checkForm('<?php echo $form; ?>', false); return false">
                         <?php echo $GLOBALS['strUncheckAll']; ?></a>
                 </td>
             </tr>
