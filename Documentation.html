@@ -626,7 +626,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             <li>within this database create a table following this scheme:
                 <br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_bookmark` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_bookmark` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(11) DEFAULT '0' NOT NULL auto_increment,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbase varchar(255) NOT NULL,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user varchar(255) NOT NULL,<br />
@@ -689,7 +689,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 within this database create a table following this scheme:
                 <br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_relation` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_relation` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_db` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_table` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_field` varchar(64) NOT NULL default '',<br />
@@ -733,7 +733,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             <li>within this database create a table following this scheme:
                 <br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_table_info` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_table_info` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`display_field` varchar(64) NOT NULL default '',<br />
@@ -778,7 +778,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 within this database create a table following this scheme:
                 <br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_table_coords` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_table_coords` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pdf_page_number` int NOT NULL default '0',<br />
@@ -791,7 +791,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             <li>
                 also within this database create:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_pdf_pages` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_pdf_pages` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`page_nr` int(10) unsigned NOT NULL auto_increment,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`page_descr` varchar(50) NOT NULL default '',<br />
@@ -837,7 +837,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 within this database create a table following this scheme:
                 <br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_column_info` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_column_info` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(5) unsigned NOT NULL auto_increment,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db_name varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table_name varchar(64) NOT NULL default '',<br />
@@ -858,7 +858,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             <li>
                 To update your PRE-2.5.0 Column_comments Table use this:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_column_comments` <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `pma_column_comments` <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD `mimetype` VARCHAR( 255 ) NOT NULL ,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD `transformation` VARCHAR( 255 ) NOT NULL ,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD `transformation_options` VARCHAR( 255 ) NOT NULL ;<br />
@@ -894,7 +894,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 within this database create a table following this scheme:
                 <br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_history` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_history` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`username` VARCHAR( 64 ) NOT NULL ,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db` VARCHAR( 64 ) NOT NULL ,<br />
@@ -3096,7 +3096,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     Here is an example with the tables persons, towns and countries, all
-    located in the database mydb. If you don't have a <tt>PMA_relation</tt>
+    located in the database mydb. If you don't have a <tt>pma_relation</tt>
     table, create it as explained in the configuration section. Then create the
     example tables:
     <br /><br />
@@ -3164,7 +3164,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     [6.7] How can I use the &quot;display field&quot; feature?
 </h4>
 <p>
-    Starting from the previous example, create the PMA_table_info as explained
+    Starting from the previous example, create the pma_table_info as explained
     in the configuration section, then browse your persons table,
     and move the mouse over a town code or country code.
     <br /><br />

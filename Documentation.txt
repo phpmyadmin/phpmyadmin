@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.506 2003/10/01
-       07:37:53 rabus Exp $
+     * Documentation version: $Id: Documentation.html,v 1.507 2003/10/07
+       09:48:35 nijel Exp $
 
 Requirements
 
@@ -430,7 +430,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
           + set up "pmadb" as described above
           + within this database create a table following this scheme:
-                 CREATE TABLE `PMA_bookmark` (
+                 CREATE TABLE `pma_bookmark` (
                    id int(11) DEFAULT '0' NOT NULL auto_increment,
                    dbase varchar(255) NOT NULL,
                    user varchar(255) NOT NULL,
@@ -466,7 +466,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
           + set up "pmadb" as described above
           + within this database create a table following this scheme:
-                 CREATE TABLE `PMA_relation` (
+                 CREATE TABLE `pma_relation` (
                    `master_db` varchar(64) NOT NULL default '',
                    `master_table` varchar(64) NOT NULL default '',
                    `master_field` varchar(64) NOT NULL default '',
@@ -497,7 +497,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
           + set up "pmadb" as described above
           + within this database create a table following this scheme:
-                 CREATE TABLE `PMA_table_info` (
+                 CREATE TABLE `pma_table_info` (
                    `db_name` varchar(64) NOT NULL default '',
                    `table_name` varchar(64) NOT NULL default '',
                    `display_field` varchar(64) NOT NULL default '',
@@ -525,7 +525,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
           + set up "pmadb" as described above
           + within this database create a table following this scheme:
-                 CREATE TABLE `PMA_table_coords` (
+                 CREATE TABLE `pma_table_coords` (
                    `db_name` varchar(64) NOT NULL default '',
                    `table_name` varchar(64) NOT NULL default '',
                    `pdf_page_number` int NOT NULL default '0',
@@ -536,7 +536,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                  ) TYPE=MyISAM COMMENT='Table coordinates for phpMyAdmin
             PDF output';
           + also within this database create:
-                 CREATE TABLE `PMA_pdf_pages` (
+                 CREATE TABLE `pma_pdf_pages` (
                    `db_name` varchar(64) NOT NULL default '',
                    `page_nr` int(10) unsigned NOT NULL auto_increment,
                    `page_descr` varchar(50) NOT NULL default '',
@@ -569,7 +569,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
           + set up "pmadb" as described above
           + within this database create a table following this scheme:
-                 CREATE TABLE `PMA_column_info` (
+                 CREATE TABLE `pma_column_info` (
                    id int(5) unsigned NOT NULL auto_increment,
                    db_name varchar(64) NOT NULL default '',
                    table_name varchar(64) NOT NULL default '',
@@ -584,7 +584,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                  ) TYPE=MyISAM COMMENT='Comments for Columns';
           + put the table name in $cfg['Servers'][$i]['column_info']
           + To update your PRE-2.5.0 Column_comments Table use this:
-                 ALTER TABLE `PMA_column_comments`
+                 ALTER TABLE `pma_column_comments`
                    ADD `mimetype` VARCHAR( 255 ) NOT NULL ,
                    ADD `transformation` VARCHAR( 255 ) NOT NULL ,
                    ADD `transformation_options` VARCHAR( 255 ) NOT NULL ;
@@ -608,7 +608,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
           + set up "pmadb" as described above
           + within this database create a table following this scheme:
-                 CREATE TABLE `PMA_history` (
+                 CREATE TABLE `pma_history` (
                    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
                    `username` VARCHAR( 64 ) NOT NULL ,
                    `db` VARCHAR( 64 ) NOT NULL ,
@@ -2135,7 +2135,7 @@ FAQ - Frequently Asked Questions
     [6.6] How can I use the relation table in Query-by-example?
 
    Here is an example with the tables persons, towns and countries, all
-   located in the database mydb. If you don't have a PMA_relation table,
+   located in the database mydb. If you don't have a pma_relation table,
    create it as explained in the configuration section. Then create the
    example tables:
         CREATE TABLE REL_countries (
@@ -2183,7 +2183,7 @@ FAQ - Frequently Asked Questions
 
     [6.7] How can I use the "display field" feature?
 
-   Starting from the previous example, create the PMA_table_info as
+   Starting from the previous example, create the pma_table_info as
    explained in the configuration section, then browse your persons
    table, and move the mouse over a town code or country code.
    See also FAQ 6.21 for an additionnal feature that "display field"

@@ -27,8 +27,8 @@ USE phpmyadmin;
 GRANT SELECT, INSERT, DELETE, UPDATE ON `phpmyadmin`.* TO
     'pma'@localhost;
 
-DROP TABLE IF EXISTS `PMA_bookmark`;
-CREATE TABLE `PMA_bookmark` (
+DROP TABLE IF EXISTS `pma_bookmark`;
+CREATE TABLE `pma_bookmark` (
     `id` int(11) DEFAULT '0' NOT NULL AUTO_INCREMENT,
     `dbase` VARCHAR(255) NOT NULL,
     `user` VARCHAR(255) NOT NULL,
@@ -37,8 +37,8 @@ CREATE TABLE `PMA_bookmark` (
     PRIMARY KEY (`id`)
 ) TYPE=MyISAM COMMENT='Bookmarks';
 
-DROP TABLE IF EXISTS `PMA_relation`;
-CREATE TABLE `PMA_relation` (
+DROP TABLE IF EXISTS `pma_relation`;
+CREATE TABLE `pma_relation` (
     `master_db` VARCHAR(64) NOT NULL DEFAULT '',
     `master_table` VARCHAR(64) NOT NULL DEFAULT '',
     `master_field` VARCHAR(64) NOT NULL DEFAULT '',
@@ -49,16 +49,16 @@ CREATE TABLE `PMA_relation` (
     KEY `foreign_field` (`foreign_db`, `foreign_table`)
 ) TYPE=MyISAM COMMENT='Relation table';
 
-DROP TABLE IF EXISTS `PMA_table_info`;
-CREATE TABLE `PMA_table_info` (
+DROP TABLE IF EXISTS `pma_table_info`;
+CREATE TABLE `pma_table_info` (
     `db_name` VARCHAR(64) NOT NULL DEFAULT '',
     `table_name` VARCHAR(64) NOT NULL DEFAULT '',
     `display_field` VARCHAR(64) NOT NULL DEFAULT '',
     PRIMARY KEY (`db_name`, `table_name`)
 ) TYPE=MyISAM COMMENT='Table information for phpMyAdmin';
 
-DROP TABLE IF EXISTS `PMA_table_coords`;
-CREATE TABLE `PMA_table_coords` (
+DROP TABLE IF EXISTS `pma_table_coords`;
+CREATE TABLE `pma_table_coords` (
     `db_name` VARCHAR(64) NOT NULL DEFAULT '',
     `table_name` VARCHAR(64) NOT NULL DEFAULT '',
     `pdf_page_number` INT NOT NULL DEFAULT '0',
@@ -67,8 +67,8 @@ CREATE TABLE `PMA_table_coords` (
     PRIMARY KEY (`db_name`, `table_name`, `pdf_page_number`)
 ) TYPE=MyISAM COMMENT='Table coordinates for phpMyAdmin PDF output';
 
-DROP TABLE IF EXISTS `PMA_pdf_pages`;
-CREATE TABLE `PMA_pdf_pages` (
+DROP TABLE IF EXISTS `pma_pdf_pages`;
+CREATE TABLE `pma_pdf_pages` (
     `db_name` VARCHAR(64) NOT NULL DEFAULT '',
     `page_nr` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     `page_descr` VARCHAR(50) NOT NULL DEFAULT '',
@@ -76,8 +76,8 @@ CREATE TABLE `PMA_pdf_pages` (
     KEY (`db_name`)
 ) TYPE=MyISAM COMMENT='PDF Relationpages for PMA';
 
-DROP TABLE IF EXISTS `PMA_column_info`;
-CREATE TABLE `PMA_column_info` (
+DROP TABLE IF EXISTS `pma_column_info`;
+CREATE TABLE `pma_column_info` (
     `id` INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
     `db_name` VARCHAR(64) NOT NULL DEFAULT '',
     `table_name` VARCHAR(64) NOT NULL DEFAULT '',
@@ -90,8 +90,8 @@ CREATE TABLE `PMA_column_info` (
     UNIQUE KEY `db_name` (`db_name`, `table_name`, `column_name`)
 ) TYPE=MyISAM COMMENT='Column Information for phpMyAdmin';
 
-DROP TABLE IF EXISTS `PMA_history`;
-CREATE TABLE `PMA_history` (
+DROP TABLE IF EXISTS `pma_history`;
+CREATE TABLE `pma_history` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
     `username` VARCHAR(64) NOT NULL,
     `db` VARCHAR(64) NOT NULL,
