@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-31 Alexander M. Turek  <me@derrabus.de>
+    * left.php: Undefined offset (Bug #1174045).
+
 2005-03-31 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: added FAQ 5.17 about problem with 
       Firefox when the Tabbrowser Extensions plugin is installed

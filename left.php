@@ -451,6 +451,14 @@ if ($num_dbs > 1) {
         if (!empty($db_start) && $db == $db_start) {
             $selected_db = $j;
         }
+        /**
+         * The query below will return a result set with a single field under
+         * MySQL versions before 5.0 and one with two fields under MySQL 5.0
+         * and above. The MySQL 5 result set also includes the table type
+         * ('BASE TABLE', 'VIEW' or 'TEMPORARY').
+         * MySQL 4 does neither know about views nor differ between permanent
+         * and temporary tables, so the table type is irrelevant here.
+         */
         $tables              = PMA_DBI_try_query('SHOW ' . (PMA_MYSQL_INT_VERSION >= 50000 ? 'FULL ' : '') . 'TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
         $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
         $common_url_query    = PMA_generate_common_url($db);
@@ -518,7 +526,7 @@ if ($num_dbs > 1) {
             $tablestack  = array();
             $table_array = array();
             $table_types = array();
-            while (list($table, $type) = PMA_DBI_fetch_row($tables)) {
+            while (@list($table, $type) = PMA_DBI_fetch_row($tables)) {
                 $table_item = (!empty($tooltip_name) && isset($tooltip_name[$table]) && !empty($tooltip_name[$table]) && $cfg['ShowTooltipAliasTB'] && strtolower($cfg['ShowTooltipAliasTB']) !== 'nested'
                             ? htmlspecialchars($tooltip_name[$table])
                             : htmlspecialchars($table));
@@ -596,7 +604,7 @@ if ($num_dbs > 1) {
                 $table_array = array();
                 // Gets the list of tables from the current database
                 $book_sql_cache = PMA_queryDBBookmarks($db, $cfg['Bookmark'], $table_array);
-                while (list($table, $type) = PMA_DBI_fetch_row($tables)) {
+                while (@list($table, $type) = PMA_DBI_fetch_row($tables)) {
                     $table_array[$table] = '';
                     $url_title  = (!empty($tooltip) && isset($tooltip[$table]))
                                 ? htmlspecialchars($tooltip[$table])
