@@ -9,7 +9,7 @@ require_once('./libraries/mysql_charsets.lib.php');
 /**
  * Rename database
  */
-if (isset($db) && 
+if (isset($db) &&
     ((isset($db_rename) && $db_rename == 'true') ||
     (isset($db_copy) && $db_copy == 'true'))) {
 
@@ -17,7 +17,7 @@ if (isset($db) &&
 
     if (isset($db_rename) && $db_rename == 'true') $move = TRUE;
     else $move = FALSE;
-    
+
     if (!isset($newname) || empty($newname)) {
         $message = $strDatabaseEmpty;
     } else {
@@ -188,7 +188,7 @@ if ($cfgRelation['commwork']) {
                         $pma_switch_to_new = 'true';
                     }
                 ?>
-                <input type="checkbox" name="switch_to_new" value="true" id="checkbox_switch"<?php echo ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true') ? ' checked="checked"' : ''); ?> style="vertical-align: middle" /><label for="checkbox_switch"><?php echo $strSwitchToTable; ?></label>&nbsp;&nbsp;
+                <input type="checkbox" name="switch_to_new" value="true" id="checkbox_switch"<?php echo ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true') ? ' checked="checked"' : ''); ?> style="vertical-align: middle" /><label for="checkbox_switch"><?php echo $strSwitchToDatabase; ?></label>&nbsp;&nbsp;
             </td>
             <td align="<?php echo $cell_align_right; ?>" valign="bottom" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
                 <input type="submit" name="submit_copy" value="<?php echo $strGo; ?>" />

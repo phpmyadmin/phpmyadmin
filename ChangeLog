@@ -8,6 +8,8 @@ $Source$
 2004-10-22 Michal Čihař  <michal@cihar.com>
     * db_details_structure.php: Use "Structure" instead of "Properties" for
       link to table structure.
+    * db_operations.php, lang/*: We switch to database here. not table.
+
 
 2004-10-21 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_query_box.php: bug 1050691, missing parameters
