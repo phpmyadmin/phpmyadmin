@@ -188,17 +188,17 @@ if ($server > 0) {
     // If the user has Create priv on a inexistant db, show him in the dialog
     // the first inexistant db name that we find, in most cases it's probably
     // the one he just dropped :)
-    // (Note: we only get here after a browser reload, I don't know why)
     if (!$is_create_priv) {
         $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
         $rs_usr      = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
-            $re      = '(^|(\\\\\\\\)+|[^\])';
+            $re0     = '(^|(\\\\\\\\)+|[^\])';
+            $re1     = '(^|[^\])(\\\)+';
             while ($row = mysql_fetch_array($rs_usr)) {
-                if (ereg($re . '%|_', $row['Db'])
-                    || !mysql_select_db($row['Db'], $userlink) && @mysql_errno() != 1044) {
-                    $db_to_create   = ereg_replace($re . '%', '\\1...', ereg_replace($re . '_', '\\1?', $row['Db']));
-                    $db_to_create   = ereg_replace('\\\(%|_)', '\\1', $db_to_create);
+                if (ereg($re0 . '(%|_)', $row['Db'])
+                    || (!mysql_select_db(ereg_replace($re1 . '(%|_)', '\\1\\3', $row['Db']), $userlink) && @mysql_errno() != 1044)) {
+                    $db_to_create   = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $row['Db']));
+                    $db_to_create   = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
                     $is_create_priv = TRUE;
                     break;
                 } // end if
