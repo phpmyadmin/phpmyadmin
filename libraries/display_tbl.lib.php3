@@ -418,16 +418,23 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 <!-- Results table headers -->
 <tr>
             <?php
+            echo "\n";
         }
-        echo "\n";
 
         $vertical_display['emptypre']   = 0;
         $vertical_display['emptyafter'] = 0;
+        $vertical_display['textbtn']    = '';
 
         // 1. Displays the full/partial text button (part 1)...
-        $colspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
-                  ? ' colspan="2"'
-                  : '';
+        if ($disp_direction == 'horizontal') {
+            $colspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
+                      ? ' colspan="2"'
+                      : '';
+        } else {
+            $rowspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
+                      ? ' rowspan="2"'
+                      : '';
+        }
         $text_url = 'sql.php3'
                   . '?lang=' . $lang
                   . '&amp;server=' . $server
@@ -456,34 +463,56 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
 <tr>
                 <?php
-            }
+            } // end horizontal mode
+            else {
+                echo "\n";
+                ?>
+<tr>
+    <td colspan="<?php echo $num_rows + floor($num_rows/$repeat_cells) + 1; ?>" align="center">
+        <a href="<?php echo $text_url; ?>">
+            <img src="./images/<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
+    </td>
+</tr>
+                <?php
+            } // end vertical mode
         }
+
         //     ... at the left column of the result table header if possible
         //     and required
         else if ($GLOBALS['cfgModifyDeleteAtLeft'] && $is_display['text_btn'] == '1') {
-            echo "\n";
             $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
             if ($disp_direction == 'horizontal') {
+                echo "\n";
                 ?>
     <td<?php echo $colspan; ?> align="center">
         <a href="<?php echo $text_url; ?>">
             <img src="./images/<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
     </td>
                 <?php
-            }
+            } // end horizontal mode
+            else {
+                $vertical_display['textbtn'] = '    <td' . $rowspan . ' align="center" valign="middle">' . "\n"
+                                             . '        <a href="' . $text_url . '">' . "\n"
+                                             . '            <img src="./images/' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png" border="0" width="50" height="20" alt="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" /></a>' . "\n"
+                                             . '    </td>' . "\n";
+            } // end vertical mode
         }
+
         //     ... else if no button, displays empty(ies) col(s) if required
         else if ($GLOBALS['cfgModifyDeleteAtLeft']
                  && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')) {
-            echo "\n";
             $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
             if ($disp_direction == 'horizontal') {
+                echo "\n";
                 ?>
     <td<?php echo $colspan; ?>></td>
                 <?php
-            }
+                echo "\n";
+            } // end horizontal mode
+            else {
+                $vertical_display['textbtn'] = '    <td' . $rowspan . '></td>' . "\n";
+            } // end vertical mode
         }
-        echo "\n";
 
         // 2. Displays the fields' name
         // 2.0 If sorting links should be used, checks if the query is a "JOIN"
@@ -566,6 +595,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
                 // 2.1.5 Displays the sorting url
                 if ($disp_direction == 'horizontal') {
+                    echo "\n";
                     ?>
     <th>
         <a href="sql.php3?<?php echo $url_query; ?>">
@@ -581,8 +611,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
             // 2.2 Results can't be sorted
             else {
-                echo "\n";
                 if ($disp_direction == 'horizontal') {
+                    echo "\n";
                     ?>
     <th>
         <?php echo htmlspecialchars($fields_meta[$i]->name) . "\n"; ?>
@@ -593,7 +623,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                                             . '        ' . htmlspecialchars($fields_meta[$i]->name) . "\n"
                                             . '    </th>';
             } // end else (2.2)
-            echo "\n";
         } // end for
 
         // 3. Displays the full/partial text button (part 2) at the right
@@ -601,26 +630,41 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         if ($GLOBALS['cfgModifyDeleteAtRight']
             && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')
             && $is_display['text_btn'] == '1') {
-            echo "\n";
             $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
             if ($disp_direction == 'horizontal') {
+                echo "\n";
                 ?>
     <td<?php echo $colspan; ?> align="center">
         <a href="<?php echo $text_url; ?>">
             <img src="./images/<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
     </td>
                 <?php
-            }
+            } // end horizontal mode
+            else {
+                $vertical_display['textbtn'] = '    <td' . $rowspan . ' align="center" valign="middle">' . "\n"
+                                             . '        <a href="' . $text_url . '">' . "\n"
+                                             . '            <img src="./images/' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png" border="0" width="50" height="20" alt="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" /></a>' . "\n"
+                                             . '    </td>' . "\n";
+            } // end vertical mode
         }
+
         //     ... else if no button, displays empty cols if required
         else if ($GLOBALS['cfgModifyDeleteAtRight']
                  && ($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')) {
-            echo "\n" . '    <td' . $colspan . '></td>';
             $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+            if ($disp_direction == 'horizontal') {
+                echo "\n";
+                ?>
+    <td<?php echo $colspan; ?>></td>
+                <?php
+            } // end horizontal mode
+            else {
+                $vertical_display['textbtn'] = '    <td' . $rowspan . '></td>' . "\n";
+            } // end vertical mode
         }
-        echo "\n";
 
         if ($disp_direction == 'horizontal') {
+            echo "\n";
             ?>
 </tr>
             <?php
@@ -710,7 +754,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
                 reset($vertical_display['desc']);
                 while (list($key, $val) = each($vertical_display['desc'])) {
-                    echo '    ' . $val;
+                    echo $val;
                 }
 
                 for ($foo_i = 0; $foo_i < $vertical_display['emptyafter']; $foo_i++) {
@@ -1048,7 +1092,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // Displays "edit" link at top if required
         if ($GLOBALS['cfgModifyDeleteAtLeft'] && is_array($vertical_display['edit'])) {
             echo '<tr>' . "\n";
-            echo '    <td>&nbsp;</td>' . "\n";
+            echo $vertical_display['textbtn'];
             reset($vertical_display['edit']);
             $foo_counter = 0;
             while (list($key, $val) = each($vertical_display['edit'])) {
@@ -1065,7 +1109,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // Displays "delete" link at top if required
         if ($GLOBALS['cfgModifyDeleteAtLeft'] && is_array($vertical_display['delete'])) {
             echo '<tr>' . "\n";
-            echo '<td>&nbsp;</td>' . "\n";
+            if (!is_array($vertical_display['edit'])) {
+                echo $vertical_display['textbtn'];
+            }
             reset($vertical_display['delete']);
             $foo_counter = 0;
             while (list($key, $val) = each($vertical_display['delete'])) {
@@ -1101,7 +1147,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // Displays "edit" link at bottom if required
         if ($GLOBALS['cfgModifyDeleteAtRight'] && is_array($vertical_display['edit'])) {
             echo '<tr>' . "\n";
-            echo '    <td>&nbsp;</td>' . "\n";
+            echo $vertical_display['textbtn'];
             reset($vertical_display['edit']);
             $foo_counter = 0;
             while (list($key, $val) = each($vertical_display['edit'])) {
@@ -1118,7 +1164,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // Displays "delete" link at bottom if required
         if ($GLOBALS['cfgModifyDeleteAtRight'] && is_array($vertical_display['delete'])) {
             echo '<tr>' . "\n";
-            echo '<td>&nbsp;</td>' . "\n";
+            if (!is_array($vertical_display['edit'])) {
+                echo $vertical_display['textbtn'];
+            }
             reset($vertical_display['delete']);
             $foo_counter = 0;
             while (list($key, $val) = each($vertical_display['delete'])) {
@@ -1245,17 +1293,18 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
         // 2b ----- Get field references from Database -----
         // (see the 'relation' config variable)
-        // (currently not available for PHP3 due to spliti()  )
+        // loic1, 2002-03-02: extended to php3
 
         // init map
         $map = array();
 
-        if (PMA_PHP_INT_VERSION >= 40000
-            && isset($cfgServer['relation'])
-            && !empty($cfgServer['relation'])) {
+        if (!empty($cfgServer['relation'])) {
             // find tables
-            $tabs = '(\'' . join('\',\'', spliti('`? *((on [^,]+)?,|(NATURAL )?(inner|left|right)( outer)? join) *`?',
-                    eregi_replace('^.*FROM +`?|`? *(on [^,]+)?(WHERE.*)?$', '', $sql_query))) . '\')';
+//            $tabs = '(\'' . join('\',\'', spliti('`? *((on [^,]+)?,|(NATURAL )?(inner|left|right)( outer)? join) *`?',
+//                    eregi_replace('^.*FROM +`?|`? *(on [^,]+)?(WHERE.*)?$', '', $sql_query))) . '\')';
+            $pattern = '`?[[:space:]]+(((ON|on)[[:space:]]+[^,]+)?,|((NATURAL|natural)[[:space:]]+)?(INNER|inner|LEFT|left|RIGHT|right)([[:space:]]+(OUTER|outer))?[[:space:]]+(JOIN|join))[[:space:]]*`?';
+            $target  = eregi_replace('^.*[[:space:]]+FROM[[:space:]]+`?|`?[[:space:]]+(ON[[:space:]]+[^,]+)?(WHERE[[:space:]]+.*)?$', '', $sql_query);
+            $tabs    = '(\'' . join('\',\'', split($pattern, $target)) . '\')';
 
             $local_query = 'SELECT src_column, dest_table, dest_column'
                          . ' FROM ' . $cfgServer['relation']

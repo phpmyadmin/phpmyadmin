@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-03 Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/display_tbl.lib.php3:
+	  - feature request #503015 - No "xxxtext" button on vertical mode;
+	  - extended the "relation" feature to PHP3.
+	* Documentation.html, line 557: extended the "relation" feature to PHP3.
+
 2002-03-01  Olivier Müller  <om@omnis.ch>
 	* created the phpmyadmin-cvs mailing list, following the instructions
 	  under http://sourceforge.net/docman/display_doc.php?docid=772&group_id=1 :
