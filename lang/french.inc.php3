@@ -105,6 +105,7 @@ $strDrop = 'Supprimer';
 $strDropDB = 'Supprimer la base %s';
 $strDropTable = 'Supprimer la table';
 $strDumpingData = 'Contenu de la table';
+$strDumpXRows = 'Exporte %s enregistrements à partir du rang %s.';
 $strDynamic = 'dynamique';
 
 $strEdit = 'Modifier';
@@ -347,8 +348,6 @@ $strViewDumpDB = 'Afficher le schéma de la base ';
 $strWelcome = 'Bienvenue à %s ';
 $strWithChecked = 'Pour la sélection :';
 $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
-
-$strDumpXRows = 'Exporte %s enregistrements à partir du rang %s.';
 
 $strYes = 'Oui';
 

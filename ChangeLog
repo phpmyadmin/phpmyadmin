@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-03 Loïc Chapeaux  <lolo@phpheaven.net>
+    * lang/italian.inc.php3: Updated, thanks to Pietro Danesi.
+
 2002-05-02 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/*.inc.php3: cleanup.
     * db_details.php3, line 38; db_details_links.php3, line 41: the start db

@@ -111,6 +111,7 @@ $strDrop = 'Elimina';
 $strDropDB = 'Elimina database %s';
 $strDropTable = 'Elimina la tabella';
 $strDumpingData = 'Dump dei dati per la tabella';
+$strDumpXRows = 'Dump di %s righe a partire dalla riga %s.';
 $strDynamic = 'dinamico';
 
 $strEdit = 'Modifica';
@@ -360,5 +361,4 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
-$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
 ?>
