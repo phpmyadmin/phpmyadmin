@@ -5,13 +5,17 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-11-02  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3, lines 225-233: in case of erroneous query, it is now
+	  re-displayed in the query textearea of the calling script.
+	* lang/slovak.inc.php3: eol was missing at the end of the file.
 
 2001-11-02  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/slovak-iso.inc.php3: updates thanks to Lubos Klokner, tests
 	  with Loïc: this file must be sent gzipped, otherwise Windows will
-	  corrupt some characters
+	  corrupt some characters.
 
-2001-10-28  Loïc Chapeaux  <lolo@phpheaven.net>
+2001-10-29  Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3: removed an other display of the socket used and the port used
 	  if the 'verbose' setting exists for a server.
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
