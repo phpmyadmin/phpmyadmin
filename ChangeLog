@@ -10,6 +10,7 @@ $Source$
       - Backwards compatibility;
       - Removed some unnecessary code;
       - Added a small HOWTO.
+    * config.inc.php3: The tab settings don't fit into the 'left frame' part.
 
 2003-02-27 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3, tbl_properties_links.php3, db_details_links.php3,

@@ -183,7 +183,6 @@ $cfg['UseDbSearch']           = TRUE;   // whether to enable the "database searc
 // Left frame setup
 $cfg['LeftFrameLight']        = TRUE;   // use a select-based menu and display only the
                                         // current tables in the left frame.
-$cfg['LightTabs']             = FALSE;  // use lightweight, graphically less intense menu-tabs
 $cfg['ShowTooltip']           = TRUE;   // display table comment as tooltip in left frame
 $cfg['ShowTooltipAliasDB']    = FALSE;  // if ShowToolTip is enabled, this defines that table/db comments
 $cfg['ShowTooltipAliasTB']    = FALSE;  // are shown (in the left menu and db_details_structure) instead of
@@ -229,7 +228,8 @@ $cfg['ZipDump']               = TRUE;   // Allow the use of zip/gzip/bzip
 $cfg['GZipDump']              = TRUE;   // compression for
 $cfg['BZipDump']              = TRUE;   // dump files
 
-// Default Tabs display settings
+// Tabs display settings
+$cfg['LightTabs']             = FALSE;  // use graphically less intense menu tabs
 $cfg['DefaultTabServer']      = 'main.php3';
                                    // Possible values:
                                    // 'main.php3' = the welcome page
