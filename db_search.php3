@@ -185,17 +185,16 @@ if (isset($submit_search)) {
         ?>
 <br />
 
-<!-- Results form -->
-<form method="post" action="sql.php3" name="db_search_results_form">
-    <input type="hidden" name="is_js_confirmed" value="0" />
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="goto" value="db_details.php3" />
-    <input type="hidden" name="pos" value="0" />
         <?php
-        echo "\n";
+        $url_sql_query = 'lang=' . $lang
+                   . '&amp;convcharset=' . $convcharset
+                   . '&amp;server=' . $server
+                   . '&amp;goto=db_details.php3'
+                   . '&amp;db=' . urlencode($db)
+                   . '&amp;table=' . urlencode($table)
+                   . '&amp;pos=0'
+                   . '&amp;is_js_confirmed=0';
+
         // Only one table defined in an variable $onetable
         if (isset($onetable)) {
             // Displays search string
@@ -221,10 +220,14 @@ if (isset($submit_search)) {
                  . '    ' . sprintf($strNumSearchResultsInTable, $res_cnt, htmlspecialchars($onetable)) . "\n";
 
             if ($res_cnt > 0) {
-                echo '    <input id="checkbox_select_' . $i . '" type="radio" name="sql_query" value="' . htmlspecialchars($newsearchsqls['select_fields']) . '" onclick="this.form.submit()" />' . "\n";
-                echo '    <label for="checkbox_select_' . $i . '">' . $strBrowse . '</label>' . "\n";
-                echo '    <input id="checkbox_delete_' . $i . '" type="radio" name="sql_query" value="' . htmlspecialchars($newsearchsqls['delete']).'" onclick="this.form.submit()" />' . "\n";
-                echo '    <label for="checkbox_delete_' . $i . '">' . $strDelete . '</label>' . "\n";
+                echo '   &nbsp;&nbsp;<a href="sql.php3?' . $url_sql_query 
+                . '&amp;sql_query=' .urlencode($newsearchsqls['select_fields'])
+                . '">' . $strBrowse . '</a>' . "\n";
+
+                echo '   &nbsp;&nbsp;<a href="sql.php3?' . $url_sql_query 
+                . '&amp;sql_query=' .urlencode($newsearchsqls['delete'])
+                . '">' . $strDelete . '</a>' . "\n";
+
             } // end if
         } // end only one table
 
@@ -255,10 +258,14 @@ if (isset($submit_search)) {
                      . '            ' . sprintf($strNumSearchResultsInTable, $res_cnt, htmlspecialchars($table_select[$i])) . "\n";
 
                 if ($res_cnt > 0) {
-                    echo '            <input id="checkbox_select_' . $i .'" type="radio" name="sql_query" value="' . htmlspecialchars($newsearchsqls['select_fields']) . '" onclick="this.form.submit()" />' . "\n";
-                    echo '            <label for="checkbox_select_' . $i . '">' . $strBrowse . '</label>' . "\n";
-                    echo '            <input id="checkbox_delete_' . $i . '" type="radio" name="sql_query" value="' . htmlspecialchars($newsearchsqls['delete']) . '" onclick="this.form.submit()" />' . "\n";
-                    echo '            <label for="checkbox_delete_' . $i . '">' . $strDelete . '</label>' . "\n";
+                    echo '   &nbsp;&nbsp;<a href="sql.php3?' . $url_sql_query 
+                    . '&amp;sql_query=' .urlencode($newsearchsqls['select_fields'])
+                    . '">' . $strBrowse . '</a>' . "\n";
+
+                    echo '   &nbsp;&nbsp;<a href="sql.php3?' . $url_sql_query 
+                    . '&amp;sql_query=' .urlencode($newsearchsqls['delete'])
+                    . '">' . $strDelete . '</a>' . "\n";
+
                 } // end if
 
                 echo '        </li>' . "\n";
@@ -268,23 +275,8 @@ if (isset($submit_search)) {
             echo '    <p>' . sprintf($strNumSearchResultsTotal, $num_search_result_total) . '</p>' . "\n";
         } // end several tables
 
-        // Submit button if string found
-        if ($num_search_result_total) {
-            ?>
-    <script type="text/javascript" language="javascript">
-    <!--
-        // Fake js to allow the use of the <noscript> tag
-    //-->
-    </script>
-    <noscript>
-        <input type="submit" value="<?php echo $strGo; ?>" />
-    </noscript>
-            <?php
-        } // end if
-
         echo "\n";
         ?>
-</form>
 <hr width="100%">
         <?php
     } // end if (!empty($search_str) && !empty($search_option))
