@@ -9,6 +9,10 @@ require('./tbl_properties_common.php3');
 $err_url   = 'tbl_properties.php3' . $err_url;
 $url_query .= '&amp;back=tbl_properties.php3';
 
+/**
+ * Top menu
+ */
+require('./tbl_properties_table_info.php3');
 
 /**
  * Defines the query to be displayed in the query textarea
@@ -59,8 +63,6 @@ $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
            ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
            // loic1: php 3.0.15 and lower bug -> always enabled
            : (PMA_PHP_INT_VERSION < 30016 || intval(@get_cfg_var('upload_max_filesize')));
-
-require('./tbl_properties_table_info.php3');
 
 ?>
 <!-- TABLE WORK -->
