@@ -33,7 +33,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     define('PMA_SQP_LIB_INCLUDED', 1);
 
     /**
-     * Include the string libarry as we use it heavily
+     * Include the string library as we use it heavily
      */
     include('./libraries/string.lib.php3');
 
