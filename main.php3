@@ -45,7 +45,7 @@ if (empty($cfgLang)) {
     [&nbsp;<a href="index.php3?lang=<?php echo $id; ?>&server=<?php echo urlencode($server); ?>" target="_top" title="<?php echo $lang_name; ?>"><?php echo $id; ?></a>&nbsp;]
         <?php
     }
-    echo "\n<p><br />\n";
+    echo "\n</p><br />\n";
 }
 
 
@@ -64,6 +64,9 @@ if ($server > 0) {
     if (!empty($cfgServer['port'])) {
         echo ':' . $cfgServer['port'];
     }
+    if (!empty($cfgServer['socket'])) {
+        echo ':' . $cfgServer['socket'];
+    }
     echo "</b></p>\n";
 }
 
@@ -79,21 +82,22 @@ if (($server > 0) && isset($mode) && ($mode == 'reload')) {
     } else {
       echo $strReloadFailed;
     }
-    echo '</b></p>' . "\n";
+    echo '</b></p>' . "\n\n";
 }
 
 
-
 /**
- * Displays the servers choice form and/or the server-related links 
+ * Displays the MySQL servers choice form 
  */
-?>
-<ul>
-<?php
-// 1. The servers choice form 
 if ($server == 0 || count($cfgServers) > 1) {
     ?>
-    <li>
+<!-- MySQL servers choice form -->
+<table>
+<tr>
+    <th><?php echo $strServerChoice; ?></th>
+</tr>
+<tr>
+    <td>
         <form action="index.php3" target="_top">
             <select name="server">
     <?php
@@ -105,7 +109,7 @@ if ($server == 0 || count($cfgServers) > 1) {
         {
             echo '                <option value="' . $key . '"';
             if (!empty($server) && ($server == $key)) {
-                echo ' selected';
+                echo ' selected="selected"';
             }
             echo '>';
             print((!empty($val['verbose'])) ? $val['verbose'] :  $val['host']);
@@ -115,6 +119,9 @@ if ($server == 0 || count($cfgServers) > 1) {
             if (!empty($val['only_db'])) {
                 echo ' - ' . $val['only_db'];
             }
+            if (!empty($val['user'])) {
+                echo '  (' . $val['user'] . ')';
+            }
             echo '&nbsp;</option>' . "\n";
         } // end if (!empty($val['host']))
     } // end while
@@ -123,18 +130,38 @@ if ($server == 0 || count($cfgServers) > 1) {
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="submit" value="<?php echo $strGo; ?>" />
         </form>
-    </li>
+    </td>
+</tr>
+</table>
+<br />
     <?php
 } // end of the servers choice form
+?>
 
+<!-- MySQL and phpMyAdmin related links -->
+<table>
+<tr>
 
-// 2. The server-related links if $server > 0 (a server selected)
+<?php
+/**
+ * Displays the mysql server related links 
+ */
 if ($server > 0
     && empty($cfgServer['only_db']))
 {
+    ?>
+    <!-- MySQL server related links -->
+    <td valign="top" align="left">
+        <table>
+        <tr>
+            <th colspan="2">MySQL</th>
+        </tr>
+    <?php
+    echo "\n";
+    
     $common_url_query = 'lang=' . $lang . '&server=' . urlencode($server);
 
-    // 2.1. With authentication
+    // 1. With authentication
     if ($cfgServer['adv_auth'])
     {
         // Get user's rights
@@ -172,62 +199,70 @@ if ($server > 0
         if ($create) {
             echo "\n";
             ?>
-    <!-- db creation form -->
-    <li>
-        <form method="post" action="db_create.php3">
-            <?php echo $strCreateNewDatabase . '&nbsp;' . show_docu('manual_Reference.html#CREATE_DATABASE'); ?><br />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="reload" value="true" />
-            <input type="text" name="db" value="<?php echo $db_to_create; ?>" />
-            <input type="submit" value="<?php echo $strCreate; ?>" />
-        </form>
-    </li>
+        <!-- db creation form -->
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+            <form method="post" action="db_create.php3">
+                <?php echo $strCreateNewDatabase . '&nbsp;' . show_docu('manual_Reference.html#CREATE_DATABASE'); ?><br />
+                <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                <input type="hidden" name="reload" value="true" />
+                <input type="text" name="db" value="<?php echo $db_to_create; ?>" />
+                <input type="submit" value="<?php echo $strCreate; ?>" />
+            </form>
+            </td>
+        </tr>
             <?php
             echo "\n";
         } // end create db form
+
+        // Server related links
         ?>
-
-    <li>
-        <a href="index.php3?<?php echo$common_url_query; ?>&old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_top">
-            <b><?php echo $strLogout; ?></b></a>
-        <br /><br />
-    </li>
-
+        <!-- server-related links -->
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW STATUS'); ?>&display=simple">
+                    <?php echo $strMySQLShowStatus; ?></a>&nbsp;
+                <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
+            </td>
+        </tr>
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="sql.php3?<?php $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&display=simple">
+                <?php echo $strMySQLShowVars;?></a>&nbsp;
+                <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
+            </td>
+        </tr>
         <?php
         echo "\n";
-        // Server related links
-        if ($result_usr['References_priv'] == 'Y') {
-            ?>
-    <!-- server-related links -->
-    <li>
-        <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW STATUS'); ?>&display=simple">
-        <?php echo $strMySQLShowStatus; ?></a>&nbsp;<?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
-    </li>
-    <li>
-        <a href="sql.php3?<?php $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&display=simple">
-        <?php echo $strMySQLShowVars;?></a>&nbsp;<?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
-    </li>
-            <?php
-            echo "\n";
-        }
 
         if ($result_usr['Process_priv'] == 'Y') {
             ?>
-    <li>
-        <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&display=simple">
-        <?php echo $strMySQLShowProcess; ?></a>&nbsp;<?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
-    </li>
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&display=simple">
+                    <?php echo $strMySQLShowProcess; ?></a>&nbsp;
+                <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
+            </td>
+        </tr>
             <?php
             echo "\n";
         }
 
         if ($result_usr['Reload_priv'] == 'Y') {
             ?>
-    <li>
-        <a href="main.php3?<?php echo $common_url_query; ?>&mode=reload">
-        <?php echo $strReloadMySQL; ?></a>&nbsp;<?php echo show_docu('manual_Reference.html#FLUSH') . "\n"; ?>
-    </li>
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="main.php3?<?php echo $common_url_query; ?>&mode=reload">
+                    <?php echo $strReloadMySQL; ?></a>&nbsp;
+                <?php echo show_docu('manual_Reference.html#FLUSH') . "\n"; ?>
+            </td>
+        </tr>
             <?php
             echo "\n";
         }
@@ -236,100 +271,177 @@ if ($server > 0
         $rows   = @mysql_num_rows($result);
         if (!empty($rows)) {
             ?>
-    <li>
-        <a href="user_details.php3?<?php echo $common_url_query; ?>&db=mysql&table=user">
-        <?php echo $strUsers; ?></a>&nbsp;<?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
-    </li>
-    <li>
-        <a href="db_stats.php3?<?php echo $common_url_query; ?>">
-            <?php echo $strDatabasesStats; ?></a>
-        <br /><br />
-    </li>
-            <?php
-        }
-        echo "\n";
-    } // end of 2.1 (AdvAuth case)
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="user_details.php3?<?php echo $common_url_query; ?>&db=mysql&table=user">
+                    <?php echo $strUsers; ?></a>&nbsp;
+                <?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
+            </td>
+        </tr>
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="db_stats.php3?<?php echo $common_url_query; ?>">
+                    <?php echo $strDatabasesStats; ?></a>
+            </td>
+        </tr>
 
-    // 2.2. No authentication
+            <?php
+            echo "\n";
+        }
+        ?>
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="index.php3?<?php echo$common_url_query; ?>&old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_top">
+                    <b><?php echo $strLogout; ?></b></a>
+            </td>
+        </tr>
+        <?php
+        echo "\n";
+    } // end of 1 (AdvAuth case)
+
+    // 2. No authentication
     else
     {
         ?>
-    <!-- db creation form -->
-    <li>
-        <form method="post" action="db_create.php3">
-            <?php echo $strCreateNewDatabase . ' &nbsp;' . show_docu('manual_Reference.html#CREATE_DATABASE'); ?><br />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="reload" value="true" />
-            <input type="text" name="db" />
-            <input type="submit" value="<?php echo $strCreate; ?>" />
-        </form>
-    </li>
+        <!-- db creation form -->
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+            <form method="post" action="db_create.php3">
+                <?php echo $strCreateNewDatabase . ' &nbsp;' . show_docu('manual_Reference.html#CREATE_DATABASE'); ?><br />
+                <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                <input type="hidden" name="reload" value="true" />
+                <input type="text" name="db" />
+                <input type="submit" value="<?php echo $strCreate; ?>" />
+            </form>
+            </td>
+        </tr>
 
-    <!-- server-related links -->
-    <li>
-        <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW STATUS'); ?>">
-        <?php echo $strMySQLShowStatus; ?></a>&nbsp;<?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
-    </li>
+        <!-- server-related links -->
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW STATUS'); ?>">
+                    <?php echo $strMySQLShowStatus; ?></a>&nbsp;
+                <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
+            </td>
+        </tr>
 
-    <li>
-        <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>">
-        <?php echo $strMySQLShowVars; ?></a>&nbsp;<?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
-    </li>
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>">
+                    <?php echo $strMySQLShowVars; ?></a>&nbsp;
+                <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
+            </td>
+        </tr>
 
-    <li>
-        <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>">
-        <?php echo $strMySQLShowProcess; ?></a>&nbsp;<?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
-    </li>
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>">
+                    <?php echo $strMySQLShowProcess; ?></a>&nbsp;
+                <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
+            </td>
+        </tr>
 
-    <li>
-        <a href="main.php3?<?php echo $common_url_query; ?>&mode=reload">
-        <?php echo $strReloadMySQL; ?></a>&nbsp;<?php echo show_docu('manual_Reference.html#FLUSH') . "\n"; ?>
-    </li>
-    <br /><br />
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="main.php3?<?php echo $common_url_query; ?>&mode=reload">
+                    <?php echo $strReloadMySQL; ?></a>&nbsp;
+                <?php echo show_docu('manual_Reference.html#FLUSH') . "\n"; ?>
+            </td>
+        </tr>
         <?php
         $result = mysql_query('SELECT * FROM mysql.user');
         $rows   = @mysql_num_rows($result);
         if (!empty($rows)) {
             echo "\n";
             ?>
-    <li> 
-        <a href="user_details.php3?<?php echo $common_url_query; ?>&db=mysql&table=user">
-            <?php echo $strUsers; ?></a>&nbsp;<?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
-    </li>
-    <li>
-        <a href="db_stats.php3?<?php echo $common_url_query; ?>">
-            <?php echo $strDatabasesStats; ?></a>
-        <br /><br />
-    </li>
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td> 
+                <a href="user_details.php3?<?php echo $common_url_query; ?>&db=mysql&table=user">
+                    <?php echo $strUsers; ?></a>&nbsp;
+                <?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
+            </td>
+        </tr>
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="db_stats.php3?<?php echo $common_url_query; ?>">
+                    <?php echo $strDatabasesStats; ?></a>
+            </td>
+        </tr>
             <?php
-            echo "\n";
         }
-    } // end of 2.2 (no AdvAuth case)
-} // end of 2: if ($server > 0)
+    } // end of 2 (no AdvAuth case)
+
+    echo "\n";
+    ?>
+        </table>
+    </td>
+    
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <?php
+    echo "\n";
+} // end of if ($server > 0)
+
+
+/**
+ * Displays the phpMyAdmin related links 
+ */
 ?>
 
-    <!-- documentation -->
-    <li>
-        <a href="Documentation.html" target="_new"><b>phpMyAdmin <?php echo $strDocu; ?></b></a>
-    </li>
+    <!-- phpMyAdmin related links -->
+    <td valign="top" align="left">
+        <table>
+        <tr>
+            <th colspan="2">phpMyAdmin</th>
+        </tr>
 
-    <!-- PHP Information -->
-    <li>
-        <a href="phpinfo.php3" target="_new"><?php echo $strShowPHPInfo; ?></a>
-    </li>
+        <!-- documentation -->
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="Documentation.html" target="_new"><b><?php echo $strPmaDocumentation; ?></b></a>
+            </td>
+        </tr>
 
-    <!-- phpMyAdmin related urls -->
-    <li>
-        <a href="http://phpwizard.net/projects/phpMyAdmin/" target="_new"><?php echo $strHomepageOfficial; ?></a>
-    </li>
-    <li>
-        <a href="http://phpmyadmin.sourceforge.net/" target="_new">
-            <?php echo $strHomepageSourceforge; ?></a>&nbsp;&nbsp;&nbsp;
-        [<a href="ChangeLog" target="_new">ChangeLog</a>]&nbsp;
-        [<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_new">CVS</a>]
-    </li>
-</ul>
+        <!-- PHP Information -->
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="phpinfo.php3" target="_new"><?php echo $strShowPHPInfo; ?></a>
+            </td>
+        </tr>
+
+        <!-- phpMyAdmin related urls -->
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="http://phpwizard.net/projects/phpMyAdmin/" target="_new"><?php echo $strHomepageOfficial; ?></a>
+            </td>
+        </tr>
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="http://phpmyadmin.sourceforge.net/" target="_new">
+                    <?php echo $strHomepageSourceforge; ?></a><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<a href="ChangeLog" target="_new">ChangeLog</a>]
+                &nbsp;&nbsp;[<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_new">CVS</a>]
+            </td>
+        </tr>
+        </table>
+    </td>
+
+</tr>
+</table>
 
 
 <?php

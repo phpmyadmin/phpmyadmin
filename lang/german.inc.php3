@@ -190,6 +190,7 @@ $strOverhead = 'Überhang';
 $strPassword = 'Password';
 $strPasswordEmpty = 'Es wurde kein Passwort angegeben!';
 $strPasswordNotSame = 'Die eingegebenen Passwörter sind nicht identisch!';
+$strPmaDocumentation = 'phpMyAdmin Dokumentation';
 $strPHPVersion = 'PHP Version';
 $strPos1 = 'Anfang';
 $strPrevious = 'Vorherige';
@@ -238,6 +239,7 @@ $strSelectFields = 'Felder auswählen (mind. eines):';
 $strSelectNumRows = 'in der Abfrage';
 $strSend = 'Senden';
 $strSequence = ' Sequenz ';
+$strServerChoice = 'Server Auswählen';
 $strServerVersion = 'Server Version';
 $strSetEnumVal = 'Wenn das Feld vom Type \'ENUM\' oder \'SET\' ist, benutzen Sie das Format: \'a\',\'b\',\'c\',....<br />Wann immer Sie ein Backslash ("\") oder ein einfaches Anführungszeichen ("\'") verwenden,<br \>setzen Sie bitte ein Backslash vor das Zeichen.  (z.B.: \'\\\\xyz\' or \'a\\\'b\').';
 $strShow = 'Zeige';
@@ -297,5 +299,4 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 
 $strYes = 'Ja';
 
-// To translate
 ?>

@@ -298,4 +298,6 @@ $strShowPHPInfo = 'Show PHP information';  // To translate
 $strStrucExcelCSV = 'CSV for Ms Excel data';
 $strTables = '%s table(s)';  //to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
+$strServerChoice = 'Server Choice';//to translate 
+$strPmaDocumentation = 'phpMyAdmin Documentation';//to translate 
 ?>

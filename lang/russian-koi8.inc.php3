@@ -298,4 +298,6 @@ $strSetEnumVal = 'If field type is "enum" or "set", please enter the values usin
 $strShowPHPInfo = 'Show PHP information'; // To translate
 $strStrucExcelCSV = 'CSV for Ms Excel data';
 $strTables = '%s table(s)';  //to translate
+$strServerChoice = 'Server Choice';//to translate 
+$strPmaDocumentation = 'phpMyAdmin Documentation';//to translate 
 ?>
