@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-27 Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/common.lib.php3, lines 146-164: back to previous version.
+	* db_stats, lines 227.243: "SHOW TABLE STATUS" requires MySQL 3.23.03+.
+
 2002-02-26 Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3, lines 11-15; libraries/grab_globals.lib.php3;
 	  libraries/auth/cookie.auth.lib.php3: fixed bug #522887 - Using
