@@ -5,17 +5,22 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+
+2002-10-22 Robin Johnson  <robbat2@users.sourceforge.net>
+    * user_password.php3: From Patch #625703.
+    * Changelog: Added VIM modelines for filetype and folding.
+
 2002-10-22 Marc Delisle  <lem9@users.sourceforge.net>
-    * pdf_pages.php3, undefined variable, fix thanks to 
-      Jose Fandos (jose.fandos at sonnd.com)
+    * pdf_pages.php3: undefined variable, fix thanks to 
+      Jose Fandos (jose.fandos at sonnd.com).
 
 2002-10-21 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Clarifications.
 
 2002-10-21 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: removed control M
-    * tbl_relation.php3, bug 619100, relation and non-primary key
-    * libraries/display_tbl.lib.ph3, bug 619097, order by sum(var)
+    * tbl_relation.php3: bug 619100, relation and non-primary key
+    * libraries/display_tbl.lib.ph3: bug 619097, order by sum(var)
 
 2002-10-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * translators.html, spanish-*.inc.php3: Updates, thanks again to
@@ -29,7 +34,7 @@ $Source$
     * lang/dutch: update, thanks to Ivo Teel.
 
 2002-10-17 Loïc Chapeaux  <lolo@phpheaven.net>
-    * sql.php3, bug 624020, can't delete a row with a TEXT field containing
+    * sql.php3: bug 624020, can't delete a row with a TEXT field containing
       newlines
 
 2002-10-15 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -68,7 +73,7 @@ $Source$
     * libraries/display_tbl.lib.php3, bug 619735: display broken (bad HTML)
 
 2002-10-09 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/get_foreign.lib.php3, there are no functions
+    * libraries/get_foreign.lib.php3: there are no functions
       in this file that need to be protected from being defined
       twice.  The added code introduced a bug
     * db_details_structure.php3: total of records for InnoDB tables
@@ -116,7 +121,7 @@ $Source$
 2002-10-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, typo about GRANT: patch 616772,
       thanks to Vince LaMonica (vjl323)
-    * tbl_alter.php3, patch 617044 for change field type,
+    * tbl_alter.php3: patch 617044 for change field type,
       thanks to Mats Engstrom (matseng)
 
 2002-10-01 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -126,7 +131,7 @@ $Source$
 2002-09-29 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/slovak update, thanks to Lubos Klokner
     * lang/estonian: update, thanks to Alvar Soome
-    * Documentation.html, faq 1.24 about the PHP 4.2.3 bug
+    * Documentation.html: faq 1.24 about the PHP 4.2.3 bug
     * ### 2.3.1 released ###
 
 2002-09-29 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -284,7 +289,7 @@ $Source$
     * tbl_change.php3: "empty drop-downs" bug, and avoid displaying a
       drop-down if more than 200 rows in the foreign table
 
-2002-09-11 Loïc Chapeaux  <lolo@phpheaven.net>  and Marc
+2002-09-11 Loïc Chapeaux  <lolo@phpheaven.net> and Marc
     * tbl_change.php3: bug 605342, edit fills current time in datetime field
 
 2002-09-11 Michal Cihar  <nijel@users.sourceforge.net>
@@ -326,7 +331,7 @@ $Source$
     * lang/japanese: update, thanks to Yukihiro Kawada
 
 2002-09-05 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_change.php3, display values in drop-down even if no
+    * tbl_change.php3: display values in drop-down even if no
       display field is defined
 
 2002-09-05 Loïc Chapeaux  <lolo@phpheaven.net>
@@ -2111,3 +2116,8 @@ $Source$
 
          --- Older ChangeLogs can be found on our project website ---
                      http://www.phpmyadmin.net/ChangeLogs/
+
+# vim: ft=changelog 
+# vim: expandtab ts=4 sw=4 sts=4
+# vim: fde=getline(v\:lnum-1)=~'^\\s*$'&&getline(v\:lnum)=~'\\S'?'>1'\:1&&v\:lnum>8&&getline(v\:lnum)!~'^#'
+# vim: fdn=1 fdm=expr 
