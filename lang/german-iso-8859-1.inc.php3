@@ -80,6 +80,7 @@ $strBzError = 'phpMyAdmin konnte die Datei wegen eines Fehler in der Bz2-Erweite
 $strBzip = 'BZip-komprimiert';
 
 $strCannotLogin = 'Die Anmeldung am MySQL-Server ist fehlgeschlagen.';
+$strCantLoad = 'Die Erweiterung &quot;%s&quot; kann nicht geladen werden.<br />Bitte überprüfen Sie Ihre PHP-Konfiguration.';
 $strCantLoadMySQL = 'Die MySQL-Erweiterung konnte nicht geladen werden.<br />Bitte überprüfen Sie Ihre PHP-Konfiguration!';
 $strCantLoadRecodeIconv = 'Die PHP-Erweiterungen iconv und recode, welche für die Zeichensatzkonvertierung benötigt werden, konnten nicht geladen werden. Bitte ändern Sie Ihre PHP-Konfiguration und aktivieren Sie diese Erweiterungen oder deaktivieren Sie die Zeichensatzkonvertierung in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Kann Index nicht in PRIMARY umbenennen!';
@@ -119,6 +120,15 @@ $strCreatePage = 'Neue Seite erstellen';
 $strCreatePdfFeat = 'Erzeugen von PDFs';
 $strCriteria = 'Kriterium';
 
+$strDBGContextID = 'Kontext-ID';
+$strDBGContext = 'Kontext';
+$strDBGHits = 'Treffer';
+$strDBGLine = 'Zeile';
+$strDBGMaxTimeMs = 'Max. Zeit in ms';
+$strDBGMinTimeMs = 'Min. Zeit in ms';
+$strDBGModule = 'Modul';
+$strDBGTimePerHitMs = 'Zeit/Treffer in ms';
+$strDBGTotalTimeMs = 'Gesamtzeit in ms';
 $strData = 'Daten';
 $strDataDict = 'Strukturverzeichnis';
 $strDataOnly = 'Nur Daten';
@@ -549,14 +559,5 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
-$strDBGModule = 'Module';  //to translate
-$strDBGLine = 'Line';  //to translate
-$strDBGHits = 'Hits';  //to translate
-$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
-$strDBGTotalTimeMs = 'Total time, ms';  //to translate
-$strDBGMinTimeMs = 'Min time, ms';  //to translate
-$strDBGMinTimeMs = 'Max time, ms';  //to translate
-$strDBGContextID = 'Context ID';  //to translate
-$strDBGContext = 'Context';  //to translate
-$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
+
 ?>

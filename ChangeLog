@@ -11,6 +11,7 @@ $Source$
 2003-02-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libiraries/common.lib.php3, libraries/config_import.lib.php3: Backwards
       compatibility.
+    * lang/german-*.inc.php3: Updates.
 
 2003-02-02 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
