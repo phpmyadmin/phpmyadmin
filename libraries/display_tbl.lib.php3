@@ -1365,23 +1365,21 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             $result      = @mysql_query($local_query);
             if ($result) {
                 while ($rel = mysql_fetch_row($result)) {
-
-                // check for display field?
+                    // check for display field?
                     if (!empty($cfg['Server']['table_info'])) {
-                        $ti_query = 'SELECT display_field'
-                                  . ' FROM ' . $cfg['Server']['table_info']
-                                  . ' WHERE table_name = \'' . $rel[1] . '\'';
-                        $result_ti        = @mysql_query($ti_query);
+                        $ti_query  = 'SELECT display_field'
+                                   . ' FROM ' . PMA_backquote($cfg['Server']['table_info'])
+                                   . ' WHERE table_name = \'' . PMA_sqlAddslashes($rel[1]) . '\'';
+                        $result_ti = @mysql_query($ti_query);
                         if ($result_ti) {
                            list($display_field) = mysql_fetch_row($result_ti);
-                        }
-                        else {
+                        } else {
                            $display_field = '';
                         }
-                    }
+                    } // end if
                     $map[$rel[0]] = array($rel[1], $rel[2], $display_field);
-                }
-            }
+                } // end while
+            } // end if
         } // end 2b
 
         // 3. ----- Displays the results table -----
