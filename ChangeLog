@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-06  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, mult_submits.inc.php3, tbl_printview.php3: beautify
+	  the code and the results of the patch #484112.
+	* sql.php3, lines 92 & 278; tbl_replace.php3, line 130: fixed bug #489770 -
+	  File name too long in tbl_replace.php.
+
 2001-12-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/japanese.inc.php3; lang/bulgarian-*.inc.php3: completed thanks to
 	  Georgi Georgiev <chutz at chubaka.homeip.net>.
@@ -14,7 +20,7 @@ $Source$
 2001-12-05  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/norwegian.inc.php3 updates thanks to Sven-Erik Andersen
 	* Documentation.html: faq entry about safe mode and uploads
-	* db_details.php3, tbl_printview.php3: patch 484112, 
+	* db_details.php3, tbl_printview.php3: patch #484112, 
 	  thanks to Christophe Gesché (moosh_fr at sourceforge.net)
 
 2001-12-04  Loïc Chapeaux  <lolo@phpheaven.net>
