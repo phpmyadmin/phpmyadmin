@@ -23,7 +23,9 @@ $month = array('Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'Aug
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%d. %B %Y um %H:%M';
+$timespanfmt = '%s Tage, %s Stunden, %s Minuten und %s Sekunden';
 
+$strAbortedClients = 'Abgebrochen';
 $strAccessDenied = 'Zugriff verweigert.';
 $strAction = 'Aktion';
 $strAddDeleteColumn = 'Spalten hinzufügen/entfernen';
@@ -91,6 +93,7 @@ $strColumnNames = 'Spaltennamen';
 $strComments = 'Kommentare';
 $strCompleteInserts = 'Vollständige \'INSERT\'s';
 $strCompression = 'Kompression';
+$strConnections = 'Verbindungen';
 $strConfigFileError = 'phpMyAdmin konnte Ihre Konfigurationsdatei nicht verarbeiten!<br />Dies kann passieren, wenn der PHP-Parser Syntaxfehler in ihr findet oder sie nicht existiert.<br />Bitte rufen Sie die Konfigurationsdatei üben den unteren Link direkt auf und lesen Sie die PHP-Fehlermeldungen, die Sie erhalten. Meistens fehlt bloß irgendwo ein Anführungszeichen oder Semikolon.<br />Wenn Sie eine leere Seite erhalten, ist Ihre Konfigurationsdatei in Ordnung.';
 $strConfigureTableCoord = 'Bitte konfigurieren Sie die Koordinaten für die Tabelle %s';
 $strConfirm = 'Sind Sie wirklich sicher?';
@@ -154,6 +157,7 @@ $strExportToXML = 'Ins XML-Format exportieren';
 $strExtendedInserts = 'Erweiterte \'INSERT\'s';
 $strExtra = 'Extra';
 
+$strFailedAttempts = 'Fehlgeschlagen';
 $strField = 'Feld';
 $strFieldHasBeenDropped = 'Spalte %s wurde entfernt.';
 $strFields = 'Felder';
@@ -171,6 +175,7 @@ $strFunction = 'Funktion';
 $strGenBy = 'Erstellt von';
 $strGeneralRelationFeat = 'Allgemeine Verknüpfungsfunktionen';
 $strGenTime = 'Erstellungszeit';
+$strGlobalValue = 'Globaler Wert';
 $strGo = 'OK';
 $strGrants = 'Rechte';
 $strGzip = 'GZip-komprimiert';
@@ -226,6 +231,7 @@ $strMissingBracket = 'Fehlende Klammer';
 $strModifications = 'Änderungen gespeichert.';
 $strModify = 'Verändern';
 $strModifyIndexTopic = 'Index modifizieren';
+$strMoreStatusVars = 'Weitere Statusvariablen';
 $strMoveTable = 'Verschiebe Tabelle nach (Datenbank<b>.</b>Tabellenname):';
 $strMoveTableOK = 'Tabelle %s wurde nach %s verschoben.';
 $strMySQLCharset = 'MySQL-Zeichensatz';
@@ -284,6 +290,7 @@ $strPdfDbSchema = 'Schema der Datenbank "%s" - Seite %s';
 $strPdfInvalidPageNum = 'Undefinierte PDF-Seitennummer!';
 $strPdfInvalidTblName = 'Die Tabelle "%s" existiert nicht!';
 $strPdfNoTables = 'keine Tabellen';
+$strPerHour = 'pro Stunde';
 $strPhp = 'PHP-Code erzeugen';
 $strPHP40203 = 'Sie verwenden die PHP-Version 4.2.3, welche leider fehlerhaft im Umgang mit Multibyte-Zeichenketten (mbstring) ist. Dieser Fehler ist in der PHP-Datenbank als Bug-Report #19404 dokumentiert. Aus diesem Grund wird diese PHP-Version nicht für den Betrieb von phpMyAdmin empfohlen.';
 $strPHPVersion = 'PHP-Version';
@@ -307,7 +314,10 @@ $strQBE = 'Abfrageeditor';
 $strQBEDel = 'Entf.';
 $strQBEIns = 'Einf.';
 $strQueryOnDb = ' SQL-Befehl in der Datenbank <b>%s</b>:';
+$strQueryStatistics = '<b>Abfragestatisktik</b>: Seit seinem Start wurden %s Abfragen an diesen MySQL-Server gesandt.';
+$strQueryType = 'Abfrageart';
 
+$strReceived = 'Empfangen';
 $strRecords = 'Einträge';
 $strReferentialIntegrity = 'Prüfe referentielle Integrität:';
 $strRelationalSchema = 'Beziehungsschema';
@@ -359,9 +369,18 @@ $strSelectFields = 'Felder auswählen (mind. eines):';
 $strSelectNumRows = 'in der Abfrage';
 $strSelectTables = 'Tabellenauswahl';
 $strSend = 'Senden';
+$strSent = 'Gesendet';
 $strServer = 'Server %s';
 $strServerChoice = 'Server Auswählen';
+$strServerStatus = 'Laufzeit-Informationen';
+$strServerStatusUptime = 'Dieser MySQL-Server läuft seit %s. Er wurde am %s gestartet.';
+$strServerTabStatus = 'Status';
+$strServerTabVariables = 'Variablen';
+$strServerTabProcesslist = 'Prozesse';
+$strServerTrafficNotes = '<b>Servertraffic</b>: In diesen Tabellen wird der Netzwerktraffic dieses MySQL-Servers seit dessen Start aufgeführt.';
+$strServerVars = 'Servervariablen und -einstellungen';
 $strServerVersion = 'Server Version';
+$strSessionValue = 'Wert für diese Sitzung';
 $strSetEnumVal = 'Wenn das Feld vom Typ \'ENUM\' oder \'SET\' ist, benutzen Sie bitte das Format: \'a\',\'b\',\'c\',....<br />Wann immer Sie ein Backslash ("\") oder ein einfaches Anführungszeichen ("\'") verwenden,<br \>setzen Sie bitte ein Backslash vor das Zeichen.  (z.B.: \'\\\\xyz\' or \'a\\\'b\').';
 $strShow = 'Zeige';
 $strShowAll = 'Alles anzeigen';
@@ -416,6 +435,7 @@ $strTheContents = 'Der Inhalt der CSV-Datei ersetzt die Einträge mit den gleiche
 $strTheTerminator = 'Der Trenner zwischen den Feldern.';
 $strTotal = 'insgesamt';
 $strTotalUC = 'Insgesamt';
+$strTraffic = 'Traffic';
 $strType = 'Typ';
 
 $strUncheckAll = 'Auswahl entfernen';
@@ -436,6 +456,7 @@ $strUseTables = 'Verwendete Tabellen';
 $strValidateSQL = 'SQL validieren';
 $strValidatorError = 'Bei der Initialisierung des SQL-Validators ist ein Fehler aufgetreten. Bitte überprüfen Sie, ob Sie die in der %sDokumentation%s beschriebenen php-Erweiterungen installiert haben.';
 $strValue = 'Wert';
+$strVar = 'Variable';
 $strViewDump = 'Dump (Schema) der Tabelle anzeigen';
 $strViewDumpDB = 'Dump (Schema) der Datenbank anzeigen';
 
@@ -449,27 +470,4 @@ $strYes = 'Ja';
 
 $strZip = 'Zip-komprimiert';
 
-// To translate
-$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
-
-$strAbortedClients = 'Aborted'; //to translate
-$strConnections = 'Connections'; //to translate
-$strFailedAttempts = 'Failed attempts'; //to translate
-$strGlobalValue = 'Global value'; //to translate
-$strMoreStatusVars = 'More status variables'; //to translate
-$strPerHour = 'per hour'; //to translate
-$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
-$strQueryType = 'Query type'; //to translate
-$strReceived = 'Received'; //to translate
-$strSent = 'Sent'; //to translate
-$strServerStatus = 'Runtime Information'; //to translate
-$strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
-$strServerTabStatus = 'Status'; //to translate
-$strServerTabVariables = 'Variables'; //to translate
-$strServerTabProcesslist = 'Processes'; //to translate
-$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
-$strServerVars = 'Server variables and settings'; //to translate
-$strSessionValue = 'Session value'; //to translate
-$strTraffic = 'Traffic'; //to translate
-$strVar = 'Variable'; //to translate
 ?>

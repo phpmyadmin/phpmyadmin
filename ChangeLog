@@ -11,6 +11,7 @@ $Source$
       server_variables.php3, lang/*.inc.php3, libraries/common.lib.php3:
       Started working on a new interface to server related pages.
     * lang/thai-*.inc.php3: Updates, thanks to Arthit Suriyawongkul (bacteria).
+    * lang/german-*.inc.php3: Updates.
 
 2002-12-07 Marc Delisle  <lem9@users.sourceforge.net>
     * db_search.php3, libraries/display_tbl.lib.php3, libraries/common.lib.php3
