@@ -394,7 +394,21 @@ if (uname.value == '') {
                 $GLOBALS['cookie_path'], '',
                 $GLOBALS['is_https']);
 
-            header('Location: ' . $cfg['PmaAbsoluteUri'] . 'index.php3?lang=' . $GLOBALS['lang'] . '&server=' . $server);
+            // loic1: workaround against a IIS 5.0 bug
+            if (empty($GLOBALS['SERVER_SOFTWARE'])) {
+                if (isset($_SERVER) && !empty($_SERVER['SERVER_SOFTWARE'])) {
+                    $GLOBALS['SERVER_SOFTWARE'] = $_SERVER['SERVER_SOFTWARE'];
+                }
+                else if (isset($GLOBALS['HTTP_SERVER_VARS']) && !empty($GLOBALS['HTTP_SERVER_VARS']['SERVER_SOFTWARE'])) {
+                    $GLOBALS['SERVER_SOFTWARE'] = $GLOBALS['HTTP_SERVER_VARS']['SERVER_SOFTWARE'];
+                }
+            } // end if
+            if (!empty($GLOBALS['SERVER_SOFTWARE']) && $GLOBALS['SERVER_SOFTWARE'] == 'Microsoft-IIS/5.0') {
+                header('Refresh: 0; url=' . $cfg['PmaAbsoluteUri'] . 'index.php3?lang=' . $GLOBALS['lang'] . '&server=' . $server);
+            }
+            else {
+                header('Location: ' . $cfg['PmaAbsoluteUri'] . 'index.php3?lang=' . $GLOBALS['lang'] . '&server=' . $server);
+            }
             exit();
         } // end if
 
