@@ -22,7 +22,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
         && $cfg['AllowAnywhereRecoding']
         && $allow_recoding
         && ((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode') && @ini_get('enable_dl'))
-        || (PMA_PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
+        || (PMA_PHP_INT_VERSION < 40000 && PMA_PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
         && @function_exists('dl')) {
         if (!(@extension_loaded('recode') || @extension_loaded('iconv'))) {
             if (PMA_IS_WINDOWS) {
