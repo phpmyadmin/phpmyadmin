@@ -38,6 +38,7 @@ $Source$
 	* tbl_properties.inc.php3: reduced a bit the size of the generated xhtml
 	  page in case of table creation or adding fields to a table.
 	* tbl_addfield.php3; tbl_create.php3: fixed a bug with null set as default.
+	* lang/*: removed ":" at the end of $strCopyTable.
 
 2001-08-28  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/galician.inc.php3, select_lang.inc.php3: new Galician lang thanks to
