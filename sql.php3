@@ -132,6 +132,10 @@ else {
     }
     else
     {
+        // Displays the headers
+        if (isset($show_query)) {
+            unset($show_query);
+        }
         include("./header.inc.php3");
         // Define the display mode if it wasn't passed by url
         if (!isset($display)) {
