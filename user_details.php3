@@ -1072,18 +1072,9 @@ else if (isset($grants) && $grants) {
 
     if (isset($upd_grants)) {
         $sql_query = '';
-        $list_priv = array('Select', 'Insert', 'Update', 'Delete', 'Create', 'Drop', 'Reload',
-                           'Shutdown', 'Process', 'File', 'Grant', 'References', 'Index', 'Alter');
-        for ($i = 0; $i < 14; $i++) {
-            $priv_name = $list_priv[$i] . '_priv';
-            if (isset($$priv_name)) {
-                $sql_query .= (empty($sql_query) ? $list_priv[$i] : ', ' . $list_priv[$i]);
-            }
-        } // end for
-        unset($list_priv);
+        $col_list  = '';
 
         if (isset($colgrant) && !$anycolumn) {
-            $col_list     = '';
             $colgrant_cnt = count($colgrant);
             for ($i = 0; $i < $colgrant_cnt; $i++) {
                 if (get_magic_quotes_gpc()) {
@@ -1092,18 +1083,25 @@ else if (isset($grants) && $grants) {
                 $col_list .= (empty($col_list) ?  backquote($colgrant[$i]) : ', ' . backquote($colgrant[$i]));
             } // end for
             unset($colgrant);
-            $col_list     = '(' . $col_list . ')';
-            $sql_query    .= (empty($sql_query) ? $col_list : ' ' . $col_list);
+            $col_list     = ' (' . $col_list . ')';
         } // end if
 
-        $target    = (($anydb || empty($dbgrant)) ? '*' : backquote($dbgrant)) . '.'
-                   . (($anytable || empty($tablegrant)) ? '*' : backquote($tablegrant));
-        $sql_query .= (empty($sql_query) ? 'ON ' . $target : ' ON ' . $target);
+        $list_priv = array('Select', 'Insert', 'Update', 'Delete', 'Create', 'Drop', 'Reload',
+                           'Shutdown', 'Process', 'File', 'Grant', 'References', 'Index', 'Alter');
+        for ($i = 0; $i < 14; $i++) {
+            $priv_name = $list_priv[$i] . '_priv';
+            if (isset($$priv_name)) {
+                $sql_query .= (empty($sql_query) ? $list_priv[$i] : ', ' . $list_priv[$i]) . $col_list;
+            }
+        } // end for
+        unset($list_priv);
 
-        $target    = (($pma_user == '%') ? $pma_user : '\'' . sql_addslashes($pma_user) . '\'')
-                   . '@'
-                   . (($host == '%') ? $host : '\'' . sql_addslashes($host) . '\'');
-        $sql_query .= (empty($sql_query) ? 'TO ' . $target : ' TO ' . $target);
+        $sql_query .= ' ON '
+                   . (($anydb || empty($dbgrant)) ? '*' : backquote($dbgrant))
+                   . '.'
+                   . (($anytable || empty($tablegrant)) ? '*' : backquote($tablegrant));
+
+        $sql_query .= ' TO ' . '\'' . sql_addslashes($pma_user) . '\'' . '@' . '\'' . sql_addslashes($host) . '\'';
 
         $sql_query  = 'GRANT ' . $sql_query;
         $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE);

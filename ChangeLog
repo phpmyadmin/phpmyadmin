@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-17  Loïc Chapeaux  <lolo@phpheaven.net>
+	* users_detail.php3: fixed some bugs with the "other privileges" feature.
+	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
+
 2001-09-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* headers.inc.php3; users_detail.php3; libraries/user_details.js; lang/*:
 	  rewrtitten the users script so it validates xhtml1.0, and fix a security
