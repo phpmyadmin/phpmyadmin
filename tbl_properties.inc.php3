@@ -27,7 +27,7 @@ $is_backup = ($action != 'tbl_create.php3' && $action != 'tbl_addfield.php3');
     <table border="<?php echo $cfgBorder; ?>">
     <tr>
         <th><?php echo $strField; ?></th>
-        <th><?php echo $strType . "<br>" . PMA_showDocuShort('C/o/Column_types.html'); ?></th>
+        <th><?php echo $strType . '<br />' . PMA_showDocuShort('C/o/Column_types.html'); ?></th>
         <th><?php echo $strLengthSet; ?></th>
         <th><?php echo $strAttr; ?></th>
         <th><?php echo $strNull; ?></th>

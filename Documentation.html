@@ -823,12 +823,11 @@
         <br /><br />
     </dd>
 
-    <dt>
     <dt><b>$cfgBrowseMarkRow </b>boolean</dt>
     <dd>
         If the value is 1, you can visually mark rows with the color in
-        $cfgBrowsePointerColor, by clicking on them. Works on browsers that
-        support 'onmousedown'.
+        <tt>$cfgBrowsePointerColor</tt>, by clicking on them. Works on browsers
+        that support 'onmousedown'.
         <br /><br />
     </dd>
 
@@ -1058,8 +1057,8 @@
 <p>
     <b>I get an error 'No SQL query' when trying to execute a bookmark.</b>
     <br />
-    If PHP does not have read/write access to its upload_tmp_dir, it cannot
-    access the uploaded query.
+    If PHP does not have read/write access to its <i>upload_tmp_dir</i>, it
+    cannot access the uploaded query.
 </p>
 
 <h3>[Configuration]</h3>
@@ -1155,9 +1154,9 @@
        error or a time limit error.</b>
     <br />
     As of version 2.2.4, we build the compressed dump in memory, so large
-    tables dumps may hang.  The only alternative we can think about (using
-    system calls to mysqldump then gzip or bzip2) would not be applicable
-    in environments where PHP is in safe mode: access to system programs
+    tables dumps may hang. The only alternative we can think about (using
+    system calls to mysqldump then gzip or bzip2) would not be applicable in
+    environments where PHP is in safe mode: access to system programs is
     is limited by the system administrator, and time limit is enforced.
 </p>
 
@@ -1276,10 +1275,11 @@
     <b>In Internet Explorer 5.0, 5.5 or 6.0, I get an error when trying to
        modify a row in a table with many fields, or with a text field.</b>
     <br />
-    Your table does not have a primary key, so we must use a long URL to
-    identify this row. There is a limit on the lenght of the URL in those
-    browsers, and this not happen in Netscape, for example. The workaround
-    is to create a primary key, or use another browser.<br />
+    Your table neither have a primary key nor an unique one, so we must use a
+    long URL to identify this row. There is a limit on the lenght of the URL in
+    those browsers, and this not happen in Netscape, for example. The
+    workaround is to create a primary or unique key, or use another browser.
+    <br />
 </p>
 
 <p>
