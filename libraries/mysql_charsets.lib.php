@@ -271,7 +271,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
 
         $return_str  = $spacer . '<select name="' . htmlspecialchars($name) . '"' . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"') . '>' . "\n";
         if ($label) {
-            $return_str .= $spacer . '    <option value="">' . ($ype == PMA_CSDROPDOWN_COLLATION ? $GLOBALS['strCollation'] : $GLOBALS['strCharset']) . '</option>' . "\n";
+            $return_str .= $spacer . '    <option value="">' . ($type == PMA_CSDROPDOWN_COLLATION ? $GLOBALS['strCollation'] : $GLOBALS['strCharset']) . '</option>' . "\n";
         }
         $return_str .= $spacer . '    <option value=""></option>' . "\n";
         foreach ($mysql_charsets as $current_charset) {
