@@ -335,7 +335,7 @@ function PMA_normalOperations()
         <div style="margin-bottom: 10px">
         <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;mode=reload">
             <?php echo $GLOBALS['strReloadMySQL']; ?></a>&nbsp;
-        <?php print PMA_showDocu('manual_Reference.html#FLUSH'); ?>
+        <?php print PMA_showDocuShort('F/L/FLUSH.html'); ?>
         </div>
     </li>
 

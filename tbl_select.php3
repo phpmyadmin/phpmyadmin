@@ -81,7 +81,7 @@ if (!isset($param) || $param[0] == '') {
         <li>
             <?php echo $strAddSearchConditions; ?><br />
             <input type="text" name="where" />&nbsp;
-            <?php print PMA_showDocu("manual_Reference.html#Functions") . "\n"; ?>
+            <?php print PMA_showDocuShort("F/u/Functions.html") . "\n"; ?>
             <br /><br />
             <?php echo '<i>' . $strOr . '</i> ' . $strDoAQuery; ?><br />
             <table border="<?php echo $cfgBorder; ?>">

@@ -140,7 +140,6 @@ $cfgBZipDump              = TRUE;   // dump files
  * Link to the official MySQL documentation
  * Be sure to include no trailing slash on the path
  */
-$cfgManualBase = 'http://www.mysql.com/documentation/mysql/bychapter';
 $cfgManualBaseShort = 'http://www.mysql.com/doc';
 
 

@@ -704,7 +704,7 @@ echo "\n";
             <input type="hidden" name="goto" value="tbl_properties.php3" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
-            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . PMA_showDocu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
+            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . PMA_showDocuShort('S/E/SELECT.html'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
 <textarea name="sql_query" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" onfocus="this.select()">
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE 1'); ?>
@@ -1040,7 +1040,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <td>
                 <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('CHECK TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strCheckTable; ?></a>&nbsp;
-                <?php echo PMA_showDocu('manual_Reference.html#CHECK_TABLE') . "\n"; ?>
+                <?php echo PMA_showDocuShort('C/H/CHECK_TABLE.html') . "\n"; ?>
             </td>
             <td>&nbsp;-&nbsp;</td>
             <?php
@@ -1051,7 +1051,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <td>
                 <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ANALYZE TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strAnalyzeTable; ?></a>&nbsp;
-                <?php echo PMA_showDocu('manual_Reference.html#ANALYZE_TABLE') . "\n";?>
+                <?php echo PMA_showDocuShort('A/N/ANALYZE_TABLE.html') . "\n";?>
             </td>
             <?php
         }
@@ -1067,7 +1067,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <td>
                 <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('REPAIR TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strRepairTable; ?></a>&nbsp;
-                <?php echo PMA_showDocu('manual_Reference.html#REPAIR_TABLE') . "\n"; ?>
+                <?php echo PMA_showDocuShort('R/E/REPAIR_TABLE.html') . "\n"; ?>
             </td>
             <td>&nbsp;-&nbsp;</td>
             <?php
@@ -1078,7 +1078,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <td>
                 <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strOptimizeTable; ?></a>&nbsp;
-                <?php echo PMA_showDocu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
+                <?php echo PMA_showDocuShort('O/P/OPTIMIZE_TABLE.html') . "\n"; ?>
             </td>
             <?php
         }
@@ -1161,7 +1161,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
                 <option value="MERGE"<?php if ($tbl_type == 'MRG_MYISAM') echo ' selected="selected"'; ?>>Merge</option>
             </select>&nbsp;
             <input type="submit" name="submittype" value="<?php echo $strGo; ?>" style="vertical-align: middle" />&nbsp;
-            <?php echo PMA_showDocu('manual_Table_types.html#Table_types') . "\n"; ?>
+            <?php echo PMA_showDocuShort('T/a/Table_types.html') . "\n"; ?>
         </form>
     </li>
     <?php
@@ -1179,7 +1179,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32306
         <?php echo $strTableMaintenance; ?>&nbsp;:&nbsp;
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>">
             <?php echo $strOptimizeTable; ?></a>&nbsp;
-        <?php echo PMA_showDocu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
+        <?php echo PMA_showDocuShort('O/P/OPTIMIZE_TABLE.html') . "\n"; ?>
         </div>
     </li>
     <?php

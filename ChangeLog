@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-23  Marc Delisle  <lem9@users.sourceforge.net>
+	* links to new short doc pages are now completed
+
 2001-12-23  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_select.php3, lines 202-206: fixed bug #472728 - Many fields / IE 5.5
 	  or IE 6.
