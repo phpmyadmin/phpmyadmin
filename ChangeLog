@@ -23,6 +23,8 @@ $Source$
       libraries/config_import.lib.php, libraries/auth/config.auth.lib.php,
       libraries/auth/cookie.auth.lib.php: Allow simple blocking of root login
       (RFE #1012971), show just Access denied in case we denied it.
+    * db_operations.php, db_details_links.php, db_details_structure.php:
+      Separate operations from structure (RFE #808029).
 
 2004-10-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/database_interface.lib.php: bug #1041667, correctly

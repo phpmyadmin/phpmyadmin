@@ -76,6 +76,7 @@ echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['
 echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_export.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strExport.'" />' : '') . $strExport, $lnk3, $arg3);
 echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_search.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strSearch.'" />' : '') . $strSearch, $lnk4, $arg4);
 echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_db.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strQBE.'" />' : '') . $strQBE, ($num_tables > 0) ? 'db_details_qbe.php' : '', $url_query);
+echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tblops.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strOperations.'" />' : '') . $strOperations,'db_operations.php', $url_query);
 
 // Displays drop link
 if ($lnk5) {
