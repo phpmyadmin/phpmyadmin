@@ -35,7 +35,7 @@
 # - added release todo list
 #
 
-cvsserver=cvs.sourceforge.net
+cvsserver=cvs1
 
 if [ $# == 0 ]
 then
