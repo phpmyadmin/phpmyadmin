@@ -113,6 +113,7 @@ $strFieldsEnclosedBy = 'Campuri incadrate de';
 $strFieldsEscapedBy = 'Campuri realizate de';
 $strFieldsTerminatedBy = 'Campuri terminate de';
 $strFixed = 'fixat';
+$strFlushTable = 'Curatarea tabelului ("FLUSH")';
 $strFormat = 'Format';
 $strFormEmpty = 'Valoarea lipseste in formular !';
 $strFullText = 'Texte intregi';
@@ -173,6 +174,7 @@ $strNext = 'Urmatorul';
 $strNo = 'Nu';
 $strNoDropDatabases = 'Comenzile "DROP DATABASE" sunt dezactivate.';
 $strNoDatabases = 'Nu sunt baze de date';
+$strNoFrames = 'phpMyAdmin are o interfata mai prietenoasa cu navigator care lucreaza cu <b>frame-uri</b>.';
 $strNoModification = 'Nici o schimbare';
 $strNoPassword = 'Nu exista parola';
 $strNoPrivileges = 'Nu exista drepturi de acces';
@@ -274,6 +276,7 @@ $strTableComments = 'Comentarii tabel';
 $strTableEmpty = 'Numele de tabel este gol!';
 $strTableHasBeenDropped = 'Tabelul %s a fost aruncat';
 $strTableHasBeenEmptied = 'Tabelul %s a fost golit';
+$strTableHasBeenFlushed = 'Tabelul %s a fost curatat';
 $strTableMaintenance = 'Administrare tabel';
 $strTables = '%s tabele';
 $strTableStructure = 'Structura de tabel pentru tabelul';
@@ -311,11 +314,8 @@ $strYes = 'Da';
 
 // To translate
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
-$strFlushTable = 'Flush the table ("FLUSH")';
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
-$strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strNoQuery = 'No SQL query!';  //to translate
-$strTableHasBeenFlushed = 'Table %s has been flushed';
 $strZip = '"zipped"';  //to translate
 ?>

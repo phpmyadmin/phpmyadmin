@@ -113,6 +113,7 @@ $strFieldsEnclosedBy = 'Os campos delimítanse con';
 $strFieldsEscapedBy = 'Os campos escápanse con';
 $strFieldsTerminatedBy = 'Os campos rematan por';
 $strFixed = 'fixo';
+$strFlushTable = 'Fechar a tabela ("FLUSH")';
 $strFormat = 'Formato';
 $strFormEmpty = 'Falta un valor no formulario!';
 $strFullText = 'Textos completos';
@@ -173,6 +174,7 @@ $strNext = 'Seguinte';
 $strNo = 'Non';
 $strNoDatabases = 'Non hai nengún banco de datos';
 $strNoDropDatabases = 'Os comandos "Eliminar banco de datos" non están permitidos.';
+$strNoFrames = 'phpMyAdmin usa-se mellor cun navegador que <b>acepte molduras</b>.';
 $strNoModification = 'Sen cambios';
 $strNoPassword = 'Sen Contrasinal';
 $strNoPrivileges = 'Sen Privilexios';
@@ -247,7 +249,7 @@ $strServerChoice = 'Escolla de Servidor';
 $strServerVersion = 'Versión do servidor';
 $strSetEnumVal = 'Se o tipo de campo é "enum" ou "set", introduza os valores usando este formato: \'a\',\'b\',\'c\'...<br />Se precisar pór unha barra invertida (" \ ") ou aspas simples (" \' ") entre estes valores, preceda a barra e as aspas de barras invertidas (por exemplo \'\\\\xyz\' ou \'a\\\'b\').';
 $strShow = 'Mostrar';
-$strShowAll: 'Ver todos os rexistros';
+$strShowAll = 'Ver todos os rexistros';
 $strShowCols = 'Mostrar as columnas';
 $strShowingRecords = 'Mostrando rexistros ';
 $strShowPHPInfo = 'Mostrar información sobre o PHP';
@@ -274,6 +276,7 @@ $strTableComments = 'Comentarios da tabela';
 $strTableEmpty = 'O nome da tabela está vacío!';
 $strTableHasBeenDropped = 'Eliminouse a tabela %s';
 $strTableHasBeenEmptied = 'Vaciouse a tabela %s';
+$strTableHasBeenFlushed = 'Fechouse a tabela %s';
 $strTableMaintenance = 'Tabela de manutención';
 $strTables = '%s tabela(s)';
 $strTableStructure = 'Estructura da tabela';
@@ -304,7 +307,7 @@ $strViewDump = 'Ver o esquema do volcado da tabela';
 $strViewDumpDB = 'Ver o esquema do volcado do banco de datos';
 
 $strWelcome = 'Benvido/a ao ';
-$strWithChecked: 'Todos os marcados';
+$strWithChecked = 'Todos os marcados';
 $strWrongUser = 'Usuario ou contrasinal errado. Acceso negado.';
 
 $strYes = 'Si';
@@ -313,10 +316,7 @@ $strZip = 'comprimido no formato "zipped"';
 
 // To translate
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
-$strFlushTable = 'Flush the table ("FLUSH")';
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
-$strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strNoQuery = 'No SQL query!';  //to translate
-$strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>

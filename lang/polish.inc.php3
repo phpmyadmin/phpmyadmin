@@ -112,6 +112,7 @@ $strFieldsEnclosedBy = 'Pola zawarte w';
 $strFieldsEscapedBy = 'Pola poprzedzone przez';
 $strFieldsTerminatedBy = 'Pola oddzielane przez';
 $strFixed = 'sta³y';
+$strFlushTable = 'Prze³adowanie tabeli ("FLUSH")';
 $strFormat = 'Format';
 $strFormEmpty = 'Brakuj±ca warto¶æ w formularzu!';
 $strFullText = 'Pe³ny tekst';
@@ -172,6 +173,7 @@ $strNext = 'Nastêpne';
 $strNo = 'Nie';
 $strNoDatabases = 'Brak baz danych';
 $strNoDropDatabases = 'Polecenie "DROP DATABASE" jest zablokowane.';
+$strNoFrames='phpMyAdmin jest bardziej przyjazny w przegl±darkach <b>obs³uguj±cych ramki</b>';
 $strNoModification = 'Bez zmian';
 $strNoPassword = 'Brak has³a';
 $strNoPrivileges = 'Brak uprawnieñ';
@@ -273,6 +275,7 @@ $strTableComments = 'Komentarze tabeli';
 $strTableEmpty = 'Brak nazwy tabeli!';
 $strTableHasBeenDropped = 'Tabela %s zostala usunieta';
 $strTableHasBeenEmptied = 'Tabela %s zostala oprózniona';
+$strTableHasBeenFlushed = 'Tabela %s zosta³a prze³adowana';
 $strTableMaintenance = 'Zarz±dzanie tabel±';
 $strTableStructure = 'Struktura tabeli dla ';
 $strTableType = 'Typ tabeli';
@@ -312,10 +315,7 @@ $strZip = '".zip"';
 
 // To translate
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
-$strFlushTable = 'Flush the table ("FLUSH")';
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
-$strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strNoQuery = 'No SQL query!';  //to translate
-$strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>
