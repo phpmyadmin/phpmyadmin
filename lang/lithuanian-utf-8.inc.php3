@@ -18,7 +18,7 @@ $month = array('Sausio', 'Vasario', 'Kovo', 'Balandžio', 'Gegužio', 'Birželio
 $datefmt = ' %Y m. %B %d d.  %H:%M';
 $timespanfmt = '%s d., %s val., %s min. ir %s s.';
 
-$updComTab = 'Informaciją, kaip atnaujinti Column_comments lentelę, galite rasti dokumentacijoje.';  
+$strUpdComTab = 'Informaciją, kaip atnaujinti Column_comments lentelę, galite rasti dokumentacijoje.';  
 
 $strAPrimaryKey = 'Stulpeliui %s sukurtas PIRMINIS raktas';
 $strAbortedClients = 'Atmesti prisijungimai';

@@ -576,7 +576,7 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) verwijderd het limiet.';
 $strZip = '"Gezipt"';
 // To translate
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
+$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 
 $strAutomaticLayout = 'Automatic layout';  //to translate
 

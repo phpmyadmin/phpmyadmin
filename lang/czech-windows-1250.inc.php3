@@ -23,7 +23,7 @@ $datefmt = '%a %d. %b %Y, %H:%M';
 
 $timespanfmt = '%s dnù, %s hodin, %s minut a %s sekund';
 
-$updComTab = 'Podívejte se prosím do dokumentace, jak aktualizovat tabulku s&nbsp;informacemi o&nbsp; sloupcích (Column_comments Table)';
+$strUpdComTab = 'Podívejte se prosím do dokumentace, jak aktualizovat tabulku s&nbsp;informacemi o&nbsp; sloupcích (Column_comments Table)';
 
 $strAPrimaryKey = 'V&nbsp;tabulce %s byl vytvoøen primární klíè';
 $strAbortedClients = 'Pøerušené';

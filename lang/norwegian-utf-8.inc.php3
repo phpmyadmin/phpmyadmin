@@ -627,6 +627,6 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjerner begrensningen.';
 $strZip = 'Komprimert (zip)';
 
-$updComTab = 'Les i dokumentasjonen hvordan du oppdaterer din Column_comments tabell';
+$strUpdComTab = 'Les i dokumentasjonen hvordan du oppdaterer din Column_comments tabell';
 
 ?>

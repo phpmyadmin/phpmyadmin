@@ -578,7 +578,7 @@ $strYes = 'ใช่';
 
 $strZeroRemovesTheLimit = 'โปรดทราบ: ถ้าเปลี่ยนค่าเหล่านี้เป็น 0 (ศูนย์) จะหมายถึง ไม่มีขีดจำกัด.';
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
+$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 
 $strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
 $strAddedColumnComment = 'Added comment for column';  //to translate

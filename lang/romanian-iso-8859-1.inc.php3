@@ -18,7 +18,7 @@ $datefmt = '%B %d, %Y at %I:%M %p';
 
 $timespanfmt = '%s zile, %s ore, %s minute si %s secunde';
 
-$updComTab = 'Parcurgeti documentatia pentru modul de updatare a Column_comments Table';
+$strUpdComTab = 'Parcurgeti documentatia pentru modul de updatare a Column_comments Table';
 
 $strAPrimaryKey = 'A fost adaugat o cheie primara la %s';
 $strAbortedClients = 'Intrerupt';

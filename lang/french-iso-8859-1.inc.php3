@@ -18,8 +18,6 @@ $datefmt = '%A %d %B %Y à %H:%M';
 
 $timespanfmt = '%s jours, %s heures, %s minutes et %s secondes';
 
-$updComTab = 'La documentation indique comment mettre à jour votre table Column_comments';
-
 $strAPrimaryKey = 'Une clé primaire a été ajoutée sur %s';
 $strAbortedClients = 'Arrêts prématurés';
 $strAbsolutePathToDocSqlDir = 'Veuillez entrer le chemin absolu du répertoire docSQL sur le serveur web';
@@ -582,6 +580,7 @@ $strType = 'Type';
 $strUncheckAll = 'Tout décocher';
 $strUnique = 'Unique';
 $strUnselectAll = 'Tout désélectionner';
+$strUpdComTab = 'La documentation indique comment mettre à jour votre table Column_comments';
 $strUpdatePrivMessage = 'Vous avez modifié les privilèges pour %s.';
 $strUpdateProfile = 'Modifier le profil :';
 $strUpdateProfileMessage = 'Le profil a été modifié.';
@@ -626,4 +625,5 @@ $strZip = '"zippé"';
 // To translate
 
 $strSwitchToTable = 'Switch to copied table';  //to translate
+
 ?>

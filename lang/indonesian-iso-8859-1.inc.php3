@@ -17,7 +17,7 @@ $month = array('Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', '
 $datefmt = '%d. %B %Y jam %H:%M';
 $timespanfmt = '%s hari, %s jam, %s menit dan %s detik';
 
-$updComTab = 'Mohon belajari dokumentasi untuk mengetahui cara meng-update tabel Column_comments Anda';
+$strUpdComTab = 'Mohon belajari dokumentasi untuk mengetahui cara meng-update tabel Column_comments Anda';
 
 $strAPrimaryKey = 'Primary key telah ditambah pada %s';
 $strAbortedClients = 'Dibatalkan';

@@ -573,7 +573,7 @@ $strYes = 'да';
 
 $strZeroRemovesTheLimit = 'Забележка: Установяването на тези опции с 0 (нула) премахва ограничението.';
 $strZip = '"zip-нато"';
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
+$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 
 $strAutodetect = 'Autodetect';  //to translate
 $strAutomaticLayout = 'Automatic layout';  //to translate

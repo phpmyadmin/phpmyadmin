@@ -468,7 +468,7 @@ $strYes = 'λο';
 
 $strZip = '"Zipped"';
 //To translate:
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
+$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 
 $strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
 $strAddedColumnRelation = 'Added relation for column';  //to translate

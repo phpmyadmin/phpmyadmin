@@ -560,7 +560,7 @@ $strYes = 'Так';
 $strZeroRemovesTheLimit = 'Примітка: Встановлення цієї опції у 0 (нуль) знімає обмеження.';
 $strZip = 'запакувати в "zip"';
 // To translate
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
+$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 
 $strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
 $strAddedColumnComment = 'Added comment for column';  //to translate

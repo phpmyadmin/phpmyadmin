@@ -17,8 +17,6 @@ $month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'O
 $datefmt = '%B %d, %Y at %I:%M %p';
 $timespanfmt = '%s days, %s hours, %s minutes and %s seconds';
 
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';
-
 $strAPrimaryKey = 'A primary key has been added on %s';
 $strAbortedClients = 'Aborted';
 $strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';
@@ -541,6 +539,7 @@ $strStructure = 'Structure';
 $strSubmit = 'Submit';
 $strSuccess = 'Your SQL-query has been executed successfully';
 $strSum = 'Sum';
+$strSwitchToTable = 'Switch to copied table';
 
 $strTable = 'Table';
 $strTableComments = 'Table comments';
@@ -581,6 +580,7 @@ $strType = 'Type';
 $strUncheckAll = 'Uncheck All';
 $strUnique = 'Unique';
 $strUnselectAll = 'Unselect All';
+$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';
 $strUpdateProfile = 'Update profile:';
 $strUpdateProfileMessage = 'The profile has been updated.';
@@ -623,5 +623,4 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strSwitchToTable = 'Switch to copied table';
 ?>

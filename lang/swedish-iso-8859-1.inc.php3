@@ -17,7 +17,7 @@ $month = array('januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'a
 $datefmt = '%d %B %Y kl %H:%M';
 $timespanfmt = '%s dagar, %s timmar, %s minuter och %s sekunder';
 
-$updComTab = 'Se dokumentationen för uppdatering av din tabell Column_comments';
+$strUpdComTab = 'Se dokumentationen för uppdatering av din tabell Column_comments';
 
 $strAPrimaryKey = 'En primär nyckel har lagts till för %s';
 $strAbortedClients = 'Avbrutna';

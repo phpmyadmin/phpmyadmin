@@ -524,7 +524,7 @@ $strYes = ' 是 ';
 
 $strZip = '"zipped"';
 // To translate
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
+$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 
 $strAbsolutePathToDocSqlDir = '請輸入 docSQL 目錄於網頁伺服器的絕對路徑';  //to translate
 $strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate

@@ -23,7 +23,7 @@ $datefmt = '%B %d, %Y at %I:%M %p';
 
 $timespanfmt = '%s días, %s horas, %s minutos e %s segundos';
 
-$updComTab = 'Consulte a Documentación para saber como actualizar a tabela Column_comments';  
+$strUpdComTab = 'Consulte a Documentación para saber como actualizar a tabela Column_comments';  
 
 $strAPrimaryKey = 'Adicionouse unha chave primaria a %s';
 $strAbortedClients = 'Cancelado';

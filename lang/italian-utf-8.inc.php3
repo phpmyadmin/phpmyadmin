@@ -23,7 +23,7 @@ $month = array('Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'O
 $datefmt = '%d %B, %Y at %I:%M %p'; //italian time
 $timespanfmt = '%s giorni, %s ore, %s minuti e %s secondi';
 
-$updComTab = 'Prego leggere la documentazione su come aggiornare la vostra tabella Column_comments';  
+$strUpdComTab = 'Prego leggere la documentazione su come aggiornare la vostra tabella Column_comments';  
 
 $strAPrimaryKey = 'Una chiave primaria è stata aggiunta in %s';
 $strAbortedClients = 'Fallito';

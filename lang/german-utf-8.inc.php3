@@ -634,5 +634,5 @@ $strTransformation_text_plain__unformatted = 'Wandelt Sonderzeichen nach HTML-Re
 $strSwitchToTable = 'Zur kopierten Tabelle wechseln';
 
 // To translate
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
+$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 ?>

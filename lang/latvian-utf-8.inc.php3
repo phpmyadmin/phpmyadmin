@@ -576,7 +576,7 @@ $strYes = 'Jā';
 $strZeroRemovesTheLimit = 'Piezīme: Šo opciju uzstādīšana uz 0 (nulli) atceļ ierobežojumus.';
 $strZip = 'arhivēts ar zip';
 // To translate
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
+$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 
 $strAutomaticLayout = 'Automatic layout';  //to translate
 

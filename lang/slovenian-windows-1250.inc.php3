@@ -19,7 +19,7 @@ $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Avg', 'Sep', 'O
 $datefmt = '%d %B %Y ob %I:%M %p';
 $timespanfmt = '%s dni, %s ur, %s minut in %s sekund';
 
-$updComTab = 'Navodila za posodobitev tabele Column_comments\' najdete v dokumentaciji';
+$strUpdComTab = 'Navodila za posodobitev tabele Column_comments\' najdete v dokumentaciji';
 
 $strAPrimaryKey = 'Na %s je dodan primarni kljuè';
 $strAbortedClients = 'Prekinjeno';

@@ -22,7 +22,7 @@ $datefmt = '%Y 年 %m 月 %d 日 %H:%M';
 
 $timespanfmt = '%s 天 %s 小时, %s 分 %s 秒';
 
-$updComTab = '请参看文档中关于如何更新您的 Column_comments 表的部分';
+$strUpdComTab = '请参看文档中关于如何更新您的 Column_comments 表的部分';
 
 $strAPrimaryKey = '主键已经添加到 %s';
 $strAbortedClients = '中止';
