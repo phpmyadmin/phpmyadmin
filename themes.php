@@ -86,14 +86,27 @@ echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
         <?php
 if ($handleThemes = opendir($path_to_themes)) { // open themes
     while (false !== ($PMA_Theme = readdir($handleThemes))) {  // get screens
-        if ($PMA_Theme != "." && $PMA_Theme != "..") { // && !strstr($PMA_Theme,'original')) { // but not the original
+        if ($PMA_Theme != "." && $PMA_Theme != "..") {
             $screen_directory = $path_to_themes . $PMA_Theme;
+            
+            // check for theme requires/name
+            unset($theme_name, $theme_version);
+            @include($path_to_themes . $PMA_Theme . '/info.inc.php');
+            
+            // did it set correctly?
+            if (!isset($theme_name, $theme_version))
+                continue; // invalid theme
+                
+            if ($theme_version < PMA_THEME_VERSION)
+                continue; // too old version
+            
+                
             if (is_dir($screen_directory) && @file_exists($screen_directory.'/screen.png')) { // if screen exists then output
         ?>
         <tr>
             <th align="left">
                 <?php
-                echo '<b>' . strtoupper(preg_replace("/_/"," ",$PMA_Theme)) . '</b>';
+                echo '<b>' . $theme_name . '</b>';
                 ?>
             </th>
         </tr>
@@ -106,8 +119,8 @@ if ($handleThemes = opendir($path_to_themes)) { // open themes
                     if (document.getElementById) { 
                         document.write('style="border: 1px solid #000000;" ');
                     }
-                    document.write('alt="<?php echo strtoupper(preg_replace("/_/"," ",$PMA_Theme)); ?> - Theme" ');
-                    document.write('title="<?php echo strtoupper(preg_replace("/_/"," ",$PMA_Theme)); ?> - Theme" />');
+                    document.write('alt="<?php echo $theme_name; ?> - Theme" ');
+                    document.write('title="<?php echo $theme_name; ?> - Theme" />');
                     document.write('</a><br />');
                     document.write('[ <b><a href="#top" onclick="takeThis(\'<?php echo $PMA_Theme; ?>\'); return false;">');
                     document.write('<?php echo (isset($strTakeIt) ? addslashes($strTakeIt) : 'take it'); ?>');
@@ -116,7 +129,7 @@ if ($handleThemes = opendir($path_to_themes)) { // open themes
                 </script>
                 <noscript>
                     <?php
-                echo '<img src="' . $screen_directory . '/screen.png" border="1" alt="' . strtoupper(preg_replace("/_/"," ",$PMA_Theme)) . ' - Theme" />';
+                echo '<img src="' . $screen_directory . '/screen.png" border="1" alt="' . $theme_name . ' - Theme" />';
                     ?>
                 </noscript>
             </td>

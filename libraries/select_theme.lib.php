@@ -54,7 +54,19 @@ if ($PMA_ThemeAvailable == TRUE) { // themeManager is available
         while (FALSE !== ($PMA_Theme = readdir($handleThemes))) { // get themes
             if ($PMA_Theme != "." && $PMA_Theme != ".." && $PMA_Theme != 'CVS') { // file check
                 if (@is_dir($cfg['ThemePath'].'/'.$PMA_Theme)) { // check the theme
+                    // check for theme requires/name
+                    unset($theme_name, $theme_version);
+                    @include($cfg['ThemePath'] . '/' . $PMA_Theme . '/info.inc.php');
+                    
+                    // did it set correctly?
+                    if (!isset($theme_name, $theme_version))
+                        continue; // invalid theme
+                        
+                    if ($theme_version < PMA_THEME_VERSION)
+                        continue; // too old version
+
                     $available_themes_choices[]=$PMA_Theme;
+                    $available_themes_choices_names[$PMA_Theme] = $theme_name; 
                 } // end check the theme
             } // end file check
         } // end get themes

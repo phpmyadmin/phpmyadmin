@@ -6,6 +6,7 @@
  * DEFINES VARIABLES & CONSTANTS
  * Overview:
  *    PMA_VERSION              (string) - phpMyAdmin version string
+ *    PMA_THEME_VERSION        (int)    - phpMyAdmin theme version integer
  *    PMA_PHP_INT_VERSION      (int)    - eg: 30017 instead of 3.0.17 or
  *                                        40006 instead of 4.0.6RC3
  *    PMA_IS_WINDOWS           (bool)   - mark if phpMyAdmin running on windows
@@ -19,6 +20,10 @@
 // phpMyAdmin release
 if (!defined('PMA_VERSION')) {
     define('PMA_VERSION', '2.6.0-rc2');
+}
+
+if (!defined('PMA_THEME_VERSION')) {
+    define('PMA_THEME_VERSION', 1);
 }
 
 // php version

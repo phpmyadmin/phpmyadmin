@@ -626,12 +626,12 @@ if (isset($available_themes_choices) && $available_themes_choices > 1) {
                 ?> 
                 <select name="set_theme" dir="ltr" onchange="this.form.submit();" style="vertical-align: middle">
                 <?php
-                    foreach ($available_themes_choices AS $i => $cur_theme) {
+                    foreach ($available_themes_choices AS $cur_theme) {
                         echo '<option value="' . $cur_theme . '"';
                         if ($cur_theme == $theme) {
                             echo ' selected="selected"';
                         }
-                        echo '>' . $cur_theme . '</option>';
+                        echo '>' . $available_themes_choices_names[$cur_theme] . '</option>';
                     }
                 ?>
                 </select>

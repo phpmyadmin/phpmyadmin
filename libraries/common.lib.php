@@ -312,27 +312,35 @@ if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
         }
     }
     if ($ThemeDefaultOk == TRUE){ 
-        $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $cfg['ThemeDefault'] . '/img/';
-        $tmp_layout_file = './' . $cfg['ThemePath'] . '/' . $cfg['ThemeDefault'] . '/layout.inc.php';
-        if (@file_exists($tmp_layout_file)) {
-            include($tmp_layout_file);
-        }
+        $GLOBALS['theme'] = $cfg['ThemeDefault'];
     } else {
-        $pmaThemeImage = './' . $cfg['ThemePath'] . '/original/img/';
+        $GLOBALS['theme'] = 'original';
     }
 } else {
     // if we just changed theme, we must take the new one so that 
     // index.php takes the correct one for height computing
     if (isset($_POST['set_theme'])) {
-        $GLOBALS['theme'] = $_POST['set_theme'];
+        $GLOBALS['theme'] = PMA_securePath($_POST['set_theme']);
     } else {
-        $GLOBALS['theme'] = $_COOKIE['pma_theme'];
+        $GLOBALS['theme'] = PMA_securePath($_COOKIE['pma_theme']);
     }
-    $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/img/';
-    $tmp_layout_file = './' . $cfg['ThemePath'] . '/' . PMA_securePath($GLOBALS['theme']) . '/layout.inc.php';
-    if (@file_exists($tmp_layout_file)) {
-        include($tmp_layout_file);
-    }
+}
+
+// check for theme requires/name
+unset($theme_name, $theme_version);
+@include($cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/info.inc.php');
+
+// did it set correctly?
+if (!isset($theme_name, $theme_version))
+    $GLOBALS['theme'] = 'original'; // invalid theme
+    
+if ($theme_version < PMA_THEME_VERSION)
+    $GLOBALS['theme'] = 'original'; // too old version
+
+$pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/img/';
+$tmp_layout_file = './' . $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/layout.inc.php';
+if (@file_exists($tmp_layout_file)) {
+    include($tmp_layout_file);
 }
 if (!is_dir($pmaThemeImage)) {
     $pmaThemeImage = './' . $cfg['ThemePath'] . '/original/img/';
