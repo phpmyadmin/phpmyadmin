@@ -52,6 +52,7 @@ $sql_query_cpy = $sql_query; // copy the query, used for display purposes only
 if($sql_query != "") {
   $sql_query = remove_remarks($sql_query);
   $pieces    = split_sql_file($sql_query,";");
+  $piecescount=count($pieces);
 
   if (count($pieces) == 1 && !empty($pieces[0]) && $view_bookmark == 0) {
     $sql_query = trim($pieces[0]);
@@ -60,10 +61,9 @@ if($sql_query != "") {
     exit;
   }
  
-  include("./header.inc.php3");
   if(mysql_select_db($db)) {
     // run multiple queries
-    for ($i=0; $i<count($pieces); $i++) {
+    for ($i=0; $i<$piecescount; $i++) {
       $sql = trim($pieces[$i]);
       if(!empty($sql) and $sql[0] != "#") $result = mysql_query($sql) or mysql_die2($sql);
       if (!isset($reload) && eregi('^CREATE TABLE (.+)', $pieces[$i])) $reload = "true";
