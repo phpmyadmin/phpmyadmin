@@ -13,7 +13,11 @@ $Source$
 	  calling the mysql_fetch_field function each time) and added some
 	  comments.
 	* lib.inc.php3, line 526: fixed a js error ("#" character msut be escaped).
+	* sql.php3, lines 304-322: fixed bug #444767 - Other cases for
+	  display=simple.
 	* main.php3: target for links should never be "_top" but "_parent".
+	* db_stats.php3; images/arrow.gif; lang/*: added a button to drop
+	  databases.
 
 2001-09-01  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_stat.php3: cleaned and improved the code.
