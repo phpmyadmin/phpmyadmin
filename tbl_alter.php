@@ -65,7 +65,7 @@ if (isset($do_save_data)) {
         }
         if ($field_attribute[$i] != '') {
             $query .= ' ' . $field_attribute[$i];
-        } else if (PMA_MYSQL_INT_VERSION >= 40100 && $field_collation[$i] != '') {
+        } else if (PMA_MYSQL_INT_VERSION >= 40100 && $field_collation[$i] != '' && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR)$@i', $field_type[$i])) {
             $query .= PMA_generateCharsetQueryPart($field_collation[$i]);
         }
         if ($field_default[$i] != '') {
