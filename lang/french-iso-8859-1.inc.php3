@@ -260,6 +260,7 @@ $strInsert = 'Insérer';
 $strInsertAsNewRow = 'Insérer en tant que nouvel enregistrement';
 $strInsertNewRow = 'Insérer un nouvel enregistrement';
 $strInsertTextfiles = 'Insérer des données provenant d\'un fichier texte dans la table';
+$strInsertedRowId = 'Identifiant de l\'enregistrement inséré:';
 $strInsertedRows = 'Nombre d\'enregistrements insérés :';
 $strInstructions = 'Instructions';
 $strInvalidName = '"%s" est un mot réservé, il ne peut être utilisé comme nom de base/table/champ.';
@@ -333,10 +334,12 @@ $strNoIndexPartsDefined = 'Aucune colonne n\'a été définie pour cette clef&nbsp;
 $strNoModification = 'Pas de modifications';
 $strNoOptions = 'Ce format ne comporte pas d\'options';
 $strNoPassword = 'aucun mot de passe';
+$strNoPermission = 'Le serveur web n\'a pas les permissions nécessaires pour enregistrer le fichier %s.';
 $strNoPhp = 'Sans source PHP';
 $strNoPrivileges = 'aucun privilège';
 $strNoQuery = 'Aucune requête SQL !';
 $strNoRights = 'Vous n\'êtes pas autorisé à accéder à cette page';
+$strNoSpace = 'Espace-disque insuffisant pour enregistrer le fichier %s.';
 $strNoTablesFound = 'Aucune table n\'a été trouvée dans cette base.';
 $strNoUsersFound = 'Il n\'y a aucun utilisateur';
 $strNoUsersSelected = 'Aucun utilisateur n\'a été sélectionné.';
@@ -635,8 +638,4 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-
-$strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
-$strNoSpace = 'Insufficient space to save the file %s.';  //to translate
-$strInsertedRowId = 'Inserted row id:';  //to translate
 ?>
