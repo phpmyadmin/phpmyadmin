@@ -8,7 +8,7 @@ $Source$
 2001-10-17  Marc Delisle  <lem9@users.sourceforge.net>
 	* release 2.2.1rc2
 
-2001-10-16  Loïc Chapeaux  <lolo@phpheaven.net>
+2001-10-17  Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html, lines 766-770: added a link to the official MySQL
 	  documentation for the "socket error" problems.
 	* index.php3, line 53; lang/*: out-sourced the "no frame" sentence.
@@ -17,7 +17,8 @@ $Source$
 	* tbl_properties.php3, line 1243: added a param. to enforce reloading of
 	  the left frame after a flush if $cfgShowTooltip is set to 1.
 	* tbl_change.php3: fixed some inconcistancies if an update is required but
-	  the record can't be found.
+	  the record can't be found and, in this case, ensured a message is
+	  displayed.
 
 2001-10-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/*: cleanup thanks to Björn T. Hallberg - Removed unused strings

@@ -43,10 +43,32 @@ if (isset($primary_key)) {
     $local_query = 'SELECT * FROM ' . backquote($table) . ' WHERE ' . $primary_key;
     $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
     $row         = mysql_fetch_array($result);
+    // No row returned
     if (!$row) {
         unset($row);
         unset($primary_key);
-    }
+        $goto_cpy          = $goto;
+        $goto              = 'tbl_properties.php3'
+                           . '?lang=' . $lang
+                           . '&amp;server=' . $server
+                           . '&amp;db=' . urlencode($db)
+                           . '&amp;table=' . urlencode($table)
+                           . '&amp;$show_query=y'
+                           . '&amp;sql_query=' . urlencode($local_query);
+        unset($goto);
+        if (isset($sql_query)) {
+            $sql_query_cpy = $sql_query;
+            unset($sql_query);
+        }
+        $sql_query         = $local_query;
+        show_message($strEmptyResultSet);
+            $goto          = $goto_cpy;
+        unset($goto_cpy);
+        if (isset($sql_query_cpy)) {
+            $sql_query     = $sql_query_cpy;
+            unset($sql_query_cpy);
+        }
+    } // end if (no record returned)
 }
 else
 {
