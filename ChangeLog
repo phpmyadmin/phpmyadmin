@@ -9,6 +9,8 @@ $Source$
     * lang/czech: Updated.
     * lang/catalan: Updated, thanks to Xavier Navarro (xavin).
     * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
+    * lang/italian: Updated, thanks to Pietro Danesi (danone).
+    * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
 
 2003-08-17 Marc Delisle  <lem9@users.sourceforge.net>
     * browse_foreigners.php3, tbl_change.php3, tbl_select.php3, 

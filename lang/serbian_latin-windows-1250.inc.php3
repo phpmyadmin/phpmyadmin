@@ -23,7 +23,6 @@ $month = array('jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'avg', 'sep', 'o
 $datefmt = '%d. %B %Y. u %H:%M';
 $timespanfmt = '%s dana, %s sati, %s minuta i %s sekundi';
 
-
 $strAPrimaryKey = 'Primarni kljuè je upravo dodat %s';
 $strAbortedClients = 'Prekinuto';
 $strAbsolutePathToDocSqlDir = 'Unesite kompletnu putanju do direktorijuma docSQL na veb serveru';
@@ -84,6 +83,7 @@ $strBookmarkQuery = 'Obeležen SQL-upit';
 $strBookmarkThis = 'Obeleži SQL-upit';
 $strBookmarkView = 'Vidi samo';
 $strBrowse = 'Pregled';
+$strBrowseForeignValues = 'Pregledaj strane vrednosti';
 $strBulgarian = 'Bugarski';
 $strBzError = 'phpMyAdmin nije mogao da kompresuje sadržaj baze zbog neispravne BZ2 ekstenzije u ovoj verziji PHP-a. Preporuèuje se da podesite <code>$cfg[\'BZipDump\']</code> direktivu u vašem phpMyAdmin konfiguracionom fajlu na <code>FALSE</code>. Ako želite da koristite moguænosti BZ2 kompresije, trebalo bi da preðete na noviju verziju PHP-a. Vidite PHP izveštaj o greškama %s za detalje.';
 $strBzip = '"bzip-ovano"';
@@ -662,6 +662,7 @@ $strUseBackquotes = 'Koristi \' za ogranièavanje imena polja';
 $strUseHostTable = 'Koristi tabelu domaæina';
 $strUseTables = 'Koristi tabele';
 $strUseTextField = 'Koristi tekst polje';
+$strUseThisValue = 'Koristi ovu vrednost';
 $strUser = 'Korisnik';
 $strUserAlreadyExists = 'Korisnik %s veæ postoji!';
 $strUserEmpty = 'Ime korisnika nije uneto!';
@@ -685,6 +686,7 @@ $strWebServerUploadDirectoryError = 'Direktorijum koji ste izabrali za slanje ni
 $strWelcome = 'Dobrodošli na %s';
 $strWestEuropean = 'Zapadnoevropski';
 $strWildcard = 'džoker';
+$strWindowNotFound = 'Odredišni prozor pretraživaèa nije mogao da bude ažuriran. Možda ste zatvorili matièni prozor, ili vaš preraživaè onemoguæava ažuriranje meðu prozorima zbog sigurnosnih podešavanja';
 $strWithChecked = 'Oznaèeno:';
 $strWritingCommentNotPossible = 'Pisanje komentara nije moguæe';
 $strWritingRelationNotPossible = 'Upisivanje relacije nije moguæe';
@@ -697,7 +699,4 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja limite.';
 $strZip = '"zipovano"';
 
-$strUseThisValue = 'Use this value';  //to translate
-$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
-$strBrowseForeignValues = 'Browse foreign values';  //to translate
 ?>
