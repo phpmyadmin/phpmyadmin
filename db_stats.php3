@@ -90,6 +90,7 @@ header('Content-Type: text/html; charset=' . $charset);
 <table border="<?php echo $cfgBorder; ?>">
 <tr>
 <th><?php echo ucfirst($strDatabase); ?></th>
+<th><?php echo ucfirst($strTable); ?></th>
 <th><?php echo ucfirst($strData); ?></th>
 <th><?php echo ucfirst($strIndexes); ?></th>
 <th><?php echo ucfirst($strTotal); ?></th>
@@ -98,6 +99,7 @@ header('Content-Type: text/html; charset=' . $charset);
 <?php
 if ($num_dbs > 1) {
     $selected_db = 0;
+    $tot_tables = 0;
     $big_tot_all = 0;
     $big_tot_idx = 0;
     $big_tot_data = 0;
@@ -113,6 +115,7 @@ if ($num_dbs > 1) {
         }
         $tables              = @mysql_list_tables($db);
         $num_tables          = @mysql_numrows($tables);
+        $tot_tables += $num_tables;
         $common_url_query    = 'lang=' . $lang
                              . '&server=' . urlencode($server)
                              . '&db=' . urlencode($db);
@@ -138,6 +141,7 @@ if ($num_dbs > 1) {
         list($tot_all_format,$unit_all) = format_byte_down($tot_all,3,1);
 
         echo "<tr bgcolor=\"$bgcolor\"><td>" . urlencode($db) . " </td>";
+        echo "<td>$num_tables </td>";
         echo "<td>$tot_data_format $unit_data </td>";
         echo "<td>$tot_idx_format $unit_idx </td>";
         echo "<td><b>$tot_all_format $unit_all<b> </td>";
@@ -151,6 +155,7 @@ if ($num_dbs > 1) {
     list($tot_all_format,$unit_all) = format_byte_down($big_tot_all,3,1);
 
     echo "<tr><th>" . $strSum . " </th>";
+    echo "<th>$tot_tables </th>";
     echo "<th>$tot_data_format $unit_data </th>";
     echo "<th>$tot_idx_format $unit_idx </th>";
     echo "<th><b>$tot_all_format $unit_all<b> </th>";
