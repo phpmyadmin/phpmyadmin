@@ -7,6 +7,8 @@ $Source$
 
 2003-10-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/grab_globals.lib.php3: bug 807047, better fix
+    * tbl_select.php3: bug 821350: escape single quotes in table
+      Search page
 
 2003-10-10 Marc Delisle  <lem9@users.sourceforge.net>
     * footer.inc.php3: bug 819036, undefined function PMA_setHistory()

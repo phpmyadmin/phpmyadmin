@@ -277,7 +277,10 @@ else {
                     $quot     = '';
                     $func[$i] = 'IS';
                 }
-                $sql_query    .= ' AND ' . PMA_backquote(urldecode($names[$i])) . " $func[$i] $quot$fields[$i]$quot";
+                //$sql_query    .= ' AND ' . PMA_backquote(urldecode($names[$i])) . " $func[$i] $quot$fields[$i]$quot";
+
+                $sql_query    .= ' AND ' . PMA_backquote(urldecode($names[$i])) . ' ' . $func[$i] . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;
+
             } // end if
         } // end for
     } // end if
