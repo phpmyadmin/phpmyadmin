@@ -154,6 +154,7 @@ $strCriteria = 'Kriterier';
 $strCroatian = 'kroatisk';
 $strCyrillic = 'kyrillisk';
 $strCzech = 'tjekkisk';
+$strCzechSlovak = 'Tjekkoslovakisk';
 
 $strDBComment = 'Database kommentar: ';
 $strDBGContext = 'Sammenheng';
@@ -263,6 +264,7 @@ $strFunction = 'Funksjon';
 $strGenBy = 'Generert av';
 $strGenTime = 'Generert den';
 $strGeneralRelationFeat = 'Generelle relasjonsegenskaper';
+$strGeorgian = 'Georgisk';
 $strGerman = 'tysk';
 $strGlobal = 'global';
 $strGlobalPrivileges = 'Globale privilegier';
@@ -351,6 +353,7 @@ $strLogin = 'Logg inn';
 $strLoginInformation = 'Innlogingsinformasjon';
 $strLogout = 'Logg ut';
 
+$strMaximumSize = 'Maksimum størelse: %s%s';
 $strMIME_MIMEtype = 'MIME-type';
 $strMIME_available_mime = 'Tilgjengelige MIME-typer';
 $strMIME_available_transform = 'Tilgjengelige transformationer';
@@ -653,6 +656,7 @@ $strTotal = 'totalt';
 $strTotalUC = 'Totalt';
 $strTraditionalChinese = 'tradisjonell kinesisk';
 $strTraffic = 'Trafikk';
+$strTransformation_application_octetstream__download = 'Vis en link for å kunne laste ned de binære dataene til et felt. Den første opsjonen er filnavnet til den binære fila. Den andre opsjonen er et potensielt feltnavn i en tabell som inneholder filnavnet. Hvis du velger den andre opsjonen så må den første være satt til en tom strengverdi';
 $strTransformation_image_jpeg__inline = 'Viser et klikkbart tommelfingerbilde; valg: bredde, høyde i piksler (bevarer originale forhold)';
 $strTransformation_image_jpeg__link = 'Viser en link til dette bildet (m.a.o. direkte blob-nedlasting).';
 $strTransformation_image_png__inline = 'Se image/jpeg: inline';
@@ -723,8 +727,4 @@ $strZip = 'Komprimert (zip)';
 
 // To translate
 
-$strGeorgian = 'Georgian';  //to translate
-$strCzechSlovak = 'Chech-Slovak';  //to translate
-$strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
-$strMaximumSize = 'Maximum size: %s%s';  //to translate
 ?>
