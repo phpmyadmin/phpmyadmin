@@ -62,7 +62,7 @@ if (!isset($param) || $param[0] == '') {
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <?php echo $strSelectFields; ?>&nbsp;:<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <select name="param[]" size="10" multiple="multiple">
+    <select name="param[]" size="<?php echo ($fields_cnt<10)? $fields_cnt: 10; ?>" multiple="multiple">
         <?php
         echo "\n";
         // Displays the list of the fields

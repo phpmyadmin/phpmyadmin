@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-08 Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_select.php3: to gain vertical space, reduce the size of the
+	  select box if the number of fields is < 10
+
 2002-04-06 Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3, lines 64-66; left.php3, lines 135-136 & 154-155: back
 	  to previous version.
