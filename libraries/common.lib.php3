@@ -1352,14 +1352,14 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 }
                 if (isset($new_line)) {
                      /* SQL-Parser-Analyzer */
-                    $query_base = htmlspecialchars($local_query);
+                    $query_base = PMA_sqlAddslashes(htmlspecialchars($local_query));
                      /* SQL-Parser-Analyzer */
                     $query_base = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
                 } else {
                     $query_base = $local_query;
                 }
                 if (!empty($GLOBALS['show_as_php'])) {
-                    $query_base = '$sql  = \'' . PMA_sqlAddslashes($query_base);
+                    $query_base = '$sql  = \'' . $query_base;
                 } else if (!empty($GLOBALS['validatequery'])) {
                     $query_base = PMA_validateSQL($query_base);
                 } else {
