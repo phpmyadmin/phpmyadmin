@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-06 Michal Čihař  <michal@cihar.com>
+    * tbl_change.php: Do not free result, we need it later.
+    
 2004-08-05 Marc Delisle  <lem9@users.sourceforge.net>
     (Patches from Michael Keck)
     * index.php: names and ids for framesets in the noscript section
