@@ -140,10 +140,16 @@ echo
 echo "MD5 sums:"
 echo "--------"
 
-md5sum *.gz *.zip *.bz2 | sed "s/\([^ ]*\)[ ]*\([^ ]*\)/\$md5sum['\2'] = '\1';/"
+md5sum *.{gz,zip,bz2} | sed "s/\([^ ]*\)[ ]*\([^ ]*\)/\$md5sum['\2'] = '\1';/"
 
 echo
-echo "Add these to /home/groups/p/ph/phpmyadmin/htdocs/home_page/md5.inc.php on sf"
+echo "Sizes:"
+echo "------"
+
+ls -l --block-size=k *.{gz,zip,bz2} | sed -r "s/[a-z-]+[[:space:]]+[0-9]+[[:space:]]+[^[:space:]]+[[:space:]]+[^[:space:]]+[[:space:]]+([0-9]*)K.*[[:space:]]([^[:space:]]+)\$/\$size['\2'] = \1;/"
+
+echo
+echo "Add these to /home/groups/p/ph/phpmyadmin/htdocs/home_page/files.inc.php on sf"
 
 cd ..
 find cvs -type d -print0 | xargs -0 chmod 775
