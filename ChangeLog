@@ -15,7 +15,8 @@ $Source$
 	  fields and #457260 - update (LIMIT 1).
 	* lang/italian.inc.php3: updated thanks to
 	  Pietro Danesi <danone at aruba.it>.
-	* tbl_alter.php3, lines 9-11: fixed a js error.
+	* tbl_alter.php3, lines 9-11; tbl_create.php3, lines 9-11: fixed a js
+	  error (bug #458464).
 	* header.inc.php3: merged an improved version of the patch #446292 - show
 	  current db/table info in the title (except for NN4). Thanks to
 	  Alexander Kulikov (kaa348 at users.sourceforge.net).
