@@ -8,6 +8,8 @@ $Source$
 2002-12-18 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php3, bug 648263
     * libraries/common.lib.php3, bug 653764
+    * tbl_move_copy.php3, tbl_properties_operations.php3: feature 508564,
+      append data only to a table
 
 2002-12-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/russian: update, thanks to Nicolay Zakharov

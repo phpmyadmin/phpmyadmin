@@ -3,7 +3,7 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 /**
- * Insert datas from one table to another one
+ * Insert data from one table to another one
  *
  * @param   string  the original insert statement
  *
@@ -85,20 +85,23 @@ if (isset($new_name) && trim($new_name) != '') {
     $parsed_sql[2]['data'] = $target;
     $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only'); 
 
-//    $sql_structure = eregi_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . $target, $sql_structure);
-
-    $result        = @PMA_mysql_query($sql_structure);
-    if (PMA_mysql_error()) {
-        include('./header.inc.php3');
-        PMA_mysqlDie('', $sql_structure, '', $err_url);
-    } else if (isset($sql_query)) {
-        $sql_query .= "\n" . $sql_structure . ';';
+    // do not create the table if dataonly
+    if ($what != 'dataonly') {
+        $result        = @PMA_mysql_query($sql_structure);
+        if (PMA_mysql_error()) {
+            include('./header.inc.php3');
+            PMA_mysqlDie('', $sql_structure, '', $err_url);
+        } else if (isset($sql_query)) {
+            $sql_query .= "\n" . $sql_structure . ';';
+        } else {
+            $sql_query = $sql_structure . ';';
+        }
     } else {
-        $sql_query = $sql_structure . ';';
+        $sql_query='';
     }
 
     // Copy the data
-    if ($result != FALSE && $what == 'data') {
+    if ($result != FALSE && ($what == 'data' || $what == 'dataonly')) {
         // speedup copy table - staybyte - 22. Juni 2001
         if (PMA_MYSQL_INT_VERSION >= 32300) {
             $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;

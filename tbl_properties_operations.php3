@@ -188,7 +188,9 @@ for ($i = 0; $i < $num_dbs; $i++) {
                         <input type="radio" name="what" value="structure" id="radio_copy_structure" checked="checked" />
                         <label for="radio_copy_structure"><?php echo $strStrucOnly; ?></label>&nbsp;&nbsp;<br />
                         <input type="radio" name="what" value="data" id="radio_copy_data" />
-                        <label for="radio_copy_data"><?php echo $strStrucData; ?></label>&nbsp;&nbsp;
+                        <label for="radio_copy_data"><?php echo $strStrucData; ?></label>&nbsp;&nbsp;<br />
+                        <input type="radio" name="what" value="dataonly" id="radio_copy_data" />
+                        <label for="radio_copy_data"><?php echo $strDataOnly; ?></label>&nbsp;&nbsp;
                     </td>
                     <td align="<?php echo $cell_align_right; ?>" valign="top">
                         <input type="submit" name="submit_copy" value="<?php echo $strGo; ?>" />
