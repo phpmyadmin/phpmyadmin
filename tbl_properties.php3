@@ -1233,7 +1233,7 @@ else { // MySQL < 3.23.22
 
     <!-- Flushes the table -->
     <li>
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); if ($cfgShowTooltip) echo '&amp;reload=1'; ?>">
             <?php echo $strFlushTable; ?></a>
         <br /><br />
     </li>

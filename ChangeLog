@@ -11,6 +11,8 @@ $Source$
 	* index.php3, line 53; lang/*: out-sourced the "no frame" sentence.
 	* libraries/common.lib.php3: improved compatibility with the old phpMyAdmin
 	  configuration file.
+	* tbl_properties.php3, line 1243: added a param. to enforce reloading of
+	  the left frame after a flush if $cfgShowTooltip is set to 1.
 
 2001-10-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/*: cleanup thanks to Björn T. Hallberg - Removed unused strings
