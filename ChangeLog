@@ -19,6 +19,7 @@ $Source$
       not show multi row actions when no checkboxes shown.
 
 2004-05-03 Garvin Hicking <pma@supergarv.de>
+    * lang/german* - Translation
     * left.php: Bug #946501 - Nested table now also work with aliased
       tablenames.
     * config.inc.php, libraries/config_import.lib.php, querywindow.php,
