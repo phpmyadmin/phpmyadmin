@@ -126,7 +126,7 @@ else
     $i = 0;
 
     echo "<table border=$cfgBorder>\n";
-    echo "<th>$strTable</th>";
+    echo "<th>".UCFirst($strTable)."</th>";
     echo "<th colspan=6>$strAction</th>";
     echo "<th>$strRecords</th>";
     while($i < $num_tables)
