@@ -399,12 +399,11 @@ $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> resultado(s)';
 $strSearchOption4 = 'as regular expression';
 $strPdfDbSchema = 'Esquema da base de dados "%s" - Página %s';  
 $strScaleFactorSmall = 'O factor escala é muito pequeno para encaixar o esquema numa página';  
-$strConfigFileError = 'O phpMyAdmin não foi capaz de ler o ficheiro de configuração!<br />Isto pode acontecer se o php encontrou um erro no <i>parsing</i>  ou se não consegue encontrar o ficheiro.<br />Chame o ficheiro de configuração directamente usando o <i>link</i> a baixo e leia a(s) mensagem(ns) de erro do php. Na maior parte dos casos, trata-se de uma falta de aspas ou ponto e vírgula algures.<br />Se receber uma página em branco, está tudo correcto.'; 
+$strConfigFileError = 'O phpMyAdmin não foi capaz de ler o ficheiro de configuração!<br />Isto pode acontecer se o php encontrar um erro no <i>parsing</i>  ou se não conseguir encontrar o ficheiro.<br />Chame o ficheiro de configuração directamente usando o <i>link</i> a baixo e leia a(s) mensagem(ns) de erro do php. Na maior parte dos casos, trata-se de uma falta de aspas ou de um ponto e vírgula algures.<br />Se receber uma página em branco, está tudo correcto.';
 $strNotSet = 'A Tabela <b>%s</b> não foi encontrada ou não foi definida em %s';  
-$strMissingBracket = 'Falta chaveta';  
+$strMissingBracket = 'Falta de parêntesis recto';
 
-// To translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
+$strCantUseRecodeIconv = 'Não é possível usar <i>iconv</i> nem <i>libiconv</i> nem a função <i>recode_string</i> enquanto a extensão reportar que está ligada. Confira a configuração do seu php.';
+$strCantLoadRecodeIconv = 'Não é possível carregar <i>iconv</i> ou recodificar a extensão necessária para a conversão do Mapa de Caracteres, configure o php de modo a permitir utilizar estas extensões ou desligue a conversão do mapa de caracteres no phpmyadmin.';
 
 ?>

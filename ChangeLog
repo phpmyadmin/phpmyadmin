@@ -5,6 +5,8 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-23 Robin Johnson  <robbat2@users.sourceforge.net>
+    * lang/portuguese.inc.php3 updates, thanks to Lopo Pizarro
 
 2002-06-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Revised some files in /lang/:
