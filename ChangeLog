@@ -351,7 +351,7 @@ $Source$
     * libraries/common.lib.php3: Corrected path to config_import.lib.php3.
     * libraries/common.lib.php3, lang/*.inc.php3, config.inc.php3:
       Catch parse errors in the config file.
-    * lang/chinese.inc.php3: Converted to Unix line feed format.
+    * lang/chinese_*.inc.php3: Converted to Unix line feed format.
     * lang/english.inc.php3: Reordered strings.
 
 2002-06-09 Robin Johnson  <robbat2@users.sourceforge.net>
