@@ -278,17 +278,19 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                 $_word = '<font color="' . $cfg['colorAdd'].'">' . htmlspecialchars($_word) . '</font>';
                             } else {
                                 if($_word=='(') {
-                                    $_brack_o[]=$s_nr;
-                                    //debug echo "offen " . count($_brack_o) . "<br />";
+                                    if(isset($_brack_o)){
+                                        $_skey=count($_brack_o);
+                                    } else {
+                                        $_skey = 0;
+                                    }
+                                    $_brack_o[$_skey]=$s_nr;
                                 } else {
                                     if($_word==')') {
                                         if(isset($_brack_o)){
                                             unset($_brack_o[count($_brack_o)-1]);
                                             if(count($_brack_o)==0){ unset($_brack_o);}
-                                            // debug echo "zu ";if(isset($_brack_o)){echo count($_brack_o);}echo "<br />";
                                         } else {
                                             $_brack_c[]=$s_nr;
-                                            // debug echo "überflüssig";
                                         }
                                     } else {
                                         if($_word==';') {
