@@ -124,8 +124,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     if (!isset($cfgBrowsePointerColor)) {
         $cfgBrowsePointerColor  = '';
     }
-    if (!isset($cfgBrowseMarkRow)) {
-        $cfgBrowseMarkRow       = 0;
+    if (!isset($cfgBrowseMarkerColor)) {
+        $cfgBrowseMarkerColor  = '';
     }
     if (!isset($cfgTextareaCols)) {
         $cfgTextareaCols        = 40;
@@ -552,8 +552,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
         // 'only_db' is empty for the current user...
         else {
-            // ... first checks whether the "safe_show_database" 
-            //     is on or not (if MYSQL supports this)
+            // ... first checks whether the "safe_show_database" is on or not
+            //     (if MYSQL supports this)
             if (defined('PMA_MYSQL_INT_VERSION') &&
                 PMA_MYSQL_INT_VERSION >= 32330) {
                 $local_query      = 'SHOW VARIABLES LIKE \'safe_show_database\'';

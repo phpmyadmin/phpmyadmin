@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-23 Loïc Chapeaux  <lolo@phpheaven.net>
+	* config.inc.php3, lines 189-192; Documentation.html, lines 853-866;
+	  libraries/common.lib.php3, lines 127-129;
+	  libraries/display_tbl.lib.php3, lines 771-779;
+	  libraries/functions.js, lines 300-398: improved the "mark row" feature so
+	  it can be used with the "pointer" one.
+
 2002-03-22 Marc Delisle  <lem9@users.sourceforge.net>
 	* finnish, norwegian updates
 	* ### 2.2.5 released ###

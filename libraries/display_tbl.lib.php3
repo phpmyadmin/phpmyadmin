@@ -768,12 +768,13 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
             if ($disp_direction == 'horizontal') {
                 // loic1: pointer code part
-                if ($GLOBALS['cfgBrowsePointerColor'] == '') {
-                    $on_mouse = '';
-                } else if ($GLOBALS['cfgBrowseMarkRow'] == '1') {
-                    $on_mouse = ' onmousedown="setPointer(this, \'' . $GLOBALS['cfgBrowsePointerColor'] . '\', \'' . $bgcolor . '\')"';
-                } else {
-                    $on_mouse = ' onmouseover="setPointer(this, \'' . $GLOBALS['cfgBrowsePointerColor'] . '\', \'' . $bgcolor . '\')" onmouseout="setPointer(this, \'' . $bgcolor . '\', \'' . $bgcolor . '\')"';
+                $on_mouse     = '';
+                if ($GLOBALS['cfgBrowsePointerColor'] != '') {
+                    $on_mouse = ' onmouseover="setPointer(this, \'over\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfgBrowsePointerColor'] . '\', \'' . $GLOBALS['cfgBrowseMarkerColor'] . '\')"'
+                              . ' onmouseout="setPointer(this, \'out\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfgBrowsePointerColor'] . '\', \'' . $GLOBALS['cfgBrowseMarkerColor'] . '\')"';
+                }
+                if ($GLOBALS['cfgBrowseMarkerColor'] != '') {
+                    $on_mouse .= ' onmousedown="setPointer(this, \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfgBrowsePointerColor'] . '\', \'' . $GLOBALS['cfgBrowseMarkerColor'] . '\')"';
                 }
                 ?>
 <tr<?php echo $on_mouse; ?>>
