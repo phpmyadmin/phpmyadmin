@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-13 Marc Delisle  <lem9@users.sourceforge.net>
+	* libraries/common.lib.php3: bug 528961 safe_show_database
+
 2002-03-11 Marc Delisle  <lem9@users.sourceforge.net>
 	* various lang updates
 	* 2.2.5-rc1 released

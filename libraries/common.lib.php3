@@ -538,21 +538,24 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
         // 'only_db' is empty for the current user...
         else {
-            // ... first checks whether the "safe_show_database" is on or not
-            $local_query      = 'SHOW VARIABLES LIKE \'safe_show_database\'';
-            $rs               = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-            $is_safe_show_dbs = mysql_result($rs, 0, 'Value');
+            // ... first checks whether the "safe_show_database" 
+            //     is on or not (if MYSQL supports this)
+            if (PMA_MYSQL_INT_VERSION >= 32330) {
+                $local_query      = 'SHOW VARIABLES LIKE \'safe_show_database\'';
+                $rs               = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+                $is_safe_show_dbs = mysql_result($rs, 0, 'Value');
 
-            // ... and if on, try get the available dbs list,....
-            if ($is_safe_show_dbs && strtoupper($is_safe_show_dbs) != 'OFF') {
-                $uva_alldbs   = mysql_list_dbs($userlink);
-                while ($uva_row = mysql_fetch_array($uva_alldbs)) {
-                    $dblist[] = $uva_row[0];
-                } // end while
-                $dblist_cnt   = count($dblist);
-                unset($uva_alldbs);
-                mysql_free_result($rs);
-            } // end if ($is_safe_show_dbs)
+                // ... and if on, try to get the available dbs list
+                if ($is_safe_show_dbs && strtoupper($is_safe_show_dbs) != 'OFF') {
+                    $uva_alldbs   = mysql_list_dbs($userlink);
+                    while ($uva_row = mysql_fetch_array($uva_alldbs)) {
+                        $dblist[] = $uva_row[0];
+                    } // end while
+                    $dblist_cnt   = count($dblist);
+                    unset($uva_alldbs);
+                    mysql_free_result($rs);
+                } // end if ($is_safe_show_dbs)
+            } //end if (PMA_MYSQL_INT_VERSION)
 
             // ... else checks for available databases in the "mysql" db
             if (!$dblist_cnt) {
