@@ -558,13 +558,19 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     if (eregi('((.*)([[:space:]]ASC|[[:space:]]DESC)([[:space:]]|$))(.*)', $regs1[2], $regs2)) {
                         $unsorted_sql_query = trim($regs1[1] . ' ' . $regs2[5]);
                         $sql_order          = trim($regs2[1]);
+                        eregi('(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)',$sql_order,$after_order);
+                        $sort_expression = trim($after_order[2]);
                     }
-                    else if (eregi('((.*))[[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE)', $regs1[2], $regs3)) {
+                    else if (eregi('((.*))[[:space:]]+(LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE)', $regs1[2], $regs3)) {
                         $unsorted_sql_query = trim($regs1[1] . ' ' . $regs3[3]);
                         $sql_order          = trim($regs3[1]) . ' ASC';
+                        eregi('(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)',$sql_order,$after_order);
+                        $sort_expression = trim($after_order[2]);
                     } else {
                         $unsorted_sql_query = trim($regs1[1]);
                         $sql_order          = trim($regs1[2]) . ' ASC';
+                        eregi('(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)',$sql_order,$after_order);
+                        $sort_expression = trim($after_order[2]);
                     }
                 } else {
                     $unsorted_sql_query     = $sql_query;
@@ -574,14 +580,19 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 if (empty($sql_order)) {
                     $is_in_sort = FALSE;
                 } else {
-                    //$is_in_sort = eregi('[[:space:]](`?)' . str_replace('\\', '\\\\', $fields_meta[$i]->name) . '(`?)[ ,$]', $sql_order);
-                    $pattern = str_replace('\\', '\\\\', $fields_meta[$i]->name);
-                    $pattern = str_replace('(','\(', $pattern);
-                    $pattern = str_replace(')','\)', $pattern);
-                    //$is_in_sort = eregi('[[:space:]](`?)' . $pattern . '(`?)[ ,$]', $sql_order);
+//                    $pattern = str_replace('\\', '\\\\', $fields_meta[$i]->name);
+//                    $pattern = str_replace('(','\(', $pattern);
+//                    $pattern = str_replace(')','\)', $pattern);
+//                    $pattern = str_replace('*','\*', $pattern);
+
                     // field name may be preceded by a space, or any number
                     // of characters followed by a dot (tablename.fieldname)
-                    $is_in_sort = eregi('([[:space:]]|(.*\.))(`?)' . $pattern . '(`?)[ ,$]', $sql_order);
+//                    $is_in_sort = eregi('([[:space:]]|(.*\.))(`?)' . $pattern . '(`?)[ ,$]', $sql_order);
+                    // instead of using eregi(), now do a direct comparison
+                    // for the sort expression (avoids problems with queries
+                    // like "SELECT id, count(id)..." and clicking to sort
+                    // on id or on count(id) )
+                      $is_in_sort = (PMA_backquote($fields_meta[$i]->name)==$sort_expression?TRUE:FALSE);
                 }
                 // 2.1.3 Checks if the table name is required (it's the case
                 //       for a query with a "JOIN" statement and if the column

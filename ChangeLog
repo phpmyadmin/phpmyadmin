@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3: clicking on a COUNT() column to sort
+
 2002-11-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: numeric foreign keys used as alias
     * sql.php3, libraries/sqlparser.lib.php3: bug 642319, navigation
