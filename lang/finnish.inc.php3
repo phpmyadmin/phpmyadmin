@@ -246,6 +246,7 @@ $strQBEIns = 'Lis‰‰';
 $strQueryOnDb = 'Suorita SQL-lause tietokannassa <b>%s</b>:';
 
 $strRecords = 'rivi‰';
+$strReferentialIntegrity = 'Tarkista viitteiden eheys:';
 $strReloadFailed = 'MySQL:n uudelleenlataus ep‰onnistui.';
 $strReloadMySQL = 'Lataa MySQL uudelleen';
 $strRememberReload = 'Muista k‰ynnist‰‰ palvelin uudestaan.';
@@ -351,5 +352,4 @@ $strYes = 'Kyll‰';
 $strZip = '"zip-pakattu"';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
