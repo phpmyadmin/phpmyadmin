@@ -50,8 +50,8 @@ if (isset($nopass)) {
 
         // Defines the url to return to in case of error in the sql statement
         $common_url_query = 'lang=' . $lang 
-                          . '&amp;server=' . $server;
-                          . '&amp;convcharset=' . $convcharset
+                          . '&amp;server=' . $server
+                          . '&amp;convcharset=' . $convcharset;
 
         $err_url          = 'user_password.php3?' . $common_url_query;
 
