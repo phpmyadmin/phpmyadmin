@@ -84,6 +84,7 @@ $strColumn = 'Stĺpec';
 $strColumnNames = 'Názvy stĺpcov';
 $strComments = 'Komentáre';
 $strCompleteInserts = 'Úplné vloženie';
+$strCompression = 'Kompresia';
 $strConfigureTableCoord = 'Prosím skonfigurujte koordináty pre tabuľku %s';
 $strConfirm = 'Skutočne si želáte toto vykonať?';
 $strCookiesRequired = 'Cookies musia byť povolené, pokiaľ chcete pokračovať.';
@@ -434,7 +435,6 @@ $strWrongUser = 'Zlé používateľské meno alebo heslo. Prístup zamietnutý.'
 $strYes = 'Áno';
 
 $strZip = '"zo zipované"';
-
 // To translate
-$strCompression = 'Compression'; //to translate
+
 ?>

@@ -84,6 +84,7 @@ $strColumn = 'Stolpec';
 $strColumnNames = 'Imena stolpcev';
 $strComments = 'Komentarji';
 $strCompleteInserts = 'Popolne \'insert\' poizvedbe';
+$strCompression = 'Stiskanje';
 $strConfigFileError = 'phpMyAdmin ni mogel prebrati konfiguracijske datoteke!<br />To se lahko zgodi, èe php pri prevajanju konfiguracijske datoteke najde napako ali pa ne najde datoteke.<br />Prosimo, odprite konfiguracijsko datoteko s povezavo, ki je navedena spodaj in preberite dobljeno sporoèilo o napaki. V veèini primerov gre za manjkajoèi narekovaj ali podpièje.<br />Èe dobite prazno stran, je vse v redu.';
 $strConfigureTableCoord = 'Prosimo, konfigurirajte koordinate za tabelo %s';
 $strConfirm = 'Ali res ¾elite to storiti?';
@@ -435,7 +436,6 @@ $strWrongUser = 'Napaèno uporabni¹ko ime/geslo. Dostop zavrnjen.';
 $strYes = 'Da';
 
 $strZip = '"zipano"';
-
 // To translate
-$strCompression = 'Compression'; //to translate
+
 ?>

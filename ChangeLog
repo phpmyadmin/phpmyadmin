@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/slovenian update: thanks to Kositer Uros (urosh)
+    * lang/slovak update, thanks to Lubos Klokner
+
 2002-11-20 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/norwegian-*.inc.php3: Updates, thanks to Sven Erik Andersen.
     * lang/lithuanian-*.inc.php3: Updates, thanks to Vilius Zigmantas.
@@ -26,7 +30,7 @@ $Source$
 2002-11-19 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.3.3-rc1 released
     * lang/russian*: updates and new russian-dos-866, thanks to Nicolay Zakharov
-      (aquarius at mobnav.com)
+      (info at melody.org.ru)
     * libraries/select_lang.lib.php3: russian-dos-866
     * lang/sync_lang.sh: russian-dos-866 seems unsupported by convertors
     * lang/polish: update thanks to Jakub Wilk

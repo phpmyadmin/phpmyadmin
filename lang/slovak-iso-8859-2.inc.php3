@@ -83,6 +83,7 @@ $strColumn = 'Ståpec';
 $strColumnNames = 'Názvy ståpcov';
 $strComments = 'Komentáre';
 $strCompleteInserts = 'Úplné vlo¾enie';
+$strCompression = 'Kompresia';
 $strConfigureTableCoord = 'Prosím skonfigurujte koordináty pre tabuµku %s';
 $strConfirm = 'Skutoène si ¾eláte toto vykona»?';
 $strCookiesRequired = 'Cookies musia by» povolené, pokiaµ chcete pokraèova».';
@@ -433,7 +434,6 @@ $strWrongUser = 'Zlé pou¾ívateµské meno alebo heslo. Prístup zamietnutý.';
 $strYes = 'Áno';
 
 $strZip = '"zo zipované"';
-
 // To translate
-$strCompression = 'Compression'; //to translate
+
 ?>
