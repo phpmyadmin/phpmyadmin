@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * footer.inc.php, index.php, queryframe.php: bug 981939, database
+      selection in left frame under Opera, and problems with dropdown
+      in left frame when many databases are there (original theme),
+      thanks to Michael Keck
+
 2004-07-02 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: put Create button on the same line as the input field
 

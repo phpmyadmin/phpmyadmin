@@ -65,7 +65,7 @@ $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_left.png';
 $query_frame_height = 0;
 if (@file_exists($logo_image)) {
    $tmp_imgsize = @getimagesize($logo_image);
-   $query_frame_height = ($tmp_imgsize[1] + 15);
+   $query_frame_height = ($tmp_imgsize[1] + 15 + ((!isset($_COOKIE['pma_theme']) || $_COOKIE['pma_theme']=='original') ? 25 : 0));
 }
 if ($query_frame_height == 0) {
     $query_frame_height = 60;

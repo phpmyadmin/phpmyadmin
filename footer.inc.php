@@ -30,18 +30,28 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
             $num_tables_disp = ' (-)';
         }
     ?>
+    var dbBoxSetupDone = false;
+    function dbBoxSetup() {
+        if (dbBoxSetupDone != true) {
+            if (parent.frames.queryframe && parent.frames.queryframe.document.left && parent.frames.queryframe.document.left.lightm_db) {
+                parent.frames.queryframe.document.left.lightm_db.value = '<?php echo addslashes($db); ?>';
+                dbBoxSetupDone = true;
+            } else {
+                setTimeout("dbBoxSetup();",500);
+            }
+        }		
+    }
     if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.queryframeform) {
         parent.frames.queryframe.document.queryframeform.db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";
         parent.frames.queryframe.document.queryframeform.table.value = "<?php echo (isset($table) ? addslashes($table) : ''); ?>";
     }
-    if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.left) {
-        parent.frames.queryframe.document.left.lightm_db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";
-        for (i=0;i<parent.frames.queryframe.document.left.lightm_db.options.length;i++) {
-            if (parent.frames.queryframe.document.left.lightm_db.options[i].selected) {
-                noption=new Option("<?php echo addslashes($db) . $num_tables_disp; ?>","<?php echo addslashes($db); ?>");
-                parent.frames.queryframe.document.left.lightm_db.options[i]=noption;
-                parent.frames.queryframe.document.left.lightm_db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";
-            }
+    if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.left && parent.frames.queryframe.document.left.lightm_db) {
+        selidx = parent.frames.queryframe.document.left.lightm_db.selectedIndex;
+        if (parent.frames.queryframe.document.left.lightm_db.options[selidx].value == "<?php echo addslashes($db); ?>") {
+            parent.frames.queryframe.document.left.lightm_db.options[selidx].text = "<?php echo addslashes($db) . $num_tables_disp; ?>";
+        } else {
+            parent.frames.queryframe.location.reload();
+            setTimeout("dbBoxSetup();",2000);
         }
     }
     <?php

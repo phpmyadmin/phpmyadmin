@@ -229,7 +229,7 @@ if ($num_dbs > 1) {
         echo PMA_generate_common_hidden_inputs();
         echo '        <input type="hidden" name="hash" value="' . $hash . '" />' . "\n";
         ?>
-        <select name="lightm_db" onchange="this.form.submit();this.blur();">
+        <select name="lightm_db" onchange="this.form.submit();">
         <?php
         echo '            <option value="">(' . $strDatabases . ') ...</option>' . "\n";
         $table_list = '';
