@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-23 Loïc Chapeaux  <lolo@phpheaven.net>
+    * left.php3, lines 169-181: XHTML optimizations.
+
 2002-08-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/charset_conversion.lib.php3: Don't let php display an error
       message if dl() fails.

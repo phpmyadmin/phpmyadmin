@@ -166,12 +166,18 @@ echo "\n";
 </head>
 
 <body bgcolor="<?php echo $cfg['LeftBgColor']; ?>">
+
+<?php
+if ($cfg['LeftDisplayLogo']) {
+    ?>
+    <!-- phpMyAdmin logo -->
+    <a href="http://www.phpmyadmin.net" target="_blank"><img src="./images/pma_logo.png" width="88" height="31" border="0" alt="phpMyAdmin" /></a>
+    <?php
+}
+echo "\n";
+?>
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
-        <?php if($cfg['LeftDisplayLogo']) { ?>
-            <a href="http://www.phpmyadmin.net" target="_blank"><img src="./images/pma_logo.png" width="88" height="31" border="0" alt="phpMyAdmin" /></a>
-        <?php } ?>
-
         <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>"><span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
     </div>
 
