@@ -1,6 +1,10 @@
 <?php
 /* $Id$ */
 
+/**
+ * Translated by Yukihiro Kawada <luc at ceres.dti.ne.jp>
+ */
+
 $charset = 'euc-jp';
 $text_dir = 'ltr';
 $left_font_family = 'sans-serif';
@@ -224,6 +228,7 @@ $strPasswordEmpty = 'パスワードは空です。';
 $strPasswordNotSame = 'パスワードは空です。';
 $strPHPVersion = 'PHP バージョン';
 $strPmaDocumentation = 'phpMyAdminのドキュメント';
+$strPmaUriError = '<tt>$cfgPmaAbsoluteUri</tt> を必ずconfigファイルの中で設定して下さい!';
 $strPos1 = '最初';
 $strPrevious = '以前';
 $strPrimary = '主要';
@@ -241,6 +246,7 @@ $strQBEIns = '入';
 $strQueryOnDb = 'データベースのSQLクエリー <b>%s</b>:';
 
 $strRecords = 'レコード数';
+$strReferentialIntegrity = '結合項目のチェック:';
 $strReloadFailed = 'MySQLのリロードに失敗しました。';
 $strReloadMySQL = 'MySQLのリロード';
 $strRememberReload = 'サーバーのリロードを忘れないで下さい。';
@@ -351,6 +357,4 @@ $strKanjiEncodConvert = '漢字コード変換'; // kanji code convert
 $strXkana = '全角カナへ変換する'; // convert to X208-kana
 
 // To translate
-$strPmaUriError = '<tt>$cfgPmaAbsoluteUri</tt> を必ずconfigファイルの中で設定して下さい!';
-$strReferentialIntegrity = '結合項目のチェック:';  //to translate
 ?>
