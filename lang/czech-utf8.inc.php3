@@ -1,0 +1,407 @@
+<?php
+/* $Id$ */
+
+/**
+ * Czech language file by
+ *   Michal Cihař <nijel at users.sourceforge.net>
+ */
+
+$charset = 'utf-8';
+$allow_recoding = TRUE;
+$text_dir = 'ltr';
+$left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
+$right_font_family = 'arial, helvetica, geneva, sans-serif';
+$number_thousands_separator = ' ';
+$number_decimal_separator = '.';
+$byteUnits = array('bajtů', 'kB', 'MB', 'GB');
+
+$day_of_week = array('Neděle', 'Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota');
+$month = array('ledna', 'února', 'března', 'dubna', 'května', 'června', 'července', 'srpna', 'září', 'října', 'listopadu', 'prosince');
+// See http://www.php.net/manual/en/function.strftime.php to define the
+// variable below
+$datefmt = '%a %e. %b %Y, %H:%M';
+
+
+$strAccessDenied = 'Přístup odepřen';
+$strAction = 'Akce';
+$strAddDeleteColumn = 'Přidat/Smazat sloupec';
+$strAddDeleteRow = 'Přidat/Smazat řádek s podmínkou';
+$strAddNewField = 'Přidat nový sloupec';
+$strAddPriv = 'Přidat nové privilegium';
+$strAddPrivMessage = 'Oprávnění bylo přidáno.';
+$strAddSearchConditions = 'Přidat vyhledávací parametry (obsah dotazu po příkazu "WHERE"):';
+$strAddToIndex = 'Přidat do indexu  &nbsp;%s&nbsp;sloupců';
+$strAddUser = 'Přidat nového uživatele';
+$strAddUserMessage = 'Uživatel byl přidán.';
+$strAffectedRows = 'Ovlivněné řádky:';
+$strAfter = 'Po %s';
+$strAfterInsertBack = 'Zpět';
+$strAfterInsertNewInsert = 'Vložit další řádek';
+$strAll = 'Všechno';
+$strAlterOrderBy = 'Změnit pořadí tabulky podle';
+$strAnalyzeTable = 'Analyzovat tabulku';
+$strAnd = 'a';
+$strAnIndex = 'K&nbsp;tabulce %s byl přidán index';
+$strAny = 'Jakýkoliv';
+$strAnyColumn = 'Jakýkoliv sloupec';
+$strAnyDatabase = 'Jakákoliv databáze';
+$strAnyHost = 'Jakýkoliv počítač';
+$strAnyTable = 'Jakákoliv tabulka';
+$strAnyUser = 'Jakýkoliv uživatel';
+$strAPrimaryKey = 'V&nbsp;tabulce %s byl vytvořen primární klíč';
+$strAscending = 'Vzestupně';
+$strAtBeginningOfTable = 'Na začátku tabulky';
+$strAtEndOfTable = 'Na konci tabulky';
+$strAttr = 'Vlastnosti';
+
+$strBack = 'Zpět';
+$strBinary = ' Binární ';
+$strBinaryDoNotEdit = ' Binární - neupravujte ';
+$strBookmarkDeleted = 'Položka byla smazána z&nbsp;oblíbených.';
+$strBookmarkLabel = 'Název';
+$strBookmarkQuery = 'Oblíbený SQL dotaz';
+$strBookmarkThis = 'Přidat tento SQL dotaz do oblíbených';
+$strBookmarkView = 'Jen zobrazit';
+$strBrowse = 'Projít';
+$strBzip = '"zabzipováno"';
+
+$strCantLoadMySQL = 'nelze nahrát rozšíření pro MySQL,<br />prosím zkontrolujte nastavení PHP.';
+$strCantRenameIdxToPrimary = 'Index nemůžete přejmenovat na "PRIMARY"!';
+$strCardinality = 'Mohutnost';
+$strCarriage = 'Návrat vozíku (CR): \\r';
+$strChange = 'Změnit';
+$strChangeDisplay = 'Zvolte které sloupce zobrazit';
+$strChangePassword = 'Změnit heslo';
+$strCheckAll = 'Zaškrtnout vše';
+$strCheckDbPriv = 'Zkontrolovat oprávnění pro databázi';
+$strCheckTable = 'Zkontrolovat tabulku';
+$strChoosePage = 'Zvolte stránku, kterou chcete změnit';
+$strColumn = 'Sloupec';
+$strColumnNames = 'Názvy sloupců';
+$strCompleteInserts = 'Uplné inserty';
+$strConfigureTableCoord = 'Prosím nastavte souřadnice pro tabulku %s';
+$strConfirm = 'Opravdu chcete toto provést?';
+$strCookiesRequired = 'Během tohoto kroku musíte mít povoleny cookies.';
+$strCopyTable = 'Kopírovat tabulku do (databáze<b>.</b>tabulka):';
+$strCopyTableOK = 'Tabulka %s byla zkopírována do %s.';
+$strCreate = 'Vytvořit';
+$strCreateIndex = 'Vytvořit index na&nbsp;%s&nbsp;sloupcích';
+$strCreateIndexTopic = 'Vytvořit nový index';
+$strCreateNewDatabase = 'Vytvořit novou databázi';
+$strCreateNewTable = 'Vytvořit novou tabulku v&nbsp;databázi %s';
+$strCreatePage = 'Vytvořit novou stránku';
+$strCriteria = 'Podmínka';
+
+$strData = 'Data';
+$strDatabase = 'Databáze ';
+$strDatabaseHasBeenDropped = 'Databáze %s byla zrušena.';
+$strDatabases = 'databáze';
+$strDatabasesStats = 'Statistiky databází';
+$strDatabaseWildcard = 'Databáze (zástupné znaky povoleny):';
+$strDataOnly = ' Jen data';
+$strDefault = 'Výchozí';
+$strDelete = 'Smazat';
+$strDeleted = 'Řádek byl smazán';
+$strDeletedRows = 'Smazané řádky:';
+$strDeleteFailed = 'Smazání selhalo!';
+$strDeleteUserMessage = 'Byl smazán uživatel %s.';
+$strDescending = 'Sestupně';
+$strDisplay = 'Zobrazit';
+$strDisplayOrder = 'Seřadit podle:';
+$strDisplayPDF = 'Zobrazit jako schéma v PDF';
+$strDoAQuery = 'Provést "dotaz podle příkladu" (zástupný znak: "%")';
+$strDocu = 'Dokumentace';
+$strDoYouReally = 'Opravdu si přejete vykonat příkaz';
+$strDrop = 'Odstranit';
+$strDropDB = 'Odstranit databázi %s';
+$strDropTable = 'Smazat tabulku';
+$strDumpingData = 'Dumpuji data pro tabulku';
+$strDumpXRows = 'Vypsat %s řádků od %s.';
+$strDynamic = 'dynamický';
+
+$strEdit = 'Upravit';
+$strEditPDFPages = 'Upravit PDF stránky';
+$strEditPrivileges = 'Upravit oprávnění';
+$strEffective = 'Efektivní';
+$strEmpty = 'Vyprázdnit';
+$strEmptyResultSet = 'MySQL vrátil prázdný výsledek (tj. nulový počet řádků).';
+$strEnd = 'Konec';
+$strEnglishPrivileges = 'Poznámka: názvy oprávnění v&nbsp;MySQL jsou uváděny anglicky';
+$strError = 'Chyba';
+$strExplain = 'Vysvětlit SQL (EXPLAIN)';
+$strExport = 'Export';
+$strExportToXML = 'Export do XML';
+$strExtendedInserts = 'Rozšířené inserty';
+$strExtra = 'Extra';
+
+$strField = 'Sloupec';
+$strFieldHasBeenDropped = 'Sloupec %s byl odstraněn';
+$strFields = 'Počet sloupců';
+$strFieldsEmpty = ' Nebyl zadán počet sloupců! ';
+$strFieldsEnclosedBy = 'Názvy sloupců uzavřené do';
+$strFieldsEscapedBy = 'Názvy sloupců escapovány';
+$strFieldsTerminatedBy = 'Sloupce oddělené';
+$strFixed = 'pevný';
+$strFlushTable = 'Vyprázdnit vyrovnávací paměť pro tabulku ("FLUSH")';
+$strFormat = 'Formát';
+$strFormEmpty = 'Chybějící hodnota ve formuláři!';
+$strFullText = 'Celé texty';
+$strFunction = 'Funkce';
+
+$strGenBy = 'Vygeneroval';
+$strGenTime = 'Vygenerováno';
+$strGo = 'Proveď';
+$strGrants = 'Oprávnění';
+$strGzip = '"zagzipováno"';
+
+$strHasBeenAltered = 'byla změněna.';
+$strHasBeenCreated = 'byla vytvořena.';
+$strHome = 'Hlavní strana';
+$strHomepageOfficial = 'Oficiální stránka phpMyAdmina';
+$strHomepageSourceforge = 'Nová stránka phpMyAdmina';
+$strHost = 'Počítač';
+$strHostEmpty = 'Jméno počítače je prázdné!';
+
+$strIdxFulltext = 'Fulltext';
+$strIfYouWish = 'Pokud si přeješ natáhnout jenom určité sloupce z tabulky, specifikuj je jako seznam sloupců oddělených čárkou.';
+$strIgnore = 'Ignorovat';
+$strIndex = 'Index';
+$strIndexes = 'Indexy';
+$strIndexHasBeenDropped = 'Index %s byl odstraněn';
+$strIndexName = 'Jméno indexu&nbsp;:';
+$strIndexType = 'Typ indexu&nbsp;:';
+$strInsert = 'Vložit';
+$strInsertAsNewRow = 'Vložit jako nový řádek';
+$strInsertedRows = 'Vloženo řádků:';
+$strInsertNewRow = 'Vložit nový řádek';
+$strInsertTextfiles = 'Vložit textové soubory do tabulky';
+$strInstructions = 'Instrukce';
+$strInUse = 'právě se používá';
+$strInvalidName = '"%s" je rezervované slovo a proto ho nemůžete požít jako jméno databáze/tabulky/sloupce.';
+
+$strKeepPass = 'Neměnit heslo';
+$strKeyname = 'Klíčovy název';
+$strKill = 'Zabít';
+
+$strLength = 'Délka';
+$strLengthSet = 'Délka/Množina*';
+$strLimitNumRows = 'záznamu na stránku';
+$strLineFeed = 'Ukončení řádku (Linefeed): \\n';
+$strLines = 'Řádek';
+$strLinesTerminatedBy = 'Řádky ukončené';
+$strLinkNotFound = 'Odkaz nenalezen';
+$strLinksTo = 'Odkazuje na';
+$strLocationTextfile = 'Umístění textového souboru';
+$strLogin = 'Přihlášení';
+$strLogout = 'Odhlásit se';
+$strLogPassword = 'Heslo:';
+$strLogUsername = 'Jméno:';
+
+$strModifications = 'Změny byly uloženy';
+$strModify = 'Úpravy';
+$strModifyIndexTopic = 'Upravit index';
+$strMoveTable = 'Přesunout tabulku do (databáze<b>.</b>tabulka):';
+$strMoveTableOK = 'Tabulka %s byla přesunuta do %s.';
+$strMySQLReloaded = 'MySQL znovu načteno.';
+$strMySQLSaid = 'MySQL hlásí: ';
+$strMySQLServerProcess = 'MySQL %pma_s1% spuštěné na %pma_s2%, přihlášen %pma_s3%';
+$strMySQLShowProcess = 'Zobrazit procesy';
+$strMySQLShowStatus = 'Ukázat MySQL informace o&nbsp;běhu';
+$strMySQLShowVars = 'Ukázat MySQL systémové proměnné';
+
+$strName = 'Název';
+$strNext = 'Další';
+$strNo = 'Ne';
+$strNoDatabases = 'Žádné databáze';
+$strNoDescription = 'žádný popisek';
+$strNoDropDatabases = 'Příkaz "DROP DATABASE" je vypnutý.';
+$strNoFrames = 'phpMyAdmin se lépe používá v&nbsp;prohlížeči podporujícím rámy ("FRAME").';
+$strNoIndex = 'Žádný index nebyl definován!';
+$strNoIndexPartsDefined = 'Žádná část indexu nebyla definována!';
+$strNoModification = 'Žádná změna';
+$strNone = 'Žádný';
+$strNoPassword = 'Žádné heslo';
+$strNoPhp = 'Bez PHP kódu';
+$strNoPrivileges = 'Žádná oprávnění';
+$strNoQuery = 'Žádný SQL dotaz!';
+$strNoRights = 'Nemáte dostatečná práva na provedení této akce!';
+$strNoTablesFound = 'V&nbsp;databázi nebyla nalezena ani jedna tabulka.';
+$strNotNumber = 'Toto není číslo!';
+$strNotValidNumber = ' není platné číslo řádku!';
+$strNoUsersFound = 'Žádný uživatel nenalezen.';
+$strNull = 'Nulový';
+$strNumSearchResultsInTable = '%s odpovídající(ch) záznam(ů) v&nbsp;tabulce <i>%s</i>';
+$strNumSearchResultsTotal = '<b>Celkem:</b> <i>%s</i> odpovídající(ch) záznam(ů)';
+
+$strOftenQuotation = 'Často uvozující znaky. Volitelně znamená, že pouze položky u kterých je to nutné (obvykle typu CHAR a VARCHAR) jsou uzavřeny do uzavíracích znaků.';
+$strOperations = 'Úpravy';
+$strOptimizeTable = 'Optimalizovat tabulku';
+$strOptionalControls = 'Volitelné. Určuje jak zapisovat nebo číst speciální znaky.';
+$strOptionally = 'Volitelně';
+$strOptions = 'Vlastnosti';
+$strOr = 'nebo';
+$strOverhead = 'Navíc';
+
+$strPageNumber = 'Strana číslo:';
+$strPartialText = 'Zkrácené texty';
+$strPassword = 'Heslo';
+$strPasswordEmpty = 'Heslo je prázdné!';
+$strPasswordNotSame = 'Hesla nejsou stejná!';
+$strPdfDbSchema = 'Schéma databáze "%s" - Strana %s';
+$strPdfInvalidPageNum = 'Nedefinované číslo stránky v PDF!';
+$strPdfInvalidTblName = 'Tabulka "%s" neexistuje!';
+$strPhp = 'Zobrazit PHP kód';
+$strPHPVersion = 'Verze PHP';
+$strPmaDocumentation = 'Dokumentace phpMyAdmina';
+$strPmaUriError = 'Parametr <tt>$cfg[\'PmaAbsoluteUri\']</tt> MUSÍ být nastaveno v&nbsp;konfiguračním souboru!';
+$strPos1 = 'Začátek';
+$strPrevious = 'Předchozí';
+$strPrimary = 'Primární';
+$strPrimaryKey = 'Primární klíč';
+$strPrimaryKeyHasBeenDropped = 'Primární klíč byl odstraněn';
+$strPrimaryKeyName = 'Jméno primárního klíče musí být "PRIMARY"!';
+$strPrimaryKeyWarning = '("PRIMARY" <b>musí</b> být jméno <b>pouze</b> primárního klíče!)';
+$strPrintView = 'Náhled k vytištění';
+$strPrivileges = 'Oprávnění';
+$strProperties = 'Vlastnosti';
+
+$strQBE = 'Dotaz podle příkladu';
+$strQBEDel = 'smazat';
+$strQBEIns = 'přidat';
+$strQueryOnDb = 'SQL dotaz na databázi <b>%s</b>:';
+
+$strRecords = 'Záznamů';
+$strReferentialIntegrity = 'Zkontrolovat integritu odkazů:';
+$strRelationView = 'Zobrazit relace';  //to translate better ;-)
+$strReloadFailed = 'Znovunačtení MySQL selhalo.';
+$strReloadMySQL = 'Znovunačtení MySQL';
+$strRememberReload = 'Nezapomeňte znovu načíst server.';
+$strRenameTable = 'Přejmenovat tabulku na';
+$strRenameTableOK = 'Tabulka %s byla přejmenována na %s';
+$strRepairTable = 'Opravit tabulku';
+$strReplace = 'Přepsat';
+$strReplaceTable = 'Přepsat data tabulky souborem';
+$strReset = 'Původní (reset)';
+$strReType = 'Napsat znovu';
+$strRevoke = 'Zrušit';
+$strRevokeGrant = 'Zrušit povolení přidělovat práva';
+$strRevokeGrantMessage = 'Bylo zrušeno oprávnění přidělovat práva pro %s';
+$strRevokeMessage = 'Byla zrušena práva pro %s';
+$strRevokePriv = 'Zrušit práva';
+$strRowLength = 'Délka řádku';
+$strRows = 'Řádků';
+$strRowsFrom = 'řádků začínající od';
+$strRowSize = ' Velikost řádku ';
+$strRowsModeVertical = 'svislém';
+$strRowsModeHorizontal = 'vodorovném';
+$strRowsModeOptions = 've %s režimu a opakovat hlavičky po %s řádcích.';
+$strRowsStatistic = 'Statistika řádků';
+$strRunning = 'na %s';
+$strRunQuery = 'Provést dotaz';
+$strRunSQLQuery = 'Spustit SQL dotaz(y) na databázi %s';
+
+$strSave = 'Ulož';
+$strScaleFactorSmall = 'Měřítko je příliš malé, aby se schéma vešlo na jednu stránku';
+$strSearch = 'Vyhledávání';
+$strSearchFormTitle = 'Vyhledávání v&nbsp;databázi';
+$strSearchInTables = 'V&nbsp;tabulkách:';
+$strSearchNeedle = 'Slova nebo hodnoty, které chcete vyhledat (zástupný znak: "%"):';
+$strSearchOption1 = 'alespoň jedno ze slov';
+$strSearchOption2 = 'všechna slova';
+$strSearchOption3 = 'přesnou frázi';
+$strSearchOption4 = 'jako regulární výraz';
+$strSearchResultsFor = 'Výsledny vyhledávání pro "<i>%s</i>" %s:';
+$strSearchType = 'Najít:';
+$strSelect = 'Vybrat';
+$strSelectADb = 'Prosím vyberte databázi';
+$strSelectAll = 'Vybrat vše';
+$strSelectFields = 'Zvolte sloupec (alespoň jeden):';
+$strSelectNumRows = 'v&nbsp;dotazu';
+$strSelectTables = 'Vybrat tabulky';
+$strSend = 'Poslat';
+$strServerChoice = 'Výběr serveru';
+$strServerVersion = 'Verze MySQL';
+$strSetEnumVal = 'Pokud je sloupec typu "enum" nebo "set", zadávejte hodnoty v&nbsp;následujícím formátu: \'a\',\'b\',\'c\'...<br />Pokud potřebujete zadat zpětné lomítko ("\") nebo jednoduché uvozovky ("\'") mezi těmito hodnotami, napište před ně zpětné lomítko (příklad: \'\\\\xyz\' nebo \'a\\\'b\').';
+$strShow = 'Zobrazit';
+$strShowAll = 'Zobrazit vše';
+$strShowColor = 'Barevné šipky';
+$strShowCols = 'Zobrazit sloupce';
+$strShowGrid = 'Zobrazit mřížku';
+$strShowingRecords = 'Zobrazeny záznamy';
+$strShowPHPInfo = 'Zobrazit informace o&nbsp;PHP';
+$strShowTableDimension = 'Rozměry tabulek';
+$strShowTables = 'Zobrazit tabulky';
+$strShowThisQuery = 'Zobrazit zde tento dotaz znovu';
+$strSingly = '(po jednom)';
+$strSize = 'Velikost';
+$strSort = 'Řadit';
+$strSpaceUsage = 'Využití místa';
+$strSplitWordsWithSpace = 'Slova jsou oddělena mezerou (" ").';
+$strSQL = 'SQL';
+$strSQLQuery = 'SQL-dotaz';
+$strSQLResult = 'Výsledek SQL dotazu';
+$strStatement = 'Údaj';
+$strStrucCSV = 'CSV data';
+$strStrucData = 'Strukturu a data';
+$strStrucDrop = 'Přidej \'DROP TABLE\'';
+$strStrucExcelCSV = 'CSV data pro Ms Excel';
+$strStrucOnly = 'Pouze strukturu';
+$strStructPropose = 'Navrhnout strukturu tabulky';
+$strStructure = 'Struktura';
+$strSubmit = 'Odešli';
+$strSuccess = 'Tvůj SQL-dotaz byl úspěšně vykonán';
+$strSum = 'Celkem';
+
+$strTable = 'Tabulka ';
+$strTableComments = 'Komentáře k tabulce';
+$strTableEmpty = 'Jméno tabulky je prázdné!';
+$strTableHasBeenDropped = 'Tabulka %s byla odstraněna';
+$strTableHasBeenEmptied = 'Tabulka %s byla vyprázdněna';
+$strTableHasBeenFlushed = 'Vyrovnávací paměť pro tabulku %s byla vyprázdněna';
+$strTableMaintenance = ' Údržba tabulky ';
+$strTables = '%s tabulek';
+$strTableStructure = 'Struktura tabulky';
+$strTableType = 'Typ tabulky';
+$strTextAreaLength = 'Tento sloupec možná nepůjde <br />(kvůli délce) upravit ';
+$strTheContent = 'Obsah souboru byl vložen';
+$strTheContents = 'Obsah souboru přepíše obsah zvolené tabulky v těch řádcích, kde je stejný primární nebo unikátní klíč.';
+$strTheTerminator = 'Sloupce jsou odděleny tímto znakem.';
+$strTotal = 'celkem';
+$strType = 'Typ';
+
+$strUncheckAll = 'Odškrtnout vše';
+$strUnique = 'Unikátní';
+$strUnselectAll = 'Odznačit vše';
+$strUpdatePrivMessage = 'Byla aktualizovana oprávnění pro %s.';
+$strUpdateProfile = 'Změny přístupu:';
+$strUpdateProfileMessage = 'Přístup byl změněn.';
+$strUpdateQuery = 'Aktualizovat dotaz';
+$strUsage = 'Používá';
+$strUseBackquotes = 'Použít zpětné uvozovky u&nbsp;jmen tabulek a sloupců';
+$strUser = 'Uživatel';
+$strUserEmpty = 'Jméno uživatele je prázdné!';
+$strUserName = 'Jméno uživatele';
+$strUsers = 'Uživatelé';
+$strUseTables = 'Použít tabulky';
+
+$strValue = 'Hodnota';
+$strViewDump = 'Ukaž výpis (dump) tabulky';
+$strViewDumpDB = 'Ukaž výpis (dump) databáze';
+
+$strWelcome = 'Vítej v %s';
+$strWithChecked = 'Zaškrtnuté:';
+$strWrongUser = 'Špatné uživatelské jméno/heslo. Přístup odepřen.';
+
+$strYes = 'Ano';
+
+$strZip = '"zazipováno"';
+
+// To translate
+$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
+$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
+$strMissingBracket = 'Missing Bracket';  //to translate
+$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
+$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
+$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
+$strMySQLCharset = 'MySQL Charset';  //to translate
+?>
