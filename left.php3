@@ -194,13 +194,13 @@ echo "\n";
 if ($num_dbs > 1) {
 
     if ($lightMode) {
-        echo '<form action="left.php3" method="get" name="left" target="nav">';
-        echo '<input type="hidden" name="lang" value="' . $lang . '">';
-        echo '<input type="hidden" name="server" value="' . $server . '">';
-        echo '<select name="db" onchange="this.form.submit();">';
-        echo '<option value=""></option>';
-        $table_list = "";
-        $db_name = "";
+        echo '    <form action="left.php3" method="get" name="left" target="nav">' . "\n";
+        echo '        <input type="hidden" name="lang" value="' . $lang . '" />' . "\n";
+        echo '        <input type="hidden" name="server" value="' . $server . '" />' . "\n";
+        echo '        <select name="db" onchange="this.form.submit()">' . "\n";
+        echo '            <option value=""></option>' . "\n";
+        $table_list = '';
+        $db_name    = '';
     }
 
     $selected_db = 0;
@@ -234,109 +234,109 @@ if ($num_dbs > 1) {
             } // end while
         } // end if
 
-if ($lightMode == 0) {
+        if ($lightMode == 0) {
 
-        // Displays the database name
-        $on_mouse = (($cfgLeftPointerColor == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftPointerColor . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftBgColor . '\')}"');
+            // Displays the database name
+            $on_mouse = (($cfgLeftPointerColor == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftPointerColor . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftBgColor . '\')}"');
 
-        echo "\n";
-        echo '    <div id="el' . $j . 'Parent" class="parent"' . $on_mouse . '>';
-
-        if (!empty($num_tables)) {
             echo "\n";
-            ?>
-        <nobr><a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', true); return false;}">
+            echo '    <div id="el' . $j . 'Parent" class="parent"' . $on_mouse . '>';
+
+            if (!empty($num_tables)) {
+                echo "\n";
+                ?>
+        <nobr><a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', true); return false}; else {return true}">
             <img name="imEx" id="el<?php echo $j; ?>Img" src="images/plus.gif" border="0" width="9" height="9" alt="+" /></a>
-            <?php
-        } else {
+                <?php
+            } else {
+                echo "\n";
+                ?>
+        <nobr><img name="imEx" src="images/minus.gif" border="0" width="9" height="9" />
+                <?php
+            }
             echo "\n";
             ?>
-        <nobr><img name="imEx" src="images/minus.gif" border="0" width="9" height="9" />
-            <?php
-        }
-        echo "\n";
-        ?>
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', false)}">
             <span class="heada"><?php echo $db; ?><bdo dir="<?php echo($text_dir); ?>">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
     </div>
 
     <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px"<?php echo $on_mouse; ?>>
 
-        <?php
-        // Displays the list of tables from the current database
-        for ($j = 0; $j < $num_tables; $j++) {
-            $table = mysql_tablename($tables, $j);
-            echo "\n";
-            ?>
+            <?php
+            // Displays the list of tables from the current database
+            for ($j = 0; $j < $num_tables; $j++) {
+                $table = mysql_tablename($tables, $j);
+                echo "\n";
+                ?>
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
         <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0&amp;goto=tbl_properties.php3">
             <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
         <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[$table]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
             <?php echo $table; ?></a></nobr><br />
-            <?php
-        } // end for $j (tables list)
-        echo "\n";
-        ?>
+                <?php
+            } // end for $j (tables list)
+            echo "\n";
+            ?>
     </div>
-        <?php
-        echo "\n";
+            <?php
+            echo "\n";
 
-} else {  // lightMode == 1
+        } else {  // lightMode == 1
+            echo "\n";        
 
-        // Displays the database name
-        echo "\n";        
-
-        if (!empty($db_start) && $db == $db_start) {
-                // Displays the list of tables from the current database
+            // Builds the databases' names list
+            if (!empty($db_start) && $db == $db_start) {
+                // Gets the list of tables from the current database
                 for ($j = 0; $j < $num_tables; $j++) {
-                    $table = mysql_tablename($tables, $j);
-                    $table_list .= '<nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />';
-                    $table_list .= '<a target="phpmain" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($table)) . '&amp;pos=0&amp;goto=tbl_properties.php3">';
-                    $table_list .= '<img src="images/browse.gif" border="0" alt="' . $strBrowse . ': ' . $table . '" /></a>';
-                    $table_list .= '<bdo dir="' . $text_dir . '">&nbsp;</bdo>';
-                    $table_list .= '<nobr><a class="tblItem" title="' . str_replace('"', '&quot;', $tooltip[$table]) . '" target="phpmain" href="tbl_properties.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></nobr><br />' . "\n";
+                    $table      = mysql_tablename($tables, $j);
+                    $table_list .= '    <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />' . "\n";
+                    $table_list .= '          <a target="phpmain" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($table)) . '&amp;pos=0&amp;goto=tbl_properties.php3">' . "\n";
+                    $table_list .= '              <img src="images/browse.gif" border="0" alt="' . $strBrowse . ': ' . $table . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
+                    $table_list .= '          <a class="tblItem" title="' . str_replace('"', '&quot;', $tooltip[$table]) . '" target="phpmain" href="tbl_properties.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></nobr><br />' . "\n";
 
                 } // end for $j (tables list)
 
                 if (!$table_list) { 
-                    $table_list = "no tables in this db";
+                    $table_list = '    ' . $strNoTablesFound . "\n";
                 }
-            $selected = ' SELECTED';
+                $selected = ' selected="selected"';
 
-            $db_name = '<a class="item" href="db_details.php3?' . $common_url_query .'">';
-            $db_name .= '<span class="heada">' . $db . '<bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span>';
-            $db_name .= '<span class="headaCnt">(' . $num_tables_disp . ')</span></a></nobr>';
-      
-        } else {
-            $selected = '';
+                $db_name = '    <nobr><a class="item" href="db_details.php3?' . $common_url_query .'">' . "\n";
+                $db_name .= '          <span class="heada">' . $db . '<bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span>' . "\n";
+                $db_name .= '          <span class="headaCnt">(' . $num_tables_disp . ')</span></a></nobr>' . "\n";
+
+            } else {
+                $selected = '';
+            }
+
+            if (!empty($num_tables)) {
+                echo '            <option value="' . urlencode($db) . '"' . $selected . '>' . $db . ' (' . $num_tables . ')</option>' . "\n";
+            } else {
+                echo '            <option value="' . urlencode($db) . '"' . $selected . '>' . $db . ' (-)</option>' . "\n";
+            }
+
+        } // if lightMode
+
+    } // end for $i (db list)
+
+    if ($lightMode) {
+        echo '        </select>' . "\n";
+        echo '        <noscript><input type="submit" name="Go" value="Go" /></noscript>' . "\n";
+        echo '    </form>' . "\n";
+
+        if (!$table_list) {
+            $table_list = '    ' . $strSelectADb . "\n";
         }
 
-        if (!empty($num_tables)) {
-            echo "<option value=\"" . urlencode($db) . "\"$selected>$db ($num_tables)</option>";
-        } else {
-            echo "<option value=\"" . urlencode($db) . "\"$selected>$db (-)</option>";
-        }
+        // Displays the current database name and the list of tables it
+        // contains
+        echo $db_name;
+        echo '    <hr noshade="noshade" />' . "\n";
+        echo $table_list;
+        echo '    <hr noshade="noshade" />' . "\n";
 
-} // if lightMode
-
-    } // end for $t (db list)
-
-
-if ($lightMode) {
-
-    echo '</select>';
-    echo '<noscript><input type="submit" name="Go" value="Go"></noscript>';
-    echo '</form>';
-
-    if (!$table_list) { 
-        $table_list = "please select a db";
-    } 
-
-    echo "$db_name<hr noshade>$table_list<hr noshade>";
-
-} else {  // lightmode == 0
-
-    ?>
+    } else {  // lightmode == 0
+        ?>
 
     <!-- Arrange collapsible/expandable db list at startup -->
     <script type="text/javascript" language="javascript1.2">
@@ -347,14 +347,12 @@ if ($lightMode) {
       nsShowAll();
       nsArrangeList();
     }
-    expandedDb = '<?php echo (empty($selected_db)) ? '' : 'el' . $selected_db . 'Child'; ?>';
+    var expandedDb = '<?php echo (empty($selected_db)) ? '' : 'el' . $selected_db . 'Child'; ?>';
     //-->
     </script>
-    <?php
+        <?php
 
-} // lightmode
-
-
+    } // lightmode
 
 } // end if ($server > 1)
 
