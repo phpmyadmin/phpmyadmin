@@ -7,6 +7,7 @@ $Source$
 
 2001-06-15  Marc Delisle  <lem9@users.sourceforge.net>
         * bug 433388, patch from Alain Brissaud (hal0802)
+	* feature 429767, ignore empty fields on table create (tbl_create.php3)
 
 2001-06-14  Steve Alberty  <alberty@neptunlabs.de>
 	* add support for locked tables (default=off)

@@ -13,6 +13,9 @@ if(isset($submit))
         $query = "";
     for($i=0; $i<count($field_name); $i++)
     {
+	if (empty($field_name[$i])) {
+                continue;
+        }
         $query .= "$field_name[$i] $field_type[$i] ";
         if($field_length[$i] != "")
 	  if(get_magic_quotes_gpc()) {
@@ -41,7 +44,8 @@ if(isset($submit))
     for($i=0;$i<count($field_primary);$i++)
     {
         $j = $field_primary[$i];
-        $primary .= "$field_name[$j], ";
+	if (!empty($field_name[$j])) 
+           $primary .= "$field_name[$j], ";
     }
     $primary = ereg_replace(", $", "", $primary);
     if(count($field_primary) > 0)
@@ -56,11 +60,13 @@ if(isset($submit))
     for($i=0;$i<count($field_index);$i++)
     {
         $j = $field_index[$i];
-        $index .= "$field_name[$j], ";
+	if (!empty($field_name[$j]))
+           $index .= "$field_name[$j], ";
     }
     $index = ereg_replace(", $", "", $index);
-    if(count($field_index) > 0)
-        $index = ", INDEX ($index)";
+//    if(count($field_index) > 0)
+	if(!empty($index))
+           $index = ", INDEX ($index)";
     if(!isset($unique))
         $unique = "";
 
@@ -70,10 +76,12 @@ if(isset($submit))
     for($i=0;$i<count($field_unique);$i++)
     {
         $j = $field_unique[$i];
-        $unique .= "$field_name[$j], ";
+	if (!empty($field_name[$j])) 
+           $unique .= "$field_name[$j], ";
     }
     $unique = ereg_replace(", $", "", $unique);
-    if(count($field_unique) > 0)
+//    if(count($field_unique) > 0)
+      if(!empty($unique))
         $unique = ", UNIQUE ($unique)";
     $query_keys = $primary.$index.$unique;
     $query_keys = ereg_replace(", $", "", $query_keys);
