@@ -16,6 +16,9 @@ $Source$
 	* tbl_change.php3: fixed bug #535984 - JS Error in tbl_change.php3.
 	* tbl_replace.php3: fixed bug #536707 - undefined variables.
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
+	* libraries/zip.lib.php3: merged a patch from
+	  Peter Listiak <mlady@users.sourceforge.net> to get last modified date and
+      time of the compressed file.
 
 2002-03-28 Marc Delisle  <lem9@users.sourceforge.net>
 	* sql.php3, bug #535648: bookmarks can't be saved on the second server.
