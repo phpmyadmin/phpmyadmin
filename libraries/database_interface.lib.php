@@ -81,6 +81,10 @@ function PMA_DBI_get_fields($database, $table, $link = NULL) {
     // tbl_create + tbl_properties.inc.php, the table does not exist
     $result = PMA_DBI_try_query('SHOW FULL FIELDS FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table), $link);
 
+    if (!$result) {
+        return FALSE;
+    }
+
     $fields = array();
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $fields[] = $row;

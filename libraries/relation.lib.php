@@ -429,10 +429,12 @@ function PMA_getComments($db, $table = '') {
         // MySQL 4.1.x native column comments
         if (PMA_MYSQL_INT_VERSION >= 40100) {
             $fields = PMA_DBI_get_fields($db, $table);
-            foreach($fields as $key=>$field) {
-                $tmp_col = $field['Field'];
-                if (!empty($field['Comment'])) {
-                    $native_comment[$tmp_col] = $field['Comment'];
+            if ($fields) {
+                foreach($fields as $key=>$field) {
+                    $tmp_col = $field['Field'];
+                    if (!empty($field['Comment'])) {
+                        $native_comment[$tmp_col] = $field['Comment'];
+                    }
                 }
             }
         }

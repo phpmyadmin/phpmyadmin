@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/database_interface.lib.php, libraries/relation.lib.php:
+      problem with getting comments when creating a new table under MySQL 4.1.x
+      with mysql extension
+
 2005-03-09 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: db comments updating broken
     * libraries/relation.lib.php: bug #1159415, data dictionary broken
