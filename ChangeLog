@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-31 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: added FAQ 5.17 about problem with 
+      Firefox when the Tabbrowser Extensions plugin is installed
+
 2005-03-30 Alexander M. Turek  <me@derrabus.de>
     * server_databases.php: Bug #1172782 (Don't allow to drop
       information_schema).
