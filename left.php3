@@ -340,6 +340,54 @@ if ($cfg['LeftDisplayLogo']) {
     <?php
 }
 echo "\n";
+if ($cfg['LeftDisplayServers']) {
+?>
+        <form method="post" action="index.php3" target="_parent">
+            <select name="server" onchange="this.form.submit();">
+    <?php
+    echo "\n";
+    reset($cfg['Servers']);
+    while (list($key, $val) = each($cfg['Servers'])) {
+        if (!empty($val['host'])) {
+            echo '                <option value="' . $key . '"';
+            if (!empty($server) && ($server == $key)) {
+                echo ' selected="selected"';
+            }
+            echo '>';
+            if (!empty($val['verbose'])) {
+                echo $val['verbose'];
+            } else {
+                echo $val['host'];
+                if (!empty($val['port'])) {
+                    echo ':' . $val['port'];
+                }
+                // loic1: skip this because it's not a so good idea to display
+                //        sockets used to everybody
+                // if (!empty($val['socket']) && PMA_PHP_INT_VERSION >= 30010) {
+                //     echo ':' . $val['socket'];
+                // }
+            }
+            // loic1: if 'only_db' is an array and there is more than one
+            //        value, displaying such informations may not be a so good
+            //        idea
+            if (!empty($val['only_db'])) {
+                echo ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
+            }
+            if (!empty($val['user']) && ($val['auth_type'] == 'config')) {
+                echo '  (' . $val['user'] . ')';
+            }
+            echo '&nbsp;</option>' . "\n";
+        } // end if (!empty($val['host']))
+    } // end while
+    ?>
+            </select>
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
+            <noscript><input type="submit" value="<?php echo $strGo; ?>" /></noscript>
+        </form>
+<?php
+}
+echo "\n";
 ?>
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">

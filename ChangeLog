@@ -15,6 +15,8 @@ $Source$
     * db_details_links.php3: Display Query tab even with no tables.
     * libraries/charset_conversion.lib.php3: Default iconv parameters to empty
       string.
+    * config.inc.php3, left.php3: Optional dropdown for server list in left
+      frame (RFE #555978).
 
 2003-06-04 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: bug 592692, pretty printer

@@ -207,6 +207,7 @@ $cfg['ShowTooltipAliasTB']    = FALSE;  // are shown (in the left menu and db_de
                                         // table/db names
 
 $cfg['LeftDisplayLogo']       = TRUE;   // display logo at top of left frame
+$cfg['LeftDisplayServers']    = FALSE;  // display server choice at top of left frame
 
 // In the main frame, at startup...
 $cfg['ShowStats']             = TRUE;   // allow to display statistics and space usage in
