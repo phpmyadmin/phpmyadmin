@@ -5,14 +5,21 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
-2001-05-10  Armel Fauveau <armel.fauveau@globalis-ms.com>
+2001-05-10  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_readdump.php3: fixed all the special characters problems (Bug #421889)
+	  and improve the trick to enforce reloading of the left frame if a table
+	  has to be created
+	* sql.php3, line 65: a warning message was sometimes displayed because the
+	  '$sql_order' variable was not set
+
+2001-05-10  Armel Fauveau  <armel.fauveau@globalis-ms.com>
 	* Added a "view only" option in the phpMyBookmark patch (Feature #422425)
 
-2001-05-09  Marc Delisle <lem9@users.sourceforge.net>
+2001-05-09  Marc Delisle  <lem9@users.sourceforge.net>
 	* new messages in /lang
-        * browse table bug (#421879)
+	* browse table bug (#421879)
 
-2001-05-08 Korakot Chaovavanich  <korakot@iname.com>
+2001-05-08  Korakot Chaovavanich  <korakot@iname.com>
 	* In edit page, replace dropdown with radio if short enough
 
 2001-05-08  Loïc Chapeaux  <lolo@phpheaven.net>
@@ -23,14 +30,14 @@ $Source$
 	  the stable CVS tree
 	* lib.inc.php3, line 590: strip slash the message to be displayed
 
-2001-05-07  Marc Delisle <lem9@users.sourceforge.net>
+2001-05-07  Marc Delisle  <lem9@users.sourceforge.net>
 	* In csv data, can add a character at end-of-line
 	* Added a shell script that adds a message to all message files
 
-2001-05-07  Armel Fauveau <armel.fauveau@globalis-ms.com>
+2001-05-07  Armel Fauveau  <armel.fauveau@globalis-ms.com>
 	* Added the phpMyBookmark patch
 
-2001-05-05 Robin Johnson  <robbat2@users.sourceforge.net>
+2001-05-05  Robin Johnson  <robbat2@users.sourceforge.net>
 	* Some functions discussed on patch #419826 added.
 	* Table Maintence Features added in tbl_properties.php3
 	* Fixed create table "default" bug.
@@ -43,7 +50,7 @@ $Source$
 	  frame if a table has to be created (not tested enough to be add to the
 	  stable version yet)
 
-2001-05-04  Marc Delisle <lem9@users.sourceforge.net>
+2001-05-04  Marc Delisle  <lem9@users.sourceforge.net>
 	* outsource some strings in main.php3
 	* kill the bug in main.php3 about Create privilege
 
