@@ -83,9 +83,7 @@ $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
 // but later, if the analyser returns more information, it
 // could be executed for any MySQL version and replace
-// the info given by the previous SHOW FULL FIELDS FROM query.
-
-// TODO: use this information for proper treatment of TIMESTAMPs
+// the info given by SHOW FULL FIELDS FROM.
 
 if (PMA_MYSQL_INT_VERSION >= 40102) {
     $show_create_table_query = 'SHOW CREATE TABLE '
@@ -232,16 +230,23 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $type_mime = '';
     }
 
-    $strAttribute     = '&nbsp;';
+    $attribute     = '&nbsp;';
     if ($binary) {
-        $strAttribute = 'BINARY';
+        $attribute = 'BINARY';
     }
     if ($unsigned) {
-        $strAttribute = 'UNSIGNED';
+        $attribute = 'UNSIGNED';
     }
     if ($zerofill) {
-        $strAttribute = 'UNSIGNED ZEROFILL';
+        $attribute = 'UNSIGNED ZEROFILL';
     }
+    
+    // MySQL 4.1.2+ TIMESTAMP options
+    // (if on_update_current_timestamp is set, then it's TRUE)
+    if (isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
+        $attribute = 'ON UPDATE CURRENT_TIMESTAMP';
+    }
+
     if (!isset($row['Default'])) {
         if ($row['Null'] != '') {
             $row['Default'] = '<i>NULL</i>';
@@ -330,7 +335,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<label onclick="return (document.getElementById('checkbox_row_<?php echo $i; ?>') ? false : true)" for="checkbox_row_<?php echo $i; ?>"><?php echo $field_name; ?></label>&nbsp;</td>
     <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; echo $type_mime; ?><bdo dir="ltr"></bdo></td>
 <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td bgcolor="' . $bgcolor . '" ' . $click_mouse . '>' . (empty($field_charset) ? '&nbsp;' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>') . '</td>' . "\n" : '' ?>
-    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>
+    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap" style="font-size: <?php echo $font_smallest; ?>"><?php echo $attribute; ?></td>
     <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
     <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
     <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>

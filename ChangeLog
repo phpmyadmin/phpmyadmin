@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_structure.php, tbl_alter.php, tbl_properties.inc.php,
+      config.inc.php (comment only), libraries/common.lib.php:
+      experimental support for table structure editing with MySQL 4.1.2+
+      TIMESTAMP options
+
 2005-03-13 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_row_delete.php renamed to tbl_row_action.php (RFE 1097729)
 

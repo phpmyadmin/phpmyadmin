@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Gets some core libraries
  */
@@ -67,7 +66,7 @@ if (isset($do_save_data)) {
             $full_field_type .= ' ' . $field_attribute[$i];
         }
         // take care of native MySQL comments here
-        $query .= PMA_generateAlterTable($field_orig[$i], $field_name[$i], $full_field_type, (PMA_MYSQL_INT_VERSION >= 40100 && $field_collation[$i] != '' ? $field_collation[$i] : ''), $field_null[$i], $field_default[$i], $field_extra[$i], (PMA_MYSQL_INT_VERSION >= 40100 && $field_comments[$i] != '' ? $field_comments[$i] : ''));
+        $query .= PMA_generateAlterTable($field_orig[$i], $field_name[$i], $full_field_type, (PMA_MYSQL_INT_VERSION >= 40100 && $field_collation[$i] != '' ? $field_collation[$i] : ''), $field_null[$i], $field_default[$i], $field_default_current_timestamp[$i], $field_extra[$i], (PMA_MYSQL_INT_VERSION >= 40100 && $field_comments[$i] != '' ? $field_comments[$i] : ''));
     } // end for
 
     // To allow replication, we first select the db to use and then run queries
@@ -181,6 +180,24 @@ if ($abort == FALSE) {
     }
     $num_fields  = count($fields_meta);
     $action      = 'tbl_alter.php';
+
+    // Get more complete field information
+    // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
+    // but later, if the analyser returns more information, it
+    // could be executed for any MySQL version and replace
+    // the info given by SHOW FULL FIELDS FROM.
+    // TODO: put this code into a require()
+
+    if (PMA_MYSQL_INT_VERSION >= 40102) {
+        $show_create_table_query = 'SHOW CREATE TABLE '
+            . PMA_backquote($db) . '.' . PMA_backquote($table);
+        $show_create_table_res = PMA_DBI_query($show_create_table_query);
+        list(,$show_create_table) = PMA_DBI_fetch_row($show_create_table_res);
+        PMA_DBI_free_result($show_create_table_res);
+        unset($show_create_table_res, $show_create_table_query);
+        $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+    }
+
     require('./tbl_properties.inc.php');
 }
 

@@ -116,7 +116,6 @@ if (!$is_backup) {
     $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_ftext.png" width="16" height="16" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />' : $strIdxFulltext;
 }
 
-
 require_once('./libraries/relation.lib.php');
 require_once('./libraries/transformations.lib.php');
 $cfgRelation = PMA_getRelationsParam();
@@ -302,22 +301,40 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $ci++;
     }
 
-    $content_cells[$i][$ci] = '<select name="field_attribute[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">' . "\n";
+    $content_cells[$i][$ci] = '<select style="font-size: ' . $font_smallest . ';" name="field_attribute[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">' . "\n";
 
-    $strAttribute     = '';
+    $attribute     = '';
     if ($binary) {
-        $strAttribute = 'BINARY';
+        $attribute = 'BINARY';
     }
     if ($unsigned) {
-        $strAttribute = 'UNSIGNED';
+        $attribute = 'UNSIGNED';
     }
     if ($zerofill) {
-        $strAttribute = 'UNSIGNED ZEROFILL';
+        $attribute = 'UNSIGNED ZEROFILL';
     }
 
     if (isset($submit_attribute) && $submit_attribute != FALSE) {
-        $strAttribute = $submit_attribute;
+        $attribute = $submit_attribute;
     }
+
+
+    // MySQL 4.1.2+ TIMESTAMP options
+    // (if on_update_current_timestamp is set, then it's TRUE)
+    if (isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
+        $attribute = 'ON UPDATE CURRENT_TIMESTAMP';
+    }
+    if (isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp'])) {
+        $default_current_timestamp = TRUE; 
+    } else {
+        $default_current_timestamp = FALSE; 
+    }
+
+    // Dynamically add ON UPDATE CURRENT_TIMESTAMP to the possible attributes
+    if (PMA_MYSQL_INT_VERSION >= 40102) {
+        $cfg['AttributeTypes'][] = 'ON UPDATE CURRENT_TIMESTAMP';
+    }
+
 
     $cnt_attribute_types = count($cfg['AttributeTypes']);
     for ($j = 0;$j < $cnt_attribute_types; $j++) {
@@ -325,7 +342,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             continue;
         }
         $content_cells[$i][$ci] .= '                <option value="'. $cfg['AttributeTypes'][$j] . '"';
-        if (strtoupper($strAttribute) == strtoupper($cfg['AttributeTypes'][$j])) {
+        if (strtoupper($attribute) == strtoupper($cfg['AttributeTypes'][$j])) {
             $content_cells[$i][$ci] .= ' selected="selected"';
         }
         $content_cells[$i][$ci] .= '>' . $cfg['AttributeTypes'][$j] . '</option>' . "\n";
@@ -360,7 +377,23 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $content_cells[$i][$ci] = "\n";
     }
 
+    // for a TIMESTAMP, do not show CURRENT_TIMESTAMP as a default value
+    if (PMA_MYSQL_INT_VERSION >= 40102 
+        && $type == 'timestamp'
+        && $default_current_timestamp
+        && isset($row)
+        && isset($row['Default'])) {
+        $row['Default'] = '';
+    }
+
     $content_cells[$i][$ci] .= '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_default[]" size="12" value="' . (isset($row) && isset($row['Default']) ? str_replace('"', '&quot;', $row['Default']) : '') . '" class="textfield" />';
+    if (PMA_MYSQL_INT_VERSION >= 40102 && $type == 'timestamp') {
+        $content_cells[$i][$ci] .= '<br /><input id="field_' . $i . '_' . ($ci - $ci_offset) . 'a" type="checkbox" name="field_default_current_timestamp[' . $i . ']"';
+        if ($default_current_timestamp) {
+            $content_cells[$i][$ci] .= ' checked="checked" ';
+        }
+        $content_cells[$i][$ci] .= ' /><label for="field_' . $i . '_' . ($ci - $ci_offset) . 'a" style="font-size: ' . $font_smallest . ';">CURRENT_TIMESTAMP</label>'; 
+    }
     $ci++;
 
     $content_cells[$i][$ci] = '<select name="field_extra[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">';

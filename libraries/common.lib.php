@@ -2517,24 +2517,30 @@ if (typeof(document.getElementById) != 'undefined'
     } // end function
 
 
-    function PMA_generateAlterTable($oldcol, $newcol, $full_field_type, $collation, $null, $default, $extra, $comment='') {
+    function PMA_generateAlterTable($oldcol, $newcol, $full_field_type, $collation, $null, $default, $default_current_timestamp, $extra, $comment='') {
+
+        // $default_current_timestamp has priority over $default
+        // TODO: on the interface, some js to clear the default value
+        // when the default current_timestamp is checked
 
         $query = PMA_backquote($oldcol) . ' ' . PMA_backquote($newcol) . ' '
             . $full_field_type;
         if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($collation) && $collation != 'NULL' && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR)$@i', $full_field_type)) {
             $query .= PMA_generateCharsetQueryPart($collation);
         }
-        if (!empty($default)) {
+
+        if ($default_current_timestamp) {
+            $query .= ' DEFAULT CURRENT_TIMESTAMP';
+        } elseif (!empty($default)) {
             if (strtoupper($default) == 'NULL') {
                 $query .= ' DEFAULT NULL';
             } else {
                 $query .= ' DEFAULT \'' . PMA_sqlAddslashes($default) . '\'';
             }
         }
+
         if (!empty($null)) {
             $query .= ' NOT NULL';
-        //} else {
-        //    $query .= ' NULL';
         }
         if (!empty($extra)) {
             $query .= ' ' . $extra;
