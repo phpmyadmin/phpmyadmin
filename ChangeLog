@@ -7,9 +7,9 @@ $Source$
 
 2002-04-13 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/korean.inc.php3: fixed some inconcistencies.
-	* main.php3, lines 200-201; user_details.php3, line 82: fixed a bug with
-	  privileges when applied to database name containing an escaped wilcard
-	  character (then used a litteral charcter). Thanks to
+	* main.php3, lines 200-201; user_details.php3, line 82 & 1339-1344: fixed
+	  bugs with privileges when applied to database name containing an escaped
+	  wilcard character (then used a litteral charcter). Thanks to
 	  Mike Eheler <meheler @ users.sourceforge.net>.
 	* tbl_alter.php3, lines 109-112: fixed bug #543365 - Can't change field
 	  properties when name contains localized characters.

@@ -1336,6 +1336,13 @@ else if (isset($grants) && $grants) {
                 }
             }
         } // end if
+
+        // Escape wilcard characters if required
+        if (isset($dbgrant) && !$anydb && !$newdb) {
+            $re      = '(^|(\\\\\\\\)+|[^\])(_|%)'; // non-escaped wildcards
+            $dbgrant = ereg_replace($re, '\\\\3', $dbgrant);
+        }
+
         if (!$newdb) {
             $sql_query .= ' ON '
                        . (($anydb || $dbgrant == '') ? '*' : PMA_backquote($dbgrant))
