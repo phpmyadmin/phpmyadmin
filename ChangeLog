@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-08 Garvin Hicking <pma@supergarv.de>
+    * lots of files: Adjusted superfluous spaces, added
+      more CSS-ID attributes for better themeability.
+
 2004-10-04 Michal Čihař  <michal@cihar.com>
     * tbl_query_box.php: Reenabled %f substitution.
 

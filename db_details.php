@@ -88,8 +88,7 @@ if (!empty($query_to_display)) {
 </td></tr>
 <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
     <td>
-        <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" />
-        <label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label>
+        <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" /><label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label>
     </td>
     <td align="right"><input type="submit" name="SQL" value="<?php echo $strGo; ?>" /></td>
 </tr>

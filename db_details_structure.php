@@ -768,34 +768,44 @@ if ($num_tables > 0
 } // end if
 ?>
 </table>
+
+<form method="post" action="pdf_schema.php">
 <?php
 // is this OK to check for 'class' support?
 if ($num_tables > 0) {
     $takeaway = $url_query . '&amp;table=' . urlencode($table);
 }
-if (($cfgRelation['pdfwork'] && $num_tables > 0) ||
-($num_tables > 0
-    && $cfgRelation['relwork'] && $cfgRelation['commwork']
-    && isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])
-    )
-) { ?><hr /><table border="0" cellpadding="2" cellspacing="0"><?php }
 
-if ($cfgRelation['pdfwork'] && $num_tables > 0) {
-    ?>
+if (($cfgRelation['pdfwork'] && $num_tables > 0) ||
+    ($num_tables > 0
+     && $cfgRelation['relwork'] && $cfgRelation['commwork']
+     && isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])
+    )) { ?>
+<hr /><table border="0" cellpadding="2" cellspacing="0">
+<?php
+}
+
+if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     <!-- Work on PDF Pages -->
-      <tr><td colspan="3" class="tblHeaders">
-      <?php
+    <tr>
+        <td colspan="3" class="tblHeaders">
+    <?php
     if ($cfg['PropertiesIconic']) {
         echo '<img src="' . $pmaThemeImage . 'b_pdfdoc.png" border="0" width="16" height="16" hspace="2" align="middle" />';
-    }
-?>PDF</td></tr><tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-        <td colspan="3"><?php
-    echo '<a href="pdf_pages.php?' . $takeaway . '">';
-    if ($cfg['PropertiesIconic']) {
-        echo '<img src="' . $pmaThemeImage . 'b_edit.png" border="0" width="16" height="16" hspace="2" align="middle" />';
-    }
-    echo ''. $strEditPDFPages . '</a>';
-     ?></td></tr>
+    } ?>PDF</td>
+    </tr>
+
+    <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+        <td colspan="3">
+        <?php
+            echo '<a href="pdf_pages.php?' . $takeaway . '">';
+            if ($cfg['PropertiesIconic']) {
+                echo '<img src="' . $pmaThemeImage . 'b_edit.png" border="0" width="16" height="16" hspace="2" align="middle" />';
+            }
+            echo ''. $strEditPDFPages . '</a>';
+        ?>
+        </td>
+    </tr>
 
     <!-- PDF schema -->
     <?php
@@ -804,62 +814,47 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     $test_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
                 . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'';
     $test_rs    = PMA_query_as_cu($test_query, NULL, PMA_DBI_QUERY_STORE);
-    if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
-        echo "\n";
-        ?>
-        <form method="post" action="pdf_schema.php">
-         <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><td colspan="3">
-<?php
+
+    if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) { ?>
+    <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+        <td colspan="3">
+        <?php
          echo PMA_generate_common_hidden_inputs($db);
          if ($cfg['PropertiesIconic']) {
              echo '<img src="' . $pmaThemeImage . 'b_view.png" border="0" width="16" height="16" hspace="2" align="middle" />';
          }
-         echo $strDisplayPDF;
-?>:&nbsp;</td></tr>
-            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><td width="20">&nbsp;</td><td colspan="2">
-            <?php echo $strPageNumber; ?>&nbsp;
-            <select name="pdf_page_number">
-        <?php
-        while ($pages = @PMA_DBI_fetch_assoc($test_rs)) {
-            echo "\n" . '                '
-                 . '<option value="' . $pages['page_nr'] . '">' . $pages['page_nr'] . ': ' . $pages['page_descr'] . '</option>';
-        } // end while
-        PMA_DBI_free_result($test_rs);
-        unset($test_rs);
-        echo "\n";
-        ?>
-            </select></td></tr>
-            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-                                                  <td width="20">&nbsp;</td><td width="20" valign="top">
-            <input type="checkbox" name="show_grid" id="show_grid_opt" /></td><td>
-            <label for="show_grid_opt"><?php echo $strShowGrid; ?></label></td></tr>
-            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-                                                  <td width="20">&nbsp;</td><td width="20" valign="top">
-            <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" /></td><td>
-            <label for="show_color_opt"><?php echo $strShowColor; ?></label></td></tr>
-            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-                                                  <td width="20">&nbsp;</td><td width="20" valign="top">
-            <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" /></td><td>
-            <label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label></td></tr>
-            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-                                                  <td width="20">&nbsp;</td><td width="20" valign="top">
-            <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" /></td><td>
-            <label for="all_tab_same_wide"><?php echo wordwrap($strAllTableSameWidth,55,'<br />'); ?></label></td></tr>
-            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-                                                  <td width="20">&nbsp;</td><td width="20" valign="top">
-            <input type="checkbox" name="with_doc" id="with_doc" checked="checked" /></td><td>
-            <label for="with_doc"><?php echo $strDataDict; ?></label></td></tr>
-            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-                                                  <td width="20">&nbsp;</td><td colspan="2">
-            <?php echo $strShowDatadictAs; ?>
-            <select name="orientation">
+         echo $strDisplayPDF; ?>:&nbsp;
+        </td>
+    </tr>
+
+    <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+        <td width="20">&nbsp;</td>
+        <td colspan="2">
+            <label for="pdf_page_number_opt"><?php echo $strPageNumber; ?></label>
+            <select name="pdf_page_number" id="pdf_page_number_opt">
+            <?php
+            while ($pages = @PMA_DBI_fetch_assoc($test_rs)) {
+                echo '                <option value="' . $pages['page_nr'] . '">' . $pages['page_nr'] . ': ' . $pages['page_descr'] . '</option>' . "\n";
+            } // end while
+            PMA_DBI_free_result($test_rs);
+            unset($test_rs);
+            ?>
+            </select><br />
+
+            <input type="checkbox" name="show_grid" id="show_grid_opt" /><label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
+            <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" /><label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
+            <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" /><label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label><br />
+            <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" /><label for="all_tab_same_wide"><?php echo $strAllTableSameWidth; ?></label><br />
+            <input type="checkbox" name="with_doc" id="with_doc" checked="checked" /><label for="with_doc"><?php echo $strDataDict; ?></label><br />
+
+            <label for="orientation_opt"><?php echo $strShowDatadictAs; ?></label>
+            <select name="orientation" id="orientation_opt">
                 <option value="L"><?php echo $strLandscape;?></option>
                 <option value="P"><?php echo $strPortrait;?></option>
-            </select></td></tr>
-            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-                                                  <td width="20">&nbsp;</td><td colspan="2">
-            <?php echo $strPaperSize; ?>
-            <select name="paper">
+            </select><br />
+
+            <label for="paper_opt"><?php echo $strPaperSize; ?></label>
+            <select name="paper" id="paper_opt">
             <?php
                 foreach ($cfg['PDFPageSizes'] AS $key => $val) {
                     echo '<option value="' . $val . '"';
@@ -869,17 +864,19 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
                     echo ' >' . $val . '</option>' . "\n";
                 }
             ?>
-                </select></td></tr>
-            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-                                                  <td width="20">&nbsp;</td><td colspan="3" align="right">
-                &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" /></td>
-            </form></tr>
-            <tr><td colspan="3"><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td></tr>
+            </select>
+        </td>
+    </tr>
+
+    <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+        <td width="20">&nbsp;</td>
+        <td colspan="3" align="right">&nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" /></td>
+    </tr>
+    <tr>
+        <td colspan="3"><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td>
+    </tr>
         <?php
     }   // end if
-?>
-
-<?php
 } // end if
 
 if ($num_tables > 0
@@ -888,23 +885,29 @@ if ($num_tables > 0
     ) {
 ?>
     <!-- import docSQL files -->
-    <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="3"><?php
-    echo '<a href="db_details_importdocsql.php?' . $takeaway . '">';
-    if ($cfg['PropertiesIconic']) {
-        echo '<img src="' . $pmaThemeImage . 'b_docsql.png" border="0" width="16" height="16" hspace="2" align="middle" />';
-    }
-    echo $strImportDocSQL . '</a>';
-    ?>
-    </td></tr>
+    <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+        <td colspan="3">
+        <?php
+        echo '<a href="db_details_importdocsql.php?' . $takeaway . '">';
+        if ($cfg['PropertiesIconic']) {
+            echo '<img src="' . $pmaThemeImage . 'b_docsql.png" border="0" width="16" height="16" hspace="2" align="middle" />';
+        }
+        echo $strImportDocSQL . '</a>';
+        ?>
+        </td>
+    </tr>
     <?php
 }
 echo "\n";
 if (($cfgRelation['pdfwork'] && $num_tables > 0) ||
-($num_tables > 0
-    && $cfgRelation['relwork'] && $cfgRelation['commwork']
-    && isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])
-    )
-) { ?></table><?php }
+    ($num_tables > 0
+     && $cfgRelation['relwork'] && $cfgRelation['commwork']
+     && isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])
+    )) { ?>
+</table>
+</form>
+<?php
+}
 
 /**
  * Displays the footer

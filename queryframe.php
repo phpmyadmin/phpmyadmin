@@ -145,7 +145,7 @@ function set_focus_to_nav() {
 ?>
 </head>
 
-<body bgcolor="<?php echo $cfg['LeftBgColor']; ?>"<?php echo ((isset($js_frame_onload) && $js_frame_onload!='') ? $js_frame_onload : ''); ?>>
+<body id="body_queryFrame" bgcolor="<?php echo $cfg['LeftBgColor']; ?>"<?php echo ((isset($js_frame_onload) && $js_frame_onload!='') ? $js_frame_onload : ''); ?>>
     <div id="qfcontainer">
 <?php
 if ($cfg['LeftDisplayLogo']) {
@@ -154,7 +154,7 @@ if ($cfg['LeftDisplayLogo']) {
     <?php
     if (@file_exists($pmaThemeImage . 'logo_left.png')) {
     ?>
-    
+
     <div align="center">
         <a href="http://www.phpmyadmin.net" target="_blank"><img src="<?php echo '' . $pmaThemeImage . 'logo_left.png'; ?>" alt="phpMyAdmin" vspace="3" border="0" /></a>
     </div>
@@ -165,7 +165,7 @@ if ($cfg['LeftDisplayLogo']) {
            . '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png'  .'" alt="phpMyAdmin" border="0" />'
            . '</a></div>' . "\n";
     }
-    echo '<hr />';
+    echo '<hr id="hr_first" />';
 } // end of display logo
 
 if ($cfg['MainPageIconic']) {
@@ -237,7 +237,7 @@ if ($cfg['MainPageIconic']) {
 
     ?>
     </div>
-    <hr />
+    <hr id="hr_second" />
 
     <?php
 if ($cfg['LeftDisplayServers']){
@@ -371,7 +371,7 @@ if ($num_dbs > 1) {
 
             if (!empty($num_tables)) {
                 echo '            '
-                   . '<option value="' . htmlspecialchars($db) . '"' . $selected . '>' 
+                   . '<option value="' . htmlspecialchars($db) . '"' . $selected . '>'
                    . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)) . ' (' . $num_tables . ')</option>' . "\n";
             } else {
                 echo '            '
@@ -387,7 +387,7 @@ if ($num_dbs > 1) {
             </td>
         </tr>
     </table>
-    <hr />
+    <hr id="hr_third" />
     <?php
     } // end if LeftFrameLight
 } // end if num_db > 1

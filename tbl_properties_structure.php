@@ -455,9 +455,9 @@ if ($cfg['PropertiesIconic']) {
     if ($cfg['PropertiesIconic']) {
         echo '<img src="' . $pmaThemeImage . 'b_print.png" border="0" hspace="2" align="middle" width="16" height="16" alt="' . $strPrintView . '"/>';
     }
-    echo $strPrintView; 
+    echo $strPrintView;
     ?></a>&nbsp;&nbsp;&nbsp;
-                
+
 <?php
 // if internal relations are available, or the table type is INNODB
 // ($tbl_type comes from tbl_properties_table_info.php)
@@ -480,35 +480,29 @@ if ($cfg['Server']['relation'] || $tbl_type=="INNODB") {
         echo '<img src="' . $pmaThemeImage . 'b_tblanalyse.png" border="0" hspace="2" align="middle" width="16" height="16" alt="' . $strStructPropose . '" />';
     }
     echo $strStructPropose;
-?></a><?php 
+?></a><?php
     echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
 ?><br />
 <!-- Add some new fields -->
 <form method="post" action="tbl_addfield.php"
     onsubmit="return checkFormElementInRange(this, 'num_fields', 1)">
-    <?php 
+    <?php
         echo PMA_generate_common_hidden_inputs($db, $table);
         if ($cfg['PropertiesIconic']) {
             echo '<img src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $strAddNewField . '"/>';
         }
         echo sprintf($strAddFields, '<input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />');
     ?>
-    
-    <input type="radio" name="field_where" id="radio_field_where_last" value="last" checked="checked" />
-    <label for="radio_field_where_last"><?php echo $strAtEndOfTable; ?></label>
-    <input type="radio" name="field_where" id="radio_field_where_first" value="first" />
-    <label for="radio_field_where_first"><?php echo $strAtBeginningOfTable; ?></label>
-    <input type="radio" name="field_where" id="radio_field_where_after" value="after" />
-<?php
-$fieldOptions = '</label><select name="after_field" style="vertical-align: middle" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
-foreach ($aryFields AS $fieldname) {
-$fieldOptions .= '<option value="' . htmlspecialchars($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
-}
-unset($aryFields);
-$fieldOptions .= '</select><label for="radio_field_where_after">';
-?>
-        <?php 
-        echo str_replace('<label for="radio_field_where_after"></label>', '', '<label for="radio_field_where_after">' . sprintf($strAfter, $fieldOptions) . '</label>') . "\n"; 
+    <input type="radio" name="field_where" id="radio_field_where_last" value="last" checked="checked" /><label for="radio_field_where_last"><?php echo $strAtEndOfTable; ?></label>
+    <input type="radio" name="field_where" id="radio_field_where_first" value="first" /><label for="radio_field_where_first"><?php echo $strAtBeginningOfTable; ?></label>
+    <input type="radio" name="field_where" id="radio_field_where_after" value="after" /><?php
+        $fieldOptions = '</label><select name="after_field" style="vertical-align: middle" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
+        foreach ($aryFields AS $fieldname) {
+            $fieldOptions .= '<option value="' . htmlspecialchars($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
+        }
+        unset($aryFields);
+        $fieldOptions .= '</select><label for="radio_field_where_after">';
+        echo str_replace('<label for="radio_field_where_after"></label>', '', '<label for="radio_field_where_after">' . sprintf($strAfter, $fieldOptions) . '</label>') . "\n";
         ?>
     <input type="submit" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
 </form>
@@ -639,7 +633,7 @@ if ($cfg['ShowStats']) {
             ?>
         <tr>
             <td colspan="3" align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-                <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php 
+                <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
                     if ($cfg['PropertiesIconic']) {
                        echo '<img src="' . $pmaThemeImage . 'b_tbloptimize.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $strOptimizeTable. '" />';
                     }

@@ -58,7 +58,7 @@ if ($multi_tables) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
                   . PMA_backquote(urldecode($table));
     }
-    echo '<b>'.  $strShowTables . '&nbsp;:&nbsp;' . $tbl_list . '</b>' . "\n";
+    echo '<b>'.  $strShowTables . ':&nbsp;' . $tbl_list . '</b>' . "\n";
     echo '<hr />' . "\n";
 } // end if
 
@@ -155,7 +155,7 @@ foreach ($the_tables AS $key => $table) {
      * Displays the comments of the table if MySQL >= 3.23
      */
     if (!empty($show_comment)) {
-        echo $strTableComments . '&nbsp;:&nbsp;' . $show_comment . '<br /><br />';
+        echo $strTableComments . ':&nbsp;' . $show_comment . '<br /><br />';
     }
 
     /**
@@ -301,7 +301,7 @@ foreach ($the_tables AS $key => $table) {
 <br /><br />
 
 <!-- Indexes -->
-&nbsp;<big><?php echo $strIndexes . '&nbsp;:'; ?></big>
+&nbsp;<big><?php echo $strIndexes . ':'; ?></big>
 <table bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
     <tr>
         <th><?php echo $strKeyname; ?></th>
@@ -406,7 +406,7 @@ foreach ($the_tables AS $key => $table) {
 
     <!-- Space usage -->
     <td class="print" valign="top">
-        &nbsp;<big><?php echo $strSpaceUsage . '&nbsp;:'; ?></big>
+        &nbsp;<big><?php echo $strSpaceUsage . ':'; ?></big>
         <table width="100%" bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
         <tr>
             <th><?php echo $strType; ?></th>
@@ -462,7 +462,7 @@ foreach ($the_tables AS $key => $table) {
 
     <!-- Rows Statistic -->
     <td valign="top">
-        &nbsp;<big><?php echo $strRowsStatistic . '&nbsp;:'; ?></big>
+        &nbsp;<big><?php echo $strRowsStatistic . ':'; ?></big>
         <table width=100% bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
         <tr>
             <th><?php echo $strStatement; ?></th>

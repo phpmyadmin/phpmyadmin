@@ -47,7 +47,7 @@ if (!empty($cfg['UploadDir'])) {
                 if ($is_first == 0) {
                     $is_upload_dir = true;
                     echo "<br />\n";
-                    echo '    <i>' . $strOr . '</i> ' . $strWebServerUploadDirectory . '&nbsp;: ' . "\n";
+                    echo '    <i>' . $strOr . '</i> ' . $strWebServerUploadDirectory . ': ' . "\n";
                     echo '    <div style="margin-bottom: 5px">' . "\n";
                     echo '        <select size="1" name="local_textfile">' . "\n";
                     echo '            <option value="" selected="selected"></option>' . "\n";
@@ -112,8 +112,7 @@ echo "\n";
         <td><?php echo $strFieldsEnclosedBy; ?></td>
         <td>
             <input type="text" name="enclosed" size="1" maxlength="1" value="&quot;" />
-            <input type="checkbox" name="enclose_option" value="OPTIONALLY" id="checkbox_enclose_option" />
-            <label for="checkbox_enclose_option"><?php echo $strOptionally; ?></label>
+            <input type="checkbox" name="enclose_option" value="OPTIONALLY" id="checkbox_enclose_option" /><label for="checkbox_enclose_option"><?php echo $strOptionally; ?></label>
         </td>
         <td><?php echo $strOftenQuotation; ?></td>
     </tr>

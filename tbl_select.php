@@ -131,7 +131,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
                             </select>
                         </td>
                         <td valign="bottom" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-                            <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" /> <label for="oDistinct">DISTINCT</label>
+                            <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" /><label for="oDistinct">DISTINCT</label>
                         </td>
                     </tr>
                 </table>
@@ -169,10 +169,8 @@ function PMA_tbl_select_operator(f, index, multiple) {
     } // end for
     ?>
                             </select><br />
-                            <input type="radio" name="order" value="ASC" checked="checked" id="sortASC" />
-                            <label for="sortASC"><?php echo $strAscending; ?></label><br />
-                            <input type="radio" name="order" value="DESC" id="sortDESC" />
-                            <label for="sortDESC"><?php echo $strDescending; ?></label>
+                            <input type="radio" name="order" value="ASC" checked="checked" id="sortASC" /><label for="sortASC"><?php echo $strAscending; ?></label><br />
+                            <input type="radio" name="order" value="DESC" id="sortDESC" /><label for="sortDESC"><?php echo $strDescending; ?></label>
                         </td>
                     </tr>
                 </table>

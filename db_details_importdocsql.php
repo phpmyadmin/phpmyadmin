@@ -239,7 +239,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
     // garvin: displays import dump feature only if file upload available
     if ($is_upload) {
         echo '<br /><br />';
-        echo '            <i>' . $strOr . '</i> ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
+        echo '            <i>' . $strOr . '</i> ' . $strLocationTextfile . ':<br />' . "\n";
         ?>
                 <div style="margin-bottom: 5px">
                 <input type="file" name="sql_file" class="textfield" /><br />
@@ -266,17 +266,13 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
         $is_bzip = ($cfg['BZipDump'] && @function_exists('bzdecompress'));
         if ($is_bzip || $is_gzip) {
             echo '        ' . $strCompression . ':' . "\n"
-               . '            <input type="radio" id="radio_sql_file_compression_auto" name="sql_file_compression" value="" checked="checked" />' . "\n"
-               . '            <label for="radio_sql_file_compression_auto">' . $strAutodetect . '</label>&nbsp;&nbsp;&nbsp;' . "\n"
-               . '            <input type="radio" id="radio_sql_file_compression_plain" name="sql_file_compression" value="text/plain" />' . "\n"
-               . '            <label for="radio_sql_file_compression_plain">' . $strNone . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
+               . '            <input type="radio" id="radio_sql_file_compression_auto" name="sql_file_compression" value="" checked="checked" /><label for="radio_sql_file_compression_auto">' . $strAutodetect . '</label>&nbsp;&nbsp;&nbsp;' . "\n"
+               . '            <input type="radio" id="radio_sql_file_compression_plain" name="sql_file_compression" value="text/plain" /><label for="radio_sql_file_compression_plain">' . $strNone . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
             if ($is_gzip) {
-                echo '            <input type="radio" id="radio_sql_file_compression_gzip" name="sql_file_compression" value="application/x-gzip" />' . "\n"
-                   . '            <label for="radio_sql_file_compression_gzip">' . $strGzip . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
+                echo '            <input type="radio" id="radio_sql_file_compression_gzip" name="sql_file_compression" value="application/x-gzip" /><label for="radio_sql_file_compression_gzip">' . $strGzip . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
             }
             if ($is_bzip) {
-                echo '            <input type="radio" id="radio_sql_file_compression_bzip" name="sql_file_compression" value="application/x-bzip" />' . "\n"
-                   . '            <label for="radio_sql_file_compression_bzip">' . $strBzip . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
+                echo '            <input type="radio" id="radio_sql_file_compression_bzip" name="sql_file_compression" value="application/x-bzip" /><label for="radio_sql_file_compression_bzip">' . $strBzip . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
             }
         } else {
             echo '        <input type="hidden" name="sql_file_compression" value="text/plain" />' . "\n";

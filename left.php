@@ -337,7 +337,7 @@ echo "\n";
 ?>
 </head>
 
-<body bgcolor="<?php echo $cfg['LeftBgColor']; ?>">
+<body bgcolor="<?php echo $cfg['LeftBgColor']; ?>" id="body_leftFrame">
 
 <?php
 if ($cfg['LeftDisplayLogo'] && !$cfg['QueryFrame']) {
@@ -410,6 +410,7 @@ if (!$cfg['QueryFrame']) {
 
 ?>
 <!-- Databases and tables list -->
+<div id="left_tableList">
 <?php
 // Don't display expansible/collapsible database info if:
 // 1. $server == 0 (no server selected)
@@ -925,7 +926,7 @@ setTimeout('check_queryframe_reload()', 1000);
     }
 }
 ?>
-
+</div>
 </body>
 </html>
 

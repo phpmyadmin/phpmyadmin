@@ -298,7 +298,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         // Array ( [Field] => d [Type] => datetime [Null] => YES [Key] => [Extra] => [True_Type] => datetime )
         // but, look what we get if we switch to iso: (Default is NULL)
         // Array ( [Field] => d [Type] => datetime [Null] => YES [Key] => [Default] => [Extra] => [True_Type] => datetime )
-        // so I force a NULL into it (I don't think it's possible 
+        // so I force a NULL into it (I don't think it's possible
         // to have an empty default value for DATETIME)
         // then, the "if" after this one will work
         if ($row_table_def['Type'] == 'datetime'
@@ -628,8 +628,8 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                             && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
                         echo ' checked="checked"';
                     }
-                    echo 'tabindex="' . ($tabindex + $tab3) . '" />' . "\n";
-                    echo '            <label for="field_' . ($tabindex + $tab3) . '_3_' . $j . '">' . htmlspecialchars($enum_atom) . '</label>' . "\n";
+                    echo 'tabindex="' . ($tabindex + $tab3) . '" />';
+                    echo '<label for="field_' . ($tabindex + $tab3) . '_3_' . $j . '">' . htmlspecialchars($enum_atom) . '</label>' . "\n";
                 } // end for
 
             } // end else
@@ -748,7 +748,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                         if (is_file($cfg['UploadDir'] . $file) && !PMA_checkFileExtensions($file, '.sql')) {
                             if ($is_first == 0) {
                                 echo "<br />\n";
-                                echo '    <i>' . $strOr . '</i>' . ' ' . $strWebServerUploadDirectory . '&nbsp;:<br />' . "\n";
+                                echo '    <i>' . $strOr . '</i>' . ' ' . $strWebServerUploadDirectory . ':<br />' . "\n";
                                 echo '        <select size="1" name="fields_uploadlocal_' . urlencode($field) . $vkey . '">' . "\n";
                                 echo '            <option value="" selected="selected"></option>' . "\n";
                             } // end if (is_first)
@@ -862,17 +862,14 @@ if (!empty($disp_message)) {
             &nbsp;&nbsp;&nbsp;<b>-- <?php echo $strAnd; ?> --</b>&nbsp;&nbsp;&nbsp;
         </td>
         <td valign="middle" nowrap="nowrap">
-            <input type="radio" name="after_insert" value="back" id="radio_after_insert_back" <?php echo $checked_after_insert_back; ?> tabindex="<?php echo ($tabindex + $tab3 + 3); ?>" style="vertical-align: middle" />
-            <label for="radio_after_insert_back"><?php echo $strAfterInsertBack; ?></label><br />
+            <input type="radio" name="after_insert" value="back" id="radio_after_insert_back" <?php echo $checked_after_insert_back; ?> tabindex="<?php echo ($tabindex + $tab3 + 3); ?>" style="vertical-align: middle" /><label for="radio_after_insert_back"><?php echo $strAfterInsertBack; ?></label><br />
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
-            <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tab3 + 4); ?>" style="vertical-align: middle" />
-            <label for="radio_after_insert_new_insert"><?php echo $strAfterInsertNewInsert; ?></label><br />
+            <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tab3 + 4); ?>" style="vertical-align: middle" /><label for="radio_after_insert_new_insert"><?php echo $strAfterInsertNewInsert; ?></label><br />
 
 <?php if (isset($primary_key)) { ?>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
-            <input type="radio" name="after_insert" value="same_insert" id="radio_after_insert_same_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tab3+ 5); ?>" style="vertical-align: middle" />
-            <label for="radio_after_insert_same_insert"><?php echo $strAfterInsertSame; ?></label>
+            <input type="radio" name="after_insert" value="same_insert" id="radio_after_insert_same_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tab3+ 5); ?>" style="vertical-align: middle" /><label for="radio_after_insert_same_insert"><?php echo $strAfterInsertSame; ?></label>
 <?php } ?>
         </td>
     </tr>

@@ -79,14 +79,14 @@ $query_frame_height = 0;
 if ($cfg['LeftDisplayLogo'] && @file_exists($logo_image)) {
     $tmp_imgsize = @getimagesize($logo_image);
     $query_frame_height = ($tmp_imgsize[1] + 60);
-    // increase the height to take into account font size differences in 
+    // increase the height to take into account font size differences in
     // theme 'original'? (TODO: improve with a parameter in layout.inc.php)
     $query_frame_height += ((!isset($GLOBALS['theme']) || $GLOBALS['theme']=='original') ? 25 : 0);
 }
 if ($query_frame_height == 0) {
     $query_frame_height = 60;
 }
-// increase the height to take into account font size differences in 
+// increase the height to take into account font size differences in
 // theme 'original'? (TODO: improve with a parameter in layout.inc.php)
 $query_frame_height += ((!isset($GLOBALS['theme']) || $GLOBALS['theme']=='original') ? 20 : 10);
 
@@ -114,10 +114,10 @@ if ($cfg['QueryFrame']) {
         echo '<!--' . "\n";
         echo '    document.writeln(\'<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" border="1" frameborder="1" framespacing="0" name="mainFrameset" id="mainFrameset">\');' . "\n";
         echo '    document.writeln(\'    <frameset rows="' . $query_frame_height . ', *" framespacing="0" frameborder="0" border="0" name="leftFrameset" id="leftFrameset">\');' . "\n";
-        echo '    document.writeln(\'        <frame src="queryframe.php?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="queryframe" frameborder="0" scrolling="no" />\');' . "\n";
-        echo '    document.writeln(\'        <frame src="left.php?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="nav" frameborder="0" />\');' . "\n";
+        echo '    document.writeln(\'        <frame src="queryframe.php?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="queryframe" frameborder="0" scrolling="no" id="leftQueryframe" />\');' . "\n";
+        echo '    document.writeln(\'        <frame src="left.php?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="nav" frameborder="0" id="leftFrame" />\');' . "\n";
         echo '    document.writeln(\'    </frameset>\');' . "\n";
-        echo '    document.writeln(\'    <frame src="' . (empty($db) ? $cfg['DefaultTabServer']  : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . $phpmain_hash_js . '" border="0" frameborder="0" style="border-left: 1px solid #000000;" />\');' . "\n";
+        echo '    document.writeln(\'    <frame src="' . (empty($db) ? $cfg['DefaultTabServer']  : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . $phpmain_hash_js . '" border="0" frameborder="0" style="border-left: 1px solid #000000;" id="rightFrame" />\');' . "\n";
         echo '    document.writeln(\'    <noframes>\');' . "\n";
         echo '    document.writeln(\'        <body bgcolor="#FFFFFF">\');' . "\n";
         echo '    document.writeln(\'            <p>' . str_replace("'", "\'", $strNoFrames) . '</p>\');' . "\n";
@@ -129,19 +129,19 @@ if ($cfg['QueryFrame']) {
         echo "\n";
         echo '<noscript>' . "\n";
     }
-    
+
     echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*"  border="1" frameborder="1" framespacing="0" name="mainFrameset" id="mainFrameset">' . "\n";
     echo '    <frameset rows="' . $query_frame_height . ', *" framespacing="0" frameborder="0" border="0" name="leftFrameset" id="leftFrameset">' . "\n";
-    echo '        <frame src="queryframe.php?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="queryframe" frameborder="0" scrolling="no" />' . "\n";
-    echo '        <frame src="left.php?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" />' . "\n";
+    echo '        <frame src="queryframe.php?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="queryframe" frameborder="0" scrolling="no" id="leftQueryframe" />' . "\n";
+    echo '        <frame src="left.php?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" id="leftFrame" />' . "\n";
     echo '    </frameset>' . "\n";
-    echo '    <frame src="' . (empty($db) ? $cfg['DefaultTabServer']  : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" frameborder="0" />' . "\n";
+    echo '    <frame src="' . (empty($db) ? $cfg['DefaultTabServer']  : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" frameborder="0" id="rightFrame" />' . "\n";
 
 } else {
 
-    echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" border="1" frameborder="1" framespacing="0">' . "\n";
-    echo '    <frame src="left.php?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" />' . "\n";
-    echo '    <frame src="' . (empty($db) ? $cfg['DefaultTabServer']  : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" frameborder="1" />' . "\n";
+    echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" border="1" frameborder="1" framespacing="0" id="leftFrameset" >' . "\n";
+    echo '    <frame src="left.php?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" id="leftFrame" />' . "\n";
+    echo '    <frame src="' . (empty($db) ? $cfg['DefaultTabServer']  : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" id="rightFrame" frameborder="1" />' . "\n";
 
 }
 ?>

@@ -95,7 +95,7 @@ echo '<h1>' . $strChangePassword . '</h1>' . "\n\n";
 
 // Displays an error message if required
 if (!empty($error_msg)) {
-    echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $error_msg . '</b></p>' . "\n";
+    echo '<p><b>' . $strError . ':&nbsp;' . $error_msg . '</b></p>' . "\n";
 }
 
 // loic1: autocomplete feature of IE kills the "onchange" event handler and it
@@ -118,12 +118,12 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
     <tr>
         <td>
             <input type="radio" name="nopass" value="0" checked="checked " />
-            <?php echo $GLOBALS['strPassword']; ?>&nbsp;:&nbsp;
+            <?php echo $GLOBALS['strPassword']; ?>:&nbsp;
         </td>
         <td>
             <input type="password" name="pma_pw" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
             &nbsp;&nbsp;
-            <?php echo $GLOBALS['strReType']; ?>&nbsp;:&nbsp;
+            <?php echo $GLOBALS['strReType']; ?>:&nbsp;
             <input type="password" name="pma_pw2" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
         </td>
     </tr>

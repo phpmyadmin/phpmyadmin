@@ -17,7 +17,7 @@ require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
 // This is to avoid "Command out of sync" errors. Before switching this to
-// a value of 0 (for MYSQLI_USE_RESULT), please check the logic 
+// a value of 0 (for MYSQLI_USE_RESULT), please check the logic
 // to free results wherever needed.
 $query_default_option = PMA_DBI_QUERY_STORE;
 
@@ -254,9 +254,9 @@ if ($cfgRelation['pdfwork']) {
         echo "\n";
         ?>
     </select>
-    <input type="radio" name="action_choose" value="0" id="radio_choose0" checked="checked" style="vertical-align: middle" /> <label for="radio_choose0">
+    <input type="radio" name="action_choose" value="0" id="radio_choose0" checked="checked" style="vertical-align: middle" /><label for="radio_choose0">
 <?php echo $strEdit; ?> </label>
-    <input type="radio" name="action_choose" value="1" id="radio_choose1"  style="vertical-align: middle" /> <label for="radio_choose1">
+    <input type="radio" name="action_choose" value="1" id="radio_choose1"  style="vertical-align: middle" /><label for="radio_choose1">
 <?php echo $strDelete; ?> </label>
 
     <input type="submit" value="<?php echo $strGo; ?>" />
@@ -482,45 +482,43 @@ function resetDrag() {
 <form method="post" action="pdf_schema.php" name="pdfoptions">
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <input type="hidden" name="pdf_page_number" value="<?php echo $chpage; ?>" />
-    <?php echo $strDisplayPDF; ?>&nbsp;:<br />
-    <input type="checkbox" name="show_grid" id="show_grid_opt" />
-    <label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
-    <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" />
-    <label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
-    <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
-    <label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label><br />
-    <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" />
-    <label for="all_tab_same_wide"><?php echo $strAllTableSameWidth; ?></label><br />
-    <input type="checkbox" name="with_doc" id="with_doc" checked="checked" />
-    <label for="with_doc"><?php echo $strDataDict; ?></label> <br />
-    <?php echo $strShowDatadictAs; ?>
-    <select name="orientation" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
+
+    <?php echo $strDisplayPDF; ?>:&nbsp;<br />
+    <input type="checkbox" name="show_grid" id="show_grid_opt" /><label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
+    <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" /><label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
+    <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" /><label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label><br />
+    <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" /><label for="all_tab_same_wide"><?php echo $strAllTableSameWidth; ?></label><br />
+    <input type="checkbox" name="with_doc" id="with_doc" checked="checked" /><label for="with_doc"><?php echo $strDataDict; ?></label>
+    <br />
+    <label for="orientation_opt"><?php echo $strShowDatadictAs; ?></label>
+    <select id="orientation_opt" name="orientation" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
         <option value="L"><?php echo $strLandscape;?></option>
         <option value="P"><?php echo $strPortrait;?></option>
     </select><br />
-    <?php echo $strPaperSize; ?>
-    <select name="paper" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
+
+    <label for="paper_opt"><?php echo $strPaperSize; ?></label>
+    <select id="paper_opt" name="paper" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
 <?php
-    foreach ($cfg['PDFPageSizes'] AS $key => $val) {
-        echo '<option value="' . $val . '"';
-        if ($val == $cfg['PDFDefaultPageSize']) {
-            echo ' selected="selected"';
+        foreach ($cfg['PDFPageSizes'] AS $key => $val) {
+            echo '<option value="' . $val . '"';
+            if ($val == $cfg['PDFDefaultPageSize']) {
+                echo ' selected="selected"';
+            }
+            echo ' >' . $val . '</option>' . "\n";
         }
-        echo ' >' . $val . '</option>' . "\n";
-    }
 ?>
     </select><br />
     &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
 </form>
-        <?php
+<?php
         if ((isset($showwysiwyg) && $showwysiwyg == '1')) {
-        ?>
+?>
 <script type="text/javascript">
 <!--
 ToggleDragDrop('pdflayout');
 // -->
 </script>
-        <?php
+<?php
         }
     } // end if
 } // end if ($cfgRelation['pdfwork'])

@@ -152,7 +152,7 @@ if (empty($GLOBALS['is_header_sent'])) {
      */
 
     if (PMA_DISPLAY_HEADING) {
-        echo '<table border="0" cellpadding="0" cellspacing="0">' . "\n"
+        echo '<table border="0" cellpadding="0" cellspacing="0" id="serverinfo">' . "\n"
            . '    <tr>' . "\n";
         $header_url_qry = '?' . PMA_generate_common_url();
         $server_info = (!empty($cfg['Server']['verbose'])

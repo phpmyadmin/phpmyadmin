@@ -411,7 +411,7 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
         $message   = $strNoQuery;
     }
 } else if ($sql_query_cpy == '') {
-    $message   = "$strSuccess&nbsp;:<br />$strTheContent ($pieces_count $strInstructions)&nbsp;";
+    $message   = "$strSuccess:<br />$strTheContent ($pieces_count $strInstructions)&nbsp;";
 } else {
     $message   = $strSuccess;
 }

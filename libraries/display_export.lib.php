@@ -186,11 +186,9 @@ if (isset($sql_query)) {
                 <tr>
                     <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
                         <?php echo $strAddHeaderComment; ?>: <input type="text" name="header_comment" value="<?php echo $cfg['Export']['sql_header_comment']; ?>" class="textfield" size="30" style="vertical-align: middle" /><br />
-                        <input type="checkbox" name="use_transaction" value="yes" id="checkbox_use_transaction" <?php PMA_exportCheckboxCheck('sql_use_transaction'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_use_transaction"><?php echo $strEncloseInTransaction; ?></label><br />
+                        <input type="checkbox" name="use_transaction" value="yes" id="checkbox_use_transaction" <?php PMA_exportCheckboxCheck('sql_use_transaction'); ?> style="vertical-align: middle" /><label for="checkbox_use_transaction"><?php echo $strEncloseInTransaction; ?></label><br />
 
-                        <input type="checkbox" name="disable_fk" value="yes" id="checkbox_disable_fk" <?php PMA_exportCheckboxCheck('sql_disable_fk'); ?> style="vertical-align: middle" />
-  	                    <label for="checkbox_disable_fk"><?php echo $strDisableForeignChecks; ?></label><br />
+                        <input type="checkbox" name="disable_fk" value="yes" id="checkbox_disable_fk" <?php PMA_exportCheckboxCheck('sql_disable_fk'); ?> style="vertical-align: middle" /><label for="checkbox_disable_fk"><?php echo $strDisableForeignChecks; ?></label><br />
                     </td>
                 </tr>
 <?php
@@ -200,8 +198,7 @@ if ($export_type == 'server') {
                 <tr>
                     <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
                         <b><?php echo $strDatabaseExportOptions; ?>:</b><br />
-                        <input type="checkbox" name="drop_database" value="yes" id="checkbox_drop_database" <?php PMA_exportCheckboxCheck('sql_drop_database'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_drop_database"><?php echo $strAddDropDatabase; ?></label>
+                        <input type="checkbox" name="drop_database" value="yes" id="checkbox_drop_database" <?php PMA_exportCheckboxCheck('sql_drop_database'); ?> style="vertical-align: middle" /><label for="checkbox_drop_database"><?php echo $strAddDropDatabase; ?></label>
                     </td>
                 </tr>
 
@@ -211,42 +208,33 @@ if (!$hide_structure) { ?>
                 <!-- For structure -->
                 <tr>
                     <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-                        <input type="checkbox" name="sql_structure" value="structure" id="checkbox_sql_structure" <?php PMA_exportCheckboxCheck('sql_structure'); ?> onclick="if (!this.checked &amp;&amp; !getElement('checkbox_sql_data').checked) return false; else return true;" />
-                        <label for="checkbox_sql_structure"><b><?php echo $strStructure; ?>:</b></label><br />
+                        <input type="checkbox" name="sql_structure" value="structure" id="checkbox_sql_structure" <?php PMA_exportCheckboxCheck('sql_structure'); ?> onclick="if (!this.checked &amp;&amp; !getElement('checkbox_sql_data').checked) return false; else return true;" /><label for="checkbox_sql_structure"><b><?php echo $strStructure; ?>:</b></label><br />
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="drop" value="1" id="checkbox_dump_drop" <?php PMA_exportCheckboxCheck('sql_drop_table'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_dump_drop"><?php echo $strStrucDrop; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="drop" value="1" id="checkbox_dump_drop" <?php PMA_exportCheckboxCheck('sql_drop_table'); ?> style="vertical-align: middle" /><label for="checkbox_dump_drop"><?php echo $strStrucDrop; ?></label><br />
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="if_not_exists" value="1" id="checkbox_dump_if_not_exists" <?php PMA_exportCheckboxCheck('sql_if_not_exists'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_dump_if_not_exists"><?php echo $strAddIfNotExists; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="if_not_exists" value="1" id="checkbox_dump_if_not_exists" <?php PMA_exportCheckboxCheck('sql_if_not_exists'); ?> style="vertical-align: middle" /><label for="checkbox_dump_if_not_exists"><?php echo $strAddIfNotExists; ?></label><br />
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="auto_increment" value="1" id="checkbox_auto_increment" <?php PMA_exportCheckboxCheck('sql_auto_increment'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="auto_increment" value="1" id="checkbox_auto_increment" <?php PMA_exportCheckboxCheck('sql_auto_increment'); ?> style="vertical-align: middle" /><label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="use_backquotes" value="1" id="checkbox_dump_use_backquotes" <?php PMA_exportCheckboxCheck('sql_backquotes'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_dump_use_backquotes"><?php echo $strUseBackquotes; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="use_backquotes" value="1" id="checkbox_dump_use_backquotes" <?php PMA_exportCheckboxCheck('sql_backquotes'); ?> style="vertical-align: middle" /><label for="checkbox_dump_use_backquotes"><?php echo $strUseBackquotes; ?></label><br />
 
                         &nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strAddIntoComments; ?></b><br />
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_dates" value="yes" id="checkbox_sql_dates" <?php PMA_exportCheckboxCheck('sql_dates'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_sql_dates"><?php echo $strCreationDates; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_dates" value="yes" id="checkbox_sql_dates" <?php PMA_exportCheckboxCheck('sql_dates'); ?> style="vertical-align: middle" /><label for="checkbox_sql_dates"><?php echo $strCreationDates; ?></label><br />
 <?php
     if (!empty($cfgRelation['relation'])) {
 ?>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_relation" value="yes" id="checkbox_sql_use_relation" <?php PMA_exportCheckboxCheck('sql_relation'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_sql_use_relation"><?php echo $strRelations; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_relation" value="yes" id="checkbox_sql_use_relation" <?php PMA_exportCheckboxCheck('sql_relation'); ?> style="vertical-align: middle" /><label for="checkbox_sql_use_relation"><?php echo $strRelations; ?></label><br />
 <?php
     } // end relation
     if (!empty($cfgRelation['commwork'])) {
 ?>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_comments" value="yes" id="checkbox_sql_use_comments" <?php PMA_exportCheckboxCheck('sql_comments'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_sql_use_comments"><?php echo $strComments; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_comments" value="yes" id="checkbox_sql_use_comments" <?php PMA_exportCheckboxCheck('sql_comments'); ?> style="vertical-align: middle" /><label for="checkbox_sql_use_comments"><?php echo $strComments; ?></label><br />
 <?php
     } // end comments
     if ($cfgRelation['mimework']) {
 ?>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_mime" value="yes" id="checkbox_sql_use_mime" <?php PMA_exportCheckboxCheck('sql_mime'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_sql_use_mime"><?php echo $strMIME_MIMEtype; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_mime" value="yes" id="checkbox_sql_use_mime" <?php PMA_exportCheckboxCheck('sql_mime'); ?> style="vertical-align: middle" /><label for="checkbox_sql_use_mime"><?php echo $strMIME_MIMEtype; ?></label><br />
 <?php
     } // end MIME
 ?>
@@ -259,26 +247,19 @@ if (!$hide_structure) { ?>
                 <!-- For data -->
                 <tr>
                     <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-                        <input type="checkbox" name="sql_data" value="data" id="checkbox_sql_data" <?php PMA_exportCheckboxCheck('sql_data'); ?> onclick="if (!this.checked &amp;&amp; (!getElement('checkbox_sql_structure') || !getElement('checkbox_sql_structure').checked)) return false; else return true;" style="vertical-align: middle" />
-                        <label for="checkbox_sql_data"><b><?php echo $strData; ?>:</b></label><br />
+                        <input type="checkbox" name="sql_data" value="data" id="checkbox_sql_data" <?php PMA_exportCheckboxCheck('sql_data'); ?> onclick="if (!this.checked &amp;&amp; (!getElement('checkbox_sql_structure') || !getElement('checkbox_sql_structure').checked)) return false; else return true;" style="vertical-align: middle" /><label for="checkbox_sql_data"><b><?php echo $strData; ?>:</b></label><br />
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="showcolumns" value="yes" id="checkbox_dump_showcolumns" <?php PMA_exportCheckboxCheck('sql_columns'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_dump_showcolumns"><?php echo $strCompleteInserts; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="showcolumns" value="yes" id="checkbox_dump_showcolumns" <?php PMA_exportCheckboxCheck('sql_columns'); ?> style="vertical-align: middle" /><label for="checkbox_dump_showcolumns"><?php echo $strCompleteInserts; ?></label><br />
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="extended_ins" value="yes" id="checkbox_dump_extended_ins" <?php PMA_exportCheckboxCheck('sql_extended'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_dump_extended_ins"><?php echo $strExtendedInserts; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="extended_ins" value="yes" id="checkbox_dump_extended_ins" <?php PMA_exportCheckboxCheck('sql_extended'); ?> style="vertical-align: middle" /><label for="checkbox_dump_extended_ins"><?php echo $strExtendedInserts; ?></label><br />
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="delayed" value="yes" id="checkbox_dump_delayed" <?php PMA_exportCheckboxCheck('sql_delayed'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_dump_delayed"><?php echo $strDelayedInserts; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="delayed" value="yes" id="checkbox_dump_delayed" <?php PMA_exportCheckboxCheck('sql_delayed'); ?> style="vertical-align: middle" /><label for="checkbox_dump_delayed"><?php echo $strDelayedInserts; ?></label><br />
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_ignore" value="yes" id="checkbox_dump_ignore" <?php PMA_exportCheckboxCheck('sql_ignore'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_dump_ignore"><?php echo $strIgnoreInserts; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_ignore" value="yes" id="checkbox_dump_ignore" <?php PMA_exportCheckboxCheck('sql_ignore'); ?> style="vertical-align: middle" /><label for="checkbox_dump_ignore"><?php echo $strIgnoreInserts; ?></label><br />
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="hexforbinary" value="yes" id="checkbox_hexforbinary" <?php PMA_exportCheckboxCheck('sql_hex_for_binary'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_hexforbinary"><?php echo $strHexForBinary; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="hexforbinary" value="yes" id="checkbox_hexforbinary" <?php PMA_exportCheckboxCheck('sql_hex_for_binary'); ?> style="vertical-align: middle" /><label for="checkbox_hexforbinary"><?php echo $strHexForBinary; ?></label><br />
 
-                        <label for="select_sql_type"><?php echo $strSQLExportType; ?>:&nbsp;</label>
-                        <select name="sql_type" id="select_sql_type" style="vertical-align: middle">
+                        <label for="select_sql_type"><?php echo $strSQLExportType; ?>:&nbsp;</label><select name="sql_type" id="select_sql_type" style="vertical-align: middle">
                             <option value="insert"<?php echo $cfg['Export']['sql_type'] == 'insert' ? ' selected="selected"' : ''; ?>>INSERT</option>
                             <option value="update"<?php echo $cfg['Export']['sql_type'] == 'update' ? ' selected="selected"' : ''; ?>>UPDATE</option>
                             <option value="replace"<?php echo $cfg['Export']['sql_type'] == 'replace' ? ' selected="selected"' : ''; ?>>REPLACE</option>
@@ -297,8 +278,7 @@ if (!$hide_structure) { ?>
                 <tr><th align="left"><?php echo $strLaTeXOptions; ?></th></tr>
                 <tr>
                     <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-                        <input type="checkbox" name="latex_caption" value="yes" id="checkbox_latex_show_caption" <?php PMA_exportCheckboxCheck('latex_caption'); ?> style="vertical-align: middle" />
-                        <label for="checkbox_latex_show_caption"><?php echo $strLatexIncludeCaption; ?></label><br />
+                        <input type="checkbox" name="latex_caption" value="yes" id="checkbox_latex_show_caption" <?php PMA_exportCheckboxCheck('latex_caption'); ?> style="vertical-align: middle" /><label for="checkbox_latex_show_caption"><?php echo $strLatexIncludeCaption; ?></label><br />
                     </td>
                 </tr>
 
@@ -306,8 +286,7 @@ if (!$hide_structure) { ?>
                 <!-- For structure -->
                 <tr>
                     <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-                    <input type="checkbox" name="latex_structure" value="structure" id="checkbox_latex_structure" <?php PMA_exportCheckboxCheck('latex_structure'); ?> onclick="if (!this.checked &amp;&amp; !getElement('checkbox_latex_data').checked) return false; else return true;" style="vertical-align: middle" />
-                    <label for="checkbox_latex_structure"><b><?php echo $strStructure; ?></b></label><br />
+                    <input type="checkbox" name="latex_structure" value="structure" id="checkbox_latex_structure" <?php PMA_exportCheckboxCheck('latex_structure'); ?> onclick="if (!this.checked &amp;&amp; !getElement('checkbox_latex_data').checked) return false; else return true;" style="vertical-align: middle" /><label for="checkbox_latex_structure"><b><?php echo $strStructure; ?></b></label><br />
                     <table border="0" cellspacing="1" cellpadding="0">
                         <tr>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -334,20 +313,17 @@ if (!$hide_structure) { ?>
 <?php
     if (!empty($cfgRelation['relation'])) {
 ?>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="latex_relation" value="yes" id="checkbox_latex_use_relation" <?php PMA_exportCheckboxCheck('latex_relation'); ?> style="vertical-align: middle" />
-                    <label for="checkbox_latex_use_relation"><?php echo $strRelations; ?></label><br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="latex_relation" value="yes" id="checkbox_latex_use_relation" <?php PMA_exportCheckboxCheck('latex_relation'); ?> style="vertical-align: middle" /><label for="checkbox_latex_use_relation"><?php echo $strRelations; ?></label><br />
 <?php
     } // end relation
     if ($cfgRelation['commwork']) {
 ?>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="latex_comments" value="yes" id="checkbox_latex_use_comments" <?php PMA_exportCheckboxCheck('latex_comments'); ?> style="vertical-align: middle" />
-                    <label for="checkbox_latex_use_comments"><?php echo $strComments; ?></label><br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="latex_comments" value="yes" id="checkbox_latex_use_comments" <?php PMA_exportCheckboxCheck('latex_comments'); ?> style="vertical-align: middle" /><label for="checkbox_latex_use_comments"><?php echo $strComments; ?></label><br />
 <?php
     } // end comments
     if ($cfgRelation['mimework']) {
 ?>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="latex_mime" value="yes" id="checkbox_latex_use_mime" <?php PMA_exportCheckboxCheck('latex_mime'); ?> style="vertical-align: middle" />
-                    <label for="checkbox_latex_use_mime"><?php echo $strMIME_MIMEtype; ?></label><br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="latex_mime" value="yes" id="checkbox_latex_use_mime" <?php PMA_exportCheckboxCheck('latex_mime'); ?> style="vertical-align: middle" /><label for="checkbox_latex_use_mime"><?php echo $strMIME_MIMEtype; ?></label><br />
 <?php
     } // end MIME
 ?>
@@ -359,10 +335,8 @@ if (!$hide_structure) { ?>
             <!-- For data -->
             <tr>
                 <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-                    <input type="checkbox" name="latex_data" value="data" id="checkbox_latex_data" <?php PMA_exportCheckboxCheck('latex_data'); ?> onclick="if (!this.checked &amp;&amp; (!getElement('checkbox_latex_structure') || !getElement('checkbox_latex_structure').checked)) return false; else return true;" style="vertical-align: middle" />
-                    <label for="checkbox_latex_data"><b><?php echo $strData; ?>:</b></label><br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="latex_showcolumns" value="yes" id="ch_latex_showcolumns" <?php PMA_exportCheckboxCheck('latex_columns'); ?> style="vertical-align: middle" />
-                    <label for="ch_latex_showcolumns"><?php echo $strColumnNames; ?></label><br />
+                    <input type="checkbox" name="latex_data" value="data" id="checkbox_latex_data" <?php PMA_exportCheckboxCheck('latex_data'); ?> onclick="if (!this.checked &amp;&amp; (!getElement('checkbox_latex_structure') || !getElement('checkbox_latex_structure').checked)) return false; else return true;" style="vertical-align: middle" /><label for="checkbox_latex_data"><b><?php echo $strData; ?>:</b></label><br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="latex_showcolumns" value="yes" id="ch_latex_showcolumns" <?php PMA_exportCheckboxCheck('latex_columns'); ?> style="vertical-align: middle" /><label for="ch_latex_showcolumns"><?php echo $strColumnNames; ?></label><br />
                     <table border="0" cellspacing="1" cellpadding="0">
                         <tr>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -448,8 +422,7 @@ if (!$hide_structure) { ?>
                         </td>
                     </tr>
                 </table>
-                <input type="checkbox" name="showcsvnames" value="yes" id="checkbox_dump_showcsvnames" <?php PMA_exportCheckboxCheck('csv_columns'); ?> style="vertical-align: middle" />
-                <label for="checkbox_dump_showcsvnames"><?php echo $strPutColNames; ?></label>
+                <input type="checkbox" name="showcsvnames" value="yes" id="checkbox_dump_showcsvnames" <?php PMA_exportCheckboxCheck('csv_columns'); ?> style="vertical-align: middle" /><label for="checkbox_dump_showcsvnames"><?php echo $strPutColNames; ?></label>
             </td>
         </tr>
         </table>
@@ -474,8 +447,7 @@ if (!$hide_structure) { ?>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="checkbox" name="showexcelnames" value="yes" id="checkbox_dump_showexcelnames" <?php PMA_exportCheckboxCheck('excel_columns'); ?> style="vertical-align: middle" />
-                            <label for="checkbox_dump_showexcelnames"><?php echo $strPutColNames; ?></label>
+                            <input type="checkbox" name="showexcelnames" value="yes" id="checkbox_dump_showexcelnames" <?php PMA_exportCheckboxCheck('excel_columns'); ?> style="vertical-align: middle" /><label for="checkbox_dump_showexcelnames"><?php echo $strPutColNames; ?></label>
                         </td>
                     </tr>
                     <tr>
@@ -519,8 +491,7 @@ if (!$hide_structure) { ?>
                     </tr>
                     <tr>
                         <td>
-                            <input type="checkbox" name="xls_shownames" value="yes" id="checkbox_dump_xls_shownames" <?php PMA_exportCheckboxCheck('xls_columns'); ?> />
-                            <label for="checkbox_dump_xls_shownames"><?php echo $strPutColNames; ?></label>
+                            <input type="checkbox" name="xls_shownames" value="yes" id="checkbox_dump_xls_shownames" <?php PMA_exportCheckboxCheck('xls_columns'); ?> /><label for="checkbox_dump_xls_shownames"><?php echo $strPutColNames; ?></label>
                         </td>
                     </tr>
                 </table>
@@ -565,17 +536,14 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
         <table width="100%" border="0" cellpadding="3" cellspacing="1">
         <tr>
             <th align="left">
-            <input type="checkbox" name="asfile" value="sendit" id="checkbox_dump_asfile" <?php PMA_exportCheckboxCheck('asfile'); ?> style="vertical-align: middle" />
-            <label for="checkbox_dump_asfile"><b><?php echo $strSend; ?></b></label>
+            <input type="checkbox" name="asfile" value="sendit" id="checkbox_dump_asfile" <?php PMA_exportCheckboxCheck('asfile'); ?> style="vertical-align: middle" /><label for="checkbox_dump_asfile"><b><?php echo $strSend; ?></b></label>
             </th>
         </tr>
         <tr>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
                 <?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
-                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="onserver" value="saveit" id="checkbox_dump_onserver"  onclick="getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportCheckboxCheck('onserver'); ?> style="vertical-align: middle" />
-                <label for="checkbox_dump_onserver"><?php echo sprintf($strSaveOnServer, htmlspecialchars($cfg['SaveDir'])); ?></label>,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="onserverover" value="saveitover" id="checkbox_dump_onserverover"  onclick="getElement('checkbox_dump_onserver').checked = true;getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportCheckboxCheck('onserver_overwrite'); ?> style="vertical-align: middle" />
-                <label for="checkbox_dump_onserverover"><?php echo $strOverwriteExisting; ?></label>
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="onserver" value="saveit" id="checkbox_dump_onserver"  onclick="getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportCheckboxCheck('onserver'); ?> style="vertical-align: middle" /><label for="checkbox_dump_onserver"><?php echo sprintf($strSaveOnServer, htmlspecialchars($cfg['SaveDir'])); ?></label>,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="onserverover" value="saveitover" id="checkbox_dump_onserverover"  onclick="getElement('checkbox_dump_onserver').checked = true;getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportCheckboxCheck('onserver_overwrite'); ?> style="vertical-align: middle" /><label for="checkbox_dump_onserverover"><?php echo $strOverwriteExisting; ?></label>
                 <br />
                 <?php } ?>
 
@@ -605,8 +573,7 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                     echo '" ';
                 ?> style="vertical-align: middle" />
                 (
-                <input type="checkbox" name="remember_template" id="checkbox_remember_template" <?php PMA_exportCheckboxCheck('remember_file_template'); ?> style="vertical-align: middle" />
-                <label for="checkbox_remember_template"><?php echo $strFileNameTemplateRemember; ?></label>
+                <input type="checkbox" name="remember_template" id="checkbox_remember_template" <?php PMA_exportCheckboxCheck('remember_file_template'); ?> style="vertical-align: middle" /><label for="checkbox_remember_template"><?php echo $strFileNameTemplateRemember; ?></label>
                 )*
 
                 <?php

@@ -28,7 +28,7 @@ if (!empty($pred_tablename)) {
 if (!$is_superuser) {
     require('./server_links.inc.php');
     echo '<h2>' . "\n"
-       . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" border="0" hspace="2" align="middle" />' : '') 
+       . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" border="0" hspace="2" align="middle" />' : '')
        . '    ' . $strPrivileges . "\n"
        . '</h2>' . "\n"
        . $strNoPrivileges . "\n";
@@ -255,8 +255,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         }
         echo $spaces . '            </select><br />' . "\n"
            . $spaces . '            <i>' . $GLOBALS['strOr'] . '</i><br />' . "\n"
-           . $spaces . '            <input type="checkbox" name="Select_priv_none" id="checkbox_Select_priv_none" title="' . $GLOBALS['strNone'] . '" />' . "\n"
-           . $spaces . '            <label for="checkbox_Select_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
+           . $spaces . '            <input type="checkbox" name="Select_priv_none" id="checkbox_Select_priv_none" title="' . $GLOBALS['strNone'] . '" /><label for="checkbox_Select_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
            . $spaces . '        </td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="Insert_priv[]" multiple="multiple">' . "\n";
@@ -269,8 +268,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         }
         echo $spaces . '            </select><br />' . "\n"
            . $spaces . '            <i>' . $GLOBALS['strOr'] . '</i><br />' . "\n"
-           . $spaces . '            <input type="checkbox" name="Insert_priv_none" id="checkbox_Insert_priv_none" title="' . $GLOBALS['strNone'] . '" />' . "\n"
-           . $spaces . '            <label for="checkbox_Insert_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
+           . $spaces . '            <input type="checkbox" name="Insert_priv_none" id="checkbox_Insert_priv_none" title="' . $GLOBALS['strNone'] . '" /><label for="checkbox_Insert_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
            . $spaces . '        </td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="Update_priv[]" multiple="multiple">' . "\n";
@@ -283,8 +281,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         }
         echo $spaces . '            </select><br />' . "\n"
            . $spaces . '            <i>' . $GLOBALS['strOr'] . '</i><br />' . "\n"
-           . $spaces . '            <input type="checkbox" name="Update_priv_none" id="checkbox_Update_priv_none" title="' . $GLOBALS['strNone'] . '" />' . "\n"
-           . $spaces . '            <label for="checkbox_Update_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
+           . $spaces . '            <input type="checkbox" name="Update_priv_none" id="checkbox_Update_priv_none" title="' . $GLOBALS['strNone'] . '" /><label for="checkbox_Update_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
            . $spaces . '        </td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="References_priv[]" multiple="multiple">' . "\n";
@@ -297,8 +294,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         }
         echo $spaces . '            </select><br />' . "\n"
            . $spaces . '            <i>' . $GLOBALS['strOr'] . '</i><br />' . "\n"
-           . $spaces . '            <input type="checkbox" name="References_priv_none" id="checkbox_References_priv_none" title="' . $GLOBALS['strNone'] . '" />' . "\n"
-           . $spaces . '            <label for="checkbox_References_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
+           . $spaces . '            <input type="checkbox" name="References_priv_none" id="checkbox_References_priv_none" title="' . $GLOBALS['strNone'] . '" /><label for="checkbox_References_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
            . $spaces . '        </td>' . "\n";
         unset($rowspan);
         list($current_grant, $current_grant_value) = each($row);
@@ -537,7 +533,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
        . $spaces . '        <input type="password" name="pma_pw2" id="text_pma_pw2" class="textfield" title="' . $GLOBALS['strReType'] . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
        . $spaces . '    </td>' . "\n"
        . $spaces . '</tr>' . "\n";
-} // end of the 'PMA_displayUserAndHostFields()' function 
+} // end of the 'PMA_displayUserAndHostFields()' function
 
 
 /**
@@ -642,7 +638,7 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             $message = $strAddUserMessage;
         } else {
             $queries[]             = $real_sql_query;
-            // we put the query containing the hidden password in 
+            // we put the query containing the hidden password in
             // $queries_for_display, at the same position occupied
             // by the real query in $queries
             $tmp_count = count($queries);
@@ -912,7 +908,7 @@ if (empty($adduser) && empty($checkprivs)) {
     if (!isset($username)) {
         // No username is given --> display the overview
         echo '<h2>' . "\n"
-           . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" border="0" hspace="2" align="middle" />' : '') 
+           . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" border="0" hspace="2" align="middle" />' : '')
            . $strUserOverview . "\n"
            . '</h2>' . "\n";
         $oldPrivTables = FALSE;
@@ -1000,15 +996,15 @@ if (empty($adduser) && empty($checkprivs)) {
                . '        </tr>' . "\n"
                . '    </table>' . "\n"
                . '    <br /><table border="0" cellpading="3" cellspacing="0">' . "\n"
-               . '        <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td ' 
+               . '        <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td '
                . ($cfg['PropertiesIconic'] ? 'colspan="3"><b><a href="server_privileges.php?' . $url_query . '&amp;adduser=1"><img src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" hspace="2" border="0" align="middle" />' : 'width="20" nowrap="nowrap" align="center" valign="top"><b>&#8226;</b></td><td><b><a href="server_privileges.php?' . $url_query . '&amp;adduser=1">' ). "\n"
                . '            ' . $strAddUser . '</a></b>' . "\n"
                . '            ' . "\n"
                . '        </td></tr>' . "\n" . '        <tr><td colspan="2"></td></tr>'
-               . '        <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td ' 
+               . '        <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td '
                . ($cfg['PropertiesIconic'] ? 'colspan="3"><b><img src="' . $pmaThemeImage . 'b_usrdrop.png" width="16" height="16" hspace="2" border="0" align="middle" />' : 'width="20" nowrap="nowrap" align="center" valign="top"><b>&#8226;</b></td><td><b>' ). "\n"
                . '            <b>' . $strRemoveSelectedUsers . '</b>' . "\n"
-               . '        </td></tr>' . "\n" 
+               . '        </td></tr>' . "\n"
                . '            <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td width="16" class="nowrap">&nbsp;</td><td valign="top"><input type="radio" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '" name="mode" id="radio_mode_1" value="1" checked="checked" /></td>' . "\n"
                . '            <td><label for="radio_mode_1" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '">' . "\n"
                . '                ' . $strJustDelete . "\n"
@@ -1268,23 +1264,19 @@ if (empty($adduser) && empty($checkprivs)) {
             PMA_displayLoginInformationFields('change', 3);
             echo '            </table>' . "\n"
                . '            ' . $strChangeCopyMode . '<br />' . "\n"
-               . '            <input type="radio" name="mode" value="4" id="radio_mode_4" checked="checked" />' . "\n"
-               . '            <label for="radio_mode_4">' . "\n"
+               . '            <input type="radio" name="mode" value="4" id="radio_mode_4" checked="checked" /><label for="radio_mode_4">' . "\n"
                . '                ' . $strChangeCopyModeCopy . "\n"
                . '            </label>' . "\n"
                . '            <br />' . "\n"
-               . '            <input type="radio" name="mode" value="1" id="radio_mode_1" />' . "\n"
-               . '            <label for="radio_mode_1">' . "\n"
+               . '            <input type="radio" name="mode" value="1" id="radio_mode_1" /><label for="radio_mode_1">' . "\n"
                . '                ' . $strChangeCopyModeJustDelete . "\n"
                . '            </label>' . "\n"
                . '            <br />' . "\n"
-               . '            <input type="radio" name="mode" value="2" id="radio_mode_2" />' . "\n"
-               . '            <label for="radio_mode_2">' . "\n"
+               . '            <input type="radio" name="mode" value="2" id="radio_mode_2" /><label for="radio_mode_2">' . "\n"
                . '                ' . $strChangeCopyModeRevoke . "\n"
                . '            </label>' . "\n"
                . '            <br />' . "\n"
-               . '            <input type="radio" name="mode" value="3" id="radio_mode_3" />' . "\n"
-               . '            <label for="radio_mode_3">' . "\n"
+               . '            <input type="radio" name="mode" value="3" id="radio_mode_3" /><label for="radio_mode_3">' . "\n"
                . '                ' . $strChangeCopyModeDeleteAndReload . "\n"
                . '            </label>' . "\n"
                . '            <br />' . "\n"
@@ -1352,9 +1344,9 @@ if (empty($adduser) && empty($checkprivs)) {
 
         $no = PMA_convert_using('N', 'quoted');
 
-        $list_of_privileges = PMA_convert_using('Select_priv') . ' AS Select_priv, ' . PMA_convert_using('Insert_priv') . ' AS Insert_priv, ' . PMA_convert_using('Update_priv') . ' AS Update_priv, ' . PMA_convert_using('Delete_priv') . ' AS Delete_priv, ' . PMA_convert_using('Create_priv') . ' AS Create_priv, ' . PMA_convert_using('Drop_priv') . ' AS Drop_priv, ' . PMA_convert_using('Grant_priv') . ' AS Grant_priv, '. PMA_convert_using('References_priv') . ' AS References_priv'; 
+        $list_of_privileges = PMA_convert_using('Select_priv') . ' AS Select_priv, ' . PMA_convert_using('Insert_priv') . ' AS Insert_priv, ' . PMA_convert_using('Update_priv') . ' AS Update_priv, ' . PMA_convert_using('Delete_priv') . ' AS Delete_priv, ' . PMA_convert_using('Create_priv') . ' AS Create_priv, ' . PMA_convert_using('Drop_priv') . ' AS Drop_priv, ' . PMA_convert_using('Grant_priv') . ' AS Grant_priv, '. PMA_convert_using('References_priv') . ' AS References_priv';
 
-        $list_of_compared_privileges = PMA_convert_using('Select_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Insert_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Update_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Delete_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Create_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Drop_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Grant_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('References_priv') . ' = ' . $no; 
+        $list_of_compared_privileges = PMA_convert_using('Select_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Insert_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Update_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Delete_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Create_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Drop_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Grant_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('References_priv') . ' = ' . $no;
 
         $sql_query = '(SELECT ' . PMA_convert_using('User') . ' AS User,' . PMA_convert_using('Host') . ' AS Host,' . PMA_convert_using('Db') . ' AS Db,' . $list_of_privileges . ' FROM `db` WHERE ' . PMA_convert_using($checkprivs, 'quoted') . ' LIKE ' .  PMA_convert_using('Db') . ' AND NOT (' . $list_of_compared_privileges. ')) UNION (SELECT ' . PMA_convert_using('User') . ' AS User, ' . PMA_convert_using('Host') . ' AS Host, ' . PMA_convert_using('*', 'quoted') . ' AS Db, ' . $list_of_privileges . ' FROM `user` WHERE NOT (' . $list_of_compared_privileges . ')) ORDER BY User ASC, Host ASC, Db ASC;';
         $res = PMA_DBI_query($sql_query);

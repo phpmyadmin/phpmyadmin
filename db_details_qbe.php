@@ -395,7 +395,7 @@ for ($y = 0; $y <= $row; $y++) {
                     <input type="checkbox" name="InsRow[<?php echo $w; ?>]" />
                 </td>
                 <td align="<?php echo $cell_align_right; ?>">
-                    <b><?php echo $strAnd; ?>&nbsp;:</b>
+                    <b><?php echo $strAnd; ?>:</b>
                 </td>
                 <td>
                     <input type="radio" name="AndOrRow[<?php echo $w; ?>]" value="and"<?php echo $chk['and']; ?> />
@@ -629,7 +629,7 @@ for ($x = 0; $x < $col; $x++) {
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                </select>           
+                </select>
         </td>
         <td width="10">&nbsp;</td>
         <td nowrap="nowrap"><?php echo $strAddDeleteColumn; ?>:
@@ -1061,7 +1061,7 @@ if (!empty($qry_orderby)) {
         <!-- Execute a query -->
         <td align="right" class="tblHeaders"><input type="submit" name="submit_sql" value="<?php echo $strRunQuery; ?>" /></td>
     </tr>
-</table>   
+</table>
 </form>
 <?php
 /**
