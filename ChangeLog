@@ -18,6 +18,8 @@ $Source$
       export options in Opera (bug #828712).
     * db_details_structure.php3, lang/*: Show also overhead, allow to check
       all tables with overhead at once (JS only) (RFE #828090).
+    * footer.inc.php3: Try to update history in table only if configured so
+      (bug #828356).
 
 2003-10-21 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3: Patch 825672: show fields in Edit PDF scratchboard,

@@ -45,7 +45,9 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
                 if (isset($LockFromUpdate) && $LockFromUpdate == '1' && isset($sql_query)) {
                     // When the button 'LockFromUpdate' was selected in the querywindow, it does not submit it's contents to
                     // itself. So we create a SQL-history entry here.
-                    PMA_setHistory((isset($db) ? $db : ''), (isset($table) ? $table : ''), $cfg['Server']['user'], $sql_query);
+                    if ($cfg['QueryHistoryDB'] && $cfgRelation['historywork']) {
+                        PMA_setHistory((isset($db) ? $db : ''), (isset($table) ? $table : ''), $cfg['Server']['user'], $sql_query);
+                    }
                 }
             ?>
             if (!parent.frames.queryframe.querywindow.document.sqlform.LockFromUpdate || !parent.frames.queryframe.querywindow.document.sqlform.LockFromUpdate.checked) {
