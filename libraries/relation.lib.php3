@@ -94,7 +94,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                      . '<font color="red"><b>' . $GLOBALS['strNotOK'] . '</b></font>'
                      . '[ <a href="Documentation.html#pmadb">' . $GLOBALS['strDocu'] . '</a> ]<br />' . "\n"
                      . $GLOBALS['strGeneralRelationFeat']
-                     . ' <font color="green">' . $GLOBALS['strEnabled'] . '</font>' . "\n";
+                     . ' <font color="green">' . $GLOBALS['strDisabled'] . '</font>' . "\n";
             }
             return $cfgRelation;
         }
