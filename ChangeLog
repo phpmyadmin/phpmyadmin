@@ -7,6 +7,7 @@ $Source$
 
 2001-01-03  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3: invalid xhtml statements.
+	* libraries/functions.js: codding standards.
 
 2002-01-02  Marc Delisle  <lem9@users.sourceforge.net>
 	* db_details.php3, libraries/functions.js: feature 474742: add check
