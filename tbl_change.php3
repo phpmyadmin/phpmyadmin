@@ -143,12 +143,12 @@ if (isset($primary_key)) {
 echo "\n";
 ?>
 
-    <table border="<?php echo $cfgBorder; ?>">
+    <table border="<?php echo $cfg['Border']; ?>">
     <tr>
         <th><?php echo $strField; ?></th>
         <th><?php echo $strType; ?></th>
 <?php
-if ($cfgShowFunctionFields) {
+if ($cfg['ShowFunctionFields']) {
     echo '        <th>' . $strFunction . '</th>' . "\n";
 }
 ?>
@@ -172,7 +172,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                      : @mysql_field_len($result, $i);
     $first_timestamp = 0;
 
-    $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+    $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
     ?>
     <tr>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($field); ?></td>
@@ -252,9 +252,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // Note: from the MySQL manual: "BINARY doesn't affect how the column is
     //       stored or retrieved" so it does not mean that the contents is
     //       binary
-    if ($cfgShowFunctionFields) {
-        if (($cfgProtectBinary && $is_blob)
-            || ($cfgProtectBinary == 'all' && $is_binary)) {
+    if ($cfg['ShowFunctionFields']) {
+        if (($cfg['ProtectBinary'] && $is_blob)
+            || ($cfg['ProtectBinary'] == 'all' && $is_binary)) {
             echo '        <td align="center" bgcolor="'. $bgcolor . '">' . $strBinary . '</td>' . "\n";
         } else if (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
             echo '        <td align="center" bgcolor="'. $bgcolor . '">--</td>' . "\n";
@@ -266,14 +266,14 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             <?php
             echo "\n";
             $selected     = '';
-            for ($j = 0; $j < count($cfgFunctions); $j++) {
+            for ($j = 0; $j < count($cfg['Functions']); $j++) {
                 // for default function = NOW() on first timestamp field
                 // -- swix/18jul01
-                $selected = ($first_timestamp && $cfgFunctions[$j] == 'NOW')
+                $selected = ($first_timestamp && $cfg['Functions'][$j] == 'NOW')
                           ? ' selected="selected"'
                           : '';
                 echo '                ';
-                echo '<option' . $selected . '>' . $cfgFunctions[$j] . '</option>' . "\n";
+                echo '<option' . $selected . '>' . $cfg['Functions'][$j] . '</option>' . "\n";
             } // end for
             unset($selected);
             ?>
@@ -281,13 +281,13 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         </td>
             <?php
         }
-    } // end if ($cfgShowFunctionFields)
+    } // end if ($cfg['ShowFunctionFields'])
     echo "\n";
 
     // The null column
     // ---------------
     echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
-    if (!(($cfgProtectBinary && $is_blob) || ($cfgProtectBinary == 'all' && $is_binary))
+    if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary))
         && $row_table_def['Null'] == 'YES') {
         echo '            <input type="checkbox" tabindex=' . ($i+3*$fields_cnt) . '"'
              . ' name="fields_null[' . urlencode($field) . ']"';
@@ -319,7 +319,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i; ?>"><?php echo $special_chars; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i; ?>"><?php echo $special_chars; ?></textarea>
         </td>
         <?php
         echo "\n";
@@ -426,8 +426,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data destroyed
     else if ($is_binary || $is_blob) {
-        if (($cfgProtectBinary && $is_blob)
-            || ($cfgProtectBinary == 'all' && $is_binary)) {
+        if (($cfg['ProtectBinary'] && $is_blob)
+            || ($cfg['ProtectBinary'] == 'all' && $is_binary)) {
             echo "\n";
             ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
@@ -439,7 +439,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" ><?php echo $special_chars; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" ><?php echo $special_chars; ?></textarea>
         </td>
             <?php
         } else {

@@ -97,7 +97,7 @@ $err_url = 'tbl_properties.php3'
 /**
  * Increase time limit for script execution and initializes some variables
  */
-@set_time_limit($cfgExecTimeLimit);
+@set_time_limit($cfg['ExecTimeLimit']);
 $dump_buffer = '';
 // Defines the default <CR><LF> format
 $crlf        = PMA_whichCrlf();

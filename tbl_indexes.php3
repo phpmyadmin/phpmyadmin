@@ -34,7 +34,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
         $is_db = @mysql_select_db($db);
     }
     if (empty($db) || !$is_db) {
-        header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     }
     // Not a valid table name -> back to the db_details.php3
@@ -42,7 +42,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
         $is_table = @mysql_query("SHOW TABLES LIKE '" . PMA_sqlAddslashes($table, TRUE) . '\'');
     }
     if (empty($table) || !@mysql_numrows($is_table)) {
-        header('Location: ' . $cfgPmaAbsoluteUri . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     } else if (isset($is_table)) {
         mysql_free_result($is_table);
@@ -340,7 +340,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     </tr>
     </table><br />
 
-    <table border="<?php echo $cfgBorder; ?>" cellpadding="5">
+    <table border="<?php echo $cfg['Border']; ?>" cellpadding="5">
     <tr>
         <th><?php echo $strField; ?></th>
         <th><?php echo $strSize; ?></th>
@@ -354,7 +354,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         } else {
             $sub_part = '';
         }
-        $bgcolor      = (($row_no % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo);
+        $bgcolor      = (($row_no % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']);
         echo "\n";
         ?>
     <tr>
@@ -419,7 +419,7 @@ else if (!defined('PMA_IDX_INCLUDED')
 
     if ($idx_cnt > 0) {
         ?>
-        <table border="<?php echo $cfgBorder; ?>">
+        <table border="<?php echo $cfg['Border']; ?>">
         <tr>
             <th><?php echo $strKeyname; ?></th>
             <th><?php echo $strType; ?></th>
@@ -430,7 +430,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         <?php
         echo "\n";
         while (list($index_no, $index_name) = each($indexes)) {
-            $cell_bgd = (($index_no % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo);
+            $cell_bgd = (($index_no % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']);
             $index_td = '            <td bgcolor="' . $cell_bgd . '" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
             echo '        <tr>' . "\n";
             echo $index_td
