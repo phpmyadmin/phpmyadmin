@@ -9,14 +9,16 @@
 // Rewritten and put in a libray 2nd May 2001 by Loïc Chapeaux
 
 // Test passed with:
-// - Mozilla 0.8.1 for Windows (js enabled & disabled)
+// - Mozilla 0.8.1, 0.9.0, 0.9.1, 0.9.2 for Windows (js enabled
+//    & disabled)
 // - IE5, 5.01, 5.5 for Windows
 // - Netscape 4.75 for Windows
-// - Opera 5.02 for windows (js disabled)
 
-// Test failed with:
-// - Opera 5.02 for windows with js enabled -> crappy DOM implementation
-//   ('getElementsByTagName' is unsupported), nothing to do :(
+// Test failed (crappy DOM implementations) with:
+// - Opera 5.02 for windows: 'getElementsByTagName' is unsupported
+// - Opera 5.10 to 5.12 for windows, Opera 5+ for Linux: 'style.display' can't
+//   be changed
+// - Konqueror 2+: 'style.display' can't be changed
 
 
 var isExpanded   = false;
@@ -44,29 +46,6 @@ if (isNS4) {
   var origWidth  = innerWidth;
   var origHeight = innerHeight;
   onresize       = reDo;
-}
-
-
-/**
- * Specific stuffs for IE4
- */
-function doDocumentOnMouseOver() {
-  var eSrc = window.event.srcElement ;
-  if (eSrc.className == 'item') {
-    window.event.srcElement.className = 'highlight';
-  }
-} // end of the 'doDocumentOnMouseOver()' function
-
-function doDocumentOnMouseOut() {
-  var eSrc = window.event.srcElement ;
-  if (eSrc.className == 'highlight') {
-    window.event.srcElement.className = 'item';
-  }
-} // end of the 'doDocumentOnMouseOut()' function
-
-if (isIE4) {
-  document.onmouseover = doDocumentOnMouseOver ;
-  document.onmouseout = doDocumentOnMouseOut ;
 }
 
 
@@ -238,34 +217,44 @@ if (capable) {
     // to write().
     if (isDOM) {
       var lstyle = '<style type="text/css">'
-                 + '.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration:none; display:block}'
-                 + '.child {font-family: ' + fontFamily + '; color: #000000; text-decoration:none; display:none}'
-                 + '.item { color: darkblue; text-decoration:none; font-size: 8pt;}'
-                 + '.highlight { color: red; font-size: 8pt;}'
-                 + '.heada { font: 12px\/13px; Times}'
-                 + 'div { color:black; }'
+                 + 'div {color: #000000;}'
+                 + '.heada {font: 12px\/13px; Times}'
+                 + '.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration:none; display: block}'
+                 + '.child {font-family: ' + fontFamily + '; font-size: 8pt; color: #333399; text-decoration:none; display: none}'
+                 + '.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none; font-size: 8pt;}'
+                 + '.tblItem:hover {color: #FF0000; text-decoration: underline;}'
                  + '<\/style>';
       write(lstyle);
     }
     else {
       write('<style type="text/css">');
+      write('div {color: #000000; }');
+      write('.heada {font: 12px\/13px; Times}');
       if (isIE4) {
-        write('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration:none;}');
-        write('.child {font-family: ' + fontFamily + '; color: #000000; text-decoration:none; display:none}');
-        write('.item { color: darkblue; text-decoration:none; font-size: 8pt;}');
-        write('.highlight { color: red; font-size: 8pt;}');
-        write('.heada { font: 12px\/13px; Times}');
-        write('div { color:black; }');
+        write('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; display: block}');
+        write('.child {font-family: ' + fontFamily + '; font-size: 8pt; color: #333399; text-decoration: none; display: none}');
+        write('.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none; font-size: 8pt;}');
+        write('.tblItem:hover {color: #FF0000; text-decoration: underline;}');
       }
       else {
-        write('.parent {font-family:' + fontFamily + '; color: #000000; text-decoration:none; position:absolute; visibility:hidden; color: black;}');
-        write('.child {font-family: ' + fontFamily + '; font-size: 8pt;color: #000000; position:absolute; visibility:hidden}');
-        write('.item { color: darkblue; text-decoration:none;}');
-        write('.regular {font-family: ' + fontFamily + '; position:absolute; visibility:hidden}');
-        write('div { color:black; }');
+        write('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; position: absolute; visibility: hidden;}');
+        write('.child {font-family: ' + fontFamily + '; font-size: 8pt; color: #333399; position: absolute; visibility: hidden}');
+        write('.item, .tblItem {color: #333399; text-decoration: none;}');
       }
       write('<\/style>');
     }
+  }
+}
+else {
+  with (document) {
+    write('<style type="text/css">');
+    write('div {color: #000000; }');
+    write('.heada {font: 12px\/13px; Times}');
+    write('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none;}');
+    write('.child {font-family: ' + fontFamily + '; font-size: 8pt; color: #333399; text-decoration: none;}');
+    write('.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none;}');
+    write('.tblItem:hover {color: #FF0000; text-decoration: underline;}');
+    write('<\/style>');
   }
 } // end of adding styles
 
