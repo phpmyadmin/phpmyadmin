@@ -103,6 +103,9 @@ for ($i = 0; $i < $idx_cnt; $i++) {
     $indexes_info[$row['Key_name']]['Comment']         = (isset($row['Comment']))
                                                        ? $row['Comment']
                                                        : '';
+    $indexes_info[$row['Key_name']]['Index_type']      = (isset($row['Index_type']))
+                                                       ? $row['Index_type']
+                                                       : '';
 
     $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
     if (isset($row['Sub_part'])) {
@@ -451,7 +454,8 @@ else if (!defined('PMA_IDX_INCLUDED')
                  . '                ' . htmlspecialchars($index_name) . "\n"
                  . '            </td>' . "\n";
 
-            if ($indexes_info[$index_name]['Comment'] == 'FULLTEXT') {
+            if ((PMA_MYSQL_INT_VERSION >= 32323 && PMA_MYSQL_INT_VERSION < 40002 && $indexes_info[$index_name]['Comment'] == 'FULLTEXT')
+                || (PMA_MYSQL_INT_VERSION >= 40002 && $indexes_info[$index_name]['Index_type'] == 'FULLTEXT')) {
                 $index_type = 'FULLTEXT';
             } else if ($index_name == 'PRIMARY') {
                 $index_type = 'PRIMARY';
