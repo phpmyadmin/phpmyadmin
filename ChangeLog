@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-25 Marcel Tschopp <marcel.tschopp@gmx.net>
+    * tbl_change.php, libraries/dbi/mysql.inc.php, libraries/dbi/mysqli.inc.php:
+      Added wrapping function PMA_DBI_field_len.
+    * libraries/dbi/mysqli.inc.php: Set default value '' for parameter $link 
+      from function PMA_DBI_insert_id().
+
 2004-03-25 Michal Cihar  <michal@cihar.com>
     * libraries/bookmark.lib.php: Fix errors when bookmarktable does not
       exists (bug #922509).

@@ -204,7 +204,7 @@ function PMA_DBI_num_rows($result) {
     return @mysqli_num_rows($result);
 }
 
-function PMA_DBI_insert_id($link) {
+function PMA_DBI_insert_id($link = '') {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
@@ -342,6 +342,11 @@ function PMA_DBI_get_fields_meta($result) {
 
 function PMA_DBI_num_fields($result) {
     return mysqli_num_fields($result);
+}
+
+function PMA_DBI_field_len($result, $i) {
+    $info = mysqli_fetch_field_direct($result, $i);
+    return $info->length;
 }
 
 ?>

@@ -297,7 +297,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
         }
         $len             = (preg_match('@float|double@', $row_table_def['Type']))
                          ? 100
-                         : @mysql_field_len($vresult, $i); // !UNWRAPPED FUNCTION!
+                         : PMA_DBI_field_len($vresult, $i);
         $first_timestamp = 0;
 
         $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];

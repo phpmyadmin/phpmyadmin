@@ -255,4 +255,8 @@ function PMA_DBI_num_fields($result) {
     return mysql_num_fields($result);
 }
 
+function PMA_DBI_field_len($result, $i) {
+    return mysql_field_len($result, $i);
+}
+
 ?>
