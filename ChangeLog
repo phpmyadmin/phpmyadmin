@@ -6,8 +6,8 @@ $Id$
 $Source$
 
 2002-11-11 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * libaries/common.lib.php3: Fixed bug #?????? (Error when modifying table
-      keys). --- Please insert the correct bug id as soon as SF is up again :o)
+    * libaries/common.lib.php3: Fixed bug #636345 (Error when modifying table
+      keys).
 
 2002-11-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: LEFT JOIN ... USING
