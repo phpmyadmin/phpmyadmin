@@ -7,8 +7,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.373 2003/01/07
-       14:04:42 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.379 2003/01/24
+       02:45:18 lem9 Exp $
    ______________________________________________________________________
 
    Top  -  Requirements  -  Introduction  -  Installation  -
@@ -40,18 +40,21 @@ Introduction
    database. It's up to you to look up the appropriate part in the MySQL
    manual. Currently phpMyAdmin can:
      * create and drop databases
-     * create, copy, drop and alter tables
+     * create, copy, drop, rename and alter tables
+     * do table maintenance
      * delete, edit and add fields
      * execute any SQL-statement, even batch-queries
      * manage keys on fields
      * load text files into tables
      * create (*) and read dumps of tables
-     * export (*) and import data to CSV values
-     * administer multiple servers and single databases
+     * export (*) data to CSV, XML and Latex formats
+     * administer multiple servers
      * check referential integrity
-     * create complex queries automatically connecting required tables
+     * using Query-by-example (QBE), create complex queries automatically
+       connecting required tables
      * create PDF graphics of your Database layout
-     * communicate in more than 41 different languages
+     * search globally in a database or a subset of it
+     * communicate in 43 different languages
 
    (*)  phpMyAdmin can compress (Zip, GZip -RFC 1952- or Bzip2 formats)
    dumps and CSV exports if you use PHP4 >= 4.0.4 with Zlib support
@@ -288,6 +291,8 @@ CRIPT_NAME'], '/')+1);
           are 'socket' & 'tcp'. It defaults to 'tcp' as that is nearly
           guarenteed to be available on all MySQL servers, while sockets
           are not supported on some platforms.
+          To use the socket mode, your MySQL server must be on the same
+          machine as the Web server.
 
    $cfg['Servers'][$i]['controluser'] string
           $cfg['Servers'][$i]['controlpass'] string
@@ -1145,6 +1150,19 @@ FAQ - Frequently Asked Questions
    as this version of mod_gzip on Apache (Windows) has problems handling
    php scripts. Of course you have to restart Apache.
 
+   [1.26] I just installed phpMyAdmin in my document root of IIS but I
+   get the error "No input file specified" when trying to run phpMyAdmin.
+   This is a permission problem. Right-click on the phpmyadmin folder and
+   choose properties. Under the tab Security, click on "Add" and select
+   the user "IUSER_machine" from the list. Now set his permissions and it
+   should work.
+
+   [1.27] I get empty page when I want to view huge page (eg.
+   db_details_structure.php3 with plenty of dabases).
+   This is a PHP bug that occur when GZIP output buffering enabled. If
+   you turn off it (by $cfg['OBGzip'] = FALSE in config.inc.php3, it
+   should work. This bug will be fixed least in PHP >= 4.5.0.
+
   [2. Configuration]
 
    [2.1] The error message "Warning: Cannot add header information -
@@ -1381,6 +1399,10 @@ FAQ - Frequently Asked Questions
    Alternatively, you can try the auto detection mode that is supported
    by the recent versions of the most browsers.
 
+   [5.12] Apple OS X: Safari browser changes special characters to "?".
+   This issue has been reported by a OS X user, who adds that Chimera,
+   Netscape and Mozilla do not have this problem.
+
   [6. Using phpMyAdmin]
 
    [6.1] I can't insert new rows into a table / I can't create a table -
@@ -1548,15 +1570,14 @@ FAQ - Frequently Asked Questions
    work with it, nor delete it.
 
    [6.14] How do I set up the SQL validator?
-   To use it, you need a very recent version of PHP, built with Overload,
-   XML and PEAR support. On your system command line, run "pear install
-   Mail_Mime Net_DIME SOAP" to get the nessecary PEAR modules for usage.
+   To use it, you need a very recent version of PHP, 4.3.0 recommended,
+   with XML, PCRE and PEAR support. On your system command line, run
+   "pear install Net_Socket Net_URL HTTP_Request Mail_Mime Net_DIME SOAP"
+   to get the nessecary PEAR modules for usage.
    If you use it, you should be aware that any SQL statement you submit
    will be stored anonymously (database/table/column names, strings,
    numbers replaced with generic values). The Mimer SQL Validator itself,
-   is © 2001 Upright Database Technology. We utilize it as free XML-SOAP
-   service.
-   The overload module is crucial to the functionality of the validator
+   is © 2001 Upright Database Technology. We utilize it as free SOAP
    service.
 
    [6.15] I want to add a BLOB field and put an index on it, but MySQL
