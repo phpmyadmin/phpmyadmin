@@ -487,7 +487,7 @@ else {
             } // end if
         } else {
             ?>
-                <td colspan="3" align="center" bgcolor="<?php echo $bgcolor; ?>" <?php echo $click_mouse; ?>>
+                <td colspan="4" align="center" bgcolor="<?php echo $bgcolor; ?>" <?php echo $click_mouse; ?>>
                     <?php echo $strInUse . "\n"; ?>
                 </td>
             <?php
