@@ -5,7 +5,12 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
-2001-07-05  Loïc Chapeaux  <lolo@phpheaven.net>
+2001-07-07  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.php3: improved the css.
+	* left.js: try to "fix" the Opera and Konqueror bug (bad DOM implemenation
+	  -> list is no long expandable/collapsible with this browsers)
+
+2001-07-06  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_details.php3: fixed many little scripting bugs.
 	* function.js: rewritten to fit javascript standards (eval function was
       deprecated a long time ago).
