@@ -5,10 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3: bug 612117, vertical view and
+      buttons as links
+
 2002-09-19 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/sqlparser.lib.php3, bug 608459: syntax coloring and
+    * libraries/sqlparser.lib.php3: bug 608459: syntax coloring and
       alias without AS
-    * libraries/display_tbl.lib.php3, bug 574852: relation and ORDER BY
+    * libraries/display_tbl.lib.php3: bug 574852: relation and ORDER BY
     * db_details_qbe.php3: missing global $dbh
 
 2002-09-19 Loïc Chapeaux  <lolo@phpheaven.net>
