@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-10  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3, line 177: simple "SELECT" statements like "SELECT 1+1" were
+	  failing because they were added a "LIMIT" clause.
+	* libraries/common.lib.php3, function 'which_crlf()': taken into account
+      Mac case.
+	* libraries/select_lang.lib.php3; lang/finnish.inc.php3: new translation
+	  thanks to Visa Kopu <visa at visakopu.net>.
+
 2001-09-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3, function 'show_message()': no reson to display
 	  the "modify" link in $goto = main.php3.
