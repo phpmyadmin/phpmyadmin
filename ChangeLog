@@ -9,6 +9,9 @@ $Source$
     * lang/indonesian.inc.php3: Updates, thanks to Rachim Tamsjadi.
     * lang/italian.inc.php3: Updates, thanks again to
       Pietro Danesi <danone@users.sourceforge.net>.
+    * lang/german.inc.php3: Small corrections.
+    * lang/polish.inc.php3: Updates, thanks to
+      Jakub Wilk <ubanus at users.sourcefore.net>.
 
 2002-05-31 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german.inc.php3: Small corrections.

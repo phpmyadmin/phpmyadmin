@@ -57,7 +57,7 @@ $strBookmarkQuery = 'Gespeicherte SQL-Abfrage';
 $strBookmarkThis = 'SQL-Abfrage speichern';
 $strBookmarkView = 'Nur zeigen';
 $strBrowse = 'Anzeigen';
-$strBzip = '"BZip komprimiert"';
+$strBzip = 'BZip komprimiert';
 
 $strCantLoadMySQL = 'Die MySQL-Erweiterung konnte nicht geladen werden.<br />Bitte überprüfen Sie Ihre PHP-Konfiguration!';
 $strCantRenameIdxToPrimary = 'Kann Index nicht in PRIMARY umbenennen!';
@@ -143,7 +143,7 @@ $strGenTime = 'Erstellungszeit';
 $strGenBy = 'Erstellt von';
 $strGo = 'OK';
 $strGrants = 'Rechte';
-$strGzip = '"GZip komprimiert"';
+$strGzip = 'GZip komprimiert';
 
 $strHasBeenAltered = 'wurde geändert.';
 $strHasBeenCreated = 'wurde erzeugt.';
@@ -383,7 +383,7 @@ $strWrongUser = 'Falscher Benutzername/Kennwort. Zugriff verweigert.';
 
 $strYes = 'Ja';
 
-$strZip = '"Zip komprimiert"';
+$strZip = 'Zip komprimiert';
 
 // To translate
 ?>
