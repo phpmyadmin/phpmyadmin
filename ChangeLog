@@ -8,7 +8,8 @@ $Source$
 2005-04-01 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_addfield.php: TIMESTAMP options support
     * libraries/common.lib.php: DEFAULT CURRENT_TIMESTAMP is only 
-      for TIMESTAMP (bug when changing from a TIMESTAMP to a non-TIMESTAMP type)
+      for TIMESTAMP (bug when changing from a TIMESTAMP to a non-TIMESTAMP type)    * (same): bug #1163595, problem 4: a TIMESTAMP must be explicitely
+      set to NULL to have the NULL attribute
 
 2005-03-31 Alexander M. Turek  <me@derrabus.de>
     * left.php: Undefined offset (Bug #1174045).

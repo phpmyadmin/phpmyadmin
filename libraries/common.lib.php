@@ -2533,6 +2533,12 @@ if (typeof(document.getElementById) != 'undefined'
             $query .= PMA_generateCharsetQueryPart($collation);
         }
 
+        if (!empty($null)) {
+            $query .= ' NOT NULL';
+        } else {
+            $query .= ' NULL';
+        }
+
         if ($default_current_timestamp && strtoupper($full_field_type) == 'TIMESTAMP') {
             $query .= ' DEFAULT CURRENT_TIMESTAMP';
         } elseif (!empty($default)) {
@@ -2543,9 +2549,6 @@ if (typeof(document.getElementById) != 'undefined'
             }
         }
 
-        if (!empty($null)) {
-            $query .= ' NOT NULL';
-        }
         if (!empty($extra)) {
             $query .= ' ' . $extra;
         }
