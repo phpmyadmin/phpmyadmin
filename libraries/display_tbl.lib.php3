@@ -789,13 +789,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
                 // 1.2.1 Modify link(s)
                 if ($is_display['edit_lnk'] == 'ur') { // update row case
-                    if (!empty($goto)
-                        && empty($GLOBALS['QUERY_STRING'])
-                        && (empty($GLOBALS['HTTP_SERVER_VARS']) || empty($GLOBALS['HTTP_SERVER_VARS']['QUERY_STRING']))) {
-                        $lnk_goto = $goto;
-                    } else {
-                        $lnk_goto = 'sql.php3';
-                    }
+                    $lnk_goto = 'sql.php3'
+                              . '?' . str_replace('&amp;', '&', $url_query)
+                              . '&sql_query=' . urlencode($sql_query)
+                              . '&goto=' . (empty($goto) ? 'tbl_properties.php3' : $goto);
                     $edit_url = 'tbl_change.php3'
                               . '?' . $url_query
                               . '&amp;primary_key=' . $uva_condition
@@ -810,7 +807,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                               . '?' . str_replace('&amp;', '&', $url_query)
                               . '&sql_query=' . urlencode($sql_query)
                               . '&zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
-                              . '&goto=tbl_properties.php3';
+                              . '&goto=' . (empty($goto) ? 'tbl_properties.php3' : $goto);
                     $del_url  = 'sql.php3'
                               . '?' . $url_query
                               . '&amp;sql_query=' . urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $uva_condition . urlencode(' LIMIT 1')

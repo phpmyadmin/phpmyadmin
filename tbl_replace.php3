@@ -8,6 +8,7 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
+
 /**
  * Initializes some variables
  */
@@ -22,15 +23,12 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&db=' . urlencode($db)
           . '&table=' . urlencode($table)
           . '&goto=' . urlencode($goto)
-          . (empty($primary_key) ? '' : '&primary_key=' . $primary_key)
           . '&pos=' . $pos
           . '&session_max_rows=' . $session_max_rows
           . '&disp_direction=' . $disp_direction
           . '&repeat_cells=' . $repeat_cells
           . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
-} else if ($goto == 'sql.php3'
-           || ($goto == 'tbl_properties.php3' 
-              && eregi('^SELECT[[:space:]]+', $sql_query))) {
+} else if ($goto == 'sql.php3') {
     $goto = 'sql.php3?'
           . 'lang=' . $lang
           . '&server=' . $server
@@ -46,7 +44,8 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
 if (isset($url_err)) {
     $url_err = urldecode($url_err);
 } else {
-    $url_err = str_replace('&', '&amp;', $goto);
+    $url_err = str_replace('&', '&amp;', $goto)
+             . (empty($primary_key) ? '' : '&amp;primary_key=' . $primary_key);
 }
 // Resets tables defined in the configuration file
 reset($fields);
