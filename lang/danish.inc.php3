@@ -11,7 +11,7 @@ $byteUnits = array('Bytes', 'KB', 'MB', 'GB');
 
 $day_of_week = array('Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør');
 $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec');
-// See http://www.php.net/manual/en/function.strftime.php to define the
+// See http://www.php3.net/manual/en/function.strftime.php3 to define the
 // variable below
 $datefmt = '%d/%m %Y kl. %H:%M:%S';
 
@@ -229,8 +229,8 @@ $strPrivileges = 'Privilegier';
 $strProperties = 'Egenskaber';
 
 $strQBE = 'Query by Example';
-$strQBEDel = 'Del';  //to translate (used in tbl_qbe.php)
-$strQBEIns = 'Ins';  //to translate (used in tbl_qbe.php)
+$strQBEDel = 'Del';  //to translate (used in tbl_qbe.php3)
+$strQBEIns = 'Ins';  //to translate (used in tbl_qbe.php3)
 $strQueryOnDb = 'SQL-forespørgsel til database <b>%s</b>:';
 
 $strRecords = 'Poster';

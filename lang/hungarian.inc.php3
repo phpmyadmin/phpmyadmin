@@ -13,7 +13,7 @@ $byteUnits = array('Bájt', 'KB', 'MB', 'GB');
 $day_of_week = array('V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo');
 $month = array('Jan', 'Feb', 'Márc', 'Ápr', 'Máj', 'Jún', 'Júl', 'Aug', 'Szept', 'Okt', 'Nov', 'Dec');
 // Leírás a $datefmt változó definiálásához:
-// http://www.php.net/manual/en/function.strftime.php
+// http://www.php3.net/manual/en/function.strftime.php3
 $datefmt = '%Y. %B %d. %H:%M';
 
 

@@ -16,7 +16,7 @@ $byteUnits = array('ÈÇíÊ', 'ßíáæÈÇíÊ', 'ãíÌÇÈÇíÊ', 'ÛíÛÇÈÇíÊ');
 
 $day_of_week = array('ÇáÃÍÏ', 'ÇáÅËäíä', 'ÇáËáÇËÇÁ', 'ÇáÃÑÈÚÇÁ', 'ÇáÎãíÓ', 'ÇáÌãÚå', 'ÇáÓÈÊ');
 $month = array('íäÇíÑ', 'İÈÑÇíÑ', 'ãÇÑÓ', 'ÃÈÑíá', 'ãÇíæ', 'íæäíæ', 'íæáíæ', 'ÃÛÓØÓ', 'ÓÈÊãÈÑ', 'ÃßÊæÈÑ', 'äæİãÈÑ', 'ÏíÓãÈÑ');
-// See http://www.php.net/manual/en/function.strftime.php to define the
+// See http://www.php3.net/manual/en/function.strftime.php3 to define the
 // variable below
 $datefmt = '%B %d, %Y at %I:%M %p';
 

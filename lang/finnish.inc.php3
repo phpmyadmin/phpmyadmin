@@ -15,7 +15,7 @@ $byteUnits = array('tavua', 'kt', 'Mt', 'Gt');
 
 $day_of_week = array('Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La');
 $month = array('Tammi', 'Helmi', 'Maalis', 'Huhti', 'Touko', 'Kesä', 'Heinä', 'Elo', 'Syys', 'Loka', 'Marras', 'Joulu');
-// See http://www.php.net/manual/en/function.strftime.php to define the
+// See http://www.php3.net/manual/en/function.strftime.php3 to define the
 // variable below
 $datefmt = '%d.%m.%Y klo %H:%M';
 

@@ -5,11 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-22 Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html, lines 1597-1600: beautify generated page.
+	* libraries/select_lang.lib.php3, lines 61-62: charset is neither defined
+	  in HTTP_ACCEPT_LANGUAGE nor in HTTP_USER_AGENT variables.
+	* libraries/common.lib.php3, line 848: coding standard.
+
 2002-02-19 Marc Delisle  <lem9@users.sourceforge.net>
-	* common.lib.php3 get_magic_quotes fix,
-	libraries/select_lang.lib.php3,
-	lang/japanese-euc.inc.php3, lang/japanese-sjis.inc.php3 thanks to
-	"Luc" <luc at ceres.dti.ne.jp>
+	* libraries/common.lib.php3: get_magic_quotes fix  thanks to
+	  "Luc" <luc at ceres.dti.ne.jp>
+	* libraries/select_lang.lib.php3,
+	  lang/japanese-euc.inc.php3, lang/japanese-sjis.inc.php3 thanks to
+	  "Luc" <luc at ceres.dti.ne.jp>
 	* ### 2.2.4 released ###
 
 2002-02-18 Marc Delisle  <lem9@users.sourceforge.net>

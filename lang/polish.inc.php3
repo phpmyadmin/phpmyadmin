@@ -11,7 +11,7 @@ $byteUnits = array('bajtów', 'KB', 'MB', 'GB');
 
 $day_of_week = array('Nie', 'Pon', 'Wto', '¦ro', 'Czw', 'Pi±', 'Sob');
 $month = array('Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Pa¼', 'Lis', 'Gru');
-// See http://www.php.net/manual/en/function.strftime.php to define the
+// See http://www.php3.net/manual/en/function.strftime.php3 to define the
 // variable below
 $datefmt = '%d %B %Y, %H:%M';
 

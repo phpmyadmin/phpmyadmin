@@ -11,7 +11,7 @@ $byteUnits = array('Byte', 'KB', 'MB', 'GB');
 //veritabanlarý terminolojisinde tercümeye pek müsait olmayan index ve unique sözcükleri aynen kullanýldý: uniqe=eþsiz,tek
 $day_of_week = array('Pazar', 'Pazartesi', 'Salý', 'Çarþamba', 'Perþembe', 'Cuma', 'Cumartesi');
 $month = array('Ocak', 'Þubat', 'Mart', 'Nisan', 'Mayýs', 'Haziran', 'Temmuz', 'Aðustos', 'Eylül', 'Ekim', 'Kasým', 'Aralýk');
-// See http://www.php.net/manual/en/function.strftime.php to define the
+// See http://www.php3.net/manual/en/function.strftime.php3 to define the
 // variable below
 $datefmt = '%B %d, %Y at %I:%M %p';
 
