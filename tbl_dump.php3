@@ -171,7 +171,7 @@ if ($num_tables == 0) {
 else {
     // No csv or xml or latex format -> add some comments at the top
 
-    if ($use_comments) {
+    if (isset($use_comments) && $use_comments) {
         require('./libraries/relation.lib.php3');
         $cfgRelation = PMA_getRelationsParam();
         $use_comments_work = true;
