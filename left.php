@@ -31,7 +31,15 @@ if ($cfg['OBGzip']) {
     }
 }
 
-PMA_checkParameters(array('hash'));
+// This check had been put here to avoid revealing the full path
+// of the phpMyAdmin directory in case this script is called
+// directly. But some users report a "Missing hash" message and
+// I cannot reproduce it, so let's define $hash to a dummy value
+// and hope some other clue will surface, to sort this bug.
+//PMA_checkParameters(array('hash'));
+if (!isset($hash)) {
+    $hash='';
+}
 
 require_once('./libraries/bookmark.lib.php');
 require_once('./libraries/relation.lib.php');

@@ -9,6 +9,7 @@ $Source$
     * lang/estonian: Updated, thanks to Alvar Soome (finsoft).
     * libraries/transformations/text_plain__dateformat.inc.php:
       patch 845690: show real data before transformation
+    * left.php: bug 833790: put a workaround in place
   
 2003-12-04 Garvin Hicking <grinch@supergarv.de>
     * browse_foreigner.php, mult_submits.inc.php, tbl_change.php,
