@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-25 Alexander M. Turek  <jaggedlittlepill@derrabus.de>
+    * translators.html: Changed email of Hindi translator, again.
+
 2003-11-25 Garvin Hicking <phpmyadminismyaeroplane@supergarv.de>
     * db_details_qbe.php, left.php, main.php, pdf_pages.php, server_collations.php,
       tbl_change.php, tbl_indexes.php, tbl_move_copy.php, tbl_relation.php,
@@ -23,7 +26,7 @@ $Source$
       - When stored transformations have '.php3' ending, automagically assume '.php' now.
       - Use 's' RegEx Pattern modifier for certain situations where '.' should also include
         linebreaks.
-      
+
 2003-11-24 Alexander M. Turek  <bloodsugarsexmagik@derrabus.de>
     * lang/german-*.inc.php: Updates.
     * lang/english-*.inc.php: Sortation.
