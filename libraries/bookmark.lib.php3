@@ -91,6 +91,11 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')) {
      */
     function PMA_queryBookmarks($db, $cfgBookmark, $id, $id_field = 'id')
     {
+
+        if (empty($cfgBookmark['db']) || empty($cfgBookmark['table'])) {
+            return '';
+        }
+
         $query          = 'SELECT query FROM ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
                         . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
                         . ' AND (user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''

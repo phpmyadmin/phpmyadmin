@@ -346,7 +346,14 @@ if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_insi
                         <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
                     </td>
 <?php
-        if (!isset($is_inside_querywindow) || isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab != 'history') {
+        if ( $cfg['Bookmark']['db'] 
+          && $cfg['Bookmark']['table'] 
+          && (!isset($is_inside_querywindow) 
+            || (  isset($is_inside_querywindow) 
+               && $is_inside_querywindow == TRUE
+               && isset($querydisplay_tab) 
+               //&& $querydisplay_tab != 'history'))) {
+               && $querydisplay_tab == 'sql'))) {
 ?>
                     <td valign="top">
                         <input type="submit" name="SQLbookmark" value="<?php echo $strGo . ' &amp; ' . $strBookmarkThis; ?>" />
