@@ -65,7 +65,9 @@ $strBrowse = 'Mostra';
 $strBzip = '"compresso con bzip2"';
 
 $strCantLoadMySQL = 'impossibile caricare l\'estensione MySQL,<br />controlla la configurazione di PHP.';
+$strCantLoadRecodeIconv = 'Impossibile caricare l\'estensione iconv o recode necessaria per la conversione del set di caratteri, configurare il PHP per permettere di utilizzare queste estenzioni o disabilitare la conversione dei set di caratteri in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Impossibile rinominare l\'indice a PRIMARIO!';
+$strCantUseRecodeIconv = 'Impossibile utilizzare le funzioni iconv o libiconv o recode_string in quanto l\'estensione deve essere caricata. Controllare la configurazione del PHP.';
 $strCardinality = 'Cardinalità';
 $strCarriage = 'Ritorno carrello: \\r';
 $strChange = 'Modifica';
@@ -157,6 +159,7 @@ $strGzip = '"compresso con gzip"';
 
 $strHasBeenAltered = 'è stato modificato.';
 $strHasBeenCreated = 'è stato creato.';
+$strHaveToShow = 'Devi scegliere almeno una Colonna da mostrare';
 $strHome = 'Home';
 $strHomepageOfficial = 'Home page ufficiale di phpMyAdmin';
 $strHomepageSourceforge = 'Home page di phpMyAdmin su sourceforge.net';
@@ -198,11 +201,13 @@ $strLogout = 'Disconnetti';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Nome utente:';
 
+$strMissingBracket = 'Parentesi mancante';
 $strModifications = 'Le modifiche sono state salvate';
 $strModify = 'Modifica';
 $strModifyIndexTopic = 'Modifica un indice';
 $strMoveTable = 'Sposta la tabella nel (database<b>.</b>tabella):';
 $strMoveTableOK = 'La tabella %s è stata spostata in %s.';
+$strMySQLCharset = 'Set di caratteri MySQL';
 $strMySQLReloaded = 'MySQL riavviato.';
 $strMySQLSaid = 'Messaggio di MySQL: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% in esecuzione su %pma_s2% come %pma_s3%';
@@ -399,9 +404,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
+
 ?>

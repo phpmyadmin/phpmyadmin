@@ -9,6 +9,8 @@ $Source$
     * lang/german.inc.php3: Updates.
     * libraries/select_lang.lib.php3, lang/german-utf8.inc.php3:
       Added German UTF-8 file.
+    * lang/italian.inc.php3: Updates, thanks again to
+      Pietro Danesi <danone at users.sourceforge.net>.
 
 2002-06-14 Marc Delisle  <lem9@users.sourceforge.net>
     * big patch for charset support, all files that call mysql have been
@@ -67,8 +69,8 @@ $Source$
     * lang/french.inc.php3 updates
 
 2002-06-09 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * common.lib.php3: Corrected path to config_import.lib.php3.
-    * common.lib.php3, lang/*.inc.php3, config.inc.php3:
+    * libraries/common.lib.php3: Corrected path to config_import.lib.php3.
+    * libraries/common.lib.php3, lang/*.inc.php3, config.inc.php3:
       Catch parse errors in the config file.
     * lang/chinese.inc.php3: Converted to Unix line feed format.
     * lang/english.inc.php3: Reordered strings.
