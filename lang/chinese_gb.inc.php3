@@ -290,4 +290,5 @@ $strQueryOnDb = 'SQL-query on database ';
 $strRowSize = ' Row size ';  //to translate
 $strShowThisQuery = ' Show this query here again ';
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
+$strShowPHPInfo=" Show PHP information ";  //to translate
 ?>

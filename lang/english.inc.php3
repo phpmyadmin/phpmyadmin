@@ -233,6 +233,7 @@ $strServerVersion = 'Server version';
 $strShow = 'Show';
 $strShowingRecords = 'Showing records ';
 $strShowThisQuery = ' Show this query here again ';
+$strShowPHPInfo='Show PHP information';
 $strSingly = '(singly)';
 $strSize = 'Size';
 $strSort = 'Sort';

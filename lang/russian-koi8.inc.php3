@@ -288,4 +288,5 @@ $strQueryOnDb = 'SQL-запрос БД ';
 $strRowSize = ' Размер ряда ';  //translated !!!
 $strShowThisQuery = ' Показать данный запрос снова ';  //translated !!!
 $strUseBackquotes = 'Обратные кавычки в названиях таблиц и полей';
+$strShowPHPInfo=" Show PHP information ";  //to translate
 ?>

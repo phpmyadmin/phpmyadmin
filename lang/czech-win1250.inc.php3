@@ -286,4 +286,5 @@ $strFormEmpty = 'Missing value in the form !';
 $strQueryOnDb = 'SQL-query on database ';
 $strShowThisQuery = ' Show this query here again ';  //to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
+$strShowPHPInfo=" Show PHP information ";  //to translate
 ?>

@@ -284,4 +284,5 @@ $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 
 $strYes = 'Oui';
 
+$strShowPHPInfo=" Show PHP information ";  //to translate
 ?>

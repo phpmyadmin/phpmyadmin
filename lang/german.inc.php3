@@ -283,4 +283,5 @@ $strWelcome = 'Willkommen bei ';
 $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 
 $strYes = 'Ja';
+$strShowPHPInfo=" Show PHP information ";  //to translate
 ?>

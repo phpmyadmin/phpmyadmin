@@ -287,4 +287,5 @@ $strDisplayOrder = 'Display order:';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
 $strOffSet = 'offset';
+$strShowPHPInfo=" Show PHP information ";  //to translate
 ?>

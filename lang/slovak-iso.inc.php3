@@ -284,4 +284,5 @@ $strFieldsEmpty = ' Poèet polí je prázdny! ';
 $strFormEmpty = 'Chýbajúca polo¾ka vo formulári !';
 $strQueryOnDb = ' SQL dotaz v databáze ';
 $strUseBackquotes = ' Pou¾i» opaèný apostrof pri názvoch tabuliek a polí ';
+$strShowPHPInfo=" Show PHP information ";  //to translate
 ?>
