@@ -4,7 +4,7 @@ require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 
 /* Theme Select */
-$path_to_themes = './' . $cfg['ThemePath'] . '/';
+$path_to_themes = $cfg['ThemePath'] . '/';
 require_once('./libraries/select_theme.lib.php');
 
 /* set language and charset */

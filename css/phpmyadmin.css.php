@@ -36,7 +36,7 @@ if ($js_frame == 'left') {
  ************************************************************************************/
     // 2004-05-30: Michael Keck (mail@michaelkeck.de)
     //             Check, if theme_left.css.php exists and include
-    $tmp_file = './' . $GLOBALS['cfg']['ThemePath'] . '/' . $pmaTheme . '/css/theme_left.css.php';
+    $tmp_file = $GLOBALS['cfg']['ThemePath'] . '/' . $pmaTheme . '/css/theme_left.css.php';
     if (@file_exists($tmp_file)) {
         include($tmp_file);
     } // end of include theme_left.css.php
@@ -46,7 +46,7 @@ if ($js_frame == 'left') {
  ************************************************************************************/
     // 2004-05-30: Michael Keck (mail@michaelkeck.de)
     //             Check, if theme_print.css.php exists and include
-    $tmp_file = './' . $GLOBALS['cfg']['ThemePath'] . '/' . $pmaTheme . '/css/theme_print.css.php';
+    $tmp_file = $GLOBALS['cfg']['ThemePath'] . '/' . $pmaTheme . '/css/theme_print.css.php';
     if (@file_exists($tmp_file)) {
         include($tmp_file);
     } // end of include theme_print.css.php
@@ -56,7 +56,7 @@ if ($js_frame == 'left') {
  ************************************************************************************/
     // 2004-05-30: Michael Keck (mail@michaelkeck.de)
     //             Check, if theme_right.css.php exists and include
-    $tmp_file = './' . $GLOBALS['cfg']['ThemePath'] . '/' . $pmaTheme . '/css/theme_right.css.php';
+    $tmp_file = $GLOBALS['cfg']['ThemePath'] . '/' . $pmaTheme . '/css/theme_right.css.php';
     if (@file_exists($tmp_file)) {
         include($tmp_file);
     } // end of include theme_right.css.php

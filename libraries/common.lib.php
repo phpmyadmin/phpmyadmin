@@ -303,8 +303,8 @@ if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
     $GLOBALS['theme'] = $cfg['ThemeDefault'];
     $ThemeDefaultOk = FALSE;
     if ($cfg['ThemePath']!='' && $cfg['ThemePath'] != FALSE) {
-        $tmp_theme_mainpath = './' . $cfg['ThemePath'];
-        $tmp_theme_fullpath = './' . $cfg['ThemePath'] . '/' .$cfg['ThemeDefault'];
+        $tmp_theme_mainpath = $cfg['ThemePath'];
+        $tmp_theme_fullpath = $cfg['ThemePath'] . '/' .$cfg['ThemeDefault'];
         if (@is_dir($tmp_theme_mainpath)) {
             if (isset($cfg['ThemeDefault']) && @is_dir($tmp_theme_fullpath)) {
                 $ThemeDefaultOk = TRUE;
@@ -340,13 +340,13 @@ if ($theme_generation != PMA_THEME_GENERATION)
 if ($theme_version < PMA_THEME_VERSION)
     $GLOBALS['theme'] = 'original'; // too old version
 
-$pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/img/';
-$tmp_layout_file = './' . $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/layout.inc.php';
+$pmaThemeImage  = $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/img/';
+$tmp_layout_file = $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/layout.inc.php';
 if (@file_exists($tmp_layout_file)) {
     include($tmp_layout_file);
 }
 if (!is_dir($pmaThemeImage)) {
-    $pmaThemeImage = './' . $cfg['ThemePath'] . '/original/img/';
+    $pmaThemeImage = $cfg['ThemePath'] . '/original/img/';
 }
 // end theme manager
 
