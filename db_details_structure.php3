@@ -28,6 +28,14 @@ if (empty($is_info)) {
     $sub_part = '_structure';
     include('./db_details_db_info.php3');
     echo "\n";
+
+    /**
+     * Show result of multi submit operation
+     */
+    if ((!empty($submit_mult) && isset($selected_tbl))
+       || isset($mult_btn)) {
+        PMA_showMessage($strSuccess);
+    }
 }
 
 

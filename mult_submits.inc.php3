@@ -219,7 +219,6 @@ else if ($mult_btn == $strYes) {
         exit();
     }
 
-    PMA_showMessage($strSuccess);
 }
 
 ?>

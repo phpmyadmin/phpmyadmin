@@ -25,12 +25,19 @@ if ((!empty($submit_mult) && isset($selected_fld))
 require('./tbl_properties_common.php3');
 $url_query .= '&amp;goto=tbl_properties_structure.php3&amp;back=tbl_properties_structure.php3';
 
-
 /**
  * Prepares the table structure display
  */
-// 1. Get table information
+// 1. Get table information/display tabs
 require('./tbl_properties_table_info.php3');
+
+/**
+ * Show result of multi submit operation
+ */
+if ((!empty($submit_mult) && isset($selected_fld))
+    || isset($mult_btn)) {
+    PMA_showMessage($strSuccess);
+}
 
 // 2. Gets table keys and retains them
 $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);

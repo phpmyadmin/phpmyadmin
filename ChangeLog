@@ -10,6 +10,9 @@ $Source$
       generated SQL dump, move to newly created table also after copying.
     * tbl_properties_operations.php3: Some fixes for html entities in db/table
       names.
+    * db_details_structure.php3, mult_submits.inc.php3,
+      tbl_properties_structure.php3: Show multi submits result after headers
+      and tabs from originating place.
 
 2003-04-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: clarify about wildcard database
