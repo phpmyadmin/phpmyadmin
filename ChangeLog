@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: bug #1165148, typo in Documentation.html
+
 2005-03-16 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php, tbl_alter.php, tbl_properties.inc.php,
       config.inc.php (comment only), libraries/common.lib.php:
