@@ -10,6 +10,7 @@ $Source$
     * updatedocs.sh: Script to make conversion easier
 
 2003-03-05 Garvin Hicking <me@supergarv.de>
+    * Documentation.html: Added FAQ 2.6 about localhost-socket connections.
     * libraries/relation.lib.php3, libraries/transformations.lib.php3,
       tbl_relation.php3, tbl_move_copy.php3: Replace PMA_handleSlashes() 
       call with PMA_sqlAddslashes() call because of new global s

@@ -2345,6 +2345,23 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     in the phpMyAdmin configuration file.
 </p>
 
+<h4>
+    [2.6] I get an &quot;Access denied for user: 'root@localhost' (Using 
+    password: YES)&quot;-error when trying to access a MySQL-Server on a
+    host which is port-forwarded for my localhost
+</h4>
+<p>
+    When you are using a port on your localhost, which you redirect via 
+    port-forwarding to another host, MySQL is not resolving the localhost
+    as expected.<br />
+    Erik Wasser explains: The solution is: if your host is &quot;localhost&quot; 
+    MySQL (the commandline tool 'mysql' as well) always tries to use the socket 
+    connection for speeding up things. And that doesn't work in this configuration 
+    with port forwarding.<br />
+    If you enter "127.0.0.1" as hostname, everything is right and MySQL uses the 
+    TCP connection. 
+</p>
+
 
 <a name="faqlimitations"></a><br />
 <h3>[3. Known limitations]</h3>
