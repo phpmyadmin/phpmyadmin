@@ -199,6 +199,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     echo "\n";
 
     $row_table_def   = PMA_mysql_fetch_array($table_def);
+    $row_table_def['True_Type'] = ereg_replace('\\(.*', '', $row_table_def['Type']);
     $field           = $row_table_def['Field'];
 
     // garvin: possible workaround. If current field is numerical, do not try to
@@ -238,7 +239,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
     ?>
     <tr>
-        <td align="center" bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($field); ?></td>
+        <td <?php echo (strstr($row_table_def['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center" bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($field); ?></td>
     <?php
     echo "\n";
 
@@ -246,7 +247,6 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     $is_binary                  = eregi(' binary', $row_table_def['Type']);
     $is_blob                    = eregi('blob', $row_table_def['Type']);
     $is_char                    = eregi('char', $row_table_def['Type']);
-    $row_table_def['True_Type'] = ereg_replace('\\(.*', '', $row_table_def['Type']);
     switch ($row_table_def['True_Type']) {
         case 'set':
             $type         = 'set';
@@ -448,6 +448,18 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         echo '            </select>' . "\n";
         echo '        </td>' . "\n";
         unset($disp);
+    }
+    else if (strstr($row_table_def['True_Type'], 'longtext')) {
+        ?>
+        <td bgcolor="<?php echo $bgcolor; ?>">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="4" align="right" bgcolor="<?php echo $bgcolor; ?>">
+            <?php echo $backup_field . "\n"; ?>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo ($cfg['TextareaRows']*2); ?>" cols="<?php echo ($cfg['TextareaCols']*2); ?>" wrap="virtual" dir="<?php echo $text_dir; ?>" id="field_<?php echo $i; ?>_3"
+                <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>"><?php echo $special_chars; ?></textarea>
+        </td>
+      <?php
     }
     else if (strstr($row_table_def['True_Type'], 'text')) {
         ?>
