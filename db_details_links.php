@@ -40,6 +40,9 @@ if (!$cfg['AllowUserDropDatabase']) {
     $cfg['AllowUserDropDatabase'] = PMA_DBI_select_db('mysql');
     PMA_DBI_select_db($db);
 }
+// rabus: Don't even try to drop information_schema. You won't be able to.
+// Believe me. You won't.
+$cfg['AllowUserDropDatabase'] = $cfg['AllowUserDropDatabase'] && !(PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema');
 if ($cfg['AllowUserDropDatabase']) {
     $lnk5 = 'sql.php';
     $arg5 = $url_query . '&amp;sql_query='

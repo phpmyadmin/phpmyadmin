@@ -42,6 +42,8 @@ $Source$
       indicators.
     * libraries/mysql_charsets.lib.php: Don't check the character set of the
       virtual database "information_schema" (MySQL 5.0).
+    * db_details_links.php, db_details_structure.php: Don't allow the user to
+      change anything in MySQL 5.0's information_schema database.
 
 2005-03-05 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_alter.php, tbl_addfield.php, db_datadict.php, pdf_schema.php,

@@ -34,7 +34,7 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
 
 
 // Display function
-function pma_TableHeader($alternate = FALSE) {
+function pma_TableHeader($alternate = FALSE, $record_count = TRUE) {
     $cnt = 0; // Let's count the columns...
     echo '            <table border="' . $GLOBALS['cfg']['Border'] . '" cellpadding="2" cellspacing="1">' . "\n"
        . '            <tr>' . "\n"
@@ -44,11 +44,14 @@ function pma_TableHeader($alternate = FALSE) {
        . '                </th>' . "\n"
        . '                <th colspan="6">' . "\n"
        . '                    &nbsp;' . $GLOBALS['strAction'] . '&nbsp;' . "\n"
-       . '                </th>' . "\n"
-       . '                <th>' . "\n"
-       . '                    &nbsp;' .  $GLOBALS['strRecords'] . PMA_showHint($GLOBALS['strApproximateCount']) . '&nbsp;' . "\n"
        . '                </th>' . "\n";
-    $cnt += 4;
+    $cnt += 3;
+    if ($record_count) {
+        echo '                <th>' . "\n"
+           . '                    &nbsp;' .  $GLOBALS['strRecords'] . PMA_showHint($GLOBALS['strApproximateCount']) . '&nbsp;' . "\n"
+           . '                </th>' . "\n";
+        $cnt++;
+    }
     if (!$alternate) {
         if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
             echo '                <th>' . "\n"
@@ -108,8 +111,10 @@ if ($cfg['PropertiesIconic'] == true) {
     $titles['NoBrowse']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'bd_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
     $titles['NoSearch']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'bd_select.png" alt="' . $strSearch . '" title="' . $strSearch . '" border="0" />';
     $titles['Insert']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_insrow.png" alt="' . $strInsert . '" title="' . $strInsert . '" border="0" />';
+    $titles['NoInsert']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_insrow.png" alt="' . $strInsert . '" title="' . $strInsert . '" border="0" style="opacity: 0.5" />'; //TODO: we need a proper disabled icon here.
     $titles['Structure']  = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_props.png" alt="' . $strStructure . '" title="' . $strStructure . '" border="0" />';
     $titles['Drop']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
+    $titles['NoDrop']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'bd_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
     $titles['Empty']      = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
     $titles['NoEmpty']    = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'bd_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
 
@@ -119,8 +124,10 @@ if ($cfg['PropertiesIconic'] == true) {
         $titles['NoBrowse']   .= '&nbsp;' . $strBrowse . '</div>';
         $titles['NoSearch']   .= '&nbsp;' . $strSearch . '</div>';
         $titles['Insert']     .= '&nbsp;' . $strInsert . '</div>';
+        $titles['NoInsert']   .= '&nbsp;' . $strInsert . '</div>';
         $titles['Structure']  .= '&nbsp;' . $strStructure . '</div>';
         $titles['Drop']       .= '&nbsp;' . $strDrop . '</div>';
+        $titles['NoDrop']     .= '&nbsp;' . $strDrop . '</div>';
         $titles['Empty']      .= '&nbsp;' . $strEmpty . '</div>';
         $titles['NoEmpty']    .= '&nbsp;' . $strEmpty . '</div>';
     }
@@ -130,8 +137,10 @@ if ($cfg['PropertiesIconic'] == true) {
     $titles['NoBrowse']   = $strBrowse;
     $titles['NoSearch']   = $strSearch;
     $titles['Insert']     = $strInsert;
+    $titles['NoInsert']   = $strInsert;
     $titles['Structure']  = $strStructure;
     $titles['Drop']       = $strDrop;
+    $titles['NoDrop']     = $strDrop;
     $titles['Empty']      = $strEmpty;
     $titles['NoEmpty']    = $strEmpty;
 }
@@ -171,7 +180,13 @@ else {
 <?php
     }
 
-    pma_TableHeader();
+    // rabus: disable statistics for information_schema.
+    if (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema') {
+        $cfg['ShowStats'] = FALSE;
+        pma_TableHeader(FALSE, FALSE);
+    } else {
+        pma_TableHeader();
+    }
 
     $i = $sum_entries = 0;
     (double) $sum_size = 0;
@@ -199,9 +214,9 @@ else {
         $table         = $sts_data['Name'];
         $table_encoded = urlencode($table);
         $table_name    = htmlspecialchars($table);
-	$is_view       = (PMA_MYSQL_INT_VERSION >= 50000
-	                   && !isset($sts_data['Type'])
-			   && $sts_data['Comment'] == 'view');
+        $is_view       = (PMA_MYSQL_INT_VERSION >= 50000
+                           && !isset($sts_data['Type'])
+                           && $sts_data['Comment'] == 'view');
 
         $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$table]))
                    ? htmlspecialchars($tooltip_aliasname[$table])
@@ -238,16 +253,16 @@ else {
     <td><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" border="0" width="10" height="1" alt="" /></td>
     <td valign="top">
             <?php
-            pma_TableHeader();
+            pma_TableHeader(FALSE, !(PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema'));
         }
         ?>
             <tr <?php echo $on_mouse; ?>>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
                     <input type="checkbox" name="selected_tbl[]" value="<?php echo $table_encoded; ?>" id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> />
         <?php
-	if ($is_view) {
-	    ?>
-	            <input type="hidden" name="views[]" value="<?php echo $table_encoded; ?>" />
+        if ($is_view) {
+            ?>
+                    <input type="hidden" name="views[]" value="<?php echo $table_encoded; ?>" />
             <?php
         }
         ?>
@@ -260,7 +275,7 @@ else {
         require_once('./libraries/bookmark.lib.php');
         $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
-        if (!empty($sts_data['Rows']) || $is_view) {
+        if (!empty($sts_data['Rows']) || $is_view || (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema')) {
             echo '<a href="sql.php?' . $tbl_url_query . '&amp;sql_query='
                  . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table)))
                  . '&amp;pos=0">' . $titles['Browse'] . '</a>';
@@ -271,7 +286,7 @@ else {
                 </td>
                 <td bgcolor="<?php echo $bgcolor; ?>">
         <?php
-        if (!empty($sts_data['Rows']) || $is_view) {
+        if (!empty($sts_data['Rows']) || $is_view || (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema')) {
             echo '<a href="tbl_select.php?' . $tbl_url_query . '">'
                  . $titles['Search'] . '</a>';
         } else {
@@ -280,10 +295,19 @@ else {
         ?>
                 </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+        <?php
+        if (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema') {
+            // rabus: We cannot insert into information_schema tables!
+            echo $titles['NoInsert'];
+        } else {
+            ?>
                     <a href="tbl_change.php?<?php echo $tbl_url_query; ?>">
                         <?php echo $titles['Insert']; ?></a>
-                            </td>
-                            <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+            <?php
+        }
+        ?>
+                </td>
+                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
                     <a href="tbl_properties_structure.php?<?php echo $tbl_url_query; ?>">
                         <?php echo $titles['Structure']; ?></a>
                             </td>
@@ -314,18 +338,27 @@ else {
         $drop_message = sprintf(($is_view ? $strViewHasBeenDropped : $strTableHasBeenDropped), htmlspecialchars($table));
         ?>
                 </td>
-                            <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+        <?php
+        // rabus: We cannot drop information_schema tables!
+        if (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema') {
+            echo $titles['NoDrop'];
+        } else {
+            ?>
                     <a href="sql.php?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode($drop_query); ?>&amp;zero_rows=<?php echo $drop_message; ?>"
                         onclick="return confirmLink(this, '<?php echo PMA_jsFormat($drop_query, FALSE); ?>')">
                         <?php echo $titles['Drop']; ?></a>
+            <?php
+        }
+        ?>
                 </td>
         <?php
-	unset($drop_query, $drop_message);
+        unset($drop_query, $drop_message);
         echo "\n";
 
         // loic1: Patch from Joshua Nye <josh at boxcarmedia.com> to get valid
         //        statistics whatever is the table type
-        if (isset($sts_data['Rows'])) {
+        if (isset($sts_data['Rows']) || (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema')) {
             // MyISAM, ISAM or Heap table: Row count, data size and index size
             // is accurate.
             if (isset($sts_data['Type']) && preg_match('@^(MyISAM|ISAM|HEAP)$@', $sts_data['Type'])) {
@@ -386,13 +419,16 @@ else {
                 }
                 $display_rows                   =  'unknown';
             }
-            ?>
+            // Don't display number of rows for information_schema tables.
+            if (!(PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema')) {
+                ?>
                 <td align="right" bgcolor="<?php echo $bgcolor; ?>" <?php echo $click_mouse; ?>>
-            <?php
-            echo "\n" . '        ' . $display_rows . "\n";
-            ?>
+                <?php
+                echo "\n" . '        ' . $display_rows . "\n";
+                ?>
                 </td>
-            <?php
+                <?php
+            }
             if (!($cfg['PropertiesNumColumns'] > 1)) {
                 echo '                <td bgcolor="' . $bgcolor . '" nowrap="nowrap" ' . $click_mouse . '>' . "\n"
                    . '                    &nbsp;' . (isset($sts_data['Type']) ? $sts_data['Type'] : '&nbsp;') . '&nbsp;' . "\n"
@@ -426,21 +462,21 @@ else {
                 <?php
                 echo "\n";
             } // end if
-	} else if (PMA_MYSQL_INT_VERSION >= 50000 && $sts_data['Comment'] == 'view') {
-	    // rabus: We've found a view
-	    ?>
-	        <td align="right" bgcolor="<?php echo $bgcolor; ?>">
-		    &nbsp;-&nbsp;
-		</td>
-		<td bgcolor="<?php echo $bgcolor; ?>">
+        } else if (PMA_MYSQL_INT_VERSION >= 50000 && $sts_data['Comment'] == 'view') {
+            // rabus: We've found a view
+            ?>
+                <td align="right" bgcolor="<?php echo $bgcolor; ?>">
+                    &nbsp;-&nbsp;
+                </td>
+                <td bgcolor="<?php echo $bgcolor; ?>">
                     &nbsp;<?php echo $strView ; ?>&nbsp;
                 </td>
-	        <td bgcolor="<?php echo $bgcolor; ?>">
-	            &nbsp;---&nbsp;
-	        </td>
-	    <?php
-	    if ($cfg['ShowStats']) {
-	        ?>
+                <td bgcolor="<?php echo $bgcolor; ?>">
+                    &nbsp;---&nbsp;
+                </td>
+            <?php
+                if ($cfg['ShowStats']) {
+                ?>
                <td align="right" bgcolor="<?php echo $bgcolor; ?>">
                   &nbsp;-&nbsp; 
                </td>
@@ -473,13 +509,21 @@ else {
                 <th align="center" nowrap="nowrap">
                     &nbsp;<b><?php echo sprintf($strTables, number_format($num_tables, 0, $number_decimal_separator, $number_thousands_separator)); ?></b>&nbsp;
                 </th>
+    <?php
+    if (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema') {
+        ?>
+                <th colspan="6">&nbsp;</th>
+        <?php
+    } else {
+        ?>
                 <th colspan="6" align="center">
                     <b><?php echo $strSum; ?></b>
                 </th>
                 <th align="right" nowrap="nowrap">
                     <b><?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator); ?></b>
                 </th>
-    <?php
+        <?php
+    }
     if (!($cfg['PropertiesNumColumns'] > 1)) {
         echo '                <th align="center">' . "\n"
            . '                    <b>--</b>' . "\n"
