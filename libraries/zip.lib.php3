@@ -53,46 +53,29 @@ class zipfile
 
 
     /**
-     * Converts the date y/n/d and time h:m:s to a four byte DOS date and time
-     * format (date in high two bytes, time in low two bytes allowing magnitude
-     * comparison).
+     * Converts an Unix timestamp to a four byte DOS date and time format (date
+     * in high two bytes, time in low two bytes allowing magnitude comparison).
      *
-     * @param  integer  the current year
-     * @param  integer  the current month
-     * @param  integer  the current day
-     * @param  integer  the current hour
-     * @param  integer  the current minut
-     * @param  integer  the current second
+     * @param  integer  the current Unix timestamp
      *
      * @return integer  the current date in a four byte DOS format
      *
-     * @access public
-     */
-    function dosTime($year, $month, $day, $hour, $minute, $second) {
-        return ($year < 1980)
-                   ? dosTime(1980, 1, 1, 0, 0, 0)
-                   : (($year - 1980) << 25) | ($month << 21) | ($day << 16) |
-                      ($hour << 11) | ($minute << 5) | ($second >> 1);
-    } // end of the 'dosTime()' method
-
-
-    /**
-     * Returns the Unix time $unixtime in DOS format, rounded up to the next
-     * two second boundary.
-     *
-     * @param  integer  the current timestamp
-     *
-     * @return integer  the current date in a four byte DOS format
-     *
-     * @access public
-     *
-     * @see    DOSTime()
+     * @access private
      */
     function unix2DosTime($unixtime = 0) {
         $timearray = ($unixtime == 0) ? getdate() : getdate($unixtime);
 
-        return $this->dosTime($timearray['year'], $timearray['mon'], $timearray['mday'],
-                              $timearray['hours'], $timearray['minutes'], $timearray['seconds']);
+        if ($timearray['year'] < 1980) {
+        	$timearray['year']    = 1980;
+        	$timearray['mon']     = 1;
+        	$timearray['mday']    = 1;
+        	$timearray['hours']   = 0;
+        	$timearray['minutes'] = 0;
+        	$timearray['seconds'] = 0;
+        } // end if
+
+        return (($timearray['year'] - 1980) << 25) | ($timearray['mon'] << 21) | ($timearray['mday'] << 16) |
+                ($timearray['hours'] << 11) | ($timearray['minutes'] << 5) | ($timearray['seconds'] >> 1);
     } // end of the 'unix2DosTime()' method
 
 
@@ -109,7 +92,7 @@ class zipfile
     {
         $name     = str_replace('\\', '/', $name);
 
-        $dtime    = dechex ($this->unix2DosTime($time));
+        $dtime    = dechex($this->unix2DosTime($time));
         $hexdtime = '\x' . $dtime[6] . $dtime[7]
                   . '\x' . $dtime[4] . $dtime[5]
                   . '\x' . $dtime[2] . $dtime[3]
