@@ -50,6 +50,11 @@ $cfg['Servers'][$i]['bookmarkdb']    = '';          // Bookmark db - leave blank
 $cfg['Servers'][$i]['bookmarktable'] = '';          // Bookmark table - leave blank for no bookmark support
 $cfg['Servers'][$i]['relation']      = '';          // table to describe the relation between links (see doc)
                                                     //   - leave blank for no relation-links support
+$cfg['Servers'][$i]['pdf_table_position']
+                                     = '';          // table to describe the 
+                                                    // tables position for the 
+                                                    // PDF schema - leave blank
+                                                    // for no PDF schema support
 
 $i++;
 $cfg['Servers'][$i]['host']          = '';
@@ -66,6 +71,8 @@ $cfg['Servers'][$i]['verbose']       = '';
 $cfg['Servers'][$i]['bookmarkdb']    = '';
 $cfg['Servers'][$i]['bookmarktable'] = '';
 $cfg['Servers'][$i]['relation']      = '';
+$cfg['Servers'][$i]['pdf_table_position']
+                                     = '';
 
 $i++;
 $cfg['Servers'][$i]['host']          = '';
@@ -82,6 +89,8 @@ $cfg['Servers'][$i]['verbose']       = '';
 $cfg['Servers'][$i]['bookmarkdb']    = '';
 $cfg['Servers'][$i]['bookmarktable'] = '';
 $cfg['Servers'][$i]['relation']      = '';
+$cfg['Servers'][$i]['pdf_table_position']
+                                     = '';
 
 // If you have more than one server configured, you can set $cfg['ServerDefault']
 // to any one of them to autoconnect to that server when phpMyAdmin is started,
