@@ -623,4 +623,5 @@ $strStatCheckTime = 'Last check';//to translate
 $strPerMinute = 'per minute';//to translate
 $strPerSecond = 'per second';//to translate
 $strAutomaticLayout = 'Automatic layout';  //to translate
+$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
 ?>

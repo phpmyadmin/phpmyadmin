@@ -208,6 +208,15 @@ if ($cfgRelation['pdfwork']) {
                     } // end if
                 } // end for
                 break;
+            case 'deleteCrap':
+                while (list(,$current_row) = each($delrow)) {
+                    $d_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_coords']) . ' ' . "\n"
+                             .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'' . "\n"
+                             .   ' AND   table_name = \'' . PMA_sqlAddslashes($current_row) . '\'' . "\n"
+                             .   ' AND   pdf_page_number = ' . $chpage;
+                    PMA_query_as_cu($d_query);
+                }
+                break;
         } // end switch
     } // end if (isset($do))
 
@@ -218,6 +227,7 @@ if ($cfgRelation['pdfwork']) {
     while (list($table) = @PMA_mysql_fetch_array($alltab_rs)) {
         $selectboxall[] = $table;
     }
+
 
     // Now first show some possibility to choose a page for the pdf
     $page_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
@@ -296,6 +306,8 @@ if ($cfgRelation['pdfwork']) {
 
         $i = 0;
         while ($sh_page = @PMA_mysql_fetch_array($page_rs)) {
+            $_mtab       = $sh_page['table_name'];
+            $tabExist[$_mtab] = FALSE;
             echo "\n" . '    <tr ';
             if ($i % 2 == 0) {
                 echo 'bgcolor="' . $cfg['BgcolorOne'] . '"';
@@ -310,6 +322,7 @@ if ($cfgRelation['pdfwork']) {
                 echo "\n" . '                <option value="' . $value . '"';
                 if ($value == $sh_page['table_name']) {
                     echo ' selected="selected"';
+                    $tabExist[$_mtab] = TRUE;
                 }
                 echo '>' . $value . '</option>';
             } // end while
@@ -360,6 +373,33 @@ if ($cfgRelation['pdfwork']) {
         echo "\n" . '</form>' . "\n\n";
     } // end if
 
+    //  Check if there are tables that need to be deleted,
+    //  if there are, ask the user for allowance
+    $_strtrans  = '';
+    $_strname   = '';
+    $shoot      = FALSE;
+    if (!empty($tabExist) && is_array($tabExist)) {
+        while (list($key, $value) = each($tabExist)) {
+            if (!$value) {
+                $_strtrans  .= '<input type="hidden" name="delrow[]" value="' . $key . '">' . "\n";
+                $_strname   .= '<li>' . $key . '</li>' . "\n";
+                $shoot       = TRUE;
+            }
+        }
+        if ($shoot) {
+            echo '<FORM action="pdf_pages.php3" method="post">' . "\n"
+               . PMA_generate_common_hidden_inputs($db, $table)
+               . '<input type="hidden" name="do" value="deleteCrap">' . "\n"
+               . '<input type="hidden" name="chpage" value="' . $chpage . '">' . "\n"
+               . $strDelOld
+               . '<ul>' . "\n"
+               . $_strname
+               . '</ul>' . "\n"
+               . $_strtrans
+               . '<input type="submit" value="' . $strGo . '">' . "\n"
+               . '</FORM>';
+        }
+    }
     //    ------------------------------------
     //    d i s p l a y   p d f    s c h e m a
     //    ------------------------------------

@@ -611,4 +611,5 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
 ?>

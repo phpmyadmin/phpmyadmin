@@ -620,4 +620,5 @@ $strStatCheckTime = 'Letzter Check am';
 $strPerMinute = 'pro Minute';
 $strPerSecond = 'pro Sekunde';
 $strAutomaticLayout = 'Automatic layout';  //to translate
+$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
 ?>
