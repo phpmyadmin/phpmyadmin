@@ -228,7 +228,7 @@ if ($num_dbs > 0) {
         $tables     = @mysql_list_tables($db);
 
         // Number of tables
-        $dbs_array[$db][0] = @mysql_numrows($tables);
+        $dbs_array[$db][0] = ($tables) ? @mysql_numrows($tables) : 0;
         mysql_free_result($tables);
         $total_array[0]    += $dbs_array[$db][0];
 
@@ -241,7 +241,7 @@ if ($num_dbs > 0) {
             $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
             $result      = @mysql_query($local_query);
             // needs the "@" below otherwise, warnings in case of special DB names
-            if (@mysql_num_rows($result)) {
+            if ($result && @mysql_num_rows($result)) {
                 while ($row = mysql_fetch_array($result)) {
                     $dbs_array[$db][1] += $row['Data_length'];
                     $dbs_array[$db][2] += $row['Index_length'];

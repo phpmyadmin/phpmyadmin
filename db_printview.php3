@@ -72,7 +72,7 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
 } // end if (PMA_MYSQL_INT_VERSION >= 32303)
 else {
     $result     = mysql_list_tables($db);
-    $num_tables = @mysql_numrows($result);
+    $num_tables = ($result) ? @mysql_numrows($result) : 0;
     for ($i = 0; $i < $num_tables; $i++) {
         $tables[] = mysql_tablename($result, $i);
     }

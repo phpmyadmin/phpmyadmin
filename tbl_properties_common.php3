@@ -43,7 +43,8 @@ if (!isset($is_table) || !$is_table) {
     if (!empty($table)) {
         $is_table = @mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
     }
-    if (empty($table) || !@mysql_numrows($is_table)) {
+    if (empty($table)
+        || !($is_table && @mysql_numrows($is_table))) {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     } else if (isset($is_table)) {

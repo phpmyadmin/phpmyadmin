@@ -207,7 +207,7 @@ if ($num_dbs > 1) {
             $selected_db = $j;
         }
         $tables              = @mysql_list_tables($db);
-        $num_tables          = @mysql_numrows($tables);
+        $num_tables          = ($tables) ? @mysql_numrows($tables) : 0;
         $common_url_query    = 'lang=' . $lang
                              . '&amp;server=' . $server
                              . '&amp;db=' . urlencode($db);
@@ -374,7 +374,7 @@ if ($num_dbs > 1) {
 else if ($num_dbs == 1) {
     $db                  = $dblist[0];
     $tables              = @mysql_list_tables($db);
-    $num_tables          = @mysql_numrows($tables);
+    $num_tables          = ($tables) ? @mysql_numrows($tables) : 0;
     $common_url_query    = 'lang=' . $lang
                          . '&amp;server=' . $server
                          . '&amp;db=' . urlencode($db);

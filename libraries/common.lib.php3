@@ -504,7 +504,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             if (PMA_MYSQL_INT_VERSION >= 32330) {
                 $local_query      = 'SHOW VARIABLES LIKE \'safe_show_database\'';
                 $rs               = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-                $is_safe_show_dbs = @mysql_result($rs, 0, 'Value');
+                $is_safe_show_dbs = ($rs) ? @mysql_result($rs, 0, 'Value') : FALSE;
 
                 // ... and if on, try to get the available dbs list
                 if ($is_safe_show_dbs && strtoupper($is_safe_show_dbs) != 'OFF') {
@@ -529,7 +529,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
         // Access to "mysql" db allowed and dblist still empty -> gets the
         // usable db list
-        if (!$dblist_cnt && @mysql_numrows($rs)) {
+        if (!$dblist_cnt
+            && ($rs && @mysql_numrows($rs))) {
             $row = mysql_fetch_array($rs);
             mysql_free_result($rs);
             // Correction uva 19991215
@@ -548,7 +549,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                 // lem9: User can be blank (anonymous user)
                 $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\' OR User = \'\')';
                 $rs          = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-                if (@mysql_numrows($rs)) {
+                if ($rs && @mysql_numrows($rs)) {
                     // Will use as associative array of the following 2 code
                     // lines:
                     //   the 1st is the only line intact from before
@@ -609,7 +610,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                 // 2. get allowed dbs from the "mysql.tables_priv" table
                 $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
                 $rs          = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-                if (@mysql_numrows($rs)) {
+                if ($rs && @mysql_numrows($rs)) {
                     while ($row = mysql_fetch_array($rs)) {
                         if (PMA_isInto($row['Db'], $dblist) == -1) {
                             $dblist[] = $row['Db'];
@@ -667,7 +668,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         //    on the server
         else {
             $dbs          = mysql_list_dbs() or PMA_mysqlDie('', 'mysql_list_dbs()', FALSE, $error_url);
-            $num_dbs      = @mysql_num_rows($dbs);
+            $num_dbs      = ($dbs) ? @mysql_num_rows($dbs) : 0;
             $real_num_dbs = 0;
             for ($i = 0; $i < $num_dbs; $i++) {
                 $db_name_tmp = mysql_dbname($dbs, $i);

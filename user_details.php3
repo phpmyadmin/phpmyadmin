@@ -74,7 +74,7 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
     while ($row = (is_array($host_db_result) ? $host_db_result : mysql_fetch_array($host_db_result))) {
         $local_query = 'SHOW GRANTS FOR \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'';
         $result      = mysql_query($local_query);
-        $grants_cnt  = @mysql_num_rows($result);
+        $grants_cnt  = ($result) ? @mysql_num_rows($result) : 0;
 
         if ($grants_cnt) {
             $i = 0;
@@ -221,7 +221,7 @@ function PMA_checkDb($dbcheck)
 {
     $local_query  = 'SELECT Host, User FROM mysql.user ORDER BY Host, User';
     $result       = mysql_query($local_query);
-    $host_usr_cnt = @mysql_num_rows($result);
+    $host_usr_cnt = ($result) ? @mysql_num_rows($result) : 0;
 
     if (!$host_usr_cnt) {
         return FALSE;
@@ -350,7 +350,7 @@ function PMA_normalOperations()
     <?php
     echo "\n";
     $result = mysql_query('SHOW DATABASES');
-    if (@mysql_num_rows($result)) {
+    if ($result && @mysql_num_rows($result)) {
         while ($row = mysql_fetch_row($result)) {
             echo '                        ';
             echo '<option value="' . str_replace('"', '&quot;', $row[0]) . '">' . htmlspecialchars($row[0]) . '</option>' . "\n";
@@ -505,7 +505,7 @@ function PMA_grantOperations($grants)
 //    }
     $is_selected_db = FALSE;
     $result         = mysql_query('SHOW DATABASES');
-    if (@mysql_num_rows($result)) {
+    if ($result && @mysql_num_rows($result)) {
         while ($row = mysql_fetch_row($result)) {
             $selected           = (($row[0] == $dbgrant) ? ' selected="selected"' : '');
             if (!empty($selected)) {
@@ -544,7 +544,7 @@ function PMA_grantOperations($grants)
 //    }
     if (isset($dbgrant)) {
         $result = mysql_query('SHOW TABLES FROM ' . PMA_backquote($dbgrant));
-        if (@mysql_num_rows($result)) {
+        if ($result && @mysql_num_rows($result)) {
             while ($row = mysql_fetch_row($result)) {
                 $selected = ((isset($tablegrant) && $row[0] == $tablegrant) ? ' selected="selected"' : '');
                 echo '                        ';
@@ -580,7 +580,7 @@ function PMA_grantOperations($grants)
     }
     else {
         $result = mysql_query('SHOW COLUMNS FROM ' . PMA_backquote($dbgrant) . '.' . PMA_backquote($tablegrant));
-        if (@mysql_num_rows($result)) {
+        if ($result && @mysql_num_rows($result)) {
             echo '                    '
                  . '<select name="colgrant[]" multiple="multiple" onchange="anycolumn[1].checked = true">' . "\n";
             while ($row = mysql_fetch_row($result)) {
@@ -655,7 +655,7 @@ function PMA_editOperations($host, $user)
     global $lang, $server;
 
     $result = mysql_query('SELECT * FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($user) . '\' AND Host = \'' . PMA_sqlAddslashes($host) . '\'');
-    $rows   = @mysql_num_rows($result);
+    $rows   = ($result) ? @mysql_num_rows($result) : 0;
 
     if (!$rows) {
         return FALSE;
@@ -790,7 +790,7 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
     }
     $local_query     .= ' ORDER BY Host, User';
     $result          = mysql_query($local_query);
-    $rows            = @mysql_num_rows($result);
+    $rows            = ($result) ? @mysql_num_rows($result) : 0;
 
     if (!$rows) {
         return FALSE;
@@ -870,11 +870,6 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
         $check_url      = 'user_details.php3'
                         . '?lang=' . $lang . '&amp;server=' . $server
                         . '&amp;grants=1&amp;host=' . urlencode($row['Host']) . '&amp;pma_user=' . urlencode($row['User']);
-
-//        $check_result = mysql_query('SHOW GRANTS FOR \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'');
-//        if (@mysql_num_rows($check_result) == 0) {
-//            $check_url = '';
-//        }
         ?>
 
 <tr>
@@ -1387,7 +1382,7 @@ else if (isset($grants) && $grants) {
 
     // Gets globals privileges
     $result = mysql_query('SELECT * FROM mysql.user WHERE (Host = \'' . PMA_sqlAddslashes($host) . '\' OR Host = \'%\') AND (User = \'' . PMA_sqlAddslashes($pma_user) . '\' OR User = \'\')');
-    $row    = @mysql_fetch_array($result);
+    $row    = ($result) ? @mysql_fetch_array($result) : FALSE;
     if ($row) {
         while (list(,$priv) = each($list_priv)) {
             $priv_priv = $priv . '_priv';
@@ -1410,7 +1405,7 @@ else if (isset($grants) && $grants) {
             $dbgrant = stripslashes($dbgrant);
         }
         $result      = mysql_query('SELECT * FROM mysql.db WHERE (Host = \'' . PMA_sqlAddslashes($host) . '\' OR Host = \'%\') AND (User = \'' . PMA_sqlAddslashes($pma_user) . '\' OR User = \'\') AND Db = \'' . PMA_sqlAddslashes($dbgrant) . '\'');
-        $row         = @mysql_fetch_array($result);
+        $row         = ($result) ? @mysql_fetch_array($result) : FALSE;
         if ($row) {
             while (list(,$priv) = each($list_priv)) {
                 $priv_priv = $priv . '_priv';
@@ -1433,7 +1428,7 @@ else if (isset($grants) && $grants) {
             $tablegrant = stripslashes($tablegrant);
         }
         $result         = mysql_query('SELECT * FROM mysql.tables_priv WHERE (Host = \'' . PMA_sqlAddslashes($host) . '\' OR Host = \'%\') AND (User = \'' . PMA_sqlAddslashes($pma_user) . '\' OR User = \'\') AND Db = \'' . PMA_sqlAddslashes($dbgrant) . '\' AND Table_name = \'' . PMA_sqlAddslashes($tablegrant) . '\'');
-        $row            = @mysql_fetch_array($result);
+        $row            = ($result) ? @mysql_fetch_array($result) : FALSE;
         if ($row && $row['Table_priv']) {
             while (list(,$priv) = each($list_priv)) {
                 $priv_priv = $priv . '_priv';

@@ -180,7 +180,7 @@ else {
 // Gets the number of tables if a dump of a database has been required
 if (!isset($table)) {
     $tables     = mysql_list_tables($db);
-    $num_tables = @mysql_numrows($tables);
+    $num_tables = ($tables) ? @mysql_numrows($tables) : 0;
 } else {
     $num_tables = 1;
     $single     = TRUE;

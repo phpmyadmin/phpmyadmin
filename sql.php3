@@ -283,7 +283,7 @@ else {
 
     // Gets the number of rows affected/returned
     if (!$is_affected) {
-        $num_rows = @mysql_num_rows($result);
+        $num_rows = ($result) ? @mysql_num_rows($result) : 0;
     } else if (!isset($num_rows)) {
         $num_rows = @mysql_affected_rows();
     }
@@ -345,7 +345,7 @@ else {
                     $goto     = 'db_details.php3';
                 } else {
                     $is_table = @mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
-                    if (!@mysql_numrows($is_table)) {
+                    if (!($is_table && @mysql_numrows($is_table))) {
                         $goto = 'db_details.php3';
                         unset($table);
                     }

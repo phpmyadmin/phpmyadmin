@@ -386,7 +386,7 @@ if ($goto == 'tbl_properties.php3') {
         $goto     = 'db_details.php3';
     } else {
         $is_table = @mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
-        if (!@mysql_numrows($is_table)) {
+        if (!($is_table && @mysql_numrows($is_table))) {
             $goto = 'db_details.php3';
             unset($table);
         }

@@ -121,7 +121,7 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
 } // end if (PMA_MYSQL_INT_VERSION >= 32303)
 else {
     $result     = mysql_list_tables($db);
-    $num_tables = @mysql_numrows($result);
+    $num_tables = ($result) ? @mysql_numrows($result) : 0;
     for ($i = 0; $i < $num_tables; $i++) {
         $tables[] = mysql_tablename($result, $i);
     }
@@ -638,9 +638,6 @@ if ($num_tables > 0) {
         <tr>
     <?php
     $colspan    = '';
-    // loic1: already defined at the top of the script!
-    // $tables     = mysql_list_tables($db);
-    // $num_tables = @mysql_numrows($tables);
     if ($num_tables > 1) {
         $colspan = ' colspan="2"';
         echo "\n";

@@ -20,6 +20,8 @@ $Source$
       under php 3.0.12 thanks to Kris Wood <kris at navi.net>.
     * libraries/common.lib.php3, line 791: fixed a warning thanks to
       Kris Wood <kris at navi.net>.
+    * mosts scripts: optimization - do not call "mysql_numrows",
+      "mysql_results" and "mysql_fetch_array" on invalid queries.
 
 2002-04-30 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/italian.inc.php3: updated thanks to Pietro Danesi.

@@ -39,9 +39,10 @@ if (!defined('PMA_IDX_INCLUDED')) {
     }
     // Not a valid table name -> back to the db_details.php3
     if (!empty($table)) {
-        $is_table = @mysql_query("SHOW TABLES LIKE '" . PMA_sqlAddslashes($table, TRUE) . '\'');
+        $is_table = @mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
     }
-    if (empty($table) || !@mysql_numrows($is_table)) {
+    if (empty($table)
+        || !($is_table && @mysql_numrows($is_table))) {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     } else if (isset($is_table)) {
@@ -399,7 +400,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     }
     echo '    <hr /><br />' . "\n";
     echo '    ' . sprintf($strAddToIndex,  '<input type="text" name="added_fields" size="4" value="1" class="textfield" onfocus="this.select()" />') . "\n";
-    echo '    &nbsp;<input type="submit" name="add_fields" value="' . $strGo . '" class="textfield" onclick="return checkFormElementInRange(this.form, \'added_fields\', 1)" />' . "\n";
+    echo '    &nbsp;<input type="submit" name="add_fields" value="' . $strGo . '" onclick="return checkFormElementInRange(this.form, \'added_fields\', 1)" />' . "\n";
 
 } else {
     /**

@@ -228,7 +228,7 @@ if ($server > 0) {
                             $db_to_create   = '';
                             break;
                         } // end if
-                        elseif (ereg($re . '%|_', $show_grants_dbname) || !mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
+                        else if (ereg($re . '%|_', $show_grants_dbname) || !mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
                             $show_grants_dbname = ereg_replace($re . '%', '\\1...', ereg_replace($re . '_', '\\1?', $show_grants_dbname));
                             $db_to_create       = $show_grants_dbname;
                             $is_create_priv     = TRUE;
