@@ -73,12 +73,12 @@ function mysql_die($error = "") {
     echo "<b> $strError </b><p>";
     if(isset($sql_query) && !empty($sql_query))
     {
-        echo "$strSQLQuery: <pre>$sql_query</pre><p>";
+        echo "$strSQLQuery: <pre>".htmlspecialchars($sql_query)."</pre><p>";
     }
     if(empty($error))
-        echo $strMySQLSaid.mysql_error();
+        echo "$strMySQLSaid ".mysql_error();
     else
-        echo $strMySQLSaid.$error;
+        echo "$strMySQLSaid ".htmlspecialchars($error);
     echo "\n<br><a href=\"javascript:history.go(-1)\">$strBack</a>";
     include("footer.inc.php3");
     exit;
@@ -609,7 +609,7 @@ function show_message($message) {
         ?>
         <tr>
         <td bgcolor="<?php echo $GLOBALS['cfgBgcolorOne'];?>">
-        <?php echo $GLOBALS['strSQLQuery'].":\n<br>", nl2br($GLOBALS['sql_query']);
+        <?php echo $GLOBALS['strSQLQuery'].":\n<br>", nl2br(htmlspecialchars($GLOBALS['sql_query']));
         if (isset($GLOBALS["sql_order"])) echo " $GLOBALS[sql_order]";
         if (isset($GLOBALS["pos"])) echo " LIMIT $GLOBALS[pos], $GLOBALS[cfgMaxRows]";?>
         </td>

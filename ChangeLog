@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 2001-05-11  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, lines 76, 81 and 612: fixed a bug if a field contains html
+	  tags (suggested by Olivier Bussier at the phpMyAdmin official forum:
+	  http://www.phpwizard.net/phorum/read.php?f=1&i=3349&t=3349)
+	  set_time_limit() function (Feature #423374)
 	* lib.inc.php3, lines 496 & 563: put an "@" in front of the calls to the
 	  set_time_limit() function (Feature #423374)
 	* main.php3: add some empty lines to beautify the start screen and a test that
