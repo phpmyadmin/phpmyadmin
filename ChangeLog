@@ -8,6 +8,8 @@ $Source$
 2003-07-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/config.auth.lib.php3, lang/*.php3:
       $strAccessDeniedExplanation
+    * lang/swedish update, thanks to Björn T. Hallberg (bth).
+    * lang/polish update, thanks to Jakub Wilk (ubanus).
 
 2003-07-05 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
