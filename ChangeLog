@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-08-01  Marc Delisle  <lem9@users.sourceforge.net>
+	* executed remove_control_m.sh on *.php3
+
 2001-08-01  Armel Fauveau <armel.fauveau@globalis-ms.com>
 	* extchg.sh : \r\n to \n and patch request #444789
  
