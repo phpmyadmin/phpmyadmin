@@ -71,6 +71,7 @@ $strColumn = 'Колонка';
 $strColumnNames = 'Названия колонок';
 $strCompleteInserts = 'Полная вставка';
 $strConfirm = 'Вы действительно хотите сделать это?';
+$strCookiesRequired = 'Cookies должны быть включены после этого места.';
 $strCopyTable = 'Скопировать таблицу в (база данных<b>.</b>таблица):';
 $strCopyTableOK = 'Таблица %s была скопирована в %s.';
 $strCreate = 'Создать';
@@ -172,6 +173,8 @@ $strLinesTerminatedBy = 'Строки разделены';
 $strLocationTextfile = 'Месторасположение текстового файла';
 $strLogin = 'Вход в систему';
 $strLogout = 'Выйти из системы';
+$strLogPassword = 'Пароль:';
+$strLogUsername = 'Пользователь:';
 
 $strModifications = 'Модификации были сохранены';
 $strModify = 'Изменить';
@@ -256,6 +259,9 @@ $strRowLength = 'Длина ряда';
 $strRows = 'Ряды';
 $strRowsFrom = 'рядов от';
 $strRowSize = ' Размер ряда ';
+$strRowsModeHorizontal = 'горизонтальном';
+$strRowsModeOptions = 'в %s режиме, заголовки после каждых %s ячеек';
+$strRowsModeVertical = 'вертикальном';
 $strRowsStatistic = 'Статистика ряда';
 $strRunning = 'на %s';
 $strRunQuery = 'Выполнить Запрос';
@@ -263,6 +269,8 @@ $strRunSQLQuery = 'Выполнить SQL запрос(ы) на БД %ы';
 
 $strSave = 'Сохранить';
 $strSelect = 'Выбрать';
+$strSelectADb = 'Выберите БД';
+$strSelectAll = 'Отметить все';
 $strSelectFields = 'Выбрать поля (минимум одно):';
 $strSelectNumRows = 'по запросу';
 $strSend = 'послать';
@@ -312,6 +320,7 @@ $strType = 'Тип';
 
 $strUncheckAll = 'Снять отметку со всех';
 $strUnique = 'Уникальное';
+$strUnselectAll = 'Снять отметку со всех';
 $strUpdatePrivMessage = 'Были изменены привилегии для';
 $strUpdateProfile = 'Обновить профиль:';
 $strUpdateProfileMessage = 'Профиль был обновлен.';
@@ -337,13 +346,4 @@ $strYes = 'Да';
 $strZip = 'упаковать в "zip"';
 
 // To translate
-$strCookiesRequired = 'Cookies must be enabled past this point.';
-$strLogPassword = 'Password:';
-$strLogUsername = 'Username:';
-$strRowsModeHorizontal = 'horizontal';  //to translate
-$strRowsModeOptions = 'in %s mode and repeat headers after %s cells';  //to translate
-$strRowsModeVertical = 'vertical';  //to translate
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>
