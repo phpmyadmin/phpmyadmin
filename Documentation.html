@@ -1849,6 +1849,17 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     php scripts. Of course you have to restart Apache.
 </p>
 
+<p>
+    <b>[1.26] I just installed phpMyAdmin in my document root of IIS but
+    I get the error &quot;No input file specified&quot; when trying to
+    run phpMyAdmin.</b>
+    <br />
+    This is a permission problem. Right-click on the phpmyadmin folder 
+    and choose properties. Under the tab Security, click on &quot;Add&quot;
+    and select the user &quot;IUSER_machine&quot; from the list. Now set his 
+    permissions and it should work.
+</p>
+
 <a name="faqconfig"></a>
 <h3>[2. Configuration]</h3>
 
