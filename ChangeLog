@@ -7,6 +7,9 @@ $Source$
 
 2001-12-19  Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html; libraries/display_tbl.lib.php3: updated credits.
+	* libraries/display_tbl.lib.php3:
+	  - removed some remaining tabs and a invalid piece of code;
+	  - fixed bug #495105 - FULLTEXT feature with WHERE clause.
 
 2001-12-18  Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3; tbl_change.php3; tbl_replace.php3;
