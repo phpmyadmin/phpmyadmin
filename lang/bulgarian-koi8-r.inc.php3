@@ -643,4 +643,5 @@ $strUseHostTable = 'Use Host Table';  //to translate
 
 $strXML = 'XML';//to translate
 
+$strSwitchToTable = 'Switch to copied table';  //to translate
 ?>

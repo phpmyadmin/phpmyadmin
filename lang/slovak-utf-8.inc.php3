@@ -624,4 +624,5 @@ $strTransformation_text_plain__link = 'Displays a link, the field contains the f
 $strUseHostTable = 'Use Host Table';  //to translate
 $strShowFullQueries = 'Show Full Queries';  //to translate
 $strTruncateQueries = 'Truncate Shown Queries';  //to translate
+$strSwitchToTable = 'Switch to copied table';  //to translate
 ?>

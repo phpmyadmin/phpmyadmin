@@ -625,4 +625,5 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
+$strSwitchToTable = 'Switch to copied table';  //to translate
 ?>

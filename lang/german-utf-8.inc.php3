@@ -620,18 +620,19 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 
+$strTransformation_image_jpeg__inline = 'Ein klickbares Vorschaubild anzeigen. Optionen: Breite, Höhe in Pixeln (berücksichtigt Seitenverhältnis)';
+$strTransformation_image_jpeg__link = 'Einen Link zum Bild anzeigen, z.B. zum Download von BLOB-Daten.';
+$strTransformation_image_png__inline = 'Siehe image/jpeg: inline';
+$strTransformation_text_plain__dateformat = 'Wandelt ein TIME, TIMESTAMP oder DATETIME-Feld und formatiert es unter Berücksichtigung des lokalen Zeitformats. Erste Option: Differenz (in Stunden) zur Addition/Subtraktion der aktuellen Zeit (Standard: 0). Zweite Option: Zeitformat anstelle des lokalen, Variablen siehe PHPs strftime().';
+$strTransformation_text_plain__external = 'Nur für LINUX: Startet ein externes Programm und verwendet die Daten des Feldes für die Standardeingabe. Stellt innerhalb von PHPMyAdmin die Standardausgabe des externen Programmes dar. Die Voreinstellung wurde für Tidy optimiert, um HTML code optisch zu formatieren. Aus Sicherheitsgründen müssen Sie die Datei libraries/transformations/text_plain__external.inc.php von Hand bearbeiten um weitere Programme hinzuzufügen. Die erste Option ist die Nummer des dort hinterlegten Programmes und die zweite Option legt die Parameter für das externe Programm fest. Die dritte Option bestimmt, falls auf 1 gesetzt, dass die Ausgabe mit htmlspecialchars() formatiert wird (Standard: 1). Die vierte Option bestimmt, falls auf 1 gesetzt, ob ein NOWRAP-Parameter der Tabellenzelle hinzugefügt wird um einen automatischen Umbruch der Standardausgabe zu verhindern (Standard: 1)';
+$strTransformation_text_plain__formatted = 'Behält Ursprungsformatierung des Feldes bei. Kein Escaping oder Umlautwandlung wird durchgeführt.';
+$strTransformation_text_plain__imagelink = 'Benutzt den Inhalt eines Feldes um ein Bild und einen Link dazu darzustellen. Die erste Option ist ein Präfix vor dem eigentlichen Feldinhalt wie "http://www.domain.com". Zweite Option ist die Breite des Bildes, die dritte Option die Höhe des Bildes in Pixeln.';
+$strTransformation_text_plain__link = 'Benutzt den Inhalt eines Feldes um einen Link darzustellen. Die erste Option ist ein Präfix vor dem eigentlichen Feldinhalt wie "http://www.domain.com". Zweite Option ist der darzustellende Titel des Links';
+$strTransformation_text_plain__substr = 'Stellt nur einen Teil des Feldinhaltes dar. Die erste Option definiert die Position des Textes ab dem die Ausgabe startet (Standard: 0), die zweite Option gibt an wieviel Zeichen ab dort dargestellt werden sollen. Falls diese Option leer ist, wird der gesamte verbleibende Text dargestellt. Die dritte Option kann einen Text enthalten, der bei partieller Ausgabe des Textes angehängt wird, um eine Abschneidung kenntlich zu machen (Standard: ...).';
+$strTransformation_text_plain__unformatted = 'Wandelt Sonderzeichen nach HTML-Regeln um, um HTML-formatierungen innerhalb des Feldinhaltes unwirksam zu machen.';
+
+$strSwitchToTable = 'Zur kopierten Tabelle wechseln';
+
 // To translate
 $updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
-
-$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
-$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
-$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
-$strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
-$strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
-$strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
-$strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
-$strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
-$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
-$strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
-
 ?>

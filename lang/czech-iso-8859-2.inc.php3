@@ -630,4 +630,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
+$strSwitchToTable = 'Switch to copied table';  //to translate
 ?>

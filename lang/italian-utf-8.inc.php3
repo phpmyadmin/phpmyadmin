@@ -633,4 +633,5 @@ $strTruncateQueries = 'Truncate Shown Queries';  //to translate
 
 $strUseHostTable = 'Use Host Table';  //to translate
 
+$strSwitchToTable = 'Switch to copied table';  //to translate
 ?>
