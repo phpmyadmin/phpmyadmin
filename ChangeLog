@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-02-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php: bug 905066, memory eater, thanks to xuefer
+
 2004-02-24 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php: bug 903450, typo
     * tbl_row_delete.php: bug 878995: mult_submits.inc.php should not be

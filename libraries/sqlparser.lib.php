@@ -267,6 +267,7 @@ if ($is_minimum_common == FALSE) {
             // ANSI style --
             if (($c == '#')
                 || (($count2 + 1 < $len) && ($c == '/') && ($sql[$count2 + 1] == '*'))
+                || (($count2 + 2 == $len) && ($c == '-') && ($sql[$count2 + 1] == '-'))
                 || (($count2 + 2 < $len) && ($c == '-') && ($sql[$count2 + 1] == '-') && (($sql[$count2 + 2] == ' ') || ($sql[$count2 + 2] == "\n")))) {
                 $count2++;
                 $pos  = 0;
