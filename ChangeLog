@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-21  Marc Delisle  <lem9@users.sourceforge.net>
+        * add a message $strTextAreaLength to tell users when a textarea
+          contents is too large to be editable ( > 32K)
+
 2001-05-20  Loïc Chapeaux  <lolo@phpheaven.net>
 	* replaced all require("somefile.php3") and include("somefile.php3")
 	  instructions by require("./somefile.php3") and include("./somefile.php3")

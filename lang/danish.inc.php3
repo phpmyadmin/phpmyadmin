@@ -142,4 +142,5 @@ $strOptimizeTable       = "Optimer tabel";
 $strTableType           = "Tabel type";
 $strHomepageOfficial    = "Officiel phpMyAdmin hjemmeside ";
 $strHomepageSourceforge = "Ny (men ikke endnu officiel) phpMyAdmin hjemmeside ";
+$strTextAreaLength=" Because of its length,<br> this field might not be editable ";  //to translate
 ?>

@@ -136,4 +136,5 @@ $strBookmarkQuery	= "Bookmarked SQL-query";	// To translate
 $strBookmarkThis	= "Bookmark this SQL-query";	// To translate
 $strBookmarkLabel	= "Label";	// To translate
 $strBookmarkView	= "View only";	// To translate
+$strTextAreaLength=" Because of its length,<br> this field might not be editable ";  //to translate
 ?>

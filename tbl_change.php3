@@ -85,6 +85,8 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
     if(strstr($row_table_def["Type"], "text"))
     {
         echo "<td><textarea name=fields[$field] style=\"width:$cfgMaxInputsize;\" rows=5>$special_chars</textarea></td>\n";
+	if (strlen($special_chars) > 32000)
+                echo "<td>$strTextAreaLength</td>";
     }
     elseif(strstr($row_table_def["Type"], "enum"))
     {
