@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-24 Michal Čihař  <michal@cihar.com>
+    * libraries/export/sql.php: Fixed export of '0' string (bug #1033869).
+
 2004-09-23 Marc Delisle  <lem9@users.sourceforge.net>
     * all themes: item_ltr.png and item_rtl.png: new solid arrow
       that looks better, thanks to Efim Shuvikov

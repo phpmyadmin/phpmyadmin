@@ -33,15 +33,15 @@ function PMA_exportFooter() {
     global $crlf;
 
     $foot = '';
-    
+
     if (isset($GLOBALS['disable_fk'])) {
         $foot .=  $crlf . 'SET FOREIGN_KEY_CHECKS=1;' . $crlf;
     }
-    
+
     if (isset($GLOBALS['use_transaction'])) {
         $foot .=  $crlf . 'COMMIT;' . $crlf;
     }
-        
+
     return PMA_exportOutputHandler($foot);
 }
 
@@ -68,23 +68,23 @@ function PMA_exportHeader() {
            .  $GLOBALS['comment_marker'] . $GLOBALS['strGenTime'] . ': ' . PMA_localisedDate() . $crlf
            .  $GLOBALS['comment_marker'] . $GLOBALS['strServerVersion'] . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
            .  $GLOBALS['comment_marker'] . $GLOBALS['strPHPVersion'] . ': ' . phpversion() . $crlf;
-           
+
     if (isset($GLOBALS['header_comment']) && !empty($GLOBALS['header_comment'])) {
         $lines = explode('\n', $GLOBALS['header_comment']);
         $head .= $GLOBALS['comment_marker'] . $crlf
                . $GLOBALS['comment_marker'] . implode($crlf . $GLOBALS['comment_marker'], $lines) . $crlf
                . $GLOBALS['comment_marker'] . $crlf;
     }
-    
+
     if (isset($GLOBALS['disable_fk'])) {
         $head .=  $crlf . 'SET FOREIGN_KEY_CHECKS=0;' . $crlf;
     }
-        
+
     if (isset($GLOBALS['use_transaction'])) {
         $head .=  $crlf .'SET AUTOCOMMIT=0;' . $crlf
                 . 'START TRANSACTION;' . $crlf . $crlf;
     }
-    
+
     return PMA_exportOutputHandler($head);
 }
 
@@ -222,13 +222,13 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
         unset($row);
 
         // Should we use IF NOT EXISTS?
-        if (isset($GLOBALS['if_not_exists'])) { 
+        if (isset($GLOBALS['if_not_exists'])) {
             $create_query     = preg_replace('/^CREATE TABLE/', 'CREATE TABLE IF NOT EXISTS', $create_query);
         }
 
         // are there any constraints to cut out?
         if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $create_query)) {
-            
+
             // split the query into lines, so we can easilly handle it
             if (strpos(",\r\n ", $create_query) === FALSE) {
                 $sql_lines = preg_split('@\r|\n@', $create_query);
@@ -243,23 +243,23 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
             }
 
             // remove , from the end of create statement
-            $sql_lines[$i - 1] = preg_replace('@,$@', '', $sql_lines[$i - 1]); 
+            $sql_lines[$i - 1] = preg_replace('@,$@', '', $sql_lines[$i - 1]);
 
             // prepare variable for constraints
             if (!isset($sql_constraints)) {
                 if (isset($GLOBALS['no_constraints_comments'])) {
                     $sql_constraints = '';
                 } else {
-                    $sql_constraints = $crlf . $GLOBALS['comment_marker'] . 
-                                       $crlf . $GLOBALS['comment_marker'] . $GLOBALS['strConstraintsForDumped'] . 
+                    $sql_constraints = $crlf . $GLOBALS['comment_marker'] .
+                                       $crlf . $GLOBALS['comment_marker'] . $GLOBALS['strConstraintsForDumped'] .
                                        $crlf . $GLOBALS['comment_marker'] . $crlf;
                 }
             }
 
             // comments for current table
             if (!isset($GLOBALS['no_constraints_comments'])) {
-                $sql_constraints .= $crlf . $GLOBALS['comment_marker'] . 
-                                    $crlf . $GLOBALS['comment_marker'] . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) . 
+                $sql_constraints .= $crlf . $GLOBALS['comment_marker'] .
+                                    $crlf . $GLOBALS['comment_marker'] . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) .
                                     $crlf . $GLOBALS['comment_marker'] . $crlf;
             }
 
@@ -343,32 +343,32 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
     }
 
     if (isset($comments_map) && count($comments_map) > 0) {
-        $schema_create .= $crlf . $GLOBALS['comment_marker'] . $crlf 
+        $schema_create .= $crlf . $GLOBALS['comment_marker'] . $crlf
                        . $GLOBALS['comment_marker'] . $GLOBALS['strCommentsForTable']. ' ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
         foreach ($comments_map AS $comment_field => $comment) {
-            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($comment_field, $use_backquotes) . $crlf 
+            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($comment_field, $use_backquotes) . $crlf
                             . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($comment, $use_backquotes) . $crlf;
         }
         $schema_create .= $GLOBALS['comment_marker'] . $crlf;
     }
 
     if (isset($mime_map) && count($mime_map) > 0) {
-        $schema_create .= $crlf . $GLOBALS['comment_marker'] . $crlf 
+        $schema_create .= $crlf . $GLOBALS['comment_marker'] . $crlf
                        . $GLOBALS['comment_marker'] . $GLOBALS['strMIMETypesForTable']. ' ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
         @reset($mime_map);
         foreach ($mime_map AS $mime_field => $mime) {
-            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($mime_field, $use_backquotes) . $crlf 
+            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($mime_field, $use_backquotes) . $crlf
                             . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($mime['mimetype'], $use_backquotes) . $crlf;
         }
         $schema_create .= $GLOBALS['comment_marker'] . $crlf;
     }
 
     if ($have_rel) {
-        $schema_create .= $crlf . $GLOBALS['comment_marker'] . $crlf 
+        $schema_create .= $crlf . $GLOBALS['comment_marker'] . $crlf
                        . $GLOBALS['comment_marker'] . $GLOBALS['strRelationsForTable']. ' ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
         foreach ($res_rel AS $rel_field => $rel) {
-            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($rel_field, $use_backquotes) . $crlf 
-                            . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($rel['foreign_table'], $use_backquotes) 
+            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($rel_field, $use_backquotes) . $crlf
+                            . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($rel['foreign_table'], $use_backquotes)
                             . ' -> ' . PMA_backquote($rel['foreign_field'], $use_backquotes) . $crlf;
         }
         $schema_create .= $GLOBALS['comment_marker'] . $crlf;
@@ -494,7 +494,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             } else {
                 $insert_delayed = '';
             }
-        
+
             // insert ignore?
             if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'insert' && isset($GLOBALS['sql_ignore'])) {
                 $insert_delayed .= ' IGNORE';
@@ -526,14 +526,16 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 // timestamp is numeric on some MySQL 4.1
                 } elseif ($fields_meta[$j]->numeric && $fields_meta[$j]->type != 'timestamp') {
                     $values[] = $row[$j];
-                // handle empty string special way, just to speed up things and to catch empty BLOBs
-                } elseif (empty($row[$j])) {
-                    $values[] = '\'\'';
                 // a binary field
                 // Note: with mysqli, under MySQL 4.1.3, we get the flag
                 // "binary" for a datetime (I don't know why)
                 } else if (stristr($field_flags[$j], 'BINARY') && isset($GLOBALS['hexforbinary']) && $fields_meta[$j]->type != 'datetime') {
-                    $values[] = '0x' . bin2hex($row[$j]);
+                    // empty blobs need to be different, but '0' is also empty :-(
+                    if (empty($row[$j]) && $row[$j] != '0') {
+                        $values[] = '\'\'';
+                    } else {
+                        $values[] = '0x' . bin2hex($row[$j]);
+                    }
                 // something else -> treat as a string
                 } else {
                     $values[] = '\'' . str_replace($search, $replace, PMA_sqlAddslashes($row[$j])) . '\'';
