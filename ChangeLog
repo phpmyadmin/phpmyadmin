@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-29 Garvin Hicking <me@supergarv.de>
+    * tbl_move_copy.php3: Bug #729416
+
 2003-04-28 Garvin Hicking <me@supergarv.de>
     * index.php3, queryframe.php3, tbl_query_box.php3, querywindow.php3:
       Even more issues when QueryFrameJS is set to true, but JS is not

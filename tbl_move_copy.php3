@@ -82,7 +82,7 @@ global $cfgRelation;
                 }
             }
             
-            $new_table_query = 'INSERT INTO ' . PMA_backquote($cfgRelation[$pma_table])
+            $new_table_query = 'REPLACE INTO ' . PMA_backquote($cfgRelation[$pma_table])
                             . ' (' . implode(', ', $select_parts) . ', ' . implode(', ', $new_parts) . ')'
                             . ' VALUES '
                             . ' (\'' . implode('\', \'', $value_parts) . '\', \'' . implode('\', \'', $new_value_parts) . '\')';
