@@ -41,7 +41,7 @@ if (empty($GLOBALS['is_header_sent'])) {
      */
     $title     = '';
     if ($cfg['ShowHttpHostTitle']) {
-        $title .= (empty($GLOBALS['cfg']['SetHttpHostTitle']) ? $GLOBALS['HTTP_HOST'] : $GLOBALS['cfg']['SetHttpHostTitle']) . ' >> ';
+        $title .= (empty($GLOBALS['cfg']['SetHttpHostTitle']) ? $_SERVER['HTTP_HOST'] : $GLOBALS['cfg']['SetHttpHostTitle']) . ' >> ';
     }
     if (!empty($GLOBALS['cfg']['Server']) && isset($GLOBALS['cfg']['Server']['host'])) {
         $title.=str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['host']);

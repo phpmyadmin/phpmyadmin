@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-16 Michal Čihař  <michal@cihar.com>
+    * header.inc.php: Use rather _SERVER than GLOBALS, should fix bug #973602.
+
 2004-06-15 Marc Delisle  <lem9@users.sourceforge.net>
     * queryframe.php: undefined $cfgRelation, thanks to Michael Keck (mkkeck)
     * export.php, sql.php, db_details_importdocsql.php, ldi_check.php,
