@@ -21,7 +21,7 @@ require('./lib.inc.php3');
 $view_bookmark = 0;
 $sql_bookmark  = isset($sql_bookmark) ? $sql_bookmark : '';
 $sql_query     = isset($sql_query)    ? $sql_query    : '';
-$sql_file      = isset($sql_file)     ? $sql_file     : 'none';
+$sql_file      = !empty($sql_file)    ? $sql_file     : 'none';
 
 
 /**
