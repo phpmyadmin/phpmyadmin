@@ -150,6 +150,11 @@ if (!defined('__LIB_INC__')){
             $query_base = htmlspecialchars($the_query);
             $query_base = ereg_replace("((\015\012)|(\015)|(\012)){3,}", "\n\n", $query_base);
             echo '<p>' . "\n";
+
+// if the config password is wrong, or the MySQL server does not respond,
+// do not show the query that would reveal the username/password
+
+	   if (!strstr($query_base,"connect")) {
             echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;' . "\n";
             if ($is_modify_link) {
                 echo '    ['
@@ -158,6 +163,7 @@ if (!defined('__LIB_INC__')){
             }
             echo '<pre>' . "\n" . $query_base . "\n" . '</pre>' . "\n";
             echo '</p>' . "\n";
+          }
         }
         if (!empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
