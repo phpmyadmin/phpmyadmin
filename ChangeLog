@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-30 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * main.php3, user_details.php3, libraries/user_details.js: Removed the old
+      user management.
+
 2003-01-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php3: drop-down for enums, thanks to Joerg Klein (j0erch)
 
@@ -27,7 +31,7 @@ $Source$
     * lang/italian*: Updates, thanks to Pietro Danesi (danone)
     * lang/english*: Resorted and Resynced.
     * lang/farsi*: Added ready for Farsi translation
-    * lang/sync_lang.sh, libraries/select_lang.lib.php3: 
+    * lang/sync_lang.sh, libraries/select_lang.lib.php3:
         - Updates ready for Farsi translation
     * lang/polish*: Updates, thanks to Jakub Wilk (ubanus)
     * fulltext.png, partialtext.png, pma_logo.png:
