@@ -72,23 +72,62 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
 
     /**
-     * Do display an error message
+     * Reset the error variable for the SQL parser 
+     *
+     * @access public
+     */
+    // Added, Robbat2 - 13 Janurary 2003, 2:59PM
+    function PMA_SQP_resetError() {
+        global $SQP_errorString;
+        $SQP_errorString = '';
+        unset($SQP_errorString);
+    }
+    
+    /**
+     * Get the contents of the error variable for the SQL parser 
+     *
+     * @return string Error string from SQL parser
+     *
+     * @access public
+     */
+    // Added, Robbat2 - 13 Janurary 2003, 2:59PM
+    function PMA_SQP_getErrorString() {
+        global $SQP_errorString;
+        return isset($SQP_errorString) ? $SQP_errorString : '';
+    }
+
+    /**
+     * Check if the SQL parser hit an error
+     *
+     * @return boolean error state
+     *
+     * @access public
+     */
+    // Added, Robbat2 - 13 Janurary 2003, 2:59PM
+    function PMA_SQP_isError() {
+        global $SQP_errorString;
+        return isset($SQP_errorString) && !empty($SQP_errorString);
+    }
+
+    /**
+     * Set an error message for the system
      *
      * @param  string  The error message
      * @param  string  The failing SQL query
      *
-     * @access public
+     * @access private
+     * @scope SQL Parser internal
      */
+    // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
     function PMA_SQP_throwError($message, $sql)
     {
-        $debugstr = 'ERROR: ' . $message . "\n";
-        $debugstr .= 'SQL: ' . $sql;
 
         global $SQP_errorString;
         $SQP_errorString = '<p>'.$GLOBALS['strSQLParserUserError'] . '</p>' . "\n"
-             . '<pre>' . "\n"
-             . $debugstr . "\n"
-             . '</pre>' . "\n";
+            . '<pre>' . "\n"
+            . 'ERROR: ' . $message . "\n"
+            . 'SQL: ' . $sql .  "\n"
+            . '</pre>' . "\n";
 
         /*
         // Removed to solve bug #641765 - Robbat2 - 12 January 2003, 9:46PM
@@ -1119,6 +1158,15 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      */
     function PMA_SQP_formatHtml($arr, $mode='color')
     {
+        // first check for the SQL parser having hit an error
+        if (PMA_SQP_isError()) {
+            return $arr;
+        }
+        // then check for an array 
+        if (!is_array($arr)) {
+            return $arr;
+        }
+        // else do it properly
         switch ($mode) {
             case 'color':
                 $str                                = '<span class="syntax">';

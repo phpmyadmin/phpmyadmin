@@ -277,6 +277,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
         // Check that we actually have a valid set of parsed data
         // well, not quite
+        // first check for the SQL parser having hit an error
+        if (PMA_SQP_isError()) {
+            return $parsed_sql;
+        }
+        // then check for an array
         if (!is_array($parsed_sql)) {
             // We don't so just return the input directly
             // This is intended to be used for when the SQL Parser is turned off
@@ -323,8 +328,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                           $is_modify_link = TRUE, $back_url = '')
     {
         global $cfg;
-        global $SQP_errorString;
-
+        
         if (empty($GLOBALS['is_header_sent'])) {
             include('./header.inc.php3');
         }
@@ -338,7 +342,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
         // --- Added to solve bug #641765 
         // Robbat2 - 12 January 2003, 9:46PM
-        if (isset($SQP_errorString) && !empty($SQP_errorString)) {
+        // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
+        if (PMA_SQP_isError()) {
             $parsed_sql = $the_query;
         } else {
             $parsed_sql = PMA_SQP_parse($the_query);
@@ -352,9 +357,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if (!empty($the_query) && !strstr($the_query, 'connect')) {
             // --- Added to solve bug #641765 
             // Robbat2 - 12 January 2003, 9:46PM
-            if (isset($SQP_errorString) && !empty($SQP_errorString)) {
-                flush();
-                echo $SQP_errorString;
+            // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
+            if (PMA_SQP_isError()) {
+                echo PMA_SQP_getErrorString();
             }
             // ---
             echo '<p>' . "\n";
