@@ -91,8 +91,6 @@ $Source$
     * main.php, themes.php, libraries/select_theme.lib.php,
       css/phpmyadmin.css.php, themes/original/img + css:
       put original theme under the same structure as darkblue_orange
- 
-      TODO: - modify (common.lib.php) to get rid of /images ?
 
 2004-06-16 Michal Čihař  <michal@cihar.com>
     * header.inc.php: Use rather _SERVER than GLOBALS, should fix bug #973602.
