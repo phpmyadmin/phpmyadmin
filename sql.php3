@@ -772,7 +772,7 @@ else {
 <!--
 // Do print the page
 if (typeof(window.print) != 'undefined') {
-    // window.print();
+    window.print();
 }
 //-->
 </script>
