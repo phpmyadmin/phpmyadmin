@@ -89,7 +89,6 @@ $strBzip = '"comprimit amb bzip"';
 $strCSVOptions = 'Opcions CSV';
 $strCannotLogin = 'No podem connectar amb el servidor MySQL';
 $strCantLoad = 'No puc carregar la extensió %s,<br />comprova la configuració de PHP.';
-$strCantLoadMySQL = 'no s\'ha pogut carregar l\'extensió de MySQL,<br />verifiqueu la configuració del PHP.';
 $strCantLoadRecodeIconv = 'No es pot carregar iconv o recodificar una extensió necessària per la conversió de jocs de caràcters, configura php per permetre l\'ús d\'aquestes extensions o bé desactiva la conversió de jocs de caràcters en phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'No pots canviar el nom d\'un índex a "PRIMARY"!';
 $strCantUseRecodeIconv = 'No es pot utilitzar iconv ni libiconv ni la funció recode_string mentre es carrega l\'extensió d\'informes. Comprova la configuració de php.';
