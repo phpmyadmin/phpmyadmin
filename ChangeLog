@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php, complete the fix for bug 922054
+
 2004-04-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
     * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).

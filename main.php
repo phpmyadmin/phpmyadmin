@@ -241,7 +241,9 @@ if ($server > 0) {
                             $db_to_create   = '';
                             break;
                         } // end if
-                        else if ( (!PMA_DBI_try_query('USE ' . ereg_replace($re1 .'(%|_)', '\\1\\3', $show_grants_dbname)) && substr(PMA_DBI_getError(), 1, 4) != 1044)
+                        else if ( (ereg($re0 . '%|_', $show_grants_dbname) 
+                                  && !ereg('\\\\%|\\\\_', $show_grants_dbname))
+                                || (!PMA_DBI_try_query('USE ' . ereg_replace($re1 .'(%|_)', '\\1\\3', $show_grants_dbname)) && substr(PMA_DBI_getError(), 1, 4) != 1044)
                             ) {
                             $db_to_create = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $show_grants_dbname));
                             $db_to_create = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
