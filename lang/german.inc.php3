@@ -89,6 +89,7 @@ $strDocu = 'Dokumentation';
 $strDoYouReally = 'Möchten Sie wirklich diese Abfrage ausführen: ';
 $strDrop = 'Löschen';
 $strDropDB = 'Datenbank löschen:';
+$strDropTable = 'Tabelle löschen';
 $strDumpingData = 'Daten für Tabelle';
 $strDynamic = 'dynamisch';
 
@@ -297,5 +298,4 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
-$strDropTable = 'Drop table';
 ?>
