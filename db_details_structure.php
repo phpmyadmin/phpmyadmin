@@ -105,7 +105,7 @@ if (empty($is_info)) {
     }
 }
 
-if (PMA_MYSQL_INT_VERSION >= 40100) {
+if (PMA_MYSQL_INT_VERSION >= 40101) {
     $db_collation = PMA_getDbCollation($db);
 }
 
@@ -705,15 +705,9 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
        . '    <li>' . "\n"
        . '        <form method="post" action="./db_details_structure.php">' . "\n"
        . PMA_generate_common_hidden_inputs($db, $table, 3)
-       . '            ' . $strCharset . '&nbsp;:&nbsp;' . "\n"
-       . '            <select name="db_charset" style="vertical-align: middle">' . "\n";
-       $real_charset = strpos($db_collation, '_') ? substr($db_collation, 0, strpos($db_collation, '_')) : $db_collation;
-    for ($i = 1; isset($mysql_charsets[$i]); $i++) {
-        echo '                <option value="' . $mysql_charsets[$i] . '"' . ($mysql_charsets[$i] == $real_charset ? ' selected="selected"' : '') . '>' . $mysql_charsets[$i] . '</option>' . "\n";
-    }
-    unset($i, $real_charset);
-    echo '            </select>&nbsp;' . "\n"
-       . '            <input type="submit" name="submitcharset" value="' . $strGo . '" style="vertical-align: middle" />&nbsp;' . "\n"
+       . '            <label for="select_db_collation">' . $strCollation . '</label>&nbsp;:&nbsp;' . "\n";
+    PMA_printCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', 'select_db_collation', $db_collation, FALSE, 3);
+    echo '            <input type="submit" name="submitcollation" value="' . $strGo . '" style="vertical-align: middle" />&nbsp;' . "\n"
        . '        </form>' . "\n"
        . '    </li>' . "\n\n";
 }

@@ -36,10 +36,12 @@ if (!isset($is_db) || !$is_db) {
 /**
  * Changes database charset if requested by the user
  */
-if (isset($submitcharset) && PMA_MYSQL_INT_VERSION >= 40101) {
-    $sql_query     = 'ALTER DATABASE ' . PMA_backquote($db) . ' DEFAULT CHARACTER SET ' . $db_charset;
-    $result        = PMA_DBI_query($sql_query);
-    $message       = $strSuccess;
+if (isset($submitcollation) && !empty($db_collation) && PMA_MYSQL_INT_VERSION >= 40101) {
+    list($db_charset) = explode('_', $db_collation);
+    $sql_query        = 'ALTER DATABASE ' . PMA_backquote($db) . ' DEFAULT CHARACTER SET ' . $db_charset . ($db_charset == $db_collation ? '' : ' COLLATE ' . $db_collation);
+    $result           = PMA_DBI_query($sql_query);
+    $message          = $strSuccess;
+    unset($db_charset, $db_collation);
 }
 
 // Displays headers
