@@ -15,6 +15,8 @@ $Source$
       css/phpmyadmin.css.php: Get rid of wrap="virtual" to achieve more XHTML
       validity.
     * libraries/common.lib.php, lang/*: Add Refresh link (RFE #942110).
+    * sql.php, libraries/display_tbl.lib.php: Export only SELECT queries, do
+      not show multi row actions when no checkboxes shown.
 
 2004-05-03 Garvin Hicking <pma@supergarv.de>
     * left.php: Bug #946501 - Nested table now also work with aliased

@@ -1797,7 +1797,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     // 4. ----- Displays the link for multi-fields delete
 
-    if ($is_display['del_lnk'] == 'dr' || $is_display['del_lnk'] == 'kp') {
+    if ($is_display['del_lnk'] == 'dr' && $is_display['del_lnk'] != 'kp') {
 
         $delete_text = $is_display['del_lnk'] == 'dr' ? $GLOBALS['strDelete'] : $GLOBALS['strKill'];
         $propicon = (string)$GLOBALS['cfg']['PropertiesIconic'];
@@ -1816,21 +1816,26 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
                 echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $delete_text . '">' . "\n"
                    . '<img src="./images/button_drop.png" title="' . $delete_text . '" alt="' . $delete_text . '" width="12" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
                    . '</button>';
-
-                echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_export" title="' . $GLOBALS['strExport'] . '">' . "\n"
-                   . '<img src="./images/button_export.png" title="' . $GLOBALS['strExport'] . '" alt="' . $GLOBALS['strExport'] . '" width="12" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '') . "\n"
-                   . '</button>';
+                if ($analyzed_sql[0]['querytype'] == 'SELECT') {
+                    echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_export" title="' . $GLOBALS['strExport'] . '">' . "\n"
+                       . '<img src="./images/button_export.png" title="' . $GLOBALS['strExport'] . '" alt="' . $GLOBALS['strExport'] . '" width="12" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '') . "\n"
+                       . '</button>';
+                }
 
             } else {
                 echo '                    <input type="image" name="submit_mult_edit" value="row_edit" title="' . $GLOBALS['strEdit'] . '" src="./images/button_edit.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '');
                 echo '&nbsp;<input type="image" name="submit_mult" value="row_delete" title="' . $delete_text . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '');
-                echo '&nbsp;<input type="image" name="submit_mult_export" value="row_export" title="' . $GLOBALS['strExport'] . '" src="./images/button_export.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '');
+                if ($analyzed_sql[0]['querytype'] == 'SELECT') {
+                    echo '&nbsp;<input type="image" name="submit_mult_export" value="row_export" title="' . $GLOBALS['strExport'] . '" src="./images/button_export.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '');
+                }
             }
             echo "\n";
         } else {
             echo '                    <input type="submit" name="submit_mult" value="' . htmlspecialchars($GLOBALS['strEdit']) . '" title="' . $GLOBALS['strEdit'] . '" />' . "\n";
             echo '&nbsp;<input type="submit" name="submit_mult" value="' . htmlspecialchars($delete_text) . '" title="' . $delete_text . '" />' . "\n";
-            echo '&nbsp;<input type="submit" name="submit_mult" value="' . htmlspecialchars($GLOBALS['strExport']) . '" title="' . $GLOBALS['strExport'] . '" />' . "\n";
+            if ($analyzed_sql[0]['querytype'] == 'SELECT') {
+                echo '&nbsp;<input type="submit" name="submit_mult" value="' . htmlspecialchars($GLOBALS['strExport']) . '" title="' . $GLOBALS['strExport'] . '" />' . "\n";
+            }
         }
         echo '<input type="hidden" name="sql_query" value="' . $encoded_sql_query . '" />' . "\n";
         echo '<input type="hidden" name="pos" value="' . $pos . '" />' . "\n";
