@@ -24,6 +24,7 @@ $timespanfmt = '%s días, %s horas, %s minutos e %s segundos';
 
 $strAPrimaryKey = 'Adicionouse unha chave primaria a %s';
 $strAbortedClients = 'Cancelado';
+$strAbsolutePathToDocSqlDir = 'Introduza a rota absoluta completa ao directorio docSQL no servidor'; 
 $strAccessDenied = 'Acceso Negado';
 $strAction = 'Acción';
 $strAddDeleteColumn = 'Adicionar/Eliminar columnas de campo';
@@ -37,6 +38,8 @@ $strAddSearchConditions = 'Condición da pesquisa (ou sexa, o complemento da cláu
 $strAddToIndex = 'Adicionar ao índice &nbsp;%s&nbsp;coluna(s)';
 $strAddUser = 'Adicionar un novo usuario';
 $strAddUserMessage = 'Usuario adicionado.';
+$strAddedColumnComment = 'Púxoselle un comentario á columna'; 
+$strAddedColumnRelation = 'Adicionóuselle unha relación á columna'; 
 $strAdministration = 'Administración';
 $strAffectedRows = 'Filas que van ser afectadas:';
 $strAfter = 'Despois de %s';
@@ -134,11 +137,12 @@ $strDatabaseWildcard = 'Base de datos (permítese usar os comodíns):';
 $strDatabases = 'Bancos de Datos';
 $strDatabasesDropped = 'Elimináronse %s bases de datos sen problemas.';
 $strDatabasesStats = 'Estatísticas dos bancos de datos';
-$strDatabasesStatsHeavyTraffic = 'Nota: De habilitar as estatísticas da base de datos, ocasionará que se produza un tráfico denso entre o servidor web e o de MySQL.';
 $strDatabasesStatsDisable = 'Deshabilitar as estatísticas';
 $strDatabasesStatsEnable = 'Habilitar as estatísticas';
+$strDatabasesStatsHeavyTraffic = 'Nota: De habilitar as estatísticas da base de datos, ocasionará que se produza un tráfico denso entre o servidor web e o de MySQL.';
 $strDbPrivileges = 'Privilexios proprios de base de datos';
 $strDefault = 'Padrón';
+$strDefaultValueHelp = 'Para os valores por omisión, introduza un único valor, sen escapalo con barras ou aspas e usando este formato: a'; 
 $strDelete = 'Eliminar';
 $strDeleteAndFlush = 'Eliminar os usuarios e recarregar os privilexios a continuación.';
 $strDeleteAndFlushDescr = 'Este é o modo máis limpo, mais pode que recarregar os privilexios leve un pouco de tempo.';
@@ -191,6 +195,7 @@ $strFieldsEmpty = ' O reconto de campos di que non hai nengún! ';
 $strFieldsEnclosedBy = 'Os campos delimítanse con';
 $strFieldsEscapedBy = 'Os campos escápanse con';
 $strFieldsTerminatedBy = 'Os campos rematan por';
+$strFileCouldNotBeRead = 'Non se puido ler o ficheiro'; 
 $strFixed = 'fixo';
 $strFlushPrivilegesNote = 'Nota: phpMyAdmin recolle os privilexios dos usuarios directamente das tabelas de privilexios do MySQL. O contido destas tabelas pode diferir dos privilexios que usa o servidor se se levaron a cabo alteracións manuais.  Neste caso, debería %svolver a carregar os privilexios%s antes de continuar.';
 $strFlushTable = 'Fechar a tabela ("FLUSH")';
@@ -222,7 +227,10 @@ $strId = 'ID';
 $strIdxFulltext = 'Texto completo';
 $strIfYouWish = 'Para carregar só algunhas columnas da tabela, faga unha lista separada por vírgulas.';
 $strIgnore = 'Ignorar';
+$strIgnoringFile = 'A ignorar o ficheiro %s'; 
 $strImportDocSQL = 'Importar ficheiros de docSQL';
+$strImportFiles = 'Importar ficheiros'; 
+$strImportFinished = 'Finalizou a importación'; 
 $strInUse = 'en uso';
 $strIndex = 'Índice';
 $strIndexHasBeenDropped = 'Eliminouse o índice %s';
@@ -511,6 +519,7 @@ $strTheContent = 'O conteúdo do seu arquivo foi inserido';
 $strTheContents = 'O conteúdo do arquivo substituíu o conteúdo da tabela que tiña a mesma chave primaria ou única';
 $strTheTerminator = 'O carácter que separa os campos.';
 $strThisHost = 'Este servidor';
+$strThisNotDirectory = 'Isto non era un directorio'; 
 $strThreadSuccessfullyKilled = 'Finalizouse o fío %s.';
 $strTime = 'Tempo';
 $strTotal = 'total';
@@ -549,28 +558,13 @@ $strWebServerUploadDirectory = 'directorio de subida (upload) do servidor web';
 $strWebServerUploadDirectoryError = 'Non se pode acceder ao directorio que designou para as subidas (upload)';
 $strWelcome = 'Benvida/o a %s';
 $strWithChecked = 'Todos os marcados';
+$strWritingCommentNotPossible = 'Non é posible escreber o comentario'; 
+$strWritingRelationNotPossible = 'Non é posible escreber a relación'; 
 $strWrongUser = 'Usuario ou contrasinal errado. Acceso negado.';
 
 $strYes = 'Si';
 
 $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) elimina-se o limite.';
-$strZip = 'comprimido no formato "zipped"';
-// To translate
+$strZip = 'comprimido no formato "zip"'; 
 
-$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-
-$strIgnoringFile = 'Ignoring file %s';  //to translate
-$strImportFiles = 'Import files';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-
-$strThisNotDirectory = 'This was not a directory';  //to translate
-
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
-
-$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 ?>

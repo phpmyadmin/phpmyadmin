@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+
+2003-02-06 Robin Johnson  <robbat2@users.sourceforge.net>
+    * lang/Galician*: Updates thanks to xosecalvo
+
 2003-02-09 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated again.
 
