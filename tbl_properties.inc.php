@@ -280,7 +280,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $unsigned         = 0;
         $zerofill         = 0;
     } else {
-        if (!preg_match('@BINARY[\(]@i', $row['Type'])) {
+        if (!preg_match('@BINARY[\(]@i', $row['Type']) && PMA_MYSQL_INT_VERSION < 40100) {
             $binary           = stristr($row['Type'], 'binary');
         } else {
             $binary           = FALSE;
@@ -315,6 +315,9 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
     $cnt_attribute_types = count($cfg['AttributeTypes']);
     for ($j = 0;$j < $cnt_attribute_types; $j++) {
+        if (PMA_MYSQL_INT_VERSION >= 40100 && $cfg['AttributeTypes'][$j] == 'BINARY') {
+            continue;
+        }
         $content_cells[$i][$ci] .= '                <option value="'. $cfg['AttributeTypes'][$j] . '"';
         if (strtoupper($strAttribute) == strtoupper($cfg['AttributeTypes'][$j])) {
             $content_cells[$i][$ci] .= ' selected="selected"';
