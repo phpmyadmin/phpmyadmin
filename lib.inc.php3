@@ -106,7 +106,7 @@ if (!defined('__LIB_INC__')){
         } else {
             $extension = 'mysql';
         }
-        if (!@extension_loaded($extension) && !@get_cfg_var('safe_mode')) {
+        if (!@extension_loaded($extension) && !@get_cfg_var('safe_mode') && @function_exists('dl')) {
             @dl($extension.$suffix);
         }
         if (!@extension_loaded($extension)) {

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-15  Steve Alberty  <alberty@neptunlabs.de>
+	* lib.inc.php3: prevent to use dl() if dl not exists (PHP5)
+
 2001-08-14  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3; db_readdump.php3, lines 85-88: Fixed some coding style
 	  inconcistencies and make the patch from Robin PHP3 compatible.
