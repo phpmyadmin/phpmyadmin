@@ -319,6 +319,7 @@ class PMA_RT_Table
     var $fields      = array();
     var $height_cell = 6;
     var $x, $y;
+    var $primary     = array();
 
 
     /**
@@ -390,7 +391,7 @@ class PMA_RT_Table
         
         reset($this->fields);
         while (list(, $field) = each($this->fields)) {
-            if($field == $this->primary){$pdf->SetFillColor(215,121,123);}
+            if(in_array($field,$this->primary)){$pdf->SetFillColor(215,121,123);}
             if($field == $this->displayfield){$pdf->SetFillColor(142,159,224);}
             $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, ' ' . $field, 1, 1, 'L', 1);
             $pdf->PMA_PDF_setXScale($this->x);
@@ -462,7 +463,7 @@ class PMA_RT_Table
         if(mysql_num_rows($result)>0){
             while ($row = PMA_mysql_fetch_array($result)) {
                 if($row['Key_name'] == 'PRIMARY'){
-                    $this->primary = $row['Column_name'];
+                    $this->primary[] = $row['Column_name'];
                 }
             }
         }        
@@ -778,6 +779,7 @@ class PMA_RT
 
         $pdf->SetDisplayMode('fullpage');
         $pdf->Output($db . '_' . $pdf_page_number . '.pdf', TRUE);
+        //$pdf->Output('', TRUE);
     } // end of the "PMA_RT_showRt()" method
 
 

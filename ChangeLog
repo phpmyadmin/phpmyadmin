@@ -12,6 +12,8 @@ $Source$
     * tbl_properties_links.php3, db_details_links.php3: better vertical spacing 
     * tbl_properties.php3, db_details.php3: misplaced bullet
     * tbl_properties.php3: add field list on the query page
+    * pdf_schema.php3: color for all segments of primary key, thanks to 
+      Joshua Eichorn (jeichorn at joshuaeichorn.com)
 
 2002-07-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * sql.php3: Fixed bug #575867 (Error with limit or load in the table name).
