@@ -133,7 +133,7 @@ $title     .= (empty($title) ? '' : ' - ') . 'phpMyAdmin ' . PMA_VERSION;
 <script type="text/javascript" language="javascript">
 <!--
 // Updates the title of the frameset if possible (ns4 does not allow this)
-if (typeof(parent.document.title) == 'string') {
+if (typeof(parent.document) != 'undefined' && typeof(parent.document.title) == 'string') {
     parent.document.title = '<?php echo $title; ?>';
 }
 <?php
