@@ -187,6 +187,13 @@ if ($server > 0
             echo "\n";
         } // end create db form
 
+        ?>
+    <li>
+        <a href="index.php3?<?php echo$common_url_query; ?>&old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_top">
+        <b><?php echo $strLogout; ?></b></a>
+    </li>
+        <?php
+
         // Server related links
         if ($result_usr['References_priv'] == 'Y') {
             ?>
@@ -235,15 +242,12 @@ if ($server > 0
         <a href="db_stats.php3?<?php echo $common_url_query; ?>">
         <?php echo $strDatabasesStats; ?></a>
     </li>
+    <br /><br />
 
             <?php
             echo "\n";
         }
         ?>
-    <li>
-        <a href="index.php3?<?php echo$common_url_query; ?>&old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_top">
-        <b><?php echo $strLogout; ?></b></a>
-    </li>
     <br /><br />
         <?php
         echo "\n";
@@ -300,6 +304,7 @@ if ($server > 0
         <a href="db_stats.php3?<?php echo $common_url_query; ?>">
         <?php echo $strDatabasesStats; ?></a>
     </li>
+    <br /><br />
             <?php
             echo "\n";
         }
@@ -307,15 +312,16 @@ if ($server > 0
 } // end of 2: if ($server > 0)
 ?>
 
+    <!-- documentation -->
+    <li>
+        <a href="Documentation.html" target="_new"><b>phpMyAdmin <?php echo $strDocu; ?></b></a>
+    </li>
+
     <!-- PHP Information -->
     <li>
         <a href="phpinfo.php3" target="_new"><?php echo $strShowPHPInfo; ?></a>
     </li>
 
-    <!-- documentation -->
-    <li>
-        <a href="Documentation.html" target="_new">phpMyAdmin <?php echo $strDocu; ?></a>
-    </li>
     <li>
         <a href="http://phpwizard.net/projects/phpMyAdmin/" target="_new"><?php echo $strHomepageOfficial; ?></a>
     </li>
