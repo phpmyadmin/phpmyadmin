@@ -196,7 +196,7 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
 <input type="submit" name="SQL" value="<?php echo $strGo; ?>">
 </form>
 <li><a href="tbl_qbe.php3<?php echo $query;?>"><?php echo $strQBE;?></a>
-<li><form method="post" action="db_dump.php3"><?php echo $strViewDumpDB;?><br>
+<li><form method="post" action="tbl_dump.php3"><?php echo $strViewDumpDB;?><br>
 <table>
     <?php
         $tables = mysql_list_tables($db);
