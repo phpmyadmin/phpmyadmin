@@ -157,8 +157,8 @@ if (PMA_MYSQL_INT_VERSION > 40003) {
         <td><?php echo $strLoadMethod; ?>
         </td>
         <td> 
-            <input type="radio" name="local_option" value="0" <?php echo (!$local_option_selected?' checked="checked" ': '');?>/>...DATA <br />
-            <input type="radio" name="local_option" value="1" <?php echo ($local_option_selected?' checked="checked" ': '');?>/>...DATA LOCAL
+            <input type="radio" id="radio_local_option_0" name="local_option" value="0" <?php echo (!$local_option_selected ? ' checked="checked" ' : ''); ?>/><label for="radio_local_option_0">...DATA</label><br />
+            <input type="radio" id="radio_local_option_1" name="local_option" value="1" <?php echo ($local_option_selected ? ' checked="checked" ' : ''); ?>/><label for="radio_local_option_1">...DATA LOCAL</label>
         </td>
         <td><?php echo $strLoadExplanation; ?>
         </td>

@@ -16,6 +16,8 @@ $Source$
       for Mozilla, IE5/6 allow resizing with a "0" frameborder
     * footer.inc.php3: Only update queryframes DB/Table info when
       no error happened in a query.
+    * ldi_table.php3: Use <label> tags for the new radio buttons as with
+      our other GUI elements.
 
 2003-05-28 Alexander M. Turek  <rabus@users.sourceforge.net>
     * translators.html: Typo.
