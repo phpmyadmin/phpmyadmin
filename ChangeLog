@@ -10,6 +10,8 @@ $Source$
 
 2003-08-13 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_addfield.php3: Highlight correct tab after changing structure.
+    * libraries/sqlparser.lib.php3: Bug #788097 (add space after
+      alpha_variable).
 
 2003-08-12 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/csv.php3: Don't trim resulting line (bug #782483).

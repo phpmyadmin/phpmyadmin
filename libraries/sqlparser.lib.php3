@@ -1805,6 +1805,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             $after     .= ' ';
                         }
                         break;
+                    case 'alpha_variable':
+                        $after      = ' ';
+                        break;
                     case 'quote_double':
                     case 'quote_single':
                         // workaround: for the query
