@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-10  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/display_tbl.lib.php3, line 518: fixed bug #490951 - sorting
+	  row. Thanks to an anonymous user.
+
 2001-12-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* read_dump.php3; libraries/build_dump.lib.php3: sending the "fake" header
 	  at each itération is about ten times faster than checking elapsed time

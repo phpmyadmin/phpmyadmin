@@ -515,7 +515,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                            . '&amp;table=' . urlencode($table)
                            . '&amp;pos=' . $pos
                            . '&amp;session_max_rows=' . $session_max_rows
-                           . '&amp;dontlimitchars' . $dontlimitchars
+                           . '&amp;dontlimitchars=' . $dontlimitchars
                            . '&amp;sql_query=' . urlencode($sorted_sql_query);
                 // 2.1.5 Displays the sorting url
                 ?>
