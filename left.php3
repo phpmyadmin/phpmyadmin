@@ -176,6 +176,15 @@ if ($num_dbs > 1) {
             $num_tables_disp = '-';
         }
 
+        // Get additional infomation about tables for tooltip
+        if ($cfgShowTooltip && MYSQL_INT_VERSION >= 32303) {
+            $tooltip = array();
+            $result = mysql_query("SHOW TABLE STATUS FROM $db");
+            while ($tmp = mysql_fetch_array($result)) {
+                $tooltip[$tmp['Name']] = $tmp['Comment'] . ' (' . $tmp['Rows'] . ' rows)';
+            }
+        }
+
         // Displays the database name
         echo "\n";
         echo '    <div id="el' . $j . 'Parent" class="parent">';
@@ -209,7 +218,7 @@ if ($num_dbs > 1) {
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
         <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0&goto=tbl_properties.php3">
             <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
-        <a class="tblItem" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
+        <a class="tblItem" title="<?php echo addslashes($tooltip[$table]);?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
             <?php echo $table; ?></a></nobr><br />
             <?php
         } // end for $j (tables list)
@@ -250,7 +259,16 @@ else if ($num_dbs == 1) {
     } else {
         $num_tables_disp = '-';
     }
-    
+
+    // Get additional infomation about tables for tooltip
+    if ($cfgShowTooltip && MYSQL_INT_VERSION >= 32303) {
+        $tooltip = array();
+        $result = mysql_query("SHOW TABLE STATUS FROM $db");
+        while ($tmp = mysql_fetch_array($result)) {
+            $tooltip[$tmp['Name']] = $tmp['Comment'] . ' (' . $tmp['Rows'] . ' rows)';
+        }
+    }
+	
     // Displays the database name
     echo "\n";
     ?>
@@ -267,7 +285,7 @@ else if ($num_dbs == 1) {
         ?>
         <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0&goto=tbl_properties.php3">
                   <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
-              <a class="tblItem" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
+              <a class="tblItem" title="<?php echo addslashes($tooltip[$table]);?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
                   <?php echo $table; ?></a></nobr><br />
         <?php
     } // end for $j (tables list)

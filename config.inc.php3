@@ -105,6 +105,7 @@ $cfgConfirm               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
 $cfgShowStats             = TRUE;   // allow to display statistics and space usage in
                                     // the pages about database details and table
                                     // properties
+$cfgShowTooltip	          = TRUE;	// display table comment as tooltip in left frame
 
 $cfgShowBlob              = FALSE;  // display blob field contents in browse mode
 $cfgShowAll               = FALSE;  // allows to display all the rows in browse mode
