@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-24  Geert Lund  <glund@silversoft.dk>
+  * danish language file code cleanup (only changed order of stings)
+  * added $strQBEDel and $strQBEIns strings to all language files
+  * tbl_qbe.php3: added language support (stripped all static text) (Feat.req.: #443959)
+
 2001-07-23  Marc Delisle  <lem9@users.sourceforge.net>
 	* updates to italian thanks to Alessandro Astarita <aleast@libero.it> 
 	* updates to catala  thanks to Jordi Bruguera <jordi@t800.grn.es>
