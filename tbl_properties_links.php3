@@ -25,7 +25,7 @@ if ($table_info_num_rows > 0) {
     $lnk4    = 'tbl_select.php3';
     $arg4    = $url_query;
     $ln6_stt = (PMA_MYSQL_INT_VERSION >= 40000)
-             ? 'TRUNCATE '
+             ? 'TRUNCATE TABLE '
              : 'DELETE FROM ';
     $lnk6    = 'sql.php3';
     $arg6    = $url_query . '&amp;sql_query='
