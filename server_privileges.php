@@ -490,6 +490,22 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
        . (empty($thishost) ? '' : 'else if (this.value == \'thishost\') { hostname.value = \'' . addslashes(htmlspecialchars($thishost)) . '\'; } ')
        . 'else if (this.value == \'hosttable\') { hostname.value = \'\'; } else if (this.value == \'userdefined\') { hostname.focus(); hostname.select(); }">' . "\n";
     unset($row);
+
+    // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
+    if (!isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
+        switch (strtolower($GLOBALS['hostname'])) {
+            case 'localhost':
+            case '127.0.0.1':
+                $GLOBALS['pred_hostname'] = 'localhost';
+                break;
+            case '%':
+                $GLOBALS['pred_hostname'] = 'any';
+                break;
+            default:
+                $GLOBALS['pred_hostname'] = 'userdefined';
+                break;
+        }        
+    }
     echo $spaces . '            <option value="any"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'any') ? ' selected="selected"' : '') . '>' . $GLOBALS['strAnyHost'] . '</option>' . "\n"
        . $spaces . '            <option value="localhost"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'localhost') ? ' selected="selected"' : '') . '>' . $GLOBALS['strLocalhost'] . '</option>' . "\n";
     if (!empty($thishost)) {
