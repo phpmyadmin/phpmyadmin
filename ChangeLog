@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-04  Marc Delisle  <lem9@users.sourceforge.net>
+	* ob_lib.inc.php3, oops: must be PHP3 compatible
+
 2001-08-04  Steve Alberty  <alberty@neptunlabs.de>
 	* lib.inc.php3: fixed #444017 (thanks anonymous)
 	* db_details.php3, tbl_replace.php3, sql.php3, user_details.php3
