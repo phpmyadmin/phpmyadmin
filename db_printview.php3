@@ -172,7 +172,7 @@ else if (MYSQL_INT_VERSION >= 32300) {
                 echo "\n";
                 ?>
     <td align="right" nowrap="nowrap">
-        &nbsp;<?php echo $formated_size . '<bdo dir="<?php echo($text_dir); ?>"> </bdo>' . $unit . "\n"; ?>
+        &nbsp;<?php echo $formated_size . ' ' . $unit . "\n"; ?>
     </td>
                 <?php
                 echo "\n";
@@ -210,7 +210,7 @@ else if (MYSQL_INT_VERSION >= 32300) {
         echo "\n";
         ?>
     <th align="right" nowrap="nowrap">
-        <b><?php echo $sum_formated . '<bdo dir="<?php echo($text_dir); ?>"> </bdo>'. $unit; ?></b>
+        <b><?php echo $sum_formated . ' ' . $unit; ?></b>
     </th>
         <?php
     }

@@ -6,8 +6,9 @@ $Id$
 $Source$
 
 2001-11-13  Loïc Chapeaux  <lolo@phpheaven.net>
-	* db_details.php3; left.php3; tbl_properties.php3: fixed some display bugs
-	  with right to left text direction (Arabic language).
+	* db_details.php3; db_printview.php3; left.php3; tbl_properties.php3;
+	  tbl_printview.php3: fixed some display bugs with right to left text
+	  direction (Arabic language).
 
 2001-11-12  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/select_lang.lib.php3; lang/arabic.inc.php3: new translation
