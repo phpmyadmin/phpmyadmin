@@ -5,8 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-28 Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html: fixed xhtml1.0 errors.
+	* tbl_printview.php3, lines 328-329: fixed bug #523772 - Parse Error in
+	  tbl_printview.php, thanks to Joshua Nye <josh at boxcarmedia.com>.
+
 2002-02-27 Marc Delisle  <lem9@users.sourceforge.net>
-	* Documentation.html: new faq about letting users create their dbs
+	* Documentation.html: new faq about letting users create their dbs.
 
 2002-02-27 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3, lines 146-164: back to previous version.
