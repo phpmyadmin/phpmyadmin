@@ -530,4 +530,5 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
+$strOriginalInterface = 'original interface';  //to translate
 ?>

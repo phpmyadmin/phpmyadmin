@@ -287,6 +287,7 @@ $strOptionalControls = 'Optional. Controls how to write or read special characte
 $strOptionally = 'OPTIONALLY';
 $strOptions = 'Options';
 $strOr = 'Or';
+$strOriginalInterface = 'original interface';
 $strOverhead = 'Overhead';
 
 $strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';
@@ -365,8 +366,8 @@ $strRelationNotWorking = 'The additional Features for working with linked Tables
 $strRelationView = 'Relation view';
 $strRelationalSchema = 'Relational schema';
 $strReloadFailed = 'MySQL reload failed.';
-$strReloadingThePrivileges = 'Reloading the privileges';
 $strReloadMySQL = 'Reload MySQL';
+$strReloadingThePrivileges = 'Reloading the privileges';
 $strRememberReload = 'Remember reload the server.';
 $strRemoveSelectedUsers = 'Remove selected users';
 $strRenameTable = 'Rename table to';

@@ -530,4 +530,5 @@ $strUserOverview = 'User overview'; //to translate
 $strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
+$strOriginalInterface = 'original interface';  //to translate
 ?>
