@@ -26,10 +26,25 @@ else define ("PMA_INT_VERSION", false);
 if (defined("PHP_OS") && eregi("win", PHP_OS)) define ("PMA_WINDOWS", true);
 else define ("PMA_WINDOWS", false);
 
-$result = mysql_query("SELECT VERSION() AS version") or mysql_die();
-$row = mysql_fetch_array($result);
-define("MYSQL_MAJOR_VERSION", (double)substr($row["version"], 0, 4));
-define("MYSQL_MINOR_VERSION", (double)substr($row["version"], 5));
+// MySQL Version
+$result = @mysql_query("SELECT VERSION() AS version");
+if ($result!=false && @mysql_num_rows($result)>0){
+	$row = mysql_fetch_array($result);
+	define("MYSQL_MAJOR_VERSION", (double)substr($row["version"], 0, 4));
+	define("MYSQL_MINOR_VERSION", (double)substr($row["version"], 5));
+}
+else{
+	$result = @mysql_query("SHOW VARIABLES like 'version'");
+	if ($result!=false && @mysql_num_rows($result)>0){
+		$row = mysql_fetch_row($result);
+		define("MYSQL_MAJOR_VERSION", (double)substr($row[1], 0, 4));
+		define("MYSQL_MINOR_VERSION", (double)substr($row[1], 5));
+	}
+	else{
+		define("MYSQL_MAJOR_VERSION", 3.21);
+		define("MYSQL_MINOR_VERSION", 0);
+	}
+}
 
 /* ------------------------- */
 
