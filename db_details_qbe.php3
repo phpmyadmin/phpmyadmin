@@ -1000,11 +1000,15 @@ if (isset($Field) && count($Field) > 0) {
 
 } // end count($Field) > 0
 
-// Now let's see what we got
-if (!empty($qry_from)) {
-    $encoded_qry  .= urlencode('FROM ' . $qry_from . "\n");
-    echo 'FROM ' . htmlspecialchars($qry_from) . "\n";
+// In case relations are not defined, just generate the FROM clause
+// from the list of tables, however we don't generate any JOIN
+
+if (empty($qry_from)) {
+    $qry_from = implode(', ', $tab_all);
 }
+// Now let's see what we got
+$encoded_qry  .= urlencode('FROM ' . $qry_from . "\n");
+echo 'FROM ' . htmlspecialchars($qry_from) . "\n";
 
 // 3. WHERE
 $qry_where          = '';

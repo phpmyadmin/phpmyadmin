@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_qbe.php3: bug 751787, missing FROM part in query generator
+
 2003-06-10 Michal Cihar  <nijel@users.sourceforge.net>
     * scripts/create-release.sh: Set correct permissions before releasing.
     * Documentation, config.inc.php3, db_details_export.php3, export.php3,
