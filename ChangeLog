@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_structure.php3: bug 786710, IE and dropping fields
+
 2003-08-15 Garvin Hicking <me@supergarv.de>
     * tbl_properties_structure.php3: RFE #784900 (show alternate text for
       multi-submit button)

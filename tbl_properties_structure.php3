@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
     include('./libraries/grab_globals.lib.php3');
 }
@@ -16,6 +15,15 @@ if (PMA_MYSQL_INT_VERSION >= 40100 && !defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED'
 /**
  * Drop multiple fields if required
  */
+
+// workaround for IE problem:
+if (isset($submit_mult_change_x)) {
+    $submit_mult = $strChange;
+}
+if (isset($submit_mult_drop_x)) {
+    $submit_mult = $strDrop;
+}
+
 if ((!empty($submit_mult) && isset($selected_fld))
     || isset($mult_btn)) {
     $action = 'tbl_properties_structure.php3';
@@ -73,7 +81,7 @@ $fields_cnt  = mysql_num_rows($fields_rs);
 
 <!-- TABLE INFORMATIONS -->
 
-<form action="tbl_properties_structure.php3" name="fieldsForm">
+<form method="post" action="tbl_properties_structure.php3" name="fieldsForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 
 <table border="<?php echo $cfg['Border']; ?>">
@@ -379,14 +387,23 @@ $checkall_url = 'tbl_properties_structure.php3?' . PMA_generate_common_url($db,$
 
 if ($cfg['PropertiesIconic']) {
     /* Opera has trouble with <input type="image"> */
-    echo '        <button class="mult_submit" type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '">' . "\n"
-       . '            <img src="./images/button_edit.png" title="' . $strChange . '" alt="' . $strChange . '" width="12" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"
-       . '        </button>' . "\n";
+    /* IE has trouble with <button> */
+    if (PMA_USR_BROWSER_AGENT != 'IE') {
+        echo '        <button class="mult_submit" type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '">' . "\n"
+           . '            <img src="./images/button_edit.png" title="' . $strChange . '" alt="' . $strChange . '" width="12" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"
+           . '        </button>' . "\n";
+    } else {
+        echo '        <input type="image" name="submit_mult_change" value="' .$strChange . '" title="' . $strChange . '" src="./images/button_edit.png" />'  . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"; 
+    }
     // Drop button if there is at least two fields
     if ($fields_cnt > 1) {
-        echo '        <button class="mult_submit" type="submit" name="submit_mult" value="' . $strDrop . '" title="' . $strDrop . '">' . "\n"
-           . '            <img src="./images/button_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n"
-           . '        </button>' . "\n";
+        if (PMA_USR_BROWSER_AGENT != 'IE') {
+            echo '        <button class="mult_submit" type="submit" name="submit_mult" value="' . $strDrop . '" title="' . $strDrop . '">' . "\n"
+               . '            <img src="./images/button_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n"
+               . '        </button>' . "\n";
+        } else {
+            echo '        <input type="image" name="submit_mult_drop" value="' .$strDrop . '" title="' . $strDrop . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n"; 
+        }
     }
 } else {
     echo '        <input type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '" />' . "\n";
