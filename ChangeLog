@@ -10,6 +10,11 @@ $Source$
 	  for timestamp fields only in insert mode (ie not in update mode).
 	* sql.php3; tbl_select.php3; libraries/display_tbl.php3: changed
 	  "$sessionMaxRows" by "$session_max_rows" (PEAR codding standards).
+	* left.php3: fixed reverse display of the number of tables per
+	  databases under right to left writting.
+	* libraries/common.lib.php3, line 704: fixed a little bug with
+	  php 4.0.1+ (unset applied to a global variable inside a function only
+	  kills the symbolic link to this variable and do not unset it).
 
 2001-11-19  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_change.php3, lines 208-212: always use the existing timestamp
