@@ -283,11 +283,12 @@ $strYes = 'Да';
 $strAffectedRows = 'Affected rows:'; // To translate
 $strBzip = '"bzipped"'; // To translate
 $strGzip = '"gzipped"'; // To translate
+$strInstructions = 'Instructions';//to translate
 $strLengthSet = 'Length/Values*'; // To translate
 $strOffSet = 'offset'; // To translate
+$strNoDatabases = 'No databases';
 $strNoModification = 'No change'; // To translate
 $strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 $strShowPHPInfo = 'Show PHP information'; // To translate
 $strTables = '%s table(s)';  //to translate
-$strInstructions = 'Instructions';//to translate
 ?>

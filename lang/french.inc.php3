@@ -161,6 +161,7 @@ $strName = 'Nom';
 $strNbRecords = 'nb. d\'enregistrements';
 $strNext = 'Suivant';
 $strNo = 'Non';
+$strNoDatabases = 'Aucune base de données';
 $strNoModification = 'Pas de modifications';
 $strNoPassword = 'aucun mot de passe';
 $strNoPrivileges = 'aucun privilège';

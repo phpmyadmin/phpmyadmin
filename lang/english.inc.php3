@@ -161,6 +161,7 @@ $strName = 'Name';
 $strNbRecords = 'No. Of records';
 $strNext = 'Next';
 $strNo = 'No';
+$strNoDatabases = 'No databases';
 $strNoModification = 'No change';
 $strNoPassword = 'No Password';
 $strNoPrivileges = 'No Privileges';

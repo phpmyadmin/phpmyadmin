@@ -287,7 +287,8 @@ $strWrongUser = 'B³êdne pola u¿ytkownik/has³o. Brak dostêpu.';
 $strYes = 'Tak';
 
 // To translate
-$strLengthSet = 'Length/Values*';
-$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 $strInstructions = 'Instructions';//to translate
+$strLengthSet = 'Length/Values*';
+$strNoDatabases = 'No databases';
+$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 ?>

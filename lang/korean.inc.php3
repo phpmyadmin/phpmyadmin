@@ -284,7 +284,9 @@ $strAffectedRows = 'Affected rows:';
 $strDisplayOrder = 'Display order:';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
+$strInstructions = 'Instructions';//to translate
 $strNbRecords = 'no. of records';
+$strNoDatabases = 'No databases';
 $strNoModification = 'No change'; // To translate
 $strOffSet = 'offset';
 $strQueryOnDb = 'SQL-query on database ';
@@ -294,5 +296,4 @@ $strShowPHPInfo = 'Show PHP information';  // To translate
 $strShowThisQuery = ' Show this query here again ';  //to translate
 $strTables = '%s table(s)';  //to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
-$strInstructions = 'Instructions';//to translate
 ?>
