@@ -556,7 +556,7 @@ if ($is_minimum_common == FALSE) {
      */
      function PMA_showHint($hint_message)
      {
-         return '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" border="0" alt="' . $hint_message . '" title="' . $hint_message . '" align="middle" />';  
+         return '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" border="0" alt="' . $hint_message . '" title="' . $hint_message . '" align="middle" />';
      }
 
     /**
@@ -1009,29 +1009,35 @@ if ($is_minimum_common == FALSE) {
         if (isset(${$SERVER_ARRAY}['HTTP_SCHEME'])) {
             $HTTP_SCHEME = ${$SERVER_ARRAY}['HTTP_SCHEME'];
         }
-        if (!empty($HTTP_SCHEME)) {
-            $cfg['PmaAbsoluteUri']      = $HTTP_SCHEME . '://';
+
+        // in some cases $REQUEST_URI contains full URI including protocol and host, so just use it:
+        if (isset($REQUEST_URI) && preg_match('@https?://@', $REQUEST_URI)) {
+            $cfg['PmaAbsoluteUri']          = substr($REQUEST_URI, 0, strrpos($REQUEST_URI, '/') + 1);
         } else {
-            $cfg['PmaAbsoluteUri']      = ((!empty($HTTPS) && strtolower($HTTPS) != 'off') ? 'https' : 'http') . '://';
-        }
-        $port_in_HTTP_HOST              = (strpos($HTTP_HOST, ':') > 0);
-        $cfg['PmaAbsoluteUri']          .= $HTTP_HOST;
+            if (!empty($HTTP_SCHEME)) {
+                $cfg['PmaAbsoluteUri']      = $HTTP_SCHEME . '://';
+            } else {
+                $cfg['PmaAbsoluteUri']      = ((!empty($HTTPS) && strtolower($HTTPS) != 'off') ? 'https' : 'http') . '://';
+            }
+            $port_in_HTTP_HOST              = (strpos($HTTP_HOST, ':') > 0);
+            $cfg['PmaAbsoluteUri']          .= $HTTP_HOST;
 
-        // if $cfg['PmaAbsoluteUri'] is empty and port == 80 or port == 443, do not add ":80" or ":443"
-        // to the generated URL -> prevents a double password query in case of http authentication.
+            // if $cfg['PmaAbsoluteUri'] is empty and port == 80 or port == 443, do not add ":80" or ":443"
+            // to the generated URL -> prevents a double password query in case of http authentication.
 
-        if (!(!$port_in_HTTP_HOST && !empty($SERVER_PORT) && ($SERVER_PORT == 80 || $SERVER_PORT == 443))) {
-            $cfg['PmaAbsoluteUri']      .= ((!empty($SERVER_PORT) && !$port_in_HTTP_HOST) ? ':' . $SERVER_PORT : '');
-        }
+            if (!(!$port_in_HTTP_HOST && !empty($SERVER_PORT) && ($SERVER_PORT == 80 || $SERVER_PORT == 443))) {
+                $cfg['PmaAbsoluteUri']      .= ((!empty($SERVER_PORT) && !$port_in_HTTP_HOST) ? ':' . $SERVER_PORT : '');
+            }
 
-        // rabus: if php is in CGI mode, $PHP_SELF often contains the path to the CGI executable.
-        //   This is why we try to get the path from $REQUEST_URI or $PATH_INFO first.
-        if (isset($REQUEST_URI)) {
-            $cfg['PmaAbsoluteUri']      .= substr($REQUEST_URI, 0, strrpos($REQUEST_URI, '/') + 1);
-        } else if (isset($PATH_INFO)) {
-            $cfg['PmaAbsoluteUri']      .= substr($PATH_INFO, 0, strrpos($PATH_INFO, '/') + 1);
-        } else {
-            $cfg['PmaAbsoluteUri']      .= substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') + 1);
+            // rabus: if php is in CGI mode, $PHP_SELF often contains the path to the CGI executable.
+            //   This is why we try to get the path from $REQUEST_URI or $PATH_INFO first.
+            if (isset($REQUEST_URI)) {
+                $cfg['PmaAbsoluteUri']      .= substr($REQUEST_URI, 0, strrpos($REQUEST_URI, '/') + 1);
+            } else if (isset($PATH_INFO)) {
+                $cfg['PmaAbsoluteUri']      .= substr($PATH_INFO, 0, strrpos($PATH_INFO, '/') + 1);
+            } else {
+                $cfg['PmaAbsoluteUri']      .= substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') + 1);
+            }
         }
 
         // We display the warning by default, but not if it is disabled thru
@@ -1181,7 +1187,7 @@ if ($is_minimum_common == FALSE) {
             PMA_auth_fails();
             unset($allowDeny_forbidden); //Clean up after you!
         }
-        
+
         // The user can work with only some databases
         if (isset($cfg['Server']['only_db']) && $cfg['Server']['only_db'] != '') {
             if (is_array($cfg['Server']['only_db'])) {
@@ -2317,7 +2323,7 @@ if (typeof(document.getElementById) != 'undefined'
      */
     function PMA_buttonOrImage($button_name, $button_class, $image_name, $text, $image) {
         global $pmaThemeImage, $propicon;
-        
+
         /* Opera has trouble with <input type="image"> */
         /* IE has trouble with <button> */
         if (PMA_USR_BROWSER_AGENT != 'IE') {
