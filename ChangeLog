@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-08 Michal Čihař  <michal@cihar.com>
+	* calendar.php: Include correct stylesheet (bug #1005421).
+
 2004-08-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish update, thanks to Bora Alioglu
     * lang/slovak: Updated, thanks to Lubos Klokner (erkac)
