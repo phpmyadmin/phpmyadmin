@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-09 Marc Delisle  <lem9@users.sourceforge.net>
+	* libraries/display_tbl.lib.php3, bug 541440 (Relation feature
+	  and blanks in the key), small modif to the patch thanks to Loïc
+
 2002-04-08 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_select.php3: to gain vertical space, reduce the size of the
 	  select box if the number of fields is < 10

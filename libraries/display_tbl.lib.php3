@@ -967,6 +967,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
                         $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
+                        // loic1: support blanks in the key
+                        $relation_id = $row[$pointer];
+ 
                         // loic1: Cut text/blob fields even if $cfgShowBlob is true
                         if (eregi('BLOB', $meta->type)) {
                             if (strlen($row[$pointer]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
@@ -995,7 +998,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                                                                 .  'lang=' . $lang . '&amp;server=' . $server
                                                                 .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
                                                                 .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
-                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = \'' . $row[$pointer] . '\'') . '">'
+                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = \'' . addslashes($relation_id) . '\'') . '">'
                                                                 .  $row[$pointer] . '</a>';
                         } else {
                             $vertical_display['data'][$foo][$i] .= $row[$pointer];
