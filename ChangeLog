@@ -8,6 +8,8 @@ $Source$
 2002-07-12 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/select_lang.lib.php3: add -utf-8 choices
     * lang/indonesian updates, thanks to Rachim Tamsjadi
+    * libraries/relation.lib.php3: better initialization for a variable,
+      thanks to Jurgen Schwietering (jurgen at schwietering.com)
 
 2002-07-11 Loïc Chapeaux  <lolo@phpheaven.net>
 	* pdf_schema.php3; tbl_printview.php3; tbl_properties_links.php3;

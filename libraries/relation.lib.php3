@@ -74,7 +74,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
     {
         global $cfg, $server, $err_url_0, $db, $table;
 
-        $cfgRelation                = '';
+        $cfgRelation                = array();
         $cfgRelation['relwork']     = FALSE;
         $cfgRelation['displaywork'] = FALSE;
         $cfgRelation['pdfwork']     = FALSE;
