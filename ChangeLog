@@ -11,6 +11,7 @@ $Source$
       TODO: - Update docs
             - Add conversion code to the docs
             - add charset checks to pmadb validation code
+    * main.php: bug #991887.
 
 2004-07-15 Michal Čihař  <michal@cihar.com>
     * tbl_properties_export.php: Fix export of queries with empty WHERE clause

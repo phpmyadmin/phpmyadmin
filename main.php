@@ -583,7 +583,7 @@ echo "\n";
 // added by Michael Keck <mail_at_michaelkeck_dot_de>
 // ThemeManager if available
 
-if (count($available_themes_choices)>1) {
+if (isset($available_themes_choices) && $available_themes_choices > 1) {
     $theme_selected = FALSE;
     $theme_preview_path= './themes.php';
     $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" onclick="'
