@@ -95,9 +95,7 @@ if (!defined('__LIB_INC__')){
     }
  
     // defines wants to connect mysql, and at this place there are no connexion yet...
-    $nomysql = 1;
     include('./defines.inc.php3');
-    $nomysql = 0;
 
 
 
@@ -136,10 +134,10 @@ if (!defined('__LIB_INC__')){
     {
         global $sql_query;
 
-        if (empty($error_message)) {
+        if (!$error_message) {
             $error_message = mysql_error();
         }
-        if (empty($the_query)) {
+        if (!$the_query) {
             $the_query     = $GLOBALS['sql_query'];
         }
         $hist              = (isset($GLOBALS['btnDrop'])) ? -2 : -1;

@@ -46,10 +46,8 @@ if (!defined('PMA_WINDOWS')) {
     }
 }
 
-if (!$nomysql) {  // small hack (temporary)
-
 // MySQL Version
-if (!defined('MYSQL_MAJOR_VERSION')) {
+if (!defined('MYSQL_MAJOR_VERSION') && isset($link)) {
     if (!empty($server)) {
         $result = mysql_query('SELECT VERSION() AS version');
         if ($result != FALSE && @mysql_num_rows($result) > 0) {
@@ -71,5 +69,4 @@ if (!defined('MYSQL_MAJOR_VERSION')) {
     } // end if
 }
 
-}
 ?>
