@@ -437,7 +437,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <br />
         If you are using the 'cookie' auth_type, enter here a random 
         passphrase of your choice. It will be used internally by the blowfish
-        algorithm: you won't be prompted for this passphrase.
+        algorithm: you won't be prompted for this passphrase. The maximum
+        number of characters for this parameter seems to be 46.
   </dd>
 
     <dt><b>$cfg['Servers']</b> array</dt>

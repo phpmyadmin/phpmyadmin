@@ -55,7 +55,8 @@ $cfg['PmaNoRelation_DisableWarning']  = FALSE;
 /**
  * The 'cookie' auth_type uses blowfish algorithm to encrypt the password. If
  * at least one server configuration uses 'cookie' auth_type, enter here a
- * passphrase that will be used by blowfish.
+ * passphrase that will be used by blowfish. The maximum length seems to be 46
+ * characters.
  */
 $cfg['blowfish_secret'] = '';
 

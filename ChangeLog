@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * config.inc.php, Documentation.html: bug #1115327, document the
+      maximum number of characters for blowfish_secret
+
 2005-02-09 Alexander M. Turek  <me@derrabus.de>
     * lang/italian-*.inc.php: Updates, thanks to Pietro Danesi.
 
