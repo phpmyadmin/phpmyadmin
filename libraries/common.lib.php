@@ -2541,7 +2541,8 @@ if (typeof(document.getElementById) != 'undefined'
 
         if ($default_current_timestamp && strtoupper($full_field_type) == 'TIMESTAMP') {
             $query .= ' DEFAULT CURRENT_TIMESTAMP';
-        } elseif (!empty($default)) {
+            // 0 is empty in PHP
+        } elseif (!empty($default) || $default == '0') {
             if (strtoupper($default) == 'NULL') {
                 $query .= ' DEFAULT NULL';
             } else {
