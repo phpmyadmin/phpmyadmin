@@ -95,8 +95,8 @@ class PMA_PDF extends FPDF
      */
     var $x_min;
     var $y_min;
-    var $l_marg = 10;
-    var $t_marg = 10;
+    var $l_marg;
+    var $t_marg;
     var $scale;
     var $title;
 
@@ -267,6 +267,7 @@ class PMA_PDF extends FPDF
      * @global  array    the PMA configuration array
      * @global  integer  the current server id
      * @global  string   the current language
+     * @global  string   the charset to convert to
      * @global  string   the current database name
      * @global  string   the current charset
      * @global  string   the current text direction
@@ -278,9 +279,9 @@ class PMA_PDF extends FPDF
     function PMA_PDF_die($error_message = '')
     {
         global $cfg;
-        global $server, $lang, $db, $convcharset;
+        global $server, $lang, $convcharset, $db;
         global $charset, $text_dir, $strRunning, $strDatabase;
-echo "trace" . $convcharset;
+
         include('./header.inc.php3');
 
         echo '<p><b>PDF - '. $GLOBALS['strError'] . '</b></p>' . "\n";
