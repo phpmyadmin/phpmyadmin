@@ -25,12 +25,6 @@ $err_url = 'tbl_properties_structure.php3?' . PMA_generate_common_url($db, $tabl
 if (isset($submit)) {
     $field_cnt = count($field_orig);
     for ($i = 0; $i < $field_cnt; $i++) {
-        if (get_magic_quotes_gpc()) {
-            $field_name[$i]    = stripslashes($field_name[$i]);
-            $field_default[$i] = stripslashes($field_default[$i]);
-            $field_length[$i]  = stripslashes($field_length[$i]);
-        }
-
         if (PMA_MYSQL_INT_VERSION < 32306) {
             PMA_checkReservedWords($field_name[$i], $err_url);
         }
@@ -130,11 +124,7 @@ else {
     for ($i = 0; $i < $selected_cnt; $i++) {
         if (!empty($submit_mult)) {
             $field = PMA_sqlAddslashes(urldecode($selected[$i]), TRUE);
-        }
-        else if (get_magic_quotes_gpc()) {
-            $field = PMA_sqlAddslashes(stripslashes($selected[$i]), TRUE);
-        }
-        else {
+        } else {
             $field = PMA_sqlAddslashes($selected[$i], TRUE);
         }
         $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . " LIKE '$field'";

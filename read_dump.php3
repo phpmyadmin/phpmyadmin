@@ -297,9 +297,6 @@ if ($sql_file != 'none') {
             $sql_query = PMA_readFile($sql_file, $sql_file_compression);
         }
 
-        if (get_magic_quotes_runtime() == 1) {
-            $sql_query = stripslashes($sql_query);
-        }
         // Convert the file's charset if necessary
         if ($cfg['AllowAnywhereRecoding'] && $allow_recoding
             && isset($charset_of_file) && $charset_of_file != $charset) {

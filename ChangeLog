@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-05 Garvin Hicking <me@supergarv.de>
+    * read_dump.php3, sql.php3, tbl_alter.php3,
+      tbl_properties_export.php3: Fixed remaining calls to stripslashes() 
+      where not neccessary, because grab_globals already stripslashed 
+      the data. This fixes the problem of the SQL Pretty printer showing 
+      the data wrongly formatted.
+      
 2003-03-05 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/sqlparser.data.php3: TRANSACTION isn't reserved word (fixes
      #697961)

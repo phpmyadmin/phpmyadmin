@@ -559,7 +559,7 @@ else {
         if (isset($disp_query) && $cfg['ShowSQL'] == TRUE) {
             $tmp_sql_query = $GLOBALS['sql_query'];
             $tmp_sql_limit_to_append = (isset($GLOBALS['sql_limit_to_append'])?$GLOBALS['sql_limit_to_append']:'');
-            $GLOBALS['sql_query'] = stripslashes($disp_query);
+            $GLOBALS['sql_query'] = $disp_query;
             $GLOBALS['sql_limit_to_append'] = '';
             PMA_showMessage($disp_message);
             $GLOBALS['sql_query'] = $tmp_sql_query;

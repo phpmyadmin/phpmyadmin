@@ -18,8 +18,6 @@ require('./tbl_properties_table_info.php3');
 
 <?php
 if (isset($sql_query)) {
-    $sql_query = stripslashes($sql_query);
-
     // I don't want the LIMIT clause, so I use the analyzer
     // to reconstruct the query with only some parts
     // because the LIMIT clause may come from us (sql.php3, sql_limit_to_append
