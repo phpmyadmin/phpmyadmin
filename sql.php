@@ -208,7 +208,7 @@ if ($do_confirm) {
         if($cfg['ErrorIconic']){
             echo '        <img src="' .$pmaThemeImage .'s_warn.png" border="0" hspace="2" vspace="2" align="left" />';
         }
-        echo $strDropDatabaseStrongWarning . '&nbsp;<br />' . "\n"; 
+        echo $strDropDatabaseStrongWarning . '&nbsp;<br />' . "\n";
     } else {
         echo '    <tr>' . "\n"
            . '        <td class="tblHeadError">' . "\n";
@@ -527,14 +527,14 @@ else {
                     } else {
                         PMA_DBI_try_query($count_query);
                         // if (mysql_error()) {
-                        // void. 
+                        // void.
                         // I tried the case
                         // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
                         // UNION (SELECT `User`, `Host`, "%" AS "Db",
                         // `Select_priv`
                         // FROM `user`) ORDER BY `User`, `Host`, `Db`;
                         // and although the generated count_query is wrong
-                        // the SELECT FOUND_ROWS() work! (maybe it gets the 
+                        // the SELECT FOUND_ROWS() work! (maybe it gets the
                         // count from the latest query that worked)
                         //
                         // another case where the count_query is wrong:
@@ -750,7 +750,7 @@ else {
                 echo '    <!-- Print view -->' . "\n"
                    . '    <a href="sql.php' . $url_query
                    . ((isset($dontlimitchars) && $dontlimitchars == '1') ? '&amp;dontlimitchars=1' : '')
-                   . '" target="print_view">' 
+                   . '" target="print_view">'
                    . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strPrintView . '"/>' : '')
                    . $strPrintView . '</a>' . "\n";
                 if (!$dontlimitchars) {
@@ -770,7 +770,7 @@ else {
         // (the url_query has extra parameters that won't be used to export)
         // (the single_table parameter is used in display_export.lib.php
         //  to hide the SQL and the structure export dialogs)
-        if ($analyzed_sql[0]['querytype'] == 'SELECT' && !isset($printview)) {
+        if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT' && !isset($printview)) {
             if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name']) && !isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])) {
                 $single_table   = '&amp;single_table=true';
             } else {
@@ -780,7 +780,7 @@ else {
                    . '    &nbsp;&nbsp;<a href="tbl_properties_export.php' . $url_query
                    . '&amp;unlim_num_rows=' . $unlim_num_rows
                    . $single_table
-                   . '">' 
+                   . '">'
                    . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_tblexport.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strExport . '" />' : '')
                    . $strExport . '</a>' . "\n";
         }
