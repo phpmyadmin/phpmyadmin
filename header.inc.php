@@ -150,42 +150,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     /**
      * Display heading if needed. Design can be set in css file.
      */
-/*
-    // InternetExplorer have problems to show content with style called 'content:'
-    // and IE swaps images, of mouse over an icon
-    // some other Browsers have Problem with the div class="spacer"
-    // the show of icons is now based on param 'MainPageIconic'
-    if (PMA_DISPLAY_HEADING) {
-        echo "<h1>\n\n";
-        $header_url_qry = '?' . PMA_generate_common_url();
-        $server_info = (!empty($cfg['Server']['verbose'])
-                        ? $cfg['Server']['verbose']
-                        : $server_info = $cfg['Server']['host'] . (empty($cfg['Server']['port'])
-                                                                   ? ''
-                                                                   : ':' . $cfg['Server']['port']
-                                                                  )
-                       );
-        echo '<span class="server">' . $GLOBALS['strServer'] . ":\n"
-            . '<a href="' . $GLOBALS['cfg']['DefaultTabServer'] . '?' . PMA_generate_common_url() . '">'
-            . htmlspecialchars($server_info) . '</a>' . "\n"
-            . '</span>' . "\n\n";
 
-        if (!empty($GLOBALS['db'])) {
-            echo '<span class="database">' . $GLOBALS['strDatabase'] . ":\n"
-                . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($GLOBALS['db']) . '">'
-                . htmlspecialchars($GLOBALS['db']) . '</a>' . "\n"
-                . '</span>' . "\n\n";
-
-            if (!empty($GLOBALS['table'])) {
-                echo '<span class="table">' . $GLOBALS['strTable'] . ":\n"
-                    . '<a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']) . '">'
-                    . htmlspecialchars($GLOBALS['table']) . '</a>' . "\n"
-                    . '</span>' . "\n\n";
-            }
-        }
-        echo '</h1>';
-    }
-*/
     if (PMA_DISPLAY_HEADING) {
         echo '<table border="0" cellpadding="0" cellspacing="0">' . "\n"
            . '    <tr>' . "\n";
@@ -198,7 +163,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                                                                   )
                        );
         echo '        '
-           . '<td class="serverinfo">' . $GLOBALS['strServer'] . ':'
+           . '<td class="serverinfo">' . $GLOBALS['strServer'] . ':&nbsp;'
            . '<a href="' . $GLOBALS['cfg']['DefaultTabServer'] . '?' . PMA_generate_common_url() . '">';
         if ($GLOBALS['cfg']['MainPageIconic']) {
             echo '<img src="' . $GLOBALS['pmaThemeImage'] . 's_host.png" width="16" height="16" border="0" alt="' . htmlspecialchars($server_info) . '" />';
@@ -209,7 +174,7 @@ if (empty($GLOBALS['is_header_sent'])) {
         if (!empty($GLOBALS['db'])) {
             echo '        '
                . '<td class="serverinfo"><div></div></td>' . "\n" . '            '
-               . '<td class="serverinfo">' . $GLOBALS['strDatabase'] . ':'
+               . '<td class="serverinfo">' . $GLOBALS['strDatabase'] . ':&nbsp;'
                . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($GLOBALS['db']) . '">';
             if ($GLOBALS['cfg']['MainPageIconic']) {
                 echo '<img src="' . $GLOBALS['pmaThemeImage'] . 's_db.png" width="16" height="16" border="0" alt="' . htmlspecialchars($GLOBALS['db']) . '" />';
@@ -220,7 +185,7 @@ if (empty($GLOBALS['is_header_sent'])) {
             if (!empty($GLOBALS['table'])) {
                 echo '        '
                    . '<td class="serverinfo"><div></div></td>' . "\n" . '            '
-                   . '<td class="serverinfo">' . $GLOBALS['strTable'] . ':'
+                   . '<td class="serverinfo">' . $GLOBALS['strTable'] . ':&nbsp;'
                    . '<a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']) . '">';
                 if ($GLOBALS['cfg']['MainPageIconic']) {
                     echo '<img src="' . $GLOBALS['pmaThemeImage'] . 's_tbl.png" width="16" height="16" border="0" alt="' . htmlspecialchars($GLOBALS['table']) . '" />';
