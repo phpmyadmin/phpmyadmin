@@ -10,6 +10,17 @@ require('./header.inc.php3');
 
 
 /**
+ * Ensures the db name is valid
+ */
+if (get_magic_quotes_gpc()) {
+    $db = stripslashes($db);
+}
+if (MYSQL_INT_VERSION < 32306) {
+    check_reserved_words($db);
+}
+
+
+/**
  * Executes the db creation sql query
  */
 $local_query = 'CREATE DATABASE ' . backquote($db);

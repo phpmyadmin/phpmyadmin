@@ -17,6 +17,13 @@ if (isset($submit)) {
 
     // Builds the field creation statement and alters the table
     for ($i = 0; $i < count($field_name); ++$i) {
+        if (get_magic_quotes_gpc()) {
+            $field_name[$i] = stripslashes($field_name[$i]);
+        }
+        if (MYSQL_INT_VERSION < 32306) {
+            check_reserved_words($field_name[$i]);
+        }
+
         $query .= backquote($field_name[$i]) . ' ' . $field_type[$i];
         if ($field_length[$i] != ''
             && !eregi('^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$', $field_type[$i])) {

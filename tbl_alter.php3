@@ -19,6 +19,10 @@ if (isset($submit)) {
         $field_length[0]  = stripslashes($field_length[0]);
     }
 
+    if (MYSQL_INT_VERSION < 32306) {
+        check_reserved_words($field_name[0]);
+    }
+
     // Some fields have been urlencoded or double quotes have been translated
     // to "&quot;" in tbl_properties.php3
     $field_orig[0]     = urldecode($field_orig[0]);

@@ -28,6 +28,12 @@ if (isset($submit)) {
         if (empty($field_name[$i])) {
             continue;
         }
+        if (get_magic_quotes_gpc()) {
+            $field_name[$i] = stripslashes($field_name[$i]);
+        }
+        if (MYSQL_INT_VERSION < 32306) {
+            check_reserved_words($field_name[$i]);
+        }
         $query .= backquote($field_name[$i]) . ' ' . $field_type[$i];
         if ($field_length[$i] != '') {
             if (get_magic_quotes_gpc()) {
@@ -69,6 +75,9 @@ if (isset($submit)) {
     for ($i = 0; $i < count($field_primary); $i++) {
         $j = $field_primary[$i];
         if (!empty($field_name[$j])) {
+            if (get_magic_quotes_gpc()) {
+                $field_name[$j] = stripslashes($field_name[$j]);
+            }
             $primary .= backquote($field_name[$j]) . ', ';
         }
     } // end for
@@ -87,6 +96,9 @@ if (isset($submit)) {
     for ($i = 0;$i < count($field_index); $i++) {
         $j = $field_index[$i];
         if (!empty($field_name[$j])) {
+            if (get_magic_quotes_gpc()) {
+                $field_name[$j] = stripslashes($field_name[$j]);
+            }
            $index .= backquote($field_name[$j]) . ', ';
         }
     } // end for
@@ -105,6 +117,9 @@ if (isset($submit)) {
     for ($i = 0; $i < count($field_unique); $i++) {
         $j = $field_unique[$i];
         if (!empty($field_name[$j])) {
+            if (get_magic_quotes_gpc()) {
+                $field_name[$j] = stripslashes($field_name[$j]);
+            }
            $unique .= backquote($field_name[$j]) . ', ';
         }
     } // end for
@@ -124,6 +139,9 @@ if (isset($submit)) {
         $sql_query .= ' TYPE = ' . $tbl_type;
     }
     if (MYSQL_INT_VERSION >= 32300 && !empty($comment)) {
+        if (get_magic_quotes_gpc()) {
+            $comment = stripslashes($comment);
+        }
         $sql_query .= ' comment = \'' . sql_addslashes($comment) . '\'';
     }
 
@@ -152,11 +170,19 @@ else {
     }
     // Table name and number of fields are valid -> show the form
     else {
+        // Ensures the table name is valid
+        if (get_magic_quotes_gpc()) {
+            $table = stripslashes($table);
+        }
+        if (MYSQL_INT_VERSION < 32306) {
+            check_reserved_words($table);
+        }
+
         $action = 'tbl_create.php3';
         include('./tbl_properties.inc.php3');
-       // Diplays the footer
-       echo "\n";
-       include('./footer.inc.php3');
+        // Diplays the footer
+        echo "\n";
+        include('./footer.inc.php3');
    }
 }
 

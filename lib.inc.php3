@@ -704,6 +704,44 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
     } // end of the 'format_byte_down' function
 
 
+    /**
+     * Ensures a database/table/field's name is not a reserved word (for MySQL
+     * releases < 3.23.6) 
+     *
+     * @param    string   the name to check
+     *
+     * @return   boolean  true if the name is valid (no return else)
+     *
+     * @author   Dell'Aiera Pol; Olivier Blin
+     */
+    function check_reserved_words($the_name)
+    {
+        // The name contains caracters <> a-z, A-Z and "_" -> not a reserved
+        // word
+        if (!ereg('^[a-zA-Z_]+$', $the_name)) {
+            return true;
+        }
+        
+        // Else do the work
+        $filename = 'badwords.txt';
+        if (file_exists($filename)) {
+            // Builds the reserved words array
+            $fd        = fopen($filename, 'r');
+            $contents  = fread($fd, filesize($filename) - 1);
+            fclose ($fd);
+            $word_list = explode("\n", $contents);
+
+            // Do the checking
+            $word_cnt  = count($word_list);
+            for ($i = 0; $i < $word_cnt; $i++) {
+                if (strtolower($the_name) == $word_list[$i]) {
+                    mysql_die(sprintf($GLOBALS['strInvalidName'], $the_name), '', FALSE, TRUE);
+                } // end if
+            } // end for
+        } // end if
+    } // end of the 'check_reserved_words' function
+
+
 
     /* ----- Functions used to display records returned by a sql query ----- */
 
