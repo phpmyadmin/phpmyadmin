@@ -300,6 +300,7 @@ $strYes = 'Sim';
 // To translate
 $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Insert a new record';
+$strBookmarkDeleted = 'The bookmark has been deleted.';
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strFlushTable = 'Flush the table ("FLUSH")';

@@ -49,6 +49,7 @@ $strAttr = 'Attributes';
 $strBack = 'Back';
 $strBinary = 'Binary';
 $strBinaryDoNotEdit = 'Binary - do not edit';
+$strBookmarkDeleted = 'The bookmark has been deleted.';
 $strBookmarkLabel = 'Label';
 $strBookmarkQuery = 'Bookmarked SQL-query';
 $strBookmarkThis = 'Bookmark this SQL-query';

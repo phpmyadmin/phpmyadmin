@@ -321,4 +321,5 @@ $strZip = '"zazipováno"';
 // To translate
 $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Insert a new record';
+$strBookmarkDeleted = 'The bookmark has been deleted.';
 ?>

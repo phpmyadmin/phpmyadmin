@@ -49,6 +49,7 @@ $strAttr = 'Attributs';
 $strBack = 'Retour';
 $strBinary = 'Binaire';
 $strBinaryDoNotEdit = 'Binaire - ne pas éditer';
+$strBookmarkDeleted = 'Le bookmark a été effacé.';
 $strBookmarkLabel = 'Intitulé';
 $strBookmarkQuery = 'Requêtes bookmarkées';
 $strBookmarkThis = 'Bookmarker cette requête';

@@ -320,6 +320,7 @@ $strZip = '"zo zipované"';
 // To translate
 $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Insert a new record';
+$strBookmarkDeleted = 'The bookmark has been deleted.';
 $strFlushTable = 'Flush the table ("FLUSH")';
 $strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strTableHasBeenFlushed = 'Table %s has been flushed';

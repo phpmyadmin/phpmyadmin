@@ -323,6 +323,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-
-
+$strBookmarkDeleted = 'The bookmark has been deleted.';
 ?>

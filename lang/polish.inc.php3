@@ -316,6 +316,7 @@ $strZip = '".zip"';
 // To translate
 $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Insert a new record';
+$strBookmarkDeleted = 'The bookmark has been deleted.';
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';

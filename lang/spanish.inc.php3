@@ -285,6 +285,7 @@ $strAnIndex = 'An index has been added on %s';//to translate
 $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Insert a new record';
 $strAPrimaryKey = 'A primary key has been added on %s';//to translate
+$strBookmarkDeleted = 'The bookmark has been deleted.';
 $strBzip = '"bzipped"';  //to translate
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate

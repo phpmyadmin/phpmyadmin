@@ -323,5 +323,6 @@ $strZip = '"zip-pakattu"';
 // To translate
 $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Insert a new record';
+$strBookmarkDeleted = 'The bookmark has been deleted.';
 $strOverhead = 'Overhead';
 ?>

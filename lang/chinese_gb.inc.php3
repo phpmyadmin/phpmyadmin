@@ -269,6 +269,7 @@ $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Insert a new record';
 $strAnIndex = 'An index has been added on %s';//to translate
 $strAPrimaryKey = 'A primary key has been added on %s';//to translate
+$strBookmarkDeleted = 'The bookmark has been deleted.';
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strDatabasesStats = 'Databases statistics';//to translate

@@ -313,6 +313,7 @@ $strZip = '"Zip komprimiert"';
 // To translate
 $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Insert a new record';
+$strBookmarkDeleted = 'The bookmark has been deleted.';
 $strFieldHasBeenDropped = 'Field %s has been dropped';//to translate
 $strFlushTable = 'Flush the table ("FLUSH")';
 $strIndexHasBeenDropped = 'Index %s has been dropped';//to translate
