@@ -253,10 +253,10 @@ $strUpdatePassword = "Changer le mot de passe";
 $strUpdatePrivMessage = "Vous avez modifié les privilèges pour";
 $strUpdateQuery = "Mise-à-jour de la requête";
 $strUsage = "Espace";
-$strUser = "Usager";
+$strUser = "Utilisateur";
 $strUserEmpty = "Le nom d'utilisateur est vide";
 $strUserName = "Nom d'utilisateur";
-$strUsers = "utilisateurs"; 
+$strUsers = "Utilisateurs et privilèges"; 
 $strUseTables = "Utiliser les tables";
 
 $strValue = "Valeur";
