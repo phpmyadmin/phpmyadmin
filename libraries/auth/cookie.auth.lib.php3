@@ -2,6 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+
 // +--------------------------------------------------------------------------+
 // | Set of functions used to run cookie based authentication.                |
 // | Thanks to Piotr Roszatycki <d3xter at users.sourceforge.net> and         |
@@ -393,7 +394,7 @@ if (uname.value == '') {
                 $GLOBALS['is_https']);
             // Duration = till the browser is closed for password
             setcookie('pma_cookie_password',
-                (!empty($cfg['Server']['password'])) ? $cfg['Server']['password'] : "\xff(blank)",
+                ((!empty($cfg['Server']['password'])) ? $cfg['Server']['password'] : "\xff(blank)"),
                 0,
                 $GLOBALS['cookie_path'], '',
                 $GLOBALS['is_https']);
