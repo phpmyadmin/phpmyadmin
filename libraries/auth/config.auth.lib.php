@@ -103,7 +103,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 <br />
     <?php
     echo "\n";
-    $is_header_sent = TRUE;
+    $GLOBALS['is_header_sent'] = TRUE;
     echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
     PMA_mysqlDie($conn_error, '');
 

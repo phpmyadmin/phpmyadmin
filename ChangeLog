@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-22 Michal Cihar  <michal@cihar.com>
+    * libraries/auth/config.auth.lib.php: Set correct variable to avoid
+      attempting sending headers twice.
+    
 2004-03-22 Garvin Hicking <pma@supergarv.de>
     * lang/german-*: Update
 
