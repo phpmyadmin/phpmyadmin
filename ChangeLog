@@ -22,7 +22,7 @@ $Source$
 	* tbl_copy.php3, eregi_replace instead of ereg_replace because
 	  MySQL 3.23.20 returns sql keywords in lowercase, thanks to
 	  Jan Paul Schmidt.
-	* lang/romanian.inc.php3, select_lang.inc.php3: new romanian lang thanks to
+	* lang/romanian.inc.php3, select_lang.inc.php3: new romanian lang 
 	  thanks to Valics Lehel (lvalics@users.sourceforge.net).
 
 2001-08-25  Marc Delisle  <lem9@users.sourceforge.net>
