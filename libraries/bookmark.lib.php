@@ -57,7 +57,7 @@ function PMA_listBookmarks($db, $cfgBookmark)
             . '      OR user = \'\')';
     $result = PMA_DBI_query($query, $dbh, PMA_DBI_QUERY_STORE);
 
-    // There is some bookmarks -> store them
+    // There are some bookmarks -> store them
     if ($result > 0 && PMA_DBI_num_rows($result) > 0) {
         $flag = 1;
         while ($row = PMA_DBI_fetch_row($result)) {
@@ -125,8 +125,7 @@ function PMA_queryBookmarks($db, $cfgBookmark, $id, $id_field = 'id', $action_bo
 function &PMA_queryDBBookmarks($db, $cfgBookmark, &$table_array)
 {
     global $dbh;
-
-    $boommarks = array();
+    $bookmarks = array();
 
     if (empty($cfgBookmark['db']) || empty($cfgBookmark['table'])) {
         return $bookmarks;
@@ -140,7 +139,7 @@ function &PMA_queryDBBookmarks($db, $cfgBookmark, &$table_array)
     $query          = 'SELECT label, query FROM ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
                     . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
                     . (count($search_for) > 0 ? ' AND label IN (' . implode(', ', $search_for) . ')' : '');
-    $result = PMA_DBI_try_query($query, $dbh);
+    $result = PMA_DBI_try_query($query, $dbh, PMA_DBI_QUERY_STORE);
     if (!$result || PMA_DBI_num_rows($result) < 1) return $bookmarks;
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $bookmarks[$row['label']] = $row['query'];
