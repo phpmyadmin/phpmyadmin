@@ -280,6 +280,7 @@ $strOptionalControls = 'Opcional. Controla como se han de ler e escreber os cara
 $strOptionally = 'OPCIONAL';
 $strOptions = 'Opcións';
 $strOr = 'ou';
+$strOriginalInterface = 'interface orixinal'; 
 $strOverhead = 'De máis (Overhead)';
 
 $strPHP40203 = 'Está a usar PHP 4.2.3, que contén un erro importante relacionado coas cadeas multi-byte (mbstring). Consulte o informe de erros número 19404. Non se recomenda usar esta versión do PHP co phpMyAdmin.';
@@ -491,8 +492,6 @@ $strImportDocSQL = 'Import docSQL Files'; //to translate
 
 $strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
 $strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
-
-$strOriginalInterface = 'original interface';  //to translate
 
 $strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 $strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
