@@ -135,13 +135,11 @@ $strViewDumpDB          = "Vis dump (skema) af database";
 $strWelcome             = "Velkommen til ";
 $strWrongUser           = "Forkert brugernavn/kodeord. Adgang N&aelig;gtet.";
 $strYes                 = "Ja";
-
-
-$strCheckTable	= "Check table"; //to translate
-$strAnalyzeTable	= "Analyze table";  //to translate
-$strRepairTable	= "Repair table";  //to translate
-$strOptimizeTable	= "Optimize table"; //to translate
-$strTableType	= "Table type"; //to translate
-$strHomepageOfficial=" Official phpMyAdmin Homepage ";  //to translate
-$strHomepageSourceforge=" new (but still unofficial) phpMyAdmin Homepage ";  //to translate
+$strCheckTable           = "Tjek tabel";
+$strAnalyzeTable        = "Analyser tabel";
+$strRepairTable         = "Reparer tabel";
+$strOptimizeTable       = "Optimer tabel";
+$strTableType           = "Tabel type";
+$strHomepageOfficial    = "Officiel phpMyAdmin hjemmeside ";
+$strHomepageSourceforge = "Ny (men ikke endnu officiel) phpMyAdmin hjemmeside ";
 ?>
