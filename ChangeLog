@@ -7,8 +7,8 @@ $Source$
 
 2004-09-03 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php, server_privileges.php, libraries/common.lib.php:
-      phase 1 of replacing charset introducers by CONVERT USING, 
-      to support the case where the mysql.* tables are not in latin1
+      replace charset introducers by CONVERT USING, 
+      to support servers where the mysql.* tables are not in latin1
 
 2004-09-02 Alexander M. Turek  <me@derrabus.de>
     * Documentation.html: Typos; added a note about the deprecated MySQL

@@ -691,42 +691,32 @@ if ($is_minimum_common == FALSE) {
 
 
     /**
-     * Returns a string formatted with proper charset introducer
-     * and collate information, if MySQL supports it
+     * Returns a string formatted with CONVERT ... USING 
+     * if MySQL supports it
      *
      * @param   string  the string itself
-     * @param   string  the charset introducer we want 
-     * @param   string  the collation we want 
+     * @param   string  the mode: quoted or unquoted (this one by default)
      *
      * @return  the formatted string
      *
      * @access  private
      */
-    function PMA_charsetIntroducerCollate($original_string, $charset_introducer='_latin1', $collation='latin1_swedish_ci')
-    {
-        $result = '';
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
-            $result .= $charset_introducer;
+    function PMA_convert_using($string, $mode='unquoted') {
+
+        if ($mode == 'quoted') {
+            $possible_quote = "'";
+        } else {
+            $possible_quote = "";
         }
-        $result .= '\'' . $original_string . '\'';
+
         if (PMA_MYSQL_INT_VERSION >= 40100) {
-            $result .= ' COLLATE ' . $collation;
+            list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
+            $converted_string = "CONVERT(" . $possible_quote . $string . $possible_quote . " USING " . $conn_charset . ")";
+        } else {
+            $converted_string = $possible_quote . $string . $possible_quote;
         }
-        return $result;
-
-    } // end of the 'PMA_charsetIntroducerCollate()' function
-
-
-        function PMA_convert_using($string, $mode='unquoted') {
-
-            if (PMA_MYSQL_INT_VERSION >= 40100) {
-                list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
-                $converted_string = "CONVERT(" . ($mode=='quoted'?"'":"") . $string . ($mode=='quoted'?"'":"") . " USING " . $conn_charset . ")";
-            } else {
-                $converted_string = ($mode=='quoted'?"'":"") . $string . ($mode=='quoted'?"'":"");
-            }
-            return $converted_string;
-        } // end function
+        return $converted_string;
+    } // end function
 
 }
 
