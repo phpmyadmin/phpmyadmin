@@ -85,6 +85,8 @@ $strChangePassword = 'Ubah Kata Sandi';
 $strCharsetOfFile = 'Kumpulan karakter (Character set) dari file:';
 $strCheckAll = 'Tanda semua';
 $strCheckDbPriv = 'Periksa Hak Akses dari Database';
+$strCheckPrivs = 'Periksa privilese';
+$strCheckPrivsLong = 'Periksa privilese untuk database &quot;%s&quot;.';
 $strCheckTable = 'Periksa tabel';
 $strChoosePage = 'Silakan pilih halaman untuk diubah';
 $strColComFeat = 'Tampilkan komentar kolom';
@@ -129,8 +131,12 @@ $strDatabaseHasBeenDropped = 'Database %s telah dihapus.';
 $strDatabaseWildcard = 'Database (wildcards diizinkan):';
 $strDatabases = 'database';
 $strDatabasesStats = 'Statistik Database';
+$strDatabasesStatsHeavyTraffic = 'Perhatian: Menggiatkan statistik database dengan kemungkinan besar mengakibatkan traffic yang cukup tinggi diantara webserver dan server dari MySQL.';
+$strDatabasesStatsDisable = 'Mencacatkan Statistik';
+$strDatabasesStatsEnable = 'Menggiatkan Statistik';
 $strDbPrivileges = 'Hak (privileges) khusus terhadap Database';
 $strDefault = 'Default';
+$strDefaultValueHelp = 'Untuk nilai (value) default cukup diisi single value saja tanpa mengunakan backslash, escaping atau quotes dan dengan mengunakan format sbb.: a';
 $strDelete = 'Hapus';
 $strDeleteAndFlush = 'Hapus Pengguna dan Reload Hak Istimewa (Privileges).';
 $strDeleteAndFlushDescr = 'Ini cara terbaik tetapi akan memakan waktu.';
@@ -233,6 +239,7 @@ $strInsertedRows = 'Baris yang disisipkan:';
 $strInstructions = 'Petunjuk';
 $strInvalidName = '"%s" adalah kata khusus dan tidak dapat dipergunakan sebagai nama database,tabel atau field.';
 
+$strJumpToDB = 'Lompat ke database &quot;%s&quot;.';
 $strJustDelete = 'Tinggal hapuskan penguna dari tabel Hak Istimewa (Privileges).';
 $strJustDeleteDescr = 'Penguna yang &quot;dihapus&quot; tetap berhak untuk mengakses Server seperti biasa sampai Hak Istimewa (Privileges) di-reload.';
 
@@ -551,16 +558,10 @@ $strYes = 'Ya';
 
 $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) akan menghapus batas yang telah ditentukan.';
 $strZip = '"Dikompress dengan Zip"';
-// To translate
 
-$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
-$strCheckPrivs = 'Check Privileges';  //to translate
-$strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.';  //to translate
-$strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
-$strDatabasesStatsDisable = 'Disable Statistics';  //to translate
-$strDatabasesStatsEnable = 'Enable Statistics';  //to translate
-$strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
+// To translate
 $strDropSelectedDatabases = 'Drop Selected Databases';  //to translate
 $strNoDatabasesSelected = 'No databases selected.';  //to translate
 $strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate
+
 ?>
