@@ -7,6 +7,10 @@ $Source$
 
 2001-11-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_indexes.php3: merged Michal fix.
+	* db_details.php3, line 47; main.php3, line 32;
+	  libraries/common.lib.php3, lines 928-929: fixed bug #479208 - Drop a
+	  Table -> wrong server at left frame thanks to Bjoern Koester
+	  & Donald Saltarelli.
 
 2001-11-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/tbl_dump.php3 : merged a workaround against the IE downloading

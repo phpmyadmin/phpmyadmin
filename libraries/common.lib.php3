@@ -925,8 +925,8 @@ if (!defined('__LIB_COMMON__')){
             echo "\n";
             $reload_url = './left.php3'
                         . '?lang=' . $GLOBALS['lang']
-                        . '&amp;server=' . $GLOBALS['server']
-                        . ((!empty($GLOBALS['db'])) ? '&amp;db=' . urlencode($GLOBALS['db']) : '');
+                        . '&server=' . $GLOBALS['server']
+                        . ((!empty($GLOBALS['db'])) ? '&db=' . urlencode($GLOBALS['db']) : '');
             ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
