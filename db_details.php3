@@ -266,13 +266,13 @@ if ($cfgBookmark['db'] && $cfgBookmark['table']) {
         echo "            <i>$strOr</i> $strBookmarkQuery&nbsp;:<br />\n";
         echo '            <select name="id_bookmark" style="margin-bottom: 5px">' . "\n";
         echo '                <option value=""></option>' . "\n";
-        while(list($key,$value) = each($bookmark_list)) {
+        while (list($key, $value) = each($bookmark_list)) {
             echo '                <option value="' . htmlentities($value) . '">' . htmlentities($key) . '</option>' . "\n";
         }
         echo '            </select>' . "\n";
-        echo '            <input type="radio" name="action_bookmark" value="0" checked="checked" />' . $strSubmit . "\n";
-        echo '            &nbsp;<input type="radio" name="action_bookmark" value="1" />' . $strBookmarkView . "\n";
-        echo '            &nbsp;<input type="radio" name="action_bookmark" value="2" />' . $strDelete . "\n";
+        echo '            <input type="radio" name="action_bookmark" value="0" checked="checked" style="vertical-align: middle" />' . $strSubmit . "\n";
+        echo '            &nbsp;<input type="radio" name="action_bookmark" value="1" style="vertical-align: middle" />' . $strBookmarkView . "\n";
+        echo '            &nbsp;<input type="radio" name="action_bookmark" value="2" style="vertical-align: middle" />' . $strDelete . "\n";
         echo '            <br />' . "\n";
     }
 }
