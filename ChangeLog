@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_schema.php3, bug 583833: should not complain if some tables
+      are missing
+
 2002-07-19 Loïc Chapeaux  <lolo@phpheaven.net>
     * pdf_page.php3; libraries/common.lib.php3: PHP3 fixes.
     * tbl_properties_structure.php3: coding standards.

@@ -27,8 +27,13 @@ $cfgRelation = PMA_getRelationsParam();
  * This page is absolutely useless if you didn't set up your tables
  * correctly, so it is a good place to see which tables we can and
  * complain ;-)
+ *
+ * lem9: but only complain if relation (relwork),
+ *       pdf_pages or table_coords (pdfwork)
+ *       are missing
  */
-if (!$cfgRelation['allworks']) {
+//if (!$cfgRelation['allworks']) {
+if (!$cfgRelation['relwork'] || !$cfgRelation['pdfwork']) {
     echo '<font color="red">' . $strError . '</font><br />' . "\n";
     $url_to_goto = '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php3?' . $url_query . '">';
     echo sprintf($strRelationNotWorking, $url_to_goto, '</a>') . "\n";
