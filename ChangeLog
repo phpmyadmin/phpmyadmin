@@ -17,6 +17,7 @@ $Source$
 	  phpmyadmin.
 	* build_dump.php3: fixed bug #482466 - data dumping is broken in cvs
 	  version thanks to Michal Cihar.
+	* ### released 2.2.2-rc1 revision. ###
 
 2001-11-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/tbl_dump.php3 : merged a workaround against the IE downloading
