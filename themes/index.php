@@ -1,21 +1,14 @@
 <?php
-
+if (!isset($path_to_themes) || empty($path_to_themes)) {
+    $path_to_themes = './'; // set up the path to themes if not exists
+}
 /* Theme Select */
-
-// TODO: maybe move this one level up, to be able to require
-//       the language files
-/**
- * Gets some core libraries and displays a top message if required
- */
 echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-<?php /*
-        <title>phpMyAdmin - <?php echo $GLOBALS['strTheme']; ?></title>
-      */?>
+        <title>phpMyAdmin - <?php echo ($strTheme ? $strTheme : 'Theme / Style'); ?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <style type="text/css">
         <!--
@@ -65,21 +58,20 @@ echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
 
     <body bgcolor="#666699" text="#FFFFFF" link="#FF9900" vlink="#FF9900" alink="#FF9900" leftmargin="0" topmargin="0" marginwidth="3" marginheight="3">
         <table width="480" border="0" align="center" cellpadding="2" cellspacing="0">
-       <?php /*
             <tr>
-         <th><b>phpMyAdmin - <?php echo $GLOBALS['strTheme']; ?></b></th>
+         <th><b>phpMyAdmin - <?php echo ($strTheme ? $strTheme : 'Theme / Style'); ?></b></th>
             </tr>
-             */  ?>
 
             <tr><td>&nbsp;</td></tr>
 <?php
-    if(@file_exists('./original/screen.png')){ // check if original theme hav a screen
+    $org_theme_screen = $path_to_themes . 'original/screen.png';
+    if(@file_exists($org_theme_screen)){ // check if original theme have a screen
 ?>
             <tr>
                 <td>
                     <?php
         echo '<b>ORIGINAL</b><br /><br />';
-        echo '<div align="center"><img src="./original/screen.png" border="0" alt="Original - Theme" />';
+        echo '<div align="center"><img src="' . $org_theme_screen . '" border="0" alt="Original - Theme" />';
         echo '<script language="JavaScript"><!--' . "\n";
         echo '    document.write("<br />[ <b><a href=\"#top\" onclick=\"takeThis(\'original\'); return false;\">';
         echo (isset($strTakeIt) ? $strTakeIt : 'take it');
@@ -90,10 +82,11 @@ echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
             </tr>
 <?php
     } // end original theme screen
-    if ($handleThemes = opendir('./')) { // open themes
+    if ($handleThemes = opendir($path_to_themes)) { // open themes
         while (false !== ($PMA_Theme = readdir($handleThemes))) {  // get screens
-            if ($PMA_Theme != "." && $PMA_Theme != ".." && $PMA_Theme != 'original') { // but not the original
-                if (is_dir('./'.$PMA_Theme) && @file_exists('./'.$PMA_Theme.'/screen.png')) { // if screen exists then output
+            if ($PMA_Theme != "." && $PMA_Theme != ".." && !strstr($PMA_Theme,'original')) { // but not the original
+                $screen_directory = $path_to_themes . $PMA_Theme;
+                if (is_dir($screen_directory) && @file_exists($screen_directory.'/screen.png')) { // if screen exists then output
 ?>
             <tr>
                 <td><hr size="1" noshade="noshade" /></td>
@@ -102,7 +95,7 @@ echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
                 <td>
                     <?php
                     echo '<b>' . strtoupper(preg_replace("/_/"," ",$PMA_Theme)) . '</b><br /><br />';
-                    echo '<div align="center"><img src="./'.$PMA_Theme.'/screen.png" border="0" alt="' . strtoupper(preg_replace("/_/"," ",$PMA_Theme)) . ' - Theme" />';
+                    echo '<div align="center"><img src="' . $screen_directory . '/screen.png" border="0" alt="' . strtoupper(preg_replace("/_/"," ",$PMA_Theme)) . ' - Theme" />';
                     echo '<script language="JavaScript"><!--' . "\n";
                     echo '    document.write("<br />[ <b><a href=\"#top\" onclick=\"takeThis(\'' . $PMA_Theme . '\'); return false;\">';
                     echo (isset($strTakeIt) ? $strTakeIt : 'take it');
