@@ -1431,11 +1431,11 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             $dispresult  = PMA_DBI_try_query($dispsql);
                             if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
                                 list($dispval) = PMA_DBI_fetch_row($dispresult);
+                                @PMA_DBI_free_result($dispresult);
                             }
                             else {
                                 $dispval = $GLOBALS['strLinkNotFound'];
                             }
-                            @PMA_DBI_free_result($dispresult);
                         }
                         else {
                             $dispval = '';
