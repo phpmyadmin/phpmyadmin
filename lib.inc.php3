@@ -191,7 +191,7 @@ if (!defined('__LIB_INC__')){
     else if (isset($cfgServers[$server])) {
         $cfgServer = $cfgServers[$server];
 
-        // The user can work with only one database
+        // The user can work with only some databases
         if (isset($cfgServer['only_db']) && !empty($cfgServer['only_db'])) {
             if (is_array($cfgServer['only_db'])) {
                 $dblist   = $cfgServer['only_db'];
@@ -1539,16 +1539,22 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
      * @param   string   the table name
      * @param   integer  the offset on this table
      * @param   integer  the last row to get
-     * @param   string   the separation string
+     * @param   string   the field separator character
+     * @param   string   the optionnal "enclosed by" character
      * @param   string   the handler (function) to call. It must accept one
      *                   parameter ($sql_insert)
      *
+     * @global  string   whether to obtain an excel compatible csv format or a
+     *                   simple csv one
+     *
      * @return  boolean always true
      */
-    function get_table_csv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $handler)
+    function get_table_csv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $enc_by, $handler)
     {
-        // Handles the separator character
-        if (empty($sep)) {
+        global $what;
+
+        // Handles the "separator" and the optionnal "enclosed by" characters
+        if (empty($sep) || $what == 'excel') {
             $sep     = ';';
         }
         else {
@@ -1556,6 +1562,15 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 $sep = stripslashes($sep);
             }
             $sep     = str_replace('\\t', "\011", $sep);
+        }
+        if (empty($enc_by) || $what == 'excel') {
+            $enc_by     = '"';
+        }
+        else {
+            if (get_magic_quotes_gpc()) {
+                $enc_by = stripslashes($enc_by);
+            }
+            $enc_by     = str_replace('&quot;', '"', $enc_by);
         }
 
         // Defines the offsets to use
@@ -1584,6 +1599,15 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     $schema_insert .= 'NULL';
                 }
                 else if ($row[$j] != '') {
+                    if ($what == 'excel') {
+                        $row[$j]     = ereg_replace("\015(\012)?", "\012", $row[$j]);                          
+                        $re_test     = "$enc_by|$sep|\012";
+                    } else {
+                        $re_test     = "[$enc_by$sep]";
+                    }
+                    if (ereg($re_test, $row[$j])) {
+                        $row[$j] = $enc_by . str_replace($enc_by, $enc_by . $enc_by, $row[$j]) . $enc_by;
+                    }
                     $schema_insert .= $row[$j];
                 }
                 else {

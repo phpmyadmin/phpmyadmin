@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-20  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_properties.php3; tbl_dump.php3; lib.inc.php3; lang/*: fixed some bugs
+	  with CSV exportations and added a Ms Excel CSV specific choice (because
+	  we know Excel does not support <cr> in data). Thanks to
+	  François <outils@altern.org>.
+
 2001-08-19  Olivier Müller  <om@omnis.ch>
 	* db_readdump.php3: if file contains mutiple queries, only show this line:
 	  "Your SQL-query has been executed successfully: The content of your file
@@ -40,7 +46,7 @@ $Source$
 	  netscape3) and an other one with netscape 3 thanks to
 	  François <outils@altern.org>.
 	* left.php3; lang/*: checks if databases from $cfgServers[1]['only_db']
-	  exits before displaying them at the left frame and take into account
+	  exists before displaying them at the left frame and take into account
 	  the case where there is no usable databases.
 	* Documentation.html: various updates.
 

@@ -675,8 +675,12 @@ echo "\n";
                     <?php echo $strStrucData; ?>&nbsp;&nbsp;<br />
                     <input type="radio" name="what" value="dataonly" />
                     <?php echo $strDataOnly; ?>&nbsp;&nbsp;<br />
+                    <input type="radio" name="what" value="excel" />
+                    <?php echo $strStrucExcelCSV; ?>&nbsp;&nbsp;<br />
                     <input type="radio" name="what" value="csv" />
                     <?php echo $strStrucCSV;?>&nbsp;:<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFields . ' '. $strEnclosedBy; ?>&nbsp;
+                    <input type="text" name="enclosed" size="1" value="&quot;" />&nbsp;&nbsp;<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFields . ' '. $strTerminatedBy; ?>&nbsp;
                     <input type="text" name="separator" size="2" value=";" />&nbsp;&nbsp;<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strLines . ' '. $strTerminatedBy; ?>&nbsp;

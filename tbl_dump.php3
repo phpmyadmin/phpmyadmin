@@ -44,7 +44,9 @@ function my_csvhandler($sql_insert)
     global $tmp_buffer;
 
     // Handles the EOL character
-    if (empty($add_character)) {
+    if ($GLOBALS['what'] == 'excel') {
+        $add_character = "\r\n";
+    } else if (empty($add_character)) {
         $add_character = $GLOBALS['crlf'];
     } else {
         if (get_magic_quotes_gpc()) {
@@ -118,7 +120,7 @@ else {
         $ext = 'bz2';
     } else if (isset($gzip) && $gzip == 'gzip') {
         $ext = 'gz';
-    } else if ($what == 'csv') {
+    } else if ($what == 'csv' || $what == 'excel') {
         $ext = 'csv';
     } else {
         $ext = 'sql';
@@ -151,7 +153,7 @@ if ($num_tables == 0) {
 // At least on table -> do the work
 else {
     // No csv format -> add some comments at the top
-    if ($what != 'csv') {
+    if ($what != 'csv' &&  $what != 'excel') {
         $dump_buffer       .= '# phpMyAdmin MySQL-Dump' . $crlf
                            .  '# version ' . PHPMYADMIN_VERSION . $crlf
                            .  '# http://phpwizard.net/phpMyAdmin/' . $crlf
@@ -216,7 +218,7 @@ else {
     // 'csv' case
     else {
         $tmp_buffer = '';
-        get_table_csv($db, $table, $limit_from, $limit_to, $separator, 'my_csvhandler');
+        get_table_csv($db, $table, $limit_from, $limit_to, $separator, $enclosed, 'my_csvhandler');
         $dump_buffer .= $tmp_buffer;
     } // end 'csv case
 } // end building the dump
