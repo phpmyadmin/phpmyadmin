@@ -57,7 +57,7 @@ mkdir cvs
 cd cvs
 echo "Press [ENTER]!"
 cvs -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin login
-cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin co $branch phpMyAdmin
+cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
 
 date > phpMyAdmin/RELEASE-DATE-$1
 mv phpMyAdmin phpMyAdmin-$1
