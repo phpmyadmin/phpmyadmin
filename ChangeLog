@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/dutch: small update
+    * lang/chinese_simplified: updated, thanks to Simon - simon2san
+
 2004-09-10 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: grammar.
 
