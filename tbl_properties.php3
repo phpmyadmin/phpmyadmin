@@ -182,7 +182,9 @@ while ($row = mysql_fetch_array($result)) {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <?php
-$index_count = count($ret_keys);
+$index_count = (isset($ret_keys))
+             ? count($ret_keys)
+             : 0;
 if ($index_count > 0) {
     ?>
     <td valign="top" align="left">

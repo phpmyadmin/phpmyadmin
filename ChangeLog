@@ -11,6 +11,7 @@ $Source$
 	  $cfgServerDefault is set to 0 in the config file.
 	* db_details.php3, tbl_properties.php3: fixed display problems with NS4+
 	  (including bug #439962).
+	* db_details.php3, line 185: fixed a bug if there is no indexes.
 
 2001-07-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3, lines 273-275: vertically center bookmarks options.
