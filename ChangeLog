@@ -9,6 +9,8 @@ $Source$
 	* read_dump.php3; libraries/build_dump.lib.php3: tried a fix for
 	  bug #508746 - PMA_splitSqlFile() crashes server. Thanks to
 	  Matthias Fichtner (mfichtner) for the suggestions he did.
+	* left.php3: patch #518789 left.php3 - a little fix, thanks to
+	  Jakub Wilk (ubanus).
 
 2002-02-16 Marc Delisle  <lem9@users.sourceforge.net>
 	* db_details.php3, no links if no data, 
