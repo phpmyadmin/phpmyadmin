@@ -6,8 +6,9 @@ $Id$
 $Source$
 
 2001-07-13  Loïc Chapeaux  <lolo@phpheaven.net>
-	* left.php3: no DHTML if there is only one table to display
-	  (feature #440420)
+	* lib.inc.php3, tbl_dump.php3, tbl_properties.php3, translations: added a
+	  limitation feature for data dumps thanks to
+      Girish Nair <girish@sanisoft.com> and Vinay <vinay@sanisoft.com>.
 	* lib.inc.php3, lines 785-847: rewritten the 'show_message' function in
 	  order it generates a valid xhtml1.0 code and the programatically added
 	  'LIMIT' clause is displayed only if it has been trully used.
@@ -19,6 +20,8 @@ $Source$
 	  - lines 83-89: fixed a bug if the sql query contains a 'limit' clause
 	    typed by the user.
 	* db_readdump.php3.php3, line 64: removed a faulty fix for bug #439565.
+	* left.php3: no DHTML if there is only one table to display
+	  (feature #440420)
 
 2001-07-12  Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html: added a FAQ entry about upload errors

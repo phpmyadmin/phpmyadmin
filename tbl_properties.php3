@@ -563,6 +563,14 @@ echo "\n";
             <?php echo $strViewDumpDB; ?><br />
             <table>
             <tr>
+                <td colspan="2">
+                    <?php echo $strOffSet; ?>&nbsp;
+                    <input type="text" name="limit_from" value="0" size="5" style="vertical-align: middle" />&nbsp;
+                    <?php echo $strNbRecords; ?>&nbsp;
+                    <input type="text" name="limit_to" size="5" value="<?php echo count_records($db, $table, true); ?>" style="vertical-align: middle" />
+                </td>
+            </tr>
+            <tr>
                 <td>
                     <input type="radio" name="what" value="structure" checked="checked" />
                     <?php echo $strStrucOnly; ?>&nbsp;&nbsp;

@@ -151,6 +151,7 @@ $strMySQLShowStatus = "Afficher l'état du serveur MySQL";
 $strMySQLShowVars = "Afficher les variables du serveur MySQL";
 
 $strName = "Nom";
+$strNbRecords = "Nb. d'enregistrements";
 $strNext = "Suivant";
 $strNo = "Non";
 $strNoPassword = "aucun mot de passe";
@@ -163,6 +164,7 @@ $strNoUsersFound = "Il n'y a aucun utilisateur";
 $strNull = "Null";
 $strNumberIndexes = " Nombre d'index spéciaux ";
 
+$strOffSet = "Début";
 $strOftenQuotation = "Souvent des guillemets. OPTIONNEL signifie que seulement les champs de type char et varchar sont entourés par ce caractère.";
 $strOptimizeTable = "Optimiser la table";
 $strOptionalControls = "Optionnel. Indique le caractère qui permet d'enlever l'effet des caractères spéciaux.";

@@ -600,123 +600,223 @@ function get_table_def($db, $table, $crlf)
     }
 }
 
-// Get the content of $table as a series of INSERT statements.
-// After every row, a custom callback function $handler gets called.
-// $handler must accept one parameter ($sql_insert);
-
-function get_table_content ($db, $table, $handler){
-	if (PMA_INT_VERSION>=40005) get_table_content_fast($db, $table, $handler);
-	else get_table_content_old($db, $table, $handler);
-}
-
-
-// only php >= 4.0.5 - staybyte - 27. June 2001
-function get_table_content_fast($db, $table, $handler){
-	$result = mysql_query("SELECT * FROM ".db_name($db)."." .
-		tbl_name($table)) or mysql_die();
-	if ($result!=false){
-		for($j=0; $j<mysql_num_fields($result);$j++){
-			$field_set[$j]= mysql_field_name($result,$j);
-			$type=mysql_field_type($result,$j);
-			if ($type=="tinyint"||$type=="smallint"||$type=="mediumint"||$type=="int"||$type=="bigint"||$type=="timestamp")
-				$field_num[$j]=true;
-			else $field_num[$j]=false;
-		}
-
-		if(isset($GLOBALS["showcolumns"])){
-			$fields=implode(", ",$field_set);
-			$schema_insert = "INSERT INTO $table ($fields) VALUES (";
-		}
-		else $schema_insert = "INSERT INTO $table VALUES (";
-
-		$field_count=mysql_num_fields($result);
-
-		$search=array("\x0a","\x0d","\x1a"); //\x08\\x09, not required
-		$replace=array("\\n","\\r","\Z");
-
-		@set_time_limit(1200); // 20 Minutes
-
-		while($row = mysql_fetch_row($result)){
-
-			for($j=0; $j < $field_count; $j++){
-				if (isset($row[$j])){
-					if ($field_num[$j]) $values[]=$row[$j]; // a number
-					else $values[]="'".str_replace($search,$replace,AddSlashes($row[$j]))."'"; // string
-				}
-				else if(!isset($row[$j])) $values[]="NULL";
-				else $values[]="''";
-			}
-
-			$insert_line = $schema_insert.implode (",",$values).")";
-			unset ($values);
-
-			$handler($insert_line);
-		}
-	}
-}
-
-function get_table_content_old($db, $table, $handler)
+/**
+ * Dispatch between the versions of 'get_table_content' to use depending on the
+ * php version
+ *
+ * @param   string   the current database name
+ * @param   string   the current table name
+ * @param   integer  the offset on this table
+ * @param   integer  the last row to get
+ * @param   string   the name of the handler (function) to use at the end of
+ *                   every row. This handler must accept one parameter
+ *                   ($sql_insert)
+ *
+ * @see     get_table_content_fast(), get_table_content_old()
+ * @author  staybyte
+ *
+ * Last revision 13 July 2001: Patch for limiting dump size from
+ * vinay@sanisoft.com & girish@sanisoft.com
+ */
+function get_table_content($db, $table, $limit_from = 0, $limit_to = 0, $handler)
 {
-    $result = mysql_query("SELECT * FROM " . db_name($db) ."." .
-		tbl_name($table)) or mysql_die();
-    $i = 0;
-    while($row = mysql_fetch_row($result))
-    {
-        @set_time_limit(60); // HaRa
-        $table_list = "(";
+    // Defines the offsets to use
+    if ($limit_from > 0) {
+        $limit_from--;
+    } else {
+        $limit_from = 0;
+    }
+    if ($limit_to > 0 && $limit_from >= 0) {
+        $add_query  = " LIMIT $limit_from, $limit_to";
+    } else {
+        $add_query  = '';
+    }
 
-        for($j=0; $j<mysql_num_fields($result);$j++)
-            $table_list .= mysql_field_name($result,$j).", ";
+    // Call the working function depending on the php version
+    if (PMA_INT_VERSION >= 40005) {
+        get_table_content_fast($db, $table, $add_query, $handler);
+    } else {
+        get_table_content_old($db, $table, $add_query, $handler);
+    }
+} // end of the 'get_table_content()' function
 
-        $table_list = substr($table_list,0,-2);
-        $table_list .= ")";
 
-        if(isset($GLOBALS["showcolumns"]))
-            $schema_insert = "INSERT INTO $table $table_list VALUES (";
-        else
+/**
+ * php >= 4.0.5 only : get the content of $table as a series of INSERT
+ * statements.
+ * After every row, a custom callback function $handler gets called.
+ *
+ * @param   string   the current database name
+ * @param   string   the current table name
+ * @param   string   the 'limit' clause to use with the sql query
+ * @param   string   the name of the handler (function) to use at the end of
+ *                   every row. This handler must accept one parameter
+ *                   ($sql_insert)
+ *
+ * @return  boolean  always true
+ *
+ * @author  staybyte
+ *
+ * Last revision 13 July 2001: Patch for limiting dump size from
+ * vinay@sanisoft.com & girish@sanisoft.com
+ */
+function get_table_content_fast($db, $table, $add_query = '', $handler)
+{
+    $result = mysql_query('SELECT * FROM ' . db_name($db) . '.' . tbl_name($table). $add_query) or mysql_die();
+    if ($result != false) {
+    
+        // Checks whether the field is an integer or not
+        for ($j = 0; $j < mysql_num_fields($result); $j++) {
+            $field_set[$j] = mysql_field_name($result, $j);
+            $type          = mysql_field_type($result, $j);
+            if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
+                $type == 'bigint'  ||$type == 'timestamp') {
+                $field_num[$j] = true;
+            } else {
+                $field_num[$j] = false;
+            }
+        } // end for
+
+        // Get the scheme
+        if (isset($GLOBALS['showcolumns'])) {
+            $fields        = implode(', ', $field_set);
+            $schema_insert = "INSERT INTO $table ($fields) VALUES (";
+        } else {
             $schema_insert = "INSERT INTO $table VALUES (";
-
-        for ($j=0; $j<mysql_num_fields($result);$j++)
-        {
-            if (!isset($row[$j])) {
-                $schema_insert .= " NULL,";
-            }
-            else if ($row[$j] != "") {
-                $dummy = ""; 
-                $srcstr = $row[$j]; 
-                for ($xx=0; $xx < strlen($srcstr); $xx++) { 
-                    $yy = strlen($dummy); 
-                    if($srcstr[$xx] == "\\") $dummy .= "\\\\"; 
-                    if($srcstr[$xx] == "'") $dummy .= "\\'"; 
-                    if($srcstr[$xx] == "\"") $dummy .= "\\\""; 
-                    if($srcstr[$xx] == "\x00") $dummy .= "\\0"; 
-                    if($srcstr[$xx] == "\x0a") $dummy .= "\\n"; 
-                    if($srcstr[$xx] == "\x0d") $dummy .= "\\r"; 
-                    if($srcstr[$xx] == "\x08") $dummy .= "\\b"; 
-                    if($srcstr[$xx] == "\t") $dummy .= "\\t"; 
-                    if($srcstr[$xx] == "\x1a") $dummy .= "\\Z"; 
-                    if(strlen($dummy) == $yy) $dummy .= $srcstr[$xx]; 
-                } 
-                $schema_insert .= " '".$dummy."',"; 
-            } 
-            else {
-                $schema_insert .= " '',";
-            }
         }
-        $schema_insert = ereg_replace(",$", "", $schema_insert);
-        $schema_insert .= ")";
+        
+        $field_count = mysql_num_fields($result);
+
+        $search  = array("\x0a","\x0d","\x1a"); //\x08\\x09, not required
+		$replace = array("\\n","\\r","\Z");
+
+        @set_time_limit(1200); // 20 Minutes
+
+        while ($row = mysql_fetch_row($result)) {
+            for ($j = 0; $j < $field_count; $j++) {
+                if (!isset($row[$j])) {
+                    $values[]     = 'NULL';
+                } else if (!empty($row[$j])) {
+                    // a number
+                    if ($field_num[$j]) {
+                        $values[] = $row[$j];
+                    }
+                    // a string
+                    else {
+                        $values[] = "'" . str_replace($search, $replace, addslashes($row[$j])) . "'";
+                    }
+                } else {
+                    $values[]     = "''";
+                } // end if
+            } // end for
+
+            $insert_line = $schema_insert . implode(',', $values) . ')';
+            unset($values);
+
+            // Call the handler
+            $handler($insert_line);
+        } // end while
+    } // end if ($result != false)
+    
+    return true;
+} // end of the 'get_table_content_fast()' function
+
+
+/**
+ * php < 4.0.5 only : get the content of $table as a series of INSERT
+ * statements.
+ * After every row, a custom callback function $handler gets called.
+ *
+ * @param   string   the current database name
+ * @param   string   the current table name
+ * @param   string   the 'limit' clause to use with the sql query
+ * @param   string   the name of the handler (function) to use at the end of
+ *                   every row. This handler must accept one parameter
+ *                   ($sql_insert)
+ *
+ * @return  boolean  always true
+ *
+ * Last revision 13 July 2001: Patch for limiting dump size from
+ * vinay@sanisoft.com & girish@sanisoft.com
+ */
+function get_table_content_old($db, $table, $add_query = '', $handler)
+{
+    $result = mysql_query('SELECT * FROM ' . db_name($db) . '.' . tbl_name($table) . $add_query) or mysql_die();
+    $i      = 0;
+    while ($row = mysql_fetch_row($result)) {
+        @set_time_limit(60); // HaRa
+        $table_list     = '(';
+
+        for ($j = 0; $j < mysql_num_fields($result); $j++) {
+            $table_list .= mysql_field_name($result, $j) . ', ';
+        }
+
+        $table_list     = substr($table_list, 0, -2);
+        $table_list     .= ')';
+
+        if (isset($GLOBALS['showcolumns'])) {
+            $schema_insert = "INSERT INTO $table $table_list VALUES (";
+        } else {
+            $schema_insert = "INSERT INTO $table VALUES (";
+        }
+
+        for ($j = 0; $j < mysql_num_fields($result); $j++) {
+            if (!isset($row[$j])) {
+                $schema_insert .= ' NULL,';
+            } else if ($row[$j] != '') {
+                $dummy  = '';
+                $srcstr = $row[$j];
+                for ($xx = 0; $xx < strlen($srcstr); $xx++) {
+                    $yy = strlen($dummy);
+                    if ($srcstr[$xx] == "\\")   $dummy .= "\\\\";
+                    if ($srcstr[$xx] == "'")    $dummy .= "\\'";
+                    if ($srcstr[$xx] == "\"")   $dummy .= "\\\"";
+                    if ($srcstr[$xx] == "\x00") $dummy .= "\\0";
+                    if ($srcstr[$xx] == "\x0a") $dummy .= "\\n";
+                    if ($srcstr[$xx] == "\x0d") $dummy .= "\\r";
+                    if ($srcstr[$xx] == "\x08") $dummy .= "\\b";
+                    if ($srcstr[$xx] == "\t")   $dummy .= "\\t";
+                    if ($srcstr[$xx] == "\x1a") $dummy .= "\\Z";
+                    if (strlen($dummy) == $yy)  $dummy .= $srcstr[$xx];
+                }
+                $schema_insert .= " '" . $dummy . "',";
+            } else {
+                $schema_insert .= " '',";
+            } // end if
+        } // end for
+        $schema_insert = ereg_replace(',$', '', $schema_insert);
+        $schema_insert .= ')';
         $handler(trim($schema_insert));
         ++$i;
-    }
-    return (true);
-}
+    } // end while
 
-function count_records($db, $table)
+    return true;
+} // end of the 'get_table_content_old()' function
+
+
+/**
+ * Counts and displays the number of records in a table
+ *
+ * @param   string   the current database name
+ * @param   string   the current table name
+ * @param   boolean  whether to retain or to displays the result
+ *
+ * @return  mixed    the number of records if retain is required, true else
+ *
+ * Last revision 13 July 2001: Patch for limiting dump size from
+ * vinay@sanisoft.com & girish@sanisoft.com
+ */
+function count_records($db, $table, $ret = false)
 {
     $result = mysql_query('select count(*) as num from ' . db_name($db) . '.' . tbl_name($table));
     $num    = mysql_result($result,0,"num");
-    echo number_format($num, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
-}
+    if ($ret) {
+        return $num;
+    } else {
+        echo number_format($num, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
+        return true;
+    }
+} // end of the 'count_records()' function
 
 
 /**

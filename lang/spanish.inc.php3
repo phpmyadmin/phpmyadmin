@@ -271,5 +271,7 @@ $strYes = "Si";
 
 // export Zip (July 07, 2001, 19:48am)
 $strGzip = "\"gzipped\"";  //to translate
+$strOffSet = "Offset";
+$strNbRecords = "No. Of records";
 $strRowSize = " Row size ";  //to translate
 ?>

@@ -152,7 +152,7 @@ else
 					$dump_buffer.= "#$crlf$crlf";
 					
 					$tmp_buffer="";
-					get_table_content($db, $table, "my_handler");
+					get_table_content($db, $table, $limit_from, $limit_to, 'my_handler');
 					$dump_buffer.=$tmp_buffer;
 				}
 				$i++;

@@ -274,5 +274,7 @@ $strNotValidNumber = " ist keine gültige Zeilennummer!";
 
 // export Zip (July 07, 2001, 19:48am)
 $strGzip = "\"GZip komprimiert\"";
+$strOffSet = "Offset";
+$strNbRecords = "No. Of records";
 $strRowSize=" Zeilengr&ouml;ße ";
 ?>
