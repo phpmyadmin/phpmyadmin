@@ -11,7 +11,9 @@ $Source$
     * libraries/common.lib.php3: Don't display edit link for
       database-independant queries.
     * lang/polish-*.inc.php3: Updates, thanks to Jakub Wilk (ubanus).
-    * docs.css: Wrong URI.
+    * docs.css:
+      - Wrong URI;
+      - Typo.
 
 2003-02-14 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_databases.php3, server_privileges.php3, lang/*.inc.php3:

@@ -34,7 +34,7 @@ div.header {
     font-weight: bold;
     left: 0px;
     top: 0px;
-    position: fixed;*/
+    position: fixed;
     /* following MSIE hack was originally written by Riki Fridrich
      * <http://www.fczbkk.sk> */
     position: expression("absolute");
