@@ -1046,6 +1046,20 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         Defines whether to use select-based menu and display only the current
         tables in the left frame (smaller page).
+        Only in Non-Lightmode you can use the feature to display nested folders
+        using $cfg['LeftFrameTableSeparator']
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['LeftFrameTableSeparator']</b> string</dt>
+    <dd>
+        Defines a string to be used to nest table spaces. Defaults to '__'. This
+        means if you have tables like 'first__second__third' this will be
+        shown as a three-level hierarchie like: first &gt; second &gt; third.
+        If set to FALSE or empty, the feature is disabled.
+        NOTE: You shall not use this Separator in a table name at the beginning or
+        end of a table name, or multiple times after another without any other
+        characters in between.
         <br /><br />
     </dd>
 
@@ -1584,7 +1598,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <li><b>punct</b> Applies to all punctuation sub-classes</li>
         <li><b>punct_bracket_open_round</b> Opening brackets<tt>"("</tt></li>
         <li><b>punct_bracket_close_round</b> Closing brackets <tt>")"</tt></li>
-        <li><b>punct_listsep</b> List item seperator <tt>","</tt></li>
+        <li><b>punct_listsep</b> List item Separator <tt>","</tt></li>
         <li><b>punct_qualifier</b> Table/Column Qualifier <tt>"."</tt> </li>
         <li><b>punct_queryend</b> End of query marker <tt>";"</tt></li>
         <li><b>alpha</b> Applies to all alphabetic classes</li>
@@ -2327,7 +2341,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         open the connection. To do this in phpMyAdmin, you need to complete the
         socket information in the config.inc.php3.<br />
         For example:
-        <tt>$cfg['Servers'][$i]['socket']&nbsp;=&nbsp;'/tmp/mysql.sock';</tt>
+        <tt>$cfg['Servers'][$i]['socket']&nbsp;=&nbsp;'/tmp/mysql.sock';</tt><br /><br />
+        Please also make sure that the permissions of this file allow to be readable
+        by your webserver (i.e. '0755').
     </li>
 </ul>
 <p>
@@ -2441,6 +2457,16 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     </code>
 </p>
 
+<h4>
+    [3.3] When using nested folders ($cfg['LeftFrameTableSeparator']) there
+     are some multiple hierarchies displayed in a wrong manner?!
+</h4>
+<p>
+    Please note that you should not use the seperating string multiple times
+    without any characters between them, or at the beginning/end of your table
+    name. If you have to, think about using another TableSeparator or disabling
+    that feature
+</p>
 
 <a name="faqmultiuser"></a><br />
 <h3>[4. ISPs, multi-user installations ]</h3>

@@ -8,6 +8,8 @@ $Source$
 2003-05-02 Garvin Hicking <me@supergarv.de>
     * css/phpmyadmin.css.php3: Small typo, seems to be
       solution of support request #728820
+    * Documentation.html: Enhance FAQ 2.3 (mysql.sock readable,
+      thanks to Ryan)
 
 2003-04-30 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3, bug 729517, better comment output,
