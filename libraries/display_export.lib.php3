@@ -23,6 +23,7 @@ function PMA_exportIsActive($what, $val) {
 <?php
 $hide_structure = false;
 $hide_sql       = false;
+$hide_xml       = empty($db);
 if ($export_type == 'server') {
     echo PMA_generate_common_hidden_inputs('', '', 1);
 } elseif ($export_type == 'database') {
@@ -88,7 +89,9 @@ if (isset($sql_query)) {
             <!-- General CSV -->
             <input type="radio" name="what" value="csv" id="radio_dump_csv"  onclick="if(this.checked) { hide_them_all(); getElement('csv_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'csv'); ?> />
             <label for="radio_dump_csv"><?php echo $strStrucCSV;?></label>
-<?php if (!empty($db)) { ?>
+
+
+<?php if (!$hide_xml) { ?>
             <br /><br />
 
             <!-- XML -->
@@ -370,6 +373,10 @@ if ($cfgRelation['mimework']) {
 <?php if (!$hide_sql) { ?>
                 } else if (getElement('radio_dump_sql').checked) {
                     getElement('sql_options').style.display = 'block';
+<?php } ?>
+<?php if (!$hide_xml) { ?>
+                } else if (getElement('radio_dump_xml').checked) {
+                    getElement('none_options').style.display = 'block';
 <?php } ?>
                 } else if (getElement('radio_dump_csv').checked) {
                     getElement('csv_options').style.display = 'block';
