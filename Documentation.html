@@ -3473,47 +3473,36 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     [6.8] How can I produce a PDF schema of my database?
 </h4>
 <p>
-    First you have to fill the &quot;relation&quot;, &quot;table_coords&quot;
-    and &quot;pdf_pages&quot; configuration variables.
+    First the configuration variables &quot;relation&quot;,
+    &quot;table_coords&quot; and &quot;pdf_pages&quot; have to be filled in.
     <br /><br />
-    Then, think about your schema layout: which tables will go on which pages.
+    Then you need to think about your schema layout. Which tables will go on
+    which pages?
 </p>
 <ul>
-    <li>Click on your db name in the left frame</li>
-    <li>Choose &quot;Structure&quot; in the navigation on top</li>
-    <li>Choose &quot;Edit PDF Pages&quot; which should be somewhere at the
-        bottom of the page</li>
-    <li>Enter the name for a first pdf page and submit (you can also use
-        the &quot;Automatic layout&quot;, which will place on your page
-        all the tables that are linked)</li>
-    <li>Choose this page to edit</li>
-    <li>Now add a table you want to show on this page and its coordinates and
-        submit<br />
-        First you will have to guess those coordinates of course, so just expect
-        to have an area of about 297 * 210 and put the tables coordinates
-        somewhere in there, you will be able to have a look at what happened
-        and change them later.<br />
-        For example, x=100 and y=200 means that the table will be at 200 mm
-        down and 100 mm right from the upper left corner.<br />
-        Actually if you have a width of more than 300 or a height of more than
-        200 then it will automatically be scaled but 200*100 is a good start to
-        have an idea of what coordinates to use.</li>
-    <li>There is also a visual editor (scratchboard) available, see the
-        explanation at the <a href="#wysiwyg">$cfg['WYSIWYG-PDF']</a> section.</li>
-    <li>After every table you submitted you will have the possibility to submit
-        more tables</li>
-    <li>When you have entered enough tables Click on your db name in the left
-        frame again</li>
-    <li>Now, again at the bottom of the page you should be able to choose
-        &quot;Display PDF schema&quot;<br />
-        For testing it might be useful to show the grid as well, so you can see
-        the coordinates used.<br />
-        Maybe also choose color and submit.</li>
-    <li>Save the file he will offer you to something like <i>Schema.pdf</i>
-        (Internet Explorer has some bug there which might make it offer it
-        without an extension. Under Windows it is important to have the
-        extension &quot;.pdf&quot;, under other OSes you should be fine just
-        saving the file under the name it offers).</li>
+    <li>Select your database in the left frame.</li>
+    <li>Choose &quot;Operations&quot; in the navigation bar at the top.</li>
+    <li>Choose &quot;Edit PDF Pages&quot; near the bottom of the page.</li>
+    <li>Enter a name for the first PDF page and click Go. If you like, you
+        can use the &quot;automatic layout,&quot; which will put all your
+        linked tables onto the new page.</li>
+    <li>Select the name of the new page (the action choice being set to Edit)
+        and click Go.</li>
+    <li>Select a table from the list, enter its coordinates and click Go.<br />
+        Coordinates are expressed in millimeters; your diagram will
+        be automatically scaled to fit the page. When initially placing tables
+        on the page, just pick any coordinates -- say, 50x50. After clicking
+        Go, you can then use the <a href="#wysiwyg">graphical editor</a> to
+        position the element correctly.</li>
+    <li>When you'd like to look at your PDF, first be sure to click the Go
+        button beneath the list of tables and coordinates, to save any changes
+        you made there. Then scroll all the way down, select the PDF options
+        you want, and click Go.</li>
+    <li>Internet Explorer for Windows may suggest an incorrect filename when
+        you try to save a generated PDF. When saving a generated PDF, be
+        sure that the filename ends in &quot;.pdf&quot;, for example
+        &quot;schema.pdf&quot;. Browsers on other operating systems, and other
+        browsers on Windows, do not have this problem.</li>
 </ul>
 
 <h4>
