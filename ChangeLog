@@ -19,7 +19,7 @@ $Source$
       - RFE #623665 (MySQL 4.1 support):
         - Fixed display of field charsets;
         - The table charset is now displayed.
-    * libraries/sqlparser.data.php3: Added CHARSET.
+    * libraries/sqlparser.data.php3: Added CHARSET, SQL_CACHE, SQL_NO_CACHE.
     * tbl_change.php3: binary fields with CHARACTER SET definition were treated
       as SET fields (again RFE #623665).
     * Documentation.html:
@@ -28,6 +28,8 @@ $Source$
       - php 5.0.0-dev should work fine with phpMyAdmin - it has been doing so at
         least on my test machines for a couple of months.
     * scripts/create-tables.sql: Added some notes about lower_case_table_names.
+    * libraries/sqlparser.lib.php3: Parser treated "CHARACTER" as column type,
+      even if it was used in "CHARACTER SET".
 
 2003-05-29 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
