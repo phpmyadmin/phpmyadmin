@@ -13,6 +13,8 @@ $Source$
 	  "$strLogin" inside the title of the login page.
 	* libraries/defines.inc.php3: bug #516491 - $HTTP_USER_AGENT in
       php 4.1+. Thanks to Marcus Börger for this patch.
+	* lang/portuguese.inc.php3: light update thanks to
+	  António Raposo <cfmsoft@users.sourceforge.net>.
 
 2002-02-14 Marc Delisle  <lem9@users.sourceforge.net>
 	* hungarian updates thanks to Peter Bakondy

@@ -153,9 +153,9 @@ $strIndexType = 'Tipo de Índice&nbsp;:';
 $strIndexes = 'Índices';
 $strInsert = 'Insere';
 $strInsertAsNewRow = 'Insere como novo registo';
+$strInsertedRows = 'Registos inseridos :';
 $strInsertNewRow = 'Insere novo registo';
 $strInsertTextfiles = 'Insere arquivo texto na tabela';
-$strInsertedRows = 'Inserted rows:';
 $strInstructions = 'Instructions'; //to translate
 $strInvalidName = '"%s" é uma palavra reservada, não pode usar como nome de base de dados/tabela/campo.';
 
@@ -343,5 +343,6 @@ $strWrongUser = 'Utilizador ou Senha errada. Acesso Negado.';
 $strYes = 'Sim';
 
 $strZip = '"zipped"';  //to translate
+
 // To translate
 ?>
