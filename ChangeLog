@@ -12,6 +12,8 @@ $Source$
     * Documentation.html: about html entities in translations
     * libraries/common.lib.php3: charset_conversion needs the constants
     * libraries/select_lang.lib.php3, /lang: -utf8 files renamed -utf-8
+    * bug 576510: tbl_qbe.php3 renamed db_details_qbe.php3
+      (affects also db_details_links.php3)
 
 2002-07-01 Loïc Chapeaux  <lolo@phpheaven.net>
     * Documentation.html: coding standards and xhtml fixes.

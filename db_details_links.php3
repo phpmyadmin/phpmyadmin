@@ -58,7 +58,7 @@ echo printTab($strSearch,$lnk4,$arg4);
  * Only displayed if there is at least one table in the db
  */
 if ($num_tables > 0) {
-	echo printTab($strQBE,"tbl_qbe.php3",$url_query);
+	echo printTab($strQBE,"db_details_qbe.php3",$url_query);
 } // end if
 
 /**
