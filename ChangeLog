@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-04 Michal Čihař  <michal@cihar.com>
+    * libraries/read_dump.lib.php: Do not strip comments here.
+    * libraries/sqlparser.lib.php: Handle correctly all MySQL comments (-- can
+      be followed with any control char) (patch #965106).
+
 2004-06-04 Garvin Hicking <me@supergarv.de>
     * Bug #959320: Broken row highlighting in vertical
       browsing mode fixed. The pointer will now highlight

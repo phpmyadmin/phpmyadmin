@@ -90,31 +90,6 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
             $string_start = $char;
         } // end else if (is start of string)
 
-        // ... for start of a comment (and remove this comment if found)...
-        else if ($char == '#'
-                 || ($char == ' ' && $i > 1 && $sql[$i-2] . $sql[$i-1] == '--')) {
-            // starting position of the comment depends on the comment type
-            $start_of_comment = (($sql[$i] == '#') ? $i : $i-2);
-            // if no "\n" exits in the remaining string, checks for "\r"
-            // (Mac eol style)
-            $end_of_comment   = (strpos(' ' . $sql, "\012", $i+2))
-                              ? strpos(' ' . $sql, "\012", $i+2)
-                              : strpos(' ' . $sql, "\015", $i+2);
-            if (!$end_of_comment) {
-                // no eol found after '#', add the parsed part to the returned
-                // array if required and exit
-                if ($start_of_comment > 0) {
-                    $ret[]    = trim(substr($sql, 0, $start_of_comment));
-                }
-                return TRUE;
-            } else {
-                $sql          = substr($sql, 0, $start_of_comment)
-                              . ltrim(substr($sql, $end_of_comment));
-                $sql_len      = strlen($sql);
-                $i--;
-            } // end if...else
-        } // end else if (is comment)
-
         // ... and finally disactivate the "/*!...*/" syntax if MySQL < 3.22.07
         else if ($release < 32270
                  && ($char == '!' && $i > 1  && $sql[$i-2] . $sql[$i-1] == '/*')) {
