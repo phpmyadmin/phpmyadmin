@@ -8,7 +8,7 @@ $Source$
 2002-08-03 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: remove unneeded GRANT 
     * lang/turkish: update, thanks to Bora Alioglu
-    * lang/french update
+    * lang/french: update
     
 2002-08-03 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/*:
@@ -232,21 +232,21 @@ $Source$
 2002-07-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: bug 579785, Edit links URLs too long
       for some browsers
-    * lang/italian update, thanks to Pietro Danesi
-    * lang/chinese update, thanks to Siu Sun
-    * lang/albanian update, thanks to Laurent Dhima.
-    * lang/czech update, thanks to Michal Cihar
-    * lang/sync_lang.sh, can exclude some languages from conversion,
+    * lang/italian: update, thanks to Pietro Danesi
+    * lang/chinese: update, thanks to Siu Sun
+    * lang/albanian: update, thanks to Laurent Dhima.
+    * lang/czech: update, thanks to Michal Cihar
+    * lang/sync_lang.sh: can exclude some languages from conversion,
       thanks to Michal Cihar
-    * lang/turkish update, thanks to Bora Alioglu
-    * lang/polish update, thanks to Jakub Wilk
-    * lang/galician update, thanks to Xosé Calvo
-    * lang/romanian update, thanks to Valics Lehel
-    * sql.php3, bug 582356, Propose table structure was not working when
+    * lang/turkish: update, thanks to Bora Alioglu
+    * lang/polish: update, thanks to Jakub Wilk
+    * lang/galician: update, thanks to Xosé Calvo
+    * lang/romanian: update, thanks to Valics Lehel
+    * sql.php3: bug 582356, Propose table structure was not working when
       $cfg['ShowAll'] was FALSE
 
 2002-07-18 Steve Alberty  <staybyte@users.sourceforge.net>
-    * It is now possible to print stats for more than 2 GB (up to exa byte)
+    It is now possible to print stats for more than 2 GB (up to exa byte)
     * db_details_structure.php3: correct wrong link from table size to stats
     * tbl_printview.php3: fixed warnings if relation is not defined
     * db_printview.php3: fixed warnings and faults
@@ -254,13 +254,14 @@ $Source$
 2002-07-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/sync_lang.sh: support for multiple convertors (recode added),
       thanks to Michal Cihar
-    * lang/spanish update, thanks to Daniel Hinostroza
-      (Daniel.Hinostroza  at grunenthal.com.ec)
-    * lang/swedish updates: thanks to Björn T. Hallberg
-    * lang/indonesian updates, thanks to Rachim Tamsjadi.
-    * lang/japanese* updates, thanks to Yukihiro Kawada
-    * lang/french updates
-    * lang/lithuanian updates, thanks to Vilius Zigmantas
+    * lang/spanish update:
+      - thanks to Daniel Hinostroza
+      - (Daniel.Hinostroza  at grunenthal.com.ec)
+    * lang/swedish: updates: thanks to Björn T. Hallberg
+    * lang/indonesian: updates, thanks to Rachim Tamsjadi.
+    * lang/japanese*: updates, thanks to Yukihiro Kawada
+    * lang/french: updates
+    * lang/lithuanian: updates, thanks to Vilius Zigmantas
     * chk_rel.php3, db_details_structure.php3, Documentation.html,
       pdf_pages.php3, pdf_shema.php3, libraries/select_lang.lib.php3:
       commits for Loic
@@ -278,8 +279,7 @@ $Source$
 2002-07-17 Mike Beck <mikebeck@users.sourceforge.net>
     * pdf_pages.php3: if a page is edit it can also be shown
     * pdf_schema.php3: now it is possible to have all tables
-      displayed with the same (maximum) width
-      (feature request 576537)
+      displayed with the same (maximum) width (feature request 576537)
 
 2002-07-16 Mike Beck <mikebeck@users.sourceforge.net>
     * libraries/relation.lib.php3: verbose mode
@@ -405,8 +405,8 @@ $Source$
     * Documentation.html: about html entities in translations
     * libraries/common.lib.php3: charset_conversion needs the constants
     * libraries/select_lang.lib.php3, /lang: -utf8 files renamed -utf-8
-    * bug 576510: tbl_qbe.php3 renamed db_details_qbe.php3
-      (affects also db_details_links.php3)
+    * tbl_qbe.php3 renamed db_details_qbe.php3:
+       - bug 576510: (affects also db_details_links.php3)
 
 2002-07-01 Loïc Chapeaux  <lolo@phpheaven.net>
     * Documentation.html: coding standards and xhtml fixes.
@@ -484,7 +484,7 @@ $Source$
 2002-06-27 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3, db_details_db_info.php3, db_details_links.php3: bug with a
       Select and no table
-    * lang/slovak-iso updates, thanks to Lubos Klokner
+    * lang/slovak-iso: updates, thanks to Lubos Klokner
     * Documentation.html: faq about silent column type changing
 
 2002-06-26 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -685,14 +685,14 @@ $Source$
         new function: getComments($db,$table)
 
 2002-06-15 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/romanian.inc.php3 updates, thanks to Valics Lehel
-    * lang/lithuanian.inc.php3 updates, thanks to Vilius Zigmantas
-    * lang/polish.inc.php3 updates, thanks to Jakub Wilk
-    * lang/ukrainian.inc.php3 updates, thanks to Markijan Baran
-    * lang/spanish.inc.php3, catala.inc.php3 updates, thanks to Xavier Navarro
-    * lang/czech* updates, thanks to Michal Cihar
-    * lang/norwegian.inc.php3 updates, thanks to Sven-Erik Andersen
-    * lang/swedish.inc.php3 updates, thanks to Björn T. Hallberg
+    * lang/romanian.inc.php3: updates, thanks to Valics Lehel
+    * lang/lithuanian.inc.php3: updates, thanks to Vilius Zigmantas
+    * lang/polish.inc.php3: updates, thanks to Jakub Wilk
+    * lang/ukrainian.inc.php3: updates, thanks to Markijan Baran
+    * lang/spanish.inc.php3:, catala.inc.php3 updates, thanks to Xavier Navarro
+    * lang/czech* updates:, thanks to Michal Cihar
+    * lang/norwegian.inc.php3: updates, thanks to Sven-Erik Andersen
+    * lang/swedish.inc.php3: updates, thanks to Björn T. Hallberg
 
 2002-06-15 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/thai.inc.php3: Updates, thanks again to Arthit Suriyawongkul.
@@ -752,12 +752,12 @@ $Source$
 
 2002-06-12 Mike Beck <mikebeck@users.sourceforge.net>
     Syntaxcoloring for SQL - Statements
-    * config.inc.php3 lines 226-,302-
-    * libraries/common.lib.php3 lines 34,43,192-,312-,987,1062
+    * config.inc.php3: lines 226-,302-
+    * libraries/common.lib.php3: lines 34,43,192-,312-,987,1062
 
 2002-06-12 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/dutch.inc.php3 updates, thanks to Ivo Teel.
-    * lang/slovak-iso.inc.php3 updates, thanks to Lubos Klokner
+    * lang/dutch.inc.php3: updates, thanks to Ivo Teel.
+    * lang/slovak-iso.inc.php3: updates, thanks to Lubos Klokner
 
 2002-06-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: JS fixes, thanks to
@@ -771,12 +771,12 @@ $Source$
 
 2002-06-11 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3, lang/*, Documentation.html: new message with doc
-    * lang/hungarian.inc.php3 updates, thanks to Peter Bakondy
-    * lang/japanese*.php3 updates, thanks to Yukihiro Kawada
-    * lang/lithuanian.inc.php3 updates, thanks to Vilius Zigmantas
+    * lang/hungarian.inc.php3: updates, thanks to Peter Bakondy
+    * lang/japanese*.php3: updates, thanks to Yukihiro Kawada
+    * lang/lithuanian.inc.php3: updates, thanks to Vilius Zigmantas
 
 2002-06-10 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_select.php3, bug with end of lines
+    * tbl_select.php3:, bug with end of lines
 
 2002-06-10 Mike Beck <mikebeck@users.sourceforge.net>
     * tbl_select.php3: lines 12-16,111-123,194-199
@@ -793,7 +793,8 @@ $Source$
     * lang/english.inc.php3: Reordered strings.
 
 2002-06-09 Robin Johnson  <robbat2@users.sourceforge.net>
-    * Initial checkin of base DB-Config code
+    * libraries/common.lib.php3: 
+      - Initial checkin of base DB-Config code
 
 2002-06-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/dutch.inc.php3: Updates, thanks to "CaliMonk" <calimonk at gmx.net>.
@@ -809,8 +810,8 @@ $Source$
 2002-06-07 Marc Delisle  <lem9@users.sourceforge.net>
     * translators.html: updates (try to have only one official translator,
       probably the original author, or the one who now sends updates)
-    * lang/czech* updates, thanks to Michal Cihar
-    * lang/chinese* updates, thanks to Siu Sun
+    * lang/czech*: updates, thanks to Michal Cihar
+    * lang/chinese*: updates, thanks to Siu Sun
 
 2002-06-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.*:
@@ -828,13 +829,13 @@ $Source$
       Pietro Danesi <danone at users.sourceforge.net>.
 
 2002-06-05 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/polish.inc.php3 updates, thanks to Jakub Wilk
-    * lang/ukrainian.inc.php3 updates, thanks to Markijan Baran
-    * lang/romanian.inc.php3 updates, thanks to Valics Lehel
+    * lang/polish.inc.php3: updates, thanks to Jakub Wilk
+    * lang/ukrainian.inc.php3: updates, thanks to Markijan Baran
+    * lang/romanian.inc.php3: updates, thanks to Valics Lehel
 
 2002-06-03 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/romanian.inc.php3 updates, thanks to Valics Lehel
-    * lang/indonesian.inc.php3 updates, thanks to Rachim Tamsjadi
+    * lang/romanian.inc.php3: updates, thanks to Valics Lehel
+    * lang/indonesian.inc.php3: updates, thanks to Rachim Tamsjadi
 
 2002-06-03 Mike Beck  <mike.beck@ibmiller.de>
     * pdf_pages.php3
@@ -857,8 +858,8 @@ $Source$
     * sql.php3, lines 509-522: do print the page in "printview" mode.
     * scripts/check_lang.php3: added this script which goal is to ensure
       all languages files are valid.
-    * Documentation.html; main.php3; translators.html: feature request #539644
-      (Translation feedback link).
+    * Documentation.html; main.php3; translators.html: 
+      - Feature request #539644 (Translation feedback link).
 
 2002-06-01 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_structure.php3, lines 440-441; Documentation.html;
@@ -882,8 +883,8 @@ $Source$
 2002-05-31 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german.inc.php3: Small corrections.
     * sql.php3, header_printview.inc.php3, libraries/display_tbl.inc.php3,
-      lang/*.inc.php3: Implemented one part of feature #472038:
-      Print view for SQL results (features #523325, #562505).
+      - lang/*.inc.php3: Implemented one part of feature #472038:
+      - Print view for SQL results (features #523325, #562505).
 
 2002-05-30 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/albanian.inc.php3: Updates, thanks again to
@@ -985,8 +986,8 @@ $Source$
       pdf_schema.php3, libraries/display_tbl.lib.php3: PMA_pdf_table_position
       renamed to PMA_table_info, "foreign_display_field" moved from
       PMA_relation to PMA_table_info (once per table)
-    * lang/indonesian.inc.php3 updates thanks to Rachim Tamsjadi
-      (tamsjadi at icqmail.com)
+    * lang/indonesian.inc.php3: 
+      - updates thanks to Rachim Tamsjadi (tamsjadi at icqmail.com)
 
 2002-05-21 Loïc Chapeaux  <lolo@phpheaven.net>
     * ldi_table.php3, line 44: beautified generated html.
@@ -1038,7 +1039,7 @@ $Source$
 
 2002-05-17 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3, bug 556296: field size for int
-    * tbl_qbe.php3, adjust drop-down width, thanks to Mike Beck
+    * tbl_qbe.php3: adjust drop-down width, thanks to Mike Beck
 
 2002-05-17 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_structure.php3, lines 442: does not display the "data scheme"
@@ -1058,10 +1059,11 @@ $Source$
 
 2002-05-14 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3, db_details_structure.php3, lang/*, fpdf/*,
-      Documentation.html: new feature: pdf schema output,
-      thanks to Maxime Delorme (delorme.maxime at free.fr)
-      and to Olivier Plathey (www.fpdf.org)
-      (todo: scaling choice)
+      Documentation.html: 
+      - new feature: pdf schema output,
+      - thanks to Maxime Delorme (delorme.maxime at free.fr) 
+      - and to Olivier Plathey (www.fpdf.org)
+      - (todo: scaling choice)
 
 2002-05-13 Loïc Chapeaux  <lolo@phpheaven.net>
     * left.php3, libraries/common.lib.php3: fixed xhtml bugs and optimized the
@@ -1069,7 +1071,7 @@ $Source$
     * lang/arabic.inc.php3: updated thanks to Tarik kallida.
 
 2002-05-13 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/hungarian.inc.php3 updates, thanks to Péter Bakondy
+    * lang/hungarian.inc.php3: updates, thanks to Péter Bakondy
 
 2002-05-09 Robin Johnson  <robbat2@users.sourceforge.net>
     * .cvsignore, libraries/common.lib.php3: Feature to stop developers
@@ -1094,7 +1096,7 @@ $Source$
     * lang/italian.inc.php3: updated, thanks to Pietro Danesi.
 
 2002-05-06 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/romanian.inc.php3 updates thanks to Valics Lehel
+    * lang/romanian.inc.php3: updates thanks to Valics Lehel
     * lang/*, tbl_relation.php3, Documentation.html,
       libraries/display_tbl.lib.php3: foreign_display_field
 
@@ -1172,7 +1174,7 @@ $Source$
     * lang/italian.inc.php3: updated thanks to Pietro Danesi.
 
 2002-04-30 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_qbe.php3, try to make it work again
+    * tbl_qbe.php3: try to make it work again
     * tbl_properties.php3, tbl_properties_table_info.php3,
       tbl_properties_options.php3: support for 3 MyISAM table options
 
@@ -1243,8 +1245,9 @@ $Source$
       - Patch #548696 (DB/Table titles should be links), thanks to
         Ray Black <allah03@users.sourceforge.net>.
       - lines: 161-164: Undefined variable.
-    * common.lib.php3, lines 162, 163, 435-437: Fixed bug #549570
-      (Strange error if controluser is invalid).
+    * common.lib.php3, lines 162, 163, 435-437: 
+      - Fixed bug #549570
+      - (Strange error if controluser is invalid).
 
 2002-04-27 Loïc Chapeaux  <lolo@phpheaven.net>
     * Documentation.html:
