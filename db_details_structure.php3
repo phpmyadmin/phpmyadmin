@@ -127,10 +127,10 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         $table_name    = htmlspecialchars($table);
 
         $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$table]))
-                   ? str_replace('"', '&quot;', $tooltip_aliasname[$table])
+                   ? htmlspecialchars($tooltip_aliasname[$table])
                    : htmlspecialchars($sts_data['Name']);
         $truename = (!empty($tooltip_truename) && isset($tooltip_truename[$table]))
-                   ? str_replace('"', '&quot;', $tooltip_truename[$table])
+                   ? htmlspecialchars($tooltip_truename[$table])
                    : htmlspecialchars($sts_data['Name']);
 
         // Sets parameters for links

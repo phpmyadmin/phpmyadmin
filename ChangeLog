@@ -11,6 +11,8 @@ $Source$
     * db_details_structure.php3, mult_submits.inc.php3, tbl_alter.php3,
       tbl_properties_structure.php3: Show result of CHECK/OPTIMIZE/REPAIR
       queries for multiple tables.
+    * db_details_structure.php3: Display correctly table names that contain
+      html entities.
 
 2003-03-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3, libraries/config_import.lib.php3,
