@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-04  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, lines 292-296: queries retained and displayed into the
+	  textearea when stripslashed one time more than required.
+	* tbl_properties.php3: fixed some coding inconcistencies (tabs, ...).
+	* ob_lib.inc.php3, line 34: ini_get is a php4 only function and may be
+	  disabled -> put an @ before it is called to avoid errors. 
+
 2001-08-03  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/*: updated so they are xhtml1.0 valid and fits PEAR codding
 	  standards.
@@ -27,13 +34,12 @@ $Source$
 
 2001-08-03  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_change.php3: current value of enums was lost.
-	* bug 445348, if ob_gzhandler already set in php.ini,
-	  patch by Garth Gillespie, modified by me
-
+	* bug 445348, if ob_gzhandler already set in php.ini, patch by
+	  Garth Gillespie, modified by me 
 
 2001-08-03  Steve Alberty  <alberty@neptunlabs.de>
-	* tbl_properties.php3, db_details.php3: fixed problems with table
-	  size display and Non-ISAM tables
+	* tbl_properties.php3, db_details.php3: fixed problem with table size
+	  display and Non-ISAM tables.
 	* tbl_qbe.php3: remove some warnings in higher errorlevel
 
 2001-08-03  Olivier Müller  <om@omnis.ch> 
