@@ -116,7 +116,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
             } // end while
             ?> 
     </select>
-    <input type="submit" value="Go" />
+    <input type="submit" value="<?php echo $GLOBALS['strGo']; ?>" />
 </form>
 <br />
             <?php

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-14  Marc Delisle  <lem9@users.sourceforge.net>
+	* libraries/auth/cookies.auth.lib.php3, use $strGo
+
 2001-12-13  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_qbe.php3; lang/*: changed $strQueryOnDb.
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
