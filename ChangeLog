@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-26 Michal Cihar  <nijel@users.sourceforge.net>
+    * Documentation, config.inc.php3, tbl_change.php3,
+      tbl_properties.inc.php3, libraries/config_import.lib.php3: Possibility
+      to disable Ctrl+Arrows moving.
+
 2003-05-25 Garvin Hicking <me@supergarv.de>
     * left.php3: Fix #742632 finally: Refresh to main.php3
       if an empty DB has been selected.

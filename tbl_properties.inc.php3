@@ -4,12 +4,14 @@
 
 
 ?>
+<?php if ($cfg['CtrlArrowsMoving']) { ?>
 <!-- Set on key handler for moving using by Ctrl+arrows -->
 <script type="text/javascript" language="javascript">
 <!--
 document.onkeydown = onKeyDownArrowsHandler;
 // -->
 </script>
+<?php } ?>
 
 <form method="post" action="<?php echo $action; ?>">
 <?php

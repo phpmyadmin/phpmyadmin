@@ -1471,6 +1471,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt>
+        <b>$cfg['CtrlArrowsMoving'] </b>boolean<br />
+    </dt>
+    <dd>
+        Enable Ctrl+Arrows moving between fields when editing?
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['LimitChars'] </b>integer</dt>
     <dd>
         Maximal number of Chars showed in a <tt>TEXT</tt> OR a <tt>BLOB</tt>
@@ -3085,9 +3093,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     You can use Ctrl+arrows for moving on most pages with plenty editing
-    fields (table structure changes, row editing, etc.). You can also have
-    a look at the directive $cfg['DefaultPropDisplay'] ('vertical') and see
-    if this eases up editing for you.
+    fields (table structure changes, row editing, etc.) (must be anabled in
+    configuration - see. $cfg['CtrlArrowsMoving']). You can also have a look
+    at the directive $cfg['DefaultPropDisplay'] ('vertical') and see if this
+    eases up editing for you.
     <br />
 </p>
 

@@ -391,6 +391,7 @@ $cfg['LongtextDoubleTextarea'] = TRUE;      // double size of textarea size for 
 $cfg['TextareaAutoSelect']  = TRUE;         // autoselect when clicking in the textarea of the querybox
 $cfg['CharTextareaCols']    = 40;           // textarea size (columns) for CHAR/VARCHAR
 $cfg['CharTextareaRows']    = 2;            // textarea size (rows) for CHAR/VARCHAR
+$cfg['CtrlArrowsMoving']    = TRUE;         // Enable Ctrl+Arrows moving between fields when editing?
 $cfg['LimitChars']          = 50;           // For text and blobs, max field data length in browse mode
 $cfg['ModifyDeleteAtLeft']  = TRUE;         // show edit/delete links on left side of browse
                                             // (or at the top with vertical browse)

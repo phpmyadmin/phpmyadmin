@@ -1066,6 +1066,9 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['GD2Available'])) {
         $cfg['GD2Available'] = 'auto';
     }
+    if (!isset($cfg['CtrlArrowsMoving'])) {
+        $cfg['CtrlArrowsMoving'] = TRUE;
+    }
 
 } // $__PMA_CONFIG_IMPORT_LIB__
 

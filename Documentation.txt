@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.445 2003/05/19
-       17:11:33 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.447 2003/05/24
+       12:04:00 lem9 Exp $
 
 Requirements
 
@@ -721,6 +721,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           name at the beginning or end of a table name, or multiple times
           after another without any other characters in between.
 
+   $cfg['LeftFrameTableLevel'] string
+          Defines how many sublevels should be displayed when splitting
+          up tables by the above Separator.
+
    $cfg['ShowTooltip'] boolean
           Defines whether to display table comment as tool-tip in left
           frame or not.
@@ -968,6 +972,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
    $cfg['TextareaAutoSelect'] boolean
           Defines if the whole textarea of the query box will be selected
           on click.
+
+   $cfg['CtrlArrowsMoving'] boolean
+          Enable Ctrl+Arrows moving between fields when editing?
 
    $cfg['LimitChars'] integer
           Maximal number of Chars showed in a TEXT OR a BLOB field on
@@ -2129,9 +2136,10 @@ FAQ - Frequently Asked Questions
     [6.16] How can I simply move in page with plenty editing fields?
 
    You can use Ctrl+arrows for moving on most pages with plenty editing
-   fields (table structure changes, row editing, etc.). You can also have
-   a look at the directive $cfg['DefaultPropDisplay'] ('vertical') and
-   see if this eases up editing for you.
+   fields (table structure changes, row editing, etc.) (must be anabled
+   in configuration - see. $cfg['CtrlArrowsMoving']). You can also have a
+   look at the directive $cfg['DefaultPropDisplay'] ('vertical') and see
+   if this eases up editing for you.
 
     [6.17] Transformations: I can't enter my own mimetype! WTF is this feature
     then useful for?

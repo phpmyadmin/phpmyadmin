@@ -133,12 +133,14 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
 // some browsers send wrongly this form to the http server.
 ?>
 
+<?php if ($cfg['CtrlArrowsMoving']) { ?>
 <!-- Set on key handler for moving using by Ctrl+arrows -->
 <script type="text/javascript" language="javascript">
 <!--
 document.onkeydown = onKeyDownArrowsHandler;
 // -->
 </script>
+<?php } ?>
 
 <!-- Change table properties form -->
 <form method="post" action="tbl_replace.php3" name="insertForm" <?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?>>
