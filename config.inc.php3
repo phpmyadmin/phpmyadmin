@@ -186,13 +186,13 @@ $cfg['BZipDump']              = TRUE;   // dump files
 
 // Default Tabs display settings
 
-//$cfg['DefaultTabDatabase']    = 'db_details_structure.php3';
+$cfg['DefaultTabDatabase']    = 'db_details_structure.php3';
                                    // Possible values:
                                    // 'db_details_structure.php3' = tables list
                                    // 'db_details.php3' = sql form
                                    // 'db_search.php3' = search query			
 
-//$cfg['DefaultTabTable']       = 'tbl_properties_structure.php3';
+$cfg['DefaultTabTable']       = 'tbl_properties_structure.php3';
                                    // Possible values:
                                    // 'tbl_properties_structure.php3' = fields list  
                                    // 'tbl_properties.php3' = sql form
