@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-18 Alexander M. Turek  <rabus@users.sourceforge.net>
+	* libraries/display_tbl.lib.php3, line 1006: if a binary record contains
+      some html special characters, display was not xhtml compliant.
+
 2002-05-18 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/common.lib.php3; libraries/ip_allow_deny.lib.php3:
       - exported the "IP-based Allow/Deny" code in a distinct library;
