@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-22 Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, lines 383-390: removed the submit button for actions on
+	  multiple tables if the "onsubmit" event is handled by the browser.
+	* mult_submits.inc.php3: removed the confirmation stage for "OPTIMIZE"
+	  statements.
+
 2002-03-20 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/*, removed $strSequence
 	* czech*, estonian updates
