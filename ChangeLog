@@ -11,6 +11,9 @@ $Source$
     * css/phpmyadmin.css.php: Make server selection in left frame same size as
       on other places.
     * main.php: One more regex escaping fix.
+    * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
+    * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
+    * lang/latvian: Updated, thanks to Sandis Jerics (saaa2002).
 
 2003-11-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: while (list() = each()) is not always as bad as

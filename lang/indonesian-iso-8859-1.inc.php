@@ -24,6 +24,7 @@ $strAccessDenied = 'Akses ditolak';
 $strAccessDeniedExplanation = 'phpMyAdmin telah berusaha untuk membuka koneksi ke server MySQL tetapi koneksi ditolak oleh server. Perlu diperiksa ulang nama host, nama pengguna dan kata sandi pada file config.inc.php untuk memastikan kecocokannya dengan informasi yang telah diberi oleh administrator dari server MySQL.';
 $strAction = 'Aksi';
 $strAddAutoIncrement = 'Tambahkan nilai AUTO_INCREMENT';
+$strAddConstraints = 'Tambahkan pembatas';
 $strAddDeleteColumn = 'Tambah/Hapus kolom';
 $strAddDeleteRow = 'Tambah/Hapus baris';
 $strAddDropDatabase = 'Tambahkan DROP DATABASE';
@@ -715,7 +716,5 @@ $strYes = 'Ya';
 $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) akan menghapus batas yang telah ditentukan.';
 $strZip = '"Dikompress dengan Zip"';
 // To translate
-
-$strAddConstraints = 'Add constraints';  //to translate
 
 ?>
