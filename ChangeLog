@@ -35,6 +35,8 @@ $Source$
 	  lang/*: added patch #455752 - Check forbidden words thanks to
 	  Dell'Aiera Pol & Olivier Blin.
 	* defines.inc.php3; Documentation.html: let's start 2.2.1-dev :)
+	* left.php3: light cosmetic changes thanks to
+	  Jan Paul Schmidt <jps@mail.arsnet.de>.
 
 2001-08-31  Olivier Müller  <om@omnis.ch>
 	* releasing phpMyAdmin 2.2.0-final

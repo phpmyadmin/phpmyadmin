@@ -163,8 +163,8 @@ echo "\n";
 <body bgcolor="#D0DCE0">
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
-        <a class="item" href="main.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>">
-            <font color="black" class="heada"><b><?php echo $strHome; ?></b></font></a>
+        <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>">
+            <font color="black" class="heada"><b><?php echo $strHome; ?></b></font></a></nobr>
     </div>
 
    
@@ -206,19 +206,19 @@ if ($num_dbs > 1) {
         if (!empty($num_tables)) {
             echo "\n";
             ?>
-        <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', true); return false;}">
+        <nobr><a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', true); return false;}">
             <img name="imEx" id="el<?php echo $j; ?>Img" src="images/plus.gif" border="0" width="9" height="9" alt="+" /></a>
             <?php
         } else {
             echo "\n";
             ?>
-        <img name="imEx" src="images/minus.gif" border="0" width="9" height="9" />
+        <nobr><img name="imEx" src="images/minus.gif" border="0" width="9" height="9" />
             <?php
         }
         echo "\n";
         ?>
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', false)}">
-            <font color="black" class="heada"><?php echo $db; ?>&nbsp;&nbsp;<span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></font></a>
+            <font color="black" class="heada"><?php echo $db; ?>&nbsp;&nbsp;<span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></font></a></nobr>
     </div>
 
     <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px">
@@ -278,8 +278,8 @@ else if ($num_dbs == 1) {
     echo "\n";
     ?>
     <div id="el2Parent" class="parent">
-        <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>">
-            <font color="black" class="heada"><?php echo $db; ?>&nbsp;&nbsp;<span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></font></a>
+        <nobr><a class="item" href="db_details.php3?<?php echo $common_url_query; ?>">
+            <font color="black" class="heada"><?php echo $db; ?>&nbsp;&nbsp;<span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></font></a></nobr>
     </div>
     <div id="el2Child" class="child" style="margin-bottom: 5px">
     <?php
