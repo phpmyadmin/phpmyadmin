@@ -283,7 +283,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $buffer .= ' \\caption{'. str_replace('__TABLE__', PMA_texEscape($table), $GLOBALS['latex_structure_continued_caption'])
                    . '} \\\\ ' . $crlf;
     }
-    $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot';
+    $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ';
 
     if (!PMA_exportOutputHandler($buffer)) return FALSE;
 

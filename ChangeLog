@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-12 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/export/latex.php3: Fixed LaTeX output (patch #840082).
+
 2003-11-11 Garvin Hicking <antikarneval@supergarv.de>
     * libraries/display_tbl.lib.php3: Added more secure checks
       for each'ing on arrays built by the query analyzer. (Bug #839630)
