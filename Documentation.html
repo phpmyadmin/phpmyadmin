@@ -556,8 +556,9 @@
 
     <dt><b>$cfgLimitChars </b>integer</dt>
     <dd>
-        Maximal number of Chars showed in a TEXT field on browse view. Can be
-        turned off by a toggle button on the browse page.
+        Maximal number of Chars showed in a <tt>TEXT</tt> OR a <tt>BLOB</tt>
+        field on browse view. Can be turned off by a toggle button on the
+        browse page.
         <br /><br />
     </dd>
 
@@ -897,16 +898,17 @@
     your table properties and add the other fields.
 </p>
 
-<p>
-    <b>I get errors about not being able to include a file in /lang</b>
+<p> 
+    <b>I get errors about not being able to include a file in <i>/lang</i></b>
     <br />
-    Check php.ini, or ask your sysadmin to check it. The <i>include_path</i>
-    must contain "." somewhere in it, and <i>open_basedir</i>, if used,
-    must contain "." and "./lang" to allow normal operation of phpMyAdmin.
+    Check <i>php.ini</i>, or ask your sysadmin to check it. The
+    <tt>include_path</tt> must contain "." somewhere in it, and
+    <tt>open_basedir</tt>, if used, must contain "." and "./lang" to allow
+    normal operation of phpMyAdmin.
 </p>
 
 <p>
-    <b>I have found a bug. How do I inform developers?</b>
+    <b>I have found a bug. How do I inform developpers?</b>
     <br />
     Our Bug Tracker is located at <a href="http://sourceforge.net/projects/phpmyadmin">
         http://sourceforge.net/projects/phpmyadmin</a> under the Bugs section.
