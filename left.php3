@@ -147,7 +147,7 @@ echo "\n";
 ?>
 </head>
 
-<body bgcolor="#D0DCE0">
+<body bgcolor="<?php echo $cfgLeftBgColor; ?>">
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
         <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>">

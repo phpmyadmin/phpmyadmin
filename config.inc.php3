@@ -149,6 +149,8 @@ require('./libraries/select_lang.lib.php3');
 /**
  * Customization & design
  */
+$cfgLeftBgColor         = '#D0DCE0';    // background color for the left frame
+$cfgRightBgColor        = '#F5F5F5';    // background color for the right frame
 $cfgBorder              = 0;            // border width on tables
 $cfgThBgcolor           = '#D3DCE3';    // table header row colour
 $cfgBgcolorOne          = '#CCCCCC';    // table data row colour

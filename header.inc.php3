@@ -43,7 +43,7 @@ echo '<?xml version="1.0" encoding="' . strtoupper($charset) . '"?>' . "\n";
 <title>phpMyAdmin</title>
 <style type="text/css">
 <!--
-body          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
+body          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
 pre, tt       {font-size: <?php echo $font_size; ?>}
 th            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; background-color: <?php echo $cfgThBgcolor;?>}
 td            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
@@ -116,7 +116,7 @@ echo "\n";
 </head>
 
 
-<body bgcolor="#F5F5F5" text="#000000" background="images/bkg.gif">
+<body bgcolor="<?php echo $cfgRightBgColor; ?>" background="images/bkg.gif">
 <?php
 if (isset($db)) {
     echo '<h1> ' . $strDatabase . ' ' . htmlspecialchars($db);

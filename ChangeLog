@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-07  Loïc Chapeaux  <lolo@phpheaven.net>
+	* config.inc.php3, lines 152-153; Documentation.html, lines 573-581;
+	  header.inc.php3, line 119; left.php3, line 150: the background colors for
+	  both the fames are now defined in the configuration file thanks to
+	  Laurent Penou <laurent.penou at gadz.org>.
+
 2001-10-04  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.php3:
 	  - improved the js object detection system;
