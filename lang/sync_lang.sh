@@ -11,6 +11,8 @@
 # Written by Michal Cihar <nijel at users.sourceforge.net>
 ##
 # Changes:
+# 2004-09-22
+#   * default to iconv, as it doesn't break things as recode does
 # 2004-09-03
 #   * hack for hebrew
 # 2003-11-18
@@ -54,10 +56,10 @@ case "$1" in
         shift
         ;;
     *)
-        echo Using recode as default, force with --iconv/--recode
-        echo '(please use iconv for arabic)'
-        CONVERTOR=recode
-        CONVERTOR_PARAMS=" -f %s..%s"
+        echo Using iconv as default, force with --iconv/--recode
+        CONVERTOR=iconv
+        # the space on following is REQUIRED
+        CONVERTOR_PARAMS=" -f %s -t %s"
         ;;
 esac
 
@@ -75,8 +77,7 @@ fi
 # Here should be listed all translations for which conversion should be done.
 # The name is filename without inc.php.
 #
-BASE_TRANSLATIONS=`cat <<EOT
-afrikaans-iso-8859-1
+BASE_TRANSLATIONS="afrikaans-iso-8859-1
 albanian-iso-8859-1
 arabic-windows-1256
 azerbaijani-iso-8859-9
@@ -121,8 +122,7 @@ spanish-iso-8859-1
 swedish-iso-8859-1
 thai-tis-620
 turkish-utf-8
-ukrainian-windows-1251
-EOT`
+ukrainian-windows-1251"
 
 ##
 # which translations should not be translated to utf-8
@@ -130,8 +130,7 @@ EOT`
 # List here any translation that should not be converted to utf-8. The name is
 # same as above.
 #
-IGNORE_UTF=`cat <<EOT
-EOT`
+IGNORE_UTF=""
 
 ##
 # which translations should not be automatically generated
@@ -140,10 +139,8 @@ EOT`
 # translation for that language (usually for those which are not correctly
 # supported by convertor).
 #
-IGNORE_TRANSLATIONS=`cat <<EOT
-japanese-sjis
-russian-cp-866
-EOT`
+IGNORE_TRANSLATIONS="japanese-sjis
+russian-cp-866"
 
 ##
 # end of configuration, you hopefully won't need to edit anything bellow

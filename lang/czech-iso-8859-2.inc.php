@@ -370,6 +370,7 @@ $strMoveTableSameNames = 'Nelze pøesunout tabulku na sebe samu!';
 $strMultilingual = 'mnohojazyèný';
 $strMustSelectFile = 'Zvolte soubor, který chcete vlo¾it.';
 $strMySQLCharset = 'Znaková sada v&nbsp;MySQL';
+$strMySQLConnectionCollation = 'Znaková sada pøipojení k&nbsp;MySQL';
 $strMySQLReloaded = 'MySQL znovu naèteno.';
 $strMySQLSaid = 'MySQL hlásí: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% bì¾ící na serveru %pma_s2%, u¾ivatel pøihlá¹en jako %pma_s3%';
@@ -436,6 +437,7 @@ $strPdfNoTables = '¾ádné tabulky';
 $strPerHour = 'za hodinu';
 $strPerMinute = 'za minutu';
 $strPerSecond = 'za sekundu';
+$strPersian = 'Per¹tina';
 $strPhoneBook = 'adresáø';
 $strPHP40203 = 'Pou¾íváte PHP 4.2.3, které má záva¾nou chybu pøi práci s&nbsp;vícebajtovými znaky (mbstring), jedná se o&nbsp;chybu PHP èíslo 19404. Nedoporuèujeme pou¾ívat tuto verzi PHP s&nbsp;phpMyAdminem.';
 $strPHPVersion = 'Verze PHP';
@@ -721,6 +723,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strMySQLConnectionCollation = 'MySQL connection collation';  //to translate
-$strPersian = 'Persian';  //to translate
 ?>

@@ -5,12 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-20 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Update.
+    * lang/sync_lang.sh: Default to iconv, as it doesn't break some
+      translations as recode does.
+    * lang/japanese-euc.inc.php: Don't allow recoding for this one.
+
 2004-09-22 Alexander M. Turek  <me@derrabus.de>
     * lang/turkish-*.inc.php: Update, thanks to boralioglu.
     * lang/sync_lang.sh: Switched turkish base charset to UTF-8.
 
 2004-09-21 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/dbi/mysql.dbi.lib.php: typo, thanks to Matthias Pigulla 
+    * libraries/dbi/mysql.dbi.lib.php: typo, thanks to Matthias Pigulla
     ### 2.6.0-rc3 released
 
 2004-09-21 Alexander M. Turek  <me@derrabus.de>

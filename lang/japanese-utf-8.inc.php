@@ -6,7 +6,7 @@
  *               Tadashi Jokagi <elf2000 at users.sourceforge.net>
  */
 
-$charset = 'UTF-8';
+$charset = 'utf-8';
 $allow_recoding = TRUE;
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
