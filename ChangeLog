@@ -8,6 +8,7 @@ $Source$
 2001-08-10  Steve Alberty  <alberty@neptunlabs.de>
 	* defines.inc.php3: improve mysql version query, thanks to
 	  Dan Allen
+	* tbl_properties.php3: remove bug with no default server
 
 2001-08-10  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* Feature 445699, New link "Show PHP information" - Added on main.php3

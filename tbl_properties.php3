@@ -5,8 +5,8 @@
 /**
  * Gets some core libraries and diplays headers
  */
-require('./lib.inc.php3');
 require('./grab_globals.inc.php3');
+require('./lib.inc.php3');
 if (!isset($message)) {
     include('./header.inc.php3');
 } else {
@@ -18,7 +18,7 @@ unset($sql_query);
 /**
  * Selects the db that will be used during this script execution
  */
-mysql_select_db($db);
+mysql_select_db($db) or mysql_die();
 
 
 /**
