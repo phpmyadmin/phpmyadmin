@@ -364,6 +364,9 @@ else {
 
         if (empty($sql_limit_to_append)) {
             $unlim_num_rows         = $num_rows;
+            // if we did not append a limit, set this to get a correct
+            // "Showing rows..." message
+            $GLOBALS['session_max_rows'] = 'all';
         }
         else if ($is_select) {
 
