@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php3: patch 565627 for the old bug 461192: wrong query count
+      for groups, thanks to Svetlozar Kovachev 
+
 2002-06-20 Robin Johnson  <robbat2@users.sourceforge.net>
     * tbl_qbe.php3: Using * for tables fields disables 
       sorting for that field (Fix for bug #570698)
