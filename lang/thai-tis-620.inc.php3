@@ -633,5 +633,5 @@ $strTransformation_text_plain__substr = 'Only shows part of a string. First opti
 $strTransformation_text_plain__unformatted = 'แสดงโค้ด HTML เป็น HTML entities. No HTML formatting is shown.';//to translate
 
 $strAutodetect = 'Autodetect';  //to translate
-$strTransformation_text_plain__imagelink = 'Displays a link to an external image; the field contains the filename; first option is a prefix like "http://domain.com/"';  //to translate
+$strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
 ?>

@@ -628,5 +628,5 @@ $strTransformation_text_plain__external = 'LINUX ONLY: Launches an external appl
 $strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
 
 $strAutodetect = 'Autodetect';  //to translate
-$strTransformation_text_plain__imagelink = 'Displays a link to an external image; the field contains the filename; first option is a prefix like "http://domain.com/"';  //to translate
+$strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
 ?>

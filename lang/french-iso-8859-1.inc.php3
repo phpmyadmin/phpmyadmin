@@ -620,5 +620,5 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-$strTransformation_text_plain__imagelink = 'Displays a link to an external image; the field contains the filename; first option is a prefix like "http://domain.com/"';  //to translate
+$strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
 ?>
