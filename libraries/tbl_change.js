@@ -248,13 +248,13 @@ function initCalendar() {
 
     //heading table
     str += '<table class="calendar"><tr><th width="50%">';
-    str += '<a href="#" onclick="month--; initCalendar();">&laquo;</a> ';
+    str += '<a href="javascript:month--; initCalendar();">&laquo;</a> ';
     str += month_names[month];
-    str += ' <a href="#" onclick="month++; initCalendar();">&raquo;</a>';
+    str += ' <a href="javascript:month++; initCalendar();">&raquo;</a>';
     str += '</th><th width="50%">';
-    str += '<a href="#" onclick="year--; initCalendar();">&laquo;</a> ';
+    str += '<a href="javascript:year--; initCalendar();">&laquo;</a> ';
     str += year;
-    str += ' <a href="#" onclick="year++; initCalendar();">&raquo;</a>';
+    str += ' <a href="javascript:year++; initCalendar();">&raquo;</a>';
     str += '</th></tr></table>';
 
     str += '<table class="calendar"><tr>';
@@ -291,7 +291,7 @@ function initCalendar() {
         } else {
             style = '';
         }
-        str += "<td" + style + "><a href='#' onclick='returnDate(\"" + actVal + "\");'>" + i + "</a></td>"
+        str += "<td" + style + "><a href=\"javascript:returnDate('" + actVal + "');\">" + i + "</a></td>"
         dayInWeek++;
     }
     for (i = dayInWeek; i < 7; i++) {
