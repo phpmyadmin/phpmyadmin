@@ -3538,18 +3538,34 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <h4>
     [6.12] I want to understand some Export options.
 </h4>
-<p>
-    &quot;Complete inserts&quot; adds the column names on every INSERT command,
-    for better documentation (but resulting file is bigger).<br />
-    &quot;Extended inserts&quot; provides a shorter dump file by using only
-    once the INSERT verb and the table name.<br />
-    &quot;Enclose table and field names with backquotes&quot; ensures that
-    field and table names formed with special characters are protected.<br />
-    &quot;Add AUTO_INCREMENT value&quot; ensures, that AUTO_INCREMENT value
-    (if any) will be included in backup.<br />
-    &quot;Add into comments&quot; includes column comments, relations and MIME
-    types set in the PMA-DB in the dump as SQL comments (<i>/* xxx */</i>).<br />
-</p>
+    <p><b>Structure:</b></p>
+    <ul>
+        <li>&quot;Add DROP TABLE&quot; will add a line telling MySQL to
+        <a href="http://dev.mysql.com/doc/mysql/en/drop-table.html">drop the table</a>,
+        if it already exists during the import. It does NOT drop the table after
+        your export, it only affects the import file.</li>
+        <li>&quot;If Not Exists&quot; will only create the table if it doesn't exist. Otherwise,
+        you may get an error if the table name exists but has a different structure.</li>
+        <li>&quot;Add AUTO_INCREMENT value&quot; ensures that AUTO_INCREMENT value
+        (if any) will be included in backup.</li>
+        <li>&quot;Enclose table and field names with backquotes&quot; ensures that
+        field and table names formed with special characters are protected.</li>
+        <li>&quot;Add into comments&quot; includes column comments, relations, and MIME
+        types set in the pmadb in the dump as SQL comments (<i>/* xxx */</i>).</li>
+    </ul>
+    <p><b>Data:</b></p>
+    <ul>
+        <li>&quot;Complete inserts&quot; adds the column names on every INSERT command,
+        for better documentation (but resulting file is bigger).</li>
+        <li>&quot;Extended inserts&quot; provides a shorter dump file by using only
+        once the INSERT verb and the table name.</li>
+        <li>&quot;Delayed inserts&quot; are best explained in the
+        <a href="http://dev.mysql.com/doc/mysql/en/insert-delayed.html">MySQL manual</a>.</li>
+        <li>&quot;Ignore inserts&quot; treats errors as a warning instead. Again, more info
+        is provided in the <a href="http://dev.mysql.com/doc/mysql/en/insert.html">MySQL
+        manual</a>, but basically with this selected, invalid values are adjusted and inserted
+        rather than causing the entire statement to fail.</li>
+    </ul>
 
 <h4>
     [6.13] I would like to create a database with a dot in its name.
