@@ -7,6 +7,7 @@ $Source$
 
 2004-09-30 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_addfield.php: bug #1037744 (CVS version only): cannot add a field 
+    * tbl_create.php: cannot create a new table (CVS version only)
 
 2004-09-29 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php, libraries/common.lib.php: bug #1036678, incorrect appending

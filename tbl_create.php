@@ -35,7 +35,7 @@ $abort = FALSE;
 if (isset($submit_num_fields)) {
     $regenerate = TRUE;
     $num_fields = $orig_num_fields + $added_fields;
-} else if (isset($submit)) {
+} else if (isset($do_save_data)) {
     $sql_query = $query_cpy = '';
 
     // Transforms the radio button field_key into 3 arrays
