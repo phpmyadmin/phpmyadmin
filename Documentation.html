@@ -1584,6 +1584,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     &quot;PHP-MySQL&quot; or something similar.
 </p>
 
+<p>
+    <b>[1.21] I am running the CGI version of PHP under Unix, and I cannot
+    login using cookie auth.</b><br />
+    In php.ini, set mysql.max_links higher than 1.<br />
+</p>
+
 <a name="faqconfig"></a>
 <h3>[2. Configuration]</h3>
 
@@ -2117,6 +2123,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     once the INSERT verb and the table name.<br />
     &quot;Enclose table and field names with backquotes&quot; ensures that
     field and table names formed with special characters are protected.<br />
+</p>
+
+<p>
+    <b>[6.13] I would like to create a database with a dot in its name.</b><br />
+    This is a bad idea, because in MySQL the syntax &quot;database.table&quot;
+    is the normal way to reference a database and table name. Worse, MySQL
+    will usually let you create a database with a dot, but then you cannot
+    work with it, nor delete it.<br />
 </p>
 
 <a name="faqproject"></a>
