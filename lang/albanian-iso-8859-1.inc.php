@@ -406,7 +406,7 @@ $strNumSearchResultsTotal = '<b>Gjithsej:</b> <i>%s</i> korrispondues(ë)';
 $strNumTables = 'Tabela';
 
 $strOK = 'OK';
-$strOftenQuotation = 'Zakonisht nga dopjo thonjza. ME DËSHIRË tregon që vetëm fushat <I>char</I> dhe <I>varchar</I> duhet të delimitohen nga karakteri i treguar.';
+$strOftenQuotation = 'Zakonisht nga dopjo thonjza. ME DËSHIRË tregon që vetëm fushat <i>char</i> dhe <i>varchar</i> duhet të delimitohen nga karakteri i treguar.';
 $strOperations = 'Operacione';
 $strOptimizeTable = 'Optimizo tabelën';
 $strOptionalControls = 'Me dëshirë. Ky karakter kontrollon si të shkruash apo lexosh karakteret specialë.';

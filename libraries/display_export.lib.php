@@ -92,7 +92,7 @@ if (isset($sql_query)) {
         <td nowrap="nowrap" valign="top" onclick="if (typeof(window.opera) != 'undefined')setTimeout('show_checked_option()', 1); return true">
             <fieldset <?php echo ((!isset($multi_values) || isset($multi_values) && $multi_values == '') ? 'style="height: 220px;"' : ''); ?>>
             <legend><?php echo $strExport; ?></legend>
-            <br>
+            <br />
             <?php
             if (isset($multi_values) && $multi_values != '') {
                 echo $multi_values;
@@ -159,7 +159,7 @@ if ($export_type == 'server') {
                 <!-- For structure -->
                 <fieldset>
                     <legend>
-                        <input type="checkbox" name="sql_structure" value="structure" id="checkbox_sql_structure" <?php PMA_exportCheckboxCheck('sql_structure'); ?> onclick="if(!this.checked && !getElement('checkbox_sql_data').checked) return false; else return true;" />
+                        <input type="checkbox" name="sql_structure" value="structure" id="checkbox_sql_structure" <?php PMA_exportCheckboxCheck('sql_structure'); ?> onclick="if(!this.checked &amp;&amp; !getElement('checkbox_sql_data').checked) return false; else return true;" />
                         <label for="checkbox_sql_structure"><?php echo $strStructure; ?></label><br />
                     </legend>
 
@@ -207,7 +207,7 @@ if ($cfgRelation['mimework']) {
                 <!-- For data -->
                 <fieldset>
                     <legend>
-                        <input type="checkbox" name="sql_data" value="data" id="checkbox_sql_data" <?php PMA_exportCheckboxCheck('sql_data'); ?> onclick="if(!this.checked && (!getElement('checkbox_sql_structure') || !getElement('checkbox_sql_structure').checked)) return false; else return true;" />
+                        <input type="checkbox" name="sql_data" value="data" id="checkbox_sql_data" <?php PMA_exportCheckboxCheck('sql_data'); ?> onclick="if(!this.checked &amp;&amp; (!getElement('checkbox_sql_structure') || !getElement('checkbox_sql_structure').checked)) return false; else return true;" />
                         <label for="checkbox_sql_data"><?php echo $strData; ?></label><br />
                     </legend>
                     <input type="checkbox" name="showcolumns" value="yes" id="checkbox_dump_showcolumns" <?php PMA_exportCheckboxCheck('sql_columns'); ?> />
@@ -225,7 +225,7 @@ if ($cfgRelation['mimework']) {
                     <label for="select_sql_type">
                         <?php echo $strSQLExportType; ?>:&nbsp;
                     </label>
-                    <select name="sql_type" id="select_sql_type" />
+                    <select name="sql_type" id="select_sql_type">
                         <option value="insert"<?php echo $cfg['Export']['sql_type'] == 'insert' ? ' selected="selected"' : ''; ?>>INSERT</option>
                         <option value="update"<?php echo $cfg['Export']['sql_type'] == 'update' ? ' selected="selected"' : ''; ?>>UPDATE</option>
                         <option value="replace"<?php echo $cfg['Export']['sql_type'] == 'replace' ? ' selected="selected"' : ''; ?>>REPLACE</option>
@@ -245,7 +245,7 @@ if ($cfgRelation['mimework']) {
                  <!-- For structure -->
                  <fieldset>
                      <legend>
-                         <input type="checkbox" name="latex_structure" value="structure" id="checkbox_latex_structure" <?php PMA_exportCheckboxCheck('latex_structure'); ?> onclick="if(!this.checked && !getElement('checkbox_latex_data').checked) return false; else return true;" />
+                         <input type="checkbox" name="latex_structure" value="structure" id="checkbox_latex_structure" <?php PMA_exportCheckboxCheck('latex_structure'); ?> onclick="if(!this.checked &amp;&amp; !getElement('checkbox_latex_data').checked) return false; else return true;" />
                          <label for="checkbox_latex_structure"><?php echo $strStructure; ?></label><br />
                      </legend>
                     <table border="0" cellspacing="1" cellpadding="0">
@@ -302,7 +302,7 @@ if ($cfgRelation['mimework']) {
                  <!-- For data -->
                  <fieldset>
                      <legend>
-                         <input type="checkbox" name="latex_data" value="data" id="checkbox_latex_data" <?php PMA_exportCheckboxCheck('latex_data'); ?> onclick="if(!this.checked && (!getElement('checkbox_latex_structure') || !getElement('checkbox_latex_structure').checked)) return false; else return true;" />
+                         <input type="checkbox" name="latex_data" value="data" id="checkbox_latex_data" <?php PMA_exportCheckboxCheck('latex_data'); ?> onclick="if(!this.checked &amp;&amp; (!getElement('checkbox_latex_structure') || !getElement('checkbox_latex_structure').checked)) return false; else return true;" />
                          <label for="checkbox_latex_data"><?php echo $strData; ?></label><br />
                      </legend>
                      <input type="checkbox" name="latex_showcolumns" value="yes" id="ch_latex_showcolumns" <?php PMA_exportCheckboxCheck('latex_columns'); ?> />
@@ -420,7 +420,7 @@ if ($cfgRelation['mimework']) {
                             </label>
                         </td>
                         <td>
-                            <select name="excel_edition" id="select_excel_edition" />
+                            <select name="excel_edition" id="select_excel_edition">
                                 <option value="win"<?php echo $cfg['Export']['excel_edition'] == 'win' ? ' selected="selected"' : ''; ?>>Windows</option>
                                 <option value="mac"<?php echo $cfg['Export']['excel_edition'] == 'mac' ? ' selected="selected"' : ''; ?>>Macintosh</option>
                             </select>
@@ -565,6 +565,7 @@ if ($is_zip || $is_gzip || $is_bzip) {
 }
 echo "\n";
 ?>
+                </fieldset>
             </fieldset>
         </td>
     </tr>

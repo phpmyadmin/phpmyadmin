@@ -22,8 +22,8 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 <?php
     if ($cfg['QueryFrameDebug']) {
     ?>
-        document.writeln("Updating query window. DB: <?php echo (isset($db) ? addslashes($db) : 'FALSE'); ?>, Table: <?php echo (isset($table) ? addslashes($table) : 'FALSE'); ?><br>");
-        document.writeln("Window: " + parent.frames.queryframe.querywindow.location + "<br>");
+        document.writeln("Updating query window. DB: <?php echo (isset($db) ? addslashes($db) : 'FALSE'); ?>, Table: <?php echo (isset($table) ? addslashes($table) : 'FALSE'); ?><br />");
+        document.writeln("Window: " + parent.frames.queryframe.querywindow.location + "<br />");
     <?php
     }
     ?>
@@ -41,7 +41,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 
     function reload_querywindow () {
         if (parent.frames.queryframe && parent.frames.queryframe.querywindow && !parent.frames.queryframe.querywindow.closed && parent.frames.queryframe.querywindow.location) {
-            <?php echo ($cfg['QueryFrameDebug'] ? 'document.writeln("<a href=\'#\' onClick=\'parent.frames.queryframe.querywindow.focus(); return false;\'>Query Window</a> can be updated.<br>");' : ''); ?>
+            <?php echo ($cfg['QueryFrameDebug'] ? 'document.writeln("<a href=\'#\' onClick=\'parent.frames.queryframe.querywindow.focus(); return false;\'>Query Window</a> can be updated.<br />");' : ''); ?>
 
             <?php
             if (!isset($no_history) && (!isset($error_message) || $error_message == '')) {

@@ -575,7 +575,7 @@ if ($is_minimum_common == FALSE) {
             $d_next_upper = '';
           }
 
-          //DEBUG echo "[prev: <b>".$d_prev."</b> ".$t_prev."][cur: <b>".$d_cur."</b> ".$t_cur."][next: <b>".$d_next."</b> ".$t_next."]<br>";
+          //DEBUG echo "[prev: <b>".$d_prev."</b> ".$t_prev."][cur: <b>".$d_cur."</b> ".$t_cur."][next: <b>".$d_next."</b> ".$t_next."]<br />";
 
           if ($t_cur == 'alpha') {
             $t_suffix     = '_identifier';
@@ -845,7 +845,7 @@ if ($is_minimum_common == FALSE) {
         // loop #1 for each token: select_expr, table_ref for SELECT
 
         for ($i = 0; $i < $size; $i++) {
-//echo "trace <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
+//echo "trace <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
 
             // High speed seek for locating the end of the current query
             if ($seek_queryend == TRUE) {
@@ -1183,7 +1183,7 @@ if ($is_minimum_common == FALSE) {
           if (isset($current_select_expr)) {
            for ($trace=0; $trace<=$current_select_expr; $trace++) {
 
-           echo "<br>";
+           echo "<br />";
            reset ($subresult['select_expr'][$trace]);
            while (list ($key, $val) = each ($subresult['select_expr'][$trace]))
            echo "sel expr $trace $key => $val<br />\n";
@@ -1193,7 +1193,7 @@ if ($is_minimum_common == FALSE) {
           if (isset($current_table_ref)) {
            for ($trace=0; $trace<=$current_table_ref; $trace++) {
 
-           echo "<br>";
+           echo "<br />";
            reset ($subresult['table_ref'][$trace]);
            while (list ($key, $val) = each ($subresult['table_ref'][$trace]))
            echo "table ref $trace $key => $val<br />\n";
@@ -1223,7 +1223,7 @@ if ($is_minimum_common == FALSE) {
         $in_from = FALSE;
 
         for ($i = 0; $i < $size; $i++) {
-//DEBUG echo "trace loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
+//DEBUG echo "trace loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
 
            // need_confirm
            //
@@ -1406,7 +1406,7 @@ if ($is_minimum_common == FALSE) {
         $foreign_key_number = -1;
 
         for ($i = 0; $i < $size; $i++) {
-        // DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br>";
+        // DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
             if ($arr[$i]['type'] == 'alpha_reservedWord') {
                $upper_data = strtoupper($arr[$i]['data']);
 

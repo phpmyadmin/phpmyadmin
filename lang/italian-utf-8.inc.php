@@ -419,7 +419,7 @@ $strNumSearchResultsTotal = '<b>Totale:</b> <i>%s</i> corrispondenza/e';
 $strNumTables = 'Tabelle';
 
 $strOK = 'OK';
-$strOftenQuotation = 'In genere da doppi apici (virgolette). OPZIONALE indica che solo i campi <I>char</I> e <I>varchar</I> devono essere delimitati dal carattere indicato.';
+$strOftenQuotation = 'In genere da doppi apici (virgolette). OPZIONALE indica che solo i campi <i>char</i> e <i>varchar</i> devono essere delimitati dal carattere indicato.';
 $strOperations = 'Operazioni';
 $strOptimizeTable = 'Ottimizza tabella';
 $strOptionalControls = 'Opzionale. Questo carattere controlla come scrivere o leggere i caratteri speciali.';

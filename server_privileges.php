@@ -939,7 +939,7 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '    Please run the script <tt>mysql_fix_privilege_tables</tt> that should be included in your MySQL server distribution to solve this problem!' . "\n"
                    . '</div><br />' . "\n";
             }
-            echo '<form name="usersForm" action="server_privileges.php" method="post" />' . "\n"
+            echo '<form name="usersForm" action="server_privileges.php" method="post">' . "\n"
                . PMA_generate_common_hidden_inputs('', '', 1)
                . '    <table border="0">' . "\n"
                . '        <tr>' . "\n"
@@ -988,7 +988,8 @@ if (empty($adduser) && empty($checkprivs)) {
                . '    <ul>' . "\n"
                . '        <li>' . "\n"
                . '            <b><a href="server_privileges.php?' . $url_query . '&amp;adduser=1">' . $strAddUser . '</a></b><br />' . "\n"
-               . '        </li><br /><br />' . "\n"
+               . '            <br /><br />' . "\n"
+               . '        </li>' . "\n"
                . '        <li>' . "\n"
                . '            <b>' . $strRemoveSelectedUsers . '</b><br />' . "\n"
                . '            <input type="radio" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '" name="mode" id="radio_mode_1" value="1" checked="checked" />' . "\n"

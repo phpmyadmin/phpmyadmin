@@ -20,7 +20,7 @@ if (isset($GLOBALS['DBG']) && $GLOBALS['DBG']
 
         dbg_get_profiler_results(&$dbg_prof_results);
 
-        echo '<br><table width="1000" cellspacing="0" cellpadding="2" style="font:8pt courier">' . "\n" .
+        echo '<br /><table width="1000" cellspacing="0" cellpadding="2" style="font:8pt courier">' . "\n" .
             '<thead>' . "\n" .
             '<tr style="background:#808080; color:#FFFFFF">' . "\n" .
             '<td>' . $GLOBALS['strDBGModule'] . '</td>' . "\n" .

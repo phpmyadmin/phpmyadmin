@@ -348,7 +348,6 @@ if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
 
 } // end  if (!empty($cfg['Server']['relation']))
 ?>
-            <br />
         </ul>
     </li>
 
