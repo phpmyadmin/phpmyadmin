@@ -242,6 +242,7 @@ $strQBEIns = 'Ins';
 $strQueryOnDb = 'Consulta SQL a la base de dades <b>%s</b>:';
 
 $strRecords = 'Registres';
+$strReferentialIntegrity = 'Comprova la integritat referencial:';
 $strReloadFailed = 'El reinici del MySQL ha fallat';
 $strReloadMySQL = 'Rellegir el MySQL';
 $strRememberReload = 'Recorda reiniciar el MySQL';
@@ -347,5 +348,4 @@ $strYes = 'Si';
 $strZip = '"comprimit amb zip"';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

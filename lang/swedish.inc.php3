@@ -242,6 +242,7 @@ $strQBEIns = 'Infoga';
 $strQueryOnDb = 'SQL-fråga i databas <b>%s</b>:';
 
 $strRecords = 'Rader';
+$strReferentialIntegrity = 'Kontrollera referensintegritet:';
 $strReloadFailed = 'Omstart av MySQL misslyckades.';
 $strReloadMySQL = 'Starta om MySQL';
 $strRememberReload = 'Kom ihåg att starta om servern.';
@@ -347,5 +348,4 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

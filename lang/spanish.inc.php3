@@ -239,6 +239,7 @@ $strQBEIns = 'Inssertar';
 $strQueryOnDb = 'Consulta en la Base de datos <b>%s</b>:';
 
 $strRecords = 'Campos';
+$strReferentialIntegrity = 'Comprueba la integridad referencial:';
 $strReloadFailed = 'El reinicio de MySQL ha fallado.';
 $strReloadMySQL = 'Reinicio de MySQL';
 $strRememberReload = 'Recuerde recargar el servidor.';
@@ -345,5 +346,4 @@ $strZip = '"comprimido con zip"';
 
 // To translate
 $strFlushTable = 'Flush the table ("FLUSH")';//to translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
