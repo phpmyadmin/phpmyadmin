@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: new faq entry about IE bug with http auth,
+      switching from one server to the other
+
 2003-02-03 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_tbl.lib.php3, tbl_change.php3: Show blob size (RFE
       #678729).
