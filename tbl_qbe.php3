@@ -697,24 +697,31 @@ if (!empty($qry_select)) {
 
 // First we need the really needed Tables - those in TableList might
 // still be all Tables.
-if (count($Field) > 0) {
+if (isset($Field) && count($Field) > 0) {
 
+    // Initialize some variables
+    $alltabs   = array();
+    $where     = array();
+    $wheretabs = array();
+    $reltabs   = array();
+    $rel       = array();
+    $rest      = array();
+    $found     = array();
+    $rel_work  = FALSE;
+    $ex        = 0;
+    $hit       = 0;
+    
     //  we only start this if we have fields, otherwise it would be dumb
     while (list(, $value) = each ($Field)) {
-        $parts           = explode('.', $value);
+        $parts            = explode('.', $value);
         if (urldecode($parts[0]) != '') {
-            $alltabs_b[] = urldecode($parts[0]);
-            $alltabs[]   = substr(urldecode($parts[0]), 1, strlen(urldecode($parts[0])) - 2);
+            $alltabs[]    = substr(urldecode($parts[0]), 1, strlen(urldecode($parts[0])) - 2);
         }
     } // end while
-    $rel_work            = FALSE;
-    $rel_query           = 'SHOW TABLES';
-    $tables              = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
-    while ($ctable = @mysql_fetch_array($tables)) {
-        if ($ctable[0] == $cfg['Server']['relation']) {
-            $rel_work    = TRUE;
-        }
-    } // end while
+    if ($cfg['Server']['relation']) {
+        $tables   = @mysql_query('SELECT COUNT(*) AS count FROM ' . PMA_backquote($cfg['Server']['relation']));
+        $rel_work = ($tables) ? mysql_result($tables, 0, 'count') : FALSE;
+    } // end if
     if ($rel_work && count($alltabs) > 0) {
 
         // now we need all tables that we have in the whereclause
@@ -751,7 +758,7 @@ if (count($Field) > 0) {
         // have a master out of those that are used there
 
         // We will need this a few times:
-        $incrit    = '(\'' . str_replace(',', "','", implode(',', $alltabs)) . '\')';
+        $incrit    = '(\'' . implode('\', \'', $alltabs) . '\')';
 
         $rel_query = 'SELECT master_table AS wer, COUNT(foreign_table) AS hits FROM ' . PMA_backquote($cfg['Server']['relation'])
                    . ' WHERE master_table IN ' . $incrit . ' AND foreign_table IN ' . $incrit
@@ -777,21 +784,16 @@ if (count($Field) > 0) {
                 // need to refine more
                 $hit    = 2;
             } // end if.. else...
-            if (is_array($wheretabs)) {
-                while (list($key, $value) = each($wheretabs)) {
-                    if ($row['master_table'] == $key) {
-                        $master = $row['wer'];
-                        $ex     = 1;
-                        break;
-                    }
-                } // end while
-            } // end if
-            if ($ex == 1) {
-                break;
-            }
+            while (list($key, $value) = each($wheretabs)) {
+                if ($row['master_table'] == $key) {
+                    $master = $row['wer'];
+                    $ex     = 1;
+                    break 2;
+                }
+            } // end while
         } // end while
 
-        if ($ex ==1 || $hit != 2) {
+        if ($ex == 1 || $hit != 2) {
             // if $ex is not 1 then obviously none of the tables that are used
             // in the whereclause could be found - that means that using left
             // joins doesn't make much sense anyway
@@ -804,16 +806,16 @@ if (count($Field) > 0) {
             while (list(, $value) = each($alltabs)) {
                 if ($value != $master) {
                     $reltabs[]           = $value;
-                    $rel[$value]['mcon'] =0;
+                    $rel[$value]['mcon'] = 0;
                 }
             } // end while
 
             //  now we only use everything but the first table
-            $incrit_s = '(\'' . str_replace(',', "','", implode(',', $reltabs)) . '\')';
+            $incrit_s = '(\'' . implode('\', \'', $reltabs) . '\')';
 
             $rel_query = 'SELECT * FROM ' . PMA_backquote($cfg['Server']['relation'])
                        . ' WHERE master_table IN ' . $incrit . ' AND foreign_table IN ' . $incrit_s
-                       . ' ORDER BY foreign_table, master_table ';
+                       . ' ORDER BY foreign_table, master_table';
 
             $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
 
@@ -824,8 +826,7 @@ if (count($Field) > 0) {
                     // want another otherwise we take whatever we get
                     $rel[$foreign_table]['link']  = ' LEFT JOIN ' . PMA_backquote($foreign_table)
                                                   . ' ON ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field'])
-                                                  . ' = ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field'])
-                                                  . ' ';
+                                                  . ' = ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field']);
                 }
                 if ($row['master_table'] == $master) {
                     $rel[$foreign_table]['mcon']  = 1;
@@ -846,9 +847,9 @@ if (count($Field) > 0) {
                     $found[] = $key;
                 }
             } // end while
-            if (is_array($rest) && is_array($found) && count($rest) > 0) {
-                $incrit_d = '(\'' . str_replace(',', "','", implode(',', $found)) . '\')';
-                $incrit_s = '(\'' . str_replace(',', "','", implode(',', $rest)) . '\')';
+            if (count($rest) > 0) {
+                $incrit_d  = '(\'' . implode('\', \'', $found) . '\')';
+                $incrit_s  = '(\'' . implode('\', \'', $rest) . '\')';
 
                 $rel_query = 'SELECT * FROM ' . $cfg['Server']['relation']
                            . ' WHERE master_table IN ' . $incrit_s . ' AND foreign_table IN ' . $incrit_d
@@ -862,7 +863,7 @@ if (count($Field) > 0) {
                         // don't want another otherwise we take whatever we get
                         $rel[$foreign_table]['link'] = ' LEFT JOIN ' . $foreign_table
                                                      . ' ON ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field'])
-                                                     . ' = ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field']) . ' ';
+                                                     . ' = ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field']);
 
                         // in extreme cases we hadn't found a master yet, so
                         // let's use the one we found now
@@ -883,7 +884,7 @@ if (count($Field) > 0) {
             while (list($key, $varr) = each($rel)) {
                 if ($varr['link'] == '') {
                     if ($qry_from != '') {
-                        $qry_from .= ',';
+                        $qry_from .= ', ';
                     }
                     $qry_from     .= PMA_backquote($key);
                 } else if ($varr['mcon'] == 0) {
@@ -897,17 +898,15 @@ if (count($Field) > 0) {
 
             // on one occasion i had qry_from at this point end with a , as I
             // can't find why this happened i check this now:
-            if (substr($qry_from, strlen($qry_from) - 1, 1) == ',') {
-                $qry_from = substr($qry_from, 0, strlen($qry_from));
-            }
-            $qry_from     .= $ljm . $lj;
+            $qry_from = ereg_replace(', $', '', $qry_from);
+            $qry_from .= $ljm . $lj;
 
         } // end $ex == 1 (testing if it is worth the pain)
 
     } // end rel work and $alltabs > 0
 
-    if (empty($qry_from) && is_array($alltabs)) {
-        $qry_from = implode(',', $alltabs);
+    if (empty($qry_from) && count($alltabs)) {
+        $qry_from = implode(', ', $alltabs);
     }
 
 } // end count($Field) > 0

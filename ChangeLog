@@ -23,6 +23,8 @@ $Source$
       translations thanks to Sime Essert <sime@nofrx.org>.
     * tbl_properties.php3, lines 1238-1240: fix new fields names in the
       relation table.
+    * tbl_printview.php3; tbl_qbe.php3: optimization, warnings and coding
+      standards.
     * Compressed ChangeLog till the 2.2.6 release.
 
 2002-04-26 Loïc Chapeaux  <lolo@phpheaven.net>

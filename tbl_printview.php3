@@ -58,10 +58,8 @@ reset($the_tables);
 
 while (list($key, $table) = each($the_tables)) {
     $table = urldecode($table);
-//    if ($multi_tables) {
-        echo '<div style="page-break-after: always;">' . "\n";
-        echo '<h1>' . $table . '</h1>' . "\n";
-//    } // end if
+    echo '<div style="page-break-after: always;">' . "\n";
+    echo '<h1>' . $table . '</h1>' . "\n";
 
     /**
      * Gets table informations
@@ -135,16 +133,12 @@ while (list($key, $table) = each($the_tables)) {
     $fields_cnt  = mysql_num_rows($result);
 
     // check if we can use Relations (Mike Beck)
-    $rel_work         = FALSE;
-    $rel_query        = 'SHOW TABLES';
-    $tables           = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
-    while ($ctable = @mysql_fetch_array($tables)) {
-        if ($ctable[0] == $cfg['Server']['relation']) {
-            $rel_work = TRUE;
-        }
-    } // end while
-    if ($rel_work) {
-        unset($res_rel);
+    $have_rel     = FALSE;
+    if ($cfg['Server']['relation']) {
+        $tables   = @mysql_query('SELECT COUNT(*) AS count FROM ' . PMA_backquote($cfg['Server']['relation']));
+        $have_rel = ($tables) ? mysql_result($tables, 0, 'count') : FALSE;
+    } // end if
+    if ($have_rel) {
         // Find which tables are related with the current one and write it in
         // an array
         $rel_query   = 'SELECT master_field, concat(foreign_table, \'->\', foreign_field) AS rel '
@@ -156,7 +150,6 @@ while (list($key, $table) = each($the_tables)) {
         while ($relrow = @mysql_fetch_array($relations)) {
             $col           = $relrow['master_field'];
             $res_rel[$col] = $relrow['rel'];
-            // debug echo 'col: ' . $col . ' - ' . $relrow['rel'] . '<br />';
         }
         if (count($res_rel) > 0) {
             $have_rel = TRUE;
@@ -188,8 +181,8 @@ while (list($key, $table) = each($the_tables)) {
     <th><?php echo ucfirst($strDefault); ?></th>
     <th><?php echo ucfirst($strExtra); ?></th>
     <?php
-    if ($rel_work && $have_rel) {
-        echo '<th>'. ucfirst($strLinksTo) . '</th>';
+    if ($have_rel) {
+        echo '<th>' . ucfirst($strLinksTo) . '</th>';
     }
     echo "\n";
     ?>
@@ -257,7 +250,7 @@ while (list($key, $table) = each($the_tables)) {
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
     <?php
-    if ($rel_work && $have_rel) {
+    if ($have_rel) {
         echo '<td bgcolor="' . $bgcolor . '" nowrap="nowrap">';
         if (isset($res_rel[$field_name])) {
             echo htmlspecialchars($res_rel[$field_name]);
