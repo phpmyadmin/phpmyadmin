@@ -9,6 +9,8 @@ $Source$
     * pdf_pages.php3: Patch 825672: show fields in Edit PDF scratchboard,
       thanks to Chris Walsh (chriswalshaz)
     * libraries/display_tbl.lib.php3: bug 826847, undefined $url_query
+    * tbl_relation.php3: Bug 827340: Relation view should display also 
+      non-unique keys as possible choices for foreign keys
 
 2003-10-20 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation, config.inc.php3, tbl_change.php3,

@@ -280,6 +280,9 @@ if ($cfgRelation['relwork']) {
                         $selectboxall[$field_full] =  $field_v;
                         // there could be more than one segment of the primary
                         // so do not break
+
+                        // Please watch here, tbl_type is INNODB but the
+                        // resulting value of SHOW KEYS is InnoDB
                       
                         if ($tbl_type=='INNODB' && isset($curr_table[1]) && $curr_table[1]=='InnoDB') {
                         $selectboxall_innodb[$field_full] =  $field_v;
@@ -295,6 +298,13 @@ if ($cfgRelation['relwork']) {
                         if ($tbl_type=='INNODB' && isset($curr_table[1]) && $curr_table[1]=='InnoDB') {
                         $selectboxall_innodb[$field_full] =  $field_v;
                         }
+
+                    // for InnoDB, any index is allowed
+                    } else if ($tbl_type=='INNODB' && isset($curr_table[1]) && $curr_table[1]=='InnoDB') {
+                        $field_full = $db . '.' . $curr_field['Table'] . '.' . $curr_field['Column_name'];
+                        $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
+                        $selectboxall_innodb[$field_full] =  $field_v;
+
                     } // end if
                 } // end while over keys
             } // end if (mysql_num_rows)
