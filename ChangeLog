@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-14  Loïc Chapeaux  <lolo@phpheaven.net>
+	* user_details.php3: check/uncheck all links weren't working with js
+	  disabled.
+	* headers.inc.php3, line 23: fixed bug #493385 - Cache headers not working
+	  with IE 5.5SP2.
+
 2001-12-14  Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/auth/cookies.auth.lib.php3, use $strGo
 
