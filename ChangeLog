@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-10 Alexander M. Turek <rabus@users.sourceforge.net>
+	* config.inc.php3, line 73: removed the "experimental" warning for the
+	  "cfgLeftFrameLight" setting.
+
 2002-04-10 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/chinese* update thanks to Siu Sun (siusun)
 

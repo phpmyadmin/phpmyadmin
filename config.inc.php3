@@ -116,7 +116,7 @@ $cfgLoginCookieRecall     = TRUE;   // recall previous login in cookie auth. mod
 
 // Left frame setup
 $cfgLeftFrameLight        = TRUE;   // use a select-based menu and display only the
-                                    // current tables in the left frame.  (experimental)
+                                    // current tables in the left frame.
 $cfgShowTooltip           = TRUE;   // display table comment as tooltip in left frame
 
 // In the main frame, at startup...
