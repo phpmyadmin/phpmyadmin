@@ -556,7 +556,7 @@ if ($is_minimum_common == FALSE) {
      */
      function PMA_showHint($hint_message)
      {
-         return '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" border="0" alt="' . $hint_message . '" title="' . $hint_message . '" align="middle" />';
+         return '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" border="0" alt="' . $hint_message . '" title="' . $hint_message . '" align="middle" onclick="alert(\'' . PMA_jsFormat($hint_message, FALSE) . '\');" />';
      }
 
     /**
