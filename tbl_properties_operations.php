@@ -118,7 +118,7 @@ if (PMA_MYSQL_INT_VERSION >= 32334) {
     unset($columns);
     ?>
                 </select>&nbsp;<?php echo $strSingly . "\n"; ?>
-                <select name="order_order">
+                <select name="order_order" style="vertical-align: middle">
                     <option value="asc"><?php echo $strAscending; ?></option>
                     <option value="desc"><?php echo $strDescending; ?></option>
                 </select>
