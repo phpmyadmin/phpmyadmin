@@ -66,7 +66,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         } else {
             $privs[] = 'USAGE';
         }
-    } else if ($allPrivileges && isset($GLOBALS['grant_count']) && count($privs) == $GLOBALS['grant_count']) {
+    } else if ($allPrivileges && (!isset($GLOBALS['grant_count']) || count($privs) == $GLOBALS['grant_count'])) {
         if ($enableHTML) {
             $privs = array('<dfn title="' . $GLOBALS['strPrivDescAllPrivileges'] . '">ALL&nbsp;PRIVILEGES</dfn>');
         } else {
