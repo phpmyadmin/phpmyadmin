@@ -29,6 +29,10 @@ $Source$
       thanks to Anthony Parsons (anthony.parsons at manx.net)
     * footer.inc.php: sync left-frame dropdown for databases when the
       number of tables changes, thanks to Michael Keck
+    * lang/bulgarian:  Updated, thanks to Stanislav Yordanov (stanprog).
+    * lang/indonesian: Update thanks to Rachim Tamsjadi - tamsy.
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    ### 2.6.0-beta1 released
 
 2004-06-24 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/mysqli.dbi.php: Undefined variable if PMA_DBI_getError() is

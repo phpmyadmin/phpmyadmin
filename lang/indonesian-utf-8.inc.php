@@ -625,6 +625,7 @@ $strSize = 'Ukuran';
 $strSort = 'Urutkan';
 $strSortByKey = 'Urut berdasarkan kunci';
 $strSpaceUsage = 'Penggunaan tempat';
+$strSpanish = 'Bahasa Spanyol';
 $strSplitWordsWithSpace = 'Kata dipisahkan oleh karakter spasi (" ").';
 $strStatCheckTime = 'Pemeriksaan terakhir';
 $strStatCreateTime = 'Pembuatan';
@@ -635,6 +636,7 @@ $strStrucCSV = 'Data CSV';
 $strStrucData = 'Struktur dan data';
 $strStrucDrop = 'Menambahkan \'Hapus tabel\'';
 $strStrucExcelCSV = 'CSV untuk data MS Excel';
+$strStrucNativeExcel = 'Data asli MS Excel';
 $strStrucOnly = 'Struktur saja';
 $strStructPropose = 'Ajukan struktur tabel';
 $strStructure = 'Struktur';
@@ -740,10 +742,13 @@ $strYes = 'Ya';
 $strZeroRemovesTheLimit = 'Perhatian: Perubahan pilihan ini ke posisi 0 (zero) akan menghapus batas yang telah ditentukan.';
 $strZip = '"Dikompress dengan Zip"';
 
-$strSpanish = 'Spanish';  //to translate
-$strStrucNativeExcel = 'Native MS Excel data';  //to translate
+// To translate:
+
 $strDisableForeignChecks = 'Disable foreign key checks';  //to translate
+
 $strServerNotResponding = 'The server is not responding';  //to translate
-$strTheme = 'Theme / Style';  //to translate
+
 $strTakeIt = 'take it';  //to translate
+$strTheme = 'Theme / Style';  //to translate
+
 ?>
