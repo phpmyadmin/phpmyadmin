@@ -5,9 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-11 Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/display_tbl.lib.php3, line 957: cosmetic change to allow word
+	  wrapping thanks to Adam Burley <kidburla2002 at users.sourceforge.net>.
+
 2002-04-11 Alexander M. Turek  <rabus@users.sourceforge.net>
 	* libraries/display_tbl.lib.php3, line 1293: fixed bug #542524 (Wrong
-       interval is displayed). Thanks to Matthias Schniedermeyer for his report
+      interval is displayed). Thanks to Matthias Schniedermeyer for his report.
 
 2002-04-11 Marc Delisle  <lem9@users.sourceforge.net>
 	* header.inc.php3, bug #540718, merge css patch thanks to Loïc

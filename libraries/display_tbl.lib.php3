@@ -989,7 +989,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         // characters for tabulations and <cr>/<lf>
                         else {
                             $row[$pointer]     = htmlspecialchars($row[$pointer]);
-                            $row[$pointer]     = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace(' ', '&nbsp;', $row[$pointer]));
+                            $row[$pointer]     = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
                         }
                         $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">';
@@ -1289,7 +1289,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             }
             $last_shown_rec = ($GLOBALS['session_max_rows'] == 'all' || $pos_next > $total)
                             ? $total
-                            : $pos_next-1;
+                            : $pos_next - 1;
             PMA_showMessage($GLOBALS['strShowingRecords'] . " $pos - $last_shown_rec ($total " . $GLOBALS['strTotal'] . $selectstring . ')');
         } else {
             PMA_showMessage($GLOBALS['strSQLQuery']);
