@@ -17,6 +17,9 @@ $Source$
 	  David Trajkovic <tdavid at ptt.yu>.
 	* lang/greek.inc.php3: updated thanks to
 	  Kyriakos Xagoraris <theremon at users.sourceforge.net>.
+	* db_details.php3, lines 558-559; tbl_properties.php3, lines 719-720:
+	  fixed bug #536623 - (NS 4.7) javascript textarea selection buggy thanks
+	  to the patch #538896 suggested by Alexander M. Turek (rabus).
 
 2002-04-04 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/german.inc.php3 big update thanks to Alexander M. Turek (rabus)
