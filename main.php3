@@ -20,7 +20,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED'))  {
 if (!isset($pma_uri_parts)) {
     $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
     $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/'));
-    $is_https      = ($pma_uri_parts['scheme'] == 'https') ? 1 : 0;
+    $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
 }
 setcookie('lang', $lang, time() + 60*60*24*30, $cookie_path, '', $is_https);
 // Defines the "item" image depending on text direction
