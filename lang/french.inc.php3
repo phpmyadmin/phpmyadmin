@@ -170,5 +170,6 @@ $strTableType = "Table en format";
 
 $strBookmarkQuery	= "Requêtes bookmarkées";
 $strBookmarkThis	= "Bookmarker cette requête";
-$strBookmarkLabel	= "Label";
+$strBookmarkLabel	= "Intitulé";
+$strBookmarkView	= "Voir uniquement";
 ?>

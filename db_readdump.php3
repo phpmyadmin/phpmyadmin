@@ -22,7 +22,7 @@ if(!empty($sql_file) && $sql_file != "none" && ereg("^php[0-9A-Za-z_.-]+$", base
 
 $pieces  = split_string($sql_query, ";");
 
-if (count($pieces) == 1 && !empty($pieces[0])) {
+if (count($pieces) == 1 && !empty($pieces[0]) && empty($view_bookmark)) {
   if(!get_magic_quotes_gpc()) {
     $sql_query = addslashes(trim($pieces[0]));
   } else {

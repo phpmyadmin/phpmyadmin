@@ -153,4 +153,5 @@ $strOptimizeTable       = "Optimize table";
 $strBookmarkQuery	= "Bookmarked SQL-query";
 $strBookmarkThis	= "Bookmark this SQL-query";
 $strBookmarkLabel	= "Label";
+$strBookmarkView	= "View only";
 ?>

@@ -67,7 +67,7 @@ $query = "?server=$server&lang=$lang&db=$db&goto=db_details.php3";
 <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>">
 <?php echo $strRunSQLQuery.$db." ".show_docu("manual_Reference.html#Select");?>:<br>
 <textarea name="sql_query" cols="40" rows="3" wrap="VIRTUAL" style="width: <?php
-echo $cfgMaxInputsize;?>"></textarea><br>
+echo $cfgMaxInputsize;?>"><?php echo (isset($sql_query) ? $sql_query : '');?></textarea><br>
 <?php echo "<i>$strOr</i> $strLocationTextfile";?>:<br>
 <input type="file" name="sql_file"><br>
 <?php
@@ -84,6 +84,7 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
             echo "<option value=\"".htmlentities($value)."\">".htmlentities($key)."</option>\n";
         }
         echo "</select>\n";
+        echo "<input type=\"checkbox\" name=\"view_bookmark\" value=\"1\">".$strBookmarkView;
         echo "<br>\n";
     }
 }
