@@ -383,11 +383,12 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $debugstr   .= 'Leftover: ' . substr($sql, $count1, $count2 - $count1) . '<br />' . "\n";
             $debugstr   .= 'A: ' . $count1 . ' ' . $count2 . '<br />' . "\n";
             $debugstr   .= 'SQL: ' . $sql;
-            $encodedstr = nl2br(chunk_split(base64_encode(gzcompress($debugstr, 9))));
+            if (PMA_PHP_INT_VERSION >= 40001 && @function_exists('gzcompress')) {
+                $debugstr = gzcompress($debugstr, 9);
+            }
+            $encodedstr = nl2br(chunk_split(base64_encode($debugstr)));
             echo $encodedstr . "\n";
             echo '---END CUT---<br /><br />' . "\n\n";
-            //$decodedstr = /*gzuncompress(*/base64_decode(str_replace('<br />', '', $encodedstr))/*)*/;
-            //echo $decodedstr . "\n";
             echo '</p>' . "\n";
             flush();
             ob_flush();

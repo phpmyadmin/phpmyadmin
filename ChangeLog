@@ -9,6 +9,7 @@ $Source$
     * libraries/sqlparser.lib.php3:
         - Fixed ANSI type string escaping
         - Fixed formatting wrt. whitespace in FormatHTML
+        - PHP3 fix for gzcompress bug code
     
 2002-07-26 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: numbers for faq entries
