@@ -5,6 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-18 Garvin Hicking <me@supergarv.de>
+    * libraries/display_export.lib.php3: Fixed variable usage.
+    * lang/*, libraries/transformations/*, libraries/display_tbl.lib.php3,
+      libraries/common.lib.php3: Added new transforms for a substr()
+      function, a dateformat() modified and a basic plugin for external
+      programs. Support for TIDY has been experimentally been built in.
+      External programs make use of piping and thus cannot be used in
+      Windows.
+      Added the ability for transforms to adjust the "nowrap" option of a
+      cell.
+      Some german translation.
+
 2003-03-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/select_lang.lib.php3: modify order of Russian lang files
       because MSIE does not accept cp866 and users do not see anything,

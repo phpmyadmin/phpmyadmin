@@ -1123,7 +1123,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
-                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '">';
+                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '" nowrap="nowrap">';
 
                         reset($analyzed_sql[0]['select_expr']);
                         while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
@@ -1166,7 +1166,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         }
                         $vertical_display['data'][$row_no][$i]     .= '</td>' . "\n";
                     } else {
-                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" ' . $column_style . ' valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" ' . $column_style . ' valign="top" bgcolor="' . $bgcolor . '" nowrap="nowrap">&nbsp;</td>' . "\n";
                     }
 
                 //  b l o b
@@ -1202,7 +1202,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             }
                             // loic1: displays all space characters, 4 space
                             // characters for tabulations and <cr>/<lf>
-
                             $row[$pointer]     = ($default_function != $transform_function ? $transform_function($row[$pointer], $transform_options) : $default_function($row[$pointer]));
                             $row[$pointer]     = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
@@ -1245,8 +1244,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
                         }
 
+                        // garvin: transform functions may enable nowrapping:
+                        $function_nowrap = $transform_function . '_nowrap';
+                        $bool_nowrap = (($default_function != $transform_function && function_exists($function_nowrap)) ? $function_nowrap($transform_options) : false);
+                        
                         // loic1: do not wrap if date field type
-                        $nowrap = (eregi('DATE|TIME', $meta->type) ? ' nowrap="nowrap"' : '');
+                        $nowrap = ((eregi('DATE|TIME', $meta->type) || $bool_nowrap) ? ' nowrap="nowrap"' : '');
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"' . $nowrap . '>';
 
                         reset($analyzed_sql[0]['select_expr']);

@@ -1628,15 +1628,19 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
          *
          * @access  public
          */
-        function PMA_localisedDate($timestamp = -1)
+        function PMA_localisedDate($timestamp = -1, $format = '')
         {
             global $datefmt, $month, $day_of_week;
 
+            if ($format == '') {
+                $format = $datefmt;
+            }
+            
             if ($timestamp == -1) {
                 $timestamp = time();
             }
 
-            $date = ereg_replace('%[aA]', $day_of_week[(int)strftime('%w', $timestamp)], $datefmt);
+            $date = ereg_replace('%[aA]', $day_of_week[(int)strftime('%w', $timestamp)], $format);
             $date = ereg_replace('%[bB]', $month[(int)strftime('%m', $timestamp)-1], $date);
 
             return strftime($date, $timestamp);
