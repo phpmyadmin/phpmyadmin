@@ -285,11 +285,12 @@ $strDisplayOrder = 'Display order:';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
 $strNbRecords = 'no. of records';
+$strNoModification = 'No change';
 $strOffSet = 'offset';
 $strQueryOnDb = 'SQL-query on database ';
 $strRowSize = ' Row size ';  //to translate
 $strShowPHPInfo = 'Show PHP information';  // To translate
 $strShowThisQuery = ' Show this query here again ';
+$strTables = ' table(s) ';  //to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
-$strTables=" tables ";  //to translate
 ?>

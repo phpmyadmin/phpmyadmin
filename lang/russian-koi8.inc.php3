@@ -285,6 +285,7 @@ $strAffectedRows = 'Affected rows:'; // To translate
 $strBzip = '"bzipped"'; // To translate
 $strGzip = '"gzipped"'; // To translate
 $strOffSet = 'offset'; // To translate
+$strNoModification = 'No change'; // To translate
 $strShowPHPInfo = 'Show PHP information'; // To translate
-$strTables=" tables ";  //to translate
+$strTables = ' table(s) ';  //to translate
 ?>

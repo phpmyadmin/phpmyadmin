@@ -7,6 +7,14 @@
  */
 require('./grab_globals.inc.php3');
 require('./header.inc.php3');
+if (get_magic_quotes_gpc()) {
+    if (!empty($sql_query)) {
+        $sql_query   = stripslashes($sql_query);
+    }
+    if (!empty($primary_key)) {
+        $primary_key = stripslashes($primary_key);
+    }
+}
 
 
 /**
@@ -14,11 +22,7 @@ require('./header.inc.php3');
  */
 mysql_select_db($db);
 $table_def = mysql_query('SHOW FIELDS FROM ' . backquote($table));
-
 if (isset($primary_key)) {
-    if (get_magic_quotes_gpc()) {
-        $primary_key = stripslashes($primary_key);
-    }
     $result = mysql_query('SELECT * FROM ' . backquote($table) . ' WHERE ' . $primary_key);
     $row    = mysql_fetch_array($result);
 }
@@ -111,8 +115,9 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     if (isset($row) && isset($row[$field])) {
         $special_chars = htmlspecialchars($row[$field]);
         $data          = $row[$field];
+        $backup_field  = '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="' . urlencode($data) . '" />';
     } else {
-        $data = $special_chars = '';
+        $data = $special_chars = $backup_field = '';
     }
 
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
@@ -162,6 +167,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     if (strstr($row_table_def['True_Type'], 'text')) {
         ?>
         <td>
+            <?php echo $backup_field . "\n"; ?>
             <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars; ?></textarea>
         </td>
         <?php
@@ -174,19 +180,23 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
         $set = str_replace('enum(', '', $row_table_def['Type']);
         $set = ereg_replace('\\)$', '', $set);
         $set = explode('\',\'', substr($set, 1, -1));
+        ?>
+        <td>
+            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$enum$" />
+        <?php
+        echo "\n" . $backup_field . "\n";
 
         // show dropdown or radio depend on length
         if (strlen($row_table_def['Type']) > 20) {
             ?>
-        <td>
-            <select name="fields[<?php echo urlencode($field); ?>]">
+            <select name="field_<?php echo md5($field); ?>[]">
                 <option value=""></option>
             <?php
             echo "\n";
 
             for ($j = 0; $j < count($set);$j++) {
                 echo '                ';
-                echo '<option value="' . $set[$j] . '"';
+                echo '<option value="' . urlencode($set[$j]) . '"';
                 if ($data == $set[$j]
                     || ($data == ''
                         && isset($row_table_def['Default'])
@@ -197,18 +207,15 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
              } // end for
              ?>
              </select>
-        </td>
             <?php
         } // end if
         else {
-            echo '        <td>' . "\n";
-
             $seenchecked = 0;
             for ($j = 0; $j < count($set); $j++) {
                 echo '            ';
-                echo '<input type="radio" name="fields[' . urlencode($field) . ']" ';
+                echo '<input type="radio" name="field_<?php echo md5($field); ?>[]" ';
                 // echo 'value="' . substr($set[$j], 1, -1) . '"';
-                echo 'value="' . $set[$j] . '"';
+                echo 'value="' . urlencode($set[$j]) . '"';
                 if ($data == $set[$j]
                     || ($data == ''
                         && isset($row_table_def['Default'])
@@ -226,16 +233,18 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
 
             if ($row_table_def['Null'] == 'YES') {
                 echo '            ';
-                echo '<input type="radio" name="fields[' . urlencode($field) . ']" value="null"';
+                echo '<input type="radio" name="field_<?php echo md5($field); ?>[]" value="null"';
                 if ($seenchecked == 0) {
                     echo ' checked="checked"';
                 }
                 echo ' />' . "\n";
                 echo '            [' . $strNull . ']' . "\n";
             } // end if
-
-            echo '        </td>' . "\n";
         } // end else
+        ?>
+        </td>
+        <?php
+        echo "\n";
     }
     else if (strstr($row_table_def['Type'], 'set')) {
         $set = str_replace('set(', '', $row_table_def['Type']);
@@ -251,6 +260,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
         $size = min(4, count($set));
         ?>
         <td>
+            <?php echo $backup_field . "\n"; ?>
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$set$" />
             <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple">
         <?php
@@ -278,6 +288,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
             ?>
         <td>
             <?php echo $strBinaryDoNotEdit . "\n"; ?>
+            <?php echo $backup_field . "\n"; ?>
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" />
         </td>
             <?php
@@ -285,6 +296,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
             echo "\n";
             ?>
         <td>
+            <?php echo $backup_field . "\n"; ?>
             <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars; ?></textarea>
         </td>
             <?php
@@ -295,6 +307,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
         echo "\n";
         ?>
         <td>
+            <?php echo $backup_field . "\n"; ?>
             <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $len; ?>" />
         </td>
         <?php

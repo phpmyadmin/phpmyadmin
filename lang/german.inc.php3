@@ -252,6 +252,7 @@ $strTable = 'Tabelle ';
 $strTableComments = 'Tabellen-Kommentar';
 $strTableEmpty = 'Der Tabellenname ist leer!';
 $strTableMaintenance = 'Hilfsmittel';
+$strTables = ' Tabellen ';
 $strTableStructure = 'Tabellenstruktur für Tabelle';
 $strTableType = 'Tabellentyp';
 $strTerminatedBy = 'getrennt mit';
@@ -286,5 +287,5 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
-$strTables=" Tabellen ";  //to translate
+$strNoModification = 'No change'; // To translate
 ?>

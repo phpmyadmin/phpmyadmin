@@ -286,7 +286,8 @@ $strAffectedRows = 'Rows affected: ';
 $strDisplayOrder = 'Display order:';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
+$strNoModification = 'No change'; // To translate
 $strOffSet = 'offset';
 $strShowPHPInfo = 'Show PHP information';  // To translate
-$strTables=" tables ";  //to translate
+$strTables = ' table(s) ';  //to translate
 ?>

@@ -160,6 +160,7 @@ $strName = 'Name';
 $strNbRecords = 'No. Of records';
 $strNext = 'Next';
 $strNo = 'No';
+$strNoModification = 'No change';
 $strNoPassword = 'No Password';
 $strNoPrivileges = 'No Privileges';
 $strNoRights = 'You don\'t have enough rights to be here right now!';
@@ -252,6 +253,7 @@ $strTable = 'table ';
 $strTableComments = 'Table comments';
 $strTableEmpty = 'The table name is empty!';
 $strTableMaintenance = 'Table maintenance';
+$strTables = ' table(s) ';
 $strTableStructure = 'Table structure for table';
 $strTableType = 'Table type';
 $strTerminatedBy = 'terminated by';
@@ -284,5 +286,4 @@ $strWelcome = 'Welcome to ';
 $strWrongUser = 'Wrong username/password. Access denied.';
 
 $strYes = 'Yes';
-$strTables=" tables ";  //to translate
 ?>

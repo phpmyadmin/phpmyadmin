@@ -160,6 +160,7 @@ $strName = 'Nom';
 $strNbRecords = 'nb. d\'enregistrements';
 $strNext = 'Suivant';
 $strNo = 'Non';
+$strNoModification = 'Pas de modifications';
 $strNoPassword = 'aucun mot de passe';
 $strNoPrivileges = 'aucun privilège';
 $strNoRights = 'Vous n\'êtes pas autorisé à accéder à cette page';
@@ -252,6 +253,7 @@ $strTable = 'table ';
 $strTableComments = 'Commentaires sur la table';
 $strTableEmpty = 'Le nom de la table est vide';
 $strTableMaintenance = 'Maintenance de la table';
+$strTables = ' table(s) ';
 $strTableStructure = 'Structure de la table';
 $strTableType = 'Table en format';
 $strTerminatedBy = 'terminé(e)s par';
@@ -284,5 +286,4 @@ $strWelcome = 'Bienvenue à';
 $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 
 $strYes = 'Oui';
-$strTables=" tables ";  //to translate
 ?>

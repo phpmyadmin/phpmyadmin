@@ -42,7 +42,7 @@ if (isset($submit_type)) {
 
 
 /**
- * Prepare the update of a row
+ * Prepares the update of a row
  */
 if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     // Restore the "primary key" to a convenient format
@@ -58,11 +58,29 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     while (list($key, $val) = each($fields)) {
         if ($is_encoded) {
             $key = urldecode($key);
-            $val = rawurldecode($val);
         }
 
         switch (strtolower($val)) {
             case 'null':
+                break;
+            case '$enum$':
+                // if we have an enum, then construct the value
+                if ($is_encoded) {
+                    $f = 'field_' . md5($key);
+                } else {
+                    $f = 'field_' . $key;
+                }
+                if (!empty($$f)) {
+                    if ($$f = 'null') {
+                        // void
+                    } else if ($is_encoded) {
+                        $val = "'" . sql_addslashes(urldecode($$f)) . "'";
+                    } else {
+                        $val = "'" . sql_addslashes($ff) . "'";
+                    }
+                } else {
+                    $val = "''";
+                }
                 break;
             case '$set$':
                 // if we have a set, then construct the value
@@ -72,8 +90,8 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                     $f = 'field_' . $key;
                 }
                 if (!empty($$f)) {
-                    if (get_magic_quotes_gpc()) {
-                        $val = "'" . str_replace('\\"', '"', implode(',', $$f)) . "'";
+                    if ($is_encoded) {
+                        $val = "'" . sql_addslashes(urldecode(implode(',', $$f))) . "'";
                     } else {
                         $val = "'" . sql_addslashes(implode(',', $$f)) . "'";
                     }
@@ -90,7 +108,12 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                 break;
         } // end switch
 
-        if (!empty($val)) {
+        // No change for this column -> next column
+        if (isset($fields_prev) && isset($fields_prev[urlencode($key)])
+            && ("'" . sql_addslashes(urldecode($fields_prev[urlencode($key)])) . "'" == $val)) {
+            continue;
+        }
+        else if (!empty($val)) {
             if (empty($funcs[$key])) {
                 $valuelist .= backquote($key) . ' = ' . $val . ', ';
             } else {
@@ -101,12 +124,25 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
 
     // Builds the sql upate query
     $valuelist = ereg_replace(', $', '', $valuelist);
-    $query     = 'UPDATE ' . backquote($table) . " SET $valuelist WHERE $primary_key";
+    if (!empty($valuelist)) {
+        $query = 'UPDATE ' . backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key;
+    }
+    // No change -> move back to the calling script
+    else {
+        if (file_exists('./' . $goto)) {
+            include('./header.inc.php3');
+            $message = $strNoModification;
+            include('./' . ereg_replace('\.\.*', '.', $goto));
+        } else {
+            header('Location: ' . $goto);
+        }
+        exit();
+    }
 } // end row update
 
 
 /**
- *  Prepare the insert of a row
+ *  Prepares the insert of a row
  */
 else {
     $fieldlist = '';
@@ -114,7 +150,6 @@ else {
     while (list($key, $val) = each($fields)) {
         if ($is_encoded) {
             $key = urldecode($key);
-            $val = rawurldecode($val);
         }
         // the 'query' row is urlencoded in sql.php3
         else if ($key == 'query') {
@@ -124,6 +159,25 @@ else {
 
         switch (strtolower($val)) {
             case 'null':
+                break;
+            case '$enum$':
+                // if we have a set, then construct the value
+                if ($is_encoded) {
+                    $f = 'field_' . md5($key);
+                } else {
+                    $f = 'field_' . $key;
+                }
+                if (!empty($$f)) {
+                    if ($$f = 'null') {
+                        // void
+                    } else if (get_magic_quotes_gpc()) {
+                        $val = "'" . str_replace('\\"', '"', implode(',', $$f)) . "'";
+                    } else {
+                        $val = "'" . sql_addslashes(implode(',', $$f)) . "'";
+                    }
+                } else {
+                    $val     = "''";
+                }
                 break;
             case '$set$':
                 // if we have a set, then construct the value
@@ -161,7 +215,7 @@ else {
     // Builds the sql insert query
     $fieldlist = ereg_replace(', $', '', $fieldlist);
     $valuelist = ereg_replace(', $', '', $valuelist);
-    $query     = 'INSERT INTO ' . backquote($table) . " ($fieldlist) VALUES ($valuelist)";
+    $query     = 'INSERT INTO ' . backquote($table) . ' (' . $fieldlist . ') VALUES (' . $valuelist . ')';
 } // end row insertion
 
 
