@@ -362,10 +362,14 @@ $cfg['SQLQuery']['Explain']   = TRUE;       // EXPLAIN on SELECT queries
 $cfg['SQLQuery']['ShowAsPHP'] = TRUE;       // Wrap a query in PHP
 $cfg['SQLQuery']['Validate']  = FALSE;      // Validate a query (see $cfg['SQLValidator'] as well)
 
+
 /**
  * web-server upload directory
  */
-$cfg['UploadDir']             = '';         // for example, './upload/'; you must end it with a slash, and you leave it empty for no upload directory
+$cfg['UploadDir']             = '';         // for example, './upload/'; you must end it with
+                                            // a slash, and you leave it empty for no upload
+                                            // directory
+
 
 /**
  * SQL Parser Settings
