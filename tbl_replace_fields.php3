@@ -7,7 +7,7 @@
 
         // f i e l d    u p l o a d e d    f r o m    a    f i l e
 
-        if (isset(${"fields_upload_" . $key}) && !empty(${"fields_upload_" . $key})) {
+        if (isset(${"fields_upload_" . $key}) && !empty(${"fields_upload_" . $key}) && ${"fields_upload_" . $key} != 'none') {
             $data_file = ${"fields_upload_" . $key};
             $val = fread(fopen($data_file, "rb"), filesize($data_file));
             if (isset(${"fields_upload_binary_" . $key})) {
