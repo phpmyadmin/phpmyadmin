@@ -273,7 +273,7 @@ else {
     // 'xml' case
     else if ($GLOBALS['what'] == 'xml') {
         // first add the xml tag
-        $dump_buffer .= '<?xml version="1.0" encoding="' . $charset . '"?>' . $crlf . $crlf;
+        $dump_buffer         .= '<?xml version="1.0" encoding="' . $charset . '"?>' . $crlf . $crlf;
         // some comments
         $dump_buffer         .= '<!--' . $crlf
                              .  '-' . $crlf
@@ -304,13 +304,14 @@ else {
             if (!isset($single)) {
                 $table = mysql_tablename($tables, $i);
             }
-            if (isset($tmp_select) && is_int(strpos($tmp_select, '|' . $table . '|'))) {
+            if (isset($tmp_select) && strpos($tmp_select, ' |' . $table . '|')) {
                 $dump_buffer .= PMA_getTableXML($db, $table, $crlf, $err_url) . $crlf;
             }
             $i++;
         }
-        $dump_buffer         .= '</' . $db . '>';
-    }
+        $dump_buffer         .= '</' . $db . '>' . $crlf;
+    } // end 'xml' case
+
     // 'csv' case
     else {
         // Handles the EOL character

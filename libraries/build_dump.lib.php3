@@ -575,6 +575,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         for ($i = 0; $row = mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
             $columns[$i] = $row['Field'];
         }
+        $columns_cnt     = count($columns);
         unset($i);
         mysql_free_result($result);
         $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
@@ -582,8 +583,9 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         $buffer      = '  <!-- ' . $GLOBALS['strTable'] . ' ' . $table . ' -->' . $crlf;
         while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
             $buffer         .= '    <' . $table . '>' . $crlf;
-            foreach ($columns as $column) {
-                if ($record[$column]!=NULL) {
+            for ($i = 0; $i < $columns_cnt; $i++) {
+            	// There is no way to dectect a "NULL" value with PHP3
+                if (!function_exists('is_null') || !is_null($record[$column[$i]])) {
                     $buffer .= '        <' . $column . '>' . htmlspecialchars($record[$column])
                             .  '</' . $column . '>' . $crlf;
                 }
