@@ -66,6 +66,12 @@ if (!isset($pos)) {
 }
 
 /**
+ * 2004-06-30 rabus: Ensure, that $cfg variables are not set somwhere else
+ * before including the config file.
+ */
+unset($cfg);
+
+/**
  * Detects the config file we want to load
  */
 if (file_exists('./config.inc.developer.php')) {

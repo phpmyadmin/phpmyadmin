@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-30 Alexander M. Turek  <me@derrabus.de>
+    * libraries/common.lib.php: Fix against $_REQUEST['cfg'] exploits.
+
 2004-06-29 Michal Čihař  <michal@cihar.com>
     * lang/check_lang.sh: Checks for diffstat presence.
 
