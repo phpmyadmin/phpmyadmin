@@ -216,7 +216,8 @@ class XPath {
       $aExistingAttributes = $this->getAttributes($absoluteXPath);
       $aExistingAttributes = array_intersect($aExistingAttributes, $attributes);
       $aNewAttributes = $attributes;
-      foreach($aExistingAttributes as $name => $value)
+      @reset($aExistingAttributes);
+      while(list($name, $value) = each($aExistingAttributes)) {
         unset($aNewAttributes[$name]);
       return $this->setAttributes($absoluteXPath, $aNewAttributes);
     } else {
@@ -982,7 +983,8 @@ class XPath {
     }
     
     // Remove all the elements in the array then.
-    foreach($attribute as $name) {
+    @reset($attribute);
+    while(list(, $name) = each($attribute)) {
       unset($this->nodes[$absoluteXPath]['attributes'][$name]);
     }
     return;
@@ -1052,8 +1054,8 @@ class XPath {
       }
     }
     // Return the cdata of the node.
-    foreach($this->nodes[$absoluteXPath]["text"] as $textNode)
-    {
+    @reset($this->nodes[$absoluteXPath]['text']);
+    while(list(, $textNode) = each($this->nodes[$absoluteXPath]['text'])) {
       $text[] = $textNode;
     }
     return $text;
@@ -3446,7 +3448,8 @@ class XPath {
 
     if ( $axis["node-test"] == "cdata" ) {
       if ( !isSet($this->nodes[$context]["text"]) ) return "";
-      foreach ($this->nodes[$context]['text'] as $index => $text) {
+      @reset($this->nodes[$context]['text']);
+      while(list($index, $text) = each($this->nodes[$context]['text'])) {
         $nodes[] = $context . "/text()[".($index + 1)."]";
       }
     }

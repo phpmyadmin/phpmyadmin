@@ -37,7 +37,8 @@ if (!defined('PMA_DBG_PROFILING_INCLUDED')) {
                 '<td>' . $GLOBALS['strDBGContext'] . '</td>' . "\n" .
                 '</tr></thead>' . "\n" .
                 '<tbody style="vertical-align: top">' . "\n";
-            foreach ($dbg_prof_results['line_no'] as $idx => $line_no) {
+            @reset($dbg_prof_results['line_no']);
+            while(list($idx, $line_no) = each($dbg_prof_results['line_no'])) {
                 $mod_no = $dbg_prof_results['mod_no'][$idx];
                 dbg_get_module_name($mod_no, &$mod_name);
 
