@@ -611,6 +611,32 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         if ($is_upload && $is_blob) {
             echo '<input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" id="field_' . $i . '_3" />';
         }
+        
+        if ($cfg['UploadDir'] != '') {
+            if ($handle = @opendir($cfg['UploadDir'])) {
+                $is_first = 0;
+                while ($file = @readdir($handle)) {
+                    if (is_file($cfg['UploadDir'] . $file) && substr($file, -4) != '.sql') {
+                        if ($is_first == 0) {
+                            echo "<br />\n";
+                            echo '    <i>' . $strOr . '</i>' . ' ' . $strWebServerUploadDirectory . '&nbsp;:<br />' . "\n";
+                            echo '        <select size="1" name="fields_uploadlocal_' . urlencode($field) . '">' . "\n";
+                            echo '            <option value="" selected="selected"></option>' . "\n";
+                        } // end if (is_first)
+                        echo '            <option value="' . htmlspecialchars($file) . '">' . htmlspecialchars($file) . '</option>' . "\n";
+                        $is_first++;
+                    } // end if (is_file)
+                } // end while
+                if ($is_first > 0) {
+                    echo '        </select>' . "\n";
+                } // end if (isfirst > 0)
+                @closedir($handle);
+            } else {
+                echo '        <font color="red">' . $strError . '</font><br />' . "\n";
+                echo '        ' . $strWebServerUploadDirectoryError . "\n";
+            }
+        } // end if (web-server upload directory)
+        
         echo '</td>';
 
     } // end else if ( binary or blob)

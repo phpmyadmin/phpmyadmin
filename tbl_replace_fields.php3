@@ -49,6 +49,58 @@ if (isset(${"fields_upload_" . $key}) && ${"fields_upload_" . $key} != 'none'){
             // void
         }
 
+    } elseif (!empty(${'fields_uploadlocal_' . $key})) {
+        $file_to_upload = $cfg['UploadDir'] . eregi_replace('\.\.*', '.', ${'fields_uploadlocal_' . $key});
+
+        // A local file will be uploaded.
+        $open_basedir     = '';
+        if (PMA_PHP_INT_VERSION >= 40000) {
+            $open_basedir = @ini_get('open_basedir');
+        }
+        if (empty($open_basedir)) {
+            $open_basedir = @get_cfg_var('open_basedir');
+        }
+
+        // If we are on a server with open_basedir, we must move the file
+        // before opening it. The doc explains how to create the "./tmp"
+        // directory
+
+        $unlink = false;
+        if (!empty($open_basedir)) {
+
+            $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
+
+            // function is_writeable() is valid on PHP3 and 4
+            if (!is_writeable($tmp_subdir)) {
+                // if we cannot move the file don't change blob fields
+                $file_to_upload = '';
+            } else {
+                $new_file_to_upload = $tmp_subdir . basename($file_to_upload);
+                if (PMA_PHP_INT_VERSION < 40003) {
+                    copy($file_to_upload, $new_file_to_upload);
+                } else {
+                    move_uploaded_file($file_to_upload, $new_file_to_upload);
+                }
+
+                $file_to_upload = $new_file_to_upload;
+                $unlink = true;
+            }
+        }
+
+        if ($file_to_upload != '') {
+            
+            $val = fread(fopen($file_to_upload, "rb"), filesize($file_to_upload));
+            if (!empty($val)) {
+                $val = '0x' . bin2hex($val);
+                $seen_binary = TRUE;
+                $check_stop = TRUE;
+            }
+
+            if ($unlink == TRUE) {
+                unlink($file_to_upload);
+            }
+        }
+
     }
     // garvin: else: Post-field contains no data. Blob-fields are preserved, see below. ($protected$)
 

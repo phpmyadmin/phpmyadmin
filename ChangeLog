@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-19 Garvin Hicking <me@supergarv.de>
+    * tbl_change.php3, tbl_query_box.php3, tbl_replace_fields.php3:
+      Display select box for stored files on Server ($cfg['UploadDir']) in every SQL
+      input area (SQL window, table properties) AND in the 'Insert/Update field' display
+      where you can upload files to blob fields. Experimental.
+
 2003-03-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Updates.
 
