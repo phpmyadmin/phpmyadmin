@@ -87,7 +87,12 @@ if (isset($btnLDI) && isset($local_textfile) && $local_textfile != '') {
 /**
  * The form used to define the query has been submitted -> do the work
  */
-if (isset($btnLDI) && ($textfile != 'none')) {
+if (isset($btnLDI) && empty($textfile)) {
+    $js_to_run = 'functions.js';
+    include('./header.inc.php3');
+    $message = $strMustSelectFile;
+    include('./ldi_table.php3');
+} elseif (isset($btnLDI) && ($textfile != 'none')) {
     if (!isset($replace)) {
         $replace = '';
     }

@@ -652,4 +652,5 @@ $strLaTeXOptions = 'LaTeX options';  //to translate
 $strRelations = 'Relations';  //to translate
 $strMoveTableSameNames = 'Can\'t move table to same one!';  //to translate
 $strCopyTableSameNames = 'Can\'t copy table to same one!';  //to translate
+$strMustSelectFile = 'You should select file which you want to insert.';  //to translate
 ?>
