@@ -83,7 +83,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
     define('PMA_CHARSET_RECODE', 3);
 
     if (!isset($cfg['IconvExtraParams'])) {
-        $cfg['IconvExtraParams'] = '//IGNORE';
+        $cfg['IconvExtraParams'] = '';
     }
 
     // Finally detects which function will we use:

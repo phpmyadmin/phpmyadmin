@@ -13,6 +13,8 @@ $Source$
     * libraries/display_export.lib.php3, libraries/functions.js: Some
       javascript cleanup.
     * db_details_links.php3: Display Query tab even with no tables.
+    * libraries/charset_conversion.lib.php3: Default iconv parameters to empty
+      string.
 
 2003-06-04 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: bug 592692, pretty printer
