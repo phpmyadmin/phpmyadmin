@@ -19,10 +19,10 @@ $Source$
 2002-08-07 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details.php3, read_dump.php3, tbl_properties_links.php3:
       Coding standards.
-    * db_search.php3; tbl_alter.php3; tbl_properties_operations.php3;
-      tbl_query_box.php3; tbl_select.php3; user_details.php3;
-      libraries/build_dump.lib.php3; libraries/display_tbl.lib.php3:
-      improved MySQL 3.21 compatibility.
+    * db_search.php3, tbl_alter.php3, tbl_properties_links.php3,
+      tbl_properties_operations.php3, tbl_query_box.php3, tbl_select.php3,
+      user_details.php3, libraries/build_dump.lib.php3,
+      libraries/display_tbl.lib.php3: Improved MySQL 3.21 compatibility.
 
 2002-08-07 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/slovak-iso-8859-2.inc.php3:
