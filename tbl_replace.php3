@@ -46,11 +46,11 @@ if (isset($submit_type)) {
  */
 if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     // Restore the "primary key" to a convenient format
-    if (get_magic_quotes_gpc()) {
-        $primary_key = stripslashes($primary_key);
-    }
     if ($is_encoded) {
         $primary_key = urldecode($primary_key);
+    }
+    else if (get_magic_quotes_gpc()) {
+        $primary_key = stripslashes($primary_key);
     }
 
     // Defines the SET part of the sql query
@@ -71,11 +71,13 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                     $f = 'field_' . $key;
                 }
                 if (!empty($$f)) {
-                    $val    = implode(',', $$f);
+                    $val     = implode(',', $$f);
                     if ($val == 'null') {
                         // void
                     } else if ($is_encoded) {
                         $val = "'" . sql_addslashes(urldecode($val)) . "'";
+                    } else if (get_magic_quotes_gpc()) {
+                        $val = "'" . str_replace('\\"', '"', $val) . "'";
                     } else {
                         $val = "'" . sql_addslashes($val) . "'";
                     }
@@ -91,10 +93,13 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                     $f = 'field_' . $key;
                 }
                 if (!empty($$f)) {
+                    $val    = implode(',', $$f);
                     if ($is_encoded) {
-                        $val = "'" . sql_addslashes(urldecode(implode(',', $$f))) . "'";
+                        $val = "'" . sql_addslashes(urldecode(',', $val)) . "'";
+                    } else if (get_magic_quotes_gpc()) {
+                        $val = "'" . str_replace('\\"', '"', $val) . "'";
                     } else {
-                        $val = "'" . sql_addslashes(implode(',', $$f)) . "'";
+                        $val = "'" . sql_addslashes($val) . "'";
                     }
                 } else {
                     $val = "''";
@@ -169,9 +174,11 @@ else {
                     $f = 'field_' . $key;
                 }
                 if (!empty($$f)) {
-                    $val    = implode(',', $$f);
+                    $val     = implode(',', $$f);
                     if ($val == 'null') {
                         // void
+                    } else if ($is_encoded) {
+                        $val = "'" . sql_addslashes(urldecode($val)) . "'";
                     } else if (get_magic_quotes_gpc()) {
                         $val = "'" . str_replace('\\"', '"', $val) . "'";
                     } else {
@@ -189,10 +196,13 @@ else {
                     $f = 'field_' . $key;
                 }
                 if (!empty($$f)) {
-                    if (get_magic_quotes_gpc()) {
-                        $val = "'" . str_replace('\\"', '"', implode(',', $$f)) . "'";
+                    $val    = implode(',', $$f);
+                    if ($is_encoded) {
+                        $val = "'" . sql_addslashes(urldecode(',', $val)) . "'";
+                    } else if (get_magic_quotes_gpc()) {
+                        $val = "'" . str_replace('\\"', '"', $val) . "'";
                     } else {
-                        $val = "'" . sql_addslashes(implode(',', $$f)) . "'";
+                        $val = "'" . sql_addslashes($val) . "'";
                     }
                 } else {
                     $val     = "''";
