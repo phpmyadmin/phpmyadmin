@@ -15,18 +15,11 @@ if ($cfg['OBGzip']) {
 }
 
 
-/**
- * Sends http headers
- */
-// Don't use cache (required for Opera)
-$now = gmdate('D, d M Y H:i:s') . ' GMT';
-header('Expires: ' . $now); // rfc2616 - Section 14.21
-header('Last-Modified: ' . $now);
-header('Cache-Control: no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0'); // HTTP/1.1
-header('Pragma: no-cache'); // HTTP/1.0
-// Define the charset to be used
-header('Content-Type: text/html; charset=' . $charset);
+// garvin: For re-usability, moved http-headers 
+// to a seperate file. It can now be included by header.inc.php3,
+// queryframe.php3, querywindow.php3.
 
+include('./libraries/header_http.inc.php3');
 
 /**
  * Sends the beginning of the html page then returns to the calling script
@@ -49,14 +42,7 @@ if ($text_dir == 'ltr') {
 <head>
 <title><?php echo $strSQLResult; ?> - phpMyAdmin <?php echo PMA_VERSION ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
-<style type="text/css">
-<!--
-body  {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #ffffff}
-h1    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold}
-table {border-width:1px; border-color:#000000; border-style:solid; border-collapse:collapse; border-spacing:0}
-th    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #000000; background-color: #ffffff; border-width:1px; border-color:#000000; border-style:solid; padding:2px}
-td    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #ffffff; border-width:1px; border-color:#000000; border-style:solid; padding:2px}
-//-->
+<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=print" />
 </style>
 </head>
 

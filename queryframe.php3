@@ -25,18 +25,11 @@ if ($cfg['OBGzip']) {
     }
 }
 
-/**
- * Send http headers
- */
-// Don't use cache (required for Opera)
-$now = gmdate('D, d M Y H:i:s') . ' GMT';
-header('Expires: ' . $now);
-header('Last-Modified: ' . $now);
-header('Cache-Control: no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0'); // HTTP/1.1
-header('Pragma: no-cache'); // HTTP/1.0
-// Define the charset to be used
-header('Content-Type: text/html; charset=' . $charset);
+// garvin: For re-usability, moved http-headers
+// to a seperate file. It can now be included by header.inc.php3,
+// queryframe.php3, querywindow.php3.
 
+include('./libraries/header_http.inc.php3');
 
 /**
  * Displays the frame
@@ -52,18 +45,7 @@ PMA_setFontSizes();
     <title>phpMyAdmin</title>
     <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
     <base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> />
-    <style type="text/css">
-    <!--
-    body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
-    div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-    .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-    .headaCnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
-    .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
-    .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
-    .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
-    .tblItem:hover {color: #FF0000; text-decoration: underline}
-    //-->
-    </style>
+    <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=left&num_dbs=0" />
 <?php
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 ?>
@@ -82,7 +64,7 @@ function open_querywindow(url) {
        querywindow.opener = self;
     }
 
-	if (window.focus) {
+    if (window.focus) {
         querywindow.focus();
     }
     

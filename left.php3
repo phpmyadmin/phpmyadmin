@@ -40,18 +40,11 @@ if ($server > 0) {
 }
 
 
-/**
- * Send http headers
- */
-// Don't use cache (required for Opera)
-$now = gmdate('D, d M Y H:i:s') . ' GMT';
-header('Expires: ' . $now);
-header('Last-Modified: ' . $now);
-header('Cache-Control: no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0'); // HTTP/1.1
-header('Pragma: no-cache'); // HTTP/1.0
-// Define the charset to be used
-header('Content-Type: text/html; charset=' . $charset);
+// garvin: For re-usability, moved http-headers
+// to a seperate file. It can now be included by header.inc.php3,
+// queryframe.php3, querywindow.php3.
 
+include('./libraries/header_http.inc.php3');
 
 /**
  * Displays the frame
@@ -98,69 +91,31 @@ if ($num_dbs > 1 && !$cfg['LeftFrameLight']) {
             }
         } // end if... else if...
     } // end if
-    var fontFamily  = '<?php echo $left_font_family; ?>';
-    var fontSize    = '<?php echo $font_size; ?>';
-    var fontBig     = '<?php echo $font_bigger; ?>';
-    var fontSmall   = '<?php echo $font_smaller; ?>';
+
     var isServer    = <?php echo ($server > 0) ? 'true' : 'false'; ?>;
+
+    document.writeln('<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=left&amp;js_capable=' + capable + '&amp;js_isDOM=' + isDOM + '&amp;js_isIE4=' + isIE4 + '" />');
     //-->
     </script>
-    <script src="libraries/left.js" type="text/javascript" language="javascript1.2"></script>
     <noscript>
-        <style type="text/css">
-        <!--
-        div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-        .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-        .headaCnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
-        .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
-        .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
-        .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}
-        .tblItem:hover {color: #FF0000; text-decoration: underline}
-        //-->
-        </style>
+        <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=left&amp;js_capable=0&amp;js_isDOM=0&amp;js_isIE4=0" />
     </noscript>
 
-    <style type="text/css">
-    <!--
-    body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
-    //-->
-    </style>
+    <script src="libraries/left.js" type="text/javascript" language="javascript1.2"></script>
     <?php
 } // end if ($num_dbs > 1)
 
 else if ($num_dbs == 1) {
     echo "\n";
     ?>
-    <style type="text/css">
-    <!--
-    body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
-    div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-    .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-    .headaCnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
-    .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
-    .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
-    .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
-    .tblItem:hover {color: #FF0000; text-decoration: underline}
-    //-->
-    </style>
+    <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=left&amp;js_capable=0&amp;js_isDOM=0&amp;js_isIE4=0" />
     <?php
 } // end if ($num_dbs == 1)
 
 else {
     echo "\n";
     ?>
-    <style type="text/css">
-    <!--
-    body    {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
-    div     {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-    input   {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
-    select  {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; background-color: #ffffff; color: #000000}
-    .heada  {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-    .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
-    .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
-    .tblItem:hover {color: #FF0000; text-decoration: underline}
-    //-->
-    </style>
+    <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=left&amp;num_dbs=0" />
     <?php
 } // end if ($num_dbs < 1)
 

@@ -55,11 +55,7 @@ if ($cfg['QueryHistoryDB'] && $cfgRelation['historywork']) {
 <head>
 <title>phpMyAdmin <?php echo PMA_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
-<style type="text/css">
-<!--
-body  {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
-//-->
-</style>
+<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?js_frame=right" />
 </head>
 
 <frameset cols="<?php echo $cfg['LeftWidth']; ?>,*" rows="*">

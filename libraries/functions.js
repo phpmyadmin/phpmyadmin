@@ -555,8 +555,8 @@ function setCheckboxes(the_form, do_check)
     var elts      = (typeof(document.forms[the_form].elements['selected_db[]']) != 'undefined')
                   ? document.forms[the_form].elements['selected_db[]']
                   : (typeof(document.forms[the_form].elements['selected_tbl[]']) != 'undefined')
-		  ? document.forms[the_form].elements['selected_tbl[]']
-		  : document.forms[the_form].elements['selected_fld[]'];
+          ? document.forms[the_form].elements['selected_tbl[]']
+          : document.forms[the_form].elements['selected_fld[]'];
     var elts_cnt  = (typeof(elts.length) != 'undefined')
                   ? elts.length
                   : 0;

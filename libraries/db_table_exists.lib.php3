@@ -13,7 +13,9 @@ if (!isset($is_db) || !$is_db) {
         $is_db = @PMA_mysql_select_db($db);
     }
     if (empty($db) || !$is_db) {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        if (!isset($is_transformation_wrapper)) {
+            header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        }
         exit();
     }
 } // end if (ensures db exists)
@@ -24,7 +26,9 @@ if (!isset($is_table) || !$is_table) {
     }
     if (empty($table)
         || !($is_table && @mysql_numrows($is_table))) {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'db_details.php3?' . PMA_generate_common_url($db, '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        if (!isset($is_transformation_wrapper)) {
+            header('Location: ' . $cfg['PmaAbsoluteUri'] . 'db_details.php3?' . PMA_generate_common_url($db, '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        }
         exit();
     } else if (isset($is_table)) {
         mysql_free_result($is_table);

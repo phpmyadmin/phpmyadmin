@@ -6,6 +6,23 @@ $Id$
 $Source$
 
 2003-03-10 Garvin Hicking <me@supergarv.de>
+    * header.inc.php3, header_printview.inc.php3, index.php3,
+      left.php3, queryframe.php3, querywindow.php3, 
+      transformation_wrapper.php3, css/phpmyadmin.css.php3,
+      libraries/common.lib.php3, libraries/db_table_exists.lib.php3,
+      libraries/functions.js, libraries/header_http.inc.php3, 
+      libraries/header_meta_style.inc.php3, libraries/left.js
+      libraries/sqlparser.lib.php3:
+      Massive code-cleanup. Put all stylesheets into new central file
+      css/phpmyadmin.css.php3. To reduce overhead in this file, the
+      common.lib.php3 has a new variable to determine whether the full
+      code structure or only those codes needed for the stylesheet class
+      is parsed. This is to prevent duplicated code, even though it looks
+      somehow ugly. The stylesheet is now embedded via a <link rel>-
+      directive and should also be able to be cached by the browser.
+      See patch #699454.
+      Also some unneccessary code was removed from querywindow/wrapper.
+    
     * tbl_change.php3: Patch #697541 to prevent non-associative MySQL
       fieldnames to be mapped to false keys for display.
 

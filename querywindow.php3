@@ -39,60 +39,13 @@ if ($server > 0) {
     $num_dbs = 0;
 }
 
+// garvin: For re-usability, moved http-headers and stylesheets
+// to a seperate file. It can now be included by header.inc.php3,
+// queryframe.php3, querywindow.php3.
 
-/**
- * Send http headers
- */
-// Don't use cache (required for Opera)
-$now = gmdate('D, d M Y H:i:s') . ' GMT';
-header('Expires: ' . $now);
-header('Last-Modified: ' . $now);
-header('Cache-Control: no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0'); // HTTP/1.1
-header('Pragma: no-cache'); // HTTP/1.0
-// Define the charset to be used
-header('Content-Type: text/html; charset=' . $charset);
-
-/**
- * Displays the frame
- */
-// Gets the font sizes to use
-PMA_setFontSizes();
+include('./libraries/header_http.inc.php3');
+include('./libraries/header_meta_style.inc.php3');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
-
-<head>
-    <title>phpMyAdmin</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
-    <base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> />
-    <style type="text/css">
-    <!--
-    body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
-    div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-    .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-    .headaCnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
-    .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
-    .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
-    .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
-    .tblItem:hover {color: #FF0000; text-decoration: underline}
-    td.tab          {
-        border-top: 1px solid #999;
-        border-right: 1px solid #666;
-        border-left: 1px solid #999;
-        border-bottom: none;
-        border-radius: 2px;
-        -moz-border-radius: 2px;
-    }
-    table.tabs      {
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        border-bottom: 1px solid #666;
-    }
-
-    //-->
-    </style>
 
 <script type="text/javascript" language="javascript">    
 <?php
