@@ -213,6 +213,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     function PMA_format_sql ($sql) {
         global $cfg, $mult;
 
+// lem9: bypass this function for now
+        return $sql;
+
         $_sfuncs   = '^' . implode('$|^', $cfg['Functions']) . '$';
         $_skeyw    = '^' . implode('$|^', $cfg['keywords']) . '$';
         $_scoltype = '^' . implode('$|^', $cfg['ColumnTypes']) . '$';
