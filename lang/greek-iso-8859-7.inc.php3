@@ -374,18 +374,21 @@ $strWithChecked = 'Με τους επιλεγμένους:';
 $strWrongUser = 'Λανθασμένο όνομα χρήστη/κωδικός πρόσβασης. \'Αρνηση πρόσβασης.';
 $strYes = 'Ναι';
 $strZip = 'συμπίεση «zip»';
-// To translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
-$strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
+
+// To Arrange
+$strRelationNotWorking = 'Οι επιπρόσθετες λειτουργίες για εργασία με συσχετισμένους πίνακες έχουν απενεργοποιηθεί. Για να μάθετε γιατί, πατήστε %sεδώ%s.';
+$strAllTableSameWidth = 'εμφάνιση όλων των πινάκων με το ίδιο πλάτος;';
+$strPdfNoTables = 'Δεν υπάρχουν πίνακες';
+$strDisplayFeat = 'Λειτουργίες εμφάνισης';
+$strCreatePdfFeat = 'Δημιουργία αρχείων PDF';
+$strColComFeat = 'Εμφάνιση σχολίων πεδίων';
+$strDisabled = 'Απενεργοποιημένο';
+$strEnabled = 'Ενεργοποιημένο';
+$strOK = 'OK';
+$strNotOK = 'ΛΑΘΟΣ';
+$strGeneralRelationFeat = 'Γενικές λειτουργίες συσχέτισης';
+
+// To Translate
 $strNoValidateSQL = 'Skip Validate SQL';  //to translate
 $strValidateSQL = 'Validate SQL';  //to translate
 $strNoExplain = 'Skip Explain SQL';  //to translate

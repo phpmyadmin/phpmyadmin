@@ -15,6 +15,8 @@ $Source$
         - Updates, thanks to Alvar Soome (finsoft)
     * lang/czech-iso-8859-2.inc.php3:
         - Updates, thanks to Michal Cihar (nijel)
+    * lang/greek-iso-8859-7.inc.php3:
+        - Updates, thanks to Kyriakos Xagoraris (theremon)
 
 2002-08-06 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlvalidator.php3, libraries/sqlvalidator.lib.php3:
