@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-18  Robin Johnson  <robbat2@orbis-terrarum.net> 
+	* lib.inc.php3 (788, 790) : tweak size for lower resolution screens
+
 2001-08-18  Olivier Müller  <om@omnis.ch>
 	* db_details.php3: added a few <b>.
 	* left.php3: one more space between table name and num_dbs.
