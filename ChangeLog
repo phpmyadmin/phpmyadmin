@@ -18,6 +18,7 @@ $Source$
 	* scripts/extchg.sh: Updated URL
 	* scripts/convertcfg.pl: Conversion between old config files and new ones.
 	* scripts/*: Updated comments somewhat
+	* tbl_dump.php3:121: renamed $cfgServer_backup to $backup_cfgServer	
 
 2002-04-23 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_printview.php3, lang/*.php3: Relation links in printview,

@@ -118,10 +118,10 @@ if (empty($asfile)
  */
 // No download
 if (empty($asfile)) {
-    $cfgServer_backup = $cfg['Server'];
+    $backup_cfgServer = $cfg['Server'];
     include('./header.inc.php3');
-    $cfg['Server'] = $cfgServer_backup;
-    unset($cfgServer_backup);
+    $cfg['Server'] = $backup_cfgServer;
+    unset($backup_cfgServer);
     echo '<div align="' . $cell_align_left . '">' . "\n";
     echo '    <pre>' . "\n";
 } // end if
