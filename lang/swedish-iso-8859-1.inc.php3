@@ -97,6 +97,7 @@ $strCreatePdfFeat = 'Skapande av PDF-sidor';
 $strCriteria = 'Villkor';
 
 $strData = 'Data';
+$strDataDict = 'Datalexikon';
 $strDataOnly = 'Enbart data';
 $strDatabase = 'Databas ';
 $strDatabaseHasBeenDropped = 'Databasen %s har tagits bort.';
@@ -176,6 +177,7 @@ $strHostEmpty = 'Värdnamnet är tomt!';
 $strIdxFulltext = 'Heltext';
 $strIfYouWish = 'Om du vill ladda enbart några av tabellens kolumner, ange en kommaseparerad fältlista.';
 $strIgnore = 'Ignorera';
+$strImportDocSQL = 'Importera docSQL-filer';
 $strInUse = 'används';
 $strIndex = 'Index';
 $strIndexHasBeenDropped = 'Index %s har tagits bort';
@@ -261,6 +263,7 @@ $strOptions = 'Alternativ';
 $strOr = 'Eller';
 $strOverhead = 'Outnyttjat';
 
+$strPHP40203 = 'Du använder PHP 4.2.3, vilken har en allvarlig bugg med multi-byte-strängar (mbstring). Se PHP:s buggrapport 19404. Denna version av PHP är inte rekommenderad för användning tillsammans med phpMyAdmin.';
 $strPHPVersion = 'PHP-version';
 $strPageNumber = 'Sida:';
 $strPartialText = 'Avkortade texter';
@@ -281,6 +284,7 @@ $strPrimaryKey = 'Primärnyckel';
 $strPrimaryKeyHasBeenDropped = 'Den primära nyckeln har tagits bort';
 $strPrimaryKeyName = 'Primärnyckelns namn måste vara "PRIMARY"!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>måste</b> vara namnet på och <b>endast på</b> en primärnyckel!)';
+$strPrint = 'Skriv ut';
 $strPrintView = 'Utskriftsvänlig visning';
 $strPrivileges = 'Privilegier';
 $strProperties = 'Inställningar';
@@ -430,8 +434,4 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 // To translate
 
-$strImportDocSQL = 'Import docSQL Files';  //to translate
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 ?>

@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 2002-11-05 Michal Cihar  <nijel@users.sourceforge.net>
-    * lang/{czech,italian}*.php3: updated translations
+    * lang/{czech,italian,swedish}*.php3: updated translations
 
 2002-11-05 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php3: when the user does not have required privs to create
