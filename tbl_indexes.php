@@ -397,6 +397,25 @@ else if (!defined('PMA_IDX_INCLUDED')
     echo "\n";
     echo '        ' . $strIndexes . '&nbsp;:' . "\n";
     echo '        ' . PMA_showMySQLDocu('MySQL_Optimisation', 'Optimising_Database_Structure') . '<br />' ."\n";
+    $edit_link_text = '';
+    $drop_link_text = '';
+
+    // We need to copy the value or else the == 'both' check will always return true
+    $propicon = (string)$cfg['PropertiesIconic'];
+    
+    if ($cfg['PropertiesIconic'] === true || $propicon == 'both') {
+        $edit_link_text = '<img src="./images/button_edit.png" width="12" height="13" hspace="7" border="0" title="' . $strEdit . '" alt="' . $strEdit . '">';
+        $drop_link_text = '<img src="./images/button_drop.png" width="11" height="12" hspace="7" border="0" title="' . $strDrop . '" alt="' . $strDrop . '">';
+    }
+    print_r($cfg['PropertiesIconic']);
+    if ($cfg['PropertiesIconic'] === false || $propicon == 'both') {
+        $edit_link_text .= $strEdit;
+        $drop_link_text .= $strDrop;
+    }
+    if ($propicon == 'both') {
+        $edit_link_text = '<nobr>' . $edit_link_text . '</nobr>';
+        $drop_link_text = '<nobr>' . $drop_link_text . '</nobr>';
+    }
 
     if ($idx_cnt > 0) {
         ?>
@@ -437,7 +456,7 @@ else if (!defined('PMA_IDX_INCLUDED')
                  . '            </td>' . "\n";
 
             echo $index_td
-                 . '                <a href="tbl_indexes.php?' . $url_query . '&amp;index=' . urlencode($index_name) . '">' . ($cfg['PropertiesIconic'] ? '<img src="./images/button_edit.png" width="12" height="13" hspace="7" border="0" title="' . $strEdit . '" alt="' . $strEdit . '">' : $strEdit) . '</a>' . "\n"
+                 . '                <a href="tbl_indexes.php?' . $url_query . '&amp;index=' . urlencode($index_name) . '">' . $edit_link_text . '</a>' . "\n"
                  . '            </td>' . "\n";
 
             if ($index_name == 'PRIMARY') {
@@ -450,7 +469,7 @@ else if (!defined('PMA_IDX_INCLUDED')
                 $zero_rows = urlencode(sprintf($strIndexHasBeenDropped, htmlspecialchars($index_name)));
             }
             echo $index_td
-                 . '                <a href="sql.php?' . $url_query . '&amp;sql_query=' . $local_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . ($cfg['PropertiesIconic'] ? '<img src="./images/button_drop.png" width="11" height="12" hspace="7" border="0" title="' . $strDrop . '" alt="' . $strDrop . '">' : $strDrop) . '</a>' . "\n"
+                 . '                <a href="sql.php?' . $url_query . '&amp;sql_query=' . $local_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . $drop_link_text  . '</a>' . "\n"
                  . '            </td>' . "\n";
 
             foreach($indexes_info[$index_name]['Sequences'] AS $row_no => $seq_index) {

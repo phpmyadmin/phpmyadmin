@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-30 Michal Cihar  <michal@cihar.com>
+    * tbl_indexes.php: Use properly $cfg['PropertiesIconic']  (bug #918072).
+
 2004-03-29 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: bug 923171, password error when copying a user
     * server_privileges.php: bug 923227, copying a user with table privs
