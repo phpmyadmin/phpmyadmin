@@ -121,6 +121,7 @@ $strCreatePage = 'Créer une page';
 $strCreatePdfFeat = 'Génération de schémas en PDF';
 $strCriteria = 'Critère';
 
+$strDBComment = 'Commentaire sur la base de données: ';
 $strDBGContext = 'Contexte';
 $strDBGContextID = 'Identificateur de contexte';
 $strDBGHits = 'Occurences';
@@ -168,6 +169,7 @@ $strDropDB = 'Supprimer la base %s';
 $strDropSelectedDatabases = 'Supprimer les bases de données sélectionnées';
 $strDropTable = 'Supprimer la table';
 $strDropUsersDb = 'Supprimer les bases de données portant le même nom que les utilisateurs';
+$strDumpComments = 'Inclure les commentaires de colonnes en tant que commentaires SQL incorporés';
 $strDumpXRows = 'Exporte %s enregistrement(s) à partir du rang n° %s.';
 $strDumpingData = 'Contenu de la table';
 $strDynamic = 'dynamique';
@@ -276,6 +278,17 @@ $strLogin = 'Connexion';
 $strLoginInformation = 'Information pour la connexion';
 $strLogout = 'Quitter';
 
+$strMIME_MIMEtype = 'Type MIME';
+$strMIME_available_mime = 'Types MIME disponibles';
+$strMIME_available_transform = 'Transformations disponibles';
+$strMIME_description = 'Description';
+$strMIME_file = 'Nom de fichier';
+$strMIME_nodescription = 'Aucune description n\'est disponible pour cette transformation.<br />Veuillez demander à son auteur, des détails sur %s.';
+$strMIME_transformation = 'Transformation';
+$strMIME_transformation_note = 'La %sdescription des transformations%s explique les transformations possibles en fonction des types MIME.';
+$strMIME_transformation_options = 'Options de transformation';
+$strMIME_transformation_options_note = 'Veuillez entrer les valeurs des options de transformation en suivant ce format: \'a\',\'b\',\'c\'...<br />Si vous devez entrer un caractère ("\") ou une apostrophe ("\'") parmi ces valeurs, faites-le précéder du caractère d\'échappement, par exemple  \'\\\\xyz\' or \'a\\\'b\').';
+$strMIME_without = 'Les types MIME affichées en italiques ne possèdent pas de fonctions de transformation.';
 $strMissingBracket = 'Parenthèse manquante';
 $strModifications = 'Les modifications ont été sauvegardées.';
 $strModify = 'Modifier';
@@ -396,7 +409,11 @@ $strPutColNames = 'Afficher les noms de champ en première ligne';
 $strQBE = 'Requête';
 $strQBEDel = 'Effacer';
 $strQBEIns = 'Ajouter';
+$strQueryFrame = 'Fenêtre SQL';
+$strQueryFrameDebug = 'Informations de mise au point (débogage)';
+$strQueryFrameDebugBox = 'Active variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nCurrent variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nOpener location: %s\nFrameset location: %s.'; // pour développeurs 
 $strQueryOnDb = 'Requête SQL sur la base <b>%s</b>&nbsp;:';
+$strQuerySQLHistory = 'Historique SQL';
 $strQueryStatistics = '<b>Statistiques sur les requêtes</b>: Depuis son démarrage, %s requêtes ont été envoyées au serveur.';
 $strQueryType = 'Type de requête';
 
@@ -430,6 +447,7 @@ $strRowLength = 'Longueur enr.';
 $strRowSize = ' Taille enr. ';
 $strRows = 'Enregistrements';
 $strRowsFrom = 'ligne(s) à partir de l\'enregistrement n°';
+$strRowsModeFlippedHorizontal = 'horizontal (en-têtes pivotés)';
 $strRowsModeHorizontal = 'horizontal';
 $strRowsModeOptions = 'en mode %s et répéter les en-têtes à chaque groupe de %s';
 $strRowsModeVertical = 'vertical';
@@ -573,49 +591,42 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
-
-$strRowsModeFlippedHorizontal = 'horizontal (rotated headers)';//to translate
-$strQueryTime = 'Query took %01.4f sec';//to translate
-$strDumpComments = 'Include column comments as inline SQL-comments';//to translate
-$strDBComment = 'Database comment: ';//to translate
-$strQueryFrame = 'Query window';//to translate
-$strQueryFrameDebug = 'Debugging information';//to translate
-$strQueryFrameDebugBox = 'Active variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nCurrent variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nOpener location: %s\nFrameset location: %s.';//to translate
-$strQuerySQLHistory = 'SQL-history';//to translate
-$strMIME_MIMEtype = 'MIME-type';//to translate
-$strMIME_transformation = 'Browser transformation';//to translate
-$strMIME_transformation_options = 'Transformation options';//to translate
-$strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';//to translate
-$strMIME_transformation_note = 'For a list of available transformation options and their MIME-type transformations, click on %stransformation descriptions%s';//to translate
-$strMIME_available_mime = 'Available MIME-types';//to translate
-$strMIME_available_transform = 'Available transformations';//to translate
-$strMIME_without = 'MIME-types printed in italics do not have a seperate transformation function';//to translate
-$strMIME_description = 'Description';//to translate
-$strMIME_nodescription = 'No Description is available for this transformation.<br />Please ask the author, what %s does.';//to translate
-$strMIME_file = 'Filename';//to translate
-$strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link for it. First options argument is a possible prepended string like http://...';//to translate
-$strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
-$strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
-$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
-$strInnodbStat = 'InnoDB Status';  //to translate
 $updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
-$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
-$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
-$strSQLOptions = 'SQL options';//to translate
-$strXML = 'XML';//to translate
+
+$strAutomaticLayout = 'Automatic layout';  //to translate
+
 $strCSVOptions = 'CSV options';//to translate
+
+$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
+
+$strFileNameTemplate = 'File name template';//to translate 
+$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
+$strFileNameTemplateRemember = 'remember template';//to translate 
+
+$strInnodbStat = 'InnoDB Status';  //to translate
+
 $strNoOptions = 'This format has no options';//to translate
-$strStatCreateTime = 'Creation';//to translate
-$strStatUpdateTime = 'Last update';//to translate
-$strStatCheckTime = 'Last check';//to translate
+
 $strPerMinute = 'per minute';//to translate
 $strPerSecond = 'per second';//to translate
-$strAutomaticLayout = 'Automatic layout';  //to translate
-$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
-$strFileNameTemplate = 'File name template';//to translate 
-$strFileNameTemplateRemember = 'remember template';//to translate 
-$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
+
+$strQueryTime = 'traitement: %01.4f sec.';//to translate
+
+$strSQLOptions = 'SQL options';//to translate
+$strStatCheckTime = 'Last check';//to translate
+$strStatCreateTime = 'Creation';//to translate
+$strStatUpdateTime = 'Last update';//to translate
+
+$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
+$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
+$strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link for it. First options argument is a possible prepended string like http://...';//to translate
+$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
 $strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
-$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
 $strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
+$strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
+$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
+$strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
+
+$strXML = 'XML';//to translate
+
 ?>
