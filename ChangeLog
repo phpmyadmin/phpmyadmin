@@ -10,6 +10,7 @@ $Source$
     * user_password.php3, libraries/auth/cookie.auth.lib.php3: 
       sometimes, binary contents in cookies is not retrieved properly, 
       so protect it with base64_encode()
+    * lang/ukrainian: update, thanks to Markijan Baran
 
 2003-07-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian update, thanks to Valics Lehel
