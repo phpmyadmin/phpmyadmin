@@ -381,9 +381,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $encodedstr = nl2br(chunk_split(base64_encode(gzcompress($debugstr, 9))));
             echo $encodedstr . "\n";
             echo '---END CUT---<br /><br />' . "\n\n";
-            //$decodedstr = str_replace('<br />', '', base64_decode(gzuncompress($encodedstr)));
-            $decodedstr = gzuncompress(base64_decode(str_replace('<br />', '', $encodedstr)));
-            echo $decodedstr . "\n";
+            //$decodedstr = /*gzuncompress(*/base64_decode(str_replace('<br />', '', $encodedstr))/*)*/;
+            //echo $decodedstr . "\n";
             echo '</p>' . "\n";
             flush();
             ob_flush();
@@ -470,7 +469,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         );
         $supported_query_types_cnt = count($supported_query_types);
 
-        for ($i = 0; $i <= $size; $i++) {
+        for ($i = 0; $i < $size; $i++) {
             // High speed seek for locating the end of the current query
             if ($seek_queryend == TRUE) {
                 if ($arr[$i]['type'] == 'punct_queryend') {
@@ -514,9 +513,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $result[] = $subresult;
         }
 
-        echo '<pre>';
-        print_r($result);
-        echo '</pre>';
+        return $result;
     } // end of the "PMA_SQP_analyze()" function
 
 
