@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-17 Michael Keck  <mkkeck@users.sourceforge.net>
+    * libraries/common.lib.php: modified function for
+      Add a link by MySQL-Error #1062 - Duplicate entry
+      (feature request #1036254)
+
 2005-01-17 Michal Čihař  <michal@cihar.com>
     * lang/czech: Fix typos (translation #1103785).
 

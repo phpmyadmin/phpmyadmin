@@ -671,19 +671,30 @@ if ($is_minimum_common == FALSE) {
 
         // feature request #1036254:
         // Add a link by MySQL-Error #1062 - Duplicate entry
-        // 2004-10-20 by mk.keck
+        // 2004-10-20 by mkkeck
+        // 2005-01-17 modified by mkkeck bugfix
         if (substr($error_message, 1, 4) == '1062') {
-        // TODO: do not assume that the error message is in English
-        // and do not use mysql_result()
-
-            // explode the entry and the column
-            $arr_mysql_val_key = explode('entry \'',$tmp_mysql_error);
-            $arr_mysql_val_key = explode('\' for key',$arr_mysql_val_key[1]);
-            // get the duplicate value
-            $string_duplicate_val = trim(strtolower($arr_mysql_val_key[0]));
-            // get the field name ...
-            $string_duplicate_key = mysql_result(mysql_query("SHOW FIELDS FROM " . $table), ($arr_mysql_val_key[1]-1), 0);
-            $duplicate_sql_query = "SELECT * FROM " . $table . " WHERE " . $string_duplicate_key . " LIKE '" . $string_duplicate_val . "'";
+            // get the duplicate entry
+            $mysql_error_values = array();
+            $mysql_error_words  = explode(' ',$tmp_mysql_error);
+            foreach ($mysql_error_words as $mysql_error_word) {
+                if (strstr($mysql_error_word, "'")) {
+                   $mysql_error_values = explode('-', preg_replace("/'/", "", $mysql_error_word));
+                   break; // exit 'foreach'
+                }
+            }
+            $duplicate_sql_query = '';
+            if (isset($mysql_error_values[0])) {
+                $tmp_fields = PMA_DBI_get_fields($db, $table, NULL);
+                foreach ($tmp_fields as $tmp_field) {
+                    $duplicate_sql_query .= (($duplicate_sql_query!='') ? ' OR ' : '') . $tmp_field['Field'] . " LIKE '" . $mysql_error_values[0] . "'";
+                }
+            }
+            if ($duplicate_sql_query!='') {
+                $duplicate_sql_query = "SELECT * FROM " . $table . " WHERE (" . $duplicate_sql_query . ")";
+            } else {
+                $duplicate_sql_query = "SELECT * FROM " . $table . "";
+            }
             echo '        <form method="post" action="read_dump.php" style="padding: 0px; margin: 0px">' ."\n"
                     . '            <input type="hidden" name="sql_query" value="' . $duplicate_sql_query . '" />' . "\n"
                     . '            ' . PMA_generate_common_hidden_inputs($db, $table) . "\n"
