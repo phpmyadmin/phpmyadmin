@@ -26,16 +26,14 @@ require_once('./libraries/db_table_exists.lib.php');
 /**
  * Get the list of the fields of the current table
  */
-PMA_mysql_select_db($db);
-$table_def = PMA_mysql_query('SHOW FIELDS FROM ' . PMA_backquote($table));
+PMA_DBI_select_db($db);
+$table_def = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table));
 if (isset($primary_key)) {
-    $local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key;
-    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', '');
-    $row         = PMA_mysql_fetch_array($result);
+    $result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';');
+    $row         = PMA_DBI_fetch_assoc($result);
 } else {
-    $local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1';
-    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', '');
-    $row         = PMA_mysql_fetch_array($result);
+    $result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1;');
+    $row         = PMA_DBI_fetch_assoc($result);
 }
 
 // No row returned

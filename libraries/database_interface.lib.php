@@ -15,4 +15,61 @@ function PMA_DBI_query($query, $dbh = '') {
     return $res;
 }
 
+function PMA_DBI_get_dblist($link = NULL) {
+    if (empty($link)) {
+        if (isset($GLOBALS['userlink'])) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return FALSE;
+        }
+    }
+    $res = PMA_DBI_try_query('SHOW DATABASES;', $link);
+    $dbs_array = array();
+    while ($row = PMA_DBI_fetch_row($res)) {
+
+       // Before MySQL 4.0.2, SHOW DATABASES could send the
+       // whole list, so check if we really have access:
+       if (PMA_MYSQL_CLIENT_API < 40002) {
+           $dblink = @PMA_DBI_select_db($row[0], $link);
+           if (!$dblink) {
+               continue;
+           }
+       }
+       $dbs_array[] = $row[0];
+    }
+    PMA_DBI_free_result($res);
+    unset($res);
+
+    return $dbs_array;
+}
+
+function PMA_DBI_get_tables($database, $link = NULL) {
+    $result       = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($database) . ';');
+    $tables       = array();
+    while (list($current) = PMA_DBI_fetch_row($result)) {
+        $tables[] = $current;
+    }
+    PMA_DBI_free_result($result);
+
+    return $tables;
+}
+
+function PMA_DBI_get_fields($database, $table, $link = NULL) {
+    if (empty($link)) {
+        if (isset($GLOBALS['userlink'])) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return FALSE;
+        }
+    }
+    $result = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table), $link);
+
+    $fields = array();
+    while ($row = PMA_DBI_fetch_assoc($result)) {
+        $fields[] = $row;
+    }
+
+    return $fields;
+}
+
 ?>

@@ -156,7 +156,7 @@ if ($cfgRelation['relwork']
                                     . PMA_backquote($existrel_innodb[$master_field]['constraint']);
 
                         // I tried to send both in one query but it failed
-                        $upd_rs         = PMA_mysql_query($upd_query);
+                        $upd_rs     = PMA_DBI_query($upd_query);
                     }
 
                     // add another
@@ -185,8 +185,8 @@ if ($cfgRelation['relwork']
             } // end if... else....
 
             if (isset($upd_query)) {
-                $upd_rs         = PMA_mysql_query($upd_query);
-                if (PMA_mysql_error() && mysql_errno() == 1005) {
+                $upd_rs         = PMA_DBI_query($upd_query);
+                if (substr(PMA_DBI_getError(), 1, 4) == '1005') {
                     echo '<p class="warning">' . $strNoIndex . ' (' . $master_field .')</p>'  . PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
                 }
                 unset($upd_query);
@@ -269,19 +269,18 @@ if ($cfgRelation['relwork']) {
     }
     // [0] of the row is the name
 
-    $tab_rs              = PMA_mysql_query($tab_query) or PMA_mysqlDie('', $tab_query, '', $err_url_0);
+    $tab_rs              = PMA_DBI_query($tab_query);
     $selectboxall['nix'] = '--';
     $selectboxall_innodb['nix'] = '--';
 
-    while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
+    while ($curr_table = @PMA_DBI_fetch_row($tab_rs)) {
         if (($curr_table[0] != $table) && ($curr_table[0] != $cfg['Server']['relation'])) {
-            $fi_query = 'SHOW KEYS FROM ' . PMA_backquote($curr_table[0]);
-            $fi_rs    = PMA_mysql_query($fi_query) or PMA_mysqlDie('', $fi_query, '', $err_url_0);
+            $fi_rs    = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($curr_table[0]) . ';');
             if ($fi_rs && PMA_DBI_num_rows($fi_rs) > 0) {
-                $seen_a_primary=FALSE;
-                while ($curr_field = PMA_mysql_fetch_array($fi_rs)) {
+                $seen_a_primary = FALSE;
+                while ($curr_field = PMA_DBI_fetch_assoc($fi_rs)) {
                     if (isset($curr_field['Key_name']) && $curr_field['Key_name'] == 'PRIMARY') {
-                        $seen_a_primary=TRUE;
+                        $seen_a_primary = TRUE;
                         $field_full = $db . '.' .$curr_field['Table'] . '.' . $curr_field['Column_name'];
                         $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
                         $selectboxall[$field_full] =  $field_v;
@@ -320,10 +319,9 @@ if ($cfgRelation['relwork']) {
         // current table (see bug report #574851)
         }
         else if ($curr_table[0] == $table) {
-            $fi_query = 'SHOW KEYS FROM ' . PMA_backquote($curr_table[0]);
-            $fi_rs    = PMA_mysql_query($fi_query) or PMA_mysqlDie('', $fi_query, '', $err_url_0);
+            $fi_rs    = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($curr_table[0]) . ';');
             if ($fi_rs && PMA_DBI_num_rows($fi_rs) > 0) {
-                while ($curr_field = PMA_mysql_fetch_array($fi_rs)) {
+                while ($curr_field = PMA_DBI_fetch_assoc($fi_rs)) {
                     $field_full = $db . '.' . $curr_field['Table'] . '.' . $curr_field['Column_name'];
                     $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
                     $selectboxall[$field_full] =  $field_v;
@@ -339,11 +337,10 @@ if ($cfgRelation['relwork']) {
 
 
 // Now find out the columns of our $table
-$col_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table);
-$col_rs    = PMA_mysql_query($col_query) or PMA_mysqlDie('', $col_query, '', $err_url_0);
+$col_rs    = PMA_mysql_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';');
 
 if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
-    while ($row = PMA_mysql_fetch_array($col_rs)) {
+    while ($row = PMA_DBI_fetch_assoc($col_rs)) {
         $save_row[] = $row;
     }
     $saved_row_cnt  = count($save_row);
@@ -508,8 +505,8 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         <option value="">---</option>
         <?php
         echo "\n";
-        mysql_data_seek($col_rs, 0);
-        while ($row = @PMA_mysql_fetch_array($col_rs)) {
+        mysql_data_seek($col_rs, 0); // !UNWRAPPED FUNCTION!
+        while ($row = @PMA_DBI_fetch_array($col_rs)) {
             echo '        <option value="' . htmlspecialchars($row['Field']) . '"';
             if (isset($disp) && $row['Field'] == $disp) {
                 echo ' selected="selected"';

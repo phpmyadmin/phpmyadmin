@@ -78,8 +78,8 @@ echo '<br />';
 /**
  * Get the list of the fields of the current table
  */
-PMA_mysql_select_db($db);
-$table_def = PMA_mysql_query('SHOW FIELDS FROM ' . PMA_backquote($table));
+PMA_DBI_select_db($db);
+$table_def = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';');
 if (isset($primary_key)) {
     if (is_array($primary_key)) {
         $primary_key_array = $primary_key;
@@ -90,11 +90,10 @@ if (isset($primary_key)) {
     $row = array();
     $result = array();
     foreach($primary_key_array AS $rowcount => $primary_key) {
-        $local_query             = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key;
-        $result[$rowcount]       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-        $row[$rowcount]          = PMA_mysql_fetch_array($result[$rowcount]);
+        $result[$rowcount]       = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';');
+        $row[$rowcount]          = PMA_DBI_fetch_assoc($result[$rowcount]);
         $primary_keys[$rowcount] = $primary_key;
-    
+
         // No row returned
         if (!$row[$rowcount]) {
             unset($row[$rowcount]);
@@ -119,8 +118,7 @@ if (isset($primary_key)) {
         } // end if (no record returned)
     }
 } else {
-    $local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1';
-    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1;');
     unset($row);
 }
 
@@ -200,7 +198,7 @@ $fields_cnt     = PMA_DBI_num_rows($table_def);
 $insert_mode = (!isset($row) ? TRUE : FALSE);
 $loop_array  = (isset($row) ? $row : array(0 => FALSE));
 
-while ($trow = PMA_mysql_fetch_array($table_def)) {
+while ($trow = PMA_DBI_fetch_assoc($table_def)) {
     $trow_table_def[] = $trow;
 }
 
@@ -240,12 +238,12 @@ foreach($loop_array AS $vrowcount => $vrow) {
 
     // Sets a multiplier used for input-field counts (as zero cannot be used, advance the counter plus one)
     $m_rows = $o_rows + 1;
-    
+
     for ($i = 0; $i < $fields_cnt; $i++) {
         // Display the submit button after every 15 lines --swix
         // (wanted to use an <a href="#bottom"> and <a name> instead,
         // but it didn't worked because of the <base href>)
-    
+
         if ((($i % 15) == 0) && ($i != 0)) {
             ?>
         <tr>
@@ -256,12 +254,12 @@ foreach($loop_array AS $vrowcount => $vrow) {
             <?php
         } // end if
         echo "\n";
-    
+
         $row_table_def   = $trow_table_def[$i];
         $row_table_def['True_Type'] = preg_replace('@\(.*@s', '', $row_table_def['Type']);
-    
+
         $field           = $row_table_def['Field'];
-    
+
         // garvin: possible workaround. If current field is numerical, do not try to
         //  access the result-array with its 'associative' key but with its numerical
         //  represantation.
@@ -270,7 +268,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
         } else {
             $rowfield = $field;
         }
-    
+
         // d a t e t i m e
         //
         // loic1: current date should not be set as default if the field is NULL
@@ -295,16 +293,16 @@ foreach($loop_array AS $vrowcount => $vrow) {
         }
         $len             = (preg_match('@float|double@', $row_table_def['Type']))
                          ? 100
-                         : @mysql_field_len($vresult, $i);
+                         : @mysql_field_len($vresult, $i); // !UNWRAPPED FUNCTION!
         $first_timestamp = 0;
-    
+
         $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         ?>
         <tr>
             <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($row_table_def['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center" bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($field); ?></td>
         <?php
         echo "\n";
-    
+
         // The type column
         $is_binary                  = stristr($row_table_def['Type'], ' binary');
         $is_blob                    = stristr($row_table_def['Type'], 'blob');
@@ -326,7 +324,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
                 $type         = $row_table_def['Type'];
                 $type_nowrap  = ' nowrap="nowrap"';
                 break;
-    
+
             default:
                 $type         = $row_table_def['Type'];
                 $type_nowrap  = ' nowrap="nowrap"';
@@ -338,7 +336,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
             </td>
         <?php
         echo "\n";
-    
+
         // Prepares the field value
         $real_null_value = FALSE;
         if (isset($vrow)) {
@@ -378,7 +376,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
             $special_chars = htmlspecialchars($row_table_def['Default']);
             $backup_field  = '';
         }
-    
+
         // The function column
         // -------------------
         // Change by Bernard M. Piller <bernard@bmpsystems.com>
@@ -400,7 +398,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
                 <?php
                 echo "\n";
                 $selected     = '';
-    
+
                 // garvin: Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
                 // or something similar. Then directly look up the entry in the RestrictFunctions array,
                 // which will then reveal the available dropdown options
@@ -411,10 +409,10 @@ foreach($loop_array AS $vrowcount => $vrow) {
                 } else {
                     $dropdown = array();
                 }
-    
+
                 $dropdown_built = array();
                 $op_spacing_needed = FALSE;
-    
+
                 // garvin: loop on the dropdown array and print all available options for that field.
                 $cnt_dropdown = count($dropdown);
                 for ($j = 0; $j < $cnt_dropdown; $j++) {
@@ -428,7 +426,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
                     $dropdown_built[$dropdown[$j]] = 'TRUE';
                     $op_spacing_needed = TRUE;
                 }
-    
+
                 // garvin: For compatibility's sake, do not let out all other functions. Instead
                 // print a seperator (blank) and then show ALL functions which weren't shown
                 // yet.
@@ -445,7 +443,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
                             echo '<option value="">--------</option>' . "\n";
                             $op_spacing_needed = FALSE;
                         }
-    
+
                         echo '                ';
                         echo '<option' . $selected . '>' . $cfg['Functions'][$j] . '</option>' . "\n";
                     }
@@ -458,7 +456,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
             }
         } // end if ($cfg['ShowFunctionFields'])
         echo "\n";
-    
+
         // The null column
         // ---------------
         echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
@@ -491,12 +489,12 @@ foreach($loop_array AS $vrowcount => $vrow) {
             echo '            &nbsp;' . "\n";
         }
         echo '        </td>' . "\n";
-    
+
         // The value column (depends on type)
         // ----------------
-    
+
         require('./libraries/get_foreign.lib.php');
-    
+
         if (isset($foreign_link) && $foreign_link == true) {
             ?>
             <td bgcolor="<?php echo $bgcolor; ?>">
@@ -556,7 +554,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
                 <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="" />
             <?php
             echo "\n" . '            ' . $backup_field;
-    
+
             // show dropdown or radio depend on length
             if (strlen($row_table_def['Type']) > 20) {
                 echo "\n";
@@ -565,7 +563,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
                     <option value=""></option>
                 <?php
                 echo "\n";
-    
+
                 for ($j = 0; $j < $enum_cnt; $j++) {
                     // Removes automatic MySQL escape format
                     $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
@@ -578,7 +576,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
                     }
                     echo '>' . htmlspecialchars($enum_atom) . '</option>' . "\n";
                 } // end for
-    
+
                 ?>
                 </select>
                 <?php
@@ -598,7 +596,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
                     echo 'tabindex="' . (($i * $m_rows) + 1) . '" />' . "\n";
                     echo '            <label for="field_' . ($i * $m_rows) . '_3_' . $j . '">' . htmlspecialchars($enum_atom) . '</label>' . "\n";
                 } // end for
-    
+
             } // end else
             echo "\n";
             ?>
@@ -608,7 +606,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
         }
         else if ($type == 'set') {
             $set = PMA_getEnumSetOptions($row_table_def['Type']);
-    
+
             if (isset($vset)) {
                 unset($vset);
             }
@@ -666,7 +664,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
                 <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($i*$m_rows); ?>_3"
                     <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $vkey; ?>')" tabindex="<?php echo (($i * $m_rows) + 1); ?>" ><?php echo $special_chars; ?></textarea>
                 <?php
-    
+
             } else {
                 if ($len < 4) {
                     $fieldsize = $maxlength = 4;
@@ -681,11 +679,11 @@ foreach($loop_array AS $vrowcount => $vrow) {
                 <input type="text" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $vkey; ?>')" tabindex="<?php echo (($i * $m_rows) + 1); ?>" id="field_<?php echo ($i * $m_rows); ?>_3" />
                 <?php
             } // end if...elseif...else
-    
+
             // Upload choice (only for BLOBs because the binary
             // attribute does not imply binary contents)
             // (displayed whatever value the ProtectBinary has)
-    
+
             if ($is_upload && $is_blob) {
                 echo '<input type="file" name="fields_upload_' . urlencode($field) . $vkey . '" class="textfield" id="field_' . ($i * $m_rows) . '_3" size="10" />&nbsp;';
 
@@ -701,9 +699,9 @@ foreach($loop_array AS $vrowcount => $vrow) {
                    $this_field_max_size = $max_field_sizes[$type];
                 }
                 echo PMA_displayMaximumUploadSize($this_field_max_size) . "\n";
-                echo '                ' . PMA_generateHiddenMaxFileSize($this_field_max_size) . "\n"; 
+                echo '                ' . PMA_generateHiddenMaxFileSize($this_field_max_size) . "\n";
             }
- 
+
             if (!empty($cfg['UploadDir'])) {
                 if (substr($cfg['UploadDir'], -1) != '/') {
                     $cfg['UploadDir'] .= '/';
@@ -731,9 +729,9 @@ foreach($loop_array AS $vrowcount => $vrow) {
                     echo '        ' . $strWebServerUploadDirectoryError . "\n";
                 }
             } // end if (web-server upload directory)
-    
+
             echo '</td>';
-    
+
         } // end else if ( binary or blob)
         else {
             // For char or varchar, respect the maximum length (M); for other

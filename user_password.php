@@ -14,7 +14,7 @@ require_once('./libraries/common.lib.php');
  * script
  */
 if (!$cfg['ShowChgPassword']) {
-    $cfg['ShowChgPassword'] = @PMA_mysql_query('USE mysql', $userlink);
+    $cfg['ShowChgPassword'] = PMA_DBI_select_db('mysql');
 }
 if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
     require_once('./header.inc.php');
@@ -50,7 +50,7 @@ if (isset($nopass)) {
 
         $sql_query        = 'SET password = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');
         $local_query      = 'SET password = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . PMA_sqlAddslashes($pma_pw) . '\')');
-        $result           = @PMA_mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url);
+        $result           = @PMA_DBI_try_query($local_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, FALSE, $err_url);
 
         // Changes password cookie if required
         if ($cfg['Server']['auth_type'] == 'cookie') {

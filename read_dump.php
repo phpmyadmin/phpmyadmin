@@ -148,8 +148,7 @@ if (!$cfg['AllowUserDropDatabase']
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
     // loic1: optimized query
-    $result = @PMA_mysql_query('USE mysql');
-    if (PMA_mysql_error()) {
+    if (!($result = PMA_DBI_select_db('mysql'))) {
         require_once('./header.inc.php');
         PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
     }
@@ -243,7 +242,7 @@ if ($sql_query != '') {
         }
 
         // Runs multiple queries
-        else if (PMA_mysql_select_db($db)) {
+        else if (PMA_DBI_select_db($db)) {
             $mult = TRUE;
             $info_msg = '';
             $info_count = 0;
@@ -257,7 +256,7 @@ if ($sql_query != '') {
                     require('./sql.php');
                 }
 
-                $result = PMA_mysql_query($a_sql_query);
+                $result = PMA_DBI_try_query($a_sql_query);
                 if ($result == FALSE) { // readdump failed
                     if (isset($my_die) && $cfg['IgnoreMultiSubmitErrors']) {
                         $my_die[] = "\n\n" . $a_sql_query;
@@ -346,8 +345,8 @@ if ($goto == 'tbl_properties.php') {
     if (!isset($table)) {
         $goto     = 'db_details.php';
     } else {
-        PMA_mysql_select_db($db);
-        $is_table = @PMA_mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
+        PMA_DBI_select_db($db);
+        $is_table = PMA_DBI_try_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
         if (!($is_table && @PMA_DBI_num_rows($is_table))) {
             $goto = 'db_details.php';
             unset($table);
@@ -361,7 +360,7 @@ if ($goto == 'db_details.php') {
     if (!isset($db)) {
         $goto     = 'main.php';
     } else {
-        $is_db    = @PMA_mysql_select_db($db);
+        $is_db    = @PMA_DBI_select_db($db);
         if (!$is_db) {
             $goto = 'main.php';
             unset($db);

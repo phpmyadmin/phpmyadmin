@@ -142,31 +142,31 @@ if (isset($disp) && $disp) {
     function dimsort($arrayA, $arrayB) {
         $keyA = key($arrayA);
         $keyB = key($arrayB);
-        
+
         if ($arrayA[$keyA] == $arrayB[$keyB]) {
             return 0;
         }
-        
+
         return ($arrayA[$keyA] < $arrayB[$keyB]) ? -1 : 1;
     }
 
     $mysql_key_relrow = array();
     $mysql_val_relrow = array();
     $count = 0;
-    while ($relrow = @PMA_mysql_fetch_array($disp)) {
+    while ($relrow = @PMA_DBI_fetch_assoc($disp)) {
         if ($foreign_display != FALSE) {
             $val = $relrow[$foreign_display];
         } else {
             $val = '';
         }
-        
+
         $mysql_key_relrow[$count] = array($relrow[$foreign_field]   => $val);
         $mysql_val_relrow[$count] = array($val                      => $relrow[$foreign_field]);
         $count++;
     }
-    
+
     usort($mysql_val_relrow, 'dimsort');
-    
+
     $hcount = 0;
     for ($i = 0; $i < $count; $i++) {
         $hcount++;

@@ -25,10 +25,10 @@ function PMA_myHandler($sql_insert = '')
     global $sql_insert_data;
 
     $sql_insert = preg_replace('~INSERT INTO (`?)' . $table . '(`?)~i', 'INSERT INTO ' . $target, $sql_insert);
-    $result     = PMA_mysql_query($sql_insert) or PMA_mysqlDie('', $sql_insert, '', $GLOBALS['err_url']);
+    $result     = PMA_DBI_query($sql_insert);
 
     $sql_insert_data .= $sql_insert . ';' . "\n";
-} // end of the 'PMA_myHandler()' function
+} // end of the 'PMA_myHandler()' function 
 
 /**
  * Inserts existing entries in a PMA_* table by reading a value from an old entry
@@ -78,7 +78,7 @@ global $cfgRelation;
                           . ' WHERE ' . implode(' AND ', $where_parts);
         $table_copy_rs    = PMA_query_as_cu($table_copy_query);
 
-        while ($table_copy_row = @PMA_mysql_fetch_array($table_copy_rs)) {
+        while ($table_copy_row = @PMA_DBI_fetch_assoc($table_copy_rs)) {
             $value_parts = array();
             foreach($table_copy_row AS $_key => $_val) {
                 if (isset($row_fields[$_key]) && $row_fields[$_key] == 'cc') {
@@ -92,7 +92,7 @@ global $cfgRelation;
                             . ' (\'' . implode('\', \'', $value_parts) . '\', \'' . implode('\', \'', $new_value_parts) . '\')';
 
             $new_table_rs    = PMA_query_as_cu($new_table_query);
-            $last_id = (@function_exists('mysql_insert_id') ? @PMA_DBI_insert_id() : -1);
+            $last_id = PMA_DBI_insert_id();
         } // end while
 
         return $last_id;
@@ -117,7 +117,7 @@ $err_url = 'tbl_properties.php?' . PMA_generate_common_url($db, $table);
 /**
  * Selects the database to work with
  */
-PMA_mysql_select_db($db);
+PMA_DBI_select_db($db);
 
 
 /**
@@ -141,7 +141,7 @@ if (isset($new_name) && trim($new_name) != '') {
 
         // This could avoid some problems with replicated databases, when
         // moving table from replicated one to not replicated one
-        PMA_mysql_select_db($target_db);
+        PMA_DBI_select_db($target_db);
 
         $target = PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
 
@@ -169,11 +169,7 @@ if (isset($new_name) && trim($new_name) != '') {
             $drop_query = '';
             if (isset($drop_if_exists) && $drop_if_exists == 'true') {
                 $drop_query = 'DROP TABLE IF EXISTS ' . PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
-                $result        = @PMA_mysql_query($drop_query);
-                if (PMA_mysql_error()) {
-                    require_once('./header.inc.php');
-                    PMA_mysqlDie('', $sql_structure, '', $err_url);
-                }
+                $result        = PMA_DBI_query($drop_query);
 
                 if (isset($sql_query)) {
                     $sql_query .= "\n" . $drop_query . ';';
@@ -183,14 +179,11 @@ if (isset($new_name) && trim($new_name) != '') {
 
                 // garvin: If an existing table gets deleted, maintain any entries
                 // for the PMA_* tables
-                $maintain_relations = true;
+                $maintain_relations = TRUE;
             }
 
-            $result        = @PMA_mysql_query($sql_structure);
-            if (PMA_mysql_error()) {
-                require_once('./header.inc.php');
-                PMA_mysqlDie('', $sql_structure, '', $err_url);
-            } else if (isset($sql_query)) {
+            $result        = @PMA_DBI_query($sql_structure);
+            if (isset($sql_query)) {
                 $sql_query .= "\n" . $sql_structure . ';';
             } else {
                 $sql_query = $sql_structure . ';';
@@ -207,11 +200,8 @@ if (isset($new_name) && trim($new_name) != '') {
 
                 /* Generate query back */
                 $sql_constraints = PMA_SQP_formatHtml($parsed_sql, 'query_only');
-                $result        = @PMA_mysql_query($sql_constraints);
-                if (PMA_mysql_error()) {
-                    require_once('./header.inc.php');
-                    PMA_mysqlDie('', $sql_structure, '', $err_url);
-                } else if (isset($sql_query)) {
+                $result          = PMA_DBI_query($sql_constraints);
+                if (isset($sql_query)) {
                     $sql_query .= "\n" . $sql_constraints;
                 } else {
                     $sql_query = $sql_constraints;
@@ -225,12 +215,8 @@ if (isset($new_name) && trim($new_name) != '') {
         // Copy the data
         if ($result != FALSE && ($what == 'data' || $what == 'dataonly')) {
             $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
-            $result          = @PMA_mysql_query($sql_insert_data);
-            if (PMA_mysql_error()) {
-                require_once('./header.inc.php');
-                PMA_mysqlDie('', $sql_insert_data, '', $err_url);
-            }
-            $sql_query .= "\n\n" . $sql_insert_data . ';';
+            PMA_DBI_query($sql_insert_data);
+            $sql_query      .= "\n\n" . $sql_insert_data . ';';
         }
 
         require_once('./libraries/relation.lib.php');
@@ -241,14 +227,10 @@ if (isset($new_name) && trim($new_name) != '') {
 
             // This could avoid some problems with replicated databases, when
             // moving table from replicated one to not replicated one
-            PMA_mysql_select_db($db);
+            PMA_DBI_select_db($db);
 
             $sql_drop_table = 'DROP TABLE ' . $source;
-            $result         = @PMA_mysql_query($sql_drop_table);
-            if (PMA_mysql_error()) {
-                require_once('./header.inc.php');
-                PMA_mysqlDie('', $sql_drop_table, '', $err_url);
-            }
+            PMA_DBI_query($sql_drop_table);
 
             // garvin: Move old entries from PMA-DBs to new table
             if ($cfgRelation['commwork']) {
@@ -323,7 +305,7 @@ if (isset($new_name) && trim($new_name) != '') {
                            . ' AND table_name = \'' . PMA_sqlAddslashes($new_name) . '\'';
                 $pdf_rs = PMA_query_as_cu($pdf_query);
 
-                while ($pdf_copy_row = @PMA_mysql_fetch_array($pdf_rs)) {
+                while ($pdf_copy_row = PMA_DBI_fetch_assoc($pdf_rs)) {
                     $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['pdf_pages'])
                                     . ' SET     db_name = \'' . PMA_sqlAddslashes($target_db) . '\''
                                     . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
@@ -350,7 +332,7 @@ if (isset($new_name) && trim($new_name) != '') {
                     $comments_copy_rs    = PMA_query_as_cu($comments_copy_query);
 
                     // Write every comment as new copied entry. [MIME]
-                    while ($comments_copy_row = @PMA_mysql_fetch_array($comments_copy_rs)) {
+                    while ($comments_copy_row = PMA_DBI_fetch_assoc($comments_copy_rs)) {
                         $new_comment_query = 'REPLACE INTO ' . PMA_backquote($cfgRelation['column_info'])
                                     . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ($cfgRelation['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
                                     . ' VALUES('

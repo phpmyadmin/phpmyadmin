@@ -33,18 +33,12 @@ unset($sql_query);
  */
 $fields_cnt = 0;
 if (isset($db) && isset($table) && $table != '' && $db != '') {
-    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
-    $result      = @PMA_mysql_query($local_query);
-    if (!$result) {
-        PMA_mysqlDie('', $local_query, '', $err_url);
-    }
-    else {
-        $fields_cnt        = PMA_DBI_num_rows($result);
-        while ($row = PMA_mysql_fetch_array($result)) {
-            $fields_list[] = $row['Field'];
-        } // end while
-        PMA_DBI_free_result($result);
-    }
+    $result            = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';');
+    $fields_cnt        = PMA_DBI_num_rows($result);
+    while ($row = PMA_DBI_fetch_assoc($result)) {
+        $fields_list[] = $row['Field'];
+    } // end while
+    PMA_DBI_free_result($result);
 }
 
 /**

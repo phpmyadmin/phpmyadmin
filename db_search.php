@@ -20,14 +20,8 @@ $url_query .= '&amp;goto=db_search.php';
 /**
  * Get the list of tables from the current database
  */
-$list_tables  = PMA_mysql_list_tables($db);
-$num_tables   = ($list_tables ? PMA_DBI_num_rows($list_tables) : 0);
-for ($i = 0; $i < $num_tables; $i++) {
-    $tables[] = PMA_mysql_tablename($list_tables, $i);
-}
-if ($num_tables) {
-    PMA_DBI_free_result($list_tables);
-}
+$tables     = PMA_DBI_get_tables($db);
+$num_tables = count($tables);
 
 
 /**
@@ -63,17 +57,14 @@ if (isset($submit_search)) {
         $sqlstr_delete = 'DELETE';
 
         // Fields to select
-        $local_query           = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($GLOBALS['db']);
-        $res                   = @PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, $err_url);
-        $res_cnt               = ($res ? PMA_DBI_num_rows($res) : 0);
-        for ($i = 0; $i < $res_cnt; $i++) {
-            $tblfields[]       = PMA_backquote(PMA_mysql_result($res, $i, 'field'));
-        } // end if
+        $res                  = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($GLOBALS['db']) . ';');
+        while (list($current) = PMA_DBI_fetch_row($res)) {
+            $tblfields[]      = PMA_backquote($current);
+        } // while
+        PMA_DBI_free_result($res);
+        unset($current, $res);
         $sqlstr_fieldstoselect = ' ' . implode(', ', $tblfields);
         $tblfields_cnt         = count($tblfields);
-        if ($res) {
-            PMA_DBI_free_result($res);
-        }
 
         // Table to use
         $sqlstr_from = ' FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
@@ -187,14 +178,10 @@ if (isset($submit_search)) {
             $newsearchsqls = PMA_getSearchSqls($onetable, $search_str, $search_option);
 
             // Executes the "COUNT" statement
-            $local_query   = $newsearchsqls['select_count'];
-            $res           = @PMA_mysql_query($local_query)  or PMA_mysqlDie('', $local_query, FALSE, $err_url);
-            if ($res) {
-                $res_cnt   = PMA_mysql_result($res, 0, 'count');
-                PMA_DBI_free_result($res);
-            } else {
-                $res_cnt   = 0;
-            } // end if... else ...
+            $res                     = PMA_DBI_query($newsearchsqls['select_count']);
+            $res_cnt                 = PMA_DBI_fetch_assoc($res);
+            $res_cnt                 = $res_cnt['count'];
+            PMA_DBI_free_result($res);
             $num_search_result_total = $res_cnt;
 
             echo '    <!-- Search results in table ' . $onetable . ' (' . $res_cnt . ') -->' . "\n"
@@ -226,14 +213,11 @@ if (isset($submit_search)) {
                 $newsearchsqls = PMA_getSearchSqls($table_select[$i], $search_str, $search_option);
 
                 // Executes the "COUNT" statement
-                $local_query   = $newsearchsqls['select_count'];
-                $res           = @PMA_mysql_query($local_query)  or PMA_mysqlDie('', $local_query, FALSE, $err_url);
-                if ($res) {
-                    $res_cnt   = PMA_mysql_result($res, 0, 'count');
-                    PMA_DBI_free_result($res);
-                } else {
-                    $res_cnt   = 0;
-                } // end if... else ...
+                $res           = PMA_DBI_query($newsearchsqls['select_count']);
+                $res_cnt       = PMA_DBI_fetch_assoc($res);
+                $res_cnt       = $res_cnt['count'];
+                PMA_DBI_free_result($res);
+                unset($res);
                 $num_search_result_total += $res_cnt;
 
                 echo '        <!-- Search results in table ' . $table_select[$i] . ' (' . $res_cnt . ') -->' . "\n"

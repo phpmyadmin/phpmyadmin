@@ -96,7 +96,7 @@ function PMA_getMIME($db, $table, $strict = false) {
               . ' AND (mimetype != \'\'' . (!$strict ? ' OR transformation != \'\' OR transformation_options != \'\'' : '') . ')';
     $com_rs   = PMA_query_as_cu($com_qry);
 
-    while ($row = @PMA_mysql_fetch_array($com_rs)) {
+    while ($row = @PMA_DBI_fetch_assoc($com_rs)) {
         $col                                    = $row['column_name'];
         $mime[$col]['mimetype']                 = $row['mimetype'];
         $mime[$col]['transformation']           = $row['transformation'];
@@ -137,7 +137,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation, $transformat
     $test_rs   = PMA_query_as_cu($test_qry);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
-        $row = @PMA_mysql_fetch_array($test_rs);
+        $row = @PMA_DBI_fetch_assoc($test_rs);
 
         if (!$forcedelete && (strlen($mimetype) > 0 || strlen($transformation) > 0 || strlen($transformation_options) > 0 || strlen($row['comment']) > 0)) {
             $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])

@@ -25,13 +25,13 @@ $err_url = 'tbl_properties.php?' . PMA_generate_common_url($db, $table);
 /**
  * Selects the database to work with
  */
-PMA_mysql_select_db($db);
+PMA_DBI_select_db($db);
 
 
 /**
  * The form used to define the structure of the table has been submitted
  */
-$abort = false;
+$abort = FALSE;
 if (isset($submit)) {
     $sql_query = $query_cpy = '';
 
@@ -174,10 +174,10 @@ if (isset($submit)) {
     }
 
     // Executes the query
-    $error_create = false;
-    $result    = PMA_mysql_query($sql_query) or $error_create = true;
+    $error_create = FALSE;
+    $result    = PMA_DBI_try_query($sql_query) or $error_create = TRUE;
 
-    if ($error_create == false) {
+    if ($error_create == FALSE) {
         $sql_query = $query_cpy . ';';
         unset($query_cpy);
         $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
@@ -211,7 +211,7 @@ if (isset($submit)) {
         // to prevent total loss of that data, we embed the form once again.
         // The variable $regenerate will be used to restore data in tbl_properties.inc.php
         $num_fields = $orig_num_fields;
-        $regenerate = true;
+        $regenerate = TRUE;
     }
 } // end do create table
 

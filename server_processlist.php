@@ -13,8 +13,7 @@ require_once('./server_common.inc.php');
  * Kills a selected process
  */
 if (!empty($kill)) {
-    $sql_query = 'KILL ' . $kill . ';';
-    if (@PMA_mysql_query($sql_query, $userlink)) {
+    if (PMA_DBI_try_query('KILL ' . $kill . ';')) {
         $message = sprintf($strThreadSuccessfullyKilled, $kill);
     } else {
         $message = sprintf($strCouldNotKill, $kill);
@@ -40,9 +39,8 @@ echo '<h2>' . "\n"
  * Sends the query and buffers the result
  */
 $serverProcesses = array();
-$sql_query = 'SHOW' . (empty($full) ? '' : ' FULL') . ' PROCESSLIST;';
-$res = @PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
-while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
+$res = PMA_DBI_query('SHOW' . (empty($full) ? '' : ' FULL') . ' PROCESSLIST;');
+while ($row = PMA_DBI_fetch_assoc($res)) {
     $serverProcesses[] = $row;
 }
 @PMA_DBI_free_result($res);

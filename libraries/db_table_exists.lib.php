@@ -10,7 +10,7 @@
 if (!isset($is_db) || !$is_db) {
     // Not a valid db name -> back to the welcome page
     if (!empty($db)) {
-        $is_db = @PMA_mysql_select_db($db);
+        $is_db = @PMA_DBI_select_db($db);
     }
     if (empty($db) || !$is_db) {
         if (!isset($is_transformation_wrapper)) {
@@ -22,7 +22,7 @@ if (!isset($is_db) || !$is_db) {
 if (!isset($is_table) || !$is_table) {
     // Not a valid table name -> back to the db_details.php
     if (!empty($table)) {
-        $is_table = @PMA_mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
+        $is_table = PMA_DBI_try_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
     }
     if (empty($table)
         || !($is_table && @PMA_DBI_num_rows($is_table))) {

@@ -113,18 +113,18 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $escaped;
 
     // Gets the data from the database
-    $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $error_url);
-    $fields_cnt  = mysql_num_fields($result);
+    $result      = PMA_DBI_query($sql_query);
+    $fields_cnt  = PMA_DBI_num_fields($result);
 
     // If required, get fields name at the first line
     if (isset($GLOBALS['showcsvnames']) && $GLOBALS['showcsvnames'] == 'yes') {
         $schema_insert = '';
         for ($i = 0; $i < $fields_cnt; $i++) {
             if ($enclosed == '') {
-                $schema_insert .= stripslashes(mysql_field_name($result, $i));
+                $schema_insert .= stripslashes(mysql_field_name($result, $i)); //! UNWRAPPED FUNCTION!
             } else {
                 $schema_insert .= $enclosed
-                               . str_replace($enclosed, $escaped . $enclosed, stripslashes(mysql_field_name($result, $i)))
+                               . str_replace($enclosed, $escaped . $enclosed, stripslashes(mysql_field_name($result, $i))) //! UNWRAPPED FUNCTION!
                                . $enclosed;
             }
             $schema_insert     .= $separator;
@@ -134,7 +134,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     } // end if
 
     // Format the data
-    while ($row = PMA_mysql_fetch_row($result)) {
+    while ($row = PMA_DBI_fetch_row($result)) {
         $schema_insert = '';
         for ($j = 0; $j < $fields_cnt; $j++) {
             if (!isset($row[$j])) {

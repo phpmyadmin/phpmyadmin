@@ -15,9 +15,8 @@ PMA_checkParameters(array('db', 'table'));
  * Gets table informations
  */
 // The 'show table' statement works correct since 3.23.03
-$local_query         = 'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
-$table_info_result   = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
-$showtable           = PMA_mysql_fetch_array($table_info_result);
+$table_info_result   = PMA_DBI_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
+$showtable           = PMA_DBI_fetch_assoc($table_info_result);
 $tbl_type            = strtoupper($showtable['Type']);
 $tbl_charset         = empty($showtable['Collation']) ? '' : $showtable['Collation'];
 $table_info_num_rows = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);

@@ -25,7 +25,7 @@ $err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db);
 if (!isset($is_db) || !$is_db) {
     // Not a valid db name -> back to the welcome page
     if (!empty($db)) {
-        $is_db = @PMA_mysql_select_db($db);
+        $is_db = PMA_DBI_select_db($db);
     }
     if (empty($db) || !$is_db) {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
@@ -38,7 +38,7 @@ if (!isset($is_db) || !$is_db) {
  */
 if (isset($submitcharset) && PMA_MYSQL_INT_VERSION >= 40101) {
     $sql_query     = 'ALTER DATABASE ' . PMA_backquote($db) . ' DEFAULT CHARACTER SET ' . $db_charset;
-    $result        = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query, '', $err_url);
+    $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;
 }
 

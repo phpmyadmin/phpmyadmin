@@ -32,46 +32,45 @@ $cfgRelation = PMA_getRelationsParam();
 // staybyte: speedup view on locked tables - 11 June 2001
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
 if ($cfg['SkipLockedTables'] == TRUE) {
-    $local_query  = 'SHOW OPEN TABLES FROM ' . PMA_backquote($db);
-    $result        = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $result = PMA_DBI_query('SHOW OPEN TABLES FROM ' . PMA_backquote($db) . ';');
     // Blending out tables in use
     if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
-        while ($tmp = PMA_mysql_fetch_array($result)) {
+        while ($tmp = PMA_DBI_fetch_row($result)) {
             // if in use memorize tablename
             if (preg_match('@in_use=[1-9]+@i', $tmp[0])) {
                 $sot_cache[$tmp[0]] = TRUE;
             }
         }
         PMA_DBI_free_result($result);
+        unset($result);
 
         if (isset($sot_cache)) {
-            $local_query = 'SHOW TABLES FROM ' . PMA_backquote($db);
-            $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+            $result      = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
             if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
-                while ($tmp = PMA_mysql_fetch_array($result)) {
+                while ($tmp = PMA_DBI_fetch_row($result)) {
                     if (!isset($sot_cache[$tmp[0]])) {
-                        $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\'';
-                        $sts_result  = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-                        $sts_tmp     = PMA_mysql_fetch_array($sts_result);
+                        $sts_result  = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\';');
+                        $sts_tmp     = PMA_DBI_fetch_assoc($sts_result);
                         $tables[]    = $sts_tmp;
                     } else { // table in use
                         $tables[]    = array('Name' => $tmp[0]);
                     }
                 }
                 PMA_DBI_free_result($result);
+                unset($result);
                 $sot_ready = TRUE;
             }
         }
     }
 }
 if (!isset($sot_ready)) {
-    $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
-    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-    if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
-        while ($sts_tmp = PMA_mysql_fetch_array($result)) {
+    $result      = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ';');
+    if (PMA_DBI_num_rows($result) > 0) {
+        while ($sts_tmp = PMA_DBI_fetch_assoc($result)) {
             $tables[] = $sts_tmp;
         }
         PMA_DBI_free_result($result);
+        unset($res);
     }
 }
 $num_tables = (isset($tables) ? count($tables) : 0);

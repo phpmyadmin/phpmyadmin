@@ -29,7 +29,7 @@ $index_types       = array(
 if (!defined('PMA_IDX_INCLUDED')) {
     // Not a valid db name -> back to the welcome page
     if (!empty($db)) {
-        $is_db = @PMA_mysql_select_db($db);
+        $is_db = PMA_DBI_select_db($db);
     }
     if (empty($db) || !$is_db) {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
@@ -37,10 +37,10 @@ if (!defined('PMA_IDX_INCLUDED')) {
     }
     // Not a valid table name -> back to the default db_details sub-page
     if (!empty($table)) {
-        $is_table = @PMA_mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
+        $is_table = PMA_DBI_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
     }
     if (empty($table)
-        || !($is_table && @PMA_DBI_num_rows($is_table))) {
+        || !($is_table && PMA_DBI_num_rows($is_table))) {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db, '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit;
     } else if (isset($is_table)) {
@@ -70,12 +70,12 @@ if (defined('PMA_IDX_INCLUDED')) {
     $idx_cnt     = count($ret_keys);
 } else {
     $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
-    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+    $result      = PMA_DBI_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
     $idx_cnt     = PMA_DBI_num_rows($result);
 }
 
 for ($i = 0; $i < $idx_cnt; $i++) {
-    $row = (defined('PMA_IDX_INCLUDED') ? $ret_keys[$i] : PMA_mysql_fetch_array($result));
+    $row = (defined('PMA_IDX_INCLUDED') ? $ret_keys[$i] : PMA_DBI_fetch_assoc($result));
 
     if ($row['Key_name'] != $prev_index ){
         $indexes[]  = $row['Key_name'];
@@ -110,16 +110,15 @@ if (defined('PMA_IDX_INCLUDED')) {
 // Get fields and stores their name/type
 // fields had already been grabbed in "tbl_properties.php"
 if (defined('PMA_IDX_INCLUDED')) {
-    mysql_data_seek($fields_rs, 0);
+    mysql_data_seek($fields_rs, 0); // !UNWRAPPED FUNCTION!
 } else {
-    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
-    $fields_rs   = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+    $fields_rs   = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';');
     $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 }
 
 $fields_names           = array();
 $fields_types           = array();
-while ($row = PMA_mysql_fetch_array($fields_rs)) {
+while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     $fields_names[]     = $row['Field'];
     // loic1: set or enum types: slashes single quotes inside options
     if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
@@ -201,7 +200,7 @@ if (!defined('PMA_IDX_INCLUDED')
         $sql_query .= $index_fields . ')';
     }
 
-    $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, FALSE, $err_url);
+    $result    = PMA_DBI_query($sql_query);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
 
     $active_page = 'tbl_properties_structure.php';

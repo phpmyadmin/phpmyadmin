@@ -485,13 +485,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             isset($analyzed_sql[0]['table_ref']) && count($analyzed_sql[0]['table_ref']) == 1) {
 
             // grab indexes data:
-            $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
-            $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
-            $idx_cnt     = PMA_DBI_num_rows($result);
+            $result  = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
+            $idx_cnt = PMA_DBI_num_rows($result);
 
             $prev_index = '';
             for ($i = 0; $i < $idx_cnt; $i++) {
-                $row = (defined('PMA_IDX_INCLUDED') ? $ret_keys[$i] : PMA_mysql_fetch_array($result));
+                $row = (defined('PMA_IDX_INCLUDED') ? $ret_keys[$i] : PMA_DBI_fetch_assoc($result));
 
                 if ($row['Key_name'] != $prev_index ){
                     $indexes[]  = $row['Key_name'];
@@ -749,7 +748,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             //       FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
 
             if (($is_join
-                && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name . '~i', $select_stt[1], $parts)) 
+                && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name . '~i', $select_stt[1], $parts))
                || ( isset($analyzed_sql[0]['select_expr'][$i]['expr'])
                    && isset($analyzed_sql[0]['select_expr'][$i]['column'])
                    && $analyzed_sql[0]['select_expr'][$i]['expr'] !=
@@ -974,7 +973,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     // loic1: use 'PMA_mysql_fetch_array' rather than 'PMA_mysql_fetch_row'
     //        to get the NULL values
 
-    while ($row = PMA_mysql_fetch_array($dt_result)) {
+    // rabus: This function needs a little rework.
+    //        Using MYSQL_BOTH just pollutes the memory!
+
+    while ($row = PMA_mysql_fetch_array($dt_result)) { // !UNWRAPPED FUNCTION!
 
         // lem9: "vertical display" mode stuff
         if (($row_no != 0) && ($repeat_cells != 0) && !($row_no % $repeat_cells) && ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped')) {
@@ -1029,7 +1031,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             //     "primary" key to use in links
             if ($is_display['edit_lnk'] == 'ur' /* || $is_display['edit_lnk'] == 'dr' */) {
                 for ($i = 0; $i < $fields_cnt; ++$i) {
-                    $field_flags = PMA_mysql_field_flags($dt_result, $i);
+                    $field_flags = PMA_mysql_field_flags($dt_result, $i); // !UNWRAPPED FUNCTION!
                     $meta      = $fields_meta[$i];
 
                     // do not use an alias in a condition
@@ -1300,9 +1302,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                          . ' FROM ' . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
                                          . ' WHERE ' . PMA_backquote($map[$meta->name][1])
                                          . ' = ' . $row[$pointer];
-                            $dispresult  = PMA_mysql_query($dispsql);
+                            $dispresult  = PMA_DBI_try_query($dispsql);
                             if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
-                                $dispval = PMA_mysql_result($dispresult, 0);
+                                list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
                             }
                             else {
                                 $dispval = $GLOBALS['strLinkNotFound'];
@@ -1338,7 +1340,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 // TEXT fields type, however TEXT fields must be displayed
                 // even if $cfg['ShowBlob'] is false -> get the true type
                 // of the fields.
-                $field_flags = PMA_mysql_field_flags($dt_result, $i);
+                $field_flags = PMA_mysql_field_flags($dt_result, $i); // !UNWRAPPED FUNCTION!
                 if (stristr($field_flags, 'BINARY')) {
                     $blobtext = '[BLOB';
                     if (isset($row[$pointer])) {
@@ -1385,7 +1387,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     }
 
                     // loic1: displays special characters from binaries
-                    $field_flags = PMA_mysql_field_flags($dt_result, $i);
+                    $field_flags = PMA_mysql_field_flags($dt_result, $i); // !UNWRAPPED FUNCTION!
                     if (stristr($field_flags, 'BINARY')) {
                         $row[$pointer]     = str_replace("\x00", '\0', $row[$pointer]);
                         $row[$pointer]     = str_replace("\x08", '\b', $row[$pointer]);
@@ -1427,9 +1429,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                          . ' FROM ' . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
                                          . ' WHERE ' . PMA_backquote($map[$meta->name][1])
                                          . ' = \'' . PMA_sqlAddslashes($row[$pointer]) . '\'';
-                            $dispresult  = @PMA_mysql_query($dispsql);
+                            $dispresult  = PMA_DBI_try_query($dispsql);
                             if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
-                                $dispval = PMA_mysql_result($dispresult, 0);
+                                list($dispval) = PMA_DBI_fetch_row($dispresult);
                             }
                             else {
                                 $dispval = $GLOBALS['strLinkNotFound'];

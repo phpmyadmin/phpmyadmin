@@ -282,7 +282,7 @@ class PMA_PDF extends FPDF
         echo "\n";
 
         require_once('./footer.inc.php');
-    } // end of the "PMA_PDF_die()" function
+    } // end of the "PMA_PDF_die()" function 
 
 
     /**
@@ -312,7 +312,7 @@ class PMA_PDF extends FPDF
                     . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND page_nr = \'' . $pdf_page_number . '\'';
         $test_rs    = PMA_query_as_cu($test_query);
-        $pages = @PMA_mysql_fetch_array($test_rs);
+        $pages = @PMA_DBI_fetch_assoc($test_rs);
         $this->SetFont('', 'B', 14);
         $this->Cell(0,6, ucfirst($pages['page_descr']),'B',1,'C');
         $this->SetFont('', '');
@@ -683,12 +683,12 @@ class PMA_RT_Table
 
         $this->table_name = $table_name;
         $sql              = 'DESCRIBE ' .  PMA_backquote($table_name);
-        $result           = PMA_mysql_query($sql);
+        $result           = PMA_DBI_try_query($sql);
         if (!$result || !PMA_DBI_num_rows($result)) {
             $pdf->PMA_PDF_die(sprintf($GLOBALS['strPdfInvalidTblName'], $table_name));
         }
         // load fields
-        while ($row = PMA_mysql_fetch_array($result)) {
+        while ($row = PMA_DBI_fetch_row($result)) {
             $this->fields[] = $row[0];
         }
 
@@ -710,17 +710,16 @@ class PMA_RT_Table
         if (!$result || !PMA_DBI_num_rows($result)) {
             $pdf->PMA_PDF_die(sprintf($GLOBALS['strConfigureTableCoord'], $table_name));
         }
-        list($this->x, $this->y) = PMA_mysql_fetch_array($result);
+        list($this->x, $this->y) = PMA_DBI_fetch_row($result);
         $this->x = (double) $this->x;
         $this->y = (double) $this->y;
         // displayfield
         $this->displayfield = PMA_getDisplayField($db, $table_name);
 
         // index
-        $sql    = 'SHOW index FROM ' . PMA_backquote($table_name);
-        $result = PMA_mysql_query($sql);
-        if ($result && PMA_DBI_num_rows($result) > 0) {
-            while ($row = PMA_mysql_fetch_array($result)) {
+        $result = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($table_name) . ';');
+        if (PMA_DBI_num_rows($result) > 0) {
+            while ($row = PMA_DBI_fetch_assoc($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {
                     $this->primary[] = $row['Column_name'];
                 }
@@ -1043,7 +1042,7 @@ class PMA_RT
                   .   ' WHERE page_nr = ' . $pdf_page_number;
         $_name_rs   = PMA_query_as_cu($_name_sql);
         if ($_name_rs) {
-            $_name_row = PMA_mysql_fetch_row($_name_rs);
+            $_name_row = PMA_DBI_fetch_row($_name_rs);
             $filename = $_name_row[0] . '.pdf';
         }
         // i don't know if there is a chance for this to happen, but rather be on the safe side:
@@ -1112,7 +1111,7 @@ class PMA_RT
             $pdf->PMA_PDF_die($GLOBALS['strPdfNoTables']);
 //            die('No tables');
         }
-        while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
+        while ($curr_table = @PMA_DBI_fetch_assoc($tab_rs)) {
             $alltables[] = PMA_sqlAddslashes($curr_table['table_name']);
             //$intable     = '\'' . implode('\', \'', $alltables) . '\'';
         }
@@ -1200,7 +1199,7 @@ class PMA_RT
 //        $norelations     = TRUE;
 //        if ($result && PMA_DBI_num_rows($result) > 0) {
 //            $norelations = FALSE;
-//            while ($row = PMA_mysql_fetch_array($result)) {
+//            while ($row = PMA_DBI_fetch_assoc($result)) {
 //                $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
 //            }
 //        }
@@ -1233,9 +1232,8 @@ function PMA_RT_DOC($alltables ){
         $pdf->Cell(0,6,$i.' '. $table,0,1,'L',0,$pdf->PMA_links['doc'][$table]['-']);
 
         //$pdf->Ln(1);
-        $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
-        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-        while ($row = PMA_mysql_fetch_array($result)) {
+        $result     = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';');
+        while ($row = PMA_DBI_fetch_assoc($result)) {
             $pdf->SetX(20);
             $field_name = $row['Field'];
             $pdf->PMA_links['doc'][$table][$field_name] =$pdf->AddLink();
@@ -1270,28 +1268,26 @@ function PMA_RT_DOC($alltables ){
             $mime_map = PMA_getMIME($db, $table, true);
         }
 
+
         /**
          * Gets table informations
          */
-        $local_query  = "SHOW TABLE STATUS LIKE '" . PMA_sqlAddslashes($table, TRUE) . "'";
-        $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-        $showtable    = PMA_mysql_fetch_array($result);
+        $result       = PMA_DBI_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
+        $showtable    = PMA_DBI_fetch_assoc($result);
         $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
         $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
         $create_time  = (isset($showtable['Create_time']) ? PMA_localisedDate(strtotime($showtable['Create_time'])) : '');
         $update_time  = (isset($showtable['Update_time']) ? PMA_localisedDate(strtotime($showtable['Update_time'])) : '');
         $check_time   = (isset($showtable['Check_time']) ? PMA_localisedDate(strtotime($showtable['Check_time'])) : '');
 
-        if ($result) {
-             PMA_DBI_free_result($result);
-        }
+        PMA_DBI_free_result($result);
+        unset($result);
 
 
         /**
          * Gets table keys and retains them
          */
-        $local_query  = 'SHOW KEYS FROM ' . PMA_backquote($table);
-        $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        $result       = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
         $primary      = '';
         $indexes      = array();
         $lastIndex    = '';
@@ -1299,7 +1295,7 @@ function PMA_RT_DOC($alltables ){
         $indexes_data = array();
         $pk_array     = array(); // will be use to emphasis prim. keys in the table
                                  // view
-        while ($row = PMA_mysql_fetch_array($result)) {
+        while ($row = PMA_DBI_fetch_assoc($result)) {
             // Backups the list of primary keys
             if ($row['Key_name'] == 'PRIMARY') {
                 $primary   .= $row['Column_name'] . ', ';
@@ -1333,8 +1329,7 @@ function PMA_RT_DOC($alltables ){
         /**
          * Gets fields properties
          */
-        $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
-        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        $result      = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';');
         $fields_cnt  = PMA_DBI_num_rows($result);
 
 
@@ -1412,7 +1407,7 @@ function PMA_RT_DOC($alltables ){
         }
         $pdf->SetFont('', '');
 
-        while ($row = PMA_mysql_fetch_array($result)) {
+        while ($row = PMA_DBI_fetch_assoc($result)) {
             $bgcolor = ($i % 2) ?$GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
             $i++;
 
@@ -1518,7 +1513,7 @@ $all_tab_same_wide    = (isset($all_tab_same_wide) && $all_tab_same_wide == 'on'
 $with_doc             = (isset($with_doc) && $with_doc == 'on') ? 1 : 0;
 $orientation          = (isset($orientation) && $orientation == 'P') ? 'P' : 'L';
 $paper                = isset($paper) ? $paper : 'A4';
-PMA_mysql_select_db($db);
+PMA_DBI_select_db($db);
 
 $rt = new PMA_RT($pdf_page_number, $show_table_dimension, $show_color, $show_grid, $all_tab_same_wide, $orientation, $paper);
 ?>

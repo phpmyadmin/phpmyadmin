@@ -309,8 +309,8 @@ if (!$save_on_server) {
 
 // Check if we have something to export
 if ($export_type == 'database') {
-    $tables     = PMA_mysql_list_tables($db);
-    $num_tables = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
+    $tables     = PMA_DBI_get_tables($db);
+    $num_tables = count($tables);
     if ($num_tables == 0) {
         $message = $strNoTablesFound;
         $js_to_run = 'functions.js';
@@ -369,15 +369,15 @@ if ($export_type == 'server') {
             || !isset($tmp_select)) {
             PMA_exportDBHeader($current_db);
             PMA_exportDBCreate($current_db);
-            $tables     = PMA_mysql_list_tables($current_db);
-            $num_tables = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
-            $i = 0;
-            while ($i < $num_tables) {
-                $table = PMA_mysql_tablename($tables, $i);
+            $tables = PMA_DBI_get_tables($current_db);
+            foreach ($tables as $table) {
                 $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db) . '.' . PMA_backquote($table);
-                if (isset($GLOBALS[$what . '_structure'])) PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates);
-                if (isset($GLOBALS[$what . '_data'])) PMA_exportData($current_db, $table, $crlf, $err_url, $local_query);
-                $i++;
+                if (isset($GLOBALS[$what . '_structure'])) {
+                    PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates);
+                }
+                if (isset($GLOBALS[$what . '_data'])) {
+                    PMA_exportData($current_db, $table, $crlf, $err_url, $local_query);
+                }
             }
             PMA_exportDBFooter($current_db);
         }
@@ -389,16 +389,18 @@ if ($export_type == 'server') {
         $tmp_select = '|' . $tmp_select . '|';
     }
     $i = 0;
-    while ($i < $num_tables) {
-        $table = PMA_mysql_tablename($tables, $i);
+    foreach ($tables as $table) {
         $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
         if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
             || !isset($tmp_select)) {
 
-            if (isset($GLOBALS[$what . '_structure'])) PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates);
-            if (isset($GLOBALS[$what . '_data'])) PMA_exportData($db, $table, $crlf, $err_url, $local_query);
+            if (isset($GLOBALS[$what . '_structure'])) {
+                PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates);
+            }
+            if (isset($GLOBALS[$what . '_data'])) {
+                PMA_exportData($db, $table, $crlf, $err_url, $local_query);
+            }
         }
-        $i++;
     }
     PMA_exportDBFooter($db);
 } else {
@@ -415,7 +417,7 @@ if ($export_type == 'server') {
 
     if (!empty($sql_query)) {
         $local_query = $sql_query . $add_query;
-        PMA_mysql_select_db($db);
+        PMA_DBI_select_db($db);
     } else {
         $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
     }

@@ -37,8 +37,8 @@ else {
 // Drop link if allowed
 if (!$cfg['AllowUserDropDatabase']) {
     // Check if the user is a Superuser
-    $links_result                 = @PMA_mysql_query('USE mysql');
-    $cfg['AllowUserDropDatabase'] = (!PMA_mysql_error());
+    $cfg['AllowUserDropDatabase'] = PMA_DBI_select_db('mysql');
+    PMA_DBI_select_db($db);
 }
 if ($cfg['AllowUserDropDatabase']) {
     $lnk5 = 'sql.php';

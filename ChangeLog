@@ -5,6 +5,35 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-22 Alexander M. Turek  <innocenteyes@derrabus.de>
+    * libraries/dbi/mysqli.dbi.lib.php: Experimental new MySQLi library.
+    * browse_foreigners.php, db_create.php, db_datadict.php,
+      db_details_common.php, db_details_db_info.php, db_details_qbe.php,
+      db_details_structure.php, db_printview.php, export.php, ldi_table.php,
+      left.php, main.php, mult_submits.php, pdf_pages.php, pdf_schema.php,
+      querywindow.php, read_dump.php, server_common.inc.php,
+      server_privileges.php, server_processlist.php, server_status.php,
+      server_variables.php, sql.php, tbl_addfield.php, tbl_alter.php,
+      tbl_change.php, tbl_create.php, tbl_index.php, tbl_move_copy.php,
+      tbl_printview.php, tbl_properties.inc.php, tbl_properties_operations.php,
+      tbl_properties_table_info.php, tbl_query_box.php, tbl_relation.php,
+      tbl_rename.php, tbl_replace.php, tbl_select.php,
+      transformation_wrapper.php, user_password.php, libraries/bookmark.lib.php,
+      libraries/common.lib.php, libraries/db_table_exists.lib.php,
+      libraries/display_tbl:lib.php, libraries/get_foreign.lib.php,
+      libraries/mysql_charsets.lib.php, libraries/relation.lib.php,
+      libraries/transformations.lib.php, libraries/auth/config.auth.lib.php,
+      libraries/auth/cookie.auth.lib.php, libraries/export/*.php:
+      - Removed most remaining calls to old mysql_wrappers library;
+      - Small optimizations and XHTML fixes.
+    * libraries/database_interface.lib.php, libraries/dbi/mysql.dbi.lib.php:
+      - Moved PMA_DBI_get_dblist() definition to database_interface.lib;
+      - Fixed "undefined constant" warning (bug #881637);
+      - Added new functions: PMA_DBI_select_db(), PMA_DBI_get_fields(),
+        PMA_DBI_get_fields_meta();
+      - Bypassing charset conversion code for MySQL >= 4.1 experimentally.
+    * Documentation.html: Changed my email address.
+
 2004-01-21 Michal Cihar  <thesiswritten@cihar.com>
     * lang/czech: Fixed unclear message.
 

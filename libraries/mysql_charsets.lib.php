@@ -4,11 +4,10 @@
 
 if (PMA_MYSQL_INT_VERSION >= 40100){
 
-    $res = PMA_mysql_query('SHOW CHARACTER SET;', $userlink)
-        or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW CHARACTER SET;');
+    $res = PMA_DBI_query('SHOW CHARACTER SET;');
 
     $mysql_charsets = array();
-    while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
+    while ($row = PMA_DBI_fetch_assoc($res)) {
         $mysql_charsets[] = $row['Charset'];
         $mysql_charsets_maxlen[$row['Charset']] = $row['Maxlen'];
         $mysql_charsets_descriptions[$row['Charset']] = $row['Description'];
@@ -16,15 +15,14 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
     @PMA_DBI_free_result($res);
     unset($res, $row);
 
-    $res = PMA_mysql_query('SHOW COLLATION;', $userlink)
-        or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW COLLATION;');
+    $res = PMA_DBI_query('SHOW COLLATION;');
 
     $mysql_charsets_count = count($mysql_charsets);
     sort($mysql_charsets, SORT_STRING);
 
     $mysql_collations = array_flip($mysql_charsets);
     $mysql_default_collations = $mysql_collations_flat = array();;
-    while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
+    while ($row = PMA_DBI_fetch_assoc($res)) {
         if (!is_array($mysql_collations[$row['Charset']])) {
             $mysql_collations[$row['Charset']] = array($row['Collation']);
         } else {
@@ -233,9 +231,9 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             // MySQL 4.1.0 does not support seperate charset settings
             // for databases.
 
-            $sql_query = 'SHOW CREATE DATABASE `' . $db . '`;';
-            $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
-            $row = PMA_mysql_fetch_row($res);
+            $res = PMA_DBI_query('SHOW CREATE DATABASE `' . $db . '`;');
+            $row = PMA_DBI_fetch_row($res);
+            PMA_DBI_free_result($res);
             PMA_DBI_free_result($res);
             $tokenized = explode(' ', $row[1]);
             unset($row, $res, $sql_query);

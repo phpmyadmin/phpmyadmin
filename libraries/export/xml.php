@@ -27,7 +27,7 @@ function PMA_exportComment($text) {
 function PMA_exportHeader() {
     global $crlf;
     global $cfg;
-    
+
     if ($GLOBALS['output_charset_conversion']) {
         $charset = $GLOBALS['charset_of_file'];
     } else {
@@ -113,18 +113,18 @@ function PMA_exportDBCreate($db) {
  * @access  public
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
-    $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $error_url);
-    
-    $columns_cnt = mysql_num_fields($result);
+    $result      = PMA_DBI_query($sql_query);
+
+    $columns_cnt = PMA_DBI_num_fields($result);
     for ($i = 0; $i < $columns_cnt; $i++) {
-        $columns[$i] = stripslashes(mysql_field_name($result, $i));
+        $columns[$i] = stripslashes(mysql_field_name($result, $i)); //! UNWRAPPED FUNCTION!
     }
     unset($i);
-    
+
     $buffer      = '  <!-- ' . $GLOBALS['strTable'] . ' ' . $table . ' -->' . $crlf;
     if (!PMA_exportOutputHandler($buffer)) return FALSE;
-    
-    while ($record = PMA_mysql_fetch_array($result, MYSQL_ASSOC)) {
+
+    while ($record = PMA_DBI_fetch_assoc($result)) {
         $buffer         = '    <' . $table . '>' . $crlf;
         for ($i = 0; $i < $columns_cnt; $i++) {
             // There is no way to dectect a "NULL" value with PHP3
@@ -134,7 +134,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             }
         }
         $buffer         .= '    </' . $table . '>' . $crlf;
-        
+
         if (!PMA_exportOutputHandler($buffer)) return FALSE;
     }
     PMA_DBI_free_result($result);

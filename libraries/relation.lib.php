@@ -10,15 +10,15 @@
 /**
  * Executes a query as controluser if possible, otherwise as normal user
  *
- * @param   string   the query to execute
- * @param   boolean  whether to display SQL error messages or not
+ * @param   string    the query to execute
+ * @param   boolean   whether to display SQL error messages or not
  *
- * @return  integer  the result id
+ * @return  integer   the result id
  *
- * @global  string   the URL of the page to show in case of error
- * @global  string   the name of db to come back to
- * @global  integer  the ressource id of DB connect as controluser
- * @global  array    configuration infos about the relations stuff
+ * @global  string    the URL of the page to show in case of error
+ * @global  string    the name of db to come back to
+ * @global  resource  the resource id of DB connect as controluser
+ * @global  array     configuration infos about the relations stuff
  *
  * @access  public
  *
@@ -27,28 +27,20 @@
  function PMA_query_as_cu($sql, $show_error = TRUE) {
     global $err_url_0, $db, $dbh, $cfgRelation;
 
-    if (isset($dbh)) {
-        PMA_mysql_select_db($cfgRelation['db'], $dbh);
-        $result = @PMA_mysql_query($sql, $dbh);
-        if (!$result && $show_error == TRUE) {
-            PMA_mysqlDie(mysql_error($dbh), $sql, '', $err_url_0);
-        }
-        PMA_mysql_select_db($db, $dbh);
+    PMA_DBI_select_db($cfgRelation['db'], $dbh);
+    if ($show_error) {
+        $result = PMA_DBI_query($sql, $dbh);
     } else {
-        PMA_mysql_select_db($cfgRelation['db']);
-        $result = @PMA_mysql_query($sql);
-        if ($result && $show_error == TRUE) {
-            PMA_mysqlDie('', $sql, '', $err_url_0);
-        }
-        PMA_mysql_select_db($db);
+        $result = PMA_DBI_try_query($sql, $dbh);
     } // end if... else...
+    PMA_DBI_select_db($db, $dbh);
 
     if ($result) {
         return $result;
     } else {
         return FALSE;
     }
- } // end of the "PMA_query_as_cu()" function
+ } // end of the "PMA_query_as_cu()" function 
 
 
 /**
@@ -109,12 +101,12 @@ function PMA_getRelationsParam($verbose = FALSE)
     //  example enable relations but not pdf...
     //  I was thinking of checking if they have all required columns but I
     //  fear it might be too slow
-    // PMA_mysql_select_db($cfgRelation['db']);
+    // PMA_DBI_select_db($cfgRelation['db']);
 
     $tab_query = 'SHOW TABLES FROM ' . PMA_backquote($cfgRelation['db']);
     $tab_rs    = PMA_query_as_cu($tab_query, FALSE);
 
-    while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
+    while ($curr_table = @PMA_DBI_fetch_assoc($tab_rs)) {
         if ($curr_table[0] == $cfg['Server']['bookmarktable']) {
             $cfgRelation['bookmark']        = $curr_table[0];
         } else if ($curr_table[0] == $cfg['Server']['relation']) {
@@ -150,7 +142,7 @@ function PMA_getRelationsParam($verbose = FALSE)
             $mime_field_mimetype                = FALSE;
             $mime_field_transformation          = FALSE;
             $mime_field_transformation_options  = FALSE;
-            while ($curr_mime_field = @PMA_mysql_fetch_array($mime_rs)) {
+            while ($curr_mime_field = @PMA_DBI_fetch_assoc($mime_rs)) {
                 if ($curr_mime_field[0] == 'mimetype') {
                     $mime_field_mimetype               = TRUE;
                 } else if ($curr_mime_field[0] == 'transformation') {
@@ -291,7 +283,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
         }
         $relations     = PMA_query_as_cu($rel_query);
         $i = 0;
-        while ($relrow = @PMA_mysql_fetch_array($relations)) {
+        while ($relrow = @PMA_DBI_fetch_assoc($relations)) {
             $field                            = $relrow['master_field'];
             $foreign[$field]['foreign_db']    = $relrow['foreign_db'];
             $foreign[$field]['foreign_table'] = $relrow['foreign_table'];
@@ -303,8 +295,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
     if (($source == 'both' || $source == 'innodb') && !empty($table)) {
         $show_create_table_query = 'SHOW CREATE TABLE '
             . PMA_backquote($db) . '.' . PMA_backquote($table);
-        $show_create_table_res = PMA_mysql_query($show_create_table_query);
-        list(,$show_create_table) = PMA_mysql_fetch_row($show_create_table_res);
+        $show_create_table_res = PMA_DBI_query($show_create_table_query);
+        list(,$show_create_table) = PMA_DBI_fetch_row($show_create_table_res);
 
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
@@ -367,7 +359,7 @@ function PMA_getDisplayField($db, $table) {
                 . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
 
     $disp_res   = PMA_query_as_cu($disp_query);
-    $row        = ($disp_res ? PMA_mysql_fetch_array($disp_res) : '');
+    $row        = ($disp_res ? PMA_DBI_fetch_assoc($disp_res) : '');
     if (isset($row['display_field'])) {
         return $row['display_field'];
     } else {
@@ -407,7 +399,7 @@ function PMA_getComments($db, $table = '') {
     }
 
     $i = 0;
-    while ($row = @PMA_mysql_fetch_array($com_rs)) {
+    while ($row = PMA_DBI_fetch_assoc($com_rs)) {
         $i++;
         $col           = ($table != '' ? $row['column_name'] : $i);
 
@@ -471,7 +463,7 @@ function PMA_setComment($db, $table, $key, $value, $removekey = '') {
     $test_rs   = PMA_query_as_cu($test_qry);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
-        $row = @PMA_mysql_fetch_array($test_rs);
+        $row = PMA_DBI_fetch_assoc($test_rs);
 
         if (strlen($value) > 0 || strlen($row['mimetype']) > 0 || strlen($row['transformation']) > 0 || strlen($row['transformation_options']) > 0) {
             $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
@@ -554,7 +546,7 @@ function PMA_getHistory($username) {
 
     $history = array();
 
-    while ($row = @PMA_mysql_fetch_array($hist_rs)) {
+    while ($row = @PMA_DBI_fetch_assoc($hist_rs)) {
         $history[] = $row;
     }
 
@@ -579,7 +571,7 @@ function PMA_purgeHistory($username) {
 
     $purge_rs = PMA_query_as_cu('SELECT timevalue FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_sqlAddSlashes($username) . '\' ORDER BY timevalue DESC LIMIT ' . $cfg['QueryHistoryMax'] . ', 1');
     $i = 0;
-    $row = @PMA_mysql_fetch_array($purge_rs);
+    $row = PMA_DBI_fetch_row($purge_rs);
 
     if (is_array($row) && isset($row[0]) && $row[0] > 0) {
         $maxtime = $row[0];
@@ -609,7 +601,7 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
     $ret = '<option value=""></option>' . "\n";
 
     $reloptions = array('content-id' => array(), 'id-content' => array());
-    while ($relrow = @PMA_mysql_fetch_array($disp)) {
+    while ($relrow = @PMA_DBI_fetch_assoc($disp)) {
         $key   = $relrow[$foreign_field];
         if (strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
             $value  = (($foreign_display != FALSE) ? htmlspecialchars($relrow[$foreign_display]) : '');

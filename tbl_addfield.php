@@ -101,11 +101,10 @@ if (isset($submit)) {
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
-    $sql_query     = 'USE ' . PMA_backquote($db);
-    $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+    PMA_DBI_select_db($db) or PMA_mysqlDie(PMA_getError(), 'USE ' . PMA_backquotes($db), '', $err_url);
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD ' . $query;
-    $error_create = false;
-    $result        = PMA_mysql_query($sql_query)  or $error_create = true;
+    $error_create = FALSE;
+    PMA_DBI_try_query($sql_query) or $error_create = TRUE;
 
     if ($error_create == false) {
 
@@ -123,8 +122,8 @@ if (isset($submit)) {
             } // end for
             $primary     = preg_replace('@, $@', '', $primary);
             if (!empty($primary)) {
-                $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')';
-                $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+                $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD PRIMARY KEY (' . $primary . ');';
+                $result         = PMA_DBI_query($sql_query);
                 $sql_query_cpy  .= "\n" . $sql_query . ';';
             }
         } // end if
@@ -142,7 +141,7 @@ if (isset($submit)) {
             $index     = preg_replace('@, $@', '', $index);
             if (!empty($index)) {
                 $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX (' . $index . ')';
-                $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+                $result         = PMA_DBI_query($sql_query);
                 $sql_query_cpy  .= "\n" . $sql_query . ';';
             }
         } // end if
@@ -160,7 +159,7 @@ if (isset($submit)) {
             $unique = preg_replace('@, $@', '', $unique);
             if (!empty($unique)) {
                 $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE (' . $unique . ')';
-                $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+                $result         = PMA_DBI_query($sql_query);
                 $sql_query_cpy  .= "\n" . $sql_query . ';';
             }
         } // end if
@@ -177,7 +176,7 @@ if (isset($submit)) {
             $fulltext = preg_replace('@, $@', '', $fulltext);
             if (!empty($fulltext)) {
                 $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT (' . $fulltext . ')';
-                $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+                $result         = PMA_DBI_query($sql_query);
                 $sql_query_cpy  .= "\n" . $sql_query . ';';
             }
         } // end if

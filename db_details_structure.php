@@ -156,8 +156,8 @@ else {
         $tooltip_truename = array();
         $tooltip_aliasname = array();
 
-        $result  = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
-        while ($tmp = PMA_mysql_fetch_array($result)) {
+        $result  = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ';');
+        while ($tmp = PMA_DBI_fetch_assoc($result)) {
             $tooltip_truename[$tmp['Name']] = ($cfg['ShowTooltipAliasTB'] ? (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']) : $tmp['Name']);
             $tooltip_aliasname[$tmp['Name']] = ($cfg['ShowTooltipAliasTB'] ? $tmp['Name'] : (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : ''));
             if (isset($tmp['Create_time']) && !empty($tmp['Create_time'])) {
@@ -345,9 +345,10 @@ else {
                     $local_query         = 'SELECT COUNT(*) AS count FROM '
                                          . PMA_backquote($db) . '.'
                                          . PMA_backquote($table);
-                    $table_info_result   = PMA_mysql_query($local_query)
-                                         or PMA_mysqlDie('', $local_query, '', $err_url_0);
-                    $row_count           = PMA_mysql_result($table_info_result, 0, 'count');
+                    $table_info_result   = PMA_DBI_query($local_query);
+                    list($row_count)     = PMA_DBI_fetch_row($table_info_result);
+                    PMA_DBI_free_result($table_info_result);
+                    unset($table_info_result);
                     $sum_entries         += $row_count;
                 } else {
                     $row_count           = $sts_data['Rows'];
@@ -660,10 +661,12 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
             <?php echo $strPageNumber; ?>&nbsp;
             <select name="pdf_page_number">
         <?php
-        while ($pages = @PMA_mysql_fetch_array($test_rs)) {
+        while ($pages = @PMA_DBI_fetch_assoc($test_rs)) {
             echo "\n" . '                '
                  . '<option value="' . $pages['page_nr'] . '">' . $pages['page_nr'] . ': ' . $pages['page_descr'] . '</option>';
         } // end while
+        PMA_DBI_free_result($test_rs);
+        unset($test_rs);
         echo "\n";
         ?>
             </select><br />

@@ -22,9 +22,8 @@ if (!empty($innodbstatus)) {
     echo '<h2>' . "\n"
        . '    ' . $strInnodbStat . "\n"
        . '</h2>' . "\n";
-    $sql_query = 'SHOW INNODB STATUS;';
-    $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
-    $row = PMA_mysql_fetch_row($res);
+    $res = PMA_DBI_query('SHOW INNODB STATUS;');
+    $row = PMA_DBI_fetch_row($res);
     echo '<pre>' . "\n"
        . htmlspecialchars($row[0]) . "\n"
        . '</pre>' . "\n";
@@ -52,25 +51,23 @@ if (!$is_superuser && !$cfg['ShowMysqlInfo']) {
 /**
  * Sends the query and buffers the result
  */
-$res = @PMA_mysql_query('SHOW STATUS;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW STATUS;');
-while ($row = PMA_mysql_fetch_row($res)) {
+$res = PMA_DBI_query('SHOW STATUS;');
+while ($row = PMA_DBI_fetch_row($res)) {
     $serverStatus[$row[0]] = $row[1];
 }
-@PMA_DBI_free_result($res);
-unset($res);
-unset($row);
+PMA_DBI_free_result($res);
+unset($res, $row);
 
 
 /**
  * Displays the page
  */
 //Uptime calculation
-$res = @PMA_mysql_query('SELECT UNIX_TIMESTAMP() - ' . $serverStatus['Uptime'] . ';');
-$row = PMA_mysql_fetch_row($res);
+$res = PMA_DBI_query('SELECT UNIX_TIMESTAMP() - ' . $serverStatus['Uptime'] . ';');
+$row = PMA_DBI_fetch_row($res);
 echo sprintf($strServerStatusUptime, PMA_timespanFormat($serverStatus['Uptime']), PMA_localisedDate($row[0])) . "\n";
 PMA_DBI_free_result($res);
-unset($res);
-unset($row);
+unset($res, $row);
 //Get query statistics
 $queryStats = array();
 $tmp_array = $serverStatus;
@@ -272,9 +269,9 @@ if (!empty($serverStatus)) {
     </li>
 <?php
 }
-$res = PMA_mysql_query('SHOW VARIABLES LIKE "have_innodb";', $userlink);
+$res = PMA_DBI_query('SHOW VARIABLES LIKE "have_innodb";');
 if ($res) {
-    $row = PMA_mysql_fetch_row($res);
+    $row = PMA_DBI_fetch_row($res);
     if (!empty($row[1]) && $row[1] == 'YES') {
 ?>
     <br />

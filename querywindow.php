@@ -283,10 +283,10 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && $cfg['QueryFrameDebug']) {
  * Close MySql connections
  */
 if (isset($dbh) && $dbh) {
-    @mysql_close($dbh);
+    DBI_close($dbh);
 }
 if (isset($userlink) && $userlink) {
-    @mysql_close($userlink);
+    DBI_close($userlink);
 }
 
 

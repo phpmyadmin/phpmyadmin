@@ -52,15 +52,11 @@ if ($cfgRelation['commwork']) {
 /**
  * Selects the database and gets tables names
  */
-PMA_mysql_select_db($db);
-$sql    = 'SHOW TABLES FROM ' . PMA_backquote($db);
-$rowset = @PMA_mysql_query($sql);
+PMA_DBI_select_db($db);
+$rowset = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
 
-if (!$rowset) {
-    exit();
-}
 $count  = 0;
-while ($row = PMA_mysql_fetch_array($rowset)) {
+while ($row = PMA_DBI_fetch_assoc($rowset)) {
     $myfieldname = 'Tables_in_' . htmlspecialchars($db);
     $table        = $row[$myfieldname];
     if ($cfgRelation['commwork']) {
@@ -76,21 +72,17 @@ while ($row = PMA_mysql_fetch_array($rowset)) {
      * Gets table informations
      */
     // The 'show table' statement works correct since 3.23.03
-    $local_query  = 'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
-    $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-    $showtable    = PMA_mysql_fetch_array($result);
+    $result       = PMA_DBI_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
+    $showtable    = PMA_DBI_fetch_assoc($result);
     $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
-    if ($result) {
-         PMA_DBI_free_result($result);
-    }
+    PMA_DBI_free_result($result);
 
 
     /**
      * Gets table keys and retains them
      */
-    $local_query  = 'SHOW KEYS FROM ' . PMA_backquote($table);
-    $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $result       = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
     $primary      = '';
     $indexes      = array();
     $lastIndex    = '';
@@ -98,7 +90,7 @@ while ($row = PMA_mysql_fetch_array($rowset)) {
     $indexes_data = array();
     $pk_array     = array(); // will be use to emphasis prim. keys in the table
                              // view
-    while ($row = PMA_mysql_fetch_array($result)) {
+    while ($row = PMA_DBI_fetch_assoc($result)) {
         // Backups the list of primary keys
         if ($row['Key_name'] == 'PRIMARY') {
             $primary   .= $row['Column_name'] . ', ';
@@ -133,8 +125,7 @@ while ($row = PMA_mysql_fetch_array($rowset)) {
     /**
      * Gets fields properties
      */
-    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
-    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $result      = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';');
     $fields_cnt  = PMA_DBI_num_rows($result);
     // Check if we can use Relations (Mike Beck)
     if (!empty($cfgRelation['relation'])) {
@@ -190,7 +181,7 @@ while ($row = PMA_mysql_fetch_array($rowset)) {
 
     <?php
     $i = 0;
-    while ($row = PMA_mysql_fetch_array($result)) {
+    while ($row = PMA_DBI_fetch_assoc($result)) {
         $bgcolor = ($i % 2) ?$cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         $i++;
 

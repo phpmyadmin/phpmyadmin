@@ -21,9 +21,9 @@ error_reporting(E_ALL);
  * even for 'text' fields.
  */
 function PMA_fieldTypes($db, $table,$use_backquotes) {
-    PMA_mysql_select_db($db);
-    $table_def = PMA_mysql_query('SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
-    while($row = @PMA_mysql_fetch_array($table_def)) {
+    PMA_DBI_select_db($db);
+    $table_def = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
+    while($row = PMA_DBI_fetch_assoc($table_def)) {
         $types[PMA_backquote($row['Field'],$use_backquotes)] = ereg_replace('\\(.*', '', $row['Type']);
     }
     return $types;
@@ -154,10 +154,10 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     $new_crlf = $crlf;
 
 
-    $result = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'');
+    $result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'');
     if ($result != FALSE) {
         if (PMA_DBI_num_rows($result) > 0) {
-            $tmpres        = PMA_mysql_fetch_array($result);
+            $tmpres        = PMA_DBI_fetch_assoc($result);
             if (isset($GLOBALS['auto_increment']) && !empty($tmpres['Auto_increment'])) {
                 $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
             }
@@ -189,13 +189,13 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     // Steve Alberty's patch for complete table dump,
     // Whether to quote table and fields names or not
     if ($use_backquotes) {
-        PMA_mysql_query('SET SQL_QUOTE_SHOW_CREATE = 1');
+        PMA_DBI_query('SET SQL_QUOTE_SHOW_CREATE = 1');
     } else {
-        PMA_mysql_query('SET SQL_QUOTE_SHOW_CREATE = 0');
+        PMA_DBI_query('SET SQL_QUOTE_SHOW_CREATE = 0');
     }
-    $result = PMA_mysql_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
+    $result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
     if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
-        $tmpres        = PMA_mysql_fetch_array($result);
+        $tmpres        = PMA_DBI_fetch_row($result);
         // Fix for case problems with winwin, thanks to
         // Pawe³ Szczepañski <pauluz at users.sourceforge.net>
         $pos           = strpos($tmpres[1], ' (');
@@ -395,9 +395,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
     $buffer = '';
 
-    $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $error_url);
+    $result      = PMA_DBI_query($sql_query);
     if ($result != FALSE) {
-        $fields_cnt = mysql_num_fields($result);
+        $fields_cnt = PMA_DBI_num_fields($result);
         $rows_cnt   = PMA_DBI_num_rows($result);
 
         // get the real types of the table's fields (in an array)
@@ -415,7 +415,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
                 $field_set[$j] = PMA_backquote($analyzed_sql[0]['select_expr'][$j]['column'], $use_backquotes);
             } else {
-                $field_set[$j] = PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes);
+                $field_set[$j] = PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes); //! UNWRAPPED FUNCTION!
             }
 
             $type          = $field_types[$field_set[$j]];
@@ -468,7 +468,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         $replace      = array('\0', '\n', '\r', '\Z');
         $current_row  = 0;
 
-        while ($row = PMA_mysql_fetch_row($result)) {
+        while ($row = PMA_DBI_fetch_row($result)) {
             $current_row++;
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (!isset($row[$j])) {

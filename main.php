@@ -71,10 +71,9 @@ if ($server > 0) {
     // if (!empty($cfg['Server']['socket']) && PMA_PHP_INT_VERSION >= 30010) {
     //     $server_info .= ':' . $cfg['Server']['socket'];
     // }
-    $res                     = PMA_DBI_query('SELECT USER();');
-    $row                     = PMA_DBI_fetch_row($res);
-    $mysql_cur_user_and_host = $row[0];
-    $mysql_cur_user          = substr($mysql_cur_user_and_host, 0, strrpos($mysql_cur_user_and_host, '@'));
+    $res                           = PMA_DBI_query('SELECT USER();');
+    list($mysql_cur_user_and_host) = PMA_DBI_fetch_row($res);
+    $mysql_cur_user                = substr($mysql_cur_user_and_host, 0, strrpos($mysql_cur_user_and_host, '@'));
 
     PMA_DBI_free_result($res);
     unset($res, $row);
@@ -202,8 +201,7 @@ if ($server > 0) {
     // the first inexistant db name that we find, in most cases it's probably
     // the one he just dropped :)
     if (!$is_create_priv) {
-        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
-        $rs_usr      = PMA_DBI_try_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+        $rs_usr      = PMA_DBI_try_query('SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\';', $dbh);
         if ($rs_usr) {
             $re0     = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
             $re1     = '(^|[^\])(\\\)+';       // escaped wildcards
@@ -223,13 +221,11 @@ if ($server > 0) {
             // Finally, let's try to get the user's privileges by using SHOW
             // GRANTS...
             // Maybe we'll find a little CREATE priv there :)
-            $local_query = 'SHOW GRANTS FOR ' . $mysql_cur_user_and_host;
-            $rs_usr      = PMA_DBI_try_query($local_query, $dbh);
+            $rs_usr      = PMA_DBI_try_query('SHOW GRANTS FOR ' . $mysql_cur_user_and_host . ';', $dbh);
             if (!$rs_usr) {
                 // OK, now we'd have to guess the user's hostname, but we
                 // only try out the 'username'@'%' case.
-                $local_query = 'SHOW GRANTS FOR ' . $mysql_cur_user;
-                $rs_usr      = PMA_DBI_try_query($local_query, $dbh);
+                $rs_usr      = PMA_DBI_try_query('SHOW GRANTS FOR ' . $mysql_cur_user . ';', $dbh);
             }
             unset($local_query);
             if ($rs_usr) {

@@ -29,7 +29,7 @@ if (isset($db_charset) && isset($mysql_charsets) && in_array($db_charset, $mysql
 }
 $sql_query .= ';';
 
-$result = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, FALSE, $err_url);
+$result = PMA_DBI_query($sql_query);
 
 
 /**

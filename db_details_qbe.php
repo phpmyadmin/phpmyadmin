@@ -114,7 +114,7 @@ if ($row < 0) {
 /**
  * Prepares the form
  */
-$tbl_result     = PMA_mysql_list_tables($db);
+$tbl_result     = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
 $tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
 $i              = 0;
 $k              = 0;
@@ -129,8 +129,8 @@ if (!empty($TableList)) {
 
 // The tables list gets from MySQL
 while ($i < $tbl_result_cnt) {
-    $tbl             = PMA_mysql_tablename($tbl_result, $i);
-    $fld_results     = @PMA_mysql_list_fields_alternate($db, $tbl) or PMA_mysqlDie(PMA_mysql_error(), 'PMA_mysql_list_fields_alternate(' . $db . ', ' . $tbl . ')', FALSE, $err_url);
+    list($tbl)       = PMA_DBI_fetch_row($tbl_result);
+    $fld_results     = PMA_DBI_get_fields($db, $tbl);
     $fld_results_cnt = ($fld_results) ? count($fld_results) : 0;
     $j               = 0;
 
@@ -779,12 +779,11 @@ if (isset($Field) && count($Field) > 0) {
             // ( When the control user is the same as the normal user
             // because he is using one of his databases as pmadb,
             // the last db selected is not always the one where we need to work)
-            PMA_mysql_select_db($db);
+            PMA_DBI_select_db($db);
 
             foreach($tab_all AS $tab) {
-                $ind_qry  = 'SHOW INDEX FROM ' . PMA_backquote($tab);
-                $ind_rs   = PMA_mysql_query($ind_qry);
-                while ($ind = PMA_mysql_fetch_array($ind_rs)) {
+                $ind_rs   = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($tab) . ';');
+                while ($ind = PMA_DBI_fetch_assoc($ind_rs)) {
                     $col1 = $tab . '.' . $ind['Column_name'];
                     if (isset($col_all[$col1])) {
                         if ($ind['non_unique'] == 0) {
@@ -853,10 +852,12 @@ if (isset($Field) && count($Field) > 0) {
                     if ($checked_tables[$tab] != 1 ) {
                         $rows_qry = 'SELECT COUNT(1) AS anz '
                                   . 'FROM ' . PMA_backquote($tab);
-                        $rows_rs  = PMA_mysql_query($rows_qry);
-                        while ($res = PMA_mysql_fetch_array($rows_rs)) {
+                        $rows_rs  = PMA_DBI_query($rows_qry);
+                        while ($res = PMA_DBI_fetch_assoc($rows_rs)) {
                             $tsize[$tab] = $res['anz'];
                         }
+                        PMA_DBI_free_result($rows_rs);
+                        unset($rows_rs);
                         $checked_tables[$tab] = 1;
                     }
                     $csize[$tab] = $tsize[$tab];
@@ -928,16 +929,10 @@ if (isset($Field) && count($Field) > 0) {
                        . ' AND ' . $to   . '_db   = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND ' . $from . '_table IN ' . $in_know
                        . ' AND ' . $to   . '_table IN ' . $in_left;
-            if (isset($dbh)) {
-                PMA_mysql_select_db($cfgRelation['db'], $dbh);
-                $relations = @PMA_mysql_query($rel_query, $dbh) or PMA_mysqlDie(PMA_mysql_error($dbh), $rel_query, '', $err_url_0);
-                PMA_mysql_select_db($db, $dbh);
-            } else {
-                PMA_mysql_select_db($cfgRelation['db']);
-                $relations = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url_0);
-                PMA_mysql_select_db($db);
-            }
-            while ($row = PMA_mysql_fetch_array($relations)) {
+            PMA_DBI_select_db($cfgRelation['db'], $dbh);
+            $relations = @PMA_DBI_query($rel_query, $dbh);
+            PMA_DBI_select_db($db, $dbh);
+            while ($row = PMA_DBI_fetch_assoc($relations)) {
                 $found_table                = $row[$to . '_table'];
                 if (isset($tab_left[$found_table])) {
                     $fromclause             .= "\n" . ' LEFT JOIN '

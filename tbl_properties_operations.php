@@ -28,18 +28,18 @@ require_once('./libraries/mysql_charsets.lib.php');
 if (isset($submitcomment)) {
     if (empty($prev_comment) || urldecode($prev_comment) != $comment) {
         $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
-        $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+        $result    = PMA_DBI_query($sql_query);
         $message   = $strSuccess;
     }
 }
 if (isset($submittype)) {
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' TYPE = ' . $tbl_type;
-    $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+    $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;
 }
 if (isset($submitcharset)) {
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' DEFAULT CHARACTER SET = ' . $tbl_charset;
-    $result        = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query, '', $err_url);
+    $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;
 }
 if (isset($submitoptions)) {
@@ -48,7 +48,7 @@ if (isset($submitoptions)) {
                    . (isset($checksum) ? ' checksum=1': ' checksum=0')
                    . (isset($delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0')
                    . (isset($auto_increment) ? ' auto_increment=' . PMA_sqlAddslashes($auto_increment) : '');
-    $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+    $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;
 }
 
@@ -65,7 +65,7 @@ if (isset($message)) {
 if (isset($submitorderby) && !empty($order_field)) {
     $sql_query   = 'ALTER TABLE ' . PMA_backquote($table)
                  . ' ORDER BY ' . PMA_backquote(urldecode($order_field));
-    $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+    $result      = PMA_DBI_query($sql_query);
     PMA_showMessage($strSuccess);
 } // end if
 
@@ -80,11 +80,12 @@ require('./tbl_properties_table_info.php');
  * Get columns names
  */
 $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
-$result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
-for ($i = 0; $row = PMA_mysql_fetch_array($result); $i++) {
+$result      = PMA_DBI_query($local_query);
+for ($i = 0; $row = PMA_DBI_fetch_assoc($result); $i++) {
         $columns[$i] = $row['Field'];
 }
 PMA_DBI_free_result($result);
+unset($result);
 
 
 /**
@@ -296,10 +297,10 @@ echo "\n";
 
 if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
 
-    // we need this PMA_mysql_select_db if the user has access to more than one db
+    // we need this PMA_DBI_select_db if the user has access to more than one db
     // and $db is not the last of the list, because PMA_availableDatabases()
-    // has made a PMA_mysql_select_db() on the last one
-    PMA_mysql_select_db($db);
+    // has made a PMA_DBI_select_db() on the last one
+    PMA_DBI_select_db($db);
     $foreign = PMA_getForeigners($db, $table);
 
     if ($foreign) {
@@ -369,10 +370,9 @@ if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
     <!-- Table type -->
     <?php
     // modify robbat2 code - staybyte - 11. June 2001
-    $query  = 'SHOW VARIABLES LIKE \'have_%\'';
-    $result = PMA_mysql_query($query);
+    $result = PMA_DBI_query('SHOW VARIABLES LIKE \'have_%\';');
     if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
-        while ($tmp = PMA_mysql_fetch_array($result)) {
+        while ($tmp = PMA_DBI_fetch_assoc($result)) {
             if (isset($tmp['Variable_name'])) {
                 switch ($tmp['Variable_name']) {
                     case 'have_bdb':

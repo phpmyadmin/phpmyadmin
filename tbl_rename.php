@@ -31,9 +31,9 @@ if (isset($new_name) && trim($new_name) != '' && strpos($new_name,'.') === FALSE
     }
 
     require_once('./header.inc.php');
-    PMA_mysql_select_db($db);
-    $sql_query = 'ALTER TABLE ' . PMA_backquote($old_name) . ' RENAME ' . PMA_backquote($new_name);
-    $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+    PMA_DBI_select_db($db);
+    $sql_query = 'ALTER TABLE ' . PMA_backquote($old_name) . ' RENAME ' . PMA_backquote($new_name) . ';';
+    $result    = PMA_DBI_query($sql_query);
     $message   = sprintf($strRenameTableOK, htmlspecialchars($old_name), htmlspecialchars($table));
     $reload    = 1;
 

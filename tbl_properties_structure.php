@@ -46,12 +46,11 @@ if ((!empty($submit_mult) && isset($selected_fld))
 }
 
 // 2. Gets table keys and retains them
-$local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
-$result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+$result      = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
 $primary     = '';
 $ret_keys    = array();
 $pk_array    = array(); // will be use to emphasis prim. keys in the table view
-while ($row = PMA_mysql_fetch_array($result)) {
+while ($row = PMA_DBI_fetch_assoc($result)) {
     $ret_keys[]  = $row;
     // Backups the list of primary keys
     if ($row['Key_name'] == 'PRIMARY') {
@@ -62,8 +61,7 @@ while ($row = PMA_mysql_fetch_array($result)) {
 PMA_DBI_free_result($result);
 
 // 3. Get fields
-$local_query = 'SHOW FULL FIELDS FROM ' . PMA_backquote($table);
-$fields_rs   = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+$fields_rs   = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';');
 $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 
 
@@ -115,7 +113,7 @@ $i         = 0;
 $aryFields = array();
 $checked   = (!empty($checkall) ? ' checked="checked"' : '');
 
-while ($row = PMA_mysql_fetch_array($fields_rs)) {
+while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     $i++;
     $bgcolor          = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
     $aryFields[]      = $row['Field'];

@@ -253,16 +253,16 @@ else if ($mult_btn == $strYes) {
             $sql_query .= $a_query . ';' . "\n";
 
             if ($query_type != 'drop_db') {
-                PMA_mysql_select_db($db);
+                PMA_DBI_select_db($db);
             }
-            $result = @PMA_mysql_query($a_query) or PMA_mysqlDie('', $a_query, FALSE, $err_url);
+            $result = @PMA_DBI_query($a_query) or PMA_mysqlDie('', $a_query, FALSE, $err_url);
         } // end if
     } // end for
 
     if ($query_type == 'drop_tbl'
         || $query_type == 'drop_fld') {
-        PMA_mysql_select_db($db);
-        $result = @PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
+        PMA_DBI_select_db($db);
+        $result = PMA_DBI_query($sql_query);
     } elseif ($query_type == 'repair_tbl'
         || $query_type == 'analyze_tbl'
         || $query_type == 'check_tbl'

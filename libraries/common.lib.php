@@ -458,7 +458,7 @@ if ($is_minimum_common == FALSE) {
         require_once('./header.inc.php');
 
         if (!$error_message) {
-            $error_message = PMA_mysql_error();
+            $error_message = PMA_DBI_getError();
         }
         if (!$the_query && !empty($GLOBALS['sql_query'])) {
             $the_query = $GLOBALS['sql_query'];
@@ -583,7 +583,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
             $auth_query   = 'SELECT User, Select_priv '
                           . 'FROM mysql.user '
                           . 'WHERE User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
-            $rs           = PMA_mysql_query($auth_query, $dbh); // Debug: or PMA_mysqlDie('', $auth_query, FALSE);
+            $rs           = PMA_DBI_try_query($auth_query, $dbh);
         } // end
     }
 
@@ -591,7 +591,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
     // usable db list
     if (!$dblist_cnt
         && ($rs && @PMA_DBI_num_rows($rs))) {
-        $row = PMA_mysql_fetch_array($rs);
+        $row = PMA_DBI_fetch_assoc($rs);
         PMA_DBI_free_result($rs);
         // Correction uva 19991215
         // Previous code assumed database "mysql" admin table "db" column
@@ -608,7 +608,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
             // 1. get allowed dbs from the "mysql.db" table
             // lem9: User can be blank (anonymous user)
             $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\' OR User = \'\')';
-            $rs          = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+            $rs          = PMA_DBI_try_query($local_query, $dbh);
             if ($rs && @PMA_DBI_num_rows($rs)) {
                 // Will use as associative array of the following 2 code
                 // lines:
@@ -620,7 +620,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
                 // populating $dblist[], as previous code did. But it is
                 // now populated with actual database names instead of
                 // with regular expressions.
-                while ($row = PMA_mysql_fetch_array($rs)) {
+                while ($row = PMA_DBI_fetch_assoc($rs)) {
                     // loic1: all databases cases - part 1
                     if (empty($row['Db']) || $row['Db'] == '%') {
                         $uva_mydbs['%'] = 1;
@@ -632,15 +632,15 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
                     }
                 } // end while
                 PMA_DBI_free_result($rs);
-                $uva_alldbs = mysql_list_dbs($GLOBALS['dbh']);
+                $uva_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['dbh']);
                 // loic1: all databases cases - part 2
                 if (isset($uva_mydbs['%'])) {
-                    while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
+                    while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
                         $dblist[] = $uva_row[0];
                     } // end while
                 } // end if
                 else {
-                    while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
+                    while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
                         $uva_db = $uva_row[0];
                         if (isset($uva_mydbs[$uva_db]) && $uva_mydbs[$uva_db] == 1) {
                             $dblist[]           = $uva_db;
@@ -668,9 +668,9 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
 
             // 2. get allowed dbs from the "mysql.tables_priv" table
             $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
-            $rs          = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+            $rs          = PMA_DBI_try_query($local_query, $dbh);
             if ($rs && @PMA_DBI_num_rows($rs)) {
-                while ($row = PMA_mysql_fetch_array($rs)) {
+                while ($row = PMA_DBI_fetch_assoc($rs)) {
                     if (PMA_isInto($row['Db'], $dblist) == -1) {
                         $dblist[] = $row['Db'];
                     }
@@ -996,7 +996,7 @@ if ($is_minimum_common == FALSE) {
 
         // Connects to the server (validates user's login)
         $userlink = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password']);
-        
+
         if (empty($dbh)) {
             $dbh = $userlink;
         }
@@ -1044,18 +1044,18 @@ if ($is_minimum_common == FALSE) {
                 }
                 if ($is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i])) {
                     $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
-                    $rs          = PMA_mysql_query($local_query, $dbh);
+                    $rs          = PMA_DBI_query($local_query, $dbh);
                     // "SHOW DATABASES" statement is disabled
                     if ($i == 0
-                        && (PMA_mysql_error() && mysql_errno() == 1045)) {
+                        && (substr(PMA_DBI_getError($dbh), 1, 4) == 1045)) {
                         $true_dblist[] = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
                         $is_show_dbs   = FALSE;
                     }
                     // Debug
-                    // else if (PMA_mysql_error()) {
-                    //    PMA_mysqlDie('', $local_query, FALSE);
+                    // else if (PMA_DBI_getError($dbh)) {
+                    //    PMA_mysqlDie(PMA_DBI_getError($dbh), $local_query, FALSE);
                     // }
-                    while ($row = @PMA_mysql_fetch_row($rs)) {
+                    while ($row = @PMA_DBI_fetch_row($rs)) {
                         $true_dblist[] = $row[0];
                     } // end while
                     if ($rs) {
@@ -1110,7 +1110,7 @@ if ($is_minimum_common == FALSE) {
         if ($num_dbs) {
             $true_dblist = array();
             for ($i = 0; $i < $num_dbs; $i++) {
-                $dblink  = @PMA_mysql_select_db($dblist[$i]);
+                $dblink  = @PMA_DBI_select_db($dblist[$i]);
                 if ($dblink) {
                     $true_dblist[] = $dblist[$i];
                 } // end if
@@ -1245,9 +1245,8 @@ if ($is_minimum_common == FALSE) {
     function PMA_countRecords($db, $table, $ret = FALSE)
     {
         global $err_url, $cfg;
-        $local_query  = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
-        $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-        $showtable    = PMA_mysql_fetch_array($result);
+        $result       = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
+        $showtable    = PMA_DBI_fetch_assoc($result);
         $num     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
         if ($num < $cfg['MaxExactCount']) {
             unset($num);
@@ -1255,8 +1254,8 @@ if ($is_minimum_common == FALSE) {
         PMA_DBI_free_result($result);
 
         if (!isset($num)) {
-            $result = PMA_mysql_query('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)) or PMA_mysqlDie('', $local_query, '', $err_url);
-            $num    = ($result) ? PMA_mysql_result($result, 0, 'num') : 0;
+            $result    = PMA_DBI_query('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
+            list($num) = ($result) ? PMA_DBI_fetch_row($result) : array(0);
             PMA_DBI_free_result($result);
         }
         if ($ret) {
@@ -1302,9 +1301,9 @@ if (typeof(window.parent) != 'undefined'
 
         // Corrects the tooltip text via JS if required
         else if (!empty($GLOBALS['table']) && $cfg['ShowTooltip']) {
-            $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
+            $result = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
             if ($result) {
-                $tbl_status = PMA_mysql_fetch_array($result, MYSQL_ASSOC);
+                $tbl_status = PMA_DBI_fetch_assoc($result);
                 $tooltip    = (empty($tbl_status['Comment']))
                             ? ''
                             : $tbl_status['Comment'] . ' ';
@@ -1333,14 +1332,14 @@ if (typeof(document.getElementById) != 'undefined'
         if (isset($GLOBALS['table']) && isset($GLOBALS['sql_query'])
             && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])) {
             if (!isset($tbl_status)) {
-                $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
+                $result = @PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
                 if ($result) {
-                    $tbl_status = PMA_mysql_fetch_array($result, MYSQL_ASSOC);
+                    $tbl_status = PMA_DBI_fetch_assoc($result);
                     PMA_DBI_free_result($result);
                 }
             }
             if (isset($tbl_status) && (int) $tbl_status['Index_length'] > 1024) {
-                @PMA_mysql_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
+                PMA_DBI_try_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
             }
         }
         unset($tbl_status);

@@ -36,22 +36,25 @@ if (!$is_superuser && !$cfg['ShowMysqlVars']) {
  * Sends the queries and buffers the results
  */
 if (PMA_MYSQL_INT_VERSION >= 40003) {
-    $res = @PMA_mysql_query('SHOW SESSION VARIABLES;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW SESSION VARIABLES;');
-    while ($row = PMA_mysql_fetch_row($res)) {
+    $res = PMA_DBI_query('SHOW SESSION VARIABLES;');
+    while ($row = PMA_DBI_fetch_row($res)) {
         $serverVars[$row[0]] = $row[1];
     }
-    @PMA_DBI_free_result($res);
-    $res = @PMA_mysql_query('SHOW GLOBAL VARIABLES;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW GLOBAL VARIABLES;');
-    while ($row = PMA_mysql_fetch_row($res)) {
+    PMA_DBI_free_result($res);
+    unset($res, $row);
+    $res = PMA_DBI_query('SHOW GLOBAL VARIABLES;');
+    while ($row = PMA_DBI_fetch_row($res)) {
         $serverVarsGlobal[$row[0]] = $row[1];
     }
-    @PMA_DBI_free_result($res);
+    PMA_DBI_free_result($res);
+    unset($res, $row);
 } else {
-    $res = @PMA_mysql_query('SHOW VARIABLES;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW VARIABLES;');
-    while ($row = PMA_mysql_fetch_row($res)) {
+    $res = PMA_DBI_query('SHOW VARIABLES;');
+    while ($row = PMA_DBI_fetch_row($res)) {
         $serverVars[$row[0]] = $row[1];
     }
-    @PMA_DBI_free_result($res);
+    PMA_DBI_free_result($res);
+    unset($res, $row);
 }
 unset($res);
 unset($row);

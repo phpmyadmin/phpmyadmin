@@ -406,7 +406,7 @@ if ($num_dbs > 1) {
         if (!empty($db_start) && $db == $db_start) {
             $selected_db = $j;
         }
-        $tables              = @PMA_mysql_list_tables($db);
+        $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
         $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
         $common_url_query    = PMA_generate_common_url($db);
         if ($num_tables) {
@@ -421,8 +421,8 @@ if ($num_dbs > 1) {
             && (!$cfg['LeftFrameLight'] || $selected_db == $j)) {
             $tooltip = array();
             $tooltip_name = array();
-            $result  = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
-            while ($tmp = PMA_mysql_fetch_array($result)) {
+            $result  = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
+            while ($tmp = PMA_DBI_fetch_assoc($result)) {
                 $tooltip_name[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '');
                 $tmp['Comment'] = ($cfg['ShowTooltipAliasTB'] ? $tmp['Name'] : $tmp['Comment']);
 
@@ -471,8 +471,7 @@ if ($num_dbs > 1) {
 <?php
             // Displays the list of tables from the current database
             $tablestack = array();
-            for ($t = 0; $t < $num_tables; $t++) {
-                $table     = PMA_mysql_tablename($tables, $t);
+            while (list($table) = PMA_DBI_fetch_row($tables)) {
                 $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
                            ? htmlspecialchars($tooltip_name[$table])
                            : '';
@@ -512,7 +511,7 @@ if ($num_dbs > 1) {
                     $tablestack['']['pma_name'][] = $table;
                     $tablestack['']['pma_list_item'][] = $list_item;
                 }
-            } // end for $t (tables list)
+            } // end while (tables list)
 
             PMA_nestedSet($j, $tablestack);
             ?>
@@ -530,8 +529,7 @@ if ($num_dbs > 1) {
             // Builds the databases' names list
             if (!empty($db_start) && $db == $db_start) {
                 // Gets the list of tables from the current database
-                for ($t = 0; $t < $num_tables; $t++) {
-                    $table      = PMA_mysql_tablename($tables, $t);
+                while (list($table) = PMA_DBI_fetch_row($tables)) {
                     $url_title  = (!empty($tooltip) && isset($tooltip[$table]))
                                 ? htmlentities($tooltip[$table])
                                 : '';
@@ -548,7 +546,7 @@ if ($num_dbs > 1) {
                     } else {
                         $table_list .= '          <a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></nobr><br />' . "\n";
                     }
-                } // end for $t (tables list)
+                } // end while (tables list)
 
                 if (!$table_list) {
                     $table_list = '    <br /><br />' . "\n"
@@ -618,7 +616,7 @@ if ($num_dbs > 1) {
 // Case where only one database has to be displayed
 else if ($num_dbs == 1) {
     $db                  = $dblist[0];
-    $tables              = @PMA_mysql_list_tables($db);
+    $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
     $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
     $common_url_query    = PMA_generate_common_url($db);
     if ($num_tables) {
@@ -632,8 +630,8 @@ else if ($num_dbs == 1) {
         && $num_tables) {
         $tooltip = array();
         $tooltip_name = array();
-        $result  = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
-        while ($tmp = PMA_mysql_fetch_array($result)) {
+        $result  = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
+        while ($tmp = PMA_DBI_fetch_assoc($result)) {
                 $tooltip_name[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '');
                 $tmp['Comment'] = ($cfg['ShowTooltipAliasTB'] ? $tmp['Name'] : $tmp['Comment']);
 
@@ -692,8 +690,7 @@ else if ($num_dbs == 1) {
 
     // Displays the list of tables from the current database
     $tablestack = array();
-    for ($j = 0; $j < $num_tables; $j++) {
-        $table     = PMA_mysql_tablename($tables, $j);
+    while (list($table) = PMA_DBI_fetch_row($tables)) {
         $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
                    ? htmlentities($tooltip_name[$table])
                    : '';

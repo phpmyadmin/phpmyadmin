@@ -36,7 +36,7 @@ if ($foreigners && isset($foreigners[$field])) {
                          . ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table)
                          . (($foreign_display == FALSE) ? '' :' ORDER BY ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($foreign_display))
                          . (isset($foreign_limit) ? $foreign_limit : '');
-        $disp            = PMA_mysql_query($dispsql);
+        $disp            = PMA_DBI_query($dispsql);
     }
     else {
         unset($disp);

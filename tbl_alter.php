@@ -72,14 +72,13 @@ if (isset($submit)) {
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
-    $sql_query     = 'USE ' . PMA_backquote($db);
-    $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+     PMA_DBI_select_db($db) or PMA_mysqlDie(PMA_DBI_getError(), 'USE ' . PMA_backquote($db) . ';', '', $err_url);
     // Optimization fix - 2 May 2001 - Robbat2
     $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' CHANGE ' . $query;
-    $error_create = false;
-    $result    = PMA_mysql_query($sql_query) or $error_create = true;
+    $error_create = FALSE;
+    $result    = PMA_DBI_try_query($sql_query) or $error_create = TRUE;
 
-    if ($error_create == false) {
+    if ($error_create == FALSE) {
         $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
         $btnDrop   = 'Fake';
 
@@ -175,9 +174,8 @@ if ($abort == FALSE) {
         } else {
             $field = PMA_sqlAddslashes($selected[$i], TRUE);
         }
-        $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . " LIKE '$field'";
-        $result        = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-        $fields_meta[] = PMA_mysql_fetch_array($result);
+        $result        = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ' LIKE \'' . $field . '\';');
+        $fields_meta[] = PMA_DBI_fetch_assoc($result);
         PMA_DBI_free_result($result);
     }
 

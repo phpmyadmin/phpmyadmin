@@ -95,7 +95,7 @@ if ($cfgRelation['pdfwork']) {
                         // first put all the master tables at beginning
                         // of the list, so they are near the center of
                         // the schema
-                        while (list(,$master_table) = mysql_fetch_row($master_tables_rs)) {
+                        while (list(,$master_table) = PMA_DBI_fetch_row($master_tables_rs)) {
                             $all_tables[] = $master_table;
                         }
 
@@ -221,9 +221,8 @@ if ($cfgRelation['pdfwork']) {
 
     // We will need an array of all tables in this db
     $selectboxall = array('--');
-    $alltab_qry     = 'SHOW TABLES FROM ' . PMA_backquote($db);
-    $alltab_rs      = @PMA_mysql_query($alltab_qry) or PMA_mysqlDie('', $alltab_qry, '', $err_url_0);
-    while ($val = @PMA_mysql_fetch_array($alltab_rs)) {
+    $alltab_rs    = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';');
+    while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
         $selectboxall[] = $val[0];
     }
 
@@ -240,7 +239,7 @@ if ($cfgRelation['pdfwork']) {
     <input type="hidden" name="do" value="choosepage" />
     <select name="chpage" onchange="this.form.submit()">
         <?php
-        while ($curr_page = @PMA_mysql_fetch_array($page_rs)) {
+        while ($curr_page = PMA_DBI_fetch_assoc($page_rs)) {
             echo "\n" . '        '
                  . '<option value="' . $curr_page['page_nr'] . '"';
             if (isset($chpage) && $chpage == $curr_page['page_nr']) {
@@ -292,7 +291,7 @@ $array_sh_page = array();
 $draginit = '';
 $reset_draginit = '';
 $i = 0;
-while ($temp_sh_page = @PMA_mysql_fetch_array($page_rs)) {
+while ($temp_sh_page = @PMA_DBI_fetch_assoc($page_rs)) {
     $array_sh_page[] = $temp_sh_page;
 }
 
@@ -322,15 +321,17 @@ foreach($array_sh_page AS $key => $temp_sh_page) {
     $local_query = 'SHOW FIELDS FROM '
                  .  PMA_backquote($temp_sh_page['table_name'] )
                 . ' FROM ' . PMA_backquote($db);
-    $fields_rs = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+    $fields_rs = PMA_DBI_query($local_query);
+    unset($local_query);
     $fields_cnt = PMA_DBI_num_rows($fields_rs);
 
     echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
-    while ($row = PMA_mysql_fetch_array($fields_rs)) {
-        echo "<br>".htmlspecialchars($row['Field'])."\n";
+    while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
+        echo '<br />' . htmlspecialchars($row['Field']) . "\n";s
     }
     echo '</div>' . "\n";
     PMA_DBI_free_result($fields_rs);
+    unset($fields_rs);
 
     $i++;
 }

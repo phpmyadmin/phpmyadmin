@@ -59,8 +59,7 @@ if (!defined('PMA_CHK_DROP')
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
     // loic1: optimized query
-    $result = @PMA_mysql_query('USE mysql');
-    if (PMA_mysql_error()) {
+    if (!($result = PMA_DBI_select_db('mysql'))) {
         require_once('./header.inc.php');
         PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
     } // end if
@@ -285,7 +284,7 @@ else {
         $full_sql_query      = $sql_query;
     } // end if...else
 
-    PMA_mysql_select_db($db);
+    PMA_DBI_select_db($db);
 
     // If the query is a DELETE query with no WHERE clause, get the number of
     // rows that will be deleted (mysql_affected_rows will always return 0 in
@@ -293,9 +292,9 @@ else {
     if ($is_delete
         && preg_match('@^DELETE([[:space:]].+)?([[:space:]]FROM[[:space:]](.+))$@i', $sql_query, $parts)
         && !preg_match('@[[:space:]]WHERE[[:space:]]@i', $parts[3])) {
-        $cnt_all_result = @PMA_mysql_query('SELECT COUNT(*) as count' .  $parts[2]);
+        $cnt_all_result = @PMA_DBI_try_query('SELECT COUNT(*) as count' .  $parts[2]);
         if ($cnt_all_result) {
-            $num_rows   = PMA_mysql_result($cnt_all_result, 0, 'count');
+            $num_rows   = PMA_DBI_result($cnt_all_result, 0, 'count');
             PMA_DBI_free_result($cnt_all_result);
         } else {
             $num_rows   = 0;
@@ -314,7 +313,7 @@ else {
         list($usec, $sec) = explode(' ',microtime());
         $querytime_before = ((float)$usec + (float)$sec);
 
-        $result   = @PMA_mysql_query($full_sql_query);
+        $result   = @PMA_DBI_try_query($full_sql_query);
 
         list($usec, $sec) = explode(' ',microtime());
         $querytime_after = ((float)$usec + (float)$sec);
@@ -322,14 +321,14 @@ else {
         $GLOBALS['querytime'] = $querytime_after - $querytime_before;
 
         // Displays an error message if required and stop parsing the script
-        if (PMA_mysql_error()) {
-            $error        = PMA_mysql_error();
+        if ($error        = PMA_DBI_getError()) {
             require_once('./header.inc.php');
             $full_err_url = (preg_match('@^(db_details|tbl_properties)@', $err_url))
                           ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
                           : $err_url;
             PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
         }
+        unset($error);
 
         // Gets the number of rows affected/returned
         // (This must be done immediately after the query because
@@ -343,15 +342,14 @@ else {
 
         // Checks if the current database has changed
         // This could happen if the user sends a query like "USE `database`;"
-        $res = PMA_mysql_query('SELECT DATABASE() AS "db";');
-        $row = PMA_mysql_fetch_array($res);
-        if (is_array($row) && isset($row['db']) && $db != $row['db']) {
-            $db     = $row['db'];
+        $res = PMA_DBI_query('SELECT DATABASE() AS "db";');
+        $row = PMA_DBI_fetch_row($res);
+        if (is_array($row) && isset($row[0]) && $db != $row[0]) {
+            $db     = $row[0];
             $reload = 1;
         }
         @PMA_DBI_free_result($res);
-        unset($res);
-        unset($row);
+        unset($res, $row);
 
         // tmpfile remove after convert encoding appended by Y.Kawada
         if (function_exists('PMA_kanji_file_conv')
@@ -457,15 +455,16 @@ else {
 //DEBUG echo "trace cq=" . $count_query . "<br/>";
 
                     if (PMA_MYSQL_INT_VERSION < 40000) {
-                        if ($cnt_all_result = PMA_mysql_query($count_query)) {
+                        if ($cnt_all_result = PMA_DBI_try_query($count_query)) {
                             if ($is_group && $count_what == '*') {
                                 $unlim_num_rows = @PMA_DBI_num_rows($cnt_all_result);
                             } else {
-                                $unlim_num_rows = PMA_mysql_result($cnt_all_result, 0, 'count');
+                                $unlim_num_rows = PMA_DBI_fetch_assoc($cnt_all_result);
+                                $unlim_num_rows = $unlim_num_rows['count'];
                             }
                             PMA_DBI_free_result($cnt_all_result);
                         } else {
-                            if (mysql_error()) {
+                            if (PMA_DBI_getError()) {
 
                                 // there are some cases where the generated
                                 // count_query (for MySQL 3) is wrong,
@@ -477,7 +476,7 @@ else {
                             }
                         }
                     } else {
-                        PMA_mysql_query($count_query);
+                        PMA_DBI_query($count_query);
                         // if (mysql_error()) {
                         // void. I tried the case
                         // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
@@ -487,8 +486,8 @@ else {
                         // and although the generated count_query is wrong
                         // the SELECT FOUND_ROWS() work!
                         // }
-                        $cnt_all_result = PMA_mysql_query('SELECT FOUND_ROWS() as count');
-                        $unlim_num_rows = PMA_mysql_result($cnt_all_result,0,'count');
+                        $cnt_all_result       = PMA_DBI_query('SELECT FOUND_ROWS() as count;');
+                        list($unlim_num_rows) = PMA_DBI_fetch_row($cnt_all_result);
                     }
             } // end else "just browsing"
 
@@ -558,7 +557,7 @@ else {
                 if (!isset($table)) {
                     $goto     = 'db_details.php';
                 } else {
-                    $is_table = @PMA_mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
+                    $is_table = @PMA_DBI_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
                     if (!($is_table && @PMA_DBI_num_rows($is_table))) {
                         $goto = 'db_details.php';
                         unset($table);
@@ -572,7 +571,7 @@ else {
                 if (!isset($db)) {
                     $goto     = 'main.php';
                 } else {
-                    $is_db    = @PMA_mysql_select_db($db);
+                    $is_db    = @PMA_DBI_select_db($db);
                     if (!$is_db) {
                         $goto = 'main.php';
                         unset($db);
@@ -623,10 +622,8 @@ else {
 
         // Gets the list of fields properties
         if (isset($result) && $result) {
-            while ($field = PMA_mysql_fetch_field($result)) {
-                $fields_meta[] = $field;
-            }
-            $fields_cnt        = count($fields_meta);
+            $fields_meta = PMA_DBI_get_fields_meta($result);
+            $fields_cnt  = count($fields_meta);
         }
 
         // Display previous update query (from tbl_replace)

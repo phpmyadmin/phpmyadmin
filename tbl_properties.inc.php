@@ -558,10 +558,9 @@ if ($action == 'tbl_create.php') {
     // change by staybyte - 11 June 2001
     if ($action == 'tbl_create.php') {
         // find mysql capability - staybyte - 11. June 2001
-        $query = 'SHOW VARIABLES LIKE \'have_%\'';
-        $result = PMA_mysql_query($query);
+        $result = PMA_DBI_try_query('SHOW VARIABLES LIKE \'have_%\';');
         if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
-            while ($tmp = PMA_mysql_fetch_array($result)) {
+            while ($tmp = PMA_DBI_fetch_assoc($result)) {
                 if (isset($tmp['Variable_name'])) {
                     switch ($tmp['Variable_name']) {
                         case 'have_bdb':

@@ -44,7 +44,7 @@ function PMA_auth_check()
 function PMA_auth_set_user()
 {
     return TRUE;
-} // end of the 'PMA_auth_set_user()' function
+} // end of the 'PMA_auth_set_user()' function 
 
 
 /**
@@ -69,8 +69,8 @@ function PMA_auth_fails()
 {
     global $php_errormsg, $cfg;
     global $right_font_family, $font_size, $font_bigger;
-    if (PMA_mysql_error()) {
-        $conn_error = PMA_mysql_error();
+    if (PMA_DBI_getError()) {
+        $conn_error = PMA_DBI_getError();
     } else if (isset($php_errormsg)) {
         $conn_error = $php_errormsg;
     } else {

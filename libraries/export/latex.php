@@ -159,7 +159,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     }
 
     // print the whole table
-    while ($record = PMA_mysql_fetch_array($result, MYSQL_ASSOC)) {
+    while ($record = PMA_DBI_fetch_assoc($result)) {
 
         $buffer = '';
         // print each row
@@ -212,9 +212,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     /**
      * Gets fields properties
      */
-    PMA_mysql_select_db($db);
+    PMA_DBI_select_db($db);
     $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+    $result      = PMA_DBI_query($local_query);
     $fields_cnt  = PMA_DBI_num_rows($result);
 
     // Check if we can use Relations (Mike Beck)
@@ -237,9 +237,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
      * Get the unique keys in the table
      */
     $keys_query     = 'SHOW KEYS FROM ' . PMA_backquote($table) . ' FROM '. PMA_backquote($db);
-    $keys_result    = PMA_mysql_query($keys_query) or PMA_mysqlDie('', $keys_query, '', $error_url);
+    $keys_result    = PMA_DBI_query($keys_query);
     $unique_keys    = array();
-    while($key = PMA_mysql_fetch_array($keys_result)) {
+    while($key = PMA_DBI_fetch_assoc($keys_result)) {
         if ($key['Non_unique'] == 0) $unique_keys[] = $key['Column_name'];
     }
 
@@ -298,7 +298,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 
     if (!PMA_exportOutputHandler($buffer)) return FALSE;
 
-    while ($row = PMA_mysql_fetch_array($result)) {
+    while ($row = PMA_DBI_fetch_assoc($result)) {
 
         $type             = $row['Type'];
         // reformat mysql query output - staybyte - 9. June 2001
