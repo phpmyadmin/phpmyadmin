@@ -75,6 +75,7 @@ $strDbEmpty = 'Der Name der Datenbank ist leer!';
 $strDefault = 'Standard';
 $strDelete = 'Löschen';
 $strDeleted = 'Die Zeile wurde gelöscht.';
+$strDeletedRows = 'Gelöschte Zeilen:';
 $strDeleteFailed = 'Löschen fehlgeschlagen!';
 $strDeletePassword = 'Password löschen';
 $strDeleteUserMessage = 'Der Benutzer wurde gelöscht';
@@ -133,6 +134,7 @@ $strIndex = 'Index';
 $strIndexes = 'Indizes';
 $strInsert = 'Einfügen';
 $strInsertAsNewRow = ' Als neuen Datensatz speichern ';
+$strInsertedRows = 'Eingefügte Zeilen:';
 $strInsertIntoTable = 'In Tabelle einfügen';
 $strInsertNewRow = 'Neue Zeile einfügen';
 $strInsertTextfiles = 'Textdatei in Tabelle einfügen';
@@ -294,6 +296,4 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
-$strDeletedRows = 'Deleted rows:';
-$strInsertedRows = 'Inserted rows:';
 ?>
