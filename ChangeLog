@@ -11,6 +11,7 @@ $Source$
     * tbl_qbe.php3: code was broken and warnings.
     * user_details.php3, line 1343: fixed bug #549887 - Db name with "\_"
       changed when granting.
+    * tbl_properties_operations.php3: Added documentation link for 'FLUSH'.
 
 2002-04-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_dump.php3, lines 347, 348: Fixed a bug concerning the
