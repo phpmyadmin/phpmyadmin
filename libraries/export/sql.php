@@ -526,6 +526,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 // timestamp is numeric on some MySQL 4.1
                 } elseif ($fields_meta[$j]->numeric && $fields_meta[$j]->type != 'timestamp') {
                     $values[] = $row[$j];
+                // handle empty string special way, just to speed up things and to catch empty BLOBs
+                } elseif (empty($row[$j])) {
+                    $values[] = '\'\'';
                 // a binary field
                 // Note: with mysqli, under MySQL 4.1.3, we get the flag
                 // "binary" for a datetime (I don't know why)

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-01 Michal Čihař  <michal@cihar.com>
+    * libraries/export/sql.php: Fix empty BLOB export (bug #1020052).
+
 2004-08-29 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: bug 1007870, illegal mix of collations
       for operation UNION
