@@ -65,6 +65,7 @@ $strCantRenameIdxToPrimary = 'Impossibile rinominare l\'indice a PRIMARIO!';
 $strCardinality = 'Cardinalità';
 $strCarriage = 'Ritorno carrello: \\r';
 $strChange = 'Modifica';
+$strChangePassword = 'Cambia password';
 $strCheckAll = 'Seleziona tutti';
 $strCheckDbPriv = 'Controlla i privilegi del database';
 $strCheckTable = 'Controlla tabella';
@@ -349,5 +350,4 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
-$strChangePassword = 'Change password';
 ?>
