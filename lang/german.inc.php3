@@ -223,6 +223,7 @@ $strPassword = 'Kennwort';
 $strPasswordEmpty = 'Es wurde kein Kennwort angegeben!';
 $strPasswordNotSame = 'Die eingegebenen Kennwörter sind nicht identisch!';
 $strPmaDocumentation = 'phpMyAdmin Dokumentation';
+$strPmaUriError = 'Das <tt>$cfgPmaAbsoluteUri</tt>-Verzeichnis MUSS in Ihrer Konfigurationsdatei angegeben werden!';
 $strPHPVersion = 'PHP Version';
 $strPos1 = 'Anfang';
 $strPrevious = 'Vorherige';
@@ -347,5 +348,4 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>

@@ -10,6 +10,7 @@ $Source$
 	  on screen.
 	* tbl_change.php3: patch from Thomas Bähr <baehr at glaswald.de> - tabindex
 	  order.
+	* german.inc.php3: updated thanks to Alexander M. Turek.
 
 2002-03-16 Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3, line 76; main.php3, lines 13-24; lang/*;
