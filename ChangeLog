@@ -12,8 +12,7 @@ $Source$
       a subdirectory of phpMyAdmin ('docSQL' proposed) OR upload each
       file on its own via File Upload (if $is_upload is true).
       Filenames not matching the converter will no more printed out to
-      maintain security.
-    
+      maintain security. Permits input of '../'.
     * transformation_wrapper.php3 - Remove $err_url, because if a query
       fails here, the user won't get to see the error string anyways.
       Can happen if you want to display a blob without having an index
