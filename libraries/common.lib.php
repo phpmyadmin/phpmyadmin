@@ -1668,50 +1668,37 @@ if (typeof(document.getElementById) != 'undefined'
         global $PHP_SELF, $cfg;
         global $db_details_links_count_tabs;
 
-        if ($class != '') $class .= ' ';
+        if (!empty($class)) $class = ' class="' . $class . '"';
 
         if (((!isset($GLOBALS['active_page']) && basename($PHP_SELF) == $link) ||
                 $active ||
                 (isset($GLOBALS['active_page']) && $GLOBALS['active_page'] == $link)
             ) && ($text != $GLOBALS['strEmpty'] && $text != $GLOBALS['strDrop'])) {
-            $bgcolor = 'silver';
+            $addclass = ' activetab';
         } else {
-            $bgcolor = '#DFDFDF';
+            $addclass = '';
         }
 
         $db_details_links_count_tabs++;
-        if (!empty($attr)) {
-            if ($cfg['LightTabs']) {
-                $attr = ' ' . $attr;
-            } else {
-                $attr = ' style="display:block" ' . $attr;
-            }
-        } else {
-            if ($cfg['LightTabs']) {
-                $attr = ' ';
-            } else {
-                $attr = ' style="display:block" ';
-            }
-        }
 
         if ($cfg['LightTabs']) {
             $out = '';
             if (strlen($link) > 0) {
-                $out .= '<a href="' . $link . $sep . $args . '"' . $attr . ' class="' . $class . 'nowrap">'
-                     .  '<b>' . $text . '</b></a>';
+                $out .= '<a class="tab" href="' . $link . $sep . $args . '"' . $attr . $class . '>'
+                     .  '' . $text . '</a>';
             } else {
-                $out .= '<b class="nowrap">' . $text . '</b>';
+                $out .= '<span class="tab">' . $text . '</span>';
             }
             $out = '[ ' . $out . ' ]&nbsp;&nbsp;&nbsp;';
         } else {
             $out     = "\n" . '        '
-                     . '<td bgcolor="' . $bgcolor . '" align="center" width="64" class="tab nowrap">'
+                     . '<td class="tab nowrap' . $addclass . '">'
                      . "\n" . '            ';
             if (strlen($link) > 0) {
-                $out .= '<a href="' . $link . $sep . $args . '"' . $attr . ' class="' . $class . 'nowrap">'
-                     .  '<b>' . $text . '</b></a>';
+                $out .= '<a href="' . $link . $sep . $args . '"' . $attr .  $class . '>'
+                     .  $text . '</a>';
             } else {
-                $out .= '<b class="nowrap">' . $text . '</b>';
+                $out .= $text;
             }
             $out     .= "\n" . '        '
                      .  '</td>'

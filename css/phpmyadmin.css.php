@@ -310,3 +310,32 @@ button {
     /* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
     display: inline;
 }
+
+/* Tabs */
+
+/* For both light and non light */
+.tab {
+    white-space: nowrap;
+    font-weight: bolder;
+}
+
+/* For non light */
+td.tab {
+    width: 64px;
+    text-align: center;
+    background-color: #dfdfdf;
+}
+
+td.tab a {
+    display: block;
+}
+
+/* For light */
+div.tab {
+}
+
+/* Highlight active tab */
+td.activetab {
+    background-color: silver;
+}
+
