@@ -84,7 +84,7 @@ $strDeleted = 'Rexistro eliminado';
 $strDeletedRows = 'Filas borradas:';
 $strDeleteFailed = 'Non foi posible eliminar!';
 $strDeletePassword = 'Borrar o contrasinal';
-$strDeleteUserMessage = 'Eliminou o usuario';
+$strDeleteUserMessage = 'Eliminou o usuario %s.';
 $strDelPassMessage = 'Eliminou o contrasinal de';
 $strDescending = 'Descendente';
 $strDisableMagicQuotes = '<b>Atención:</b> Acaba de activar magic_quotes_gpc na configuración do PHP. Esta versión de PhpMyAdmin non traballa ben con el. Mire na sección de configuración do manual do PHP información sobre como desactivá-lo.';
@@ -295,9 +295,7 @@ $strType = 'Tipo';
 
 $strUncheckAll = 'Quitar-lles as marcas a todos';
 $strUnique = 'Único';
-$strUpdatePassMessage = 'Mudou o contrasinal para';
-$strUpdatePassword = 'Mudar o contrasinal';
-$strUpdatePrivMessage = 'Mudou os privilexios para';
+$strUpdatePrivMessage = 'Mudou os privilexios para %s.';
 $strUpdateQuery = 'Actualizar a procura';
 $strUsage = 'Uso';
 $strUseBackquotes = 'Protexer os nomes das tabelas e dos campos con&nbsp;" ` "';
@@ -319,11 +317,12 @@ $strYes = 'Si';
 // To translate
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
+$strKeepPass = 'Do not change the password';//to translate
 $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
-$strUpdateServer = 'Update server';//to translate
-$strUpdateServMessage = 'You have updated the server for %s';//to translate
+$strUpdateProfile = 'Update profile:';//to translate
+$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:';
 ?>

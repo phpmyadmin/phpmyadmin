@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-21  Loïc Chapeaux  <lolo@phpheaven.net>
+	* users_detail.php3; libraries/user_details.js; lang/*: changing the whole
+	  profile of an user is now possible.
+
 2001-09-20  Geert Lund <glund@silversoft.dk>
 	* security issue fix: added checking for valid user and password to the
 	  phpinfo.php3 file, probitting non authorized users getting valuable

@@ -84,7 +84,7 @@ $strDeleted = 'Linia a fost stearsa';
 $strDeletedRows = 'Randuri sterse:';
 $strDeleteFailed = 'Stergere nereusita!';
 $strDeletePassword = 'Sterge parola';
-$strDeleteUserMessage = 'Ati sters utilizatorul';
+$strDeleteUserMessage = 'Ati sters utilizatorul %s.';
 $strDelPassMessage = 'Ati sters parola pentru';
 $strDescending = 'Descrescator';
 $strDisableMagicQuotes = '<b>Atentie:</b> Ati activat magic_quotes_gpc in configuratia PHP. Aceasta versiune PhpMyAdmin nu va functiona corect cu aceasta setare. Va rugam sa parcurgeti sectiunea de configurare a manualului PHP pentru mai multe informatii legate de modul de dezactivare.';
@@ -296,9 +296,7 @@ $strType = 'Tip';
 
 $strUncheckAll = 'Deselecteaza toate';
 $strUnique = 'Unic';
-$strUpdatePassMessage = 'Ati reinnoit parola  pentru';
-$strUpdatePassword = 'Reinnoire parola';
-$strUpdatePrivMessage = 'Ati reinnoit drepturile de acces pentru';
+$strUpdatePrivMessage = 'Ati reinnoit drepturile de acces pentru %s.';
 $strUpdateQuery = 'Reinnoire comanda';
 $strUsage = 'Utilizare';
 $strUseBackquotes = 'Utilizati apostroful pentru numele tabelelor si a campurilor';
@@ -320,10 +318,11 @@ $strYes = 'Da';
 
 // To translate
 $strIdxFulltext = 'Fulltext';  //to translate 
+$strKeepPass = 'Do not change the password';//to translate
 $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
-$strUpdateServer = 'Update server';//to translate
-$strUpdateServMessage = 'You have updated the server for %s';//to translate
+$strUpdateProfile = 'Update profile:';//to translate
+$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 ?>

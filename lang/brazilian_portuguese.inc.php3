@@ -84,7 +84,7 @@ $strDeleted = 'Registro eliminado';
 $strDeletedRows = 'Registro deletados:';
 $strDeleteFailed = 'Não foi possível apagar!';
 $strDeletePassword = 'Apagar Senha';
-$strDeleteUserMessage = 'Você deletou o usuário';
+$strDeleteUserMessage = 'Você deletou o usuário %s.';
 $strDelPassMessage = 'Você deletou a senha de';
 $strDescending = 'Descendente';
 $strDisableMagicQuotes = '<b>Atenção:</b> You have enabled magic_quotes_gpc in your PHP configuration. This version of PhpMyAdmin cannot work properly with it. Please have a look at the configuration section of the PHP manual for information on how to disable it.'; //to translate
@@ -294,9 +294,7 @@ $strType = 'Tipo';
 
 $strUncheckAll = 'Desmarca Todos';
 $strUnique = 'Único';
-$strUpdatePassMessage = 'Você mudou a senha para';
-$strUpdatePassword = 'Mudar Senha';
-$strUpdatePrivMessage = 'Você mudou os priviléios para';
+$strUpdatePrivMessage = 'Você mudou os priviléios para %s.';
 $strUpdateQuery = 'Atualiza Query';
 $strUsage = 'Uso';
 $strUseBackquotes = 'Usa aspas simples nos nomes de tabelas e campos';
@@ -318,12 +316,13 @@ $strYes = 'Sim';
 // To translate
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
+$strKeepPass = 'Do not change the password';//to translate
 $strRunningAs = 'as';
 $strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').'; //to translate
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
-$strUpdateServer = 'Update server';//to translate
-$strUpdateServMessage = 'You have updated the server for %s';//to translate
+$strUpdateProfile = 'Update profile:';//to translate
+$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:'; //to translate
 ?>

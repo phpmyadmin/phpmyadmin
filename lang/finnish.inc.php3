@@ -88,7 +88,6 @@ $strDeleted = 'Rivi on poistettu';
 $strDeletedRows = 'Poistetut rivit:';
 $strDeleteFailed = 'Poistaminen epäonnistui!';
 $strDeletePassword = 'Poista salasana';
-$strDeleteUserMessage = 'Poistettu käyttäjä:';
 $strDelPassMessage = 'Salasana poistettu käyttäjältä';
 $strDescending = 'Laskeva';
 $strDisableMagicQuotes = '<b>Varoitus:</b> "magic_quotes_gpc"-toiminto on päällä PHP:n asetuksissa. Tämä PhpMyAdminin ei toimi kunnolla tämän toiminnon ollessa päällä. PHP:n käyttöohjeiden konfigurointikappale kertoo kuinka toiminto saadaan pois päältä.';
@@ -300,9 +299,6 @@ $strType = 'Tyyppi';
 
 $strUncheckAll = 'Poista valinta kaikista';
 $strUnique = 'Uniikki';
-$strUpdatePassMessage = 'Olet päivittänyt salasanan käyttäjälle';
-$strUpdatePassword = 'Päivitä salasana';
-$strUpdatePrivMessage = 'Olet päivittänyt oikeudet käyttäjälle';
 $strUpdateQuery = 'Päivitä lause';
 $strUsage = 'Tila';
 $strUseBackquotes = 'Laita taulujen ja sarakkeiden nimet lainausmerkkeihin';
@@ -323,10 +319,13 @@ $strWrongUser = 'Väärä käyttäjätunnus tai salasana. Pääsy kielletty.';
 $strYes = 'Kyllä';
 
 // To translate
+$strDeleteUserMessage = 'You have deleted the user %s.';//to translate
+$strKeepPass = 'Do not change the password';//to translate
 $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
-$strUpdateServer = 'Update server';//to translate
-$strUpdateServMessage = 'You have updated the server for %s';//to translate
+$strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
+$strUpdateProfile = 'Update profile:';//to translate
+$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 ?>

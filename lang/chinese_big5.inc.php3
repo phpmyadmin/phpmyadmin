@@ -80,7 +80,6 @@ $strDelete = '刪除';
 $strDeleted = '記錄已被刪除';
 $strDeleteFailed = '刪除失敗!';
 $strDeletePassword = '刪除密碼';
-$strDeleteUserMessage = '您刪除了使用者 ';
 $strDelPassMessage = '您已經刪除了下面這位使用者的密碼:';
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisableMagicQuotes = '<b>警告:</b> 您的 PHP 設定啟用 magic_quotes_gpc 這個功能，但使用此功能，這個版本的 PhpMyAdmin 不能正確地執行<br />要了解如何取消這個功能，請參考 PHP 使用手冊中關於組態設定 (configuration) 這一節的內容';
@@ -261,9 +260,6 @@ $strType = '型態';
 
 $strUncheckAll = '全部取消';
 $strUnique = '唯一';
-$strUpdatePassMessage = 'You have updated the password for';//您已經為下面這位使用者更新密碼:(this variable can't show Chinese correctly)
-$strUpdatePassword = '變更密碼';
-$strUpdatePrivMessage = 'You have updated the privileges for'; //您已經為下面這位使用者更新權限:(this variable can't show Chinese correctly)
 $strUpdateQuery = 'Update Query'; //to translate (tbl_qbe.php3)
 $strUsage = '使用';
 $strUser = '使用者';
@@ -325,6 +321,10 @@ $strRunSQLQuery = 'Run SQL query/queries on database %s';//to translate
 $strStartingRecord = 'Starting record';//to translate
 $strTableHasBeenDropped = 'Table %s has been dropped';//to translate
 $strTableHasBeenEmptied = 'Table %s has been emptied';//to translate
-$strUpdateServer = 'Update server';//to translate
-$strUpdateServMessage = 'You have updated the server for %s';//to translate
+
+$strDeleteUserMessage = 'You have deleted the user %s.';//to translate
+$strKeepPass = 'Do not change the password';//to translate
+$strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
+$strUpdateProfile = 'Update profile:';//to translate
+$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 ?>

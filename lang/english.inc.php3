@@ -84,7 +84,7 @@ $strDeleted = 'The row has been deleted';
 $strDeletedRows = 'Deleted rows:';
 $strDeleteFailed = 'Deleted Failed!';
 $strDeletePassword = 'Delete Password';
-$strDeleteUserMessage = 'You have deleted the user';
+$strDeleteUserMessage = 'You have deleted the user %s.';
 $strDelPassMessage = 'You have deleted the password for';
 $strDescending = 'Descending';
 $strDisableMagicQuotes = '<b>Warning:</b> You have enabled magic_quotes_gpc in your PHP configuration. This version of PhpMyAdmin cannot work properly with it. Please have a look at the configuration section of the PHP manual for information on how to disable it.';
@@ -156,6 +156,7 @@ $strInstructions = 'Instructions';
 $strInUse = 'in use';
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.';
 
+$strKeepPass = 'Do not change the password';
 $strKeyname = 'Keyname';
 $strKill = 'Kill';
 
@@ -301,12 +302,10 @@ $strType = 'Type';
 
 $strUncheckAll = 'Uncheck All';
 $strUnique = 'Unique';
-$strUpdatePassMessage = 'You have updated the password for';
-$strUpdatePassword = 'Update Password';
-$strUpdatePrivMessage = 'You have updated the privileges for';
+$strUpdatePrivMessage = 'You have updated the privileges for %s.';
+$strUpdateProfile = 'Update profile:';
+$strUpdateProfileMessage = 'The profile has been updated.';
 $strUpdateQuery = 'Update Query';
-$strUpdateServer = 'Update server';
-$strUpdateServMessage = 'You have updated the server for %s';
 $strUsage = 'Usage';
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
 $strUser = 'User';

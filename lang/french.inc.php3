@@ -84,7 +84,7 @@ $strDeleted = 'L\'enregistrement a été effacé';
 $strDeletedRows = 'Nombre d\'enregistrements effacés :';
 $strDeleteFailed = 'L\'effacement a échoué';
 $strDeletePassword = 'Effacer le mot de passe';
-$strDeleteUserMessage = 'Vous avez effacé l\'utilisateur';
+$strDeleteUserMessage = 'Vous avez effacé l\'utilisateur %s.';
 $strDelPassMessage = 'Vous avez effacé le mot de passe de ';
 $strDescending = 'Décroissant';
 $strDisableMagicQuotes = '<b>Attention:</b> Vous avez positionné magic_quotes_gpc dans la configuration de PHP. Cette version de PhpMyAdmin ne peut fonctionner correctement avec. Veuillez vous référer au paragraphe traitant de la configration dans la documentation de PHP pour positionner cette variable à off.';
@@ -155,6 +155,8 @@ $strInsertTextfiles = 'Insérer un fichier texte dans la table';
 $strInstructions = 'Instructions';
 $strInUse = 'utilisé';
 $strInvalidName = '"%s" est un mot réservé, il ne peut être utilisé comme nom de base/table/champ.';
+
+$strKeepPass = 'Conserver le mot de passe';
 $strKeyname = 'Nom de la clé';
 $strKill = 'Supprimer';
 
@@ -300,9 +302,9 @@ $strType = 'Type';
 
 $strUncheckAll = 'Tout décocher';
 $strUnique = 'Unique';
-$strUpdatePassMessage = 'Vous avez modifié le mot de passe pour';
-$strUpdatePassword = 'Changer le mot de passe';
-$strUpdatePrivMessage = 'Vous avez modifié les privilèges pour';
+$strUpdatePrivMessage = 'Vous avez modifié les privilèges pour %s.';
+$strUpdateProfile = 'Modifier le profil :';
+$strUpdateProfileMessage = 'Le profil a été modifié.';
 $strUpdateQuery = 'Mise-à-jour de la requête';
 $strUpdateServer = 'Changer le serveur';
 $strUpdateServMessage = 'Vous avez modifié le serveur pour %s';

@@ -83,7 +83,6 @@ $strDeleted = 'Raden er slettet';
 $strDeletedRows = 'Slettede rader:';
 $strDeleteFailed = 'Slettingen misslyktes!';
 $strDeletePassword = 'Slett passord';
-$strDeleteUserMessage = 'Du har slettet brukeren';
 $strDelPassMessage = 'Du har slettet passordet til';
 $strDescending = 'Synkende';
 $strDisableMagicQuotes = '<b>Advarsel:</b> Du har slått på magic_quotes_gpc i din PHP konfigurasjon. Denne versjonen av PhpMyAdmin vil ikke fungere skikkelig med den. Vennligst se i konfigurasjons delen i PHP manualen for informasjon om hvordan du slår den av.';
@@ -292,9 +291,6 @@ $strType = 'Type';
 
 $strUncheckAll = 'Fjern avmerking';
 $strUnique = 'Unik';
-$strUpdatePassMessage = 'Du har oppdatert passordet til';
-$strUpdatePassword = 'Oppdater passord';
-$strUpdatePrivMessage = 'Du har oppdatert privilegiene til';
 $strUpdateQuery = 'Oppdater spørring';
 $strUsage = 'Bruk';
 $strUseBackquotes = 'Bruk venstre anførselstegn med tabell og felt navn';
@@ -315,14 +311,17 @@ $strYes = 'Ja';
 
 // To translate
 $strCarriage = 'Carriage return: \\r';	//to translate
+$strDeleteUserMessage = 'You have deleted the user %s.';//to translate
 $strGrants = 'Grants';	//to translate
+$strKeepPass = 'Do not change the password';//to translate
 $strPartialText = 'Partial Texts';	//to translate
 $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
 $strStatement = 'Statements';	//to translate
-$strUpdateServer = 'Update server';//to translate
-$strUpdateServMessage = 'You have updated the server for %s';//to translate
+$strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
+$strUpdateProfile = 'Update profile:';//to translate
+$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:';	//to translate
 ?>

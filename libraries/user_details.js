@@ -10,17 +10,29 @@
  */
 function checkPassword(the_form)
 {
-    if (the_form.elements['nopass'][1].checked) {
-        if (the_form.elements['pma_pw'].value == '') {
+    // Gets the elements pointers
+    if (the_form.name == 'addUserForm') {
+        var pswd_index = 1;
+        var pswd1_name = 'pma_pw';
+        var pswd2_name = 'pma_pw2';
+    } else {
+        var pswd_index = 2;
+        var pswd1_name = 'new_pw';
+        var pswd2_name = 'new_pw2';
+    }
+
+    // Validates
+    if (the_form.elements['nopass'][pswd_index].checked) {
+        if (the_form.elements[pswd1_name].value == '') {
             alert(jsPasswordEmpty);
-            the_form.elements['pma_pw2'].value = '';
-            the_form.elements['pma_pw'].focus();
+            the_form.elements[pswd2_name].value = '';
+            the_form.elements[pswd1_name].focus();
             return false;
-        } else if (the_form.elements['pma_pw'].value != the_form.elements['pma_pw2'].value) {
+        } else if (the_form.elements[pswd1_name].value != the_form.elements[pswd2_name].value) {
             alert(jsPasswordNotSame);
-            the_form.elements['pma_pw'].value  = '';
-            the_form.elements['pma_pw2'].value = '';
-            the_form.elements['pma_pw'].focus();
+            the_form.elements[pswd1_name].value  = '';
+            the_form.elements[pswd2_name].value = '';
+            the_form.elements[pswd1_name].focus();
             return false;
         } // end if...else if
     } // end if

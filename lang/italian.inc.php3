@@ -85,7 +85,7 @@ $strDeleted = 'La riga è stata cancellata';
 $strDeletedRows = 'Righe cancellate:';
 $strDeleteFailed = 'Cancellazione fallita!';
 $strDeletePassword = 'Cancella Password';
-$strDeleteUserMessage = 'Hai cancellato l\'utente';
+$strDeleteUserMessage = 'Hai cancellato l\'utente %s.';
 $strDelPassMessage = 'Hai cancellato la password per';
 $strDescending = 'Decrescente';
 $strDisableMagicQuotes = '<b>Attenzione:</b> Hai l\'opzione \'magic_quotes_gpc\' abilitata nel file di configurazione di PHP. Questa versione di PhpMyAdmin non funziona correttamente con essa. Fai riferimento alla sezione relativa alla configurazione del manuale PHP per informazioni su come disabilitarla.';
@@ -302,12 +302,8 @@ $strType = 'Tipo';
 
 $strUncheckAll = 'Deseleziona tutti';
 $strUnique = 'Unica';
-$strUpdatePassMessage = 'Hai aggiornato la password per';
-$strUpdatePassword = 'Aggiorna Password';
-$strUpdatePrivMessage = 'Hai aggiornato i permessi per';
+$strUpdatePrivMessage = 'Hai aggiornato i permessi per %s.';
 $strUpdateQuery = 'Aggiorna Query';
-$strUpdateServer = 'Aggiorna il server';
-$strUpdateServMessage = 'Hai aggiornato il server per %s';
 $strUsage = 'Utilizzo';
 $strUseBackquotes = 'Usa i backquotes con i nomi delle tabelle e dei campi';
 $strUser = 'Utente';
@@ -327,4 +323,7 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 // To translate
+$strKeepPass = 'Do not change the password';//to translate
+$strUpdateProfile = 'Update profile:';//to translate
+$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 ?>

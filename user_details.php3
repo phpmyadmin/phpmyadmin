@@ -353,7 +353,7 @@ function normal_operations()
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="nopass" value="1" />
+                    <input type="radio" name="nopass" value="1" onclick="pma_pw.value = ''; pma_pw2.value = ''" />
                     <?php echo $GLOBALS['strNoPassword'] . "\n"; ?>
                 </td>
                 <td>&nbsp;</td>
@@ -605,43 +605,62 @@ function edit_operations($host, $user)
     </li>
 
     <li>
-        <form action="user_details.php3" method="post" name="serverForm">
-            <?php echo $GLOBALS['strUpdateServer'] . "\n"; ?>
+        <form action="user_details.php3" method="post" name="updUserForm" onsubmit="return checkPassword(this)">
+            <?php echo $GLOBALS['strUpdateProfile'] . "\n"; ?>
             <table>
             <tr>
                 <td>
-                    <input type="text" name="new_server" size="10" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
-                    &nbsp;
-                    <input type="submit" name="submit_chgServer" value="<?php echo $GLOBALS['strGo']; ?>" />
+                    <input type="radio" value="1" name="anyhost"<?php if (empty($host) || $host == '%') echo ' checked="checked"'; ?> />
+                    <?php echo $GLOBALS['strAnyHost'] . "\n"; ?>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="radio" value="0" name="anyhost"<?php if (!empty($host) && $host != '%') echo ' checked="checked"'; ?> />
+                    <?php echo $GLOBALS['strHost']; ?>&nbsp;:&nbsp;
+                </td>
+                <td>
+                    <input type="text" name="new_server" size="10" value="<?php echo str_replace('"', '&quot;', $host); ?>" onchange="this.form.anyhost[1].checked = true" />
                 </td>
             </tr>
-            </table>
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
-            <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $pma_user); ?>" />
-        </form>
-    </li>
-
-    <li>
-        <form action="user_details.php3" method="post" name="passForm" onsubmit="return checkPassword(this)">
-            <?php echo $GLOBALS['strUpdatePassword'] . "\n"; ?>
-            <table>
             <tr>
                 <td>
-                    <input type="radio" name="nopass" value="1"<?php if ($row['Password'] == '') echo ' checked="checked"'; ?> />
+                    <input type="radio" value="1" name="anyuser"<?php if (empty($pma_user) || $pma_user == '%') echo ' checked="checked"'; ?> />
+                    <?php echo $GLOBALS['strAnyUser']; ?>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="radio" value="0" name="anyuser" checked="checked"<?php if (!empty($pma_user) && $pma_user != '%') echo ' checked="checked"'; ?> />
+                    <?php echo $GLOBALS['strUserName']; ?>&nbsp;:&nbsp;
+                </td>
+                <td>
+                    <input type="text" name="new_user" size="10" value="<?php echo str_replace('"', '&quot;', $pma_user); ?>" onchange="this.form.anyuser[1].checked = true" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="nopass" value="-1" checked="checked" onclick="new_pw.value = ''; new_pw2.value = ''" />
+                    <?php echo $GLOBALS['strKeepPass'] . "\n"; ?>
+                </td>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="4" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $GLOBALS['strOr']; ?></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="nopass" value="1" onclick="new_pw.value = ''; new_pw2.value = ''" />
                     <?php echo $GLOBALS['strNoPassword'] . "\n"; ?>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" name="nopass" value="0"<?php if ($row['Password'] != '') echo ' checked="checked"'; ?> />
+                    <input type="radio" name="nopass" value="0" />
                     <?php echo $GLOBALS['strPassword']; ?>&nbsp;:&nbsp;
                 </td>
                 <td>
-                    <input type="password" name="pma_pw" size="10" onchange="nopass[1].checked = true" />
+                    <input type="password" name="new_pw" size="10" onchange="nopass[2].checked = true" />
                     &nbsp;&nbsp;
                     <?php echo $GLOBALS['strReType']; ?>&nbsp;:&nbsp;
-                    <input type="password" name="pma_pw2" size="10" onchange="nopass[1].checked = true" />
+                    <input type="password" name="new_pw2" size="10" onchange="nopass[2].checked = true" />
                 </td>
             </tr>
             </table>
@@ -649,7 +668,7 @@ function edit_operations($host, $user)
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
             <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $pma_user); ?>" />
-            <input type="submit" name="submit_chgPswd" value="<?php echo $GLOBALS['strGo']; ?>" />
+            <input type="submit" name="submit_updProfile" value="<?php echo $GLOBALS['strGo']; ?>" />
         </form>
     </li>
 
@@ -909,22 +928,36 @@ function confirm($the_host, $the_user) {
  */
 check_rights();
 
-if (empty($host)) {
-    $db    = 'mysql';
-    $table = 'user';
-} else if (get_magic_quotes_gpc()) {
+if (isset($db)) {
+    $db_bkp    = $db;
+    unset($db);
+}
+if (isset($table)) {
+    $table_bkp = $table;
+    unset($db);
+}
+if (!empty($host) && get_magic_quotes_gpc()) {
     $host         = stripslashes($host);
     if (!empty($pma_user)) {
         $pma_user = stripslashes($pma_user);
     }
 }
-    
+
 $js_to_run = 'user_details.js';
 include('./header.inc.php3');
-if (!empty($host) && !isset($submit_chgServer)) {
+if (!isset($submit_updProfile)) {
     echo '<h1>' . "\n";
-    echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
+    echo '    ' . (empty($host) ? $strAnyHost : $strHost . ' ' . $host) . ' - ' . (empty($pma_user) ? $strAnyUser : $strUser . ' ' . $pma_user) . "\n";
     echo '</h1>';
+}
+
+if (isset($db_bkp)) {
+    $db    = $db_bkp;
+    unset($db_bkp);
+}
+if (isset($table_bkp)) {
+    $table = $table_bkp;
+    unset($table_bkp);
 }
 
 
@@ -963,10 +996,9 @@ else if (isset($delete) && $delete
 
     $result = mysql_query('DELETE FROM mysql.user' . $common_where);
     if ($result) {
-        echo '<p><b>' . $strDeleteUserMessage . ' <span style="color: #002E80">' . $delete_user . '@' . $delete_host . '</span><br />';
-        echo '    ' . $strRememberReload . '</b></p>';
+        show_message(sprintf($strDeleteUserMessage, '<span style="color: #002E80">' . $delete_user . '@' . $delete_host . '</span>') . '<br />' . $strRememberReload);
     } else {
-        echo '<p><b>' . $strDeleteFailed . '</b></p>';
+        show_message($strDeleteFailed);
     }
 }
 
@@ -1018,8 +1050,8 @@ else if (isset($submit_addUser)) {
     } // end else
 }
 
-// Changes the server that an user can access
-else if (isset($submit_chgServer)) {
+// Updates the profile of an user
+else if (isset($submit_updProfile)) {
     $show_query     = 'y';
     $edit           = TRUE;
     if (empty($host)) {
@@ -1028,52 +1060,76 @@ else if (isset($submit_chgServer)) {
     if (empty($pma_user)) {
         $pma_user   = '%';
     }
-    if (empty($new_server)) {
+
+    // Builds the sql query
+    $sql_query      = '';
+
+    if (isset($anyhost) && $anyhost) {
         $new_server = '%';
-    } else if (get_magic_quotes_gpc()) {
+    } else if (!empty($new_server) && get_magic_quotes_gpc()) {
         $new_server = stripslashes($new_server);
     }
-
-    $sql_query  = 'UPDATE user '
-                . 'SET host = \'' . sql_addslashes($new_server) . '\' '
-                . 'WHERE user = \'' . sql_addslashes($pma_user) . '\' AND host = \'' . sql_addslashes($host) . '\'';
-    $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE);
-
-    $host       = $new_server;
-    echo '<h1>' . "\n";
-    echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
-    echo '</h1>';
-    show_message(sprintf($strUpdateServMessage, '<span style="color: #002E80">' . $pma_user . '@' . $host . '</span>') . '<br />' . $strRememberReload);
-}
-
-// Changes the password of an user
-else if (isset($submit_chgPswd)) {
-    $show_query   = 'y';
-    $edit         = TRUE;
-    if (empty($host)) {
-        $host     = '%';
-    }
-    if (empty($pma_user)) {
-        $pma_user = '%';
+    if (!empty($new_server) && $new_server != $host) {
+        $sql_query .= 'host = \'' . sql_addslashes($new_server) . '\'';
+    } else if (isset($new_server)) {
+        unset($new_server);
     }
 
-    // Password is not confirmed
-    if ((!isset($nopass) || !$nopass) && empty($pma_pw)) {
+    if (isset($anyuser) && $anyuser) {
+        $new_user  = '%';
+    } else if (!empty($new_user) && get_magic_quotes_gpc()) {
+        $new_user  = stripslashes($new_user);
+    }
+    if (!empty($new_user) && $new_user != $pma_user) {
+        $sql_query .= (empty($sql_query) ? '' : ', ')
+                   . 'user = \'' . sql_addslashes($new_user) . '\'';
+    } else if (isset($new_user)) {
+        unset($new_user);
+    }
+
+    if (isset($nopass) && $nopass == -1) {
+        // void()
+    }
+    else if ((!isset($nopass) || $nopass == 0) && empty($new_pw)) {
+        echo '<h1>' . "\n";
+        echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
+        echo '</h1>' . "\n";
         echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strPasswordEmpty . '</b></p>' . "\n";
     }
-    else if (!empty($pma_pw)
-        && (!isset($pma_pw2) || $pma_pw != $pma_pw2)) {
+    else if (!empty($new_pw)
+        && (!isset($new_pw2) || $new_pw != $new_pw2)) {
+        echo '<h1>' . "\n";
+        echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
+        echo '</h1>' . "\n";
         echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strPasswordNotSame . '</b></p>' . "\n";
     }
-
-    // Password confirmed
     else {
-        $sql_query  = 'UPDATE user '
-                    . 'SET password = ' . (empty($pma_pw) ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($pma_pw) . '\')') . ' '
-                    . 'WHERE user = \'' . sql_addslashes($pma_user) . '\' AND host = \'' . sql_addslashes($host) . '\'';
-        $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE);
-        show_message($strUpdatePassMessage . ' <span style="color: #002E80">' . $pma_user . '@' . $host . '</span><br />' . $strRememberReload);
-    } // end else
+        $sql_query .= (empty($sql_query) ? '' : ', ')
+                   . 'password = ' . (empty($new_pw) ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($new_pw) . '\')');
+    }
+    
+    if (!empty($sql_query)) {
+        $sql_query    = 'UPDATE user '
+                      . 'SET ' . $sql_query . ' '
+                      . 'WHERE user = \'' . sql_addslashes($pma_user) . '\' AND host = \'' . sql_addslashes($host) . '\'';
+        $result       = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+
+        if (isset($new_server)) {
+            $host     = $new_server;
+        }
+        if (isset($new_user)) {
+            $pma_user = $new_user;
+        }
+        echo '<h1>' . "\n";
+        echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
+        echo '</h1>' . "\n";
+        show_message($strUpdateProfileMessage . '<br />' . $strRememberReload);
+    } else {
+        echo '<h1>' . "\n";
+        echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
+        echo '</h1>' . "\n";
+        show_message($strNoModification);
+    }
 }
 
 // Changes the privileges of an user
@@ -1104,7 +1160,7 @@ else if (isset($submit_chgPriv)) {
                . $sql_query
                . ' WHERE host = \'' . sql_addslashes($host) . '\' AND user = \'' . sql_addslashes($pma_user) . '\'';
     $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE);
-    show_message($strUpdatePrivMessage . ' <span style="color: #002E80">' . $pma_user . '@' . $host . '</span><br />' . $strRememberReload);
+    show_message(sprintf($strUpdatePrivMessage, '<span style="color: #002E80">' . $pma_user . '@' . $host . '</span>') . '<br />' . $strRememberReload);
 }
 
 // Revoke/Grant privileges

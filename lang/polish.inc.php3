@@ -84,7 +84,6 @@ $strDeleted = 'Rekord zosta³ skasowany';
 $strDeletedRows = 'Skasowane rekordy:';
 $strDeleteFailed = 'Kasowanie nie powiod³o sie!';
 $strDeletePassword = 'Kasowanie has³a';
-$strDeleteUserMessage = 'U¿ytkownik zosta³ skasowany';
 $strDelPassMessage = 'Skasowane zosta³o has³o u¿ytkownika';
 $strDescending = 'Malej±co';
 $strDisableMagicQuotes = '<b>Ostrze¿enie:</b> W³±czono opcje magic_quotes_gpc w konfiguracji PHP. Ta wersja PhpMyAdmin ¼le dzia³a, gdy opcja ta jest wy³±czona. Proszê zaznajomiæ siê z dokumentacj± do PHP, aby znale¼æ informacje, w jaki sposób wy³±czyæ tê opcjê.';
@@ -294,9 +293,6 @@ $strType = 'Typ';
 
 $strUncheckAll = 'Odznaczenie wszystkich';
 $strUnique = 'Unikalny';
-$strUpdatePassMessage = 'Zmienione zosta³o has³o dla';
-$strUpdatePassword = 'Zmiana has³a';
-$strUpdatePrivMessage = 'Zmienione zosta³y uprawnienia dla';
 $strUpdateQuery = 'Zmiana zapytania';
 $strUsage = 'Wykorzystanie';
 $strUseBackquotes = 'U¿ycie cudzys³owów z nazwami tabel i pól';
@@ -316,13 +312,16 @@ $strWrongUser = 'B³êdne pola u¿ytkownik/has³o. Brak dostêpu.';
 $strYes = 'Tak';
 
 // To translate
+$strDeleteUserMessage = 'You have deleted the user %s.';//to translate
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
+$strKeepPass = 'Do not change the password';//to translate
 $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
-$strUpdateServer = 'Update server';//to translate
-$strUpdateServMessage = 'You have updated the server for %s';//to translate
+$strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
+$strUpdateProfile = 'Update profile:';//to translate
+$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:';
 ?>
