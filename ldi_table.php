@@ -100,8 +100,8 @@ echo "\n";
 ?>
     <tr>
         <td><?php echo $strReplaceTable; ?></td>
-        <td><input type="checkbox" name="replace" value="REPLACE" id="checkbox_replace" /><?php echo $strReplace; ?></td>
-        <td><label for="checkbox_replace"><?php echo $strTheContents; ?></label></td>
+        <td><input type="checkbox" name="replace" value="REPLACE" id="checkbox_replace" /><label for="checkbox_replace"><?php echo $strReplace; ?></label></td>
+        <td><?php echo $strTheContents; ?></td>
     </tr>
     <tr>
         <td><?php echo $strFieldsTerminatedBy; ?></td>

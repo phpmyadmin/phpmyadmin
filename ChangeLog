@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * ldi_table.php: bug #1010652, wrong label,
+      thanks to Ryan Schmidt - ryandesign for the patch
+
 2004-09-05 Alexander M. Turek  <me@derrabus.de>
     * libraries/sqlparser.data.php: Parser support for SHOW STORAGE ENGINES and
       SHOW TABLE TYPES.
