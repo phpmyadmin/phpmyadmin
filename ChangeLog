@@ -16,6 +16,7 @@ $Source$
     * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
     * lang/german-*.inc.php3: Updates.
     * lang/*.inc.php3: Fixed a typo.
+    * lang/lithuanian-*.inc.php3: Updates, thanks to Vilius Zigmantas (viliusz).
 
 2002-12-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * main.php3, header.inc.php3, server_privileges.php3, server_links.php3,
