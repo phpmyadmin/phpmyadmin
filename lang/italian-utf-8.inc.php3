@@ -71,7 +71,7 @@ $strCantLoadMySQL = 'impossibile caricare l\'estensione MySQL,<br />controlla la
 $strCantLoadRecodeIconv = 'Impossibile caricare l\'estensione iconv o recode necessaria per la conversione del set di caratteri, configurare il PHP per permettere di utilizzare queste estenzioni o disabilitare la conversione dei set di caratteri in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Impossibile rinominare l\'indice a PRIMARIO!';
 $strCantUseRecodeIconv = 'Impossibile utilizzare le funzioni iconv o libiconv o recode_string in quanto l\'estensione deve essere caricata. Controllare la configurazione del PHP.';
-$strCardinality = 'Cardinalit√ ';
+$strCardinality = 'Cardinalit√†';
 $strCarriage = 'Ritorno carrello: \\r';
 $strChange = 'Modifica';
 $strChangeDisplay = 'Scegli il campo da mostrare';
@@ -285,7 +285,7 @@ $strPrimaryKeyName = 'Il nome della chiave primaria deve essere... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>deve</b> essere il nome di, e <b>solo di</b>, una chiave primaria!)';
 $strPrintView = 'Visualizza per stampa';
 $strPrivileges = 'Privilegi';
-$strProperties = 'Propriet√ ';
+$strProperties = 'Propriet√†';
 
 $strQBE = 'Query da esempio';
 $strQBEDel = 'Cancella';
@@ -293,7 +293,7 @@ $strQBEIns = 'Aggiungi';
 $strQueryOnDb = 'SQL-query sul database <b>%s</b>:';
 
 $strRecords = 'Record';
-$strReferentialIntegrity = 'Controlla l\'integrit√  delle referenze:';
+$strReferentialIntegrity = 'Controlla l\'integrit√† delle referenze:';
 $strRelationNotWorking = 'Le caratteristiche aggiuntive sono state disattivate per funzionare con le tabelle linkate. Per scoprire perch√® clicca %squi%s.';
 $strRelationView = 'Vedi relazioni';
 $strReloadFailed = 'Riavvio di MySQL fallito.';
@@ -316,7 +316,7 @@ $strRows = 'Righe';
 $strRowsFrom = 'righe a partire da';
 $strRowSize = 'Dimensione riga';
 $strRowsModeHorizontal = ' orizzontale ';
-$strRowsModeOptions = ' in modalit√  %s e ripeti gli headers dopo %s celle ';
+$strRowsModeOptions = ' in modalit√† %s e ripeti gli headers dopo %s celle ';
 $strRowsModeVertical = ' verticale ';
 $strRowsStatistic = 'Statistiche righe';
 $strRunning = 'in esecuzione su %s';
@@ -422,4 +422,13 @@ $strZip = '"compresso con zip"';
 
 // To translate
 $strCharsetOfFile = 'Character set of the file:'; //to translate
+$strBeginCut = 'BEGIN CUT';  //to translate
+$strEndCut = 'END CUT';  //to translate
+$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
+$strSQPBugUnknownPunctation = 'Unknown Punctation String';  //to translate
+$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
+$strBeginRaw = 'BEGIN RAW';  //to translate
+$strEndRaw = 'END RAW';  //to translate
+$strSQLParserBugMessage = 'There is a change that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if my parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
+$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
 ?>

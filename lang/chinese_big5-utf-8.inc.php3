@@ -81,7 +81,6 @@ $strCheckDbPriv = '檢查資料庫權限';
 $strCheckTable = '檢查資料表';
 $strChoosePage = '請選擇需要編輯的頁碼';
 $strColComFeat = '顯示欄位註解';
-$strCreatePdfFeat = '建立 PDF';
 $strColumn = '欄位';
 $strColumnNames = '欄位名稱';
 $strComments = '註解';
@@ -98,6 +97,7 @@ $strCreateIndexTopic = '新增一組索引';
 $strCreateNewDatabase = '建立新資料庫';
 $strCreateNewTable = '建立新資料表於資料庫 %s';
 $strCreatePage = '建立新一頁';
+$strCreatePdfFeat = '建立 PDF';
 $strCriteria = '篩選';
 
 $strData = '資料';
@@ -422,4 +422,13 @@ $strZip = '"zipped"';
 
 // To translate
 $strCharsetOfFile = 'Character set of the file:'; //to translate
+$strBeginCut = 'BEGIN CUT';  //to translate
+$strEndCut = 'END CUT';  //to translate
+$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
+$strSQPBugUnknownPunctation = 'Unknown Punctation String';  //to translate
+$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
+$strBeginRaw = 'BEGIN RAW';  //to translate
+$strEndRaw = 'END RAW';  //to translate
+$strSQLParserBugMessage = 'There is a change that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if my parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
+$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
 ?>
