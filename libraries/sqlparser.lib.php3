@@ -764,7 +764,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $after      = '';
                         $before     = '';
                     }
-                    if (($typearr[3] == 'alpha_columnType') || ($typearr[3] == 'alpha_identifier')){
+                    if (($typearr[3] == 'alpha_columnType') || ($typearr[3] == 'alpha_identifier')) {
                         $after      .= ' ';
                     }
                     break;
@@ -816,14 +816,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $before    .= ' ';
                     }
                     break;
-		case 'alpha_columnAttrib':
-                    if ($typearr[3] == 'alpha_columnAttrib') {
+                case 'alpha_columnAttrib':
+                    if (($typearr[3] == 'alpha_columnAttrib') || ($typearr[3] == 'quote_single')) {
                         $after     .= ' ';
                     }
-                    if ($typearr[3] == 'quote_single') {
-                        $after     .= ' ';
-                    }
-		    break;
+                    break;
                 case 'alpha_reservedWord':
                     $upper         = $arr[$i]['data'];
                     if ((($typearr[1] != 'alpha_reservedWord')
