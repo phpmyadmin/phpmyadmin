@@ -12,8 +12,12 @@ require('./libraries/common.lib.php3');
 PMA_setFontSizes();
 
 // Gets the host name
+// loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
 if (empty($HTTP_HOST)) {
-    if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_HOST'])) {
+    if (!empty($_ENV) && isset($_ENV['HTTP_HOST'])) {
+        $HTTP_HOST = $_ENV['HTTP_HOST'];
+    }
+    else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_HOST'])) {
         $HTTP_HOST = $HTTP_ENV_VARS['HTTP_HOST'];
     }
     else if (@getenv('HTTP_HOST')) {

@@ -111,17 +111,37 @@ if (!defined('PMA_IS_LANG_DETECT_FUNCTION')) {
 
 /**
  * Get some global variables if 'register_globals' is set to 'off'
+ * loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
  */
-if (!empty($HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE']))
+if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    $HTTP_ACCEPT_LANGUAGE = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+}
+else if (!empty($HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE'])) {
     $HTTP_ACCEPT_LANGUAGE = $HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE'];
-if (!empty($HTTP_SERVER_VARS['HTTP_USER_AGENT']))
+}
+
+if (!empty($_SERVER['HTTP_USER_AGENT'])) {
+    $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
+}
+else if (!empty($HTTP_SERVER_VARS['HTTP_USER_AGENT'])) {
     $HTTP_USER_AGENT = $HTTP_SERVER_VARS['HTTP_USER_AGENT'];
+}
+
 if (!isset($lang)) {
-    if (isset($HTTP_GET_VARS) && !empty($HTTP_GET_VARS['lang'])) {
+    if (isset($_GET) && !empty($_GET['lang'])) {
+        $lang = $_GET['lang'];
+    }
+    else if (isset($HTTP_GET_VARS) && !empty($HTTP_GET_VARS['lang'])) {
         $lang = $HTTP_GET_VARS['lang'];
+    }
+    else if (isset($_POST) && !empty($_POST['lang'])) {
+        $lang = $_POST['lang'];
     }
     else if (isset($HTTP_POST_VARS) && !empty($HTTP_POST_VARS['lang'])) {
         $lang = $HTTP_POST_VARS['lang'];
+    }
+    else if (isset($_COOKIE) && !empty($_COOKIE['lang'])) {
+        $lang = $_COOKIE['lang'];
     }
     else if (isset($HTTP_COOKIE_VARS) && !empty($HTTP_COOKIE_VARS['lang'])) {
         $lang = $HTTP_COOKIE_VARS['lang'];

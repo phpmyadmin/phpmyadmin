@@ -357,12 +357,20 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         if ($cfgServer['adv_auth']) {
             // Grabs the $PHP_AUTH_USER variable whatever are the values of the
             // 'register_globals' and the 'variables_order' directives
+            // loic1 - 2001/25/11: use the new globals arrays defined with
+            //                     php 4.1+
             if (empty($PHP_AUTH_USER)) {
-                if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['PHP_AUTH_USER'])) {
+                if (!empty($_SERVER) && isset($_SERVER['PHP_AUTH_USER'])) {
+                    $PHP_AUTH_USER = $_SERVER['PHP_AUTH_USER'];
+                }
+                else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['PHP_AUTH_USER'])) {
                     $PHP_AUTH_USER = $HTTP_SERVER_VARS['PHP_AUTH_USER'];
                 }
                 else if (isset($REMOTE_USER)) {
                     $PHP_AUTH_USER = $REMOTE_USER;
+                }
+                else if (!empty($_ENV) && isset($_ENV['REMOTE_USER'])) {
+                    $PHP_AUTH_USER = $_ENV['REMOTE_USER'];
                 }
                 else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['REMOTE_USER'])) {
                     $PHP_AUTH_USER = $HTTP_ENV_VARS['REMOTE_USER'];
@@ -374,6 +382,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                 else if (isset($AUTH_USER)) {
                     $PHP_AUTH_USER = $AUTH_USER;
                 }
+                else if (!empty($_ENV) && isset($_ENV['AUTH_USER'])) {
+                    $PHP_AUTH_USER = $_ENV['AUTH_USER'];
+                }
                 else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['AUTH_USER'])) {
                     $PHP_AUTH_USER = $HTTP_ENV_VARS['AUTH_USER'];
                 }
@@ -383,12 +394,20 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             }
             // Grabs the $PHP_AUTH_PW variable whatever are the values of the
             // 'register_globals' and the 'variables_order' directives
+            // loic1 - 2001/25/11: use the new globals arrays defined with
+            //                     php 4.1+
             if (empty($PHP_AUTH_PW)) {
-                if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['PHP_AUTH_PW'])) {
+                if (!empty($_SERVER) && isset($_SERVER['PHP_AUTH_PW'])) {
+                    $PHP_AUTH_PW = $_SERVER['PHP_AUTH_PW'];
+                }
+                else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['PHP_AUTH_PW'])) {
                     $PHP_AUTH_PW = $HTTP_SERVER_VARS['PHP_AUTH_PW'];
                 }
                 else if (isset($REMOTE_PASSWORD)) {
                     $PHP_AUTH_PW = $REMOTE_PASSWORD;
+                }
+                else if (!empty($_ENV) && isset($_ENV['REMOTE_PASSWORD'])) {
+                    $PHP_AUTH_PW = $_ENV['REMOTE_PASSWORD'];
                 }
                 else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['REMOTE_PASSWORD'])) {
                     $PHP_AUTH_PW = $HTTP_ENV_VARS['REMOTE_PASSWORD'];
@@ -400,6 +419,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                 else if (isset($AUTH_PASSWORD)) {
                     $PHP_AUTH_PW = $AUTH_PASSWORD;
                 }
+                else if (!empty($_ENV) && isset($_ENV['AUTH_PASSWORD'])) {
+                    $PHP_AUTH_PW = $_ENV['AUTH_PASSWORD'];
+                }
                 else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['AUTH_PASSWORD'])) {
                     $PHP_AUTH_PW = $HTTP_ENV_VARS['AUTH_PASSWORD'];
                 }
@@ -409,8 +431,15 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             }
             // Grabs the $old_usr variable whatever are the values of the
             // 'register_globals' and the 'variables_order' directives
-            if (empty($old_usr) && !empty($HTTP_GET_VARS) && isset($HTTP_GET_VARS['old_usr'])) {
-                $old_usr = $HTTP_GET_VARS['old_usr'];
+            // loic1 - 2001/25/11: use the new globals arrays defined with
+            //                     php 4.1+
+            if (empty($old_usr)) {
+                if (!empty($_GET) && isset($_GET['old_usr'])) {
+                    $old_usr = $_GET['old_usr'];
+                }
+                else if (!empty($HTTP_GET_VARS) && isset($HTTP_GET_VARS['old_usr'])) {
+                    $old_usr = $HTTP_GET_VARS['old_usr'];
+                }
             }
 
             // First load -> checks if authentication is required
