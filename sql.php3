@@ -176,7 +176,7 @@ if ($do_confirm) {
     ?>
 <form action="sql.php3" method="post">
     <?php echo PMA_generate_common_hidden_inputs($db, (isset($table)?$table:'')); ?>
-    <input type="hidden" name="sql_query" value="<?php echo urlencode(addslashes($sql_query)); ?>" />
+    <input type="hidden" name="sql_query" value="<?php echo urlencode($sql_query); ?>" />
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? $zero_rows : ''; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="back" value="<?php echo isset($back) ? $back : ''; ?>" />

@@ -11,6 +11,12 @@ $Source$
       translation by mail order... :o)
 
 2003-03-10 Garvin Hicking <me@supergarv.de>
+    * sql.php3: Fixed another occurence of addslashes() where it no longer
+      belongs.
+    * tbl_addfield.php3, tbl_alter.php3, tbl_create.php3, 
+      tbl_properties.inc.php3: Goodie for you all - when creating/altering/
+      adding table fields you can now change the wrong form input, instead
+      of losing all your data. Have fun. :-)
     * tbl_dump.php3, tbl_properties_export.php3, css/phpmyadmin.css.php3,
       lang/*:
       Added new table export format by Michal Cihar. db_details_export.php3
@@ -31,7 +37,6 @@ $Source$
       directive and should also be able to be cached by the browser.
       See patch #699454.
       Also some unneccessary code was removed from querywindow/wrapper.
-
     * tbl_change.php3: Patch #697541 to prevent non-associative MySQL
       fieldnames to be mapped to false keys for display.
 
