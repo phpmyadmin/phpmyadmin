@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-14 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.5.2-rc2 released
+
 2003-07-12 Marc Delisle  <lem9@users.sourceforge.net>
     * mult_submit.inc.php3: bug 770095, error in multiple TRUNCATEs
     * lang/estonian update, thanks to finsoft@sourceforge.net.
