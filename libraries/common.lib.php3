@@ -699,7 +699,7 @@ if (!defined('__LIB_COMMON__')){
     /**
      * Displays a message at the top of the "main" (right) frame
      *
-     * @param  string  the message to display
+     * @param   string  the message to display
      *
      * @access  public
      */
@@ -723,7 +723,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         echo "\n";
         ?>
 <div align="left">
-    <table border="<?php echo $GLOBALS['cfgBorder']; ?>">
+    <table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding="5">
     <tr>
         <td bgcolor="<?php echo $GLOBALS['cfgThBgcolor']; ?>">
             <b><?php echo stripslashes($message); ?></b><br />
@@ -743,9 +743,16 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             $query_base = htmlspecialchars($GLOBALS['sql_query']);
             $query_base = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
             if (!isset($GLOBALS['show_query']) || $GLOBALS['show_query'] != 'y') {
-                if (isset($GLOBALS['goto']) && $GLOBALS['goto'] == 'tbl_properties.php3') {
-                    $edit_link = '<a href="tbl_properties.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&table=' . urlencode($GLOBALS['table']) . '&sql_query=' . urlencode($GLOBALS['sql_query']) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
+                if (!isset($GLOBALS['goto'])) {
+                    $edit_target = (isset($GLOBALS['table'])) ? 'tbl_properties.php3' : 'db_details.php3';
+                } else if ($GLOBALS['goto'] != 'main.php3') {
+                    $edit_target = $GLOBALS['goto'];
                 } else {
+                    $edit_target = '';
+                }
+                if ($edit_target == 'tbl_properties.php3') {
+                    $edit_link = '<a href="tbl_properties.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&table=' . urlencode($GLOBALS['table']) . '&sql_query=' . urlencode($GLOBALS['sql_query']) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
+                } else if ($edit_target != '') {
                     $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($GLOBALS['sql_query']) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
                 }
                 echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;[' . $edit_link . ']<br />' . "\n";
@@ -758,13 +765,6 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             if (!empty($GLOBALS['sql_limit_to_append'])) {
                 echo $GLOBALS['sql_limit_to_append'];
             }
-            // loic1 : this was far to be optimal
-            // $is_append_limit = (isset($GLOBALS['pos'])
-            //                     && (eregi('^SELECT', $GLOBALS['sql_query']) && !eregi('^SELECT COUNT\((.*\.+)?\*\) FROM ', $GLOBALS['sql_query']))
-            //                     && !eregi('LIMIT[ 0-9,]+$', $GLOBALS['sql_query']));
-            // if ($is_append_limit) {
-            //     echo ' LIMIT ' . $GLOBALS['pos'] . ', ' . $GLOBALS['cfgMaxRows'];
-            // }
             echo "\n";
             ?>
         </td>
