@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3: bug 577645: extra space in the cell
+
 2002-07-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Forgot a <meta /> tag in the config file error
       message.

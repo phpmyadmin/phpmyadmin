@@ -1084,7 +1084,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         } else {
                             $vertical_display['data'][$row_no][$i] .= $row[$pointer];
                         }
-                        $vertical_display['data'][$row_no][$i]     .= ' </td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     .= '</td>' . "\n";
                     } else {
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
