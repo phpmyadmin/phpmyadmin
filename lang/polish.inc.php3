@@ -58,7 +58,7 @@ $strColumnNames = "Nazwy kolumn";
 $strCompleteInserts = "Pe³ne dodania";
 $strConfirm = "Czy na pewno to zrobiæ?";
 $strCopyTable = "Kopiowanie tabeli do:";
-$strCopyTableOK = "Tabela \$table zosta³a przekopiowana do \$new_name.";
+$strCopyTableOK = "Tabela %s zosta³a przekopiowana do %s.";
 $strCreate = "Utworzenie";
 $strCreateNewDatabase = "Utworzenie nowej bazy danych";
 $strCreateNewTable = "Utworzenie nowej tabeli dla bazy danych ";
@@ -197,7 +197,7 @@ $strReloadFailed = "Nie powiod³o siê prze³adowanie MySQL.";
 $strReloadMySQL = "Prze³adowanie MySQL";
 $strRememberReload = "Proszê pamiêtaæ o prze³adowaniu serwera.";
 $strRenameTable = "Zmiana nazwy tabeli na";
-$strRenameTableOK = "Tabela \$table ma zmienion± nazwê na \$new_name";
+$strRenameTableOK = "Tabela %s ma zmienion± nazwê na %s";
 $strRepairTable = "Naprawienie tabeli";
 $strReplace = "Zamiana";
 $strReplaceTable = "Zamiana danych tabeli z plikiem";
@@ -276,4 +276,6 @@ $strWelcome = "Witamy w ";
 $strWrongUser = "B³êdne pola u¿ytkownik/has³o. Brak dostêpu.";
 
 $strYes = "Tak";
+$strUseBackquotes=" Use backquotes with tables and fields names ";  //to translate
+$strQueryOnDb=" SQL-query on database ";  //to translate
 ?>

@@ -59,7 +59,7 @@ $strColumnNames = "Column names";
 $strCompleteInserts = "Complete inserts";
 $strConfirm = "Do you really want to do it?";
 $strCopyTable = "Copy table to:";
-$strCopyTableOK = "Table \$table has been copied to \$new_name.";
+$strCopyTableOK = "Table %s has been copied to %s.";
 $strCreate = "Create";
 $strCreateNewDatabase = "Create new database";
 $strCreateNewTable = "Create new table on database ";
@@ -198,7 +198,7 @@ $strReloadFailed = "MySQL reload failed.";
 $strReloadMySQL = "Reload MySQL";
 $strRememberReload = "Remember reload the server.";
 $strRenameTable = "Rename table to";
-$strRenameTableOK = "Table \$table has been renamed to \$new_name";
+$strRenameTableOK = "Table %s has been renamed to %s";
 $strRepairTable = "Repair table";
 $strReplace = "Replace";
 $strReplaceTable = "Replace table data with file";
@@ -276,5 +276,7 @@ $strWelcome = "Welcome to ";
 $strWrongUser = "Wrong username/password. Access denied.";
 
 $strYes = "Yes";
-$strShowThisQuery=" Show this query here again ";  //to translate
+$strShowThisQuery=" Show this query here again ";  
+$strUseBackquotes=" Use backquotes with tables and fields names ";  
+$strQueryOnDb=" SQL-query on database ";  
 ?>

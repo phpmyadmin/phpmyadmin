@@ -58,7 +58,7 @@ $strColumnNames = "Nom des colonnes";
 $strCompleteInserts = "Insertions complètes";
 $strConfirm = "Veuillez confirmer";
 $strCopyTable = "<b>Copier</b> la table vers";
-$strCopyTableOK = "La table \$table a été copiée vers \$new_name.";
+$strCopyTableOK = "La table %s a été copiée vers %s.";
 $strCreate = "Créer";
 $strCreateNewDatabase = "Créer une base de données";
 $strCreateNewTable = "Créer une nouvelle table sur la base ";
@@ -197,7 +197,7 @@ $strReloadFailed = "MySQL n'a pu être rechargé.";
 $strReloadMySQL = "Recharger MySQL";
 $strRememberReload = "N'oubliez pas de recharger MySQL";
 $strRenameTable = "<b>Changer le nom</b> de la table pour";
-$strRenameTableOK = "La table \$table se nomme maintenant \$new_name";
+$strRenameTableOK = "La table %s se nomme maintenant %s";
 $strRepairTable = "Réparer la table";
 $strReplace = "Remplacer";
 $strReplaceTable = "Remplacer les données de la table avec le fichier";
@@ -276,4 +276,6 @@ $strWrongUser = "Erreur d'utilisateur/mot de passe. Accès refusé";
 
 $strYes = "Oui";
 $strShowThisQuery="Réafficher la requête après exécution";
+$strUseBackquotes = "Protéger les noms des tables et des champs par des&nbsp;\"`\"";
+$strQueryOnDb="Requête SQL sur la base ";
 ?>

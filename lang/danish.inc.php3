@@ -59,7 +59,7 @@ $strColumnNames = "Kolonne navne";
 $strCompleteInserts = "Lav komplette inserts";
 $strConfirm = "Do you really want to do it?"; //to translate
 $strCopyTable = "Kopier tabel til:";
-$strCopyTableOK = "Tabellen \$table er nu kopieret til: \$new_name.";
+$strCopyTableOK = "Tabellen %s er nu kopieret til: %s.";
 $strCreate = "Opret";
 $strCreateNewDatabase = "Opret ny database";
 $strCreateNewTable = "Opret ny tabel i database ";
@@ -198,7 +198,7 @@ $strReloadFailed = "Genstart af MySQL fejlede.";
 $strReloadMySQL = "Genstart MySQL";
 $strRememberReload = "Remember reload the server."; //to translate
 $strRenameTable = "Omd&oslash;b tabel til";
-$strRenameTableOK = "Tabellen \$table er nu omd&oslash;bt til: \$new_name";
+$strRenameTableOK = "Tabellen %s er nu omd&oslash;bt til: %s";
 $strRepairTable = "Reparer tabel";
 $strReplace = "Erstat";
 $strReplaceTable = "Erstat data i tabellen med filens data";
@@ -278,4 +278,6 @@ $strWrongUser = "Forkert brugernavn/kodeord. Adgang N&aelig;gtet.";
 
 $strYes = "Ja";
 
+$strUseBackquotes=" Use backquotes with tables and fields names ";  //to translate
+$strQueryOnDb=" SQL-query on database ";  //to translate
 ?>

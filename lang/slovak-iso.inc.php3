@@ -59,7 +59,7 @@ $strColumnNames = "Názvy ståpcov";
 $strCompleteInserts = "Úplné vlo¾enie";
 $strConfirm = "Skutoène si ¾eláte toto vykona»?";
 $strCopyTable = "Skopírova» tabuµku do:";
-$strCopyTableOK = "Tabuµka \$table bola skorírovaná do \$new_name.";
+$strCopyTableOK = "Tabuµka %s bola skorírovaná do %s.";
 $strCreate = "Vytvori»";
 $strCreateNewDatabase = "Vytvori» novú databázu";
 $strCreateNewTable = "Vytvori» novú tabuµku v databáze ";
@@ -198,7 +198,7 @@ $strReloadFailed = "Znovu-naèítanie MySQL bolo neúspe¹né.";
 $strReloadMySQL = "Znovu-naèíta» MySQL";
 $strRememberReload = "Nezabudnite znovu-naèíta» MySQL server.";
 $strRenameTable = "Premenova» tabuµku na";
-$strRenameTableOK = "Tabuµka \$table bola premenovaná na \$new_name";
+$strRenameTableOK = "Tabuµka %s bola premenovaná na %s";
 $strRepairTable = "Opravi» tabuµku";
 $strReplace = "Nahradi»";
 $strReplaceTable = "Nahradi» dáta v tabuµke súborom";
@@ -277,4 +277,6 @@ $strWrongUser = "Zlé pou¾ívateµské meno alebo heslo. Prístup zamietnutý.";
 
 $strYes = "Áno";
 $strShowThisQuery=" Zobrazi» tento dotaz znovu ";
+$strUseBackquotes=" Use backquotes with tables and fields names ";  //to translate
+$strQueryOnDb=" SQL-query on database ";  //to translate
 ?>
