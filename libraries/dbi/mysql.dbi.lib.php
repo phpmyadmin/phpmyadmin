@@ -132,6 +132,10 @@ function PMA_mysql_fetch_array($result, $type = FALSE) {
     } else {
         $data = mysql_fetch_array($result);
     }
+
+    /* No data returned => do not touch it */
+    if (! $data) return $data;
+    
     if (PMA_MYSQL_INT_VERSION >= 40100
         || !(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
         /* No recoding -> return data as we got them */

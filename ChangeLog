@@ -8,6 +8,8 @@ $Source$
 2004-03-09 Michal Cihar  <backtowork@cihar.com>
     * libraries/dbi/mysql.dbi.lib.php: Remove possible double charset
       conversion.
+    * libraries/dbi/mysql.dbi.lib.php, libraries/dbi/mysqli.dbi.lib.php: Fix
+      PMA_mysql_fetch_array return value for last result (bug #905223).
 
 2004-03-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug 909752, floating point digit
