@@ -92,6 +92,7 @@ $strChangeCopyModeRevoke = ' ... revocar todos los privilegios activos del viejo
 $strChangeCopyUser = 'Cambie la información de Login / Copiar Usuario';
 $strChangeDisplay = 'Elija el campo a mostrar';
 $strChangePassword = 'Cambio de contraseña';
+$strCharset = 'Charset';
 $strCharsetOfFile = 'Codificación de los caracteres del archivo:';
 $strCheckAll = 'Revisar todos/as';
 $strCheckDbPriv = 'Revisar privilegios de la base de datos';
@@ -622,7 +623,5 @@ $strYes = 'Sí';
 
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
-
-$strCharset = 'Charset';  //to translate
 
 ?>
