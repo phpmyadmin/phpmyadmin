@@ -720,7 +720,7 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) tas begränsningarna bort.';
 $strZip = '"zippad"';
 
- = 'Cannot connect: invalid settings.';  //to translate
+$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 $strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate

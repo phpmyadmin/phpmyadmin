@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-24 Michal Cihar  <michal@cihar.com>
+    * lang/*: Added missing "$strConnectionError" (bug #922006).
+    
 2004-03-23 Olivier Mueller <om@omnis.ch>
     * libraries/mysql_wrappers.lib.php: added mysqli support to the
       PMA_mysql_field_flags function because mysqli does not know the function

@@ -740,7 +740,7 @@ $strViewDumpDatabases = 'View dump (schema) of databases';//to translate
 $strWildcard = 'wildcard';  //to translate
 $strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
 
- = 'Cannot connect: invalid settings.';  //to translate
+$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 $strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
