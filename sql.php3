@@ -349,91 +349,107 @@ else {
 
                 //    c o u n t    q u e r y
 
-                if (PMA_MYSQL_INT_VERSION < 40000) {
-                    if (eregi('DISTINCT(.*)', $sql_query)) {
-                        $count_what = 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
-                    } else {
-                        $count_what = '*';
-                    }
+                // If we are just browsing, there is only one table, 
+                // and no where clause (or just 'WHERE 1 '),
+                // so we do a quick count (which uses MaxExactCount)
+                // because SQL_CALC_FOUND_ROWS
+                // is not quick on large InnoDB tables
 
-                    $count_query = 'SELECT COUNT(' . $count_what . ') AS count';
-                }
-                else {
-                    $count_query = 'SELECT SQL_CALC_FOUND_ROWS ';
-                }
+                if (!isset($analyzed_sql[0]['table_ref'][1]['table_name'])
+                 && (empty($analyzed_sql[0]['where_clause'])
+                   || $analyzed_sql[0]['where_clause'] == '1 ')) {
 
-                // add the remaining of select expression if there is
-                // a GROUP BY or HAVING clause
-                if (PMA_MYSQL_INT_VERSION < 40000
-                 && $count_what =='*'
-                 && (!empty($analyzed_sql[0]['group_by_clause'])
-                    || !empty($analyzed_sql[0]['having_clause']))) {
-                    $count_query .= ' ,' . $analyzed_sql[0]['select_expr_clause'];
-                }
+                    // "just browsing"
+                    $unlim_num_rows = PMA_countRecords($db, $table, TRUE);
 
-                // add select expression after the SQL_CALC_FOUND_ROWS
-                if (PMA_MYSQL_INT_VERSION >= 40000) {
-                    $count_query .= $analyzed_sql[0]['select_expr_clause'];
-                }
+                } else { // not "just browsing"
 
-
-                if (!empty($analyzed_sql[0]['from_clause'])) {
-                    $count_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
-                }
-
-                if (!empty($analyzed_sql[0]['where_clause'])) {
-                    $count_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
-                }
-                if (!empty($analyzed_sql[0]['group_by_clause'])) {
-                    $count_query .= ' GROUP BY ' . $analyzed_sql[0]['group_by_clause'];
-                }
-
-                if (!empty($analyzed_sql[0]['having_clause'])) {
-                    $count_query .= ' HAVING ' . $analyzed_sql[0]['having_clause'];
-                }
-
-                // if using SQL_CALC_FOUND_ROWS, add a LIMIT to avoid
-                // long delays. Returned count will be complete anyway.
-
-                if (PMA_MYSQL_INT_VERSION >= 40000) {
-                    $count_query .= ' LIMIT 1';
-                }
-
-                // do not put the order_by_clause, it interferes
-                // run the count query
-                if (PMA_MYSQL_INT_VERSION < 40000) {
-                    if ($cnt_all_result = mysql_query($count_query)) {
-                        if ($is_group) {
-                            $unlim_num_rows = @mysql_num_rows($cnt_all_result);
+                    if (PMA_MYSQL_INT_VERSION < 40000) {
+                        if (eregi('DISTINCT(.*)', $sql_query)) {
+                            $count_what = 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
                         } else {
-                            $unlim_num_rows = mysql_result($cnt_all_result, 0, 'count');
+                            $count_what = '*';
                         }
-                        mysql_free_result($cnt_all_result);
+ 
+                        $count_query = 'SELECT COUNT(' . $count_what . ') AS count';
+                    }
+                    else {
+                        $count_query = 'SELECT SQL_CALC_FOUND_ROWS ';
+                    } 
+
+                    // add the remaining of select expression if there is
+                    // a GROUP BY or HAVING clause
+                    if (PMA_MYSQL_INT_VERSION < 40000
+                     && $count_what =='*'
+                     && (!empty($analyzed_sql[0]['group_by_clause'])
+                        || !empty($analyzed_sql[0]['having_clause']))) {
+                        $count_query .= ' ,' . $analyzed_sql[0]['select_expr_clause'];
+                    }
+
+                    // add select expression after the SQL_CALC_FOUND_ROWS
+                    if (PMA_MYSQL_INT_VERSION >= 40000) {
+                        $count_query .= $analyzed_sql[0]['select_expr_clause'];
+                    }
+
+
+                    if (!empty($analyzed_sql[0]['from_clause'])) {
+                        $count_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
+                    }
+
+                    if (!empty($analyzed_sql[0]['where_clause'])) {
+                        $count_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
+                    }
+                    if (!empty($analyzed_sql[0]['group_by_clause'])) {
+                        $count_query .= ' GROUP BY ' . $analyzed_sql[0]['group_by_clause'];
+                    }
+
+                    if (!empty($analyzed_sql[0]['having_clause'])) {
+                        $count_query .= ' HAVING ' . $analyzed_sql[0]['having_clause'];
+                    }
+
+                    // if using SQL_CALC_FOUND_ROWS, add a LIMIT to avoid
+                    // long delays. Returned count will be complete anyway.
+
+                    if (PMA_MYSQL_INT_VERSION >= 40000) {
+                        $count_query .= ' LIMIT 1';
+                    }
+
+                    // do not put the order_by_clause, it interferes
+                    // run the count query
+                    if (PMA_MYSQL_INT_VERSION < 40000) {
+                        if ($cnt_all_result = mysql_query($count_query)) {
+                            if ($is_group) {
+                                $unlim_num_rows = @mysql_num_rows($cnt_all_result);
+                            } else {
+                                $unlim_num_rows = mysql_result($cnt_all_result, 0, 'count');
+                            }
+                            mysql_free_result($cnt_all_result);
+                        } else {
+                            if (mysql_error()) {
+                                // there are some cases where the generated
+                                // count_query (for MySQL 3) is wrong,
+                                // so we get here.
+                                //TODO: use a big unlimited query to get
+                                // the correct number of rows (depending
+                                // on a config variable?)
+                                $unlim_num_rows = 0;
+                            }
+                        }
                     } else {
+                        mysql_query($count_query);
                         if (mysql_error()) {
-                            // there are some cases where the generated
-                            // count_query (for MySQL 3) is wrong,
-                            // so we get here.
-                            //TODO: use a big unlimited query to get
-                            // the correct number of rows (depending
-                            // on a config variable?)
-                            $unlim_num_rows = 0;
+                        // void. I tried the case
+                        // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
+                        // UNION (SELECT `User`, `Host`, "%" AS "Db",
+                        // `Select_priv`
+                        // FROM `user`) ORDER BY `User`, `Host`, `Db`;
+                        // and although the generated count_query is wrong
+                        // the SELECT FOUND_ROWS() work!
                         }
+                        $cnt_all_result = mysql_query('SELECT FOUND_ROWS() as count');
+                        $unlim_num_rows = mysql_result($cnt_all_result,0,'count');
                     }
-                } else {
-                    mysql_query($count_query);
-                    if (mysql_error()) {
-                    // void. I tried the case
-                    // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
-                    // UNION (SELECT `User`, `Host`, "%" AS "Db",
-                    // `Select_priv`
-                    // FROM `user`) ORDER BY `User`, `Host`, `Db`;
-                    // and although the generated count_query is wrong
-                    // the SELECT FOUND_ROWS() work!
-                    }
-                    $cnt_all_result = mysql_query('SELECT FOUND_ROWS() as count');
-                    $unlim_num_rows = mysql_result($cnt_all_result,0,'count');
-                }
+            } // end else "just browsing"
 
         } else { // not $is_select
              $unlim_num_rows         = 0;

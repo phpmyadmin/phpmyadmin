@@ -9,6 +9,8 @@ $Source$
     * left.php3, index.php3: bug 739348: because the db name is no longer
       encoded in left.php3 (to accomodate html entities), we have to stop
       decoding it, otherwise a db name with a plus sign is not selectable
+    * sql.php3: bug 738508: do a quick count on the rows to avoid
+      a slow SQL_CALC_FOUND_ROWS, when "just browsing" (experimental)
 
 2003-05-15 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation, config.inc.php3, tbl_change.php3,
