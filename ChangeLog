@@ -25,7 +25,6 @@ $Source$
     * transformation_wrapper.php3, libraries/defines_php.lib.php3,
       libraries/transformations/image_jpeg__inline.inc.php3:
       resized thumbnails
-      TODO: doc
 
 2003-03-03 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_replace_fields.php3: Bugfix: User was unable to insert values

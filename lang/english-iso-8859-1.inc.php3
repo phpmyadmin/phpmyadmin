@@ -17,6 +17,8 @@ $month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'O
 $datefmt = '%B %d, %Y at %I:%M %p';
 $timespanfmt = '%s days, %s hours, %s minutes and %s seconds';
 
+$updComTab = 'Please see Documentation on how to update your Column_comments Table';
+
 $strAPrimaryKey = 'A primary key has been added on %s';
 $strAbortedClients = 'Aborted';
 $strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';
@@ -242,6 +244,7 @@ $strIndexHasBeenDropped = 'Index %s has been dropped';
 $strIndexName = 'Index name&nbsp;:';
 $strIndexType = 'Index type&nbsp;:';
 $strIndexes = 'Indexes';
+$strInnodbStat = 'InnoDB Status';
 $strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';
 $strInsert = 'Insert';
 $strInsertAsNewRow = 'Insert as a new row';
@@ -547,7 +550,7 @@ $strTime = 'Time';
 $strTotal = 'total';
 $strTotalUC = 'Total';
 $strTraffic = 'Traffic';
-$strTransformation_image_jpeg__inline = 'Displays an image directly in the table (uses wrapper, direct blob download, i.e.).';
+$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; first option: size in pixels (original ratio is respected)';
 $strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';
 $strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link for it. First options argument is a possible prepended string like http://...';
 $strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';
@@ -596,6 +599,4 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strInnodbStat = 'InnoDB Status';
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 ?>

@@ -605,7 +605,7 @@ $strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link fo
 $strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
 $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
 $strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
-$strTransformation_image_jpeg__inline = 'Displays an image directly in the table (uses wrapper, direct blob download, i.e.).';//to translate
 $strInnodbStat = 'InnoDB Status';  //to translate
 $updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
+$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; first option: size in pixels (original ratio is respected)';  //to translate
 ?>
