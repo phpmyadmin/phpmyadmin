@@ -117,6 +117,7 @@ $strCharsets = 'Set di caratteri';
 $strCharsetsAndCollations = 'Set di Caratteri e Collations';
 $strCheckAll = 'Seleziona tutti';
 $strCheckDbPriv = 'Controlla i privilegi del database';
+$strCheckOverhead = 'Controllo addizionale';
 $strCheckPrivs = 'Controlla i privilegi';
 $strCheckPrivsLong = 'Controlla i privilegi per il database &quot;%s&quot;.';
 $strCheckTable = 'Controlla tabella';
@@ -148,6 +149,7 @@ $strCreateNewDatabase = 'Crea un nuovo database';
 $strCreateNewTable = 'Crea una nuova tabella nel database %s';
 $strCreatePage = 'Crea una nuova Page';
 $strCreatePdfFeat = 'Creazione di PDF';
+$strCreationDates = 'Creazione/Aggiornamento/Controllo date';
 $strCriteria = 'Criterio';
 $strCroatian = 'Croato';
 $strCyrillic = 'Cirillico';
@@ -227,6 +229,7 @@ $strEnglish = 'Inglese';
 $strEnglishPrivileges = 'Nota: i nomi dei privilegi di MySQL sono in Inglese';
 $strError = 'Errore';
 $strEstonian = 'Estone';
+$strExcelEdition = 'Edizione Excel';
 $strExcelOptions = 'Opzioni di Excel';
 $strExecuteBookmarked = 'Esegue la query dalle preferite';
 $strExplain = 'Spiega SQL';
@@ -717,9 +720,8 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strCreationDates = 'Creation/Update/Check dates';  //to translate
-$strCheckOverhead = 'Check overheaded';  //to translate
-$strExcelEdition = 'Excel edition';  //to translate
 $strDelayedInserts = 'Use delayed inserts';  //to translate
+
 $strSQLExportType = 'Export type';  //to translate
+
 ?>
