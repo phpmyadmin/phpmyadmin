@@ -211,6 +211,7 @@ if (isset($submit)) {
         $sql_query = $sql_query_cpy;
         unset($sql_query_cpy);
         $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
+        $active_page = 'tbl_properties_structure.php3';
         include('./tbl_properties_structure.php3');
         exit();
     } else {

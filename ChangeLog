@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-13 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_addfield.php3: Highlight correct tab after changing structure.
+
 2003-08-12 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/csv.php3: Don't trim resulting line (bug #782483).
     * libraries/functions.js: Don't ask for confirmation of query that will
