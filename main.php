@@ -108,12 +108,12 @@ if (($server > 0) && isset($mode) && ($mode == 'reload')) {
 if ($server == 0 || count($cfg['Servers']) > 1) {
     ?>
 <!-- MySQL servers choice form -->
+<form method="post" action="index.php" target="_parent" class="nospace">
 <table>
 <tr>
     <th><?php echo $strServerChoice; ?></th>
 </tr>
-
-        <form method="post" action="index.php" target="_parent"><tr>
+<tr>
     <td>
             <select name="server">
     <?php
@@ -150,10 +150,10 @@ if ($server == 0 || count($cfg['Servers']) > 1) {
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="submit" value="<?php echo $strGo; ?>" />
-        </form>    </td>
+        </td>
 </tr>
-
 </table>
+</form>
 <br />
     <?php
 } // end of the servers choice form

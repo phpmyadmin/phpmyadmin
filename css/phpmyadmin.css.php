@@ -456,9 +456,13 @@ td.activetab {
     background-color: silver;
 }
 
-
 /* Textarea */
 
 textarea {
     overflow: auto;
+}
+
+.nospace {
+    margin: 0px;
+    padding: 0px;
 }
