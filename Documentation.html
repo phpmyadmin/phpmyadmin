@@ -1827,11 +1827,15 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>[1.25] I am running Apache with mod_gzip, and I get problems,
-       such as undefined variables when I try to run a SQL query.</b>
+    <b>[1.25] I am running Apache with mod_gzip-1.3.26.1a on Windows XP,
+       and I get problems, such as undefined variables when I run a SQL query.</b>
     <br />
-    Set the <tt>$cfg['OBGzip']</tt> directive to <tt>FALSE</tt> in your
-    <i>config.inc.php or .php3</i> file.
+    A tip from Jose Fandos: put a comment on the following two lines 
+    in httpd.conf, like this:<br />
+    <tt># mod_gzip_item_include file \.php$</tt><br />
+    <tt># mod_gzip_item_include mime "application/x-httpd-php.*"</tt><br />
+    as this version of mod_gzip on Apache (Windows) has problems handling
+    php scripts. Of course you have to restart Apache. 
 </p>
 
 <a name="faqconfig"></a>
