@@ -91,27 +91,25 @@ header('Content-Type: text/html; charset=' . $charset);
 <tr>
     <td valign="top" align="left">
 
-<!-- Databases list -->
+    <!-- Databases list -->
 
-<table border="<?php echo $cfgBorder; ?>">
-<tr>
-    <th>&nbsp;<?php echo ucfirst($strDatabase); ?>&nbsp;
-        <img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" />
-
-    </th>
-    <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
-    <th>&nbsp;<?php echo ucfirst($strData); ?>&nbsp;</th>
-    <th>&nbsp;<?php echo ucfirst($strIndexes); ?>&nbsp;</th>
-    <th>&nbsp;<?php echo ucfirst($strTotal); ?>&nbsp;</th>
-</tr>
+    <table border="<?php echo $cfgBorder; ?>">
+    <tr>
+        <th>&nbsp;<?php echo ucfirst($strDatabase); ?>&nbsp;
+            <img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" /></th>
+        <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
+        <th>&nbsp;<?php echo ucfirst($strData); ?>&nbsp;</th>
+        <th>&nbsp;<?php echo ucfirst($strIndexes); ?>&nbsp;</th>
+        <th>&nbsp;<?php echo ucfirst($strTotal); ?>&nbsp;</th>
+    </tr>
 
 <?php
 if ($num_dbs > 1) {
-    $selected_db  = 0;
-    $tot_tables   = 0;
-    $big_tot_all  = 0;
-    $big_tot_idx  = 0;
-    $big_tot_data = 0;
+    $selected_db   = 0;
+    $tot_tables    = 0;
+    $big_tot_all   = 0;
+    $big_tot_idx   = 0;
+    $big_tot_data  = 0;
     $results_array = array();
 
     // Gets and displays the tables stats per database
@@ -142,11 +140,10 @@ if ($num_dbs > 1) {
                 $tot_data += $row['Data_length'];
                 $tot_idx  += $row['Index_length'];
             } 
-
-           $tot_all = $tot_data + $tot_idx;
-           $big_tot_all += $tot_all;
-           $big_tot_idx += $tot_idx;
-           $big_tot_data += $tot_data;
+           $tot_all            = $tot_data + $tot_idx;
+           $big_tot_all        += $tot_all;
+           $big_tot_idx        += $tot_idx;
+           $big_tot_data       += $tot_data;
            $results_array[$db] = $tot_all;
         }
 
@@ -154,13 +151,13 @@ if ($num_dbs > 1) {
         list($tot_idx_format,$unit_idx)   = format_byte_down($tot_idx,3,1);
         list($tot_all_format,$unit_all)   = format_byte_down($tot_all,3,1);
 
-        echo '<tr bgcolor="'. $bgcolor . '">' . "\n";
-        echo '    <td>&nbsp;' . urlencode($db) . '&nbsp;</td>' . "\n";
-        echo '    <td align="right">&nbsp;' . $num_tables . '&nbsp;</td>' . "\n";
-        echo '    <td align="right">&nbsp;' . $tot_data_format . ' ' . $unit_data . '&nbsp;</td>' . "\n";
-        echo '    <td align="right">&nbsp;' . $tot_idx_format . ' ' . $unit_idx . '&nbsp;</td>' . "\n";
-        echo '    <td align="right">&nbsp;<b>' . $tot_all_format . ' ' . $unit_all . '<b>&nbsp;</td>' . "\n";
-        echo '</tr>' . "\n";
+        echo '    <tr bgcolor="'. $bgcolor . '">' . "\n";
+        echo '        <td>&nbsp;' . urlencode($db) . '&nbsp;</td>' . "\n";
+        echo '        <td align="right">&nbsp;' . $num_tables . '&nbsp;</td>' . "\n";
+        echo '        <td align="right">&nbsp;' . $tot_data_format . ' ' . $unit_data . '&nbsp;</td>' . "\n";
+        echo '        <td align="right">&nbsp;' . $tot_idx_format . ' ' . $unit_idx . '&nbsp;</td>' . "\n";
+        echo '        <td align="right">&nbsp;<b>' . $tot_all_format . ' ' . $unit_all . '<b>&nbsp;</td>' . "\n";
+        echo '    </tr>' . "\n";
     } // end for
 
     // Gets and displays the server stats
@@ -168,66 +165,70 @@ if ($num_dbs > 1) {
     list($tot_idx_format,$unit_idx)   = format_byte_down($big_tot_idx,3,1);
     list($tot_all_format,$unit_all)   = format_byte_down($big_tot_all,3,1);
 
-    echo '<tr>' . "\n";
-    echo '    <th>&nbsp;' . $strSum . '&nbsp;</th>' . "\n";
-    echo '    <th align="right">&nbsp;' . $tot_tables . '&nbsp;</th>' . "\n";
-    echo '    <th align="right">&nbsp;' . $tot_data_format . ' ' . $unit_data . '&nbsp;</th>' . "\n";
-    echo '    <th align="right">&nbsp;' . $tot_idx_format . ' ' . $unit_idx . '&nbsp;</th>' . "\n";
-    echo '    <th align="right">&nbsp;<b>' . $tot_all_format . ' ' . $unit_all . '<b>&nbsp;</th>' . "\n";
-    echo '</tr>' . "\n";
+    echo '    <tr>' . "\n";
+    echo '        <th>&nbsp;' . $strSum . '&nbsp;</th>' . "\n";
+    echo '        <th align="right">&nbsp;' . $tot_tables . '&nbsp;</th>' . "\n";
+    echo '        <th align="right">&nbsp;' . $tot_data_format . ' ' . $unit_data . '&nbsp;</th>' . "\n";
+    echo '        <th align="right">&nbsp;' . $tot_idx_format . ' ' . $unit_idx . '&nbsp;</th>' . "\n";
+    echo '        <th align="right">&nbsp;<b>' . $tot_all_format . ' ' . $unit_all . '<b>&nbsp;</th>' . "\n";
+    echo '    </tr>' . "\n";
 
-    echo '</table>' . "\n";
+    echo '    </table>' . "\n";
 
-    // Display 20 biggest db's
-
+    // Displays 20 biggest db's
     ?>
-
     </td>
+
     <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
     <td valign="top">
-
-<table border="<?php echo $cfgBorder; ?>">
-<tr>
-    <th>&nbsp;&nbsp;</th>
-    <th>&nbsp;<?php echo ucfirst($strDatabase); ?>&nbsp;</th>
-    <th>&nbsp;<?php echo ucfirst($strTotal); ?>&nbsp;
-        <img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" />
-        &nbsp;
-    </th>
-
-</tr>
-
+    <table border="<?php echo $cfgBorder; ?>">
+    <tr>
+        <th>&nbsp;&nbsp;</th>
+        <th>&nbsp;<?php echo ucfirst($strDatabase); ?>&nbsp;</th>
+        <th>&nbsp;<?php echo ucfirst($strTotal); ?>&nbsp;
+            <img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" />&nbsp;</th>
+    </tr> 
     <?php
-
+    echo "\n";
     arsort($results_array);
-    $display_max = 20;
-    $j = 0;
+    $display_max     = 20;
+    $j               = 0;
     if (count($results_array) < $display_max) {
         $display_max = count($results_array);
     }
 
     reset ($results_array);
-    while ((list ($key, $val) = each ($results_array)) && ($j < $display_max)) {
-
+    while ((list($key, $val) = each($results_array)) && ($j < $display_max)) {
         $j++;
 
-        list($disp_val,$unit) = format_byte_down($val,3,1);
-
-        echo '<tr bgcolor="'. $bgcolor . '">' . "\n";
-        echo '    <td align="right">&nbsp;' . $j . '&nbsp;</td>' . "\n";
-        echo '    <td>&nbsp;' . urlencode($key) . '&nbsp;</td>' . "\n";
-        echo '    <td align="right">&nbsp;<b>' . $disp_val . ' ' . $unit . '<b>&nbsp;</td>' . "\n";
-        echo '</tr>' . "\n";
+        list($disp_val, $unit) = format_byte_down($val, 3, 1);
+        echo '    <tr bgcolor="'. $bgcolor . '">' . "\n";
+        echo '        <td align="right">&nbsp;' . $j . '&nbsp;</td>' . "\n";
+        echo '        <td>&nbsp;' . urlencode($key) . '&nbsp;</td>' . "\n";
+        echo '        <td align="right">&nbsp;<b>' . $disp_val . ' ' . $unit . '<b>&nbsp;</td>' . "\n";
+        echo '    </tr>' . "\n";
     }
+    ?>
+    </table>
+    </td>
 
-    echo '</table>' . "\n";
-    echo '</td></tr></table>';
-
+</tr>
+</table>
+    <?php
 } // end if ($num_dbs == 1)
 
 else {
-    echo "\n" . '</table>' . "\n";
-    echo '<p>&nbsp;&nbsp;' . $strNoDatabases . '</p>';
+    echo "\n";
+    ?>
+    </table>
+    </td>
+
+</tr>
+</table>
+
+<p>&nbsp;&nbsp;<?php echo $strNoDatabases; ?></p>
+    <?php
 } // end if ($num_dbs == 0)
 echo "\n";
 ?>
