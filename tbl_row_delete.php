@@ -73,7 +73,7 @@ if (!empty($submit_mult)) {
             }
             
             if (isset($original_sql_query)) {
-                $sql_query = $original_sql_query;
+                $sql_query = urldecode($original_sql_query);
             }
             
             if (isset($original_url_query)) {

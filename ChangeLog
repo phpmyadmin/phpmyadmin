@@ -12,6 +12,9 @@ $Source$
 2004-04-07 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, bug 931034, big numbers data entry,
       thanks to Dmitry (yrtimd)
+    * tbl_row_delete.php, libraries/display_tbl.lib.php: bug 921939,
+      problem with multi-row delete and quotes in WHERE clause,
+      thanks to Ryan Schmidt (ryandesign)
 
 2004-04-06 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php, complete the fix for bug 922054
