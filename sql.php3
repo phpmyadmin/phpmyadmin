@@ -74,7 +74,9 @@ else {
         $array=split(' from | FROM ',$sql_query,2); //read only the from-part of the query
 		$count_query="select count(*) as count from $array[1]"; //and make a count(*) to count the entries
 		$OPresult = mysql_query($count_query);
-		$SelectNumRows = mysql_result($OPresult,'0','count');
+		if ($OPresult) {
+		    $SelectNumRows = mysql_result($OPresult,'0','count');
+		}
     }
 
     if(!$result)

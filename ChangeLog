@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-15  Marc Delisle  <lem9@users.sourceforge.net>
+        * bug 433388, patch from Alain Brissaud (hal0802)
+
 2001-06-14  Steve Alberty  <alberty@neptunlabs.de>
 	* add support for locked tables (default=off)
 	* add summary on db_details.php3
