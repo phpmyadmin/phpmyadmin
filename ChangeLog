@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/italian update, thanks to Pietro Danesi
+    * lang/*, fix a typo
+
 2002-07-26 Robin Johnson  <robbat2@users.sourceforge.net> 
     * libraries/sqlparser.lib.php3:
         - Fixed ANSI type string escaping

@@ -260,6 +260,7 @@ $strPasswordNotSame = 'La password non coincide!';
 $strPdfDbSchema = 'Schema del database "%s" - Pagina %s';
 $strPdfInvalidPageNum = 'Pagina del PDF non definita!';
 $strPdfInvalidTblName = 'La tabella "%s" non esiste!';
+$strPdfNoTables = 'Nessuna Tabella';
 $strPhp = 'Crea il codice PHP';
 $strPHPVersion = 'Versione PHP';
 $strPmaDocumentation = 'Documentazione di phpMyAdmin';
@@ -409,7 +410,6 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
-$strPdfNoTables = 'No tables';  //to translate
 $strDisplayFeat = 'Display Features';  //to translate
 $strCreatePdfFeat = 'Creation of PDFs';  //to translate
 $strColComFeat = 'Displaying Column Comments';  //to translate
