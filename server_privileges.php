@@ -802,14 +802,16 @@ if (!empty($change_pw)) {
  * Deletes users
  *   (Changes / copies a user, part IV)
  */
+$user_host_separator = chr(27);
+
 if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
     if (!empty($change_copy)) {
-        $selected_usr = array($old_username . '@' . $old_hostname);
+        $selected_usr = array($old_username . $user_host_separator . $old_hostname);
     } else {
         $queries = array();
     }
     for ($i = 0; isset($selected_usr[$i]); $i++) {
-        list($this_user, $this_host) = explode('@', $selected_usr[$i]);
+        list($this_user, $this_host) = explode($user_host_separator, $selected_usr[$i]);
         $queries[] = '# ' . sprintf($strDeleting, '\'' . $this_user . '\'@\'' . $this_host . '\'') . ' ...';
         if ($mode == 2) {
             // The SHOW GRANTS query may fail if the user has not been loaded
@@ -960,7 +962,7 @@ if (empty($adduser) && empty($checkprivs)) {
             $useBgcolorOne = TRUE;
             for ($i = 0; $row = PMA_DBI_fetch_assoc($res); $i++) {
                 echo '        <tr>' . "\n"
-                   . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_' . $i . '" value="' . htmlspecialchars($row['User'] . '@' . $row['Host']) . '"' . (empty($checkall) ?  '' : ' checked="checked"') . ' /></td>' . "\n"
+                   . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_' . $i . '" value="' . htmlspecialchars($row['User'] . $user_host_separator . $row['Host']) . '"' . (empty($checkall) ?  '' : ' checked="checked"') . ' /></td>' . "\n"
                    . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><label for="checkbox_sel_users_' . $i . '">' . (empty($row['User']) ? '<span style="color: #FF0000">' . $strAny . '</span>' : htmlspecialchars($row['User'])) . '</label></td>' . "\n"
                    . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . htmlspecialchars($row['Host']) . '</td>' . "\n";
                 $privs = PMA_extractPrivInfo($row, TRUE);

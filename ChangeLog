@@ -8,6 +8,8 @@ $Source$
 2004-09-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/dutch: small update
     * lang/chinese_simplified: updated, thanks to Simon - simon2san
+    * server_privileges.php: bug #1003238, cannot manipulate a username
+      like "example@nothost" where the "@" is part of the username
 
 2004-09-10 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: grammar.
