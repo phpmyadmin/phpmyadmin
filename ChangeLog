@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 2003-03-12 Garvin Hicking <me@supergarv.de>
+    * db_details_structure.php3: When using Alias-Displays for Tables, fix bug when a tablename
+      was not displayed if it has no comment.
+    * libraries/display_tbl.lib.php3 RFE #550554 - Execute SQL bookmarks when browsing the 
+      bookmarktable.
     * db_details_structure.php, left.php3, tbl_properties_links.php3, libraries/bookmark.lib.php3:
       RFE #550552: Change default initial query for browse mode, if a bookmark with the same
       label as the tablename is found.

@@ -61,7 +61,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
 
         $result  = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
         while ($tmp = PMA_mysql_fetch_array($result)) {
-            $tooltip_truename[$tmp['Name']] = ($cfg['ShowTooltipAliasTB'] ? (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '') : $tmp['Name']);
+            $tooltip_truename[$tmp['Name']] = ($cfg['ShowTooltipAliasTB'] ? (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']) : $tmp['Name']);
             $tooltip_aliasname[$tmp['Name']] = ($cfg['ShowTooltipAliasTB'] ? $tmp['Name'] : (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : ''));
         } // end while
     } // end if

@@ -943,6 +943,17 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     $edit_str = $GLOBALS['strEdit'];
                 } // end if (1.2.1)
 
+                if ($table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db']) {
+                    $bookmark_go = '<form method="post" target="phpmain" action="read_dump.php3">'
+                                    . PMA_generate_common_hidden_inputs($row['dbase'], '')
+                                    . '<input type="hidden" name="id_bookmark" value="' . $row['id'] . '" />'
+                                    . '<input type="hidden" name="action_bookmark" value="0" />'
+                                    . '<input type="submit" name="SQL" value="' . $GLOBALS['strGo'] . '" />'
+                                    . '</form>';
+                } else { 
+                    $bookmark_go = '';
+                }
+
                 // 1.2.2 Delete/Kill link(s)
                 if ($is_display['del_lnk'] == 'dr') { // delete row case
                     $lnk_goto = 'sql.php3'
@@ -976,12 +987,13 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 if ($GLOBALS['cfg']['ModifyDeleteAtLeft']
                     && ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped')) {
                     if (!empty($edit_url)) {
-                        echo '    <td bgcolor="' . $bgcolor . '">' . "\n";
+                        echo '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
                         echo PMA_linkOrButton($edit_url, $edit_str, '');
+                        echo $bookmark_go;
                         echo '    </td>' . "\n";
                     }
                     if (!empty($del_url)) {
-                        echo '    <td bgcolor="' . $bgcolor . '">' . "\n";
+                        echo '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
                         echo PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''));
                         echo '    </td>' . "\n";
                     }
@@ -1236,12 +1248,13 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             if ($GLOBALS['cfg']['ModifyDeleteAtRight']
                 && ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped')) {
                 if (!empty($edit_url)) {
-                    echo '    <td bgcolor="' . $bgcolor . '">' . "\n";
+                    echo '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
                     echo PMA_linkOrButton($edit_url, $edit_str, '');
+                    echo $bookmark_go;
                     echo '    </td>' . "\n";
                 }
                 if (!empty($del_url)) {
-                    echo '    <td bgcolor="' . $bgcolor . '">' . "\n";
+                    echo '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . ' bgcolor="' . $bgcolor . '">' . "\n";
                     echo PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''));
                     echo '    </td>' . "\n";
                 }
@@ -1262,13 +1275,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             }
 
             if (isset($edit_url)) {
-                $vertical_display['edit'][$row_no]   .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
+                $vertical_display['edit'][$row_no]   .= '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
                                                      . PMA_linkOrButton($edit_url, $edit_str, '')
+                                                     . $bookmark_go
                                                      .  '    </td>' . "\n";
             }
 
             if (isset($del_url)) {
-                $vertical_display['delete'][$row_no] .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
+                $vertical_display['delete'][$row_no] .= '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
                                                      . PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''))
                                                      .  '    </td>' . "\n";
             }
