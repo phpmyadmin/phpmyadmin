@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-09  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, lines 273-275: vertically center bookmarks options.
+	* tbl_properties.php3: rewritten the script so it fits XHTML1.0 and PEAR
+	  standards, limit the number of "options" displayed if the is no table
+	  in the db and beautity a bit the display.
+    * languages files: replaced 'Gzip' by '"gzipped"'.
+	* Updated both the Czech translation thanks to
+      Michal Cihar <cihar@email.cz>.
+
 2001-07-09  Marc Delisle  <lem9@users.sourceforge.net>
 	* bug 439572, left.php3: added a @ before mysql_list_tables,
 	  to try to get rid of a warning (cause: too many tables?)
