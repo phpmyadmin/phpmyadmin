@@ -59,8 +59,13 @@ body {
     font-family: <?php echo $right_font_family; ?>;
     font-size: <?php echo $font_size; ?>;
     color: #000000;
-    background-image: url('./images/bkg.gif');
-    background-repeat: repeat-y;
+    <?php
+if ($cfg['RightBgImage'] == '') {
+    echo 'background-image: url(\'./images/vertical_line.gif\');' . "\n" . '    background-repeat: repeat-y;' . "\n";
+} else {
+    echo 'background-image: url(\'' . $cfg['RightBgImage'] . '\');' . "\n";
+}
+?>
     background-color: <?php echo $cfg['RightBgColor'] . "\n"; ?>
 }
 pre, tt         {font-size: <?php echo $font_size; ?>}
@@ -166,7 +171,10 @@ echo "\n";
 </head>
 
 
-<body bgcolor="<?php echo $cfg['RightBgColor']; ?>">
+<body bgcolor="<?php
+echo $cfg['RightBgColor'];
+if ($cfg['RightBgImage'] != '') echo '" background="' . $cfg['RightBgImage'];
+?>">
 <?php
 if (isset($db)) {
     $header_url_qry = '?lang=' . urlencode($lang)

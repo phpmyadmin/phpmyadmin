@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-26 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * header.inc.php3, config.inc.php3, Documentation.html, images/bkg.gif,
+      images/vertical_line.gif:
+      - Made it possible to specify a background image for the right frame.
+      - Renamed 'images/bkg.gif' to 'images/vertical_line.gif'.
+
 2002-05-26 Loïc Chapeaux  <lolo@phpheaven.net>
     * scripts/create-release.sh, line 60: added the "-P" option (prune empty
       directory) for the cvs checkout.
