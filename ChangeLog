@@ -16,6 +16,8 @@ $Source$
 	* header.inc.php3, lines 161-165; user_details.php3, lines 978-980;
 	  libraries/common.lib.php3, lines 229-232: headers were sometimes missing
       before an error is displayed.
+	* libraries/auth/cookie.auth.lib.php3, lines 377-381: some settings were
+	  missing for the password cookie.
 
 2002-03-07 Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html, config.inc.php3, libraries/common.lib.php3:

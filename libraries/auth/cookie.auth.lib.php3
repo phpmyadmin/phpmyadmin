@@ -279,9 +279,7 @@ if (uname.value == '') {
 
         // The user wants to be logged out -> delete password cookie
         if (!empty($old_usr)) {
-            setcookie('pma_cookie_password', '', 0,
-                      $GLOBALS['cookie_path'], '' ,
-                      $GLOBALS['is_https']);
+            setcookie('pma_cookie_password', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
         }
 
         // The user just logged in
@@ -370,13 +368,18 @@ if (uname.value == '') {
         // Set cookies if required (once per session)
         if (!$from_cookie) {
             // Duration = one month for username
-            setcookie('pma_cookie_username', $cfgServer['user'],
+            setcookie('pma_cookie_username',
+                $cfgServer['user'],
                 time() + (60 * 60 * 24 * 30),
                 $GLOBALS['cookie_path'], '' ,
                 $GLOBALS['is_https']);
             // Duration = till the browser is closed for password
-            setcookie('pma_cookie_password', $cfgServer['password'], 0, $GLOBALS['cookie_path']);
-        }
+            setcookie('pma_cookie_password',
+                $cfgServer['password'],
+                0,
+                $GLOBALS['cookie_path'], ''
+                $GLOBALS['is_https']);
+        } // end if
 
         return TRUE;
     } // end of the 'PMA_auth_set_user()' function
@@ -392,9 +395,7 @@ if (uname.value == '') {
     function PMA_auth_fails()
     {
         // Deletes password cookie and displays the login form
-        setcookie('pma_cookie_password', '', 0,
-                  $GLOBALS['cookie_path'], '' ,
-                  $GLOBALS['is_https']);
+        setcookie('pma_cookie_password', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
         PMA_auth();
 
         return TRUE;
