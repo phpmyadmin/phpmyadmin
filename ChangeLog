@@ -12,6 +12,7 @@ $Source$
 	- Cleaned up is_array() to isset(0 && is_array()
     * tbl_change.php3:204
         - $type_nowrap added to case 'timestamp'       
+    * lang/estonian.inc.php3 updates, thanks to Alvar Soome (#570330)
 
 2002-06-17 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/finnish.inc.php3 updates, thanks to Visa Kopu (#569317)
