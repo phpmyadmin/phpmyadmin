@@ -123,7 +123,7 @@ while($row= mysql_fetch_array($result))
 ?>
 </table>
 <br>
-<table border=0 cellspacing=0 cellpadding=0 width=100%>
+<table border=0 cellspacing=0 cellpadding=0>
 <tr>
 <?php
 $result = mysql_query("SHOW KEYS FROM ".$table) or mysql_die();
@@ -176,8 +176,8 @@ if (!empty($strIndexes)) echo $strIndexes.":\n";
 
 // BEGIN - Calc Table Space - staybyte - 9 June 2001
 if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>3 && $tbl_type!="INNODB" && isset($showtable)){
+	if ($indexcount>0) echo "<td width=20>&nbsp;</td>\n";
 	echo "<td";
-	if ($indexcount>0) echo " align=center";
 	echo " valign=top>\n";
 	if (!empty($strSpaceUsage)) echo $strSpaceUsage.":\n";
 	echo "<a name=showusage><a><table border=$cfgBorder>\n";
@@ -232,8 +232,8 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>3 && $tbl_type!
 	echo "</td>\n";
 
 // Rows Statistic
+	echo "<td width=20>&nbsp;</td>\n";
 	echo "<td";
-	if ($indexcount>0) echo " align=center";
 	echo " valign=top>\n";
 	if (!empty($strRowsStatistic)) echo $strRowsStatistic.":\n";
 	echo "<table border=$cfgBorder>\n";
