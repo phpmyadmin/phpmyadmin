@@ -67,7 +67,8 @@ if ($do_confirm) {
         $stripped_sql_query = $sql_query;
     }
     include('./header.inc.php3');
-    echo $strDoYouReally . htmlspecialchars($sql_query) . '&nbsp;?<br/>';
+    echo $strDoYouReally . '&nbsp;:<br />' . "\n";
+    echo '<tt>' . htmlspecialchars($stripped_sql_query) . '</tt>&nbsp;?<br/>';
     ?>
 <form action="sql.php3" method="post" enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="sql_query" value="<?php echo urlencode($sql_query); ?>" />
