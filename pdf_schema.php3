@@ -27,16 +27,16 @@ $FPDF_font_path = './libraries/fpdf/font/';
  */
 if (PMA_PHP_INT_VERSION < 40005) {
     function array_search($needle, $haystack) {
-	    $match         = FALSE;
+        $match         = FALSE;
 
         reset($haystack);
         while (list($key, $value) = each($haystack)) {
-		    if ($value == $needle) {
-			    $match = $key;
-		    }
-	    } // end while
+            if ($value == $needle) {
+                $match = $key;
+            }
+        } // end while
 
-	    return $match;
+        return $match;
     } // end of the "array_search" function
 } // end if
 

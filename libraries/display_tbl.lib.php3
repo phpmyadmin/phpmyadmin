@@ -24,7 +24,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      *     no delete link...);
      *   - the next characters are boolean values (1/0) and respectively stand
      *     for sorting links, navigation bar, "insert a new row" link, the
-     *     bookmark feature and the expand/collapse text/blob fields button.
+     *     bookmark feature, the expand/collapse text/blob fields button and
+     *     the "display printable view" option.
      *     Of course '0'/'1' means the feature won't/will be enabled.
      *
      * @param   string   the synthetic value for display_mode (see §1 a few
@@ -139,13 +140,13 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         // TODO: May be problematic with same fields names in
                         //       two joined table.
                         // $do_display['sort_lnk'] = (string) '0';
-                        $do_display['ins_row']   = (string) '0';
+                        $do_display['ins_row']  = (string) '0';
                         if ($do_display['text_btn'] == '1') {
                             break;
                         }
                     } // end if (2.3.2)
                     // 2.3.3 Always display print view link
-                    $do_display['pview_lnk'] = (string) '1';
+                    $do_display['pview_lnk']    = (string) '1';
                     $prev_table = $fields_meta[$i]->table;
                 } // end for
             } // end if..elseif...else (2.1 -> 2.3)
@@ -798,7 +799,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
                         $on_mouse .= ' onmousedown="setPointer(this, ' . $row_no . ', \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"';
                     }
-                }
+                } // end if
                 ?>
 <tr<?php echo $on_mouse; ?>>
                 <?php
@@ -1344,7 +1345,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // 2. ----- Displays the top of the page -----
 
         // 2.1 Displays a messages with position informations
-        if ($is_display['nav_bar'] == '1' && isset($pos_next) && (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1')) {
+        if ($is_display['nav_bar'] == '1' && isset($pos_next)) {
             if (isset($unlim_num_rows) && $unlim_num_rows != $total) {
                 $selectstring = ', ' . $unlim_num_rows . ' ' . $GLOBALS['strSelectNumRows'];
             } else {

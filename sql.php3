@@ -412,7 +412,8 @@ else {
         PMA_displayTable($result, $disp_mode);
         mysql_free_result($result);
 
-        if ($disp_mode[6] == '1' || $disp_mode[9] =='1') {
+        if ($disp_mode[6] == '1' || $disp_mode[9] == '1') {
+            echo "\n";
             echo '<p>' . "\n";
 
             // Displays "Insert a new row" link if required
@@ -446,7 +447,7 @@ else {
                 echo "\n";
             } // end insert new row
 
-            // Displays "print view" link if required
+            // Displays "printable view" link if required
             if ($disp_mode[9] == '1') {
                 $url_query = '?lang=' . $lang
                            . '&amp;server=' . $server
@@ -460,8 +461,8 @@ else {
                            . (($dontlimitchars == '1') ? '&amp;dontlimitchars=1' : '')
                            . '&amp;sql_query=' . urlencode($sql_query);
                 echo '    <!-- Print view -->' . "\n"
-                   . '    <a href="sql.php3' . $url_query . '" target="_blank">' . $strPrintView . '</a>' . "\n";
-            }
+                   . '    <a href="sql.php3' . $url_query . '" target="print_view">' . $strPrintView . '</a>' . "\n";
+            } // end displays "printable view"
 
             echo '</p>' . "\n";
         }
