@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-17 Robin Johnson  <robbat2@users.sourceforge.net>
+    * lang/finnish.inc.php3 updates, thanks to Visa Kopu
+
 2002-06-17 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/create-release.sh: the I option in tar for bzip output
       is deprecated and no longer works on sourceforge, use j
