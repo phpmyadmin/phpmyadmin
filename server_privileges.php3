@@ -1122,8 +1122,10 @@ if (empty($adduser) && empty($checkprivs)) {
                 }
                 $found_rows = array();
                 while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
+
                     while (empty($dbname) && $row2 && $row['Db'] > $row2['Db']) {
                         $found_rows[] = $row2['Db'];
+
                         echo '            <tr>' . "\n"
                            . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . htmlspecialchars($row2['Db']) . '</td>' . "\n"
                            . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><tt>' . "\n"
@@ -1140,6 +1142,7 @@ if (empty($adduser) && empty($checkprivs)) {
                         $useBgcolorOne = !$useBgcolorOne;
                     } // end while
                     $found_rows[] = empty($dbname) ? $row['Db'] : $row['Table_name'];
+
                     echo '            <tr>' . "\n"
                        . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . htmlspecialchars(empty($dbname) ? $row['Db'] : $row['Table_name']) . '</td>' . "\n"
                        . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><tt>' . "\n"
@@ -1164,7 +1167,11 @@ if (empty($adduser) && empty($checkprivs)) {
                        . '            </tr>' . "\n";
                     $useBgcolorOne = !$useBgcolorOne;
                 } // end while
-                while (empty($dbname) && $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC)) {
+
+
+                //while (empty($dbname) && $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC)) {
+                while (empty($dbname) && $row2) {
+
                     $found_rows[] = $row2['Db'];
                     echo '            <tr>' . "\n"
                        . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . htmlspecialchars($row2['Db']) . '</td>' . "\n"
@@ -1179,6 +1186,7 @@ if (empty($adduser) && empty($checkprivs)) {
                        . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '&amp;revokeall=1">' . $strRevoke . '</a></td>' . "\n"
                        . '            </tr>' . "\n";
                     $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC);
+
                     $useBgcolorOne = !$useBgcolorOne;
                 } // end while
                 if (empty($dbname)) {

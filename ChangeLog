@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php3: bug 707516, sometimes db privileges
+      are not shown
+
 2003-10-12 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: bug 821144: FAQ 6.21 needed clarification
 
