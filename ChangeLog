@@ -13,16 +13,14 @@ $Source$
 	  tbl_properties.php3, line 612: fixed some inconsistencies in the
 	  csv export feature.
 	* tbl_properties.php3: fixed an IE5.0 display bug and an other one with
-	  Mozilla.
+	  Mozilla, also some cometic changes (added some 'nowrap').
+	* db_details.php3: cometic changes (added some 'nowrap').
 	* lib.inc.php3, line 969: fixed a wrong comparaison.
 	* left.js, line 182: fixed bug #440609 (Javascript error on left frame
 	  (IE4.0)).
 	* left.php3, line 63: fixed a bug in the css.
 	* Documentation.html: fixed a typo ("developpers" with two "p").
-	* french.inc.php3: updated translation and set $number_thousands_separator
-	  to "&nbsp;".
-	* czech-iso.inc.php3 & czech-win1250.inc.php3: set
-	  $number_thousands_separator to "&nbsp;".
+	* french.inc.php3: updated translation.
 
 2001-07-12  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_properties.php3: remove display "Avg_row_length" if zero
