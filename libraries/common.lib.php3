@@ -589,8 +589,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         // Opera)...
         // and a beta version of Safari did also, but not the final 1.0 version
         // so I remove   || PMA_USR_BROWSER_AGENT == 'SAFARI'
+        // but we got a report that Safari 1.0 build 85.5 needs it!
+
         else if (PMA_USR_OS == 'Mac'
-                    && (PMA_USR_BROWSER_AGENT == 'OMNIWEB' || PMA_USR_BROWSER_AGENT == 'OPERA')) {
+                    && (PMA_USR_BROWSER_AGENT == 'OMNIWEB' || PMA_USR_BROWSER_AGENT == 'OPERA' || PMA_USR_BROWSER_AGENT == 'SAFARI')) {
             $font_size     = 'x-small';
             $font_biggest  = 'large';
             $font_bigger   = 'medium';

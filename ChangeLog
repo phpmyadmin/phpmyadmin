@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php3: bug 821512, Safari 1.0 v85.5 and fonts
+
 2003-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * browse_foreigners.php3: bug 825473: PMA_jsFormat() needed on alert()
     * tbl_query_box.php3, libraries/bookmark.lib.php3:
