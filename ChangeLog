@@ -11,6 +11,7 @@ $Source$
 2001-07-07  Marc Delisle  <lem9@users.sourceforge.net>
 	* bug 439340: do not backquote in grant/revoke, will have to find
 	  the proper way to protect special db names
+	* bug 439313 extchg.sh not recursive
 
 2001-07-07  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.php3: improved the css.
