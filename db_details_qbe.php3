@@ -891,7 +891,9 @@ if (isset($Field) && count($Field) > 0) {
                 $master = key($csize);
 //echo 'kleinste Datei: ' . $master . "\n";
             } else {
-                $master = $col_cand[0];
+                //$master = $col_cand[0];
+                reset($col_cand);
+                $master = current($col_cand); 
 //echo 'master ist der einzige Kandidat: ' . $master . "\n";
             }
         } // end if (exactly one where clause)
