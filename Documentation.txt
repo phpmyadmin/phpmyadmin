@@ -565,6 +565,7 @@ CREDITS, in chronological order
         * bookmarks feature
         * multiple dump feature
         * gzip dump feature
+	* zip dump feature
 
 [gl] - Geert Lund <glund_at_silversoft.dk>
         * various fixes

@@ -63,7 +63,7 @@ function my_csvhandler($sql_insert)
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 require('./libraries/build_dump.lib.php3');
-
+require('./libraries/zip.lib.php3');
 
 /**
  * Increase time limit for script execution and initializes some variables
@@ -78,7 +78,7 @@ $crlf        = which_crlf();
  * Ensure zipped formats are associated with the download feature
  */
 if (empty($asfile)
-    && (!empty($gzip) || !empty($bzip))) {
+    && (!empty($gzip) || !empty($bzip) || !empty($zip))) {
     $asfile = 1;
 }
 
@@ -111,6 +111,9 @@ else {
     } else if (isset($gzip) && $gzip == 'gzip') {
         $ext       = 'gz';
         $mime_type = 'application/x-gzip';
+    } else if (isset($zip) && $zip == 'zip') {
+        $ext       = 'zip';
+        $mime_type = 'application/x-zip';
     } else if ($what == 'csv' || $what == 'excel') {
         $ext       = 'csv';
         $mime_type = 'text/x-csv';
@@ -253,7 +256,19 @@ else if (isset($gzip) && $gzip == 'gzip') {
         echo gzencode($dump_buffer);
     }
 }
-// 3. on screen
+// 3. as a gzipped file
+else if (isset($zip) && $zip == 'zip') {
+    if (PHP_INT_VERSION >= 40000 && @function_exists('gzcompress')) {
+        if ($what == 'csv' || $what == 'excel')
+            $extbis='.csv';
+        else
+            $extbis='.sql';
+        $zipfile = new zipfile();
+        $zipfile -> add_file($dump_buffer, $filename . $extbis);
+        echo $zipfile -> file();
+    }
+}
+// 4. on screen
 else {
     echo $dump_buffer;
 }

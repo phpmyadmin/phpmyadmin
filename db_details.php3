@@ -578,7 +578,8 @@ if ($num_tables > 0) {
     if (PHP_INT_VERSION >= 40004) {
         $is_gzip = (isset($cfgGZipDump) && $cfgGZipDump && @function_exists('gzencode'));
         $is_bzip = (isset($cfgBZipDump) && $cfgBZipDump && @function_exists('bzcompress'));
-        if ($is_gzip || $is_bzip) {
+        $is_zip  = (isset($cfgGZipDump) && $cfgGZipDump && @function_exists('gzcompress'));
+        if ($is_gzip || $is_bzip || $is_zip) {
             echo "\n" . '                (';
             if ($is_gzip) {
                 ?>
@@ -589,6 +590,12 @@ if ($num_tables > 0) {
                 echo "\n"
                 ?>
                 <input type="checkbox" name="bzip" value="bzip" onclick="return checkTransmitDump(this.form, 'bzip')" /><?php echo $strBzip . "\n"; ?>
+                <?php
+            }
+            if ($is_zip) {
+                echo "\n"
+                ?>
+                <input type="checkbox" name="zip" value="zip" onclick="return checkTransmitDump(this.form, 'zip')" /><?php echo $strZip . "\n"; ?>
                 <?php
             }
             echo "\n" . '                )';
