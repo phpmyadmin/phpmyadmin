@@ -1,5 +1,5 @@
 
-                      phpMyAdmin 2.2.5-dev Documentation
+                      phpMyAdmin 2.2.5-rc1 Documentation
                                        
      * Official phpMyAdmin project homepage    [
        http://www.phpwizard.net/projects/phpMyAdmin/ ]
@@ -9,8 +9,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.164 2002/03/09
-       12:36:30 loic1 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.165 2002/03/11
+       17:10:45 lem9 Exp $
    ______________________________________________________________________
    
    Top  -  Requirements  -  Introduction  -  Installation  -
