@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 2002-12-18 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/norwegian-*.inc.php3: Corrections, thanks to
+      Tore Longva <longva at stud.ntnu.no>.
+
+2002-12-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * main.php3, header.inc.php3, server_privileges.php3, server_links.php3,
       lang/*.inc.php3: Started rewriting the user administration; changes:
       - Use GRANT / REVOKE for privilege changes (feature #502465);
