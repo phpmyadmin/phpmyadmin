@@ -179,6 +179,7 @@ $strHostEmpty = 'De hostnaam is leeg!';
 $strIdxFulltext = 'Voltekst';
 $strIfYouWish = 'Indien u slechts enkele van de tabelkolommen wilt laden, voer dan een door komma\'s gescheiden veldlijst in.';
 $strIgnore = 'Negeer';
+$strImportDocSQL = 'Importeer docSQL Bestanden'; 
 $strInUse = 'in gebruik';
 $strIndex = 'Index';
 $strIndexHasBeenDropped = 'Index %s is vervallen';
@@ -287,6 +288,7 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>moet</b> de naam van en <b>alleen van</b>
 $strPrintView = 'Printopmaak';
 $strPrivileges = 'Rechten';
 $strProperties = 'Eigenschappen';
+$strPutColNames = 'Plaats veldnamen in de eerste rij';
 
 $strQBE = 'Query opbouwen';
 $strQBEDel = 'Verwijder';
@@ -351,6 +353,7 @@ $strSelectFields = 'Selecteer velden (tenminste 1):';
 $strSelectNumRows = 'in query';
 $strSelectTables = 'Selecteer tabellen';
 $strSend = 'verzenden';
+$strServer = 'Server %s';
 $strServerChoice = 'Server keuze';
 $strServerVersion = 'Server versie';
 $strSetEnumVal = 'Als het veldtype "enum" of "set" is, voer dan de waardes in volgens dit formaat: \'a\',\'b\',\'c\'...<br />Als u ooit een backslash moet plaatsen ("\") of een enkel aanhalingsteken ("\'") bij deze waardes, backslash het (voorbeeld \'\\\\xyz\' of \'a\\\'b\').';
@@ -430,7 +433,4 @@ $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
 
-$strServer = 'Server %s';  //to translate
-$strPutColNames = 'Put fields names at first row';  //to translate
-$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>
