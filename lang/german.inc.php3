@@ -353,4 +353,6 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
+$strStructure = 'Structure';  //to translate
+$strMain = 'Main';  //to translate
 ?>
