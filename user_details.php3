@@ -1,6 +1,7 @@
 <?php
 /* $Id$*/
 
+
 require("./grab_globals.inc.php3");
 require("./lib.inc.php3");
 
@@ -347,7 +348,7 @@ function table_grants_header($dbcheck = FALSE) {
     echo "<table border=$cfgBorder>\n<tr>";
 
     if ($dbcheck) {
-       echo "<th>$strAction</td>";
+       echo "<th>$strAction</th>";
        echo "<th>$strHost</th>";
        echo "<th>$strUser</th>";
     } else {
@@ -504,34 +505,52 @@ function table_privileges($form, $row = FALSE)
     }
 
     function privGrantToString(f) {
-        var sql = "";
+        var sql = '';
+        var i   = 0;
+        var len = f.elements.length;
 
-        for (var property in f)
-           if (property.toString().indexOf("_priv") >= 0)
-              if (f[property].checked && property.indexOf("Grant") == -1)
-                 sql += ", " + property.substring(0, property.indexOf("_priv"));
-
+        for (i = 0; i < len; i++) {
+            var whichElt = f.elements[i];
+            if (whichElt.name.indexOf('_priv') >= 0) {
+                if (whichElt.checked && whichElt.name.indexOf('Grant') == -1) {
+                    sql += ', ' + whichElt.name.substring(0, whichElt.name.indexOf('_priv'));
+                }
+            }
+        }
         sql = sql.substring(2);
-        if (sql == "") sql = "Usage";
+        if (sql == '') {
+            sql = 'Usage';
+        }
+
         return sql;
     }
 
     function privToString(f) {
         var index = 0;
-        var sql = "";
+        var sql   = '';
+        var i     = 0;
+        var len   = f.elements.length;
 
-        for (var property in f)
-        if (property.toString().indexOf("_priv") >= 0) {
-           if (index > 0) sql += ", ";
-               index++;
-
-               if (f[property].checked) sql += property + " = 'Y'"
-               else sql += property + " = 'N'"
+        for (i = 0; i < len; i++) {
+            var whichElt = f.elements[i];
+            if (whichElt.name.indexOf('_priv') >= 0) {
+                if (index > 0) {
+                    sql += ', ';
+                }
+                index++;
+                if (whichElt.checked) {
+                    sql += whichElt.name + ' = \'Y\'';
+                } else {
+                    sql += whichElt.name + ' = \'N\'';
+                }
             }
+        }
+        if (sql == '') {
+            sql = 'Usage';
+        }
 
         return sql;
     }
-
     //-->
     </script>
     <table>
