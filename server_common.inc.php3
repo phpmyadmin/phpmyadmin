@@ -44,7 +44,7 @@ require('./header.inc.php3');
 // priv CREATE TEMPORARY TABLES or LOCK TABLES can do a 'USE mysql'
 // (even if they cannot see the tables)
 
-$is_superuser = PMA_mysql_query('SELECT COUNT(*) FROM mysql.user', $userlink);
+$is_superuser = @PMA_mysql_query('SELECT COUNT(*) FROM mysql.user', $userlink);
 
 // now, select the mysql db
 if ($is_superuser) {
