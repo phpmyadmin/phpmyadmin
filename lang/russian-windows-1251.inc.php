@@ -5,6 +5,7 @@
  * Translated by Gosha Sakovich <gt2 at users.sourceforge.net>
  *               Artyom Rabzonov <tyomych at gmx.net>
  *               Nicolay Zakharov <info at melody.org.ru> 16-Dec-2002
+ *               (nobody) 2004-09-18
  */
 
 $charset = 'windows-1251';
@@ -680,48 +681,48 @@ $strZeroRemovesTheLimit = 'Замечание: Установка этих опций в  0 (ноль) удаляет л
 $strZip = 'архивировать в zip';
 // To translate
 
-$strCreationDates = 'Creation/Update/Check dates';  //to translate
-$strCheckOverhead = 'Check overheaded';  //to translate
-$strExcelEdition = 'Excel edition';  //to translate
-$strDelayedInserts = 'Use delayed inserts';  //to translate
-$strSQLExportType = 'Export type';  //to translate
-$strAddConstraints = 'Add constraints';  //to translate
-$strGeorgian = 'Georgian';  //to translate
-$strCzechSlovak = 'Czech-Slovak';  //to translate
-$strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
-$strMaximumSize = 'Maximum size: %s%s';  //to translate
-$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
-$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
-$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
-$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
-$strIgnoreInserts = 'Use ignore inserts';  //to translate
-$strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
-$strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
-$strMIMETypesForTable = 'MIME TYPES FOR TABLE';  //to translate
-$strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
-$strAfterInsertSame = 'Go back to this page';  //to translate
-$strRenameDatabaseOK = 'Database %s has been renamed to %s';  //to translate
-$strDatabaseEmpty = 'The database name is empty!';  //to translate
-$strDBRename = 'Rename database to';  //to translate
-$strOperator = 'Operator';  //to translate
-$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
-$strCalendar = 'Calendar';  //to translate
-$strRefresh = 'Refresh';  //to translate
-$strDefragment = 'Defragment table';  //to translate
-$strNoRowsSelected = 'No rows selected';  //to translate
-$strSpanish = 'Spanish';  //to translate
-$strStrucNativeExcel = 'Native MS Excel data';  //to translate
-$strDisableForeignChecks = 'Disable foreign key checks';  //to translate
-$strServerNotResponding = 'The server is not responding';  //to translate
-$strTheme = 'Theme / Style';  //to translate
-$strTakeIt = 'take it';  //to translate
-$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
-$strIcelandic = 'Icelandic';  //to translate
-$strLatvian = 'Latvian';  //to translate
-$strPolish = 'Polish';  //to translate
-$strRomanian = 'Romanian';  //to translate
-$strSlovenian = 'Slovenian';  //to translate
-$strTraditionalSpanish = 'Traditional Spanish';  //to translate
-$strSlovak = 'Slovak';  //to translate
-$strMySQLConnectionCollation = 'MySQL connection collation';  //to translate
+$strCreationDates = 'Создание/Обновление/Проверка дат';
+$strCheckOverhead = 'Проверить затрату ресурсов';
+$strExcelEdition = 'Excel-публикация';
+$strDelayedInserts = 'Использовать запаздывающие вставки';
+$strSQLExportType = 'Тип экспорта';
+$strAddConstraints = 'Добавить ограничения';
+$strGeorgian = 'Грузинский';
+$strCzechSlovak = 'Чешский';
+$strTransformation_application_octetstream__download = 'Показать линк к загрузке бинарных данных полей. Первый вариант: укажите имя бинарного файла. Второй вариант: укажите возможное имя строки таблицы в которой находится бинарный файл. Если вы выберете второй вариант, убедитесь в том, что имя бинарного файла  в первом варианте не указанно';
+$strMaximumSize = 'Минимальный размер: %s%s';
+$strConnectionError = 'Соединение невозможно: неверные устоновки.';
+$strDropDatabaseStrongWarning = 'Вы уверенны что хотите уничтожить всю базу данных?';
+$strAddHeaderComment = 'Добавить частные сомментарии к header (\\n разбивает строки)';
+$strNeedPrimaryKey = 'Вам необходимо указать первичный ключ этой таблицы.';
+$strIgnoreInserts = 'Игнорировать вставки';
+$strAddIfNotExists = 'Добавить IF NOT EXISTS';
+$strCommentsForTable = 'Комментарии к таблице';
+$strMIMETypesForTable = 'MIME-типы таблицы';
+$strRelationsForTable = 'Соотношения в таблице';
+$strAfterInsertSame = 'Возвратиться к этой странице';
+$strRenameDatabaseOK = 'База данных %s переименована в %s';
+$strDatabaseEmpty = 'Имя базы данных не указанно!';
+$strDBRename = 'Переименовать базу данных в';
+$strOperator = 'Оператор';
+$strEncloseInTransaction = 'Экспортировать при переводе';
+$strCalendar = 'Календарь';
+$strRefresh = 'Обновить';
+$strDefragment = 'Дефрагментировать таблицу';
+$strNoRowsSelected = 'Строка таблицы не выбрана';
+$strSpanish = 'Испанский';
+$strStrucNativeExcel = 'Данные из MS Excel';
+$strDisableForeignChecks = 'Выключить проверку инородных ключей';
+$strServerNotResponding = 'Сервер не отвечает';
+$strTheme = 'Тема / Стиль';
+$strTakeIt = 'обработать';
+$strHexForBinary = 'Использовать шестнадцатиричные (hexadecimal) бинарные поля';
+$strIcelandic = 'Исландский';
+$strLatvian = 'Латвийский';
+$strPolish = 'Польский';
+$strRomanian = 'Румынский';
+$strSlovenian = 'Словенский';
+$strTraditionalSpanish = 'Традиционный Испанский';
+$strSlovak = 'Словацкий';
+$strMySQLConnectionCollation = 'Сопоставление соединения с MySQL';
 ?>
