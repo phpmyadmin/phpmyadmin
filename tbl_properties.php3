@@ -168,7 +168,7 @@ if (!empty($show_comment)) {
     <?php
 } // end (1.)
 
-// 2. Get table keys and retains them
+// 2. Gets table keys and retains them
 $local_query = 'SHOW KEYS FROM ' . backquote($table);
 $result      = mysql_query($local_query) or mysql_die('', $local_query);
 $primary     = '';
@@ -366,15 +366,58 @@ echo "\n";
 </table>
 
 </form>
-<br />
 
 
 <?php
+/**
+ * If there are more than 20 rows, displays browse/select/insert/empty/drop
+ * links again
+ */
+if ($fields_cnt > 20) {
+    if ($num_rows > 0) {
+        ?>
+<!-- Browse links --> 
+<p>
+    [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0">
+        <b><?php echo $strBrowse; ?></b></a> ]&nbsp;&nbsp;&nbsp;
+    [ <a href="tbl_select.php3?<?php echo $url_query; ?>">
+        <b><?php echo $strSelect; ?></b></a> ]&nbsp;&nbsp;&nbsp;
+    [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
+        <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
+    [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>"
+         onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?>')">
+         <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+         onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
+         <b><?php echo $strDrop; ?></b></a> ]
+</p>
+        <?php
+    } else {
+        echo "\n";
+        ?>
+<!-- first browse links -->
+<p>
+    [ <b><?php echo $strBrowse; ?></b> ]&nbsp;&nbsp;&nbsp;
+    [ <b><?php echo $strSelect; ?></b> ]&nbsp;&nbsp;&nbsp;
+    [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
+        <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
+    [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+         onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
+         <b><?php echo $strDrop; ?></b></a> ]
+</p>
+        <?php
+    } // end if...else
+} // end if ($fields_cnt > 20)
+echo "\n\n";
+
+
 /**
  * Displays indexes
  */
 ?>
 <!-- Indexes, space usage and row statistics -->
+<br />
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <?php
@@ -477,8 +520,6 @@ if ($index_count > 0) {
 /**
  * Displays Space usage and row statistics
  */
-?>
-<?php
 // BEGIN - Calc Table Space - staybyte - 9 June 2001
 $nonisam     = FALSE;
 if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
@@ -526,8 +567,8 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
             <td><?php echo $data_unit; ?></td>
         </tr>
     <?php
-    echo "\n";
     if (isset($index_size)) {
+        echo "\n";
         ?>
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>">
             <td style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
@@ -536,16 +577,16 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
         </tr>
         <?php
     }
-    echo "\n";
     if (isset($free_size)) {
+        echo "\n";
         ?>
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="color: #bb0000">
-        <td style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
+            <td style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
             <td align="right" nowrap="nowrap"><?php echo $free_size; ?></td>
             <td><?php echo $free_unit; ?></td>
         </tr>
         <tr bgcolor="<?php echo $cfgBgcolorOne; ?>">
-        <td style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
+            <td style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
             <td align="right" nowrap="nowrap"><?php echo $effect_size; ?></td>
             <td><?php echo $effect_unit; ?></td>
         </tr>
@@ -555,7 +596,7 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
         echo "\n";
         ?>
         <tr bgcolor="<?php echo $cfgBgcolorOne; ?>">
-        <td style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
+            <td style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
             <td align="right" nowrap="nowrap"><?php echo $tot_size; ?></td>
             <td><?php echo $tot_unit; ?></td>
         </tr>
@@ -589,11 +630,9 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
     <?php
     $i = 0;
     if (isset($showtable['Row_format'])) {
-        echo (++$i%2)
-             ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
-             : '    <tr bgcolor="' . $cfgBgcolorTwo . '">';
         echo "\n";
         ?>
+        <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strFormat); ?></td>
             <td align="right" nowrap="nowrap">
         <?php
@@ -607,17 +646,16 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
         else {
             echo $showtable['Row_format'];
         }
+        echo "\n";
         ?>
             </td>
         </tr>
         <?php
     }
     if (isset($showtable['Rows'])) {
-        echo (++$i%2)
-             ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
-             : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
         echo "\n";
         ?>
+        <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strRows); ?></td>
             <td align="right" nowrap="nowrap">
                 <?php echo number_format($showtable['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
@@ -626,11 +664,9 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
         <?php
     }
     if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
-        echo (++$i%2)
-             ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
-             : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
         echo "\n";
         ?>
+        <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
             <td align="right" nowrap="nowrap">
                 <?php echo number_format($showtable['Avg_row_length'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
@@ -639,11 +675,9 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
         <?php
     }
     if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
-        echo (++$i%2)
-             ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
-             : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
         echo "\n";
         ?>
+        <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
             <td align="right" nowrap="nowrap">
                 <?php echo "$avg_size $avg_unit\n"; ?>
@@ -652,11 +686,9 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
         <?php
     }
     if (isset($showtable['Auto_increment'])) {
-        echo (++$i%2)
-             ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
-             : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
         echo "\n";
         ?>
+        <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
             <td align="right" nowrap="nowrap">
                 <?php echo number_format($showtable['Auto_increment'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
