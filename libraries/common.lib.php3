@@ -81,10 +81,12 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * versions of phpMyAdmin/php/mysql...
      */    
     $old_error_reporting = error_reporting(0);
-    if (!include($cfgfile_to_load)) {
+    include($cfgfile_to_load);
+    // Include failed
+    if (!isset($cfgServers) && !isset($cfg['Servers'])) {
         // Creates fake settings
         $cfg = array('DefaultLang' => 'en');
-        // Loads the laguage file
+        // Loads the language file
         include('./libraries/select_lang.lib.php3');
         // Sends the Content-Type header
         header('Content-Type: text/html; charset=' . $charset);
@@ -127,14 +129,14 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * if necessary
      */
     if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 120) {
-        require('./libraries/config_import.lib.php3');
+        include('./libraries/config_import.lib.php3');
     }
 
     /**
      * Includes the language file if it hasn't been included yet
      */
     if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')){
-        require('./libraries/select_lang.lib.php3');
+        include('./libraries/select_lang.lib.php3');
     }
 
     /**
@@ -547,7 +549,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         // behaviour of auto-detection due to their setup.
         // See the mailing list message:
         // http://sourceforge.net/mailarchive/forum.php?thread_id=859093&forum_id=2141
-        if ($cfg['PmaAbsoluteUri_DisableWarning'] === FALSE) {
+        if ($cfg['PmaAbsoluteUri_DisableWarning'] == FALSE) {
             $display_pmaAbsoluteUri_warning = 1;
         }
     }

@@ -547,15 +547,15 @@ echo "\n";
         <?php echo PMA_showDocuShort('p/r/procedure_analyse.html'); ?>
         </div>
     </li>
-<?php
 
+<?php
 /**
  * Query box, bookmark, insert data from textfile
  */
 $goto = 'tbl_properties_structure.php3';
 require('./tbl_query_box.php3');
-
 ?>
+
 </ul>
 
 
