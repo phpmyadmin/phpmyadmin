@@ -29,7 +29,8 @@ if (isset($submitoptions)) {
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table)
                    . (isset($pack_keys) ? ' pack_keys=1': ' pack_keys=0')
                    . (isset($checksum) ? ' checksum=1': ' checksum=0')
-                   . (isset($delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0');
+                   . (isset($delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0')
+                   . (isset($auto_increment) ? ' auto_increment=' . PMA_sqlAddslashes($auto_increment) : '');
     $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
     $message       = $strSuccess;
 }
@@ -39,12 +40,10 @@ if (isset($message)) {
     PMA_showMessage($message);
 }
 
-
 /**
  * Gets tables informations and displays top links
  */
 require('./tbl_properties_table_info.php3');
-
 
 /**
  * Displays form controls
@@ -147,25 +146,26 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
                 <form method="post" action="tbl_properties_options.php3">
                     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 
-                    <table border="0" cellspacing="0" cellpadding="0">
+                    <table border="0" cellspacing="1" cellpadding="1">
                     <tr>
-                        <td>
-                            <input type="checkbox" name="pack_keys" id="pack_keys_opt"
-                                <?php echo (isset($pack_keys) && $pack_keys == 1) ? ' checked="checked"' : ''; ?> />
-                            <label for="pack_keys_opt">pack_keys</label>&nbsp;&nbsp;
-                            <br />
-                            <input type="checkbox" name="checksum" id="checksum_opt"
-                                <?php echo (isset($checksum) && $checksum == 1) ? ' checked="checked"' : ''; ?> />
-                            <label for="checksum_opt">checksum</label>&nbsp;&nbsp;
-                            <br />
-                            <input type="checkbox" name="delay_key_write" id="delay_key_write_opt"
-                                <?php echo (isset($delay_key_write) && $delay_key_write == 1) ? ' checked="checked"' : ''; ?> />
-                            <label for="delay_key_write_opt">delay_key_write</label>&nbsp;&nbsp;
-                            &nbsp;&nbsp;
-                        </td>
-                        <td>
-                            <input type="submit" name="submitoptions" value="<?php echo $strGo; ?>" />
-                        </td>
+                        <td align="right"><input type="checkbox" name="pack_keys" id="pack_keys_opt"
+                                <?php echo (isset($pack_keys) && $pack_keys == 1) ? ' checked="checked"' : ''; ?> /></td>
+                        <td><label for="pack_keys_opt">pack_keys</label>&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="right"><input type="checkbox" name="checksum" id="checksum_opt"
+                                <?php echo (isset($checksum) && $checksum == 1) ? ' checked="checked"' : ''; ?> /></td>
+                         <td><label for="checksum_opt">checksum</label>&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                         <td align="right"><input type="checkbox" name="delay_key_write" id="delay_key_write_opt"
+                                <?php echo (isset($delay_key_write) && $delay_key_write == 1) ? ' checked="checked"' : ''; ?> /></td>
+                         <td><label for="delay_key_write_opt">delay_key_write</label>&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                         <td><input type="text" name="auto_increment" id="auto_increment_opt" class="textfield" style="width: 30px"
+                                <?php echo (isset($auto_increment) && !empty($auto_increment) ? ' value="' . $auto_increment . '"' : ''); ?> /></td>
+                         <td valign="top"><label for="auto_increment_opt">auto_increment</label>&nbsp;&nbsp;<input type="submit" name="submitoptions" value="<?php echo $strGo; ?>" /></td>
                     </tr>
                     </table>
                 </form>

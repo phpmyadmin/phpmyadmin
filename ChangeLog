@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2003-03-12 Garvin Hicking <me@supergarv.de>
+    * tbl_properties_options.php3, tbl_properties_table_info.php3: Support changing
+      auto_increment value. (RFE #639655)
     * db_printview.php3, tbl_printview.php3, db_datadict.php3, pdf_schema.php3:
       Display DB comments and MIME types, where appropriate.
     * header.inc.php3, querywindow.php3, libraries/common.lib.php3: Fixed some bugs for

@@ -16,6 +16,7 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     $tbl_type            = strtoupper($showtable['Type']);
     $table_info_num_rows = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment        = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
+    $auto_increment      = (isset($showtable['Auto_increment']) ? $showtable['Auto_increment'] : '');
 
     $tmp                 = explode(' ', $showtable['Create_options']);
     $tmp_cnt             = count($tmp);
