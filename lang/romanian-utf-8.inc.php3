@@ -98,6 +98,7 @@ $strCreatePdfFeat = 'Creare de PDF';
 $strCriteria = 'Criteriu';
 
 $strData = 'Date';
+$strDataDict = 'Dictionar de date';
 $strDataOnly = 'Numai date';
 $strDatabase = 'Baza de date ';
 $strDatabaseHasBeenDropped = 'Baza de date %s a fost aruncat.';
@@ -262,6 +263,7 @@ $strOptions = 'Optiuni';
 $strOr = 'Sau';
 $strOverhead = 'Asupra';
 
+$strPHP40203 = 'Folosesti PHP 4.2.3, server care are un bug major la multi-byte strings (mbstring). Vezi PHP bug report la 19404. Aceasta versiune de PHP nu este recomandat de folosit cu phpMyAdmin.';
 $strPHPVersion = 'Versiune PHP';
 $strPageNumber = 'Numarul paginii:';
 $strPartialText = 'Texte partiale';
@@ -282,6 +284,7 @@ $strPrimaryKey = 'Cheie primara';
 $strPrimaryKeyHasBeenDropped = 'Cheia primara a fost aruncat';
 $strPrimaryKeyName = 'Numele cheii primare trebuie sa fie ... PRIMARY!';
 $strPrimaryKeyWarning = '("Numele PRIMARY" <b>trebuie</b> sa fie <b>numai la</b> cheie primara!)';
+$strPrint = 'Listare';
 $strPrintView = 'Viziualizare imprimare';
 $strPrivileges = 'Drepturi de acces';
 $strProperties = 'Atribute';
@@ -431,7 +434,5 @@ $strZip = '"arhivat"';
 // To translate
 
 $strImportDocSQL = 'Import docSQL Files';  //to translate
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
+
 ?>
