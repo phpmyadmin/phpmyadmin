@@ -10,9 +10,9 @@ $Source$
       This enables phpMyAdmin to be used within a frameset without trying
       to escape out of the security JS-sandbox zone. Tested with IE6, Mozilla
       1.4 and IE5.5.
-  
+
 2003-07-08 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/sqlparser.lib.php3, sql.php3: bug 762213, 
+    * libraries/sqlparser.lib.php3, sql.php3: bug 762213,
       incorrect row count for MySQL 4.1 subqueries;
       bug 649665, incorrect row count for UNIONs
 
@@ -30,10 +30,11 @@ $Source$
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/slovak: Updated, thanks to Lubos Klokner (erkac).
     * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
-      
+
 2003-07-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Send headers before exiting because of missing
       MySQL extension.
+    * lang/german-*.inc.php3: Updates.
 
 2003-07-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/config_import.lib.php3: Backwards

@@ -661,5 +661,5 @@ $strToggleScratchboard = 'Klemmbrett anzeigen';
 $strTableOptions = 'Tabellenoptionen';
 $strSecretRequired = 'Ab sofort muss ein geheimes Passwort zur Verschlüsselung in der Konfigurationsdatei gesetzt werden (blowfish_secret).';
 $strAccessDeniedExplanation = 'phpMyAdmin hat versucht eine Verbindung zum MySQL-Server aufzubauen, jedoch hat dieser die Verbindung zurückgewiesen. Sie sollten Ihre Einstellungen für Host, Benutzername und Kennwort in Ihrer config.inc.php überprüfen und sich vergewissern, dass diese den Informationen, welche sie vom Administrator erhalten haben, entsprechen.';
-$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
+$strAddAutoIncrement = 'AUTO_INCREMENT-Wert hinzufügen';
 ?>
