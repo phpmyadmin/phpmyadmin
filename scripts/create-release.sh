@@ -2,6 +2,10 @@
 #
 # $Id$
 #
+# 2004-04-16, lem9@users.sourceforge.net:
+# - daily snapshot when called with first parameter "snapshot"
+# - remove directory used for the checkout
+#
 # 2003-11-18, nijel@users.sourceforge.net:
 # - switch php3 -> php
 #
@@ -59,8 +63,25 @@ then
   branch="-r $2"
 fi
 
+if [ $1 == "snapshot" ]
+then
+  mode="snapshot"
+  date_snapshot=`date +%Y%m%d-%H%M%S`
+fi
 
-cat <<END
+# Set target name
+if [ "$mode" != "snapshot" ]
+then
+ target=$1
+else
+ target=$date_snapshot
+fi
+
+
+if [ "$mode" != "snapshot" ]
+then
+
+ cat <<END
 
 Please ensure you have:
   1. incremented rc count or version in CVS :
@@ -79,11 +100,12 @@ Please ensure you have:
 
 Continue (y/n)?
 END
-printf "\a"
-read do_release
+ printf "\a"
+ read do_release
 
-if [ "$do_release" != 'y' ]; then
-  exit
+ if [ "$do_release" != 'y' ]; then
+   exit
+ fi
 fi
 
 # Move old cvs dir
@@ -94,21 +116,34 @@ fi
 # Do CVS checkout
 mkdir cvs
 cd cvs
-echo "Press [ENTER]!"
-cvs -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin login
-if [ $? -ne 0 ] ; then
-    echo "CVS login failed, bailing out"
-    exit 1
+
+if [ "$mode" != "snapshot" ]
+then
+ echo "Press [ENTER]!"
+ cvs -q -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin login
+ if [ $? -ne 0 ] ; then
+     echo "CVS login failed, bailing out"
+     exit 1
+ fi
 fi
-cvs -z3 -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
+
+cvs -q -z3 -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
+
 if [ $? -ne 0 ] ; then
     echo "CVS checkout failed, bailing out"
     exit 2
 fi
 
 # Cleanup release dir
-LC_ALL=C date -u > phpMyAdmin/RELEASE-DATE-$1
-find phpMyAdmin \( -name .cvsignore -o -name CVS \) -print0 | xargs -0 rm -rf
+LC_ALL=C date -u > phpMyAdmin/RELEASE-DATE-${target}
+
+# Olivier asked to keep those in the cvs release, to allow testers to use
+# cvs update on it
+if [ "$mode" != "snapshot" ]
+then
+ find phpMyAdmin \( -name .cvsignore -o -name CVS \) -print0 | xargs -0 rm -rf
+fi
+
 find phpMyAdmin -type d -print0 | xargs -0 chmod 755
 find phpMyAdmin -type f -print0 | xargs -0 chmod 644
 find phpMyAdmin \( -name '*.sh' -o -name '*.pl' \) -print0 | xargs -0 chmod 755
@@ -117,13 +152,19 @@ find phpMyAdmin \( -name '*.sh' -o -name '*.pl' \) -print0 | xargs -0 chmod 755
 lynx --dont_wrap_pre --nolist --dump phpMyAdmin/Documentation.html > phpMyAdmin/Documentation.txt
 
 # Renaming directory
-mv phpMyAdmin phpMyAdmin-$1
+ mv phpMyAdmin phpMyAdmin-$target
 
 # Building distribution kits
-zip -9 -r phpMyAdmin-$1.zip phpMyAdmin-$1
-tar cvf phpMyAdmin-$1.tar phpMyAdmin-$1
-bzip2 -9kv phpMyAdmin-$1.tar
-gzip -9v phpMyAdmin-$1.tar
+zip -9 -r phpMyAdmin-${target}.zip phpMyAdmin-${target}
+tar cvf phpMyAdmin-${target}.tar phpMyAdmin-${target}
+bzip2 -9kv phpMyAdmin-${target}.tar
+gzip -9v phpMyAdmin-${target}.tar
+
+# Cleanup
+rm -rf phpMyAdmin-${target}
+
+if [ "$mode" != "snapshot" ]
+then
 
 
 echo ""
@@ -148,11 +189,6 @@ ls -l --block-size=k *.{gz,zip,bz2} | sed -r "s/[a-z-]+[[:space:]]+[0-9]+[[:spac
 
 echo
 echo "Add these to /home/groups/p/ph/phpmyadmin/htdocs/home_page/files.inc.php on sf"
-
-cd ..
-find cvs -type d -print0 | xargs -0 chmod 775
-find cvs -type f -print0 | xargs -0 chmod 664
-
 
 cat <<END
 
@@ -186,6 +222,12 @@ Todo now:
  9. the end :-)
 
 END
+
+fi
+
+cd ..
+find cvs -type d -print0 | xargs -0 chmod 775
+find cvs -type f -print0 | xargs -0 chmod 664
 
 # Removed due to not needed thanks to clever scripting by Robbat2
 # 9. update the demo subdirectory:
