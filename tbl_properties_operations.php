@@ -208,9 +208,15 @@ for ($i = 0; $i < $num_dbs; $i++) {
                     <label for="checkbox_drop"><?php echo $strStrucDrop; ?></label>&nbsp;&nbsp;<br />
                     <input type="checkbox" name="auto_increment" value="1" id="checkbox_auto_increment" />
                     <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
+                    <?php
+                    // display "Add constraints" choice only if there are
+                    // foreign keys
+                    if (PMA_getForeigners($db, $table, '', 'innodb')) {
+                    ?>
                     <input type="checkbox" name="constraints" value="1" id="checkbox_constraints" />
                     <label for="checkbox_constraints"><?php echo $strAddConstraints; ?></label><br />
                     <?php
+                    } // endif
                     if (isset($_COOKIE) && isset($_COOKIE['pma_switch_to_new']) && $_COOKIE['pma_switch_to_new'] == 'true') {
                         $pma_switch_to_new = 'true';
                     } elseif (isset($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_switch_to_new']) && $HTTP_COOKIE_VARS['pma_switch_to_new'] == 'true') {
