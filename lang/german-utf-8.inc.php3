@@ -9,8 +9,7 @@
  *     Alexander M. Turek <rabus at users.sourceforge.net>.
  */
 
-$charset = 'utf-8';
-$allow_recoding = TRUE;
+$charset = 'iso-8859-1';
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
@@ -371,7 +370,7 @@ $strSort = 'Sortierung';
 $strSpaceUsage = 'Speicherplatzverbrauch';
 $strSplitWordsWithSpace = 'Die Wörter werden durch Leerzeichen (" ") getrennt.';
 $strSQL = 'SQL';
-$strSQLParserBugMessage = 'Möglicherweise haben Sie einen Bug im SQL-Parser entgeckt. Bitte überprüfen Sie Ihre Abfrage genaustens insbesondere auf falsch gesetzte oder nicht geschlossene Auführungszeichen. Eine weite Ursache könnte darin liegen, dass Sie versuchen eine Datei mit binären Daten welche nicht von Auführungszeichen eingeschlossen sind hochzuladen. Sie können alternativ versuchen Ihre Abfrage über das MySQL-Kommandozeileninterface zu senden. Die MySQL-Fehlerausgabe, falls vorhanden, kann Ihnen auch bei der Fehleranalyse helfen. Falls Sie weiterhin Probleme haben sollten oder der Parser dort versagt wo die Kommandozeile erfolgreich ist, so reduzieren Sie bitte Ihre Abfrage auf den Befehl, welcher die Probleme verursacht, und senden Sie uns einen Bugreport mit den Datenausschnitt, den Sie weiter unten auf dieser Seite finden.:';
+$strSQLParserBugMessage = 'Möglicherweise haben Sie einen Bug im SQL-Parser entdeckt. Bitte überprüfen Sie Ihre Abfrage genaustens, insbesondere auf falsch gesetzte oder nicht geschlossene Anführungszeichen. Eine weitere Ursache könnte darin liegen, dass Sie versuchen eine Datei mit binären Daten, welche nicht von Anführungszeichen eingeschlossen sind, hochzuladen. Sie können alternativ versuchen Ihre Abfrage über das MySQL-Kommandozeileninterface zu senden. Die MySQL-Fehlerausgabe, falls vorhanden, kann Ihnen auch bei der Fehleranalyse helfen. Falls Sie weiterhin Probleme haben sollten oder der Parser dort versagt, wo die Kommandozeile erfolgreich ist, so reduzieren Sie bitte Ihre Abfrage auf den Befehl, welcher die Probleme verursacht, und senden Sie uns einen Bugreport mit den Datenausschnitt, den Sie weiter unten auf dieser Seite finden.:';
 $strSQLParserUserError = 'Es scheint einen Fehler in Ihrer MySQL-Abfrage zu geben. Die MySQL-Fehlerausgabe, falls vorhanden, kann Ihnen auch bei der Fehleranalyse helfen.';
 $strSQLQuery = 'SQL-Befehl';
 $strSQLResult = 'SQL-Abfrageergebnis';

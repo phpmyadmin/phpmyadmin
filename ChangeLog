@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-01 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german-*.inc.php3: Fixed some typos,
+      thanks to Kai Michael Poppe (sdcepoppe).
+
 2002-09-29 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/slovak update, thanks to Lubos Klokner
     * lang/estonian: update, thanks to Alvar Soome
