@@ -86,7 +86,7 @@ if (isset($table)) {
     $title .= (empty($title) ? '' : '.') . str_replace('\'', '\\\'', $table);
 }
 if (!empty($cfgServer) && isset($cfgServer['host'])) {
-    $title .= (empty($title) ? '' : ' ')
+    $title .= (empty($title) ? 'phpMyAdmin ' : ' ')
            . sprintf($strRunning, (empty($cfgServer['verbose']) ? str_replace('\'', '\\\'', $cfgServer['host']) : str_replace('\'', '\\\'', $cfgServer['verbose'])));
 }
 $title     .= (empty($title) ? '' : ' - ') . 'phpMyAdmin ' . PMA_VERSION;
