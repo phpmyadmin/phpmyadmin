@@ -586,9 +586,10 @@ if ($num_tables > 0) {
         <?php
         $i = 0;
         echo "\n";
+        $is_selected = (!empty($selectall) ? ' selected="selected"' : '');
         while ($i < $num_tables) {
             $table = ((PMA_MYSQL_INT_VERSION >= 32300) ? $tables[$i]['Name'] : $tables[$i]);
-            echo '                    <option value="' . $table . '">' . $table . '</option>' . "\n";
+            echo '                    <option value="' . $table . '"' . $is_selected . '>' . $table . '</option>' . "\n";
             $i++;
         }
         ?>
@@ -605,15 +606,18 @@ if ($num_tables > 0) {
                 <input type="radio" name="what" value="data" />
                 <?php echo $strStrucData; ?><br />
                 <input type="radio" name="what" value="dataonly" />
-                <?php echo $strDataOnly . "\n"; ?><br />
+                <?php echo $strDataOnly; ?>
     <?php
-        if ($num_tables > 1) {
+    if ($num_tables > 1) {
+        echo "\n";
     ?>
-                <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="javascript:setSelectOptions('db_dump','table_select[]',true); return false;"><?php echo $strCheckAll; ?></a>
+                <br />
+                <a href="<?php echo $checkall_url; ?>&amp;selectall=1" onclick="setSelectOptions('db_dump', 'table_select[]', true); return false;"><?php echo $strCheckAll; ?></a>
                 &nbsp;/&nbsp;
-                <a href="<?php echo $checkall_url; ?>" onclick="javascript:setSelectOptions('db_dump','table_select[]',false); return false;"><?php echo $strUncheckAll; ?></a>
+                <a href="<?php echo $checkall_url; ?>" onclick="setSelectOptions('db_dump', 'table_select[]', false); return false;"><?php echo $strUncheckAll; ?></a>
     <?php
-        }  // end if
+    }  // end if
+    echo "\n";
     ?>
             </td>
         </tr>
