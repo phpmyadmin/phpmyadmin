@@ -89,8 +89,8 @@ if (!empty($submit_mult)
     }
     ?>
     <input type="hidden" name="query_type" value="<?php echo $what; ?>" />
-    <input type="submit" name="btnDrop" value="<?php echo $strYes; ?>" />
-    <input type="submit" name="btnDrop" value="<?php echo $strNo; ?>" />
+    <input type="submit" name="mult_btnDrop" value="<?php echo $strYes; ?>" />
+    <input type="submit" name="mult_btnDrop" value="<?php echo $strNo; ?>" />
 </form>
     <?php
     echo"\n";
@@ -102,8 +102,8 @@ if (!empty($submit_mult)
 /**
  * Executes the query
  */
-else if ((get_magic_quotes_gpc() && stripslashes($btnDrop) == $strYes)
-         || $btnDrop == $strYes) {
+else if ((get_magic_quotes_gpc() && stripslashes($mult_btnDrop) == $strYes)
+         || $mult_btnDrop == $strYes) {
 
     $sql_query      = '';
     $selected_cnt   = count($selected);

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-23  Benjamin Gandon  <gandon@users.sourceforge.net>
+	* read_dump.php3: widely improved (some remaining bugs has been fixed and
+	  the script is now about too time faster than before).
+
 2001-09-23  Loïc Chapeaux  <lolo@phpheaven.net>
 	* config.inc.php3; Documentation.html; db_details.php3; tbl_dump.php3;
 	  tbl_properties.php3; libraries/functions.php3; libraries/zip.lib.php3:
@@ -14,6 +18,9 @@ $Source$
 	  translations.
 	* most of the scripts were updated to fix bug #444352 (Data
 	  Missing/POST Error).
+	* db_details.php3; db_stats.php3; mult_submits.inc.php3;
+	  tbl_properties.php3: fixed a bug if a "DROP" query were submitted from a
+	  sql file.
 
 2001-09-23  Armel Fauveau  <armel.fauveau@globalis-ms.com>
     * add zip dump feature

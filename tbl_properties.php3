@@ -59,7 +59,7 @@ if (!isset($message)) {
  * Drop/delete mutliple tables if required
  */
 if ((!empty($submit_mult) && isset($selected_fld))
-    || isset($btnDrop)) {
+    || isset($mult_btnDrop)) {
     $action = 'tbl_properties.php3';
     include('./mult_submits.inc.php3');
 }

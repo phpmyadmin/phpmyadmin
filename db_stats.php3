@@ -12,7 +12,7 @@ require('./header.inc.php3');
  * Drop databases if required
  */
 if ((!empty($submit_mult) && isset($selected_db))
-    || isset($btnDrop)) {
+    || isset($mult_btnDrop)) {
     $err_url    = 'db_stats.php3'
                 . '?lang=' . $lang
                 . '&server=' . $server;

@@ -59,7 +59,7 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang;
  * Drop/delete mutliple tables if required
  */
 if ((!empty($submit_mult) && isset($selected_tbl))
-    || isset($btnDrop)) {
+    || isset($mult_btnDrop)) {
     $action = 'db_details.php3';
     include('./mult_submits.inc.php3');
 }
