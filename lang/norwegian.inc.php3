@@ -1,6 +1,10 @@
 <?php
 /* $Id$ */
 
+/**
+ * Translated by Sven-Erik Andersen <sven_erik at andersen.as>
+ */
+
 $charset = 'iso-8859-1';
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
@@ -57,7 +61,7 @@ $strBookmarkQuery = 'Lagret SQL-spørring';
 $strBookmarkThis = 'Lagre denne SQL-spørringen';
 $strBookmarkView = 'Bare se';
 $strBrowse = 'Se på';
-$strBzip = '"bzipped"';
+$strBzip = 'Komprimert (bz2)';
 
 $strCantLoadMySQL = 'kan ikke starte MySQL modulen,<br />vennligst kontroller PHP konfigureringen.';
 $strCantRenameIdxToPrimary = 'Kan ikke endre indeks til PRIMARY!';
@@ -65,7 +69,7 @@ $strCardinality = 'Kardinalitet';
 $strCarriage = 'Linjeskift (Mac): \\r';
 $strChange = 'Endre';
 $strChangePassword = 'Endre passord';
-$strCheckAll = 'Kontroller alle';
+$strCheckAll = 'Merk alle';
 $strCheckDbPriv = 'Kontroller database privilegier';
 $strCheckTable = 'Kontroller tabell';
 $strColumn = 'Kolonne';
@@ -116,6 +120,7 @@ $strEnd = 'Slutt';
 $strEnglishPrivileges = ' OBS: MySQL privilegie navn er på engelsk ';
 $strError = 'Feil';
 $strExtra = 'Ekstra';
+$strExtendedInserts = 'Utvidete innlegg';
 
 $strField = 'Felt';
 $strFieldHasBeenDropped = 'Feltet %s har blitt slettet';
@@ -134,7 +139,7 @@ $strFunction = 'Funksjon';
 $strGenTime = 'Generert den';
 $strGo = 'Utfør';
 $strGrants = 'Rettigheter';
-$strGzip = '"gzipped"';
+$strGzip = 'Komprimert (gz)';
 
 $strHasBeenAltered = 'er endret.';
 $strHasBeenCreated = 'er opprettet.';
@@ -231,11 +236,11 @@ $strPrimaryKey = 'Primærnøkkel';
 $strPrimaryKeyHasBeenDropped = 'Primær-nøkkelen har blitt slettet';
 $strPrimaryKeyName = 'Navnet til  prim&aelig;rn&oslash;kkelen m&aring; v&aelig;re... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>m&aring;</b> v&aelig;re navnet til og <b>bare til</b> en prim&aelig;rn&oslash;kkel!)';
-$strPrintView = 'Forhåndsvisning';
+$strPrintView = 'Utskriftsvennlig forhåndsvisning';
 $strPrivileges = 'Privilegier';
 $strProperties = 'Egenskaper';
 
-$strQBE = 'Spørring ved eksempel';
+$strQBE = 'Spørring ved eksempel (Query by Example)';
 $strQBEDel = 'Slett';
 $strQBEIns = 'Sett inn';
 $strQueryOnDb = 'SQL-spørring i database <b>%s</b>:';
@@ -275,7 +280,7 @@ $strSelectADb = 'Vennligst velg en database';
 $strSelectAll = 'Velg alle';
 $strSelectFields = 'Velg felt (minst ett):';
 $strSelectNumRows = 'i spørring';
-$strSend = 'Last ned og lagre som fil';
+$strSend = 'Last ned som fil';
 $strServerChoice = 'Server valg';
 $strServerVersion = 'Server versjon';
 $strSetEnumVal = 'Hvis felttypen er "enum" eller "set", skriv inn verdien med dette formatet: \'a\',\'b\',\'c\'...<br />Hvis du skulle trenge å ha en skråstrek ("\") eller en enkel apostrof ("\'") blant disse verdiene, skriv en skråstrek foran (eks. \'\\\\xyz\' eller \'a\\\'b\').';
@@ -319,7 +324,7 @@ $strTheTerminator = 'Tegn som angir slutt på felter.';
 $strTotal = 'totalt';
 $strType = 'Type';
 
-$strUncheckAll = 'Fjern avmerking';
+$strUncheckAll = 'Fjern merking';
 $strUnique = 'Unik';
 $strUnselectAll = 'Fjern alle valgte';
 $strUpdatePrivMessage = 'Du har oppdatert privilegiene til %s.';
@@ -344,7 +349,7 @@ $strWrongUser = 'Ugyldig brukernavn/passord. Ingen tilgang.';
 
 $strYes = 'Ja';
 
-$strZip = '"komprimert (zip)"';
+$strZip = 'Komprimert (zip)';
 
 // To translate
 $strLinksTo = 'Links to';  //to translate

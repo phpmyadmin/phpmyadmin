@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-26 Loïc Chapeaux  <lolo@phpheaven.net>
+        * ## created 2.2.7 branch into the CVS tree ##
+        * lang/nowegian.inc.php: updated thanks to Sven-Erik Andersen.
+        * lang/brazilian_portuguese.inc.php3: updated thanks to Renato Lins.
+        * sql.php3; tbl_replace.php3: patch #547030 - file_exists $goto thanks to
+          Melvyn Sopacua <nyvlem at users.sourceforge.net>.
+
 2002-04-26 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_qbe.php3: automatic joints from Relation table, thanks
 	  to Mike Beck (mike.beck at ibmiller.de)
@@ -12,20 +19,20 @@ $Source$
 	* Documentation.html: example for automatic joints
 
 2002-04-26 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * libraries/common.lib.php3: fixed a controluser bug.
-    * libraries/display_tbl.lib.php3: fixed bug #547384 (Marker Color can't
-      equal Pointer Color)
+	* libraries/common.lib.php3: fixed a controluser bug.
+	* libraries/display_tbl.lib.php3: fixed bug #547384 (Marker Color can't
+	  equal Pointer Color)
 
 2002-04-25 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * lang/italian.inc.php3: updated, thanks again to Pietro Danesi.
+	* lang/italian.inc.php3: updated, thanks again to Pietro Danesi.
 
 2002-04-24 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_*.php3: $cfg system changes
 
 2002-04-24 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * libraries/*, lang/*: $cfg system changes.
-    * libraries/common.lib.php3, libraries/select_lang.php3,
-      libraries/config_import.lib.php3: Config file backwards compatibility.
+	* libraries/*, lang/*: $cfg system changes.
+	* libraries/common.lib.php3, libraries/select_lang.php3,
+	  libraries/config_import.lib.php3: Config file backwards compatibility.
 
 2002-04-24 Robin Johnson <robbat2@users.sourceforge.net>
 	* *.php3 NOT tbl_*.php, Documentation.*: $cfg system changes.
@@ -41,11 +48,11 @@ $Source$
 	  thanks to Mike Beck (mike.beck at ibmiller.de)
 
 2002-04-23 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * libraries/common.lib.php3: fixed bug #547605 using Loïc's patch.
-    * tbl_printview.php3: Fixed a small bug, some php and XHTML 1.0 errors and
-      beautified the generated code.
-    * lang/german.inc.php3: Translated the new string.
-    * Documentation.html: Changed notes concerning php 4.2.0.
+	* libraries/common.lib.php3: fixed bug #547605 using Loïc's patch.
+	* tbl_printview.php3: Fixed a small bug, some php and XHTML 1.0 errors and
+	  beautified the generated code.
+	* lang/german.inc.php3: Translated the new string.
+	* Documentation.html: Changed notes concerning php 4.2.0.
 
 2002-04-22 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/slovak-win1250.inc.php3: completed, thanks to Peter Svec.
@@ -54,14 +61,14 @@ $Source$
 	* lang/japanese* updates, thanks to Yukihiro Kawada
 
 2002-04-22 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * lang/russian-koi8.inc.php3: fixed a typo (bug #546981).
-    * lang/german.inc.php3: better syntax.
-    * db_details.php3, mult_submits.inx.php3, tbl_properties.php3:
-      Use TRUNCATE instead of DELETE when using MySQL 4.
+	* lang/russian-koi8.inc.php3: fixed a typo (bug #546981).
+	* lang/german.inc.php3: better syntax.
+	* db_details.php3, mult_submits.inx.php3, tbl_properties.php3:
+	  Use TRUNCATE instead of DELETE when using MySQL 4.
 
 2002-04-21 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * main.php3: Restarted work on patch #538740 (get users priv. with
-      SHOW GRANTS).
+	* main.php3: Restarted work on patch #538740 (get users priv. with
+	  SHOW GRANTS).
 
 2002-04-21 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/auth/http.auth.lib.php3: tried a fix to allow the use of http
@@ -112,10 +119,10 @@ $Source$
 	* libraries/common.lib.php3, line 128: improved compatibility with older
 	  config files.
 	* libraries/display, line 1291: improved fix against bug #542524 (Wrong
-      interval is displayed).
-    * lang/portuguese.inc.php3: updated thanks to
-      Lopo Pizarro <lopopizarro at users.sourceforge.net>.
-    * Documentation.html, line 1330-1331: extended a bit a faq entry.
+	  interval is displayed).
+	* lang/portuguese.inc.php3: updated thanks to
+	  Lopo Pizarro <lopopizarro at users.sourceforge.net>.
+	* Documentation.html, line 1330-1331: extended a bit a faq entry.
 
 2002-04-15 Marc Delisle  <lem9@users.sourceforge.net>
 	* config.inc.php3: put the most popular column types first in the list,
@@ -154,7 +161,7 @@ $Source$
 
 2002-04-11 Alexander M. Turek  <rabus@users.sourceforge.net>
 	* libraries/display_tbl.lib.php3, line 1293: fixed bug #542524 (Wrong
-      interval is displayed). Thanks to Matthias Schniedermeyer for his report.
+	  interval is displayed). Thanks to Matthias Schniedermeyer for his report.
 
 2002-04-11 Marc Delisle  <lem9@users.sourceforge.net>
 	* header.inc.php3, bug #540718, merge css patch thanks to Loïc
@@ -165,12 +172,12 @@ $Source$
 2002-04-10 Alexander M. Turek <rabus@users.sourceforge.net>
 	* config.inc.php3, line 73: removed the "experimental" warning for the
 	  "cfgLeftFrameLight" setting.
-    * db_details.php3, header.inc.php3, left.php3, main.php3, tbl_change.php3,
-      tbl_indexes.php3, tbl_properties.php3, tbl_qbe.php3, tbl_select.php3,
-      user_details.php3, user_password.php3, libraries/display_tbl.lib.php3,
-      libraries/auth/cookie.auth.lib.php3: Better fix bugs #539756 / #540718
-    * left.php3, libraries/auth/cookie.auth.lib.php3: Fixed design for NN 4.x.
-    * Documentation.*: Added myself.
+	* db_details.php3, header.inc.php3, left.php3, main.php3, tbl_change.php3,
+	  tbl_indexes.php3, tbl_properties.php3, tbl_qbe.php3, tbl_select.php3,
+	  user_details.php3, user_password.php3, libraries/display_tbl.lib.php3,
+	  libraries/auth/cookie.auth.lib.php3: Better fix bugs #539756 / #540718
+	* left.php3, libraries/auth/cookie.auth.lib.php3: Fixed design for NN 4.x.
+	* Documentation.*: Added myself.
 
 2002-04-10 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/chinese* update thanks to Siu Sun (siusun)

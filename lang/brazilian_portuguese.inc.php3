@@ -1,6 +1,10 @@
 <?php
 /* $Id$ */
 
+/**
+ * Translated by Renato Lins <thbest at information4u.com>
+ */
+
 $charset = 'iso-8859-1';
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
@@ -51,6 +55,7 @@ $strAttr = 'Atributos';
 $strBack = 'Voltar';
 $strBinary = ' Binário ';
 $strBinaryDoNotEdit = ' Binário - não edite ';
+$strBookmarkDeleted = 'O bookmark foi removido.';
 $strBookmarkLabel = 'Nome';
 $strBookmarkQuery = 'Procura de SQL salva';
 $strBookmarkThis = 'Salvar essa procura de SQL';
@@ -63,6 +68,7 @@ $strCantRenameIdxToPrimary = 'Não foi possível renomear o índice para "PRIMARY"!
 $strCardinality = 'Cardinalidade';
 $strCarriage = 'Caracter de retorno: \\r';
 $strChange = 'Muda';
+$strChangePassword = 'Mude a senha';
 $strCheckAll = 'Marcar All';
 $strCheckDbPriv = 'Verifica Privilégios do Banco de Dados';
 $strCheckTable = 'Verifica tabela';
@@ -222,6 +228,7 @@ $strPasswordEmpty = 'A senhas está vazia!';
 $strPasswordNotSame = 'As senhas não são a mesma!';
 $strPHPVersion = 'Versão do PHP';
 $strPmaDocumentation = 'Documentação do phpMyAdmin ';
+$strPmaUriError = 'A diretiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> Deve ser setada';
 $strPos1 = 'Início';
 $strPrevious = 'Anterior';
 $strPrimary = 'Primária';
@@ -345,8 +352,5 @@ $strYes = 'Sim';
 $strZip = '"compactado com zip"';
 
 // To translate
-$strBookmarkDeleted = 'The bookmark has been deleted.';
-$strChangePassword = 'Change password'; //to translate
-$strPmaUriError = 'The <tt>$cfg[\'PmaAbsoluteUri\']</tt> directive MUST be set in your configuration file!';
 $strLinksTo = 'Links to';  //to translate
 ?>

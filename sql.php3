@@ -12,8 +12,19 @@ require('./libraries/common.lib.php3');
 /**
  * Defines the url to return to in case of error in a sql statement
  */
+// Security checkings
+if (!empty($goto)) {
+    $is_gotofile     = ereg_replace('^([^?]+).*$', '\\1', $goto);
+    if (!@file_exists('./' . $is_gotofile)) {
+        unset($goto);
+    } else {
+        $is_gotofile = ($is_gotofile == $goto);
+    }
+} // end if (security checkings)
+
 if (empty($goto)) {
-    $goto    = (empty($table)) ? 'db_details.php3' : 'tbl_properties.php3';
+    $goto         = (empty($table)) ? 'db_details.php3' : 'tbl_properties.php3';
+    $is_gotofile  = TRUE;
 }
 if (!isset($err_url)) {
     $err_url = $goto
@@ -110,7 +121,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
     if (!empty($back)) {
         $goto = $back;
     }
-    if (@file_exists('./' . $goto)) {
+    if ($is_gotofile) {
         if ($goto == 'db_details.php3' && !empty($table)) {
             unset($table);
         }
@@ -319,7 +330,7 @@ else {
             $message = $strEmptyResultSet;
         }
 
-        if (@file_exists('./' . $goto)) {
+        if ($is_gotofile) {
             $goto = ereg_replace('\.\.*', '.', $goto);
             // Checks for a valid target script
             if (isset($table) && $table == '') {

@@ -16,6 +16,7 @@ require('./libraries/common.lib.php3');
 if (isset($sql_query)) {
     $sql_query = urldecode($sql_query);
 }
+$is_gotofile = FALSE;
 if (isset($after_insert) && $after_insert == 'new_insert') {
     $goto = 'tbl_change.php3'
           . '?lang=' . $lang
@@ -39,7 +40,17 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&disp_direction=' . $disp_direction
           . '&repeat_cells=' . $repeat_cells
           . '&sql_query=' . urlencode($sql_query);
+} else if (!empty($goto)) {
+    // Security checkings
+    $is_gotofile     = ereg_replace('^([^?]+).*$', '\\1', $goto);
+    if (!@file_exists('./' . $is_gotofile)) {
+        $goto        = (empty($table)) ? 'db_details.php3' : 'tbl_properties.php3';
+        $is_gotofile = TRUE;
+    } else {
+        $is_gotofile = ($is_gotofile == $goto);
+    }
 }
+
 // Defines the url to return in case of failure of the query
 if (isset($err_url)) {
     $err_url = urldecode($err_url);
@@ -47,11 +58,13 @@ if (isset($err_url)) {
     $err_url = str_replace('&', '&amp;', $goto)
              . (empty($primary_key) ? '' : '&amp;primary_key=' . $primary_key);
 }
+
 // Resets tables defined in the configuration file
 reset($fields);
 if (isset($funcs)) {
     reset($funcs);
 }
+
 // Misc
 if (get_magic_quotes_gpc()) {
     $submit_type = stripslashes($submit_type);
@@ -140,7 +153,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     // No change -> move back to the calling script
     else {
         $message = $strNoModification;
-        if (@file_exists('./' . $goto)) {
+        if ($is_gotofile) {
             $js_to_run = 'functions.js';
             include('./header.inc.php3');
             include('./' . ereg_replace('\.\.*', '.', $goto));
@@ -240,7 +253,7 @@ if (!$result) {
     } else {
         $message = $strModifications;
     }
-    if (@file_exists('./' . $goto)) {
+    if ($is_gotofile) {
         if ($goto == 'db_details.php3' && !empty($table)) {
             unset($table);
         }
