@@ -11,7 +11,9 @@ $Source$
       deprecated a long time ago).
 	* sql.php3, lines 39-41: fixed bug #438895 (No mixed " and ' possible).
 	* tbl_properties.php3, line 233: removed an unnecessary ';'!
-	* left.php3: fixed bug ##438987 (Blank lines with IE5+)
+	* left.php3: fixed bug #438987 (Blank lines with IE5+)
+	* ldi_table.php3, line 56: fixed an invalid anchor in the documentation
+	  link (tahnks to Laurent Haas).
 
 2001-07-06  Marc Delisle  <lem9@users.sourceforge.net>
 	* bug #438749 Database lockout: main.php3, we now show "Create

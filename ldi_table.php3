@@ -53,7 +53,7 @@ $num_tables = @mysql_numrows($tables);
 	<td><?php echo $strIfYouWish; ?></td>
 </tr>
 <tr>
-	<td colspan="3" align="center"><?php print show_docu("manual_Reference.html#Load");?></td>
+	<td colspan="3" align="center"><?php print show_docu("manual_Reference.html#LOAD_DATA");?></td>
 </tr>
 <tr>
 	<td colspan="3" align="center">
