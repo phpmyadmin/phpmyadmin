@@ -18,7 +18,6 @@ PMA_checkParameters(array('db', 'table'));
  */
 $err_url = 'tbl_properties.php?' . PMA_generate_common_url($db, $table);
 
-
 /**
  * The form used to define the field to add has been submitted
  */
@@ -235,6 +234,19 @@ if (isset($submit_num_fields)) {
  * Displays the form used to define the new field
  */
 if ($abort == FALSE) {
+    /**
+     * Gets tables informations
+     */
+    require('./tbl_properties_common.php');
+    require('./tbl_properties_table_info.php');
+    /**
+     * Displays top menu links
+     */
+    $active_page = 'tbl_properties_structure.php';
+    require('./tbl_properties_links.php');
+    /**
+     * Display the form
+     */
     $action = 'tbl_addfield.php';
     require('./tbl_properties.inc.php');
 
