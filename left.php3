@@ -24,16 +24,6 @@ if ($cfgOBGzip) {
     }
 }
 
-/** 
- * Findout if we want to display the standard left.php or the light version
- */
-
-if (isset($cfgLeftFrameLight) && $cfgLeftFrameLight) {
-    $lightMode = 1;
-} else {
-    $lightMode = 0;
-}
-
 
 /**
  * Get the list and number of available databases.
@@ -193,8 +183,9 @@ echo "\n";
 //    In this case, the database should not be collapsible/expandable
 if ($num_dbs > 1) {
 
-    if ($lightMode) {
-        echo '    <form action="left.php3" method="get" name="left" target="nav">' . "\n";
+    // Light mode -> beginning of the select combo for databases
+    if ($cfgLeftFrameLight) {
+        echo '    <form method="post" action="index.php3" name="left" target="_parent">' . "\n";
         echo '        <input type="hidden" name="lang" value="' . $lang . '" />' . "\n";
         echo '        <input type="hidden" name="server" value="' . $server . '" />' . "\n";
         echo '        <select name="db" onchange="this.form.submit()">' . "\n";
@@ -234,7 +225,8 @@ if ($num_dbs > 1) {
             } // end while
         } // end if
 
-        if ($lightMode == 0) {
+        // No light mode -> displays the expandible/collapsible db list
+        if ($cfgLeftFrameLight == FALSE) {
 
             // Displays the database name
             $on_mouse = (($cfgLeftPointerColor == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftPointerColor . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftBgColor . '\')}"');
@@ -281,7 +273,11 @@ if ($num_dbs > 1) {
             <?php
             echo "\n";
 
-        } else {  // lightMode == 1
+        }
+
+        // Light mode -> displays the select combo with databases names and the
+        // list of tables contained in the current database
+        else {
             echo "\n";        
 
             // Builds the databases' names list
@@ -300,26 +296,23 @@ if ($num_dbs > 1) {
                     $table_list = '    ' . $strNoTablesFound . "\n";
                 }
                 $selected = ' selected="selected"';
-
-                $db_name = '    <nobr><a class="item" href="db_details.php3?' . $common_url_query .'">' . "\n";
-                $db_name .= '          <span class="heada">' . $db . '<bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span>' . "\n";
-                $db_name .= '          <span class="headaCnt">(' . $num_tables_disp . ')</span></a></nobr>' . "\n";
-
             } else {
                 $selected = '';
-            }
+            } // end if... else...
 
             if (!empty($num_tables)) {
                 echo '            <option value="' . urlencode($db) . '"' . $selected . '>' . $db . ' (' . $num_tables . ')</option>' . "\n";
             } else {
                 echo '            <option value="' . urlencode($db) . '"' . $selected . '>' . $db . ' (-)</option>' . "\n";
-            }
+            } // end if... else...
 
-        } // if lightMode
+        } // end if light mode
 
     } // end for $i (db list)
 
-    if ($lightMode) {
+    // Light mode -> end of the select combo for databases and table list for
+    // the current database
+    if ($cfgLeftFrameLight) {
         echo '        </select>' . "\n";
         echo '        <noscript><input type="submit" name="Go" value="Go" /></noscript>' . "\n";
         echo '    </form>' . "\n";
@@ -330,12 +323,15 @@ if ($num_dbs > 1) {
 
         // Displays the current database name and the list of tables it
         // contains
-        echo $db_name;
         echo '    <hr noshade="noshade" />' . "\n";
         echo $table_list;
         echo '    <hr noshade="noshade" />' . "\n";
 
-    } else {  // lightmode == 0
+    }
+
+    // No light mode -> initialize some js variables for the
+    // expandible/collapsible stuff
+    else {
         ?>
 
     <!-- Arrange collapsible/expandable db list at startup -->
@@ -352,9 +348,10 @@ if ($num_dbs > 1) {
     </script>
         <?php
 
-    } // lightmode
+    } // end if... else... (light mode)
 
 } // end if ($server > 1)
+
 
 // Case where only one database has to be displayed
 else if ($num_dbs == 1) {
@@ -406,6 +403,9 @@ else if ($num_dbs == 1) {
     </div>
     <?php
 } // end if ($num_dbs == 1)
+
+
+// Case where no database has to be displayed
 else {
     echo "\n";
     echo '<p>' . $strNoDatabases . '</p>';

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-20  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.php3:
+	  - optimized the code a bit;
+	  - selecting a database in light mode launches the database properties
+	    page at the main frame (both frames changes).
+
 2002-01-19  Loïc Chapeaux  <lolo@phpheaven.net>
         * lang/*; libraries/common.lib.php3; Documentation.html: removed
           trailing whitespaces and ensured compatibility with old releases.
