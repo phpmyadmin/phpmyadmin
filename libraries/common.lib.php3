@@ -1600,7 +1600,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
          */
         function PMA_getEnumSetOptions($type_def) {
             $open = strpos($type_def, '(');
-            $close = strpos($type_def, ')');
+            $close = strrpos($type_def, ')');
             if (!$open || !$close) {
                 return FALSE;
             }

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-06 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/common.lib.php3: Parse better enum fields (bug #784154).
+   
 2003-08-05 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3: Moved docu function (PHP3 compatbility)
       (Bug #782966)
