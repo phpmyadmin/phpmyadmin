@@ -9,6 +9,8 @@ $Source$
     * css/phpmyadmin.css.php: Force <button> to be displayed inline.
     * libraries/common.lib.php: When only_db matches no database, do not show
       any (bug #943626).
+    * css/phpmyadmin.css.php: Not .nowrap, but div.nowrap should have zero
+      margin/padding.
 
 2004-04-28 Garvin Hicking <pma@supergarv.de>
     * left.php, main.php, server_databases.php, common.lib.php,
