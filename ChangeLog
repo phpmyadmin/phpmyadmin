@@ -22,6 +22,8 @@ $Source$
       $cfg['ShowHttpHostTitle'].
     * config.inc.php, css/phpmyadmin.css.php, libraries/config_import.lib.php:
       Can disable main page icons (bug #965550).
+    * header.inc.php, css/phpmyadmin.css.php: Use span insted of div, div is
+      not allowed here.
 
 2004-06-02 Alexander M. Turek  <happybirthdaytome@derrabus.de>
     * db_details_db_info.php, tbl_properties_tbl_info.php: Table type is called

@@ -497,9 +497,11 @@ textarea {
 
 /* Heading */
 
-h1 div {
+h1 span {
     display: block;
     float: left;
+    clear: none;
+    width: auto;
     padding: 2px 2px 5px 2px;
     margin: 0px;
     font-family: <?php echo $right_font_family; ?>;
@@ -508,7 +510,7 @@ h1 div {
     white-space: nowrap;
 }
 
-h1 div a {
+h1 span a {
 <?php if ($cfg['ErrorIconic']) { ?>
     background-repeat: no-repeat;
     background-position: 2px 50%;
@@ -516,25 +518,25 @@ h1 div a {
 <?php } ?>
 }
 
-h1 div a {
+h1 span a {
     font-weight: bolder;
 }
 
 <?php if ($cfg['PropertiesIconic']) { ?>
-h1 div.server a {
+h1 span.server a {
     background-image: url(../images/s_host.png);
 }
 
-h1 div.database a {
+h1 span.database a {
     background-image: url(../images/s_db.png);
 }
 
-h1 div.table a {
+h1 span.table a {
     background-image: url(../images/s_tbl.png);
 }
 <?php } ?>
 
-div.database:before , div.table:before {
+h1 span.database:before , h1 span.table:before {
     content: '>';
     padding-left: 5px;
     padding-right: 5px;

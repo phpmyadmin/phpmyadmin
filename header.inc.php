@@ -161,22 +161,22 @@ if (empty($GLOBALS['is_header_sent'])) {
                                                                    : ':' . $cfg['Server']['port']
                                                                   )
                        );
-        echo '<div class="server">' . $GLOBALS['strServer'] . ":\n"
+        echo '<span class="server">' . $GLOBALS['strServer'] . ":\n"
             . '<a href="' . $GLOBALS['cfg']['DefaultTabServer'] . '?' . PMA_generate_common_url() . '">'
             . htmlspecialchars($server_info) . '</a>' . "\n"
-            . '</div>' . "\n\n";
+            . '</span>' . "\n\n";
 
         if (!empty($GLOBALS['db'])) {
-            echo '<div class="database">' . $GLOBALS['strDatabase'] . ":\n"
+            echo '<span class="database">' . $GLOBALS['strDatabase'] . ":\n"
                 . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($GLOBALS['db']) . '">'
                 . htmlspecialchars($GLOBALS['db']) . '</a>' . "\n"
-                . '</div>' . "\n\n";
+                . '</span>' . "\n\n";
 
             if (!empty($GLOBALS['table'])) {
-                echo '<div class="table">' . $GLOBALS['strTable'] . ":\n"
+                echo '<span class="table">' . $GLOBALS['strTable'] . ":\n"
                     . '<a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']) . '">'
                     . htmlspecialchars($GLOBALS['table']) . '</a>' . "\n"
-                    . '</div>' . "\n\n";
+                    . '</span>' . "\n\n";
             }
         }
         echo '</h1>';
