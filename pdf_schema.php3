@@ -985,7 +985,7 @@ class PMA_RT
 
         // Draws horizontal lines
         for ($l = 0; $l < 21; $l++) {
-            $pdf->line(0, $l * 10, 297, $l * 10);
+            $pdf->line(0, $l * 10, $pdf->fh, $l * 10);
             // Avoid duplicates
             if ($l > 0) {
                 $pdf->SetXY(0, $l * 10);
@@ -996,7 +996,7 @@ class PMA_RT
 
         // Draws vertical lines
         for ($j = 0; $j < 30 ;$j++) {
-            $pdf->line($j * 10, 0, $j * 10, 210);
+            $pdf->line($j * 10, 0, $j * 10, $pdf->fw);
             $pdf->SetXY($j * 10, 0);
             $label = (string) sprintf('%.0f', ($j * 10 - $this->l_marg) * $this->scale + $this->x_min);
             $pdf->Cell(5, 7, $label);
@@ -1174,7 +1174,7 @@ class PMA_RT
             $this->PMA_RT_setMinMax($this->tables[$table]);
         }
         // Defines the scale factor
-        $this->scale = ceil(max(($this->x_max - $this->x_min) / (297 - $this->r_marg - $this->l_marg), ($this->y_max - $this->y_min) / (210 - $this->t_marg - $this->b_marg)) * 100) / 100;
+        $this->scale = ceil(max(($this->x_max - $this->x_min) / ($pdf->fh - $this->r_marg - $this->l_marg), ($this->y_max - $this->y_min) / ($pdf->fw - $this->t_marg - $this->b_marg)) * 100) / 100;
         $pdf->PMA_PDF_setScale($this->scale, $this->x_min, $this->y_min, $this->l_marg, $this->t_marg);
 
 
