@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-14  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* Patch for Bug #449858 from Ignacio Vazquez-Abrams. First patch used, not second one.
+
 2001-08-10  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* BUG #448206, Support of table aliases - fixed, added expand_sql_query in lib.inc.php3 and a loop in db_readdump.php3 to apply it
 	

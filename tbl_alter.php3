@@ -28,9 +28,27 @@ if (isset($submit)) {
         $query = '';
     }
     $query .= ' ' . backquote($field_orig[0]) . ' ' . backquote($field_name[0]) . ' ' . $field_type[0] . ' ';
-    if ($field_length[0] != '') {
-        $query .= '(' . $field_length[0] . ') ';
-    }
+    // Some field types shouldn't have lengths
+    switch (strtoupper($field_type[0]))
+    {
+        case 'DATE':
+        case 'DATETIME':
+        case 'TIME':
+        case 'TINYBLOB':
+        case 'TINYTEXT':
+        case 'BLOB':
+        case 'TEXT':
+        case 'MEDIUMBLOB':
+        case 'MEDIUMTEXT':
+        case 'LONGBLOB':
+        case 'LONGTEXT':
+            break;
+
+        default:
+            if ($field_length[0] != '') {
+                $query .= '(' . $field_length[0] . ') ';
+            };
+    };
     if ($field_attribute[0] != '') {
         $query .= $field_attribute[0] . ' ';
     }
