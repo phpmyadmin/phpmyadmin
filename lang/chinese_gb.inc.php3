@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Last translation by: siusun <siusun@best-view.net>
+ * Last translation by: Siu Sun <siusun@best-view.net>
  */
 
 $charset = 'gb2312';
@@ -145,7 +145,7 @@ $strFieldsEnclosedBy = '「栏位」使用字元：';
 $strFieldsEscapedBy = '「ESCAPE」使用字元：';
 $strFieldsTerminatedBy = '「栏位分隔」使用字元：';
 $strFixed = '固定';
-$strFlushTable = '强迫关闭资料表 ("FLUSH")';
+$strFlushTable = '强迫更新资料表 ("FLUSH")';
 $strFormEmpty = '表格内缺少了一些资料!';
 $strFormat = '格式';
 $strFullText = '显示完整文字';
@@ -364,7 +364,7 @@ $strTableComments = '数据表注解文字';
 $strTableEmpty = '数据表名称是空的!';
 $strTableHasBeenDropped = '数据表 %s 已被删除';
 $strTableHasBeenEmptied = '数据表 %s 已被清空';
-$strTableHasBeenFlushed = '数据表 %s 已被强迫关闭';
+$strTableHasBeenFlushed = '数据表 %s 已被强迫更新';
 $strTableMaintenance = '数据表维护';
 $strTableStructure = '数据表的结构';
 $strTableType = '数据表类型';
@@ -403,7 +403,5 @@ $strYes = '是';
 
 $strZip = '"zipped"';
 
-// To translate
-
-$strComments = 'Comments';  //to translate
+$strComments = '注解';
 ?>

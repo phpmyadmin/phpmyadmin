@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Last translation by: siusun <siusun@best-view.net>
+ * Last translation by: Siu Sun <siusun@best-view.net>
  * Follow by the original translation of Taiyen Hung 洪泰元<yen789@pchome.com.tw>
  */
 
@@ -144,7 +144,7 @@ $strFieldsEnclosedBy = '「欄位」使用字元：';
 $strFieldsEscapedBy = '「ESCAPE」使用字元：';
 $strFieldsTerminatedBy = '「欄位分隔」使用字元：';
 $strFixed = '固定';
-$strFlushTable = '強迫關閉資料表 ("FLUSH")';
+$strFlushTable = '強迫更新資料表 ("FLUSH")';
 $strFormat = '格式';
 $strFormEmpty = '表格內漏填一些資料!';
 $strFullText = '顯示完整文字';
@@ -364,7 +364,7 @@ $strTableComments = '資料表註解文字';
 $strTableEmpty = '請輸入資料表名稱!';
 $strTableHasBeenDropped = '資料表 %s 已被刪除';
 $strTableHasBeenEmptied = '資料表 %s 已被清空';
-$strTableHasBeenFlushed = '資料表 %s 已被強迫關閉';
+$strTableHasBeenFlushed = '資料表 %s 已被強迫更新';
 $strTableMaintenance = '資料表維護';
 $strTables = '%s 資料表';
 $strTableStructure = '資料表格式：';
@@ -403,7 +403,5 @@ $strYes = ' 是 ';
 
 $strZip = '"zipped"';
 
-// To translate
-
-$strComments = 'Comments';  //to translate
+$strComments = '註解';
 ?>

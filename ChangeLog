@@ -14,6 +14,7 @@ $Source$
           last <div>, to stop a blank page being printed
         - Moved <hr /> to just inside </div> - gets line on the same page
     * lang/portuguese.inc.php3 updates, thanks to Lopo Pizarro
+    * lang/chinese*.inc.php3 updates, thanks to Siu Sun
 
 2002-06-21 Olivier L. Müller  <om@omnis.ch>
     * libraries/common.lib.php3, main.php3: be more tolerant with lazy 
