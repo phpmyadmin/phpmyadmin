@@ -12,13 +12,8 @@ if (!isset($selected_tbl)) {
 
 // Check parameters
 
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php3');
-}
-
-PMA_checkParameters(array('the_tables'));
-if (!is_array($the_tables)) {
-    exit();
+if (!isset($the_tables) || !is_array($the_tables)) {
+    $the_tables = array();
 }
 
 /**

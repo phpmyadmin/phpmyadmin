@@ -7,6 +7,7 @@ $Source$
 
 2003-07-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/grab_globals.lib.php3: error when $_SERVER does not exist
+    * tbl_printview.php3: wrong validation for path disclosure (bug 776436)
 
 2003-07-23 Garvin Hicking <me@supergarv.de>
     * css/phpmyadmin.css.php3: Removed 'lowercase' transform 
