@@ -2525,7 +2525,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <h3>[7. phpMyAdmin project]</h3>
 
 <h4>
-    [7.1] I have found a bug. How do I inform developers
+    [7.1] I have found a bug. How do I inform developers?
 </h4>
 <p>
     Our Bug Tracker is located at
@@ -2540,7 +2540,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
 <h4>
     [7.2] I want to translate the messages to a new language or upgrade an
-    existing language, where do I start
+    existing language, where do I start?
 </h4>
 <p>
     Always use the current cvs version of your language file.
@@ -2549,9 +2549,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br />
     Please note that we try not to use html entities like &amp;eacute; in
     the translations, since we define the right character set in the file.
-    With html entities, the text on buttons would not display correctly.
+    With html entities, the text on javascript messages would not 
+    display correctly.
     However there are some entities that need to be there, for quotes
-    and non-breakable spaces.
+    ,non-breakable spaces, ampersands, less than, greater than.
     <br />
     You can then put your translations, as a zip file to avoid losing special
     characters, on the sourceforge.net translation tracker.
@@ -2563,7 +2564,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
 <h4>
     [7.3] I would like to help out with the development of phpMyAdmin. How
-    should I proceed
+    should I proceed?
 </h4>
 <p>
     The following method is preferred for new developers:
