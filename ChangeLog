@@ -10,6 +10,8 @@ $Source$
       the PEAR library and PHP changed the way how referenced variables
       get accessed, we have to pre-initialize the array and submit that
       to the PEAR call() funktion.
+    * index.php3: Bug #743856. Fixed trinary operator, thanks to Virgile
+      Petit!
 
 2003-05-26 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: sorted.

@@ -98,7 +98,7 @@ if ($cfg['QueryFrame']) {
     
     echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*">' . "\n";
     echo '    <frame src="left.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" />' . "\n";
-    echo '    <frame src="' . (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase'] . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" frameborder="1" />' . "\n";
+    echo '    <frame src="' . (empty($db) ? 'main.php3' : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" frameborder="1" />' . "\n";
 
 }
 ?>
