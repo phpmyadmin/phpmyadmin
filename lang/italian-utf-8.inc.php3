@@ -432,4 +432,5 @@ $strZip = '"compresso con zip"';
 
 // To translate
 $strWebServerUploadDirectory = 'web-server upload directory';  //to translate
+$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 ?>

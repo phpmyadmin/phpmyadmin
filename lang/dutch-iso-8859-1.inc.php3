@@ -434,4 +434,5 @@ $strValidateSQL = 'Validate SQL';  //to translate
 
 $strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';  //to translate
 $strWebServerUploadDirectory = 'web-server upload directory';  //to translate
+$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 ?>

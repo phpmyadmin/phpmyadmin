@@ -434,4 +434,5 @@ $strYes = 'Ja';
 $strZip = 'Zip-komprimiert';
 // To translate
 
+$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 ?>

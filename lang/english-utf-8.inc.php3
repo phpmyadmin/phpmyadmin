@@ -417,6 +417,7 @@ $strViewDump = 'View dump (schema) of table';
 $strViewDumpDB = 'View dump (schema) of database';
 
 $strWebServerUploadDirectory = 'web-server upload directory';
+$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';
 $strWelcome = 'Welcome to %s';
 $strWithChecked = 'With selected:';
 $strWrongUser = 'Wrong username/password. Access denied.';

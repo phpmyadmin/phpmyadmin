@@ -444,4 +444,5 @@ $strWrongUser = 'Salah kata pengenalan/kata laluan. Akses dilarang.';
 $strYes = 'Ya';
 
 $strZip = '"zipped"';
+$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 ?>
