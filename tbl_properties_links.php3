@@ -22,7 +22,7 @@ if ($num_rows > 0) {
              . urlencode($ln6_stt . PMA_backquote($table))
              .  '&amp;zero_rows='
              .  urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)));
-    $att6    = 'onclick="return confirmLink(this, \'' . $ln6_stt . PMA_jsFormat($table) . '\')"';
+    $att6    = 'class="drop" onclick="return confirmLink(this, \'' . $ln6_stt . PMA_jsFormat($table) . '\')"';
 } else {
     $lnk2 = '';
     $arg2 = '';
@@ -45,15 +45,15 @@ $att7 = 'class="drop" onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsF
 	<tr>
 		<td width="8">&nbsp;</td>
 <?php
-echo printTab($strSQL,"tbl_properties.php3",$url_query);
-echo printTab($strBrowse,$lnk2,$arg2);
 echo printTab($strStructure,"tbl_properties_structure.php3",$url_query);
+echo printTab($strBrowse,$lnk2,$arg2);
+echo printTab($strSQL,"tbl_properties.php3",$url_query);
 echo printTab($strSelect,$lnk4,$arg4);
 echo printTab($strInsert,"tbl_change.php3",$url_query);
-echo printTab($strEmpty,$lnk6,$arg6,$att6);
 echo printTab($strExport,"tbl_properties_export.php3",$url_query);
 echo printTab($strOperations,"tbl_properties_operations.php3",$url_query);
 echo printTab($strOptions,"tbl_properties_options.php3",$url_query);
+echo printTab($strEmpty,$lnk6,$arg6,$att6);
 echo printTab($strDrop,"sql.php3",$arg7,$att7);
 
 ?>

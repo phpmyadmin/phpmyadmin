@@ -267,7 +267,7 @@ $strPrintView = 'Version imprimable';
 $strPrivileges = 'Privilèges';
 $strProperties = 'Propriétés';
 
-$strQBE = 'Requête par un exemple';
+$strQBE = 'Requête';
 $strQBEDel = 'Effacer';
 $strQBEIns = 'Ajouter';
 $strQueryOnDb = 'Requête SQL sur la base <b>%s</b>&nbsp;:';

@@ -183,6 +183,12 @@ $cfg['GZipDump']              = TRUE;   // compression for
 $cfg['BZipDump']              = TRUE;   // dump files
 
 
+// Default Tabs settings
+
+$cfg['DefaultTabTable']       = 'Structure';  // not active yet
+$cfg['DefaultTabDatabase']    = 'Structure';  // not active yet
+
+
 /**
  * Link to the official MySQL documentation
  * Be sure to include no trailing slash on the path

@@ -48,8 +48,8 @@ else {
 	<tr>
 		<td width="8">&nbsp;</td>
 <?php
-echo printTab($strSQL,"db_details.php3",$url_query."&amp;db_query_force=1");
 echo printTab($strStructure,"db_details_structure.php3",$url_query);
+echo printTab($strSQL,"db_details.php3",$url_query."&amp;db_query_force=1");
 echo printTab($strExport,$lnk3,$arg3);
 echo printTab($strSearch,$lnk4,$arg4);
 
