@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-15 Loïc Chapeaux  <lolo@phpheaven.net>
+    * db_details_structure.php3; Documentation.html: coding standards.
+
 2002-05-14 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3, db_details_structure.php3, lang/*, fpdf/*,
       Documentation.html: new feature: pdf schema output, 

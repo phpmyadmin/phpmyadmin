@@ -592,16 +592,16 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
            </li>
            <li>
               display in an optional tooltip the &quot;display field&quot;
-              when browsing the master table, if
-              you move the mouse to a column containing a foreign key;
+              when browsing the master table, if you move the mouse to a column
+              containing a foreign key;
            </li>
            <li>
               display links on the table properties page, to check referential
               integrity (display missing foreign keys) for each described key;
            </li>
            <li>
-              in query-by-example, create automatic joints (see an example
-              in the FAQ, section &quot;Using phpMyAdmin&quot;);
+              in query-by-example, create automatic joints (see an example in
+              the FAQ, section &quot;Using phpMyAdmin&quot;);
            </li>
            <li>
               enable you to get a PDF schema of your database.
@@ -661,8 +661,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         output. This configuration variable will hold the name of this special
         table.
         <br /><br />
-        This feature is supported under PHP4, and you must be using also
-        the 'relation' feature.
+        This feature is supported under PHP4, and you must be using also the
+        'relation' feature.
         <br /><br />
         To use this functionality you have to:
         <ul>
@@ -673,8 +673,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pdf_table_position` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(50) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`x` float unsigned NOT NULL default '0',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`y` float unsigned NOT NULL default '0'<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`table_name`)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`y` float unsigned NOT NULL default '0',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`table_name`)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table positions for PDF schema';<br />
                 </tt>
             </li>
@@ -683,11 +683,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
                 <tt>$cfg['Servers'][$i]['pdf_table_position']</tt>
             </li>
             <li>
-                then manually fill this table with information about
-                the table positions on the PDF schema.
+                then manually fill this table with information about the table
+                positions on the PDF schema.
             </li>
         </ul><br />
-    See also this <a class="navigation" href="#faqpdf">usage tip.</a><br /><br />
+        See also this <a class="navigation" href="#faqpdf">usage tip.</a>
+        <br /><br />
     </dd>
 
     <dt><b>$cfg['ServerDefault']</b> integer</dt>
@@ -1672,6 +1673,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <li>Click &quot;Submit query&quot;</li>
 </ul>
 <br />
+
 <a name="faqpdf"></a>
 <p>
     <b>How can I produce a PDF schema of my database?</b>
@@ -1679,19 +1681,18 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     First you have to fill the 'relation' and 'pdf_table_position'
     configuration variables.
     <br /><br />
-    Then, think about your schema layout: which tables will go on which
-    pages.  You have to fill in the 'relation' table the page number for
-    each master-foreign link.
+    Then, think about your schema layout: which tables will go on which pages.
+    You have to fill in the 'relation' table the page number for each
+    master-foreign link.
     <br /><br />
     Then manually fill the pdf_table_position table with the coordinates,
     x being the width and y the height, and (0,0) at the upper left corner.
-    For example, x=100 and y=200 means that the table will be at 200 mm
-    down and 100 mm right from the upper left corner.
+    For example, x=100 and y=200 means that the table will be at 200 mm down
+    and 100 mm right from the upper left corner.
     <br /><br />
     To produce the output, click on your database name, then choose 'Structure'
     and 'Display PDF schema', and enter the page number.
 </p>
-
 
 <a name="faqproject"></a>
 <h3>[phpMyAdmin project]</h3>
