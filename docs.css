@@ -1,6 +1,6 @@
 /* $Id$ */
 /* Stylesheet for phpMyAdmin documentation */
-/* vim: expandtab ts=4 sw=4 sts=4 tw=78 
+/* vim: expandtab ts=4 sw=4 sts=4 tw=78
 */
 
 body {
@@ -36,7 +36,7 @@ div.header {
     top: 0px;
     position: fixed;*/
     /* following MSIE hack was originally written by Riki Fridrich
-     * <http://www.fckbkk.sk> */
+     * <http://www.fczbkk.sk> */
     position: expression("absolute");
     width: expression(document.body.clientWidth);
     top: expression(document.body.scrollTop + this.offsetHeight - this.offsetHeight);
@@ -127,7 +127,7 @@ ul {
 
 pre {
     margin: 2px 5% 2px 5%;
-    
+
 }
 pre.wrap {
     white-space: normal;
