@@ -96,7 +96,11 @@ if ($sql_query != '') {
         for ($i = 0; $i < $pieces_count; $i++) {
             $a_sql_query = trim($pieces[$i]);
             if (!empty($a_sql_query) && $a_sql_query[0] != '#') {
-                $result = mysql_query($a_sql_query) or mysql_die2('', $a_sql_query);
+                $result = mysql_query($a_sql_query);
+                if ($result==false) { // readdump failed
+                	$my_die=$a_sql_query;
+                	break;
+                }
             }
             if (!isset($reload) && eregi('^(DROP|CREATE) +(TABLE|DATABASE) (.+)', $a_sql_query)) {
                 $reload = 'true';
@@ -112,6 +116,7 @@ if ($sql_query != '') {
 // Copy the original query back for display purposes
 $sql_query = $sql_query_cpy;
 include('./header.inc.php3');
+if (isset($my_die)) mysql_die('', $my_die);
 $message   = $strSuccess;
 require('./db_details.php3');
 ?>
