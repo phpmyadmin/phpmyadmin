@@ -5,7 +5,10 @@
 /**
  * Gets some core libraries and displays a top message if required
  */
+// Gets the language to use and put it in a cookie that will expire in 30
+// days
 require('./grab_globals.inc.php3');
+setcookie('lang', $lang, time() + 60*60*24*30);
 // Handles some variables that may have been sent by the calling script
 if (isset($db)) {
     unset($db);
@@ -231,7 +234,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW STATUS'); ?>&display=simple">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW STATUS'); ?>">
                     <?php echo $strMySQLShowStatus; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
@@ -239,7 +242,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&display=simple">
+                <a href="sql.php3?<?php $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>">
                 <?php echo $strMySQLShowVars;?></a>&nbsp;
                 <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
             </td>
@@ -252,7 +255,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&display=simple">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
@@ -456,7 +459,7 @@ if (empty($cfgLang)) {
     }
     ?> 
                     </select>
-                    <input type="submit" value="Go">
+                    <input type="submit" value="Go" />
                 </form>
             </td>
        </tr>
