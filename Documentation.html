@@ -683,12 +683,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
                 <tt>$cfg['Servers'][$i]['table_info']</tt>
             </li>
             <li>
-                then manually fill this table with information about the
-                display fields.
+                then for each table where you want to use this feature, 
+                click &quot;Structure/Relation view/Choose field to display&quot;
+                to choose the field.
             </li>
         </ul><br />
-        Usage tips:
-        <a class="navigation" href="#faqdisplay">display field</a>.
+        Usage tip: <a class="navigation" href="#faqdisplay">Display field</a>.
         <br /><br />
     </dd>
 
@@ -1804,15 +1804,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <b>How can I use the &quot;display field&quot; feature?</b>
     <br />
     Starting from the previous example, create the PMA_table_info as explained
-    in the configuration section, then:
-    <br /><br />
-    <tt>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_table_info` (table_name, display_field) VALUES ('towns', 'description');<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_table_info` (table_name, display_field) VALUES ('countries', 'description');<br />
-    </tt>
-    <br />
-    Then browse your persons table, and move the mouse over a town code or
-    country code.
+    in the configuration section, then browse your persons table, 
+    and move the mouse over a town code or country code.
 </p>
 
 <a name="faqpdf"></a>
