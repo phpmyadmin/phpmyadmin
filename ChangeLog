@@ -10,6 +10,7 @@ $Source$
       escaping of \ (once for PHP and once for PCRE).
     * css/phpmyadmin.css.php: Make server selection in left frame same size as
       on other places.
+    * main.php: One more regex escaping fix.
 
 2003-11-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: while (list() = each()) is not always as bad as

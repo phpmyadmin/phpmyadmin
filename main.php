@@ -235,7 +235,7 @@ if ($server > 0) {
                 $rs_usr      = PMA_mysql_query($local_query, $dbh);
             }
             if ($rs_usr) {
-                $re0 = '@(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
+                $re0 = '@(^|(\\\\\\\\)+|[^\\\\])'; // non-escaped wildcards
                 $re1 = '@(^|[^\])(\\\)+'; // escaped wildcards
                 while ($row = PMA_mysql_fetch_row($rs_usr)) {
                     $show_grants_dbname = substr($row[0], strpos($row[0], ' ON ') + 4,(strpos($row[0], '.', strpos($row[0], ' ON ')) - strpos($row[0], ' ON ') - 4));
