@@ -553,4 +553,10 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+$strCheckPrivs = 'Check Privileges';  //to translate
+$strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.';  //to translate
+$strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
+$strDatabasesStatsDisable = 'Disable Statistics';  //to translate
+$strDatabasesStatsEnable = 'Enable Statistics';  //to translate
+$strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
 ?>

@@ -555,4 +555,10 @@ $strZip = '".zip"';
 // To translate
 
 $strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
+$strCheckPrivs = 'Check Privileges';  //to translate
+$strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.';  //to translate
+$strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
+$strDatabasesStatsDisable = 'Disable Statistics';  //to translate
+$strDatabasesStatsEnable = 'Enable Statistics';  //to translate
+$strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
 ?>

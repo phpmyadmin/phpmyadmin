@@ -42,7 +42,7 @@ if (!empty($message)) {
     <tr>
         <td width="8">&nbsp;</td>
 <?php
-echo PMA_printTab($strHome, 'main.php3', $url_query);
+echo PMA_printTab($strDatabases, 'server_databases.php3', $url_query);
 if ($cfg['ShowMysqlInfo']) {
     echo PMA_printTab($strStatus, 'server_status.php3', $url_query);
 }
