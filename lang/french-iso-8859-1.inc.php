@@ -47,6 +47,7 @@ $strAffectedRows = 'Nombre d\'enregistrements affectés :';
 $strAfter = 'Après %s';
 $strAfterInsertBack = 'Retourner à la page précédente';
 $strAfterInsertNewInsert = 'Insérer un nouvel enregistrement';
+$strAfterInsertNext = 'Modifier l\'enregistrement suivant';
 $strAfterInsertSame = 'Demeurer sur cette page';
 $strAll = 'Tout';
 $strAllTableSameWidth = 'Afficher toutes les tables avec une largeur identique';
@@ -374,6 +375,8 @@ $strMIME_transformation_options = 'Options de transformation';
 $strMIME_transformation_options_note = 'Veuillez entrer les valeurs des options de transformation en suivant ce format: \'a\',\'b\',\'c\'...<br />Si vous devez entrer un caractère ("\") ou une apostrophe ("\'") parmi ces valeurs, faites-le précéder du caractère d\'échappement, par exemple  \'\\\\xyz\' or \'a\\\'b\').';
 $strMIME_without = 'Les types MIME affichées en italiques ne possèdent pas de fonctions de transformation.';
 $strMaximumSize = 'Taille maximum: %s%s';
+$strMbExtensionMissing = 'L\'extension PHP mbstring n\'a pu être localisée et il semble que vous utilisiez un jeu de caractères multi-octets. Sans cette extension, phpMyAdmin est incapable de gérer correctement les caractères et il peut en résulter des problèmes.'; 
+$strMbOverloadWarning = 'Vous avez activé mbstring.func_overload dans votre configuration PHP. Cette option est incompatible avec phpMyAdmin et peut nuire au traitement des données!';
 $strModifications = 'Les modifications ont été sauvegardées.';
 $strModify = 'Modifier';
 $strModifyIndexTopic = 'Modifier une clef';
@@ -560,6 +563,7 @@ $strRunning = 'sur le serveur %s';
 $strRussian = 'russe';
 
 $strSQL = 'SQL';
+$strSQLExportCompatibility = 'Compatibilité de l\'exportation';
 $strSQLExportType = 'Type d\'exportation';
 $strSQLOptions = 'options SQL';
 $strSQLParserBugMessage = 'Il semble que vous ayiez trouvé une anomalie dans l\'analyseur syntaxique SQL. Veuillez examiner votre requête attentivement, et vérifier que vos apostrophes sont conformes. Il se pourrait aussi que vous ayiez chargé un fichier dont le contenu binaire n\'est pas entre apostrophes.  Si vous avez accès à MySQL via son interface de commande en mode ligne, vous pouvez y essayer votre requête. Le message d\'erreur présenté plus bas pourrait vous indiquer la source du problème. En dernier recours, veuillez trouver la plus courte requête possible qui cause le problème, et soumettre un rapport d\'anomalie en incluant la section à couper:';
@@ -742,8 +746,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
-$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
-$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
-$strAfterInsertNext = 'Edit next row';  //to translate
 ?>
