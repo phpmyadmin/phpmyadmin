@@ -175,6 +175,7 @@ $strLimitNumRows = 'Number of rows per page';
 $strLineFeed = 'Linefeed: \\n';
 $strLines = 'Lines';
 $strLinesTerminatedBy = 'Lines terminated by';
+$strLinkNotFound = 'Link not found';
 $strLinksTo = 'Links to';
 $strLocationTextfile = 'Location of the textfile';
 $strLogin = 'Login';
@@ -353,5 +354,4 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
-$strLinkNotFound = 'Link not found';  //to translate
 ?>
