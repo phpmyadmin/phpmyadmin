@@ -93,10 +93,9 @@ if (!isset($param) || $param[0] == '') {
                 <option value="--nil--"></option>
         <?php
         echo "\n";
-        for ($i = 0; $i < mysql_num_fields($result); $i++) {
-            $field = mysql_field_name($result, $i);
+        for ($i = 0; $i < $fields_count; $i++) {
             echo '                ';
-            echo '<option value="' . urlencode($field) . '">' . htmlspecialchars($field) . '</option>' . "\n";
+            echo '<option value="' . urlencode($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
         } // end for
         ?>
             </select>

@@ -301,9 +301,11 @@ if ($action == 'tbl_create.php3' && MYSQL_INT_VERSION >= 32300) {
                             }
                             break;
                     } // end switch
-                }
-            }
-        }
+                } // end if
+            } // end while
+        } // end if
+        mysql_free_result($tables);
+
         echo "\n";
         ?>
         <td width="25">&nbsp;</td>

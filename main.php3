@@ -205,6 +205,7 @@ if ($server > 0
                     break;
                 }
             }
+            mysql_free_result($tables);
         }
         // The user is allowed to create a db
         if ($create) {

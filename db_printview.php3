@@ -61,6 +61,7 @@ else {
 </table>
     <?php
 } // end if
+mysql_free_result($tables);
 
 
 /**

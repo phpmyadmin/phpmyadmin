@@ -30,6 +30,7 @@ if (MYSQL_INT_VERSION >= 32300) {
     if (!empty($row['Comment'])) {
         echo $strTableComments . '&nbsp;:&nbsp;' . $row['Comment'];
     }
+    mysql_free_result($result);
 } // end display comments
 
 
@@ -108,6 +109,8 @@ while ($row = mysql_fetch_array($result)) {
 </tr>
     <?php
 } // end while
+mysql_free_result($result);
+
 echo "\n";
 ?>
 </table>
@@ -148,6 +151,7 @@ if (mysql_num_rows($result) > 0) {
 </table>
     <?php
 } // end if
+mysql_free_result($result);
 
 
 /**

@@ -102,9 +102,10 @@ if ($row < 0) {
 /**
  * Prepares the form
  */
-$tbl_result = mysql_list_tables($db);
-$i          = 0;
-$k          = 0;
+$tbl_result     = mysql_list_tables($db);
+$tbl_result_cnt = mysql_num_rows($tbl_result);
+$i              = 0;
+$k              = 0;
 
 // The tables list sent by a previously submitted form
 if (!empty($TableList)) {
@@ -114,10 +115,11 @@ if (!empty($TableList)) {
 } // end if
 
 // The tables list gets from MySQL
-while ($i < mysql_num_rows($tbl_result)) {
-    $tbl         = mysql_tablename($tbl_result, $i);
-    $fld_results = mysql_list_fields($db, $tbl);
-    $j           = 0;
+while ($i < $tbl_result_cnt) {
+    $tbl             = mysql_tablename($tbl_result, $i);
+    $fld_results     = mysql_list_fields($db, $tbl);
+    $fld_results_cnt = mysql_num_fields($fld_results);
+    $j               = 0;
 
     if (empty($tbl_names[$tbl]) && !empty($TableList)) {
         $tbl_names[$tbl] = '';
@@ -128,16 +130,18 @@ while ($i < mysql_num_rows($tbl_result)) {
     // The fields list per selected tables
     if ($tbl_names[$tbl] == ' selected="selected"') {
         $fld[$k++] =  backquote($tbl) . '.*';
-        while ($j < mysql_num_fields($fld_results)) {
+        while ($j < $fld_results_cnt) {
             $fld[$k] = mysql_field_name($fld_results, $j);
             $fld[$k] = backquote($tbl) . '.' . backquote($fld[$k]);
             $k++;
             $j++;
         } // end while
     } // end if
+    mysql_free_result($fld_results);
 
     $i++;
 } // end if
+mysql_free_result($tbl_result);
 
 
 /**
