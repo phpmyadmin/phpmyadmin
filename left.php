@@ -408,7 +408,7 @@ echo "\n";
         <a class="item" href="main.php?<?php echo PMA_generate_common_url(); ?>"><span class="heada"><b><?php echo $strHome; ?></b></span></a>
 <?php
 // Logout for advanced authentication
-if ($cfg['Server']['auth_type'] != 'config') {
+if (isset($cfg['Server']['auth_type']) && $cfg['Server']['auth_type'] != 'config') {
 ?>
         - <a class="item" href="index.php?<?php echo PMA_generate_common_url(); ?>&amp;old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent"><span class="heada"><b><?php echo $strLogout; ?></b></span></a>
 <?php
