@@ -16,7 +16,6 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')){
      *
      * @return  array    the bookmark parameters for the current user
      *
-     * @global  array    the list of settings for the current server
      * @global  integer  the id of the current server
      *
      * @access  public
