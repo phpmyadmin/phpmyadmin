@@ -6,6 +6,7 @@ $Id$
 $Source$
 
 2003-07-25 Garvin Hicking <me@supergarv.de>
+    * Documentation.html: Updated my E-Mail, added latest credits-items
     * images/*, config.inc.php3, db_details_structure.php3,
       libraries/common.lib.php3, table_details_structure.php3,
       libraries/display_tbl.lib.php3, Documentation.html,
