@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-30 Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html: updated the faq entry about maximum upload filesize
+	  and misc. updates.
+	* tbl_indexes.php3, lines 95-97: better fix for bug #538074 (MySQL alpha or
+	  beta versions are somewhat buggy and even if detected version is 3.23.23
+	  row['Comment'] sometimes do not exists).
+
 2002-04-04 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/german.inc.php3 big update thanks to Alexander M. Turek (rabus)
 	* lang/dutch.inc.php3 big update thanks to Martijn W. van der Lee (mwvdlee)
