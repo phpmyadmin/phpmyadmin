@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-31  Olivier Müller  <om@omnis.ch>
+	* releasing phpMyAdmin 2.2.0-final
+
 2001-08-30  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/norwegian.inc.php3 updates, thanks to Sven-Erik Andersen.
 

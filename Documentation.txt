@@ -1,20 +1,16 @@
 
                         phpMyAdmin 2.2.0 Documentation
                                        
-     * [1]Official phpMyAdmin project homepage    [
-       http://www.phpwizard.net/projects/phpMyAdmin/ ]
-     * [2]Sourceforge phpMyAdmin download page    [
-       http://phpmyadmin.sourceforge.net/ ]
+     * [1]Official phpMyAdmin project homepage    
+       http://www.phpwizard.net/projects/phpMyAdmin/
+     * [2]Sourceforge phpMyAdmin download page    
+       http://phpmyadmin.sourceforge.net/ 
      * Local documents:
           + Version history: [3]ChangeLog
           + General notes: [4]README
           + License: [5]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.58 2001/08/30
-       18:45:45 swix Exp $
-   ______________________________________________________________________
-   
-   [6]Top  -  [7]Requirements  -  [8]Introduction  -  [9]Installation  -
-   [10]Configuration  -  [11]FAQ  -  [12]Developers  -  [13]Credits
+     * Documentation version: 
+       $Id$
    ______________________________________________________________________
    
 Requirements
@@ -25,10 +21,6 @@ Requirements
        PHP also needs to be compiled with mysql and PCRE support;
      * MySQL (tested with 3.21.x, 3.22.x and 3.23.x);
      * a web-browser (doh!).
-   ______________________________________________________________________
-   
-   [14]Top  -  [15]Requirements  -  [16]Introduction  -  [17]Installation
-    -  [18]Configuration  -  [19]FAQ  -  [20]Developers  -  [21]Credits
    ______________________________________________________________________
    
 Introduction
@@ -54,10 +46,6 @@ Introduction
    (--with-zlib) and/or Bzip2 support (--with-bz2).
    ______________________________________________________________________
    
-   [22]Top  -  [23]Requirements  -  [24]Introduction  -  [25]Installation
-    -  [26]Configuration  -  [27]FAQ  -  [28]Developers  -  [29]Credits
-   ______________________________________________________________________
-   
 Installation
 
    Quick Install:
@@ -81,10 +69,6 @@ Installation
        may offer new configuration variables, and the new version may
        depend on these for normal behavior. It is suggested instead to
        insert your site values in the new one.
-   ______________________________________________________________________
-   
-   [31]Top  -  [32]Requirements  -  [33]Introduction  -  [34]Installation
-    -  [35]Configuration  -  [36]FAQ  -  [37]Developers  -  [38]Credits
    ______________________________________________________________________
    
 Configuration
@@ -308,10 +292,6 @@ Configuration
           need to edit this.
    ______________________________________________________________________
    
-   [39]Top  -  [40]Requirements  -  [41]Introduction  -  [42]Installation
-    -  [43]Configuration  -  [44]FAQ  -  [45]Developers  -  [46]Credits
-   ______________________________________________________________________
-   
 FAQ - Frequently Asked Questions
 
    The error message "Warning: Cannot add header information - headers
@@ -499,10 +479,6 @@ FAQ - Frequently Asked Questions
    Forum)
    ______________________________________________________________________
    
-   [56]Top  -  [57]Requirements  -  [58]Introduction  -  [59]Installation
-    -  [60]Configuration  -  [61]FAQ  -  [62]Developers  -  [63]Credits
-   ______________________________________________________________________
-   
 Developers Information
 
    phpMyAdmin is Open Source, so you're invited to contribute to it. Many
@@ -549,10 +525,6 @@ Developers Information
    already contributed something useful to phpMyAdmin. If you're
    interested in that, please contact us using the phpmyadmin-devel
    mailing list.
-   ______________________________________________________________________
-   
-   [66]Top  -  [67]Requirements  -  [68]Introduction  -  [69]Installation
-    -  [70]Configuration  -  [71]FAQ  -  [72]Developers  -  [73]Credits
    ______________________________________________________________________
    
 Credits
@@ -664,10 +636,6 @@ Original Credits of Version 2.1.0
 
     And thanks to everyone else who sent me email with suggestions, bug-reports
     and or just some feedback.
-   ______________________________________________________________________
-   
-   [74]Top  -  [75]Requirements  -  [76]Introduction  -  [77]Installation
-    -  [78]Configuration  -  [79]FAQ  -  [80]Developers  -  [81]Credits
    ______________________________________________________________________
    
                                 [82]Valid XHTML 1.0!      [83]Valid CSS! 

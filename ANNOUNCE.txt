@@ -1,0 +1,182 @@
+       _           __  __          _       _           _       
+ _ __ | |__  _ __ |  \/  |_   _   / \   __| |_ __ ___ (_)_ __  
+| '_ \| '_ \| '_ \| |\/| | | | | / _ \ / _` | '_ ` _ \| | '_ \ 
+| |_) | | | | |_) | |  | | |_| |/ ___ \ (_| | | | | | | | | | |
+| .__/|_| |_| .__/|_|  |_|\__, /_/   \_\__,_|_| |_| |_|_|_| |_|
+|_|         |_|           |___/                                  2.2.0
+
+
+phpMyAdmin 2.2.0 - 30. August 2001
+==================================
+
+  A set of PHP-scripts to administrate MySQL over the WWW.
+  -----------------------------------------
+  http://phpwizard.net/projects/phpMyAdmin/
+  http://phpmyadmin.sourceforge.net/
+
+
+Announcement
+------------
+
+   After 5 months, 5 beta releases and 4 release candidate versions,
+   the phpMyAdmin developers are pleased to announce the availability
+   of phpMyAdmin 2.2.0.
+
+   phpMyAdmin is intended to handle the administration of MySQL over
+   the Web. The project was started by Tobias Ratschiller in 1998,
+   and is now one of the most popular PHP script used worldwide.
+
+   (Un)fortunately, Tobias then stopped to work on phpMyAdmin last
+   year: the last version (2.1.0) was released on 6. August 2000. In
+   the mean time, there were many suggestions and good ideas around,
+   as well as a security advisory. 
+
+   That is why on 31st March 2001, Olivier Müller (Switzerland),
+   supported by Marc Delisle (Québec), Loïc Chapeaux (France) and a
+   team of 8 other developers re-started the phpmyadmin project on
+   SourceForge.net, with the authorization of the original package
+   maintainer. And now, after 5 months of patches, bugfixes, new
+   features and testing, the version 2.2.0 is finally ready.
+
+   Available at http://phpmyadmin.sourceforge.net, it includes the
+   following highlights:
+
+
+Highlights
+----------
+
+     * Security fixes
+     * New languages: Thai, Swedish, Galician, Romanian, Slovak, 
+       Japanese, Korean
+     * Dynamic multiple language support, with automatic browser 
+       language detection
+     * Improved documentation
+     * Better file import/export possibilities
+     * PEAR, CSS2 and XHTML 1.0 compliant (as far as possible)
+     * User and Database administration page
+     * Gzip and HTTP compression support
+     * Removed necessity of magic_quotes_gpc (autodetection)
+     * Bookmarks (sql queries) feature
+     * Database usage statistics
+     * Javascript compatibility improvements
+     * Table maintenance features (repair, check, optimize)
+     * Maintained PHP3 compatibility
+     * Better BLOB support
+     * Table usage and row statistics
+     * Multiple table types
+     * Now backed by a full-time development team! :)
+
+  Detailed list of changes since version 2.1 is available under 
+  http://phpmyadmin.sourceforge.net/ChangeLog.txt
+
+
+Availability
+------------
+    This software is available under the GNU General Public License V2.0.
+
+    You can get the newest version at http://phpmyadmin.sourceforge.net/
+    Available file formats are: .zip, .tar.gz and .tar.bz2. 
+
+    If you install phpMyAdmin on your system, it's recommended to
+    subscribe to the news mailing list by adding your address under
+       http://lists.sourceforge.net/lists/listinfo/phpmyadmin-news 
+    This way, you will be informed of new updates and security fixes.
+    It is a read only list, and traffic is not greater than a few 
+    mail every year.
+
+
+Support and Documentation
+-------------------------
+
+    The documentation is included in the software package as text and
+    HTML file, but can also be downloaded from:
+
+       http://phpmyadmin.sourceforge.net/documentation/
+
+
+    The software is provided as is without any express or implied
+    warranty, but there is a bugs tracker page under:
+
+       http://sourceforge.net/projects/phpmyadmin/   [click on "Bugs"]
+
+    In addition, there are also a number of discussion lists
+    related to phpMyAdmin.  A list of mailing lists with archives 
+    is available at:
+
+       http://sourceforge.net/mail/?group_id=23067  or
+       http://sourceforge.net/projects/phpmyadmin/   [click on "Lists"]
+
+    Finally, an users support forum is also available under:
+ 
+       http://www.phpwizard.net/phorum/list.php?f=1
+
+
+Known bugs
+----------
+
+  There are still a few annoying but hard to fix bugs:
+
+  * some browsers (IE5.0, Mozilla 0.8+) doesn't like to play with
+    binary data
+  * importing csv data may fail under very perticular circumstances
+  * aliases in sql queries aren't yet well handled
+  * out of memory error, when trying to create a table with more 
+    than 14 fields (check the FAQ)
+
+  To be informed about new releases fixing these problems, please 
+  subscribe to the news mailing list under
+    http://lists.sourceforge.net/lists/listinfo/phpmyadmin-news
+  or regularly check the sourceforge bugs tracker.
+
+
+Description
+-----------
+
+phpMyAdmin is intended to handle the administration of MySQL over the WWW.
+    Currently it can:
+      - create and drop databases
+      - create, copy, drop and alter tables
+      - delete, edit and add fields
+      - execute any SQL-statement, even batch-queries
+      - manage keys on fields
+      - load text files into tables
+      - create and read dumps of tables
+      - export and import CSV data
+      - support single- and multi-user configuration
+      - communicate in more than 20 different languages
+
+
+Author & Copyright
+------------------
+
+    Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_phpwizard.net>
+    Copyright (C) 2001-     Marc Delisle <DelislMa_at_CollegeSherbrooke.qc.ca>
+                            Olivier Müller <om_at_omnis.ch>
+                            Loïc Chapeaux <lolo_at_phpHeaven.net>
+                            Robin Johnson <robbat2_at_users.sourceforge.net>
+                            Armel Fauveau <armel.fauveau_at_globalis-ms.com>
+                            Geert Lund <glund_at_silversoft.dk>
+                            Korakot Chaovavanich <korakot_at_iname.com>
+                            Pete Kelly <webmaster_at_trafficg.com>
+                            Steve Alberty <alberty_at_neptunlabs.de>
+                            Benjamin Gandon <gandon_at_isia.cma.fr>
+                            + many other people (check the CREDITS file)
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+
+
+EOF -- Olivier Müller / 2001.08.30
+
