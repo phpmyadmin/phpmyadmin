@@ -703,4 +703,7 @@ $strKorean = 'Korean';  //to translate
 $strGreek = 'Greek';  //to translate
 $strJapanese = 'Japanese';  //to translate
 $strThai = 'Thai';  //to translate
+$strUseThisValue = 'Use this value';  //to translate
+$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
+$strBrowseForeignValues = 'Browse foreign values';  //to translate
 ?>

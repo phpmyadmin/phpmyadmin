@@ -176,6 +176,25 @@ if ($cfg['ShowFunctionFields']) {
     </tr>
 
 <?php
+if ($cfg['PropertiesIconic'] == true) {
+    // We need to copy the value or else the == 'both' check will always return true
+    $propicon = (string)$cfg['PropertiesIconic'];
+
+    if ($propicon == 'both') {
+        $iconic_spacer = '<nobr>';
+    } else {
+        $iconic_spacer = '';
+    }
+
+    $titles['Browse']     = $iconic_spacer . '<img width="12" height="13" src="images/button_browse.png" alt="' . $strBrowseForeignValues . '" title="' . $strBrowseForeignValues . '" border="0" />';
+
+    if ($propicon == 'both') {
+        $titles['Browse']        .= '&nbsp;' . $strBrowseForeignValues . '</nobr>';
+    }
+} else {
+    $titles['Browse']        = $strBrowseForeignValues;
+}
+
 // Set if we passed the first timestamp field
 $timestamp_seen = 0;
 $fields_cnt     = mysql_num_rows($table_def);
@@ -428,50 +447,29 @@ for ($i = 0; $i < $fields_cnt; $i++) {
 
     include('./libraries/get_foreign.lib.php3');
 
-    if (isset($disp) && $disp) {
+    if (isset($foreign_link) && $foreign_link == true) {
+        ?>
+        <td bgcolor="<?php echo $bgcolor; ?>">
+        <?php echo $backup_field . "\n"; ?>
+        <input type="hidden" name="fields_type[<?php echo urlencode($field); ?>]" value="foreign" />
+        <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="" id="field_<?php echo $i; ?>_1" />
+        <input type="text"   name="field_<?php echo md5($field); ?>[]" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_3" />
+        <script type="text/javascript" language="javascript">
+            document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes\'); return false" href="browse_foreigners.php3?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo urlencode($field); ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
+        </script>
+        </td>
+        <?php
+    } else if (isset($disp) && $disp) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
         <?php echo $backup_field . "\n"; ?>
         <input type="hidden" name="fields_type[<?php echo urlencode($field); ?>]" value="foreign" />
         <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="" id="field_<?php echo $i; ?>_1" />
         <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_3">
-            <option value=""></option>
+            <?php echo PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, 100); ?>
+        </select>
+        </td>
         <?php
-        echo "\n";
-        $reloptions = array('content-id' => array(), 'id-content' => array());
-        while ($relrow = @PMA_mysql_fetch_array($disp)) {
-            $key   = $relrow[$foreign_field];
-            if (strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
-                $value  = (($foreign_display != FALSE) ? htmlspecialchars($relrow[$foreign_display]) : '');
-                $vtitle = '';
-            } else {
-                $vtitle = htmlspecialchars($relrow[$foreign_display]);
-                $value  = (($foreign_display != FALSE) ? htmlspecialchars(substr($vtitle, 0, $cfg['LimitChars']) . '...') : '');
-            }
-            
-            $reloption = '            <option value="' . htmlspecialchars($key) . '"';
-            if ($vtitle != '') {
-                $reloption .= ' title="' . $vtitle . '"';
-            }
-            
-            if ($key == $data) {
-               $reloption .= ' selected="selected"';
-            } // end if
-
-            $reloptions['id-content'][] = $reloption . '>' . $value . '&nbsp;-&nbsp;' . htmlspecialchars($key) .  '</option>' . "\n";
-            $reloptions['content-id'][] = $reloption . '>' . htmlspecialchars($key) .  '&nbsp;-&nbsp;' . $value . '</option>' . "\n";
-        } // end while
-        
-        if (count($reloptions['content-id']) < 100) {
-            echo implode('', $reloptions['content-id']);
-            if (count($reloptions['content-id']) > 0) {
-                echo '            <option value=""></option>' . "\n";
-                echo '            <option value=""></option>' . "\n";
-            }
-        }
-        echo implode('', $reloptions['id-content']);
-        echo '            </select>' . "\n";
-        echo '        </td>' . "\n";
         unset($disp);
     }
     else if ($cfg['LongtextDoubleTextarea'] && strstr($type, 'longtext')) {

@@ -558,7 +558,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         
     } // end of 'PMA_getHistory()' function
 
-/**
+    /**
     * Set a SQL history entry
     *
     * @param   string   the name of the db
@@ -584,5 +584,60 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
 
         return true;
     } // end of 'PMA_purgeHistory()' function
+    
+    /**
+    * Outputs dropdown with values of foreign fields
+    *
+    * @param   string   the query of the foreign keys
+    * @param   string   the foreign field
+    * @param   string   the foreign field to display
+    * @param   string   the current data of the dropdown
+    *
+    * @return  string   the <option value=""><option>s
+    *
+    * @access  public
+    */
+    function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $max = 100) {
+        global $cfg;
+        
+        $ret = '<option value=""></option>' . "\n";
+
+        $reloptions = array('content-id' => array(), 'id-content' => array());
+        while ($relrow = @PMA_mysql_fetch_array($disp)) {
+            $key   = $relrow[$foreign_field];
+            if (strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
+                $value  = (($foreign_display != FALSE) ? htmlspecialchars($relrow[$foreign_display]) : '');
+                $vtitle = '';
+            } else {
+                $vtitle = htmlspecialchars($relrow[$foreign_display]);
+                $value  = (($foreign_display != FALSE) ? htmlspecialchars(substr($vtitle, 0, $cfg['LimitChars']) . '...') : '');
+            }
+            
+            $reloption = '<option value="' . htmlspecialchars($key) . '"';
+            if ($vtitle != '') {
+                $reloption .= ' title="' . $vtitle . '"';
+            }
+            
+            if ($key == $data) {
+               $reloption .= ' selected="selected"';
+            } // end if
+
+            $reloptions['id-content'][] = $reloption . '>' . $value . '&nbsp;-&nbsp;' . htmlspecialchars($key) .  '</option>' . "\n";
+            $reloptions['content-id'][] = $reloption . '>' . htmlspecialchars($key) .  '&nbsp;-&nbsp;' . $value . '</option>' . "\n";
+        } // end while
+        
+        if ($max == -1 || count($reloptions['content-id']) < $max) {
+            $ret .= implode('', $reloptions['content-id']);
+            if (count($reloptions['content-id']) > 0) {
+                $ret .= '<option value=""></option>' . "\n";
+                $ret .= '<option value=""></option>' . "\n";
+            }
+        }
+
+        $ret .= implode('', $reloptions['id-content']);
+        
+        return $ret;
+    } // end of 'PMA_foreignDropdown()' function
+    
 } // $__PMA_RELATION_LIB__
 ?>

@@ -14,6 +14,7 @@
 
     // lem9: we always show the foreign field in the drop-down; if a display
     // field is defined, we show it besides the foreign field
+    $foreign_link = false;
     if ($foreigners && isset($foreigners[$field])) {
         $foreigner       = $foreigners[$field];
         $foreign_db      = $foreigner['foreign_db'];
@@ -29,18 +30,20 @@
 
         $the_total   = PMA_countRecords($foreign_db, $foreign_table, TRUE);
 
-        if ($the_total < 200) {
+        if ((isset($override_total) && $override_total == true) || $the_total < 200) {
             // foreign_display can be FALSE if no display field defined:
 
             $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
             $dispsql         = 'SELECT ' . PMA_backquote($foreign_field)
                              . (($foreign_display == FALSE) ? '' : ', ' . PMA_backquote($foreign_display))
                              . ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table)
-                             . (($foreign_display == FALSE) ? '' :' ORDER BY ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($foreign_display));
+                             . (($foreign_display == FALSE) ? '' :' ORDER BY ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($foreign_display))
+                             . (isset($foreign_limit) ? $foreign_limit : '');
             $disp            = PMA_mysql_query($dispsql);
         }
         else {
             unset($disp);
+            $foreign_link = true;
         }
     } // end if $foreigners
 

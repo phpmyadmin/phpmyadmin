@@ -692,4 +692,7 @@ $strZeroRemovesTheLimit = 'Pastaba: nėra jokių apribojimų jeigu reikšmė nur
 $strZip = '"zip"';
 // To translate
 
+$strUseThisValue = 'Use this value';  //to translate
+$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
+$strBrowseForeignValues = 'Browse foreign values';  //to translate
 ?>

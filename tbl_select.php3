@@ -10,6 +10,25 @@ require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 require('./libraries/relation.lib.php3'); // foreign keys
 
+if ($cfg['PropertiesIconic'] == true) {
+    // We need to copy the value or else the == 'both' check will always return true
+    $propicon = (string)$cfg['PropertiesIconic'];
+
+    if ($propicon == 'both') {
+        $iconic_spacer = '<nobr>';
+    } else {
+        $iconic_spacer = '';
+    }
+
+    $titles['Browse']     = $iconic_spacer . '<img width="12" height="13" src="images/button_browse.png" alt="' . $strBrowseForeignValues . '" title="' . $strBrowseForeignValues . '" border="0" />';
+
+    if ($propicon == 'both') {
+        $titles['Browse']        .= '&nbsp;' . $strBrowseForeignValues . '</nobr>';
+    }
+} else {
+    $titles['Browse']        = $strBrowseForeignValues;
+}
+
 /**
  * Defines arrays of functions (should possibly be in config.inc.php3
  * so it can also be used in tbl_qbe.php3)
@@ -70,7 +89,7 @@ if (!isset($param) || $param[0] == '') {
         //$foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
         $foreigners  = PMA_getForeigners($db, $table);
         ?>
-<form method="post" action="tbl_select.php3">
+<form method="post" action="tbl_select.php3" name="insertForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="back" value="tbl_select.php3" />
@@ -147,16 +166,17 @@ if (!isset($param) || $param[0] == '') {
             if ($foreigners && isset($foreigners[$field]) && isset($disp) && $disp && @PMA_mysql_fetch_array($disp)) {
                 // f o r e i g n    k e y s
                 echo '                    <select name="fields[]">' . "\n";
-                echo '                        <option value=""></option>' . "\n";
                 // go back to first row
                 mysql_data_seek($disp,0);
-                while ($relrow = @PMA_mysql_fetch_array($disp)) {
-                    $key   = $relrow[$foreign_field];
-                    $value = (($foreign_display != FALSE) ? '-' . htmlspecialchars($relrow[$foreign_display]) : '');
-                    echo '                        <option value="' . htmlspecialchars($key) . '">'
-                         . htmlspecialchars($key) . $value . '</option>' . "\n";
-                } // end while
+                echo PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, 100);
                 echo '                    </select>' . "\n";
+            } else if (isset($foreign_link) && $foreign_link == true) {
+            ?>
+            <input type="text"   name="fields[]" id="field_<?php echo md5($field); ?>[]" class="textfield" />
+            <script type="text/javascript" language="javascript">
+                document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes\'); return false" href="browse_foreigners.php3?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo urlencode($field); ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
+            </script>
+            <?php
             } else if (substr($fields_type[$i], 0, 3)=='enu'){
                 // e n u m s
                 $enum_value=explode(", ",str_replace("'", "", substr($fields_type[$i], 5, -1)));
