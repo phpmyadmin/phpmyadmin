@@ -616,7 +616,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
               . '&amp;pos=' . $pos
               . '&amp;disp_direction=' . $disp_direction
               . '&amp;repeat_cells=' . $repeat_cells
-              . '&amp;goto=' . $gotXo
+              . '&amp;goto=' . $goto
               . '&amp;dontlimitchars=' . (($dontlimitchars) ? 0 : 1);
 
     //     ... before the result table
@@ -750,8 +750,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
             if (($is_join
                 && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name . '~i', $select_stt[1], $parts)) 
-               || (
-                   $analyzed_sql[0]['select_expr'][$i]['expr'] !=
+               || ( isset($analyzed_sql[0]['select_expr'][$i]['expr'])
+                   && isset($analyzed_sql[0]['select_expr'][$i]['column'])
+                   && $analyzed_sql[0]['select_expr'][$i]['expr'] !=
                    $analyzed_sql[0]['select_expr'][$i]['column']) ) {
                 $sort_tbl = PMA_backquote($fields_meta[$i]->table) . '.';
             } else {
