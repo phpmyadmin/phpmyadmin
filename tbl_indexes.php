@@ -66,17 +66,17 @@ $prev_index   = '';
 $indexes_info = array();
 $indexes_data = array();
 // keys had already been grabbed in "tbl_properties.php"
-if (defined('PMA_IDX_INCLUDED')) {
-    $idx_cnt     = count($ret_keys);
-} else {
+if (!defined('PMA_IDX_INCLUDED')) {
     $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
     $result      = PMA_DBI_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
-    $idx_cnt     = PMA_DBI_num_rows($result);
+    $ret_keys    = array();
+    while ($row = PMA_DBI_fetch_assoc($result)) {
+        $ret_keys[]  = $row;
+    }
+    PMA_DBI_free_result($result);
 }
 
-for ($i = 0; $i < $idx_cnt; $i++) {
-    $row = (defined('PMA_IDX_INCLUDED') ? $ret_keys[$i] : PMA_DBI_fetch_assoc($result));
-
+foreach ($ret_keys as $row) { 
     if ($row['Key_name'] != $prev_index ){
         $indexes[]  = $row['Key_name'];
         $prev_index = $row['Key_name'];
@@ -100,12 +100,6 @@ for ($i = 0; $i < $idx_cnt; $i++) {
         $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
     }
 } // end while
-
-if (defined('PMA_IDX_INCLUDED')) {
-    unset($ret_keys);
-} else if ($result) {
-    PMA_DBI_free_result($result);
-}
 
 // Get fields and stores their name/type
 // fields had already been grabbed in "tbl_properties.php"
@@ -427,7 +421,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         $drop_link_text = '<nobr>' . $drop_link_text . '</nobr>';
     }
 
-    if ($idx_cnt > 0) {
+    if (count($ret_keys) > 0) {
         ?>
         <!--table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1"-->
         <tr>

@@ -489,12 +489,18 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             $sort_expression_nodir = isset($matches[1]) ? trim($matches[1]) : $sort_expression;
 
             // grab indexes data:
-            $result  = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
-            $idx_cnt = PMA_DBI_num_rows($result);
+            if (!defined('PMA_IDX_INCLUDED')) {
+                $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
+                $result      = PMA_DBI_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+                $ret_keys    = array();
+                while ($row = PMA_DBI_fetch_assoc($result)) {
+                    $ret_keys[]  = $row;
+                }
+                PMA_DBI_free_result($result);
+            }
 
             $prev_index = '';
-            for ($i = 0; $i < $idx_cnt; $i++) {
-                $row = (defined('PMA_IDX_INCLUDED') ? $ret_keys[$i] : PMA_DBI_fetch_assoc($result));
+            foreach ($ret_keys as $row) { 
 
                 if ($row['Key_name'] != $prev_index ){
                     $indexes[]  = $row['Key_name'];
