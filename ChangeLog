@@ -5,9 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-08  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/danish.inc.php3: updated thanks to
+	  Niels Oesten <niels at oesten.dk>.
+
 2001-10-08  Geert Lund  <glund@silversoft.dk>
-	* left.php3: Fixed bug #468749: Left Frame not expanding in iCab
-	  * made URI references HTML 4.01 complient, this will fix the
+	* left.php3: Fixed bug #468749: Left Frame not expanding in iCab.
+	* made URI references HTML 4.01 complient, this will fix the
       error. See http://www.w3.org/TR/html4/appendix/notes.html#h-B.2.2 and
       http://www.icab.de/faq.html for further information.
 
