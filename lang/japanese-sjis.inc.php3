@@ -100,6 +100,7 @@ $strDoAQuery = '"例のQUERY"を実行 (wildcard: "%")';
 $strDocu = 'ヘルプ';
 $strDoYouReally = '本当に実行しても良いですか？ --> ';
 $strDrop = '削除';
+$strDropDB = 'データベース削除 %s';
 $strDropTable = 'テーブルの削除';
 $strDumpingData = 'テーブルのダンプデータ';
 $strDynamic = 'ダイナミック';
@@ -344,5 +345,4 @@ $strYes = 'はい';
 $strZip = '"zipされる"';
 
 // To translate
-$strDropDB = 'Drop database %s';
 ?>
