@@ -172,7 +172,7 @@ if ($server > 0
 
         // Does user have global Create priv?
         $local_query      = 'SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-        $rs_usr           = mysql_query($local_query, $stdlink) or mysql_die('', $local_query, FALSE);
+        $rs_usr           = mysql_query($local_query, $stdlink);
         if ($rs_usr) {
             $result_usr   = mysql_fetch_array($rs_usr);
             $create       = ($result_usr['Create_priv'] == 'Y');
