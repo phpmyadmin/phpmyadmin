@@ -199,10 +199,10 @@ if (empty($GLOBALS['is_header_sent'])) {
                 }
                 echo '        '
                    . '<td class="serverinfo"><div></div></td>' . "\n" . '            '
-                   . '<td class="serverinfo">' . ($GLOBALS['tbl_is_view'] ? $GLOBALS['strView'] : $GLOBALS['strTable']) . ':&nbsp;'
+                   . '<td class="serverinfo">' . (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? $GLOBALS['strView'] : $GLOBALS['strTable']) . ':&nbsp;'
                    . '<a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']) . '">';
                 if ($GLOBALS['cfg']['MainPageIconic']) {
-                    echo '<img src="' . $GLOBALS['pmaThemeImage'] . ($GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png" width="16" height="16" border="0" alt="' . htmlspecialchars($GLOBALS['table']) . '" />';
+                    echo '<img src="' . $GLOBALS['pmaThemeImage'] . (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png" width="16" height="16" border="0" alt="' . htmlspecialchars($GLOBALS['table']) . '" />';
                 }
                 echo htmlspecialchars($GLOBALS['table']) . '</a>' . "\n"
                    . '</td>' . "\n\n";

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * header.inc.php: undefined index tbl_is_view when copying a table
+      with constraints and an error occurs
+
 2005-03-20 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
     * tbl_properties.inc.php: do not add ON UPDATE CURRENT_TIMESTAMP twice
