@@ -132,6 +132,7 @@ if (!defined('__LIB_INC__')){
         if (empty($the_query)) {
             $the_query     = $GLOBALS['sql_query'];
         }
+        $hist              = (isset($GLOBALS['btnDrop'])) ? -2 : -1;
 
         echo '<b>'. $GLOBALS['strError'] . '</b>' . "\n";
         if (!empty($the_query)) {
@@ -143,7 +144,7 @@ if (!defined('__LIB_INC__')){
         echo '<p>' . "\n";
         echo '    ' . $GLOBALS['strMySQLSaid'] . '&nbsp;' . htmlspecialchars($error_message) . "\n";
         echo '</p>' . "\n";
-        echo '<a href="javascript:history.go(-1)">' . $GLOBALS['strBack'] . '</a>';
+        echo '<a href="javascript:history.go(' . $hist . ')">' . $GLOBALS['strBack'] . '</a>';
 
         include('./footer.inc.php3');
         exit();
@@ -941,7 +942,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         }
         mysql_field_seek($dt_result, 0);
         if (!$is_simple
-            && (!isset($SelectNumRows) || $SelectNumRows > $GLOBALS['cfgMaxRows'])) {
+            && (!isset($SelectNumRows) || $SelectNumRows > 1)) {
             show_table_navigation($pos_next, $pos_prev, $dt_result);
         } else {
             echo "\n" . '<br /><br />' . "\n";
@@ -1192,7 +1193,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         <?php
         echo "\n";
         if (!$is_simple
-            && (!isset($SelectNumRows) || $SelectNumRows > $GLOBALS['cfgMaxRows'])) {
+            && (!isset($SelectNumRows) || $SelectNumRows > 1)) {
             show_table_navigation($pos_next, $pos_prev, $dt_result);
         } else {
             echo "\n" . '<br />' . "\n";

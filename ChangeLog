@@ -19,6 +19,9 @@ $Source$
 	* lib.inc.php3; sql.php3: optimized a bit and started to work on feature
 	  #444767 (Other cases for display=simple).
 	* user_details.php3: fixed some javascript bugs.
+	* tbl_change.php3, lines 26 & 31: added some mysql_die() calls.
+	* lib.inc.php3, lines 135 & 147: go back to the previous calling script
+	  that is not a confirmation form.
 
 2001-08-19  Olivier Müller  <om@omnis.ch>
 	* db_readdump.php3: if file contains mutiple queries, only show this line:
