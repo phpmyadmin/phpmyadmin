@@ -703,23 +703,24 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
              || ($arr[$i]['type'] == 'quote_single')
              || ($arr[$i]['type'] == 'alpha_identifier')) {
 
+                switch ($arr[$i]['type']) {
+                    case 'alpha_identifier':
+                        $identifier = $arr[$i]['data'];
+                        break;
+                    
                 //TODO: check embedded double quotes or backticks?
                 // and/or remove just the first and last character?
-                if ($arr[$i]['type'] == 'quote_backtick') { 
-                    // remove backticks
-                    $identifier = str_replace('`','',$arr[$i]['data']);
-                } 
-                    
-                if ($arr[$i]['type'] == 'quote_double') { 
-                    // remove double quotes
-                    $identifier = str_replace('"','',$arr[$i]['data']);
-                } 
-                    
-                if ($arr[$i]['type'] == 'quote_single') { 
-                    // remove single quotes
-                    $identifier = str_replace("'","",$arr[$i]['data']);
-                } 
-                    
+                    case 'quote_backtick':
+                        $identifier = str_replace('`','',$arr[$i]['data']);
+                        break;
+                    case 'quote_double':
+                        $identifier = str_replace('"','',$arr[$i]['data']);
+                        break;                    
+                    case 'quote_single':
+                        $identifier = str_replace("'","",$arr[$i]['data']);
+                        break;
+                } // end switch
+                         
                 if ($subresult['querytype'] == 'SELECT') {
                     if (!$seen_from) {
                         if ($previous_was_identifier) {
