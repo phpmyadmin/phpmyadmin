@@ -746,24 +746,24 @@ if(count($Field)>0){
              $wheretabs=$where;
         }
             //  i expect it will make sense to have the table which is most often
-            //  found as dest_table as the one to start our FROM...
+            //  found as foreign_table as the one to start our FROM...
             //  but we have to make sure that if there is a WHERE clause then we have
             //  a master out of those that are used there
 
             //  We will need this a few times:
         $incrit = '(\''. str_replace(',', "','", implode(',',$alltabs)) . '\')';
 
-        $rel_query  = 'SELECT src_table as wer,count(dest_table) as hits from '.PMA_backquote($cfg['Server']['relation']);
-        $rel_query .= ' WHERE src_table IN '.$incrit.' AND dest_table in '.$incrit;
-        $rel_query .= ' GROUP by src_table ORDER by hits desc ';
+        $rel_query  = 'SELECT master_table as wer,count(foreign_table) as hits from '.PMA_backquote($cfg['Server']['relation']);
+        $rel_query .= ' WHERE master_table IN '.$incrit.' AND foreign_table in '.$incrit;
+        $rel_query .= ' GROUP by master_table ORDER by hits desc ';
 
         $rel_id     = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
             
             //	if we don't find anything we try the other way round
         if(mysql_num_rows($rel_id)==0){
-            $rel_query  = 'SELECT dest_table as wer,count(src_table) as hits from '.PMA_backquote($cfg['Server']['relation']);
-            $rel_query .= ' WHERE src_table IN '.$incrit.' AND dest_table in '.$incrit;
-            $rel_query .= ' GROUP by dest_table ORDER by hits desc ';
+            $rel_query  = 'SELECT foreign_table as wer,count(master_table) as hits from '.PMA_backquote($cfg['Server']['relation']);
+            $rel_query .= ' WHERE master_table IN '.$incrit.' AND foreign_table in '.$incrit;
+            $rel_query .= ' GROUP by foreign_table ORDER by hits desc ';
 
             $rel_id     = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
         }
@@ -779,7 +779,7 @@ if(count($Field)>0){
             }
             if(is_array($wheretabs)){
                 while (list($key, $value) = each ($wheretabs)){
-                    if($row['src_table']==$key){
+                    if($row['master_table']==$key){
                         $master = $row['wer'];
                         $ex=1;
                         break;
@@ -809,26 +809,26 @@ if(count($Field)>0){
             $incrit_s = '(\''. str_replace(',', "','", implode(',',$reltabs)) . '\')';
     
             $rel_query  = 'SELECT * from '.PMA_backquote($cfg['Server']['relation']);
-            $rel_query .= ' WHERE src_table IN '.$incrit.' AND dest_table in '.$incrit_s;
-            $rel_query .= ' ORDER by dest_table,src_table ';
+            $rel_query .= ' WHERE master_table IN '.$incrit.' AND foreign_table in '.$incrit_s;
+            $rel_query .= ' ORDER by foreign_table,master_table ';
 
             $rel_id     = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
     
             while ($row = mysql_fetch_array($rel_id)){
-                $dest_table = $row['dest_table'];
-                if($rel[$dest_table]['mcon']==0){
+                $foreign_table = $row['foreign_table'];
+                if($rel[$foreign_table]['mcon']==0){
                         //  if we allready found a link to the mastertable we don't want another
                         //  otherwise we take whatever we get
-                    $rel[$dest_table]['link']  = ' LEFT JOIN '.PMA_backquote($dest_table);
-                    $rel[$dest_table]['link'] .= ' ON '.PMA_backquote($row['src_table']).'.'.PMA_backquote($row['src_column']);
-                    $rel[$dest_table]['link'] .= ' = '.PMA_backquote($row['dest_table']).'.'.PMA_backquote($row['dest_column']) .' ';
+                    $rel[$foreign_table]['link']  = ' LEFT JOIN '.PMA_backquote($foreign_table);
+                    $rel[$foreign_table]['link'] .= ' ON '.PMA_backquote($row['master_table']).'.'.PMA_backquote($row['master_field']);
+                    $rel[$foreign_table]['link'] .= ' = '.PMA_backquote($row['foreign_table']).'.'.PMA_backquote($row['foreign_field']) .' ';
                 }
-                if($row['src_table'] == $master){
-                    $rel[$dest_table]['mcon']=1;
+                if($row['master_table'] == $master){
+                    $rel[$foreign_table]['mcon']=1;
                 }
             }
                 //  possibly we still don't have all - there might be some that are
-                //  only found as a dest_table in relation to one of those that we allready have
+                //  only found as a foreign_table in relation to one of those that we allready have
             if($master!=''){
                 $found[] = $master;
                 $qry_from = PMA_backquote($master);
@@ -846,26 +846,26 @@ if(count($Field)>0){
                 $incrit_s = '(\''. str_replace(',', "','", implode(',',$rest)) . '\')';
     
                 $rel_query  = 'SELECT * from '.$cfg['Server']['relation'];
-                $rel_query .= ' WHERE src_table IN '.$incrit_s.' AND dest_table in '.$incrit_d;
-                $rel_query .= ' ORDER by src_table,dest_table ';
+                $rel_query .= ' WHERE master_table IN '.$incrit_s.' AND foreign_table in '.$incrit_d;
+                $rel_query .= ' ORDER by master_table,foreign_table ';
     
                 $rel_id     = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
                 while ($row = mysql_fetch_array($rel_id)){
-                    $dest_table = $row['dest_table'];
-                        // echo 'prüfe '.$src_table;
-                    if($rel[$dest_table]['mcon']==0){
+                    $foreign_table = $row['foreign_table'];
+                        // echo 'prüfe '.$master_table;
+                    if($rel[$foreign_table]['mcon']==0){
                             //  if we allready found a link to the mastertable we don't want another
                             //  otherwise we take whatever we get
-                         $rel[$dest_table]['link']  = ' LEFT JOIN '.$dest_table;
-                         $rel[$dest_table]['link'] .= ' ON '.PMA_backquote($row['dest_table']).'.'.PMA_backquote($row['dest_column']);
-                         $rel[$dest_table]['link'] .= ' = '.PMA_backquote($row['src_table']).'.'.PMA_backquote($row['src_column']) .' ';
+                         $rel[$foreign_table]['link']  = ' LEFT JOIN '.$foreign_table;
+                         $rel[$foreign_table]['link'] .= ' ON '.PMA_backquote($row['foreign_table']).'.'.PMA_backquote($row['foreign_field']);
+                         $rel[$foreign_table]['link'] .= ' = '.PMA_backquote($row['master_table']).'.'.PMA_backquote($row['master_field']) .' ';
                             
                             //	in extreme cases we hadn't found a master yet, so let's use
                             //	the one we found now
-                         $master = $row['dest_table'];
+                         $master = $row['foreign_table'];
                     }
-                    if($row['src_table'] == $master){
-                        $rel[$dest_table]['mcon']=1;
+                    if($row['master_table'] == $master){
+                        $rel[$foreign_table]['mcon']=1;
                     }
                 }
             }
