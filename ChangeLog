@@ -12,6 +12,7 @@ $Source$
     * lang/farsi*: Added ready for Farsi translation
     * lang/sync_lang.sh, libraries/select_lang.lib.php3: 
         - Updates ready for Farsi translation
+    * lang/polish*: Updates, thanks to Jakub Wilk (ubanus)
 
 2003-01-21 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: checkType function
