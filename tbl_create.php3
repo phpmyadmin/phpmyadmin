@@ -60,10 +60,20 @@ if (isset($submit)) {
             $query .= ' ' . $field_null[$i];
         }
         if ($field_extra[$i] != '') {
-            $query .= ' ' . $field_extra[$i] . ', ';
-        } else {
-            $query .= ', ';
+            $query .= ' ' . $field_extra[$i];
+            // An auto_increment field must be use as a primary key
+            if ($field_extra[$i] == 'AUTO_INCREMENT' && isset($field_primary)) {
+                $primary_cnt = count($field_primary);
+                for ($j = 0; $j < $primary_cnt && $field_primary[$j] != $i; $j++) {
+                    // void
+                } // end for
+                if ($field_primary[$j] == $i) {
+                    $query .= ' PRIMARY KEY';
+                    unset($field_primary[$j]);
+                } // end if
+            } // end if (auto_increment)
         }
+        $query .= ', ';
         $sql_query .= $query;
         $query_cpy .= "\n" . '  ' . $query;
     } // end for

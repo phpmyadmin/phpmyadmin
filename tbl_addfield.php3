@@ -19,7 +19,8 @@ if (isset($submit)) {
     $query = '';
 
     // Builds the field creation statement and alters the table
-    for ($i = 0; $i < count($field_name); ++$i) {
+    $field_cnt = count($field_name);
+    for ($i = 0; $i < $field_cnt; ++$i) {
         if (get_magic_quotes_gpc()) {
             $field_name[$i] = stripslashes($field_name[$i]);
         }
@@ -53,6 +54,17 @@ if (isset($submit)) {
         }
         if ($field_extra[$i] != '') {
             $query .= ' ' . $field_extra[$i];
+            // An auto_increment field must be use as a primary key
+            if ($field_extra[$i] == 'AUTO_INCREMENT' && isset($field_primary)) {
+                $primary_cnt = count($field_primary);
+                for ($j = 0; $j < $primary_cnt && $field_primary[$j] != $i; $j++) {
+                    // void
+                } // end for
+                if ($field_primary[$j] == $i) {
+                    $query .= ' PRIMARY KEY';
+                    unset($field_primary[$j]);
+                } // end if
+            } // end if (auto_increment)
         }
 
         if ($after_field != '--end--') {
@@ -82,10 +94,12 @@ if (isset($submit)) {
     $sql_query     = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD ' . $query;
     $result        = mysql_query($sql_query) or mysql_die();
     $sql_query_cpy = $sql_query . ';';
+
     // Builds the primary keys statements and updates the table
     $primary = '';
     if (isset($field_primary)) {
-        for ($i = 0; $i < count($field_primary); $i++) {
+        $primary_cnt = count($field_primary);
+        for ($i = 0; $i < $primary_cnt; $i++) {
             $j       = $field_primary[$i];
             $primary .= backquote($field_name[$j]) . ', ';
         } // end for
@@ -100,7 +114,8 @@ if (isset($submit)) {
     // Builds the indexes statements and updates the table
     $index = '';
     if (isset($field_index)) {
-        for ($i = 0; $i < count($field_index); $i++) {
+        $index_cnt = count($field_index);
+        for ($i = 0; $i < $index_cnt; $i++) {
             $j     = $field_index[$i];
             $index .= backquote($field_name[$j]) . ', ';
         } // end for
@@ -115,7 +130,8 @@ if (isset($submit)) {
     // Builds the uniques statements and updates the table
     $unique = '';
     if (isset($field_unique)) {
-        for ($i = 0; $i < count($field_unique); $i++) {
+        $unique_cnt = count($field_unique);
+        for ($i = 0; $i < $unique_cnt; $i++) {
             $j      = $field_unique[$i];
             $unique .= backquote($field_name[$j]) . ', ';
         } // end for
@@ -131,7 +147,8 @@ if (isset($submit)) {
     // Builds the fulltext statements and updates the table
     $fulltext = '';
     if (MYSQL_INT_VERSION >= 32323 && isset($field_fulltext)) {
-        for ($i = 0; $i < count($field_fulltext); $i++) {
+        $fulltext_cnt = count($field_fulltext);
+        for ($i = 0; $i < $fulltext_cnt; $i++) {
             $j        = $field_fulltext[$i];
             $fulltext .= backquote($field_name[$j]) . ', ';
         } // end for

@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_create.php3; tbl_addfield.php3: fixed a bug with "auto_increment"
+	  fields (since indexes were defined in their own statement, auto-increment
+	  fields can't be used because they must be set as primary key at
+	  creation).
+	  Note there is still a problem when altering a field: one can set it as an
+      "auto_increment" field but there is no way to tell the script it must be
+	  then the primary key.
+
 2001-09-17  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_detail.php3: fixed some bugs with the "other privileges" feature.
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
