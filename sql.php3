@@ -91,7 +91,7 @@ $sql_query = PMA_sqlFormat($sql_query);
 // (todo: check for embedded comments...)
 
 // (todo: if there are more than one table name in the Select:
-// - do not extract the first table name 
+// - do not extract the first table name
 // - do not show a table name in the page header
 // - do not display the sub-pages links)
 
@@ -223,8 +223,9 @@ else {
  *               $is_count is changed for more correct "LIMIT" clause appending
  *               in queries like SELECT COUNT(...) FROM ... GROUP BY ...
  */
-    $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = FALSE;
+    $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = FALSE;
     if ($is_select) { // see line 76
+        $is_func =  !$is_group && (eregi("( SUM\s*\(| AVG\s*\(| STD\s*\(| STDDEV\s*\(| MIN\s*\(| MAX\s*\(| BIT_OR\s*\(| BIT_AND\s*\()", $sql_query));
         $is_group = eregi("( GROUP BY | HAVING | SELECT DISTINCT )", $sql_query);
         $is_count = !$is_group && (eregi('^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)', $sql_query));
         $is_export   = (eregi('[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+', $sql_query));
@@ -249,7 +250,7 @@ else {
     if (isset($pos)
         && (!$cfg['ShowAll'] || $session_max_rows != 'all')
         && $is_select
-        && !($is_count || $is_export)
+        && !($is_count || $is_export || $is_func)
         && eregi('[[:space:]]FROM[[:space:]]', $sql_query)
         && !eregi('[[:space:]]LIMIT[[:space:]0-9,]+$', $sql_query)) {
 
