@@ -14,6 +14,10 @@ $Source$
     * Documentation, config.inc.php3, libraries/config_import.lib.php3,
       libraries/defines_php.lib.php3: Improved GD 2 detection (bugs #736111,
       #741192).
+    * lang/sync_lang.sh: Removed dropped farsi translation.
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
+    * lang/norwegian: Updated, thanks to Sven-Erik Andersen (sven-erik).
 
 2003-05-22 Garvin Hicking <me@supergarv.de>
     * sql.php3, libraries/common.lib.php3: Bug #692854: Never execute

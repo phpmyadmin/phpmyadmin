@@ -84,7 +84,6 @@ danish-iso-8859-1
 dutch-iso-8859-1
 english-iso-8859-1
 estonian-iso-8859-1
-farsi-windows-1256
 finnish-iso-8859-1
 french-iso-8859-1
 galician-iso-8859-1

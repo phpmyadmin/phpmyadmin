@@ -176,6 +176,7 @@ $strDropSelectedDatabases = 'Drop database pilihan';
 $strDropTable = 'Hapus tabel:';
 $strDropUsersDb = 'Hapus database yang miliki nama yang sama dengan pengunanya.';
 $strDumpComments = 'Masukkan komentar kolom sebagai Inline SQL-Comment';
+$strDumpSaved = 'Dump (Skema) disimpan pada file %s.';
 $strDumpXRows = 'Dump %s baris bermula pada baris %s.';
 $strDumpingData = 'Dumping data untuk tabel';
 $strDynamic = 'dinamis';
@@ -206,6 +207,7 @@ $strFieldsEmpty = ' Jumlah field dalam tabel harus ditentukan! ';
 $strFieldsEnclosedBy = 'Field ditutup dengan';
 $strFieldsEscapedBy = 'Field dikembalikan oleh';
 $strFieldsTerminatedBy = 'Fields diputus oleh';
+$strFileAlreadyExists = 'File %s sudah ada di server. Gantikan nama file atau periksa pilihan Overwrite.';
 $strFileCouldNotBeRead = 'File tidak bisa dibaca';
 $strFileNameTemplate = 'Template nama file'; 
 $strFileNameTemplateHelp = 'Gunakan__DB__sebagai nama Database,__TABLE__sebagai nama tabel dan %sany strftime%s sebagai spesifikasi waktu, ekstensi akan ditambah secara otomatis. Teks lainnya akan dipertahankan.';
@@ -258,6 +260,7 @@ $strInsert = 'Sisipkan';
 $strInsertAsNewRow = 'Sisipkan sebagai baris baru';
 $strInsertNewRow = 'Sisipkan baris baru';
 $strInsertTextfiles = 'Sisipkan data baru dari textfile ke dalam tabel';
+$strInsertedRowId = 'Menyisip baris id:';
 $strInsertedRows = 'Baris yang disisipkan:';
 $strInstructions = 'Petunjuk';
 $strInvalidName = '"%s" adalah kata khusus dan tidak dapat dipergunakan sebagai nama database,tabel atau field.';
@@ -331,10 +334,12 @@ $strNoIndexPartsDefined = 'Tidak ada bagian indeks yang didefinisikan!';
 $strNoModification = 'Tidak ada perubahan';
 $strNoOptions = 'Format ini tidak ada pilihannya';
 $strNoPassword = 'Tidak ada Kata Sandi';
+$strNoPermission = 'Webserver tidak memiliki hak (permission) untuk menyimpan file %s.';
 $strNoPhp = 'tidak ada kode PHP';
 $strNoPrivileges = 'Tidak ada Hak Akses (privilege)';
 $strNoQuery = 'Tidak ada query SQL!';
 $strNoRights = 'Hak Akses Anda untuk melanjut tidak cukup!';
+$strNoSpace = 'Tidak cukup ruang untuk menyimpan %s.';
 $strNoTablesFound = 'Tidak ada tabel dalam database.';
 $strNoUsersFound = 'Pengguna tidak ditemukan.';
 $strNoUsersSelected = 'Tidak ada penguna yang dipilih.';
@@ -358,6 +363,7 @@ $strOptionally = 'PILIHAN';
 $strOptions = 'Setingan';
 $strOr = 'Atau';
 $strOverhead = 'Kelebihan (Overhead)';
+$strOverwriteExisting = 'Timpahkan (Overwrite) file(s) yang ada';
 
 $strPHP40203 = 'Anda memakai versi PHP 4.2.3 yang diketahui mengandung Bug yang serius dengan multi-byte strings (mbstring). Perhatikan PHP Bug Report 19404. Versi PHP ini tidak disarankan untuk dipakai dengan program phpMyAdmin.';
 $strPHPVersion = 'Versi PHP';
@@ -484,6 +490,7 @@ $strSQPBugInvalidIdentifer = 'Identifer tidak valid';
 $strSQPBugUnclosedQuote = 'Kutipan tidak ditutup';
 $strSQPBugUnknownPunctuation = 'Punctation String tidak dikenali';
 $strSave = 'Simpan';
+$strSaveOnServer = 'Simpan di server di direktori %s';
 $strScaleFactorSmall = 'Faktor skala yang dipilih terlalu kecil untuk dimuat dalam skema satu halaman';
 $strSearch = 'Cari';
 $strSearchFormTitle = 'Cari dalam database';
@@ -630,18 +637,5 @@ $strYes = 'Ya';
 $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) akan menghapus batas yang telah ditentukan.';
 $strZip = '"Dikompress dengan Zip"';
 // To translate
-
-$strDumpSaved = 'Dump has been saved to file %s.';  //to translate
-
-$strFileAlreadyExists = 'File %s already exists on server, change filename or check overwrite option.';  //to translate
-
-$strInsertedRowId = 'Inserted row id:';  //to translate
-
-$strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
-$strNoSpace = 'Insufficient space to save the file %s.';  //to translate
-
-$strOverwriteExisting = 'Overwrite existing file(s)';  //to translate
-
-$strSaveOnServer = 'Save on server in %s directory';  //to translate
 
 ?>

@@ -264,6 +264,7 @@ $strInsert = 'Sett inn';
 $strInsertAsNewRow = 'Sett inn som ny rad';
 $strInsertNewRow = 'Sett inn ny rad';
 $strInsertTextfiles = 'Les tekstfil inn i tabell';
+$strInsertedRowId = 'Satt inn rad id:';
 $strInsertedRows = 'Innsatte rader:';
 $strInstructions = 'Instruksjoner';
 $strInvalidName = '"%s" er ett reservert ord, du kan ikke bruke det som et database-, tabell- eller feltnavn.';
@@ -337,10 +338,12 @@ $strNoIndexPartsDefined = 'Ingen indeksdeler definert!';
 $strNoModification = 'Ingen endring';
 $strNoOptions = 'Dette formatet har ingen valg';
 $strNoPassword = 'Intet passord';
+$strNoPermission = 'Webserveren har ikke tillatelse til å lagre fila %s.';
 $strNoPhp = 'uten PHP kode';
 $strNoPrivileges = 'Ingen privilegier';
 $strNoQuery = 'Ingen SQL spørring!';
 $strNoRights = 'Du har ikke nok rettigheter til å være her nå!';
+$strNoSpace = 'Ikke nok plass til å lagre fila %s.';
 $strNoTablesFound = 'Ingen tabeller i databasen.';
 $strNoUsersFound = 'Ingen bruker(e) funnet.';
 $strNoUsersSelected = 'Ingen brukere valgt.';
@@ -638,10 +641,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjerner begrensningen.';
 $strZip = 'Komprimert (zip)';
 // To translate
-
-$strInsertedRowId = 'Inserted row id:';  //to translate
-
-$strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
-$strNoSpace = 'Insufficient space to save the file %s.';  //to translate
 
 ?>
