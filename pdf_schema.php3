@@ -348,7 +348,7 @@ class PMA_PDF extends FPDF
         global $with_doc;
         if ($with_doc){
             $this->SetY(-15);
-            $this->SetFont('', '',14); 
+            $this->SetFont('', '',14);
             $this->Cell(0,6, $GLOBALS['strPageNumber'] .' '.$this->PageNo() .'/{nb}','T',0,'C');
             $this->Cell(0,6, PMA_localisedDate(),0,1,'R');
             $this->SetY(20);
@@ -475,7 +475,7 @@ function Row($data,$links)
    for($i=0;$i<count($data);$i++)
       $nb=max($nb,$this->NbLines($this->widths[$i],$data[$i]));
    $il = $this->FontSize;
-   $h=($il+1)*$nb; 
+   $h=($il+1)*$nb;
    // page break if necessary
    $this->CheckPageBreak($h);
    // draw the cells
@@ -634,13 +634,9 @@ class PMA_RT_Table
      *
      * @see     PMA_PDF
      */
-    function PMA_RT_Table_draw($show_info, $ff, $same_wide = 0, $same_wide_width = 0)
+    function PMA_RT_Table_draw($show_info, $ff)
     {
         global $pdf, $with_doc;
-
-        if ($same_wide == 1 && $same_wide_width > 0) {
-            $this->width = $same_wide_width;
-        }
 
         $pdf->PMA_PDF_setXyScale($this->x, $this->y);
         $pdf->SetFont($ff, 'B');
@@ -785,18 +781,11 @@ class PMA_RT_Relation
      *
      * @access  private
      */
-    function PMA_RT_Relation_getXy($table, $column, $same_wide, $tablewidth)
+    function PMA_RT_Relation_getXy($table, $column)
     {
         $pos = array_search($column, $table->fields);
-  
-    		if($same_wide) {
-    			$width = $tablewidth;
-    		} else {
-    			$width = $table->width;
-    		}
-          
         // x_left, x_right, y
-        return array($table->x, $table->x + $width, $table->y + ($pos + 1.5) * $table->height_cell);
+        return array($table->x, $table->x + + $table->width, $table->y + ($pos + 1.5) * $table->height_cell);
     } // end of the "PMA_RT_Relation_getXy()" method
 
 
@@ -866,10 +855,10 @@ class PMA_RT_Relation
      *
      * @see     PMA_RT_Relation::PMA_RT_Relation_getXy
      */
-    function PMA_RT_Relation($master_table, $master_field,  $foreign_table, $foreign_field, $same_wide, $tablewidth)
+    function PMA_RT_Relation($master_table, $master_field,  $foreign_table, $foreign_field)
     {
-        $src_pos    = $this->PMA_RT_Relation_getXy($master_table , $master_field, $same_wide, $tablewidth);
-        $dest_pos   = $this->PMA_RT_Relation_getXy($foreign_table, $foreign_field, $same_wide, $tablewidth);
+        $src_pos    = $this->PMA_RT_Relation_getXy($master_table , $master_field);
+        $dest_pos   = $this->PMA_RT_Relation_getXy($foreign_table, $foreign_field);
         $src_left   = $src_pos[0] - $this->w_tick;
         $src_right  = $src_pos[1] + $this->w_tick;
         $dest_left  = $dest_pos[0] - $this->w_tick;
@@ -974,7 +963,7 @@ class PMA_RT
             $this->tables[$foreign_table] = new PMA_RT_Table($foreign_table, $this->ff, $this->tablewidth);
             $this->PMA_RT_setMinMax($this->tables[$foreign_table]);
         }
-        $this->relations[] = new PMA_RT_Relation($this->tables[$master_table], $master_field, $this->tables[$foreign_table], $foreign_field, $this->same_wide, $this->tablewidth);
+        $this->relations[] = new PMA_RT_Relation($this->tables[$master_table], $master_field, $this->tables[$foreign_table], $foreign_field);
     } // end of the "PMA_RT_addRelation()" method
 
 
@@ -1048,7 +1037,7 @@ class PMA_RT
     {
         reset($this->tables);
         while (list(, $table) = each($this->tables)) {
-            $table->PMA_RT_Table_draw($show_info, $this->ff, $this->same_wide, $this->tablewidth);
+            $table->PMA_RT_Table_draw($show_info, $this->ff);
         }
     } // end of the "PMA_RT_drawTables()" method
 
@@ -1108,7 +1097,7 @@ class PMA_RT
      *
      * @see     PMA_PDF
      */
-    function PMA_RT($scale, $which_rel, $show_info = 0, $change_color = 0 , $show_grid = 0, $all_tab_same_wide = 0, $orientation = 'L')
+    function PMA_RT( $which_rel, $show_info = 0, $change_color = 0 , $show_grid = 0, $all_tab_same_wide = 0, $orientation = 'L')
     {
         global $pdf, $db, $cfgRelation, $with_doc;
 
@@ -1168,24 +1157,25 @@ class PMA_RT
             $this->b_marg = 18;
         }
 
-				/* snip */
+                                /* snip */
 
         reset ($alltables);
         while (list(, $table) = each ($alltables)) {
             if (!isset($this->tables[$table])) {
                 $this->tables[$table] = new PMA_RT_Table($table, $this->ff, $this->tablewidth);
-                $this->PMA_RT_setMinMax($this->tables[$table]);
             }
         } // while
-
+        reset($alltables);
+        while (list(, $table) = each ($alltables)) {
+            if($this->same_wide){
+                $this->tables[$table]->width = $this->tablewidth;
+            }
+            $this->PMA_RT_setMinMax($this->tables[$table]);
+        }
         // Defines the scale factor
-        if ($scale == 'auto') {
-            $this->scale = ceil(max(($this->x_max - $this->x_min) / (297 - $this->r_marg - $this->l_marg), ($this->y_max - $this->y_min) / (210 - $this->t_marg - $this->b_marg)) * 100) / 100;
-            $pdf->PMA_PDF_setScale($this->scale, $this->x_min, $this->y_min, $this->l_marg, $this->t_marg);
-        } else {
-            $this->scale = $scale;
-            $pdf->PMA_PDF_setScale($scale);
-        } // end if... else...
+        $this->scale = ceil(max(($this->x_max - $this->x_min) / (297 - $this->r_marg - $this->l_marg), ($this->y_max - $this->y_min) / (210 - $this->t_marg - $this->b_marg)) * 100) / 100;
+        $pdf->PMA_PDF_setScale($this->scale, $this->x_min, $this->y_min, $this->l_marg, $this->t_marg);
+
 
         // Builds and save the PDF document
         $pdf->PMA_PDF_setLineWidthScale(0.1);
@@ -1196,10 +1186,9 @@ class PMA_RT
         }
         $pdf->PMA_PDF_setFontSizeScale(14);
 
-        $this->PMA_RT_drawTables($show_info);
 
-				/* start snip */
-				
+                                /* start snip */
+
         $sql    = 'SELECT * FROM ' . PMA_backquote($cfgRelation['relation'])
                 .   ' WHERE master_db   = \'' . PMA_sqlAddslashes($db) . '\' '
                 .   ' AND foreign_db    = \'' . PMA_sqlAddslashes($db) . '\' '
@@ -1215,12 +1204,13 @@ class PMA_RT
                 $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
             }
         }
-        
-				/* end snip */
+
+                                /* end snip */
 
         if ($norelations == FALSE) {
             $this->PMA_RT_drawRelations($change_color);
         }
+        $this->PMA_RT_drawTables($show_info);
 
         $this->PMA_RT_showRt();
     } // end of the "PMA_RT()" method
@@ -1305,8 +1295,8 @@ function PMA_RT_DOC($alltables ){
         if ($result) {
              mysql_free_result($result);
         }
-    
-    
+
+
         /**
          * Gets table keys and retains them
          */
@@ -1338,32 +1328,32 @@ function PMA_RT_DOC($alltables ){
             // I don't know what does following column mean....
             // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
             $indexes_info[$row['Key_name']]['Comment']         = $row['Comment'];
-    
+
             $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
             if (isset($row['Sub_part'])) {
                 $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
             }
-    
+
         } // end while
         if ($result) {
             mysql_free_result($result);
         }
-    
-    
+
+
         /**
          * Gets fields properties
          */
         $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
         $fields_cnt  = mysql_num_rows($result);
-    
-    
+
+
         // Check if we can use Relations (Mike Beck)
         if (!empty($cfgRelation['relation'])) {
             // Find which tables are related with the current one and write it in
             // an array
             $res_rel = PMA_getForeigners($db, $table);
-    
+
             if (count($res_rel) > 0) {
                 $have_rel = TRUE;
             } else {
@@ -1373,33 +1363,33 @@ function PMA_RT_DOC($alltables ){
         else {
             $have_rel = FALSE;
         } // end if
-    
-    
+
+
         /**
          * Displays the comments of the table if MySQL >= 3.23
          */
-    
+
         $break = false;
         if (!empty($show_comment)) {
             $pdf->Cell(0,3,$GLOBALS['strTableComments'] . ' : ' . $show_comment,0,1);
             $break = true;
         }
-        
+
         if (!empty($create_time)) {
             $pdf->Cell(0,3,$GLOBALS['strStatCreateTime'] . ': ' . $create_time,0,1);
             $break = true;
         }
-        
+
         if (!empty($update_time)) {
             $pdf->Cell(0,3,$GLOBALS['strStatUpdateTime'] . ': ' . $update_time,0,1);
             $break = true;
         }
-        
+
         if (!empty($check_time)) {
             $pdf->Cell(0,3,$GLOBALS['strStatCheckTime'] . ': ' . $check_time,0,1);
             $break = true;
         }
-        
+
         if ($break == true) {
             $pdf->Cell(0,3,'',0,1);
             $pdf->Ln();
@@ -1431,11 +1421,11 @@ function PMA_RT_DOC($alltables ){
             $pdf->SetWidths(array(20,20,20,10,15,15,30,30,30));
         }
         $pdf->SetFont('', '');
-    
+
         while ($row = PMA_mysql_fetch_array($result)) {
             $bgcolor = ($i % 2) ?$GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
             $i++;
-    
+
             $type             = $row['Type'];
             // reformat mysql query output - staybyte - 9. June 2001
             // loic1: set or enum types: slashes single quotes inside options
@@ -1443,7 +1433,7 @@ function PMA_RT_DOC($alltables ){
                 $tmp[2]       = substr(ereg_replace("([^,])''", "\\1\\'", ',' . $tmp[2]), 1);
                 $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
                 $type_nowrap  = '';
-    
+
                 $binary       = 0;
                 $unsigned     = 0;
                 $zerofill     = 0;
@@ -1455,7 +1445,7 @@ function PMA_RT_DOC($alltables ){
                 if (empty($type)) {
                     $type     = '&nbsp;';
                 }
-    
+
                 $binary       = eregi('BINARY', $row['Type'], $test);
                 $unsigned     = eregi('UNSIGNED', $row['Type'], $test);
                 $zerofill     = eregi('ZEROFILL', $row['Type'], $test);
@@ -1497,7 +1487,7 @@ function PMA_RT_DOC($alltables ){
               ) $links[6] = $pdf->PMA_links['doc'][$res_rel[$field_name]['foreign_table']][$res_rel[$field_name]['foreign_field']];
               else unset($links[6]);
             $pdf->Row($pdf_row, $links);
-    
+
              /*$pdf->Cell(20,8,$field_name,1,0,'L',0,$pdf->PMA_links['RT'][$table][$field_name]);
                 //echo '    ' . $field_name . '&nbsp;' . "\n";
             }
@@ -1539,5 +1529,5 @@ $with_doc             = (isset($with_doc) && $with_doc == 'on') ? 1 : 0;
 $orientation          = (isset($orientation) && $orientation == 'P') ? 'P' : 'L';
 PMA_mysql_select_db($db);
 
-$rt = new PMA_RT('auto', $pdf_page_number, $show_table_dimension, $show_color, $show_grid, $all_tab_same_wide, $orientation);
+$rt = new PMA_RT($pdf_page_number, $show_table_dimension, $show_color, $show_grid, $all_tab_same_wide, $orientation);
 ?>
