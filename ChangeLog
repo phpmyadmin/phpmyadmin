@@ -7,6 +7,10 @@ $Source$
 
 2003-01-10 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3: bug 665885, wrong back link after sql error
+    * lang/spanish: update, thanks to Dr. med. Daniel Hinostroza C.
+    * lang/ukrainian: update, thanks to Markijan Baran
+    * lang/romanian: update, thanks to Valics Lehel
+    * lang/japanese: update, thanks to Yukihiro Kawada
 
 2003-01-10 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech*: Updated.
