@@ -4,7 +4,7 @@
 /**
  * Translated by Gosha Sakovich <gt2 at users.sourceforge.net>
  *               Artyom Rabzonov <tyomych at gmx.net>
- *               Nicolay Zakharov <aquarius@mobnav.com> 19-Nov-2002
+ *               Nicolay Zakharov <info at melody.org.ru> 16-Dec-2002
  */
 
 $charset = 'dos-866';
@@ -22,7 +22,10 @@ $month = array('Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'О
 // variable below
 $datefmt = '%B %d %Y г., %H:%M';
 
+$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; 
+
 $strAPrimaryKey = 'Был добавлен первичный ключ к %s';
+$strAbortedClients = 'Отменены'; 
 $strAccessDenied = 'В доступе отказано';
 $strAction = 'Действие';
 $strAddDeleteColumn = 'Добавить/удалить столбец критерия';
@@ -31,7 +34,7 @@ $strAddNewField = 'Добавить новое поле';
 $strAddPriv = 'Добавить новые привилегии';
 $strAddPrivMessage = 'Была добавлена новая привилегия';
 $strAddSearchConditions = 'Добавить условия поиска (тело для условия "where"):';
-$strAddToIndex = 'Добавить к индексу&nbsp;%s&nbsp;колоноку(и)';
+$strAddToIndex = 'Добавить к индексу&nbsp;%s&nbsp;колонку(и)';
 $strAddUser = 'Добавить нового пользователя';
 $strAddUserMessage = 'Был добавлен новый пользователь.';
 $strAffectedRows = 'Затронутые ряды:';
@@ -66,8 +69,10 @@ $strBookmarkQuery = 'Закладка на SQL-запрос';
 $strBookmarkThis = 'Закладка на данный SQL-запрос';
 $strBookmarkView = 'Только просмотр';
 $strBrowse = 'Обзор';
+$strBzError = 'phpMyAdmin не может сжать дамп из-за проблем с Bz2 extension в текущей версии PHP. Строго рекомендуется установить переменной <code>$cfg[\'BZipDump\']</code> в Вашем конфигурационном файле phpMyAdmin значение <code>FALSE</code>. Если Вы хотите использовать Bz2-компрессию, Вам необходимо обновить PHP. Смотрите PHP bug report %s для более подробной информации.'; 
 $strBzip = 'архивировать в bzip';
 
+$strCannotLogin = 'Невозможно войти в MySQL';  
 $strCantLoadMySQL = 'расширение MySQL не загружено,<br />проверьте конфигурацию PHP.';
 $strCantLoadRecodeIconv = 'Не могу загрузить iconv или recode, необходимые для перекодирования символов. Проверьте php-конфигурацию и разрешите их использование или запретите перекодирование символов в phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Невозможно переименовать индекс в PRIMARY!';
@@ -85,15 +90,18 @@ $strChoosePage = 'Выберите страницу для редактирования';
 $strColComFeat = 'Показать комментария столбцов';
 $strColumn = 'Колонка';
 $strColumnNames = 'Названия колонок';
+$strCommand = 'Команда'; 
 $strComments = 'Комментарии';
 $strCompleteInserts = 'Полная вставка';
 $strCompression = 'Сжатие';
 $strConfigFileError = 'phpMyAdmin не может прочитать данные из конфигурационного файла!  <br />Возможная причина - синтаксическая ошибка.<br />Вызовите этот файл (config.inc.php) непосредственно из браузера. Если будут сообщения об ошибках - исправьте их. Если пустая страница - все в порядке';
 $strConfigureTableCoord = 'Измените координаты таблицы %s';
 $strConfirm = 'Вы действительно хотите сделать это?';
+$strConnections = 'Соединения'; 
 $strCookiesRequired = 'Cookies должны быть включены после этого места.';
 $strCopyTable = 'Скопировать таблицу в (база данных<b>.</b>таблица):';
 $strCopyTableOK = 'Таблица %s была скопирована в %s.';
+$strCouldNotKill = 'phpMyAdmin не смог удалить thread %s. Возможно, он уже закрыт.'; 
 $strCreate = 'Создать';
 $strCreateIndex = 'Создать индекс на&nbsp;%s&nbsp;колонках';
 $strCreateIndexTopic = 'Создать новый индекс';
@@ -151,6 +159,7 @@ $strExportToXML = 'Экспорт в XML-формат';
 $strExtendedInserts = 'Расширенные вставки';
 $strExtra = 'Дополнительно';
 
+$strFailedAttempts = 'Неудачные попытки'; 
 $strField = 'Поле';
 $strFieldHasBeenDropped = 'Поле %s было удалено';
 $strFields = 'Поля';
@@ -168,6 +177,7 @@ $strFunction = 'Функция';
 $strGenBy = 'Созданный';
 $strGenTime = 'Время создания';
 $strGeneralRelationFeat = 'Основные возможности связей';
+$strGlobalValue = 'Глобальное значение'; 
 $strGo = 'Пошел';
 $strGrants = 'Права';
 $strGzip = 'архивировать в gzip';
@@ -181,6 +191,7 @@ $strHomepageSourceforge = 'Загрузка phpMyAdmin на Sourceforge';
 $strHost = 'Хост';
 $strHostEmpty = 'Пустое имя хоста!';
 
+$strId = 'ID'; 
 $strIdxFulltext = 'ПолнТекст';
 $strIfYouWish = 'Если Вы желаете загрузить только некоторые столбцы таблицы, укажите разделенный запятыми список полей.';
 $strIgnore = 'Игнорировать';
@@ -204,6 +215,8 @@ $strKeepPass = 'Не менять пароль';
 $strKeyname = 'Имя ключа';
 $strKill = 'Убить';
 
+$strLaTeX = 'LaTeX';  
+$strLandscape = 'Ландшафт';  
 $strLength = 'Длина';
 $strLengthSet = 'Длины/Значения*';
 $strLimitNumRows = 'записей на страницу';
@@ -222,6 +235,7 @@ $strMissingBracket = 'Пропущена скобка';
 $strModifications = 'Модификации были сохранены';
 $strModify = 'Изменить';
 $strModifyIndexTopic = 'Изменить индекс';
+$strMoreStatusVars = 'Другие статусные переменные'; 
 $strMoveTable = 'Переместить таблицы в (база данных<b>.</b>таблица):';
 $strMoveTableOK = 'Таблица %s была перемещена в %s.';
 $strMySQLCharset = 'MySQL-кодировка';
@@ -259,6 +273,7 @@ $strNotValidNumber = ' недопустимое количество рядов!';
 $strNull = 'Ноль';
 $strNumSearchResultsInTable = '%s записи(ей) в таблице <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Итого:</b> <i>%s</i> записи(ей)';
+$strNumTables = 'Таблиц'; 
 
 $strOK = 'Готово';
 $strOftenQuotation = 'Обычно кавычки. "По выбору" означает, что только поля char и varchar заключаются в кавычки.';
@@ -281,9 +296,11 @@ $strPdfDbSchema = 'Структура базы "%s" - страница %s';
 $strPdfInvalidPageNum = 'Неопределенный номер PDF-страницы!';
 $strPdfInvalidTblName = 'Таблица "%s" не существует!';
 $strPdfNoTables = 'Нет таблиц';
+$strPerHour = 'в час'; 
 $strPhp = 'Создать PHP-код';
 $strPmaDocumentation = 'Документация по phpMyAdmin';
 $strPmaUriError = 'Директива <tt>$cfg[\'PmaAbsoluteUri\']</tt> должна быть установлена в Вашем конфигурационном файле!';
+$strPortrait = 'Портрет';  
 $strPos1 = 'Начало';
 $strPrevious = 'Назад';
 $strPrimary = 'Первичный';
@@ -294,6 +311,7 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>должно</b> быть признаком <b>только</b> п
 $strPrint = 'Печать';
 $strPrintView = 'Версия для печати';
 $strPrivileges = 'Привилегии';
+$strProcesslist = 'Список процессов'; 
 $strProperties = 'Свойства';
 $strPutColNames = 'Укажите наименования полей в первой строке';
 
@@ -301,12 +319,16 @@ $strQBE = 'Запрос&nbsp;по&nbsp;примеру';
 $strQBEDel = 'Удалить';
 $strQBEIns = 'Вставить';
 $strQueryOnDb = 'SQL-запрос БД <b>%s</b>:';
+$strQueryStatistics = '<b>Статистика запросов</b>: Со времени запуска %s запросов было послано на сервер.';
+$strQueryType = 'Тип запроса'; 
 
 $strReType = 'Подтверждение';
+$strReceived = 'Принято'; 
 $strRecords = 'Записи';
 $strReferentialIntegrity = 'Проверить целостность данных:';
 $strRelationNotWorking = 'Дополнительные возможности для работы со связанными таблицами недоступны. Для определения причины нажмите %sсюда%s.';
 $strRelationView = 'Связанный вид';
+$strRelationalSchema = 'Реляционная схема';  
 $strReloadFailed = 'Не удалось перезагрузить MySQL.';
 $strReloadMySQL = 'Перезагрузить MySQL';
 $strRememberReload = 'Не забудьте перезагрузить сервер.';
@@ -360,14 +382,23 @@ $strSelectFields = 'Выбрать поля (минимум одно):';
 $strSelectNumRows = 'по запросу';
 $strSelectTables = 'Выберите таблицу(ы)';
 $strSend = 'послать';
+$strSent = 'Послано'; 
 $strServer = 'Сервер %s';
 $strServerChoice = 'Выбор сервера';
+$strServerStatus = 'Текущая информация'; 
+$strServerStatusUptime = 'Этот MySQL сервер работает %s. Он был запущен %s.'; 
+$strServerTabProcesslist = 'Процессы'; 
+$strServerTabVariables = 'Переменные'; 
+$strServerTrafficNotes = '<b>Трафик</b>: Эти таблицы показывают статистику по сетевому трафику MySQL сервера со времени его запуска.';
+$strServerVars = 'Переменные и настройки сервера'; 
 $strServerVersion = 'Версия сервера';
+$strSessionValue = 'Значение сессии'; 
 $strSetEnumVal = 'Для типов поля "enum" и "set", введите значения по этому формату: \'a\',\'b\',\'c\'...<br />Если вам понадобиться ввести обратную косую черту ("\"") или одиночную кавычку ("\'") среди этих значений, поставьте перед ними обратную косую черту (например, \'\\\\xyz\' или \'a\\\'b\').';
 $strShow = 'Показать';
 $strShowAll = 'Показать все';
 $strShowColor = 'Показать цвет';
 $strShowCols = 'Показать колонки';
+$strShowDatadictAs = 'Формат словаря данных';  
 $strShowGrid = 'Показать сетку';
 $strShowPHPInfo = 'Показать информацию о PHP';
 $strShowTableDimension = 'Показать размерность таблицы';
@@ -380,6 +411,7 @@ $strSort = 'Отсортировать';
 $strSpaceUsage = 'Используемое пространство';
 $strSplitWordsWithSpace = 'Слова, разделенные пробелом (" ").';
 $strStatement = 'Выражения';
+$strStatus = 'Статус'; 
 $strStrucCSV = 'CSV данные';
 $strStrucData = 'Структура и данные';
 $strStrucDrop = 'Добавить удаление таблицы';
@@ -398,6 +430,7 @@ $strTableHasBeenDropped = 'Таблица %s была удалена';
 $strTableHasBeenEmptied = 'Таблица %s была очищена';
 $strTableHasBeenFlushed = 'Был сброшен кэш таблицы %s';
 $strTableMaintenance = 'Обслуживание таблицы';
+$strTableOfContents = 'Оглавление';  
 $strTableStructure = 'Структура таблицы';
 $strTableType = 'Тип таблицы';
 $strTables = '%s таблиц(ы)';
@@ -405,7 +438,11 @@ $strTextAreaLength = ' Из-за большой длины,<br /> это поле не может быть отредак
 $strTheContent = 'Содержимое файла было импортировано.';
 $strTheContents = 'Содержимое файла замещает содержимое таблицы для рядов с идентичными первичными или уникальными ключами.';
 $strTheTerminator = 'Символ окончания полей.';
+$strThreadSuccessfullyKilled = 'Thread %s был удален.'; 
+$strTime = 'Время'; 
 $strTotal = 'всего';
+$strTotalUC = 'Всего'; 
+$strTraffic = 'Трафик'; 
 $strType = 'Тип';
 
 $strUncheckAll = 'Снять отметку со всех';
@@ -426,6 +463,7 @@ $strUsers = 'Пользователи';
 $strValidateSQL = 'Проверить SQL';
 $strValidatorError = 'Проверка SQL не может быть инициализирована. Проверьте, установлены ли необходимые модули расширений для PHP, описанные в %sдокументации%s.';
 $strValue = 'Значение';
+$strVar = 'Переменная'; 
 $strViewDump = 'Просмотреть дамп таблицы';
 $strViewDumpDB = 'Просмотреть дамп БД';
 
@@ -439,46 +477,4 @@ $strYes = 'Да';
 
 $strZip = 'архивировать в zip';
 
-// To translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
-$strRelationalSchema = 'Relational schema';  //to translate
-$strTableOfContents = 'Table of contents';  //to translate
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-$strLandscape = 'Landscape';  //to translate
-$strPortrait = 'Portrait';  //to translate
-
-$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
-
-$strAbortedClients = 'Aborted'; //to translate
-$strConnections = 'Connections'; //to translate
-$strFailedAttempts = 'Failed attempts'; //to translate
-$strGlobalValue = 'Global value'; //to translate
-$strMoreStatusVars = 'More status variables'; //to translate
-$strPerHour = 'per hour'; //to translate
-$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
-$strQueryType = 'Query type'; //to translate
-$strReceived = 'Received'; //to translate
-$strSent = 'Sent'; //to translate
-$strServerStatus = 'Runtime Information'; //to translate
-$strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
-$strServerTabVariables = 'Variables'; //to translate
-$strServerTabProcesslist = 'Processes'; //to translate
-$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
-$strServerVars = 'Server variables and settings'; //to translate
-$strSessionValue = 'Session value'; //to translate
-$strTraffic = 'Traffic'; //to translate
-$strVar = 'Variable'; //to translate
-
-$strCommand = 'Command'; //to translate
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-$strId = 'ID'; //to translate
-$strProcesslist = 'Process list'; //to translate
-$strStatus = 'Status'; //to translate
-$strTime = 'Time'; //to translate
-$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
-
-$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
-$strLaTeX = 'LaTeX';  //to translate
 ?>
