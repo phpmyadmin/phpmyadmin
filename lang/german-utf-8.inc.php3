@@ -111,6 +111,7 @@ $strDatabaseHasBeenDropped = 'Datenbank %s wurde gelöscht.';
 $strDatabases = 'Datenbanken';
 $strDatabasesStats = 'Statistiken über alle Datenbanken';
 $strDatabaseWildcard = 'Datenbank (Platzhalter sind erlaubt):';
+$strDataDict = 'Strukturverzeichnis';
 $strDataOnly = 'Nur Daten';
 $strDefault = 'Standard';
 $strDelete = 'Löschen';
@@ -291,6 +292,7 @@ $strPrimaryKey = 'Primärschlüssel';
 $strPrimaryKeyHasBeenDropped = 'Der Primärschlüssel wurde gelöscht.';
 $strPrimaryKeyName = 'Der Name des Primärschlüssels muss PRIMARY lauten!';
 $strPrimaryKeyWarning = 'Der Name des Primärschlüssels darf <b>nur</b> "PRIMARY" lauten.';
+$strPrint = 'Drucken';
 $strPrintView = 'Druckansicht';
 $strPrivileges = 'Rechte';
 $strProperties = 'Eigenschaften';
@@ -439,6 +441,4 @@ $strYes = 'Ja';
 $strZip = 'Zip-komprimiert';
 // To translate
 
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
 ?>

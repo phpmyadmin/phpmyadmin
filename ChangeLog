@@ -8,6 +8,7 @@ $Source$
 
 2002-11-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_datadict.php3: Fixed bug #632515 (JS error in data dictonary).
+    * lang/german-*.inc.php3: Updates.
 
 2002-11-01 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3, libraries/display_tbl.lib.php3,
