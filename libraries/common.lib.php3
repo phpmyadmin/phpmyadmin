@@ -71,8 +71,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     include('./config.inc.php3');
 
     // For compatibility with old config.inc.php3
+
     if (!isset($cfgExecTimeLimit)) {
-        $cfgExecTimeLimit       = 300; // 5 minuts
+        $cfgExecTimeLimit       = 300; // 5 minutes
     }
     if (!isset($cfgShowStats)) {
         $cfgShowStats           = TRUE;
@@ -424,6 +425,11 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                                     : 'config';
         }
 
+        if (isset($cfgServer['stduser'])) {
+           $cfgServer['controluser'] = $cfgServer['stduser'];
+           $cfgServer['controlpass'] = $cfgServer['stdpass'];
+        } 
+
         // Gets the authentication library that fits the cfgServer settings
         // and run authentication
         include('./libraries/auth/' . $cfgServer['auth_type'] . '.auth.lib.php3');
@@ -446,15 +452,15 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             $bkp_track_err = @ini_set('track_errors', 1);
         }
 
-        // Try to connect MySQL with the standard user profile (will be used to
+        // Try to connect MySQL with the control user profile (will be used to
         // get the privileges list for the current user but the true user link
         // must be open after this one so it would be default one for all the
         // scripts)
-        if ($cfgServer['stduser'] != '') {
+        if ($cfgServer['controluser'] != '') {
             $dbh           = @$connect_func(
                                  $cfgServer['host'] . $server_port . $server_socket,
-                                 $cfgServer['stduser'],
-                                 $cfgServer['stdpass']
+                                 $cfgServer['controluser'],
+                                 $cfgServer['controlpass']
                              );
             if ($dbh == FALSE) {
                 if (mysql_error()) {
@@ -466,7 +472,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                 }
                 $local_query    = $connect_func . '('
                                 . $cfgServer['host'] . $server_port . $server_socket . ', '
-                                . $cfgServer['stduser'] . ', '
+                                . $cfgServer['controluser'] . ', '
                                 . $cfgServer['stdpass'] . ')';
                 PMA_mysqlDie($conn_error, $local_query, FALSE);
             } // end if
@@ -486,9 +492,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             @ini_set('track_errors', $bkp_track_err);
         }
 
-        // If stduser isn't defined, use the current user settings to get his
+        // If controluser isn't defined, use the current user settings to get his
         // rights
-        if ($cfgServer['stduser'] == '') {
+        if ($cfgServer['controluser'] == '') {
             $dbh = $userlink;
         }
 
