@@ -435,6 +435,7 @@ $strWrongUser = '密码错误，访问被拒绝。';
 $strYes = '是';
 
 $strZip = '"zipped"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

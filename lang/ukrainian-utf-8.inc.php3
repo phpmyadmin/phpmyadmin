@@ -432,6 +432,7 @@ $strWrongUser = 'Невірний логін/пароль. Доступ не д�
 $strYes = 'Так';
 
 $strZip = 'запакувати в "zip"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

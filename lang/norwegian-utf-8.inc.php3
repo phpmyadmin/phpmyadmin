@@ -438,4 +438,5 @@ $strYes = 'Ja';
 $strZip = 'Komprimert (zip)';
 
 // To translate
+$strCompression = 'Compression'; //to translate
 ?>

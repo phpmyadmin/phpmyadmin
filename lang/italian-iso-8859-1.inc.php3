@@ -437,6 +437,7 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 $strZip = '"compresso con zip"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

@@ -442,4 +442,6 @@ $strYes = 'はい';
 
 $strZip = '"zipされる"';
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

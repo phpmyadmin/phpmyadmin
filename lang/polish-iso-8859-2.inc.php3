@@ -431,6 +431,7 @@ $strWrongUser = 'B³êdne pola u¿ytkownik/has³o. Brak dostêpu.';
 $strYes = 'Tak';
 
 $strZip = '".zip"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

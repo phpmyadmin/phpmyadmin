@@ -269,6 +269,7 @@ $strCarriage = 'Carriage return: \\r'; //to translate
 $strChangeDisplay = 'Choose Field to display'; //to translate
 $strCharsetOfFile = 'Character set of the file:'; //to translate
 $strColComFeat = 'Displaying Column Comments'; //to translate
+$strCompression = 'Compression'; //to translate
 $strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
 $strConfigureTableCoord = 'Please configure the coordinates for table %s'; //to translate
 $strCookiesRequired = 'Cookies must be enabled past this point.'; //to translate

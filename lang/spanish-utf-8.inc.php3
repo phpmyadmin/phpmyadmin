@@ -263,7 +263,7 @@ $strOptions = 'Opciones';
 $strOr = 'O';
 $strOverhead = 'Residuo a depurar';
 
-$strPHP40203 = 'Usted está usando PHP 4.2.3, el cual tiene un error de codificación en cuanto a los "strings multi-byte" (mbstring). Lea el reporte 19404 de PHP. Esta versión de PHP no está recomendada para ser usada con phpMyAdmin.';  
+$strPHP40203 = 'Usted está usando PHP 4.2.3, el cual tiene un error de codificación en cuanto a los "strings multi-byte" (mbstring). Lea el reporte 19404 de PHP. Esta versión de PHP no está recomendada para ser usada con phpMyAdmin.';
 $strPHPVersion = 'Versión de PHP';
 $strPageNumber = 'Número de página:';
 $strPartialText = 'Textos parciales';
@@ -284,7 +284,7 @@ $strPrimaryKey = 'Clave Primaria';
 $strPrimaryKeyHasBeenDropped = 'La clave primaria ha sido eliminada';
 $strPrimaryKeyName = 'El nombre de la clave primaria debe ser... ¡PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>debe</b> ser el nombre de y <b>únicamente de</b> ¡una clave primaria!)';
-$strPrint = 'Imprimir';  
+$strPrint = 'Imprimir';
 $strPrintView = 'Vista de impresión';
 $strPrivileges = 'Privilegios';
 $strProperties = 'Propiedades';
@@ -432,4 +432,6 @@ $strYes = 'Sí';
 
 $strZip = '"comprimido con zip"';
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

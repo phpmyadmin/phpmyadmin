@@ -432,6 +432,7 @@ $strWrongUser = 'Neteisingas vartotojo vardas arba slaptažodis. Priėjimas užd
 $strYes = 'Taip';
 
 $strZip = '"zip"';
-//to translate:
 
+// To translate:
+$strCompression = 'Compression'; //to translate
 ?>

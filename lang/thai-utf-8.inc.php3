@@ -438,4 +438,5 @@ $strYes = 'ใช่';
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
 
 // To translate
+$strCompression = 'Compression'; //to translate
 ?>

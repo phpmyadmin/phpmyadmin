@@ -433,4 +433,5 @@ $strYes = 'Так';
 $strZip = 'запакувати в "zip"';
 // To translate
 
+$strCompression = 'Compression'; //to translate
 ?>

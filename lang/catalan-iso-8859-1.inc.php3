@@ -431,6 +431,7 @@ $strWrongUser = 'Usuari i/o clau erronis. Accés denegat.';
 $strYes = 'Si';
 
 $strZip = '"comprimit amb zip"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

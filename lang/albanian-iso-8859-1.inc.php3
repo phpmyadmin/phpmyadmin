@@ -439,6 +439,7 @@ $strWrongUser = 'Emri i përdoruesit apo password i gabuar. Ndalohet hyrja.';
 $strYes = ' Po ';
 
 $strZip = '"kompresuar me zip"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

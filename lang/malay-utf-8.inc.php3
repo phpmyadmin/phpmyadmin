@@ -118,7 +118,7 @@ $strCreatePdfFeat = 'Ciptaan bagi PDF';
 $strCriteria = 'Kriteria';
 
 $strData = 'Data';
-$strDataDict = 'Kamus Data'; 
+$strDataDict = 'Kamus Data';
 $strDataOnly = 'Data sahaja';
 $strDatabase = 'Pangkalan Data ';
 $strDatabaseHasBeenDropped = 'angkalan data %s telah digugurkan.';
@@ -198,7 +198,7 @@ $strHostEmpty = 'Nama hos adalah kosong!';
 $strIdxFulltext = 'Tekspenuh';
 $strIfYouWish = 'Jika anda ingin hanya memuat sesetengah kolum jadual, nyatakan senarai medan dipisahi koma.';
 $strIgnore = 'Abai';
-$strImportDocSQL = 'Import Fail docSQL'; 
+$strImportDocSQL = 'Import Fail docSQL';
 $strInUse = 'sedang digunakan';
 $strIndex = 'Indeks';
 $strIndexHasBeenDropped = 'Indeks %s telah digugurkan';
@@ -374,7 +374,7 @@ $strSelectFields = 'Pilih medan (sekurang-kurangnya satu):';
 $strSelectNumRows = 'pada kueri';
 $strSelectTables = 'Pilih Jadual';
 $strSend = 'Simpan sebagai fail';
-$strServer = 'Pelayan %s'; 
+$strServer = 'Pelayan %s';
 $strServerChoice = 'Pilihan Pelayan';
 $strServerVersion = 'Versi Pelayan';
 $strSetEnumVal = 'Jika jenis medan ialah "enum" atau "set", sila masukkan nilai menggunakan format: \'a\',\'b\',\'c\'...<br />Jika Anda ingin menggunakan backslash ("\") atau single quote ("\'") didalam nilai tersebut, backslashes kan ia (cth \'\\\\xyz\' or \'a\\\'b\').';
@@ -438,7 +438,7 @@ $strUserName = 'Kata Pengenalan';
 $strUsers = 'Pengguna-Pengguna';
 
 $strValidateSQL = 'Mengesahkan SQL';
-$strValidatorError = 'Pengesahan SQL tidak dapat disahkan. Sila semak sama ada anda telah memasang sambungan php seperti yang tercatitit di %sdocumentation%s.'; 
+$strValidatorError = 'Pengesahan SQL tidak dapat disahkan. Sila semak sama ada anda telah memasang sambungan php seperti yang tercatitit di %sdocumentation%s.';
 $strValue = 'Nilai';
 $strViewDump = 'Lihat longgokan (skema) pangkalan data';
 $strViewDumpDB = 'View dump (schema) of database';
@@ -453,4 +453,6 @@ $strYes = 'Ya';
 
 $strZip = '"zipped"';
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

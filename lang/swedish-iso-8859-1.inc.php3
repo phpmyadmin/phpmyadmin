@@ -432,6 +432,7 @@ $strWrongUser = 'Fel användarnamn/lösenord. Åtkomst nekad.';
 $strYes = 'Ja';
 
 $strZip = '"zippad"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

@@ -436,6 +436,7 @@ $strWrongUser = 'Napačno uporabniško ime/geslo. Dostop zavrnjen.';
 $strYes = 'Da';
 
 $strZip = '"zipano"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

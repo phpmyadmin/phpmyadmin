@@ -434,6 +434,7 @@ $strWrongUser = 'ÃÜÂë´íÎó£¬·ÃÎÊ±»¾Ü¾ø¡£';
 $strYes = 'ÊÇ';
 
 $strZip = '"zipped"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

@@ -437,6 +437,7 @@ $strWrongUser = '錯誤的使用者名稱或密碼，拒絕存取';
 $strYes = ' 是 ';
 
 $strZip = '"zipped"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

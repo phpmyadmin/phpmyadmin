@@ -442,4 +442,6 @@ $strYes = '‚Í‚¢';
 
 $strZip = '"zip‚³‚ê‚é"';
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

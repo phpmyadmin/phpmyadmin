@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-17 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * db_details.php3, read_dump.php3, tbl_query_box.php3, lang/*.inc.php3:
+      Feature #506106: Read compressed dump.
+
 2002-11-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/build_dump.lib.php3: fix for old MySQL, thanks to
       Flavio Poletti (flavio at polettix.it)
@@ -20,7 +24,7 @@ $Source$
     * lang/hindi update, thanks to Girish Nair (girish_nair)
 
 2002-11-16 Robin Johnson  <robbat2@users.sourceforge.net>
-    * lib/sqlparser.data.php3: Bug #639291 fixed
+    * libraries/sqlparser.data.php3: Bug #639291 fixed
 
 2002-11-16 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_indexes.php3: Fixed bug #638321 (FULLTEXT is not detected correctly

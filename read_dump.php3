@@ -164,6 +164,56 @@ if (!function_exists('is_uploaded_file')) {
     } // end of the 'is_uploaded_file()' emulated function
 } // end if
 
+/**
+ * Reads (and decompresses) a (compressed) file into a string
+ *
+ * @param   string   the path to the file
+ * @param   string   the MIME type of the file
+ *
+ * @global  array    the phpMyAdmin configuration
+ *
+ * @return  string   the content of the file or
+ *          boolean  FALSE in case of an error.
+ */
+function PMA_readFile($path, $mime = 'text/plain') {
+    global $cfg;
+
+    switch ($mime) {
+        case 'text/plain':
+            $file = fopen($path, 'rb');
+            $content = fread($file, filesize($path));
+            fclose($file);
+            break;
+        case 'application/x-gzip':
+            if ($cfg['GZipDump'] && @function_exists('gzopen')) {
+                $file = gzopen($path, 'rb');
+                $content = '';
+                while (!gzeof($file)) {
+                    $content .= gzgetc($file);
+                }
+                gzclose($file);
+            } else {
+                return FALSE;
+            }
+           break;
+        case 'application/x-bzip':
+            if ($cfg['BZipDump'] && @function_exists('bzdecompress')) {
+                $file = fopen($path, 'rb');
+                $content = fread($file, filesize($path));
+                fclose($file);
+                $content = bzdecompress($content);
+            } else {
+                return FALSE;
+            }
+           break;
+        default:
+           return FALSE;
+    }
+    if (!file_exists($path)) {
+        return FALSE;
+    }
+    return $content;
+}
 
 
 /**
@@ -260,7 +310,7 @@ if ($sql_file != 'none') {
                 // may only be a prefix), force the error and let PHP reports
                 // it
                 error_reporting(E_ALL);
-                $sql_query = fread(fopen($sql_file, 'r'), filesize($sql_file));
+                $sql_query = PMA_readFile($sql_file, $sql_file_compression);
             }
             else {
                 $sql_file_new = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/')
@@ -270,13 +320,13 @@ if ($sql_file != 'none') {
                 } else {
                     move_uploaded_file($sql_file, $sql_file_new);
                 }
-                $sql_query = fread(fopen($sql_file_new, 'r'), filesize($sql_file_new));
+                $sql_query = PMA_readFile($sql_file_new, $sql_file_compression);
                 unlink($sql_file_new);
             }
         }
         else {
             // read from the normal upload dir
-            $sql_query = fread(fopen($sql_file, 'r'), filesize($sql_file));
+            $sql_query = PMA_readFile($sql_file, $sql_file_compression);
         }
 
         if (get_magic_quotes_runtime() == 1) {

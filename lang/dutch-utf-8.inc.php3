@@ -289,7 +289,7 @@ $strPrimaryKey = 'Primaire sleutel';
 $strPrimaryKeyHasBeenDropped = 'De primaire sleutel is vervallen';
 $strPrimaryKeyName = 'De naam van de primaire sleutel moet PRIMARY zijn!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>moet</b> de naam van en <b>alleen van</b> een primaire sleutel zijn!)';
-$strPrint = 'Afdrukken'; 
+$strPrint = 'Afdrukken';
 $strPrintView = 'Printopmaak';
 $strPrivileges = 'Rechten';
 $strProperties = 'Eigenschappen';
@@ -436,6 +436,7 @@ $strWrongUser = 'Verkeerde gebruikersnaam/wachtwoord. Toegang geweigerd.';
 $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

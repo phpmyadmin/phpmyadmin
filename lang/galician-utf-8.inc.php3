@@ -438,4 +438,5 @@ $strZip = 'comprimido no formato "zipped"';
 
 // To translate
 $strImportDocSQL = 'Import docSQL Files';  //to translate
+$strCompression = 'Compression'; //to translate
 ?>

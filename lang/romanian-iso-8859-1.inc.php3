@@ -431,6 +431,7 @@ $strWrongUser = 'Nume de utilizator/Parola incorecta. Accesul interzis.';
 $strYes = 'Da';
 
 $strZip = '"arhivat"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>

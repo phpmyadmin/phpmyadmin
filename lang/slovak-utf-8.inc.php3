@@ -434,6 +434,7 @@ $strWrongUser = 'Zlé používateľské meno alebo heslo. Prístup zamietnutý.'
 $strYes = 'Áno';
 
 $strZip = '"zo zipované"';
-// To translate
 
+// To translate
+$strCompression = 'Compression'; //to translate
 ?>
