@@ -22,8 +22,8 @@ cat <<END
 Please ensure you have:
   1. incremented rc count or version in CVS :
      - in libraries/defines.lib.php3 the line
-          " define('PHPMYADMIN_VERSION', '$1'); "
-     - in Documentation.html the line
+          " define('PMA_VERSION', '$1'); "
+     - in Documentation.html the 2 lines
           " <h1>phpMyAdmin $1 Documentation</h1> "
   2. built the new "Documentation.txt" version using the Lynx "print" command
      on the "Documentation.html" file.
