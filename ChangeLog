@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-10 Garvin Hicking <me@supergarv.de>
+    * tbl_change.php3: Patch #697541 to prevent non-associative MySQL
+      fieldnames to be mapped to false keys for display.
+
 2003-03-10 Marc Delisle  <lem9@users.sourceforge.net>
     * transformation_wrapper.php3, lang/*,
       libraries/transformations/image_png__inline.inc.php3:

@@ -84,6 +84,7 @@ if (isset($primary_key)) {
     $local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key;
     $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     $row         = PMA_mysql_fetch_array($result);
+    
     // No row returned
     if (!$row) {
         unset($row);
@@ -199,6 +200,16 @@ for ($i = 0; $i < $fields_cnt; $i++) {
 
     $row_table_def   = PMA_mysql_fetch_array($table_def);
     $field           = $row_table_def['Field'];
+
+    // garvin: possible workaround. If current field is numerical, do not try to
+    //  access the result-array with its 'associative' key but with its numerical
+    //  represantation.
+    if ((PMA_PHP_INT_VERSION > 40000 && is_numeric($field)) || eregi('^[0-9]*$', $field)) {
+        $rowfield = $i;
+    } else {
+        $rowfield = $field;
+    }
+    
     // loic1: current date should not be set as default if the field is NULL
     //        for the current row
     // lem9:  but do not put here the current datetime if there is a default
@@ -208,15 +219,15 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         && (!isset($row_table_def['Default']))) {
         // INSERT case
         if ($insert_mode) {
-            $row[$field] = date('Y-m-d H:i:s', time());
+            $row[$rowfield] = date('Y-m-d H:i:s', time());
         }
         // UPDATE case with an empty and not NULL value under PHP4
-        else if (empty($row[$field]) && function_exists('is_null')) {
-            $row[$field] = (is_null($row[$field]) ? $row[$field] : date('Y-m-d H:i:s', time()));
+        else if (empty($row[$rowfield]) && function_exists('is_null')) {
+            $row[$rowfield] = (is_null($row[$rowfield]) ? $row[$rowfield] : date('Y-m-d H:i:s', time()));
         }
         // UPDATE case with an empty value under PHP3
-        else if (empty($row[$field])) {
-            $row[$field] = date('Y-m-d H:i:s', time());
+        else if (empty($row[$rowfield])) {
+            $row[$rowfield] = date('Y-m-d H:i:s', time());
         } // end if... else if... else if...
     }
     $len             = (eregi('float|double', $row_table_def['Type']))
@@ -269,27 +280,27 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // Prepares the field value
     if (isset($row)) {
         // loic1: null field value
-        if (!isset($row[$field])) {
-            $row[$field]   = 'NULL';
+        if (!isset($row[$rowfield])) {
+            $row[$rowfield]   = 'NULL';
             $special_chars = '';
-            $data          = $row[$field];
+            $data          = $row[$rowfield];
         } else {
             // loic1: special binary "characters"
             if ($is_binary || $is_blob) {
-                $row[$field] = str_replace("\x00", '\0', $row[$field]);
-                $row[$field] = str_replace("\x08", '\b', $row[$field]);
-                $row[$field] = str_replace("\x0a", '\n', $row[$field]);
-                $row[$field] = str_replace("\x0d", '\r', $row[$field]);
-                $row[$field] = str_replace("\x1a", '\Z', $row[$field]);
+                $row[$rowfield] = str_replace("\x00", '\0', $row[$rowfield]);
+                $row[$rowfield] = str_replace("\x08", '\b', $row[$rowfield]);
+                $row[$rowfield] = str_replace("\x0a", '\n', $row[$rowfield]);
+                $row[$rowfield] = str_replace("\x0d", '\r', $row[$rowfield]);
+                $row[$rowfield] = str_replace("\x1a", '\Z', $row[$rowfield]);
             } // end if
-            $special_chars   = htmlspecialchars($row[$field]);
-            $data            = $row[$field];
+            $special_chars   = htmlspecialchars($row[$rowfield]);
+            $data            = $row[$rowfield];
         } // end if... else...
         // loic1: if a timestamp field value is not included in an update
         //        statement MySQL auto-update it to the current timestamp
         $backup_field  = ($row_table_def['True_Type'] == 'timestamp')
                        ? ''
-                       : '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="' . urlencode($row[$field]) . '" />';
+                       : '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="' . urlencode($row[$rowfield]) . '" />';
     } else {
         // loic1: display default values
         if (!isset($row_table_def['Default'])) {
