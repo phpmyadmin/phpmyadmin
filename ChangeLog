@@ -5,6 +5,8 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-13 Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/korean.inc.php3: fixed some inconcistencies.
 
 2002-04-12 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3, lines 957-991: expended cosmetic changes

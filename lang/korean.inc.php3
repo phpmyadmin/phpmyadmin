@@ -1,11 +1,11 @@
 <?php
-/* korean.inc.php,v 2.2.6 2002/04/13 (3nd Ed.) $ */
-/* By WooSuhan (kjh@unews.co.kr) */
+/* $Id$ */
+/* Translated by WooSuhan <kjh@unews.co.kr> */
 
 $charset = 'ks_c_5601-1987';
 $text_dir = 'ltr';
-$left_font_family = '"굴림",sans-serif';
-$right_font_family = '"굴림",sans-serif';
+$left_font_family = '"굴림", sans-serif';
+$right_font_family = '"굴림", sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 $byteUnits = array('바이트', 'KB', 'MB', 'GB');
@@ -79,6 +79,7 @@ $strCopyTableOK = '%s 테이블이 %s 으로 복사되었습니다.';
 $strCreate = ' 만들기 ';
 $strCreateIndex = '%s 칼럼에 인덱스 만들기 ';
 $strCreateIndexTopic = '새 인덱스 만들기';
+$strCreateNewDatabase = 'Create new database';
 $strCreateNewTable = '데이터베이스 %s에 새로운 테이블을 만듭니다.';
 $strCriteria = 'Criteria';
 
@@ -86,7 +87,7 @@ $strData = '데이터';
 $strDatabase = '데이터베이스 ';
 $strDatabaseHasBeenDropped = '데이터베이스 %s 를 제거했습니다.';
 $strDatabases = '데이터베이스 ';
-$strDatabasesStats = '데이터베이스 사용량 통계';//to translate
+$strDatabasesStats = '데이터베이스 사용량 통계';
 $strDatabaseWildcard = '데이터베이스 (와일드카드문자 사용 가능):';
 $strDataOnly = '데이터만';
 $strDefault = '기본값';
@@ -94,7 +95,7 @@ $strDelete = '삭제';
 $strDeleted = '선택한 열을 삭제 하였습니다.';
 $strDeletedRows = '지워진 열:';
 $strDeleteFailed = 'Deleted Failed!';
-$strDeleteUserMessage = '사용자 %s 를 삭제했습니다.';//to translate
+$strDeleteUserMessage = '사용자 %s 를 삭제했습니다.';
 $strDescending = '내림차순(역순)';
 $strDisplay = '보기';
 $strDisplayOrder = '출력 순서:';
@@ -117,6 +118,7 @@ $strEnglishPrivileges = ' 주의: MySQL 권한 이름은 영어로 표기되어야 합니다. ';
 $strError = '오류';
 $strExtendedInserts = '확장된 inserts';
 $strExtra = '추가';
+
 $strField = '필드';
 $strFieldHasBeenDropped = '필드 %s 를 제거했습니다';
 $strFields = '필드';
@@ -130,6 +132,7 @@ $strFormat = 'Format';
 $strFormEmpty = 'Missing value in the form !';
 $strFullText = 'Full Texts';
 $strFunction = '함수';
+
 $strGenTime = '처리한 시간';
 $strGo = '실행';
 $strGrants = '승인권한';
@@ -169,7 +172,7 @@ $strLengthSet = '길이/값*';
 $strLimitNumRows = '페이지당 레코드 수';
 $strLineFeed = '줄바꿈 문자: \\n';
 $strLines = '줄(行)';
-$strLinesTerminatedBy = '줄(열) 구분자';//to translate
+$strLinesTerminatedBy = '줄(열) 구분자';
 $strLocationTextfile = 'SQL 텍스트파일의 위치';
 $strLogin = '로그인';
 $strLogout = '로그아웃';
@@ -203,7 +206,6 @@ $strNoPassword = '암호 없음';
 $strNoPrivileges = '권한 없음';
 $strNoQuery = 'SQL 쿼리 없음!';
 $strNoRights = '어떻게 들어오셨어요? 지금 여기 있을 권한이 없습니다!';
-$strNoTablesFound = '현재의 DB에는 테이블이 없습니다.';
 $strNoTablesFound = '데이터베이스에 테이블이 없습니다.';
 $strNotNumber = '은 숫자(번호)가 아닙니다!';
 $strNotValidNumber = '은 올바른 열 번호가 아닙니다!';
@@ -222,7 +224,7 @@ $strPassword = '암호';
 $strPasswordEmpty = '암호가 비었습니다!';
 $strPasswordNotSame = '암호가 동일하지 않습니다!';
 $strPHPVersion = 'PHP 버전';
-$strPmaDocumentation = 'phpMyAdmin 설명서';//to translate
+$strPmaDocumentation = 'phpMyAdmin 설명서';
 $strPmaUriError = '환경설정 파일에서 <tt>$cfgPmaAbsoluteUri</tt> 주소를 기입하십시오!';
 $strPos1 = '처음';
 $strPrevious = '이전';
@@ -251,7 +253,6 @@ $strRepairTable = '테이블 복구';
 $strReplace = '대치(Replace)';
 $strReplaceTable = '파일로 테이블 대치하기';
 $strReset = '리세트';
-
 $strReType = '재입력';
 $strRevoke = '제거';
 $strRevokeGrant = '승인 제거';
@@ -284,7 +285,7 @@ $strShow = '보기';
 $strShowAll = '모두 보기'; 
 $strShowCols = '칼럼(행) 보기';
 $strShowingRecords = '레코드(열) 보기';
-$strShowPHPInfo = 'PHP 정보 보기';  // To translate
+$strShowPHPInfo = 'PHP 정보 보기';
 $strShowTables = '테이블 보기';
 $strShowThisQuery = ' 이 쿼리를 다시 보여줌 ';
 $strSingly = '(singly)';
@@ -292,7 +293,7 @@ $strSize = '크기';
 $strSort = 'Sort'; // 
 $strSpaceUsage = '공간 사용량';
 $strSQLQuery = 'SQL 쿼리';
-$strStartingRecord = '시작 위치(열)'; //to translate
+$strStartingRecord = '시작 위치(열)';
 $strStatement = '명세';
 $strStrucCSV = 'CSV 데이터';
 $strStrucData = '구조와 데이터';
@@ -316,7 +317,6 @@ $strTableType = '테이블 종류';
 $strTextAreaLength = ' 필드의 길이 때문에,<br />이 필드를 편집할 수 없습니다 ';
 $strTheContent = '파일 내용을 삽입하였습니다.';
 $strTheContents = '파일 내용이 선택한 테이블의 프라이머리 혹은 고유값 키와 일치하는 열을 대치(代置)시키겠습니다.';
-// $strTheContents = 'The contents of the file replaces the contents of the selected table for rows with identical primary or unique key.';
 $strTheTerminator = '필드 종료 기호.';
 $strTotal = '합계';
 $strType = '종류';
@@ -335,12 +335,18 @@ $strUserEmpty = '사용자명이 없습니다!';
 $strUserName = '사용자명';
 $strUsers = '사용자들';
 $strUseTables = 'Use Tables';
+
 $strValue = '값';
 $strViewDump = '테이블의 덤프(스키마) 데이터 보기';
 $strViewDumpDB = '데이터베이스의 덤프(스키마) 데이터 보기';
+
 $strWelcome = '%s에 오셨습니다';
 $strWithChecked = '선택한 것을:';
 $strWrongUser = '사용자명/암호가 틀렸습니다. 접근이 거부되었습니다.';
+
 $strYes = ' 예 ';
+
 $strZip = 'zip 압축';
+
+// To translate
 ?>
