@@ -5,10 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2001-08-17  Robin Johnson  <robbat2@orbis-terrarum.net>
-	* config.inc.php3
-		- Added comments about what many of the configuration variables do
-		- Replaced multiple spaces with tabs for alignment
+2001-08-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3; lang/*: modified the way the tables' number is
+	  displayed.
+	* user_details.php3: merged temporary javascript fixes.
+
+2001-08-17  Robin Johnson  <robbat2@orbis-terrarum.net> 
+	* config.inc.php3 
+	  - Added comments about what many of the configuration variables do
+	  - Replaced multiple spaces with tabs for alignment
 
 2001-08-17  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/polish.inc.php3: updated thanks to
