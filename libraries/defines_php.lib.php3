@@ -16,7 +16,7 @@
  */
 // phpMyAdmin release
 if (!defined('PMA_VERSION')) {
-    define('PMA_VERSION', '2.5.4-rc1');
+    define('PMA_VERSION', '2.5.4-rc2');
 }
 
 // php version
