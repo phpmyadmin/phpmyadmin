@@ -1566,6 +1566,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
     function expand_sql_query($sql)
     {	$sql = trim($sql);
 	$arr = explode(" ",$sql);
+	if(strtoupper($arr[0]) != "SELECT")
+		return $sql;
 	$start_table_ref = FALSE;
 	$end_table_ref = FALSE;
 
