@@ -140,7 +140,7 @@
     end of lines character (&quot;<tt>\r</tt>&quot;).
 </p>
 
-<p><b>Quick Install:</b></p>
+<h3>Quick Install</h3>
 <ol>
     <li> Untar or unzip the distribution (be sure to unzip the subdirectories):
          <tt>tar -xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's
@@ -177,15 +177,19 @@
 
 </ol>
 
-<p><b>Upgrading from an older version:</b></p>
+<h3>Upgrading from an older version</h3>
 <ul>
-    <li>Please do not copy your older <i>config.inc.php</i> over the new one: it may
-        offer new configuration variables, and the new version may depend on
-        these for normal behavior.  It is suggested instead to insert your site
-        values in the new one.</li>
+    <li>
+        You can safely copy your older <i>config.inc.php</i> over a new one, if
+        you can live with default values for possible new parameters (you can
+        check release notes to see what new features were added). This
+        compatibility will stay for long time, current version supports
+        importing config files from 2.2 and maybe even older (nobody has tried
+        that).
+    </li>
 </ul>
 
-<p><b>Using authentication modes:</b></p>
+<h3>Using authentication modes</h3>
 <ul>
     <li>HTTP and cookie authentication modes are recommended in a <b>multi-user
         environment</b> where you want to give users access to their own
@@ -278,7 +282,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </li>
 </ul>
 
-<p><b>'http' authentication mode:</b></p>
+<h4>'http' authentication mode</h4>
 <ul>
     <li>Was called 'advanced' in versions before 2.2.3.</li>
     <li>Introduced in 1.3.0, it uses Basic HTTP authentication method and
@@ -289,7 +293,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         with 'http' authentication mode.</li>
 </ul>
 
-<p><b>'cookie' authentication mode:</b></p>
+<h4>'cookie' authentication mode</h4>
 <ul>
     <li>You can use this method as a replacement for the HTTP
         authentication (for example, if you're running IIS).
@@ -301,7 +305,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <tt><a href="#AllowArbitraryServer">$cfg['AllowArbitraryServer']</a></tt> directive.</li>
 </ul>
 
-<p><b>'config' authentication mode:</b></p>
+<h4>'config' authentication mode</h4>
 <ul>
     <li>This mode is the less secure one because it requires you to fill the
         <tt><a href="#servers_user">$cfg['Servers'][$i]['user']</a></tt> and

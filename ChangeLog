@@ -17,6 +17,8 @@ $Source$
       libraries/display_export.lib.php, libraries/export/xls.php,
       Documentation.html: EXPERIMENTAL native MS Excel export support, using
       PEAR module Spreadsheet_Excel_Writer (RFE #968110).
+    * Documentation.html: Described older config.inc.php support (RFE
+      #968177).
 
 2004-06-07 Alexander M. Turek  <me@derrabus.de>
     * css/phpmyadmin.css.php: beautifications.
