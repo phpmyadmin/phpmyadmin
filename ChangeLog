@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-06 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * db_datadict.php3: The result of SHOW INDEX does not have a 'Comment'
+      column before MySQL 3.23 (bug #712055).
+
 2003-04-05 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian updates, thanks to Valics Lehel
     * lang/slovenian update, thanks to Kositer Uros
@@ -41,7 +45,7 @@ $Source$
     * lang/italian: Updated, thanks to Pietro Danesi.
 
 2003-03-31 Marc Delisle  <lem9@users.sourceforge.net>
-    * css/phpmyadmin.css.php3: calls from a css file are relative to itself 
+    * css/phpmyadmin.css.php3: calls from a css file are relative to itself
       thanks to Jose Fandos (jose.fandos at sonnd.com)
 
 2003-03-27 Alexander M. Turek  <rabus@users.sourceforge.net>
