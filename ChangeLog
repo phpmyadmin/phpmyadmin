@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
+
 2003-08-16 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: Bad anchor link and other typos.
 
