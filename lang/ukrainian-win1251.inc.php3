@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'Неможливо перейменувати індекс в PRIMARY!';
 $strCarriage = 'Повернення каретки: \\r';
 $strCardinality = 'Кількість елементів';
 $strChange = 'Змінити';
+$strChangePassword = 'Змінити пароль';
 $strCheckAll = 'Відмітити все';
 $strCheckDbPriv = 'Перевірити привілеї бази даних';
 $strCheckTable = 'Перевірити таблицю';
@@ -346,5 +347,4 @@ $strYes = 'Так';
 $strZip = 'запакувати в "zip"';
 
 // To translate
-$strChangePassword = 'Change password';
 ?>
