@@ -88,10 +88,10 @@ $cfg['Servers'][$i]['table_info']    = '';          // table to describe the dis
                                                     //   - leave blank for no display fields support
 $cfg['Servers'][$i]['table_coords']  = '';          // table to describe the tables position for the PDF
                                                     //   schema - leave blank for no PDF schema support
-$cfg['Servers'][$i]['column_comments']              // table to store columncomments
-                                     = '';
-                                                    // - leave blank if you don't want to use this
 $cfg['Servers'][$i]['pdf_pages']     = '';          // table to describe pages of relationpdf
+                                                    // - leave blank if you don't want to use this
+$cfg['Servers'][$i]['column_comments']              // table to store columncomments
+                                     = '';          // - leave blank if you don't want to use this
 $cfg['Servers'][$i]['AllowDeny']['order']           // Host authentication order, leave blank to not use
                                      = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']           // Host authentication rules, leave blank for defaults
@@ -115,8 +115,8 @@ $cfg['Servers'][$i]['bookmarktable']   = '';
 $cfg['Servers'][$i]['relation']        = '';
 $cfg['Servers'][$i]['table_info']      = '';
 $cfg['Servers'][$i]['table_coords']    = '';
-$cfg['Servers'][$i]['column_comments'] = '';
 $cfg['Servers'][$i]['pdf_pages']       = '';
+$cfg['Servers'][$i]['column_comments'] = '';
 $cfg['Servers'][$i]['AllowDeny']['order']
                                        = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']
@@ -139,8 +139,8 @@ $cfg['Servers'][$i]['bookmarktable']   = '';
 $cfg['Servers'][$i]['relation']        = '';
 $cfg['Servers'][$i]['table_info']      = '';
 $cfg['Servers'][$i]['table_coords']    = '';
-$cfg['Servers'][$i]['column_comments'] = '';
 $cfg['Servers'][$i]['pdf_pages']       = '';
+$cfg['Servers'][$i]['column_comments'] = '';
 $cfg['Servers'][$i]['AllowDeny']['order']
                                        = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']
@@ -237,6 +237,10 @@ $cfg['ManualBaseShort'] = 'http://www.mysql.com/doc';
 // Default language to use, if not browser-defined or user-defined
 $cfg['DefaultLang'] = 'en-iso-8859-1';
 
+// Force: always use this language - must be defined in
+//        libraries/select_lang.lib.php3
+// $cfg['Lang']     = 'en-iso-8859-1';
+
 // Default charset to use for recoding of MySQL queries, does not take
 // any effect when charsets recoding is switched off by
 // $cfg['AllowAnywhereRecoding'] or in language file
@@ -248,93 +252,6 @@ $cfg['DefaultCharset'] = 'iso-8859-1';
 // Default value is FALSE to avoid problems on servers without the iconv
 // extension and where dl() is not supported
 $cfg['AllowAnywhereRecoding'] = FALSE;
-
-// Force: always use this language - must be defined in
-//        libraries/select_lang.lib.php3
-// $cfg['Lang']     = 'en-iso-8859-1';
-// Loads language file
-require('./libraries/select_lang.lib.php3');
-
-
-/**
- * Customization & design
- */
-$cfg['LeftWidth']           = 150;          // left frame width
-$cfg['LeftBgColor']         = '#D0DCE0';    // background color for the left frame
-$cfg['LeftPointerColor']    = '#CCFFCC';    // color of the pointer in left frame
-                                            // (blank for no pointer)
-$cfg['RightBgColor']        = '#F5F5F5';    // background color for the right frame
-$cfg['RightBgImage']        = '';           // path to a background image for the right frame
-                                            // (leave blank for no background image)
-$cfg['Border']              = 0;            // border width on tables
-$cfg['ThBgcolor']           = '#D3DCE3';    // table header row colour
-$cfg['BgcolorOne']          = '#CCCCCC';    // table data row colour
-$cfg['BgcolorTwo']          = '#DDDDDD';    // table data row colour, alternate
-$cfg['BrowsePointerColor']  = '#CCFFCC';    // color of the pointer in browse mode
-                                            // (blank for no pointer)
-$cfg['BrowseMarkerColor']   = '#FFCC99';    // color of the marker (visually marks row
-                                            // by clicking on it) in browse mode
-                                            // (blank for no marker)
-$cfg['TextareaCols']        = 40;           // textarea size (columns) in edit mode
-                                            // (this value will be emphasized (*2) for sql
-                                            // query textareas)
-$cfg['TextareaRows']        = 7;            // textarea size (rows) in edit mode
-$cfg['LimitChars']          = 50;           // max field data length in browse mode
-$cfg['ModifyDeleteAtLeft']  = TRUE;         // show edit/delete links on left side of browse
-                                            // (or at the top with vertical browse)
-$cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right side of browse
-                                            // (or at the bottom with vertical browse)
-$cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizontal|vertical)
-$cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
-
-/**
- * SQL Query box settings
- * These are the links display in all of the SQL Query boxes
- */
-$cfg['SQLQuery']['Edit']      = TRUE;       // Edit link to change a query
-$cfg['SQLQuery']['Explain']   = TRUE;       // EXPLAIN on SELECT queries
-$cfg['SQLQuery']['ShowAsPHP'] = TRUE;       // Wrap a query in PHP
-$cfg['SQLQuery']['Validate']  = FALSE;      // Validate a query (see $cfg['SQLValidator'] as well)
-
-
-/**
- * If you wish to use the SQL Validator service, you shoule be
- * aware of the following:
- * All SQL statements are stored anonymously for statistical purposes.
- * Mimer SQL Validator, Copyright 2002 Upright Database Technology.
- * All rights reserved.
- */
-$cfg['SQLValidator']['use']              = FALSE;   // Make the SQL Validator available
-$cfg['SQLValidator']['username']         = '';      // If you have a custom username, specify it here (defaults to anonymous)
-$cfg['SQLValidator']['password']         = '';      // Password for username
-$cfg['SQLValidator']['DisplayCopyright'] = TRUE;    // It is possible to strip the copyright, but strongly discouraged
-
-/**
- * SQL Parser Settings
- */
-$cfg['SQP']['enable']       = TRUE;         // Totally turn off the SQL Parser (not recommended)
-$cfg['SQP']['fmtType']      = 'html';       // Pretty-printing style to use on queries (html, none)
-$cfg['SQP']['fmtInd']       = '1';          // Amount to indent each level (floats ok)
-$cfg['SQP']['fmtIndUnit']   = 'em';         // Units for indenting each level (CSS Types - {em,px,pt})
-$cfg['SQP']['fmtColor']     = array(        // Syntax colouring data
-    'comment'            => '#808000',
-    'digit'              => '',
-    'digit_hex'          => 'teal',
-    'digit_integer'      => 'teal',
-    'digit_float'        => 'aqua',
-    'punct'              => 'fuchsia',
-    'alpha'              => '',
-    'alpha_columnType'   => '#FF9900',
-    'alpha_columnAttrib' => '#0000FF',
-    'alpha_reservedWord' => '#990099',
-    'alpha_functionName' => '#FF0000',
-    'alpha_identifier'   => 'black',
-    'alpha_variable'     => '#800000',
-    'quote'              => '#008000',
-    'quote_double'       => '',
-    'quote_single'       => '',
-    'quote_backtick'     => ''
-);
 
 /**
  * Available charsets for MySQL conversion. currently contains all which could
@@ -375,6 +292,91 @@ $cfg['AvailableCharsets'] = array(
     'SHIFT_JIS'
 );
 
+// Loads language file
+require('./libraries/select_lang.lib.php3');
+
+
+/**
+ * Customization & design
+ */
+$cfg['LeftWidth']           = 150;          // left frame width
+$cfg['LeftBgColor']         = '#D0DCE0';    // background color for the left frame
+$cfg['RightBgColor']        = '#F5F5F5';    // background color for the right frame
+$cfg['RightBgImage']        = '';           // path to a background image for the right frame
+                                            // (leave blank for no background image)
+$cfg['LeftPointerColor']    = '#CCFFCC';    // color of the pointer in left frame
+                                            // (blank for no pointer)
+$cfg['Border']              = 0;            // border width on tables
+$cfg['ThBgcolor']           = '#D3DCE3';    // table header row colour
+$cfg['BgcolorOne']          = '#CCCCCC';    // table data row colour
+$cfg['BgcolorTwo']          = '#DDDDDD';    // table data row colour, alternate
+$cfg['BrowsePointerColor']  = '#CCFFCC';    // color of the pointer in browse mode
+                                            // (blank for no pointer)
+$cfg['BrowseMarkerColor']   = '#FFCC99';    // color of the marker (visually marks row
+                                            // by clicking on it) in browse mode
+                                            // (blank for no marker)
+$cfg['TextareaCols']        = 40;           // textarea size (columns) in edit mode
+                                            // (this value will be emphasized (*2) for sql
+                                            // query textareas)
+$cfg['TextareaRows']        = 7;            // textarea size (rows) in edit mode
+$cfg['LimitChars']          = 50;           // max field data length in browse mode
+$cfg['ModifyDeleteAtLeft']  = TRUE;         // show edit/delete links on left side of browse
+                                            // (or at the top with vertical browse)
+$cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right side of browse
+                                            // (or at the bottom with vertical browse)
+$cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizontal|vertical)
+$cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
+
+/**
+ * SQL Query box settings
+ * These are the links display in all of the SQL Query boxes
+ */
+$cfg['SQLQuery']['Edit']      = TRUE;       // Edit link to change a query
+$cfg['SQLQuery']['Explain']   = TRUE;       // EXPLAIN on SELECT queries
+$cfg['SQLQuery']['ShowAsPHP'] = TRUE;       // Wrap a query in PHP
+$cfg['SQLQuery']['Validate']  = FALSE;      // Validate a query (see $cfg['SQLValidator'] as well)
+
+/**
+ * SQL Parser Settings
+ */
+$cfg['SQP']['enable']       = TRUE;         // Totally turn off the SQL Parser (not recommended)
+$cfg['SQP']['fmtType']      = 'html';       // Pretty-printing style to use on queries (html, none)
+$cfg['SQP']['fmtInd']       = '1';          // Amount to indent each level (floats ok)
+$cfg['SQP']['fmtIndUnit']   = 'em';         // Units for indenting each level (CSS Types - {em,px,pt})
+$cfg['SQP']['fmtColor']     = array(        // Syntax colouring data
+    'comment'            => '#808000',
+    'comment_mysql'      => '',
+    'comment_ansi'       => '',
+    'comment_c'          => '',
+    'digit'              => '',
+    'digit_hex'          => 'teal',
+    'digit_integer'      => 'teal',
+    'digit_float'        => 'aqua',
+    'punct'              => 'fuchsia',
+    'alpha'              => '',
+    'alpha_columnType'   => '#FF9900',
+    'alpha_columnAttrib' => '#0000FF',
+    'alpha_reservedWord' => '#990099',
+    'alpha_functionName' => '#FF0000',
+    'alpha_identifier'   => 'black',
+    'alpha_variable'     => '#800000',
+    'quote'              => '#008000',
+    'quote_double'       => '',
+    'quote_single'       => '',
+    'quote_backtick'     => ''
+);
+
+
+/**
+ * If you wish to use the SQL Validator service, you shoule be
+ * aware of the following:
+ * All SQL statements are stored anonymously for statistical purposes.
+ * Mimer SQL Validator, Copyright 2002 Upright Database Technology.
+ * All rights reserved.
+ */
+$cfg['SQLValidator']['use']      = FALSE;   // Make the SQL Validator available
+$cfg['SQLValidator']['username'] = '';      // If you have a custom username, specify it here (defaults to anonymous)
+$cfg['SQLValidator']['password'] = '';      // Password for username
 
 /**
  * MySQL settings

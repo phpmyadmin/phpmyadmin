@@ -437,7 +437,15 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <tt>$HTTP_SERVER_VARS</tt> or <tt>$GLOBALS</tt> in this case.
         <br /><br />
     </dd>
-
+    <dt><b>$cfg['PmaAbsoluteUri_DisableWarning']</b> boolean</dt>
+    <dd>
+    By default, when you leave $cfg['PmaAbsoluteUri'] empty, and the system
+    detects your absolute URI automatically, we display a warning to remind
+    you. If you have tested the automatic detection, and it works perfectly
+    for your setup, then you can set this variable to squelch the warning.
+        <br /><br />
+    </dd>
+    
     <dt><b>$cfg['PmaNoRelation_DisableWarning']</b> boolean</dt>
     <dd>
         Starting with version 2.3.0 phpMyAdmin offers a lot of features to work
@@ -976,11 +984,17 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         displayed when you're about to loose data.
         <br /><br />
     </dd>
-
-    <dt><b>$cfg['ShowTooltip'] </b>boolean</dt>
+    
+    <dt><b>$cfg['LoginCookieRecall'] </b>boolean</dt>
     <dd>
-        Defines whether to display table comment as tooltip in left frame or
-        not.
+        Define whether the previous login should be recalled or not in cookie
+        authentication mode.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['UseDbSearch'] </b>boolean</dt>
+    <dd>
+        Define whether the "search string inside database" is enabled or not.
         <br /><br />
     </dd>
 
@@ -988,6 +1002,22 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         Defines whether to use select-based menu and display only the current
         tables in the left frame (smaller page).
+        <br /><br />
+    </dd>
+    
+    <dt><b>$cfg['ShowTooltip'] </b>boolean</dt>
+    <dd>
+        Defines whether to display table comment as tooltip in left frame or
+        not.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['ShowStats'] </b>boolean</dt>
+    <dd>
+        Defines whether to display space usage and statistics about databases
+        and tables or not.<br />
+        Note that statistics requires at least MySQL 3.23.3 and that, at this
+        date, MySQL doesn't return such information for Berkeley DB tables.
         <br /><br />
     </dd>
 
@@ -1021,28 +1051,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         Defines whether to suggest a database name on the
         &quot;Create Database&quot; form or to keep the textfield empty.
-        <br /><br />
-    </dd>
-
-    <dt><b>$cfg['LoginCookieRecall'] </b>boolean</dt>
-    <dd>
-        Define whether the previous login should be recalled or not in cookie
-        authentication mode.
-        <br /><br />
-    </dd>
-
-    <dt><b>$cfg['UseDbSearch'] </b>boolean</dt>
-    <dd>
-        Define whether the "search string inside database" is enabled or not.
-        <br /><br />
-    </dd>
-
-    <dt><b>$cfg['ShowStats'] </b>boolean</dt>
-    <dd>
-        Defines whether to display space usage and statistics about databases
-        and tables or not.<br />
-        Note that statistics requires at least MySQL 3.23.3 and that, at this
-        date, MySQL doesn't return such information for Berkeley DB tables.
         <br /><br />
     </dd>
 
@@ -1291,8 +1299,89 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['RepeatCells'] </b>integer</dt>
     <dd>
-        Repeat the headers every X cells, or 0 to deactivate.
-        <br /><br />
+    Repeat the headers every X cells, or 0 to deactivate.
+    <br /><br />
+    </dd>
+
+    <dt><b>$cfg['SQP']['enable']</b> boolean</dt>
+    <dd>
+    As of phpMyAdmin 2.3.0, we now have a fully functional SQL Parser system.
+    It is enabled by default, as it is used to format the SQL queries.
+    <br />
+    As of 2.3.1, it will become an integral part of phpMyAdmin, as it will
+    analyze certain queries to improve the behavior of phpMyAdmin. But as
+    it is very new, and not yet heavily used, we offer you an option to 
+    turn it off.
+    <br /><br />
+    </dd>
+
+    <dt><b>$cfg['SQP']['fmtType']</b> string [<tt>html</tt>|<tt>none</tt>]</dt>
+    <dd>
+    The main use of the new SQL Parser is to pretty-print SQL queries. By 
+    default we use HTML to format the query, but you can disable this by
+    setting this varible to <tt>'none'</tt>
+    <br /><br />
+    </dd>
+
+    <dt><b>$cfg['SQP']['fmtInd']</b> float<br />
+    <b>$cfg['SQP']['fmtIndUnit']</b> string [<tt>em</tt>|<tt>px</tt>|<tt>pt</tt>|<tt>ex</tt>]</dt>
+    <dd>
+    For the pretty-printing of SQL queries, under some cases the part of a 
+    query inside a bracket is indented. By changing 
+    <tt>$cfg['SQP']['fmtInd']</tt> you can change the amount of this indent.
+    <br />Related in purpose is <tt>$cfg['SQP']['fmtIndUnit']</tt> which 
+    specifies the units of the indent amount that you specified. This is 
+    used via stylesheets.
+    <br /><br />
+    </dd>
+
+    <dt><b>$cfg['SQP']['fmtColor']</b> array of string tuples</dt>
+    <dd>
+    This array is used to define the colours for each type of element of 
+    the pretty-printed SQL queries. The tuple format is<br />
+    <i>class</i> =&gt; [<i>HTML colour code</i> | <i>empty string</i>]<br />
+    If you specify an empty string for the color of a class, it is ignored 
+    in creating the stylesheet.
+    You should not alter the class names, only the colour strings.<br />
+    <b>Class name key:</b><br />
+    <ul>
+        <li><b>comment</b> Applies to all comment sub-classes</li>
+        <li><b>comment_mysql</b> Comments as <tt>"#...\n"</tt></li>
+        <li><b>comment_ansi</b> Comments as <tt>"-- ...\n"</tt></li>
+        <li><b>comment_c</b> Comments as <tt>"/*...*/"</tt></li>
+        <li><b>digit</b> Applies to all digit sub-classes</li>
+        <li><b>digit_hex</b> Hexadecimal numbers</li>
+        <li><b>digit_integer</b> Integer numbers</li>
+        <li><b>digit_float</b> Floating point numbers</li>
+        <li><b>punct</b> Applies to all punctuation sub-classes</li>
+        <li><b>punct_bracket_open_round</b> Opening brackets<tt>"("</tt></li>
+        <li><b>punct_bracket_close_round</b> Closing brackets <tt>")"</tt></li>
+        <li><b>punct_listsep</b> List item seperator <tt>","</tt></li>
+        <li><b>punct_qualifier</b> Table/Column Qualifer <tt>"."</tt> </li>
+        <li><b>punct_queryend</b> End of query marker <tt>";"</tt></li>
+        <li><b>alpha</b> Applies to all alphabetic classes</li>
+        <li><b>alpha_columnType</b> Identifers matching a column type</li>
+        <li><b>alpha_columnAttrib</b> Identifers matching a database/table/column attribute</li>
+        <li><b>alpha_functionName</b> Identifiers matching a MySQL function name</li>
+        <li><b>alpha_reservedWord</b> Identifiers matching any other reserved word</li>
+        <li><b>alpha_variable</b> Identifers matching a SQL variable <tt>"@foo"</tt></li>
+        <li><b>alpha_identifier</b> All other identifiers</li>
+        <li><b>quote</b> Applies to all quotation mark classes</li>
+        <li><b>quote_double</b> Double quotes <tt>"</tt></li>
+        <li><b>quote_single</b> Single quotes <tt>'</tt></li>
+        <li><b>quote_backtick</b> Backtick quotes <tt>`</tt></li>
+    </ul><br />
+    </dd>
+
+    <dt><b>$cfg['SQLValidator']['use']</b> boolean</dt>
+    <dd>TODO
+    <br /><br />
+    </dd>
+
+    <dt><b>$cfg['SQLValidator']['username']</b> string<br />
+    <b>$cfg['SQLValidator']['password']</b> string</dt>
+    <dd>TODO
+    <br /><br />
     </dd>
 
     <dt><b>$cfg['ColumnTypes'] </b>array</dt>
@@ -1313,14 +1402,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         A list of functions MySQL supports. In most cases you don't need to
         edit this.
-        <br /><br />
-    </dd>
-
-    <dt><b>$cfg['keywords'] </b>array</dt>
-    <dd>
-        A list of keywords that is used for syntax coloring. All keywords that
-        are in this list will also get a new line before them.<br />
-        Usually you won't need to change those.
         <br /><br />
     </dd>
 
@@ -2157,6 +2238,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     work with it, nor delete it.<br />
 </p>
 
+<p>
+    <b>[6.14] How do I set up the SQL validator?</b>
+    <br />
+    TODO
+</p>
+
 <a name="faqproject"></a>
 <h3>[7. phpMyAdmin project]</h3>
 <p>
@@ -2354,6 +2441,7 @@ CREDITS, in chronological order
     * sync'ed different existing CVS trees with new features and bugfixes
     * multi-language improvements, dynamic language selection
     * current project maintainer
+    * many bugfixes and improvements
 
 [lc] - Loïc Chapeaux &lt;lolo_at_phpheaven.net&gt;
     * rewrote and optimized javascript, DHTML and DOM stuff
@@ -2366,7 +2454,10 @@ CREDITS, in chronological order
     * database maintence controls
     * table type code
     * Host authentication IP Allow/Deny
-    * DB-based configuration
+    * DB-based configuration (Not completed)
+    * SQL parser
+    * SQL validator
+    * many bugfixes and improvements
 
 [af] - Armel Fauveau &lt;armel.fauveau_at_globalis-ms.com&gt;
     * bookmarks feature
@@ -2398,6 +2489,7 @@ CREDITS, in chronological order
     * XML exports
     * various small features and fixes
     * German language file updates
+    * many bugfixes and improvements
 
 [mb] - Mike Beck &lt;mike.beck_at_ibmiller.de&gt;
     * automatic joins in QBE
@@ -2425,7 +2517,7 @@ code since version 2.1.0:
 - Maxime Delorme &lt;delorme.maxime at free.fr&gt; for the PDF schema output;
   thanks also to Olivier Plathey for the &quot;FPDF&quot; library
   (see http://www.fpdf.org/).
-
+- Olof Edlund &lt;olof.edlund at upright.se&gt; for the SQL validator server.
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version 2.1.0:

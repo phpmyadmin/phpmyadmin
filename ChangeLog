@@ -5,6 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-09 Robin Johnson  <robbat2@users.sourceforge.net>
+    * Documentation.html:
+        - Updates for SQL Parser
+
+2002-08-08 Robin Johnson  <robbat2@users.sourceforge.net>
+    * Documentation.html:
+        - Cleaned up and re-arranged Configuration section to match
+          config.inc.php3
+    * config.inc.php3:
+        - Cleaned up and re-arranged Configuration section to match
+          config.inc.php3
+    
+
 2002-08-08 Loïc Chapeaux  <lolo@phpheaven.net>
     * left.php3: xhtml fixes (id name must start with a letter).
     * pdf_pages.php3, tbl_printview.php3, tbl_realtion.php3,
