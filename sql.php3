@@ -49,9 +49,11 @@ if (isset($btnDrop) || isset($navig)) {
 
 
 /**
- * Go back to further page if table should not be dropped
+ * Sets or modifies the $goto variable if required
  */
-if (isset($goto) && $goto == 'sql.php3') {
+if (empty($goto)) {
+    $goto = (empty($table)) ? 'db_details.php3' : 'tbl_properties.php3';
+} else if ($goto == 'sql.php3') {
     $goto = 'sql.php3'
           . '?lang=' . $lang
           . '&server=' . $server
@@ -60,6 +62,11 @@ if (isset($goto) && $goto == 'sql.php3') {
           . '&pos=' . $pos
           . '&sql_query=' . urlencode($sql_query);
 }
+
+
+/**
+ * Go back to further page if table should not be dropped
+ */
 if (isset($btnDrop) && $btnDrop == $strNo) {
     if (!empty($back)) {
         $goto = $back;
