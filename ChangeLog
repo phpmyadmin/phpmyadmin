@@ -17,6 +17,7 @@ $Source$
       on MySQL 4.1.2
     * libraries/bookmark.lib.php: bug (mysqli)
     * tbl_query_box.php: field list does not show (mysqli)
+    * libraries/sqlparser.lib.php: cannot copy a table structure (MySQL 4.1.x)
 
 2004-08-08 Michal Čihař  <michal@cihar.com>
     * calendar.php: Include correct stylesheet (bug #1005421).

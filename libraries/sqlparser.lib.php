@@ -1772,7 +1772,6 @@ if ($is_minimum_common == FALSE) {
 
             switch ($typearr[2]) {
                 case 'white_newline':
-//                    $after      = '<br />';
                     $before     = '';
                     break;
                 case 'punct_bracket_open_round':
@@ -1864,7 +1863,8 @@ if ($is_minimum_common == FALSE) {
                 case 'alpha_columnAttrib':
 
                     // ALTER TABLE tbl_name AUTO_INCREMENT = 1
-                    if ($typearr[1] == 'alpha_identifier') {
+                    // COLLATE LATIN1_GENERAL_CI DEFAULT
+                    if ($typearr[1] == 'alpha_identifier' || $typearr[1] == 'alpha_charset') {
                         $before .= ' ';
                     }
                     if (($typearr[3] == 'alpha_columnAttrib') || ($typearr[3] == 'quote_single') || ($typearr[3] == 'digit_integer')) {
