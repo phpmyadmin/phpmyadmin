@@ -145,6 +145,7 @@ $strDocu = 'ヘルプ';
 $strDrop = '削除';
 $strDropDB = 'データベース%sの削除 ';
 $strDropTable = 'テーブルの削除';
+$strDropUsersDb = 'ユーザーと同じ名前を持つデータベースを削除します。';
 $strDumpXRows = '%s 列をダンプ。始める列は %s.';
 $strDumpingData = 'テーブルのダンプデータ';
 $strDynamic = 'ダイナミック';
@@ -282,6 +283,7 @@ $strNoQuery = 'SQLクエリー無し';
 $strNoRights = '現在特権を持ってないのでここに入れません。';
 $strNoTablesFound = '現在のDBにテーブルはありません。';
 $strNoUsersFound = '該当ユーザーは見つかりませんでした。';
+$strNoUsersSelected = 'ユーザーが選択されていません。';
 $strNoValidateSQL = 'SQL検証をスキップ';
 $strNone = '無し';
 $strNotNumber = 'これは番号ではありません。';
@@ -411,7 +413,7 @@ $strRunSQLQuery = 'データベース%sにSQLクエリー実行';
 $strRunning = 'が実行中です。 %s';
 
 $strSQL = 'SQL';
-$strSQLParserBugMessage = 'あなたはSQLパーサーでバグを見つけられるかもしれません。あなたのクエリーを念入りに確かめて、引用符が正しくミスマッチがないかチェックしましょう。その他の失敗にはテキストエリアで引用した外側にバイナリ−コードが付いてファイルがアップロードされてしまったような原因が考えられます。また、あなたのクエリーをMySQLのコマンドラインを使って試すことも出来ます。MySQLサーバーは以下のようにエラーを出します。そこには問題を解決する手助けがあるでしょう。コマンドラインでは成功しても、まだ問題がある場合、パーサーが失敗する場合には、問題のあるSQLクエリーをひとつの文に減らしてみて下さい。そして以下のセクションでデータを切り取ってBUG報告を送って下さい:';
+$strSQLParserBugMessage = 'あなたはSQLパーサーでバグを見つけられるかもしれません。あなたのクエリーを念入りに確かめて、引用符が正しくミスマッチがないかチェックしましょう。その他の失敗にはテキストエリアで引用した外側にバイナリーコードが付いてファイルがアップロードされてしまったような原因が考えられます。また、あなたのクエリーをMySQLのコマンドラインを使って試すことも出来ます。MySQLサーバーは以下のようにエラーを出します。そこには問題を解決する手助けがあるでしょう。コマンドラインでは成功しても、まだ問題がある場合、パーサーが失敗する場合には、問題のあるSQLクエリーをひとつの文に減らしてみて下さい。そして以下のセクションでデータを切り取ってBUG報告を送って下さい:';
 $strSQLParserUserError = 'あなたのSQLクエリーにエラーがあります。MySQLサーバーは以下のようにエラーを出します。そこには問題を解決する手助けがあるでしょう。';
 $strSQLQuery = '実行されたSQLクエリー';
 $strSQLResult = 'SQLの結果';
@@ -542,7 +544,4 @@ $strYes = 'はい';
 $strZeroRemovesTheLimit = '注意: オプションを 0 (ゼロ)に設定すると制限がなくなります。';
 $strZip = '"zipされる"';
 
-// To translate
-$strNoUsersSelected = 'No users selected.'; //to translate
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>
