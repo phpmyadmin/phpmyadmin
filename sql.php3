@@ -349,7 +349,7 @@ else {
 
                 //    c o u n t    q u e r y
 
-                // If we are just browsing, there is only one table, 
+                // If we are "just browsing", there is only one table, 
                 // and no where clause (or just 'WHERE 1 '),
                 // so we do a quick count (which uses MaxExactCount)
                 // because SQL_CALC_FOUND_ROWS
@@ -359,9 +359,10 @@ else {
                  && (empty($analyzed_sql[0]['where_clause'])
                    || $analyzed_sql[0]['where_clause'] == '1 ')) {
 
-                    // "just browsing"
+                    // "j u s t   b r o w s i n g"
                     $unlim_num_rows = PMA_countRecords($db, $table, TRUE);
-                } else { // not "just browsing"
+
+                } else { // n o t   " j u s t   b r o w s i n g "
 
                     if (PMA_MYSQL_INT_VERSION < 40000) {
                         if (eregi('DISTINCT(.*)', $sql_query)) {
@@ -387,28 +388,29 @@ else {
 
                     // add select expression after the SQL_CALC_FOUND_ROWS
                     if (PMA_MYSQL_INT_VERSION >= 40000) {
-                        if (eregi('DISTINCT(.*)', $sql_query)) {
-                            $count_query .= 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
-                        } else {
-                            $count_query .= $analyzed_sql[0]['select_expr_clause'];
+//                        if (eregi('DISTINCT(.*)', $sql_query)) {
+//                            $count_query .= 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
+//                        } else {
+                            //$count_query .= $analyzed_sql[0]['select_expr_clause'];
+      
+                            // add everything that was after the first SELECT
+                            $count_query .= PMA_SQP_formatHtml($parsed_sql, 'query_only', $analyzed_sql[0]['position_of_first_select']+1);
+//                        }
+                    } else { // PMA_MYSQL_INT_VERSION < 40000
+
+                        if (!empty($analyzed_sql[0]['from_clause'])) {
+                            $count_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
                         }
-                    }
-
-
-                    if (!empty($analyzed_sql[0]['from_clause'])) {
-                        $count_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
-                    }
-
-                    if (!empty($analyzed_sql[0]['where_clause'])) {
-                        $count_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
-                    }
-                    if (!empty($analyzed_sql[0]['group_by_clause'])) {
-                        $count_query .= ' GROUP BY ' . $analyzed_sql[0]['group_by_clause'];
-                    }
-
-                    if (!empty($analyzed_sql[0]['having_clause'])) {
-                        $count_query .= ' HAVING ' . $analyzed_sql[0]['having_clause'];
-                    }
+                        if (!empty($analyzed_sql[0]['where_clause'])) {
+                            $count_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
+                        }
+                        if (!empty($analyzed_sql[0]['group_by_clause'])) {
+                            $count_query .= ' GROUP BY ' . $analyzed_sql[0]['group_by_clause'];
+                        }
+                        if (!empty($analyzed_sql[0]['having_clause'])) {
+                            $count_query .= ' HAVING ' . $analyzed_sql[0]['having_clause'];
+                        }
+                    } // end if
 
                     // if using SQL_CALC_FOUND_ROWS, add a LIMIT to avoid
                     // long delays. Returned count will be complete anyway.
@@ -417,12 +419,13 @@ else {
                         $count_query .= ' LIMIT 1';
                     }
 
-                    // do not put the order_by_clause, it interferes
                     // run the count query
+//echo "trace cq=" . $count_query . "<br/>";
+
                     if (PMA_MYSQL_INT_VERSION < 40000) {
                         if ($cnt_all_result = PMA_mysql_query($count_query)) {
-                            //if ($is_group) {
-                            if ($count_what == '*') {
+                            if ($is_group) {
+//                            if ($count_what == '*') {
                                 $unlim_num_rows = @mysql_num_rows($cnt_all_result);
                             } else {
                                 $unlim_num_rows = PMA_mysql_result($cnt_all_result, 0, 'count');
@@ -430,6 +433,7 @@ else {
                             mysql_free_result($cnt_all_result);
                         } else {
                             if (mysql_error()) {
+
                                 // there are some cases where the generated
                                 // count_query (for MySQL 3) is wrong,
                                 // so we get here.

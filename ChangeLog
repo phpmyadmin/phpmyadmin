@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php3, sql.php3: bug 762213, 
+      incorrect row count for MySQL 4.1 subqueries
+
 2003-07-08 Michal Cihar  <nijel@users.sourceforge.net>
     * config.inc.php3, tbl_properties_operations.php3,
       libraries/config_import.lib.php3, libraries/display_export.lib.php3,

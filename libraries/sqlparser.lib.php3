@@ -655,6 +655,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $subresult       = array(
                 'querytype'      => '',
                 'select_expr_clause'=> '', // the whole stuff between SELECT and FROM , except DISTINCT
+                'position_of_first_select' => '', // the array index
                 'from_clause'=> '',
                 'group_by_clause'=> '',
                 'order_by_clause'=> '',
@@ -732,6 +733,12 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      * The CREATE TABLE may contain FOREIGN KEY clauses, so they get
      * analyzed and ['foreign_keys'] is an array filled with the index list,
      * the REFERENCES table name and REFERENCES index list.
+     *
+     * lem9: position_of_first_select
+     *       ------------------------
+     *
+     * The array index of the first SELECT we find. Will be used to 
+     * insert a SQL_CALC_FOUND_ROWS.
      */
 
             // must be sorted
@@ -1204,6 +1211,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                            || $first_reserved_word == 'DELETE') {
                           $subresult['queryflags']['need_confirm'] = 1;
                        }
+
+                       if ($first_reserved_word=='SELECT'){
+                           $position_of_first_select = $i;
+                       }
+                   
                    } else {
                        if ($upper_data=='DROP' && $first_reserved_word=='ALTER') {
                           $subresult['queryflags']['need_confirm'] = 1;
@@ -1418,6 +1430,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 $subresult['where_clause_identifiers'] = $where_clause_identifiers;
             }
 
+            if (isset($position_of_first_select)) {
+                $subresult['position_of_first_select'] = $position_of_first_select;
+            }
+
 
             // They are naughty and didn't have a trailing semi-colon,
             // then still handle it properly
@@ -1464,7 +1480,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
          *
          * @access public
          */
-        function PMA_SQP_formatHtml($arr, $mode='color')
+        function PMA_SQP_formatHtml($arr, $mode='color', $start_token=0)
         {
             // first check for the SQL parser having hit an error
             if (PMA_SQP_isError()) {
@@ -1550,12 +1566,13 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 $typearr[0] = '';
                 $typearr[1] = '';
                 $typearr[2] = '';
-                $typearr[3] = $arr[0]['type'];
+                //$typearr[3] = $arr[0]['type'];
+                $typearr[3] = $arr[$start_token]['type'];
             }
 
             $in_priv_list = FALSE;
-            for ($i = 0; $i < $arraysize; $i++) {
-                //DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
+            for ($i = $start_token; $i < $arraysize; $i++) {
+// DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
                 $before = '';
                 $after  = '';
                 $indent = 0;
