@@ -8,6 +8,11 @@ $Source$
 2003-07-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: faq 8.1 about security alert of 2003-06-18
     * tbl_properties_links.php3: fix missing SQL section for exports
+    * libraries/auth/cookie.auth.lib.php3, libraries/blowfish.php3,
+      libraries/common.lib.php3, libraries/config_import.lib.php3,
+      config.inc.php3, user_password.php3, Documentation.html, lang/*:
+      now used the blowfish algorithm to encrypt the password in the
+      temporary cookie
 
 2003-06-30 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french: update

@@ -518,6 +518,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     </dd>
 
     <dt>
+        <b>$cfg['Servers'][$i]['blowfish_secret']</b> string<br />
+    </dt>
+    <dd>
+        If your are using &quot;cookie&quot; auth_type, enter here
+        a secret passphrase which will be used by the blowfish encryption
+        mecanism to protect the password stored in the temporary cookie.
+    </dd>
+    <dt>
         <b>$cfg['Servers'][$i]['user']</b> string<br />
         <b>$cfg['Servers'][$i]['password']</b> string
     </dt>
@@ -3326,7 +3334,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     [8.1] Security alert, dated 2003-06-18.
 </h4>
 <p>
-    Last update of this FAQ: 2003-07-01.
+    Last update of this FAQ: 2003-07-02.
     <br /><br />
     The phpMyAdmin's development team received notice of this
     <a href="http://www.securityfocus.com/archive/1/325641" target="_blank">security alert.</a>
@@ -3369,7 +3377,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         <li>&quot;Information encoding weakness&quot;
         <br /><br />
         We believe that an exploit for this weakness would be difficult 
-        to achieve.  However we are currently working to remove this weakness.
+        to achieve.  However version 2.5.2-dev now encrypts the password
+        with the well-known blowfish algorithm.
         <br /><br />
         </li>
     </ul>
