@@ -200,7 +200,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
             }
         
             $search     = array("\x00", "\x0a", "\x0d", "\x1a"); //\x08\\x09, not required
-            $replace    = array("\\0", "\\n", "\\r", "\Z");
+            $replace    = array('\0', '\n', '\r', '\Z');
             $isFirstRow = TRUE;
 
             @set_time_limit(1200); // 20 Minutes
@@ -226,15 +226,15 @@ if (!defined('__LIB_BUILD_DUMP__')){
                 // Extended inserts case
                 if (isset($GLOBALS['extended_ins'])) {
                     if ($isFirstRow) {
-                        $insert_line = $schema_insert . implode(',', $values) . ')';
+                        $insert_line = $schema_insert . implode(', ', $values) . ')';
                         $isFirstRow  = FALSE;
                     } else {
-                        $insert_line = '(' . implode(',', $values) . ')';
+                        $insert_line = '(' . implode(', ', $values) . ')';
                     }
                 }
                 // Other inserts case
                 else { 
-                   $insert_line = $schema_insert . implode(',', $values) . ')';
+                   $insert_line = $schema_insert . implode(', ', $values) . ')';
                 }
                 unset($values);
 
@@ -316,27 +316,36 @@ if (!defined('__LIB_BUILD_DUMP__')){
                 if (!isset($row[$j])) {
                     $schema_insert .= ' NULL,';
                 } else if ($row[$j] != '') {
-                    $dummy  = '';
-                    $srcstr = $row[$j];
-                    for ($xx = 0; $xx < strlen($srcstr); $xx++) {
-                        $yy = strlen($dummy);
-                        if ($srcstr[$xx] == "\\")   $dummy .= "\\\\";
-                        if ($srcstr[$xx] == "'")    $dummy .= "\\'";
-                        if ($srcstr[$xx] == "\"")   $dummy .= "\\\"";
-                        if ($srcstr[$xx] == "\x00") $dummy .= "\\0";
-                        if ($srcstr[$xx] == "\x0a") $dummy .= "\\n";
-                        if ($srcstr[$xx] == "\x0d") $dummy .= "\\r";
-                        if ($srcstr[$xx] == "\x08") $dummy .= "\\b";
-                        if ($srcstr[$xx] == "\t")   $dummy .= "\\t";
-                        if ($srcstr[$xx] == "\x1a") $dummy .= "\\Z";
-                        if (strlen($dummy) == $yy)  $dummy .= $srcstr[$xx];
+                    $type          = mysql_field_type($result, $j);
+                    // a number
+                    if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
+                        $type == 'bigint'  ||$type == 'timestamp') {
+                        $schema_insert .= $row[$j] . ', ';
                     }
-                    $schema_insert .= " '" . $dummy . "',";
+                    // a string
+                    else {
+                        $dummy  = '';
+                        $srcstr = $row[$j];
+                        for ($xx = 0; $xx < strlen($srcstr); $xx++) {
+                            $yy = strlen($dummy);
+                            if ($srcstr[$xx] == '\\')   $dummy .= '\\\\';
+                            if ($srcstr[$xx] == '\'')   $dummy .= '\\\'';
+//                            if ($srcstr[$xx] == '"')    $dummy .= '\\"';
+                            if ($srcstr[$xx] == "\x00") $dummy .= '\0';
+                            if ($srcstr[$xx] == "\x0a") $dummy .= '\n';
+                            if ($srcstr[$xx] == "\x0d") $dummy .= '\r';
+//                            if ($srcstr[$xx] == "\x08") $dummy .= '\b';
+//                            if ($srcstr[$xx] == "\t")   $dummy .= '\t';
+                            if ($srcstr[$xx] == "\x1a") $dummy .= '\Z';
+                            if (strlen($dummy) == $yy)  $dummy .= $srcstr[$xx];
+                        }
+                        $schema_insert .= "'" . $dummy . "', ";
+                    }
                 } else {
-                    $schema_insert .= " '',";
+                    $schema_insert .= "'', ";
                 } // end if
             } // end for
-            $schema_insert = ereg_replace(',$', '', $schema_insert);
+            $schema_insert = ereg_replace(', $', '', $schema_insert);
             $schema_insert .= ')';
             $handler(trim($schema_insert));
             ++$i;
