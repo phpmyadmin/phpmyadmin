@@ -405,6 +405,14 @@ echo "&nbsp;$strSingly\n";
         <td>
             <input type="checkbox" name="asfile" value="sendit"><?php echo $strSend;?>
         </td>
+        <?php
+        // gzip encode feature
+        if(function_exists("gzencode")) {
+            echo "<td>\n";
+            echo "<input type=\"checkbox\" name=\"gzip\" value=\"gzip\">".$strGzip."\n";
+            echo "</td>\n";
+        }
+        ?>
     </tr>
     <tr>
     <td>

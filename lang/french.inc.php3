@@ -267,4 +267,7 @@ $strWelcome = "Bienvenue à";
 $strWrongUser = "Erreur d'utilisateur/mot de passe. Accès refusé";
 
 $strYes = "Oui";
+
+// export Zip (July 07, 2001, 19:48am)
+$strGzip="Gzip";
 ?>

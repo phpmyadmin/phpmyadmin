@@ -270,4 +270,7 @@ $strYes = "Yes";
 $strBinary="Binary";  
 $strBinaryDoNotEdit="Binary - do not edit";  
 $strEnglishPrivileges=" Note: MySQL privilege names are expressed in English ";
+
+// export Zip (July 07, 2001, 19:48am)
+$strGzip="Gzip";
 ?>
