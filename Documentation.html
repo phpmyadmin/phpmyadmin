@@ -3168,7 +3168,6 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     [6.19] How can I create simple LaTeX document to include exported table?
 </h4>
 <p>
-    
     You can simply include table in your LaTeX documents, minimal sample
     document should look like following one (assuming you have table
     exported in file <code>table.tex</code>):
@@ -3184,6 +3183,18 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <font color="#a52a2a"><b>\end</b></font><font color="#6a5acd">{</font><font color="#a020f0">document</font><font color="#6a5acd">}</font>
 </pre>
+</p>
+
+<h4>
+    [6.20] In MySQL 4, I see a lot of databases which are not mine, and cannot
+    access them. 
+</h4>
+<p>
+    Upgrading to MySQL 4 usually gives users a global privilege: CREATE
+    TEMPORARY TABLES. This privilege also enables users to see all the 
+    database names. See this <a href="http://bugs.mysql.com/179">bug report</a>.    <br /><br />
+    So if your users do not need this privilege, you can remove it and their
+    databases list will shorten.
 </p>
 
 <a name="faqproject"></a><br />
