@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_replace.php: missing number of rows for Affected rows
+      and Inserted rows; wrong message for insert ids
+
 2003-12-11 Alexander M. Turek  <bleibtallesanders@derrabus.de>
     * server_collations.php, lang/*.inc.php, libraries/mysql_charsets.lib.php:
       Updated character sets overview for MySQL 4.1.1.

@@ -121,7 +121,10 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
         if (!empty($valuelist)) {
             $query[]   = 'UPDATE ' . PMA_backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key
                       . ' LIMIT 1';
-            $message  = $strAffectedRows . '&nbsp;<br />';
+
+            // lem9: why a line break here?
+            //$message  = $strAffectedRows . '&nbsp;<br />';
+            $message  = $strAffectedRows . '&nbsp;';
         }
     }
     
@@ -199,6 +202,7 @@ else {
  */
 $sql_query = implode(';', $query) . ';';
 $total_affected_rows = 0;
+$last_message = '';
 
 foreach($query AS $query_index => $single_query) {
     $result    = PMA_mysql_query($single_query);
@@ -212,21 +216,24 @@ foreach($query AS $query_index => $single_query) {
         }
     } else {
         if (@mysql_affected_rows()) {
-            $total_affected_rows += @mysql_affected_rows;
+            $total_affected_rows += @mysql_affected_rows();
         }
 
         $insert_id = mysql_insert_id();
         if ($insert_id != 0) {
-            $message .= '<br />'.$strInsertedRowId . '&nbsp;' . $insert_id;
+            $last_message .= '<br />'.$strInsertedRowId . '&nbsp;' . $insert_id;
         }
     } // end if
 }
 
 if ($total_affected_rows != 0) {
-    $message .= '<br />' . $total_affected_rows;
+    //$message .= '<br />' . $total_affected_rows;
+    $message .= $total_affected_rows;
 } else {
     $message .= $strModifications;
 }
+
+$message .= $last_message;
 
 if ($is_gotofile) {
     if ($goto == 'db_details.php' && !empty($table)) {
