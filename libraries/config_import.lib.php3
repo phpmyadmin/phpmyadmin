@@ -969,6 +969,77 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
                'CONCAT'
             );
         }
+
+        // Which column types will be mapped to which Group?
+        $cfg['RestricColumnTypes'] = array(
+           'VARCHAR'      => 'FUNC_CHAR',
+           'TINYINT'      => 'FUNC_NUMBER',
+           'TEXT'         => 'FUNC_CHAR',
+           'DATE'         => 'FUNC_DATE',
+           'SMALLINT'     => 'FUNC_NUMBER',
+           'MEDIUMINT'    => 'FUNC_NUMBER',
+           'INT'          => 'FUNC_NUMBER',
+           'BIGINT'       => 'FUNC_NUMBER',
+           'FLOAT'        => 'FUNC_NUMBER',
+           'DOUBLE'       => 'FUNC_NUMBER',
+           'DECIMAL'      => 'FUNC_NUMBER',
+           'DATETIME'     => 'FUNC_DATE',
+           'TIMESTAMP'    => 'FUNC_DATE',
+           'TIME'         => 'FUNC_DATE',
+           'YEAR'         => 'FUNC_DATE',
+           'CHAR'         => 'FUNC_CHAR',
+           'TINYBLOB'     => 'FUNC_CHAR',
+           'TINYTEXT'     => 'FUNC_CHAR',
+           'BLOB'         => 'FUNC_CHAR',
+           'MEDIUMBLOB'   => 'FUNC_CHAR',
+           'MEDIUMTEXT'   => 'FUNC_CHAR',
+           'LONGBLOB'     => 'FUNC_CHAR',
+           'LONGTEXT'     => 'FUNC_CHAR',
+           'ENUM'         => '',
+           'SET'          => ''
+        );
+    
+        // Map above defined groups to any function
+        $cfg['RestricFunctions'] = array(
+            'FUNC_CHAR'   => array(
+                'ASCII',
+                'CHAR',
+                'SOUNDEX',
+                'LCASE',
+                'UCASE',
+                'PASSWORD',
+                'MD5',
+                'ENCRYPT',
+                'LAST_INSERT_ID',
+                'USER',
+                'CONCAT'
+            ),
+    
+            'FUNC_DATE'   => array(
+                'NOW',
+                'CURDATE',
+                'CURTIME',
+                'FROM_DAYS',
+                'FROM_UNIXTIME',
+                'PERIOD_ADD',
+                'PERIOD_DIFF',
+                'TO_DAYS',
+                'UNIX_TIMESTAMP',
+                'WEEKDAY'
+            ),
+    
+            'FUNC_NUMBER' => array(
+                'ASCII',
+                'CHAR',
+                'MD5',
+                'ENCRYPT',
+                'RAND',
+                'LAST_INSERT_ID',
+                'COUNT',
+                'AVG',
+                'SUM'
+            )
+        );
     }
 
     if (!isset($cfg['PmaAbsoluteUri_DisableWarning'])) {

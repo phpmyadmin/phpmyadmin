@@ -6,6 +6,13 @@ $Id$
 $Source$
 
 2003-03-12 Garvin Hicking <me@supergarv.de>
+    * tbl_change.php3, config.inc.php3, libraries/config_import.lib.php3,
+      libraries/common.lib.php3: RFE #422243 - Definition of which MySQL functions 
+      map to which MySQL field type and in the dropdown of the function list first 
+      display the fitting functions, and then for compatibility reasons the rest of 
+      the functions.
+      TODO: I don't know if I chose the correct mapping for all types. Please correct
+      config_import.lib.php3 and config.inc.php3 if therer are any mismappings.
     * sql.php3, tbl_alter.php3, tbl_move_copy.php3, tbl_properties_structure.php3,
       tbl_rename.php3, libraries/relation.lib.php3:
       Bugfix #579256 / RFE #577328 : Automatic update of relations,

@@ -334,14 +334,51 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             <?php
             echo "\n";
             $selected     = '';
-            for ($j = 0; $j < count($cfg['Functions']); $j++) {
+            
+            // garvin: Find the current type in the RestricColumnTypes. Will result in 'FUNC_CHAR'
+            // or something similar. Then directly look up the entry in the RestricFunctions array,
+            // which will then reveal the available dropdown options
+            if (isset($cfg['RestricFunctions']) && isset($cfg['RestricColumnTypes']) && isset($cfg['RestricColumnTypes'][strtoupper($row_table_def['True_Type'])]) && isset($cfg['RestricFunctions'][$cfg['RestricColumnTypes'][strtoupper($row_table_def['True_Type'])]])) {
+                $dropdown = $cfg['RestricFunctions'][$cfg['RestricColumnTypes'][strtoupper($row_table_def['True_Type'])]];
+            } else {
+                $dropdown = array();
+            }
+            
+            $dropdown_built = array();
+            $op_spacing_needed = FALSE;
+
+            // garvin: loop on the dropdown array and print all available options for that field.
+            for ($j = 0; $j < count($dropdown); $j++) {
                 // for default function = NOW() on first timestamp field
                 // -- swix/18jul01
-                $selected = ($first_timestamp && $cfg['Functions'][$j] == 'NOW')
+                $selected = ($first_timestamp && $dropdown[$j] == 'NOW')
                           ? ' selected="selected"'
                           : '';
                 echo '                ';
-                echo '<option' . $selected . '>' . $cfg['Functions'][$j] . '</option>' . "\n";
+                echo '<option' . $selected . '>' . $dropdown[$j] . '</option>' . "\n";
+                $dropdown_built[$dropdown[$j]] = 'TRUE';
+                $op_spacing_needed = TRUE;
+            }
+            
+            // garvin: For compatibility's sake, do not let out all other functions. Instead
+            // print a seperator (blank) and then show ALL functions which weren't shown
+            // yet.
+            for ($j = 0; $j < count($cfg['Functions']); $j++) {
+                if (!isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'TRUE') {
+                    // for default function = NOW() on first timestamp field
+                    // -- swix/18jul01
+                    $selected = ($first_timestamp && $cfg['Functions'][$j] == 'NOW')
+                              ? ' selected="selected"'
+                              : '';
+                    if ($op_spacing_needed == TRUE) {
+                        echo '                ';
+                        echo '<option value="">--------</option>' . "\n";
+                        $op_spacing_needed = FALSE;
+                    }
+
+                    echo '                ';
+                    echo '<option' . $selected . '>' . $cfg['Functions'][$j] . '</option>' . "\n";
+                }
             } // end for
             unset($selected);
             ?>
