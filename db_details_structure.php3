@@ -19,6 +19,7 @@ if (empty($is_info)) {
     if ((!empty($submit_mult) && isset($selected_tbl))
        || isset($mult_btn)) {
         $action = 'db_details_structure.php3';
+        $err_url = 'db_details_structure.php3?'. PMA_generate_common_url($db);
         include('./mult_submits.inc.php3');
     }
     include('./db_details_common.php3');

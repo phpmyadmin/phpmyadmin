@@ -8,6 +8,8 @@ $Source$
 2003-07-15 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.inc.php3: bug 771523: wrong type displayed for
       a LONGTEXT with character set latin7
+    * db_details_structure.php3, tbl_properties_structure.php3: missing
+      $err_url for mult_submits
 
 2003-07-14 Garvin Hicking <me@supergarv.de>
     * Documentation.html: Link to phpMyAdmin homepage for a 'link section'

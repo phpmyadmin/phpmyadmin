@@ -16,6 +16,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')) {
 if ((!empty($submit_mult) && isset($selected_fld))
     || isset($mult_btn)) {
     $action = 'tbl_properties_structure.php3';
+    $err_url = 'tbl_properties_structure.php3?' . PMA_generate_common_url($db, $table);
     include('./mult_submits.inc.php3');
 }
 
