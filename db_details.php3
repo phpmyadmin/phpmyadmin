@@ -15,9 +15,52 @@ else
 $tables = mysql_list_tables($db);
 $num_tables = @mysql_numrows($tables);
 
+if (MYSQL_MAJOR_VERSION>=3.23){
+	$query="show table status from $db";
+	$result=mysql_query($query);
+}
+
 if($num_tables == 0)
 {
     echo $strNoTablesFound;
+}
+// shows all tables faster on high traffic sites
+// and views table size - staybyte - 9 June 2001
+else if (MYSQL_MAJOR_VERSION>=3.23 && $result!=false && mysql_num_rows($result)>0){
+	echo "<table border=$cfgBorder>\n";
+	echo "<th>".UCFirst($strTable)."</th>";
+	echo "<th colspan=6>$strAction</th>";
+	echo "<th>$strRecords</th>";
+	// temporary
+	if (!empty($strSize)) echo "<th>$strSize</th>";
+	else echo "<th>&nbsp;</th>";
+	$i=0;
+	while ($sts_data=mysql_fetch_array($result)){
+		$table=$sts_data["Name"];
+		$query = "?server=$server&lang=$lang&db=$db&table=$table&goto=db_details.php3";
+		$bgcolor = $cfgBgcolorOne;
+		$i++ % 2  ? 0: $bgcolor = $cfgBgcolorTwo;
+		echo "<tr bgcolor=$bgcolor>\n";
+?>
+           <td class=data><b><?php echo $table;?></b></td>
+           <td><a href="sql.php3<?php echo $query;?>&sql_query=<?php echo urlencode("SELECT * FROM $table");?>&pos=0"><?php echo $strBrowse; ?></a></td>
+           <td><a href="tbl_select.php3<?php echo $query;?>"><?php echo $strSelect; ?></a></td>
+           <td><a href="tbl_change.php3<?php echo $query;?>"><?php echo $strInsert; ?></a></td>
+           <td><a href="tbl_properties.php3<?php echo $query;?>"><?php echo $strProperties; ?></a></td>
+           <td><a href="sql.php3<?php echo $query;?>&reload=true&sql_query=<?php echo urlencode("DROP TABLE $table");?>&zero_rows=<?php echo urlencode($strTable." ".$table." ".$strHasBeenDropped);?>"><?php echo $strDrop; ?></a></td>
+           <td><a href="sql.php3<?php echo $query;?>&sql_query=<?php echo urlencode("DELETE FROM $table");?>&zero_rows=<?php echo urlencode($strTable." ".$table." ".$strHasBeenEmptied);?>"><?php echo $strEmpty; ?></a></td>
+<?php
+		echo "<td align=right>".$sts_data["Rows"]."</td>\n";
+		$tblsize=$sts_data["Data_length"]+$sts_data["Index_length"];
+		if ($tblsize>1000000000) $tblsize_format=number_format(round($tblsize/107374182.4)/10,1,','.')." GB";
+		else if ($tblsize>1000000) $tblsize_format=number_format(round($tblsize/104857.6)/10,1,','.')." MB";
+		else if ($tblsize>1000) $tblsize_format=number_format(round($tblsize/102.4)/10,1)." KB";
+		echo "<td align=right>&nbsp;&nbsp;";
+		echo "<a href=\"tbl_properties.php3$query#showusage\">";
+		echo $tblsize_format."</a></td>\n";
+		echo "</tr>\n";
+	}
+	echo "</table>\n";
 }
 else
 {
@@ -137,15 +180,11 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
     </tr>
     <tr>
         <td>
+           <input type="radio" name="what" value="dataonly">
+                <?php echo $strDataOnly; ?>
         </td>
         <td>
            <input type="checkbox" name="showcolumns" value="yes"><?php echo $strCompleteInserts; ?>
-        </td>
-    </tr>
-    <tr>
-        <td>
-           <input type="radio" name="what" value="dataonly">
-                <?php echo $strDataOnly; ?>
         </td>
     </tr>
 </table>
@@ -176,6 +215,5 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
 </ul>
 </div>
 <?php
-
 require("./footer.inc.php3");
 ?>
