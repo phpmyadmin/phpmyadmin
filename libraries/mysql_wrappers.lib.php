@@ -9,6 +9,7 @@
  */
 
 
+// this one is no longer used:
 function PMA_mysql_dbname($result, $row, $field = FALSE) {
     if ($field != FALSE) {
         return PMA_convert_display_charset(mysql_dbname($result, $row, $field));
