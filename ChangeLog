@@ -11,6 +11,9 @@ $Source$
       in left frame when many databases are there (original theme),
       thanks to Michael Keck
     * header.inc.php: bug 965594: spaces after colons, and remove old code
+    * libraries/sqlparser.lib.php: bug 983992, error in search mode because
+      MySQL 4.0.18+ has changed the way to report the foreign key references
+      when the foreign key is in a different db
 
 2004-07-02 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: put Create button on the same line as the input field

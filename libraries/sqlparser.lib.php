@@ -1498,14 +1498,24 @@ if ($is_minimum_common == FALSE) {
                     if ($in_bracket) {
                         $foreign[$foreign_key_number]['ref_index_list'][] = $identifier;
                     } else {
-                        // identifier can be table or db.table
-                        $db_table = explode('.',$identifier);
-                        if (isset($db_table[1])) {
-                            $foreign[$foreign_key_number]['ref_db_name'] = $db_table[0];
-                            $foreign[$foreign_key_number]['ref_table_name'] = $db_table[1];
+                        // for MySQL 4.0.18, identifier is
+                        // `table` or `db`.`table` 
+                        // first pass will pick the db name
+                        // next pass will execute the else and pick the
+                        // db name in $db_table[0]
+                        if ($arr[$i+1]['type'] == 'punct_qualifier') {
+                                $foreign[$foreign_key_number]['ref_db_name'] = $identifier;
                         } else {
-                            $foreign[$foreign_key_number]['ref_table_name'] = $db_table[0];
-                        }
+                        // for MySQL 4.0.16, identifier is 
+                        // `table` or `db.table`
+                            $db_table = explode('.',$identifier);
+                            if (isset($db_table[1])) {
+                                $foreign[$foreign_key_number]['ref_db_name'] = $db_table[0];
+                                $foreign[$foreign_key_number]['ref_table_name'] = $db_table[1];
+                            } else {
+                                $foreign[$foreign_key_number]['ref_table_name'] = $db_table[0];
+                            }
+                        }    
                     }
                 }
             }
