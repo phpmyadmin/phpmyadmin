@@ -1805,9 +1805,14 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
                    . '<img src="./images/button_drop.png" title="' . $delete_text . '" alt="' . $delete_text . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
                    . '</button>';
 
+                echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_export" title="' . $GLOBALS['strExport'] . '">' . "\n"
+                   . '<img src="./images/button_export.png" title="' . $GLOBALS['strExport'] . '" alt="' . $GLOBALS['strExport'] . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '') . "\n"
+                   . '</button>';
+
             } else {
                 echo '                    <input type="image" name="submit_mult_edit" value="row_edit" title="' . $GLOBALS['strEdit'] . '" src="./images/button_edit.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '');
                 echo '&nbsp;<input type="image" name="submit_mult" value="row_delete" title="' . $delete_text . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '');
+                echo '&nbsp;<input type="image" name="submit_mult_export" value="row_export" title="' . $GLOBALS['strExport'] . '" src="./images/button_export.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '');
             }
             echo "\n";
         } else {

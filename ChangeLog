@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-15 Michal Cihar  <michal@cihar.com>
+    * tbl_properties_export.php, tbl_row_delete.php,
+      libraries/display_tbl.lib.php: Support for exporting selected rows (RFE
+      #927554) [still missing images/button_export.png, waiting for somebody
+      to make it :-)].
+
 2004-04-15 Olivier Mueller <om@omnis.ch>
     * left.php: RFE #859208, Logout button in left frame
 

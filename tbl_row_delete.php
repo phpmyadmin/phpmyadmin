@@ -14,6 +14,8 @@ if (isset($submit_mult_x)) {
     $submit_mult = 'row_delete';
 } elseif (isset($submit_mult_edit_x)) {
     $submit_mult = 'row_edit';
+} elseif (isset($submit_mult_export_x)) {
+    $submit_mult = 'row_export';
 }
 
 // garvin: If the 'Ask for confirmation' button was pressed, this can only come from 'delete' mode,
@@ -26,7 +28,7 @@ if ($submit_mult == 'row_edit') {
     $js_to_run = 'tbl_change.js';
 }
 
-if ($submit_mult == 'row_delete') {
+if ($submit_mult == 'row_delete' || $submit_mult == 'row_export') {
     $js_to_run = 'functions.js';
 }
 
@@ -44,6 +46,23 @@ if (!empty($submit_mult)) {
                 }
                 
                 include './tbl_change.php';
+            }
+            break;
+        
+        case 'row_export':
+            if (isset($rows_to_delete) && is_array($rows_to_delete)) {
+                // Needed to allow SQL export
+                $single_table = TRUE;
+                
+                $primary_key = array();
+                $sql_query = urldecode($sql_query);
+                // garvin: As we got the fields to be edited from the 'rows_to_delete' checkbox, we use the index of it as the
+                // indicating primary key. Then we built the array which is used for the tbl_change.php script.
+                foreach($rows_to_delete AS $i_primary_key => $del_query) {
+                    $primary_key[] = urldecode($i_primary_key);
+                }
+                
+                include './tbl_properties_export.php';
             }
             break;
         
