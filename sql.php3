@@ -194,10 +194,13 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
  * This part of the script is bypassed if $is_js_confirmed = 1 (already checked
  * with js) because possible security issue is not so important here: at most,
  * the confirm message isn't displayed.
+ *
+ * Also bypassed if only showing php code.
  */
 if (!$cfg['Confirm']
     || (isset($is_js_confirmed) && $is_js_confirmed)
-    || isset($btnDrop)) {
+    || isset($btnDrop)
+    || !empty($GLOBALS['show_as_php'])) {
     $do_confirm = FALSE;
 } else {
     $do_confirm = (eregi('DROP[[:space:]]+(IF[[:space:]]+EXISTS[[:space:]]+)?(TABLE|DATABASE[[:space:]])|ALTER[[:space:]]+TABLE[[:space:]]+((`[^`]+`)|([A-Za-z0-9_$]+))[[:space:]]+DROP[[:space:]]|DELETE[[:space:]]+FROM[[:space:]]', $sql_query));
@@ -324,7 +327,6 @@ else {
             $num_rows   = 0;
         }
     }
-
     // Executes the query
     //  only if we didn't ask to see the php code (mikebeck)
     if (!empty($GLOBALS['show_as_php'])){
