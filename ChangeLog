@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-23 Alexander M. Turek  <me@derrabus.de>
+    * libraries/sqlparser.data.php: Added some keywords.
+
 2005-01-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/bookmark.lib.php: bug #1103289: num_rows and MYSQL_USE_RESULT,
       and fix a typo "boommark"
@@ -12,12 +15,7 @@ $Source$
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
 
 2005-01-20 Michael Keck  <mkkeck@users.sourceforge.net>
-    * themes/.../theme_right.css.php: new class for disabled (not available)
-      text / values / messages
-    * libraries/tooltip.js: removed wrong typos (sorry)
-
-2005-01-20 Michael Keck  <mkkeck@users.sourceforge.net>
-    * new js-library: tooltip.js for tooltips (hints)
+    * libraries/tooltip.js: new JS library for tooltips (hints)
     * libraries/common.lib.php: img tag modified for mouseover / mouseout
       (show/hide tooltip)
     * header.inc.php: needed div-container for tooltips
@@ -26,6 +24,9 @@ $Source$
     * querywindow.php / tbl_query_box.php: resizing the querywindow if it
       to small
     * themes/.../layout.inc.php: increased QueryWindowHeight / QueryWindowWidth
+    * themes/.../theme_right.css.php: new class for disabled (not available)
+      text / values / messages
+    * libraries/tooltip.js: removed wrong typos (sorry)
 
 2005-01-20 Alexander M. Turek  <me@derrabus.de>
     * server_engines.php, server_links.inc.php: Use Michael's new icon for

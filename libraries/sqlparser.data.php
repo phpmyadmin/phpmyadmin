@@ -181,16 +181,21 @@ $PMA_SQPdata_column_attrib = array (
     'INNOBASE',
     'INNODB',
     'ISAM',
+    'MERGE',
+    'MRG_ISAM',
     'MRG_MYISAM',
     'MYISAM',
     'NATIONAL',
+    'NDB',
+    'NDBCLUSTER',
     'PRECISION',
+    'UNDEFINED',
     'UNSIGNED',
     'VARYING',
     'ZEROFILL'
 );
 //$PMA_SQPdata_column_attrib_cnt = count($PMA_SQPdata_column_attrib);
-$PMA_SQPdata_column_attrib_cnt = 15;
+$PMA_SQPdata_column_attrib_cnt = 20;
 
 $PMA_SQPdata_reserved_word = array (
     'ACTION',
@@ -198,6 +203,7 @@ $PMA_SQPdata_reserved_word = array (
     'AFTER',
     'AGAINST',
     'AGGREGATE',
+    'ALGORITHM',
     'ALL',
     'ALTER',
     'ANALYSE',
@@ -400,6 +406,7 @@ $PMA_SQPdata_reserved_word = array (
     'ROWS',
     'SECOND',
     'SELECT',
+    'SEPARATOR',
     'SERIALIZABLE',
     'SESSION',
     'SHARE',
@@ -465,7 +472,7 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 268;
+$PMA_SQPdata_reserved_word_cnt = 270;
 
 $PMA_SQPdata_column_type = array (
     'BIGINT',
