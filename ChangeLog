@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-11 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_databases.php3: Wrong link title.
+
 2003-02-10 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_databases.php3: Ensured that the database list is built.
 
