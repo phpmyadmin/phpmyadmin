@@ -375,6 +375,9 @@ else {
                        . '&amp;db=' . urlencode($db)
                        . '&amp;table=' . urlencode($table)
                        . '&amp;pos=' . $pos
+                       . '&amp;session_max_rows=' . $session_max_rows
+                       . '&amp;disp_direction=' . $disp_direction
+                       . '&amp;repeat_cells=' . $repeat_cells
                        . '&amp;sql_query=' . urlencode($sql_query)
                        . '&amp;goto=' . urlencode($lnk_goto);
 
