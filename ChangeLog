@@ -27,11 +27,13 @@ $Source$
 	* tbl_properties.php3:
 	  - lines 573-576: added the same file upload box than the one at
 	    db_details.php3;
-	  - fixed some warnings if MySQL < 3.23.03.
+	  - fixed some warnings if MySQL < 3.23.03;
+	  - added drop table link at the top.
 	* tbl_change.php, line 305: Feature Requests #455543 - Editable Blobs.
 	* badwords.txt; db_create.php3; lib.inc.php3; db_create.php3;
-	  tbl_addfield.php3; tbl_alter.php3; lan/*: added patch #455752 - Check
-	  forbidden words thanks to Dell'Aiera Pol & Olivier Blin.
+	  tbl_addfield.php3; tbl_alter.php3; tbl_copy.php3; tbl_rename.php3;
+	  lang/*: added patch #455752 - Check forbidden words thanks to
+	  Dell'Aiera Pol & Olivier Blin.
 	* defines.inc.php3; Documentation.html: let's start 2.2.1-dev :)
 
 2001-08-31  Olivier Müller  <om@omnis.ch>
