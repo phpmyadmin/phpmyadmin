@@ -310,6 +310,23 @@
         <br /><br />
     </dd>
 
+    <dt>
+        <b>$cfgServers[n]['stduser']</b> string<br />
+        <b>$cfgServers[n]['stdpass']</b> string
+    </dt>
+    <dd>
+        A user/password pair used to get the privileges of the real user.<br />
+        Since phpMyAdmin 2.2.1-rc3 this setting is available with both standard
+        and advanced authentication. This "fake" user must be able to connect
+        to MySQL and read the <tt>mysql.User</tt> and <tt>mysql.Db</tt>
+        tables.<br />
+        Please note that if you try a phpMyAdmin login with this stduser, you
+        could get some errors, depending on the exact privileges you gave to
+        this stduser. phpMyAdmin does not support a direct login with the
+        stduser.
+        <br /><br />
+    </dd>
+
     <dt><b>$cfgServers[n]['adv_auth']</b> boolean</dt>
     <dd>
         Whether basic or advanced authentication should be used for this
@@ -339,7 +356,8 @@
         </ul>
 
         Advanced authentication is secure as the MySQL passwords does not need
-        to be set in the phpMyAdmin configuration file.
+        to be set in the phpMyAdmin configuration file (except for the standard
+        user -see before-).
         <br /><br />
 
         See also the FAQ section for more information about security.
@@ -366,7 +384,10 @@
         <font color="#bb0000">Warning:</font> this setting does not replace the
         privileges rules of the MySQL database server. If set, it just means
         only these databases will be displayed but <font color="#bb0000">not at
-        all other databases can't be used.</font>
+        all other databases can't be used.</font><br />
+        This setting is an efficient way to lower the server charge since the
+        later does not need a to send requests to MySQL to build the databases
+        list.
         <br /><br />
     </dd>
 
@@ -410,9 +431,9 @@
             </li>
         </ul><br />
 
-        If you are using advanced authentication, users must have
-        <tt>Select_Priv, Insert_Priv</tt> and <tt>Delete_Priv</tt> set to "Y"
-        in <i>mysql.db</i> table for the bookmark database.
+        Note that <tt>stduser</tt> must have <tt>Select_Priv, Insert_Priv</tt>
+        and <tt>Delete_Priv</tt> set to "Y" in <i>mysql.db</i> table for the
+        bookmark database.
         <br /><br />
     </dd>
 

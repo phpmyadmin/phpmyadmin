@@ -447,14 +447,46 @@ if (!defined('__LIB_COMMON__')){
             }
         } // end if
 
+        // Try to connect MySQL with the standard user profile (will be used to
+        // get the privileges list for the current user but the true user link
+        // must be open after this one so it would be default one for all the
+        // scripts)
+        if ($cfgServer['stduser'] != '') {
+            $bkp_track_err = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
+            $dbh           = @$connect_func(
+                                 $cfgServer['host'] . $server_port . $server_socket,
+                                 $cfgServer['stduser'],
+                                 $cfgServer['stdpass']
+                             );
+            if ($dbh == FALSE) {
+                if (mysql_error()) {
+                    $conn_error = mysql_error();
+                } else if (isset($php_errormsg)) {
+                    $conn_error = $php_errormsg;
+                } else {
+                    $conn_error = 'Cannot connect: invalid settings.';
+                }
+                if (PHP_INT_VERSION >= 40000) {
+                    @ini_set('track_errors', $bkp_track_err);
+                }
+                $local_query    = $connect_func . '('
+                                . $cfgServer['host'] . $server_port . $server_socket . ', '
+                                . $cfgServer['stduser'] . ', '
+                                . $cfgServer['stdpass'] . ')';
+                mysql_die($conn_error, $local_query, FALSE);
+            } else if (PHP_INT_VERSION >= 40000) {
+                @ini_set('track_errors', $bkp_track_err);
+            }
+        }
+
         // Connects to the server (validates user's login)
         $bkp_track_err = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
-        $dbh           = @$connect_func(
+        $userlink      = @$connect_func(
                              $cfgServer['host'] . $server_port . $server_socket,
                              $cfgServer['user'],
                              $cfgServer['password']
                          );
-        if ($dbh == FALSE) {
+        if ($userlink == FALSE) {
             // Advanced authentication case
             if ($cfgServer['adv_auth']) {
                 auth();
@@ -479,10 +511,50 @@ if (!defined('__LIB_COMMON__')){
             @ini_set('track_errors', $bkp_track_err);
         }
 
-        // if 'only_db' is set for the current user, there is no need to checks for
+        // If stduser isn't defined, use the current user settings to get his
+        // rights
+        if ($cfgServer['stduser'] == '') {
+            $dbh = $userlink;
+        }
+
+        // if 'only_db' is set for the current user, there is no need to check for
         // available databases in the "mysql" db
-        $do_get_dbs     = (count($dblist) == 0);
-        if ($do_get_dbs) {
+        $dblist_cnt = count($dblist);
+        if ($dblist_cnt) {
+            $true_dblist  = array();
+            $re           = '(^|(\\\\\\\\)+|[^\])(_|%)';
+            for ($i = 0; $i < $dblist_cnt; $i++) {
+                if (ereg($re, $dblist[$i])) {
+                    $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
+                    $rs          = mysql_query($local_query, $dbh);
+                    // "SHOW DATABASES" statements are disabled
+                    if ($i == 0
+                        && (mysql_error() && mysql_errno() == 1045)) {
+                        $true_dblist   = $dblist;
+                        break;
+                    }
+                    // Debug
+                    // else if (mysql_error()) {
+                    //    mysql_die('', $local_query, FALSE);
+                    // }
+                    while ($row = @mysql_fetch_array($rs)) {
+                        $true_dblist[] = $row['Database'];
+                    } // end while
+                    if ($rs) {
+                        mysql_free_result($rs);
+                        unset($rs);
+                    }
+                } else {
+                    $true_dblist[]     = $dblist[$i];
+                } // end if... else...
+            } // end for
+            $dblist       = $true_dblist;
+            unset($true_dblist);
+        } // end if
+
+        // 'only_db' is empty for the current user -> checks for available
+        // databases in the "mysql" db
+        else {
             $auth_query = 'SELECT User, Password, Select_priv '
                         . 'FROM mysql.user '
                         . 'WHERE '
@@ -492,7 +564,7 @@ if (!defined('__LIB_COMMON__')){
         } // end if
 
         // Access to "mysql" db allowed -> gets the usable db list
-        if ($do_get_dbs && @mysql_numrows($rs)) {
+        if (!$dblist_cnt && @mysql_numrows($rs)) {
             $row = mysql_fetch_array($rs);
             mysql_free_result($rs);
             // Correction uva 19991215
@@ -508,10 +580,10 @@ if (!defined('__LIB_COMMON__')){
             if ($row['Select_priv'] != 'Y') {
                 // lem9: User can be blank (anonymous user)
                 $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . sql_addslashes($cfgServer['user']) . '\' OR User = \'\')';
-                $rs          = mysql_query($local_query); // Debug: or mysql_die('', $local_query, FALSE);
+                $rs          = mysql_query($local_query, $dbh); // Debug: or mysql_die('', $local_query, FALSE);
                 if (@mysql_numrows($rs) <= 0) {
                     $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-                    $rs          = mysql_query($local_query); // Debug: or mysql_die('', $local_query, FALSE);
+                    $rs          = mysql_query($local_query, $dbh); // Debug: or mysql_die('', $local_query, FALSE);
                     if (@mysql_numrows($rs)) {
                         while ($row = mysql_fetch_array($rs)) {
                             $dblist[] = $row['Db'];
@@ -541,7 +613,7 @@ if (!defined('__LIB_COMMON__')){
                         }
                     } // end while
                     mysql_free_result($rs);
-                    $uva_alldbs = mysql_list_dbs();
+                    $uva_alldbs = mysql_list_dbs($dbh);
                     // loic1: all databases cases - part 2
                     if (isset($uva_mydbs['%'])) {
                         while ($uva_row = mysql_fetch_array($uva_alldbs)) {
@@ -577,33 +649,6 @@ if (!defined('__LIB_COMMON__')){
                 } // end else
             } // end if
         } // end building available dbs from the "mysql" db
-
-        // Do connect to the user's database
-        $bkp_track_err   = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
-        $link            = @$connect_func(
-                             $cfgServer['host'] . $server_port . $server_socket,
-                             $cfgServer['user'],
-                             $cfgServer['password']
-                         );
-        if ($link == FALSE) {
-            if (mysql_error()) {
-                $conn_error = mysql_error();
-            } else if (isset($php_errormsg)) {
-                $conn_error = $php_errormsg;
-            } else {
-                $conn_error = 'Cannot connect: invalid settings.';
-            }
-            if (PHP_INT_VERSION >= 40000) {
-                @ini_set('track_errors', $bkp_track_err);
-            }
-            $local_query    = $connect_func . '('
-                            . $cfgServer['host'] . $server_port . $server_socket . ', '
-                            . $cfgServer['user'] . ', '
-                            . $cfgServer['password'] . ')';
-            mysql_die($conn_error, $local_query, FALSE);
-        } else if (PHP_INT_VERSION >= 40000) {
-            @ini_set('track_errors', $bkp_track_err);
-        }
     } // end server connecting
 
     /**
@@ -708,9 +753,7 @@ if (!defined('__LIB_COMMON__')){
             && ((USR_BROWSER_AGENT == 'IE' && USR_BROWSER_VER < 6) || USR_BROWSER_AGENT == 'OPERA')) {
             $font_size     = 'x-small';
             $font_bigger   = 'large';
-            $font_smaller  = (USR_BROWSER_AGENT == 'IE' && USR_BROWSER_VER < 5.5)
-                           ? '80%'
-                           : '90%';
+            $font_smaller  = '90%';
             $font_smallest = '7pt';
         }
         // IE6 and other browsers for win case

@@ -155,46 +155,13 @@ if ($server > 0
     
     $common_url_query = 'lang=' . $lang . '&amp;server=' . $server;
 
-    // 1. With authentication
-    if ($cfgServer['adv_auth'])
-    {
-        // Get user's rights
-        $server_port   = (empty($cfgServer['port']))
-                       ? ''
-                       : ':' . $cfgServer['port'];
-        $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
-                       ? ''
-                       : ':' . $cfgServer['socket'];
-        $bkp_track_err = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
-        $stdlink       = @$connect_func(
-                             $cfgServer['host'] . $server_port . $server_socket,
-                             $cfgServer['user'],
-                             $cfgServer['password']
-                         );
-        if ($stdlink == FALSE) {
-            if (mysql_error()) {
-                $conn_error = mysql_error();
-            } else if (isset($php_errormsg)) {
-                $conn_error = $php_errormsg;
-            } else {
-                $conn_error = 'Cannot connect: invalid settings.';
-            }
-            if (PHP_INT_VERSION >= 40000) {
-                @ini_set('track_errors', $bkp_track_err);
-            }
-            $local_query = $connect_func . '('
-                         . $cfgServer['host'] . $server_port . $server_socket . ', '
-                         . $cfgServer['user'] . ', '
-                         . $cfgServer['password'] . ')';
-            mysql_die($conn_error, $local_query, FALSE, '');
-        } else if (PHP_INT_VERSION >= 40000) {
-            @ini_set('track_errors', $bkp_track_err);
-        }
-
+    // Get user's rights ($dbh and $userlink are links to MySQL defined in the
+    // "common.lib.php3" library
+    $create               = FALSE;
+    if ($dbh) {
         // Does user have global Create priv?
-        $create           = FALSE;
         $local_query      = 'SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-        $rs_usr           = mysql_query($local_query, $stdlink);
+        $rs_usr           = mysql_query($local_query, $dbh);
         if ($rs_usr) {
             $result_usr   = mysql_fetch_array($rs_usr);
             $create       = ($result_usr['Create_priv'] == 'Y');
@@ -206,34 +173,8 @@ if ($server > 0
         // find, in most cases it's probably the one he just dropped :)
         // (Note: we only get here after a browser reload, I don't know why)
         if (!$create) {
-            $bkp_track_err = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
-            $userlink      = @$connect_func(
-                                 $cfgServer['host'] . $server_port . $server_socket,
-                                 $cfgServer['user'],
-                                 $cfgServer['password']
-                             );
-            if ($userlink == FALSE) {
-                if (mysql_error()) {
-                    $conn_error = mysql_error();
-                } else if (isset($php_errormsg)) {
-                    $conn_error = $php_errormsg;
-                } else {
-                    $conn_error = 'Cannot connect: invalid settings.';
-                }
-                if (PHP_INT_VERSION >= 40000) {
-                    @ini_set('track_errors', $bkp_track_err);
-                }
-                $local_query = $connect_func . '('
-                             . $cfgServer['host'] . $server_port . $server_socket . ', '
-                             . $cfgServer['user'] . ', '
-                             . $cfgServer['password'] . ')';
-                mysql_die($conn_error, $local_query, FALSE, '');
-            } else if (PHP_INT_VERSION >= 40000) {
-                @ini_set('track_errors', $bkp_track_err);
-            }
-
             $local_query = 'SELECT Db FROM mysql.db WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-            $rs_usr      = mysql_query($local_query, $stdlink);
+            $rs_usr      = mysql_query($local_query, $dbh);
             if ($rs_usr) {
                 while ($row = mysql_fetch_array($rs_usr)) {
                     if (!mysql_select_db($row['Db'], $userlink)) {
@@ -245,11 +186,12 @@ if ($server > 0
                 mysql_free_result($rs_usr);
             } // end if
         } // end if
+    } // end get user privileges
 
-        // The user is allowed to create a db
-        if ($create) {
-            echo "\n";
-            ?>
+    // The user is allowed to create a db
+    if ($create) {
+        echo "\n";
+        ?>
         <!-- db creation form -->
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
@@ -264,12 +206,12 @@ if ($server > 0
             </form>
             </td>
         </tr>
-            <?php
-            echo "\n";
-        } // end create db form
+        <?php
+        echo "\n";
+    } // end create db form
 
-        // Server related links
-        ?>
+    // Server related links
+    ?>
         <!-- server-related links -->
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
@@ -287,11 +229,11 @@ if ($server > 0
                 <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
             </td>
         </tr>
-        <?php
-        echo "\n";
+    <?php
+    echo "\n";
 
-        if (isset($result_usr) && $result_usr['Process_priv'] == 'Y') {
-            ?>
+    if (isset($result_usr) && $result_usr['Process_priv'] == 'Y') {
+        ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
@@ -300,12 +242,12 @@ if ($server > 0
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
         </tr>
-            <?php
-            echo "\n";
-        }
+        <?php
+        echo "\n";
+    }
 
-        if (isset($result_usr) && $result_usr['Reload_priv'] == 'Y') {
-            ?>
+    if (isset($result_usr) && $result_usr['Reload_priv'] == 'Y') {
+        ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
@@ -314,13 +256,13 @@ if ($server > 0
                 <?php echo show_docu('manual_Reference.html#FLUSH') . "\n"; ?>
             </td>
         </tr>
-            <?php
-            echo "\n";
-        }
+        <?php
+        echo "\n";
+    }
 
-        $result = @mysql_query('USE mysql');
-        if (!mysql_error()) {
-            ?>
+    $result = @mysql_query('USE mysql', $userlink);
+    if (!mysql_error()) {
+        ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
@@ -329,10 +271,10 @@ if ($server > 0
                 <?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
             </td>
         </tr>
-            <?php
-            if (MYSQL_INT_VERSION >= 32303) {
-                echo "\n";
-                ?>
+        <?php
+        if (MYSQL_INT_VERSION >= 32303) {
+            echo "\n";
+            ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
@@ -340,10 +282,14 @@ if ($server > 0
                     <?php echo $strDatabasesStats; ?></a>
             </td>
         </tr>
-                <?php
-            }
+            <?php
         }
-        echo "\n";
+    }
+    echo "\n";
+
+    // With advanced authentication -> logout
+    if ($cfgServer['adv_auth'])
+    {
         ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
@@ -355,93 +301,7 @@ if ($server > 0
         </tr>
         <?php
         echo "\n";
-    } // end of 1 (AdvAuth case)
-
-    // 2. No authentication
-    else
-    {
-        ?>
-        <!-- db creation form -->
-        <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
-            <td>
-            <form method="post" action="db_create.php3">
-                <?php echo $strCreateNewDatabase . ' &nbsp;' . show_docu('manual_Reference.html#CREATE_DATABASE'); ?><br />
-                <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                <input type="hidden" name="reload" value="1" />
-                <input type="text" name="db" />
-                <input type="submit" value="<?php echo $strCreate; ?>" />
-            </form>
-            </td>
-        </tr>
-
-        <!-- server-related links -->
-        <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
-            <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW STATUS'); ?>&amp;goto=main.php3">
-                    <?php echo $strMySQLShowStatus; ?></a>&nbsp;
-                <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
-            </td>
-        </tr>
-
-        <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
-            <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&amp;goto=main.php3">
-                    <?php echo $strMySQLShowVars; ?></a>&nbsp;
-                <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
-            </td>
-        </tr>
-
-        <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
-            <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&amp;goto=main.php3">
-                    <?php echo $strMySQLShowProcess; ?></a>&nbsp;
-                <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
-            </td>
-        </tr>
-
-        <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
-            <td>
-                <a href="main.php3?<?php echo $common_url_query; ?>&amp;mode=reload">
-                    <?php echo $strReloadMySQL; ?></a>&nbsp;
-                <?php echo show_docu('manual_Reference.html#FLUSH') . "\n"; ?>
-            </td>
-        </tr>
-        <?php
-        $result = @mysql_query('USE mysql');
-        if (!mysql_error()) {
-            echo "\n";
-            ?>
-        <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
-            <td> 
-                <a href="user_details.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;table=user">
-                    <?php echo $strUsers; ?></a>&nbsp;
-                <?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
-            </td>
-        </tr>
-             <?php
-             if (MYSQL_INT_VERSION >= 32303) {
-                 echo "\n";
-                 ?>
-        <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
-            <td>
-                <a href="db_stats.php3?<?php echo $common_url_query; ?>">
-                    <?php echo $strDatabasesStats; ?></a>
-            </td>
-        </tr>
-                 <?php
-             }
-        }
-    } // end of 2 (no AdvAuth case)
-
-    echo "\n";
+    } // end if
     ?>
         </table>
     </td>

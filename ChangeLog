@@ -6,13 +6,15 @@ $Id$
 $Source$
 
 2001-10-23  Loïc Chapeaux  <lolo@phpheaven.net>
-	* config.inc.php3: removed unnecessary settings (stdpass is no long
-	  required and there is no need to use both stduser/user).
-	* Documentation.html: updated according to the changes in the configuration
-	  file.
-	* libraries/common.lib.php3: fixed a possible "security" issue (in advanced
-	  authentication mode, ensured the server selected is valid according to the
-	  user name).
+	* config.inc.php3, Documentation.html: extended the use of stduser/stdpass
+	  to the basic authentication mode.
+	* libraries/common.lib.php3:
+	  - fixed a possible "security" issue (in advanced authentication mode,
+        ensured the server selected is valid according to the user name);
+	  - extended the use of stduser/stdpass to the basic authentication mode;
+	  - fixed the messy use of 'stduser' and 'user' while connecting.
+	* main.php3: widely cleaned and fixed the messy use of 'stduser' and 'user'
+	  in queries.
 
 2001-10-22  Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html, line 299: added some requirements for sockets.
