@@ -4,8 +4,7 @@
 
 /**
  * Translated on 2002/04/29 by: Arthit Suriyawongkul & Warit Wanasathian
- * Revised on 2002/06/05 by: Arthit Suriyawongkul
- * Revised on 2002/06/14 by: Arthit Suriyawongkul
+ * Revised on 2002/06/18 by: Arthit Suriyawongkul
  */
 
 // note: Thai has 2 standard encodings (tis-620, iso-8859-11)
@@ -69,8 +68,10 @@ $strBookmarkView = 'ดูอย่างเดียว';
 $strBrowse = 'เปิดดู';
 $strBzip = '"bzipped"';
 
-$strCantLoadMySQL = 'ไม่สามารถเรียกใช้ MySQL extension,<br />กรุณาตรวจสอบการตั้งค่าของ PHP';
+$strCantLoadMySQL = 'ไม่สามารถเรียกใช้ตัวช่วยของ MySQL,<br />กรุณาตรวจสอบการตั้งค่าของ PHP';
+$strCantLoadRecodeIconv = 'ไม่สามารถเรียกตัวช่วย iconv หรือ recode สำหรับการแปลงชุดตัวอักษร, ทางเลือก: 1) เซต PHP ให้สามารถใช้ตัวช่วยเหล่านี้ได้ หรือ 2) เซต phpMyAdmin ให้ไม่ต้องแปลงชุดตัวอักษร';
 $strCantRenameIdxToPrimary = 'เปลี่ยนชื่อดัชนีเป็น PRIMARY ไม่ได้!';
+$strCantUseRecodeIconv = 'ไม่สามารถใช้ฟังก์ชั่น iconv หรือ libiconv หรือ recode_string ทั้งๆ ที่ตัวช่วยสำหรับฟังก์ชั่นเหล่านั้นได้ถูกเรียกขึ้นมาแล้ว. ลองตรวจสอบการเซตค่า้ของ PHP';
 $strCardinality = 'Cardinality';
 $strCarriage = 'ปัดแคร่: \\r';
 $strChange = 'เปลี่ยน';
@@ -82,6 +83,7 @@ $strCheckTable = 'ตรวจสอบตาราง';
 $strChoosePage = 'เลือกหน้าที่ต้องการแก้ไข';
 $strColumn = 'คอลัมน์';
 $strColumnNames = 'ชื่อคอลัมน์';
+$strComments = 'หมายเหตุ';
 $strCompleteInserts = 'คำสั่ง INSERT เต็มรูปแบบ';
 $strConfigFileError = 'phpMyAdmin ไม่สามารถอ่านไฟล์คอนฟิกูเรชั่นของคุณได้<br />โดยปกติ อาจจะเป็นเพราะตัว PHP หาไฟล์ไม่เจอ หรือไม่สามารถประมวลผล (parse) ไฟล์ได้<br />ลองเรียกไฟล์คอนฟิกูเรชั่นขึ้นมาโดยตรง (กดลิงค์ด้านล่าง) และดูว่ามี error message อะไรหรือไม่  ลองตรวจสอบดูเครื่องหมาย quote หรือ semicolon ว่าใส่ครบหรือเปล่า<br />ถ้าคุณเห็นหน้าว่างๆ แสดงว่าทุกอย่างเป็นปกติดี';
 $strConfigureTableCoord = 'กรุณาตั้งค่าโคออร์ดิเนตของตาราง %s';
@@ -161,6 +163,7 @@ $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'เปลี่ยนเสร็จแล้ว';
 $strHasBeenCreated = 'สร้างเสร็จแล้ว';
+$strHaveToShow = 'ต้องเลือกให้แสดงอย่างน้อยหนึ่งคอลัมน์';
 $strHome = 'หน้าบ้าน';
 $strHomepageOfficial = 'โฮมเพจอย่างเป็นทางการของ phpMyAdmin';
 $strHomepageSourceforge = 'หน้าดาวน์โหลด phpMyAdmin ที่ Sourceforge';
@@ -202,11 +205,13 @@ $strLogout = 'ออกจากระบบ';
 $strLogPassword = 'รหัสผ่าน:';
 $strLogUsername = 'ชื่อผู้ใช้:';
 
+$strMissingBracket = 'วงเล็บก้ามปู [] ไม่ครบ';
 $strModifications = 'บันทึกการแก้ไขเรียบร้อยแล้ว';
 $strModify = 'แก้ไข';
 $strModifyIndexTopic = 'แก้ไขดัชนี';
 $strMoveTable = 'ย้ายตารางไป (database<b>.</b>table):';
 $strMoveTableOK = 'ตาราง %s ถูกย้ายไป %s แล้ว';
+$strMySQLCharset = 'ชุดตัวอักษร (charset) ของ MySQL';
 $strMySQLReloaded = 'เรียก MySQL ขึ้นมาใหม่แล้ว';
 $strMySQLSaid = 'MySQL แสดง: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% ทำงานอยู่บน %pma_s2% ในชื่อ %pma_s3%';
@@ -400,14 +405,6 @@ $strWrongUser = 'อนุญาตให้เข้าใช้ไม่ได้ ชื่อผู้ใช้หรือรหัสผ่านผิด';
 
 $strYes = 'ใช่';
 
-$strZip = '"zipped"';
+$strZip = '"ถูกบีบอัดอยู่ (zip)"';
 
-// To translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-
-$strComments = 'Comments';  //to translate
 ?>
