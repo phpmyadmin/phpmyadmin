@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-30  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3: fits to coding standards.
+
 2001-08-29  Olivier Müller  <om@omnis.ch>
 	* left.php3: on login with std_auth, only the databases on which
 	  the user has rights will be shown (tested with @mysql_select_db($dbname)).

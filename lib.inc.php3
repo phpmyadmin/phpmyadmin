@@ -722,6 +722,8 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
      * @global  string   the current sql query
      * @global  integer  the current position in results
      * @global  string   the url to go back in case of errors
+     * @global  boolean  whether to limit the number of displayed charcaters of
+     *                   text type fields or not
      * @global  integer  the maximum number of rows per page
      * @global  integer  the total number of rows returned by the sql query
      */
@@ -729,7 +731,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
     {
         global $lang, $server, $db, $table;
         global $sql_query, $pos, $goto, $dontlimitchars;
-        global $sessionMaxRows, $SelectNumRows, $cfgLimitChars;
+        global $sessionMaxRows, $SelectNumRows;
         
         // $sql_query will be stripslashed in 'sql.php3' if the
         // 'magic_quotes_gpc' directive is set to 'on'
@@ -836,13 +838,10 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
     </td>
             <?php
         } // end move toward
-        echo "\n";
-
 
         // cfgLimitChars stuff
-
-
         if (!$dontlimitchars) {
+            echo "\n";
             ?>
     <td>
         &nbsp;&nbsp;&nbsp;
@@ -863,6 +862,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
     </td>
             <?php
         } else {
+            echo "\n";
             ?>
     <td>
         &nbsp;&nbsp;&nbsp;
@@ -878,12 +878,12 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="0" />
-            <input type="submit" name="navig" value="<?php echo $GLOBALS['str2'] . " " . $cfgLimitChars; ?> chars" />
+            <input type="submit" name="navig" value="<?php echo $GLOBALS['str2'] . ' ' . $GLOBALS['cfgLimitChars']; ?> chars" />
         </form>
     </td>
             <?php
-        }
-
+        } // end cfgLimitChars toward
+        echo "\n";
         ?>
 </tr>
 </table>
@@ -908,6 +908,8 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
      * @global  string   the current sql query
      * @global  string   the url to go back in case of errors
      * @global  integer  the total number of rows returned by the sql query
+     * @global  boolean  whether to limit the number of displayed charcaters of
+     *                   text type fields or not
      */
     function display_table($dt_result, $is_simple = FALSE)
     {
