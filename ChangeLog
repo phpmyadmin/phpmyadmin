@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-19 Alexander M. Turek  <me@derrabus.de>
+    * lang/german-*.inc.php: Clarification.
+
 2004-04-19 Marcel Tschopp  <ne0x@users.sourceforge.net>
     * libraries/export/sql.php, libraries/export/latex.php: Fixed a few
       mysqli-specific export-bugs
