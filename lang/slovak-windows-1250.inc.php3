@@ -17,8 +17,10 @@ $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Máj', 'Jún', 'Júl', 'Aug', 'Sep', 'O
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%d.%B, %Y - %H:%M';
+$timespanfmt = '%s dní, %s hodín, %s minút a %s sekúnd';
 
 $strAPrimaryKey = 'Bol pridanı primárny k¾úè pre %s';
+$strAbortedClients = 'Prerušené';
 $strAccessDenied = 'Prístup zamietnutı';
 $strAction = 'Akcia';
 $strAddDeleteColumn = 'Prida/Odobra polia ståpcov';
@@ -30,6 +32,7 @@ $strAddSearchConditions = 'Prida vyh¾adávacie parametre (obsah dotazu po "where
 $strAddToIndex = 'Prida do indexu &nbsp;%s&nbsp;ståpec';
 $strAddUser = 'Prida nového pouívate¾a';
 $strAddUserMessage = 'Pouívate¾ bol pridanı.';
+$strAdministration = 'Administrácia';
 $strAffectedRows = ' Ovplyvnené riadky: ';
 $strAfter = 'Po %s';
 $strAfterInsertBack = 'Spä';
@@ -62,8 +65,10 @@ $strBookmarkQuery = 'Ob¾úbenı SQL dotaz';
 $strBookmarkThis = 'Prida tento SQL dotaz do ob¾úbenıch';
 $strBookmarkView = 'Iba prezrie';
 $strBrowse = 'Prechádza';
+$strBzError = 'nepodarilo sa skomprimova vıstup z dôvodu chybného rozšírenia pre kompresiu Bz2 v tejto verzii php. Doporuèuje sa nastavi <code>$cfg[\'BZipDump\']</code> v konfigurácii phpMyAdmin na <code>FALSE</code>. Ak si eláte pouíva kompresiu Bz2 mali by ste nainštalova novšiu verziu php. Viac informácií získate z popisu chyby: %s.';
 $strBzip = '"bzipped"';
 
+$strCannotLogin = 'Nedá sa prihlási k MySQL serveru';
 $strCantLoadMySQL = 'nie je moné nahra rozšírenie pre MySQL,<br />prosím skontrolujte konfiguráciu PHP.';
 $strCantLoadRecodeIconv = 'Nie je moné nahra rozšírenie iconv alebo recode potrebné pre prevod znakovıch sad. Upravte nastavenie php tak aby umoòovalo poui tieto rozšírenia alebo vypnite túto vlastnos v konfigurácii phpMyAdmina.';
 $strCantRenameIdxToPrimary = 'Nie je moné premenova index na PRIMARY!';
@@ -81,15 +86,18 @@ $strChoosePage = 'Prosím zvolte si Stránku, ktorú chcete upravi';
 $strColComFeat = 'Zobrazova komentáre ståpcov';
 $strColumn = 'Ståpec';
 $strColumnNames = 'Názvy ståpcov';
+$strCommand = 'Príkaz';
 $strComments = 'Komentáre';
 $strCompleteInserts = 'Úplné vloenie';
 $strCompression = 'Kompresia';
 $strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.';
 $strConfigureTableCoord = 'Prosím skonfigurujte koordináty pre tabu¾ku %s';
 $strConfirm = 'Skutoène si eláte toto vykona?';
+$strConnections = 'Spojenia';
 $strCookiesRequired = 'Cookies musia by povolené, pokia¾ chcete pokraèova.';
 $strCopyTable = 'Skopírova tabu¾ku do (databáza<b>.</b>tabu¾ka):';
 $strCopyTableOK = 'Tabu¾ka %s bola skorírovaná do %s.';
+$strCouldNotKill = 'Neporadilo za zabi vlákno %s. Jeho beh bol pravdepodobne u ukonèenı.';
 $strCreate = 'Vytvori';
 $strCreateIndex = 'Vytvori index na&nbsp;%s&nbsp;ståpcoch';
 $strCreateIndexTopic = 'Vytvori novı index';
@@ -109,10 +117,13 @@ $strDatabases = 'databáz(y)';
 $strDatabasesStats = 'Štatistiky databázy';
 $strDefault = 'Predvolené';
 $strDelete = 'Zmaza';
+$strDeleteAndFlush = 'Odstráni uívate¾ov a znovunaèíta práva.';
+$strDeleteAndFlushDescr = 'Toto je najèistejšie riešenie, ale znovunaèítanie práv môe chví¾u trva.';
 $strDeleteFailed = 'Mazanie bolo neúspešné!';
 $strDeleteUserMessage = 'Pouívate¾ %s bol zmazanı.';
 $strDeleted = 'Riadok bol zmazanı';
 $strDeletedRows = 'Zmazané riadky:';
+$strDeleting = 'Odstraòuje sa %s';
 $strDescending = 'Zostupne';
 $strDisabled = 'Vypnuté';
 $strDisplay = 'Zobrazi';
@@ -147,6 +158,7 @@ $strExportToXML = 'Exportova do formátu XML';
 $strExtendedInserts = 'Rozšírené vkladanie';
 $strExtra = 'Extra';
 
+$strFailedAttempts = 'Nepodarenıch pokusov';
 $strField = 'Pole';
 $strFieldHasBeenDropped = 'Pole %s bolo odstránené';
 $strFields = 'Polia';
@@ -155,6 +167,7 @@ $strFieldsEnclosedBy = 'Polia uzatvorené';
 $strFieldsEscapedBy = 'Polia uvedené pomocou';
 $strFieldsTerminatedBy = 'Polia ukonèené';
 $strFixed = 'pevnı';
+$strFlushPrivilegesNote = 'Poznámka: phpMyAdmin získava práva uívatelov priamo z tabuliek MySQL. Obsah tıchto tabuliek sa môe líši od práv, ktoré pouíva server, ak boli tieto tabu¾ky ruène upravené. V tomto prípade sa odporúèa vykona %sznovunaèítanie práv%s predtım ako budete pokraèova.';
 $strFlushTable = 'Vyprázdni tabu¾ku ("FLUSH")';
 $strFormEmpty = 'Chıbajúca poloka vo formulári !';
 $strFormat = 'Formát';
@@ -164,7 +177,10 @@ $strFunction = 'Funkcia';
 $strGenBy = 'Vygenerované';
 $strGenTime = 'Vygenerované:';
 $strGeneralRelationFeat = 'Monosti všeobecnıch vzahov';
+$strGlobalPrivileges = 'Globálne práva';
+$strGlobalValue = 'Globálna hodnota';
 $strGo = 'Vykonaj';
+$strGrantOption = 'Prideli';
 $strGrants = 'Privilégia';
 $strGzip = '"gzip-ované"';
 
@@ -177,6 +193,7 @@ $strHomepageSourceforge = 'Download stránka phpMyAdmin-a (Sourceforge)';
 $strHost = 'Hostite¾';
 $strHostEmpty = 'Názov hostite¾a je prázdny!';
 
+$strId = 'ID';
 $strIdxFulltext = 'Celı text';
 $strIfYouWish = 'Ak si eláte nahra iba urèité ståpce tabu¾ky, špecifikujte ich ako zoznam polí oddelenı èiarkou.';
 $strIgnore = 'Ignorova';
@@ -196,10 +213,15 @@ $strInsertedRows = 'Vloené riadky:';
 $strInstructions = 'Inštrukcie';
 $strInvalidName = '"%s" je rezervované slovo, nemôe by pouité ako názov databázy/tabu¾ky/po¾a.';
 
+$strJustDelete = 'Iba odstráni uívatelov z tabuliek práv.';
+$strJustDeleteDescr = '&quot;Odstránení&quot; uívatelia budú ma k serveru ako predtım a do znovunaèítania práv.';
+
 $strKeepPass = 'Nezmeni heslo';
 $strKeyname = 'K¾úèovı názov';
 $strKill = 'Zabi';
 
+$strLaTeX = 'LaTeX';
+$strLandscape = 'Na šírku';
 $strLength = 'Dåka';
 $strLengthSet = 'Dåka/Nastavi*';
 $strLimitNumRows = 'záznamov na stránku';
@@ -218,6 +240,7 @@ $strMissingBracket = 'Chıba zátvorka';
 $strModifications = 'Zmeny boli uloené';
 $strModify = 'Zmeni';
 $strModifyIndexTopic = 'Modifikova index';
+$strMoreStatusVars = 'Ïalšie informácie o stave';
 $strMoveTable = 'Presunú tabu¾ku do (databáza<b>.</b>tabu¾ka):';
 $strMoveTableOK = 'Tabu¾ka %s bola presunutá do %s.';
 $strMySQLCharset = 'Znaková sada v MySQL';
@@ -255,6 +278,7 @@ $strNotValidNumber = ' nie je platné èíslo riadku!';
 $strNull = 'Nulovı';
 $strNumSearchResultsInTable = '%s vıskyt(ov)v tabu¾ke <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Celkovo:</b> <i>%s</i> vıskyt(ov)';
+$strNumTables = 'Tabu¾ky';
 
 $strOK = 'OK';
 $strOftenQuotation = 'Èasto uvodzujúce znaky. Volite¾ne znamená, e iba polia typu char a varchar sú uzatvorené do "uzatváracích" znakov.';
@@ -264,6 +288,7 @@ $strOptionalControls = 'Volite¾né. Urèuje ako zapisova alebo èíta špeciálne zn
 $strOptionally = 'Volite¾ne';
 $strOptions = 'Vo¾by';
 $strOr = 'alebo';
+$strOriginalInterface = 'pôvodné rozhranie';
 $strOverhead = 'Naviac';
 
 $strPHP40203 = 'Pouívate PHP 4.2.3, ktoré ma vánu chybu pri práci s viac bajtovımi znakmi (mbstring). V PHP je táto chyba zdokumentovaná pod èíslom 19404. Nedoporuèuje sa pouíva túto verziu PHP s phpMyAdminom.';
@@ -271,15 +296,18 @@ $strPHPVersion = 'Verzia PHP';
 $strPageNumber = 'Èíslo stránky:';
 $strPartialText = 'Èiastoèné texty';
 $strPassword = 'Heslo';
+$strPasswordChanged = 'Heslo pre %s bolo úspešne zmenené.';
 $strPasswordEmpty = 'Heslo je prázdne!';
 $strPasswordNotSame = 'Heslá sa nezhodujú!';
 $strPdfDbSchema = 'Schéma databázy "%s"  - Strana %s';
 $strPdfInvalidPageNum = 'Nedefinované èíslo stránky v PDF!';
 $strPdfInvalidTblName = 'Tabu¾ka "%s" neexistuje!';
 $strPdfNoTables = 'iadne tabu¾ky';
+$strPerHour = 'za hodinu';
 $strPhp = 'Vytvori PHP kód';
 $strPmaDocumentation = 'phpMyAdmin Dokumentácia';
 $strPmaUriError = 'Direktíva <tt>$cfg[\'PmaAbsoluteUri\']</tt> v konfiguraènom súbore MUSÍ by nastavená!';
+$strPortrait = 'Na vıšku';
 $strPos1 = 'Zaèiatok';
 $strPrevious = 'Predchádzajúci';
 $strPrimary = 'Primárny';
@@ -289,10 +317,35 @@ $strPrimaryKeyName = 'Názov primárneho k¾úèa musí by... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>musí</b> by <b>iba</b> meno primárneho k¾úèa!)';
 $strPrint = 'Vytlaèi';
 $strPrintView = 'Náh¾ad k tlaèi';
-$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
-$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
-$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.';
+$strPrivDescAllPrivileges = 'Všetky oprávnenia okrem GRANT.';
+$strPrivDescAlter = 'Povolí meni štruktúru existujúcich tabuliek.';
+$strPrivDescCreateDb = 'Povolí vytváranie novıch databáz a tabuliek.';
+$strPrivDescCreateTbl = 'Povolí vytváranie novıch tabuliek.';
+$strPrivDescCreateTmpTable = 'Povolí vytváranie doèasnıch tabuliek.';
+$strPrivDescDelete = 'Povolí mazanie dát.';
+$strPrivDescDropDb = 'Povolí odstraòovanie databáz a tabuliek.';
+$strPrivDescDropTbl = 'Povolí odstraòovanie tabuliek.';
+$strPrivDescExecute = 'Povolí spúšanie uloenıch procedúr. Nefunguje v tejto verzii MySQL.';
+$strPrivDescFile = 'Povolí importovanie a exportovanie dát zo/do súborov na serveri.';
+$strPrivDescGrant = 'Povolí pridávanie uivatelov a práv bez znovunaèítania tabuliek práv.';
+$strPrivDescIndex = 'Povolí vytváranie a mazanie indexov.';
+$strPrivDescInsert = 'Povolí vkladanie a nahradzovanie dát.';
+$strPrivDescLockTables = 'Povolí zmaknutie tabuliek pre aktuálne vlákno.';
+$strPrivDescProcess3 = 'Povolí zabíjanie procesov inım uívatelom.';
+$strPrivDescProcess4 = 'Povolí prezeranie kompletnıch dotazov v zozname procesov.';
+$strPrivDescReferences = 'Nefunguje v tejto verzii MySQL.';
+$strPrivDescReload = 'Povolí znovunaèítanie nastavení a vyprázdòovanie vyrovnávacích pamätí serveru.';
+$strPrivDescReplClient = 'Dovolí uívatelovi zisti kde je hlavnı / pomocnı server.';
+$strPrivDescReplSlave = 'Potrebné pre replikáciu pomocnıch serverov.';
+$strPrivDescSelect = 'Povolí èítanie dát.';
+$strPrivDescShowDb = 'Povolí prístup ku kompletnému zoznamu databáz.';
+$strPrivDescShutdown = 'Povolí vypnutie serveru.';
+$strPrivDescSuper = 'Povolí spojenie aj v prípade, e bol dosiahnutı maximálny poèet spojení. Potrebné pre väèšinu operácií pri správe serveru ako nastavovanie globálny premennıch alebo zabíjanie procesov inıch uívatelov.';
+$strPrivDescUpdate = 'Povolí menenie dát.';
+$strPrivDescUsage = 'iadne práva.';
 $strPrivileges = 'Privilégia';
+$strPrivilegesReloaded = 'Práva boli úspešne znovunaèítané.';
+$strProcesslist = 'Zoznam procesov';
 $strProperties = 'Vlastnosti';
 $strPutColNames = 'Prida názvy polí na prvı riadok';
 
@@ -301,22 +354,30 @@ $strQBEDel = 'Zmaza';
 $strQBEIns = 'Vloi';
 $strQueryOnDb = ' SQL dotaz v databáze <b>%s</b>:';
 $strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
+$strQueryType = 'Typ dotazu';
 
 $strReType = 'Potvrdi';
 $strRecords = 'Záznamov';
+$strReceived = 'Prijaté';
 $strReferentialIntegrity = 'Skontrolova referenènú integritu:';
 $strRelationNotWorking = 'Prídavné vlastnosti pre prácu s prepojenımi tabu¾kami boli deaktivované. Ak chcete zisti preèo, kliknite %ssem%s.';
 $strRelationView = 'Zobrazi spojitosti';
+$strRelationalSchema = 'Relaèná schéma';
 $strReloadFailed = 'Znovu-naèítanie MySQL bolo neúspešné.';
 $strReloadMySQL = 'Znovu-naèíta MySQL';
+$strReloadingThePrivileges = 'Znovunaèítanie práv';
 $strRememberReload = 'Nezabudnite znovu-naèíta MySQL server.';
+$strRemoveSelectedUsers = 'Odstráni vybranıch uívatelov';
 $strRenameTable = 'Premenova tabu¾ku na';
 $strRenameTableOK = 'Tabu¾ka %s bola premenovaná na %s';
 $strRepairTable = 'Opravi tabu¾ku';
 $strReplace = 'Nahradi';
 $strReplaceTable = 'Nahradi dáta v tabu¾ke súborom';
 $strReset = 'Pôvodné (Reset)';
+$strResourceLimits = 'Obmedzenie zdrojov'; //to translate
 $strRevoke = 'Zruši';
+$strRevokeAndDelete = 'Odobranie všetkıch aktívnych práv uívatelom a ich následné odstránenie.';
+$strRevokeAndDeleteDescr = 'Uívatelia budú ma stále právo USAGE (pouívanie) a do znovunaèítania práv.';
 $strRevokeGrant = 'Zruši polovenie pride¾ova privilégia';
 $strRevokeGrantMessage = 'Bolo zrušené právo pride¾ova privilégia pre %s';
 $strRevokeMessage = 'Boli zrušené privilégia pre %s';
@@ -360,15 +421,23 @@ $strSelectFields = 'Zvoli pole (najmenej jedno):';
 $strSelectNumRows = 'v dotaze';
 $strSelectTables = 'Vybra Tabu¾ky';
 $strSend = 'Pošli';
+$strSent = 'Odoslané';
 $strServer = 'Server %s';
 $strServerChoice = 'Vo¾ba serveru';
+$strServerStatus = 'Stav serveru';
+$strServerStatusUptime = 'Tento server beí %s. Bol spustenı %s.';
+$strServerTabProcesslist = 'Procesy';
+$strServerTabVariables = 'Premenné';
 $strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
+$strServerVars = 'Premenné a nastavenia serveru';
 $strServerVersion = 'Verzia serveru';
+$strSessionValue = 'Hodnota sedenia';
 $strSetEnumVal = 'Ak je pole typu "enum" alebo "set", prosím zadávajte hodnoty v tvare: \'a\',\'b\',\'c\'...<br />Ak dokonca potrebujete zada spätné lomítko ("\") alebo apostrof ("\'") pri tıchto hodnotách, zadajte ich napríklad takto \'\\\\xyz\' alebo \'a\\\'b\'.';
 $strShow = 'Ukáza';
 $strShowAll = 'Zobrazi všetko';
 $strShowColor = 'Zobrazi farbu';
 $strShowCols = 'Zobrazi ståpce';
+$strShowDatadictAs = 'Formát dátového slovníka';
 $strShowGrid = 'Zobrazi mrieku';
 $strShowPHPInfo = 'Zobrazi informácie o PHP';
 $strShowTableDimension = 'Zobrazi rozmery tabuliek';
@@ -381,6 +450,7 @@ $strSort = 'Triedi';
 $strSpaceUsage = 'Zabrané miesto';
 $strSplitWordsWithSpace = 'Slová sú rozdelené medzerou (" ").';
 $strStatement = 'Údaj';
+$strStatus = 'Stav';
 $strStrucCSV = 'CSV dáta';
 $strStrucData = 'Štruktúru a dáta';
 $strStrucDrop = 'Pridaj \'vyma tabu¾ku\'';
@@ -399,6 +469,7 @@ $strTableHasBeenDropped = 'Tabu¾ka %s bola odstránená';
 $strTableHasBeenEmptied = 'Tabu¾ka %s bola vyprázdená';
 $strTableHasBeenFlushed = 'Tabu¾ka %s bola vyprázdnená';
 $strTableMaintenance = 'Údrba tabu¾ky';
+$strTableOfContents = 'Obsah';
 $strTableStructure = 'Štruktúra tabu¾ky pre tabu¾ku';
 $strTableType = 'Typ tabu¾ky';
 $strTables = '%s tabu¾ka(y)';
@@ -406,7 +477,11 @@ $strTextAreaLength = ' Toto mono nepôjde upravi,<br /> kvôli svojej dåke ';
 $strTheContent = 'Obsah Vášho súboru bol vloenı.';
 $strTheContents = 'Obsah súboru prepíše obsah vybranej tabu¾ky v riadkoch s identickım primárnym alebo unikátnym k¾úèom.';
 $strTheTerminator = 'Ukonèenie polí.';
+$strThreadSuccessfullyKilled = 'Vlákno %s bol úspešne zabité.';
+$strTime = 'Èas';
 $strTotal = 'celkovo';
+$strTotalUC = 'Celkom';
+$strTraffic = 'Prevádzka';
 $strType = 'Typ';
 
 $strUncheckAll = 'Odznaèi všetko';
@@ -422,11 +497,14 @@ $strUseTables = 'Poui tabu¾ky';
 $strUser = 'Pouívate¾';
 $strUserEmpty = 'Meno pouívate¾a je prázdne!';
 $strUserName = 'Meno pouívate¾a';
+$strUserOverview = 'Preh¾ad uívatelov';
 $strUsers = 'Pouívatelia';
+$strUsersDeleted = 'Vybraní uívatelia bol úspešne odstránenı.';
 
 $strValidateSQL = 'Potvrdi platnos SQL';
 $strValidatorError = 'SQL validator nemohol by inicializovanı. Prosím skontrolujte, èi sú nainštalované všetky potrebné rozšírenia php, tak ako sú popísané v %sdocumentation%s.';
 $strValue = 'Hodnota';
+$strVar = 'Premenná';
 $strViewDump = 'Zobrazi dump (schému) tabu¾ky';
 $strViewDumpDB = 'Zobrazi dump (schému) databázy';
 
@@ -438,110 +516,9 @@ $strWrongUser = 'Zlé pouívate¾ské meno alebo heslo. Prístup zamietnutı.';
 
 $strYes = 'Áno';
 
+$strZeroRemovesTheLimit = 'Poznámka: Nastavenie tıchto parametrov na 0 (nulu) odstráni obmedzenia.';
 $strZip = '"zo zipované"';
 // To translate
-$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
-
-$strAbortedClients = 'Aborted'; //to translate
-$strAdministration = 'Administration'; //to translate
-
-$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
-
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
-$strCommand = 'Command'; //to translate
-$strConnections = 'Connections'; //to translate
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-
-$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
-$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
-$strDeleting = 'Deleting %s'; //to translate
-
-$strFailedAttempts = 'Failed attempts'; //to translate
-$strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
-
-$strGlobalPrivileges = 'Global privileges'; //to translate
-$strGlobalValue = 'Global value'; //to translate
-$strGrantOption = 'Grant'; //to translate
-
-$strId = 'ID'; //to translate
-
-$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
-$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
-
-$strLaTeX = 'LaTeX';  //to translate
-$strLandscape = 'Landscape';  //to translate
-
-$strMoreStatusVars = 'More status variables'; //to translate
-
-$strNumTables = 'Tables'; //to translate
-
-$strOriginalInterface = 'original interface';  //to translate
-
-$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
-$strPerHour = 'per hour'; //to translate
-$strPortrait = 'Portrait';  //to translate
-$strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
-$strPrivDescAlter = 'Allows altering the structure of existing tables.'; //to translate
-$strPrivDescCreateDb = 'Allows creating new databases and tables.'; //to translate
-$strPrivDescCreateTbl = 'Allows creating new tables.'; //to translate
-$strPrivDescCreateTmpTable = 'Allows creating temporary tables.'; //to translate
-$strPrivDescDelete = 'Allows deleting data.'; //to translate
-$strPrivDescDropDb = 'Allows dropping databases and tables.'; //to translate
-$strPrivDescDropTbl = 'Allows dropping tables.'; //to translate
-$strPrivDescExecute = 'Allows running stored procedures; Has no effect in this MySQL version.'; //to translate
-$strPrivDescFile = 'Allows importing data from and exporting data into files.'; //to translate
-$strPrivDescGrant = 'Allows adding users and privileges without reloading the privilege tables.'; //to translate
-$strPrivDescIndex = 'Allows creating and dropping indexes.'; //to translate
-$strPrivDescInsert = 'Allows inserting and replacing data.'; //to translate
-$strPrivDescLockTables = 'Allows locking tables for the current thread.'; //to translate
-$strPrivDescProcess3 = 'Allows killing processes of other users.'; //to translate
-$strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.'; //to translate
-$strPrivDescReferences = 'Has no effect in this MySQL version.'; //to translate
-$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
-$strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
-$strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
-$strPrivDescSelect = 'Allows reading data.'; //to translate
-$strPrivDescShowDb = 'Gives access to the complete list of databases.'; //to translate
-$strPrivDescShutdown = 'Allows shutting down the server.'; //to translate
-$strPrivDescSuper = 'Allows connectiong, even if maximum number of connections is reached; Required for most administrative operations like setting global variables or killing threads of other users.'; //to translate
-$strPrivDescUpdate = 'Allows changing data.'; //to translate
-$strPrivDescUsage = 'No privileges.'; //to translate
-$strPrivilegesReloaded = 'The privileges were reloaded successfully.'; //to translate
-$strProcesslist = 'Process list'; //to translate
-
-$strQueryType = 'Query type'; //to translate
-
-$strReceived = 'Received'; //to translate
-$strRelationalSchema = 'Relational schema';  //to translate
-$strReloadingThePrivileges = 'Reloading the privileges'; //to translate
-$strRemoveSelectedUsers = 'Remove selected users'; //to translate
-$strResourceLimits = 'Resource limits'; //to translate
-$strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
-$strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
-
-$strSent = 'Sent'; //to translate
-$strServerStatus = 'Runtime Information'; //to translate
-$strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
-$strServerTabProcesslist = 'Processes'; //to translate
-$strServerTabVariables = 'Variables'; //to translate
-$strServerVars = 'Server variables and settings'; //to translate
-$strSessionValue = 'Session value'; //to translate
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-$strStatus = 'Status'; //to translate
-
-$strTableOfContents = 'Table of contents';  //to translate
-$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
-$strTime = 'Time'; //to translate
-$strTotalUC = 'Total'; //to translate
-$strTraffic = 'Traffic'; //to translate
-
-$strUserOverview = 'User overview'; //to translate
-$strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
-
-$strVar = 'Variable'; //to translate
-
-$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
-
 $strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate
 $strAddPrivilegesOnTbl = 'Add privileges on the following table'; //to translate
 $strColumnPrivileges = 'Column-specific privileges'; //to translate
@@ -556,4 +533,9 @@ $strUseTextField = 'Use text field'; //to translate
 
 $strNoUsersSelected = 'No users selected.'; //to translate
 $strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
+
+$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.'; //to translate
+$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.'; //to translate
+$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.'; //to translate
+
 ?>

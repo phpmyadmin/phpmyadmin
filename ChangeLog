@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-15 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/lithuanian-*.inc.php3: Updates, thanks to Vilius Zigmantas (viliusz).
+    * lang/indonesian-*.inc.php3: Updates, thanks to Rachim Tamsjadi (tamsy).
+    * lang/italian-*.inc.php3: Updates, thanks to Pietro Danesi (danone).
+    * lang/polish-*.inc.php3: Updates, thanks to Jakub Wilk (ubanus).
+    * lang/slovak-*.inc.php3: Updates, thanks to Lubos Klokner (erkac).
+
 2003-01-15 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3: feature: deleting a pdf page
     * libraries/sqlparser.lib.php3: bug 667317 (INTERVAL 10YEAR)

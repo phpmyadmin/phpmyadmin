@@ -144,6 +144,7 @@ $strDocu = 'Documentazione';
 $strDrop = 'Elimina';
 $strDropDB = 'Elimina database %s';
 $strDropTable = 'Elimina la tabella';
+$strDropUsersDb = 'Elimina i databases gli stessi nomi degli utenti.';
 $strDumpXRows = 'Dump di %s righe a partire dalla riga %s.';
 $strDumpingData = 'Dump dei dati per la tabella';
 $strDynamic = 'dinamico';
@@ -284,6 +285,7 @@ $strNone = 'Nessuno';
 $strNotNumber = 'Questo non è un numero!';
 $strNotOK = 'non OK';
 $strNotSet = '<b>%s</b> tabella non trovata o non settata in %s';
+$strNoUsersSelected = 'Nessun utente selezionato.';
 $strNotValidNumber = ' non è una riga valida!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s corrisponde/ono nella tabella <i>%s</i>';
@@ -539,6 +541,4 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
-$strNoUsersSelected = 'No users selected.'; //to translate
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>
