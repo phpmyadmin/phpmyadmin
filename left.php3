@@ -22,9 +22,8 @@ if ($server > 0) {
     $num_dbs = count($dblist);
     // 1. $cfgServers[n]['only_db'] exists -> gets the valid databases list
     if ($num_dbs) {
-        $true_dblist           = array();
+        $true_dblist = array();
         for ($i = 0; $i < $num_dbs; $i++) {
-            // $dblink = @mysql_select_db(backquote($dblist[$i]));
             $dblink = @mysql_select_db($dblist[$i]);
             if ($dblink) {
                 $true_dblist[] = $dblist[$i];
@@ -37,12 +36,12 @@ if ($server > 0) {
     } // end if
     // 2. no $cfgServers[n]['only_db']
     else {
-        $dbs     = mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', FALSE, FALSE);
-        $num_dbs = @mysql_num_rows($dbs);
+        $dbs          = mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', FALSE, FALSE);
+        $num_dbs      = @mysql_num_rows($dbs);
         $real_num_dbs = 0;
         for ($i = 0; $i < $num_dbs; $i++) {
             $db_name_tmp = mysql_dbname($dbs, $i);
-            $dblink = @mysql_select_db($db_name_tmp);
+            $dblink      = @mysql_select_db($db_name_tmp);
             if ($dblink) {
                 $dblist[] = $db_name_tmp;
                 $real_num_dbs++;
@@ -207,7 +206,7 @@ if ($num_dbs > 1) {
         if (!empty($num_tables)) {
             echo "\n";
             ?>
-        <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (typeof(expandBase) != 'undefined') {expandBase('el<?php echo $j; ?>', true); return false;}">
+        <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', true); return false;}">
             <img name="imEx" id="el<?php echo $j; ?>Img" src="images/plus.gif" border="0" width="9" height="9" alt="+" /></a>
             <?php
         } else {
@@ -218,7 +217,7 @@ if ($num_dbs > 1) {
         }
         echo "\n";
         ?>
-        <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (typeof(expandBase) != 'undefined') {expandBase('el<?php echo $j; ?>', false)}">
+        <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', false)}">
             <font color="black" class="heada"><?php echo $db; ?>&nbsp;&nbsp;<span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></font></a>
     </div>
 
