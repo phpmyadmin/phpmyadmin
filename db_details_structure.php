@@ -480,7 +480,7 @@ else {
                     &nbsp;/&nbsp;
                     <a href="#" onclick="setCheckboxes('tablesForm', false); <?php echo $overhead_check; ?> return false;">
                         <?php echo $strCheckOverhead; ?></a>
-                    <? } ?>
+                    <?php } ?>
                     &nbsp;&nbsp;&nbsp;
                     <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
                     <select name="submit_mult" dir="ltr" onchange="this.form.submit();">

@@ -9,6 +9,7 @@ $Source$
     * db_datadict.php: Bug 857186: Real fix for the problem. The '@'
       delimiter slipped to the replacement's end instead of the expression's
       end.
+    * db_details_structure.php: Bug 857315 - short open tag fixed
 
 2003-12-09 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php: bug 854702: FORCE INDEX
