@@ -1376,7 +1376,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
                     $onclick = '';
                     if ($cfg['QueryFrameJS'] && $cfg['QueryFrame']) {
-                        $onclick = 'onclick="focus_querywindow(); return false;"';
+                        $onclick = 'onclick="focus_querywindow(\'' . urlencode($GLOBALS['sql_query']) . '\'); return false;"';
                     }
 
                     $edit_link = '&nbsp;[<a href="'

@@ -145,17 +145,20 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
         }
     }
 
-    function focus_querywindow() {
+    function focus_querywindow(sql_query) {
         if (top.frames.queryframe && top.frames.queryframe.querywindow && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
             top.frames.queryframe.querywindow.focus();
+            return false;
         } else if (top.frames.queryframe) {
-            top.frames.queryframe.querywindow=window.open('querywindow.php3?<?php echo PMA_generate_common_url('', ''); ?>&db=<?php echo (isset($db) ? htmlspecialchars($db) : ''); ?>&table=<?php echo (isset($table) ? htmlspecialchars($table) : ''); ?>', 'js_querywindow','toolbar=0,location=0,directories=0,status=1,menubar=0,scrollbars=yes,resizable=yes,width=<?php echo $cfg['QueryWindowWidth']; ?>,height=<?php echo $cfg['QueryWindowHeight']; ?>');
+            new_win_url = 'querywindow.php3?sql_query=' + sql_query + '&<?php echo PMA_generate_common_url('', ''); ?>&db=<?php echo (isset($db) ? htmlspecialchars($db) : ''); ?>&table=<?php echo (isset($table) ? htmlspecialchars($table) : ''); ?>';
+            top.frames.queryframe.querywindow=window.open(new_win_url, 'js_querywindow','toolbar=0,location=1,directories=0,status=1,menubar=0,scrollbars=yes,resizable=yes,width=<?php echo $cfg['QueryWindowWidth']; ?>,height=<?php echo $cfg['QueryWindowHeight']; ?>');
     
             if (!top.frames.queryframe.querywindow.opener) {
                top.frames.queryframe.querywindow.opener = top.frames.queryframe;
             }
 
-            reload_querywindow();
+            // reload_querywindow();
+            return false;
         }
     }
 

@@ -140,8 +140,11 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
         $sql_query = urldecode($query_history_latest);
         $db = $query_history_latest_db;
         $table = $query_history_latest_table;
-        $show_query = 1;
         $dup_sql[$query_history_latest] = true;
+    }
+    
+    if (isset($sql_query)) {
+        $show_query = 1;
     }
 
     if ($cfg['QueryHistoryDB'] && $cfgRelation['historywork']) {
@@ -218,7 +221,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     <input type="hidden" name="query_history_latest" value="" />
     <input type="hidden" name="query_history_latest_db" value="" />
     <input type="hidden" name="query_history_latest_table" value="" />
-
+    
     <input type="hidden" name="previous_db" value="<?php echo htmlspecialchars($db); ?>" />
 
     <input type="hidden" name="auto_commit" value="false" />

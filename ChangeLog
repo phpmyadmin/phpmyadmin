@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2003-03-12 Garvin Hicking <me@supergarv.de>
+    * header.inc.php3, querywindow.php3, libraries/common.lib.php3: Fixed some bugs for
+      the querywindow which didn't show the latest querys always.
     * Documentation.html, db_details.php3, read_dump.php3, tbl_query_box.php3:
       RFE #470000 - Use parameters for bookmarked queries. This is a bit tricky
       to do, so please see Documentation.html. I thought it too hard to move the
