@@ -215,6 +215,10 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
             $cfg['ShowTooltip'] = TRUE;
         }
     }
+    
+    if (!isset($cfg['LeftDisplayLogo'])) {
+        $cfg['LeftDisplayLogo'] = TRUE;
+    }
 
     if (!isset($cfg['ShowStats'])) {
         if (isset($cfgShowStats)) {

@@ -96,6 +96,8 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
         'lt-win1257'   => array('lt|lithuanian', 'lithuanian-windows-1257', 'lt'),
         'lv-utf-8'     => array('lv|latvian', 'latvian-utf-8', 'lv'),
         'lv-win1257'   => array('lv|latvian', 'latvian-windows-1257', 'lv'),
+        'ms-utf-8'     => array('ms|malay', 'malay-utf-8', 'ms'),
+        'ms-iso-8859-1'=> array('ms|malay', 'malay-iso-8859-1', 'ms'),
         'nl-utf-8'     => array('nl([-_][[:alpha:]]{2})?|dutch', 'dutch-utf-8', 'nl'),
         'nl-iso-8859-1'=> array('nl([-_][[:alpha:]]{2})?|dutch', 'dutch-iso-8859-1', 'nl'),
         'no-utf-8'     => array('no|norwegian', 'norwegian-utf-8', 'no'),

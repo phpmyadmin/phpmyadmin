@@ -168,7 +168,7 @@ echo "\n";
 <body bgcolor="<?php echo $cfg['LeftBgColor']; ?>">
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
-        <?php if(isset($cfg['LeftDisplayLogo']) && $cfg['LeftDisplayLogo']) { ?>
+        <?php if($cfg['LeftDisplayLogo']) { ?>
             <a href="http://www.phpmyadmin.net" target="_blank"><img src="./images/pma_logo.png" width="88" height="31" border="0" alt="phpMyAdmin" /></a>
         <?php } ?>
 

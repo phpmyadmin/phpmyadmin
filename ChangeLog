@@ -11,6 +11,10 @@ $Source$
 
 2002-08-22 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/sqlvalidator.lib.php3: Fixed bug #594947.
+    * libraries/common.lib.php3, libraries/config_import.lib.php3, left.php3:
+      Backwards compatibility.
+    * lang/malay-*.inc.php3, libraries/select_lang.lib.php3, translators.html:
+      New language, thanks to "Shafique" (sicksand).
 
 2002-08-21 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details.php3, read_dump.php3, libraries/functions.js, lang/*,
