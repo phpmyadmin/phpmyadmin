@@ -8,6 +8,10 @@ $Source$
 2003-03-21 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php3: typo
     * lang/french update
+    * image_jpeg__plain renamed to text_plain__imagelink, because
+      the contents is not an image but a filename
+      TODO: decide if we should display some image here, and
+      what to do with text_plain__link
 
 2003-03-21 Michal Cihar  <nijel@users.sourceforge.net>
     * ldi_check.php3: Use $sql_query instead of $query to put query correctly
