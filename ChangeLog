@@ -13,6 +13,7 @@ $Source$
     * header.inc.php: bug #1053310, undefined index under OmniSecure server
     * tbl_relation.php: bug #1050424, not positionned on current db
     * tbl_alter.php: bug #1054756, duplicate top menu
+    * lang/english: bug #1056724, typo
 
 2004-10-28 Alexander M. Turek  <me@derrabus.de>
     * user_password.php, lang/*.inc.php: Allow usage of old password hashing
