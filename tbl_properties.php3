@@ -269,7 +269,7 @@ while ($row = mysql_fetch_array($result)) {
     }
     $field_name = htmlspecialchars($row['Field']);
     if (isset($pk_array[$row['Field']])) {
-        $field_name = '<b>' . $field_name . '</b>';
+        $field_name = '<u>' . $field_name . '</u>';
     }
     echo "\n";
     ?>
@@ -285,7 +285,7 @@ while ($row = mysql_fetch_array($result)) {
     }
     echo "\n";
     ?>
-    <td nowrap="nowrap"><?php echo $field_name; ?>&nbsp;</td>
+    <td nowrap="nowrap">&nbsp;<?php echo $field_name; ?>&nbsp;</td>
     <td<?php echo $type_nowrap; ?>><?php echo $type; ?></td>
     <td nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
