@@ -8,6 +8,7 @@ $Source$
 2003-02-18 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: bug 649665: undefined variables with UNION, and
       also get the correct row count
+    * lang/norwegian: update, thanks to Sven-Erik Andersen
 
 2003-02-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_databases.php3:
