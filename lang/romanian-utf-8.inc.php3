@@ -23,6 +23,7 @@ $strAPrimaryKey = 'A fost adaugat o cheie primara la %s';
 $strAbortedClients = 'Intrerupt';
 $strAbsolutePathToDocSqlDir = 'Va rugam introduceti calea absoluta al serverului web la directorul docSQL';
 $strAccessDenied = 'Acces interzis';
+$strAccessDeniedExplanation = 'phpMyAdmin a incercat sa se conecteze la serverul de MySQL dar acesta a respins conexiunea. Ar trebui verificat daca datele din config.inc.php sunt corecte.';
 $strAction = 'Actiune';
 $strAddDeleteColumn = 'Adauga/Sterge coloane';
 $strAddDeleteRow = 'Adauga/Sterge criteriu';
@@ -654,5 +655,4 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 // To translate
 
-$strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in config.inc.php and make sure that they correspond to the information given by the administrator of the MySQL server.';  //to translate
 ?>

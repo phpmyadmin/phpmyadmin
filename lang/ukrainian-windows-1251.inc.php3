@@ -23,6 +23,7 @@ $strAPrimaryKey = 'Було додано первинний ключ до %s';
 $strAbortedClients = 'Перервано';
 $strAbsolutePathToDocSqlDir = 'Прошу задати абсолютний шлях на веб-сервері до каталогу docSQL';
 $strAccessDenied = 'Доступ заборонено';
+$strAccessDeniedExplanation = 'phpMyAdmin спробував з\'єднатися з MySQL сервером, але сервер не дозволив під\'єднання. Прошу перевірити значення host, username та password у файлі config.inc.php та впевнитися, що вони відповідають даним отриманим Вами від адміністратора MySQL сервера.';
 $strAction = 'Дія';
 $strAddDeleteColumn = 'Додати/забрати колонку критерію';
 $strAddDeleteRow = 'Додати/забрати рядок критерію';
@@ -654,5 +655,4 @@ $strZeroRemovesTheLimit = 'Примітка: Встановлення цієї опції у 0 (нуль) знімає о
 $strZip = 'запакувати в "zip"';
 // To translate
 
-$strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in config.inc.php and make sure that they correspond to the information given by the administrator of the MySQL server.';  //to translate
 ?>
