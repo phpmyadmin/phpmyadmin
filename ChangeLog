@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-27  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug 434608: support db names with special characters (MySQL >= 3.23.6)
+
+
 2001-06-27  Steve Alberty  <alberty@neptunlabs.de>
 	* lib.inc.php3: speedup get_table_content for tbl_dump
 	* tbl_dump: fixed a big bug

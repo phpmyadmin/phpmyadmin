@@ -63,7 +63,7 @@ if(isset($submit))
     }
 
     $sql_query = "ALTER TABLE $table ADD $query";
-    $result = mysql_query("ALTER TABLE $db.$table ADD $query");
+    $result = mysql_query("ALTER TABLE ".db_name($db).".$table ADD $query");
 
     $primary = '';
     
@@ -80,7 +80,7 @@ if(isset($submit))
         {
             $primary = "ADD PRIMARY KEY ($primary)";
             $sql_query .= "\nALTER TABLE $table $primary";
-            $result = mysql_query("ALTER TABLE $db.$table $primary") or mysql_die();
+            $result = mysql_query("ALTER TABLE ".db_name($db).".$table $primary") or mysql_die();
         }
     
     }
@@ -101,7 +101,7 @@ if(isset($submit))
         {
             $index = "ADD INDEX ($index)";
             $sql_query .= "\nALTER TABLE $table $index";
-            $result = mysql_query("ALTER TABLE $db.$table $index") or mysql_die();
+            $result = mysql_query("ALTER TABLE ".db_name($db).".$table $index") or mysql_die();
         }
     
     }
@@ -122,7 +122,7 @@ if(isset($submit))
         {
             $unique = "ADD UNIQUE ($unique)";
             $sql_query .= "\nALTER TABLE $table $unique";
-            $result = mysql_query("ALTER TABLE $db.$table $unique") or mysql_die();
+            $result = mysql_query("ALTER TABLE ".db_name($db).".$table $unique") or mysql_die();
         }
     
     }
