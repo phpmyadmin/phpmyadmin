@@ -396,15 +396,26 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         $foreign_table   = $foreigner['foreign_table'];
         $foreign_field   = $foreigner['foreign_field'];
 
-        // foreign_display can be FALSE if no display field defined:
-        $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
-        $dispsql         = 'SELECT ' . PMA_backquote($foreign_field)
-                         . (($foreign_display == FALSE) ? '' : ', ' . PMA_backquote($foreign_display))
-                         . ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table);
-        // lem9: put a LIMIT in case of big foreign table (looking for better
-        //       solution, maybe a configurable limit, or a message?)
-        $dispsql         .= ' LIMIT 100';
-        $disp            = PMA_mysql_query($dispsql);
+        // Count number of rows in the foreign table. Currently we do
+        // not use a drop-down if more than 200 rows in the foreign table,
+        // for speed reasons and because we need a better interface for this.
+        //
+        // We could also do the SELECT anyway, with a LIMIT, and ensure that 
+        // the current value of the field is one of the choices.
+
+        $count_query = 'SELECT COUNT(*) AS total FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table);
+        $count_result      = PMA_mysql_query($count_query) or PMA_mysqlDie('', $count_query, '', $err_url);
+        $the_total   = PMA_mysql_result($count_result, 0, 'total');
+        mysql_free_result($count_result);
+
+        if ($the_total < 200) {
+            // foreign_display can be FALSE if no display field defined:
+            $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
+            $dispsql         = 'SELECT ' . PMA_backquote($foreign_field)
+                             . (($foreign_display == FALSE) ? '' : ', ' . PMA_backquote($foreign_display))
+                             . ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table);
+            $disp            = PMA_mysql_query($dispsql);
+        }
     }
 
     if (isset($disp) && $disp) {
@@ -421,6 +432,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         } // end while
         echo '            </select>' . "\n";
         echo '        </td>' . "\n";
+        unset($disp);
     }
     else if (strstr($row_table_def['True_Type'], 'text')) {
         ?>
