@@ -170,7 +170,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     else if (strstr($row_table_def['Type'], 'enum')) {
         $set = str_replace('enum(', '', $row_table_def['Type']);
         $set = ereg_replace('\\)$', '', $set);
-        $set = explode(',', $set);
+        $set = explode('\',\'', substr($set, 1, -1));
 
         // show dropdown or radio depend on length
         if (strlen($row_table_def['Type']) > 20) {
@@ -183,12 +183,14 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
 
             for ($j = 0; $j < count($set);$j++) {
                 echo '                ';
-                echo '<option value="' . substr($set[$j], 1, -1) . '"';
-                if ($data == substr($set[$j], 1, -1)
-                    || ($data == '' && substr($set[$j], 1, -1) == $row_table_def['Default'])) {
-                    echo ' slected="selected"';
+                echo '<option value="' . $set[$j] . '"';
+                if ($data == $set[$j]
+                    || ($data == '' 
+		  	&& isset($row_table_def['Default'])
+			&& $set[$j] == $row_table_def['Default'])) {
+                    echo ' "selected"';
                 }
-                echo '>' . htmlspecialchars(substr($set[$j], 1, -1)) . '</option>' . "\n";
+                echo '>' . htmlspecialchars($set[$j]) . '</option>' . "\n";
              } // end for
              ?>
              </select>
@@ -205,6 +207,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
                 echo 'value="' . substr($set[$j], 1, -1) . '"';
                 if ($data == substr($set[$j], 1, -1)
                     || ($data == '' 
+			&& isset($row_table_def['Default'])
                         && substr($set[$j], 1, -1) == $row_table_def['Default']
                         && $row_table_def['Null'] != 'YES')) {
                     // To be able to display a checkmark in the [Null] box when
