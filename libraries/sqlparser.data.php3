@@ -111,6 +111,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'MID',
         'MIN',
         'MOD',
+        'MONTH',
         'MONTHNAME',
         'NOW',
         'NULLIF',
@@ -166,10 +167,11 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'VERSION',
         'WEEK',
         'WEEKDAY',
+        'YEAR',
         'YEARWEEK'
     );
     //$PMA_SQPdata_function_name_cnt = count($PMA_SQPdata_function_name);
-    $PMA_SQPdata_function_name_cnt = 149;
+    $PMA_SQPdata_function_name_cnt = 151;
 
     $PMA_SQPdata_column_attrib = array (
         'AUTO_INCREMENT',
