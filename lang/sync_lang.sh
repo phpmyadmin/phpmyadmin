@@ -45,7 +45,7 @@ portuguese
 romanian
 russian-koi8
 serbian-win1250
-slovak-iso
+slovak-iso-8859-2
 spanish
 swedish
 thai
