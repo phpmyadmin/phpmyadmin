@@ -3,12 +3,12 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 
-/**
- * Runs common work
- */
-require('./tbl_properties_common.php3');
-$url_query .= '&amp;goto=tbl_properties_structure.php3&amp;back=tbl_properties_structure.php3';
-
+if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
+    include('./libraries/grab_globals.lib.php3');
+}
+if (!defined('PMA_COMMON_LIB_INCLUDED')) {
+    include('./libraries/common.lib.php3');
+}
 
 /**
  * Drop multiple fields if required
@@ -18,6 +18,12 @@ if ((!empty($submit_mult) && isset($selected_fld))
     $action = 'tbl_properties_structure.php3';
     include('./mult_submits.inc.php3');
 }
+
+/**
+ * Runs common work
+ */
+require('./tbl_properties_common.php3');
+$url_query .= '&amp;goto=tbl_properties_structure.php3&amp;back=tbl_properties_structure.php3';
 
 
 /**

@@ -8,6 +8,9 @@ $Source$
 2003-03-24 Michal Cihar  <nijel@users.sourceforge.net>
     * db_details_structure.php3, mult_submits.inc.php: Added CHECK TABLE to
       multisubmit actions (RFE #622603).
+    * db_details_structure.php3, mult_submits.inc.php3, tbl_alter.php3,
+      tbl_properties_structure.php3: Show result of CHECK/OPTIMIZE/REPAIR
+      queries for multiple tables.
 
 2003-03-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3, libraries/config_import.lib.php3,

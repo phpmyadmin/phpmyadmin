@@ -58,6 +58,17 @@ if (!empty($submit_mult)
  * Displays the confirmation form if required
  */
 if (!empty($submit_mult) && !empty($what)) {
+    $js_to_run = 'functions.js';
+    unset($message);
+    if (!empty($table)) {
+        include('./tbl_properties_common.php3');
+        $url_query .= '&amp;goto=tbl_properties.php3&amp;back=tbl_properties.php3';
+        include('./tbl_properties_table_info.php3');
+    }
+    else {
+        include('./db_details_common.php3');
+        include('./db_details_db_info.php3');
+    }
     // Builds the query
     $full_query     = '';
     $selected_cnt   = count($selected);
@@ -156,20 +167,20 @@ else if ($mult_btn == $strYes) {
 
             case 'check_tbl':
                 $sql_query .= (empty($sql_query) ? 'CHECK TABLE ' : ', ')
-                           . PMA_backquote(urldecode($selected[$i]))
-                           . (($i == $selected_cnt-1) ? ';' : '');
+                           . PMA_backquote(urldecode($selected[$i]));
+//                           . (($i == $selected_cnt-1) ? ';' : '');
                 break;
 
             case 'optimize_tbl':
                 $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ')
-                           . PMA_backquote(urldecode($selected[$i]))
-                           . (($i == $selected_cnt-1) ? ';' : '');
+                           . PMA_backquote(urldecode($selected[$i]));
+//                           . (($i == $selected_cnt-1) ? ';' : '');
                 break;
 
             case 'repair_tbl':
                 $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ')
-                           . PMA_backquote(urldecode($selected[$i]))
-                           . (($i == $selected_cnt-1) ? ';' : '');
+                           . PMA_backquote(urldecode($selected[$i]));
+//                           . (($i == $selected_cnt-1) ? ';' : '');
                 break;
 
             case 'empty_tbl':
@@ -201,12 +212,14 @@ else if ($mult_btn == $strYes) {
     } // end for
 
     if ($query_type == 'drop_tbl'
-        || $query_type == 'drop_fld'
-        || $query_type == 'repair_tbl'
-        || $query_type == 'check_tbl'
-        || $query_type == 'optimize_tbl') {
+        || $query_type == 'drop_fld') {
         PMA_mysql_select_db($db);
         $result = @PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
+    } elseif ($query_type == 'repair_tbl'
+        || $query_type == 'check_tbl'
+        || $query_type == 'optimize_tbl') {
+        include('./sql.php3');
+        exit();
     }
 
     PMA_showMessage($strSuccess);

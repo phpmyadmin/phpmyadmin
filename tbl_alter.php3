@@ -7,10 +7,8 @@
  * Gets some core libraries
  */
 require('./libraries/grab_globals.lib.php3');
-if (!isset($submit_mult)) {
-    $js_to_run = 'functions.js';
-    include('./header.inc.php3');
-}
+$js_to_run = 'functions.js';
+include('./header.inc.php3');
 
 
 /**

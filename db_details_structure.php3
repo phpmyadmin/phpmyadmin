@@ -8,20 +8,26 @@
  * because there is no table in the database ($is_info is TRUE)
  */
 if (empty($is_info)) {
-   include('./db_details_common.php3');
-   $url_query .= '&amp;goto=db_details_structure.php3';
+    if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
+        include('./libraries/grab_globals.lib.php3');
+    }
+    if (!defined('PMA_COMMON_LIB_INCLUDED')) {
+        include('./libraries/common.lib.php3');
+    }
 
-   // Drops/deletes multiple tables if required
-   if ((!empty($submit_mult) && isset($selected_tbl))
+    // Drops/deletes/etc. multiple tables if required
+    if ((!empty($submit_mult) && isset($selected_tbl))
        || isset($mult_btn)) {
         $action = 'db_details_structure.php3';
         include('./mult_submits.inc.php3');
-   }
+    }
+    include('./db_details_common.php3');
+    $url_query .= '&amp;goto=db_details_structure.php3';
 
-   // Gets the database structure
-   $sub_part = '_structure';
-   include('./db_details_db_info.php3');
-   echo "\n";
+    // Gets the database structure
+    $sub_part = '_structure';
+    include('./db_details_db_info.php3');
+    echo "\n";
 }
 
 
