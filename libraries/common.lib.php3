@@ -960,16 +960,22 @@ if (typeof(document.getElementById) != 'undefined'
                 // Want to have the query explained (Mike Beck 2002-05-22)
                 // but do not explain an explain (lem9)
                 if (!eregi('^EXPLAIN[[:space:]]+', $GLOBALS['sql_query'])) {
-                    $explain_link = '[<a href="sql.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . $GLOBALS['server'] . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '&amp;sql_query=' . urlencode('EXPLAIN '.$GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'] . '</a>]&nbsp;';
+                    $explain_link = '[<a href="sql.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . $GLOBALS['server'] . '&amp;db=' . urlencode($GLOBALS['db'])
+                                  . (!empty($GLOBALS['table']) ? '&amp;table=' . urlencode($GLOBALS['table']) : '')
+                                  . '&amp;sql_query=' . urlencode('EXPLAIN '.$GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'] . '</a>]&nbsp;';
                 } else {
                     $explain_link = '';
                 }
                 // Also we would like to get the SQL formed in some nice
                 // php-code (Mike Beck 2002-05-22)
                 if (!empty($GLOBALS['show_as_php'])) {
-                    $php_link = '<a href="sql.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . $GLOBALS['server'] . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_as_php=0">' . $GLOBALS['strNoPhp'] . '</a>';
+                    $php_link = '<a href="sql.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . $GLOBALS['server'] . '&amp;db=' . urlencode($GLOBALS['db'])
+                              . (!empty($GLOBALS['table']) ? '&amp;table=' . urlencode($GLOBALS['table']) : '')
+                              . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_as_php=0">' . $GLOBALS['strNoPhp'] . '</a>';
                 } else {
-                    $php_link = '<a href="sql.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . $GLOBALS['server'] . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_as_php=1">' . $GLOBALS['strPhp'] . '</a>';
+                    $php_link = '<a href="sql.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . $GLOBALS['server'] . '&amp;db=' . urlencode($GLOBALS['db'])
+                              . (!empty($GLOBALS['table']) ? '&amp;table=' . urlencode($GLOBALS['table']) : '')
+                              . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_as_php=1">' . $GLOBALS['strPhp'] . '</a>';
                 }
             }
 

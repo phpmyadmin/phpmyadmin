@@ -6,7 +6,8 @@ $Id$
 $Source$
 
 2002-05-25 Loïc Chapeaux  <lolo@phpheaven.net>
-    * libraries/common.lib.php3: fixed a PHP3 bug and coding standards.
+    * libraries/common.lib.php3: fixed a PHP3 bug, warnings and coding
+      standards.
     * lang/english.inc.php3; lang/french.inc.php3: sorted.
     * header.inc.php3: enforce relative url in CSS.
 
