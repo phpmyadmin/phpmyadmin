@@ -21,7 +21,7 @@ $strAddDeleteColumn = 'Lägg till/ta bort fältkolumner';
 $strAddDeleteRow = 'Lägg till/ta bort kriteriumrader';
 $strAddNewField = 'Lägg till nytt fält';
 $strAddPriv = 'Lägg till ett nytt privilegie';
-$strAddPrivMessage = 'Du har lagt till nya rättigheter.';
+$strAddPrivMessage = 'Du har lagt till ett nytt privilegie.';
 $strAddSearchConditions = 'Lägg till sökkriterier (uttryck i "where"-sats):';
 $strAddUser = 'Lägg till ny användare';
 $strAddUserMessage = 'Du har lagt till en ny användare.';
@@ -182,6 +182,7 @@ $strNoDropDatabases = '"DROP DATABASE"-instruktioner är avstängda.';
 $strNoModification = 'Ingen förändring';
 $strNoPassword = 'Inget lösenord';
 $strNoPrivileges = 'Inga privilegier';
+$strNoQuery = 'Ingen SQL fråga!';
 $strNoRights = 'Du har inte nog med behörighet för att vara här!';
 $strNoTablesFound = 'Inga tabeller funna i databasen.';
 $strNotNumber = 'Det är inte ett nummer!';
@@ -322,5 +323,4 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
-$strNoQuery = 'No SQL query!';  //to translate
 ?>
