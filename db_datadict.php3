@@ -121,9 +121,10 @@ while ($row = mysql_fetch_array($rowset)) {
         }
         // I don't know what does following column mean....
         // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
+
         if (PMA_MYSQL_INT_VERSION >= 32300) {
             // rabus: The 'Comment' field was added in MySQL 3.23.0.
-            $indexes_info[$row['Key_name']]['Comment']         = $row['Comment'];
+            $indexes_info[$row['Key_name']]['Comment']     = $row['Comment'];
         }
 
         $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
