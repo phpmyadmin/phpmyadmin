@@ -446,6 +446,7 @@ $strPrimaryKeyName = 'Jméno primárního klíèe musí být "PRIMARY"!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>musí</b> být jméno <b>pouze</b> primárního klíèe!)';
 $strPrint = 'Vytisknout';
 $strPrintView = 'Náhled k vyti¹tìní';
+$strPrintViewFull = 'Náhled k vyti¹tìní (s&nbsp;kompletními texty)';
 $strPrivDescAllPrivileges = 'V¹echna oprávnìní kromì GRANT.';
 $strPrivDescAlter = 'Umo¾òuje mìnit strukturu existujících tabulek.';
 $strPrivDescCreateDb = 'Umo¾òuje vytváøet nové databáze a tabulky.';

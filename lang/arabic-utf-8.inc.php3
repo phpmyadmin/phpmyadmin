@@ -734,4 +734,5 @@ $strLatexCaption = 'Table caption';//to translate
 $strLatexLabel = 'Label key';//to translate
 $strLatexContinuedCaption = 'Continued table caption';//to translate
 
+$strPrintViewFull = 'Print view (with full texts)';  //to translate
 ?>
