@@ -81,7 +81,7 @@ $strCreate = '建立';
 $strCreateIndex = '新增 &nbsp;%s&nbsp; 組索引欄';
 $strCreateIndexTopic = '新增一組索引';
 $strCreateNewDatabase = '建立新資料庫';
-$strCreateNewTable = '建立新資料表於資料庫 ';
+$strCreateNewTable = '建立新資料表於資料庫 %s';
 $strCriteria = '篩選';
 
 $strData = '資料';

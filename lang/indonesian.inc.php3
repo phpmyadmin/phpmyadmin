@@ -79,7 +79,7 @@ $strCreate = 'Buat';
 $strCreateIndex = 'Buat indeks diatas&nbsp;%s&nbsp;kolom';
 $strCreateIndexTopic = 'Bikin indeks baru';
 $strCreateNewDatabase = 'Bangun database baru';
-$strCreateNewTable = 'Buat tabel baru di database ';
+$strCreateNewTable = 'Buat tabel baru di database %s';
 $strCriteria = 'Kriteria';
 
 $strData = 'Data';

@@ -79,7 +79,7 @@ $strCreate = 'Opret';
 $strCreateIndex = 'Dan et indeks på&nbsp;%s&nbsp;kolonner'; 
 $strCreateIndexTopic = 'Lav et nyt indeks';
 $strCreateNewDatabase = 'Opret ny database';
-$strCreateNewTable = 'Opret ny tabel i database ';
+$strCreateNewTable = 'Opret ny tabel i database %s';
 $strCriteria = 'Kriterier';
 
 $strData = 'Data';

@@ -79,7 +79,7 @@ $strCreate = 'Git';
 $strCreateIndex = '%s sütununda yeni bir index olu&#351;tur';
 $strCreateIndexTopic = 'Yeni bir index olu&#351;tur';
 $strCreateNewDatabase = 'Yeni veritabaný oluþtur';
-$strCreateNewTable = 'Veritabaný üzerinde yeni bir tablo oluþtur ';
+$strCreateNewTable = 'Veritabaný üzerinde yeni bir tablo oluþtur %s';
 $strCriteria = 'Kriter';
 
 $strData = 'Veri';

@@ -79,7 +79,7 @@ $strCreate = 'Loo';
 $strCreateIndex = 'Loo indeks &nbsp;%s&nbsp;väljadest';
 $strCreateIndexTopic = 'Loo uus indeks';
 $strCreateNewDatabase = 'Loo uus andmebaas';
-$strCreateNewTable = 'Loo uus tabel andmebaasi ';
+$strCreateNewTable = 'Loo uus tabel andmebaasi %s';
 $strCriteria = 'Kriteerium';
 
 $strData = 'Andmed';

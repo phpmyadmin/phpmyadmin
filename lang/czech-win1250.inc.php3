@@ -79,7 +79,7 @@ $strCreate = 'Vytvoøit';
 $strCreateIndex = 'Vytvoøit index na&nbsp;%s&nbsp;sloupcích';
 $strCreateIndexTopic = 'Vytvoøit nový index';
 $strCreateNewDatabase = 'Vytvoøit novou databázi';
-$strCreateNewTable = 'Vytvoøit novou tabulku v&nbsp;databázi ';
+$strCreateNewTable = 'Vytvoøit novou tabulku v&nbsp;databázi %s';
 $strCriteria = 'Podmínka';
 
 $strData = 'Data';

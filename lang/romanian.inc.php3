@@ -79,7 +79,7 @@ $strCreate = 'Creaza';
 $strCreateIndex = 'Creaza un index pe&nbsp;%s&nbsp;coloana';
 $strCreateIndexTopic = 'Creaza un nou index';
 $strCreateNewDatabase = 'Creaza baza de date noua';
-$strCreateNewTable = 'Creaza tabel nou in baza de date ';
+$strCreateNewTable = 'Creaza tabel nou in baza de date %s';
 $strCriteria = 'Criteriu';
 
 $strData = 'Date';

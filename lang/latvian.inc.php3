@@ -83,7 +83,7 @@ $strCreate = 'Izveidot';
 $strCreateIndex = 'Izveidot indeksu uz&nbsp;%s&nbsp;laukiem';
 $strCreateIndexTopic = 'Izveidot jaunu indeksu';
 $strCreateNewDatabase = 'Izveidot jaunu datubâzi';
-$strCreateNewTable = 'Izveidot jaunu tabulu datubâzç ';
+$strCreateNewTable = 'Izveidot jaunu tabulu datubâzç %s';
 $strCriteria = 'Kritçrijs';
 
 $strData = 'Dati';

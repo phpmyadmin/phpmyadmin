@@ -79,7 +79,7 @@ $strCreate = 'Opprett';
 $strCreateIndex = 'Lag en indeks p&aring;&nbsp;%s&nbsp;kolonner';
 $strCreateIndexTopic = 'Lag en ny indeks';
 $strCreateNewDatabase = 'Opprett ny database';
-$strCreateNewTable = 'Opprett ny tabell i database ';
+$strCreateNewTable = 'Opprett ny tabell i database %s';
 $strCriteria = 'Kriterier';
 
 $strData = 'Data';

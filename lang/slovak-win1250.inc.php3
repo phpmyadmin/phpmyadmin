@@ -80,7 +80,7 @@ $strCreate = 'Vytvori';
 $strCreateIndex = 'Vytvori index na&nbsp;%s&nbsp;ståpcoch';
 $strCreateIndexTopic = 'Vytvori novı index';
 $strCreateNewDatabase = 'Vytvori novú databázu';
-$strCreateNewTable = 'Vytvori novú tabu¾ku v databáze ';
+$strCreateNewTable = 'Vytvori novú tabu¾ku v databáze %s';
 $strCriteria = 'Kritéria';
 
 $strData = 'Dáta';

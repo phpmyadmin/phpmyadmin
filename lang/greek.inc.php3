@@ -66,7 +66,7 @@ $strConfirm = 'Πραγματικά θέλετε να το εκελέσετε;';
 $strCopyTableOK = 'Ο Πίνακας %s αντιγράφηκε στο %s.';
 $strCreate = 'Δημιουργία';
 $strCreateNewDatabase = 'Δημιουργία νέας βάσης';
-$strCreateNewTable = 'Δημιουργία νέου πίνακα στη βάση ';
+$strCreateNewTable = 'Δημιουργία νέου πίνακα στη βάση %s';
 $strCriteria = 'Κριτήρια';
 
 $strData = 'Δεδομένα';

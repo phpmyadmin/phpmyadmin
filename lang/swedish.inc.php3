@@ -79,7 +79,7 @@ $strCreate = 'Skapa';
 $strCreateIndex = 'Skapa ett index för&nbsp;%s&nbsp;kolumn(er)';
 $strCreateIndexTopic = 'Skapa ett nytt index';
 $strCreateNewDatabase = 'Skapa ny databas';
-$strCreateNewTable = 'Skapa ny tabell i databas ';
+$strCreateNewTable = 'Skapa ny tabell i databas %s';
 $strCriteria = 'Villkor';
 
 $strData = 'Data';

@@ -78,7 +78,7 @@ $strCreate = 'Criar';
 $strCreateIndex = 'Criar um índice com&nbsp;%s&nbsp;coluna(s)';
 $strCreateIndexTopic = 'Criar um novo índice';
 $strCreateNewDatabase = 'Criar nova base de dados';
-$strCreateNewTable = 'Criar nova tabela na base de dados ';
+$strCreateNewTable = 'Criar nova tabela na base de dados %s';
 $strCriteria = 'Critérios';
 
 $strData = 'Dados';

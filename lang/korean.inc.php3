@@ -62,7 +62,7 @@ $strConfirm = 'Do you really want to do it?'; //to translate
 $strCopyTableOK = '%s 테이블이 %s 으로 복사되었습니다.';
 $strCreate = ' 만들기 ';
 $strCreateNewDatabase = '새로운 데이터 베이스를 만듭니다';
-$strCreateNewTable = '현재의 데이터 베이스에 새로운 테이블을 만듭니다. -->';
+$strCreateNewTable = '현재의 데이터 베이스에 새로운 테이블을 만듭니다. %s -->';
 $strCriteria = 'Criteria'; //to translate (tbl_qbe.php3)
 
 $strData = 'Data'; //to translate

@@ -62,7 +62,7 @@ $strConfirm = 'Do you really want to do it?'; //to translate
 $strCopyTableOK = '数据表 %s 已经成功复制为 %s。';
 $strCreate = '建立';
 $strCreateNewDatabase = '建立一个新的数据库';
-$strCreateNewTable = '建立一个新的数据表与数据库 ';
+$strCreateNewTable = '建立一个新的数据表与数据库 %s';
 $strCriteria = 'Criteria'; //to translate (tbl_qbe.php3)
 
 $strData = 'Data'; //to translate

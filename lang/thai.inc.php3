@@ -62,7 +62,7 @@ $strConfirm = 'Do you really want to do it?'; //to translate
 $strCopyTableOK = 'ตาราง %s ได้ทําการสําเนาไปเป็น %s เรียบร้อยแล้ว.';
 $strCreate = 'สร้าง';
 $strCreateNewDatabase = 'สร้างฐานข้อมูลใหม่';
-$strCreateNewTable = 'สร้างตารางในฐานข้อมูลนี้ ';
+$strCreateNewTable = 'สร้างตารางในฐานข้อมูลนี้ %s';
 $strCriteria = 'Criteria'; //to translate (tbl_qbe.php3)
 
 $strData = 'Data'; //to translate

@@ -78,7 +78,7 @@ $strCreate = 'צור';
 $strCreateIndex = 'צור אינקס ב-&nbsp;%s&nbsp;שורות';
 $strCreateIndexTopic = 'צור אינקס חדש';
 $strCreateNewDatabase = 'צור מסד נתונים חדש';
-$strCreateNewTable = 'צור טבלה חדשה על מסד הנתונים ';
+$strCreateNewTable = 'צור טבלה חדשה על מסד הנתונים %s';
 $strCriteria = 'קריטריון';
 
 $strData = 'מידע';

@@ -83,7 +83,7 @@ $strCreate = 'Luo';
 $strCreateIndex = 'Luo sarakkeista indeksi';
 $strCreateIndexTopic = 'Luo uusi indeksi';
 $strCreateNewDatabase = 'Luo uusi tietokanta';
-$strCreateNewTable = 'Luo uusi taulu tietokantaan ';
+$strCreateNewTable = 'Luo uusi taulu tietokantaan %s';
 $strCriteria = 'Hakuehdot';
 
 $strData = 'Data';

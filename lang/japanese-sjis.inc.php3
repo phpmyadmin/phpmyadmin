@@ -79,7 +79,7 @@ $strCreate = '作成';
 $strCreateIndex = '&nbsp;%s&nbsp;の列のインデックスの作成';
 $strCreateIndexTopic = '新しいインデックスの作成';
 $strCreateNewDatabase = '新しいDBを作成します。';
-$strCreateNewTable = '現在のDBに新しいテーブルを作成します。 --> ';
+$strCreateNewTable = '現在のDBに新しいテーブルを作成します。 %s--> ';
 $strCriteria = '基準';
 
 $strData = 'データ';

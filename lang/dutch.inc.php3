@@ -64,7 +64,7 @@ $strConfirm = 'Weet u zeker dat u dit wilt?';
 $strCopyTableOK = 'Tabel %s is gekopieerd naar %s.';
 $strCreate = 'Aanmaken';
 $strCreateNewDatabase = 'Nieuwe database aanmaken';
-$strCreateNewTable = 'Nieuwe tabel aanmaken in database ';
+$strCreateNewTable = 'Nieuwe tabel aanmaken in database %s';
 $strCriteria = 'Criteria';
 
 $strData = 'Data';

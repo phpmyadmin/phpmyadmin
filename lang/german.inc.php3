@@ -79,7 +79,7 @@ $strCreate = 'Erzeugen';
 $strCreateIndex = 'Index über&nbsp;%s&nbsp;Spalten anlegen';
 $strCreateIndexTopic = 'Neuen Index anlegen';
 $strCreateNewDatabase = 'Neue Datenbank erzeugen';
-$strCreateNewTable = 'Neue Tabelle erstellen in Datenbank ';
+$strCreateNewTable = 'Neue Tabelle erstellen in Datenbank %s';
 $strCriteria = 'Kriterium';
 
 $strData = 'Daten';

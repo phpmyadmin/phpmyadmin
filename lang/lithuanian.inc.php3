@@ -79,7 +79,7 @@ $strCreate = 'Sukurti';
 $strCreateIndex = 'Sukurti indeksà &nbsp;%s&nbsp;stulpeliui(iams)';
 $strCreateIndexTopic = 'Sukurti naujà indeksà';
 $strCreateNewDatabase = 'Sukurti naujà duomenø bazæ';
-$strCreateNewTable = 'Sukurti naujà lentelæ duomenø bazëje ';
+$strCreateNewTable = 'Sukurti naujà lentelæ duomenø bazëje %s';
 $strCriteria = 'Kriterijai';
 
 $strData = 'Duomenys';

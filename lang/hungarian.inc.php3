@@ -80,7 +80,7 @@ $strCreate = 'Létrehoz';
 $strCreateIndex = 'Készíts egy indexet a(z)&nbsp;%s&nbsp;. oszlopon';
 $strCreateIndexTopic = 'Új index létrehozása';
 $strCreateNewDatabase = 'Új adatbázis létrehozása';
-$strCreateNewTable = 'Új tábla létrehozása az adatbázisban: ';
+$strCreateNewTable = 'Új tábla létrehozása az adatbázisban: %s';
 $strCriteria = 'Kritérium';
 
 $strData = 'Adat';
