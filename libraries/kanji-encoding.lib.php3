@@ -79,18 +79,17 @@ if (!defined('PMA_ENCODING_LIB_INCLUDED')) {
         if ($enc == '' && $kana == '') {
             return $str;
         }
-
         $nw       = mb_detect_encoding($str, $enc_list);
+
         if ($kana == 'kana') {
             $dist = mb_convert_kana($str, 'KV', $nw);
             $str  = $dist;
         }
-        if ($nw != $enc && $enc) {
+        if ($nw != $enc && $enc != '') {
             $dist = mb_convert_encoding($str, $enc, $nw);
         } else {
             $dist = $str;
         }
-
         return $dist;
     } // end of the 'PMA_kanji_str_conv' function
 
