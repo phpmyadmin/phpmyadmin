@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-19 Michal Čihař  <michal@cihar.com>
+    * sql.php: Don't unset $sql_limit_to_append, we need it later (bug
+      #978930, found by Marc).
+
 2004-08-22 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/norwegian: Update, thanks to Sven-Erik Andersen - sven-erik.
     * lang/estonian: Update thanks to Alvar Soome - finsoft.

@@ -326,7 +326,6 @@ else {
                 $display_query  = $display_query . $sql_limit_to_append;
             }
         }
-        unset($sql_limit_to_append);
     } else {
         $full_sql_query      = $sql_query;
     } // end if...else
