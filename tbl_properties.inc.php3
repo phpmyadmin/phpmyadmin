@@ -34,18 +34,15 @@ $is_backup = ($action != 'tbl_create.php3' && $action != 'tbl_addfield.php3');
         <th><?php echo $strDefault; ?></th>
         <th><?php echo $strExtra; ?></th>
 <?php
+// We could remove this 'if' and let the key information be shown and
+// editable.  However, for this to work, tbl_alter must be modified
+// to use the key fields, as tbl_addfield does.
+
 if (!$is_backup) {
-    if (empty($num_indexes)) {
-        echo "        <th>$strPrimary</th>\n";
-        echo "        <th>$strIndex</th>\n";
-        echo "        <th>$strUnique</th>\n";
-        echo "        <th>$strIdxFulltext</th>\n";
-    } else {
-        for ($i = 0; $i < $num_indexes; $i++) {
-            echo "        <th>$strSequence</th>\n";
-            echo "        <th>$strLength</th>\n";
-        } // end for
-    } // end if
+    echo "        <th>$strPrimary</th>\n";
+    echo "        <th>$strIndex</th>\n";
+    echo "        <th>$strUnique</th>\n";
+    echo "        <th>$strIdxFulltext</th>\n";
 }
 ?>
     </tr>
@@ -212,8 +209,8 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             </select>
         </td>
     <?php
+// See my other comment about removing this 'if'.
     if (!$is_backup) {
-        if (empty($num_indexes)) {
             if (isset($row) && isset($row['Key']) && $row['Key'] == 'PRI') {
                 $checked_primary = ' checked="checked"';
             } else {
@@ -256,7 +253,6 @@ for ($i = 0 ; $i < $num_fields; $i++) {
                 <?php
             } // end if (PMA_MYSQL_INT_VERSION >= 32323)
             echo "\n";
-        } // end if (empty($num_indexes))
     } // end if ($action ==...)
     echo "\n";
     ?>

@@ -9,6 +9,7 @@ $Source$
 	* main.php3, libraries/auth/cookie.auth.lib.php3, Patch
 	  495360 (cookie with domain), experimental, thanks to
 	  Piotr Roszatycki (d3xter) and Christoph (certelt).
+	* tbl_properties.inc.php3: clarifications
 
 2002-02-09 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/functions.js: improved the "mark row" feature (it wasn't
