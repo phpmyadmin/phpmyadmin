@@ -343,10 +343,13 @@
         <tt>$cfg['Servers'][$i]['user']</tt> and
         <tt>$cfg['Servers'][$i]['password']</tt> fields.<br />
         But you don't need to setup a &quot;controluser&quot; here:
-        using the <tt>$cfg['Servers'][$i]['only_db']</tt> might be enough.
-        <br />
-        In the ISP FAQ section, there is an entry explaining how to protect
+        using the <tt>$cfg['Servers'][$i]['only_db']</tt> might be enough.</li>
+    <li>In the ISP FAQ section, there is an entry explaining how to protect
         your configuration file.<br /></li>
+    <li>For additional security in this mode, you may wish to consider the 
+        Host authentication <tt>$cfg['Servers'][$i]['AllowDeny']['order']</tt>
+        and <tt>$cfg['Servers'][$i]['AllowDeny']['rules']</tt> configuration
+        directives.</li>
 </ul>
 
 
@@ -438,9 +441,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <dt><b>$cfg['Servers'][$i]['connect_type']</b> string</dt>
     <dd>
         What type connection to use with the MySQL server. Your options are
-        'socket' &amp; 'tcp'. It defaults to 'tcp' as that is nearly guarenteed
-        to be available on all MySQL servers, while sockets are not supported
-        on some platforms.
+        <tt>'socket'</tt> &amp; <tt>'tcp'</tt>. It defaults to 'tcp' as that
+        is nearly guarenteed to be available on all MySQL servers, while 
+        sockets are not supported on some platforms.
         <br /><br />
     </dd>
 
@@ -689,6 +692,56 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         </ul><br />
         See also this <a class="navigation" href="#faqpdf">usage tip.</a>
         <br /><br />
+    </dd>
+
+
+
+    <dt><b>$cfg['Servers'][$i]['AllowDeny']['order']</b> string</dt>
+    <dd>
+        If your rule order is empty, then IP authentication is disabled.
+        <br /><br />
+        If your rule order is set to <tt>'deny,allow'</tt>. Then the system applies all deny rules followed by allow rules. 
+        Access is allowed by default.  Any client which does not match a Deny command or does match an Allow command will be
+        allowed access to the server.
+        <br /><br />
+        If your rule order is set to <tt>'allow,deny'</tt>. Then the system applies all allow rules followed by deny rules. Access
+        is denied by default.  Any client which does not match an Allow directive or does match a Deny directive will be denied
+        access to the server.
+        <br /><br />
+        If your rule order is set to 'explicit', the authentication is performed in a similar fashion to rule order 'deny,allow',
+        with the added restriction that your host/username combination <b>must</b> be listed in the <i>allow</i> rules, and not
+        listed in the <i>deny</i> rules. This is the <b>most</b> secure means of using Allow/Deny rules, and was available in
+        Apache by specifying allow and deny rules without setting any order.
+        <br /><br />
+    </dd>
+
+
+    <dt><b>$cfg['Servers'][$i]['AllowDeny']['rules']</b> array of strings</dt>
+    <dd>
+        The general format for the rules is as such:<br />
+        <tt>&lt;'allow' | 'deny'&gt; &lt;username&gt; [from] &lt;ipmask&gt;</tt>
+        <br /><br />
+
+        If you wish to match all users, it is possible to use a <tt>'%'</tt> as a wildcard in the <i>username</i> field.<br />
+        There are a few shortcuts you can use in the <i>ipmask</i> field as well:
+        <tt><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'all' -&gt; 0.0.0.0/0<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'localhost' -&gt; 127.0.0.1/8</tt>
+        <br /><br />
+
+        Having an empty rule list is equivilent to either using <tt>'allow % from all'</tt> if your rule order is set to
+        <tt>'deny,allow'</tt> or <tt>'deny % from all'</tt> if your rule order is set to <tt>'allow,deny'</tt> or
+        <tt>'explicit'</tt>.
+        <br /><br />
+
+        For the IP matching system, the following work:<br />
+        <tt>xxx.xxx.xxx.xxx</tt>        (an exact IP address)<br />
+        <tt>xxx.xxx.xxx.[yyy-zzz]</tt>  (an IP address range)<br />
+        <tt>xxx.xxx.xxx.xxx/nn</tt>     (CIDR, Classless Inter-Domain Routing type IP addresses)<br />
+        But the following does not work:<br />
+        <tt>xxx.xxx.xxx.xx[yyy-zzz]</tt> (partial IP address range)
+        <br /><br />
+
     </dd>
 
     <dt><b>$cfg['ServerDefault']</b> integer</dt>
@@ -1386,7 +1439,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     your users. The development of this feature was kindly sponsored by
     NetCologne GmbH.
     This requires a properly setup MySQL user management and phpMyAdmin
-    http authentication. See the install section on
+    http or cookie authentication. See the install section on
     &quot;Using http authentication&quot;.
 </p>
 
@@ -1454,6 +1507,30 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     database name for a user, and put the privileges you want.  For example,
     adding <tt>SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER</tt>
     would let a user create/manage his/her database(s).
+</p>
+
+<p>
+    <b>How can I use the Host-based authentication additions?</b>
+    <br />
+    If you have existing rules from an old .htaccess file, you can take them and 
+    add a username between the <tt>'deny'</tt>/<tt>'allow'</tt> and <tt>'from'</tt>
+    strings. Using the username wildcard of <tt>'%'</tt> would be a major benefit 
+    here if your installation is suited to using it. Then you can just add those
+    updated lines into the <tt>$cfg['Servers'][$i]['AllowDeny']['rules']</tt> array.
+    <br /><br />
+    If you want a pre-made sample, you can try this fragment. It stops the 'root' 
+    user from logging in from any networks other than the private network IP blocks.
+    <br /><tt>
+&nbsp;&nbsp;&nbsp;&nbsp;//block root from logging in except from the private networks<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$cfg['Servers'][$i]['AllowDeny']['rules'] = array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'deny root from all',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'allow root from localhost',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'allow root from 10.0.0.0/8',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'allow root from 192.168.0.0/16',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'allow root from 172.16.0.0/12',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</tt>
+
 </p>
 
 <a name="faqbrowsers"></a>
@@ -1556,7 +1633,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
 </p>
 <ul>
     <li>Using <tt>VARCHAR</tt> without a size argument</li>
-    <li>Using <tt>TEXT or</tt> BLOB with a size argument</li>
+    <li>Using <tt>TEXT</tt> or <tt>BLOB</tt> with a size argument</li>
 </ul>
 <p>
     Also, look at the syntax chapter in the MySQL manual to confirm that your
@@ -1883,7 +1960,7 @@ CREDITS, in chronological order
     * started SourceForge phpMyAdmin project in March 2001
     * sync'ed different existing CVS trees with new features and bugfixes
     * multi-language improvements, dynamic language selection
-    * current project maintainer, with Marc and Loic
+    * current project maintainer
 
 [lc] - Loïc Chapeaux &lt;lolo_at_phpheaven.net&gt;
     * rewrote and optimized javascript, DHTML and DOM stuff
@@ -1895,6 +1972,8 @@ CREDITS, in chronological order
 [rj] - Robin Johnson &lt;robbat2_at_users.sourceforge.net&gt;
     * database maintence controls
     * table type code
+    * Host authentication IP Allow/Deny
+    * DB-based configuration
 
 [af] - Armel Fauveau &lt;armel.fauveau_at_globalis-ms.com&gt;
     * bookmarks feature
@@ -1927,7 +2006,7 @@ CREDITS, in chronological order
     * German language file updates
 
 
-Thanks to those guy who send us some major improvements to merge into the
+Thanks to these guys who have sent us some major improvements to merge into the
 code since version 2.1.0:
 - Michal Cihar &lt;nijel at users.sourceforge.net&gt; who implemented the
   enhanced index creation/display feature.
@@ -1946,6 +2025,7 @@ code since version 2.1.0:
   feature: automatic joint in QBE, links column in printview, Relation view.
 - Maxime Delorme &lt;delorme.maxime at free.fr&gt; for the PDF schema output;
   thanks also to Olivier Plathey for the fpdf library (www.fpdf.org).
+
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version 2.1.0:

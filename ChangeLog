@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-17 Robin Johnson  <robbat2@users.sourceforge.net>
+    * config.inc.php3, libraries/common.lib.php3: IP-based Allow/Deny code
+      from feature #484158
+    * Documentation.*: feature #484158 documented
+
 2002-05-17 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3, bug 556296: field size for int
     * tbl_qbe.php3, adjust drop-down width, thanks to Mike Beck

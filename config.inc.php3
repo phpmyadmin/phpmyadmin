@@ -55,6 +55,11 @@ $cfg['Servers'][$i]['pdf_table_position']
                                                     // tables position for the 
                                                     // PDF schema - leave blank
                                                     // for no PDF schema support
+$cfg['Servers'][$i]['AllowDeny']['order'] 
+                                     = '';          // Host authentication order, leave blank to not use
+$cfg['Servers'][$i]['AllowDeny']['rules'] 
+                                     = array( );    // Host authentication rules, leave blank for defaults
+
 
 $i++;
 $cfg['Servers'][$i]['host']          = '';

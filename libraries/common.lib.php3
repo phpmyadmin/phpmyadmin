@@ -311,6 +311,144 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         return true;
     } // end of the 'PMA_setFontSizes()' function
 
+  
+    /**
+     * Based on IP Pattern Matcher
+     * Originally by J.Adams <jna@retina.net>
+     * Found on <http://www.php.net/manual/en/function.ip2long.php>
+     * Modified by Robbat2 <robbat2@users.sourceforge.net>
+     *
+     * Matches:
+     * xxx.xxx.xxx.xxx        (exact)
+     * xxx.xxx.xxx.[yyy-zzz]  (range)
+     * xxx.xxx.xxx.xxx/nn     (CIDR)
+     *
+     * Does not match:
+     * xxx.xxx.xxx.xx[yyy-zzz]  (range, partial octets not supported)
+     *
+     * @param   string   string of IP range to match
+     * @param   string   string of IP to test against range
+     *
+     * @return  boolean    always true
+     *
+     * @access  public
+     */
+
+    function PMA_IPMaskTest($TestRange,$IPtoTest)
+    {
+       $result = TRUE;
+       
+       if (ereg( "([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)", $TestRange, $regs) ) {
+           //perform a mask match
+           $ipl = ip2long($IPtoTest);
+           $rangel = ip2long($regs[1].'.'.$regs[2].'.'.$regs[3].'.'.$regs[4]);
+
+           $maskl = 0;
+	
+           for ($i = 0; $i< 31; $i++) {
+               if ($i < $regs[5]-1) {
+                   $maskl = $maskl + pow(2,(30-$i));
+               } // end if
+           } // end for
+          
+           if (($maskl & $rangel) == ($maskl & $ipl)) {
+               return TRUE;
+           } else {
+               return FALSE;
+           }
+       } else {
+           // range based
+           $maskocts = split("\.",$TestRange);
+           $ipocts = split("\.",$IPtoTest);
+             
+           // perform a range match
+           for ($i=0; $i<4; $i++) {
+                if (ereg("\[([0-9]+)\-([0-9]+)\]",$maskocts[$i],$regs)) {
+                    if ( ($ipocts[$i] > $regs[2]) 
+                         || ($ipocts[$i] < $regs[1])) {
+                        $result = FALSE;
+                    } // end if
+                } else {
+                    if ($maskocts[$i] <> $ipocts[$i]) {
+                        $result = FALSE;
+                    } // end if
+                } // end if/else
+           } //end for
+       } //end if/else
+
+       return $result;
+    }
+
+
+    /**
+     * Runs through IP Allow/Deny rules the use of it below for more information
+     * 
+     * @param   string 'allow' | 'deny' type of rule to match
+     * 
+     * @return  bool   Matched a rule ?
+     * 
+     * @access  public
+     */
+    function PMA_AllowDeny($type)
+    {
+	global $cfg;
+
+        // grab IP of user
+        if (getenv("HTTP_X_FORWARDED_FOR")) {
+            // try to behave properly with proxies, as per
+            // http://www.php.net/manual/en/function.getenv.php
+            $remoteip = getenv("HTTP_X_FORWARDED_FOR");
+        } else {
+            // possibly does not work in ISAPI?
+            $remoteip = getenv("REMOTE_ADDR");
+        }
+
+        // copy username
+        $username = $cfg['Server']['user'];
+
+        // copy rule database
+       	$rules = $cfg['Server']['AllowDeny']['rules'];
+
+        // lookup table for some name shortcuts
+	$shortcuts = array(
+            "all" => "0.0.0.0/0",
+            "localhost" => "127.0.0.1/8"
+        );
+
+        reset ($rules); // used instead of a foreach look for PHP3 support
+        while ( list(, $rule) = each ($rules) ) {
+            // extract rule data
+            $rule_data = explode(' ',$rule);
+
+            // check for rule type
+            if( $rule_data[0] != $type )
+                continue;
+
+            // check for username
+            if( ($rule_data[1] != '%' ) //wildcarded first
+                && ($rule_data[1] != $username) )
+                continue;
+
+            // check if the config file has the full string with an extra 'from' in it
+            // if it does, just discard it
+            if( $rule_data[2] == 'from' )
+                $rule_data[2] = $rule_data[3];
+
+            // Handle shortcuts with above array
+            // DON'T use "array_key_exists" as it's only PHP 4.1 and newer.
+            if( isset($shortcuts[$rule_data[2]]) )
+                $rule_data[2] = $shortcuts[$rule_data[2]];
+
+            // Add code for host lookups here
+            // Excluded for the moment
+
+            // Do the actual matching now
+            if(PMA_IPMaskTest($rule_data[2],$remoteip))
+                return TRUE;
+        }
+
+        return FALSE;
+    }
 
     /**
      * $cfg['PmaAbsoluteUri'] is a required directive else cookies won't be
@@ -405,6 +543,42 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             PMA_auth_set_user();
         }
 
+        // Check IP-based Allow/Deny rules as soon as possible to reject the user
+        // Based on mod_access in Apache
+	// http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
+	// Look at: "static int check_dir_access(request_rec *r)"
+	// Robbat2 - May 10, 2002
+
+        $AllowDeny_forbidden = FALSE; //default
+	if ( $cfg['Server']['AllowDeny']['order'] == 'allow,deny' ) {
+           $AllowDeny_forbidden = TRUE;
+           if( PMA_AllowDeny('allow') ) {
+                $AllowDeny_forbidden = FALSE;
+           }
+           if( PMA_AllowDeny('deny') ) {
+                $AllowDeny_forbidden = TRUE;
+           }
+        } else if ( $cfg['Server']['AllowDeny']['order'] == 'deny,allow' ) {
+           if( PMA_AllowDeny('deny') ) {
+                $AllowDeny_forbidden = TRUE;
+           }
+           if( PMA_AllowDeny('allow') ) {
+                $AllowDeny_forbidden = FALSE;
+           }
+        } else if ( $cfg['Server']['AllowDeny']['order'] == 'explicit' ) {
+           if( PMA_AllowDeny('allow') 
+               && !PMA_AllowDeny('deny') ) {
+                $AllowDeny_forbidden = FALSE;
+           } else {
+                $AllowDeny_forbidden = TRUE;
+           }
+        }
+	if($AllowDeny_forbidden) {
+           // eject the user if they are bad
+           PMA_auth_fails();
+        }
+        unset($AllowDeny_forbidden); //Clean up after you!
+
         // The user can work with only some databases
         if (isset($cfg['Server']['only_db']) && $cfg['Server']['only_db'] != '') {
             if (is_array($cfg['Server']['only_db'])) {
@@ -447,6 +621,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             } // end if
         } // end if
 
+        // Pass #1 of DB-Config to read in master level DB-Config will go here
+        // Robbat2 - May 11, 2002
+
         // Connects to the server (validates user's login)
         $userlink               = @$connect_func(
                                       $cfg['Server']['host'] . $server_port . $server_socket,
@@ -456,6 +633,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         if ($userlink == FALSE) {
             PMA_auth_fails();
         } // end if
+
+        // Pass #2 of DB-Config to read in user level DB-Config will go here
+        // Robbat2 - May 11, 2002
 
         if (PMA_PHP_INT_VERSION >= 40000) {
             @ini_set('track_errors', $bkp_track_err);
