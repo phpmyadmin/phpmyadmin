@@ -9,6 +9,8 @@ $Source$
     * db_details.php3, read_dump.php3, libraries/functions.js, lang/*,
       config.inc.php3, Documentation.html: web-based upload directory,
       thanks to Sönke J. Peters (s03nk3)
+    * tbl_properties_structure.php3: undefined index for innodb,
+      thanks to Loïc
 
 2002-08-21 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: Updated FAQ 1.6.

@@ -295,7 +295,7 @@ require ('./tbl_indexes.php3');
 //                      statistics whatever is the table type
 if ($cfg['ShowStats']) {
     $nonisam     = FALSE;
-    $is_innodb   = ($showtable['Type'] == 'InnoDB');
+    $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB'); 
     if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
         $nonisam = TRUE;
     }
