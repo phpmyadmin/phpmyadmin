@@ -25,7 +25,7 @@ $Source$
 
 2004-10-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: there was already a tip icon in our collection,
-      thanks to Mr. Michael Keck
+      thanks to Michael Keck
 
 2004-10-20 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
