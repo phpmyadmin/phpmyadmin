@@ -5,13 +5,17 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-01  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.php3: rewritten so it becomes as far as possible xhtml1.0 compliant.
+	* spacer.gif was broken (strange display with NS).
+
 2001-06-30  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_change.php3, lang/*: merge patch: "do not edit blobs" from 
 	  Bernard M. Piller <bernard@bmpsystems.com>
 
 ========================================================================================
 2001-06-30  Olivier Müller  <om@omnis.ch>
-        IMPORTANT : FROM NOW, PLEASE COMMIT YOUR CHANGES IN THE PHPMYADMIN-DEVEL BRANCH!
+	IMPORTANT : FROM NOW, PLEASE COMMIT YOUR CHANGES IN THE PHPMYADMIN-DEVEL BRANCH!
 	THE PHPMYADMIN-DEVEL BRANCH (where you are now) WILL BECOME THE MAIN BRANCH
 	AS SOON AS THE SF STAFF MAKE THE CHANGE
 =========================================================================================
