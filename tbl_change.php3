@@ -74,7 +74,7 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
     // THE FUNCTION COLUMN
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data to be destroyed
-    if(strstr($row_table_def["Type"], "blob"))
+    if(strstr($row_table_def["Type"], "blob") || strstr($row_table_def["Type"], "binary") )
     {
         echo "<td>$strBinary</td>";
     }
@@ -186,7 +186,7 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
     }
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data destroyed
-    elseif(strstr($row_table_def["Type"], "blob"))
+    elseif(strstr($row_table_def["Type"], "blob") || strstr($row_table_def["Type"], "binary"))
     {
         echo "<td>" . $strBinaryDoNotEdit . "</td>";
     }
