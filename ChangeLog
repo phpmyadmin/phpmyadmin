@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-27 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3, libraries/relation.lib.php3: Added some
+      checks to avoid trying to use relations when no table (bug #761835).
+    
 2003-06-27 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: bug 760648: incorrect result count on MySQL 3
 

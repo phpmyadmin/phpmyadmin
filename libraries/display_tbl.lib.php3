@@ -1625,15 +1625,19 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         $tabs    = '(\'' . join('\',\'', $target) . '\')';
 
         if ($cfgRelation['displaywork']) {
-            $exist_rel = PMA_getForeigners($db, $table, '', 'both');
-            if ($exist_rel) {
-                while (list($master_field,$rel) = each($exist_rel)) {
-                    $display_field = PMA_getDisplayField($rel['foreign_db'],$rel['foreign_table']);
-                    $map[$master_field] = array($rel['foreign_table'],
-                                          $rel['foreign_field'],
-                                          $display_field,
-                                          $rel['foreign_db']);
-                } // end while
+            if (empty($table)) {
+                $exist_rel = FALSE;
+            } else {
+                $exist_rel = PMA_getForeigners($db, $table, '', 'both');
+                if ($exist_rel) {
+                    while (list($master_field,$rel) = each($exist_rel)) {
+                        $display_field = PMA_getDisplayField($rel['foreign_db'],$rel['foreign_table']);
+                        $map[$master_field] = array($rel['foreign_table'],
+                                              $rel['foreign_field'],
+                                              $display_field,
+                                              $rel['foreign_db']);
+                    } // end while
+                } // end if
             } // end if
         } // end if
         // end 2b

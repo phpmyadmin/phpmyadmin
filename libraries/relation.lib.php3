@@ -305,7 +305,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             } // end while
         }
 
-        if ($source == 'both' || $source == 'innodb') {
+        if (($source == 'both' || $source == 'innodb') && !empty($table)) {
             $show_create_table_query = 'SHOW CREATE TABLE ' 
                 . PMA_backquote($db) . '.' . PMA_backquote($table);
             $show_create_table_res = PMA_mysql_query($show_create_table_query);
