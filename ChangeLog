@@ -9,7 +9,8 @@ $Source$
 	* lang/japanese* updates, thanks to Yukihiro Kawada
 
 2002-04-22 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * lang/russian-koi8.inc.php3: fixed a typo (bug #546981)
+    * lang/russian-koi8.inc.php3: fixed a typo (bug #546981).
+    * lang/german.inc.php3: better syntax.
 
 2002-04-21 Alexander M. Turek  <rabus@users.sourceforge.net>
     * main.php3: Restarted work on patch #538740 (get users priv. with
