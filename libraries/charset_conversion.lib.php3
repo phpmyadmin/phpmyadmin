@@ -38,7 +38,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
 
         if ($cfg['RecodingEngine'] == 'recode') {
             if (!@extension_loaded('recode')) {
-                dl('recode' . $suffix);
+                @dl('recode' . $suffix);
                 if (!@extension_loaded('recode')) {
                     echo $strCantLoadRecodeIconv;
                     exit();
@@ -47,7 +47,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
             $PMA_recoding_engine             = 'recode';
         } else if ($cfg['RecodingEngine'] == 'iconv') {
             if (!@extension_loaded('iconv')) {
-                dl('iconv' . $suffix);
+                @dl('iconv' . $suffix);
                 if (!@extension_loaded('iconv')) {
                     echo $strCantLoadRecodeIconv;
                     exit();
@@ -60,9 +60,9 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
             } else if (@extension_loaded('recode')) {
                 $PMA_recoding_engine         = 'recode';
             } else {
-                dl('iconv' . $suffix);
+                @dl('iconv' . $suffix);
                 if (!@extension_loaded('iconv')) {
-                    dl('recode' . $suffix);
+                    @dl('recode' . $suffix);
                     if (!@extension_loaded('recode')) {
                         echo $strCantLoadRecodeIconv;
                         exit();
