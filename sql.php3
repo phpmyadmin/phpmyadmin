@@ -7,10 +7,6 @@
  */
 require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
-//loic1: buggy fix
-//if (get_magic_quotes_gpc()) { 
-//    $sql_query = stripslashes($sql_query); 
-//} 
 
 
 /**

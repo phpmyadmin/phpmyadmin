@@ -65,8 +65,8 @@ if (!isset($param) || $param[0] == '') {
                 <th><?php echo $strValue; ?></th>
             </tr>
         <?php
-        echo "\n";
         for ($i = 0; $i < $fields_count; $i++) {
+            echo "\n";
             $bgcolor   = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
             $fieldsize = (($fields_len[$i] > 40) ? 40 : $fields_len[$i]);
             ?>
@@ -138,29 +138,29 @@ else {
         $sql_query .= ' WHERE 1';
         for ($i = 0; $i < count($fields); $i++) {
             if (!empty($fields) && $fields[$i] != '') {
-                $quot = '';
                 if ($types[$i] == 'string' || $types[$i] == 'blob') {
-                    $quot = '"';
+                    $quot = '\'';
                     $cmp  = 'LIKE';
-                    if (!get_magic_quotes_gpc()) {
-                        $fields[$i] = str_replace('"', '\\"', $fields[$i]);
+                    if (get_magic_quotes_gpc()) {
+                        $fields[$i] = stripslashes($fields[$i]);
                     }
+                    $fields[$i]     = sql_addslashes($fields[$i], TRUE);
                 }
                 else if ($types[$i] == 'date' || $types[$i] == 'time') {
-                    $quot = '"';
+                    $quot = '\'';
                     $cmp  = '=';
                 }
+                else if (strstr($fields[$i], '%')) {
+                    $quot = '\'';
+                    $cmp  = 'LIKE';
+                }
+                else if (substr($fields[$i], 0, 1) == '<' || substr($fields[$i], 0, 1) == '>') {
+                    $quot = '';
+                    $cmp  = '';
+                }
                 else {
-                    if (strstr($fields[$i], '%')) {
-                        $cmp  = 'LIKE';
-                        $quot = '"';
-                    } else {
-                        $cmp  = '=';
-                        $quot = '';
-                    }
-                    if (substr($fields[$i], 0, 1) == '<' || substr($fields[$i], 0, 1) == '>') {
-                        $cmp  = '';
-                    }
+                    $quot = '';
+                    $cmp  = '=';
                 } // end if
                 $sql_query .= ' AND ' . backquote(urldecode($names[$i])) . " $cmp $quot$fields[$i]$quot";
             } // end if
