@@ -375,6 +375,7 @@ function PMA_getDisplayField($db, $table) {
 
     $disp_res   = PMA_query_as_cu($disp_query);
     $row        = ($disp_res ? PMA_DBI_fetch_assoc($disp_res) : '');
+    PMA_DBI_free_result($disp_res);
     if (isset($row['display_field'])) {
         return $row['display_field'];
     } else {
@@ -404,13 +405,13 @@ function PMA_getComments($db, $table = '') {
         $com_qry  = 'SELECT column_name, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_info'])
                   . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                   . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-        $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
+        $com_rs   = PMA_query_as_cu($com_qry, TRUE);
     } else {
         $com_qry  = 'SELECT comment FROM ' . PMA_backquote($cfgRelation['column_info'])
                   . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                   . ' AND table_name = \'\''
                   . ' AND column_name = \'(db_comment)\'';
-        $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
+        $com_rs   = PMA_query_as_cu($com_qry, TRUE);
     }
 
     $i = 0;
@@ -423,6 +424,7 @@ function PMA_getComments($db, $table = '') {
         }
 
     } // end while
+    PMA_DBI_free_result($com_rs);
 
     if (isset($comment) && is_array($comment)) {
         return $comment;
@@ -475,10 +477,11 @@ function PMA_setComment($db, $table, $key, $value, $removekey = '') {
                 . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                 . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                 . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
-    $test_rs   = PMA_query_as_cu($test_qry);
+    $test_rs   = PMA_query_as_cu($test_qry, TRUE, PMA_DBI_QUERY_STORE);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         $row = PMA_DBI_fetch_assoc($test_rs);
+        PMA_DBI_free_result($res);
 
         if (strlen($value) > 0 || strlen($row['mimetype']) > 0 || strlen($row['transformation']) > 0 || strlen($row['transformation_options']) > 0) {
             $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
@@ -561,9 +564,10 @@ function PMA_getHistory($username) {
 
     $history = array();
 
-    while ($row = @PMA_DBI_fetch_assoc($hist_rs)) {
+    while ($row = PMA_DBI_fetch_assoc($hist_rs)) {
         $history[] = $row;
     }
+    PMA_DBI_free_result($hist_rs);
 
     return $history;
 
@@ -587,6 +591,7 @@ function PMA_purgeHistory($username) {
     $purge_rs = PMA_query_as_cu('SELECT timevalue FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_sqlAddSlashes($username) . '\' ORDER BY timevalue DESC LIMIT ' . $cfg['QueryHistoryMax'] . ', 1');
     $i = 0;
     $row = PMA_DBI_fetch_row($purge_rs);
+    PMA_DBI_free_result($purge_rs);
 
     if (is_array($row) && isset($row[0]) && $row[0] > 0) {
         $maxtime = $row[0];
