@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-06 Garvin Hicking <pma@supergarv.de>
+    * libraries/display_tbl.lib.php: Bug #949087 - Fixed JS error for
+      mousepointer hovering on rows w/o checkboxes.
+
 2004-05-05 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php: patch #939197, new choice of operator LIKE %...%
       because this syntax is so often used, thanks to Ruben Barkow (rubo77)

@@ -1180,7 +1180,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 $column_style = '';
             }
 
-            $column_style .= ' onmousedown="document.getElementById(\'id_rows_to_delete' . $row_no . '\').checked = (document.getElementById(\'id_rows_to_delete' . $row_no . '\').checked ? false : true);" ';
+            $column_style .= ' onmousedown="if (document.getElementById(\'id_rows_to_delete' . $row_no . '\')) { document.getElementById(\'id_rows_to_delete' . $row_no . '\').checked = (document.getElementById(\'id_rows_to_delete' . $row_no . '\').checked ? false : true); }" ';
 
             // garvin: Wrap MIME-transformations. [MIME]
             $default_function = 'default_function'; // default_function
