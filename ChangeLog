@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 2003-03-12 Garvin Hicking <me@supergarv.de>
+    * tbl_properties_export.php3, db_details_export.php3, 
+      libraries/display_export.lib.php3: Reworked DB/Table export, so that DB
+      export now is a perfect look-alike except for a multi-tables dropdown.
+      Put the code to display the export into a seperate file for re-usability.
     * tbl_change.php3, config.inc.php3, libraries/config_import.lib.php3,
       libraries/common.lib.php3: RFE #422243 - Definition of which MySQL functions 
       map to which MySQL field type and in the dropdown of the function list first 
