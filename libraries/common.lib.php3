@@ -294,7 +294,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * user.
      *
      * This function is based on an article from phpBuilder (see
-     * http://www.phpbuilder.net/columns/tim20000821.php3).
+     * http://www.php3builder.net/columns/tim20000821.php3).
      *
      * @return  boolean    always true
      *
@@ -845,7 +845,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
     <table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding="5">
     <tr>
         <td bgcolor="<?php echo $GLOBALS['cfgThBgcolor']; ?>">
-            <b><?php echo get_magic_quotes_gpc() ? stripslashes($message) : $message; ?></b><br />
+            <b><?php echo (get_magic_quotes_gpc()) ? stripslashes($message) : $message; ?></b><br />
         </td>
     </tr>
         <?php
