@@ -409,7 +409,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                 $is_modify_link = TRUE, $back_url = '',
                                 $exit = TRUE)
         {
-            global $cfg;
+            global $cfg, $table, $db, $sql_query;
 
             if (empty($GLOBALS['is_header_sent'])) {
                 include('./header.inc.php3');

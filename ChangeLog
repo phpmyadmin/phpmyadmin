@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-06 Garvin Hicking <me@supergarv.de>
+    * header.inc.php3, footer.inc.php3, libraries/common.lib.php3,
+      libraries/relation.lib.php3: RFE #715914: Sort query history by
+      (autoincrement) key instead of timevalue. Only save queries in
+      history if they were successful. This required the moving of
+      the JS-stuff in header.inc.php3 to footer.inc.php3. Please
+      test, if this works for everyone. It does for me.
+
 2003-04-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_datadict.php3: The result of SHOW INDEX does not have a 'Comment'
       column before MySQL 3.23 (bug #712055).

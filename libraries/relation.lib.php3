@@ -511,7 +511,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                         . PMA_backquote('db') . ','
                         . PMA_backquote('table') . ','
                         . PMA_backquote('sqlquery')
-                        . ' FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_sqlAddslashes($username) . '\' ORDER BY timevalue DESC');
+                        . ' FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_sqlAddslashes($username) . '\' ORDER BY id DESC');
         
         $history = array();
         
