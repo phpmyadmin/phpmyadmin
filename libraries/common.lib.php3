@@ -2,13 +2,10 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-error_reporting(E_ALL);
 /**
  * Misc stuff and functions used by almost all the scripts.
  * Among other things, it contains the advanced authentification work.
  */
-
-
 
 if (!defined('PMA_COMMON_LIB_INCLUDED')) {
     define('PMA_COMMON_LIB_INCLUDED', 1);
@@ -1872,6 +1869,44 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
             return $format_string;
         }
+
+
+        /**
+         * Function added to avoid path disclosures.
+         * Called by each script that needs parameters, it displays
+         * an error message and, by defaults, stops the execution. 
+         *
+         * @param   array   The names of the parameters needed by the calling
+         *                  script.
+         * @param   boolean Stop the execution?
+         *                  (Set this manually to FALSE in the calling script
+         *                   until you know all needed parameters to check).
+         *
+         * @access  public
+         * @author  Marc Delisle (lem9@users.sourceforge.net)
+         */
+        function PMA_checkParameters($params, $die = TRUE) {
+            global $PHP_SELF;
+
+            $reported_script_name = basename($PHP_SELF);
+            $found_error = FALSE;
+            $error_message = '';
+
+            while (list(, $param) = each($params)) {
+                if (!isset($GLOBALS[$param])) {
+                    $error_message .= $reported_script_name . ': Missing ' . $param . '<br />';
+                    $found_error = TRUE;
+                }
+            }
+            if ($found_error) {
+                include('./libraries/header_meta_style.inc.php3');
+                echo '</head><body><p>' . $error_message . '</p></body></html>';
+                if ($die) {
+                    exit();
+                }
+            }
+        } // end function
+
 
         // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
         if (PMA_PHP_INT_VERSION >= 40006

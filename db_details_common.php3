@@ -15,6 +15,7 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')) {
     include('./libraries/bookmark.lib.php3');
 }
 
+PMA_checkParameters(array('db'));
 
 /**
  * Defines the urls to return to in case of error in a sql statement

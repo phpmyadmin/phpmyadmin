@@ -8,6 +8,8 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
+PMA_checkParameters(array('sql_query', 'db'));
+
 /**
  * Defines the url to return to in case of error in a sql statement
  */
