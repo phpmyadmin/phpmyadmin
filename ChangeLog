@@ -8,6 +8,7 @@ $Source$
 2003-07-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/config_import.lib.php3: Backwards
       compatibility.
+    * libraries/common.lib.php3: Dynamic loading of MySQL extension always failed.
 
 2003-07-07 Garvin Hicking <me@supergarv.de>
     * tbl_change.php3: Fix undefined index for disp_query

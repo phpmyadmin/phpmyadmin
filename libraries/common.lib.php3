@@ -41,7 +41,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')) {
      * ... so the required order is:
      *
      * - parsing of the configuration file
-     * - first load of the libraries/define.lib.php3 library (won't get the
+     * - first load of the libraries/defines_php.lib.php3 library (won't get the
      *   MySQL release number)
      * - load of mysql extension (if necessary)
      * - definition of PMA_sqlAddslashes()
@@ -257,7 +257,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             } else {
                 $extension = 'mysql';
             }
-            PMA_dl($extension . $suffix);
+            PMA_dl($extension);
         }
 
         // check whether mysql is available
