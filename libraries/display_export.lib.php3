@@ -23,27 +23,12 @@ if (isset($sql_query)) {
 
     <script type="text/javascript">
     <!--
-    /* DHTML functions */
-    d=document;l=(d.layers)?1:0;op=navigator.userAgent.toLowerCase().indexOf('opera')!=-1;
-    /* Get Element    */    function gE(e,f){if(l){f=(f)?f:self;V=f.document.layers;if(V[e])return V[e];for(W=0;i<W.length;W++)return(gE(e,V[W]));}if(d.all)return d.all[e];return d.getElementById(e);}
-    /* Show Element   */    function sE(e){if(l)e.visibility='show';else e.style.visibility='visible';}
-    /* Hide Element   */    function hE(e){if(l)e.visibility='hide';else e.style.visibility='hidden';}
-    /* Set Position X */    function sX(e,x){if(l)e.left=x;else if(op)e.style.pixelLeft=x;else e.style.left=x+'px';}
-    /* Get Position X */    function gX(e){if(l)return e.left;else if(op)return e.style.pixelLeft;else return parseInt(e.style.left);}
-    /* Set Position Y */    function sY(e,y){if(l)e.top=y;else if(op)e.style.pixelTop=y;else e.style.top=y+'px';}
-    /* Get Position Y */    function gY(e){if(l)return e.top;else if(op)return e.style.pixelTop;else return parseInt(e.style.top);}
-    /* Set Width      */    function sW(e,w){if(l)e.clip.width=w;else if(op)e.style.pixelWidth=w;else e.style.width=w;}
-    /* Get Width      */    function gW(e){if(l)return e.clip.width;else if(op)return e.style.pixelWidth;else return parseInt(e.style.width);}
-    /* Set Height     */    function sH(e,h){if(l)e.clip.height=h;else if(op)e.style.pixelHeight=h;else e.style.height=h;}
-    /* Get Height     */    function gH(e){if(l)return e.clip.height;else if(op)return e.style.pixelHeight;else return parseInt(e.style.height);}
-    /* Write h to e   */    function wH(e,h){if(l){Y=e.document;Y.write(h);Y.close();}if(e.innerHTML)e.innerHTML=h;}
-    
     function hide_them_all() {
-        gE("csv_options").style.display = 'none';
-        gE("excel_options").style.display = 'none';
-        gE("latex_options").style.display = 'none';
-        gE("sql_options").style.display = 'none';
-        gE("none_options").style.display = 'none';
+        getElement("csv_options").style.display = 'none';
+        getElement("excel_options").style.display = 'none';
+        getElement("latex_options").style.display = 'none';
+        getElement("sql_options").style.display = 'none';
+        getElement("none_options").style.display = 'none';
     }
     //-->
     </script>
@@ -63,26 +48,26 @@ if (isset($sql_query)) {
             ?>
             
             <!-- SQL -->
-            <input type="radio" name="what" value="sql" id="radio_dump_sql" checked="checked" onclick="if(this.checked) { hide_them_all(); gE('sql_options').style.display = 'block'; }; return true" />
+            <input type="radio" name="what" value="sql" id="radio_dump_sql" checked="checked" onclick="if(this.checked) { hide_them_all(); getElement('sql_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_sql"><?php echo $strSQL; ?></label>
             <br /><br />
 
             <!-- LaTeX table -->
-            <input type="radio" name="what" value="latex" id="radio_dump_latex"  onclick="if(this.checked) { hide_them_all(); gE('latex_options').style.display = 'block'; }; return true" />
+            <input type="radio" name="what" value="latex" id="radio_dump_latex"  onclick="if(this.checked) { hide_them_all(); getElement('latex_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_latex"><?php echo $strLaTeX; ?></label>
             <br /><br />
 
             <!-- Excel CSV -->
-            <input type="radio" name="what" value="excel" id="radio_dump_excel"  onclick="if(this.checked) { hide_them_all(); gE('excel_options').style.display = 'block'; }; return true" />
+            <input type="radio" name="what" value="excel" id="radio_dump_excel"  onclick="if(this.checked) { hide_them_all(); getElement('excel_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_excel"><?php echo $strStrucExcelCSV; ?></label>
             <br /><br />
             <!-- General CSV -->
-            <input type="radio" name="what" value="csv" id="radio_dump_csv"  onclick="if(this.checked) { hide_them_all(); gE('csv_options').style.display = 'block'; }; return true" />
+            <input type="radio" name="what" value="csv" id="radio_dump_csv"  onclick="if(this.checked) { hide_them_all(); getElement('csv_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_csv"><?php echo $strStrucCSV;?></label>
             <br /><br />
 
             <!-- XML -->
-            <input type="radio" name="what" value="xml" id="radio_dump_xml" onclick="if(this.checked) { hide_them_all(); gE('none_options').style.display = 'block'; }; return true" />
+            <input type="radio" name="what" value="xml" id="radio_dump_xml" onclick="if(this.checked) { hide_them_all(); getElement('none_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_xml"><?php echo $strXML; ?></label>&nbsp;&nbsp;
             </fieldset>
         </td>
@@ -96,7 +81,7 @@ if (isset($sql_query)) {
                 <!-- For structure -->
                 <fieldset>
                     <legend>
-                        <input type="checkbox" name="sql_structure" value="structure" id="checkbox_sql_structure" checked="checked" onclick="if(!this.checked && !gE('checkbox_sql_data').checked) return false; else return true;" />
+                        <input type="checkbox" name="sql_structure" value="structure" id="checkbox_sql_structure" checked="checked" onclick="if(!this.checked && !getElement('checkbox_sql_data').checked) return false; else return true;" />
                         <label for="checkbox_sql_structure"><?php echo $strStructure; ?></label><br />
                     </legend>
                     <input type="checkbox" name="drop" value="1" id="checkbox_dump_drop" />
@@ -128,7 +113,7 @@ echo "\n";
                 <!-- For data -->
                 <fieldset>
                     <legend>
-                        <input type="checkbox" name="sql_data" value="data" id="checkbox_sql_data" checked="checked" onclick="if(!this.checked && !gE('checkbox_sql_structure').checked) return false; else return true;" />
+                        <input type="checkbox" name="sql_data" value="data" id="checkbox_sql_data" checked="checked" onclick="if(!this.checked && !getElement('checkbox_sql_structure').checked) return false; else return true;" />
                         <label for="checkbox_sql_data"><?php echo $strData; ?></label><br />
                     </legend>
                     <input type="checkbox" name="showcolumns" value="yes" id="checkbox_dump_showcolumns" />
@@ -145,7 +130,7 @@ echo "\n";
                  <!-- For structure -->
                  <fieldset>
                      <legend>
-                         <input type="checkbox" name="ltx_structure" value="structure" id="checkbox_ltx_structure" checked="checked" onclick="if(!this.checked && !gE('checkbox_ltx_data').checked) return false; else return true;" />
+                         <input type="checkbox" name="ltx_structure" value="structure" id="checkbox_ltx_structure" checked="checked" onclick="if(!this.checked && !getElement('checkbox_ltx_data').checked) return false; else return true;" />
                          <label for="checkbox_ltx_structure"><?php echo $strStructure; ?></label><br />
                      </legend>
  <?php
@@ -181,7 +166,7 @@ echo "\n";
                  <!-- For data -->
                  <fieldset>
                      <legend>
-                         <input type="checkbox" name="ltx_data" value="data" id="checkbox_ltx_data" checked="checked" onclick="if(!this.checked && !gE('checkbox_ltx_structure').checked) return false; else return true;" />
+                         <input type="checkbox" name="ltx_data" value="data" id="checkbox_ltx_data" checked="checked" onclick="if(!this.checked && !getElement('checkbox_ltx_structure').checked) return false; else return true;" />
                          <label for="checkbox_ltx_data"><?php echo $strData; ?></label><br />
                      </legend>
                      <input type="checkbox" name="ltx_showcolumns" value="yes" id="ch_ltx_showcolumns" checked="checked" />
@@ -271,15 +256,15 @@ echo "\n";
             <!--
                 hide_them_all();
                 if (document.getElementById('radio_dump_sql').checked) {
-                    gE('sql_options').style.display = 'block';
+                    getElement('sql_options').style.display = 'block';
                 } else if (document.getElementById('radio_dump_latex').checked) {
-                    gE('latex_options').style.display = 'block';
+                    getElement('latex_options').style.display = 'block';
                 } else if (document.getElementById('radio_dump_csv').checked) {
-                    gE('csv_options').style.display = 'block';
+                    getElement('csv_options').style.display = 'block';
                 } else if (document.getElementById('radio_dump_excel').checked) {
-                    gE('excel_options').style.display = 'block';
+                    getElement('excel_options').style.display = 'block';
                 } else {
-                    gE('none_options').style.display = 'block';
+                    getElement('none_options').style.display = 'block';
                 }
             //-->
             </script>
@@ -310,9 +295,9 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                 </legend>
                 
                 <?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
-                <input type="checkbox" name="onserver" value="saveit" id="checkbox_dump_onserver"  onclick="gE('checkbox_dump_asfile').checked = true;" />
+                <input type="checkbox" name="onserver" value="saveit" id="checkbox_dump_onserver"  onclick="getElement('checkbox_dump_asfile').checked = true;" />
                 <label for="checkbox_dump_onserver"><?php echo sprintf($strSaveOnServer, htmlspecialchars($cfg['SaveDir'])); ?></label>,
-                <input type="checkbox" name="onserverover" value="saveitover" id="checkbox_dump_onserverover"  onclick="gE('checkbox_dump_onserver').checked = true;gE('checkbox_dump_asfile').checked = true;" />
+                <input type="checkbox" name="onserverover" value="saveitover" id="checkbox_dump_onserverover"  onclick="getElement('checkbox_dump_onserver').checked = true;getElement('checkbox_dump_asfile').checked = true;" />
                 <label for="checkbox_dump_onserverover"><?php echo $strOverwriteExisting; ?></label>
                 <br />
                 <?php } ?>
@@ -374,7 +359,7 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                 <fieldset>
                     <legend><?php echo $strCompression; ?></legend>
 
-                    <input type="radio" name="compression" value="none" id="radio_compression_none" checked="checked" onclick="gE('checkbox_dump_asfile').checked = true;" />
+                    <input type="radio" name="compression" value="none" id="radio_compression_none" checked="checked" onclick="getElement('checkbox_dump_asfile').checked = true;" />
                     <label for="radio_compression_none"><?php echo $strNone; ?></label>&nbsp;
 
 <?php
@@ -387,21 +372,21 @@ if (PMA_PHP_INT_VERSION >= 40004) {
     if ($is_zip || $is_gzip || $is_bzip) {
         if ($is_zip) {
             ?>
-                    <input type="radio" name="compression" value="zip" id="radio_compression_zip" onclick="gE('checkbox_dump_asfile').checked = true;" />
+                    <input type="radio" name="compression" value="zip" id="radio_compression_zip" onclick="getElement('checkbox_dump_asfile').checked = true;" />
                     <label for="radio_compression_zip"><?php echo $strZip; ?></label><?php echo (($is_gzip || $is_bzip) ? '&nbsp;' : ''); ?>
             <?php
         }
         if ($is_gzip) {
             echo "\n"
             ?>
-                    <input type="radio" name="compression" value="gzip" id="radio_compression_gzip" onclick="gE('checkbox_dump_asfile').checked = true;" />
+                    <input type="radio" name="compression" value="gzip" id="radio_compression_gzip" onclick="getElement('checkbox_dump_asfile').checked = true;" />
                     <label for="radio_compression_gzip"><?php echo $strGzip; ?></label><?php echo ($is_bzip ? '&nbsp;' : ''); ?>
             <?php
         }
         if ($is_bzip) {
             echo "\n"
             ?>
-                    <input type="radio" name="compression" value="bzip" id="radio_compression_bzip" onclick="gE('checkbox_dump_asfile').checked = true;" />
+                    <input type="radio" name="compression" value="bzip" id="radio_compression_bzip" onclick="getElement('checkbox_dump_asfile').checked = true;" />
                     <label for="radio_compression_bzip"><?php echo $strBzip; ?></label>
             <?php
         }

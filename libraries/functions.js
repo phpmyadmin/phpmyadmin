@@ -682,3 +682,22 @@ function insertValueQuery() {
 function goToUrl(selObj, goToLocation){
     eval("document.location.href = '" + goToLocation + "pos=" + selObj.options[selObj.selectedIndex].value + "'");
 }
+
+/**
+ * getElement
+ */
+function getElement(e,f){
+    if(document.layers){
+        f=(f)?f:self;
+        if(f.document.layers[e]) {
+            return f.document.layers[e];
+        }
+        for(W=0;i<f.document.layers.length;W++) {
+            return(getElement(e,fdocument.layers[W]));
+        }
+    }
+    if(document.all) {
+        return document.all[e];
+    }
+    return document.getElementById(e);
+}
