@@ -55,10 +55,10 @@ $cfg['Servers'][$i]['pdf_table_position']
                                                     // tables position for the 
                                                     // PDF schema - leave blank
                                                     // for no PDF schema support
-$cfg['Servers'][$i]['AllowDeny']['order'] 
+$cfg['Servers'][$i]['AllowDeny']['order']
                                      = '';          // Host authentication order, leave blank to not use
-$cfg['Servers'][$i]['AllowDeny']['rules'] 
-                                     = array( );    // Host authentication rules, leave blank for defaults
+$cfg['Servers'][$i]['AllowDeny']['rules']
+                                     = array();    // Host authentication rules, leave blank for defaults
 
 
 $i++;
@@ -78,6 +78,10 @@ $cfg['Servers'][$i]['bookmarktable'] = '';
 $cfg['Servers'][$i]['relation']      = '';
 $cfg['Servers'][$i]['pdf_table_position']
                                      = '';
+$cfg['Servers'][$i]['AllowDeny']['order']
+                                     = '';
+$cfg['Servers'][$i]['AllowDeny']['rules']
+                                     = array();
 
 $i++;
 $cfg['Servers'][$i]['host']          = '';
@@ -96,6 +100,10 @@ $cfg['Servers'][$i]['bookmarktable'] = '';
 $cfg['Servers'][$i]['relation']      = '';
 $cfg['Servers'][$i]['pdf_table_position']
                                      = '';
+$cfg['Servers'][$i]['AllowDeny']['order']
+                                     = '';
+$cfg['Servers'][$i]['AllowDeny']['rules']
+                                     = array();
 
 // If you have more than one server configured, you can set $cfg['ServerDefault']
 // to any one of them to autoconnect to that server when phpMyAdmin is started,
