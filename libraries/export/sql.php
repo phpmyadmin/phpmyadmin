@@ -528,8 +528,14 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                     $values[] = $row[$j];
                 // a binary field
                 // Note: with mysqli, under MySQL 4.1.3, we get the flag
-                // "binary" for a datetime (I don't know why)
-                } else if (stristr($field_flags[$j], 'BINARY') && isset($GLOBALS['hexforbinary']) && $fields_meta[$j]->type != 'datetime') {
+                // "binary" for those field types (I don't know why)
+                } else if (stristr($field_flags[$j], 'BINARY') 
+                        && isset($GLOBALS['hexforbinary']) 
+                        && $fields_meta[$j]->type != 'datetime'
+                        && $fields_meta[$j]->type != 'date'
+                        && $fields_meta[$j]->type != 'time'
+                        && $fields_meta[$j]->type != 'timestamp'
+                       ) {
                     // empty blobs need to be different, but '0' is also empty :-(
                     if (empty($row[$j]) && $row[$j] != '0') {
                         $values[] = '\'\'';
