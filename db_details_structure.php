@@ -8,6 +8,76 @@ require_once('./libraries/common.lib.php');
 require_once('./libraries/mysql_charsets.lib.php');
 
 /**
+ * Rename database
+ */
+if (isset($db) && isset($db_rename) && $db_rename == 'true') {
+    if (!isset($newname) || empty($newname)) {
+        $message = $strDatabaseEmpty;
+    } else {
+        $local_query = 'CREATE DATABASE ' . PMA_backquote($newname) . ';';
+        $sql_query = $local_query;
+        PMA_DBI_query($local_query);
+        $tables = PMA_DBI_get_tables($db);
+        foreach ($tables as $table) {
+            $local_query = 'RENAME TABLE ' 
+                . PMA_backquote($db) . '.' . PMA_backquote($table)
+                . ' TO '
+                . PMA_backquote($newname) . '.' . PMA_backquote($table)
+                . ';';
+            $sql_query .= "\n" . $local_query;
+            PMA_DBI_query($local_query);
+        }
+        $local_query = 'DROP DATABASE ' . PMA_backquote($db) . ';';
+        $sql_query .= "\n" . $local_query;
+        PMA_DBI_query($local_query);
+        $reload     = TRUE;
+        $message    = sprintf($strRenameDatabaseOK, htmlspecialchars($db), htmlspecialchars($newname));
+
+        /* Update relations */
+        require_once('./libraries/relation.lib.php');
+        $cfgRelation = PMA_getRelationsParam();
+
+        if ($cfgRelation['commwork']) {
+            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['column_info'])
+                          . ' SET db_name    = \'' . PMA_sqlAddslashes($newname) . '\''
+                          . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'');
+        }
+        if ($cfgRelation['bookmarkwork']) {
+            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['bookmark'])
+                          . ' SET dbase    = \'' . PMA_sqlAddslashes($newname) . '\''
+                          . ' WHERE dbase  = \'' . PMA_sqlAddslashes($db) . '\'');
+        }
+        if ($cfgRelation['displaywork']) {
+            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['table_info'])
+                          . ' SET db_name    = \'' . PMA_sqlAddslashes($newname) . '\''
+                          . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'');
+        }
+
+        if ($cfgRelation['relwork']) {
+            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['relation'])
+                          . ' SET foreign_db    = \'' . PMA_sqlAddslashes($newname) . '\''
+                          . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\'');
+            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['relation'])
+                          . ' SET master_db    = \'' . PMA_sqlAddslashes($newname) . '\''
+                          . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\'');
+        }
+        if ($cfgRelation['historywork']) {
+            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['history'])
+                          . ' SET db    = \'' . PMA_sqlAddslashes($newname) . '\''
+                          . ' WHERE db  = \'' . PMA_sqlAddslashes($db) . '\'');
+        }
+        if ($cfgRelation['pdfwork']) {
+            PMA_query_as_cu('UPDATE ' . PMA_backquote($cfgRelation['table_info'])
+                          . ' SET db_name    = \'' . PMA_sqlAddslashes($newname) . '\''
+                          . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'');
+        }
+
+        /* Change database to be used */
+        $db         = $newname;
+    }
+}
+
+/**
  * Prepares the tables list if the user where not redirected to this script
  * because there is no table in the database ($is_info is TRUE)
  */
@@ -599,6 +669,17 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
         </form>
     </li>
 
+    <!-- Rename database -->
+    <li>
+        <form method="post" action="db_details_structure.php"
+            onsubmit="return emptyFormElements(this, 'newname')">
+            <?php echo $strDBRename; ?>: 
+            <input type="hidden" name="db_rename" value="true" />
+            <?php echo PMA_generate_common_hidden_inputs($db); ?>
+            <input type="text" name="newname" class="textfield" value="" />
+            <input type="submit" value="<?php echo $strGo; ?>" />
+        </form>
+    </li>
 <?php
 
 if (PMA_MYSQL_INT_VERSION >= 40101) {

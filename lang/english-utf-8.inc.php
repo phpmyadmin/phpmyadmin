@@ -48,6 +48,7 @@ $strAffectedRows = 'Affected rows:';
 $strAfter = 'After %s';
 $strAfterInsertBack = 'Go back to previous page';
 $strAfterInsertNewInsert = 'Insert another new row';
+$strAfterInsertSame = 'Go back to this page';
 $strAll = 'All';
 $strAllTableSameWidth = 'display all Tables with same width?';
 $strAlterOrderBy = 'Alter table order by';
@@ -165,11 +166,13 @@ $strDBGMinTimeMs = 'Min time, ms';
 $strDBGModule = 'Module';
 $strDBGTimePerHitMs = 'Time/Hit, ms';
 $strDBGTotalTimeMs = 'Total time, ms';
+$strDBRename = 'Rename database to';
 $strDanish = 'Danish';
 $strData = 'Data';
 $strDataDict = 'Data Dictionary';
 $strDataOnly = 'Data only';
 $strDatabase = 'Database ';
+$strDatabaseEmpty = 'The database name is empty!';
 $strDatabaseExportOptions = 'Database export options';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';
 $strDatabaseNoTable = 'This database contains no table!';
@@ -524,6 +527,7 @@ $strReloadMySQL = 'Reload MySQL';
 $strReloadingThePrivileges = 'Reloading the privileges';
 $strRememberReload = 'Remember to reload the server.';
 $strRemoveSelectedUsers = 'Remove selected users';
+$strRenameDatabaseOK = 'Database %s has been renamed to %s';
 $strRenameTable = 'Rename table to';
 $strRenameTableOK = 'Table %s has been renamed to %s';
 $strRepairTable = 'Repair table';
@@ -728,8 +732,5 @@ $strYes = 'Yes';
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
-
-// To translate:
-$strAfterInsertSame = 'Go back to this page';  //to translate
 
 ?>
