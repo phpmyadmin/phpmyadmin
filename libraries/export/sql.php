@@ -553,7 +553,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 } elseif ($fields_meta[$j]->numeric) {
                     $values[] = $row[$j];
                 // a binary field
-                } else if (stristr($field_flags[$j], 'BINARY') && isset($GLOBALS['hexforbinary'])) {
+                // Note: with mysqli, under MySQL 4.1.3, we get the flag
+                // "binary" for a datetime (I don't know why)
+                } else if (stristr($field_flags[$j], 'BINARY') && isset($GLOBALS['hexforbinary']) && $fields_meta[$j]->type != 'datetime') {
                     $values[] = '0x' . bin2hex($row[$j]);
                 // something else -> treat as a string
                 } else {

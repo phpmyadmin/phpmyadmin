@@ -11,6 +11,8 @@ $Source$
     * tbl_move_copy.php: bug 995098, cannot copy table data only
     * libraries/dbi/mysqli.dbi.lib.php: use faster AND comparison for flags,
       as suggested by Michal
+    * libraries/export/sql.php: workaround for datetime export because
+      mysqli under MySQL 4.1.3 reports a datetime as binary
 
 2004-07-31 Alexander M. Turek  <me@derrabus.de>
     * tbl_change.php, tbl_replace.php, libraries/relation.lib.php: Small
