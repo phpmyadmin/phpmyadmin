@@ -1,5 +1,6 @@
 <?php
 /* $Id$ */
+/* Translated by: Yuval "Etus" Sarna */
 
 $charset = 'iso-8859-8-i';
 $text_dir = 'rtl'; // ('ltr' for left to right, 'rtl' for right to left)
@@ -64,6 +65,7 @@ $strCantRenameIdxToPrimary = 'לא יכול לשנות את האינדקס לעיקרי !';
 $strCardinality = 'Cardinality';
 $strCarriage = 'תו החזרת גררה: \\r';
 $strChange = 'שנה';
+$strChangePassword = 'שנה סיסמה';
 $strCheckAll = 'סמן הכל';
 $strCheckDbPriv = 'בדוק את הרשאות מסד הנתונים';
 $strCheckTable = 'בדוק טבלה';
@@ -121,9 +123,9 @@ $strField = 'שדה';
 $strFieldHasBeenDropped = 'השדה %s נמחק';
 $strFields = 'שדות';
 $strFieldsEmpty = ' ספירת השדות ריקה ! ';
-$strFieldsEnclosedBy = 'שדות צורפו על-ידי';
-$strFieldsEscapedBy = 'שדות דלפו על-ידי';
-$strFieldsTerminatedBy = 'שדות הסתיימו על-ידי';
+$strFieldsEnclosedBy = 'צרף שדות עם';
+$strFieldsEscapedBy = 'הורד שדות עם';
+$strFieldsTerminatedBy = 'סיים שדות עם';
 $strFixed = 'תוקן';
 $strFlushTable = 'שטוף את מסד הנתונים ("שטוף")';
 $strFormat = 'פורמט';
@@ -205,7 +207,7 @@ $strNoPrivileges = 'אין הרשאות';
 $strNoQuery = 'אין שאילתת SQL !';
 $strNoRights = 'אין לך מספיק זכויות כדי להיות כאן עכשיו !';
 $strNoTablesFound = 'טבלאות לא נמצאו במסד הנתונים.';
-$strNotNumber = 'זה לא מספר !';
+$strNotNumber = 'זהו לא מספר !';
 $strNotValidNumber = ' הוא לא מספר שורה בר תוקף !';
 $strNoUsersFound = 'אף משתמש/משתמשים נמצאו.';
 $strNull = 'NULL';
@@ -223,6 +225,7 @@ $strPasswordEmpty = 'הסיסמה ריקה !';
 $strPasswordNotSame = 'הסיסמאות אינן זהות !';
 $strPHPVersion = 'גרסת PHP';
 $strPmaDocumentation = 'דוקומנטצית phpMyAdmin';
+$strPmaUriError = 'הנחיית ה- <tt>$cfgPmaAbsoluteUri</tt> חייבת להיות ממוקמת בקובץ הקונפיגורציה שלך!';
 $strPos1 = 'התחל';
 $strPrevious = 'הקודם';
 $strPrimary = 'ראשי';
@@ -240,6 +243,7 @@ $strQBEIns = 'Ins';
 $strQueryOnDb = 'שאילתת SQL על מסד הנתונים <b>%s</b>:';
 
 $strRecords = 'רשומות';
+$strReferentialIntegrity = 'בדוק את ה- Referential Integrity:';  
 $strReloadFailed = 'טעינה מחדש של MySQL נכשלה.';
 $strReloadMySQL = 'טען מחדש את MySQL';
 $strRememberReload = 'זכור לטעון מחדש את השרת.';
@@ -265,7 +269,7 @@ $strRowsModeVertical = 'אורכי';
 $strRowsStatistic = 'סטטיסטיקת השורה';
 $strRunning = 'רץ על %s';
 $strRunQuery = 'שלח שאילתה';
-$strRunSQLQuery = 'הרץ את שאילתת/שאילתות על מסד הנתונים %s';
+$strRunSQLQuery = 'הרץ את שאילתה/שאילתות על מסד הנתונים %s';
 
 $strSave = 'שמור';
 $strSelect = 'בחר';
@@ -286,8 +290,8 @@ $strShowTables = 'הראה טבלאות';
 $strShowThisQuery = ' הראה את השאילתה הזו שנית ';
 $strSingly = '(בנפרד)';
 $strSize = 'גודל';
-$strSort = 'סווג';
-$strSpaceUsage = 'תופס מקום';
+$strSort = 'סיווג';
+$strSpaceUsage = 'נפח מקום';
 $strSQLQuery = 'שאילתת SQL';
 $strStartingRecord = 'שורה מתחילה';
 $strStatement = 'משפטים';
@@ -298,7 +302,7 @@ $strStrucExcelCSV = 'CVS למידע Ms Excel';
 $strStrucOnly = 'מבנה בלבד';
 $strSubmit = 'שלח';
 $strSuccess = 'שאילתת ה- SQL שלך בוצעה בהצלחה';
-$strSum = 'סכם';
+$strSum = 'סיכום';
 
 $strTable = 'טבלה ';
 $strTableComments = 'הערות טבלה';
@@ -325,7 +329,7 @@ $strUpdateProfile = 'עדכן פרופיל:';
 $strUpdateProfileMessage = 'הפרופיל עודכן.';
 $strUpdateQuery = 'עדכן שאילתה';
 $strUsage = 'שימוש';
-$strUseBackquotes = 'השתמש במרכאות אחוריות עם טבלאות ושדות\' שמות';
+$strUseBackquotes = 'השתמש במרכאות אחוריות עם טבלאות ושמות שדות';
 $strUser = 'משתמש';
 $strUserEmpty = 'שם המשתמש ריק !';
 $strUserName = 'שם משתמש';
@@ -337,15 +341,11 @@ $strViewDump = 'הראה את סכמת הטבלה';
 $strViewDumpDB = 'הראה את סכמת מסד הנתונים';
 
 $strWelcome = 'ברוך הבא ל- %s';
-$strWithChecked = 'עם נבחר:';
+$strWithChecked = 'ביחד עם:';
 $strWrongUser = 'שם משתמש/סיסמה שגויים. הגישה נדחתה.';
 
 $strYes = 'כן';
 
 $strZip = '"Zipped"';
 
-// To translate
-$strChangePassword = 'Change password';
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
