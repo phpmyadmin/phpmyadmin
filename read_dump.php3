@@ -9,6 +9,9 @@ require('./libraries/read_dump.lib.php3');
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
+if (!isset($db)) {
+    $db = '';
+}
 
 /**
  * Increases the max. allowed time to run a script

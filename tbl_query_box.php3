@@ -72,6 +72,8 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] && !$db || ($cfg['QueryFrameJS'
             $queryframe_db_list .= '<option value="' . htmlspecialchars($t_db) . '">' . htmlspecialchars($t_db) . '</option>';
         }
         $queryframe_db_list .= '</select>';
+    } else {
+        $queryframe_db_list = '';
     }
 } else {
     $queryframe_db_list = '';
