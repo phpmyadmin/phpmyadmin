@@ -34,9 +34,9 @@ $is_backup = ($action != 'tbl_create.php3' && $action != 'tbl_addfield.php3');
         <th><?php echo $strDefault; ?></th>
         <th><?php echo $strExtra; ?></th>
 <?php
-// We could remove this 'if' and let the key information be shown and
-// editable.  However, for this to work, tbl_alter must be modified
-// to use the key fields, as tbl_addfield does.
+// lem9: We could remove this 'if' and let the key information be shown and
+// editable. However, for this to work, tbl_alter must be modified to use the
+// key fields, as tbl_addfield does.
 
 if (!$is_backup) {
     echo "        <th>$strPrimary</th>\n";
@@ -210,31 +210,31 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             </select>
         </td>
     <?php
-// See my other comment about removing this 'if'.
+    // lem9: See my other comment about removing this 'if'.
     if (!$is_backup) {
-            if (isset($row) && isset($row['Key']) && $row['Key'] == 'PRI') {
-                $checked_primary = ' checked="checked"';
-            } else {
-                $checked_primary = '';
-            }
-            if (isset($row) && isset($row['Key']) && $row['Key'] == 'MUL') {
-                $checked_index   = ' checked="checked"';
-            } else {
-                $checked_index   = '';
-            }
-            if (isset($row) && isset($row['Key']) && $row['Key'] == 'UNI') {
-                $checked_unique   = ' checked="checked"';
-            } else {
-                $checked_unique   = '';
-            }
-            if (PMA_MYSQL_INT_VERSION >= 32323
-                &&(isset($row) && isset($row['Comment']) && $row['Comment'] == 'FULLTEXT')) {
-                $checked_fulltext = ' checked="checked"';
-            } else {
-                $checked_fulltext = '';
-            }
-            echo "\n";
-            ?>
+        if (isset($row) && isset($row['Key']) && $row['Key'] == 'PRI') {
+            $checked_primary = ' checked="checked"';
+        } else {
+            $checked_primary = '';
+        }
+        if (isset($row) && isset($row['Key']) && $row['Key'] == 'MUL') {
+            $checked_index   = ' checked="checked"';
+        } else {
+            $checked_index   = '';
+        }
+        if (isset($row) && isset($row['Key']) && $row['Key'] == 'UNI') {
+            $checked_unique   = ' checked="checked"';
+        } else {
+            $checked_unique   = '';
+        }
+        if (PMA_MYSQL_INT_VERSION >= 32323
+            &&(isset($row) && isset($row['Comment']) && $row['Comment'] == 'FULLTEXT')) {
+            $checked_fulltext = ' checked="checked"';
+        } else {
+            $checked_fulltext = '';
+        }
+        echo "\n";
+        ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
             <input type="radio" name="field_key_<?php echo $i; ?>" value="primary_<?php echo $i; ?>"<?php echo $checked_primary; ?> />
         </td>
@@ -247,16 +247,16 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
             <input type="radio" name="field_key_<?php echo $i; ?>" value="none_<?php echo $i; ?>" />
         </td>
-            <?php
-            if (PMA_MYSQL_INT_VERSION >= 32323) {
-                echo "\n";
-                ?>
+        <?php
+        if (PMA_MYSQL_INT_VERSION >= 32323) {
+            echo "\n";
+            ?>
         <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
             <input type="checkbox" name="field_fulltext[]" value="<?php echo $i; ?>"<?php echo $checked_fulltext; ?> />
         </td>
-                <?php
-            } // end if (PMA_MYSQL_INT_VERSION >= 32323)
-            echo "\n";
+            <?php
+        } // end if (PMA_MYSQL_INT_VERSION >= 32323)
+        echo "\n";
     } // end if ($action ==...)
     echo "\n";
     ?>
@@ -336,10 +336,10 @@ if ($action == 'tbl_create.php3' && PMA_MYSQL_INT_VERSION >= 32300) {
                 <option value="MYISAM">MyISAM</option>
                 <option value="HEAP">Heap</option>
                 <option value="MERGE">Merge</option>
-                <?php if (isset($tbl_bdb)) { ?><option value="BDB">Berkeley DB</option><?php }?> 
-                <?php if (isset($tbl_gemini)) { ?><option value="GEMINI">Gemini</option><?php }?> 
-                <?php if (isset($tbl_innodb)) { ?><option value="InnoDB">INNO DB</option><?php }?> 
-                <?php if (isset($tbl_isam)) { ?><option value="ISAM">ISAM</option><?php }?> 
+                <?php if (isset($tbl_bdb)) { ?><option value="BDB">Berkeley DB</option><?php } ?>
+                <?php if (isset($tbl_gemini)) { ?><option value="GEMINI">Gemini</option><?php } ?>
+                <?php if (isset($tbl_innodb)) { ?><option value="InnoDB">INNO DB</option><?php } ?>
+                <?php if (isset($tbl_isam)) { ?><option value="ISAM">ISAM</option><?php } ?>
             </select>
         </td>
         <?php

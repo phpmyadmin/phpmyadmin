@@ -41,7 +41,7 @@ mysql_select_db($db);
 if (isset($selected_tbl) && is_array($selected_tbl)) {
     $the_tables   = $selected_tbl;
 } else if (isset($table)) {
-    $the_tables[] = $table; 
+    $the_tables[] = $table;
 }
 $multi_tables     = (count($the_tables) > 1);
 
@@ -232,7 +232,7 @@ while (list($key, $table) = each($the_tables)) {
                  ? count($indexes)
                  : 0;
     if ($index_count > 0) {
-    	echo "\n";
+        echo "\n";
         ?>
 <br /><br />
 

@@ -91,7 +91,7 @@ $strDynamic = 'dynamisch';
 
 $strEdit = 'Wijzigen';
 $strEditPrivileges = 'Wijzig rechten';
-$strEffective = 'Effectief'; 
+$strEffective = 'Effectief';
 $strEmpty = 'Legen';
 $strEmptyResultSet = 'MySQL retourneerde een lege result set (0 rijen).';
 $strEnd = 'Einde';
@@ -297,7 +297,7 @@ $strFieldsEscapedBy = 'Fields escaped by';//to translate
 $strFieldsTerminatedBy = 'Fields terminated by';//to translate
 $strFlushTable = 'Flush the table ("FLUSH")';
 $strGzip = '"gzipped"'; //to translate
-$strIdxFulltext = 'Fulltext';  //to translate 
+$strIdxFulltext = 'Fulltext';  //to translate
 $strIndexHasBeenDropped = 'Index %s has been dropped';//to translate
 $strKeepPass = 'Do not change the password';//to translate
 $strLinesTerminatedBy = 'Lines terminated by';//to translate

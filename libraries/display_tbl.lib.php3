@@ -68,7 +68,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // 2. Display mode is not "false for all elements" -> updates the
         // display mode
         if ($the_disp_mode != 'nnnn00000') {
-            // 2.1 Statement is a "SELECT COUNT", 
+            // 2.1 Statement is a "SELECT COUNT",
             //     "CHECK/ANALYZE/REPAIR/OPTIMIZE" or an "EXPLAIN"
             if ($GLOBALS['is_count'] || $GLOBALS['is_maint'] || $GLOBALS['is_explain']) {
                 $do_display['edit_lnk']  = 'nn'; // no edit link

@@ -146,7 +146,7 @@ if (get_magic_quotes_gpc()) {
     }
 } // end if
 
-    
+
 /**
  * Do run the query to build the new index and moves back to
  * "tbl_properties.php3"
@@ -410,7 +410,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         <input type="hidden" name="server" value="<?php echo $server; ?>" />
         <input type="hidden" name="db" value="<?php echo $db; ?>" />
         <input type="hidden" name="table" value="<?php echo $table; ?>" />
-    <?php    
+    <?php
     echo "\n";
     echo '        ' . $strIndexes . '&nbsp;:' . "\n";
     echo '        ' . PMA_showDocuShort('O/p/Optimising_Database_Structure.html') . '<br />' ."\n";

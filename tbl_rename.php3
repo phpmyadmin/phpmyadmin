@@ -23,7 +23,7 @@ $err_url = 'tbl_properties.php3'
 /**
  * A new name has been submitted -> do the work
  */
-if (isset($new_name) && trim($new_name) != '') { 
+if (isset($new_name) && trim($new_name) != '') {
     $old_name     = $table;
     $table        = $new_name;
     if (get_magic_quotes_gpc()) {
@@ -44,16 +44,16 @@ if (isset($new_name) && trim($new_name) != '') {
     $result    = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $message   = sprintf($strRenameTableOK, $old_name, $table);
     $reload    = 1;
-} 
+}
 
 
 /**
  * No new name for the table!
  */
-else { 
+else {
     include('./header.inc.php3');
-    PMA_mysqlDie($strTableEmpty, '', '', $err_url); 
-} 
+    PMA_mysqlDie($strTableEmpty, '', '', $err_url);
+}
 
 
 /**

@@ -667,7 +667,7 @@ $w--;
             <!-- Displays the current query -->
             <?php echo sprintf($strQueryOnDb, htmlspecialchars($db)); ?><br />
 <textarea cols="30" rows="7" name="sql_query">
-<?php 
+<?php
 // 1. SELECT
 $last_select = 0;
 $encoded_qry = '';

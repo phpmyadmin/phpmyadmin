@@ -51,7 +51,7 @@ function confirmQuery(theForm1, sqlQuery1)
         return true;
     }
 
-    // js1.2+ -> validation with regular expressions 
+    // js1.2+ -> validation with regular expressions
     else {
         // "DROP DATABASE" statement isn't allowed
         if (noDropDbMsg) {
@@ -121,7 +121,7 @@ function checkSqlQuery(theForm)
             isEmpty  = (theForm.elements['id_bookmark'].value == null || theForm.elements['id_bookmark'].value == '');
         }
     }
-    // js1.2+ -> validation with regular expressions 
+    // js1.2+ -> validation with regular expressions
     else {
         var space_re = new RegExp('\\s+');
         isEmpty      = (sqlQuery.value.replace(space_re, '') == '') ? 1 : 0;
@@ -383,14 +383,14 @@ function setCheckboxes(the_form, do_check)
   *
   * @param   string   the form name
   * @param   string   the element name
-  * @param   boolean  whether to check or to uncheck the element   
+  * @param   boolean  whether to check or to uncheck the element
   *
   * @return  boolean  always true
   */
 function setSelectOptions(the_form, the_select, do_check)
 {
     var selectObject = document.forms[the_form].elements[the_select];
-    var selectCount  = selectObject.length; 
+    var selectCount  = selectObject.length;
 
     for (var i = 0; i < selectCount; i++) {
         selectObject.options[i].selected = do_check;

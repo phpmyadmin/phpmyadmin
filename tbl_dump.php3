@@ -293,7 +293,7 @@ if (isset($zip) && $zip == 'zip') {
 else if (isset($bzip) && $bzip == 'bzip') {
     if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
         echo bzcompress($dump_buffer);
-    } 
+    }
 }
 // 3. as a gzipped file
 else if (isset($gzip) && $gzip == 'gzip') {

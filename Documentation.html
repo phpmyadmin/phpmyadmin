@@ -229,7 +229,7 @@
          information.</li>
     <li> Open the file
          <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/index.php3</i>
-         in your browser. phpMyAdmin should now display a welcome screen 
+         in your browser. phpMyAdmin should now display a welcome screen
          and your databases, or a login dialog if using http or cookie
          authentication mode.</li>
 </ol>
@@ -244,15 +244,15 @@
 
 <p><b>Using authentication modes:</b></p>
 <ul>
-    <li>Http and cookie authentication modes are recommended in a multi-user 
-        environment where you want to give users access to their own database 
+    <li>Http and cookie authentication modes are recommended in a multi-user
+        environment where you want to give users access to their own database
         and don't want them to play around with others.<br /><br /></li>
 
     <li>Http and cookie authentication modes are secure: the MySQL password
         does not need to be set in the phpMyAdmin configuration file. (except
         for the &quot;standard user&quot; -see the Configuration section-).
         <br />
-        In cookie mode, we send the password in a temporary cookie, so most    
+        In cookie mode, we send the password in a temporary cookie, so most
         browsers should not store the password in their cookie file.
         <br /><br /></li>
 
@@ -302,7 +302,7 @@
         <br />
         What the user may now do is controlled entirely by the MySQL user
         management system.<br />
-        With http or cookie auth mode, you don't need to fill the user/password 
+        With http or cookie auth mode, you don't need to fill the user/password
         fields inside the <tt>$cfgServers</tt> array.<br />
     </li>
 </ul>
@@ -376,7 +376,7 @@
     <dt><b>$cfgServers</b> array</dt>
     <dd>
         Since version 1.4.2, phpMyAdmin supports the administration of multiple
-        MySQL servers. 
+        MySQL servers.
         Therefore, a $cfgServers-array has been added which contains the login
         information for the different servers. <tt>$cfgServers[1]['host']</tt>
         contains the hostname of the first server,
@@ -1017,30 +1017,30 @@
 <p>
     <b>I'm having troubles when uploading files. In general file uploads don't
     work on my system and uploaded files have a <tt>Content-Type:</tt> header
-    in the first line.</b> 
+    in the first line.</b>
     <br />
     It's not really phpMyAdmin related but RedHat 7.0. You have a RedHat 7.0
-    and you updated your php rpm to php-4.0.4pl1-3.i386.rpm, didn't you? 
-    <br /> 
+    and you updated your php rpm to php-4.0.4pl1-3.i386.rpm, didn't you?
+    <br />
     So the problem is that this package has a serious bug that was corrected
     ages ago in php (2001-01-28: see
     <a href="http://www.php.net/bugs.php?id=8966">php's bug tracking system</a>
     for more details). The problem is that the bugged package is still
     available though it was corrected (see
     <a href="http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933">redhat's bugzilla</a>
-    for more details). 
-    <br /> 
+    for more details).
+    <br />
     So please download
     <a href="http://www.redhat.com/swr/i386/php-4.0.4pl1-9.i386.html">the fixed package (4.0.4pl1-9)</a>
-    and the problem should go away. 
+    and the problem should go away.
     <br />
-    And that fixes the \r\n problem with file uploads! 
-</p> 
+    And that fixes the \r\n problem with file uploads!
+</p>
 
 <p>
     <b>I'm having troubles when uploading files with phpMyAdmin running on a
        secure server. My browser is Internet Explorer and I'm using the Apache
-       server.</b> 
+       server.</b>
     <br />
     As suggested by &quot;Rob M&quot; in the phpWizard forum, add this line to
     your <i>httpd.conf</i>:<br />
@@ -1125,7 +1125,7 @@
     </li>
 </ul>
 <p>
-    Have also a look at the 
+    Have also a look at the
     <a class="navigation" href="http://www.mysql.com/doc/C/a/Can_not_connect_to_server.html" target="_blank">
          corresponding section of the MySQL documentation</a>.
 </p>
@@ -1215,7 +1215,7 @@
     </li>
 </ul>
 
-<p> 
+<p>
     <b>I get errors about not being able to include a file in <i>/lang</i></b>
     <br />
     Check <i>php.ini</i>, or ask your sysadmin to check it. The
@@ -1256,7 +1256,7 @@
     your table properties and add the other fields.
 </p>
 
-<p> 
+<p>
     <b>With Xitami 2.5b4, phpMyAdmin won't process form fields.</b>
     <br />
     This is not a phpMyAdmin problem but a Xitami known bug: you'll face it
@@ -1264,7 +1264,7 @@
     Upgrade or downgrade your Xitami server.
 </p>
 
-<p> 
+<p>
     <b>I have problems dumping tables with Konqueror (phpMyAdmin 2.2.2)</b>
     <br />
     With Konqueror 2.1.1: plain dumps, zip and gzip dumps work ok, except that
@@ -1343,7 +1343,7 @@
     <br />
     Since version 2.2.3, you have a checkbox for each field that can be null.
     Before 2.2.3, you had to enter &quot;null&quot;, without the quotes, as the
-    field's value. 
+    field's value.
 </p>
 
 <h3>[phpMyAdmin project]</h3>
@@ -1403,7 +1403,7 @@
     have already contributed something useful to phpMyAdmin.<br />
     Also, have a look at the <a class="navigation" href="#developers">Developers section</a>.
 </p>
- 
+
 
 
 <!-- DEVELOPERS -->
@@ -1429,11 +1429,11 @@
     make phpMyAdmin a useful tool.
 </p>
 
-<p> 
-    If you're planning to contribute source, please read the following 
+<p>
+    If you're planning to contribute source, please read the following
     information:
 </p>
-<ul> 
+<ul>
     <li>
         All files include <i>header.inc.php3</i> (layout),
         <i>libraries/common.lib.php3</i> (common functions) and
@@ -1441,7 +1441,7 @@
         <br />
         All configuration data belongs in <i>config.inc.php3</i>. Please keep
         it free from other code.
-        <br /> 
+        <br />
         Commonly used functions should be added to
         <i>libraries/lib.inc.php3</i> and more specific ones may be added
         within a library stored into the <i>libraries</i> sub-directory.
@@ -1460,7 +1460,7 @@
         goes to <i>tbl_*.php3</i>, db-related code to <i>db_*.php3</i> and so
         on.
     </li>
-    <li> 
+    <li>
         Please don't use verbose strings in your code, instead add the string
         (at least) to <i>english.inc.php3</i> and print() it out.
     </li>
@@ -1468,7 +1468,7 @@
         If you want to be really helpful, write an entry for the ChangeLog.
     </li>
 </ul>
- 
+
 <p>
     IMPORTANT: With 1.4.1, development has switched to CVS. The following
     method is preferred for new developers:

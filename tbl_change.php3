@@ -247,41 +247,41 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     //       stored or retrieved" so it does not mean that the contents is
     //       binary
     if ($cfgShowFunctionFields) {
-	    if ((($cfgProtectBinary && $is_blob)
-    	     || ($cfgProtectBinary == 'all' && $is_binary))
-        	&& !empty($data)) {
-	        echo '        <td align="center" bgcolor="'. $bgcolor . '">' . $strBinary . '</td>' . "\n";
-    	} else if (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
-        	echo '        <td align="center" bgcolor="'. $bgcolor . '">--</td>' . "\n";
-	    } else {
-    	    ?>
+        if ((($cfgProtectBinary && $is_blob)
+             || ($cfgProtectBinary == 'all' && $is_binary))
+            && !empty($data)) {
+            echo '        <td align="center" bgcolor="'. $bgcolor . '">' . $strBinary . '</td>' . "\n";
+        } else if (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
+            echo '        <td align="center" bgcolor="'. $bgcolor . '">--</td>' . "\n";
+        } else {
+            ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <select name="funcs[<?php echo urlencode($field); ?>]">
                 <option></option>
-	        <?php
-    	    echo "\n";
-        	if (!$first_timestamp) {
-	            for ($j = 0; $j < count($cfgFunctions); $j++) {
-    	            echo '                ';
-        	        echo '<option>' . $cfgFunctions[$j] . '</option>' . "\n";
-	            }
-    	    } else {
+            <?php
+            echo "\n";
+            if (!$first_timestamp) {
+                for ($j = 0; $j < count($cfgFunctions); $j++) {
+                    echo '                ';
+                    echo '<option>' . $cfgFunctions[$j] . '</option>' . "\n";
+                }
+            } else {
             // for default function = NOW() on first timestamp field
             // -- swix/18jul01
-        	    for ($j = 0; $j < count($cfgFunctions); $j++) {
-            	    echo '                ';
-                	if ($cfgFunctions[$j] == 'NOW') {
-	                    echo '<option selected="selected">' . $cfgFunctions[$j] . '</option>' . "\n";
-    	            } else {
-        	            echo '<option>' . $cfgFunctions[$j] . '</option>' . "\n";
-            	    }
-	            } // end for
-    	    }
-	        ?>
+                for ($j = 0; $j < count($cfgFunctions); $j++) {
+                    echo '                ';
+                    if ($cfgFunctions[$j] == 'NOW') {
+                        echo '<option selected="selected">' . $cfgFunctions[$j] . '</option>' . "\n";
+                    } else {
+                        echo '<option>' . $cfgFunctions[$j] . '</option>' . "\n";
+                    }
+                } // end for
+            }
+            ?>
             </select>
         </td>
             <?php
-    	}
+        }
     }
     echo "\n";
 
@@ -302,7 +302,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             }
         } else if (strstr($row_table_def['True_Type'], 'set')) {
             echo ' onclick="if (this.checked) {document.forms[\'insertForm\'].elements[\'field_' . md5($field) . '[]\'].selectedIndex = -1}; return true" />' . "\n";
-	} else {
+        } else {
             echo ' onclick="if (this.checked) {document.forms[\'insertForm\'].elements[\'fields[' . urlencode($field) . ']\'].value = \'\'}; return true" />' . "\n";
         }
     } else {

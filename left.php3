@@ -13,7 +13,7 @@ if (!empty($db)) {
 
 
 /**
- * Gets a core script and starts output buffering work 
+ * Gets a core script and starts output buffering work
  */
 require('./libraries/common.lib.php3');
 require('./libraries/ob.lib.php3');
@@ -171,7 +171,7 @@ echo "\n";
             <span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
     </div>
 
-   
+
     <!-- Databases and tables list -->
 <?php
 // Don't display expansible/collapsible database info if:
@@ -281,7 +281,7 @@ if ($num_dbs > 1) {
         // Light mode -> displays the select combo with databases names and the
         // list of tables contained in the current database
         else {
-            echo "\n";        
+            echo "\n";
 
             // Builds the databases' names list
             if (!empty($db_start) && $db == $db_start) {
@@ -297,7 +297,7 @@ if ($num_dbs > 1) {
                     }
                 } // end for $t (tables list)
 
-                if (!$table_list) { 
+                if (!$table_list) {
                     $table_list = '    <br /><br />' . $strNoTablesFound . "\n";
                 }
                 $selected = ' selected="selected"';

@@ -5,11 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-09 Loïc Chapeaux  <lolo@phpheaven.net>
+	* most of the scripts: removed tabs and/or trailing spaces.
+
 2002-02-09 Marc Delisle  <lem9@users.sourceforge.net>
 	* main.php3, libraries/auth/cookie.auth.lib.php3, Patch
 	  495360 (cookie with domain), experimental, thanks to
 	  Piotr Roszatycki (d3xter) and Christoph (certelt).
-	* tbl_properties.inc.php3: clarifications
+	* tbl_properties.inc.php3: clarifications.
 	* tbl_create.php3, tbl_addfield.php3, tbl_properties.inc.php3:
 	  radio buttons for indexes.
 

@@ -3,23 +3,23 @@
 
 
 /**
- * Zip file creation class. 
+ * Zip file creation class.
  * Makes zip files.
  *
  * Based on :
  *
  *  http://www.zend.com/codex.php3?id=535&single=1
  *  By Eric Mueller (eric@themepark.com)
- * 
- *  http://www.zend.com/codex.php3?id=470&single=1 
+ *
+ *  http://www.zend.com/codex.php3?id=470&single=1
  *  by Denis125 (webmaster@atlant.ru)
  *
- * Official ZIP file format: http://www.pkware.com/appnote.txt 
+ * Official ZIP file format: http://www.pkware.com/appnote.txt
  *
  * @access  public
  */
-class zipfile  
-{  
+class zipfile
+{
     /**
      * Array to store compressed data
      *
@@ -46,7 +46,7 @@ class zipfile
      *
      * @var  integer  $old_offset
      */
-    var $old_offset   = 0; 
+    var $old_offset   = 0;
 
 
     /**
@@ -61,11 +61,11 @@ class zipfile
     {
         $name = str_replace('\\', '/', $name);
 
-        $fr   = "\x50\x4b\x03\x04"; 
-        $fr   .= "\x14\x00";            // ver needed to extract 
-        $fr   .= "\x00\x00";            // gen purpose bit flag 
-        $fr   .= "\x08\x00";            // compression method 
-        $fr   .= "\x00\x00\x00\x00";    // last mod time and date 
+        $fr   = "\x50\x4b\x03\x04";
+        $fr   .= "\x14\x00";            // ver needed to extract
+        $fr   .= "\x00\x00";            // gen purpose bit flag
+        $fr   .= "\x08\x00";            // compression method
+        $fr   .= "\x00\x00\x00\x00";    // last mod time and date
 
         // "local file header" segment
         $unc_len = strlen($data);
@@ -80,7 +80,7 @@ class zipfile
         $fr      .= pack('v', 0);                // extra field length
         $fr      .= $name;
 
-        // "file data" segment 
+        // "file data" segment
         $fr .= $zdata;
 
         // "data descriptor" segment (optional but necessary if archive is not

@@ -158,7 +158,7 @@ $strInsertTextfiles = 'Dodanie pliku tekstowego do tabeli';
 $strInsertedRows = 'Wprowadzone rekordy:';
 $strInstructions = 'Instrukcje';
 $strInUse = 'w u¿yciu';
-$strInvalidName = '"%s" jest s³owem zarezerwowanym, nie mo¿na u¿yæ go jako nazwy bazy danych/tabeli/pola.'; 
+$strInvalidName = '"%s" jest s³owem zarezerwowanym, nie mo¿na u¿yæ go jako nazwy bazy danych/tabeli/pola.';
 
 $strKeepPass = 'Nie zmieniaj has³a';
 $strKeyname = 'Nazwa klucza';
@@ -174,7 +174,7 @@ $strLocationTextfile = 'Lokalizacja pliku tekstowego';
 $strLogin = 'Login';
 $strLogout = 'Wylogowanie';
 $strLogPassword = 'Has³o:';
-$strLogUsername = 'U¿ytkownik:';$strRowsModeVertical=" vertical ";  
+$strLogUsername = 'U¿ytkownik:';$strRowsModeVertical=" vertical ";
 
 $strModifications = 'Modyfikacje zosta³y zapamiêtane';
 $strModify = 'Modifikacja';
@@ -234,7 +234,7 @@ $strPrivileges = 'Uprawnienia';
 $strProperties = 'W³asciwo¶ci';
 
 $strQBE = 'Zapytanie przez przyk³ad';
-$strQBEDel = 'Usuñ'; 
+$strQBEDel = 'Usuñ';
 $strQBEIns = 'Wstaw';
 $strQueryOnDb = 'Zapytanie SQL dla bazy danych <b>%s</b>:';
 

@@ -24,7 +24,7 @@ if (!isset($err_url)) {
 }
 
 
-/** 
+/**
  * Check rights in case of DROP DATABASE
  *
  * This test may be bypassed if $is_js_confirmed = 1 (already checked with js)

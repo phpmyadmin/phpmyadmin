@@ -243,7 +243,7 @@ else {
         <b><?php echo htmlspecialchars($tables[$i]); ?>&nbsp;</b>
     </td>
     <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
-        &nbsp;<?php PMA_countRecords($db, $tables[$i]); ?> 
+        &nbsp;<?php PMA_countRecords($db, $tables[$i]); ?>
     </td>
 </tr>
         <?php

@@ -68,7 +68,7 @@ $cfgServers[2]['only_db']       = '';
 $cfgServers[2]['verbose']       = '';
 $cfgServers[2]['bookmarkdb']    = '';
 $cfgServers[2]['bookmarktable'] = '';
-$cfgServers[2]['relation']      = '';          
+$cfgServers[2]['relation']      = '';
 
 $cfgServers[3]['host']          = '';
 $cfgServers[3]['port']          = '';
@@ -83,7 +83,7 @@ $cfgServers[3]['only_db']       = '';
 $cfgServers[3]['verbose']       = '';
 $cfgServers[3]['bookmarkdb']    = '';
 $cfgServers[3]['bookmarktable'] = '';
-$cfgServers[3]['relation']      = '';          
+$cfgServers[3]['relation']      = '';
 
 // If you have more than one server configured, you can set $cfgServerDefault
 // to any one of them to autoconnect to that server when phpMyAdmin is started,
@@ -104,7 +104,7 @@ $cfgExecTimeLimit         = 300;    // maximum execution time in seconds (0 for 
 $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
                                     // locked tables (since MySQL 3.23.30)
 $cfgShowSQL               = TRUE;   // show SQL queries as run
-$cfgAllowUserDropDatabase = FALSE;  // show a 'Drop database' link to normal users  
+$cfgAllowUserDropDatabase = FALSE;  // show a 'Drop database' link to normal users
 $cfgConfirm               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
 $cfgLoginCookieRecall     = TRUE;   // recall previous login in cookie auth. mode or not
 
@@ -114,7 +114,7 @@ $cfgShowStats             = TRUE;   // allow to display statistics and space usa
 $cfgShowTooltip           = TRUE;   // display table comment as tooltip in left frame
 
 // Left frame setup
-$cfgLeftFrameLight        = TRUE;   // use a select-based menu and display only the 
+$cfgLeftFrameLight        = TRUE;   // use a select-based menu and display only the
                                     // current tables in the left frame.  (experimental)
 
 // In the main frame, at startup...

@@ -28,19 +28,19 @@ $err_url = 'tbl_properties.php3'
 if (isset($submit)) {
     $query = '';
 
-    // transform the radio button field_key into 3 arrays
+    // Transforms the radio button field_key into 3 arrays
     $field_cnt = count($field_name);
     for ($i = 0; $i < $field_cnt; ++$i) {
-        if (${'field_key_'.$i} == 'primary_'.$i) {
-           $field_primary[]=$i;
+        if (${'field_key_' . $i} == 'primary_' . $i) {
+           $field_primary[] = $i;
         }
-        if (${'field_key_'.$i} == 'index_'.$i) {
-           $field_index[]=$i;
+        if (${'field_key_' . $i} == 'index_' . $i) {
+           $field_index[]   = $i;
         }
-        if (${'field_key_'.$i} == 'unique_'.$i) {
-           $field_unique[]=$i;
+        if (${'field_key_' . $i} == 'unique_' . $i) {
+           $field_unique[]  = $i;
         }
-    }
+    } // end for
     // Builds the field creation statement and alters the table
     for ($i = 0; $i < $field_cnt; ++$i) {
         if (get_magic_quotes_gpc()) {
@@ -132,7 +132,7 @@ if (isset($submit)) {
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
-     
+
     // Builds the indexes statements and updates the table
     $index = '';
     if (isset($field_index)) {
@@ -148,7 +148,7 @@ if (isset($submit)) {
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
-     
+
     // Builds the uniques statements and updates the table
     $unique = '';
     if (isset($field_unique)) {
@@ -164,7 +164,7 @@ if (isset($submit)) {
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
-     
+
 
     // Builds the fulltext statements and updates the table
     $fulltext = '';

@@ -156,7 +156,7 @@ if (!isset($lang)) {
  * Do the work!
  */
 // Lang forced
-if (!empty($cfgLang)) { 
+if (!empty($cfgLang)) {
     $lang = $cfgLang;
 }
 
@@ -172,7 +172,7 @@ if (empty($lang) && !empty($HTTP_ACCEPT_LANGUAGE)) {
     $accepted    = explode(',', $HTTP_ACCEPT_LANGUAGE);
     $acceptedCnt = count($accepted);
     reset($accepted);
-    for ($i = 0; $i < $acceptedCnt && empty($lang); $i++) { 
+    for ($i = 0; $i < $acceptedCnt && empty($lang); $i++) {
         PMA_langDetect($accepted[$i], 1);
     }
 }

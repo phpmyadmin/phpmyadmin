@@ -86,7 +86,7 @@ if (($server > 0) && isset($mode) && ($mode == 'reload')) {
 
 
 /**
- * Displays the MySQL servers choice form 
+ * Displays the MySQL servers choice form
  */
 if ($server == 0 || count($cfgServers) > 1) {
     ?>
@@ -153,7 +153,7 @@ if ($server == 0 || count($cfgServers) > 1) {
 
 <?php
 /**
- * Displays the mysql server related links 
+ * Displays the mysql server related links
  */
 $is_superuser        = FALSE;
 if ($server > 0) {
@@ -348,7 +348,7 @@ if ($server > 0) {
         ?>
         </table>
     </td>
-    
+
     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <?php
     } // end if
@@ -357,7 +357,7 @@ echo "\n";
 
 
 /**
- * Displays the phpMyAdmin related links 
+ * Displays the phpMyAdmin related links
  */
 ?>
 
@@ -410,7 +410,7 @@ if (empty($cfgLang)) {
         echo '                        ';
         echo '<option value="' . $id . '"' . $selected . '>' . $lang_name . ' (' . $id . ')</option>' . "\n";
     }
-    ?> 
+    ?>
                     </select>
                     <noscript><input type="submit" value="Go" /></noscript>
                 </form>

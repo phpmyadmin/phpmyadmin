@@ -61,7 +61,7 @@ $strBzip = '"bzipped"';
 
 $strCantLoadMySQL = 'kan ikke starte MySQL modulen,<br />vennligst kontroller PHP konfigureringen.';
 $strCantRenameIdxToPrimary = 'Kan ikke endre indeks til PRIMARY!';
-$strCardinality = 'Kardinalitet'; 
+$strCardinality = 'Kardinalitet';
 $strCarriage = 'Linjeskift (Mac): \\r';
 $strChange = 'Endre';
 $strCheckAll = 'Kontroller alle';

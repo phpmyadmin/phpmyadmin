@@ -188,7 +188,7 @@ $err_url  = $goto
 
 
 /**
- * Set up default values for some variables and 
+ * Set up default values for some variables
  */
 $view_bookmark = 0;
 $sql_bookmark  = isset($sql_bookmark) ? $sql_bookmark : '';

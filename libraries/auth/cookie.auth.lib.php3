@@ -125,7 +125,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
                 echo '        ';
                 echo '<option value="' . $id . '"' . $selected . '>' . $lang_name . ' (' . $id . ')</option>' . "\n";
             } // end while
-            ?> 
+            ?>
     </select>
     <input type="submit" value="<?php echo $GLOBALS['strGo']; ?>" />
 </form>
@@ -226,7 +226,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 <script type="text/javascript" language="javascript">
 var uname = document.forms['login_form'].elements['pma_username'];
 var pword = document.forms['login_form'].elements['pma_password'];
-if (uname.value == '') { 
+if (uname.value == '') {
     uname.focus();
 } else {
     pword.focus();

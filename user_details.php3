@@ -1175,7 +1175,7 @@ else if (isset($submit_updProfile)) {
         $sql_query = (empty($common_upd) ? '' : $common_upd . ', ')
                    . $password_field . ' = ' . (($new_pw == '') ? '\'\'' : 'PASSWORD(\'' . PMA_sqlAddslashes($new_pw) . '\')');
     }
-    
+
     if (!empty($sql_query)) {
         $common_where       = ' WHERE Host = \'' . PMA_sqlAddslashes($host) . '\' AND User = \'' . PMA_sqlAddslashes($pma_user) . '\'';
         $sql_query_cpy      = '';

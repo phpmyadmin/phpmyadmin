@@ -110,7 +110,7 @@ $strEffective = 'Em uso';
 $strEmpty = 'Limpa';
 $strEmptyResultSet = 'MySQL retornou um set vazio (ex. zero regs).';
 $strEnd = 'Fim';
-$strEnglishPrivileges = ' Nota: os nomes dos privilégios do MySQL são em Inglês '; 
+$strEnglishPrivileges = ' Nota: os nomes dos privilégios do MySQL são em Inglês ';
 $strError = 'Erro';
 $strExtendedInserts = 'Instrucções de inserção múltiplas';
 $strExtra = 'Extra'; // written the same in portuguese
@@ -142,7 +142,7 @@ $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page'; //to translate
 $strHost = 'Máquina';
 $strHostEmpty = 'O nome da máquina está vazio!';
 
-$strIdxFulltext = 'Fulltext';  //to translate 
+$strIdxFulltext = 'Fulltext';  //to translate
 $strIfYouWish = 'Para carregar apenas algumas colunas da tabela, faça uma lista separada por virgula.';
 $strIgnore = 'Ignora';
 $strInUse = 'in use'; //to translate
@@ -275,7 +275,7 @@ $strSelectFields = 'Seleccione os campos (no mínimo 1)';
 $strSelectNumRows = 'in query'; //to translate
 $strSend = 'envia';
 $strSequence = 'Seq.'; // Sequence => Sequencia, same abreviation
-$strServerChoice = 'Server Choice';//to translate 
+$strServerChoice = 'Server Choice';//to translate
 $strServerVersion = 'Versão do servidor';
 $strSetEnumVal = 'Se o tipo de campo é "enum" ou "set", por favor introduza os valores no seguinte formato: \'a\',\'b\',\'c\'...<br />Se precisar de colocar uma barra invertida ("\") ou um apóstrofe ("\'") entre esses valores, coloque uma barra invertida antes (por exemplo \'\\\\xyz\' ou \'a\\\'b\').';
 $strShow = 'Mostra';

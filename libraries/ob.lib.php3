@@ -96,7 +96,7 @@ if (!defined('PMA_OB_LIB_INCLUDED')) {
      * @param   integer  the output buffer mode
      *
      * @return  boolean  whether data has been send from the buffer or not
-     */     
+     */
     function PMA_outBufferPost($mode)
     {
         switch($mode)

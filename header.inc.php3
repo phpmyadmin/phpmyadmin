@@ -3,7 +3,7 @@
 
 
 /**
- * Gets a core script and starts output buffering work 
+ * Gets a core script and starts output buffering work
  */
 require('./libraries/common.lib.php3');
 require('./libraries/ob.lib.php3');

@@ -203,7 +203,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                 $schema_insert = 'INSERT INTO ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes)
                                . ' VALUES (';
             }
-        
+
             $search       = array("\x00", "\x0a", "\x0d", "\x1a"); //\x08\\x09, not required
             $replace      = array('\0', '\n', '\r', '\Z');
             $current_row  = 0;
@@ -211,7 +211,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             @set_time_limit($GLOBALS['cfgExecTimeLimit']);
 
             while ($row = mysql_fetch_row($result)) {
-            	$current_row++;
+                $current_row++;
                 for ($j = 0; $j < $fields_cnt; $j++) {
                     if (!isset($row[$j])) {
                         $values[]     = 'NULL';
@@ -238,7 +238,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                     }
                 }
                 // Other inserts case
-                else { 
+                else {
                     $insert_line      = $schema_insert . implode(', ', $values) . ')';
                 }
                 unset($values);
@@ -255,7 +255,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             } // end while
         } // end if ($result != FALSE)
         mysql_free_result($result);
-    
+
         return TRUE;
     } // end of the 'PMA_getTableContentFast()' function
 

@@ -1,7 +1,7 @@
 <?php
 /* $Id$ */
 
-/** 
+/**
  * Gets the variables sent to this script and send headers
  */
 require('./libraries/grab_globals.lib.php3');
@@ -203,7 +203,7 @@ if ($num_dbs > 0) {
     <?php
     unset($url_sort);
     echo "\n";
-    
+
     $total_array[0] = 0;        // number of tables
     $total_array[1] = 0;        // total data size
     $total_array[2] = 0;        // total index size
@@ -223,7 +223,7 @@ if ($num_dbs > 0) {
         $dbs_array[$db][1] = 0; // data size column
         $dbs_array[$db][2] = 0; // index size column
         $dbs_array[$db][3] = 0; // full size column
-    
+
         $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
         $result      = @mysql_query($local_query);
         // needs the "@" below otherwise, warnings in case of special DB names
@@ -231,7 +231,7 @@ if ($num_dbs > 0) {
             while ($row = mysql_fetch_array($result)) {
                 $dbs_array[$db][1] += $row['Data_length'];
                 $dbs_array[$db][2] += $row['Index_length'];
-            } 
+            }
             $dbs_array[$db][3]     = $dbs_array[$db][1] + $dbs_array[$db][2];
             $total_array[1]        += $dbs_array[$db][1];
             $total_array[2]        += $dbs_array[$db][2];

@@ -338,7 +338,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
             <?php echo $strUncheckAll; ?></a>
         &nbsp;&nbsp;&nbsp;
         <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
-        <select name="submit_mult" dir="ltr" onchange="this.form.submit();"> 
+        <select name="submit_mult" dir="ltr" onchange="this.form.submit();">
     <?php
     echo "\n";
     echo '            <option value="' . $strWithChecked . '" selected="selected">'
@@ -569,7 +569,7 @@ if ($num_tables > 0) {
     <li>
         <div style="margin-bottom: 10px"><a href="tbl_qbe.php3?<?php echo $url_query; ?>"><?php echo $strQBE; ?></a></div>
     </li>
-    
+
     <!-- Dump of a database -->
     <li>
         <a name="dumpdb"></a>
@@ -709,7 +709,7 @@ if ($num_tables > 0) {
 } // end of create dump if there is at least one table in the db
 ?>
 
-    <!-- Create a new table --> 
+    <!-- Create a new table -->
     <li>
         <form method="post" action="tbl_create.php3"
             onsubmit="return (emptyFormElements(this, 'table') && checkFormElementInRange(this, 'num_fields', 1))">
@@ -721,7 +721,7 @@ echo '        ' . $strCreateNewTable . htmlspecialchars($db) . '&nbsp;:<br />' .
 echo '        ' . $strName . '&nbsp;:&nbsp;' . "\n";
 echo '        ' . '<input type="text" name="table" maxlength="64" />' . "\n";
 echo '        ' . '<br />' . "\n";
-echo '        ' . $strFields . '&nbsp;:&nbsp;' . "\n"; 
+echo '        ' . $strFields . '&nbsp;:&nbsp;' . "\n";
 echo '        ' . '<input type="text" name="num_fields" size="2" />' . "\n";
 echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 ?>
@@ -734,7 +734,7 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 // loic1: optimized query
 $result       = @mysql_query('USE mysql');
 $is_superuser = (!mysql_error());
-  
+
 // Display the DROP DATABASE link only if allowed to do so
 if ($cfgAllowUserDropDatabase || $is_superuser) {
     ?>

@@ -19,7 +19,7 @@
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
- 
+
 
 /**
  * The form used to define the query has been submitted -> do the work
@@ -42,7 +42,7 @@ if (isset($btnLDI) && ($textfile != 'none')) {
         $escaped          = PMA_sqlAddslashes($escaped);
         $column_name      = PMA_sqlAddslashes($column_name);
     }
-    
+
     // Builds the query
     $query     = 'LOAD DATA LOCAL INFILE \'' . $textfile . '\'';
     if (!empty($replace)) {

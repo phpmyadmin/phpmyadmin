@@ -19,7 +19,7 @@ function PMA_myHandler($sql_insert = '')
 
     $sql_insert = eregi_replace('INSERT INTO (`?)' . $table . '(`?)', 'INSERT INTO ' . $target, $sql_insert);
     $result     = mysql_query($sql_insert) or PMA_mysqlDie('', $sql_insert, '', $GLOBALS['err_url']);
-    
+
     $sql_insert_data .= $sql_insert . ';' . "\n";
 } // end of the 'PMA_myHandler()' function
 
@@ -135,7 +135,7 @@ if (isset($new_name) && trim($new_name) != '') {
 else {
     include('./header.inc.php3');
     PMA_mysqlDie($strTableEmpty, '', '', $err_url);
-} 
+}
 
 
 /**

@@ -34,19 +34,19 @@ mysql_select_db($db);
 if (isset($submit)) {
     $sql_query = $query_cpy = '';
 
-    // transform the radio button field_key into 3 arrays
+    // Transforms the radio button field_key into 3 arrays
     $field_cnt = count($field_name);
     for ($i = 0; $i < $field_cnt; ++$i) {
-        if (${'field_key_'.$i} == 'primary_'.$i) {
-           $field_primary[]=$i;
+        if (${'field_key_' . $i} == 'primary_' . $i) {
+           $field_primary[] = $i;
         }
-        if (${'field_key_'.$i} == 'index_'.$i) {
-           $field_index[]=$i;
+        if (${'field_key_' . $i} == 'index_' . $i) {
+           $field_index[]   = $i;
         }
-        if (${'field_key_'.$i} == 'unique_'.$i) {
-           $field_unique[]=$i;
+        if (${'field_key_' . $i} == 'unique_' . $i) {
+           $field_unique[]  = $i;
         }
-    }
+    } // end for
     // Builds the fields creation statements
     for ($i = 0; $i < $field_cnt; $i++) {
         if (empty($field_name[$i])) {

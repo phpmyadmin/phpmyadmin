@@ -28,4 +28,4 @@ if (isset($cfgOBGzip) && $cfgOBGzip
     && isset($ob_mode) && $ob_mode) {
      PMA_outBufferPost($ob_mode);
 }
-?> 
+?>
