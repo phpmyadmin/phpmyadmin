@@ -393,7 +393,8 @@ if (!empty($asfile)) {
     else if (isset($compression) && $compression == 'bzip') {
         if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
             $dump_buffer = bzcompress($dump_buffer);
-            if ($dump_buffer === -8) {
+            // nijel: eval in next line is because otherwise === causes syntax error on php3
+            if (eval('return($dump_buffer === -8);')) {
                 include('./header.inc.php3');
                 echo sprintf($strBzError, '<a href="http://bugs.php.net/bug.php?id=17300" target="_blank">17300</a>');
                 include('./footer.inc.php3');
