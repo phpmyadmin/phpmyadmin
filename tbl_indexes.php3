@@ -1,6 +1,7 @@
 <?php
 /* $Id$ */
 
+
 /**
  * Gets some core libraries
  */
@@ -180,9 +181,9 @@ if (!defined('PMA_IDX_INCLUDED')
          PMA_mysqlDie($strCantRenameIdxToPrimary, '', FALSE, $err_url);
     }
 
-// $sql_query is the one displayed in the query box, don't use it when 
-// you need to generate a query in this script
 
+    // $sql_query is the one displayed in the query box, don't use it when you
+    // need to generate a query in this script
     $local_query         = 'ALTER TABLE ' . PMA_backquote($table);
 
     // Drops the old index
@@ -190,7 +191,7 @@ if (!defined('PMA_IDX_INCLUDED')
         if ($old_index == 'PRIMARY') {
             $local_query .= ' DROP PRIMARY KEY,';
         } else {
-             $local_query .= ' DROP INDEX ' . PMA_backquote($old_index) .',';
+            $local_query .= ' DROP INDEX ' . PMA_backquote($old_index) .',';
         }
     } // end if
 
@@ -223,7 +224,7 @@ if (!defined('PMA_IDX_INCLUDED')
         $local_query .= $index_fields . ')';
     }
 
-    $result    = PMA_mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url);
+    $result    = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
 
     include('./tbl_properties.php3');

@@ -180,10 +180,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
                     // Checks for MySQL escaping using a \
                     // And checks for ANSI escaping using the $quotetype character
-                    if ( ($pos < $len) && PMA_STR_charIsEscaped($sql, $pos)) {
+                    if (($pos < $len) && PMA_STR_charIsEscaped($sql, $pos)) {
                         $pos ++;
                         continue;
-                    } else if ( ($pos+1 < $len) && ($sql[$pos] == $quotetype) && ($sql[$pos + 1] == $quotetype)) {
+                    } else if (($pos + 1 < $len) && ($sql[$pos] == $quotetype) && ($sql[$pos + 1] == $quotetype)) {
                         $pos = $pos + 2;
                         continue;
                     } else {
