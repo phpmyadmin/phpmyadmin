@@ -119,9 +119,11 @@ class PMA_PDF extends FPDF
         if(count($this->Alias) > 0)
         {
             $nb=$this->page;
-            foreach($this->Alias as $alias => $value)
-            for($n=1;$n<=$nb;$n++)
-            $this->pages[$n]=str_replace($alias,$value,$this->pages[$n]);
+            @reset($this->Alias);
+            while(list($alias, $value) = each($this->Alias)) {
+                for($n=1;$n<=$nb;$n++)
+                $this->pages[$n]=str_replace($alias,$value,$this->pages[$n]);
+            }
         }
         parent::_putpages();
     }
@@ -1206,7 +1208,8 @@ function PMA_RT_DOC($alltables ){
     $pdf->Cell(0,9, $GLOBALS['strTableOfContents'],1,0,'C');
     $pdf->Ln(15);
     $i = 1;
-    foreach($alltables as $table ){
+    @reset($alltables);
+    while(list(, $table) = each($alltables)) {
         $pdf->PMA_links['doc'][$table]['-'] = $pdf->AddLink();
         $pdf->SetX(10);
         //$pdf->Ln(1);
@@ -1223,15 +1226,17 @@ function PMA_RT_DOC($alltables ){
             $pdf->PMA_links['doc'][$table][$field_name] =$pdf->AddLink();
             //$pdf->Cell(0,6,$field_name,0,1,'L',0,$pdf->PMA_links['doc'][$table][$field_name]);
         }
-    $i++;
+        $lasttable = $table;
+        $i++;
     }
     $pdf->PMA_links['RT']['-'] =$pdf->AddLink();
     $pdf->SetX(10);
-    $pdf->Cell(0,6,$GLOBALS['strPageNumber'] . ' {00}',0,0,'R',0,$pdf->PMA_links['doc'][$table]['-']);
+    $pdf->Cell(0,6,$GLOBALS['strPageNumber'] . ' {00}',0,0,'R',0,$pdf->PMA_links['doc'][$lasttable]['-']);
     $pdf->SetX(10);
     $pdf->Cell(0,6,$i.' '. $GLOBALS['strRelationalSchema'],0,1,'L',0,$pdf->PMA_links['RT']['-']);
     $z = 0;
-    foreach($alltables as $table ){
+    @reset($alltables);
+    while(list(, $table) = each($alltables)) {
         $z++;
         $pdf->addpage($GLOBALS['orientation']);
         $pdf->Bookmark($table);
@@ -1243,223 +1248,223 @@ function PMA_RT_DOC($alltables ){
         $pdf->SetFont('', '',8);
         $pdf->ln();
 
-    $cfgRelation  = PMA_getRelationsParam();
-    if ($cfgRelation['commwork']) {
-        $comments = PMA_getComments($db, $table);
-    }
-
-
-    /**
-     * Gets table informations
-     */
-    // The 'show table' statement works correct since 3.23.03
-    if (PMA_MYSQL_INT_VERSION >= 32303) {
-         $local_query  = "SHOW TABLE STATUS LIKE '" . PMA_sqlAddslashes($table, TRUE) . "'";
-         $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-         $showtable    = PMA_mysql_fetch_array($result);
-         $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
-         $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
-    } else {
-         $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
-         $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-         $showtable    = array();
-         $num_rows     = PMA_mysql_result($result, 0, 'count');
-         $show_comment = '';
-    } // end display comments
-    if ($result) {
-         mysql_free_result($result);
-    }
-
-
-    /**
-     * Gets table keys and retains them
-     */
-    $local_query  = 'SHOW KEYS FROM ' . PMA_backquote($table);
-    $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-    $primary      = '';
-    $indexes      = array();
-    $lastIndex    = '';
-    $indexes_info = array();
-    $indexes_data = array();
-    $pk_array     = array(); // will be use to emphasis prim. keys in the table
-                             // view
-    while ($row = PMA_mysql_fetch_array($result)) {
-        // Backups the list of primary keys
-        if ($row['Key_name'] == 'PRIMARY') {
-            $primary   .= $row['Column_name'] . ', ';
-            $pk_array[$row['Column_name']] = 1;
-        }
-        // Retains keys informations
-        if ($row['Key_name'] != $lastIndex ){
-            $indexes[] = $row['Key_name'];
-            $lastIndex = $row['Key_name'];
-        }
-        $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
-        $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
-        if (isset($row['Cardinality'])) {
-            $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
-        }
-        // I don't know what does following column mean....
-        // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
-        $indexes_info[$row['Key_name']]['Comment']         = $row['Comment'];
-
-        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
-        if (isset($row['Sub_part'])) {
-            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
-        }
-
-    } // end while
-    if ($result) {
-        mysql_free_result($result);
-    }
-
-
-    /**
-     * Gets fields properties
-     */
-    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
-    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-    $fields_cnt  = mysql_num_rows($result);
-
-
-    // Check if we can use Relations (Mike Beck)
-    if (!empty($cfgRelation['relation'])) {
-        // Find which tables are related with the current one and write it in
-        // an array
-        $res_rel = PMA_getForeigners($db, $table);
-
-        if (count($res_rel) > 0) {
-            $have_rel = TRUE;
-        } else {
-            $have_rel = FALSE;
-        }
-    }
-    else {
-        $have_rel = FALSE;
-    } // end if
-
-
-    /**
-     * Displays the comments of the table if MySQL >= 3.23
-     */
-
-    if (!empty($show_comment)) {
-        $pdf->Cell(0,8,$GLOBALS['strTableComments'] . ' : ' . $show_comment,0,1);
-        $pdf->Ln();
-    }
-
-    $i = 0;
-    $pdf->SetFont('', 'B');
-    if (isset($orientation) && $orientation == 'L') {
-        $pdf->Cell(25,8,ucfirst($GLOBALS['strField']),1,0,'C');
-        $pdf->Cell(20,8,ucfirst($GLOBALS['strType']),1,0,'C');
-        $pdf->Cell(20,8,ucfirst($GLOBALS['strAttr']),1,0,'C');
-        $pdf->Cell(10,8,ucfirst($GLOBALS['strNull']),1,0,'C');
-        $pdf->Cell(20,8,ucfirst($GLOBALS['strDefault']),1,0,'C');
-        $pdf->Cell(25,8,ucfirst($GLOBALS['strExtra']),1,0,'C');
-        $pdf->Cell(45,8,ucfirst($GLOBALS['strLinksTo']),1,0,'C');
-        $pdf->Cell(100,8,ucfirst($GLOBALS['strComments']),1,1,'C');
-        $pdf->SetWidths(array(25,20,20,10,20,25,45,100));
-    } else {
-        $pdf->Cell(20,8,ucfirst($GLOBALS['strField']),1,0,'C');
-        $pdf->Cell(20,8,ucfirst($GLOBALS['strType']),1,0,'C');
-        $pdf->Cell(20,8,ucfirst($GLOBALS['strAttr']),1,0,'C');
-        $pdf->Cell(10,8,ucfirst($GLOBALS['strNull']),1,0,'C');
-        $pdf->Cell(15,8,ucfirst($GLOBALS['strDefault']),1,0,'C');
-        $pdf->Cell(15,8,ucfirst($GLOBALS['strExtra']),1,0,'C');
-        $pdf->Cell(30,8,ucfirst($GLOBALS['strLinksTo']),1,0,'C');
-        $pdf->Cell(60,8,ucfirst($GLOBALS['strComments']),1,1,'C');
-        $pdf->SetWidths(array(20,20,20,10,15,15,30,60));
-    }
-    $pdf->SetFont('', '');
-
-    while ($row = PMA_mysql_fetch_array($result)) {
-        $bgcolor = ($i % 2) ?$GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
-        $i++;
-
-        $type             = $row['Type'];
-        // reformat mysql query output - staybyte - 9. June 2001
-        // loic1: set or enum types: slashes single quotes inside options
-        if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
-            $tmp[2]       = substr(ereg_replace("([^,])''", "\\1\\'", ',' . $tmp[2]), 1);
-            $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
-            $type_nowrap  = '';
-
-            $binary       = 0;
-            $unsigned     = 0;
-            $zerofill     = 0;
-        } else {
-            $type_nowrap  = ' nowrap="nowrap"';
-            $type         = eregi_replace('BINARY', '', $type);
-            $type         = eregi_replace('ZEROFILL', '', $type);
-            $type         = eregi_replace('UNSIGNED', '', $type);
-            if (empty($type)) {
-                $type     = '&nbsp;';
-            }
-
-            $binary       = eregi('BINARY', $row['Type'], $test);
-            $unsigned     = eregi('UNSIGNED', $row['Type'], $test);
-            $zerofill     = eregi('ZEROFILL', $row['Type'], $test);
-        }
-        $strAttribute     = ' ';
-        if ($binary) {
-            $strAttribute = 'BINARY';
-        }
-        if ($unsigned) {
-            $strAttribute = 'UNSIGNED';
-        }
-        if ($zerofill) {
-            $strAttribute = 'UNSIGNED ZEROFILL';
-        }
-        if (!isset($row['Default'])) {
-            if ($row['Null'] != '') {
-                $row['Default'] = 'NULL';
-            }
-        }
-        $field_name = $row['Field'];
-        //$pdf->Ln();
-        $pdf->PMA_links['RT'][$table][$field_name] =$pdf->AddLink();
-        $pdf->Bookmark($field_name,1,-1);
-        $pdf->SetLink($pdf->PMA_links['doc'][$table][$field_name],-1);
-        $pdf_row = array($field_name ,
-                        $type ,
-                        $strAttribute ,
-                        ($row['Null'] == '') ? $GLOBALS['strNo'] : $GLOBALS['strYes'],
-                        ((isset($row['Default'])) ?  $row['Default'] : ''),
-                        $row['Extra']  ,
-                        ((isset($res_rel[$field_name])) ? $res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] : ''),
-                        ((isset($comments[$field_name])) ? $comments[$field_name]  : '' )
-                        );
-        $links[0] = $pdf->PMA_links['RT'][$table][$field_name];
-        if (isset($res_rel[$field_name]['foreign_table']) AND
-            isset($res_rel[$field_name]['foreign_field']) AND
-            isset($pdf->PMA_links['doc'][$res_rel[$field_name]['foreign_table']][$res_rel[$field_name]['foreign_field']])
-          ) $links[6] = $pdf->PMA_links['doc'][$res_rel[$field_name]['foreign_table']][$res_rel[$field_name]['foreign_field']];
-          else unset($links[6]);
-        $pdf->Row($pdf_row, $links);
-
-         /*$pdf->Cell(20,8,$field_name,1,0,'L',0,$pdf->PMA_links['RT'][$table][$field_name]);
-            //echo '    ' . $field_name . '&nbsp;' . "\n";
-        }
-    $pdf->Cell(20,8,$type,1,0,'L');
-    $pdf->Cell(20,8,$strAttribute,1,0,'L');
-    $pdf->Cell(15,8,,1,0,'L');
-    $pdf->Cell(15,8,((isset($row['Default'])) ?  $row['Default'] : ''),1,0,'L');
-    $pdf->Cell(15,8,$row['Extra'],1,0,'L');
-       if ($have_rel) {
-            if (isset($res_rel[$field_name])) {
-                $pdf->Cell(30,8,$res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'],1,0,'L');
-            }
-        }
+        $cfgRelation  = PMA_getRelationsParam();
         if ($cfgRelation['commwork']) {
-            if (isset($comments[$field_name])) {
-                $pdf->Cell(0,8,$comments[$field_name],1,0,'L');
+            $comments = PMA_getComments($db, $table);
+        }
+
+
+        /**
+         * Gets table informations
+         */
+        // The 'show table' statement works correct since 3.23.03
+        if (PMA_MYSQL_INT_VERSION >= 32303) {
+             $local_query  = "SHOW TABLE STATUS LIKE '" . PMA_sqlAddslashes($table, TRUE) . "'";
+             $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+             $showtable    = PMA_mysql_fetch_array($result);
+             $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
+             $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
+        } else {
+             $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
+             $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+             $showtable    = array();
+             $num_rows     = PMA_mysql_result($result, 0, 'count');
+             $show_comment = '';
+        } // end display comments
+        if ($result) {
+             mysql_free_result($result);
+        }
+    
+    
+        /**
+         * Gets table keys and retains them
+         */
+        $local_query  = 'SHOW KEYS FROM ' . PMA_backquote($table);
+        $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        $primary      = '';
+        $indexes      = array();
+        $lastIndex    = '';
+        $indexes_info = array();
+        $indexes_data = array();
+        $pk_array     = array(); // will be use to emphasis prim. keys in the table
+                                 // view
+        while ($row = PMA_mysql_fetch_array($result)) {
+            // Backups the list of primary keys
+            if ($row['Key_name'] == 'PRIMARY') {
+                $primary   .= $row['Column_name'] . ', ';
+                $pk_array[$row['Column_name']] = 1;
             }
-        } */
-    } // end while
-    $pdf->SetFont('', '',14);
-    mysql_free_result($result);
-}//end each
+            // Retains keys informations
+            if ($row['Key_name'] != $lastIndex ){
+                $indexes[] = $row['Key_name'];
+                $lastIndex = $row['Key_name'];
+            }
+            $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
+            $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
+            if (isset($row['Cardinality'])) {
+                $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
+            }
+            // I don't know what does following column mean....
+            // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
+            $indexes_info[$row['Key_name']]['Comment']         = $row['Comment'];
+    
+            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
+            if (isset($row['Sub_part'])) {
+                $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
+            }
+    
+        } // end while
+        if ($result) {
+            mysql_free_result($result);
+        }
+    
+    
+        /**
+         * Gets fields properties
+         */
+        $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
+        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        $fields_cnt  = mysql_num_rows($result);
+    
+    
+        // Check if we can use Relations (Mike Beck)
+        if (!empty($cfgRelation['relation'])) {
+            // Find which tables are related with the current one and write it in
+            // an array
+            $res_rel = PMA_getForeigners($db, $table);
+    
+            if (count($res_rel) > 0) {
+                $have_rel = TRUE;
+            } else {
+                $have_rel = FALSE;
+            }
+        }
+        else {
+            $have_rel = FALSE;
+        } // end if
+    
+    
+        /**
+         * Displays the comments of the table if MySQL >= 3.23
+         */
+    
+        if (!empty($show_comment)) {
+            $pdf->Cell(0,8,$GLOBALS['strTableComments'] . ' : ' . $show_comment,0,1);
+            $pdf->Ln();
+        }
+    
+        $i = 0;
+        $pdf->SetFont('', 'B');
+        if (isset($orientation) && $orientation == 'L') {
+            $pdf->Cell(25,8,ucfirst($GLOBALS['strField']),1,0,'C');
+            $pdf->Cell(20,8,ucfirst($GLOBALS['strType']),1,0,'C');
+            $pdf->Cell(20,8,ucfirst($GLOBALS['strAttr']),1,0,'C');
+            $pdf->Cell(10,8,ucfirst($GLOBALS['strNull']),1,0,'C');
+            $pdf->Cell(20,8,ucfirst($GLOBALS['strDefault']),1,0,'C');
+            $pdf->Cell(25,8,ucfirst($GLOBALS['strExtra']),1,0,'C');
+            $pdf->Cell(45,8,ucfirst($GLOBALS['strLinksTo']),1,0,'C');
+            $pdf->Cell(100,8,ucfirst($GLOBALS['strComments']),1,1,'C');
+            $pdf->SetWidths(array(25,20,20,10,20,25,45,100));
+        } else {
+            $pdf->Cell(20,8,ucfirst($GLOBALS['strField']),1,0,'C');
+            $pdf->Cell(20,8,ucfirst($GLOBALS['strType']),1,0,'C');
+            $pdf->Cell(20,8,ucfirst($GLOBALS['strAttr']),1,0,'C');
+            $pdf->Cell(10,8,ucfirst($GLOBALS['strNull']),1,0,'C');
+            $pdf->Cell(15,8,ucfirst($GLOBALS['strDefault']),1,0,'C');
+            $pdf->Cell(15,8,ucfirst($GLOBALS['strExtra']),1,0,'C');
+            $pdf->Cell(30,8,ucfirst($GLOBALS['strLinksTo']),1,0,'C');
+            $pdf->Cell(60,8,ucfirst($GLOBALS['strComments']),1,1,'C');
+            $pdf->SetWidths(array(20,20,20,10,15,15,30,60));
+        }
+        $pdf->SetFont('', '');
+    
+        while ($row = PMA_mysql_fetch_array($result)) {
+            $bgcolor = ($i % 2) ?$GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
+            $i++;
+    
+            $type             = $row['Type'];
+            // reformat mysql query output - staybyte - 9. June 2001
+            // loic1: set or enum types: slashes single quotes inside options
+            if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
+                $tmp[2]       = substr(ereg_replace("([^,])''", "\\1\\'", ',' . $tmp[2]), 1);
+                $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
+                $type_nowrap  = '';
+    
+                $binary       = 0;
+                $unsigned     = 0;
+                $zerofill     = 0;
+            } else {
+                $type_nowrap  = ' nowrap="nowrap"';
+                $type         = eregi_replace('BINARY', '', $type);
+                $type         = eregi_replace('ZEROFILL', '', $type);
+                $type         = eregi_replace('UNSIGNED', '', $type);
+                if (empty($type)) {
+                    $type     = '&nbsp;';
+                }
+    
+                $binary       = eregi('BINARY', $row['Type'], $test);
+                $unsigned     = eregi('UNSIGNED', $row['Type'], $test);
+                $zerofill     = eregi('ZEROFILL', $row['Type'], $test);
+            }
+            $strAttribute     = ' ';
+            if ($binary) {
+                $strAttribute = 'BINARY';
+            }
+            if ($unsigned) {
+                $strAttribute = 'UNSIGNED';
+            }
+            if ($zerofill) {
+                $strAttribute = 'UNSIGNED ZEROFILL';
+            }
+            if (!isset($row['Default'])) {
+                if ($row['Null'] != '') {
+                    $row['Default'] = 'NULL';
+                }
+            }
+            $field_name = $row['Field'];
+            //$pdf->Ln();
+            $pdf->PMA_links['RT'][$table][$field_name] =$pdf->AddLink();
+            $pdf->Bookmark($field_name,1,-1);
+            $pdf->SetLink($pdf->PMA_links['doc'][$table][$field_name],-1);
+            $pdf_row = array($field_name ,
+                            $type ,
+                            $strAttribute ,
+                            ($row['Null'] == '') ? $GLOBALS['strNo'] : $GLOBALS['strYes'],
+                            ((isset($row['Default'])) ?  $row['Default'] : ''),
+                            $row['Extra']  ,
+                            ((isset($res_rel[$field_name])) ? $res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] : ''),
+                            ((isset($comments[$field_name])) ? $comments[$field_name]  : '' )
+                            );
+            $links[0] = $pdf->PMA_links['RT'][$table][$field_name];
+            if (isset($res_rel[$field_name]['foreign_table']) AND
+                isset($res_rel[$field_name]['foreign_field']) AND
+                isset($pdf->PMA_links['doc'][$res_rel[$field_name]['foreign_table']][$res_rel[$field_name]['foreign_field']])
+              ) $links[6] = $pdf->PMA_links['doc'][$res_rel[$field_name]['foreign_table']][$res_rel[$field_name]['foreign_field']];
+              else unset($links[6]);
+            $pdf->Row($pdf_row, $links);
+    
+             /*$pdf->Cell(20,8,$field_name,1,0,'L',0,$pdf->PMA_links['RT'][$table][$field_name]);
+                //echo '    ' . $field_name . '&nbsp;' . "\n";
+            }
+        $pdf->Cell(20,8,$type,1,0,'L');
+        $pdf->Cell(20,8,$strAttribute,1,0,'L');
+        $pdf->Cell(15,8,,1,0,'L');
+        $pdf->Cell(15,8,((isset($row['Default'])) ?  $row['Default'] : ''),1,0,'L');
+        $pdf->Cell(15,8,$row['Extra'],1,0,'L');
+           if ($have_rel) {
+                if (isset($res_rel[$field_name])) {
+                    $pdf->Cell(30,8,$res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'],1,0,'L');
+                }
+            }
+            if ($cfgRelation['commwork']) {
+                if (isset($comments[$field_name])) {
+                    $pdf->Cell(0,8,$comments[$field_name],1,0,'L');
+                }
+            } */
+        } // end while
+        $pdf->SetFont('', '',14);
+        mysql_free_result($result);
+    }//end each
 
 
 } // end function PMA_RT_DOC
