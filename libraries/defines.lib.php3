@@ -35,16 +35,16 @@ if (!defined('PHP_INT_VERSION')) {
         define('PHP_INT_VERSION', (int)sprintf('%d%02d%02d', $match[1], $match[2], $match[3]));
         unset($match);
     } else {
-        define('PHP_INT_VERSION', FALSE);
+        define('PHP_INT_VERSION', 0);
     }
 }
 
 // Whether the os php is running on is windows or not
 if (!defined('PMA_WINDOWS')) {
     if (defined('PHP_OS') && eregi('win', PHP_OS)) {
-        define('PMA_WINDOWS', TRUE);
+        define('PMA_WINDOWS', 1);
     } else {
-        define('PMA_WINDOWS', FALSE);
+        define('PMA_WINDOWS', 0);
     }
 }
 
