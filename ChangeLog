@@ -8,6 +8,21 @@ $Source$
 2002-06-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian.inc.php3 updates, thanks to Valics Lehel
     * lang/indonesian.inc.php3 updates, thanks to Rachim Tamsjadi
+    
+2002-06-03 Mike Beck     <mike.beck@ibmiller.de>
+    * pdf_pages.php3    
+    - new page to add and edit pdf pages
+    * db_details_structure.php3 lines 452-482
+      - added a link to pdf_pages
+      - if pdf_pages exist offer to create pdfs
+    * pdf_schema.pdf  lines lines 374-380,422-455,805-820
+      - changed to work with the table_coords table
+      - show primary_key and display_field in different color
+    * config.inc.php3 lines 55,80,103
+    - added a new servervariable $cfg['Servers'][$i]['table_coords']
+    * Documentation.html line 593-770,1884-1920
+    - added and changed Doku for Creating PDFs
+    
 
 2002-06-02 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/display_tbl.inc.php3, line 1413: xhtml fix.

@@ -1900,7 +1900,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             expect to have an area of about 297 * 210 and put the tables coordinates somewhere
             in there, you will be able to have a look at what happened and change them later.<br />
             For example, x=100 and y=200 means that the table will be at 200 mm down
-            and 100 mm right from the upper left corner.</li>
+            and 100 mm right from the upper left corner.<br />
+            Actually if you have a width of more than 300 or a height of more than 100
+            than it will automatically be scaled but 300*100 is a good start to have
+            an idea of what coordinates to use.</li>
         <li>After every table you submitted you will have the possibility to submit more tables</li>
         <li>When you have entered enough tables Click on your db name in the left frame again</li>
         <li>Now, again at the bottom of the page you should be able to choose &quot;Display PDF schema&quot;<br />
