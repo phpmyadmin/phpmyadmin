@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-25 Michal Čihař  <michal@cihar.com>
+    * main.php, libraries/select_lang.lib.php: Use pma_lang cookie instead of
+      just lang.
+    * libraries/select_lang.lib.php: Fix language dialects detection (based on
+      patch #958994).
+
 2004-05-23 Garvin Hicking <pma@supergarv.de>
     * db_details.php: Fixed broken file upload since redesign-patch.
 
