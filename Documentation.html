@@ -6,7 +6,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>phpMyAdmin 2.2.1-dev - Documentation</title>
+    <title>phpMyAdmin 2.2.2-dev - Documentation</title>
     <style type="text/css">
     <!--
     .navigation {
@@ -73,7 +73,7 @@
 
 <body bgcolor="#FFFFFF">
 <a name="top"></a>
-<h1>phpMyAdmin 2.2.1-rc1 Documentation</h1>
+<h1>phpMyAdmin 2.2.2-dev Documentation</h1>
 
 
 <!-- TOP MENU -->
@@ -229,21 +229,48 @@
 
 <p>Upgrading from an older version:</p>
 <ul>
-    <li> Please do not copy your older config.inc.php3 over the new one: it may offer new configuration variables, and the new version may depend on these for normal behavior.  It is suggested instead to insert your site values in the new one.</li>
+    <li>Please do not copy your older config.inc.php3 over the new one: it may
+        offer new configuration variables, and the new version may depend on
+        these for normal behavior.  It is suggested instead to insert your site
+        values in the new one.</li>
 </ul>
 
 <p>Using Advanced Authentication:</p>
 <ol>
 <li>
     phpMyAdmin needs a stduser that has <b>only</b> the <tt>SELECT</tt>
-    privilege on the <i>mysql.db (Db,user,Select_priv)</i> &amp; <i>mysql.user (user,Select_priv)</i> tables. You
-    must specify the details for the stduser in the <i>config.inc.php3</i> file
-    under the <tt>$cfgServers[n]['stduser']</tt> &amp;
-    <tt>$cfgServers[n]['stdpass']</tt> settings.
-    To create the control account:<br />
-    &nbsp;&nbsp;&nbsp;<tt>GRANT USAGE ON mysql.* TO 'stduser'@localhost IDENTIFIED BY 'password';</tt><br />
-    &nbsp;&nbsp;&nbsp;<tt>GRANT SELECT ON mysql.user TO 'stduser'@localhost;</tt><br />
-    &nbsp;&nbsp;&nbsp;<tt>GRANT SELECT ON mysql.db TO 'stduser'@localhost;</tt>
+    privilege on the <i>mysql.user (all columns except
+    &quot;Password&quot;)</i>, <i>mysql.db (all columns)</i> &amp;
+    <i>mysql.tables_priv (all columns except &quot;Grantor&quot; &amp;
+    &quot;Timestamp&quot;) </i>tables.<br />
+    You must specify the details for the stduser in the <i>config.inc.php3</i>
+    file under the <tt>$cfgServers[n]['stduser']</tt> &amp;
+    <tt>$cfgServers[n]['stdpass']</tt> settings.<br />
+    To create the control account (<tt>&lt;stduser&gt;</tt> and
+    <tt>&lt;stdpass&gt;</tt> have to be replaced by your own values, of course):<br />
+    <table border="0">
+    <tr>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>
+            <tt>GRANT USAGE ON mysql.* TO '&lt;stduser&gt;'@'localhost' IDENTIFIED BY '&lt;stdpass&gt;';</tt><br />
+            <tt>GRANT SELECT (Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv, File_priv, Grant_priv, References_priv, Index_priv, Alter_priv) ON mysql.user TO '&lt;stduser&gt;'@'localhost';</tt><br />
+            <tt>GRANT SELECT ON mysql.db TO '&lt;stduser&gt;'@'localhost';</tt><br />
+            <tt>GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv) ON mysql.tables_priv TO '&lt;stduser&gt;'@'localhost';</tt>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            ... and if you want to use the bookmark feature:
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>
+            <tt>GRANT SELECT, INSERT, DELETE ON &lt;bookmark_db&gt;.&lt;bookmark_table&gt; TO '&lt;stduser&gt;'@'localhost';</tt>
+        </td>
+    </tr>
+    </table>
+    <br />
 </li>
 <li>
     Then each of the <i>true</i> users should be granted of a set of
@@ -341,13 +368,17 @@
     </dt>
     <dd>
         When using advanced authentication mode (or standard authentication
-        mode since phpMyAdmin 2.2.1-rc3), you need to supply the details
-        of a MySQL account that has <tt>SELECT</tt> access on the
-        <i>mysql.db (Db,user,Select_priv)</i> &amp; <i>mysql.user (user,Select_priv)</i> tables.<br />
-        This account is used to check what databases the user will see at login.
-	Please see the install section on &quot;Using advanced authentication&quot; for more information.
+        mode since phpMyAdmin 2.2.1), you need to supply the details of a MySQL
+        account that has <tt>SELECT</tt> privilege on the <i>mysql.user (all
+        columns except &quot;Password&quot;)</i>, <i>mysql.db (all columns)</i>
+        &amp; <i>mysql.tables_priv (all columns except &quot;Grantor&quot;
+        &amp; &quot;Timestamp&quot;) </i>tables.
+        This account is used to check what databases the user will see at
+        login.<br />
+        Please see the <a class="navigation" href="#setup">install section</a>
+        on &quot;Using advanced authentication&quot; for more information.
         <br /><br />
-        Please note that if you try login to phpMyAdmin with this stduser, you
+        Note that if you try login to phpMyAdmin with this stduser, you
         could get some errors, depending the exact privileges you gave to
         the stduser. phpMyAdmin does not support a direct login with the
         stduser.
@@ -975,10 +1006,10 @@
     <b>When I create a table, I click the Index checkbox for 2 fields and
     phpMyAdmin generates only one index with those 2 fields.</b>
     <br />
-    In phpMyAdmin 2.2.0, this is the way to create a multi-fields index. If you
-    want two indexes, create the first one when creating the table, save, then
-    display the table properties and click the Index link to create the other
-    index.
+    In phpMyAdmin 2.2.0 and 2.2.1, this is the way to create a multi-fields
+    index. If you want two indexes, create the first one when creating the
+    table, save, then display the table properties and click the Index link to
+    create the other index.
 </p>
 
 <p>
@@ -1001,6 +1032,25 @@
     &quot;./lang&quot; to allow normal operation of phpMyAdmin.
 </p>
 
+<p> 
+    <b>With Xitami 2.5b4, phpMyAdmin won't process form fields</b>
+    <br />
+    This is not a phpMyAdmin problem but a Xitami known bug: you'll face it
+    with each script/website that use forms.<br />
+    Upgrade or downgrade your Xitami server.
+</p>
+
+<p>
+    <b>Using phpMyAdmin on IIS, I'm dipslayed the error message: &quot;The
+       specified CGI application misbehaved by not returning a complete set of
+       HTTP headers....&quot;</b>
+    <br />
+    You just forgot to read the <i>install.txt</i> file from the php
+    distribution. Have a look at the last message in this
+    <a href="http://bugs.php.net/bug.php?id=12061">bug report</a> from the
+    official php bug database.
+</p>
+ 
 <p>
     <b>I have found a bug. How do I inform developers?</b>
     <br />
