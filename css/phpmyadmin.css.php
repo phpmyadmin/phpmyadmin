@@ -302,3 +302,8 @@ ul.main li {
     list-style-image: url(../images/item_<?php echo $text_dir; ?>.png);
     padding-bottom: 0.1em;
 }
+
+button {
+    /* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
+    display: inline;
+}

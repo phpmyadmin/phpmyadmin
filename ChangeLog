@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-28 Michal Cihar  <michal@cihar.com>
+    * css/phpmyadmin.css.php: Force <button> to be displayed inline.
+
 2004-04-28 Garvin Hicking <pma@supergarv.de>
     * left.php, libraries/left.js: Fixed unneeded spacing between items
       and wrong collapsion in nested mode (Bug #943140). Removed
