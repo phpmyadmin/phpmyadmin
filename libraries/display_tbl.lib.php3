@@ -722,7 +722,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         <?php
         echo "\n";
 
-        $foo                        = 0;
+        $row_no                     = 0;
         $vertical_display['edit']   = array();
         $vertical_display['delete'] = array();
         $vertical_display['data']   = array();
@@ -742,10 +742,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // loic1: use 'mysql_fetch_array' rather than 'mysql_fetch_row' to get
         //        the NULL values
 
-        for ($row_no = 0; $row = mysql_fetch_array($dt_result); $row_no++) {
+        while ($row = mysql_fetch_array($dt_result)) {
 
             // lem9: "vertical display" mode stuff
-            if (($foo != 0) && ($repeat_cells != 0) && !($foo % $repeat_cells) && $disp_direction == 'horizontal') {
+            if (($row_no != 0) && ($repeat_cells != 0) && !($row_no % $repeat_cells) && $disp_direction == 'horizontal') {
                 echo '<tr>' . "\n";
 
                 for ($foo_i = 0; $foo_i < $vertical_display['emptypre']; $foo_i++) {
@@ -764,29 +764,17 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 echo '</tr>' . "\n";
             } // end if
 
-            $bgcolor = ($foo % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
+            $bgcolor = ($row_no % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
 
             if ($disp_direction == 'horizontal') {
                 // loic1: pointer code part
                 $on_mouse     = '';
                 if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
-                    $on_mouse = ' onmouseover="';
-                    if ($GLOBALS['cfg']['BrowsePointerColor'] == $GLOBALS['cfg']['BrowsePointerColor']) {
-                        $on_mouse .= 'if (typeof(row' . $row_no . '_marked) == \'undefined\') { row' . $row_no . '_marked = false; }; ';
-                    }
-                    $on_mouse .= 'setPointer(this, \'over\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"'
-                               . ' onmouseout="';
-                    if ($GLOBALS['cfg']['BrowsePointerColor'] == $GLOBALS['cfg']['BrowsePointerColor']) {
-                        $on_mouse .= 'if (!row' . $row_no . '_marked) ';
-                    }
-                    $on_mouse .= 'setPointer(this, \'out\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
+                    $on_mouse = ' onmouseover="setPointer(this, ' . $row_no . ', \'over\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"'
+                              . ' onmouseout="setPointer(this, ' . $row_no . ', \'out\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"';
                 }
                 if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
-                    $on_mouse .= ' onmousedown="setPointer(this, \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');';
-                    if ($GLOBALS['cfg']['BrowsePointerColor'] == $GLOBALS['cfg']['BrowsePointerColor']) {
-                        $on_mouse .= 'if (row' . $row_no . '_marked) { row' . $row_no . '_marked = false; } else { row' . $row_no . '_marked = true; }';
-                    }
-                    $on_mouse .= '"';
+                    $on_mouse .= ' onmousedown="setPointer(this, ' . $row_no . ', \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"';
                 }
                 ?>
 <tr<?php echo $on_mouse; ?>>
@@ -931,22 +919,22 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 if ($meta->numeric == 1) {
                     if (!isset($row[$meta->name])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
-                        $vertical_display['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
-                        $vertical_display['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">';
+                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">';
                         if (isset($map[$meta->name])) {
-                            $vertical_display['data'][$foo][$i] .= '<a href="sql.php3?'
-                                                                .  'lang=' . $lang . '&amp;server=' . $server
-                                                                .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
-                                                                .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
-                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = ' . $row[$pointer]) . '">'
-                                                                .  $row[$pointer] . '</a>';
+                            $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
+                                                                   .  'lang=' . $lang . '&amp;server=' . $server
+                                                                   .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
+                                                                   .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
+                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = ' . $row[$pointer]) . '">'
+                                                                   .  $row[$pointer] . '</a>';
                         } else {
-                            $vertical_display['data'][$foo][$i] .= $row[$pointer];
+                            $vertical_display['data'][$row_no][$i] .= $row[$pointer];
                         }
-                        $vertical_display['data'][$foo][$i]     .= '</td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     .= '</td>' . "\n";
                     } else {
-                        $vertical_display['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
                 } else if ($GLOBALS['cfg']['ShowBlob'] == FALSE && eregi('BLOB', $meta->type)) {
                     // loic1 : mysql_fetch_fields returns BLOB in place of TEXT
@@ -955,11 +943,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     // fields.
                     $field_flags = mysql_field_flags($dt_result, $i);
                     if (eregi('BINARY', $field_flags)) {
-                        $vertical_display['data'][$foo][$i]     = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB]</td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB]</td>' . "\n";
                     } else {
                         if (!isset($row[$meta->name])
                             || (function_exists('is_null') && is_null($row[$pointer]))) {
-                            $vertical_display['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
+                            $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                         } else if ($row[$pointer] != '') {
                             if (strlen($row[$pointer]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
                                 $row[$pointer] = substr($row[$pointer], 0, $GLOBALS['cfg']['LimitChars']) . '...';
@@ -969,15 +957,15 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             $row[$pointer]     = htmlspecialchars($row[$pointer]);
                             $row[$pointer]     = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
-                            $vertical_display['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$pointer] . '</td>' . "\n";
+                            $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$pointer] . '</td>' . "\n";
                         } else {
-                            $vertical_display['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                            $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                         }
                     }
                 } else {
                     if (!isset($row[$meta->name])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
-                        $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
                         // loic1: support blanks in the key
                         $relation_id = $row[$pointer];
@@ -1004,32 +992,32 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             $row[$pointer]     = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
                         }
-                        $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">';
+                        $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">';
                         if (isset($map[$meta->name])) {
-                            $vertical_display['data'][$foo][$i] .= '<a href="sql.php3?'
-                                                                .  'lang=' . $lang . '&amp;server=' . $server
-                                                                .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
-                                                                .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
-                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '">'
-                                                                .  $row[$pointer] . '</a>';
+                            $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
+                                                                   .  'lang=' . $lang . '&amp;server=' . $server
+                                                                   .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
+                                                                   .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
+                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '">'
+                                                                   .  $row[$pointer] . '</a>';
                         } else {
-                            $vertical_display['data'][$foo][$i] .= $row[$pointer];
+                            $vertical_display['data'][$row_no][$i] .= $row[$pointer];
                         }
-                        $vertical_display['data'][$foo][$i]     .= ' </td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     .= ' </td>' . "\n";
                     } else {
-                        $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
                 }
 
                 // lem9: output stored cell
                 if ($disp_direction == 'horizontal') {
-                    echo $vertical_display['data'][$foo][$i];
+                    echo $vertical_display['data'][$row_no][$i];
                 }
 
-                if (isset($vertical_display['rowdata'][$i][$foo])) {
-                    $vertical_display['rowdata'][$i][$foo] .= $vertical_display['data'][$foo][$i];
+                if (isset($vertical_display['rowdata'][$i][$row_no])) {
+                    $vertical_display['rowdata'][$i][$row_no] .= $vertical_display['data'][$row_no][$i];
                 } else {
-                    $vertical_display['rowdata'][$i][$foo] = $vertical_display['data'][$foo][$i];
+                    $vertical_display['rowdata'][$i][$row_no] = $vertical_display['data'][$row_no][$i];
                 }
             } // end for (2)
 
@@ -1065,33 +1053,33 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
             // 4. Gather links of del_urls and edit_urls in an array for later
             //    output
-            if (!isset($vertical_display['edit'][$foo])) {
-                $vertical_display['edit'][$foo]   = '';
-                $vertical_display['delete'][$foo] = '';
+            if (!isset($vertical_display['edit'][$row_no])) {
+                $vertical_display['edit'][$row_no]   = '';
+                $vertical_display['delete'][$row_no] = '';
             }
             if (isset($edit_url)) {
-                $vertical_display['edit'][$foo]   .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
-                                                  .  '        <a href="' . $edit_url . '">' . "\n"
-                                                  .  '            ' . $edit_str . '</a>' . "\n"
-                                                  .  '    </td>' . "\n";
+                $vertical_display['edit'][$row_no]   .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
+                                                     .  '        <a href="' . $edit_url . '">' . "\n"
+                                                     .  '            ' . $edit_str . '</a>' . "\n"
+                                                     .  '    </td>' . "\n";
             }
 
             if (isset($del_url)) {
-                $vertical_display['delete'][$foo] .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
-                                                  .  '        <a href="' . $del_url . '"';
+                $vertical_display['delete'][$row_no] .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
+                                                     .  '        <a href="' . $del_url . '"';
             }
             if (isset($js_conf)) {
-                $vertical_display['delete'][$foo] .= 'onclick="return confirmLink(this, \'' . $js_conf . '\')"';
+                $vertical_display['delete'][$row_no] .= 'onclick="return confirmLink(this, \'' . $js_conf . '\')"';
             }
             if (isset($del_str)) {
-                $vertical_display['delete'][$foo] .= '>' . "\n"
-                                                  .  '            ' . $del_str . '</a>' . "\n"
-                                                  .  '    </td>' . "\n";
+                $vertical_display['delete'][$row_no] .= '>' . "\n"
+                                                     .  '            ' . $del_str . '</a>' . "\n"
+                                                     .  '    </td>' . "\n";
             }
 
             echo (($disp_direction == 'horizontal') ? "\n" : '');
-            $foo++;
-        } // end for
+            $row_no++;
+        } // end while
 
         return TRUE;
     } // end of the 'PMA_displayTableBody()' function

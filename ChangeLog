@@ -7,6 +7,8 @@ $Source$
 
 2002-04-27 Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html: xhtml fixes.
+	* libraries/display_tbl.lib.php3; libraries/functions.js: better fix
+	  against bug #547384 (Marker Color can't equal Pointer Color).
 
 2002-04-26 Loïc Chapeaux  <lolo@phpheaven.net>
 	* ## created 2.2.7 branch into the CVS tree ##
@@ -20,7 +22,7 @@ $Source$
 2002-04-26 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_qbe.php3: automatic joints from Relation table, thanks
 	  to Mike Beck (mike.beck at ibmiller.de)
-          (experimental: some things remain to be tested)
+	  (experimental: some things remain to be tested)
 	* Documentation.html: example for automatic joints
 	* tbl_qbe.php3, tbl_printview.php3, libraries/display_tbl.lib.php3,
 	  Documentation.html: rename fields in the relation table

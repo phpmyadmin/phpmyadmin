@@ -298,17 +298,24 @@ function checkTransmitDump(theForm, theAction)
 
 
 /**
+ * This array is used to remember mark status of rows in browse mode
+ */
+var marked_row = new Array;
+
+
+/**
  * Sets/unsets the pointer and marker in browse mode
  *
- * @param   object   the table row
- * @param   string   the action calling this script (over, out or click)
- * @param   string   the default background color
- * @param   string   the color to use for mouseover
- * @param   string   the color to use for marking a row
+ * @param   object    the table row
+ * @param   interger  the row number
+ * @param   string    the action calling this script (over, out or click)
+ * @param   string    the default background color
+ * @param   string    the color to use for mouseover
+ * @param   string    the color to use for marking a row
  *
  * @return  boolean  whether pointer is set or not
  */
-function setPointer(theRow, theAction, theDefaultColor, thePointerColor, theMarkColor)
+function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerColor, theMarkColor)
 {
     var theCells = null;
 
@@ -353,27 +360,32 @@ function setPointer(theRow, theAction, theDefaultColor, thePointerColor, theMark
     if (currentColor == ''
         || currentColor.toLowerCase() == theDefaultColor.toLowerCase()) {
         if (theAction == 'over' && thePointerColor != '') {
-            newColor = thePointerColor;
+            newColor              = thePointerColor;
         }
         else if (theAction == 'click' && theMarkColor != '') {
-            newColor = theMarkColor;
+            newColor              = theMarkColor;
         }
     }
     // 4.1.2 Current color is the pointer one
-    else if (currentColor.toLowerCase() == thePointerColor.toLowerCase()) {
+    else if (currentColor.toLowerCase() == thePointerColor.toLowerCase()
+             && (typeof(marked_row[theRowNum]) == 'undefined' || !marked_row[theRowNum])) {
         if (theAction == 'out') {
-            newColor = theDefaultColor;
+            newColor              = theDefaultColor;
         }
         else if (theAction == 'click' && theMarkColor != '') {
-            newColor = theMarkColor;
+            newColor              = theMarkColor;
+            marked_row[theRowNum] = true;
         }
     }
     // 4.1.3 Current color is the marker one
     else if (currentColor.toLowerCase() == theMarkColor.toLowerCase()) {
         if (theAction == 'click') {
-            newColor = (thePointerColor != '')
-                     ? thePointerColor
-                     : theDefaultColor;
+            newColor              = (thePointerColor != '')
+                                  ? thePointerColor
+                                  : theDefaultColor;
+            marked_row[theRowNum] = (typeof(marked_row[theRowNum]) == 'undefined' || !marked_row[theRowNum])
+                                  ? true
+                                  : null;
         }
     } // end 4
 
