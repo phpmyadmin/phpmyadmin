@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-03 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * sql.php3: Fixed bug #641652, thanks to "bumperbox".
+
 2002-12-02 Marc Delisle  <lem9@users.sourceforge.net>
     * db_search.php3: automatic wildcard
     * lang/japanese-*.inc.php3: remove control Ms

@@ -187,7 +187,7 @@ if ($do_confirm) {
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
     <input type="hidden" name="table" value="<?php echo isset($table) ? htmlspecialchars($table) : ''; ?>" />
-    <input type="hidden" name="sql_query" value="<?php echo urlencode(addslashes($sql_query)); ?>" />
+    <input type="hidden" name="sql_query" value="<?php echo urlencode($sql_query); ?>" />
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? $zero_rows : ''; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="back" value="<?php echo isset($back) ? $back : ''; ?>" />
