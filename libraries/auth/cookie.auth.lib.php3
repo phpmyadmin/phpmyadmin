@@ -257,7 +257,7 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
         exit();
         }
         ?>
-<p class="warning"><?php echo $GLOBALS['strCookiesRequired']; ?></p>
+<p><?php echo '(' . $GLOBALS['strCookiesRequired'] . ')'; ?></p>
 <br />
 
 
