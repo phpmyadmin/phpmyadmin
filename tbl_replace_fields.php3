@@ -119,12 +119,15 @@ if (isset(${"fields_upload_" . $encoded_key}) && ${"fields_upload_" . $encoded_k
 }
 
 if (!$check_stop) {
+
 // f i e l d    v a l u e    i n    t h e    f o r m
+
     if (isset($fields_type[$encoded_key])) $type = $fields_type[$encoded_key];
     else $type = '';
     switch (strtolower($val)) {
-        case 'null':
-            break;
+        // let users type NULL or null to input this string and not a NULL value
+        //case 'null':
+        //    break;
         case '':
             switch ($type) {
                 case 'enum':

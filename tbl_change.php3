@@ -232,6 +232,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         $rowfield = $field;
     }
 
+    // d a t e t i m e
+    //
     // loic1: current date should not be set as default if the field is NULL
     //        for the current row
     // lem9:  but do not put here the current datetime if there is a default
@@ -299,10 +301,12 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     echo "\n";
 
     // Prepares the field value
+    $real_null_value = FALSE;
     if (isset($row)) {
-        // loic1: null field value
-        if (!isset($row[$rowfield])) {
-            $row[$rowfield]   = 'NULL';
+        if (!isset($row[$rowfield])
+          || (function_exists('is_null') && is_null($row[$rowfield]))) {
+            $real_null_value = TRUE;
+            $row[$rowfield]   = '';
             $special_chars = '';
             $data          = $row[$rowfield];
         } else {
@@ -326,7 +330,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         // loic1: display default values
         if (!isset($row_table_def['Default'])) {
             $row_table_def['Default'] = '';
-            $data                     = 'NULL';
+            $real_null_value          = TRUE;
+            $data                     = '';
+            //$data                     = 'NULL';
         } else {
             $data                     = $row_table_def['Default'];
         }
@@ -419,7 +425,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         && $row_table_def['Null'] == 'YES') {
         echo '            <input type="checkbox" tabindex="' . ((2 * $fields_cnt) + $i + 1) . '"'
              . ' name="fields_null[' . urlencode($field) . ']"';
-        if ($data == 'NULL' && !$first_timestamp) {
+        //if ($data == 'NULL' && !$first_timestamp) {
+        if ($real_null_value && !$first_timestamp) {
             echo ' checked="checked"';
         }
         echo ' id="field_' . $i . '_2"';

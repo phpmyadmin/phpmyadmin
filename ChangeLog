@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php3, tbl_replace_fields.php3, Documentation.html:
+      bug 835783: now (if using PHP4) users can enter NULL in a field
+      and get the string NULL and not a NULL value. For a real NULL
+      value they must use the Null checkbox.
+
 2003-11-06 Marc Delisle  <lem9@users.sourceforge.net>
     * New italian doc (partial) in pma_localized_docs
     * lang/estonian: Updated, thanks to Alvar Soome (finsoft).
