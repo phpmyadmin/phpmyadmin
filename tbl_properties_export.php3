@@ -35,7 +35,9 @@ require('./tbl_properties_table_info.php3');
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFieldsEscapedBy; ?>&nbsp;
                     <input type="text" name="escaped" size="2" value="\" class="textfield" />&nbsp;&nbsp;<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strLinesTerminatedBy; ?>&nbsp;
-                    <input type="text" name="add_character" size="2" value="<?php echo ((PMA_whichCrlf() == "\n") ? '\n' : '\r\n'); ?>" class="textfield" />&nbsp;&nbsp;
+                    <input type="text" name="add_character" size="2" value="<?php echo ((PMA_whichCrlf() == "\n") ? '\n' : '\r\n'); ?>" class="textfield" />&nbsp;&nbsp;<br/>
+                    <input type="radio" name="what" value="xml" id="radio_dump_xml" />
+                    <label for="radio_dump_xml"><?php echo $strExportToXML; ?></label>&nbsp;&nbsp;
                 </td>
                 <td valign="middle">
                     <input type="checkbox" name="drop" value="1" id="checkbox_dump_drop" />

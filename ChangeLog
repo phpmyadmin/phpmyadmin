@@ -8,6 +8,8 @@ $Source$
 2002-05-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_details_links.php3, tbl_properties_links.php3, lang/*.inc.php3:
       Use "SQL" instead of "home" as link name.
+    * tbl_properties_export.php3: Added XML export option (todo: limit feature).
+    * tbl_dump.php3: Beautified XML output.
 
 2002-05-04 Loïc Chapeaux  <lolo@phpheaven.net>
     * user_details.php3, line 984: do not use "mysql_result" if the query
