@@ -7,6 +7,7 @@
  */
 
 
+
 /**
  * Define the path to the translations directory and get some variables
  * from system arrays if 'register_globals' is set to 'off'
@@ -16,7 +17,7 @@ $lang_path = 'lang/';
 
 /**
  * All the supported languages have to be listed in the array below.
- * 1. The key must be the "official" ISO language code and, if required,
+ * 1. The key must be the "official" ISO 639 language code and, if required,
  *    the dialect code. It can also contains some informations about the
  *    charset (see the Russian case).
  *    These code are displayed at the starting page of phpMyAdmin.
@@ -47,6 +48,7 @@ $available_languages = array(
     'en'         => array('en([-_][[:alpha:]]{2})?|english',  'english'),
     'es'         => array('es([-_][[:alpha:]]{2})?|spanish', 'spanish'),
     'fr'         => array('fr([-_][[:alpha:]]{2})?|french', 'french'),
+    'gl'         => array('gl|galician', 'galician'),
     'it'         => array('it|italian', 'italian'),
     'ja'         => array('ja|japanese', 'japanese'),
     'ko'         => array('ko|korean', 'korean'),
@@ -64,6 +66,7 @@ $available_languages = array(
     'zh-tw'      => array('zh[-_]tw|chinese traditional', 'chinese_big5'),
     'zh'         => array('zh|chinese simplified', 'chinese_gb')
 );
+
 
 if (!defined('__PMA_LANG_DETECT__')) {
     define('__PMA_LANG_DETECT__', 1);
@@ -150,6 +153,7 @@ if (empty($lang) && !empty($HTTP_USER_AGENT)) {
 if (empty($lang)) {
     $lang = $cfgDefaultLang;
 }
+
 // Define the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php3';
 require('./' . $lang_file);

@@ -5,14 +5,17 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-28  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/galician.inc.php3, select_lang.inc.php3: new Galician lang thanks to
+	  Xose Calvo <xosecalvo@terra.es>.
+
 2001-08-28  Olivier Müller  <om@omnis.ch>
-	* db_stats.php3: fixed the sql query so that the script won't
-	  die, even if the result of one query (for example on invalid
-	  db name) fails.
+	* db_stats.php3: fixed the sql query so that the script won't die, even if
+	  the result of one query (for example on invalid db name) fails.
 
 2001-08-27  Robin Johnson  <robbat2@orbis-terrarum.net>
-	* lib.inc.php3, db_readdump.php3
-	  - removed expand_sql_query() as no longer needed
+	* lib.inc.php3, db_readdump.php3:
+	  - removed expand_sql_query() as no longer needed.
 
 2001-08-27  Olivier Müller  <om@omnis.ch>
 	* tbl_replace.php3: fixed the fact that the function were ignored if the
@@ -33,13 +36,13 @@ $Source$
 	  tbl_properties.php3, lines 222-228; tbl_properties.inc.php3,
 	  lines 152-158: tried to fix the "NULL" value problem.
 
-2001-08-27  Marc Delisle  <lem9@users.sourceforge.net> 
+2001-08-27  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/dutch.inc.php3 updates, thanks to Arjen Roodselaar.
 	* tbl_copy.php3, eregi_replace instead of ereg_replace because
 	  MySQL 3.23.20 returns sql keywords in lowercase, thanks to
 	  Jan Paul Schmidt.
 	* lang/romanian.inc.php3, select_lang.inc.php3: new romanian lang thanks to
-	  thanks to Valics Lehel (lvalics@users.sourceforge.net).
+	  Valics Lehel (lvalics@users.sourceforge.net).
 
 2001-08-25  Marc Delisle  <lem9@users.sourceforge.net>
 	* lib.inc.php3, bug 455088, avoid to reveal username/password from config
