@@ -727,6 +727,7 @@ $strView = 'View';
 $strViewDump = 'View dump (schema) of table';
 $strViewDumpDB = 'View dump (schema) of database';
 $strViewDumpDatabases = 'View dump (schema) of databases';
+$strViewHasBeenDropped = 'View %s has been dropped';
 
 $strWebServerUploadDirectory = 'web-server upload directory';
 $strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';

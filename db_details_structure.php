@@ -199,6 +199,9 @@ else {
         $table         = $sts_data['Name'];
         $table_encoded = urlencode($table);
         $table_name    = htmlspecialchars($table);
+	$is_view       = (PMA_MYSQL_INT_VERSION >= 50000
+	                   && !isset($sts_data['Type'])
+			   && $sts_data['Comment'] == 'view');
 
         $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$table]))
                    ? htmlspecialchars($tooltip_aliasname[$table])
@@ -234,13 +237,20 @@ else {
     </td>
     <td><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" border="0" width="10" height="1" alt="" /></td>
     <td valign="top">
-        <?php
+            <?php
             pma_TableHeader();
         }
         ?>
             <tr <?php echo $on_mouse; ?>>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
                     <input type="checkbox" name="selected_tbl[]" value="<?php echo $table_encoded; ?>" id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> />
+        <?php
+	if ($is_view) {
+	    ?>
+	            <input type="hidden" name="views[]" value="<?php echo $table_encoded; ?>" />
+            <?php
+        }
+        ?>
                 </td>
                 <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap" <?php echo $click_mouse; ?>>
                     &nbsp;<b><label onclick="javascript: return (document.getElementById('checkbox_tbl_<?php echo $i; ?>') ? false : true)" for="checkbox_tbl_<?php echo $i; ?>" title="<?php echo $alias; ?>"><?php echo $truename; ?></label>&nbsp;</b>&nbsp;
@@ -250,7 +260,7 @@ else {
         require_once('./libraries/bookmark.lib.php');
         $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
-        if (!empty($sts_data['Rows']) || (PMA_MYSQL_INT_VERSION >= 50000 && $sts_data['Comment'] == 'view')) {
+        if (!empty($sts_data['Rows']) || $is_view) {
             echo '<a href="sql.php?' . $tbl_url_query . '&amp;sql_query='
                  . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table)))
                  . '&amp;pos=0">' . $titles['Browse'] . '</a>';
@@ -261,7 +271,7 @@ else {
                 </td>
                 <td bgcolor="<?php echo $bgcolor; ?>">
         <?php
-        if (!empty($sts_data['Rows']) || (PMA_MYSQL_INT_VERSION >= 50000 && $sts_data['Comment'] == 'view')) {
+        if (!empty($sts_data['Rows']) || $is_view) {
             echo '<a href="tbl_select.php?' . $tbl_url_query . '">'
                  . $titles['Search'] . '</a>';
         } else {
@@ -297,14 +307,20 @@ else {
         } else {
              echo $titles['NoEmpty'];
         }
+
+	$drop_query = 'DROP '
+	           . ($is_view ? 'VIEW' : 'TABLE')
+		   . ' ' . PMA_backquote($table);
+        $drop_message = sprintf(($is_view ? $strViewHasBeenDropped : $strTableHasBeenDropped), htmlspecialchars($table));
         ?>
                 </td>
                             <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-                    <a href="sql.php?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
-                        onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
+                    <a href="sql.php?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode($drop_query); ?>&amp;zero_rows=<?php echo $drop_message; ?>"
+                        onclick="return confirmLink(this, '<?php echo PMA_jsFormat($drop_query, FALSE); ?>')">
                         <?php echo $titles['Drop']; ?></a>
                 </td>
         <?php
+	unset($drop_query, $drop_message);
         echo "\n";
 
         // loic1: Patch from Joshua Nye <josh at boxcarmedia.com> to get valid

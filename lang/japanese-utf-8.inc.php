@@ -771,4 +771,5 @@ $strTransformation_text_plain__link = 'Displays a link, the field contains the f
 $strTruncateQueries = 'Truncate Shown Queries';  //to translate
 
 $strView = 'View';  //to translate
+$strViewHasBeenDropped = 'View %s has been dropped';  //to translate
 ?>

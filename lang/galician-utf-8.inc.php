@@ -752,4 +752,5 @@ $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) e
 $strZip = 'comprimido no formato "zip"';
 
 $strView = 'View';  //to translate
+$strViewHasBeenDropped = 'View %s has been dropped';  //to translate
 ?>

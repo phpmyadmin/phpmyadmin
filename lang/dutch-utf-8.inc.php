@@ -750,4 +750,5 @@ $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) 
 $strZip = '"Gezipt"';
 
 $strView = 'View';  //to translate
+$strViewHasBeenDropped = 'View %s has been dropped';  //to translate
 ?>

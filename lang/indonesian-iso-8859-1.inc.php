@@ -745,4 +745,5 @@ $strZeroRemovesTheLimit = 'Perhatian: Perubahan pilihan ini ke posisi 0 (zero) a
 $strZip = 'Dikompress dengan Zip';
 
 $strView = 'View';  //to translate
+$strViewHasBeenDropped = 'View %s has been dropped';  //to translate
 ?>

@@ -752,4 +752,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 
 $strView = 'View';  //to translate
+$strViewHasBeenDropped = 'View %s has been dropped';  //to translate
 ?>

@@ -125,6 +125,9 @@ if (!empty($submit_mult) && !empty($what)) {
     }
     // Builds the query
     $full_query     = '';
+    if ($what == 'drop_tbl') {
+        $full_query_views = '';
+    }
     $selected_cnt   = count($selected);
     $i = 0;
     foreach ($selected AS $idx => $sval) {
@@ -140,9 +143,14 @@ if (!empty($submit_mult) && !empty($what)) {
                 break;
 
             case 'drop_tbl':
-                $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
-                            . PMA_backquote(htmlspecialchars(urldecode($sval)))
-                            . (($i == $selected_cnt - 1) ? ';<br />' : '');
+	        $current = urldecode($sval);
+		if (!empty($views) && in_array($current, $views)) {
+                    $full_query_views .= (empty($full_query_views) ? 'DROP VIEW ' : ', ')
+		                       . PMA_backquote(htmlspecialchars($current));
+		} else {
+                    $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
+                                . PMA_backquote(htmlspecialchars($current));
+                }
                 break;
 
             case 'empty_tbl':
@@ -193,6 +201,15 @@ if (!empty($submit_mult) && !empty($what)) {
         } // end switch
         $i++;
     }
+    if ($what == 'drop_tbl') {
+        if (!empty($full_query)) {
+	    $full_query .= ';<br />' . "\n";
+	}
+	if (!empty($full_query_views)) {
+	    $full_query .= $full_query_views . ';<br />' . "\n";
+	}
+	unset($full_query_views);
+    }
 
     // Displays the form
 ?>
@@ -229,6 +246,11 @@ if (!empty($submit_mult) && !empty($what)) {
     foreach ($selected AS $idx => $sval) {
         echo '    <input type="hidden" name="selected[]" value="' . htmlspecialchars($sval) . '" />' . "\n";
     }
+    if ($what == 'drop_tbl' && !empty($views)) {
+        foreach ($views as $current) {
+	    echo '    <input type="hidden" name="views[]" value="' . htmlspecialchars($current) . '" />' . "\n";
+	}
+    }
     ?>
     <input type="hidden" name="query_type" value="<?php echo $what; ?>" />
     <?php
@@ -261,6 +283,9 @@ else if ($mult_btn == $strYes) {
     }
 
     $sql_query      = '';
+    if ($query_type == 'drop_tbl') {
+        $sql_query_views = '';
+    }
     $selected_cnt   = count($selected);
     $run_parts      = FALSE; // whether to run query after each pass
     $use_sql        = FALSE; // whether to include sql.php at the end (to display results)
@@ -296,9 +321,14 @@ else if ($mult_btn == $strYes) {
 
             case 'drop_tbl':
                 PMA_relationsCleanupTable($db, $selected[$i]);
-                $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ')
-                           . PMA_backquote(urldecode($selected[$i]))
-                           . (($i == $selected_cnt-1) ? ';' : '');
+		$current = urldecode($selected[$i]);
+		if (!empty($views) && in_array($current, $views)) {
+		    $sql_query_views .= (empty($sql_query_views) ? 'DROP VIEW ' : ', ')
+		                      . PMA_backquote($current);
+                } else {
+                    $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ')
+                               . PMA_backquote($current);
+                }
                 $reload    = 1;
                 break;
 
@@ -379,11 +409,25 @@ else if ($mult_btn == $strYes) {
         } // end if
     } // end for
 
+    if ($query_type == 'drop_tbl') {
+        if (!empty($sql_query)) {
+	    $sql_query .= ';';
+	} else if (!empty($sql_query_views)) {
+	    $sql_query = $sql_query_views . ';';
+            unset($sql_query_views);
+        }
+    }
+
     if ($use_sql) {
         require('./sql.php');
     } elseif (!$run_parts) {
         PMA_DBI_select_db($db);
         $result = PMA_DBI_query($sql_query);
+	if (!empty($sql_query_views)) {
+	    $sql_query .= ' ' . $sql_query_views . ';';
+	    PMA_DBI_query($sql_query_views);
+	    unset($sql_query_views);
+	}
     }
 
 }

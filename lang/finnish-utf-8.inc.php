@@ -771,4 +771,5 @@ $strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP con
 $strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
 $strAfterInsertNext = 'Edit next row';  //to translate
 $strView = 'View';  //to translate
+$strViewHasBeenDropped = 'View %s has been dropped';  //to translate
 ?>

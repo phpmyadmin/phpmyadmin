@@ -748,4 +748,5 @@ $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fj
 $strZip = '"zippet"';
 
 $strView = 'View';  //to translate
+$strViewHasBeenDropped = 'View %s has been dropped';  //to translate
 ?>
