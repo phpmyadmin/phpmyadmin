@@ -139,7 +139,7 @@ $strLogin = "";
 $strLogout = "Neu einloggen";
 
 $strModifications = "&Auml;nderungen gespeichert.";
-$strModify = "Verändern";
+$strModify = "Ver&auml;ndern";
 $strMySQLReloaded = "MySQL neu gestartet.";
 $strMySQLSaid = "MySQL meldet: ";
 $strMySQLShowProcess = "Prozesse anzeigen";
@@ -204,7 +204,7 @@ $strRows = "Zeilen";
 $strRowsFrom = "Datens&auml;tze, beginnend ab";
 $strRowsStatistic = "Zeilenstatistik";
 $strRunning = "auf ";
-$strRunQuery = "SQL Befehl ausführen";
+$strRunQuery = "SQL Befehl ausf&uuml;hren";
 $strRunSQLQuery = "SQL-Befehl(e) ausf&uuml;hren in Datenbank ";
 
 $strSave = "Speichern";
@@ -237,7 +237,7 @@ $strTableMaintenance = "Hilfsmittel";
 $strTableStructure = "Tabellenstruktur f&uuml;r Tabelle";
 $strTableType = "Tabellentyp";
 $strTerminatedBy = "getrennt mit";
-$strTextAreaLength = " Wegen der Länge ist dieses<br>Feld vieleicht nicht editierbar.";
+$strTextAreaLength = " Wegen der L&auml;nge ist dieses<br>Feld vieleicht nicht editierbar.";
 $strTheContent = "Der Inhalt Ihrer Datei wurde eingef&uuml;gt.";
 $strTheContents = "Der Inhalt der CSV-Datei ersetzt die Eintr&auml;ge mit den gleichen Prim&auml;r- oder Unique-Schl&uuml;sseln.";
 $strTheTerminator = "Der Trenner zwischen den Feldern.";
@@ -281,8 +281,8 @@ $strOffSet = "Offset";
 $strNbRecords = "Datens&auml;tze";
 $strRowSize = "Zeilengr&ouml;&szlig;e";
 $strShowThisQuery = "SQL Befehl hier wieder anzeigen";
-$strUseBackquotes=" Tabellen- und Feldnamen in einfachen Anführungszeichen  ";
+$strUseBackquotes=" Tabellen- und Feldnamen in einfachen Anf&uuml;hrungszeichen  ";
 $strQueryOnDb=" SQL-Befehl in der Datenbank ";
-$strFieldsEmpty=" Sie müssen angeben wieviele Felder die Tabelle haben soll! ";
+$strFieldsEmpty=" Sie m&uuml;ssen angeben wieviele Felder die Tabelle haben soll! ";
 $strAffectedRows=" Betroffene Datens&auml;tze: ";
 ?>
