@@ -100,6 +100,7 @@ $strCreateNewTable = 'Opprett ny tabell i database %s';
 $strCreatePage = 'Lag en ny side';
 $strCreatePdfFeat = 'Lag PDF dokumenter';
 $strCriteria = 'Kriterier';
+$strCvsData = 'CSV data';
 
 $strData = 'Data';
 $strDatabase = 'Database ';
@@ -289,6 +290,7 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>m&aring;</b> v&aelig;re navnet til og <b>
 $strPrintView = 'Utskriftsvennlig forhåndsvisning';
 $strPrivileges = 'Privilegier';
 $strProperties = 'Egenskaper';
+$strPutColNames = 'Sett inn feltnavn i første rad';
 
 $strQBE = 'Spørring ved eksempel (Query by Example)';
 $strQBEDel = 'Slett';
@@ -345,6 +347,7 @@ $strSelectFields = 'Velg felt (minst ett):';
 $strSelectNumRows = 'i spørring';
 $strSelectTables = 'Velg tabeller';
 $strSend = 'Last ned som fil';
+$strServer = 'Server %s';
 $strServerChoice = 'Server valg';
 $strServerVersion = 'Server versjon';
 $strSetEnumVal = 'Hvis felttypen er "enum" eller "set", skriv inn verdien med dette formatet: \'a\',\'b\',\'c\'...<br />Hvis du skulle trenge å ha en skråstrek ("\") eller en enkel apostrof ("\'") blant disse verdiene, skriv en skråstrek foran (eks. \'\\\\xyz\' eller \'a\\\'b\').';
@@ -364,10 +367,13 @@ $strSort = 'Sorter';
 $strSpaceUsage = 'Plass bruk';
 $strSplitWordsWithSpace = 'Ord er separert med et mellomrom (" ").';
 $strSQL = 'SQL';
+$strSQLParserBugMessage = 'Det er en mulighet for at du har funnet en feil i SQL-parseren. Vennligst kontroller din spørring nøye og kontroller at anførselstegn er korrekte og matsjer hverandre. En annen mulig feilårsak kan være at du overfører en fil med binærkode som ikke ligger innenfor anførselstegn. Du kan også teste din spørring i MYSQLs kommandolinje grensesnitt. Feilmeldingen fra MySQL tjeneren nedenfor, hvis det var en, kan også hjelpe deg med å analysere problemet. Hvis du fortsatt har problemer eller parseren feiler hvor kommandolinje grensesnittet lyktes, vennligst reduser din SQL spørring til den spørringen som forårsaker problemet og send en feilrapport med datastykket i CUT seksjonen nedenfor:';
 $strSQLParserUserError = 'Det ser ut til å være en feil i din SQL spørring. Feilmeldingen fra MySQL serveren skrevet ut nedenfor, hvis det var en, kan kanskje hjelpe deg med å finne feilen.';
 $strSQLQuery = 'SQL-spørring';
 $strSQLResult = 'SQL resultat';
+$strSQPBugInvalidIdentifer = 'Ugyldig identifiserer';
 $strSQPBugUnclosedQuote = 'Anførselstegnet er ikke lukket';
+$strSQPBugUnknownPunctuation = 'Ukjent tegnsetting streng';
 $strStatement = 'Oversikt';
 $strStrucCSV = 'CSV data';
 $strStrucData = 'Struktur og data';
@@ -429,11 +435,6 @@ $strYes = 'Ja';
 $strZip = 'Komprimert (zip)';
 
 // To translate
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
 
-$strServer = 'Server %s';  //to translate
-$strCvsData = 'CSV data';  //to translate
-$strPutColNames = 'Put fields names at first row';  //to translate
+
 ?>
