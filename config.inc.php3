@@ -14,7 +14,7 @@
  */
 if (!isset($old_error_reporting)) {
     error_reporting(E_ALL);
-    @ini_set('display_errors','1');
+    @ini_set('display_errors', '1');
 }
 
 
@@ -253,13 +253,10 @@ $cfg['DefaultCharset'] = 'iso-8859-1';
 // extension and where dl() is not supported
 $cfg['AllowAnywhereRecoding'] = FALSE;
 
-/**
- * Available charsets for MySQL conversion. currently contains all which could
- * be found in lang/* files and few more.
- *
- * Charsets will be shown in same order as here listed, so if you frequently
- * use some of these move them to the top.
- */
+// Available charsets for MySQL conversion. currently contains all which could
+// be found in lang/* files and few more.
+// Charsets will be shown in same order as here listed, so if you frequently
+// use some of these move them to the top.
 $cfg['AvailableCharsets'] = array(
     'iso-8859-1',
     'iso-8859-2',
@@ -327,6 +324,7 @@ $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right s
 $cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizontal|vertical)
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
+
 /**
  * SQL Query box settings
  * These are the links display in all of the SQL Query boxes
@@ -335,6 +333,7 @@ $cfg['SQLQuery']['Edit']      = TRUE;       // Edit link to change a query
 $cfg['SQLQuery']['Explain']   = TRUE;       // EXPLAIN on SELECT queries
 $cfg['SQLQuery']['ShowAsPHP'] = TRUE;       // Wrap a query in PHP
 $cfg['SQLQuery']['Validate']  = FALSE;      // Validate a query (see $cfg['SQLValidator'] as well)
+
 
 /**
  * SQL Parser Settings
@@ -368,7 +367,7 @@ $cfg['SQP']['fmtColor']     = array(        // Syntax colouring data
 
 
 /**
- * If you wish to use the SQL Validator service, you shoule be
+ * If you wish to use the SQL Validator service, you should be
  * aware of the following:
  * All SQL statements are stored anonymously for statistical purposes.
  * Mimer SQL Validator, Copyright 2002 Upright Database Technology.
@@ -377,6 +376,7 @@ $cfg['SQP']['fmtColor']     = array(        // Syntax colouring data
 $cfg['SQLValidator']['use']      = FALSE;   // Make the SQL Validator available
 $cfg['SQLValidator']['username'] = '';      // If you have a custom username, specify it here (defaults to anonymous)
 $cfg['SQLValidator']['password'] = '';      // Password for username
+
 
 /**
  * MySQL settings
