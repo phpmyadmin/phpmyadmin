@@ -1048,8 +1048,8 @@ class PMA_RT
         if (empty($filename)) {
             $filename = $pdf_page_number . '.pdf';
         }
-        $pdf->Output($db . '_' . $filename, TRUE);
-        //$pdf->Output('', TRUE);
+        //$pdf->Output($db . '_' . $filename, TRUE);
+        $pdf->Output($db . '_' . $filename, 'I'); // destination: Inline
     } // end of the "PMA_RT_showRt()" method
 
 
