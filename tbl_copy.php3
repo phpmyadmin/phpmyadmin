@@ -17,7 +17,9 @@ function my_handler($sql_insert)
 }
 
 $sql_structure = get_table_def($db, $table, "\n");
-$sql_structure = ereg_replace("CREATE TABLE $table", "CREATE TABLE $new_name", $sql_structure);
+// in dependence of get_table_def result (new or old version)
+if(MYSQL_MAJOR_VERSION == "3.23") $sql_structure = ereg_replace("CREATE TABLE `$table`", "CREATE TABLE `$new_name`", $sql_structure);
+else $sql_structure = ereg_replace("CREATE TABLE $table", "CREATE TABLE $new_name", $sql_structure);
 
 $result = mysql_query($sql_structure) or mysql_die();
 
