@@ -230,7 +230,7 @@ if ($server > 0) {
                             $db_to_create   = '';
                             break;
                         } // end if
-                        else if (ereg($re . '%|_', $show_grants_dbname) || !PMA_mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
+                        else if (ereg($re0 . '%|_', $show_grants_dbname) || !PMA_mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
                             $db_to_create = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $show_grants_dbname));
                             $db_to_create = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
                             $is_create_priv     = TRUE;

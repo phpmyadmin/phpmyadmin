@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-17 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * main.php3: Fixed bug #596019 (Undefined variable $re).
+
 2002-08-15 Marc Delisle  <lem9@users.sourceforge.net>
     * config.inc.php3, tbl_query_box.php3, db_details.php3, Documentation.html:
       new $cfg['TextareaAutoSelect'] (Bug 582637)
