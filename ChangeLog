@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-19 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/catalan: Updated, thanks to Xavier Navarro (xavin).
+    * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
+    * lang/portuguese: Updated, thanks to António Raposo (cfmsoft).
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
+    
 2003-11-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/grab_globals.lib.php3: Do not use $HTTP_*_VARS arrays anymore.
     * Documentation.html: Modified requirements.
