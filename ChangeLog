@@ -22,8 +22,8 @@ $Source$
 	  problem with the 2.2.x.
 	* header.inc.php3; main.php3; lang/*: modified the way server informations
 	  are displayed so it can be translated whatever is the required words
-	  order. Thanks to "Chtuz" <chutz at chubaka.homeip.net> who reported the
-	  problem in the phpWizrad forum.
+	  order. Thanks to "Chutz" <chutz at chubaka.homeip.net> who reported the
+	  problem in the phpWizard forum.
 	* lang/polish.inc.php3: updated thanks to Jakub Wilk.
 	* lang/romanian.inc.php3: updated thanks to Valics Lehel.
 
