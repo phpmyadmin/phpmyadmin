@@ -23,6 +23,8 @@ $Source$
     * libraries/relation.lib.php3: Fixed warning in PMA_purgeHistory.
     * ldi_check.php3, lang/*: Behave correctly if no file is given for loading.
     * read_dump.php3: Correctly checks whether table exists.
+    * libraries/common.lib.php3: Highlight tab also when current page is
+      read_dump.php3 and $goto is link of current tab.
 
 2003-05-12 Garvin Hicking <me@supergarv.de>
     * queryframe.php3: Remove left/bottom margin to better fit the link title
