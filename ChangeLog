@@ -7,6 +7,11 @@ $Source$
 
 2004-04-29 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/create-release.sh: keep only one previous version in cvs-prev
+    * lang/estonian: Updated, thanks to Alvar Soome (finsoft).
+    * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
+    * lang/slovak: Updated, thanks to Lubos Klokner (erkac).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/slovenian update, thanks to Kositer Uros
 
 2004-04-29 Michal Cihar  <michal@cihar.com>
     * libraries/display_tbl.lib.php, libraries/sqlparser.lib.php,
