@@ -209,7 +209,7 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     if ($cfg['PropertiesIconic'] == true) {
         // We need to copy the value or else the == 'both' check will always return true
         $propicon = (string)$cfg['PropertiesIconic'];
-        
+
         if ($propicon == 'both') {
             $iconic_spacer = '<nobr>';
         } else {
@@ -372,13 +372,17 @@ $checkall_url = 'tbl_properties_structure.php3?' . PMA_generate_common_url($db,$
             <?php echo $strUncheckAll; ?></a>
         &nbsp;&nbsp;&nbsp;
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strChange; ?>" />
+        <?php /* Opera has trouble with <input type="image"> */ ?>
+        <button type="submit" name="submit_mult" value="<?php echo $strChange; ?>" title="<?php echo $strChange; ?>">
+            <img src="./images/button_edit.png" title="<?php echo $strChange; ?>" alt="<?php echo $strChange; ?>" width="12" height="13" />
+        </button>
 <?php
 // Drop button if there is at least two fields
 if ($fields_cnt > 1) {
     ?>
-        &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
+        <button type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" title="<?php echo $strDrop; ?>">
+            <img src="./images/button_drop.png" title="<?php echo $strDrop; ?>" alt="<?php echo $strDrop; ?>" width="11" height="13" />
+        </button>
     <?php
 }
 echo "\n";
