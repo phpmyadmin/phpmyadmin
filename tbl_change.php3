@@ -62,7 +62,8 @@ if (get_magic_quotes_gpc()) {
 if (!isset($goto)) {
     $goto    = 'db_details.php3';
 }
-if ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3') {
+//if ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3') {
+if (!ereg('^(db_details|tbl_properties|tbl_select)', $goto)) {
     $err_url = $goto;
 } else {
     $err_url = $goto
@@ -70,7 +71,8 @@ if ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3') {
              . '&amp;convcharset=' . $convcharset
              . '&amp;server=' . $server
              . '&amp;db=' . urlencode($db)
-             . (($goto == 'tbl_properties.php3') ? '&amp;table=' . urlencode($table) : '');
+             //. (($goto == 'tbl_properties.php3') ? '&amp;table=' . urlencode($table) : '');
+             . ((ereg('^(tbl_properties|tbl_select)', $goto)) ? '&amp;table=' . urlencode($table) : '');
 }
 
 

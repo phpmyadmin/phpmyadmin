@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php3, tbl_select.php3, tbl_properties_operations.php3:
+      bug 645173 wrong back link for inserts
+
 2002-11-28 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php3: display PHP 4.2.3 warning only if mbstring is loaded
 
