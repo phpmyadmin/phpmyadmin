@@ -119,6 +119,7 @@ $strFieldsEmpty = ' Sie müssen angeben wieviele Felder die Tabelle haben soll! '
 $strFixed = 'starr';
 $strFormat = 'Format';
 $strFormEmpty = 'Das Formular ist leer !';
+$strFullText = 'vollständige Textfelder';
 $strFunction = 'Funktion';
 
 $strGenTime = 'Erstellungszeit';
@@ -148,6 +149,7 @@ $strInsertNewRow = 'Neue Zeile einfügen';
 $strInsertTextfiles = 'Textdatei in Tabelle einfügen';
 $strInstructions = 'Befehle';
 $strInUse = 'in Benutzung';
+$strInvalidName = '"%s" ist ein reserviertes Wort, welches nicht als Datenbank-, Feld- oder Tabellenname verwendet werden darf.';
 
 $strKeyname = 'Name';
 $strKill = 'Beenden';
@@ -194,6 +196,7 @@ $strOptionally = 'optional';
 $strOr = 'Oder';
 $strOverhead = 'Überhang';
 
+$strPartialText = 'gekürzte Textfelder';
 $strPassword = 'Password';
 $strPasswordEmpty = 'Es wurde kein Passwort angegeben!';
 $strPasswordNotSame = 'Die eingegebenen Passwörter sind nicht identisch!';
@@ -308,7 +311,4 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
-$strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
-$strFullText = 'Full Texts';//to translate
-$strPartialText = 'Partial Texts';
 ?>
