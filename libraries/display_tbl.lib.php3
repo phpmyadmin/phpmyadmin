@@ -1474,7 +1474,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             echo (($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') ? "\n" : '');
             $row_no++;
         } // end while
-        $GLOBALS['url_query'] = $url_query;
+
+        if (isset($url_query)) {
+            $GLOBALS['url_query'] = $url_query;
+        }
 
         return TRUE;
     } // end of the 'PMA_displayTableBody()' function

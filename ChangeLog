@@ -8,6 +8,7 @@ $Source$
 2003-10-21 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3: Patch 825672: show fields in Edit PDF scratchboard,
       thanks to Chris Walsh (chriswalshaz)
+    * libraries/display_tbl.lib.php3: bug 826847, undefined $url_query
 
 2003-10-20 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation, config.inc.php3, tbl_change.php3,
