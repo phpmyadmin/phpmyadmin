@@ -139,30 +139,75 @@ $header = '    <tr>
 echo $header;
 
 if (isset($disp) && $disp) {
+    function dimsort($arrayA, $arrayB) {
+        $keyA = key($arrayA);
+        $keyB = key($arrayB);
+        
+        if ($arrayA[$keyA] == $arrayB[$keyB]) {
+            return 0;
+        }
+        
+        return ($arrayA[$keyA] < $arrayB[$keyB]) ? -1 : 1;
+    }
+
+    $mysql_key_relrow = array();
+    $mysql_val_relrow = array();
     $count = 0;
     while ($relrow = @PMA_mysql_fetch_array($disp)) {
+        if ($foreign_display != FALSE) {
+            $val = $relrow[$foreign_display];
+        } else {
+            $val = '';
+        }
+        
+        $mysql_key_relrow[$count] = array($relrow[$foreign_field]   => $val);
+        $mysql_val_relrow[$count] = array($val                      => $relrow[$foreign_field]);
         $count++;
-        $bgcolor = ($count % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
+    }
+    
+    usort($mysql_val_relrow, 'dimsort');
+    
+    $hcount = 0;
+    for ($i = 0; $i < $count; $i++) {
+        $hcount++;
+        $bgcolor = ($hcount % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
 
-        $key   = $relrow[$foreign_field];
-        if (strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
-            $value  = (($foreign_display != FALSE) ? htmlspecialchars($relrow[$foreign_display]) : '');
+        if ($cfg['RepeatCells'] > 0 && $hcount > $cfg['RepeatCells']) {
+            echo $header;
+            $hcount = -1;
+        }
+
+
+        $val   = key($mysql_val_relrow[$i]);
+        $key   = $mysql_val_relrow[$i][$val];
+
+        if (strlen($val) <= $cfg['LimitChars']) {
+            $value  = htmlspecialchars($val);
             $vtitle = '';
         } else {
-            $vtitle = htmlspecialchars($relrow[$foreign_display]);
-            $value  = (($foreign_display != FALSE) ? htmlspecialchars(substr($vtitle, 0, $cfg['LimitChars']) . '...') : '');
+            $vtitle = htmlspecialchars($val);
+            $value  = htmlspecialchars(substr($val, 0, $cfg['LimitChars']) . '...');
         }
 
-        if ($cfg['RepeatCells'] > 0 && $count > $cfg['RepeatCells']) {
-            echo $header;
-            $count = -1;
-        }
         $key_equals_data = isset($data) && $key == $data;
 ?>
     <tr>
         <td nowrap="nowrap" bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key_equals_data ? '<b>' : '') . '<a href="#" title="' . $strUseThisValue . ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . htmlspecialchars($key) . '</a>' . ($key_equals_data ? '</b>' : ''); ?></td>
         <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key_equals_data ? '<b>' : '') .                 '<a href="#" title="' . $strUseThisValue . ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . $value . '</a>' . ($key_equals_data ? '</b>' : ''); ?></td>
         <td width="20%"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+<?php
+        $key   = key($mysql_key_relrow[$i]);
+        $val   = $mysql_key_relrow[$i][$key];
+        if (strlen($val) <= $cfg['LimitChars']) {
+            $value  = htmlspecialchars($val);
+            $vtitle = '';
+        } else {
+            $vtitle = htmlspecialchars($val);
+            $value  = htmlspecialchars(substr($val, 0, $cfg['LimitChars']) . '...');
+        }
+
+        $key_equals_data = isset($data) && $key == $data;
+?>
         <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key_equals_data ? '<b>' : '') .                 '<a href="#" title="' . $strUseThisValue .  ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . $value . '</a>' . ($key_equals_data ? '</b>' : ''); ?></td>
         <td nowrap="nowrap" bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key_equals_data ? '<b>' : '') . '<a href="#" title="' . $strUseThisValue .  ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . htmlspecialchars($key) . '</a>' . ($key_equals_data ? '</b>' : ''); ?></td>
     </tr>
