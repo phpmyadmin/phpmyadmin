@@ -193,6 +193,7 @@ $strDeleting = 'Borrando %s';
 $strDescending = 'Descendente';
 $strDescription = 'Descripción';
 $strDictionary = 'diccionario';
+$strDisableForeignChecks = 'Deshabilitar la revisión de las llaves extranjeras (foreign keys)';
 $strDisabled = 'Deshabilitado';
 $strDisplay = 'Mostrar';
 $strDisplayFeat = 'Mostrar las opciones';  //Features = ¿opciones, componentes?
@@ -578,6 +579,7 @@ $strSend = 'Enviar (genera un archivo descargable)';
 $strSent = 'Enviado';
 $strServer = 'Servidor';
 $strServerChoice = 'Elección del servidor';
+$strServerNotResponding = 'El servidor no está respondiendo';
 $strServerStatus = 'Información acerca del tiempo de marcha';
 $strServerStatusUptime = 'Este servidor MySQL ha estado corriendo durante %s. Se inició en %s.';
 $strServerTabProcesslist = 'Procesos';
@@ -605,6 +607,7 @@ $strSize = 'Tamaño';
 $strSort = 'Ordenar';
 $strSortByKey = 'Organizar según la clave';
 $strSpaceUsage = 'Espacio utilizado';
+$strSpanish = 'Español';
 $strSplitWordsWithSpace = 'Palabras separadas por un espacio (" ").';
 $strStatCheckTime = 'Última revisión';
 $strStatCreateTime = 'Creación';
@@ -615,6 +618,7 @@ $strStrucCSV = 'Datos CSV ';
 $strStrucData = 'Estructura y datos';
 $strStrucDrop = 'Añadir \'drop table\'';
 $strStrucExcelCSV = 'CSV para datos de MS Excel';
+$strStrucNativeExcel = 'Datos de MS Excel en formato nativo';
 $strStrucOnly = 'Únicamente la estructura ';
 $strStructPropose = 'Planteamiento de una estructura de tabla';
 $strStructure = 'Estructura';
@@ -721,31 +725,34 @@ $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0
 $strZip = '"comprimido con zip"';
 
 // To translate:
+$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
+$strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
+$strAfterInsertSame = 'Go back to this page';  //to translate
 
+$strCalendar = 'Calendar';  //to translate
+$strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
 $strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 
+$strDBRename = 'Rename database to';  //to translate
+$strDatabaseEmpty = 'The database name is empty!';  //to translate
+$strDefragment = 'Defragment table';  //to translate
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 
-$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
-$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
-$strIgnoreInserts = 'Use ignore inserts';  //to translate
-$strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
-$strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
-$strMIMETypesForTable = 'MIME TYPES FOR TABLE';  //to translate
-$strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
-$strAfterInsertSame = 'Go back to this page';  //to translate
-$strRenameDatabaseOK = 'Database %s has been renamed to %s';  //to translate
-$strDatabaseEmpty = 'The database name is empty!';  //to translate
-$strDBRename = 'Rename database to';  //to translate
-$strOperator = 'Operator';  //to translate
 $strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
-$strCalendar = 'Calendar';  //to translate
-$strRefresh = 'Refresh';  //to translate
-$strDefragment = 'Defragment table';  //to translate
+
+$strIgnoreInserts = 'Use ignore inserts';  //to translate
+
+$strMIMETypesForTable = 'MIME TYPES FOR TABLE';  //to translate
+
+$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
 $strNoRowsSelected = 'No rows selected';  //to translate
+
+$strOperator = 'Operator';  //to translate
+
+$strRefresh = 'Refresh';  //to translate
+$strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
+$strRenameDatabaseOK = 'Database %s has been renamed to %s';  //to translate
+
 $strSQPBugSyntaxError = 'Syntax error';  //to translate
-$strSpanish = 'Spanish';  //to translate
-$strStrucNativeExcel = 'Native MS Excel data';  //to translate
-$strDisableForeignChecks = 'Disable foreign key checks';  //to translate
-$strServerNotResponding = 'The server is not responding';  //to translate
+
 ?>
