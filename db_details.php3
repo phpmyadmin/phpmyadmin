@@ -168,6 +168,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
 </tr>
     <?php
     $i = $sum_entries = $sum_size = 0;
+    $checked = (!empty($checkall) ? ' checked="checked"' : '');
     while (list($keyname, $sts_data) = each($tables)) {
         $table     = $sts_data['Name'];
         // Sets parameters for links
@@ -181,7 +182,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
         ?>
 <tr>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($table); ?>" />
+        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($table); ?>"<?php echo $checked; ?> />
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         &nbsp;<b><?php echo htmlspecialchars($table); ?>&nbsp;</b>&nbsp;
@@ -331,14 +332,23 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
         <input type="submit" name="submit_mult" value="<?php echo $strPrintView; ?>" />
     </td>
 </tr>
+
+    <?php
+    // Check all tables url
+    $checkall_url = 'db_details.php3'
+                  . '?lang=' . $lang
+                  . '&amp;server=' . $server
+                  . '&amp;db=' . urlencode($db);
+    echo "\n";
+    ?>
 <tr>
     <td>
-        <a href="#" onclick="setCheckboxes('tablesForm', true); return false;">
+        <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
             <?php echo $GLOBALS['strCheckAll']; ?></a>
     </td>
     <td>&nbsp;</td>
     <td>
-        <a href="#" onclick="setCheckboxes('tablesForm', false); return false;">
+        <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('tablesForm', false); return false;">
             <?php echo $GLOBALS['strUncheckAll']; ?></a>
     </td>
 </tr>
@@ -366,6 +376,7 @@ else {
     <th><?php echo ucfirst($strRecords); ?></th>
 </tr>
     <?php
+    $checked = (!empty($checkall) ? ' checked="checked"' : '');
     while ($i < $num_tables) {
         // Sets parameters for links
         $url_query = 'lang=' . $lang
@@ -378,7 +389,7 @@ else {
         ?>
 <tr>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($tables[$i]); ?>" />
+        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($tables[$i]); ?>"<?php echo $checked; ?> />
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>" class="data">
         <b>&nbsp;<?php echo $tables[$i]; ?>&nbsp;</b>
@@ -419,14 +430,23 @@ else {
         <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
     </td>
 </tr>
+
+    <?php
+    // Check all tables url
+    $checkall_url = 'db_details.php3'
+                  . '?lang=' . $lang
+                  . '&amp;server=' . $server
+                  . '&amp;db=' . urlencode($db);
+    echo "\n";
+    ?>
 <tr>
     <td>
-        <a href="#" onclick="setCheckboxes('tablesForm', true); return false;">
+        <a href="<?php $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
             <?php echo $GLOBALS['strCheckAll']; ?></a>
     </td>
     <td>&nbsp;</td>
     <td>
-        <a href="#" onclick="setCheckboxes('tablesForm', false); return false;">
+        <a href="<?php $checkall_url; ?>" onclick="setCheckboxes('tablesForm', false); return false;">
             <?php echo $GLOBALS['strUncheckAll']; ?></a>
     </td>
 </tr>
