@@ -1,6 +1,10 @@
 <?php
 /* $Id$ */
  
+// Get the db name that may have been required for startup
+require('./grab_globals.inc.php3');
+if (!empty($db)) $db_start = $db;
+
 require("./lib.inc.php3");
 header('Content-Type: text/html; charset=' . $charset);
 ?>
@@ -33,6 +37,7 @@ body {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt}
       <?php echo $strHome;?>   </FONT></A>
       </DIV>
 <?php
+$selected_db = 0;
 // Don't display database info if $server==0 (no server selected)
 // This is the case when there are multiple servers and
 // '$cfgServerDefault = 0' is set.  In that case, we want the welcome
@@ -55,7 +60,8 @@ if($server > 0)
             $db = mysql_dbname($dbs, $i);
         else
             $db = $dblist[$i];
-    $j = $i + 2;
+        $j = $i + 2;
+        if (!empty($db_start) && $db == $db_start) $selected_db = $j;
 		// few changes, staybyte
 		$tables = mysql_list_tables($db);
 		$num_tables = @mysql_numrows($tables);
@@ -95,6 +101,7 @@ if($server > 0)
       nsShowAll();
       nsArrangeList();
     }
+    expandedDb = '<?php echo (empty($selected_db)) ? '' : 'el' . $selected_db . 'Child'; ?>';
     //-->
     </script>
     <?php

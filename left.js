@@ -141,7 +141,9 @@ function initIt()
     var tempColl    = document.getElementsByTagName('DIV');
     var tempCollCnt = tempColl.length;
     for (var i = 0; i < tempCollCnt; i++) {
-      if (tempColl[i].className == 'child')
+      if (tempColl[i].id == expandedDb)
+        tempColl[i].style.display = 'block';
+      else if (tempColl[i].className == 'child')
         tempColl[i].style.display = 'none';
     }
   } // end of the DOM case
@@ -149,7 +151,9 @@ function initIt()
     tempColl        = document.all.tags('DIV');
     var tempCollCnt = tempColl.length;
     for (var i = 0; i < tempCollCnt; i++) {
-      if (tempColl(i).className == 'child')
+      if (tempColl(i).id == expandedDb)
+        tempColl(i).style.display = 'block';
+      else if (tempColl(i).className == 'child')
         tempColl(i).style.display = 'none';
     }
   } // end of the IE4 case
@@ -157,7 +161,9 @@ function initIt()
     var theLayers  = document.layers;
     var layersCnt  = theLayers.length;
     for (var i = 0; i < layersCnt; i++) {
-      if (theLayers[i].id.indexOf('Child') != -1)
+      if (theLayers[i].id == expandedDb)
+        theLayers[i].visibility   = 'show';
+      else if (theLayers[i].id.indexOf('Child') != -1)
         theLayers[i].visibility   = 'hide';
       else
         theLayers[i].visibility   = 'show';

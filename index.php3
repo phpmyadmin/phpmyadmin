@@ -1,6 +1,8 @@
 <?php
 // Process config file to determine default server (if any)
+require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
+
 
 // Get the host name
 if (empty($HTTP_HOST)) {
@@ -19,8 +21,8 @@ if (empty($HTTP_HOST)) {
 </head>
 
 <frameset cols="150,*" rows="*" border="0" frameborder="0"> 
-  <frame src="left.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>" name="nav">
-  <frame src="main.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>" name="phpmain">
+  <frame src="left.php3?server=<?php echo $server;?>&lang=<?php echo $lang; echo (empty($db)) ? '' : '&db=' . urlencode($db); ?>" name="nav">
+  <frame src="<?php echo (empty($db)) ? 'main.php3' : 'db_details.php3'; ?>?server=<?php echo $server;?>&lang=<?php echo $lang; echo (empty($db)) ? '' : '&db=' . urlencode($db); ?>" name="phpmain">
 </frameset>
 <noframes>
 <body bgcolor="#FFFFFF">

@@ -9,6 +9,11 @@ $Source$
 	* The 'bkg.gif' was somewhat corrupted (it caused some annoying problems
 	  with NS4+). Fixed thanks to Laurent Hass.
 	* Added Japanese and Korean translation from Sakamoto <info@boreal-net.com>
+	* index.php3, line 3: get the vars sent to this script whatever is the
+	  status of the register globals directive.
+	* index.php3, left.php3 & left.js: a perticular database could be displayed
+	  as the first page, instead of the main.php3 thanks to Kristof Hamann
+	  (feature #432402).
 
 2001-06-17  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* Fixed the '<?' tags in user_details.php3 to proper '<?php' to work on a
