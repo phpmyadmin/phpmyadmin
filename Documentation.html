@@ -1711,6 +1711,15 @@ Defaults to FALSE (drop-down). <br />
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['TempDir'] </b>string</dt>
+    <dd>
+        The name of the directory, where temporary files can be stored.
+        <br /><br />
+        This is needed for native MS Excel export, see <a href="#faq6_23">FAQ
+        6.23</a>
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['Export'] </b>array</dt>
     <dd>
         In this array are defined default parameters for export, names of
@@ -3582,6 +3591,26 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     Yes. If a bookmark has the same label as a table name, it will be
     executed.
+</p>
+<h4>
+    <a name="faq6_23"></a>
+    [6.23] Export: I heard phpMyAdmin can export MS Excel files, how can I
+    enable that?
+</h4>
+<p>
+    You can either export as CSV suitable for MS Excel, what works out of the
+    box or you can try native <b>experimental</b> MS Excel exporter. For
+    enabling this you need to set $cfg['TempDir'] to place where web server
+    user can write and install PEAR module Spreadsheet_Excel_Writer into php
+    include path. The installation can be done by following command:
+</p>
+<pre>
+    pear -d preferred_state=beta install -a Spreadsheet_Excel_Writer
+</pre>
+<p>
+    First part of switches set we want to install beta version of that module
+    (no stable version available yet) and then we tell pear we want to satisfy
+    dependencies.
 </p>
 
 <a name="faqproject"></a><br />

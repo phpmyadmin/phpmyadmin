@@ -740,4 +740,5 @@ $strZeroRemovesTheLimit = 'Perhatian: Perubahan pilihan ini ke posisi 0 (zero) a
 $strZip = '"Dikompress dengan Zip"';
 
 $strSpanish = 'Spanish';  //to translate
+$strStrucNativeExcel = 'Native MS Excel data';  //to translate
 ?>

@@ -740,4 +740,5 @@ $strZeroRemovesTheLimit = 'Märkus: Märkides antud seaded 0 (null) , eemaldate li
 $strZip = '"zipitud"';
 
 $strSpanish = 'Spanish';  //to translate
+$strStrucNativeExcel = 'Native MS Excel data';  //to translate
 ?>

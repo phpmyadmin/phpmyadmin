@@ -303,13 +303,16 @@ $cfg['DefaultTabTable']       = 'tbl_properties_structure.php';
  * Export defaults
  */
 
-$cfg['Export']['format']                    = 'sql';  // sql/latex/excel/csv/xml
+$cfg['Export']['format']                    = 'sql';  // sql/latex/excel/csv/xml/xls
 $cfg['Export']['compression']               = 'none'; // none/zip/gzip/bzip2
 
 $cfg['Export']['asfile']                    = FALSE;
 $cfg['Export']['onserver']                  = FALSE;
 $cfg['Export']['onserver_overwrite']        = FALSE;
 $cfg['Export']['remember_file_template']    = TRUE;
+
+$cfg['Export']['xls_columns'                = FALSE;
+$cfg['Export']['xls_null']                  = 'NULL';
 
 $cfg['Export']['csv_columns']               = FALSE;
 $cfg['Export']['csv_null']                  = 'NULL';
@@ -565,6 +568,9 @@ $cfg['SaveDir']               = '';         // Directory where phpMyAdmin can sa
 $cfg['docSQLDir']             = '';         // Directory for docSQL imports, phpMyAdmin can import
                                             // docSQL files from that directory. For example
                                             // './docSQL'. Leave empty for no docSQL import support.
+$cfg['TempDir']               = '';         // Directory where phpMyAdmin can save temporary files. 
+                                            // This is needed for MS Excel export, see documentation 
+                                            // how to enable that.
 
 
 /**

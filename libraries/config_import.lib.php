@@ -871,6 +871,11 @@ if (!isset($cfg['docSQLDir'])) {
     $cfg['docSQLDir'] = '';
 }
 
+if (!isset($cfg['TempDir'])) {
+    $cfg['TempDir'] = '';
+}
+
+
 if (!isset($cfg['SQLValidator']['use'])) {
     $cfg['SQLValidator']['use'] = FALSE;
 }
@@ -1192,9 +1197,13 @@ if (!isset($cfg['CtrlArrowsMoving'])) {
     $cfg['CtrlArrowsMoving'] = TRUE;
 }
 
+if (!isset($cfg['Export'])) {
+    $cfg['Export'] = array();
+}
+
 if (!isset($cfg['Export']['format'])) {
     $cfg['Export']['format'] = 'sql';
-} // sql/latex/excel/csv/xml
+} // sql/latex/excel/csv/xml/xls
 if (!isset($cfg['Export']['compression'])) {
     $cfg['Export']['compression'] = 'none';
 } // none/zip/gzip/bzip2
@@ -1216,6 +1225,12 @@ if (!isset($cfg['Export']['csv_null'])) {
 }
 if (!isset($cfg['Export']['csv_columns'])) {
     $cfg['Export']['csv_columns'] = FALSE;
+}
+if (!isset($cfg['Export']['xls_null'])) {
+    $cfg['Export']['xls_null']                = 'NULL';
+}
+if (!isset($cfg['Export']['xls_columns'])) {
+    $cfg['Export']['xls_columns'] = FALSE;
 }
 if (!isset($cfg['Export']['excel_null'])) {
     $cfg['Export']['excel_null']                = 'NULL';

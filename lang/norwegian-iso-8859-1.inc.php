@@ -747,4 +747,5 @@ $strZip = 'Komprimert (zip)';
 // To translate:
 
 $strSpanish = 'Spanish';  //to translate
+$strStrucNativeExcel = 'Native MS Excel data';  //to translate
 ?>

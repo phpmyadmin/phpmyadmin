@@ -13,6 +13,10 @@ $Source$
     * lang/czech: Updated.
     * libraries/charset_conversion.lib.php: Do not convert, if charsets are
       same.
+    * config.inc.php, export.php, lang/*, libraries/config_import.lib.php,
+      libraries/display_export.lib.php, libraries/export/xls.php,
+      Documentation.html: EXPERIMENTAL native MS Excel export support, using
+      PEAR module Spreadsheet_Excel_Writer (RFE #968110).
 
 2004-06-07 Alexander M. Turek  <me@derrabus.de>
     * css/phpmyadmin.css.php: beautifications.

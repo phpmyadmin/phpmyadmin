@@ -740,4 +740,5 @@ $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the l
 $strZip = '"zipped"';
 
 $strSpanish = 'Spanish';  //to translate
+$strStrucNativeExcel = 'Native MS Excel data';  //to translate
 ?>

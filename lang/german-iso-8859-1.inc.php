@@ -748,4 +748,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 
+$strStrucNativeExcel = 'Native MS Excel data';  //to translate
 ?>

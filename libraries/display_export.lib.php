@@ -6,6 +6,18 @@
 require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
+// Check if we have native MS Excel export using PEAR class Spreadsheet_Excel_Writer
+if (!empty($GLOBALS['cfg']['TempDir'])) {
+    include_once('Spreadsheet/Excel/Writer.php');
+    if (class_exists('Spreadsheet_Excel_Writer')) {
+        $xls = TRUE;
+    } else {
+        $xls = FALSE;
+    }
+} else {
+    $xls = FALSE;
+}
+
 function PMA_exportCheckboxCheck($str) {
     if (isset($GLOBALS['cfg']['Export'][$str]) && $GLOBALS['cfg']['Export'][$str]) {
         echo ' checked="checked"';
@@ -48,6 +60,9 @@ if (isset($sql_query)) {
         getElement("csv_options").style.display = 'none';
         getElement("excel_options").style.display = 'none';
         getElement("latex_options").style.display = 'none';
+<?php if ($xls) { ?>
+        getElement("xls_options").style.display = 'none';
+<?php } ?>
 <?php if (!$hide_sql) { ?>
         getElement("sql_options").style.display = 'none';
 <?php } ?>
@@ -58,6 +73,10 @@ if (isset($sql_query)) {
         hide_them_all();
         if (getElement('radio_dump_latex').checked) {
             getElement('latex_options').style.display = 'block';
+<?php if ($xls) { ?>
+        } else if (getElement('radio_dump_xls').checked) {
+            getElement('xls_options').style.display = 'block';
+<?php } ?>
 <?php if (!$hide_sql) { ?>
         } else if (getElement('radio_dump_sql').checked) {
             getElement('sql_options').style.display = 'block';
@@ -111,6 +130,14 @@ if (isset($sql_query)) {
             <label for="radio_dump_latex"><?php echo $strLaTeX; ?></label>
             <br /><br />
 
+
+<?php if ($xls) { ?>
+            <!-- Native Excel -->
+            <input type="radio" name="what" value="xls" id="radio_dump_xls"  onclick="if (this.checked) { hide_them_all(); getElement('xls_options').style.display = 'block'; getElement('checkbox_dump_asfile').checked = true;};  return true" <?php PMA_exportIsActive('format', 'xls'); ?> />
+            <label for="radio_dump_xls"><?php echo $strStrucNativeExcel; ?></label>
+            <br /><br />
+<?php } ?>
+            
             <!-- Excel CSV -->
             <input type="radio" name="what" value="excel" id="radio_dump_excel"  onclick="if (this.checked) { hide_them_all(); getElement('excel_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'excel'); ?> />
             <label for="radio_dump_excel"><?php echo $strStrucExcelCSV; ?></label>
@@ -343,6 +370,31 @@ if ($cfgRelation['mimework']) {
                     </table>
                  </fieldset>
              </fieldset>
+
+<?php if ($xls) { ?>
+            <!-- Native Excel options -->
+            <fieldset id="xls_options">
+                <legend><?php echo $strExcelOptions; ?></legend>
+                <input type="hidden" name="xls_data" value="xls_data" />
+                <table border="0" cellspacing="1" cellpadding="0">
+                    <tr>
+                        <td>
+                            <?php echo $strReplaceNULLBy; ?>&nbsp;
+                        </td>
+                        <td>
+                            <input type="text" name="xls_replace_null" size="20" value="<?php echo $cfg['Export']['xls_null']; ?>" class="textfield" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="checkbox" name="xls_shownames" value="yes" id="checkbox_dump_xls_shownames" <?php PMA_exportCheckboxCheck('xls_columns'); ?> />
+                            <label for="checkbox_dump_xls_shownames"><?php echo $strPutColNames; ?></label>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+<?php } ?>
+
 
              <!-- CSV options -->
             <fieldset id="csv_options">

@@ -743,4 +743,5 @@ $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fj
 $strZip = '"zipped"';
 
 $strSpanish = 'Spanish';  //to translate
+$strStrucNativeExcel = 'Native MS Excel data';  //to translate
 ?>

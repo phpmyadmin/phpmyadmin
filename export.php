@@ -56,7 +56,7 @@ function PMA_exportOutputHandler($line)
     global $time_start, $dump_buffer, $dump_buffer_len, $save_filename;
 
     // Kanji encoding convert feature
-    if (function_exists('PMA_kanji_str_conv')) {
+    if ($GLOBALS['output_kanji_conversion']) {
         $line = PMA_kanji_str_conv($line, $GLOBALS['knjenc'], isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : '');
     }
     // If we have to buffer data, we will perform everything at once at the end
@@ -68,10 +68,10 @@ function PMA_exportOutputHandler($line)
             $dump_buffer_len += strlen($line);
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
-                // as bzipped
                 if ($GLOBALS['output_charset_conversion']) {
                     $dump_buffer = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $dump_buffer);
                 }
+                // as bzipped
                 if ($GLOBALS['compression'] == 'bzip'  && @function_exists('bzcompress')) {
                     $dump_buffer = bzcompress($dump_buffer);
                 }
@@ -146,10 +146,13 @@ if (empty($asfile)) {
 // Defines the default <CR><LF> format
 $crlf = PMA_whichCrlf();
 
+$output_kanji_conversion = function_exists('PMA_kanji_str_conv') && $type != 'xls';
+
 // Do we need to convert charset?
 $output_charset_conversion = $asfile &&
     $cfg['AllowAnywhereRecoding'] && $allow_recoding
-    && isset($charset_of_file) && $charset_of_file != $charset;
+    && isset($charset_of_file) && $charset_of_file != $charset 
+    && $type != 'xls';
 
 // Set whether we will need buffering
 $buffer_needed = isset($compression) && ($compression == 'zip' | $compression == 'gzip' | $compression == 'bzip');
@@ -212,6 +215,9 @@ if ($asfile) {
     if ($type == 'csv') {
         $filename  .= '.csv';
         $mime_type = 'text/x-csv';
+    } else if ($type == 'xls') {
+        $filename  .= '.xls';
+        $mime_type = 'application/excel';
     } else if ($type == 'xml') {
         $filename  .= '.xml';
         $mime_type = 'text/xml';
@@ -480,15 +486,8 @@ if (!empty($asfile)) {
     // 1. as a gzipped file
     if (isset($compression) && $compression == 'zip') {
         if (@function_exists('gzcompress')) {
-            if ($type == 'csv' ) {
-                $extbis = '.csv';
-            } else if ($type == 'xml') {
-                $extbis = '.xml';
-            } else {
-                $extbis = '.sql';
-            }
             $zipfile = new zipfile();
-            $zipfile -> addFile($dump_buffer, $filename . $extbis);
+            $zipfile -> addFile($dump_buffer, substr($filename, 0, -4));
             $dump_buffer = $zipfile -> file();
         }
     }
