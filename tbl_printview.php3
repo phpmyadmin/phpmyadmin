@@ -149,8 +149,9 @@ while (list($key, $table) = each($the_tables)) {
             $rel_query   = 'SELECT src_column,concat(dest_table,\'->\',dest_column) as rel ';
             $rel_query  .= 'FROM ' . PMA_backquote($cfgServer['relation']);
             $rel_query  .= ' WHERE src_table = \'' . urldecode($table) .'\'';
-        
+
             $relations   = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
+            $res_rel     = array();
             while ($relrow = @mysql_fetch_array($relations)){
             	$col = $relrow['src_column'];
             	$res_rel[$col]=$relrow['rel'];
@@ -160,7 +161,7 @@ while (list($key, $table) = each($the_tables)) {
             	$have_rel=TRUE;
             }else{
             	$have_rel=FALSE;
-            }            
+            }
     }
     //
 
@@ -190,7 +191,7 @@ while (list($key, $table) = each($the_tables)) {
         if($rel_work && $have_rel==TRUE){
                 echo '<th>'. ucfirst($strLinksTo).'</th>';
         }
-    ?>    
+    ?>
 </tr>
 
     <?php
@@ -237,13 +238,16 @@ while (list($key, $table) = each($the_tables)) {
             $row['Default'] = htmlspecialchars($row['Default']);
         }
         $field_name = htmlspecialchars($row['Field']);
-        if (isset($pk_array[$row['Field']])) {
-            $field_name = '<u>' . $field_name . '</u>';
-        }
         echo "\n";
         ?>
 <tr>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $field_name; ?>&nbsp;</td>
+    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php 
+        if (isset($pk_array[$row['Field']])) {
+            echo '<u>' . $field_name . '</u>';
+            } else {
+            echo $field_name;
+            }
+        ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
@@ -251,11 +255,13 @@ while (list($key, $table) = each($the_tables)) {
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
     <?php
     if($rel_work && $have_rel==TRUE){
-        ?>
-        <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $res_rel[$field_name]; ?>&nbsp;</td>
-        <?php
+        echo '<td bgcolor="' . $bgcolor . '" nowrap="nowrap">';
+        if (isset($res_rel[$field_name])) {
+            echo htmlspecialchars($res_rel[$field_name]);
+        }
+        echo '&nbsp;</td>' . "\n";
     }
-    ?>    
+    ?>
 </tr>
         <?php
     } // end while
