@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-04 Michal Cihar  <nijel@users.sourceforge.net>
+    * mult_submits.inc.php3: Use TRUNCATE when using MySQL 4 (bug #748792).
+
 2003-06-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updates, thanks to Dr. med. Daniel Hinostroza C.
     * lang/slovak update, thanks to Lubos Klokner

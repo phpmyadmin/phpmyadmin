@@ -196,8 +196,12 @@ else if ($mult_btn == $strYes) {
                 break;
 
             case 'empty_tbl':
-                $a_query   = 'DELETE FROM '
-                           . PMA_backquote(urldecode($selected[$i]));
+                if (PMA_MYSQL_INT_VERSION >= 40000) {
+                    $a_query .= 'TRUNCATE ';
+                } else {
+                    $a_query .= 'DELETE FROM ';
+                }
+                $a_query .= PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
                 break;
 
             case 'drop_fld':
