@@ -212,10 +212,13 @@ if (empty($lang)) {
     $lang = $cfg['DefaultLang'];
 }
 
+// 4. Checks whether charset recoding should be allowed or not
 $allow_recoding = FALSE; // Default fallback value
-if (!isset($convcharset) || empty($convcharset)) $convcharset = $cfg['DefaultCharset'];
+if (!isset($convcharset) || empty($convcharset)) {
+    $convcharset = $cfg['DefaultCharset'];
+}
 
-// 4. Defines the associated filename and load the translation
+// 5. Defines the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php3';
 require('./' . $lang_file);
 

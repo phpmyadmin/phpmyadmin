@@ -11,76 +11,84 @@ if (!defined('PMA_DB_CONFIG_LIB_INCLUDED')) {
     define('PMA_DB_CONFIG_LIB_INCLUDED', 1);
 
     /**
+     * Converts attributes of an object to xml code
+     *
      * Original obj2xml() function by <jgettys@gnuvox.com>
      * as found on http://www.php.net/manual/en/function.get-defined-vars.php
      * Fixed and improved by Robin Johnson <robbat2@users.sourceforge.net>
+     *
+     * @param   object  the source
+     * @param   string  identication
+     *
+     * @access  public
      */
-    function obj2xml($v, $indent='') {
+    function obj2xml($v, $indent = '') {
+        $attr = '';
         while (list($key, $val) = each($v)) {
-            if (is_string($key) && ($key == '__attr'))
+            if (is_string($key) && ($key == '__attr')) {
                 continue;
+            }
+
             // Check for __attr
             if (is_object($val->__attr)) {
                 while (list($key2, $val2) = each($val->__attr)) {
                     $attr .= " $key2=\"$val2\"";
                 }
             } else {
-                $attr = '';
+                $attr     = '';
             }
 
-            //preserve data type information
-            $attr .= " type=\"".gettype($val)."\"";
+            // Preserve data type information
+            $attr .= ' type="' . gettype($val) . '"';
 
             if (is_array($val) || is_object($val)) {
-                print("$indent<$key$attr>\n");
-                obj2xml($val, $indent.'  ');
-                print("$indent</$key>\n");
+                echo "$indent<$key$attr>\n";
+                obj2xml($val, $indent . '  ');
+                echo "$indent</$key>\n";
             } else {
-                if (is_string($val) && ($val == "")) {
-                    print("$indent<$key$attr />\n");
+                if (is_string($val) && ($val == '')) {
+                    echo "$indent<$key$attr />\n";
                 } else {
-                    print("$indent<$key$attr>$val</$key>\n");
+                    echo "$indent<$key$attr>$val</$key>\n";
                 }
             }
-        }
-    }
+        } // end while
+    } // end of the "obj2xml()" function
 
 
-$cfg['DBConfig']['AllowUserOverride'] =
-array(
-"Servers/*/bookmarkdb",
-"Servers/*/bookmarktable",
-"Servers/*/relation",
-"Servers/*/pdf_table_position",
-"ShowSQL",
-"Confirm",
-"LeftFrameLight",
-"ShowTooltip",
-"ShowBlob",
-"NavigationBarIconic",
-"ShowAll",
-"MaxRows",
-"Order",
-"ProtectBinary",
-"ShowFunctionFields",
-"LeftWidth",
-"LeftBgColor",
-"LeftPointerColor",
-"RightBgColor",
-"Border",
-"ThBgcolor",
-"BgcolorOne",
-"BgcolorTwo",
-"BrowsePointerColor",
-"BrowseMarkerColor",
-"TextareaCols",
-"TextareaRows",
-"LimitChars",
-"ModifyDeleteAtLeft",
-"ModifyDeleteAtRight",
-"DefaultDisplay",
-"RepeatCells"
-)
-
+    $cfg['DBConfig']['AllowUserOverride'] = array(
+        'Servers/*/bookmarkdb',
+        'Servers/*/bookmarktable',
+        'Servers/*/relation',
+        'Servers/*/pdf_table_position',
+        'ShowSQL',
+        'Confirm',
+        'LeftFrameLight',
+        'ShowTooltip',
+        'ShowBlob',
+        'NavigationBarIconic',
+        'ShowAll',
+        'MaxRows',
+        'Order',
+        'ProtectBinary',
+        'ShowFunctionFields',
+        'LeftWidth',
+        'LeftBgColor',
+        'LeftPointerColor',
+        'RightBgColor',
+        'Border',
+        'ThBgcolor',
+        'BgcolorOne',
+        'BgcolorTwo',
+        'BrowsePointerColor',
+        'BrowseMarkerColor',
+        'TextareaCols',
+        'TextareaRows',
+        'LimitChars',
+        'ModifyDeleteAtLeft',
+        'ModifyDeleteAtRight',
+        'DefaultDisplay',
+        'RepeatCells'
+    );
 
 } // $__PMA_DB_CONFIG_LIB__

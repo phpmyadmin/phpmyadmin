@@ -770,8 +770,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // table being displayed has one or more keys; but to display
         // delete/edit options correctly for tables without keys.
 
-        // loic1: use 'PMA_mysql_fetch_array' rather than 'PMA_mysql_fetch_row' to get
-        //        the NULL values
+        // loic1: use 'PMA_mysql_fetch_array' rather than 'PMA_mysql_fetch_row'
+        //        to get the NULL values
 
         while ($row = PMA_mysql_fetch_array($dt_result)) {
 
@@ -837,7 +837,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         //        php4 function is available or not
                         $pointer = (function_exists('is_null') ? $i : $meta->name);
 
-                        if (!isset($row[$pointer])
+                        if (!isset($row[$meta->name])
                             || (function_exists('is_null') && is_null($row[$pointer]))) {
                             $condition .= 'IS NULL AND';
                         } else {
@@ -956,7 +956,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 $pointer = (function_exists('is_null') ? $i : $meta->name);
 
                 if ($meta->numeric == 1) {
-                    if (!isset($row[$pointer])
+                    if (!isset($row[$meta->name])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
@@ -996,15 +996,15 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
                 } else if ($GLOBALS['cfg']['ShowBlob'] == FALSE && eregi('BLOB', $meta->type)) {
-                    // loic1 : PMA_mysql_fetch_fields returns BLOB in place of TEXT
-                    // fields type, however TEXT fields must be displayed even
-                    // if $cfg['ShowBlob'] is false -> get the true type of the
-                    // fields.
+                    // loic1 : PMA_mysql_fetch_fields returns BLOB in place of
+                    // TEXT fields type, however TEXT fields must be displayed
+                    // even if $cfg['ShowBlob'] is false -> get the true type
+                    // of the fields.
                     $field_flags = PMA_mysql_field_flags($dt_result, $i);
                     if (eregi('BINARY', $field_flags)) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB]</td>' . "\n";
                     } else {
-                        if (!isset($row[$pointer])
+                        if (!isset($row[$meta->name])
                             || (function_exists('is_null') && is_null($row[$pointer]))) {
                             $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                         } else if ($row[$pointer] != '') {
@@ -1022,7 +1022,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         }
                     }
                 } else {
-                    if (!isset($row[$pointer])
+                    if (!isset($row[$meta->name])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
@@ -1075,8 +1075,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
-                                                                   .  'lang=' . $lang . '&amp;server=' . $server
-                                                                   . '&amp;convcharset=' . $convcharset
+                                                                   .  'lang=' . $lang . '&amp;convcharset=' . $convcharset
+                                                                   .  '&amp;server=' . $server
                                                                    .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                    .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '"' . $title . '>'
@@ -1308,6 +1308,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      * @global  integer  the number of row to display between two table headers
      * @global  boolean  whether to limit the number of displayed characters of
      *                   text type fields or not
+     * @global  array    the relation settings
      *
      * @access  private
      *
@@ -1403,14 +1404,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
             $local_query = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
                          . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                         . ' WHERE master_db = \'' . $db . '\''
+                         . ' WHERE master_db = \'' . PMA_sqlAddslashes($db) . '\''
                          . ' AND master_table IN ' . $tabs;
             $result      = @PMA_query_as_cu($local_query);
             if ($result) {
                 while ($rel = PMA_mysql_fetch_row($result)) {
                     // check for display field?
                     if ($cfgRelation['displaywork']) {
-                        $display_field = getDisplayField($db,$rel[2]);
+                        $display_field = getDisplayField($db, $rel[2]);
                     } // end if
                     $map[$rel[0]] = array($rel[2], $rel[3], $display_field);
                 } // end while
