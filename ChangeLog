@@ -6,8 +6,8 @@ $Id$
 $Source$
 
 2003-03-25 Michal Cihar  <nijel@users.sourceforge.net>
-    * tbl_query_box.php3, tbl_properties_operations.php3: More HTML entities
-      fixes.
+    * tbl_query_box.php3, tbl_properties_operations.php3,
+      libraries/common.lib.php3: More HTML entities fixes.
 
 2003-03-24 Michal Cihar  <nijel@users.sourceforge.net>
     * db_details_structure.php3, mult_submits.inc.php: Added CHECK TABLE to

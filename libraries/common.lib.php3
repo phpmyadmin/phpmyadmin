@@ -1167,7 +1167,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         function PMA_jsFormat($a_string = '', $add_backquotes = TRUE)
         {
             if (is_string($a_string)) {
-                $a_string = str_replace('"', '&quot;', $a_string);
+                $a_string = htmlentities($a_string);
                 $a_string = str_replace('\\', '\\\\', $a_string);
                 $a_string = str_replace('\'', '\\\'', $a_string);
                 $a_string = str_replace('#', '\\#', $a_string);
