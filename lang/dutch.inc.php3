@@ -61,7 +61,6 @@ $strColumnEmpty = 'De kolommen zijn leeg!';
 $strColumnNames = 'Kolom namen';
 $strCompleteInserts = 'Complete inserts'; //to translate
 $strConfirm = 'Weet u zeker dat u dit wilt?';
-$strCopyTable = 'Kopieer tabel naar';
 $strCopyTableOK = 'Tabel %s is gekopieerd naar %s.';
 $strCreate = 'Aanmaken';
 $strCreateNewDatabase = 'Nieuwe database aanmaken';
@@ -322,4 +321,7 @@ $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strZip = '"zipped"';  //to translate
 $strNoQuery = 'No SQL query!';  //to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>

@@ -59,7 +59,6 @@ $strColumnEmpty = 'The columns names are empty!'; //to translate
 $strColumnNames = '칼럼(列) 이름';
 $strCompleteInserts = '완전한 INSERT문 작성';
 $strConfirm = 'Do you really want to do it?'; //to translate
-$strCopyTable = '테이블을 다음에 복사합니다. -->';
 $strCopyTableOK = '%s 테이블이 %s 으로 복사되었습니다.';
 $strCreate = ' 만들기 ';
 $strCreateNewDatabase = '새로운 데이터 베이스를 만듭니다';
@@ -326,4 +325,7 @@ $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strNoQuery = 'No SQL query!';  //to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>

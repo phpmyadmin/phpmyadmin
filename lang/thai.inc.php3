@@ -59,7 +59,6 @@ $strColumnEmpty = 'The columns names are empty!'; //to translate
 $strColumnNames = 'ชื่อคอลัมน์';
 $strCompleteInserts = 'Complete inserts';
 $strConfirm = 'Do you really want to do it?'; //to translate
-$strCopyTable = 'สําเนาตารางเป็น';
 $strCopyTableOK = 'ตาราง %s ได้ทําการสําเนาไปเป็น %s เรียบร้อยแล้ว.';
 $strCreate = 'สร้าง';
 $strCreateNewDatabase = 'สร้างฐานข้อมูลใหม่';
@@ -327,4 +326,7 @@ $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strNoQuery = 'No SQL query!';  //to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>

@@ -59,7 +59,6 @@ $strColumnEmpty = 'The columns names are empty!'; //to translate
 $strColumnNames = 'Nome da Colunas';
 $strCompleteInserts = 'Complete inserts'; //to translate
 $strConfirm = 'Do you really want to do it?'; //to translate
-$strCopyTable = 'Copia tabela para';
 $strCopyTableOK = 'Tabela %s copiada para %s.';
 $strCreate = 'Cria';
 $strCreateNewDatabase = 'Cria novo banco de dados';
@@ -326,4 +325,7 @@ $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strNoQuery = 'No SQL query!';  //to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>

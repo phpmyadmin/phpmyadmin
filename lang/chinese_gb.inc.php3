@@ -59,7 +59,6 @@ $strColumnEmpty = 'The columns names are empty!'; //to translate
 $strColumnNames = '字段名';
 $strCompleteInserts = 'Complete inserts'; //to translate
 $strConfirm = 'Do you really want to do it?'; //to translate
-$strCopyTable = '复制数据表为';
 $strCopyTableOK = '数据表 %s 已经成功复制为 %s。';
 $strCreate = '建立';
 $strCreateNewDatabase = '建立一个新的数据库';
@@ -327,4 +326,7 @@ $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strNoQuery = 'No SQL query!';  //to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>

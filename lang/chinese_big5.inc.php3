@@ -63,7 +63,6 @@ $strColumnEmpty = '請輸入欄位名稱!';
 $strColumnNames = '欄位名稱';
 $strCompleteInserts = 'Complete inserts'; 
 $strConfirm = '您確定要這樣做?';
-$strCopyTable = '複製資料表為';
 $strCopyTableOK = '已經將資料表 %s 複製為 %s.'; 
 $strCreate = '建立';
 $strCreateNewDatabase = '建立新資料庫';
@@ -323,4 +322,7 @@ $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strZip = '"zipped"';  //to translate
 $strNoQuery = 'No SQL query!';  //to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>

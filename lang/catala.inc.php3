@@ -62,7 +62,6 @@ $strColumnEmpty = 'Els noms de les columnes s&oacute;n buits!';
 $strColumnNames = 'Nom de les col&middot;lumnes';
 $strCompleteInserts = 'Completar insercions';
 $strConfirm = 'Ho vols fer realment ?';
-$strCopyTable = 'Copiar la taula a';
 $strCopyTableOK = 'La taula %s ha estat copiada a %s.';
 $strCreate = 'Crear';
 $strCreateNewDatabase = 'Crea una nova base de dades';
@@ -323,4 +322,7 @@ $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strNoQuery = 'No SQL query!';  //to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>

@@ -65,7 +65,6 @@ $strColumnEmpty = 'Os nomes das columnas están vacíos!';
 $strColumnNames = 'Nomes das Columnas';
 $strCompleteInserts = 'Insercións completas';
 $strConfirm = 'Está seguro/a?';
-$strCopyTable = 'Copiar a tabela para';
 $strCopyTableOK = 'Tabela \$table copiada para \$new_name.';
 $strCreate = 'Crear';
 $strCreateNewDatabase = 'Crear un novo banco de datos';
@@ -320,6 +319,9 @@ $strYes = 'Si';
 $strZip = 'comprimido no formato "zipped"';
 
 // To translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 $strNoQuery = 'No SQL query!';  //to translate
 $strShowAll = 'Show all'; // to translate
 $strWithChecked = 'With checked:';

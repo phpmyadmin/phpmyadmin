@@ -521,7 +521,7 @@ if ($index_count > 0) {
         echo "\n";
         ?>
             <td>
-                <a href="sql.php3?<?php echo "$url_query&sql_query=$sql_query&zero_rows=$zero_rows\n"; ?>"
+                <a href="sql.php3?<?php echo $url_query . '&sql_query=' . $sql_query . '&zero_rows=' . $zero_rows; ?>"
                     onclick="return confirmLink(this, '<?php echo $js_msg; ?>')">
                     <?php echo $strDrop; ?></a>
             </td>
@@ -952,12 +952,9 @@ echo "\n";
         </form>
     </li>
 
-    <!-- Change table name and copy table -->
-    <li style="vertical-align: top">
+    <!-- Change table name -->
+    <li>
         <div style="margin-bottom: 10px">
-        <table border="0" cellspacing="0" cellpadding="0" style="vertical-align: top">
-        <tr>
-            <td valign="top">
             <form method="post" action="tbl_rename.php3"
                 onsubmit="return emptyFormElements(this, 'new_name')">
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
@@ -965,20 +962,43 @@ echo "\n";
                 <input type="hidden" name="db" value="<?php echo $db; ?>" />
                 <input type="hidden" name="table" value="<?php echo $table; ?>" />
                 <input type="hidden" name="reload" value="1" />
+                <?php echo $strRenameTable; ?>&nbsp;:
+                <input type="text" size="20" name="new_name" />&nbsp;
+                <input type="submit" value="<?php echo $strGo; ?>" />
+            </form>
+        </div>
+    </li>
+
+    <!-- Move and copy table -->
+    <li style="vertical-align: top">
+        <div style="margin-bottom: 10px">
+        <table border="0" cellspacing="0" cellpadding="0" style="vertical-align: top">
+        <tr>
+            <td valign="top">
+            <form method="post" action="tbl_move_copy.php3"
+                onsubmit="return emptyFormElements(this, 'new_name')">
+                <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                <input type="hidden" name="db" value="<?php echo $db; ?>" />
+                <input type="hidden" name="table" value="<?php echo $table; ?>" />
+                <input type="hidden" name="reload" value="1" />
+                <input type="hidden" name="what" value="data" />
                 <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td>
-                        <?php echo $strRenameTable; ?>&nbsp;:
+                    <td nowrap="nowrap">
+                        <?php echo $strMoveTable . "\n"; ?>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" style="width: 100%" name="new_name" />
+                        <input type="text" size="10" name="target_db" />
+                        &nbsp;<b>.</b>&nbsp;
+                        <input type="text" size="20" name="new_name" value="<?php echo $table; ?>" />
                     </td>
                 </tr>
                 <tr>
-                    <td align="right" valign="bottom">
-                        <input type="submit" value="<?php echo $strGo; ?>" />
+                    <td align="right" valign="top">
+                        <input type="submit" name="submit_move" value="<?php echo $strGo; ?>" />
                     </td>
                 </tr>
                 </table>
@@ -986,7 +1006,7 @@ echo "\n";
             </td>
             <td width="25">&nbsp;</td>
             <td valign="top">
-            <form method="post" action="tbl_copy.php3"
+            <form method="post" action="tbl_move_copy.php3"
                 onsubmit="return emptyFormElements(this, 'new_name')">
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
@@ -995,15 +1015,15 @@ echo "\n";
                 <input type="hidden" name="reload" value="1" />
                 <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td colspan="2">
-                        <?php echo $strCopyTable . ' (' . trim($strDatabase) . '<b>.</b>' . trim($strTable) . ')'; ?>&nbsp;:
+                    <td colspan="2" nowrap="nowrap">
+                        <?php echo $strCopyTable . "\n"; ?>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <input type="text" size="10" name="target_db" value="<?php echo $db; ?>" />
                         &nbsp;<b>.</b>&nbsp;
-                        <input type="text" size="25" name="new_name" />
+                        <input type="text" size="20" name="new_name" />
                     </td>
                 </tr>
                 <tr>
@@ -1014,7 +1034,7 @@ echo "\n";
                         <?php echo $strStrucData; ?>&nbsp;&nbsp;
                     </td>
                     <td align="right" valign="top">
-                        <input type="submit" value="<?php echo $strGo; ?>" />
+                        <input type="submit" name="submit_copy" value="<?php echo $strGo; ?>" />
                     </td>
                 </tr>
                 </table>

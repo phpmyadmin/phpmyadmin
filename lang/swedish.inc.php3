@@ -65,7 +65,6 @@ $strColumnEmpty = 'Kolumn-namnen är tomma!';
 $strColumnNames = 'Kolumn-namn';
 $strCompleteInserts = 'Kompletta infogningar';
 $strConfirm = 'Vill du verkligen göra det?';
-$strCopyTable = 'Kopiera tabellen till';
 $strCopyTableOK = 'Tabellen %s har kopierats till %s.';
 $strCreate = 'Skapa';
 $strCreateNewDatabase = 'Skapa ny databas';
@@ -323,4 +322,7 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>

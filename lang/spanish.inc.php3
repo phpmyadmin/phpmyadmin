@@ -62,7 +62,6 @@ $strColumnEmpty = 'Los nombres de columna estan vacios!';
 $strColumnNames = 'Nombre de columnas';
 $strCompleteInserts = 'Completar los Inserts';
 $strConfirm = 'Realmente quieres hacerlo?'; 
-$strCopyTable = 'Copiar la tabla a';
 $strCopyTableOK = 'La tabla %s ha sido copiada a %s.';
 $strCreate = 'Crear';
 $strCreateNewDatabase = 'Crear nueva base de datos';
@@ -322,4 +321,7 @@ $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strZip = '"zipped"';  //to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>

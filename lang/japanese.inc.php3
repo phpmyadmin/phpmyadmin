@@ -59,7 +59,6 @@ $strColumnEmpty = 'The columns names are empty!'; //to translate
 $strColumnNames = '列(コラム)名';
 $strCompleteInserts = '完全なINSERT文の作成';
 $strConfirm = 'Do you really want to do it?'; //to translate
-$strCopyTable = 'テーブルを次へコピーします。-->';
 $strCopyTableOK = '%sテーブルを%sにコピーしました。';
 $strCreate = '作成';
 $strCreateNewDatabase = '新しいDBを作成します。';
@@ -326,4 +325,7 @@ $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strNoQuery = 'No SQL query!';  //to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>

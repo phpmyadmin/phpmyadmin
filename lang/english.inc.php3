@@ -65,7 +65,7 @@ $strColumnEmpty = 'The columns names are empty!';
 $strColumnNames = 'Column names';
 $strCompleteInserts = 'Complete inserts';
 $strConfirm = 'Do you really want to do it?';
-$strCopyTable = 'Copy table to';
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strCopyTableOK = 'Table %s has been copied to %s.';
 $strCreate = 'Create';
 $strCreateNewDatabase = 'Create new database';
@@ -167,6 +167,8 @@ $strLogout = 'Log out';
 
 $strModifications = 'Modifications have been saved';
 $strModify = 'Modify';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 $strMySQLReloaded = 'MySQL reloaded.';
 $strMySQLSaid = 'MySQL said: ';
 $strMySQLShowProcess = 'Show processes';

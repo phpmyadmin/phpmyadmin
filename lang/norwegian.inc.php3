@@ -64,7 +64,6 @@ $strColumnEmpty = 'Kolonnenavnene er tomme!';
 $strColumnNames = 'Kolonnenavn';
 $strCompleteInserts = 'Komplette innlegg';
 $strConfirm = 'Ønsker du virkelig å gjøre det?';
-$strCopyTable = 'Kopier tabell til';
 $strCopyTableOK = 'Tabellen %s er kopiert til %s.';
 $strCreate = 'Opprett';
 $strCreateNewDatabase = 'Opprett ny database';
@@ -305,10 +304,13 @@ $strYes = 'Ja';
 
 // To translate
 $strCarriage = 'Carriage return: \\r';	//to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strDeleteUserMessage = 'You have deleted the user %s.';//to translate
 $strGrants = 'Grants';	//to translate
 $strKeepPass = 'Do not change the password';//to translate
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 $strNoQuery = 'No SQL query!';  //to translate
 $strPartialText = 'Partial Texts';	//to translate
 $strRunningAs = 'as';

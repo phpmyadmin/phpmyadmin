@@ -65,7 +65,7 @@ $strColumnEmpty = 'Les noms de colonnes sont vides';
 $strColumnNames = 'Nom des colonnes';
 $strCompleteInserts = 'Insertions complètes';
 $strConfirm = 'Veuillez confirmer';
-$strCopyTable = '<b>Copier</b> la table vers';
+$strCopyTable = '<b>Copier</b> la table vers (base<b>.</b>table)&nbsp;:';
 $strCopyTableOK = 'La table %s a été copiée vers %s.';
 $strCreate = 'Créer';
 $strCreateNewDatabase = 'Créer une base de données';
@@ -167,6 +167,8 @@ $strLogout = 'Quitter';
 
 $strModifications = 'Les modifications ont été sauvegardées.';
 $strModify = 'Modifier';
+$strMoveTable = '<b>Déplacer</b> la table vers (base<b>.</b>table)&nbsp;:';
+$strMoveTableOK = 'La table %s a été déplacée vers %s.';
 $strMySQLReloaded = 'MySQL rechargé.';
 $strMySQLSaid = 'MySQL a répondu:';
 $strMySQLShowProcess = 'Afficher les processus';
@@ -321,4 +323,5 @@ $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 $strYes = 'Oui';
 
 $strZip = '"zippé"';
+
 ?>

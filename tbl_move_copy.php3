@@ -28,8 +28,7 @@ function my_handler($sql_insert = '')
  * Gets some core libraries
  */
 require('./libraries/grab_globals.lib.php3');
-$js_to_run = 'functions.js';
-require('./header.inc.php3');
+require('./libraries/common.lib.php3');
 
 
 /**
@@ -64,8 +63,8 @@ if (isset($new_name) && trim($new_name) != '') {
         $new_name      = stripslashes($new_name);
     }
     if (MYSQL_INT_VERSION < 32306) {
-        check_reserved_words($db, $err_url);
-        check_reserved_words($table, $err_url);
+        check_reserved_words($target_db, $err_url);
+        check_reserved_words($new_name, $err_url);
     }
 
     $source = backquote($db) . '.' . backquote($table);
@@ -75,8 +74,11 @@ if (isset($new_name) && trim($new_name) != '') {
 
     $sql_structure = get_table_def($db, $table, "\n", $err_url);
     $sql_structure = eregi_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . $target, $sql_structure);
-    $result        = mysql_query($sql_structure) or mysql_die('', $sql_structure, '', $err_url);
-    if (isset($sql_query)) {
+    $result        = @mysql_query($sql_structure);
+    if (mysql_error()) {
+        include('./header.inc.php3');
+        mysql_die('', $sql_structure, '', $err_url);
+    } else if (isset($sql_query)) {
         $sql_query .= "\n" . $sql_structure . ';';
     } else {
         $sql_query = $sql_structure . ';';
@@ -87,7 +89,11 @@ if (isset($new_name) && trim($new_name) != '') {
         // speedup copy table - staybyte - 22. Juni 2001
         if (MYSQL_INT_VERSION >= 32300) {
             $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . backquote($table);
-            $result          = mysql_query($sql_insert_data) or mysql_die('', $sql_insert_data, '', $err_url);
+            $result          = @mysql_query($sql_insert_data);
+            if (mysql_error()) {
+                include('./header.inc.php3');
+                mysql_die('', $sql_insert_data, '', $err_url);
+            }
         } // end MySQL >= 3.23
         else {
             $sql_insert_data = '';
@@ -96,8 +102,24 @@ if (isset($new_name) && trim($new_name) != '') {
         $sql_query .= "\n\n" . $sql_insert_data;
     }
 
-    $message  = sprintf($strCopyTableOK, $source, $target);
-    $reload   = 1;
+    // Drops old table if the user has requested to move it
+    if (isset($submit_move)) {
+        $sql_drop_table = 'DROP TABLE ' . $source;
+        $result         = @mysql_query($sql_drop_table);
+        if (mysql_error()) {
+            include('./header.inc.php3');
+            mysql_die('', $sql_drop_table, '', $err_url);
+        }
+        $sql_query      .= "\n\n" . $sql_drop_table . ';';
+        $db             = $target_db;
+        $table          = $new_name;
+    }
+
+    $message   = (isset($submit_move) ? $strMoveTableOK : $strCopyTableOK);
+    $message   = sprintf($message, $source, $target);
+    $reload    = 1;
+    $js_to_run = 'functions.js';
+    include('./header.inc.php3');
 } // end is target table name
 
 
@@ -105,6 +127,7 @@ if (isset($new_name) && trim($new_name) != '') {
  * No new name for the table!
  */
 else {
+    include('./header.inc.php3');
     mysql_die($strTableEmpty, '', '', $err_url);
 } 
 

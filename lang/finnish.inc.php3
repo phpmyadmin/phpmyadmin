@@ -69,7 +69,6 @@ $strColumnEmpty = 'Sarakkeiden nimet puuttuvat!';
 $strColumnNames = 'Saraikkeiden nimet';
 $strCompleteInserts = 'Täydelliset insert-lauseet';
 $strConfirm = 'Oletko varma, että haluat tehdä tämän?';
-$strCopyTable = 'Kopioi taulu nimellä';
 $strCopyTableOK = 'Taulu %s on kopioitu nimelle %s.';
 $strCreate = 'Luo';
 $strCreateNewDatabase = 'Luo uusi tietokanta';
@@ -320,6 +319,9 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 $strNoQuery = 'No SQL query!';  //to translate
 $strOverhead = 'Overhead'; //to translate
 $strRunningAs = 'as';

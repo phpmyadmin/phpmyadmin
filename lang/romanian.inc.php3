@@ -65,7 +65,6 @@ $strColumnEmpty = 'Numele coloanelor sunt goale!';
 $strColumnNames = 'Numele coloanelor';
 $strCompleteInserts = 'Rezolva inserarea';
 $strConfirm = 'Sunteti sigur ca doriti sa continuati?';
-$strCopyTable = 'Copiaza tabel la:';
 $strCopyTableOK = 'Tabelul %s a fost copiat la %s.';
 $strCreate = 'Creaza';
 $strCreateNewDatabase = 'Creaza baza de date noua';
@@ -320,6 +319,9 @@ $strWithChecked = 'Verificat cu:';
 $strYes = 'Da';
 
 // To translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 $strNoQuery = 'No SQL query!';  //to translate
 $strZip = '"zipped"';  //to translate
 ?>

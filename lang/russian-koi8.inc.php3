@@ -61,7 +61,6 @@ $strColumnEmpty = 'Название колонки пусто!';
 $strColumnNames = 'Названия колонок';
 $strCompleteInserts = 'Полная вставка';
 $strConfirm = 'Вы действительно хотите сделать это?';
-$strCopyTable = 'Скопировать таблицу в';
 $strCopyTableOK = 'Таблица %s была скопирована в %s.';
 $strCreate = 'Создать';
 $strCreateNewDatabase = 'Создать новую БД';
@@ -322,4 +321,7 @@ $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strZip = '"zipped"';  //to translate
 $strNoQuery = 'No SQL query!';  //to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>

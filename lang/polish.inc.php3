@@ -65,7 +65,6 @@ $strColumnEmpty = 'Brak nazw kolumn!';
 $strColumnNames = 'Nazwy kolumn';
 $strCompleteInserts = 'Pe³ne dodania';
 $strConfirm = 'Czy na pewno to zrobic?';
-$strCopyTable = 'Kopiowanie tabeli do';
 $strCopyTableOK = 'Tabela %s zosta³a przekopiowana do %s.';
 $strCreate = 'Utworzenie';
 $strCreateNewDatabase = 'Utworzenie nowej bazy danych';
@@ -321,5 +320,8 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 $strNoQuery = 'No SQL query!';  //to translate
 ?>

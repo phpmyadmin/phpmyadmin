@@ -300,6 +300,7 @@ $strZip = '"zazipováno"';
 // To translate
 $strAPrimaryKey = 'A primary key has been added on %s';//to translate
 $strAnIndex = 'An index has been added on %s';//to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strDeleteUserMessage = 'You have deleted the user %s.';//to translate
 $strFieldHasBeenDropped = 'Field %s has been dropped';//to translate
@@ -310,6 +311,8 @@ $strIdxFulltext = 'Fulltext';  //to translate
 $strIndexHasBeenDropped = 'Index %s has been dropped';//to translate
 $strKeepPass = 'Do not change the password';//to translate
 $strLinesTerminatedBy = 'Lines terminated by';//to translate
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 $strNoQuery = 'No SQL query!';  //to translate
 $strPrimaryKeyHasBeenDropped = 'The primary key has been dropped';//to translate
 $strRunningAs = 'as';
