@@ -91,6 +91,8 @@ $strChangePassword = 'Cambia password';
 $strCharsetOfFile = 'Set di caratteri del file:';
 $strCheckAll = 'Seleziona tutti';
 $strCheckDbPriv = 'Controlla i privilegi del database';
+$strCheckPrivs = 'Controlla i privilegi';
+$strCheckPrivsLong = 'Controlla i privilegi per il database &quot;%s&quot;.';
 $strCheckTable = 'Controlla tabella';
 $strChoosePage = 'Prego scegliere una Page da modificare';
 $strColComFeat = 'Visualizzazione commenti delle colonne';
@@ -133,8 +135,11 @@ $strDataOnly = 'Solo dati';
 $strDatabase = 'Database ';
 $strDatabaseHasBeenDropped = 'Il Database %s è stato eliminato.';
 $strDatabaseWildcard = 'Database (wildcards permesse):';
-$strDatabases = 'database';
+$strDatabases = 'Database';
 $strDatabasesStats = 'Statistiche dei databases';
+$strDatabasesStatsDisable = 'Disabilita le Statistiche';
+$strDatabasesStatsEnable = 'Abilita le Statistiche';
+$strDatabasesStatsHeavyTraffic = 'N.B.: Abilitare qui le statistiche del Database potrebbe causare del traffico intenso fra il server web e MySQL.';
 $strDbPrivileges = 'Privilegi specifici al database';
 $strDefault = 'Predefinito';
 $strDefaultValueHelp = 'Per i valori predefiniti, prego inserire un singolo valore, senza backslashes escaping o virgolette, utilizzando questo formato: a';
@@ -240,6 +245,7 @@ $strInsertedRows = 'Righe inserite:';
 $strInstructions = 'Istruzioni';
 $strInvalidName = '"%s" è una parola riservata; non è possibile utilizzarla come nome di database/tabella/campo.';
 
+$strJumpToDB = 'Passa al database &quot;%s&quot;.';
 $strJustDelete = 'Cancella soltanto gli utenti dalle tabelle dei privilegi.';
 $strJustDeleteDescr = 'Gli utenti &quot;cancellati&quot; saranno ancora in grado di accedere al servercome al solito finchè i privilegi non verraanno ricaricati.';
 
@@ -560,12 +566,6 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strCheckPrivs = 'Check Privileges';  //to translate
-$strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.';  //to translate
-$strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
-$strDatabasesStatsDisable = 'Disable Statistics';  //to translate
-$strDatabasesStatsEnable = 'Enable Statistics';  //to translate
-$strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
 $strDropSelectedDatabases = 'Drop Selected Databases';  //to translate
 $strNoDatabasesSelected = 'No databases selected.';  //to translate
 $strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate

@@ -19,6 +19,7 @@ $Source$
     * lang/romanian-*.inc.php3: Updates, thanks to Valics Lehel.
     * translators.html: Fixed a typo.
     * lang/indonesian-*.inc.php3: Updates, thanks to Rachim Tamsjadi (tamsy).
+    * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
 
 2003-02-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * config.inc.php3, lang/add_message.sh: Typos.
