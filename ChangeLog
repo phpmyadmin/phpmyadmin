@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-01 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/catalan-*.inc.php3: Updates, thanks to Xavier Navarro (xavin).
+
 2003-06-01 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/chinese_gb: Update thanks to Wang (fundawang).
 
