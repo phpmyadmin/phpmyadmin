@@ -47,20 +47,18 @@ header('Content-Type: text/html; charset=' . $charset);
     //-->
     </script>
     <script src="left.js" type="text/javascript" language="javascript1.2"></script>
+    <style type="text/css">
+    <!--
 <?php
 // Hard coded font name and size depends on charset. This is a temporary and
 // uggly fix
-if ($charset == 'iso-8859-1') {
-    ?>
-    <style type="text/css">
-    <!--
-    body {font-family: Arial, Helvetica, sans-serif; font-size: 10pt}
+$font_family = ($charset == 'iso-8859-1')
+             ? 'Arial, Helvetica, sans-serif'
+             : 'sans-serif';
+?>
+    body {font-family: <?php echo $font_family; ?>; font-size: 10pt}
     //-->
     </style>
-    <?php
-}
-echo "\n";
-?>
 </head>
 
 <body bgcolor="#D0DCE0">
