@@ -175,6 +175,7 @@ $strLimitNumRows = 'Nombre d\'enregistrements par page';
 $strLineFeed = 'Saut de ligne : \\n';
 $strLines = 'Lignes';
 $strLinesTerminatedBy = 'Lignes terminées par';
+$strLinkNotFound = 'Lien absent';
 $strLinksTo = 'Relié à';
 $strLocationTextfile = 'Emplacement du fichier texte';
 $strLogin = 'Entrer';
@@ -355,5 +356,4 @@ $strYes = 'Oui';
 $strZip = '"zippé"';
 
 // To translate
-$strLinkNotFound = 'Link not found';  //to translate
 ?>
