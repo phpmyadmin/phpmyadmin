@@ -1874,7 +1874,7 @@ if (typeof(document.getElementById) != 'undefined'
 
         if ($cfg['LightTabs']) {
             $out = '';
-            if (strlen($link) > 0) {
+            if (!empty($link)) {
                 $out .= '<a class="tab" href="' . $link . $sep . $args . '"' . $attr . $class . '>'
                      .  '' . $text . '</a>';
             } else {
@@ -1885,7 +1885,7 @@ if (typeof(document.getElementById) != 'undefined'
             $out     = "\n" . '        '
                      . '<td class="nav' . $addclass . '" nowrap="nowrap">'
                      . "\n" . '            ';
-            if (strlen($link) > 0) {
+            if (!empty($link)) {
                 $out .= '<a href="' . $link . $sep . $args . '"' . $attr . '>'
                      .  $text . '</a>';
             } else {
