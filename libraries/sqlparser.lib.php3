@@ -1209,7 +1209,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                        // if the first reserved word is DROP or DELETE,
                        // we know this is a query that needs to be confirmed
                        if ($first_reserved_word=='DROP'
-                           || $first_reserved_word == 'DELETE') {
+                           || $first_reserved_word == 'DELETE'
+                           || $first_reserved_word == 'TRUNCATE') {
                           $subresult['queryflags']['need_confirm'] = 1;
                        }
 
