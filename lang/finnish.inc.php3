@@ -228,6 +228,7 @@ $strPasswordEmpty = 'Salasana puuttuu!';
 $strPasswordNotSame = 'Salasanat eiv‰t ole samat!';
 $strPHPVersion = 'PHP:n versio';
 $strPmaDocumentation = 'phpMyAdminin dokumentaatio';
+$strPmaUriError = '<tt>$cfgPmaAbsoluteUri</tt> t‰ytyy m‰‰ritell‰ asetustiedostossa!';
 $strPos1 = 'Alku';
 $strPrevious = 'Edellinen';
 $strPrimary = 'Ensisijainen';
@@ -350,6 +351,4 @@ $strYes = 'Kyll‰';
 $strZip = '"zip-pakattu"';
 
 // To translate
-$strChangePassword = 'Vaihda salasanaa';
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>

@@ -223,6 +223,7 @@ $strPasswordEmpty = 'Passordet er blankt!';
 $strPasswordNotSame = 'Passordene er ikke like!';
 $strPHPVersion = 'PHP Versjon';
 $strPmaDocumentation = 'phpMyAdmin Dokumentasjon';
+$strPmaUriError = '<tt>$cfgPmaAbsoluteUri</tt> variabelen MÅ være innstilt i din konfigurasjons-fil!';
 $strPos1 = 'Start';
 $strPrevious = 'Forrige';
 $strPrimary = 'Primær';
@@ -345,5 +346,4 @@ $strYes = 'Ja';
 $strZip = '"komprimert (zip)"';
 
 // To translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>
