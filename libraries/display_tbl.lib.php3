@@ -909,13 +909,13 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
             // 2. Displays the rows' values
             for ($i = 0; $i < $fields_cnt; ++$i) {
+// why is this variable named 'primary' ?
                 $primary = $fields_meta[$i];
 
                 // loic1: To fix bug #474943 under php4, the row pointer will
                 //        depend on whether the "is_null" php4 function is
                 //        available or not
                 $pointer = (function_exists('is_null') ? $i : $primary->name);
-
                 if ($primary->numeric == 1) {
                     if (!isset($row[$primary->name])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
@@ -989,7 +989,20 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             $row[$pointer]     = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace(' ', '&nbsp;', $row[$pointer]));
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
                         }
-                        $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$pointer] . '</td>' . "\n";
+                        $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">';
+                        if (isset($map[$primary->name])) {
+                            $vertical_display['data'][$foo][$i] .= '<a href="sql.php3?'
+                                                                .  'lang=' . $lang . '&amp;server=' . $server
+                                                                .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$primary->name][0])
+                                                                .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
+                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$primary->name][0]) . ' WHERE ' . $map[$primary->name][1] . " = '" . $row[$pointer] . "'") . '">'
+                                                                .  $row[$pointer] . '</a>';
+                        } else {
+                            $vertical_display['data'][$foo][$i] .= $row[$pointer];
+                        }
+
+                        $vertical_display['data'][$foo][$i]     .= ' </td>' . "\n";
+
                     } else {
                         $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
