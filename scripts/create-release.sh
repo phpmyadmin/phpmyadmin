@@ -94,7 +94,9 @@ Todo now:
               " define('PHPMYADMIN_VERSION', '2.2.2-rc1'); "
         - in Documentation.html the line
               " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
-10. the end :-)
+10. update the demo subdirectory:
+	- in htdocs, cvs update phpMyAdmin 
+11. the end :-)
 
 END
 
