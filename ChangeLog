@@ -19,6 +19,8 @@ $Source$
 	  2.2.0rc4) and optimized a bit this part of the script.
 	* lib.inc.php3, line 908: beautify the generated html code.
 	* db_readdump.php3; db_details.php3: fixed an other slashes bug.
+	* lang/polish.inc.php3, documentation.html, credits: updated translation
+	  thanks to Jakub Wilk <ubanus@users.sourceforge.net>.
 
 2001-08-08  Marc Delisle  <lem9@users.sourceforge.net> 
 	* tbl_change.php3, enum values were not displayed 
