@@ -516,7 +516,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
        . $spaces . '        </select>' . "\n"
        . $spaces . '    </td>' . "\n"
        . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
-       . $spaces . '        <input type="text" class="textfield" name="hostname" value="' . $GLOBALS['hostname'] . '" class="textfield" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
+       . $spaces . '        <input type="text" class="textfield" name="hostname" value="' . ( isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '' ) . '" class="textfield" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
        . $spaces . '    </td>' . "\n"
        . $spaces . '</tr>' . "\n"
        . $spaces . '<tr>' . "\n"

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-14 Michal Cihar  <nijel@users.sourceforge.net>
+    * server_privileges.php3: Fix notice about undefined index (bug #780861).
+
 2003-08-13 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3: do not check both radios (confuses Netscape 4.8)
 
