@@ -450,6 +450,7 @@ $strQuerySQLHistory = 'SQL-ajalugu';
 $strQueryStatistics = '<b>Päringu statistika</b>: Alates stardist, %s päringut on saadetud serverile.';
 $strQueryTime = 'Päring kestis %01.4f sek';
 $strQueryType = 'Päringu tüüp';
+$strQueryWindowLock = 'Antud päringut mitte muuta väljaspool akent.';
 
 $strReType = 'Sisesta uuesti';
 $strReceived = 'Saadud';
@@ -653,7 +654,5 @@ $strYes = 'Jah';
 $strZeroRemovesTheLimit = 'Märkus: Märkides antud seaded 0 (null) , eemaldate limiidi.';
 $strZip = '"zipitud"';
 // To translate
-
-$strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
 
 ?>
