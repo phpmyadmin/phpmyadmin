@@ -183,34 +183,36 @@ if ($cfg['MainPageIconic']) {
                     .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
             : '<b>' . $strHome . '</b>')
         . '</a>';
-    // Logout for advanced authentication
-    if ($cfg['Server']['auth_type'] != 'config') {
-        echo $str_spacer_links;
-        echo '<a class="item" href="index.php?' . PMA_generate_common_url() . '&amp;old_usr=' . urlencode($PHP_AUTH_USER) . '" target="_parent">'
-           . ($cfg['MainPageIconic']
-                ? '<img src="' . $pmaThemeImage . 's_loggoff.png" width="16" height="16" border="0" hspace="2" alt="' . $strLogout . '" title="' . $strLogout . '"'
-                        .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
-                : '<b>' . $strLogout . '</b>')
-           . '</a>';
-    } // end if
+    // if we have chosen server
+    if ($server != 0) {
+        // Logout for advanced authentication
+        if ($cfg['Server']['auth_type'] != 'config') {
+            echo $str_spacer_links;
+            echo '<a class="item" href="index.php?' . PMA_generate_common_url() . '&amp;old_usr=' . urlencode($PHP_AUTH_USER) . '" target="_parent">'
+               . ($cfg['MainPageIconic']
+                    ? '<img src="' . $pmaThemeImage . 's_loggoff.png" width="16" height="16" border="0" hspace="2" alt="' . $strLogout . '" title="' . $strLogout . '"'
+                            .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
+                    : '<b>' . $strLogout . '</b>')
+               . '</a>';
+        } // end if
 
-$anchor = 'querywindow.php?' . PMA_generate_common_url('', '');
-if ($cfg['QueryFrameJS']) {
-    $href = $anchor;
-    $target = '';
-    $onclick = 'onclick="javascript:open_querywindow(this.href); return false;"';
-} else {
-    $href = $anchor;
-    $target = 'target="phpmain' . $hash . '"';
-    $onclick = '';
-}
-if ($cfg['MainPageIconic']) {
-    $query_frame_link_text = '<img src="' . $pmaThemeImage . 'b_selboard.png" border="0" hspace="1" width="16" height="16" alt="' . $strQueryFrame . '" title="' . $strQueryFrame . '"'
-                           .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />';
-} else {
-    echo ($str_spacer_links != '' ? '<br />' : '');
-    $query_frame_link_text = '<b>' . $strQueryFrame . '</b>';
-}
+        $anchor = 'querywindow.php?' . PMA_generate_common_url('', '');
+        if ($cfg['QueryFrameJS']) {
+            $href = $anchor;
+            $target = '';
+            $onclick = 'onclick="javascript:open_querywindow(this.href); return false;"';
+        } else {
+            $href = $anchor;
+            $target = 'target="phpmain' . $hash . '"';
+            $onclick = '';
+        }
+        if ($cfg['MainPageIconic']) {
+            $query_frame_link_text = '<img src="' . $pmaThemeImage . 'b_selboard.png" border="0" hspace="1" width="16" height="16" alt="' . $strQueryFrame . '" title="' . $strQueryFrame . '"'
+                                   .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />';
+        } else {
+            echo ($str_spacer_links != '' ? '<br />' : '');
+            $query_frame_link_text = '<b>' . $strQueryFrame . '</b>';
+        }
     ?>
     <script type="text/javascript">
     <!--
@@ -221,6 +223,7 @@ if ($cfg['MainPageIconic']) {
         <a href="<?php echo $href; ?>&amp;no_js=true" <?php echo $target . ' ' . $onclick; ?> target="phpmain<?php echo $hash; ?>" class="item"><?php echo $query_frame_link_text; ?></a>
     </noscript>
     <?php
+    }
 
 if ($cfg['MainPageIconic']) {
     echo '<img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  .'" width="2" height="1" border="0" alt="" />'

@@ -81,7 +81,7 @@ echo "\n";
         <td valign="top">
         <h1>
         <?php
-        echo sprintf($strWelcome, ' phpMyAdmin ' . PMA_VERSION . ''); 
+        echo sprintf($strWelcome, ' phpMyAdmin ' . PMA_VERSION . '');
         ?>
         </h1>
 <?php
@@ -290,7 +290,7 @@ if ($server > 0) {
         <th class="tblHeaders"<?php echo $str_iconic_colspan; ?>>&nbsp;&nbsp;MySQL</th>
     </tr>
     <tr><?php
-        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','b_newdb.png',$strCreateNewDatabase,'') : $str_normal_list); 
+        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','b_newdb.png',$strCreateNewDatabase,'') : $str_normal_list);
 ?>
     <!-- db creation form -->
         <td valign="top" align="<?php echo $cell_align_left; ?>" nowrap="nowrap">
@@ -316,8 +316,8 @@ if ($server > 0) {
             ?>
             <!-- db creation no privileges message -->
                 <b><?php echo $strCreateNewDatabase . ':&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?></b><br />
-                <?php 
-                      echo '<span class="noPrivileges">' 
+                <?php
+                      echo '<span class="noPrivileges">'
                          . ($cfg['ErrorIconic'] ? '<img src="' . $pmaThemeImage . 's_error2.png" width="11" height="11" hspace="2" border="0" align="middle" />' : '')
                          . '' . $strNoPrivileges .'</span>';
         } // end create db form or message
@@ -371,7 +371,7 @@ if ($server > 0) {
             echo "\n";
             ?>
     <tr><?php
-            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_collations.php?'.$common_url_query.'">','s_asci.png',$strCharsetsAndCollations,'</a>') : $str_normal_list); 
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_collations.php?'.$common_url_query.'">','s_asci.png',$strCharsetsAndCollations,'</a>') : $str_normal_list);
 ?>
         <td>
                 <a href="./server_collations.php?<?php echo $common_url_query; ?>">
@@ -385,7 +385,7 @@ if ($server > 0) {
             echo "\n";
             ?>
     <tr><?php
-            echo '        ' . ($str_iconic_list!='' ? sprintf($str_iconic_list,'<a href="main.php?'.$common_url_query.'&amp;mode=reload">','s_reload.png',$strReloadMySQL,'</a>') : $str_normal_list);  
+            echo '        ' . ($str_iconic_list!='' ? sprintf($str_iconic_list,'<a href="main.php?'.$common_url_query.'&amp;mode=reload">','s_reload.png',$strReloadMySQL,'</a>') : $str_normal_list);
 ?>
         <td>
                 <a href="main.php?<?php echo $common_url_query; ?>&amp;mode=reload">
@@ -400,7 +400,7 @@ if ($server > 0) {
             echo "\n";
             ?>
     <tr><?php
-            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_privileges.php?'.$common_url_query.'">','s_rights.png',$strPrivileges,'</a>') : $str_normal_list);   
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_privileges.php?'.$common_url_query.'">','s_rights.png',$strPrivileges,'</a>') : $str_normal_list);
 ?>
         <td>
                 <a href="server_privileges.php?<?php echo $common_url_query; ?>">
@@ -411,7 +411,7 @@ if ($server > 0) {
         }
         ?>
     <tr><?php
-            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_databases.php?'.$common_url_query.'">','s_db.png',$strDatabases,'</a>') : $str_normal_list);  
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_databases.php?'.$common_url_query.'">','s_db.png',$strDatabases,'</a>') : $str_normal_list);
 ?>
         <td>
                 <a href="./server_databases.php?<?php echo $common_url_query; ?>">
@@ -448,7 +448,7 @@ if ($server > 0) {
         // Logout for advanced authentication
         if ($cfg['Server']['auth_type'] != 'config') {
             $http_logout = ($cfg['Server']['auth_type'] == 'http')
-                         ? "\n" 
+                         ? "\n"
 . '                <a href="./Documentation.html#login_bug" target="documentation">'
                          . ($cfg['ReplaceHelpImg'] ? '<img src="' . $pmaThemeImage . 'b_info.png" width="11" height="11" border="0" alt="Info" align="middle" />' : '(*)') . '</a>'
                          : '';
@@ -487,7 +487,7 @@ if (empty($cfg['Lang'])) {
     ?>
     <!-- Language Selection -->
     <tr><?php
-        echo '        ' . ($str_iconic_list !='' ? sprintf($str_iconic_list,'<a href="./translators.html" target="documentation">','s_lang.png','Language','</a>') : $str_normal_list); 
+        echo '        ' . ($str_iconic_list !='' ? sprintf($str_iconic_list,'<a href="./translators.html" target="documentation">','s_lang.png','Language','</a>') : $str_normal_list);
 ?>
         <td nowrap="nowrap">
             <form method="post" action="index.php" target="_parent">
@@ -533,12 +533,12 @@ if (empty($cfg['Lang'])) {
             </form>
         </td>
     </tr>
-       
+
     <?php
 }
 
 if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
-    && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
+    && $server != 0 && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
     echo "\n";
 ?>
     <!-- Charset Selection -->
@@ -569,10 +569,10 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
         </td>
     </tr>
     <?php
-} elseif (PMA_MYSQL_INT_VERSION >= 40100) {
+} elseif ($server != 0 && PMA_MYSQL_INT_VERSION >= 40100) {
     echo '    <!-- Charset Info -->' . "\n"
        . '    <tr>' .  "\n"
-       .'        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLCharset,'') : $str_normal_list) . "\n" 
+       .'        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLCharset,'') : $str_normal_list) . "\n"
        . '        <td>' . "\n"
        . '            ' . $strMySQLCharset . ': '
        . '            <b>'
@@ -583,7 +583,7 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
        . '    </tr>' . "\n"
        . '    <!-- MySQL Connection Collation -->' . "\n"
        . '    <tr>' .  "\n"
-       .'        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLCharset,'') : $str_normal_list) . "\n" 
+       .'        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLCharset,'') : $str_normal_list) . "\n"
        . '        <td>' . "\n"
        . '            <form method="post" action="index.php" target="_parent">' . "\n"
        . PMA_generate_common_hidden_inputs(NULL, NULL, 4, 'collation_connection')
@@ -617,12 +617,12 @@ if (isset($available_themes_choices) && $available_themes_choices > 1) {
 ?>
         <td>
             <form name="setTheme" method="post" action="index.php" target="_parent">
-                <?php 
+                <?php
                 echo PMA_generate_common_hidden_inputs('', '', 5);
                 echo $theme_preview_href
                    . (isset($strTheme) ? $strTheme : 'Theme (Style)')
                    . '</a>:' . "\n";
-                ?> 
+                ?>
                 <select name="set_theme" dir="ltr" onchange="this.form.submit();" style="vertical-align: middle">
                 <?php
                     foreach ($available_themes_choices AS $cur_theme) {
@@ -643,7 +643,7 @@ if (isset($available_themes_choices) && $available_themes_choices > 1) {
 ?>
     <!-- Documentation -->
     <tr><?php
-        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="Documentation.html" target="documentation">','b_docs.png',$strPmaDocumentation,'</a>') : $str_normal_list); 
+        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="Documentation.html" target="documentation">','b_docs.png',$strPmaDocumentation,'</a>') : $str_normal_list);
 ?>
         <td nowrap="nowrap">
             <a href="Documentation.html" target="documentation"><b><?php echo $strPmaDocumentation; ?></b></a>
@@ -655,7 +655,7 @@ if ($is_superuser || $cfg['ShowPhpInfo']) {
     ?>
     <!-- PHP Information -->
     <tr><?php
-        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="phpinfo.php?' . PMA_generate_common_url() . '" target="_blank">','php_sym.png',$strShowPHPInfo,'</a>') : $str_normal_list);  
+        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="phpinfo.php?' . PMA_generate_common_url() . '" target="_blank">','php_sym.png',$strShowPHPInfo,'</a>') : $str_normal_list);
 ?>
         <td nowrap="nowrap">
             <a href="phpinfo.php?<?php echo PMA_generate_common_url(); ?>" target="_blank"><?php echo $strShowPHPInfo; ?></a>
@@ -668,15 +668,15 @@ echo "\n";
 
         <!-- phpMyAdmin related urls -->
     <tr><?php
-        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="http://www.phpMyAdmin.net/" target="_blank">','b_home.png',$strHomepageOfficial,'</a>') : $str_normal_list);  
+        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="http://www.phpMyAdmin.net/" target="_blank">','b_home.png',$strHomepageOfficial,'</a>') : $str_normal_list);
 ?>
         <td nowrap="nowrap">
             <a href="http://www.phpMyAdmin.net/" target="_blank"><?php echo $strHomepageOfficial; ?></a>
        </td>
-    </tr> 
+    </tr>
     <tr>
 <?php
-        echo '<td><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  . '" width="1" height="1" border="0" /></td>'; 
+        echo '<td><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  . '" width="1" height="1" border="0" /></td>';
 ?>
        <td nowrap="nowrap">
             [<a href="changelog.php" target="_blank">ChangeLog</a>]

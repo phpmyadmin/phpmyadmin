@@ -11,6 +11,8 @@ $Source$
     * sql.php: Fix undefined index.
     * libraries/sqlparser.lib.php: Return raw query in case of error (bug
       #1048826).
+    * main.php, queryframe.php: Handle correctly situation with no default
+      server (bug #1049107).
 
 2004-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish update, thanks to boralioglu.
