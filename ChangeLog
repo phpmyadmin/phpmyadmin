@@ -16,6 +16,10 @@ $Source$
       libraries/display_export.lib.php3, lang/*: Merged patch #727027 - LaTeX
       export improvements. Now can export table structure and some other
       options. Closes RFE #718942.
+    * tbl_change.php3: Remember state of insert as another row - fixes
+      #736064, show used query.
+    * index.php3: Fixed typo in hash, fixed bad hash propagated with
+      JavaScript. Fixes #736003.
 
 2003-05-11 Marc Delisle  <lem9@users.sourceforge.net>
      ### 2.5.0 released

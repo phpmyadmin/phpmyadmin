@@ -67,8 +67,10 @@ $phpmain_hash_js = time();
 <?php
     if ($cfg['QueryFrameJS']) {?>
         <script type="text/javascript">
+        <!--
         document.writeln('<frame src="left.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash . $phpmain_hash_js; ?>" name="nav" frameborder="0" />');
         document.writeln('<frame src="queryframe.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash . $phpmain_hash_js; ?>" name="queryframe" frameborder="0" />');
+        //-->
         </script>
 
         <noscript>
@@ -82,11 +84,18 @@ $phpmain_hash_js = time();
 <?php
 } else {
 ?>
-    <frame src="left.php3?<?php echo $url_query; ?>&amp;hash='<?php echo $phpmain_hash; ?>" name="nav" frameborder="0" />
+    <frame src="left.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash; ?>" name="nav" frameborder="0" />
 <?php
 }
 ?>
-    <frame src="<?php echo (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase']; ?>?<?php echo $url_query; ?>" name="phpmain<?php echo $phpmain_hash; ?>" frameborder="1" />
+    <script type="text/javascript">
+    <!--
+    document.writeln('<frame src="<?php echo (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase']; ?>?<?php echo $url_query; ?>" name="phpmain<?php echo $phpmain_hash . $phpmain_hash_js; ?>" frameborder="0" />');
+    //-->
+    </script>
+    <noscript>
+        <frame src="<?php echo (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase']; ?>?<?php echo $url_query; ?>" name="phpmain<?php echo $phpmain_hash; ?>" frameborder="1" />
+    </noscript>
 
     <noframes>
         <body bgcolor="#FFFFFF">
