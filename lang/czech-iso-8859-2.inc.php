@@ -193,6 +193,7 @@ $strDbPrivileges = 'Oprávnìní pro jednotlivé databáze';
 $strDbSpecific = 'závislé na databázi';
 $strDefault = 'Výchozí';
 $strDefaultValueHelp = 'Výchozí hodnotu zadejte jen jednu hodnotu bez uvozovek a escapování znakù, napøíklad: a';
+$strDefragment = 'Defragmentovat tabulku';
 $strDelOld = 'Aktuální stránka se odkazuje na tabulky, které ji¾ neexistují. Chcete odstranit tyto odkazy?';
 $strDelayedInserts = 'Pou¾ívat zpo¾dìné inserty';
 $strDelete = 'Smazat';
@@ -742,5 +743,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strDefragment = 'Defragment table';  //to translate
 ?>
