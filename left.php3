@@ -53,7 +53,7 @@ header('Content-Type: text/html; charset=' . $charset);
 // Hard coded font name and size depends on charset. This is a temporary and
 // uggly fix
 $font_family = ($charset == 'iso-8859-1')
-             ? 'Arial, Helvetica, sans-serif'
+             ? 'helvetica, arial, geneva, sans-serif'
              : 'sans-serif';
 ?>
     body {font-family: <?php echo $font_family; ?>; font-size: 10pt}

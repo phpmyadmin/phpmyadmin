@@ -22,18 +22,25 @@ header('Content-Type: text/html; charset=' . $charset);
 <title>phpMyAdmin</title>
 <style type="text/css">
 <!--
-body {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt}
-th   {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; background-color: <?php echo $cfgThBgcolor;?>;}
-td   {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt;}
-form   {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt}
-h1   {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 16pt; font-weight: bold}
-A:link    {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; text-decoration: none; color: blue}
-A:visited {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; text-decoration: none; color: blue}
-A:hover   {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; text-decoration: underline; color: red}
-A:link.nav {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000}
-A:visited.nav {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000}
-A:hover.nav {  font-family: Verdana, Arial, Helvetica, sans-serif; color: red;}
-.nav {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000}
+<?php
+// Hard coded font name and size depends on charset. This is a temporary and
+// uggly fix
+$font_family = ($charset == 'iso-8859-1')
+             ? 'helvetica, arial, geneva, sans-serif'
+             : 'sans-serif';
+?>
+body          {font-family: <?php echo $font_family; ?>; font-size: 10pt}
+th            {font-family: <?php echo $font_family; ?>; font-size: 10pt; font-weight: bold; background-color: <?php echo $cfgThBgcolor;?>;}
+td            {font-family: <?php echo $font_family; ?>; font-size: 10pt;}
+form          {font-family: <?php echo $font_family; ?>; font-size: 10pt}
+h1            {font-family: <?php echo $font_family; ?>; font-size: 16pt; font-weight: bold}
+A:link        {font-family: <?php echo $font_family; ?>; font-size: 10pt; text-decoration: none; color: blue}
+A:visited     {font-family: <?php echo $font_family; ?>; font-size: 10pt; text-decoration: none; color: blue}
+A:hover       {font-family: <?php echo $font_family; ?>; font-size: 10pt; text-decoration: underline; color: red}
+A:link.nav    {font-family: <?php echo $font_family; ?>; color: #000000}
+A:visited.nav {font-family: <?php echo $font_family; ?>; color: #000000}
+A:hover.nav   {font-family: <?php echo $font_family; ?>; color: red;}
+.nav          {font-family: <?php echo $font_family; ?>; color: #000000}
 //-->
 </style>
 </head>

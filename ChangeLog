@@ -11,6 +11,8 @@ $Source$
 
 2001-07-01  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.php3: rewritten so it becomes as far as possible xhtml1.0 compliant.
+	* header.php3: rewritten styles so the font face is valid with non-latin1
+	  charsets.
 	* spacer.gif was broken (strange display with NS).
 
 2001-06-30  Marc Delisle  <lem9@users.sourceforge.net>
