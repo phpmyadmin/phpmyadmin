@@ -143,8 +143,9 @@ echo "\n";
     </tr>
 
 <?php
-// Set if we passed the first timestamp field
-$timestamp_seen = 0;
+// Set if we passed the first timestamp field (loic1: in insert mode only -not
+// in edit mode-)
+$timestamp_seen = (isset($primary_key) ? 1 : 0);
 $fields_cnt     = mysql_num_rows($table_def);
 
 for ($i = 0; $i < $fields_cnt; $i++) {
@@ -193,7 +194,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     <?php
     echo "\n";
 
-    // The function column
+    // Prepares the field value
     if (isset($row) && isset($row[$field])) {
         // loic1: special binary "characters"
         if ($is_binary || $is_blob) {
@@ -220,6 +221,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         $backup_field  = '';
     }
 
+    // The function column
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data to be destroyed
     // Note: from the MySQL manual: "BINARY doesn't affect how the column is
