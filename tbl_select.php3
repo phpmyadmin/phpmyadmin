@@ -58,7 +58,10 @@ if(!isset($param) || $param[0] == "") {
      echo "<tr bgcolor=".$bgcolor.">";
      echo "<td>$field</td>";
      echo "<td>$type</td>";
-     echo "<td><input type=text name=fields[] style=\"width: ".$cfgMaxInputsize."\" maxlength=".$len."></td>\n";
+
+     $fieldsize=($len>40? 40: $len);
+     echo "<td><input type=text name=fields[] 
+	size=\"$fieldsize\" maxlength=".$len."></td>\n";
      echo "<input type=hidden name=names[] value=\"$field\">\n";
      echo "<input type=hidden name=types[] value=\"$type\">\n";
      echo "</tr>";

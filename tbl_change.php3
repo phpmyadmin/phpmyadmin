@@ -81,7 +81,6 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
     }
     echo "<td>$type</td>\n";
 
-   // THE VALUE COLUMN
     if(isset($row) && isset($row[$field]))
     {
         $special_chars = htmlspecialchars($row[$field]);
@@ -119,9 +118,12 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
     	echo "</select></td>\n";
     }
 
+   // THE VALUE COLUMN
+
     if(strstr($row_table_def["Type"], "text"))
     {
-        echo "<td><textarea name=fields[$field] style=\"width:$cfgMaxInputsize;\" rows=5>$special_chars</textarea></td>\n";
+        echo "<td><textarea name=fields[$field] rows=\"$cfgTextareaRows\" 
+	      cols=\"$cfgTextareaCols\" >$special_chars</textarea></td>\n";
         if (strlen($special_chars) > 32000)
             echo "<td>$strTextAreaLength</td>";
     }
@@ -210,11 +212,14 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
     elseif((strstr($row_table_def["Type"], "blob") || strstr($row_table_def["Type"], "binary")) && !empty($data))
     {
         echo "<td>" . $strBinaryDoNotEdit;
-        echo "<input type=\"hidden\" name=fields[$field] value=\"".$special_chars."\" style=\"width:$cfgMaxInputsize;\" maxlength=$len></td>";
+        echo "<input type=\"hidden\" name=fields[$field] value=\"".$special_chars."\"></td>";
     }
     else
     {
-        echo "<td><input type=text name=fields[$field] value=\"".$special_chars."\" style=\"width:$cfgMaxInputsize;\" maxlength=$len></td>";
+        $fieldsize=($len>40? 40: $len);
+
+        echo "<td><input type=text name=fields[$field] 
+	 value=\"".$special_chars."\" maxlength=\"$len\" size=\"$fieldsize\"></td>";
     }
     echo "</tr>\n";
 }

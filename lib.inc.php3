@@ -3,6 +3,10 @@
 
 require("./config.inc.php3");
 
+// if they are using an old config.inc.php3
+if (!isset($cfgTextareaCols)) $cfgTextareaCols="40";
+if (!isset($cfgTextareaRows)) $cfgTextareaRows="7";
+
 if(!defined("__LIB_INC__")){
 	define("__LIB_INC__", 1);
 

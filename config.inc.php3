@@ -77,11 +77,11 @@ $cfgThBgcolor    = "#D3DCE3";
 $cfgBgcolorOne   = "#CCCCCC";
 $cfgBgcolorTwo   = "#DDDDDD";
 $cfgMaxRows      = 30;
-$cfgMaxInputsize = "300px";
 $cfgOrder        = "ASC";
 $cfgShowBlob     = true;
 $cfgShowSQL      = true;
-
+$cfgTextareaCols = "40";
+$cfgTextareaRows = "7";
 $cfgModifyDeleteAtLeft  = true;
 $cfgModifyDeleteAtRight = false;
 

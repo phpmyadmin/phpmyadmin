@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-19  Marc Delisle  <lem9@users.sourceforge.net>
+	* config.inc.php3, tbl_change.php3, db_details.php3, lib.inc.php3,
+	  tbl_properties.php3, tbl_properties_inc.php3, tbl_select.php3,
+	  Documentation.html:
+	  Feature #429771: dynamic lenght for input fields, and new config
+	  for textareas
+
 2001-07-18  Steve Alberty  <alberty@neptunlabs.de>
 	* left.php3: add 'or mysql_die()' for mysql_list_dbs to suppress
 	  'unable to save result' warnings

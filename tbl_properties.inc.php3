@@ -201,7 +201,7 @@ if($action == "tbl_create.php3" && MYSQL_MAJOR_VERSION >= "3.23")
 {
     echo "$strTableComments:<br>";
     ?>
-    <input type="text" name="comment" style="width: <?php echo $cfgMaxInputsize;?>" maxlength="80">
+    <input type="text" name="comment" size="40" maxlength="80">
     <?php
 //BEGIN - Table Type - 2 May 2001 - Robbat2 - change by staybyte - 11 June 2001
 if($action == "tbl_create.php3")

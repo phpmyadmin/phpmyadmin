@@ -11,7 +11,6 @@ if (!isset($message)) {
     show_message($message);
 }
 
-
 /**
  * Displays an html table with all the tables contained into the current
  * database
@@ -261,7 +260,10 @@ if ($num_tables > 0) {
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <?php echo $strRunSQLQuery . $db . ' ' . show_docu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
-<textarea name="sql_query" cols="40" rows="3" wrap="virtual" style="width: <?php echo $cfgMaxInputsize; ?>">
+<textarea name="sql_query" wrap="virtual" 
+ rows="<?php echo $cfgTextareaRows; ?>"
+ cols="<?php echo $cfgTextareaCols; ?>"
+>
 <?php if (isset($show_query)) {
          echo $show_query=="y" ? $sql_query : '';
       }
