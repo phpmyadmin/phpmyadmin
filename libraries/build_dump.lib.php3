@@ -202,7 +202,6 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $search       = array("\x00", "\x0a", "\x0d", "\x1a"); //\x08\\x09, not required
             $replace      = array('\0', '\n', '\r', '\Z');
             $is_first_row = TRUE;
-            $prev_time    = time();
 
             @set_time_limit($GLOBALS['cfgExecTimeLimit']);
 
@@ -242,13 +241,8 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                 // Call the handler
                 $handler($insert_line);
 
-                // loic1: each 20 seconds, send a fake header to bypass browser
-                // timeout
-                $new_time      = time();
-                if ($new_time - $prev_time >= 20) {
-                    $prev_time = $new_time;
-                    header('Expires: 0');
-                }
+                // loic1: send a fake header to bypass browser timeout
+                header('Expires: 0');
             } // end while
             
             // Replace last comma by a semi-column in extended inserts case
@@ -296,7 +290,6 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         $i            = 0;
         $is_first_row = TRUE;
         $fields_cnt   = mysql_num_fields($result);
-        $prev_time    = time();
 
         @set_time_limit($GLOBALS['cfgExecTimeLimit']); // HaRa
 
@@ -359,13 +352,8 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $handler(trim($schema_insert));
             ++$i;
 
-            // loic1: each 20 seconds, send a fake header to bypass browser
-            // timeout
-            $new_time      = time();
-            if ($new_time - $prev_time >= 20) {
-                $prev_time = $new_time;
-                header('Expires: 0');
-            }
+            // loic1: send a fake header to bypass browser timeout
+            header('Expires: 0');
         } // end while
         mysql_free_result($result);
 

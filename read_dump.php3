@@ -18,12 +18,11 @@
  */
 function PMA_splitSqlFile(&$ret, $sql, $release)
 {
-    $sql               = trim($sql);
-    $sql_len           = strlen($sql);
-    $char              = '';
-    $string_start      = '';
-    $in_string         = FALSE;
-    $prev_time         = time();
+    $sql          = trim($sql);
+    $sql_len      = strlen($sql);
+    $char         = '';
+    $string_start = '';
+    $in_string    = FALSE;
 
     for ($i = 0; $i < $sql_len; ++$i) {
         $char = $sql[$i];
@@ -119,12 +118,8 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
             $sql[$i] = ' ';
         } // end else if
 
-        // loic1: each 20 seconds, send a fake header to bypass browser timeout
-        $new_time      = time();
-        if ($new_time - $prev_time >= 20) {
-            $prev_time = $new_time;
-            header('Expires: 0');
-        }
+        // loic1: send a fake header to bypass browser timeout
+        header('Expires: 0');
     } // end for
 
     // add any rest to the returned array
