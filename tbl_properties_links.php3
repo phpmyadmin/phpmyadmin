@@ -54,11 +54,15 @@ $att7 = 'class="drop" onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsF
 /**
  * Displays links
  */
-?>
-<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">
+
+if ($cfg['LightTabs']) {
+    echo '&nbsp;';
+} else {
+    echo '<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">
     <tr>
-        <td width="8">&nbsp;</td>
-<?php
+        <td width="8">&nbsp;</td>';
+}
+
 echo PMA_printTab($strStructure, 'tbl_properties_structure.php3', $url_query);
 echo PMA_printTab($strBrowse, $lnk2, $arg2);
 echo PMA_printTab($strSQL, 'tbl_properties.php3', $url_query);
@@ -72,8 +76,12 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
 echo PMA_printTab($strEmpty, $lnk6, $arg6, $att6);
 echo PMA_printTab($strDrop, 'sql.php3', $arg7, $att7);
 echo "\n";
-?>
-    </tr>
-</table>
-<br />
+
+if (!$cfg['LightTabs']) {
+    echo '</tr></table>';
+} else {
+    echo '<br />';
+}
+
+?><br />
 

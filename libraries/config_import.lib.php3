@@ -228,6 +228,15 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
             $cfg['LeftFrameLight'] = TRUE;
         }
     }
+    
+    if (!isset($cfg['LightTabs'])) {
+        if (isset($cfgLightTabs)) {
+            $cfg['LightTabs'] = $cfgLightTabs;
+            unset($cfgLightTabs);
+        } else {
+            $cfg['LightTabs'] = FALSE;
+        }
+    }
 
     if (!isset($cfg['ShowTooltip'])) {
         if (isset($cfgShowTooltip)) {
@@ -695,6 +704,33 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
             unset($cfgQueryWindowHeight);
         } else {
             $cfg['QueryWindowHeight'] = 300;
+        }
+    }
+
+    if (!isset($cfg['QueryHistoryMax'])) {
+        if (isset($cfgQueryHistoryMax)) {
+            $cfg['QueryHistoryMax'] = $cfgQueryHistoryMax;
+            unset($cfgQueryHistoryMax);
+        } else {
+            $cfg['QueryHistoryMax'] = 25;
+        }
+    }
+
+    if (!isset($cfg['QueryHistoryDB'])) {
+        if (isset($cfgQueryHistoryDB)) {
+            $cfg['QueryHistoryDB'] = $cfgQueryHistoryDB;
+            unset($cfgQueryHistoryDB);
+        } else {
+            $cfg['QueryHistoryDB'] = FALSE;
+        }
+    }
+
+    if (!isset($cfg['QueryWindowDefTab'])) {
+        if (isset($cfgQueryWindowDefTab)) {
+            $cfg['QueryWindowDefTab'] = $cfgQueryWindowDefTab;
+            unset($cfgQueryWindowDefTab);
+        } else {
+            $cfg['QueryWindowDefTab'] = 'sql';
         }
     }
 

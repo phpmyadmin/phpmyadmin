@@ -1542,16 +1542,18 @@ if (typeof(document.getElementById) != 'undefined'
      * @param   string  main link file, e.g. "test.php3"
      * @param   string  link arguments
      * @param   string  link attributes
+     * @param   string  include '?' even though no attributes are set. Can be set empty, should be '?'.
+     * @param   boolean force display TAB as active
      *
      * @return  string  two table cells, the first beeing a separator, the second the tab itself
      *
      * @access  public
      */
-    function PMA_printTab($text, $link, $args = '', $attr = '') {
-        global $PHP_SELF;
+    function PMA_printTab($text, $link, $args = '', $attr = '', $sep = '?', $active = false) {
+        global $PHP_SELF, $cfg;
         global $db_details_links_count_tabs;
 
-        if (basename($PHP_SELF) == $link
+        if ((basename($PHP_SELF) == $link || $active)
             && ($text != $GLOBALS['strEmpty'] && $text != $GLOBALS['strDrop'])) {
             $bgcolor = 'silver';
         } else {
@@ -1563,19 +1565,30 @@ if (typeof(document.getElementById) != 'undefined'
             $attr = ' ' . $attr;
         }
 
-        $out     = "\n" . '        '
-                 . '<td bgcolor="' . $bgcolor . '" align="center" width="64" nowrap="nowrap" class="tab">'
-                 . "\n" . '            ';
-        if (strlen($link) > 0) {
-            $out .= '<a href="' . $link . '?' . $args . '"' . $attr . '>'
-                 .  '<b>' . $text . '</b></a>';
+        if ($cfg['LightTabs']) {
+            $out = '';
+            if (strlen($link) > 0) {
+                $out .= '<a href="' . $link . $sep . $args . '"' . $attr . '>'
+                     .  '<b>' . $text . '</b></a>';
+            } else {
+                $out .= '<b>' . $text . '</b>';
+            }
+            $out = '[ ' . $out . ' ]&nbsp;&nbsp;&nbsp;';
         } else {
-            $out .= '<b>' . $text . '</b>';
+            $out     = "\n" . '        '
+                     . '<td bgcolor="' . $bgcolor . '" align="center" width="64" nowrap="nowrap" class="tab">'
+                     . "\n" . '            ';
+            if (strlen($link) > 0) {
+                $out .= '<a href="' . $link . $sep . $args . '"' . $attr . '>'
+                     .  '<b>' . $text . '</b></a>';
+            } else {
+                $out .= '<b>' . $text . '</b>';
+            }
+            $out     .= "\n" . '        '
+                     .  '</td>'
+                     .  "\n" . '        '
+                     .  '<td width="8">&nbsp;</td>';
         }
-        $out     .= "\n" . '        '
-                 .  '</td>'
-                 .  "\n" . '        '
-                 .  '<td width="8">&nbsp;</td>';
 
         return $out;
     } // end of the 'PMA_printTab()' function

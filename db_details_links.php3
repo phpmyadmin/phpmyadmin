@@ -58,11 +58,15 @@ else {
 /**
  * Displays tab links
  */
-?>
-<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">
+
+if ($cfg['LightTabs']) {
+    echo '&nbsp;';
+} else {
+    echo '<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">
     <tr>
-        <td width="8">&nbsp;</td>
-<?php
+        <td width="8">&nbsp;</td>';
+}
+
 echo PMA_printTab($strStructure, 'db_details_structure.php3', $url_query);
 echo PMA_printTab($strSQL, 'db_details.php3', $url_query . '&amp;db_query_force=1');
 echo PMA_printTab($strExport, $lnk3, $arg3);
@@ -79,8 +83,12 @@ if ($lnk5) {
    echo PMA_printTab($strDrop, $lnk5, $arg5, $att5);
 } // end if
 echo "\n";
+
+if (!$cfg['LightTabs']) {
+    echo '</tr></table>';
+} else {
+    echo '<br />';
+}
 ?>
-    </tr>
-</table>
 <br />
 

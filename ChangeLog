@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-27 Garvin Hicking <me@supergarv.de>
+    * libraries/common.lib.php3, tbl_properties_links.php3, db_details_links.php3,
+      querywindow.php3: Integrated Manuzhais patch for Lightweight Tabs.
+    * querywindow.php3, tbl_query_box.php3, config.inc.php3, header.inc.php3, index.php3,
+      libraries/config_import.lib.php3: Added (optional) DB-based SQL-history with
+      purging on login, made querywindow tabbed, improved Querywindow-compatibility. 
+
 2003-02-26 Garvin Hicking <me@supergarv.de>
     * lang/german-*: better grammar. ;)
     * libraries/display_tbl.lib.php3: Fixed transformation-link variable

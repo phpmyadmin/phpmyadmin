@@ -183,6 +183,7 @@ $cfg['UseDbSearch']           = TRUE;   // whether to enable the "database searc
 // Left frame setup
 $cfg['LeftFrameLight']        = TRUE;   // use a select-based menu and display only the
                                         // current tables in the left frame.
+$cfg['LightTabs']             = FALSE;  // use lightweight, graphically less intense menu-tabs
 $cfg['ShowTooltip']           = TRUE;   // display table comment as tooltip in left frame
 $cfg['ShowTooltipAliasDB']    = FALSE;  // if ShowToolTip is enabled, this defines that table/db comments
 $cfg['ShowTooltipAliasTB']    = FALSE;  // are shown (in the left menu and db_details_structure) instead of
@@ -373,8 +374,8 @@ $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right s
                                             // (or at the bottom with vertical browse)
 $cfg['DefaultDisplay']      = 'horizontal'; // default display direction
                                             // (horizontal|vertical|horizontalflipped)
-$cfg['HeaderFlipType']        = 'css';        // table-header rotation via faking or css? (css|fake)
-$cfg['ShowBrowseComments']    = TRUE;         // shows stored relation-comments in 'browse' mode.
+$cfg['HeaderFlipType']      = 'css';        // table-header rotation via faking or css? (css|fake)
+$cfg['ShowBrowseComments']  = TRUE;         // shows stored relation-comments in 'browse' mode.
 $cfg['ShowPropertyComments']= TRUE;         // shows stored relation-comments in 'table property' mode.
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
@@ -382,9 +383,15 @@ $cfg['QueryFrame']          = TRUE;         // displays a new frame where a link
 $cfg['QueryFrameJS']        = TRUE;         // whether to use JavaScript functions for opening a new window for SQL commands.
                                             // if set to 'false', the target of the querybox is always the right frame.
 $cfg['QueryFrameDebug']     = FALSE;        // display JS debugging link (DEVELOPERS only)
-$cfg['QueryWindowWidth']     = 750;          // Width of Query window
-$cfg['QueryWindowHeight']    = 300;          // Height of Query window
-
+$cfg['QueryWindowWidth']    = 750;          // Width of Query window
+$cfg['QueryWindowHeight']   = 300;          // Height of Query window
+$cfg['QueryHistoryDB']      = FALSE;         // Set to TRUE if you want DB-based query history.
+                                            // If FALSE, this utilizes JS-routines to display
+                                            // query history (lost by window close)
+$cfg['QueryWindowDefTab']   = 'sql';        // which tab to display in the querywindow on startup
+                                            // (sql|files|history|full)
+$cfg['QueryHistoryMax']     = 25;           // When using DB-based query history, how many entries
+                                            // should be kept?
 $cfg['BrowseMIME']          = TRUE;         // Use MIME-Types (stored in column comments table) for
 
 /**

@@ -41,6 +41,13 @@ if (isset($lightm_db)) {
 $url_query = PMA_generate_common_url(isset($db) ? $db : '');
 
 header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
+
+require('./libraries/relation.lib.php3');
+$cfgRelation = PMA_getRelationsParam();
+
+if ($cfg['QueryHistoryDB'] && $cfgRelation['historywork']) {
+    PMA_purgeHistory($cfg['Server']['user']);
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">

@@ -81,9 +81,6 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] || ($cfg['QueryFrameJS'] && !$d
 }
 
 ?>
-    <!-- Query box and bookmark support -->
-    <li>
-        <a name="querybox"></a>
         <form method="post" target="phpmain" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
             onsubmit="return checkSqlQuery(this)" name="sqlform">
             <input type="hidden" name="is_js_confirmed" value="0" />
@@ -92,14 +89,22 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] || ($cfg['QueryFrameJS'] && !$d
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
+
+<?php
+if (!isset($is_inside_querywindow) ||
+    (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full'))) {
+?>
+    <!-- Query box and bookmark support -->
+    <li>
+        <a name="querybox"></a>
             <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . $queryframe_db_list . ' ' . PMA_showMySQLDocu('Reference', 'SELECT') . '&nbsp;&nbsp;&nbsp;' . $strFields . ':' . "\n"; ?>
             <select name="dummy" size="1">
 <?php
-echo "\n";
-for ($i = 0 ; $i < $fields_cnt; $i++) {
-    echo '                '
-         . '<option value="' . urlencode($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
-}
+    echo "\n";
+    for ($i = 0 ; $i < $fields_cnt; $i++) {
+        echo '                '
+             . '<option value="' . urlencode($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
+    }
 ?>
             </select>
             <input type="button" name="insert" value="<?php echo($strInsert); ?>" onclick="sqlform.sql_query.value = sqlform.sql_query.value + sqlform.dummy.value" />
@@ -112,9 +117,17 @@ for ($i = 0 ; $i < $fields_cnt; $i++) {
                 <label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label><br />
             </div>
 <?php
+} else {
+?>
+            <input type="hidden" name="sql_query" value="" />
+            <input type="hidden" name="show_query" value="1" />
+<?php
+}
+
 // loic1: displays import dump feature only if file upload available
-if ($is_upload) {
-    echo '            <i>' . $strOr . '</i> ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
+if ($is_upload && (!isset($is_inside_querywindow) ||
+    (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')))) {
+    echo '            ' . ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab == 'full') || !isset($is_inside_querywindow) ? '<i>' . $strOr . '</i>' : '') . ' ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
     ?>
             <div style="margin-bottom: 5px">
             <input type="file" name="sql_file" class="textfield" /><br />
@@ -166,37 +179,53 @@ if (function_exists('PMA_set_enc_form')) {
 }
 
 // Bookmark Support
-if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
-    if (($bookmark_list = PMA_listBookmarks($db, $cfg['Bookmark'])) && count($bookmark_list) > 0) {
-        echo "            <i>$strOr</i> $strBookmarkQuery&nbsp;:<br />\n";
-        echo '            <div style="margin-bottom: 5px">' . "\n";
-        echo '            <select name="id_bookmark" style="vertical-align: middle">' . "\n";
-        echo '                <option value=""></option>' . "\n";
-        while (list($key, $value) = each($bookmark_list)) {
-            echo '                <option value="' . $value . '">' . htmlentities($key) . '</option>' . "\n";
+$bookmark_go = FALSE;
+if (!isset($is_inside_querywindow) ||
+    (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'history' || $querydisplay_tab == 'full'))) {
+    if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
+        if (($bookmark_list = PMA_listBookmarks($db, $cfg['Bookmark'])) && count($bookmark_list) > 0) {
+            echo "            " . ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab == 'full') || !isset($is_inside_querywindow) ? "<i>$strOr</i>" : '') . " $strBookmarkQuery&nbsp;:<br />\n";
+
+            echo '            <div style="margin-bottom: 5px">' . "\n";
+            echo '            <select name="id_bookmark" style="vertical-align: middle">' . "\n";
+            echo '                <option value=""></option>' . "\n";
+            while (list($key, $value) = each($bookmark_list)) {
+                echo '                <option value="' . $value . '">' . htmlentities($key) . '</option>' . "\n";
+            }
+            echo '            </select>' . "\n";
+            echo '            <input type="radio" name="action_bookmark" value="0" id="radio_bookmark0" checked="checked" style="vertical-align: middle" /><label for="radio_bookmark0">' . $strSubmit . '</label>' . "\n";
+            echo '            &nbsp;<input type="radio" name="action_bookmark" value="1" id="radio_bookmark1" style="vertical-align: middle" /><label for="radio_bookmark1">' . $strBookmarkView . '</label>' . "\n";
+            echo '            &nbsp;<input type="radio" name="action_bookmark" value="2" id="radio_bookmark2" style="vertical-align: middle" /><label for="radio_bookmark2">' . $strDelete . '</label>' . "\n";
+            echo '            <br />' . "\n";
+            echo '            </div>' . "\n";
+            $bookmark_go = TRUE;
         }
-        echo '            </select>' . "\n";
-        echo '            <input type="radio" name="action_bookmark" value="0" id="radio_bookmark0" checked="checked" style="vertical-align: middle" /><label for="radio_bookmark0">' . $strSubmit . '</label>' . "\n";
-        echo '            &nbsp;<input type="radio" name="action_bookmark" value="1" id="radio_bookmark1" style="vertical-align: middle" /><label for="radio_bookmark1">' . $strBookmarkView . '</label>' . "\n";
-        echo '            &nbsp;<input type="radio" name="action_bookmark" value="2" id="radio_bookmark2" style="vertical-align: middle" /><label for="radio_bookmark2">' . $strDelete . '</label>' . "\n";
-        echo '            <br />' . "\n";
-        echo '            </div>' . "\n";
     }
 }
+
+if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'sql' || $querydisplay_tab == 'full' || ($querydisplay_tab == 'history' && $bookmark_go)))) {
 ?>
             <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
-        </form>
     </li>
-
 <?php
-// loic1: displays import dump feature only if file upload available
-if ($is_upload && isset($db) && isset($table)) {
-    ?>
-    <!-- Insert a text file -->
-    <li>
-        <div style="margin-bottom: 10px"><a href="ldi_table.php3?<?php echo $url_query; ?>"><?php echo $strInsertTextfiles; ?></a></div>
-    </li>
-    <?php
+}
+
+if (!isset($is_inside_querywindow) ||
+    (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full'))) {
+    
+    // loic1: displays import dump feature only if file upload available
+    $ldi_target = 'ldi_table.php3?' . $url_query;
+    
+    if ($is_upload && isset($db) && isset($table)) {
+        ?>
+        <!-- Insert a text file -->
+        <br /><br />
+        <li>
+            <div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain.location.href = \'' . $ldi_target . '\'; return false;"' : ''); ?>><?php echo $strInsertTextfiles; ?></a></div>
+        </li>
+        <?php
+    }
 }
 echo "\n";
 ?>
+</form>
