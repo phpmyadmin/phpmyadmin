@@ -7,9 +7,9 @@
  * 2004-05-20: Michael Keck <mail_at_michaelkeck_dot_de>
  *
  * The theme manager checks the directory /themes/ for subdirectories
- * wich are the themes.
+ * which are the themes.
  * If you're building a new theme for PMA, your theme should include
- * make a folder theme_name/ in the directoriy /themes which includes
+ * make a folder theme_name/ in the directory /themes which includes
  * a subdirectory css/.
  * In the css-directory you should (if you want) edit the follow files:
  *    - theme_left.css.php      // includes css-styles for the left frame
@@ -17,7 +17,7 @@
  *    - theme_print.css.php     // includes css-styles for printing
  *
  * If you want to use default themes for left, right or print
- * so you need not to build the css-file and PMA will use it's own css.
+ * so you need not to build the css-file and PMA will use its own css.
  * If you want to use own images for your theme, you should make all
  * images (buttons, symbols, arrows) wich are included in the default
  * images directory PMA and store them into the subdirectory /img/ of
@@ -44,25 +44,15 @@ if ($cfg['ThemeManager']){
 
 if ($PMA_ThemeAvailable == TRUE){ // check after default theme
     $tmp_path_default = $cfg['ThemePath'] . '/' .$cfg['ThemeDefault'];
-    if (isset($cfg['ThemeDefault']) && $cfg['ThemeDefault']!='original' && is_dir($tmp_path_default)){
-        // default theme is not 'original'
-        $available_themes_choices[]=$cfg['ThemeDefault'];
-        $PMA_ThemeDefault = TRUE;
-    } else if (isset($cfg['ThemeDefault']) && $cfg['ThemeDefault']=='original'){
-        // default theme is 'original'
+    if (isset($cfg['ThemeDefault']) && is_dir($tmp_path_default)){
         $PMA_ThemeDefault = TRUE;
     }
 } // end check default theme
 
 if ($PMA_ThemeAvailable == TRUE) { // themeManager is available
-    /*if ($PMA_ThemeDefault == TRUE) {
-        // we must add default theme, because it has no directory
-        $available_themes_choices[]='original';
-    }*/
     if ($handleThemes = opendir($cfg['ThemePath'])) { // check for themes directory
-        while (false !== ($PMA_Theme = readdir($handleThemes))) { // get themes
-            //if ($PMA_Theme != "." && $PMA_Theme != ".." && $PMA_Theme!='original' && $PMA_Theme!=$cfg['ThemeDefault'] && $PMA_Theme != 'CVS') { // file check
-            if ($PMA_Theme != "." && $PMA_Theme != ".."  && $PMA_Theme!=$cfg['ThemeDefault'] && $PMA_Theme != 'CVS') { // file check
+        while (FALSE !== ($PMA_Theme = readdir($handleThemes))) { // get themes
+            if ($PMA_Theme != "." && $PMA_Theme != ".." && $PMA_Theme != 'CVS') { // file check
                 if (@is_dir($cfg['ThemePath'].'/'.$PMA_Theme)) { // check the theme
                     $available_themes_choices[]=$PMA_Theme;
                 } // end check the theme
