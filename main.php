@@ -147,8 +147,10 @@ if (($server > 0) && isset($mode) && ($mode == 'reload')) {
 /**
  * Displays the MySQL servers choice form
  */
-$show_server_left = FALSE;
-include('./libraries/select_server.lib.php');
+if (!$cfg['LeftDisplayServers']) {
+    $show_server_left = FALSE;
+    include('./libraries/select_server.lib.php');
+}
 
 // neted table needed
 ?>
