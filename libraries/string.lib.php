@@ -14,7 +14,12 @@
  * The SQL Parser code relies heavily on these functions.
  */
  
-$GLOBALS['PMA_allow_mbstr'] = @function_exists('mb_strlen') && substr($GLOBALS['charset'], 0, 8) != 'windows-';
+ /* windows-* and tis-620 are not supported and are not multibyte, so there is
+  * no need to handle them. */
+$GLOBALS['PMA_allow_mbstr'] = @function_exists('mb_strlen') 
+    && substr($GLOBALS['charset'], 0, 8) != 'windows-' 
+    && $GLOBALS['charset'] != 'tis-620';
+
 if ($GLOBALS['PMA_allow_mbstr']) {
     // the hebrew lang file uses iso-8859-8-i, encoded RTL,
     // but mb_internal_encoding only supports iso-8859-8

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-03 Michal Čihař  <michal@cihar.com>
+    * libraries/string.lib.php: Encoding tis-620 is not multibyte (bug
+      #1013787).
+
 2004-09-01 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php: bug 939531: when people upgrade
       phpMyAdmin on the same directory, the previous cookie pma_cookie_username
