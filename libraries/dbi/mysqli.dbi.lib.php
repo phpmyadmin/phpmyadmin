@@ -197,7 +197,7 @@ function PMA_DBI_getError($link = NULL) {
     } 
 
     // keep the error number for further check after the call to PMA_DBI_getError()
-    if ($error) {
+    if (!empty($error)) {
         $GLOBALS['errno'] = $error;
     } else {
         return FALSE;

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-24 Alexander M. Turek  <me@derrabus.de>
+    * libraries/dbi/mysqli.dbi.php: Undefined variable if PMA_DBI_getError() is
+      called although no error occured.
+
 2004-06-24 Michal Čihař  <michal@cihar.com>
     * main.php, changelog.php: Add headers to ChangeLog display.
     * scripts/create_tables.sql: Add IF EXISTS.
