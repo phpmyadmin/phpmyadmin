@@ -89,8 +89,11 @@ $analyzed_sql = PMA_SQP_analyze($parsed_sql);
 // Reverted - Robbat2 - 13 January 2003, 2:40PM
 $sql_query = PMA_SQP_formatHtml($parsed_sql, 'query_only');
 
-// here we are sure that SELECT is uppercase
-$is_select = eregi('^SELECT[[:space:]]+', $sql_query);
+// old code did not work, for example, when there is a bracket
+// before the SELECT
+// so I guess it's ok to check for a real SELECT ... FROM
+//$is_select = eregi('^SELECT[[:space:]]+', $sql_query);
+$is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
 
 // If the query is a Select, extract the db and table names and modify
 // $db and $table, to have correct page headers, links and left frame.
@@ -101,20 +104,6 @@ $is_select = eregi('^SELECT[[:space:]]+', $sql_query);
 // - do not extract the first table name
 // - do not show a table name in the page header
 // - do not display the sub-pages links)
-
-//if ($is_select) {
-//    eregi('^SELECT[[:space:]]+(.*)[[:space:]]+FROM[[:space:]]+(`[^`]+`|[A-Za-z0-9_$]+)([\.]*)(`[^`]*`|[A-Za-z0-9_$]*)', $sql_query, $tmp);
-//
-//    if ($tmp[3] == '.') {
-//        $prev_db = $db;
-//        $db      = str_replace('`', '', $tmp[2]);
-//        $reload  = ($db == $prev_db) ? 0 : 1;
-//        $table   = str_replace('`', '', $tmp[4]);
-//    }
-//    else {
-//        $table   = str_replace('`', '', $tmp[2]);
-//    }
-//} // end if
 
 if ($is_select) {
     $prev_db = $db;
@@ -270,12 +259,7 @@ else {
     if (isset($pos)
         && (!$cfg['ShowAll'] || $session_max_rows != 'all')
         && !($is_count || $is_export || $is_func || $is_analyse)
-
-        //&& $is_select
-        //&& eregi('[[:space:]]FROM[[:space:]]', $sql_query)
-
         && isset($analyzed_sql[0]['queryflags']['select_from'])
-
         && !eregi('[[:space:]]LIMIT[[:space:]0-9,-]+$', $sql_query)) {
         $sql_limit_to_append = " LIMIT $pos, ".$cfg['MaxRows'];
         if (eregi('(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))$', $sql_query, $regs)) {
@@ -354,6 +338,7 @@ else {
 
         // Counts the total number of rows for the same 'SELECT' query without the
         // 'LIMIT' clause that may have been programatically added
+
         if (empty($sql_limit_to_append)) {
             $unlim_num_rows         = $num_rows;
         }
@@ -405,7 +390,6 @@ else {
                 }
 
                 // do not put the order_by_clause, it interferes
-
                 // run the count query
                 if (PMA_MYSQL_INT_VERSION < 40000) {
                     if ($cnt_all_result = mysql_query($count_query)) {
@@ -428,13 +412,21 @@ else {
                     }
                 } else {
                     mysql_query($count_query);
+                    if (mysql_error()) {
+                    // void. I tried the case
+                    // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`) 
+                    // UNION (SELECT `User`, `Host`, "%" AS "Db",
+                    // `Select_priv`
+                    // FROM `user`) ORDER BY `User`, `Host`, `Db`;
+                    // and although the generated count_query is wrong
+                    // the SELECT FOUND_ROWS() work!
+                    }
                     $cnt_all_result = mysql_query('SELECT FOUND_ROWS() as count');
                     $unlim_num_rows = mysql_result($cnt_all_result,0,'count');
                 }
- //TODO in which cases is this needed?
- //           } else {
- //               $unlim_num_rows         = 0;
- //           }
+
+        } else { // not $is_select
+             $unlim_num_rows         = 0;
         } // end rows total count
     } // end else "didn't ask to see php code"
 

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php3: bug 649665: undefined variables with UNION, and
+      also get the correct row count
+
 2003-02-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_databases.php3:
       - Fixed bug #688360 (Database privileges and AllowUserDropDatabase);
