@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-04-21 Loïc Chapeaux  <lolo@phpheaven.net>
+2002-04-22 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/slovak-win1250.inc.php3: completed, thanks to Peter Svec.
 
 2002-04-22 Marc Delisle  <lem9@users.sourceforge.net>
@@ -14,6 +14,8 @@ $Source$
 2002-04-22 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/russian-koi8.inc.php3: fixed a typo (bug #546981).
     * lang/german.inc.php3: better syntax.
+    * db_details.php3, mult_submits.inx.php3, tbl_properties.php3:
+      Use TRUNCATE instead of DELETE when using MySQL 4.
 
 2002-04-21 Alexander M. Turek  <rabus@users.sourceforge.net>
     * main.php3: Restarted work on patch #538740 (get users priv. with

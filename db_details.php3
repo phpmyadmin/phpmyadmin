@@ -224,11 +224,19 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         <?php
         if (!empty($sts_data['Rows'])) {
             echo '<a href="sql.php3?' . $url_query
-                 . '&amp;sql_query='
-                 . urlencode('DELETE FROM ' . PMA_backquote($table))
-                 . '&amp;zero_rows='
-                 . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)))
-                 . '" onclick="return confirmLink(this, \'DELETE FROM ' . PMA_jsFormat($table) . '\')">' . $strEmpty . '</a>';
+                 . '&amp;sql_query=';
+            if (PMA_MYSQL_INT_VERSION >= 40000) {
+                echo urlencode('TRUNCATE ' . PMA_backquote($table))
+                     . '&amp;zero_rows='
+                     . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)))
+                     . '" onclick="return confirmLink(this, \'TRUNCATE ';
+            } else {
+                echo urlencode('DELETE FROM ' . PMA_backquote($table))
+                     . '&amp;zero_rows='
+                     . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)))
+                     . '" onclick="return confirmLink(this, \'DELETE FROM ';
+            }
+            echo PMA_jsFormat($table) . '\')">' . $strEmpty . '</a>';
         } else {
              echo $strEmpty;
         }

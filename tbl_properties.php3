@@ -158,8 +158,27 @@ if ($num_rows > 0) {
         <b><?php echo $strSelect; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
-         onclick="return confirmLink(this, 'DELETE FROM <?php echo PMA_jsFormat($table); ?>')">
+    [ <?php
+    echo '<a href="sql.php3?' . $url_query . '&amp;sql_query=';
+    if (PMA_MYSQL_INT_VERSION >= 40000) {
+        echo urlencode('TRUNCATE ' . PMA_backquote($table))
+             . '&amp;zero_rows='
+             . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)))
+             . '"' . "\n"
+             . '         onclick="return confirmLink(this, \'TRUNCATE ';
+    } // end if
+    else {
+        echo urlencode('DELETE FROM ' . PMA_backquote($table))
+             . '&amp;zero_rows='
+             . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)))
+             . '"'
+             . "\n"
+             . '         onclick="return confirmLink(this, \'DELETE FROM ';
+    } // end else
+    echo PMA_jsFormat($table)
+         . '\')">'
+         . "\n";
+    ?>
          <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
