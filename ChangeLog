@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-10 Michal Čihař  <michal@cihar.com>
+    * libraries/dbi/mysql.dbi.lib.php: Fix PMA_DBI_field_name, fixes also bug
+      #951226.
+
 2004-05-10 Garvin Hicking <pma@supergarv.de>
     * db_details_structure.php, tbl_properties_structure.php: Fixed
       row-selection Javascript for Internet Explorer.
@@ -13,7 +17,7 @@ $Source$
     * main.php, css/phpmyadmin.css.php: Corrected <form> position
       to XHTML compliance. Introduced "nospace" class.
 
-2004-05-05 Michal Čihař  <michal@cihar.com>
+2004-05-09 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
     * tbl_properties_operations.php: Fixed documentation link.
 
