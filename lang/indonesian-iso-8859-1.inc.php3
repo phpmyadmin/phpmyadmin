@@ -91,6 +91,7 @@ $strChangeCopyModeRevoke = ' ... cabut seluruh privilese yang aktif, kemudian ha
 $strChangeCopyUser = 'Ubah informasi Login / Salip pengguna';
 $strChangeDisplay = 'Pilih Field untuk ditampilkan';
 $strChangePassword = 'Ubah Kata Sandi';
+$strCharset = 'Perangkat karakter (Charset)';
 $strCharsetOfFile = 'Kumpulan karakter (Character set) dari file:';
 $strCheckAll = 'Tanda semua';
 $strCheckDbPriv = 'Periksa Hak Akses dari Database';
@@ -539,6 +540,7 @@ $strStructure = 'Struktur';
 $strSubmit = 'Kirim';
 $strSuccess = 'Perintah SQL telah dilaksanakan dengan sukses';
 $strSum = 'Jumlah';
+$strSwitchToTable = 'Pindah ke tabel salinan';
 $strSwitchToTable = 'Pindah ke tabel yang disalin';
 
 $strTable = 'Tabel';
@@ -624,5 +626,4 @@ $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) aka
 $strZip = '"Dikompress dengan Zip"';
 // To translate
 
-$strCharset = 'Charset';  //to translate
 ?>

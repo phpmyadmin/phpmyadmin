@@ -16,7 +16,10 @@ $Source$
     * tbl_properties_options.php3: Remove '; InnoDB free:' part from comment
       when changing it.
     * lang/czech: Updated.
-   
+    * lang/indonesian: Updted, thanks to Rachim Tamsjadi (tamsy).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/italian: Updated, thanks to Pietro Danesi (danone).
+
 2003-04-14 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3: Fixed SHOW TABLE STATUS LIKE ... FROM ...
       usage. (Bug #720846)

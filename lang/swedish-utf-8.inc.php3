@@ -18,8 +18,6 @@ $month = array('januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'a
 $datefmt = '%d %B %Y kl %H:%M';
 $timespanfmt = '%s dagar, %s timmar, %s minuter och %s sekunder';
 
-$strUpdComTab = 'Se dokumentationen för uppdatering av din tabell Column_comments';
-
 $strAPrimaryKey = 'En primär nyckel har lagts till för %s';
 $strAbortedClients = 'Avbrutna';
 $strAbsolutePathToDocSqlDir = 'Ange absolut sökväg på webbservern till docSQL-katalog';
@@ -94,6 +92,7 @@ $strChangeCopyModeRevoke = ' ... upphäv alla aktiva privilegier från dan gamla
 $strChangeCopyUser = 'Ändra inloggningsinformation / Kopiera användare';
 $strChangeDisplay = 'Välj fält som ska visas';
 $strChangePassword = 'Byt lösenord';
+$strCharset = 'Teckenuppsättning';
 $strCharsetOfFile = 'Filens teckenuppsättning:';
 $strCheckAll = 'Markera alla';
 $strCheckDbPriv = 'Kontrollera databasprivilegier';
@@ -583,6 +582,7 @@ $strType = 'Typ';
 $strUncheckAll = 'Avmarkera alla';
 $strUnique = 'Unik';
 $strUnselectAll = 'Avmarkera alla';
+$strUpdComTab = 'Se dokumentationen för uppdatering av din tabell Column_comments';
 $strUpdatePrivMessage = 'Du har uppdaterat privilegierna för %s.';
 $strUpdateProfile = 'Uppdatera profil:';
 $strUpdateProfileMessage = 'Profilen har uppdaterats.';
@@ -626,5 +626,4 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 // To translate
 
-$strCharset = 'Charset';  //to translate
 ?>
