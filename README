@@ -5,8 +5,8 @@ phpMyAdmin - Readme
 
   A set of PHP-scripts to administrate MySQL over the WWW.
 
-  Version 2.2.0 - August 2001
-  ---------------------------
+  Version 2.3.0 - July 2002
+  -------------------------
   http://www.phpmyadmin.net/
 
     Copyright (C) 1998-2000 Tobias Ratschiller <tobias@phpwizard.net>
@@ -46,7 +46,7 @@ phpMyAdmin - Readme
       - create and read dumps of tables
       - export and import CSV data
       - administer one single database
-      - communicate in more than 20 different languages
+      - communicate in more than 38 different languages
 
   Download:
     You can get the newest version at http://www.phpmyadmin.net/.
@@ -74,7 +74,7 @@ phpMyAdmin - Readme
   PS: Please, don't send us emails with question like "How do I compile
       PHP3 with MySQL-support". We do answer all emails regarding
       phpMyAdmin, but we just don't have the time to be your free helpdesk.
-      Please send your questions to the appropiate mailinglists.
+      Please send your questions to the appropiate mailinglists / forums.
       Before contacting us, please read the Documentation.html (esp. the
       FAQ part).
 
