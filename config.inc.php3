@@ -94,13 +94,14 @@ unset($cfgServers[0]);
 $cfgConfirm               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
 $cfgPersistentConnections = FALSE;  // use persistent connections to MySQL database
 $cfgShowBlob              = FALSE;  // display blob field contents in browse mode
-$cfgProtectBlob		      = TRUE;  // disallow editing of blob fields in edit mode
+$cfgProtectBlob	          = TRUE;   // disallow editing of blob fields in edit mode
+$cfgAllowUserDropDatabase = FALSE;  // disallow users to delete their own database
 $cfgShowSQL               = TRUE;   // show SQL queries as run
 $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
                                     // locked tables (since MySQL 3.23.30)
 $cfgMaxRows               = 30;     // maximum number of rows to display in browse mode
 $cfgOrder                 = 'ASC';  // default for 'ORDER BY' clause
-$cfgOBGzip 		          = TRUE;   // GZIP output buffering
+$cfgOBGzip                = TRUE;   // GZIP output buffering
 $cfgGZipDump              = TRUE;   // Allow the use of gzip/bzip compression
 $cfgBZipDump              = TRUE;   // for dump files
 

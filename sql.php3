@@ -8,6 +8,28 @@
 require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
 
+/**
+ * Check rights in case of DROP DATABASE
+ */
+
+if (eregi('DROP DATABASE', $sql_query)) {
+    // Check if the user is a Superuser - TODO: set a global variable with this information
+
+    $is_superuser = FALSE;
+    $result = mysql_query('SELECT * FROM mysql.user');
+    $rows   = @mysql_num_rows($result);
+    if (!empty($rows)) { $is_superuser = TRUE; }
+
+    if (!$cfgAllowUserDropDatabase && !$is_superuser) {
+        include('./header.inc.php3');
+	echo '<b>' . $strAccessDenied . '</b>' . "\n";
+        require('./footer.inc.php3');
+        exit();
+    }
+}
+
+
+
 
 /**
  * Bookmark add
