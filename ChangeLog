@@ -7,11 +7,9 @@ $Source$
 
 2004-06-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/config.auth.lib.php, libraries/dbi/mysql.dbi.lib.php,
+      libraries/dbi/mysql.dbi.lib.php,
       lang/*: bug 968089: catch error when server is not responding
       and show an appropriate message
-
-      TODO: for mysqli
-
     * left.php: undefined variable
 
 2004-06-09 Alexander M. Turek  <me@derrabus.de>

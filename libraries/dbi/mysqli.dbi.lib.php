@@ -177,18 +177,39 @@ function PMA_DBI_free_result($result) {
 }
 
 function PMA_DBI_getError($link = NULL) {
+    unset($GLOBALS['errno']);
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
-        } else {
-            return FALSE;
+            // Do not stop now. We still can get the error code
+            // with mysqli_connect_errno()
+//        } else {
+//            return FALSE;
         }
     }
-    $error = mysqli_errno($link);
-    if ($error && PMA_MYSQL_INT_VERSION >= 40100) {
-        $error = '#' . ((string) $error) . ' - ' . mysqli_error($link);
+
+    if (mysqli_connect_errno()) {
+        $error = mysqli_connect_errno();
+        $error_message = mysqli_connect_error();
+    } elseif (mysqli_errno($link)) {
+        $error = mysqli_errno($link);
+        $error_message = mysqli_error($link);
+    } 
+
+    // keep the error number for further check after the call to PMA_DBI_getError()
+    if ($error) {
+        $GLOBALS['errno'] = $error;
+    } else {
+        return FALSE;
+    }
+
+
+    if ($error && $error == 2002) {
+        $error = '#' . ((string) $error) . ' - ' . $GLOBALS['strServerNotResponding'];
+    } elseif ($error && PMA_MYSQL_INT_VERSION >= 40100) {
+        $error = '#' . ((string) $error) . ' - ' . $error_message;
     } elseif ($error) {
-        $error = '#' . ((string) $error) . ' - ' . PMA_convert_display_charset(mysqli_error($link));
+        $error = '#' . ((string) $error) . ' - ' . PMA_convert_display_charset($error_message);
     }
     return $error;
 }

@@ -110,8 +110,10 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
     // (note: it's true that they could have a badly typed host name, but
     //  anyway the current $strAccessDeniedExplanation tells that the server
     //  rejected the connection, which is not really what happened)
+    // 2002 is the error given by mysqli
+    // 2003 is the error given by mysql
 
-    if (!isset($GLOBALS['errno']) || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2003)) {
+    if (!isset($GLOBALS['errno']) || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002) && $GLOBALS['errno'] != 2003) {
         echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
     }
     PMA_mysqlDie($conn_error, '');
