@@ -192,7 +192,8 @@ if ($num_dbs > 1) {
             $tooltip = array();
             $result  = mysql_query('SHOW TABLE STATUS FROM ' . backquote($db));
             while ($tmp = mysql_fetch_array($result)) {
-                $tooltip[$tmp['Name']] = rtrim($tmp['Comment'] . ' (' . $tmp['Rows'] . ' ' . $strRows . ')');
+                $tooltip[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '')
+                                       . '(' . (isset($tmp['Rows']) ? $tmp['Rows'] : '0') . ' ' . $strRows . ')';
             } // end while
         } // end if
 
@@ -277,7 +278,8 @@ else if ($num_dbs == 1) {
         $tooltip = array();
         $result  = mysql_query('SHOW TABLE STATUS FROM ' . backquote($db));
         while ($tmp = mysql_fetch_array($result)) {
-            $tooltip[$tmp['Name']] = rtrim($tmp['Comment'] . ' (' . $tmp['Rows'] . ' ' . $strRows . ')');
+            $tooltip[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '')
+                                   . '(' . (isset($tmp['Rows']) ? $tmp['Rows'] : '0') . ' ' . $strRows . ')';
         } // end while
     } // end if
 

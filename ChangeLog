@@ -10,6 +10,8 @@ $Source$
 	* main.php3: removed an other display of the socket used and the port used
 	  if the 'verbose' setting exists for a server.
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
+	* left.php3: fixed a bug with php < 4.0.6 (mysql_fetch_array did not return
+	  fields with NULL value).
 
 2001-10-28  Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3:
