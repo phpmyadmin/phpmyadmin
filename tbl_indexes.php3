@@ -225,6 +225,8 @@ if (!defined('PMA_IDX_INCLUDED')
 
     $result    = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
+    // To show the query:
+    $sql_query = $local_query;
 
     include('./tbl_properties.php3');
     exit();
