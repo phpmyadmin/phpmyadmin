@@ -143,7 +143,13 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         $cfgLeftFrameLight      = TRUE;
     }
 
-    // Gets some constants
+    /**
+     * Gets constants that defines the PHP, MySQL... releases.
+     * This include must be located physically before any code that needs to
+     * reference the constants, else PHP 3.0.16 won't be happy; and must be
+     * located after we are connected to db to get the MySql version (see
+     * below).
+     */
     include('./libraries/defines.lib.php3');
 
     // If zlib output compression is set in the php configuration file, no
@@ -516,6 +522,10 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             $dbh = $userlink;
         }
 
+        // Runs the "defines.lib.php3" for the second time to get the mysql
+        // release number
+        include('./libraries/defines.lib.php3');
+
         // if 'only_db' is set for the current user, there is no need to check for
         // available databases in the "mysql" db
         $dblist_cnt = count($dblist);
@@ -554,8 +564,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         else {
             // ... first checks whether the "safe_show_database" is on or not
             //     (if MYSQL supports this)
-            if (defined('PMA_MYSQL_INT_VERSION') &&
-                PMA_MYSQL_INT_VERSION >= 32330) {
+            if (PMA_MYSQL_INT_VERSION >= 32330) {
                 $local_query      = 'SHOW VARIABLES LIKE \'safe_show_database\'';
                 $rs               = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
                 $is_safe_show_dbs = mysql_result($rs, 0, 'Value');
@@ -737,15 +746,6 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
         return TRUE;
     } // end of the 'PMA_availableDatabases()' function
-
-
-    /**
-     * Gets constants that defines the PHP, MySQL... releases.
-     * This include must be located physically before any code that needs to
-     * reference the constants, else PHP 3.0.16 won't be happy; and must be
-     * located after we are connected to db to get the MySql version.
-     */
-    include('./libraries/defines.lib.php3');
 
 
 
