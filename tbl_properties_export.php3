@@ -3,6 +3,7 @@
 
 
 require('./tbl_properties_common.php3');
+require('./tbl_properties_table_info.php3');
 
 ?>
     <!-- Dump of a database -->
