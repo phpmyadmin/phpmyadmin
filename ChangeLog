@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-19  Marc Delisle  <lem9@users.sourceforge.net>
+        * tbl_properties.php3, db_details.php3, lang/*: start to merge new
+          messages with parameters
+
 2001-09-19  Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3: merged patch #462787 (Home page for unpriviliged user) thanks
 	  to Piotr Roszatycki <d3xter at users.sourceforge.net>.

@@ -134,10 +134,10 @@ if ($num_rows > 0) {
         <b><?php echo $strSelect; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>"
+    [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?>')">
          <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
@@ -152,7 +152,7 @@ if ($num_rows > 0) {
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
@@ -304,7 +304,7 @@ while ($row = mysql_fetch_array($result)) {
         if ($fields_cnt > 1) {
             echo "\n";
             ?>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' DROP ' . backquote($row['Field'])); ?>&zero_rows=<?php echo urlencode(htmlspecialchars($row['Field']) . ' ' . $strHasBeenDropped); ?>"
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' DROP ' . backquote($row['Field'])); ?>&zero_rows=<?php echo urlencode(sprintf($strFieldHasBeenDropped, htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo js_format($table); ?> DROP <?php echo js_format($row['Field']); ?>')">
             <?php echo $strDrop; ?></a>
             <?php
@@ -315,16 +315,16 @@ while ($row = mysql_fetch_array($result)) {
         ?>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' DROP PRIMARY KEY, ADD PRIMARY KEY(' . $primary . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode($strAPrimaryKey . ' ' . htmlspecialchars($row['Field'])); ?>"
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' DROP PRIMARY KEY, ADD PRIMARY KEY(' . $primary . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode(sprintf($strAPrimaryKey, htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo js_format($table); ?> DROP PRIMARY KEY, ADD PRIMARY KEY(<?php echo js_format($row['Field']); ?>)')">
             <?php echo $strPrimary; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD INDEX(' . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode($strAnIndex . ' ' . htmlspecialchars($row['Field'])); ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD INDEX(' . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode(sprintf($strAnIndex ,htmlspecialchars($row['Field']))); ?>">
             <?php echo $strIndex; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD UNIQUE(' . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode($strAnIndex . ' ' . htmlspecialchars($row['Field'])); ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD UNIQUE(' . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
             <?php echo $strUnique; ?></a>
     </td>
     <?php
@@ -332,7 +332,7 @@ while ($row = mysql_fetch_array($result)) {
         echo "\n";
         ?>
     <td nowrap="nowrap">
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD FULLTEXT(' . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode($strAnIndex . ' ' . htmlspecialchars($row['Field'])); ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD FULLTEXT(' . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
             <?php echo $strIdxFulltext; ?></a>
     </td>
         <?php
@@ -385,10 +385,10 @@ if ($fields_cnt > 20) {
         <b><?php echo $strSelect; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>"
+    [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?>')">
          <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
@@ -403,7 +403,7 @@ if ($fields_cnt > 20) {
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
@@ -463,11 +463,11 @@ if ($index_count > 0) {
         if ($row['Key_name'] == 'PRIMARY') {
             $sql_query = urlencode('ALTER TABLE ' . backquote($table) . ' DROP PRIMARY KEY');
             $js_msg    = 'ALTER TABLE ' . js_format($table) . ' DROP PRIMARY KEY';
-            $zero_rows = urlencode($strPrimaryKey . ' ' . $strHasBeenDropped);
+            $zero_rows = urlencode($strPrimaryKeyHasBeenDropped);
         } else {
             $sql_query = urlencode('ALTER TABLE ' . backquote($table) . ' DROP INDEX ' . backquote($row['Key_name']));
             $js_msg    = 'ALTER TABLE ' . js_format($table) . ' DROP INDEX ' . js_format($row['Key_name']);
-            $zero_rows = urlencode($strIndex . ' ' . htmlspecialchars($row['Key_name']) . ' ' . $strHasBeenDropped);
+            $zero_rows = urlencode(sprintf($strIndexHasBeenDropped, htmlspecialchars($row['Key_name'])));
         }
 
         if ($row['Key_name'] != $prev_key) {
@@ -738,7 +738,7 @@ echo "\n";
             <input type="hidden" name="goto" value="tbl_properties.php3" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
-            <?php echo $strRunSQLQuery . htmlspecialchars($db) . ' ' . show_docu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
+            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . show_docu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
 <textarea name="sql_query" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual">
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : 'SELECT * FROM ' . backquote($table) . ' WHERE 1'); ?>
@@ -853,13 +853,13 @@ echo "\n";
                     <?php echo $strStrucExcelCSV; ?>&nbsp;&nbsp;<br />
                     <input type="radio" name="what" value="csv" />
                     <?php echo $strStrucCSV;?>&nbsp;:<br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFields . ' '. $strTerminatedBy; ?>&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFieldsTerminatedBy; ?>&nbsp;
                     <input type="text" name="separator" size="2" value=";" />&nbsp;&nbsp;<br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFields . ' '. $strEnclosedBy; ?>&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFieldsEnclosedBy; ?>&nbsp;
                     <input type="text" name="enclosed" size="1" value="&quot;" />&nbsp;&nbsp;<br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFields . ' '. $strEscapedBy; ?>&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFieldsEscapedBy; ?>&nbsp;
                     <input type="text" name="escaped" size="2" value="\" />&nbsp;&nbsp;<br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strLines . ' '. $strTerminatedBy; ?>&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strLinesTerminatedBy; ?>&nbsp;
                     <input type="text" name="add_character" size="2" value="<?php echo ((which_crlf() == "\n") ? '\n' : '\r\n'); ?>" />&nbsp;&nbsp;
                 </td>
                 <td valign="middle">
@@ -909,7 +909,7 @@ echo "\n";
             </tr>
             <tr>
                 <td colspan="2">
-                    &nbsp;<?php echo $strData . '&nbsp;:&nbsp;' . $strOffSet; ?>&nbsp;
+                    &nbsp;<?php echo $strStartingRecord; ?>&nbsp;
                     <input type="text" name="limit_from" value="0" size="5" style="vertical-align: middle" />
                     &nbsp;--&nbsp;<?php echo $strNbRecords; ?>&nbsp;
                     <input type="text" name="limit_to" size="5" value="<?php echo count_records($db, $table, TRUE); ?>" style="vertical-align: middle" />
@@ -1162,7 +1162,7 @@ else { // MySQL < 3.23.22
 
     <!-- Deletes the table -->
     <li>
-        <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+        <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
             onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
             <?php echo $strDropTable . ' ' . htmlspecialchars($table); ?></a>
     </li>

@@ -178,12 +178,12 @@ else if (MYSQL_INT_VERSION >= 32300) {
             <?php echo $strProperties; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+        <a href="sql.php3?<?php echo $url_query; ?>&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
             onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
             <?php echo $strDrop; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>"
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
             onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?>')">
             <?php echo $strEmpty; ?></a>
     </td>
@@ -343,10 +343,10 @@ else {
         <a href="tbl_properties.php3?<?php echo $url_query; ?>"><?php echo $strProperties; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($tables[$i])); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($tables[$i]) . ' ' . $strHasBeenDropped); ?>"><?php echo $strDrop; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($tables[$i])); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($tables[$i]))); ?>"><?php echo $strDrop; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($tables[$i])); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($tables[$i]) . ' ' . $strHasBeenEmptied); ?>"><?php echo $strEmpty; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($tables[$i])); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($tables[$i]))); ?>"><?php echo $strEmpty; ?></a>
     </td>
     <td align="right">
         <?php count_records($db, $tables[$i]); echo "\n"; ?>
@@ -427,7 +427,7 @@ if ($num_tables > 0) {
             <input type="hidden" name="goto" value="db_details.php3" />
             <input type="hidden" name="zero_rows" value="<?php echo htmlspecialchars($strSuccess); ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
-            <?php echo $strRunSQLQuery . $db . ' ' . show_docu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
+            <?php echo sprintf($strRunSQLQuery, $db) . ' ' . show_docu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
 <textarea name="sql_query" cols="<?php echo $cfgTextareaCols; ?>" rows="<?php echo $cfgTextareaRows; ?>" wrap="virtual">
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : ''); ?>
