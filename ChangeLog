@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-13 Michal Čihař  <michal@cihar.com>
+    * libraries/fpdf/fpdf.php: Updated to 1.52.
+
 2004-10-13 Alexander M. Turek  <me@derrabus.de>
     * Documentation.html: Mike Beck's e-mail address has changed.
 
