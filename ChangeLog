@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-02 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_status.php3: RFE #723325 (Move total query statistics).
+
 2003-06-02 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_tbl.lib.php3, lang/*: Better text on button for
       executing bookmark (bug #745993).
