@@ -192,8 +192,8 @@ if ($server > 0) {
         $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
         $rs_usr      = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
-            $re0     = '(^|(\\\\\\\\)+|[^\])';
-            $re1     = '(^|[^\])(\\\)+';
+            $re0     = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
+            $re1     = '(^|[^\])(\\\)+';       // escaped wildcards
             while ($row = mysql_fetch_array($rs_usr)) {
                 if (ereg($re0 . '(%|_)', $row['Db'])
                     || (!mysql_select_db(ereg_replace($re1 . '(%|_)', '\\1\\3', $row['Db']), $userlink) && @mysql_errno() != 1044)) {
