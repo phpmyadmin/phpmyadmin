@@ -632,16 +632,23 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                            : 'x-small';
             $font_smallest = 'x-small';
         }
-        // Mac browsers: need bigger fonts except IE 5+ & NS 6+
+        // Mac browsers: need bigger fonts except IE 5+ & NS 6+ and OmniWeb
         else if (PMA_USR_OS == 'Mac'
-                 && ((PMA_USR_BROWSER_AGENT != 'IE' && PMA_USR_BROWSER_AGENT != 'MOZILLA')
-                     || PMA_USR_BROWSER_VER < 5)) {
+                 && ((PMA_USR_BROWSER_AGENT != 'IE' && PMA_USR_BROWSER_AGENT != 'MOZILLA') || PMA_USR_BROWSER_VER < 5)
+                 && (PMA_USR_BROWSER_AGENT != 'OMNIWEB')) {
             $font_size     = 'medium';
             $font_bigger   = 'x-large';
             $font_smaller  = 'small';
             $font_smallest = 'x-small';
         }
-        // Other cases
+        // OmniWeb for mac
+        else if (PMA_USR_OS == 'Mac'
+                 && PMA_USR_BROWSER_AGENT == 'OMNIWEB') {
+            $font_size     = 'x-small';
+            $font_bigger   = 'large';
+            $font_smaller  = '90%';
+            $font_smallest = '7pt';
+        }
         else {
             $font_size     = 'small';
             $font_bigger   = 'large';
