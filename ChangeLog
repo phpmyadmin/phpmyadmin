@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/chinese*: updated thanks to Siu Sun
+
 2002-05-19 Marc Delisle  <lem9@users.sourceforge.net>
     * read_dump.php3, bug 556105: do not execute a bookmark if asked to
       only view it
