@@ -6,7 +6,8 @@ $Id$
 $Source$
 
 2001-06-11  Marc Delisle  <lem9@users.sourceforge.net>
-        * italian translation by Alessandro Astarita
+        * italian translation update by Alessandro Astarita
+        * german translation update by Kristof Hamann (korelstar)
 
 2001-06-11  Steve Alberty   <alberty@neptunlabs.de>
 	* tbl_properties.php3: suppress Table Maintenance, Comment and Type
