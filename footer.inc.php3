@@ -18,7 +18,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     if ($cfg['QueryFrameDebug']) {
     ?>
         document.writeln("Updating query window. DB: <?php echo (isset($db) ? addslashes($db) : 'FALSE'); ?>, Table: <?php echo (isset($table) ? addslashes($table) : 'FALSE'); ?><br>");
-        document.writeln("Window: " + top.frames.queryframe.querywindow.location + "<br>");
+        document.writeln("Window: " + parent.frames.queryframe.querywindow.location + "<br>");
     <?php
     }
     ?>
@@ -26,31 +26,31 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     <?php
     if (!isset($error_message) || $error_message == '') {
     ?>
-    if (top.frames.queryframe && top.frames.queryframe.document && top.frames.queryframe.document.queryframeform) {
-        top.frames.queryframe.document.queryframeform.db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";
-        top.frames.queryframe.document.queryframeform.table.value = "<?php echo (isset($table) ? addslashes($table) : ''); ?>";
+    if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.queryframeform) {
+        parent.frames.queryframe.document.queryframeform.db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";
+        parent.frames.queryframe.document.queryframeform.table.value = "<?php echo (isset($table) ? addslashes($table) : ''); ?>";
     }
     <?php
     }
     ?>
     
     function reload_querywindow () {
-        if (top.frames.queryframe && top.frames.queryframe.querywindow && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
-            <?php echo ($cfg['QueryFrameDebug'] ? 'document.writeln("<a href=\'#\' onClick=\'top.frames.queryframe.querywindow.focus(); return false;\'>Query Window</a> can be updated.<br>");' : ''); ?>
+        if (parent.frames.queryframe && parent.frames.queryframe.querywindow && !parent.frames.queryframe.querywindow.closed && parent.frames.queryframe.querywindow.location) {
+            <?php echo ($cfg['QueryFrameDebug'] ? 'document.writeln("<a href=\'#\' onClick=\'parent.frames.queryframe.querywindow.focus(); return false;\'>Query Window</a> can be updated.<br>");' : ''); ?>
     
             <?php
             if (!isset($error_message) || $error_message == '') {
             ?>
-            if (!top.frames.queryframe.querywindow.document.sqlform.LockFromUpdate.checked) {
-                top.frames.queryframe.querywindow.document.querywindow.db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
-                top.frames.queryframe.querywindow.document.querywindow.query_history_latest_db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
-                top.frames.queryframe.querywindow.document.querywindow.table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
-                top.frames.queryframe.querywindow.document.querywindow.query_history_latest_table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
+            if (!parent.frames.queryframe.querywindow.document.sqlform.LockFromUpdate.checked) {
+                parent.frames.queryframe.querywindow.document.querywindow.db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
+                parent.frames.queryframe.querywindow.document.querywindow.query_history_latest_db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
+                parent.frames.queryframe.querywindow.document.querywindow.table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
+                parent.frames.queryframe.querywindow.document.querywindow.query_history_latest_table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
         
-                <?php echo (isset($sql_query) ? 'top.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = "' . urlencode($sql_query) . '";' : '// no sql query update') . "\n"; ?>
+                <?php echo (isset($sql_query) ? 'parent.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = "' . urlencode($sql_query) . '";' : '// no sql query update') . "\n"; ?>
         
                 <?php echo ($cfg['QueryFrameDebug'] ? 'alert(\'Querywindow submits. Last chance to check variables.\');' : '') . "\n"; ?>
-                top.frames.queryframe.querywindow.document.querywindow.submit();
+                parent.frames.queryframe.querywindow.document.querywindow.submit();
             }
             <?php
             } else {
@@ -63,23 +63,23 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     }
 
     function focus_querywindow(sql_query) {
-        if (top.frames.queryframe && top.frames.queryframe.querywindow && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
-            if (top.frames.queryframe.querywindow.document.querywindow.querydisplay_tab != 'sql') {
-                top.frames.queryframe.querywindow.document.querywindow.querydisplay_tab.value = "sql";
-                top.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = sql_query;
-                top.frames.queryframe.querywindow.document.querywindow.submit();
-                top.frames.queryframe.querywindow.focus();
+        if (parent.frames.queryframe && parent.frames.queryframe.querywindow && !parent.frames.queryframe.querywindow.closed && parent.frames.queryframe.querywindow.location) {
+            if (parent.frames.queryframe.querywindow.document.querywindow.querydisplay_tab != 'sql') {
+                parent.frames.queryframe.querywindow.document.querywindow.querydisplay_tab.value = "sql";
+                parent.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = sql_query;
+                parent.frames.queryframe.querywindow.document.querywindow.submit();
+                parent.frames.queryframe.querywindow.focus();
             } else {
-                top.frames.queryframe.querywindow.focus();
+                parent.frames.queryframe.querywindow.focus();
             }
 
             return false;
-        } else if (top.frames.queryframe) {
+        } else if (parent.frames.queryframe) {
             new_win_url = 'querywindow.php3?sql_query=' + sql_query + '&<?php echo PMA_generate_common_url(isset($db) ? addslashes($db) : '', isset($table) ? addslashes($table) : '', '&'); ?>';
-            top.frames.queryframe.querywindow=window.open(new_win_url, '','toolbar=0,location=1,directories=0,status=1,menubar=0,scrollbars=yes,resizable=yes,width=<?php echo $cfg['QueryWindowWidth']; ?>,height=<?php echo $cfg['QueryWindowHeight']; ?>');
+            parent.frames.queryframe.querywindow=window.open(new_win_url, '','toolbar=0,location=1,directories=0,status=1,menubar=0,scrollbars=yes,resizable=yes,width=<?php echo $cfg['QueryWindowWidth']; ?>,height=<?php echo $cfg['QueryWindowHeight']; ?>');
     
-            if (!top.frames.queryframe.querywindow.opener) {
-               top.frames.queryframe.querywindow.opener = top.frames.queryframe;
+            if (!parent.frames.queryframe.querywindow.opener) {
+               parent.frames.queryframe.querywindow.opener = parent.frames.queryframe;
             }
 
             // reload_querywindow();
@@ -91,7 +91,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 <?php
 if (isset($focus_querywindow) && $focus_querywindow == "true") {
 ?>
-    if (top.frames.queryframe && top.frames.queryframe.querywindow && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
+    if (parent.frames.queryframe && parent.frames.queryframe.querywindow && !parent.frames.queryframe.querywindow.closed && parent.frames.queryframe.querywindow.location) {
         self.focus();
     }
 <?php

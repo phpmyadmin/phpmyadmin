@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-08 Garvin Hicking <me@supergarv.de>
+    * tbl_query_box.php3, footer.inc.php3: Removed any 'top.' DOM reference.
+      This enables phpMyAdmin to be used within a frameset without trying
+      to escape out of the security JS-sandbox zone. Tested with IE6, Mozilla
+      1.4 and IE5.5.
+  
 2003-07-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3, sql.php3: bug 762213, 
       incorrect row count for MySQL 4.1 subqueries;

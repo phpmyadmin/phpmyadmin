@@ -46,7 +46,7 @@ else {
 // ($is_upload now defined in common.lib.php3)
 
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full')) {
-    $locking   = 'onKeyPress="this.form.elements[\'LockFromUpdate\'].checked = true;"';
+    $locking   = 'onKeyPress="document.sqlform.elements[\'LockFromUpdate\'].checked = true;"';
 } else {
     $locking   = '';
 }
@@ -55,7 +55,7 @@ $auto_sel  = ($cfg['TextareaAutoSelect']
                // 2003-02-05 rabus: This causes big trouble with Opera 7 for
                // Windows, so let's disable it there...
                && !(PMA_USR_OS == 'Win' && PMA_USR_BROWSER_AGENT == 'OPERA' && PMA_USR_BROWSER_VER >= 7))
-           ? "\n" . '             onfocus="if (typeof(document.layers) == \'undefined\' || typeof(textarea_selected) == \'undefined\') {textarea_selected = 1; this.form.elements[\'sql_query\'].select();}"'
+           ? "\n" . '             onfocus="if (typeof(document.layers) == \'undefined\' || typeof(textarea_selected) == \'undefined\') {textarea_selected = 1; document.sqlform.elements[\'sql_query\'].select();}"'
            : '';
 $auto_sel .= ' ' . $locking;
 
@@ -90,7 +90,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) 
 ?>
         <script type="text/javascript">
         <!--
-        document.writeln('<form method="post" target="phpmain' +  <?php echo ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) ? 'opener.' : '');?>top.frames.queryframe.document.hashform.hash.value + '" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">');
+        document.writeln('<form method="post" target="phpmain' +  <?php echo ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) ? 'opener.' : '');?>parent.frames.queryframe.document.hashform.hash.value + '" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">');
         //-->
         </script>
         <noscript>
@@ -336,7 +336,7 @@ if (!isset($is_inside_querywindow) ||
             ?>
 
             <script type="text/javascript">
-                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain\' + opener.top.frames.queryframe.document.hashform.hash.value + \'.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo addslashes($strInsertTextfiles); ?></a></div>');
+                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.parent.frames.phpmain\' + opener.parent.frames.queryframe.document.hashform.hash.value + \'.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo addslashes($strInsertTextfiles); ?></a></div>');
             </script>
             
             <?php
@@ -344,7 +344,7 @@ if (!isset($is_inside_querywindow) ||
             ?>
 
             <script type="text/javascript">
-                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain' . md5($cfg['PmaAbsoluteUri']) . '.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo addslashes($strInsertTextfiles); ?></a></div>');
+                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.parent.frames.phpmain' . md5($cfg['PmaAbsoluteUri']) . '.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo addslashes($strInsertTextfiles); ?></a></div>');
             </script>
 
             <?php
