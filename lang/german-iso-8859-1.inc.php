@@ -746,4 +746,5 @@ $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkun
 $strZip = 'Zip-komprimiert';
 
 $strNoRowsSelected = 'No rows selected';  //to translate
+$strSQPBugSyntaxError = 'Syntax error';  //to translate
 ?>

@@ -422,6 +422,12 @@ if ($is_minimum_common == FALSE) {
                     if (($first == ',') || ($first == ';') || ($first == '.') || ($first == '*')) {
                         $count2     = $count1 + 1;
                         $punct_data = $first;
+                    } else if (($last2 == '--') && $l == 2) {
+                        // Nijel: probably broken ANSI comment here (bug #905066)
+                        $debugstr =  $GLOBALS['strSQPBugSyntaxError'] . ' @ ' . ($count1+1) . "\n"
+                                  . 'STR: ' . $punct_data;
+                        PMA_SQP_throwError($debugstr, $sql);
+                        return $sql;
                     } else if (($last2 == '/*') || ($last2 == '--')) {
                         $count2     -= 2;
                         $punct_data = PMA_substr($sql, $count1, $count2 - $count1);

@@ -577,6 +577,7 @@ $strSQLParserUserError = 'Pravděpodobně máte v&nbsp;SQL dotazu chybu. Níže 
 $strSQLQuery = 'SQL-dotaz';
 $strSQLResult = 'Výsledek SQL dotazu';
 $strSQPBugInvalidIdentifer = 'Chybný identifikátor';
+$strSQPBugSyntaxError = 'Chybná syntaxe';
 $strSQPBugUnclosedQuote = 'Neuzavřené uvozovky';
 $strSQPBugUnknownPunctuation = 'Neznámé interpunkční znaménko';
 $strSave = 'Ulož';

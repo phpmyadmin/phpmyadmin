@@ -570,6 +570,7 @@ $strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQ
 $strSQLQuery = 'SQL-query';
 $strSQLResult = 'SQL result';
 $strSQPBugInvalidIdentifer = 'Invalid Identifer';
+$strSQPBugSyntaxError = 'Syntax error';
 $strSQPBugUnclosedQuote = 'Unclosed quote';
 $strSQPBugUnknownPunctuation = 'Unknown Punctuation String';
 $strSave = 'Save';

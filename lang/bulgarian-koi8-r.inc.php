@@ -750,4 +750,5 @@ $strCalendar = 'Calendar';  //to translate
 $strRefresh = 'Refresh';  //to translate
 $strDefragment = 'Defragment table';  //to translate
 $strNoRowsSelected = 'No rows selected';  //to translate
+$strSQPBugSyntaxError = 'Syntax error';  //to translate
 ?>

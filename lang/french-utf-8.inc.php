@@ -740,4 +740,5 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
 $strNoRowsSelected = 'No rows selected';  //to translate
+$strSQPBugSyntaxError = 'Syntax error';  //to translate
 ?>
