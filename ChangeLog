@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-30 Robin Johnson  <robbat2@users.sourceforge.net>
+    * scripts/decode_bug.php3: Parser BUG decoder merged
+
 2002-07-30 Marc Delisle  <lem9@users.sourceforge.net>
     * config.inc.php3: how to test auto-detect
     * lang/turkish: update, thanks to Bora Alioglu
