@@ -168,6 +168,8 @@ echo "\n";
 <body bgcolor="<?php echo $cfg['LeftBgColor']; ?>">
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
+        <a href="http://www.phpmyadmin.net" target="_blank"><img src="./images/pma_logo.png" width="88" height="31" border="0" alt="phpMyAdmin" /></a>
+
         <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>"><span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
     </div>
 
@@ -344,7 +346,6 @@ if ($num_dbs > 1) {
         echo $table_list_header;
         echo $table_list;
         echo "\n" . '    <hr noshade="noshade" />' . "\n";
-
     }
 
     // No light mode -> initialize some js variables for the

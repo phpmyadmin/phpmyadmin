@@ -11,6 +11,9 @@ $Source$
       thanks to Sönke J. Peters (s03nk3)
     * tbl_properties_structure.php3: undefined index for innodb,
       thanks to Loïc
+    * images/pma_logo.png, left.php3, libraries/auth/cookie.auth.lib.php3:
+      new logo, thanks to Ivan R. Lanin (ivanlanin); logo made transparent
+      by Alexander Turek
 
 2002-08-21 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: Updated FAQ 1.6.
