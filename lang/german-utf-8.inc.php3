@@ -598,18 +598,10 @@ $strMIME_available_mime = 'Verfügbare MIME-Typen';
 $strMIME_available_transform = 'Verfügbare Umwandlungen';
 $strMIME_without = 'Kursiv dargestellte MIME-Typen besitzen keine untergliederten Umwandlungen.';
 $strMIME_description = 'Beschreibung';
-$strMIME_nodescription = 'Für diese Umwandlung ist keine Beschreibung verfügar.<br />Bitte fragen Sie den Authoren der Funktion namens %s.';
+$strMIME_nodescription = 'Für diese Umwandlung ist keine Beschreibung verfügbar.<br />Bitte fragen Sie den Authoren der Funktion namens %s.';
 $strMIME_file = 'Dateiname';
 $strInnodbStat = 'InnoDB-Status';
 
-// To translate
-$strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link for it. First options argument is a possible prepended string like http://...';//to translate
-$strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
-$strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
-$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
-$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
-$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
 $strSQLOptions = 'SQL-Optionen';
 $strXML = 'XML';
 $strCSVOptions = 'CSV-Optionen';
@@ -619,9 +611,21 @@ $strStatUpdateTime = 'Aktualisiert am';
 $strStatCheckTime = 'Letzter Check am';
 $strPerMinute = 'pro Minute';
 $strPerSecond = 'pro Sekunde';
-$strAutomaticLayout = 'Automatic layout';  //to translate
-$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
-$strFileNameTemplate = 'File name template';//to translate 
-$strFileNameTemplateRemember = 'remember template';//to translate 
-$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
+$strAutomaticLayout = 'Automatische Anordnung';
+$strDelOld = 'Auf der aktuellen Seite bestehen Referenzen zu Tabellen, die nicht mehr existieren. Sollen diese Referenzen gelöscht werden?';
+$strFileNameTemplate = 'Dateinamenskonvention';
+$strFileNameTemplateRemember = 'Konvention merken';
+$strFileNameTemplateHelp = 'Benutzen Sie __DB__ für den Datenbanknamen, __TABLE__ für den Tabellennamen und %sbeliebige strftime-Optionen%s zur Angabe von Datumsvariablen. Die Erweiterung wird automagisch hinzugefügt. Jeglicher anderer Text wird beibehalten.';
+
+// To translate
+$strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link for it. First options argument is a possible prepended string like http://...';//to translate
+$strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
+$strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
+$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
+$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
+$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
+$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
+$strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
+$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
+$strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
 ?>
