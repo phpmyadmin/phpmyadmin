@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-31 Michal Cihar  <whyisitsocold@cihar.com>
+    * lang/czech: Update.
+
 2004-01-23 Alexander M. Turek  <stormfront@derrabus.de>
     * lang/german-*.inc.php: Updates.
 

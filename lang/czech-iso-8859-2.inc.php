@@ -209,6 +209,7 @@ $strDoYouReally = 'Opravdu si pøejete vykonat pøíkaz';
 $strDocu = 'Dokumentace';
 $strDrop = 'Odstranit';
 $strDropDB = 'Odstranit databázi %s';
+$strDropDatabaseStrongWarning = 'Chystáte se ZRU©IT celou databázi!';
 $strDropSelectedDatabases = 'Zru¹it vybranou databázi';
 $strDropTable = 'Smazat tabulku';
 $strDropUsersDb = 'Odstranit databáze se stejnými jmény jako u¾ivatelé.';
@@ -726,5 +727,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 ?>
