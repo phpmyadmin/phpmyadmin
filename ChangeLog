@@ -9,6 +9,7 @@ $Source$
 	* left.php3:
 	  - improved the js object detection system;
 	  - fixed some bugs with the patch from Korakot.
+	* left.js: fixed CSS bugs.
 	* Documentation.html:
 	  - lines 196-203 & 246-252: added  warning for Mac users thanks to
 	    "g-doggie" <penumbradesign at hotmail.com> &

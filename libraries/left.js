@@ -219,12 +219,12 @@ if (capable) {
     if (isDOM) {
       var lstyle = '<style type="text\/css">'
                  + '<!--'
-                 + 'div {color: #000000;}'
+                 + 'div {color: #000000}'
                  + '.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}'
-                 + '.heada_cnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}'
-                 + '.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration:none; display: block}'
-                 + '.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration:none; display: none}'
-                 + '.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none; font-size: ' + fontSmall + '}'
+                 + '.headaCnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}'
+                 + '.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; display: block}'
+                 + '.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration: none; display: none}'
+                 + '.item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: ' + fontSmall + '; color: #333399; text-decoration: none}'
                  + '.tblItem:hover {color: #FF0000; text-decoration: underline}'
                  + '\/\/-->'
                  + '<\/style>';
@@ -233,19 +233,19 @@ if (capable) {
     else {
       writeln('<style type="text\/css">');
       writeln('<!--');
-      writeln('div {color: #000000; }');
+      writeln('div {color: #000000}');
       writeln('.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}');
-      writeln('.heada_cnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}');
+      writeln('.headaCnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}');
       if (isIE4) {
         writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; display: block}');
         writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration: none; display: none}');
-        writeln('.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none; font-size: ' + fontSmall + '}');
+        writeln('.item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
         writeln('.tblItem:hover {color: #FF0000; text-decoration: underline}');
       }
       else {
         writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; position: absolute; visibility: hidden}');
         writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; position: absolute; visibility: hidden}');
-        writeln('.item, .tblItem {color: #333399; text-decoration: none}');
+        writeln('.item, .tblItem {font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
       }
       writeln('\/\/-->');
       writeln('<\/style>');
@@ -256,12 +256,12 @@ else {
   with (document) {
     writeln('<style type="text\/css">');
     writeln('<!--');
-    writeln('div {color: #000000; }');
+    writeln('div {color: #000000}');
     writeln('.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}');
-    writeln('.heada_cnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}');
+    writeln('.headaCnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}');
     writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none}');
     writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
-    writeln('.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}');
+    writeln('.item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
     writeln('.tblItem:hover {color: #FF0000; text-decoration: underline}');
     writeln('\/\/-->');
     writeln('<\/style>');
