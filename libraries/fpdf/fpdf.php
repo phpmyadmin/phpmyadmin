@@ -993,7 +993,8 @@ function SetXY($x,$y)
 function Output($name='',$dest='')
 {
 	//Output PDF to some destination
-	global $HTTP_SERVER_VARS;
+        // lem9
+	//global $HTTP_SERVER_VARS;
 
 	//Finish document if necessary
 	if($this->state<3)
@@ -1016,7 +1017,9 @@ function Output($name='',$dest='')
 	{
 		case 'I':
 			//Send to standard output
-			if(isset($HTTP_SERVER_VARS['SERVER_NAME']))
+                        // lem9
+			//if(isset($HTTP_SERVER_VARS['SERVER_NAME']))
+			if(isset($_SERVER['SERVER_NAME']))
 			{
 				//We send to a browser
 				Header('Content-Type: application/pdf');
@@ -1029,7 +1032,9 @@ function Output($name='',$dest='')
 			break;
 		case 'D':
 			//Download file
-			if(isset($HTTP_SERVER_VARS['HTTP_USER_AGENT']) and strpos($HTTP_SERVER_VARS['HTTP_USER_AGENT'],'MSIE'))
+                        // lem9
+			//if(isset($HTTP_SERVER_VARS['HTTP_USER_AGENT']) and strpos($HTTP_SERVER_VARS['HTTP_USER_AGENT'],'MSIE'))
+			if(isset($_SERVER['HTTP_USER_AGENT']) and strpos($_SERVER['HTTP_USER_AGENT'],'MSIE'))
 				Header('Content-Type: application/force-download');
 			else
 				Header('Content-Type: application/octet-stream');
@@ -1612,7 +1617,9 @@ function _out($s)
 }
 
 //Handle special IE contype request
-if(isset($HTTP_SERVER_VARS['HTTP_USER_AGENT']) and $HTTP_SERVER_VARS['HTTP_USER_AGENT']=='contype')
+// lem9
+//if(isset($HTTP_SERVER_VARS['HTTP_USER_AGENT']) and $HTTP_SERVER_VARS['HTTP_USER_AGENT']=='contype')
+if(isset($_SERVER['HTTP_USER_AGENT']) and $_SERVER['HTTP_USER_AGENT']=='contype')
 {
 	Header('Content-Type: application/pdf');
 	exit;
