@@ -97,7 +97,7 @@ if (!empty($query_to_display)) {
 // loic1: displays import dump feature only if file upload available
 if ($is_upload) {
 ?>
-<tr><td colspan="2"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>
+<tr><td colspan="2"><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td></tr>
 <tr>
     <td colspan="2" class="tblHeaders">
     <?php
@@ -175,7 +175,7 @@ if (!empty($cfg['UploadDir'])) {
         @closedir($handle);
     }
     else {
-        $upload_dir_error = '<tr><td colspan="2"><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
+        $upload_dir_error = '<tr><td colspan="2"><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  . '" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
                           . '<tr><th colspan="2" class="tblHeadError"><div class="errorhead">' . $strError . '</div></th></tr>' . "\n"
                           . '<tr><td colspan="2" class="tblError">' . $strWebServerUploadDirectoryError
                           . '</td></tr>' . "\n";
@@ -211,7 +211,7 @@ if ($is_upload || $is_upload_dir) {
 // Bookmark Support
 if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
     if (($bookmark_list = PMA_listBookmarks($db, $cfg['Bookmark'])) && count($bookmark_list) > 0) {
-        echo '    <tr><td colspan="2"><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
+        echo '    <tr><td colspan="2"><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  . '" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
         echo '    <tr><td colspan="2" class="tblHeaders">&nbsp;<i>' . $strOr . '</i></td></tr>' . "\n";
         echo '    <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="2">' . "\n";
         echo '        <b>' . $strBookmarkQuery . ':</b>&nbsp;' . "\n";

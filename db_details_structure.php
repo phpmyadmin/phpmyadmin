@@ -307,7 +307,7 @@ else {
             </tr>
         </table>
     </td>
-    <td><img src="./images/spacer.gif" border="0" width="10" height="1" alt="" /></td>
+    <td><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" border="0" width="10" height="1" alt="" /></td>
     <td valign="top">
         <?php
             pma_TableHeader();
@@ -575,7 +575,7 @@ else {
                         <?php echo $strCheckOverhead; ?></a>
                     <?php } ?>
                     &nbsp;&nbsp;&nbsp;
-                    <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
+                    <img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" border="0" width="38" height="1" alt="" />
                     <select name="submit_mult" dir="ltr" onchange="this.form.submit();">
     <?php
     echo "\n";
@@ -652,7 +652,7 @@ if ($num_tables > 0) {
       }
       echo $strDataDict . '</a>';
 ?></td></tr>
-<tr><td colspan="3"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr></table>
+<tr><td colspan="3"><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td></tr></table>
     <?php
 } // end if
 ?>
@@ -694,7 +694,7 @@ echo '             ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . 
 if ($cfgRelation['commwork']) {
 ?>
     <!-- Alter/Enter db-comment -->
-        <tr><td colspan="3"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>
+        <tr><td colspan="3"><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td></tr>
 
         <tr>
         <td colspan="3" class="tblHeaders"><?php
@@ -716,7 +716,7 @@ if ($cfgRelation['commwork']) {
 }
 ?>
     <!-- Rename database -->
-        <tr><td colspan="3"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>
+        <tr><td colspan="3"><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td></tr>
         <tr><td colspan="3" class="tblHeaders"><?php
           if ($cfg['PropertiesIconic']) {
               echo '<img src="' . $pmaThemeImage . 'b_edit.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
@@ -738,7 +738,7 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
     // MySQL supports setting default charsets / collations for databases since
     // version 4.1.1.
     echo '    <!-- Change database charset -->' . "\n"
-       . '    <tr><td colspan="3"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
+       . '    <tr><td colspan="3"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
        . '    <tr><td colspan="3" class="tblHeaders">';
     if ($cfg['PropertiesIconic']) {
         echo '<img src="' . $pmaThemeImage . 's_asci.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
@@ -758,7 +758,7 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
 
 if ($num_tables > 0
     && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
-    echo '<tr><td colspan="3"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>'
+    echo '<tr><td colspan="3"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td></tr>'
         . '<tr><th colspan="3" class="tblHeadError"><div class="errorhead">' . $strError . '</div></th></tr>'
         . '<tr><td colspan="3" class="tblError">'
         . sprintf(wordwrap($strRelationNotWorking,65,'<br />'), '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">',  '</a>')
@@ -872,7 +872,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
                                                   <td width="20">&nbsp;</td><td colspan="3" align="right">
                 &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" /></td>
             </form></tr>
-            <tr><td colspan="3"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>
+            <tr><td colspan="3"><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td></tr>
         <?php
     }   // end if
 ?>
