@@ -7,8 +7,8 @@
           + Version history: [2]ChangeLog
           + General notes: [3]README
           + License: [4]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.191 2002/04/10
-       12:40:09 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.192 2002/04/10
+       20:24:35 loic1 Exp $
    ______________________________________________________________________
    
    [5]Top  -  [6]Requirements  -  [7]Introduction  -  [8]Installation  -
@@ -118,8 +118,8 @@ Installation
        except "Password"), mysql.db (all columns) & mysql.tables_priv
        (all columns except "Grantor" & "Timestamp") tables.
        You must specify the details for the controluser in the
-       config.inc.php3 file under the $cfgServers[n]['controluser'] &
-       $cfgServers[n]['controlpass'] settings.
+       config.inc.php3 file under the $cfgServers[$i]['controluser']&
+       $cfgServers[$i]['controlpass'] settings.
        This example assumes you want to use pma as the controluser and
        pmapass as the controlpass:
        
@@ -162,9 +162,10 @@ Installation
        
    'config' authentication mode:
      * This mode is the less secure one because it requires you to fill
-       the $cfgServers[n]['user'] and $cfgServers[n]['password'] fields.
+       the $cfgServers[$i]['user'] and $cfgServers[$i]['password']
+       fields.
        But you don't need to setup a "controluser" here: using the
-       $cfgServers[n]['only_db'] might be enough.
+       $cfgServers[$i]['only_db'] might be enough.
        In the ISP FAQ section, there is an entry explaining how to
        protect your configuration file.
    ______________________________________________________________________
@@ -200,30 +201,31 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
           Since version 1.4.2, phpMyAdmin supports the administration of
           multiple MySQL servers. Therefore, a $cfgServers-array has been
           added which contains the login information for the different
-          servers. $cfgServers[1]['host'] contains the hostname of the
-          first server, $cfgServers[2]['host'] the hostname of the second
-          server, etc. If you have only one server to administer, simply
-          leave free the hostname of the other $cfgServer-entries.
+          servers. The first $cfgServers[$i]['host'] contains the
+          hostname of the first server, the second
+          $cfgServers[$i]['host'] the hostname of the second server, etc.
+          If you have only one server to administer, simply leave free
+          the hostname of the other $cfgServer-entries.
           
-   $cfgServers[n]['host'] string
-          The hostname of your n-th MySQL-server. E.g. localhost.
+   $cfgServers[$i]['host'] string
+          The hostname of your $i-th MySQL-server. E.g. localhost.
           
-   $cfgServers[n]['port'] string
-          The port-number of your n-th MySQL-server. Default is 3306
+   $cfgServers[$i]['port'] string
+          The port-number of your $i-th MySQL-server. Default is 3306
           (leave blank).
           
-   $cfgServers[n]['socket'] string
+   $cfgServers[$i]['socket'] string
           The path to the socket to use. Leave blank for default.
           To use the socket feature you must run php 3.0.10 or more.
           
-   $cfgServers[n]['connect_type'] string
+   $cfgServers[$i]['connect_type'] string
           What type connection to use with the MySQL server. Your options
           are 'socket' & 'tcp'. It defaults to 'tcp' as that is nearly
           guarenteed to be available on all MySQL servers, while sockets
           are not supported on some platforms.
           
-   $cfgServers[n]['controluser'] string
-          $cfgServers[n]['controlpass'] string
+   $cfgServers[$i]['controluser'] string
+          $cfgServers[$i]['controlpass'] string
           When using http or cookie authentication modes (or 'config'
           authentication mode since phpMyAdmin 2.2.1), you need to supply
           the details of a MySQL account that has SELECT privilege on the
@@ -239,7 +241,7 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
           support a direct login with the "controluser".
           In versions before 2.2.5, those were called "stduser/stdpass".
           
-   $cfgServers[n]['auth_type'] string ['http'|'cookie'|'config']
+   $cfgServers[$i]['auth_type'] string ['http'|'cookie'|'config']
           Whether config or cookie or http authentication should be used
           for this server.
           
@@ -257,13 +259,13 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
           Please see the install section on "Using authentication modes"
           for more information.
           
-   $cfgServers[n]['user'] string
-          $cfgServers[n]['password'] string
+   $cfgServers[$i]['user'] string
+          $cfgServers[$i]['password'] string
           The user/password-pair which phpMyAdmin will use to connect to
           this MySQL-server. This user/password pair is not needed when
           http or cookie authentication is used, and should be empty.
           
-   $cfgServers[n]['only_db'] string or array
+   $cfgServers[$i]['only_db'] string or array
           If set to a(an array of) database name(s), only this(these)
           database(s) will be shown to the user. Since phpMyAdmin 2.2.1,
           this/these database(s) name(s) may contain MySQL wilcards
@@ -277,15 +279,15 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
           means only these databases will be displayed but not at all
           other databases can't be used.
           
-   $cfgServers[n]['verbose'] string
+   $cfgServers[$i]['verbose'] string
           Only useful when using phpMyAdmin with multiple server entries.
           If set, this string will be displayed instead of the hostname
           in the pulldown menu on the main page. This can be useful if
           you want to show only certain databases on your system, for
           example.
           
-   $cfgServers[n]['bookmarkdb'] string
-          $cfgServers[n]['bookmarktable'] string
+   $cfgServers[$i]['bookmarkdb'] string
+          $cfgServers[$i]['bookmarktable'] string
           Since release 2.2.0 phpMyAdmin allows to bookmark queries. This
           can be useful for queries you often run.
           To use this functionality you have to:
@@ -299,8 +301,8 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
                    query text NOT NULL,
                    PRIMARY KEY (id)
                  );
-          + then complete the two variables $cfgServers[n]['bookmarkdb']
-            and $cfgServers[n]['bookmarktable'] with the database and
+          + then complete the two variables $cfgServers[$i]['bookmarkdb']
+            and $cfgServers[$i]['bookmarktable'] with the database and
             table names you've choosen so phpMyAdmin will be able to find
             the bookmarks.
             
@@ -310,7 +312,7 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
           GRANT SELECT,INSERT,DELETE ON <bookmarkdb>.<bookmarktable> to
           'pma'@localhost;
           
-   $cfgServers[n]['relation'] string
+   $cfgServers[$i]['relation'] string
           Since release 2.2.4 you can describe, in a special 'relation'
           table, which field is a key in another table (a foreign key).
           phpMyAdmin currently uses this to
@@ -333,7 +335,7 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
                    `dest_column` varchar(32) NOT NULL default '',
                    PRIMARY KEY (`src_table`,`src_column`)
                  ) TYPE=MyISAM COMMENT='Table Relation';
-          + put the relation table name in $cfgServers[n]['relation']
+          + put the relation table name in $cfgServers[$i]['relation']
           + then manually fill the relation table with information about
             the keys.
             
@@ -695,7 +697,7 @@ FAQ - Frequently Asked Questions
        socket to use when you open the connection. To do this in
        phpMyAdmin, you need to complete the socket information in the
        config.inc.php3.
-       For example: $cfgServers[n]['socket'] = '/tmp/mysql.sock';
+       For example: $cfgServers[$i]['socket'] = '/tmp/mysql.sock';
        
    Have also a look at the [55]corresponding section of the MySQL
    documentation.
@@ -766,8 +768,8 @@ FAQ - Frequently Asked Questions
    phpMyAdmin always gives "Access denied" when using http
    authentication.
    This could happen for several reasons:
-     * $cfgServers[n]['controluser'] and/or $cfgServers[n]['controlpass']
-       are wrong.
+     * $cfgServers[$i]['controluser'] and/or
+       $cfgServers[$i]['controlpass'] are wrong.
      * The username/password you specify in the login-dialog are invalid.
      * You have already setup a security mechanism for the
        phpMyAdmin-directory, eg. a .htaccess file. This would interfere

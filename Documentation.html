@@ -276,8 +276,8 @@
         &amp; &quot;Timestamp&quot;) </i>tables.<br />
         You must specify the details for the controluser in the
         <i>config.inc.php3</i> file under the
-        <tt>$cfgServers[n]['controluser']</tt> &amp;
-        <tt>$cfgServers[n]['controlpass']</tt> settings.<br />
+        <tt>$cfgServers[$i]['controluser']</tt>&amp;
+        <tt>$cfgServers[$i]['controlpass']</tt> settings.<br />
         This example assumes you want to use <tt>pma</tt> as the controluser
         and <tt>pmapass</tt> as the controlpass:<br />
         <table border="0">
@@ -339,10 +339,10 @@
 <p><b>'config' authentication mode:</b></p>
 <ul>
     <li>This mode is the less secure one because it requires you to fill the
-        <tt>$cfgServers[n]['user']</tt> and <tt>$cfgServers[n]['password']</tt>
-        fields.<br />
+        <tt>$cfgServers[$i]['user']</tt> and
+        <tt>$cfgServers[$i]['password']</tt> fields.<br />
         But you don't need to setup a &quot;controluser&quot; here:
-        using the <tt>$cfgServers[n]['only_db']</tt> might be enough.<br />
+        using the <tt>$cfgServers[$i]['only_db']</tt> might be enough.<br />
         In the ISP FAQ section, there is an entry explaining how to protect
         your configuration file.<br /></li>
 </ul>
@@ -396,35 +396,36 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
         Since version 1.4.2, phpMyAdmin supports the administration of multiple
         MySQL servers.
         Therefore, a $cfgServers-array has been added which contains the login
-        information for the different servers. <tt>$cfgServers[1]['host']</tt>
-        contains the hostname of the first server,
-        <tt>$cfgServers[2]['host']</tt> the hostname of the second server, etc.
+        information for the different servers. The first
+        <tt>$cfgServers[$i]['host']</tt> contains the hostname of the first
+        server, the second <tt>$cfgServers[$i]['host']</tt> the hostname of the
+        second server, etc.
         If you have only one server to administer, simply leave free the
         hostname of the other $cfgServer-entries.
         <br /><br />
     </dd>
 
-    <dt><b>$cfgServers[n]['host']</b> string</dt>
+    <dt><b>$cfgServers[$i]['host']</b> string</dt>
     <dd>
-        The hostname of your n-th MySQL-server. E.g. localhost.
+        The hostname of your $i-th MySQL-server. E.g. localhost.
         <br /><br />
     </dd>
 
-    <dt><b>$cfgServers[n]['port']</b> string</dt>
+    <dt><b>$cfgServers[$i]['port']</b> string</dt>
     <dd>
-        The port-number of your n-th MySQL-server. Default is 3306 (leave
+        The port-number of your $i-th MySQL-server. Default is 3306 (leave
         blank).
         <br /><br />
     </dd>
 
-    <dt><b>$cfgServers[n]['socket']</b> string</dt>
+    <dt><b>$cfgServers[$i]['socket']</b> string</dt>
     <dd>
         The path to the socket to use. Leave blank for default.<br />
         To use the socket feature you must run php 3.0.10 or more.
         <br /><br />
     </dd>
 
-    <dt><b>$cfgServers[n]['connect_type']</b> string</dt>
+    <dt><b>$cfgServers[$i]['connect_type']</b> string</dt>
     <dd>
         What type connection to use with the MySQL server. Your options are
         'socket' &amp; 'tcp'. It defaults to 'tcp' as that is nearly guarenteed
@@ -434,8 +435,8 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
     </dd>
 
     <dt>
-        <b>$cfgServers[n]['controluser']</b> string<br />
-        <b>$cfgServers[n]['controlpass']</b> string
+        <b>$cfgServers[$i]['controluser']</b> string<br />
+        <b>$cfgServers[$i]['controlpass']</b> string
     </dt>
     <dd>
         When using http or cookie authentication modes (or 'config'
@@ -459,7 +460,7 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt><b>$cfgServers[n]['auth_type']</b> string <tt>['http'|'cookie'|'config']</tt> </dt>
+    <dt><b>$cfgServers[$i]['auth_type']</b> string <tt>['http'|'cookie'|'config']</tt> </dt>
     <dd>
         Whether config or cookie or http authentication should be used for this
         server.
@@ -492,8 +493,8 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
     </dd>
 
     <dt>
-        <b>$cfgServers[n]['user']</b> string<br />
-        <b>$cfgServers[n]['password']</b> string
+        <b>$cfgServers[$i]['user']</b> string<br />
+        <b>$cfgServers[$i]['password']</b> string
     </dt>
     <dd>
         The user/password-pair which phpMyAdmin will use to connect to this
@@ -501,7 +502,7 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
         authentication is used, and should be empty.<br /><br />
     </dd>
 
-    <dt><b>$cfgServers[n]['only_db']</b> string or array</dt>
+    <dt><b>$cfgServers[$i]['only_db']</b> string or array</dt>
     <dd>
         If set to a(an array of) database name(s), only this(these) database(s)
         will be shown to the user. Since phpMyAdmin 2.2.1, this/these
@@ -518,7 +519,7 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt><b>$cfgServers[n]['verbose']</b> string</dt>
+    <dt><b>$cfgServers[$i]['verbose']</b> string</dt>
     <dd>
         Only useful when using phpMyAdmin with multiple server entries. If set,
         this string will be displayed instead of the hostname in the pulldown
@@ -528,8 +529,8 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
     </dd>
 
     <dt>
-        <b>$cfgServers[n]['bookmarkdb']</b> string<br />
-        <b>$cfgServers[n]['bookmarktable']</b> string
+        <b>$cfgServers[$i]['bookmarkdb']</b> string<br />
+        <b>$cfgServers[$i]['bookmarktable']</b> string
     </dt>
     <dd>
         Since release 2.2.0 phpMyAdmin allows to bookmark queries. This can be
@@ -552,8 +553,8 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
             </li>
             <li>
                 then complete the two variables
-                <tt>$cfgServers[n]['bookmarkdb']</tt> and
-                <tt>$cfgServers[n]['bookmarktable']</tt> with the database and
+                <tt>$cfgServers[$i]['bookmarkdb']</tt> and
+                <tt>$cfgServers[$i]['bookmarktable']</tt> with the database and
                 table names you've choosen so phpMyAdmin will be able to find
                 the bookmarks.
             </li>
@@ -568,7 +569,7 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
     </dd>
 
     <dt>
-        <b>$cfgServers[n]['relation']</b> string
+        <b>$cfgServers[$i]['relation']</b> string
     </dt>
     <dd>
         Since release 2.2.4 you can describe, in a special 'relation' table,
@@ -606,7 +607,7 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
             </li>
             <li>
                 put the relation table name in
-                <tt>$cfgServers[n]['relation']</tt>
+                <tt>$cfgServers[$i]['relation']</tt>
             </li>
             <li>
                 then manually fill the relation table with information about
@@ -1201,7 +1202,7 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
         open the connection. To do this in phpMyAdmin, you need to complete the
         socket information in the config.inc.php3.<br />
         For example:
-        <tt>$cfgServers[n]['socket']&nbsp;=&nbsp;'/tmp/mysql.sock';</tt>
+        <tt>$cfgServers[$i]['socket']&nbsp;=&nbsp;'/tmp/mysql.sock';</tt>
     </li>
 </ul>
 <p>
@@ -1310,8 +1311,8 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
 </p>
 <ul>
     <li>
-        <tt>$cfgServers[n]['controluser']</tt> and/or
-        <tt>$cfgServers[n]['controlpass']</tt> are wrong.
+        <tt>$cfgServers[$i]['controluser']</tt> and/or
+        <tt>$cfgServers[$i]['controlpass']</tt> are wrong.
     </li>
     <li>
         The username/password you specify in the login-dialog are invalid.

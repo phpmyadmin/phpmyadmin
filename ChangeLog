@@ -16,6 +16,8 @@ $Source$
 	* db_stats.php3; left.php3; libraries/display_tbl.lib.php3: the valid xhtml
 	  attribute to display the "tool tip" of an image is "title" and not "alt".
 	* libraries/display_tbl.lib.php3, lines 574 & 578: use localized strings.
+	* config.inc.php3; Documentation.*: merged patch #542421 - dynamic server
+	  numbers in config file.
 
 2002-04-12 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3, lines 957-991: expended cosmetic changes

@@ -36,60 +36,64 @@ $cfgPmaAbsoluteUri = '';
 /**
  * Server(s) configuration
  */
+$i = 0;
 // The $cfgServers array starts with $cfgServers[1].  Do not use $cfgServers[0].
 // You can disable a server config entry by setting host to ''.
-$cfgServers[1]['host']          = 'localhost'; // MySQL hostname
-$cfgServers[1]['port']          = '';          // MySQL port - leave blank for default port
-$cfgServers[1]['socket']        = '';          // Path to the socket - leave blank for default socket
-$cfgServers[1]['connect_type']  = 'tcp';       // How to connect to MySQL server ('tcp' or 'socket')
-$cfgServers[1]['controluser']   = '';          // MySQL control user settings
-                                               // (this user must have read-only
-$cfgServers[1]['controlpass']   = '';          // access to the "mysql/user"
-                                               // and "mysql/db" tables)
-$cfgServers[1]['auth_type']     = 'config';    // Authentication method (config, http or cookie based)?
-$cfgServers[1]['user']          = 'root';      // MySQL user
-$cfgServers[1]['password']      = '';          // MySQL password (only needed
-                                               // with 'config' auth_type)
-$cfgServers[1]['only_db']       = '';          // If set to a db-name, only
-                                               // this db is displayed
-                                               // at left frame
-                                               // It may also be an array
-                                               // of db-names
-$cfgServers[1]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
-$cfgServers[1]['bookmarkdb']    = '';          // Bookmark db - leave blank for no bookmark support
-$cfgServers[1]['bookmarktable'] = '';          // Bookmark table - leave blank for no bookmark support
-$cfgServers[1]['relation']      = '';          // table to describe the relation between links (see doc)
-                                               //   - leave blank for no relation-links support
+$i++;
+$cfgServers[$i]['host']          = 'localhost'; // MySQL hostname
+$cfgServers[$i]['port']          = '';          // MySQL port - leave blank for default port
+$cfgServers[$i]['socket']        = '';          // Path to the socket - leave blank for default socket
+$cfgServers[$i]['connect_type']  = 'tcp';       // How to connect to MySQL server ('tcp' or 'socket')
+$cfgServers[$i]['controluser']   = '';          // MySQL control user settings
+                                                // (this user must have read-only
+$cfgServers[$i]['controlpass']   = '';          // access to the "mysql/user"
+                                                // and "mysql/db" tables)
+$cfgServers[$i]['auth_type']     = 'config';    // Authentication method (config, http or cookie based)?
+$cfgServers[$i]['user']          = 'root';      // MySQL user
+$cfgServers[$i]['password']      = '';          // MySQL password (only needed
+                                                // with 'config' auth_type)
+$cfgServers[$i]['only_db']       = '';          // If set to a db-name, only
+                                                // this db is displayed
+                                                // at left frame
+                                                // It may also be an array
+                                                // of db-names
+$cfgServers[$i]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
+$cfgServers[$i]['bookmarkdb']    = '';          // Bookmark db - leave blank for no bookmark support
+$cfgServers[$i]['bookmarktable'] = '';          // Bookmark table - leave blank for no bookmark support
+$cfgServers[$i]['relation']      = '';          // table to describe the relation between links (see doc)
+                                                //   - leave blank for no relation-links support
 
-$cfgServers[2]['host']          = '';
-$cfgServers[2]['port']          = '';
-$cfgServers[2]['socket']        = '';
-$cfgServers[2]['connect_type']  = 'tcp';
-$cfgServers[2]['controluser']   = '';
-$cfgServers[2]['controlpass']   = '';
-$cfgServers[2]['auth_type']     = 'config';
-$cfgServers[2]['user']          = 'root';
-$cfgServers[2]['password']      = '';
-$cfgServers[2]['only_db']       = '';
-$cfgServers[2]['verbose']       = '';
-$cfgServers[2]['bookmarkdb']    = '';
-$cfgServers[2]['bookmarktable'] = '';
-$cfgServers[2]['relation']      = '';
+$i++;
+$cfgServers[$i]['host']          = '';
+$cfgServers[$i]['port']          = '';
+$cfgServers[$i]['socket']        = '';
+$cfgServers[$i]['connect_type']  = 'tcp';
+$cfgServers[$i]['controluser']   = '';
+$cfgServers[$i]['controlpass']   = '';
+$cfgServers[$i]['auth_type']     = 'config';
+$cfgServers[$i]['user']          = 'root';
+$cfgServers[$i]['password']      = '';
+$cfgServers[$i]['only_db']       = '';
+$cfgServers[$i]['verbose']       = '';
+$cfgServers[$i]['bookmarkdb']    = '';
+$cfgServers[$i]['bookmarktable'] = '';
+$cfgServers[$i]['relation']      = '';
 
-$cfgServers[3]['host']          = '';
-$cfgServers[3]['port']          = '';
-$cfgServers[3]['socket']        = '';
-$cfgServers[3]['connect_type']  = 'tcp';
-$cfgServers[3]['controluser']   = '';
-$cfgServers[3]['controlpass']   = '';
-$cfgServers[3]['auth_type']     = 'config';
-$cfgServers[3]['user']          = 'root';
-$cfgServers[3]['password']      = '';
-$cfgServers[3]['only_db']       = '';
-$cfgServers[3]['verbose']       = '';
-$cfgServers[3]['bookmarkdb']    = '';
-$cfgServers[3]['bookmarktable'] = '';
-$cfgServers[3]['relation']      = '';
+$i++;
+$cfgServers[$i]['host']          = '';
+$cfgServers[$i]['port']          = '';
+$cfgServers[$i]['socket']        = '';
+$cfgServers[$i]['connect_type']  = 'tcp';
+$cfgServers[$i]['controluser']   = '';
+$cfgServers[$i]['controlpass']   = '';
+$cfgServers[$i]['auth_type']     = 'config';
+$cfgServers[$i]['user']          = 'root';
+$cfgServers[$i]['password']      = '';
+$cfgServers[$i]['only_db']       = '';
+$cfgServers[$i]['verbose']       = '';
+$cfgServers[$i]['bookmarkdb']    = '';
+$cfgServers[$i]['bookmarktable'] = '';
+$cfgServers[$i]['relation']      = '';
 
 // If you have more than one server configured, you can set $cfgServerDefault
 // to any one of them to autoconnect to that server when phpMyAdmin is started,
