@@ -113,6 +113,7 @@ $strFieldsEnclosedBy = 'Felter omsluttet av';
 $strFieldsEscapedBy = 'Felter "escaped" med';
 $strFieldsTerminatedBy = 'Felter avsluttet med';
 $strFixed = 'statisk';
+$strFlushTable = 'Oppfrisk tabellen ("FLUSH")';
 $strFormat = 'Format';
 $strFormEmpty = 'Manglende verdi i skjemaet!';
 $strFullText = 'Hele strenger';
@@ -175,6 +176,7 @@ $strNext = 'Neste';
 $strNo = 'Nei';
 $strNoDatabases = 'Ingen databaser';
 $strNoDropDatabases = '"DROP DATABASE" uttrykk er avslått.';
+$strNoFrames = 'phpMyAdmin er mere brukervennlig med en <b>ramme-kapabel</b> web-leser.';
 $strNoModification = 'Ingen endring';
 $strNoPassword = 'Intet passord';
 $strNoPrivileges = 'Ingen privilegier';
@@ -277,6 +279,7 @@ $strTableComments = 'Tabell kommentarer';
 $strTableEmpty = 'Tabellnavnet er tomt!';
 $strTableHasBeenDropped = 'Tabellen %s har blitt slettet';
 $strTableHasBeenEmptied = 'Tabellen %s har blitt tømt';
+$strTableHasBeenFlushed = 'Tabelen %s har blitt oppfrisket';
 $strTableMaintenance = 'Tabell vedlikehold';
 $strTables = '%s tabell(er)';
 $strTableStructure = 'Tabell-struktur for tabell';
@@ -315,7 +318,4 @@ $strYes = 'Ja';
 $strZip = '"komprimert (zip)"';
 
 // To translate
-$strFlushTable = 'Flush the table ("FLUSH")';
-$strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
-$strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>
