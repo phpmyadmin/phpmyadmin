@@ -257,7 +257,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
     }
     list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
     list($tot_size, $tot_unit)       = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
-    list($avg_size, $avg_unit)       = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows']);
+    if (isset($showtable['Rows']) && $showtable['Rows']>0) list($avg_size, $avg_unit) = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
 
     // Displays them
     if ($index_count > 0) {
