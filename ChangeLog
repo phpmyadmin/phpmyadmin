@@ -7,6 +7,11 @@ $Source$
 
 2003-12-12 Garvin Hicking <juststayalittlebitlonger@supergarv.de>
     * export.php: Fixed Regex
+    * transformation_wrapper.php, lang/*, libraries/display_tbl.lib.php,
+      libraries/transformations/application_octetstream__download.inc.php:
+      Added a new transformation to download blob/binary field contents
+      with customized filenames. Needed two minor tweeks to the general
+      system.
 
 2003-12-11 Michal Cihar  <imreallyaway@cihar.com>
     * libraries/export/sql.php: Fix moving foreign key definition on Windows

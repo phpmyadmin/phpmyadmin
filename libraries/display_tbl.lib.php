@@ -943,6 +943,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     global $sql_query, $pos, $session_max_rows, $fields_meta, $fields_cnt;
     global $vertical_display, $disp_direction, $repeat_cells, $highlight_columns;
     global $dontlimitchars;
+    global $row; // mostly because of browser transformations, to make the row-data accessible in a plugin
 
     if (!is_array($map)) {
         $map = array();

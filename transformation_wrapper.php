@@ -62,7 +62,16 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
 
 require_once('./libraries/header_http.inc.php');
 // [MIME]
-$content_type = 'Content-Type: ' . (isset($mime_map[urldecode($transform_key)]['mimetype']) ? str_replace('_', '/', $mime_map[urldecode($transform_key)]['mimetype']) : $default_ct) . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
+if (isset($ct) && !empty($ct)) {
+    $content_type = 'Content-Type: ' . urldecode($ct);
+} else {
+    $content_type = 'Content-Type: ' . (isset($mime_map[urldecode($transform_key)]['mimetype']) ? str_replace('_', '/', $mime_map[urldecode($transform_key)]['mimetype']) : $default_ct) . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
+}
+
+if (isset($cn) && !empty($cn)) {
+    $content_type .= "\n" . 'Content-Disposition: attachment; filename=' . urldecode($cn);
+}
+
 header($content_type);
 
 if (!isset($resize)) {
