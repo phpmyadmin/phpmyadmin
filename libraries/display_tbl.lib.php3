@@ -988,7 +988,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         $uva_condition = $uva_nonprimary_condition;
                     }
                     
-                    $uva_condition     = urlencode(ereg_replace('[[:space:]]?AND$', '', $uva_condition));
+                    $uva_condition     = urlencode(preg_replace('|[[:space:]]?AND$|', '', $uva_condition));
                 } // end if (1.1)
 
                 // 1.2 Defines the urls for the modify/delete link(s)
