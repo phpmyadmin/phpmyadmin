@@ -13,6 +13,8 @@ $Source$
       libraries/header_meta_style.inc.php: Actually use print style in themes,
       also fixes RFE #1120880.
     * sql.php: Better calculate inserted row id (bug #1156963).
+    * db_details_links.php, db_details_structure.php: Show database comment on
+      each tab (same as we do with table comments).
 
 2005-03-06 Michael Keck  <mkkeck@users.sourceforge.net>
     * themes/*/img/bd_deltbl.png, themes/*/bd_drop.png: Added disabled

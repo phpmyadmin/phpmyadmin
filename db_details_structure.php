@@ -82,12 +82,6 @@ function pma_TableHeader($alternate = FALSE, $record_count = TRUE) {
 
 
 /**
- * Settings for relations stuff
- */
-require_once('./libraries/relation.lib.php');
-$cfgRelation = PMA_getRelationsParam();
-
-/**
  * Displays the tables list
  */
 ?>
@@ -151,22 +145,6 @@ if ($num_tables == 0) {
 }
 // 2. Shows table informations - staybyte - 11 June 2001
 else {
-    // Get additional information about tables for tooltip is done in db_details_db_info.php only once
-    if ($cfgRelation['commwork']) {
-        $comment = PMA_getComments($db);
-
-        /**
-         * Displays table comment
-         */
-        if (is_array($comment)) {
-            ?>
-        <!-- DB comment -->
-        <p id="dbComment"><i>
-            <?php echo htmlspecialchars(implode(' ', $comment)) . "\n"; ?>
-        </i></p>
-            <?php
-        } // end if
-    }
     ?>
 <form method="post" action="db_details_structure.php" name="tablesForm">
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
@@ -478,10 +456,10 @@ else {
                 if ($cfg['ShowStats']) {
                 ?>
                <td align="right" bgcolor="<?php echo $bgcolor; ?>">
-                  &nbsp;-&nbsp; 
+                  &nbsp;-&nbsp;
                </td>
                <td align="right" bgcolor="<?php echo $bgcolor; ?>">
-                  &nbsp;-&nbsp; 
+                  &nbsp;-&nbsp;
                </td>
                 <?php
             }
