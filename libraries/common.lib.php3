@@ -103,6 +103,9 @@ if (!defined('__LIB_COMMON__')){
     include('./config.inc.php3');
 
     // For compatibility with old config.inc.php3
+    if (!isset($cfgExecTimeLimit)) {
+        $cfgExecTimeLimit       = 300; // 5 minuts
+    }
     if (!isset($cfgShowStats)) {
         $cfgShowStats           = TRUE;
     }

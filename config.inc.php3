@@ -96,6 +96,7 @@ unset($cfgServers[0]);
  */
 $cfgOBGzip 		          = TRUE;   // use GZIP output buffering if possible
 $cfgPersistentConnections = FALSE;  // use persistent connections to MySQL database
+$cfgExecTimeLimit         = 300;    // maximum execution time in seconds (0 for no limit)
 $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
                                     // locked tables (since MySQL 3.23.30)
 $cfgShowSQL               = TRUE;   // show SQL queries as run

@@ -203,7 +203,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
             $replace    = array('\0', '\n', '\r', '\Z');
             $isFirstRow = TRUE;
 
-            @set_time_limit(1200); // 20 Minutes
+            @set_time_limit($GLOBALS['cfgExecTimeLimit']);
 
             while ($row = mysql_fetch_row($result)) {
                 for ($j = 0; $j < $fields_cnt; $j++) {
@@ -288,14 +288,13 @@ if (!defined('__LIB_BUILD_DUMP__')){
         $isFirstRow  = TRUE;
         $fields_cnt  = mysql_num_fields($result);
 
-        while ($row = mysql_fetch_row($result)) {
-            @set_time_limit(60); // HaRa
-            $table_list     = '(';
+        @set_time_limit($GLOBALS['cfgExecTimeLimit']); // HaRa
 
+        while ($row = mysql_fetch_row($result)) {
+            $table_list     = '(';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 $table_list .= backquote(mysql_field_name($result, $j), $use_backquotes) . ', ';
             }
-
             $table_list     = substr($table_list, 0, -2);
             $table_list     .= ')';
 
@@ -478,10 +477,11 @@ if (!defined('__LIB_BUILD_DUMP__')){
         $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $error_url);
         $fields_cnt  = mysql_num_fields($result);
 
+        @set_time_limit($GLOBALS['cfgExecTimeLimit']);
+
         // Format the data
-        $i      = 0;
+        $i = 0;
         while ($row = mysql_fetch_row($result)) {
-            @set_time_limit(60);
             $schema_insert = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (!isset($row[$j])) {

@@ -79,7 +79,7 @@ $err_url = 'tbl_properties.php3'
 /**
  * Increase time limit for script execution and initializes some variables
  */
-@set_time_limit(600);
+@set_time_limit($cfgExecTimeLimit);
 $dump_buffer = '';
 // Defines the default <CR><LF> format
 $crlf        = which_crlf();

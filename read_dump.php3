@@ -132,7 +132,7 @@ function split_sql_file(&$ret, $sql, $release)
 /**
  * Increases the max. allowed time to run a script
  */
-@set_time_limit(10000);
+@set_time_limit($cfgExecTimeLimit);
 
 
 /**

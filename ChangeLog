@@ -21,6 +21,9 @@ $Source$
 	  tbl_properties.php3; libraries/indexes.js; lang/*: commited patch
 	  #458014 - Advanced index generation/editing thanks to
 	  Michal Cihar <nijel at users.sourceforge.net>.
+	* config.inc.php3; Documentation.html; read_dump.php3; tbl_dump.php3;
+	  libraries/common.lib.php3; libraries/build_dump.lib.php3: feature
+      #443134 - unlimited set_time_limit().
 
 2001-11-08  Robin Johnson  <robbat2@users.sourceforge.net>
 	* config.inc.php3; main.php3; phpinfo.php3: fixed bug #479303
