@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-15  Armel Fauveau  <armel.fauveau@globalis-ms.com>
+    * Added "Bookmarked SQL-query" combo box when you click on a table (Feature #423065)
+
 2001-05-11  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, lines 76, 81 and 612: fixed a bug if a field contains html
 	  tags (suggested by Olivier Bussier at the phpMyAdmin official forum:

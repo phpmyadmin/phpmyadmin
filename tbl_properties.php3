@@ -200,6 +200,29 @@ if(mysql_num_rows($result)>0)
 <?php echo $strRunSQLQuery.$db." ".show_docu("manual_Reference.html#SELECT");?>:<br>
 <textarea name="sql_query" cols="40" rows="3" wrap="VIRTUAL" style="width: <?php
 echo $cfgMaxInputsize;?>">select * from <?php echo $table?> where 1</textarea>
+<br>
+<?php
+// Bookmark Support
+
+if($cfgBookmark['db'] && $cfgBookmark['table'])
+{
+    if(($bookmark_list=list_bookmarks($db, $cfgBookmark)) && count($bookmark_list)>0)
+    {
+        echo "<i>$strOr</i> $strBookmarkQuery:<br>\n";
+        echo "<select name=\"id_bookmark\">\n";
+        echo "<option value=\"\"></option>\n";
+        while(list($key,$value)=each($bookmark_list)) {
+            echo "<option value=\"".htmlentities($value)."\">".htmlentities($key)."</option>\n";
+        }
+        echo "</select>\n";
+        echo "<input type=\"radio\" name=\"action_bookmark\" value=\"0\" checked>".$strSubmit;
+        echo "<input type=\"radio\" name=\"action_bookmark\" value=\"1\">".$strBookmarkView;
+        echo "<input type=\"radio\" name=\"action_bookmark\" value=\"2\">".$strDelete;
+        echo "<br>\n";
+    }
+}
+?>
+
 <input type="submit" name="SQL" value="<?php echo $strGo; ?>">
 </form>
 <li><a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table");?>&pos=0&<?php echo $query;?>"><?php echo $strBrowse; ?></a></li>
