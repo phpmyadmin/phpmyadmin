@@ -9,7 +9,7 @@ $Source$
     * lang/german.inc.php3: Small corrections.
     * sql.php3, header_printview.inc.php3, libraries/display_tbl.inc.php3,
       lang/*.inc.php3: Implemented one part of feature #472038:
-      Print view for SQL query results.
+      Print view for SQL results (features #523325, #562505).
 
 2002-05-30 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/albanian.inc.php3: Updates, thanks again to
