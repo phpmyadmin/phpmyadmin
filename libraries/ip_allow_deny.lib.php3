@@ -218,7 +218,7 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
             // True IP without proxy
             return $direct_ip;
         } else {
-            $is_ip = ereg('^([0-9]{1,3}\.){3,3}[0-9]{1,3}', $direct_ip, $regs);
+            $is_ip = ereg('^([0-9]{1,3}\.){3,3}[0-9]{1,3}', $proxy_ip, $regs);
             if ($is_ip && (count($regs) > 0)) {
                 // True IP behind a proxy
                 return $regs[0];
