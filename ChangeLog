@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-22  Robin Johnson  <robbat2@users.sourceforge.net>
+	* config.inc.php3: remove ENCODE, DECODE, ENCRYPT functions.
+
 2001-10-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3, libraries/user_details.js: restored the "show grants"
 	  table at the top of the "other grants" page.
