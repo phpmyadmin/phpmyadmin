@@ -160,6 +160,7 @@ $strName = 'Name';
 $strNbRecords = 'Datensätze';
 $strNext = 'Nächste';
 $strNo = 'Nein';
+$strNoModification = 'Keine Änderung';
 $strNoPassword = 'Kein Password';
 $strNoPrivileges = 'Keine Rechte';
 $strNoRights = 'Du hast nicht genug Rechte um fortzufahren!';
@@ -287,5 +288,4 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
-$strNoModification = 'No change'; // To translate
 ?>
