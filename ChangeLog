@@ -7,7 +7,7 @@ $Source$
 
 2003-04-09 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/build_dump.lib.php3: Fixed undefined index warnings in LaTeX
-      dump.
+      and XML dump.
     * libraries/display_export.lib.php3: Added <br /> before charset
       selection in export.
 
