@@ -23,6 +23,68 @@ require('./libraries/common.lib.php3');
 
 
 /**
+ * If a file from UploadDir was submitted, use this file
+ */
+$unlink_local_textfile = false;
+if (isset($btnLDI) && isset($local_textfile) && $local_textfile != '') {
+    if (empty($DOCUMENT_ROOT)) {
+        if (!empty($_SERVER) && isset($_SERVER['DOCUMENT_ROOT'])) {
+            $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
+        }
+        else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['DOCUMENT_ROOT'])) {
+            $DOCUMENT_ROOT = $HTTP_SERVER_VARS['DOCUMENT_ROOT'];
+        }
+        else if (!empty($_ENV) && isset($_ENV['DOCUMENT_ROOT'])) {
+            $DOCUMENT_ROOT = $_ENV['DOCUMENT_ROOT'];
+        }
+        else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['DOCUMENT_ROOT'])) {
+            $DOCUMENT_ROOT = $HTTP_ENV_VARS['DOCUMENT_ROOT'];
+        }
+        else if (@getenv('DOCUMENT_ROOT')) {
+            $DOCUMENT_ROOT = getenv('DOCUMENT_ROOT');
+        }
+        else {
+            $DOCUMENT_ROOT = '.';
+        }
+    } // end if
+
+    $textfile = $DOCUMENT_ROOT . dirname($PHP_SELF) . '/' . eregi_replace('^./', '', $cfg['UploadDir']) . eregi_replace('\.\.*', '.', $local_textfile);
+    if (file_exists($textfile)) {
+        $open_basedir     = '';
+        if (PMA_PHP_INT_VERSION >= 40000) {
+            $open_basedir = @ini_get('open_basedir');
+        }
+        if (empty($open_basedir)) {
+            $open_basedir = @get_cfg_var('open_basedir');
+        }
+
+        // If we are on a server with open_basedir, we must move the file
+        // before opening it. The doc explains how to create the "./tmp"
+        // directory
+
+        if (!empty($open_basedir)) {
+
+            $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
+
+            // function is_writeable() is valid on PHP3 and 4
+            if (!is_writeable($tmp_subdir)) {
+                // if we cannot move the file, let PHP report the error
+                error_reporting(E_ALL);
+            } else {
+                $textfile_new = $tmp_subdir . basename($textfile);
+                if (PMA_PHP_INT_VERSION < 40003) {
+                    copy($textfile, $textfile_new);
+                } else {
+                    move_uploaded_file($textfile, $textfile_new);
+                }
+                $textfile = $textfile_new;
+                $unlink_local_textfile = true;
+            }
+        }
+    }
+}
+
+/**
  * The form used to define the query has been submitted -> do the work
  */
 if (isset($btnLDI) && ($textfile != 'none')) {
@@ -123,6 +185,9 @@ if (isset($btnLDI) && ($textfile != 'none')) {
     // The $goto in ldi_table.php3 is set to tbl_properties.php3 but maybe
     // if would be better to Browse the latest inserted data.
     include('./sql.php3');
+    if ($unlink_local_textfile) {
+        unlink($textfile);
+    }
 }
 
 

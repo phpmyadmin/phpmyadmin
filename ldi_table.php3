@@ -25,8 +25,43 @@ require('./tbl_properties_table_info.php3');
     <table cellpadding="5" border="2">
     <tr>
         <td><?php echo $strLocationTextfile; ?></td>
-        <td colspan="2"><input type="file" name="textfile" /></td>
+        <td colspan="2"><input type="file" name="textfile" />
+        <?php
+if ($cfg['UploadDir'] != '') {
+
+    if ($handle = @opendir($cfg['UploadDir'])) {
+        $is_first = 0;
+        while ($file = @readdir($handle)) {
+            if (is_file($cfg['UploadDir'] . $file) && substr($file, -4) == '.csv') {
+                if ($is_first == 0) {
+                    $is_upload_dir = true;
+                    echo "<br />\n";
+                    echo '    <i>' . $strOr . '</i> ' . $strWebServerUploadDirectory . '&nbsp;: ' . "\n";
+                    echo '    <div style="margin-bottom: 5px">' . "\n";
+                    echo '        <select size="1" name="local_textfile">' . "\n";
+                    echo '            <option value="" selected="selected"></option>' . "\n";
+                } // end if (is_first)
+                echo '            <option value="' . htmlspecialchars($file) . '">' . htmlspecialchars($file) . '</option>' . "\n";
+                $is_first++;
+            } // end if (is_file)
+        } // end while
+        if ($is_first > 0) {
+            echo '        </select>' . "\n"
+                    . '    </div>' . "\n\n";
+        } // end if (isfirst > 0)
+        @closedir($handle);
+    } else {
+        echo '    <div style="margin-bottom: 5px">' . "\n";
+        echo '        <font color="red">' . $strError . '</font><br />' . "\n";
+        echo '        ' . $strWebServerUploadDirectoryError . "\n";
+        echo '    </div>' . "\n";
+    }
+} // end if (web-server upload directory)
+echo "\n";
+        ?>
+        </td>
     </tr>
+
 <?php
 if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
     $temp_charset = reset($cfg['AvailableCharsets']);
