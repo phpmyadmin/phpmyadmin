@@ -9,6 +9,8 @@ $Source$
     * export.php: Use just \n for SQL exports (bug #1042521).
     * libraries/read_dump.lib.php: Set correct return value (bug #1048861).
     * sql.php: Fix undefined index.
+    * libraries/sqlparser.lib.php: Return raw query in case of error (bug
+      #1048826).
 
 2004-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish update, thanks to boralioglu.

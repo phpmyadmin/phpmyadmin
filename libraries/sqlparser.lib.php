@@ -1206,7 +1206,7 @@ if ($is_minimum_common == FALSE) {
         // -------------------------------------------------------
         // This is a big hunk of debugging code by Marc for this.
         // -------------------------------------------------------
-        /* 
+        /*
           if (isset($current_select_expr)) {
            for ($trace=0; $trace<=$current_select_expr; $trace++) {
                echo "<br />";
@@ -1226,7 +1226,7 @@ if ($is_minimum_common == FALSE) {
                echo "table ref $trace $key => $val<br />\n";
                }
           }
-        */ 
+        */
         // -------------------------------------------------------
 
 
@@ -1392,7 +1392,7 @@ if ($is_minimum_common == FALSE) {
 
 
            // do not add a blank after a function name
-           // TODO: can we combine loop 2 and loop 1? 
+           // TODO: can we combine loop 2 and loop 1?
            // some code is repeated here...
 
            $sep=' ';
@@ -1445,7 +1445,7 @@ if ($is_minimum_common == FALSE) {
 
            // FIXME: is it correct to always add $sep ?
            if (isset($subresult['queryflags']['select_from'])
-             && $subresult['queryflags']['select_from'] == 1 
+             && $subresult['queryflags']['select_from'] == 1
              && !$seen_order) {
                $unsorted_query .= $arr[$i]['data'] . $sep;
            }
@@ -1568,14 +1568,14 @@ if ($is_minimum_common == FALSE) {
                         $foreign[$foreign_key_number]['ref_index_list'][] = $identifier;
                     } else {
                         // for MySQL 4.0.18, identifier is
-                        // `table` or `db`.`table` 
+                        // `table` or `db`.`table`
                         // first pass will pick the db name
                         // next pass will execute the else and pick the
                         // db name in $db_table[0]
                         if ($arr[$i+1]['type'] == 'punct_qualifier') {
                                 $foreign[$foreign_key_number]['ref_db_name'] = $identifier;
                         } else {
-                        // for MySQL 4.0.16, identifier is 
+                        // for MySQL 4.0.16, identifier is
                         // `table` or `db.table`
                             $db_table = explode('.',$identifier);
                             if (isset($db_table[1])) {
@@ -1584,7 +1584,7 @@ if ($is_minimum_common == FALSE) {
                             } else {
                                 $foreign[$foreign_key_number]['ref_table_name'] = $db_table[0];
                             }
-                        }    
+                        }
                     }
                 }
             }
@@ -1675,13 +1675,13 @@ if ($is_minimum_common == FALSE) {
     function PMA_SQP_formatHtml($arr, $mode='color', $start_token=0,
         $number_of_tokens=-1)
     {
-        // first check for the SQL parser having hit an error
-        if (PMA_SQP_isError()) {
-            return $arr;
-        }
         // then check for an array
         if (!is_array($arr)) {
-            return $arr;
+            return htmlspecialchars($arr);
+        }
+        // first check for the SQL parser having hit an error
+        if (PMA_SQP_isError()) {
+            return htmlspecialchars($arr['raw']);
         }
         // else do it properly
         switch ($mode) {
@@ -1920,12 +1920,12 @@ if ($is_minimum_common == FALSE) {
                             // GRANT SELECT ON mydb.mytable TO myuser@localhost
                             // (else, we get mydb.mytableTO )
                             //
-                            // the quote_single exception is there to 
+                            // the quote_single exception is there to
                             // catch cases like
                             // GRANT ... TO 'marc'@'domain.com' IDENTIFIED...
                             //
                             // TODO: fix all cases and find why this happens
- 
+
                             if (!$in_priv_list || $typearr[1] == 'alpha_identifier' || $typearr[1] == 'quote_single' || $typearr[1] == 'white_newline') {
                                 $before    .= $space_alpha_reserved_word;
                             }
