@@ -35,9 +35,18 @@ if (isset($btnDrop) || isset($navig)) {
  * Go back to further page if table should not be dropped
  */
 if (isset($goto) && $goto == 'sql.php3') {
-    $goto = "sql.php3?server=$server&lang=$lang&db=$db&table=$table&pos=$pos&sql_query=" . urlencode($sql_query);
+    $goto = 'sql.php3'
+          . '?lang=' . $lang
+          . '&server=' . urlencode($server)
+          . '&db=' . urlencode($db)
+          . '&table=' . urlencode($table)
+          . '&pos=' . $pos
+          . '&sql_query=' . urlencode($sql_query);
 }
 if (isset($btnDrop) && $btnDrop == $strNo) {
+    if (!empty($back)) {
+        $goto = $back;
+    }
     if (file_exists('./' . $goto)) {
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
@@ -78,6 +87,7 @@ if ($do_confirm) {
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? $zero_rows : ''; ?>" />
     <input type="hidden" name="table" value="<?php echo isset($table) ? $table : ''; ?>" />
     <input type="hidden" name="goto" value="<?php echo isset($goto) ? $goto : ''; ?>" />
+    <input type="hidden" name="back" value="<?php echo isset($back) ? $back : ''; ?>" />
     <input type="hidden" name="reload" value="<?php echo isset($reload) ? $reload : ''; ?>" />
     <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? $show_query : ''; ?>" />
     <input type="submit" name="btnDrop" value="<?php echo $strYes; ?>" />

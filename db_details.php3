@@ -309,7 +309,12 @@ $url_query = 'lang=' . $lang
            . '&db=' . urlencode($db)
            . '&goto=db_details.php3';
 if (isset($show_query) && $show_query == 'y') {
-    if (get_magic_quotes_gpc()) {
+    // This script has been called by db_readdump.php3
+    if (isset($sql_query_cpy)) {
+        $query_to_display = $sql_query_cpy;
+    }
+    // Other cases
+    else if (get_magic_quotes_gpc()) {
         $query_to_display = stripslashes($sql_query);
     }
     else {
@@ -534,7 +539,7 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 
     <!-- Drop table -->
     <li>
-        <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo $db; ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode($strDatabase . ' ' . htmlspecialchars(backquote($db)) . ' ' . $strHasBeenDropped); ?>&goto=main.php3&reload=true">
+        <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo $db; ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode($strDatabase . ' ' . htmlspecialchars(backquote($db)) . ' ' . $strHasBeenDropped); ?>&goto=main.php3&back=db_details.php3&reload=true">
             <?php echo $strDropDB . ' ' . htmlspecialchars($db); ?></a>
         <?php echo show_docu('manual_Reference.html#DROP_DATABASE') . "\n"; ?>
     </li>
