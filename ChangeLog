@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-21 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * tbl_dump.php3:
+      - Fixed wrong charset information in XML exports.
+      - Beautified the output of the MySQL version number, e.g. '4.0.5' instead
+        of '4.00.05'.
+
 2002-12-20 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
 

@@ -120,7 +120,7 @@ else {
     } else {
         $filename = PMA_convert_string($convcharset, 'iso-8859-1', $filename);
     }
-    
+
     // Generate basic dump extension
     if ($what == 'csv' || $what == 'excel') {
         $ext       = 'csv';
@@ -129,7 +129,7 @@ else {
         $ext       = 'xml';
         $mime_type = 'text/xml';
     } else if ($what == 'latex') {
-        $ext 	   = 'tex';
+        $ext        = 'tex';
         $mime_type = 'application/x-tex';
     } else {
         $ext       = 'sql';
@@ -139,7 +139,7 @@ else {
                    ? 'application/octetstream'
                    : 'application/octet-stream';
     }
-    
+
     // If dump is going to be copressed, set correct mime_type and add
     // compression to extension
     if (isset($bzip) && $bzip == 'bzip') {
@@ -191,7 +191,7 @@ else {
                            : '\'' . $db . '\'';
         $dump_buffer       .= $crlf
                            .  '# ' . $strGenTime . ': ' . PMA_localisedDate() . $crlf
-                           .  '# ' . $strServerVersion . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
+                           .  '# ' . $strServerVersion . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
                            .  '# ' . $strPHPVersion . ': ' . phpversion() . $crlf
                            .  '# ' . $strDatabase . ': ' . $formatted_db_name . $crlf;
 
@@ -251,7 +251,7 @@ else {
     // 'xml' case
     else if ($GLOBALS['what'] == 'xml') {
         // first add the xml tag
-        $dump_buffer         .= '<?xml version="1.0" encoding="' . $charset . '"?>' . $crlf . $crlf;
+        $dump_buffer         .= '<?xml version="1.0" encoding="' . $charset_of_file . '"?>' . $crlf . $crlf;
         // some comments
         $dump_buffer         .= '<!--' . $crlf
                              .  '-' . $crlf
@@ -265,7 +265,7 @@ else {
         }
         $dump_buffer         .= $crlf
                              .  '- ' . $strGenTime . ': ' . PMA_localisedDate() . $crlf
-                             .  '- ' . $strServerVersion . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
+                             .  '- ' . $strServerVersion . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
                              .  '- ' . $strPHPVersion . ': ' . phpversion() . $crlf
                              .  '- ' . $strDatabase . ': \'' . $db . '\'' . $crlf
                              .  '-' . $crlf
@@ -296,7 +296,7 @@ else {
 
     // latex case
     else if ($GLOBALS['what'] == 'latex') {
-    
+
 
         $dump_buffer   .=    '% ' . $crlf
             .  '% phpMyAdmin LaTeX-Dump' . $crlf
@@ -322,13 +322,13 @@ else {
             }
             if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
                 || (!isset($tmp_select) && !empty($table))) {
-                
+
                 // to do: add option for the formatting ( c, l, r, p)
                 $dump_buffer .= PMA_getTableLatex($db, $table, $environment, $limit_from, $limit_to, $crlf, $err_url);
             }
             $i++;
         }
-	
+
     } //end latex case
 
     // 'csv' case
