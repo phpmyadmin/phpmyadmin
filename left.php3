@@ -19,34 +19,30 @@ require('./lib.inc.php3');
  * before the user choose among available ones at the welcome screen.
  */
 if ($server > 0) {
-    // Get the valid databases list
     $num_dbs = count($dblist);
-    $dbs     = @mysql_list_dbs() or mysql_die();
-    while ($a_db = mysql_fetch_object($dbs)) {
-        if (!$num_dbs) {
-            $dblist[]                     = $a_db->Database;
-        } else {
-            $true_dblist[$a_db->Database] = '';
-        }
-    }
-    if ($num_dbs && empty($true_dblist)) {
-        $dblist = array();
-    } else if ($num_dbs) {
+    // 1. $cfgServers[n]['only_db'] exists -> gets the valid databases list
+    if ($num_dbs) {
+        $true_dblist           = array();
         for ($i = 0; $i < $num_dbs; $i++) {
-            if (isset($true_dblist[$dblist[$i]])) {
-                $dblist_valid[] = $dblist[$i];
-            }
-        }
-        if (isset($dblist_valid)) {
-            $dblist = $dblist_valid;
-            unset($dblist_valid);
-        } else {
-            $dblist = array();
-        }
+//            $dblink = @mysql_select_db(backquote($dblist[$i]));
+            $dblink = @mysql_select_db($dblist[$i]);
+            if ($dblink) {
+                $true_dblist[] = $dblist[$i];
+            } // end if
+        } // end for
+        unset($dblist);
+        $dblist  = $true_dblist;
         unset($true_dblist);
-    }
-    // Get the valid databases count
-    $num_dbs = count($dblist);
+        $num_dbs = count($dblist);
+    } // end if
+    // 2. no $cfgServers[n]['only_db']
+    else {
+        $dbs     = mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', FALSE, FALSE);
+        $num_dbs = @mysql_num_rows($dbs);
+        for ($i = 0; $i < $num_dbs; $i++) {
+            $dblist[] = mysql_dbname($dbs, $i);
+        } // end for
+    } // end else
 } else {
     $num_dbs = 0;
 }
