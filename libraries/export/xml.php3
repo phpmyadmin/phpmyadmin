@@ -28,7 +28,14 @@ function PMA_exportHeader() {
     global $crlf;
     global $cfg;
     
-    $head  =  '<!--' . $crlf
+    if ($GLOBALS['output_charset_conversion']) {
+        $charset = $GLOBALS['charset_of_file'];
+    } else {
+        $charset = $GLOBALS['charset'];
+    }
+
+    $head  =  '<?xml version="1.0" encoding="' . $charset . '" ?>' . $crlf
+           .  '<!--' . $crlf
            .  '-' . $crlf
            .  '- phpMyAdmin XML Dump' . $crlf
            .  '- version ' . PMA_VERSION . $crlf

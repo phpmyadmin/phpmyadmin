@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-06 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/export/xml.php3: Add xml header with encoding information 
+      (bug #836630).
+
 2003-11-05 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3, footer.inc.php3: Bug #831181: Do not 
       store queries with errors in history, also when coming from the 
