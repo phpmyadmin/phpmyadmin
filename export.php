@@ -143,15 +143,19 @@ if (empty($asfile)) {
     $asfile = TRUE;
 }
 
-// Defines the default <CR><LF> format
-$crlf = PMA_whichCrlf();
+// Defines the default <CR><LF> format. For SQL always use \n as MySQL wants this on all platforms.
+if ($what == 'sql') {
+    $crlf = "\n";
+} else {
+    $crlf = PMA_whichCrlf();
+}
 
 $output_kanji_conversion = function_exists('PMA_kanji_str_conv') && $type != 'xls';
 
 // Do we need to convert charset?
 $output_charset_conversion = $asfile &&
     $cfg['AllowAnywhereRecoding'] && $allow_recoding
-    && isset($charset_of_file) && $charset_of_file != $charset 
+    && isset($charset_of_file) && $charset_of_file != $charset
     && $type != 'xls';
 
 // Set whether we will need buffering
@@ -381,9 +385,9 @@ if ($export_type == 'server') {
     foreach ($dblist AS $current_db) {
         if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
             || !isset($tmp_select)) {
-            if (!PMA_exportDBHeader($current_db)) 
+            if (!PMA_exportDBHeader($current_db))
                 break 2;
-            if (!PMA_exportDBCreate($current_db)) 
+            if (!PMA_exportDBCreate($current_db))
                 break 2;
             $tables = PMA_DBI_get_tables($current_db);
             foreach ($tables as $table) {
@@ -397,7 +401,7 @@ if ($export_type == 'server') {
                         break 3;
                 }
             }
-            if (!PMA_exportDBFooter($current_db)) 
+            if (!PMA_exportDBFooter($current_db))
                 break 2;
         }
     }
@@ -425,10 +429,10 @@ if ($export_type == 'server') {
             }
         }
     }
-    if (!PMA_exportDBFooter($db)) 
+    if (!PMA_exportDBFooter($db))
         break;
 } else {
-    if (!PMA_exportDBHeader($db)) 
+    if (!PMA_exportDBHeader($db))
         break;
     // We export just one table
 

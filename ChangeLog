@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-19 Michal Čihař  <michal@cihar.com>
+    * export.php: Use just \n for SQL exports (bug #1042521).
+
 2004-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish update, thanks to boralioglu.
     * lang/estonian: Update thanks to Alvar Soome - finsoft.
@@ -14,7 +17,7 @@ $Source$
       and CLIENT_LOCAL_FILES in mysqli
 
 2004-10-15 Marc Delisle  <lem9@users.sourceforge.net>
-    * pdf_schema.php: new way to define font path, 
+    * pdf_schema.php: new way to define font path,
       needed with the new fpdf library; also now output inline,
       I find it faster this way, please tell me if you prefer
       the old dialog method and why.
@@ -22,7 +25,7 @@ $Source$
     * sql.php: detect this case:
       SELECT DISTINCT x AS foo, y AS bar FROM sometable
       and count rows correctly (in MySQL 3),
-      thanks to Matthias Pigulla (mp@webfactory.de) 
+      thanks to Matthias Pigulla (mp@webfactory.de)
     * server_privileges.php: cosmetic: title for Edit privileges
     * lang/galician: Updated, thanks to Xosé Calvo.
     * lang/italian: Updates, thanks to Pietro Danesi
