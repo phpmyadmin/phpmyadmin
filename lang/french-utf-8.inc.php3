@@ -87,6 +87,8 @@ $strChangePassword = 'Modifier le mot de passe';
 $strCharsetOfFile = 'Jeu de caractères du fichier:';
 $strCheckAll = 'Tout cocher';
 $strCheckDbPriv = 'Afficher les privilèges sur';
+$strCheckPrivs = 'Vérifier les privilèges';
+$strCheckPrivsLong = 'Vérifier les privilèges pour la base de données &quot;%s&quot;.';
 $strCheckTable = 'Vérifier la table';
 $strChoosePage = 'Page à éditer';
 $strColComFeat = 'Commentaires de colonnes';
@@ -130,7 +132,11 @@ $strDatabase = 'Base de données';
 $strDatabaseHasBeenDropped = 'La base de données %s a été effacée.';
 $strDatabaseWildcard = 'Base de données (passepartout autorisé):';
 $strDatabases = 'bases de données';
+$strDatabasesDropped = '%s bases de données ont été supprimées.';
 $strDatabasesStats = 'Statistiques sur les bases de données';
+$strDatabasesStatsDisable = 'Désactiver les statistiques';
+$strDatabasesStatsEnable = 'Activer les statistiques';
+$strDatabasesStatsHeavyTraffic = 'Note: L\'activation des statistiques peut causer un trafic important entre le serveur web et le serveur MySQL.';
 $strDbPrivileges = 'Privilèges spécifiques à une base de données';
 $strDefault = 'Défaut';
 $strDefaultValueHelp = 'Pour les valeurs par défaut, veuillez n\'entrer qu\'une seule valeur, sans caractère d\'échappement ou apostrophes, sous la forme: a'; 
@@ -153,6 +159,7 @@ $strDoYouReally = 'Voulez-vous vraiment effectuer ';
 $strDocu = 'Documentation';
 $strDrop = 'Supprimer';
 $strDropDB = 'Supprimer la base %s';
+$strDropSelectedDatabases = 'Supprimer les bases de données sélectionnées';
 $strDropTable = 'Supprimer la table';
 $strDropUsersDb = 'Supprimer les bases de données portant le même nom que les utilisateurs';
 $strDumpXRows = 'Exporte %s enregistrement(s) à partir du rang n° %s.';
@@ -236,6 +243,7 @@ $strInsertedRows = 'Nombre d\'enregistrements insérés :';
 $strInstructions = 'Instructions';
 $strInvalidName = '"%s" est un mot réservé, il ne peut être utilisé comme nom de base/table/champ.';
 
+$strJumpToDB = 'Aller à la base de données &quot;%s&quot;.';
 $strJustDelete = 'Seulement effacer les utilisateurs des tables de privilèges.';
 $strJustDeleteDescr = 'Les utilisateurs &quot;effacés&quot; auront quand même accès au serveur, jusqu\'à ce que les privilèges soient rechargés.';
 
@@ -280,6 +288,7 @@ $strName = 'Nom';
 $strNext = 'Suivant';
 $strNo = 'Non';
 $strNoDatabases = 'Aucune base de données';
+$strNoDatabasesSelected = 'Aucune base de données n\'a été sélectionnée.';
 $strNoDescription = 'pas de description';
 $strNoDropDatabases = 'La commande "DROP DATABASE" est désactivée.';
 $strNoExplain = 'Ne pas expliquer SQL';
@@ -556,13 +565,6 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-$strCheckPrivs = 'Check Privileges';  //to translate
-$strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.';  //to translate
 $strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
-$strDatabasesStatsDisable = 'Disable Statistics';  //to translate
-$strDatabasesStatsEnable = 'Enable Statistics';  //to translate
-$strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
-$strDropSelectedDatabases = 'Drop Selected Databases';  //to translate
-$strNoDatabasesSelected = 'No databases selected.';  //to translate
-$strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate
+
 ?>
