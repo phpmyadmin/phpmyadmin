@@ -25,6 +25,7 @@ $strAbsolutePathToDocSqlDir = 'Va rugam introduceti calea absoluta al serverului
 $strAccessDenied = 'Acces interzis';
 $strAccessDeniedExplanation = 'phpMyAdmin a incercat sa se conecteze la serverul de MySQL dar acesta a respins conexiunea. Ar trebui verificat daca datele din config.inc.php sunt corecte.';
 $strAction = 'Actiune';
+$strAddAutoIncrement = 'Adauga valoare pentru AUTO_INCREMENT';
 $strAddDeleteColumn = 'Adauga/Sterge coloane';
 $strAddDeleteRow = 'Adauga/Sterge criteriu';
 $strAddDropDatabase = 'Adaugare optiune STERGE BAZA DE DATE';
@@ -655,5 +656,4 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 // To translate
 
-$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 ?>

@@ -10,6 +10,9 @@ $Source$
       libraries/config_import.lib.php3, libraries/display_export.lib.php3,
       libraries/export/sql.php3, lang/*: Added checkbox for exporting/copying
       AUTO_INCREMENT value (RFE #763957).
+    * lang/chinese_gb: Updated, thanks to Wang (fundawang).
+    * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
+    * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
       
 2003-07-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Send headers before exiting because of missing

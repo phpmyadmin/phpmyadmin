@@ -21,6 +21,7 @@ $strAPrimaryKey = 'Do %s dodany zosta³ klucz podstawowy';
 $strAbortedClients = 'Przerwane';
 $strAbsolutePathToDocSqlDir = 'Proszê podaæ bezwzglêdn± ¶cie¿kê na serwerze www do katalogu docSQL';
 $strAccessDenied = 'Brak dostêpu';
+$strAccessDeniedExplanation = 'phpMyAdmin próbowa³ po³±czyæ siê z serwerem MySQL, a serwer odrzuci³ po³±czenie. Powiniene¶ sprawdziæ nazwê hosta, nazwê u¿ytkownika i has³o w pliku config.inc.php i upewniæ siê, ¿e odpowiadaj± one informacjom danym przez administratora serwera MySQL.';
 $strAction = 'Dzia³anie';
 $strAddDeleteColumn = 'Dodanie/usuniêcie pól';
 $strAddDeleteRow = 'Dodanie/usuniêcie wierszy kryteriów';
@@ -652,7 +653,6 @@ $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograni
 $strZip = '".zip"';
 // To translate
 
-$strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in config.inc.php and make sure that they correspond to the information given by the administrator of the MySQL server.';  //to translate
-
 $strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
+
 ?>
