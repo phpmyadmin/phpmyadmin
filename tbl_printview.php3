@@ -1,5 +1,4 @@
 <?php
-
 /* $Id$ */
 
 
@@ -17,6 +16,7 @@ if (!isset($selected_tbl)) {
  */
 require('./libraries/relation.lib.php3');
 $cfgRelation  = PMA_getRelationsParam();
+
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -76,9 +76,9 @@ while (list($key, $table) = each($the_tables)) {
         $breakstyle = ' style="page-break-after: always;"';
     }
     $counter++;
-		echo '<div' . $breakstyle . '>' . "\n";
+    echo '<div' . $breakstyle . '>' . "\n";
     echo '<h1>' . $table . '</h1>' . "\n";
-		
+
     /**
      * Gets table informations
      */
@@ -165,8 +165,7 @@ while (list($key, $table) = each($the_tables)) {
     }
     else {
            $have_rel = FALSE;
-    }
-     // end if
+    } // end if
 
 
     /**
@@ -175,28 +174,28 @@ while (list($key, $table) = each($the_tables)) {
     if (!empty($show_comment)) {
         echo $strTableComments . '&nbsp;:&nbsp;' . $show_comment . '<br /><br />';
     }
-		
+
     /**
      * Displays the table structure
      */
     ?>
 
 <!-- TABLE INFORMATIONS -->
-<table width=100% bordercolorlight=black border style='border-collapse:collapse;background-color:white'>
+<table width="100%" bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
 <tr>
-    <th width=50><?php echo ucfirst($strField); ?></th>
-    <th width=50><?php echo ucfirst($strType); ?></th>
-    <!--<th width=50><?php echo ucfirst($strAttr); ?></th>-->
-    <th width=50><?php echo ucfirst($strNull); ?></th>
-    <th width=50><?php echo ucfirst($strDefault); ?></th>
-    <!--<th width=50><?php echo ucfirst($strExtra); ?></th>-->
+    <th width="50"><?php echo ucfirst($strField); ?></th>
+    <th width="50"><?php echo ucfirst($strType); ?></th>
+    <!--<th width="50"><?php echo ucfirst($strAttr); ?></th>-->
+    <th width="50"><?php echo ucfirst($strNull); ?></th>
+    <th width="50"><?php echo ucfirst($strDefault); ?></th>
+    <!--<th width="50"><?php echo ucfirst($strExtra); ?></th>-->
     <?php
     echo "\n";
     if ($have_rel) {
-        echo '    <th width=50>' . ucfirst($strLinksTo) . '</th>' . "\n";
+        echo '    <th width="50">' . ucfirst($strLinksTo) . '</th>' . "\n";
     }
     if ($cfgRelation['commwork']) {
-        echo '    <th width=400>' . ucfirst($strComments) . '</th>' . "\n";
+        echo '    <th width="400">' . ucfirst($strComments) . '</th>' . "\n";
     }
     ?>
 </tr>
@@ -248,7 +247,7 @@ while (list($key, $table) = each($the_tables)) {
         echo "\n";
         ?>
 <tr>
-    <td width=50 class='print' nowrap="nowrap">
+    <td width="50" class="print" nowrap="nowrap">
     <?php
     if (isset($pk_array[$row['Field']])) {
         echo '    <u>' . $field_name . '</u>&nbsp;' . "\n";
@@ -257,22 +256,22 @@ while (list($key, $table) = each($the_tables)) {
     }
     ?>
     </td>
-    <td width=50 class='print' <?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
-    <!--<td width=50 bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>-->
-    <td width=50 class='print'><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
-    <td width=50 class='print' nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
-    <!--<td width=50 bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>-->
+    <td width="50" class="print"<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
+    <!--<td width="50" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>-->
+    <td width="50" class="print"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
+    <td width="50" class="print" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
+    <!--<td width="50" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>-->
     <?php
     echo "\n";
     if ($have_rel) {
-        echo '    <td width=50 class="print" >';
+        echo '    <td width="50" class="print">';
         if (isset($res_rel[$field_name])) {
             echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] );
         }
         echo '&nbsp;</td>' . "\n";
     }
     if ($cfgRelation['commwork']) {
-        echo '    <td width=400 class="print" >';
+        echo '    <td width="400" class="print">';
         $comments = PMA_getComments($db, $table);
         if (isset($comments[$field_name])) {
             echo htmlspecialchars($comments[$field_name]);
@@ -304,7 +303,7 @@ while (list($key, $table) = each($the_tables)) {
 
 <!-- Indexes -->
 &nbsp;<big><?php echo $strIndexes . '&nbsp;:'; ?></big>
-<table bordercolorlight=black border style='border-collapse:collapse;background-color:white'>
+<table bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
     <tr>
         <th><?php echo $strKeyname; ?></th>
         <th><?php echo $strType; ?></th>
@@ -409,7 +408,7 @@ while (list($key, $table) = each($the_tables)) {
     <!-- Space usage -->
     <td class="print" valign="top">
         &nbsp;<big><?php echo $strSpaceUsage . '&nbsp;:'; ?></big>
-        <table width=100% bordercolorlight=black border style='border-collapse:collapse;background-color:white'>
+        <table width="100%" bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
         <tr>
             <th><?php echo $strType; ?></th>
             <th colspan="2" align="center"><?php echo $strUsage; ?></th>
@@ -465,7 +464,7 @@ while (list($key, $table) = each($the_tables)) {
     <!-- Rows Statistic -->
     <td valign="top">
         &nbsp;<big><?php echo $strRowsStatistic . '&nbsp;:'; ?></big>
-        <table width=100% bordercolorlight=black border style='border-collapse:collapse;background-color:white'>
+        <table width=100% bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
         <tr>
             <th><?php echo $strStatement; ?></th>
             <th align="center"><?php echo $strValue; ?></th>
@@ -570,13 +569,22 @@ while (list($key, $table) = each($the_tables)) {
  * Displays the footer
  */
 echo "\n";
-echo "<br><br>&nbsp;<input type=button style='visibility:;width:100px;height:25px' name='print' value='Print' onclick='printPage()'>";
-require('./footer.inc.php3');
-?><script>
+?>
+<script type="text/javascript" language="javascript1.2">
+<!--
 function printPage()
 {
-document.all.print.style.visibility='hidden';
-window.print();
-document.all.print.style.visibility='';
+    document.all.print.style.visibility = 'hidden';
+    // Do print the page
+    if (typeof(window.print) != 'undefined') {
+        window.print();
+    }
+    document.all.print.style.visibility = '';
 }
+//-->
 </script>
+<?php
+echo '<br /><br />&nbsp;<input type="button" style="visibility: ; width: 100px; height: 25px" name="print" value="Print" onclick="printPage()">' . "\n";
+
+require('./footer.inc.php3');
+?>

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-06 Loïc Chapeaux  <lolo@phpheaven.net>
+    * db_datadict.php3, tbl_printview.php3: code cleanup
+
 2002-11-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/ukrainian: update, thanks to Markijan Baran
 

@@ -1,6 +1,7 @@
 <?php
 /* $Id$ */
 
+
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
@@ -9,10 +10,13 @@ if (!isset($selected_tbl)) {
     include('./header.inc.php3');
 }
 
+
 /**
  * Gets the relations settings
  */
 require('./libraries/relation.lib.php3');
+
+
 /**
  * Defines the url to return to in case of error in a sql statement
  */
@@ -30,35 +34,37 @@ if (isset($table)) {
              . '&amp;server=' . $server
              . '&amp;db=' . urlencode($db);
 }
+
+
 /**
- * Selects the database
+ * Selects the database and gets tables names
  */
 PMA_mysql_select_db($db);
-$sql="show tables from $db";
-$rowset=mysql_query($sql);
-$count=0;
-while ($row=mysql_fetch_array($rowset)) {
+$sql    = 'SHOW TABLES FROM ' . PMA_backquote($db);
+$rowset = mysql_query($sql);
+$count  = 0;
+while ($row = mysql_fetch_array($rowset)) {
     if (PMA_MYSQL_INT_VERSION >= 32303) {
-        $myfieldname="Tables_in_".$db;
+        $myfieldname = 'Tables_in_' . $db;
     }
     else {
-        $myfieldname="Tables in ".$db;
+        $myfieldname = 'Tables in ' . $db;
     }
-    $table=$row[$myfieldname];
+    $table        = $row[$myfieldname];
     $cfgRelation  = PMA_getRelationsParam();
     if ($cfgRelation['commwork']) {
         $comments = PMA_getComments($db, $table);
     }
 
-    if ($count!=0){
-        echo "<p style='page-break-before:always'>";
+    if ($count != 0) {
+        echo '<div style="page-break-before: always">' . "\n";
     }
     echo '<h1>' . $table . '</h1>' . "\n";
 
-          /**
-           * Gets table informations
-           */
-          // The 'show table' statement works correct since 3.23.03
+    /**
+     * Gets table informations
+     */
+    // The 'show table' statement works correct since 3.23.03
     if (PMA_MYSQL_INT_VERSION >= 32303) {
          $local_query  = 'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
          $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
@@ -77,9 +83,9 @@ while ($row=mysql_fetch_array($rowset)) {
     }
 
 
-          /**
-           * Gets table keys and retains them
-           */
+    /**
+     * Gets table keys and retains them
+     */
     $local_query  = 'SHOW KEYS FROM ' . PMA_backquote($table);
     $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     $primary      = '';
@@ -88,14 +94,14 @@ while ($row=mysql_fetch_array($rowset)) {
     $indexes_info = array();
     $indexes_data = array();
     $pk_array     = array(); // will be use to emphasis prim. keys in the table
-                                   // view
+                             // view
     while ($row = PMA_mysql_fetch_array($result)) {
-              // Backups the list of primary keys
+        // Backups the list of primary keys
         if ($row['Key_name'] == 'PRIMARY') {
-            $primary .= $row['Column_name'] . ', ';
+            $primary   .= $row['Column_name'] . ', ';
             $pk_array[$row['Column_name']] = 1;
         }
-             // Retains keys informations
+        // Retains keys informations
         if ($row['Key_name'] != $lastIndex ){
             $indexes[] = $row['Key_name'];
             $lastIndex = $row['Key_name'];
@@ -105,8 +111,8 @@ while ($row=mysql_fetch_array($rowset)) {
         if (isset($row['Cardinality'])) {
             $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
         }
-      //      I don't know what does following column mean....
-      //      $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
+        // I don't know what does following column mean....
+        // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
         $indexes_info[$row['Key_name']]['Comment']         = $row['Comment'];
 
         $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
@@ -120,17 +126,17 @@ while ($row=mysql_fetch_array($rowset)) {
     }
 
 
-          /**
-           * Gets fields properties
-           */
+    /**
+     * Gets fields properties
+     */
     $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
     $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     $fields_cnt  = mysql_num_rows($result);
 
-          // Check if we can use Relations (Mike Beck)
+    // Check if we can use Relations (Mike Beck)
     if (!empty($cfgRelation['relation'])) {
-              // Find which tables are related with the current one and write it in
-              // an array
+        // Find which tables are related with the current one and write it in
+        // an array
         $res_rel = PMA_getForeigners($db, $table);
 
         if (count($res_rel) > 0) {
@@ -144,146 +150,153 @@ while ($row=mysql_fetch_array($rowset)) {
     } // end if
 
 
-          /**
-           * Displays the comments of the table if MySQL >= 3.23
-           */
+    /**
+     * Displays the comments of the table if MySQL >= 3.23
+     */
     if (!empty($show_comment)) {
         echo $strTableComments . '&nbsp;:&nbsp;' . $show_comment . '<br /><br />';
     }
 
-          /**
-           * Displays the table structure
-           */
-          ?>
+    /**
+     * Displays the table structure
+     */
+    ?>
 
-      <!-- TABLE INFORMATIONS -->
-      <table width=100% bordercolorlight=black border style='border-collapse:collapse;background-color:white'>
-      <tr>
-          <th width=50><?php echo ucfirst($strField); ?></th>
-          <th width=50><?php echo ucfirst($strType); ?></th>
-          <!--<th width=50><?php echo ucfirst($strAttr); ?></th>-->
-          <th width=50><?php echo ucfirst($strNull); ?></th>
-          <th width=50><?php echo ucfirst($strDefault); ?></th>
-          <!--<th width=50><?php echo ucfirst($strExtra); ?></th>-->
-          <?php
-          echo "\n";
-          if ($have_rel) {
-              echo '    <th width=50>' . ucfirst($strLinksTo) . '</th>' . "\n";
-          }
-          if ($cfgRelation['commwork']) {
-              echo '    <th width=400>' . ucfirst($strComments) . '</th>' . "\n";
-          }
-          ?>
-      </tr>
+<!-- TABLE INFORMATIONS -->
+<table width="100%" bordercolorlight="black" border="border" style="border-collapse: collapse;background-color: white">
+<tr>
+    <th width="50"><?php echo ucfirst($strField); ?></th>
+    <th width="50"><?php echo ucfirst($strType); ?></th>
+    <!--<th width="50"><?php echo ucfirst($strAttr); ?></th>-->
+    <th width="50"><?php echo ucfirst($strNull); ?></th>
+    <th width="50"><?php echo ucfirst($strDefault); ?></th>
+    <!--<th width="50"><?php echo ucfirst($strExtra); ?></th>-->
+    <?php
+    echo "\n";
+    if ($have_rel) {
+        echo '    <th width="50">' . ucfirst($strLinksTo) . '</th>' . "\n";
+    }
+    if ($cfgRelation['commwork']) {
+        echo '    <th width="400">' . ucfirst($strComments) . '</th>' . "\n";
+    }
+    ?>
+</tr>
 
-          <?php
-          $i = 0;
-          while ($row = PMA_mysql_fetch_array($result)) {
-              $bgcolor = ($i % 2) ?$cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
-              $i++;
+    <?php
+    $i = 0;
+    while ($row = PMA_mysql_fetch_array($result)) {
+        $bgcolor = ($i % 2) ?$cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
+        $i++;
 
-              $type             = $row['Type'];
-              // reformat mysql query output - staybyte - 9. June 2001
-              // loic1: set or enum types: slashes single quotes inside options
-              if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
-                  $tmp[2]       = substr(ereg_replace('([^,])\'\'', '\\1\\\'', ',' . $tmp[2]), 1);
-                  $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
-                  $type_nowrap  = '';
-              } else {
-                  $type_nowrap  = ' nowrap="nowrap"';
-              }
-              $type             = eregi_replace('BINARY', '', $type);
-              $type             = eregi_replace('ZEROFILL', '', $type);
-              $type             = eregi_replace('UNSIGNED', '', $type);
-              if (empty($type)) {
-                  $type         = '&nbsp;';
-              }
+        $type             = $row['Type'];
+        // reformat mysql query output - staybyte - 9. June 2001
+        // loic1: set or enum types: slashes single quotes inside options
+        if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
+            $tmp[2]       = substr(ereg_replace('([^,])\'\'', '\\1\\\'', ',' . $tmp[2]), 1);
+            $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
+            $type_nowrap  = '';
+        } else {
+            $type_nowrap  = ' nowrap="nowrap"';
+        }
+        $type             = eregi_replace('BINARY', '', $type);
+        $type             = eregi_replace('ZEROFILL', '', $type);
+        $type             = eregi_replace('UNSIGNED', '', $type);
+        if (empty($type)) {
+            $type         = '&nbsp;';
+        }
 
-              $binary           = eregi('BINARY', $row['Type'], $test);
-              $unsigned         = eregi('UNSIGNED', $row['Type'], $test);
-              $zerofill         = eregi('ZEROFILL', $row['Type'], $test);
-              $strAttribute     = '&nbsp;';
-              if ($binary) {
-                  $strAttribute = 'BINARY';
-              }
-              if ($unsigned) {
-                  $strAttribute = 'UNSIGNED';
-              }
-              if ($zerofill) {
-                  $strAttribute = 'UNSIGNED ZEROFILL';
-              }
-              if (!isset($row['Default'])) {
-                  if ($row['Null'] != '') {
-                      $row['Default'] = '<i>NULL</i>';
-                  }
-              } else {
-                  $row['Default'] = htmlspecialchars($row['Default']);
-              }
-              $field_name = htmlspecialchars($row['Field']);
-              echo "\n";
-              ?>
-      <tr>
-          <td width=50 class='print' nowrap="nowrap">
-          <?php
-          if (isset($pk_array[$row['Field']])) {
-              echo '    <u>' . $field_name . '</u>&nbsp;' . "\n";
-          } else {
-              echo '    ' . $field_name . '&nbsp;' . "\n";
-          }
-          ?>
-          </td>
-          <td width=50 class='print' <?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
-          <!--<td width=50 bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>-->
-          <td width=50 class='print'><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
-          <td width=50 class='print' nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
-          <!--<td width=50 bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>-->
-          <?php
-          echo "\n";
-          if ($have_rel) {
-              echo '    <td width=50 class="print" >';
-                      if (isset($res_rel[$field_name])) {
-                  echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] );
-              }
-              echo '&nbsp;</td>' . "\n";
-          }
-          if ($cfgRelation['commwork']) {
-              echo '    <td width=400 class="print" >';
-              if (isset($comments[$field_name])) {
-                  echo htmlspecialchars($comments[$field_name]);
-              }
-              echo '&nbsp;</td>' . "\n";
-          }
-          ?>
-      </tr>
-              <?php
-          } // end while
-          mysql_free_result($result);
+        $binary           = eregi('BINARY', $row['Type'], $test);
+        $unsigned         = eregi('UNSIGNED', $row['Type'], $test);
+        $zerofill         = eregi('ZEROFILL', $row['Type'], $test);
+        $strAttribute     = '&nbsp;';
+        if ($binary) {
+            $strAttribute = 'BINARY';
+        }
+        if ($unsigned) {
+            $strAttribute = 'UNSIGNED';
+        }
+        if ($zerofill) {
+            $strAttribute = 'UNSIGNED ZEROFILL';
+        }
+        if (!isset($row['Default'])) {
+            if ($row['Null'] != '') {
+                $row['Default'] = '<i>NULL</i>';
+            }
+        } else {
+            $row['Default'] = htmlspecialchars($row['Default']);
+        }
+        $field_name = htmlspecialchars($row['Field']);
+        echo "\n";
+        ?>
+<tr>
+    <td width=50 class='print' nowrap="nowrap">
+        <?php
+        echo "\n";
+        if (isset($pk_array[$row['Field']])) {
+            echo '    <u>' . $field_name . '</u>&nbsp;' . "\n";
+        } else {
+            echo '    ' . $field_name . '&nbsp;' . "\n";
+        }
+        ?>
+    </td>
+    <td width="50" class="print"<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
+    <!--<td width="50" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>-->
+    <td width="50" class="print"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
+    <td width="50" class="print" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
+    <!--<td width="50" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>-->
+        <?php
+        echo "\n";
+        if ($have_rel) {
+            echo '    <td width="50" class="print">';
+            if (isset($res_rel[$field_name])) {
+                echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field']);
+            }
+            echo '&nbsp;</td>' . "\n";
+        }
+        if ($cfgRelation['commwork']) {
+            echo '    <td width="400" class="print">';
+            if (isset($comments[$field_name])) {
+                echo htmlspecialchars($comments[$field_name]);
+            }
+            echo '&nbsp;</td>' . "\n";
+        }
+        ?>
+</tr>
+        <?php
+    } // end while
+    mysql_free_result($result);
 
-          echo "\n";
-          ?>
-      </table>
-      <?echo '</div>' . "\n";
+    echo "\n";
+    ?>
+</table>
+
+    <?php
+    echo '</div>' . "\n";
+
+	$count++;
+} //ends main while
 
 
-      $count++;
-}//ends main while
 /**
  * Displays the footer
  */
 echo "\n";
-echo '<br><br>&nbsp;<input type="button" style="visibility:;width:100px;height:25px" name="print" value="' . $strPrint . '" onclick="printPage()">';
-require('./footer.inc.php3');
 ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
 function printPage()
 {
-    document.all.print.style.visibility='hidden';
+    document.all.print.style.visibility = 'hidden';
     // Do print the page
     if (typeof(window.print) != 'undefined') {
         window.print();
     }
-    document.all.print.style.visibility='';
+    document.all.print.style.visibility = '';
 }
 //-->
 </script>
+<?php
+echo '<br /><br />&nbsp;<input type="button" style="visibility: ; width: 100px; height: 25px" name="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
+
+require('./footer.inc.php3');
+?>
