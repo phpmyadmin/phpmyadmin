@@ -69,7 +69,7 @@ CREATE TABLE `PMA_column_comments` (
     db_name varchar(64) NOT NULL default '',
     table_name varchar(64) NOT NULL default '',
     column_name varchar(64) NOT NULL default '',
-    comment varchar(255) NOT NULL default '',
+    `comment` varchar(255) NOT NULL default '',
     PRIMARY KEY (id),
     UNIQUE KEY db_name (db_name, table_name, column_name)
     ) TYPE=MyISAM COMMENT='Comments for Columns';

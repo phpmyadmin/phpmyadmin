@@ -39,6 +39,17 @@ $is_backup = ($action != 'tbl_create.php3' && $action != 'tbl_addfield.php3');
         <th><?php echo $strDefault; ?>**</th>
         <th><?php echo $strExtra; ?></th>
 <?php
+require('./libraries/relation.lib.php3');
+require('./libraries/transformations.lib.php3');
+$cfgRelation = PMA_getRelationsParam();
+
+$comments_map = array();
+
+if ($cfgRelation['commwork']) {
+    $comments_map = PMA_getComments($db, $table);
+    echo '<th>' . $strComments . '</th>';
+}
+
 // lem9: We could remove this 'if' and let the key information be shown and
 // editable. However, for this to work, tbl_alter must be modified to use the
 // key fields, as tbl_addfield does.
@@ -222,6 +233,14 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             </select>
         </td>
     <?php
+    // garvin: comments
+    if ($cfgRelation['commwork']) {
+    ?>
+        <td bgcolor="<?php echo $bgcolor; ?>">
+            <input id="field_<?php echo $i; ?>_7" type="text" name="field_comments[]" size="8" value="<?php echo (isset($row) && isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : ''); ?>" class="textfield" />
+        </td>
+    <?php
+    }
     // lem9: See my other comment about removing this 'if'.
     if (!$is_backup) {
         if (isset($row) && isset($row['Key']) && $row['Key'] == 'PRI') {

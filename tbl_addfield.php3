@@ -192,6 +192,19 @@ if (isset($submit)) {
         }
     } // end if
 
+    // garvin: If comments were sent, enable relation stuff
+    require('./libraries/relation.lib.php3');
+
+    $cfgRelation = PMA_getRelationsParam();
+
+    // garvin: Update comment table, if a comment was set.
+    if (is_array($field_comments) && $cfgRelation['commwork']) {
+        @reset($field_comments);
+        while(list($fieldindex, $fieldcomment) = each($field_comments)) {
+            PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
+        }
+    }
+    
     // Go back to the structure sub-page
     $sql_query = $sql_query_cpy;
     unset($sql_query_cpy);

@@ -157,7 +157,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
             <?php echo $strProperties; ?></a>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
+        <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
             onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
             <?php echo $strDrop; ?></a>
     </td>
@@ -416,7 +416,7 @@ else {
         <a href="tbl_properties.php3?<?php echo $tbl_url_query; ?>"><?php echo $strProperties; ?></a>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, $table_name)); ?>"><?php echo $strDrop; ?></a>
+        <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, $table_name)); ?>"><?php echo $strDrop; ?></a>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, $table_name)); ?>"><?php echo $strEmpty; ?></a>

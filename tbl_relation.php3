@@ -20,20 +20,6 @@ $cfgRelation = PMA_getRelationsParam();
 
 
 /**
- * Adds/removes slashes if required
- *
- * @param   string  the string to slash
- *
- * @return  string  the slashed string
- *
- * @access  public
- */
-function PMA_handleSlashes($val) {
-    return (get_magic_quotes_gpc() ? str_replace('\\"', '"', $val) : PMA_sqlAddslashes($val));
-} // end of the "PMA_handleSlashes()" function
-
-
-/**
  * Updates
  */
 
@@ -105,37 +91,8 @@ if ($cfgRelation['displaywork']
 if ($cfgRelation['commwork']
     && isset($submit_comm) && $submit_comm == 'true') {
     while (list($key, $value) = each($comment)) {
-        $test_qry  = 'SELECT ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_comments'])
-                   . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-                   . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                   . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
-        $test_rs   = PMA_query_as_cu($test_qry);
-        if ($test_rs && mysql_num_rows($test_rs) > 0) {
-            if (strlen($value) > 0) {
-                $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_comments'])
-                           . ' SET ' . PMA_backquote('comment') . ' = \'' . PMA_handleSlashes($value) . '\''
-                           . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                           . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                           . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
-            } else {
-                $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_comments'])
-                           . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                           . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                           . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
-            }
-        } else if (strlen($value) > 0) {
-            $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_comments'])
-                       . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ') '
-                       . ' VALUES('
-                       . '\'' . PMA_sqlAddslashes($db) . '\','
-                       . '\'' . PMA_sqlAddslashes($table) . '\','
-                       . '\'' . PMA_handleSlashes($key) . '\','
-                       . '\'' . PMA_handleSlashes($value) . '\')';
-        }
-        if (isset($upd_query)){
-            $upd_rs    = PMA_query_as_cu($upd_query);
-            unset($upd_query);
-        }
+        // garvin: I exported the snippet here to a function (relation.lib.php3) , so it can be used multiple times throughout other pages where you can set comments.
+        PMA_setComment($db, $table, $key, $value);
     }  // end while (transferred data)
 } // end if (commwork)
 

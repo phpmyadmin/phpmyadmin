@@ -298,10 +298,10 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         global $cfgRelation;
 
         if ($table != '') {
-        $com_qry  = 'SELECT column_name, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_comments'])
-                  . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-                  . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-        $com_rs   = PMA_query_as_cu($com_qry);
+            $com_qry  = 'SELECT column_name, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_comments'])
+                      . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+                      . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+            $com_rs   = PMA_query_as_cu($com_qry);
         } else {
             $com_qry  = 'SELECT comment FROM ' . PMA_backquote($cfgRelation['column_comments'])
                       . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''

@@ -192,6 +192,20 @@ if (isset($submit)) {
     $sql_query = $query_cpy . ';';
     unset($query_cpy);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
+
+    // garvin: If comments were sent, enable relation stuff
+    require('./libraries/relation.lib.php3');
+
+    $cfgRelation = PMA_getRelationsParam();
+
+    // garvin: Update comment table, if a comment was set.
+    if (is_array($field_comments) && $cfgRelation['commwork']) {
+        @reset($field_comments);
+        while(list($fieldindex, $fieldcomment) = each($field_comments)) {
+            PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
+        }
+    }
+
     include('./' . $cfg['DefaultTabTable']);
     exit();
 } // end do create table

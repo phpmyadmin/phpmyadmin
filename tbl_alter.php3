@@ -87,6 +87,20 @@ if (isset($submit)) {
     $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
     $btnDrop   = 'Fake';
+
+    // garvin: If comments were sent, enable relation stuff
+    require('./libraries/relation.lib.php3');
+
+    $cfgRelation = PMA_getRelationsParam();
+    
+    // garvin: Update comment table, if a comment was set.
+    if (is_array($field_comments) && $cfgRelation['commwork']) {
+        @reset($field_comments);
+        while(list($fieldindex, $fieldcomment) = each($field_comments)) {
+            PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, $field_orig[$fieldindex]);
+        }
+    }
+
     include('./tbl_properties_structure.php3');
     exit();
 }

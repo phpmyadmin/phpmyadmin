@@ -437,6 +437,27 @@ else {
         } else { // not $is_select
              $unlim_num_rows         = 0;
         } // end rows total count
+
+        // garvin: if a table or database gets dropped, check column comments.
+        if (isset($purge)) {
+            include('./libraries/relation.lib.php3');
+            $cfgRelation = PMA_getRelationsParam();
+        
+            if ($cfgRelation['commwork']) {
+                if (isset($table) && isset($db) && !empty($table) && !empty($db)) {
+                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_comments'])
+                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                                . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+                    $rmv_rs    = PMA_query_as_cu($remove_query);
+                    unset($rmv_query);
+                } elseif (isset($db) && !empty($db)) {
+                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_comments'])
+                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'';
+                    $rmv_rs    = PMA_query_as_cu($remove_query);
+                    unset($rmv_query);
+                }
+ 			} // end if relation-stuff
+ 		} // end if ($purge)
     } // end else "didn't ask to see php code"
 
 

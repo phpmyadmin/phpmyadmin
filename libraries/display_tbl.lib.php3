@@ -518,12 +518,30 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         // 2. Displays the fields' name
         // 2.0 If sorting links should be used, checks if the query is a "JOIN"
         //     statement (see 2.1.3)
+
+        // 2.0.1 Prepare Display column comments if enabled ($cfg['ShowBrowseComments']).
+        //       Do not show comments, if using horizontalflipped mode, because of space usage
+        if ($GLOBALS['cfg']['ShowBrowseComments'] && $GLOBALS['cfgRelation']['commwork'] && $disp_direction != 'horizontalflipped') {
+            $comments_map = PMA_getComments($db, $table);
+        } else {
+            $comments_map = array();
+        }
+        
         if ($is_display['sort_lnk'] == '1') {
             $is_join = eregi('(.*)[[:space:]]+FROM[[:space:]]+.*[[:space:]]+JOIN', $sql_query, $select_stt);
         } else {
             $is_join = FALSE;
         }
         for ($i = 0; $i < $fields_cnt; $i++) {
+
+        // 2.0 Prepare comment-HTML-wrappers for each row, if defined/enabled.
+        if (isset($comments_map[$fields_meta[$i]->name])) {
+            $comments_table_wrap_pre = '<table border="0" cellpadding="0" cellspacing="0"><tr><th>';
+            $comments_table_wrap_post = '</th></tr><tr><th style="font-size: 8pt; font-weight: normal">' . htmlspecialchars($comments_map[$fields_meta[$i]->name]) . '</td></tr></table>';
+        } else {
+            $comments_table_wrap_pre = '';
+            $comments_table_wrap_post = '';
+        }
 
             // 2.1 Results can be sorted
             if ($is_display['sort_lnk'] == '1') {
@@ -550,6 +568,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 } else {
                     $unsorted_sql_query     = $sql_query;
                 }
+
                 // 2.1.2 Checks if the current column is used to sort the
                 //       results
                 if (empty($sql_order)) {
@@ -622,14 +641,18 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     echo "\n";
                     ?>
     <th <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>>
+        <?php echo $comments_table_wrap_pre; ?>
         <a href="sql.php3?<?php echo $url_query; ?>" <?php echo (($disp_direction == 'horizontalflipped' AND $GLOBALS['cfg']['HeaderFlipType'] == 'css') ? 'style = "direction: ltr; writing-mode: tb-rl;"' : ''); ?>>
             <?php echo ($disp_direction == 'horizontalflipped'  && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name)); ?></a><?php echo $order_img . "\n"; ?>
+        <?php echo $comments_table_wrap_post; ?>
     </th>
                     <?php
                 }
                 $vertical_display['desc'][] = '    <th>' . "\n"
+                                            . $comments_table_wrap_pre
                                             . '        <a href="sql.php3?' . $url_query . '">' . "\n"
                                             . '            ' . htmlspecialchars($fields_meta[$i]->name) . '</a>' . $order_img . "\n"
+                                            . $comments_table_wrap_post
                                             . '    </th>' . "\n";
             } // end if (2.1)
 
@@ -639,12 +662,16 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     echo "\n";
                     ?>
     <th <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>  <?php echo ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'css' ? 'style = "direction: ltr; writing-mode: tb-rl;"' : ''); ?>>
+        <?php echo $comments_table_wrap_pre; ?>
         <?php echo ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'fake'? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name)) . "\n"; ?>
+        <?php echo $comments_table_wrap_post; ?>
     </th>
                     <?php
                 }
                 $vertical_display['desc'][] = '    <th>' . "\n"
+                                            . $comments_table_wrap_pre
                                             . '        ' . htmlspecialchars($fields_meta[$i]->name) . "\n"
+                                            . $comments_table_wrap_post
                                             . '    </th>';
             } // end else (2.2)
         } // end for

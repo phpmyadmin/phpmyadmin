@@ -72,6 +72,20 @@ $fields_cnt  = mysql_num_rows($fields_rs);
 </tr>
 
 <?php
+$comments_map = array();
+
+if ($GLOBALS['cfg']['ShowPropertyComments']) {
+    require('./libraries/relation.lib.php3');
+    require('./libraries/transformations.lib.php3');
+
+    $cfgRelation = PMA_getRelationsParam();
+    
+    
+    if ($cfgRelation['commwork']) {
+        $comments_map = PMA_getComments($db, $table);
+    }
+}
+
 $i         = 0;
 $aryFields = array();
 $checked   = (!empty($checkall) ? ' checked="checked"' : '');
@@ -125,6 +139,14 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
 
     $field_encoded = urlencode($row['Field']);
     $field_name    = htmlspecialchars($row['Field']);
+
+    // garvin: underline commented fields and display a hover-title (CSS only)
+
+    $comment_style = '';
+    if (isset($comments_map[$row['Field']])) {
+        $field_name = '<span style="border-bottom: 1px dashed black;" title="' . htmlspecialchars($comments_map[$row['Field']]) . '">' . $field_name . '</span>';
+    }
+
     if (isset($pk_array[$row['Field']])) {
         $field_name = '<u>' . $field_name . '</u>';
     }

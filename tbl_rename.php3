@@ -41,6 +41,18 @@ if (isset($new_name) && trim($new_name) != '') {
     $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $message   = sprintf($strRenameTableOK, $old_name, $table);
     $reload    = 1;
+
+    // garvin: Move old entries from comments to new table
+    include('./libraries/relation.lib.php3');
+    $cfgRelation = PMA_getRelationsParam();
+    if ($cfgRelation['commwork']) {
+        $remove_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_comments'])
+                      . ' SET 	table_name = \'' . PMA_sqlAddslashes($table) . '\''
+                      . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                      . ' AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
+        $rmv_rs    = PMA_query_as_cu($remove_query);
+        unset($rmv_query);
+    }
 }
 
 
