@@ -30,37 +30,44 @@ $db_details_links_count_tabs = 0;
 require_once('./libraries/bookmark.lib.php');
 $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
-if ($table_info_num_rows > 0) {
+if ($table_info_num_rows > 0 || $tbl_is_view) {
     $lnk2    = 'sql.php';
     $arg2    = $url_query
              . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table)))
              . '&amp;pos=0';
     $lnk4    = 'tbl_select.php';
     $arg4    = $url_query;
-    $ln6_stt = (PMA_MYSQL_INT_VERSION >= 40000)
-             ? 'TRUNCATE TABLE '
-             : 'DELETE FROM ';
-    $lnk6    = 'sql.php';
-    $arg6    = $url_query . '&amp;sql_query='
-             . urlencode($ln6_stt . PMA_backquote($table))
-             .  '&amp;zero_rows='
-             .  urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)));
-    $att6    = 'onclick="return confirmLink(this, \'' . $ln6_stt . PMA_jsFormat($table) . '\')"';
-    $class6  = 'Drop';
+    if ($tbl_is_view) {
+        $lnk8    = '';
+        $arg8    = '';
+        $att8    = '';
+        $class8  = '';
+    } else {
+        $ln8_stt = (PMA_MYSQL_INT_VERSION >= 40000)
+                 ? 'TRUNCATE TABLE '
+                 : 'DELETE FROM ';
+        $lnk8    = 'sql.php';
+        $arg8    = $url_query . '&amp;sql_query='
+                 . urlencode($ln8_stt . PMA_backquote($table))
+                 .  '&amp;zero_rows='
+                 .  urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)));
+        $att8    = 'onclick="return confirmLink(this, \'' . $ln8_stt . PMA_jsFormat($table) . '\')"';
+        $class8  = 'Drop';
+    }
 } else {
     $lnk2    = '';
     $arg2    = '';
     $lnk4    = '';
     $arg4    = '';
-    $lnk6    = '';
-    $arg6    = '';
-    $att6    = '';
-    $class6  = 'Drop';
+    $lnk8    = '';
+    $arg8    = '';
+    $att8    = '';
+    $class8  = 'Drop';
 }
 
-$arg7 = $url_query . '&amp;reload=1&amp;purge=1&amp;sql_query=' . urlencode('DROP TABLE ' . PMA_backquote($table) ) . '&amp;zero_rows=' . urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table)));
-$att7 = 'onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsFormat($table) . '\')"';
-$class7 = 'Drop';
+$arg9 = $url_query . '&amp;reload=1&amp;purge=1&amp;sql_query=' . urlencode('DROP ' . ($tbl_is_view ? 'VIEW' : 'TABLE') . ' ' . PMA_backquote($table) ) . '&amp;zero_rows=' . urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table)));
+$att9 = 'onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsFormat($table) . '\')"';
+$class9 = 'Drop';
 
 
 /**
@@ -82,11 +89,16 @@ echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['
    . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_browse.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strBrowse.'" />' : '') . $strBrowse, $lnk2, $arg2)
    . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sql.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strSQL.'" />' : '') . $strSQL, 'tbl_properties.php', $url_query)
    . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_search.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strSearch.'" />' : '') . $strSearch, $lnk4, $arg4)
-   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_insrow.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strInsert.'" />' : '') . $strInsert, 'tbl_change.php', $url_query)
-   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strExport.'" />' : '') . $strExport, 'tbl_properties_export.php', $url_query . '&amp;single_table=true')
-   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tblops.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strOperations.'" />' : '') . $strOperations, 'tbl_properties_operations.php', $url_query)
-   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_empty.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strEmpty.'" />' : '') . $strEmpty, $lnk6, $arg6, $att6, $class6)
-   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_deltbl.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strDrop.'" />' : '') . $strDrop, 'sql.php', $arg7, $att7, $class7)
+   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_insrow.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strInsert.'" />' : '') . $strInsert, 'tbl_change.php', $url_query);
+/**
+ * Don't display "Export", "Operations" and "Empty" for views.
+ */
+if (!$tbl_is_view) {
+    echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strExport.'" />' : '') . $strExport, 'tbl_properties_export.php', $url_query . '&amp;single_table=true')
+       . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tblops.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strOperations.'" />' : '') . $strOperations, 'tbl_properties_operations.php', $url_query)
+       . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_empty.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strEmpty.'" />' : '') . $strEmpty, $lnk8, $arg8, $att8, $class8);
+}
+echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_deltbl.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strDrop.'" />' : '') . $strDrop, 'sql.php', $arg9, $att9, $class9)
    . "\n";
 
 if (!$cfg['LightTabs']) {

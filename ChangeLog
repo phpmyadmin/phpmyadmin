@@ -8,6 +8,8 @@ $Source$
 2005-02-06 Alexander M. Turek  <me@derrabus.de>
     * header.inc.php, tbl_properties_table_info.php: View detection for
       header.inc.php.
+    * tbl_properties_links.php:
+      - Adjusted tab bar for views.
 
 2005-02-05 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_relation.php: removed comments handling (pmadb-style) from relation view
