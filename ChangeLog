@@ -23,7 +23,9 @@ $Source$
       (sven-erik).
     * lang/lithuanian-*.inc.php3: Updates, thanks to Vilius Zigmantas (viliusz).
     * lang/estonian-*.inc.php3: Updates, thanks to Alvar Soome (finsoft).
-    * lang/italian-*.inc.php3: Updates, thanks to Pietro Danesi (danone).
+    * lang/italian-*.inc.php3:
+      - Updates, thanks to Pietro Danesi (danone).
+      - Coding standards.
 
 2002-12-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*.php3, pdf_schema.php3, pdf_pages.php3, db_details_structure.php3:
