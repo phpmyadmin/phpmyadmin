@@ -21,6 +21,8 @@ $Source$
       tbl_properties_structure.php3: Show multi submits result after headers
       and tabs from originating place.
     * lang/czech: Updated.
+    * tbl_properties_operations.php3: Not only remember, but also recall state
+      of checkbox for move to newly created table (see Garvin's entry above).
 
 2003-04-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: clarify about wildcard database
