@@ -518,15 +518,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             unset($cfg['Servers'][$key]);
         }
 
-        // Final solution to bug #582890 
+        // Final solution to bug #582890
         // If we are using a socket connection
         // and there is nothing in the verbose server name
         // or the host field, then generate a name for the server
         // in the form of "Server 2", localized of course!
         if ( ($val['connect_type'] == 'socket') && empty($val['host']) && empty($val['verbose']) ) {
-            $cfg['Servers'][$key]['verbose'] = sprintf($GLOBALS['strServer'],$key);
-            $val['verbose'] = sprintf($GLOBALS['strServer'],$key);
-            }
+            $cfg['Servers'][$key]['verbose'] = sprintf($GLOBALS['strServer'], $key);
+            $val['verbose']                  = sprintf($GLOBALS['strServer'],$key);
+        }
     }
 
     if (empty($server) || !isset($cfg['Servers'][$server]) || !is_array($cfg['Servers'][$server])) {
