@@ -258,6 +258,10 @@ if (isset($lightm_db) && !empty($lightm_db)) {
 ?>
     window.parent.frames['phpmain<?php echo $hash; ?>'].location.replace('./<?php echo $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db, '', '&');?>');
 <?php 
+} elseif (isset($lightm_db)) {
+?>
+    window.parent.frames['phpmain<?php echo $hash; ?>'].location.replace('./main.php3?<?php echo PMA_generate_common_url('', '', '&');?>');
+<?php 
 }
 ?>
     //-->
@@ -356,10 +360,13 @@ echo "\n";
 if ($num_dbs > 1) {
 
     // Light mode -> beginning of the select combo for databases
+    // Note: When javascript is active, the frameset will be changed from
+    // within left.php3. With no JS (<noscript>) the whole frameset will
+    // be rebuilt with the new target frame.
     if ($cfg['LeftFrameLight']) {
         ?>
         <script type="text/javascript" language="javascript">
-            document.writeln('<form method="post" action="index.php3" name="left" target="_parent">');
+            document.writeln('<form method="post" action="left.php3" name="left" target="nav">');
         </script>
         <noscript>
             <form method="post" action="index.php3" name="left" target="_parent">

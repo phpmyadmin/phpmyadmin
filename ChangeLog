@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-25 Garvin Hicking <me@supergarv.de>
+    * left.php3: Fix #742632 finally: Refresh to main.php3
+      if an empty DB has been selected.
+
 2003-05-25 Marc Delisle  <lem9@users.sourceforge.net>
     * left.php3: new fix for #742632
     * lang/polish: update, thanks to Jakub Wilk
