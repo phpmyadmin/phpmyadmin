@@ -398,6 +398,7 @@ $PMA_SQPdata_reserved_word = array (
     'SECOND',
     'SELECT',
     'SERIALIZABLE',
+    'SESSION',
     'SHARE',
     'SHOW',
     'SHUTDOWN',
@@ -460,7 +461,7 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 264;
+$PMA_SQPdata_reserved_word_cnt = 265;
 
 $PMA_SQPdata_column_type = array (
     'BIGINT',
