@@ -10,6 +10,7 @@ $Source$
     * lang/polish: update, thanks to Jakub Wilk
     * lang/lithuanian: update, thanks to Vilius Zigmantas
     * lang/galician: update, thanks to Xosé Calvo
+    * ### 2.3.1-rc1 released
 
 2002-09-14 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Updates.
