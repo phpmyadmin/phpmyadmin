@@ -8,6 +8,7 @@ $Source$
 2002-06-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/config_import.lib.php3, libraries/common.lib.php3:
       Backwards compatibility for config files < rev. 1.113.
+    * lang/german*.inc.php3: Better translation for $strQBE.
 
 2002-06-29 Olivier L. Müller  <om@omnis.ch>
     * Documentation.html: docs about $cfg['DefaultTabDatabase']

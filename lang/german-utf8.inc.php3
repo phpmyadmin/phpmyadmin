@@ -276,7 +276,7 @@ $strPrintView = 'Druckansicht';
 $strPrivileges = 'Rechte';
 $strProperties = 'Eigenschaften';
 
-$strQBE = 'Suche über Beispielwerte';
+$strQBE = 'Abfrageeditor';
 $strQBEDel = 'Entf.';
 $strQBEIns = 'Einf.';
 $strQueryOnDb = ' SQL-Befehl in der Datenbank <b>%s</b>:';
