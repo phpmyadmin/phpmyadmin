@@ -137,12 +137,11 @@ while (list($key, $table) = each($the_tables)) {
 
 
     /**
-     * Displays the comments of the table is MySQL >= 3.23
+     * Displays the comments of the table if MySQL >= 3.23
      */
     if (!empty($show_comment)) {
-        echo $strTableComments . '&nbsp;:&nbsp;' . $row['Comment'];
+        echo $strTableComments . '&nbsp;:&nbsp;' . $show_comment . '<br /><br />';
     }
-
 
     /**
      * Displays the table structure

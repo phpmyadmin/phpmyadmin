@@ -8,6 +8,8 @@ $Source$
 2002-02-23 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_replace.php3, bug 520242, records get inserted twice
 	* swedish updates thanks to Björn T. Hallberg
+	* tbl_printview.php3, comments were not displayed, thanks to
+	  Björn T. Hallberg
 
 2002-02-22 Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_addfield.php3, lines 34-44; tbl_create.php3, lines 40-50: fixed php
