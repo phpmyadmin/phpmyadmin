@@ -300,21 +300,17 @@ if ($sql_file != 'none') {
         // directory
 
         if (!empty($open_basedir)) {
-            // check if '.' is in open_basedir
-            $split_char = (PMA_IS_WINDOWS ? ';' : ':');
-            $pos        = ereg('(^|' . $split_char . ')\\.(' . $split_char . '|$)', $open_basedir);
 
-            // from the PHP annotated manual
-            if (!$pos) {
-                // if no '.' in openbasedir, do not move the file (open_basedir
-                // may only be a prefix), force the error and let PHP reports
-                // it
+            $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
+
+            // function is_writeable() is valid on PHP3 and 4
+            if (!is_writeable($tmp_subdir)) {
+                // if we cannot move the file, let PHP report the error
                 error_reporting(E_ALL);
                 $sql_query = PMA_readFile($sql_file, $sql_file_compression);
             }
             else {
-                $sql_file_new = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/')
-                              . basename($sql_file);
+                $sql_file_new = $tmp_subdir . basename($sql_file);
                 if (PMA_PHP_INT_VERSION < 40003) {
                     copy($sql_file, $sql_file_new);
                 } else {
