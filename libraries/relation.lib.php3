@@ -16,16 +16,22 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
      * @author  Mike Beck<mikebeck@users.sourceforge.net>
      * @access  public
      */
-     function PMA_query_as_cu($sql) {
+     function PMA_query_as_cu($sql,$showerror=TRUE) {
         global $err_url_0, $db, $dbh, $cfgRelation;
 
         if (isset($dbh)) {
             PMA_mysql_select_db($cfgRelation['db'],$dbh);
-            $result = @PMA_mysql_query($sql, $dbh) or PMA_mysqlDie(mysql_error($dbh), $sql, '', $err_url_0);
+            $result = @PMA_mysql_query($sql, $dbh);
+            if(!$result && $showerror==TRUE){
+                PMA_mysqlDie(mysql_error($dbh), $sql, '', $err_url_0);
+            }
             PMA_mysql_select_db($db,$dbh);
         } else {
             PMA_mysql_select_db($cfgRelation['db']);
-            $result = @PMA_mysql_query($sql) or PMA_mysqlDie('', $sql, '', $err_url_0);
+            $result = @PMA_mysql_query($sql);
+            if($result && $showerror==TRUE){
+                PMA_mysqlDie('', $sql, '', $err_url_0);
+            }
             PMA_mysql_select_db($db);
         }
         if($result){
@@ -66,6 +72,19 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             return '';
         }
 
+        //      check if pmadb exists
+        $tab_query    = 'SHOW DATABASES';
+        $tab_rs = PMA_query_as_cu($tab_query);
+
+        while ($curr_db = @PMA_mysql_fetch_array($tab_rs)) {
+            if($curr_db[0] == $cfg['Server']['pmadb']) {
+                $cfgRelation['db']    = $GLOBALS['cfg']['Server']['pmadb'];
+            }
+        }
+        if(!isset($cfgRelation['db'])){
+                $GLOBALS['cfg']['Server']['pmadb'] = FALSE;
+                return;
+        }
         $cfgRelation['user']  = $GLOBALS['cfg']['Server']['user'];
         $cfgRelation['db']    = $GLOBALS['cfg']['Server']['pmadb'];
 

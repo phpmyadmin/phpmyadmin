@@ -7,7 +7,13 @@
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
+<<<<<<< pdf_pages.php3
+require('./tbl_properties_common.php3');
+require('./tbl_properties_table_info.php3');
+require('./libraries/relation.lib.php3');
+=======
 include('./db_details_common.php3');
+>>>>>>> 1.6
 
 /**
  * Settings for relation stuff
