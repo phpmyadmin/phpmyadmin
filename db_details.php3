@@ -20,6 +20,11 @@ if (!isset($message)) {
 // 1. Gets the list of the tables
 $tables     = mysql_list_tables($db);
 $num_tables = @mysql_numrows($tables);
+// Not a valid db name -> back to the welcome page
+if (mysql_error() != '') {
+    header('Location: main.php3?lang=' . $lang . '&server=' . $server . '&reload=true');
+    exit();
+}
 
 // speedup view on locked tables - staybyte - 11 June 2001
 if ($num_tables > 0 && MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 3) {
@@ -200,16 +205,16 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
     ?>
 <tr bgcolor="<?php echo $cfgThBgcolor; ?>">
     <td align="center">
-        <b><?php echo sprintf($strTables, number_format($num_tables, 0, $number_decimal_separator, $number_thousands_separator)) . "\n"; ?></b>
+        <b><?php echo sprintf($strTables, number_format($num_tables, 0, $number_decimal_separator, $number_thousands_separator)); ?></b>
     </td>
     <td colspan="6" align="center">
-        <b><?php echo $strSum . "\n"; ?></b>
+        <b><?php echo $strSum; ?></b>
     </td>
     <td align="right" nowrap="nowrap">
-        <b><?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?></b>
+        <b><?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator); ?></b>
     </td>
     <td align="right" nowrap="nowrap">
-        <b><?php echo $sum_formated . ' '. $unit . "\n"; ?></b>
+        <b><?php echo $sum_formated . ' '. $unit; ?></b>
     </td>
 </tr>
 </table>

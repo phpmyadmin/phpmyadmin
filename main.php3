@@ -10,6 +10,18 @@ require('./header.inc.php3');
 if (isset($message)) {
     show_message($message);
 }
+else if (!empty($reload) && $reload == 'true') {
+    // Reloads the navigation frame via JavaScript if required
+    echo "\n";
+    ?>
+<script type="text/javascript" language="javascript1.2">
+<!--
+window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>');
+//-->
+</script>
+    <?php
+}
+echo "\n";
 
 
 /**
@@ -261,26 +273,26 @@ if ($server > 0
         <?php echo $strReloadMySQL; ?></a>&nbsp;<?php echo show_docu('manual_Reference.html#FLUSH') . "\n"; ?>
     </li>
     <br /><br />
-
         <?php
         $result = mysql_query('SELECT * FROM mysql.user');
         $rows   = @mysql_num_rows($result);
         if (!empty($rows)) {
+            echo "\n";
             ?>
-    <li>
+    <li> 
         <a href="user_details.php3?<?php echo $common_url_query; ?>&db=mysql&table=user">
-        <?php echo $strUsers; ?></a>&nbsp;<?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
-    </li>
+            <?php echo $strUsers; ?></a>&nbsp;<?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
+    </li> 
             <?php
             echo "\n";
         }
-
     } // end of 2.2 (no AdvAuth case)
 } // end of 2: if ($server > 0)
 ?>
+
     <!-- PHP Information -->
     <li>
-	<a href="phpinfo.php3" target="_new"><?php echo $strShowPHPInfo; ?></a>
+        <a href="phpinfo.php3" target="_new"><?php echo $strShowPHPInfo; ?></a>
     </li>
 
     <!-- documentation -->
@@ -292,7 +304,7 @@ if ($server > 0
     </li>
     <li>
         <a href="http://phpmyadmin.sourceforge.net/" target="_new">
-        <?php echo $strHomepageSourceforge; ?></a>&nbsp;&nbsp;&nbsp;
+            <?php echo $strHomepageSourceforge; ?></a>&nbsp;&nbsp;&nbsp;
         [<a href="ChangeLog" target="_new">ChangeLog</a>]&nbsp;
         [<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_new">CVS</a>]
     </li>
