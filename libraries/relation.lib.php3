@@ -141,7 +141,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             $foreign[$field]['foreign_field']    = $relrow['foreign_field'];
             $i++;
          } // end while
-         if(is_array($foreign)) {
+         if( isset($foreign) && is_array($foreign) ) {
             return $foreign;
          } else {
             return FALSE;
@@ -187,7 +187,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             $comment[$col] = $row['comment'];
          } // end while
 
-         if(is_array($comment)) {
+         if( isset($comment) && is_array($comment) ) {
             return $comment;
          } else {
             return FALSE;
