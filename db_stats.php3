@@ -5,76 +5,18 @@
  * Gets the variables sent to this script and send headers
  */
 require('./grab_globals.inc.php3');
-$js_to_run = 'functions.js';
 require('./header.inc.php3');
 
 
-/* ---------------- The user requires some db to be dropped ---------------- */
+/**
+ * Drop databases if required
+ */
+if (!empty($submit_mult) || isset($btnDrop)) {
+    $action     = 'db_stats.php3';
+    $show_query = 'y';
+    include('./mult_drops.inc.php3');
+}
 
-if (!empty($submit) || isset($btnDrop)) {
-
-    /**
-     * Confirmation form
-     */
-    if (!empty($submit) && !empty($selected_db)) {
-
-        // 1.1 Builds the query
-        $full_query     = '';
-        $drop_cnt       = count($selected_db);
-        for ($i = 0; $i < $drop_cnt; $i++) {
-            $full_query .= 'DROP DATABASE ' . backquote(htmlspecialchars(urldecode($selected_db[$i]))) . ';<br />';
-        }
-
-        // 1.2 Displays the form
-        echo $strDoYouReally . '&nbsp;:<br />' . "\n";
-        echo '<tt>' . $full_query . '</tt>&nbsp;?<br/>' . "\n";
-        ?>
-<form action="db_stats.php3" method="post">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-        <?php
-        echo "\n";
-        for ($i = 0; $i < $drop_cnt; $i++) {
-            echo '    <input type="hidden" name="selected_db[]" value="' . $selected_db[$i] . '" />' . "\n";
-        }
-        ?>
-    <input type="submit" name="btnDrop" value="<?php echo $strYes; ?>" />
-    <input type="submit" name="btnDrop" value="<?php echo $strNo; ?>" />
-</form>
-        <?php
-        echo"\n";
-
-        include('./footer.inc.php3');
-        exit();
-    }
-
-    /**
-     * Executes the query
-     */
-    else if ((get_magic_quotes_gpc() && stripslashes($btnDrop) == $strYes)
-             || $btnDrop == $strYes) {
-        echo "\n";
-
-        $drop_cnt         = count($selected_db);
-        for ($i = 0; $i < $drop_cnt; $i++) {
-            $a_drop_query = 'DROP DATABASE ' . backquote(urldecode($selected_db[$i]));
-            $result       = @mysql_query($a_drop_query) or mysql_die('', $a_drop_query, FALSE);
-        }
-        ?>
-<script type="text/javascript" language="javascript1.2">
-<!--
-window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>');
-//-->
-</script>
-        <?php
-    }
-
-    echo "\n";
-} // end db drop
-
-
-
-/* --------------------------- Displays the page --------------------------- */
 
 /**
  * Sorts the databases array according to the user's choice
@@ -336,7 +278,7 @@ if ($num_dbs > 0) {
     echo '    <tr>' . "\n";
     echo '        <td colspan="6">' . "\n";
     echo '            <img src="./images/arrow.gif" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n";
-    echo '            <i>' . $strWithChecked . '</i>&nbsp;&nbsp;<input type="submit" name="submit" value="DROP" />' . "\n";
+    echo '            <i>' . $strWithChecked . '</i>&nbsp;&nbsp;<input type="submit" name="submit_mult" value="' . $strDrop . '" />' . "\n";
     echo '        </td>' . "\n";
     echo '    <tr>' . "\n";
 
