@@ -154,6 +154,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
          */
         function PMA_SQP_bug($message, $sql)
         {
+            global $SQP_errorString;
             $debugstr = 'ERROR: ' . $message . "\n";
             $debugstr .= 'CVS: $Id$' . "\n";
             $debugstr .= 'MySQL: '.PMA_MYSQL_STR_VERSION . "\n";
@@ -169,26 +170,17 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             }
             $encodedstr     = preg_replace("/(\015\012)|(\015)|(\012)/", '<br />' . "\n", chunk_split(base64_encode($encodedstr)));
 
-            echo $GLOBALS['strSQLParserBugMessage'] . '<br />' . "\n"
+            $SQP_errorString .= $GLOBALS['strSQLParserBugMessage'] . '<br />' . "\n"
                  . '----' . $GLOBALS['strBeginCut'] . '----' . '<br />' . "\n"
                  . $encodedstr . "\n"
                  . '----' . $GLOBALS['strEndCut'] . '----' . '<br />' . "\n";
 
-            flush();
-            if (PMA_PHP_INT_VERSION >= 40200 && @function_exists('ob_flush')) {
-                ob_flush();
-            }
-
-            echo '----' . $GLOBALS['strBeginRaw'] . '----<br />' . "\n"
+            $SQP_errorString .= '----' . $GLOBALS['strBeginRaw'] . '----<br />' . "\n"
                  . '<pre>' . "\n"
                  . $debugstr
                  . '</pre>' . "\n"
                  . '----' . $GLOBALS['strEndRaw'] . '----<br />' . "\n";
 
-            flush();
-            if (PMA_PHP_INT_VERSION >= 40200 && @function_exists('ob_flush')) {
-                ob_flush();
-            }
         } // end of the "PMA_SQP_bug()" function
 
 
