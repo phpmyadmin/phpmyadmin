@@ -153,7 +153,7 @@ if (isset($disp) && $disp) {
             $value  = (($foreign_display != FALSE) ? htmlspecialchars(substr($vtitle, 0, $cfg['LimitChars']) . '...') : '');
         }
 
-        if ($count > $cfg['RepeatCells']) {
+        if ($cfg['RepeatCells'] > 0 && $count > $cfg['RepeatCells']) {
             echo $header;
             $count = -1;
         }
