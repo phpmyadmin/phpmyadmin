@@ -111,6 +111,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     // No change -> move back to the calling script
     else {
         if (file_exists('./' . $goto)) {
+            $js_to_run = 'functions.js';
             include('./header.inc.php3');
             $message = $strNoModification;
             include('./' . ereg_replace('\.\.*', '.', $goto));
@@ -204,6 +205,7 @@ if (!$result) {
         if ($goto == 'db_details.php3' && !empty($table)) {
             unset($table);
         }
+        $js_to_run = 'functions.js';
         include('./header.inc.php3');
         if (@mysql_affected_rows()) {
             $message .= @mysql_affected_rows();
