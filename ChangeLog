@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-18 Alexander M. Turek  <me@derrabus.de>
+    * lang/german-*.inc.php: Translations #1120157 (bad translation of
+      $strAddSearchConditions).
+
 2005-03-19 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan update, thanks to Xavier Navarro (xavin).
     * lang/russian update, thanks to gunsky
