@@ -21,8 +21,8 @@ catalan-iso-8859-1
 chinese_big5
 chinese_gb
 croatian-iso8859-2
-czech-iso
-danish
+czech-iso-8859-2
+danish-iso-8859-1
 dutch
 english
 estonian
