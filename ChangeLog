@@ -14,6 +14,7 @@ $Source$
 
 2001-12-04  Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html: FAQ about Konqueror
+	* libraries/common.lib.php3, support new $strRunning string
 
 2001-12-03  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_select.php3: fixed bugs with text and time type fields.

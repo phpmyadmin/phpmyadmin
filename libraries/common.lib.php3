@@ -69,7 +69,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      */
     function PMA_auth()
     {
-        header('WWW-Authenticate: Basic realm="phpMyAdmin ' . trim($GLOBALS['strRunning']) . ' ' . $GLOBALS['cfgServer']['host'] . '"');
+//        header('WWW-Authenticate: Basic realm="phpMyAdmin ' . trim($GLOBALS['strRunning']) . ' ' . $GLOBALS['cfgServer']['host'] . '"');
+        header('WWW-Authenticate: Basic realm="phpMyAdmin ' . sprintf($GLOBALS['strRunning'], (empty($GLOBALS['cfgServer']['verbose']) ? str_replace('\'', '\\\'',$GLOBALS['cfgServer']['host']) : str_replace('\'', '\\\'', $GLOBALS['cfgServer']['verbose']))) .  '"');
         header('HTTP/1.0 401 Unauthorized');
         header('status: 401 Unauthorized');
         ?>
