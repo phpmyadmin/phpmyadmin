@@ -200,7 +200,7 @@ $cfg['DefaultLang'] = 'en';
  */
 // Default charset to use for recoding of MySQL queries
 // (see $cfg['AvailableCharsets'] to possible choices, you can add your own)
-$cfg['DefaultCharset'] = 'iso-8859-2';
+$cfg['DefaultCharset'] = 'iso-8859-1';
 // Allow charset recoding of MySQL queries, must be also enabled in language
 // file to make harder using other language files than unicode.
 $cfg['AllowAnywhereRecoding'] = TRUE;
@@ -244,15 +244,15 @@ $cfg['RepeatCells']         = 100;          // repeat header names every X cells
 
 $cfg['UseSyntaxColoring']   = TRUE;         // use syntaxcoloring on output of SQL, might be a little slower
 $cfg['colorFunctions']      = '#FF0000';    // Colors used for Syntaxcoloring of SQL Statements
-$cfg['colorKeywords']       = '#0000FF';
+$cfg['colorKeywords']       = '#990099';
 $cfg['colorStrings']        = '#008000';
 $cfg['colorColType']        = '#FF9900';
 $cfg['colorAdd']            = '#0000FF';
 
-/** 
+/**
  * Available charsets for MySQL conversion. currently contains all which could
  * be found in lang/* files and few more.
- * 
+ *
  * Charsets will be shown in same order as here listed, so if you frequently
  * use some of these move them to the top.
  */
