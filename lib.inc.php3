@@ -259,9 +259,9 @@ if (!defined('__LIB_INC__')){
                 auth();
             } else {
                 if (empty($cfgServer['port'])) {
-                    $dbh = $connect_func($cfgServer['host'], $cfgServer['stduser'], $cfgServer['stdpass']) or mysql_die();
+                    $dbh = @$connect_func($cfgServer['host'], $cfgServer['stduser'], $cfgServer['stdpass']) or mysql_die();
                 } else {
-                    $dbh = $connect_func($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['stduser'], $cfgServer['stdpass']) or mysql_die();
+                    $dbh = @$connect_func($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['stduser'], $cfgServer['stdpass']) or mysql_die();
                 }
                 $PHP_AUTH_USER = str_replace('\'', '\\\'', $PHP_AUTH_USER);
                 $PHP_AUTH_PW   = str_replace('\'', '\\\'', $PHP_AUTH_PW);
