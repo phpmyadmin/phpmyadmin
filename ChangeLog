@@ -18,8 +18,12 @@ $Source$
       Documentation.html, all colors.inc.php,
       libraries/config_import.lib.php + common.lib.php + display_tbl.lib.php:
       $cfg['BrowseMarkerEnable']
-    * themes/darkblue_orange/img/logo_left.png + logo_right.png: new logo,
+    * themes/.../img/logo_left.png + logo_right.png: new logo,
       thanks to Michael Keck (mkkeck)
+    * index.php: compute queryframe_height from image size, thanks to
+      Michael Keck
+    * footer.inc.php: sync left frame when choosing a db from server_databases,
+      thanks to Michael Keck
 
 2004-06-24 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/mysqli.dbi.php: Undefined variable if PMA_DBI_getError() is
