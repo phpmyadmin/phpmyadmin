@@ -54,6 +54,8 @@ $strAtEndOfTable = 'Ao final da tabela';
 $strAttr = 'Atributos';
 
 $strBack = 'Voltar';
+$strBeginCut = 'COMEZA O RECORTE';
+$strBeginRaw = 'COMEZA O TEXTO SIMPLE ("RAW")';
 $strBinary = ' Binario ';
 $strBinaryDoNotEdit= ' Binario - non editar ';
 $strBookmarkDeleted = 'Eliminouse o marcador.';
@@ -135,6 +137,8 @@ $strEmpty = 'Borrar';
 $strEmptyResultSet = 'MySQL retornou um conxunto vacío (ex. cero rexistros).';
 $strEnabled = 'Activado';
 $strEnd = 'Fin';
+$strEndCut = 'FIN DO RECORTE';
+$strEndRaw = 'FIN DO TEXTO SIMPLE ("RAW")';
 $strEnglishPrivileges = ' Nota: os nomes de privilexios do MySQL están en inglés';
 $strError = 'Erro';
 $strExplain = 'Explicar SQL';
@@ -323,8 +327,13 @@ $strRunSQLQuery = 'Efectuar unha procura SQL na base de datos %s';
 $strRunning = 'a rodar no servidor %s';
 
 $strSQL = 'SQL';
+$strSQLParserBugMessage = 'Cabe a posibilidade de que atopase un erro no procesador de SQL. Examine a súa pesquisa con atención e comprobe que as aspas son correctas e que teñen o seu par. Outras causas posibles póden-se deber a que tentase enviar un ficheiro con binario fora dunha área de texto entre aspas. Tamén pode tentar facer a súa pesquisa na liña de comandos de MySQL. A mensaxe de erro que lle envía o servidor de MySQL e que aparece máis abaixo (de habela) tamén o pode axudar a diagnosticar o problema. Se persisten os erros ou se o procesador falla cando mesmo a liña de comandos vai ben,reduza o texto da pesquisa à parte concreta que produce o erro e envíe unha mensaxe de erro co texto da sección RECORTE que aparece a continuación:';
+$strSQLParserUserError = 'Parece que houbo un problema na súa pesquisa en SQL. Se máis abaixo aparece unha mensaxe de erro do servidor de MySQL, isto pode axudar a diagnosticar o problema';
 $strSQLQuery = 'comando SQL';
 $strSQLResult = 'Resultado SQL';
+$strSQPBugInvalidIdentifer = 'O identificador non é válido';
+$strSQPBugUnclosedQuote = 'Falta pór a aspa final';
+$strSQPBugUnknownPunctuation = 'Hai unha secuencia de puntuación que resulta descoñecida';
 $strSave = 'Gardar';
 $strScaleFactorSmall = 'O factor de reducción é demasiado pequeno para que o esquema caiba nunha única páxina';
 $strSearch = 'Procurar';
@@ -424,17 +433,6 @@ $strYes = 'Si';
 $strZip = 'comprimido no formato "zipped"';
 // To translate
 
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-
-$strEndCut = 'END CUT';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-
 $strImportDocSQL = 'Import docSQL Files';  //to translate
+
 ?>
