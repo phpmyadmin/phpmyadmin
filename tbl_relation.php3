@@ -148,7 +148,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         <th><?php echo $row[0]; ?></th>
         <td>
             <input type="hidden" name="src_field" value="<?php echo $row['Field']; ?>" />
-            <select name="destination[<?php echo htmlspecialchars($row['Field']); ?>]" onchange="this.form.submit(); ">
+            <select name="destination[<?php echo htmlspecialchars($row['Field']); ?>]">
         <?php
         echo "\n";
         reset($selectboxall);
@@ -160,7 +160,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
                 echo ' selected="selected"';
             }
             echo '>' . $value . '</option>'. "\n";
-        }
+        } // end while
         ?>
             </select>
         </td>
@@ -181,20 +181,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
 } // end if
 
 if (!empty($cfg['Server']['table_info'])) {
-    echo "\n";
-    ?>
-<form method="post" action="tbl_relation.php3">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
-    <input type="hidden" name="submit_show" value="true" />
-
-    <p><?php echo $strChangeDisplay; ?></P>
-    <select name="display_field" onchange="this.form.submit(); ">
-    <?php
-    echo "\n";
-
+    // Get "display_filed" infos
     $disp_query = 'SELECT display_field FROM ' .  PMA_backquote($cfg['Server']['table_info'])
                 . ' WHERE table_name = \'' . PMA_sqlAddslashes($table) . '\'';
     $disp_rs    = mysql_query($disp_query) or PMA_mysqlDie('', $disp_query, '', $err_url_0);
@@ -204,18 +191,34 @@ if (!empty($cfg['Server']['table_info'])) {
     }
     $col_query  = 'SHOW COLUMNS FROM ' . PMA_backquote($table);
     $col_rs     = mysql_query($col_query) or PMA_mysqlDie('', $col_query, '', $err_url_0);
-    while ($row = @mysql_fetch_array($col_rs)) {
-        echo '        <option value="' . htmlspecialchars($row['Field']) . '"';
-        if (isset($disp) && $row['Field'] == $disp) {
-            echo ' selected="selected"';
-        }
-        echo '>' . htmlspecialchars($row['Field']) . '</option>'. "\n";
-    } // end while
-    ?>
+
+    if ($col_rs && mysql_num_rows($col_rs) > 0) {
+        echo "\n";
+        ?>
+<form method="post" action="tbl_relation.php3" onchange="this.form.submit();">
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="submit_show" value="true" />
+
+    <p><?php echo $strChangeDisplay; ?></P>
+    <select name="display_field">
+        <?php
+        echo "\n";
+        while ($row = @mysql_fetch_array($col_rs)) {
+            echo '        <option value="' . htmlspecialchars($row['Field']) . '"';
+            if (isset($disp) && $row['Field'] == $disp) {
+                echo ' selected="selected"';
+            }
+            echo '>' . htmlspecialchars($row['Field']) . '</option>'. "\n";
+        } // end while
+        ?>
     </select>
     <input type="submit" value="<?php echo $strGo; ?>" />
 </form>
-    <?php
+        <?php
+    } // end if
 } // end if
 
 
