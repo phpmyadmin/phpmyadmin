@@ -63,6 +63,7 @@ $strBookmarkView = 'View only';
 $strBrowse = 'Browse';
 $strBzip = '"bzipped"';
 
+$strCannotLogin = 'Cannot login to MySQL server';
 $strCantLoadMySQL = 'cannot load MySQL extension,<br />please check PHP Configuration.';
 $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';

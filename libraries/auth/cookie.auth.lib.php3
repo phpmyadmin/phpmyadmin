@@ -60,6 +60,7 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
         global $right_font_family, $font_size, $font_bigger;
         global $cfg, $available_languages;
         global $lang, $server, $convcharset;
+	global $conn_error;
         global $HTTP_COOKIE_VARS;
 
         // Tries to get the username from cookie whatever are the values of the
@@ -222,6 +223,13 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
         } // end if (server choice)
         echo "\n";
         ?>
+    <?php
+    if (!empty($conn_error)) {
+        echo '<tr><td colspan="2" align="center"><p class="warning">'.
+	$conn_error.
+	'</p></td></tr>'."\n";
+    }
+    ?>
     <tr>
         <td colspan="2" align="center">
         <?php
@@ -430,8 +438,19 @@ if (uname.value == '') {
      */
     function PMA_auth_fails()
     {
+	global $conn_error;
+
         // Deletes password cookie and displays the login form
         setcookie('pma_cookie_password', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+
+        if (PMA_mysql_error()) {
+            $conn_error = PMA_mysql_error();
+        } else if (isset($php_errormsg)) {
+            $conn_error = $php_errormsg;
+        } else {
+            $conn_error = $GLOBALS['strCannotLogin'];
+        }
+
         PMA_auth();
 
         return TRUE;

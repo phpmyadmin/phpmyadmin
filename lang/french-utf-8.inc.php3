@@ -63,6 +63,7 @@ $strBookmarkView = 'Voir uniquement';
 $strBrowse = 'Afficher';
 $strBzip = '"bzippé"';
 
+$strCannotLogin = 'Connexion au serveur MySQL non permise';
 $strCantLoadMySQL = 'ne peux charger l\'extension MySQL,<br />vérifiez la configuration PHP';
 $strCantLoadRecodeIconv = 'Erreur lors du chargement de l\'extension iconv ou recode, utilisée pour convertir le jeu de caractères; veuillez activer l\'une de ces extensions dans PHP, ou désactiver la conversion des jeux de caractères dans phpMyAdmin';
 $strCantRenameIdxToPrimary = 'La clef ne peut être renommée PRIMARY&nbsp;!';

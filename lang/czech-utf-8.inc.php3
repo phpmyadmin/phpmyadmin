@@ -444,4 +444,5 @@ $strZip = '"zazipováno"';
 
 $strRelationalSchema = 'Relational schema';  //to translate
 $strTableOfContents = 'Table of contents';  //to translate
+$strCannotLogin = 'Cannot login to MySQL server';  //to translate
 ?>
