@@ -220,6 +220,14 @@ $cfg['GZipDump']              = TRUE;   // compression for
 $cfg['BZipDump']              = TRUE;   // dump files
 
 // Default Tabs display settings
+$cfg['DefaultTabServer']      = 'main.php3';
+                                   // Possible values:
+                                   // 'main.php3' = the welcome page
+                                   // (recommended for multiuser setups)
+                                   // 'server_status.php3' = runtime information
+                                   // 'server_variables.php3' = MySQL server variables
+                                   // 'server_privileges.php3' = user management
+                                   // 'server_processlist.php3' = process list
 $cfg['DefaultTabDatabase']    = 'db_details_structure.php3';
                                    // Possible values:
                                    // 'db_details_structure.php3' = tables list

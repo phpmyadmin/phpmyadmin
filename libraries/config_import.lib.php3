@@ -377,6 +377,10 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         }
     }
 
+    if (!isset($cfg['DefaultTabServer'])) {
+        $cfg['DefaultTabServer'] = 'main.php3';
+    }
+
     if (!isset($cfg['DefaultTabDatabase'])
         // rabus: config.inc.php3 rev. 1.112 had this default value.
         || $cfg['DefaultTabDatabase'] == 'Structure') {

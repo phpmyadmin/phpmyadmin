@@ -259,13 +259,13 @@ if (PMA_DISPLAY_HEADING) {
                                                               )
                    );
     if (isset($GLOBALS['db'])) {
-        echo '    ' . $GLOBALS['strDatabase'] . ' <i><a class="h1" href="db_details.php3' . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '">' . htmlspecialchars($GLOBALS['db']) . '</a></i>' . "\n";
+        echo '    ' . $GLOBALS['strDatabase'] . ' <i><a class="h1" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '">' . htmlspecialchars($GLOBALS['db']) . '</a></i>' . "\n";
         if (!empty($GLOBALS['table'])) {
-            echo '    - ' . $GLOBALS['strTable'] . ' <i><a class="h1" href="tbl_properties.php3' . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '">' . htmlspecialchars($GLOBALS['table']) . '</a></i>' . "\n";
+            echo '    - ' . $GLOBALS['strTable'] . ' <i><a class="h1" href="' . $GLOBALS['cfg']['DefaultTabTable'] . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '">' . htmlspecialchars($GLOBALS['table']) . '</a></i>' . "\n";
         }
-        echo '    ' . sprintf($GLOBALS['strRunning'], '<i>' . htmlspecialchars($server_info) . '</i>');
+        echo '    ' . sprintf($GLOBALS['strRunning'], '<i><a class="h1" href="' . $GLOBALS['cfg']['DefaultTabServer'] . $header_url_qry . '">' . htmlspecialchars($server_info) . '</a></i>');
     } else {
-        echo '    ' . sprintf($GLOBALS['strServer'], '<i>' . htmlspecialchars($server_info) . '</i>');
+        echo '    ' . sprintf($GLOBALS['strServer'], '<i><a class="h1" href="' . $GLOBALS['cfg']['DefaultTabServer'] . $header_url_qry . '">' . htmlspecialchars($server_info) . '</a></i>');
     }
     echo "\n" . '</h1>' . "\n";
 }
