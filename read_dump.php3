@@ -166,16 +166,16 @@ if (!function_exists('is_uploaded_file')) {
 
 
 /**
- * Increases the max. allowed time to run a script
- */
-@set_time_limit($cfg['ExecTimeLimit']);
-
-
-/**
  * Gets some core libraries
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
+
+
+/**
+ * Increases the max. allowed time to run a script
+ */
+@set_time_limit($cfg['ExecTimeLimit']);
 
 
 /**
