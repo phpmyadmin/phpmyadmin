@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/relation.lib.php: bug 930445 when PMA_table_info not defined,
+      thanks to Philippe Jausions (jausions)
+
 2004-04-12 Marcel Tschopp <marcel.tschopp@gmx.net>
     * left.php, tbl_properties_structure.php, libraries/mysql_charsets.lib.php,
       libraries/relation.lib.php: Changed some queries to use 

@@ -1,7 +1,7 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-
+error_reporting(E_ALL);
 /**
  * Set of functions used with the relation and pdf feature
  */
@@ -362,6 +362,9 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
  */
 function PMA_getDisplayField($db, $table) {
     global $cfgRelation;
+    if (trim(@$cfgRelation['table_info']) == '') {
+        return FALSE;
+    }
 
     $disp_query = 'SELECT display_field FROM ' . PMA_backquote($cfgRelation['table_info'])
                 . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
