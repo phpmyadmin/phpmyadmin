@@ -171,7 +171,7 @@ if ($server > 0) {
     // defined in the "common.lib.php" library)
     // Note: if no controluser is defined, $dbh contains $userlink
 
-    $is_create_priv  = true;
+    $is_create_priv  = FALSE;
     $is_process_priv = TRUE;
     $is_reload_priv  = FALSE;
 
