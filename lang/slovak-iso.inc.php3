@@ -25,6 +25,7 @@ $strAddNewField = 'Prida» nové pole';
 $strAddPriv = 'Prida» nové privilégium';
 $strAddPrivMessage = 'Privilégium bolo pridané.';
 $strAddSearchConditions = 'Prida» vyhµadávacie parametre (obsah dotazu po "where" príkaze):';
+$strAddToIndex = 'Prida» do indexu &nbsp;%s&nbsp;ståpec';
 $strAddUser = 'Prida» nového pou¾ívateµa';
 $strAddUserMessage = 'Pou¾ívateµ bol pridaný.';
 $strAffectedRows = ' Ovplyvnené riadky: ';
@@ -60,6 +61,8 @@ $strBrowse = 'Prechádza»';
 $strBzip = '"bzipped"';
 
 $strCantLoadMySQL = 'nieje mo¾né nahra» roz¹írenie pre MySQL,<br />prosím skontrolujte konfiguráciu PHP.';
+$strCantRenameIdxToPrimary = 'Nieje mo¾né premenova» index na PRIMARY!';
+$strCardinality = 'Mohutnos»';
 $strCarriage = 'Návrat vozíku (Carriage return): \\r';
 $strChange = 'Zmeni»';
 $strCheckAll = 'Oznaèi» v¹etko';
@@ -73,6 +76,8 @@ $strCopyTable = 'Skopírova» tabuµku do (databáza<b>.</b>tabuµka):';
 $strCopyTable = 'Skopírova» tabuµku do';
 $strCopyTableOK = 'Tabuµka %s bola skorírovaná do %s.';
 $strCreate = 'Vytvori»';
+$strCreateIndex = 'Vytvori» index na&nbsp;%s&nbsp;ståpcoch';
+$strCreateIndexTopic = 'Vytvori» nový index';
 $strCreateNewDatabase = 'Vytvori» novú databázu';
 $strCreateNewTable = 'Vytvori» novú tabuµku v databáze ';
 $strCriteria = 'Kritéria';
@@ -141,9 +146,12 @@ $strHostEmpty = 'Názov hostitela je prázdny!';
 
 $strIdxFulltext = 'Celý text';
 $strIfYouWish = 'Ak si zeláte nahra» iba urèité ståpce tabuµky, ¹pecifikujte ich ako zoznam polí oddelený èiarkou.';
+$strIgnore = 'Ignorova»';
 $strIndex = 'Index';
 $strIndexes = 'Indexy';
 $strIndexHasBeenDropped = 'Index pre %s bol odstránený';
+$strIndexName = 'Meno indexu&nbsp;:';
+$strIndexType = 'Typ indexu&nbsp;:';
 $strInsert = 'Vlo¾i»';
 $strInsertAsNewRow = 'Vlo¾i» ako nový riadok';
 $strInsertedRows = 'Vlo¾ené riadky:';
@@ -169,6 +177,7 @@ $strLogout = 'Odhlási» sa';
 
 $strModifications = 'Zmeny boli ulo¾ené';
 $strModify = 'Zmeni»';
+$strModifyIndexTopic = 'Modifikova» index';
 $strMoveTable = 'Presunú» tabuµku do (databáza<b>.</b>tabuµka):';
 $strMoveTableOK = 'Tabuµka %s bola presunutá do %s.';
 $strMySQLReloaded = 'MySQL znovu-naèítaná.';
@@ -184,7 +193,10 @@ $strNo = 'Nie';
 $strNoDatabases = '®iadne databázy';
 $strNoDropDatabases = 'Mo¾nos» "DROP DATABASE" vypnutá.';
 $strNoFrames = 'phpMyAdmin funguje lep¹ie s prehliadaèmi podporujúcimi <b>rámy</b>.';
+$strNoIndex = 'Nebol definovaný ¾iadny index!';
+$strNoIndexPartsDefined = 'Èasti indexu neboli definované!';
 $strNoModification = '®iadna zmena';
+$strNone = '®iadny';
 $strNoPassword = '®iadne heslo';
 $strNoPrivileges = '®iadne privilégia';
 $strNoQuery = '®iadny SQL dotaz!';
@@ -214,6 +226,8 @@ $strPrevious = 'Predchádzajúci';
 $strPrimary = 'Primárny';
 $strPrimaryKey = 'Primárny kµúè';
 $strPrimaryKeyHasBeenDropped = 'Primárny kµúè bol zru¹ený';
+$strPrimaryKeyName = 'Názov primárneho kµúca musí by»... PRIMARY!';
+$strPrimaryKeyWarning = '("PRIMARY" <b>musí</b> by» <b>iba</b> meno primárneho kµúèa!)';
 $strPrintView = 'Náhµad k tlaèi';
 $strPrivileges = 'Privilégia';
 $strProperties = 'Vlastnosti';
@@ -326,19 +340,5 @@ $strZip = '"zo zipované"';
 
 
 // To translate
-// Indexes
-$strAddToIndex = 'Add to index &nbsp;%s&nbsp;column(s)';
-$strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';
-$strCardinality = 'Cardinality';
-$strCreateIndex = 'Create an index on&nbsp;%s&nbsp;columns';
-$strCreateIndexTopic = 'Create a new index';
-$strIgnore = 'Ignore';
-$strIndexName = 'Index name&nbsp;:';
-$strIndexType = 'Index type&nbsp;:';
-$strModifyIndexTopic = 'Modify an index';
-$strNone = 'None';
-$strNoIndexPartsDefined = 'No index parts defined!';
-$strNoIndex = 'No index defined!';
-$strPrimaryKeyName = 'The name of the primary key must be... PRIMARY!';
-$strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
+
 ?>
