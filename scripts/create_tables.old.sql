@@ -1,12 +1,8 @@
 -- --------------------------------------------------------
 -- SQL Commands to set up the pmadb as described in Documentation.html.
---
--- This file is meant for use with MySQL 4.1.2 and above!
--- For older MySQL releases, please use create_tables.old.sql
---
--- If you are running one MySQL 4.1.0 or 4.1.1, please create the tables using
--- create_tables.old.sql and upgrade their collation settings according to our
--- manual.
+-- 
+-- DON'T RUN THIS SCRIPT ON MySQL 4.1.2 AND ABOVE!
+-- Instead, please run create_tables.sql.
 --                                                 
 -- This script expects the user pma to already be existing. If we would put a
 -- line here to create him too many users might just use this script and end
@@ -24,8 +20,7 @@
 -- Database : `phpmyadmin`
 -- 
 DROP DATABASE IF EXISTS `phpmyadmin`;
-CREATE DATABASE `phpmyadmin`
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE `phpmyadmin`;
 USE phpmyadmin;
 
 -- --------------------------------------------------------
@@ -49,9 +44,7 @@ CREATE TABLE `pma_bookmark` (
   `label` varchar(255) NOT NULL default '',
   `query` text NOT NULL,
   PRIMARY KEY  (`id`)
-)
-  ENGINE=MyISAM COMMENT='Bookmarks'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) TYPE=MyISAM COMMENT='Bookmarks';
 
 -- --------------------------------------------------------
 
@@ -70,9 +63,7 @@ CREATE TABLE `pma_column_info` (
   `transformation_options` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`)
-)
-  ENGINE=MyISAM COMMENT='Column information for phpMyAdmin'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) TYPE=MyISAM COMMENT='Column information for phpMyAdmin';
 
 -- --------------------------------------------------------
 
@@ -89,9 +80,7 @@ CREATE TABLE `pma_history` (
   `sqlquery` text NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `username` (`username`,`db`,`table`,`timevalue`)
-)
-  ENGINE=MyISAM COMMENT='SQL history for phpMyAdmin'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) TYPE=MyISAM COMMENT='SQL history for phpMyAdmin';
 
 -- --------------------------------------------------------
 
@@ -105,9 +94,7 @@ CREATE TABLE `pma_pdf_pages` (
   `page_descr` varchar(50) NOT NULL default '',
   PRIMARY KEY  (`page_nr`),
   KEY `db_name` (`db_name`)
-)
-  ENGINE=MyISAM COMMENT='PDF relation pages for phpMyAdmin'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) TYPE=MyISAM COMMENT='PDF relation pages for phpMyAdmin';
 
 -- --------------------------------------------------------
 
@@ -124,9 +111,7 @@ CREATE TABLE `pma_relation` (
   `foreign_field` varchar(64) NOT NULL default '',
   PRIMARY KEY  (`master_db`,`master_table`,`master_field`),
   KEY `foreign_field` (`foreign_db`,`foreign_table`)
-)
-  ENGINE=MyISAM COMMENT='Relation table'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) TYPE=MyISAM COMMENT='Relation table';
 
 -- --------------------------------------------------------
 
@@ -141,9 +126,7 @@ CREATE TABLE `pma_table_coords` (
   `x` float unsigned NOT NULL default '0',
   `y` float unsigned NOT NULL default '0',
   PRIMARY KEY  (`db_name`,`table_name`,`pdf_page_number`)
-)
-  ENGINE=MyISAM COMMENT='Table coordinates for phpMyAdmin PDF output'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) TYPE=MyISAM COMMENT='Table coordinates for phpMyAdmin PDF output';
 
 -- --------------------------------------------------------
 
@@ -156,6 +139,4 @@ CREATE TABLE `pma_table_info` (
   `table_name` varchar(64) NOT NULL default '',
   `display_field` varchar(64) NOT NULL default '',
   PRIMARY KEY  (`db_name`,`table_name`)
-)
-  ENGINE=MyISAM COMMENT='Table information for phpMyAdmin'
-  DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+) TYPE=MyISAM COMMENT='Table information for phpMyAdmin';
