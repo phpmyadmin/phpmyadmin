@@ -220,7 +220,7 @@ PMA_setFontSizes();
     <script type="text/javascript" language="javascript">
     <!--
     function goTo(targeturl, targetframe) {
-        if (!targetframe || targetframe == '') {
+        if (!targetframe) {
             targetframe = self;
         }
 
