@@ -7,6 +7,7 @@
  */
 $lnk3        = '<a href="tbl_properties_export.php3?' . $url_query . '">';
 $lnk5        = '<a href="tbl_properties_operations.php3?' . $url_query . '">';
+$lnk6        = '<a href="tbl_properties_options.php3?' . $url_query . '">';
 
 if ($num_rows > 0) {
     $lnk1    = '<a href="sql.php3?' . $url_query
@@ -45,7 +46,9 @@ if ($num_rows > 0) {
     [ <?php echo $lnk3 . "\n"; ?>
          <b><?php echo $strExport; ?></b><?php if ($lnk3) echo '</a>'; ?> ]&nbsp;&nbsp;&nbsp;
     [ <?php echo $lnk5 . "\n"; ?>
-         <b><?php echo $strOperations; ?></b><?php if ($lnk5) echo '</a>'; ?> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <b><?php echo $strOperations; ?></b><?php if ($lnk5) echo '</a>'; ?> ]&nbsp;&nbsp;&nbsp;
+    [ <?php echo $lnk6 . "\n"; ?>
+         <b><?php echo $strOptions; ?></b><?php if ($lnk6) echo '</a>'; ?> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]

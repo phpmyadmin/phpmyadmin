@@ -219,6 +219,7 @@ $strOperations = 'Operations';
 $strOptimizeTable = 'Optimize table';
 $strOptionalControls = 'Optional. Controls how to write or read special characters.';
 $strOptionally = 'OPTIONALLY';
+$strOptions = 'Options';
 $strOr = 'Or';
 $strOverhead = 'Overhead';
 

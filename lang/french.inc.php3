@@ -219,6 +219,7 @@ $strOperations = 'Opérations';
 $strOptimizeTable = 'Optimiser la table';
 $strOptionalControls = 'Optionnel. Indique le caractère qui permet d\'enlever l\'effet des caractères spéciaux.';
 $strOptionally = 'OPTIONNEL';
+$strOptions = 'Options';
 $strOr = 'Ou';
 $strOverhead = 'Perte';
 
