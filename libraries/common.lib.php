@@ -1785,7 +1785,7 @@ if (typeof(document.getElementById) != 'undefined'
         $format_string = '';
         $charbuff = false;
 
-        for ($i = 0; $i <= strlen($string); $i++) {
+        for ($i = 0; $i < strlen($string); $i++) {
             $char = $string{$i};
             $append = false;
 
