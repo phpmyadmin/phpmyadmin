@@ -677,8 +677,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         }
 
         //     ... else if no button, displays empty cols if required
+        // (unless coming from Browse mode print view)
         else if ($GLOBALS['cfg']['ModifyDeleteAtRight']
-                 && ($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')) {
+                 && ($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
+                 && (!$GLOBALS['is_header_sent'])) {
             $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
             if ($disp_direction == 'horizontal') {
                 echo "\n";
