@@ -8,7 +8,9 @@ $Source$
 2003-03-03 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_replace_fields.php3: Bugfix: User was unable to insert values
       containing quotes.
-    * libraries/common.lib.php3: Avoid reloading the left frame twice.
+    * libraries/common.lib.php3:
+      - Avoid reloading the left frame twice;
+      - PHP3 compatibility.
 
 2003-03-03 Marc Delisle  <lem9@users.sourceforge.net>
     * badwords.txt: bug 692874: "date" is not a reserved word

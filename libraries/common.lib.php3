@@ -541,15 +541,31 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     //          work anyway, but display a big warning on the main.php3
     //          page.
     if (empty($cfg['PmaAbsoluteUri'])) {
-        $port_in_HTTP_HOST              = (strpos($HTTP_SERVER_VARS['HTTP_HOST'], ':') > 0);
-        $cfg['PmaAbsoluteUri']          = ((!empty($HTTP_SERVER_VARS['HTTPS']) && strtolower($HTTP_SERVER_VARS['HTTPS']) != 'off') ? 'https' : 'http') . '://'
-                                        . $HTTP_SERVER_VARS['HTTP_HOST'];
+        if (!empty($_SERVER)) {
+            $SERVER_ARRAY = '_SERVER';
+        } else if (!empty($HTTP_SERVER_VARS)) {
+            $SERVER_ARRAY = 'HTTP_SERVER_VARS';
+        } else {
+            $SERVER_ARRAY = 'GLOBALS';
+        } // end if
+        if (isset($$SERVER_ARRAY['HTTP_HOST'])) {
+            $HTTP_HOST = $$SERVER_ARRAY['HTTP_HOST'];
+        }
+        if (isset($$SERVER_ARRAY['HTTPS'])) {
+            $HTTPS = $$SERVER_ARRAY['HTTPS'];
+        }
+        if (isset($$SERVER_ARRAY['SERVER_PORT'])) {
+            $SERVER_PORT = $$SERVER_ARRAY['SERVER_PORT'];
+        }
+        $port_in_HTTP_HOST              = (strpos($HTTP_HOST, ':') > 0);
+        $cfg['PmaAbsoluteUri']          = ((!empty($HTTPS) && strtolower($HTTPS) != 'off') ? 'https' : 'http') . '://'
+                                        . $HTTP_HOST;
 
         // if $cfg['PmaAbsoluteUri'] is empty and port == 80 or port == 443, do not add ":80" or ":443"
         // to the generated URL -> prevents a double password query in case of http authentication.
 
-        if (!(!$port_in_HTTP_HOST && !empty($HTTP_SERVER_VARS['SERVER_PORT']) && ($HTTP_SERVER_VARS['SERVER_PORT'] == 80 || $HTTP_SERVER_VARS['SERVER_PORT'] == 443))) {
-            $cfg['PmaAbsoluteUri']      .= ((!empty($HTTP_SERVER_VARS['SERVER_PORT']) && !$port_in_HTTP_HOST) ? ':' . $HTTP_SERVER_VARS['SERVER_PORT'] : '');
+        if (!(!$port_in_HTTP_HOST && !empty($SERVER_PORT) && ($SERVER_PORT == 80 || $SERVER_PORT == 443))) {
+            $cfg['PmaAbsoluteUri']      .= ((!empty($SERVER_PORT) && !$port_in_HTTP_HOST) ? ':' . $SERVER_PORT : '');
         }
 
         $cfg['PmaAbsoluteUri']          .= substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') + 1);
