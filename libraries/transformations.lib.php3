@@ -138,7 +138,7 @@ if (!defined('PMA_TRANSFORMATION_LIB_INCLUDED')){
         $test_qry  = 'SELECT mimetype, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_info'])
                     . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                    . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
+                    . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
         $test_rs   = PMA_query_as_cu($test_qry);
 
         if ($test_rs && mysql_num_rows($test_rs) > 0) {
@@ -146,17 +146,17 @@ if (!defined('PMA_TRANSFORMATION_LIB_INCLUDED')){
             
             if (!$forcedelete && (strlen($mimetype) > 0 || strlen($transformation) > 0 || strlen($transformation_options) > 0 || strlen($row['comment']) > 0)) {
                 $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
-                       . ' SET mimetype = \'' . PMA_handleSlashes($mimetype) . '\','
-                       . '     transformation = \'' . PMA_handleSlashes($transformation) . '\','
-                       . '     transformation_options = \'' . PMA_handleSlashes($transformation_options) . '\''
+                       . ' SET mimetype = \'' . PMA_sqlAddslashes($mimetype) . '\','
+                       . '     transformation = \'' . PMA_sqlAddslashes($transformation) . '\','
+                       . '     transformation_options = \'' . PMA_sqlAddslashes($transformation_options) . '\''
                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                       . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
+                       . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
             } else {
                 $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                       . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
+                       . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
             }
         } else if (strlen($mimetype) > 0 || strlen($transformation) > 0 || strlen($transformation_options) > 0) {
             $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_info'])
@@ -164,10 +164,10 @@ if (!defined('PMA_TRANSFORMATION_LIB_INCLUDED')){
                        . ' VALUES('
                        . '\'' . PMA_sqlAddslashes($db) . '\','
                        . '\'' . PMA_sqlAddslashes($table) . '\','
-                       . '\'' . PMA_handleSlashes($key) . '\','
-                       . '\'' . PMA_handleSlashes($mimetype) . '\','
-                       . '\'' . PMA_handleSlashes($transformation) . '\','
-                       . '\'' . PMA_handleSlashes($transformation_options) . '\')';
+                       . '\'' . PMA_sqlAddslashes($key) . '\','
+                       . '\'' . PMA_sqlAddslashes($mimetype) . '\','
+                       . '\'' . PMA_sqlAddslashes($transformation) . '\','
+                       . '\'' . PMA_sqlAddslashes($transformation_options) . '\')';
         }
 
         if (isset($upd_query)){

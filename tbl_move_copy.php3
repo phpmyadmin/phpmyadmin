@@ -140,11 +140,11 @@ if (isset($new_name) && trim($new_name) != '') {
                             . ' VALUES('
                             . '\'' . PMA_sqlAddslashes($target_db) . '\','
                             . '\'' . PMA_sqlAddslashes($new_name) . '\','
-                            . '\'' . PMA_handleSlashes($comments_copy_row['column_name']) . '\','
-                            . '\'' . PMA_handleSlashes($comments_copy_row['comment']) . '\','
-                            . '\'' . PMA_handleSlashes($comments_copy_row['mimetype']) . '\','
-                            . '\'' . PMA_handleSlashes($comments_copy_row['transformation']) . '\','
-                            . '\'' . PMA_handleSlashes($comments_copy_row['transformation_options']) . '\')';
+                            . '\'' . PMA_sqlAddslashes($comments_copy_row['column_name']) . '\','
+                            . '\'' . PMA_sqlAddslashes($comments_copy_row['comment']) . '\','
+                            . '\'' . PMA_sqlAddslashes($comments_copy_row['mimetype']) . '\','
+                            . '\'' . PMA_sqlAddslashes($comments_copy_row['transformation']) . '\','
+                            . '\'' . PMA_sqlAddslashes($comments_copy_row['transformation_options']) . '\')';
                 $new_comment_rs    = PMA_query_as_cu($new_comment_query);
             } // end while
 
@@ -164,11 +164,11 @@ if (isset($new_name) && trim($new_name) != '') {
                             . ' VALUES('
                             . '\'' . PMA_sqlAddslashes($target_db) . '\','
                             . '\'' . PMA_sqlAddslashes($new_name) . '\','
-                            . '\'' . PMA_handleSlashes($comments_copy_row['column_name']) . '\''
-                            . ($cfgRelation['mimework'] ? ',\'' . PMA_handleSlashes($comments_copy_row['comment']) . '\','
-                                    . '\'' . PMA_handleSlashes($comments_copy_row['mimetype']) . '\','
-                                    . '\'' . PMA_handleSlashes($comments_copy_row['transformation']) . '\','
-                                    . '\'' . PMA_handleSlashes($comments_copy_row['transformation_options']) . '\'' : '')
+                            . '\'' . PMA_sqlAddslashes($comments_copy_row['column_name']) . '\''
+                            . ($cfgRelation['mimework'] ? ',\'' . PMA_sqlAddslashes($comments_copy_row['comment']) . '\','
+                                    . '\'' . PMA_sqlAddslashes($comments_copy_row['mimetype']) . '\','
+                                    . '\'' . PMA_sqlAddslashes($comments_copy_row['transformation']) . '\','
+                                    . '\'' . PMA_sqlAddslashes($comments_copy_row['transformation_options']) . '\'' : '')
                             . ')';
                 $new_comment_rs    = PMA_query_as_cu($new_comment_query);
             } // end while

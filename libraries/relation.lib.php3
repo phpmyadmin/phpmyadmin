@@ -411,7 +411,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
                         . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                         . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                        . ' AND column_name = \'' . PMA_handleSlashes($removekey) . '\'';
+                        . ' AND column_name = \'' . PMA_sqlAddslashes($removekey) . '\'';
             $rmv_rs    = PMA_query_as_cu($remove_query);
             unset($rmv_query);
         }
@@ -419,7 +419,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         $test_qry  = 'SELECT ' . PMA_backquote('comment') . ', mimetype, transformation, transformation_options FROM ' . PMA_backquote($cfgRelation['column_info'])
                     . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                    . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
+                    . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
         $test_rs   = PMA_query_as_cu($test_qry);
 
         if ($test_rs && mysql_num_rows($test_rs) > 0) {
@@ -427,15 +427,15 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
 
             if (strlen($value) > 0 || strlen($row['mimetype']) > 0 || strlen($row['transformation']) > 0 || strlen($row['transformation_options']) > 0) {
                 $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
-                       . ' SET ' . PMA_backquote('comment') . ' = \'' . PMA_handleSlashes($value) . '\''
+                       . ' SET ' . PMA_backquote('comment') . ' = \'' . PMA_sqlAddslashes($value) . '\''
                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                       . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
+                       . ' AND column_name = \'' . PMA_sqlAddSlashes($key) . '\'';
             } else {
                 $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                       . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
+                       . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
             }
         } else if (strlen($value) > 0) {
             $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_info'])
@@ -443,8 +443,8 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                        . ' VALUES('
                        . '\'' . PMA_sqlAddslashes($db) . '\','
                        . '\'' . PMA_sqlAddslashes($table) . '\','
-                       . '\'' . PMA_handleSlashes($key) . '\','
-                       . '\'' . PMA_handleSlashes($value) . '\')';
+                       . '\'' . PMA_sqlAddslashes($key) . '\','
+                       . '\'' . PMA_sqlAddslashes($value) . '\')';
         }
 
         if (isset($upd_query)){
@@ -482,7 +482,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                     . '\'' . PMA_sqlAddslashes($db) . '\','
                     . '\'' . PMA_sqlAddslashes($table) . '\','
                     . 'NOW(),'
-                    . '\'' . PMA_handleSlashes($sqlquery) . '\')');
+                    . '\'' . PMA_sqlAddslashes($sqlquery) . '\')');
         return true;
     } // end of 'PMA_setHistory()' function
 
@@ -502,7 +502,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                         . PMA_backquote('db') . ','
                         . PMA_backquote('table') . ','
                         . PMA_backquote('sqlquery')
-                        . ' FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_handleSlashes($username) . '\' ORDER BY timevalue DESC');
+                        . ' FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_sqlAddslashes($username) . '\' ORDER BY timevalue DESC');
         
         $history = array();
         
@@ -529,7 +529,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
     function PMA_purgeHistory($username) {
         global $cfgRelation, $cfg;
 
-        $purge_rs = PMA_query_as_cu('SELECT timevalue FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_handleSlashes($username) . '\' ORDER BY timevalue DESC LIMIT ' . $cfg['QueryHistoryMax'] . ', 1');
+        $purge_rs = PMA_query_as_cu('SELECT timevalue FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_sqlAddSlashes($username) . '\' ORDER BY timevalue DESC LIMIT ' . $cfg['QueryHistoryMax'] . ', 1');
         $i = 0;
         $row = @PMA_mysql_fetch_array($purge_rs);
         

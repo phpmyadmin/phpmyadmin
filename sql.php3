@@ -470,7 +470,7 @@ else {
             $message = $strEmptyResultSet;
         }
 
-        $message .= " (" . sprintf($strQueryTime, $GLOBALS['querytime']) . ")";
+        $message .= ' ' . (isset($GLOBALS['querytime']) ? '(' . sprintf($strQueryTime, $GLOBALS['querytime']) . ')' : '');
 
         if ($is_gotofile) {
             $goto = ereg_replace('\.\.*', '.', $goto);
