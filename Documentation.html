@@ -1249,6 +1249,23 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['PropertiesIconic'] </b>string</dt>
+    <dd>
+        If set to True, will display icons instead of text for db and table properties links (like 'Browse', 'Select', 'Insert', ...).<br />
+        Can be set to 'both' if you want icons AND text.<br />
+        When set to False, will only show text.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['PropertiesNumColumns'] </b>integer</dt>
+    <dd>
+        How many columns will be utilized to display the tables on the database property view? 
+        Default is 1 column. When setting this to a value larger than 1, the type of the database will be 
+        omitted for more display space.
+        <br /><br />
+    </dd>
+
+
     <dt><b>$cfg['DefaultTabServer'] </b>string</dt>
     <dd>
         Defines the tab displayed by default on server view. Possible

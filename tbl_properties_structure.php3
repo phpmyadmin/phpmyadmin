@@ -205,6 +205,56 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     }
     echo "\n";
 
+    $titles = array();
+    if ($cfg['PropertiesIconic'] == true) {
+        // We need to copy the value or else the == 'both' check will always return true
+        $propicon = (string)$cfg['PropertiesIconic'];
+        
+        if ($propicon == 'both') {
+            $iconic_spacer = '<nobr>';
+        } else {
+            $iconic_spacer = '';
+        }
+
+        $titles['Change']        = $iconic_spacer . '<img width="12" height="13" src="images/button_edit.png" alt="' . $strChange . '" title="' . $strChange . '" border="0" />';
+        $titles['Drop']          = $iconic_spacer . '<img width="11" height="12" src="images/button_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
+        $titles['NoDrop']        = $iconic_spacer . '<img width="11" height="13" src="images/button_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
+        $titles['Primary']       = $iconic_spacer . '<img width="11" height="13" src="images/button_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
+        $titles['Index']         = $iconic_spacer . '<img width="11" height="13" src="images/button_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
+        $titles['Unique']        = $iconic_spacer . '<img width="11" height="13" src="images/button_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
+        $titles['IdxFulltext']   = $iconic_spacer . '<img width="11" height="13" src="images/button_fulltext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
+        $titles['NoPrimary']     = $iconic_spacer . '<img width="11" height="13" src="images/button_noprimary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
+        $titles['NoIndex']       = $iconic_spacer . '<img width="11" height="13" src="images/button_noindex.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
+        $titles['NoUnique']      = $iconic_spacer . '<img width="11" height="13" src="images/button_nounique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
+        $titles['NoIdxFulltext'] = $iconic_spacer . '<img width="11" height="13" src="images/button_nofulltext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
+
+        if ($propicon == 'both') {
+            $titles['Change']        .= '&nbsp;' . $strChange . '</nobr>';
+            $titles['Drop']          .= '&nbsp;' . $strDrop . '</nobr>';
+            $titles['NoDrop']        .= '&nbsp;' . $strDrop . '</nobr>';
+            $titles['Primary']       .= '&nbsp;' . $strPrimary . '</nobr>';
+            $titles['Index']         .= '&nbsp;' . $strIndex . '</nobr>';
+            $titles['Unique']        .= '&nbsp;' . $strUnique . '</nobr>';
+            $titles['IdxFulltext'  ] .= '&nbsp;' . $strIdxFulltext . '</nobr>';
+            $titles['NoPrimary']     .= '&nbsp;' . $strPrimary . '</nobr>';
+            $titles['NoIndex']       .= '&nbsp;' . $strIndex . '</nobr>';
+            $titles['NoUnique']      .= '&nbsp;' . $strUnique . '</nobr>';
+            $titles['NoIdxFulltext'] .= '&nbsp;' . $strIdxFulltext . '</nobr>';
+        }
+    } else {
+        $titles['Change']        = $strChange;
+        $titles['Drop']          = $strDrop;
+        $titles['NoDrop']        = $strNoDrop;
+        $titles['Primary']       = $strPrimary;
+        $titles['Index']         = $strIndex;
+        $titles['Unique']        = $strUnique;
+        $titles['IdxFulltext']   = $strIdxFulltext;
+        $titles['NoPrimary']     = $strPrimary;
+        $titles['NoIndex']       = $strIndex;
+        $titles['NoUnique']      = $strUnique;
+        $titles['NoIdxFulltext'] = $strIdxFulltext;
+    }
+
     ?>
 <tr>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
@@ -217,11 +267,11 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     <td bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
-    <td bgcolor="<?php echo $bgcolor; ?>">
+    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_alter.php3?<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>">
-            <?php echo $strChange; ?></a>
+            <?php echo $titles['Change']; ?></a>
     </td>
-    <td bgcolor="<?php echo $bgcolor; ?>">
+    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
         // loic1: Drop field only if there is more than one field in the table
         if ($fields_cnt > 1) {
@@ -229,52 +279,52 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
             ?>
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;cpurge=1&amp;purgekey=<?php echo urlencode($row['Field']); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strFieldHasBeenDropped, htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table); ?> DROP <?php echo PMA_jsFormat($row['Field']); ?>')">
-            <?php echo $strDrop; ?></a>
+            <?php echo $titles['Drop']; ?></a>
             <?php
         } else {
-            echo "\n" . '        ' . $strDrop;
+            echo "\n" . '        ' . $titles['NoDrop'];
         }
         echo "\n";
         ?>
     </td>
-    <td bgcolor="<?php echo $bgcolor; ?>">
+    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
         if ($type == 'text' || $type == 'blob') {
-            echo $strPrimary . "\n";
+            echo $titles['NoPrimary'] . "\n";
         } else {
             echo "\n";
             ?>
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY, ADD PRIMARY KEY(' . $primary . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAPrimaryKey, htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table); ?> DROP PRIMARY KEY, ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
-            <?php echo $strPrimary; ?></a>
+            <?php echo $titles['Primary']; ?></a>
             <?php
         }
         echo "\n";
         ?>
     </td>
-    <td bgcolor="<?php echo $bgcolor; ?>">
+    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
         if ($type == 'text' || $type == 'blob') {
-            echo $strIndex . "\n";
+            echo $titles['NoIndex'] . "\n";
         } else {
             echo "\n";
             ?>
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex ,htmlspecialchars($row['Field']))); ?>">
-            <?php echo $strIndex; ?></a>
+            <?php echo $titles['Index']; ?></a>
             <?php
         }
         echo "\n";
         ?>
     </td>
-    <td bgcolor="<?php echo $bgcolor; ?>">
+    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
         if ($type == 'text' || $type == 'blob') {
-            echo $strUnique . "\n";
+            echo $titles['NoUnique'] . "\n";
         } else {
             echo "\n";
             ?>
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
-            <?php echo $strUnique; ?></a>
+            <?php echo $titles['Unique']; ?></a>
             <?php
         }
         echo "\n";
@@ -286,16 +336,16 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
             && ($type == 'text' || strpos(' ' . $type, 'varchar'))) {
             echo "\n";
             ?>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+    <td align="center" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
-            <?php echo $strIdxFulltext; ?></a>
+            <?php echo $titles['IdxFulltext']; ?></a>
     </td>
             <?php
         } else {
             echo "\n";
             ?>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
-        <?php echo $strIdxFulltext . "\n"; ?>
+    <td align="center" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+        <?php echo $titles['NoIdxFulltext'] . "\n"; ?>
     </td>
             <?php
         } // end if... else...

@@ -473,7 +473,7 @@ if ($num_dbs > 1) {
                 $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
                 $list_item = '<a target="phpmain' . $hash . '" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '" title="' . $strBrowse . ': ' . $url_title . '">';
-                $list_item .= '<img src="images/browse.png" width="8" height="8" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
+                $list_item .= '<img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
                 $list_item .= '<bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
                 $list_item .= '<a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">';
                 $list_item .= ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></nobr><br />' . "\n";
@@ -533,7 +533,7 @@ if ($num_dbs > 1) {
                     $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
                     $table_list .= '    <nobr><a target="phpmain' . $hash . '" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '">' . "\n";
-                    $table_list .= '              <img src="images/browse.png" width="8" height="8" border="0" alt="' . $strBrowse . ': ' . $url_title . '" title="' . $strBrowse . ': ' . $url_title . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
+                    $table_list .= '              <img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" title="' . $strBrowse . ': ' . $url_title . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
                     if (PMA_USR_BROWSER_AGENT == 'IE') {
                         $table_list .= '          <span class="tblItem"><a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></span></nobr><br />' . "\n";
                     } else {
@@ -697,13 +697,13 @@ else if ($num_dbs == 1) {
         echo "\n";
         ?>
         <nobr><a target="phpmain<?php echo $hash; ?>" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>" title="<?php echo $strBrowse . ': ' . $url_title; ?>">
-                  <img src="images/browse.png" width="8" height="8" border="0" alt="<?php echo $strBrowse . ': ' . $url_title; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
+                  <img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="<?php echo $strBrowse . ': ' . $url_title; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
               <a class="tblItem" id="tbl_<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain<?php echo $hash; ?>" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
                   <?php echo ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)); ?></a></nobr><br />
         <?php
         } else {
             $list_item = '<a target="phpmain' . $hash . '" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '" title="' . $strBrowse . ': ' . $url_title . '">';
-            $list_item .= '<img src="images/browse.png" width="8" height="8" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
+            $list_item .= '<img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
             $list_item .= '<bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
             $list_item .= '<a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">';
             $list_item .= ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></nobr><br />';

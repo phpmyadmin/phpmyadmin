@@ -1775,8 +1775,14 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     list($eachvar, $eachval) = explode('=', $query_pair);
                     $link_or_button .= '            <input type="hidden" name="' . str_replace('amp;', '', $eachvar) . '" value="' . htmlspecialchars(urldecode($eachval)) . '" />' . "\n";
                 } // end while
-                $link_or_button     .= '            <input type="submit" value="'
-                                    . htmlspecialchars($message) . '" />' . "\n" . '</form>' . "\n";
+                
+                if (stristr($message, '<img')) {
+                    $link_or_button     .= '            <input type="image" src="' . eregi_replace('^.*src="(.*)".*$', '\1', $message) . '" value="'
+                                        . htmlspecialchars(eregi_replace('^.*alt="(.*)".*$', '\1', $message)) . '" />' . "\n" . '</form>' . "\n";
+                } else {
+                    $link_or_button     .= '            <input type="submit" value="'
+                                        . htmlspecialchars($message) . '" />' . "\n" . '</form>' . "\n";
+                }
             } // end if... else...
 
             return $link_or_button;

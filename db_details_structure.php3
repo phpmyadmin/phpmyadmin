@@ -40,7 +40,18 @@ if (empty($is_info)) {
 }
 
 // Display function
-function pma_TableHeader() {
+function pma_TableHeader($alternate = FALSE) {
+    if ($alternate) {
+?>
+            <table border="<?php echo $GLOBALS['cfg']['Border']; ?>">
+            <tr>
+                <td></td>
+                <th>&nbsp;<?php echo $GLOBALS['strTable']; ?>&nbsp;</th>
+                <th colspan="6"><?php echo $GLOBALS['strAction']; ?></th>
+                <th><?php echo $GLOBALS['strRecords']; ?></th>
+            </tr>
+<?php
+    } else {
 ?>
             <table border="<?php echo $GLOBALS['cfg']['Border']; ?>">
             <tr>
@@ -63,6 +74,7 @@ function pma_TableHeader() {
                 ?>
             </tr>
 <?php
+    }
 }
 
 
@@ -87,14 +99,56 @@ if ($cfgRelation['commwork'] && isset($db_comment) && $db_comment == 'true') {
 <!-- TABLE LIST -->
 
 <?php
+$titles = array();
+if ($cfg['PropertiesIconic'] == true) {
+    // We need to copy the value or else the == 'both' check will always return true
+    $propicon = (string)$cfg['PropertiesIconic'];
+
+    if ($propicon == 'both') {
+        $iconic_spacer = '<nobr>';
+    } else {
+        $iconic_spacer = '';
+    }
+
+    $titles['Browse']     = $iconic_spacer . '<img width="12" height="13" src="images/button_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
+    $titles['Select']     = $iconic_spacer . '<img width="14" height="13" src="images/button_select.png" alt="' . $strSelect . '" title="' . $strSelect . '" border="0" />';
+    $titles['NoBrowse']   = $iconic_spacer . '<img width="12" height="13" src="images/button_nobrowse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
+    $titles['NoSelect']   = $iconic_spacer . '<img width="14" height="13" src="images/button_noselect.png" alt="' . $strSelect . '" title="' . $strSelect . '" border="0" />';
+    $titles['Insert']     = $iconic_spacer . '<img width="13" height="13" src="images/button_insert.png" alt="' . $strInsert . '" title="' . $strInsert . '" border="0" />';
+    $titles['Properties'] = $iconic_spacer . '<img width="18" height="13" src="images/button_properties.png" alt="' . $strProperties . '" title="' . $strProperties . '" border="0" />';
+    $titles['Drop']       = $iconic_spacer . '<img width="11" height="13" src="images/button_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
+    $titles['Empty']      = $iconic_spacer . '<img width="11" height="13" src="images/button_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
+    $titles['NoEmpty']    = $iconic_spacer . '<img width="11" height="13" src="images/button_noempty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
+
+    if ($propicon == 'both') {
+        $titles['Browse']     .= '&nbsp;' . $strBrowse . '</nobr>';
+        $titles['Select']     .= '&nbsp;' . $strSelect . '</nobr>';
+        $titles['NoBrowse']   .= '&nbsp;' . $strBrowse . '</nobr>';
+        $titles['NoSelect']   .= '&nbsp;' . $strSelect . '</nobr>';
+        $titles['Insert']     .= '&nbsp;' . $strInsert . '</nobr>';
+        $titles['Properties'] .= '&nbsp;' . $strProperties . '</nobr>';
+        $titles['Drop']       .= '&nbsp;' . $strDrop . '</nobr>';
+        $titles['Empty']      .= '&nbsp;' . $strEmpty . '</nobr>';
+        $titles['NoEmpty']    .= '&nbsp;' . $strEmpty . '</nobr>';
+    }
+} else {
+    $titles['Browse']     = $strBrowse;
+    $titles['Select']     = $strSelect;
+    $titles['NoBrowse']   = $strBrowse;
+    $titles['NoSelect']   = $strSelect;
+    $titles['Insert']     = $strInsert;
+    $titles['Properties'] = $strProperties;
+    $titles['Drop']       = $strDrop;
+    $titles['Empty']      = $strEmpty;
+    $titles['NoEmpty']    = $strEmpty;
+}
+
 // 1. No tables
 if ($num_tables == 0) {
     echo $strNoTablesFound . "\n";
 }
-
 // 2. Shows table informations on mysql >= 3.23.03 - staybyte - 11 June 2001
 else if (PMA_MYSQL_INT_VERSION >= 32303) {
-
     // Get additional information about tables for tooltip
     if ($cfg['ShowTooltip']) {
         $tooltip_truename = array();
@@ -192,34 +246,10 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                 <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
                     &nbsp;<b><label for="checkbox_tbl_<?php echo $i; ?>" title="<?php echo $alias; ?>"><?php echo $truename; ?></label>&nbsp;</b>&nbsp;
                 </td>
-                <td bgcolor="<?php echo $bgcolor; ?>">
+                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
         include('./libraries/bookmark.lib.php3');
         $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
-        
-        $titles = array();
-
-        if ($cfg['PropertiesIconic'] == true) {
-            $titles['Browse']     = '<img width="12" height="12" src="images/button_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
-            $titles['Select']     = '<img width="14" height="12" src="images/button_select.png" alt="' . $strSelect . '" title="' . $strSelect . '" border="0" />';
-            $titles['NoBrowse']   = '<img width="12" height="12" src="images/button_nobrowse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
-            $titles['NoSelect']   = '<img width="14" height="12" src="images/button_noselect.png" alt="' . $strSelect . '" title="' . $strSelect . '" border="0" />';
-            $titles['Insert']     = '<img width="13" height="12" src="images/button_insert.png" alt="' . $strInsert . '" title="' . $strInsert . '" border="0" />';
-            $titles['Properties'] = '<img width="18" height="12" src="images/button_properties.png" alt="' . $strProperties . '" title="' . $strProperties . '" border="0" />';
-            $titles['Drop']       = '<img width="11" height="12" src="images/button_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
-            $titles['Empty']      = '<img width="11" height="12" src="images/button_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
-            $titles['NoEmpty']    = '<img width="11" height="12" src="images/button_noempty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
-        } else {
-            $titles['Browse']     = $strBrowse;
-            $titles['Select']     = $strSelect;
-            $titles['NoBrowse']   = $strBrowse;
-            $titles['NoSelect']   = $strSelect;
-            $titles['Insert']     = $strInsert;
-            $titles['Properties'] = $strProperties;
-            $titles['Drop']       = $strDrop;
-            $titles['Empty']      = $strEmpty;
-            $titles['NoEmpty']    = $strEmpty;
-        }
         
         if (!empty($sts_data['Rows'])) {
             echo '<a href="sql.php3?' . $tbl_url_query . '&amp;sql_query='
@@ -240,20 +270,20 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         }
         ?>
                 </td>
-                <td bgcolor="<?php echo $bgcolor; ?>">
+                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_change.php3?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Insert']; ?></a>
                 </td>
-                <td bgcolor="<?php echo $bgcolor; ?>">
+                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_properties_structure.php3?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Properties']; ?></a>
                 </td>
-                <td bgcolor="<?php echo $bgcolor; ?>">
+                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
             onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
             <?php echo $titles['Drop']; ?></a>
                 </td>
-                <td bgcolor="<?php echo $bgcolor; ?>">
+                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
         if (!empty($sts_data['Rows'])) {
             echo '<a href="sql.php3?' . $tbl_url_query
@@ -494,17 +524,22 @@ else {
     echo "\n";
     ?>
 <form action="db_details_structure.php3">
-    <?php echo PMA_generate_common_hidden_inputs($db); ?>
+    <?php PMA_generate_common_hidden_inputs($db); ?>
 
-<table border="<?php echo $cfg['Border']; ?>">
-<tr>
-    <td></td>
-    <th>&nbsp;<?php echo $strTable; ?>&nbsp;</th>
-    <th colspan="6"><?php echo $strAction; ?></th>
-    <th><?php echo $strRecords; ?></th>
-</tr>
-    <?php
+<?php
+    if ($cfg['PropertiesNumColumns'] > 1) {
+?>
+<table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+        <td valign="top">
+<?php
+    }
+
+    pma_TableHeader(true);
+    
     $checked = (!empty($checkall) ? ' checked="checked"' : '');
+    $num_columns = ($cfg['PropertiesNumColumns'] > 1 ? (ceil($num_tables / $cfg['PropertiesNumColumns']) + 1) : 0);
+    $row_count = 0;
     while ($i < $num_tables) {
         $table         = $tables[$i];
         $table_encoded = urlencode($table);
@@ -514,36 +549,49 @@ else {
         $tbl_url_query = $url_query . '&amp;table=' . $table_encoded;
         $bgcolor       = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         echo "\n";
+        $row_count++;
+        if($num_columns > 0 && $num_tables > $num_columns && (($row_count % ($num_columns)) == 0)) {
+            $bgcolor       = $cfg['BgcolorTwo'];
+            $row_count = 1;
         ?>
-<tr>
-    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <input type="checkbox" name="selected_tbl[]" value="<?php echo $table_encoded; ?>" id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> />
+            </tr>
+        </table>
     </td>
-    <td bgcolor="<?php echo $bgcolor; ?>" class="data">
-        <b>&nbsp;<label for="checkbox_tbl_<?php echo $i; ?>"><?php echo $table_name; ?></label>&nbsp;</b>
-    </td>
-    <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0"><?php echo $strBrowse; ?></a>
-    </td>
-    <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="tbl_select.php3?<?php echo $tbl_url_query; ?>"><?php echo $strSelect; ?></a>
-    </td>
-    <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="tbl_change.php3?<?php echo $tbl_url_query; ?>"><?php echo $strInsert; ?></a>
-    </td>
-    <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="tbl_properties.php3?<?php echo $tbl_url_query; ?>"><?php echo $strProperties; ?></a>
-    </td>
-    <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, $table_name)); ?>"><?php echo $strDrop; ?></a>
-    </td>
-    <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, $table_name)); ?>"><?php echo $strEmpty; ?></a>
-    </td>
-    <td align="right" bgcolor="<?php echo $bgcolor; ?>">
-        <?php PMA_countRecords($db, $table); echo "\n"; ?>
-    </td>
-</tr>
+    <td><img src="./images/spacer.gif" border="0" width="10" height="1" alt="" /></td>
+    <td valign="top">
+        <?php
+            pma_TableHeader(true);
+        }
+        ?>
+            <tr>
+                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+                    <input type="checkbox" name="selected_tbl[]" value="<?php echo $table_encoded; ?>" id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> />
+                </td>
+                <td bgcolor="<?php echo $bgcolor; ?>" class="data">
+                    <b>&nbsp;<label for="checkbox_tbl_<?php echo $i; ?>"><?php echo $table_name; ?></label>&nbsp;</b>
+                </td>
+                <td bgcolor="<?php echo $bgcolor; ?>">
+                    <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0"><?php echo $strBrowse; ?></a>
+                </td>
+                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+                    <a href="tbl_select.php3?<?php echo $tbl_url_query; ?>"><?php echo $titles['Select']; ?></a>
+                </td>
+                <td bgcolor="<?php echo $bgcolor; ?>">
+                    <a href="tbl_change.php3?<?php echo $tbl_url_query; ?>"><?php echo $titles['Insert']; ?></a>
+                </td>
+                <td bgcolor="<?php echo $bgcolor; ?>">
+                    <a href="tbl_properties.php3?<?php echo $tbl_url_query; ?>"><?php echo $titles['Properties']; ?></a>
+                </td>
+                <td bgcolor="<?php echo $bgcolor; ?>">
+                    <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, $table_name)); ?>"><?php echo $titles['Drop']; ?></a>
+                </td>
+                <td bgcolor="<?php echo $bgcolor; ?>">
+                    <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, $table_name)); ?>"><?php echo $titles['Empty']; ?></a>
+                </td>
+                <td align="right" bgcolor="<?php echo $bgcolor; ?>">
+                    <?php PMA_countRecords($db, $table); echo "\n"; ?>
+                </td>
+            </tr>
         <?php
         $i++;
     } // end while
@@ -552,28 +600,36 @@ else {
     // Check all tables url
     $checkall_url = 'db_details_structure.php3?' . PMA_generate_common_url($db);
     ?>
-<tr>
-    <td colspan="9">
-        <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
-        <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
-            <?php echo $strCheckAll; ?></a>
-        &nbsp;/&nbsp;
-        <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('tablesForm', false); return false;">
-            <?php echo $strUncheckAll; ?></a>
-    </td>
-</tr>
-
-<tr>
-    <td colspan="9">
-        <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
-        <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
-        &nbsp;<?php $strOr . "\n"; ?>&nbsp;
-        <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
-    </td>
-</tr>
+            <tr>
+                <td colspan="9">
+                    <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+                    <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
+                        <?php echo $strCheckAll; ?></a>
+                    &nbsp;/&nbsp;
+                    <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('tablesForm', false); return false;">
+                        <?php echo $strUncheckAll; ?></a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td colspan="9">
+                    <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
+                    <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
+                    <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
+                    &nbsp;<?php $strOr . "\n"; ?>&nbsp;
+                    <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
+                </td>
+            </tr>
+            </table>
+<?php
+    if ($cfg['PropertiesNumColumns'] > 1) {
+?>
+        </td>
+    </tr>
 </table>
-
+<?php
+    }
+?>
 </form>
     <?php
 } // end case mysql < 3.23.03

@@ -993,6 +993,15 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             . '&amp;repeat_cells=' . $repeat_cells
                             . '&amp;dontlimitchars=' . $dontlimitchars;
 
+                // We need to copy the value or else the == 'both' check will always return true
+                $propicon = (string)$GLOBALS['cfg']['PropertiesIconic'];
+
+                if ($propicon == 'both') {
+                    $iconic_spacer = '<nobr>';
+                } else {
+                    $iconic_spacer = '';
+                }
+
                 // 1.2.1 Modify link(s)
                 if ($is_display['edit_lnk'] == 'ur') { // update row case
 //                    $lnk_goto = 'sql.php3'
@@ -1007,7 +1016,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                               . '&amp;primary_key=' . $uva_condition
                               . '&amp;sql_query=' . urlencode($sql_query)
                               . '&amp;goto=' . urlencode($lnk_goto);
-                    $edit_str = $GLOBALS['strEdit'];
+                    if ($GLOBALS['cfg']['PropertiesIconic'] == FALSE) {
+                        $edit_str = $GLOBALS['strEdit'];
+                    } else {
+                        $edit_str = $iconic_spacer . '<img width="12" height="13" src="images/button_edit.png" alt="' . $GLOBALS['strEdit'] . '" title="' . $GLOBALS['strEdit'] . '" border="0" />';
+                        if ($propicon == 'both') {
+                            $edit_str .= '&nbsp;' . $GLOBALS['strEdit'] . '</nobr>';
+                        }
+                    }
                 } // end if (1.2.1)
 
                 if ($table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db']) {
@@ -1036,7 +1052,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     $js_conf  = 'DELETE FROM ' . PMA_jsFormat($table)
                               . ' WHERE ' . trim(PMA_jsFormat(urldecode($uva_condition), FALSE))
                               . ((PMA_MYSQL_INT_VERSION >= 32207) ? ' LIMIT 1' : '');
-                    $del_str  = $GLOBALS['strDelete'];
+                    if ($GLOBALS['cfg']['PropertiesIconic'] == FALSE) {
+                        $del_str = $GLOBALS['strDelete'];
+                    } else {
+                        $del_str = $iconic_spacer . '<img width="12" height="13" src="images/button_drop.png" alt="' . $GLOBALS['strDelete'] . '" title="' . $GLOBALS['strDelete'] . '" border="0" />';
+                        if ($propicon == 'both') {
+                            $del_str .= '&nbsp;' . $GLOBALS['strDelete'] . '</nobr>';
+                        }
+                    }
                 } else if ($is_display['del_lnk'] == 'kp') { // kill process case
                     $lnk_goto = 'sql.php3'
                               . '?' . str_replace('&amp;', '&', $url_query)
@@ -1047,20 +1070,27 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                               . '&amp;sql_query=' . urlencode('KILL ' . $row['Id'])
                               . '&amp;goto=' . urlencode($lnk_goto);
                     $js_conf  = 'KILL ' . $row['Id'];
-                    $del_str  = $GLOBALS['strKill'];
+                    if ($GLOBALS['cfg']['PropertiesIconic'] == FALSE) {
+                        $del_str = $GLOBALS['strKill'];
+                    } else {
+                        $del_str = $iconic_spacer . '<img width="12" height="13" src="images/button_drop.png" alt="' . $GLOBALS['strKill'] . '" title="' . $GLOBALS['strKill'] . '" border="0" />';
+                        if ($propicon == 'both') {
+                            $del_str .= '&nbsp;' . $GLOBALS['strKill'] . '</nobr>';
+                        }
+                    }
                 } // end if (1.2.2)
 
                 // 1.3 Displays the links at left if required
                 if ($GLOBALS['cfg']['ModifyDeleteAtLeft']
                     && ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped')) {
                     if (!empty($edit_url)) {
-                        echo '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
+                        echo '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
                         echo PMA_linkOrButton($edit_url, $edit_str, '');
                         echo $bookmark_go;
                         echo '    </td>' . "\n";
                     }
                     if (!empty($del_url)) {
-                        echo '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
+                        echo '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
                         echo PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''));
                         echo '    </td>' . "\n";
                     }
@@ -1319,13 +1349,13 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             if ($GLOBALS['cfg']['ModifyDeleteAtRight']
                 && ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped')) {
                 if (!empty($edit_url)) {
-                    echo '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
+                    echo '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
                     echo PMA_linkOrButton($edit_url, $edit_str, '');
                     echo $bookmark_go;
                     echo '    </td>' . "\n";
                 }
                 if (!empty($del_url)) {
-                    echo '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
+                    echo '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
                     echo PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''));
                     echo '    </td>' . "\n";
                 }
@@ -1346,14 +1376,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             }
 
             if (isset($edit_url)) {
-                $vertical_display['edit'][$row_no]   .= '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
+                $vertical_display['edit'][$row_no]   .= '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
                                                      . PMA_linkOrButton($edit_url, $edit_str, '')
                                                      . $bookmark_go
                                                      .  '    </td>' . "\n";
             }
 
             if (isset($del_url)) {
-                $vertical_display['delete'][$row_no] .= '    <td valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
+                $vertical_display['delete'][$row_no] .= '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
                                                      . PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''))
                                                      .  '    </td>' . "\n";
             }

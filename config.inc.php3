@@ -255,7 +255,7 @@ $cfg['BZipDump']              = TRUE;   // dump files
 
 // Tabs display settings
 $cfg['LightTabs']             = FALSE;  // use graphically less intense menu tabs
-$cfg['PropertiesIconic']      = TRUE;   // Use icons instead of text for the table display of a database
+$cfg['PropertiesIconic']      = TRUE;   // Use icons instead of text for the table display of a database (TRUE|FALSE|'both')
 $cfg['PropertiesNumColumns']  = 1;      // How many columns should be used for table display of a database?
                                         // (a value larger than 1 results in some information being hidden)
 

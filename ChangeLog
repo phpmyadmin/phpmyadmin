@@ -5,6 +5,17 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-25 Garvin Hicking <me@supergarv.de>
+    * images/*, config.inc.php3, db_details_structure.php3,
+      libraries/common.lib.php3, table_details_structure.php3,
+      libraries/display_tbl.lib.php3, Documentation.html,
+      left.php3:
+      Even more new images on more places: DB properties, Table
+      properties, Table Display (LinkOrButton unified as well), 
+      Left frame.
+      Multi-column mode also works for MySQL < 3.23.03 (does anybody even
+      care?)
+
 2003-07-25 Marc Delisle  <lem9@users.sourceforge.net>
     * header.inc.php3: XHTML compatibility
     * libraries/sqlparser.lib.php3, /relation.lib.php3: bug 776789,
