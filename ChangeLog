@@ -10,7 +10,7 @@ $Source$
       pdf_schema.php3: new 'table_coords' because a table can appear
       on more than one PDF page
     * tbl_relation.php3, lang/*.php3: strChangeDisplay for display
-      field maintenance
+      field maintenance, thanks to Mike Beck
 
 2002-05-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: The Mozilla textarea bug also appears in
