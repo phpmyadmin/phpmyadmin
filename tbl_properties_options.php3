@@ -3,7 +3,7 @@
 
 
 /**
- * Gets tables informations and displays top links
+ * Runs common work
  */
 require('./tbl_properties_common.php3');
 
@@ -16,23 +16,34 @@ if (isset($submitcomment)) {
         $comment = stripslashes($comment);
     }
     if (empty($prev_comment) || urldecode($prev_comment) != $comment) {
-        $local_query = 'ALTER TABLE ' . PMA_backquote($table) . ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
-        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
+        $result    = mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+        $message   = $strSuccess;
     }
 }
 if (isset($submittype)) {
-    $local_query = 'ALTER TABLE ' . PMA_backquote($table) . ' TYPE = ' . $tbl_type;
-    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' TYPE = ' . $tbl_type;
+    $result        = mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+    $message       = $strSuccess;
 }
 if (isset($submitoptions)) {
-    $local_query = 'ALTER TABLE ' . PMA_backquote($table)
-                 . (isset($pack_keys) ? ' pack_keys=1': ' pack_keys=0')
-                 . (isset($checksum) ? ' checksum=1': ' checksum=0')
-                 . (isset($delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0');
-    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $sql_query     = 'ALTER TABLE ' . PMA_backquote($table)
+                   . (isset($pack_keys) ? ' pack_keys=1': ' pack_keys=0')
+                   . (isset($checksum) ? ' checksum=1': ' checksum=0')
+                   . (isset($delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0');
+    $result        = mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+    $message       = $strSuccess;
+}
+
+// Displays a message if a query had been submitted
+if (isset($message)) {
+    PMA_showMessage((get_magic_quotes_gpc()) ? addslashes($message) : $message);
 }
 
 
+/**
+ * Gets tables informations and displays top links
+ */
 require('./tbl_properties_table_info.php3');
 
 
