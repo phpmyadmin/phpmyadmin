@@ -45,6 +45,9 @@ if(isset($primary_key))
 </tr>
 <?php
 
+
+$timestamp_seen = 0;   // set if we passed the first timestamp field.
+
 for($i=0;$i<mysql_num_rows($table_def);$i++)
 {
     $row_table_def = mysql_fetch_array($table_def);
@@ -53,6 +56,7 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
         $row[$field] = date("Y-m-d H:i:s", time());
     $len = @mysql_field_len($result,$i);
 
+    $first_timestamp = 0;
     $bgcolor = $cfgBgcolorOne;
     $i % 2  ? 0: $bgcolor = $cfgBgcolorTwo;
     echo "<tr bgcolor=".$bgcolor.">\n";
@@ -64,6 +68,13 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
             break;
         case "enum":
             $type = "enum";
+            break;
+        case "timestamp":
+            if (!$timestamp_seen) {   // can only occur once per table
+                $timestamp_seen = 1;
+                $first_timestamp = 1;
+            }
+            $type = $row_table_def['Type'];
             break;
         default:
             $type = $row_table_def['Type'];
@@ -91,10 +102,21 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
     }
     else
     {
-
     	echo "<td><select name=\"funcs[$field]\"><option>\n";
-    	for($j=0; $j<count($cfgFunctions); $j++)
-        	echo "<option>$cfgFunctions[$j]\n";
+
+        if (!$first_timestamp) {
+    	    for($j=0; $j<count($cfgFunctions); $j++)
+         	    echo "<option>$cfgFunctions[$j]\n";
+	} else {
+            // for default function = NOW() on first timestamp field --swix/18jul01
+    	    for($j=0; $j<count($cfgFunctions); $j++) {
+                if ($cfgFunctions[$j] == "NOW") {
+        	    echo "<option selected>$cfgFunctions[$j]\n";
+		} else {
+        	    echo "<option>$cfgFunctions[$j]\n";
+		}
+            }
+	}
     	echo "</select></td>\n";
     }
 

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-18  Olivier Müller  <om@omnis.ch>
+	* set current version number to 2.2.0rc3 (which should become 2.2.0-final)
+	* tbl_change.php3: feature #442402: while editing a record, the function
+	  of the first timestamp field will be set by default to "NOW()" :
+	  same behaviour as the command line mysql client. 
+
 2001-07-17  Loïc Chapeaux  <lolo@phpheaven.net>
 	* added credits for Benjamin Gandon <gandon@isia.cma.fr> in this file,
 	  credits and documentation.
