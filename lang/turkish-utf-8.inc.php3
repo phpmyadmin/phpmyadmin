@@ -1,5 +1,7 @@
 <?php
 /* $Id$ */
+//çeviride eksik veya hatalı olduğunu düşündüğünüz kısımları bora@ktu.edu.tr adresine gönderebilirsiniz...
+//bora alioğlu 02.08.2002...tempus fugit...
 
 $charset = 'utf-8';
 $allow_recoding = TRUE;
@@ -75,7 +77,7 @@ $strCheckAll = 'Tümünü seç';
 $strCheckDbPriv = 'Veritabanı önceliklerini kontrol et';
 $strCheckTable = 'Tabloyu kontrol et';
 $strChoosePage = 'Lütfen düzenlemek istediğiniz sayfayı seçin';
-$strColComFeat = 'Sütun yorumları gösteriliyor';
+$strColComFeat = 'Sütun yorumları gösteriliyor';  
 $strColumn = 'Sütun';
 $strColumnNames = 'Sütun adları';
 $strComments = 'Yorumlar'; 
@@ -92,7 +94,7 @@ $strCreateIndexTopic = 'Yeni bir index olu&#351;tur';
 $strCreateNewDatabase = 'Yeni veritabanı oluştur';
 $strCreateNewTable = '%s veritabanı üzerinde yeni bir tablo oluştur';
 $strCreatePage = 'Yeni sayfa oluştur';
-$strCreatePdfFeat = 'PDFlerin oluşturulması';
+$strCreatePdfFeat = 'PDF\'lerin oluşturulması';  
 $strCriteria = 'Kriter';
 
 $strData = 'Veri';
@@ -109,13 +111,13 @@ $strDeletedRows = 'Silinen satırlar:';
 $strDeleteFailed = 'Silme sırasında hata oluştu!';
 $strDeleteUserMessage = '%s kullanıcısını sildiniz.';
 $strDescending = 'Azalan';
-$strDisabled = 'Etkin değil';
+$strDisabled = 'Etkin değil';  
 $strDisplay = 'Görüntüle';
-$strDisplayFeat = 'Özellikleri Göster';
+$strDisplayFeat = 'Özellikleri Göster';  
 $strDisplayOrder = 'Görünüm düzeni:';
 $strDisplayPDF = 'PDF şemasını göster';
 $strDoAQuery = '"Örnekle sorgu" yap (joker: "%")';
-$strDocu = 'Dökümantasyon';
+$strDocu = 'Yardım';
 $strDoYouReally = 'Aşağıdaki komutu uygulamak istediğinizden emin misiniz? ';
 $strDrop = 'Kaldır';
 $strDropDB = 'Veritabanı\'nı kaldır %s';
@@ -130,8 +132,7 @@ $strEditPrivileges = 'Öncelikleri Düzenle';
 $strEffective = 'Efektif';
 $strEmpty = 'Boşalt';
 $strEmptyResultSet = 'MySQL boş bir sonuc kümesi döndürdü ( sıfır satır).';
-$strEnabled = 'Açık';
-$strEnabled = 'Etkin';
+$strEnabled = 'Etkin'; 
 $strEnd = 'Son';
 $strEnglishPrivileges = ' Not: mySQL  öncelik adları İngilizce olarak belirtilmiştir ';
 $strError = 'Hata';
@@ -155,7 +156,7 @@ $strFullText = 'Tüm metinler';
 $strFunction = 'Fonksiyon';
 
 $strGenBy = 'Oluşturuldu->:';
-$strGeneralRelationFeat = 'Genel ilişki özellikleri';
+$strGeneralRelationFeat = 'Genel ilişki özellikleri'; 
 $strGenTime = 'Çıktı Tarihi';
 $strGo = 'Git';
 $strGrants = 'Haklar';
@@ -165,7 +166,7 @@ $strHasBeenAltered = 'düzenlendi.';
 $strHasBeenCreated = 'yaratıldı.';
 $strHaveToShow = 'Görüntülemek için en az bir sütun seçmelisiniz'; 
 $strHome = 'Ana Sayfa';
-$strHomepageOfficial = 'Resmi phpMyAdmin Web Sayfası';
+$strHomepageOfficial = 'phpMyAdmin Web Sayfası';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Yükleme Sayfası';
 $strHost = 'Sunucu:';
 $strHostEmpty = 'Sunucu ismi alanı doldurulmadı!';
@@ -214,7 +215,7 @@ $strMoveTableOK = '%s tablosu %s üzerine taşındı.';
 $strMySQLCharset = 'MySQL karakter seti'; 
 $strMySQLReloaded = 'MySQL yeniden yüklendi.';
 $strMySQLSaid = 'MySQL çıktısı: ';
-$strMySQLServerProcess = 'MySQL %pma_s1% -- çalıştığı ortam --) %pma_s2% çalıştığı sistem -- %pma_s3%';
+$strMySQLServerProcess = ' MySQL %pma_s1%   %pma_s2%  üzerinde  %pma_s3% olarak çalışıyor';
 $strMySQLShowProcess = 'İşlemleri göster';
 $strMySQLShowStatus = 'MySQL çalışma zamanı bilgisini göster';
 $strMySQLShowVars = 'MySQL sistem değişkenlerini göster';
@@ -237,7 +238,7 @@ $strNoQuery = 'SQL sorgusu yok!';
 $strNoRights = 'Burada bulunmak için yeterli haklara sahip değilsiniz!';
 $strNoTablesFound = 'Veritabanı\'nda tablo bulunamadı.';
 $strNotNumber = 'Bu bir sayı değil!';
-$strNotOK = 'Tamam değil';
+$strNotOK = 'Tamam değil';  
 $strNotSet = '<b>%s</b> tablosu bulunamadı veya %s içinde tanımlanmadı';
 $strNotValidNumber = ' geçerli bir satır sayısı değil!';
 $strNoUsersFound = 'Kullanıcı(lar) bulunamadı.';
@@ -246,7 +247,7 @@ $strNumSearchResultsInTable = '%s eşleşim : %s tablosu içinde';
 $strNumSearchResultsTotal = 'Toplam: %s eşleşim';
 
 $strOftenQuotation = 'Sık kullanılan aktarma işaretleri.SEÇİME BAĞLI,sadece char ve varchar alanlarının "enclosed-by" karakteri ile çevreneleceği anlamına gelir..';
-$strOK = 'Tamam';
+$strOK = 'Tamam';  
 $strOperations = 'İşlemler';
 $strOptimizeTable = 'Tabloyu optimize et';
 $strOptionalControls = 'Özel karakterleri yazmak ve okumak için kontroller.Opsiyonel';
@@ -263,10 +264,9 @@ $strPasswordNotSame = 'Girilen şifreler aynı değil!';
 $strPdfDbSchema = ' "%s" veritabanının şeması - Sayfa %s';
 $strPdfInvalidPageNum = 'Tanımlanmamış PDF sayfa numarası!';
 $strPdfInvalidTblName = ' "%s" tablosu bulunamıyor !';
-$strPdfNoTables = 'Tablo yok';
 $strPhp = 'PHP kodu oluştur';
 $strPHPVersion = 'PHP Sürümü';
-$strPmaDocumentation = 'phpMyAdmin dökümantasyonu';
+$strPmaDocumentation = 'phpMyAdmin yardım';
 $strPmaUriError = '<tt>$cfg[\'PmaAbsoluteUri\']</tt>\' nin değeri  konfigurasyon dosyasının içinde verilmelidir!';
 $strPos1 = 'Başlangıç';
 $strPrevious = 'Önceki';
@@ -279,7 +279,7 @@ $strPrintView = 'Yazıcı görüntüsü';
 $strPrivileges = 'Öncelikler';
 $strProperties = 'Özellikler';
 
-$strQBE = 'Örnekle sorgula';
+$strQBE = ' Sorgula';
 $strQBEDel = 'Del';
 $strQBEIns = 'Ins';
 $strQueryOnDb = 'Veritabanı üzerinde SQL-sorgusu&nbsp;<b>%s</b>:';
@@ -311,13 +311,13 @@ $strRowsModeHorizontal= 'yatay';
 $strRowsModeOptions= '%s modunda ve %s hücre sonra ba&#351;l&#305;&#287;&#305; tekrarla';
 $strRowsModeVertical= 'dikey';
 $strRowsStatistic = 'Satır istatistiği';
-$strRunning = '-- çalıştığı ortam --) %s';
+$strRunning = ': %s üzerinde çalışıyor...';
 $strRunQuery = 'Sorguyu çalıştır';
 $strRunSQLQuery = '%s veritabanı üzerinde sorgu/sorgular çalıştır';
 
 $strSave = 'Kaydet';
 $strScaleFactorSmall = 'Çarpan faktörü sayfadaki şema için çok küçük';
-$strSearch = 'Search';
+$strSearch = 'Ara';
 $strSearchFormTitle = 'Veritabanında ara';
 $strSearchInTables = 'Tablo(lar) içinde:';
 $strSearchNeedle = 'Aranacak kelime veya değerler (joker: "%"):';
@@ -328,7 +328,7 @@ $strSearchOption4 = 'normal deyim gibi';
 $strSearchResultsFor = ' "%s" %s için arama sonuçları:';
 $strSearchType = 'Bul:';
 $strSelect = 'Seç';
-$strSelectADb = 'Lütfen bir veritaban&#305; seçiniz';
+$strSelectADb = ' Lütfen bir veritaban&#305; seçiniz';
 $strSelectAll = 'Tümünü seç';
 $strSelectFields = 'Alan seç (en az bir):';
 $strSelectNumRows = 'sorgu içerisinde';
@@ -403,7 +403,7 @@ $strValue = 'Değer';
 $strViewDump = 'Tablo\'nun döküm(şema)\'ünü göster';
 $strViewDumpDB = 'Veritabanı\'nın döküm(şema)\'ünü göster';
 
-$strWelcome = 'HOŞGELDİNİZ: %s';
+$strWelcome = '%s \'e HOŞGELDİNİZ....';
 $strWithChecked = 'seçilileri:';
 $strWrongUser = 'Hatalı kullanıcı/parola. Erişim engellendi.';
 
@@ -412,7 +412,7 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiş"';
 
 // To translate
-
+$strPdfNoTables = 'No tables';  //to translate
 $strNoValidateSQL = 'Skip Validate SQL';  //to translate
 $strValidateSQL = 'Validate SQL';  //to translate
 $strNoExplain = 'Skip Explain SQL';  //to translate
