@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
+
 2004-06-25 Michal Čihař  <michal@cihar.com>
     * main.php, libraries/select_lang.lib.php: Remember selected charset in
       cookie.
