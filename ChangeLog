@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_structure.php3, libraries/fpdf/fpdf.php3: better browser
+      support, thanks to Jose Fandos (jose.fandos at sonnd.com)
+
 2003-01-30 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation*: Added faq 1.27 about GZIP output buffering problem.
     * Documentation.html, translators.html: Unified using of font sizes.

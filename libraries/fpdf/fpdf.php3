@@ -2473,8 +2473,14 @@ class FPDF
                 && (strpos($HTTP_USER_AGENT, 'MSIE 5.5') || strpos($HTTP_USER_AGENT, 'Opera'))) {
                 header('Content-Type: application/dummy');
             }
+            // fix for Gecko-based browsers < 1.1
+            else if (!empty($HTTP_USER_AGENT)
+                  &&  (strpos($HTTP_USER_AGENT, 'Gecko') &&
+                  (strpos($HTTP_USER_AGENT, 'rv:0.') || strpos($HTTP_USER_AGENT, 'rv:1.0') || strpos($HTTP_USER_AGENT, 'rv:1.1')))) {
+                     header('Content-Type: application/');
+            } 
             else {
-                header('Content-Type: application/octet-stream');
+                header('Content-Type: application/pdf');
             }
             if (headers_sent()) {
                 $this->Error('Some data has already been output to browser, can\'t send PDF file');

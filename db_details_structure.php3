@@ -471,6 +471,9 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     <!-- PDF schema -->
     <?php
     // We only show this if we find something in the new pdf_pages table
+    //
+    // Note the trailing slash in the action target, this is intentional
+
     $test_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
                 . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'';
     $test_rs    = PMA_query_as_cu($test_query);
@@ -478,7 +481,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
         echo "\n";
         ?>
     <li>
-        <form method="post" action="pdf_schema.php3">
+        <form method="post" action="pdf_schema.php3/">
             <?php echo PMA_generate_common_hidden_inputs($db); ?>
             <?php echo $strDisplayPDF; ?>&nbsp;:<br />
             <?php echo $strPageNumber; ?>&nbsp;
