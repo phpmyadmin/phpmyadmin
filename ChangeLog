@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php3: PHP3 parse error
+
 2003-02-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_details.php3, tbl_query_box.php3: Disabled the autoselect feature of
       the SQL query box for Opera 7 for Windows in order to avoid trouble here.

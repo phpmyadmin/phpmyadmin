@@ -610,7 +610,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         if(strcmp($whatWeWant, $toCheck) == 0) {
             return TRUE;
         } else {
-            if(strpos($whatWeWant, $typeSeperator) === FALSE) {
+            //if(strpos($whatWeWant, $typeSeperator) === FALSE) {
+            // PHP3 compatible (works unless there is a real ff character)
+            if(!strpos("\xff" . $whatWeWant, $typeSeperator)) {
                 return strncmp($whatWeWant, $toCheck , strpos($toCheck, $typeSeperator)) == 0;
             } else {
                 return FALSE;
