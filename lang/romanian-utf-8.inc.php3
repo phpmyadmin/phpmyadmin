@@ -200,6 +200,7 @@ $strKeepPass = 'Nu schimbati parola';
 $strKeyname = 'Nume cheie';
 $strKill = 'Opreste';
 
+$strLandscape = 'Landscape';
 $strLength = 'Lungime';
 $strLengthSet = 'Lungime/Setare';
 $strLimitNumRows = 'Numarul de inregistrari de pe pagina';
@@ -281,6 +282,7 @@ $strPdfNoTables = 'Nu exista tabele';
 $strPhp = 'Creaza cod PHP';
 $strPmaDocumentation = 'Documentatie phpMyAdmin';
 $strPmaUriError = 'Directiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> TREBUIE sa fie setat in fisierul de configurare!';
+$strPortrait = 'Portrait';
 $strPos1 = 'Incepe';
 $strPrevious = 'Anterior';
 $strPrimary = 'Primar';
@@ -366,6 +368,7 @@ $strShow = 'Afiseaza';
 $strShowAll = 'Arata toate';
 $strShowColor = 'Arata culoarea';
 $strShowCols = 'Arata coloanele';
+$strShowDatadictAs = 'Data Dictionary Format';
 $strShowGrid = 'Arata grila';
 $strShowPHPInfo = 'Arata informatia PHP';
 $strShowTableDimension = 'Arata dimensiunile tabelei';
@@ -440,7 +443,4 @@ $strYes = 'Da';
 $strZip = '"arhivat"';
 // To translate
 
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-$strLandscape = 'Landscape';  //to translate
-$strPortrait = 'Portrait';  //to translate
 ?>
