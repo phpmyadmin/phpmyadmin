@@ -149,6 +149,13 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     ?>
             </select>
         </td>
+    <?php
+    if (isset($row)
+        && !isset($row['Default']) && !empty($row['Null'])) {
+        $row['Default'] = 'NULL';
+    }
+    echo "\n";
+    ?>
         <td>
             <input type="hidden" name="field_default_orig[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo urlencode($row['Default']); ?>" />
             <input type="text" name="field_default[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo str_replace('"', '&quot;', $row['Default']); ?>" />

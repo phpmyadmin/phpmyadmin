@@ -46,7 +46,11 @@ if (isset($submit)) {
         $query .= ' ' . $field_attribute[0];
     }
     if ($field_default[0] != '') {
-        $query .= ' DEFAULT \'' . sql_addslashes($field_default[0]) . '\'';
+        if (strtoupper($field_default[0]) == 'NULL') {
+            $query .= ' DEFAULT NULL';
+        } else {
+            $query .= ' DEFAULT \'' . sql_addslashes($field_default[0]) . '\'';
+        }
     }
     if ($field_null[0] != '') {
         $query .= ' ' . $field_null[0];

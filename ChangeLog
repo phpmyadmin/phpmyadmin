@@ -6,8 +6,8 @@ $Id$
 $Source$
 
 2001-08-27  Olivier Müller  <om@omnis.ch>
-	* tbl_replace.php3: fixed the fact that the function were
-	  ignored if the data remained unchanged.
+	* tbl_replace.php3: fixed the fact that the function were ignored if the
+	  data remained unchanged.
 
 2001-08-27  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3: fixed some coding style inconcistencies.
@@ -20,13 +20,16 @@ $Source$
 	* lang/romanian.inc.php3: put all the string to translate at the end and
 	  added a missing one.
 	* lang/dutch.inc.php3: sorted the strings.
+	* tbl_addfield.php3, lines 32-41; tbl_alter.php3, lines 48-54;
+	  tbl_properties.php3, lines 222-228; tbl_properties.inc.php3,
+	  lines 152-158: tried to fix the "NULL" value problem.
 
 2001-08-27  Marc Delisle  <lem9@users.sourceforge.net> 
 	* lang/dutch.inc.php3 updates, thanks to Arjen Roodselaar.
 	* tbl_copy.php3, eregi_replace instead of ereg_replace because
 	  MySQL 3.23.20 returns sql keywords in lowercase, thanks to
 	  Jan Paul Schmidt.
-	* lang/romanian.inc.php3, select_lang.inc.php3: new romanian lang 
+	* lang/romanian.inc.php3, select_lang.inc.php3: new romanian lang thanks to
 	  thanks to Valics Lehel (lvalics@users.sourceforge.net).
 
 2001-08-25  Marc Delisle  <lem9@users.sourceforge.net>

@@ -219,6 +219,13 @@ while ($row = mysql_fetch_array($result)) {
     if ($zerofill) {
         $strAttribute = 'UNSIGNED ZEROFILL';
     }
+    if (!isset($row['Default'])) {
+        if ($row['Null'] != '') {
+            $row['Default'] = '<i>NULL</i>';
+        }
+    } else {
+        $row['Default'] = htmlspecialchars($row['Default']);
+    }
     echo "\n";
     ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
@@ -226,7 +233,7 @@ while ($row = mysql_fetch_array($result)) {
     <td<?php echo $type_nowrap; ?>><?php echo $type; ?></td>
     <td nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
-    <td nowrap="nowrap"><?php if (isset($row['Default'])) echo htmlspecialchars($row['Default']); ?>&nbsp;</td>
+    <td nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
     <td nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
     <?php
     if (empty($printer_friendly)) {
