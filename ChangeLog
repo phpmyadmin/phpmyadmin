@@ -9,6 +9,7 @@ $Source$
     * lang/german-*.inc.php: Clarification.
     * config.inc.php, Documentation.html, libraries/config_import.lib.php:
       Updated path to MySQL's searchable online documentation.
+    * ChangeLog: Recoded to UTF-8.
 
 2004-04-19 Marcel Tschopp  <ne0x@users.sourceforge.net>
     * libraries/export/sql.php, libraries/export/latex.php: Fixed a few
@@ -95,7 +96,7 @@ $Source$
 2004-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: bug 930445 when PMA_table_info not defined,
       thanks to Philippe Jausions (jausions)
-    * Documentation.html: new faq links and cleanup, thanks to Cédric Corazza
+    * Documentation.html: new faq links and cleanup, thanks to CÃ©dric Corazza
     * tbl_replace.php, libraries/defines.lib.php, /common.lib.php:
       bug 898484, IIS crash: do not use header('Location: ')
 
@@ -496,14 +497,14 @@ $Source$
 2004-01-14 Marc Delisle  <lem9@users.sourceforge.net>
     * mult_submits.inc.php: bug 876805, dropping a field with the
       multi-submit mechanism removes all internal relations of a table,
-      patch thanks to Joosep-Georg Järvemaa (j-georg)
+      patch thanks to Joosep-Georg JÃ¤rvemaa (j-georg)
 
 2004-01-13 Robin Johnson <robbat2@users.sourceforge.net>
     * Documentation.html: Slight update to what I've done
 
 2004-01-12 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
-    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
     * lang/portuguese: Updated, thanks to Lopo Pizarro (lopopizarro).
 
 2004-01-09 Alexander M. Turek  <singwhenyourewinning@derrabus.de>
@@ -875,7 +876,7 @@ $Source$
 2003-11-19 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/catalan: Updated, thanks to Xavier Navarro (xavin).
     * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
-    * lang/portuguese: Updated, thanks to António Raposo (cfmsoft).
+    * lang/portuguese: Updated, thanks to AntÃ³nio Raposo (cfmsoft).
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
 
 2003-11-19 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -1083,7 +1084,7 @@ $Source$
 2003-10-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php3: bug 821512, Safari 1.0 v85.5 and fonts
     * libraries/functions.js: bug 825665, scratchboard and paper size
-    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
     ### 2.5.4 released
 
 2003-10-17 Marc Delisle  <lem9@users.sourceforge.net>
@@ -1408,11 +1409,11 @@ $Source$
       tbl_properties_operations.php3 instead of tbl_properties.php3.
 
 2003-08-22 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/galician: Updated, thanks to XosÃ© Calvo.
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
     * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
     * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
-    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
     * lang/greek: update, thanks to Kyriakos Xagoraris (theremon)
     * libraries/sqlparser.lib.php3: extract the CONSTRAINTs for FOREIGN KEYs
     * libraries/relation.lib.php3: getForeigners() returns also the constraint
@@ -1506,11 +1507,11 @@ $Source$
 2003-08-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/serbian update, thanks to Mihailo Stefanovic
     * lang/romanian: Updated, thanks to Valics Lehel.
-    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/galician: Updated, thanks to XosÃ© Calvo.
     * lang/bulgarian:  Updated, thanks to Stanislav Yordanov (stanprog).
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
     * lang/chinese_gb: Updated, thanks to Wang (fundawang).
-    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
     * Documentation.html: bug 782597: FAQ 1.30 about Turck MMCache
 
 2003-08-06 Marc Delisle  <lem9@users.sourceforge.net>
@@ -1717,7 +1718,7 @@ $Source$
       Thanks to andreas_e ;)
 
 2003-07-16 Michal Cihar  <nijel@users.sourceforge.net>
-    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/galician: Updated, thanks to XosÃ© Calvo.
 
 2003-07-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/sql.php3: bug 771575: wrong quotes for variable expansion
@@ -1784,7 +1785,7 @@ $Source$
       (bug #768351).
     * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
-    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/galician: Updated, thanks to XosÃ© Calvo.
 
 2003-07-09 Garvin Hicking <me@supergarv.de>
     * tbl_query_box.php3: Fix Bug #768652 (sql history tab submittet to
@@ -1817,7 +1818,7 @@ $Source$
     * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
     * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
     * lang/romanian: Updated, thanks to Valics Lehel.
-    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
     * lang/slovak: Updated, thanks to Lubos Klokner (erkac).
     * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
 
@@ -1857,7 +1858,7 @@ $Source$
 2003-07-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/config.auth.lib.php3, lang/*.php3:
       $strAccessDeniedExplanation
-    * lang/swedish update, thanks to Björn T. Hallberg (bth).
+    * lang/swedish update, thanks to BjÃ¶rn T. Hallberg (bth).
     * lang/polish update, thanks to Jakub Wilk (ubanus).
 
 2003-07-05 Michal Cihar  <nijel@users.sourceforge.net>
@@ -1955,7 +1956,7 @@ $Source$
       lang/russian-*.inc.php3, lang/ukrainian-*.inc.php3: Checked all language
       files for incomplete arrays ($byteUnits, $day_of_week and $month).
     * libraries/common.lib.php3: Security fix against bad JS code.
-    * translators.html: Removed Loïc from list; he is inactive at the moment.
+    * translators.html: Removed LoÃ¯c from list; he is inactive at the moment.
     * Documentation.html: Changed my email address.
 
 2003-06-22 Robin Johnson <robbat2@users.sourceforge.net>
@@ -2174,7 +2175,7 @@ $Source$
 
 2003-05-30 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian updates, thanks to Valics Lehel
-    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
     * lang/polish: update, thanks to Jakub Wilk
 
 2003-05-30 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -2264,7 +2265,7 @@ $Source$
 
 2003-05-24 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: talk about left frame levels
-    * lang/galician: update, thanks to Xosé Calvo
+    * lang/galician: update, thanks to XosÃ© Calvo
     * lang/turkish: update, thanks to Bora Alioglu
 
 2003-05-24 Garvin Hicking <me@supergarv.de>
@@ -2293,7 +2294,7 @@ $Source$
       libraries/defines_php.lib.php3: Improved GD 2 detection (bugs #736111,
       #741192).
     * lang/sync_lang.sh: Removed dropped farsi translation.
-    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
     * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
     * lang/norwegian: Updated, thanks to Sven-Erik Andersen (sven-erik).
 
@@ -2616,7 +2617,7 @@ $Source$
       when changing it.
     * lang/czech: Updated.
     * lang/indonesian: Updted, thanks to Rachim Tamsjadi (tamsy).
-    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
     * lang/italian: Updated, thanks to Pietro Danesi (danone).
     * lang/catalan: Updated, thanks to Xavier Navarro.
     * footer.inc.php3: Fixed for quotes, HTML entities and other weird
@@ -2698,11 +2699,11 @@ $Source$
       to prevent false arrow aligning when using 'same widths'.
 
 2003-04-08 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/galician: update, thanks to Xosé Calvo
+    * lang/galician: update, thanks to XosÃ© Calvo
     * lang/lithuanian: Updated, thanks to Vilius Zigmantas.
     * lang/italian: Updated, thanks to Pietro Danesi.
     * lang/chinese_gb: update, thanks to (fundawang)
-    * lang/swedish: update, thanks to Björn T. Hallberg
+    * lang/swedish: update, thanks to BjÃ¶rn T. Hallberg
     * lang/norwegian: update, thanks to Sven-Erik Andersen
 
 2003-04-07 Michal Cihar  <nijel@users.sourceforge.net>
@@ -3314,7 +3315,7 @@ $Source$
         Files: queryframe.php3, querywindow.php3, header.inc.php3,
         tbl_query_box.php3, common.lib.php3
 
-2003-02-24 Olivier L. Müller  <om@omnis.ch>
+2003-02-24 Olivier L. MÃ¼ller  <om@omnis.ch>
     * libraries/common.lib.php3: if $cfg['PmaAbsoluteUri'] is empty and
       port == 80 or port == 443, do not add ":80" or ":443" anymore to the
       generated URL -> prevents a double password query with some browsers
@@ -3329,7 +3330,7 @@ $Source$
 2003-02-23 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.4.0 released
 
-2003-02-23 Olivier L. Müller  <om@omnis.ch>
+2003-02-23 Olivier L. MÃ¼ller  <om@omnis.ch>
     * docs.css: highlight FAQ questions in blue -> more readble.
 
 2003-02-23 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -3345,13 +3346,13 @@ $Source$
     * lang/thai: update, thanks to Arthit Suriyawongkul
     * tbl_change.php3: do not use enctype="multipart/form-data"
       if !$is_upload (possible solution for bug 689215)
-    * lang/swedish: update, thanks to Björn T. Hallberg
+    * lang/swedish: update, thanks to BjÃ¶rn T. Hallberg
 
 2003-02-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: Coding standards.
     * lang/romanian-*.inc.php3: Updates, thanks to Valics Lehel.
     * lang/spanish-*.inc.php3: Updates, thanks to Dr. med. Daniel Hinostroza C.
-    * lang/galician-*.inc.php3: Updates, thanks to Xosé Calvo.
+    * lang/galician-*.inc.php3: Updates, thanks to XosÃ© Calvo.
     * lang/catalan-*.inc.php3: Updates, thanks to Xavier Navarro.
 
 2003-02-18 Marc Delisle  <lem9@users.sourceforge.net>
@@ -3438,7 +3439,7 @@ $Source$
     * lang/italian update, thanks to Pietro Danesi
     * lang/lithuanian update, thanks to Vilius Zigmantas
     * lang/slovenian update, thanks to Kositer Uros
-    * lang/swedish: update, thanks to Björn T. Hallberg
+    * lang/swedish: update, thanks to BjÃ¶rn T. Hallberg
     * tbl_change.php3: upload field only to BLOBs
     * libraries/defines.lib.php3, libraries/common.lib.php3: adjust Konqueror
       font size
@@ -3471,7 +3472,7 @@ $Source$
     * db_stats.php3: Removed, the file is replaced by server_databases.php3.
     * lang/german-*.inc.php3: Updates.
     * config.inc.php3: Added a note about another possible setting.
-    * lang/galician-*.inc.php3: Updates, thanks to Xosé Calvo.
+    * lang/galician-*.inc.php3: Updates, thanks to XosÃ© Calvo.
     * lang/romanian-*.inc.php3: Updates, thanks to Valics Lehel.
     * translators.html: Fixed a typo.
     * lang/indonesian-*.inc.php3: Updates, thanks to Rachim Tamsjadi (tamsy).
@@ -3490,7 +3491,7 @@ $Source$
     * lang/italian: update, thanks to Pietro Danesi
     * lang/norwegian: update, thanks to Sven-Erik Andersen
     * lang/polish: update, thanks to Jakub Wilk
-    * lang/swedish: update, thanks to Björn T. Hallberg
+    * lang/swedish: update, thanks to BjÃ¶rn T. Hallberg
     * lang/slovak: remove duplicates
     * lang/*, tbl_properties.inc.php3: new $strDefaultValueHelp
 
@@ -3561,7 +3562,7 @@ $Source$
     * lang/catalan: update, thanks to Xavier Navarro
     * lang/dutch update, thanks to Ivo Teel
 
-2003-02-02 Olivier L. Müller  <om@omnis.ch>
+2003-02-02 Olivier L. MÃ¼ller  <om@omnis.ch>
     * tbl_addfield.php3: ignore empty fields on alter table
 
 2003-02-02 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -3585,7 +3586,7 @@ $Source$
       (later when we get enough translations,
        we can use it instead of $strCandLoadMySQL)
     * lang/romanian: update, thanks to Valics Lehel
-    * lang/galician: update, thanks to Xosé Calvo
+    * lang/galician: update, thanks to XosÃ© Calvo
     * lang/lithuanian: update, thanks to Vilius Zigmantas
     * lang/japanese: update, thanks to Yukihiro Kawada
     * lang/*, libraries/dbg/profiling.php3: strDBGMaxTimeMs,
@@ -3655,7 +3656,7 @@ $Source$
     * tbl_relation.php3, bug 659227: in Relation View, cannot enter comments
 
 2003-01-22 Robin Johnson  <robbat2@users.sourceforge.net>
-    * lang/swedish*: Updates, thanks to Björn T. Hallberg (bth)
+    * lang/swedish*: Updates, thanks to BjÃ¶rn T. Hallberg (bth)
     * lang/italian*: Updates, thanks to Pietro Danesi (danone)
     * lang/english*: Resorted and Resynced.
     * lang/farsi*: Added ready for Farsi translation
@@ -3748,7 +3749,7 @@ $Source$
     * lang/catalan-*.inc.php3: Updates, thanks to Xavier Navarro (xavin).
 
 2003-01-14 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/galician: update, thanks to Xosé Calvo
+    * lang/galician: update, thanks to XosÃ© Calvo
     * lang/spanish: update, thanks to Dr. med. Daniel Hinostroza C.
 
 2003-01-14 Michal Cihar  <nijel@users.sourceforge.net>
@@ -3811,7 +3812,7 @@ $Source$
     * libraries/sqlparser.lib.php3, libraries/functions.js,
       sql.php3: - use the parser for confirmation requests
                 - better check before appending LIMIT
-    * lang/galician: update, thanks to Xosé Calvo
+    * lang/galician: update, thanks to XosÃ© Calvo
     * lang/spanish: update, thanks to Dr. med. Daniel Hinostroza C.
     * lang/indonesian: missing semicolon
     * lang/japanese: update, thanks to Yukihiro Kawada
@@ -3869,8 +3870,8 @@ $Source$
 2003-01-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/estonian*, malay*: remove control M
     * lang/romanian: update, thanks to Valics Lehel
-    * lang/galician: update, thanks to Xosé Calvo
-    * lang/english: typos fix, thanks to Björn T. Hallberg (bth)
+    * lang/galician: update, thanks to XosÃ© Calvo
+    * lang/english: typos fix, thanks to BjÃ¶rn T. Hallberg (bth)
 
 2003-01-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german*: Updated.
@@ -3970,7 +3971,7 @@ $Source$
 
 2002-12-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/russian: update, thanks to Nicolay Zakharov
-    * lang/galician: update, thanks to Xosé Calvo
+    * lang/galician: update, thanks to XosÃ© Calvo
 
 2002-12-15 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/get_foreign.lib.php3: bug 646263,
@@ -4014,7 +4015,7 @@ $Source$
       thanks to Valentine for creating the patch #627496.
 
 2002-12-11 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/galician: update, thanks to Xosé Calvo
+    * lang/galician: update, thanks to XosÃ© Calvo
     * libraries/sqlparser.lib.php3: bug 649665 undefined vars with UNION,
       but there is still some work to do about how to split a UNION
     * tbl_properties_options.php3, bug 651522 wrong back-link,
@@ -4036,7 +4037,7 @@ $Source$
 2002-12-09 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/norwegian-*.inc.php3: Updates, thanks again to
       Sven-Erik Andersen (sven-erik).
-    * lang/swedish-*.inc.php3: Updates, thanks again to Björn T. Hallberg (bth).
+    * lang/swedish-*.inc.php3: Updates, thanks again to BjÃ¶rn T. Hallberg (bth).
     * lang/spanish-*.inc.php3: Updates, thanks again to
       Dr. med. Daniel Hinostroza C.
 
@@ -4082,7 +4083,7 @@ $Source$
       thanks to Piotr Roszatycki (d3xter)
 
 2002-12-05 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * lang/swedish.inc.php3: Updates, thanks again to Björn T. Hallberg (bth).
+    * lang/swedish.inc.php3: Updates, thanks again to BjÃ¶rn T. Hallberg (bth).
 
 2002-12-05 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3: remove control M
