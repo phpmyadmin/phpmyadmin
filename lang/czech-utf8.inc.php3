@@ -80,6 +80,7 @@ $strCheckTable = 'Zkontrolovat tabulku';
 $strChoosePage = 'Zvolte stránku, kterou chcete změnit';
 $strColumn = 'Sloupec';
 $strColumnNames = 'Názvy sloupců';
+$strComments = 'Komentáře';
 $strCompleteInserts = 'Uplné inserty';
 $strConfigFileError = 'phpMyAdmin nemohl načíst konfigurační soubor!<br />Tato chyba může nastat pokud v&nbsp;něm php najde chybu nebo nemůže tento soubor najít.<br />Po kliknutí na následující odkaz se konfigurace spustí a budou zobrazeny informace o&nbsp;chybě, ke které došlo. Pak opravte tuto chybu (nejčastěji se jedná o chybějící středník).<br />Pokud získáte prázdnou stránku, všechno je v pořádku.';
 $strConfigureTableCoord = 'Prosím nastavte souřadnice pro tabulku %s';
@@ -404,5 +405,4 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
-$strComments = 'Comments';  //to translate
 ?>
