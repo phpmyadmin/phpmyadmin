@@ -24,7 +24,7 @@ $cfgRelation = PMA_getRelationsParam();
  */
 
 if ($cfgRelation['relwork']) {
-    $existrel = PMA_getForeigners($db, $table);
+    $existrel = PMA_getForeigners($db, $table, '', 'internal');
 }
 if ($cfgRelation['displaywork']) {
     $disp     = PMA_getDisplayField($db, $table);
@@ -105,7 +105,7 @@ if ($cfgRelation['commwork']
 
 // Now that we might have changed we have to see again
 if ($cfgRelation['relwork']) {
-    $existrel = PMA_getForeigners($db, $table);
+    $existrel = PMA_getForeigners($db, $table, '', 'internal');
 }
 if ($cfgRelation['displaywork']) {
     $disp     = PMA_getDisplayField($db, $table);
@@ -169,7 +169,7 @@ if ($cfgRelation['relwork']) {
     } // end while over tables
 
     // Create array of relations (Mike Beck)
-    $rel_dest = PMA_getForeigners($db, $table);
+    $rel_dest = PMA_getForeigners($db, $table, '', 'internal');
 } // end if
 
 // Now find out the columns of our $table
