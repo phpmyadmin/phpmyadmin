@@ -106,7 +106,7 @@ function normal_operations()
     <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user&mode=reload"; ?>"><?php echo $strReloadMySQL; ?></a> <?php print show_docu("manual_Reference.html#FLUSH"); ?></li>
 
     <li><form name=userForm1 method="POST" action="<?php echo $self; ?>"><?php echo $strCheckDbPriv; ?>
-    <table with="100%"><tr>
+    <table width="100%"><tr>
     <td><?php echo $strDatabase; ?>:&nbsp;<select name="db">
 <?php
     $result = mysql_query("SHOW DATABASES");
@@ -270,7 +270,7 @@ function grant_operations()
     <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>"><?php echo $strBack; ?></a></li>
 
     <li><form name=userForm3 onsubmit ="return false"><?php echo $strAddPriv; ?>
-    <table with="100%"><tr>
+    <table width="100%"><tr>
     <td><input type="radio" name="anydb"<?php echo ($dbgrant) ? "": " checked"; ?>><?php echo $strAnyDatabase; ?></td>
     <td>&nbsp;</td>
     <td><input type="radio" name="anydb"<?php echo ($dbgrant) ? " checked":""; ?>><?php echo $strDatabase; ?>:&nbsp;
@@ -287,7 +287,7 @@ function grant_operations()
     </select></td>
     </tr></table>
 
-    <table with="100%"><tr>
+    <table width="100%"><tr>
     <td><input type="radio" name="anytable"<?php echo ($tablegrant) ? "":" checked"; ?>><?php echo $strAnyTable; ?></td>
     <td>&nbsp;</td>
     <td><input type="radio" name="anytable"<?php echo ($tablegrant) ? " checked":""; ?>><?php echo $strTable; ?>:&nbsp;
@@ -307,7 +307,7 @@ function grant_operations()
     </select></td>
     </tr></table>
 
-    <table with="100%"><tr>
+    <table width="100%"><tr>
     <td VALIGN=TOP><input type="radio" name="anycolumn" checked><?php echo $strAnyColumn; ?></td>
     <td>&nbsp;</td>
     <td VALIGN=TOP><input type="radio" name="anycolumn"><?php echo $strColumn; ?>:</td>
