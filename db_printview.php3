@@ -258,5 +258,22 @@ else {
  * Displays the footer
  */
 echo "\n";
+?>
+<script type="text/javascript" language="javascript1.2">
+<!--
+function printPage()
+{
+    document.all.print.style.visibility = 'hidden';
+    // Do print the page
+    if (typeof(window.print) != 'undefined') {
+        window.print();
+    }
+    document.all.print.style.visibility = '';
+}
+//-->
+</script>
+<?php
+echo '<br /><br />&nbsp;<input type="button" style="visibility: ; width: 100px; height: 25px" name="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
+
 require('./footer.inc.php3');
 ?>

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-09 Garvin Hicking <me@supergarv.de>
+    * db_printview.php3: Added print button (#700205)
+
 2003-03-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/transformations/*.sh: did not work in bash
 
