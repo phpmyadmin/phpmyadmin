@@ -444,4 +444,6 @@ $strYes = '‚Í‚¢';
 $strZip = '"zip‚³‚ê‚é"';
 
 // To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

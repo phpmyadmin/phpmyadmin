@@ -97,12 +97,12 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
 <!-- The tables list -->
 <table border="<?php echo $cfg['Border']; ?>">
 <tr>
-    <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
-    <th><?php echo ucfirst($strRecords); ?></th>
-    <th><?php echo ucfirst($strType); ?></th>
+    <th>&nbsp;<?php echo $strTable; ?>&nbsp;</th>
+    <th><?php echo $strRecords; ?></th>
+    <th><?php echo $strType; ?></th>
     <?php
     if ($cfg['ShowStats']) {
-        echo '<th>' . ucfirst($strSize) . '</th>';
+        echo '<th>' . $strSize . '</th>';
     }
     echo "\n";
     ?>
@@ -232,8 +232,8 @@ else {
 <!-- The tables list -->
 <table border="<?php echo $cfg['Border']; ?>">
 <tr>
-    <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
-    <th><?php echo ucfirst($strRecords); ?></th>
+    <th>&nbsp;<?php echo $strTable; ?>&nbsp;</th>
+    <th><?php echo $strRecords; ?></th>
 </tr>
     <?php
     while ($i < $num_tables) {

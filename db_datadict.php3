@@ -165,19 +165,19 @@ while ($row = mysql_fetch_array($rowset)) {
 <!-- TABLE INFORMATIONS -->
 <table width="100%" bordercolorlight="black" border="border" style="border-collapse: collapse;background-color: white">
 <tr>
-    <th width="50"><?php echo ucfirst($strField); ?></th>
-    <th width="50"><?php echo ucfirst($strType); ?></th>
-    <!--<th width="50"><?php echo ucfirst($strAttr); ?></th>-->
-    <th width="50"><?php echo ucfirst($strNull); ?></th>
-    <th width="50"><?php echo ucfirst($strDefault); ?></th>
-    <!--<th width="50"><?php echo ucfirst($strExtra); ?></th>-->
+    <th width="50"><?php echo $strField; ?></th>
+    <th width="50"><?php echo $strType; ?></th>
+    <!--<th width="50"><?php echo $strAttr; ?></th>-->
+    <th width="50"><?php echo $strNull; ?></th>
+    <th width="50"><?php echo $strDefault; ?></th>
+    <!--<th width="50"><?php echo $strExtra; ?></th>-->
     <?php
     echo "\n";
     if ($have_rel) {
-        echo '    <th width="50">' . ucfirst($strLinksTo) . '</th>' . "\n";
+        echo '    <th width="50">' . $strLinksTo . '</th>' . "\n";
     }
     if ($cfgRelation['commwork']) {
-        echo '    <th width="400">' . ucfirst($strComments) . '</th>' . "\n";
+        echo '    <th width="400">' . $strComments . '</th>' . "\n";
     }
     ?>
 </tr>

@@ -385,7 +385,7 @@ $strSubmit = 'Enviar';
 $strSuccess = 'La vostra comanda SQL ha estat executada amb èxit';
 $strSum = 'Suma';
 
-$strTable = 'taula ';
+$strTable = 'Taula';
 $strTableComments = 'Comentaris de la taula';
 $strTableEmpty = 'El nom de la taula és buit!';
 $strTableHasBeenDropped = 'S\'ha esborrat la taula %s';
@@ -434,4 +434,6 @@ $strYes = 'Si';
 $strZip = '"comprimit amb zip"';
 
 // To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

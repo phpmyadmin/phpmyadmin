@@ -444,4 +444,6 @@ $strYes = 'はい';
 $strZip = '"zipされる"';
 
 // To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

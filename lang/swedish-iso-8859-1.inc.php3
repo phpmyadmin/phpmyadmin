@@ -386,7 +386,7 @@ $strSubmit = 'Sänd';
 $strSuccess = 'Din SQL-fråga utfördes korrekt';
 $strSum = 'Summa';
 
-$strTable = 'tabell ';
+$strTable = 'Tabell';
 $strTableComments = 'Tabellkommentarer';
 $strTableEmpty = 'Tabellnamnet är tomt!';
 $strTableHasBeenDropped = 'Tabellen %s har tagits bort';

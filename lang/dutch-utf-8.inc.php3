@@ -390,7 +390,7 @@ $strSubmit = 'Verzenden';
 $strSuccess = 'Uw SQL-query is succesvol uitgevoerd.';
 $strSum = 'Som';
 
-$strTable = 'Tabel ';
+$strTable = 'Tabel';
 $strTableComments = 'Tabel opmerkingen';
 $strTableEmpty = 'De tabel naam is leeg!';
 $strTableHasBeenDropped = 'Tabel %s is vervallen';
@@ -439,4 +439,6 @@ $strYes = 'Ja';
 $strZip = '"Gezipt"';
 
 // To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

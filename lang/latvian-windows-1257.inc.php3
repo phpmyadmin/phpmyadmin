@@ -305,7 +305,7 @@ $strSubmit = 'Nosûtît';
 $strSuccess = 'Jûsu SQL-vaicâjums tika veiksmîgi izpildîts';
 $strSum = 'Kopumâ';
 
-$strTable = 'Tabula ';
+$strTable = 'Tabula';
 $strTableComments = 'Komentârs tabulai';
 $strTableEmpty = 'Tabulas nosaukums nav norâdîts!';
 $strTableHasBeenDropped = 'Tabula %s tika izdzçsta';

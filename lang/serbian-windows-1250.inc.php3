@@ -306,7 +306,7 @@ $strSubmit = 'Startuj';
 $strSuccess = 'Vas SQL upit je uspesno izvrsen';
 $strSum = 'Ukupno';
 
-$strTable = 'tabela ';
+$strTable = 'Tabela';
 $strTableComments = 'Komentar tabele';
 $strTableEmpty = 'Ima tabele je prazno!';
 $strTableHasBeenDropped = 'Tabela %s je obrisana';

@@ -253,6 +253,7 @@ $strNotValidNumber = ' n\'est pas un nombre valide !';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s occurence(s) dans la table <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total :</b> <i>%s</i> occurence(s)';
+$strNumTables = 'Tables';
 
 $strOK = 'OK';
 $strOftenQuotation = 'Souvent des guillemets. OPTIONNEL signifie que seuls les champs de type char et varchar sont entourés par ce caractère.';
@@ -385,7 +386,7 @@ $strSubmit = 'Exécuter';
 $strSuccess = 'Votre requête SQL a été exécutée avec succès';
 $strSum = 'Somme';
 
-$strTable = 'table ';
+$strTable = 'Table';
 $strTableComments = 'Commentaires sur la table';
 $strTableEmpty = 'Le nom de la table est vide';
 $strTableHasBeenDropped = 'La table %s a été effacée';
@@ -400,6 +401,7 @@ $strTheContent = 'Le contenu de votre fichier a été inséré.';
 $strTheContents = 'Le contenu du fichier remplacera le contenu de la table pour les enregistrements ayant une valeur de clé primaire ou unique identique.';
 $strTheTerminator = 'Le caractère qui sépare chacun des champs.';
 $strTotal = 'total';
+$strTotalUC = 'Total';
 $strType = 'Type';
 
 $strUncheckAll = 'Tout décocher';
@@ -432,6 +434,5 @@ $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 $strYes = 'Oui';
 
 $strZip = '"zippé"';
-// To translate
 
 ?>

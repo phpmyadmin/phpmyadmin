@@ -393,7 +393,7 @@ $strSubmit = 'Dërgoje';
 $strSuccess = 'Query u zbatua me sukses';
 $strSum = 'Gjithsej';
 
-$strTable = 'tabela ';
+$strTable = 'Tabela';
 $strTableComments = 'Komente mbi tabelën';
 $strTableEmpty = 'Emri i tabelës është bosh!';
 $strTableHasBeenDropped = 'Tabela %s u eleminua';
@@ -443,4 +443,6 @@ $strZip = '"kompresuar me zip"';
 
 // To translate
 $strCompression = 'Compression'; //to translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

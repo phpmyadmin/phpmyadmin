@@ -262,6 +262,7 @@ $strNoValidateSQL = 'SQL-Validierung umgehen';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s Treffer in der Tabelle <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Insgesamt</b> <i>%s</i> Treffer';
+$strNumTables = 'Tabellen';
 
 $strOftenQuotation = 'Häufig Anführungszeichen. Optional bedeutet, dass nur Textfelder von den angegeben Zeichen eingeschlossen sind.';
 $strOK = 'OK';
@@ -392,9 +393,9 @@ $strStructPropose = 'Tabellenstruktur analysieren';
 $strStructure = 'Struktur';
 $strSubmit = 'Abschicken';
 $strSuccess = 'Ihr SQL-Befehl wurde erfolgreich ausgeführt.';
-$strSum = 'Summe';
+$strSum = 'Gesamt';
 
-$strTable = 'Tabelle ';
+$strTable = 'Tabelle';
 $strTableComments = 'Tabellen-Kommentar';
 $strTableEmpty = 'Der Tabellenname ist leer!';
 $strTableHasBeenDropped = 'Die Tabelle %s wurde gelöscht.';
@@ -409,6 +410,7 @@ $strTheContent = 'Der Inhalt Ihrer Datei wurde eingefügt.';
 $strTheContents = 'Der Inhalt der CSV-Datei ersetzt die Einträge mit den gleichen Primär- oder Unique-Schlüsseln.';
 $strTheTerminator = 'Der Trenner zwischen den Feldern.';
 $strTotal = 'insgesamt';
+$strTotalUC = 'Insgesamt';
 $strType = 'Typ';
 
 $strUncheckAll = 'Auswahl entfernen';

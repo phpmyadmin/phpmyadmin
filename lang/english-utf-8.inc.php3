@@ -254,6 +254,7 @@ $strNotValidNumber = ' is not a valid row number!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s match(es) inside table <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> match(es)';
+$strNumTables = 'Tables';
 
 $strOK = 'OK';
 $strOftenQuotation = 'Often quotation marks. OPTIONALLY means that only char and varchar fields are enclosed by the "enclosed by"-character.';
@@ -386,7 +387,7 @@ $strSubmit = 'Submit';
 $strSuccess = 'Your SQL-query has been executed successfully';
 $strSum = 'Sum';
 
-$strTable = 'table ';
+$strTable = 'Table';
 $strTableComments = 'Table comments';
 $strTableEmpty = 'The table name is empty!';
 $strTableHasBeenDropped = 'Table %s has been dropped';
@@ -401,6 +402,7 @@ $strTheContent = 'The content of your file has been inserted.';
 $strTheContents = 'The contents of the file replaces the contents of the selected table for rows with identical primary or unique key.';
 $strTheTerminator = 'The terminator of the fields.';
 $strTotal = 'total';
+$strTotalUC = 'Total';
 $strType = 'Type';
 
 $strUncheckAll = 'Uncheck All';

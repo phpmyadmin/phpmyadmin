@@ -435,4 +435,6 @@ $strZip = 'запакувати в "zip"';
 
 // To translate
 $strCompression = 'Compression'; //to translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

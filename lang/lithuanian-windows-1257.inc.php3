@@ -385,7 +385,7 @@ $strSubmit = 'Siøsti';
 $strSuccess = 'Jûsø SQL uþklausa sëkmingai ávykdyta';
 $strSum = 'Sumos';
 
-$strTable = 'lentelë ';
+$strTable = 'Lentelë';
 $strTableComments = 'Lentelës komentarai';
 $strTableEmpty = 'Tuðèias lentelës vardas!';
 $strTableHasBeenDropped = 'Lentelë %s panaikinta';
@@ -434,4 +434,6 @@ $strYes = 'Taip';
 $strZip = '"zip"';
 
 //To translate:
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

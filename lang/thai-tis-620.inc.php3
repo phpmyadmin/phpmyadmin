@@ -436,4 +436,8 @@ $strWrongUser = 'อนุญาตให้เข้าใช้ไม่ได้ ชื่อผู้ใช้หรือรหัสผ่านผิด';
 $strYes = 'ใช่';
 
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
+
+// To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

@@ -381,7 +381,7 @@ $strSubmit = 'Vali';
 $strSuccess = 'Teie SQL päring täideti edukalt';
 $strSum = 'Summa';
 
-$strTable = 'tabel ';
+$strTable = 'Tabel';
 $strTableComments = 'Tabeli kommentaarid';
 $strTableEmpty = 'Tabeli nimi on tühi!';
 $strTableHasBeenDropped = 'Tabel %s kustutatud';
@@ -428,10 +428,13 @@ $strWrongUser = 'Vale kasutajanimi/parool. Ligipääd keelatud.';
 $strYes = 'Jah';
 
 $strZip = '"zipitud"';
+
 // To translate
 
 $strDataDict = 'Data Dictionary';  //to translate
 $strPrint = 'Print';  //to translate
 $strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 $strCompression = 'Compression'; //to translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

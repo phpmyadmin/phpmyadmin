@@ -386,7 +386,7 @@ $strSubmit = 'Wysłanie';
 $strSuccess = 'Zapytanie SQL zostało pomyślnie wykonane';
 $strSum = 'Suma';
 
-$strTable = 'tabela ';
+$strTable = 'Tabela';
 $strTableComments = 'Komentarze tabeli';
 $strTableEmpty = 'Brak nazwy tabeli!';
 $strTableHasBeenDropped = 'Tabela %s została usunięta';

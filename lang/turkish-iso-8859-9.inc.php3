@@ -370,7 +370,7 @@ $strSubmit = 'Onayla';
 $strSuccess = 'SQL sorgunuz baþarýyla çalýþtýrýlmýþtýr';
 $strSum = 'toplam';
 
-$strTable = 'tablo ';
+$strTable = 'Tablo';
 $strTableComments = 'Tablo yorumlarý';
 $strTableEmpty = 'Tablo ismi boþ!';
 $strTableHasBeenDropped = '%s tablosu kaldýrýlmýþtýr';

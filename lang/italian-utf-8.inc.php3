@@ -392,7 +392,7 @@ $strSubmit = 'Invia';
 $strSuccess = 'La query è stata eseguita con successo';
 $strSum = 'Totali';
 
-$strTable = 'tabella ';
+$strTable = 'Tabella';
 $strTableComments = 'Commenti sulla tabella';
 $strTableEmpty = 'Il nome della tabella è vuoto!';
 $strTableHasBeenDropped = 'La tabella %s è stata eliminata';
@@ -441,5 +441,7 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 
 ?>

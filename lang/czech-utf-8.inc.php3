@@ -391,7 +391,7 @@ $strSubmit = 'Odešli';
 $strSuccess = 'Váš SQL-dotaz byl úspěšně vykonán';
 $strSum = 'Celkem';
 
-$strTable = 'Tabulka ';
+$strTable = 'Tabulka';
 $strTableComments = 'Komentáře k tabulce';
 $strTableEmpty = 'Jméno tabulky je prázdné!';
 $strTableHasBeenDropped = 'Tabulka %s byla odstraněna';
@@ -438,6 +438,9 @@ $strWrongUser = 'Špatné uživatelské jméno/heslo. Přístup odepřen.';
 $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
+
 // To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 
 ?>

@@ -65,13 +65,13 @@ $fields_cnt  = mysql_num_rows($fields_rs);
 <table border="<?php echo $cfg['Border']; ?>">
 <tr>
     <td></td>
-    <th>&nbsp;<?php echo ucfirst($strField); ?>&nbsp;</th>
-    <th><?php echo ucfirst($strType); ?></th>
-    <th><?php echo ucfirst($strAttr); ?></th>
-    <th><?php echo ucfirst($strNull); ?></th>
-    <th><?php echo ucfirst($strDefault); ?></th>
-    <th><?php echo ucfirst($strExtra); ?></th>
-    <th colspan="<?php echo((PMA_MYSQL_INT_VERSION >= 32323) ? '6' : '5'); ?>"><?php echo ucfirst($strAction); ?></th>
+    <th>&nbsp;<?php echo $strField; ?>&nbsp;</th>
+    <th><?php echo $strType; ?></th>
+    <th><?php echo $strAttr; ?></th>
+    <th><?php echo $strNull; ?></th>
+    <th><?php echo $strDefault; ?></th>
+    <th><?php echo $strExtra; ?></th>
+    <th colspan="<?php echo((PMA_MYSQL_INT_VERSION >= 32323) ? '6' : '5'); ?>"><?php echo $strAction; ?></th>
 </tr>
 
 <?php
@@ -332,7 +332,7 @@ if ($cfg['ShowStats']) {
             <th colspan="2" align="center"><?php echo $strUsage; ?></th>
         </tr>
         <tr>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strData); ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo $strData; ?></td>
             <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" align="right" nowrap="nowrap"><?php echo $data_size; ?></td>
             <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $data_unit; ?></td>
         </tr>
@@ -341,7 +341,7 @@ if ($cfg['ShowStats']) {
             echo "\n";
             ?>
         <tr>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo $strIndex; ?></td>
             <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" align="right" nowrap="nowrap"><?php echo $index_size; ?></td>
             <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $index_unit; ?></td>
         </tr>
@@ -351,12 +351,12 @@ if ($cfg['ShowStats']) {
             echo "\n";
             ?>
         <tr style="color: #bb0000">
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo $strOverhead; ?></td>
             <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" align="right" nowrap="nowrap"><?php echo $free_size; ?></td>
             <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $free_unit; ?></td>
         </tr>
         <tr>
-            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" style="padding-right: 10px"><?php echo $strEffective; ?></td>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right" nowrap="nowrap"><?php echo $effect_size; ?></td>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><?php echo $effect_unit; ?></td>
         </tr>
@@ -366,7 +366,7 @@ if ($cfg['ShowStats']) {
             echo "\n";
         ?>
         <tr>
-            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" style="padding-right: 10px"><?php echo $strTotalUC; ?></td>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right" nowrap="nowrap"><?php echo $tot_size; ?></td>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><?php echo $tot_unit; ?></td>
         </tr>
@@ -404,7 +404,7 @@ if ($cfg['ShowStats']) {
             echo "\n";
             ?>
         <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strFormat); ?></td>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strFormat; ?></td>
             <td bgcolor="<?php echo $bgcolor; ?>" align="<?php echo $cell_align_left; ?>" nowrap="nowrap">
             <?php
             echo '                ';
@@ -428,7 +428,7 @@ if ($cfg['ShowStats']) {
             echo "\n";
             ?>
         <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strRows); ?></td>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strRows; ?></td>
             <td bgcolor="<?php echo $bgcolor; ?>" align="right" nowrap="nowrap">
                 <?php echo number_format($showtable['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
@@ -440,7 +440,7 @@ if ($cfg['ShowStats']) {
             echo "\n";
             ?>
         <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strRowLength; ?>&nbsp;&oslash;</td>
             <td bgcolor="<?php echo $bgcolor; ?>" align="right" nowrap="nowrap">
                 <?php echo number_format($showtable['Avg_row_length'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
@@ -452,7 +452,7 @@ if ($cfg['ShowStats']) {
             echo "\n";
             ?>
         <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strRowSize; ?>&nbsp;&oslash;</td>
             <td bgcolor="<?php echo $bgcolor; ?>" align="right" nowrap="nowrap">
                 <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
             </td>
@@ -464,7 +464,7 @@ if ($cfg['ShowStats']) {
             echo "\n";
             ?>
         <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strNext; ?>&nbsp;Autoindex</td>
             <td bgcolor="<?php echo $bgcolor; ?>" align="right" nowrap="nowrap">
                 <?php echo number_format($showtable['Auto_increment'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>

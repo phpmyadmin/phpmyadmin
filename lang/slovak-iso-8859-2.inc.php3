@@ -387,7 +387,7 @@ $strSubmit = 'Odo¹li';
 $strSuccess = 'SQL dotaz bol úspe¹ne vykonaný';
 $strSum = 'Celkom';
 
-$strTable = 'tabuµka ';
+$strTable = 'Tabuµka';
 $strTableComments = 'Komentár k tabuµke';
 $strTableEmpty = 'Tabuµka je prázdna!';
 $strTableHasBeenDropped = 'Tabuµka %s bola odstránená';
@@ -434,6 +434,8 @@ $strWrongUser = 'Zlé pou¾ívateµské meno alebo heslo. Prístup zamietnutý.';
 $strYes = 'Áno';
 
 $strZip = '"zo zipované"';
-// To translate
 
+// To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

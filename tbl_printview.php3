@@ -183,19 +183,19 @@ while (list($key, $table) = each($the_tables)) {
 <!-- TABLE INFORMATIONS -->
 <table width="100%" bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
 <tr>
-    <th width="50"><?php echo ucfirst($strField); ?></th>
-    <th width="50"><?php echo ucfirst($strType); ?></th>
-    <!--<th width="50"><?php echo ucfirst($strAttr); ?></th>-->
-    <th width="50"><?php echo ucfirst($strNull); ?></th>
-    <th width="50"><?php echo ucfirst($strDefault); ?></th>
-    <!--<th width="50"><?php echo ucfirst($strExtra); ?></th>-->
+    <th width="50"><?php echo $strField; ?></th>
+    <th width="50"><?php echo $strType; ?></th>
+    <!--<th width="50"><?php echo $strAttr; ?></th>-->
+    <th width="50"><?php echo $strNull; ?></th>
+    <th width="50"><?php echo $strDefault; ?></th>
+    <!--<th width="50"><?php echo $strExtra; ?></th>-->
     <?php
     echo "\n";
     if ($have_rel) {
-        echo '    <th width="50">' . ucfirst($strLinksTo) . '</th>' . "\n";
+        echo '    <th width="50">' . $strLinksTo . '</th>' . "\n";
     }
     if ($cfgRelation['commwork']) {
-        echo '    <th width="400">' . ucfirst($strComments) . '</th>' . "\n";
+        echo '    <th width="400">' . $strComments . '</th>' . "\n";
     }
     ?>
 </tr>
@@ -414,7 +414,7 @@ while (list($key, $table) = each($the_tables)) {
             <th colspan="2" align="center"><?php echo $strUsage; ?></th>
         </tr>
         <tr>
-            <td class="print" style="padding-right: 10px"><?php echo ucfirst($strData); ?></td>
+            <td class="print" style="padding-right: 10px"><?php echo $strData; ?></td>
             <td align="right" class="print" nowrap="nowrap"><?php echo $data_size; ?></td>
             <td class="print"><?php echo $data_unit; ?></td>
         </tr>
@@ -423,7 +423,7 @@ while (list($key, $table) = each($the_tables)) {
                 echo "\n";
                 ?>
         <tr>
-            <td class="print" style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
+            <td class="print" style="padding-right: 10px"><?php echo $strIndex; ?></td>
             <td align="right" class="print" nowrap="nowrap"><?php echo $index_size; ?></td>
             <td class="print"><?php echo $index_unit; ?></td>
         </tr>
@@ -433,12 +433,12 @@ while (list($key, $table) = each($the_tables)) {
                 echo "\n";
                 ?>
         <tr style="color: #bb0000">
-            <td class="print" style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
+            <td class="print" style="padding-right: 10px"><?php echo $strOverhead; ?></td>
             <td align="right" class="print" nowrap="nowrap"><?php echo $free_size; ?></td>
             <td class="print"><?php echo $free_unit; ?></td>
         </tr>
         <tr>
-            <td class="print" style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
+            <td class="print" style="padding-right: 10px"><?php echo $strEffective; ?></td>
             <td align="right" class="print" nowrap="nowrap"><?php echo $effect_size; ?></td>
             <td class="print"><?php echo $effect_unit; ?></td>
         </tr>
@@ -448,7 +448,7 @@ while (list($key, $table) = each($the_tables)) {
                 echo "\n";
                 ?>
         <tr>
-            <td class="print" style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
+            <td class="print" style="padding-right: 10px"><?php echo $strTotalUC; ?></td>
             <td align="right" class="print" nowrap="nowrap"><?php echo $tot_size; ?></td>
             <td class="print"><?php echo $tot_unit; ?></td>
         </tr>

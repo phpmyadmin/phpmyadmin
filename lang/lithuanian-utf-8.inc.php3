@@ -386,7 +386,7 @@ $strSubmit = 'Siųsti';
 $strSuccess = 'Jūsų SQL užklausa sėkmingai įvykdyta';
 $strSum = 'Sumos';
 
-$strTable = 'lentelė ';
+$strTable = 'Lentelė';
 $strTableComments = 'Lentelės komentarai';
 $strTableEmpty = 'Tuščias lentelės vardas!';
 $strTableHasBeenDropped = 'Lentelė %s panaikinta';
@@ -435,4 +435,6 @@ $strYes = 'Taip';
 $strZip = '"zip"';
 
 //To translate:
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

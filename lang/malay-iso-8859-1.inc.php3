@@ -101,7 +101,7 @@ $strColumn = 'Kolum';
 $strColumnNames = 'Nama Kolum';
 $strComments = 'Komen';
 $strCompleteInserts = 'Kemasukkan Selesai';
-$strCompression = 'Mampatan'; 
+$strCompression = 'Mampatan';
 $strConfigFileError = 'phpMyAdmin tidak dapat membaca fail konfigurasi!<br \\>Ini mungkin terjadi apabila ada kesalahan dalam php ataupun php tidak jumpa fail tersebut.<br />Sila panggil fail konfigurasi menggunakan pautan dibawah dan baca kesalahan php yang diterima. Dalam kebanyakan kes quote atau semicolon tertinggal.<br />Jika kamu terima laman kosong, semuanya berjalan lancar.';
 $strConfigureTableCoord = 'Sila konfigurasikan kordinat bagi jadual %s';
 $strConfirm = 'Anda pasti mahu lakukan?';
@@ -405,7 +405,7 @@ $strSubmit = 'Hantar';
 $strSuccess = 'Kueri-SQL anda telah dilaksanakan dengan jaya';
 $strSum = 'Jumlah';
 
-$strTable = 'jadual ';
+$strTable = 'Jadual';
 $strTableComments = 'Komen jadual';
 $strTableEmpty = 'Nama jadual  adalah kosong';
 $strTableHasBeenDropped = 'Jadual %s telah digugurkan';
@@ -453,4 +453,7 @@ $strYes = 'Ya';
 
 $strZip = '"zipped"';
 
+// To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

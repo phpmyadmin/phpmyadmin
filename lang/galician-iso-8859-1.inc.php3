@@ -388,7 +388,7 @@ $strSubmit = 'Submeter';
 $strSuccess = 'O seu comando de SQL executou-se com éxito';
 $strSum = 'Suma';
 
-$strTable = 'tabela ';
+$strTable = 'Tabela';
 $strTableComments = 'Comentarios da tabela';
 $strTableEmpty = 'O nome da tabela está vacío!';
 $strTableHasBeenDropped = 'Eliminouse a tabela %s';
@@ -435,8 +435,11 @@ $strWrongUser = 'Usuario ou contrasinal errado. Acceso negado.';
 $strYes = 'Si';
 
 $strZip = 'comprimido no formato "zipped"';
+
 // To translate
 
 $strImportDocSQL = 'Import docSQL Files';  //to translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 
 ?>

@@ -123,7 +123,7 @@ if ($server > 0) {
  */
 ?>
 <h1 align="center">
-    <?php echo ucfirst($strDatabasesStats); ?>
+    <?php echo $strDatabasesStats; ?>
 </h1>
 <table align="center" border="<?php echo $cfg['Border']; ?>" cellpadding="5">
 <tr>
@@ -195,27 +195,27 @@ if ($num_dbs > 0) {
         <th>
             &nbsp;
             <a href="<?php echo $common_url . '&amp;sort_by=db_name&amp;sort_order=' . $url_sort[0]['order']; ?>">
-                <?php echo ucfirst($strDatabase) . $url_sort[0]['img_tag']; ?></a>&nbsp;
+                <?php echo $strDatabase . $url_sort[0]['img_tag']; ?></a>&nbsp;
         </th>
         <th>
             &nbsp;
             <a href="<?php echo $common_url . '&amp;sort_by=tbl_cnt&amp;sort_order=' . $url_sort[1]['order']; ?>">
-                <?php echo ucfirst(trim(sprintf($strTables, ''))) . $url_sort[1]['img_tag']; ?></a>&nbsp;
+                <?php echo $strNumTables . $url_sort[1]['img_tag']; ?></a>&nbsp;
         </th>
         <th>
             &nbsp;
             <a href="<?php echo $common_url . '&amp;sort_by=data_sz&amp;sort_order=' . $url_sort[2]['order']; ?>">
-                <?php echo ucfirst($strData) . $url_sort[2]['img_tag']; ?></a>&nbsp;
+                <?php echo $strData . $url_sort[2]['img_tag']; ?></a>&nbsp;
         </th>
         <th>
             &nbsp;
             <a href="<?php echo $common_url . '&amp;sort_by=idx_sz&amp;sort_order=' . $url_sort[3]['order']; ?>">
-                <?php echo ucfirst($strIndexes) . $url_sort[3]['img_tag']; ?></a>&nbsp;
+                <?php echo $strIndexes . $url_sort[3]['img_tag']; ?></a>&nbsp;
         </th>
         <th>
             &nbsp;
             <a href="<?php echo $common_url . '&amp;sort_by=tot_sz&amp;sort_order=' . $url_sort[4]['order']; ?>">
-                <?php echo ucfirst($strTotal) . $url_sort[4]['img_tag']; ?></a>&nbsp;
+                <?php echo $strTotalUC . $url_sort[4]['img_tag']; ?></a>&nbsp;
         </th>
     </tr>
     <?php

@@ -386,7 +386,7 @@ $strSubmit = 'Trimite';
 $strSuccess = 'Comanda dumneavoastra SQL a fost executata cu succes';
 $strSum = 'Sum';
 
-$strTable = 'tabel ';
+$strTable = 'Tabel';
 $strTableComments = 'Comentarii tabel';
 $strTableEmpty = 'Numele de tabel este gol!';
 $strTableHasBeenDropped = 'Tabelul %s a fost aruncat';
@@ -433,6 +433,8 @@ $strWrongUser = 'Nume de utilizator/Parola incorecta. Accesul interzis.';
 $strYes = 'Da';
 
 $strZip = '"arhivat"';
-// To translate
 
+// To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-28 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * db_datadict.php3, db_details_structure.php3, db_printview.php3,
+      db_stats.php3, tbl_printview.php3, tbl_properties_structure.php3,
+      lang/*.inc.php3: Fixed bug #644526 (ucfirst php function causes trouble).
+    * lang/german-*.inc.php3: Clarification.
+
 2002-11-27 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: bug 644030 part 1: syntax error
       on a REVOKE

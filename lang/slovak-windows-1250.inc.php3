@@ -387,7 +387,7 @@ $strSubmit = 'Odošli';
 $strSuccess = 'SQL dotaz bol úspešne vykonaný';
 $strSum = 'Celkom';
 
-$strTable = 'tabu¾ka ';
+$strTable = 'Tabu¾ka';
 $strTableComments = 'Komentár k tabu¾ke';
 $strTableEmpty = 'Tabu¾ka je prázdna!';
 $strTableHasBeenDropped = 'Tabu¾ka %s bola odstránená';

@@ -390,7 +390,7 @@ $strSubmit = 'Pošlji';
 $strSuccess = 'SQL-poizvedba je bila uspešno izvedena';
 $strSum = 'Vsota';
 
-$strTable = 'tabela ';
+$strTable = 'Tabela';
 $strTableComments = 'Komentar tabele';
 $strTableEmpty = 'Ime tabele je prazno!';
 $strTableHasBeenDropped = 'Tabela %s je zavržena';
@@ -437,6 +437,8 @@ $strWrongUser = 'Napačno uporabniško ime/geslo. Dostop zavrnjen.';
 $strYes = 'Da';
 
 $strZip = '"zipano"';
-// To translate
 
+// To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

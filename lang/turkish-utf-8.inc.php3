@@ -371,7 +371,7 @@ $strSubmit = 'Onayla';
 $strSuccess = 'SQL sorgunuz başarıyla çalıştırılmıştır';
 $strSum = 'toplam';
 
-$strTable = 'tablo ';
+$strTable = 'Tablo';
 $strTableComments = 'Tablo yorumları';
 $strTableEmpty = 'Tablo ismi boş!';
 $strTableHasBeenDropped = '%s tablosu kaldırılmıştır';
@@ -442,4 +442,6 @@ $strDataDict = 'Data Dictionary';  //to translate
 $strPrint = 'Print';  //to translate
 $strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 $strCompression = 'Compression'; //to translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

@@ -389,7 +389,7 @@ $strSubmit = 'Pošlji';
 $strSuccess = 'SQL-poizvedba je bila uspešno izvedena';
 $strSum = 'Vsota';
 
-$strTable = 'tabela ';
+$strTable = 'Tabela';
 $strTableComments = 'Komentar tabele';
 $strTableEmpty = 'Ime tabele je prazno!';
 $strTableHasBeenDropped = 'Tabela %s je zavržena';

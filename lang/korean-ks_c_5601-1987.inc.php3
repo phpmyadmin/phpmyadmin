@@ -452,4 +452,6 @@ $strValidatorError = 'The SQL validator could not be initialized. Please check i
 $strWebServerUploadDirectory = '웹서버 업로드 디렉토리';  //to translate
 $strWebServerUploadDirectoryError = '업로드 디렉토리에 접근할 수 없습니다';  //to translate
 
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

@@ -389,7 +389,7 @@ $strSubmit = 'Send';
 $strSuccess = 'Kommandoen/spørringen er utført';
 $strSum = 'Sum';
 
-$strTable = 'tabell ';
+$strTable = 'Tabell';
 $strTableComments = 'Tabell kommentarer';
 $strTableEmpty = 'Tabellnavnet er tomt!';
 $strTableHasBeenDropped = 'Tabellen %s har blitt slettet';

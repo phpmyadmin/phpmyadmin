@@ -372,7 +372,7 @@ $strSubmit = 'Submete';
 $strSuccess = 'O seu comando SQL foi executado com sucesso';
 $strSum = 'Soma';
 
-$strTable = 'tabela ';
+$strTable = 'Tabela';
 $strTableComments = 'Comentários da tabela';
 $strTableEmpty = 'O nome da tabela está vazio!';
 $strTableHasBeenDropped = 'A tabela %s foi eliminada';
@@ -450,4 +450,6 @@ $strValidatorError = 'The SQL validator could not be initialized. Please check i
 $strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 $strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

@@ -385,7 +385,7 @@ $strSubmit = 'Trimite';
 $strSuccess = 'Comanda dumneavoastra SQL a fost executata cu succes';
 $strSum = 'Sum';
 
-$strTable = 'tabel ';
+$strTable = 'Tabel';
 $strTableComments = 'Comentarii tabel';
 $strTableEmpty = 'Numele de tabel este gol!';
 $strTableHasBeenDropped = 'Tabelul %s a fost aruncat';

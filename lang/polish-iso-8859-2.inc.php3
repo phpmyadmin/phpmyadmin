@@ -385,7 +385,7 @@ $strSubmit = 'Wys³anie';
 $strSuccess = 'Zapytanie SQL zosta³o pomy¶lnie wykonane';
 $strSum = 'Suma';
 
-$strTable = 'tabela ';
+$strTable = 'Tabela';
 $strTableComments = 'Komentarze tabeli';
 $strTableEmpty = 'Brak nazwy tabeli!';
 $strTableHasBeenDropped = 'Tabela %s zosta³a usuniêta';
@@ -432,6 +432,8 @@ $strWrongUser = 'B³êdne pola u¿ytkownik/has³o. Brak dostêpu.';
 $strYes = 'Tak';
 
 $strZip = '".zip"';
-// To translate
 
+// To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>

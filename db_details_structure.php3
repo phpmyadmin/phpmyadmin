@@ -58,13 +58,13 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
 <table border="<?php echo $cfg['Border']; ?>">
 <tr>
     <td></td>
-    <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
-    <th colspan="6"><?php echo ucfirst($strAction); ?></th>
-    <th><?php echo ucfirst($strRecords); ?></th>
-    <th><?php echo ucfirst($strType); ?></th>
+    <th>&nbsp;<?php echo $strTable; ?>&nbsp;</th>
+    <th colspan="6"><?php echo $strAction; ?></th>
+    <th><?php echo $strRecords; ?></th>
+    <th><?php echo $strType; ?></th>
     <?php
     if ($cfg['ShowStats']) {
-        echo '<th>' . ucfirst($strSize) . '</th>';
+        echo '<th>' . $strSize . '</th>';
     }
     echo "\n";
     ?>
@@ -334,9 +334,9 @@ else {
 <table border="<?php echo $cfg['Border']; ?>">
 <tr>
     <td></td>
-    <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
-    <th colspan="6"><?php echo ucfirst($strAction); ?></th>
-    <th><?php echo ucfirst($strRecords); ?></th>
+    <th>&nbsp;<?php echo $strTable; ?>&nbsp;</th>
+    <th colspan="6"><?php echo $strAction; ?></th>
+    <th><?php echo $strRecords; ?></th>
 </tr>
     <?php
     $checked = (!empty($checkall) ? ' checked="checked"' : '');

@@ -387,7 +387,7 @@ $strSubmit = 'Sänd';
 $strSuccess = 'Din SQL-fråga utfördes korrekt';
 $strSum = 'Summa';
 
-$strTable = 'tabell ';
+$strTable = 'Tabell';
 $strTableComments = 'Tabellkommentarer';
 $strTableEmpty = 'Tabellnamnet är tomt!';
 $strTableHasBeenDropped = 'Tabellen %s har tagits bort';
@@ -434,6 +434,8 @@ $strWrongUser = 'Fel användarnamn/lösenord. Åtkomst nekad.';
 $strYes = 'Ja';
 
 $strZip = '"zippad"';
-// To translate
 
+// To translate
+$strNumTables = 'Tables'; //to translate
+$strTotalUC = 'Total'; //to translate
 ?>
