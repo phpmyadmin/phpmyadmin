@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 2002-04-06 Loïc Chapeaux  <lolo@phpheaven.net>
+	* header.inc.php3, lines 64-66; left.php3, lines 135-136 & 154-155: back
+	  to previous version.
+
+2002-04-06 Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3, lines 64-66; left.php3, lines 135-136 & 154-155: fixed
 	  "bug" #539756 - Bad CSS Styles for textarea have chosen thanks to Rabus.
 	* Documentation.html: code is now XHTML1.0 and CSS2 compliant!

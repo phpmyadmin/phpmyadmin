@@ -132,7 +132,6 @@ else if ($num_dbs == 1) {
     <!--
     body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
     div {color: #000000}
-    select {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; background-color: #ffffff; color: #000000}
     .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
     .headaCnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
     .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
@@ -150,7 +149,6 @@ else {
     <style type="text/css">
     <!--
     body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
-    select {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; background-color: #ffffff; color: #000000}
     div {color: #000000}
     .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
     .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
