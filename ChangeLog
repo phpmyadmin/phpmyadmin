@@ -10,6 +10,9 @@ $Source$
 	* tbl_indexes; tbl_printview.php3; tbl_properties.php3;
 	  tbl_properties.inc.php3: improved the fix against bug #489440.
 	* libraries/display_tbl.lib.php3: better pointer coding.
+	* main.php3, line 191: a valid MySQL administration system may lead to have
+	  the db creation form displayed with an existing table. Bug fixed thanks
+	  to Rob Mangiafico <rmang at lexiconn.com>.
 
 2001-12-06  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3, mult_submits.inc.php3, tbl_printview.php3: beautify

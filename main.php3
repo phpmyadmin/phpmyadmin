@@ -57,10 +57,11 @@ if ($server > 0) {
     // }
     $local_query     = 'SELECT VERSION() as version, USER() as user';
     $res             = mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, '');
+    $mysql_cur_user  = mysql_result($res, 0, 'user');
 
     $full_string     = str_replace('%pma_s1%', mysql_result($res, 0, 'version'), $strMySQLServerProcess);
     $full_string     = str_replace('%pma_s2%', $server_info, $full_string);
-    $full_string     = str_replace('%pma_s3%', mysql_result($res, 0, 'user'), $full_string);
+    $full_string     = str_replace('%pma_s3%', $mysql_cur_user, $full_string);
 
     echo '<p><b>' . $full_string . '</b></p><br />' . "\n";
 } // end if
@@ -157,18 +158,26 @@ $is_superuser        = FALSE;
 if ($server > 0) {
     // Get user's global privileges ($dbh and $userlink are links to MySQL
     // defined in the "common.lib.php3" library)
+    $mysql_cur_user  = substr($mysql_cur_user, 0, strpos($mysql_cur_user, '@'));
     $is_create_priv  = FALSE;
     $is_process_priv = FALSE;
     $is_reload_priv  = FALSE;
     $is_superuser    = @mysql_query('USE mysql', $userlink);
     if ($dbh) {
-        $local_query = 'SELECT Create_priv, Process_priv, Reload_priv FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\' OR User = \'\'';
+        $local_query = 'SELECT Create_priv, Process_priv, Reload_priv FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
         $rs_usr      = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
-            $result_usr      = mysql_fetch_array($rs_usr);
-            $is_create_priv  = ($result_usr['Create_priv'] == 'Y');
-            $is_process_priv = ($result_usr['Process_priv'] == 'Y');
-            $is_reload_priv  = ($result_usr['Reload_priv'] == 'Y');
+            while ($result_usr = mysql_fetch_array($rs_usr)) {
+                if (!$is_create_priv) {
+                    $is_create_priv  = ($result_usr['Create_priv'] == 'Y');
+                }
+                if (!$is_process_priv) {
+                    $is_process_priv = ($result_usr['Process_priv'] == 'Y');
+                }
+                if (!$is_reload_priv) {
+                    $is_reload_priv  = ($result_usr['Reload_priv'] == 'Y');
+                }
+            } // end while
             mysql_free_result($rs_usr);
         } // end if
     } // end if
@@ -178,11 +187,11 @@ if ($server > 0) {
     // the one he just dropped :)
     // (Note: we only get here after a browser reload, I don't know why)
     if (!$is_create_priv) {
-        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\' OR User = \'\')';
-        $rs_usr      = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-        if (@mysql_numrows($rs_usr) > 0) {
+        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
+        $rs_usr      = mysql_query($local_query, $userlink); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+        if ($rs_usr) {
             while ($row = mysql_fetch_array($rs_usr)) {
-                if (!mysql_select_db($row['Db'], $dbh)) {
+                if (!mysql_select_db($row['Db'], $userlink) && @mysql_errno() != 1044) {
                     $re              = '(^|(\\\\\\\\)+|[^\])';
                     $row['Db']       = ereg_replace($re . '%', '\\1...', ereg_replace($re . '_', '\\1?', $row['Db']));
                     $db_to_create    = $row['Db'];
