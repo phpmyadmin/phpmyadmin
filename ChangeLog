@@ -7,6 +7,7 @@ $Source$
 
 2003-01-07 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: clarification about cookie/http modes
+    * lang/dutch update, thanks to Ivo Teel
 
 2003-01-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3:
