@@ -5,8 +5,12 @@
 /**
  * Gets some core libraries
  */
-require('./libraries/grab_globals.lib.php3');
-require('./libraries/common.lib.php3');
+if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
+    include('./libraries/grab_globals.lib.php3');
+}
+if (!defined('PMA_COMMON_LIB_INCLUDED'))  {
+    include('./libraries/common.lib.php3');
+}
 
 
 /**
