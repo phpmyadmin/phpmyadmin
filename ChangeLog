@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-20  Marc Delisle  <lem9@users.sourceforge.net>
+	* HTTP compression patch thanks to Jeremy Brand <jeremy@nirvani.net> 
+	header.inc.php3, footer.inc.php3, ob_lib.inc.php3
+
 2001-07-20  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_replace.php3: remove warnings if you update 'set' and nothing
 	  is selected

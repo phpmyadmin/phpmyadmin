@@ -3,3 +3,7 @@
 </table>
 </body>
 </html>
+<?php
+if ($ob_mode)
+  out_buffer_post($ob_mode);
+?>
