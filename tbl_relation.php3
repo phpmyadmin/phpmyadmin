@@ -121,10 +121,10 @@ if ($cfgRelation['relwork']
                     // could be put in an include file
                     $upd_query  = 'ALTER TABLE ' . $table 
                                 . ' ADD FOREIGN KEY ('
-                                . PMA_sqlAddslashes($master_field) . ')'
+                                . PMA_backquote(PMA_sqlAddslashes($master_field)) . ')'
                                 . ' REFERENCES '
-                                . PMA_sqlAddslashes($foreign_table) . '('
-                                . PMA_sqlAddslashes($foreign_field) . ')'; 
+                                . PMA_backquote(PMA_sqlAddslashes($foreign_table)) . '('
+                                . PMA_backquote(PMA_sqlAddslashes($foreign_field)) . ')'; 
 
                     if (${$master_field . '_on_delete'} != 'nix') {
                         $upd_query   .= ' ON DELETE ' . $options_array[${$master_field . '_on_delete'}];
@@ -147,7 +147,7 @@ if ($cfgRelation['relwork']
                     if (PMA_MYSQL_INT_VERSION >= 40013) {
                         $upd_query  = 'ALTER TABLE ' . $table 
                                     . ' DROP FOREIGN KEY '
-                                    . $existrel_innodb[$master_field]['constraint'];
+                                    . PMA_backquote($existrel_innodb[$master_field]['constraint']);
 
                         // I tried to send both in one query but it failed
                         $upd_rs         = PMA_mysql_query($upd_query);
@@ -156,10 +156,10 @@ if ($cfgRelation['relwork']
                     // add another
                     $upd_query  = 'ALTER TABLE ' . $table 
                                 . ' ADD FOREIGN KEY ('
-                                . PMA_sqlAddslashes($master_field) . ')'
+                                . PMA_backquote(PMA_sqlAddslashes($master_field)) . ')'
                                 . ' REFERENCES '
-                                . PMA_sqlAddslashes($foreign_table) . '('
-                                . PMA_sqlAddslashes($foreign_field) . ')'; 
+                                . PMA_backquote(PMA_sqlAddslashes($foreign_table)) . '('
+                                . PMA_backquote(PMA_sqlAddslashes($foreign_field)) . ')'; 
 
                     if (${$master_field . '_on_delete'} != 'nix') {
                         $upd_query   .= ' ON DELETE ' . $options_array[${$master_field . '_on_delete'}];
@@ -173,7 +173,7 @@ if ($cfgRelation['relwork']
                     if (PMA_MYSQL_INT_VERSION >= 40013) {
                         $upd_query  = 'ALTER TABLE ' . $table 
                                 . ' DROP FOREIGN KEY '
-                                . $existrel_innodb[$master_field]['constraint'];
+                                . PMA_backquote($existrel_innodb[$master_field]['constraint']);
                     }
             } // end if... else....
 
