@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-27  Marc Delisle  <lem9@users.sourceforge.net>
+	* main.php3, bug 465534: db stats only available if MySQL>=32303
+
 2001-09-26  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3; left.php3; tbl_move_copy.php3;
 	  tbl_properties.php3; tbl_rename.php3: fixed some security issues.

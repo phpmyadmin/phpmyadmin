@@ -320,6 +320,7 @@ if ($server > 0
                 <?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
             </td>
         </tr>
+<?php if (MYSQL_INT_VERSION >= 32303) { ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
@@ -330,6 +331,7 @@ if ($server > 0
 
             <?php
             echo "\n";
+         }
         }
         ?>
         <tr>
@@ -412,6 +414,7 @@ if ($server > 0
                 <?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
             </td>
         </tr>
+<?php if (MYSQL_INT_VERSION >= 32303) { ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
@@ -420,6 +423,7 @@ if ($server > 0
             </td>
         </tr>
             <?php
+         }
         }
     } // end of 2 (no AdvAuth case)
 
