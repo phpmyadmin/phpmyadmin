@@ -335,6 +335,7 @@ function setPointer(theRow, thePointerColor, theNormalBgColor)
     return true;
 } // end of the 'setPointer()' function
 
+
 /**
  * Checks/unchecks all tables
  *

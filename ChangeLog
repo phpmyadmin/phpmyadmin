@@ -18,8 +18,9 @@ $Source$
 	  expression.
 	* Documentation.html; tbl_properties.inc.php3: xhtml fix.
 	* user_details.php3; mult_submits.inc.php3; tbl_replace.php3;
-	  tbl_properties.php3:
-	  removed tabs and/or trailing spaces.
+	  tbl_properties.php3, libraries/functions.js: removed tabs and/or trailing
+	  spaces.
+	* libraries/display_tbl.lib.php3, lines 724-730: fixed a js bug.
 
 2002-02-05 Marc Delisle  <lem9@users.sourceforge.net>
 	* sql.php3, bug 463683 state tracking problem

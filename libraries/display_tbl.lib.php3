@@ -721,12 +721,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
             if ($disp_direction == 'horizontal') {
                 // loic1: pointer code part
-                $on_mouse = ($GLOBALS['cfgBrowsePointerColor'] == '')
-                          ? ''
-                          : ' onmouseover="setPointer(this, \'' . $GLOBALS['cfgBrowsePointerColor'] . '\', \''.$bgcolor.'\')" onmouseout="setPointer(this, \'' . $bgcolor . '\', \''.$bgcolor.'\')"';
-
-                if ($GLOBALS['cfgBrowseMarkRow'] == '1') {
-                   $on_mouse = ' onmousedown="setPointer(this, \'' . $GLOBALS['cfgBrowsePointerColor'] . '\', \''.$bgcolor.'\')"';
+                if ($GLOBALS['cfgBrowsePointerColor'] == '') {
+                    $on_mouse = '';
+                } else if ($GLOBALS['cfgBrowseMarkRow'] == '1') {
+                    $on_mouse = ' onmousedown="setPointer(this, \'' . $GLOBALS['cfgBrowsePointerColor'] . '\', \'' . $bgcolor . '\')"';
+                } else {
+                    $on_mouse = ' onmouseover="setPointer(this, \'' . $GLOBALS['cfgBrowsePointerColor'] . '\', \'' . $bgcolor . '\')" onmouseout="setPointer(this, \'' . $bgcolor . '\', \'' . $bgcolor . '\')"';
                 }
                 ?>
 <tr<?php echo $on_mouse; ?>>
