@@ -302,11 +302,12 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     } // end else if
     else {
         $fieldsize = (($len > 40) ? 40 : $len);
+	$maxlength = (($len < 4)  ? 4  : $len);
         echo "\n";
         ?>
         <td>
             <?php echo $backup_field . "\n"; ?>
-            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $len; ?>" />
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" />
         </td>
         <?php
     }
