@@ -63,6 +63,8 @@ $strAscending = 'Crescente';
 $strAtBeginningOfTable = 'All\'inizio della tabella';
 $strAtEndOfTable = 'Alla fine della tabella';
 $strAttr = 'Attributi';
+$strAutodetect = 'Autorilevazione';
+$strAutomaticLayout = 'Impaginazione automatica';
 
 $strBack = 'Indietro';
 $strBeginCut = 'INIZIO CUT';
@@ -154,6 +156,7 @@ $strDbPrivileges = 'Privilegi specifici al database';
 $strDbSpecific = 'specifico del database';
 $strDefault = 'Predefinito';
 $strDefaultValueHelp = 'Per i valori predefiniti, prego inserire un singolo valore, senza backslashes escaping o virgolette, utilizzando questo formato: a';
+$strDelOld = 'La Pagina corrente contiene Riferimenti a Tabelle che non esistono più. Volete cancellare questi Riferimenti?';
 $strDelete = 'Cancella';
 $strDeleteAndFlush = 'Cancella gli utenti e dopo ricarica i privilegi.';
 $strDeleteAndFlushDescr = 'Questa è la vita più giusta, ma il caricamento dei privilegi può durare qualche secondo.';
@@ -208,6 +211,9 @@ $strFieldsEnclosedBy = 'Campo composto da';
 $strFieldsEscapedBy = 'Campo impedito da';
 $strFieldsTerminatedBy = 'Campo terminato da';
 $strFileCouldNotBeRead = 'Il filenon può essere letto';
+$strFileNameTemplate = 'Nome file template';
+$strFileNameTemplateHelp = 'Utilizza __DB__ come nome per il DataBase, __TABLE__ come nome per la tabella e %sany strftime%s opzioni per per le specifiche del tempo, l\'estensione sarà aggiunta automaticamente. Qualsiasi altro testo sarà conservato.';
+$strFileNameTemplateRemember = 'ricorda il template';
 $strFixed = 'fisso';
 $strFlushPrivilegesNote = 'N.B.: phpMyAdmin legge i privilegi degli utenti direttamente nella tabella dei privilegi di MySQL. Il contenuto di questa tabella può differire dai privilegi usati dal server se sono stati fatti cambiamenti manuali. In questo caso, Si dovrebbero %srinfrescare i privilegi%s prima di continuare.';
 $strFlushTable = 'Inizializza ("FLUSH") la tabella';
@@ -566,7 +572,10 @@ $strTraffic = 'Traffico';
 $strTransformation_image_jpeg__inline = 'Mostra un thumbnalil cliccabile; opzioni: larghezza,altezza in pixel (mantiere la proporzione iniziale)';  
 $strTransformation_image_jpeg__link = 'Mostra un link a questa immagine (download blob diretto, i.e.).';
 $strTransformation_image_png__inline = 'Vedi immagine/jpeg: inline';  
+$strTransformation_text_plain__dateformat = 'Prende un campo TIME, TIMESTAMP o DATETIME e lo formatta utilizzando il formato data locale. La prima opzione è il time offset (in ore) il quale sarà aggiunto al timestamp (Predefinito: 0). La seconda opzione è un formato data in linea con i parametri disponibili per la funzione strftime() del PHP.';
+$strTransformation_text_plain__external = 'SOLO PER LINUX: Lancia un\'applicazione esterna e riempie i dati dei campi tramite lo standard input. Restituisce lo standard output dell\'applicazione. L\'impostazione predefinita è Tidy, per stampare in maniera corretta il codice HTML. Per motivi di sicurezza, dovete editare manualmente il file libraries/transformations/text_plain__external.inc.php e inserire gli strumenti che permettete di utilizzare. La prima opzione è così il numero del programma che volete utilizzare e la seconda sono i parametri per il programma. Il terzo parametro, se impostato a 1 convertirà l\'output utilizzando htmlspecialchars() (Predefinito: 1). Un quarto parametro, se impostato a 1 inserirà un NOWRAP al contenuto della cella così che l\'intero output sarà mostrato senza essere riformattato (Predefinito: 1)';
 $strTransformation_text_plain__formatted = 'Preserva l\'originale formattazione del campo. Nessun Escaping viene applicato.';
+$strTransformation_text_plain__substr = 'Mostra soltanto una parte della stringa. La prima opzione è l\'offset che serve a definire dove inizia l\'output del vostro testo (Prefinito: 0). La seconda opzione è un offset che indica quanto testo viene restituito. Se vuoto, restituisce tutto il testo rimanente. La terza opzione definisce quali caratteri saranno aggiunti in fondo all\'output quando una soptto-stringa viene restituita (Predefinito: ...) .';
 $strTransformation_text_plain__unformatted = 'Mostra il codice HTML come entità HTML. Nessuna formattazione HTML viene applicata.';
 $strType = 'Tipo';
 
@@ -615,22 +624,12 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strAutomaticLayout = 'Automatic layout';  //to translate
-
-$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
-
-$strFileNameTemplate = 'File name template';//to translate 
-$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
-$strFileNameTemplateRemember = 'remember template';//to translate 
-
-$strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
-$strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
-$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
-
-$strAutodetect = 'Autodetect';  //to translate
-$strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
-$strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
-$strUseHostTable = 'Use Host Table';  //to translate
 $strShowFullQueries = 'Show Full Queries';  //to translate
+
+$strTransformation_text_plain__imagelink = 'Mostra un link ad una immagine esterna; il campo contiene il nome del file; la prima opzione è un prefisso come "http://tuodominio.com/", second option is the width in pixels, third is the height.'; //to translate
+$strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
 $strTruncateQueries = 'Truncate Shown Queries';  //to translate
+
+$strUseHostTable = 'Use Host Table';  //to translate
+
 ?>
