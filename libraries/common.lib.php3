@@ -20,6 +20,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      *
      * some functions need the constants of libraries/defines.lib.php3
      *
+     * the PMA_setFontSizes() function must be before the call to the
+     * libraries/auth/cookie.auth.lib.php3 library
+     *
      * the include of libraries/defines.lib.php3 must be after the connection
      * to db to get the MySql version
      *
@@ -40,6 +43,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * - definition of PMA_sqlAddslashes()
      * - definition of PMA_mysqlDie()
      * - definition of PMA_isInto()
+     * - definition of PMA_setFontSizes()
      * - loading of an authentication library
      * - db connection
      * - authentication work
@@ -283,6 +287,82 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
         return ($i < $max) ? $i : -1;
     }  // end of the 'PMA_isInto()' function
+
+
+    /**
+     * Determines the font sizes to use depending on the os and browser of the
+     * user.
+     *
+     * This function is based on an article from phpBuilder (see
+     * http://www.phpbuilder.net/columns/tim20000821.php3).
+     *
+     * @return  boolean    always true
+     *
+     * @global  string     the standard font size
+     * @global  string     the font size for titles
+     * @global  string     the small font size
+     * @global  string     the smallest font size
+     *
+     * @access  public
+     *
+     * @version 1.1
+     */
+    function PMA_setFontSizes()
+    {
+        global $font_size, $font_bigger, $font_smaller, $font_smallest;
+
+        // IE (<6)/Opera for win case: needs smaller fonts than anyone else
+        if (PMA_USR_OS == 'Win'
+            && ((PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 6) || PMA_USR_BROWSER_AGENT == 'OPERA')) {
+            $font_size     = 'x-small';
+            $font_bigger   = 'large';
+            $font_smaller  = '90%';
+            $font_smallest = '7pt';
+        }
+        // IE6 and other browsers for win case
+        else if (PMA_USR_OS == 'Win') {
+            $font_size     = 'small';
+            $font_bigger   = 'large';
+            $font_smaller  = (PMA_USR_BROWSER_AGENT == 'IE')
+                           ? '90%'
+                           : 'x-small';
+            $font_smallest = 'x-small';
+        }
+        // Some mac browsers need also smaller default fonts size (OmniWeb &
+        // Opera)...
+        else if (PMA_USR_OS == 'Mac'
+                 && (PMA_USR_BROWSER_AGENT == 'OMNIWEB' || PMA_USR_BROWSER_AGENT == 'OPERA')) {
+            $font_size     = 'x-small';
+            $font_bigger   = 'large';
+            $font_smaller  = '90%';
+            $font_smallest = '7pt';
+        }
+        // ... but most of them (except IE 5+ & NS 6+) need bigger fonts
+        else if (PMA_USR_OS == 'Mac'
+                 && ((PMA_USR_BROWSER_AGENT != 'IE' && PMA_USR_BROWSER_AGENT != 'MOZILLA')
+                     || PMA_USR_BROWSER_VER < 5)) {
+            $font_size     = 'medium';
+            $font_bigger   = 'x-large';
+            $font_smaller  = 'small';
+            $font_smallest = 'x-small';
+        }
+        // OS/2 browser
+        else if (PMA_USR_OS == 'OS/2'
+                 && PMA_USR_BROWSER_AGENT == 'OPERA') {
+            $font_size     = 'small';
+            $font_bigger   = 'medium';
+            $font_smaller  = 'x-small';
+            $font_smallest = 'x-small';
+        }
+        else {
+            $font_size     = 'small';
+            $font_bigger   = 'large';
+            $font_smaller  = 'x-small';
+            $font_smallest = 'x-small';
+        }
+
+        return true;
+    } // end of the 'PMA_setFontSizes()' function
 
 
     /**
@@ -623,81 +703,6 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
 
     /* ----------------------- Set of misc functions ----------------------- */
-
-    /**
-     * Determines the font sizes to use depending on the os and browser of the
-     * user.
-     *
-     * This function is based on an article from phpBuilder (see
-     * http://www.phpbuilder.net/columns/tim20000821.php3).
-     *
-     * @return  boolean    always true
-     *
-     * @global  string     the standard font size
-     * @global  string     the font size for titles
-     * @global  string     the small font size
-     * @global  string     the smallest font size
-     *
-     * @access  public
-     *
-     * @version 1.1
-     */
-    function PMA_setFontSizes()
-    {
-        global $font_size, $font_bigger, $font_smaller, $font_smallest;
-
-        // IE (<6)/Opera for win case: needs smaller fonts than anyone else
-        if (PMA_USR_OS == 'Win'
-            && ((PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 6) || PMA_USR_BROWSER_AGENT == 'OPERA')) {
-            $font_size     = 'x-small';
-            $font_bigger   = 'large';
-            $font_smaller  = '90%';
-            $font_smallest = '7pt';
-        }
-        // IE6 and other browsers for win case
-        else if (PMA_USR_OS == 'Win') {
-            $font_size     = 'small';
-            $font_bigger   = 'large';
-            $font_smaller  = (PMA_USR_BROWSER_AGENT == 'IE')
-                           ? '90%'
-                           : 'x-small';
-            $font_smallest = 'x-small';
-        }
-        // Some mac browsers need also smaller default fonts size (OmniWeb &
-        // Opera)...
-        else if (PMA_USR_OS == 'Mac'
-                 && (PMA_USR_BROWSER_AGENT == 'OMNIWEB' || PMA_USR_BROWSER_AGENT == 'OPERA')) {
-            $font_size     = 'x-small';
-            $font_bigger   = 'large';
-            $font_smaller  = '90%';
-            $font_smallest = '7pt';
-        }
-        // ... but most of them (except IE 5+ & NS 6+) need bigger fonts
-        else if (PMA_USR_OS == 'Mac'
-                 && ((PMA_USR_BROWSER_AGENT != 'IE' && PMA_USR_BROWSER_AGENT != 'MOZILLA')
-                     || PMA_USR_BROWSER_VER < 5)) {
-            $font_size     = 'medium';
-            $font_bigger   = 'x-large';
-            $font_smaller  = 'small';
-            $font_smallest = 'x-small';
-        }
-        // OS/2 browser
-        else if (PMA_USR_OS == 'OS/2'
-                 && PMA_USR_BROWSER_AGENT == 'OPERA') {
-            $font_size     = 'small';
-            $font_bigger   = 'medium';
-            $font_smaller  = 'x-small';
-            $font_smallest = 'x-small';
-        }
-        else {
-            $font_size     = 'small';
-            $font_bigger   = 'large';
-            $font_smaller  = 'x-small';
-            $font_smallest = 'x-small';
-        }
-
-        return true;
-    } // end of the 'PMA_setFontSizes()' function
 
 
     /**

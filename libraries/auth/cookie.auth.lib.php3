@@ -11,6 +11,8 @@
 if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
     define('PMA_COOKIE_AUTH_INCLUDED', 1);
 
+    // Gets the default font sizes
+    PMA_setFontSizes();
     // Defines the cookie path
     $cookiePath = substr($SCRIPT_NAME, 0, strrpos($SCRIPT_NAME, '/'));
 
@@ -87,8 +89,6 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
 <style type="text/css">
 <!--
 body     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-form     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold}
-td       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold}
 h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold}
 .warning {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
 //-->
@@ -108,7 +108,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 <!-- Language selection -->
 <form method="post" action="index.php3">
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    Language:
+    <b>Language:&nbsp;</b>
     <select name="lang" dir="ltr" onchange="this.form.submit();">
             <?php
             echo "\n";
@@ -144,13 +144,13 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 <form method="post" action="index.php3" name="login_form"<?php echo $autocomplete; ?>>
     <table cellpadding="5">
     <tr>
-        <td align="<?php echo $cell_align; ?>"><?php echo $GLOBALS['strLogUsername']; ?>&nbsp;</td>
+        <td align="<?php echo $cell_align; ?>"><b><?php echo $GLOBALS['strLogUsername']; ?>&nbsp;</b></td>
         <td align="<?php echo $cell_align; ?>">
             <input type="text" name="pma_username" value="<?php echo (isset($default_user) ? $default_user : ''); ?>" size="24" onfocus="this.select()" />
         </td>
     </tr>
     <tr>
-        <td align="<?php echo $cell_align; ?>"><?php echo $GLOBALS['strLogPassword']; ?>&nbsp;</td>
+        <td align="<?php echo $cell_align; ?>"><b><?php echo $GLOBALS['strLogPassword']; ?>&nbsp;</b></td>
         <td align="<?php echo $cell_align; ?>">
             <input type="password" name="pma_password" value="" size="24" onfocus="this.select()" />
         </td>
@@ -160,7 +160,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
             echo "\n";
             ?>
     <tr>
-        <td align="<?php echo $cell_align; ?>"><?php echo $GLOBALS['strServerChoice']; ?>&nbsp;:&nbsp;</td>
+        <td align="<?php echo $cell_align; ?>"><b><?php echo $GLOBALS['strServerChoice']; ?>&nbsp;:&nbsp;</b></td>
         <td align="<?php echo $cell_align; ?>">
             <select name="server">
             <?php
