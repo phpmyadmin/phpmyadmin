@@ -336,6 +336,7 @@ $cfg['TextareaCols']        = 40;           // textarea size (columns) in edit m
                                             // (this value will be emphasized (*2) for sql
                                             // query textareas)
 $cfg['TextareaRows']        = 7;            // textarea size (rows) in edit mode
+$cfg['TextareaAutoSelect']  = TRUE;         // autoselect when clicking in the textarea of the querybox 
 $cfg['LimitChars']          = 50;           // max field data length in browse mode
 $cfg['ModifyDeleteAtLeft']  = TRUE;         // show edit/delete links on left side of browse
                                             // (or at the top with vertical browse)
