@@ -99,6 +99,7 @@ $strCreateNewTable = 'Krijo një tabelë të re tek database %s';
 $strCreatePage = 'Krijo një Faqe të re';
 $strCreatePdfFeat = 'Krijimi i PDF-ve';
 $strCriteria = 'Kriteri';
+$strCvsData = 'Të dhëna CSV';
 
 $strData = 'Të dhëna';
 $strDatabase = 'Database ';
@@ -186,6 +187,7 @@ $strIndexes = 'Tregues';
 $strIndexHasBeenDropped = 'Treguesi %s u eleminua';
 $strIndexName = 'Emri i treguesit&nbsp;:';
 $strIndexType = 'Tipi i treguesit&nbsp;:';
+$strInsecureMySQL = 'File i konfigurimit në përdorim përmban zgjedhje (root pa asnjë password) që korrispondojnë me të drejtat e account MySQL të paracaktuar. Një server MySQL funksionues me këto zgjedhje është i pambrojtur ndaj sulmeve, dhe ju duhet patjetër të korrigjoni këtë vrimë në siguri.';
 $strInsert = 'Shto';
 $strInsertAsNewRow = 'Shto një rrjesht të ri';
 $strInsertedRows = 'Rrjeshta të shtuar:';
@@ -288,6 +290,7 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>duhet</b> të jetë emri i, dhe <b>vetëm i<
 $strPrintView = 'Vizualizo për stampim';
 $strPrivileges = 'Privilegje';
 $strProperties = 'Pronësi';
+$strPutColNames = 'Vendos emrat e kollonave tek rrjeshti i parë';
 
 $strQBE = 'Query nga shembull';
 $strQBEDel = 'Fshi';
@@ -344,6 +347,7 @@ $strSelectFields = 'Seleksiono fushat (të paktën një):';
 $strSelectNumRows = 'tek query';
 $strSelectTables = 'Seleksiono Tabelat';
 $strSend = 'Shpëtoje me emër...';
+$strServer = 'Server %s';
 $strServerChoice = 'Zgjedhja e server';
 $strServerVersion = 'Versioni i MySQL';
 $strSetEnumVal = 'N.q.s. fusha është "enum" apo "set", shtoni të dhënat duke përdorur formatin: \'a\',\'b\',\'c\'...<br />Nëse megjithatë do t\'u duhet të vini backslashes ("\") apo single quote ("\'") para këtyre vlerave, backslash-ojini (për shembull \'\\\\xyz\' o \'a\\\'b\').';
@@ -415,10 +419,13 @@ $strUsers = 'Përdorues';
 $strUseTables = 'Përdor tabelat';
 
 $strValidateSQL = 'Vleftëso SQL';
+$strValidatorError = 'Miratuesi SQL nuk arrin të niset. Ju lutem kontrolloni instalimin e ekstensioneve të duhura php ashtu si përshkruhet tek %sdokumentimi%s.';
 $strValue = 'Vlera';
 $strViewDump = 'Vizualizo dump (skema) e tabelës';
 $strViewDumpDB = 'Vizualizo dump (skema) e database';
 
+$strWebServerUploadDirectory = 'directory e upload të server-it web';
+$strWebServerUploadDirectoryError = 'Directory që keni zgjedhur për upload nuk arrin të gjehet';
 $strWelcome = 'Mirësevini tek %s';
 $strWithChecked = 'N.q.s.të seleksionuar:';
 $strWrongUser = 'Emri i përdoruesit apo password i gabuar. Ndalohet hyrja.';
@@ -426,13 +433,7 @@ $strWrongUser = 'Emri i përdoruesit apo password i gabuar. Ndalohet hyrja.';
 $strYes = ' Po ';
 
 $strZip = '"kompresuar me zip"';
+
 // To translate
 
-$strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';  //to translate
-$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
-$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
-$strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
-$strServer = 'Server %s';  //to translate
-$strCvsData = 'CSV data';  //to translate
-$strPutColNames = 'Put fields names at first row';  //to translate
 ?>

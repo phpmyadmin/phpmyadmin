@@ -7,6 +7,8 @@ $Source$
 
 2002-09-14 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Updates.
+    * lang/albanian-*.inc.php3: Updates, thanks again to
+      Laurent Dhima (laurenti).
 
 2002-09-14 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: clarifications about Mac OS X, and installing
