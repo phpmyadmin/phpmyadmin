@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php3: avoid long delays when browsing big tables (MySQL 4)
+
 2003-03-26 Michal Cihar  <nijel@users.sourceforge.net>
     * db_details.php3, db_details_qbe.php3, left.php3, tbl_change.php3,
       tbl_properties_operations.php3, tbl_properties_structure.php3,
