@@ -60,7 +60,9 @@ $strBrowse = 'Navega';
 $strBzip = '"comprimit amb bzip"';
 
 $strCantLoadMySQL = 'no s\'ha pogut carregar l\'extensió de MySQL,<br />bverifiqueu la configuració del PHP.';
+$strCantLoadRecodeIconv = 'No es pot carregar iconv o recodificar una extensió necessaria per a la conversió de jocs de caracters, configura php per permetre l\' ús d\' aquestes extensions o bé desactiva la conversió de jocs de caracters en phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'No pots canviar el nom d\'un index a "PRIMARY"!';
+$strCantUseRecodeIconv = 'No es pot utilitzar iconv ni libiconv ni la funció recode_string mentre es carrega l\' extensió d\' informes. Comprova la configuració de php.';
 $strCardinality = 'Cardinalitat';
 $strCarriage = 'Retorn de línia: \\r';
 $strChange = 'Canvi';
@@ -72,6 +74,7 @@ $strCheckTable = 'Verifica la taula';
 $strChoosePage = 'Tria una pàgina per editar';
 $strColumn = 'Columna';
 $strColumnNames = 'Nom de les col&middot;lumnes';
+$strComments = 'Comentaris'; 
 $strCompleteInserts = 'Completar insercions';
 $strConfigFileError = 'phpMyAdmin es incapaç de llegir el fitxer de configuració!<br />Aixó pot succeïr si php troba un error sintàctic en ell o bé php no pot trobar el fitxer.<br />Intenta obrir el fitxer de configuració directament fent servir l\' enllaç següent i comprova el(s) missatge(s) d\'error que rebs. En moltes ocasions una coma o punt i coma falta en algun lloc.<br />Si rebs una plana en blanc, tot está bé.'; 
 $strConfigureTableCoord = 'COnfigura les coordinades per a la taula %s';
@@ -151,6 +154,7 @@ $strGzip = '"comprimit amb gzip"';
 
 $strHasBeenAltered = 'ha estat alterada.';
 $strHasBeenCreated = 'ha estat creada.';
+$strHaveToShow = 'Has d\' escollir al menys una columna per mostrar';
 $strHome = 'Inici';
 $strHomepageOfficial = 'Plana oficial del phpMyAdmin';
 $strHomepageSourceforge = 'Plana de descàrrega del phpMyAdmin a SourceForge';
@@ -192,11 +196,13 @@ $strLogUsername = 'Nom d\'Usuari:';
 $strLogin = 'Identificació';
 $strLogout = 'Sortir';
 
+$strMissingBracket = 'Falta una clau (\{ o bé \})';
 $strModifications = 'Les modificacions han estat guardades';
 $strModify = 'Modificar';
 $strModifyIndexTopic = 'Modifica un index';
 $strMoveTable = 'Mou taula a (base dades<b>.</b>taula):';
 $strMoveTableOK = 'Taula %s moguda a %s.';
+$strMySQLCharset = 'Joc de caracters de MySQL';
 $strMySQLReloaded = 'MySQL reiniciat.';
 $strMySQLSaid = 'MySQL diu: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% executant-se a %pma_s2% com a %pma_s3%';
@@ -393,11 +399,4 @@ $strYes = 'Si';
 $strZip = '"comprimit amb zip"';
 
 // To translate
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
 ?>

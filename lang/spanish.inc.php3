@@ -59,7 +59,9 @@ $strBrowse = 'Examinar';
 $strBzip = '"Comprimido con bzip"';
 
 $strCantLoadMySQL = 'imposible cargar extension MySQL,<br />por favor revise la configuracion de PHP.';
+$strCantLoadRecodeIconv = 'No se puede cargar iconv o recodificar una extensión necesaria para la conversión de juegos de caracteres, configura php para permitir el uso de estas extensiones o desactiva la conversión de juegos de caracteres en phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'No puedes renombrar el indice a PRIMARY!';
+$strCantUseRecodeIconv = 'No se puede utilizar iconv ni libiconv ni la función recode_string mientras se carga la extensión de informes. Comprueba la configuración de php.';
 $strCardinality = 'Cardinalidad';
 $strCarriage = 'Retorno de carro: \\r';
 $strChange = 'Cambiar';
@@ -71,6 +73,7 @@ $strCheckTable = 'Revisar tabla';
 $strChoosePage = 'Elige una página para editar';
 $strColumn = 'Columna';
 $strColumnNames = 'Nombre de columnas';
+$strComments = 'Comentarios'; 
 $strCompleteInserts = 'Completar los Inserts';
 $strConfigFileError = 'phpMyAdmin es incapaz de leer el fichero de configuración!<br />Esto puede suceder si php encuentra un error sintáctico en él o bien php no puede encontrar el fichero.<br />Intenta acceder al fichero de configuración directamente mediante el siguiente enlace y comprueba el(los) mensaje(s) de error que recibes. En muchas ocasiones falta una coma o punto y coma en algún sitio.<br />Si recibes una página en blanco, todo está correcto.'; 
 $strConfigureTableCoord = 'Configura las coordenadas para la tabla %s';
@@ -150,6 +153,7 @@ $strGzip = '"Comprimido con gzip"';
 
 $strHasBeenAltered = 'se ha Modificado.';
 $strHasBeenCreated = 'se ha creado.';
+$strHaveToShow = 'Debes elegir al menos una columna para mostrar';
 $strHome = 'Home';
 $strHomepageOfficial = 'Pagina Oficial de phpMyAdmin';
 $strHomepageSourceforge = 'Descargar phpMyAdmin de Sourceforge';
@@ -191,11 +195,13 @@ $strLogUsername = 'Usuario:';
 $strLogin = 'Identificacion';
 $strLogout = 'Salir';
 
+$strMissingBracket = 'Falta una llave (\{ o \})';
 $strModifications = 'Se han guardado las modificaciones';
 $strModify = 'Modificar';
 $strModifyIndexTopic = 'Modificar un indice';
 $strMoveTable = 'Mover tabla a (Base de datos<b>.</b>tabla):';
 $strMoveTableOK = 'La table %s ha sido movida a %s.';
+$strMySQLCharset = 'Juegos de caracteres de MySQL';
 $strMySQLReloaded = 'Reinicio de MySQL.';
 $strMySQLSaid = 'MySQL ha dicho: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% ejecutandose en %pma_s2% como %pma_s3%';
@@ -390,10 +396,5 @@ $strYes = 'Si';
 
 $strZip = '"comprimido con zip"';
 // To translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
+
 ?>
