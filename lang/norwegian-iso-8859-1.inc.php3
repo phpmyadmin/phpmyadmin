@@ -85,6 +85,7 @@ $strColumn = 'Kolonne';
 $strColumnNames = 'Kolonnenavn';
 $strComments = 'Kommentarer';
 $strCompleteInserts = 'Komplette innlegg';
+$strCompression = 'Kompresjon';
 $strConfigFileError = 'phpMyAdmin kunne ikke lese din konfigurasjonsfil!<br />Dette kan skje hvis PHP finner en syntaksfeil eller ikke kan finne filen.<br />Vennligst kall opp konfigurasjonsfilen direkte via linken under og les PHP feilmeldingen(e) som du vil få. I de fleste tilfeller så mangler det et anførselstegn eller et semikolon et sted.<br />Hvis du får en blank side så er alt ok.';
 $strConfigureTableCoord = 'Vennligst konfigurer koordinatene for tabell %s';
 $strConfirm = 'Ønsker du virkelig å gjøre det?';
@@ -437,5 +438,4 @@ $strYes = 'Ja';
 $strZip = 'Komprimert (zip)';
 
 // To translate
-$strCompression = 'Compression'; //to translate
 ?>

@@ -81,6 +81,7 @@ $strColumn = 'Stulpelis';
 $strColumnNames = 'Stulpeliø vardai';
 $strComments = 'Komentarai';
 $strCompleteInserts = 'Visiðkas áterpimas';
+$strCompression = 'Kompresija';
 $strConfigFileError = 'phpMyAdmin negalëjo perskaityti konfigûracinës bylos!<br />Tai galëjo nutikti jeigu <u>php</u> rado byloje vykdymo klaidà arba visai nerando bylos.<br />Praðome kreiptis á konfigûracinæ bylà tiesiogiai (naudojantis nuoroda þemiau) ir perskaityti gautus <u>php</u> klaidø praneðimà(us). Daugeliu atveju vienoje/keletoje eiluèiø truksta kabuèiø ir/arba kabliataðkio.<br />Jeigu iðvedamas tuðèias narðyklës langas - viskas tvarkoje (klaidø nepastebëta).';
 $strConfigureTableCoord = 'Nustatykite lentelës %s koordinates';
 $strConfirm = 'Ar TIKRAI norite atlikti ðá veiksmà?';
@@ -433,5 +434,4 @@ $strYes = 'Taip';
 $strZip = '"zip"';
 
 //To translate:
-$strCompression = 'Compression'; //to translate
 ?>

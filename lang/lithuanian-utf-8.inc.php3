@@ -82,6 +82,7 @@ $strColumn = 'Stulpelis';
 $strColumnNames = 'Stulpelių vardai';
 $strComments = 'Komentarai';
 $strCompleteInserts = 'Visiškas įterpimas';
+$strCompression = 'Kompresija';
 $strConfigFileError = 'phpMyAdmin negalėjo perskaityti konfigūracinės bylos!<br />Tai galėjo nutikti jeigu <u>php</u> rado byloje vykdymo klaidą arba visai nerando bylos.<br />Prašome kreiptis į konfigūracinę bylą tiesiogiai (naudojantis nuoroda žemiau) ir perskaityti gautus <u>php</u> klaidų pranešimą(us). Daugeliu atveju vienoje/keletoje eilučių truksta kabučių ir/arba kabliataškio.<br />Jeigu išvedamas tuščias naršyklės langas - viskas tvarkoje (klaidų nepastebėta).';
 $strConfigureTableCoord = 'Nustatykite lentelės %s koordinates';
 $strConfirm = 'Ar TIKRAI norite atlikti šį veiksmą?';
@@ -433,6 +434,5 @@ $strYes = 'Taip';
 
 $strZip = '"zip"';
 
-// To translate:
-$strCompression = 'Compression'; //to translate
+//To translate:
 ?>

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-20 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/norwegian-*.inc.php3: Updates, thanks to Sven Erik Andersen.
+    * lang/lithuanian-*.inc.php3: Updates, thanks to Vilius Zigmantas.
+
 2002-11-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_create.php3, db_datadict.php3, db_details.php3, db_details_export.php3,
       db_details_import.php3, db_details_qbe.php3, db_details_structure.php3,
@@ -19,7 +23,7 @@ $Source$
 2002-11-19 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.3.3-rc1 released
     * lang/russian*: updates and new russian-dos-866, thanks to Nicolay Zakharov
-      (aquarius at mobnav.com) 
+      (aquarius at mobnav.com)
     * libraries/select_lang.lib.php3: russian-dos-866
     * lang/sync_lang.sh: russian-dos-866 seems unsupported by convertors
     * lang/polish: update thanks to Jakub Wilk
