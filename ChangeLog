@@ -12,15 +12,21 @@ $Source$
 2001-09-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/galician.inc.php3: updated thanks to
 	  Xosé Calvo <xosecalvo at terra.es>.
-	* lib.inc.php3: fixed a bug with the browse table headers sorting feature.
+	* lib.inc.php3:
+	  - fixed a bug with the browse table headers sorting feature;
+	  - lines 616-617: fixed a javascript error with <cr> & <lf>.
 	* tbl_dump.php3: improved the patch Marc commited.
 	* defines.inc.php3: distinguished Konqueror from the "other browsers"
 	  group (to prepare a fix for bug #439081 -Konqueror 2.1.2 browser
 	  support-).
 	* lang/czech-iso.inc.php3 & czech-win1250.inc.php3: updated thanks to
 	  Michal Cihar.
-	* tbl_properties.php3; db_details.php3; db_stats.php3; lib.inc.php3;
-	  sql.php3: optimized a bit (mainly added some 'mysql_free_result').
+	* lang/french.inc.php3: updated a translation ("Espace" -> "Taille").
+	* db_details.php3; db_printview.php3; db_stats.php3; main.php3;
+	  lib.inc.php3; sql.php3; tbl_properties.php3; tbl_properties.inc.php3;
+	  tbl_qbe.php3; tbl_select.php3; : optimized a bit (mainly added some
+	  'mysql_free_result').
+	* left.php3; left.js: cleaned a bit.
 
 2001-09-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3:
