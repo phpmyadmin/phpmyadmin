@@ -92,8 +92,9 @@ for ($i = 0; $i < $idx_cnt; $i++) {
     }
 //    I don't know what does following column mean....
 //    $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
-    $indexes_info[$row['Key_name']]['Comment']         = 
-        (PMA_MYSQL_INT_VERSION >= 32323) ? $row['Comment'] : '';
+    $indexes_info[$row['Key_name']]['Comment']         = (isset($row['Comment']))
+                                                       ? $row['Comment']
+                                                       : '';
 
     $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
     if (isset($row['Sub_part'])) {
