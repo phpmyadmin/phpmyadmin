@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-11 Marc Delisle  <lem9@users.sourceforge.net>
+	* header.inc.php3, bug #540718, merge css patch thanks to Loïc
+
 2002-04-10 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/korean.onc.php3: updated thanks to WooSuhan <kjh at unews.co.kr>.
 

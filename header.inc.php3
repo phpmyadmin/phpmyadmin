@@ -56,9 +56,9 @@ if (!empty($cfgPmaAbsoluteUri)) {
 ?>
 <style type="text/css">
 <!--
-body            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
+body            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: <?php echo $cfgRightBgColor; ?>}
 pre, tt         {font-size: <?php echo $font_size; ?>}
-th              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; background-color: <?php echo $cfgThBgcolor; ?>}
+th              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #000000; background-color: <?php echo $cfgThBgcolor; ?>}
 td              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
 form            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
 input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
@@ -68,9 +68,9 @@ h1              {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 A:link          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
 A:visited       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
 A:hover         {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: underline; color: #FF0000}
-A:link.nav      {font-family: <?php echo $right_font_family; ?>; color: #000000}
-A:visited.nav   {font-family: <?php echo $right_font_family; ?>; color: #000000}
-A:hover.nav     {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
+A.nav:link      {font-family: <?php echo $right_font_family; ?>; color: #000000}
+A.nav:visited   {font-family: <?php echo $right_font_family; ?>; color: #000000}
+A.nav:hover     {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
 .nav            {font-family: <?php echo $right_font_family; ?>; color: #000000}
 .warning        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
 //-->
