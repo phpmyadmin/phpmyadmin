@@ -60,7 +60,7 @@ if (!$rowset) {
     exit();
 }
 $count  = 0;
-while ($row = mysql_fetch_array($rowset)) {
+while ($row = PMA_mysql_fetch_array($rowset)) {
     $myfieldname = 'Tables_in_' . htmlspecialchars($db);
     $table        = $row[$myfieldname];
     if ($cfgRelation['commwork']) {
