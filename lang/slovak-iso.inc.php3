@@ -226,6 +226,7 @@ $strPasswordEmpty = 'Heslo je prázdne!';
 $strPasswordNotSame = 'Heslá sa nezhodujú!';
 $strPHPVersion = 'Verzia PHP';
 $strPmaDocumentation = 'phpMyAdmin Dokumentácia';
+$strPmaUriError = 'Diretíva <tt>$cfgPmaAbsoluteUri</tt> MUSÍ by» nastavená v konfiguraènom súbore!';
 $strPos1 = 'Zaèiatok';
 $strPrevious = 'Predchádzajúci';
 $strPrimary = 'Primárny';
@@ -252,7 +253,7 @@ $strRepairTable = 'Opravi» tabuµku';
 $strReplace = 'Nahradi»';
 $strReplaceTable = 'Nahradi» dáta v tabuµke súborom';
 $strReset = 'Pôvodné (Reset)';
-$strReType = 'Napísa» znova';
+$strReType = 'Potvrdi»';
 $strRevoke = 'Zrusi»';
 $strRevokeGrant = 'Zru¹i» polovenie pridelova» privilégia';
 $strRevokeGrantMessage = 'Bolo zru¹ené právo pridelova» privilégia pre %s';
@@ -349,5 +350,4 @@ $strZip = '"zo zipované"';
 
 
 // To translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>
