@@ -8,6 +8,8 @@ $Source$
 2003-01-14 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_properties_structure.php3,libraries/functions.js: Added (un)check
       all for fields selection.
+    * tbl_properties.inc.php3,libraries/functions.js: Merged patch #554439
+      (Jumping cursor using keyboard).
 
 2002-01-13 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlvalidator.class.php3:
