@@ -198,12 +198,16 @@ $cfg['DefaultLang'] = 'en';
 /**
  * Charset conversion settings
  */
-// Default charset to use for recoding of MySQL queries
+// Default charset to use for recoding of MySQL queries, does not take 
+// any effect when charsets recoding is switched off by 
+// $cfg['AllowAnywhereRecoding'] or in language file
 // (see $cfg['AvailableCharsets'] to possible choices, you can add your own)
 $cfg['DefaultCharset'] = 'iso-8859-1';
+
 // Allow charset recoding of MySQL queries, must be also enabled in language
 // file to make harder using other language files than unicode.
 $cfg['AllowAnywhereRecoding'] = TRUE;
+
 // Force: always use this language - must be defined in
 //        libraries/select_lang.lib.php3
 // $cfg['Lang']     = 'en';
