@@ -10,6 +10,7 @@ $Source$
       link to table structure.
     * db_operations.php, lang/*: We switch to database here. not table.
     * lang/*: strProperties is not used anywhere now.
+    * config.inc.php: Mention db_operations.php possibility.
 
 2004-10-21 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_query_box.php: bug 1050691, missing parameters

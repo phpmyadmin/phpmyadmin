@@ -117,7 +117,7 @@ $cfg['Servers'][$i]['history']       = '';          // table to store SQL histor
 $cfg['Servers'][$i]['verbose_check'] = TRUE;        // set to FALSE if you know that your pma_* tables
                                                     // are up to date. This prevents compatibility
                                                     // checks and thereby increases performance.
-$cfg['Servers'][$i]['AllowRoot']     = TRUE;        // whether to allow root login 
+$cfg['Servers'][$i]['AllowRoot']     = TRUE;        // whether to allow root login
 $cfg['Servers'][$i]['AllowDeny']['order']           // Host authentication order, leave blank to not use
                                      = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']           // Host authentication rules, leave blank for defaults
@@ -296,6 +296,7 @@ $cfg['DefaultTabDatabase']    = 'db_details_structure.php';
                                    // 'db_details_structure.php' = tables list
                                    // 'db_details.php' = sql form
                                    // 'db_search.php' = search query
+                                   // 'db_operations.php' = operations on database
 $cfg['DefaultTabTable']       = 'tbl_properties_structure.php';
                                    // Possible values:
                                    // 'tbl_properties_structure.php' = fields list
