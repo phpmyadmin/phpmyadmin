@@ -10,6 +10,7 @@ $Source$
       for splitting the SELECT clauses, to solve almost all records
       counting bugs
     * pdf_schema.php3: improved alignment, thanks to Maxime Delorme
+    * lang/japanese: update, thanks to Yukihiro Kawada
       
 2003-02-15 Alexander M. Turek  <rabus@users.sourceforge.net>
     * ANNOUNCE.txt: Prepared announcement for 2.4.0. Please feel free to correct
