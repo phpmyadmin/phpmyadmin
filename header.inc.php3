@@ -159,10 +159,10 @@ echo "\n";
 
 <body bgcolor="<?php echo $cfg['RightBgColor']; ?>" background="images/bkg.gif">
 <?php
-$header_url_qry = '?lang=' . urlencode($lang)
-                . '&amp;server=' . $server
-                . '&amp;db=' . urlencode($db);
 if (isset($db)) {
+    $header_url_qry = '?lang=' . urlencode($lang)
+                    . '&amp;server=' . $server
+                    . '&amp;db=' . urlencode($db);
     echo '<h1>' . "\n";
     echo '    ' . $strDatabase . ' <i><a class="h1" href="db_details.php3' . $header_url_qry . '">' . htmlspecialchars($db) . '</a></i>' . "\n";
     if (!empty($table)) {

@@ -7,8 +7,10 @@ $Source$
 
 2002-04-27 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Recompressed old ChangeLog without saving its path in the archive.
-    * header.inc.php3: Patch #548696 (DB/Table titles should be links),
-      thanks to Ray Black <allah03@users.sourceforge.net>.
+    * header.inc.php3:
+      - Patch #548696 (DB/Table titles should be links), thanks to
+        Ray Black <allah03@users.sourceforge.net>.
+      - lines: 161-164: Undefined variable
 
 2002-04-27 Loïc Chapeaux  <lolo@phpheaven.net>
     * Documentation.html:
