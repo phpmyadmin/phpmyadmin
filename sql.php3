@@ -79,7 +79,6 @@ else {
 
     if(!$result)
     {
-	echo "t12";
         $error = mysql_error();
         include("./header.inc.php3");
         mysql_die($error);
