@@ -1181,7 +1181,11 @@ if (typeof(document.getElementById) != 'undefined'
             // If a 'LIMIT' clause has been programatically added to the query
             // displays it
             if (!empty($GLOBALS['sql_limit_to_append'])) {
-                echo $GLOBALS['sql_limit_to_append'];
+                if($cfg['UseSyntaxColoring']) {
+                    echo PMA_format_sql($GLOBALS['sql_limit_to_append']);
+                } else {
+                    echo $GLOBALS['sql_limit_to_append'];
+                }
             }
             if (!empty($GLOBALS['show_as_php'])) {
                 echo '&quot;;';
