@@ -7,6 +7,7 @@ $Source$
 
 2002-02-14 Marc Delisle  <lem9@users.sourceforge.net>
 	* hungarian updates thanks to Peter Bakondy
+	* new slovak-1250, thanks to Peter Svec (petko at unitra.sk)
 
 2002-02-13 Marc Delisle  <lem9@users.sourceforge.net>
 	* config.inc.php3: restore old color changing behavior by default

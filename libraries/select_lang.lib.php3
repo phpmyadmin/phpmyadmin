@@ -68,6 +68,7 @@ $available_languages = array(
     'ru-koi8r'   => array('ru|russian', 'russian-koi8', 'ru'),
     'ru-win1251' => array('ru|russian', 'russian-win1251', 'ru'),
     'sv'         => array('sv|swedish', 'swedish', 'sv'),
+    'sk-win1250' => array('sk|slovak', 'slovak-win1250', 'sk'),
     'sk'         => array('sk|slovak', 'slovak-iso', 'sk'),
     'th'         => array('th|thai', 'thai', 'th'),
     'tr'         => array('tr|turkish', 'turkish', 'tr'),
