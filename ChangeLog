@@ -9,6 +9,7 @@ $Source$
     * sql.php3, libraries/common.lib.php3: Bug #692854: Never execute
       a query in (with/without) PHP code views, and display a new
       "Execute query" link in this mode.
+    * lang/german*: Update.
 
 2003-05-20 Garvin Hicking <me@supergarv.de>
     * index.php3: New rewrite of how the frameset is created
