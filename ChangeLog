@@ -7,6 +7,7 @@ $Source$
 
 2003-01-22 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/swedish*: Updates, thanks to Björn T. Hallberg (bth)
+    * lang/italian*: Updates, thanks to Pietro Danesi (danone)
 
 2003-01-21 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: checkType function
