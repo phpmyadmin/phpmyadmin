@@ -1,5 +1,5 @@
 
-                      phpMyAdmin 2.2.3-dev Documentation
+                        phpMyAdmin 2.2.3 Documentation
                                        
      * Official phpMyAdmin project homepage    [
        http://www.phpwizard.net/projects/phpMyAdmin/ ]
@@ -9,8 +9,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.121 2002/01/03
-       16:49:48 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.122 2002/01/06
+       19:04:25 lem9 Exp $
    ______________________________________________________________________
    
    Top  -  Requirements  -  Introduction  -  Installation  -
