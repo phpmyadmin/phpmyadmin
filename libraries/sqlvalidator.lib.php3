@@ -62,7 +62,9 @@ if (!defined('PMA_SQL_VALIDATOR_INCLUDED')) {
 
         $str = '';
 
-        if ($cfg['SQLValidator']['use'] == TRUE) {
+        if ($cfg['SQLValidator']['use']
+            && !(isset($GLOBALS['sqlvalidator_error'])
+            && $GLOBALS['sqlvalidator_error'])) {
             // create new class instance
             $srv = new PMA_SQLValidator();
 

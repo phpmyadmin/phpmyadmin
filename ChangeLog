@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-22 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/sqlvalidator.lib.php3: Fixed bug #594947.
+
 2002-08-21 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details.php3, read_dump.php3, libraries/functions.js, lang/*,
       config.inc.php3, Documentation.html: web-based upload directory,
