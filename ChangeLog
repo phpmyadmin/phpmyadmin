@@ -18,6 +18,7 @@ $Source$
       tbl_query_box.php, Documentation: Allow changing of default queries (RFE
       #839168).
     * Documentation.html: Valid XHTML again.
+    * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
 
 2003-11-20 Garvin Hicking <me@supergarv.de>
     * libraries/auth/*, libraries/dbg/*, libraries/export/*

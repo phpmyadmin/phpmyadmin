@@ -111,6 +111,7 @@ $strCharsets = 'Pilihan Karakter';
 $strCharsetsAndCollations = 'Pilihan karakter dan pembandingan';
 $strCheckAll = 'Tanda semua';
 $strCheckDbPriv = 'Periksa Hak Akses dari Database';
+$strCheckOverhead = 'Periksa Overheaded';
 $strCheckPrivs = 'Periksa privilese';
 $strCheckPrivsLong = 'Periksa privilese untuk database &quot;%s&quot;.';
 $strCheckTable = 'Periksa tabel';
@@ -142,6 +143,7 @@ $strCreateNewDatabase = 'Buat database baru';
 $strCreateNewTable = 'Buat tabel baru pada database %s';
 $strCreatePage = 'Buat halaman baru';
 $strCreatePdfFeat = 'Pembuatan PDF';
+$strCreationDates = 'Tanggal Pembuatan/Update/Check';
 $strCriteria = 'Kriteria';
 $strCroatian = 'Bahasa Kroatia';
 $strCyrillic = 'Bahasa Kirilia';
@@ -177,6 +179,7 @@ $strDbSpecific = 'database-spesifik';
 $strDefault = 'Default';
 $strDefaultValueHelp = 'Untuk nilai (value) default cukup diisi single value saja tanpa mengunakan backslash, escaping atau quotes dan dengan mengunakan format sbb.: a';
 $strDelOld = 'Halaman ini berisi referensi tentang tabel yang sudah tidak ada lagi. Apakah Anda ingin hapus referensi yang bersangkutan?';
+$strDelayedInserts = 'Gunakan Delayed Inserts';
 $strDelete = 'Hapus';
 $strDeleteAndFlush = 'Hapus Pengguna dan Reload Hak Istimewa (Privileges).';
 $strDeleteAndFlushDescr = 'Ini cara terbaik tetapi akan memakan waktu.';
@@ -221,6 +224,7 @@ $strEnglish = 'Bahasa Ingris';
 $strEnglishPrivileges = ' Catatan: Nama privilege MySQL adalah dalam bahasa Ingris ';
 $strError = 'Error';
 $strEstonian = 'Bahasa Estonia';
+$strExcelEdition = 'Edisi Excel';
 $strExcelOptions = 'Pilihan Excel';
 $strExecuteBookmarked = 'Eksekusikan pencarian dengan mengikuti penunjuk halaman';
 $strExplain = 'Terangkan SQL';
@@ -537,6 +541,7 @@ $strRunning = 'dijalankan pada %s';
 $strRussian = 'Bahasa Rusia';
 
 $strSQL = 'SQL';
+$strSQLExportType = 'Jenis Ekspor';
 $strSQLOptions = 'Pilihan SQL';
 $strSQLParserBugMessage = 'Kemungkinan Anda telah temukan sebuah Bug dalam parser SQL. Mohon periksa ulang Query SQL dengan teliti dan perhatikan apakah semua tanda kutip benar dan seimbang. Penyebab kegagalan bisa terjadi bila Anda meng-upload sebuah file binari diluar teks kutipan. Silakan Anda menjalankan Query tersebut dengan mengunakan command line interface. Hasil dari MySQL server error, jika tertampil, akan menolong Anda untuk mengetahui penyebab dari problem. Bila problem tersebut tetap muncul atau Parser dari kami masih juga gagal tetapi command line interface berhasil mohon kurangi input pada SQL query sampai Query yang bermasalah ditemukan. Mohon kirimkan sebuah Bug Report dengan sisipan data dalam bagian Potong (CUT) yang dibawah ini kepada kami:';
 $strSQLParserUserError = 'Rupanya ada Error pada Query SQL. Hasil dari MySQL server error dibawa ini, jika tertampil, akan menolong Anda untuk mengetahui penyebab dari problem tersebut.';
@@ -711,10 +716,6 @@ $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) aka
 $strZip = '"Dikompress dengan Zip"';
 // To translate
 
-$strCreationDates = 'Creation/Update/Check dates';  //to translate
-$strCheckOverhead = 'Check overheaded';  //to translate
-$strExcelEdition = 'Excel edition';  //to translate
-$strDelayedInserts = 'Use delayed inserts';  //to translate
-$strSQLExportType = 'Export type';  //to translate
 $strAddConstraints = 'Add constraints';  //to translate
+
 ?>
