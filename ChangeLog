@@ -9,6 +9,9 @@ $Source$
 	* Documentation.html: added a FAQ entry about upload errors
 
 2001-07-12  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_dump.php3, lines 64-93; lib.inc.php3, lines 722-774;
+	  tbl_properties.php3, line 612: fixed some inconsistencies in the
+	  csv export feature.
 	* tbl_properties.php3: fixed an IE5.0 display bug and an other one with
 	  Mozilla.
 	* lib.inc.php3, line 969: fixed a wrong comparaison.

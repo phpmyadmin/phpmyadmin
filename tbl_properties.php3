@@ -607,9 +607,9 @@ echo "\n";
                     <input type="radio" name="what" value="csv" />
                     <?php echo $strStrucCSV;?>&nbsp;->&nbsp;
                     <?php echo $strFields . ' '. $strTerminatedBy; ?>&nbsp;
-                    <input type="text" name="separator" size="1" value=";" />
+                    <input type="text" name="separator" size="1" value=";" />&nbsp;
                     <?php echo $strLines . ' '. $strTerminatedBy; ?>&nbsp;
-                    <input type="text" name="add_character" size="1" value="" />
+                    <input type="text" name="add_character" size="2" value="\n" />
                 </td>
             </tr>
             <tr>

@@ -718,34 +718,61 @@ function count_records($db, $table)
     echo number_format($num, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
 }
 
-// Get the content of $table as a CSV output.
-// $sep contains the separation string.
-// After every row, a custom callback function $handler gets called.
-// $handler must accept one parameter ($sql_insert);
+
+/**
+ * Output the content of a table in CSV format
+ *
+ * @param   string  the database name
+ * @param   string  the table name
+ * @param   string  the separation string
+ * @param   string  the handler (function) to call. It must accept one parameter
+ *                  ($sql_insert)
+ *
+ * @return  boolean always true
+ */
 function get_table_csv($db, $table, $sep, $handler)
 {
-    $result = mysql_query("SELECT * FROM ".db_name($db)."." .
-	tbl_name($table)) or mysql_die();
-    $i = 0;
-    while($row = mysql_fetch_row($result))
-    {
-        @set_time_limit(60); // HaRa
-        $schema_insert = "";
-        for($j=0; $j<mysql_num_fields($result);$j++)
-        {
-            if(!isset($row[$j]))
-                $schema_insert .= "NULL".$sep;
-            elseif ($row[$j] != "")
-                $schema_insert .= "$row[$j]".$sep;
-            else
-                $schema_insert .= "".$sep;
-        }
-        $schema_insert = str_replace($sep."$", "", $schema_insert);
+    // Handles the separator character
+    if (empty($sep)) {
+        $sep     = ';';
+    }
+    else {
+        if (get_magic_quotes_gpc()) {
+	        $sep = stripslashes($sep);
+	    }
+	    $sep     = str_replace('\\t', "\011", $sep);
+    }
+
+    // Gets the data from the database
+    $result = mysql_query('SELECT * FROM ' . db_name($db) . '.' . tbl_name($table)) or mysql_die();
+
+    // Format the data
+    $i      = 0;
+    while ($row = mysql_fetch_row($result)) {
+        @set_time_limit(60);
+        $schema_insert = '';
+        $fields_cnt    = mysql_num_fields($result);
+        for ($j = 0; $j < $fields_cnt; $j++) {
+            if (!isset($row[$j])) {
+                $schema_insert .= 'NULL';
+            }
+            else if ($row[$j] != '') {
+                $schema_insert .= $row[$j];
+            }
+            else {
+                $schema_insert .= '';
+            }
+            if ($j < $fields_cnt-1) {
+                $schema_insert .= $sep;
+            }
+        } // end for
         $handler(trim($schema_insert));
         ++$i;
-    }
-    return (true);
-}
+    } // end while
+
+    return true;
+} // end of the 'get_table_csv()' function
+
 
 function show_docu($link) {
   global $cfgManualBase, $strDocu;

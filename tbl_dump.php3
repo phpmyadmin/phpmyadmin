@@ -63,15 +63,33 @@ function my_handler($sql_insert)
 
 function my_csvhandler($sql_insert)
 {
-	// 2001-05-07, Lem9: added $add_character
+    // 2001-05-07, Lem9: added $add_character
+    // 2001-07-12, loic1: $crlf should be used only if there is no EOL
+    //                    character defined by the user
+    global $crlf, $add_character, $asfile;
+    global $tmp_buffer;
 
-	global $crlf, $add_character, $asfile;
-	global $tmp_buffer;
+    // Handles the EOL character
+    if (empty($add_character)) {
+        $add_character = $crlf;
+    }
+    else {
+        if (get_magic_quotes_gpc()) {
+	        $add_character = stripslashes($add_character);
+	    }
+	    $add_character = str_replace('\\r', "\015", $add_character);
+	    $add_character = str_replace('\\n', "\012", $add_character);
+	    $add_character = str_replace('\\t', "\011", $add_character);
+    }
 
-	if(empty($asfile))
-		$tmp_buffer.= htmlspecialchars($sql_insert . $add_character . $crlf);
-	else
-		$tmp_buffer.= $sql_insert . $add_character . $crlf;
+    // Result will be displays on screen
+    if (empty($asfile)) {
+        $tmp_buffer .= htmlspecialchars($sql_insert) . $add_character;
+    }
+    // Result will be save in a file
+    else {
+        $tmp_buffer .= $sql_insert . $add_character;
+    }
 }
 
 $dump_buffer="";
