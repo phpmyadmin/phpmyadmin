@@ -1061,13 +1061,12 @@ if (typeof(window.parent) != 'undefined'
         else if (isset($GLOBALS['table']) && $cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303) {
             $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
             if ($result) {
-                $tmp     = PMA_mysql_fetch_array($result, MYSQL_ASSOC);
-                $tooltip = (empty($tmp['Comment']))
-                         ? ''
-                         : $tmp['Comment'] . ' ';
-                $tooltip .= '(' . $tmp['Rows'] . ' ' . $GLOBALS['strRows'] . ')';
+                $tbl_status = PMA_mysql_fetch_array($result, MYSQL_ASSOC);
+                $tooltip    = (empty($tbl_status['Comment']))
+                            ? ''
+                            : $tbl_status['Comment'] . ' ';
+                $tooltip .= '(' . $tbl_status['Rows'] . ' ' . $GLOBALS['strRows'] . ')';
                 mysql_free_result($result);
-                unset($tmp);
                 $md5_tbl = md5($GLOBALS['table']);
                 echo "\n";
                 ?>
@@ -1084,6 +1083,23 @@ if (typeof(document.getElementById) != 'undefined'
                 <?php
             } // end if
         } // end if... else if
+        
+        // Checks if the table needs to be repaired after a TRUNCATE query.
+        if (PMA_MYSQL_INT_VERSION >= 40000
+            && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])) {
+            if (!isset($tbl_status)) {
+                $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
+                if ($result) {
+                    $tbl_status = PMA_mysql_fetch_array($result, MYSQL_ASSOC);
+                    mysql_free_result($result);
+                }
+            }
+            if (isset($tbl_status) && (int)$tbl_status['Index_length'] > 1024) {
+                @PMA_mysql_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
+            }
+        }
+        
+        unset($tbl_status);
 
         echo "\n";
         ?>
