@@ -51,11 +51,20 @@ if (!empty($submit_mult)
                 break;
 
             case 'drop_fld':
-                $full_query .= 'ALTER TABLE '
-                            . backquote(htmlspecialchars($table))
-                            . ' DROP '
-                            . backquote(htmlspecialchars(urldecode($selected[$i])))
-                            . ';<br />';
+                if ($full_query == '') {
+                    $full_query .= 'ALTER TABLE '
+                                . backquote(htmlspecialchars($table))
+                                . '<br />&nbsp;&nbsp;DROP '
+                                . backquote(htmlspecialchars(urldecode($selected[$i])))
+                                . ',';
+                } else {
+                    $full_query .= '<br />&nbsp;&nbsp;DROP '
+                                . backquote(htmlspecialchars(urldecode($selected[$i])))
+                                . ',';
+                }
+                if ($i == $selected_cnt-1) {
+                    $full_query = ereg_replace(',$', ';<br />', $full_query);
+                }
                 break;
         } // end switch
     }
@@ -118,19 +127,38 @@ else if ((get_magic_quotes_gpc() && stripslashes($btnDrop) == $strYes)
                 break;
 
             case 'drop_fld':
-                $a_query = 'ALTER TABLE '
-                         . backquote($table)
-                         . ' DROP '
-                         . backquote(urldecode($selected[$i]));
+                if ($sql_query == '') {
+                    $sql_query .= 'ALTER TABLE '
+                               . backquote($table)
+                               . ' DROP '
+                               . backquote(urldecode($selected[$i]))
+                               . ',';
+                } else {
+                    $sql_query .= ' DROP '
+                               . backquote(urldecode($selected[$i]))
+                               . ',';
+                }
+                if ($i == $selected_cnt-1) {
+                    $sql_query = ereg_replace(',$', ';', $sql_query);
+                }
                 break;
         } // end switch
-        $sql_query .= $a_query . ';' . "\n";
 
-        if ($query_type != 'drop_db') {
-            mysql_select_db($db);
-        }
-        $result = @mysql_query($a_query) or mysql_die('', $a_query, FALSE);
+        // All "drop field" statements will be run at once below
+        if ($query_type != 'drop_fld') {
+            $sql_query .= $a_query . ';' . "\n";
+
+            if ($query_type != 'drop_db') {
+                mysql_select_db($db);
+            }
+            $result = @mysql_query($a_query) or mysql_die('', $a_query, FALSE);
+        } // end if
     } // end for
+
+    if ($query_type == 'drop_fld') {
+        mysql_select_db($db);
+        $result = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+    }
 
     show_message($strSuccess);
 }
