@@ -7,6 +7,10 @@ $Source$
 
 2005-03-26 Alexander M. Turek  <me@derrabus.de>
     * libraries/engines/innodb.lib.php: Caught possible devision by zero.
+    * lang/dutch-iso-8859-15.inc.php, lang/finnish-iso-8859-15.inc.php,
+      lang/italian-iso-8859-15.inc.php, lang/portoguese-iso-8859-15.inc.php,
+      lang/spanish-iso-8859-15.inc.php, libraries/select_lang.lib.php:
+      Added more Latin9 language files.
 
 2005-03-25 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.inc.php: bug #1170255, undefined index: Field
@@ -42,8 +46,8 @@ $Source$
     * libraries/select_lang.lib.php, lang/polish-windows-1250.inc.php:
       Translations #1161402 (added pl-win1250), thanks to Jakub Wilk (ubanus).
     * libraries/select_lang.lib.php, lang/german-iso-8859-15.inc.php,
-      lang/french-iso-8859-15.inc.php: Added ISO-8859-15 (latin1@euro) editions
-      of the German and French language files for testing.
+      lang/french-iso-8859-15.inc.php: Added ISO-8859-15 (Latin9) editions of
+      the German and French language files for testing.
 
 2005-03-19 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan update, thanks to Xavier Navarro (xavin).
