@@ -11,6 +11,8 @@
 # Written by Michal Cihar <nijel at users.sourceforge.net>
 ##
 # Changes:
+# 2004-09-03
+#   * hack for hebrew
 # 2003-11-18
 #   * switch php3 -> php
 # 2003-04-14
@@ -129,7 +131,6 @@ EOT`
 # same as above.
 #
 IGNORE_UTF=`cat <<EOT
-hebrew-iso-8859-8-i
 EOT`
 
 ##
@@ -179,6 +180,11 @@ for base in $BASE_TRANSLATIONS ; do
 
     # charset of source file
     src_charset=$(grep '\$charset' $base.inc.php | sed "s%^[^'\"]*['\"]\\([^'\"]*\\)['\"][^'\"]*$%\\1%")
+    replace_charset=$src_charset
+    # special case for hebrew
+    if [ $src_charset = 'iso-8859-8-i' ] ; then
+        src_charset=iso-8859-8
+    fi
     echo "$base [charset $src_charset]"
 
     is_utf=no
@@ -206,7 +212,7 @@ for base in $BASE_TRANSLATIONS ; do
         if [ $charset = 'utf-8' ] ; then
             # if we convert to utf-8, we should add allow_recoding
             is_utf=yes
-            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed -e "s/$replace_charset/$charset/" -e '/\$charset/a\
 $allow_recoding = TRUE;' > $TEMPFILE
             if [ -s $TEMPFILE ] ; then
                 cat $TEMPFILE > $file
@@ -218,7 +224,7 @@ $allow_recoding = TRUE;' > $TEMPFILE
         elif [ $src_charset = 'utf-8' ] ; then
             is_utf=yes
             # if we convert from utf-8, we should remove allow_recoding
-            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| grep -v allow_recoding | sed "s/$src_charset/$charset/" > $TEMPFILE
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| grep -v allow_recoding | sed "s/$replace_charset/$charset/" > $TEMPFILE
             if [ -s $TEMPFILE ] ; then
                 cat $TEMPFILE > $file
                 echo done
@@ -228,7 +234,7 @@ $allow_recoding = TRUE;' > $TEMPFILE
             fi
         else
             # just convert
-            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed "s/$src_charset/$charset/" > $TEMPFILE
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed "s/$replace_charset/$charset/" > $TEMPFILE
             if [ -s $TEMPFILE ] ; then
                 cat $TEMPFILE > $file
                 echo done
@@ -249,7 +255,7 @@ $allow_recoding = TRUE;' > $TEMPFILE
             echo -n " creating utf-8 translation ... "
             charset=utf-8
             file=$lang-$charset.inc.php
-            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed -e "s/$replace_charset/$charset/" -e '/\$charset/a\
 $allow_recoding = TRUE;' > $TEMPFILE
             if [ -s $TEMPFILE ] ; then
                 cat $TEMPFILE > $file

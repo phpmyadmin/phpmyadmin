@@ -11,6 +11,8 @@ $Source$
     * libraries/display_export.lib.php: Updated texts to fit Excel 2003
       behaviour (bug #1018457).
     * main.php, themes.php: Escape theme names (bug #1016608).
+    * lang/hebrew-utf-8.inc.php, lang/sync_lang.sh,
+      libraries/select_lang.lib.php: Hebrew now also has utf-8 version.
 
 2004-09-01 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php: bug 939531: when people upgrade
