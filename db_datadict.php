@@ -59,7 +59,7 @@ $count  = 0;
 while ($row = PMA_DBI_fetch_assoc($rowset)) {
     $myfieldname = 'Tables_in_' . htmlspecialchars($db);
     $table        = $row[$myfieldname];
-    if ($cfgRelation['commwork']) {
+    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
         $comments = PMA_getComments($db, $table);
     }
 
@@ -175,7 +175,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     if ($have_rel) {
         echo '    <th>' . $strLinksTo . '</th>' . "\n";
     }
-    if ($cfgRelation['commwork']) {
+    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
         echo '    <th>' . $strComments . '</th>' . "\n";
     }
     if ($cfgRelation['mimework']) {
@@ -258,7 +258,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
             }
             echo '&nbsp;</td>' . "\n";
         }
-        if ($cfgRelation['commwork']) {
+        if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
             echo '    <td class="print">';
             if (isset($comments[$field_name])) {
                 echo htmlspecialchars($comments[$field_name]);

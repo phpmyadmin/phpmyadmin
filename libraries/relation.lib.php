@@ -418,13 +418,27 @@ function PMA_getDisplayField($db, $table) {
  *
  * @access  public
  *
- * @author  Mike Beck <mikebeck@users.sourceforge.net>
+ * @authors  Mike Beck <mikebeck@users.sourceforge.net>
+ *           and lem9
  */
 function PMA_getComments($db, $table = '') {
     global $cfgRelation, $charset_connection;
 
     if ($table != '') {
-        $com_qry      = 'SELECT column_name, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_info']);
+
+        // MySQL 4.1.x native column comments
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
+            $fields = PMA_DBI_get_fields($db, $table);
+            foreach($fields as $key=>$field) {
+                $tmp_col = $field['Field'];
+                if (!empty($field['Comment'])) {
+                    $native_comment[$tmp_col] = $field['Comment'];
+                }
+            }
+        }
+
+        // pmadb internal column comments
+        $com_qry      = 'SELECT column_name, comment FROM ' . PMA_backquote($cfgRelation['db']) . '.' .PMA_backquote($cfgRelation['column_info']);
         if (PMA_MYSQL_INT_VERSION >= 40100) {
             $com_qry .= ' WHERE CONVERT(db_name    USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($db) . '\''
                       . ' AND   CONVERT(table_name USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($table) . '\'';
@@ -432,9 +446,10 @@ function PMA_getComments($db, $table = '') {
             $com_qry .= ' WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\''
                       . ' AND   table_name = \'' . PMA_sqlAddslashes($table) . '\'';
         }
-        $com_rs   = PMA_query_as_cu($com_qry, TRUE);
+        $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
     } else {
-        $com_qry      = 'SELECT ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_info']);
+        // pmadb internal db comments
+        $com_qry      = 'SELECT ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']);
         if (PMA_MYSQL_INT_VERSION >= 40100) {
             $com_qry .= ' WHERE CONVERT(db_name     USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($db) . '\''
                       . ' AND   CONVERT(table_name  USING ' . $charset_connection . ') = \'\''
@@ -444,21 +459,41 @@ function PMA_getComments($db, $table = '') {
                       . ' AND   table_name  = \'\''
                       . ' AND   column_name = \'(db_comment)\'';
         }
-        $com_rs   = PMA_query_as_cu($com_qry, TRUE);
+        $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
     }
 
-    $i = 0;
-    while ($row = PMA_DBI_fetch_assoc($com_rs)) {
-        $i++;
-        $col           = ($table != '' ? $row['column_name'] : $i);
 
-        if (strlen($row['comment']) > 0) {
-            $comment[$col] = $row['comment'];
+    if (PMA_DBI_num_rows($com_rs) > 0) {
+        $i = 0;
+        while ($row = PMA_DBI_fetch_assoc($com_rs)) {
+            $i++;
+            $col           = ($table != '' ? $row['column_name'] : $i);
+
+            if (strlen($row['comment']) > 0) {
+                $comment[$col] = $row['comment'];
+                // if this version supports native comments and this function
+                // was called with a table parameter 
+                if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($table)) {
+                    // if native comment found, use it instead of pmadb
+                    if (!empty($native_comment[$col])) {
+                        $comment[$col] = $native_comment[$col];
+                    } else {
+                        // no native comment, so migrate pmadb-style to native
+                        PMA_setComment($db, $table, $col, $comment[$col],'','native');
+                        // and erase the pmadb-style comment
+                        PMA_setComment($db, $table, $col, '','','pmadb');
+                    }
+                }
+            }
+        } // end while
+
+        PMA_DBI_free_result($com_rs);
+        unset($com_rs);
+    } else {
+        if (isset($native_comment)) {
+            $comment = $native_comment;
         }
-
-    } // end while
-    PMA_DBI_free_result($com_rs);
-    unset($com_rs);
+    }
 
     if (isset($comment) && is_array($comment)) {
         return $comment;
@@ -497,9 +532,41 @@ function PMA_handleSlashes($val) {
  *
  * @access  public
  */
-function PMA_setComment($db, $table, $key, $value, $removekey = '') {
+function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='auto') {
     global $cfgRelation, $charset_connection;
 
+
+    if ($mode=='auto') {
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
+            $mode='native';
+        } else {
+            $mode='pmadb';
+        }
+    }
+
+    if ($mode == 'native') {
+        $fields = PMA_DBI_get_fields($db, $table);
+        // TODO: get directly the information of $col
+        foreach($fields as $key=>$field) {
+            $tmp_col = $field['Field'];
+            $types[$tmp_col] = $field['Type'];
+            $collations[$tmp_col] = $field['Collation'];
+            $nulls[$tmp_col] = $field['Null'];
+            $defaults[$tmp_col] = $field['Default'];
+            $extras[$tmp_col] = $field['Extra'];
+            if ($tmp_col == $col) {
+                break;
+            }
+        }
+        $query = 'ALTER TABLE ' . PMA_backquote($table) . ' CHANGE '
+            . PMA_generateAlterTable($col, $col, $types[$col], $collations[$col], $nulls[$col], $defaults[$col], $extras[$col], $comment);
+        PMA_DBI_try_query($query, NULL, PMA_DBI_QUERY_STORE);
+        return TRUE;
+    }
+
+    // $mode == 'pmadb' section: 
+
+    
     if (PMA_MYSQL_INT_VERSION >= 40100) {
         $cols = array(
             'db_name'     => 'CONVERT(db_name     USING ' . $charset_connection . ')',
@@ -514,7 +581,7 @@ function PMA_setComment($db, $table, $key, $value, $removekey = '') {
         );
     }
 
-    if ($removekey != '' AND $removekey != $key) {
+    if ($removekey != '' AND $removekey != $col) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
                       . ' WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\''
                       . ' AND   ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\''
@@ -526,33 +593,33 @@ function PMA_setComment($db, $table, $key, $value, $removekey = '') {
     $test_qry = 'SELECT ' . PMA_backquote('comment') . ', mimetype, transformation, transformation_options FROM ' . PMA_backquote($cfgRelation['column_info'])
               . ' WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\''
               . ' AND   ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\''
-              . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($key) . '\'';
+              . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($col) . '\'';
     $test_rs   = PMA_query_as_cu($test_qry, TRUE, PMA_DBI_QUERY_STORE);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         $row = PMA_DBI_fetch_assoc($test_rs);
         PMA_DBI_free_result($test_rs);
 
-        if (strlen($value) > 0 || strlen($row['mimetype']) > 0 || strlen($row['transformation']) > 0 || strlen($row['transformation_options']) > 0) {
+        if (strlen($comment) > 0 || strlen($row['mimetype']) > 0 || strlen($row['transformation']) > 0 || strlen($row['transformation_options']) > 0) {
             $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
-                       . ' SET ' . PMA_backquote('comment') . ' = \'' . PMA_sqlAddslashes($value) . '\''
+                       . ' SET ' . PMA_backquote('comment') . ' = \'' . PMA_sqlAddslashes($comment) . '\''
                        . ' WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND   ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\''
-                       . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddSlashes($key) . '\'';
+                       . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddSlashes($col) . '\'';
         } else {
             $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
                        . ' WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND   ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\''
-                       . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($key) . '\'';
+                       . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($col) . '\'';
         }
-    } else if (strlen($value) > 0) {
+    } else if (strlen($comment) > 0) {
         $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_info'])
                    . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ') '
                    . ' VALUES('
                    . '\'' . PMA_sqlAddslashes($db) . '\','
                    . '\'' . PMA_sqlAddslashes($table) . '\','
-                   . '\'' . PMA_sqlAddslashes($key) . '\','
-                   . '\'' . PMA_sqlAddslashes($value) . '\')';
+                   . '\'' . PMA_sqlAddslashes($col) . '\','
+                   . '\'' . PMA_sqlAddslashes($comment) . '\')';
     }
 
     if (isset($upd_query)){

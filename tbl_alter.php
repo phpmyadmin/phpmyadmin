@@ -57,30 +57,17 @@ if (isset($do_save_data)) {
         } else {
             $query .= ', CHANGE ';
         }
-        $query .= PMA_backquote($field_orig[$i]) . ' ' . PMA_backquote($field_name[$i]) . ' ' . $field_type[$i];
-        // Some field types shouldn't have lengths
+
+        $full_field_type = $field_type[$i];
         if ($field_length[$i] != ''
             && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i', $field_type[$i])) {
-            $query .= '(' . $field_length[$i] . ')';
+            $full_field_type .= '(' . $field_length[$i] . ')';
         }
         if ($field_attribute[$i] != '') {
-            $query .= ' ' . $field_attribute[$i];
-        } else if (PMA_MYSQL_INT_VERSION >= 40100 && $field_collation[$i] != '' && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR)$@i', $field_type[$i])) {
-            $query .= PMA_generateCharsetQueryPart($field_collation[$i]);
+            $full_field_type .= ' ' . $field_attribute[$i];
         }
-        if ($field_default[$i] != '') {
-            if (strtoupper($field_default[$i]) == 'NULL') {
-                $query .= ' DEFAULT NULL';
-            } else {
-                $query .= ' DEFAULT \'' . PMA_sqlAddslashes($field_default[$i]) . '\'';
-            }
-        }
-        if ($field_null[$i] != '') {
-            $query .= ' ' . $field_null[$i];
-        }
-        if ($field_extra[$i] != '') {
-            $query .= ' ' . $field_extra[$i];
-        }
+        // take care of native MySQL comments here
+        $query .= PMA_generateAlterTable($field_orig[$i], $field_name[$i], $full_field_type, (PMA_MYSQL_INT_VERSION >= 40100 && $field_collation[$i] != '' ? $field_collation[$i] : ''), $field_null[$i], $field_default[$i], $field_extra[$i], (PMA_MYSQL_INT_VERSION >= 40100 && $field_comments[$i] != '' ? $field_comments[$i] : ''));
     } // end for
 
     // To allow replication, we first select the db to use and then run queries
@@ -101,10 +88,11 @@ if (isset($do_save_data)) {
 
         $cfgRelation = PMA_getRelationsParam();
 
+        // take care of pmadb internal comments here
         // garvin: Update comment table, if a comment was set.
-        if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
+        if (PMA_MYSQL_INT_VERSION < 40100 && isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
             foreach ($field_comments AS $fieldindex => $fieldcomment) {
-                PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, $field_orig[$fieldindex]);
+                PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, $field_orig[$fieldindex], 'pmadb');
             }
         }
 
@@ -191,7 +179,6 @@ if ($abort == FALSE) {
         $fields_meta[] = PMA_DBI_fetch_assoc($result);
         PMA_DBI_free_result($result);
     }
-
     $num_fields  = count($fields_meta);
     $action      = 'tbl_alter.php';
     require('./tbl_properties.inc.php');

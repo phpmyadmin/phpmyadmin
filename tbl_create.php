@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Get some core libraries
  */
@@ -142,7 +141,7 @@ if (isset($submit_num_fields)) {
     }
     unset($unique);
 
-    // Builds the fulltextes statements
+    // Builds the FULLTEXT statements
     $fulltext     = '';
     $fulltext_cnt = (isset($field_fulltext) ? count($field_fulltext) : 0);
     for ($i = 0; $i < $fulltext_cnt; $i++) {
@@ -194,7 +193,7 @@ if (isset($submit_num_fields)) {
         $cfgRelation = PMA_getRelationsParam();
 
         // garvin: Update comment table, if a comment was set.
-        if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
+        if (isset($field_comments) && is_array($field_comments) && ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100)) {
             foreach ($field_comments AS $fieldindex => $fieldcomment) {
                 PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
             }
@@ -239,7 +238,7 @@ if ($abort == FALSE) {
     else {
         $action = 'tbl_create.php';
         require('./tbl_properties.inc.php');
-        // Diplays the footer
+        // Displays the footer
         echo "\n";
         require_once('./footer.inc.php');
    }
