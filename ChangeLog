@@ -9,6 +9,8 @@ $Source$
     * lang/japanese: update, thanks to Yukihiro Kawada
     * lang/italian: update, thanks to Pietro Danesi
     * lang/galician: update, thanks to Xosé Calvo
+    * lang/chinese_*: update, thanks to Siu Sun (siusun)
+    * lang/indonesion: update, thanks to Rachim Tamsjadi (tamsy)
 
 2002-09-23 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/display_tbl.lib.php3, tbl_change.php3: coding standards
