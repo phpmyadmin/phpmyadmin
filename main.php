@@ -638,6 +638,22 @@ if (PMA_PHP_INT_VERSION == 40203 && @extension_loaded('mbstring')) {
 }
 
 /**
+ * Warning for old PHP version
+ */
+
+if (PMA_PHP_INT_VERSION < 40100) {
+    echo '<p class="warning">' . sprintf($strUpgrade, 'PHP', '4.1.x') . '</p>' . "\n";
+}
+
+/**
+ * Warning for old MySQL version
+ */
+
+if (PMA_MYSQL_INT_VERSION < 32336) {
+    echo '<p class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.36') . '</p>' . "\n";
+}
+
+/**
  * Displays the footer
  */
 echo "\n";

@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/*: strUpgradeMySQL -> strUpgrade with one more parameter
+      for the product name
+    * main.php: new warnings for old PHP or MySQL versions
+
 2003-11-18 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_tbl.lib.php: Can kill more proceses (bug #844353).
 
