@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-31 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/romanian: Updated, thanks to Valics Lehel.
+
 2003-10-27 Marc Delisle  <lem9@users.sourceforge.net>
     * querywindow.php3: bug 825668: js errors in SQL-history,
       thanks to Jenik Kaspar (jenix)
