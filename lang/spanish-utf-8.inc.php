@@ -47,6 +47,7 @@ $strAffectedRows = 'Filas afectadas: ';
 $strAfter = 'Después de %s';
 $strAfterInsertBack = 'Volver';
 $strAfterInsertNewInsert = 'Insertar un nuevo registro';
+$strAfterInsertNext = 'Edite la siguiente fila';
 $strAfterInsertSame = 'Volver a esta página';
 $strAll = 'Todos/as';
 $strAllTableSameWidth = '¿Mostrar todas las tablas que tienen el mismo ancho?';
@@ -373,6 +374,8 @@ $strMIME_transformation_options = 'Opciones de transformación';
 $strMIME_transformation_options_note = 'Por favor ingrese los valores para las opciones de transformación usando este formato: \'a\',\'b\',\'c\'...<br />Si alguna vez requiere insertar un Backslash ("\") o comilla sencilla ("\'") entre esos valores, use backslash (por ejemplo \'\\\\xyz\' o \'a\\\'b\').';
 $strMIME_without = 'MIME-types impresos en itálicas no tienen una función de transformación adicional';
 $strMaximumSize = 'Tamaño máximo: %s%s';
+$strMbExtensionMissing = 'No se halló la extensión PHP mbstring y al parecer usted está usando tipografía multibyte. phpMyAdmin no puede cortar los strings correctamente sin la extensión mbstring y podría dar resultados inesperados.';
+$strMbOverloadWarning = 'Usted ha activado mbstring.func_overload en su configuración PHP. ¡Esta opción es incompatible con phpMyAdmin y podría causar la pérdida de algunos datos!';
 $strModifications = 'Se han guardado las modificaciones';
 $strModify = 'Modificar';
 $strModifyIndexTopic = 'Modificar un índice';
@@ -559,6 +562,7 @@ $strRunning = 'ejecutándose en %s';
 $strRussian = 'Ruso';
 
 $strSQL = 'SQL';
+$strSQLExportCompatibility = 'Compatibilidad con exportación SQL';
 $strSQLExportType = 'Tipo de exportación';
 $strSQLOptions = 'Opciones SQL';
 $strSQLParserBugMessage = 'Hay la posibilidad de que usted haya encontrado un error en el intérprete de SQL. Por favor examine cuidadosamente su consulta, y verifique que las comillas son usadas adecuadamente y hacen juego. Otra posible causa del fallo es que usted este subiendo un archivo con datos binarios por fuera del área de texto delimitado. Intente su consulta en la interfaz de comandos de MySQL. La salida generada por el servidor de MySQL, de existir, aparece abajo, en cuyo caso puede ayudar a diagnosticar el problema. Si aún tiene problemas o el intérprete falla en tanto que en la interfaz de comandos funciona, por favor reduzca la salida de su consulta de SQL a la consulta que genera el problema, y envíe un reporte de error con la cadena de datos en la sección de CORTE indicada abajo:';
@@ -741,8 +745,4 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
 
-$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
-$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
-$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
-$strAfterInsertNext = 'Edit next row';  //to translate
 ?>
