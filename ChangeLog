@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-02  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.js & left.php3: font face now depends on charset (temporary fix).
+
 2001-07-02  Marc Delisle  <lem9@users.sourceforge.net>
 	* bug 436108, quotes into manual requests: db_readdump.php3
 

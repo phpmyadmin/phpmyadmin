@@ -238,31 +238,31 @@ if (capable) {
     // to write().
     if (isDOM) {
       var lstyle = '<style type="text/css">'
-                 + '.parent {font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000; text-decoration:none; display:block}'
-                 + '.child {font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000; text-decoration:none; display:none}'
+                 + '.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration:none; display:block}'
+                 + '.child {font-family: ' + fontFamily + '; color: #000000; text-decoration:none; display:none}'
                  + '.item { color: darkblue; text-decoration:none; font-size: 8pt;}'
                  + '.highlight { color: red; font-size: 8pt;}'
                  + '.heada { font: 12px\/13px; Times}'
-                 + 'DIV { color:black; }'
+                 + 'div { color:black; }'
                  + '<\/style>';
       write(lstyle);
     }
     else {
       write('<style type="text/css">');
       if (isIE4) {
-        write('.parent {font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000; text-decoration:none;}');
-        write('.child {font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000; text-decoration:none; display:none}');
+        write('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration:none;}');
+        write('.child {font-family: ' + fontFamily + '; color: #000000; text-decoration:none; display:none}');
         write('.item { color: darkblue; text-decoration:none; font-size: 8pt;}');
         write('.highlight { color: red; font-size: 8pt;}');
         write('.heada { font: 12px\/13px; Times}');
-        write('DIV { color:black; }');
+        write('div { color:black; }');
       }
       else {
-        write('.parent {font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000; text-decoration:none; position:absolute; visibility:hidden; color: black;}');
-        write('.child {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt;color: #000000; position:absolute; visibility:hidden}');
+        write('.parent {font-family:' + fontFamily + '; color: #000000; text-decoration:none; position:absolute; visibility:hidden; color: black;}');
+        write('.child {font-family: ' + fontFamily + '; font-size: 8pt;color: #000000; position:absolute; visibility:hidden}');
         write('.item { color: darkblue; text-decoration:none;}');
-        write('.regular {font-family: Arial,Helvetica,sans-serif; position:absolute; visibility:hidden}');
-        write('DIV { color:black; }');
+        write('.regular {font-family: ' + fontFamily + '; position:absolute; visibility:hidden}');
+        write('div { color:black; }');
       }
       write('<\/style>');
     }

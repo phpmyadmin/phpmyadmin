@@ -40,10 +40,11 @@ header('Content-Type: text/html; charset=' . $charset);
     <!-- Collapsible tables list scripts -->
     <script type="text/javascript" language="javascript1.2">
     <!--
-    var isDOM   = (typeof(document.getElementsByTagName) != 'undefined') ? 1 : 0;
-    var isIE4   = ((typeof(document.all) != 'undefined') && (parseInt(navigator.appVersion) >= 4)) ? 1 : 0;
-    var isNS4   = (typeof(document.layers) != 'undefined') ? 1 : 0;
-    var capable = (isDOM || isIE4 || isNS4) ? 1 : 0;
+    var isDOM      = (typeof(document.getElementsByTagName) != 'undefined') ? 1 : 0;
+    var isIE4      = ((typeof(document.all) != 'undefined') && (parseInt(navigator.appVersion) >= 4)) ? 1 : 0;
+    var isNS4      = (typeof(document.layers) != 'undefined') ? 1 : 0;
+    var capable    = (isDOM || isIE4 || isNS4) ? 1 : 0;
+    var fontFamily = '<?php echo (($charset == 'iso-8859-1') ? 'verdana, helvetica, arial, geneva, sans-serif' : 'sans-serif'); ?>';
     //-->
     </script>
     <script src="left.js" type="text/javascript" language="javascript1.2"></script>
