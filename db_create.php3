@@ -27,14 +27,14 @@ if (PMA_MYSQL_INT_VERSION < 32306) {
 /**
  * Executes the db creation sql query
  */
-$local_query = 'CREATE DATABASE ' . PMA_backquote($db);
-$result      = PMA_mysql_query('CREATE DATABASE ' . PMA_backquote($db)) or PMA_mysqlDie('', $local_query, FALSE, $err_url);
+$sql_query = 'CREATE DATABASE ' . PMA_backquote($db);
+$result      = PMA_mysql_query('CREATE DATABASE ' . PMA_backquote($db)) or PMA_mysqlDie('', $sql_query, FALSE, $err_url);
 
 
 /**
- * Displays the result and moves back to the calling page
+ * Displays the result and calls default page
  */
 $message = $strDatabase . ' ' . htmlspecialchars($db) . ' ' . $strHasBeenCreated;
-require('./db_details.php3');
+require('./' . $cfg['DefaultTabDatabase']);
 
 ?>
