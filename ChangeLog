@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-14 Marc Delisle  <lem9@users.sourceforge.net>
+    Changes, thanks to Michael Keck (mkkeck):
+    * images/b_tblops.png, themes/darkblue_orange/img/b_tblops.png: new icon
+    * both themes: new screen.png reflecting current logo
+    * db_details_structure.php: improve background image in error section
+    * main.php: $theme='none' no longer a possible choice
+    * open.php: permits access to message strings in theme manager
+    * themes/index.php: new calling
+
 2004-06-13 Marc Delisle  <lem9@users.sourceforge.net>
     * many files: redesign part 3, thanks to Michael Keck (mkkeck).
       New /themes structure for Theme management
