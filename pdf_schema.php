@@ -1219,7 +1219,7 @@ class PMA_RT
 function PMA_RT_DOC($alltables ){
     global  $db, $pdf, $orientation;
     //TOC
-    $pdf->addpage("P");
+    $pdf->addpage($GLOBALS['orientation']);
     $pdf->Cell(0,9, $GLOBALS['strTableOfContents'],1,0,'C');
     $pdf->Ln(15);
     $i = 1;

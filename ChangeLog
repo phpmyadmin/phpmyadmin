@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_schema.php: set contents page (first page)'s orientation
+      to the same asked for the data dictionary
+
 2004-05-19 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php: bug 956137, undefined $data: on the search page,
       PMA_foreignDropdown() must be called with no current value for
