@@ -2218,7 +2218,7 @@ class FPDF
                 $this->Error('Some data has already been output to browser, can\'t send PDF file');
             }
             header('Content-Length: ' . strlen($this->buffer));
-            header('Content-disposition: inline; filename=doc.pdf');
+            header('Content-Disposition: inline; filename=doc.pdf');
             echo $this->buffer;
         }
         // Download file
@@ -2234,7 +2234,7 @@ class FPDF
                 $this->Error('Some data has already been output to browser, can\'t send PDF file');
             }
             header('Content-Length: ' . strlen($this->buffer));
-            header('Content-disposition: attachment; filename=' . $file);
+            header('Content-Disposition: attachment; filename=' . $file);
             echo $this->buffer;
         }
         // Save file locally
