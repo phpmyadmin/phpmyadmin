@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-18 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/common.lib.php3, libraries/select_lang.lib.php3: Don't include
+      the "real" config file if a developer edition exists.
+
 2002-07-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: bug 579785, Edit links URLs too long
       for some browsers
@@ -12,7 +16,7 @@ $Source$
     * lang/chinese update, thanks to Siu Sun
     * lang/albanian update, thanks to Laurent Dhima.
     * lang/czech update, thanks to Michal Cihar
-    * lang/sync_lang.sh, can exclude some languages from conversion, 
+    * lang/sync_lang.sh, can exclude some languages from conversion,
       thanks to Michal Cihar
     * lang/turkish update, thanks to Bora Alioglu
     * lang/polish update, thanks to Jakub Wilk
@@ -30,7 +34,7 @@ $Source$
 2002-07-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/sync_lang.sh: support for multiple convertors (recode added),
       thanks to Michal Cihar
-    * lang/spanish update, thanks to Daniel Hinostroza 
+    * lang/spanish update, thanks to Daniel Hinostroza
       (Daniel.Hinostroza  at grunenthal.com.ec)
     * lang/swedish updates: thanks to Björn T. Hallberg
     * lang/indonesian updates, thanks to Rachim Tamsjadi.
@@ -40,8 +44,8 @@ $Source$
     * chk_rel.php3, db_details_structure.php3, Documentation.html,
       pdf_pages.php3, pdf_shema.php3, libraries/select_lang.lib.php3:
       commits for Loic
-    * tbl_properties.php3, tbl_properties_structure.php3, 
-      new tbl_query_box.php3: query box at the bottom of the structure page 
+    * tbl_properties.php3, tbl_properties_structure.php3,
+      new tbl_query_box.php3: query box at the bottom of the structure page
 
 2002-07-17 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/config_import.lib.php3: Added

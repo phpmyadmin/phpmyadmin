@@ -68,11 +68,20 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     }
 
     /**
+     * Detects the config file we want to load
+     */
+    if (file_exists('./config.inc.developer.php3')) {
+        $cfgfile_to_load = './config.inc.developer.php3';
+    } else {
+        $cfgfile_to_load = './config.inc.php3';
+    }
+
+    /**
      * Parses the configuration file and gets some constants used to define
      * versions of phpMyAdmin/php/mysql...
-     */
+     */    
     $old_error_reporting = error_reporting(0);
-    if (!include('./config.inc.php3')) {
+    if (!include($cfgfile_to_load)) {
         // Creates fake settings
         $cfg = array('DefaultLang' => 'en');
         // Loads the laguage file
@@ -111,14 +120,21 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     }
     error_reporting($old_error_reporting);
     unset($old_error_reporting);
+    unset($cfgfile_to_load);
 
     /**
-     * Reads in the developer edition config file. This is used exclusively during
-     * the development cycle of PMA, to prevent the accident of the developers ever
-     * submitting their config.inc.php3 file.
+     * Includes compatibility code for older config.inc.php3 revisions
+     * if necessary
      */
-    if (file_exists('./config.inc.developer.php3')) {
-        include('./config.inc.developer.php3');
+    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 120) {
+        require('./libraries/config_import.lib.php3');
+    }
+
+    /**
+     * Includes the language file if it hasn't been included yet
+     */
+    if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')){
+        require('./libraries/select_lang.lib.php3');
     }
 
     /**
@@ -147,11 +163,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      */
     include('./libraries/defines.lib.php3');
 
-
-    // For compatibility with old config.inc.php3
-    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 120) {
-        include('./libraries/config_import.lib.php3');
-    }
 
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run
