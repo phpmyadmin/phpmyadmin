@@ -1003,7 +1003,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             $row[$pointer]     = str_replace("\x0a", '\n', $row[$pointer]);
                             $row[$pointer]     = str_replace("\x0d", '\r', $row[$pointer]);
                             $row[$pointer]     = str_replace("\x1a", '\Z', $row[$pointer]);
-                            $row[$pointer]     = str_replace('<', '&lt;', str_replace('>', '&gt;', $row[$pointer]));
+                            $row[$pointer]     = htmlspecialchars($row[$pointer]);
                         }
                         // loic1: displays all space characters, 4 space
                         // characters for tabulations and <cr>/<lf>

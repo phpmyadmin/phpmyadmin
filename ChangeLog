@@ -5,16 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-17 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3, line 1006: improved Loïc's fix.
+
 2002-05-17 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3, bug 556296: field size for int
 
 2002-05-17 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_structure.php3, lines 446-458;
       tbl_properties_options.php3, lines 119-143: beautified generated code.
-	* libraries/build_dump.php3, lines 70-75: fixed bug #551682 - PMA ignores
+    * libraries/build_dump.php3, lines 70-75: fixed bug #551682 - PMA ignores
       case of table names under winwin, thanks to
       Pawe³ Szczepañski <pauluz at users.sourceforge.net>.
-	* libraries/display_tbl.lib.php3, line 1006: if a binary record contains
+    * libraries/display_tbl.lib.php3, line 1006: if a binary record contains
       some html tags, display was broken. Thanks to
       SailorMax <max at elcor.lv>.
 
@@ -23,10 +26,10 @@ $Source$
 
 2002-05-14 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3, db_details_structure.php3, lang/*, fpdf/*,
-      Documentation.html: new feature: pdf schema output, 
-      thanks to Maxime Delorme (delorme.maxime at free.fr) 
+      Documentation.html: new feature: pdf schema output,
+      thanks to Maxime Delorme (delorme.maxime at free.fr)
       and to Olivier Plathey (www.fpdf.org)
-      (todo: scaling choice) 
+      (todo: scaling choice)
 
 2002-05-13 Loïc Chapeaux  <lolo@phpheaven.net>
     * left.php3, libraries/common.lib.php3: fixed xhtml bugs and optimized the
@@ -35,9 +38,9 @@ $Source$
 
 2002-05-13 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/hungarian.inc.php3 updates, thanks to Péter Bakondy
- 
+
 2002-05-09 Robin Johnson  <robbat2@users.sourceforge.net>
-    * .cvsignore, libraries/common.lib.php3: Feature to stop developers 
+    * .cvsignore, libraries/common.lib.php3: Feature to stop developers
       commiting their config.inc.php3 so easily.
 
 2002-05-09 Alexander M. Turek  <rabus@users.sourceforge.net>
