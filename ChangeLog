@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-19 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/grab_globals.lib.php3: Do not use $HTTP_*_VARS arrays anymore.
+
 2003-11-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php: Recognizing new 2.x config.inc.php revisions.
 
