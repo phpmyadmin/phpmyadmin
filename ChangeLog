@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
+    * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
+    * lang/malay: updated, thanks to nobody
+
 2004-03-23 Olivier Mueller <om@omnis.ch>
     * server_privileges.php, libraries/server_privileges.js: added 
       (un)checkall links to the "Global privileges" edition form.
