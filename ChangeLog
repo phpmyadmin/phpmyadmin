@@ -8,6 +8,7 @@ $Source$
 2002-06-27 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3, db_details_db_info.php3, db_details_links.php3: bug with a 
       Select and no table
+    * lang/slovak-iso updates, thanks to Lubos Klokner
 
 2002-06-26 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/czech-*.inc.php3: Shorter term for QBE, thanks again to
