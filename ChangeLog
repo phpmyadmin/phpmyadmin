@@ -7,6 +7,9 @@ $Source$
 
 2005-03-18 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/estonian: Update thanks to Alvar Soome - finsoft.
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
+    * lang/brazilian-portuguese: big update, thanks to Airon Luis Pereira
+      - thedarkness
 
 2005-03-18 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Updates.
