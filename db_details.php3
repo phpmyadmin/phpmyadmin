@@ -74,12 +74,12 @@ if (MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
     if ($cfgSkipLockedTables == TRUE && MYSQL_INT_VERSION >= 32330) {
         $local_query  = 'SHOW OPEN TABLES FROM ' . backquote($db);
-        $result        = mysql_query($query) or mysql_die('', $local_query, '', $err_url_0);
+        $result        = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
         // Blending out tables in use
         if ($result != FALSE && mysql_num_rows($result) > 0) {
-            while ($tmp = mysql_fetch_array($result)) {
+            while ($tmp = mysql_fetch_row($result)) {
                 // if in use memorize tablename
-                if (eregi('in_use=[1-9]+', $tmp)) {
+                if (eregi('in_use=[1-9]+', $tmp[1])) {
                     $sot_cache[$tmp[0]] = TRUE;
                 }
             }
@@ -87,9 +87,9 @@ if (MYSQL_INT_VERSION >= 32303) {
 
             if (isset($sot_cache)) {
                 $local_query = 'SHOW TABLES FROM ' . backquote($db);
-                $result      = mysql_query($query) or mysql_die('', $local_query, '', $err_url_0);
+                $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
                 if ($result != FALSE && mysql_num_rows($result) > 0) {
-                    while ($tmp = mysql_fetch_array($result)) {
+                    while ($tmp = mysql_fetch_row($result)) {
                         if (!isset($sot_cache[$tmp[0]])) {
                             $local_query = 'SHOW TABLE STATUS FROM ' . backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\'';
                             $sts_result  = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
