@@ -9,7 +9,7 @@ phpMyAdmin - Readme
   -----------------
   http://www.phpmyadmin.net/
 
-    Copyright (C) 1998-2000 Tobias Ratschiller <tobias.ratschiller_at_maguma.com>
+    Copyright (C) 1998-2000 Tobias Ratschiller <tobias@ratschiller.com>
     Copyright (C) 2001-     Olivier Müller <om_at_omnis.ch>
                             Loïc Chapeaux <lolo_at_phpHeaven.net>
                 Marc Delisle <DelislMa_at_CollegeSherbrooke.qc.ca>
@@ -37,7 +37,7 @@ phpMyAdmin - Readme
     a web-browser (doh!)
 
   Summary:
-    phpMyAdmin is intended to handle the adminstration of MySQL over the WWW.
+    phpMyAdmin is intended to handle the administration of MySQL over the WWW.
     Currently it can:
       - create and drop databases
       - create, copy, drop and alter tables
@@ -47,7 +47,7 @@ phpMyAdmin - Readme
       - load text files into tables
       - create and read dumps of tables
       - export and import CSV data
-      - administer one single database
+      - administer one single database as well as a whole database server
       - communicate in 47 different languages
 
   Download:
@@ -74,9 +74,9 @@ phpMyAdmin - Readme
 
 
   PS: Please, don't send us emails with question like "How do I compile
-      PHP3 with MySQL-support". We do answer all emails regarding
-      phpMyAdmin, but we just don't have the time to be your free helpdesk.
-      Please send your questions to the appropiate mailinglists / forums.
+      PHP3 with MySQL-support". We just don't have the time to be your 
+      free helpdesk.
+      Please send your questions to the appropriate mailinglists / forums.
       Before contacting us, please read the Documentation.html (esp. the
       FAQ part).
 
