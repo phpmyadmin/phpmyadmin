@@ -177,6 +177,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *                   of every row. This handler must accept one parameter
      *                   ($sql_insert)
      * @param   string   the url to go back in case of error
+     * @param   string   the sql_query (optional)
      *
      * @return  boolean  always true
      *
@@ -191,13 +192,18 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @author  staybyte
      */
-    function PMA_getTableContentFast($db, $table, $add_query = '', $handler, $error_url)
+    function PMA_getTableContentFast($db, $table, $add_query = '', $handler, $error_url, $sql_query)
     {
         global $use_backquotes;
         global $rows_cnt;
         global $current_row;
 
-        $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        if (!empty($sql_query)) {
+            $local_query = $sql_query;
+            PMA_mysql_select_db($db);
+        } else {
+            $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        }
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         if ($result != FALSE) {
             $fields_cnt = mysql_num_fields($result);
@@ -306,6 +312,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *                   of every row. This handler must accept one parameter
      *                   ($sql_insert)
      * @param   string   the url to go back in case of error
+     * @param   string   the sql query (optional)
      *
      * @return  boolean  always true
      *
@@ -318,13 +325,18 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @see     PMA_getTableContent()
      */
-    function PMA_getTableContentOld($db, $table, $add_query = '', $handler, $error_url)
+    function PMA_getTableContentOld($db, $table, $add_query = '', $handler, $error_url, $sql_query)
     {
         global $use_backquotes;
         global $rows_cnt;
         global $current_row;
 
-        $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        if (!empty($sql_query)) {
+            $local_query = $sql_query;
+            PMA_mysql_select_db($db);
+        } else {
+            $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        }
         $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         $current_row  = 0;
         $fields_cnt   = mysql_num_fields($result);
@@ -429,6 +441,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *                   of every row. This handler must accept one parameter
      *                   ($sql_insert)
      * @param   string   the url to go back in case of error
+     * @param   string   the sql_query (optional)
      *
      * @access  public
      *
@@ -436,7 +449,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @author  staybyte
      */
-    function PMA_getTableContent($db, $table, $limit_from = 0, $limit_to = 0, $handler, $error_url)
+    function PMA_getTableContent($db, $table, $limit_from = 0, $limit_to = 0, $handler, $error_url, $sql_query)
     {
         // Defines the offsets to use
         if ($limit_to > 0 && $limit_from >= 0) {
@@ -449,9 +462,9 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
         // Call the working function depending on the php version
         if (PMA_PHP_INT_VERSION >= 40005) {
-            PMA_getTableContentFast($db, $table, $add_query, $handler, $error_url);
+            PMA_getTableContentFast($db, $table, $add_query, $handler, $error_url, $sql_query);
         } else {
-            PMA_getTableContentOld($db, $table, $add_query, $handler, $error_url);
+            PMA_getTableContentOld($db, $table, $add_query, $handler, $error_url, $sql_query);
         }
     } // end of the 'PMA_getTableContent()' function
 
@@ -471,6 +484,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      * @param   string   the handler (function) to call. It must accept one
      *                   parameter ($sql_insert)
      * @param   string   the url to go back in case of error
+     * @param   string   sql query (optional) 
      *
      * @global  string   whether to obtain an excel compatible csv format or a
      *                   simple csv one
@@ -479,7 +493,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @access  public
      */
-    function PMA_getTableCsv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $enc_by, $esc_by, $handler, $error_url)
+    function PMA_getTableCsv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $enc_by, $esc_by, $handler, $error_url, $sql_query)
     {
         global $what;
 
@@ -539,7 +553,12 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         } // end if
 
         // Gets the data from the database
-        $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        if (!empty($sql_query)) {
+            $local_query = $sql_query;
+            PMA_mysql_select_db($db);
+        } else {
+            $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        }
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         $fields_cnt  = mysql_num_fields($result);
 
@@ -606,7 +625,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @access  public
      */
-    function PMA_getTableXML($db, $table, $limit_from = 0, $limit_to = 0, $crlf, $error_url) {
+    function PMA_getTableXML($db, $table, $limit_from = 0, $limit_to = 0, $crlf, $error_url, $sql_query) {
         $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         for ($i = 0; $row = PMA_mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
@@ -625,7 +644,12 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $add_query  = '';
         }
 
-        $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        if (!empty($sql_query)) {
+            $local_query = $sql_query;
+            PMA_mysql_select_db($db);
+        } else {
+            $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        }
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         $buffer      = '  <!-- ' . $GLOBALS['strTable'] . ' ' . $table . ' -->' . $crlf;
         while ($record = PMA_mysql_fetch_array($result, MYSQL_ASSOC)) {
@@ -659,12 +683,13 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      * @param   integer  the last row to get
      * @param   string   the end of line sequence
      * @param   string   the url to go back in case of error
+     * @param   string   sql query (optional)
      *
      * @return  string   the LaTeX table environment
      *
      * @access  public
      */
-   function PMA_getTableLatex($db, $table, $environment, $limit_from, $limit_to, $crlf, $error_url) {
+   function PMA_getTableLatex($db, $table, $environment, $limit_from, $limit_to, $crlf, $error_url, $sql_query) {
 
         $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
@@ -678,7 +703,12 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
         $tex_escape = array("$", "%", "{", "}",  "&",  "#", "_", "^");
 
-        $local_query = 'select * from ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+        if (!empty($sql_query)) {
+            $local_query = $sql_query;
+            PMA_mysql_select_db($db);
+        } else {
+            $local_query = 'select * from ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+        }
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
 
         $buffer      = '\\begin{table} ' . $crlf

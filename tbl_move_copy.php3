@@ -108,7 +108,7 @@ if (isset($new_name) && trim($new_name) != '') {
         } // end MySQL >= 3.23
         else {
             $sql_insert_data = '';
-            PMA_getTableContent($db, $table, 0, 0, 'PMA_myHandler', $err_url);
+            PMA_getTableContent($db, $table, 0, 0, 'PMA_myHandler', $err_url,'');
         } // end MySQL < 3.23
         $sql_query .= "\n\n" . $sql_insert_data;
     }

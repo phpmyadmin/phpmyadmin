@@ -562,6 +562,14 @@ else {
             echo '</p>' . "\n";
         }
 
+        // Export link, if only one table
+        // (the url_query has extra parameters that won't be used to export)
+        if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name'])
+           && !isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])) {
+                echo '    <!-- Export -->' . "\n"
+                   . '    <a href="tbl_properties_export.php3' . $url_query  . '">' . $strExport . '</a>' . "\n";
+        }
+
         // Bookmark Support if required
         if ($disp_mode[7] == '1'
             && ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table'] && empty($id_bookmark))

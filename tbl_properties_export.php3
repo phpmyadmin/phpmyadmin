@@ -16,8 +16,19 @@ require('./tbl_properties_table_info.php3');
     <?php echo $strViewDump . "\n"; ?>
 </p>
 
+<?php
+if (isset($sql_query)) {
+    $sql_query = stripslashes($sql_query);
+    PMA_showMessage($GLOBALS['strSQLQuery']);
+}
+?>
 <form method="post" action="tbl_dump.php3" name="tbl_dump">
-    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+    <?php 
+echo '    ' . PMA_generate_common_hidden_inputs($db, $table);
+if (isset($sql_query)) {
+    echo '    <input type="hidden" name="sql_query" value="' . urlencode($sql_query) . '" />';
+}
+    ?>
     <table cellpadding="5" border="2" align="center">
     <tr>
 

@@ -63,7 +63,6 @@ require('./libraries/common.lib.php3');
 require('./libraries/build_dump.lib.php3');
 require('./libraries/zip.lib.php3');
 
-
 /**
  * Defines the url to return to in case of error in a sql statement
  */
@@ -89,7 +88,7 @@ if (empty($asfile)
 
 
 /**
- * Send headers depending on whether the user choosen to download a dump file
+ * Send headers depending on whether the user chose to download a dump file
  * or not
  */
 // No download
@@ -230,7 +229,7 @@ else {
                     if (!isset($limit_from) || !isset($limit_to)) {
                         $limit_from = $limit_to = 0;
                     }
-                    PMA_getTableContent($db, $table, $limit_from, $limit_to, 'PMA_myHandler', $err_url);
+                    PMA_getTableContent($db, $table, $limit_from, $limit_to, 'PMA_myHandler', $err_url, (isset($sql_query)?urldecode($sql_query):''));
 
                     $dump_buffer .= $tmp_buffer;
                 } // end if
@@ -282,7 +281,8 @@ else {
             }
             if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
                 || (!isset($tmp_select) && !empty($table))) {
-                $dump_buffer .= PMA_getTableXML($db, $table, $limit_from, $limit_to, $crlf, $err_url);
+                $dump_buffer .= PMA_getTableXML($db, $table, $limit_from, $limit_to, $crlf, $err_url, 
+                    (isset($sql_query)?urldecode($sql_query):''));
             }
             $i++;
         }
@@ -319,7 +319,8 @@ else {
                 || (!isset($tmp_select) && !empty($table))) {
 
                 // to do: add option for the formatting ( c, l, r, p)
-                $dump_buffer .= PMA_getTableLatex($db, $table, $environment, $limit_from, $limit_to, $crlf, $err_url);
+                $dump_buffer .= PMA_getTableLatex($db, $table, $environment, $limit_from, $limit_to, $crlf, $err_url, 
+                    (isset($sql_query)?urldecode($sql_query):''));
             }
             $i++;
         }
@@ -343,7 +344,8 @@ else {
         } // end if
 
         $tmp_buffer = '';
-        PMA_getTableCsv($db, $table, $limit_from, $limit_to, $separator, $enclosed, $escaped, 'PMA_myCsvHandler', $err_url);
+        PMA_getTableCsv($db, $table, $limit_from, $limit_to, $separator, $enclosed, $escaped, 'PMA_myCsvHandler', $err_url
+            , (isset($sql_query)?urldecode($sql_query):''));
         $dump_buffer .= $tmp_buffer;
     } // end 'csv case
 } // end building the dump
