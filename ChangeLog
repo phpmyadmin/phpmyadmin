@@ -14,6 +14,7 @@ $Source$
       uses UFPDF class from http://www.acko.net/node/56. NOTE: We now have a
       bit modified FPDF class. (bug #1046051)
     * Documentation.html: Added info about UFPDF library.
+    * lang/czech, lang/english: Improved some texts, also bug #1009667.
 
 2004-12-28 Michal Čihař  <michal@cihar.com>
     * libraries/tbl_move_copy.php: Fix constraints copying (bug #1085900).
