@@ -150,21 +150,15 @@ function PMA_mysql_fetch_array($result, $type = FALSE) {
         $num = mysql_num_fields($result);
         $i = 0;
         for($i = 0; $i < $num; $i++) {
-            $meta = mysql_fetch_field($result);
             $name = mysql_field_name($result, $i);
-            if (!$meta) {
-                /* No meta information available -> we guess that it should be converted */
+            $flags = mysql_field_flags($result, $i);
+            /* Field is BINARY (either marked manually, or it is BLOB) => do not convert it */
+            if (stristr($flags, 'BINARY')) {
+                if (isset($data[$i])) $ret[$i] = $data[$i];
+                if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = $data[$name];
+            } else {
                 if (isset($data[$i])) $ret[$i] = PMA_convert_display_charset($data[$i]);
                 if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = PMA_convert_display_charset($data[$name]);
-            } else {
-                /* Meta information available -> check type of field and convert it according to the type */
-                if ($meta->blob || stristr($meta->type, 'BINARY')) {
-                    if (isset($data[$i])) $ret[$i] = $data[$i];
-                    if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = $data[$name];
-                } else {
-                    if (isset($data[$i])) $ret[$i] = PMA_convert_display_charset($data[$i]);
-                    if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = PMA_convert_display_charset($data[$name]);
-                }
             }
         }
         return $ret;

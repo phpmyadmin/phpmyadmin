@@ -9,6 +9,7 @@ $Source$
     * libraries/display_tbl.lib.php, libraries/sqlparser.lib.php,
       libraries/string.lib.php, libraries/dbi/mysql.dbi.lib.php: SQL parser
       now correctly works with multibyte strings (bug #936161).
+    * libraries/dbi/mysql.dbi.lib.php: Do not break TEXT fields (bug #860160).
 
 2004-04-28 Michal Cihar  <michal@cihar.com>
     * css/phpmyadmin.css.php: Force <button> to be displayed inline.
