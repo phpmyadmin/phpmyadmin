@@ -17,6 +17,7 @@ $Source$
 	  table relation feature. 
 	* config.inc.php3, lines 55-56: lowered the line size to avoid automatic
 	  add of <cr><lf> while ediding this file.
+	* tbl_change.php3: fixed javascript bugs.
 
 2002-01-24  Marc Delisle  <lem9@users.sourceforge.net>
 	* merge patch 507338, thanks to Adam Ashley (fruitcak)
