@@ -94,6 +94,7 @@ EOT`
 # end of configuration, you hopefully won't need to edit anything bellow
 ##
 
+echo "-------------------------------------------------------------------"
 # go through all file we should process
 for base in $BASE_TRANSLATIONS ; do
     # grep language from basename
