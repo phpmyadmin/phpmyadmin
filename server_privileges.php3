@@ -93,12 +93,19 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
     $allPrivileges = TRUE;
     while (list(, $current_grant) = each($grants)) {
         if ((!empty($row) && isset($row[$current_grant[0]])) || (empty($row) && isset($GLOBALS[$current_grant[0]]))) {
-            if ((!empty($row) && $row[$current_grant[0]] == 'Y') || (empty($row) && $GLOBALS[$current_grant[0]] == 'Y')) {
+            if ((!empty($row) && $row[$current_grant[0]] == 'Y') || (empty($row) && ($GLOBALS[$current_grant[0]] == 'Y' || (is_array($GLOBALS[$current_grant[0]]) && count($GLOBALS[$current_grant[0]]) == $GLOBALS['column_count'])))) {
                 if ($enableHTML) {
                     $privs[] = '<dfn title="' . $current_grant[2] . '">' . str_replace(' ', '&nbsp;', $current_grant[1]) . '</dfn>';
                 } else {
                     $privs[] = $current_grant[1];
                 }
+            } else if (!empty($GLOBALS[$current_grant[0]]) && is_array($GLOBALS[$current_grant[0]]) && empty($GLOBALS[$current_grant[0] . '_none'])) {
+                if ($enableHTML) {
+                    $priv_string = '<dfn title="' . $current_grant[2] . '">' . str_replace(' ', '&nbsp;', $current_grant[1]) . '</dfn>';
+                } else {
+                    $priv_string = $current_grant[1];
+                }
+                $privs[] = $priv_string . ' (' . join(', ', $GLOBALS[$current_grant[0]]) . ')';
             } else {
                 $allPrivileges = FALSE;
             }
@@ -197,108 +204,225 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         while (list(, $current_grant) = each($av_grants)) {
             $row[$current_grant . '_priv'] = in_array($current_grant, $users_grants) ? 'Y' : 'N';
         }
+        unset($row['Table_priv']);
         unset($current_grant);
         unset($av_grants);
         unset($users_grants);
-    }
-    $privTable[0] = array(
-        array('Select', 'SELECT', $GLOBALS['strPrivDescSelect']),
-        array('Insert', 'INSERT', $GLOBALS['strPrivDescInsert']),
-        array('Update', 'UPDATE', $GLOBALS['strPrivDescUpdate']),
-        array('Delete', 'DELETE', $GLOBALS['strPrivDescDelete'])
-    );
-    if ($db == '*') {
-        $privTable[0][] = array('File', 'FILE', $GLOBALS['strPrivDescFile']);
-    }
-    $privTable[1] = array(
-        array('Create', 'CREATE', ($table == '*' ? $GLOBALS['strPrivDescCreateDb'] : $GLOBALS['strPrivDescCreateTbl'])),
-        array('Alter', 'ALTER', $GLOBALS['strPrivDescAlter']),
-        array('Index', 'INDEX', $GLOBALS['strPrivDescIndex']),
-        array('Drop', 'DROP', ($table == '*' ? $GLOBALS['strPrivDescDropDb'] : $GLOBALS['strPrivDescDropTbl']))
-    );
-    if (isset($row['Create_tmp_table_priv'])) {
-        $privTable[1][] = array('Create_tmp_table', 'CREATE&nbsp;TEMPORARAY&nbsp;TABLES', $GLOBALS['strPrivDescCreateTmpTable']);
-    }
-    $privTable[2] = array();
-    if (isset($row['Grant_priv'])) {
-        $privTable[2][] = array('Grant', 'GRANT', $GLOBALS['strPrivDescGrant']);
-    }
-    if ($db == '*') {
-        if (isset($row['Super_priv'])) {
-            $privTable[2][] = array('Super', 'SUPER', $GLOBALS['strPrivDescSuper']);
-            $privTable[2][] = array('Process', 'PROCESS', $GLOBALS['strPrivDescProcess4']);
-        } else {
-            $privTable[2][] = array('Process', 'PROCESS', $GLOBALS['strPrivDescProcess3']);
-        }
-        $privTable[2][] = array('Reload', 'RELOAD', $GLOBALS['strPrivDescReload']);
-        $privTable[2][] = array('Shutdown', 'SHUTDOWN', $GLOBALS['strPrivDescShutdown']);
-        if (isset($row['Show_db_priv'])) {
-            $privTable[2][] = array('Show_db', 'SHOW&nbsp;DATABASES', $GLOBALS['strPrivDescShowDb']);
-        }
-        if (isset($row['Lock_tables_priv'])) {
-            $privTable[2][] = array('Lock_tables', 'LOCK&nbsp;TABLES', $GLOBALS['strPrivDescLockTables']);
+        if ($res = PMA_mysql_query('SHOW COLUMNS FROM `' . $db . '`.`' . $table . '`;', $userlink)) {
+            $columns = array();
+            while ($row1 = PMA_mysql_fetch_row($res)) {
+                $columns[$row1[0]] = array(
+                    'Select' => FALSE,
+                    'Insert' => FALSE,
+                    'Update' => FALSE,
+                    'References' => FALSE
+                );
+            }
+            mysql_free_result($res);
+            unset($res);
+            unset($row1);
         }
     }
-    $privTable[2][] = array('References', 'REFERENCES', $GLOBALS['strPrivDescReferences']);
-    if ($db == '*') {
-        if (isset($row['Execute_priv'])) {
-            $privTable[2][] = array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute']);
+    if (!empty($columns)) {
+        $sql_query = 'SELECT `Column_name`, `Column_priv` FROM `columns_priv` WHERE `User` = "' . $username . '" AND `Host` = "' . $hostname . '" AND `Db` = "' . $db . '" AND `Table_name` = "' . $table . '";';
+        $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
+        while ($row1 = PMA_mysql_fetch_row($res)) {
+            $row1[1] = explode(',', $row1[1]);
+            while (list(, $current) = each($row1[1])) {
+                $columns[$row1[0]][$current] = TRUE;
+            }
         }
-        if (isset($row['Repl_client_priv'])) {
-            $privTable[2][] = array('Repl_client', 'REPLICATION&nbsp;CLIENT', $GLOBALS['strPrivDescReplClient']);
+        mysql_free_result($res);
+        unset($res);
+        unset($row1);
+        unset($current);
+        echo $spaces . '<input type="hidden" name="grant_count" value="' . count($row) . '" />' . "\n"
+           . $spaces . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
+           . $spaces . '<table border="0">' . "\n"
+           . $spaces . '    <tr>' . "\n"
+           . $spaces . '        <th colspan="6">&nbsp;' . $GLOBALS['strTblPrivileges'] . '&nbsp;</th>' . "\n"
+           . $spaces . '    </tr>' . "\n"
+           . $spaces . '    <tr>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="6"><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></td>' . "\n"
+           . $spaces . '    </tr>' . "\n"
+           . $spaces . '    <tr>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorOne'] . '">&nbsp;<tt><dfn title="' . $GLOBALS['strPrivDescSelect'] . '">SELECT</dfn></tt>&nbsp;</td>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorOne'] . '">&nbsp;<tt><dfn title="' . $GLOBALS['strPrivDescInsert'] . '">INSERT</dfn></tt>&nbsp;</td>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorOne'] . '">&nbsp;<tt><dfn title="' . $GLOBALS['strPrivDescUpdate'] . '">UPDATE</dfn></tt>&nbsp;</td>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorOne'] . '">&nbsp;<tt><dfn title="' . $GLOBALS['strPrivDescReferences'] . '">REFERENCES</dfn></tt>&nbsp;</td>' . "\n";
+        list($current_grant, $current_grant_value) = each($row);
+        while (in_array(substr($current_grant, 0, (strlen($current_grant) - 5)), array('Select', 'Insert', 'Update', 'References'))) {
+            list($current_grant, $current_grant_value) = each($row);
         }
-        if (isset($row['Repl_slave_priv'])) {
-            $privTable[2][] = array('Repl_slave', 'REPLICATION&nbsp;SLAVE', $GLOBALS['strPrivDescReplSlave']);
+        echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '"/></td>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $current_grant . '"><tt><dfn title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></tt></label></td>' . "\n"
+           . $spaces . '    </tr>' . "\n"
+           . $spaces . '    <tr>' . "\n";
+        $rowspan = count($row) - 5;
+        echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
+           . $spaces . '            <select name="Select_priv[]" multiple="multiple">' . "\n";
+        while (list($current_column, $current_column_privileges) = each($columns)) {
+            echo $spaces . '                <option value="' . htmlspecialchars($current_column) . '"';
+            if ($row['Select_priv'] == 'Y' || $current_column_privileges['Select']) {
+                echo ' selected="selected"';
+            }
+            echo '>' . htmlspecialchars($current_column) . '</option>' . "\n";
         }
-    }
-    echo $spaces . '<input type="hidden" name="grant_count" value="' . (count($privTable[0]) + count($privTable[1]) + count($privTable[2]) - (isset($row['Grant_priv']) ? 1 : 0)) . '" />' . "\n"
-       . $spaces . '<table border="0">' . "\n"
-       . $spaces . '    <tr>' . "\n"
-       . $spaces . '        <th colspan="6">&nbsp;' . ($db == '*' ? $GLOBALS['strGlobalPrivileges'] : ($table == '*' ? $GLOBALS['strDbPrivileges'] : $GLOBALS['strTblPrivileges'])) . '&nbsp;</th>' . "\n"
-       . $spaces . '    </tr>' . "\n"
-       . $spaces . '    <tr>' . "\n"
-       . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="6"><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></td>' . "\n"
-       . $spaces . '    </tr>' . "\n"
-       . $spaces . '    <tr>' . "\n"
-       . $spaces . '        <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $GLOBALS['strData'] . '</i></b>&nbsp;</td>' . "\n"
-       . $spaces . '        <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $GLOBALS['strStructure'] . '</i></b>&nbsp;</td>' . "\n"
-       . $spaces . '        <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $GLOBALS['strAdministration'] . '</i></b>&nbsp;</td>' . "\n"
-       . $spaces . '    </tr>' . "\n";
-    $limitTable = FALSE;
-    for ($i = 0; isset($privTable[0][$i]) || isset($privTable[1][$i]) || isset($privTable[2][$i]); $i++) {
-        echo $spaces . '    <tr>' . "\n";
-        for ($j = 0; $j < 3; $j++) {
-            if (isset($privTable[$j][$i])) {
-                echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $privTable[$j][$i][0] . '_priv" id="checkbox_' . $privTable[$j][$i][0] . '_priv" value="Y" ' . ($row[$privTable[$j][$i][0] . '_priv'] == 'Y' ? 'checked="checked" ' : '') . 'title="' . $privTable[$j][$i][2] . '"/></td>' . "\n"
-                   . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $privTable[$j][$i][0] . '_priv"><tt><dfn title="' . $privTable[$j][$i][2] . '">' . $privTable[$j][$i][1] . '</dfn></tt></label></td>' . "\n";
-            } else if ($db == '*' && !isset($privTable[0][$i]) && !isset($privTable[1][$i])
-                && isset($row['max_questions']) && isset($row['max_updates']) && isset($row['max_connections'])
-                && !$limitTable) {
-                echo $spaces . '        <td colspan="4" rowspan="' . (count($privTable[2]) - $i) . '">' . "\n"
-                   . $spaces . '            <table border="0">' . "\n"
-                   . $spaces . '                <tr>' . "\n"
-                   . $spaces . '                    <th colspan="2">&nbsp;' . $GLOBALS['strResourceLimits'] . '&nbsp;</th>' . "\n"
-                   . $spaces . '                </tr>' . "\n"
-                   . $spaces . '                <tr>' . "\n"
-                   . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="2"><small><i>' . $GLOBALS['strZeroRemovesTheLimit'] . '</i></small></td>' . "\n"
-                   . $spaces . '                </tr>' . "\n"
-                   . $spaces . '                <tr>' . "\n"
-                   . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="text_max_questions"><tt><dfn title="' . $GLOBALS['strPrivDescMaxQuestions'] . '">MAX&nbsp;QUERIES&nbsp;PER&nbsp;HOUR</dfn></tt></label></td>' . "\n"
-                   . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="text" name="max_questions" id="text_max_questions" value="' . $row['max_questions'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxQuestions'] . '" /></td>' . "\n"
-                   . $spaces . '                </tr>' . "\n"
-                   . $spaces . '                <tr>' . "\n"
-                   . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="text_max_updates"><tt><dfn title="' . $GLOBALS['strPrivDescMaxUpdates'] . '">MAX&nbsp;UPDATES&nbsp;PER&nbsp;HOUR</dfn></tt></label></td>' . "\n"
-                   . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="text" name="max_updates" id="text_max_updates" value="' . $row['max_updates'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUpdates'] . '" /></td>' . "\n"
-                   . $spaces . '                </tr>' . "\n"
-                   . $spaces . '                <tr>' . "\n"
-                   . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="text_max_connections"><tt><dfn title="' . $GLOBALS['strPrivDescMaxConnections'] . '">MAX&nbsp;CONNECTIONS&nbsp;PER&nbsp;HOUR</dfn></tt></label></td>' . "\n"
-                   . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="text" name="max_connections" id="text_max_connections" value="' . $row['max_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxConnections'] . '" /></td>' . "\n"
-                   . $spaces . '                </tr>' . "\n"
-                   . $spaces . '            </table>' . "\n"
-                   . $spaces . '        </td>' . "\n";
-                $limitTable = TRUE;
-            } else if (!$limitTable) {
-                echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="2">&nbsp;</td>' . "\n";
+        echo $spaces . '            </select><br />' . "\n"
+           . $spaces . '        </td>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
+           . $spaces . '            <select name="Insert_priv[]" multiple="multiple">' . "\n";
+        reset($columns);
+        while (list($current_column, $current_column_privileges) = each($columns)) {
+            echo $spaces . '                <option value="' . htmlspecialchars($current_column) . '"';
+            if ($row['Insert_priv'] == 'Y' || $current_column_privileges['Insert']) {
+                echo ' selected="selected"';
+            }
+            echo '>' . htmlspecialchars($current_column) . '</option>' . "\n";
+        }
+        echo $spaces . '            </select>' . "\n"
+           . $spaces . '        </td>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
+           . $spaces . '            <select name="Update_priv[]" multiple="multiple">' . "\n";
+        reset($columns);
+        while (list($current_column, $current_column_privileges) = each($columns)) {
+            echo $spaces . '                <option value="' . htmlspecialchars($current_column) . '"';
+            if ($row['Update_priv'] == 'Y' || $current_column_privileges['Update']) {
+                echo ' selected="selected"';
+            }
+            echo '>' . htmlspecialchars($current_column) . '</option>' . "\n";
+        }
+        echo $spaces . '            </select>' . "\n"
+           . $spaces . '        </td>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
+           . $spaces . '            <select name="References_priv[]" multiple="multiple">' . "\n";
+        reset($columns);
+        while (list($current_column, $current_column_privileges) = each($columns)) {
+            echo $spaces . '                <option value="' . htmlspecialchars($current_column) . '"';
+            if ($row['References_priv'] == 'Y' || $current_column_privileges['References']) {
+                echo ' selected="selected"';
+            }
+            echo '>' . htmlspecialchars($current_column) . '</option>' . "\n";
+        }
+        echo $spaces . '            </select>' . "\n"
+           . $spaces . '        </td>' . "\n";
+        unset($rowspan);
+        list($current_grant, $current_grant_value) = each($row);
+        while (in_array(substr($current_grant, 0, (strlen($current_grant) - 5)), array('Select', 'Insert', 'Update', 'References'))) {
+            list($current_grant, $current_grant_value) = each($row);
+        }
+        echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '"/></td>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $current_grant . '"><tt><dfn title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></tt></label></td>' . "\n"
+           . $spaces . '    </tr>' . "\n";
+        while (list($current_grant, $current_grant_value) = each($row)) {
+            if (in_array(substr($current_grant, 0, (strlen($current_grant) - 5)), array('Select', 'Insert', 'Update', 'References'))) {
+                continue;
+            }
+            echo $spaces . '    <tr>' . "\n"
+               . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '"/></td>' . "\n"
+               . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $current_grant . '"><tt><dfn title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></tt></label></td>' . "\n"
+               . $spaces . '    </tr>' . "\n";
+        }
+    } else {
+        $privTable[0] = array(
+            array('Select', 'SELECT', $GLOBALS['strPrivDescSelect']),
+            array('Insert', 'INSERT', $GLOBALS['strPrivDescInsert']),
+            array('Update', 'UPDATE', $GLOBALS['strPrivDescUpdate']),
+            array('Delete', 'DELETE', $GLOBALS['strPrivDescDelete'])
+        );
+        if ($db == '*') {
+            $privTable[0][] = array('File', 'FILE', $GLOBALS['strPrivDescFile']);
+        }
+        $privTable[1] = array(
+            array('Create', 'CREATE', ($table == '*' ? $GLOBALS['strPrivDescCreateDb'] : $GLOBALS['strPrivDescCreateTbl'])),
+            array('Alter', 'ALTER', $GLOBALS['strPrivDescAlter']),
+            array('Index', 'INDEX', $GLOBALS['strPrivDescIndex']),
+            array('Drop', 'DROP', ($table == '*' ? $GLOBALS['strPrivDescDropDb'] : $GLOBALS['strPrivDescDropTbl']))
+        );
+        if (isset($row['Create_tmp_table_priv'])) {
+            $privTable[1][] = array('Create_tmp_table', 'CREATE&nbsp;TEMPORARAY&nbsp;TABLES', $GLOBALS['strPrivDescCreateTmpTable']);
+        }
+        $privTable[2] = array();
+        if (isset($row['Grant_priv'])) {
+            $privTable[2][] = array('Grant', 'GRANT', $GLOBALS['strPrivDescGrant']);
+        }
+        if ($db == '*') {
+            if (isset($row['Super_priv'])) {
+                $privTable[2][] = array('Super', 'SUPER', $GLOBALS['strPrivDescSuper']);
+                $privTable[2][] = array('Process', 'PROCESS', $GLOBALS['strPrivDescProcess4']);
+            } else {
+                $privTable[2][] = array('Process', 'PROCESS', $GLOBALS['strPrivDescProcess3']);
+            }
+            $privTable[2][] = array('Reload', 'RELOAD', $GLOBALS['strPrivDescReload']);
+            $privTable[2][] = array('Shutdown', 'SHUTDOWN', $GLOBALS['strPrivDescShutdown']);
+            if (isset($row['Show_db_priv'])) {
+                $privTable[2][] = array('Show_db', 'SHOW&nbsp;DATABASES', $GLOBALS['strPrivDescShowDb']);
+            }
+            if (isset($row['Lock_tables_priv'])) {
+                $privTable[2][] = array('Lock_tables', 'LOCK&nbsp;TABLES', $GLOBALS['strPrivDescLockTables']);
+            }
+        }
+        $privTable[2][] = array('References', 'REFERENCES', $GLOBALS['strPrivDescReferences']);
+        if ($db == '*') {
+            if (isset($row['Execute_priv'])) {
+                $privTable[2][] = array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute']);
+            }
+            if (isset($row['Repl_client_priv'])) {
+                $privTable[2][] = array('Repl_client', 'REPLICATION&nbsp;CLIENT', $GLOBALS['strPrivDescReplClient']);
+            }
+            if (isset($row['Repl_slave_priv'])) {
+                $privTable[2][] = array('Repl_slave', 'REPLICATION&nbsp;SLAVE', $GLOBALS['strPrivDescReplSlave']);
+            }
+        }
+        echo $spaces . '<input type="hidden" name="grant_count" value="' . (count($privTable[0]) + count($privTable[1]) + count($privTable[2]) - (isset($row['Grant_priv']) ? 1 : 0)) . '" />' . "\n"
+           . $spaces . '<table border="0">' . "\n"
+           . $spaces . '    <tr>' . "\n"
+           . $spaces . '        <th colspan="6">&nbsp;' . ($db == '*' ? $GLOBALS['strGlobalPrivileges'] : ($table == '*' ? $GLOBALS['strDbPrivileges'] : $GLOBALS['strTblPrivileges'])) . '&nbsp;</th>' . "\n"
+           . $spaces . '    </tr>' . "\n"
+           . $spaces . '    <tr>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="6"><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></td>' . "\n"
+           . $spaces . '    </tr>' . "\n"
+           . $spaces . '    <tr>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $GLOBALS['strData'] . '</i></b>&nbsp;</td>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $GLOBALS['strStructure'] . '</i></b>&nbsp;</td>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $GLOBALS['strAdministration'] . '</i></b>&nbsp;</td>' . "\n"
+           . $spaces . '    </tr>' . "\n";
+        $limitTable = FALSE;
+        for ($i = 0; isset($privTable[0][$i]) || isset($privTable[1][$i]) || isset($privTable[2][$i]); $i++) {
+            echo $spaces . '    <tr>' . "\n";
+            for ($j = 0; $j < 3; $j++) {
+                if (isset($privTable[$j][$i])) {
+                    echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $privTable[$j][$i][0] . '_priv" id="checkbox_' . $privTable[$j][$i][0] . '_priv" value="Y" ' . ($row[$privTable[$j][$i][0] . '_priv'] == 'Y' ? 'checked="checked" ' : '') . 'title="' . $privTable[$j][$i][2] . '"/></td>' . "\n"
+                       . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $privTable[$j][$i][0] . '_priv"><tt><dfn title="' . $privTable[$j][$i][2] . '">' . $privTable[$j][$i][1] . '</dfn></tt></label></td>' . "\n";
+                } else if ($db == '*' && !isset($privTable[0][$i]) && !isset($privTable[1][$i])
+                    && isset($row['max_questions']) && isset($row['max_updates']) && isset($row['max_connections'])
+                    && !$limitTable) {
+                    echo $spaces . '        <td colspan="4" rowspan="' . (count($privTable[2]) - $i) . '">' . "\n"
+                       . $spaces . '            <table border="0">' . "\n"
+                       . $spaces . '                <tr>' . "\n"
+                       . $spaces . '                    <th colspan="2">&nbsp;' . $GLOBALS['strResourceLimits'] . '&nbsp;</th>' . "\n"
+                       . $spaces . '                </tr>' . "\n"
+                       . $spaces . '                <tr>' . "\n"
+                       . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="2"><small><i>' . $GLOBALS['strZeroRemovesTheLimit'] . '</i></small></td>' . "\n"
+                       . $spaces . '                </tr>' . "\n"
+                       . $spaces . '                <tr>' . "\n"
+                       . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="text_max_questions"><tt><dfn title="' . $GLOBALS['strPrivDescMaxQuestions'] . '">MAX&nbsp;QUERIES&nbsp;PER&nbsp;HOUR</dfn></tt></label></td>' . "\n"
+                       . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="text" name="max_questions" id="text_max_questions" value="' . $row['max_questions'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxQuestions'] . '" /></td>' . "\n"
+                       . $spaces . '                </tr>' . "\n"
+                       . $spaces . '                <tr>' . "\n"
+                       . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="text_max_updates"><tt><dfn title="' . $GLOBALS['strPrivDescMaxUpdates'] . '">MAX&nbsp;UPDATES&nbsp;PER&nbsp;HOUR</dfn></tt></label></td>' . "\n"
+                       . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="text" name="max_updates" id="text_max_updates" value="' . $row['max_updates'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUpdates'] . '" /></td>' . "\n"
+                       . $spaces . '                </tr>' . "\n"
+                       . $spaces . '                <tr>' . "\n"
+                       . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="text_max_connections"><tt><dfn title="' . $GLOBALS['strPrivDescMaxConnections'] . '">MAX&nbsp;CONNECTIONS&nbsp;PER&nbsp;HOUR</dfn></tt></label></td>' . "\n"
+                       . $spaces . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="text" name="max_connections" id="text_max_connections" value="' . $row['max_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxConnections'] . '" /></td>' . "\n"
+                       . $spaces . '                </tr>' . "\n"
+                       . $spaces . '            </table>' . "\n"
+                       . $spaces . '        </td>' . "\n";
+                    $limitTable = TRUE;
+                } else if (!$limitTable) {
+                    echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="2">&nbsp;</td>' . "\n";
+                }
             }
         }
         echo $spaces . '    </tr>' . "\n";

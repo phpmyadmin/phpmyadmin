@@ -5,8 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-19 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_privileges.php3: Added column privileges editor.
+      TODO: Deselection of all columns is not possible yet...
+
 2003-01-19 Marc Delisle  <lem9@users.sourceforge.net>
-    * sql.php3, tbl_properties_export.php3, tbl_dump.php3, 
+    * sql.php3, tbl_properties_export.php3, tbl_dump.php3,
       tbl_move_copy.php3, libraries/build_dump.lib.php3:
       Feature: Export results of SELECTs
       (TODO: enable row limiting for the export)
