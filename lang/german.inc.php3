@@ -355,4 +355,5 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
+$strLinkNotFound = 'Link not found';  //to translate
 ?>

@@ -353,4 +353,5 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
+$strLinkNotFound = 'Link not found';  //to translate
 ?>

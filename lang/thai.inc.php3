@@ -362,4 +362,5 @@ $strSQLQuery = 'SQL-query';
 $strStructure = 'Structure';
 $strUnique = 'Unique';
 $strZip = '"zipped"';
+$strLinkNotFound = 'Link not found';  //to translate
 ?>

@@ -361,4 +361,5 @@ $strZip = '"compresso con zip"';
 
 // To translate
 $strSQL = 'SQL'; //to translate
+$strLinkNotFound = 'Link not found';  //to translate
 ?>

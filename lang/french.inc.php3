@@ -355,4 +355,5 @@ $strYes = 'Oui';
 $strZip = '"zippé"';
 
 // To translate
+$strLinkNotFound = 'Link not found';  //to translate
 ?>
