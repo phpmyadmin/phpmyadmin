@@ -47,7 +47,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         {
             $arr[] = array('type' => $type, 'data' => $data);
             $arrsize++;
-        } // end of the "PMA_SQP_arrayAdd" function
+        } // end of the "PMA_SQP_arrayAdd()" function
     } else {
         function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize)
         {
@@ -57,63 +57,102 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $arr[] = array('type' => $type, 'data' => $data , 'time' => $t);
             $timer = microtime();
             $arrsize++;
-        } // end of the "PMA_SQP_arrayAdd" function
+        } // end of the "PMA_SQP_arrayAdd()" function
     } // end if... else...
 
 
-    function PMA_SQP_throwError($message,$sql)
+    /**
+     * Do display an error message
+     *
+     * @param  string  The error message
+     * @param  string  The failing SQL query
+     *
+     * @access public
+     */
+    function PMA_SQP_throwError($message, $sql)
     {
-        $debugstr = '';
-        $debugstr .= 'ERROR: ' . $message . "\n";
+        $debugstr = 'ERROR: ' . $message . "\n";
         $debugstr .= 'SQL: ' . $sql;
-        
-        echo $GLOBALS['strSQLParserUserError'] . "<br />\n<pre>" . $debugstr . "</pre>";
-        
+
+        echo $GLOBALS['strSQLParserUserError'] . '<br />' . "\n"
+             . '<pre>' . "\n"
+             . $debugstr . "\n"
+             . '</pre>' . "\n";
+
         flush();
         if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) {
             ob_flush();
         }
-        
-    }
-    
-    function PMA_SQP_BUG($message,$sql)
-    {
+    } // end of the "PMA_SQP_throwError()" function
 
-        $debugstr = '';
-        $debugstr .= 'ERROR: ' . $message . "\n";
+
+    /**
+     * Do display the bug report
+     *
+     * @param  string  The error message
+     * @param  string  The failing SQL query
+     *
+     * @access public
+     */
+    function PMA_SQP_bug($message, $sql)
+    {
+        $debugstr = 'ERROR: ' . $message . "\n";
         $debugstr .= 'CVS: $Id$' . "\n";
         $debugstr .= 'MySQL: '.PMA_MYSQL_STR_VERSION . "\n";
-        $debugstr .= 'USR OS,AGENT,VER: ' . PMA_USR_OS . ' ' . PMA_USR_BROWSER_AGENT . ' ' . PMA_USR_BROWSER_VER . "\n"; 
+        $debugstr .= 'USR OS, AGENT, VER: ' . PMA_USR_OS . ' ' . PMA_USR_BROWSER_AGENT . ' ' . PMA_USR_BROWSER_VER . "\n";
         $debugstr .= 'PMA: ' . PMA_VERSION . "\n";
         $debugstr .= 'PHP VER,OS: ' . PMA_PHP_STR_VERSION . ' ' . PHP_OS . "\n";
         $debugstr .= 'LANG: ' . $GLOBALS['lang'] . "\n";
         $debugstr .= 'SQL: ' . $sql;
-        $encodedstr = $debugstr;
+
+        $encodedstr     = $debugstr;
         if (PMA_PHP_INT_VERSION >= 40001 && @function_exists('gzcompress')) {
             $encodedstr = gzcompress($debugstr, 9);
         }
-        $encodedstr = nl2br(chunk_split(base64_encode($encodedstr)));
-        
-        echo $GLOBALS['strSQLParserBugMessage'] . "<br />\n" 
-             . '----' . $GLOBALS['strBeginCut'] .'----' . "<br />\n"
+        $encodedstr     = nl2br(chunk_split(base64_encode($encodedstr)));
+
+        echo $GLOBALS['strSQLParserBugMessage'] . '<br />' . "\n"
+             . '----' . $GLOBALS['strBeginCut'] . '----' . '<br />' . "\n"
              . $encodedstr . "\n"
-             . '----' . $GLOBALS['strEndCut'] .'----' . "<br />\n";
-        
+             . '----' . $GLOBALS['strEndCut'] . '----' . '<br />' . "\n";
+
         flush();
         if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) {
             ob_flush();
         }
-        
-        echo '----' . $GLOBALS['strBeginRaw'] .'----' . "<pre>"
+
+        echo '----' . $GLOBALS['strBeginRaw'] . '----<br />' . "\n"
+             . '<pre>' . "\n"
              . $debugstr
-             . '</pre>----' . $GLOBALS['strEndRaw'] .'----' . "<br />\n";
-        
+             . '</pre>' . "\n"
+             . '----' . $GLOBALS['strEndRaw'] . '----<br />' . "\n";
+
         flush();
         if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) {
             ob_flush();
         }
-    }
-    
+    } // end of the "PMA_SQP_bug()" function
+
+
+    /**
+     * Parses the SQL queries
+     *
+     * @param  string   The SQL query list
+     *
+     * @return mixed    Most of times, nothing...
+     *
+     * @global array    The current PMA configuration
+     * @global array    MySQL column attributes
+     * @global array    MySQL reserved words
+     * @global array    MySQL column types
+     * @global array    MySQL function names
+     * @global integer  MySQL column attributes count
+     * @global integer  MySQL reserved words count
+     * @global integer  MySQL column types count
+     * @global integer  MySQL function names count
+     *
+     * @access public
+     */
     function PMA_SQP_parse($sql)
     {
         global $cfg;
@@ -221,9 +260,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     $pos    = strpos(' ' . $sql, $quotetype, $oldpos + 1) - 1;
                     // ($pos === FALSE)
                     if ($pos < 0) {
-                        $debugstr =  $GLOBALS['strSQPBugUnclosedQuote'] . ' @ ' . $startquotepos+1 . "\n" 
+                        $debugstr = $GLOBALS['strSQPBugUnclosedQuote'] . ' @ ' . $startquotepos. "\n"
                                   . 'STR: ' . $quotetype;
-                        PMA_SQP_throwError($debugstr,$sql);
+                        PMA_SQP_throwError($debugstr, $sql);
                         return $sql;
                     }
 
@@ -343,9 +382,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $count2--;
                         $punct_data = substr($sql, $count1, $count2 - $count1);
                     } else {
-                        $debugstr =  $GLOBALS['strSQPBugUnknownPunctuation'] . ' @ ' . $count1+1 . "\n" 
+                        $debugstr =  $GLOBALS['strSQPBugUnknownPunctuation'] . ' @ ' . ($count1+1) . "\n" 
                                   . 'STR: ' . $punct_data;
-                        PMA_SQP_throwError($debugstr,$sql);
+                        PMA_SQP_throwError($debugstr, $sql);
                         return $sql;
                     }
                     PMA_SQP_arrayAdd($sql_array, 'punct', $punct_data, $arraysize);
@@ -379,9 +418,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             $is_float_digit = TRUE;
                             continue;
                         } else {
-                            $debugstr =  $GLOBALS['strSQPBugInvalidIdentifer'] . ' @ ' . $count1+1 . "\n" 
+                            $debugstr = $GLOBALS['strSQPBugInvalidIdentifer'] . ' @ ' . ($count1+1) . "\n" 
                                       . 'STR: ' . substr($sql, $count1, $count2 - $count1);
-                            PMA_SQP_throwError($debugstr,$sql);
+                            PMA_SQP_throwError($debugstr, $sql);
                             return $sql;
                         }
                     }
@@ -435,12 +474,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
             // DEBUG
             $count2++;
-            
-//            $debugstr .=
-            $debugstr = 'C1 C2 LEN:' . $count1 . ' ' . $count2 . ' ' . $len .  "\n" 
+
+            $debugstr = 'C1 C2 LEN: ' . $count1 . ' ' . $count2 . ' ' . $len .  "\n"
                       . 'STR: ' . substr($sql, $count1, $count2 - $count1) . "\n";
-            PMA_SQP_BUG($debugstr,$sql); 
-            
+            PMA_SQP_bug($debugstr, $sql);
             return $sql;
 
         } // end while ($count2 < $len)
@@ -490,6 +527,15 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     } // end of the "PMA_SQP_parse()" function
 
 
+    /**
+     * Analyzes SQL queries
+     *
+     * @param  array   The SQL queries
+     *
+     * @return array   The analyzed SQL queries
+     *
+     * @access public
+     */
     function PMA_SQP_analyze($arr)
     {
         $result          = array();
@@ -573,6 +619,15 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     } // end of the "PMA_SQP_analyze()" function
 
 
+    /**
+     * Colorizes SQL queries html formatted
+     *
+     * @param  array   The SQL queries html formatted
+     *
+     * @return array   The colorized SQL queries
+     *
+     * @access public
+     */
     function PMA_SQP_formatHtml_colorize($arr)
     {
         $i         = strpos($arr['type'], '_');
@@ -587,6 +642,15 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     } // end of the "PMA_SQP_formatHtml_colorize()" function
 
 
+    /**
+     * Formats SQL queries to html
+     *
+     * @param  array   The SQL queries
+     *
+     * @return string  The formatted SQL queries
+     *
+     * @access public
+     */
     function PMA_SQP_formatHtml($arr)
     {
         $str                                        = '<span class="syntax">';
@@ -838,6 +902,19 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     } // end of the "PMA_SQP_formatHtml()" function
 
 
+    /**
+     * Builds a CSS rule used for html formatted SQL queries
+     *
+     * @param  string  The class name
+     * @param  string  The property name
+     * @param  string  The property value
+     *
+     * @return string  The CSS rule
+     *
+     * @access public
+     *
+     * @see    PMA_SQP_buildCssData()
+     */
     function PMA_SQP_buildCssRule($classname, $property, $value)
     {
         $str     = '.' . $classname . ' {';
@@ -850,6 +927,17 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     } // end of the "PMA_SQP_buildCssRule()" function
 
 
+    /**
+     * Builds CSS rules used for html formatted SQL queries
+     *
+     * @return string  The CSS rules set
+     *
+     * @access public
+     *
+     * @global array   The current PMA configuration
+     *
+     * @see    PMA_SQP_buildCssRule()
+     */
     function PMA_SQP_buildCssData()
     {
         global $cfg;
@@ -866,6 +954,15 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     } // end of the "PMA_SQP_buildCssData()" function
 
 
+    /**
+     * Gets SQL queries with no format
+     *
+     * @param  array   The SQL queries list
+     *
+     * @return string  The SQL queries with no format
+     *
+     * @access public
+     */
     function PMA_SQP_formatNone($arr)
     {
         $formatted_sql = htmlspecialchars($arr['raw']);
@@ -875,6 +972,15 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     } // end of the "PMA_SQP_formatNone()" function
 
 
+    /**
+     * Gets SQL queries in text format
+     *
+     * @param  array   The SQL queries list
+     *
+     * @return string  The SQL queries in text format
+     *
+     * @access public
+     */
     function PMA_SQP_formatText($arr)
     {
         /**

@@ -45,7 +45,7 @@
 
 <form method="post" action="./decode_bug.php3">
     <input type="hidden" name="bar" value="<?php echo rand(); ?>" />
-	Encoded bug report:<br />
+    Encoded bug report:<br />
     <textarea name="bug_encoded" cols="72" rows="10"></textarea>
     <br /><br />
     <input type="submit" />
@@ -56,13 +56,24 @@
 /**
  * If the form has been submitted -> decodes the bug report
  */
+
+/**
+ * Display the decoded bug report in ASCII format
+ *
+ * @param  string  the text data
+ *
+ * @return string  the text enclosed by "<pre>...</pre>" tags
+ *
+ * @access public
+ */
 function PMA_printDecodedBug($textdata)
 {
     return 'Decoded:<br />' . "\n"
-    . '<pre>' . $textdata . '</pre><br />' . "\n";
-    }
- 
- if (!empty($_POST) && isset($_POST['bug_encoded'])) {
+           . '<pre>' . $textdata . '</pre><br />' . "\n";
+} // end of the "PMA_printDecodedBug()" function
+
+
+if (!empty($_POST) && isset($_POST['bug_encoded'])) {
     $bug_encoded = $_POST['bug_encoded'];
 }
 else if (!empty($HTTP_POST_VARS) && isset($HTTP_POST_VARS['bug_encoded'])) {
@@ -87,7 +98,6 @@ if (!empty($bug_encoded)) {
         $result  = PMA_printDecodedBug($bug_decoded);
     } // end if... else...
 
-   
     echo '<p>' . "\n" . $result . '</p>' . "\n";
 } // end if
 ?>
