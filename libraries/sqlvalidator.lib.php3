@@ -64,8 +64,10 @@ if (!defined('PMA_SQL_VALIDATOR_INCLUDED')) {
         $str = '';
 
         if ($cfg['SQLValidator']['use']) {
-            if (!(isset($GLOBALS['sqlvalidator_error'])
-                && !$GLOBALS['sqlvalidator_error'])) {
+            if (isset($GLOBALS['sqlvalidator_error'])
+                && $GLOBALS['sqlvalidator_error']) {
+                $str = sprintf($GLOBALS['strValidatorError'], '<a href="./Documentation.html#faqsqlvalidator" target="documentation">', '</a>');
+            } else {
                 // create new class instance
                 $srv = new PMA_SQLValidator();
 
@@ -87,10 +89,6 @@ if (!defined('PMA_SQL_VALIDATOR_INCLUDED')) {
 
                 // Do service validation
                 $str = $srv->validationString($sql);
-
-            } else {
-                $str = sprintf($GLOBALS['strValidatorError'], '<a href="./Documentation.html#faqsqlvalidator" target="documentation">', '</a>');
-
             }
 
         } // end if

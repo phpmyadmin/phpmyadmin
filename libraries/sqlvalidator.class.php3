@@ -402,6 +402,12 @@ if (!defined('PMA_SQL_VALIDATOR_CLASS_INCLUDED')) {
 
             } // end of the "validationString()" function
         } // end class PMA_SQLValidator
+
+        //add an extra check to ensure that the class was defined without errors
+        if (!class_exists('PMA_SQLValidator')) {
+            $GLOBALS['sqlvalidator_error'] = TRUE;
+        }
+
     } // end else
 
 }  // $__PMA_SQL_VALIDATOR_CLASS__
