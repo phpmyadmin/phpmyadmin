@@ -50,7 +50,11 @@ if ($text_dir == 'ltr') {
 
 <head>
 <title>phpMyAdmin</title>
-<base href="<?php echo $cfgPmaAbsoluteUri; ?>" />
+<?php
+if (!empty($cfgPmaAbsoluteUri)) {
+    echo '<base href="' . $cfgPmaAbsoluteUri . '" />' . "\n";
+}
+?>
 <style type="text/css">
 <!--
 body          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}

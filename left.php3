@@ -64,7 +64,7 @@ PMA_setFontSizes();
 
 <head>
     <title>phpMyAdmin</title>
-    <base href="<?php echo $cfgPmaAbsoluteUri; ?>" target="phpmain" />
+    <base<?php if (!empty($cfgPmaAbsoluteUri)) echo ' href="' . $cfgPmaAbsoluteUri . '"'; ?> target="phpmain" />
 <?php
 // Expandable/collapsible databases list is only used if there is more than one
 // database to display
