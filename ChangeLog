@@ -11,6 +11,9 @@ $Source$
 	  - extended last fix from Robin to the "MySQL runtime information" and
 	    "MySQL system variables" links;
 	  - but allowed these directives to be bypassed for super-users.
+	* libraries/display_tbl.lib.php3, lines 715-724: return to the browse mode
+	  once a "KILL" statement has been run. Thanks to
+	  Florian Perrichot <perrich at club-internet.fr> for this suggestion.
 
 2001-11-08  Robin Johnson  <robbat2@users.sourceforge.net>
 	* config.inc.php3; main.php3; phpinfo.php3: fixed bug #479303

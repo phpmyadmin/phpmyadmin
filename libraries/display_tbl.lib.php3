@@ -712,12 +712,16 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                               . ' WHERE ' . trim(js_format(urldecode($uva_condition), FALSE)) . ' LIMIT 1';
                     $del_str  = $GLOBALS['strDelete'];
                 } else if ($is_display['del_lnk'] == 'kp') { // kill process case
+                    $goto     = 'sql.php3'
+                              . '?' . str_replace('&amp;', '&', $url_query)
+                              . '&sql_query=' . urlencode($sql_query)
+                              . '&goto=main.php3';
                     $del_url  = 'sql.php3'
                               . '?lang=' . $lang
                               . '&amp;server=' . $server
                               . '&amp;db=mysql'
                               . '&amp;sql_query=' . urlencode('KILL ' . $row['Id'])
-                              . '&amp;goto=main.php3';
+                              . '&amp;goto=' . urlencode($goto);
                     $js_conf  = 'KILL ' . $row['Id'];
                     $del_str  = $GLOBALS['strKill'];
                 } // end if (1.2.2)
