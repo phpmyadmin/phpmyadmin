@@ -83,8 +83,8 @@ bosnian-windows-1250
 brazilian_portuguese-iso-8859-1
 bulgarian-windows-1251
 catalan-iso-8859-1
-chinese_big5-utf-8
-chinese_gb
+chinese_traditional-utf-8
+chinese_simplified-gb2312
 croatian-iso-8859-2
 czech-utf-8
 danish-iso-8859-1

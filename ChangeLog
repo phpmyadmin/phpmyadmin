@@ -8,6 +8,8 @@ $Source$
 2004-07-31 Alexander M. Turek  <me@derrabus.de>
     * tbl_change.php, libraries/relation.lib.php: Small optimizations, freed
       some results.
+    * lang/sync_lang.sh: Updated sync script for the new names of the chinese
+      language files.
 
 2004-07-30 Alexander M. Turek  <me@derrabus.de>
     * lang/chinese_*.inc.php, libraries/select_lang.lib.php: More consistant
