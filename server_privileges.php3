@@ -557,7 +557,7 @@ if (empty($adduser)) {
            . '</h2>' . "\n";
         $oldPrivTables = FALSE;
         if (PMA_MYSQL_INT_VERSION >= 40002) {
-            $res = PMA_mysql_query('SELECT `User`, `Host`, IF(`Password` = "", "N", "Y") AS "Password", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv`, `Grant_priv`, `References_priv`, `Index_priv`, `Alter_priv`, `Show_db_priv`, `Super_priv`, `Create_tmp_table_priv`, `Lock_tables_priv`, `Execute_priv`, `Repl_slave_priv`, `Repl_client_priv` FROM `user`;', $userlink);
+            $res = PMA_mysql_query('SELECT `User`, `Host`, IF(`Password` = "", "N", "Y") AS "Password", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv`, `Grant_priv`, `References_priv`, `Index_priv`, `Alter_priv`, `Show_db_priv`, `Super_priv`, `Create_tmp_table_priv`, `Lock_tables_priv`, `Execute_priv`, `Repl_slave_priv`, `Repl_client_priv` FROM `user` ORDER BY `User` ASC, `Host` ASC;', $userlink);
             if (!$res) {
                 // the query failed! This may have two reasons:
                 // - the user has not enough privileges
@@ -566,7 +566,7 @@ if (empty($adduser)) {
             }
         }
         if (empty($res) || (PMA_MYSQL_INT_VERSION >= 32211 && PMA_MYSQL_INT_VERSION < 40002)) {
-            $res = PMA_mysql_query('SELECT `User`, `Host`, IF(`Password` = "", "N", "Y") AS "Password", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Index_priv`, `Alter_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv` FROM `user`;', $userlink);
+            $res = PMA_mysql_query('SELECT `User`, `Host`, IF(`Password` = "", "N", "Y") AS "Password", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Index_priv`, `Alter_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv` FROM `user`  ORDER BY `User` ASC, `Host` ASC;', $userlink);
             if (!$res) {
                 // the query failed! This may have two reasons:
                 // - the user has not enough privileges
@@ -575,7 +575,7 @@ if (empty($adduser)) {
             }
         }
         if (empty($res) || PMA_MYSQL_INT_VERSION < 32211) {
-            $res = PMA_mysql_query('SELECT * FROM `user`;', $userlink);
+            $res = PMA_mysql_query('SELECT * FROM `user` ORDER BY `User` ASC, `Host` ASC;', $userlink);
         }
         if (!$res) {
             echo '<i>' . $strNoPrivileges . '</i>' . "\n";

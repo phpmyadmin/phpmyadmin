@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-07 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_privileges.php3: Sorting user list.
+
 2003-01-07 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: clarification about cookie/http modes
     * lang/dutch update, thanks to Ivo Teel
