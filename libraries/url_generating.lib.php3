@@ -16,6 +16,7 @@ if (!defined('PMA_URL_GENERATION_LIB_INCLUDED')){
      *
      * @param   string   optional database name
      * @param   string   optional table name
+     * @param   int      indenting level
      *
      * @return  string   string with input fields
      *
@@ -29,27 +30,34 @@ if (!defined('PMA_URL_GENERATION_LIB_INCLUDED')){
      *
      * @author  nijel
      */
-    function PMA_generate_common_hidden_inputs ($db = '', $table = '')
+    function PMA_generate_common_hidden_inputs ($db = '', $table = '', $indent = 0)
     {
         global $lang, $convcharset, $server;
         global $cfg, $allow_recoding;
 
-        $result = '<input type="hidden" name="lang" value="' . $lang . '" />' . "\n" .
-            '<input type="hidden" name="server" value="' . $server . '" />' . "\n";
+        $spaces = '';
+        for ($i = 0; $i < $indent; $i++) {
+            $spaces .= '    ';
+        }
+
+        $result = $spaces . '<input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
+                . $spaces . '<input type="hidden" name="server" value="' . $server . '" />' . "\n";
         if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)
-            $result .= '<input type="hidden" name="convcharset" value="' . $convcharset . '" />'  . "\n";
+            $result .= $spaces . '<input type="hidden" name="convcharset" value="' . $convcharset . '" />'  . "\n";
         if (!empty($db))
-            $result .= '<input type="hidden" name="db" value="'.htmlspecialchars($db).'" />';
+            $result .= $spaces . '<input type="hidden" name="db" value="'.htmlspecialchars($db).'" />' . "\n";
         if (!empty($table))
-            $result .= '<input type="hidden" name="table" value="'.htmlspecialchars($table).'" />';
+            $result .= $spaces . '<input type="hidden" name="table" value="'.htmlspecialchars($table).'" />' . "\n";
         return $result;
     }
-   
+
     /**
      * Generates text with URL parameters.
      *
      * @param   string   optional database name
      * @param   string   optional table name
+     * @param   string   character to use instead of '&amp;' for deviding
+     *                   multiple URL parameters from each other
      *
      * @return  string   string with URL parameters
      *

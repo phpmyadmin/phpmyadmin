@@ -591,7 +591,7 @@ if (empty($adduser)) {
                    . '</div><br />' . "\n";
             }
             echo '<form name="usersForm" action="server_privileges.php3" method="post" />' . "\n";
-            echo PMA_generate_common_hidden_inputs();
+            echo PMA_generate_common_hidden_inputs('', '', 1);
             echo '    <table border="0">' . "\n"
                . '        <tr>' . "\n"
                . '            <th></th>' . "\n"
@@ -687,7 +687,7 @@ if (empty($adduser)) {
         echo '<ul>' . "\n"
            . '    <li>' . "\n"
            . '        <form action="server_privileges.php3" method="post">' . "\n";
-        echo PMA_generate_common_hidden_inputs();
+        echo PMA_generate_common_hidden_inputs('', '', 3);
         echo '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
         if ($hostname != '%') {
             echo '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
@@ -800,7 +800,7 @@ if (empty($adduser)) {
             echo '            <tr>' . "\n"
                . '                <td colspan="' .(PMA_MYSQL_INT_VERSION >= 32211 ? '5' : '4') . '">' . "\n"
                . '                    <form action="server_privileges.php3" method="post">' . "\n";
-            echo PMA_generate_common_hidden_inputs();
+            echo PMA_generate_common_hidden_inputs('', '', 6);
             echo '                        <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
             if ($hostname != '%') {
                 echo '                        <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
@@ -823,7 +823,7 @@ if (empty($adduser)) {
         if (empty($dbname)) {
             echo '    <li>' . "\n"
                . '        <form action="server_privileges.php3" method="post" onsubmit="checkPassword(this);">' . "\n";
-            echo PMA_generate_common_hidden_inputs();
+            echo PMA_generate_common_hidden_inputs('', '', 3);
             echo '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
             if ($hostname != '%') {
                 echo '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
@@ -863,7 +863,7 @@ if (empty($adduser)) {
        . '    ' . $strAddUser . "\n"
        . '</h2>' . "\n"
        . '<form action="server_privileges.php3" method="post" onsubmit="return checkAddUser(this);">' . "\n";
-    echo PMA_generate_common_hidden_inputs();
+    echo PMA_generate_common_hidden_inputs('', '', 1);
     echo '    <table border="0">' . "\n"
        . '        <tr>' . "\n"
        . '            <th colspan="3">' . "\n"

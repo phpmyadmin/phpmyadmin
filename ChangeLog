@@ -19,6 +19,10 @@ $Source$
 
 2003-01-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/english-*.inc.php3: Fixed a typo.
+    * server_privileges.php3, libraries/url_generating.lib.php3:
+      - Beautified generated XHTML code;
+      - Coding standards;
+      - Added a missing @param comment.
 
 2003-01-07 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
