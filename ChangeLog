@@ -13,6 +13,7 @@ $Source$
     * lang/indonesian: Update thanks to Rachim Tamsjadi - tamsy.
     * lang/galician: Updated, thanks to Xosé Calvo.
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
+    ### 2.6.1-rc2 released
     
 2005-01-07 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_addfield.php: bug #1082680, undefined $field_charset when adding
