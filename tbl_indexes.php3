@@ -333,7 +333,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     } // end for
     ?>
             </select>&nbsp;
-            <?php echo PMA_showDocu('manual_Reference.html#ALTER_TABLE') . "\n"; ?>
+            <?php echo PMA_showDocuShort('A/L/ALTER_TABLE.html') . "\n"; ?>
         </td>
     </tr>
     </table><br />
@@ -413,7 +413,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     <?php    
     echo "\n";
     echo '        ' . $strIndexes . '&nbsp;:' . "\n";
-    echo '        ' . PMA_showDocu('manual_MySQL_Optimization.html#MySQL_indexes') . '<br />' ."\n";
+    echo '        ' . PMA_showDocuShort('O/p/Optimising_Database_Structure.html') . '<br />' ."\n";
 
     if ($idx_cnt > 0) {
         ?>
