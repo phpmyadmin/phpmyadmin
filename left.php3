@@ -10,7 +10,19 @@ require('./libraries/grab_globals.lib.php3');
 if (!empty($db)) {
     $db_start = $db;
 }
+
+
+/**
+ * Gets a core script and starts output buffering work 
+ */
 require('./libraries/common.lib.php3');
+require('./libraries/ob.lib.php3');
+if ($cfgOBGzip) {
+    $ob_mode = PMA_outBufferModeGet();
+    if ($ob_mode) {
+        PMA_outBufferPre($ob_mode);
+    }
+}
 
 
 /**
@@ -317,3 +329,24 @@ echo "\n";
 
 </body>
 </html>
+
+<?php
+/**
+ * Close MySql connections
+ */
+if (isset($dbh) && $dbh) {
+    @mysql_close($dbh);
+}
+if (isset($userlink) && $userlink) {
+    @mysql_close($userlink);
+}
+
+
+/**
+ * Sends bufferized data
+ */
+if (isset($cfgOBGzip) && $cfgOBGzip
+    && isset($ob_mode) && $ob_mode) {
+     PMA_outBufferPost($ob_mode);
+}
+?>
