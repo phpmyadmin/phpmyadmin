@@ -1660,5 +1660,31 @@ if (typeof(document.getElementById) != 'undefined'
         define('PMA_MULTIBYTE_ENCODING', 1);
     } // end if
 
+    // garvin: moved from read_dump.php3 because this should be used in tbl_replace_fields.php3 as well.
+    if (!function_exists('is_uploaded_file')) {
+        /**
+         * Emulates the 'is_uploaded_file()' function for old php versions.
+         * Grabbed at the php manual:
+         *     http://www.php.net/manual/en/features.file-upload.php
+         *
+         * @param   string    the name of the file to check
+         *
+         * @return  boolean   wether the file has been uploaded or not
+         *
+         * @access  public
+         */
+        function is_uploaded_file($filename) {
+            if (!$tmp_file = @get_cfg_var('upload_tmp_dir')) {
+                $tmp_file = tempnam('','');
+                $deleted  = @unlink($tmp_file);
+                $tmp_file = dirname($tmp_file);
+            }
+            $tmp_file     .= '/' . basename($filename);
+    
+            // User might have trailing slash in php.ini...
+            return (ereg_replace('/+', '/', $tmp_file) == $filename);
+        } // end of the 'is_uploaded_file()' emulated function
+    } // end if
+
 } // $__PMA_COMMON_LIB__
 ?>

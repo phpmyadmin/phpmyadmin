@@ -7,14 +7,47 @@
 
         // f i e l d    u p l o a d e d    f r o m    a    f i l e
 
-        if (isset(${"fields_upload_" . $key}) && !empty(${"fields_upload_" . $key}) && ${"fields_upload_" . $key} != 'none') {
-            $data_file = ${"fields_upload_" . $key};
-            $val = fread(fopen($data_file, "rb"), filesize($data_file));
-            // nijel: This is probably the best way how to put binary data
-            // into MySQL and it also allow not to care about charset
-            // conversion that would otherwise corrupt the data.
-            $val = '0x' . bin2hex($val);
-            $seen_binary = TRUE;
+        // garvin: original if-clause checked, whether input was stored in a possible fields_upload_XX var.
+        // Now check, if the field is set. If it is empty or a malicious file, do not alter fields contents. 
+        // If an empty or invalid file is specified, the binary data gets deleter. Maybe a nice
+        // new text-variable is appropriate to document this behaviour.
+        
+        // garvin: security cautions! You could trick the form and submit any file the webserver has access to
+        // for upload to a binary field. Shouldn't be that easy! ;)
+        
+        if (isset(${"fields_upload_" . $key}) && ${"fields_upload_" . $key} != 'none'){
+            // garvin: This fields content is a blob-file upload.
+
+            if (!empty(${"fields_upload_" . $key})) {
+                // garvin: The blob-field is not empty. Check what we have there.
+
+                $data_file = ${"fields_upload_" . $key};
+
+                if (is_uploaded_file($data_file)) {
+                    // garvin: A valid uploaded file is found. Look into the file...
+
+                    $val = fread(fopen($data_file, "rb"), filesize($data_file));
+                    // nijel: This is probably the best way how to put binary data
+                    // into MySQL and it also allow not to care about charset
+                    // conversion that would otherwise corrupt the data.
+                    
+                    if (empty($val)) {
+                        // garvin: an empty file was uploaded. Remove blob-field's contents.
+                        $val = "''";
+                    } else {
+                        // garvin: The upload was valid. Check in new blob-field's contents.
+                        $val = '0x' . bin2hex($val);
+                        $seen_binary = TRUE;
+                    }
+                } else {
+                    // garvin: Danger, will robinson. File is malicious. Preserver blob-field contents.
+                    unset($val);
+                }
+            } else {
+                // garvin: Post-field contains no data. PRESERVE BLOB-FIELD CONTENTS!
+                unset($val);
+            }
+            // garvin: else-case would be, no file was submitted, the post-fields content's are empty.
         } else {
 
         // f i e l d    v a l u e    i n    t h e    f o r m
