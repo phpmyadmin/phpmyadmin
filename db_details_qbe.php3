@@ -157,7 +157,9 @@ while ($i < $tbl_result_cnt) {
             $j++;
         } // end while
     } // end if
-    mysql_free_result($fld_results);
+    if ($fld_results) {
+        mysql_free_result($fld_results);
+    }
 
     $i++;
 } // end if
