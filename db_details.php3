@@ -78,13 +78,14 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
     if(($bookmark_list=list_bookmarks($db, $cfgBookmark)) && count($bookmark_list)>0)
     {
         echo "<i>$strOr</i> $strBookmarkQuery:<br>\n";
-        echo "<select name=\"sql_bookmark\">\n";
+        echo "<select name=\"id_bookmark\">\n";
         echo "<option value=\"\"></option>\n";
         while(list($key,$value)=each($bookmark_list)) {
             echo "<option value=\"".htmlentities($value)."\">".htmlentities($key)."</option>\n";
         }
         echo "</select>\n";
-        echo "<input type=\"checkbox\" name=\"view_bookmark\" value=\"1\">".$strBookmarkView;
+        echo "<input type=\"radio\" name=\"action_bookmark\" value=\"0\">".$strBookmarkView;
+        echo "<input type=\"radio\" name=\"action_bookmark\" value=\"1\">".$strDelete;
         echo "<br>\n";
     }
 }

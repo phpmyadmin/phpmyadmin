@@ -54,7 +54,7 @@ function show_table_navigation($pos_next, $pos_prev, $dt_result) {
           ( isset($SelectNumRows) && $pos + $sessionMaxRows < $SelectNumRows && mysql_num_rows($dt_result) >= $sessionMaxRows  ?
                     "true" : "false" ); ?>"
           action=<?php printf (
-          "\"sql.php3?server=$server&lang=$lang&db=$db&table=$table&sql_query=%s&sql_order=%s&pos=%d&sessionMaxRows=%d&goto=%s\"", urlencode($sql_query),urlencode($sql_order),$SelectNumRows - $sessionMaxRows, $sessionMaxRows, $goto);?>
+          "\"sql.php3?server=$server&lang=$lang&db=$db&table=$table&sql_query=%s&sql_order=%s&pos=%d&sessionMaxRows=%d&goto=%s\"", urlencode($sql_query),urlencode($sql_order),$SelectNumRows - $sessionMaxRows, $sessionMaxRows, (isset($goto) ? $goto : ''));?>
         ><input type="submit" value="<?php echo "&gt;&gt; " . $strEnd  ; ?>"  >
         </form>
         </td>
@@ -718,7 +718,7 @@ function get_bookmarks_param() {
 }
 
 function list_bookmarks($db, $cfgBookmark) {
-    $query="SELECT label, query FROM ".$cfgBookmark['db'].".".$cfgBookmark['table']." WHERE dbase='$db'";
+    $query="SELECT label, id FROM ".$cfgBookmark['db'].".".$cfgBookmark['table']." WHERE dbase='$db'";
     $result=mysql_db_query($cfgBookmark['db'], $query);
 
     if($result>0 && mysql_num_rows($result)>0)
@@ -733,6 +733,19 @@ function list_bookmarks($db, $cfgBookmark) {
     }
     else
         return false;
+}
+
+function query_bookmarks($db, $cfgBookmark, $id) {
+    $query="SELECT query FROM ".$cfgBookmark['db'].".".$cfgBookmark['table']." WHERE dbase='$db' AND id='$id'";
+    $result=mysql_db_query($cfgBookmark['db'], $query);
+    $bookmark_query=mysql_result($result,0,"query");
+
+    return $bookmark_query;
+}
+
+function delete_bookmarks($db, $cfgBookmark, $id) {
+    $query="DELETE FROM ".$cfgBookmark['db'].".".$cfgBookmark['table']." WHERE id='$id'";
+    $result=mysql_db_query($cfgBookmark['db'], $query);
 }
 
 $cfgBookmark=get_bookmarks_param();
