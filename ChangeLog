@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/dutch: update, thanks to Ivo Teel.
+
 2002-10-17 Loïc Chapeaux  <lolo@phpheaven.net>
     * sql.php3, bug 624020, can't delete a row with a TEXT field containing
       newlines
