@@ -12,7 +12,7 @@
 // per server so I don't put the server number in the cookie name.
 
 if (!isset($_COOKIE['pma_mcrypt_iv'])) {
-    srand();
+    srand((double) microtime() * 1000000);
     $iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_BLOWFISH, MCRYPT_MODE_CBC), MCRYPT_RAND);
     setcookie('pma_mcrypt_iv',
         base64_encode($iv),
