@@ -242,8 +242,8 @@
     <tt>$cfgServers[n]['stdpass']</tt> settings.
     To create the control account:<br />
     &nbsp;&nbsp;&nbsp;<tt>GRANT USAGE ON mysql.* TO 'stduser'@localhost IDENTIFIED BY 'password';</tt><br />
-    &nbsp;&nbsp;&nbsp;<tt>GRANT SELECT (user, Select_priv) ON mysql.user TO 'stduser'@localhost;</tt><br />
-    &nbsp;&nbsp;&nbsp;<tt>GRANT SELECT (Db,user,Select_priv) ON mysql.db TO 'stduser'@localhost;</tt>
+    &nbsp;&nbsp;&nbsp;<tt>GRANT SELECT ON mysql.user TO 'stduser'@localhost;</tt><br />
+    &nbsp;&nbsp;&nbsp;<tt>GRANT SELECT ON mysql.db TO 'stduser'@localhost;</tt>
 </li>
 <li>
     Then each of the <i>true</i> users should be granted of a set of
