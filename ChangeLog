@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-01 Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/display_tbl.lib.php3: half fixed (php4 only) bug #474943: wrong
+	  data by using a table twice (it seems there is no way to distinguish
+      whether a MySQL cell is NULL, empty or equal to zero with php3).
+
 2002-02-28 Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html: fixed xhtml1.0 errors.
 	* tbl_printview.php3, lines 328-329: fixed bug #523772 - Parse Error in

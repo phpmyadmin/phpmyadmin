@@ -749,11 +749,17 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     for ($i = 0; $i < $fields_cnt; ++$i) {
                         $primary   = $fields_meta[$i];
                         $condition = ' ' . PMA_backquote($primary->name) . ' ';
+
+                        // loic1: To fix bug #474943 under php4, the row
+                        //        pointer will depend on whether the "is_null"
+                        //        php4 function is available or not
+                        $pointer = (function_exists('is_null') ? $i : $primary->name);
+
                         if (!isset($row[$primary->name])
-                            || (function_exists('is_null') && is_null($row[$primary->name]))) {
+                            || (function_exists('is_null') && is_null($row[$pointer]))) {
                             $condition .= 'IS NULL AND';
                         } else {
-                            $condition .= '= \'' . PMA_sqlAddslashes($row[$primary->name]) . '\' AND';
+                            $condition .= '= \'' . PMA_sqlAddslashes($row[$pointer]) . '\' AND';
                         }
                         if ($primary->primary_key > 0) {
                             $primary_key .= $condition;
@@ -859,21 +865,27 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             // 2. Displays the rows' values
             for ($i = 0; $i < $fields_cnt; ++$i) {
                 $primary = $fields_meta[$i];
+
+                // loic1: To fix bug #474943 under php4, the row pointer will
+                //        depend on whether the "is_null" php4 function is
+                //        available or not
+                $pointer = (function_exists('is_null') ? $i : $primary->name);
+
                 if ($primary->numeric == 1) {
                     if (!isset($row[$primary->name])
-                        || (function_exists('is_null') && is_null($row[$primary->name]))) {
+                        || (function_exists('is_null') && is_null($row[$pointer]))) {
                         $vertical_display['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
-                    } else if ($row[$i] != '') {
+                    } else if ($row[$pointer] != '') {
                         $vertical_display['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">';
                         if (isset($map[$primary->name])) {
                             $vertical_display['data'][$foo][$i] .= '<a href="sql.php3?'
                                                                 .  'lang=' . $lang . '&amp;server=' . $server
                                                                 .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$primary->name][0])
                                                                 .  '&amp;pos=0&amp;sessionMaxRow=' . $sessionMaxRow . '&amp;dontlimitchars=' . $dontlimitchars
-                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$primary->name][0]) . ' WHERE ' . $map[$primary->name][1] . ' = ' . $row[$i]) . '">'
-                                                                .  $row[$primary->name] . '</a>';
+                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$primary->name][0]) . ' WHERE ' . $map[$primary->name][1] . ' = ' . $row[$pointer]) . '">'
+                                                                .  $row[$pointer] . '</a>';
                         } else {
-                            $vertical_display['data'][$foo][$i] .= $row[$primary->name];
+                            $vertical_display['data'][$foo][$i] .= $row[$pointer];
                         }
                         $vertical_display['data'][$foo][$i]     .= '</td>' . "\n";
                     } else {
@@ -889,50 +901,50 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         $vertical_display['data'][$foo][$i]     = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB]</td>' . "\n";
                     } else {
                         if (!isset($row[$primary->name])
-                            || (function_exists('is_null') && is_null($row[$primary->name]))) {
+                            || (function_exists('is_null') && is_null($row[$pointer]))) {
                             $vertical_display['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
-                        } else if ($row[$primary->name] != '') {
-                            if (strlen($row[$primary->name]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
-                                $row[$primary->name] = substr($row[$primary->name], 0, $GLOBALS['cfgLimitChars']) . '...';
+                        } else if ($row[$pointer] != '') {
+                            if (strlen($row[$pointer]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
+                                $row[$pointer] = substr($row[$pointer], 0, $GLOBALS['cfgLimitChars']) . '...';
                             }
                             // loic1: displays all space characters, 4 space
                             // characters for tabulations and <cr>/<lf>
-                            $row[$primary->name] = htmlspecialchars($row[$primary->name]);
-                            $row[$primary->name] = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace(' ', '&nbsp;', $row[$primary->name]));
-                            $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$primary->name]);
-                            $vertical_display['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
+                            $row[$pointer]     = htmlspecialchars($row[$pointer]);
+                            $row[$pointer]     = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace(' ', '&nbsp;', $row[$pointer]));
+                            $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
+                            $vertical_display['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$pointer] . '</td>' . "\n";
                         } else {
                             $vertical_display['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                         }
                     }
                 } else {
                     if (!isset($row[$primary->name])
-                        || (function_exists('is_null') && is_null($row[$primary->name]))) {
+                        || (function_exists('is_null') && is_null($row[$pointer]))) {
                         $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
-                    } else if ($row[$primary->name] != '') {
+                    } else if ($row[$pointer] != '') {
                         // loic1: Cut text/blob fields even if $cfgShowBlob is true
                         if (eregi('BLOB', $primary->type)) {
-                            if (strlen($row[$primary->name]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
-                                $row[$primary->name] = substr($row[$primary->name], 0, $GLOBALS['cfgLimitChars']) . '...';
+                            if (strlen($row[$pointer]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
+                                $row[$pointer] = substr($row[$pointer], 0, $GLOBALS['cfgLimitChars']) . '...';
                             }
                         }
                         // loic1: displays special characters from binaries
                         $field_flags = mysql_field_flags($dt_result, $i);
                         if (eregi('BINARY', $field_flags)) {
-                            $row[$primary->name] = str_replace("\x00", '\0', $row[$primary->name]);
-                            $row[$primary->name] = str_replace("\x08", '\b', $row[$primary->name]);
-                            $row[$primary->name] = str_replace("\x0a", '\n', $row[$primary->name]);
-                            $row[$primary->name] = str_replace("\x0d", '\r', $row[$primary->name]);
-                            $row[$primary->name] = str_replace("\x1a", '\Z', $row[$primary->name]);
+                            $row[$pointer]     = str_replace("\x00", '\0', $row[$pointer]);
+                            $row[$pointer]     = str_replace("\x08", '\b', $row[$pointer]);
+                            $row[$pointer]     = str_replace("\x0a", '\n', $row[$pointer]);
+                            $row[$pointer]     = str_replace("\x0d", '\r', $row[$pointer]);
+                            $row[$pointer]     = str_replace("\x1a", '\Z', $row[$pointer]);
                         }
                         // loic1: displays all space characters, 4 space
                         // characters for tabulations and <cr>/<lf>
                         else {
-                            $row[$primary->name] = htmlspecialchars($row[$primary->name]);
-                            $row[$primary->name] = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace(' ', '&nbsp;', $row[$primary->name]));
-                            $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$primary->name]);
+                            $row[$pointer]     = htmlspecialchars($row[$pointer]);
+                            $row[$pointer]     = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace(' ', '&nbsp;', $row[$pointer]));
+                            $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
                         }
-                        $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
+                        $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$pointer] . '</td>' . "\n";
                     } else {
                         $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
