@@ -183,6 +183,7 @@ $strHostEmpty = 'ƒzƒXƒg–¼‚Í‹ó‚Å‚·!';
 $strIdxFulltext = '‘S•¶';
 $strIfYouWish = 'ƒe[ƒuƒ‹‚ÌƒRƒ‰ƒ€(—ñ)‚Éƒf[ƒ^‚ð’Ç‰Á‚·‚éê‡‚ÍAƒtƒB[ƒ‹ƒhƒŠƒXƒg‚ðƒJƒ“ƒ}‚Å‹æ•ª‚µ‚Ä‚­‚¾‚³‚¢B';
 $strIgnore = '–³Ž‹';
+$strImportDocSQL = 'docSQLƒtƒ@ƒCƒ‹ƒCƒ“ƒ|[ƒg';
 $strInUse = 'Žg—p’†';
 $strIndex = 'ƒCƒ“ƒfƒbƒNƒX';
 $strIndexHasBeenDropped = 'ƒCƒ“ƒfƒbƒNƒX%s‚ªíœ‚³‚ê‚Ü‚µ‚½';
@@ -292,7 +293,7 @@ $strPrimaryKeyWarning = '("PRIMARY"‚Í‚¿‚å‚¤‚ÇŽåƒL[‚Ì–¼‘O‚Å‚Í‚È‚¯‚ê‚Î‚¢‚¯‚Ü‚¹‚ñ
 $strPrintView = 'ˆóü—p•\Ž¦';
 $strPrivileges = '“ÁŒ ';
 $strProperties = 'ƒvƒƒpƒeƒB';
-$strPutColNames = 'Å‰‚Ìs‚ÉƒtƒB[ƒ‹ƒh–¼‚ð“ü—Í‚µ‚Ä‰º‚³‚¢B';
+$strPutColNames = 'Å‰‚Ì1s–Ú‚ÉƒtƒB[ƒ‹ƒh–¼‚ð’Ç‰Á';
 
 $strQBE = 'ƒNƒGƒŠ[';
 $strQBEDel = 'íœ';
@@ -438,5 +439,4 @@ $strYes = '‚Í‚¢';
 
 $strZip = '"zip‚³‚ê‚é"';
 
-$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>

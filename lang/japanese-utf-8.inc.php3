@@ -183,6 +183,7 @@ $strHostEmpty = 'ホスト名は空です!';
 $strIdxFulltext = '全文';
 $strIfYouWish = 'テーブルのコラム(列)にデータを追加する場合は、フィールドリストをカンマで区分してください。';
 $strIgnore = '無視';
+$strImportDocSQL = 'docSQLファイルインポート';
 $strInUse = '使用中';
 $strIndex = 'インデックス';
 $strIndexHasBeenDropped = 'インデックス%sが削除されました';
@@ -292,7 +293,7 @@ $strPrimaryKeyWarning = '("PRIMARY"はちょうど主キーの名前ではなけ
 $strPrintView = '印刷用表示';
 $strPrivileges = '特権';
 $strProperties = 'プロパティ';
-$strPutColNames = '最初の行にフィールド名を入力して下さい。';
+$strPutColNames = '最初の1行目にフィールド名を追加';
 
 $strQBE = 'クエリー';
 $strQBEDel = '削除';
@@ -438,5 +439,4 @@ $strYes = 'はい';
 
 $strZip = '"zipされる"';
 
-$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>
