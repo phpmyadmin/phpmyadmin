@@ -223,25 +223,28 @@ else if (!defined('_IDX_INCLUDED_')
     // Prepares the form values
     if (!isset($index)) {
         $index                                = '';
-    }        
+    }
+    if (!isset($old_index)){
+        $old_index                            = $index;
+    }
     if (!isset($index_type)) {
         $index_type                           = '';
     }
-    if ($index == '' || !isset($indexes_info[$index])) {
+    if ($old_index == '' || !isset($indexes_info[$old_index])) {
         $edited_index_info['Sequences']       = array();
         $edited_index_data                    = array();
         for ($i = 1; $i <= $idx_num_fields; $i++) {
             $edited_index_info['Sequences'][] = $i;
             $edited_index_data[$i]            = array('Column_name' => '', 'Sub_part' => '');
         } // end for
-        if ($index == ''
+        if ($old_index == ''
             && !isset($indexes_info['PRIMARY'])
             && ($index_type == '' || $index_type == 'PRIMARY')) {
-            $index                            = 'PRIMARY';
+            $old_index                        = 'PRIMARY';
         }
     } else {
-        $edited_index_info                    = $indexes_info[$index];
-        $edited_index_data                    = $indexes_data[$index];
+        $edited_index_info                    = $indexes_info[$old_index];
+        $edited_index_data                    = $indexes_data[$old_index];
         if ($edited_index_info['Comment'] == 'FULLTEXT') {
             $index_type                       = 'FULLTEXT';
         } else if ($index == 'PRIMARY') {
@@ -287,7 +290,7 @@ else if (!defined('_IDX_INCLUDED_')
     }
     echo "\n";
     ?>
-    <input type="hidden" name="old_index" value="<?php echo (isset($create_index) ? '' : $index); ?>" />
+    <input type="hidden" name="old_index" value="<?php echo (isset($create_index) ? '' : $old_index); ?>" />
     <b><?php echo '------ ' . (isset($create_index) ? $strCreateIndexTopic : $strModifyIndexTopic) . ' ------'; ?></b>
     <br /><br />
 
@@ -428,8 +431,8 @@ else if (!defined('_IDX_INCLUDED_')
                  . '                ' . $index_type . "\n"
                  . '            </td>' . "\n";
 
-            echo $index_td
-                 . '                ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $strNone) . "\n"
+            echo str_replace('">' . "\n", '" align="right">' . "\n", $index_td)
+                 . '                ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $strNone) . '&nbsp;' . "\n"
                  . '            </td>' . "\n";
 
             if ($index_name == 'PRIMARY') {
