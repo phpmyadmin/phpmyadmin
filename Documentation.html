@@ -417,8 +417,8 @@
         empty, because the program tries to auto-detect its proper value.
         Additional details are in the configuration file.
         <br /><br />
-        Or, this setting can be dynamically completed. For example, you can
-        try to use such a kind of code:
+        Alternatively, this setting can be dynamically completed. For example,
+        you can try to use such a kind of code:
         <pre>
 $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                        . $_SERVER['HTTP_HOST']
@@ -1600,8 +1600,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
 <p>
     <b>[1.21] I am running the CGI version of PHP under Unix, and I cannot
-       login using cookie auth.</b><br />
-    In <i>php.ini</i>, set <tt>mysql.max_links</tt> higher than 1.<br />
+       login using cookie auth.</b>
+    <br />
+    In <i>php.ini</i>, set <tt>mysql.max_links</tt> higher than 1.
 </p>
 
 <a name="faqconfig"></a>
@@ -1693,6 +1694,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     in the phpMyAdmin configuration file.
 </p>
 
+
 <a name="faqlimitations"></a>
 <h3>[3. Known limitations]</h3>
 <a name="login_bug"></a>
@@ -1722,8 +1724,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <b>[3.3] With InnoDB tables, I lose foreign key relationships when I rename
        or alter a table.</b>
     <br />
-    This seems to be a InnoDB bug (fixed in MySQL 3.23.50?).  However, keep
-    in mind that phpMyAdmin as of version 2.3.0 does not support InnoDB.
+    This seems to be a InnoDB bug (fixed in MySQL 3.23.50?). However, keep in
+    mind that phpMyAdmin as of version 2.3.0 does not support InnoDB.
 </p>
 
 

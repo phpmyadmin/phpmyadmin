@@ -19,6 +19,7 @@ $Source$
     * lang/german-*.inc.php3: Updates.
     * lang/afrikaans-*.inc.php3: Tidied up a bit.
     * Documentation.html, ANNOUNCE.txt: We now have 41 languages, don't we?
+    * Documentation.html: Beautified XHTML code.
 
 2002-08-03 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: remove unneeded GRANT
