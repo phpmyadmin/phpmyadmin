@@ -221,7 +221,7 @@ else {
             if (!isset($single)) {
                 $table = mysql_tablename($tables, $i);
             }
-            if (isset($tmp_select) && is_int(strpos($tmp_select, '|' . $table . '|')) == FALSE) {
+            if (isset($tmp_select) && !strpos(' ' . $tmp_select, '|' . $table . '|')) {
                 $i++;
             } else {
                 $formatted_table_name = (isset($use_backquotes))

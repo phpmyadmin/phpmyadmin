@@ -18,6 +18,7 @@ $Source$
     * header.inc.php3, lines 162-170: Improved patch #548696.
     * db_details.php3, tbl_dump.php3, lang/*.php3,
       libraries/build_dump.lib.php3: XML exports (experimental).
+    * tbl_dump.php3: improved PHP3 compatibility.
 
 2002-04-28 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_properties.php3, line 395: replaced a "require" by an include.
