@@ -1345,6 +1345,24 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['GD2Available'] </b>string</dt>
+    <dd>
+        Specifies whether GD &gt;= 2 is available. If yes it can be used for
+        MIME transformations.<br />
+        Possible values are:<br />
+        <ul>
+            <li>
+                auto   - automatically detect, this is a bit expensive
+                operation for php &lt; 4.3.0 so it is preffered to change this
+                according to your server real possibilities
+            </li>
+            <li>yes - GD 2 functions can be used</li>
+            <li>no - GD 2 function can not be used</li>
+        </ul>
+        Default is auto.
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['LeftWidth'] </b>integer</dt>
     <dd>
         Left frame width in pixel.

@@ -447,6 +447,13 @@ $cfg['SaveDir']               = '';         // for example, './save/'; you must 
 
 
 /**
+ * Misc. settings
+ */
+$cfg['GD2Available']          = 'auto';     // Is GD >= 2 available? Set to yes/no/auto. 'auto'
+                                            // does autodetection, which is a bit expensive for
+                                            // php < 4.3.0, but it is the only safe vay how to
+                                            // determine GD version.
+/**
  * SQL Parser Settings
  */
 $cfg['SQP']['fmtType']      = 'html';       // Pretty-printing style to use on queries (html, text, none)

@@ -64,11 +64,51 @@ if (!defined('PMA_IS_WINDOWS')) {
 
 // Whether GD2 is present
 if (!defined('PMA_IS_GD2')) {
-    $testGD = @imagecreatetruecolor(12,12);
-    if ($testGD) {
+    if ($cfg['GD2Available'] == 'yes') {
         define('PMA_IS_GD2', 1);
-    } else {
+    } elseif ($cfg['GD2Available'] == 'no') {
         define('PMA_IS_GD2', 0);
+    } else {
+        if (((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode') && @ini_get('enable_dl'))
+            || (PMA_PHP_INT_VERSION < 40000 && PMA_PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
+            && @function_exists('dl')) {
+            if (PMA_IS_WINDOWS) {
+                $suffix = '.dll';
+            } else {
+                $suffix = '.so';
+            }
+            if (!@extension_loaded('gd')) {
+                @dl('gd' . $suffix);
+            }
+        }
+        if (!@function_exists('imagecreatetruecolor')) {
+            define('PMA_IS_GD2', 0);
+        } else {
+            if (@function_exists('gd_info')) {
+                $gd_nfo = gd_info();
+                if (strstr($gd_nfo["GD Version"], '2.')) {
+                    define('PMA_IS_GD2', 1);
+                } else {
+                    define('PMA_IS_GD2', 0);
+                }
+            } else {
+                /* We must do hard way... */
+                ob_start();
+                phpinfo(8); /* Only modules */
+                $a = ob_get_contents();
+                ob_end_clean();
+                /* Get GD version string from phpinfo output */
+                if (ereg('<tr><td[^>]*>[^>]*GD Version[^<]*</td><td[^>]*>\([^<]*\)</td></tr>', $a, $v)) {
+                    if (strstr($v, '2.')) {
+                        define('PMA_IS_GD2', 1);
+                    } else {
+                        define('PMA_IS_GD2', 0);
+                    }
+                } else {
+                    define('PMA_IS_GD2', 0);
+                }
+            }
+        }
     }
 }
 // $__PMA_DEFINES_PHP_LIB__

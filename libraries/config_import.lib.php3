@@ -1063,6 +1063,9 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['PmaNoRelation_DisableWarning'])) {
         $cfg['PmaNoRelation_DisableWarning'] = FALSE;
     }
+    if (!isset($cfg['GD2Available'])) {
+        $cfg['GD2Available'] = 'auto';
+    }
 
 } // $__PMA_CONFIG_IMPORT_LIB__
 

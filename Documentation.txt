@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.442 2003/05/14
-       12:39:42 garvinhicking Exp $
+     * Documentation version: $Id: Documentation.html,v 1.445 2003/05/19
+       17:11:33 lem9 Exp $
 
 Requirements
 
@@ -376,6 +376,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           privileges rules of the MySQL database server. If set, it just
           means only these databases will be displayed but not at all
           other databases can't be used.
+          An example of using more that one database:
+          $cfg['Servers'][$i]['only_db'] = array('db1', 'db2');
 
    $cfg['Servers'][$i]['verbose'] string
           Only useful when using phpMyAdmin with multiple server entries.
@@ -898,6 +900,19 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           here listed, so if you frequently use some of these move them
           to the top.
 
+   $cfg['GD2Available'] string
+          Specifies whether GD >= 2 is available. If yes it can be used
+          for MIME transformations.
+          Possible values are:
+
+          + auto - automatically detect, this is a bit expensive
+            operation for php < 4.3.0 so it is preffered to change this
+            according to your server real possibilities
+          + yes - GD 2 functions can be used
+          + no - GD 2 function can not be used
+
+          Default is auto.
+
    $cfg['LeftWidth'] integer
           Left frame width in pixel.
 
@@ -1066,7 +1081,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
    $cfg['MaxExactCount'] integer
           Determines for how large tables phpMyAdmin should get exact row
-          count by SELECT COUNT. If approximate row cound is smaller than
+          count by SELECT COUNT. If approximate row count is smaller than
           this value, SELECT COUNT will be used, otherwise only value
           returned by SHOW TABLE STATUS.
 
