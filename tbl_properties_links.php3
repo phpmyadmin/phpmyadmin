@@ -5,7 +5,7 @@
 /**
  * Prepares links
  */
-$lnk3    = '<a href="tbl_properties_export.php3?' . $url_query . '">';
+$lnk3        = '<a href="tbl_properties_export.php3?' . $url_query . '">';
 
 if ($num_rows > 0) {
     $lnk1    = '<a href="sql.php3?' . $url_query
@@ -27,6 +27,11 @@ if ($num_rows > 0) {
     $lnk2 = '';
     $lnk4 = '';
 }
+
+
+/**
+ * Displays links
+ */
 ?>
 <p>
     [ <?php echo $lnk1 . "\n"; ?>
