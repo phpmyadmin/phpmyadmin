@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html, lines 2-4; header.inc.php3, lines 39-41;
+	  index.php3, lines 36-38; left.php3, lines 49-51;
+	  libraries/common.lib.php3, lines 75-78: fixed bug #472353 - Doc can't be
+	  opened in IE5/Mac (because of an invalid DTD).
+	* lang/czech-*.inc.php3: fixed some "typos", thanks to Michal Cihar.
+	* lang/slovak.inc.php3: put font faces between double quotes.
+
 2001-10-18  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/finnish.inc.php3 updates, thanks to Visa Kopu.
 
