@@ -23,6 +23,9 @@ $Source$
 	* tbl_copy.php3, line 86: returns to tbl_properties.php3 rather than
 	  db_details.php3.
 	* lib.inc.php3: fixed a bug when browsing a table with values equal to 0.
+	* tbl_change.php3; tbl_replace.php3: fixed bugs in function field name with
+	  special characters and no-parameter functions.
+	* config.inc.php3: added the "UNIX_TIMESTAMP" function.
 
 2001-08-28  Olivier Müller  <om@omnis.ch>
 	* db_stats.php3: fixed the sql query so that the script won't die, even if
