@@ -454,35 +454,38 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
     // can be result sorted?
     if ($is_display['sort_lnk'] == '1') {
-        // Defines the url used to append/modify a sorting order
-        // Nijel: This was originally done inside loop below, but I see
-        //        no reason to do this for each column.
-        if (preg_match('@(.*)([[:space:]]ORDER[[:space:]]*BY[[:space:]](.*))@si', $sql_query, $regs1)) {
-            if (preg_match('@((.*)([[:space:]]ASC|[[:space:]]DESC)([[:space:]]|$))(.*)@si', $regs1[2], $regs2)) {
-                $unsorted_sql_query = trim($regs1[1] . ' ' . $regs2[5]);
-                $sql_order          = trim($regs2[1]);
-                preg_match('@(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)@si',$sql_order,$after_order);
-                $sort_expression = trim($after_order[2]);
-            }
-            else if (preg_match('@((.*))[[:space:]]+(LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE)@si', $regs1[2], $regs3)) {
-                $unsorted_sql_query = trim($regs1[1] . ' ' . $regs3[3]);
-                $sql_order          = trim($regs3[1]) . ' ASC';
-                preg_match('@(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)@si',$sql_order,$after_order);
-                $sort_expression = trim($after_order[2]);
-            } else {
-                $unsorted_sql_query = trim($regs1[1]);
-                $sql_order          = trim($regs1[2]) . ' ASC';
-                preg_match('@(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)@si',$sql_order,$after_order);
-                $sort_expression = trim($after_order[2]);
-            }
-        } else {
-            $unsorted_sql_query     = $sql_query;
-        }
+
+        // Just as fallback
+        $unsorted_sql_query     = $sql_query;
 
         // sorting by indexes, only if it makes sense
         if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
             isset($analyzed_sql[0]['querytype']) && $analyzed_sql[0]['querytype'] == 'SELECT' &&
             isset($analyzed_sql[0]['table_ref']) && count($analyzed_sql[0]['table_ref']) == 1) {
+
+            $unsorted_sql_query = 'SELECT ';
+            if (isset($analyzed_sql[0]['queryflags']['distinct'])) {
+                $unsorted_sql_query .= ' DISTINCT ';
+            }
+            $unsorted_sql_query .= $analyzed_sql[0]['select_expr_clause'];
+            if (!empty($analyzed_sql[0]['from_clause'])) {
+                $unsorted_sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
+            }
+            if (!empty($analyzed_sql[0]['where_clause'])) {
+                $unsorted_sql_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
+            }
+            if (!empty($analyzed_sql[0]['group_by_clause'])) {
+                $unsorted_sql_query .= ' GROUP BY ' . $analyzed_sql[0]['group_by_clause'];
+            }
+            if (!empty($analyzed_sql[0]['having_clause'])) {
+                $unsorted_sql_query .= ' HAVING ' . $analyzed_sql[0]['having_clause'];
+            }
+
+            $sort_expression = trim(str_replace('  ', ' ',$analyzed_sql[0]['order_by_clause']));
+
+            // Get rid of ASC|DESC
+            preg_match('@(.*)([[:space:]]*(ASC|DESC))@si',$sort_expression,$matches);
+            $sort_expression_nodir = trim($matches[1]);
 
             // grab indexes data:
             $result  = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
@@ -535,12 +538,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '<input type="hidden" name="disp_direction" value="' . $disp_direction . '" />' . "\n";
                 echo '<input type="hidden" name="repeat_cells" value="' . $repeat_cells . '" />' . "\n";
                 echo '<input type="hidden" name="dontlimitchars" value="' . $dontlimitchars . '" />' . "\n";
-                echo $GLOBALS['strSortByKey'] . ': <select name="sql_query">';
+                echo $GLOBALS['strSortByKey'] . ': <select name="sql_query">' . "\n";
                 $used_index = false;
-                $local_order = (isset($sql_order) ? str_replace('  ', ' ', $sql_order) : '');
+                $local_order = (isset($sort_expression) ? $sort_expression : '');
                 foreach($indexes_data AS $key => $val) {
-                    $asc_sort = 'ORDER BY ';
-                    $desc_sort = 'ORDER BY ';
+                    $asc_sort = '';
+                    $desc_sort = '';
                     foreach($val AS $key2 => $val2) {
                         $asc_sort .= PMA_backquote($val2['Column_name']) . ' ASC , ';
                         $desc_sort .= PMA_backquote($val2['Column_name']) . ' DESC , ';
@@ -548,9 +551,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                     $asc_sort = substr($asc_sort, 0, -3);
                     $desc_sort = substr($desc_sort, 0, -3);
                     $used_index = $used_index || $local_order == $asc_sort || $local_order == $desc_sort;
-                    echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ' . $asc_sort) . '"' . ($local_order == $asc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strAscending'] . ')</option>';
+                    echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ORDER BY ' . $asc_sort) . '"' . ($local_order == $asc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strAscending'] . ')</option>';
                     echo "\n";
-                    echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ' . $desc_sort) . '"' . ($local_order == $desc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strDescending'] . ')</option>';
+                    echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ORDER BY ' . $desc_sort) . '"' . ($local_order == $desc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strDescending'] . ')</option>';
                     echo "\n";
                 }
                 echo '<option value="' . htmlspecialchars($unsorted_sql_query) . '"' . ($used_index ? '' : ' selected="selected"' ) . '>' . $GLOBALS['strNone'] . '</option>';
@@ -761,7 +764,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             }
             // 2.1.2 Checks if the current column is used to sort the
             //       results
-            if (empty($sql_order)) {
+            if (empty($sort_expression)) {
                 $is_in_sort = FALSE;
             } else {
                 // field name may be preceded by a space, or any number
@@ -770,7 +773,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 // for the sort expression (avoids problems with queries
                 // like "SELECT id, count(id)..." and clicking to sort
                 // on id or on count(id) )
-                  $is_in_sort = ($sort_tbl . PMA_backquote($fields_meta[$i]->name) == $sort_expression ? TRUE : FALSE);
+                $is_in_sort = ($sort_tbl . PMA_backquote($fields_meta[$i]->name) == $sort_expression_nodir ? TRUE : FALSE);
             }
             // 2.1.3 Check the field name for backquotes.
             //       If it contains some, it's probably a function column
@@ -790,11 +793,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 $sort_order .= $cfg['Order'];
                 $order_img   = '';
             }
-            else if (preg_match('@[[:space:]]ASC$@i', $sql_order)) {
+            else if (preg_match('@[[:space:]]ASC$@i', $sort_expression)) {
                 $sort_order .= ' DESC';
                 $order_img   = '&nbsp;<img src="./images/asc_order.png" border="0" width="7" height="7" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" />';
             }
-            else if (preg_match('@[[:space:]]DESC$@i', $sql_order)) {
+            else if (preg_match('@[[:space:]]DESC$@i', $sort_expression)) {
                 $sort_order .= ' ASC';
                 $order_img   = '&nbsp;<img src="./images/desc_order.png" border="0" width="7" height="7" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" />';
             }

@@ -13,6 +13,8 @@ $Source$
       them are needed.
     * main.php, css/phpmyadmin.css.php: Main page now uses lists instead of
       nested tables.
+    * libraries/display_tbl.lib.php: Sort query generating now uses parsed
+      query (bug #885497).
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
     * libraries/display_tbl.lib.php: Bug #942392 - Wrapping sort order
