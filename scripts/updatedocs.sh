@@ -8,12 +8,19 @@ SRC=Documentation.html
 DST=Documentation.txt
 OPTIONS="--dont_wrap_pre --nolist --dump"
 CMD=lynx
-if [ ! -e "$SRC" ]; then
-  if [ -e ../"$SRC" ]; then
-    SRC="../$SRC"
-  else
+
+TMPDOCDIRS=".. . `pwd` `pwd`/`dirname ${0}`/.. `dirname ${0}`/.."
+for dir in ${TMPDOCDIRS}; do
+    [ -e "${dir}/${SRC}" ] && DOCDIR="${dir}"
+    [ -n "${DOCDIR}" ] && break
+done
+unset TMPDOCDIRS
+if [ -z "${DOCDIR}" ]; then
     echo 'Unable to locate documentation!'
-    return
-  fi;
-fi;
-$CMD $OPTIONS "$SRC" > "$DST"
+    exit -1
+fi
+
+SRC="${DOCDIR}/${SRC}"
+DST="${DOCDIR}/${DST}"
+
+${CMD} ${OPTIONS} "${SRC}" > "${DST}"
