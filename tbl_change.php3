@@ -1,5 +1,5 @@
 <?php
-/* $Id: tbl_change.php3,v 1.26 2001/08/03 12:22:16 lem9 Exp */
+/* $Id$ */
 
 
 /**
@@ -174,6 +174,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
         $set = str_replace('enum(', '', $row_table_def['Type']);
         $set = ereg_replace('\\)$', '', $set);
         $set = explode('\',\'', substr($set, 1, -1));
+
         // show dropdown or radio depend on length
         if (strlen($row_table_def['Type']) > 20) {
             ?>
@@ -206,7 +207,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
             for ($j = 0; $j < count($set); $j++) {
                 echo '            ';
                 echo '<input type="radio" name="fields[' . urlencode($field) . ']" ';
-                //echo 'value="' . substr($set[$j], 1, -1) . '"';
+                // echo 'value="' . substr($set[$j], 1, -1) . '"';
                 echo 'value="' . $set[$j] . '"';
                 if ($data == $set[$j]
                     || ($data == ''
