@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-02 Michal Cihar  <michal@cihar.com>
+    * tbl_change.php: Unclosed tag written by javascript (bug #945905).
+
 2004-04-30 Michal Cihar  <michal@cihar.com>
     * libraries/auth/cookie.auth.lib.php: Do not double frames on login (bug
       #944870).
