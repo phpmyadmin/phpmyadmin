@@ -275,4 +275,5 @@ $strGzip = "\"gzipped\"";  //to translate
 $strOffSet = "Offset";
 $strNbRecords = "No. Of records";
 $strRowSize = " Row size ";  //to translate
+$strShowThisQuery=" Show this query here again ";  //to translate
 ?>

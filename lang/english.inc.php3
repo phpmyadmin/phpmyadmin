@@ -274,4 +274,5 @@ $strWelcome = "Welcome to ";
 $strWrongUser = "Wrong username/password. Access denied.";
 
 $strYes = "Yes";
+$strShowThisQuery=" Show this query here again ";  //to translate
 ?>

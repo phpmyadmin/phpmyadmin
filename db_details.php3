@@ -262,8 +262,12 @@ if ($num_tables > 0) {
             <?php echo $strRunSQLQuery . $db . ' ' . show_docu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
 <textarea name="sql_query" cols="40" rows="3" wrap="virtual" style="width: <?php echo $cfgMaxInputsize; ?>">
-<?php echo (isset($sql_query) ? $sql_query : '');?>
+<?php if (isset($show_query)) {
+         echo $show_query=="y" ? $sql_query : '';
+      }
+?>
 </textarea><br />
+<INPUT type=checkbox name='show_query' value="y" checked /><?php echo $strShowThisQuery; ?><br />
             </div>
             <?php echo "<i>$strOr</i> $strLocationTextfile"; ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">

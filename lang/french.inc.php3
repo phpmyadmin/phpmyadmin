@@ -273,4 +273,5 @@ $strWelcome = "Bienvenue à";
 $strWrongUser = "Erreur d'utilisateur/mot de passe. Accès refusé";
 
 $strYes = "Oui";
+$strShowThisQuery="Réafficher la requête après exécution";
 ?>
