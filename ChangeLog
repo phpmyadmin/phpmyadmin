@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-25 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech: Updated.
+    
 2003-08-25 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_relations.php3, tbl_properties_table_info.php3, /lang:
       InnoDB relations (for now, same db, only one index column, and

@@ -299,6 +299,8 @@ $strInsertTextfiles = 'Vložit textové soubory do tabulky';
 $strInsertedRowId = 'Id vloženého øádku:';
 $strInsertedRows = 'Vloženo øádkù:';
 $strInstructions = 'Instrukce';
+$strInternalNotNecessary = '* Interní relace není nutná, pokud již relace existuje v InnoDB.';
+$strInternalRelations = 'Interní relace';
 $strInvalidName = '"%s" je rezervované slovo a proto ho nemùžete požít jako jméno databáze/tabulky/sloupce.';
 
 $strJapanese = 'Japonština';
@@ -657,6 +659,7 @@ $strUpdatePrivMessage = 'Byla aktualizovana oprávnìní pro %s.';
 $strUpdateProfile = 'Zmìny pøístupu:';
 $strUpdateProfileMessage = 'Pøístup byl zmìnìn.';
 $strUpdateQuery = 'Aktualizovat dotaz';
+$strUpgradeMySQL = 'Mìli byste aktualizovat MySQL na verzi %s nebo vyšší.';
 $strUsage = 'Používá';
 $strUseBackquotes = 'Použít zpìtné uvozovky u&nbsp;jmen tabulek a sloupcù';
 $strUseHostTable = 'Použít tabulku s&nbsp;poèítaèi';
@@ -700,7 +703,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
-$strInternalRelations = 'Internal relations';  //to translate
-$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
-$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
 ?>
