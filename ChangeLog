@@ -5,12 +5,21 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2001-11-20  Loïc Chapeaux  <lolo@phpheaven.net>
+2001-11-22  Loïc Chapeaux  <lolo@phpheaven.net>
+	* header.inc.php3, lines 142-148: merged patch #479083 - display name
+	  of server after db/table thanks to
+	  Martin Jespersen <embeejay at users.sourceforge.net>.
+	* user_detail.php3:
+	  - fixed bug #484591 - Users Page -- "no password";
+	  - PEAR codding standards (functions names).
+
+2001-11-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* config.inc.php3: removed some remaining tabs.
 	* libraries/common.inc.php3: simplified the error handling settings
 	  under php4.
 	* lang/russian-*: updated thanks to
 	  Gosha Sakovich <gt2 at users.sourceforge.net>.
+
 2001-11-20  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_change.php3, lines 146-148: set the default function to "NOW()"
 	  for timestamp fields only in insert mode (ie not in update mode).
