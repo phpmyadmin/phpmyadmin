@@ -77,6 +77,7 @@ $available_languages = array(
     'ru-win1251'   => array('ru|russian', 'russian-win1251', 'ru'),
     'sk'           => array('sk|slovak', 'slovak-iso', 'sk'),
     'sk-win1250'   => array('sk|slovak', 'slovak-win1250', 'sk'),
+    'sq'           => array('sq|albanian', 'albanian', 'sq'),
     'sr-win1250'   => array('sr|serbian', 'serbian-win1250', 'sr'),
     'sv'           => array('sv|swedish', 'swedish', 'sv'),
     'th'           => array('th|thai', 'thai', 'th'),
