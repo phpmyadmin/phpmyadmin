@@ -25,8 +25,27 @@ $cfgRelation = PMA_getRelationsParam();
 
 
 /**
+ * Adds/removes slashes if required
+ *
+ * @param   string  the string to slash
+ *
+ * @return  string  the slashed string
+ *
+ * @access  public
+ */
+function PMA_handleSlashes($val) {
+    return (get_magic_quotes_gpc() ? str_replace('\\"', '"', $val) : PMA_sqlAddslashes($val));
+} // end of the "PMA_handleSlashes()" function
+
+
+/**
  * Updates
  */
+if (get_magic_quotes_gpc()) {
+    $db    = stripslashes($db);
+    $table = stripslashes($table);
+}
+
 if ($cfgRelation['relwork']) {
     $existrel = PMA_getForeigners($db, $table);
 }
@@ -45,24 +64,24 @@ if ($cfgRelation['relwork']
                             . ' values('
                             . '\'' . PMA_sqlAddslashes($db) . '\', '
                             . '\'' . PMA_sqlAddslashes($table) . '\', '
-                            . '\'' . PMA_sqlAddslashes($key) . '\', '
-                            . '\'' . PMA_sqlAddslashes($for[0]) . '\', '
-                            . '\'' . PMA_sqlAddslashes($for[1]) . '\','
-                            . '\'' . PMA_sqlAddslashes($for[2]) . '\')';
+                            . '\'' . PMA_handleSlashes($key) . '\', '
+                            . '\'' . PMA_handleSlashes($for[0]) . '\', '
+                            . '\'' . PMA_handleSlashes($for[1]) . '\','
+                            . '\'' . PMA_handleSlashes($for[2]) . '\')';
             } else if ($existrel[$key] != $value) {
                 $upd_query  = 'UPDATE ' . PMA_backquote($cfgRelation['relation']) . ' SET'
-                            . ' foreign_db       = \'' . PMA_sqlAddslashes($for[0]) . '\', '
-                            . ' foreign_table    = \'' . PMA_sqlAddslashes($for[1]) . '\', '
-                            . ' foreign_field    = \'' . PMA_sqlAddslashes($for[2]) . '\' '
+                            . ' foreign_db       = \'' . PMA_handleSlashes($for[0]) . '\', '
+                            . ' foreign_table    = \'' . PMA_handleSlashes($for[1]) . '\', '
+                            . ' foreign_field    = \'' . PMA_handleSlashes($for[2]) . '\' '
                             . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
                             . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_sqlAddslashes($key) . '\'';
+                            . ' AND master_field = \'' . PMA_handleSlashes($key) . '\'';
             } // end if... else....
         } else if (isset($existrel[$key])) {
             $upd_query      = 'DELETE FROM ' . PMA_backquote($cfgRelation['relation'])
                             . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
                             . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_sqlAddslashes($key) . '\'';
+                            . ' AND master_field = \'' . PMA_handleSlashes($key) . '\'';
         } // end if... else....
         if (isset($upd_query)) {
             $upd_rs         = PMA_query_as_cu($upd_query);
@@ -76,7 +95,7 @@ if ($cfgRelation['displaywork']
 
     if ($disp) {
         $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_info'])
-                   . ' SET display_field = \'' . PMA_sqlAddslashes($display_field) . '\''
+                   . ' SET display_field = \'' . PMA_handleSlashes($display_field) . '\''
                    . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                    . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
     } else {
@@ -85,7 +104,7 @@ if ($cfgRelation['displaywork']
                    . ' VALUES('
                    . '\'' . PMA_sqlAddslashes($db) . '\','
                    . '\'' . PMA_sqlAddslashes($table) . '\','
-                   . '\'' . PMA_sqlAddslashes($display_field) . '\')';
+                   . '\'' . PMA_handleSlashes($display_field) . '\')';
     }
     if (isset($upd_query)) {
         $upd_rs    = PMA_query_as_cu($upd_query);
@@ -98,20 +117,20 @@ if ($cfgRelation['commwork']
         $test_qry  = 'SELECT comment FROM ' . PMA_backquote($cfgRelation['column_comments'])
                    . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                    . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                   . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
+                   . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
         $test_rs   = PMA_query_as_cu($test_qry);
         if ($test_rs && mysql_num_rows($test_rs) > 0) {
             if (strlen($value) > 0) {
                 $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_comments'])
-                           . ' SET comment = \'' . PMA_sqlAddslashes($value) . '\''
+                           . ' SET comment = \'' . PMA_handleSlashes($value) . '\''
                            . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                            . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                           . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
+                           . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
             } else {
                 $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_comments'])
                            . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                            . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                           . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
+                           . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
             }
         } else if (strlen($value) > 0) {
             $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_comments'])
@@ -119,8 +138,8 @@ if ($cfgRelation['commwork']
                        . ' VALUES('
                        . '\'' . PMA_sqlAddslashes($db) . '\','
                        . '\'' . PMA_sqlAddslashes($table) . '\','
-                       . '\'' . PMA_sqlAddslashes($key) . '\','
-                       . '\'' . PMA_sqlAddslashes($value) . '\')';
+                       . '\'' . PMA_handleSlashes($key) . '\','
+                       . '\'' . PMA_handleSlashes($value) . '\')';
         }
         if (isset($upd_query)){
             $upd_rs    = PMA_query_as_cu($upd_query);
