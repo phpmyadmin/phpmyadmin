@@ -308,7 +308,19 @@ if ($server > 0) {
             </td>
         </tr>
             <?php
-        } // end create db form
+        } else {
+            echo "\n";
+            ?>
+        <!-- db creation no privileges message -->
+        <tr>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
+            <td>
+                <?php echo $strCreateNewDatabase . ':&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?><br />
+                <?php echo '<i>' . $strNoPrivileges .'</i>'; ?><br />
+            </td>
+        </tr>
+            <?php
+        } // end create db form or message
         echo "\n";
 
         // Server related links
