@@ -115,8 +115,8 @@ $strChangeCopyModeRevoke = ' ... kanna kõik aktiivsed privileegid üle vanast j
 $strChangeCopyUser = 'Vaheta logimisinformatsiooni / Kopeeri kasutaja';
 $strChangeDisplay = 'Vali väli mida kuvada';
 $strChangePassword = 'Muuda parooli';
-$strCharset = 'Täheseade';
-$strCharsetOfFile = 'Faili tähekodeering:';
+$strCharset = 'Tähetabel';
+$strCharsetOfFile = 'Faili tähetabel:';
 $strCharsets = 'Tähetabelid';
 $strCharsetsAndCollations = 'Tähetabelid ja määrangud';
 $strCheckAll = 'Märgista kõik';
@@ -366,6 +366,7 @@ $strLogUsername = 'Kasutajanimi:';
 $strLogin = 'Sisselogimine';
 $strLoginInformation = 'Logimise informatsioon';
 $strLogout = 'Logi välja';
+$strLongOperation = 'See tegevus võib võtta kaua aega. Jätkan?';
 
 $strMIMETypesForTable = 'MIME TÜÜBID TABELILE';
 $strMIME_MIMEtype = 'MIME-tüüp';
@@ -379,6 +380,7 @@ $strMIME_transformation_options = 'Transformeerimise seaded';
 $strMIME_transformation_options_note = 'Palun sisestage transformatsiooniks vajalikud väärtused, kasutades järgmist formaati: \'a\',\'b\',\'c\'...<br />Kui teil on vaja edastada kaldkriips ("\") või ülakoma ("\'") nende väärtuste seas, varjestage see tagurpidi kaldkriipsuga (näiteks \'\\\\xyz\' või \'a\\\'b\').';
 $strMIME_without = 'MIME-tüübid kursiivis ei oma eraldi transofrmatsiooni funktsiooni';
 $strMaximumSize = 'Maksimaalne suurus: %s%s';
+$strMbExtensionMissing = 'Ei leitud mbstring PHP lisa ja tundub, et te kasutate mitmebaidilist tähetabelit. Ilma mbstring lisata ei suuda phpMyAdmin poolitada teksti korrektselt ja tulemus võib olla ootustele mittevastav.';
 $strMbOverloadWarning = 'Te olete lubanud mbstring.func_overload oma PHP konfiguratsioonis. See seade ei ühildu phpMyAdminiga ja võib osade andmete kadumist põhjustada!';
 $strModifications = 'Muutused salvestatud';
 $strModify = 'Muuda';
@@ -742,6 +744,7 @@ $strValidateSQL = 'Kontrolli SQL-i';
 $strValidatorError = 'SQL-i valideerijat ei suudetud avada. Palun kontrollige, et te olete installinud vastavad php moodulid nagu on kirjeldatud %sdokumentatsioonis%s.';
 $strValue = 'Väärtus';
 $strVar = 'Muutuja';
+$strVersionInformation = 'Versiooni info';
 $strView = 'Vaade';
 $strViewDump = 'Vaata tabeli väljundit (skeemi)';
 $strViewDumpDB = 'Vaata andmebaasi väljundit (skeemi)';
@@ -768,38 +771,42 @@ $strZip = '"zipitud"';
 
 // To translate:
 
-$strLongOperation = 'This operation could be long. Proceed anyway?';  //to translate
-
-$strMbExtensionMissing = 'Ei leitud mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
-
-$strVersionInformation = 'Version information';  //to translate
-
-$strInnoDBDataHomeDir = 'Data home directory';  //to translate
-$strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';  //to translate
-$strInnoDBDataFilePath = 'Data files';  //to translate
-$strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
-$strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
 $strBufferPool = 'Buffer Pool';  //to translate
-$strBufferPoolUsage = 'Buffer Pool Usage';  //to translate
-$strDataPages = 'Pages containing data';  //to translate
-$strFreePages = 'Free pages';  //to translate
-$strBusyPages = 'Busy pages';  //to translate
-$strDirtyPages = 'Dirty pages';  //to translate
-$strPagesToBeFlushed = 'Pages to be flushed';  //to translate
-$strLatchedPages = 'Latched pages';  //to translate
 $strBufferPoolActivity = 'Buffer Pool Activity';  //to translate
-$strReadRequests = 'Read requests';  //to translate
-$strWriteRequests = 'Write requests';  //to translate
+$strBufferPoolUsage = 'Buffer Pool Usage';  //to translate
 $strBufferReadMisses = 'Read misses';  //to translate
 $strBufferReadMissesInPercent = 'Read misses in %';  //to translate
 $strBufferWriteWaits = 'Write waits';  //to translate
 $strBufferWriteWaitsInPercent = 'Write waits in %';  //to translate
+$strBusyPages = 'Busy pages';  //to translate
+
+$strDataPages = 'Pages containing data';  //to translate
+$strDirtyPages = 'Dirty pages';  //to translate
+
+$strFreePages = 'Free pages';  //to translate
+
 $strHTMLExcel = 'Microsoft Excel 2000';  //to translate
 $strHTMLExcelOptions = 'Microsoft Excel 2000 export options';  //to translate
 $strHTMLWord = 'Microsoft Word 2000';  //to translate
 $strHTMLWordOptions = 'Microsoft Word 2000 export options';  //to translate
-$strInnoDBBufferPoolSizeDesc = 'The size of the memory buffer InnoDB uses to cache data and indexes of its tables.';  //to translate
+
+$strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
+$strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate
+$strInnoDBBufferPoolSizeDesc = 'The size of the memory buffer InnoDB uses to cache data and indexes of its tables.';  //to translate
+$strInnoDBDataFilePath = 'Data files';  //to translate
+$strInnoDBDataHomeDir = 'Data home directory';  //to translate
+$strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';  //to translate
 $strInnoDBPages = 'pages';  //to translate
+
+$strLatchedPages = 'Latched pages';  //to translate
+
+$strPagesToBeFlushed = 'Pages to be flushed';  //to translate
+
+$strReadRequests = 'Read requests';  //to translate
+
 $strSocketProblem = '(or the local MySQL server\'s socket is not correctly configured)';  //to translate
+
+$strWriteRequests = 'Write requests';  //to translate
+
 ?>
