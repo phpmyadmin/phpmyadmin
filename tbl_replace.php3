@@ -105,6 +105,11 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                 break;
         } // end switch
 
+        // Was the Null checkbox checked for this field?
+        if (isset($fields_null) && isset($fields_null[$encoded_key])) {
+            $val = 'NULL';
+        }
+
         // No change for this column and no MySQL function is used -> next column
         if (empty($funcs[$encoded_key])
             && isset($fields_prev) && isset($fields_prev[$encoded_key])
@@ -154,7 +159,7 @@ else {
     while (list($key, $val) = each($fields)) {
         $encoded_key = $key;
         $key         = urldecode($key);
-        $fieldlist .= PMA_backquote($key) . ', ';
+        $fieldlist   .= PMA_backquote($key) . ', ';
 
         switch (strtolower($val)) {
             case 'null':
@@ -191,6 +196,11 @@ else {
                 }
                 break;
         } // end switch
+
+        // Was the Null checkbox checked for this field?
+        if (isset($fields_null) && isset($fields_null[$encoded_key])) {
+            $val = 'NULL';
+        }
 
         if (empty($funcs[$encoded_key])) {
             $valuelist .= $val . ', ';

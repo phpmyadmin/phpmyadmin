@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-29  Marc Delisle  <lem9@users.sourceforge.net>
+        * tbl_change.php3, tbl_replace.php3, Documentation.html:
+          feature 442855: checkboxes for null values, 
+          modifications by Marc and Loïc
+
 2001-12-29  Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3, lines 60-62; libraries/defines.lib.php3, lines 102-103;
 	  libraries/common.lib.php3, lines 672-678: patch #497632 - Support for

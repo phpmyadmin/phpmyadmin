@@ -116,7 +116,7 @@ else
 ?>
 
 <!-- Change table properties form -->
-<form method="post" action="tbl_replace.php3">
+<form method="post" action="tbl_replace.php3" name="insertForm">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
@@ -142,6 +142,7 @@ echo "\n";
         <th><?php echo $strField; ?></th>
         <th><?php echo $strType; ?></th>
         <th><?php echo $strFunction; ?></th>
+        <th><?php echo $strNull; ?></th>
         <th><?php echo $strValue; ?></th>
     </tr>
 
@@ -201,34 +202,40 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     if (isset($row)) {
         // loic1: null field value
         if (!isset($row[$field])) {
-            $row[$field] = 'NULL';
-        }
-        // loic1: special binary "characters"
-        else if ($is_binary || $is_blob) {
-            $row[$field] = str_replace("\x00", '\0', $row[$field]);
-            $row[$field] = str_replace("\x08", '\b', $row[$field]);
-            $row[$field] = str_replace("\x0a", '\n', $row[$field]);
-            $row[$field] = str_replace("\x0d", '\r', $row[$field]);
-            $row[$field] = str_replace("\x1a", '\Z', $row[$field]);
-        } // end if
-        $special_chars = htmlspecialchars($row[$field]);
-        $data          = $row[$field];
+            $row[$field]   = 'NULL';
+            $special_chars = '';
+            $data          = $row[$field];
+        } else {
+            // loic1: special binary "characters"
+            if ($is_binary || $is_blob) {
+                $row[$field] = str_replace("\x00", '\0', $row[$field]);
+                $row[$field] = str_replace("\x08", '\b', $row[$field]);
+                $row[$field] = str_replace("\x0a", '\n', $row[$field]);
+                $row[$field] = str_replace("\x0d", '\r', $row[$field]);
+                $row[$field] = str_replace("\x1a", '\Z', $row[$field]);
+            } // end if
+            $special_chars   = htmlspecialchars($row[$field]);
+            $data            = $row[$field];
+        } // end if... else...
         // loic1: if a timestamp field value is not included in an update
         //        statement MySQL auto-update it to the current timestamp
         $backup_field  = ($row_table_def['True_Type'] == 'timestamp')
                        ? ''
-                       : '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="' . urlencode($data) . '" />';
+                       : '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="' . urlencode($row[$field]) . '" />';
     } else {
         // loic1: display default values 
         if (!isset($row_table_def['Default'])) {
-            $row_table_def['Default'] = (($row_table_def['Null'] == 'YES') ? 'NULL' : '');
+            $row_table_def['Default'] = '';
+            $data                     = 'NULL';
+        } else {
+            $data                     = $row_table_def['Default'];
         }
         $special_chars = htmlspecialchars($row_table_def['Default']);
-        $data          = $row_table_def['Default'];
         $backup_field  = '';
     }
 
     // The function column
+    // -------------------
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data to be destroyed
     // Note: from the MySQL manual: "BINARY doesn't affect how the column is
@@ -271,7 +278,23 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     }
     echo "\n";
 
+    // The null column
+    // ---------------
+    echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
+    if ($row_table_def['Null'] == 'YES') {
+        echo '            <input type="checkbox"'
+             . ' name="fields_null[' . urlencode($field) . ']"';
+        if ($data == 'NULL') {
+            echo ' checked="checked"';
+        }
+        echo ' onclick="if (this.checked) {document.forms[\'insertForm\'].elements[\'fields[' . urlencode($field) . ']\'].value = \'\'}; return true" />' . "\n";
+    } else {
+        echo '            &nbsp;' . "\n";
+    }
+    echo '        </td>' . "\n";
+
     // The value column (depends on type)
+    // ----------------
     if (strstr($row_table_def['True_Type'], 'text')) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
@@ -289,7 +312,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         $enum        = ereg_replace('\\)$', '', $enum);
         $enum        = explode('\',\'', substr($enum, 1, -1));
         $enum_cnt    = count($enum);
-        $seenchecked = 0;
+//        $seenchecked = 0;
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$enum$" />
@@ -313,23 +336,21 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 if ($data == $enum_atom
                     || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
                         && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
-                    // To be able to select the [Null] value when the field is
-                    // null, we lose the ability to select besides the default
-                    // value
                     echo ' selected="selected"';
-                    $seenchecked = 1;
+//                    $seenchecked = 1;
                 }
                 echo '>' . htmlspecialchars($enum_atom) . '</option>' . "\n";
             } // end for
              
-            if ($row_table_def['Null'] == 'YES') {
-                echo '                ';
-                echo '<option value="null"';
-                if ($seenchecked == 0) {
-                    echo ' selected="selected"';
-                }
-                echo '>[' . $strNull . ']</option>' . "\n";
-            } // end if
+// old null option
+//            if ($row_table_def['Null'] == 'YES') {
+//                echo '                ';
+//                echo '<option value="null"';
+//                if ($seenchecked == 0) {
+//                    echo ' selected="selected"';
+//                }
+//                echo '>[' . $strNull . ']</option>' . "\n";
+//            } // end if
             ?>
             </select>
             <?php
@@ -344,25 +365,23 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 if ($data == $enum_atom
                     || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
                         && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
-                    // To be able to display a checkmark in the [Null] box when
-                    // the field is null, we lose the ability to display a
-                    // checkmark besides the default value
                     echo ' checked="checked"';
-                    $seenchecked = 1;
+//                    $seenchecked = 1;
                 }
                 echo ' />' . "\n";
                 echo '            ' . htmlspecialchars($enum_atom) . "\n";
             } // end for
 
-            if ($row_table_def['Null'] == 'YES') {
-                echo '            ';
-                echo '<input type="radio" name="field_' . md5($field) . '[]" value="null"';
-                if ($seenchecked == 0) {
-                    echo ' checked="checked"';
-                }
-                echo ' />' . "\n";
-                echo '            [' . $strNull . ']' . "\n";
-            } // end if
+// old null option
+//            if ($row_table_def['Null'] == 'YES') {
+//                echo '            ';
+//                echo '<input type="radio" name="field_' . md5($field) . '[]" value="null"';
+//                if ($seenchecked == 0) {
+//                    echo ' checked="checked"';
+//                }
+//                echo ' />' . "\n";
+//                echo '            [' . $strNull . ']' . "\n";
+//            } // end if
         } // end else
         echo "\n";
         ?>
