@@ -18,9 +18,9 @@ if (empty($goto)) {
 if (!isset($err_url)) {
     $err_url = $goto
              . '?lang=' . $lang
-             . '&server=' . $server
-             . (isset($db) ? '&db=' . urlencode($db) : '')
-             . (($goto != 'db_details.php3' && isset($table)) ? '&table=' . urlencode($table) : '');
+             . '&amp;server=' . $server
+             . (isset($db) ? '&amp;db=' . urlencode($db) : '')
+             . (($goto != 'db_details.php3' && isset($table)) ? '&amp;table=' . urlencode($table) : '');
 }
 
 
@@ -330,12 +330,12 @@ else {
         // Displays "Insert a new row" link if required
         if ($disp_mode[6] == '1') {
             $url_query = 'lang=' . $lang
-                       . '&server=' . $server
-                       . '&db=' . urlencode($db)
-                       . '&table=' . urlencode($table)
-                       . '&pos=' . $pos
-                       . '&sql_query=' . urlencode($sql_query)
-                       . '&goto=' . urlencode($goto);
+                       . '&amp;server=' . $server
+                       . '&amp;db=' . urlencode($db)
+                       . '&amp;table=' . urlencode($table)
+                       . '&amp;pos=' . $pos
+                       . '&amp;sql_query=' . urlencode($sql_query)
+                       . '&amp;goto=' . urlencode($goto);
 
             echo "\n\n";
             echo '<!-- Insert a new row -->' . "\n";
@@ -352,12 +352,12 @@ else {
 
             $goto = 'sql.php3'
                   . '?lang=' . $lang
-                  . '&server=' . $server
-                  . '&db=' . urlencode($db)
-                  . '&table=' . urlencode($table)
-                  . '&pos=' . $pos
-                  . '&sql_query=' . urlencode($sql_query)
-                  . '&id_bookmark=1';
+                  . '&amp;server=' . $server
+                  . '&amp;db=' . urlencode($db)
+                  . '&amp;table=' . urlencode($table)
+                  . '&amp;pos=' . $pos
+                  . '&amp;sql_query=' . urlencode($sql_query)
+                  . '&amp;id_bookmark=1';
             ?>
 <!-- Bookmark the query -->
 <form action="sql.php3" method="post" onsubmit="return emptyFormElements(this, 'fields[label]');">

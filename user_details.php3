@@ -14,9 +14,9 @@ require('./libraries/common.lib.php3');
  */
 $err_url = 'user_details.php3'
          . '?lang=' . $lang
-         . '&server=' . $server
-         . '&db=mysql'
-         . '&table=user';
+         . '&amp;server=' . $server
+         . '&amp;db=mysql'
+         . '&amp;table=user';
 
 
 /**
@@ -64,7 +64,7 @@ function table_grants(&$host_db_result, $dbcheck = FALSE) {
     echo "\n";
 
     // 2. Table body
-    $url_query  = 'lang=' . $lang . '&server=' . $server . '&db=mysql&table=user';
+    $url_query  = 'lang=' . $lang . '&amp;server=' . $server . '&amp;db=mysql&amp;table=user';
 
     while ($row = mysql_fetch_array($host_db_result)) {
         $local_query = 'SHOW GRANTS FOR \'' . $row['user'] . '\'@\'' . $row['host'] . '\'';
@@ -102,15 +102,15 @@ function table_grants(&$host_db_result, $dbcheck = FALSE) {
                 $bgcolor    = ($i % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
                 $revoke_url = 'sql.php3'
                             . '?' . $url_query
-                            . '&sql_query=' . urlencode('REVOKE ' . $priv . ' ON ' . backquote($db) . '.' . backquote($table) . ' FROM \'' . $row['user'] . '\'@\'' . $row['host'] . '\'')
-                            . '&zero_rows=' . urlencode($GLOBALS['strRevokeMessage'] . ' <span style="color: #002E80">' . $row['user'] . '@' . $row['host'] . '</span>')
-                            . '&goto=user_details.php3';
+                            . '&amp;sql_query=' . urlencode('REVOKE ' . $priv . ' ON ' . backquote($db) . '.' . backquote($table) . ' FROM \'' . $row['user'] . '\'@\'' . $row['host'] . '\'')
+                            . '&amp;zero_rows=' . urlencode($GLOBALS['strRevokeMessage'] . ' <span style="color: #002E80">' . $row['user'] . '@' . $row['host'] . '</span>')
+                            . '&amp;goto=user_details.php3';
                 if ($grantopt) {
                     $revoke_grant_url = 'sql.php3'
                                       . '?' . $url_query
-                                      . '&sql_query=' . urlencode('REVOKE GRANT OPTION ON ' . backquote($db) . '.' . backquote($table) . ' FROM \'' . $row['user'] . '\'@\'' . $row['host'] . '\'')
-                                      . '&zero_rows=' . urlencode($GLOBALS['strRevokeGrantMessage'] . ' <span style="color: #002E80">' . $row['user'] . '@' . $row['host'] . '</span>')
-                                      . '&goto=user_details.php3';
+                                      . '&amp;sql_query=' . urlencode('REVOKE GRANT OPTION ON ' . backquote($db) . '.' . backquote($table) . ' FROM \'' . $row['user'] . '\'@\'' . $row['host'] . '\'')
+                                      . '&amp;zero_rows=' . urlencode($GLOBALS['strRevokeGrantMessage'] . ' <span style="color: #002E80">' . $row['user'] . '@' . $row['host'] . '</span>')
+                                      . '&amp;goto=user_details.php3';
                 }
                 ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
@@ -294,7 +294,7 @@ function normal_operations()
 
     <li>
         <div style="margin-bottom: 10px">
-        <a href="user_details.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=mysql&table=user&mode=reload">
+        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;mode=reload">
             <?php echo $GLOBALS['strReloadMySQL']; ?></a>&nbsp;
         <?php print show_docu('manual_Reference.html#FLUSH'); ?>
         </div>
@@ -430,7 +430,7 @@ function grant_operations($grants)
 
     <li>
         <div style="margin-bottom: 10px">
-        <a href="user_details.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=mysql&table=user">
+        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user">
             <?php echo $GLOBALS['strBack']; ?></a>
         </div>
     </li>
@@ -609,7 +609,7 @@ function edit_operations($host, $user)
 
     <li>
         <div style="margin-bottom: 10px">
-        <a href="user_details.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=mysql&table=user">
+        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user">
             <?php echo $GLOBALS['strBack']; ?></a>
         </div>
     </li>
@@ -818,18 +818,18 @@ function table_users($host = FALSE, $user = FALSE)
             $strPriv = '<span style="color: #002E80">' . $GLOBALS['strNoPrivileges'] . '</span>';
         }
 
-        $query          = 'lang=' . $lang . '&server=' . $server . '&db=mysql&table=user';
+        $query          = 'lang=' . $lang . '&amp;server=' . $server . '&amp;db=mysql&amp;table=user';
         if (!$user) {
             $edit_url   = 'user_details.php3'
-                        . '?lang=' . $lang . '&server=' . $server
-                        . '&edit=1&host=' . urlencode($row['Host']) . '&pma_user=' . urlencode($row['User']);
+                        . '?lang=' . $lang . '&amp;server=' . $server
+                        . '&amp;edit=1&amp;host=' . urlencode($row['Host']) . '&amp;pma_user=' . urlencode($row['User']);
         }
         $delete_url     = 'user_details.php3'
                         . '?' . $query
-                        . '&delete=1&confirm=1&delete_host=' . urlencode($row['Host']) . '&delete_user=' . urlencode($row['User']);
+                        . '&amp;delete=1&amp;confirm=1&amp;delete_host=' . urlencode($row['Host']) . '&amp;delete_user=' . urlencode($row['User']);
         $check_url      = 'user_details.php3'
-                        . '?lang=' . $lang . '&server=' . $server
-                        . '&grants=1&host=' . urlencode($row['Host']) . '&pma_user=' . urlencode($row['User']);
+                        . '?lang=' . $lang . '&amp;server=' . $server
+                        . '&amp;grants=1&amp;host=' . urlencode($row['Host']) . '&amp;pma_user=' . urlencode($row['User']);
 
 //        $check_result = mysql_query('SHOW GRANTS FOR \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'');
 //        if (@mysql_num_rows($check_result) == 0) {
@@ -1136,7 +1136,7 @@ else if (isset($submit_updProfile)) {
         // Updates profile
         $sql_query          = 'UPDATE user SET ' . $sql_query . $common_where;
         $sql_query_cpy      = $sql_query;
-        $result             = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&host=' . urlencode($host) . '&pma_user=' . urlencode($pma_user) . '&edit=1');
+        $result             = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;edit=1');
 
         // Updates grants
         if (isset($new_server) || isset($new_user)) {
@@ -1199,7 +1199,7 @@ else if (isset($submit_chgPriv)) {
     $sql_query = 'UPDATE user SET '
                . $sql_query
                . ' WHERE host = \'' . sql_addslashes($host) . '\' AND user = \'' . sql_addslashes($pma_user) . '\'';
-    $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&host=' . urlencode($host) . '&pma_user=' . urlencode($pma_user) . '&edit=1');
+    $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;edit=1');
     show_message(sprintf($strUpdatePrivMessage, '<span style="color: #002E80">' . $pma_user . '@' . $host . '</span>') . '<br />' . $strRememberReload);
 }
 
@@ -1252,7 +1252,7 @@ else if (isset($grants) && $grants) {
         $sql_query .= ' TO ' . '\'' . sql_addslashes($pma_user) . '\'' . '@' . '\'' . sql_addslashes($host) . '\'';
 
         $sql_query  = 'GRANT ' . $sql_query . $priv_grant;
-        $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&host=' . urlencode($host) . '&pma_user=' . urlencode($pma_user) . '&grants=1');
+        $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;grants=1');
         show_message($strAddPrivMessage);
     } // end if
 }
@@ -1280,7 +1280,7 @@ else if (isset($check) && $check) {
     ?>
 <ul>
     <li>
-        <a href="user_details.php3?lang=<?php echo $lang;?>&server=<?php echo $server; ?>&db=mysql&table=user">
+        <a href="user_details.php3?lang=<?php echo $lang;?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user">
             <?php echo $strBack; ?></a>
     </li>
 </ul>

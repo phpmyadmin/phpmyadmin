@@ -71,9 +71,9 @@ require('./libraries/zip.lib.php3');
  */
 $err_url = 'tbl_properties.php3'
          . '?lang=' . $lang
-         . '&server=' . $server
-         . '&db=' . urlencode($db)
-         . (isset($table) ? '&table=' . urlencode($table) : '');
+         . '&amp;server=' . $server
+         . '&amp;db=' . urlencode($db)
+         . (isset($table) ? '&amp;table=' . urlencode($table) : '');
 
 
 /**

@@ -98,7 +98,7 @@ function confirmQuery(theForm1, sqlQuery1)
 
 /**
  * Displays an error message if the user submitted the sql query form with no
- * sql query else checks for "DROP/DELETE/ALTER" statements
+ * sql query, else checks for "DROP/DELETE/ALTER" statements
  *
  * @param   object   the form
  *

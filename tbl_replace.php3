@@ -29,7 +29,7 @@ if ($goto == 'sql.php3') {
 if (isset($url_err)) {
     $url_err = urldecode($url_err);
 } else {
-    $url_err = $goto;
+    $url_err = str_replace('&', '&amp;', $goto);
 }
 // Resets tables defined in the configuration file
 reset($fields);

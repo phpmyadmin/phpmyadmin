@@ -151,9 +151,9 @@ if (!isset($goto)
 }
 $err_url  = $goto
           . '?lang=' . $lang
-          . '&server=' . $server
-          . '&db=' . urlencode($db)
-          . (($goto == 'tbl_properties.php3') ? '&table=' . urlencode($table) : '');
+          . '&amp;server=' . $server
+          . '&amp;db=' . urlencode($db)
+          . (($goto == 'tbl_properties.php3') ? '&amp;table=' . urlencode($table) : '');
 
 
 /**

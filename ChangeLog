@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-12  Loïc Chapeaux  <lolo@phpheaven.net>
+	* Most of the scripts have been modified to fix bug #468749 (Left Frame not
+	  expanding in iCab). This means the splitter between variables in urls is
+	  now "&amp;" rather than "&" according to the xhtml1.0 specifications.
+	* main.php3: fixed some warnings and some bugs in the way servers are
+	  displayed in the servers choice combo.
+	* libraries/common.lib.php3, lines 340-343: fixed erroneous variable name.
+	* libraries/bookmarks.lib.php3, line 29: removed unnecessary line of code.
+
 2001-10-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3, lines 1232-1245 & 1254: fixed some bugs with modifying
 	  user privileges.

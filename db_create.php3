@@ -15,7 +15,7 @@ require('./header.inc.php3');
  */
 $err_url = 'main.php3'
          . '?lang=' . $lang
-         . '&server=' . $server;
+         . '&amp;server=' . $server;
 
 
 /**

@@ -19,9 +19,9 @@ if (!isset($submit_mult)) {
  */
 $err_url = 'tbl_properties.php3'
          . '?lang=' . $lang
-         . '&server=' . $server
-         . '&db=' . urlencode($db)
-         . '&table=' . urlencode($table);
+         . '&amp;server=' . $server
+         . '&amp;db=' . urlencode($db)
+         . '&amp;table=' . urlencode($table);
 
 
 /**

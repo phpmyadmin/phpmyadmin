@@ -15,7 +15,7 @@ if ((!empty($submit_mult) && isset($selected_db))
     || isset($mult_btnDrop)) {
     $err_url    = 'db_stats.php3'
                 . '?lang=' . $lang
-                . '&server=' . $server;
+                . '&amp;server=' . $server;
     $action     = 'db_stats.php3';
     $show_query = 'y';
     include('./mult_submits.inc.php3');
@@ -69,7 +69,7 @@ function pmaDbCmp($a, $b)
 if ($server > 0) {
     // Get the valid databases list
     $num_dbs = count($dblist);
-    $dbs     = @mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', '', 'main.php3?lang' . $lang . '&server=' . $server);
+    $dbs     = @mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', '', 'main.php3?lang' . $lang . '&amp;server=' . $server);
     while ($a_db = mysql_fetch_object($dbs)) {
         if (!$num_dbs) {
             $dblist[]                     = $a_db->Database;
@@ -128,7 +128,7 @@ if ($server > 0) {
  */
 if ($num_dbs > 0) {
     // Defines the urls used to sort the table
-    $common_url     = 'db_stats.php3?lang=' . $lang . '&server=' . $server;
+    $common_url     = 'db_stats.php3?lang=' . $lang . '&amp;server=' . $server;
     if (empty($sort_by)) {
         $sort_by                 = 'db_name';
         $sort_order              = 'asc';
@@ -176,27 +176,27 @@ if ($num_dbs > 0) {
         <th>&nbsp;</th>
         <th>
             &nbsp;
-            <a href="<?php echo $common_url . '&sort_by=db_name&sort_order=' . $url_sort[0]['order']; ?>">
+            <a href="<?php echo $common_url . '&amp;sort_by=db_name&amp;sort_order=' . $url_sort[0]['order']; ?>">
                 <?php echo ucfirst($strDatabase) . $url_sort[0]['img_tag']; ?></a>&nbsp;
         </th>
         <th>
             &nbsp;
-            <a href="<?php echo $common_url . '&sort_by=tbl_cnt&sort_order=' . $url_sort[1]['order']; ?>">
+            <a href="<?php echo $common_url . '&amp;sort_by=tbl_cnt&amp;sort_order=' . $url_sort[1]['order']; ?>">
                 <?php echo ucfirst(trim(sprintf($strTables, ''))) . $url_sort[1]['img_tag']; ?></a>&nbsp;
         </th>
         <th>
             &nbsp;
-            <a href="<?php echo $common_url . '&sort_by=data_sz&sort_order=' . $url_sort[2]['order']; ?>">
+            <a href="<?php echo $common_url . '&amp;sort_by=data_sz&amp;sort_order=' . $url_sort[2]['order']; ?>">
                 <?php echo ucfirst($strData) . $url_sort[2]['img_tag']; ?></a>&nbsp;
         </th>
         <th>
             &nbsp;
-            <a href="<?php echo $common_url . '&sort_by=idx_sz&sort_order=' . $url_sort[3]['order']; ?>">
+            <a href="<?php echo $common_url . '&amp;sort_by=idx_sz&amp;sort_order=' . $url_sort[3]['order']; ?>">
                 <?php echo ucfirst($strIndexes) . $url_sort[3]['img_tag']; ?></a>&nbsp;
         </th>
         <th>
             &nbsp;
-            <a href="<?php echo $common_url . '&sort_by=tot_sz&sort_order=' . $url_sort[4]['order']; ?>">
+            <a href="<?php echo $common_url . '&amp;sort_by=tot_sz&amp;sort_order=' . $url_sort[4]['order']; ?>">
                 <?php echo ucfirst($strTotal) . $url_sort[4]['img_tag']; ?></a>&nbsp;
         </th>
     </tr>
@@ -258,7 +258,7 @@ if ($num_dbs > 0) {
         echo '        <td align="center">' . "\n";
         echo '            &nbsp;<input type="checkbox" name="selected_db[]" value="' . urlencode($db_name) . '" />&nbsp;' . "\n";
         echo '        </td>' . "\n";
-        echo '        <td>&nbsp;<a href="index.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db_name) . '" target="_parent">' . htmlentities($db_name) . '</a>&nbsp;</td>' . "\n";
+        echo '        <td>&nbsp;<a href="index.php3?lang=' . $lang . '&amp;server=' . $server . '&amp;db=' . urlencode($db_name) . '" target="_parent">' . htmlentities($db_name) . '</a>&nbsp;</td>' . "\n";
         echo '        <td align="right">&nbsp;' . $dbs_array[$db_name][0] . '&nbsp;</td>' . "\n";
         echo '        <td align="right">&nbsp;' . $data_size . ' ' . $data_unit . '&nbsp;</td>' . "\n";
         echo '        <td align="right">&nbsp;' . $idx_size . ' ' . $idx_unit . '&nbsp;</td>' . "\n";

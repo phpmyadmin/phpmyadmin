@@ -373,15 +373,15 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                   : '';
         $text_url = 'sql.php3'
                   . '?lang=' . $lang
-                  . '&server=' . $server
-                  . '&db=' . urlencode($db)
-                  . '&table=' . urlencode($table)
-                  . '&sql_query=' . $encoded_query
-                  . '&pos=' . $pos
-                  . '&sessionMaxRows=' . $sessionMaxRows
-                  . '&pos=' . $pos
-                  . '&goto=' . $goto
-                  . '&dontlimitchars=' . (($dontlimitchars) ? 0 : 1);
+                  . '&amp;server=' . $server
+                  . '&amp;db=' . urlencode($db)
+                  . '&amp;table=' . urlencode($table)
+                  . '&amp;sql_query=' . $encoded_query
+                  . '&amp;pos=' . $pos
+                  . '&amp;sessionMaxRows=' . $sessionMaxRows
+                  . '&amp;pos=' . $pos
+                  . '&amp;goto=' . $goto
+                  . '&amp;dontlimitchars=' . (($dontlimitchars) ? 0 : 1);
 
         //     ... before the result table
         if (($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
@@ -486,13 +486,13 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                     $sorted_sql_query = $unsorted_sql_query . $sort_order;
                 }
                 $url_query = 'lang=' . $lang
-                           . '&server=' . $server
-                           . '&db=' . urlencode($db)
-                           . '&table=' . urlencode($table)
-                           . '&pos=' . $pos
-                           . '&sessionMaxRows=' . $sessionMaxRows
-                           . '&dontlimitchars' . $dontlimitchars
-                           . '&sql_query=' . urlencode($sorted_sql_query);
+                           . '&amp;server=' . $server
+                           . '&amp;db=' . urlencode($db)
+                           . '&amp;table=' . urlencode($table)
+                           . '&amp;pos=' . $pos
+                           . '&amp;sessionMaxRows=' . $sessionMaxRows
+                           . '&amp;dontlimitchars' . $dontlimitchars
+                           . '&amp;sql_query=' . urlencode($sorted_sql_query);
                 // 2.1.5 Displays the sorting url
                 ?>
     <th>
@@ -643,12 +643,12 @@ if (!defined('__LIB_DISPLAY_TBL__')){
 
                 // 1.2 Defines the urls for the modify/delete link(s)
                 $url_query  = 'lang=' . $lang
-                            . '&server=' . $server
-                            . '&db=' . urlencode($db)
-                            . '&table=' . urlencode($table)
-                            . '&pos=' . $pos
-                            . '&sessionMaxRow=' . $sessionMaxRow
-                            . '&dontlimitchars=' . $dontlimitchars;
+                            . '&amp;server=' . $server
+                            . '&amp;db=' . urlencode($db)
+                            . '&amp;table=' . urlencode($table)
+                            . '&amp;pos=' . $pos
+                            . '&amp;sessionMaxRow=' . $sessionMaxRow
+                            . '&amp;dontlimitchars=' . $dontlimitchars;
 
                 // 1.2.1 Modify link(s)
                 if ($is_display['edit_lnk'] == 'ur') { // update row case
@@ -661,34 +661,34 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                     }
                     $edit_url = 'tbl_change.php3'
                               . '?' . $url_query
-                              . '&primary_key=' . $uva_condition
-                              . '&sql_query=' . urlencode($sql_query)
-                              . '&goto=' . urlencode($goto);
+                              . '&amp;primary_key=' . $uva_condition
+                              . '&amp;sql_query=' . urlencode($sql_query)
+                              . '&amp;goto=' . urlencode($goto);
                     $edit_str = $GLOBALS['strEdit'];
                 } // end if (1.2.1)
 
                 // 1.2.2 Delete/Kill link(s)
                 if ($is_display['del_lnk'] == 'dr') { // delete row case
                     $goto     = 'sql.php3'
-                              . '?' . $url_query
+                              . '?' . str_replace('&amp;', '&', $url_query)
                               . '&sql_query=' . urlencode($sql_query)
                               . '&zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                               . '&goto=tbl_properties.php3';
                     $del_url  = 'sql.php3'
                               . '?' . $url_query
-                              . '&sql_query=' . urlencode('DELETE FROM ' . backquote($table) . ' WHERE') . $uva_condition . urlencode(' LIMIT 1')
-                              . '&zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
-                              . '&goto=' . urlencode($goto);
+                              . '&amp;sql_query=' . urlencode('DELETE FROM ' . backquote($table) . ' WHERE') . $uva_condition . urlencode(' LIMIT 1')
+                              . '&amp;zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
+                              . '&amp;goto=' . urlencode($goto);
                     $js_conf  = 'DELETE FROM ' . js_format($table)
                               . ' WHERE ' . trim(js_format(urldecode($uva_condition), FALSE)) . ' LIMIT 1';
                     $del_str  = $GLOBALS['strDelete'];
                 } else if ($is_display['del_lnk'] == 'kp') { // kill process case
                     $del_url  = 'sql.php3'
                               . '?lang=' . $lang
-                              . '&server=' . $server
-                              . '&db=mysql'
-                              . '&sql_query=' . urlencode('KILL ' . $row['Id'])
-                              . '&goto=main.php3';
+                              . '&amp;server=' . $server
+                              . '&amp;db=mysql'
+                              . '&amp;sql_query=' . urlencode('KILL ' . $row['Id'])
+                              . '&amp;goto=main.php3';
                     $js_conf  = 'KILL ' . $row['Id'];
                     $del_str  = $GLOBALS['strKill'];
                 } // end if (1.2.2)

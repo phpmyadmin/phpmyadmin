@@ -14,8 +14,8 @@ require('./header.inc.php3');
  */
 $err_url = 'db_details.php3'
          . '?lang=' . $lang
-         . '&server=' . $server
-         . '&db=' . urlencode($db);
+         . '&amp;server=' . $server
+         . '&amp;db=' . urlencode($db);
 
 
 /**

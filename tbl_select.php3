@@ -14,9 +14,9 @@ require('./libraries/common.lib.php3');
  */
 $err_url = $goto
          . '?lang=' . $lang
-         . '&server=' . $server
-         . '&db=' . urlencode($db)
-         . '&table=' . urlencode($table);
+         . '&amp;server=' . $server
+         . '&amp;db=' . urlencode($db)
+         . '&amp;table=' . urlencode($table);
 
 
 /**

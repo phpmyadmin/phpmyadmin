@@ -29,8 +29,8 @@ if (empty($HTTP_HOST)) {
  * Defines the frameset
  */
 $url_query = 'lang=' . $lang
-           . '&server=' . $server
-           . (empty($db) ? '' : '&db=' . urlencode($db));
+           . '&amp;server=' . $server
+           . (empty($db) ? '' : '&amp;db=' . urlencode($db));
 echo '<?xml version="1.0" encoding="' . strtoupper($charset) . '"?>' . "\n";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "DTD/xhtml1-frameset.dtd">

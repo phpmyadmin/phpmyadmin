@@ -15,11 +15,11 @@ require('./libraries/bookmark.lib.php3');
  */
 $err_url_0 = 'main.php3'
            . '?lang=' . $lang
-           . '&server=' . $server;
+           . '&amp;server=' . $server;
 $err_url   = 'db_details.php3'
            . '?lang=' . $lang
-           . '&server=' . $server
-           . '&db=' . urlencode($db);
+           . '&amp;server=' . $server
+           . '&amp;db=' . urlencode($db);
 
 
 /**
@@ -169,10 +169,10 @@ else if (MYSQL_INT_VERSION >= 32300) {
         $table     = $sts_data['Name'];
         // Sets parameters for links
         $url_query = 'lang=' . $lang
-                   . '&server=' . $server
-                   . '&db=' . urlencode($db)
-                   . '&table=' . urlencode($table)
-                   . '&goto=db_details.php3';
+                   . '&amp;server=' . $server
+                   . '&amp;db=' . urlencode($db)
+                   . '&amp;table=' . urlencode($table)
+                   . '&amp;goto=db_details.php3';
         $bgcolor   = ($i++ % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
         echo "\n";
         ?>
@@ -184,7 +184,7 @@ else if (MYSQL_INT_VERSION >= 32300) {
         &nbsp;<b><?php echo htmlspecialchars($table); ?>&nbsp;</b>&nbsp;
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&amp;pos=0">
             <?php echo $strBrowse; ?></a>
     </td>
     <td>
@@ -200,12 +200,12 @@ else if (MYSQL_INT_VERSION >= 32300) {
             <?php echo $strProperties; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
             onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
             <?php echo $strDrop; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
             onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?>')">
             <?php echo $strEmpty; ?></a>
     </td>
@@ -352,10 +352,10 @@ else {
     while ($i < $num_tables) {
         // Sets parameters for links
         $url_query = 'lang=' . $lang
-                   . '&server=' . $server
-                   . '&db=' . urlencode($db)
-                   . '&table=' . urlencode($tables[$i])
-                   . '&goto=db_details.php3';
+                   . '&amp;server=' . $server
+                   . '&amp;db=' . urlencode($db)
+                   . '&amp;table=' . urlencode($tables[$i])
+                   . '&amp;goto=db_details.php3';
         $bgcolor   = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
         echo "\n";
         ?>
@@ -367,7 +367,7 @@ else {
         <b>&nbsp;<?php echo $tables[$i]; ?>&nbsp;</b>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($tables[$i])); ?>&pos=0"><?php echo $strBrowse; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($tables[$i])); ?>&amp;pos=0"><?php echo $strBrowse; ?></a>
     </td>
     <td>
         <a href="tbl_select.php3?<?php echo $url_query; ?>"><?php echo $strSelect; ?></a>
@@ -379,10 +379,10 @@ else {
         <a href="tbl_properties.php3?<?php echo $url_query; ?>"><?php echo $strProperties; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($tables[$i])); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($tables[$i]))); ?>"><?php echo $strDrop; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . backquote($tables[$i])); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($tables[$i]))); ?>"><?php echo $strDrop; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($tables[$i])); ?>&zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($tables[$i]))); ?>"><?php echo $strEmpty; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . backquote($tables[$i])); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($tables[$i]))); ?>"><?php echo $strEmpty; ?></a>
     </td>
     <td align="right">
         <?php count_records($db, $tables[$i]); echo "\n"; ?>
@@ -419,9 +419,9 @@ echo "\n";
  * Database work
  */
 $url_query = 'lang=' . $lang
-           . '&server=' . $server
-           . '&db=' . urlencode($db)
-           . '&goto=db_details.php3';
+           . '&amp;server=' . $server
+           . '&amp;db=' . urlencode($db)
+           . '&amp;goto=db_details.php3';
 if (isset($show_query) && $show_query == 'y') {
     // This script has been called by read_dump.php3
     if (isset($sql_query_cpy)) {
@@ -670,7 +670,7 @@ if ($cfgAllowUserDropDatabase || $is_superuser) {
     ?>
     <!-- Drop database -->
     <li>
-        <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo urlencode($db); ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode(sprintf($strDatabaseHasBeenDropped, htmlspecialchars(backquote($db)))); ?>&goto=main.php3&back=db_details.php3&reload=1"
+        <a href="sql.php3?server=<?php echo $server; ?>&amp;lang=<?php echo $lang; ?>&amp;db=<?php echo urlencode($db); ?>&amp;sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strDatabaseHasBeenDropped, htmlspecialchars(backquote($db)))); ?>&amp;goto=main.php3&amp;back=db_details.php3&amp;reload=1"
             onclick="return confirmLink(this, 'DROP DATABASE <?php echo js_format($db); ?>')">
             <?php echo $strDropDB . ' ' . htmlspecialchars($db); ?></a>
         <?php echo show_docu('manual_Reference.html#DROP_DATABASE') . "\n"; ?>
