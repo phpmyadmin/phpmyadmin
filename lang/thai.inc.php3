@@ -3,14 +3,14 @@
 
 
 /**
- * Translated on 2002/04/29 by: Arthit Suriyawongkul
- *                              Warit Wanasathian
- *
+ * Translated on 2002/04/29 by: Arthit Suriyawongkul & Warit Wanasathian
  * Revised on 2002/06/05 by: Arthit Suriyawongkul
+ * Revised on 2002/06/14 by: Arthit Suriyawongkul
  */
 
-
 // note: Thai has 2 standard encodings (tis-620, iso-8859-11)
+// tis-620 is the only Thai encoding that registered with IANA,
+// it used in MIME text/* media type.
 $charset = 'tis-620';
 $text_dir = 'ltr';
 $left_font_family = 'sans-serif';
@@ -79,9 +79,11 @@ $strChangePassword = 'เปลี่ยนรหัสผ่าน';
 $strCheckAll = 'เลือกทั้งหมด';
 $strCheckDbPriv = 'ตรวจสอบสิทธิในฐานข้อมูล';
 $strCheckTable = 'ตรวจสอบตาราง';
+$strChoosePage = 'เลือกหน้าที่ต้องการแก้ไข';
 $strColumn = 'คอลัมน์';
 $strColumnNames = 'ชื่อคอลัมน์';
 $strCompleteInserts = 'คำสั่ง INSERT เต็มรูปแบบ';
+$strConfigFileError = 'phpMyAdmin ไม่สามารถอ่านไฟล์คอนฟิกูเรชั่นของคุณได้<br />โดยปกติ อาจจะเป็นเพราะตัว PHP หาไฟล์ไม่เจอ หรือไม่สามารถประมวลผล (parse) ไฟล์ได้<br />ลองเรียกไฟล์คอนฟิกูเรชั่นขึ้นมาโดยตรง (กดลิงค์ด้านล่าง) และดูว่ามี error message อะไรหรือไม่  ลองตรวจสอบดูเครื่องหมาย quote หรือ semicolon ว่าใส่ครบหรือเปล่า<br />ถ้าคุณเห็นหน้าว่างๆ แสดงว่าทุกอย่างเป็นปกติดี';
 $strConfigureTableCoord = 'กรุณาตั้งค่าโคออร์ดิเนตของตาราง %s';
 $strConfirm = 'คุณยืนยันที่จะทำสิ่งนี้?';
 $strCookiesRequired = 'ต้องอนุญาตใช้ใช้ \'คุ๊กกี้\' เสียก่อน จึงจะผ่านจุดนี้ไปได้';
@@ -92,6 +94,7 @@ $strCreateIndex = 'สร้างดัชนีโดยคอลัมน์ %s';
 $strCreateIndexTopic = 'สร้างดัชนีใหม่';
 $strCreateNewDatabase = 'สร้างฐานข้อมูลใหม่';
 $strCreateNewTable = 'สร้างตารางในฐานข้อมูลนี้ %s';
+$strCreatePage = 'เริ่มหน้าใหม่';
 $strCriteria = 'เงื่อนไข';
 
 $strData = 'ข้อมูล';
@@ -122,6 +125,7 @@ $strDumpXRows = 'ดัมพ์แถว %s แถว เริ่มที่แถว %s';
 $strDynamic = 'ไม่คงที่';
 
 $strEdit = 'แก้ไข';
+$strEditPDFPages = 'แก้ไขหน้า PDF';
 $strEditPrivileges = 'แก้ไขสิทธิ';
 $strEffective = 'มีผล';
 $strEmpty = 'ลบข้อมูล';
@@ -214,6 +218,7 @@ $strName = 'ชื่อ';
 $strNext = 'ต่อไป';
 $strNo = 'ไม่';
 $strNoDatabases = 'ไม่มีฐานข้อมูล';
+$strNoDescription = 'ไม่มีรายละเอียด';
 $strNoDropDatabases = 'คำสั่ง "DROP DATABASE" ถูกปิดไว้';
 $strNoFrames = 'เบราเซอร์ที่<b>ใช้เฟรมได้</b> จะช่วยให้ใช้ phpMyAdmin ได้ง่ายขึ้น';
 $strNoIndex = 'ยังไม่ได้กำหนดดัชนีใดๆ!';
@@ -227,6 +232,7 @@ $strNoQuery = 'ไม่มีคำค้น SQL!';
 $strNoRights = 'คุณไม่มีสิทธิที่จะเข้ามาตรงนี้!';
 $strNoTablesFound = 'ไม่พบตารางใด ๆ ในฐานข้อมูล';
 $strNotNumber = 'ค่านี้ไม่ใช่ตัวเลข!';
+$strNotSet = 'ไม่พบตาราง <b>%s</b> ใน %s';
 $strNotValidNumber = ' ไม่ใช่หมายเลขแถวที่ถูกต้อง!';
 $strNoUsersFound = 'ไม่พบผู้ใช้ใดๆ.';
 $strNull = 'ว่างเปล่า (null)';
@@ -296,7 +302,7 @@ $strRowsModeHorizontal = 'แนวนอน';
 $strRowsModeOptions = 'อยู่ใน %s และซ้ำหัวแถวทุกๆ %s เซลล์';
 $strRowsModeVertical = 'แนวตั้ง';
 $strRowsStatistic = 'สถิติของแถว';
-$strRunning = 'ทำงานอยู่ใน %s';
+$strRunning = 'ทำงานอยู่บน %s';
 $strRunQuery = 'ส่งคำค้น';
 $strRunSQLQuery = 'ทำคำค้นบนฐานข้อมูล %s';
 
@@ -317,6 +323,7 @@ $strSelectADb = 'โปรดเลือกฐานข้อมูล';
 $strSelectAll = 'เลือกทั้งหมด';
 $strSelectFields = 'เลือกฟิลด์ (อย่างน้อยหนึ่งฟิลด์):';
 $strSelectNumRows = 'ในคำค้น';
+$strSelectTables = 'เลือกตาราง';
 $strSend = 'ส่งมาเป็นไฟล์';
 $strServerChoice = 'ตัวเลือกเซิร์ฟเวอร์';
 $strServerVersion = 'รุ่นของเซิร์ฟเวอร์';
@@ -396,16 +403,10 @@ $strYes = 'ใช่';
 $strZip = '"zipped"';
 
 // To translate
-$strEditPDFPages = 'Edit PDF Pages';  //to translate
-$strNoDescription = 'no Description';  //to translate
-$strChoosePage = 'Please choose a Page to edit';  //to translate
-$strCreatePage = 'Create a new Page';  //to translate
-$strSelectTables = 'Select Tables';  //to translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
 $strMissingBracket = 'Missing Bracket';  //to translate
 $strHaveToShow = 'You have to choose at least one Column to display';  //to translate
 $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
 $strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
 $strMySQLCharset = 'MySQL Charset';  //to translate
+
 ?>

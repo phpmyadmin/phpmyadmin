@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-15 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/thai.inc.php3: Updates, thanks again to Arthit Suriyawongkul.
+
 2002-06-15 Mike Beck <mikebeck@users.sourceforge.net>
     started putting the relationtables in a central db
     with the bookmarktable
