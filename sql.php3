@@ -67,6 +67,23 @@ if (isset($btnDrop) || isset($navig)) {
     $sql_query = urldecode($sql_query);
 }
 
+// If the query is a Select, extract the db and table names and modify
+// $db and $table, to have correct page headers, links and left frame.
+// db and table name may be enclosed with backquotes, db is optionnal,
+// query may contain aliases.
+// (todo: check for embedded comments...)
+
+eregi('SELECT (.*)FROM +(`[^`]+`|[A-Za-z0-9_$]+)([\.]*)(`[^`]*`|[A-Za-z0-9_$]*)', $sql_query, $tmp);
+
+if ($tmp[3]=='.') {
+	$prev_db = $db;
+	$db = str_replace('`','',$tmp[2]);
+	$reload = ($db == $prev_db)? 0 : 1;
+	$table = str_replace('`','',$tmp[4]); 
+}
+else {
+	$table = str_replace('`','',$tmp[2]);
+}
 
 /**
  * Sets or modifies the $goto variable if required
