@@ -6,6 +6,13 @@ $Id$
 $Source$
 
 
+2001-10-25  Loïc Chapeaux  <lolo@phpheaven.net>
+	* user_details.php3, line 1172: fixed bug #474685 (table not found editing
+	  user) thanks to Alister Bulman <alister at users.sourceforge.net>.
+	* libraries/display_tbl.lib.php3: merged patch #472575 (indicator in table
+	  rows) thanks to Darklord <darklord at chello.at>.
+	* libraries/defines.inc.php3, line 20: starting 2.2.2-dev. version.
+
 2001-10-24  Robin Johnson  <robbat2@users.sourceforge.net>
 	* Documentation.html:
 	  - updated advanced authentication documentation
@@ -16,7 +23,9 @@ $Source$
 	* main.php3:
 	  - taken into account wildcards in the databases names get from the
 	    "mysql.db" table;
-	  - get all privilege at the begenning of the script.
+	  - get all privilege at the begenning of the script;
+###	* released 2.2.1 revision. ###
+
 
 2001-10-24  Marc Delisle  <lem9@users.sourceforge.net>
 	* main.php3 (for Loïc): a non-empty only_db was removing the MySQL links on
