@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * themes/darkblue_orange/img/logo_left.php: transparent version,
+      thanks to Michael Keck
+
 2004-08-19 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*: bug 1009667: do not spell Ms Excel but MS Excel
 
