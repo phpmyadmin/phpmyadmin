@@ -8,7 +8,6 @@
 require('./db_details_common.php3');
 $url_query .= '&amp;goto=db_details.php3';
 
-
 /**
  * Database work
  */
@@ -112,25 +111,6 @@ if (function_exists('PMA_set_enc_form')) {
             <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
         </form>
     </li>
-
-
-<?php
-/**
- * Query by example and dump of the db
- * Only displayed if there is at least one table in the db
- */
-if ($num_tables > 0) {
-    ?>
-    <!-- Query by an example -->
-    <li>
-        <div style="margin-bottom: 10px"><a href="tbl_qbe.php3?<?php echo $url_query; ?>"><?php echo $strQBE; ?></a></div>
-    </li>
-    <?php
-} // end if
-
-echo "\n";
-?>
-
 </ul>
 
 

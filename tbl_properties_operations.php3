@@ -9,6 +9,10 @@ require('./tbl_properties_common.php3');
 $err_url   = 'tbl_properties_operations.php3' . $err_url;
 $url_query .= '&amp;back=tbl_properties_operations.php3';
 
+require('./libraries/relation.lib.php3');
+
+$cfgRelation = PMA_getRelationsParam();
+
 
 /**
  * Reordering the table has been requested by the user
@@ -283,20 +287,15 @@ else if (PMA_MYSQL_INT_VERSION >= 32306
 } // end 3.23.06 < MySQL < 3.23.22
 
 // Referential integrity check
-if (!empty($cfg['Server']['relation'])) {
-
-    $local_query = 'SELECT master_field, foreign_table, foreign_field'
-                 . ' FROM ' . $cfg['Server']['relation']
-                 . ' WHERE master_table = \'' . $table . '\';';
+if ($cfgRelation['relwork']) {
 
     // we need this PMA_mysql_select_db if the user has access to more than one db
     // and $db is not the last of the list, because PMA_availableDatabases()
     // has made a PMA_mysql_select_db() on the last one
     PMA_mysql_select_db($db);
+    $foreign = getForeigners($db,$table);
 
-    $result      = @PMA_mysql_query($local_query);
-
-    if ($result != FALSE && mysql_num_rows($result) > 0) {
+    if ($foreign) {
         ?>
     <!-- Referential integrity check -->
     <li style="vertical-align: top">
@@ -304,21 +303,21 @@ if (!empty($cfg['Server']['relation'])) {
         <?php echo $strReferentialIntegrity; ?><br />
         <?php
         echo "\n";
-        while ($rel = PMA_mysql_fetch_row($result)) {
+        while (list($master,$arr) = each($foreign)){
             echo '        '
                  . '<a href="sql.php3?' . $url_query
                  . '&amp;sql_query='
                  . urlencode('SELECT ' . PMA_backquote($table) . '.* FROM '
                              . PMA_backquote($table) . ' LEFT JOIN '
-                             . PMA_backquote($rel[1]) . ' ON '
-                             . PMA_backquote($table) . '.' . PMA_backquote($rel[0])
-                             . ' = ' . PMA_backquote($rel[1]) . '.' . PMA_backquote($rel[2])
+                             . PMA_backquote($arr['foreign_table']) . ' ON '
+                             . PMA_backquote($table) . '.' . PMA_backquote($master)
+                             . ' = ' . PMA_backquote($arr['foreign_table']) . '.' . PMA_backquote($arr['foreign_field'])
                              . ' WHERE '
-                             . PMA_backquote($rel[1]) . '.' . PMA_backquote($rel[2])
+                             . PMA_backquote($arr['foreign_table']) . '.' . PMA_backquote($arr['foreign_field'])
                              . ' IS NULL')
-                 . '">' . $rel[0] . '&nbsp;->&nbsp;' . $rel[1] . '.' . $rel[2]
+                 . '">' . $master . '&nbsp;->&nbsp;' . $arr['foreign_table'] . '.' . $arr['foreign_field']
                  . '</a><br />' . "\n";
-        } // end while
+        } //  end while
         ?>
         </div>
     </li><br />

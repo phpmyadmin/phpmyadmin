@@ -38,7 +38,6 @@ if (!isset($is_db) || !$is_db) {
         exit();
     }
 } // end if (ensures db exists)
-
 // Displays headers
 if (!isset($message)) {
     $js_to_run = 'functions.js';
@@ -58,7 +57,6 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang;
 } else {
     PMA_showMessage($message);
 }
-
 
 /**
  * Set parameters for links

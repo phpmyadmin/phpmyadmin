@@ -47,7 +47,19 @@ else {
     <?php echo $lnk3 . "\n"; ?>
          <b><?php echo $strExport; ?></b><?php if ($lnk3) echo '</a>' ?>&nbsp;|
     <?php echo $lnk4 . "\n"; ?>
-         <b><?php echo $strSearch; ?></b><?php if ($lnk4) echo '</a>'; echo "\n"; ?>
+         <b><?php echo $strSearch; ?></b><?php if ($lnk4) echo '</a>'; echo "\n";
+    /**
+     * Query by example and dump of the db
+     * Only displayed if there is at least one table in the db
+     */
+    if ($num_tables > 0) {
+        ?>
+       |&nbsp;<b><a href="tbl_qbe.php3?<?php echo $url_query; ?>"><?php echo $strQBE; ?></a></b>
+        <?php
+    } // end if
+    
+    echo "\n";
+    ?>
     &nbsp;]&nbsp;&nbsp;&nbsp;
 
 <?php
