@@ -8,10 +8,12 @@
 
 
 /**
- * Gets some core libraries
+ * Gets some core libraries and displays links
  */
-require('./libraries/grab_globals.lib.php3');
-require('./header.inc.php3');
+require('./tbl_properties_common.php3');
+$err_url   = 'ldi_table.php3' . $err_url;
+$url_query .= '&amp;back=ldi_table.php3';
+require('./tbl_properties_table_info.php3');
 
 
 /**
@@ -79,6 +81,7 @@ if (function_exists('PMA_set_enc_form')) {
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="zero_rows" value="<?php echo $strTheContent; ?>" />
             <input type="hidden" name="goto" value="tbl_properties.php3" />
+            <input type="hidden" name="back" value="ldi_table.php3" />
             <input type="hidden" name="into_table" value="<?php echo $table; ?>" />
             <input type="submit" name="btnLDI" value="<?php echo $strSubmit; ?>" />&nbsp;&nbsp;
             <input type="reset" value="<?php echo $strReset; ?>" />

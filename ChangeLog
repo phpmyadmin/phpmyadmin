@@ -11,6 +11,7 @@ $Source$
     * tbl_dump.php3; libraries/build_dump.lib.php3: enabled the ability to
       export only some records in xml format.
     * tbl_properties_export.php3: xhtml fixes.
+    * ldi_table.php3; tbl_select.php3: added top menu.
 
 2002-05-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_details_links.php3, tbl_properties_links.php3, lang/*.inc.php3:

@@ -10,20 +10,21 @@ require('./libraries/common.lib.php3');
 
 
 /**
- * Defines the url to return to in case of error in a sql statement
- */
-$err_url = $goto
-         . '?lang=' . $lang
-         . '&amp;server=' . $server
-         . '&amp;db=' . urlencode($db)
-         . '&amp;table=' . urlencode($table);
-
-
-/**
  * Not selection yet required -> displays the selection form
  */
 if (!isset($param) || $param[0] == '') {
-    include('./header.inc.php3');
+    // Gets some core libraries
+    include('./tbl_properties_common.php3');
+    $err_url   = 'tbl_select.php3' . $err_url;
+    $url_query .= '&amp;back=tbl_select.php3';
+    include('./tbl_properties_table_info.php3');
+
+    // Defines the url to return to in case of error in the next sql statement
+    $err_url   = $goto
+               . '?lang=' . $lang
+               . '&amp;server=' . $server
+               . '&amp;db=' . urlencode($db)
+               . '&amp;table=' . urlencode($table);
 
     // Gets the list and number of fields
     $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
@@ -59,6 +60,7 @@ if (!isset($param) || $param[0] == '') {
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+    <input type="hidden" name="back" value="tbl_select.php3" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <?php echo $strSelectFields; ?>&nbsp;:<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
