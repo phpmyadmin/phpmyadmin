@@ -1731,7 +1731,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
     /**
      * Splits up large sql files into individual queries
      *
-     * Last revision: 2nd August 2001 - Benjamin Gandon
+     * Last revision: 22 August 2001 - loic1
      *
      * @param   string   the sql commands
      * @param   string   the end of command line delimiter 
@@ -1768,9 +1768,10 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                         $escaped_backslash = !$escaped_backslash;
                     }
                 }
-                // then check for not escaped end of strings
+                // then check for not escaped end of strings except for
+                // backquotes than cannot be escaped
                 if (($char == $string_start)
-                    && !(($last_char == '\\') && !$escaped_backslash)) {
+                    && ($char == '`' || !(($last_char == '\\') && !$escaped_backslash))) {
                     $in_string    = FALSE;
                     $string_start = '';
                 }
