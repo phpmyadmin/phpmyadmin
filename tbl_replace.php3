@@ -8,6 +8,7 @@
 require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
 
+
 /**
  * Initializes some variables
  */
@@ -68,16 +69,16 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                 if ($is_encoded) {
                     $f = 'field_' . md5($key);
                 } else {
-                    $f = "field_$key";
+                    $f = 'field_' . $key;
                 }
-                if (isset($$f)) {
+                if (!empty($$f)) {
                     if (get_magic_quotes_gpc()) {
-                        $val = "'" . (($$f) ? implode(',', $$f) : '') . "'";
+                        $val = "'" . implode(',', $$f) . "'";
                     } else {
-                        $val = "'" . addslashes(($$f) ? implode(',', $$f) : '') . "'";
+                        $val = "'" . addslashes(implode(',', $$f)) . "'";
                     }
                 } else {
-                    $val = '';
+                    $val = "''";
                 }
                 break;
             default:
@@ -89,16 +90,16 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                 break;
         } // end switch
 
-        if (!empty($val)) {  
-          if (empty($funcs[$key])) {
-              $valuelist .= backquote($key) . ' = ' . $val . ', ';
-          } else {
-              $valuelist .= backquote($key) . " = $funcs[$key]($val), ";
-          }
+        if (!empty($val)) {
+            if (empty($funcs[$key])) {
+                $valuelist .= backquote($key) . ' = ' . $val . ', ';
+            } else {
+                $valuelist .= backquote($key) . " = $funcs[$key]($val), ";
+            }
         }
     } // end while
 
-    // Builds the sql update query
+    // Builds the sql upate query
     $valuelist = ereg_replace(', $', '', $valuelist);
     $query     = 'UPDATE ' . backquote($table) . " SET $valuelist WHERE $primary_key";
 } // end row update
@@ -129,17 +130,17 @@ else {
                 if ($is_encoded) {
                     $f = 'field_' . md5($key);
                 } else {
-                    $f = "field_$key";
+                    $f = 'field_' . $key;
                 }
-                if (isset($$f)) {
+                if (!empty($$f)) {
                     if (get_magic_quotes_gpc()) {
-                        $val = "'" . (($$f) ? implode(',', $$f) : '') . "'";
+                        $val = "'" . implode(',', $$f) . "'";
                     } else {
-                        $val = "'" . addslashes(($$f) ? implode(',', $$f) : '') . "'";
+                        $val = "'" . addslashes(implode(',', $$f)) . "'";
                     }
+                } else {
+                    $val     = "''";
                 }
-                else
-                    $val = "''";
                 break;
             default:
                 if (get_magic_quotes_gpc()) {
@@ -180,7 +181,7 @@ if (!$result) {
     if (file_exists('./' . $goto)) {
         include('./header.inc.php3');
         $message = $strModifications;
-        include('./' . ereg_replace('\.\.*', '.', $goto)); //preg_replace('/\.\.*/', '.', $goto));
+        include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
         header('Location: ' . $goto);
     }
