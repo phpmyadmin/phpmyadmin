@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-05-23 Alexander M. Turek  <rabus@users.sourceforge.net>
+2002-05-24 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3, images/bkg.gif: Tried to "fix" bug (?) #558155.
 
 2002-05-24 Marc Delisle  <lem9@users.sourceforge.net>
