@@ -544,7 +544,6 @@ $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) aka
 $strZip = '"Dikompress dengan Zip"';
 // To translate
 
-$strCantLoadDBG = 'cannot load DBG extension,<br />please check PHP Configuration.';  //to translate
 
 $strDBGContext = 'Context';  //to translate
 $strDBGContextID = 'Context ID';  //to translate
@@ -556,4 +555,5 @@ $strDBGModule = 'Module';  //to translate
 $strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
 $strDBGTotalTimeMs = 'Total time, ms';  //to translate
 
+$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
 ?>

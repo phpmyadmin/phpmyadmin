@@ -56,3 +56,5 @@ $strAttr = '属性';
 
 $strBack = '返回';
 $strBeginCut = '&#24320;
+$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
+?>

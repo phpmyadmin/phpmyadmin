@@ -551,7 +551,6 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
-$strCantLoadDBG = 'cannot load DBG extension,<br />please check PHP Configuration.';  //to translate
 $strDBGModule = 'Module';  //to translate
 $strDBGLine = 'Line';  //to translate
 $strDBGHits = 'Hits';  //to translate
@@ -561,4 +560,5 @@ $strDBGMinTimeMs = 'Min time, ms';  //to translate
 $strDBGMinTimeMs = 'Max time, ms';  //to translate
 $strDBGContextID = 'Context ID';  //to translate
 $strDBGContext = 'Context';  //to translate
+$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
 ?>

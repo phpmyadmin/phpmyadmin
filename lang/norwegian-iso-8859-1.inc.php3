@@ -547,7 +547,6 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjerner begrensningen.';
 $strZip = 'Komprimert (zip)';
 
-$strCantLoadDBG = 'cannot load DBG extension,<br />please check PHP Configuration.';  //to translate
 
 $strDBGContext = 'Context';  //to translate
 $strDBGContextID = 'Context ID';  //to translate
@@ -559,4 +558,5 @@ $strDBGModule = 'Module';  //to translate
 $strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
 $strDBGTotalTimeMs = 'Total time, ms';  //to translate
 
+$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
 ?>

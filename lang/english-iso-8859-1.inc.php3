@@ -72,7 +72,7 @@ $strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz
 $strBzip = '"bzipped"';
 
 $strCannotLogin = 'Cannot login to MySQL server';
-$strCantLoadDBG = 'cannot load DBG extension,<br />please check PHP Configuration.';  
+$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';
 $strCantLoadMySQL = 'cannot load MySQL extension,<br />please check PHP Configuration.';
 $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';

@@ -21,7 +21,7 @@ if (!defined('PMA_DBG_SETUP_INCLUDED')) {
         @dl($extension . $suffix);
       }
       if (!@extension_loaded($extension)) {
-        echo $strCantLoadDBG . '<br />' . "\n"
+        echo sprintf($strCantLoad, 'DBG') . '<br />' . "\n"
           . '<a href="./Documentation.html#faqdbg" target="documentation">' . $GLOBALS['strDocu'] . '</a>' . "\n";
         exit();
       }
