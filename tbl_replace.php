@@ -86,11 +86,11 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
         $valuelist = '';
         
         // Map multi-edit keys to single-level arrays, dependent on how we got the fields
-        $me_fields      = (isset($fields['multi_edit'])      ? $fields['multi_edit'][$enc_primary_key]      : (isset($fields)      ? $fields      : null));
-        $me_fields_prev = (isset($fields_prev['multi_edit']) ? $fields_prev['multi_edit'][$enc_primary_key] : (isset($fields_prev) ? $fields_prev : null));
-        $me_funcs       = (isset($funcs['multi_edit'])       ? $funcs['multi_edit'][$enc_primary_key]       : (isset($funcs)       ? $funcs       : null));
-        $me_fields_type = (isset($fields_type['multi_edit']) ? $fields_type['multi_edit'][$enc_primary_key] : (isset($fields_type) ? $fields_type : null));
-        $me_fields_null = (isset($fields_null['multi_edit']) ? $fields_null['multi_edit'][$enc_primary_key] : (isset($fields_null) ? $fields_null : null));
+        $me_fields      = (isset($fields['multi_edit'])      && isset($fields['multi_edit'][$enc_primary_key])      ? $fields['multi_edit'][$enc_primary_key]      : (isset($fields)      ? $fields      : null));
+        $me_fields_prev = (isset($fields_prev['multi_edit']) && isset($fields_prev['multi_edit'][$enc_primary_key]) ? $fields_prev['multi_edit'][$enc_primary_key] : (isset($fields_prev) ? $fields_prev : null));
+        $me_funcs       = (isset($funcs['multi_edit'])       && isset($funcs['multi_edit'][$enc_primary_key])       ? $funcs['multi_edit'][$enc_primary_key]       : (isset($funcs)       ? $funcs       : null));
+        $me_fields_type = (isset($fields_type['multi_edit']) && isset($fields_type['multi_edit'][$enc_primary_key]) ? $fields_type['multi_edit'][$enc_primary_key] : (isset($fields_type) ? $fields_type : null));
+        $me_fields_null = (isset($fields_null['multi_edit']) && isset($fields_null['multi_edit'][$enc_primary_key]) ? $fields_null['multi_edit'][$enc_primary_key] : (isset($fields_null) ? $fields_null : null));
     
         foreach($me_fields AS $key => $val) {
             $encoded_key = $key;
@@ -156,11 +156,11 @@ else {
         $fieldlist = '';
         $valuelist = '';
     
-        $me_fields      = (isset($fields['multi_edit'])      ? $fields['multi_edit'][$enc_primary_key]      : (isset($fields)      ? $fields      : null));
-        $me_fields_prev = (isset($fields_prev['multi_edit']) ? $fields_prev['multi_edit'][$enc_primary_key] : (isset($fields_prev) ? $fields_prev : null));
-        $me_funcs       = (isset($funcs['multi_edit'])       ? $funcs['multi_edit'][$enc_primary_key]       : (isset($funcs)       ? $funcs       : null));
-        $me_fields_type = (isset($fields_type['multi_edit']) ? $fields_type['multi_edit'][$enc_primary_key] : (isset($fields_type) ? $fields_type : null));
-        $me_fields_null = (isset($fields_null['multi_edit']) ? $fields_null['multi_edit'][$enc_primary_key] : (isset($fields_null) ? $fields_null : null));
+        $me_fields      = (isset($fields['multi_edit'])      && isset($fields['multi_edit'][$enc_primary_key])      ? $fields['multi_edit'][$enc_primary_key]      : (isset($fields)      ? $fields      : null));
+        $me_fields_prev = (isset($fields_prev['multi_edit']) && isset($fields_prev['multi_edit'][$enc_primary_key]) ? $fields_prev['multi_edit'][$enc_primary_key] : (isset($fields_prev) ? $fields_prev : null));
+        $me_funcs       = (isset($funcs['multi_edit'])       && isset($funcs['multi_edit'][$enc_primary_key])       ? $funcs['multi_edit'][$enc_primary_key]       : (isset($funcs)       ? $funcs       : null));
+        $me_fields_type = (isset($fields_type['multi_edit']) && isset($fields_type['multi_edit'][$enc_primary_key]) ? $fields_type['multi_edit'][$enc_primary_key] : (isset($fields_type) ? $fields_type : null));
+        $me_fields_null = (isset($fields_null['multi_edit']) && isset($fields_null['multi_edit'][$enc_primary_key]) ? $fields_null['multi_edit'][$enc_primary_key] : (isset($fields_null) ? $fields_null : null));
 
         // garvin: Get, if sent, any protected fields to insert them here:
         if (isset($me_fields_type) && is_array($me_fields_type) && isset($enc_primary_key)) {

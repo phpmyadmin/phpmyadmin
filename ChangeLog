@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-15 Garvin Hicking  <me@supergarv.de>
+    * tbl_replace.php: Check all required array indizes for multi-row edit
+
 2003-12-15 Marc Delisle  <lem9@users.sourceforge.net>
     * read_dump.php: bug 859062: Go & Bookmark problem when the
       query has a character like "+" in it
