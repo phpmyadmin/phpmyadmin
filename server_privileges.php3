@@ -512,16 +512,25 @@ if (!empty($delete)) {
             $queries[] = 'DELETE FROM `tables_priv` WHERE `User` = "' . $this_user . '" AND `Host` = "' . $this_host . '";';
             $queries[] = 'DELETE FROM `columns_priv` WHERE `User` = "' . $this_user . '" AND `Host` = "' . $this_host . '";';
         }
+        if (!empty($drop_users_db)) {
+            $queries[] = 'DROP DATABASE IF EXISTS ' . PMA_backquote($this_user) . ';';
+        }
     }
-    if ($mode == 3) {
-        $queries[] = '# ' . $strReloadingThePrivileges . ' ...' . "\n" . 'FLUSH PRIVILEGES;';
+    if (empty($queries)) {
+        $message = $strError . ': ' . $strDeleteNoUsersSelected;
+    } else {
+        if ($mode == 3) {
+            $queries[] = '# ' . $strReloadingThePrivileges . ' ...' . "\n" . 'FLUSH PRIVILEGES;';
+        }
+        while (list(, $sql_query) = each($queries)) {
+            if (substr($sql_query, 0, 1) != '#') {
+                PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
+            }
+        }
+        $sql_query = join("\n", $queries);
+        $message = $strUsersDeleted;
     }
-    while (list(, $sql_query) = each($queries)) {
-        PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
-    }
-    $sql_query = join("\n", $queries);
     unset($queries);
-    $message = $strUsersDeleted;
 }
 
 /**
@@ -648,6 +657,9 @@ if (empty($adduser)) {
                . '    </table>' . "\n"
                . '    <ul>' . "\n"
                . '        <li>' . "\n"
+               . '            <b><a href="server_privileges.php3?' . $url_query . '&amp;adduser=1">' . $strAddUser . '</a></b><br />' . "\n"
+               . '        </li><br /><br />' . "\n"
+               . '        <li>' . "\n"
                . '            <b>' . $strRemoveSelectedUsers . '</b><br>' . "\n"
                . '            <input type="radio" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '" name="mode" id="radio_mode_1" value="1" checked="checked" />' . "\n"
                . '            <label for="radio_mode_1" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '">' . "\n"
@@ -663,10 +675,11 @@ if (empty($adduser)) {
                . '            <label for="radio_mode_3" title="' . $strDeleteAndFlush . ' ' . $strDeleteAndFlushDescr . '">' . "\n"
                . '                ' . $strDeleteAndFlush . "\n"
                . '            </label><br />' . "\n"
+               . '            <input type="checkbox" title="' . $strDropUsersDb . '" name="drop_users_db" id="checkbox_drop_users_db" />' . "\n"
+               . '            <label for="checkbox_drop_users_db" title="' . $strDropUsersDb . '">' . "\n"
+               . '                ' . $strDropUsersDb . "\n"
+               . '            </label><br />' . "\n"
                . '            <input type="submit" name="delete" value="' . $strGo . '" />' . "\n"
-               . '        </li><br /><br />' . "\n"
-               . '        <li>' . "\n"
-               . '            <b><a href="server_privileges.php3?' . $url_query . '&amp;adduser=1">' . $strAddUser . '</a></b><br />' . "\n"
                . '        </li>' . "\n"
                . '    </ul>' . "\n"
                . '</form>' . "\n"

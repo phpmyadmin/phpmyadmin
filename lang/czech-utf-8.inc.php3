@@ -539,4 +539,6 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
+$strNoUsersSelected = 'No users selected.'; //to translate
+$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>

@@ -6,7 +6,12 @@ $Id$
 $Source$
 
 2003-01-09 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * server_privileges.php3: Forgot to implement "This host".
+    * server_privileges.php3, lang/*.inc.php3:
+      - Forgot to implement "This host";
+      - Drop the users' databases;
+      - Don't send comments to the MySQL server;
+      - When trying to delete multiple users, display an error message if none
+        have been selected.
 
 2003-01-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3, libraries/functions.js,

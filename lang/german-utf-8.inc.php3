@@ -540,4 +540,8 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 
+// To translate
+
+$strNoUsersSelected = 'No users selected.'; //to translate
+$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>

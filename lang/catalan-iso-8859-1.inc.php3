@@ -532,4 +532,7 @@ $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el l
 $strZip = '"comprimit amb zip"';
 
 // To translate
+
+$strNoUsersSelected = 'No users selected.'; //to translate
+$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>

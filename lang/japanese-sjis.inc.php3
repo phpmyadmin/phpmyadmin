@@ -390,7 +390,7 @@ $strRepairTable = 'テーブルを復旧します。';
 $strReplace = '置き換える';
 $strReplaceTable = 'ファイルでテーブルを置き換える';
 $strReset = 'リセット';
-$strResourceLimits = '	リソースの制限';
+$strResourceLimits = '    リソースの制限';
 $strRevoke = '廃止';
 $strRevokeAndDelete = 'ユーザーから有効な特権を全て破棄して削除します。';
 $strRevokeAndDeleteDescr = 'ユーザーは特権リロードするまでUSAGE特権のままです。';
@@ -542,4 +542,7 @@ $strYes = 'はい';
 $strZeroRemovesTheLimit = '注意: オプションを 0 (ゼロ)に設定すると制限がなくなります。';
 $strZip = '"zipされる"';
 
+// To translate
+$strNoUsersSelected = 'No users selected.'; //to translate
+$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>

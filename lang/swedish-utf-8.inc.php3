@@ -534,4 +534,6 @@ $strUserNotFound = 'The selected user was not found in the privilege table.'; //
 $strUserAlreadyExists = 'The user %s already exists!'; //to translate
 $strUseTextField = 'Use text field'; //to translate
 
+$strNoUsersSelected = 'No users selected.'; //to translate
+$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>

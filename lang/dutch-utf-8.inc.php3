@@ -293,7 +293,7 @@ $strOptionalControls = 'Optioneel. Geeft aan hoe speciale karakters geschreven o
 $strOptionally = 'OPTIONEEL';
 $strOptions = 'Opties';
 $strOr = 'Of';
-$strOriginalInterface = 'originele interface'; 
+$strOriginalInterface = 'originele interface';
 $strOverhead = 'Overhead';
 
 $strPHP40203 = 'U gebruikt PHP 4.2.3, deze versie bevat een grote fout in de multi-byte strings (mbstring). Voor meer informatie zie PHP bug report 19404. Het wordt sterk afgeraden deze versie van PHP te gebruiken met phpMyAdmin.';
@@ -544,4 +544,6 @@ $strUseTextField = 'Use text field'; //to translate
 $strUserAlreadyExists = 'The user %s already exists!'; //to translate
 $strUserNotFound = 'The selected user was not found in the privilege table.'; //to translate
 
+$strNoUsersSelected = 'No users selected.'; //to translate
+$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>

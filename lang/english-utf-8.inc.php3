@@ -139,6 +139,7 @@ $strDocu = 'Documentation';
 $strDrop = 'Drop';
 $strDropDB = 'Drop database %s';
 $strDropTable = 'Drop table';
+$strDropUsersDb = 'Drop the databases that have the same names as the users.';
 $strDumpXRows = 'Dump %s row(s) starting at record # %s.';
 $strDumpingData = 'Dumping data for table';
 $strDynamic = 'dynamic';
@@ -274,6 +275,7 @@ $strNoQuery = 'No SQL query!';
 $strNoRights = 'You don\'t have enough rights to be here right now!';
 $strNoTablesFound = 'No tables found in database.';
 $strNoUsersFound = 'No user(s) found.';
+$strNoUsersSelected = 'No users selected.';
 $strNoValidateSQL = 'Skip Validate SQL';
 $strNone = 'None';
 $strNotNumber = 'This is not a number!';
@@ -531,4 +533,5 @@ $strYes = 'Yes';
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
+
 ?>

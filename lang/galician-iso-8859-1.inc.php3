@@ -537,4 +537,6 @@ $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) el
 $strZip = 'comprimido no formato "zipped"';
 // To translate
 
+$strNoUsersSelected = 'No users selected.'; //to translate
+$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>

@@ -534,4 +534,6 @@ $strZip = '"comprimido con zip"';
 
 $strNoQuery = 'No SQL query!'; //to translate
 
+$strNoUsersSelected = 'No users selected.'; //to translate
+$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 ?>
