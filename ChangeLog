@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-12 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
+    * lang/polish-*.inc.php3: Updates, thanks again to Jakub Wilk (ubanus).
+
 2002-12-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Updates.
     * lang/catalan-*.inc.php3: Updates, thanks again to Xavier Navarro (xavin).
