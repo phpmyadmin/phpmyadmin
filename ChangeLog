@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/export/sql.php3: bug 771575: wrong quotes for variable expansion
+
 2003-07-16 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/functions.js: Bug #771794 (CHAR length check although field name
       is empty).

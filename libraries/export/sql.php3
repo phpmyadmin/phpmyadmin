@@ -310,10 +310,10 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
         $sub_part = (isset($row['Sub_part'])) ? $row['Sub_part'] : '';
 
         if ($kname != 'PRIMARY' && $row['Non_unique'] == 0) {
-            $kname = "UNIQUE|$kname";
+            $kname = 'UNIQUE|' . $kname;
         }
         if ($comment == 'FULLTEXT') {
-            $kname = 'FULLTEXT|$kname';
+            $kname = 'FULLTEXT|' . $kname;
         }
         if (!isset($index[$kname])) {
             $index[$kname] = array();
