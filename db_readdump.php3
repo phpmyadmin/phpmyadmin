@@ -64,7 +64,7 @@ $sql_query = trim($sql_query);
 if (!empty($prev_sql_query)) {
     $prev_sql_query = urldecode($prev_sql_query);
     if ($sql_query == trim(htmlspecialchars($prev_sql_query))) {
-        $sql_query = $prev_sql_query;
+        $sql_query  = $prev_sql_query;
     }
 }
 
@@ -113,8 +113,11 @@ if ($sql_query != '') {
 /**
  * Go back to db_details.php3
  */
-// Copy the original query back for display purposes
-$sql_query = $sql_query_cpy;
+// Copy the original query back for display purposes (we add slashes because
+// stripslashes is used in db_details.php3, line 294)
+$sql_query = (get_magic_quotes_gpc())
+           ? addslashes($sql_query_cpy)
+           : $sql_query_cpy;
 include('./header.inc.php3');
 if (isset($my_die)) {
     mysql_die('', $my_die);

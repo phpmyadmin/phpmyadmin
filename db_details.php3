@@ -169,7 +169,7 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
             ?>
     <td align="right">
             <?php
-            echo "\n";
+            echo "\n" . '        ';
             if ($mergetable == TRUE) {
                 echo '<i>' . number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . '</i>' . "\n";
             } else {
@@ -289,10 +289,9 @@ $url_query = 'lang=' . $lang
            . '&db=' . urlencode($db)
            . '&goto=db_details.php3';
 if (isset($show_query)) {
-    // loic1: Not required since already done in db_readdump.php3 (see lines 72 & 117)
-    // if (get_magic_quotes_gpc()) {
-    //     $sql_query = stripslashes($sql_query);
-    // }
+    if (get_magic_quotes_gpc()) {
+        $sql_query = stripslashes($sql_query);
+    }
     $query_to_display = (($show_query == 'y') ? $sql_query : '');
 }
 ?>
@@ -443,10 +442,8 @@ if ($num_tables > 0) {
     <?php
     // gzip and bzip2 encode features
     if (PMA_INT_VERSION >= 40004) {
-        $is_gzip = (isset($cfgGZipDump) &&
-		$cfgGZipDump && @function_exists('gzencode'));
-        $is_bzip = (isset($cfgBZipDump) &&
-		$cfgBZipDump && @function_exists('bzcompress'));
+        $is_gzip = (isset($cfgGZipDump) && $cfgGZipDump && @function_exists('gzencode'));
+        $is_bzip = (isset($cfgBZipDump) && $cfgBZipDump && @function_exists('bzcompress'));
         if ($is_gzip || $is_bzip) {
             echo "\n" . '                (';
             if ($is_gzip) {
