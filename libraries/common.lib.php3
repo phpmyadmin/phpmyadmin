@@ -1175,6 +1175,7 @@ if (typeof(window.parent) != 'undefined'
 //-->
 </script>
             <?php
+            unset($GLOBALS['reload']);
         }
 
         // Corrects the tooltip text via JS if required
