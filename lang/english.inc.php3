@@ -247,6 +247,7 @@ $strStatement = 'Statements';
 $strStrucCSV = 'CSV data';
 $strStrucData = 'Structure and data';
 $strStrucDrop = 'Add \'drop table\'';
+$strStrucExcelCSV = 'CSV for Ms Excel data';
 $strStrucOnly = 'Structure only';
 $strSubmit = 'Submit';
 $strSuccess = 'Your SQL-query has been executed successfully';
