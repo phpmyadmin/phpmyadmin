@@ -142,7 +142,9 @@ if (!function_exists('is_uploaded_file')) {
      */
     function is_uploaded_file($filename) {
         if (!$tmp_file = @get_cfg_var('upload_tmp_dir')) {
-            $tmp_file = dirname(tempnam('', ''));
+            $tmp_file = tempnam('','');
+            $deleted  = @unlink($tmp_file);
+            $tmp_file = dirname($tmp_file);
         }
         $tmp_file     .= '/' . basename($filename);
 
