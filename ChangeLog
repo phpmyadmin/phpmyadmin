@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-20  Olivier Müller  <om@omnis.ch>
+	* db_stats.php3: new file and feature (sorry :) : simply display
+	  an overview of all databases with their respective size. 
+	* lang/*: new string $strDatabasesStats
+
 2001-08-20  Marc Delisle  <lem9@users.sourceforge.net>
 	* config.inc.php3: $cfgProtectBlob is now TRUE by default, to help against
 	  the blob data corruption of some browsers.

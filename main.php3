@@ -231,6 +231,11 @@ if ($server > 0
         <a href="user_details.php3?<?php echo $common_url_query; ?>&db=mysql&table=user">
         <?php echo $strUsers; ?></a>&nbsp;<?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
     </li>
+    <li>
+        <a href="db_stats.php3?<?php echo $common_url_query; ?>">
+        <?php echo $strDatabasesStats; ?></a>
+    </li>
+
             <?php
             echo "\n";
         }
@@ -291,6 +296,10 @@ if ($server > 0
         <a href="user_details.php3?<?php echo $common_url_query; ?>&db=mysql&table=user">
             <?php echo $strUsers; ?></a>&nbsp;<?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
     </li> 
+    <li>
+        <a href="db_stats.php3?<?php echo $common_url_query; ?>">
+        <?php echo $strDatabasesStats; ?></a>
+    </li>
             <?php
             echo "\n";
         }

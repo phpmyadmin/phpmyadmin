@@ -294,4 +294,5 @@ $strShowPHPInfo = 'Show PHP information';  // To translate
 $strStrucExcelCSV = 'CSV for Ms Excel data';
 $strTables = '%s table(s)';  //to translate
 $strUseBackquotes = ' Use backquotes with tables and fields names ';  //to translate
+$strDatabasesStats = 'Databases statistics';//to translate
 ?>

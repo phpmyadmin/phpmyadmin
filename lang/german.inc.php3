@@ -69,6 +69,7 @@ $strCriteria = 'Kriterium';
 $strData = 'Daten';
 $strDatabase = 'Datenbank ';
 $strDatabases = 'Datenbanken';
+$strDatabasesStats = 'Statistiken über alle Datenbanken';
 $strDataOnly = 'Nur Daten';
 $strDbEmpty = 'Der Name der Datenbank ist leer!';
 $strDefault = 'Standard';
@@ -291,6 +292,4 @@ $strWelcome = 'Willkommen bei ';
 $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 
 $strYes = 'Ja';
-
-// To translate
 ?>

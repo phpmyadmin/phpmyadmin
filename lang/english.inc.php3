@@ -69,6 +69,7 @@ $strCriteria = 'Criteria';
 $strData = 'Data';
 $strDatabase = 'Database ';
 $strDatabases = 'databases';
+$strDatabasesStats = 'Databases statistics';
 $strDataOnly = 'Data only';
 $strDbEmpty = 'The database name is empty!';
 $strDefault = 'Default';
