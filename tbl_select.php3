@@ -195,14 +195,14 @@ else {
         $sql_query .= ' WHERE 1';
         for ($i = 0; $i < count($fields); $i++) {
             if (!empty($fields) && $fields[$i] != '') {
-                if (strtoupper($fields[$i]) == 'NULL' || strtoupper($fields[$i]) == 'NOT NULL') {
-                    $quot     = '';
-                    $func[$i] = 'IS';
-                }
                 if (eregi('char|blob|text|set|enum|date|time|year', $types[$i])) {
                     $quot     = '\'';
                 } else {
                     $quot     = '';
+                }
+                if (strtoupper($fields[$i]) == 'NULL' || strtoupper($fields[$i]) == 'NOT NULL') {
+                    $quot     = '';
+                    $func[$i] = 'IS';
                 }
                 $sql_query    .= ' AND ' . PMA_backquote(urldecode($names[$i])) . " $func[$i] $quot$fields[$i]$quot";
             } // end if

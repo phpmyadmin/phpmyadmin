@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-12 Mike Beck  <mikebeck@users.sourceforge.net>
+    * tbl_select.php3: Bugfix: it created IS 'NULL'
+      instead of IS NULL
 2002-08-12 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/defines_php.lib.php3, Documentation.*, translators.html:
       corrected version number.
