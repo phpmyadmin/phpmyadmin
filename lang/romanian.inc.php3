@@ -9,8 +9,8 @@ $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB');
 
-$day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
-$month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+$day_of_week = array('Du', 'Lu', 'Ma', 'Mi', 'Jo', 'Vi', 'Sa');
+$month = array('Ian', 'Feb', 'Mar', 'Apr', 'Mai', 'Iun', 'Iul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%B %d, %Y at %I:%M %p';
@@ -105,6 +105,7 @@ $strDrop = 'Arunca';
 $strDropDB = 'Arunca baza de date %s';
 $strDropTable = 'Arunca tabelul';
 $strDumpingData = 'Salvarea datelor din tabel';
+$strDumpXRows = 'Arunca %s randuri incepand de la randul %s.';
 $strDynamic = 'dinamic';
 
 $strEdit = 'Editare';
@@ -115,6 +116,8 @@ $strEmptyResultSet = 'MySQL a dat un set de rezultate gol (ex. zero linii).';
 $strEnd = 'Sfarsit';
 $strEnglishPrivileges = ' Important: numele drepturilor de acces MySQL apar in engleza ';
 $strError = 'Eroare';
+$strExport = 'Export';
+$strExportToXML = 'Export in format XML';
 $strExtendedInserts = 'Inserari extinse';
 $strExtra = 'Extra';
 
@@ -172,6 +175,7 @@ $strLimitNumRows = 'Numarul de inregistrari de pe pagina';
 $strLineFeed = 'Dezvoltare linie: \\n';
 $strLines = 'Linii';
 $strLinesTerminatedBy = 'Linii terminate de';
+$strLinksTo = 'Trimitere la';
 $strLocationTextfile = 'Locatia fisierului text';
 $strLogin = 'Autentificare';
 $strLogout = 'Deconectare';
@@ -211,9 +215,11 @@ $strNoUsersFound = 'Nu s-a gasit nici un utilizator.';
 $strNull = 'Nul';
 
 $strOftenQuotation = 'Adesea ghilimele. OPTIONAL inseamna ca numai campurile char si varchar sunt incluse intre caracterele "incadrat intre".';
+$strOperations = 'Operatii';
 $strOptimizeTable = 'Optimizare tabel';
 $strOptionalControls = 'Optional. Controleaza modul in care se citeste sau se scrie un caracter special.';
 $strOptionally = 'OPTIONAL';
+$strOptions = 'Optiuni';
 $strOr = 'Sau';
 $strOverhead = 'Asupra';
 
@@ -242,6 +248,7 @@ $strQueryOnDb = 'Comanda SQL pe baza de date <b>%s</b>:';
 
 $strRecords = 'Inregistrari';
 $strReferentialIntegrity = 'Verificarea integritatii referentiei:';
+$strRelationView = 'Vizualizare relationala';
 $strReloadFailed = 'Reincarcare MySQL nereusita.';
 $strReloadMySQL = 'Reincarcare MySQL';
 $strRememberReload = 'Nu uitati sa reincarcati serverul.';
@@ -297,6 +304,7 @@ $strStrucData = 'Structura si date';
 $strStrucDrop = 'Adauga \'salveaza tabel\'';
 $strStrucExcelCSV = 'Date CSV pentru MS Excel';
 $strStrucOnly = 'Numai structura';
+$strStructure = 'Structura';
 $strSubmit = 'Trimite';
 $strSuccess = 'Comanda dumneavoastra SQL a fost executata cu succes';
 $strSum = 'Sum';
@@ -346,13 +354,6 @@ $strYes = 'Da';
 $strZip = '"arhivat"';
 
 // To translate
-$strLinksTo = 'Links to';  //to translate
-$strExport = 'Export';  //to translate
-$strOperations = 'Operations';  //to translate
-$strExportToXML = 'Export to XML format'; //to translate
-$strOptions = 'Options';  //to translate
-$strStructure = 'Structure';  //to translate
-$strRelationView = 'Relation view';  //to translate
-$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
 $strSQL = 'SQL'; //to translate
+
 ?>
