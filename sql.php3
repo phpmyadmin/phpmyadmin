@@ -8,6 +8,7 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
+
 /**
  * Defines the url to return to in case of error in a sql statement
  */
@@ -87,7 +88,6 @@ function PMA_sqlFormat($sql_str) {
  */
 if (!defined('PMA_CHK_DROP')
     && !$cfg['AllowUserDropDatabase']
-
     && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE[[:space:]]', $sql_query)) {
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
@@ -328,8 +328,8 @@ else {
         }
     }
     // Executes the query
-    //  only if we didn't ask to see the php code (mikebeck)
-    if (!empty($GLOBALS['show_as_php'])){
+    // Only if we didn't ask to see the php code (mikebeck)
+    if (!empty($GLOBALS['show_as_php'])) {
         unset($result);
         $num_rows = 0;
     }
@@ -413,7 +413,7 @@ else {
             $message = $strAffectedRows . '&nbsp;' . $num_rows;
         } else if (!empty($zero_rows)) {
             $message = $zero_rows;
-        } else if (!empty($GLOBALS['show_as_php'])){ 
+        } else if (!empty($GLOBALS['show_as_php'])) {
             $message = $strPhp;
         } else {
             $message = $strEmptyResultSet;

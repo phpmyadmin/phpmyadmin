@@ -7,13 +7,15 @@
  */
 $db_details_links_count_tabs = 0;
 
+
 /**
  * If coming from a Show MySQL link on the home page,
  * put something in $sub_part
  */
 if (empty($sub_part)) {
-    $sub_part='_structure';
+    $sub_part = '_structure';
 }
+
 
 /**
  * Prepares links
@@ -50,6 +52,7 @@ if ($cfg['AllowUserDropDatabase']) {
 else {
     $lnk5 = '';
 }
+
 
 /**
  * Displays tab links

@@ -1208,7 +1208,7 @@ if (typeof(document.getElementById) != 'undefined'
                 // Want to have the query explained (Mike Beck 2002-05-22)
                 // but only explain a SELECT (that has not been explained)
                 if (!eregi('^EXPLAIN[[:space:]]+', $GLOBALS['sql_query'])
-                && eregi('SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
+                    && eregi('SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
                     $explain_link = '[<a href="sql.php3'
                                   . $url_qpart
                                   . '&amp;sql_query=' . urlencode('EXPLAIN ' . $GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'] . '</a>]&nbsp;';

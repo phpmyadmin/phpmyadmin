@@ -39,7 +39,7 @@ $lang_path = 'lang/';
  * traditional) must be detected before 'zh' (chinese simplified) for
  * example.
  *
- * When there are more than one charset for a language, we put the -utf-8 
+ * When there are more than one charset for a language, we put the -utf-8
  * first.
  */
 $available_languages = array(
@@ -259,5 +259,5 @@ $lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php3';
 require('./' . $lang_file);
 
 
- // $__PMA_SELECT_LANG_LIB__
+// $__PMA_SELECT_LANG_LIB__
 ?>

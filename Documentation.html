@@ -1362,8 +1362,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <a class="navigation" href="#faqusing">Usage tips</a> &nbsp;-&nbsp;
 <a class="navigation" href="#faqproject">Project</a>
 
-
-
 <a name="faqserver"></a>
 <h3>[Server]</h3>
 <p>
@@ -1571,13 +1569,15 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I'm running MySQL&nbsp;&lt;=&nbsp;4.0.1 having lower_case_table_names set
-       to 1. If I create a new table with a capital letter in its name it is
-       changed to lowercase as it should. But if I try to DROP this table MySQL
-       is unable to find the corresponding file.</b>
+    <b>I'm running MySQL&nbsp;&lt;=&nbsp;4.0.1 having
+       <tt>lower_case_table_names</tt> set to 1. If I create a new table with a
+       capital letter in its name it is changed to lowercase as it should. But
+       if I try to DROP this table MySQL is unable to find the corresponding
+       file.</b>
     <br />
     This is a bug of MySQL&nbsp;&lt;=&nbsp;4.0.1. Please upgrade to at least
-    MySQL&nbsp;4.0.2 or turn off your lower_case_table_names directive.
+    MySQL&nbsp;4.0.2 or turn off your <tt>lower_case_table_names</tt>
+    directive.
 </p>
 
 <p>
@@ -2118,6 +2118,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br />
     No, it's MySQL that is doing <a class="navigation" href="http://www.mysql.com/doc/S/i/Silent_column_changes.html">silent column type changing</a>.
 </p>
+
 <a name="underscore"></a>
 <p>
     <b>My database has an underscore in it's name, and when I grant privileges
@@ -2135,6 +2136,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <b>What is the curious symbol &oslash; in the table statistics?</b><br />
     It means &quot;average&quot;.
 </p>
+
 <a name="faqexport"></a>
 <p>
     <b>I want to understand some Export options.</b><br />
@@ -2145,6 +2147,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     &quot;Enclose table and field names with backquotes&quot; ensures that
     field and table names formed with special characters are protected.<br />
 </p>
+
 <a name="faqproject"></a>
 <h3>[phpMyAdmin project]</h3>
 <p>
