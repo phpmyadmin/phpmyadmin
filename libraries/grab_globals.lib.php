@@ -30,10 +30,11 @@ function PMA_gpc_extract($array, &$target) {
          * Warning: this also affects array keys:
          * Variables like $_GET['harmless']['cfg'] will also be rejected!
          */
-        if ($key == 'cfg'
+        if (is_string($key) && (
+            $key == 'cfg'
             || $key == 'GLOBALS'
             || substr($key, 0, 3) == 'str'
-            || $key{0} == '_') {
+            || $key{0} == '_')) {
             continue;
         }
 
