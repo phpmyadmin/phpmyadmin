@@ -54,7 +54,7 @@ $strColumnEmpty = "Die Spalten-Titel sind leer!";
 $strColumnNames = "Spaltennamen";
 $strCompleteInserts = "Vollst&auml;ndige 'inserts'";
 $strConfirm = "Bist du dir wirklich sicher?";
-$strCopyTable = "Tabelle kopieren nach:";
+$strCopyTable = "Tabelle kopieren nach";
 $strCopyTableOK = "Tabelle \$table wurde kopiert nach \$new_name.";
 $strCreate = "Erzeugen";
 $strCreateNewDatabase = "Neue Datenbank erzeugen";
@@ -273,10 +273,10 @@ $strNotNumber = "Das ist keine Zahl!";
 $strNotValidNumber = " ist keine gültige Zeilennummer!";
 
 // export Zip (July 07, 2001, 19:48am)
-$strBzip = "\"bzipped\"";
+$strBzip = "\"BZip komprimiert\"";
 $strGzip = "\"GZip komprimiert\"";
 $strOffSet = "Offset";
-$strNbRecords = "No. Of records";
-$strRowSize=" Zeilengr&ouml;ße ";
-$strShowThisQuery=" Show this query here again ";  //to translate
+$strNbRecords = "Datensätze";
+$strRowSize="Zeilengr&ouml;ße";
+$strShowThisQuery="SQL Befehl hier wieder anzeigen";  //to translate
 ?>
