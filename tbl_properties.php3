@@ -127,7 +127,9 @@ while ($row = mysql_fetch_array($result)) {
     $shorttype        = substr($type, 0, 3);
     if ($shorttype == 'set' || $shorttype == 'enu') {
         $type         = eregi_replace(',', ', ', $type);
+        $nowrap=false;
     }
+    else $nowrap=true;
     $type             = eregi_replace('BINARY', '', $type);
     $type             = eregi_replace('ZEROFILL', '', $type);
     $type             = eregi_replace('UNSIGNED', '', $type);
@@ -149,7 +151,11 @@ while ($row = mysql_fetch_array($result)) {
     ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
     <td nowrap="nowrap"><?php echo $row['Field']; ?>&nbsp;</td>
-    <td nowrap="nowrap"><?php echo $type; ?></td>
+    <?php
+    	if ($nowrap) echo "<td nowrap=\"nowrap\">";
+    	else echo "<td>";
+    	echo $type;
+    ?></td>
     <td nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
     <td nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
