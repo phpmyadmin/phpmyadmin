@@ -51,7 +51,6 @@ $strAttr = 'Atributos';
 $strBack = 'Voltar';
 $strBinary = ' Binário ';
 $strBinaryDoNotEdit = ' Binário - não edite ';
-$strBookmarkDeleted = 'The bookmark has been deleted.';
 $strBookmarkLabel = 'Nome';
 $strBookmarkQuery = 'Procura de SQL salva';
 $strBookmarkThis = 'Salvar essa procura de SQL';
@@ -159,7 +158,7 @@ $strInsertNewRow = 'Insere novo registro';
 $strInsertTextfiles = 'Insere arquivo texto na tabela';
 $strInstructions = 'Instruções';
 $strInUse = 'em uso';
-$strInvalidName = '"%s" é uma palavra reservada, você não pode usá-la como um nome de base de dados/tabela/campo.'; 
+$strInvalidName = '"%s" é uma palavra reservada, você não pode usá-la como um nome de base de dados/tabela/campo.';
 
 $strKeepPass = 'Não mudar a senha';
 $strKeyname = 'Nome chave';
@@ -218,7 +217,6 @@ $strOr = 'Ou';
 $strOverhead = 'Sobre Carga';
 
 $strPartialText = 'Textos parciais';
-$strQueryOnDb = 'Procura SQL na base ';
 $strPassword = 'Senha';
 $strPasswordEmpty = 'A senhas está vazia!';
 $strPasswordNotSame = 'As senhas não são a mesma!';
@@ -346,6 +344,7 @@ $strYes = 'Sim';
 $strZip = '"compactado com zip"';
 
 // To translate
+$strBookmarkDeleted = 'The bookmark has been deleted.';
 $strChangePassword = 'Change password'; //to translate
 $strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>
