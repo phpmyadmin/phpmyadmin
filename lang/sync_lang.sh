@@ -46,12 +46,14 @@ case "$1" in
         ;;
     --recode)
         echo Using recode on user request
+        echo '(please use iconv for arabic)'
         CONVERTOR=recode
         CONVERTOR_PARAMS=" -f %s..%s"
         shift
         ;;
     *)
         echo Using recode as default, force with --iconv/--recode
+        echo '(please use iconv for arabic)'
         CONVERTOR=recode
         CONVERTOR_PARAMS=" -f %s..%s"
         ;;

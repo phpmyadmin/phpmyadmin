@@ -7,6 +7,8 @@ $Source$
 
 2004-07-07 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: bug 984136, wrong alignment in RTL languages
+    * lang/arabic-utf-8, lang/sync_lang.sh: bug 984176, wrong encoding
+      for arabic UTF-8. sync with --iconv works.
 
 2004-07-06 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/xls.php: enable user to specify './tmp' as the
