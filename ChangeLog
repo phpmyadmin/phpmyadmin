@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2004-01-23 Alexander M. Turek  <innocenteyes@derrabus.de>
+2004-01-23 Alexander M. Turek  <foreveryoung@derrabus.de>
     * header_printview.inc.php:
       - Don't bypass $cfg['Server']['verbose'] settings;
       - Include MySQL version in SQL printview headers.
