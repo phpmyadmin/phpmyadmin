@@ -13,7 +13,6 @@ $url_query .= '&amp;goto=tbl_properties.php3';
 require('./tbl_properties_table_info.php3');
 require('./libraries/relation.lib.php3');
 
-
 /**
  * Gets the relation settings
  */
@@ -135,6 +134,7 @@ if ($cfgRelation['commwork']
         }
         if (isset($upd_query)){
             $upd_rs    = PMA_query_as_cu($upd_query);
+            unset($upd_query);
         }
     }  // end while (transferred data)
 } // end if (commwork)
@@ -214,7 +214,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
 
     ?>
 <form method="post" action="tbl_relation.php3">
-    <?php echo PMA_generate_common_hidden_inputs($db); ?>
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="submit_rel" value="true" />
 
     <table>
@@ -286,7 +286,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         echo "\n";
         ?>
 <form method="post" action="tbl_relation.php3">
-    <?php echo PMA_generate_common_hidden_inputs($db); ?>
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="submit_show" value="true" />
 
     <p><?php echo $strChangeDisplay; ?></p>
@@ -320,7 +320,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         echo "\n";
         ?>
 <form method="post" action="tbl_relation.php3">
-    <?php echo PMA_generate_common_hidden_inputs($db); ?>
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="submit_comm" value="true" />
 
     <table>

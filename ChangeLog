@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_relation.php3, bug 659227: in Relation View, cannot enter comments
+
 2003-01-22 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/swedish*: Updates, thanks to Björn T. Hallberg (bth)
     * lang/italian*: Updates, thanks to Pietro Danesi (danone)
