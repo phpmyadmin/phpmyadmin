@@ -1,0 +1,351 @@
+<?php
+/* $Id$ */
+
+$charset = 'windows-1257';
+$text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
+$left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
+$right_font_family = 'arial, helvetica, geneva, sans-serif';
+$number_thousands_separator = ',';
+$number_decimal_separator = '.';
+$byteUnits = array('Baitø', 'KBaitø', 'MBaitø', 'GBaitø');
+
+$day_of_week = array('Sekmadienis', 'Pirmadienis', 'Antradienis', 'Treèiadienis', 'Ketvirtadienis', 'Penktadienis', 'Ðeðtadienis');
+$month = array('Sausio', 'Vasario', 'Kovo', 'Balandþio', 'Geguþio', 'Birþelio', 'Liepos', 'Rugpjûèio', 'Rugsëjo', 'Spalio', 'Lapkrièio', 'Gruodþio');
+// See http://www.php.net/manual/en/function.strftime.php to define the
+// variable below
+$datefmt = ' %Y m. %B %d d.  %H:%M';
+
+
+$strAccessDenied = 'Priëjimas uþdraustas ';
+$strAction = 'Valdymo veiksmai';
+$strAddDeleteColumn = 'Áterpti/Trinti stulpelius';
+$strAddDeleteRow = 'Áterpti/Trinti poþymio eilutæ(es)';
+$strAddNewField = 'Áterpti naujà laukelá(ius)';
+$strAddPriv = 'Áterpti privilegijà(as)';
+$strAddPrivMessage = 'Jûs áterpëte privilegijas.';
+$strAddSearchConditions = 'Áterpkite paieðkos sàlygas á "where" sakiná:';
+$strAddToIndex = 'Áterpti indeksui papildomus &nbsp;%s&nbsp;stulpelá(ius)';
+$strAddUser = 'Sukurti naujà vartotojà';
+$strAddUserMessage = 'Jûs sukûrëte naujà vartotojà.';
+$strAffectedRows = 'Pakeista eiluèiø:';
+$strAfter = 'Prieð %s';
+$strAfterInsertBack = 'Sugráþti á buvusá puslapá';
+$strAfterInsertNewInsert = 'Áterpti sekanèià naujà eilutæ';
+$strAll = 'Viskà'; 
+$strAlterOrderBy = 'Pakeisti lentelës rûðiavimà pagal:';
+$strAnalyzeTable = 'Analizuoti lentelæ';
+$strAnd = 'IR';
+$strAnIndex = 'Indeksas sukurtas %s stulpeliui';
+$strAny = 'Bet kurá(ià)';
+$strAnyColumn = 'Bet kurá stulpelá';
+$strAnyDatabase = 'Bet kurià duomenø bazæ';
+$strAnyHost = 'Bet kurá prisijungimo adresà';
+$strAnyTable = 'Bet kurià lentelæ';
+$strAnyUser = 'Bet kurá vartotojà';
+$strAPrimaryKey = 'Stulpeliui %s sukurtas PIRMINIS raktas';
+$strAscending = 'Didëjimo tvarka';
+$strAtBeginningOfTable = 'Lentelës pradþioje';
+$strAtEndOfTable = 'Lentelës pabaigoje';
+$strAttr = 'Atributai';
+
+$strBack = 'Atgal';
+$strBinary = 'Dvejetainis';
+$strBinaryDoNotEdit = 'Dvejetainis - nekeisti';
+$strBookmarkDeleted = 'Nuoroda iðtrinta.';
+$strBookmarkLabel = 'Nuorodos Antraðtë';
+$strBookmarkQuery = 'Sukurti nuoroda SQL-uþklausai';
+$strBookmarkThis = 'Sukurti nuorodà';
+$strBookmarkView = 'Perþiûra';
+$strBrowse = 'Perþiûrëti';
+$strBzip = '"bzip"';
+
+$strCantLoadMySQL = 'negali uþkrauti MySQL proceso,<br />patikrinkite PHP nustatymus.';
+$strCantRenameIdxToPrimary = 'Indeksà pervadinti PIRMINIU nepavyko!';
+$strCardinality = 'Elementø skaièius';
+$strCarriage = 'Gráþimo á eilutës pradþià simbolis(CR): \\r';
+$strChange = 'Keisti';
+$strChangePassword = 'Pakeisti slaptaþodá';
+$strCheckAll = 'Paþymëti visus(as)';
+$strCheckDbPriv = 'Paþymëti duomenø bazës privilegijas';
+$strCheckTable = 'Patikrinti lentelæ';
+$strColumn = 'Stulpelis';
+$strColumnNames = 'Stulpeliø vardai';
+$strCompleteInserts = 'Visiðkas áterpimas';
+$strConfirm = 'Ar TIKRAI norite atlikti ðá veiksmà?';
+$strCookiesRequired = 'Sausainëliai(Cookies) turi bûti priimami.';
+$strCopyTable = 'Kopijuoti lentelë á (duomenø bazë<b>.</b>lentelë):';
+$strCopyTableOK = 'Letelë %s nukopijuota á %s.';
+$strCreate = 'Sukurti';
+$strCreateIndex = 'Sukurti indeksà &nbsp;%s&nbsp;stulpeliui(iams)';
+$strCreateIndexTopic = 'Sukurti naujà indeksà';
+$strCreateNewDatabase = 'Sukurti naujà duomenø bazæ';
+$strCreateNewTable = 'Sukurti naujà lentelæ duomenø bazëje ';
+$strCriteria = 'Kriterijai';
+
+$strData = 'Duomenys';
+$strDatabase = 'Duomenø bazë ';
+$strDatabaseHasBeenDropped = 'Duomenø bazë %s iðtrinta.';
+$strDatabases = 'duomenø bazës';
+$strDatabasesStats = 'Duomenø baziø statistika';
+$strDatabaseWildcard = 'Duomenø bazë (galima naudoti pakaitos simbolius):';
+$strDataOnly = 'Tik duomenys';
+$strDefault = 'Nutylint';
+$strDelete = 'Trinti';
+$strDeleted = 'Eilutë iðtrinta';
+$strDeletedRows = 'Eilutës iðtrintos:';
+$strDeleteFailed = 'Trynimo klaida!';
+$strDeleteUserMessage = 'Jûs iðtynëte vartotojà %s.';
+$strDescending = 'Maþëjimo tvarka';
+$strDisplay = 'Atvaizduoti';
+$strDisplayOrder = 'Atvaizdavimo tvarka:';
+$strDoAQuery = 'Vykdyti "uþklausà pagal pavyzdá" (pakaitos simbolis: "%")';
+$strDocu = 'Dokumentacija';
+$strDoYouReally = 'Ar TIKRAI norite ';
+$strDrop = 'Panaikinti';
+$strDropDB = 'Panaikinti domenø bazæ %s';
+$strDropTable = 'Panaikinti lentelæ';
+$strDumpingData = 'Sukurta duomenø kopija lentelei';
+$strDynamic = 'dinaminis';
+
+$strEdit = 'Taisyti';
+$strEditPrivileges = 'Taisyti privilegijas';
+$strEffective = 'Efektyvus';
+$strEmpty = 'Panaikinti reikðmes';
+$strEmptyResultSet = 'MySQL graþino tuðèià rezultatø rinkiná (nëra eiluèiø).';
+$strEnd = 'Pabaiga';
+$strEnglishPrivileges = ' Pastaba: MySQL privilegijø pavadinimai pateikiami Anglø kalba';
+$strError = 'Klaida';
+$strExtendedInserts = 'Iðplëstinis áterpimas';
+$strExtra = 'Papildomai';
+
+$strField = 'Laukas';
+$strFieldHasBeenDropped = 'Laukas %s iðmestas';
+$strFields = 'Kiek laukø';
+$strFieldsEmpty = ' Tuðèia laukø skaièiaus reikðmë! ';
+$strFieldsEnclosedBy = 'Laukø reikðmës apskliaustos  simboliais';
+$strFieldsEscapedBy = 'Laukø reikðmës baigiasi simboliu';
+$strFieldsTerminatedBy = 'Laukø pabaigos þymë';
+$strFixed = 'fiksuotas';
+$strFlushTable = 'Iðvalyti lentelæ ("FLUSH")';
+$strFormat = 'Formatas';
+$strFormEmpty = 'Trûksta reikðmës formoje !';
+$strFullText = 'Visus tekstus';
+$strFunction = 'Funkcija';
+
+$strGenTime = 'Atlikimo laikas';
+$strGo = 'Eiti';
+$strGrants = 'Leisti';
+$strGzip = '"gzipped"';
+
+$strHasBeenAltered = 'iðplësta.';
+$strHasBeenCreated = 'sukurta.';
+$strHome = 'Pirmas puslapis';
+$strHomepageOfficial = 'Oficialus phpMyAdmin tinklapis';
+$strHomepageSourceforge = 'Parsisiøsti phpMyAdmin ið Sourceforge tinklapio';
+$strHost = 'Prisijungimo adresas';
+$strHostEmpty = 'Tuðèias prisijungimo adresas!';
+
+$strIdxFulltext = '"Fulltext" indeksas';
+$strIfYouWish = 'Jei pageidaujate pakrauti keletà lentelës stulpeliø, sudarykite laukø sàraðà atskirtà kabliataðkiais.';
+$strIgnore = 'Ignoruoti';
+$strIndex = 'Indeksas';
+$strIndexes = 'Indeksai';
+$strIndexHasBeenDropped = 'Indeksas %s panaikintas';
+$strIndexName = 'Indekso vardas&nbsp;:';
+$strIndexType = 'Indekso tipas&nbsp;:';
+$strInsert = 'Áterpti';
+$strInsertAsNewRow = 'Áterpti naujà áraðà';
+$strInsertedRows = 'Áterptà eiluèiø:';
+$strInsertNewRow = 'Áterpti naujà eilutæ';
+$strInsertTextfiles = 'Áterpti duomenis ið tekstinio failo á lentelæ';
+$strInstructions = 'Instrukcijos';
+$strInUse = 'ðiuo metu naudojama';
+$strInvalidName = '"%s" rezervuotas þodis, Jûs negalite ðio þodþio naudoti kaip duomenø bazës, lentelës arba laukelio vardo.';
+
+$strKeepPass = 'Nekeisti slaptaþodþio';
+$strKeyname = 'Raktinis þodis';
+$strKill = 'Stabdyti procesà';
+
+$strLength = 'Ilgis';
+$strLengthSet = 'Ilgis/reikðmës*';
+$strLimitNumRows = 'Eiluèiø skaièius puslapyje';
+$strLineFeed = 'Eilutës: \\n';
+$strLines = 'Eiluèiø';
+$strLinesTerminatedBy = 'Eilutës pabaigos þymë';
+$strLocationTextfile = 'Tekstiniai SQL uþklausø failai';
+$strLogin = 'Ásiregistruoti';
+$strLogout = 'Iðsiregistruoti';
+$strLogPassword = 'Slaptaþodis:';
+$strLogUsername = 'Vartotojo vardas:';
+
+$strModifications = 'Pakeitimai iðsaugoti';
+$strModify = 'Keisti';
+$strModifyIndexTopic = 'Keisti indeksà';
+$strMoveTable = 'Perkelti lentelë á (duomenø bazë<b>.</b>lentelë):';
+$strMoveTableOK = 'Lentelë %s perkelta á %s.';
+$strMySQLReloaded = 'MySQL procesas perkrautas.';
+$strMySQLSaid = 'MySQL atsakymas: ';
+$strMySQLServerProcess = 'MySQL %pma_s1% procesas serveryje %pma_s2%. Áregistruotas vartotojas %pma_s3%';
+$strMySQLShowProcess = 'Rodyti procesus';
+$strMySQLShowStatus = 'Rodyti MySQL aplinkos bûsenà';
+$strMySQLShowVars = 'Rodyti MySQL sistemos kintamuosius';
+
+$strName = 'Pavadinimas';
+$strNbRecords = 'Áraðø skaièius';
+$strNext = 'Sekantis';
+$strNo = 'Ne';
+$strNoDatabases = 'Nëra duomenø baziø';
+$strNoDropDatabases = '"DROP DATABASE" komandos ávykdyti negalima.';
+$strNoFrames = 'phpMyAdmin draugiðkesnis su <b>rëmelius</b> palaikanèiomis narðyklëmis.';
+$strNoIndex = 'Neapraðyti indeksai!';
+$strNoIndexPartsDefined = 'Neapraðytos indekso dalys!';
+$strNoModification = 'Nëra pakeitimø';
+$strNone = 'Nëra';
+$strNoPassword = 'Nëra slaptaþodþio';
+$strNoPrivileges = 'Nëra privilegijø';
+$strNoQuery = 'Nëra SQL uþklausos!';  
+$strNoRights = 'Neturite pakankamai teisiø';
+$strNoTablesFound = 'Duomenø bazëje nerasta lenteliø.';
+$strNotNumber = 'Áveskite skaièiø!';
+$strNotValidNumber = ' netinkamas eilutës numeris!';
+$strNoUsersFound = 'Nerasta vartotojo(ø).';
+$strNull = 'Null';
+
+$strOftenQuotation = 'Daþnai kartojasi kabutës. Pasirinktinai reiðkia, kad tik  char ir varchar laukai yra uþdaryti kabutëmis.';
+$strOptimizeTable = 'Optimizuoti lentelæ';
+$strOptionalControls = 'Pasirinktinai. Kontroliuojama kaip skaitoma, raðoma specialiuosius simbolius.';
+$strOptionally = 'Pasirinktinai';
+$strOr = 'Arba';
+$strOverhead = 'Perteklinis';
+
+$strPartialText = 'Daliniai tekstai';
+$strPassword = 'Slaptaþodis';
+$strPasswordEmpty = 'Tuðèias slaptaþodis!';
+$strPasswordNotSame = 'Slaptaþodþiai nesutampa!';
+$strPHPVersion = 'PHP versija';
+$strPmaDocumentation = 'phpMyAdmin\'o dokumentacija';
+$strPmaUriError = 'Reikia konfigûraciniame faile áraðyti <tt>$cfgPmaAbsoluteUri</tt> reikðmæ!';
+$strPos1 = 'Pradþia';
+$strPrevious = 'Praëjæs';
+$strPrimary = 'Pirminis';
+$strPrimaryKey = 'Pirminis raktas';
+$strPrimaryKeyHasBeenDropped = 'Panaikintas pirminis raktas';
+$strPrimaryKeyName = 'Pirminio rakto pavadinimas turi bûti "PRIMARY"!';
+$strPrimaryKeyWarning = '("PRIMARY" <b>yra vienintelis</b> pirminio rakto tipas!)';
+$strPrintView = 'Atspausdinti struktûra';
+$strPrivileges = 'Privilegijos';
+$strProperties = 'Nustatymai';
+
+$strQBE = 'Uþklausa pagal pavyzdá';
+$strQBEDel = 'Pakeièiant';
+$strQBEIns = 'Áterpiant';
+$strQueryOnDb = 'SQL-uþklausa duomenø bazëje <b>%s</b>:';
+
+$strRecords = 'Viso áraðø:';
+$strReloadFailed = 'MySQL procesà perkrauti nepavyko.';
+$strReloadMySQL = 'Perkrauti MySQL procesà';
+$strRememberReload = 'Neuþmirðkite perkrauti serverá.';
+$strRenameTable = 'Pervadinti lentelæ á';
+$strRenameTableOK = 'Lentelë %s pervadinta á %s';
+$strRepairTable = 'Taisyti lentelæ';
+$strReplace = 'Pakeisti';
+$strReplaceTable = 'Pakeisti lentelës turiná failo duomenimis ';
+$strReset = 'Nustatyti á pradinæ bûsenà';
+$strReType = 'Áveskite dar kartà';
+$strRevoke = 'Panaikinti';
+$strRevokeGrant = 'Panaikinti GRANT privilegijà';
+$strRevokeGrantMessage = 'Jûs panaikinote GRANT privilegijà %s';
+$strRevokeMessage = 'Jûs panaikinote privilegijas %s';
+$strRevokePriv = 'Panaikinti privilegijas';
+$strRowLength = 'Eilutës ilgis';
+$strRows = 'Eilutës';
+$strRowsFrom = 'eiluèiø pradedant nuo';
+$strRowSize = 'Eilutës dydis';
+$strRowsModeHorizontal = 'horizontaliai';
+$strRowsModeOptions = 'iðdëstant  %s pakartoti antraðtes kas %s áraðø'; 
+$strRowsModeVertical = 'vertikaliai';
+$strRowsStatistic = 'Eiluèiø statistika';
+$strRunning = 'adresu %s';
+$strRunQuery = 'Vykdyti uþklausà';
+$strRunSQLQuery = 'Vykdyti SQL uþklausà(as) duomenø bazëje %s';
+
+$strSave = 'Iðsaugoti';
+$strSelect = 'Iðrinkti';
+$strSelectADb = 'Pasirinkti duomenø bazæ';
+$strSelectAll = 'Iðrinkti visas(us)';
+$strSelectFields = 'Pasirinkti laukus (nors vienà)';
+$strSelectNumRows = 'uþklausà vykdoma';
+$strSend = 'Iðsaugoti á failà';
+$strServerChoice = 'Pasirinkti serverá';
+$strServerVersion = 'Serverio versija';
+$strSetEnumVal = 'Jeigu laukelio tipas yra "enum" arba "set", tuomet duomenø reikðmes reikia ávesti naudojant ðá formatà: \'a\',\'b\',\'c\'...<br />. Jeigu jums reikia áraðyti deðininá áþambøjá brûkðná ("\") arba kabutes("\'"), tuomet prieð ðios simbolius reikia papildomo deðininio áþambaus brûkðnio (pavyzdþiui: \'\\\\xyz\' or \'a\\\'b\').';
+$strShow = 'Rodyti';
+$strShowAll = 'Rodyti viskà';
+$strShowCols = 'Rodyti stulpelius';
+$strShowingRecords = 'Rodomi áraðai';
+$strShowPHPInfo = 'Rodyti PHP informacijà';
+$strShowTables = 'Rodyti lentelës';
+$strShowThisQuery = ' Rodyti ðià uþklausà vël ';
+$strSingly = '(pavieniui)';
+$strSize = 'Dydis';
+$strSort = 'Rûðiuoti';
+$strSpaceUsage = 'Vietos naudojimas';
+$strSQLQuery = 'SQL- uþklausa';
+$strStartingRecord = 'Pirma eilutë';
+$strStatement = 'Parametrai';
+$strStrucCSV = 'Duomenys CSV formatu';
+$strStrucData = 'Struktûra ir duomenys';
+$strStrucDrop = 'Panaikinti-áterpti lentelæ';
+$strStrucExcelCSV = 'Duomenys ekselio CSV formatu';
+$strStrucOnly = 'Tik struktûrà';
+$strSubmit = 'Siøsti';
+$strSuccess = 'Jûsø SQL-uþklausa sëkmingai ávykdyta';
+$strSum = 'Sumos';
+
+$strTable = 'lentelë ';
+$strTableComments = 'Lentelës komentarai';
+$strTableEmpty = 'Tuðèias lentelës vardas!';
+$strTableHasBeenDropped = 'Lentelë %s panaikinta';
+$strTableHasBeenEmptied = 'Lentelës reikðmës %s iðtuðtintos';
+$strTableHasBeenFlushed = 'Lentelës buferis  %s iðvalytas';
+$strTableMaintenance = 'Lentelës diagnostika';
+$strTables = '%s lentelë(s)';
+$strTableStructure = 'Sukurta duomenø struktûra lentelei';
+$strTableType = 'Lentelës tipas';
+$strTextAreaLength = ' Tai yra jo ilgis,<br /> ðis laukelis neredaguojamas ';
+$strTheContent = 'Jûsø failo turinys áterptas.';
+$strTheContents = 'Failo turinys áterpus panaikina iðrinktos lentelës ar stulpelio turiná, bet iðlieka unikalûs ir pirminiai indeksai.';
+$strTheTerminator = 'Laukø pabaigos þymë.';
+$strTotal = ' ið viso ';
+$strType = 'Tipas';
+
+$strUncheckAll = 'Nepaþymëti visus(as)';
+$strUnique = 'Unikalus';
+$strUnselectAll = 'Nepaþymëti visus(as)';
+$strUpdatePrivMessage = 'Jûs pakeitëte privilegijas  %s.';
+$strUpdateProfile = 'Papildyti profilá:';
+$strUpdateProfileMessage = 'Profilis papildytas.';
+$strUpdateQuery = 'Atnaujinti uþklausà';
+$strUsage = 'Iðnaudota';
+$strUseBackquotes = 'Lenteliø ir laukø vardams naudoti ðias kabutes ` `';
+$strUser = 'Vartotojas';
+$strUserEmpty = 'Tuðèias vartotojo vardas!';
+$strUserName = 'Vartotojo vardas';
+$strUsers = 'Vartotojai';
+$strUseTables = 'Naudoti lenteles';
+
+$strValue = 'Reikðmë';
+$strViewDump = 'Perþiûrëti lentelës struktûros dumpà';
+$strViewDumpDB = 'Sukurti, perþiûrëti duomenø bazës dumpà';
+
+$strWelcome = 'Sveiki atvykæ á %s';
+$strWithChecked = 'Pasirinktas lenteles:';
+$strWrongUser = 'Neteisingas vartotojo vardas arba slaptaþodis. Priëjimas uþdraustas.';
+
+$strYes = 'Taip';
+
+$strZip = '"zip"';
+
+//to translate:
+$strReferentialIntegrity = 'Check referential integrity:';  //to translate
+?>
