@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-30  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change.php3, lang/*: merge patch: "do not edit blobs" from 
+	  Bernard M. Piller <bernard@bmpsystems.com>
+
 ========================================================================================
 2001-06-30  Olivier Müller  <om@omnis.ch>
         IMPORTANT : FROM NOW, PLEASE COMMIT YOUR CHANGES IN THE PHPMYADMIN-DEVEL BRANCH!

@@ -70,10 +70,24 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
             break;
     }
     echo "<td>$type</td>\n";
-    echo "<td><select name=\"funcs[$field]\"><option>\n";
-    for($j=0; $j<count($cfgFunctions); $j++)
-        echo "<option>$cfgFunctions[$j]\n";
-    echo "</select></td>\n";
+
+    // THE FUNCTION COLUMN
+    // Change by Bernard M. Piller <bernard@bmpsystems.com>
+    // We don't want binary data to be destroyed
+    if(strstr($row_table_def["Type"], "blob"))
+    {
+        echo "<td>$strBinary</td>";
+    }
+    else
+    {
+
+    	echo "<td><select name=\"funcs[$field]\"><option>\n";
+    	for($j=0; $j<count($cfgFunctions); $j++)
+        	echo "<option>$cfgFunctions[$j]\n";
+    	echo "</select></td>\n";
+    }
+
+   // THE VALUE COLUMN
     if(isset($row) && isset($row[$field]))
     {
         $special_chars = htmlspecialchars($row[$field]);
@@ -169,6 +183,12 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
             echo ">".htmlspecialchars($subset)."\n";
         }
         echo "</select></td>";
+    }
+    // Change by Bernard M. Piller <bernard@bmpsystems.com>
+    // We don't want binary data destroyed
+    elseif(strstr($row_table_def["Type"], "blob"))
+    {
+        echo "<td>" . $strBinaryDoNotEdit . "</td>";
     }
     else
     {
