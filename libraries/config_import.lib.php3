@@ -641,8 +641,16 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         $cfg['SQLValidator']['password'] = '';
     }
 
-    if (!isset($cfg['SQLValidator']['DisplayCopyright'])) {
-        $cfg['SQLValidator']['DisplayCopyright'] = TRUE;
+    if (!isset($cfg['DBG']['enable'])) {
+        $cfg['DBG']['enable'] = FALSE;
+    }
+
+    if (!isset($cfg['DBG']['profile']['enable'])) {
+        $cfg['DBG']['profile']['enable'] = FALSE;
+    }
+
+    if (!isset($cfg['DBG']['profile']['threshold'])) {
+        $cfg['DBG']['profile']['threshold'] = 0.5;
     }
 
     if (!isset($cfg['SQP']['enable'])) {

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-02 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libiraries/common.lib.php3, libraries/config_import.lib.php3: Backwards
+      compatibility.
+
 2003-02-02 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
     * lang/sort_lang.sh: This needs bash.
@@ -14,7 +18,7 @@ $Source$
     * lang/norwegian: update, thanks to Sven-Erik Andersen
     * libraries/kanji-encoding.lib.php3 bug fix, thanks to Yukihiro Kawada
     * libraries/dbg/setup.php3, lang/*: generic $strCantLoad
-      (later when we get enough translations, 
+      (later when we get enough translations,
        we can use it instead of $strCandLoadMySQL)
 
 2003-02-01 Robin Johnson  <robbat2@users.sourceforge.net>
@@ -24,7 +28,7 @@ $Source$
     * Documentation.html: Removed a bit of duplication in [7.4] and the
     Developers section
     * libraries/dbg: New directory for DBG code
-    * libraries/dbg/setup.php3: 
+    * libraries/dbg/setup.php3:
        - DBG initialization code, including module support
     * libraries/dbg/profiling.php3: Profiling code
     * lang/*: New strings added for DBG extension
