@@ -426,32 +426,17 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
     $result      = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_UNBUFFERED);
     if ($result != FALSE) {
-        $fields_cnt = PMA_DBI_num_fields($result);
+        $fields_cnt     = PMA_DBI_num_fields($result);
 
-        // Checks whether the field is an integer or not
+        $fields_meta    = PMA_DBI_get_fields_meta($result);
+
         for ($j = 0; $j < $fields_cnt; $j++) {
-
             if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
                 $field_set[$j] = PMA_backquote($analyzed_sql[0]['select_expr'][$j]['column'], $use_backquotes);
             } else {
-                $field_set[$j] = PMA_backquote(PMA_DBI_field_name($result, $j), $use_backquotes);
+                $field_set[$j] = PMA_backquote($fields_meta[$j]->name, $use_backquotes);
             }
-
-            $type          = $field_types[$field_set[$j]];
-
-            if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
-                $type == 'bigint'  || (PMA_MYSQL_INT_VERSION < 40100 && $type == 'timestamp')) {
-                $field_num[$j] = TRUE;
-            } else {
-                $field_num[$j] = FALSE;
-            }
-            // blob
-            if ($type == 'blob' || $type == 'mediumblob' || $type == 'longblob' || $type == 'tinyblob') {
-                $field_blob[$j] = TRUE;
-            } else {
-                $field_blob[$j] = FALSE;
-            }
-        } // end for
+        }
 
         if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'update') {
             // update
@@ -459,7 +444,6 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             if (isset($GLOBALS['sql_ignore']))
                 $schema_insert .= 'IGNORE ';
             $schema_insert .= PMA_backquote($table, $use_backquotes) . ' SET ';
-            $fields_no      = count($field_set);
         } else {
             // insert or replace
             if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'replace') {
@@ -498,21 +482,25 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         while ($row = PMA_DBI_fetch_row($result)) {
             $current_row++;
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (!isset($row[$j])) {
+                $field_flags = PMA_DBI_field_flags($result, $j);
+                if (!isset($row[$j]) || is_null($row[$j])) {
                     $values[]     = 'NULL';
                 } else if ($row[$j] == '0' || $row[$j] != '') {
                     // a number
-                    if ($field_num[$j]) {
+                    if ($fields_meta[$j]->numeric) {
                         $values[] = $row[$j];
-                    // a not empty blob
-                    } else if ($field_blob[$j] && !empty($row[$j])) {
+                    // a blob
+                    } else if ($fields_meta[$j]->blob 
+                            // hexify only if this is a true not empty BLOB
+                            && stristr($field_flags, 'BINARY')
+                            && !empty($row[$j])) {
                         $values[] = '0x' . bin2hex($row[$j]);
                     // a string
                     } else {
-                        $values[] = "'" . str_replace($search, $replace, PMA_sqlAddslashes($row[$j])) . "'";
+                        $values[] = '\'' . str_replace($search, $replace, PMA_sqlAddslashes($row[$j])) . '\'';
                     }
                 } else {
-                    $values[]     = "''";
+                    $values[]     = '\'\'';
                 } // end if
             } // end for
 
@@ -520,12 +508,14 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'update') {
 
                 $insert_line = $schema_insert;
-                for ($i = 0; $i < $fields_no; $i++) {
+                for ($i = 0; $i < $fields_cnt; $i++) {
                     if ($i > 0) {
                         $insert_line .= ', ';
                     }
                     $insert_line .= $field_set[$i] . ' = ' . $values[$i];
                 }
+
+                $insert_line .= ' WHERE ' . PMA_getUvaCondition($result, $fields_cnt, $fields_meta, $row);
 
             } else {
 

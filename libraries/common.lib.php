@@ -557,10 +557,10 @@ if ($is_minimum_common == FALSE) {
  * Get the complete list of Databases a user can access
  *
  * @param   boolean   whether to include check on failed 'only_db' operations
- * @param   ressource database handle (superuser)
+ * @param   resource  database handle (superuser)
  * @param   integer   amount of databases inside the 'only_db' container
- * @param   ressource possible ressource from a failed previous query
- * @param   ressource database handle (user)
+ * @param   resource  possible resource from a failed previous query
+ * @param   resource  database handle (user)
  * @param   array     configuration
  * @param   array     previous list of databases
  *
@@ -1896,6 +1896,7 @@ if (typeof(document.getElementById) != 'undefined'
      *
      * @access  public
      * @author  Michal Cihar (nijel@users.sourceforge.net)
+     * @return  bool    Whether extension is valid
      */
     function PMA_checkFileExtensions($file, $extension) {
         if (substr($file, -1 * strlen($extension)) == $extension) {
@@ -1912,6 +1913,93 @@ if (typeof(document.getElementById) != 'undefined'
             }
         }
         return FALSE;
+    } // end function
+
+    /**
+     * Function to generate unique condition for specified row.
+     *
+     * @param   resource    handle for current query
+     * @param   integer     number of fields
+     * @param   array       meta information about fields
+     * @param   array       current row
+     *
+     * @access  public
+     * @author  Michal Cihar (michal@cihar.com)
+     * @return  string      calculated condition
+     */
+    function PMA_getUvaCondition($handle, $fields_cnt, $fields_meta, $row) {
+
+        $primary_key              = '';
+        $unique_key               = '';
+        $uva_nonprimary_condition = '';
+
+        for ($i = 0; $i < $fields_cnt; ++$i) {
+            $field_flags = PMA_DBI_field_flags($handle, $i);
+            $meta      = $fields_meta[$i];
+            // do not use an alias in a condition
+            $column_for_condition = $meta->name;
+            if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
+                foreach($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
+                    $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
+                    if (!empty($alias)) {
+                        $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
+                        if ($alias == $meta->name) {
+                            $column_for_condition = $true_column;
+                        } // end if
+                    } // end if
+                } // end while
+            }
+
+            // to fix the bug where float fields (primary or not)
+            // can't be matched because of the imprecision of
+            // floating comparison, use CONCAT
+            // (also, the syntax "CONCAT(field) IS NULL"
+            // that we need on the next "if" will work)
+            if ($meta->type == 'real') {
+                $condition = ' CONCAT(' . PMA_backquote($column_for_condition) . ') ';
+            } else {
+                // string and blob fields have to be converted using
+                // the system character set (always utf8) since
+                // mysql4.1 can use different charset for fields.
+                if (PMA_MYSQL_INT_VERSION >= 40100 && ($meta->type == 'string' || $meta->type == 'blob')) {
+                    $condition = ' CONVERT(' . PMA_backquote($column_for_condition) . ' USING utf8) ';
+                } else {
+                    $condition = ' ' . PMA_backquote($column_for_condition) . ' ';
+                }
+            } // end if... else...
+
+            if (!isset($row[$i]) || is_null($row[$i])) {
+                $condition .= 'IS NULL AND';
+            } else {
+                if ($meta->type == 'blob'
+                    // hexify only if this is a true not empty BLOB
+                     && stristr($field_flags, 'BINARY')
+                     && !empty($row[$i])) {
+                        $condition .= 'LIKE 0x' . bin2hex($row[$i]). ' AND';
+                } else {
+                    $condition .= '= \'' . PMA_sqlAddslashes($row[$i], FALSE, TRUE) . '\' AND';
+                }
+            }
+            if ($meta->primary_key > 0) {
+                $primary_key .= $condition;
+            } else if ($meta->unique_key > 0) {
+                $unique_key  .= $condition;
+            }
+            $uva_nonprimary_condition .= $condition;
+        } // end for
+
+        // Correction uva 19991216: prefer primary or unique keys
+        // for condition, but use conjunction of all values if no
+        // primary key
+        if ($primary_key) {
+            $uva_condition = $primary_key;
+        } else if ($unique_key) {
+            $uva_condition = $unique_key;
+        } else {
+            $uva_condition = $uva_nonprimary_condition;
+        }
+
+        return preg_replace('|\s?AND$|', '', $uva_condition);
     } // end function
 
 } // end if: minimal common.lib needed?

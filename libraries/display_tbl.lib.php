@@ -1026,88 +1026,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
         // 1. Prepares the row (gets primary keys to use)
         if ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn') {
-            $primary_key              = '';
-            $unique_key               = '';
-            $uva_nonprimary_condition = '';
-
             // 1.1 Results from a "SELECT" statement -> builds the
             //     "primary" key to use in links
             if ($is_display['edit_lnk'] == 'ur' /* || $is_display['edit_lnk'] == 'dr' */) {
-                for ($i = 0; $i < $fields_cnt; ++$i) {
-                    $field_flags = PMA_DBI_field_flags($dt_result, $i);
-                    $meta      = $fields_meta[$i];
-                    // do not use an alias in a condition
-                    $column_for_condition = $meta->name;
-                    if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
-                        foreach($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
-                            $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
-                            if (!empty($alias)) {
-                                $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
-                                if ($alias == $meta->name) {
-                                    $column_for_condition = $true_column;
-                                } // end if
-                            } // end if
-                        } // end while
-                    }
-
-                    // to fix the bug where float fields (primary or not)
-                    // can't be matched because of the imprecision of
-                    // floating comparison, use CONCAT
-                    // (also, the syntax "CONCAT(field) IS NULL"
-                    // that we need on the next "if" will work)
-                    if ($meta->type == 'real') {
-                        $condition = ' CONCAT(' . PMA_backquote($column_for_condition) . ') ';
-                    } else {
-                        // string and blob fields have to be converted using
-                        // the system character set (always utf8) since
-                        // mysql4.1 can use different charset for fields.
-                        if (PMA_MYSQL_INT_VERSION >= 40100 && ($meta->type == 'string' || $meta->type == 'blob')) {
-                            $condition = ' CONVERT(' . PMA_backquote($column_for_condition) . ' USING utf8) ';
-                        } else {
-                            $condition = ' ' . PMA_backquote($column_for_condition) . ' ';
-                        }
-                    } // end if... else...
-
-                    // loic1: To fix bug #474943 under php4, the row
-                    //        pointer will depend on whether the "is_null"
-                    //        php4 function is available or not
-                    // ne0x:  Not used anymore because PMA needs PHP > 4.1.0 where
-                    //        the "is_null" function is available.
-                    // 
-                    // $pointer = (function_exists('is_null') ? $i : $meta->name);
-                    
-                    if (!isset($row[$i]) || is_null($row[$i])) {
-                        $condition .= 'IS NULL AND';
-                    } else {
-                        if ($meta->type == 'blob'
-                            // hexify only if this is a true not empty BLOB
-                             && stristr($field_flags, 'BINARY')
-                             && !empty($row[$i])) {
-                                $condition .= 'LIKE 0x' . bin2hex($row[$i]). ' AND';
-                        } else {
-                            $condition .= '= \'' . PMA_sqlAddslashes($row[$i], FALSE, TRUE) . '\' AND';
-                        }
-                    }
-                    if ($meta->primary_key > 0) {
-                        $primary_key .= $condition;
-                    } else if ($meta->unique_key > 0) {
-                        $unique_key  .= $condition;
-                    }
-                    $uva_nonprimary_condition .= $condition;
-                } // end for
-
-                // Correction uva 19991216: prefer primary or unique keys
-                // for condition, but use conjunction of all values if no
-                // primary key
-                if ($primary_key) {
-                    $uva_condition = $primary_key;
-                } else if ($unique_key) {
-                    $uva_condition = $unique_key;
-                } else {
-                    $uva_condition = $uva_nonprimary_condition;
-                }
-
-                $uva_condition     = urlencode(preg_replace('|\s?AND$|', '', $uva_condition));
+                $uva_condition     = urlencode(PMA_getUvaCondition($dt_result, $fields_cnt, $fields_meta, $row));
             } // end if (1.1)
 
             // 1.2 Defines the urls for the modify/delete link(s)
