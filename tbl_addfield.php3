@@ -194,6 +194,7 @@ if (isset($submit)) {
 
     // garvin: If comments were sent, enable relation stuff
     require('./libraries/relation.lib.php3');
+    require('./libraries/transformations.lib.php3');
 
     $cfgRelation = PMA_getRelationsParam();
 
@@ -205,6 +206,29 @@ if (isset($submit)) {
         }
     }
     
+    // garvin: Update comment table for mime types [MIME]
+    if (is_array($field_mimetype) && $cfgRelation['commwork'] && $cfg['BrowseMIME']) {
+        @reset($field_mimetype);
+        while(list($fieldindex, $mimetype) = each($field_mimetype)) {
+            PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
+        }
+    }
+
+    // garvin: If comments were sent, enable relation stuff
+    require('./libraries/relation.lib.php3');
+    require('./libraries/transformations.lib.php3');
+
+    $cfgRelation = PMA_getRelationsParam();
+
+    // garvin: Update comment table for mime types [MIME]
+    if (is_array($field_mimetype) && $cfgRelation['commwork'] && $cfg['BrowseMIME']) {
+        @reset($field_mimetype);
+        while(list($fieldindex, $mimetype) = each($field_mimetype)) {
+            PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
+        }
+    }
+    
+
     // Go back to the structure sub-page
     $sql_query = $sql_query_cpy;
     unset($sql_query_cpy);

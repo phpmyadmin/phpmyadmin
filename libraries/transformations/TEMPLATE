@@ -1,0 +1,26 @@
+<?php
+/* $Id$ */
+// vim: expandtab sw=4 ts=4 sts=4:
+
+/**
+ * Plugin function TEMPLATE (Garvin Hicking).
+ * -----------------------------------------
+ *
+ * For instructions, read the libraries/transformations/README file.
+ *
+ * The string ENTER_FILENAME_HERE shall be substituded with the filename without the '.inc.php3'
+ * extension. For further information regarding naming conventions see the README file.
+ */
+
+if (!defined('PMA_TRANSFORMATION_[ENTER_FILENAME_HERE]')){
+    define('PMA_TRANSFORMATION_[ENTER_FILENAME_HERE]', 1);
+    
+    function PMA_transformation_[enter_filename_here]($buffer, $options = array()) {
+        // possibly use a global transform and feed it with special options:
+        // include('./libraries/transformations/global.inc.php3');
+        
+        // further operations on $buffer using the $options[] array.
+        
+        return $buffer;
+    }
+}

@@ -5,6 +5,56 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-24 Garvin Hicking <me@supergarv.de>
+    Submitted multiple patches from the patch tracker:
+
+    * JS rowmarker now works in vertical display mode
+        Files: libraries/functions.js, display_tbl.lib.php3
+
+    * Display nav_bar even when only one row is returned, to enable display in
+        vertical/horizontal mode (especially for rotated headers)
+        Files: libraries/display_tbl.lib.php3
+
+    * Measures basic query time [#571934]
+        Files: sql.php3, display_tbl.lib.php3
+
+    * New display mode with 90 degree rotated table headers [#544361]. Works
+        either as CSS or as 'faked' PHP-transformation.
+        Files: libraries/common.lib.php3, libraries/display_tbl.lib.php3
+
+    * Update and display column comments in Add/Edit Fieldmode and CREATE table
+        mode. Display comments in table structure (optional) with underlined
+        CSS-mouseovers. Display comments in browser mode (optional), both in
+        vertical and horizontal display mode. Keep column comments in synch, when
+        DROPping/ALTERing and moving/copying tables.
+        Files: tbl_addfield.php3, tbl_alter.php3, tbl_create.php3,
+        tbl_properties.inc.php3, tbl_properties_structure.php3, db_details_links,
+        tbl_relation.php3,tbl_move_copy.php3, tbl_properties_links.php3,
+        tbl_rename.php3, sql.php3, db_details_structure.php3, db_details_links.php3,
+        libraries/relation.lib.php3
+
+    * Display and enter DB/table comments for navigation, stored in pma comments table.
+        May be displayed as Alias-Tooltips in left frame. [#650064]
+        Files: db_details_structure.php3, left.php3, relation.lib.php3
+
+    * Display column comments in table/database dumps, as inline SQL-Comments
+        Files: tbl_dump.php3, tbl_properties_export.php3, build_dump.lib.php3
+
+    * Display MIME types to transform any table cell. You can only choose from a
+        list of pre-defined MIME-types. The list gets built by a function searching
+        a directory for valid transforms. For further information see README-file and soon
+        documentation. ;)
+        Files: tbl_properties.inc.php3, transformations.lib.php3, relation.lib.php3,
+        create_tables.sql, tbl_addfield.php3, tbl_alter.php3, tbl_create.php3,
+        tbl_move_copy.php3, transformation_wrapper.php3,
+        libraries/display_tbl.lib.php3, libraries/transformations/*
+        TODO: Add predefined functions!
+
+    * IN PROGRESS: Display a (javascript) based query window as a new frame below the left
+        frame with query history [#526008]
+        Files: queryframe.php3, querywindow.php3, header.inc.php3,
+        tbl_query_box.php3, common.lib.php3
+
 2003-02-24 Olivier L. Müller  <om@omnis.ch>
     * libraries/common.lib.php3: if $cfg['PmaAbsoluteUri'] is empty and 
       port == 80 or port == 443, do not add ":80" or ":443" anymore to the 

@@ -527,6 +527,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             $comments_map = array();
         }
         
+        if ($GLOBALS['cfgRelation']['commwork'] && $GLOBALS['cfg']['BrowseMIME']) {
+            require('./libraries/transformations.lib.php3');
+            $GLOBALS['mime_map'] = PMA_getMIME($db, $table);
+        }
+
+
         if ($is_display['sort_lnk'] == '1') {
             $is_join = eregi('(.*)[[:space:]]+FROM[[:space:]]+.*[[:space:]]+JOIN', $sql_query, $select_stt);
         } else {
@@ -990,6 +996,40 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 //        available or not
                 $pointer = (function_exists('is_null') ? $i : $meta->name);
 
+                // garvin: Wrap MIME-transformations. [MIME]
+                $default_function = 'htmlspecialchars'; // default_function
+                $transform_function = $default_function;
+                $transform_options = array();
+                
+                if ($GLOBALS['cfg']['BrowseMIME']) {
+
+                    if (isset($GLOBALS['mime_map'][$meta->name]['mimetype']) && isset($GLOBALS['mime_map'][$meta->name]['transformation'])) {
+                        // garvin: for security, never allow to break out from transformations directory
+                        $include_file = eregi_replace('^[\./]*(.*)', '\1', $GLOBALS['mime_map'][$meta->name]['transformation']);
+
+                        $transformfunction_name = str_replace('.inc.php3', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
+
+                        include('./libraries/transformations/' . $include_file);
+
+                        if (defined('PMA_TRANSFORMATION_' . strtoupper($transformfunction_name)) && function_exists('PMA_transformation_' . $transformfunction_name)) {
+
+                            $transform_function = 'PMA_transformation_' . $transformfunction_name;
+                            $transform_options = PMA_transformation_getOptions((isset($GLOBALS['mime_map'][$meta->name]['transformation_options']) ? $GLOBALS['mime_map'][$meta->name]['transformation_options'] : ''));
+
+                        }
+
+                    }
+                    
+                }
+
+                $transform_options['wrapper_link'] = '?'
+                                                    . $url_query
+                                                    . '&amp;primary_key=' . $uva_condition
+                                                    . '&amp;sql_query=' . urlencode($sql_query)
+                                                    . '&amp;goto=' . urlencode($lnk_goto)
+                                                    . '&amp;transform_key=' . urlencode($meta->name);
+
+
                 // n u m e r i c
                 if ($meta->numeric == 1) {
 
@@ -1045,9 +1085,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                                                                    .  PMA_generate_common_url($db, $map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                    .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = ' . $row[$pointer]) . '"' . $title . '>'
-                                                                   .  $row[$pointer] . '</a>';
+                                                                   .  ($transform_function != $default_function ? $transform_function($row[$pointer], $transform_options) : $transform_function($row[$pointer])) . '</a>';
                         } else {
-                            $vertical_display['data'][$row_no][$i] .= $row[$pointer];
+                            $vertical_display['data'][$row_no][$i] .= ($transform_function != $default_function ? $transform_function($row[$pointer], $transform_options) : $transform_function($row[$pointer]));
                         }
                         $vertical_display['data'][$row_no][$i]     .= '</td>' . "\n";
                     } else {
@@ -1062,28 +1102,36 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     // even if $cfg['ShowBlob'] is false -> get the true type
                     // of the fields.
                     $field_flags = PMA_mysql_field_flags($dt_result, $i);
+
                     if (eregi('BINARY', $field_flags)) {
-                        $vertical_display['data'][$row_no][$i]      = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB';
+                        $blobtext = '[BLOB';
                         if (isset($row[$pointer])) {
                             $blob_size = PMA_formatByteDown(strlen($row[$pointer]), 3, 1);
-                            $vertical_display['data'][$row_no][$i] .= ' - '. $blob_size [0] . ' ' . $blob_size[1];
+                            $blobtext .= ' - '. $blob_size [0] . ' ' . $blob_size[1];
                             unset($blob_size);
                         }
-                        $vertical_display['data'][$row_no][$i]     .= ']</td>' . "\n";
+                        
+                        $blobtext .= ']';
+                        $blobtext = ($default_function != $transform_function ? $transform_function($blobtext, $transform_options) : $default_function($blobtext));
+                        
+                        $vertical_display['data'][$row_no][$i]      = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">' . $blobtext . '</td>';
                     } else {
                         //if (!isset($row[$meta->name])
                         if (!isset($row[$pointer])
                             || (function_exists('is_null') && is_null($row[$pointer]))) {
                             $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                         } else if ($row[$pointer] != '') {
+                            // garvin: if a transform function for blob is set, none of these replacements will be made
                             if (strlen($row[$pointer]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
                                 $row[$pointer] = substr($row[$pointer], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                             }
                             // loic1: displays all space characters, 4 space
                             // characters for tabulations and <cr>/<lf>
-                            $row[$pointer]     = htmlspecialchars($row[$pointer]);
+                            
+                            $row[$pointer]     = ($default_function != $transform_function ? $transform_function('BLOB', $transform_options) : $default_function($row[$pointer]));
                             $row[$pointer]     = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
+                            
                             $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$pointer] . '</td>' . "\n";
                         } else {
                             $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
@@ -1112,15 +1160,16 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $row[$pointer]     = str_replace("\x0a", '\n', $row[$pointer]);
                             $row[$pointer]     = str_replace("\x0d", '\r', $row[$pointer]);
                             $row[$pointer]     = str_replace("\x1a", '\Z', $row[$pointer]);
-                            $row[$pointer]     = htmlspecialchars($row[$pointer]);
+                            $row[$pointer]     = ($default_function != $transform_function ? $transform_function('BLOB', $transform_options) : $default_function($row[$pointer]));
                         }
                         // loic1: displays all space characters, 4 space
                         // characters for tabulations and <cr>/<lf>
                         else {
-                            $row[$pointer]     = htmlspecialchars($row[$pointer]);
+                            $row[$pointer]     = ($default_function != $transform_function ? $transform_function('BLOB', $transform_options) : $default_function($row[$pointer]));
                             $row[$pointer]     = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
                         }
+                        
                         // loic1: do not wrap if date field type
                         $nowrap = (eregi('DATE|TIME', $meta->type) ? ' nowrap="nowrap"' : '');
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"' . $nowrap . '>';

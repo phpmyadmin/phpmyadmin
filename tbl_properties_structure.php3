@@ -73,6 +73,7 @@ $fields_cnt  = mysql_num_rows($fields_rs);
 
 <?php
 $comments_map = array();
+$mime_map = array();
 
 if ($GLOBALS['cfg']['ShowPropertyComments']) {
     require('./libraries/relation.lib.php3');
@@ -83,6 +84,10 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
     
     if ($cfgRelation['commwork']) {
         $comments_map = PMA_getComments($db, $table);
+    
+        if ($cfg['BrowseMIME']) {
+            $mime_map = PMA_getMIME($db, $table, true);
+        }
     }
 }
 
@@ -119,6 +124,12 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
         $unsigned     = eregi('UNSIGNED', $row['Type'], $test);
         $zerofill     = eregi('ZEROFILL', $row['Type'], $test);
     }
+
+    // garvin: Display basic mimetype [MIME]
+    if ($cfg['BrowseMIME'] && isset($mime_map[$row['Field']]['mimetype'])) {
+        $type .= '<br />MIME: ' . str_replace('_', '/', $mime_map[$row['Field']]['mimetype']);
+    }
+
     $strAttribute     = '&nbsp;';
     if ($binary) {
         $strAttribute = 'BINARY';

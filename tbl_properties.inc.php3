@@ -50,6 +50,25 @@ if ($cfgRelation['commwork']) {
     echo '<th>' . $strComments . '</th>';
 }
 
+$comments_map = array();
+$mime_map = array();
+$available_mime = array();
+
+if ($cfgRelation['commwork']) {
+    $comments_map = PMA_getComments($db, $table);
+    echo '<th>' . $strComments . '</th>';
+
+    if ($cfg['BrowseMIME']) {
+        $mime_map = PMA_getMIME($db, $table);
+        $available_mime = PMA_getAvailableMIMEtypes();
+
+        echo '<th>' . $strMIME_MIMEtype . '</th>';
+        echo '<th>' . $strMIME_transformation . '</th>';
+        echo '<th>' . $strMIME_transformation_options . '***</th>';
+    }
+}
+
+
 // lem9: We could remove this 'if' and let the key information be shown and
 // editable. However, for this to work, tbl_alter must be modified to use the
 // key fields, as tbl_addfield does.
@@ -241,6 +260,47 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         </td>
     <?php
     }
+
+    // garvin: MIME-types
+    if ($cfg['BrowseMIME'] && $cfgRelation['commwork']) {
+    ?>
+        <td bgcolor="<?php echo $bgcolor; ?>" valign="top">
+            <select id="field_<?php echo $i; ?>_8" size="1" name="field_mimetype[]">
+                <option value=""></option>
+                <option value="auto">auto-detect</option>
+            <?php
+            if (is_array($available_mime['mimetype'])) {
+                @reset($available_mime['mimetype']);
+                while(list($mimekey, $mimetype) = each($available_mime['mimetype'])) {
+                    $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['mimetype']) && ($mime_map[$row['Field']]['mimetype'] == str_replace('/', '_', $mimetype)) ? 'selected ' : '');
+                    echo '<option value="' . str_replace('/', '_', $mimetype) . '" ' . $checked . '>' . htmlspecialchars($mimetype) . '</option>';
+                }
+            }
+           ?>
+           </select>
+        </td>
+
+        <td bgcolor="<?php echo $bgcolor; ?>" valign="top">
+            <select id="field_<?php echo $i; ?>_9" size="1" name="field_transformation[]">
+                <option value=""></option>
+            <?php
+            if (is_array($available_mime['transformation'])) {
+                @reset($available_mime['transformation']);
+                while(list($mimekey, $transform) = each($available_mime['transformation'])) {
+                    $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation']) && ($mime_map[$row['Field']]['transformation'] == $available_mime['transformation_file'][$mimekey]) ? 'selected ' : '');
+                    echo '<option value="' . $available_mime['transformation_file'][$mimekey] . '" ' . $checked . '>' . htmlspecialchars($transform) . '</option>' . "\n";
+                }
+            }
+           ?>
+           </select>
+        </td>
+
+        <td bgcolor="<?php echo $bgcolor; ?>" valign="top">
+            <input id="field_<?php echo $i; ?>_10" type="text" name="field_transformation_options[]" size="8" value="<?php echo (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation_options']) ?  htmlspecialchars($mime_map[$row['Field']]['transformation_options']) : ''); ?>" class="textfield" />
+        </td>
+    <?php
+    }
+
     // lem9: See my other comment about removing this 'if'.
     if (!$is_backup) {
         if (isset($row) && isset($row['Key']) && $row['Key'] == 'PRI') {
@@ -407,6 +467,26 @@ echo "\n";
         <?php echo $strDefaultValueHelp . "\n"; ?>
     </td>
 </tr>
+
+<?php
+if ($cfgRelation['commwork'] && $cfg['BrowseMIME']) {
+?>
+<tr>
+    <td valign="top" rowspan="2">***&nbsp;</td>
+    <td>
+        <?php echo $strMIME_transformation_options_note  . "\n"; ?>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <?php echo sprintf($strMIME_transformation_note, '<a href="libraries/transformations/overview.php3?' . PMA_generate_common_url($db, $table) . '" target="_new">', '</a>') . "\n"; ?>
+    </td>
+</tr>
+<?php
+}
+?>
+
 </table>
 <br />
 

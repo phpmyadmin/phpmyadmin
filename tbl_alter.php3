@@ -90,6 +90,7 @@ if (isset($submit)) {
 
     // garvin: If comments were sent, enable relation stuff
     require('./libraries/relation.lib.php3');
+    require('./libraries/transformations.lib.php3');
 
     $cfgRelation = PMA_getRelationsParam();
     
@@ -98,6 +99,14 @@ if (isset($submit)) {
         @reset($field_comments);
         while(list($fieldindex, $fieldcomment) = each($field_comments)) {
             PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, $field_orig[$fieldindex]);
+        }
+    }
+
+    // garvin: Update comment table for mime types [MIME]
+    if (is_array($field_mimetype) && $cfgRelation['commwork'] && $cfg['BrowseMIME']) {
+        @reset($field_mimetype);
+        while(list($fieldindex, $mimetype) = each($field_mimetype)) {
+            PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
         }
     }
 
