@@ -3,7 +3,7 @@
 
 
 require("./grab_globals.inc.php3");
- 
+
 
 if(!isset($message))
 {
@@ -17,15 +17,22 @@ else
 unset($sql_query);
 mysql_select_db($db);
 
-if(MYSQL_MAJOR_VERSION == "3.23")
-    {
-    if(isset($submitcomment))
-        $result = mysql_query("ALTER TABLE $table comment='$comment'") or mysql_die();
-    $result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
-    $row = mysql_fetch_array($result);
-    if (!empty($row['Comment']))
-       echo "<i>" . $row['Comment'] . "</i><br><br>\n";
+// 'show table' works correct since 3.23.03
+if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>=3)
+{
+	$result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
+	$showtable = mysql_fetch_array($result);
+	$show_comment=$showtable['Comment'];
+	$tbl_type=strtoupper($showtable['Type']);
 
+	if(isset($submitcomment))
+		$result = mysql_query("ALTER TABLE $table comment='$comment'") or mysql_die();
+	if(isset($submittype))
+		$result = mysql_query("ALTER TABLE $table TYPE=$tbl_type") or mysql_die();
+	if (!empty($showtable['Comment'])){
+		echo "<i>" . $showtable['Comment'] . "</i><br><br>\n";
+		$show_comment=$showtable['Comment'];
+	}
 }
 
 $result = mysql_query("SHOW KEYS FROM $table") or mysql_die();
@@ -72,12 +79,17 @@ while($row= mysql_fetch_array($result))
     } else {
       $Type = $row["Type"];
     }
+   	// reformat mysql query output - staybyte - 9. June 2001
+    $shorttype=substr($Type,0,3);
+    if ($shorttype=="set" || $shorttype=="enu"){
+    	$Type=eregi_replace (",",", ",$Type);
+    }
     $Type = eregi_replace("BINARY", "", $Type);
     $Type = eregi_replace("ZEROFILL", "", $Type);
     $Type = eregi_replace("UNSIGNED", "", $Type);
-    echo $Type;
-    ?>&nbsp;</td>
-         <td>
+    if (!empty($Type)) echo $Type;
+    else echo "&nbsp;";
+    ?></td><td>
     <?php
     $binary   = eregi("BINARY", $row["Type"], $test);
     $unsigned = eregi("UNSIGNED", $row["Type"], $test);
@@ -89,11 +101,12 @@ while($row= mysql_fetch_array($result))
         $strAttribute="UNSIGNED";
     if ($zerofill)
         $strAttribute="UNSIGNED ZEROFILL";
-    echo $strAttribute;
+    if (!empty($strAttribute)) echo $strAttribute;
+    else echo "&nbsp;";
     $strAttribute="";
     ?>
-     &nbsp;</td>
-     <td><?php if ($row["Null"] == "") { echo $strNo;} else {echo $strYes;}?>&nbsp;</td>
+</td>
+<td><?php if ($row["Null"] == "") { echo $strNo;} else {echo $strYes;}?>&nbsp;</td>
          <td><?php if(isset($row["Default"])) echo $row["Default"];?>&nbsp;</td>
          <td><?php echo $row["Extra"];?>&nbsp;</td>
 
@@ -109,14 +122,18 @@ while($row= mysql_fetch_array($result))
 }
 ?>
 </table>
+<br>
+<table border=0 cellspacing=0 cellpadding=0 width=100%>
+<tr>
 <?php
-
 $result = mysql_query("SHOW KEYS FROM ".$table) or mysql_die();
-if(mysql_num_rows($result)>0)
+$indexcount=mysql_num_rows($result);
+if($indexcount>0)
 {
-    ?>
-    <br>
-    <table border=<?php echo $cfgBorder;?>>
+echo "<td valign=top align=left>\n";
+if (!empty($strIndexes)) echo $strIndexes.":\n";
+?>
+<table border=<?php echo $cfgBorder;?>>
       <tr>
       <th><?php echo $strKeyname; ?></th>
       <th><?php echo $strUnique; ?></th>
@@ -124,7 +141,7 @@ if(mysql_num_rows($result)>0)
       <th><?php echo $strAction; ?></th>
       </tr>
     <?php
-    for($i=0 ; $i<mysql_num_rows($result); $i++)
+    for($i=0 ; $i<$indexcount; $i++)
     {
         $row = mysql_fetch_array($result);
         echo "<tr>";
@@ -154,13 +171,117 @@ if(mysql_num_rows($result)>0)
     }
     print "</table>\n";
     print show_docu("manual_Performance.html#MySQL_indexes");
+		echo "</td>\n";
 }
 
+// BEGIN - Calc Table Space - staybyte - 9 June 2001
+if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>3 && $tbl_type!="INNODB" && isset($showtable)){
+	echo "<td";
+	if ($indexcount>0) echo " align=center";
+	echo " valign=top>\n";
+	if (!empty($strSpaceUsage)) echo $strSpaceUsage.":\n";
+	echo "<a name=showusage><a><table border=$cfgBorder>\n";
+	echo "<th>$strType</th>";
+	echo "<th colspan=2 align=right>";
+	if (!empty($strUsage)) echo $strUsage;
+	echo "</th>";
+
+	// Data
+	echo "<tr bgcolor=$cfgBgcolorTwo>\n";
+	list($size,$unit)=format_byte_down($showtable["Data_length"]);
+	echo "<td style=\"padding-right:10px;\">";
+	if (!empty($strData)) echo $strData;
+	echo "</td><td align=right>".$size."</td><td>".$unit."</td>";
+	echo "</tr>\n";
+	// Index
+	echo "<tr bgcolor=$cfgBgcolorTwo>\n";
+	list($size,$unit)=format_byte_down($showtable["Index_length"]);
+	echo "<td style=\"padding-right:10px;\">$strIndex</td><td align=right>".$size."</td><td>".$unit."</td>";
+	echo "</tr>\n";
+	// Overhead
+	if (!empty($showtable["Data_free"])){
+		echo "<tr bgcolor=$cfgBgcolorTwo style=\"color:#bb0000;\">\n";
+		list($size,$unit)=format_byte_down($showtable["Data_free"]);
+		echo "<td style=\"padding-right:10px;\">";
+		if (!empty($strOverhead)) echo $strOverhead;
+		echo "</td><td align=right>".$size."</td><td>".$unit."</td>";
+		echo "</tr>\n";
+		// Effective
+		echo "<tr bgcolor=$cfgBgcolorOne>\n";
+		list($size,$unit)=format_byte_down($showtable["Data_length"]+$showtable["Index_length"]-$showtable["Data_free"]);
+		echo "<td style=\"padding-right:10px;\">";
+		if (!empty($strOverhead)) echo $strEffective;
+		echo "</td><td align=right>".$size."</td><td>".$unit."</td>";
+		echo "</tr>\n";
+	}
+	// Total
+	echo "<tr bgcolor=$cfgBgcolorOne>\n";
+	list($size,$unit)=format_byte_down($showtable["Data_length"]+$showtable["Index_length"]);
+	echo "<td style=\"padding-right:10px;\">$strTotal</td><td align=right>".$size."</td><td>".$unit."</td>";
+	echo "</tr>\n";
+
+	if (!empty($showtable["Data_free"])){
+		echo "<tr>";
+		echo "<td colspan=3 align=center>";
+		$query = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
+		echo "<a href=\"sql.php3?sql_query=".urlencode("OPTIMIZE TABLE $table")."&pos=0&$query;\">[$strOptimizeTable]</a>";
+		echo "</td>";
+		echo "<tr>\n";
+	}
+	echo "</table>\n";
+	echo "</td>\n";
+
+// Rows Statistic
+	echo "<td";
+	if ($indexcount>0) echo " align=center";
+	echo " valign=top>\n";
+	if (!empty($strRowsStatistic)) echo $strRowsStatistic.":\n";
+	echo "<table border=$cfgBorder>\n";
+	echo "<th>";
+	if (!empty($strStatement)) echo $strStatement;
+	echo "</th>";
+	echo "<th align=right>";
+	if (!empty($strValue)) echo $strValue;
+	echo "</th>\n";
+
+	$i=0;
+	if (isset($showtable["Row_format"])){
+		echo (++$i%2)?"<tr bgcolor=$cfgBgcolorTwo><td>":"<tr bgcolor=$cfgBgcolorOne><td>\n";
+		if (!empty($strFormat)) echo $strFormat;
+		echo "</td><td>";
+		if ($showtable["Row_format"]=="Fixed" && !empty($strFixed)) echo $strFixed;
+		else if ($showtable["Row_format"]=="Dynamic" && !empty($strDynamic)) echo $strDynamic;
+		else echo $showtable["Row_format"];
+		echo "</td></tr>\n";
+	}
+	if (isset($showtable["Rows"])){
+		echo (++$i%2)?"<tr bgcolor=$cfgBgcolorTwo><td>":"<tr bgcolor=$cfgBgcolorOne><td>\n";
+		if (!empty($strRows)) echo $strRows;
+		echo "</td><td>".$showtable["Rows"]."</td></tr>\n";
+	}
+	if (isset($showtable["Avg_row_length"])){
+		echo (++$i%2)?"<tr bgcolor=$cfgBgcolorTwo><td>":"<tr bgcolor=$cfgBgcolorOne><td>\n";
+		if (!empty($strRowLength)) echo $strRowLength;
+		echo "&nbsp;&oslash;";
+		echo "</td><td>".$showtable["Avg_row_length"]."</td></tr>\n";
+	}
+	if (isset($showtable["Auto_increment"])){
+		echo (++$i%2)?"<tr bgcolor=$cfgBgcolorTwo><td>":"<tr bgcolor=$cfgBgcolorOne><td>\n";
+		echo "$strNext Autoindex";
+		echo "</td><td>".$showtable["Auto_increment"]."</td></tr>\n";
+	}
+
+	echo "</table>\n";
+}
+// END - Calc Table Space
 ?>
-<div align="left">
-<ul>
-<li><a href="tbl_printview.php3?<?php echo $query;?>"><?php echo $strPrintView; ?></a>
-<li>
+</tr></table>
+<br>
+<div align="left" style="padding-left:10px;">
+<table border=0 cellspacing=0 cellpadding=0>
+<tr><td valign=top><li>&nbsp;</td><td colspan=2><a href="tbl_printview.php3?<?php echo $query;?>"><?php echo $strPrintView; ?></a></td></tr>
+
+<tr><td valign=top><li>&nbsp;</td><td colspan=2>
 <form method="post" action="db_readdump.php3">
 <input type="hidden" name="server" value="<?php echo $server;?>">
 <input type="hidden" name="lang" value="<?php echo $lang;?>">
@@ -193,22 +314,28 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
     }
 }
 ?>
-
 <input type="submit" name="SQL" value="<?php echo $strGo; ?>">
 </form>
-<li><table><tr>
-<td>
+</td></tr>
+
+<tr><td valign=top><li>&nbsp;</td><td colspan=2>
+<table border=0 cellspacing=0 cellpadding=0><tr><td>
  <a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table");?>&pos=0&<?php echo $query;?>">
-<?php echo "<b>" . $strBrowse. "<b>"; ?></a></td>
+<?php echo "<b>" . $strBrowse. "<b>"; ?></a></td><td>&nbsp;-&nbsp;</td>
 <td>
  <a href="tbl_select.php3?<?php echo $query;?>"><?php echo "<b>" . $strSelect . "</b>"; ?></a></td>
-<td>
+<td>&nbsp;-&nbsp;</td><td>
   <a href="tbl_change.php3?<?php echo $query;?>"><?php echo "<b>" . $strInsert. "</b>"; ?></a></td></tr></table></li>
-<li><form method="post" action="tbl_addfield.php3"> <input type="hidden" name="server" value="<?php echo $server;?>">
+</td></tr>
+<tr><td>&nbsp;</tr>
+<tr><td><li>&nbsp;</td><td>
+<?php echo $strAddNewField; ?>:</td><td>
+<form method="post" action="tbl_addfield.php3" style="margin:0px;">
+<input name="num_fields" size=2 maxlength=2 value=1>
+ <input type="hidden" name="server" value="<?php echo $server;?>">
  <input type="hidden" name="lang" value="<?php echo $lang;?>">
  <input type="hidden" name="db" value="<?php echo $db;?>">
  <input type="hidden" name="table" value="<?php echo $table;?>">
-<?php echo " ".$strAddNewField; ?>:  <input name="num_fields" size=2 maxlength=2 value=1>
 <?php
 echo " ";
 echo " <select name=\"after_field\">\n";
@@ -221,8 +348,13 @@ echo " </select>\n";
 ?>
 <input type="submit" value="<?php echo $strGo;?>">
 </form>
-<li><a href="ldi_table.php3?<?php echo $query;?>"><?php echo $strInsertTextfiles; ?></a>
-<li><form method="post" action="tbl_dump.php3"><?php echo $strViewDump;?><br>
+</td></tr>
+<tr><td valign=top><li>&nbsp;</td><td colspan=2>
+<a href="ldi_table.php3?<?php echo $query;?>"><?php echo $strInsertTextfiles; ?></a>
+</td></tr>
+
+<tr><td valign=top><li>&nbsp;</td><td colspan=2>
+<form method="post" action="tbl_dump.php3"><?php echo $strViewDump;?><br>
 <table>
     <tr>
         <td>
@@ -245,16 +377,11 @@ echo " </select>\n";
     </tr>
     <tr>
     <td>
+       <input type="radio" name="what" value="dataonly"><?php echo $strDataOnly; ?>
     </td>
     <td>
        <input type="checkbox" name="showcolumns" value="yes"><?php echo $strCompleteInserts; ?>
     </td>
-    </tr>
-    <tr>
-        <td>
-           <input type="radio" name="what" value="dataonly">
-                <?php echo $strDataOnly; ?>
-        </td>
     </tr>
     <tr>
         <td>
@@ -274,32 +401,50 @@ echo " </select>\n";
  <input type="hidden" name="db" value="<?php echo $db;?>">
  <input type="hidden" name="table" value="<?php echo $table;?>">
 </form>
+</td></tr>
 
-<li><form method="post" action="tbl_rename.php3"><?php echo $strRenameTable;?>:<br>
+<tr><td valign=top><li>&nbsp;</td><td colspan=2>
+<table border=0 cellspacing=0 cellpadding=0>
+<tr><td valign=top>
+<form method="post" action="tbl_rename.php3"><?php echo $strRenameTable;?>:<br>
+<table border=0 cellspacing=0 cellpadding=0><tr><td>
  <input type="hidden" name="server" value="<?php echo $server;?>">
  <input type="hidden" name="lang" value="<?php echo $lang;?>">
  <input type="hidden" name="db" value="<?php echo $db;?>">
  <input type="hidden" name="table" value="<?php echo $table;?>">
  <input type="hidden" name="reload" value="true">
- <input type="text" name="new_name"><input type="submit" value="<?php echo $strGo;?>">
+ <input type="text" name="new_name"></td></tr>
+<tr><td align=right valign=bottom><input type="submit" value="<?php echo $strGo;?>"></td></tr></table>
 </form>
-<li><form method="post" action="tbl_copy.php3"><?php echo $strCopyTable;?><br>
+</td><td width=25>&nbsp;</td>
+<td valign=top>
+<form method="post" action="tbl_copy.php3">
+<table border=0 cellspacing=0 cellpadding=0>
+<tr><td colspan=2><?php echo $strCopyTable;?>
  <input type="hidden" name="server" value="<?php echo $server;?>">
  <input type="hidden" name="lang" value="<?php echo $lang;?>">
  <input type="hidden" name="db" value="<?php echo $db;?>">
  <input type="hidden" name="table" value="<?php echo $table;?>">
  <input type="hidden" name="reload" value="true">
- <input type="text" name="new_name"><br>
- <input type="radio" name="what" value="structure" checked><?php echo $strStrucOnly;?>
+</td></tr>
+<tr><td align=right colspan=2><input type="text" style="width:100%;" name="new_name"></td></tr>
+<tr><td>
+ <input type="radio" name="what" value="structure" checked><?php echo $strStrucOnly;?><br>
  <input type="radio" name="what" value="data"><?php echo $strStrucData;?>
- <input type="submit" value="<?php echo $strGo;?>">
+</td>
+<td align=right valign=top><input type="submit" value="<?php echo $strGo;?>"></td>
+</tr>
+</table>
 </form>
+</td></tr></table>
+</td></tr>
 
-<li><table><tr><td><?php echo $strTableMaintenance . ":"; ?> </td>
+<tr><td valign=top><li>&nbsp;</td><td colspan=2>
+<table><tr><td><?php echo $strTableMaintenance . ":"; ?> </td>
  <td><a href="sql.php3?sql_query=<?php echo urlencode("CHECK TABLE $table");?>&display=simple&<?php echo $query;?>">
         <?php echo $strCheckTable; ?></a>
         &nbsp;<?php echo show_docu("manual_Reference.html#CHECK_TABLE"); ?>
- </td>
+ </td><td>-</td>
  <td><a href="sql.php3?sql_query=<?php echo urlencode("ANALYZE TABLE $table");?>&display=simple&<?php echo $query;?>">
         <?php echo $strAnalyzeTable; ?>
         </a>&nbsp;<?php echo show_docu("manual_Reference.html#ANALYZE_TABLE");?>
@@ -307,42 +452,32 @@ echo " </select>\n";
  <td> <a href="sql.php3?sql_query=<?php echo urlencode("REPAIR TABLE $table");?>&display=simple&<?php echo $query;?>">
         <?php echo $strRepairTable; ?>
         </a>&nbsp;<?php echo show_docu("manual_Reference.html#REPAIR_TABLE"); ?>
- </td>
+ </td><td>-</td>
 <td><a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table");?>&display=simple&<?php echo $query;?>">
         <?php echo $strOptimizeTable; ?>
         </a>&nbsp;<?php echo show_docu("manual_Reference.html#OPTIMIZE_TABLE");
-?> </td> </tr> </table></li>
+?> </td> </tr> </table>
+</td></tr>
 
-<?php
-if(MYSQL_MAJOR_VERSION == "3.23")
-    {
-    $result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
-    $row = mysql_fetch_array($result);
-    //Fix to Comment editing so that you can add comments - 2 May 2001 - Robbat2
-    ?>
-<li> <form method='post' action='tbl_properties.php3'>
+<tr><td><li>&nbsp;</td><td><?php echo "$strTableComments:&nbsp;";?></td>
+<td>
+<form method='post' action='tbl_properties.php3' style="margin:0px;">
     <input type="hidden" name="server" value="<?php echo $server;?>">
     <input type="hidden" name="lang" value="<?php echo $lang;?>">
     <input type="hidden" name="db" value="<?php echo $db;?>">
     <input type="hidden" name="table" value="<?php echo $table;?>">
     <?php
-    echo "$strTableComments: <input type='text' name='comment' value='" . $row['Comment'] . "'><input type='submit' name='submitcomment' value='$strGo'></form>"
-;
-
-    //BEGIN - Table Type - 2 May 2001 - Robbat2
-    if(isset($submittype))
-        $result = mysql_query("ALTER TABLE $table TYPE=$tbl_type") or mysql_die(
-);
-    $result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
-    $row = mysql_fetch_array($result);
-    $tbl_type=strtoupper($row['Type']);
+    //Fix to Comment editing so that you can add comments - 2 May 2001 - Robbat2
+    echo "<input type='text' name='comment' maxlength=60 size=30 value='" . $show_comment . "'>&nbsp;<input type='submit' name='submitcomment' value='$strGo'></form>";
     ?>
-    <li><form method='post' action='tbl_properties.php3'>
+</td></tr>
+<tr><td><li>&nbsp;</td><td><?php echo "$strTableType:&nbsp;";?></td>
+<td>
+<form method='post' action='tbl_properties.php3' style="margin:0px;">
     <input type="hidden" name="server" value="<?php echo $server;?>">
     <input type="hidden" name="lang" value="<?php echo $lang;?>">
     <input type="hidden" name="db" value="<?php echo $db;?>">
     <input type="hidden" name="table" value="<?php echo $table;?>">
-    <?php echo $strTableType.":";?>
     <select name='tbl_type'>
     <option <?php if($tbl_type == "BDB") echo 'selected';?> value="BDB">Berkeley DB</option>
 <?php //Not in MySQL yet <option <?php if($tbl_type == "GEMINI") echo 'selected' ;? >value="GEMINI">Gemini</option> ?>
@@ -351,12 +486,11 @@ if(MYSQL_MAJOR_VERSION == "3.23")
 <?php //Not in MySQL yet <option <?php if($tbl_type == "INNODB") echo 'selected' ;? > value="InnoDB">InnoDB</option> ?>
     <option <?php if($tbl_type == "MRG_MYISAM") echo 'selected';?> value="MERGE">Merge</option>
     <option <?php if($tbl_type == "MYISAM") echo 'selected';?> value="MYISAM">MyISAM</option>
-    </select>
-    <input type='submit' name='submittype' value='<?php echo $strGo; ?>'></form>
-    <?php
-    //END - Table Type - 2 May 2001 - Robbat2
-}
-echo "</ul>";
+    </select>&nbsp;<input type='submit' name='submittype' value='<?php echo $strGo; ?>'></form>
+    </td></tr>
+</table>
+<?php
+
 echo "</div>";
 require("./footer.inc.php3");
 ?>
