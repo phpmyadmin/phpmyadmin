@@ -83,6 +83,7 @@ $strDatabase = 'Base De Datos ';
 $strDatabaseHasBeenDropped = 'La Base de datos %s ha sido eliminada.';
 $strDatabases = 'Bases de datos';
 $strDatabasesStats = 'Estadisticas de la base';
+$strDatabaseWildcard = 'Bases de Datos (se permiten comodines):';
 $strDataOnly = 'Solo datos';
 $strDefault = 'Defecto';
 $strDelete = 'Borrar';
@@ -345,5 +346,4 @@ $strCardinality = 'Cardinality';
 $strIgnore = 'Ignorar';
 $strNoIndexPartsDefined = 'No index parts defined!';
 $strNoIndex = 'No index defined!';
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

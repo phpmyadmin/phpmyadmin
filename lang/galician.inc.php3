@@ -86,6 +86,7 @@ $strDatabase = 'Banco de Datos ';
 $strDatabaseHasBeenDropped = 'A base de datos %s foi eliminada.';
 $strDatabases = 'Bancos de Datos';
 $strDatabasesStats = 'Estatísticas dos bancos de datos';
+$strDatabaseWildcard = 'Base de datos (permítese usar os comodíns):';
 $strDataOnly = 'Só os datos';
 $strDefault = 'Padrón';
 $strDelete = 'Eliminar';
@@ -349,5 +350,4 @@ $strCardinality = 'Cardinality';
 $strLogin = 'Login';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

@@ -86,6 +86,7 @@ $strDatabase = 'Baza danych ';
 $strDatabaseHasBeenDropped = 'Baza danych %s zosta³a usuniêta.';
 $strDatabases = 'bazy danych';
 $strDatabasesStats = 'Statystyki baz danych';
+$strDatabaseWildcard = 'Baza danych (dozwolone maski):';
 $strDataOnly = 'Tylko dane';
 $strDefault = 'Domy¶lnie';
 $strDelete = 'Skasowanie';
@@ -345,5 +346,4 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

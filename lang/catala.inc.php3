@@ -87,6 +87,7 @@ $strDatabase = 'Base de dades ';
 $strDatabaseHasBeenDropped = 'La Base de Dades %s s\'ha eliminat.';
 $strDatabases = 'bases de dades';
 $strDatabasesStats = 'Estadístiques de les bases de dades';
+$strDatabaseWildcard = 'Bases de Dades (es permeten comodins):';
 $strDefault = 'Defecte';
 $strDelete = 'Esborrar';
 $strDeleteFailed = 'No s\'ha pogut esborrar!';
@@ -345,5 +346,4 @@ $strYes = 'Si';
 $strZip = '"comprimit amb zip"';
 
 // To translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

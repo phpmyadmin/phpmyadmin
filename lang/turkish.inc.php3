@@ -86,6 +86,7 @@ $strDatabase = 'Veritabaný ';
 $strDatabaseHasBeenDropped = '%s veritabaný kaldýrýldý.';
 $strDatabases = 'veritabanlarý';
 $strDatabasesStats = 'Veritabaný istatistikleri';
+$strDatabaseWildcard = 'Veritabaný (* izin verili):';
 $strDataOnly = 'Sadece veri';
 $strDefault = 'Varsayýlan';
 $strDelete = 'Sil';
@@ -345,5 +346,4 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiþ"';
 
 // To translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

@@ -86,6 +86,7 @@ $strDatabase = 'Base de Dados ';
 $strDatabaseHasBeenDropped = 'A base de dados %s foi eliminada.';
 $strDatabases = 'Base de Dados';
 $strDatabasesStats = 'Estatísticas das bases de dados';
+$strDatabaseWildcard = 'Base de Dados (aceita caracteres universais):';
 $strDefault = 'Defeito';
 $strDelete = 'Remove';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
@@ -345,5 +346,4 @@ $strYes = 'Sim';
 $strZip = '"zipped"';  //to translate
 
 // To translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

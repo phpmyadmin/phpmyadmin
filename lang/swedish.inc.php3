@@ -346,5 +346,4 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

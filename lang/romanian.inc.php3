@@ -86,6 +86,7 @@ $strDatabase = 'Baza de date ';
 $strDatabaseHasBeenDropped = 'Baza de date %s a fost aruncat.';
 $strDatabases = 'Baze de date';
 $strDatabasesStats = 'Statisticile bazelor de date';
+$strDatabaseWildcard = 'Baza de date (sunt permise caractere speciale):';
 $strDataOnly = 'Numai date';
 $strDefault = 'Setare de baza';
 $strDelete = 'Sterge';

@@ -87,6 +87,7 @@ $strDatabase = 'Database ';
 $strDatabaseHasBeenDropped = 'Il Database %s è stato eliminato.';
 $strDatabases = 'database';
 $strDatabasesStats = 'Statistiche dei databases';
+$strDatabaseWildcard = 'Database (wildcards permesse):';
 $strDataOnly = 'Solo dati';
 $strDefault = 'Predefinito';
 $strDelete = 'Cancella';
@@ -348,5 +349,4 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>
