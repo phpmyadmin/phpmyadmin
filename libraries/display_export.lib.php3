@@ -248,7 +248,7 @@ if ($cfgRelation['mimework']) {
                     </tr>
                     <tr>
                         <td>
-                            <?php echo $strFieldsTerminatedBy; ?>&nbsp;
+                            <?php echo $strLinesTerminatedBy; ?>&nbsp;
                         </td>
                         <td>
                             <input type="text" name="add_character" size="2" value="<?php if ($cfg['Export']['csv_terminated'] == 'AUTO') echo ((PMA_whichCrlf() == "\n") ? '\n' : '\r\n'); else echo $cfg['Export']['csv_terminated']; ?>" class="textfield" />

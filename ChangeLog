@@ -7,6 +7,8 @@ $Source$
 
 2003-06-14 Michal Cihar  <nijel@users.sourceforge.net>
     * export.php3: Fixed saving compressed dumps on server.
+    * libraries/display_export.lib.php3: Fixed description for line
+      terminating character.
 
 2003-06-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php3: bug 753813, "session" is not
