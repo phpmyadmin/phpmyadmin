@@ -49,6 +49,10 @@ if ($is_minimum_common == FALSE) {
      * Include data for the SQL Parser
      */
     require_once('./libraries/sqlparser.data.php');
+    require_once('./libraries/mysql_charsets.lib.php');
+    if (!isset($mysql_charsets)) {
+        $mysql_charsets = array();
+    }
 
     if (!defined('DEBUG_TIMING')) {
         function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize)
@@ -186,6 +190,7 @@ if ($is_minimum_common == FALSE) {
      * @global integer  MySQL reserved words count
      * @global integer  MySQL column types count
      * @global integer  MySQL function names count
+     * @global array    List of available character sets
      *
      * @access public
      */
@@ -193,7 +198,8 @@ if ($is_minimum_common == FALSE) {
     {
         global $cfg;
         global $PMA_SQPdata_column_attrib, $PMA_SQPdata_reserved_word, $PMA_SQPdata_column_type, $PMA_SQPdata_function_name,
-        $PMA_SQPdata_column_attrib_cnt, $PMA_SQPdata_reserved_word_cnt, $PMA_SQPdata_column_type_cnt, $PMA_SQPdata_function_name_cnt;
+               $PMA_SQPdata_column_attrib_cnt, $PMA_SQPdata_reserved_word_cnt, $PMA_SQPdata_column_type_cnt, $PMA_SQPdata_function_name_cnt;
+        global $mysql_charsets;
 
         // rabus: Convert all line feeds to Unix style
         $sql = str_replace("\r\n", "\n", $sql);
@@ -527,24 +533,30 @@ if ($is_minimum_common == FALSE) {
 
 
         if ($arraysize > 0) {
-          $t_next       = $sql_array[0]['type'];
-          $t_prev       = '';
-          $t_cur        = '';
-          $d_next       = $sql_array[0]['data'];
-          $d_prev       = '';
-          $d_cur        = '';
-          $d_next_upper = $t_next == 'alpha' ? strtoupper($d_next) : $d_next;
-          $d_prev_upper = '';
-          $d_cur_upper  = '';
+          $t_next           = $sql_array[0]['type'];
+          $t_prev           = '';
+          $t_bef_prev       = '';
+          $t_cur            = '';
+          $d_next           = $sql_array[0]['data'];
+          $d_prev           = '';
+          $d_bef_prev       = '';
+          $d_cur            = '';
+          $d_next_upper     = $t_next == 'alpha' ? strtoupper($d_next) : $d_next;
+          $d_prev_upper     = '';
+          $d_bef_prev_upper = '';
+          $d_cur_upper      = '';
         }
 
         for ($i = 0; $i < $arraysize; $i++) {
-          $t_prev       = $t_cur;
-          $t_cur        = $t_next;
-          $d_prev       = $d_cur;
-          $d_cur        = $d_next;
-          $d_prev_upper = $d_cur_upper;
-          $d_cur_upper  = $d_next_upper;
+          $t_bef_prev       = $t_prev;
+          $t_prev           = $t_cur;
+          $t_cur            = $t_next;
+          $d_bef_prev       = $d_prev;
+          $d_prev           = $d_cur;
+          $d_cur            = $d_next;
+          $d_bef_prev_upper = $d_prev_upper;
+          $d_prev_upper     = $d_cur_upper;
+          $d_cur_upper      = $d_next_upper;
           if (($i + 1) < $arraysize) {
             $t_next = $sql_array[$i + 1]['type'];
             $d_next = $sql_array[$i + 1]['data'];
@@ -602,6 +614,17 @@ if ($is_minimum_common == FALSE) {
               if ($d_cur_upper == 'DEFAULT' && $d_next_upper == 'CHARACTER') {
                 $t_suffix = '_reservedWord';
               }
+              // Binary as character set
+              if ($d_cur_upper == 'BINARY' && (
+                  ($d_bef_prev_upper == 'CHARACTER' && $d_prev_upper == 'SET')
+                  || ($d_bef_prev_upper == 'SET' && $d_prev_upper == '=')
+                  || ($d_bef_prev_upper == 'CHARSET' && $d_prev_upper == '=')
+                  || $prev_upper == 'CHARSET'
+                  ) && PMA_STR_binarySearchInArr($d_cur, $mysql_charsets, count($mysql_charsets))) {
+                  $t_suffix = '_charset';
+              }
+            } elseif (PMA_STR_binarySearchInArr($d_cur, $mysql_charsets, count($mysql_charsets))) {
+              $t_suffix = '_charset';
             } else {
               // Do nothing
             }

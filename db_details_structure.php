@@ -7,7 +7,6 @@ require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/mysql_charsets.lib.php');
 
-
 /**
  * Prepares the tables list if the user where not redirected to this script
  * because there is no table in the database ($is_info is TRUE)
@@ -36,6 +35,11 @@ if (empty($is_info)) {
         PMA_showMessage($strSuccess);
     }
 }
+
+if (PMA_MYSQL_INT_VERSION >= 40100) {
+    $db_collation = PMA_getDbCollation($db);
+}
+
 
 // Display function
 function pma_TableHeader($alternate = FALSE) {
@@ -447,7 +451,6 @@ else {
            . '                    <b>--</b>' . "\n"
            . '                </th>' . "\n";
         if (PMA_MYSQL_INT_VERSION >= 40100) {
-            $db_collation = PMA_getDbCollation($db);
             echo '                <th align="center">' . "\n"
                . '                    &nbsp;<b><dfn title="' . PMA_getCollationDescr($db_collation) . '">' . $db_collation . '</dfn></b>&nbsp;' . "\n"
                . '                </th>' . "\n";
@@ -597,6 +600,27 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
     </li>
 
 <?php
+
+if (PMA_MYSQL_INT_VERSION >= 40101) {
+    // MySQL supports setting default charsets / collations for databases since
+    // version 4.1.1.
+    echo '    <!-- Change database charset -->' . "\n"
+       . '    <li>' . "\n"
+       . '        <form method="post" action="./db_details_structure.php">' . "\n"
+       . PMA_generate_common_hidden_inputs($db, $table, 3)
+       . '            ' . $strCharset . '&nbsp;:&nbsp;' . "\n"
+       . '            <select name="db_charset" style="vertical-align: middle">' . "\n";
+       $real_charset = strpos($db_collation, '_') ? substr($db_collation, 0, strpos($db_collation, '_')) : $db_collation;
+    for ($i = 1; isset($mysql_charsets[$i]); $i++) {
+        echo '                <option value="' . $mysql_charsets[$i] . '"' . ($mysql_charsets[$i] == $real_charset ? ' selected="selected"' : '') . '>' . $mysql_charsets[$i] . '</option>' . "\n";
+    }
+    unset($i, $real_charset);
+    echo '            </select>&nbsp;' . "\n"
+       . '            <input type="submit" name="submitcharset" value="' . $strGo . '" style="vertical-align: middle" />&nbsp;' . "\n"
+       . '        </form>' . "\n"
+       . '    </li>' . "\n\n";
+}
+
 if ($num_tables > 0
     && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
     echo '    <li>' . "\n";

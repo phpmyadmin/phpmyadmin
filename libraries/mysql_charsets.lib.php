@@ -225,14 +225,14 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
     }
 
     function PMA_getDbCollation($db) {
-        global $dbh;
+        global $userlink;
 
         if (PMA_MYSQL_INT_VERSION >= 40101) {
             // MySQL 4.1.0 does not support seperate charset settings
             // for databases.
 
             $sql_query = 'SHOW CREATE DATABASE `' . $db . '`;';
-            $res = PMA_mysql_query($sql_query, $dbh) or PMA_mysqlDie(PMA_mysql_error($dbh), $sql_query);
+            $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
             $row = PMA_mysql_fetch_row($res);
             mysql_free_result($res);
             $tokenized = explode(' ', $row[1]);

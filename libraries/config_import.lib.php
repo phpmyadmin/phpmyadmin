@@ -915,6 +915,10 @@ if (!isset($cfg['SQP']['fmtColor']['alpha_identifier'])) {
     $cfg['SQP']['fmtColor']['alpha_identifier'] = 'black';
 }
 
+if (!isset($cfg['SQP']['fmtColor']['alpha_charset'])) {
+    $cfg['SQP']['fmtColor']['alpha_charset'] = '#6495ed';
+}
+
 if (!isset($cfg['SQP']['fmtColor']['alpha_variable'])) {
     $cfg['SQP']['fmtColor']['alpha_variable'] = '#800000';
 }

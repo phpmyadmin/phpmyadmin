@@ -39,7 +39,7 @@ if (isset($submittype)) {
 }
 if (isset($submitcharset)) {
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' CHARACTER SET = ' . $tbl_charset;
-    $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+    $result        = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query, '', $err_url);
     $message       = $strSuccess;
 }
 if (isset($submitoptions)) {

@@ -136,7 +136,7 @@ if (isset($cfg['FileRevision'])) {
 } else {
     $cfg['FileRevision'] = array(1, 1);
 }
-if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 1)) {
+if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 4)) {
     require_once('./libraries/config_import.lib.php');
 }
 
@@ -172,7 +172,7 @@ if ($is_minimum_common == FALSE) {
 
     /**
      * Maximum upload size as limited by PHP
-     * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas 
+     * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
      *
      * this section generates $max_upload_size in bytes
      */
@@ -211,7 +211,7 @@ if ($is_minimum_common == FALSE) {
         if ($postsize < $max_upload_size) {
             $max_upload_size = $postsize;
         }
-    } 
+    }
     unset($filesize);
     unset($postsize);
 
@@ -222,7 +222,7 @@ if ($is_minimum_common == FALSE) {
     /**
      * Displays the maximum size for an upload
      *
-     * @param   integer  the size 
+     * @param   integer  the size
      *
      * @return  string   the message
      *
@@ -237,14 +237,14 @@ if ($is_minimum_common == FALSE) {
      * Generates a hidden field which should indicate to the browser
      * the maximum size for upload
      *
-     * @param   integer  the size 
+     * @param   integer  the size
      *
      * @return  string   the INPUT field
      *
      * @access  public
      */
      function PMA_generateHiddenMaxFileSize($max_size){
-         return '<input type="hidden" name="MAX_FILE_SIZE" value="' .$max_size . '" />'; 
+         return '<input type="hidden" name="MAX_FILE_SIZE" value="' .$max_size . '" />';
      }
 
     /**
@@ -258,26 +258,6 @@ if ($is_minimum_common == FALSE) {
      * String handling
      */
     require_once('./libraries/string.lib.php');
-}
-
-if ($is_minimum_common == FALSE) {
-    /**
-     * SQL Parser data
-     */
-    require_once('./libraries/sqlparser.data.php');
-}
-
-/**
- * SQL Parser code
- */
-
-require_once('./libraries/sqlparser.lib.php');
-
-if ($is_minimum_common == FALSE) {
-    /**
-     * SQL Validator interface code
-     */
-    require_once('./libraries/sqlvalidator.lib.php');
 }
 
 // If zlib output compression is set in the php configuration file, no
@@ -1131,6 +1111,16 @@ if ($is_minimum_common == FALSE) {
         // Gets the mysql release number
         require_once('./libraries/defines_mysql.lib.php');
 
+        /**
+         * SQL Parser code
+         */
+        require_once('./libraries/sqlparser.lib.php');
+
+        /**
+         * SQL Validator interface code
+         */
+        require_once('./libraries/sqlvalidator.lib.php');
+
         // if 'only_db' is set for the current user, there is no need to check for
         // available databases in the "mysql" db
         $dblist_cnt = count($dblist);
@@ -1405,6 +1395,8 @@ if ($is_minimum_common == FALSE) {
     function PMA_showMessage($message)
     {
         global $cfg;
+
+        require_once('./header.inc.php');
 
         // Reloads the navigation frame via JavaScript if required
         if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {

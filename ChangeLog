@@ -5,6 +5,20 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-30 Alexander M. Turek  <facevalue@derrabus.de>
+    * config.inc.php, db_details_common.php, db_details_structure.php,
+      tbl_properties_operations.php, css/phpmyadmin.css.php,
+      libraries/common.lib.php, libraries/config_import.lib.php,
+      libraries/mysql_charsets.lib.php, libraries/sqlparser.lib.php:
+      - SQL parser detected the character set "binary" as column attribute;
+      - MySQL charsets are now parsed and highlighted - Note: the SQL parser
+        library now has to be included AFTER having connected to the MySQL
+        server;
+      - The default charset of a database may now be changed;
+      - Ensured that the user's connection is used for setting and retreiving
+        charset information.
+      * libraries/defines.lib.php: typo.
+
 2003-12-30 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php: bug 867320, dropdowns in search page
 
