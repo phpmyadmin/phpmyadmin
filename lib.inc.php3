@@ -13,7 +13,8 @@ if (!defined('__LIB_INC__')){
      *
      * some functions need the constants of defines.inc.php3
      *
-     * the include of defines.inc.php3 must be after the connection to db
+     * the include of defines.inc.php3 must be after the connection to db to
+     * get the MySql version
      *
      * the auth() function must be before the connection to db
      *
@@ -24,10 +25,13 @@ if (!defined('__LIB_INC__')){
      *
      * - definition of auth()
      * - parsing of the configuration file
+     * - first load of the define.lib.php3 library (won't get the MySQL
+     *   release number)
      * - load of mysql extension (if necessary)
      * - definition of mysql_die()
      * - db connection
-     * - defines.inc.php3
+     * - second load of the define.lib.php3 library to get the MySQL release
+     *   number)
      * - other functions, respecting dependencies 
      */
 
@@ -78,7 +82,8 @@ if (!defined('__LIB_INC__')){
 
 
     /**
-     * Parses the configuration file
+     * Parses the configuration file and gets some constants used to define
+     * versions of phpMyAdmin/php/mysql...
      */
     include('./config.inc.php3');
     // For compatibility with old config.inc.php3
@@ -88,20 +93,21 @@ if (!defined('__LIB_INC__')){
     if (!isset($cfgTextareaRows)) {
         $cfgTextareaRows = 7;
     }
+    include('./defines.inc.php3');
+
 
 
     /**
      * Loads the mysql extensions if it is not loaded yet
      * staybyte - 26. June 2001
      */
-    if ((intval(phpversion()) == 3 && substr(phpversion(), 4) > 9)
-        || intval(phpversion()) == 4) {
-        if (defined('PHP_OS') && eregi('win', PHP_OS)) {
+    if (PHP_INT_VERSION >= 30009) {
+        if (PMA_WINDOWS) {
             $suffix = '.dll';
         } else {
             $suffix = '.so';
         }
-        if (intval(phpversion()) == 3) {
+        if (PHP_INT_VERSION < 40000) {
             $extension = 'MySQL';
         } else {
             $extension = 'mysql';
@@ -266,10 +272,9 @@ if (!defined('__LIB_INC__')){
                 $server_port   = (empty($cfgServer['port']))
                                ? ''
                                : ':' . $cfgServer['port'];
-                $server_socket = (empty($cfgServer['socket']) || PMA_INT_VERSION >= 30010)
+                $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
                                ? ''
                                : ':' . $cfgServer['socket'];
-
                 $dbh           = @$connect_func(
                                      $cfgServer['host'] . $server_port . $server_socket,
                                      $cfgServer['stduser'],
@@ -360,20 +365,17 @@ if (!defined('__LIB_INC__')){
         } // end Advanced authentication
 
         // Do connect to the user's database
-
         $server_port   = (empty($cfgServer['port']))
                        ? ''
                        : ':' . $cfgServer['port'];
-        $server_socket = (empty($cfgServer['socket']) || PMA_INT_VERSION >= 30010)
+        $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
                        ? ''
                        : ':' . $cfgServer['socket'];
-
-        $dbh           = $connect_func(
+        $link          = @$connect_func(
                              $cfgServer['host'] . $server_port . $server_socket,
-                             $cfgServer['user'],
-                             $cfgServer['password']
+                             $cfgServer['stduser'],
+                             $cfgServer['stdpass']
                          ) or mysql_die();
-
     } // end server connecting
 
     /**
@@ -386,9 +388,9 @@ if (!defined('__LIB_INC__')){
 
     /**
      * Gets constants that defines the PHP, MySQL... releases.
-     * This include must be located physically before any code that
-     * needs to reference the constants, else PHP 3.0.16 won't be happy;
-     * and must be located after we are connected to db
+     * This include must be located physically before any code that needs to
+     * reference the constants, else PHP 3.0.16 won't be happy; and must be
+     * located after we are connected to db to get the MySql version.
      */
     include('./defines.inc.php3');
 
@@ -1576,7 +1578,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         }
 
         // Call the working function depending on the php version
-        if (PMA_INT_VERSION >= 40005) {
+        if (PHP_INT_VERSION >= 40005) {
             get_table_content_fast($db, $table, $add_query, $handler);
         } else {
             get_table_content_old($db, $table, $add_query, $handler);
