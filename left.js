@@ -179,7 +179,7 @@ function expandBase(el, unexpand)
   } // end of the DOM case
   else if (isIE4) {
     var whichEl = document.all(el + 'Child');
-    var whichIm = document.images.item(el + 'Child');
+    var whichIm = document.images.item(el + 'Img');
     if (whichEl.style.display == 'none') {
       whichEl.style.display  = 'block';
       whichIm.src            = imgOpened.src;
