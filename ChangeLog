@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-15 Marc Delisle  <lem9@users.sourceforge.net>
+	* config.inc.php3: put the most popular column types first in the list,
+	  (Feature #544066)
+
 2002-04-14 Alexander M. Turek  <rabus@users.sourceforge.net>
 	* Documentation.*: Added some notes about MySQL 4.
 	* db_details.php3, tbl_change.php3, tbl_properties.php3,

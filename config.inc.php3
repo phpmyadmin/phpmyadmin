@@ -207,9 +207,13 @@ $cfgRepeatCells         = 100;          // repeat header names every X cells? (0
 /**
  * MySQL settings
  */
-// Column types
+// Column types;
+// varchar, tinyint, text and date are listed first, based on estimated popularity
 $cfgColumnTypes = array(
+   'VARCHAR',
    'TINYINT',
+   'TEXT',
+   'DATE',
    'SMALLINT',
    'MEDIUMINT',
    'INT',
@@ -217,16 +221,13 @@ $cfgColumnTypes = array(
    'FLOAT',
    'DOUBLE',
    'DECIMAL',
-   'DATE',
    'DATETIME',
    'TIMESTAMP',
    'TIME',
    'YEAR',
    'CHAR',
-   'VARCHAR',
    'TINYBLOB',
    'TINYTEXT',
-   'TEXT',
    'BLOB',
    'MEDIUMBLOB',
    'MEDIUMTEXT',
