@@ -73,6 +73,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     if (!isset($cfgShowStats)) {
         $cfgShowStats           = TRUE;
     }
+    if (!isset($cfgLoginCookieRecall)) {
+        $cfgLoginCookieRecall   = TRUE;
+    }
     if (!isset($cfgShowTooltip)) {
         $cfgShowTooltip         = TRUE;
     }
@@ -113,6 +116,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     }
     if (!isset($cfgBrowsePointerColor)) {
         $cfgBrowsePointerColor  = '';
+    }
+    if (!isset($cfgBrowseMarkRow)) {
+        $cfgBrowseMarkRow       = 0;
     }
     if (!isset($cfgTextareaCols)) {
         $cfgTextareaCols        = 40;

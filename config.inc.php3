@@ -106,6 +106,7 @@ $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
 $cfgShowSQL               = TRUE;   // show SQL queries as run
 $cfgAllowUserDropDatabase = FALSE;  // show a 'Drop database' link to normal users  
 $cfgConfirm               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
+$cfgLoginCookieRecall     = TRUE;   // recall previous login in cookie auth. mode or not
 
 $cfgShowStats             = TRUE;   // allow to display statistics and space usage in
                                     // the pages about database details and table
@@ -177,8 +178,8 @@ $cfgBgcolorOne          = '#CCCCCC';    // table data row colour
 $cfgBgcolorTwo          = '#DDDDDD';    // table data row colour, alternate
 $cfgBrowsePointerColor  = '#CCFFCC';    // color of the pointer in browse mode
                                         // (blank for no pointer)
-$cfgBrowseMarkRow       = 0;            // if set to 1, 
-                                        // and $cfgBrowsePointerColor has a 
+$cfgBrowseMarkRow       = 1;            // if set to 1,
+                                        // and $cfgBrowsePointerColor has a
                                         // value, you can click on rows to
                                         // visually mark them with this color
 $cfgTextareaCols        = 40;           // textarea size (columns) in edit mode

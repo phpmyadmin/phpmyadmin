@@ -8,6 +8,12 @@ $Source$
 2002-02-09 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/functions.js: improved the "mark row" feature (it wasn't
 	  working with Mozilla, for example).
+	* libraries/common.lib.php3, lines 76-78 & 117-119: ensured compatibility
+	  with old configuration files.
+	* config.inc.php3, line 109; libraries/auth/cookies.auth.lib.php3;
+	  Documentation.html, lines 683-689: added an option to define whether
+	  previous login should be recalled or not in cookie auth. mode. Thanks to
+	  Siu Sun <siusun at sourceforge.net> for the suggestion.
 
 2002-02-08 Marc Delisle  <lem9@users.sourceforge.net>
 	* ukrainian updates thanks to Markijan Baran.

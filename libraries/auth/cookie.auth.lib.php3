@@ -52,15 +52,23 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
         global $HTTP_COOKIE_VARS;
 
         // Tries to get the username from cookie whatever are the values of the
-        // 'register_globals' and the 'variables_order' directives
-        if (!empty($GLOBALS['pma_cookie_username'])) {
-            $default_user = $GLOBALS['pma_cookie_username'];
+        // 'register_globals' and the 'variables_order' directives if last login
+        // should be recalled, else skip the IE autocomplete feature.
+        if ($GLOBALS['cfgLoginCookieRecall']) {
+            if (!empty($GLOBALS['pma_cookie_username'])) {
+                $default_user = $GLOBALS['pma_cookie_username'];
+            }
+            else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username'])) {
+                $default_user = $_COOKIE['pma_cookie_username'];
+            }
+            else if (!empty($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_cookie_username'])) {
+                $default_user = $HTTP_COOKIE_VARS['pma_cookie_username'];
+            }
+            $autocomplete     = '';
         }
-        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username'])) {
-            $default_user = $_COOKIE['pma_cookie_username'];
-        }
-        else if (!empty($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_cookie_username'])) {
-            $default_user = $HTTP_COOKIE_VARS['pma_cookie_username'];
+        else {
+            $default_user     = '';
+            $autocomplete     = ' autocomplete="off"';
         }
 
         $cell_align = ($GLOBALS['text_dir'] == 'ltr') ? 'left' : 'right';
@@ -130,7 +138,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 
 
 <!-- Login form -->
-<form method="post" action="index.php3" name="login_form">
+<form method="post" action="index.php3" name="login_form"<?php echo $autocomplete; ?>>
     <table cellpadding="5">
     <tr>
         <td align="<?php echo $cell_align; ?>"><?php echo $GLOBALS['strLogUsername']; ?>&nbsp;</td>
