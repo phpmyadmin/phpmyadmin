@@ -321,7 +321,7 @@ if ($server > 0) {
 <!-- MySQL server related links -->
 <table cellpadding="3" cellspacing="0">
     <tr>
-        <th<?php if(isset($theme) && $theme!='none'){ ?> class="tblHeaders"<?php } echo $str_iconic_colspan; ?>>&nbsp;&nbsp;MySQL</th>
+        <th<?php if(isset($theme) && $theme!='original'){ ?> class="tblHeaders"<?php } echo $str_iconic_colspan; ?>>&nbsp;&nbsp;MySQL</th>
     </tr>
     <tr><?php
         echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','b_newdb.png',$strCreateNewDatabase,'') : $str_normal_list); 
@@ -534,7 +534,7 @@ if (empty($cfg['Lang'])) {
                 if ($cfg['ReplaceHelpImg']){
                     echo '<img src="' . $pmaThemeImage . 'b_info.png" border="0" width="11" height="11" alt="Info" hspace="1" vspace="1" />';
                 }else{ echo '(*)'; }
-?></a>: <select name="lang" dir="ltr" onchange="this.form.submit();" style="vertical-align: middle">
+?></a>: <select name="lang" dir="ltr" onChange="this.form.submit();" style="vertical-align: middle">
     <?php
     echo "\n";
 
@@ -588,7 +588,7 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <input type="hidden" name="set_theme" value="<?php echo $theme; ?>" />
                 <?php echo $strMySQLCharset;?>:
-                <select name="convcharset" dir="ltr" onchange="this.form.submit();" style="vertical-align: middle">
+                <select name="convcharset" dir="ltr" onChange="this.form.submit();" style="vertical-align: middle">
     <?php
     echo "\n";
     foreach ($cfg['AvailableCharsets'] AS $id => $tmpcharset) {
@@ -626,7 +626,7 @@ echo "\n";
 
 if (count($available_themes_choices)>1) {
     $theme_selected = FALSE;
-    $theme_preview_path=$cfg['ThemePath'] . '/';
+    $theme_preview_path= './open.php?get=./' . $cfg['ThemePath'] . '/index.php';
     $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" onclick="'
                         . "window.open('" . $theme_preview_path . "','themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes');"
                         . '">';
@@ -646,7 +646,7 @@ if (count($available_themes_choices)>1) {
                    . (isset($strTheme) ? $strTheme : 'Theme (Style)')
                    . '</a>:' . "\n";
                 ?> 
-                <select name="set_theme" dir="ltr" onchange="this.form.submit();" style="vertical-align: middle">
+                <select name="set_theme" dir="ltr" onChange="this.form.submit();" style="vertical-align: middle">
                 <?php
                     for($i=0;$i<count($available_themes_choices);$i++){
                         echo '<option value="' . $available_themes_choices[$i] . '"';
