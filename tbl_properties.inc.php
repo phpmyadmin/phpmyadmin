@@ -331,7 +331,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
 
     // Dynamically add ON UPDATE CURRENT_TIMESTAMP to the possible attributes
-    if (PMA_MYSQL_INT_VERSION >= 40102) {
+    if (PMA_MYSQL_INT_VERSION >= 40102 && !in_array('ON UPDATE CURRENT_TIMESTAMP', $cfg['AttributeTypes'])) {
         $cfg['AttributeTypes'][] = 'ON UPDATE CURRENT_TIMESTAMP';
     }
 
