@@ -605,8 +605,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             $colspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
                       ? ' colspan="3"'
-                      : ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')
-                      ? ' colspan="2"'
                       : '';
         } else {
             $rowspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')

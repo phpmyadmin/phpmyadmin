@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php: first group of headers was offset by
+      one column to the left
+
 2003-11-19 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/catalan: Updated, thanks to Xavier Navarro (xavin).
     * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
