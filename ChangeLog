@@ -9,6 +9,10 @@ $Source$
     * db_details_structure.php3, mult_submits.inc.php3: Patch 582904:
       add REPAIR TABLE choice in drop-down of db view, thanks to
       Cal Henderson (iamcal)
+    * libraries/display_tbl.lib.php3: new function PMA_linkOrButton
+      to accomodate some browsers' limitations on the URL length, used on
+      left and right Edit and Delete links (or buttons), idea
+      and part of the code from patch 591497, thanks to Ruben Barkow (rubo77)
 
 2002-09-01 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/auth/cookie.auth.lib.php3: bug 601721 (cookie and IIS)
