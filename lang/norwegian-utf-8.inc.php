@@ -207,6 +207,7 @@ $strDoYouReally = 'Vil du virkelig ';
 $strDocu = 'Dokumentasjon';
 $strDrop = 'Slett';
 $strDropDB = 'Slett databasen %s';
+$strDropDatabaseStrongWarning = 'Du er i ferd med å SLETTE en komplett database!';
 $strDropSelectedDatabases = 'Slett valgte databaser';
 $strDropTable = 'Slett tabell';
 $strDropUsersDb = 'Slett databasene som har det samme navnet som brukerne.';
@@ -727,5 +728,4 @@ $strZip = 'Komprimert (zip)';
 // To translate
 
 $strConnectionError = 'Cannot connect: invalid settings.';  //to translate
-$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 ?>
