@@ -135,6 +135,7 @@ $strHomepageSourceforge = 'Pobranie wersji Sourceforge phpMyAdmin';
 $strHost = 'Host';
 $strHostEmpty = 'Brak nazwy hosta!';
 
+$strIdxFulltext = 'Pelny tekst';
 $strIfYouWish = 'Prosze podaæ listê kolumn rozdzielon± przecinkami aby za³adowaæ tylko wybrane kolumny.';
 $strIndex = 'Indeks';
 $strIndexHasBeenDropped = 'Klucz %s zostal usuniety';
@@ -147,6 +148,7 @@ $strInsertTextfiles = 'Dodanie pliku tekstowego do tabeli';
 $strInsertedRows = 'Wprowadzone rekordy:';
 $strInstructions = 'Instrukcje';
 $strInUse = 'w u¿yciu';
+$strInvalidName = '"%s" jest slowem zarezerwowanym, nie mozna uzyc go jako nazwy bazy danych/tabeli/pola.'; 
 
 $strKeepPass = 'Nie zmieniaj hasla';
 $strKeyname = 'Nazwa klucza';
@@ -239,6 +241,7 @@ $strRowSize = ' Rozmiar rekordu ';
 $strRowsFrom = 'rekordów pocz±wszy od';
 $strRowsStatistic = 'Statystyka rekordów';
 $strRunning = 'uruchomiony na ';
+$strRunningAs = 'jako';
 $strRunQuery = 'Wykonanie zapytania';
 $strRunSQLQuery = 'Wykonanie zapytania/zapytan SQL do bazy danych %s';
 
@@ -252,7 +255,10 @@ $strSequence = 'Sekwencja';
 $strServerVersion = 'Wersja serwera';
 $strSetEnumVal = 'Je¿eli pole jest typu "ENUM" lub "SET", warto¶ci wprowadza siê w formacie: \'a\',\'b\',\'c\'...<br />Je¿eli potrzeba wprowadziæ odwrotny uko¶nik ("\") lub apostrof ("\'"), nale¿y je poprzedziæ odwrotnym uko¶nikiem (np.: \'\\\\xyz\' lub \'a\\\'b\').';
 $strShow = 'Pokazanie';
+$strShowAll = 'Pokazanie wszystkiego';
+$strShowCols = 'Pokazanie kolumn';
 $strShowPHPInfo = 'Informacje o PHP';
+$strShowTables = 'Pokazanie tabel';
 $strShowThisQuery = ' Ponowne wywo³anie tego zapytania ';
 $strShowingRecords = 'Pokazanie rekordów ';
 $strSingly = '(pojedynczo)';
@@ -307,6 +313,7 @@ $strViewDump = 'Zrzut tabeli';
 $strViewDumpDB = 'Zrzut bazy danych';
 
 $strWelcome = 'Witamy w ';
+$strWithChecked = 'Zaznaczone:';
 $strWrongUser = 'B³êdne pola u¿ytkownik/has³o. Brak dostêpu.';
 
 $strYes = 'Tak';
@@ -314,12 +321,5 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
-$strIdxFulltext = 'Fulltext';  //to translate 
-$strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
 $strNoQuery = 'No SQL query!';  //to translate
-$strRunningAs = 'as';
-$strShowAll = 'Show all'; // to translate
-$strShowCols = 'Show columns';
-$strShowTables = 'Show tables';
-$strWithChecked = 'With checked:';
 ?>

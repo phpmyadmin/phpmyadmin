@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-24  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/polish.inc.php3 updates, thanks to Jakub Wilk.
+	* lang/romanian.inc.php3 updates, thanks to Valics Lehel.
+	* lang/galician.inc.php3 updates, thanks to Xosé Calvo.
+	
 2001-09-23  Benjamin Gandon  <gandon@users.sourceforge.net>
 	* read_dump.php3: widely improved (some remaining bugs has been fixed and
 	  the script is now about too time faster than before).

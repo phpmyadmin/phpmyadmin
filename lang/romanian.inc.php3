@@ -136,6 +136,7 @@ $strHomepageSourceforge = 'Pagina de descarcare Sourceforge phpMyAdmin';
 $strHost = 'Gazda (Host)';
 $strHostEmpty = 'Numele de gazda este gol!';
 
+$strIdxFulltext = 'Tot textul'; 
 $strIfYouWish = 'In cazul in care doriti sa incarcati numai o parte a coloanelor tabelului, specificati o lista separata prin virgula.';
 $strIndex = 'Index';
 $strIndexHasBeenDropped = 'Index %s a fost aruncat';
@@ -241,6 +242,7 @@ $strRowsFrom = 'linii incepand cu';
 $strRowSize = ' Marime linie ';
 $strRowsStatistic = 'Statisticile randului';
 $strRunning = 'ruland pe ';
+$strRunningAs = 'ca';
 $strRunQuery = 'Trimite comanda';
 $strRunSQLQuery = 'Run SQL query/queries pe baza de date %s';
 
@@ -254,8 +256,11 @@ $strServerChoice = 'Alegerea serverului';
 $strServerVersion = 'Versiune server';
 $strSetEnumVal = 'Daca campul este "enum" sau "set", va rugam adaugati valori folosind formatul: \'a\',\'b\',\'c\'...<br />Daca aveti nevoie sa puneti bara intoarsa (backslash) ("\") sau semnul ("\'") la aceste valori, folositi exemplul ( \'\\\\xyz\' or \'a\\\'b\').';
 $strShow = 'Afiseaza';
+$strShowAll = 'Arata toate'; 
+$strShowCols = 'Arata coloanele';
 $strShowingRecords = 'Afiseaza inregistrari';
 $strShowPHPInfo = 'Arata informatia PHP';
+$strShowTables = 'Arata tabelele';
 $strShowThisQuery = ' Afiseaza aceasta comanda din nou aici ';
 $strSingly = '(singly)';
 $strSize = 'Marime';
@@ -315,11 +320,6 @@ $strWithChecked = 'Verificat cu:';
 $strYes = 'Da';
 
 // To translate
-$strIdxFulltext = 'Fulltext';  //to translate 
 $strNoQuery = 'No SQL query!';  //to translate
-$strRunningAs = 'as';
-$strShowAll = 'Show all'; // to translate
-$strShowCols = 'Show columns';
-$strShowTables = 'Show tables';
 $strZip = '"zipped"';  //to translate
 ?>

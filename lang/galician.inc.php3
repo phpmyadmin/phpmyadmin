@@ -136,6 +136,7 @@ $strHomepageSourceforge = 'Páxina do phpMyAdmin en Sourceforge';
 $strHost = 'Servidor';
 $strHostEmpty = 'O nome do servidor está vacío!';
 
+$strIdxFulltext = 'Texto completo';
 $strIfYouWish = 'Para carregar só algunhas columnas da tabela, faga unha lista separada por vírgulas.';
 $strIndex = 'Índice';
 $strIndexHasBeenDropped = 'Eliminouse o índice %s';
@@ -148,6 +149,7 @@ $strInsertNewRow = 'Inserir un novo rexistro';
 $strInsertTextfiles = 'Inserir un arquivo de texto na tabela';
 $strInstructions = 'Instruccións';
 $strInUse = 'en uso';
+$strInvalidName = '"%s" i unha palabra reservada. Non se pode utilizar como nome dun banco de datos, dunha tabela ou dun campo.';
 
 $strKeepPass = 'Non mude o contrasinal';
 $strKeyname = 'Nome chave';
@@ -240,6 +242,7 @@ $strRowsFrom = 'filas, a comezar da';
 $strRowSize= ' Tamaño da fila ';
 $strRowsStatistic = 'Estatistícas da Fila';
 $strRunning = 'a rodar no servidor ';
+$strRunningAs = 'como';
 $strRunQuery = 'Enviar esta procura';
 $strRunSQLQuery = 'Efectuar unha procura SQL na base de datos %s';
 
@@ -253,8 +256,10 @@ $strServerChoice = 'Escolla de Servidor';
 $strServerVersion = 'Versión do servidor';
 $strSetEnumVal = 'Se o tipo de campo é "enum" ou "set", introduza os valores usando este formato: \'a\',\'b\',\'c\'...<br />Se precisar pór unha barra invertida (" \ ") ou aspas simples (" \' ") entre estes valores, preceda a barra e as aspas de barras invertidas (por exemplo \'\\\\xyz\' ou \'a\\\'b\').';
 $strShow = 'Mostrar';
+$strShowCols = 'Mostrar as columnas';
 $strShowingRecords = 'Mostrando rexistros ';
 $strShowPHPInfo = 'Mostrar información sobre o PHP';
+$strShowTables = 'Mostrar as tabelas';
 $strShowThisQuery = ' Mostrar esta procura aquí outra vez ';
 $strSingly = 'a refacer logo de insercións e destrucións (shingly)';
 $strSize = 'Tamaño';
@@ -315,12 +320,7 @@ $strYes = 'Si';
 $strZip = 'comprimido no formato "zipped"';
 
 // To translate
-$strIdxFulltext = 'Fulltext';  //to translate 
-$strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
 $strNoQuery = 'No SQL query!';  //to translate
-$strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
-$strShowCols = 'Show columns';
-$strShowTables = 'Show tables';
 $strWithChecked = 'With checked:';
 ?>
