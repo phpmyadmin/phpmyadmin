@@ -1081,11 +1081,25 @@
 </p>
 
 <p> 
-    <b>With Xitami 2.5b4, phpMyAdmin won't process form fields</b>
+    <b>With Xitami 2.5b4, phpMyAdmin won't process form fields.</b>
     <br />
     This is not a phpMyAdmin problem but a Xitami known bug: you'll face it
     with each script/website that use forms.<br />
     Upgrade or downgrade your Xitami server.
+</p>
+
+<p> 
+    <b>I have problems dumping tables with Konqueror (phpMyAdmin 2.2.2)</b>
+    <br />
+    With Konqueror 2.1.1: plain dumps, zip and gzip dumps work ok, except that
+    the proposed file name for the dump is always 'tbl_dump.php'. Bzip2 dumps
+    don't seem to work.<br />
+
+    With Konqueror 2.2.1: plain dumps work; zip dumps are placed into
+    the user's temporary directory, so they must be moved before closing
+    Konqueror, or else they disappear. Gzip dumps give an error message.<br />
+
+    Testing needs to be done for Konqueror 2.2.2.<br />
 </p>
 
 <h3>[Using phpMyAdmin]</h3>
