@@ -60,7 +60,9 @@ $strBrowse = 'Afficher';
 $strBzip = '"bzippé"';
 
 $strCantLoadMySQL = 'ne peux charger l\'extension MySQL,<br />vérifiez la configuration PHP';
+$strCantLoadRecodeIconv = 'Erreur lors du chargement de l\'extension iconv ou recode, utilisée pour convertir le jeu de caractères; veuillez activer l\'une de ces extensions dans PHP, ou désactiver la conversion des jeux de caractères dans phpMyAdmin';
 $strCantRenameIdxToPrimary = 'La clef ne peut être renommée PRIMARY&nbsp;!';
+$strCantUseRecodeIconv = 'Erreur lors de l\'utilisation de iconv, libiconv et recode_string, alors que ces extensions semblent chargées. Veuillez vérifier votre configuration de PHP.';
 $strCardinality = 'Cardinalité';
 $strCarriage = 'Retour de chariot : \\r';
 $strChange = 'Modifier';
@@ -72,6 +74,7 @@ $strCheckTable = 'Vérifier la table';
 $strChoosePage = 'Page à éditer';
 $strColumn = 'Colonne';
 $strColumnNames = 'Nom des colonnes';
+$strComments = 'Commentaires';
 $strCompleteInserts = 'Insertions complètes';
 $strConfigFileError = 'phpMyAdmin n\'a pu lire votre fichier de configuration!<br />Il est possible qu\'il contienne une erreur de syntaxe, ou que PHP soit incapable de le trouver<br />À l\'aide du lien suivant, vous pouvez vérifier le message d\'erreur généré par PHP;<br />la plupart du temps, un apostrophe ou un point-virgule sont manquants.<br />Si vous recevez une page blanche, aucune erreur n\'a été détectée.';
 $strConfigureTableCoord = 'Les coordonnées de la table %s n\'ont pas été configurées';
@@ -151,6 +154,7 @@ $strGzip = '"gzippé"';
 
 $strHasBeenAltered = 'a été modifié(e).';
 $strHasBeenCreated = 'a été créé(e).';
+$strHaveToShow = 'Vous devez choisir au moins une colonne à afficher';
 $strHome = 'Accueil';
 $strHomepageOfficial = 'Site officiel de phpMyAdmin';
 $strHomepageSourceforge = 'Page de Téléchargement phpMyAdmin sur Sourceforge';
@@ -192,11 +196,13 @@ $strLogout = 'Quitter';
 $strLogUsername = 'Nom d\'utilisateur&nbsp;:';
 $strLogPassword = 'Mot de passe&nbsp;:';
 
+$strMissingBracket = 'Parenthèse manquante';
 $strModifications = 'Les modifications ont été sauvegardées.';
 $strModify = 'Modifier';
 $strModifyIndexTopic = 'Modifier une clef';
 $strMoveTable = '<b>Déplacer</b> la table vers (base<b>.</b>table)&nbsp;:';
 $strMoveTableOK = 'La table %s a été déplacée vers %s.';
+$strMySQLCharset = 'Jeu de caractères pour MySQL';
 $strMySQLReloaded = 'MySQL rechargé.';
 $strMySQLSaid = 'MySQL a répondu:';
 $strMySQLServerProcess = 'MySQL %pma_s1% sur le serveur %pma_s2% - utilisateur&nbsp;: %pma_s3%';
@@ -392,10 +398,4 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
 ?>
