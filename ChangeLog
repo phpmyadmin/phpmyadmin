@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * left.php, db_details_structure.php, config.inc.php, Documentation.html,
+      libraries/common.lib.php, libraries/config_import.lib.php:
+      Sort database and table names in natural order,
+      thanks to Hoo Jia Xiong (hoojx)
+
 2004-03-25 Marcel Tschopp <marcel.tschopp@gmx.net>
     * libraries/display_tpl.lib.php, mysqli.dbi.lib.php:
       Mysql4.1 specific fix in function PMA_displayTableBody() (character set
