@@ -213,4 +213,8 @@ function PMA_DBI_get_fields_meta($result) {
     return mysqli_fetch_fields($result);
 }
 
+function PMA_DBI_num_fields($result) {
+    return mysqli_num_fields($result);
+}
+
 ?>

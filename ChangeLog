@@ -8,6 +8,7 @@ $Source$
 2004-01-25 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_row_delete.php: bug 882695, broken row highlighting
     * libraries/display_tbl.lib.php: bug 879792, bad sort link
+    * libraries/dbi/*: PMA_DBI_num_fields()
 
 2004-01-24 Marc Delisle  <lem9@users.sourceforge.net>
     * querywindow.php: PMA_DBI_close() instead of DBI_close()

@@ -120,7 +120,7 @@ function PMA_exportDBCreate($db) {
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $error_url);
 
-    $columns_cnt = mysql_num_fields($result);
+    $columns_cnt = PMA_DBI_num_fields($result);
     for ($i = 0; $i < $columns_cnt; $i++) {
         $columns[$i] = mysql_field_name($result, $i);
     }

@@ -232,4 +232,8 @@ function PMA_DBI_get_fields_meta($result) {
     return $fields;
 }
 
+function PMA_DBI_num_fields($result) {
+    return mysql_num_fields($result);
+}
+
 ?>
