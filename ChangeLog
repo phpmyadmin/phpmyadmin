@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-30 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/bulgarian-*.inc.php3: Updates, thanks to
+      Stanislav Yordanov (stanprog).
+
 2003-05-29 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
 

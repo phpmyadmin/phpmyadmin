@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Translated by Stanislav Yordanov <stan at stud.ru.acad.bg>
+ * Translated by Stanislav Yordanov <stan at webthoughts.net>
  * Based on translation made by Georgi Georgiev <chutz at chubaka.homeip.net>
  */
 
@@ -15,8 +15,8 @@ $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('байта', 'КБ', 'МБ', 'ГБ', 'ТБ', 'ПБ', 'ЕБ');
 
-$day_of_week = array('нед', 'пон', 'вт', 'ср', 'чет', 'пет', 'съб');
-$month = array('Януари', 'Февруари', 'Март', 'Април', 'Май', 'Юни', 'Юли', 'Август', 'Септември', 'Окомври', 'Ноември', 'Декември');
+$day_of_week = array('нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб');
+$month = array('януари', 'февруари', 'март', 'април', 'май', 'юни', 'юли', 'август', 'септември', 'окомври', 'ноември', 'декември');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%e %B %Y в %H:%M';
@@ -42,13 +42,13 @@ $strAddUserMessage = 'Вие добавихте нов потребител.';
 $strAddedColumnComment = 'Добавен коментар към колона';
 $strAddedColumnRelation = 'Добавена релациа към колона';
 $strAdministration = 'Администрация';
-$strAffectedRows = 'Засегнати реда:';
+$strAffectedRows = 'Засегнати редове:';
 $strAfter = 'След %s';
 $strAfterInsertBack = 'се върни';
 $strAfterInsertNewInsert = 'вмъкни нов запис';
 $strAll = 'всички';
 $strAllTableSameWidth = 'показване на всички Таблици с една и съща ширина?';
-$strAlterOrderBy = 'Подреди таблицата по';
+$strAlterOrderBy = 'Подреждане на таблицата по';
 $strAnIndex = 'Беше добавен индекс на %s';
 $strAnalyzeTable = 'Анализиране на таблицата';
 $strAnd = 'и';
@@ -62,8 +62,12 @@ $strAscending = 'Възходящо';
 $strAtBeginningOfTable = 'в началото на таблицата';
 $strAtEndOfTable = 'в края на таблицата';
 $strAttr = 'Атрибути';
+$strAutodetect = 'автоматично откриване';
+$strAutomaticLayout = 'Автоматичен лейаут';
 
 $strBack = 'Назад';
+$strBeginCut = 'BEGIN CUT';
+$strBeginRaw = 'BEGIN RAW';
 $strBinary = ' Двоично ';
 $strBinaryDoNotEdit = ' Двоично - не се редактира ';
 $strBookmarkDeleted = 'Bookmark беше изтрит.';
@@ -75,6 +79,7 @@ $strBrowse = 'Прелисти';
 $strBzError = 'phpMyAdmin не може да компресира схемата(dump) заради грешка в Bz2 разширението в тази версия на PHP. Горещо се препоръчва да установите стойността на <code>$cfg[\'BZipDump\']</code> директивата в конкугурационния файл на вашия phpMyAdmin на <code>FALSE</code>. Ако искате да се използвате възможностите на Bz2 компресията, ще трябва да ъпгрейтнете до по-нова версия на PHP. Вижте съобщение %s за повече информация.';
 $strBzip = '"bzip-нато"';
 
+$strCSVOptions = 'CSV опции';
 $strCannotLogin = 'Не мога да се логна към MySQL сървъра';
 $strCantLoad = 'не мога да заредя разширението %s,<br />моля проверете конфигурацията на PHP';
 $strCantLoadMySQL = 'Не мога да заредя MySQL разширенията,<br />моля проверете конфигурацията на PHP.';
@@ -92,6 +97,7 @@ $strChangeCopyModeRevoke = ' ... отмени всички активни привилегии от стария и сл
 $strChangeCopyUser = 'Промяна на логин информацията / Копиране на потребител';
 $strChangeDisplay = 'Изберете Полета за показване';
 $strChangePassword = 'Смяна на паролата';
+$strCharset = 'Набор от символи';
 $strCharsetOfFile = 'Набор от символи(Charset) на файла:';
 $strCheckAll = 'Маркирай всичко';
 $strCheckDbPriv = 'Провери привилегиите на БД';
@@ -114,6 +120,7 @@ $strConnections = 'Конекции';
 $strCookiesRequired = 'Оттук нататък са необходими "Cookies".';
 $strCopyTable = 'Копиране на таблица (база от данни<b>.</b>таблица):';
 $strCopyTableOK = 'Таблица %s беше копирана в %s.';
+$strCopyTableSameNames = 'Не може да се копира таблицата към себе си!';
 $strCouldNotKill = 'phpMyAdmin не можа да отстрани нишката %s. Вероятно вече е била затворена.';
 $strCreate = 'Създай';
 $strCreateIndex = 'Създай индекс върху &nbsp;%s&nbsp;колони';
@@ -124,6 +131,7 @@ $strCreatePage = 'Създай нова Страница';
 $strCreatePdfFeat = 'Създаване на PDF-и';
 $strCriteria = 'Критерий';
 
+$strDBComment = 'Коментар към базата от данни: ';
 $strDBGContext = 'Контекст';
 $strDBGContextID = 'Контекстно ID';
 $strDBGHits = 'Попадения';
@@ -149,6 +157,7 @@ $strDbPrivileges = 'Привилегии специфични за базата данни';
 $strDbSpecific = 'специфични за базата данни';
 $strDefault = 'По подразбиране';
 $strDefaultValueHelp = 'За стойностите по подразбиране, моля въведете само една стойност, без обратни черти или апостроф, използвайки следния формат: a';
+$strDelOld = 'Текущата Страница има Референции към Таблици които вече не съществуват. Желаете ли да изтриете тези Референции?';
 $strDelete = 'Изтрий';
 $strDeleteAndFlush = 'Изтрийте потребителите и след това презаредете привилегиите.';
 $strDeleteAndFlushDescr = 'Това е най-чистия начин, но презареждането на привилегиите може да отнеме известно време.';
@@ -171,6 +180,8 @@ $strDropDB = 'Унищожи БД %s';
 $strDropSelectedDatabases = 'Изтрий избраните бази данни';
 $strDropTable = 'Изтрий таблицата';
 $strDropUsersDb = 'Изтрий базаите данни които имат имена като тези на потребителите.';
+$strDumpComments = 'Включване на коментари към колоните, като inline SQL-коментари';
+$strDumpSaved = 'Схемата(дъмп) беше записана във файл %s.';
 $strDumpXRows = 'Дъмп-ни %s реда като започнеш от %s.';
 $strDumpingData = 'Дъмп (схема) на данните в таблицата';
 $strDynamic = 'динамичен';
@@ -183,6 +194,8 @@ $strEmpty = 'Изпразни';
 $strEmptyResultSet = 'MySQL върна празен резултат (т.е. нула редове).';
 $strEnabled = 'Позволено';
 $strEnd = 'Край';
+$strEndCut = 'END CUT';
+$strEndRaw = 'END RAW';
 $strEnglishPrivileges = ' Забележка: Имената на привилегиите на MySQL са показани на английски. ';
 $strError = 'Грешка';
 $strExplain = 'Explain SQL';
@@ -199,7 +212,11 @@ $strFieldsEmpty = ' Брояча на полетата е празен! ';
 $strFieldsEnclosedBy = 'Полетата са оградени със';
 $strFieldsEscapedBy = 'Представка на специалните символи';
 $strFieldsTerminatedBy = 'Полетата завършват със';
+$strFileAlreadyExists = 'Файлът %s вече съществува на сървъра, сменете името на файла или включете опцията за препокриване.';
 $strFileCouldNotBeRead = 'Файлът не може да бъде прочетен';
+$strFileNameTemplate = 'Шаблон на файловото име';
+$strFileNameTemplateHelp = 'Използвайте __DB__ за име на базата данни, __TABLE__ за име на таблицата и опциите на %sstrftime%s за указавне на формата на времето, като разширенито ще бъде добавено автоматично. Всеки друг текст ще бъде запазен.';
+$strFileNameTemplateRemember = 'запомняне на шаблона';
 $strFixed = 'Фиксиран';
 $strFlushPrivilegesNote = 'Забележка: phpMyAdmin взема потребителските привилегии директно от таблицата на привилегиите на MySQL. Съдържанието на тази таблица може да се различава от привилегиите които използва сървъра ако към него са направени промени на ръка. В този случай, трябва да %sпрезаредите привилегиите%s преди да продължите.';
 $strFlushTable = 'Изпразни кеша на таблицата ("FLUSH")';
@@ -214,7 +231,7 @@ $strGeneralRelationFeat = 'Общи възможности на релациите';
 $strGlobal = 'глобален';
 $strGlobalPrivileges = 'Глобални привилегии';
 $strGlobalValue = 'Глобална стойност';
-$strGo = 'Изпълни';
+$strGo = 'Изпълнение';
 $strGrantOption = 'Дадени';
 $strGrants = 'Дадени&nbsp;прив.';
 $strGzip = '"gzip-нато"';
@@ -224,7 +241,7 @@ $strHasBeenCreated = 'беше създадена.';
 $strHaveToShow = 'Трябва да изберете поне една Колона за показване';
 $strHome = 'Начало';
 $strHomepageOfficial = 'Официална phpMyAdmin уеб страница';
-$strHomepageSourceforge = 'phpMyAdmin страница на Sourceforge';
+$strHomepageSourceforge = 'Страницата на phpMyAdmin на Sourceforge';
 $strHost = 'Хост';
 $strHostEmpty = 'Името на хоста е празно!';
 
@@ -242,11 +259,13 @@ $strIndexHasBeenDropped = 'Индекса %s беше изтрит';
 $strIndexName = 'Име на индекса&nbsp;:';
 $strIndexType = 'Тип на индекса&nbsp;:';
 $strIndexes = 'Индекси';
+$strInnodbStat = 'InnoDB Състояние';
 $strInsecureMySQL = 'Вашият конфигурационен файл съдържа настройки (root без парола), които съответстват на привилигирования акаунт на MySQL по подразбиране. Вашият MySQL сървър е стартиран с това по подразбиране и може да бъде лесно хакнат. Tрябва да оправите тази дупка в сигурността.';
 $strInsert = 'Вмъкни';
 $strInsertAsNewRow = 'Вмъкни като нов ред';
 $strInsertNewRow = 'Вмъкни нов ред';
 $strInsertTextfiles = 'Вмъкни текстови файлове в таблицата';
+$strInsertedRowId = 'Вмъкнато ID на реда:';
 $strInsertedRows = 'Вмъкнати реда:';
 $strInstructions = 'Инструкции';
 $strInvalidName = '"%s" е запазана дума и вие не можете да я използвате за име на база от данни,таблица или поле. ';
@@ -260,6 +279,7 @@ $strKeyname = 'Име на ключа';
 $strKill = 'СТОП';
 
 $strLaTeX = 'LaTeX';
+$strLaTeXOptions = 'LaTeX опции';
 $strLandscape = 'Пейзажно';
 $strLength = 'Дължина';
 $strLengthSet = 'Дължина/Стойност*';
@@ -277,6 +297,17 @@ $strLogin = 'Вход';
 $strLoginInformation = 'Информация за логване';
 $strLogout = 'Изход от системата';
 
+$strMIME_MIMEtype = 'MIME-тип';
+$strMIME_available_mime = 'Достъпни MIME-типове';
+$strMIME_available_transform = 'Достъпни трансформации';
+$strMIME_description = 'Описание';
+$strMIME_file = 'Файлово име';
+$strMIME_nodescription = 'Няма Описание за тази трансформация.<br />Моля обърнете се към автора относно това какво прави %s.';
+$strMIME_transformation = 'Браузърна трансформация';
+$strMIME_transformation_note = 'За списъка на достъпните опции на трансформацията и техните MIME-type трансформации кликнете на %sописания на трансформацията%s';
+$strMIME_transformation_options = 'Опции на трансформацията';
+$strMIME_transformation_options_note = 'Моля въведете стойностите за опциите на трансформацията като използвате следния формат: \'a\',\'b\',\'c\'...<br />Ако трябва да поставите обратно наклонена черта ("\") или еденична кавичка ("\'") между тези стойности, поставете пред тях допълнителна обратно наклонена черта (например \'\\\\xyz\' или \'a\\\'b\').';
+$strMIME_without = 'MIME-types показани в наклонен шрифт не притежават отделна функция за трансформация';
 $strMissingBracket = 'Липсва скоба';
 $strModifications = 'Промените бяха съхранени';
 $strModify = 'Промени';
@@ -284,13 +315,15 @@ $strModifyIndexTopic = 'Промяна на индекс';
 $strMoreStatusVars = 'Други променливи на състоянието';
 $strMoveTable = 'Преместване на таблица към (база от данни<b>.</b>таблица):';
 $strMoveTableOK = 'Таблицата %s беше преместена към %s.';
+$strMoveTableSameNames = 'Не може да се премести таблицата към себе си!';
+$strMustSelectFile = 'Трябва да изберете файл за вмъкване.';
 $strMySQLCharset = 'MySQL набор от символи';
 $strMySQLReloaded = 'MySQL е презареден.';
 $strMySQLSaid = 'MySQL отговори: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% е стартиран на %pma_s2% като %pma_s3%';
-$strMySQLShowProcess = 'Покажи процесите';
-$strMySQLShowStatus = 'Покажи информация за състоянието на MySQL';
-$strMySQLShowVars = 'Покажи системните променливи на MySQL';
+$strMySQLShowProcess = 'MySQL процеси';
+$strMySQLShowStatus = 'Информация за състоянието на MySQL сървъра';
+$strMySQLShowVars = 'Системни променливи на MySQL';
 
 $strName = 'Име';
 $strNext = 'Следващ';
@@ -304,11 +337,14 @@ $strNoFrames = 'phpMyAdmin е по дружелюбен ако използвате браузър, който поддърж
 $strNoIndex = 'Не е дефиниран индекс!';
 $strNoIndexPartsDefined = 'Не са дефинирани части на индекс!';
 $strNoModification = 'Няма промяна';
+$strNoOptions = 'Този формат няма опции';
 $strNoPassword = 'Няма парола';
+$strNoPermission = 'Уеб сървъра няма права за запис на файла %s.';
 $strNoPhp = 'без PHP код';
 $strNoPrivileges = 'Няма привилегии';
 $strNoQuery = 'Няма SQL заявка!';
 $strNoRights = 'В момента не разполагате с достатъчно права за да се намирате тук!';
+$strNoSpace = 'Недостатъчно свободно пространство за записване на файла %s.';
 $strNoTablesFound = 'В базата данни няма таблици.';
 $strNoUsersFound = 'Няма потребител(и).';
 $strNoUsersSelected = 'Не за избрани потребители.';
@@ -332,6 +368,7 @@ $strOptionally = 'ПО ИЗБОР';
 $strOptions = 'Опции';
 $strOr = 'или';
 $strOverhead = 'Загубено място';
+$strOverwriteExisting = 'Препокриване на съществуващите файлове';
 
 $strPHP40203 = 'Вие използвате PHP 4.2.3, който има сериозен бъг с много-байтови стрингове (mbstring). Вижте сведението за PHP бъга 19404. Не е препоръчително да използвате тази версия на PHP с phpMyAdmin.';
 $strPHPVersion = 'Версия на PHP';
@@ -346,6 +383,8 @@ $strPdfInvalidPageNum = 'Недефиниран номер на PDFстраницата!';
 $strPdfInvalidTblName = 'Таблица "%s" не съществува!';
 $strPdfNoTables = 'Няма таблици';
 $strPerHour = 'на час';
+$strPerMinute = 'на минута';
+$strPerSecond = 'на секунда';
 $strPhp = 'Създай PHP код';
 $strPmaDocumentation = 'phpMyAdmin документация';
 $strPmaUriError = 'На <tt>$cfg[\'PmaAbsoluteUri\']</tt> ТРЯБВА да се зададе стойност в конфигурационния файл!';
@@ -397,8 +436,13 @@ $strPutColNames = 'Постави имената на полетата на първия ред';
 $strQBE = 'Запитване по пример';
 $strQBEDel = 'Изтрий';
 $strQBEIns = 'Вмъкни';
+$strQueryFrame = 'Прозорец за заявки';
+$strQueryFrameDebug = 'Информация за дебъгването';
+$strQueryFrameDebugBox = 'Активни променливи за формата за заявки:\nDB: %s\nТаблица: %s\nСървър: %s\n\nТекущи променливи за формата за заявки:\nБД: %s\nТаблица: %s\nСървър: %s\n\nРазположение на притежателя: %s\nРазположение на набора от фреймове(frameset): %s.';
 $strQueryOnDb = 'SQL-заявка към базата от данни <b>%s</b>:';
+$strQuerySQLHistory = 'SQL-хронология';
 $strQueryStatistics = '<b>Статистика на заявките</b>: От както е стартиран, %s заявки за изпратени към сървъра.';
+$strQueryTime = 'Заявката отне %01.4f секунди';
 $strQueryType = 'Тип на заявката';
 
 $strReType = 'Отново';
@@ -408,12 +452,13 @@ $strReferentialIntegrity = 'Проверка на интегритета на връзките';
 $strRelationNotWorking = 'Допълнителните възможности за работа със свързани (linked) таблици са деактивирани. За да разберете защо кликнете %sтук%s.';
 $strRelationView = 'Изглед на релациите';
 $strRelationalSchema = 'Релационна схема';
+$strRelations = 'Релации';
 $strReloadFailed = 'Неуспешен опит за презареждане на MySQL.';
-$strReloadMySQL = 'Презареди MySQL';
+$strReloadMySQL = 'Презареждане на MySQL';
 $strReloadingThePrivileges = 'Презареждане на привилегиите';
 $strRememberReload = 'Не забравяйте да презаредите сървъра.';
 $strRemoveSelectedUsers = 'Отстраняване на избраните потребители';
-$strRenameTable = 'Преименувай таблицата на';
+$strRenameTable = 'Преименуване на наблицата на';
 $strRenameTableOK = 'Таблица %s беше преименувана на %s';
 $strRepairTable = 'Поправяне на таблицата';
 $strReplace = 'Замести';
@@ -431,6 +476,7 @@ $strRowLength = 'Дължина на реда';
 $strRowSize = ' Размер на ред ';
 $strRows = 'Редове';
 $strRowsFrom = 'реда започвайки от';
+$strRowsModeFlippedHorizontal = 'хоризинтален (обърнати хедъри)';
 $strRowsModeHorizontal = 'хоризонтален';
 $strRowsModeOptions = 'в %s вид и повтаряй имената на колоните през всеки %s<br />';
 $strRowsModeVertical = 'вертикален';
@@ -440,6 +486,7 @@ $strRunSQLQuery = 'Стартиране SQL заявка/заявки към база от данни %s';
 $strRunning = 'работи на %s';
 
 $strSQL = 'SQL';
+$strSQLOptions = 'SQL опции';
 $strSQLParserBugMessage = 'Има известна вероятност да сте намерили бъг в SQL парсера. Моля проучете по-добре, и проверете коректността на кавичките. Друга вероятна причина за грепката може да бъде, че ъплоудвате файл с изпълним код извън областта заградена с кавички. Можете също када да се опитате да изпълните заявката чрез инртерфейса за команден ред на MySQL. Грешката генерирана от MySQL сървъра по-долу, ако има такава, може също да ви помогне при откриването на проблема. Ако все още имате проблеми или парсера дава грешка там където интерфейса на командния ред не връща такава, моля ограничете вашите SQL заявки само до проблемната заявка, и изпратете съобщение за бъг с парчето от данните в CUT секцията по-долу:';
 $strSQLParserUserError = 'Изглжда, че има грешка в SQL заявката ви. Грешката върната от MySQL сървъра по долу, ако има такава, би могала да ви помогне в диагностирането на проблема';
 $strSQLQuery = 'SQL-запитване';
@@ -448,11 +495,12 @@ $strSQPBugInvalidIdentifer = 'Невалиден идентификатор';
 $strSQPBugUnclosedQuote = 'Незатворени кавички';
 $strSQPBugUnknownPunctuation = 'Непозната пунктоация на стринг';
 $strSave = 'Запиши';
+$strSaveOnServer = 'Записване на сървъра в директория %s';
 $strScaleFactorSmall = 'Мащаба е твърде малък за да се събере схемата на една страница';
 $strSearch = 'Търсене';
 $strSearchFormTitle = 'Търсене в базата данни';
-$strSearchInTables = 'В таблицата(ите):';
-$strSearchNeedle = 'Дума(и) или стойност(и) за търсене (символ за заместване: "%"):';
+$strSearchInTables = 'В таблиците:';
+$strSearchNeedle = 'Думи или стойности за търсене (символ за заместване: "%"):';
 $strSearchOption1 = 'поне една от думите';
 $strSearchOption2 = 'всички думи';
 $strSearchOption3 = 'точната фраза';
@@ -469,8 +517,8 @@ $strSend = 'Изпрати';
 $strSent = 'Изпратени';
 $strServer = 'Сървър %s';
 $strServerChoice = 'Избор на сървър';
-$strServerStatus = 'Информация за състоянието';
-$strServerStatusUptime = 'Този MySQL сървър е работи от %s. Стартиран е на %s.';
+$strServerStatus = 'Информация за състоянието на MySQL сървъра';
+$strServerStatusUptime = 'Този MySQL сървър работи от %s. Стартиран е на %s.';
 $strServerTabProcesslist = 'Процеси';
 $strServerTabVariables = 'Променливи';
 $strServerTrafficNotes = '<b>Трафик на сървъра</b>: Тези таблици показват статистика за мрежовия трафик на MySQL сървъра от както е стартиран.';
@@ -483,17 +531,21 @@ $strShowAll = 'Покажи всички';
 $strShowColor = 'Покажи цвят';
 $strShowCols = 'Покажи колоните';
 $strShowDatadictAs = 'Формат на речника на данните';
+$strShowFullQueries = 'Показване на пълните заявки';
 $strShowGrid = 'Покажи мрежа';
-$strShowPHPInfo = 'Покажи информация за PHP ';
+$strShowPHPInfo = 'Информация за PHP ';
 $strShowTableDimension = 'Покажи размерността на таблиците';
 $strShowTables = 'Покажи таблиците';
-$strShowThisQuery = ' Покажи тази заявка отново ';
+$strShowThisQuery = ' Показване на заявката отново';
 $strShowingRecords = 'Показва записи ';
 $strSingly = '(еднократно)';
 $strSize = 'Размер';
 $strSort = 'Сортиране';
 $strSpaceUsage = 'Използвано място';
 $strSplitWordsWithSpace = 'Думите трябва да се разделят с интервал (" ").';
+$strStatCheckTime = 'Последна проверка';
+$strStatCreateTime = 'Създаване';
+$strStatUpdateTime = 'Последно обновление';
 $strStatement = 'Заявление';
 $strStatus = 'Състоние';
 $strStrucCSV = 'CSV данни';
@@ -503,9 +555,10 @@ $strStrucExcelCSV = 'CSV за Ms Excel данни';
 $strStrucOnly = 'Само структурата';
 $strStructPropose = 'Предложи структура на таблицата';
 $strStructure = 'Структура';
-$strSubmit = 'Изпълни';
+$strSubmit = 'Изпълнение';
 $strSuccess = 'Вашето SQL-запитване беше изпълнено успешно';
 $strSum = 'Сума';
+$strSwitchToTable = 'Превключи към копираната таблица';
 
 $strTable = 'Таблица ';
 $strTableComments = 'Коментари към таблицата';
@@ -530,17 +583,30 @@ $strTime = 'Време';
 $strTotal = 'Общо';
 $strTotalUC = 'Общо';
 $strTraffic = 'Трафик';
+$strTransformation_image_jpeg__inline = 'Показва thumbnail; опции: ширина, височина в пиксели (запазва оригиналната пропорция)';
+$strTransformation_image_jpeg__link = 'Показва връзката на това изображение (за директно сваляне, i.e.).';
+$strTransformation_image_png__inline = 'Виж image/jpeg: inline';
+$strTransformation_text_plain__dateformat = 'Взема поле TIME, TIMESTAMP или DATETIME и го форматира като използва локалния формат за дата. Първата опция е отместването (в часове) която ще бъде добавена към времето (По подразбиране: 0). Втората опция представлява различен формат на датата в зависимост от параметрите на функцията на PHP - strftime().';
+$strTransformation_text_plain__external = 'САМО ЗА ЛИНУКС: Стартира външното приложение и попълва данните в полетата чрез стандартния вход. Връща стандартния изход на проложението. По подразбиране е Tidy, за да покаже HTML кода. От съображения за сигурност, трябва ръчно да редактирате файла libraries/transformations/text_plain__external.inc.php и да вмъкнете програмите на които вие позволявате да бъдат стартирани. Първата опция тогава е номера на програмата която бихте искали да използвате а втората опция са параметрите за програмата. Ако третият параметъро е установен в 1, ще конвертира изхода използвайки htmlspecialchars() (По подразбиране е 1). Ако четвъртият параметър е установен в 1, ще постави NOWRAP на клетката на съдържанието, така че целия изход ще бъде показан без преформатиране (По подразбиране е 1)';
+$strTransformation_text_plain__formatted = 'Запазва оригиналното форматиране на полето.';
+$strTransformation_text_plain__imagelink = 'Показва изображение и връзка на полето съдържащо файлово име; първата опция е префикс като "http://domain.com/", втората опция е ширината в пиксели, третата е височината.';
+$strTransformation_text_plain__link = 'Показва връзката на полето съдържащо файлово име; първата опция е префикс като "http://domain.com/", втората опция е заглавието на връзката.';
+$strTransformation_text_plain__substr = 'Показва част от низ. Първата опция е отместването от което ще се изхвежда вашият текст (По подразбиране е 0). Втората опция указва колко текст ще се изведе. Ако е празна, се връща целия оставащ текст. Третата опция указва кои символи ще бъдат изведени (По подразбиране: ...) .';
+$strTransformation_text_plain__unformatted = 'Показва HTML кода като HTML еденица. Без HTML форматиране.';
+$strTruncateQueries = 'Съкращаване на показаните заявки';
 $strType = 'Тип';
 
 $strUncheckAll = 'Размаркирай всичко';
 $strUnique = 'Уникално';
 $strUnselectAll = 'Деселектирай всичко';
+$strUpdComTab = 'Моля прегледайте информацията в Документацията относно това как да обновите вашата Column_comments таблица';
 $strUpdatePrivMessage = 'Вие променихте привилегиите за %s.';
 $strUpdateProfile = 'Обновяване на профил:';
 $strUpdateProfileMessage = 'Профила беше обновен.';
 $strUpdateQuery = 'Допълни Запитването';
 $strUsage = 'Използвани';
 $strUseBackquotes = 'Използвай обратни кавички около имена на таблици и полета';
+$strUseHostTable = 'Използвай таблица Host';
 $strUseTables = 'Използвай таблицата';
 $strUseTextField = 'Използвай текстовото поле';
 $strUser = 'Потребител';
@@ -557,8 +623,8 @@ $strValidateSQL = 'Валидирай SQL-а';
 $strValidatorError = 'SQL валидатора не може да бъде инициализиран. Моля проверете дали сте инсталирали необходимите PHP разширения, така както е описано в %sдокументацията%s.';
 $strValue = 'Стойност';
 $strVar = 'Променлива';
-$strViewDump = 'Покажи дъмп (схема) на таблицата';
-$strViewDumpDB = 'Покажи дъмп (схема) на БД';
+$strViewDump = 'Дъмп (схема) на таблицата';
+$strViewDumpDB = 'Дъмп (схема) на БД';
 
 $strWebServerUploadDirectory = 'директорията за upload на уеб сървъра';
 $strWebServerUploadDirectoryError = 'Директорията която сте указали за upload не може да бъде достигната';
@@ -569,94 +635,15 @@ $strWritingCommentNotPossible = 'Записа на коментар не е възможен';
 $strWritingRelationNotPossible = 'Записа на релацията не е възможен';
 $strWrongUser = 'Грешно име/парола. Отказан достъп.';
 
+$strXML = 'XML';
+
 $strYes = 'да';
 
 $strZeroRemovesTheLimit = 'Забележка: Установяването на тези опции с 0 (нула) премахва ограничението.';
 $strZip = '"zip-нато"';
-$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 
-$strAutodetect = 'Autodetect';  //to translate
-$strAutomaticLayout = 'Automatic layout';  //to translate
-
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-
-$strCSVOptions = 'CSV options';//to translate
-
-$strDBComment = 'Database comment: ';//to translate
-$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
-$strDumpComments = 'Include column comments as inline SQL-comments';//to translate
-
-$strEndCut = 'END CUT';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-
-$strFileNameTemplate = 'File name template';//to translate
-$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
-$strFileNameTemplateRemember = 'remember template';//to translate
-
-$strInnodbStat = 'InnoDB Status';  //to translate
-
-$strMIME_MIMEtype = 'MIME-type';//to translate
-$strMIME_available_mime = 'Available MIME-types';//to translate
-$strMIME_available_transform = 'Available transformations';//to translate
-$strMIME_description = 'Description';//to translate
-$strMIME_file = 'Filename';//to translate
-$strMIME_nodescription = 'No Description is available for this transformation.<br />Please ask the author, what %s does.';//to translate
-$strMIME_transformation = 'Browser transformation';//to translate
-$strMIME_transformation_note = 'For a list of available transformation options and their MIME-type transformations, click on %stransformation descriptions%s';//to translate
-$strMIME_transformation_options = 'Transformation options';//to translate
-$strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';//to translate
-$strMIME_without = 'MIME-types printed in italics do not have a seperate transformation function';//to translate
-
-$strNoOptions = 'This format has no options';//to translate
-
-$strPerMinute = 'per minute';//to translate
-$strPerSecond = 'per second';//to translate
-
-$strQueryFrame = 'Query window';//to translate
-$strQueryFrameDebug = 'Debugging information';//to translate
-$strQueryFrameDebugBox = 'Active variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nCurrent variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nOpener location: %s\nFrameset location: %s.';//to translate
-$strQuerySQLHistory = 'SQL-history';//to translate
-$strQueryTime = 'Query took %01.4f sec';//to translate
-
-$strRowsModeFlippedHorizontal = 'horizontal (rotated headers)';//to translate
-
-$strSQLOptions = 'SQL options';//to translate
-$strShowFullQueries = 'Show Full Queries';  //to translate
-$strStatCheckTime = 'Last check';//to translate
-$strStatCreateTime = 'Creation';//to translate
-$strStatUpdateTime = 'Last update';//to translate
-
-$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
-$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
-$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
-$strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
-$strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
-$strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
-$strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
-$strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
-$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
-$strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
-$strTruncateQueries = 'Truncate Shown Queries';  //to translate
-
-$strUseHostTable = 'Use Host Table';  //to translate
-
-$strXML = 'XML';//to translate
-
-$strSwitchToTable = 'Switch to copied table';  //to translate
-$strCharset = 'Charset'; //to translate
-$strLaTeXOptions = 'LaTeX options';  //to translate
-$strRelations = 'Relations';  //to translate
-$strMoveTableSameNames = 'Can\'t move table to same one!';  //to translate
-$strCopyTableSameNames = 'Can\'t copy table to same one!';  //to translate
-$strMustSelectFile = 'You should select file which you want to insert.';  //to translate
-$strSaveOnServer = 'Save on server in %s directory';  //to translate
-$strOverwriteExisting = 'Overwrite existing file(s)';  //to translate
-$strFileAlreadyExists = 'File %s already exists on server, change filename or check overwrite option.';  //to translate
-$strDumpSaved = 'Dump has been saved to file %s.';  //to translate
-$strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
-$strNoSpace = 'Insufficient space to save the file %s.';  //to translate
-$strInsertedRowId = 'Inserted row id:';  //to translate
+// To translate
 $strLoadMethod = 'LOAD method';  //to translate
 $strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
+
 ?>
