@@ -247,7 +247,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
         $size = min(4, count($set));
         ?>
         <td>
-            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $set; ?>$" />
+            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$set$" />
             <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple">
         <?php
         echo "\n";
