@@ -7,6 +7,9 @@ $Source$
 
 2002-04-13 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/korean.inc.php3: fixed some inconcistencies.
+	* main.php3, lines 200-201: fixed a bug with privileges with escaped
+	  wilcards in database names. Thanks to
+	  Mike Eheler <meheler @ users.sourceforge.net>.
 
 2002-04-12 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3, lines 957-991: expended cosmetic changes

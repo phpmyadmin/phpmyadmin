@@ -197,8 +197,8 @@ if ($server > 0) {
             while ($row = mysql_fetch_array($rs_usr)) {
                 if (ereg($re . '%|_', $row['Db'])
                     || !mysql_select_db($row['Db'], $userlink) && @mysql_errno() != 1044) {
-                    $row['Db']      = ereg_replace($re . '%', '\\1...', ereg_replace($re . '_', '\\1?', $row['Db']));
-                    $db_to_create   = $row['Db'];
+                    $db_to_create   = ereg_replace($re . '%', '\\1...', ereg_replace($re . '_', '\\1?', $row['Db']));
+                    $db_to_create   = ereg_replace('\\\(%|_)', '\\1', $db_to_create);
                     $is_create_priv = TRUE;
                     break;
                 } // end if
