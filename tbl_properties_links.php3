@@ -5,8 +5,8 @@
 /**
  * Prepares links
  */
-$lnk3    = '<a href="tbl_properties_export.php3?' . $url_query . '">';
-$lnk5    = '<a href="tbl_properties_operations.php3?' . $url_query . '">';
+$lnk3        = '<a href="tbl_properties_export.php3?' . $url_query . '">';
+$lnk5        = '<a href="tbl_properties_operations.php3?' . $url_query . '">';
 
 if ($num_rows > 0) {
     $lnk1    = '<a href="sql.php3?' . $url_query
@@ -50,3 +50,4 @@ if ($num_rows > 0) {
          onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
+<hr />
