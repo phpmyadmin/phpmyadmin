@@ -48,7 +48,10 @@ function PMA_duplicate_table_info($work, $pma_table, $get_fields, $where_fields,
         $table_copy_query = 'SELECT ' . implode(', ', $select_parts)
                           . ' FROM ' . PMA_backquote($cfgRelation[$pma_table])
                           . ' WHERE ' . implode(' AND ', $where_parts);
-        $table_copy_rs    = PMA_query_as_cu($table_copy_query);
+        
+        // must use PMA_DBI_QUERY_STORE here, since we execute another
+        // query inside the loop
+        $table_copy_rs    = PMA_query_as_cu($table_copy_query, TRUE, PMA_DBI_QUERY_STORE);
 
         while ($table_copy_row = @PMA_DBI_fetch_assoc($table_copy_rs)) {
             $value_parts = array();

@@ -6,8 +6,11 @@ $Id$
 $Source$
 
 2005-02-07 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/dbi/*: PMA_DBI_free_result(): do not send a boolean
-      to mysqli_free_result() or mysql_free_result(), it expects a result resource 
+    * libraries/dbi/*: bug #1116933, PMA_DBI_free_result(): 
+      do not send a boolean to mysqli_free_result() or mysql_free_result(),
+      it expects a result resource 
+    * libraries/tbl_move_copy.php: bug #1117112, commands out of sync when
+      using "copy table" operation
 
 2005-02-07 Alexander M. Turek  <me@derrabus.de>
     * libraries/mcrypt.lib.php: Bug #1117907 ("wrong parameter count" with
