@@ -8,6 +8,11 @@ $Source$
 2001-10-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3, lines 1232-1245 & 1254: fixed some bugs with modifying
 	  user privileges.
+	* main.php3, lines 163, 164, 179 & 180: fixed a bad key value reference
+	  (once advanced authentication is completed, the login/password of the
+	  current user is set in the "user/password" keys and not in the
+	  "stduser/stdpass" ones.
+	* libraries/common.lib.php3: removed unnecessary md5 calls.
 
 2001-10-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/danish.inc.php3: updated thanks to
