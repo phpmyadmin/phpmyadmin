@@ -8,6 +8,8 @@ $Source$
 2001-07-09  Marc Delisle  <lem9@users.sourceforge.net>
 	* bug 439572, left.php3: added a @ before mysql_list_tables,
 	  to try to get rid of a warning (cause: too many tables?)
+	* bug 439709, tbl_properties.php3: show table maintenance options
+	  based on table type
 
 2001-07-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, line 742: Documentation is now loaded in its own window.

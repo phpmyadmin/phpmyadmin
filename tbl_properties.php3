@@ -226,7 +226,8 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>3 && $tbl_type!
 	echo '<td style="padding-right:10px;">' . UCFirst($strTotal) . '</td><td align="right">' . $size . '</td><td>' . $unit . '</td>';
 	echo "</tr>\n";
 
-	if (!empty($showtable["Data_free"])){
+	if (!empty($showtable["Data_free"]) 
+		and ($tbl_type=="MYISAM" or $tbl_type=="BDB")){
 		echo "<tr>";
 		echo "<td colspan=3 align=center>";
 		$query = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
@@ -481,27 +482,49 @@ echo "&nbsp;$strSingly\n";
 if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>=22)
 {
 ?>
+
+<?php if (($tbl_type=="MYISAM" or $tbl_type=="BDB")){ ?>
+
 <tr><td valign=top><li>&nbsp;</td><td colspan=2>
 <table border=0 cellspacing=0 cellpadding=0><tr><td><?php echo $strTableMaintenance . ":"; ?>&nbsp;</td>
+
+<?php if ($tbl_type=="MYISAM"){ ?>
  <td><a href="sql.php3?sql_query=<?php echo urlencode("CHECK TABLE $table");?>&display=simple&<?php echo $query;?>">
         <?php echo $strCheckTable; ?></a>
         &nbsp;<?php echo show_docu("manual_Reference.html#CHECK_TABLE"); ?>
- </td><td>&nbsp;-&nbsp;</td>
+ </td>
+<?php } ?>
+
+<?php if (($tbl_type=="MYISAM" or $tbl_type=="BDB")){ ?>
+<td>&nbsp;-&nbsp;</td>
  <td><a href="sql.php3?sql_query=<?php echo urlencode("ANALYZE TABLE $table");?>&display=simple&<?php echo $query;?>">
         <?php echo $strAnalyzeTable; ?>
         </a>&nbsp;<?php echo show_docu("manual_Reference.html#ANALYZE_TABLE");?>
- </td></tr> <tr> <td></td>
+ </td>
+<?php } ?>
+</tr> <tr> <td></td>
+
+<?php if ($tbl_type=="MYISAM"){ ?>
  <td> <a href="sql.php3?sql_query=<?php echo urlencode("REPAIR TABLE $table");?>&display=simple&<?php echo $query;?>">
         <?php echo $strRepairTable; ?>
         </a>&nbsp;<?php echo show_docu("manual_Reference.html#REPAIR_TABLE"); ?>
- </td><td>&nbsp;-&nbsp;</td>
+ </td>
+<?php } ?>
+
+<?php if (($tbl_type=="MYISAM" or $tbl_type=="BDB")){ ?>
+<td>&nbsp;-&nbsp;</td>
 <td><a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table");?>&display=simple&<?php echo $query;?>">
         <?php echo $strOptimizeTable; ?>
-        </a>&nbsp;<?php echo show_docu("manual_Reference.html#OPTIMIZE_TABLE");
-?> </td> </tr> </table>
+        </a>&nbsp;
+<?php echo show_docu("manual_Reference.html#OPTIMIZE_TABLE"); ?>
+ </td> 
+<?php } ?>
+
+</tr> </table>
 </td></tr>
 
 <tr><td>&nbsp;</td></tr>
+<?php } ?>
 
 <tr><td><li>&nbsp;</td><td><?php echo "$strTableComments:&nbsp;";?></td>
 <td>
@@ -550,6 +573,7 @@ if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>=22)
 <?php
 }
 else{ // MySQL < 3.23
+// FIXME: find a way to know the table type, then let OPTIMIZE if MYISAM or BDB
 ?>
 <tr><td><li>&nbsp;</td><td><?php echo "$strTableMaintenance:&nbsp;";?></td>
 <td><a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table");?>&display=simple&<?php echo $query;?>">
