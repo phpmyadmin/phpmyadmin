@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-21  Loïc Chapeaux  <lolo@phpheaven.net>
+	* user_details.php3, libraries/user_details.js: restored the "show grants"
+	  table at the top of the "other grants" page.
+
 2001-10-20  Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/select_lang.lib.php3, lang/turkish.inc.php3: new turkish
 	  language, thanks to Bora Alioglu (bora at risc01.ktu.edu.tr)

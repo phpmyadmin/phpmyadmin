@@ -22,7 +22,8 @@ $err_url = 'user_details.php3'
 /**
  * Displays the table of grants for an user
  *
- * @param   integer  the id of the query used to get hosts and databases lists
+ * @param   mixed    the id of the query used to get hosts and databases lists
+ *                   or an arry containing host and user informations
  * @param   mixed    the database to check garnts for, FALSE for all databases
  *
  * @return  boolean  always true
@@ -31,7 +32,11 @@ $err_url = 'user_details.php3'
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
  *
- * @see check_db()
+ * @see     check_db()
+ *
+ * @TODO    "SHOW GRANTS" statements is available and buggyless since
+ *          MySQL 3.23.4 and it seems not to return privileges of the anonymous
+ *          user while these privileges applies to all users.
  */
 function table_grants(&$host_db_result, $dbcheck = FALSE) {
     global $lang, $server;
@@ -66,8 +71,8 @@ function table_grants(&$host_db_result, $dbcheck = FALSE) {
     // 2. Table body
     $url_query  = 'lang=' . $lang . '&amp;server=' . $server . '&amp;db=mysql&amp;table=user';
 
-    while ($row = mysql_fetch_array($host_db_result)) {
-        $local_query = 'SHOW GRANTS FOR \'' . $row['user'] . '\'@\'' . $row['host'] . '\'';
+    while ($row = (is_array($host_db_result) ? $host_db_result : mysql_fetch_array($host_db_result))) {
+        $local_query = 'SHOW GRANTS FOR \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'';
         $result      = mysql_query($local_query);
         $grants_cnt  = @mysql_num_rows($result);
 
@@ -87,29 +92,34 @@ function table_grants(&$host_db_result, $dbcheck = FALSE) {
                     $grantopt = FALSE;
                 } // end if...else
 
-                // Checking the database ...
-                if ($dbcheck) {
-                    if (!eregi($dbcheck . '|\*', $db) || ($priv == '')) {
-                        continue;
-                    }
-                } // end if
-
                 // Password Line
                 if ($priv == '' && !$grantopt) {
                     continue;
                 }
 
+                // Checking the database (take into account wildcards)
+                if ($dbcheck
+                    && ($db != '*' && $db != $dbcheck)) {
+                    // TODO: db names may contain characters that are regexp
+                    //       instructions
+                    $re        = '(^|(\\\\\\\\)+|[^\])';
+                    $db_regex  = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $db));
+                    if (!eregi('^' . $db_regex . '$', $dbcheck)) {
+                        continue;
+                    }
+                } // end if
+
                 $bgcolor    = ($i % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
                 $revoke_url = 'sql.php3'
                             . '?' . $url_query
-                            . '&amp;sql_query=' . urlencode('REVOKE ' . $priv . ' ON ' . backquote($db) . '.' . backquote($table) . ' FROM \'' . $row['user'] . '\'@\'' . $row['host'] . '\'')
-                            . '&amp;zero_rows=' . urlencode($GLOBALS['strRevokeMessage'] . ' <span style="color: #002E80">' . $row['user'] . '@' . $row['host'] . '</span>')
+                            . '&amp;sql_query=' . urlencode('REVOKE ' . $priv . ' ON ' . backquote($db) . '.' . backquote($table) . ' FROM \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'')
+                            . '&amp;zero_rows=' . urlencode($GLOBALS['strRevokeMessage'] . ' <span style="color: #002E80">' . $row['User'] . '@' . $row['Host'] . '</span>')
                             . '&amp;goto=user_details.php3';
                 if ($grantopt) {
                     $revoke_grant_url = 'sql.php3'
                                       . '?' . $url_query
-                                      . '&amp;sql_query=' . urlencode('REVOKE GRANT OPTION ON ' . backquote($db) . '.' . backquote($table) . ' FROM \'' . $row['user'] . '\'@\'' . $row['host'] . '\'')
-                                      . '&amp;zero_rows=' . urlencode($GLOBALS['strRevokeGrantMessage'] . ' <span style="color: #002E80">' . $row['user'] . '@' . $row['host'] . '</span>')
+                                      . '&amp;sql_query=' . urlencode('REVOKE GRANT OPTION ON ' . backquote($db) . '.' . backquote($table) . ' FROM \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'')
+                                      . '&amp;zero_rows=' . urlencode($GLOBALS['strRevokeGrantMessage'] . ' <span style="color: #002E80">' . $row['User'] . '@' . $row['Host'] . '</span>')
                                       . '&amp;goto=user_details.php3';
                 }
                 ?>
@@ -151,8 +161,8 @@ function table_grants(&$host_db_result, $dbcheck = FALSE) {
                     }
                     echo "\n";
                     ?>
-    <td><?php echo $row['host']; ?></td>
-    <td><?php echo ($row['user']) ? $row['user'] : '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>'; ?></td>
+    <td><?php echo $row['Host']; ?></td>
+    <td><?php echo ($row['User']) ? $row['User'] : '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>'; ?></td>
                     <?php
                 }
                 echo "\n";
@@ -176,6 +186,11 @@ function table_grants(&$host_db_result, $dbcheck = FALSE) {
                 echo "\n";
             } // end while $usr_row
         } // end if $grants_cnt >0
+        // $host_db_result is an array containing related to only one user
+        // -> exit the loop
+        if (is_array($host_db_result)) {
+            break;
+        }
     } // end while $row
     ?>
 </table>
@@ -199,7 +214,7 @@ function table_grants(&$host_db_result, $dbcheck = FALSE) {
  */
 function check_db($dbcheck)
 {
-    $local_query  = 'SELECT host, user FROM mysql.user ORDER BY host, user';
+    $local_query  = 'SELECT Host, User FROM mysql.user ORDER BY Host, User';
     $result       = mysql_query($local_query);
     $host_usr_cnt = @mysql_num_rows($result);
 
@@ -404,7 +419,7 @@ function normal_operations()
 
 
 /**
- * Displays the grant operations part of the page
+ * Displays the grant operations part of an user properties page
  *
  * @param   array    grants of the current user
  *
@@ -457,12 +472,13 @@ function grant_operations($grants)
                 </td>
                 <td>
                     <select name="dbgrant" onchange="change(this)">
+                        <option></option>
     <?php
     echo "\n";
-    if (!isset($dbgrant)) {
-        echo '                        ';
-        echo '<option selected="selected"></option>' . "\n";
-    }
+//    if (!isset($dbgrant)) {
+//        echo '                        ';
+//        echo '<option></option>' . "\n";
+//    }
     $result = mysql_query('SHOW DATABASES');
     if (@mysql_num_rows($result)) {
         while ($row = mysql_fetch_row($result)) {
@@ -491,12 +507,13 @@ function grant_operations($grants)
                 </td>
                 <td>
                     <select name="tablegrant" onchange="change(this)">
+                        <option></option>
     <?php
     echo "\n";
-    if (!isset($tablegrant)) {
-        echo '                        ';
-        echo '<option selected="selected"></option>' . "\n";
-    }
+//    if (!isset($tablegrant)) {
+//        echo '                        ';
+//        echo '<option></option>' . "\n";
+//    }
     if (isset($dbgrant)) {
         $result = mysql_query('SHOW TABLES FROM ' . backquote($dbgrant));
         if (@mysql_num_rows($result)) {
@@ -601,7 +618,7 @@ function edit_operations($host, $user)
     global $lang, $server;
     global $host, $pma_user;
 
-    $result = mysql_query('SELECT * FROM mysql.user WHERE user = \'' . $user . '\' and host = \'' . $host . '\'');
+    $result = mysql_query('SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($user) . '\' AND Host = \'' . sql_addslashes($host) . '\'');
     $rows   = @mysql_num_rows($result);
 
     if (!$rows) {
@@ -626,12 +643,12 @@ function edit_operations($host, $user)
             <table>
             <tr>
                 <td>
-                    <input type="radio" value="1" name="anyhost"<?php if (empty($host) || $host == '%') echo ' checked="checked"'; ?> />
+                    <input type="radio" value="1" name="anyhost"<?php if ($host == '' || $host == '%') echo ' checked="checked"'; ?> />
                     <?php echo $GLOBALS['strAnyHost'] . "\n"; ?>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" value="0" name="anyhost"<?php if (!empty($host) && $host != '%') echo ' checked="checked"'; ?> />
+                    <input type="radio" value="0" name="anyhost"<?php if ($host != '' && $host != '%') echo ' checked="checked"'; ?> />
                     <?php echo $GLOBALS['strHost']; ?>&nbsp;:&nbsp;
                 </td>
                 <td>
@@ -640,12 +657,12 @@ function edit_operations($host, $user)
             </tr>
             <tr>
                 <td>
-                    <input type="radio" value="1" name="anyuser"<?php if (empty($pma_user) || $pma_user == '%') echo ' checked="checked"'; ?> />
+                    <input type="radio" value="1" name="anyuser"<?php if ($pma_user == '' || $pma_user == '%') echo ' checked="checked"'; ?> />
                     <?php echo $GLOBALS['strAnyUser']; ?>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" value="0" name="anyuser" checked="checked"<?php if (!empty($pma_user) && $pma_user != '%') echo ' checked="checked"'; ?> />
+                    <input type="radio" value="0" name="anyuser" checked="checked"<?php if ($pma_user != '' && $pma_user != '%') echo ' checked="checked"'; ?> />
                     <?php echo $GLOBALS['strUserName']; ?>&nbsp;:&nbsp;
                 </td>
                 <td>
@@ -751,10 +768,10 @@ function table_users($host = FALSE, $user = FALSE)
         $local_query .= ' WHERE 1 ';
     }
     if ($host) {
-        $local_query .= ' AND host = \'' . $host . '\'';
-        $local_query .= ' AND user = \'' . $user. '\'';
+        $local_query .= ' AND Host = \'' . sql_addslashes($host) . '\'';
+        $local_query .= ' AND User = \'' . sql_addslashes($user) . '\'';
     }
-    $local_query     .= ' ORDER BY host, user';
+    $local_query     .= ' ORDER BY Host, User';
     $result          = mysql_query($local_query);
     $rows            = @mysql_num_rows($result);
 
@@ -918,7 +935,7 @@ function confirm($the_host, $the_user) {
     }
 
     echo $GLOBALS['strConfirm'] . '&nbsp;:&nbsp<br />' . "\n";
-    echo 'DELETE FROM mysql.user WHERE host = \'' . $the_host . '\' AND user = \'' . $the_user . '\'' . '<br />' . "\n";
+    echo 'DELETE FROM mysql.user WHERE Host = \'' . $the_host . '\' AND User = \'' . $the_user . '\'' . '<br />' . "\n";
     ?>
 <form action="user_details.php3" method="post">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
@@ -945,26 +962,34 @@ function confirm($the_host, $the_user) {
 check_rights();
 
 if (isset($db)) {
-    $db_bkp    = $db;
+    $db_bkp       = (get_magic_quotes_gpc() ? stripslashes($db) : $db);
     unset($db);
 }
 if (isset($table)) {
-    $table_bkp = $table;
-    unset($db);
+    $table_bkp    =  (get_magic_quotes_gpc() ? stripslashes($table) : $table);
+    unset($table);
 }
-if (!empty($host) && get_magic_quotes_gpc()) {
-    $host         = stripslashes($host);
+if (get_magic_quotes_gpc()) {
+    if (!empty($host)) {
+        $host     = stripslashes($host);
+    }
     if (!empty($pma_user)) {
         $pma_user = stripslashes($pma_user);
     }
 }
 
-$js_to_run = 'user_details.js';
-include('./header.inc.php3');
+if (!isset($message)) {
+    $js_to_run = 'user_details.js';
+    include('./header.inc.php3');
+}
 if (!isset($submit_updProfile)) {
     echo '<h1>' . "\n";
-    echo '    ' . (empty($host) ? $strAnyHost : $strHost . ' ' . $host) . ' - ' . (empty($pma_user) ? $strAnyUser : $strUser . ' ' . $pma_user) . "\n";
+    echo '    ' . ((!isset($host) || $host == '') ? $strAnyHost : $strHost . ' ' . $host) . ' - ' . ((!isset($pma_user) || $pma_user == '') ? $strAnyUser : $strUser . ' ' . $pma_user) . "\n";
     echo '</h1>';
+}
+if (isset($message)) {
+    $show_query = 'y';
+    show_message($message);
 }
 
 if (isset($db_bkp)) {
@@ -1003,7 +1028,7 @@ else if (isset($delete) && $delete
         $delete_host = stripslashes($delete_host);
         $delete_user = stripslashes($delete_user);
     }
-    $common_where    = ' WHERE host = \'' . sql_addslashes($delete_host) . '\' AND user = \'' . sql_addslashes($delete_user) . '\'';
+    $common_where    = ' WHERE Host = \'' . sql_addslashes($delete_host) . '\' AND User = \'' . sql_addslashes($delete_user) . '\'';
 
     // Delete Grants First!
     $sql_query       = 'DELETE FROM mysql.db' . $common_where;
@@ -1032,20 +1057,20 @@ else if (isset($delete) && $delete
 // Adds an user
 else if (isset($submit_addUser)) {
     $show_query   = 'y';
-    if (empty($host)) {
+    if (!isset($host) || $host == '') {
         $host     = '%';
     }
-    if (empty($pma_user)) {
+    if (!isset($pma_user) || $pma_user == '') {
         $pma_user = '%';
     }
 
     // Password is not confirmed
-    if ((!isset($nopass) || !$nopass) && empty($pma_pw)) {
+    if ((!isset($nopass) || !$nopass) && $pma_pw == '') {
         echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strPasswordEmpty . '</b></p>' . "\n";
         unset($host);
         unset($pma_user);
     }
-    else if (!empty($pma_pw)
+    else if ($pma_pw != ''
         && (!isset($pma_pw2) || $pma_pw != $pma_pw2)) {
         echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strPasswordNotSame . '</b></p>' . "\n";
         unset($host);
@@ -1067,8 +1092,12 @@ else if (isset($submit_addUser)) {
         } // end for
         unset($list_priv);
 
+        if (get_magic_quotes_gpc() && $pma_pw != '') {
+            $pma_pw = stripslashes($pma_pw);
+        }
+
         $sql_query  = 'INSERT INTO mysql.user '
-                    . 'SET host = \'' . sql_addslashes($host) . '\', user = \'' . sql_addslashes($pma_user) . '\', password = ' . (empty($pma_pw) ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($pma_pw) . '\')')
+                    . 'SET host = \'' . sql_addslashes($host) . '\', user = \'' . sql_addslashes($pma_user) . '\', password = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($pma_pw) . '\')')
                     . ', ' . $sql_query;
         $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url);
         unset($host);
@@ -1081,11 +1110,11 @@ else if (isset($submit_addUser)) {
 else if (isset($submit_updProfile)) {
     $show_query     = 'y';
     $edit           = TRUE;
-    if (empty($host)) {
-        $host       = '%';
+    if (!isset($host) || $host == '') {
+        $host     = '%';
     }
-    if (empty($pma_user)) {
-        $pma_user   = '%';
+    if (!isset($pma_user) || $pma_user == '') {
+        $pma_user = '%';
     }
 
     // Builds the sql query
@@ -1093,10 +1122,10 @@ else if (isset($submit_updProfile)) {
 
     if (isset($anyhost) && $anyhost) {
         $new_server = '%';
-    } else if (!empty($new_server) && get_magic_quotes_gpc()) {
+    } else if ($new_server != '' && get_magic_quotes_gpc()) {
         $new_server = stripslashes($new_server);
     }
-    if (!empty($new_server) && $new_server != $host) {
+    if ($new_server != '' && $new_server != $host) {
         $common_upd .= 'host = \'' . sql_addslashes($new_server) . '\'';
     } else if (isset($new_server)) {
         unset($new_server);
@@ -1104,10 +1133,10 @@ else if (isset($submit_updProfile)) {
 
     if (isset($anyuser) && $anyuser) {
         $new_user   = '%';
-    } else if (!empty($new_user) && get_magic_quotes_gpc()) {
+    } else if ($new_user != '' && get_magic_quotes_gpc()) {
         $new_user   = stripslashes($new_user);
     }
-    if (!empty($new_user) && $new_user != $pma_user) {
+    if ($new_user != '' && $new_user != $pma_user) {
         $common_upd .= (empty($common_upd) ? '' : ', ')
                     . 'user = \'' . sql_addslashes($new_user) . '\'';
     } else if (isset($new_user)) {
@@ -1117,30 +1146,30 @@ else if (isset($submit_updProfile)) {
     if (isset($nopass) && $nopass == -1) {
         $sql_query = $common_upd;
     }
-    else if ((!isset($nopass) || $nopass == 0) && empty($new_pw)) {
+    else if ((!isset($nopass) || $nopass == 0) && $new_pw == '') {
         echo '<h1>' . "\n";
-        echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
+        echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user != '') ?  $pma_user : $strAny) . "\n";
         echo '</h1>' . "\n";
         echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strPasswordEmpty . '</b></p>' . "\n";
     }
-    else if (!empty($new_pw)
+    else if ($new_pw != ''
         && (!isset($new_pw2) || $new_pw != $new_pw2)) {
         echo '<h1>' . "\n";
-        echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
+        echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user != '') ?  $pma_user : $strAny) . "\n";
         echo '</h1>' . "\n";
         echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strPasswordNotSame . '</b></p>' . "\n";
     }
     else {
         $sql_query = (empty($common_upd) ? '' : $common_upd . ', ')
-                   . 'password = ' . (empty($new_pw) ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($new_pw) . '\')');
+                   . 'Password = ' . (($new_pw == '') ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($new_pw) . '\')');
     }
     
     if (!empty($sql_query)) {
-        $common_where       = ' WHERE host = \'' . sql_addslashes($host) . '\' AND user = \'' . sql_addslashes($pma_user) . '\'';
+        $common_where       = ' WHERE Host = \'' . sql_addslashes($host) . '\' AND User = \'' . sql_addslashes($pma_user) . '\'';
         $sql_query_cpy      = '';
 
         // Updates profile
-        $sql_query          = 'UPDATE user SET ' . $sql_query . $common_where;
+        $sql_query          = 'UPDATE User SET ' . $sql_query . $common_where;
         $sql_query_cpy      = $sql_query;
         $result             = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;edit=1');
 
@@ -1167,12 +1196,12 @@ else if (isset($submit_updProfile)) {
             $pma_user = $new_user;
         }
         echo '<h1>' . "\n";
-        echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
+        echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user != '') ?  $pma_user : $strAny) . "\n";
         echo '</h1>' . "\n";
         show_message($strUpdateProfileMessage . '<br />' . $strRememberReload);
     } else {
         echo '<h1>' . "\n";
-        echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
+        echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user != '') ?  $pma_user : $strAny) . "\n";
         echo '</h1>' . "\n";
         show_message($strNoModification);
     }
@@ -1182,10 +1211,10 @@ else if (isset($submit_updProfile)) {
 else if (isset($submit_chgPriv)) {
     $show_query   = 'y';
     $edit         = TRUE;
-    if (empty($host)) {
+    if (!isset($host) || $host == '') {
         $host     = '%';
     }
-    if (empty($pma_user)) {
+    if (!isset($pma_user) || $pma_user == '') {
         $pma_user = '%';
     }
 
@@ -1204,7 +1233,7 @@ else if (isset($submit_chgPriv)) {
 
     $sql_query = 'UPDATE user SET '
                . $sql_query
-               . ' WHERE host = \'' . sql_addslashes($host) . '\' AND user = \'' . sql_addslashes($pma_user) . '\'';
+               . ' WHERE Host = \'' . sql_addslashes($host) . '\' AND User = \'' . sql_addslashes($pma_user) . '\'';
     $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;edit=1');
     show_message(sprintf($strUpdatePrivMessage, '<span style="color: #002E80">' . $pma_user . '@' . $host . '</span>') . '<br />' . $strRememberReload);
 }
@@ -1212,10 +1241,10 @@ else if (isset($submit_chgPriv)) {
 // Revoke/Grant privileges
 else if (isset($grants) && $grants) {
     $show_query   = 'y';
-    if (empty($host)) {
+    if (!isset($host) || $host == '') {
         $host     = '%';
     }
-    if (empty($pma_user)) {
+    if (!isset($pma_user) || $pma_user == '') {
         $pma_user = '%';
     }
 
@@ -1250,16 +1279,24 @@ else if (isset($grants) && $grants) {
         $priv_grant = 'Grant_priv';
         $priv_grant = (isset($$priv_grant) ? ' WITH GRANT OPTION' : '');
 
+        if (get_magic_quotes_gpc()) {
+            if (isset($dbgrant) && !$anydb) {
+                $dbgrant    = stripslashes($dbgrant);
+            }
+            if (isset($tablegrant) && !$anytable) {
+                $tablegrant = stripslashes($tablegrant);
+            }
+        } // end if
         $sql_query .= ' ON '
-                   . (($anydb || empty($dbgrant)) ? '*' : backquote($dbgrant))
+                   . (($anydb || $dbgrant == '') ? '*' : backquote($dbgrant))
                    . '.'
-                   . (($anytable || empty($tablegrant)) ? '*' : backquote($tablegrant));
+                   . (($anytable || $tablegrant == '') ? '*' : backquote($tablegrant));
 
         $sql_query .= ' TO ' . '\'' . sql_addslashes($pma_user) . '\'' . '@' . '\'' . sql_addslashes($host) . '\'';
 
         $sql_query  = 'GRANT ' . $sql_query . $priv_grant;
         $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;grants=1');
-        show_message($strAddPrivMessage);
+        show_message($strAddPrivMessage . '.<br />' . $strRememberReload);
     } // end if
 }
 
@@ -1276,8 +1313,86 @@ if (isset($edit) && $edit) {
 
 // Revoke/Grant privileges for an user
 else if (isset($grants) && $grants) {
-    $result = mysql_query('SELECT * FROM mysql.user WHERE host = \'' . sql_addslashes($host) . '\' AND user = \'' . sql_addslashes($pma_user) . '\'');
-    grant_operations(mysql_fetch_array($result));
+    // Displays the full list of privileges for this host & user
+    $infos['Host'] = $host;
+    $infos['User'] = $pma_user;
+    table_grants($infos);
+
+    // Displays the list of privileges for user on the selected db/table/column
+    $user_priv     = array();
+    $list_priv     = array('Select', 'Insert', 'Update', 'Delete', 'Create', 'Drop', 'Reload',
+                           'Shutdown', 'Process', 'File', 'Grant', 'References', 'Index',
+                           'Alter');
+    $list_priv_new = array();
+
+    // Gets globals privileges
+    $result = mysql_query('SELECT * FROM mysql.user WHERE (Host = \'' . sql_addslashes($host) . '\' OR Host = \'%\') AND (User = \'' . sql_addslashes($pma_user) . '\' OR User = \'\')');
+    $row    = @mysql_fetch_array($result);
+    if ($row) {
+        while (list(,$priv) = each($list_priv)) {
+            $priv_priv = $priv . '_priv';
+            if ($row[$priv_priv] == 'Y') {
+                $user_priv[$priv_priv] = 'Y';
+            } else {
+                $user_priv[$priv_priv] = 'N';
+                $list_priv_new[]       = $priv;
+            }
+        } // end while
+        mysql_free_result($result);
+        $list_priv     = $list_priv_new;
+        unset($list_priv_new);
+        $list_priv_new = array();
+    } // end if $row
+
+    // If a target database is set, gets privileges for this database
+    if (count($list_priv) && isset($dbgrant)) {
+        if (get_magic_quotes_gpc()) {
+            $dbgrant = stripslashes($dbgrant);
+        }
+        $result      = mysql_query('SELECT * FROM mysql.db WHERE (Host = \'' . sql_addslashes($host) . '\' OR Host = \'%\') AND (User = \'' . sql_addslashes($pma_user) . '\' OR User = \'\') AND Db = \'' . sql_addslashes($dbgrant) . '\'');
+        $row         = @mysql_fetch_array($result);
+        if ($row) {
+            while (list(,$priv) = each($list_priv)) {
+                $priv_priv = $priv . '_priv';
+                if (isset($row[$priv_priv]) && $row[$priv_priv] == 'Y') {
+                    $user_priv[$priv_priv] = 'Y';
+                } else {
+                    $list_priv_new[]       = $priv;
+                }
+            } // end while
+            mysql_free_result($result);
+            $list_priv     = $list_priv_new;
+            unset($list_priv_new);
+            $list_priv_new = array();
+        } // end if $row
+    } // end if
+
+    // If a target table is set, gets privileges for this table
+    if (count($list_priv) && isset($tablegrant)) {
+        if (get_magic_quotes_gpc()) {
+            $tablegrant = stripslashes($tablegrant);
+        }
+        $result         = mysql_query('SELECT * FROM mysql.tables_priv WHERE (Host = \'' . sql_addslashes($host) . '\' OR Host = \'%\') AND (User = \'' . sql_addslashes($pma_user) . '\' OR User = \'\') AND Db = \'' . sql_addslashes($dbgrant) . '\' AND Table_name = \'' . sql_addslashes($tablegrant) . '\'');
+        $row            = @mysql_fetch_array($result);
+        if ($row && $row['Table_priv']) {
+            while (list(,$priv) = each($list_priv)) {
+                $priv_priv = $priv . '_priv';
+                if (eregi('(^|,)' . $priv . '(,|$)', $row['Table_priv'])) {
+                    $user_priv[$priv_priv] = 'Y';
+                } else {
+                    $list_priv_new[]       = $priv;
+                }
+            } // end while
+            mysql_free_result($result);
+            $list_priv     = $list_priv_new;
+            unset($list_priv_new);
+            $list_priv_new = array();
+        } // end if $row
+    } // end if
+
+    // TODO: column privileges
+
+    grant_operations($user_priv);
 }
 
 // Check database privileges

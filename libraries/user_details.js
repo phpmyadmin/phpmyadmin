@@ -123,12 +123,30 @@ function change(the_field) {
     var l        = location.href;
     var box_name = the_field.name;
 
+    var lpos = l.indexOf('?lang');
+    if (lpos <= 0) {
+        var the_form = the_field.form.elements;
+        l            += '?lang=' + the_form['lang'].value
+                     +  '&server=' + the_form['server'].value
+                     +  '&grants=1'
+                     +  '&host=' + escape(the_form['host'].value)
+                     +  '&pma_user=' + escape(the_form['pma_user'].value);
+        var sel_idx  = the_form['dbgrant'].selectedIndex;
+        if (sel_idx > 0) {
+            l        += '&dbgrant=' + escape(the_form['dbgrant'].options[sel_idx].text);
+        }
+        var sel_idx  = the_form['tablegrant'].selectedIndex;
+        if (sel_idx > 0) {
+            l        += '&tablegrant=' + escape(the_form['tablegrant'].options[sel_idx].text);
+        }
+    }
+
     var lpos = l.indexOf('&' + box_name);
     if (lpos > 0) {
         l = l.substring(0, lpos);
     } // end if
 
-    location.href = l + '&' + box_name + '=' + getSelected(the_field);
+    location.href = l + '&' + box_name + '=' + escape(getSelected(the_field));
 } // end of the 'change()' function
 
 
