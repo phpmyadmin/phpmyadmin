@@ -1478,6 +1478,23 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
     field's value.
 </p>
 
+<p>
+    <b>How can I backup my database or table?</b>
+    <br />
+    Click on a database or table name in the left frame, the properties will
+    be displayed.  Then go to the Dump section, you can dump the structure,
+    the data, or both. This will generate standard SQL statements that can
+    be used to recreate your database/table.  
+    <br /><br />
+    You will need to choose "Save as file", so that phpMyAdmin can transmit
+    the resulting dump to your station.  Depending on your PHP configuration,
+    you will see options to compress the dump. See also the $cfgExecTimeLimit
+    configuration variable.
+    <br /><br />
+    For additionnal help on this subject, look for the word "dump" in this
+    document.
+</p>
+
 <h3>[phpMyAdmin project]</h3>
 <p>
     <b>I have found a bug. How do I inform developers?</b>
