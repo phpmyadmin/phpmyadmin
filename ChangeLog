@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-27 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/estonian.inc.php3: Updates, thanks to
+      Alvar Soome <finsoft at users.sourceforge.net>.
+
 2002-05-26 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3, config.inc.php3, Documentation.html, images/bkg.gif,
       images/vertical_line.gif:
