@@ -73,9 +73,9 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                 }
                 if (!empty($$f)) {
                     if (get_magic_quotes_gpc()) {
-                        $val = "'" . implode(',', $$f) . "'";
+                        $val = "'" . str_replace('\\"', '"', implode(',', $$f)) . "'";
                     } else {
-                        $val = "'" . addslashes(implode(',', $$f)) . "'";
+                        $val = "'" . sql_addslashes(implode(',', $$f)) . "'";
                     }
                 } else {
                     $val = "''";
@@ -83,9 +83,9 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                 break;
             default:
                 if (get_magic_quotes_gpc()) {
-                    $val = "'" . $val . "'";
+                    $val = "'" . str_replace('\\"', '"', $val) . "'";
                 } else {
-                    $val = "'" . addslashes($val) . "'";
+                    $val = "'" . sql_addslashes($val) . "'";
                 }
                 break;
         } // end switch
@@ -134,9 +134,9 @@ else {
                 }
                 if (!empty($$f)) {
                     if (get_magic_quotes_gpc()) {
-                        $val = "'" . implode(',', $$f) . "'";
+                        $val = "'" . str_replace('\\"', '"', implode(',', $$f)) . "'";
                     } else {
-                        $val = "'" . addslashes(implode(',', $$f)) . "'";
+                        $val = "'" . sql_addslashes(implode(',', $$f)) . "'";
                     }
                 } else {
                     $val     = "''";
@@ -144,9 +144,9 @@ else {
                 break;
             default:
                 if (get_magic_quotes_gpc()) {
-                    $val = "'" . $val . "'";
+                    $val = "'" . str_replace('\\"', '"', $val) . "'";
                 } else {
-                    $val = "'" . addslashes($val) . "'";
+                    $val = "'" . sql_addslashes($val) . "'";
                 }
                 break;
         } // end switch
