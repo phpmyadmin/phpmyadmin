@@ -495,7 +495,7 @@ if ($cfgRelation['commwork']) {
             <?php echo $strDBComment; ?>
             <input type="hidden" name="db_comment" value="true" />
             <?php echo PMA_generate_common_hidden_inputs($db); ?>
-            <input type="text" name="comment" class="textfield" value="<?php echo (is_array($comment) ? htmlspecialchars(implode(' ', $comment)) : ''); ?>" />
+            <input type="text" name="comment" class="textfield" value="<?php echo (isset($comment) && is_array($comment) ? htmlspecialchars(implode(' ', $comment)) : ''); ?>" />
             <input type="submit" value="<?php echo $strGo; ?>" />
         </form>
     </li>

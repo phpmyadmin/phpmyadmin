@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_structure.php3: undefined variable $comment
+
 2003-02-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/bulgarian-*.inc.php3, lang/czech-*.inc.php3, lang/dutch-*.inc.php3,
       lang/swedish-*.inc.php3, lang/thai-*.inc.php3: Removed problematic %e from
