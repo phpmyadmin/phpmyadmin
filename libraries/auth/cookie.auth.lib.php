@@ -204,6 +204,9 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 </head>
 
 <body bgcolor="<?php echo $cfg['RightBgColor']; ?>">
+
+<?php include('./config.header.inc.php'); ?>
+
 <center>
 <a href="http://www.phpmyadmin.net" target="_blank"><img name="imLogo" id="imLogo" src="images/pma_logo.png" border="0" width="88" height="31" alt="phpMyAdmin" /></a>
 <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION . ' - ' . $GLOBALS['strLogin']); ?></h1>
@@ -247,6 +250,9 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
     if ($GLOBALS['cfg']['blowfish_secret']=='') {
     ?>
 <p class="warning"><?php echo $GLOBALS['strSecretRequired']; ?></p>
+
+<?php include('./config.footer.inc.php'); ?>
+
 </body>
 </html>
     <?php
@@ -370,6 +376,9 @@ if (uname.value == '') {
 }
 //-->
 </script>
+
+<?php include('./config.footer.inc.php'); ?>
+
 </body>
 
 </html>

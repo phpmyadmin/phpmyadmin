@@ -3,9 +3,6 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 /**
- * In this file you may add PHP or HTML statements that will be used to define
- * the footer for phpMyAdmin pages.
- *
  * WARNING: This script has to be included at the very end of your code because
  *          it will stop the script execution!
  */
@@ -129,6 +126,8 @@ if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
     @PMA_DBI_close($GLOBALS['userlink']);
 }
 ?>
+
+<?php include('./config.footer.inc.php'); ?>
 
 </body>
 

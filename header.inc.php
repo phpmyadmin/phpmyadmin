@@ -122,7 +122,10 @@ if (empty($GLOBALS['is_header_sent'])) {
     }
     ?>
     <body bgcolor="<?php echo $GLOBALS['cfg']['RightBgColor'] . '"' . $bkg_img; ?>>
-    <?php
+
+    <?php 
+    include('./config.header.inc.php');
+
     if (!defined('PMA_DISPLAY_HEADING')) {
         define('PMA_DISPLAY_HEADING', 1);
     }

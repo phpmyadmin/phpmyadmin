@@ -20,6 +20,10 @@ $Source$
     * libraries/config_import.lib.php, libraries/common.lib.php,
       libraries/display_export.lib.php, libraries/export/sql.php, lang/*: Can
       add custom text to SQL export headers (RFE #874361).
+    * config.footer.inc.php, config.header.inc.php, footer.inc.php,
+      header.inc.php, libraries/auth/cookie.auth.lib.php,
+      libraries/auth/http.auth.lib.php: Support for site configurable header
+      and footer (patch #893477).
 
 2004-03-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug 909752, floating point digit

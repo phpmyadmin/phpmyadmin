@@ -46,12 +46,18 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 </head>
 
 <body bgcolor="<?php echo $GLOBALS['cfg']['RightBgColor']; ?>">
+
+<?php include('./config.header.inc.php'); ?>
+
 <br /><br />
 <center>
     <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION); ?></h1>
 </center>
 <br />
 <p><?php echo $GLOBALS['strWrongUser']; ?></p>
+
+<?php include('./config.footer.inc.php'); ?>
+
 </body>
 
 </html>
