@@ -17,6 +17,7 @@ $Source$
     * lang/bulgarian:  Updated, thanks to Stanislav Yordanov (stanprog).
     * lang/czech:  Updated.
     * lang/*: Removed duplicate strReset.
+    * lang/check_lang.sh: Ignore japanese specific messages.
 
 2003-06-24 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3, bug 759568, row count, DISTINCT and MySQL 4

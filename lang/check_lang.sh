@@ -24,6 +24,7 @@ do
     egrep "$STRINGSTRING" $f | \
     grep -v 'allow_recoding' | \
     cut -d= -f1 | cut -d'$' -f2 | \
+    grep -Ev 'strEncto|strKanjiEncodConvert|strXkana' | \
     sort > $TMPDIR/$f
 done;
 
