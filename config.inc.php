@@ -260,7 +260,7 @@ $cfg['CharEditing']           = 'input';
                                         // Which editor should be used for CHAR/VARCHAR fields:
                                         //  input - allows limiting of input length
                                         //  textarea - allows newlines in fields
-$cfg['InsertRows']            = 2;      // How many rows can be inserted at one time                                       
+$cfg['InsertRows']            = 2;      // How many rows can be inserted at one time
 
 // For the export features...
 $cfg['ZipDump']               = TRUE;   // Allow the use of zip/gzip/bzip
@@ -452,7 +452,7 @@ $cfg['AvailableCharsets'] = array(
 /**
  * Customization & design
  */
-$cfg['LeftWidth']           = 150;          // left frame width
+$cfg['LeftWidth']           = 200;          // left frame width
 $cfg['LeftBgColor']         = '#D0DCE0';    // background color for the left frame
 $cfg['RightBgColor']        = '#F5F5F5';    // background color for the right frame
 $cfg['RightBgImage']        = '';           // path to a background image for the right frame
@@ -460,9 +460,9 @@ $cfg['RightBgImage']        = '';           // path to a background image for th
 $cfg['LeftPointerColor']    = '#CCFFCC';    // color of the pointer in left frame
                                             // (blank for no pointer)
 $cfg['Border']              = 0;            // border width on tables
-$cfg['ThBgcolor']           = '#D3DCE3';    // table header row colour
-$cfg['BgcolorOne']          = '#CCCCCC';    // table data row colour
-$cfg['BgcolorTwo']          = '#DDDDDD';    // table data row colour, alternate
+$cfg['ThBgcolor']           = '#CCCCFF';    // table header row colour
+$cfg['BgcolorOne']          = '#E5E5E5';    // table data row colour
+$cfg['BgcolorTwo']          = '#D5D5D5';    // table data row colour, alternate
 $cfg['BrowsePointerColor']  = '#CCFFCC';    // color of the pointer in browse mode
                                             // (blank for no pointer)
 $cfg['BrowseMarkerColor']   = '#FFCC99';    // color of the marker (visually marks row
@@ -513,6 +513,23 @@ $cfg['WYSIWYG-PDF']         = TRUE;         // Utilize DHTML/JS capabilities to 
                                             // the PDF page editor. Requires an IE6/Mozilla based browser.
 
 $cfg['NaturalOrder']        = TRUE;         // Sort table and database in natural order
+
+
+//-----------------------------------------------------------------------------
+// custom-setup by mkkeck: 2004-05-04
+//    some specials for new icons and scrollings
+// 2004-05-08 rabus: We need to rearrange these variables.
+
+$cfg['ShowHttpHostTitle']    = FALSE;   // show HTTP host in browsers window title (true|false)?
+$cfg['SetHttpHostTitle']     = '';      // if ShowHttpHostTitle=true, please set your host (server)
+                                        // or an other string, wich should be shown in browsers window title.
+                                        // If not set (or empty), the PMA will get your real host address.
+
+$cfg['ErrorIconic']          = TRUE;    // show some icons for warnings, errors and informations? (true|false)?
+$cfg['ReplaceHelpImg']       = TRUE;    // show help button instead of strDocumentation (true|false)?
+
+//-----------------------------------------------------------------------------
+
 
 /**
  * Default queries.

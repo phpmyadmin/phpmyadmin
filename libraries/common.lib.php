@@ -136,7 +136,7 @@ if (isset($cfg['FileRevision'])) {
 } else {
     $cfg['FileRevision'] = array(1, 1);
 }
-if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 18)) {
+if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 19)) {
     require_once('./libraries/config_import.lib.php');
 }
 
@@ -395,6 +395,7 @@ if ($is_minimum_common == FALSE) {
      *
      * @access  public
      */
+/*
     function PMA_showMySQLDocu($chapter, $link)
     {
         if (!empty($GLOBALS['cfg']['MySQLManualBase'])) {
@@ -425,7 +426,54 @@ if ($is_minimum_common == FALSE) {
                 return '';
             }
         }
-    } // end of the 'PMA_showDocu()' function
+    }
+*/
+// 2004-05-04: replaced with a modified function from Michael Keck (mkkeck)
+        function PMA_showMySQLDocu($chapter, $link)
+        {
+
+            if (!empty($GLOBALS['cfg']['MySQLManualBase'])) {
+                if (!empty($GLOBALS['cfg']['MySQLManualType'])) {
+                    switch ($GLOBALS['cfg']['MySQLManualType']) {
+                        case 'old':
+                            if($GLOBALS['cfg']['ReplaceHelpImg']){
+                              return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
+                            return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
+                        case 'chapters':
+                            if($GLOBALS['cfg']['ReplaceHelpImg']){
+                              return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
+                            return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
+                        case 'big':
+                            if($GLOBALS['cfg']['ReplaceHelpImg']){
+                              return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
+                            return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
+                        case 'none':
+                            return '';
+                        case 'searchable':
+                        default:
+                            if($GLOBALS['cfg']['ReplaceHelpImg']){
+                              return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
+                            return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
+                    }
+                } else {
+                    // no Type defined, show the old one
+                            if($GLOBALS['cfg']['ReplaceHelpImg']){
+                              return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
+                    return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
+                }
+            } else {
+                // no URL defined
+                if (!empty($GLOBALS['cfg']['ManualBaseShort'])) {
+                    // the old configuration
+                            if($GLOBALS['cfg']['ReplaceHelpImg']){
+                              return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
+                    return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
+                } else {
+                    return '';
+                }
+            }
+        }
+                 // end of the 'PMA_showDocu()' function
 
     /**
      * Displays a MySQL error message in the right frame.

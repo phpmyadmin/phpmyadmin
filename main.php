@@ -20,7 +20,7 @@ if (!isset($pma_uri_parts)) {
 }
 setcookie('lang', $lang, time() + 60*60*24*30, $cookie_path, '', $is_https);
 // Defines the "item" image depending on text direction
-$item_img = 'images/item_' . $text_dir . '.png';
+$item_img = './images/dot_violet.png';
 // Handles some variables that may have been sent by the calling script
 if (isset($db)) {
     unset($db);
@@ -112,9 +112,9 @@ if ($server == 0 || count($cfg['Servers']) > 1) {
 <tr>
     <th><?php echo $strServerChoice; ?></th>
 </tr>
-<tr>
+
+        <form method="post" action="index.php" target="_parent"><tr>
     <td>
-        <form method="post" action="index.php" target="_parent">
             <select name="server">
     <?php
     echo "\n";
@@ -150,9 +150,9 @@ if ($server == 0 || count($cfg['Servers']) > 1) {
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="submit" value="<?php echo $strGo; ?>" />
-        </form>
-    </td>
+        </form>    </td>
 </tr>
+
 </table>
 <br />
     <?php
@@ -171,7 +171,7 @@ if ($server > 0) {
     // defined in the "common.lib.php" library)
     // Note: if no controluser is defined, $dbh contains $userlink
 
-    $is_create_priv  = FALSE;
+    $is_create_priv  = true;
     $is_process_priv = TRUE;
     $is_reload_priv  = FALSE;
 
@@ -283,22 +283,22 @@ if ($server > 0) {
         ?>
 <table>
     <tr>
-        <th>&nbsp;&nbsp;MySQL</th>
-        <th>&nbsp;&nbsp;phpMyAdmin</th>
+        <th class="tblHeaders">&nbsp;&nbsp;MySQL</th>
+        <th class="tblHeaders">&nbsp;&nbsp;phpMyAdmin</th>
     </tr>
     <tr>
         <!-- MySQL server related links -->
         <td valign="top" align="<?php echo $cell_align_left; ?>">
-        <ul class="main">
+        <ul class="mainLeft">
         <?php
         // The user is allowed to create a db
         if ($is_create_priv) {
             ?>
 
             <!-- db creation form -->
-            <li>
-                <form method="post" action="db_create.php">
-                    <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?><br />
+            <li class="lstNewdb">
+                <form method="post" action="db_create.php"><b>
+                    <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?></b><br />
                     <?php echo PMA_generate_common_hidden_inputs(5); ?>
                     <input type="hidden" name="reload" value="1" />
                     <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" />
@@ -316,7 +316,7 @@ if ($server > 0) {
             ?>
 
             <!-- db creation no privileges message -->
-            <li>
+            <li class="lstNewdb">
                 <?php echo $strCreateNewDatabase . ':&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?><br />
                 <?php echo '<i>' . $strNoPrivileges .'</i>'; ?><br />
             </li>
@@ -331,7 +331,7 @@ if ($server > 0) {
         if ($cfg['ShowMysqlInfo']) {
             echo "\n";
             ?>
-            <li>
+            <li class="lstStatus">
                 <a href="./server_status.php?<?php echo $common_url_query; ?>">
                     <?php echo $strMySQLShowStatus . "\n"; ?>
                 </a>
@@ -341,7 +341,7 @@ if ($server > 0) {
         if ($cfg['ShowMysqlVars']) {
             echo "\n";
             ?>
-            <li>
+            <li class="lstVars">
                 <a href="./server_variables.php?<?php echo $common_url_query; ?>">
                 <?php echo $strMySQLShowVars;?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_VARIABLES') . "\n"; ?>
@@ -351,7 +351,7 @@ if ($server > 0) {
 
         echo "\n";
         ?>
-            <li>
+            <li class="lstProcess">
                 <a href="./server_processlist.php?<?php echo $common_url_query; ?>">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_PROCESSLIST') . "\n"; ?>
@@ -361,7 +361,7 @@ if ($server > 0) {
         if (PMA_MYSQL_INT_VERSION >= 40100) {
             echo "\n";
             ?>
-            <li>
+            <li class="lstCollations">
                 <a href="./server_collations.php?<?php echo $common_url_query; ?>">
                     <?php echo $strCharsetsAndCollations; ?></a>&nbsp;
             </li>
@@ -371,7 +371,7 @@ if ($server > 0) {
         if ($is_reload_priv) {
             echo "\n";
             ?>
-            <li>
+            <li class="lstReload">
                 <a href="main.php?<?php echo $common_url_query; ?>&amp;mode=reload">
                     <?php echo $strReloadMySQL; ?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'FLUSH') . "\n"; ?>
@@ -382,18 +382,18 @@ if ($server > 0) {
         if ($is_superuser) {
             echo "\n";
             ?>
-            <li>
+            <li class="lstPrivileges">
                 <a href="server_privileges.php?<?php echo $common_url_query; ?>">
                     <?php echo $strPrivileges; ?></a>&nbsp;
             </li>
             <?php
         }
         ?>
-            <li>
+            <li class="lstDatabases">
                 <a href="./server_databases.php?<?php echo $common_url_query; ?>">
                     <?php echo $strDatabases; ?></a>
             </li>
-            <li>
+            <li class="lstExport">
                 <a href="./server_export.php?<?php echo $common_url_query; ?>">
                     <?php echo $strExport; ?></a>
             </li>
@@ -403,7 +403,7 @@ if ($server > 0) {
         if ($cfg['ShowChgPassword']) {
             echo "\n";
             ?>
-            <li>
+            <li class="lstPasswd">
                 <a href="user_password.php?<?php echo $common_url_query; ?>">
                     <?php echo ($strChangePassword); ?></a>
             </li>
@@ -417,7 +417,7 @@ if ($server > 0) {
                          : '';
             echo "\n";
             ?>
-            <li>
+            <li class="lstLogoff">
                 <a href="index.php?<?php echo $common_url_query; ?>&amp;old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent">
                     <b><?php echo $strLogout; ?></b></a>&nbsp;<?php echo $http_logout . "\n"; ?>
             </li>
@@ -440,18 +440,22 @@ echo "\n";
 
     <!-- phpMyAdmin related links -->
     <td valign="top" align="<?php echo $cell_align_left; ?>">
-    <ul class="main">
+    <ul class="mainLeft">
 
 <?php
 // Displays language selection combo
 if (empty($cfg['Lang'])) {
     ?>
         <!-- Language Selection -->
-        <li class="nowrap">
+        <li class="lstPmaLang">
             <form method="post" action="index.php" target="_parent">
                 <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                Language <a href="./translators.html" target="documentation">(*)</a>:
+                Language <a href="./translators.html" target="documentation"><?php
+                    if($cfg['ReplaceHelpImg']){
+                      echo '<img src="./images/b_info.png" border="0" width="11" height="11" alt="Info" hspace="1" vspace="1" />';
+                    }else{ echo '(*)'; }
+?></a>:
                 <select name="lang" dir="ltr" onchange="this.form.submit();">
     <?php
     echo "\n";
@@ -495,7 +499,7 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
     echo "\n";
     ?>
         <!-- Charset Selection -->
-        <li class="nowrap">
+        <li class="lstCollations">
             <form method="post" action="index.php" target="_parent">
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
@@ -519,7 +523,7 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
         </li>
     <?php
 } elseif (PMA_MYSQL_INT_VERSION >= 40100) {
-    echo '        <li>' . "\n"
+    echo '        <li class="lstCollations">' . "\n"
        . '                ' . $strMySQLCharset . ':' . "\n"
        . '                ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
        . '                (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
@@ -529,7 +533,7 @@ echo "\n";
 ?>
 
         <!-- Documentation -->
-        <li>
+        <li class="lstPmaDocs">
             <a href="Documentation.html" target="documentation"><b><?php echo $strPmaDocumentation; ?></b></a>
         </li>
 
@@ -537,7 +541,7 @@ echo "\n";
 if ($is_superuser || $cfg['ShowPhpInfo']) {
     ?>
         <!-- PHP Information -->
-        <li>
+        <li class="lstPhpInfo">
             <a href="phpinfo.php?<?php echo PMA_generate_common_url(); ?>" target="_blank"><?php echo $strShowPHPInfo; ?></a>
         </li>
     <?php
@@ -546,7 +550,7 @@ echo "\n";
 ?>
 
         <!-- phpMyAdmin related urls -->
-        <li>
+        <li class="lstPmaPage">
             <a href="http://www.phpMyAdmin.net/" target="_blank"><?php echo $strHomepageOfficial; ?></a><br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<a href="ChangeLog" target="_blank">ChangeLog</a>]
             &nbsp;&nbsp;&nbsp;[<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_blank">CVS</a>]
@@ -554,7 +558,6 @@ echo "\n";
         </li>
     </ul>
     </td>
-
 </tr>
 </table>
 
@@ -562,42 +565,72 @@ echo "\n";
 <?php
 /**
  * Displays the "empty $cfg['PmaAbsoluteUri'] warning"
+ * modified: 2004-05-05 mkkeck
  */
 if ($display_pmaAbsoluteUri_warning) {
-    echo '<p class="warning">' . $strPmaUriError . '</p>' . "\n";
+    echo '<img src="images/spacer.png" width="1" height="5" border="0" />';
+    echo '<table class="tblWarning" border="0" cellpadding="2" cellspacing="0">'."\n";
+    echo '<tr>'."\n";
+                if($cfg['ErrorIconic']){ echo '<td valign="top" width="20"><img src="images/s_warn.png" border="0" align="left" hspace="2" vspace="2" alt="Warning" /></td>'; }
+    echo '<td class="warning">' . $strPmaUriError . '</td>' . "\n";
+    echo '</tr>'."\n".'</table>';
 }
 
 /**
  * Warning if using the default MySQL privileged account
+ * modified: 2004-05-05 mkkeck
  */
 if ($server != 0
     && $cfg['Server']['user'] == 'root'
     && $cfg['Server']['password'] == '') {
-    echo '<p class="warning">' . $strInsecureMySQL . '</p>' . "\n";
+    echo '<img src="images/spacer.png" width="1" height="5" border="0" />';
+    echo '<table class="tblWarning" border="0" cellpadding="2" cellspacing="0">'."\n";
+    echo '<tr>'."\n";
+                if($cfg['ErrorIconic']){ echo '<td valign="top" width="20"><img src="images/s_warn.png" border="0" align="left" hspace="2" vspace="2" alt="Warning" /></td>'; }
+    echo '<td class="warning">' . $strInsecureMySQL . '</td>' . "\n";
+    echo '</tr>'."\n".'</table>';
 }
 
 /**
  * Warning for PHP 4.2.3
+ * modified: 2004-05-05 mkkeck
  */
 
 if (PMA_PHP_INT_VERSION == 40203 && @extension_loaded('mbstring')) {
-    echo '<p class="warning">' . $strPHP40203 . '</p>' . "\n";
+    echo '<img src="images/spacer.png" width="1" height="5" border="0" />';
+    echo '<table class="tblWarning" border="0" cellpadding="2" cellspacing="0">'."\n";
+    echo '<tr>'."\n";
+                if($cfg['ErrorIconic']){ echo '<td valign="top" width="20"><img src="images/s_warn.png" border="0" align="left" hspace="2" vspace="2" alt="Warning" /></td>'; }
+    echo '<td class="warning">' . $strPHP40203 . '</td>' . "\n";
+    echo '</tr>'."\n".'</table>';
 }
 
 /**
  * Warning for old PHP version
+ * modified: 2004-05-05 mkkeck
  */
 
 if (PMA_PHP_INT_VERSION < 40100) {
-    echo '<p class="warning">' . sprintf($strUpgrade, 'PHP', '4.1.0') . '</p>' . "\n";
+    echo '<img src="images/spacer.png" width="1" height="5" border="0" />';
+    echo '<table class="tblWarning" border="0" cellpadding="2" cellspacing="0">'."\n";
+    echo '<tr>'."\n";
+                if($cfg['ErrorIconic']){ echo '<td valign="top" width="20"><img src="images/s_warn.png" border="0" align="left" hspace="2" vspace="2" alt="Warning" /></td>'; }
+    echo '<td class="warning">' . sprintf($strUpgrade, 'PHP', '4.1.0') . '</td>' . "\n";
+    echo '</tr>'."\n".'</table>';
 }
 
 /**
  * Warning for old MySQL version
+ * modified: 2004-05-05 mkkeck
  */
 // not yet defined before the server choice
 if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
-    echo '<p class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.32') . '</p>' . "\n";
+    echo '<img src="images/spacer.png" width="1" height="5" border="0" />';
+    echo '<table class="tblWarning" border="0" cellpadding="2" cellspacing="0">'."\n";
+    echo '<tr>'."\n";
+                if($cfg['ErrorIconic']){ echo '<td valign="top" width="20"><img src="images/s_warn.png" border="0" align="left" hspace="2" vspace="2" alt="Warning" /></td>'; }
+    echo '<td class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.32') . '</td>' . "\n";
+    echo '</tr>'."\n".'</table>';
 }
 
 /**

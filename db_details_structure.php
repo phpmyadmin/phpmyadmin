@@ -112,7 +112,7 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
 
 // Display function
 function pma_TableHeader($alternate = FALSE) {
-    echo '            <table border="' . $GLOBALS['cfg']['Border'] . '">' . "\n"
+    echo '            <table border="' . $GLOBALS['cfg']['Border'] . '" cellpadding="2" cellspacing="1">' . "\n"
        . '            <tr>' . "\n"
        . '                <td></td>' . "\n"
        . '                <th>' . "\n"
@@ -181,15 +181,15 @@ if ($cfg['PropertiesIconic'] == true) {
         $iconic_spacer = '';
     }
 
-    $titles['Browse']     = $iconic_spacer . '<img hspace="7" width="12" height="13" src="images/button_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
-    $titles['Search']     = $iconic_spacer . '<img hspace="7" width="14" height="13" src="images/button_select.png" alt="' . $strSearch . '" title="' . $strSearch . '" border="0" />';
-    $titles['NoBrowse']   = $iconic_spacer . '<img hspace="7" width="12" height="13" src="images/button_nobrowse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
-    $titles['NoSearch']   = $iconic_spacer . '<img hspace="7" width="14" height="13" src="images/button_noselect.png" alt="' . $strSearch . '" title="' . $strSearch . '" border="0" />';
-    $titles['Insert']     = $iconic_spacer . '<img hspace="7" width="13" height="13" src="images/button_insert.png" alt="' . $strInsert . '" title="' . $strInsert . '" border="0" />';
-    $titles['Properties'] = $iconic_spacer . '<img hspace="7" width="18" height="13" src="images/button_properties.png" alt="' . $strProperties . '" title="' . $strProperties . '" border="0" />';
-    $titles['Drop']       = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
-    $titles['Empty']      = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
-    $titles['NoEmpty']    = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_noempty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
+    $titles['Browse']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
+    $titles['Search']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_select.png" alt="' . $strSearch . '" title="' . $strSearch . '" border="0" />';
+    $titles['NoBrowse']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
+    $titles['NoSearch']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_select.png" alt="' . $strSearch . '" title="' . $strSearch . '" border="0" />';
+    $titles['Insert']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_insrow.png" alt="' . $strInsert . '" title="' . $strInsert . '" border="0" />';
+    $titles['Properties'] = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_props.png" alt="' . $strProperties . '" title="' . $strProperties . '" border="0" />';
+    $titles['Drop']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
+    $titles['Empty']      = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
+    $titles['NoEmpty']    = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
 
     if ($propicon == 'both') {
         $titles['Browse']     .= '&nbsp;' . $strBrowse . '</div>';
@@ -308,7 +308,7 @@ else {
             </tr>
         </table>
     </td>
-    <td><img src="./images/spacer.gif" border="0" width="10" height="1" alt="" /></td>
+    <td><img src="./images/spacer.png" border="0" width="10" height="1" alt="" /></td>
     <td valign="top">
         <?php
             pma_TableHeader();
@@ -318,7 +318,7 @@ else {
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
                     <input type="checkbox" name="selected_tbl[]" value="<?php echo $table_encoded; ?>" id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> />
                 </td>
-                <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap" <?php echo $click_mouse; ?>>
+                <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap" <?php //echo $click_mouse; ?>>
                     &nbsp;<b><label onclick="(document.getElementById('checkbox_tbl_<?php echo $i; ?>') ? return false : return true)" for="checkbox_tbl_<?php echo $i; ?>" title="<?php echo $alias; ?>"><?php echo $truename; ?></label>&nbsp;</b>&nbsp;
                 </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
@@ -564,7 +564,7 @@ else {
     ?>
             <tr>
                 <td colspan="<?php echo $basecolspan; ?>" valign="bottom">
-                    <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+                    <img src="./images/arrow_<?php echo $text_dir; ?>.png" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
                     <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
                         <?php echo $strCheckAll; ?></a>
                     &nbsp;/&nbsp;
@@ -576,7 +576,7 @@ else {
                         <?php echo $strCheckOverhead; ?></a>
                     <?php } ?>
                     &nbsp;&nbsp;&nbsp;
-                    <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
+                    <img src="./images/spacer.png" border="0" width="38" height="1" alt="" />
                     <select name="submit_mult" dir="ltr" onchange="this.form.submit();">
     <?php
     echo "\n";
@@ -629,106 +629,178 @@ echo "\n";
 <?php
 /**
  * Work on the database
+    * redesigned 2004-05-08 by mkkeck
  */
 ?>
 <!-- DATABASE WORK -->
-<ul>
 
 <?php
 if ($num_tables > 0) {
     ?>
     <!-- Printable view of a table -->
-    <li>
-        <a href="db_printview.php?<?php echo $url_query; ?>"><?php echo $strPrintView; ?></a>
-    </li>
-    <li>
-        <a href="./db_datadict.php?<?php echo $url_query; ?>"><?php echo $strDataDict; ?></a>
-    </li>
+<table border="0" cellpadding="2" cellspacing="0">
+                <tr><td nowrap="nowrap" colspan="3"><?php
+                  echo '<a href="db_printview.php?' . $url_query . '">';
+      if($cfg['PropertiesIconic']){
+                          echo '<img src="./images/b_print.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+                        }
+      echo $strPrintView . '</a>';
+    ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <?php
+                  echo '<a href="./db_datadict.php?' . $url_query . '">';
+                        if($cfg['PropertiesIconic']){
+                          echo '<img src="./images/b_tblanalyse.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+      }
+      echo $strDataDict . '</a>';
+?></td></tr>
+<tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr></table>
     <?php
 } // end if
 ?>
+<table border="0" cellpadding="2" cellspacing="0">
+    <!-- Create a new table -->
+        <form method="post" action="tbl_create.php" onsubmit="return (emptyFormElements(this, 'table') && checkFormElementInRange(this, 'num_fields', 1))">
+     <tr>
+     <td class="tblHeaders" colspan="3" nowrap="nowrap"><?php
+        echo PMA_generate_common_hidden_inputs($db);
+        if($cfg['PropertiesIconic']){ echo '<img src="images/b_newtbl.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />'; }
+        // if you want navigation:
+        $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '">'
+                   . htmlspecialchars($GLOBALS['db']) . '</a>';
+        // else use
+        // $strDBLink = htmlspecialchars($db);
+echo '             ' . sprintf($strCreateNewTable, $strDBLink) . ':&nbsp;' . "\n";
+echo '     </td></tr>';
+echo '     <tr bgcolor="'.$cfg['BgcolorOne'].'"><td nowrap="nowrap">';
+echo '             ' . $strName . ':&nbsp;' . "\n";
+echo '     </td>';
+echo '     <td nowrap="nowrap">';
+echo '             ' . '<input type="text" name="table" maxlength="64" size="30" class="textfield" />';
+echo '     </td><td>&nbsp;</td></tr>';
+echo '     <tr bgcolor="'.$cfg['BgcolorOne'].'"><td nowrap="nowrap">';
+echo '             ' . $strFields . ':&nbsp;' . "\n";
+echo '     </td>';
+echo '     <td nowrap="nowrap">';
+echo '             ' . '<input type="text" name="num_fields" size="2" class="textfield" />' . "\n";
+echo '     </td>';
+echo '     <td align="right">';
+echo '             ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
+?>
+     </td> </tr>
+        </form>
+
+
 
 <?php
 if ($cfgRelation['commwork']) {
 ?>
     <!-- Alter/Enter db-comment -->
-    <li>
-        <form method="post" action="db_details_structure.php">
-            <?php echo $strDBComment; ?>
+        <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>
+
+        <tr>
+        <td colspan="3" class="tblHeaders"><?php
+          if($cfg['PropertiesIconic']){
+                                          echo '<img src="images/b_comment.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+                                        }
+          echo $strDBComment;
+        ?></td></tr>
+                                <form method="post" action="db_details_structure.php">
+        <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+                                  <td colspan="2" nowrap="nowrap">
             <input type="hidden" name="db_comment" value="true" />
             <?php echo PMA_generate_common_hidden_inputs($db); ?>
-            <input type="text" name="comment" class="textfield" value="<?php echo (isset($comment) && is_array($comment) ? htmlspecialchars(implode(' ', $comment)) : ''); ?>" />
+            <input type="text" name="comment" class="textfield" size="30" value="<?php echo (isset($comment) && is_array($comment) ? htmlspecialchars(implode(' ', $comment)) : ''); ?>" /></td><td align="right">
             <input type="submit" value="<?php echo $strGo; ?>" />
+         </td></tr>
         </form>
-    </li>
 <?php
 }
 ?>
-
-    <!-- Create a new table -->
-    <li>
-        <form method="post" action="tbl_create.php"
-            onsubmit="return (emptyFormElements(this, 'table') && checkFormElementInRange(this, 'num_fields', 1))">
-        <?php echo PMA_generate_common_hidden_inputs($db); ?>
-<?php
-echo '        ' . sprintf($strCreateNewTable, htmlspecialchars($db)) . '&nbsp;:<br />' . "\n";
-echo '        ' . $strName . '&nbsp;:&nbsp;' . "\n";
-echo '        ' . '<input type="text" name="table" maxlength="64" class="textfield" />' . "\n";
-echo '        ' . '<br />' . "\n";
-echo '        ' . $strFields . '&nbsp;:&nbsp;' . "\n";
-echo '        ' . '<input type="text" name="num_fields" size="2" class="textfield" />' . "\n";
-echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
-?>
-        </form>
-    </li>
-
     <!-- Rename database -->
-    <li>
+        <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>
+        <tr><td colspan="3" class="tblHeaders"><?php
+          if($cfg['PropertiesIconic']){
+                                          echo '<img src="images/b_edit.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+                                        }
+          echo $strDBRename.':&nbsp;';
+          ?></td></tr>
         <form method="post" action="db_details_structure.php"
             onsubmit="return emptyFormElements(this, 'newname')">
-            <?php echo $strDBRename; ?>:
-            <input type="hidden" name="db_rename" value="true" />
-            <?php echo PMA_generate_common_hidden_inputs($db); ?>
-            <input type="text" name="newname" class="textfield" value="" />
-            <input type="submit" value="<?php echo $strGo; ?>" />
-        </form>
-    </li>
+                                        <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="2"><?php
+          echo '<input type="hidden" name="db_rename" value="true" />'
+             . PMA_generate_common_hidden_inputs($db);
+          ?><input type="text" name="newname" size="30" class="textfield" value="" /></td>
+            <td align="right"><input type="submit" value="<?php echo $strGo; ?>" /></td>
+        </form></tr>
+
 <?php
 
 if (PMA_MYSQL_INT_VERSION >= 40101) {
     // MySQL supports setting default charsets / collations for databases since
     // version 4.1.1.
     echo '    <!-- Change database charset -->' . "\n"
-       . '    <li>' . "\n"
+       . '    <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
+       . '    <tr><td colspan="3" class="tblHeaders">';
+       if($cfg['PropertiesIconic']){
+         echo '<img src="./images/s_asci.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+       }
+    echo '      <label for="select_db_collation">' . $strCollation . '</label>:&nbsp;' . "\n"
+       . '    </td></tr>' . "\n"
        . '        <form method="post" action="./db_details_structure.php">' . "\n"
+       . '    <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="2" nowrap="nowrap">'
        . PMA_generate_common_hidden_inputs($db, $table, 3)
-       . '            <label for="select_db_collation">' . $strCollation . '</label>&nbsp;:&nbsp;' . "\n"
        . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', 'select_db_collation', $db_collation, FALSE, 3)
+       . '    </td><td align="right">'
        . '            <input type="submit" name="submitcollation" value="' . $strGo . '" style="vertical-align: middle" />&nbsp;' . "\n"
+       . '    </td></tr>' . "\n"
        . '        </form>' . "\n"
-       . '    </li>' . "\n\n";
+       . '         ' . "\n\n";
 }
 
 if ($num_tables > 0
     && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
-    echo '    <li>' . "\n";
-    echo '        <font color="red">' . $strError . '</font><br />' . "\n";
+    echo '    <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
+       . '    <tr><td colspan="3" class="tblHeadError">';
+       if($cfg['PropertiesIconic']){
+         echo '<img src="./images/s_error.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+       }
+    echo '    ' . $strError . '' . "\n";
+    echo '</td><tr>';
+    echo '<td colspan="3" class="tblError">';
     $url_to_goto = '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">';
-    echo '        ' . sprintf($strRelationNotWorking, $url_to_goto, '</a>') . "\n";
-    echo '    </li>' . "\n";
+    echo '        ' . sprintf(wordwrap($strRelationNotWorking,60,'<br />'), $url_to_goto, '</a>') . "\n";
+    echo '    </td></tr>' . "\n";
 } // end if
-
+?>
+</table>
+<?php
 // is this OK to check for 'class' support?
 if ($num_tables > 0) {
     $takeaway = $url_query . '&amp;table=' . urlencode($table);
 }
+if (($cfgRelation['pdfwork'] && $num_tables > 0) ||
+($num_tables > 0
+    && $cfgRelation['relwork'] && $cfgRelation['commwork']
+    && isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])
+    )
+) { ?><hr /><table border="0" cellpadding="2" cellspacing="0"><?php }
 
 if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     ?>
     <!-- Work on PDF Pages -->
-    <li>
-        <a href="pdf_pages.php?<?php echo $takeaway; ?>"><?php echo $strEditPDFPages; ?></a>
-    </li>
+      <tr><td colspan="3" class="tblHeaders">
+      <?php
+        if($cfg['PropertiesIconic']){
+        echo '<img src="./images/b_pdfdoc.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+        }
+?>PDF</td></tr><tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+        <td colspan="3"><?php
+        echo '<a href="pdf_pages.php?' . $takeaway . '">';
+        if($cfg['PropertiesIconic']){
+        echo '<img src="./images/b_edit.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+        }
+        echo ''. $strEditPDFPages . '</a>';
+     ?></td></tr>
 
     <!-- PDF schema -->
     <?php
@@ -740,10 +812,16 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         echo "\n";
         ?>
-    <li>
         <form method="post" action="pdf_schema.php">
-            <?php echo PMA_generate_common_hidden_inputs($db); ?>
-            <?php echo $strDisplayPDF; ?>&nbsp;:<br />
+         <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><td colspan="3">
+            <?php
+                  echo PMA_generate_common_hidden_inputs($db);
+                  if($cfg['PropertiesIconic']){
+                   echo '<img src="./images/b_view.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+                  }
+            ?>
+            <?php echo $strDisplayPDF; ?>:&nbsp;</td></tr>
+            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><td width="20">&nbsp;</td><td colspan="2">
             <?php echo $strPageNumber; ?>&nbsp;
             <select name="pdf_page_number">
         <?php
@@ -755,22 +833,36 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
         unset($test_rs);
         echo "\n";
         ?>
-            </select><br />
-            <input type="checkbox" name="show_grid" id="show_grid_opt" />
-            <label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
-            <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" />
-            <label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
-            <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
-            <label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label><br />
-            <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" />
-            <label for="all_tab_same_wide"><?php echo $strAllTableSameWidth; ?></label> <br />
-            <input type="checkbox" name="with_doc" id="with_doc" checked="checked" />
-            <label for="with_doc"><?php echo $strDataDict; ?></label> <br />
+            </select></td></tr>
+            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+                                                  <td width="20">&nbsp;</td><td width="20" valign="top">
+            <input type="checkbox" name="show_grid" id="show_grid_opt" /></td><td>
+            <label for="show_grid_opt"><?php echo $strShowGrid; ?></label></td></tr>
+            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+                                                  <td width="20">&nbsp;</td><td width="20" valign="top">
+            <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" /></td><td>
+            <label for="show_color_opt"><?php echo $strShowColor; ?></label></td></tr>
+            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+                                                  <td width="20">&nbsp;</td><td width="20" valign="top">
+            <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" /></td><td>
+            <label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label></td></tr>
+            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+                                                  <td width="20">&nbsp;</td><td width="20" valign="top">
+            <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" /></td><td>
+            <label for="all_tab_same_wide"><?php echo wordwrap($strAllTableSameWidth,55,'<br />'); ?></label></td></tr>
+            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+                                                  <td width="20">&nbsp;</td><td width="20" valign="top">
+            <input type="checkbox" name="with_doc" id="with_doc" checked="checked" /></td><td>
+            <label for="with_doc"><?php echo $strDataDict; ?></label></td></tr>
+            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+                                                  <td width="20">&nbsp;</td><td colspan="2">
             <?php echo $strShowDatadictAs; ?>
             <select name="orientation">
                 <option value="L"><?php echo $strLandscape;?></option>
                 <option value="P"><?php echo $strPortrait;?></option>
-            </select><br />
+            </select></td></tr>
+            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+                                                  <td width="20">&nbsp;</td><td colspan="2">
             <?php echo $strPaperSize; ?>
             <select name="paper">
             <?php
@@ -782,27 +874,42 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
                     echo ' >' . $val . '</option>' . "\n";
                 }
             ?>
-                </select><br />
-                &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
-            </form>
-    </li>
+                </select></td></tr>
+            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+                                                  <td width="20">&nbsp;</td><td colspan="3" align="right">
+                &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" /></td>
+            </form></tr>
+            <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>
         <?php
     }   // end if
+?>
+
+<?php
 } // end if
 
 if ($num_tables > 0
     && $cfgRelation['relwork'] && $cfgRelation['commwork']
     && isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])
     ) {
-    ?>
+?>
     <!-- import docSQL files -->
-    <li>
-        <a href="db_details_importdocsql.php?<?php echo $takeaway . '">' . $strImportDocSQL; ?></a>
-    </li>
+    <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="3"><?php
+                   echo '<a href="db_details_importdocsql.php?' . $takeaway . '">';
+       if($cfg['PropertiesIconic']){
+         echo '<img src="./images/b_docsql.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+       }
+       echo $strImportDocSQL . '</a>';
+    ?>
+    </td></tr>
     <?php
 }
-echo "\n" . '</ul>';
-
+echo "\n";
+if (($cfgRelation['pdfwork'] && $num_tables > 0) ||
+($num_tables > 0
+    && $cfgRelation['relwork'] && $cfgRelation['commwork']
+    && isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])
+    )
+) { ?></table><?php }
 
 /**
  * Displays the footer

@@ -570,7 +570,7 @@ if (!isset($cfg['LeftWidth'])) {
         $cfg['LeftWidth'] = $cfgLeftWidth;
         unset($cfgLeftWidth);
     } else {
-        $cfg['LeftWidth'] = 150;
+        $cfg['LeftWidth'] = 200;
     }
 }
 
@@ -619,7 +619,7 @@ if (!isset($cfg['ThBgcolor'])) {
         $cfg['ThBgcolor'] = $cfgThBgcolor;
         unset($cfgThBgcolor);
     } else {
-        $cfg['ThBgcolor'] = '#D3DCE3';
+        $cfg['ThBgcolor'] = '#CCCCFF';
     }
 }
 
@@ -628,7 +628,7 @@ if (!isset($cfg['BgcolorOne'])) {
         $cfg['BgcolorOne'] = $cfgBgcolorOne;
         unset($cfgBgcolorOne);
     } else {
-        $cfg['BgcolorOne'] = '#CCCCCC';
+        $cfg['BgcolorOne'] = '#E5E5E5';
     }
 }
 
@@ -637,7 +637,7 @@ if (!isset($cfg['BgcolorTwo'])) {
         $cfg['BgcolorTwo'] = $cfgBgcolorTwo;
         unset($cfgBgcolorTwo);
     } else {
-        $cfg['BgcolorTwo'] = '#DDDDDD';
+        $cfg['BgcolorTwo'] = '#D5D5D5';
     }
 }
 
@@ -805,6 +805,22 @@ if (!isset($cfg['WYSIWYG-PDF'])) {
 
 if (!isset($cfg['NaturalOrder'])) {
     $cfg['NaturalOrder'] = TRUE;
+}
+
+if (!isset($cfg['SetHttpHostTitle'])) {
+    $cfg['ShowHttpHostTitle'] = FALSE;
+}
+
+if (!isset($cfg['SetHttpHostTitle'])) {
+    $cfg['SetHttpHostTitle'] = '';
+}
+
+if (!isset($cfg['ErrorIconic'])) {
+    $cfg['ErrorIconic'] = TRUE;
+}
+
+if (!isset($cfg['ReplaceHelpImg'])) {
+    $cfg['ReplaceHelpImg'] = TRUE;
 }
 
 if (!isset($cfg['DefaultQueryTable'])) {

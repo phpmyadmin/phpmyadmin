@@ -98,6 +98,7 @@ div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_
 body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
 input   {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
 select  {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; background-color: #ffffff; color: #000000}
+hr{ color: #ffffff; background-color: #ffffff; border: 0; height: 1px; }
     <?php
 } elseif ($js_frame == 'print') {
 /************************************************************************************
@@ -219,6 +220,122 @@ button.mult_submit {
     border:           1px dashed #000000;
 }
 
+/* some new styles added 20047-05-05 by Michael Keck (mkkeck) */
+
+/* tables */
+.tblWarning {
+  border: 1px solid #cc0000;
+  background-color: #ffffff;
+		width: 100%;
+}
+.tblError {
+  border:           1px solid #cc0000;
+  background-color: #ffffcc;
+		width: 100%;
+}
+.tblHeaders {
+  background-color: #9999CC;
+  font-weight:      bold;
+  color:            #000000;
+}
+.tblFooters {
+  background-color: #9999CC;
+  font-weight:      normal;
+  color:            #000000;
+}
+.tblHeadError {
+  background-color: #cc0000;
+  font-weight:      bold;
+  color:            #ffffff;
+}
+.tblHeadWarn {
+  background-color: #ffcc00;
+  font-weight:      bold;
+  color:            #000000;
+}
+/* forbidden, no privilegs */
+.noPrivileges{
+  color:            #cc0000;
+  font-weight:      bold;
+}
+
+/* list elements */
+ul.mainRight {
+    margin: 0px;
+    padding-left:2em;
+    padding-right:2em;
+}
+
+ul.mainRight li {
+    white-space: nowrap;
+    padding-left:   0.5em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+}
+ul.mainLeft {
+    margin: 0px;
+    padding-left:2em;
+    padding-right:2em;
+}
+
+ul.mainLeft li {
+    white-space: nowrap;
+    padding-left:   0.5em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+}
+.lstPhpInfo {
+  list-style: url(../images/php_sym.png);
+}
+.lstPmaDocs {
+  list-style: url(../images/b_docs.png);
+}
+.lstPmaPage {
+  list-style: url(../images/b_home.png);
+}
+.lstPmaLang {
+  list-style: url(../images/s_lang.png);
+}
+.lstPmaChar {
+  list-style: url(../images/s_rights.png);
+}
+.lstNewdb {
+  list-style: url(../images/b_newdb.png);
+}
+.lstStatus {
+  list-style: url(../images/s_status.png);
+}
+.lstVars {
+  list-style: url(../images/s_vars.png);
+}
+.lstProcess {
+  list-style: url(../images/s_process.png);
+}
+.lstPrivileges {
+  list-style: url(../images/s_rights.png);
+}
+.lstCollations {
+  list-style: url(../images/s_asci.png);
+}.lstReload {
+  list-style: url(../images/s_reload.png);
+}
+.lstDatabases {
+  list-style: url(../images/s_db.png);
+}
+.lstExport {
+  list-style: url(../images/b_export.png);
+}
+.lstLogoff {
+  list-style: url(../images/s_loggoff.png);
+}
+.lstPasswd {
+  list-style: url(../images/s_passwd.png);
+}
+
+hr{ color: #666699; background-color: #6666cc; border: 0; height: 1px; }
+
+/* end of some new styles added 20047-05-05 by Michael Keck (mkkeck) */
+
 .print{font-family:arial;font-size:8pt;}
 
 /* MySQL Parser */
@@ -302,7 +419,7 @@ ul.main {
 }
 
 ul.main li {
-    list-style-image: url(../images/item_<?php echo $text_dir; ?>.png);
+    list-style-image: url(../images/dot_violet.png);
     padding-bottom: 0.1em;
 }
 

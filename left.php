@@ -321,9 +321,11 @@ echo "\n";
 <?php
 if ($cfg['LeftDisplayLogo']) {
     ?>
-    <!-- phpMyAdmin logo -->
-    <a href="http://www.phpmyadmin.net" target="_blank"><img src="./images/pma_logo.png" width="88" height="31" border="0" alt="phpMyAdmin" /></a>
-    <?php
+    
+<!-- phpMyAdmin logo -->
+    <a href="http://www.phpmyadmin.net" target="_blank"><img src="images/pma_logo2.png" width="140" height="31" border="0" alt="phpMyAdmin" /></a>
+    
+<?php
 }
 echo "\n";
 if ($cfg['LeftDisplayServers']) {

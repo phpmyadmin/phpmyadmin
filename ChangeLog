@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-08 Alexander M. Turek  <me@derrabus.de>
+    * config.inc.php, db_details_structure.php, Documentation.html,
+      header.inc.php, left.php, main.php, images/*, libraries/common.lib.php,
+      libraries/config_import.lib.php:
+      Patch #947190 (Redesign) - Part 1, thanks to Michael Keck (mkkeck).
+
 2004-05-07 Alexander M. Turek  <me@derrabus.de>
     * calendar.php: Added missing CVS-ID-Tag.
 

@@ -22,7 +22,7 @@ if (empty($GLOBALS['is_header_sent'])) {
 
     require_once('./libraries/header_http.inc.php');
     require_once('./libraries/header_meta_style.inc.php');
-
+    /* replaced 2004-05-05 by Michael Keck (mkkeck)
     $title     = '';
     if (isset($GLOBALS['db'])) {
         $title .= str_replace('\'', '\\\'', $GLOBALS['db']);
@@ -35,6 +35,29 @@ if (empty($GLOBALS['is_header_sent'])) {
                . sprintf($GLOBALS['strRunning'], (empty($GLOBALS['cfg']['Server']['verbose']) ? str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['host']) : str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['verbose'])));
     }
     $title     .= (empty($title) ? '' : ' - ') . 'phpMyAdmin ' . PMA_VERSION;
+    */
+    /* the new one
+     * 2004-05-05: replaced by Michael Keck (mkkeck)
+     */
+    $title     = 'PMA | ';
+    if (!isset($cfg['SetHttpHostTitle']) || empty($cfg['SetHttpHostTitle'])){
+        if (isset($HTTP_HOST)){
+            $cfg['SetHttpHostTitle'] = $HTTP_HOST;
+        }
+    }
+    if ($cfg['ShowHttpHostTitle']) {
+        $title .= (empty($cfg['SetHttpHostTitle']) ? $HTTP_HOST : $cfg['SetHttpHostTitle']) . ' >> ';
+    }
+    if (!empty($GLOBALS['cfg']['Server']) && isset($GLOBALS['cfg']['Server']['host'])) {
+        $title.=str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['host']);
+    }
+    if (isset($GLOBALS['db'])) {
+        $title .= ' >> ' . str_replace('\'', '\\\'', $GLOBALS['db']);
+    }
+    if (isset($GLOBALS['table'])) {
+        $title .= (empty($title) ? '' : ' ') . ' >> ' . str_replace('\'', '\\\'', $GLOBALS['table']);
+    }
+    $title .= ' | phpMyAdmin ' . PMA_VERSION;
     ?>
     <script type="text/javascript" language="javascript">
     <!--
@@ -123,12 +146,13 @@ if (empty($GLOBALS['is_header_sent'])) {
     ?>
     <body bgcolor="<?php echo $GLOBALS['cfg']['RightBgColor'] . '"' . $bkg_img; ?>>
 
-    <?php 
+    <?php
     include('./config.header.inc.php');
 
     if (!defined('PMA_DISPLAY_HEADING')) {
         define('PMA_DISPLAY_HEADING', 1);
     }
+    /* replaced 2004-05-05 by mkkeck
     if (PMA_DISPLAY_HEADING) {
         $header_url_qry = '?' . PMA_generate_common_url();
         echo '<h1>' . "\n";
@@ -150,6 +174,66 @@ if (empty($GLOBALS['is_header_sent'])) {
         }
         echo "\n" . '</h1>' . "\n";
     }
+    /**/
+    /* the new one with Icons
+     * 2004-05-05 by Michael Keck (mkkeck)
+    */
+    if (PMA_DISPLAY_HEADING) {
+        $header_url_qry = '?' . PMA_generate_common_url();
+        echo '<table border="0" cellpadding="0" cellspacing="0"><tr>';
+        $server_info = (!empty($cfg['Server']['verbose'])
+                        ? $cfg['Server']['verbose']
+                        : $server_info = $cfg['Server']['host'] . (empty($cfg['Server']['port'])
+                                                                   ? ''
+                                                                   : ':' . $cfg['Server']['port']
+                                                                  )
+                       );
+        if (isset($GLOBALS['db'])) {
+            if($cfg['PropertiesIconic']){
+              $host_icon_img='<img src="./images/s_host.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
+            }
+            echo '<td nowrap="nowrap">Server:&nbsp;</td>'
+               . '<td nowrap="nowrap"><b>'
+               . '<a href="' . $GLOBALS['cfg']['DefaultTabServer'] . $header_url_qry . '">' . $host_icon_img . htmlspecialchars($server_info) . '</a>'
+               . '</b></td>';
+            if($cfg['PropertiesIconic']){
+              $db_icon_img='<img src="./images/s_db.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
+            }
+            echo '<td nowrap="nowrap">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</td>';
+            echo '<td nowrap="nowrap">' . $GLOBALS['strDatabase'] . ':&nbsp;</td>'
+               . '<td nowrap="nowrap"><b>'
+               . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '">'
+               . $db_icon_img . htmlspecialchars($GLOBALS['db']) . '</a>'
+               . '</b></td>';
+            if (!empty($GLOBALS['table'])) {
+              if($cfg['PropertiesIconic']){
+                $tbl_icon_img='<img src="./images/s_tbl.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
+              }
+              echo '<td nowrap="nowrap">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</td>';
+              echo '<td nowrap="nowrap">' . $GLOBALS['strTable'] . ':&nbsp;</td>'
+                 . '<td nowrap="nowrap"><b><a href="'
+                 . $GLOBALS['cfg']['DefaultTabTable'] . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '">'
+                 . $tbl_icon_img . htmlspecialchars($GLOBALS['table'])
+                 . '</a></b></td>';
+            }
+
+        } else {
+           if($cfg['PropertiesIconic']){
+             $host_icon_img='<img src="./images/s_host.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
+            }
+            echo '<tr><td nowrap="nowrap">Server:&nbsp;</td>'
+               . '<td nowrap="nowrap"><b><a href="' . $GLOBALS['cfg']['DefaultTabServer'] . $header_url_qry . '">'
+               . $host_icon_img
+               . htmlspecialchars($server_info)
+               . '</a></b>&nbsp;</td>';
+        }
+        echo '</tr></table><br />';
+    }
+    /* end of replacement
+     *
+    */
+
+
     echo "\n";
 
 
