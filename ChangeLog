@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-29  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/romanian.inc.php3 updates, thanks to Valics Lehel
+	* Documentation.html, added a FAQ about "too many fields"
+
 2001-08-29  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3, line 558: an urlencode call was missing.
 	* db_details.php3; db_stats.php3; index.php3; left.php3; lib.inc.php3;
