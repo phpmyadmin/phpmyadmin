@@ -16,23 +16,6 @@ require('./server_links.inc.php');
 
 
 /**
- * InnoDB status
- */
-if (!empty($innodbstatus)) {
-    echo '<h2>' . "\n"
-       . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
-       . '    ' . $strInnodbStat . "\n"
-       . '</h2>' . "\n";
-    $res = PMA_DBI_query('SHOW INNODB STATUS;');
-    $row = PMA_DBI_fetch_row($res);
-    echo '<pre>' . "\n"
-       . htmlspecialchars($row[0]) . "\n"
-       . '</pre>' . "\n";
-    PMA_DBI_free_result($res);
-    require_once('./footer.inc.php');
-}
-
-/**
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
@@ -268,28 +251,6 @@ if (!empty($serverStatus)) {
     </li>
 <?php
 }
-$res = PMA_DBI_query('SHOW VARIABLES LIKE \'have_innodb\';');
-if ($res) {
-    $row = PMA_DBI_fetch_row($res);
-    if (!empty($row[1]) && $row[1] == 'YES') {
-?>
-    <br />
-    <li>
-        <!-- InnoDB Status -->
-        <a href="./server_status.php?<?php echo $url_query; ?>&amp;innodbstatus=1">
-            <b><?php echo $strInnodbStat; ?></b>
-        </a>
-    </li>
-<?php
-    }
-} else {
-    unset($res);
-}
-?>
-</ul>
-
-
-<?php
 
 
 /**

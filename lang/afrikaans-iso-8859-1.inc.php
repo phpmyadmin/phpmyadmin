@@ -796,4 +796,11 @@ $strBusyPages = 'Busy pages';  //to translate
 $strDirtyPages = 'Dirty pages';  //to translate
 $strPagesToBeFlushed = 'Pages to be flushed';  //to translate
 $strLatchedPages = 'Latched pages';  //to translate
+$strBufferPoolActivity = 'Buffer Pool Activity';  //to translate
+$strReadRequests = 'Read requests';  //to translate
+$strWriteRequests = 'Write requests';  //to translate
+$strBufferReadMisses = 'Read misses';  //to translate
+$strBufferWriteWaitTime = 'Total write wait time';  //to translate
+$strBufferReadMissesInPercent = 'Read misses in %';  //to translate
+$strAverageBufferWriteWaitTimePerRequest = '&oslash; write wait time per request';  //to translate
 ?>
