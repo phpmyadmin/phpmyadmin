@@ -44,7 +44,7 @@ $cfg['PmaAbsoluteUri'] = '';
  * You should use this if and ONLY if the PmaAbsoluteUri auto-detection
  * works perfectly.
  */
-$cfg['PmaAbsoluteUri_DisableWarning'] = TRUE;
+$cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
 
 /**
  * Disable the default warning that is displayed on the DB Details Structure page if
@@ -63,12 +63,12 @@ $i++;
 $cfg['Servers'][$i]['host']          = 'localhost'; // MySQL hostname
 $cfg['Servers'][$i]['port']          = '';          // MySQL port - leave blank for default port
 $cfg['Servers'][$i]['socket']        = '';          // Path to the socket - leave blank for default socket
-$cfg['Servers'][$i]['connect_type']  = 'socket';       // How to connect to MySQL server ('tcp' or 'socket')
-$cfg['Servers'][$i]['controluser']   = 'phpMyAdmin';          // MySQL control user settings
+$cfg['Servers'][$i]['connect_type']  = 'tcp';       // How to connect to MySQL server ('tcp' or 'socket')
+$cfg['Servers'][$i]['controluser']   = '';          // MySQL control user settings
                                                     // (this user must have read-only
-$cfg['Servers'][$i]['controlpass']   = 'phpmyadmin';          // access to the "mysql/user"
+$cfg['Servers'][$i]['controlpass']   = '';          // access to the "mysql/user"
                                                     // and "mysql/db" tables)
-$cfg['Servers'][$i]['auth_type']     = 'cookie';    // Authentication method (config, http or cookie based)?
+$cfg['Servers'][$i]['auth_type']     = 'config';    // Authentication method (config, http or cookie based)?
 $cfg['Servers'][$i]['user']          = 'root';      // MySQL user
 $cfg['Servers'][$i]['password']      = '';          // MySQL password (only needed
                                                     // with 'config' auth_type)
@@ -79,10 +79,10 @@ $cfg['Servers'][$i]['only_db']       = '';          // If set to a db-name, only
                                                     // of db-names
 $cfg['Servers'][$i]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
 
-$cfg['Servers'][$i]['pmadb']         = 'phpMyAdmin';          // Database used for Relation, Bookmark and PDF Features
+$cfg['Servers'][$i]['pmadb']         = '';          // Database used for Relation, Bookmark and PDF Features
                                                     // - leave blank for no support
-$cfg['Servers'][$i]['bookmarktable'] = 'bookmark';          // Bookmark table - leave blank for no bookmark support
-$cfg['Servers'][$i]['relation']      = 'PMA_relation';          // table to describe the relation between links (see doc)
+$cfg['Servers'][$i]['bookmarktable'] = '';          // Bookmark table - leave blank for no bookmark support
+$cfg['Servers'][$i]['relation']      = '';          // table to describe the relation between links (see doc)
                                                     //   - leave blank for no relation-links support
 $cfg['Servers'][$i]['table_info']    = '';          // table to describe the display fields
                                                     //   - leave blank for no display fields support
@@ -181,18 +181,18 @@ $cfg['LeftDisplayLogo']       = TRUE;   // display logo at top of left frame
 $cfg['ShowStats']             = TRUE;   // allow to display statistics and space usage in
                                         // the pages about database details and table
                                         // properties
-$cfg['ShowMysqlInfo']         = TRUE;  // whether to display the "MySQL runtime
-$cfg['ShowMysqlVars']         = TRUE;  // information", "MySQL system variables", "PHP
-$cfg['ShowPhpInfo']           = TRUE;  // information" and "change password" links for
-$cfg['ShowChgPassword']       = TRUE;  // simple users or not
+$cfg['ShowMysqlInfo']         = FALSE;  // whether to display the "MySQL runtime
+$cfg['ShowMysqlVars']         = FALSE;  // information", "MySQL system variables", "PHP
+$cfg['ShowPhpInfo']           = FALSE;  // information" and "change password" links for
+$cfg['ShowChgPassword']       = FALSE;  // simple users or not
 $cfg['SuggestDBName']         = TRUE;   // suggest a new DB name if possible (false = keep empty)
 
 // In browse mode...
 $cfg['ShowBlob']              = FALSE;  // display blob field contents
 $cfg['NavigationBarIconic']   = TRUE;   // do not display text inside navigation bar buttons
-$cfg['ShowAll']               = TRUE;  // allows to display all the rows
+$cfg['ShowAll']               = FALSE;  // allows to display all the rows
 $cfg['MaxRows']               = 30;     // maximum number of rows to display
-$cfg['Order']                 = 'SMART';  // default for 'ORDER BY' clause (valid
+$cfg['Order']                 = 'ASC';  // default for 'ORDER BY' clause (valid
                                         // values are 'ASC', 'DESC' or 'SMART' -ie
                                         // descending order for fields of type
                                         // TIME, DATE, DATETIME & TIMESTAMP,
@@ -347,7 +347,7 @@ $cfg['CharTextareaRows']    = 2;            // textarea size (rows) for CHAR/VAR
 $cfg['LimitChars']          = 50;           // max field data length in browse mode
 $cfg['ModifyDeleteAtLeft']  = TRUE;         // show edit/delete links on left side of browse
                                             // (or at the top with vertical browse)
-$cfg['ModifyDeleteAtRight'] = TRUE;        // show edit/delete links on right side of browse
+$cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right side of browse
                                             // (or at the bottom with vertical browse)
 $cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizontal|vertical)
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
@@ -360,7 +360,7 @@ $cfg['RepeatCells']         = 100;          // repeat header names every X cells
 $cfg['SQLQuery']['Edit']      = TRUE;       // Edit link to change a query
 $cfg['SQLQuery']['Explain']   = TRUE;       // EXPLAIN on SELECT queries
 $cfg['SQLQuery']['ShowAsPHP'] = TRUE;       // Wrap a query in PHP
-$cfg['SQLQuery']['Validate']  = TRUE;      // Validate a query (see $cfg['SQLValidator'] as well)
+$cfg['SQLQuery']['Validate']  = FALSE;      // Validate a query (see $cfg['SQLValidator'] as well)
 
 
 /**
@@ -409,7 +409,7 @@ $cfg['SQP']['fmtColor']     = array(        // Syntax colouring data
  * Mimer SQL Validator, Copyright 2002 Upright Database Technology.
  * All rights reserved.
  */
-$cfg['SQLValidator']['use']      = TRUE;   // Make the SQL Validator available
+$cfg['SQLValidator']['use']      = FALSE;   // Make the SQL Validator available
 $cfg['SQLValidator']['username'] = '';      // If you have a custom username, specify it here (defaults to anonymous)
 $cfg['SQLValidator']['password'] = '';      // Password for username
 
