@@ -300,6 +300,7 @@ $strYes = 'Sim';
 // To translate
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
+$strFlush = 'Flush';
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
 $strKeepPass = 'Do not change the password';//to translate
@@ -311,6 +312,7 @@ $strSetEnumVal = 'If field type is "enum" or "set", please enter the values usin
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
+$strTableHasBeenFlushed = 'Table %s has been flushed';
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:'; //to translate

@@ -318,4 +318,6 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
+$strFlush = 'Flush';
+$strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>

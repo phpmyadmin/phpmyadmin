@@ -314,6 +314,8 @@ $strYes = 'Да';
 $strZip = 'упаковать в "zip"';
 
 // To translate
+$strFlush = 'Flush';
+$strTableHasBeenFlushed = 'Table %s has been flushed';
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 ?>

@@ -309,12 +309,14 @@ $strZip = '"формат zip"';
 
 // To translate
 $strExtendedInserts = 'Extended inserts';
+$strFlush = 'Flush';
 $strFullText = 'Full Texts';//to translate
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strNoRights = 'You don\'t have enough rights to be here right now!'; //to translate
 $strPartialText = 'Partial Texts';//to translate
 $strShowAll = 'Show all'; // to translate
 $strStartingRecord = 'Starting record';//to translate
+$strTableHasBeenFlushed = 'Table %s has been flushed';
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
 $strWithChecked = 'With checked:';
 ?>

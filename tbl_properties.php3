@@ -155,7 +155,9 @@ if ($num_rows > 0) {
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?>')">
-         <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;
+    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); ?>&amp;reload=1" title="&quot;FLUSH&quot;">
+         <b><?php echo $strFlush; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
@@ -170,7 +172,9 @@ if ($num_rows > 0) {
     [ <b><?php echo $strSelect; ?></b> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;
+    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); ?>&amp;reload=1" title="&quot;FLUSH&quot;">
+         <b><?php echo $strFlush; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
@@ -406,7 +410,9 @@ if ($fields_cnt > 20) {
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?>')">
-         <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;
+    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); ?>&amp;reload=1" title="&quot;FLUSH&quot;">
+         <b><?php echo $strFlush; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
@@ -421,7 +427,9 @@ if ($fields_cnt > 20) {
     [ <b><?php echo $strSelect; ?></b> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;
+    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); ?>&amp;reload=1" title="&quot;FLUSH&quot;">
+         <b><?php echo $strFlush; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
          onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]

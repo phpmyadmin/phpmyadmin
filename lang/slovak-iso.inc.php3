@@ -318,4 +318,6 @@ $strYes = 'Áno';
 $strZip = '"zo zipované"';
 
 // To translate
+$strFlush = 'Flush';
+$strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>

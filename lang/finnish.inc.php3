@@ -318,7 +318,7 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
-
+$strFlush = 'Flush';
 $strOverhead = 'Overhead'; //to translate
-
+$strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>

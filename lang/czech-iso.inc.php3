@@ -45,9 +45,9 @@ $strAtEndOfTable = 'Na konci tabulky';
 $strAttr = 'Atributy';
 
 $strBack = 'Zpìt';
-$strBinary = ' Binární ';  
-$strBinaryDoNotEdit = ' Binární - neupravujte ';  
-$strBookmarkLabel = 'Název'; 
+$strBinary = ' Binární ';
+$strBinaryDoNotEdit = ' Binární - neupravujte ';
+$strBookmarkLabel = 'Název';
 $strBookmarkQuery = 'Oblíbený SQL dotaz';
 $strBookmarkThis = 'Pøidat tento SQL dotaz do oblíbených';
 $strBookmarkView = 'Jen prohlédnout';
@@ -71,6 +71,251 @@ $strCreateNewDatabase = 'Vytvoøit novou databázi';
 $strCreateNewTable = 'Vytvoøit novou tabulku v databázi ';
 $strCriteria = 'Podmínka';
 
-$strData = 'Data'; 
+$strData = 'Data';
 $strDatabase = 'Databáze ';
-$strDatabaseHasBeenDropped = 'Databaze %s byla zru
+$strDatabaseHasBeenDropped = 'Databaze %s byla zru¹ena.';
+$strDatabases = 'databáze';
+$strDatabasesStats = 'Statistiky databáze';
+$strDataOnly = ' Jen data ';
+$strDefault = 'Výchozí';
+$strDelete = 'Smazat';
+$strDeleted = 'Øádek byl smazán';
+$strDeletedRows = 'Smazané øádky:';
+$strDeleteFailed = 'Smazání selhalo!';
+$strDeleteUserMessage = 'Byl smazan uivatel %s.';
+$strDescending = 'Sestupnì';
+$strDisplay = 'Zobrazit';
+$strDisplayOrder = 'Seøadit podle:';
+$strDoAQuery = 'ProvéstDo a "dotaz podle pøíkladu" (¾olík: "%")';
+$strDocu = 'Dokumentace';
+$strDoYouReally = 'Opravdu si pøeje¹ vykonat pøíkaz ';
+$strDrop = 'Odstranit';
+$strDropDB = 'Odstranit databázi ';
+$strDropTable = 'Smazat tabulku';
+$strDumpingData = 'Dumpuji data pro tabulku';
+$strDynamic = 'dynamic';
+
+$strEdit = 'Editovat';
+$strEditPrivileges = 'Upravit práva';
+$strEffective = 'Efektivní';
+$strEmpty = 'Vyprázdnit';
+$strEmptyResultSet = 'MySQL vrátil prázdný výsledek (tj. nulový poèet øádkù).';
+$strEnd = 'Konec';
+$strEnglishPrivileges = ' Poznámka: názvy MySQL privilegií jsou uvádìna v angliètinì ';
+$strError = 'Chyba';
+$strExtendedInserts = 'Roz¹íøené inserty';
+$strExtra = 'Extra'; 
+
+$strField = 'Pole';
+$strFieldHasBeenDropped = 'Pole %s bylo odstranìno';
+$strFields = 'Poèet polí';
+$strFieldsEmpty = ' Nebyl zadán poèet polí! ';
+$strFieldsEnclosedBy = 'Polo¾ky uzavøené do';
+$strFieldsEscapedBy = 'Polo¾ky escapovány';
+$strFieldsTerminatedBy = 'Polo¾ky oddìlené';
+$strFixed = 'pevný'; 
+$strFormat = 'Formát'; 
+$strFormEmpty = 'Chybìjící hodnota ve formuláøi !';
+$strFullText = 'Celé texty';
+$strFunction = 'Funkce';
+
+$strGenTime = 'Vygenerováno:'; 
+$strGo = 'Proveï';
+$strGrants = 'Privilegia';
+$strGzip = '"zagzipováno"';  
+
+$strHasBeenAltered = 'byla zmìnìna.';
+$strHasBeenCreated = 'byla vytvoøena.';
+$strHome = 'Úvod';
+$strHomepageOfficial = ' Oficiální stránka phpMyAdmina ';
+$strHomepageSourceforge = ' nová stránka phpMyAdmina ';
+$strHost = 'Hostitel';
+$strHostEmpty = 'Jméno hostitele je prázdné!';
+
+$strIdxFulltext = 'Fulltext';
+$strIfYouWish = 'Pokud si pøeje¹ natáhnout jenom urèité sloupce z tabulky, specifikuj je jako seznam polí oddìlených èárkou.';
+$strIndex = 'Index';
+$strIndexes = 'Indexy'; 
+$strIndexHasBeenDropped = 'Index %s byl odstranìn';
+$strInsert = 'Vlo¾it';
+$strInsertAsNewRow = ' Vlo¾it jako nový øádek ';
+$strInsertedRows = 'Vlo¾eno øádkù:';
+$strInsertNewRow = 'Vlo¾it nový øádek';
+$strInsertTextfiles = 'Vlo¾it textové soubory do tabulky';
+$strInstructions = 'Instrukce';
+$strInUse = 'právì se pou¾ívá'; 
+$strInvalidName = '"%s" je rezervované slovo a proto ho nemù¾ete po¾ít jako jméno databáze/tabulky/sloupce.';
+
+$strKeepPass = 'Nemlnit heslo';
+$strKeyname = 'Klíèovy název';
+$strKill = ' Zabít ';
+
+$strLength = 'Délka';
+$strLengthSet = 'Délka/Set*';
+$strLimitNumRows = 'záznamu na stránku';
+$strLineFeed = 'Ukonèení øádku (Linefeed): \\n';
+$strLines = 'Øádek';
+$strLinesTerminatedBy = 'Øádky ukonèené';
+$strLocationTextfile = 'Umístìní textového souboru';
+$strLogin = ''; //to translate, but its not in use ...
+$strLogout = 'Odhlásit se';
+
+$strModifications = 'Zmìny byly ulo¾eny';
+$strModify = 'Úpravy';
+$strMoveTable = 'Pxesunout tabulku do (databaze<b>.</b>tabulka):';
+$strMoveTableOK = 'Tabulka %s byla pxesunuta do %s.';
+$strMySQLReloaded = 'MySQL znovu-naètena.';
+$strMySQLSaid = 'MySQL hlásí: ';
+$strMySQLShowProcess = 'Zobraz procesy';
+$strMySQLShowStatus = 'Ukázat MySQL runtime informace';
+$strMySQLShowVars = 'Ukázat MySQL systémové promìnné';
+
+$strName = 'Název';
+$strNbRecords = 'øádkù';
+$strNext = 'Dal¹í';
+$strNo = 'Ne';
+$strNoDatabases = '®ádné databáze';
+$strNoDropDatabases = 'Pøíkaz "DROP DATABASE" je vypnutý.';
+$strNoModification = '®ádná zmìna';
+$strNoPassword = '®ádné heslo';
+$strNoPrivileges = '®ádná privilegia';
+$strNoQuery = 'adn} SQL dotaz!';
+$strNoRights = 'Nemáte dostateèná práva na provedení této akce!';
+$strNoTablesFound = 'V databázi nebyla nalezena ani jedna tabulka.';
+$strNotNumber = 'Toto není èíslo!';  
+$strNotValidNumber = ' není platné èíslo øádku!'; 
+$strNoUsersFound = '®ádný u¾ivatel nenalezen.';
+$strNull = 'Nulový';
+$strNumberIndexes = ' Poèet roz¹íøených indexù ';
+
+$strOftenQuotation = 'Èasto uvozující znaky. OPTIONALLY znamená, ¾e pouze pole typu CHAR a VARCHAR jsou uzavøeny do "uzavíracích " znakù.';
+$strOptimizeTable = 'Optimalizovat tabulku';
+$strOptionalControls = 'Volitelné. Urèuje jak zapisovat nebo èíst speciální znaky.';
+$strOptionally = 'Volitelnì';
+$strOr = 'nebo';
+$strOverhead = 'Navíc'; 
+
+$strPartialText = 'Zkrácené texty';
+$strPassword = 'Heslo';
+$strPasswordEmpty = 'Heslo je prázdné!';
+$strPasswordNotSame = 'Hesla nejsou stejná!';
+$strPHPVersion = 'Verze PHP';
+$strPmaDocumentation = 'Dokumentace phpMyAdmina';
+$strPos1 = 'Zaèátek';
+$strPrevious = 'Pøedchozí';
+$strPrimary = 'Primární';
+$strPrimaryKey = 'Primární klíè';
+$strPrimaryKeyHasBeenDropped = 'Primární klíè byl odstranìn';
+$strPrintView = 'Náhled k vyti¹tìní';
+$strPrivileges = 'Privilegia';
+$strProperties = 'Vlastnosti';
+
+$strQBE = 'Dotaz podle pøíkladu';
+$strQBEDel = 'pøidat';
+$strQBEIns = 'smazat';
+$strQueryOnDb = 'SQL dotaz na databázi ';
+
+$strRecords = 'Záznamù';
+$strReloadFailed = 'Znovunaètení MySQL selhalo.';
+$strReloadMySQL = 'Znovunaètení MySQL';
+$strRememberReload = 'Nezapomeòte reloadovat server.';
+$strRenameTable = 'Pøejmenovat tabulku na';
+$strRenameTableOK = 'Tabulka %s byla pøejmenována na %s';
+$strRepairTable = 'Opravit tabulku';
+$strReplace = 'Pøepsat';
+$strReplaceTable = 'Pøepsat data tabulky souborem';
+$strReset = 'P§vodní (reset)';
+$strReType = 'Napsat znovu';
+$strRevoke = 'Zru¹it';
+$strRevokeGrant = 'Zru¹it povolení pøidìlovat práva';
+$strRevokeGrantMessage = 'Bylo zru¹eno privilegium pøidìlovat práva pro';
+$strRevokeMessage = 'Byla zru¹ena práva pro';
+$strRevokePriv = 'Zru¹it práva';
+$strRowLength = 'Délka øádku'; 
+$strRows = 'Øádkù'; 
+$strRowsFrom = 'øádkù zaèínající od';
+$strRowSize = ' Velikost øádku '; 
+$strRowsStatistic = 'Statistika øádkù'; 
+$strRunning = 'bì¾ící na ';
+$strRunningAs = 'jako';
+$strRunQuery = 'Provést dotaz';
+$strRunSQLQuery = 'Spustit SQL dotaz(y) na databázi %s';
+
+$strSave = 'Ulo¾';
+$strSelect = 'Vybrat';
+$strSelectFields = 'Zvol pole (alespoò jedno):';
+$strSelectNumRows = 'v dotazu';
+$strSend = 'Po¹li';
+$strSequence = 'Sekv.';
+$strServerChoice = 'Výbìr serveru';
+$strServerVersion = 'Verze serveru'; 
+$strSetEnumVal = 'Pokud je pole typu "enum" nebo "set", zadávejte hodnoty v následujícím formátu: \'a\',\'b\',\'c\'...<br />Pokud potøebujete zadat zpìtné lomítko ("\") nebo jednoduché uvozovky ("\'") mezi tìmito hodnotami, napi¹te pøed nì zpìtné lomítko (pøíklad: \'\\\\xyz\' nebo \'a\\\'b\').';
+$strShow = 'Zobraz';
+$strShowAll = 'Zobrazit v¹e';
+$strShowCols = 'Zobrazit sloupce';
+$strShowingRecords = 'Ukazuji záznamy ';
+$strShowPHPInfo = 'Zobrazit informace o PHP';
+$strShowTables = 'Zobrazit tabulky';
+$strShowThisQuery = ' Zobrazit zde tento dotaz znovu ';
+$strSingly = '(po jednom)';
+$strSize = 'Velikost'; 
+$strSort = 'Øadit';
+$strSpaceUsage = 'Vyu¾ití místa'; 
+$strSQLQuery = 'SQL-dotaz';
+$strStartingRecord = 'Poèáteèní záznam';
+$strStatement = 'Údaj'; 
+$strStrucCSV = 'CSV data';
+$strStrucData = 'Strukturu a data';
+$strStrucDrop = 'Pøidej \'DROP TABLE\'';
+$strStrucExcelCSV = 'CSV data pro Ms Excel';
+$strStrucOnly = 'Pouze strukturu';
+$strSubmit = 'Ode¹li';
+$strSuccess = 'Tvùj SQL-dotaz byl úspì¹nì vykonán';
+$strSum = 'Celkem'; 
+
+$strTable = 'Tabulka ';
+$strTableComments = 'Komentáøe k tabulce';
+$strTableEmpty = 'Jméno tabulky je prázdné!';
+$strTableHasBeenDropped = 'Tabulka %s byla odstranìna';
+$strTableHasBeenEmptied = 'Tabulka %s byla vyprázdnìna';
+$strTableMaintenance = ' Údr¾ba tabulky ';
+$strTables = '%s tabulek';
+$strTableStructure = 'Struktura tabulky';
+$strTableType = 'Typ tabulky';
+$strTextAreaLength = ' Toto pole mo¾ná nepùjde <br />(kvùli délce) upravit ';
+$strTheContent = 'Obsah tvého souboru byl vlo¾en';
+$strTheContents = 'Obsah souboru pøepí¹e obsah zvolené tabulky v tìch øádcích, kde je identický primární nebo unikátní klíè.';
+$strTheTerminator = 'Ukonèení polí.';
+$strTotal = 'celkem';
+$strType = 'Typ';
+
+$strUncheckAll = 'Od¹krtnout v¹e';
+$strUnique = 'Unikátní';
+$strUpdatePrivMessage = 'Byla aktualizovana privilegia pro %s.';
+$strUpdateProfile = 'Zmlny profilu:';
+$strUpdateProfileMessage = 'Profil byl zmlnln.';
+$strUpdateQuery = 'Aktualizovat dotaz';
+$strUsage = 'Pou¾ívá'; 
+$strUseBackquotes = 'Pou¾ít zpìtné uvozovky u jmeno tabulek a polí';
+$strUser = 'U¾ivatel';
+$strUserEmpty = 'Jméno u¾ivatele je prázdné!';
+$strUserName = 'Jméno u¾ivatele';
+$strUsers = 'U¾ivatelé';
+$strUseTables = 'Pou¾ít tabulky';
+
+$strValue = 'Hodnota';
+$strViewDump = 'Uka¾ dump (schema) tabulky';
+$strViewDumpDB = 'Uka¾ dump (schema) databáze';
+
+$strWelcome = 'Vítej v ';
+$strWithChecked = 'Za¹krtnuté:';
+$strWrongUser = '©patné u¾ivatelské jméno/heslo. Pøístup odepøen.';
+
+$strYes = 'Ano';
+
+$strZip = '"zazipováno"';
+
+// To translate
+$strFlush = 'Flush';
+$strTableHasBeenFlushed = 'Table %s has been flushed';
+?>

@@ -312,8 +312,10 @@ $strZip = '"Zip komprimiert"';
 
 // To translate
 $strFieldHasBeenDropped = 'Field %s has been dropped';//to translate
+$strFlush = 'Flush';
 $strIndexHasBeenDropped = 'Index %s has been dropped';//to translate
 $strRunningAs = 'as';
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
+$strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>

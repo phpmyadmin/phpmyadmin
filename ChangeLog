@@ -15,6 +15,7 @@ $Source$
 	* lang/russian-*.inc.php3: updated thanks to
 	  Gosha Sakovich <gt2 at users.sourceforge.net>.
 	* user_details.php3: cosmetic changes.
+	* tbl_properties.php3; lang/*: added a "FLUSH" feature for tables.
 
 2001-10-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_properties.php3:
