@@ -523,7 +523,8 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 if (!isset($row[$j]) || is_null($row[$j])) {
                     $values[]     = 'NULL';
                 // a number
-                } elseif ($fields_meta[$j]->numeric) {
+                // timestamp is numeric on some MySQL 4.1
+                } elseif ($fields_meta[$j]->numeric && $fields_meta[$j]->type != 'timestamp') {
                     $values[] = $row[$j];
                 // a binary field
                 // Note: with mysqli, under MySQL 4.1.3, we get the flag
