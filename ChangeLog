@@ -8,6 +8,9 @@ $Source$
 2001-08-22  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* config.inc.php3: $cfgServers[1]['connect_type'] preferred connection type
 	* lib.inc.php3 - line 285: $cfgServer['connect_type'] implemented
+	* Documentation.html
+		- documented $cfgServers[n]['connect_type']
+		- two minor fixes for typo's that i noticed
 
 2001-08-22  Olivier Müller  <om@omnis.ch>
 	* main.php3: relooked the start page with the help of Loïc.

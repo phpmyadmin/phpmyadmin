@@ -114,7 +114,7 @@
         Then <font color="#bb0000">you should not run this script with
         PHP3&nbsp;&lt;&nbsp;3.0.8</font>.<br />
         PHP also needs to be <font color="#bb0000">compiled with mysql
-        and PRCE support</font>;
+        and PCRE support</font>;
     </li>
     <li>
         MySQL (tested with 3.21.x, 3.22.x and 3.23.x);
@@ -248,7 +248,7 @@
     <dt><b>$cfgServers</b> array</dt>
     <dd>
         Since version 1.4.2, phpMyAdmin supports the administration of multiple
-        MySQL-server. 
+        MySQL servers. 
         Therefore, a $cfgServers-array has been added which contains the login
         information for the different servers. <tt>$cfgServers[1]['host']</tt>
         contains the hostname of the first server,
@@ -274,6 +274,14 @@
     <dt><b>$cfgServers[n]['socket']</b> string</dt>
     <dd>
         The path to the socket to use. Leave blank for default.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfgServers[n]['connect_type']</b> string</dt>
+    <dd>
+        What type connection to use with the MySQL server. Your options are 'socket' &amp;
+        'tcp'. It defaults to 'tcp' as that is nearly guarenteed to be available on all MySQL 
+        servers, while sockets are not supported on some platforms.
         <br /><br />
     </dd>
 
