@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-11-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, lines 178-492; tbl_properties.php3, lines 670-685: the
+	  "upload dump file" feature is no long displayed if upload is disabled in
+	  the php configuration file.
+
 2001-11-17  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3:
 	  - lines 85-86: fixed bug #482627 - show full processlist should have

@@ -667,11 +667,21 @@ echo "\n";
             <input type="checkbox" name="show_query" value="y" checked="checked" />&nbsp;
                 <?php echo $strShowThisQuery; ?><br />
             </div>
-            <?php echo "<i>$strOr</i> $strLocationTextfile"; ?>&nbsp;:<br />
+<?php
+// loic1: displays import dump feature only if file upload available
+$is_upload = (PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
+           ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
+           : (intval(@get_cfg_var('upload_max_filesize')));
+if ($is_upload) {
+    echo '            <i>' . $strOr . '</i> ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
+    ?>
             <div style="margin-bottom: 5px">
             <input type="file" name="sql_file" /><br />
             </div>
-<?php
+    <?php
+} // end if
+echo "\n";
+
 // Bookmark Support
 if ($cfgBookmark['db'] && $cfgBookmark['table']) {
     if (($bookmark_list = list_bookmarks($db, $cfgBookmark)) && count($bookmark_list) > 0) {
