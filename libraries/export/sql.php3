@@ -556,13 +556,7 @@ function PMA_getTableContentOld($db, $table, $crlf, $error_url, $sql_query)
              : ';';
     $buffer = '';
 
-    if (!empty($sql_query)) {
-        $local_query = $sql_query . $add_query;
-        PMA_mysql_select_db($db);
-    } else {
-        $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
-    }
-    $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+    $result       = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $error_url);
     $current_row  = 0;
     $fields_cnt   = mysql_num_fields($result);
     $rows_cnt     = mysql_num_rows($result);

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-10 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/export/sql.php3: Fix PMA_getTableContentOld (bug #820932).
+
 2003-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/russian*: updated, thanks to Artyom Rabzonov
 
