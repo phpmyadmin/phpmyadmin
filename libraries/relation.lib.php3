@@ -67,6 +67,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
      * @global  string   the URL of the page to show in case of error
      * @global  string   the name of the current db
      * @global  string   the name of the current table
+     * @global  array    configuration infos about the relations stuff
      *
      * @access  public
      *
@@ -75,6 +76,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
     function PMA_getRelationsParam($verbose = FALSE)
     {
         global $cfg, $server, $err_url_0, $db, $table;
+        global $cfgRelation;
 
         $cfgRelation                = array();
         $cfgRelation['relwork']     = FALSE;

@@ -5,8 +5,12 @@
 /**
  * Gets some core libraries and displays a top message if required
  */
-require('./libraries/grab_globals.lib.php3');
-require('./libraries/common.lib.php3');
+if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
+    include('./libraries/grab_globals.lib.php3');
+}
+if (!defined('PMA_COMMON_LIB_INCLUDED'))  {
+    include('./libraries/common.lib.php3');
+}
 // Puts the language to use in a cookie that will expire in 30 days
 if (!isset($pma_uri_parts)) {
     $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
