@@ -433,7 +433,7 @@ echo "\n";
 
     <!-- Printable view of the table -->
     <li>
-        <div style="margin-bottom: 10px"><a href="tbl_printview.php3<?php echo $query; ?>"><?php echo $strPrintView; ?></a></div>
+        <div style="margin-bottom: 10px"><a href="tbl_printview.php3?<?php echo $query; ?>"><?php echo $strPrintView; ?></a></div>
     </li>
 
     <!-- Query box and bookmark support -->
