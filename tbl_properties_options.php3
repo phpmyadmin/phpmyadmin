@@ -6,6 +6,33 @@
  * Gets tables informations and displays top links
  */
 require('./tbl_properties_common.php3');
+
+
+/**
+ * Updates table comment, type and options if required
+ */
+if (isset($submitcomment)) {
+    if (get_magic_quotes_gpc()) {
+        $comment = stripslashes($comment);
+    }
+    if (empty($prev_comment) || urldecode($prev_comment) != $comment) {
+        $local_query = 'ALTER TABLE ' . PMA_backquote($table) . ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
+        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    }
+}
+if (isset($submittype)) {
+    $local_query = 'ALTER TABLE ' . PMA_backquote($table) . ' TYPE = ' . $tbl_type;
+    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+}
+if (isset($submitoptions)) {
+    $local_query = 'ALTER TABLE ' . PMA_backquote($table)
+                 . (isset($pack_keys) ? ' pack_keys=1': ' pack_keys=0')
+                 . (isset($checksum) ? ' checksum=1': ' checksum=0')
+                 . (isset($delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0');
+    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+}
+
+
 require('./tbl_properties_table_info.php3');
 
 
@@ -17,7 +44,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
 <ul>
     <!-- Table comments -->
     <li>
-        <form method="post" action="tbl_properties.php3">
+        <form method="post" action="tbl_properties_options.php3">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
@@ -67,7 +94,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
     echo "\n";
     ?>
     <li>
-        <form method="post" action="tbl_properties.php3">
+        <form method="post" action="tbl_properties_options.php3">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
@@ -92,7 +119,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
         <table border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td>
-                <form method="post" action="tbl_properties.php3">
+                <form method="post" action="tbl_properties_options.php3">
                     <input type="hidden" name="server" value="<?php echo $server; ?>" />
                     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                     <input type="hidden" name="db" value="<?php echo $db; ?>" />

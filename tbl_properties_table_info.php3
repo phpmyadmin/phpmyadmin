@@ -39,6 +39,7 @@ mysql_free_result($result);
  * Displays top menu links
  */
 echo '<!-- first browse links -->' . "\n";
+$sub_part = '_table_info';
 require('./tbl_properties_links.php3');
 
 

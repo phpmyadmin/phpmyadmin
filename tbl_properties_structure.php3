@@ -9,7 +9,7 @@ require('./tbl_properties_common.php3');
  */
 if ((!empty($submit_mult) && isset($selected_fld))
     || isset($mult_btn)) {
-    $action = 'tbl_properties.php3';
+    $action = 'tbl_properties_structure.php3';
     include('./mult_submits.inc.php3');
 }
 
@@ -257,6 +257,7 @@ if ($fields_cnt > 20) {
 <!-- Browse links -->
     <?php
     echo "\n";
+    $sub_part = '_structure';
     include('./tbl_properties_links.php3');
 } // end if ($fields_cnt > 20)
 echo "\n\n";
@@ -480,7 +481,6 @@ echo "\n";
 <hr />
 
 
-
 <?php
 /**
  * Work on the table
@@ -521,17 +521,17 @@ unset($aryFields);
 
 <?php
 if ($cfg['Server']['relation']) {
-?>
-<!-- Work on Relations -->
+    ?>
+    <!-- Work on Relations -->
     <li>
-        <div style="margin-bottom: 10px"><a href="tbl_relation.php3?<?php
-echo $url_query; ?>"><?php echo $strRelationView; ?></a></div>
+        <div style="margin-bottom: 10px">
+            <a href="tbl_relation.php3?<?php echo $url_query; ?>"><?php echo $strRelationView; ?></a>
+        </div>
     </li>
-
-<?php 
+    <?php 
 }
+echo "\n";
 ?>
-
 </ul>
 
 <?php

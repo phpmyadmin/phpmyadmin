@@ -3,15 +3,35 @@
 
 
 require('./tbl_properties_common.php3');
+
+
+/**
+ * Reordering the table has been requested by the user
+ */
+if (isset($submitorderby) && !empty($order_field)) {
+    $order_field = PMA_backquote(urldecode($order_field));
+    $local_query = 'ALTER TABLE ' . PMA_backquote($table) . 'ORDER BY ' . $order_field;
+    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+} // end if
+
+
 require('./tbl_properties_table_info.php3');
 
-// Get columns names
+
+/**
+ * Get columns names
+ */
 $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
 $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
 for ($i = 0; $row = mysql_fetch_array($result); $i++) {
         $columns[$i] = $row['Field'];
 }
 mysql_free_result($result);
+
+
+/**
+ * Displays the page
+ */
 ?>
 <ul>
 
@@ -20,7 +40,7 @@ if (PMA_MYSQL_INT_VERSION >= 32334) {
     ?>
     <!-- Order the table -->
     <li>
-        <form method="post" action="tbl_properties.php3">
+        <form method="post" action="tbl_properties_operations.php3">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
@@ -300,13 +320,6 @@ if (!empty($cfg['Server']['relation'])) {
             <?php echo $strFlushTable; ?></a>&nbsp;
             <?php echo PMA_showDocuShort('F/L/FLUSH.html') . "\n"; ?>
         <br /><br />
-    </li>
-
-    <!-- Deletes the table -->
-    <li>
-        <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
-            onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
-            <?php echo $strDropTable; ?></a>
     </li>
 
 </ul>

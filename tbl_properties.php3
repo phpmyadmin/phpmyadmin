@@ -4,15 +4,6 @@
 
 require('./tbl_properties_common.php3');
 
-/**
- * Drop multiple fields if required
- */
-if ((!empty($submit_mult) && isset($selected_fld))
-    || isset($mult_btn)) {
-    $action = 'tbl_properties.php3';
-    include('./mult_submits.inc.php3');
-}
-
 
 /**
  * Defines the query to be displayed in the query textarea
@@ -34,39 +25,6 @@ if (isset($show_query) && $show_query == 'y') {
 }
 unset($sql_query);
 
-
-/**
- * Updates table type, comment and order if required
- */
-if (isset($submitcomment)) {
-    if (get_magic_quotes_gpc()) {
-        $comment = stripslashes($comment);
-    }
-    if (empty($prev_comment) || urldecode($prev_comment) != $comment) {
-        $local_query = 'ALTER TABLE ' . PMA_backquote($table) . ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
-        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-    }
-}
-if (isset($submittype)) {
-    $local_query = 'ALTER TABLE ' . PMA_backquote($table) . ' TYPE = ' . $tbl_type;
-    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-}
-if (isset($submitorderby) && !empty($order_field)) {
-    $order_field = PMA_backquote(urldecode($order_field));
-    $local_query = 'ALTER TABLE ' . PMA_backquote($table) . 'ORDER BY ' . $order_field;
-    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-}
-
-/**
- * Update table options
- */
-if (isset($submitoptions)) {
-    $local_query = 'ALTER TABLE ' . PMA_backquote($table)
-                 . (isset($pack_keys) ? ' pack_keys=1': ' pack_keys=0')
-                 . (isset($checksum) ? ' checksum=1': ' checksum=0')
-                 . (isset($delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0');
-    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-}
 
 /**
  * Work on the table
@@ -161,6 +119,8 @@ echo "\n";
 </ul>
 
 <?php
+
+
 /**
  * Displays the footer
  */
