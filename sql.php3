@@ -131,7 +131,7 @@ else {
     }
     else if ($is_select) {
         // reads only the from-part of the query...
-        $array = split(' from | FROM ', $sql_query, 2);
+        $array = split(' from | FROM | order | ORDER | having | HAVING | limit | LIMIT | group by | GROUP BY', $sql_query);
         if (!empty($array[1])) {
             // ... and makes a count(*) to count the entries
             $count_query       = 'SELECT COUNT(*) AS count FROM ' . $array[1];

@@ -7,6 +7,8 @@ $Source$
 
 2001-08-04  Marc Delisle  <lem9@users.sourceforge.net>
 	* ob_lib.inc.php3, oops: must be PHP3 compatible
+	* sql.php3: bug 447771 bad counting of entries, patch developed
+	from an idea of Ignacio Vazquez-Abrams (ivazquezabrams) 
 
 2001-08-04  Steve Alberty  <alberty@neptunlabs.de>
 	* lib.inc.php3: fixed #444017 (thanks anonymous)
