@@ -424,7 +424,7 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
     } // end 3
 
     // 3.3 ... Opera changes colors set via HTML to rgb(r,g,b) format so fix it
-    if (currentColor.indexOf("rgb") >= 0) 
+    if (currentColor.indexOf("rgb") >= 0)
     {
         var rgbStr = currentColor.slice(currentColor.indexOf('(') + 1,
                                      currentColor.indexOf(')'));
@@ -645,6 +645,28 @@ function setCheckboxes(the_form, do_check)
 
     return true;
 } // end of the 'setCheckboxes()' function
+
+/**
+ * Checks/unchecks all rows
+ *
+ * @param   string   the form name
+ * @param   boolean  whether to check or to uncheck the element
+ * @param   string   basename of the element
+ * @param   integer  min element count
+ * @param   integer  max element count
+ *
+ * @return  boolean  always true
+ */
+function setCheckboxesRange(the_form, do_check, basename, min, max)
+{
+    for (var i = min; i < max; i++) {
+        if (typeof(document.forms[the_form].elements[basename + i]) != 'undefined') {
+            document.forms[the_form].elements[basename + i].checked = do_check;
+        }
+    }
+
+    return true;
+} // end of the 'setCheckboxesRange()' function
 
 
 /**

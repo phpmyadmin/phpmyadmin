@@ -443,7 +443,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
 function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $analyzed_sql = '')
 {
     global $lang, $convcharset, $server, $db, $table;
-    global $goto;
+    global $goto, $text_url;
     global $sql_query, $num_rows, $pos, $session_max_rows;
     global $vertical_display, $disp_direction, $repeat_cells, $highlight_columns;
     global $dontlimitchars;
@@ -1443,7 +1443,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
         if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
             $vertical_display['row_delete'][$row_no] .= '    <td width="10" align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
-                                                     .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '" name="rows_to_delete[' . $uva_condition . ']" value="' . $del_query . '" />' . "\n"
+                                                     .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '" name="rows_to_delete[' . $uva_condition . ']" value="' . $del_query . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
                                                      .  '    </td>' . "\n";
         } else {
             unset($vertical_display['row_delete'][$row_no]);
@@ -1681,7 +1681,7 @@ function PMA_displayVerticalTable()
 function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 {
     global $lang, $server, $cfg, $db, $table;
-    global $goto;
+    global $goto, $text_url;
     global $sql_query, $num_rows, $unlim_num_rows, $pos, $fields_meta, $fields_cnt;
     global $vertical_display, $disp_direction, $repeat_cells, $highlight_columns;
     global $dontlimitchars;
@@ -1801,8 +1801,14 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
         $delete_text = $is_display['del_lnk'] == 'dr' ? $GLOBALS['strDelete'] : $GLOBALS['strKill'];
         $propicon = (string)$GLOBALS['cfg']['PropertiesIconic'];
-
-//        echo '&nbsp;&nbsp;&nbsp;<img src="./images/arrow_' . $GLOBALS['text_dir'] . '.gif" border="0" width="38" height="22" alt="' . $GLOBALS['strWithChecked'] . '" />';
+?>
+        &nbsp;&nbsp;<img src="./images/arrow_<?php echo $GLOBALS['text_dir']; ?>.gif" border="0" width="38" height="22" alt="<?php echo $GLOBALS['strWithChecked']; ?>" />
+        <a href="<?php echo $text_url . '&amp;checkall=1'; ?>" onclick="setCheckboxesRange('rowsDeleteForm', true, 'id_rows_to_delete', 0, '<?php echo $num_rows; ?>'); return false;">
+            <?php echo $GLOBALS['strCheckAll']; ?></a>
+        &nbsp;/&nbsp;
+        <a href="<?php echo $text_url; ?>" onclick="setCheckboxesRange('rowsDeleteForm', false, 'id_rows_to_delete', 0, '<?php echo $num_rows; ?>'); return false;">
+            <?php echo $GLOBALS['strUncheckAll']; ?></a>
+<?php
           echo '&nbsp;&nbsp;<i>' . $GLOBALS['strWithChecked'] . '</i>'. "\n";
 
         if ($cfg['PropertiesIconic']) {

@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2004-05-07 Garvin Hicking <pma@supergarv.de>
+    * libraries/display_tbl.lib.php, libraries/display_tbl_links.lib.php,
+      librarries/functions.js: RFE #856208 - Show (un)check all boxes
+      for query results.
     * tbl_create.php, tbl_addfield.php, tbl_properties.inc.php:
       RFE #949594 - Allow changing amount of columns for adding fields/
       creating table (without losing previous data)
