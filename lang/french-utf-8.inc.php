@@ -368,8 +368,8 @@ $strMySQLReloaded = 'MySQL rechargé.';
 $strMySQLSaid = 'MySQL a répondu:';
 $strMySQLServerProcess = 'MySQL %pma_s1% sur le serveur %pma_s2% - utilisateur&nbsp;: %pma_s3%';
 $strMySQLShowProcess = 'Afficher les processus';
-$strMySQLShowStatus = 'Afficher l\'état du serveur MySQL';
-$strMySQLShowVars = 'Afficher les variables du serveur MySQL';
+$strMySQLShowStatus = 'Afficher l\'état du serveur';
+$strMySQLShowVars = 'Afficher les variables du serveur';
 
 $strName = 'Nom';
 $strNeedPrimaryKey = 'Vous devriez définir une clé primaire pour cette table.';
