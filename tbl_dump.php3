@@ -69,12 +69,14 @@ function my_csvhandler($sql_insert)
 if($what != "csv") 
 {
     print "# phpMyAdmin MySQL-Dump$crlf";
-    print "# http://phpwizard.net/phpMyAdmin/$crlf";
+    print "# http://phpmyadmin.sourceforge.net/$crlf";
     print "#$crlf";
-    print "# $strHost: " . $cfgServer['host'];
+    print "# $strHost: ".$cfgServer['host']."$crlf";
+    print "# $strGenTime: ".date("F j, Y, g:i a")."$crlf";
+    print "# $strServerVersion: ".MYSQL_MAJOR_VERSION.".".MYSQL_MINOR_VERSION."$crlf";
     if(!empty($cfgServer['port'])) 
         print ":" . $cfgServer['port'];
-    print " $strDatabase: $db$crlf";
+    print "# $strDatabase: $db$crlf";
 
   if($what != "dataonly")
   {
@@ -87,13 +89,14 @@ if($what != "csv")
   }
 
   if(($what == "data") || ($what == "dataonly"))
-    {
-	    print "$crlf#$crlf";
-        print "# $strDumpingData '$table'$crlf"; 
-        print "#$crlf$crlf";
+	{
+		print "$crlf#$crlf";
+		print "# $strDumpingData '$table'$crlf"; 
+		print "#$crlf$crlf";
 
-        get_table_content($db, $table, "my_handler");
-    }
+		get_table_content($db, $table, "my_handler");
+	}
+	print "$crlf"; // Don't remove, it makes easier to select & copy from browser - staybyte
 } 
 else 
 { // $what != "csv"
