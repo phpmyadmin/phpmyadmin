@@ -9,6 +9,9 @@ $Source$
 	* header.inc.php3: cosmetic changes.
 	* tbl_properties.php3, db_details.php3, functions.js: export the js work
 	  from the formers to the later.
+	* tbl_properties.php3, line 657, 662 & 673: fixed invalid colspan values.
+	* db_details.php3, line 210: count_records already displays the number of
+	  records in the valid format. Fixed thanks to Laurent HAAS <mci@free.fr>.
 	* Updated the Spanish translation thanks to
 	  Martin Marconcini <megadeth@millic.com.ar>.
 

@@ -654,12 +654,12 @@ echo "\n";
                 <input type="hidden" name="reload" value="true" />
                 <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td colspan="3">
+                    <td colspan="2">
                         <?php echo $strCopyTable; ?>&nbsp;:
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="2">
                         <input type="text" style="width: 100%" name="new_name" />
                     </td>
                 </tr>
@@ -670,7 +670,7 @@ echo "\n";
                         <input type="radio" name="what" value="data" />
                         <?php echo $strStrucData; ?>&nbsp;&nbsp;
                     </td>
-                    <td align="right" valign="top" colspan="2">
+                    <td align="right" valign="top">
                         <input type="submit" value="<?php echo $strGo; ?>" />
                     </td>
                 </tr>
