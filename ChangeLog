@@ -11,6 +11,8 @@ $Source$
       - Patch #548696 (DB/Table titles should be links), thanks to
         Ray Black <allah03@users.sourceforge.net>.
       - lines: 161-164: Undefined variable
+    * common.lib.php3, lines 162, 163, 435-437: Fixed bug #549570
+      (Strange error if controluser is invalid)
 
 2002-04-27 Loïc Chapeaux  <lolo@phpheaven.net>
     * Documentation.html:

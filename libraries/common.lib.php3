@@ -159,6 +159,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     {
 
         if (empty($GLOBALS['is_header_sent'])) {
+            // rabus: If we include header.inc.php3 here, we get a huge set of
+            // "Undefined variable" errors (see bug #549570)!
             include('./header.inc.php3');
         }
 
@@ -430,6 +432,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                                 . $cfg['Server']['host'] . $server_port . $server_socket . ', '
                                 . $cfg['Server']['controluser'] . ', '
                                 . $cfg['Server']['controlpass'] . ')';
+                if (empty($GLOBALS['is_header_sent'])) {
+                    include('./header.inc.php3');
+                }
                 PMA_mysqlDie($conn_error, $local_query, FALSE);
             } // end if
         } // end if
