@@ -66,7 +66,7 @@ $available_languages = array(
     'it-iso-8859-1'=> array('it|italian', 'italian-iso-8859-1', 'it'),
     'ja-euc'       => array('ja|japanese', 'japanese-euc', 'ja'),
     'ja-sjis'      => array('ja|japanese', 'japanese-sjis', 'ja'),
-    'ko'           => array('ko|korean', 'korean', 'ko'),
+    'ko-ks_c_5601-1987'=> array('ko|korean', 'korean-ks_c_5601-1987', 'ko'),
     'ka-utf8'      => array('ka|georgian', 'georgian-utf-8', 'ka'),
     'lt'           => array('lt|lithuanian', 'lithuanian', 'lt'),
     'lv'           => array('lv|latvian', 'latvian', 'lv'),
@@ -190,7 +190,6 @@ if (!empty($cfg['Lang'])) {
 if (!empty($lang) && empty($available_languages[$lang])) {
     $lang = '';
 }
-
 // Language is not defined yet :
 // 1. try to findout users language by checking it's HTTP_ACCEPT_LANGUAGE
 //    variable
