@@ -1,7 +1,7 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-
+error_reporting(E_ALL);
 /**
  * Interface to the classic MySQL extension
  */
@@ -197,13 +197,13 @@ function PMA_DBI_getError($link = NULL) {
     if (mysql_errno()) {
         $error = mysql_errno();
         $error_message = mysql_error();
-    } else {
+    } elseif ($link) {
         $error = mysql_errno($link);
         $error_message = mysql_error($link);
     }
 
     // keep the error number for further check after the call to PMA_DBI_getError() 
-    if ($error) {
+    if (isset($error) && $error) {
         $GLOBALS['errno'] = $error;
     } else {
         return FALSE;
@@ -212,7 +212,7 @@ function PMA_DBI_getError($link = NULL) {
 // Some errors messages cannot be obtained by mysql_error()
     if ($error && $error == 2003) {
         $error = '#' . ((string) $error) . ' - ' . $GLOBALS['strServerNotResponding'];
-    } elseif ($error && PMA_MYSQL_INT_VERSION >= 40100) {
+    } elseif ($error && defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION >= 40100) {
         $error = '#' . ((string) $error) . ' - ' . $error_message;
     } elseif ($error) {
         $error = '#' . ((string) $error) . ' - ' . PMA_convert_display_charset($error_message);
