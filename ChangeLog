@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: typos and XHTML validity, thanks to Cedric Corazza
+
 2004-10-11 Michal Čihař  <michal@cihar.com>
     * tbl_query_box.php: Don't try to replace %t and %f when table name is empty.
 
