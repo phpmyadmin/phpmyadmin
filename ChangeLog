@@ -9,6 +9,7 @@ $Source$
     * libraries/relation.lib.php: bug 1005414, undefined offset when
       no display field has been defined; bug 1004546, sort error in dropdown
       list of foreign values; incorrect result was freed
+    * libraries/relation.lib.php: use natural order sort according to config
 
 2004-08-08 Michal Čihař  <michal@cihar.com>
     * calendar.php: Include correct stylesheet (bug #1005421).

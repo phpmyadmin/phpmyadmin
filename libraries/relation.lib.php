@@ -654,7 +654,11 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
     } // end while
 
     // the list of keys looks better if not sorted by description
-    asort($reloptions['content-id']);
+    if ($cfg['NaturalOrder']) {
+        natsort($reloptions['content-id']); }
+    else {
+        asort($reloptions['content-id']);
+    }
 
     if ($max == -1 || count($reloptions['content-id']) < $max) {
         $ret .= implode('', $reloptions['content-id']);
