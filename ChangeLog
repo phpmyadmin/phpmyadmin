@@ -6,6 +6,13 @@ $Id$
 $Source$
 
 2002-04-21 Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/auth/http.auth.lib.php3: tried a fix to allow the use of http
+	  authentication mode with IIS.
+
+2002-04-21 Marc Delisle  <lem9@users.sourceforge.net>
+	* ### 2.2.6 released ###
+
+2002-04-21 Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3; libraries/functions.js: improved regexp used to find some
 	  statements in order to "fix" an error reported by
 	  Max <max at softportal.com> in the "Open Discussion" forum.

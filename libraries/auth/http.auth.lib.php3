@@ -88,6 +88,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
         global $HTTP_SERVER_VARS, $HTTP_ENV_VARS;
         global $REMOTE_USER, $AUTH_USER, $REMOTE_PASSWORD, $AUTH_PASSWORD;
+        global $HTTP_AUTHORIZATION;
         global $old_usr;
 
         // Grabs the $PHP_AUTH_USER variable whatever are the values of the
@@ -162,6 +163,28 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
                 $PHP_AUTH_PW = getenv('AUTH_PASSWORD');
             }
         }
+        // Gets authenticated user settings with IIS
+        if (empty($PHP_AUTH_USER) && empty($PHP_AUTH_PW)
+            && function_exists('base64_decode')) {
+            if (!empty($HTTP_AUTHORIZATION)
+                && ereg('^Basic ', $HTTP_AUTHORIZATION)) {
+                list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', base64_decode(substr($HTTP_AUTHORIZATION, 6)));
+            }
+            else if (!empty($_ENV)
+                 && isset($_ENV['HTTP_AUTHORIZATION'])
+                 && ereg('^Basic ', $_ENV['HTTP_AUTHORIZATION'])) {
+                list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', base64_decode(substr($_ENV['HTTP_AUTHORIZATION'], 6)));
+            }
+            else if (!empty($HTTP_ENV_VARS)
+                     && isset($HTTP_ENV_VARS['HTTP_AUTHORIZATION'])
+                     && ereg('^Basic ', $HTTP_ENV_VARS['HTTP_AUTHORIZATION'])) {
+                list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', base64_decode(substr($HTTP_ENV_VARS['HTTP_AUTHORIZATION'], 6)));
+            }
+            else if (@getenv('HTTP_AUTHORIZATION')
+                     && ereg('^Basic ', getenv('HTTP_AUTHORIZATION'))) {
+                list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', base64_decode(substr(getenv('HTTP_AUTHORIZATION'), 6)));
+            }
+        } // end IIS
 
         // User logged out -> ensure the new username is not the same
         if (!empty($old_usr)
