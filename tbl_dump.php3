@@ -15,10 +15,12 @@ if(empty($asfile))
 }
 else
 {
+	if (!isset($table)) $filename=$db;
+	else $filename=$table;
 	include("./lib.inc.php3");
 	$ext = "sql";
 	if($what == "csv") $ext = "csv";
-	header("Content-disposition: filename=$table.$ext");
+	header("Content-disposition: filename=$filename.$ext");
 	header("Content-type: application/octetstream");
 	header("Pragma: no-cache");
 	header("Expires: 0");
@@ -89,6 +91,7 @@ else
 		echo $crlf;
 		echo "# $strGenTime: ".date("F j, Y, g:i a")."$crlf";
 		echo "# $strServerVersion: ".MYSQL_MAJOR_VERSION.".".MYSQL_MINOR_VERSION."$crlf";
+		echo "# $strPHPVersion: ".phpversion()."$crlf";
 		echo "# $strDatabase: $db$crlf";
 
 		$i = 0;
