@@ -712,4 +712,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
+$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 ?>

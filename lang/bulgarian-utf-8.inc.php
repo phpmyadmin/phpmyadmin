@@ -720,4 +720,5 @@ $strTakeIt = 'take it';  //to translate
 $strTheme = 'Theme / Style';  //to translate
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
 
+$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 ?>

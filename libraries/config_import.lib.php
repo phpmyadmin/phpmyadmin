@@ -1372,6 +1372,9 @@ if (!isset($cfg['Export']['sql_delayed'])) {
 if (!isset($cfg['Export']['sql_ignore'])) {
     $cfg['Export']['sql_ignore'] = FALSE;
 }
+if (!isset($cfg['Export']['sql_hex_for_binary'])) {
+    $cfg['Export']['sql_hex_for_binary'] = TRUE;
+}
 if (!isset($cfg['Export']['sql_type'])) {
     $cfg['Export']['sql_type'] = 'insert';
 }

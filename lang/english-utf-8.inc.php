@@ -269,6 +269,7 @@ $strHasBeenAltered = 'has been altered.';
 $strHasBeenCreated = 'has been created.';
 $strHaveToShow = 'You have to choose at least one Column to display';
 $strHebrew = 'Hebrew';
+$strHexForBinary = 'Use hexadecimal for binary fields';
 $strHome = 'Home';
 $strHomepageOfficial = 'Official phpMyAdmin Homepage';
 $strHost = 'Host';

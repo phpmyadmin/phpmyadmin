@@ -349,6 +349,7 @@ $cfg['Export']['sql_relation']              = FALSE;
 $cfg['Export']['sql_columns']               = FALSE;
 $cfg['Export']['sql_delayed']               = FALSE;
 $cfg['Export']['sql_ignore']                = FALSE;
+$cfg['Export']['sql_hex_for_binary']        = TRUE;
 $cfg['Export']['sql_type']                  = 'insert'; // insert/update/replace
 $cfg['Export']['sql_extended']              = FALSE;
 $cfg['Export']['sql_comments']              = FALSE;

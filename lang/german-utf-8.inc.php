@@ -716,4 +716,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 
+$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 ?>

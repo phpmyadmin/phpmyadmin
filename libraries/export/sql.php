@@ -570,7 +570,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 } elseif (empty($row[$j])) {
                     $values[]     = '\'\'';
                 // a binary field
-                } else if (stristr($field_flags[$j], 'BINARY')) {
+                } else if (stristr($field_flags[$j], 'BINARY') && isset($GLOBALS['hexforbinary'])) {
                     $values[] = '0x' . bin2hex($row[$j]);
                 // something else -> treat as a string
                 } else {

@@ -707,4 +707,5 @@ $strDisableForeignChecks = 'Disable foreign key checks';  //to translate
 $strServerNotResponding = 'The server is not responding';  //to translate
 $strTheme = 'Theme / Style';  //to translate
 $strTakeIt = 'take it';  //to translate
+$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 ?>

@@ -272,6 +272,9 @@ if (!$hide_structure) { ?>
                         &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_ignore" value="yes" id="checkbox_dump_ignore" <?php PMA_exportCheckboxCheck('sql_ignore'); ?> style="vertical-align: middle" />
                         <label for="checkbox_dump_ignore"><?php echo $strIgnoreInserts; ?></label><br />
 
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="hexforbinary" value="yes" id="checkbox_hexforbinary" <?php PMA_exportCheckboxCheck('sql_hex_for_binary'); ?> style="vertical-align: middle" />
+                        <label for="checkbox_hexforbinary"><?php echo $strHexForBinary; ?></label><br />
+
                         <label for="select_sql_type"><?php echo $strSQLExportType; ?>:&nbsp;</label>
                         <select name="sql_type" id="select_sql_type" style="vertical-align: middle">
                             <option value="insert"<?php echo $cfg['Export']['sql_type'] == 'insert' ? ' selected="selected"' : ''; ?>>INSERT</option>

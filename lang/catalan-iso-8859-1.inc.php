@@ -707,4 +707,5 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el limit.';
 $strZip = '"comprimit amb zip"';
 
+$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 ?>

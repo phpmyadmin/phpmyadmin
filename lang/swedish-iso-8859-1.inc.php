@@ -710,4 +710,5 @@ $strZip = '"zippad"';
 $strTakeIt = 'take it';  //to translate
 $strTheme = 'Theme / Style';  //to translate
 
+$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 ?>

@@ -711,4 +711,5 @@ $strYes = 'Igen';
 $strZeroRemovesTheLimit = 'Megjegyzés: A 0 (nulla) beállítása törli a limitet.'; 
 $strZip = '"zippel tömörítve"';
 
+$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 ?>
