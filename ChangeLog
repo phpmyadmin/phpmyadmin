@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-23 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_privileges.php3: while (list() = each()) is not always as bad as
+      one might think ;-p
+
 2003-11-22 Garvin Hicking <me@supergarv.de>
     * ./*: More PHP3-compatibility removal, see 2003-11-20.
 

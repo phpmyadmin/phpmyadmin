@@ -319,7 +319,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '"/></td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $current_grant . '"><tt><dfn title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></tt></label></td>' . "\n"
            . $spaces . '    </tr>' . "\n";
-        foreach($row AS $current_grant => $current_grant_value) {
+        while (list($current_grant, $current_grant_value) = each($row)) {
             if (in_array(substr($current_grant, 0, (strlen($current_grant) - 5)), array('Select', 'Insert', 'Update', 'References'))) {
                 continue;
             }
