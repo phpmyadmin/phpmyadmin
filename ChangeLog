@@ -5,13 +5,16 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-18 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/arabic.inc.php3: Changed $cfgPmaAbsoluteUri into $cfg['...'].
+
 2002-06-18 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/relation.lib.php3:83
-	- Fixed $cfg['Servers']['Server'] -> $cfg['Server']
+    - Fixed $cfg['Servers']['Server'] -> $cfg['Server']
     * libraries/relation.lib.php3:144,190
-	- Cleaned up is_array() to isset(0 && is_array()
+    - Cleaned up is_array() to isset(0 && is_array()
     * tbl_change.php3:204
-        - $type_nowrap added to case 'timestamp'       
+        - $type_nowrap added to case 'timestamp'
     * lang/estonian.inc.php3 updates, thanks to Alvar Soome (#570330)
 
 2002-06-17 Robin Johnson  <robbat2@users.sourceforge.net>

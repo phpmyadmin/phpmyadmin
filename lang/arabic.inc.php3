@@ -228,7 +228,7 @@ $strPasswordEmpty = 'ﬂ·„… «·”— ›«—€… !';
 $strPasswordNotSame = 'ﬂ·„ « «·”— €Ì— „ ‘«»Â «‰ !';
 $strPHPVersion = ' PHP ≈’œ«—…';
 $strPmaDocumentation = '„” ‰œ«  ÊÀ«∆ﬁÌÂ ·‹ phpMyAdmin (»«·≈‰Ã·Ì“Ì…)';
-$strPmaUriError = '«·„ €Ì— <span dir="ltr"><tt>$cfgPmaAbsoluteUri</tt></span> ÌÃ»  ⁄œÌ·Â ›Ì „·› «·ﬂÊ›Ìﬂ !';
+$strPmaUriError = '«·„ €Ì— <span dir="ltr"><tt>$cfg[\'PmaAbsoluteUri\']</tt></span> ÌÃ»  ⁄œÌ·Â ›Ì „·› «·ﬂÊ›Ìﬂ !';
 $strPos1 = '»œ«Ì…';
 $strPrevious = '”«»ﬁ';
 $strPrimary = '√”«”Ì';
