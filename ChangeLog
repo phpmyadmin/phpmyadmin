@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_schema.php3: remove control M
+    * lang/dutch update, thanks to Ivo Teel
+
 2002-12-04 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.3.3pl1 released
 

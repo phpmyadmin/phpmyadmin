@@ -258,6 +258,7 @@ $strNotValidNumber = ' geen geldig rijnummer!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s overeenkomst(en) in de tabel<i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totaal:</b> <i>%s</i> overeenkomst(en)';
+$strNumTables = 'Tabellen';
 
 $strOK = 'Correct';
 $strOftenQuotation = 'Meestal aanhalingstekens. OPTIONEEL betekent dat alleen char en varchar velden omsloten worden met het "omsloten met"-karakter.';
@@ -405,6 +406,7 @@ $strTheContent = 'De inhoud van uw bestand is ingevoegd.';
 $strTheContents = 'De inhoud van het bestand vervangt de inhoud van de geselecteerde tabel voor rijen met een identieke primaire of unieke sleutel.';
 $strTheTerminator = 'De afsluiter van de velden.';
 $strTotal = 'totaal';
+$strTotalUC = 'Totaal'; 
 $strType = 'Type';
 
 $strUncheckAll = 'Deselecteer alles';
@@ -437,8 +439,6 @@ $strWrongUser = 'Verkeerde gebruikersnaam/wachtwoord. Toegang geweigerd.';
 $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
-
 // To translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
+
 ?>
