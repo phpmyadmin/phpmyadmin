@@ -1258,8 +1258,28 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
         // Displays data
         reset($vertical_display['desc']);
+        $row_no = 0;
         while (list($key, $val) = each($vertical_display['desc'])) {
-            echo '<tr>' . "\n";
+            $row_no++;
+
+            if (isset($GLOBALS['printview']) && ($GLOBALS['printview'] == '1')) {
+                $bgcolor = '#ffffff';
+            } else {
+                $bgcolor = ($row_no % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
+            }
+
+            $on_mouse     = '';
+            if (!isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1')) {
+                if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
+                    $on_mouse = ' onmouseover="setVerticalPointer(this, ' . $row_no . ', \'over\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"'
+                              . ' onmouseout="setVerticalPointer(this, ' . $row_no . ', \'out\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
+                }
+                if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
+                    $on_mouse .= ' onmousedown="setVerticalPointer(this, ' . $row_no . ', \'click\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
+                }
+            } // end if
+
+            echo '<tr ' . $on_mouse . '>' . "\n";
             echo $val;
 
             $foo_counter = 0;
