@@ -286,7 +286,10 @@ $strWrongUser = 'Zlé pou¾ívateµské meno alebo heslo. Prístup zamietnutý.';
 $strYes = 'Áno';
 
 // To translate
+$strDatabasesStats = 'Databases statistics';//to translate
+$strDeletedRows = 'Deleted rows:';
 $strExtendedInserts = 'Extended inserts';
+$strInsertedRows = 'Inserted rows:';
 $strInstructions = 'Instructions';//to translate
 $strNoDatabases = 'No databases';
 $strNoModification = 'No change'; // To translate
@@ -294,5 +297,4 @@ $strSetEnumVal = 'If field type is "enum" or "set", please enter the values usin
 $strShowPHPInfo = 'Show PHP information';  // To translate
 $strStrucExcelCSV = 'CSV for Ms Excel data';
 $strTables = '%s table(s)';  //to translate
-$strDatabasesStats = 'Databases statistics';//to translate
 ?>

@@ -281,11 +281,14 @@ $strGzip = '"gzipped"';  //to translate
 
 // To translate
 $strAffectedRows = 'Affected rows:';
+$strDatabasesStats = 'Databases statistics';//to translate
+$strDeletedRows = 'Deleted rows:';
 $strDisplayOrder = 'Display order:';
 $strExtendedInserts = 'Extended inserts';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
 $strInstructions = 'Instructions';//to translate
+$strInsertedRows = 'Inserted rows:';
 $strNbRecords = 'no. of records';
 $strNoDatabases = 'No databases';
 $strNoModification = 'No change';
@@ -298,5 +301,4 @@ $strShowThisQuery = ' Show this query here again ';  //to translate
 $strStrucExcelCSV = 'CSV for Ms Excel data';
 $strTables = '%s table(s)';  //to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
-$strDatabasesStats = 'Databases statistics';//to translate
 ?>

@@ -282,8 +282,11 @@ $strYes = 'Да';
 // To translate
 $strAffectedRows = 'Affected rows:';  // To translate
 $strBzip = '"bzipped"';  // To translate
-$strGzip = '"gzipped"';  // To translate
+$strDatabasesStats = 'Databases statistics';//to translate
+$strDeletedRows = 'Deleted rows:';
 $strExtendedInserts = 'Extended inserts';
+$strGzip = '"gzipped"';  // To translate
+$strInsertedRows = 'Inserted rows:';
 $strInstructions = 'Instructions';//to translate
 $strLengthSet = 'Length/Values*'; // To translate
 $strNoDatabases = 'No databases';
@@ -293,5 +296,4 @@ $strSetEnumVal = 'If field type is "enum" or "set", please enter the values usin
 $strShowPHPInfo = 'Show PHP information';  // To translate
 $strStrucExcelCSV = 'CSV for Ms Excel data';
 $strTables = '%s table(s)';  //to translate
-$strDatabasesStats = 'Databases statistics';//to translate
 ?>

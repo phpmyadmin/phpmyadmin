@@ -278,10 +278,13 @@ $strYes = 'Si';
 
 // To translate
 $strAffectedRows = 'Affected rows:';
+$strDatabasesStats = 'Databases statistics';//to translate
+$strDeletedRows = 'Deleted rows:';
 $strDisplayOrder = 'Display order:';
 $strExtendedInserts = 'Extended inserts';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
+$strInsertedRows = 'Inserted rows:';
 $strInstructions = 'Instructions';//to translate
 $strLengthSet = 'Length/Values*'; //to translate
 $strNoDatabases = 'No databases';
@@ -293,5 +296,4 @@ $strShowThisQuery = ' Show this query here again ';
 $strStrucExcelCSV = 'CSV for Ms Excel data';
 $strTables = '%s table(s)';  //to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
-$strDatabasesStats = 'Databases statistics';//to translate
 ?>

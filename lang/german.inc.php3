@@ -292,4 +292,8 @@ $strWelcome = 'Willkommen bei ';
 $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 
 $strYes = 'Ja';
+
+// To translate
+$strDeletedRows = 'Deleted rows:';
+$strInsertedRows = 'Inserted rows:';
 ?>
