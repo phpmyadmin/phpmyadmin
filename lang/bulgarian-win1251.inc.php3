@@ -1,6 +1,10 @@
 <?php
 /* $Id$ */
 
+/**
+ * Translated by Georgi Georgiev <chutz at chubaka.homeip.net>
+ */
+
 $charset = 'windows-1251';
 $text_dir = 'ltr';
 $left_font_family = 'sans-serif';
@@ -64,6 +68,7 @@ $strCantRenameIdxToPrimary = 'Не мога да преименувам индекса на PRIMARY!';
 $strCardinality = 'надеждност';
 $strCarriage = 'Символ за край на ред: \\r';
 $strChange = 'Промени';
+$strChangePassword = 'Смяна на паролата';
 $strCheckAll = 'Маркирай всичко';
 $strCheckDbPriv = 'Провери привилегиите на БД';
 $strCheckTable = 'Проверка на таблицата';
@@ -86,6 +91,7 @@ $strDatabase = ' БД ';
 $strDatabaseHasBeenDropped = 'Базата данни %s беше изтрита.';
 $strDatabases = 'Бази от Данни';
 $strDatabasesStats = ' Статистика за базите данни';
+$strDatabaseWildcard = 'База данни (може и с wildcard):';
 $strDataOnly = 'Само данни';
 $strDefault = 'По подразбиране';
 $strDelete = 'Изтрий';
@@ -223,6 +229,7 @@ $strPasswordEmpty = 'Паролата е празна!';
 $strPasswordNotSame = 'Паролата не е същата!';
 $strPHPVersion = 'Версия на PHP ';
 $strPmaDocumentation = 'phpMyAdmin документация';
+$strPmaUriError = 'На <tt>$cfgPmaAbsoluteUri</tt> ТРЯБВА да се зададе стойност в конфигурационния файл!';
 $strPos1 = 'Начало';
 $strPrevious = 'Предишен';
 $strPrimary = 'PRIMARY';
@@ -240,6 +247,7 @@ $strQBEIns = 'Вмъкни';
 $strQueryOnDb = 'SQL-заявка към базата от данни <b>%s</b>:';
 
 $strRecords = 'Записи';
+$strReferentialIntegrity = 'Проверка на интегритета на връзките';
 $strReloadFailed = 'Неуспешен опит за презареждане на MySQL.';
 $strReloadMySQL = 'Презареди MySQL';
 $strRememberReload = 'Не забравяйте да презаредите сървъра.';
@@ -345,8 +353,4 @@ $strYes = 'да';
 $strZip = '"zip-нато"';
 
 // To translate
-$strChangePassword = 'Change password';
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
