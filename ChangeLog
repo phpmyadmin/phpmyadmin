@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 
-2003-05-10 Michal Cihar  <nijel@users.sourceforge.net>
+2003-05-11 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation.html, config.inc.php3,
       libraries/charset_conversion.lib.php3, libraries/config_import.lib.php3:
       Merged patch #729514 - support for iconv parameters.
