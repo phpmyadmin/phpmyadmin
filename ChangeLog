@@ -10,6 +10,7 @@ $Source$
     * db_details_importdocsql.php3: Move hardcoded strings to language files 
     * lang/*.php3: Add new strings for docSQL importer
     * libraries/sqlvalidator.*.php3: Finish fixing bug #644709
+    * Documentation.html: Revised FAQ entry about SQL Validator
 
 2003-01-15 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/lithuanian-*.inc.php3: Updates, thanks to Vilius Zigmantas (viliusz).

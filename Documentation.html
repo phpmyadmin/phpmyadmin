@@ -2404,7 +2404,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br />
     This is normal and means that the grant is done only for this database. If
     there was no backslash, this would be a wildcard grant, and the
-    underscore would mean &quot;any character&quot;. So, if the database name
+     underscore would mean &quot;any character&quot;. So, if the database name
     is &quot;john_db&quot;, the user would get rights to john1db, john2db...
     instead of just john_db.<br /><br />
     If you really want to grant using a wildcard, there is a dialog box &quot;
@@ -2441,19 +2441,16 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <p>
     <b>[6.14] How do I set up the SQL validator?</b>
     <br />
-    To use it, you need a very recent version of PHP, built with
-    Overload, XML and PEAR support.  On your system command line, run
-    <tt>"pear install Mail_Mime Net_DIME SOAP"</tt> to get the nessecary
-    PEAR modules for usage.
+    To use it, you need a very recent version of PHP, 4.3.0 recommended, with
+    XML, PCRE and PEAR support. On your system command line, run
+    <tt>"pear install Net_Socket Net_URL HTTP_Request Mail_Mime Net_DIME
+      SOAP"</tt> to get the nessecary PEAR modules for usage.
     <br />
     If you use it, you should be aware that any SQL statement you
     submit will be stored anonymously (database/table/column names,
     strings, numbers replaced with generic values). The Mimer SQL
     Validator itself, is &copy; 2001 Upright Database Technology.
-    We utilize it as free XML-SOAP service.
-    <br />
-    The overload module is crucial to the functionality of the validator
-    service.
+    We utilize it as free SOAP service.
 </p>
 
 <p>
