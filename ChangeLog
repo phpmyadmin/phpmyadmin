@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-01  Marc Delisle  <lem9@users.sourceforge.net>
+        * merge User administration module thanks to Daniel Villanueva (dvilla)
+        * small modifications to this module
+        * new add_message_file.sh
+
 2001-05-31  Marc Delisle  <lem9@users.sourceforge.net>
         * tbl_replace.php3, tbl_change.php3: bug 424771
 

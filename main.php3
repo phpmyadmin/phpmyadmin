@@ -131,6 +131,15 @@ if($server > 0) {
                 <a href="main.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&mode=reload"><?php echo $strReloadMySQL; ?></a> <?php print show_docu("manual_Reference.html#Flush");
 	}
             ?>
+<?php
+$result = mysql_db_query("mysql", "SELECT * FROM user");
+$rows = @mysql_num_rows($result);
+if (isset($rows)) {
+   echo "<li><a href=\"user_details.php3?server=$server&lang=$lang&db=mysql&table=user\">";
+   echo "$strUsers</a> "; 
+   print show_docu("manual_Privilege_system.html#Privilege_system");
+}
+?>
             <li><a href="index.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&old_usr=<?php echo $PHP_AUTH_USER;?>" target="_top"><b><?php echo $strLogout; ?></b></a>
             <?php
         }
