@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php3: bug 760648: incorrect result count on MySQL 3
+
 2003-06-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/ukrainian: update, thanks to Markijan Baran
     * libraries/sqlparser.lib.php3 typo

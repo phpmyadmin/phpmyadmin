@@ -420,11 +420,12 @@ else {
                     // do not put the order_by_clause, it interferes
                     // run the count query
                     if (PMA_MYSQL_INT_VERSION < 40000) {
-                        if ($cnt_all_result = mysql_query($count_query)) {
-                            if ($is_group) {
+                        if ($cnt_all_result = PMA_mysql_query($count_query)) {
+                            //if ($is_group) {
+                            if ($count_what == '*') {
                                 $unlim_num_rows = @mysql_num_rows($cnt_all_result);
                             } else {
-                                $unlim_num_rows = mysql_result($cnt_all_result, 0, 'count');
+                                $unlim_num_rows = PMA_mysql_result($cnt_all_result, 0, 'count');
                             }
                             mysql_free_result($cnt_all_result);
                         } else {
@@ -439,7 +440,7 @@ else {
                             }
                         }
                     } else {
-                        mysql_query($count_query);
+                        PMA_mysql_query($count_query);
                         if (mysql_error()) {
                         // void. I tried the case
                         // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
@@ -449,8 +450,8 @@ else {
                         // and although the generated count_query is wrong
                         // the SELECT FOUND_ROWS() work!
                         }
-                        $cnt_all_result = mysql_query('SELECT FOUND_ROWS() as count');
-                        $unlim_num_rows = mysql_result($cnt_all_result,0,'count');
+                        $cnt_all_result = PMA_mysql_query('SELECT FOUND_ROWS() as count');
+                        $unlim_num_rows = PMA_mysql_result($cnt_all_result,0,'count');
                     }
             } // end else "just browsing"
 
