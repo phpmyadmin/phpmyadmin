@@ -109,16 +109,16 @@ if (!isset($param) || $param[0] == '') {
                 <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $fields_type[$i]; ?></td>
                 <td bgcolor="<?php echo $bgcolor; ?>">
                     <select name="func[]">
-                        <?php
+<?php
                             reset($numfunctions);
                             reset($textfunctions);
                             if (eregi('char|blob|text|set|enum', $fields_type[$i])){
                                 while (list($k,$fc) = each($textfunctions)){
-                                    echo '<option name="'.$fc.'">'.htmlentities($fc).'</option>' . "\n";
+                                    echo '                        <option value="'.$fc.'">'.htmlentities($fc).'</option>' . "\n";
                                 }
                             }else{
                                 while (list($k,$fc) = each($numfunctions)){
-                                    echo '<option name="'.$fc.'">'.htmlentities($fc).'</option>' . "\n";
+                                    echo '                        <option value="'.$fc.'">'.htmlentities($fc).'</option>' . "\n";
                                 }
                             }
                         ?>
