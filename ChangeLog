@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_select.php3: drop-down for enums, thanks to Joerg Klein (j0erch)
+
 2003-01-28 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3, tbl_replace.php3: display UPDATE statement after row edit
 

@@ -144,6 +144,7 @@ if (!isset($param) || $param[0] == '') {
             // we got a bug report: in some cases, even if $disp is true,
             // there are no rows, so we add a fetch_array
             if ($foreigners && isset($foreigners[$field]) && isset($disp) && $disp && @PMA_mysql_fetch_array($disp)) {
+                // f o r e i g n    k e y s
                 echo '                    <select name="fields[]">' . "\n";
                 echo '                        <option value=""></option>' . "\n";
                 // go back to first row
@@ -155,9 +156,20 @@ if (!isset($param) || $param[0] == '') {
                          . htmlspecialchars($key) . $value . '</option>' . "\n";
                 } // end while
                 echo '                    </select>' . "\n";
+            } else if (substr($fields_type[$i], 0, 3)=='enu'){
+                // e n u m s
+                $enum_value=explode(", ",str_replace("'", "", substr($fields_type[$i], 5, -1)));
+                echo '                    <select name="fields[]">' . "\n";
+                echo '                        <option value=""></option>' . "\n";
+                for ($j=0; $j<count($enum_value);$j++){
+                    echo '                        <option value="' . $enum_value[$j] . '">' . $enum_value[$j] . '</option>';
+                } // end for
+                echo '                    </select>' . "\n";
             } else {
-                echo '                    <input type="text" name="fields[]" size="40" class="textfield" />' . "\n";
+                // o t h e r   c a s e s
+                echo '                    <input type="text" name="fields[]" size="40" class="textfield" />' .  "\n";
             }
+
             ?>
                     <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
                     <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
