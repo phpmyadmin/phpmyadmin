@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-21  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/slovak-iso.inc.php3 updates, thanks to Lubos Klokner
+
 2001-09-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_detail.php3; libraries/user_details.js; lang/*: changing the whole
 	  profile of an user is now possible.
