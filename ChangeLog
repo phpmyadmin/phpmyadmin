@@ -6,7 +6,8 @@ $Id$
 $Source$
 
 2002-01-18  Marc Delisle  <lem9@users.sourceforge.net>
-        * Documentation.html, new download location for the RedHat PHP package
+        * Documentation.html, new download location for the RedHat PHP package,
+          and new FAQ entry about a limitation in IE
 
 2002-01-18  Olivier Müller  <om@omnis.ch>
 	* left.php3 db_details.php3, index.php3, main.php3, libraries/common.lib.php3:
