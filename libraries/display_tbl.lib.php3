@@ -718,9 +718,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             isset($analyzed_sql[0]['where_clause_identifiers'])) {
 
             $wi = 0;
-            @reset($analyzed_sql[0]['where_clause_identifiers']);
-            while(list($wci_nr, $wci) = each($analyzed_sql[0]['where_clause_identifiers'])) {
-                $highlight_columns[$wci] = 'true';
+            if (isset($analyzed_sql[0]['where_clause_identifiers']) && is_array($analyzed_sql[0]['where_clause_identifiers'])) {
+                reset($analyzed_sql[0]['where_clause_identifiers']);
+                while(list($wci_nr, $wci) = each($analyzed_sql[0]['where_clause_identifiers'])) {
+                    $highlight_columns[$wci] = 'true';
+                }
             }
         }
         for ($i = 0; $i < $fields_cnt; $i++) {
@@ -1035,16 +1037,18 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
                         // do not use an alias in a condition
                         $column_for_condition = $meta->name;
-                        reset($analyzed_sql[0]['select_expr']);
-                        while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
-                            $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
-                            if (!empty($alias)) {
-                                $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
-                                if ($alias == $meta->name) {
-                                    $column_for_condition = $true_column;
+                        if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
+                            reset($analyzed_sql[0]['select_expr']);
+                            while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
+                                $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
+                                if (!empty($alias)) {
+                                    $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
+                                    if ($alias == $meta->name) {
+                                        $column_for_condition = $true_column;
+                                    } // end if
                                 } // end if
-                            } // end if
-                        } // end while
+                            } // end while
+                        }
 
                         // to fix the bug where float fields (primary or not)
                         // can't be matched because of the imprecision of
@@ -1280,16 +1284,18 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     } else if ($row[$pointer] != '') {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '" nowrap="nowrap">';
 
-                        reset($analyzed_sql[0]['select_expr']);
-                        while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
-                            $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
-                            if (!empty($alias)) {
-                                $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
-                                if ($alias == $meta->name) {
-                                    $meta->name = $true_column;
+                        if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
+                            reset($analyzed_sql[0]['select_expr']);
+                            while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
+                                $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
+                                if (!empty($alias)) {
+                                    $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
+                                    if ($alias == $meta->name) {
+                                        $meta->name = $true_column;
+                                    } // end if
                                 } // end if
-                            } // end if
-                        } // end while
+                            } // end while
+                        }
 
                         if (isset($map[$meta->name])) {
                             // Field to display from the foreign table?
@@ -1406,16 +1412,18 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         $nowrap = ((eregi('DATE|TIME', $meta->type) || $bool_nowrap) ? ' nowrap="nowrap"' : '');
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"' . $nowrap . '>';
 
-                        reset($analyzed_sql[0]['select_expr']);
-                        while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
-                            $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
-                            if (!empty($alias)) {
-                                $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
-                                if ($alias == $meta->name) {
-                                    $meta->name = $true_column;
+                        if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
+                            reset($analyzed_sql[0]['select_expr']);
+                            while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
+                                $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
+                                if (!empty($alias)) {
+                                    $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
+                                    if ($alias == $meta->name) {
+                                        $meta->name = $true_column;
+                                    } // end if
                                 } // end if
-                            } // end if
-                        } // end while
+                            } // end while
+                        }
 
                         if (isset($map[$meta->name])) {
                             // Field to display from the foreign table?
@@ -1808,9 +1816,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         // find tables
 
         $target=array();
-        reset($analyzed_sql[0]['table_ref']);
-        while (list ($table_ref_position, $table_ref) = each ($analyzed_sql[0]['table_ref'])) {
-           $target[] = $analyzed_sql[0]['table_ref'][$table_ref_position]['table_true_name'];
+        if (isset($analyzed_sql[0]['table_ref']) && is_array($analyzed_sql[0]['table_ref'])) {
+            reset($analyzed_sql[0]['table_ref']);
+            while (list ($table_ref_position, $table_ref) = each ($analyzed_sql[0]['table_ref'])) {
+               $target[] = $analyzed_sql[0]['table_ref'][$table_ref_position]['table_true_name'];
+            }
         }
         $tabs    = '(\'' . join('\',\'', $target) . '\')';
 

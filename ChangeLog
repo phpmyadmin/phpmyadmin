@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-11 Garvin Hicking <antikarneval@supergarv.de>
+    * libraries/display_tbl.lib.php3: Added more secure checks
+      for each'ing on arrays built by the query analyzer. (Bug #839630)
+
 2003-11-10 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/extchg.sh: bug 839081: generator.sh was not converted
 
