@@ -70,7 +70,7 @@ if (!isset($param) || $param[0] == '') {
             echo "\n";
             $bgcolor   = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
             $fieldsize = (($fields_len[$i] > 40) ? 40 : $fields_len[$i]);
-            $maxlength = (($fields_len[$i] < 4)  ? 4  : $fields_len[$i]);
+            $maxlength = (($fields_len[$i] < 8)  ? 8  : $fields_len[$i]);
             ?>
             <tr bgcolor="<?php echo $bgcolor; ?>">
                 <td><?php echo htmlspecialchars($fields_list[$i]); ?></td>
@@ -140,7 +140,7 @@ else {
         $sql_query .= ' WHERE 1';
         for ($i = 0; $i < count($fields); $i++) {
             if (!empty($fields) && $fields[$i] != '') {
-                if (strtoupper($fields[$i]) == 'NULL') {
+                if (strtoupper($fields[$i]) == 'NULL' || strtoupper($fields[$i]) == 'NOT NULL') {
                     $quot = '';
                     $cmp  = 'IS';
                 }
