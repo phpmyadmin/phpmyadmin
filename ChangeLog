@@ -7,7 +7,7 @@ $Source$
 
 2002-08-26 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech-*.inc.php3: Updates, fixes.
-    
+
 2002-08-26 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_indexes.php3: Another fix against the Zend Accelerator bug (#571409).
 
@@ -16,6 +16,7 @@ $Source$
     * lang/german-*.inc.php3: Updates.
     * libraries/sqlvalidator.lib.php3, lang/*.inc.php3:
       Better fix against bug #594947.
+    * libraries/common.lib.php3: Fixed a JS error.
 
 2002-08-24 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, faq 6.15: creating an index on a BLOB field

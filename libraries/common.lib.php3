@@ -1058,7 +1058,7 @@ if (typeof(window.parent) != 'undefined'
         }
 
         // Corrects the tooltip text via JS if required
-        else if (isset($GLOBALS['table']) && $cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303) {
+        else if (isset($GLOBALS['table']) && !empty($GLOBALS['table']) && $cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303) {
             $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
             if ($result) {
                 $tbl_status = PMA_mysql_fetch_array($result, MYSQL_ASSOC);
