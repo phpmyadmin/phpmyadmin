@@ -265,8 +265,14 @@
 
     <dt><b>$cfgServers[n]['port']</b> string</dt>
     <dd>
-        The port-number of your n-th MySQL-server. Default is 3300 (leave
+        The port-number of your n-th MySQL-server. Default is 3306 (leave
         blank).
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfgServers[n]['socket']</b> string</dt>
+    <dd>
+        The path to the socket to use. Leave blank for default.
         <br /><br />
     </dd>
 
@@ -646,11 +652,10 @@
     <li>
         Then, you need to tell PHP to use this socket.<br />Assuming you are
         using PHP 3.0.10 or better, you can specify the socket to use when you
-        open the connection. To do this in phpMyAdmin, you need to edit the
-        host information in the config.inc.php file using the format
-        'host_name:socket_name'.<br />
+        open the connection. To do this in phpMyAdmin, you need to complete the
+        socket information in the config.inc.php3.<br />
         For example:
-        <tt>$cfgServers[n]['host']&nbsp;=&nbsp;'localhost:/tmp/mysql.sock';</tt>
+        <tt>$cfgServers[n]['socket']&nbsp;=&nbsp;'/tmp/mysql.sock';</tt>
     </li>
 </ul>
 

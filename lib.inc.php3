@@ -263,11 +263,18 @@ if (!defined('__LIB_INC__')){
             if ($do_auth) {
                 auth();
             } else {
-                if (empty($cfgServer['port'])) {
-                    $dbh = @$connect_func($cfgServer['host'], $cfgServer['stduser'], $cfgServer['stdpass']) or mysql_die();
-                } else {
-                    $dbh = @$connect_func($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['stduser'], $cfgServer['stdpass']) or mysql_die();
-                }
+                $server_port   = (empty($cfgServer['port']))
+                               ? ''
+                               : ':' . $cfgServer['port'];
+                $server_socket = (empty($cfgServer['socket']) || PMA_INT_VERSION < 30010)
+                               ? ''
+                               : ':' . $cfgServer['socket'];
+                $dbh           = @$connect_func(
+                                     $cfgServer['host'] . $server_port . $server_socket,
+                                     $cfgServer['stduser'],
+                                     $cfgServer['stdpass']
+                                 ) or mysql_die();
+
                 $PHP_AUTH_USER = str_replace('\'', '\\\'', $PHP_AUTH_USER);
                 $PHP_AUTH_PW   = str_replace('\'', '\\\'', $PHP_AUTH_PW);
                 $auth_query = 'SELECT User, Password, Select_priv '

@@ -40,6 +40,7 @@ $cfgPmaAbsoluteUri = '';
 // You can disable a server config entry by setting host to ''.
 $cfgServers[1]['host']          = 'localhost'; // MySQL hostname
 $cfgServers[1]['port']          = '';          // MySQL port - leave blank for default port
+$cfgServers[1]['socket']        = '';          // Path to the socket - leave blank for default socket
 $cfgServers[1]['adv_auth']      = FALSE;       // Use advanced authentication?
 $cfgServers[1]['stduser']       = '';          // MySQL standard user (only needed with advanced auth)
 $cfgServers[1]['stdpass']       = '';          // MySQL standard password (only needed with advanced auth)
@@ -53,6 +54,7 @@ $cfgServers[1]['bookmarktable'] = '';          // Bookmark table - leave blank f
 
 $cfgServers[2]['host']          = '';
 $cfgServers[2]['port']          = '';
+$cfgServers[2]['socket']        = '';
 $cfgServers[2]['adv_auth']      = FALSE;
 $cfgServers[2]['stduser']       = '';
 $cfgServers[2]['stdpass']       = '';
@@ -65,6 +67,7 @@ $cfgServers[2]['bookmarktable'] = '';
 
 $cfgServers[3]['host']          = '';
 $cfgServers[3]['port']          = '';
+$cfgServers[3]['socket']        = '';
 $cfgServers[3]['adv_auth']      = FALSE;
 $cfgServers[3]['stduser']       = '';
 $cfgServers[3]['stdpass']       = '';

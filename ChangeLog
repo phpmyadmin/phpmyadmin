@@ -28,6 +28,9 @@ $Source$
 	  tbl_properties.php3, lines 45 & 51; tbl_replace, line 143 & 252;
 	  tbl_select.php3, line 181: according to rfc 2816, the location http
 	  header requires an absolute URI.
+	* lib.inc.php3, lines 266-277; config.lib.php3, lines 43, 57 & 70;
+	  Documentation.html, lines 273-278 & 655-658: merged the socket patch from
+	  Dan Allen <bigredlinux@yahoo.com>.
 
 2001-08-19  Olivier Müller  <om@omnis.ch>
 	* db_readdump.php3: if file contains mutiple queries, only show this line:
