@@ -535,7 +535,7 @@ if (empty($cfg['Lang'])) {
 }
 
 if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
-    && $allow_recoding) {
+    && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
     echo "\n";
     ?>
         <!-- Charset Selection -->
@@ -565,6 +565,15 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
             </td>
         </tr>
     <?php
+} elseif (PMA_MYSQL_INT_VERSION >= 40100) {
+    echo '        <tr>' . "\n"
+       . '            <td valign="baseline"><img src="' . $item_img . '" width="7" height="7" alt="item" /></td>' . "\n"
+       . '            <td nowrap="nowrap">' . "\n"
+       . '                ' . $strMySQLCharset . ':' . "\n"
+       . '                ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
+       . '                (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
+       . '            </td>' . "\n"
+       . '        </tr>' . "\n";
 }
 echo "\n";
 ?>

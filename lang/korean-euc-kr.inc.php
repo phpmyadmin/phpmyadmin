@@ -3,7 +3,7 @@
 
 /* Translated by WooSuhan <kjh@unews.NOSPAM.co.kr> */
 
-$charset = 'ks_c_5601-1987';
+$charset = 'euc-kr';
 $text_dir = 'ltr';
 $left_font_family = '"±¼¸²", sans-serif';
 $right_font_family = '"±¼¸²", sans-serif';

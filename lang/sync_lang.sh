@@ -99,7 +99,7 @@ hungarian-iso-8859-2
 indonesian-iso-8859-1
 italian-iso-8859-1
 japanese-euc
-korean-ks_c_5601-1987
+korean-euc-kr
 latvian-windows-1257
 lithuanian-windows-1257
 malay-iso-8859-1
@@ -128,7 +128,6 @@ EOT`
 #
 IGNORE_UTF=`cat <<EOT
 hebrew-iso-8859-8-i
-korean-ks_c_5601-1987
 EOT`
 
 ##
@@ -140,7 +139,7 @@ EOT`
 #
 IGNORE_TRANSLATIONS=`cat <<EOT
 japanese-sjis
-russian-dos-866
+russian-cp-866
 EOT`
 
 ##

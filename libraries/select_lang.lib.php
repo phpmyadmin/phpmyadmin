@@ -104,7 +104,8 @@ $available_languages = array(
     'ja-utf-8'     => array('ja|japanese', 'japanese-utf-8', 'ja'),
     'ja-euc'       => array('ja|japanese', 'japanese-euc', 'ja'),
     'ja-sjis'      => array('ja|japanese', 'japanese-sjis', 'ja'),
-    'ko-ks_c_5601-1987'=> array('ko|korean', 'korean-ks_c_5601-1987', 'ko'),
+    'ko-euc-kr'    => array('ko|korean', 'korean-euc-kr', 'ko'),
+    'ko-utf-8'     => array('ko|korean', 'korean-utf-8', 'ko'),
     'ka-utf-8'     => array('ka|georgian', 'georgian-utf-8', 'ka'),
     'lt-utf-8'     => array('lt|lithuanian', 'lithuanian-utf-8', 'lt'),
     'lt-win1257'   => array('lt|lithuanian', 'lithuanian-windows-1257', 'lt'),
@@ -126,7 +127,7 @@ $available_languages = array(
     'ro-iso-8859-1'=> array('ro|romanian', 'romanian-iso-8859-1', 'ro'),
     'ru-win1251'   => array('ru|russian', 'russian-windows-1251', 'ru'),
     'ru-utf-8'     => array('ru|russian', 'russian-utf-8', 'ru'),
-    'ru-dos-866'   => array('ru|russian', 'russian-dos-866', 'ru'),
+    'ru-cp-866'    => array('ru|russian', 'russian-cp-866', 'ru'),
     'ru-koi8-r'    => array('ru|russian', 'russian-koi8-r', 'ru'),
     'sk-utf-8'     => array('sk|slovak', 'slovak-utf-8', 'sk'),
     'sk-iso-8859-2'=> array('sk|slovak', 'slovak-iso-8859-2', 'sk'),
@@ -211,6 +212,11 @@ if (!isset($cfg['DefaultLang']) && isset($cfgDefaultLang)) {
     unset($cfgLang);
 }
 
+/**
+ *
+ * 2004-02-15 rabus: Deactivated the code temporarily:
+ *            We need to allow UTF-8 in order to be MySQL 4.1 compatible!
+
 // Disable UTF-8 if $cfg['AllowAnywhereRecoding'] has been set to FALSE.
 if (!isset($cfg['AllowAnywhereRecoding']) || !$cfg['AllowAnywhereRecoding']) {
     $available_language_files               = $available_languages;
@@ -222,6 +228,35 @@ if (!isset($cfg['AllowAnywhereRecoding']) || !$cfg['AllowAnywhereRecoding']) {
     } // end while
     unset($tmp_lang, $tmp_lang_data, $available_language_files);
 } // end if
+
+ *
+ */
+
+// MySQL charsets map
+$mysql_charset_map = array(
+    'big5'         => 'big5',
+    'cp-866'       => 'cp866',
+    'euc-jp'       => 'ujis',
+    'euc-kr'       => 'euckr',
+    'gb2312'       => 'gb2312',
+    'iso-8859-1'   => 'latin1',
+    'iso-8859-2'   => 'latin2',
+    'iso-8859-7'   => 'greek',
+    'iso-8859-8'   => 'hebrew',
+    'iso-8859-8-i' => 'hebrew',
+    'iso-8859-9'   => 'latin5',
+    'iso-8859-13'  => 'latin7',
+    'iso-8859-15'  => 'latin1',
+    'koi8-r'       => 'koi8r',
+    'shift_jis'    => 'sjis',
+    'tis-620'      => 'tis620',
+    'utf-8'        => 'utf8',
+    'windows-1250' => 'cp1250',
+    'windows-1251' => 'cp1251',
+    'windows-1252' => 'latin1',
+    'windows-1256' => 'cp1256',
+    'windows-1257' => 'cp1257',
+);
 
 // Lang forced
 if (!empty($cfg['Lang'])) {

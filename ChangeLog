@@ -5,6 +5,30 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-02-15 Alexander M. Turek  <onehotminute@derrabus.de>
+    * libraries/select_lang.lib.php: Deactivated the code part that disables
+      the UTF-8 language files if $cfg['AllowAnywhereRecoding'] is set to FALSE
+      (bug #887183).
+    * lang/russian-dos-622.inc.php, lang/russian-cp-622.inc.php,
+      lang/snyc_lang.sh, libraries/select_lang.lib.php:
+      - Changed charset definition from dos-622 into cp-622. Both definitions
+        describe the same charset, but cp-622 is recognized better by some
+        browsers;
+      - File was broken due to some bad typos.
+    * lang/korean*.inc.php, lang/sync_lang.sh, libraries/select_lang.lib.php:
+      - Changed Korean charset to EUC-KR. The old charset is a subset of EUC-KR,
+        so this change shouldn't cause big problems. The support for EUC-KR is
+        wider and we are now able to create a Korean UTF-8 language file;
+      - Added korean-utf-8 translation.
+    * config.inc.php, libraries/config_import.lib.php: Added missing Arabic
+      Windows-1256 charset to the default value of $cfg['AvailableCharsets'].
+    * libraries/select_lang.lib.php, libraries/dbi/*.dbi.lib.php: When connected
+      to a MySQL 4.1 server, we now pick the MySQL charset that fits the one of
+      the selected language file.
+    * main.php:
+      - Removed MySQL charset selection for MySQL 4.1.
+      - Instead, the MySQL charset we picked is displayed.
+
 2004-02-14 Alexander M. Turek  <thewall@derrabus.de>
     * libraries/database_interface.lib.php, libraries/dbi/*.dbi.lib.php:
       Introduced options parameter for query functions.

@@ -427,6 +427,7 @@ $cfg['AvailableCharsets'] = array(
     'windows-1250',
     'windows-1251',
     'windows-1252',
+    'windows-1256',
     'windows-1257',
     'koi8-r',
     'big5',
