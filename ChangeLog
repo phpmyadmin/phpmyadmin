@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-17 Michal Čihař  <michal@cihar.com>
+    * sql.php: Work with $display_query only if set (Marc spotted this out).
+
 2004-08-17 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php, config.inc.php, libraries/config_import.lib.php,
       libraries/common.lib.php: move search operators to config file,

@@ -319,10 +319,12 @@ else {
         } else {
             $full_sql_query  = $sql_query . $sql_limit_to_append;
         }
-        if (preg_match('@((.|\n)*)(([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))|;)[[:space:]]*$@i', $display_query, $regs)) {
-            $display_query  = $regs[1] . $sql_limit_to_append . $regs[3];
-        } else {
-            $display_query  = $display_query . $sql_limit_to_append;
+        if (isset($display_query)) {
+            if (preg_match('@((.|\n)*)(([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))|;)[[:space:]]*$@i', $display_query, $regs)) {
+                $display_query  = $regs[1] . $sql_limit_to_append . $regs[3];
+            } else {
+                $display_query  = $display_query . $sql_limit_to_append;
+            }
         }
         unset($sql_limit_to_append);
     } else {
