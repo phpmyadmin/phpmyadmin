@@ -150,7 +150,7 @@ echo "\n";
 <body bgcolor="<?php echo $cfgLeftBgColor; ?>">
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
-        <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>">
+        <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>">
             <span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
     </div>
 
@@ -178,8 +178,8 @@ if ($num_dbs > 1) {
         $tables              = @mysql_list_tables($db);
         $num_tables          = @mysql_numrows($tables);
         $common_url_query    = 'lang=' . $lang
-                             . '&server=' . $server
-                             . '&db=' . urlencode($db);
+                             . '&amp;server=' . $server
+                             . '&amp;db=' . urlencode($db);
         if ($num_tables) {
             $num_tables_disp = $num_tables;
         } else {
@@ -228,9 +228,9 @@ if ($num_dbs > 1) {
             echo "\n";
             ?>
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
-        <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0&goto=tbl_properties.php3">
+        <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&amp;pos=0&amp;goto=tbl_properties.php3">
             <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
-        <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[md5($table)]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
+        <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[md5($table)]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
             <?php echo $table; ?></a></nobr><br />
             <?php
         } // end for $j (tables list)
@@ -264,8 +264,8 @@ else if ($num_dbs == 1) {
     $tables              = @mysql_list_tables($db);
     $num_tables          = @mysql_numrows($tables);
     $common_url_query    = 'lang=' . $lang
-                         . '&server=' . $server
-                         . '&db=' . urlencode($db);
+                         . '&amp;server=' . $server
+                         . '&amp;db=' . urlencode($db);
     if ($num_tables) {
         $num_tables_disp = $num_tables;
     } else {
@@ -297,9 +297,9 @@ else if ($num_dbs == 1) {
         $table = mysql_tablename($tables, $j);
         echo "\n";
         ?>
-        <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0&goto=tbl_properties.php3">
+        <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&amp;pos=0&amp;goto=tbl_properties.php3">
                   <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
-              <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[md5($table)]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
+              <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[md5($table)]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
                   <?php echo $table; ?></a></nobr><br />
         <?php
     } // end for $j (tables list)
