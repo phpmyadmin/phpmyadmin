@@ -293,6 +293,11 @@ if ($sql_query != '') {
                     $info_count++;
                 }
 
+                // If a 'USE <db>' SQL-clause was found and the query succeeded, set our current $db to the new one
+                if ($result != FALSE && preg_match('@^USE[[:space:]]*([^[:space]+)@i', $a_sql_query, $match)) {
+                    $db = trim($match[0]);
+                }
+
                 if (!isset($reload) && preg_match('@^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $a_sql_query)) {
                     $reload = 1;
                 }

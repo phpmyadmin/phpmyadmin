@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-27 Garvin Hicking <pma@supergarv.de>
+    * read_dump.php: Fixed bug #942390 - When entering a "USE database"
+      query together with multiple other queries, the db was reset to
+      the first one.
+
 2004-04-26 Marc Delisle  <lem9@users.sourceforge.net>
     * config.inc.php, left.php, Documentation.html,
       libraries/config_import.lib.php, libraries/common.lib.php:
@@ -37,7 +42,7 @@ $Source$
 2004-04-20 Michal Cihar  <michal@cihar.com>
     * libraries/tbl_change.js, css/phpmyadmin.css.php: Added time editing to
       calendar.
-    
+
 2004-04-19 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Clarification.
     * config.inc.php, Documentation.html, libraries/config_import.lib.php:
@@ -50,11 +55,11 @@ $Source$
 2004-04-19 Marcel Tschopp  <ne0x@users.sourceforge.net>
     * libraries/export/sql.php, libraries/export/latex.php: Fixed a few
       mysqli-specific export-bugs
-      
+
 2004-04-19 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php: bug 780516: capitalizing keywords: we no longer
       put the formatted query into $sql_query, due to better pattern matching
- 
+
 2004-04-19 Michal Cihar  <michal@cihar.com>
     * libraries/tbl_change.js: Better return value formatting.
     * Documentation.html: Mentioned header and footer customization.
@@ -87,7 +92,7 @@ $Source$
 
 2004-04-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french update
-    * scripts/create-release.sh: daily snapshots 
+    * scripts/create-release.sh: daily snapshots
 
 2004-04-16 Michal Cihar  <michal@cihar.com>
     * libraries/common.lib.php, libraries/export/sql.php: ANSI compatible
@@ -128,7 +133,7 @@ $Source$
     * libraries/export/csv.php: Do not strip export too much (bug #913988).
     * libraries/export/xml.php: Use PMA_DBI_fetch_row and drop PHP 3
       compatibility code.
-    
+
 2004-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: bug 930445 when PMA_table_info not defined,
       thanks to Philippe Jausions (jausions)
@@ -138,22 +143,22 @@ $Source$
 
 2004-04-12 Marcel Tschopp <marcel.tschopp@gmx.net>
     * left.php, tbl_properties_structure.php, libraries/mysql_charsets.lib.php,
-      libraries/relation.lib.php: Changed some queries to use 
+      libraries/relation.lib.php: Changed some queries to use
       MYSQLI_STORE_RESULT.
 
 2004-04-10 Marcel Tschopp <marcel.tschopp@gmx.net>
-    * db_datadict.php, db_details_db_info.php, db_details_qbe.php, 
-      db_details_structure.php, db_printview.php, left.php, main.php, 
-      pdf_pages.php, read_dump.php, server_privileges.php, sql.php, 
-      tbl_change.php, tbl_indexes.php, tbl_properties_structure.php, 
-      tbl_relation.php, tbl_select.php, libraries/database_interface.lib.php, 
-      libraries/db_table_exists.lib.php, libraries/mysql_charsets.lib.php, 
+    * db_datadict.php, db_details_db_info.php, db_details_qbe.php,
+      db_details_structure.php, db_printview.php, left.php, main.php,
+      pdf_pages.php, read_dump.php, server_privileges.php, sql.php,
+      tbl_change.php, tbl_indexes.php, tbl_properties_structure.php,
+      tbl_relation.php, tbl_select.php, libraries/database_interface.lib.php,
+      libraries/db_table_exists.lib.php, libraries/mysql_charsets.lib.php,
       libraries/relation.lib.php, libraries/dbi/mysqli.dbi.lib.php:
       Changed some queries to use MYSQLI_STORE_RESULT. phpMyAdmin now works
       with MYSQLI_USE_RESULT as default.
-    * libraries/display_tbl.lib.php: Use PMA_DBI_fetch_row instead of 
+    * libraries/display_tbl.lib.php: Use PMA_DBI_fetch_row instead of
       PMA_DBI_fetch_array.
-    
+
 2004-04-07 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php, lang/*: feature 788608: new features for Search:
       DISTINCT, IS NULL, IS NOT NULL, NOT LIKE, multiple select for ENUM,
@@ -170,7 +175,7 @@ $Source$
       thanks to Wandering Zombie (wanderingzombie).
 
 2004-04-07 Marcel Tschopp <marcel.tschopp@gmx.net>
-    * multi_submits.inc.php, lang/german: bug 930714, wrong spelling and 
+    * multi_submits.inc.php, lang/german: bug 930714, wrong spelling and
       query display. Thanks to Daniel Marschall (blackdrake)
 
 2004-04-07 Marc Delisle  <lem9@users.sourceforge.net>
@@ -190,10 +195,10 @@ $Source$
     * lang/lithuanian: Updated, thanks to Vilius Zigmantas (viliusz).
 
 2004-04-03 Olivier Mueller <om@omnis.ch>
-    * server_privileges.php, libraries/server_privileges.js: added 
+    * server_privileges.php, libraries/server_privileges.js: added
       (un)checkall links to the "Global privileges" edition form.
       Todo: make it work even if JS is disabled + local links
-      for the "Data" and "Structure" checkboxes groups. 
+      for the "Data" and "Structure" checkboxes groups.
 
 2004-04-02 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Fixed a typo.
