@@ -15,6 +15,10 @@
         // garvin: security cautions! You could trick the form and submit any file the webserver has access to
         // for upload to a binary field. Shouldn't be that easy! ;)
         
+        // garvin: default is to advance to the field-value parsing. Will only be set to true when a 
+        // binary file is uploaded, thus bypassing further manipulation of $val.
+
+        $check_stop = false;
         if (isset(${"fields_upload_" . $key}) && ${"fields_upload_" . $key} != 'none'){
             // garvin: This fields content is a blob-file upload.
 
@@ -31,25 +35,26 @@
                     // into MySQL and it also allow not to care about charset
                     // conversion that would otherwise corrupt the data.
                     
-                    if (empty($val)) {
-                        // garvin: an empty file was uploaded. Remove blob-field's contents.
-                        $val = "''";
-                    } else {
+                    if (!empty($val)) {
                         // garvin: The upload was valid. Check in new blob-field's contents.
                         $val = '0x' . bin2hex($val);
                         $seen_binary = TRUE;
+                        $check_stop = TRUE;
                     }
-                } else {
-                    // garvin: Danger, will robinson. File is malicious. Preserver blob-field contents.
-                    unset($val);
-                }
-            } else {
-                // garvin: Post-field contains no data. PRESERVE BLOB-FIELD CONTENTS!
-                unset($val);
-            }
-            // garvin: else-case would be, no file was submitted, the post-fields content's are empty.
-        } else {
+                    // garvin: ELSE: an empty file was uploaded. Remove blob-field's contents.
+                    // Blob-fields are preserved, see below. ($protected$)
 
+                } else {
+                    // garvin: Danger, will robinson. File is malicious. Blob-fields are preserved, see below. ($protected$)
+                    // void
+                }
+
+            }
+            // garvin: else: Post-field contains no data. Blob-fields are preserved, see below. ($protected$)
+
+        }
+
+        if (!$check_stop) {
         // f i e l d    v a l u e    i n    t h e    f o r m
             switch (strtolower($val)) {
                 case 'null':
@@ -98,7 +103,14 @@
                     // fields array, so we do not change the field value
                     // but we can still handle field upload
 
-                    $val = "''";
+                    // garvin: when in UPDATE mode, do not alter field's contents. When in INSERT
+                    // mode, insert empty field because no values were submitted.
+                    if (isset($fieldlist)) {
+                        $val = "''";
+                    } else {
+                        unset($val);
+                    }
+
                     break;
                 default:
                     if (get_magic_quotes_gpc()) {
