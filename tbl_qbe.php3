@@ -152,6 +152,7 @@ mysql_free_result($tbl_result);
 // largest width found
 $realwidth = $wid . 'ex';
 
+
 /**
  * Displays the form
  */
@@ -773,17 +774,6 @@ if (isset($Field) && count($Field) > 0) {
         $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
 
         // if we don't find anything we try the other way round
-        /*
-        removed this again - i think those that are only connected as a foreign
-        key should not have a chance to be master
-        if (mysql_num_rows($rel_id) == 0) {
-            $rel_query = 'SELECT foreign_table AS wer, COUNT(master_table) AS hits FROM ' . PMA_backquote($cfg['Server']['relation'])
-                       . ' WHERE master_table IN ' . $incrit . ' AND foreign_table IN ' . $incrit
-                       . ' GROUP BY foreign_table ORDER BY hits DESC';
-
-            $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
-        }
-        */
         while ($row = mysql_fetch_array($rel_id)) {
             // we want the first one (highest number of hits) or the first one
             // that is in the WHERE clause

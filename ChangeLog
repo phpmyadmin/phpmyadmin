@@ -12,6 +12,7 @@ $Source$
       - improved PHP3 compliance;
       - better ip checking.
     * Documentation.html: typos and line sizes.
+    * tbl_qbe.php3: cleanup.
 
 2002-05-17 Robin Johnson  <robbat2@users.sourceforge.net>
     * config.inc.php3, libraries/common.lib.php3: IP-based Allow/Deny code
