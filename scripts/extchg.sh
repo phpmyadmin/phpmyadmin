@@ -1,11 +1,11 @@
 #!/bin/sh
-
+#
 # $Id$ 
-
+#
 # original php3->phtml converter by Pavel Piankov <pashah@spb.sitek.net>
 # modified by Tobias Ratschiller to allow any file extension
-# part of the phpMyAdmin distribution <http://phpwizard.net/phpMyAdmin>
-
+# part of the phpMyAdmin distribution <http://phpmyadmin.net/>
+#
 # 2001-07-07, lem9@users.sourceforge.net:
 # - supports sub-directories
 # - no more bak directory
