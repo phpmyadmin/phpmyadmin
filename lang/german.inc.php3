@@ -175,6 +175,7 @@ $strLimitNumRows = 'Einträge pro Seite';
 $strLineFeed = 'Zeilenvorschub: \\n';
 $strLines = 'Zeilen';
 $strLinesTerminatedBy = 'Zeilen getrennt mit';
+$strLinkNotFound = 'Der Verweis wurde nicht gefunden.';
 $strLinksTo = 'Verweise';
 $strLocationTextfile = 'Datei';
 $strLogin = 'Login';
@@ -355,5 +356,4 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
-$strLinkNotFound = 'Link not found';  //to translate
 ?>
