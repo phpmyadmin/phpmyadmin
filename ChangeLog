@@ -5,18 +5,22 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-10  Loïc Chapeaux  <lolo@phpheaven.net>
+	* phpinfo.php3, lang/*: fixed some coding style inconcistencies.
+	* tbl_change.php3, line 2: fixed $id issue.
+	* define.php3: optimized a bit the MySQL version query.
+
 2001-08-10  Marc Delisle  <lem9@users.sourceforge.net> 
-	* russian updates (2 files) thanks to Max Zhivluck
-	* slovak updates thanks to Lubos Klokner
-	* defines.inc.php3, bug 449800, missing @
+	* russian updates (2 files) thanks to Max Zhivluck.
+	* slovak updates thanks to Lubos Klokner.
+	* defines.inc.php3, bug 449800, missing @.
 
 2001-08-10  Steve Alberty  <alberty@neptunlabs.de>
-	* defines.inc.php3: improve mysql version query, thanks to
-	  Dan Allen
-	* tbl_properties.php3: remove bug with no default server
+	* defines.inc.php3: improve mysql version query, thanks to Dan Allen.
+	* tbl_properties.php3: remove bug with no default server.
 
 2001-08-10  Robin Johnson  <robbat2@orbis-terrarum.net>
-	* Feature 445699, New link "Show PHP information" - Added on main.php3
+	* Feature 445699, New link "Show PHP information" - Added on main.php3.
 
 2001-08-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_replace.php3, lines 76, 78, 86, 88, 137, 139, 147, 149: fixed some
