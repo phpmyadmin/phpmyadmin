@@ -94,6 +94,7 @@ $strBzError = 'phpMyAdmin kunne ikke komprimere dumpede data fordi Bz2 tillegget
 $strBzip = 'Komprimert (bz2)';
 
 $strCSVOptions = 'CSV valg';
+$strCalendar = 'Kalender';
 $strCannotLogin = 'Kan ikke logge inn til MySQL tjeneren';
 $strCantLoad = 'kan ikke starte %s tillegget,<br />vennligst kontroller PHP-konfigurasjonen';
 $strCantLoadRecodeIconv = 'Kan ikke laste iconv- eller recode-modulen som trengs for tegnsett konvertering, konfigurer php slik at disse kan lastes eller slå av tegnsettkonvertering i phpMyAdmin.';
@@ -177,7 +178,7 @@ $strDataDict = 'Dataordbok';
 $strDataOnly = 'Bare data';
 $strDatabase = 'Database ';
 $strDatabaseEmpty = 'Databasens navn er tomt!';
-$strDatabaseExportOptions = 'Database eksportinnstillinger';
+$strDatabaseExportOptions = 'Databaseeksportinnstillinger';
 $strDatabaseHasBeenDropped = 'Databasen %s har blitt slettet';
 $strDatabaseNoTable = 'Denne databasen har ingen tabeller!';
 $strDatabaseWildcard = 'Database (jokertegn er tillatt):';
@@ -231,6 +232,7 @@ $strEffective = 'Effektiv';
 $strEmpty = 'Tøm';
 $strEmptyResultSet = 'MySQL returnerte ett tomt resultat (m.a.o. ingen rader).';
 $strEnabled = 'Påslått';
+$strEncloseInTransaction = 'Inneslutt eksport i en transaksjon';
 $strEnd = 'Slutt';
 $strEndCut = 'STOPP KUTT';
 $strEndRaw = 'STOPP UFORMATERT';
@@ -430,6 +432,7 @@ $strNumTables = 'Tabeller';
 $strOK = 'OK';
 $strOftenQuotation = 'Ofte anførselstegn. Valgfritt innebærer at kun tekstfelter ("char" og "varchar"-felter) er omfattet av tegnet.';
 $strOperations = 'Operasjoner';
+$strOperator = 'Operator';
 $strOptimizeTable = 'Optimiser tabell';
 $strOptionalControls = 'Valgfritt. Angir hvordan spesialtegn skrives eller leses.';
 $strOptionally = 'Valgfritt';
@@ -739,7 +742,4 @@ $strZip = 'Komprimert (zip)';
 
 // To translate:
 
-$strOperator = 'Operator';  //to translate
-$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
-$strCalendar = 'Calendar';  //to translate
 ?>
