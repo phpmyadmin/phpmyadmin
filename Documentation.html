@@ -802,7 +802,7 @@
 </p>
 
 <p>
-    <b>How can I GZip or Bzip a dump or a CSV export. It seem to not work?</b>
+    <b>How can I GZip or Bzip a dump or a CSV export. It seems to not work?</b>
     <br />
     These features are based on the <tt>gzencode()</tt> and
     <tt>bzcompress()</tt> php functions to be more independent of the platform
@@ -852,6 +852,17 @@
 
     And that fixes the \r\n problem with file uploads! 
 </p> 
+<p>
+    <b>When I create a table, I click the Index checkbox for 2 fields
+    and phpMyAdmin generates only one index with those 2 fields.</b>
+    <br />
+    In phpMyAdmin 2.2.0, this is the way to create a multi-fields index.
+    If you want two indexes, create the first one when creating the table,
+    save, then display the table properties and click the Index link to
+    create the other index. 
+</p>
+
+<p>
 
 
 <!-- DEVELOPERS -->

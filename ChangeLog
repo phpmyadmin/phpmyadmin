@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-22  Marc Delisle  <lem9@users.sourceforge.net>
+	* Documentation.html: added a FAQ about index creation
+
 2001-08-22  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_properties.php3, line 983; lang/*: added $strDropTable.
 	* lib.inc.php3, lines 1674-1680: enclose all fields in cvs generated files
