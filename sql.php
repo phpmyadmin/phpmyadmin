@@ -651,6 +651,8 @@ else {
             $GLOBALS['sql_limit_to_append'] = $tmp_sql_limit_to_append;
         }
 
+        $goto = 'sql.php';
+
         // Displays the results in a table
         require_once('./libraries/display_tbl.lib.php');
         if (empty($disp_mode)) {

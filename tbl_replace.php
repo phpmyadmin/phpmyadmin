@@ -85,132 +85,111 @@ if (isset($funcs)) {
 $seen_binary = FALSE;
 
 /**
- * Prepares the update of a row
+ * Prepares the update/insert of a row
  */
-if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
+if (isset($primary_key)) {
+    // we were editing something => use primary key
     $loop_array = (is_array($primary_key) ? $primary_key : array(0 => $primary_key));
-    PMA_DBI_select_db($db);
-    $query = array();
-    $message = '';
+    $using_key  = TRUE;
+    $is_insert  = ($submit_type == $strInsertAsNewRow);
+} else {
+    // new row => use indexes
+    $loop_array = array();
+    for ($i = 0; $i < $cfg['InsertRows']; $i++) $loop_array[$i] = $i;
+    $using_key  = FALSE;
+    $is_insert  = TRUE;
+}
 
-    foreach($loop_array AS $primary_key_index => $enc_primary_key) {
-        // Restore the "primary key" to a convenient format
-        $primary_key = urldecode($enc_primary_key);
+PMA_DBI_select_db($db);
+$query = array();
+$message = '';
 
-        // Defines the SET part of the sql query
-        $valuelist = '';
+foreach($loop_array AS $primary_key_index => $enc_primary_key) {
+    // skip fields to be ignored
+    if (!$using_key && isset($GLOBALS['insert_ignore_' . $enc_primary_key])) continue;
+    
+    // Restore the "primary key" to a convenient format
+    $primary_key = urldecode($enc_primary_key);
 
-        // Map multi-edit keys to single-level arrays, dependent on how we got the fields
-        $me_fields      = (isset($fields['multi_edit'])      && isset($fields['multi_edit'][$enc_primary_key])      ? $fields['multi_edit'][$enc_primary_key]      : (isset($fields)      ? $fields      : null));
-        $me_fields_prev = (isset($fields_prev['multi_edit']) && isset($fields_prev['multi_edit'][$enc_primary_key]) ? $fields_prev['multi_edit'][$enc_primary_key] : (isset($fields_prev) ? $fields_prev : null));
-        $me_funcs       = (isset($funcs['multi_edit'])       && isset($funcs['multi_edit'][$enc_primary_key])       ? $funcs['multi_edit'][$enc_primary_key]       : (isset($funcs)       ? $funcs       : null));
-        $me_fields_type = (isset($fields_type['multi_edit']) && isset($fields_type['multi_edit'][$enc_primary_key]) ? $fields_type['multi_edit'][$enc_primary_key] : (isset($fields_type) ? $fields_type : null));
-        $me_fields_null = (isset($fields_null['multi_edit']) && isset($fields_null['multi_edit'][$enc_primary_key]) ? $fields_null['multi_edit'][$enc_primary_key] : (isset($fields_null) ? $fields_null : null));
+    // Defines the SET part of the sql query
+    $valuelist = '';
+    $fieldlist = '';
 
-        foreach($me_fields AS $key => $val) {
-            $encoded_key = $key;
-            $key         = urldecode($key);
+    // Map multi-edit keys to single-level arrays, dependent on how we got the fields
+    $me_fields      = isset($fields['multi_edit'])      && isset($fields['multi_edit'][$enc_primary_key])      ? $fields['multi_edit'][$enc_primary_key]      : null;
+    $me_fields_prev = isset($fields_prev['multi_edit']) && isset($fields_prev['multi_edit'][$enc_primary_key]) ? $fields_prev['multi_edit'][$enc_primary_key] : null;
+    $me_funcs       = isset($funcs['multi_edit'])       && isset($funcs['multi_edit'][$enc_primary_key])       ? $funcs['multi_edit'][$enc_primary_key]       : null;
+    $me_fields_type = isset($fields_type['multi_edit']) && isset($fields_type['multi_edit'][$enc_primary_key]) ? $fields_type['multi_edit'][$enc_primary_key] : null;
+    $me_fields_null = isset($fields_null['multi_edit']) && isset($fields_null['multi_edit'][$enc_primary_key]) ? $fields_null['multi_edit'][$enc_primary_key] : null;
 
-            require('./tbl_replace_fields.php');
+    foreach($me_fields AS $encoded_key => $val) {
+        $key         = urldecode($encoded_key);
+        $fieldlist   .= PMA_backquote($key) . ', ';
 
-            // No change for this column and no MySQL function is used -> next column
-            if (empty($me_funcs[$encoded_key])
-                && isset($me_fields_prev) && isset($me_fields_prev[$encoded_key])
-                && ("'" . PMA_sqlAddslashes(urldecode($me_fields_prev[$encoded_key])) . "'" == $val)) {
-                continue;
-            }
-            else if (!empty($val)) {
-                if (empty($me_funcs[$encoded_key])) {
-                    $valuelist .= PMA_backquote($key) . ' = ' . $val . ', ';
-                } else if ($val == '\'\''
-                           && (preg_match('@^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$@', $me_funcs[$encoded_key]))) {
-                    $valuelist .= PMA_backquote($key) . ' = ' . $me_funcs[$encoded_key] . '(), ';
-                } else {
-                    $valuelist .= PMA_backquote($key) . ' = ' . $me_funcs[$encoded_key] . "($val), ";
-                }
-            }
-        } // end while
+        require('./tbl_replace_fields.php');
 
-        // Builds the sql update query
-        $valuelist    = preg_replace('@, $@', '', $valuelist);
-        if (!empty($valuelist)) {
-            $query[]   = 'UPDATE ' . PMA_backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key
-                      . ' LIMIT 1';
-
-            // lem9: why a line break here?
-            //$message  = $strAffectedRows . '&nbsp;<br />';
-            $message  = $strAffectedRows . '&nbsp;';
-        }
-    }
-
-    if (empty($valuelist) && empty($query)) {
-        // No change -> move back to the calling script
-        $message = $strNoModification;
-        if ($is_gotofile) {
-            $js_to_run = 'functions.js';
-            require_once('./header.inc.php');
-            require('./' . preg_replace('@\.\.*@', '.', $goto));
+        if (empty($me_funcs[$encoded_key])) {
+            $cur_value = $val . ', ';
+        } else if ($val == '\'\''
+                   && (preg_match('@^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$@', $me_funcs[$encoded_key]))) {
+            $cur_value = $me_funcs[$encoded_key] . '(), ';
         } else {
-            PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . '&disp_query=');
-
+            $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
         }
-        exit();
-    }
-} // end row update
+        
+        if ($is_insert) { 
+            // insert, no need to add column
+            $valuelist .= $cur_value;
+        } else if (empty($me_funcs[$encoded_key])
+            && isset($me_fields_prev) && isset($me_fields_prev[$encoded_key])
+            && ("'" . PMA_sqlAddslashes(urldecode($me_fields_prev[$encoded_key])) . "'" == $val)) {
+            // No change for this column and no MySQL function is used -> next column
+            continue;
+        }
+        else if (!empty($val)) {
+            $valuelist .= PMA_backquote($key) . ' = ' . $cur_value;
+        }
+    } // end while
 
-
-/**
- *  Prepares the insert of a row
- */
-else {
-    $loop_array = (isset($primary_key) && is_array($primary_key) ? $primary_key : array(0 => (isset($primary_key) ? $primary_key : null)));
-    $message = '';
-    PMA_DBI_select_db($db);
-
-    for ($i = 0; $i < $cfg['InsertRows']; $i++) {
-        if (!isset($fields['multi_edit'][$i])) break;
-        if (isset($GLOBALS['insert_ignore_' . $i])) continue;
-
-        $enc_primary_key = $i;
-        $fieldlist = '';
-        $valuelist = '';
-
-        $me_fields      = (isset($fields['multi_edit'])      && isset($fields['multi_edit'][$i])      ? $fields['multi_edit'][$i]      : (isset($fields)      ? $fields      : null));
-        $me_fields_prev = (isset($fields_prev['multi_edit']) && isset($fields_prev['multi_edit'][$i]) ? $fields_prev['multi_edit'][$i] : (isset($fields_prev) ? $fields_prev : null));
-        $me_funcs       = (isset($funcs['multi_edit'])       && isset($funcs['multi_edit'][$i])       ? $funcs['multi_edit'][$i]       : (isset($funcs)       ? $funcs       : null));
-        $me_fields_type = (isset($fields_type['multi_edit']) && isset($fields_type['multi_edit'][$i]) ? $fields_type['multi_edit'][$i] : (isset($fields_type) ? $fields_type : null));
-        $me_fields_null = (isset($fields_null['multi_edit']) && isset($fields_null['multi_edit'][$i]) ? $fields_null['multi_edit'][$i] : (isset($fields_null) ? $fields_null : null));
-
-        foreach($me_fields AS $key => $val) {
-            $encoded_key = $key;
-            $key         = urldecode($key);
-            $fieldlist   .= PMA_backquote($key) . ', ';
-
-            require('./tbl_replace_fields.php');
-
-            if (empty($me_funcs[$encoded_key])) {
-                $valuelist .= $val . ', ';
-            } else if (($val == '\'\''
-                       && preg_match('@^(UNIX_TIMESTAMP|RAND|LAST_INSERT_ID)$@', $me_funcs[$encoded_key]))
-                       || preg_match('@^(NOW|CURDATE|CURTIME|USER)$@', $me_funcs[$encoded_key])) {
-                $valuelist .= $me_funcs[$encoded_key] . '(), ';
-            } else {
-                $valuelist .= $me_funcs[$encoded_key] . '(' . $val . '), ';
-            }
-        } // end while
-
-        // Builds the sql insert query
-        if (!isset($query)) {
+    // get rid of last ,
+    $valuelist    = preg_replace('@, $@', '', $valuelist);
+    
+    // Builds the sql query
+    if ($is_insert) {
+        if (empty($query)) {
+            // first inserted row -> prepare template
             $fieldlist = preg_replace('@, $@', '', $fieldlist);
             $query = array('INSERT INTO ' . PMA_backquote($table) . ' (' . $fieldlist . ') VALUES ');
         }
-        $valuelist = preg_replace('@, $@', '', $valuelist);
+        // append current values
         $query[0]  .= '(' . $valuelist . '), ';
         $message   = $strInsertedRows . '&nbsp;';
-    }
-    $query[0] = preg_replace('@, $@', '', $query[0]);
-} // end row insertion
+    } elseif (!empty($valuelist)) {
+        // build update query
+        $query[]   = 'UPDATE ' . PMA_backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key . ' LIMIT 1';
 
+        $message  = $strAffectedRows . '&nbsp;';
+    }
+} // end for
+
+// trim last , from insert query
+if ($is_insert) {
+    $query[0] = preg_replace('@, $@', '', $query[0]);
+}
+
+if (empty($valuelist) && empty($query)) {
+    // No change -> move back to the calling script
+    $message = $strNoModification;
+    if ($is_gotofile) {
+        $js_to_run = 'functions.js';
+        require_once('./header.inc.php');
+        require('./' . preg_replace('@\.\.*@', '.', $goto));
+    } else {
+        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . '&disp_query=');
+
+    }
+    exit();
+}
 
 /**
  * Executes the sql query and get the result, then move back to the calling
