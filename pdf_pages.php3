@@ -257,7 +257,7 @@ if ($cfgRelation['pdfwork']) {
         echo "\n" . '</form>' . "\n\n";
     } // end if
 
-    if ($do == 'edcoord' || $do == 'choosepage') {
+    if (isset($do) && ($do == 'edcoord' || $do == 'choosepage')) {
         ?>
 <form method="post" action="pdf_schema.php3">
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
