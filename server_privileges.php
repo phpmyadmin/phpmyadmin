@@ -139,7 +139,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
  */
 function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent = 0)
 {
-    global $cfg, $userlink;
+    global $cfg, $userlink, $url_query;
 
     if ($db == '*') {
         $table = '*';
