@@ -34,7 +34,7 @@ greek-iso-8859-7
 hebrew-iso-8859-8-i
 hungarian-iso-8859-2
 indonesian-iso-8859-1
-italian
+italian-iso-8859-1
 japanese-euc
 korean
 latvian
