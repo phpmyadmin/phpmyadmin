@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * mult_submit.inc.php3: bug 770095, error in multiple TRUNCATEs
+
 2003-07-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish update, thanks to Bora Alioglu
     * lang/slovak update, thanks to Lubos Klokner
