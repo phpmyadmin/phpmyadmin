@@ -47,6 +47,7 @@ $strAffectedRows = 'Påverkade rader:';
 $strAfter = 'Efter %s';
 $strAfterInsertBack = 'Gå tillbaka till föregående sida';
 $strAfterInsertNewInsert = 'Lägg till ytterligare en ny rad';
+$strAfterInsertNext = 'Ändra nästa rad';
 $strAfterInsertSame = 'Gå tillbaka till denna sida';
 $strAll = 'Alla';
 $strAllTableSameWidth = 'Visa alla tabeller med samma bredd';
@@ -90,14 +91,14 @@ $strBookmarkView = 'Visa endast';
 $strBrowse = 'Visa';
 $strBrowseForeignValues = 'Visa främmande värden';
 $strBulgarian = 'Bulgarisk';
-$strBzError = 'phpMyAdmin kunde inte komprimera SQL-satserna på grund av en trasig Bz2-utvidgning i denna php-version. Det rekommenderas starkt att sätta direktivet <code>$cfg[\'BZipDump\']</code> i din phpMyAdmin-konfigurationsfil till <code>FALSE</code>. Om du vill använda Bz2-komprimering, bör du uppgradera till en senare php-version. Se php:s buggrapport %s för detaljer.';
+$strBzError = 'phpMyAdmin kunde inte komprimera SQL-satserna på grund av ett trasigt Bz2-tillägg i denna php-version. Det rekommenderas starkt att sätta direktivet <code>$cfg[\'BZipDump\']</code> i din phpMyAdmin-konfigurationsfil till <code>FALSE</code>. Om du vill använda Bz2-komprimering, bör du uppgradera till en senare php-version. Se php:s buggrapport %s för detaljer.';
 $strBzip = '"bzippad"';
 
 $strCSVOptions = 'CSV-alternativ';
 $strCalendar = 'Kalender';
 $strCannotLogin = 'Kan ej logga in på MySQL-server';
 $strCantLoad = 'kan inte ladda %s-tillägg,<br />var god kontrollera PHP-konfigurationen.';
-$strCantLoadRecodeIconv = 'Kan inte ladda utökningarna iconv eller recode som behövs för teckenuppsättningsomvandling. Konfigurera php för att tillåta dessa utökningar eller stäng av teckenuppsättningsomvandling i phpMyAdmin.';
+$strCantLoadRecodeIconv = 'Kan inte ladda tilläggen iconv eller recode som behövs för teckenuppsättningsomvandling. Konfigurera php för att tillåta dessa tillägg eller stäng av teckenuppsättningsomvandling i phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Kan inte byta namn på index till "PRIMARY"!';
 $strCantUseRecodeIconv = 'Kan inte använda funktionerna iconv, libiconv eller recode_string när utökade rapporter ska laddas. Kontrollera din php-konfiguration.';
 $strCardinality = 'Kardinalitet';
@@ -373,6 +374,8 @@ $strMIME_transformation_options = 'Omvandlingsparametrar';
 $strMIME_transformation_options_note = 'Ange värdena för omvandlingsparametrar enligt följande format: \'a\',\'b\',\'c\'...<br />Om du behöver lägga till ett bakåtstreck ("\") eller ett enkelcitat ("\'") i värdena, skriv ett bakåtstreck före tecknet (t.ex. \'\\\\xyz\' eller \'a\\\'b\').';
 $strMIME_without = 'Kursiverade MIME-typer har inte någon separat omvandlingsfunktion';
 $strMaximumSize = 'Maximal storlek: %s%s';
+$strMbExtensionMissing = 'PHP-tillägget mbstring kunde inte hittas och det verkar som om du använder flerbitars teckenuppsättning. phpMyAdmin kan inte dela upp strängar korrekt utan tillägget mbstring, vilket kan leda till oväntade resultat.';
+$strMbOverloadWarning = 'Du har aktiverat mbstring.func_overload i din PHP-konfiguration. Detta alternativ är inkompatibelt med phpMyAdmin och kan orsaka att en del data förstörs!';
 $strModifications = 'Ändringarna har sparats';
 $strModify = 'Ändra';
 $strModifyIndexTopic = 'Ändra ett index';
@@ -559,6 +562,7 @@ $strRunning = 'körs på %s';
 $strRussian = 'Rysk';
 
 $strSQL = 'SQL';
+$strSQLExportCompatibility = 'SQL-export-kompatibilitet';
 $strSQLExportType = 'Export-typ';
 $strSQLOptions = 'SQL-alternativ';
 $strSQLParserBugMessage = 'Det är möjligt att du har hittat en bugg i SQL-analysatorn. Var god granska din fråga noga och kontrollera att citationstecknen är korrekta och matchar varandra. En annan möjlig felorsak kan vara att du överför en fil med binärkod som inte ligger inom citationstecken. Du kan även testa din fråga i MySQL:s kommandoradsgränssnitt. Felmeddelandet från MySQL-servern nedan, om det finns något, kan också hjälpa dig att analysera problemet. Om du fortfarande har problem eller om SQL-analysatorn misslyckas när kommandoradsgränssnittet lyckas, var vänlig reducera din inmatning av SQL-frågor till den enda fråga som orsakar problem och skicka en buggrapport med datastycket i URKLIPP-sektionen nedan:';
@@ -716,6 +720,7 @@ $strUsersDeleted = 'De markerade användarna har tagits bort.';
 $strUsersHavingAccessToDb = 'Användare som har tillgång till &quot;%s&quot;';
 
 $strValidateSQL = 'Validera SQL-kod';
+$strValidatorError = 'SQL-validatorn kunde inte initieras. Kontrollera att du har installerat de nödvändiga PHP-tilläggen enligt %sdokumentationen%s.';
 $strValidatorError = 'SQL-validatorn kunde inte initieras. Kontrollera att du har installerat de nödvändiga PHP-utökningarna enligt %sdokumentationen%s.';
 $strValue = 'Värde';
 $strVar = 'Variabel';
@@ -742,63 +747,71 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 
 // To translate:
-$strAfterInsertNext = 'Edit next row';  //to translate
 
-$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
-$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
-
-$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
-
-$strView = 'View';  //to translate
-$strViewHasBeenDropped = 'View %s has been dropped';  //to translate
-$strEngines = 'Engines';  //to translate
-$strStorageEngines = 'Storage Engines';  //to translate
-$strStorageEngine = 'Storage Engine';  //to translate
-$strNoDetailsForEngine = 'There is no detailed status information available for this storage engine.';  //to translate
-$strDefaultEngine = '%s is the default storage engine on this MySQL server.';  //to translate
-$strEngineAvailable = '%s is available on this MySQL server.';  //to translate
-$strEngineUnsupported = 'This MySQL server does not support the %s storage engine.';  //to translate
-$strEngineDisabled = '%s has been disabled for this MySQL server.';  //to translate
-$strMyISAMSortBufferSize = 'Sort buffer size';  //to translate
-$strMyISAMSortBufferSizeDesc = 'The buffer that is allocated when sorting MyISAM indexes during a REPAIR TABLE or when creating indexes with CREATE INDEX or ALTER TABLE.';  //to translate
-$strMyISAMDataPointerSize = 'Data pointer size';  //to translate
-$strMyISAMDataPointerSizeDesc = 'The default pointer size in bytes, to be used by CREATE TABLE for MyISAM tables when no MAX_ROWS option is specified.';  //to translate
-$strMyISAMRecoverOptions = 'Automatic recovery mode';  //to translate
-$strMyISAMRecoverOptionsDesc = 'The mode for automatic recovery of crashed MyISAM tables, as set via the --myisam-recover server startup option.';  //to translate
-$strMyISAMRepairThreads = 'Repair threads';  //to translate
-$strMyISAMRepairThreadsDesc = 'If this value is greater than 1, MyISAM table indexes are created in parallel (each index in its own thread) during the Repair by sorting process.';  //to translate
-$strMyISAMMaxSortFileSize = 'Maximum size for temporary sort files';  //to translate
-$strMyISAMMaxSortFileSizeDesc = 'The maximum size of the temporary file MySQL is allowed to use while re-creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA INFILE).';  //to translate
-$strMyISAMMaxExtraSortFileSize = 'Maximum size for temporary files on index creation';  //to translate
-$strMyISAMMaxExtraSortFileSizeDesc = 'If the temporary file used for fast MyISAM index creation would be larger than using the key cache by the amount specified here, prefer the key cache method.';  //to translate
-$strLongOperation = 'This operation could be long. Proceed anyway?';  //to translate
-$strVersionInformation = 'Version information';  //to translate
-$strInnoDBDataHomeDir = 'Data home directory';  //to translate
-$strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';  //to translate
-$strInnoDBDataFilePath = 'Data files';  //to translate
-$strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
-$strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
 $strBufferPool = 'Buffer Pool';  //to translate
-$strBufferPoolUsage = 'Buffer Pool Usage';  //to translate
-$strDataPages = 'Pages containing data';  //to translate
-$strFreePages = 'Free pages';  //to translate
-$strBusyPages = 'Busy pages';  //to translate
-$strDirtyPages = 'Dirty pages';  //to translate
-$strPagesToBeFlushed = 'Pages to be flushed';  //to translate
-$strLatchedPages = 'Latched pages';  //to translate
 $strBufferPoolActivity = 'Buffer Pool Activity';  //to translate
-$strReadRequests = 'Read requests';  //to translate
-$strWriteRequests = 'Write requests';  //to translate
+$strBufferPoolUsage = 'Buffer Pool Usage';  //to translate
 $strBufferReadMisses = 'Read misses';  //to translate
 $strBufferReadMissesInPercent = 'Read misses in %';  //to translate
 $strBufferWriteWaits = 'Write waits';  //to translate
 $strBufferWriteWaitsInPercent = 'Write waits in %';  //to translate
+$strBusyPages = 'Busy pages';  //to translate
+
+$strDataPages = 'Pages containing data';  //to translate
+$strDefaultEngine = '%s is the default storage engine on this MySQL server.';  //to translate
+$strDirtyPages = 'Dirty pages';  //to translate
+
+$strEngineAvailable = '%s is available on this MySQL server.';  //to translate
+$strEngineDisabled = '%s has been disabled for this MySQL server.';  //to translate
+$strEngineUnsupported = 'This MySQL server does not support the %s storage engine.';  //to translate
+$strEngines = 'Engines';  //to translate
+
+$strFreePages = 'Free pages';  //to translate
+
 $strHTMLExcel = 'Microsoft Excel 2000';  //to translate
 $strHTMLExcelOptions = 'Microsoft Excel 2000 export options';  //to translate
 $strHTMLWord = 'Microsoft Word 2000';  //to translate
 $strHTMLWordOptions = 'Microsoft Word 2000 export options';  //to translate
-$strInnoDBBufferPoolSizeDesc = 'The size of the memory buffer InnoDB uses to cache data and indexes of its tables.';  //to translate
+
+$strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
+$strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate
+$strInnoDBBufferPoolSizeDesc = 'The size of the memory buffer InnoDB uses to cache data and indexes of its tables.';  //to translate
+$strInnoDBDataFilePath = 'Data files';  //to translate
+$strInnoDBDataHomeDir = 'Data home directory';  //to translate
+$strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';  //to translate
 $strInnoDBPages = 'pages';  //to translate
+
+$strLatchedPages = 'Latched pages';  //to translate
+$strLongOperation = 'This operation could be long. Proceed anyway?';  //to translate
+
+$strMyISAMDataPointerSize = 'Data pointer size';  //to translate
+$strMyISAMDataPointerSizeDesc = 'The default pointer size in bytes, to be used by CREATE TABLE for MyISAM tables when no MAX_ROWS option is specified.';  //to translate
+$strMyISAMMaxExtraSortFileSize = 'Maximum size for temporary files on index creation';  //to translate
+$strMyISAMMaxExtraSortFileSizeDesc = 'If the temporary file used for fast MyISAM index creation would be larger than using the key cache by the amount specified here, prefer the key cache method.';  //to translate
+$strMyISAMMaxSortFileSize = 'Maximum size for temporary sort files';  //to translate
+$strMyISAMMaxSortFileSizeDesc = 'The maximum size of the temporary file MySQL is allowed to use while re-creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA INFILE).';  //to translate
+$strMyISAMRecoverOptions = 'Automatic recovery mode';  //to translate
+$strMyISAMRecoverOptionsDesc = 'The mode for automatic recovery of crashed MyISAM tables, as set via the --myisam-recover server startup option.';  //to translate
+$strMyISAMRepairThreads = 'Repair threads';  //to translate
+$strMyISAMRepairThreadsDesc = 'If this value is greater than 1, MyISAM table indexes are created in parallel (each index in its own thread) during the Repair by sorting process.';  //to translate
+$strMyISAMSortBufferSize = 'Sort buffer size';  //to translate
+$strMyISAMSortBufferSizeDesc = 'The buffer that is allocated when sorting MyISAM indexes during a REPAIR TABLE or when creating indexes with CREATE INDEX or ALTER TABLE.';  //to translate
+
+$strNoDetailsForEngine = 'There is no detailed status information available for this storage engine.';  //to translate
+
+$strPagesToBeFlushed = 'Pages to be flushed';  //to translate
+
+$strReadRequests = 'Read requests';  //to translate
+
 $strSocketProblem = '(or the local MySQL server\'s socket is not correctly configured)';  //to translate
+$strStorageEngine = 'Storage Engine';  //to translate
+$strStorageEngines = 'Storage Engines';  //to translate
+
+$strVersionInformation = 'Version information';  //to translate
+$strView = 'View';  //to translate
+$strViewHasBeenDropped = 'View %s has been dropped';  //to translate
+
+$strWriteRequests = 'Write requests';  //to translate
+
 ?>
