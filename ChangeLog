@@ -7,6 +7,7 @@ $Source$
 
 2001-08-02  Steve Alberty  <alberty@neptunlabs.de>
 	* sql.php3: fix confirm bug with the new backquotes
+	* db_readdump.php3: mysql_die2 to mysql_die
 
 2001-08-01  Marc Delisle  <lem9@users.sourceforge.net>
 	* executed remove_control_m.sh on *.php3
