@@ -1102,7 +1102,7 @@ if ($is_minimum_common == FALSE) {
              echo 'document.write (\'<p><a href="' . $uri . '">' . $GLOBALS['strGo'] . '</a></p>\');' . "\n";
              echo '</script></body></html>' . "\n";
 
-         } else { 
+         } else {
              header('Location: ' . $uri);
          }
      }
@@ -1312,7 +1312,7 @@ if ($is_minimum_common == FALSE) {
 <!--
 if (typeof(window.parent) != 'undefined'
     && typeof(window.parent.frames['nav']) != 'undefined') {
-    window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>);
+    window.parent.frames['nav'].goTo('<?php echo $reload_url; ?>&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>);
 }
 //-->
 </script>

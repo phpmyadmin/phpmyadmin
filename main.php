@@ -39,7 +39,7 @@ else if (isset($reload) && $reload) {
     ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./left.php?<?php echo PMA_generate_common_url('', '', '&');?>&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>););
+window.parent.frames['nav'].GoTo('./left.php?<?php echo PMA_generate_common_url('', '', '&');?>&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>););
 //-->
 </script>
     <?php
@@ -239,7 +239,7 @@ if ($server > 0) {
                             $db_to_create   = '';
                             break;
                         } // end if
-                        else if ( (ereg($re0 . '%|_', $show_grants_dbname) 
+                        else if ( (ereg($re0 . '%|_', $show_grants_dbname)
                                   && !ereg('\\\\%|\\\\_', $show_grants_dbname))
                                 || (!PMA_DBI_try_query('USE ' . ereg_replace($re1 .'(%|_)', '\\1\\3', $show_grants_dbname)) && substr(PMA_DBI_getError(), 1, 4) != 1044)
                             ) {
@@ -314,7 +314,7 @@ if ($server > 0) {
             <?php
         } else {
             ?>
-            
+
             <!-- db creation no privileges message -->
             <li>
                 <?php echo $strCreateNewDatabase . ':&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?><br />

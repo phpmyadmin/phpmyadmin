@@ -219,14 +219,32 @@ PMA_setFontSizes();
 
     <script type="text/javascript" language="javascript">
     <!--
+    function goTo(targeturl, targetframe) {
+        if (!targetframe || targetframe == '') {
+            targetframe = self;
+        }
+
+        alert('Changing location...');
+
+        if (targetframe) {
+<?php if (PMA_USR_BROWSER_AGENT != 'SAFARI') { ?>
+            targetframe.location.replace(targeturl);
+<?php } else { ?>
+            targetframe.location.href = targeturl;
+<?php } ?>
+        }
+
+        return true;
+    }
+
 <?php
 if (isset($lightm_db) && !empty($lightm_db)) {
 ?>
-    window.parent.frames['phpmain<?php echo $hash; ?>'].location.replace('./<?php echo $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db, '', '&');?>');
+    goTo('./<?php echo $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db, '', '&');?>', window.parent.frames['phpmain<?php echo $hash; ?>']);
 <?php
 } elseif (isset($lightm_db)) {
 ?>
-    window.parent.frames['phpmain<?php echo $hash; ?>'].location.replace('./main.php?<?php echo PMA_generate_common_url('', '', '&');?>');
+    goTo('./main.php?<?php echo PMA_generate_common_url('', '', '&');?>', window.parent.frames['phpmain<?php echo $hash; ?>']);
 <?php
 }
 ?>

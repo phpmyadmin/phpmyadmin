@@ -21,7 +21,7 @@ require('./server_common.inc.php');
 function reload_window(db) {
     if (typeof(window.parent) != 'undefined'
         && typeof(window.parent.frames['nav']) != 'undefined') {
-        window.parent.frames['nav'].location.replace('./left.php?<?php echo PMA_generate_common_url('','','&');?>&db=' + db + '&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>);
+        window.parent.frames['nav'].goTo('./left.php?<?php echo PMA_generate_common_url('','','&');?>&db=' + db + '&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>);
     }
 }
 //-->

@@ -11,6 +11,9 @@ $Source$
       any (bug #943626).
 
 2004-04-28 Garvin Hicking <pma@supergarv.de>
+    * left.php, main.php, server_databases.php, common.lib.php,
+      db_details_common.php: Bug #942296 - Safari can't handle
+      location.replace() redirects correctly
     * libraries/tbl_change.js: Restrict calendar to maximum values for
       days/hours/minutes/seconds.
     * tbl_change.php: Bug #913600 - Made tabindex/id of multi-edit table
