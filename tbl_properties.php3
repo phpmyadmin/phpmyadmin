@@ -266,21 +266,20 @@ if ($index_count > 0) {
 ?>
 <?php
 // BEGIN - Calc Table Space - staybyte - 9 June 2001
-$nonisam=false;
-if (!eregi("ISAM|HEAP", $showtable['Type'])) $nonisam=true;
-if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $nonisam==false && isset($showtable)) {
+$nonisam     = FALSE;
+if (!eregi('ISAM|HEAP', $showtable['Type'])) {
+    $nonisam = TRUE;
+}
+if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $nonisam == FALSE && isset($showtable)) {
     // Gets some sizes
-    $mergetable=false;
-    if (isset($showtable['Type']) && $showtable['Type']=="MRG_MyISAM") {
-        $mergetable=true;
+    $mergetable     = FALSE;
+    if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
+        $mergetable = TRUE;
     }
-
-    list($data_size, $data_unit)      = format_byte_down($showtable['Data_length']);
-
-    if ($mergetable==false) {
+    list($data_size, $data_unit)       = format_byte_down($showtable['Data_length']);
+    if ($mergetable == FALSE) {
         list($index_size, $index_unit) = format_byte_down($showtable['Index_length']);
     }
-
     if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
         list($free_size, $free_unit)   = format_byte_down($showtable['Data_free']);
     }
