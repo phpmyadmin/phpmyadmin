@@ -12,6 +12,9 @@ $Source$
 2005-03-30 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: Patch #1164699, clarification about PmaAbsoluteURI,
       thanks to Isaac Bennetch - ibennetch
+    * lang/english: improvements, thanks to Ryan Schmidt - ryandesign
+    * lang/*: removed unused message and modified strCheckOverhead
+      where still untranslated
 
 2005-03-29 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: XSS vulnerability on convcharset
