@@ -6,16 +6,30 @@ require("./config.inc.php3");
 if(!defined("__LIB_INC__")){
 	define("__LIB_INC__", 1);
 
-// load the mysql extensions or not - staybyte - 26. June 2001
-	if (defined("PHP_OS") && eregi("win", PHP_OS)) $suffix=".dll";
-	else $suffix=".so";
-	if (intval(phpversion())==3) $extension="MySQL";
-	else $extension="mysql";
-	if (!@extension_loaded($extension) && !@get_cfg_var('safe_mode')) @dl($extension.$suffix);
-	if (!@extension_loaded($extension)){
-		echo $strCantLoadMySQL;
-		exit;
-	}
+    /**
+     * Load the mysql extensions or not - staybyte - 26. June 2001
+     */
+    if ((intval(phpversion()) == 3 && substr(phpversion(), 4) > 9)
+        || intval(phpversion()) == 4) {
+        if (defined('PHP_OS') && eregi('win', PHP_OS)) {
+            $suffix = '.dll';
+        } else {
+            $suffix = '.so';
+        }
+        if (intval(phpversion()) == 3) {
+            $extension = 'MySQL';
+        } else {
+            $extension = 'mysql';
+        }
+        if (!@extension_loaded($extension) && !@get_cfg_var('safe_mode')) {
+            @dl($extension.$suffix);
+        }
+        if (!@extension_loaded($extension)) {
+            echo $strCantLoadMySQL;
+            exit();
+        }
+    } // end load mysql extension
+
 
 function show_table_navigation($pos_next, $pos_prev, $dt_result) {
   global $pos, $cfgMaxRows, $lang, $server, $db, $table, $sql_query; 
@@ -313,8 +327,7 @@ function display_table ($dt_result, $is_simple = false) {
 
   $primary = false;
   if(!$is_simple && !empty($table) && !empty($db)) {
-    $result = mysql_query("SELECT COUNT(*) as total FROM " .db_name($db).
-	"." . tbl_name($table)) or mysql_die();
+    $result = mysql_query("SELECT COUNT(*) as total FROM " . db_name($db) . "." . tbl_name($table)) or mysql_die();
     $row = mysql_fetch_array($result);
     $total = $row["total"];
   }
@@ -516,8 +529,7 @@ function get_table_def($db, $table, $crlf)
 // modified by Lem9 to allow older MySQL versions to continue to work
 
     if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 20){
-                $result=mysql_query("show create table " .db_name($db)."."
-			. tbl_name($table));
+                $result=mysql_query("show create table " . db_name($db) . "." . tbl_name($table));
                 if ($result!=false && mysql_num_rows($result)>0){
                         $tmpres=mysql_fetch_array($result);
                         $tmp=$tmpres[1];
