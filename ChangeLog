@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-25 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * queryframe.php: Undefined index errors.
+
 2004-06-24 Marc Delisle  <lem9@users.sourceforge.net>
     * left.php, config.inc.php, Documentation.html,
       libraries/config_import.lib.php + common.lib.php, all colors.inc.php:
