@@ -6,12 +6,17 @@ $Id$
 $Source$
 
 2002-03-30 Marc Delisle  <lem9@users.sourceforge.net>
-	* tbl_properties.php3, comments about why we need a mysql_select_db()
+	* tbl_properties.php3, comments about why we need a mysql_select_db().
 
 2002-03-30 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/zip.lib.php3: optimized a bit.
 	* confic.inc.php3: reordered some directives.
 	* tbl_change.php3: made the "insert-new-row" feature sticky.
+	* db_details.php3, line 545; tbl_properties.php3, line 705: beautified
+	  generated html.
+	* Documentation.html, line 1-2; header.inc.php3, lines 46-47;
+	  index.php3, line 44-45; left.php3, line 60-61; libraries/auth/*:
+	  fixed bug #536550 - DOCTYPE line contains line feeds.
 
 2002-03-29 Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3, lines 456-457: swap form fields position for consistency
