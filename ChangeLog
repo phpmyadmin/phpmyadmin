@@ -11,6 +11,13 @@ $Source$
     * tbl_replace.php3: bug 638275: ignore NULL checkbox is there is
       a value for the field (possible if js is disabled, or broken browser
       like Konqueror 2.2.2); implemented on insert or update
+    * lang/thai* typo
+    * lang/malay update, thanks to Shafique (sicksand)
+    * lang/slovak update, thanks to Lubos Klokner
+    * lang/dutch update, thanks to Ivo Teel
+    * lang/spanish update, thanks to Daniel Hinostroza
+    * lang/korean update, thanks to Juhyon Kim (woosuhan)
+    * lang/hindi update, thanks to Girish Nair (girish_nair)
 
 2002-11-08 Robin Johnson  <robbat2@users.sourceforge.net>
     * lib/sqlparser.data.php3: Bug #639291 fixed
