@@ -214,7 +214,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 
 <script type="text/javascript" language="javascript">
 var uname = document.forms['login_form'].elements['pma_username'];
-var uname = document.forms['login_form'].elements['pma_password'];
+var pword = document.forms['login_form'].elements['pma_password'];
 if (uname.value == '') { 
     uname.focus();
 } else {

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-27 Marc Delisle  <lem9@users.sourceforge.net>
+	* libraries/auth/cookie.auth.lib.php3 fix, wrong focus when using
+	  cookies for the first time, thanks to dphanton at users.sf.net
+
 2002-01-26  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/chinese_big5.inc.php3, russian-*.inc.php3: updated thanks to
 	  Siu Sun <siusun at users.sourceforge.net> and
