@@ -34,17 +34,6 @@ if (isset($show_query) && $show_query == 'y') {
 }
 unset($sql_query);
 
-
-/**
- * Set parameters for links
- */
-$url_query = 'lang=' . $lang
-           . '&amp;server=' . $server
-           . '&amp;db=' . urlencode($db)
-           . '&amp;table=' . urlencode($table)
-           . '&amp;goto=tbl_properties.php3';
-
-
 /**
  * Updates table type, comment and order if required
  */
