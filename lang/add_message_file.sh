@@ -6,6 +6,11 @@
 #
 # Example:  add_message_file.sh  xxx
 #
+if [ $# -ne 1 ] ; then
+    echo "usage: add_message_file.sh filename"
+    exit 1
+fi
+    
 for file in *.inc.php3
 do
     echo $file " "
