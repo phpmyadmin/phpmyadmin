@@ -8,6 +8,7 @@ $Source$
 2001-10-23  Robin Johnson  <robbat2@users.sourceforge.net>
 	* Documentation.html: Redid documentation of advanced authentication mode.
 	* Documentation.txt: Updated from latest Documentation.html
+	* config.inc.php3: removed note that basic user name is always required
 
 2001-10-23  Loïc Chapeaux  <lolo@phpheaven.net>
 	* config.inc.php3, Documentation.html: extended the use of stduser/stdpass

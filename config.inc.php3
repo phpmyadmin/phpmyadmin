@@ -45,7 +45,7 @@ $cfgServers[1]['connect_type']  = 'tcp';       // How to connect to MySQL server
 $cfgServers[1]['stduser']       = '';          // MySQL standard user settings (this user must have read-only
 $cfgServers[1]['stdpass']       = '';          //   access to the "mysql/user" and "mysql/db" tables)
 $cfgServers[1]['adv_auth']      = FALSE;       // Use advanced authentication?
-$cfgServers[1]['user']          = 'root';      // MySQL user (always required)
+$cfgServers[1]['user']          = 'root';      // MySQL user
 $cfgServers[1]['password']      = '';          // MySQL password (only needed with basic auth)
 $cfgServers[1]['only_db']       = '';          // If set to a db-name, only this db is displayed at left frame
                                                // It may also be an array of db-names
