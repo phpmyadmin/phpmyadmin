@@ -286,6 +286,7 @@ $strWrongUser = 'Zlé pou¾ívateµské meno alebo heslo. Prístup zamietnutý.';
 $strYes = 'Áno';
 
 // To translate
+$strExtendedInserts = 'Extended inserts';
 $strInstructions = 'Instructions';//to translate
 $strNoDatabases = 'No databases';
 $strNoModification = 'No change'; // To translate

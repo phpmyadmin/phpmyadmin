@@ -101,6 +101,7 @@ $strEnd = 'End';
 $strEnglishPrivileges = ' Note: MySQL privilege names are expressed in English ';
 $strError = 'Error';
 $strEscapedBy = 'escaped by';
+$strExtendedInserts = 'Extended inserts';
 $strExtra = 'Extra';
 
 $strField = 'Field';

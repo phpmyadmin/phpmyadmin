@@ -101,6 +101,7 @@ $strEnd = 'Fin';
 $strEnglishPrivileges = ' Veuillez noter que les noms de privilèges sont exprimés en anglais';
 $strError = 'Erreur';
 $strEscapedBy = 'avec caractère spécial';
+$strExtendedInserts = 'Insertions étendues';
 $strExtra = 'Extra';
 
 $strField = 'Champ';

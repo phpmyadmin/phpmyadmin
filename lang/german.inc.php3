@@ -291,5 +291,6 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
+$strExtendedInserts = 'Extended inserts';
 $strStrucExcelCSV = 'CSV for Ms Excel data';
 ?>

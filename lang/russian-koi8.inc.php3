@@ -283,6 +283,7 @@ $strYes = 'Да';
 $strAffectedRows = 'Affected rows:'; // To translate
 $strBzip = '"bzipped"'; // To translate
 $strGzip = '"gzipped"'; // To translate
+$strExtendedInserts = 'Extended inserts';
 $strInstructions = 'Instructions';//to translate
 $strLengthSet = 'Length/Values*'; // To translate
 $strOffSet = 'offset'; // To translate

@@ -282,6 +282,7 @@ $strYes = ' ¬O ';
 // To translate
 $strAffectedRows = ' Rows affected: ';  //to translate
 $strDisplayOrder = 'Display order:';
+$strExtendedInserts = 'Extended inserts';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
 $strInstructions = 'Instructions';//to translate
