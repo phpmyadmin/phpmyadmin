@@ -181,6 +181,8 @@ else {
 
     $now = gmdate('D, d M Y H:i:s') . ' GMT';
 
+    /* 2002-12-10: We have to send the header later, since we have to check for
+       complications during the compression first! (See bug #651414)
     // Send headers
     header('Content-Type: ' . $mime_type);
     header('Expires: ' . $now);
@@ -193,6 +195,7 @@ else {
         header('Content-Disposition: attachment; filename="' . $filename . '.' . $ext . '"');
         header('Pragma: no-cache');
     }
+    */
 } // end download
 
 
@@ -387,20 +390,26 @@ if (isset($zip) && $zip == 'zip') {
         }
         $zipfile = new zipfile();
         $zipfile -> addFile($dump_buffer, $filename . $extbis);
-        echo $zipfile -> file();
+        $dump_buffer = $zipfile -> file();
     }
 }
 // 2. as a bzipped file
 else if (isset($bzip) && $bzip == 'bzip') {
     if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
-        echo bzcompress($dump_buffer);
+        $dump_buffer = bzcompress($dump_buffer);
+        if ($dump_buffer === '-8') {
+            include('./header.inc.php3');
+            echo spintf($strBzError, '<a href="http://bugs.php.net/bug.php?id=17300" target="_blank">17300</a>');
+            include('./footer.inc.php3');
+            exit;
+        }
     }
 }
 // 3. as a gzipped file
 else if (isset($gzip) && $gzip == 'gzip') {
     if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('gzencode')) {
         // without the optional parameter level because it bug
-        echo gzencode($dump_buffer);
+        $dump_buffer = gzencode($dump_buffer);
     }
 }
 // 4. as a text file
@@ -412,10 +421,26 @@ else {
     echo htmlspecialchars($dump_buffer);
 }
 
+if (!empty($asfile)) {
+    // finally send the headers and the file
+    header('Content-Type: ' . $mime_type);
+    header('Expires: ' . $now);
+    // lem9 & loic1: IE need specific headers
+    if (PMA_USR_BROWSER_AGENT == 'IE') {
+        header('Content-Disposition: inline; filename="' . $filename . '.' . $ext . '"');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+    } else {
+        header('Content-Disposition: attachment; filename="' . $filename . '.' . $ext . '"');
+        header('Pragma: no-cache');
+    }
+    echo $dump_buffer;
+}
+
 /**
  * Close the html tags and add the footers in dump is displayed on screen
  */
-if (empty($asfile)) {
+else {
     echo '    </pre>' . "\n";
     echo '</div>' . "\n";
     echo "\n";

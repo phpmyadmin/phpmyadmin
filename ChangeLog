@@ -14,6 +14,7 @@ $Source$
       - Small bugfixes.
     * lang/spanish-*.inc.php3: Updates, thanks again to
       Dr. med. Daniel Hinostroza C.
+    * tbl_dump.php3, lang/*.inc.php3: Warning for bug #651414.
 
 2002-12-09 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/norwegian-*.inc.php3: Updates, thanks again to

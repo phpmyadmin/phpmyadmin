@@ -71,6 +71,7 @@ $strBookmarkQuery = 'Gespeicherte SQL-Abfrage';
 $strBookmarkThis = 'SQL-Abfrage speichern';
 $strBookmarkView = 'Nur zeigen';
 $strBrowse = 'Anzeigen';
+$strBzError = 'phpMyAdmin konnte die Datei wegen eines Fehler in der Bz2-Erweiterung in dieser php-Version nicht komprimieren. Es wird deshalb empfohlen die Einstellung <code>$cfg[\'BZipDump\']</code> in Ihrer phpMyAdmin-Konfiguration auf <code>FALSE</code> zu setzen. Falls Sie die Bz2-Kompressionsfunktionen dennoch nutzen wollen, so sollten Sie eine neuere php-Version installieren. Bitte lesen Sie auch den php-Bugreport %s für weitere Informationen.';
 $strBzip = 'BZip-komprimiert';
 
 $strCannotLogin = 'Die Anmeldung am MySQL-Server ist fehlgeschlagen.';
