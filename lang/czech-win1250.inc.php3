@@ -148,6 +148,7 @@ $strInsertNewRow = 'Vložit nový øádek';
 $strInsertTextfiles = 'Vložit textové soubory do tabulky';
 $strInstructions = 'Instrukce';
 $strInUse = 'právì se používá'; 
+$strInvalidName = '"%s" je rezervované slovo a proto ho nemùžete požít jako jméno databáze/tabulky/sloupce.';
 
 $strKeyname = 'Klíèovy název';
 $strKill = ' Zabít ';

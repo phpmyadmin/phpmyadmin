@@ -17,6 +17,8 @@ $Source$
 	* defines.inc.php3: distinguished Konqueror from the "other browsers"
 	  group (to prepare a fix for bug #439081 -Konqueror 2.1.2 browser
 	  support-).
+	* lang/czech-iso.inc.php3 & czech-win1250.inc.php3: updated thanks to
+	  Michal Cihar.
 
 2001-09-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3:

@@ -148,6 +148,7 @@ $strInsertNewRow = 'Vlo¾it nový øádek';
 $strInsertTextfiles = 'Vlo¾it textové soubory do tabulky';
 $strInstructions = 'Instrukce';
 $strInUse = 'právì se pou¾ívá'; 
+$strInvalidName = '"%s" je rezervované slovo a proto ho nemù¾ete po¾ít jako jméno databáze/tabulky/sloupce.';
 
 $strKeyname = 'Klíèovy název';
 $strKill = ' Zabít ';
@@ -262,7 +263,7 @@ $strSQLQuery = 'SQL-dotaz';
 $strStatement = 'Údaj'; 
 $strStrucCSV = 'CSV data';
 $strStrucData = 'Strukturu a data';
-$strStrucDrop = 'Pøidej \'Vyma¾ tabulku\'';
+$strStrucDrop = 'Pøidej \'DROP TABLE\'';
 $strStrucExcelCSV = 'CSV data pro Ms Excel';
 $strStrucOnly = 'Pouze strukturu';
 $strSubmit = 'Ode¹li';
@@ -274,7 +275,7 @@ $strTableComments = 'Komentáøe k tabulce';
 $strTableEmpty = 'Jméno tabulky je prázdné!';
 $strTableMaintenance = ' Údr¾ba tabulky ';
 $strTables = '%s tabulek';
-$strTableStructure = 'Struktura tabulky pro tabulku';
+$strTableStructure = 'Struktura tabulky';
 $strTableType = 'Typ tabulky';
 $strTerminatedBy = 'ukonèen';
 $strTextAreaLength = ' Toto pole mo¾ná nepùjde <br />(kvùli délce) upravit ';
@@ -289,14 +290,14 @@ $strUnique = 'Unikátní';
 $strUpdatePassMessage = 'Bylo zmìnìno heslo pro';
 $strUpdatePassword = 'Zmìnit heslo';
 $strUpdatePrivMessage = 'Byla zmìnìna privilegia pro';
-$strUpdateQuery = 'Update Query'; //to translate (tbl_qbe.php3)
+$strUpdateQuery = 'Aktualizovat dotaz';
 $strUsage = 'Pou¾ívá'; 
 $strUseBackquotes = 'Pou¾ít zpìtné uvozovky u jmeno tabulek a polí';
 $strUser = 'U¾ivatel';
 $strUserEmpty = 'Jméno u¾ivatele je prázdné!';
 $strUserName = 'Jméno u¾ivatele';
 $strUsers = 'U¾ivatelé';
-$strUseTables = 'Use Tables'; //to translate (tbl_qbe.php3)
+$strUseTables = 'Pou¾ít tabulky';
 
 $strValue = 'Hodnota';
 $strViewDump = 'Uka¾ dump (schema) tabulky';
@@ -308,6 +309,4 @@ $strWrongUser = '©patné u¾ivatelské jméno/heslo. Pøístup odepøen.';
 
 $strYes = 'Ano';
 
-// To translate
-$strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
 ?>
