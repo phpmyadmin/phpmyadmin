@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/french update
+
 2005-02-10 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: new FAQ 1.32 about using HTTP auth under IIS
 
