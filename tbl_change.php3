@@ -438,26 +438,38 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             <option value=""></option>
         <?php
         echo "\n";
+        $reloptions = array('content-id' => array(), 'id-content' => array());
         while ($relrow = @PMA_mysql_fetch_array($disp)) {
             $key   = $relrow[$foreign_field];
             if (strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
-                $value  = (($foreign_display != FALSE) ? '&nbsp;-&nbsp;' . htmlspecialchars($relrow[$foreign_display]) : '');
+                $value  = (($foreign_display != FALSE) ? htmlspecialchars($relrow[$foreign_display]) : '');
                 $vtitle = '';
             } else {
                 $vtitle = htmlspecialchars($relrow[$foreign_display]);
-                $value  = (($foreign_display != FALSE) ? '&nbsp;-&nbsp;' . htmlspecialchars(substr($vtitle, 0, $cfg['LimitChars']) . '...') : '');
+                $value  = (($foreign_display != FALSE) ? htmlspecialchars(substr($vtitle, 0, $cfg['LimitChars']) . '...') : '');
             }
             
-            echo '            <option value="' . htmlspecialchars($key) . '"';
+            $reloption = '            <option value="' . htmlspecialchars($key) . '"';
             if ($vtitle != '') {
-                echo ' title="' . $vtitle . '"';
+                $reloption .= ' title="' . $vtitle . '"';
             }
             
             if ($key == $data) {
-               echo ' selected="selected"';
+               $reloption .= ' selected="selected"';
             } // end if
-            echo '>' . htmlspecialchars($key) . $value . '</option>' . "\n";
+
+            $reloptions['id-content'][] = $reloption . '>' . $value . '&nbsp;-&nbsp;' . htmlspecialchars($key) .  '</option>' . "\n";
+            $reloptions['content-id'][] = $reloption . '>' . htmlspecialchars($key) .  '&nbsp;-&nbsp;' . $value . '</option>' . "\n";
         } // end while
+        
+        if (count($reloptions['content-id']) < 100) {
+            echo implode('', $reloptions['content-id']);
+            if (count($reloptions['content-id']) > 0) {
+                echo '            <option value=""></option>' . "\n";
+                echo '            <option value=""></option>' . "\n";
+            }
+        }
+        echo implode('', $reloptions['id-content']);
         echo '            </select>' . "\n";
         echo '        </td>' . "\n";
         unset($disp);

@@ -10,6 +10,7 @@ $Source$
       (Bug #782966)
     * tbl_change.php3: RFE #772991: Shorten dropdown field using
       $cfg['LimitChars']
+    * tbl_change.php3: RFE #762221: Swap relational insert key order
 
 2003-08-05 Michal Cihar  <nijel@users.sourceforge.net>
     * sql.php3: Fixed regular expression.
