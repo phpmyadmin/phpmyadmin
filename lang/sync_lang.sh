@@ -28,7 +28,7 @@ english-iso-8859-1
 estonian-iso-8859-1
 finnish-iso-8859-1
 french-iso-8859-1
-galician
+galician-iso-8859-1
 german
 greek
 hebrew
