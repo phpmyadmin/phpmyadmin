@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-12 Michal Čihař  <michal@cihar.com>
+    * sql.php: Don't try to require sql.php with parameters, rather redirect
+      to it.
+
 2004-10-11 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: typos and XHTML validity, thanks to Cedric Corazza
     * libraries/export/sql.php: bug #1039639: under mysqli, some field types

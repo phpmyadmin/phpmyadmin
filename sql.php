@@ -146,6 +146,7 @@ if ($is_select) {
  * Sets or modifies the $goto variable if required
  */
 if ($goto == 'sql.php') {
+    $is_gotofile = FALSE;
     $goto = 'sql.php?'
           . PMA_generate_common_url($db, $table)
           . '&amp;pos=' . $pos
