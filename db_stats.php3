@@ -85,7 +85,7 @@ header('Content-Type: text/html; charset=' . $charset);
     <?php echo ucfirst($strDatabasesStats); ?> - 
     <?php echo $strHost . ': ' . $cfgServer['host'] . "\n"; ?>
 </h1>   
-<h2><?php echo $strGenTime . ': ' . date('F j, Y, g:i a'); ?></h2>
+<h2><?php echo $strGenTime . ': ' . date('F j, Y, H:i'); ?></h2>
 
 
 <table border="0" cellspacing="0" cellpadding="0">
