@@ -232,7 +232,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             // which might lead to empty members in the array
             if(strlen($_word)==0){continue;}
             $_is_string = FALSE;
-            // debug echo "prüfe: $_word ";
             //  Anything inside quots might be more than one word
             //  so as we splitted by the blanks we have to try to get those parts back
             //  together
@@ -241,13 +240,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     //  start of a string
                     $_temp = $_word;
                     $_is_string = TRUE;
-                    // debug echo "starte " . $_temp . '<br />';
             }else {
                 if(isset($_temp)) {
                     //  we are continuing a string
                     $_temp .= $_word;
                     $_is_string = TRUE;
-                    // debug echo "weiter " . $_temp . '<br />';
                  }
             }
             if(substr($_word, strlen($_word)-1, 1) == '\''
@@ -262,52 +259,38 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 // no String
                 if(eregi($_sfuncs,  $_word)) {
                     $_word = '<font color="' . $cfg['colorFunctions'].'">' . htmlspecialchars($_word) . '</font>';
-                } else {
-                    if(eregi($_skeyw,  $_word)) {
-                        $_word = '<font color="' . $cfg['colorKeywords'].'">' . htmlspecialchars($_word) . '</font>';
-                        if(isset($mult) && $mult == TRUE){
-                        } else {
-                            $_word = "\n" . $_word;
-                        }
-
+                } else if(eregi($_skeyw,  $_word)) {
+                    $_word = '<font color="' . $cfg['colorKeywords'].'">' . htmlspecialchars($_word) . '</font>';
+                    if(isset($mult) && $mult == TRUE){
                     } else {
-                        if(eregi($_scoltype, $_word)) {
-                            $_word = '<font color="' . $cfg['colorColType'].'">' . htmlspecialchars($_word) . '</font>';
-                        } else {
-                            if(eregi($_add, $_word)) {
-                                $_word = '<font color="' . $cfg['colorAdd'].'">' . htmlspecialchars($_word) . '</font>';
-                            } else {
-                                if($_word=='(') {
-                                    if(isset($_brack_o)){
-                                        $_skey=count($_brack_o);
-                                    } else {
-                                        $_skey = 0;
-                                    }
-                                    $_brack_o[$_skey]=$s_nr;
-                                } else {
-                                    if($_word==')') {
-                                        if(isset($_brack_o)){
-                                            unset($_brack_o[count($_brack_o)-1]);
-                                            if(count($_brack_o)==0){ unset($_brack_o);}
-                                        } else {
-                                            $_brack_c[]=$s_nr;
-                                        }
-                                    } else {
-                                        if($_word==';') {
-                                            $_word = ";\n";
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        $_word = "\n" . $_word;
                     }
+                } else if(eregi($_scoltype, $_word)) {
+                    $_word = '<font color="' . $cfg['colorColType'].'">' . htmlspecialchars($_word) . '</font>';
+                } else if(eregi($_add, $_word)) {
+                    $_word = '<font color="' . $cfg['colorAdd'].'">' . htmlspecialchars($_word) . '</font>';
+                } else if($_word=='(') {
+                    if(isset($_brack_o)){
+                        $_skey=count($_brack_o);
+                    } else {
+                        $_skey = 0;
+                    }
+                    $_brack_o[$_skey]=$s_nr;
+                } else if($_word==')') {
+                    if(isset($_brack_o)){
+                        unset($_brack_o[count($_brack_o)-1]);
+                        if(count($_brack_o)==0){ unset($_brack_o);}
+                    } else {
+                        $_brack_c[]=$s_nr;
+                    }
+                } else if($_word==';') {
+                    $_word = ";\n";
                 }
             }
             if(!isset($_temp) || strlen($_temp) == 0) {
                 $_sql_p[$s_nr] = $_word;
                 $s_nr++;
             }
-            // debug echo "<br />";
         }   //  End while
         if(isset($_brack_o)) {
             while (list($_num,$elem) = each($_brack_o)) {
