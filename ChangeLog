@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-18  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change.php3, bug 442337: a bad line split was adding a blank
+	  in front of the $sql_query, so a check for ^SELECT would not work
+	  and LIMIT was not added to the query
+
 2001-07-18  Olivier Müller  <om@omnis.ch>
 	* set current version number to 2.2.0rc3 (which should become 2.2.0-final)
 	* tbl_change.php3: feature #442402: while editing a record, the function

@@ -28,8 +28,7 @@ else
 <input type="hidden" name="db" value="<?php echo $db;?>">
 <input type="hidden" name="table" value="<?php echo $table;?>">
 <input type="hidden" name="goto" value="<?php echo $goto;?>">
-<input type="hidden" name="sql_query" value="
-	<?php echo isset($sql_query) ? urlencode(stripslashes($sql_query)) : "";?>">
+<input type="hidden" name="sql_query" value="<?php echo isset($sql_query) ? urlencode(stripslashes($sql_query)) : "";?>">
 <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0;?>">
 <?php
 
