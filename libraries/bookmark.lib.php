@@ -82,12 +82,13 @@ function PMA_listBookmarks($db, $cfgBookmark)
  * @param   array     the bookmark parameters for the current user
  * @param   mixed     the id of the bookmark to get
  * @param   string    which field to look up the $id
+ * @param   boolean  TRUE: get all bookmarks regardless of the owning user
  *
  * @return  string    the sql query
  *
  * @access  public
  */
-function PMA_queryBookmarks($db, $cfgBookmark, $id, $id_field = 'id')
+function PMA_queryBookmarks($db, $cfgBookmark, $id, $id_field = 'id', $action_bookmark_all = FALSE)
 {
     global $dbh;
 
@@ -97,8 +98,8 @@ function PMA_queryBookmarks($db, $cfgBookmark, $id, $id_field = 'id')
 
     $query          = 'SELECT query FROM ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
                     . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
-                    . ' AND (user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
-                    . '      OR user = \'\')'
+                    . ($action_bookmark_all? '' : ' AND (user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
+                    . '      OR user = \'\')' )
                     . ' AND ' . PMA_backquote($id_field) . ' = ' . $id;
     $result = PMA_DBI_try_query($query, $dbh);
     list($bookmark_query) = PMA_DBI_fetch_row($result) or array(FALSE);

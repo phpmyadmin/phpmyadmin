@@ -1145,6 +1145,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                 . PMA_generate_common_url($row['dbase'], '')
                                 . '&amp;id_bookmark=' . $row['id']
                                 . '&amp;action_bookmark=0'
+                                . '&amp;action_bookmark_all=1'
                                 . '&amp;SQL=' . $GLOBALS['strExecuteBookmarked']
                                 .' " title="' . $GLOBALS['strExecuteBookmarked'] . '">';
 
