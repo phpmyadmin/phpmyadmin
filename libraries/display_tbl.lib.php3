@@ -82,8 +82,8 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             // 2.2 Statement is a "SHOW..."
             else if ($GLOBALS['is_show']) {
                 // 2.2.1 TODO : defines edit/delete links depending on show statement
-                $tmp = eregi('^SHOW[[:space:]]+(VARIABLES|PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS)', $GLOBALS['sql_query'], $which);
-                if (strtoupper($which[1]) == 'PROCESSLIST') {
+                $tmp = eregi('^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS)', $GLOBALS['sql_query'], $which);
+                if (strpos(' ' . strtoupper($which[1]), 'PROCESSLIST') > 0) {
                     $do_display['edit_lnk'] = 'nn'; // no edit link
                     $do_display['del_lnk']  = 'kp'; // "kill process" type edit link
                 }

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-11-17  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/display_tbl.lib.php3, lines 85-86: fixed bug #482627 - show
+	  full processlist should have 'kill'.
+
 2001-11-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_indexes.php3: merged Michal fix.
 	* db_details.php3, line 47; main.php3, line 32;
