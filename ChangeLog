@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-05 Robin Johnson  <robbat2@users.sourceforge.net>
+    * Documentation.html, Documentation.txt: Long-withstanding spelling fixes!
+    * updatedocs.sh: Script to make conversion easier
+
 2003-03-05 Garvin Hicking <me@supergarv.de>
     * read_dump.php3, sql.php3, tbl_alter.php3,
       tbl_properties_export.php3: Fixed remaining calls to stripslashes() 

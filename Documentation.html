@@ -38,7 +38,7 @@
 <ul>
     <li>
         <a href="http://www.phpmyadmin.net/">
-            Sourceforge phpMyAdmin project page&nbsp;&nbsp;&nbsp;[ http://www.phpmyadmin.net/ ]
+            SourceForge phpMyAdmin project page&nbsp;&nbsp;&nbsp;[ http://www.phpmyadmin.net/ ]
         </a>
     </li>
     <li>
@@ -62,7 +62,7 @@
 
 <ul>
     <li>
-        PHP3 or PHP4: phpMyAdmin widely uses the 'str_replace()' php function
+        PHP3 or PHP4: phpMyAdmin widely uses the 'str_replace()' PHP function
         that was added in PHP&nbsp;3.0.6, but was buggy up until
         PHP&nbsp;3.0.8.
         Then <span class="important">you should not run this script with
@@ -132,15 +132,15 @@
 
 <p>
     <span class="important">NOTE: phpMyAdmin does not apply any special security
-    methods to the MySQL database server. It is still the sysadmin's job to
+    methods to the MySQL database server. It is still the system administrator's job to
     grant permissions on the MySQL databases properly. </span>phpMyAdmin's
     &quot;Privileges&quot; page can be used for this.
 </p>
 
 <p>
     <span class="important">Warning for Mac users:</span>if you are on a MacOS
-    version before OS X, Stuffit unstuffs with Mac formats.<br />
-    So you'll have to resave as in Bbedit to unix style ALL phpMyAdmin scripts
+    version before OS X, StuffIt unstuffs with Mac formats.<br />
+    So you'll have to resave as in BBEdit to Unix style ALL phpMyAdmin scripts
     before uploading them to your server, as PHP seems not to like Mac-style
     end of lines character (&quot;<tt>\r</tt>&quot;).
 </p>
@@ -161,7 +161,7 @@
          document root. If you don't have direct access to your document root,
          put the files in a directory on your local machine, and, after step 3,
          transfer the directory on your web server using, for example, ftp.</li>
-    <li> Open the file config.inc.php3 in your favourite editor and change
+    <li> Open the file config.inc.php3 in your favorite editor and change
          the values for host, user, password and authentication mode to fit
          your environment. Here, &quot;host&quot; means the MySQL server.
          Also insert the correct value for <tt>$cfg['PmaAbsoluteUri']</tt>.
@@ -170,20 +170,20 @@
          explanation of all values.</li>
     <li> It is recommended that you protect the directory in which you
          installed phpMyAdmin (unless it's on a closed intranet, or you wish to
-         use http or cookie authentication), for example with HTTP-AUTH (in a
+         use HTTP or cookie authentication), for example with HTTP-AUTH (in a
          <i>.htaccess</i> file). See the
          <a href="#faq">FAQ section</a> for additional
          information.</li>
     <li> Open the file
          <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/index.php3</i>
          in your browser. phpMyAdmin should now display a welcome screen
-         and your databases, or a login dialog if using http or cookie
+         and your databases, or a login dialog if using HTTP or cookie
          authentication mode.</li>
-    <li> For a whole set of new features (bookmarks, comments, sql-history, pdf-generation)
+    <li> For a whole set of new features (bookmarks, comments, SQL-history, PDP-generation)
          you need to create a set of tables in your database. Please look at your scripts/
          directory, where you should find a file called <i>create_tables.sql</i>.
          You can already use your phpMyAdmin to create the tables for you. Please be
-         aware that you may have to have special (adminstrator) privileges to create
+         aware that you may have to have special (administrator) privileges to create
          the database and tables. After having imported the <i>create_tables.sql</i> file,
          you should specify the table names in your config.inc.php3 file. The directives
          used for that can be found in the <a href="#config">Configuration section</a>.</li>
@@ -200,31 +200,31 @@
 
 <p><b>Using authentication modes:</b></p>
 <ul>
-    <li>Http and cookie authentication modes are recommended in a <b>multi-user
+    <li>HTTP and cookie authentication modes are recommended in a <b>multi-user
         environment</b> where you want to give users access to their own
         database and don't want them to play around with others.
         <br />
         Nevertheless be aware that MS Internet Explorer seems to be really
-        buggy about cookies, at least till version 6. And php 4.1.1 is also a
+        buggy about cookies, at least till version 6. And PHP 4.1.1 is also a
         bit buggy in this area!<br />
         Even in a <b>single-user environment</b>, you might prefer to use
-        http or cookie mode so that your user/password pair are not in clear
+        HTTP or cookie mode so that your user/password pair are not in clear
         in the configuration file.<br /><br /></li>
 
-    <li>Http and cookie authentication modes are more secure: the MySQL
+    <li>HTTP and cookie authentication modes are more secure: the MySQL
         password does not need to be set in the phpMyAdmin configuration file
         (except for the &quot;controluser&quot; -see the
         <a href="#config">Configuration section</a>).
         <br />
         However, keep in mind that the password travels in plain text, unless
-        you are using the https protocol.
+        you are using the HTTPS protocol.
         <br />
         In cookie mode, we send the password in a temporary cookie, so most
         browsers should not store the password in their cookie file.
         <br /><br /></li>
 
     <li>
-        For 'http' and 'cookie' modes, phpMyAdmin needs a controluser that has
+        For 'HTTP' and 'cookie' modes, phpMyAdmin needs a controluser that has
         <b>only</b> the <tt>SELECT</tt> privilege on the <i>mysql.user (all
         columns except &quot;Password&quot;)</i>, <i>mysql.db (all columns)</i>
         &amp; <i>mysql.tables_priv (all columns except &quot;Grantor&quot;
@@ -269,7 +269,7 @@ phpMyAdmin, the contents will be explained later)
         <br />
         What the user may now do is controlled entirely by the MySQL user
         management system.<br />
-        With http or cookie auth mode, you don't need to fill the user/password
+        With HTTP or cookie authentication mode, you don't need to fill the user/password
         fields inside the <tt>$cfg['Servers']</tt> array.<br />
     </li>
 </ul>
@@ -280,12 +280,12 @@ phpMyAdmin, the contents will be explained later)
     <li>Introduced in 1.3.0, it uses Basic HTTP authentication method and
         allows you to login as any valid MySQL user.</li>
     <li>Is only supported with PHP running as an Apache module, not with
-        cgi.</li>
+        CGI.</li>
 </ul>
 
 <p><b>'cookie' authentication mode:</b></p>
 <ul>
-    <li>You can use this method as a replacement for the http
+    <li>You can use this method as a replacement for the HTTP
         authentication (for example, if you're running IIS).
     </li>
     <li>Obviously, the user must enable cookies in the browser.</li>
@@ -314,7 +314,7 @@ phpMyAdmin, the contents will be explained later)
 <h2>Configuration</h2>
 
 <p>
-    <span class="important">Warning for Mac users:</span> php seems not to like
+    <span class="important">Warning for Mac users:</span> PHP seems not to like
     Mac end of lines character (&quot;<tt>\r</tt>&quot;). So ensure you choose
     the option that allows to use the *nix end of line character
     (&quot;<tt>\n</tt>&quot;) in your text editor before registering a script
@@ -325,14 +325,14 @@ phpMyAdmin, the contents will be explained later)
 <dl>
     <dt><b>$cfg['PmaAbsoluteUri']</b> string</dt>
     <dd>
-        Sets here the complete url (with full path) to your phpMyAdmin version.
+        Sets here the complete URL (with full path) to your phpMyAdmin version.
         E.g. <tt>http://www.your_web.net/path_to_your_phpMyAdmin_directory/</tt>.
         <br /><br />
         phpMyAdmin needs this setting, because of requirements of the HTTP
         protocol, explained in RFC2616, section 14.30.
         <br /><br />
-        Don't forget the slash at the end of your url. The url must contain
-        characters that are valid for a url, and on some servers, the path
+        Don't forget the slash at the end of your URL. The URL must contain
+        characters that are valid for a URL, and on some servers, the path
         is case-sensitive.
         <br /><br />
         Starting with version 2.3.0, you can try to leave this parameter
@@ -413,7 +413,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dt><b>$cfg['Servers'][$i]['socket']</b> string</dt>
     <dd>
         The path to the socket to use. Leave blank for default.<br />
-        To use the socket feature you must run php 3.0.10 or more.
+        To use the socket feature you must run PHP 3.0.10 or more.
         <br /><br />
     </dd>
 
@@ -421,7 +421,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         What type connection to use with the MySQL server. Your options are
         <tt>'socket'</tt> &amp; <tt>'tcp'</tt>. It defaults to 'tcp' as that
-        is nearly guarenteed to be available on all MySQL servers, while
+        is nearly guaranteed to be available on all MySQL servers, while
         sockets are not supported on some platforms.
         <br /><br />
         To use the socket mode, your MySQL server must be on the same machine
@@ -431,7 +431,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['Servers'][$i]['compress']</b> boolean</dt>
     <dd>
-        Wheather to use a compressed protocol for the MySQL server connection
+        Whether to use a compressed protocol for the MySQL server connection
         or not (experimental).<br />
         This feature requires PHP&nbsp;&gt;=&nbsp;4.3.0.
     </dd>
@@ -441,7 +441,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['Servers'][$i]['controlpass']</b> string
     </dt>
     <dd>
-        When using http or cookie authentication modes (or 'config'
+        When using HTTP or cookie authentication modes (or 'config'
         authentication mode since phpMyAdmin 2.2.1), you need to supply the
         details of a MySQL account that has <tt>SELECT</tt> privilege on the
         <i>mysql.user (all columns except &quot;Password&quot;)</i>,
@@ -450,7 +450,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         This account is used to check what databases the user will see at
         login.<br />
         Please see the <a href="#setup">install section</a>
-        on &quot;Using http authentication&quot; for more information.
+        on &quot;Using HTTP authentication&quot; for more information.
         <br /><br />
         Note that if you try login to phpMyAdmin with this
         &quot;controluser&quot;, you could get some errors, depending the exact
@@ -500,7 +500,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     </dt>
     <dd>
         The user/password-pair which phpMyAdmin will use to connect to this
-        MySQL-server. This user/password pair is not needed when http or cookie
+        MySQL-server. This user/password pair is not needed when HTTP or cookie
         authentication is used, and should be empty.<br /><br />
     </dd>
 
@@ -508,9 +508,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         If set to a(an array of) database name(s), only this(these) database(s)
         will be shown to the user. Since phpMyAdmin 2.2.1, this/these
-        database(s) name(s) may contain MySQL wilcards characters
+        database(s) name(s) may contain MySQL wildcards characters
         (&quot;_&quot; and &quot;%&quot;): if you want to use literal instances
-        of these characters, escape them (ie use <tt>'my\_db'</tt> and not
+        of these characters, escape them (I.E. use <tt>'my\_db'</tt> and not
         <tt>'my_db'</tt>).<br />
         This setting is an efficient way to lower the server charge since the
         latter does not need to send MySQL requests to build the available
@@ -524,7 +524,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dt><b>$cfg['Servers'][$i]['verbose']</b> string</dt>
     <dd>
         Only useful when using phpMyAdmin with multiple server entries. If set,
-        this string will be displayed instead of the hostname in the pulldown
+        this string will be displayed instead of the hostname in the pull-down
         menu on the main page. This can be useful if you want to show only
         certain databases on your system, for example.
         <br /><br />
@@ -545,12 +545,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <tt>$cfg['Servers'][$i]['pmadb']</tt>.
         <br /><br />
         If you are setting up a multi-user phpMyAdmin installation,
-        you will need to create a new db and setup special privileges,
+        you will need to create a new database and setup special privileges,
         so, as superuser:
         <br /><br />
         <ul>
             <li>
-                create a new database for phpmyadmin:<br />
+                create a new database for phpMyAdmin:<br />
                 <tt>&nbsp;&nbsp;CREATE DATABASE phpmyadmin;</tt><br />
                 Note that &quot;controluser&quot; must have
                 <tt>SELECT, INSERT, UPDATE</tt> and <tt>DELETE</tt>
@@ -564,7 +564,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 do <b>not</b> give any other user rights on this database.
             </li>
             <li>
-                enter the databasename in <tt>$cfg['Servers'][$i]['pmadb']</tt>
+                enter the database name in <tt>$cfg['Servers'][$i]['pmadb']</tt>
             </li>
         </ul><br />
     </dd>
@@ -593,7 +593,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Bookmarks';<br />
                 </tt>
             </li>
-            <li>enter the tablename in
+            <li>enter the table name in
                 <tt>$cfg['Servers'][$i]['bookmarktable']</tt></li>
         </ul><br />
     </dd>
@@ -612,7 +612,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
               that point to the foreign table;
            </li>
            <li>
-              display in an optional tooltip the &quot;display field&quot;
+              display in an optional tool-tip the &quot;display field&quot;
               when browsing the master table, if you move the mouse to a column
               containing a foreign key (use also the 'table_info' table);
            </li>
@@ -674,7 +674,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     </dt>
     <dd>
         Since release 2.3.0 you can describe, in a special 'table_info'
-        table, which field is to be displayed as a tooltip when moving the
+        table, which field is to be displayed as a tool-tip when moving the
         cursor over the corresponding key.
         <br />
         This configuration variable will hold the name of this special
@@ -715,7 +715,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         Since release 2.3.0 you can have phpMyAdmin create PDF pages showing
         the relations between your tables. To do this it needs two tables
-        &quot;pdf_pages&quot; (storing information about the available pdf
+        &quot;pdf_pages&quot; (storing information about the available PDF
         pages) and &quot;table_coords&quot; (storing coordinates where each
         table will be placed on a PDF schema output).
         <br /><br />
@@ -773,8 +773,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         for each table. These will then be shown on the &quot;printview&quot;.
         <br /><br />
         Starting with release 2.4.1, comments are consequently used on the table property
-        pages and table browse view, showing up as tooltips above the column name (properties page)
-        or embedded withing the header of table in browse view. They can also be shown
+        pages and table browse view, showing up as tool-tips above the column name (properties page)
+        or embedded within the header of table in browse view. They can also be shown
         in a table dump. Please see the relevant configuration directives later on.
         <br /><br />
         Also new in release 2.4.1 is a mime-transformation system which is also based on
@@ -826,7 +826,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['Servers'][$i]['history']</b> string
     </dt>
     <dd>
-        Since release 2.4.1 you can store your SQL history, which means all querys you
+        Since release 2.4.1 you can store your SQL history, which means all queries you
         entered manually into the phpMyAdmin interface. If you don't want to use a table-
         based history, you can use the JavaScript-based history. Using that, all your
         history items are deleted when closing the window.<br /><br />
@@ -871,7 +871,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     </dt>
     <dd>
         Because release 2.4.1 introduced the new MIME-transformation support, the
-        column_info table got enhanced with thre new fields. If the above variable is
+        column_info table got enhanced with three new fields. If the above variable is
         set to TRUE (default) phpMyAdmin will check if you have the latest table structure
         available. If not, it will emit a warning to the superuser.<br /><br />
 
@@ -958,7 +958,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['OBGzip'] </b>boolean</dt>
     <dd>
-        Defines whether to use gzip output buffering for increased
+        Defines whether to use GZip output buffering for increased
         speed in HTTP transfers.
         <br /><br />
     </dd>
@@ -988,7 +988,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['ShowSQL'] </b>boolean</dt>
     <dd>
-        Defines whether sql-queries generated by phpMyAdmin should be displayed
+        Defines whether SQL-queries generated by phpMyAdmin should be displayed
         or not.
         <br /><br />
     </dd>
@@ -1032,17 +1032,17 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['ShowTooltip'] </b>boolean</dt>
     <dd>
-        Defines whether to display table comment as tooltip in left frame or
+        Defines whether to display table comment as tool-tip in left frame or
         not.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['ShowTooltipAliasDB'] </b>boolean</dt>
     <dd>
-        If tooltips are enabled and a DB comment is set, this will flip the comment
+        If tool-tips are enabled and a DB comment is set, this will flip the comment
         and the real name. That means, if you have a table called 'user0001' and add
         the comment 'MyName' on it, you will see the name 'MyName' used consequently
-        in the left frame and the tooltip shows the real name of the DB.
+        in the left frame and the tool-tip shows the real name of the DB.
         <br /><br />
     </dd>
 
@@ -1116,7 +1116,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['MaxRows'] </b>integer</dt>
     <dd>
-        Number of rows displayed when browsing a resultset. If the resultset
+        Number of rows displayed when browsing a result set. If the result set
         contains more rows, Previous/Next links will be shown.
         <br /><br />
     </dd>
@@ -1125,7 +1125,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         Defines whether fields are displayed in ascending (<tt>ASC</tt>) order,
         in descending (<tt>DESC</tt>) order or in a &quot;smart&quot;
-        (<tt>SMART</tt>) order -ie descending order for fields of type TIME,
+        (<tt>SMART</tt>) order - I.E. descending order for fields of type TIME,
         DATE, DATETIME &amp; TIMESTAMP, ascending order else- by default.
         <br /><br />
     </dd>
@@ -1174,7 +1174,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['BZipDump'] </b>boolean
     </dt>
     <dd>
-        Defines whether to allow the use of zip/gzip/bzip compression when
+        Defines whether to allow the use of zip/GZip/BZip2 compression when
         creating a dump file or not.
         <br /><br />
     </dd>
@@ -1255,10 +1255,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['DefaultCharset'] </b>string</dt>
     <dd>
-        Default charset to use for recoding of MySQL queries. This must be
+        Default character set to use for recoding of MySQL queries. This must be
         enabled and it's described by <tt>$cfg['AllowAnywhereRecoding']</tt>
         option.<br />
-        You can give here any charset which is in
+        You can give here any character set which is in
         <tt>$cfg['AvailableCharsets']</tt> array and this is just default
         choice, user can select any of them.
         <br /><br />
@@ -1266,16 +1266,16 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['AllowAnywhereRecoding'] </b>boolean</dt>
     <dd>
-        Allow charset recoding of MySQL queries. You need recode or iconv
-        support (compiled in or module) in php to allow MySQL queries recoding
+        Allow character set recoding of MySQL queries. You need recode or iconv
+        support (compiled in or module) in PHP to allow MySQL queries recoding
         and used language file must have it enabled (by default only these
-        which are in unicode, just to avoid losing some characters).
+        which are in Unicode, just to avoid losing some characters).
         <br /><br />
     </dd>
 
     <dt><b>$cfg['RecodingEngine'] </b>string</dt>
     <dd>
-        You can select here which functions will be used for charset
+        You can select here which functions will be used for character set
         conversion.
         Possible values are:<br />
         <ul>
@@ -1290,9 +1290,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['AvailableCharsets'] </b>array</dt>
     <dd>
-        Available charsets for MySQL conversion. You can add your own (any of
+        Available character sets for MySQL conversion. You can add your own (any of
         supported by recode/iconv) or remove these which you don't use.
-        Charsets will be shown in same order as here listed, so if you
+        Character sets will be shown in same order as here listed, so if you
         frequently use some of these move them to the top.
         <br /><br />
     </dd>
@@ -1323,7 +1323,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dt><b>$cfg['LeftPointerColor'] </b>string [HTML color]</dt>
     <dd>
         The color (HTML) used for the pointer in the left frame (does not work
-        with NS4).
+        with Netscape 4).
         <br /><br />
     </dd>
 
@@ -1357,7 +1357,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     </dt>
     <dd>
         The colors (HTML) uses for the pointer and the marker in browse mode
-        (does not work with NS4).<br />
+        (does not work with Netscape 4).<br />
         The former feature highlights the row over which your mouse is passing
         and the latter lets you visually mark/unmark rows by clicking on
         them.<br />
@@ -1374,8 +1374,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     </dt>
     <dd>
         Number of columns and rows for the textareas.<br />
-        This value will be emphasized (*2) for sql query textareas and (*1.25) for
-        sql textareas inside the query window.<br />
+        This value will be emphasized (*2) for SQL query textareas and (*1.25) for
+        SQL textareas inside the query window.<br />
         The Char* values are used for CHAR and VARCHAR editing (if configured
         via $cfg['CharEditing']).
         <br /><br />
@@ -1417,11 +1417,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         There are 3 display modes: horizontal, horizontalflipped and vertical. Define
         which one is displayed by default. The first mode displays each row on a
-        horiztonal line, the second rotates the headers by 90 degrees, so you can use
+        horizontal line, the second rotates the headers by 90 degrees, so you can use
         descriptive headers even though fields only contain small values and still
         print them out. The vertical mode sorts each row on a vertical lineup.<br /><br />
         The HeaderFlipType can be set to 'css' or 'faked'. When using 'css' the rotation
-        of the header for horizontalflipped is done via CSS. If set to 'faked' php
+        of the header for horizontalflipped is done via CSS. If set to 'faked' PGP
         does the transformation for you, but of course this does not look as good as CSS.
         <br /><br />
     </dd>
@@ -1442,8 +1442,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         By setting the corresponding variable to TRUE you can enable the display of
         column comments in Browse or Property display. In browse mode, the comments
         are show inside the header. In property mode, comments are displayed using
-        a css-formatted dashed-line below the name of the field. The comment is shown
-        as a tooltip for that field.
+        a CSS-formatted dashed-line below the name of the field. The comment is shown
+        as a tool-tip for that field.
         <br /><br />
     </dd>
 
@@ -1486,11 +1486,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         When $cfg['QueryFrameJS'] is set to true, clicking on that link opens a new
         custom sized browser window ($cfg['QueryWindowWidth'], $cfg['QueryWindowWidth'] -
         both integers for the size in pixels). If set to false, clicking on the link
-        only opens the sql input in the mainframe.<br /><br />
+        only opens the SQL input in the mainframe.<br /><br />
         The usage of the JavaScript query window is recommended if you have a JavaScript
         enabled browser. Basic functions are used to exchange quite a few variables, so
         most 4th generation browsers should be capable to use that feature. It currently
-        is only tested with IE6 and Mozilla 1.x.<br /><br />
+        is only tested with Internet Explorer 6 and Mozilla 1.x.<br /><br />
         If $cfg['QueryHistoryDB'] is set to TRUE, all your Queries are logged to a table,
         which has to be created by you (see <a href="history">$cfg['Servers'][$i]['history']</a>).
         If set to FALSE, all your queries will be appended to the form, but only as long
@@ -1531,7 +1531,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
     The main use of the new SQL Parser is to pretty-print SQL queries. By
     default we use HTML to format the query, but you can disable this by
-    setting this varible to <tt>'none'</tt>
+    setting this variable to <tt>'none'</tt>
     <br /><br />
     </dd>
 
@@ -1569,14 +1569,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <li><b>punct_bracket_open_round</b> Opening brackets<tt>"("</tt></li>
         <li><b>punct_bracket_close_round</b> Closing brackets <tt>")"</tt></li>
         <li><b>punct_listsep</b> List item seperator <tt>","</tt></li>
-        <li><b>punct_qualifier</b> Table/Column Qualifer <tt>"."</tt> </li>
+        <li><b>punct_qualifier</b> Table/Column Qualifier <tt>"."</tt> </li>
         <li><b>punct_queryend</b> End of query marker <tt>";"</tt></li>
         <li><b>alpha</b> Applies to all alphabetic classes</li>
-        <li><b>alpha_columnType</b> Identifers matching a column type</li>
-        <li><b>alpha_columnAttrib</b> Identifers matching a database/table/column attribute</li>
+        <li><b>alpha_columnType</b> Identifiers matching a column type</li>
+        <li><b>alpha_columnAttrib</b> Identifiers matching a database/table/column attribute</li>
         <li><b>alpha_functionName</b> Identifiers matching a MySQL function name</li>
         <li><b>alpha_reservedWord</b> Identifiers matching any other reserved word</li>
-        <li><b>alpha_variable</b> Identifers matching a SQL variable <tt>"@foo"</tt></li>
+        <li><b>alpha_variable</b> Identifiers matching a SQL variable <tt>"@foo"</tt></li>
         <li><b>alpha_identifier</b> All other identifiers</li>
         <li><b>quote</b> Applies to all quotation mark classes</li>
         <li><b>quote_double</b> Double quotes <tt>"</tt></li>
@@ -1680,9 +1680,9 @@ directives. Please see the <a href="#config">Configuration section</a> on how to
 transformation will take the content of each field and transform it with
 certain rules defined in the selected transformation.</p><br />
 
-<p>Say you have a field 'filename' which contains a filename. Normale you would see
+<p>Say you have a field 'filename' which contains a filename. Normally you would see
 in phpMyAdmin only this filename. Using transformations you can transform that filename
-into a html link, so you can click inside of the phpMyAdmin structure on the field's
+into a HTML link, so you can click inside of the phpMyAdmin structure on the field's
 link and will see the file displayed in a new browser window. Using transformation
 options you can also specify strings to append/prepend to a string or the format you
 want the output stored in.</p><br />
@@ -1703,14 +1703,14 @@ line. They are called 'MIME-type', 'Browser transformation' and 'Transformation 
 <ul>
 <li>The field 'MIME-type' is a dropdown field. You have the options to leave that field
 empty or to use 'auto' [this feature is not yet available]. Please note that
-transformations are inactive as long as no mimetype is selected.</li><br /><br />
+transformations are inactive as long as no mime-type is selected.</li><br /><br />
 
-<li>The field 'Browser transformation' is a dropdown field. You can choose from a
+<li>The field 'Browser transformation' is a drop-down field. You can choose from a
 hopefully growing amount of pre-defined transformations. See below for information on
 how to build your own transformation.<br /><br />
 
 There are global transformations and mimetype-bound transformations. Global transformations
-can be used for any mimetype. They will take the mimetype, if neccessary, into regard.
+can be used for any mimetype. They will take the mimetype, if necessary, into regard.
 Mimetype-bound transformations usually only operate on a certain mimetype. There are
 transformations which operate on the main mimetype (like 'image'), which will most likely
 take the subtype into regard, and those who only operate on a
@@ -1723,17 +1723,17 @@ output will be like.</li><br /><br />
 <li>The field 'Transformation options' is a free-type textfield. You have to enter
 transform-function specific options here. Usually the transforms can operate with default
 options, but it is generally a good idea to look up the overview to see which options are
-neccessary.<br /><br />
+necessary.<br /><br />
 
 Much like the ENUM/SET-Fields, you have to split up several options using the format
 'a','b','c',...(NOTE THE MISSING BLANKS). This is because internally the options will be
 parsed as an array, leaving the first value the first element in the array, and so
 forth.<br /><br />
 
-If you want to specify a MIME charset you can define it in the transformation_options.
+If you want to specify a MIME character set you can define it in the transformation_options.
 You have to put that outside of the pre-defined options of the specific mime-transform,
 as the last value of the set. Use the format "'; charset=XXX'". If you use a transform,
-for which you can specify 2 options and you want to append a charset, enter "'first
+for which you can specify 2 options and you want to append a character set, enter "'first
 parameter','second parameter','charset=us-ascii'". You can, however use the defaults for
 the parameters: "'','','charset=us-ascii'".</li><br /><br />
 </ul>
@@ -1766,7 +1766,7 @@ any other transform function and provides some basic functions.</p><br />
 
     [mimetype]_[subtype]__[transform].inc.php3<br /><br />
 
-    Please not that mimetype and subtype are seperated via '_', which shall not be
+    Please not that mimetype and subtype are separated via '_', which shall not be
     contained in their names. The transform function/filename may contain only
     characters which cause no problems in the file system as well as the PHP function
     naming convention.<br /><br />
@@ -1870,19 +1870,19 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <h3>[1. Server]</h3>
 
 <h4>
-    [1.1] I'm running php 4+ and my server is crashing each time a specific
+    [1.1] I'm running PHP 4+ and my server is crashing each time a specific
     action is required or phpMyAdmin sends a blank page or a page full of
     cryptic characters to my browser, what can I do?
 </h4>
 <p>
-    There are some known php bugs with output buffering and compression.<br />
+    There are some known PHP bugs with output buffering and compression.<br />
     Try to set the <tt>$cfg['OBGzip']</tt> directive to <tt>FALSE</tt> in your
     <i>config.inc.php or .php3</i> file and the
     <tt>zlib.output_compression</tt> directive to <tt>Off</tt> in your php
     configuration file.<br />
     Furthermore, we know about such problems connected to the release
-    candidates of php 4.2.0 (tested with php 4.2.0 RC1 to RC4) together with
-    MS Internet Explorer. Please upgrade to the release version php 4.2.0.
+    candidates of PHP 4.2.0 (tested with PHP 4.2.0 RC1 to RC4) together with
+    MS Internet Explorer. Please upgrade to the release version PHP 4.2.0.
 </p>
 
 <h4>
@@ -1891,7 +1891,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     You should first try the latest versions of Apache (and possibly MySQL).
     <br />
-    See also the other FAQ entry about php bugs with output buffering.
+    See also the other FAQ entry about PHP bugs with output buffering.
     <br />
     If your server keeps crashing, please ask for help in the various
     Apache support groups.
@@ -1905,7 +1905,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     This is a known PHP bug (see this
     <a href="http://bugs.php.net/bug.php?id=16626">bug report</a>) from the
-    official php bug database. It means there is and won't be any phpMyAdmin
+    official PHP bug database. It means there is and won't be any phpMyAdmin
     fix against it because there is no way to code a fix.
 </p>
 
@@ -1918,15 +1918,15 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     You just forgot to read the <i>install.txt</i> file from the php
     distribution. Have a look at the last message in this
     <a href="http://bugs.php.net/bug.php?id=12061">bug report</a> from the
-    official php bug database.
+    official PHP bug database.
 </p>
 
 <h4>
     [1.5] Using phpMyAdmin on IIS, I'm facing crashes and/or many error
-    messages with the http or advanced authentication mode.
+    messages with the HTTP or advanced authentication mode.
 </h4>
 <p>
-    This is a known problem with the php ISAPI filter: it's not so stable. For
+    This is a known problem with the PHP ISAPI filter: it's not so stable. For
     some more information and complete testings see the messages posted by
     Andr&eacute; B. aka &quot;djdeluxe76&quot; in
     <a href="http://www.phpwizard.net/phorum/read.php?f=1&amp;i=6624&amp;t=6300">this&nbsp;thread</a>
@@ -1937,7 +1937,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <h4>
     [1.6] I can't use phpMyAdmin on PWS: nothing is displayed!</h4>
 <p>
-    This seems to be a PWS bug. Filippo Simoncini found a workaroud (at this
+    This seems to be a PWS bug. Filippo Simoncini found a workaround (at this
     time there is no better fix): remove or comment the <tt>DOCTYPE</tt>
     declarations (2 lines) from the scripts <i>header.inc.php3</i>,
     <i>header_printview.inc.php3</i>, <i>index.php3</i>, <i>left.php3</i> and
@@ -1950,13 +1950,13 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     These features are based on the <tt>gzencode()</tt> and
-    <tt>bzcompress()</tt> php functions to be more independent of the platform
+    <tt>bzcompress()</tt> PHP functions to be more independent of the platform
     (Unix/Windows, Safe Mode or not, and so on).
     So, you must have PHP4&nbsp;>=&nbsp;4.0.4 and Zlib/Bzip2 support
     (<tt>--with-zlib</tt> and <tt>--with-bz2</tt>).<br />
-    We faced php crashes when trying to download a dump with MS Internet
-    Explorer when phpMyAdmin is run with a release candidate of php 4.2.0. In
-    this case you should switch to the release version of php 4.2.0.
+    We faced PHP crashes when trying to download a dump with MS Internet
+    Explorer when phpMyAdmin is run with a release candidate of PHP 4.2.0. In
+    this case you should switch to the release version of PHP 4.2.0.
 </p>
 
 <h4>
@@ -1988,14 +1988,14 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     It's not really phpMyAdmin related but RedHat 7.0. You have a RedHat 7.0
-    and you updated your php rpm to php-4.0.4pl1-3.i386.rpm, didn't you?
+    and you updated your PHP RPM to php-4.0.4pl1-3.i386.rpm, didn't you?
     <br />
     So the problem is that this package has a serious bug that was corrected
-    ages ago in php (2001-01-28: see
-    <a href="http://www.php.net/bugs.php?id=8966">php's bug tracking system</a>
+    ages ago in PHP (2001-01-28: see
+    <a href="http://www.php.net/bugs.php?id=8966">PHP's bug tracking system</a>
     for more details). The problem is that the bugged package is still
     available though it was corrected (see
-    <a href="http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933">redhat's bugzilla</a>
+    <a href="http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933">RedHat's BugZilla</a>
     for more details).
     <br />
     So please download
@@ -2014,7 +2014,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     As suggested by &quot;Rob M&quot; in the phpWizard forum, add this line to
     your <i>httpd.conf</i>:<br />
     &nbsp;&nbsp;&nbsp;&nbsp;<tt>SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown</tt><br />
-    It seems to clear up many problems between IE and SSL.
+    It seems to clear up many problems between Internet Explorer and SSL.
 </p>
 
 <h4>
@@ -2034,7 +2034,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     [1.12] I have lost my MySQL root password, what can I do?
 </h4>
 <p>
-    The MySql manual explains how to
+    The MySQL manual explains how to
     <a href="http://www.mysql.com/doc/R/e/Resetting_permissions.html">
     reset the permissions</a>.
 </p>
@@ -2052,7 +2052,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     the convenient text area.
 </h4>
 <p>
-    Check the <tt>post_max_size</tt> directive from your php configuration file
+    Check the <tt>post_max_size</tt> directive from your PHP configuration file
     and try to increase it.
 </p>
 
@@ -2073,7 +2073,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <tt>post_max_size</tt> in the <i>php.ini</i> configuration file.
     <br />
     All of these three settings limit the maximum size of data that can be
-    submitted and handled by php. One user also said that post_max_size
+    submitted and handled by PHP. One user also said that post_max_size
     and memory_limit need to be larger than upload_max_filesize.
 </p>
 
@@ -2180,7 +2180,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <tt># mod_gzip_item_include file \.php$</tt><br />
     <tt># mod_gzip_item_include mime "application/x-httpd-php.*"</tt><br />
     as this version of mod_gzip on Apache (Windows) has problems handling
-    php scripts. Of course you have to restart Apache.
+    PHP scripts. Of course you have to restart Apache.
 </p>
 
 <h4>
@@ -2214,7 +2214,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     This can happen due to a MySQL bug when having database / table names with
     upper case characters although <tt>lower_case_table_names</tt> is set to 1.
     To fix this, turn off this directive, convert all database and table names
-    to lower case and turn it on again. Alternatively, there's a bugfix
+    to lower case and turn it on again. Alternatively, there's a bug-fix
     available starting with MySQL&nbsp;3.23.56 / 4.0.11-gamma.
 </p>
 
@@ -2227,24 +2227,23 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     It is possible to configure Apache in such a way that PHP has problems
     interpreting .php files.
     <br /><br />
-    The problems happen when two different (and conflicting) set of directives
+    The problems occur when two different (and conflicting) set of directives
     are used:
     <br /><br />
     <tt>
     SetOutputFilter PHP<br />
     SetInputFilter PHP<br />
     </tt>  
-    <br />
-    and
+    &amp; 
     <br />
     <tt>
     AddType application/x-httpd-php .php
     </tt>
     <br /><br />
-    In the case we saw, one set of directives was in httpd.conf, the other
-    set was in php.conf.<br />
-    The recommended way is with <tt>AddType</tt>, so just put comments
-    on the first set of lines and restart Apache:
+    In the case we saw, one set of directives was in <tt>httpd.conf</tt>, while
+    the other set was in <tt>php.conf</tt>.<br />
+    The recommended way is with <tt>AddType</tt>, so just comment out
+    the first set of lines and restart Apache:
     <br /><br />
     <tt><b>
     #SetOutputFilter PHP<br />
@@ -2261,7 +2260,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     Edit your <i>config.inc.php or .php3</i> file and ensure there is nothing
-    (ie no blank lines, no spaces, no characters...) neither before the
+    (I.E. no blank lines, no spaces, no characters...) neither before the
     <tt>&lt;?php</tt> tag at the beginning, neither after the <tt>?&gt;</tt>
     tag at the end.
 </p>
@@ -2284,7 +2283,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p><br />
     For RedHat users, Harald Legner suggests this on the mailing list:
     <br /><br />
-    On my RedHat-Box the socket of mysql is <i>/var/lib/mysql/mysql.sock</i>.
+    On my RedHat-Box the socket of MySQL is <i>/var/lib/mysql/mysql.sock</i>.
     In your php.ini you will find a line
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;<tt>mysql.default_socket = /tmp/mysql.sock</tt>
@@ -2329,14 +2328,14 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     Try to set the <tt>$cfg['OBGZip']</tt> directive to <tt>FALSE</tt> in the
     phpMyAdmin configuration file. It helps sometime.<br />
-    Also have a look at your php version number: if it contains
+    Also have a look at your PHP version number: if it contains
     &quot;4.0b...&quot; it means you're running a beta version of PHP. That's
     not a so good idea, please upgrade to a plain revision.
 </p>
 
 <h4>
     [2.5] Each time I want to insert or change a record or drop a database
-    or a table, an error 404 (page not found) is displayed or, with http or
+    or a table, an error 404 (page not found) is displayed or, with HTTP or
     cookie authentication, I'm asked to login again. What's wrong?
 </h4>
 <p>
@@ -2349,15 +2348,15 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <h3>[3. Known limitations]</h3>
 <a name="login_bug"></a><br />
 <h4>
-    [3.1] When using http authentication, an user who logged out can not
-    relog in with the same nick.
+    [3.1] When using HTTP authentication, an user who logged out can not
+    relogin in with the same nick.
 </h4>
 <p>
     This is related to the authentication mechanism (protocol) used by
     phpMyAdmin. We plan to change it as soon as we may find enough free time
     to do it, but you can bypass this problem: just close all the opened
     browser windows and then go back to phpMyAdmin. You should be able to
-    logs in again.
+    log in again.
 </p>
 
 <h4>
@@ -2423,8 +2422,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     your users. The development of this feature was kindly sponsored by
     NetCologne GmbH.
     This requires a properly setup MySQL user management and phpMyAdmin
-    http or cookie authentication. See the install section on
-    &quot;Using http authentication&quot;.
+    HTTP or cookie authentication. See the install section on
+    &quot;Using HTTP authentication&quot;.
 </p>
 
 <h4>
@@ -2437,7 +2436,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     sufficient to use the directory protection bundled with your webserver
     (with Apache you can use <i>.htaccess</i> files, for example).<br />
     If other people have telnet access to your server, you should use
-    phpMyAdmin's http authentication feature.
+    phpMyAdmin's HTTP authentication feature.
     <br /><br />
     Suggestions:
 </p>
@@ -2467,7 +2466,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     &quot;./lang&quot; to allow normal operation of phpMyAdmin.
 </p>
 <h4>
-    [4.4] phpMyAdmin always gives &quot;Access denied&quot; when using http
+    [4.4] phpMyAdmin always gives &quot;Access denied&quot; when using HTTP
     authentication.
 </h4>
 <p>
@@ -2554,13 +2553,13 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     [5.3] I have problems dumping tables with Konqueror (phpMyAdmin 2.2.2).
 </h4>
 <p>
-    With Konqueror 2.1.1: plain dumps, zip and gzip dumps work ok, except that
+    With Konqueror 2.1.1: plain dumps, zip and GZip dumps work ok, except that
     the proposed file name for the dump is always 'tbl_dump.php'. Bzip2 dumps
     don't seem to work.<br />
 
     With Konqueror 2.2.1: plain dumps work; zip dumps are placed into
     the user's temporary directory, so they must be moved before closing
-    Konqueror, or else they disappear. Gzip dumps give an error message.<br />
+    Konqueror, or else they disappear. GZip dumps give an error message.<br />
 
     Testing needs to be done for Konqueror 2.2.2.<br />
 </p>
@@ -2571,15 +2570,15 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     MS Internet Explorer seems to be really buggy about cookies, at least till
-    version 6. And thanks to Andrew Zivolup we've traced also a php 4.1.1 bug
+    version 6. And thanks to Andrew Zivolup we've traced also a PHP 4.1.1 bug
     in this area!
     <br />
-    Then, if you're running php 4.1.1, try to upgrade or downgrade... it may
+    Then, if you're running PHP 4.1.1, try to upgrade or downgrade... it may
     work!
 </p>
 
 <h4>
-    [5.5] In Internet Explorer 5.0, I get Javascript errors when browsing my
+    [5.5] In Internet Explorer 5.0, I get JavaScript errors when browsing my
     rows.
 </h4>
 <p>
@@ -2592,7 +2591,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     Your table neither have a primary key nor an unique one, so we must use a
-    long URL to identify this row. There is a limit on the lenght of the URL in
+    long URL to identify this row. There is a limit on the length of the URL in
     those browsers, and this not happen in Netscape, for example. The
     workaround is to create a primary or unique key, or use another browser.
     <br />
@@ -2612,7 +2611,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     query box.
 </h4>
 <p>
-    Looks like a Mozilla bug: 0.9.6 was ok. We will keep an eye on future
+    Looks like a Mozilla bug: 0.9.6 was OK. We will keep an eye on future
     Mozilla versions.<br />
 </p>
 
@@ -2622,7 +2621,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     This is a Mozilla bug (see bug #26882 at
-    <a href="http://bugzilla.mozilla.org/" target="_blank">Bugzilla</a>).<br />
+    <a href="http://bugzilla.mozilla.org/" target="_blank">BugZilla</a>).<br />
 </p>
 
 <h4>
@@ -2640,7 +2639,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     wrong.
 </h4>
 <p>
-    Please ensure that you have set your browser's charset to the one of the
+    Please ensure that you have set your browser's character set to the one of the
     language file you have selected on phpMyAdmin's start page.
     Alternatively, you can try the auto detection mode that is supported by the
     recent versions of the most browsers.
@@ -2656,7 +2655,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </p>
 
 <h4>
-    [5.13] With Internet Explorer 5.5 or 6, and http authentication type,
+    [5.13] With Internet Explorer 5.5 or 6, and HTTP authentication type,
     I cannot manage two servers: I login to the first one, then the other one,
     but if I switch back to the first, I have to login on each operation.
 </h4>
@@ -2915,13 +2914,13 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <a name="faqsqlvalidator"></a><br />
 <h4>
-    [6.14] How do I set up the SQL validator?
+    [6.14] How do I set up the SQL Validator?
 </h4>
 <p>
     To use it, you need a very recent version of PHP, 4.3.0 recommended, with
     XML, PCRE and PEAR support. On your system command line, run
     <tt>"pear install Net_Socket Net_URL HTTP_Request Mail_Mime Net_DIME
-      SOAP"</tt> to get the nessecary PEAR modules for usage.
+      SOAP"</tt> to get the necessary PEAR modules for usage.
     <br />
     If you use it, you should be aware that any SQL statement you
     submit will be stored anonymously (database/table/column names,
@@ -2992,13 +2991,13 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     existing language, where do I start?
 </h4>
 <p>
-    Always use the current cvs version of your language file.
+    Always use the current CVS version of your language file.
     For a new language, start from <i>english-iso-8859-1.inc.php3</i>. If you
-    don't  know how to get the cvs version, please ask one of the developers.
+    don't  know how to get the CVS version, please ask one of the developers.
     <br />
-    Please note that we try not to use html entities like &amp;eacute; in
+    Please note that we try not to use HTML entities like &amp;eacute; in
     the translations, since we define the right character set in the file.
-    With html entities, the text on javascript messages would not
+    With HTML entities, the text on JavaScript messages would not
     display correctly.
     However there are some entities that need to be there, for quotes
     ,non-breakable spaces, ampersands, less than, greater than.
@@ -3096,7 +3095,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         better debug and profile their code.<br />
         Please see the <tt>$cfg['DBG']*</tt> configuration options for more
         information.<br />
-        This is in memorium of the Space Shuttle Columbia (STS-107) which was
+        This is in memoriam of the Space Shuttle Columbia (STS-107) which was
         lost during its re-entry into Earth's atmosphere and in memory of the
         brave men and women who gave their lives for the people of Earth.
     </li>
