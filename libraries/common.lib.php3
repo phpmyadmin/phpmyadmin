@@ -804,7 +804,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             // must be open after this one so it would be default one for all the
             // scripts)
             if ($cfg['Server']['controluser'] != '') {
-                if (PMA_PHP_INT_VERSION >= 40300) {
+                // rabus: 3.23.49 is the MySQL client API bundled with php 4.3.0.
+                if (PMA_PHP_INT_VERSION >= 40300 && PMA_MYSQL_CLIENT_API >= 32349) {
                     $dbh            = @$connect_func(
                                           $cfg['Server']['host'] . $server_port . $server_socket,
                                           $cfg['Server']['controluser'],
@@ -1635,7 +1636,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             if ($format == '') {
                 $format = $datefmt;
             }
-            
+
             if ($timestamp == -1) {
                 $timestamp = time();
             }
