@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-06  Olivier Müller  <om@omnis.ch>   [uid23515]
+	* releasing 2.2.0rc1 and cleaned up old cvs tree
+
 2001-07-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3: Patch #438708 (Changes to display_table) thanks to
 	  Thomas Kläger.
