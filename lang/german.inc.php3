@@ -127,12 +127,12 @@ $strInsertTextfiles = "Textdatei in Tabelle einf&uuml;gen";
 $strInUse = "in Benutzung";
 
 $strKeyname = "Name";
-$strKill = "Kill"; //to translate
+$strKill = "Beenden";
 
 $strLength = " L&auml;nge ";
 $strLengthSet = "L&auml;nge/Set";
 $strLimitNumRows = "Eintr&auml;ge pro Seite";
-$strLineFeed = "Linefeed: \\n";
+$strLineFeed = "Zeilenvorschub: \\n";
 $strLines = "Zeilen";
 $strLocationTextfile = "Datei";
 $strLogin = ""; //to translate, but its not in use ...
@@ -157,10 +157,10 @@ $strNoUsersFound = "Keine(n) Benutzer gefunden.";
 $strNull = "Null";
 $strNumberIndexes = " Number of advanced indexes "; //to translate
 
-$strOftenQuotation = "H&auml;ufig Anf&uuml;hrungszeichen. OPTIONALLY bedeutet, da&szlig; nur Textfelder von den angegeben Zeichen eingeschlossen sind.";
+$strOftenQuotation = "H&auml;ufig Anf&uuml;hrungszeichen. Optional bedeutet, da&szlig; nur Textfelder von den angegeben Zeichen eingeschlossen sind.";
 $strOptimizeTable = "Optimiere Tabelle";
 $strOptionalControls = "Optional. Bestimmt, wie Sonderzeichen kenntlich gemacht werden.";
-$strOptionally = "OPTIONALLY";
+$strOptionally = "optional";
 $strOr = "oder";
 $strOverhead = "&Uuml;berhang";
 
@@ -178,7 +178,7 @@ $strPrivileges = "Rechte";
 $strProducedAnError = "erzeugte einen Fehler.";
 $strProperties = "Eigenschaften";
 
-$strQBE = "Query by Example";
+$strQBE = "Suche &uuml;ber Beispielwerte";
 
 $strReadTheDocs = "MySQL-Dokumentation zu LOAD DATA INFILE lesen";
 $strRecords = "Eintr&auml;ge";
@@ -277,6 +277,6 @@ $strBzip = "\"BZip komprimiert\"";
 $strGzip = "\"GZip komprimiert\"";
 $strOffSet = "Offset";
 $strNbRecords = "Datens&auml;tze";
-$strRowSize="Zeilengr&ouml;&szlig;e";
-$strShowThisQuery="SQL Befehl hier wieder anzeigen";  //to translate
+$strRowSize = "Zeilengr&ouml;&szlig;e";
+$strShowThisQuery = "SQL Befehl hier wieder anzeigen";  //to translate
 ?>
