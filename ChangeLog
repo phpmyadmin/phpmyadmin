@@ -6,6 +6,12 @@ $Id$
 $Source$
 
 2001-12-10  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/common.lib.php3: Opera for Mac needs lower font sizes, thanks
+	  to Christian Schaffner.
+	* read_dump.php3, lines 102-108 & 361: fixed bug #491051 - SQL Upload error
+	  last comment, thanks to Jason Pell <jasonpell at users.sourceforge.net>.
+
+2001-12-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3, line 518: fixed bug #490951 - sorting
 	  row. Thanks to an anonymous user.
 	* libraries/auth:
