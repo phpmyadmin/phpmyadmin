@@ -500,7 +500,7 @@ function PMA_grantOperations($grants)
                 <td>&nbsp;&nbsp;&nbsp;</td>
                 <td>
                     <input type="radio" name="anydb" value="0" id="radio_anydb0"<?php echo ($dbgrant) ? ' checked="checked"' : ''; ?> />
-                    <label for="radio_anydb0"><?php echo $GLOBALS['strDatabase']; ?></label><a href="./Documentation.html#underscore" target="documentation">(*)</a>&nbsp;:&nbsp;
+                    <label for="radio_anydb0"><?php echo $GLOBALS['strDatabase']; ?></label><a href="./Documentation.html#underscore" target="documentation" title="<?php echo $strDocu; ?>">(*)</a>&nbsp;:&nbsp;
                 </td>
                 <td>
                     <select name="dbgrant" onchange="change(this)">
