@@ -482,12 +482,16 @@ require ('./tbl_indexes.php3');
  * Displays Space usage and row statistics
  */
 // BEGIN - Calc Table Space - staybyte - 9 June 2001
+// loic1, 22 feb. 2002: updated with patch from
+//                      Joshua Nye <josh at boxcarmedia.com> to get valid
+//                      statistics whatever is the table type
 if ($cfgShowStats) {
     $nonisam     = FALSE;
+    $is_innodb   = ($showtable['Type'] == 'InnoDB');
     if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
         $nonisam = TRUE;
     }
-    if (PMA_MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
+    if (PMA_MYSQL_INT_VERSION >= 32303 && ($nonisam == FALSE || $is_innodb)) {
         // Gets some sizes
         $mergetable     = FALSE;
         if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
@@ -613,7 +617,7 @@ if ($cfgShowStats) {
         </tr>
             <?php
         }
-        if (isset($showtable['Rows'])) {
+        if (!$is_innodb && isset($showtable['Rows'])) {
             $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
             echo "\n";
             ?>
@@ -625,7 +629,7 @@ if ($cfgShowStats) {
         </tr>
             <?php
         }
-        if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
+        if (!$is_innodb && isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
             $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
             echo "\n";
             ?>
@@ -637,7 +641,7 @@ if ($cfgShowStats) {
         </tr>
             <?php
         }
-        if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
+        if (!$is_innodb && isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
             $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
             echo "\n";
             ?>

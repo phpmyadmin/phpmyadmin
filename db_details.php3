@@ -222,7 +222,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
         <?php
-        if ($sts_data['Rows']>0) {
+        if ($sts_data['Rows'] > 0) {
             echo '<a href="sql.php3?' . $url_query 
             . '&amp;sql_query=' 
             . urlencode('DELETE FROM ' . PMA_backquote($table)) 
@@ -237,50 +237,55 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
     </td>
         <?php
         echo "\n";
-        $mergetable         = FALSE;
-        $nonisam            = FALSE;
-        if (isset($sts_data['Type'])) {
-            if ($sts_data['Type'] == 'MRG_MyISAM') {
-                $mergetable = TRUE;
-            } else if (!eregi('ISAM|HEAP', $sts_data['Type'])) {
-                $nonisam    = TRUE;
-            }
-        }
 
+        // loic1: Patch from Joshua Nye <josh at boxcarmedia.com> to get valid
+        //        statistics whatever is the table type
         if (isset($sts_data['Rows'])) {
-            if ($mergetable == FALSE) {
-                if ($cfgShowStats && $nonisam == FALSE) {
-                    $tblsize                        =  $sts_data['Data_length'] + $sts_data['Index_length'];
-                    $sum_size                       += $tblsize;
-                    if ($tblsize > 0) {
-                        list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, 1);
-                    } else {
-                        list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, 0);
-                    }
-                } else if ($cfgShowStats) {
-                    $formated_size                  = '&nbsp;-&nbsp;';
-                    $unit                           = '';
+            // MyISAM, ISAM or Heap table: Row count, data size and index size
+            // is accurate.
+            if (isset($sts_data['Type']) && ereg('^(MyISAM|ISAM|HEAP)$', $sts_data['Type'])) {
+                if ($cfgShowStats) {
+                    $tblsize                    =  $sts_data['Data_length'] + $sts_data['Index_length'];
+                    $sum_size                   += $tblsize;
+                    list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
                 }
-                $sum_entries                        += $sts_data['Rows'];
+                $sum_entries                    += $sts_data['Rows'];
+                $display_rows                   =  number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator);
             }
-            // MyISAM MERGE Table
-            else if ($cfgShowStats && $mergetable == TRUE) {
-                $formated_size = '&nbsp;-&nbsp;';
-                $unit          = '';
+
+            // InnoDB table: Row count is not accurate but data and index
+            // sizes are.
+            else if (isset($sts_data['Type']) && $sts_data['Type'] == 'InnoDB') {
+                if ($cfgShowStats) {
+                    $tblsize                    =  $sts_data['Data_length'] + $sts_data['Index_length'];
+                    $sum_size                   += $tblsize;
+                    list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+                }
+                $display_rows                   =  '&nbsp;-&nbsp;';
             }
-            else if ($cfgShowStats) {
-                $formated_size = 'unknown';
-                $unit          = '';
+
+            // Merge or BerkleyDB table: Only row count is accurate.
+            else if (isset($sts_data['Type']) && ereg('^(MRG_MyISAM|BerkeleyDB)$', $sts_data['Type'])) {
+                if ($cfgShowStats) {
+                    $formated_size              =  '&nbsp;-&nbsp;';
+                    $unit                       =  '';
+                }
+                $sum_entries                    += $sts_data['Rows'];
+                $display_rows                   =  number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator);
+            }
+
+            // Unknown table type.
+            else {
+                if ($cfgShowStats) {
+                    $formated_size              =  'unknown';
+                    $unit                       =  '';
+                }
+                $display_rows                   =  'unknown';
             }
             ?>
     <td align="right" bgcolor="<?php echo $bgcolor; ?>">
             <?php
-            echo "\n" . '        ';
-            if ($mergetable == TRUE) {
-                echo '<i>' . number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . '</i>' . "\n";
-            } else {
-                echo number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n";
-            }
+            echo "\n" . '        ' . $display_rows . "\n";
             ?>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">

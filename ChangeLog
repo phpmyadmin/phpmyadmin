@@ -11,6 +11,9 @@ $Source$
 	  in HTTP_ACCEPT_LANGUAGE nor in HTTP_USER_AGENT variables.
 	* libraries/common.lib.php3, line 848: coding standard.
 	* lang/*: cleanup and font fixes thanks to Oliver Heinisch.
+	* db_details.php3; tbl_properties.php3: patch from Joshua Nye
+	  <josh at boxcarmedia.com> to get valid statistics whatever are the table
+	  types.
 
 2002-02-19 Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/common.lib.php3: get_magic_quotes fix  thanks to
