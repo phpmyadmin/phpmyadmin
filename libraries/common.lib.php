@@ -2061,6 +2061,25 @@ if (typeof(document.getElementById) != 'undefined'
         }
     } // end function
 
+    /**
+     * Removes insecure parts in a path; used before include() or
+     * require() when a part of the path comes from an insecure source
+     * like a cookie or form.
+     *
+     * @param    string  The path to check
+     *
+     * @return   string  The secured path
+     *                  
+     * @access  public
+     * @author  Marc Delisle (lem9@users.sourceforge.net)
+     */
+    function PMA_securePath($path) {
+
+        // change .. to .
+        $path = preg_replace('@\.\.*@','.',$path);
+
+        return $path; 
+    } // end function
 
     // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
     if (@function_exists('mb_convert_encoding')
