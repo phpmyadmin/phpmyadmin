@@ -1488,7 +1488,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
         if (!empty($del_url)) {
             $vertical_display['row_delete'][$row_no] .= '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
-                                                     .  '        <input type="checkbox" name="rows_to_delete[]" value="' . $del_query . '" />' . "\n"
+                                                     .  '        <input type="checkbox" name="rows_to_delete[' . $uva_condition . ']" value="' . $del_query . '" />' . "\n"
                                                      .  '    </td>' . "\n";
         } else {
             unset($vertical_display['row_delete'][$row_no]);
@@ -1862,15 +1862,22 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             /* Opera has trouble with <input type="image"> */
             /* IE has trouble with <button> */
             if (PMA_USR_BROWSER_AGENT != 'IE') {
-                echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $delete_text . '">' . "\n"
+                echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="row_edit" title="' . $GLOBALS['strEdit'] . '">' . "\n"
+                   . '<img src="./images/button_edit.png" title="' . $GLOBALS['strEdit'] . '" alt="' . $GLOBALS['strEdit'] . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '') . "\n"
+                   . '</button>';
+
+                echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $delete_text . '">' . "\n"
                    . '<img src="./images/button_drop.png" title="' . $delete_text . '" alt="' . $delete_text . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
                    . '</button>';
+
             } else {
-                echo '                    <input type="image" name="submit_mult" value="row_delete" title="' . $delete_text . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '');
+                echo '                    <input type="image" name="submit_mult_edit" value="row_edit" title="' . $GLOBALS['strEdit'] . '" src="./images/button_edit.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '');
+                echo '&nbsp;<input type="image" name="submit_mult" value="row_delete" title="' . $delete_text . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '');
             }
             echo "\n";
         } else {
-            echo '                    <input type="submit" name="submit_mult" value="row_delete" title="' . $delete_text . '" />' . "\n";
+            echo '                    <input type="submit" name="submit_mult" value="row_edit" title="' . $GLOBALS['strEdit'] . '" />' . "\n";
+            echo '&nbsp;<input type="submit" name="submit_mult" value="row_delete" title="' . $delete_text . '" />' . "\n";
         }
         echo '<input type="hidden" name="sql_query" value="' . $sql_query . '" />' . "\n";
         echo '<input type="hidden" name="pos" value="' . $pos . '" />' . "\n";

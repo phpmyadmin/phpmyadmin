@@ -26,13 +26,18 @@ PMA_checkParameters(array('db','encoded_key'));
 // binary file is uploaded, thus bypassing further manipulation of $val.
 
 $check_stop = false;
-if (isset(${'fields_upload_' . $encoded_key}) && ${'fields_upload_' . $encoded_key} != 'none'){
+
+// Check if a multi-edit row was found
+${'me_fields_upload_' . $encoded_key}      = (isset($enc_primary_key) && isset(${'fields_upload_' . $encoded_key}['multi_edit'])      ? ${'fields_upload_' . $encoded_key}['multi_edit'][$enc_primary_key]      : ${'fields_upload_' . $encoded_key});
+${'me_fields_uploadlocal_' . $encoded_key} = (isset($enc_primary_key) && isset(${'fields_uploadlocal_' . $encoded_key}['multi_edit']) ? ${'fields_uploadlocal_' . $encoded_key}['multi_edit'][$enc_primary_key] : ${'fields_uploadlocal_' . $encoded_key});
+
+if (isset(${'me_fields_upload_' . $encoded_key}) && ${'me_fields_upload_' . $encoded_key} != 'none'){
     // garvin: This fields content is a blob-file upload.
 
-    if (!empty(${'fields_upload_' . $encoded_key})) {
+    if (!empty(${'me_fields_upload_' . $encoded_key})) {
         // garvin: The blob-field is not empty. Check what we have there.
 
-        $data_file = ${'fields_upload_' . $encoded_key};
+        $data_file = ${'me_fields_upload_' . $encoded_key};
 
         if (is_uploaded_file($data_file)) {
             // garvin: A valid uploaded file is found. Look into the file...
@@ -56,11 +61,11 @@ if (isset(${'fields_upload_' . $encoded_key}) && ${'fields_upload_' . $encoded_k
             // void
         }
 
-    } elseif (!empty(${'fields_uploadlocal_' . $encoded_key})) {
+    } elseif (!empty(${'me_fields_uploadlocal_' . $encoded_key})) {
         if (substr($cfg['UploadDir'], -1) != '/') {
             $cfg['UploadDir'] .= '/';
         }
-        $file_to_upload = $cfg['UploadDir'] . preg_replace('@\.\.*@', '.', ${'fields_uploadlocal_' . $encoded_key});
+        $file_to_upload = $cfg['UploadDir'] . preg_replace('@\.\.*@', '.', ${'me_fields_uploadlocal_' . $encoded_key});
 
         // A local file will be uploaded.
         $open_basedir = @ini_get('open_basedir');
@@ -110,8 +115,18 @@ if (!$check_stop) {
 
 // f i e l d    v a l u e    i n    t h e    f o r m
 
-    if (isset($fields_type[$encoded_key])) $type = $fields_type[$encoded_key];
+    if (isset($me_fields_type[$encoded_key])) $type = $me_fields_type[$encoded_key];
     else $type = '';
+    
+    $f = 'field_' . md5($key);
+    $t_fval = $$f;
+    
+    if (isset($t_fval['multi_edit'][$enc_primary_key])) {
+        $fval = &$t_fval['multi_edit'][$enc_primary_key];
+    } else {
+        $fval = &$t_fval;
+    }
+    
     switch (strtolower($val)) {
         // let users type NULL or null to input this string and not a NULL value
         //case 'null':
@@ -120,9 +135,8 @@ if (!$check_stop) {
             switch ($type) {
                 case 'enum':
                     // if we have an enum, then construct the value
-                        $f = 'field_' . md5($key);
-                        if (!empty($$f)) {
-                            $val     = implode(',', $$f);
+                        if (!empty($fval)) {
+                            $val     = implode(',', $fval);
                             if ($val == 'null') {
                                 // void
                             } else {
@@ -136,9 +150,8 @@ if (!$check_stop) {
                         break;
                 case 'set':
                     // if we have a set, then construct the value
-                    $f = 'field_' . md5($key);
-                    if (!empty($$f)) {
-                        $val = implode(',', $$f);
+                    if (!empty($fval)) {
+                        $val = implode(',', $fval);
                         // the data here is not urlencoded!
                         //$val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
                         $val = "'" . PMA_sqlAddslashes($val) . "'";
@@ -148,9 +161,8 @@ if (!$check_stop) {
                     break;
                 case 'foreign':
                     // if we have a foreign key, then construct the value
-                    $f = 'field_' . md5($key);
-                    if (!empty($$f)) {
-                        $val     = implode(',', $$f);
+                    if (!empty($fval)) {
+                        $val     = implode(',', $fval);
                         if ($val == 'null') {
                             // void
                         } else {
@@ -196,7 +208,7 @@ if (!$check_stop) {
     // Was the Null checkbox checked for this field?
     // (if there is a value, we ignore the Null checkbox: this could
     // be possible if Javascript is disabled in the browser)
-    if (isset($fields_null) && isset($fields_null[$encoded_key])
+    if (isset($me_fields_null) && isset($me_fields_null[$encoded_key])
         && $val=="''") {
         $val = 'NULL';
     }

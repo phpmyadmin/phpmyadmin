@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-04 Garvin Hicking <grinch@supergarv.de>
+    * browse_foreigner.php, mult_submits.inc.php, tbl_change.php,
+      tbl_replace.php, tbl_replace_fields.php, tbl_row_delete,
+      libraries/display_tbl.lib.php, libraries/display_tbl_links.lib.php:
+      Multi row edit via checkboxes in browse mode is now available.
+      This means, you can edit multiple records at once now.
+
 2003-12-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: the constant used to check
       if the transformation function is included no longer exists

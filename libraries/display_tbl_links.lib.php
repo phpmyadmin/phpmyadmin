@@ -4,7 +4,7 @@
 
 if (!empty($del_url)) {
     echo '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
-       . '        <input type="checkbox" name="rows_to_delete[]" value="' . $del_query . '" />' . "\n"
+       . '        <input type="checkbox" name="rows_to_delete[' . $uva_condition . ']" value="' . $del_query . '" />' . "\n"
        . '    </td>' . "\n";
 }
 if (!empty($edit_url)) {

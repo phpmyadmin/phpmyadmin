@@ -86,21 +86,23 @@ if (!empty($submit_mult) && !empty($what)) {
     // Builds the query
     $full_query     = '';
     $selected_cnt   = count($selected);
-    for ($i = 0; $i < $selected_cnt; $i++) {
+    $i = 0;
+    foreach($selected AS $idx => $sval) {
+        $i++;
         switch ($what) {
             case 'row_delete':
-                $full_query .= htmlspecialchars(urldecode($selected[$i]))
+                $full_query .= htmlspecialchars(urldecode($sval))
                             . ';<br />';
                 break;
             case 'drop_db':
                 $full_query .= 'DROP DATABASE '
-                            . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
+                            . PMA_backquote(htmlspecialchars(urldecode($sval)))
                             . ';<br />';
                 break;
 
             case 'drop_tbl':
                 $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
-                            . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
+                            . PMA_backquote(htmlspecialchars(urldecode($sval)))
                             . (($i == $selected_cnt - 1) ? ';<br />' : '');
                 break;
 
@@ -110,7 +112,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 } else {
                     $full_query .= 'DELETE FROM ';
                 }
-                $full_query .= PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
+                $full_query .= PMA_backquote(htmlspecialchars(urldecode($sval)))
                             . ';<br />';
                 break;
 
@@ -119,11 +121,11 @@ if (!empty($submit_mult) && !empty($what)) {
                     $full_query .= 'ALTER TABLE '
                                 . PMA_backquote(htmlspecialchars($table))
                                 . '<br />&nbsp;&nbsp;DROP '
-                                . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
+                                . PMA_backquote(htmlspecialchars(urldecode($sval)))
                                 . ',';
                 } else {
                     $full_query .= '<br />&nbsp;&nbsp;DROP '
-                                . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
+                                . PMA_backquote(htmlspecialchars(urldecode($sval)))
                                 . ',';
                 }
                 if ($i == $selected_cnt-1) {
@@ -148,8 +150,8 @@ if (!empty($submit_mult) && !empty($what)) {
     } else  {
         echo PMA_generate_common_hidden_inputs();
     }
-    for ($i = 0; $i < $selected_cnt; $i++) {
-        echo '    <input type="hidden" name="selected[]" value="' . htmlspecialchars($selected[$i]) . '" />' . "\n";
+    foreach($selected AS $idx => $sval) {
+        echo '    <input type="hidden" name="selected[]" value="' . htmlspecialchars($sval) . '" />' . "\n";
     }
     ?>
     <input type="hidden" name="query_type" value="<?php echo $what; ?>" />
