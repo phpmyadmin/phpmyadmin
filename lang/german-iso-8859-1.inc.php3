@@ -658,4 +658,5 @@ $strDatabaseExportOptions = 'Export-Optionen der Datenbank';
 $strAddDropDatabase = 'DROP DATABASE hinzufügen';
 $strToggleScratchboard = 'Klemmbrett anzeigen';
 $strTableOptions = 'Table options';  //to translate
+$strSecretRequired = 'The configuration file now needs a secret passphrase (blowfish_secret).';  //to translate
 ?>

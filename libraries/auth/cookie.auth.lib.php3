@@ -13,6 +13,8 @@
 if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
     define('PMA_COOKIE_AUTH_INCLUDED', 1);
 
+    include('./libraries/blowfish.php3');
+
     // Gets the default font sizes
     PMA_setFontSizes();
     // Defines the cookie path and whether the server is using https or not
@@ -20,6 +22,82 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
     $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/'));
     $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
 
+    /**
+     * String padding
+     *
+     * @param   string  input string 
+     * @param   integer length of the result
+     * @param   string  the filling string
+     * @param   integer padding mode
+     *
+     * @return  string  the padded string
+     *
+     * @access  public
+     */
+    function full_str_pad($input, $pad_length, $pad_string = '', $pad_type = 0) {
+        $str = '';
+        $length = $pad_length - strlen($input);
+        if ($length > 0) { // str_repeat doesn't like negatives
+            if ($pad_type == STR_PAD_RIGHT) { // STR_PAD_RIGHT == 1
+                $str = $input.str_repeat($pad_string, $length);
+            } elseif ($pad_type == STR_PAD_BOTH) { // STR_PAD_BOTH == 2
+                $str = str_repeat($pad_string, floor($length/2));
+                $str .= $input;
+                $str .= str_repeat($pad_string, ceil($length/2));
+            } else { // defaults to STR_PAD_LEFT == 0
+                $str = str_repeat($pad_string, $length).$input;
+            }
+        } else { // if $length is negative or zero we don't need to do anything
+            $str = $input;
+        }
+        return $str;
+    }
+
+   /**
+     * Encryption using blowfish algorithm
+     *
+     * @param   string  original data
+     * @param   string  the secret
+     *
+     * @return  string  the encrypted result
+     *
+     * @access  public
+     *
+     * @author  lem9
+     */
+function PMA_blowfish_encrypt($data, $secret) {
+    $pma_cipher = new Horde_Cipher_blowfish;
+    $encrypt = '';
+    for ($i=0; $i<strlen($data); $i+=8) {
+        $block = substr($data, $i, 8);
+        if (strlen($block) < 8) {
+            $block = full_str_pad($block,8,"\0", 1);
+        }
+        $encrypt .= $pma_cipher->encryptBlock($block, $secret);
+    } 
+    return $encrypt;
+}
+
+   /**
+     * Decryption using blowfish algorithm
+     *
+     * @param   string  encrypted data
+     * @param   string  the secret
+     *
+     * @return  string  original data
+     *
+     * @access  public
+     *
+     * @author  lem9
+     */
+function PMA_blowfish_decrypt($data, $secret) {
+    $pma_cipher = new Horde_Cipher_blowfish;
+    $decrypt = '';
+    for ($i=0; $i<strlen($data); $i+=8) {
+        $decrypt .= $pma_cipher->decryptBlock(substr($data, $i, 8), $secret);
+    } 
+    return trim($decrypt);
+}
 
     /**
      * Sorts available languages by their true names
@@ -151,6 +229,15 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
         echo "\n\n";
 
         // Displays the warning message and the login form
+
+        if ($GLOBALS['cfg']['Server']['blowfish_secret']=='') {
+        ?>
+<p class="warning"><?php echo $GLOBALS['strSecretRequired']; ?></p>
+</body>
+</html>
+        <?php
+        exit();
+        }
         ?>
 <p class="warning"><?php echo $GLOBALS['strCookiesRequired']; ?></p>
 <br />
@@ -335,6 +422,8 @@ if (uname.value == '') {
             else {
                 $from_cookie   = FALSE;
             }
+            $PHP_AUTH_PW = PMA_blowfish_decrypt($PHP_AUTH_PW,$GLOBALS['cfg']['Server']['blowfish_secret']);
+
             if ($PHP_AUTH_PW == "\xff(blank)") {
                 $PHP_AUTH_PW   = '';
             }
@@ -402,11 +491,10 @@ if (uname.value == '') {
                 $GLOBALS['is_https']);
             // Duration = till the browser is closed for password
             setcookie('pma_cookie_password',
-                ((!empty($cfg['Server']['password'])) ? $cfg['Server']['password'] : "\xff(blank)"),
+                PMA_blowfish_encrypt(((!empty($cfg['Server']['password'])) ? $cfg['Server']['password'] : "\xff(blank)"), $GLOBALS['cfg']['Server']['blowfish_secret']),
                 0,
                 $GLOBALS['cookie_path'], '',
                 $GLOBALS['is_https']);
-
             // loic1: workaround against a IIS 5.0 bug
             if (empty($GLOBALS['SERVER_SOFTWARE'])) {
                 if (isset($_SERVER) && !empty($_SERVER['SERVER_SOFTWARE'])) {

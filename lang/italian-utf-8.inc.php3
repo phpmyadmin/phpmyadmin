@@ -660,4 +660,5 @@ $strViewDumpDatabases = 'View dump (schema) of databases';//to translate
 
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
 $strTableOptions = 'Table options';  //to translate
+$strSecretRequired = 'The configuration file now needs a secret passphrase (blowfish_secret).';  //to translate
 ?>

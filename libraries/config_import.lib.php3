@@ -98,6 +98,12 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
                 unset($cfg['Servers'][$i]['adv_auth']);
             }
 
+// do not put a default value here, we want to output an error to force
+// the installer to enter his own secret
+            if (!isset($cfg['Servers'][$i]['blowfish_secret'])) {
+                $cfg['Servers'][$i]['blowfish_secret']  = '';
+            }
+
             if (!isset($cfg['Servers'][$i]['compress'])) {
                 $cfg['Servers'][$i]['compress'] = FALSE;
             }

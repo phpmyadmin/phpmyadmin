@@ -9,7 +9,6 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
-
 /**
  * Displays an error message and exits if the user isn't allowed to use this
  * script
@@ -56,7 +55,7 @@ if (isset($nopass)) {
 
         // Changes password cookie if required
         if ($cfg['Server']['auth_type'] == 'cookie') {
-            setcookie('pma_cookie_password', $pma_pw, 0, $cookie_path, '', $is_https);
+            setcookie('pma_cookie_password', PMA_blowfish_encrypt($pma_pw,$GLOBALS['cfg']['Server']['blowfish_secret']), 0, $cookie_path, '', $is_https);
         } // end if
         // For http auth. mode, the "back" link will also enforce new
         // authentication
