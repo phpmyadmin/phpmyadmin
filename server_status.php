@@ -268,7 +268,7 @@ if (!empty($serverStatus)) {
     </li>
 <?php
 }
-$res = PMA_DBI_query('SHOW VARIABLES LIKE "have_innodb";');
+$res = PMA_DBI_query('SHOW VARIABLES LIKE \'have_innodb\';');
 if ($res) {
     $row = PMA_DBI_fetch_row($res);
     if (!empty($row[1]) && $row[1] == 'YES') {

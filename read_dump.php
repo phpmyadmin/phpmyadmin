@@ -80,7 +80,7 @@ if ($sql_file != 'none') {
     // file_exists() returns false if open_basedir is set
     //if (file_exists($sql_file)
     //    && ((isset($sql_localfile) && $sql_file == $cfg['UploadDir'] . $sql_localfile) || is_uploaded_file($sql_file))) {
-        
+
     if ((is_uploaded_file($sql_file))
         ||(isset($sql_localfile) && $sql_file == $cfg['UploadDir'] . $sql_localfile)  && file_exists($sql_file)) {
 
@@ -133,7 +133,7 @@ if ($sql_file != 'none') {
             $sql_query = PMA_convert_string($charset_of_file, $charset, $sql_query);
         } else if (PMA_MYSQL_INT_VERSION >= 40100
             && isset($charset_of_file) && $charset_of_file != 'utf8') {
-            $sql_query = "SET NAMES '" . $charset_of_file . "';\n"
+            $sql_query = 'SET NAMES \'' . $charset_of_file . "';\n"
             . $sql_query . "\n"
             . "SET CHARACTER SET utf8;\n"
             . "SET SESSION collation_connection ='" . $collation_connection . "';";

@@ -391,7 +391,7 @@ else {
 
         // Checks if the current database has changed
         // This could happen if the user sends a query like "USE `database`;"
-        $res = PMA_DBI_query('SELECT DATABASE() AS "db";');
+        $res = PMA_DBI_query('SELECT DATABASE() AS \'db\';');
         $row = PMA_DBI_fetch_row($res);
         if (is_array($row) && isset($row[0]) && (strcasecmp($db,$row[0]) != 0)) {
             $db     = $row[0];
