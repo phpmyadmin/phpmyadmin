@@ -12,7 +12,11 @@ $Source$
 
 2004-04-18 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Updates.
-    * server_privileges.php: $url_query was not visible in function scope.
+    * server_privileges.php:
+      - $url_query was not visible in function scope;
+      - Hotfix to avoid "MySQL out of sync" errors.
+    * libraries/dbi/*.dbi.lib.php: Allow the $link argument of
+      PMA_DBI_affected_rows() to be left out.
 
 2004-04-17 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysql.dbi.lib.php: was still using PMA_mysql_field_flags

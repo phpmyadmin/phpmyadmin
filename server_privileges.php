@@ -1063,8 +1063,8 @@ if (empty($adduser) && empty($checkprivs)) {
             } else {
                 $sql_query = 'SELECT `Table_name`, `Table_priv`, IF(`Column_priv` = "", 0, 1) AS "Column_priv" FROM `tables_priv` WHERE `Host` = "' . $hostname . '" AND `User` = "' . PMA_sqlAddslashes($username) . '" AND `Db` = "' . $dbname . '" ORDER BY `Table_name` ASC;';
             }
-            $res = PMA_DBI_query($sql_query);
-            if (PMA_DBI_affected_rows($userlink) == 0) {
+            $res = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_STORE);
+            if (PMA_DBI_affected_rows() == 0) {
                 echo '            <tr>' . "\n"
                    . '                <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="6"><center><i>' . $strNone . '</i></center></td>' . "\n"
                    . '            </tr>' . "\n";
