@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-03  Marc Delisle  <lem9@users.sourceforge.net>
+	* lib.inc.php3: patch from Chee Wai for illegal index
+
 2001-07-03  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_properties.php3: fix minor bug under PHP3 with space usage display
 

@@ -819,7 +819,12 @@ function split_sql_file($sql, $delimiter) {
 function remove_remarks($sql) {
   $i = 0;
   while ($i < strlen($sql)) {
-    if ($sql[$i] == "#" and ($sql[$i-1] == "\n" or $i==0)) {
+// patch from Chee Wai 
+//      (otherwise, if $i==0 and $sql[$i] == "#", the original order 
+//       in the second part of the AND bit will fail with illegal index) 
+//    if ($sql[$i] == "#" and ($sql[$i-1] == "\n" or $i==0)) {
+
+      if ($sql[$i] == "#" and ($i==0 or $sql[$i-1] == "\n")) { 
       $j=1;
       while ($sql[$i+$j] != "\n") {
         $j++;
