@@ -316,10 +316,11 @@ if (!isset($is_inside_querywindow) ||
 if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && (($querydisplay_tab == 'files') || $querydisplay_tab == 'sql' || $querydisplay_tab == 'full' || ($querydisplay_tab == 'history' && $bookmark_go)))) {
 ?>
             <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
-</form>
 <?php
 }
-
+?>
+</form>
+<?php
 if (!isset($is_inside_querywindow) ||
     (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')) && isset($db) && $db != '') {
 

@@ -17,6 +17,8 @@ $Source$
     * lang/galician: Updated, thanks to Xosé Calvo.
   
 2003-07-09 Garvin Hicking <me@supergarv.de>
+    * tbl_query_box.php3: Fix Bug #768652 (sql history tab submittet to
+      whole frameset)
     * Documentation.html, config.inc.php3, libraries/common.lib.php3,
       libraries/config_import.lib.php3, header.inc.php3: Created auto-detection 
       for $cfg['OBGzip'] and set this as default. It will auto-enable OBGzip
