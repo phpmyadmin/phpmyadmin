@@ -607,7 +607,7 @@ function setVerticalPointer(theRow, theColNum, theAction, theDefaultColor1, theD
             }
             else if (theAction == 'click' && theMarkColor != '') {
                 newColor              = theMarkColor;
-                marked_row[theColNum] = null;
+                marked_row[theColNum] = false;
             }
         }
         // 4.1.3 Current color is the marker one
