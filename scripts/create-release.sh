@@ -2,6 +2,11 @@
 #
 # $Id$
 #
+# 2003-08-23, nijel@users.sourceforge.net:
+# - support for creating snapshots outside sourceforge:
+#    * cvs server name can be read from environment variable cvsserver
+#    * do not change to directories as used on sourceforge if $2 is local
+#
 # 2003-08-13, nijel@users.sourceforge.net:
 # - config.default -> config.default.php
 #
@@ -55,7 +60,7 @@
 # - added release todo list
 #
 
-cvsserver=cvs1
+cvsserver=${cvsserver:-cvs1}
 
 if [ $# == 0 ]
 then
@@ -66,11 +71,10 @@ then
   exit 65
 fi
 
-if [ $# == 1 ]
+if [ "$1" == "snapshot" ]
 then
   branch=''
-fi
-if [ $# == 2 ]
+elif [ "$#" == 2 ]
 then
   branch="-r $2"
 fi
@@ -120,8 +124,9 @@ END
  fi
 fi
 
+if [ "$mode" == "snapshot" -a "$2" != "local" ] ; then
 # Goto project dir
-cd /home/groups/p/ph/phpmyadmin/htdocs
+    cd /home/groups/p/ph/phpmyadmin/htdocs
 
 ## Move old cvs dir
 #if [ -e cvs ];
@@ -130,11 +135,12 @@ cd /home/groups/p/ph/phpmyadmin/htdocs
 #fi
 
 # Keep one previous version of the cvs directory
-if [ -e cvs-prev ];
-then
-    rm -rf cvs-prev
+    if [ -e cvs-prev ];
+    then
+        rm -rf cvs-prev
+    fi
+    mv cvs cvs-prev
 fi
-mv cvs cvs-prev
 
 # Do CVS checkout
 mkdir cvs
@@ -255,9 +261,11 @@ END
 
 fi
 
-cd ..
-find cvs -type d -print0 | xargs -0 chmod 775
-find cvs -type f -print0 | xargs -0 chmod 664
+if [ "$mode" == "snapshot" -a "$2" != "local" ] ; then
+    cd ..
+    find cvs -type d -print0 | xargs -0 chmod 775
+    find cvs -type f -print0 | xargs -0 chmod 664
+fi
 
 # Removed due to not needed thanks to clever scripting by Robbat2
 # 9. update the demo subdirectory:

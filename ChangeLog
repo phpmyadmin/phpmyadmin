@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-23 Michal Čihař  <michal@cihar.com>
+    * scripts/create-release.sh: Support for snapshots outside sourceforge.
+
 2004-08-22 Michal Čihař  <michal@cihar.com>
     * sql.php: Don't unset $sql_limit_to_append, we need it later (bug
       #978930, found by Marc).
