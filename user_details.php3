@@ -1,7 +1,7 @@
 <?php
 /* $Id$*/
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
 
 function check_operations()
 {
@@ -496,6 +496,7 @@ function table_privileges($form, $row = false)
     $list_priv = array("Select", "Insert", "Update", "Delete", "Create", "Drop", "Reload",
 		       "Shutdown", "Process", "File", "Grant", "References", "Index", "Alter");
 
+    $item = 0;
     while ((list(,$priv) = each($list_priv)) && ++$item) {
        $priv_priv = $priv . "_priv";
        $checked = ($row{$priv_priv} == "Y") ?  "checked" : "";
@@ -673,7 +674,7 @@ function table_users($host = false, $user = false)
         if ($row{"Create_priv"} == "Y") $strPriv .= "$strCreate ";
         if ($row{"Drop_priv"} == "Y") $strPriv .= "$strDrop ";
         if ($row{"Reload_priv"} == "Y") $strPriv .= "$strReload ";
-        if ($row{"Shutdown_priv"} == "Y") $strPriv .= "$strShutDown ";
+        if ($row{"Shutdown_priv"} == "Y") $strPriv .= "$strShutdown ";
         if ($row{"Process_priv"} == "Y") $strPriv .= "$strProcess ";
         if ($row{"File_priv"} == "Y") $strPriv .= "$strFile ";
         if ($row{"Grant_priv"} == "Y") $strPriv .= "$strGrant ";
@@ -710,7 +711,7 @@ function table_users($host = false, $user = false)
 <!--        <td><a <? if ($check_url != "") echo "href = \"" . $check_url . "\""; ?>>Grants</a></td> -->
         <td><?php echo $row{"Host"}; ?></td>
         <td><?php echo $row{"User"} ? "<b>" . $row{"User"}. "</b>" : "<font color=\"#FF0000\">$strAny</font>"; ?></td>
-        <td><?php echo $row{"password"} ? $strYes : "<font color=\"#FF0000\">$strNo</font>"; ?></td>
+        <td><?php echo $row{"Password"} ? $strYes : "<font color=\"#FF0000\">$strNo</font>"; ?></td>
         <td><?php echo $strPriv; ?></td>
         </tr>
 
@@ -756,7 +757,7 @@ function confirm() {
 
 if(!isset($message))
 {
-    include("header.inc.php3");
+    include("./header.inc.php3");
 }
 else
 {
@@ -766,7 +767,7 @@ else
 $self = "user_details.php3";
 check_rights();
 
-if ($host) {
+if (!empty($host)) {
     echo "<h1>";
     if ($host) echo "$strHost $host - $strUser ";
     echo ($user) ?  $user : "$strAny";
@@ -818,9 +819,11 @@ if (isset($edit) && $edit) { # Edit an user
   check_operations();
 
 } else {            # Users actions
+  if (!isset($host)) $host = false;
+  if (!isset($user)) $user = false;
   table_users($host, $user) || mysql_die($strNoUsersFound);
   normal_operations();
 }
 
-require ("footer.inc.php3");
+require("./footer.inc.php3");
 ?>

@@ -132,7 +132,7 @@ if($server > 0) {
 	}
             ?>
 <?php
-$result = mysql_db_query("mysql", "SELECT * FROM user");
+$result = mysql_query("SELECT * FROM mysql.user");
 $rows = @mysql_num_rows($result);
 if (isset($rows)) {
    echo "<li><a href=\"user_details.php3?server=$server&lang=$lang&db=mysql&table=user\">";
