@@ -57,7 +57,7 @@ $strCheckTable = 'Überprüfe Tabelle';
 $strColumn = 'Spalte';
 $strColumnEmpty = 'Die Spalten-Titel sind leer!';
 $strColumnNames = 'Spaltennamen';
-$strCompleteInserts = 'Vollständige \'inserts\'';
+$strCompleteInserts = 'Vollständige \'INSERT\'s';
 $strConfirm = 'Bist du dir wirklich sicher?';
 $strCopyTable = 'Tabelle kopieren nach';
 $strCopyTableOK = 'Tabelle %s wurde kopiert nach %s.';
@@ -101,6 +101,7 @@ $strEnd = 'Ende';
 $strEnglishPrivileges = ' Anmerkung: MySQL Rechtename werden in Englisch angegeben ';
 $strError = 'Fehler';
 $strEscapedBy = 'escaped von';
+$strExtendedInserts = 'Erweiterte \'INSERT\'s';
 $strExtra = 'Extra';
 
 $strField = 'Feld';
@@ -246,7 +247,8 @@ $strSQLQuery = 'SQL-Befehl';
 $strStatement = 'Angaben';
 $strStrucCSV = 'CSV-Daten';
 $strStrucData = 'Struktur und Daten';
-$strStrucDrop = 'Mit \'drop table\'';
+$strStrucDrop = 'Mit \'DROP TABLE\'';
+$strStrucExcelCSV = 'CSV-Daten für MS Excel';
 $strStrucOnly = 'Nur Struktur';
 $strSubmit = 'Abschicken';
 $strSuccess = 'Ihr SQL-Befehl wurde erfolgreich ausgeführt.';
@@ -291,6 +293,4 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
-$strExtendedInserts = 'Extended inserts';
-$strStrucExcelCSV = 'CSV for Ms Excel data';
 ?>
