@@ -174,7 +174,7 @@
     <li>create PDF graphics of your Database layout</li>
     <li>search globally in a database or a subset of it</li>
     <li>
-        communicate in 
+        communicate in
         <a class="navigation" href="./translators.html">43 different languages</a>
     </li>
 </ul>
@@ -268,13 +268,13 @@
 <p><b>Using authentication modes:</b></p>
 <ul>
     <li>Http and cookie authentication modes are recommended in a <b>multi-user
-        environment</b> where you want to give users access to their own 
+        environment</b> where you want to give users access to their own
         database and don't want them to play around with others.
         <br />
         Nevertheless be aware that MS Internet Explorer seems to be really
         buggy about cookies, at least till version 6. And php 4.1.1 is also a
         bit buggy in this area!<br />
-        Even in a <b>single-user environment</b>, you might prefer to use 
+        Even in a <b>single-user environment</b>, you might prefer to use
         http or cookie mode so that your user/password pair are not in clear
         in the configuration file.<br /><br /></li>
 
@@ -1844,9 +1844,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     I get the error &quot;No input file specified&quot; when trying to
     run phpMyAdmin.</b>
     <br />
-    This is a permission problem. Right-click on the phpmyadmin folder 
+    This is a permission problem. Right-click on the phpmyadmin folder
     and choose properties. Under the tab Security, click on &quot;Add&quot;
-    and select the user &quot;IUSER_machine&quot; from the list. Now set his 
+    and select the user &quot;IUSER_machine&quot; from the list. Now set his
     permissions and it should work.
 </p>
 
@@ -1855,9 +1855,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     db_details_structure.php3 with plenty of dabases).</b>
     <br />
     This is a <a href="http://bugs.php.net/21079">PHP bug</a> that occur when
-    GZIP output buffering enabled. If you turn off it (by <code>$cfg['OBGzip']
-    = FALSE</code> in config.inc.php3, it should work. This bug will be fixed
-    least in PHP >= 4.5.0.
+    GZIP output buffering enabled. If you turn it off (by <code>$cfg['OBGzip']
+    = FALSE</code> in config.inc.php3), it should work. This bug will be fixed
+    in PHP 5.0.0.
 </p>
 
 <a name="faqconfig"></a>

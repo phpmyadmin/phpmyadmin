@@ -8,7 +8,7 @@ $Source$
 2003-01-30 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation*: Added faq 1.27 about GZIP output buffering problem.
     * Documentation.html, translators.html: Unified using of font sizes.
-    
+
 2003-01-30 Alexander M. Turek  <rabus@users.sourceforge.net>
     * main.php3, user_details.php3, libraries/user_details.js: Removed the old
       user management.
@@ -16,6 +16,7 @@ $Source$
       process list for normal users.
     * config.inc.php3: Removed note about buggy setting.
     * lang/german-*.inc.php3: Updates.
+    * Documentation.html: There won't be a PHP 4.5.0; typos.
 
 2003-01-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php3: drop-down for enums, thanks to Joerg Klein (j0erch)
