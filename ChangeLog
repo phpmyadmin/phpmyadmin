@@ -17,6 +17,7 @@ $Source$
     * lang/german-*.inc.php3: Updates.
     * lang/*.inc.php3: Fixed a typo.
     * lang/lithuanian-*.inc.php3: Updates, thanks to Vilius Zigmantas (viliusz).
+    * lang/english-*.inc.php3, lang/romanian-*.inc.php3: Reordered strings.
 
 2002-12-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * main.php3, header.inc.php3, server_privileges.php3, server_links.php3,
