@@ -418,19 +418,49 @@ if (!empty($asfile)) {
         }
     }
 
-    // finally send the headers and the file
-    header('Content-Type: ' . $mime_type);
-    header('Expires: ' . $now);
-    // lem9 & loic1: IE need specific headers
-    if (PMA_USR_BROWSER_AGENT == 'IE') {
-        header('Content-Disposition: inline; filename="' . $filename . '.' . $ext . '"');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
+    /* Should ve save on server? */
+    if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir']) && !empty($onserver) ) {
+        $fname = $cfg['SaveDir'] . $filename . '.' . $ext;
+        if (file_exists($fname) && empty($onserverover)) {
+            $message = sprintf($strFileAlreadyExists, $fname);
+        } else {
+            if (is_file($fname) && !is_writable($fname)) {
+                $message = sprintf($strFileNotWriteble, $fname);
+            } else {
+                if (!$file = fopen($fname, 'w')) {
+                    $message = sprintf($strCanNotOpenFile, $fname);
+                } else {
+                    if (!fwrite($file, $dump_buffer)) {
+                        $message = sprintf($strCanNotWriteFile, $fname);
+                    } else {
+                        fclose($file);
+                        $message = sprintf($strDumpSaved, $fname);
+                    }
+                }
+            }
+        }
+        include('./header.inc.php3');
+        if (!isset($single)) {
+            include('./db_details_export.php3');
+        } else {
+            include('./tbl_properties_export.php3');
+        }
+    /* Send dump over HTTP */
     } else {
-        header('Content-Disposition: attachment; filename="' . $filename . '.' . $ext . '"');
-        header('Pragma: no-cache');
+        // finally send the headers and the file
+        header('Content-Type: ' . $mime_type);
+        header('Expires: ' . $now);
+        // lem9 & loic1: IE need specific headers
+        if (PMA_USR_BROWSER_AGENT == 'IE') {
+            header('Content-Disposition: inline; filename="' . $filename . '.' . $ext . '"');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+        } else {
+            header('Content-Disposition: attachment; filename="' . $filename . '.' . $ext . '"');
+            header('Pragma: no-cache');
+        }
+        echo $dump_buffer;
     }
-    echo $dump_buffer;
 }
 /**
  * Displays the dump...

@@ -293,6 +293,14 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                     <label for="checkbox_dump_asfile"><?php echo $strSend; ?></label>
                 </legend>
                 
+                <?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
+                <input type="checkbox" name="onserver" value="saveit" id="checkbox_dump_onserver"  onclick="gE('checkbox_dump_asfile').checked = true;" />
+                <label for="checkbox_dump_onserver"><?php echo sprintf($strSaveOnServer, htmlspecialchars($cfg['SaveDir'])); ?></label>,
+                <input type="checkbox" name="onserverover" value="saveitover" id="checkbox_dump_onserverover"  onclick="gE('checkbox_dump_onserver').checked = true;gE('checkbox_dump_asfile').checked = true;" />
+                <label for="checkbox_dump_onserverover"><?php echo $strOverwriteExisting; ?></label>
+                <br />
+                <?php } ?>
+                
                 <?php echo $strFileNameTemplate; ?>&nbsp;:
                 <input type="text" name="filename_template"
                 <?php 

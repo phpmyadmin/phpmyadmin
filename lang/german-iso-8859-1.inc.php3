@@ -637,4 +637,11 @@ $strRelations = 'Tabellenverknüpfungen';
 $strMoveTableSameNames = 'Tabelle kann nicht mit gleichem Namen verschoben werden!';
 $strCopyTableSameNames = 'Tabelle kann nicht mit gleichem Namen kopiert werden!';
 $strMustSelectFile = 'Bitte geben Sie eine Datei an, die eingefügt werden soll.';
+$strSaveOnServer = 'Save on server in %s directory';  //to translate
+$strOverwriteExisting = 'Overwrite existing file(s)';  //to translate
+$strFileAlreadyExists = 'File %s already exists on server, change filename or check overwrite option.';  //to translate
+$strFileNotWriteble = 'File %s is not writable, check your configuration.';  //to translate
+$strCanNotOpenFile = 'Can not open file %s for writing, check your configuration.';  //to translate
+$strCanNotWriteFile = 'Can not write to file %s, check your configuration.';  //to translate
+$strDumpSaved = 'Dump has been saved to file %s.';  //to translate
 ?>

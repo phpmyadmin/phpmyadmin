@@ -440,6 +440,9 @@ $cfg['SQLQuery']['Validate']  = FALSE;      // Validate a query (see $cfg['SQLVa
 $cfg['UploadDir']             = '';         // for example, './upload/'; you must end it with
                                             // a slash, and you leave it empty for no upload
                                             // directory
+$cfg['SaveDir']               = '';         // for example, './save/'; you must end it with
+                                            // a slash, and you leave it empty for no save
+                                            // directory
 
 
 /**

@@ -7,6 +7,7 @@
  * tables if possible
  */
 // staybyte: speedup view on locked tables - 11 June 2001
+$tables = array();
 if (PMA_MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
     if ($cfg['SkipLockedTables'] == TRUE && PMA_MYSQL_INT_VERSION >= 32330) {

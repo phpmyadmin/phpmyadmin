@@ -36,6 +36,10 @@ $Source$
       parameters.
     * libraries/build_dump.lib.php3: Fix eporting without backquotes (bug
       #737023).
+    * .cvsignore, config.inc.php3, db_details_db_info.php3, tbl_dump.php3,
+      lang/*, libraries/common.lib.php3, libraries/display_export.lib.php3,
+      Documentation.html: Support for saving to file on server (part of RFE
+      #730197).
 
 2003-05-12 Garvin Hicking <me@supergarv.de>
     * queryframe.php3: Remove left/bottom margin to better fit the link title

@@ -1510,6 +1510,19 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['SaveDir'] </b>string</dt>
+    <dd>
+        The name of the directory, ending with a slash, where dumps can
+        be saved.
+        <br /><br />
+        Please note that the directory has to be writable for user running
+        webserver.
+        <br /><br />
+        Please note that if PHP is running in safe mode, this directory must
+        be owned by the same user as the owner of the phpMyAdmin scripts.
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['RepeatCells'] </b>integer</dt>
     <dd>
         Repeat the headers every X cells, or 0 to deactivate.
