@@ -383,7 +383,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         <script type="text/javascript" language="javascript">
         <!--
         // Fake js to allow the use of the <noscript> tag
-        -->
+        //-->
         </script>
         <noscript>
             <input type="submit" value="<?php echo $strGo; ?>" />
