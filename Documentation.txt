@@ -6,7 +6,7 @@
    Transformations  -  FAQ  -  Developers  -  Credits  -  Translators
    ______________________________________________________________________
    
-                      phpMyAdmin 2.5.0-rc1 Documentation
+                      phpMyAdmin 2.5.0-rc2 Documentation
                                        
      * SourceForge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ] 
@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.430 2003/04/13
-       22:55:48 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.433 2003/04/18
+       18:44:46 nijel Exp $
        
 Requirements
 
@@ -1505,7 +1505,7 @@ FAQ - Frequently Asked Questions
    This happens because the MySQL directive lower_case_table_names
    defaults to 1 (ON) in the Win32 version of MySQL. You can change this
    behavior by simply changing the directive to 0 (OFF):
-   Just edit you my.ini file that should be located in your Windows
+   Just edit your my.ini file that should be located in your Windows
    directory and add the following line to the group [mysqld]:
    set-variable = lower_case_table_names=0
    Next, save the file and restart the MySQL service. You can always
@@ -1762,6 +1762,13 @@ FAQ - Frequently Asked Questions
            'allow root from 192.168.0.0/16',
            'allow root from 172.16.0.0/12',
            );
+   
+    [4.7] Authentication window is displayed more than once, why?
+    
+   This happens if you are using a URL to start phpMyAdmin which is
+   different than the one set in your $cfg['PmaAbsoluteUri']. For
+   example, a missing "www", or entering with an IP address while a
+   domain name is defined in the config file.
    
   [5. Browsers or client OS]
   

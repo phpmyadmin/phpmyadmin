@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-27 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.5.0-rc2 released
+
 2003-04-25 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/estonian: Updated, thanks to finsoft@sourceforge.net.
     * lang/norwegian: Updated, thanks to Sven-Erik Andersen (sven-erik).
