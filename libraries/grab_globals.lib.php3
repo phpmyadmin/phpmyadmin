@@ -21,6 +21,10 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
         reset($array);
         while (list($key, $value) = each($array)) {
             if (is_array($value)) {
+                // there could be a variable coming from a cookie of
+                // another application, with the same name as this array
+                unset($GLOBALS[$key]);
+
                 PMA_gpc_extract($value, $target[$key]);
             } else if ($is_magic_quotes) {
                 $target[$key] = stripslashes($value);

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/grab_globals.lib.php3: bug 807047, protect POST variables
+      against cookies of the same name
+
 2003-10-01 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/slovenian update, thanks to Kositer Uros
     * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
