@@ -71,6 +71,7 @@ $strBzError = 'phpMyAdmin nu a reusit sa compreseze acest dump din cauza unei ex
 $strBzip = '"bzipped"';
 
 $strCannotLogin = 'Nu pot face conexiunea catre serverul MySQL';
+$strCantLoad = 'nu se poate incarca %s extensia,<br />va rugam verificati configuratia PHP.';
 $strCantLoadMySQL = 'extensia MySQL nu se incarca,<br />va rugam verificati configuratia PHP.';
 $strCantLoadRecodeIconv = 'Nu pot incarca extensia iconv sau recode necesar pentru conversia de caractere, configureaza PHP pentru a permite folosirea acestor extensii sau dezactiveaza conversia de caractere din phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Nu poti redenumi index-ul la un nume PRIMARY!';
@@ -110,6 +111,15 @@ $strCreatePage = 'Creaza o noua pagina';
 $strCreatePdfFeat = 'Creare de PDF';
 $strCriteria = 'Criteriu';
 
+$strDBGContext = 'Context';
+$strDBGContextID = 'Context ID';
+$strDBGHits = 'Afisari';
+$strDBGLine = 'Linia';
+$strDBGMinTimeMs = 'Timp maxim, ms';
+$strDBGMinTimeMs = 'Timp minim, ms';
+$strDBGModule = 'Modul';
+$strDBGTimePerHitMs = 'Timp/Afisare, ms';
+$strDBGTotalTimeMs = 'Timp total, ms';
 $strData = 'Date';
 $strDataDict = 'Dictionar de date';
 $strDataOnly = 'Numai date';
@@ -535,24 +545,19 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 // To translate
 
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-$strIgnoringFile = 'Ignoring file %s';  //to translate
-$strThisNotDirectory = 'This was not a directory';  //to translate
 $strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
+$strAddedColumnComment = 'Added comment for column';  //to translate
+$strAddedColumnRelation = 'Added relation for column';  //to translate
+
+$strFileCouldNotBeRead = 'File could not be read';  //to translate
+
+$strIgnoringFile = 'Ignoring file %s';  //to translate
 $strImportFiles = 'Import files';  //to translate
-$strDBGModule = 'Module';  //to translate
-$strDBGLine = 'Line';  //to translate
-$strDBGHits = 'Hits';  //to translate
-$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
-$strDBGTotalTimeMs = 'Total time, ms';  //to translate
-$strDBGMinTimeMs = 'Min time, ms';  //to translate
-$strDBGMinTimeMs = 'Max time, ms';  //to translate
-$strDBGContextID = 'Context ID';  //to translate
-$strDBGContext = 'Context';  //to translate
-$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
+$strImportFinished = 'Import finished';  //to translate
+
+$strThisNotDirectory = 'This was not a directory';  //to translate
+
+$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
+$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
+
 ?>

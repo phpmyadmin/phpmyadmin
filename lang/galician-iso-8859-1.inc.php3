@@ -74,6 +74,7 @@ $strBzError = 'phpMyAdmin foi incapaz de comprimir os resultados debido a que es
 $strBzip = 'comprimido no formato "bzipped"';
 
 $strCannotLogin = 'Non podo conectar co servidor de MySQL';
+$strCantLoad = 'Non se pode carregar a extensión %s.<br />Comprobe a configuración do PHP.';
 $strCantLoadMySQL = 'Non foi posible carregar a extensión do MySQL;<br>comprobe, por favor, a configuración do PHP.';
 $strCantLoadRecodeIconv = 'Non se puido carregar iconv ou precísase da extensión recode para a conversión do charset. Configure o php para que se poidan usar estas extensións ou indique que non se use a conversión de charset en phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Non se pode facer que este índice sexa PRIMARIO!';
@@ -113,6 +114,15 @@ $strCreatePage = 'Crear unha páxina nova';
 $strCreatePdfFeat = 'Creación de PDFs';
 $strCriteria = 'Criterio';
 
+$strDBGContext = 'Contexto';
+$strDBGContextID = 'ID do contexto';
+$strDBGHits = 'Hits';
+$strDBGLine = 'Liña';
+$strDBGMinTimeMs = 'Tempo máximo, ms';
+$strDBGMinTimeMs = 'Tempo mínimo, ms';
+$strDBGModule = 'Módulo';
+$strDBGTimePerHitMs = 'Tempo/Hit, ms';
+$strDBGTotalTimeMs = 'Tempo total, ms';
 $strData = 'Datos';
 $strDataDict = 'Diccionario de datos';
 $strDataOnly = 'Só os datos';
@@ -538,24 +548,19 @@ $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) el
 $strZip = 'comprimido no formato "zipped"';
 // To translate
 
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-$strIgnoringFile = 'Ignoring file %s';  //to translate
-$strThisNotDirectory = 'This was not a directory';  //to translate
 $strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
+$strAddedColumnComment = 'Added comment for column';  //to translate
+$strAddedColumnRelation = 'Added relation for column';  //to translate
+
+$strFileCouldNotBeRead = 'File could not be read';  //to translate
+
+$strIgnoringFile = 'Ignoring file %s';  //to translate
 $strImportFiles = 'Import files';  //to translate
-$strDBGModule = 'Module';  //to translate
-$strDBGLine = 'Line';  //to translate
-$strDBGHits = 'Hits';  //to translate
-$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
-$strDBGTotalTimeMs = 'Total time, ms';  //to translate
-$strDBGMinTimeMs = 'Min time, ms';  //to translate
-$strDBGMinTimeMs = 'Max time, ms';  //to translate
-$strDBGContextID = 'Context ID';  //to translate
-$strDBGContext = 'Context';  //to translate
-$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
+$strImportFinished = 'Import finished';  //to translate
+
+$strThisNotDirectory = 'This was not a directory';  //to translate
+
+$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
+$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
+
 ?>
