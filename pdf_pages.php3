@@ -285,6 +285,67 @@ if ($cfgRelation['pdfwork']) {
 <hr />
 
 <h2><?php echo $strSelectTables ;?></h2>
+
+<?php
+$page_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['table_coords'])
+            . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+            . ' AND pdf_page_number = ' . $chpage;
+$page_rs    = PMA_query_as_cu($page_query);
+$array_sh_page = array();
+$draginit = '';
+$reset_draginit = '';
+$i = 0;
+while ($temp_sh_page = @PMA_mysql_fetch_array($page_rs)) {
+    $array_sh_page[] = $temp_sh_page;
+}
+reset($array_sh_page);
+
+// garvin: Display WYSIWYG-PDF parts?
+if ($cfg['WYSIWYG-PDF']) {
+?>
+<script type="text/javascript" src="./libraries/dom-drag.js"></script>
+<form method="post" action="pdf_pages.php3" name="dragdrop">
+<input type="button" name="dragdrop" value="toggle Drag and Drop area" onclick="ToggleDragDrop('pdflayout');" />
+ <input type="button" name="dragdropreset" value="reset" onclick="resetDrag();" />
+</form>
+<div id="pdflayout" class="pdflayout" style="visibility: hidden;">
+<?php
+while (list($key, $temp_sh_page) = each($array_sh_page)) {
+    $drag_x = $temp_sh_page['x'];
+    $drag_y = $temp_sh_page['y'];
+    
+    $draginit       .= '    Drag.init(getElement("table_' . $i . '"), null, 0, parseInt(myid.style.width)-2, 0, parseInt(myid.style.height)-5);' . "\n";
+    $draginit       .= '    getElement("table_' . $i . '").onDrag = function (x, y) { document.edcoord.elements["c_table_' . $i . '[x]"].value = parseInt(x); document.edcoord.elements["c_table_' . $i . '[y]"].value = parseInt(y) }' . "\n";
+    $draginit       .= '    getElement("table_' . $i . '").style.left = "' . $drag_x . 'px";' . "\n";
+    $draginit       .= '    getElement("table_' . $i . '").style.top  = "' . $drag_y . 'px";' . "\n";
+    $reset_draginit .= '    getElement("table_' . $i . '").style.left = "2px";' . "\n";
+    $reset_draginit .= '    getElement("table_' . $i . '").style.top  = "' . (15 * $i) . 'px";' . "\n";
+    $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[x]"].value = "2"' . "\n";
+    $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[y]"].value = "' . (15 * $i) . '"' . "\n";
+
+    echo '<div id="table_' . $i . '" class="pdflayout_table">' . $temp_sh_page['table_name'] . '</div>' . "\n";
+    $i++;
+}
+reset($array_sh_page);
+?>
+</div>
+<script type="text/javascript">
+<!--
+function init() {
+    refreshLayout();
+    myid = getElement('pdflayout');
+    <?php echo $draginit; ?>
+}
+
+function resetDrag() {
+    <?php echo $reset_draginit; ?>
+}
+// -->
+</script>
+<?php
+} // end if WYSIWYG-PDF
+?>
+
 <form method="post" action="pdf_pages.php3" name="edcoord">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="chpage" value="<?php echo $chpage; ?>" />
@@ -301,13 +362,9 @@ if ($cfgRelation['pdfwork']) {
             unset($ctable);
         }
 
-        $page_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['table_coords'])
-                    . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-                    . ' AND pdf_page_number = ' . $chpage;
-        $page_rs    = PMA_query_as_cu($page_query);
 
         $i = 0;
-        while ($sh_page = @PMA_mysql_fetch_array($page_rs)) {
+        while (list($dummy_sh_page, $sh_page) = each($array_sh_page)) {
             $_mtab       = $sh_page['table_name'];
             $tabExist[$_mtab] = FALSE;
             echo "\n" . '    <tr ';
@@ -334,10 +391,10 @@ if ($cfgRelation['pdfwork']) {
                  . "\n" . '            <input type="checkbox" name="c_table_' . $i . '[delete]" value="y" />' . $strDelete;
             echo "\n" . '        </td>';
             echo "\n" . '        <td>'
-                 . "\n" . '            <input type="text" name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
+                 . "\n" . '            <input type="text" ' . ($cfg['WYSIWYG-PDF'] ? 'onchange="dragPlace(' . $i . ', \'x\', this.value)"' : '') . ' name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
             echo "\n" . '        </td>';
             echo "\n" . '        <td>'
-                 . "\n" . '            <input type="text" name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
+                 . "\n" . '            <input type="text" ' . ($cfg['WYSIWYG-PDF'] ? 'onchange="dragPlace(' . $i . ', \'y\', this.value)"' : '') . ' name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
             echo "\n" . '        </td>';
             echo "\n" . '    </tr>';
             $i++;
@@ -371,6 +428,7 @@ if ($cfgRelation['pdfwork']) {
         echo "\n" . '    </table>' . "\n";
 
         echo "\n" . '    <input type="hidden" name="c_table_rows" value="' . ($i + 1) . '" />';
+        echo ($cfg['WYSIWYG-PDF'] ? "\n" . '    <input type="hidden" name="showwysiwyg" value="' . ((isset($showwysiwyg) && $showwysiwyg == '1') ? '1' : '0') . '" />' : '');
         echo "\n" . '    <input type="submit" value="' . $strGo . '" />';
         echo "\n" . '</form>' . "\n\n";
     } // end if
@@ -411,7 +469,7 @@ if ($cfgRelation['pdfwork']) {
        || ($do == 'choosepage' && isset($chpage))
        || ($do == 'createpage' && isset($chpage)))) {
         ?>
-<form method="post" action="pdf_schema.php3">
+<form method="post" action="pdf_schema.php3" name="pdfoptions">
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <input type="hidden" name="pdf_page_number" value="<?php echo $chpage; ?>" />
     <?php echo $strDisplayPDF; ?>&nbsp;:<br />
@@ -426,12 +484,12 @@ if ($cfgRelation['pdfwork']) {
     <input type="checkbox" name="with_doc" id="with_doc" checked="checked" />
     <label for="with_doc"><?php echo $strDataDict; ?></label> <br />
     <?php echo $strShowDatadictAs; ?>
-    <select name="orientation">
+    <select name="orientation" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
         <option value="L"><?php echo $strLandscape;?></option>
         <option value="P"><?php echo $strPortrait;?></option>
     </select><br />
     <?php echo $strPaperSize; ?>
-    <select name="paper">
+    <select name="paper" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
 <?php
     while (list($key,$val) = each($cfg['PDFPageSizes'])) {
         echo '<option value="' . $val . '"';
@@ -445,6 +503,15 @@ if ($cfgRelation['pdfwork']) {
     &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
 </form>
         <?php
+        if ((isset($showwysiwyg) && $showwysiwyg == '1')) {
+        ?>
+<script type="text/javascript">
+<!--
+ToggleDragDrop('pdflayout');    
+// -->
+</script>
+        <?php
+        }
     } // end if
 } // end if ($cfgRelation['pdfwork'])
 

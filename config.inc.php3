@@ -471,6 +471,8 @@ $cfg['QueryHistoryMax']     = 25;           // When using DB-based query history
 $cfg['BrowseMIME']          = TRUE;         // Use MIME-Types (stored in column comments table) for
 $cfg['MaxExactCount']       = 20000;        // When approximate count < this, PMA will get exact count for
                                             // table rows.
+$cfg['WYSIWYG-PDF']         = TRUE;         // Utilize DHTML/JS capabilities to allow WYSIWYG editing of
+                                            // the PDF page editor. Requires an IE6/Mozilla based browser.
 
 /**
  * SQL Query box settings

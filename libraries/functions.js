@@ -701,3 +701,216 @@ function getElement(e,f){
     }
     return document.getElementById(e);
 }
+
+/**
+  * Refresh the WYSIWYG-PDF scratchboard after changes have been made
+  */
+function refreshDragOption(e) {
+    myid = getElement(e);
+    if (myid.style.visibility == 'visible') {
+        refreshLayout();
+    }
+}
+
+/**
+  * Refresh/resize the WYSIWYG-PDF scratchboard
+  */
+function refreshLayout() {
+        myid = getElement('pdflayout');
+
+        if (document.pdfoptions.orientation.value == 'P') {
+            posa = 'x';
+            posb = 'y';
+        } else {
+            posa = 'y';
+            posb = 'x';
+        }
+
+        myid.style.width = pdfPaperSize(document.pdfoptions.paper.value, posa) + 'px';
+        myid.style.height = pdfPaperSize(document.pdfoptions.paper.value, posb) + 'px';
+}
+
+/**
+  * Show/hide the WYSIWYG-PDF scratchboard
+  */
+function ToggleDragDrop(e) {
+    myid = getElement(e);
+
+    if (myid.style.visibility == 'hidden') {
+        init();
+        myid.style.visibility = 'visible';
+        myid.style.display = 'block';
+        document.edcoord.showwysiwyg.value = '1';
+    } else {
+        myid.style.visibility = 'hidden';
+        myid.style.display = 'none';
+        document.edcoord.showwysiwyg.value = '0';
+    }
+}
+
+/**
+  * PDF scratchboard: When a position is entered manually, update
+  * the fields inside the scratchboard.
+  */
+function dragPlace(no, axis, value) {
+    if (axis == 'x') {
+        getElement("table_" + no).style.left = value + 'px';
+    } else {
+        getElement("table_" + no).style.top  = value + 'px';
+    }
+}
+
+/**
+  * Returns paper sizes for a given format
+  */
+function pdfPaperSize(format, axis) {
+    switch (format) {
+        case '4A0':
+            if (axis == 'x') return 4767.87; else return 6740.79;
+            break;
+        case '2A0':
+            if (axis == 'x') return 3370.39; else return 4767.87;
+            break;
+        case 'A0':
+            if (axis == 'x') return 2383.94; else return 3370.39;
+            break;
+        case 'A1':
+            if (axis == 'x') return 1683.78; else return 2383.94;
+            break;
+        case 'A2':
+            if (axis == 'x') return 1190.55; else return 1683.78;
+            break;
+        case 'A3':
+            if (axis == 'x') return 841.89; else return 1190.55;
+            break;
+        case 'A4':
+            if (axis == 'x') return 595.28; else return 841.89;
+            break;
+        case 'A5':
+            if (axis == 'x') return 419.53; else return 595.28;
+            break;
+        case 'A6':
+            if (axis == 'x') return 297.64; else return 419.53;
+            break;
+        case 'A7':
+            if (axis == 'x') return 209.76; else return 297.64;
+            break;
+        case 'A8':
+            if (axis == 'x') return 147.40; else return 209.76;
+            break;
+        case 'A9':
+            if (axis == 'x') return 104.88; else return 147.40;
+            break;
+        case 'A10':
+            if (axis == 'x') return 73.70; else return 104.88;
+            break;
+        case 'B0':
+            if (axis == 'x') return 2834.65; else return 4008.19;
+            break;
+        case 'B1':
+            if (axis == 'x') return 2004.09; else return 2834.65;
+            break;
+        case 'B2':
+            if (axis == 'x') return 1417.32; else return 2004.09;
+            break;
+        case 'B3':
+            if (axis == 'x') return 1000.63; else return 1417.32;
+            break;
+        case 'B4':
+            if (axis == 'x') return 708.66; else return 1000.63;
+            break;
+        case 'B5':
+            if (axis == 'x') return 498.90; else return 708.66;
+            break;
+        case 'B6':
+            if (axis == 'x') return 354.33; else return 498.90;
+            break;
+        case 'B7':
+            if (axis == 'x') return 249.45; else return 354.33;
+            break;
+        case 'B8':
+            if (axis == 'x') return 175.75; else return 249.45;
+            break;
+        case 'B9':
+            if (axis == 'x') return 124.72; else return 175.75;
+            break;
+        case 'B10':
+            if (axis == 'x') return 87.87; else return 124.72;
+            break;
+        case 'C0':
+            if (axis == 'x') return 2599.37; else return 3676.54;
+            break;
+        case 'C1':
+            if (axis == 'x') return 1836.85; else return 2599.37;
+            break;
+        case 'C2':
+            if (axis == 'x') return 1298.27; else return 1836.85;
+            break;
+        case 'C3':
+            if (axis == 'x') return 918.43; else return 1298.27;
+            break;
+        case 'C4':
+            if (axis == 'x') return 649.13; else return 918.43;
+            break;
+        case 'C5':
+            if (axis == 'x') return 459.21; else return 649.13;
+            break;
+        case 'C6':
+            if (axis == 'x') return 323.15; else return 459.21;
+            break;
+        case 'C7':
+            if (axis == 'x') return 229.61; else return 323.15;
+            break;
+        case 'C8':
+            if (axis == 'x') return 161.57; else return 229.61;
+            break;
+        case 'C9':
+            if (axis == 'x') return 113.39; else return 161.57;
+            break;
+        case 'C10':
+            if (axis == 'x') return 79.37; else return 113.39;
+            break;
+        case 'RA0':
+            if (axis == 'x') return 2437.80; else return 3458.27;
+            break;
+        case 'RA1':
+            if (axis == 'x') return 1729.13; else return 2437.80;
+            break;
+        case 'RA2':
+            if (axis == 'x') return 1218.90; else return 1729.13;
+            break;
+        case 'RA3':
+            if (axis == 'x') return 864.57; else return 1218.90;
+            break;
+        case 'RA4':
+            if (axis == 'x') return 609.45; else return 864.57;
+            break;
+        case 'SRA0':
+            if (axis == 'x') return 2551.18; else return 3628.35;
+            break;
+        case 'SRA1':
+            if (axis == 'x') return 1814.17; else return 2551.18;
+            break;
+        case 'SRA2':
+            if (axis == 'x') return 1275.59; else return 1814.17;
+            break;
+        case 'SRA3':
+            if (axis == 'x') return 907.09; else return 1275.59;
+            break;
+        case 'SRA4':
+            if (axis == 'x') return 637.80; else return 907.09;
+            break;
+        case 'LETTER':
+            if (axis == 'x') return 612.00; else return 792.00;
+            break;
+        case 'LEGAL':
+            if (axis == 'x') return 612.00; else return 1008.00;
+            break;
+        case 'EXECUTIVE':
+            if (axis == 'x') return 521.86; else return 756.00;
+            break;
+        case 'FOLIO':
+            if (axis == 'x') return 612.00; else return 936.00;
+            break;
+    } // end switch
+}

@@ -741,6 +741,10 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         $cfg['MaxExactCount'] = 20000;
     }
 
+    if (!isset($cfg['WYSIWYG-PDF'])) {
+        $cfg['WYSIWYG-PDF'] = TRUE;
+    }
+
     if (!isset($cfg['ShowTooltipAliasDB'])) {
         $cfg['ShowTooltipAliasDB'] = FALSE;
     }

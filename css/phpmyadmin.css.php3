@@ -190,6 +190,29 @@ fieldset fieldset {
     margin:     0.8em;
 }
 
+.pdflayout {
+    overflow:         hidden;
+    clip:             inherit;
+    background-color: #FFFFFF;
+    display:          none;
+    border:           1px solid #000000;
+    position:         relative;
+}
+
+.pdflayout_table {
+    background:       <?php echo $GLOBALS['cfg']['ThBgcolor']; ?>;
+    color:            #000000;
+    overflow:         hidden;
+    clip:             inherit;
+    z-index:          2;
+    display:          inline;
+    visibility:       inherit;
+    cursor:           move;
+    position:         absolute; 
+    font-size:        <?php echo $font_smaller; ?>;
+    border:           1px dashed #000000;
+}
+
 .print{font-family:arial;font-size:8pt;}
 
 .syntax {font-family: sans-serif; font-size: <?php echo $font_smaller; ?>;}

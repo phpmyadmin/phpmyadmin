@@ -1645,6 +1645,31 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br /><br />
     </dd>
 
+    <dt><b>$cfg['WYSIWYG-PDF'] </b>boolean</dt>
+    <dd>
+        Utilizes a WYSIWYG editing control to easily place elements of a PDF page.
+        By clicking on the button 'toggle Drag and Drop area' on the page wher you
+        edit x/y coordinates of those elements you can activate a scratchboard where
+        all your elements are placed. By clicking on an element, you can move them
+        around in the pre-defined area and the x/y coordinates will get updated
+        dynamically. Likewise, when entering a new position directly into the
+        input field, the new position in the scratchboard changes after your
+        cursors leaves the input field.<br />
+        You have to click on the 'OK'-button below the tables to save the new positions.
+        If you want to place a new element, first add it to the table of elements and
+        then you can drag the new element around.<br />
+        By changing the paper size and the orientation you can change the size of the
+        scratchboard as well. You can do so by just changing the dropdown field below,
+        and the scratchboard will resize automatically, without interfering with the
+        current placement of the elements.<br />
+        If ever an element gets out of range you can either enlarge the paper size
+        or click on the 'reset' button to place all elements below each other.<br />
+        <b>NOTE:</b> You have to use a recent browser like IE6 or Mozilla to get this control
+        to work. The basic Drag&amp;Drop script functionality was kindly borrowed from www.youngpup.net and
+        is underlying so specific license.
+    <br /><br />
+    </dd>
+
     <dt><b>$cfg['SQP']['fmtType']</b> string [<tt>html</tt>|<tt>none</tt>]</dt>
     <dd>
     The main use of the new SQL Parser is to pretty-print SQL queries. By
