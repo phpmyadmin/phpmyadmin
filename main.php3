@@ -247,7 +247,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>">
                 <?php echo $strMySQLShowVars;?></a>&nbsp;
                 <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
             </td>
@@ -309,7 +309,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="index.php3?<?php echo$common_url_query; ?>&old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent">
+                <a href="index.php3?<?php echo $common_url_query; ?>&old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent">
                     <b><?php echo $strLogout; ?></b></a>&nbsp;
                 <a href="<?php echo $cfgPmaAbsoluteUri; ?>Documentation.html#login_bug" target="documentation">(*)</a>
             </td>

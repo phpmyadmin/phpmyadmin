@@ -19,6 +19,8 @@ $Source$
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
 	* tbl_change.php3: fixed bad field size/maxsize.
 	* libraries/build_dump.php3: Excel csv field separator should be a comma.
+	* main.php3: some 'echo' were missing. Fixed thanks to
+	  Eric S. Nagel <esnagel at users.sourceforge.net>.
 
 2001-09-19  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_properties.php3, db_details.php3, lang/*: start to merge new messages
