@@ -19,12 +19,9 @@
  *
  * If you want to extract data from it then, you just need to run
  * $sql_info = PMA_SQP_analyze($parsed_sql);
- * (returned structure of this function is being rewritten presently);
  *
- * lem9: Currently the analyzer can interpret db, table, column, alias
- *       for SELECTs;
- *       see comments in PMA_SQP_analyze for the new returned info
- *       (select_expr and table_ref)
+ * lem9: See comments in PMA_SQP_analyze for the returned info
+ *       from the analyzer.
  *
  * If you want a pretty-printed version of the query, do:
  * $string = PMA_SQP_formatHtml($parsed_sql);
@@ -636,6 +633,12 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         $size            = $arr['len'];
         $subresult       = array(
             'querytype'      => '',
+            'select_expr_clause'=> '', // the whole stuff between SELECT and FROM , except DISTINCT
+            'from_clause'=> '',
+            'group_by_clause'=> '',
+            'order_by_clause'=> '',
+            'having_clause'  => '',
+            'where_clause'   => '',
             'queryflags'     => array(),
             'select_expr'    => array(),
             'table_ref'      => array()
@@ -685,6 +688,17 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
  *
  * ['queryflags']['need_confirm'] = 1; if the query needs confirmation
  * ['queryflags']['select_from'] = 1; if this is a real SELECT...FROM
+ *
+ * lem9:  query clauses
+ *        -------------
+ *        
+ * The select is splitted in those clauses:
+ * ['select_expr_clause']
+ * ['from_clause']
+ * ['group_by_clause']
+ * ['order_by_clause']
+ * ['having_clause']
+ * ['where_clause']
  */
         // must be sorted
         // TODO: current logic checks for only one word, so I put only the
@@ -713,6 +727,18 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             'WHERE'
         );
         $words_ending_table_ref_cnt = 9; //count($words_ending_table_ref);
+
+        $words_ending_clauses = array(
+            'FOR',
+            'LIMIT',
+            'LOCK',
+            'PROCEDURE',
+            'UNION'
+        );
+        $words_ending_clauses_cnt = 5; //count($words_ending_clauses);
+
+
+
 
         // must be sorted
         $supported_query_types = array(
@@ -980,6 +1006,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                       . '.' . $subresult['table_ref'][$current_table_ref]['expr']; 
                 } // end if ($size_chain > 1)
 
+                // add the table alias into the whole expression
+                $subresult['table_ref'][$current_table_ref]['expr'] 
+                 .= ' ' . $subresult['table_ref'][$current_table_ref]['table_alias'];
+
                 unset($chain);
                 $previous_was_identifier = TRUE;
                 //continue;
@@ -1088,16 +1118,30 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
 
         // loop #2: for queryflags
-        //          and querytype (for queries != 'SELECT')
+        //          ,querytype (for queries != 'SELECT')
         //
         // This is not in the loop 1 to keep logic simple
 
+        // we will also need this queryflag in loop 2 
+        // so set it here
+        if (isset($current_table_ref) && $current_table_ref > -1) { 
+            $subresult['queryflags']['select_from'] = 1;
+        }
+
         $seen_reserved_word = FALSE;
+        $seen_group = FALSE;
+        $seen_order = FALSE;
+        $in_group_by = FALSE; // true when we are into the GROUP BY clause
+        $in_order_by = FALSE; // true when we are into the ORDER BY clause
+        $in_having = FALSE; // true when we are into the HAVING clause
+        $in_select_expr = FALSE; // true when we are into the select expr clause
+        $in_where = FALSE; // true when we are into the WHERE clause
+        $in_from = FALSE; 
 
         for ($i = 0; $i < $size; $i++) {
-//echo "trace 2<b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
+//echo "trace loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
 
-           // c o n f i r m a t i o n    r e q u e s t s (need_confirm)
+           // need_confirm
            //
            // check for reserved words that will have to generate
            // a confirmation request later in sql.php3
@@ -1129,13 +1173,143 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                       $subresult['queryflags']['need_confirm'] = 1;
                    } 
                }
+
+               if ($upper_data == 'SELECT') {
+                   $in_select_expr = TRUE; 
+                   $select_expr_clause = '';
+               }
+ 
+               // if this is a real SELECT...FROM
+               if ($upper_data == 'FROM' && isset($subresult['queryflags']['select_from']) && $subresult['queryflags']['select_from'] == 1) {
+                   $in_from = TRUE; 
+                   $from_clause = '';
+                   $in_select_expr = FALSE; 
+               }
+
+
+               // (we could have less resetting of variables to FALSE
+               // if we trust that the query respects the standard
+               // MySQL order for clauses)
+
+               // we use $seen_group and $seen_order because we are looking
+               // for the BY
+               if ($upper_data == 'GROUP') {
+                   $seen_group = TRUE;
+                   $seen_order = FALSE;
+                   $in_having = FALSE;
+                   $in_order_by = FALSE;
+                   $in_where = FALSE;
+                   $in_select_expr = FALSE; 
+                   $in_from = FALSE; 
+               }
+               if ($upper_data == 'ORDER') {
+                   $seen_order = TRUE;
+                   $seen_group = FALSE;
+                   $in_having = FALSE;
+                   $in_group_by = FALSE;
+                   $in_where = FALSE;
+                   $in_select_expr = FALSE; 
+                   $in_from = FALSE; 
+               }
+               if ($upper_data == 'HAVING') {
+                   $in_having = TRUE;
+                   $having_clause = '';
+                   $seen_group = FALSE;
+                   $seen_order = FALSE;
+                   $in_group_by = FALSE;
+                   $in_order_by = FALSE;
+                   $in_where = FALSE;
+                   $in_select_expr = FALSE; 
+                   $in_from = FALSE; 
+               }
+
+               if ($upper_data == 'WHERE') {
+                   $in_where = TRUE;
+                   $where_clause = '';
+                   $seen_group = FALSE;
+                   $seen_order = FALSE;
+                   $in_group_by = FALSE;
+                   $in_order_by = FALSE;
+                   $in_having = FALSE;
+                   $in_select_expr = FALSE; 
+                   $in_from = FALSE; 
+               }
+
+               if ($upper_data == 'BY') {
+                   if ($seen_group) {
+                       $in_group_by = TRUE;
+                       $group_by_clause = '';
+                   }
+                   if ($seen_order) {
+                       $in_order_by = TRUE;
+                       $order_by_clause = '';
+                   }
+               }
+
+               // if we find one of the words that could end the clause
+               if (PMA_STR_binarySearchInArr($upper_data, $words_ending_clauses, $words_ending_clauses_cnt)) {
+
+                   $in_group_by = FALSE;
+                   $in_order_by = FALSE;
+                   $in_having   = FALSE; 
+                   $in_where    = FALSE;
+                   $in_select_expr = FALSE;
+                   $in_from = FALSE; 
+               }
+
+           } // endif (reservedWord)
+
+
+           // do not add a blank after a function name
+
+           $sep=' ';
+           if ($arr[$i]['type'] == 'alpha_functionName') {
+               $sep='';
            }
+
+           if ($in_select_expr && $upper_data != 'SELECT' && $upper_data != 'DISTINCT') {
+               $select_expr_clause .= $arr[$i]['data'] . $sep;
+           }
+           if ($in_from && $upper_data != 'FROM') {
+               $from_clause .= $arr[$i]['data'] . $sep;
+           }
+           if ($in_group_by && $upper_data != 'GROUP' && $upper_data != 'BY') {
+               $group_by_clause .= $arr[$i]['data'] . $sep;
+           }
+           if ($in_order_by && $upper_data != 'ORDER' && $upper_data != 'BY') {
+               $order_by_clause .= $arr[$i]['data'] . $sep;
+           }
+           if ($in_having && $upper_data != 'HAVING') {
+               $having_clause .= $arr[$i]['data'] . $sep;
+           }
+           if ($in_where && $upper_data != 'WHERE') {
+               $where_clause .= $arr[$i]['data'] . $sep;
+           }
+
+           // clear $upper_data for next iteration
+           $upper_data='';
 
         } // end for $i (loop #2)
 
-        if (isset($current_table_ref) && $current_table_ref > -1) { 
-            $subresult['queryflags']['select_from'] = 1;
+        if (isset($select_expr_clause)) {
+            $subresult['select_expr_clause'] = $select_expr_clause;
         }
+        if (isset($from_clause)) {
+            $subresult['from_clause'] = $from_clause;
+        }
+        if (isset($group_by_clause)) {
+            $subresult['group_by_clause'] = $group_by_clause;
+        }
+        if (isset($order_by_clause)) {
+            $subresult['order_by_clause'] = $order_by_clause;
+        }
+        if (isset($having_clause)) {
+            $subresult['having_clause'] = $having_clause;
+        }
+        if (isset($where_clause)) {
+            $subresult['where_clause'] = $where_clause;
+        }
+
 
         // They are naughty and didn't have a trailing semi-colon,
         // then still handle it properly
