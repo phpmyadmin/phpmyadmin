@@ -132,7 +132,9 @@ if (!$check_stop) {
                             if ($val == 'null') {
                                 // void
                             } else {
-                                $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
+                                // the data here is not urlencoded!
+                                //$val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
+                                $val = "'" . PMA_sqlAddslashes($val) . "'";
                             }
                         } else {
                             $val     = "''";
@@ -143,7 +145,9 @@ if (!$check_stop) {
                     $f = 'field_' . md5($key);
                     if (!empty($$f)) {
                         $val = implode(',', $$f);
-                        $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
+                        // the data here is not urlencoded!
+                        //$val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
+                        $val = "'" . PMA_sqlAddslashes($val) . "'";
                     } else {
                         $val = "''";
                     }
@@ -156,7 +160,9 @@ if (!$check_stop) {
                         if ($val == 'null') {
                             // void
                         } else {
-                            $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
+                            // the data here is not urlencoded!
+                            //$val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
+                            $val = "'" . PMA_sqlAddslashes($val) . "'";
                         }
                     } else {
                         $val     = "''";
