@@ -12,6 +12,7 @@ $Source$
       which translations has failed, now also converts by default only
       modified files and is capable to get charset from filename when reading
       from file has failed.
+    * left.php3: More fixes for HTML entities.
    
 2003-04-14 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3: Fixed SHOW TABLE STATUS LIKE ... FROM ...
