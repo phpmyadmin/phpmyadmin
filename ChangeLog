@@ -25,6 +25,7 @@ $Source$
        we can use it instead of $strCandLoadMySQL)
     * lang/romanian: update, thanks to Valics Lehel
     * lang/galician: update, thanks to Xosé Calvo
+    * lang/lithuanian: update, thanks to Vilius Zigmantas
 
 2003-02-01 Robin Johnson  <robbat2@users.sourceforge.net>
     * R.I.P.: --- On Feb. 1, 2003, the Space Shuttle Columbia (STS-107) was lost during its
