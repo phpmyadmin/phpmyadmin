@@ -150,30 +150,39 @@ else {
         $cfgMaxRows       = $sessionMaxRows;
     }
 
-    $is_select = $is_count = $is_delete = $is_insert = $is_affected = FALSE;
-    if (eregi('^SELECT ', $sql_query)) {
+    $is_explain = $is_select = $is_count = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = FALSE;
+    if (eregi('^EXPLAIN[[:space:]]+', $sql_query)) {
+        $is_explain  = TRUE;
+    } else if (eregi('^SELECT[[:space:]]+', $sql_query)) {
         $is_select   = TRUE;
-        $is_count    = (eregi('^SELECT COUNT\((.*\.+)?\*\) FROM ', $sql_query));
-    } else if (eregi('^DELETE ', $sql_query)) {
+        $is_count    = (eregi('^SELECT COUNT\((.*\.+)?.*\)', $sql_query));
+    } else if (eregi('^DELETE[[:space:]]+', $sql_query)) {
         $is_delete   = TRUE;
         $is_affected = TRUE;
-    } else if (eregi('^(INSERT|LOAD DATA) ', $sql_query)) {
+    } else if (eregi('^(INSERT|LOAD DATA|REPLACE)[[:space:]]+', $sql_query)) {
         $is_insert   = TRUE;
         $is_affected = TRUE;
-    } else if (eregi('^UPDATE ', $sql_query)) {
+    } else if (eregi('^UPDATE[[:space:]]+', $sql_query)) {
         $is_affected = TRUE;
+    } else if (eregi('^SHOW[[:space:]]+', $sql_query)) {
+        $is_show     = TRUE;
+    } else if (eregi('^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+', $sql_query)) {
+        $is_maint    = TRUE;
     }
 
-    $sql_limit_to_append  = (isset($pos)
-                             && ($is_select && !$is_count)
-                             && !eregi(' LIMIT[ 0-9,]+$', $sql_query))
-                          ? " LIMIT $pos, $cfgMaxRows"
-                          : '';
-    if (eregi('(.*)( PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)$', $sql_query, $regs)) {
-        $full_sql_query   = $regs[1] . $sql_limit_to_append . $regs[2];
+    // Do append a "LIMIT" clause?
+    if (isset($pos)
+        && ($is_select && !$is_count)
+        && !eregi(' LIMIT[ 0-9,]+$', $sql_query)) {
+        $sql_limit_to_append = " LIMIT $pos, $cfgMaxRows";
+        if (eregi('(.*)( PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)$', $sql_query, $regs)) {
+            $full_sql_query  = $regs[1] . $sql_limit_to_append . $regs[2];
+        } else {
+            $full_sql_query  = $sql_query . $sql_limit_to_append;
+        }
     } else {
-        $full_sql_query   = $sql_query . $sql_limit_to_append;
-    }
+        $full_sql_query      = $sql_query;
+    } // end if...else
 
     mysql_select_db($db);
 
@@ -211,20 +220,20 @@ else {
     // Counts the total number of rows for the same 'SELECT' query without the
     // 'LIMIT' clause that may have been programatically added
     if (empty($sql_limit_to_append)) {
-        $SelectNumRows = $num_rows;
+        $unlim_num_rows         = $num_rows;
     }
     else if ($is_select) {
         // reads only the from-part of the query...
         $array = split(' from | FROM | order | ORDER | having | HAVING | limit | LIMIT | group by | GROUP BY', $sql_query);
         if (!empty($array[1])) {
             // ... and makes a count(*) to count the entries
-            $count_query       = 'SELECT COUNT(*) AS count FROM ' . $array[1];
-            $OPresult          = mysql_query($count_query);
+            $count_query = 'SELECT COUNT(*) AS count FROM ' . $array[1];
+            $OPresult    = mysql_query($count_query);
             if ($OPresult) {
-                $SelectNumRows = mysql_result($OPresult, 0, 'count');
+                $unlim_num_rows = mysql_result($OPresult, 0, 'count');
             }
         } else {
-            $SelectNumRows     = 0;
+            $unlim_num_rows     = 0;
         }
     } // end rows total count
 
@@ -280,95 +289,66 @@ else {
         $js_to_run = 'functions.js';
         include('./header.inc.php3');
 
-        // Defines the display mode if it wasn't passed by url
-        if ($is_count) {
-            $display = 'simple';
-        }
-        if (!isset($display)) {
-            $display = eregi('^((SHOW (VARIABLES|PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS))|((CHECK|ANALYZE|REPAIR|OPTIMIZE) TABLE ))', $sql_query, $which);
-            if (!empty($which[2]) && !empty($which[3])) {
-                $display = 'simple';
-            } else if (!empty($which[4]) && !empty($which[5])) {
-                $display = 'bkmOnly';
-            }
-        }
-
         // Gets the list of fields properties 
         while ($field = mysql_fetch_field($result)) {
             $fields_meta[] = $field;
         }
         $fields_cnt        = count($fields_meta);
 
-        // Defines wether to display the full/partial text button or and
-        // refines the display mode if required
-        $show_text_btn         = FALSE;
-        $prev_table            = $fields_meta[0]->table;
-        for ($i = 0; $i < $fields_cnt; $i++) {
-            if (eregi('BLOB', $fields_meta[$i]->type)) {
-                $show_text_btn = TRUE;
-                if ($display == 'simple' || $display == 'bkmOnly') {
-                    break;
-                }
-            }
-            // loic1: maybe the fix for the second alias bug?
-            if (($display != 'simple' && $display != 'bkmOnly')
-                && ($fields_meta[$i]->table == ''|| $fields_meta[$i]->table != $prev_table)) {
-                $display = 'simple';
-                if ($show_text_btn) {
-                    break;
-                }
-            }
-            $prev_table = $fields_meta[$i]->table;
-        } // end while
-        
         // Displays the results in a table
-        display_table($result, ($display == 'simple' || $display == 'bkmOnly'), $show_text_btn);
+        if (empty($disp_mode)) {
+            // see the "set_display_mode()" function in lib.inc.php3
+            $disp_mode = 'urdr11110';
+        }
+        display_table($result, $disp_mode);
         
-        if ($display != 'simple') {
-            // Insert a new row
-            if ($display != 'bkmOnly') {
-                $url_query = 'lang=' . $lang
-                           . '&server=' . $server
-                           . '&db=' . urlencode($db)
-                           . '&table=' . urlencode($table)
-                           . '&pos=' . $pos
-                           . '&sql_query=' . urlencode($sql_query)
-                           . '&goto=' . urlencode($goto);
-                echo "\n\n";
-                echo '<!-- Insert a new row -->' . "\n";
-                echo '<p>' . "\n";
-                echo '    <a href="tbl_change.php3?' . $url_query . '">' . $strInsertNewRow . '</a>' . "\n";
-                echo '</p>' . "\n";
-            } // end insert row
+        // Displays "Insert a new row" link if required
+        if ($disp_mode[6] == '1') {
+            $url_query = 'lang=' . $lang
+                       . '&server=' . $server
+                       . '&db=' . urlencode($db)
+                       . '&table=' . urlencode($table)
+                       . '&pos=' . $pos
+                       . '&sql_query=' . urlencode($sql_query)
+                       . '&goto=' . urlencode($goto);
 
-            // Bookmark Support
-            if ($cfgBookmark['db'] && $cfgBookmark['table'] && empty($id_bookmark)
-                && !empty($sql_query)) {
-                echo "\n";
-                ?>
+            echo "\n\n";
+            echo '<!-- Insert a new row -->' . "\n";
+            echo '<p>' . "\n";
+            echo '    <a href="tbl_change.php3?' . $url_query . '">' . $strInsertNewRow . '</a>' . "\n";
+            echo '</p>' . "\n";
+        } // end insert new row
+
+        // Bookmark Support if required
+        if ($disp_mode[7] == '1'
+            && ($cfgBookmark['db'] && $cfgBookmark['table'] && empty($id_bookmark))
+            && !empty($sql_query)) {
+            echo "\n";
+
+            $goto = 'sql.php3'
+                  . '?lang=' . $lang
+                  . '&server=' . $server
+                  . '&db=' . urlencode($db)
+                  . '&table=' . urlencode($table)
+                  . '&pos=' . $pos
+                  . '&sql_query=' . urlencode($sql_query)
+                  . '&id_bookmark=1';
+            ?>
 <!-- Bookmark the query -->
 <script type="text/javascript" language="javascript">
 <!--
 var errorMsg0 = '<?php echo(str_replace('\'', '\\\'', $strFormEmpty)); ?>';
 //-->
 </script>
-<form method="post" action="sql.php3" onsubmit="return emptyFormElements(this, 'fields[label]');">
-                <?php
-                echo "\n";
-                if ($display != 'bkmOnly') {
-                    echo '    <i>' . $strOr . '</i>' . "\n";
-                }
-                echo '    <br /><br />' . "\n";
-                echo '    ' . $strBookmarkLabel . '&nbsp;:' . "\n";
-                $goto = 'sql.php3'
-                      . '?lang=' . $lang
-                      . '&server=' . $server
-                      . '&db=' . urlencode($db)
-                      . '&table=' . urlencode($table)
-                      . '&pos=' . $pos
-                      . '&sql_query=' . urlencode($sql_query)
-                      . '&id_bookmark=1';
-                ?>
+<form action="sql.php3" method="post" onsubmit="return emptyFormElements(this, 'fields[label]');">
+            <?php
+            echo "\n";
+            if ($disp_mode[3] == '1') {
+                echo '    <i>' . $strOr . '</i>' . "\n";
+            }
+            ?>
+    <br /><br />
+    <?php echo $strBookmarkLabel; ?>&nbsp;:
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="fields[dbase]" value="<?php echo $db; ?>" />
     <input type="hidden" name="fields[user]" value="<?php echo $cfgBookmark['user']; ?>" />
@@ -376,10 +356,10 @@ var errorMsg0 = '<?php echo(str_replace('\'', '\\\'', $strFormEmpty)); ?>';
     <input type="text" name="fields[label]" value="" />
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
 </form>
-                <?php
-            } // end bookmark support
-        } // end display != simple
+            <?php
+        } // end bookmark support
     } // end rows returned
+
 } // end executes the query
 echo "\n\n";
 
