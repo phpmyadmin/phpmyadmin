@@ -1867,28 +1867,10 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
           echo '&nbsp;&nbsp;<i>' . $GLOBALS['strWithChecked'] . '</i>'. "\n";
 
         if ($cfg['PropertiesIconic']) {
-            /* Opera has trouble with <input type="image"> */
-            /* IE has trouble with <button> */
-            if (PMA_USR_BROWSER_AGENT != 'IE') {
-                echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="row_edit" title="' . $GLOBALS['strEdit'] . '">' . "\n"
-                   . '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_edit.png" title="' . $GLOBALS['strEdit'] . '" alt="' . $GLOBALS['strEdit'] . '" width="16" height="16" align="middle" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '') . "\n"
-                   . '</button>';
-
-                echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $delete_text . '">' . "\n"
-                   . '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_drop.png" title="' . $delete_text . '" alt="' . $delete_text . '" width="16" height="16" align="middle" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
-                   . '</button>';
-                if ($analyzed_sql[0]['querytype'] == 'SELECT') {
-                    echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_export" title="' . $GLOBALS['strExport'] . '">' . "\n"
-                       . '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" title="' . $GLOBALS['strExport'] . '" alt="' . $GLOBALS['strExport'] . '" width="16" height="16" align="middle" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '') . "\n"
-                       . '</button>';
-                }
-
-            } else {
-                echo '                    <input type="image" name="submit_mult_edit" value="row_edit" title="' . $GLOBALS['strEdit'] . '" src="' . $GLOBALS['pmaThemeImage'] . 'b_edit.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '');
-                echo '&nbsp;<input type="image" name="submit_mult" value="row_delete" title="' . $delete_text . '" src="' . $GLOBALS['pmaThemeImage'] . 'b_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '');
-                if ($analyzed_sql[0]['querytype'] == 'SELECT') {
-                    echo '&nbsp;<input type="image" name="submit_mult_export" value="row_export" title="' . $GLOBALS['strExport'] . '" src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '');
-                }
+            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_change', $GLOBALS['strChange'], 'b_edit.png');
+            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_change', $delete_text, 'b_drop.png');
+            if ($analyzed_sql[0]['querytype'] == 'SELECT') {
+                PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_change', $GLOBALS['strExport'], 'b_tblexport.png');
             }
             echo "\n";
         } else {

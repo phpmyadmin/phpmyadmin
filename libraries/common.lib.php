@@ -2278,6 +2278,32 @@ if (typeof(document.getElementById) != 'undefined'
         return preg_replace('|\s?AND$|', '', $uva_condition);
     } // end function
 
+    /**
+     * Function to generate unique condition for specified row.
+     *
+     * @param   string      name of button element
+     * @param   string      class of button element
+     * @param   string      name of image element
+     * @param   string      text to display
+     * @param   string      image to display
+     *
+     * @access  public
+     * @author  Michal Cihar (michal@cihar.com)
+     */
+    function PMA_buttonOrImage($button_name, $button_class, $image_name, $text, $image) {
+        global $pmaThemeImage, $propicon;
+        
+        /* Opera has trouble with <input type="image"> */
+        /* IE has trouble with <button> */
+        if (PMA_USR_BROWSER_AGENT != 'IE') {
+            echo '<button class="' . $button_class . '" type="submit" name="' . $button_name . '" value="' . $text . '" title="' . $text . '">' . "\n"
+               . '<img src="' . $pmaThemeImage . $image . '" title="' . $text . '" alt="' . $text . '" width="16" height="16" />' . (($propicon == 'both') ? '&nbsp;' . $text : '') . "\n"
+               . '</button>' . "\n";
+        } else {
+            echo '<input type="image" name="' . $image_name . '" value="' .$text . '" title="' . $text . '" src="' . $pmaThemeImage . $image . '" />'  . (($propicon == 'both') ? '&nbsp;' . $text : '') . "\n";
+        }
+    } // end function
+
 } // end if: minimal common.lib needed?
 
 ?>

@@ -411,25 +411,17 @@ $checkall_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db,$t
                 <td>
                     <?php
 
+/*
+        $titles['Primary']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
+        $titles['Index']         = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
+        $titles['Unique']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
+        $titles['IdxFulltext']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
+        */
 if ($cfg['PropertiesIconic']) {
-    /* Opera has trouble with <input type="image"> */
-    /* IE has trouble with <button> */
-    if (PMA_USR_BROWSER_AGENT != 'IE') {
-        echo '<button class="mult_submit" type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '">' . "\n"
-           . '<img src="' . $pmaThemeImage . 'b_edit.png" title="' . $strChange . '" alt="' . $strChange . '" width="16" height="16" />' . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"
-           . '</button>' . "\n";
-    } else {
-        echo '                    <input type="image" name="submit_mult_change" value="' .$strChange . '" title="' . $strChange . '" src="' . $pmaThemeImage . 'b_edit.png" />'  . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n";
-    }
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_change', $strChange, 'b_edit.png');
     // Drop button if there is at least two fields
     if ($fields_cnt > 1) {
-        if (PMA_USR_BROWSER_AGENT != 'IE') {
-            echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="' . $strDrop . '" title="' . $strDrop . '">' . "\n"
-               . '<img src="' . $pmaThemeImage . 'b_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="16" height="16" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n"
-               . '</button>' . "\n";
-        } else {
-            echo '                    <input type="image" name="submit_mult_drop" value="' .$strDrop . '" title="' . $strDrop . '" src="' . $pmaThemeImage . 'b_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n";
-        }
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_drop', $strDrop, 'b_drop.png');
     }
 } else {
     echo '                    <input type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '" />' . "\n";
