@@ -9,10 +9,17 @@
   font-family: Verdana, Arial, Helvetica, sans-serif;
   text-decoration: none;
   font-size: 10pt;
-  left: 10px;
-  position: relative;
-  color:#000099; font-weight: normal  ; text-indent:10pt}
+  color:#000099; font-weight: normal; }
 .navigation:hover
+  {
+  background-color: #99CCFF; font-weight: bolder}
+.navigation2
+  {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 14pt;
+  color:#000099; font-weight: normal; }
+.navigation2:hover
   {
   background-color: #99CCFF; font-weight: bolder}
 h1 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-large; font-weight:bold; color: #000066}
@@ -24,67 +31,115 @@ h2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size:large; font-w
 </style></head>
 
 <body bgcolor="#FFFFFF">
-<a name="top"></a>
+<a name="top"></a><br>
 <h1>phpMyAdmin Documentation</h1>
 <ul>
-<li> <a href="http://www.phpwizard.net/projects/phpMyAdmin/">Official phpMyAdmin project homepage - http://www.phpwizard.net/projects/phpMyAdmin/</a></li>
-<li> <a href="http://phpmyadmin.sourceforge.net/">Sourceforge phpMyAdmin download page - http://phpmyadmin.sourceforge.net/</a></li>
+<li> <a class="navigation" href="http://www.phpwizard.net/projects/phpMyAdmin/">Official phpMyAdmin project homepage  [ http://www.phpwizard.net/projects/phpMyAdmin/</a> ]</li>
+<li> <a class="navigation" href="http://phpmyadmin.sourceforge.net/">Sourceforge phpMyAdmin download page  [ http://phpmyadmin.sourceforge.net/</a> ]</li>
 <li> Local documents:
 <ul>
-<li> Version history: <a href="ChangeLog">ChangeLog</a></li>
-<li> Installation instructions: <a href="INSTALL">INSTALL</a></li>
-<li> General notes: <a href="README">README</a></li>
-<li> Credits: <a href="CREDITS">CREDITS</a></li>
+<li> Version history: <a class="navigation" href="ChangeLog">ChangeLog</a></li>
+<li> Installation instructions: <a class="navigation" href="INSTALL">INSTALL</a></li>
+<li> General notes: <a class="navigation" href="README">README</a></li>
+<li> Credits: <a class="navigation" href="CREDITS">CREDITS</a></li>
 </ul>
+<li>Documentation version: <i>$Id$</i></li>
 </li>
 </ul>
 
-<a name="intro"></a>
+<a name="intro"></a><br>
 <hr noshade width="100%"><font size="+1">
-<a href="#top">Top</a>  -   
-<a href="#intro">Introduction</a>  - 
-<a href="#setup">Installation</a>  -  
-<a href="#config">Configuration</a>  - 
-<a href="#faq">FAQ</a>  - 
-<a href="#developpers">Developpers</a>  -  
-<a href="#credits">Credits</a>
+<a class="navigation2" href="#top">Top</a>  -   
+<a class="navigation2" href="#intro">Introduction</a>  - 
+<a class="navigation2" href="#setup">Installation</a>  -  
+<a class="navigation2" href="#config">Configuration</a>  - 
+<a class="navigation2" href="#faq">FAQ</a>  - 
+<a class="navigation2" href="#developpers">Developpers</a>  -  
+<a class="navigation2" href="#credits">Credits</a>
 </font><hr noshade width="100%">
 
 <h2>Introduction</h2>
 
+<p>
+    phpMyAdmin can administer a whole MySQL-server (needs a super-user) 
+    but also a single database. To accomplish the latter you'll need
+    a properly set up MySQL-user who can read/write only the desired
+    database. It's up to you to look up the appropiate part in the 
+    MySQL manual. Currently it can:
+</p>
 
+   <ul>
+    <li> create and drop databases
+    <li> create, copy, drop and alter tables
+    <li> delete, edit and add fields
+    <li> execute any SQL-statement, even batch-queries
+    <li> manage keys on fields
+    <li> load text files into tables
+    <li> create and read dumps of tables
+    <li> export data to CSV values
+    <li> administer multiple servers and single databases
+   </ul>
 
-
-
-
-<a name="setup"></a>
+<a name="setup"></a><br>
 <hr noshade width="100%"><font size="+1">
-<a href="#top">Top</a>  -   
-<a href="#intro">Introduction</a>  - 
-<a href="#setup">Installation</a>  -  
-<a href="#config">Configuration</a>  - 
-<a href="#faq">FAQ</a>  - 
-<a href="#developpers">Developpers</a>  -  
-<a href="#credits">Credits</a>
+<a class="navigation2" href="#top">Top</a>  -   
+<a class="navigation2" href="#intro">Introduction</a>  - 
+<a class="navigation2" href="#setup">Installation</a>  -  
+<a class="navigation2" href="#config">Configuration</a>  - 
+<a class="navigation2" href="#faq">FAQ</a>  - 
+<a class="navigation2" href="#developpers">Developpers</a>  -  
+<a class="navigation2" href="#credits">Credits</a>
 </font><hr noshade width="100%">
 
 <h2>Installation</h2>
 
 
+<p>  Quick Install:
+<ol>
+<li> Untar or unzip the distribution (be sure to untar the subdirectories)
+        tar xvf phpMyAdmin_x.x.x.tar </li>
+<li> Open the file config.inc.php3 in your favourite editor and change
+        the values for host, user and password to fit your environment.
+        Have a lok at Documentation.html for an explanation of all values.</li>
+<li> It is recommended that you protect the directory in which
+        you installed phpMyAdmin (unless it's on a closed intranet), 
+        for example with HTTP-AUTH (in a .htaccess-file). </li>
+<li> Open the file <www.your-host.com>/<your-install-dir>/index.php3
+        in your browser. phpMyAdmin should now display a welcome screen 
+        and your databases.</li>
+</ol>
+
+  Installation notes:
+<ul>
+<li> Be sure to protect the phpMyAdmin-directory. By default, it is not 
+    protected in any way! It shouldn't be readable by anyone and 
+    especially not by search-engines. Although I've added a "nofollow" 
+    directive on every page, there may be search-engines that don't 
+    care about that and still follow the links on the page. 
+    Think of AltaVista following a link named "Drop Database"
+    You can get an overview of Apache's authentification methods at
+    <a class="navigation" href="http://www.apacheweek.com/features/userauth">http://www.apacheweek.com/features/userauth</a> . Another tutorial is at
+    <a class="navigation" href="http://deepthought.texsci.edu/protected_dirs.html">http://deepthought.texsci.edu/protected_dirs.html</a> </li>
+<li> If you don't use the extension ".php3" for your scripts, you can use
+    the bundled script "extchg.sh" to modify phpMyAdmin (or any other script)
+    to work with a different extension. Beware though, that currently changing 
+    the extension from .html to something other won't work (it'd change all 
+    "string".htmlspecialchars() constructs). </li>
+</ul>
+
+</p>
 
 
 
-
-
-<a name="config"></a>
+<a name="config"></a><br>
 <hr noshade width="100%"><font size="+1">
-<a href="#top">Top</a>  -   
-<a href="#intro">Introduction</a>  - 
-<a href="#setup">Installation</a>  -  
-<a href="#config">Configuration</a>  - 
-<a href="#faq">FAQ</a>  - 
-<a href="#developpers">Developpers</a>  -  
-<a href="#credits">Credits</a>
+<a class="navigation2" href="#top">Top</a>  -   
+<a class="navigation2" href="#intro">Introduction</a>  - 
+<a class="navigation2" href="#setup">Installation</a>  -  
+<a class="navigation2" href="#config">Configuration</a>  - 
+<a class="navigation2" href="#faq">FAQ</a>  - 
+<a class="navigation2" href="#developpers">Developpers</a>  -  
+<a class="navigation2" href="#credits">Credits</a>
 </font><hr noshade width="100%">
 
 <h2>Configuration</h2>
@@ -206,15 +261,15 @@ are generated.<br>
 <p><b>$cfgAttributeTypes </b>array<br>
   Possible attributes for fields. In most cases you don't need to edit this.</p>
 
-<a name="faq"></a>
+<a name="faq"></a><br>
 <hr noshade width="100%"><font size="+1">
-<a href="#top">Top</a>  -   
-<a href="#intro">Introduction</a>  - 
-<a href="#setup">Installation</a>  -  
-<a href="#config">Configuration</a>  - 
-<a href="#faq">FAQ</a>  - 
-<a href="#developpers">Developpers</a>  -  
-<a href="#credits">Credits</a>
+<a class="navigation2" href="#top">Top</a>  -   
+<a class="navigation2" href="#intro">Introduction</a>  - 
+<a class="navigation2" href="#setup">Installation</a>  -  
+<a class="navigation2" href="#config">Configuration</a>  - 
+<a class="navigation2" href="#faq">FAQ</a>  - 
+<a class="navigation2" href="#developpers">Developpers</a>  -  
+<a class="navigation2" href="#credits">Credits</a>
 </font><hr noshade width="100%">
 
 <h2>FAQ - Frequently Asked Questions</h2>
@@ -259,7 +314,7 @@ Either there is an error with your PHP setup or your username/password is
   [This will create a new sub-directory named phpMyAdmin or phpMyAdmin-devel]<br>
   <li>add your stuff
   <li>put the modified files (tar'ed and gzip'ed) inside the patch tracker of the
-  <a href="https://sourceforge.net/projects/phpmyadmin/" target="_blank">phpMyAdmin SourceForge account</a>.
+  <a class="navigation" href="https://sourceforge.net/projects/phpmyadmin/" target="_blank">phpMyAdmin SourceForge account</a>.
   </ul>
  <p>Write access to the CVS tree is granted only to experienced developers who have already contributed something useful to phpMyAdmin.<br>
   Also, have a look at the file DEVELOPERS.
@@ -314,15 +369,15 @@ Either there is an error with your PHP setup or your username/password is
 
 
 
-<a name="developpers"></a>
+<a name="developpers"></a><br>
 <hr noshade width="100%"><font size="+1">
-<a href="#top">Top</a>  -   
-<a href="#intro">Introduction</a>  - 
-<a href="#setup">Installation</a>  -  
-<a href="#config">Configuration</a>  - 
-<a href="#faq">FAQ</a>  - 
-<a href="#developpers">Developpers</a>  -  
-<a href="#credits">Credits</a>
+<a class="navigation2" href="#top">Top</a>  -   
+<a class="navigation2" href="#intro">Introduction</a>  - 
+<a class="navigation2" href="#setup">Installation</a>  -  
+<a class="navigation2" href="#config">Configuration</a>  - 
+<a class="navigation2" href="#faq">FAQ</a>  - 
+<a class="navigation2" href="#developpers">Developpers</a>  -  
+<a class="navigation2" href="#credits">Credits</a>
 </font><hr noshade width="100%">
 
 <h2>Developpers Information</h2>
@@ -334,15 +389,15 @@ Either there is an error with your PHP setup or your username/password is
 
 
 
-<a name="credits"></a>
+<a name="credits"></a><br>
 <hr noshade width="100%"><font size="+1">
-<a href="#top">Top</a>  -   
-<a href="#intro">Introduction</a>  - 
-<a href="#setup">Installation</a>  -  
-<a href="#config">Configuration</a>  - 
-<a href="#faq">FAQ</a>  - 
-<a href="#developpers">Developpers</a>  -  
-<a href="#credits">Credits</a>
+<a class="navigation2" href="#top">Top</a>  -   
+<a class="navigation2" href="#intro">Introduction</a>  - 
+<a class="navigation2" href="#setup">Installation</a>  -  
+<a class="navigation2" href="#config">Configuration</a>  - 
+<a class="navigation2" href="#faq">FAQ</a>  - 
+<a class="navigation2" href="#developpers">Developpers</a>  -  
+<a class="navigation2" href="#credits">Credits</a>
 </font><hr noshade width="100%">
 
 <h2>Credits</h2>
