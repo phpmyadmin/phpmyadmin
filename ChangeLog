@@ -5,19 +5,24 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-12 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/turkish.inc.php3: Updates, thanks again to
+      Bora Alioglu <bora@risc01.ktu.edu.tr>.
+
 2002-06-12 Mike Beck <mikebeck@users.sourceforge.net>
     Syntaxcoloring for SQL - Statements
     * config.inc.php3 lines 226-,302-
     * libraries/common.lib.php3 lines 34,43,192-,312-,987,1062
+
 2002-06-12 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/dutch.inc.php3 updates, thanks to Ivo Teel
+    * lang/dutch.inc.php3 updates, thanks to Ivo Teel.
 
 2002-06-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: JS fixes, thanks to
       Richard Hornsby <rhornsby at users.sourceforge.net>.
     * Documentation.html: Fixed a typo.
     * lang/german.inc.php3: Updates.
-    * lang/italian.inc.php3: 
+    * lang/italian.inc.php3:
       - Updates, thanks again to
         Pietro Danesi <danone at users.sourceforge.net>.
       - Removed HTML entities.
