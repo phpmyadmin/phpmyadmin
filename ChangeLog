@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2003-02-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php3: use SQL_CALC_FOUND_ROWS on MySQL 4 to find the
+      correct number of rows
+
 2003-02-17 Garvin Hicking <me@supergarv.de>
     * tbl_replace_fields.php3, read_dump.php3, libraries/common.lib.php3:
       Reworked blob file upload. More security cautions, and preserve
