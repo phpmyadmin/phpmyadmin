@@ -162,7 +162,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     if (strstr($row_table_def['True_Type'], 'text')) {
         ?>
         <td>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars . "\n"; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars; ?></textarea>
         </td>
         <?php
         echo "\n";
@@ -284,7 +284,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
             echo "\n";
             ?>
         <td>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars . "\n"; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars; ?></textarea>
         </td>
             <?php
         } // end if...else
