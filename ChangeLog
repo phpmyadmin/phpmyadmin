@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-12-30 Michal Čihař  <michal@cihar.com>
+    * libraries/fpdf/ufpdf.php: Fix some warnings.
+
 2004-12-29 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Fix typo.
     * server_databases.php: Use same sort order as in left frame (bug
