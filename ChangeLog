@@ -5,7 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2001-11-13  Loïc Chapeaux  <lolo@phpheaven.net>
+2001-11-15  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/tbl_dump.php3 : merged a workaround against the IE downloading
+	  bug with SSL.
+	* lang/arabic.inc.php3: updated thanks to Fisal Assubieye.
+
+2001-11-14  Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3: fixed bug #480178 - select ... into outfile fails.
 	* libraries/common.lib.php3:
 	  - fixed bug 481593 - interface fonts too big on macs;
