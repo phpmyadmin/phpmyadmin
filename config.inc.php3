@@ -26,8 +26,8 @@ if (!isset($old_error_reporting)) {
  * It must contain characters that are valid for a URL, and the path is
  * case sensitive on some Web servers, for example Unix-based servers.
  *
- * In most cases you can leave this variable alone, as the correct value
- * will be detected automatically. However, we recommened that you do
+ * In most cases you can leave this variable empty, as the correct value
+ * will be detected automatically. However, we recommend that you do
  * test to see that the auto-detection code works in your system.
  *
  * If the auto-detection code does work properly, you can set the
