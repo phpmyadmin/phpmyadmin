@@ -213,9 +213,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
             $seenchecked = 0;
             for ($j = 0; $j < count($set); $j++) {
                 echo '            ';
-                echo '<input type="radio" name="field_<?php echo md5($field); ?>[]" ';
-                // echo 'value="' . substr($set[$j], 1, -1) . '"';
-                echo 'value="' . urlencode($set[$j]) . '"';
+                echo '<input type="radio" name="field_' . md5($field) . '[]" value="' . urlencode($set[$j]) . '"';
                 if ($data == $set[$j]
                     || ($data == ''
                         && isset($row_table_def['Default'])
@@ -233,7 +231,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
 
             if ($row_table_def['Null'] == 'YES') {
                 echo '            ';
-                echo '<input type="radio" name="field_<?php echo md5($field); ?>[]" value="null"';
+                echo '<input type="radio" name="field_' . md5($field) . '[]" value="null"';
                 if ($seenchecked == 0) {
                     echo ' checked="checked"';
                 }

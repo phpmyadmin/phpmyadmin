@@ -71,12 +71,13 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                     $f = 'field_' . $key;
                 }
                 if (!empty($$f)) {
-                    if ($$f == 'null') {
+                    $val    = implode(',', $$f);
+                    if ($val == 'null') {
                         // void
                     } else if ($is_encoded) {
-                        $val = "'" . sql_addslashes(urldecode($$f)) . "'";
+                        $val = "'" . sql_addslashes(urldecode($val)) . "'";
                     } else {
-                        $val = "'" . sql_addslashes($ff) . "'";
+                        $val = "'" . sql_addslashes($val) . "'";
                     }
                 } else {
                     $val = "''";
@@ -168,12 +169,13 @@ else {
                     $f = 'field_' . $key;
                 }
                 if (!empty($$f)) {
-                    if ($$f == 'null') {
+                    $val    = implode(',', $$f);
+                    if ($val == 'null') {
                         // void
                     } else if (get_magic_quotes_gpc()) {
-                        $val = "'" . str_replace('\\"', '"', implode(',', $$f)) . "'";
+                        $val = "'" . str_replace('\\"', '"', $val) . "'";
                     } else {
-                        $val = "'" . sql_addslashes(implode(',', $$f)) . "'";
+                        $val = "'" . sql_addslashes($val) . "'";
                     }
                 } else {
                     $val     = "''";
