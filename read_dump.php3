@@ -280,7 +280,7 @@ else if (empty($id_bookmark) && get_magic_quotes_gpc() == 1) {
 if (@function_exists('PMA_kanji_str_conv')) {
     $sql_tmp   = trim($sql_query);
     PMA_change_enc_order();
-    $sql_query = PMA_kanji_str_conv($sql_tmp, $knjenc, $xkana);
+    $sql_query = PMA_kanji_str_conv($sql_tmp, $knjenc, isset($xkana) ? $xkana : '');
     PMA_change_enc_order();
 } else {
     $sql_query = trim($sql_query);

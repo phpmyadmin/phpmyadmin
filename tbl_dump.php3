@@ -16,7 +16,7 @@ function PMA_myHandler($sql_insert)
 
     // Kanji encoding convert feature appended by Y.Kawada (2001/2/21)
     if (function_exists('PMA_kanji_str_conv')) {
-        $sql_insert = PMA_kanji_str_conv($sql_insert, $GLOBALS['knjenc'], $GLOBALS['xkana']);
+        $sql_insert = PMA_kanji_str_conv($sql_insert, $GLOBALS['knjenc'], isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : '');
     }
     // Defines the end of line delimiter to use
     $eol_dlm = (isset($GLOBALS['extended_ins']) && ($GLOBALS['current_row'] < $GLOBALS['rows_cnt']))
@@ -57,7 +57,7 @@ function PMA_myCsvHandler($sql_insert)
 
     // Kanji encoding convert feature appended by Y.Kawada (2001/2/21)
     if (function_exists('PMA_kanji_str_conv')) {
-        $sql_insert = PMA_kanji_str_conv($sql_insert, $GLOBALS['knjenc'], $GLOBALS['xkana']);
+        $sql_insert = PMA_kanji_str_conv($sql_insert, $GLOBALS['knjenc'], isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : '');
     }
     // Result has to be displayed on screen
     if (empty($GLOBALS['asfile'])) {
@@ -233,7 +233,7 @@ else {
                                  .  PMA_getTableDef($db, $table, $crlf, $err_url) . ';' . $crlf;
                 }
                 if (function_exists('PMA_kanji_str_conv')) { // Y.Kawada
-                    $dump_buffer = PMA_kanji_str_conv($dump_buffer, $knjenc, $xkana);
+                    $dump_buffer = PMA_kanji_str_conv($dump_buffer, $knjenc, isset($xkana) ? $xkana : '');
                 }
                 // At least data
                 if (($what == 'data') || ($what == 'dataonly')) {
@@ -241,7 +241,7 @@ else {
                                  .  '# ' . $strDumpingData . ' ' . $formatted_table_name . $crlf
                                  .  '#' . $crlf .$crlf;
                     if (function_exists('PMA_kanji_str_conv')) { // Y.Kawada
-                        $dump_buffer .= PMA_kanji_str_conv($tcmt, $knjenc, $xkana);
+                        $dump_buffer .= PMA_kanji_str_conv($tcmt, $knjenc, isset($xkana) ? $xkana : '');
                     } else {
                         $dump_buffer .= $tcmt;
                     }
