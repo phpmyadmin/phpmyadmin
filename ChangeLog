@@ -18,6 +18,7 @@ $Source$
     * lang/dutch updates, thanks to Ivo Teel.
     * lang/swedish updates, thanks to Björn T. Hallberg
     * lang/galician updates, thanks to Xosé Calvo
+    * libraries/config_import.lib.php3, fixed 3 parse errors
 
 2002-06-19 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/charset_conversion.lib.php3,

@@ -39,7 +39,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
                 $cfg['Servers'][$i]['socket'] = '';
             }
 
-            if (!isset($cfg['Servers'][$i]['connect_type']) {
+            if (!isset($cfg['Servers'][$i]['connect_type'])) {
                 $cfg['Servers'][$i]['connect_type'] = 'tcp';
             }
 
@@ -196,7 +196,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
         }
     }
 
-    if (!isset($cfg['UseDbSearch']) {
+    if (!isset($cfg['UseDbSearch'])) {
         $cfg['UseDbSearch'] = TRUE;
     }
 
@@ -475,7 +475,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
     }
 
     if (!isset($cfg['BrowseMarkerColor'])) {
-        if (isset($cfgBrowseMarkerColor) {
+        if (isset($cfgBrowseMarkerColor)) {
             $cfg['BrowseMarkerColor'] = $cfgBrowseMarkerColor;
             unset($cfgBrowseMarkerColor);
         } else if (isset($cfg['BrowseMarkRow'])) {
