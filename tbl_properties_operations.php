@@ -378,7 +378,10 @@ for ($i = 0; $i < $num_dbs; $i++) {
            . '    </form>' . "\n"
            . '        <tr><td colspan="2" height="5"></td></tr>' . "\n";
     }
+    // PACK_KEYS: MyISAM or ISAM
+    // DELAY_KEY_WRITE, CHECKSUM, AUTO_INCREMENT: MyISAM only
 
+    if ($tbl_type == 'MYISAM' || $tbl_type == 'ISAM') {
     ?>
     <!-- Table options -->
     <form method="post" action="tbl_properties_operations.php">
@@ -393,7 +396,9 @@ for ($i = 0; $i < $num_dbs; $i++) {
                 <input type="checkbox" name="pack_keys" id="pack_keys_opt"
                 <?php echo (isset($pack_keys) && $pack_keys == 1) ? ' checked="checked"' : ''; ?> style="vertical-align: middle" />
                 <label for="pack_keys_opt">pack_keys</label><br />
-
+        <?php
+        if ($tbl_type == 'MYISAM') {
+        ?>
                 <input type="checkbox" name="checksum" id="checksum_opt"
                 <?php echo (isset($checksum) && $checksum == 1) ? ' checked="checked"' : ''; ?> style="vertical-align: middle" />
                 <label for="checksum_opt">checksum</label><br />
@@ -406,14 +411,19 @@ for ($i = 0; $i < $num_dbs; $i++) {
                 <?php echo (isset($auto_increment) && !empty($auto_increment) ? ' value="' . $auto_increment . '"' : ''); ?> style="width: 30px; vertical-align: middle" />&nbsp;
                 <label for="auto_increment_opt">auto_increment</label>
             </td>
+        <?php
+        } // end if (MYISAM)
+        ?>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right" valign="bottom">
                 <input type="submit" name="submitoptions" value="<?php echo $strGo; ?>" />
             </td>
         </tr>
     </form>
+<?php
+    } // end if (MYISAM or ISAM)
+?>
 </table>
 <img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="25" height="1" border="0" align="left" />
-
 <!----->
 <table border="0" cellpadding="3" cellspacing="0">
     <tr>

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_operations.php: bug 1004523, now display table options
+      according to the possibilities of the table types
+
 2004-08-06 Michal Čihař  <michal@cihar.com>
     * tbl_change.php: Do not free result, we need it later.
     * tbl_relation.php: Some functions do not take parameters (bug #1000021).
