@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # $Id$
 ##
 # Shell script to make each language file neat and tidy
