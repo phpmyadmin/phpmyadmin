@@ -123,4 +123,10 @@ $strBack                = "Powrót";
 $strTableComments	= "Komentarze tabeli";
 $strOr 			= "lub";
 $strSelectNumRows	= "w zapytaniu";
+
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>

@@ -118,4 +118,10 @@ $strMySQLShowProcess    = "显示进程";
 $strLogout              = "退出系统";
 $strQBE                 = "查询模板";
 $strBack                = "返回";
+
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>

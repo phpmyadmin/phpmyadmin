@@ -130,4 +130,10 @@ $strOr              = "Или";
 //$strUpdateQuery     = "Дополнить Запрос";
 //$strRunQuery        = "Выполнить Запрос";
 //$strUseTables       = "Использовать таблицы";
+
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>

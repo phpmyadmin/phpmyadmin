@@ -145,4 +145,8 @@ $strWelcome		= "Welcome to ";
 $strWrongUser 		= "Wrong username/password. Access denied.";
 $strYes			= "Yes";
 
+$strCheckTable          = "Check table";
+$strAnalyzeTable        = "Analyze table";
+$strRepairTable         = "Repair table";
+$strOptimizeTable       = "Optimize table";
 ?>

@@ -133,4 +133,10 @@ $strOr              = "Или";
 $strBack	    = "Назад";
 $strTableComments   = "Коментари към таблицата";
 $strSelectNumRows   = "в запитването";
+
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>

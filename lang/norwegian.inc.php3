@@ -109,8 +109,14 @@ $strRunSQLQuery		= "Run SQL query/queries on database ";
 $strViewDumpDB		= "Vis dump (skjema) av database";
 $strPos1		= "Start";
 $strEnd			= "Slutt";
-$strStrucCSV		= "CSV data";
-$strSend		= "send";
+$strStrucCSV		= "CSV data"; //to translate
+$strSend		= "send"; //to translate
 $strRecords		= "Rader";
 $strDocu		= "Dokumentasjon";
+
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>

@@ -145,4 +145,9 @@ $strWelcome             = "Välkommen till ";
 $strWrongUser           = "Fel användarnamn/lösenord. Åtkommst nekad.";
 $strYes                 = "Ja";
 
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>

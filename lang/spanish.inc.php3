@@ -74,8 +74,8 @@ $strOptionalControls    = "Optional. Controls how to write or read special chara
 $strOptionally          = "OPCIONALMENTE";
 $strPos1                = "Empezar";
 $strPrevious            = "Previo";
-$strPrimary             = "Primary";
-$strPrimaryKey          = "Primary key";
+$strPrimary             = "Primary"; //to translate
+$strPrimaryKey          = "Primary key"; //to translate
 $strProducedAnError     = "se produjo un error.";
 $strProperties          = "Propiedades";
 $strReadTheDocs         = "Leer los documentos";
@@ -129,7 +129,13 @@ $strOr              = "O";
 //$strModify          = "Modificar";
 //$strAddDeleteRow    = "Aqadir/borrar fila de criterio";
 //$strAddDeleteColumn = "Aqadir/borrar  columna de criterio";
-//$strUpdateQuery     = "Update Query";
+//$strUpdateQuery     = "Update Query"; //to translate
 //$strRunQuery        = "Ejecutar Query";
 //$strUseTables       = "Usar tablas";
+
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>

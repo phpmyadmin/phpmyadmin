@@ -162,4 +162,10 @@ $strShow              = "Afficher";  //JPD
 $strRowsFrom          = "Enregistrements à partir de la position";  // JPD
 $strEnableMagicQuotes = "<b>Attention:</b> Vous n'avez pas activé magic_quotes_gpc dans votre configuration PHP. PhpMyAdmin en a besoin pour fonctionner correctement. Référez-vous à la rubrique Configuration du manuel PHP pour savoir comment l'activer."; // JPD
 $strPrintView = "Imprimer la vue";  //JPD
+
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>

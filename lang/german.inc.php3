@@ -9,7 +9,7 @@ $strAddSearchConditions = "Suchkondition (Argumente f&uuml;r das WHERE-Statement
 $strAnIndex		= "Ein Index wurde f&uuml;r folgendes Feld hinzugef&uuml;gt: ";
 $strAttr                = "Attribute";
 $strBrowse		= "Anzeigen";
-$strCarriage		= "Carriage return: \\r";
+$strCarriage		= "Carriage return: \\r"; //to translate
 $strChange		= "&Auml;ndern";
 $strColumnNames		= "Spaltennamen";
 $strCopyTable           = "Tabelle kopieren nach:";
@@ -123,4 +123,10 @@ $strOr                  = "oder";
 $strEnableMagicQuotes   = "<b>Achtung:</b> Sie haben magic_quotes_gpc in Ihrer PHP-Konfigration nicht aktiviert. PhpMyAdmin ben&ouml;tigt dies aber, um korrekt zu funktionieren. Bitte lesen Sie im PHP-Manual (Installation & Configuration) nach, um Informationen dar&uuml;ber z erhalten, wie man magic_quotes_gpc aktiviert.";
 $strPrintView           = "Druckansicht";
 $strDisableMagicQuotes   = "<b>Achtung:</b> Sie haben magic_quotes_gpc in Ihrer PHP-Konfigration aktiviert. Dieses Version von PhpMyAdmin braucht dies nicht aktiviert sein, um korrekt zu funktionieren. Bitte lesen Sie im PHP-Manual (Installation & Configuration) nach, um Informationen dar&uuml;ber zu erhalten, wie man magic_quotes_gpc nicht aktivieren kann.";
+
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>

@@ -121,4 +121,10 @@ $strBack                = "Terug";
 $strTableComments	= "Tabel opmerkingen";
 $strOr = "of";
 $strSelectNumRows	      = "in query";
+
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>

@@ -132,4 +132,10 @@ $strShow              = "Mostra";
 $strRowsFrom          = "righe a partire da";
 $strEnableMagicQuotes = "<b>Attenzuibe:</b> Non hai abilitato l'opzione magic_quotes_gpc nella configurazione del PHP. PhpMyAdmin ne ha bisogno per funzionare correttamente. Si faccia riferimento alla sezione relativa alla configurazione del manuale PHP per informazioni su come abilitare tale opzione.";
 $strPrintView = "Print view";
+
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>

@@ -113,4 +113,10 @@ $strStrucCSV            = "dades CSV ";
 $strSend                = "enviar";
 $strRecords             = "Registres";
 $strDocu                = "Documentaci&oacute;";
+
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>

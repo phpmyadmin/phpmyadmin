@@ -118,4 +118,10 @@ $strMySQLShowProcess    = "陪ボ秈祘";
 $strLogout              = "癶么参";
 $strQBE                 = "琩高家狾";
 $strBack                = "";
+
+$strCheckTable	= "Check table"; //to translate
+$strAnalyzeTable	= "Analyze table";  //to translate
+$strRepairTable	= "Repair table";  //to translate
+$strOptimizeTable	= "Optimize table"; //to translate
+$strTableType	= "Table type"; //to translate
 ?>
