@@ -17,6 +17,9 @@ PMA_checkParameters(array('db', 'table'));
 // The 'show table' statement works correct since 3.23.03
 $table_info_result   = PMA_DBI_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
 $showtable           = PMA_DBI_fetch_assoc($table_info_result);
+if (!isset($showtable['Type']) && isset($showtable['Engine'])) {
+    $showtable['Type'] =& $showtable['Engine'];
+}
 $tbl_type            = isset($showtable['Type']) ? strtoupper($showtable['Type']) : '';
 $tbl_collation       = empty($showtable['Collation']) ? '' : $showtable['Collation'];
 $table_info_num_rows = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-02 Alexander M. Turek  <happybirthdaytome@derrabus.de>
+    * db_details_db_info.php, tbl_properties_tbl_info.php: Table type is called
+      "Engine" in MySQL 4.1.2 (bug #964011).
+
 2004-05-31 Marc Delisle  <lem9@users.sourceforge.net>
     * header.inc.php: bug #963414, when PropertiesIconic was false,
       the code did not define the icon variables. Also, remove hardcoded
@@ -19,7 +23,7 @@ $Source$
     * sql.php: bug #956828, deleting last row gives an error. I could not
       find a case where we need the line I just removed, which was
       causing the bug.
-    * tbl_properties.inc.php: missing statement group {}, was causing 
+    * tbl_properties.inc.php: missing statement group {}, was causing
       the display of part of the changing amount of columns dialog
       when editing a field structure
 

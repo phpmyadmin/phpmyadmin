@@ -67,6 +67,10 @@ if ($cfg['SkipLockedTables'] == TRUE) {
                         $sts_result  = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\';');
                         $sts_tmp     = PMA_DBI_fetch_assoc($sts_result);
 
+                        if (!isset($sts_tmp['Type']) && isset($sts_tmp['Engine'])) {
+                            $sts_tmp['Type'] =& $sts_tmp['Engine'];
+                        }
+
                         if (!empty($tbl_group) && $cfg['ShowTooltipAliasTB'] && !preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])) {
                             continue;
                         }
@@ -90,6 +94,9 @@ if (!isset($sot_ready)) {
     $db_info_result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . $tbl_group_sql . ';', NULL, PMA_DBI_QUERY_STORE);
     if ($db_info_result != FALSE && PMA_DBI_num_rows($db_info_result) > 0) {
         while ($sts_tmp = PMA_DBI_fetch_assoc($db_info_result)) {
+            if (!isset($sts_tmp['Type']) && isset($sts_tmp['Engine'])) {
+                $sts_tmp['Type'] =& $sts_tmp['Engine'];
+            }
             if (!empty($tbl_group) && $cfg['ShowTooltipAliasTB'] && !preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])) {
                 continue;
             }
