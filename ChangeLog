@@ -8,6 +8,14 @@ $Source$
 2004-08-21 Marc Delisle  <lem9@users.sourceforge.net>
     * themes/darkblue_orange/img/logo_left.php: transparent version,
       thanks to Michael Keck
+    * db_datadict.php, tbl_printview.php, transformation_wrapper.php:
+      commands out of sync
+    * tbl_indexes.php: optimize: remove unneeded row count
+    * libraries/display_tbl.lib.php: foreign key tooltip not displaying
+      in mysqli
+    * tbl_replace.php: could not upload a binary field in mysqli
+    * libraries/transformations.lib.php: could not change MIME type, etc
+      in mysqli
 
 2004-08-19 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*: bug 1009667: do not spell Ms Excel but MS Excel
