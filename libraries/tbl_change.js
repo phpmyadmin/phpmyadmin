@@ -194,22 +194,22 @@ function initCalendar() {
 
                     if (parts[1]) {
                         time    = parts[1].split(':');
-                        hour    = parseInt(time[0]);
-                        minute  = parseInt(time[1]);
-                        second  = parseInt(time[2]);
+                        hour    = parseInt(time[0],10);
+                        minute  = parseInt(time[1],10);
+                        second  = parseInt(time[2],10);
                     }
                 }
                 date        = value.split("-");
-                day         = parseInt(date[2]);
-                month       = parseInt(date[1]) - 1;
-                year        = parseInt(date[0]);
+                day         = parseInt(date[2],10);
+                month       = parseInt(date[1],10) - 1;
+                year        = parseInt(date[0],10);
             } else {
-                year        = parseInt(value.substr(0,4));
-                month       = parseInt(value.substr(4,2)) - 1;
-                day         = parseInt(value.substr(6,2));
-                hour        = parseInt(value.substr(8,2));
-                minute      = parseInt(value.substr(10,2));
-                second      = parseInt(value.substr(12,2));
+                year        = parseInt(value.substr(0,4),10);
+                month       = parseInt(value.substr(4,2),10) - 1;
+                day         = parseInt(value.substr(6,2),10);
+                hour        = parseInt(value.substr(8,2),10);
+                minute      = parseInt(value.substr(10,2),10);
+                second      = parseInt(value.substr(12,2),10);
             }
         }
         if (isNaN(year) || isNaN(month) || isNaN(day) || day == 0) {
@@ -333,9 +333,9 @@ function returnDate(d) {
     txt = d;
     if (window.opener.dateType != 'date') {
         // need to get time
-        h = parseInt(document.getElementById('hour').value);
-        m = parseInt(document.getElementById('minute').value);
-        s = parseInt(document.getElementById('second').value);
+        h = parseInt(document.getElementById('hour').value,10);
+        m = parseInt(document.getElementById('minute').value,10);
+        s = parseInt(document.getElementById('second').value,10);
         if (window.opener.dateType == 'datetime') {
             txt += ' ' + formatNum2(h, 'hour') + ':' + formatNum2(m, 'minute') + ':' + formatNum2(s, 'second');
         } else {
