@@ -7,6 +7,8 @@ $Source$
 
 2003-10-26 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: bug 830437, undefined $sql_order
+    * querywindow.php3: bug 829737, cosmetic change: added &nbsp; for
+      better display in Iconic 'both' mode
 
 2003-10-24 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/lithuanian: Updated, thanks to Vilius Zigmantas (viliusz).

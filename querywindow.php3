@@ -137,7 +137,7 @@ if ($cfg['PropertiesIconic'] == true) {
     $titles['Change']        = $iconic_spacer . '<img hspace="7" width="12" height="13" src="images/button_edit.png" alt="' . $strChange . '" title="' . $strChange . '" border="0" />';
 
     if ($propicon == 'both') {
-        $titles['Change']        .= '&nbsp;' . $strChange . '</nobr>';
+        $titles['Change']        .= '&nbsp;' . $strChange . '&nbsp;</nobr>';
     }
 } else {
     $titles['Change']        = $strChange;
