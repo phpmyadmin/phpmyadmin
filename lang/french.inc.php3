@@ -71,6 +71,7 @@ $strCheckTable = 'Vérifier la table';
 $strColumn = 'Colonne';
 $strColumnNames = 'Nom des colonnes';
 $strCompleteInserts = 'Insertions complètes';
+$strConfigureTableCoord = 'Les coordonnées de la table %s n\'ont pas été configurées';
 $strConfirm = 'Veuillez confirmer';
 $strCookiesRequired = 'Vous devez accepter les cookies pour poursuivre.';
 $strCopyTable = '<b>Copier</b> la table vers (base<b>.</b>table)&nbsp;:';
@@ -98,6 +99,7 @@ $strDeleteUserMessage = 'Vous avez effacé l\'utilisateur %s.';
 $strDescending = 'Décroissant';
 $strDisplay = 'Montrer';
 $strDisplayOrder = 'Ordre d\'affichage :';
+$strDisplayPDF = 'Afficher le schéma en PDF';
 $strDoAQuery = 'Recherche par valeur (passepartout: "%")';
 $strDocu = 'Documentation';
 $strDoYouReally = 'Voulez-vous vraiment effectuer ';
@@ -224,6 +226,7 @@ $strOptions = 'Options';
 $strOr = 'Ou';
 $strOverhead = 'Perte';
 
+$strPageNumber = 'Page n°:';
 $strPartialText = 'Textes réduits';
 $strPassword = 'Mot de passe';
 $strPasswordEmpty = 'Le mot de passe est vide';
@@ -278,6 +281,7 @@ $strRunQuery = 'Exécuter la requête';
 $strRunSQLQuery = 'Exécuter une ou des <b>requêtes</b> sur la base %s';
 
 $strSave = 'Sauvegarder';
+$strScaleFactorSmall = 'Veuillez augmenter l\'échelle car le schéma déborde la page';
 $strSelect = 'Sélectionner';
 $strSelectADb = 'Choisissez une base de données';
 $strSelectAll = 'Tout sélectionner';
@@ -289,9 +293,12 @@ $strServerVersion = 'Version du serveur';
 $strSetEnumVal = 'Les différentes valeurs des champs de type enum/set sont à spécifier sous la forme \'a\',\'b\',\'c\'...<br />Pour utiliser un caractère "\\" ou "\'" dans l\'une de ces valeurs, faites le précéder du caractère d\'échappement "\\" (par exemple \'\\\\xyz\' ou \'a\\\'b\').';
 $strShow = 'Afficher';
 $strShowAll = 'Tout afficher';
+$strShowColor = 'Couleurs';
 $strShowCols = 'Afficher les colonnes';
+$strShowGrid = 'Grille';
 $strShowingRecords = 'Affichage des enregistrements';
 $strShowPHPInfo = 'Afficher les informations relatives à PHP';
+$strShowTableDimension = 'Dimension des tables';
 $strShowTables = 'Afficher les tables';
 $strShowThisQuery = 'Réafficher la requête après exécution';
 $strSingly = '(à refaire après insertions/destructions)';
@@ -356,11 +363,4 @@ $strYes = 'Oui';
 $strZip = '"zippé"';
 
 // To translate
-$strConfigureTableCoord = 'Les coordonnées de la table %s n\'ont pas été configurées';
-$strScaleFactorSmall = 'Veuillez augmenter l\'échelle car le schéma déborde la page ';
-$strDisplayPDF = 'Afficher le schéma en PDF'; 
-$strPageNumber = 'Page n°:';
-$strShowGrid = 'Grille';
-$strShowColor = 'Couleurs';
-$strShowTableDimension = 'Dimension des tables';
 ?>

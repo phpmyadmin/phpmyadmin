@@ -71,6 +71,7 @@ $strCheckTable = 'Check table';
 $strColumn = 'Column';
 $strColumnNames = 'Column names';
 $strCompleteInserts = 'Complete inserts';
+$strConfigureTableCoord = 'Please configure the coordinates for table %s';
 $strConfirm = 'Do you really want to do it?';
 $strCookiesRequired = 'Cookies must be enabled past this point.';
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
@@ -98,6 +99,7 @@ $strDeleteUserMessage = 'You have deleted the user %s.';
 $strDescending = 'Descending';
 $strDisplay = 'Display';
 $strDisplayOrder = 'Display order:';
+$strDisplayPDF = 'Display PDF schema';
 $strDoAQuery = 'Do a "query by example" (wildcard: "%")';
 $strDocu = 'Documentation';
 $strDoYouReally = 'Do you really want to ';
@@ -224,6 +226,7 @@ $strOptions = 'Options';
 $strOr = 'Or';
 $strOverhead = 'Overhead';
 
+$strPageNumber = 'Page number:';
 $strPartialText = 'Partial Texts';
 $strPassword = 'Password';
 $strPasswordEmpty = 'The password is empty!';
@@ -278,6 +281,7 @@ $strRunQuery = 'Submit Query';
 $strRunSQLQuery = 'Run SQL query/queries on database %s';
 
 $strSave = 'Save';
+$strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';
 $strSelect = 'Select';
 $strSelectADb = 'Please select a database';
 $strSelectAll = 'Select All';
@@ -289,9 +293,12 @@ $strServerVersion = 'Server version';
 $strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 $strShow = 'Show';
 $strShowAll = 'Show all';
+$strShowColor = 'Show color';
 $strShowCols = 'Show columns';
+$strShowGrid = 'Show grid';
 $strShowingRecords = 'Showing rows';
 $strShowPHPInfo = 'Show PHP information';
+$strShowTableDimension = 'Show dimension of tables';
 $strShowTables = 'Show tables';
 $strShowThisQuery = ' Show this query here again ';
 $strSingly = '(singly)';
@@ -354,11 +361,5 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
-$strConfigureTableCoord = 'Please configure the coordinates for table %s';  //to translate
-$strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
-$strDisplayPDF = 'Display PDF schema';  //to translate
-$strPageNumber = 'Page number:';  //to translate
-$strShowGrid = 'Show grid';  //to translate
-$strShowColor = 'Show color';  //to translate
-$strShowTableDimension = 'Show dimension of tables';  //to translate
+
 ?>
