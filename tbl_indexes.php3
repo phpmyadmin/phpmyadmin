@@ -9,15 +9,18 @@ require('./libraries/common.lib.php3');
 
 
 /**
- * Defines the index types
+ * Defines the index types ("FULLTEXT" is available since MySQL 3.23.23)
  */
-$index_types = array(
-    'INDEX',
+$index_types_cnt   = 3;
+$index_types       = array(
     'PRIMARY',
-    'UNIQUE',
-    'FULLTEXT'
+    'INDEX',
+    'UNIQUE'
 );
-
+if (PMA_MYSQL_INT_VERSION >= 32323) {
+    $index_types[] = 'FULLTEXT';
+    $index_types_cnt++;
+}
 
 
 /**
@@ -307,15 +310,22 @@ else if (!defined('PMA_IDX_INCLUDED')
         <td>
             <select name="index_type" onchange="return checkIndexName()">
     <?php
-    if ($index == 'PRIMARY' || !isset($indexes_info['PRIMARY'])) {
-        echo '            '
-             . '<option value="PRIMARY"' . (($index_type == 'PRIMARY') ? ' selected="selected"' : '') . '>PRIMARY</option>';
-    }
     echo "\n";
+    for ($i = 0; $i < $index_types_cnt; $i++) {
+        if ($index_types[$i] == 'PRIMARY') {
+            if ($index == 'PRIMARY' || !isset($indexes_info['PRIMARY'])) {
+                echo '                '
+                     . '<option value="PRIMARY"' . (($index_type == 'PRIMARY') ? ' selected="selected"' : '') . '>PRIMARY</option>'
+                     . "\n";
+            }
+        } else {
+            echo '                '
+                 . '<option value="' . $index_types[$i] . '"' . (($index_type == $index_types[$i]) ? ' selected="selected"' : '') . '>'. $index_types[$i] . '</option>'
+                 . "\n";
+
+        } // end if... else...
+    } // end for
     ?>
-                <option value="UNIQUE"<?php if ($index_type == 'UNIQUE') echo ' selected="selected"'; ?>>UNIQUE</option>
-                <option value="FULLTEXT"<?php if ($index_type == 'FULLTEXT') echo ' selected="selected"'; ?>>FULLTEXT</option>
-                <option value="INDEX"<?php if ($index_type == 'INDEX') echo ' selected="selected"'; ?>>INDEX</option>
             </select>&nbsp;
             <?php echo PMA_showDocu('manual_Reference.html#ALTER_TABLE') . "\n"; ?>
         </td>
