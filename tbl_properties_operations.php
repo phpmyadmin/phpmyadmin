@@ -66,8 +66,11 @@ if (isset($message)) {
 if (isset($submitorderby) && !empty($order_field)) {
     $sql_query   = 'ALTER TABLE ' . PMA_backquote($table)
                  . ' ORDER BY ' . PMA_backquote(urldecode($order_field));
+    if (isset($order_order) && $order_order == 'desc') {
+        $sql_query .= ' DESC';
+    }
     $result      = PMA_DBI_query($sql_query);
-    PMA_showMessage($strSuccess);
+    PMA_showMessage($result ? $strSuccess : $strFailed);
 } // end if
 
 
@@ -115,6 +118,10 @@ if (PMA_MYSQL_INT_VERSION >= 32334) {
     unset($columns);
     ?>
                 </select>&nbsp;<?php echo $strSingly . "\n"; ?>
+                <select name="order_order">
+                    <option value="asc"><?php echo $strAscending; ?></option>
+                    <option value="desc"><?php echo $strDescending; ?></option>
+                </select>
             </td>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right">
                 <input type="submit" name="submitorderby" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
