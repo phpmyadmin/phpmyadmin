@@ -148,7 +148,7 @@ document.onkeydown = onKeyDownArrowsHandler;
 </script>
 
 <!-- Change table properties form -->
-<form method="post" action="tbl_replace.php3" name="insertForm">
+<form method="post" action="tbl_replace.php3" name="insertForm" enctype="multipart/form-data">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0; ?>" />
@@ -524,6 +524,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $strBinaryDoNotEdit . "\n"; ?>
+            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$protected$" />
         </td>
             <?php
         } else if ($is_blob) {
@@ -535,6 +536,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" ><?php echo $special_chars; ?></textarea>
         </td>
             <?php
+
         } else {
             if ($len < 4) {
                 $fieldsize = $maxlength = 4;
@@ -550,7 +552,16 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         </td>
             <?php
         } // end if...elseif...else
-    } // end else if
+
+        // Upload choice
+        // (displayed whatever value the ProtectBinary has)
+        // TODO: check if uploads are allowed by PHP
+
+        if ($is_upload) {
+            echo '<td><input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" /></td>';
+        }
+ 
+    } // end else if ( binary or blob)
     else {
         // For char or varchar, respect the maximum length (M); for other
         // types (int or float), the length is not a limit on the values that

@@ -45,13 +45,7 @@ else {
  * Work on the table
  */
 // loic1: defines wether file upload is available or not
-// lem9: we should check if PHP 4.0.0 really implements the "file_uploads"
-// variable, because I got a support request and his 4.0.0 did not have it
-
-$is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
-           ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
-           // loic1: php 3.0.15 and lower bug -> always enabled
-           : (PMA_PHP_INT_VERSION < 30016 || intval(@get_cfg_var('upload_max_filesize')));
+// ($is_upload now defined in common.lib.php3)
 
 $auto_sel  = ($cfg['TextareaAutoSelect'])
            ? "\n" . '             onfocus="if (typeof(document.layers) == \'undefined\' || typeof(textarea_selected) == \'undefined\') {textarea_selected = 1; this.form.elements[\'sql_query\'].select();}"'

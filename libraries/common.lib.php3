@@ -154,6 +154,14 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     include('./libraries/defines_php.lib.php3');
 
     /**
+     * Define $is_upload
+     */
+      $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
+           ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
+           // loic1: php 3.0.15 and lower bug -> always enabled
+           : (PMA_PHP_INT_VERSION < 30016 || intval(@get_cfg_var('upload_max_filesize')));
+
+    /**
      * Charset conversion.
      */
     include('./libraries/charset_conversion.lib.php3');

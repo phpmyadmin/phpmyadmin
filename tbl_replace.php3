@@ -80,67 +80,12 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
 
     // Defines the SET part of the sql query
     $valuelist = '';
+
     while (list($key, $val) = each($fields)) {
         $encoded_key = $key;
         $key         = urldecode($key);
 
-        switch (strtolower($val)) {
-            case 'null':
-                break;
-            case '$enum$':
-                // if we have an enum, then construct the value
-                $f = 'field_' . md5($key);
-                if (!empty($$f)) {
-                    $val     = implode(',', $$f);
-                    if ($val == 'null') {
-                        // void
-                    } else {
-                        $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
-                    }
-                } else {
-                    $val     = "''";
-                }
-                break;
-            case '$set$':
-                // if we have a set, then construct the value
-                $f = 'field_' . md5($key);
-                if (!empty($$f)) {
-                    $val = implode(',', $$f);
-                    $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
-                } else {
-                    $val = "''";
-                }
-                break;
-            case '$foreign$':
-                // if we have a foreign key, then construct the value
-                $f = 'field_' . md5($key);
-                if (!empty($$f)) {
-                    $val     = implode(',', $$f);
-                    if ($val == 'null') {
-                        // void
-                    } else {
-                        $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
-                    }
-                } else {
-                    $val     = "''";
-                }
-                break;
-            default:
-                if (get_magic_quotes_gpc()) {
-                    $val = "'" . str_replace('\\"', '"', $val) . "'";
-                } else {
-                    $val = "'" . PMA_sqlAddslashes($val) . "'";
-                }
-                break;
-        } // end switch
-
-        // Was the Null checkbox checked for this field?
-        // (if there is a value, we ignore the Null checkbox: this could
-        // be possible if Javascript is disabled in the browser)
-        if (isset($fields_null) && isset($fields_null[$encoded_key])
-            && $val=="''") {
-            $val = 'NULL';
-        }
+        include('./tbl_replace_fields.php3');
 
         // No change for this column and no MySQL function is used -> next column
         if (empty($funcs[$encoded_key])
@@ -193,63 +138,7 @@ else {
         $key         = urldecode($key);
         $fieldlist   .= PMA_backquote($key) . ', ';
 
-        switch (strtolower($val)) {
-            case 'null':
-                break;
-            case '$enum$':
-                // if we have a set, then construct the value
-                $f = 'field_' . md5($key);
-                if (!empty($$f)) {
-                    $val     = implode(',', $$f);
-                    if ($val == 'null') {
-                        // void
-                    } else {
-                        $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
-                    }
-                } else {
-                    $val     = "''";
-                }
-                break;
-            case '$set$':
-                // if we have a set, then construct the value
-                $f = 'field_' . md5($key);
-                if (!empty($$f)) {
-                    $val = implode(',', $$f);
-                    $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
-                } else {
-                    $val = "''";
-                }
-                break;
-            case '$foreign$':
-                // if we have a foreign key, then construct the value
-                $f = 'field_' . md5($key);
-                if (!empty($$f)) {
-                    $val     = implode(',', $$f);
-                    if ($val == 'null') {
-                        // void
-                    } else {
-                        $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
-                    }
-                } else {
-                    $val     = "''";
-                }
-                break;
-            default:
-                if (get_magic_quotes_gpc()) {
-                    $val = "'" . str_replace('\\"', '"', $val) . "'";
-                } else {
-                    $val = "'" . PMA_sqlAddslashes($val) . "'";
-                }
-                break;
-        } // end switch
-
-        // Was the Null checkbox checked for this field?
-        // (if there is a value, we ignore the Null checkbox: this could
-        // be possible if Javascript is disabled in the browser)
-        if (isset($fields_null) && isset($fields_null[$encoded_key])
-            && $val=="''") {
-            $val = 'NULL';
-        }
+        include('./tbl_replace_fields.php3');
 
         if (empty($funcs[$encoded_key])) {
             $valuelist .= $val . ', ';
@@ -277,7 +166,6 @@ else {
 PMA_mysql_select_db($db);
 $sql_query = $query . ';';
 $result    = PMA_mysql_query($query);
-
 if (!$result) {
     $error = PMA_mysql_error();
     include('./header.inc.php3');
@@ -298,7 +186,12 @@ if (!$result) {
     } else {
         // I don't understand this one:
         //$add_query = (strpos(' ' . $goto, 'tbl_change') ? '&disp_query=' . urlencode($sql_query) : '');
-        $add_query = '&disp_query=' . urlencode($sql_query);
+
+        // if the sql_query was too long (for example because of an upload)
+        // we do not append the query to the Location
+        // why 100? well, tell me a better value... - lem9
+
+        $add_query = (strlen($sql_query) < 100 ? '&disp_query=' . urlencode($sql_query) : '');
         header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . $add_query);
     }
     exit();

@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php3, tbl_replace.php3, (new)tbl_replace_fields.php3,
+      db_details.php3, tbl_query_box.php3, libraries/common.lib.php3:
+      new Feature: BLOB field upload
+
 2003-01-31 Alexander M. Turek  <rabus@users.sourceforge.net>
     * config.inc.php3, Documentation.html, libraries/common.lib.php3,
       libraries/config_import.lib.php3: Added experimental support for
