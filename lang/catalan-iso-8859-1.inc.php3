@@ -422,6 +422,7 @@ $strTableHasBeenDropped = 'S\'ha esborrat la taula %s';
 $strTableHasBeenEmptied = 'S\'ha buidat la taula %s';
 $strTableHasBeenFlushed = 'S\'ha buidat el caché de la taula %s';
 $strTableMaintenance = 'Manteniment de la taula';
+$strTableOfContents = 'Taula de continguts';
 $strTableStructure = 'Estructura de la taula';
 $strTableType = 'Tipus de taula';
 $strTables = '%s taula(es)';
@@ -429,7 +430,11 @@ $strTextAreaLength = ' A causa de la seva longitud,<br /> aquest camp pot no ser
 $strTheContent = 'El contingut del fitxer especificat ha estat inserit.';
 $strTheContents = 'El contingut del fitxer substituirà els continguts de les taules seleccionades a les files que contenen la mateixa clau única o primària';
 $strTheTerminator = 'El separador de camps.';
+$strThreadSuccessfullyKilled = 'Fil %s cancel.lat correctament.';
+$strTime = 'Temps';
+$strTotalUC = 'Total';
 $strTotal = 'total';
+$strTraffic = 'Tràfic';
 $strType = 'Tipus';
 
 $strUncheckAll = 'Deseleccionar tot';
@@ -450,6 +455,7 @@ $strUsers = 'Usuaris';
 $strValidateSQL = 'Validar l\'SQL';
 $strValidatorError = 'No s\'ha pogut iniciar el validador SQL. Si us plau, comproveu que teniu instal·lats els mòduls de PHP necessaris tal i com s\'indica a la %sdocumentació%s.';
 $strValue = 'Valor';
+$strVar = 'Variable';
 $strViewDump = 'Veure un esquema de la taula';
 $strViewDumpDB = 'Veure l\'esquema de la base de dades';
 
@@ -462,13 +468,6 @@ $strWrongUser = 'Usuari i/o clau erronis. Accés denegat.';
 $strYes = 'Si';
 
 $strZip = '"comprimit amb zip"';
-
-$strTableOfContents = 'Taula de continguts';
-$strThreadSuccessfullyKilled = 'Fil %s cancel.lat correctament.';
-$strTime = 'Temps';
-$strTotalUC = 'Total';
-$strTraffic = 'Tràfic';
-$strVar = 'Variable';
 
 // To translate
 $strLaTeX = 'LaTeX';  //to translate
