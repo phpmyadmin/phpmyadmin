@@ -130,6 +130,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
             <select name="destination[<?php echo htmlspecialchars($row['Field']); ?>]" onchange="this.form.submit(); ">
         <?php
         echo "\n";
+        reset($selectboxall);
         while (list($key, $value) = each($selectboxall)) {
             $myfield = $row['Field'];
             echo '                '
