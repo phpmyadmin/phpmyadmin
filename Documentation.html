@@ -1826,6 +1826,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <a href="http://bugs.php.net/bug.php?id=19404">PHP 4.2.3 bug</a>.
 </p>
 
+<p>
+    <b>[1.25] I am running Apache with mod_gzip, and I get problems,
+       such as undefined variables when I try to run a SQL query.</b>
+    <br />
+    Set the <tt>$cfg['OBGzip']</tt> directive to <tt>FALSE</tt> in your
+    <i>config.inc.php or .php3</i> file.
+</p>
+
 <a name="faqconfig"></a>
 <h3>[2. Configuration]</h3>
 
