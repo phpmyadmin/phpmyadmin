@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-26 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/japanese-*.inc.php3: Updates, thanks again to Yukihiro Kawada.
+
 2002-08-24 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, faq 6.15: creating an index on a BLOB field
       and faq 1.22 about php.ini file_uploads

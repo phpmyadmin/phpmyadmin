@@ -423,6 +423,8 @@ $strValue = '値';
 $strViewDump = 'テーブルのダンプ(スキーマ)表示';
 $strViewDumpDB = 'DBのダンプ(スキーマ)表示';
 
+$strWebServerUploadDirectory = 'webサーバー上でアップロード';
+$strWebServerUploadDirectoryError = 'アップロードを行うディレクトリがありません。。';
 $strWelcome = '%sへようこそ';
 $strWithChecked = 'チェックしたものを:';
 $strWrongUser = 'ユーザ名またはパスワードが正しくありません。<br />アクセスは拒否されました。';
@@ -434,6 +436,4 @@ $strYes = 'はい';
 $strZip = '"zipされる"';
 // To translate
 
-$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
-$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 ?>

@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Translated by Yukihiro Kawada <luc at ceres.dti.ne.jp>
+ * Translated by Yukihiro Kawada <kawada at den.fujifilm.co.jp>
  */
 
 $charset = 'SHIFT_JIS';
@@ -82,7 +82,7 @@ $strCheckAll = '全てをマーク';
 $strCheckDbPriv = 'データベースの特権の確認';
 $strCheckTable = 'テーブルをチェックします。';
 $strChoosePage = '編集するページを選択して下さい';
-$strColComFeat = '列コメント表示機' . "\x5c";
+$strColComFeat = '列コメント表示機' . "\x94\x5c";
 $strColumn = '列';
 $strColumnNames = '列(コラム)名';
 $strComments = 'コメント';
@@ -99,7 +99,7 @@ $strCreateIndexTopic = '新しいインデックスの作成';
 $strCreateNewDatabase = '新しいDBを作成します。';
 $strCreateNewTable = '現在のDBに新しいテーブルを作成します。 %s--> ';
 $strCreatePage = '新規ページの作成';
-$strCreatePdfFeat = 'PDF作成機' . "\x5c";
+$strCreatePdfFeat = 'PDF作成機' . "\x94\x5c";
 $strCriteria = '基準';
 
 $strData = 'データ';
@@ -118,7 +118,7 @@ $strDeletedRows = '削除された行数:';
 $strDescending = '降順';
 $strDisabled = '無効';
 $strDisplay = '表示';
-$strDisplayFeat = 'テーブル情報表示機' . "\x5c";
+$strDisplayFeat = 'テーブル情報表示機' . "\x94\x5c";
 $strDisplayOrder = '発表順番:';
 $strDisplayPDF = 'PDFスキーマの表示';
 $strDoAQuery = '"例のQUERY"を実行 (wildcard: "%")';
@@ -166,7 +166,7 @@ $strFunction = '関数';
 
 $strGenBy = '生成された by';
 $strGenTime = '作成の時間';
-$strGeneralRelationFeat = 'リレーション機' . "\x5c";
+$strGeneralRelationFeat = 'リレーション機' . "\x94\x5c";
 $strGo = '実行';
 $strGrants = '付与';
 $strGzip = '"gzipされる"';
@@ -360,13 +360,13 @@ $strServerChoice = 'サーバーの選択';
 $strServerVersion = 'サーバーのバージョン';
 $strSetEnumVal = 'フィールドタイプが"enum"又は"set"の場合は値をこのフォーマットを使って入力して下さい: \'a\',\'b\',\'c\'...<br />バックスラッシュ「"\"」又はクオート「"\'"」を入力したいと、頭にバックスラッシュを付けて下さい「例: \'\\\\xyz\' or \'a\\\'b\'」。';
 $strShow = '表示';
-$strShowAll = '全の発' . "\x5c";
+$strShowAll = '全の発' . "\x95\x5c";
 $strShowColor = '色表示';
-$strShowCols = '列の発' . "\x5c";
+$strShowCols = '列の発' . "\x95\x5c";
 $strShowGrid = 'グリッドの表示';
 $strShowPHPInfo = 'PHP情報';
 $strShowTableDimension = 'テーブルの大きさを表示';
-$strShowTables = 'テーブルの発' . "\x5c";
+$strShowTables = 'テーブルの発' . "\x95\x5c";
 $strShowThisQuery = ' 実行したクエリーをここに表示する ';
 $strShowingRecords = 'レコード表示';
 $strSingly = '(一回)';
@@ -423,6 +423,8 @@ $strValue = '値';
 $strViewDump = 'テーブルのダンプ(スキーマ)表示';
 $strViewDumpDB = 'DBのダンプ(スキーマ)表示';
 
+$strWebServerUploadDirectory = 'webサーバー上でアップロード';
+$strWebServerUploadDirectoryError = 'アップロードを行うディレクトリがありません。。';
 $strWelcome = '%sへようこそ';
 $strWithChecked = 'チェックしたものを:';
 $strWrongUser = 'ユーザ名またはパスワードが正しくありません。<br />アクセスは拒否されました。';
@@ -434,6 +436,4 @@ $strYes = 'はい';
 $strZip = '"zipされる"';
 // To translate
 
-$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
-$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 ?>
