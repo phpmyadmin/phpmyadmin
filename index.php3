@@ -1,11 +1,21 @@
 <?php
-  // Process config file to determine default server (if any)
-  require('./lib.inc.php3');
+// Process config file to determine default server (if any)
+require('./lib.inc.php3');
+
+// Get the host name
+if (empty($HTTP_HOST)) {
+  if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_HOST'])) {
+    $HTTP_HOST = $HTTP_ENV_VARS['HTTP_HOST'];
+  }
+  else if (@getenv('HTTP_HOST')) {
+    $HTTP_HOST = getenv('HTTP_HOST');
+  }
+}
 ?>
 
 <html>
 <head>
-<title>phpMyAdmin - <?php echo getenv('HTTP_HOST') ;?></title>
+<title>phpMyAdmin - <?php echo $HTTP_HOST;?></title>
 </head>
 
 <frameset cols="150,*" rows="*" border="0" frameborder="0"> 

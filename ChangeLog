@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-10  Loïc Chapeaux  <lolo@phpheaven.net>
+	* index.php3: ensure the server hostname is find whatever is the php
+	  configuration
+
 2001-06-09  Armel Fauveau   <armel.fauveau@globalis-ms.com>
 	* add multiple dump feature (Feature #424176)
 
