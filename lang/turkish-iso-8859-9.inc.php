@@ -730,4 +730,5 @@ $strYes = 'Evet';
 $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0\'a ayarlanmasý sýnýrý kaldýrýr..';
 $strZip = '"ziplenmiþ"';
 
+$strPersian = 'Persian';  //to translate
 ?>

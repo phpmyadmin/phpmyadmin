@@ -725,4 +725,5 @@ $strYes = 'Да';
 $strZeroRemovesTheLimit = 'Замечание: Установка этих опций в  0 (ноль) удаляет лимит.';
 $strZip = 'архивировать в zip';
 
+$strPersian = 'Persian';  //to translate
 ?>

@@ -727,4 +727,5 @@ $strCheckOverhead = '彻底检查';
 
 $strTakeIt = '断定';
 
+$strPersian = 'Persian';  //to translate
 ?>

@@ -717,4 +717,5 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+$strPersian = 'Persian';  //to translate
 ?>

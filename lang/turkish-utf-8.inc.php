@@ -731,4 +731,5 @@ $strYes = 'Evet';
 $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0\'a ayarlanması sınırı kaldırır..';
 $strZip = '"ziplenmiş"';
 
+$strPersian = 'Persian';  //to translate
 ?>

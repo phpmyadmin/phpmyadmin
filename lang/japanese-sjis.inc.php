@@ -738,4 +738,5 @@ $strTruncateQueries = 'Truncate Shown Queries';  //to translate
 $strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 $strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
 
+$strPersian = 'Persian';  //to translate
 ?>

@@ -112,6 +112,9 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             case 'korean':
                 $descr = $GLOBALS['strKorean'];
                 break;
+            case 'persian':
+                $descr = $GLOBALS['strPersian'];
+                break;
             case 'polish':
                 $descr = $GLOBALS['strPolish'];
                 break;

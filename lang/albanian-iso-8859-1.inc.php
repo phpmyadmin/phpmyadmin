@@ -721,4 +721,5 @@ $strYes = ' Po ';
 $strZeroRemovesTheLimit = 'Shënim: Vendosja e këtyre opcioneve në 0 (zero) do të thotë asnjë limit.';
 $strZip = '"kompresuar me zip"';
 
+$strPersian = 'Persian';  //to translate
 ?>

@@ -442,6 +442,7 @@ $strPdfNoTables = 'keine Tabellen';
 $strPerHour = 'pro Stunde';
 $strPerMinute = 'pro Minute';
 $strPerSecond = 'pro Sekunde';
+$strPersian = 'Persisch';
 $strPhoneBook = 'Telefonbuch';
 $strPhp = 'PHP-Code erzeugen';
 $strPmaDocumentation = 'phpMyAdmin-Dokumentation';

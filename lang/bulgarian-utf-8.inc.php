@@ -731,4 +731,5 @@ $strStrucNativeExcel = 'Native MS Excel data';  //to translate
 $strTakeIt = 'take it';  //to translate
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
 
+$strPersian = 'Persian';  //to translate
 ?>

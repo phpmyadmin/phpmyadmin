@@ -726,4 +726,5 @@ $strCheckOverhead = '³¹µ×¼ì²é';
 
 $strTakeIt = '¶Ï¶¨';
 
+$strPersian = 'Persian';  //to translate
 ?>

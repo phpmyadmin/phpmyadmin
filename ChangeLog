@@ -9,6 +9,9 @@ $Source$
     * db_details.php, read_dump.php, tbl_query_box.php: Allow import of
       non-UTF-8 SQL dumps. Thanks to Marc for the initial patch.
       FIXME: The current solution breaks the display of the executed queries.
+    * lang/*.inc.php, libraries/mysql_charsets.lib.php: Made
+      PMA_getCollationDescr() recognize the new Persian collations that will be
+      included in MySQL 4.1.5.
 
 2004-09-20 Marc Delisle  <lem9@users.sourceforge.net>
     * read_dump.php, libraries/read_dump.lib.php: bug #1030644,

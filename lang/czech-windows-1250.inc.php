@@ -722,4 +722,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 
 $strMySQLConnectionCollation = 'MySQL connection collation';  //to translate
+$strPersian = 'Persian';  //to translate
 ?>
