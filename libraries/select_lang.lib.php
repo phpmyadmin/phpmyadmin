@@ -78,6 +78,7 @@ $available_languages = array(
     'el-iso-8859-7'     => array('el|greek',  'greek-iso-8859-7', 'el'),
     'el-utf-8'          => array('el|greek',  'greek-utf-8', 'el'),
     'en-iso-8859-1'     => array('en|english',  'english-iso-8859-1', 'en'),
+    'en-iso-8859-15'    => array('en|english',  'english-iso-8859-15', 'en'),
     'en-utf-8'          => array('en|english',  'english-utf-8', 'en'),
     'es-iso-8859-1'     => array('es|spanish', 'spanish-iso-8859-1', 'es'),
     'es-iso-8859-15'    => array('es|spanish', 'spanish-iso-8859-15', 'es'),
