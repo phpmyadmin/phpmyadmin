@@ -2539,7 +2539,7 @@ if (typeof(document.getElementById) != 'undefined'
             $query .= ' NULL';
         }
 
-        if ($default_current_timestamp && strtoupper($full_field_type) == 'TIMESTAMP') {
+        if ($default_current_timestamp && strpos(' ' . strtoupper($full_field_type),'TIMESTAMP') == 1) {
             $query .= ' DEFAULT CURRENT_TIMESTAMP';
             // 0 is empty in PHP
         } elseif (!empty($default) || $default == '0') {

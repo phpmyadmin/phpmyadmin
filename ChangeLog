@@ -6,7 +6,9 @@ $Id$
 $Source$
 
 2005-04-07 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_properties.inc.php: bug #1176896, undefined variable
+    * tbl_properties.inc.php, tbl_alter.php: bug #1176896, undefined variable
+    * libraries/common.lib.php: wrong test when the field's type is 
+      TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
 2005-04-03 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.6.2-rc1 released
