@@ -818,4 +818,9 @@ $strRowsModeFlippedHorizontal = 'horizontal (rotated headers)';//to translate
 $strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
 $strTransformation_text_plain__external = 'LINUX のみ: 外部アプリケーションを起動し、標準入力からフィールドデータを入力します。アプリケーションの標準出力が返ります。デフォルトは Tidy で、綺麗な HTML コードを出力します。セキュリティの理由で、手動でファイル「libraries/text_plain__external.inc.php」を編集し、実行するを許可するツールを挿入しなければなりません。The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
 
+$strPrivDescCreateView = 'Allows creating new views.';  //to translate
+$strPrivDescAlterDb = 'Allows altering the structure of existing tables as well as changing the default charset and collation of databases.';  //to translate
+$strPrivDescCreateUser = 'Allows creating, dropping and renaming unser accounts.';  //to translate
+$strPrivDescCreateRoutine = 'Allows creating stored routines.';  //to translate
+$strPrivDescAlterRoutine = 'Allows altering and dropping stored routines.';  //to translate
 ?>

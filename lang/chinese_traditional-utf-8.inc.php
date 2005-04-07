@@ -802,4 +802,9 @@ $strYes = ' 是 ';
 $strZeroRemovesTheLimit = '註: 設定這些選項為 0 (零) 可解除限制.';
 $strZip = '"zipped"';
 
+$strPrivDescCreateView = 'Allows creating new views.';  //to translate
+$strPrivDescAlterDb = 'Allows altering the structure of existing tables as well as changing the default charset and collation of databases.';  //to translate
+$strPrivDescCreateUser = 'Allows creating, dropping and renaming unser accounts.';  //to translate
+$strPrivDescCreateRoutine = 'Allows creating stored routines.';  //to translate
+$strPrivDescAlterRoutine = 'Allows altering and dropping stored routines.';  //to translate
 ?>
