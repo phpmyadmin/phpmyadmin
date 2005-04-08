@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-04-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/catalan update, thanks to Xavier Navarro (xavin).
+
 2005-04-07 Alexander M. Turek  <me@derrabus.de>
     * libraries/select_lang.lib.php, lang/english-iso-8859-15.inc.php:
       en-iso-8859-15.
