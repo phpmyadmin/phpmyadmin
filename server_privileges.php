@@ -604,8 +604,8 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             unset($row);
             break;
     }
-    $res = PMA_DBI_query('SELECT \'foo\' FROM `user` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($hostname, 'quoted') . ';');
-    if (PMA_DBI_affected_rows() == 1) {
+    $res = PMA_DBI_query('SELECT \'foo\' FROM `user` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($hostname, 'quoted') . ';', NULL, PMA_DBI_QUERY_STORE);
+    if (PMA_DBI_num_rows($res) == 1) {
         PMA_DBI_free_result($res);
         $message = sprintf($strUserAlreadyExists, '[i]\'' . $username . '\'@\'' . $hostname . '\'[/i]');
         $adduser = 1;
@@ -1152,8 +1152,8 @@ if (empty($adduser) && empty($checkprivs)) {
             }
         }
         echo '</h2>' . "\n";
-        $res = PMA_DBI_query('SELECT \'foo\' FROM `user` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($hostname, 'quoted') . ';');
-        if (PMA_DBI_affected_rows($userlink) < 1) {
+        $res = PMA_DBI_query('SELECT \'foo\' FROM `user` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($hostname, 'quoted') . ';', NULL, PMA_DBI_QUERY_STORE);
+        if (PMA_DBI_num_rows($res) < 1) {
             echo $strUserNotFound;
             require_once('./footer.inc.php');
         }

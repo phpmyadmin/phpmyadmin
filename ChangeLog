@@ -7,7 +7,10 @@ $Source$
 
 2005-04-10 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/bulgarian:  Updated, thanks to Stanislav Yordanov (stanprog).
-
+    * server_privileges.php: bug #1179969, problem editing a user's profile 
+      (and there was a problem also with the detection of 
+       an already existing user)
+ 
 2005-04-09 Alexander M. Turek  <me@derrabus.de>
     * libraries/sqlparser.data.php: Added keyword ROUTINE.
 
