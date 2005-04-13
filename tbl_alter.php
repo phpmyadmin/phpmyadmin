@@ -67,7 +67,7 @@ if (isset($do_save_data)) {
         }
         // take care of native MySQL comments here
 
-        $query .= PMA_generateAlterTable($field_orig[$i], $field_name[$i], $full_field_type, (PMA_MYSQL_INT_VERSION >= 40100 && $field_collation[$i] != '' ? $field_collation[$i] : ''), $field_null[$i], $field_default[$i], (isset($field_default_current_timestamp[$i]) ? $field_default_current_timestamp[$i] : ''), $field_extra[$i], (PMA_MYSQL_INT_VERSION >= 40100 && $field_comments[$i] != '' ? $field_comments[$i] : ''));
+        $query .= PMA_generateAlterTable($field_orig[$i], $field_name[$i], $full_field_type, (PMA_MYSQL_INT_VERSION >= 40100 && $field_collation[$i] != '' ? $field_collation[$i] : ''), $field_null[$i], $field_default[$i], (isset($field_default_current_timestamp[$i]) ? $field_default_current_timestamp[$i] : ''), $field_extra[$i], (PMA_MYSQL_INT_VERSION >= 40100 && isset($field_comments[$i]) && $field_comments[$i] != '' ? $field_comments[$i] : ''));
     } // end for
 
     // To allow replication, we first select the db to use and then run queries

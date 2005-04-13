@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-04-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_alter.php: undefined $field_comments
+
 2005-04-10 Alexander M. Turek  <me@derrabus.de>
     * lang/*.inc.php: New messages for MySQL 5.0 privileges.
 
