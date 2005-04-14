@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-04-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_structure.php: Search icon centering
+
 2005-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_alter.php: undefined $field_comments
 
