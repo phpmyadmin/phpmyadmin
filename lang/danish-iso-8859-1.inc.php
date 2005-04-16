@@ -1,5 +1,5 @@
 <?php
-/* $Id: danish-iso-8859-1.inc.php,v 2.61 2005/02/05 01:23:45  */
+/* $Id: danish-iso-8859-1.inc.php,v 2.62 2005/04/05 01:23:45  */
 
 $charset = 'iso-8859-1';
 $text_dir = 'ltr';
@@ -119,7 +119,7 @@ $strCharsetOfFile = 'Tegnsæt for filen:';
 $strCharsets = 'Tegnsæt';
 $strCharsetsAndCollations = 'Tegnsæt og kollationer (Collations)';
 $strCheckAll = 'Afmærk alt';
-$strCheckOverhead = 'Markér tabeller med overhead';
+$strCheckOverhead = 'Check tabeller der har overhead';
 $strCheckPrivs = 'Check Privilegier';
 $strCheckPrivsLong = 'Check privilegier for database &quot;%s&quot;.';
 $strCheckTable = 'Tjek tabel';
@@ -524,6 +524,7 @@ $strPrivDescUsage = 'Ingen privilegier.';
 $strPrivileges = 'Privilegier';
 $strPrivilegesReloaded = 'Privilegierne blev korrekt genindlæst.';
 $strProcesslist = 'Procesliste';
+$strProperties = 'Egenskaber';
 $strPutColNames = 'Indsæt feltnavne i første række';
 
 $strQBE = 'Foresp. via eks.';
@@ -706,7 +707,8 @@ $strTransformation_text_plain__external = 'KUN LINUX: Starter en ekstern applika
 $strTransformation_text_plain__formatted = 'Bevarer original formattering af feltet. Der laves ikke nogen Escaping.';
 $strTransformation_text_plain__imagelink = 'Viser et billed og et link, feltet indeholder filnavnet; første indstilling er et præfiks som "http://domain.com/", anden indstilling er bredde i pixel, tredie er højden.';
 $strTransformation_text_plain__link = 'Viser et link, feltet indeholder filnavnet; første indstilling er et præfiks som "http://domain.com/", anden indstilling er en titel på linket.';
-$strTransformation_text_plain__substr = 'Viser kun en del af en streng. Første parameter er en offset for at definere hvor outputtet af din tekst starter (Default 0). Andet parameter er en offset for hvor meget tekst der returneres. Hvis tom returneres den tilbageværende tekst. Det tredie parameter definerer hvilke karakterer der skal føjes til outputtet når en substring (understreng) returneres (Default: ...) .';
+$strTransformation_text_plain__substr = 'Viser kun en del af en streng. Første parameter er en offset for at definere hvor outputtet af din tekst starter (Standard 0). Andet parameter er en offset for hvor meget tekst der returneres (Standard indtil enden af strengen). Det tredie parameter definerer hvilke karakterer der skal føjes til foran eller efter outputtet når en substring (understreng) returneres (Standard: "...") .';
+$strTransformation_text_plain__unformatted = 'Viser HTML-kode som HTML-enheder. Der vises ingen HTML-formattering.';
 $strTruncateQueries = 'Trunkér viste forespørgsler';
 $strTurkish = 'Tyrkisk';
 $strType = 'Datatype';
@@ -766,7 +768,6 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen.';
 $strZip = '"zippet"';
-
 
 $strInnoDBDataHomeDir = 'Data home directory';  //to translate
 $strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';  //to translate
