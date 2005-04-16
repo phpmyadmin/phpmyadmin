@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-04-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/chinese_simplified: Updates, thanks to mysf at etang.com
+    * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
+    * lang/galician: Updates, thanks to Xosé Calvo.
+    * new language: belarusian, thanks to Jaska Zedlik <jz53 at zedlik.com>
+
 2005-04-14 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: Search icon centering
 
