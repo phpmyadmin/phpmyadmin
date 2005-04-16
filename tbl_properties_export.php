@@ -38,7 +38,8 @@ if (isset($sql_query)) {
         if (!empty($analyzed_sql[0]['from_clause'])) {
             $sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
         }
-        if (isset($primary_key)) {
+
+        if (isset($primary_key) && is_array($primary_key)) {
             $sql_query .= ' WHERE ';
             $conj = '';
             foreach ($primary_key AS $i => $key) {

@@ -12,6 +12,8 @@ $Source$
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
     * lang/galician: Updates, thanks to Xosé Calvo.
     * new language: belarusian, thanks to Jaska Zedlik <jz53 at zedlik.com>
+    * tbl_properties_export.php: bug #1180860, error going from Export
+      to Insert tab
 
 2005-04-14 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: Search icon centering
