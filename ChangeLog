@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-04-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * left.php, queryframe.php: bug #1168784, please respect the db order
+      given in only_db
+
 2005-04-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/chinese_simplified: Updates, thanks to mysf at etang.com
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
