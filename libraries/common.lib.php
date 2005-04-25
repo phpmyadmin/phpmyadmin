@@ -406,11 +406,14 @@ if ($is_minimum_common == FALSE) {
      * @param   boolean  whether to treat cr/lfs as escape-worthy entities
      *                   (converts \n to \\n, \r to \\r)
      *
+     * @param   boolean  whether this function is used as part of the
+     *                   "Create PHP code" dialog 
+     *
      * @return  string   the slashed string
      *
      * @access  public
      */
-    function PMA_sqlAddslashes($a_string = '', $is_like = FALSE, $crlf = FALSE)
+    function PMA_sqlAddslashes($a_string = '', $is_like = FALSE, $crlf = FALSE, $php_code = FALSE)
     {
         if ($is_like) {
             $a_string = str_replace('\\', '\\\\\\\\', $a_string);
@@ -424,7 +427,11 @@ if ($is_minimum_common == FALSE) {
             $a_string = str_replace("\t", '\t', $a_string);
         }
 
-        $a_string = str_replace('\'', '\'\'', $a_string);
+        if ($php_code) {
+            $a_string = str_replace('\'', '\\\'', $a_string); 
+        } else {
+            $a_string = str_replace('\'', '\'\'', $a_string);
+        } 
 
         return $a_string;
     } // end of the 'PMA_sqlAddslashes()' function
@@ -1717,13 +1724,13 @@ if (typeof(document.getElementById) != 'undefined'
             // xhtml1.0 statement before php4.0.5 ("<br>" and not "<br />")
             // If we want to show some sql code it is easiest to create it here
              /* SQL-Parser-Analyzer */
-            $sqlnr = 1;
+            
             if (!empty($GLOBALS['show_as_php'])) {
                 $new_line = '\'<br />' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. \' ';
             }
             if (isset($new_line)) {
                  /* SQL-Parser-Analyzer */
-                $query_base = PMA_sqlAddslashes(htmlspecialchars($local_query));
+                $query_base = PMA_sqlAddslashes(htmlspecialchars($local_query), FALSE, FALSE, TRUE);
                  /* SQL-Parser-Analyzer */
                 $query_base = preg_replace("@((\015\012)|(\015)|(\012))+@", $new_line, $query_base);
             } else {

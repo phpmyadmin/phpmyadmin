@@ -13,6 +13,8 @@ $Source$
       as a table/column name, but others (like Storage) are allowed.
       Now the query works. TODO: do not pretty print in color, 
       in this case
+    * libraries/common.lib.php: bug #1179241, wrong escaping of
+      apostrophe in generated PHP code
 
 2005-04-25 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
