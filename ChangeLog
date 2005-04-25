@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-04-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser*: bug #1185173. A query using the Storage
+      table name and an alias, returned no result. I changed the
+      parser to add a list of "forbidden" reserved words, as listed
+      in the MySQL manual (reserved words). Those are not allowed
+      as a table/column name, but others (like Storage) are allowed.
+      Now the query works. TODO: do not pretty print in color, 
+      in this case
+
 2005-04-25 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
     * lang/english: Fix typo.

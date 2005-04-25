@@ -206,6 +206,7 @@ if ($is_minimum_common == FALSE) {
         global $PMA_SQPdata_column_attrib, $PMA_SQPdata_reserved_word, $PMA_SQPdata_column_type, $PMA_SQPdata_function_name,
                $PMA_SQPdata_column_attrib_cnt, $PMA_SQPdata_reserved_word_cnt, $PMA_SQPdata_column_type_cnt, $PMA_SQPdata_function_name_cnt;
         global $mysql_charsets, $mysql_collations_flat, $mysql_charsets_count, $mysql_collations_count;
+        global $PMA_SQPdata_forbidden_word, $PMA_SQPdata_forbidden_word_cnt; 
 
         // rabus: Convert all line feeds to Unix style
         $sql = str_replace("\r\n", "\n", $sql);
@@ -638,6 +639,12 @@ if ($is_minimum_common == FALSE) {
             } else {
               // Do nothing
             }
+            // check if present in the list of forbidden words
+            if ($t_suffix == '_reservedWord' && PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_forbidden_word, $PMA_SQPdata_forbidden_word_cnt)) {
+                $sql_array[$i]['forbidden'] = TRUE;
+            } else {
+                $sql_array[$i]['forbidden'] = FALSE;
+            }
             $sql_array[$i]['type'] .= $t_suffix;
           }
         } // end for
@@ -923,7 +930,8 @@ if ($is_minimum_common == FALSE) {
             }
 
 // ==============================================================
-            if ($arr[$i]['type'] == 'alpha_reservedWord') {
+            if ($arr[$i]['type'] == 'alpha_reservedWord'
+             && $arr[$i]['forbidden'] == FALSE) {
                 // We don't know what type of query yet, so run this
                 if ($subresult['querytype'] == '') {
                     $subresult['querytype'] = strtoupper($arr[$i]['data']);
@@ -959,13 +967,24 @@ if ($is_minimum_common == FALSE) {
             } // end if (type == alpha_reservedWord)
 
 // ==============================
-            if (($arr[$i]['type'] == 'quote_backtick')
-             || ($arr[$i]['type'] == 'quote_double')
-             || ($arr[$i]['type'] == 'quote_single')
-             || ($arr[$i]['type'] == 'alpha_identifier')) {
+            if ($arr[$i]['type'] == 'quote_backtick'
+             || $arr[$i]['type'] == 'quote_double'
+             || $arr[$i]['type'] == 'quote_single'
+             || $arr[$i]['type'] == 'alpha_identifier'
+             || ($arr[$i]['type'] == 'alpha_reservedWord'
+                && $arr[$i]['forbidden'] == FALSE)) {
 
                 switch ($arr[$i]['type']) {
                     case 'alpha_identifier':
+                    case 'alpha_reservedWord':
+                        // this is not a real reservedWord, because
+                        // it's not present in the list of forbidden words,
+                        // for example "storage" which can be used as 
+                        // an identifier
+                        //
+                        // TODO: avoid the pretty printing in color
+                        //       in this case
+
                         $identifier = $arr[$i]['data'];
                         break;
 
@@ -2010,7 +2029,16 @@ if ($is_minimum_common == FALSE) {
                     }
                     break;
                 case 'alpha_reservedWord':
-                    $arr[$i]['data'] = strtoupper($arr[$i]['data']);
+                    // do not uppercase the reserved word if we are calling
+                    // this function in query_only mode, because we need
+                    // the original query (otherwise we get problems with
+                    // semi-reserved words like "storage" which is legal
+                    // as an identifier name)
+
+                    if ($mode != 'query_only') {
+                        $arr[$i]['data'] = strtoupper($arr[$i]['data']);
+                    }
+
                     if ((($typearr[1] != 'alpha_reservedWord')
                         || (($typearr[1] == 'alpha_reservedWord')
                             && PMA_STR_binarySearchInArr(strtoupper($arr[$i - 1]['data']), $keywords_no_newline, $keywords_no_newline_cnt)))
