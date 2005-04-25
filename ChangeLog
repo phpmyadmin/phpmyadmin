@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-04-25 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Update.
+    * lang/english: Fix typo.
+
 2005-04-24 Marc Delisle  <lem9@users.sourceforge.net>
     * left.php, queryframe.php: bug #1168784, please respect the db order
       given in only_db
@@ -31,10 +35,10 @@ $Source$
 
 2005-04-10 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/bulgarian:  Updated, thanks to Stanislav Yordanov (stanprog).
-    * server_privileges.php: bug #1179969, problem editing a user's profile 
-      (and there was a problem also with the detection of 
+    * server_privileges.php: bug #1179969, problem editing a user's profile
+      (and there was a problem also with the detection of
        an already existing user)
- 
+
 2005-04-09 Alexander M. Turek  <me@derrabus.de>
     * libraries/sqlparser.data.php: Added keyword ROUTINE.
 
@@ -48,7 +52,7 @@ $Source$
 
 2005-04-07 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.inc.php, tbl_alter.php: bug #1176896, undefined variable
-    * libraries/common.lib.php: wrong test when the field's type is 
+    * libraries/common.lib.php: wrong test when the field's type is
       TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
 2005-04-03 Marc Delisle  <lem9@users.sourceforge.net>
@@ -56,17 +60,17 @@ $Source$
 
 2005-04-01 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_addfield.php: TIMESTAMP options support
-    * libraries/common.lib.php: DEFAULT CURRENT_TIMESTAMP is only 
+    * libraries/common.lib.php: DEFAULT CURRENT_TIMESTAMP is only
       for TIMESTAMP (bug when changing from a TIMESTAMP to a non-TIMESTAMP type)    * (same): bug #1163595, problem 4: a TIMESTAMP must be explicitely
       set to NULL to have the NULL attribute
-    * libraries/tbl_move_copy.php: bug #1168996, error copying InnoDB table 
+    * libraries/tbl_move_copy.php: bug #1168996, error copying InnoDB table
       with FK constraints to a table in the same db
 
 2005-03-31 Alexander M. Turek  <me@derrabus.de>
     * left.php: Undefined offset (Bug #1174045).
 
 2005-03-31 Marc Delisle  <lem9@users.sourceforge.net>
-    * Documentation.html: added FAQ 5.17 about problem with 
+    * Documentation.html: added FAQ 5.17 about problem with
       Firefox when the Tabbrowser Extensions plugin is installed
     * tbl_properties.inc.php: TIMESTAMP options improved looks, thanks to Garvin
     * tbl_properties.inc.php: TIMESTAMP default CURRENT_TIMESTAMP checkbox
@@ -212,7 +216,7 @@ $Source$
     * libraries/relation.lib.php: db comments broken
     * libraries/dbi/*.php, lang/*: new $strSocketProblem message
     * db_details.php, tbl_query_box.php, libraries/bookmark.lib.php:
-      bookmark improvement, 
+      bookmark improvement,
       based on patch #1034161 by Ryan Schmidt - ryandesign:
       sort bookmarks by label, remove the number before each bookmark
       in the drop-down choice. For this I had to change some logic in the
