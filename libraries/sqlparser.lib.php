@@ -931,7 +931,8 @@ if ($is_minimum_common == FALSE) {
 
 // ==============================================================
             if ($arr[$i]['type'] == 'alpha_reservedWord'
-             && $arr[$i]['forbidden'] == FALSE) {
+//             && $arr[$i]['forbidden'] == FALSE) {
+  ){
                 // We don't know what type of query yet, so run this
                 if ($subresult['querytype'] == '') {
                     $subresult['querytype'] = strtoupper($arr[$i]['data']);
