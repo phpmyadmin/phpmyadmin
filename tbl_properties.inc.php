@@ -373,13 +373,13 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
     $content_cells[$i][$ci] = '<select name="field_null[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
 
-    if ((!isset($row) || empty($row['Null']) || $row['Null'] == 'NOT NULL') && $submit_null == FALSE) {
+    if ((!isset($row) || empty($row['Null']) || $row['Null'] == 'NO' || $row['Null'] == 'NOT NULL') && $submit_null == FALSE) {
         $content_cells[$i][$ci] .= "\n";
-        $content_cells[$i][$ci] .= '    <option value="NOT NULL">not null</option>' . "\n";
+        $content_cells[$i][$ci] .= '    <option value="NOT NULL" selected="selected" >not null</option>' . "\n";
         $content_cells[$i][$ci] .= '    <option value="">null</option>' . "\n";
     } else {
         $content_cells[$i][$ci] .= "\n";
-        $content_cells[$i][$ci] .= '    <option value="">null</option>' . "\n";
+        $content_cells[$i][$ci] .= '    <option value="" selected="selected" >null</option>' . "\n";
         $content_cells[$i][$ci] .= '    <option value="NOT NULL">not null</option>' . "\n";
     }
 
@@ -387,7 +387,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     $ci++;
 
     if (isset($row)
-        && !isset($row['Default']) && !empty($row['Null'])) {
+        && !isset($row['Default']) && isset($row['Null']) && $row['Null'] == 'YES') {
         $row['Default'] = 'NULL';
     }
 
