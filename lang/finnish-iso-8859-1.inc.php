@@ -6,7 +6,7 @@
  *	Visa Kopu, visa@visakopu.net
  *	Jouni Kähkönen, kajouni@mbnet.fi
  *
- * 11. maaliskuuta 2005 by Jouni Kähkönen:
+ * April 27, 2005 by Jouni Kähkönen:
  **** Rest of the file translated by Jouni Kahkonen (as from $timespanfmt)
  **** 'Table' was previously translated 'taulu' thought it should be 'taulukko', because this
  **** symbolizes better the meaning (the 'taulu' has more than one meaning)
@@ -38,7 +38,7 @@ $strAPrimaryKey = 'Sarakkeelle %s on lisätty ensisijainen avain';
 $strAbortedClients = 'Keskeytetty';
 $strAbsolutePathToDocSqlDir = 'Anna täydellinen polku docSQL-hakemistoon Internet-palvelimella'; 
 $strAccessDenied = 'Pääsy kielletty';
-$strAccessDeniedExplanation = 'phpMyAdmin yritti saada yhteyttä MySQL-palvelimeen, mutta palvelin torjui yhteyden. Tarkista hosti, käyttäjänimi ja salasana tiedostosta config.inc.php ja varmista, että ne vastaavat MySQL-palvelimen järjestelmänvalvojan antamia tietoja.'; 
+$strAccessDeniedExplanation = 'phpMyAdmin yritti ottaa yhteyttä MySQL-palvelimeen, mutta palvelin torjui yhteyden. Tarkista hosti, käyttäjänimi ja salasana tiedostosta config.inc.php ja varmista, että ne vastaavat MySQL-palvelimen järjestelmänvalvojan antamia tietoja.'; 
 $strAction = 'Toiminnat';
 $strAddAutoIncrement = 'Lisää \'AUTO_INCREMENT\'-arvo'; 
 $strAddConstraints = 'Lisää rajoitukset (constraints)'; 
@@ -106,7 +106,9 @@ $strBookmarkThis = 'Tallenna SQL-lause';
 $strBookmarkView = 'Näytä';
 $strBrowse = 'Selaa';
 $strBrowseForeignValues = 'Selaa vieraita arvoja'; 
+$strBufferPool = "Puskuriallas";  //Buffer Pool
 $strBufferPoolActivity = 'Buffer Pool Activity';
+$strBufferPoolUsage = "Puskurialtaan käyttö";  //Buffer Pool Usage
 $strBufferReadMisses = 'Read misses';
 $strBufferReadMissesInPercent = 'Read misses in %';
 $strBufferWriteWaits = 'Write waits';
@@ -210,7 +212,7 @@ $strDatabasesDropped = '%s tietokantaa pudotettiin onnistuneesti.';
 $strDatabasesStats = 'Tietokantastatistiikka';
 $strDatabasesStatsDisable = 'Estä tilastot'; 
 $strDatabasesStatsEnable = 'Salli tilastot'; 
-$strDatabasesStatsHeavyTraffic = 'Huom: Tietokantatilastojen salliminen täältä käsin saattaa aiheuttaa runsaasti liikennettä Internet-palvelimen ja MySQL-palvelimen välillä.'; 
+$strDatabasesStatsHeavyTraffic = 'Huom: Tietokantatilastojen käyttöönotto täältä käsin saattaa aiheuttaa runsaasti liikennettä Internet-palvelimen ja MySQL-palvelimen välillä.'; 
 $strDbPrivileges = 'Tietokantakohtaiset käyttöoikeudet';
 $strDbSpecific = 'tietokantakohtainen'; 
 $strDefault = 'Oletusarvo';
@@ -378,6 +380,7 @@ $strKorean = 'Korealainen';
 $strLaTeX = 'LaTeX'; 
 $strLaTeXOptions = 'LaTeX-valinta-asetukset'; 
 $strLandscape = 'Landscape'; 
+$strLatchedPages = "Suljetut sivut"; //Latched pages
 $strLatexCaption = 'Taulukon otsikko';
 $strLatexContent = 'Taulukon __TABLE__ sisältö';
 $strLatexContinued = '(jatkuu)';
@@ -431,9 +434,13 @@ $strMustSelectFile = 'Sinun pitäisi valita tiedosto, jonka haluat sijoitettavan.
 $strMyISAMDataPointerSize = "Dataosoittimen koko";
 $strMyISAMDataPointerSizeDesc = "Oletusarvoinen osoittimen koko tavuina, käytettäväksi toiminnon CREATE TABLE kanssa MyISAM-taulukoille, silloin kun MAX_ROWS-valintaa ei ole määritelty.";
 $strMyISAMMaxExtraSortFileSize = "Enimmäiskoko väliaikaisille tiedostoille indeksin luonnissa";
+$strMyISAMMaxExtraSortFileSizeDesc = "Jos MyISAM-indeksin nopeaan luomiseen käytetty väliaikaistiedosto on suurempi kuin avain-cachen (key cache) käyttäminen täällä määritellyn määrän mukaisesti, on suositeltavampaa käyttää cache-metodia.";
 $strMyISAMMaxSortFileSize = "Enimmäiskoko väliaikaisille lajittelutiedostoille";
-$strMyISAMRecoverOptions = "Automaattinen paranemistila"; //Automatic recovery mode
-$strMyISAMRepairThreads = "Korjaussäikeet";  //Repair threads
+$strMyISAMMaxSortFileSizeDesc = "MySQL-palvelimen käyttöön tarkoitettu väliaikaistiedoston suurin koko MyISAM-indeksien uudelleen latausta varten (REPAIR TABLE, ALTER TABLE tai LOAD ADTA INFILE -toimintojen aikana).";
+$strMyISAMRecoverOptions = "Automaattisen paranemisen tila"; //Automatic recovery mode
+$strMyISAMRecoverOptionsDesc = "Kaatuneiden MyISAM-taulukoiden automaattisen palauttamisen tila sellaisenaan kuin se on asetettu \"--myisam-recover\" -nimisen palvelimenkäynnistysasetuksen kautta.";
+$strMyISAMRepairThreads = "Korjaa säikeet";  //Repair threads
+$strMyISAMRepairThreadsDesc = "Jos tämä arvo on suurempi kuin 1, lajitteluprosessi luo MyISAM-taulukkoindeksit rinnakkain (kukin indeksi omaan säikeeseensä) käytettäessä Korjaa-toimintoa.";
 $strMyISAMSortBufferSize = "Lajittelupuskurin koko";
 $strMyISAMSortBufferSizeDesc = "Puskuri joka varataan käyttöön lajitellessa MyISAM-indeksejä REPAIR TABLE:n aikana tai luotaessa indeksejä toiminnolla CREATE INDEX tai ALTER TABLE.";
 $strMySQLCharset = 'MySQL:n merkistö';
@@ -529,13 +536,19 @@ $strPrintView = 'Tulostusversio';
 $strPrintViewFull = 'Tulostuksen esikatselu (kokonaisilla teksteillä)'; 
 $strPrivDescAllPrivileges = 'Sisältää kaikki käyttöoikeudet paitsi GRANT.';
 $strPrivDescAlter = 'Sallii muuttaa nykyisten taulukkojen rakennetta.';
+$strPrivDescAlterDb = 'Sallii muuttaa olemassa olevien taulukoiden rakennetta sekä muuttaa oletusarvoista näppäinjärjestystä ja poistaa tietokantoja.';
+$strPrivDescAlterRoutine = 'Sallii talletettujen rutiinien muuntamisen ja poistamisen.';
 $strPrivDescCreateDb = 'Sallii uusien tietokantojen ja taulukoiden luomisen.';
+$strPrivDescCreateRoutine = 'Sallii talletettujen rutiinien luomisen.';
 $strPrivDescCreateTbl = 'Sallii uusien taulukoiden luomisen.';
 $strPrivDescCreateTmpTable = 'Sallii väliaikaistaulukoiden luomisen.';
+$strPrivDescCreateUser = 'Sallii käyttäjätilien luomisen, poistamisen ja uudelleen nimeämisen.';
+$strPrivDescCreateView = 'Sallii uusien näkymisen luomisen.';
 $strPrivDescDelete = 'Sallii datan poistamisen.';
 $strPrivDescDropDb = 'Sallii tietokantojen ja taulukoiden pudottamisen.';
 $strPrivDescDropTbl = 'Sallii taulukoiden pudottamisen.';
 $strPrivDescExecute = 'Sallii talletettujen proseduurien suorittamisen; Ei vaikutusta tässä MySQL:än versiossa.';
+$strPrivDescExecute5 = 'Sallii talletettujen rutiinien suorittamisen.';
 $strPrivDescFile = 'Sallii datan tuomisen ja viemisen tiedostosta/tiedostoon.';
 $strPrivDescGrant = 'Sallii käyttäjien ja käyttöoikeuksien lisäämisen lataamatta käyttöoikeustaulukoita uudestaan.';
 $strPrivDescIndex = 'Sallii indeksien luomisen ja pudottamisen.';
@@ -552,6 +565,7 @@ $strPrivDescReplClient = 'Antaa käyttäjälle oikeuden kysyä, missä ali-/pääpalvel
 $strPrivDescReplSlave = 'Tarvitaan replikaatio-alipalvelimia varten.';
 $strPrivDescSelect = 'Sallii datan lukemisen.';
 $strPrivDescShowDb = 'Sallii pääsyn kokonaiseen tietokantalistaan.';
+$strPrivDescShowView = 'Sallii SHOW CREATE VIEW -pyyntöjen suorittamisen.';
 $strPrivDescShutdown = 'Sallii palvelimen sammuttamisen.';
 $strPrivDescSuper = 'Sallii yhdistämisen silloinkin kun enimmäismäärä yhteyksiä on saavutettu; Tarvitaan useissa pääkäyttäjän toiminnoissa, kuten globaalien muuttujien asettamisessa ja muiden käyttäjien säikeiden (threads) lopettamisessa.';
 $strPrivDescUpdate = 'Sallii datan muuttamisen.';
@@ -601,6 +615,7 @@ $strRevokeAndDelete = 'Peruuta kaikki käyttäjän aktiiviset käyttöoikeudet, ja po
 $strRevokeAndDeleteDescr = 'Käyttäjillä on USAGE-käyttöoikeus vielä niin kauan, kunnes käyttöoikeudet ladataan uudelleen.';
 $strRevokeMessage = 'Olet peruuttanut käyttäjän %s käyttöoikeudet';
 $strRomanian = 'Romanialainen'; 
+$strRoutines = 'Rutiinit';
 $strRowLength = 'Rivin pituus';
 $strRowSize = ' Rivin koko ';
 $strRows = 'Rivejä';
@@ -698,7 +713,7 @@ $strStrucOnly = 'Vain rakenne';
 $strStructPropose = 'Ehdota taulukon rakennetta';
 $strStructure = 'Rakenne';
 $strSubmit = 'Lähetä';
-$strSuccess = 'SQL-lause on suoritettu';
+$strSuccess = 'SQL-lause suoritettu';
 $strSum = 'Summa';
 $strSwedish = 'Ruotsalainen'; 
 $strSwitchToDatabase = 'Siirry kopioituun tietokantaan'; 
@@ -804,27 +819,5 @@ $strYes = 'Kyllä';
 
 $strZeroRemovesTheLimit = 'Huom: Näiden valintojen asettaminen nollaksi (0) poistaa rajoituksen.';
 $strZip = '"zip-pakattu"';
-
-// To translate:
-
-$strBufferPool = "Buffer Pool";  //to translate
-$strBufferPoolUsage = "Buffer Pool Usage";  //to translate
-
-$strLatchedPages = "Latched pages";  //to translate
-
-$strMyISAMMaxExtraSortFileSizeDesc = "If the temporary file used for fast MyISAM index creation would be larger than using the key cache by the amount specified here, prefer the key cache method.";  //to translate
-$strMyISAMMaxSortFileSizeDesc = "The maximum size of the temporary file MySQL is allowed to use while re-creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA INFILE).";  //to translate
-$strMyISAMRecoverOptionsDesc = "The mode for automatic recovery of crashed MyISAM tables, as set via the --myisam-recover server startup option.";  //to translate
-$strMyISAMRepairThreadsDesc = "If this value is greater than 1, MyISAM table indexes are created in parallel (each index in its own thread) during the Repair by sorting process.";  //to translate
-
-$strPrivDescAlterDb = 'Allows altering the structure of existing tables as well as changing the default charset and collation of databases.';  //to translate
-$strPrivDescAlterRoutine = 'Allows altering and dropping stored routines.';  //to translate
-$strPrivDescCreateRoutine = 'Allows creating stored routines.';  //to translate
-$strPrivDescCreateUser = 'Allows creating, dropping and renaming unser accounts.';  //to translate
-$strPrivDescCreateView = 'Allows creating new views.';  //to translate
-$strPrivDescExecute5 = 'Allows executing stored routines.';  //to translate
-$strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to translate
-
-$strRoutines = 'Routines';  //to translate
 
 ?>
