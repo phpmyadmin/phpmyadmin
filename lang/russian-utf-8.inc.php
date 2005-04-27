@@ -362,7 +362,7 @@ $strMIME_transformation_note = 'Для списка доступных опци�
 $strMIME_transformation_options = 'Опции трансформации';
 $strMIME_transformation_options_note = 'Пожалуйсиа, введите значения для трансформации, используя этот формат: \'a\',\'b\',\'c\'...<br />Если вам нужно поставить бэкслэш("\") или кавычку("\'"), экранируйте их (например \'\\\\xyz\' or \'a\\\'b\').';
 $strMIME_without = 'MIME-типы, выделенные курсивом, не имеют отдельной функции трансформации';
-$strMaximumSize = 'Минимальный размер: %s%s';
+$strMaximumSize = 'Максимальный размер: %s%s';
 $strModifications = 'Модификации были сохранены';
 $strModify = 'Изменить';
 $strModifyIndexTopic = 'Изменить индекс';
@@ -804,6 +804,7 @@ $strInnoDBBufferPoolSizeDesc = 'The size of the memory buffer InnoDB uses to cac
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate
 $strInnoDBPages = 'pages';  //to translate
 $strSocketProblem = '(or the local MySQL server\'s socket is not correctly configured)';  //to translate
+
 $strPrivDescCreateView = 'Allows creating new views.';  //to translate
 $strPrivDescAlterDb = 'Allows altering the structure of existing tables as well as changing the default charset and collation of databases.';  //to translate
 $strPrivDescCreateUser = 'Allows creating, dropping and renaming unser accounts.';  //to translate
