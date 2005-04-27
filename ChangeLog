@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-04-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/finnish: update, thanks to Jouni Kahkonen
+    * lang/russian: update, thanks to lobovich
+
 2005-04-26 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php, tbl_properties.inc.php:
       bug #1190092, wrong detection of NULL fields with MySQL 5.0.x
