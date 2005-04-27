@@ -8,6 +8,7 @@ $Source$
 2005-04-27 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/finnish: update, thanks to Jouni Kahkonen
     * lang/russian: update, thanks to lobovich
+    * libraries/sqlparser.lib.php: bug #1179887, ordering by count(*)
 
 2005-04-26 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php, tbl_properties.inc.php:

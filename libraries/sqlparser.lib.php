@@ -1480,11 +1480,16 @@ if ($is_minimum_common == FALSE) {
                }
            }
 
-           // FIXME: is it correct to always add $sep ?
            if (isset($subresult['queryflags']['select_from'])
              && $subresult['queryflags']['select_from'] == 1
              && !$seen_order) {
-               $unsorted_query .= $arr[$i]['data'] . $sep;
+               $unsorted_query .= $arr[$i]['data'];
+
+               if ($arr[$i]['type'] != 'punct_bracket_open_round'
+               && $arr[$i]['type'] != 'punct_bracket_close_round'
+               && $arr[$i]['type'] != 'punct') {
+                   $unsorted_query .= $sep;
+               }
            }
 
            // clear $upper_data for next iteration
