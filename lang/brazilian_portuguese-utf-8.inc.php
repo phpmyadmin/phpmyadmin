@@ -227,7 +227,7 @@ $strDumpXRows = 'Dump %s registros, começando pelo registro %s.';
 $strDumpingData = 'Extraindo dados da tabela'; 
 $strDynamic = 'dinâmico'; 
 
-$strEdit = 'Editaar'; 
+$strEdit = 'Editar'; 
 $strEditPDFPages = 'Editar Páginas PDF'; 
 $strEditPrivileges = 'Editar Privilégios'; 
 $strEffective = 'Efetivo'; 
