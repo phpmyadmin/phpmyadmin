@@ -6,7 +6,7 @@ require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/mysql_charsets.lib.php');
 /**
- * Rename database
+ * Rename database or Copy database
  */
 if (isset($db) &&
     ((isset($db_rename) && $db_rename == 'true') ||
@@ -30,6 +30,15 @@ if (isset($db) &&
             PMA_table_move_copy($db, $table, $newname, $table, isset($what) ? $what : 'data', $move);
             $sql_query = $back . $sql_query;
         }
+
+        // Duplicate the bookmarks for this db (done once for each db)
+        if ($db != $newname) {
+            $get_fields = array('user','label','query');
+            $where_fields = array('dbase' => $db);
+            $new_fields = array('dbase' => $newname);
+            PMA_duplicate_table_info('bookmarkwork', 'bookmark', $get_fields, $where_fields, $new_fields);
+        }
+
         if ($move) {
             $local_query = 'DROP DATABASE ' . PMA_backquote($db) . ';';
             $sql_query .= "\n" . $local_query;

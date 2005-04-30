@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-04-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_operations.php, libraries/tbl_move_copy.php:
+      bug #1192468, bookmarks copied too many times
+
 2005-04-27 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/finnish: update, thanks to Jouni Kahkonen
     * lang/russian: update, thanks to lobovich
