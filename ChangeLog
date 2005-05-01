@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-05-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_status.php: bug #1193225, missing </ul>
+
 2005-04-30 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php, libraries/tbl_move_copy.php:
       bug #1192468, bookmarks copied too many times

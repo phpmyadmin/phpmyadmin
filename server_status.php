@@ -249,6 +249,7 @@ if (!empty($serverStatus)) {
             </tr>
         </table>
     </li>
+</ul>
 <?php
 }
 
