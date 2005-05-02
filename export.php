@@ -248,9 +248,13 @@ if ($asfile) {
         $mime_type = 'application/x-bzip2';
     } else if (isset($compression) && $compression == 'gzip') {
         $filename  .= '.gz';
-        // needed to avoid recompression by server modules like mod_gzip:
-        $content_encoding = 'x-gzip';
-        $mime_type = 'application/x-gzip';
+        // Needed to avoid recompression by server modules like mod_gzip.
+        // It seems necessary to check about zlib.output_compression
+        // to avoid compressing twice
+        if (!@ini_get('zlib.output_compression')) {
+            $content_encoding = 'x-gzip';
+            $mime_type = 'application/x-gzip';
+        }
     } else if (isset($compression) && $compression == 'zip') {
         $filename  .= '.zip';
         $mime_type = 'application/zip';
