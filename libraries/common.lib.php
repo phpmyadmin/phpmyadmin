@@ -2536,7 +2536,7 @@ if (typeof(document.getElementById) != 'undefined'
 
         $query = PMA_backquote($oldcol) . ' ' . PMA_backquote($newcol) . ' '
             . $full_field_type;
-        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($collation) && $collation != 'NULL' && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR)$@i', $full_field_type)) {
+        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($collation) && $collation != 'NULL' && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR\(\d+\)|CHAR\(\d+\))$@i', $full_field_type)) {
             $query .= PMA_generateCharsetQueryPart($collation);
         }
 

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-05-03 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: bug #1185152, setting collation for a field,
+      thanks to Ryan Schmidt - ryandesign
+
 2005-05-02 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: bug #1123284, avoid double compression when 
       zlib.output_compression is On, thanks to unclef at users.sourceforge.net
