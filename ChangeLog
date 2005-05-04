@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-05-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: improvement about PmaAbsoluteUri,
+      thanks to Isaac Bennetch - ibennetch
+
 2005-05-03 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1185152, setting collation for a field,
       thanks to Ryan Schmidt - ryandesign

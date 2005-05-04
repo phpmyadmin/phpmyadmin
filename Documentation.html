@@ -158,14 +158,14 @@
          <tt>tar -xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's
          document root. If you don't have direct access to your document root,
          put the files in a directory on your local machine, and, after step 3,
-         transfer the directory on your web server using, for example, ftp.</li>    <li> Ensure that all the scripts have the appropriate owner (if PHP is
+         transfer the directory on your web server using, for example, ftp.</li>
+    <li> Ensure that all the scripts have the appropriate owner (if PHP is
          running in safe mode, having some scripts with an owner different
          from the owner of other scripts will be a
          problem). See <a href="#faq4_2">FAQ 4.2</a> for suggestions.</li>
-    <li> Open the file config.inc.php in your favorite editor and change
+    <li> Open the file <tt>config.inc.php</tt> in your favorite editor and change
          the values for host, user, password and authentication mode to fit
          your environment. Here, &quot;host&quot; means the MySQL server.
-         Also insert the correct value for <tt>$cfg['PmaAbsoluteUri']</tt>.
          Have a look at
          <a href="#config">Configuration section</a> for an
          explanation of all values. Please also read the remaining of this
