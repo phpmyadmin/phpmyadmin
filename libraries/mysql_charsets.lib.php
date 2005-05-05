@@ -32,7 +32,8 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         if ((isset($row['D']) && $row['D'] == 'Y') || (isset($row['Default']) && $row['Default'] == 'Yes')) {
             $mysql_default_collations[$row['Charset']] = $row['Collation'];
         }
-        $mysql_collations_available[$row['Collation']] = !isset($row['Compiled']) || $row['Compiled'] == 'Yes';
+        //$mysql_collations_available[$row['Collation']] = !isset($row['Compiled']) || $row['Compiled'] == 'Yes';
+        $mysql_collations_available[$row['Collation']] = TRUE;
         $mysql_charsets_available[$row['Charset']] = !empty($mysql_charsets_available[$row['Charset']]) || !empty($mysql_collations_available[$row['Collation']]);
     }
 
