@@ -8,6 +8,7 @@ $Source$
 2005-05-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/mysql_charsets.lib.php: bug #1186983, missing character
       sets and collations (temporary workaround)
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
 
 2005-05-04 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: improvement about PmaAbsoluteUri,
