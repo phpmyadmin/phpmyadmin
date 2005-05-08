@@ -1438,7 +1438,7 @@ if (empty($adduser) && empty($checkprivs)) {
     // check the privileges for a particular database.
     echo '<h2>' . "\n"
        . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_usrcheck.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
-       . '    ' . sprintf($strUsersHavingAccessToDb, htmlspecialchars($checkprivs)) . "\n"
+       . '    ' . sprintf($strUsersHavingAccessToDb, '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($checkprivs) . '">' .  htmlspecialchars($checkprivs) . '</a>') . "\n"
        . '</h2>' . "\n"
        . '<table border="0" cellpadding="2" cellspacing="1">' . "\n"
        . '    <tr>' . "\n"

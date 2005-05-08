@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-05-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_links.php: patch #1196806, add a Privileges tab
+      in db view, thanks to Herman van Rink - helmo
+    * server_privileges.php: add a back link to the db on which
+      we are checking privileges
+
 2005-05-08 Olivier Mueller <om@omnis.ch>
     * scripts/upgrade.pl: new script to let unix admins upgrade phpMyadmin
       with one command and 5 seconds. To be improved, but is working fine
