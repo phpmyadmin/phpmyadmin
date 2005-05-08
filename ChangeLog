@@ -9,6 +9,9 @@ $Source$
     * scripts/upgrade.pl: new script to let unix admins upgrade phpMyadmin
       with one command and 5 seconds. To be improved, but is working fine
       here (tm).  Based on: http://www.phpmyadmin.net/latest.txt 
+    * server_privileges.php: always display the "Add a new user" link 
+      on the User overview page (no more need to click on [show all] or
+      an initial before)
 
 2005-05-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/mysql_charsets.lib.php: bug #1186983, missing character

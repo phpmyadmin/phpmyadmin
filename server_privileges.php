@@ -1136,8 +1136,25 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '<div class="tblWarn">' . "\n"
                    . '    ' . sprintf($strFlushPrivilegesNote, '<a href="server_privileges.php?' . $url_query . '&amp;flush_privileges=1">', '</a>') . "\n"
                    . '</div>' . "\n";
+                } else {
+
+                unset ($row);
+                echo '    <br /><table border="0" cellpading="3" cellspacing="0">' . "\n"
+                   . '        <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td '
+                   . ($cfg['PropertiesIconic'] ? 'colspan="3"><b><a href="server_privileges.php?' . $url_query . '&amp;adduser=1"><img src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" hspace="2" border="0" align="middle" />' : 'width="20" nowrap="nowrap" align="center" valign="top"><b>&#8226;</b></td><td><b><a href="server_privileges.php?' . $url_query . '&amp;adduser=1">' ). "\n"
+                   . '            ' . $strAddUser . '</a></b>' . "\n"
+                   . '            ' . "\n"
+                   . '        </td></tr>' . "\n" . '        <tr><td colspan="2"></td></tr>'
+                   . '    </table>' . "\n"
+                   . '</form>' . "\n"
+                   . '<div class="tblWarn">' . "\n"
+                   . '    ' . sprintf($strFlushPrivilegesNote, '<a href="server_privileges.php?' . $url_query . '&amp;flush_privileges=1">', '</a>') . "\n"
+                   . '</div>' . "\n";
                 } // end if (display overview)
-        }
+
+         }
+
+
     } else {
 
         // A user was selected -> display the user's properties
