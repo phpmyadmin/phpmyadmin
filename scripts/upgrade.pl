@@ -33,7 +33,7 @@ if (!$ARGV[0]) {
 my $targetdirectory = $ARGV[0];
 if ($targetdirectory =~ /^(.*)\/$/) {
 	# remove trailing slash, if any
-	print "$targetdirectory -> $1\n\n";
+	$targetdirectory = $1;
 }
 
 if (!-d $targetdirectory) {
