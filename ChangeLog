@@ -10,6 +10,8 @@ $Source$
       in db view, thanks to Herman van Rink - helmo
     * server_privileges.php: add a back link to the db on which
       we are checking privileges
+    * Documentation.html: FAQ 3.13 about the MySQL API having problem dealing
+      with USE followed with a db name containing an hyphen
 
 2005-05-08 Olivier Mueller <om@omnis.ch>
     * scripts/upgrade.pl: new script to let unix admins upgrade phpMyadmin
