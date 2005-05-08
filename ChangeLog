@@ -12,6 +12,7 @@ $Source$
       we are checking privileges
     * Documentation.html: FAQ 3.13 about the MySQL API having problem dealing
       with USE followed with a db name containing an hyphen
+    * read_dump.php: bug #1189664, js error when 2 queries submitted at once
 
 2005-05-08 Olivier Mueller <om@omnis.ch>
     * scripts/upgrade.pl: new script to let unix admins upgrade phpMyadmin
