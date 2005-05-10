@@ -1663,30 +1663,28 @@ if ($is_minimum_common == FALSE) {
             }
 
             
-            if (($arr[$i]['type'] == 'quote_backtick')) {
+            if ($arr[$i]['type'] == 'quote_backtick' || $arr[$i]['type'] == 'alpha_identifier') {
 
-                // TODO: one set of IFs to remove backquotes
-
-                if ($seen_create_table && $in_create_table_fields) {
+                if ($arr[$i]['type'] == 'quote_backtick') {
                     // remove backquotes
                     $identifier = str_replace('`','',$arr[$i]['data']);
+                } else {
+                    $identifier = $arr[$i]['data'];
+                }
+
+                if ($seen_create_table && $in_create_table_fields) {
                     $current_identifier = $identifier;
                 }
 
                 if ($seen_constraint) {
-                    // remove backquotes
-                    $identifier = str_replace('`','',$arr[$i]['data']);
                     $foreign[$foreign_key_number]['constraint'] = $identifier;
                 }
+
                 if ($seen_foreign && $brackets_level > 0) {
-                    // remove backquotes
-                    $identifier = str_replace('`','',$arr[$i]['data']);
                     $foreign[$foreign_key_number]['index_list'][] = $identifier;
                 }
 
                 if ($seen_references) {
-                    // remove backquotes
-                    $identifier = str_replace('`','',$arr[$i]['data']);
                     // here, the first bracket level corresponds to the
                     // bracket of CREATE TABLE
                     // so if we are on level 2, it must be the index list
@@ -1696,8 +1694,8 @@ if ($is_minimum_common == FALSE) {
                     } else {
                         // for MySQL 4.0.18, identifier is
                         // `table` or `db`.`table`
-                        // first pass will pick the db name
-                        // next pass will execute the else and pick the
+                        // the first pass will pick the db name
+                        // the next pass will execute the else and pick the
                         // db name in $db_table[0]
                         if ($arr[$i+1]['type'] == 'punct_qualifier') {
                                 $foreign[$foreign_key_number]['ref_db_name'] = $identifier;
