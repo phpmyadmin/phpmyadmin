@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-05-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties.inc.php: bug #1069012, table collation forgotten
+      when adding fields
+
 2005-05-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug #1198156, undefined variable
       when exporting without enclosing with backquotes

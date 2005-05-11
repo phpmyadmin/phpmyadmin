@@ -669,7 +669,7 @@ if ($action == 'tbl_create.php') {
         if (PMA_MYSQL_INT_VERSION >= 40100) {
             echo '        <td width="25">&nbsp;</td>' . "\n"
                . '        <td>' . "\n"
-               . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'tbl_collation', NULL, NULL, FALSE, 3)
+               . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'tbl_collation', NULL, (isset($tbl_collation) ? $tbl_collation : NULL), FALSE, 3)
                . '        </td>' . "\n";
         }
     }
