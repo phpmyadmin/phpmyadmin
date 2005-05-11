@@ -141,7 +141,7 @@ class PMA_StorageEngine {
         if (!empty($mysql_storage_engines[$engine])) {
             $this->engine  = $engine;
             $this->title   = $mysql_storage_engines[$engine]['Engine'];
-            $this->comment = $mysql_storage_engines[$engine]['Comment'];
+            $this->comment = (isset($mysql_storage_engines[$engine]['Comment']) ? $mysql_storage_engines[$engine]['Comment'] : '');
             switch ($mysql_storage_engines[$engine]['Support']) {
                 case 'DEFAULT':
                     $this->support = PMA_ENGINE_SUPPORT_DEFAULT;

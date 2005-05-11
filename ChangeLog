@@ -8,6 +8,8 @@ $Source$
 2005-05-11 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.inc.php: bug #1069012, table collation forgotten
       when adding fields
+    * libraries/storage_engines.lib.php: bug 1180119, undefined variable when
+      showing the details of a storage engine under MySQL 4.0.x
 
 2005-05-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug #1198156, undefined variable
