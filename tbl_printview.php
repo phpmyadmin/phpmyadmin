@@ -55,6 +55,9 @@ if (isset($selected_tbl) && is_array($selected_tbl)) {
 $multi_tables     = (count($the_tables) > 1);
 
 if ($multi_tables) {
+    if (empty($GLOBALS['is_header_sent'])) {
+        require_once('./header.inc.php');
+    }
     $tbl_list     = '';
     foreach ($the_tables AS $key => $table) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
