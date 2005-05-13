@@ -8,6 +8,8 @@ $Source$
 2005-05-13 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_printview.php: bug #1178760, header not sent when displaying
       print view of multi tables, thanks to Hrvoje Novosel - interghost 
+    * libraries/functions.js: Patch #1191447, hand pointer on mouseover and
+      mousedown, thanks to Ken Stanley - eclipsboi
 
 2005-05-11 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.inc.php: bug #1069012, table collation forgotten

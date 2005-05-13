@@ -412,6 +412,13 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
         return false;
     }
 
+    // 1.1 Sets the mouse pointer to pointer on mouseover and back to normal otherwise.
+    if (theAction == "over" || theAction == "click") {
+        theRow.style.cursor='pointer';
+    } else {
+        theRow.style.cursor='normal';
+    }
+
     // 2. Gets the current row and exits if the browser can't get it
     if (typeof(document.getElementsByTagName) != 'undefined') {
         theCells = theRow.getElementsByTagName('td');
