@@ -327,20 +327,34 @@ else {
         && isset($analyzed_sql[0]['queryflags']['select_from'])
         && !isset($analyzed_sql[0]['queryflags']['offset'])
         && !preg_match('@[[:space:]]LIMIT[[:space:]0-9,-]+$@i', $sql_query)) {
-        $sql_limit_to_append = " LIMIT $pos, ".$cfg['MaxRows'];
-        if (preg_match('@(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))$@i', $sql_query, $regs)) {
-            $full_sql_query  = $regs[1] . $sql_limit_to_append . $regs[2];
-        } else {
-            $full_sql_query  = $sql_query . $sql_limit_to_append;
-        }
+        $sql_limit_to_append = " LIMIT $pos, ".$cfg['MaxRows'] . " ";
+
+//        if (preg_match('@(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))$@i', $sql_query, $regs)) {
+//            $full_sql_query  = $regs[1] . $sql_limit_to_append . $regs[2];
+//        } else {
+//            $full_sql_query  = $sql_query . $sql_limit_to_append;
+//        }
+
+        $full_sql_query  = $analyzed_sql[0]['section_before_limit'] . $sql_limit_to_append . $analyzed_sql[0]['section_after_limit']; 
+        // FIXME: pretty printing of this modified query
 
         if (isset($display_query)) {
-            if (preg_match('@((.|\n)*)(([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))|;)[[:space:]]*$@i', $display_query, $regs)) {
-                $display_query  = $regs[1] . $sql_limit_to_append . $regs[3];
-            } else {
-                $display_query  = $display_query . $sql_limit_to_append;
+//            if (preg_match('@((.|\n)*)(([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))|;)[[:space:]]*$@i', $display_query, $regs)) {
+//                $display_query  = $regs[1] . $sql_limit_to_append . $regs[3];
+//            } else {
+//                $display_query  = $display_query . $sql_limit_to_append;
+//            }
+
+            // if the analysis of the original query revealed that we found 
+            // a section_after_limit, we now have to analyze $display_query
+            // to display it correctly
+
+            if (!empty($analyzed_sql[0]['section_after_limit'])) {
+                $analyzed_display_query = PMA_SQP_analyze(PMA_SQP_parse($display_query));
+                $display_query  = $analyzed_display_query[0]['section_before_limit'] . $sql_limit_to_append . $analyzed_display_query[0]['section_after_limit']; 
             }
         }
+
     } else {
         $full_sql_query      = $sql_query;
     } // end if...else

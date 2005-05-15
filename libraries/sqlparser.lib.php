@@ -807,6 +807,14 @@ if ($is_minimum_common == FALSE) {
  *               ['default_current_timestamp'] boolean
  *               ['on_update_current_timestamp'] boolean
  *
+ * section_before_limit, section_after_limit
+ * -----------------------------------------
+ * 
+ * Marks the point of the query where we can insert a LIMIT clause;
+ * so the section_before_limit will contain the left part before
+ * a possible LIMIT clause
+ *
+ *
  * End of description of analyzer results
  */
 
@@ -1263,8 +1271,9 @@ if ($is_minimum_common == FALSE) {
         // -------------------------------------------------------
 
 
-        // loop #2: for queryflags
-        //          ,querytype (for queries != 'SELECT')
+        // loop #2: - queryflags
+        //          - querytype (for queries != 'SELECT')
+        //          - section_before_limit, section_after_limit
         //
         // we will also need this queryflag in loop 2
         // so set it here
@@ -1272,6 +1281,9 @@ if ($is_minimum_common == FALSE) {
             $subresult['queryflags']['select_from'] = 1;
         }
 
+        $collect_section_before_limit = TRUE;
+        $section_before_limit = '';
+        $section_after_limit = '';
         $seen_reserved_word = FALSE;
         $seen_group = FALSE;
         $seen_order = FALSE;
@@ -1301,6 +1313,12 @@ if ($is_minimum_common == FALSE) {
 
            // TODO: check for punct_queryend
 
+
+           // TODO: verify C-style comments?
+           if ($arr[$i]['type'] == 'comment_ansi') {
+               $collect_section_before_limit = FALSE;
+           }
+
            if ($arr[$i]['type'] == 'alpha_reservedWord') {
                $upper_data = strtoupper($arr[$i]['data']);
                if (!$seen_reserved_word) {
@@ -1325,6 +1343,13 @@ if ($is_minimum_common == FALSE) {
                       $subresult['queryflags']['need_confirm'] = 1;
                    }
                }
+
+               if ($upper_data == 'PROCEDURE') {
+                   $collect_section_before_limit = FALSE;
+               }
+               // TODO: set also to FALSE if we find
+               //      FOR UPDATE
+               //      LOCK IN SHARE MODE
 
                if ($upper_data == 'SELECT') {
                    $in_select_expr = TRUE;
@@ -1495,7 +1520,15 @@ if ($is_minimum_common == FALSE) {
            // clear $upper_data for next iteration
            $upper_data='';
 
+           if ($collect_section_before_limit) {
+               $section_before_limit .= $arr[$i]['data'] . $sep;
+           } else {
+               $section_after_limit .= $arr[$i]['data'] . $sep;
+           }
+
+
         } // end for $i (loop #2)
+
 
         // -----------------------------------------------------
         // loop #3: foreign keys and MySQL 4.1.2+ TIMESTAMP options
@@ -1753,6 +1786,8 @@ if ($is_minimum_common == FALSE) {
 
         if (isset($position_of_first_select)) {
             $subresult['position_of_first_select'] = $position_of_first_select;
+            $subresult['section_before_limit'] = $section_before_limit;
+            $subresult['section_after_limit'] = $section_after_limit;
         }
 
         // They are naughty and didn't have a trailing semi-colon,

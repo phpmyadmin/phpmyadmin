@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-05-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php, libraries/sqlparser.lib.php: bug #1120434, comment at the end
+      of query is applied to appended LIMIT as well
+
 2005-05-13 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_printview.php: bug #1178760, header not sent when displaying
       print view of multi tables, thanks to Hrvoje Novosel - interghost 
