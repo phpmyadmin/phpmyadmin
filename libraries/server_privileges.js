@@ -86,3 +86,46 @@ function setCheckboxes(the_form, the_checkboxes, do_check)
 
     return true;
 } // end of the 'setCheckboxes()' function
+
+
+
+
+
+/**
+ * Generate a new password, which may then be copied to the form
+ * with suggestPasswordCopy().
+ *
+ * @param   string   the form name
+ *
+ * @return  boolean  always true
+ */
+function suggestPassword(the_form)
+{
+  var pwchars = "abcdefhjmnpqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWYXZ.,:";
+  var passwordlength = 16;    // do we want that to be dynamic?  no, keep it simple :)
+  var passwd = '';
+
+  for (i=0;i<passwordlength;i++)
+  {
+    passwd+=pwchars.charAt(Math.floor(Math.random()*pwchars.length))
+  }
+
+  document.forms[the_form].generated_pw.value = passwd;
+  return true;
+}
+
+
+/**
+ * Copy the generated password (or anything in the field) to the form
+ *
+ * @param   string   the form name
+ *
+ * @return  boolean  always true
+ */
+function suggestPasswordCopy(the_form) 
+{
+  document.forms[the_form].pma_pw.value = document.forms[the_form].generated_pw.value;
+  document.forms[the_form].pma_pw2.value = document.forms[the_form].generated_pw.value;
+  return true;
+}
+

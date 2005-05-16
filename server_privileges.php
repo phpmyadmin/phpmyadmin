@@ -548,6 +548,20 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
        . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
        . $spaces . '        <input type="password" name="pma_pw2" id="text_pma_pw2" class="textfield" title="' . $GLOBALS['strReType'] . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
        . $spaces . '    </td>' . "\n"
+       . $spaces . '</tr>' . "\n"
+       . $spaces . '<tr>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <label for="text_pma_pw2">' . "\n"
+       . $spaces . '            ' . $GLOBALS[''] . 'Generate Password:' . "\n"
+       . $spaces . '        </label>' . "\n"
+       . $spaces . '    </td>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <input type="button" value="Generate" onClick="suggestPassword(\'usersForm\', \'generated_pw\')">' . "\n"
+       . $spaces . '        <input type="button" value="Copy" onClick="suggestPasswordCopy(\'usersForm\')">' . "\n"
+       . $spaces . '        &nbsp;</td>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <input type="text" name="generated_pw" id="generated_pw" class="textfield"/>' . "\n"
+       . $spaces . '    </td>' . "\n"
        . $spaces . '</tr>' . "\n";
 } // end of the 'PMA_displayUserAndHostFields()' function
 

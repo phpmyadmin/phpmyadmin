@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-05-17 Olivier Mueller <om@omnis.ch>
+    * server_privileges.php, libraries/server_privileges.js: RFE #1197482,
+      password generator on user creation.  RFC: ok like that?  TODO: add strings.
+
 2005-05-15 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php, libraries/sqlparser.lib.php: bug #1120434, comment at the end
       of query is applied to appended LIMIT as well
