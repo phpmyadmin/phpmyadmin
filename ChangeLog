@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-05-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php, libraries/server_privileges.js:
+      make the password generator work also on user account editing
+
 2005-05-17 Olivier Mueller <om@omnis.ch>
     * server_privileges.php, libraries/server_privileges.js: RFE #1197482,
       password generator on user creation.  RFC: ok like that?  TODO: add strings.

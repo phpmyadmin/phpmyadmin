@@ -110,7 +110,7 @@ function suggestPassword(the_form)
     passwd+=pwchars.charAt(Math.floor(Math.random()*pwchars.length))
   }
 
-  document.forms[the_form].generated_pw.value = passwd;
+  the_form.generated_pw.value = passwd;
   return true;
 }
 
@@ -124,8 +124,8 @@ function suggestPassword(the_form)
  */
 function suggestPasswordCopy(the_form) 
 {
-  document.forms[the_form].pma_pw.value = document.forms[the_form].generated_pw.value;
-  document.forms[the_form].pma_pw2.value = document.forms[the_form].generated_pw.value;
+  the_form.pma_pw.value = the_form.generated_pw.value;
+  the_form.pma_pw2.value = the_form.generated_pw.value;
   return true;
 }
 
