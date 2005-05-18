@@ -568,7 +568,7 @@ else {
      * Close the html tags and add the footers in dump is displayed on screen
      */
     //echo '    </pre>' . "\n";
-    echo '        </textarea>' . "\n"
+    echo '</textarea>' . "\n"
        . '    </form>' . "\n";
     echo '</div>' . "\n";
     echo "\n";
