@@ -323,7 +323,7 @@ else {
             echo $titles['NoDrop'];
         } else {
             ?>
-                    <a href="sql.php?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode($drop_query); ?>&amp;zero_rows=<?php echo $drop_message; ?>"
+                    <a href="sql.php?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode($drop_query); ?>&amp;zero_rows=<?php echo urlencode($drop_message); ?>"
                         onclick="return confirmLink(this, '<?php echo PMA_jsFormat($drop_query, FALSE); ?>')">
                         <?php echo $titles['Drop']; ?></a>
             <?php
