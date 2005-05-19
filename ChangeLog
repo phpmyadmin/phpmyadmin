@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-05-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_select.php: bug #1204235, searching on a VARBINARY field
+
 2005-05-18 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php: bug #1193442, 8 extra spaces at end of export area,
       thanks to Ryan Schmidt
