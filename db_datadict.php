@@ -310,7 +310,7 @@ function printPage()
 //-->
 </script>
 <?php
-echo '<br /><br />&nbsp;<input type="button" style="width: 100px; height: 25px;" id="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
+echo '<br /><br />&nbsp;<input type="button" style="width: 100px; height: 25px;" id="print" value="' . $strPrint . '" onclick="printPage()" />' . "\n";
 
 require_once('./footer.inc.php');
 ?>

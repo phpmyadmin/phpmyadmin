@@ -26,7 +26,7 @@ $item_img = $GLOBALS['pmaThemeImage'] . 'item_ltr.png';
 // Defines for MainPageIconic
 $str_iconic_list    = '';
 $str_iconic_colspan = '';
-$str_normal_list    = '<td valign="top" align="right" width="16"><img src="'.$item_img.'" border="0" hspace="2" vspace="5"></td>';
+$str_normal_list    = '<td valign="top" align="right" width="16"><img src="'.$item_img.'" border="0" hspace="2" vspace="5" /></td>';
 if ($cfg['MainPageIconic']) {
     $str_iconic_list .= "<td width=\"16\" valign=\"top\" align=\"center\" nowrap=\"nowrap\">%1\$s"
                       . "<img src=\"" . $pmaThemeImage . "%2\$s\" border=\"0\" width=\"16\" height=\"16\" hspace=\"2\" alt=\"%3\$s\" />"

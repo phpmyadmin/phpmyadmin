@@ -457,23 +457,23 @@ function resetDrag() {
     if (!empty($tabExist) && is_array($tabExist)) {
         foreach ($tabExist AS $key => $value) {
             if (!$value) {
-                $_strtrans  .= '<input type="hidden" name="delrow[]" value="' . $key . '">' . "\n";
+                $_strtrans  .= '<input type="hidden" name="delrow[]" value="' . $key . '" />' . "\n";
                 $_strname   .= '<li>' . $key . '</li>' . "\n";
                 $shoot       = TRUE;
             }
         }
         if ($shoot) {
-            echo '<FORM action="pdf_pages.php" method="post">' . "\n"
+            echo '<form action="pdf_pages.php" method="post">' . "\n"
                . PMA_generate_common_hidden_inputs($db, $table)
-               . '<input type="hidden" name="do" value="deleteCrap">' . "\n"
-               . '<input type="hidden" name="chpage" value="' . $chpage . '">' . "\n"
+               . '<input type="hidden" name="do" value="deleteCrap" />' . "\n"
+               . '<input type="hidden" name="chpage" value="' . $chpage . '" />' . "\n"
                . $strDelOld
                . '<ul>' . "\n"
                . $_strname
                . '</ul>' . "\n"
                . $_strtrans
-               . '<input type="submit" value="' . $strGo . '">' . "\n"
-               . '</FORM>';
+               . '<input type="submit" value="' . $strGo . '" />' . "\n"
+               . '</form>';
         }
     }
     //    ------------------------------------
