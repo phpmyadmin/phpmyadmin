@@ -139,7 +139,8 @@ function PMA_convert_display_charset($what) {
     global $cfg, $allow_recoding, $charset, $convcharset;
 
     if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)
-        || $convcharset == $charset) { // rabus: if input and output charset are the same, we don't have to do anything...
+        || $convcharset == $charset // rabus: if input and output charset are the same, we don't have to do anything...
+        || PMA_MYSQL_INT_VERSION >= 40100 ) {  // lem9: even if AllowAnywhereRecoding is TRUE, do not recode for MySQL >= 4.1.x since MySQL does the job
         return $what;
     }
     else if (is_array($what)) {
@@ -158,6 +159,7 @@ function PMA_convert_display_charset($what) {
         return $result;
     }
     else if (is_string($what)) {
+
         switch ($GLOBALS['PMA_recoding_engine']) {
             case PMA_CHARSET_RECODE:
                 return recode_string($convcharset . '..'  . $charset, $what);
