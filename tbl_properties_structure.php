@@ -198,7 +198,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $zerofill     = stristr($row['Type'], 'zerofill');
     }
 
-    // rabus: Devide charset from the rest of the type definition (MySQL >= 4.1)
+    // rabus: Divide charset from the rest of the type definition (MySQL >= 4.1)
     unset($field_charset);
     if (PMA_MYSQL_INT_VERSION >= 40100) {
         if ((substr($type, 0, 4) == 'char'
@@ -246,6 +246,14 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     if (isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
         $attribute = 'ON UPDATE CURRENT_TIMESTAMP';
     }
+
+    // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the 
+    // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
+    // the latter.
+    if ($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null']) {
+        $row['Null'] = '';
+    }
+
 
     if (!isset($row['Default'])) {
         if ($row['Null'] == 'YES') {

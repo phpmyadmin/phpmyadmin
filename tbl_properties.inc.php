@@ -2,7 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 // Check parameters
-error_reporting(E_ALL);
+
 require_once('./libraries/common.lib.php');
 PMA_checkParameters(array('db','table','action','num_fields'));
 
@@ -341,6 +341,14 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     if (isset($submit_attribute) && $submit_attribute != FALSE) {
         $attribute = $submit_attribute;
     }
+
+    // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
+    // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
+    // the latter.
+    if ($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == TRUE) {
+        $row['Null'] = '';
+    }
+
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)

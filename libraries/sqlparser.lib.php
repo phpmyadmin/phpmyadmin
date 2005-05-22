@@ -802,10 +802,14 @@ if ($is_minimum_common == FALSE) {
  * For now, mostly used to detect the DEFAULT CURRENT_TIMESTAMP and
  * ON UPDATE CURRENT_TIMESTAMP clauses of the CREATE TABLE query.
  * An array, each element is the identifier name.
+ * Note that for now, the timestamp_not_null element is created
+ * even for non-TIMESTAMP fields.
+ *
  * Sub-elements: ['type'] which contains the column type
  *               optional (currently they are never false but can be absent):
  *               ['default_current_timestamp'] boolean
  *               ['on_update_current_timestamp'] boolean
+ *               ['timestamp_not_null'] boolean
  *
  * section_before_limit, section_after_limit
  * -----------------------------------------
@@ -1560,6 +1564,11 @@ if ($is_minimum_common == FALSE) {
             if ($arr[$i]['type'] == 'alpha_reservedWord') {
                 $upper_data = strtoupper($arr[$i]['data']);
 
+                if ($upper_data == 'NOT' && $in_timestamp_options) {
+                    $create_table_fields[$current_identifier]['timestamp_not_null'] = TRUE; 
+
+                }
+
                 if ($upper_data == 'CREATE') {
                     $seen_create = TRUE;
                 }
@@ -1707,6 +1716,8 @@ if ($is_minimum_common == FALSE) {
 
                 if ($seen_create_table && $in_create_table_fields) {
                     $current_identifier = $identifier;
+                    // warning: we set this one even for non TIMESTAMP type
+                    $create_table_fields[$current_identifier]['timestamp_not_null'] = FALSE; 
                 }
 
                 if ($seen_constraint) {
