@@ -361,14 +361,13 @@ unset($theme_name, $theme_generation, $theme_version);
 @include($cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/info.inc.php');
 
 // did it set correctly?
-if (!isset($theme_name, $theme_generation, $theme_version))
+if (!isset($theme_name, $theme_generation, $theme_version)) {
     $GLOBALS['theme'] = 'original'; // invalid theme
-
-if ($theme_generation != PMA_THEME_GENERATION)
+} elseif ($theme_generation != PMA_THEME_GENERATION) {
     $GLOBALS['theme'] = 'original'; // different generation
-
-if ($theme_version < PMA_THEME_VERSION)
+} elseif ($theme_version < PMA_THEME_VERSION) {
     $GLOBALS['theme'] = 'original'; // too old version
+}
 
 $pmaThemeImage  = $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/img/';
 $tmp_layout_file = $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/layout.inc.php';
