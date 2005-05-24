@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Runs common work
  */
@@ -38,7 +37,7 @@ if (isset($submitcomment)) {
     }
 }
 if (isset($submittype)) {
-    $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' TYPE = ' . $tbl_type;
+    $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' TYPE = ' . $new_tbl_type;
     $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;
 }
@@ -325,7 +324,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
         </tr>
         <tr>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-	        <?php echo PMA_generateEnginesDropdown('tbl_type', NULL, FALSE, $tbl_type, 4); ?>
+	        <?php echo PMA_generateEnginesDropdown('new_tbl_type', NULL, FALSE, $tbl_type, 4); ?>
             </td>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right">
                 <input type="submit" name="submittype" value="<?php echo $strGo; ?>" />
