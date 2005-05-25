@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-05-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties.inc.php: bug #1207404, undefined variables
+
 2005-05-24 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1207395, undefined theme_generation
       and theme_version, thanks to Ryan Schmidt

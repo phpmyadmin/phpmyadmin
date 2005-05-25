@@ -345,7 +345,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
-    if ($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == TRUE) {
+    if (isset($row['Field']) && isset($analyzed_sql[0]) && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null'] == TRUE) {
         $row['Null'] = '';
     }
 
