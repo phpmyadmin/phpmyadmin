@@ -269,9 +269,11 @@ else {
         $sql_query = '';
     }
     // Defines some variables
-    // loic1: A table has to be created -> left frame should be reloaded
+    // A table has to be created or renamed -> left frame should be reloaded
+    // TODO: use the parser/analyzer
     if ((!isset($reload) || $reload == 0)
-        && preg_match('@^CREATE TABLE[[:space:]]+(.*)@i', $sql_query)) {
+        && (preg_match('@^CREATE TABLE[[:space:]]+(.*)@i', $sql_query)
+         || preg_match('@^ALTER TABLE[[:space:]]+(.*)RENAME@i', $sql_query))) {
         $reload           = 1;
     }
     // Gets the number of rows per page
