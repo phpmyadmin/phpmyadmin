@@ -200,7 +200,10 @@ if (isset($submit_num_fields)) {
         // garvin: Update comment table, if a comment was set.
         if (isset($field_comments) && is_array($field_comments) && ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100)) {
             foreach ($field_comments AS $fieldindex => $fieldcomment) {
-                PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
+                // do not try to set a comment if the field name is empty
+                if (!empty($field_name[$fieldindex])) {
+                    PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
+                }
             }
         }
 
