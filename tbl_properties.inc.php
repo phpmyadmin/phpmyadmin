@@ -23,7 +23,8 @@ document.onkeydown = onKeyDownArrowsHandler;
 </script>
 <?php } 
     // here, the div_x_7 represents a div id which contains
-    // the default current timestamp checkbox and label 
+    // the default CURRENT TIMESTAMP checkbox and label 
+    // and, field_x_7a represents the checkbox itself
     
     if (PMA_MYSQL_INT_VERSION >= 40102) { ?>
 <script type="text/javascript" language="javascript">
@@ -33,6 +34,7 @@ function display_field_options(field_type, i) {
         getElement('div_' + i + '_7').style.display = 'block';
     } else {
         getElement('div_' + i + '_7').style.display = 'none';
+        getElement('field_' + i + '_7a').checked = false;
     }
     return true;
 }
@@ -424,6 +426,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             $tmp_display_type = 'block';
         } else {
             $tmp_display_type = 'none';
+            $default_current_timestamp = FALSE;
         }
         $content_cells[$i][$ci] .= '<br /><div id="div_' . $i . '_' . ($ci - $ci_offset) . '" style="white-space: nowrap; display: ' . $tmp_display_type . '"><input id="field_' . $i . '_' . ($ci - $ci_offset) . 'a" type="checkbox" name="field_default_current_timestamp[' . $i . ']"';
         if ($default_current_timestamp) {

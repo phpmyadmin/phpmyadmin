@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-05-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties.inc.php: bug #1205940, current timestamp checkbox 
+      when field type changes
+
 2005-05-26 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_create.php: bug #1207406, undefined index from PMA_setComment()
     * sql.php: bug #1204913, left frame update on manual table rename
