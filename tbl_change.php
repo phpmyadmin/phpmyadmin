@@ -631,7 +631,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                         echo ' checked="checked"';
                     }
                     echo 'tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
-                    echo '<label for="field_' . ($tabindex + $tabindex_for_value) . '_3_' . $j . '">' . htmlspecialchars($enum_atom) . '</label>' . "\n";
+                    echo '<label for="field_' . $idindex . '_3_' . $j . '">' . htmlspecialchars($enum_atom) . '</label>' . "\n";
                 } // end for
 
             } // end else
