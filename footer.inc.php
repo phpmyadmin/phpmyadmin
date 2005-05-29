@@ -30,6 +30,15 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
             $num_tables_disp = ' (-)';
         }
     ?>
+    var forceQueryFrameReload = false;
+<?php
+    // this flag comes from sql.php when we saw a DROP DATABASE
+    if ($is_drop_database) {
+?>
+    forceQueryFrameReload = true;
+<?php
+    }
+?>
     var dbBoxSetupDone = false;
     function dbBoxSetup() {
         if (dbBoxSetupDone != true) {
@@ -47,7 +56,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     }
     if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.left && parent.frames.queryframe.document.left.lightm_db) {
         selidx = parent.frames.queryframe.document.left.lightm_db.selectedIndex;
-        if (parent.frames.queryframe.document.left.lightm_db.options[selidx].value == "<?php echo addslashes($db); ?>") {
+        if (parent.frames.queryframe.document.left.lightm_db.options[selidx].value == "<?php echo addslashes($db); ?>" && forceQueryFrameReload == false) {
             parent.frames.queryframe.document.left.lightm_db.options[selidx].text = "<?php echo addslashes($db) . $num_tables_disp; ?>";
         } else {
             parent.frames.queryframe.location.reload();
