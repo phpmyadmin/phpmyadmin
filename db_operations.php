@@ -14,8 +14,13 @@ if (isset($db) &&
 
     require_once('./libraries/tbl_move_copy.php');
 
-    if (isset($db_rename) && $db_rename == 'true') $move = TRUE;
-    else $move = FALSE;
+    $force_queryframe_reload = TRUE;
+
+    if (isset($db_rename) && $db_rename == 'true') {
+        $move = TRUE;
+    } else {
+        $move = FALSE;
+    }
 
     if (!isset($newname) || empty($newname)) {
         $message = $strDatabaseEmpty;

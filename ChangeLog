@@ -11,6 +11,8 @@ $Source$
     * footer.inc.php: bug #1209891, db list not refreshed when the left
       frame is positionned on a db, then a manual DROP DATABASE it done
       on another db
+    * db_operations.php, footer.inc.php: bug #1170227, copying a db does not 
+      refresh the queryframe
  
 2005-05-27 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.inc.php: bug #1205940, current timestamp checkbox 

@@ -32,8 +32,9 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     ?>
     var forceQueryFrameReload = false;
 <?php
-    // this flag comes from sql.php when we saw a DROP DATABASE
-    if ($is_drop_database) {
+    // $is_drop_database comes from sql.php when we saw a DROP DATABASE
+    // $force_queryframe_reload comes from db_operations.php
+    if ((isset($is_drop_database) && $is_drop_database) || (isset($force_queryframe_reload) && $force_queryframe_reload == TRUE)) {
 ?>
     forceQueryFrameReload = true;
 <?php
