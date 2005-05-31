@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-05-31 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_structure.php: patch 1209863, XHTML validity, 
+      thanks to Ryan Schmidt
+
 2005-05-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug #1184325, Label IDs mismatch for ENUM type,
       thanks to Ryan Schmidt
