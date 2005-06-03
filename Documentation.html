@@ -2887,6 +2887,12 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         <a href="http://bugs.php.net/bug.php?id=31134">
         http://bugs.php.net/bug.php?id=31134</a>.
         </li>
+        <li>
+        If you are using Hardened PHP with the ini directive <tt>varfilter.max_request_variables</tt>
+        set to the default (200) or another low value, you could get this
+        error if your table has a high number of columns. Adjust this setting
+        accordingly. (Thanks to Klaus Dorninger for the hint).
+        </li>
     </ul>
 
 <a name="faqlimitations"></a><br />

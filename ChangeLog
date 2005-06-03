@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: bug #1213761, hint about Hardened PHP
+      and the Missing parameters problem, thanks to Klaus Dorninger
+
 2005-05-31 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: patch 1209863, XHTML validity, 
       thanks to Ryan Schmidt
