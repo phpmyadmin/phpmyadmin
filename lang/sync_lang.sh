@@ -121,6 +121,7 @@ slovenian-iso-8859-2
 slovak-iso-8859-2
 spanish-iso-8859-1
 swedish-iso-8859-1
+tatar-iso-8859-9
 thai-tis-620
 turkish-utf-8
 ukrainian-windows-1251"

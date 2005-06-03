@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-03 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/tatar*, /sync_lang.sh, libraries/select_lang.lib.php,
+      translators.html, Documentation.html, README: 
+      new language (tatar), thanks to Albert Fazlí
+
 2005-06-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: bug #1213761, hint about Hardened PHP
       and the Missing parameters problem, thanks to Klaus Dorninger
