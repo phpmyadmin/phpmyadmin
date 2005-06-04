@@ -9,6 +9,8 @@ $Source$
     * lang/chinese_traditional: Updates, thanks to Siu Sun.
     * lang/finnish: update, thanks to Jouni Kahkonen
     * lang/norwegian: Update, thanks to Sven-Erik Andersen
+    * db_details_structure.php: optional message $strNumberOfFields,
+      will use $strFields if not defined
 
 2005-06-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/tatar*, /sync_lang.sh, libraries/select_lang.lib.php,

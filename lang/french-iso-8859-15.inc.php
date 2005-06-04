@@ -473,6 +473,7 @@ $strNull = 'Null';
 $strNumSearchResultsInTable = '%s occurence(s) dans la table <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total :</b> <i>%s</i> occurence(s)';
 $strNumTables = 'Tables';
+$strNumberOfFields = 'Nombre de champs';
 
 $strOK = 'OK';
 $strOftenQuotation = 'Souvent des guillemets. OPTIONNEL signifie que seuls les champs de type char et varchar sont entourés par ce caractère.';
@@ -796,12 +797,16 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strPrivDescCreateView = 'Allows creating new views.';  //to translate
+// To translate:
+
 $strPrivDescAlterDb = 'Allows altering the structure of existing tables as well as changing the default charset and collation of databases.';  //to translate
-$strPrivDescCreateUser = 'Allows creating, dropping and renaming unser accounts.';  //to translate
-$strPrivDescCreateRoutine = 'Allows creating stored routines.';  //to translate
 $strPrivDescAlterRoutine = 'Allows altering and dropping stored routines.';  //to translate
-$strRoutines = 'Routines';  //to translate
-$strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to translate
+$strPrivDescCreateRoutine = 'Allows creating stored routines.';  //to translate
+$strPrivDescCreateUser = 'Allows creating, dropping and renaming unser accounts.';  //to translate
+$strPrivDescCreateView = 'Allows creating new views.';  //to translate
 $strPrivDescExecute5 = 'Allows executing stored routines.';  //to translate
+$strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to translate
+
+$strRoutines = 'Routines';  //to translate
+
 ?>

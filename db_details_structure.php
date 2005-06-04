@@ -652,7 +652,10 @@ echo '     <td nowrap="nowrap">';
 echo '             ' . '<input type="text" name="table" maxlength="64" size="30" class="textfield" />';
 echo '     </td><td>&nbsp;</td></tr>';
 echo '     <tr bgcolor="'.$cfg['BgcolorOne'].'"><td nowrap="nowrap">';
-echo '             ' . $strFields . ':&nbsp;' . "\n";
+if (!isset($strNumberOfFields)) {
+    $strNumberOfFields = $strFields;
+}
+echo '             ' . $strNumberOfFields . ':&nbsp;' . "\n";
 echo '     </td>';
 echo '     <td nowrap="nowrap">';
 echo '             ' . '<input type="text" name="num_fields" size="2" class="textfield" />' . "\n";
