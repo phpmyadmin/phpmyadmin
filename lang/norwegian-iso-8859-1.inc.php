@@ -809,4 +809,5 @@ $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrensn
 $strZip = 'Komprimert (zip)';
 
 // To translate:
+$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
 ?>

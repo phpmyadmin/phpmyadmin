@@ -826,4 +826,5 @@ $strViewHasBeenDropped = 'View %s has been dropped';  //to translate
 
 $strWriteRequests = 'Write requests';  //to translate
 
+$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
 ?>

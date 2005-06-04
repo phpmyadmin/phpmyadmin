@@ -813,4 +813,5 @@ $strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to tran
 
 $strRoutines = 'Routines';  //to translate
 
+$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
 ?>

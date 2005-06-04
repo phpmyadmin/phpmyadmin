@@ -829,4 +829,5 @@ $strView = 'View';  //to translate
 
 $strWriteRequests = 'Write requests';  //to translate
 
+$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
 ?>

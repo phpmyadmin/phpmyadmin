@@ -156,6 +156,7 @@ $strCopyTableOK = 'Table %s has been copied to %s.';
 $strCopyTableSameNames = 'Can\'t copy table to same one!';
 $strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.';
 $strCreate = 'Create';
+$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';
 $strCreateIndex = 'Create an index on&nbsp;%s&nbsp;columns';
 $strCreateIndexTopic = 'Create a new index';
 $strCreateNewDatabase = 'Create new database';

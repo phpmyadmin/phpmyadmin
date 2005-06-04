@@ -818,4 +818,5 @@ $strYes = 'Kyllä';
 $strZeroRemovesTheLimit = 'Huom: Näiden valintojen asettaminen nollaksi (0) poistaa rajoituksen.';
 $strZip = '"zip-pakattu"';
 
+$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
 ?>

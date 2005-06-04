@@ -170,7 +170,7 @@ $strCzech = 'tchèque';
 $strCzechSlovak = 'tchèque-slovaque';
 
 $strDBComment = '<b>Commentaire</b> sur la base de données: ';
-$strDBCopy = 'Copier la base de données vers:';
+$strDBCopy = 'Copier la base de données vers';
 $strDBGContext = 'Contexte';
 $strDBGContextID = 'Identificateur de contexte';
 $strDBGHits = 'Occurences';
@@ -809,4 +809,5 @@ $strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to tran
 
 $strRoutines = 'Routines';  //to translate
 
+$strCreateDatabaseBeforeCopying = 'Faire CREATE DATABASE avant la copie';
 ?>
