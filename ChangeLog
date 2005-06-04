@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/chinese_traditional: Updates, thanks to Siu Sun.
+    * lang/finnish: update, thanks to Jouni Kahkonen
+    * lang/norwegian: Update, thanks to Sven-Erik Andersen
+
 2005-06-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/tatar*, /sync_lang.sh, libraries/select_lang.lib.php,
       translators.html, Documentation.html, README: 
