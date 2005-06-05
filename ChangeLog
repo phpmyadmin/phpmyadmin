@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-05 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Update.
+
 2005-06-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/chinese_traditional: Updates, thanks to Siu Sun.
     * lang/finnish: update, thanks to Jouni Kahkonen
@@ -16,15 +19,15 @@ $Source$
 
 2005-06-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/tatar*, /sync_lang.sh, libraries/select_lang.lib.php,
-      translators.html, Documentation.html, README: 
-      new language (tatar), thanks to Albert Fazl�
+      translators.html, Documentation.html, README:
+      new language (tatar), thanks to Albert Fazlí
 
 2005-06-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: bug #1213761, hint about Hardened PHP
       and the Missing parameters problem, thanks to Klaus Dorninger
 
 2005-05-31 Marc Delisle  <lem9@users.sourceforge.net>
-    * db_details_structure.php: patch 1209863, XHTML validity, 
+    * db_details_structure.php: patch 1209863, XHTML validity,
       thanks to Ryan Schmidt
 
 2005-05-29 Marc Delisle  <lem9@users.sourceforge.net>
@@ -33,11 +36,11 @@ $Source$
     * footer.inc.php: bug #1209891, db list not refreshed when the left
       frame is positionned on a db, then a manual DROP DATABASE it done
       on another db
-    * db_operations.php, footer.inc.php: bug #1170227, copying a db does not 
+    * db_operations.php, footer.inc.php: bug #1170227, copying a db does not
       refresh the queryframe
- 
+
 2005-05-27 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_properties.inc.php: bug #1205940, current timestamp checkbox 
+    * tbl_properties.inc.php: bug #1205940, current timestamp checkbox
       when field type changes
 
 2005-05-26 Marc Delisle  <lem9@users.sourceforge.net>
@@ -54,7 +57,7 @@ $Source$
       under MySQL 5.0.4
 
 2005-05-22 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/charset_conversion.lib.php: diacritics wrongly converted 
+    * libraries/charset_conversion.lib.php: diacritics wrongly converted
       in Browse mode under MySQL 4.1.x if AllowAnywhereRecoding set to TRUE
     * tbl_properties_structure.php, tbl_properties.inc.php,
       libraries/sqlparser.lib.php: bug #1163595, NULL detection of TIMESTAMP
@@ -86,7 +89,7 @@ $Source$
 
 2005-05-13 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_printview.php: bug #1178760, header not sent when displaying
-      print view of multi tables, thanks to Hrvoje Novosel - interghost 
+      print view of multi tables, thanks to Hrvoje Novosel - interghost
     * libraries/functions.js: Patch #1191447, hand pointer on mouseover and
       mousedown, thanks to Ken Stanley - eclipsboi
 
@@ -112,8 +115,8 @@ $Source$
 2005-05-08 Olivier Mueller <om@omnis.ch>
     * scripts/upgrade.pl: new script to let unix admins upgrade phpMyadmin
       with one command and 5 seconds. To be improved, but is working fine
-      here (tm).  Based on: http://www.phpmyadmin.net/latest.txt 
-    * server_privileges.php: always display the "Add a new user" link 
+      here (tm).  Based on: http://www.phpmyadmin.net/latest.txt
+    * server_privileges.php: always display the "Add a new user" link
       on the User overview page (no more need to click on [show all] or
       an initial before)
 
@@ -131,7 +134,7 @@ $Source$
       thanks to Ryan Schmidt - ryandesign
 
 2005-05-02 Marc Delisle  <lem9@users.sourceforge.net>
-    * export.php: bug #1123284, avoid double compression when 
+    * export.php: bug #1123284, avoid double compression when
       zlib.output_compression is On, thanks to unclef at users.sourceforge.net
     * libraries/common.lib.php: bug #1193223, undefined index htmlexcel_null,
       thanks to Ryan Schmidt - ryandesign
@@ -160,7 +163,7 @@ $Source$
       parser to add a list of "forbidden" reserved words, as listed
       in the MySQL manual (reserved words). Those are not allowed
       as a table/column name, but others (like Storage) are allowed.
-      Now the query works. TODO: do not pretty print in color, 
+      Now the query works. TODO: do not pretty print in color,
       in this case
     * libraries/common.lib.php: bug #1179241, wrong escaping of
       apostrophe in generated PHP code

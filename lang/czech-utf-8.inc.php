@@ -160,6 +160,7 @@ $strCopyTable = 'Kopírovat tabulku do (databáze<b>.</b>tabulka):';
 $strCopyTableOK = 'Tabulka %s byla zkopírována do %s.';
 $strCopyTableSameNames = 'Nelze kopírovat tabulku na sebe samu!';
 $strCouldNotKill = 'phpMyAdminovi se nepodařilo ukončit vlákno %s. Pravděpodobně jeho běh již skončil.';
+$strCreateDatabaseBeforeCopying = 'Vytvořit databázi před kopírováním (CREATE DATABASE)';
 $strCreateIndexTopic = 'Vytvořit nový index';
 $strCreateIndex = 'Vytvořit index na&nbsp;%s&nbsp;sloupcích';
 $strCreateNewDatabase = 'Vytvořit novou databázi';
@@ -810,5 +811,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
 ?>
