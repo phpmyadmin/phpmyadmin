@@ -156,6 +156,7 @@ $strCopyTableOK = 'La table %s a été copiée vers %s.';
 $strCopyTableSameNames = 'On ne peut copier la table sur elle-même!';
 $strCouldNotKill = 'phpMyAdmin n\'a pu éliminer le processus %s. Il était probablement déjà fermé.';
 $strCreate = 'Créer';
+$strCreateDatabaseBeforeCopying = 'Faire CREATE DATABASE avant la copie';
 $strCreateIndex = 'Créer une clef sur&nbsp;%s&nbsp;colonne(s)';
 $strCreateIndexTopic = 'Créer un nouvelle clef';
 $strCreateNewDatabase = 'Créer une base de données';
@@ -521,13 +522,19 @@ $strPrintView = 'Version imprimable';
 $strPrintViewFull = 'Version imprimable (avec textes complets)';
 $strPrivDescAllPrivileges = 'Tous les privilèges sauf GRANT.';
 $strPrivDescAlter = 'Permission de modifier la structure des tables existantes.';
+$strPrivDescAlterDb = 'Permission de modifier la structure des tables existantes et de changer le jeu de caractères par défaut ainsi que l\'interclassement des bases de données.';
+$strPrivDescAlterRoutine = 'Permission de modifier et de supprimer des procédures stockées.';
 $strPrivDescCreateDb = 'Permission de créer des bases de données et des tables.';
+$strPrivDescCreateRoutine = 'Permission de créer des procédures stockées.';
 $strPrivDescCreateTbl = 'Permission de créer des tables.';
 $strPrivDescCreateTmpTable = 'Permission de créer des tables temporaires.';
+$strPrivDescCreateUser = 'Permission de créer, supprimer et renommer des comptes utilisateurs';
+$strPrivDescCreateView = 'Permission de créer des vues.';
 $strPrivDescDelete = 'Permission de détruire des données';
 $strPrivDescDropDb = 'Permission d\'effacer des bases de données et des tables.';
 $strPrivDescDropTbl = 'Permission d\'effacer des tables.';
 $strPrivDescExecute = 'Permission d\'exécuter des procédures. Non effectif dans cette version de MySQL.';
+$strPrivDescExecute5 = 'Permission d\'exécuter des procédures stockées';
 $strPrivDescFile = 'Permission d\'importer et d\'exporter des données à partir de / dans des fichiers.';
 $strPrivDescGrant = 'Permission d\'ajouter des utilisateurs et des privilèges sans avoir besoin de recharger les privilèges.';
 $strPrivDescIndex = 'Permission de créer et d\'effacer des index.';
@@ -544,6 +551,7 @@ $strPrivDescReplClient = 'Permission de demander où sont les maîtres et les escl
 $strPrivDescReplSlave = 'Nécessaire pour les esclaves (système de duplication).';
 $strPrivDescSelect = 'Permission de lire des données.';
 $strPrivDescShowDb = 'Permission de voir la liste complète des noms de bases de données.';
+$strPrivDescShowView = 'Permission d\'exécuter SHOW CREATE VIEW.';
 $strPrivDescShutdown = 'Permission d\'arrêter le serveur MySQL.';
 $strPrivDescSuper = 'Permission de se connecter, même si le nombre maximal de connexions permises a été atteint; ceci est requis pour la plupart des opérations de type administratif, par exemple les changements de variables globales ou la destruction de processus.';
 $strPrivDescUpdate = 'Permission de changer des données.';
@@ -593,6 +601,7 @@ $strRevokeAndDelete = 'Effacer tous les privilèges de ces utilisateurs, puis les
 $strRevokeAndDeleteDescr = 'Les utilisateurs auront le privilege "USAGE", jusqu\'à ce que les privilèges soient rechargés.';
 $strRevokeMessage = 'Vous avez révoqué les privilèges pour %s';
 $strRomanian = 'roumain';
+$strRoutines = 'Procédures stockées';
 $strRowLength = 'Longueur enr.';
 $strRowSize = ' Taille enr. ';
 $strRows = 'Enregistrements';
@@ -797,17 +806,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-// To translate:
-
-$strPrivDescAlterDb = 'Allows altering the structure of existing tables as well as changing the default charset and collation of databases.';  //to translate
-$strPrivDescAlterRoutine = 'Allows altering and dropping stored routines.';  //to translate
-$strPrivDescCreateRoutine = 'Allows creating stored routines.';  //to translate
-$strPrivDescCreateUser = 'Allows creating, dropping and renaming unser accounts.';  //to translate
-$strPrivDescCreateView = 'Allows creating new views.';  //to translate
-$strPrivDescExecute5 = 'Allows executing stored routines.';  //to translate
-$strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to translate
-
-$strRoutines = 'Routines';  //to translate
-
-$strCreateDatabaseBeforeCopying = 'Faire CREATE DATABASE avant la copie';
 ?>
