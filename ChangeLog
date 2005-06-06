@@ -9,6 +9,9 @@ $Source$
     * lang/tatarish*, /sync_lang.sh, libraries/select_lang.lib.php,
       translators.html: renamed "tatar" to "tatarish" (tatar is
       a different language and this translation is really tatarish)
+    * lang/mongolian*, libraries/select_lang.lib.php,
+      translators.html, Documentation.html, README:
+      new language (mongolian), thanks to Bayarsaikhan Enkhtaivan 
 
 2005-06-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/functions.js: bug #1207405, invalid SQL when creating

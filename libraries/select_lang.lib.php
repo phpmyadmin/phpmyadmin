@@ -123,6 +123,7 @@ $available_languages = array(
     'lt-utf-8'          => array('lt|lithuanian', 'lithuanian-utf-8', 'lt'),
     'lv-win1257'        => array('lv|latvian', 'latvian-windows-1257', 'lv'),
     'lv-utf-8'          => array('lv|latvian', 'latvian-utf-8', 'lv'),
+    'mn-utf-8'          => array('mn|mongolian', 'mongolian-utf-8', 'mn'),
     'ms-iso-8859-1'     => array('ms|malay', 'malay-iso-8859-1', 'ms'),
     'ms-utf-8'          => array('ms|malay', 'malay-utf-8', 'ms'),
     'nl-iso-8859-1'     => array('nl|dutch', 'dutch-iso-8859-1', 'nl'),
