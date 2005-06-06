@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/functions.js: bug #1207405, invalid SQL when creating
+      table with zero fields
+
 2005-06-05 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
 
