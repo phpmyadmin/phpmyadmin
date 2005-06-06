@@ -8,6 +8,8 @@ $Source$
 2005-06-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/functions.js: bug #1207405, invalid SQL when creating
       table with zero fields
+    * sql.php: bug #1204951, left frame browse icon alt tag 
+      not updated on emptying table
 
 2005-06-05 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
