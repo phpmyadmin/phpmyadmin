@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/tatarish*: updates, thanks to Albert Fazlí
+
 2005-06-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/tatarish*, /sync_lang.sh, libraries/select_lang.lib.php,
       translators.html: renamed "tatar" to "tatarish" (tatar is
