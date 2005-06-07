@@ -309,7 +309,7 @@ $cfg['DefaultTabTable']       = 'tbl_properties_structure.php';
  * Export defaults
  */
 
-$cfg['Export']['format']                    = 'sql';  // sql/latex/excel/csv/xml/xls/hmtlexcel/htmlword
+$cfg['Export']['format']                    = 'sql';  // sql/latex/excel/csv/xml/xls/htmlexcel/htmlword
 $cfg['Export']['compression']               = 'none'; // none/zip/gzip/bzip2
 
 $cfg['Export']['asfile']                    = FALSE;

@@ -7,6 +7,7 @@ $Source$
 
 2005-06-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/tatarish*: updates, thanks to Albert Fazlí
+    * config.inc.php: bug #1215950, typo in comment
 
 2005-06-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/tatarish*, /sync_lang.sh, libraries/select_lang.lib.php,
