@@ -724,13 +724,13 @@ if ($is_minimum_common == FALSE) {
             if (isset($mysql_error_values[0])) {
                 $tmp_fields = PMA_DBI_get_fields($db, $table, NULL);
                 foreach ($tmp_fields as $tmp_field) {
-                    $duplicate_sql_query .= (($duplicate_sql_query!='') ? ' OR ' : '') . $tmp_field['Field'] . " LIKE '" . $mysql_error_values[0] . "'";
+                    $duplicate_sql_query .= (($duplicate_sql_query!='') ? ' OR ' : '') . PMA_backquote($tmp_field['Field']) . " LIKE '" . $mysql_error_values[0] . "'";
                 }
             }
             if ($duplicate_sql_query!='') {
-                $duplicate_sql_query = "SELECT * FROM " . $table . " WHERE (" . $duplicate_sql_query . ")";
+                $duplicate_sql_query = "SELECT * FROM " . PMA_backquote($table) . " WHERE (" . $duplicate_sql_query . ")";
             } else {
-                $duplicate_sql_query = "SELECT * FROM " . $table . "";
+                $duplicate_sql_query = "SELECT * FROM " . PMA_backquote($table) . "";
             }
             echo '        <form method="post" action="read_dump.php" style="padding: 0px; margin: 0px">' ."\n"
                     . '            <input type="hidden" name="sql_query" value="' . $duplicate_sql_query . '" />' . "\n"

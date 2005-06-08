@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: bug #1216901, missing backquotes on the Browse
+      feature in case of duplicate entry
+
 2005-06-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/tatarish*: updates, thanks to Albert Fazlí
     * config.inc.php: bug #1215950, typo in comment
