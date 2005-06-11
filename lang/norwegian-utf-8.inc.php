@@ -160,6 +160,7 @@ $strCopyTableOK = 'Tabellen %s er kopiert til %s.';
 $strCopyTableSameNames = 'Kan ikke kopiere tabellen til samme navn!';
 $strCouldNotKill = 'phpMyAdmin kunne ikke avslutte tråd %s. Den er sansynligvis alt avsluttet.';
 $strCreate = 'Opprett';
+$strCreateDatabaseBeforeCopying = 'CREATE DATABASE før kopiering';
 $strCreateIndex = 'Lag en indeks på&nbsp;%s&nbsp;kolonner';
 $strCreateIndexTopic = 'Lag en ny indeks';
 $strCreateNewDatabase = 'Opprett ny database';
@@ -477,6 +478,7 @@ $strNull = 'Null';
 $strNumSearchResultsInTable = '%s treff i tabell <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totalt:</b> <i>%s</i> treff';
 $strNumTables = 'Tabeller';
+$strNumberOfFields = 'Antall felter';
 
 $strOK = 'OK';
 $strOftenQuotation = 'Ofte anførselstegn. Valgfritt innebærer at kun tekstfelter ("char" og "varchar"-felter) er omfattet av tegnet.';
@@ -522,7 +524,6 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>må</b> være navnet til og <b>bare til</
 $strPrint = 'Skriv ut';
 $strPrintView = 'Utskriftsvennlig forhåndsvisning';
 $strPrintViewFull = 'Forhåndsvisning (med all tekst)';
-
 $strPrivDescAllPrivileges = 'Inkluder alle privilegier unntatt GRANT.';
 $strPrivDescAlter = 'Tillater endring av struktur på eksisterende tabeller.';
 $strPrivDescAlterDb = 'Tillater endring av strukturen av eksisterende tabeller i tillegg til å endre standard tegnsett og sammenligning av databaser.';
@@ -809,6 +810,4 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrensningen.';
 $strZip = 'Komprimert (zip)';
 
-// To translate:
-$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
 ?>

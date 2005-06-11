@@ -19,7 +19,7 @@ $day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
 $month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%B %d, %Y at %I:%M %p';
+$datefmt = '%d de %B de %Y Ã¡s %H:%M';
 
 $timespanfmt = '%s días, %s horas, %s minutos e %s segundos';
 
@@ -161,6 +161,7 @@ $strCopyTableOK = 'A tabela \$table copiouse para \$new_name.';
 $strCopyTableSameNames = 'Non se pode copiar unha tabela sobre si mesma';
 $strCouldNotKill = 'phpMyAdmin foi incapaz de finalizar o fío %s.  Probablemente xa está fechado.';
 $strCreate = 'Crear';
+$strCreateDatabaseBeforeCopying = 'CREAR BASE DE DATOS antes de copiar';
 $strCreateIndex = 'Crear un índice en&nbsp;%s&nbsp;colunas';
 $strCreateIndexTopic = 'Crear un novo índice';
 $strCreateNewDatabase = 'Crear unha nova base de datos';
@@ -809,5 +810,4 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) elimina-se o limite.';
 $strZip = 'comprimido no formato "zip"';
 
-$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
 ?>
