@@ -2,24 +2,27 @@
 /* $Id$ */
 
 /*
-  Finnish language file by:
- 	Jouni Kähkönen, kajouni@mbnet.fi
- 	Visa Kopu, visa@visakopu.net
- 
-  April 29, 2005 by Jouni Kähkönen:
-    - Half of the file translated by Jouni Kahkonen
-    - Many translation decisions are fixed.
-    - 'Table' was previously translated 'taulu' thought it should be 'taulukko',
-      because this symbolizes better the meaning (the 'taulu' has more than one
-      meaning)
+ * Finnish language file by:
+ *	Visa Kopu, visa@visakopu.net
+ *	Jouni Kähkönen, kajouni@mbnet.fi
+ *
+ * April 27, 2005 by Jouni Kähkönen:
+ **** Rest of the file translated by Jouni Kahkonen (as from $timespanfmt)
+ **** 'Table' was previously translated 'taulu' thought it should be 'taulukko', because this
+ **** symbolizes better the meaning (the 'taulu' has more than one meaning)
+ **** Some translation decisions are fixed a bit.
+
+ **** Jouni Kähkösen suomentama loput puolet tiedostosta ($timespanfmt:sta lähtien)
+ **** Taulu-sanat vaihdettu sanaksi Taulukko, joka kuvaa merkitystä paremmin (taululla kun on toinenkin merkitys)
+ **** Käännösvaihtoehtoja/sanankäänteitä korjailtu muutamia parempaan suuntaan ainakin jotenkin.
 */
 
 $charset = 'iso-8859-1';
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
-$number_thousands_separator = ' ';
-$number_decimal_separator = ',';
+$number_thousands_separator = ',';
+$number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
 $byteUnits = array('tavua', 'kt', 'Mt', 'Gt', 'Tt', 'Pt', 'Et');
 
@@ -71,7 +74,7 @@ $strAnd = 'Ja';
 $strAny = 'Mikä tahansa';
 $strAnyHost = 'Mikä tahansa palvelin';
 $strAnyUser = 'Mikä tahansa käyttäjä';
-$strApproximateCount = 'Saattaa olla summittainen. Katso FAQ 3.11'; 
+$strApproximateCount = 'Saa olla summittainen. Katso FAQ 3.11'; 
 $strArabic = 'Arabialainen'; 
 $strArmenian = 'Armenialainen'; 
 $strAscending = 'Nouseva';
@@ -104,12 +107,12 @@ $strBookmarkView = 'Näytä';
 $strBrowse = 'Selaa';
 $strBrowseForeignValues = 'Selaa vieraita arvoja'; 
 $strBufferPool = "Puskuriallas";  //Buffer Pool
-$strBufferPoolActivity = 'Puskurialtaan aktiivisuus';
+$strBufferPoolActivity = 'Buffer Pool Activity';
 $strBufferPoolUsage = "Puskurialtaan käyttö";  //Buffer Pool Usage
-$strBufferReadMisses = 'Epäonnistuneet lukuyritykset';
-$strBufferReadMissesInPercent = 'Epäonnistuneet lukuyritykset: %';
-$strBufferWriteWaits = 'Viive ennen kirjoitusta';
-$strBufferWriteWaitsInPercent = 'Kirjoitusviipeet: %';
+$strBufferReadMisses = 'Read misses';
+$strBufferReadMissesInPercent = 'Read misses in %';
+$strBufferWriteWaits = 'Write waits';
+$strBufferWriteWaitsInPercent = 'Write waits in %';
 $strBulgarian = 'Bulgarialainen'; 
 $strBusyPages = "Kiireiset sivut";  //Busy pages
 $strBzError = 'phpMyAdmin ei voinut pakata vedosta (dump) johtuen rikkinäisestä Bz2-laajennuksesta tässä php:n versiossa. On suositeltavaa asettaa <code>$cfg[\'BZipDump\']</code>-direktiivi phpMyAdminin konfigurointitiedostosta arvoksi <code>FALSE</code>. Jos haluat käyttää Bz2-pakkauksen toimintoja, sinun pitää päivittää uusimpaan php:n versioon. Katso lisätietoja php bug reportista: %s .';
@@ -118,7 +121,7 @@ $strBzip = '"bzip-pakattu"';
 $strCSVOptions = 'CSV-valinnat';
 $strCalendar = 'Kalenteri'; 
 $strCannotLogin = 'MySQL-palvelimelle ei voitu kirjautua sisään'; 
-$strCantLoad = 'en voi ladata laajennusta %s,<br />ole hyvä, ja tarkista PHP:n asetukset'; 
+$strCantLoad = 'en voi ladata laajennusta %s,<br />ole hyvä, ja tarkista PHP:n konfiguraatiot'; 
 $strCantLoadRecodeIconv = 'Merkistön konvertointiin tarvittavaa iconv- tai recode-laajennusta ei voitu ladata. Muokkaa PHP:n asetuksia ja salli näiden laajennusten käyttö tai muuta phpMyAdminin asetuksia niin ettei konvertointia suoriteta.';
 $strCantRenameIdxToPrimary = 'Indeksiä ei voi muuttaa PRIMARY-nimiseksi!';
 $strCantUseRecodeIconv = 'iconv-, libiconv- tai recode_string-funktioita ei voitu käyttää. Tarkista PHP:n asetukset.';
@@ -141,7 +144,7 @@ $strCharsetOfFile = 'Tiedoston merkistö:';
 $strCharsets = 'Merkistökoodaukset'; 
 $strCharsetsAndCollations = 'Merkistökoodausasetukset ja tarkistukset'; 
 $strCheckAll = 'Valitse kaikki';
-$strCheckOverhead = 'Valitse käyttämättömät taulukot';
+$strCheckOverhead = 'Merkitse pirstoutuneet taulukot'; 
 $strCheckPrivs = 'Hallitse käyttöoikeuksia'; 
 $strCheckPrivsLong = 'Hallitse tietokannan &quot;%s&quot; käyttöoikeuksia.'; 
 $strCheckTable = 'Tarkista taulukko';
@@ -169,6 +172,7 @@ $strCopyTableOK = 'Taulukko %s on kopioitu nimelle %s.';
 $strCopyTableSameNames = 'Taulukkoa ei voida kopioida itseensä!'; 
 $strCouldNotKill = 'phpMyAdmin ei voinut lopettaa säiettä %s (thread). Se on todennäköisesti jo suljettu.';
 $strCreate = 'Luo';
+$strCreateDatabaseBeforeCopying = "LUO TIETOKANTA ennen kopioimista";
 $strCreateIndex = 'Luo sarakkeista indeksi';
 $strCreateIndexTopic = 'Luo uusi indeksi';
 $strCreateNewDatabase = 'Luo uusi tietokanta';
@@ -206,9 +210,9 @@ $strDatabaseHasBeenDropped = 'Tietokanta %s on pudotettu.';
 $strDatabaseNoTable = 'Tämä tietokanta ei sisällä yhtään taulukkoa!';
 $strDatabases = 'Tietokannat';
 $strDatabasesDropped = '%s tietokantaa pudotettiin onnistuneesti.'; 
-$strDatabasesStats = 'Tietokantatilastot';
-$strDatabasesStatsDisable = 'Poista tilastot käytöstä'; 
-$strDatabasesStatsEnable = 'Ota käyttöön tilastot '; 
+$strDatabasesStats = 'Tietokantastatistiikka';
+$strDatabasesStatsDisable = 'Estä tilastot'; 
+$strDatabasesStatsEnable = 'Salli tilastot'; 
 $strDatabasesStatsHeavyTraffic = 'Huom: Tietokantatilastojen käyttöönotto täältä käsin saattaa aiheuttaa runsaasti liikennettä Internet-palvelimen ja MySQL-palvelimen välillä.'; 
 $strDbPrivileges = 'Tietokantakohtaiset käyttöoikeudet';
 $strDbSpecific = 'tietokantakohtainen'; 
@@ -281,7 +285,7 @@ $strFieldsEmpty = ' Sarakkeiden lukumäärä on nolla! ';
 $strFieldsEnclosedBy = 'Sarakkeiden ympäröintimerkki';
 $strFieldsEscapedBy = 'Koodinvaihtomerkki (escape)';
 $strFieldsTerminatedBy = 'Sarakkeiden erotinmerkki';
-$strFileAlreadyExists = 'Tiedosto %s on jo olemassa palvelimella, vaihda tiedostonimeä tai tarkista korvaus-asetuksen tila.'; 
+$strFileAlreadyExists = 'Tiedsosto %s on jo olemassa palvelimella, vaihda tiedostonimeä tai tarkista korvaus-asetuksen tila.'; 
 $strFileCouldNotBeRead = 'Tiedostoa ei voida lukea'; 
 $strFileNameTemplate = 'Tiedostonimen pohja';
 $strFileNameTemplateHelp = 'Käytä __DB__ tietokannan nimenä, __TABLE__ taulukon nimenä ja %smitä tahansa strftime%s -valintaa aikamäärittelylle, laajennukset lisätään automaattisesti. Kaikki muu teksti pysyy sellaisenaan.<p>&nbsp;</p>';
@@ -295,7 +299,7 @@ $strFreePages = "Vapaat sivut";
 $strFullText = 'Koko tekstit';
 $strFunction = 'Funktio';
 
-$strGenBy = 'Luontiympäristö';
+$strGenBy = 'Generoinut:';
 $strGenTime = 'Luontiaika';
 $strGeneralRelationFeat = 'Yleiset relaatio-ominaisuudet';
 $strGeorgian = 'Georgialainen'; 
@@ -345,7 +349,7 @@ $strIndexWarningUnique = 'UNIQUE- ja INDEX-avaimia ei voi molempia asettaa sarak
 $strIndexes = 'Indeksit';
 $strInnoDBAutoextendIncrement = "Automaattisen laajentamisen koko";  //Autoextend increment
 $strInnoDBAutoextendIncrementDesc = "Koko automaattisesti laajenevien taulukkotilojen laajentamiselle silloin, kun se täyttyy.";
-$strInnoDBBufferPoolSize = 'Puskurialtaan koko';
+$strInnoDBBufferPoolSize = 'Buffer pool size';
 $strInnoDBBufferPoolSizeDesc = 'Muistipuskurin koko, jota InnoDB käyttää taulukoissaan olevan datan ja indeksien viemiseen välimuistiin.';
 $strInnoDBDataFilePath = "Datatiedostot";
 $strInnoDBDataHomeDir = "Datan kotihakemisto";
@@ -357,7 +361,7 @@ $strInsert = 'Lisää rivi';
 $strInsertAsNewRow = 'Lisää uutena rivinä';
 $strInsertBookmarkTitle = 'Ole hyvä ja anna kirjanmerkille otsikko'; 
 $strInsertNewRow = 'Lisää uusi rivi';
-$strInsertTextfiles = 'Syötä tekstitiedosto taulukkoon';
+$strInsertTextfiles = 'Syötä tekstitiedosto taulukoun';
 $strInsertedRowId = 'Sijoitetun rivin id:'; 
 $strInsertedRows = 'Lisätyt rivit:';
 $strInstructions = 'komentoa';
@@ -418,7 +422,7 @@ $strMIME_transformation_options_note = 'Syötä muunnosvalinnoille arvot käyttäen 
 $strMIME_without = 'MIME-tyypeillä, jotka on kursivoitu, ei ole erillistä muunnostoimintoa';
 $strMaximumSize = 'Enimmäiskoko: %s%s'; 
 $strMbExtensionMissing = 'PHP-laajennusta mbstring ei löytynyt ja vaikuttaa siltä, että käytät multibyte-merkistökoodausta. Ilman mbstring-laajennusta phpMyAdmin ei osaa jaotella merkkijonoja oikein, ja tämä saattaa johtaa odottamattomiin tuloksiin.'; 
-$strMbOverloadWarning = 'PHP:n asetuksissa on "mbstring.func_overload" -valinta päällä. Tämä valinta ei sovi yhteen phpMyAdminin kanssa ja saattaa aiheuttaa jonkin datan hajoamiseen!'; 
+$strMbOverloadWarning = 'PHP:n konfiguraatiossa on "mbstring.func_overload" -valinta päällä. Tämä valinta ei sovi yhteen phpMyAdminin kanssa ja saattaa aiheuttaa jonkin datan hajoamiseen!'; 
 $strModifications = 'Muutokset tallennettu';
 $strModify = 'Muokkaa';
 $strModifyIndexTopic = 'Muokkaa indeksiä';
@@ -486,6 +490,7 @@ $strNull = 'Tyhjä';
 $strNumSearchResultsInTable = '%s hakutulosta taulukossa <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Yhteensä:</b> <i>%s</i> hakutulosta';
 $strNumTables = 'Taulukot';
+$strNumberOfFields = "Kenttien lukumäärä";
 
 $strOK = 'Kunnossa';
 $strOftenQuotation = 'Yleensä lainausmerkki. "Valinnaisesti" tarkoittaa, että vain char- ja varchar-tyyppiset sarakkeet ympäröidään annetulla ympäröintimerkillä.';
@@ -498,7 +503,7 @@ $strOr = 'Tai';
 $strOverhead = 'Käyttämätön';
 $strOverwriteExisting = 'Korvaa jo olemassa oleva(t) tiedosto(t)'; 
 
-$strPHP40203 = 'Käytössäsi on PHP 4.2.3, joka sisältää vakavan vian monitavuisissa merkkijonoissa (mbstring). Katso PHP:n virheraportti 19404. Tätä PHP:n versiota ei suositella käytettäväksi phpMyAdminin kanssa.'; 
+$strPHP40203 = 'Käytössäsi on PHP 4.2.3, joka sisältää vakavan vian monitavuisissa merkkijonoissa (mbstring). Katson PHP:n virheraportti 19404. Tätä PHP:n versiota ei suositella käytettäväksi phpMyAdminin kanssa.'; 
 $strPHPVersion = 'PHP:n versio';
 $strPageNumber = 'Sivunumero:';
 $strPagesToBeFlushed = "Sivut, jotka pitäisi siistiä";  //Pages to be flushed
@@ -578,17 +583,17 @@ $strQBEIns = 'Lisää';
 $strQueryFrame = 'Pyyntöikkuna';
 $strQueryOnDb = 'Suorita SQL-lause tietokannassa <b>%s</b>:';
 $strQuerySQLHistory = 'SQL-historia';
-$strQueryStatistics = '<b>Pyyntötilastot</b>: Tälle palvelimelle on lähetetty viime käynnistyksestä lähtien %s pyyntöä.';
-$strQueryTime = 'Pyyntö kesti %01.4f sek.';
+$strQueryStatistics = '<b>Pyyntötilastot</b>: Viime käynnistyksestä lähtien tälle palvelimelle on lähetetty %s pyyntöä.';
+$strQueryTime = 'Haku kesti %01.4f sek.';
 $strQueryType = 'Pyynnön tyyppi';
 $strQueryWindowLock = 'Älä korvaa tätä pyyntöä ikkunan ulkopuolelta'; 
 
 $strReType = 'Kirjoita uudelleen';
-$strReadRequests = 'Hakupyynnöt';
+$strReadRequests = 'Read requests';
 $strReceived = 'Vastaanotetut';
 $strRecords = 'Rivit';
 $strReferentialIntegrity = 'Tarkista viitteiden eheys:';
-$strRefresh = 'Päivitä';
+$strRefresh = 'Päivitä'; 
 $strRelationNotWorking = 'Relaatioihin ja linkitettyihin taulukkoihin liittyvät lisäominaisuudet ovat pois päältä. Katso %stäältä%s lisätietoja.';
 $strRelationView = 'Relaationäkymä';
 $strRelationalSchema = 'Relaatioskeema'; 
@@ -621,7 +626,7 @@ $strRowsModeFlippedHorizontal = 'vaakatasossa (kierretyt otsikot)';
 $strRowsModeHorizontal = 'vaakasuora';
 $strRowsModeOptions = '%s:sti, otsikoita toistetaan %s:n rivin välein';
 $strRowsModeVertical = 'pystysuora';
-$strRowsStatistic = 'Rivitilastot';
+$strRowsStatistic = 'Rivistatistiikka';
 $strRunQuery = 'Suorita';
 $strRunSQLQuery = 'Suorita SQL-lauseita tietokannassa %s';
 $strRunning = 'palvelimella %s';
@@ -805,9 +810,9 @@ $strWestEuropean = 'Länsieurooppalainen';
 $strWildcard = 'jokerimerkki'; 
 $strWindowNotFound = 'Kohdeselainikkunaa ei voitu päivittää. Syynä voi olla se, että olet sulkenut isäntäikkunan tai että selaimesi tietoturva-asetukset estävät ikkunoiden välisen päivittämisen.'; 
 $strWithChecked = 'Valitut:';
-$strWriteRequests = 'Kirjoituspyynnöt';
+$strWriteRequests = 'Write requests';
 $strWritingCommentNotPossible = 'Kommentin kirjoittaminen ei ole mahdollista'; 
-$strWritingRelationNotPossible = 'Relaation kirjoittaminen ei ole mahdollista'; 
+$strWritingRelationNotPossible = 'Kommentin kirjoitaminen ei ole mahdollista'; 
 $strWrongUser = 'Väärä käyttäjätunnus tai salasana. Pääsy kielletty.';
 
 $strXML = 'XML';
@@ -817,5 +822,4 @@ $strYes = 'Kyllä';
 $strZeroRemovesTheLimit = 'Huom: Näiden valintojen asettaminen nollaksi (0) poistaa rajoituksen.';
 $strZip = '"zip-pakattu"';
 
-$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
 ?>
