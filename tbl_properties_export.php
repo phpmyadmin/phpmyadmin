@@ -70,7 +70,7 @@ if (isset($sql_query)) {
                 $inside_bracket = FALSE;
                 continue;
             }
-            if (!$inside_bracket && $parsed_sql[$i]['type'] == 'alpha_reservedWord' && $parsed_sql[$i]['data'] == 'LIMIT') {
+            if (!$inside_bracket && $parsed_sql[$i]['type'] == 'alpha_reservedWord' && strtoupper($parsed_sql[$i]['data']) == 'LIMIT') {
                 // We found LIMIT to remove
                 
                 $sql_query = '';
