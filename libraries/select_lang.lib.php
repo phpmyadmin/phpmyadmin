@@ -61,8 +61,9 @@ $available_languages = array(
     'az-iso-8859-9'     => array('az|azerbaijani', 'azerbaijani-iso-8859-9', 'az'),
     'az-utf-8'          => array('az|azerbaijani', 'azerbaijani-utf-8', 'az'),
 
-    'be-win1251'        => array('be|belarusian', 'belarusian-windows-1251', 'be'),
-    'be-utf-8'          => array('be|belarusian', 'belarusian-utf-8', 'be'),
+    'becyr-win1251'     => array('be|belarusian', 'belarusian_cyrillic-windows-1251', 'be'),
+    'becyr-utf-8'       => array('be|belarusian', 'belarusian_cyrillic-utf-8', 'be'),
+    'belat-utf-8'       => array('be[-_]lat|belarusian latin', 'belarusian_latin-utf-8', 'be-lat'),
     'bg-win1251'        => array('bg|bulgarian', 'bulgarian-windows-1251', 'bg'),
     'bg-koi8-r'         => array('bg|bulgarian', 'bulgarian-koi8-r', 'bg'),
     'bg-utf-8'          => array('bg|bulgarian', 'bulgarian-utf-8', 'bg'),
