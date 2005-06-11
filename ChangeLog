@@ -9,6 +9,12 @@ $Source$
     * tbl_properties_export.php: bug #1169791, exporting results from queries
       with limit keyword
     * lang/mongolian* update, thanks to Bayarsaikhan Enkhtaivan 
+    * lang/finnish: update, thanks to Jouni Kahkonen
+    * lang/norwegian: Update, thanks to Sven-Erik Andersen
+    * lang/galician: Updates, thanks to Xosé Calvo.
+    * lang/belarusian, libraries/select_lang.lib.php:
+      belarusian is now belarusian_cyrillic; added belarusian_latin,
+      thanks to Jaska Zedlik
 
 2005-06-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1216901, missing backquotes on the Browse
