@@ -2,6 +2,10 @@
 #
 # $Id$
 #
+# 2005-06-12, lem9@users.sourceforge.net
+# - cvs server name changed to cvs, because cvs1 no longer works from 
+#   shell.sourceforge.net
+#
 # 2003-08-23, nijel@users.sourceforge.net:
 # - support for creating snapshots outside sourceforge:
 #    * cvs server name can be read from environment variable cvsserver
@@ -60,7 +64,7 @@
 # - added release todo list
 #
 
-cvsserver=${cvsserver:-cvs1}
+cvsserver=${cvsserver:-cvs}
 
 if [ $# == 0 ]
 then
