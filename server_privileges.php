@@ -552,7 +552,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
        . $spaces . '<tr>' . "\n"
        . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
        . $spaces . '        <label for="text_pma_pw2">' . "\n"
-       . $spaces . '            ' . $GLOBALS[''] . $GLOBALS['strGeneratePassword'] . "\n"
+       . $spaces . '            ' . $GLOBALS[''] . $GLOBALS['strGeneratePassword'] . ':' . "\n"
        . $spaces . '        </label>' . "\n"
        . $spaces . '    </td>' . "\n"
        . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
