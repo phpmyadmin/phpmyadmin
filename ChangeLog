@@ -8,6 +8,8 @@ $Source$
 2005-06-12 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.inc.php: visually bind the Add x fields dialog to its 
       submit button
+    * db_operations.php: bug #1215688, Copying database does not preserve 
+      default charset and collation
 
 2005-06-11 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_export.php: bug #1169791, exporting results from queries

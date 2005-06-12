@@ -26,7 +26,11 @@ if (isset($db) &&
         $message = $strDatabaseEmpty;
     } else {
         if ($create_database_before_copying) {
-            $local_query = 'CREATE DATABASE ' . PMA_backquote($newname) . ';';
+            $local_query = 'CREATE DATABASE ' . PMA_backquote($newname);
+            if (isset($db_collation)) {
+                $local_query .= ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
+            }
+            $local_query .= ';';
             $sql_query = $local_query;
             PMA_DBI_query($local_query);
         }
@@ -188,8 +192,12 @@ if ($cfgRelation['commwork']) {
           ?></td></tr>
         <form method="post" action="db_operations.php"
             onsubmit="return emptyFormElements(this, 'newname')">
-                                        <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="3"><?php
-          echo '<input type="hidden" name="db_copy" value="true" />'
+        <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="3">
+<?php
+          if (isset($db_collation)) {
+              echo '<input type="hidden" name="db_collation" value="' . $db_collation .'" />' . "\n";
+          }
+          echo '<input type="hidden" name="db_copy" value="true" />' . "\n"
              . PMA_generate_common_hidden_inputs($db);
           ?><input type="text" name="newname" size="30" class="textfield" value="" /></td>
         </tr><tr>
