@@ -809,4 +809,7 @@ $strZip = '"ziple"';
 
 $strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
 
+$strGeneratePassword = 'Generate Password';  //to translate
+$strGenerate = 'Generate';  //to translate
+$strCopy = 'Copy';  //to translate
 ?>

@@ -812,4 +812,7 @@ $strYes = 'Тийм';
 $strZeroRemovesTheLimit = 'Тэмдэглэл: Тохируулгын сонголтыг  0 (тэг) болговол хязгаарыг хасна.';
 $strZip = 'zip-ээр шахах';
 
+$strGeneratePassword = 'Generate Password';  //to translate
+$strGenerate = 'Generate';  //to translate
+$strCopy = 'Copy';  //to translate
 ?>

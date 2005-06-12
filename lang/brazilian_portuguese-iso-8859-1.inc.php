@@ -826,4 +826,7 @@ $strRoutines = 'Routines';  //to translate
 $strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to translate
 $strPrivDescExecute5 = 'Allows executing stored routines.';  //to translate
 $strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
+$strGeneratePassword = 'Generate Password';  //to translate
+$strGenerate = 'Generate';  //to translate
+$strCopy = 'Copy';  //to translate
 ?>

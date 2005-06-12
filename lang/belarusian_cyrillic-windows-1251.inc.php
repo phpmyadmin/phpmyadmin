@@ -810,4 +810,7 @@ $strYes = 'Так';
 $strZeroRemovesTheLimit = 'Заўвага: Пазначэньне гэтых опцыяў як 0 (нуль) здымае абмежаваньне.';
 $strZip = 'архіваваны ў zip';
 
+$strGeneratePassword = 'Generate Password';  //to translate
+$strGenerate = 'Generate';  //to translate
+$strCopy = 'Copy';  //to translate
 ?>

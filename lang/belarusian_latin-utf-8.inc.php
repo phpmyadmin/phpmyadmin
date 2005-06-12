@@ -809,4 +809,7 @@ $strYes = 'Tak';
 $strZeroRemovesTheLimit = 'Zaŭvaha: Paznačeńnie hetych opcyjaŭ jak 0 (nul) zdymaje abmiežavańnie.';
 $strZip = 'archivavany ŭ zip';
 
+$strGeneratePassword = 'Generate Password';  //to translate
+$strGenerate = 'Generate';  //to translate
+$strCopy = 'Copy';  //to translate
 ?>
