@@ -157,6 +157,7 @@ $strConnections = 'Verbindungen';
 $strConstraintsForDumped = 'Constraints der exportierten Tabellen';
 $strConstraintsForTable = 'Constraints der Tabelle';
 $strCookiesRequired = 'Ab diesem Punkt müssen Cookies aktiviert sein.';
+$strCopy = 'Kopieren';
 $strCopyDatabaseOK = 'Datenbank %s wurde nach %s kopiert';
 $strCopyTable = 'Kopiere Tabelle nach (Datenbank<b>.</b>Tabellenname):';
 $strCopyTableOK = 'Tabelle %s wurde nach %s kopiert.';
@@ -292,6 +293,8 @@ $strFunction = 'Funktion';
 
 $strGenBy = 'Erstellt von';
 $strGeneralRelationFeat = 'Allgemeine Verknüpfungsfunktionen';
+$strGenerate = 'Generieren';
+$strGeneratePassword = 'Passwort generieren';
 $strGenTime = 'Erstellungszeit';
 $strGeorgian = 'Georgisch';
 $strGerman = 'Deutsch';
@@ -813,7 +816,4 @@ $strRoutines = 'Routines';  //to translate
 $strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to translate
 $strPrivDescExecute5 = 'Allows executing stored routines.';  //to translate
 $strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
-$strGeneratePassword = 'Generate Password';  //to translate
-$strGenerate = 'Generate';  //to translate
-$strCopy = 'Copy';  //to translate
 ?>

@@ -151,6 +151,7 @@ $strConnections = 'Connexions';
 $strConstraintsForDumped = 'Contraintes pour les tables exportées';
 $strConstraintsForTable = 'Contraintes pour la table';
 $strCookiesRequired = 'Vous devez accepter les cookies pour poursuivre.';
+$strCopy = 'Copier';
 $strCopyDatabaseOK = 'La base de données %s a été copiée sur %s';
 $strCopyTable = '<b>Copier</b> la table vers (base<b>.</b>table)&nbsp;:';
 $strCopyTableOK = 'La table %s a été copiée vers %s.';
@@ -287,6 +288,8 @@ $strFunction = 'Fonction';
 $strGenBy = 'Généré par';
 $strGenTime = 'Généré le ';
 $strGeneralRelationFeat = 'Fonctions relationnelles';
+$strGenerate = 'Générer'; 
+$strGeneratePassword = 'Générer un mot de passe';
 $strGeorgian = 'géorgien';
 $strGerman = 'allemand';
 $strGlobal = 'global';
@@ -807,7 +810,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strGeneratePassword = 'Generate Password';  //to translate
-$strGenerate = 'Generate';  //to translate
-$strCopy = 'Copy';  //to translate
 ?>
