@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties.inc.php: visually bind the Add x fields dialog to its 
+      submit button
+
 2005-06-11 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_export.php: bug #1169791, exporting results from queries
       with limit keyword
