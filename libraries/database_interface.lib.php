@@ -69,6 +69,16 @@ function PMA_DBI_get_tables($database, $link = NULL) {
     return $tables;
 }
 
+function PMA_DBI_get_tables_full($database, $link = NULL) {
+    $result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($database) . ';', NULL, PMA_DBI_QUERY_STORE);
+    $tables = array();
+    while ($row = PMA_DBI_fetch_assoc($result)) {
+        $tables[$row['Name']] = $row;
+    }
+    PMA_DBI_free_result($result);
+    return $tables;
+}
+
 function PMA_DBI_get_fields($database, $table, $link = NULL) {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {

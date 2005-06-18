@@ -34,11 +34,33 @@ if (isset($db) &&
             $sql_query = $local_query;
             PMA_DBI_query($local_query);
         }
-        $tables = PMA_DBI_get_tables($db);
-        foreach ($tables as $table) {
+
+        $tables_full = PMA_DBI_get_tables_full($db);
+        foreach ($tables_full as $table => $tmp) {
             $back = $sql_query;
             $sql_query = '';
-            PMA_table_move_copy($db, $table, $newname, $table, isset($what) ? $what : 'data', $move);
+
+            // value of $what for this table only
+            $this_what = $what;
+
+            if (!isset($tables_full[$table]['Engine'])) {
+                $tables_full[$table]['Engine'] = $tables_full[$table]['Type'];
+            }
+            // do not copy the data from a Merge table
+            // note: on the calling FORM, 'data' means 'structure and data'
+            if ($tables_full[$table]['Engine'] == 'MRG_MyISAM') {
+                if ($this_what == 'data') {
+                    $this_what = 'structure';
+                }
+                if ($this_what == 'dataonly') {
+                    $this_what = 'nocopy';
+                }
+            }
+
+            if ($this_what != 'nocopy') {
+                PMA_table_move_copy($db, $table, $newname, $table, isset($this_what) ? $this_what : 'data', $move);
+            }
+
             $sql_query = $back . $sql_query;
         }
 
