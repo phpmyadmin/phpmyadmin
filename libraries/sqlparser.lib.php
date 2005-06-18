@@ -1681,7 +1681,6 @@ if ($is_minimum_common == FALSE) {
                 }
             }
 
-            
             if (($arr[$i]['type'] == 'alpha_columnAttrib')) {
                 $upper_data = strtoupper($arr[$i]['data']);
                 if ($seen_create_table && $in_create_table_fields) {
@@ -1691,10 +1690,9 @@ if ($is_minimum_common == FALSE) {
                 }
             }
 
-
             if (($arr[$i]['type'] == 'alpha_columnType')) {
                 $upper_data = strtoupper($arr[$i]['data']);
-                if ($seen_create_table && $in_create_table_fields) {
+                if ($seen_create_table && $in_create_table_fields && isset($current_identifier)) {
                     $create_table_fields[$current_identifier]['type'] = $upper_data;
                     if ($upper_data == 'TIMESTAMP') {
                         $in_timestamp_options = TRUE;
