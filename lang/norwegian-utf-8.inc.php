@@ -154,6 +154,7 @@ $strConnections = 'tilkoblinger';
 $strConstraintsForDumped = 'Begrensninger for dumpede tabeller';
 $strConstraintsForTable = 'Begrensninger for tabell';
 $strCookiesRequired = 'Cookies må være slått på forbi dette punkt.';
+$strCopy = 'Kopier';
 $strCopyDatabaseOK = 'Databasen %s har blitt kopiert til %s';
 $strCopyTable = 'Kopier tabell til (database<b>.</b>tabell):';
 $strCopyTableOK = 'Tabellen %s er kopiert til %s.';
@@ -290,6 +291,8 @@ $strFunction = 'Funksjon';
 $strGenBy = 'Generert av';
 $strGenTime = 'Generert den';
 $strGeneralRelationFeat = 'Generelle relasjonsegenskaper';
+$strGeneratePassword = 'Generer passord';
+$strGenerate = 'Generer';
 $strGeorgian = 'Georgisk';
 $strGerman = 'tysk';
 $strGlobal = 'global';
@@ -809,8 +812,4 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrensningen.';
 $strZip = 'Komprimert (zip)';
-
-$strGeneratePassword = 'Generate Password';  //to translate
-$strGenerate = 'Generate';  //to translate
-$strCopy = 'Copy';  //to translate
 ?>
