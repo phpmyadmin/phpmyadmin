@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/chinese_traditional: Updates, thanks to Siu Sun
+    * lang/italian: Updates, thanks to Pietro Danesi
+    * lang/finnish: update, thanks to Jouni Kahkonen
+    * lang/norwegian: Update, thanks to Sven-Erik Andersen
+    * lang/mongolian update, thanks to Bayarsaikhan Enkhtaivan 
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+
 2005-06-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug 1221602, undefined variable when trying
       to use a reserved word as an identifier
