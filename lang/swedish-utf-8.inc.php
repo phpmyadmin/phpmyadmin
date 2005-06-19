@@ -1,6 +1,10 @@
 <?php
 /* $Id$ */
 
+/*
+ * Translated by Björn T. Hallberg <bjornth at users.sourceforge.net>
+ */
+
 $charset = 'utf-8';
 $allow_recoding = TRUE;
 $text_dir = 'ltr';
@@ -150,12 +154,14 @@ $strConnections = 'Uppkopplingar';
 $strConstraintsForDumped = 'Restriktioner för dumpade tabeller';
 $strConstraintsForTable = 'Restriktioner för tabell';
 $strCookiesRequired = 'Kakor (cookies) måste tillåtas för att gå vidare.';
+$strCopy = 'Kopiera';
 $strCopyDatabaseOK = 'Databas %s har kopierats till %s';
 $strCopyTable = 'Kopiera tabellen till (databas<b>.</b>tabell):';
 $strCopyTableOK = 'Tabellen %s har kopierats till %s.';
 $strCopyTableSameNames = 'Kan inte kopiera tabell till samma namn!';
 $strCouldNotKill = 'phpMyAdmin kunde inte döda tråd %s. Troligtvis har den redan avslutats.';
 $strCreate = 'Skapa';
+$strCreateDatabaseBeforeCopying = 'CREATE DATABASE före kopiering';
 $strCreateIndex = 'Skapa ett index för&nbsp;%s&nbsp;kolumn(er)';
 $strCreateIndexTopic = 'Skapa ett nytt index';
 $strCreateNewDatabase = 'Skapa ny databas';
@@ -285,6 +291,8 @@ $strFunction = 'Funktion';
 $strGenBy = 'Genererad av';
 $strGenTime = 'Skapad';
 $strGeneralRelationFeat = 'Allmänna relationsfunktionaliteter';
+$strGenerate = 'Generera';
+$strGeneratePassword = 'Generera lösenord';
 $strGeorgian = 'Georgisk';
 $strGerman = 'Tysk';
 $strGlobal = 'global';
@@ -473,6 +481,7 @@ $strNull = 'Null';
 $strNumSearchResultsInTable = '%s träff(ar) i tabell <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totalt:</b> <i>%s</i> träff(ar)';
 $strNumTables = 'Tabeller';
+$strNumberOfFields = 'Antal fält';
 
 $strOK = 'OK';
 $strOftenQuotation = 'Ofta citattecken. Frivilligt innebär att bara fält av typ \'char\' och \'varchar\' omges av angivet tecken.';
@@ -805,8 +814,4 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) tas begränsningarna bort.';
 $strZip = '"zippad"';
 
-$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
-$strGeneratePassword = 'Generate Password';  //to translate
-$strGenerate = 'Generate';  //to translate
-$strCopy = 'Copy';  //to translate
 ?>
