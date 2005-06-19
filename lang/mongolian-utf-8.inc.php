@@ -155,6 +155,7 @@ $strConnections = 'Холболт';
 $strConstraintsForDumped = 'Асгарсан хүснэгтийг хүчлэх';
 $strConstraintsForTable = 'Constraints for table';
 $strCookiesRequired = 'Энэ газарт Cookies нээлттэй байх ёстой.';
+$strCopy = 'Хуулах';
 $strCopyDatabaseOK = 'ӨС %s нь %s руу хуулагдлаа';
 $strCopyTable = 'Хүснэгт хуулах(өгөгдлийн сан<b>.</b>хүснэгт):';
 $strCopyTableOK = '%s хүснэгт %s руу хуулагдлаа.';
@@ -291,6 +292,8 @@ $strFunction = 'Функц';
 $strGenBy = 'Үүсгэгч';
 $strGenTime = 'Үүссэн цаг';
 $strGeneralRelationFeat = 'Ерөнхий хамаатай онцлог';
+$strGenerate = 'Бий болгох'; 
+$strGeneratePassword = 'Нууц үг бий болгох';
 $strGeorgian = 'Гүрж';
 $strGerman = 'Немец';
 $strGlobal = 'global';
@@ -812,7 +815,4 @@ $strYes = 'Тийм';
 $strZeroRemovesTheLimit = 'Тэмдэглэл: Тохируулгын сонголтыг  0 (тэг) болговол хязгаарыг хасна.';
 $strZip = 'zip-ээр шахах';
 
-$strGeneratePassword = 'Generate Password';  //to translate
-$strGenerate = 'Generate';  //to translate
-$strCopy = 'Copy';  //to translate
 ?>
