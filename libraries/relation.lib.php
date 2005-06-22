@@ -836,15 +836,25 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
         asort($reloptions['content-id']);
     }
 
-    if ($max == -1 || count($reloptions['content-id']) < $max) {
-        $ret .= implode('', $reloptions['content-id']);
-        if (count($reloptions['content-id']) > 0) {
+    if ($cfg['InsertDropdownOrder']) {
+        $top = $reloptions['content-id'];
+        $bot = $reloptions['id-content'];
+    } else {
+        $top = $reloptions['id-content'];
+        $bot = $reloptions['content-id'];
+    }
+    $str_top = implode('', $top);
+    $str_bot = implode('', $bot);
+
+    $top_count = count($top);
+    if ($max == -1 || $top_count < $max) {
+        $ret .= $str_top;
+        if ($top_count > 0) {
             $ret .= '<option value=""></option>' . "\n";
             $ret .= '<option value=""></option>' . "\n";
         }
     }
-
-    $ret .= implode('', $reloptions['id-content']);
+    $ret .= $str_bot;
 
     return $ret;
 } // end of 'PMA_foreignDropdown()' function

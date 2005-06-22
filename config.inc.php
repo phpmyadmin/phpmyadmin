@@ -266,6 +266,7 @@ $cfg['CharEditing']           = 'input';
                                         //  input - allows limiting of input length
                                         //  textarea - allows newlines in fields
 $cfg['InsertRows']            = 2;      // How many rows can be inserted at one time
+$cfg['InsertDropdownOrder']   = FALSE;  // Ordering for elements in dropdown.
 
 // For the export features...
 $cfg['ZipDump']               = TRUE;   // Allow the use of zip/gzip/bzip
@@ -821,6 +822,11 @@ $cfg['TextOperators'] = array(
 $cfg['EnumOperators'] = array(
    '=',
    '!='
+);
+
+$cfg['SetOperators'] = array(
+   'IN',
+   'NOT IN'
 );
 
 $cfg['NullOperators'] = array(
