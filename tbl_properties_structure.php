@@ -250,7 +250,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the 
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
-    if ($analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null']) {
+    if (!empty($analyzed_sql[0]['create_table_fields'][$row['Field']]['type']) && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null']) {
         $row['Null'] = '';
     }
 

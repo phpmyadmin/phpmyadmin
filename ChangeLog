@@ -5,7 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2005-06-22 Garvin Hicking
+2005-06-22 Alexander M. Turek  <me@derrabus.de>
+    * tbl_properties_structure.php: Undefined index.
+
+2005-06-22 Garvin Hicking  <rabustoldmethatiforgotmyemailaddress@supergarv.de>
     * server_databases.php: Bug #1225315, wrong message displayed
       when no databases were dropped.
     * tbl_properties.inc.php: Patch #1225452, JS error for
