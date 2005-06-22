@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-22 Garvin Hicking
+    * tbl_properties.inc.php: Patch #1225452, JS error for
+      getting the value of a select field in certain browsers.
+
 2005-06-19 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/chinese_traditional: Updates, thanks to Siu Sun
     * lang/italian: Updates, thanks to Pietro Danesi

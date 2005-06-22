@@ -237,7 +237,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     $ci++;
     $content_cells[$i][$ci] = '<select name="field_type[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '" ';
     if (PMA_MYSQL_INT_VERSION >= 40102) {
-        $content_cells[$i][$ci] .= 'onchange="display_field_options(this.value,' . $i .')" ';
+        $content_cells[$i][$ci] .= 'onchange="display_field_options(this.options[this.selectedIndex].value,' . $i .')" ';
     }
     $content_cells[$i][$ci] .= '>' . "\n";
 
