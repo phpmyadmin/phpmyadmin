@@ -80,7 +80,11 @@ if ((!empty($drop_selected_dbs) || isset($query_type)) && ($is_superuser || $cfg
         $submit_mult = 'drop_db' ;
         $err_url = 'server_databases.php?' . PMA_generate_common_url();
         require('./mult_submits.inc.php');
-        $message = sprintf($strDatabasesDropped, count($selected));
+        if ($mult_btn == $strYes) {
+            $message = sprintf($strDatabasesDropped, count($selected));
+        } else {
+            $message = sprintf($strDatabasesDropped, 0);
+        }
         // we need to reload the database list now.
         PMA_availableDatabases();
         $reload = 1;

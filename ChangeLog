@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2005-06-22 Garvin Hicking
+    * server_databases.php: Bug #1225315, wrong message displayed
+      when no databases were dropped.
     * tbl_properties.inc.php: Patch #1225452, JS error for
       getting the value of a select field in certain browsers.
 
