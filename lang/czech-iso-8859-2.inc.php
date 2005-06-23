@@ -155,6 +155,7 @@ $strConstraintsForDumped = 'Omezení pro exportované tabulky';
 $strConstraintsForTable = 'Omezení pro tabulku';
 $strCookiesRequired = 'Bìhem tohoto kroku musíte mít povoleny cookies.';
 $strCopyDatabaseOK = 'Databáze %s byla zkopírována na %s';
+$strCopy = 'Kopírovat';
 $strCopyTable = 'Kopírovat tabulku do (databáze<b>.</b>tabulka):';
 $strCopyTableOK = 'Tabulka %s byla zkopírována do %s.';
 $strCopyTableSameNames = 'Nelze kopírovat tabulku na sebe samu!';
@@ -290,6 +291,8 @@ $strFunction = 'Funkce';
 
 $strGenBy = 'Vygeneroval';
 $strGeneralRelationFeat = 'Obecné funkce relací';
+$strGeneratePassword = 'Vytvoøit heslo';
+$strGenerate = 'Vytvoøit';
 $strGenTime = 'Vygenerováno';
 $strGeorgian = 'Gruzín¹tina';
 $strGerman = 'Nìmecky';
@@ -810,7 +813,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strGeneratePassword = 'Generate Password';  //to translate
-$strGenerate = 'Generate';  //to translate
-$strCopy = 'Copy';  //to translate
 ?>
