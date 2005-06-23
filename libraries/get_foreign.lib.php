@@ -27,7 +27,7 @@ if ($foreigners && isset($foreigners[$field])) {
 
     $the_total   = PMA_countRecords($foreign_db, $foreign_table, TRUE);
 
-    if ((isset($override_total) && $override_total == true) || $the_total < 200) {
+    if ((isset($override_total) && $override_total == true) || $the_total < $cfg['ForeignKeyMaxLimit']) {
         // foreign_display can be FALSE if no display field defined:
 
         $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);

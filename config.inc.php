@@ -266,7 +266,13 @@ $cfg['CharEditing']           = 'input';
                                         //  input - allows limiting of input length
                                         //  textarea - allows newlines in fields
 $cfg['InsertRows']            = 2;      // How many rows can be inserted at one time
-$cfg['InsertDropdownOrder']   = FALSE;  // Ordering for elements in dropdown.
+$cfg['ForeignKeyDropdownOrder'] = array(
+'content-id'
+//, 
+//'id-content'
+); // Sort order for items in a foreign-key dropdown box. 
+$cfg['ForeignKeyMaxLimit'] = 100; // If less items than this exist, a dropdown will be used.
+
 
 // For the export features...
 $cfg['ZipDump']               = TRUE;   // Allow the use of zip/gzip/bzip

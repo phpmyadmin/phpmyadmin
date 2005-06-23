@@ -550,7 +550,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="foreign" />
             <input type="hidden" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="" id="field_<?php echo $idindex; ?>_1" />
             <select name="field_<?php echo md5($field); ?><?php echo $vkey; ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3">
-                <?php echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data, 100); ?>
+                <?php echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data, $cfg['ForeignKeyMaxLimit']); ?>
             </select>
             </td>
             <?php

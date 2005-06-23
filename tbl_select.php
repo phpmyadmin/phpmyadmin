@@ -286,7 +286,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
             // here, the 4th parameter is empty because there is no current
             // value of data for the dropdown (the search page initial values
             // are displayed empty)
-            echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, '', 100);
+            echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, '', $cfg['ForeignKeyMaxLimit']);
             echo '                    </select>' . "\n";
         } else if (isset($foreign_link) && $foreign_link == true) {
         ?>

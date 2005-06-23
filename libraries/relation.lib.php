@@ -793,7 +793,7 @@ function PMA_purgeHistory($username) {
  *
  * @access  public
  */
-function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $max = 100) {
+function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $max) {
     global $cfg;
 
     $ret = '<option value=""></option>' . "\n";
@@ -836,22 +836,27 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
         asort($reloptions['content-id']);
     }
 
-    if ($cfg['InsertDropdownOrder']) {
-        $top = $reloptions['content-id'];
-        $bot = $reloptions['id-content'];
+    $c = count($cfg['ForeignKeyDropdownOrder']);
+    if($c == 2) {
+        $top = $reloptions[$cfg['ForeignKeyDropdownOrder'][0]];
+        $bot = $reloptions[$cfg['ForeignKeyDropdownOrder'][1]];
+    } elseif($c == 1) {
+        $bot = $reloptions[$cfg['ForeignKeyDropdownOrder'][0]];
+        $top = NULL;
     } else {
         $top = $reloptions['id-content'];
         $bot = $reloptions['content-id'];
     }
-    $str_top = implode('', $top);
     $str_bot = implode('', $bot);
-
-    $top_count = count($top);
-    if ($max == -1 || $top_count < $max) {
-        $ret .= $str_top;
-        if ($top_count > 0) {
-            $ret .= '<option value=""></option>' . "\n";
-            $ret .= '<option value=""></option>' . "\n";
+    if($top !== NULL) {
+        $str_top = implode('', $top);
+        $top_count = count($top);
+        if ($max == -1 || $top_count < $max) {
+            $ret .= $str_top;
+            if ($top_count > 0) {
+                $ret .= '<option value=""></option>' . "\n";
+                $ret .= '<option value=""></option>' . "\n";
+            }
         }
     }
     $ret .= $str_bot;
