@@ -820,4 +820,5 @@ $strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to tran
 
 $strRoutines = 'Routines';  //to translate
 
+$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
 ?>

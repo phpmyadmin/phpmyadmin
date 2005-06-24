@@ -815,4 +815,5 @@ $strBufferReadMissesInPercent = 'Read misses in %';  //to translate
 $strBufferWriteWaits = 'Write waits';  //to translate
 $strBufferWriteWaitsInPercent = 'Write waits in %';  //to translate
 
+$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
 ?>

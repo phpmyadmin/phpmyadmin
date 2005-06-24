@@ -815,4 +815,5 @@ $strYes = 'Тийм';
 $strZeroRemovesTheLimit = 'Тэмдэглэл: Тохируулгын сонголтыг  0 (тэг) болговол хязгаарыг хасна.';
 $strZip = 'zip-ээр шахах';
 
+$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
 ?>

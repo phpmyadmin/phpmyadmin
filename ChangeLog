@@ -17,6 +17,8 @@ $Source$
       looks better (RFE #1169931).
     * tbl_change.php: Display column comment while editing data (RFE #860912).
     * lang/sync_lang.sh: Fix belarusian name.
+    * libraries/transformations/application_octetstream__hex.inc.php, lang/*:
+      Add hex transformation (RFE #1100068).
 
 2005-06-24 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: problem renaming a db

@@ -743,6 +743,7 @@ $strTraditionalChinese = 'Tradièní èín¹tina';
 $strTraditionalSpanish = 'Tradièní ¹panìl¹tina';
 $strTraffic = 'Provoz';
 $strTransformation_application_octetstream__download = 'Zobrazí odkaz na stáhnutí dat. První parametr je jméno souboru, druhý jméno sloupce v tabulce obsahující jméno souboru. Pokud zadáte druhý parametr, první musí být prázdný.';
+$strTransformation_application_octetstream__hex = 'Zobrazí data ¹estnáctkovì.';
 $strTransformation_image_jpeg__inline = 'Zobrazí náhled obrázku s&nbsp;odkazem na obrázek; parametry ¹íøka a vý¹ka v&nbsp;bodech (pomìr stran obrázku zùstane zachován)';
 $strTransformation_image_jpeg__link = 'Zobrazí odkaz na obrázek (napøíklad stáhnutí pole blob).';
 $strTransformation_image_png__inline = 'Viz image/jpeg: inline';
