@@ -15,6 +15,7 @@ $Source$
       code for browsing directory with themes (RFE #1184251).
     * tbl_change.php: Use select instead of input, this saves some place and
       looks better (RFE #1169931).
+    * tbl_change.php: Display column comment while editing data (RFE #860912).
 
 2005-06-24 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: problem renaming a db

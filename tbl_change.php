@@ -72,6 +72,21 @@ $url_query = PMA_generate_common_url($db, $table)
 
 require('./tbl_properties_table_info.php');
 
+/* Get comments */
+
+$comments_map = array();
+
+if ($GLOBALS['cfg']['ShowPropertyComments']) {
+    require_once('./libraries/relation.lib.php');
+    require_once('./libraries/transformations.lib.php');
+
+    $cfgRelation = PMA_getRelationsParam();
+
+    if ($cfgRelation['commwork']) {
+        $comments_map = PMA_getComments($db, $table);
+    }
+}
+
 /**
  * Displays top menu links
  */
@@ -329,10 +344,15 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                          : PMA_DBI_field_len($vresult, $i);
         $first_timestamp = 0;
 
+        $field_name = htmlspecialchars($field);
+        if (isset($comments_map[$field])) {
+            $field_name = '<span style="border-bottom: 1px dashed black;" title="' . htmlspecialchars($comments_map[$field]) . '">' . $field_name . '</span>';
+        }
+
         $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         ?>
         <tr>
-            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($row_table_def['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center" bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($field); ?></td>
+            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($row_table_def['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center" bgcolor="<?php echo $bgcolor; ?>"><?php echo $field_name; ?></td>
         <?php
         echo "\n";
 
