@@ -77,6 +77,8 @@ if ($PMA_ThemeAvailable == TRUE) { // themeManager is available
     closedir($handleThemes);
 } // end themeManger
 
+asort($available_themes_choices);
+
 if (isset($set_theme)) { // if user submit a theme
     setcookie('pma_theme', $set_theme, time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
 } else { // else check if user have a theme cookie

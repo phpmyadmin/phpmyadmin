@@ -84,9 +84,7 @@ echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
             <td><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td>
         </tr>
         <?php
-if ($handleThemes = opendir($path_to_themes)) { // open themes
-    while (false !== ($PMA_Theme = readdir($handleThemes))) {  // get screens
-        if ($PMA_Theme != "." && $PMA_Theme != "..") {
+foreach ($available_themes_choices AS $PMA_Theme) {
             $screen_directory = $path_to_themes . $PMA_Theme;
 
             // check for theme requires/name
@@ -142,9 +140,6 @@ if ($handleThemes = opendir($path_to_themes)) { // open themes
         </tr>
 <?php
             } // end 'screen output'
-        } // end 'check theme'
-    } // end 'get screens'
-    closedir($handleThemes);
 } // end 'open themes'
 ?>
     </table>

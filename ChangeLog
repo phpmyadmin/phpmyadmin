@@ -11,6 +11,8 @@ $Source$
     * config.inc.php, libraries/common.lib.php,
       libraries/config_import.lib.php, libraries/display_export.lib.php:
       Configurable file name templates (RFE #1226941).
+    * themes.php, libraries/select_theme.lib.php: Sort themes, use only one
+      code for browsing directory with themes (RFE #1184251).
 
 2005-06-24 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: problem renaming a db
