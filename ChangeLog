@@ -8,8 +8,9 @@ $Source$
 2005-06-24 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: problem renaming a db
 
-2005-06-22 Alexander M. Turek  <me@derrabus.de>
+2005-06-24 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Updates.
+    * db_operations.php: Cleaning up Marc's code... ;-p
 
 2005-06-23 Robin Johnson <robbat2@users.sourceforge.net>
     * config.inc.php, libraries/relation.lib.php,
