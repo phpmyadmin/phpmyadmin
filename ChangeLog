@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-22 Alexander M. Turek  <me@derrabus.de>
+    * lang/german-*.inc.php: Updates.
+
 2005-06-23 Robin Johnson <robbat2@users.sourceforge.net>
     * config.inc.php, libraries/relation.lib.php,
 	libraries/get_foreign.lib.php, tbl_select.php, tbl_change.php: Support for

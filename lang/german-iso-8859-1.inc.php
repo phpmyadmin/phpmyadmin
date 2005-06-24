@@ -156,13 +156,14 @@ $strConnections = 'Verbindungen';
 $strConstraintsForDumped = 'Constraints der exportierten Tabellen';
 $strConstraintsForTable = 'Constraints der Tabelle';
 $strCookiesRequired = 'Ab diesem Punkt müssen Cookies aktiviert sein.';
-$strCopy = 'Kopieren';
 $strCopyDatabaseOK = 'Datenbank %s wurde nach %s kopiert';
+$strCopy = 'Kopieren';
 $strCopyTable = 'Kopiere Tabelle nach (Datenbank<b>.</b>Tabellenname):';
 $strCopyTableOK = 'Tabelle %s wurde nach %s kopiert.';
 $strCopyTableSameNames = 'Tabelle kann nicht mit gleichem Namen kopiert werden!';
 $strCouldNotKill = 'phpMyAdmin konnte den Prozess %s nicht abbrechen. Er wurde wahrscheinlich bereits geschlossen.';
 $strCreate = 'Anlegen';
+$strCreateDatabaseBeforeCopying = 'Vor dem Kopieren CREATE DATABASE ausführen.';
 $strCreateIndex = 'Index über&nbsp;%s&nbsp;Spalten anlegen';
 $strCreateIndexTopic = 'Neuen Index anlegen';
 $strCreateNewDatabase = 'Neue Datenbank anlegen';
@@ -806,13 +807,16 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 
-$strPrivDescCreateView = 'Allows creating new views.';  //to translate
+// To translate:
+
 $strPrivDescAlterDb = 'Allows altering the structure of existing tables as well as changing the default charset and collation of databases.';  //to translate
-$strPrivDescCreateUser = 'Allows creating, dropping and renaming unser accounts.';  //to translate
-$strPrivDescCreateRoutine = 'Allows creating stored routines.';  //to translate
 $strPrivDescAlterRoutine = 'Allows altering and dropping stored routines.';  //to translate
-$strRoutines = 'Routines';  //to translate
-$strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to translate
+$strPrivDescCreateRoutine = 'Allows creating stored routines.';  //to translate
+$strPrivDescCreateUser = 'Allows creating, dropping and renaming unser accounts.';  //to translate
+$strPrivDescCreateView = 'Allows creating new views.';  //to translate
 $strPrivDescExecute5 = 'Allows executing stored routines.';  //to translate
-$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
+$strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to translate
+
+$strRoutines = 'Routines';  //to translate
+
 ?>
