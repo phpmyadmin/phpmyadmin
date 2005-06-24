@@ -1135,6 +1135,15 @@ if (!isset($cfg['Export']['onserver_overwrite'])) {
 if (!isset($cfg['Export']['remember_file_template'])) {
     $cfg['Export']['remember_file_template'] = TRUE;
 }
+if (!isset($cfg['Export']['file_template_table'])) {
+    $cfg['Export']['file_template_table']       = '__TABLE__';
+}
+if (!isset($cfg['Export']['file_template_database'])) {
+    $cfg['Export']['file_template_database']    = '__DB__';
+}
+if (!isset($cfg['Export']['file_template_server'])) {
+    $cfg['Export']['file_template_server']      = '__SERVER__';
+}
 if (!isset($cfg['Export']['csv_null'])) {
     $cfg['Export']['csv_null']                  = 'NULL';
 }

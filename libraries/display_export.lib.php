@@ -659,19 +659,19 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                         if (isset($_COOKIE) && !empty($_COOKIE['pma_db_filename_template'])) {
                             echo $_COOKIE['pma_db_filename_template'];
                         } else {
-                            echo '__DB__';
+                            echo $GLOBALS['cfg']['Export']['file_template_database'];
                         }
                     } elseif ($export_type == 'table') {
                         if (isset($_COOKIE) && !empty($_COOKIE['pma_table_filename_template'])) {
                             echo $_COOKIE['pma_table_filename_template'];
                         } else {
-                            echo '__TABLE__';
+                            echo $GLOBALS['cfg']['Export']['file_template_table'];
                         }
                     } else {
                         if (isset($_COOKIE) && !empty($_COOKIE['pma_server_filename_template'])) {
                             echo $_COOKIE['pma_server_filename_template'];
                         } else {
-                            echo '__SERVER__';
+                            echo $GLOBALS['cfg']['Export']['file_template_server'];
                         }
                     }
                     echo '" ';

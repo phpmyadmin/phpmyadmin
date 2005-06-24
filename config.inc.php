@@ -323,6 +323,9 @@ $cfg['Export']['asfile']                    = FALSE;
 $cfg['Export']['onserver']                  = FALSE;
 $cfg['Export']['onserver_overwrite']        = FALSE;
 $cfg['Export']['remember_file_template']    = TRUE;
+$cfg['Export']['file_template_table']       = '__TABLE__';
+$cfg['Export']['file_template_database']    = '__DB__';
+$cfg['Export']['file_template_server']      = '__SERVER__';
 
 $cfg['Export']['htmlexcel_columns']         = FALSE;
 $cfg['Export']['htmlexcel_null']            = 'NULL';

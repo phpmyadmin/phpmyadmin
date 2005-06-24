@@ -8,6 +8,9 @@ $Source$
 2005-06-24 Michal Čihař  <michal@cihar.com>
     * tbl_change.php, tbl_properties_links.php, libraries/export/sql.php:
       Remove error reporting.
+    * config.inc.php, libraries/common.lib.php,
+      libraries/config_import.lib.php, libraries/display_export.lib.php:
+      Configurable file name templates (RFE #1226941).
 
 2005-06-24 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: problem renaming a db
