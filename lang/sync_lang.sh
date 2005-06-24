@@ -82,7 +82,8 @@ albanian-iso-8859-1
 arabic-windows-1256
 azerbaijani-iso-8859-9
 basque-iso-8859-1
-belarusian-windows-1251
+belarusian_cyrillic-windows-1251
+belarusian_latin-utf-8
 bosnian-windows-1250
 brazilian_portuguese-iso-8859-1
 bulgarian-windows-1251
