@@ -2,6 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+error_reporting(E_ALL);
 require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/mysql_charsets.lib.php');
@@ -25,7 +26,8 @@ if (isset($db) &&
     if (!isset($newname) || empty($newname)) {
         $message = $strDatabaseEmpty;
     } else {
-        if ($create_database_before_copying) {
+        if ($move ||
+           (isset($create_database_before_copying) && $create_database_before_copying)) {
             $local_query = 'CREATE DATABASE ' . PMA_backquote($newname);
             if (isset($db_collation)) {
                 $local_query .= ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
@@ -63,6 +65,7 @@ if (isset($db) &&
 
             $sql_query = $back . $sql_query;
         }
+        unset($table);
 
         // Duplicate the bookmarks for this db (done once for each db)
         if ($db != $newname) {
@@ -198,6 +201,7 @@ if ($cfgRelation['commwork']) {
         <form method="post" action="db_operations.php"
             onsubmit="return emptyFormElements(this, 'newname')">
                                         <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="2"><?php
+          echo '<input type="hidden" name="what" value="data" />';
           echo '<input type="hidden" name="db_rename" value="true" />'
              . PMA_generate_common_hidden_inputs($db);
           ?><input type="text" name="newname" size="30" class="textfield" value="" /></td>
