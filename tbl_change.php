@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-error_reporting(E_ALL);
 
 /**
  * Get the variables sent or posted to this script and displays the header

@@ -3,13 +3,6 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 
-/**
- * Sets error reporting level
- */
-// (removed to avoid path disclosure, not sure about why this was here)
-// error_reporting(E_ALL);
-
-
 // Check parameters
 
 require_once('./libraries/common.lib.php');

@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-error_reporting(E_ALL);
 /**
  * Set of functions used to build SQL dumps of tables
  */

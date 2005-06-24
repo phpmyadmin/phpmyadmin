@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-24 Michal Čihař  <michal@cihar.com>
+    * tbl_change.php, tbl_properties_links.php, libraries/export/sql.php:
+      Remove error reporting.
+
 2005-06-24 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: problem renaming a db
 
