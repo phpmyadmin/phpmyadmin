@@ -13,6 +13,8 @@ $Source$
       Configurable file name templates (RFE #1226941).
     * themes.php, libraries/select_theme.lib.php: Sort themes, use only one
       code for browsing directory with themes (RFE #1184251).
+    * tbl_change.php: Use select instead of input, this saves some place and
+      looks better (RFE #1169931).
 
 2005-06-24 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: problem renaming a db

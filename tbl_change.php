@@ -831,20 +831,17 @@ foreach ($loop_array AS $vrowcount => $vrow) {
     <table border="0" cellpadding="5" cellspacing="0">
     <tr>
         <td valign="middle" nowrap="nowrap">
+            <select name="submit_type">
 <?php
 if (isset($primary_key)) {
     ?>
-            <input type="radio" name="submit_type" value="<?php echo $strSave; ?>" id="radio_submit_type_save" checked="checked" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>" style="vertical-align: middle" /><label for="radio_submit_type_save"><?php echo $strSave; ?></label><br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
-            <input type="radio" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" id="radio_submit_type_insert_as_new_row" tabindex="<?php echo ($tabindex + $tabindex_for_value + 2); ?>" style="vertical-align: middle" /><label for="radio_submit_type_insert_as_new_row"><?php echo $strInsertAsNewRow; ?></label>
+                <option value="<?php echo $strSave; ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>"><?php echo $strSave; ?></option>
     <?php
-} else {
-    echo "\n";
-    ?>
-            <input type="hidden" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" />
-    <?php
-    echo '            ' . $strInsertAsNewRow . "\n";
 }
+    ?>
+                <option value="<?php echo $strInsertAsNewRow; ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 2); ?>"><?php echo $strInsertAsNewRow; ?></option>
+            </select>
+    <?php
 echo "\n";
 
 // Defines whether "insert a new row after the current insert" should be
@@ -860,29 +857,26 @@ if (!empty($disp_message)) {
 ?>
         </td>
         <td valign="middle">
-            &nbsp;&nbsp;&nbsp;<b>-- <?php echo $strAnd; ?> --</b>&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;<b><?php echo $strAnd; ?></b>&nbsp;&nbsp;&nbsp;
         </td>
         <td valign="middle" nowrap="nowrap">
-            <input type="radio" name="after_insert" value="back" id="radio_after_insert_back" <?php echo $checked_after_insert_back; ?> tabindex="<?php echo ($tabindex + $tabindex_for_value + 3); ?>" style="vertical-align: middle" /><label for="radio_after_insert_back"><?php echo $strAfterInsertBack; ?></label><br />
-
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
-            <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tabindex_for_value + 4); ?>" style="vertical-align: middle" /><label for="radio_after_insert_new_insert"><?php echo $strAfterInsertNewInsert; ?></label><br />
-
+            <select name="after_insert">
+                <option value="back" ><?php echo $strAfterInsertBack; ?></option>
+                <option value="new_insert"><?php echo $strAfterInsertNewInsert; ?></option>
 <?php
 if (isset($primary_key))
 {?>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
-            <input type="radio" name="after_insert" value="same_insert" id="radio_after_insert_same_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tabindex_for_value + 5); ?>" style="vertical-align: middle" /><label for="radio_after_insert_same_insert"><?php echo $strAfterInsertSame; ?></label><br />
+                <option value="same_insert"><?php echo $strAfterInsertSame; ?></option>
 <?php
     // If we have just numeric primary key, we can also edit next
     if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $primary_key)) {
 ?>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
-            <input type="radio" name="after_insert" value="edit_next" id="radio_after_insert_edit_next"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tabindex_for_value + 5); ?>" style="vertical-align: middle" /><label for="radio_after_insert_edit_next"><?php echo $strAfterInsertNext; ?></label><br />
+                <option value="edit_next"><?php echo $strAfterInsertNext; ?></option>
 <?php
     }
 }
 ?>
+            </select>
         </td>
     </tr>
 
