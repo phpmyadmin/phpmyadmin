@@ -124,6 +124,11 @@ $cfg['Servers'][$i]['AllowDeny']['order']           // Host authentication order
 $cfg['Servers'][$i]['AllowDeny']['rules']           // Host authentication rules, leave blank for defaults
                                      = array();
 
+/**
+ * If you are configuring for only one server, stop here. You can jump to the next
+ *   section called "Other core phpMyAdmin settings."
+ * The following section allows you to add a second server to this installation.
+ */
 
 $i++;
 $cfg['Servers'][$i]['host']            = '';
@@ -153,6 +158,10 @@ $cfg['Servers'][$i]['AllowDeny']['order']
                                        = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']
                                        = array();
+
+/**
+ * This section allows you to configure a third server for this installation.
+ */
 
 $i++;
 $cfg['Servers'][$i]['host']            = '';
