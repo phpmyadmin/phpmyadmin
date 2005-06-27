@@ -263,6 +263,10 @@ else {
         ?>
                 </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+                    <a href="tbl_properties_structure.php?<?php echo $tbl_url_query; ?>">
+                        <?php echo $titles['Structure']; ?></a>
+                            </td>
+                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
         if (!empty($sts_data['Rows']) || $is_view || (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema')) {
             echo '<a href="tbl_select.php?' . $tbl_url_query . '">'
@@ -285,10 +289,6 @@ else {
         }
         ?>
                 </td>
-                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-                    <a href="tbl_properties_structure.php?<?php echo $tbl_url_query; ?>">
-                        <?php echo $titles['Structure']; ?></a>
-                            </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
         if (!empty($sts_data['Rows'])) {

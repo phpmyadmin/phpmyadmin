@@ -10,7 +10,9 @@ $Source$
       #1226666).
     * db_details_links.php: Place export tab on same place as on table page
       (RFE #1047874).
-    * tbl_properties_links.php: Switch browse and properties tabs (RFE #1047874).
+    * tbl_properties_links.php: Switch browse and properties tabs
+    * db_details_structure.php: Make order of icons same as on table view (RFE
+      #1047874).
 
 2005-06-24 Michal Čihař  <michal@cihar.com>
     * tbl_change.php, tbl_properties_links.php, libraries/export/sql.php:
