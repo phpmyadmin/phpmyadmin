@@ -42,6 +42,10 @@ if (isset($submittype)) {
     $message       = $strSuccess;
 }
 if (isset($submitcollation)) {
+    // since something modifies $tbl_collation between the moment it is
+    // set from $_POST and this point, need to restore it
+    // (bug seen in MySQL 5.0.4)
+    $tbl_collation = $_POST['tbl_collation'];
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' DEFAULT' . PMA_generateCharsetQueryPart($tbl_collation);
     $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;

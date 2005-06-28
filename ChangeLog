@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_operations.php: bug #1225635,
+      cannot change table's collation under MySQL 5.0.4
+
 2005-06-27 Michal Čihař  <michal@cihar.com>
     * config.inc.php: Better comments describing multi server setup (patch
       #1226666).
