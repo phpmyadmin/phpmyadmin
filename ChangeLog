@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_table_info.php: bug #1228862, creating a table under 
+      MySQL 5.x with wrong table type
+
 2005-06-28 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_operations.php: bug #1225635,
       cannot change table's collation under MySQL 5.0.4
