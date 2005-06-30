@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-06-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/hungarian update, thanks to Mih·ly MÈsz·ros <necronix@freemail.hu>
+    * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000)
+    * lang/chinese_traditional: Updates, thanks to Siu Sun
+    * lang/catalan update, thanks to Xavier Navarro (xavin).
+    * lang/lithuanian: Updated, thanks to Vilius Simonaitis - maumas98
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
+    * lang/swedish: Updated, thanks to Bj√∂rn T. Hallberg (bth).
+
 2005-06-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_table_info.php: bug #1228862, creating a table under 
       MySQL 5.x with wrong table type
