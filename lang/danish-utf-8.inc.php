@@ -1,5 +1,6 @@
 <?php
-/* $Id: danish-utf-8.inc.php,v 2.62 2005/04/05 01:23:45  */
+/*  $Id$  */
+/* Dansk oversætter AlleyKat kan kontaktes på < phpmyadmin (at) phpbb2.dk > */
 
 $charset = 'utf-8';
 $allow_recoding = TRUE;
@@ -18,7 +19,7 @@ $month = array('jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'o
 $datefmt = '%d/%m %Y kl. %H:%M:%S';
 $timespanfmt = '%s dage, %s timer, %s minutter og %s sekunder';
 
-$strAPrimaryKey = 'Der er føjet en primær nøgle til %s';
+$strAPrimaryKey = 'En primær nøgle er blevet tilføjet til %s';
 $strAbortedClients = 'Afbrudt';
 $strAbsolutePathToDocSqlDir = 'Indtast venligst absolut sti på webserveren til docSQL mappen';
 $strAccessDenied = 'Adgang Nægtet';
@@ -40,8 +41,8 @@ $strAddSearchConditions = 'Tilføj søgekriterier (kroppen af "WHERE" sætningen
 $strAddToIndex = 'Føj til indeks &nbsp;%s&nbsp;kolonne(r)';
 $strAddUser = 'Tilføj en ny bruger';
 $strAddUserMessage = 'Du har tilføjet en ny bruger.';
-$strAddedColumnComment = 'Tilføjet kommentar for kolonne';
-$strAddedColumnRelation = 'Tilføjet relation for kolonne';
+$strAddedColumnComment = 'Tilføjet kommentar til kolonne';
+$strAddedColumnRelation = 'Tilføjet relation til kolonne';
 $strAdministration = 'Administration';
 $strAffectedRows = 'Berørte rækker:';
 $strAfter = 'Efter %s';
@@ -739,6 +740,7 @@ $strTraditionalChinese = 'Traditionelt Kinesisk';
 $strTraditionalSpanish = 'Traditionelt Spansk';
 $strTraffic = 'Trafik';
 $strTransformation_application_octetstream__download = 'Viser et link til at downloade et felts binære data. Første mulighed er filnavnet på den binære fil. Anden mulighed er et muligt feltnavn fra en tabelrække indeholdende filnavnet. Hvis du bruger anden mulighed, er feltet til den første mulighed nødt til at være sat til en tom streng.';
+$strTransformation_application_octetstream__hex = 'Viser hexadecimal udgave af data.';
 $strTransformation_image_jpeg__inline = 'Viser et klikbart minibilled; indstillinger: bredde,højde i pixel (bevarer det originale perspektiv)';
 $strTransformation_image_jpeg__link = 'Viser et link til dette billede (f.eks. direkte blob-download).';
 $strTransformation_image_png__inline = 'Se image/jpeg: inline';
@@ -809,5 +811,4 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen.';
 $strZip = '"zippet"';
 
-$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
 ?>
