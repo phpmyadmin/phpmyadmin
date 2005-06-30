@@ -3,7 +3,7 @@
 
 /*
   Finnish language file by:
- 	Jouni Kähkönen, kajouni@mbnet.fi
+ 	Jouni Kähkönen, kajouni at mbnet dot fi
  	Visa Kopu, visa@visakopu.net
  
   April 29, 2005 by Jouni Kähkönen:
