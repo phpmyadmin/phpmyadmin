@@ -743,6 +743,7 @@ $strTraditionalChinese = '繁體中文';
 $strTraditionalSpanish = '傳統西班牙語';
 $strTraffic = '流量';
 $strTransformation_application_octetstream__download = '於欄位顯示連線來下載二進制資料. 第一個選項是二進制的檔案名稱. 第二個選項可設定可用的欄位名稱用作檔案名稱. 如您設定了第二個選項, 第一個選項無需設定';
+$strTransformation_application_octetstream__hex = '以十六進制方式顯示.';
 $strTransformation_image_jpeg__inline = '顯示可按式圖像; 選項; 寬度,高度[以像素為單位] (保時原有比例)';
 $strTransformation_image_jpeg__link = '顯示圖像的連線 (直接下載).';
 $strTransformation_image_png__inline = '參看 image/jpeg: 內建';
@@ -813,5 +814,4 @@ $strYes = ' 是 ';
 $strZeroRemovesTheLimit = '註: 設定這些選項為 0 (零) 可解除限制.';
 $strZip = '"zipped"';
 
-$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
 ?>
