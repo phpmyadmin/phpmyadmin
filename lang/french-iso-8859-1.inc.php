@@ -739,6 +739,7 @@ $strTraditionalChinese = 'chinois traditionnel';
 $strTraditionalSpanish = 'espagnol traditionnel';
 $strTraffic = 'Trafic';
 $strTransformation_application_octetstream__download = 'Affiche un lien pour télécharger le contenu binaire d\'une colonne. La première option est le nom du fichier binaire. La seconde option est le nom de la colonne contenant le nom du fichier. Si vous utilisez la seconde option, veuillez laisser la première option vide.';
+$strTransformation_application_octetstream__hex = 'Affiche une représentation hexadécimale des données.';
 $strTransformation_image_jpeg__inline = 'Affiche une image timbre-poste cliquable; les options sont: largeur,hauteur en pixels (conserve le rapport original)';
 $strTransformation_image_jpeg__link = 'Affiche un lien vers cette image';
 $strTransformation_image_png__inline = 'Voir image/jpeg: inline';
@@ -809,5 +810,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
 ?>
