@@ -1627,6 +1627,8 @@ Defaults to FALSE (drop-down). <br />
         Please note that if PHP is running in safe mode, this directory must
         be owned by the same user as the owner of the phpMyAdmin scripts.
         <br /><br />
+        See also FAQ 1.16 for alternatives.
+        <br /><br />
     </dd>
 
     <dt><b>$cfg['docSQLDir'] </b>string</dt>
@@ -2462,14 +2464,27 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     The first things to check (or ask your host provider to check) are the
     values of <tt>upload_max_filesize</tt>, <tt>memory_limit</tt> and
     <tt>post_max_size</tt> in the <i>php.ini</i> configuration file.
-    <br />
     All of these three settings limit the maximum size of data that can be
     submitted and handled by PHP. One user also said that post_max_size
     and memory_limit need to be larger than upload_max_filesize.
-    <br />
-    If you get a timeout problem, look at the <tt>$cfg['UploadDir']</tt>
-    feature.
+    <br /> <br />
+    There exist several workarounds if your upload is too big or your
+    hosting provider is unwilling to change the settings:
 </p>
+<ul>
+    <li>Look at the <tt>$cfg['UploadDir']</tt> feature. This allows one to
+    upload a file to the server via scp, ftp, or your favorite file transfer
+    method. PhpMyAdmin is then able to import the files from the temporary
+    directory. More information is available in the "Configuration"
+    section of this document.</li>
+    <li>Using a utility (such as <a href="http://www.ozerov.de/bigdump.php">
+    BigDump</a>) to split the files before uploading. We cannot support this
+    or any third party applications, but are aware of users having success
+    with it.</li>
+    <li>If you have shell (command line) access, use MySQL to import the files
+    directly. You can do this by issuing the &quot;source&quot; command from
+    within MySQL: <tt>source <i>filename.sql</i></tt>.</li>
+</ul>
 
 <a name="faqmysqlversions"></a>
 <h4>
