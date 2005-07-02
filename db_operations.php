@@ -75,6 +75,10 @@ if (isset($db) &&
         }
 
         if ($move) {
+            // cleanup pmadb stuff for this db
+            require_once('./libraries/relation_cleanup.lib.php');
+            PMA_relationsCleanupDatabase($db);
+
             $local_query = 'DROP DATABASE ' . PMA_backquote($db) . ';';
             $sql_query .= "\n" . $local_query;
             PMA_DBI_query($local_query);
