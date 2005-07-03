@@ -1627,7 +1627,7 @@ Defaults to FALSE (drop-down). <br />
         Please note that if PHP is running in safe mode, this directory must
         be owned by the same user as the owner of the phpMyAdmin scripts.
         <br /><br />
-        See also FAQ 1.16 for alternatives.
+        See also <a href="#faq1_16">FAQ 1.16</a> for alternatives.
         <br /><br />
     </dd>
 
@@ -2457,7 +2457,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     were named <tt>user</tt> and <tt>password</tt>. Please modify your field
     names to align with current standards.
 </p>
-<h4>
+<h4><a name="faq1_16"></a>
     [1.16] I cannot upload big dump files (memory, http or timeout problems).
 </h4>
 <p>
@@ -2475,8 +2475,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <li>Look at the <tt>$cfg['UploadDir']</tt> feature. This allows one to
     upload a file to the server via scp, ftp, or your favorite file transfer
     method. PhpMyAdmin is then able to import the files from the temporary
-    directory. More information is available in the "Configuration"
-    section of this document.</li>
+    directory. More information is available in the <a href="#config">Configuration
+    section</a> of this document.</li>
     <li>Using a utility (such as <a href="http://www.ozerov.de/bigdump.php">
     BigDump</a>) to split the files before uploading. We cannot support this
     or any third party applications, but are aware of users having success

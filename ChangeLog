@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-03 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: link in doc, thanks to Cedric Corazza
+
 2005-07-02 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: bug #1230224, db rename and old pmadb information
 
