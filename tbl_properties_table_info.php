@@ -27,7 +27,7 @@ global $showtable, $tbl_is_view, $tbl_type, $show_comment, $tbl_collation,
 PMA_DBI_select_db($db);
 
 // The 'show table' statement works correct since 3.23.03
-$table_info_result   = PMA_DBI_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
+$table_info_result   = PMA_DBI_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';', NULL, PMA_DBI_QUERY_STORE);
 
 // need this test because when we are creating a table, we get 0 rows
 // from the SHOW TABLE query
