@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza)
+      and Mastermnd for the 2.6.2 translation cleanup
+
 2005-07-03 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: link in doc, thanks to Cedric Corazza
     ### 2.6.3 released
