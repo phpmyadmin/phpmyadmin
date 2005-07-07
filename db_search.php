@@ -46,7 +46,7 @@ if (isset($submit_search)) {
      *
      * @return  array    3 SQL querys (for count, display and delete results)
      *
-     * @global  string   the url to retun to in case of errors
+     * @global  string   the url to return to in case of errors
      */
     function PMA_getSearchSqls($table, $search_str, $search_option)
     {
@@ -83,14 +83,16 @@ if (isset($submit_search)) {
 
         for ($i = 0; $i < $search_wds_cnt; $i++) {
             // Eliminates empty values
+            // In MySQL 4.1, if a field has no collation we get NULL in Charset
+            // but in MySQL 5.0.x we get '' 
             if (!empty($search_words[$i])) {
                 for ($j = 0; $j < $tblfields_cnt; $j++) {
-                    $prefix = PMA_MYSQL_INT_VERSION >= 40100 && $tblfields[$j]['Charset'] != $charset_connection && $tblfields[$j]['Charset'] != 'NULL'
-                            ? 'CONVERT(_utf8 '
-                            : '';
-                    $suffix = PMA_MYSQL_INT_VERSION >= 40100 && $tblfields[$j]['Charset'] != $charset_connection && $tblfields[$j]['Charset'] != 'NULL'
-                            ? ' USING ' . $tblfields[$j]['Charset'] . ') COLLATE ' . $tblfields[$j]['Collation']
-                            : '';
+                    if (PMA_MYSQL_INT_VERSION >= 40100 && $tblfields[$j]['Charset'] != $charset_connection && $tblfields[$j]['Charset'] != 'NULL' && $tblfields[$j]['Charset'] != '') {
+                        $prefix = 'CONVERT(_utf8 ';
+                        $suffix = ' USING ' . $tblfields[$j]['Charset'] . ') COLLATE ' . $tblfields[$j]['Collation'];
+                    } else {
+                        $prefix = $suffix = '';
+                    }
                     $thefieldlikevalue[] = $tblfields[$j]['Field']
                                          . ' ' . $like_or_regex . ' '
                                          . $prefix
