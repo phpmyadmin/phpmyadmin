@@ -8,6 +8,7 @@ $Source$
 2005-07-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1235473 display_tbl.lib.php,
       Undefined variable order_img
+    * libraries/functions.js: bug #1234098, invalid "normal" cursor style
 
 2005-07-06 Marc Delisle  <lem9@users.sourceforge.net>
     * db_search.php: bug #1233349, db search in MySQL 5.0.x on fields 

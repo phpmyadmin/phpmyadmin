@@ -455,7 +455,7 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
     if (theAction == "over" || theAction == "click") {
         theRow.style.cursor='pointer';
     } else {
-        theRow.style.cursor='normal';
+        theRow.style.cursor='default';
     }
 
     // 2. Gets the current row and exits if the browser can't get it
