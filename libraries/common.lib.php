@@ -142,7 +142,7 @@ if (isset($cfg['FileRevision'])) {
 } else {
     $cfg['FileRevision'] = array(1, 1);
 }
-if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 56)) {
+if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 58)) {
     require_once('./libraries/config_import.lib.php');
 }
 
@@ -328,8 +328,14 @@ if (strtolower($cfg['OBGzip']) == 'auto') {
  *            and if the directory $ThemePath/$theme/img/ exists
  *            If not, it will use default images
 */
+// Allow different theme per server
+$theme_cookie_name = 'pma_theme';
+if ($GLOBALS['cfg']['ThemePerServer'] && isset($server)) {
+    $theme_cookie_name .= '-' . $server;
+}
+//echo $theme_cookie_name;
 // Theme Manager
-if (!$cfg['ThemeManager'] || !isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
+if (!$cfg['ThemeManager'] || !isset($_COOKIE[$theme_cookie_name]) || empty($_COOKIE[$theme_cookie_name])){
     $GLOBALS['theme'] = $cfg['ThemeDefault'];
     $ThemeDefaultOk = FALSE;
     if ($cfg['ThemePath']!='' && $cfg['ThemePath'] != FALSE) {
@@ -352,7 +358,7 @@ if (!$cfg['ThemeManager'] || !isset($_COOKIE['pma_theme']) || empty($_COOKIE['pm
     if (isset($_POST['set_theme'])) {
         $GLOBALS['theme'] = PMA_securePath($_POST['set_theme']);
     } else {
-        $GLOBALS['theme'] = PMA_securePath($_COOKIE['pma_theme']);
+        $GLOBALS['theme'] = PMA_securePath($_COOKIE[$theme_cookie_name]);
     }
 }
 

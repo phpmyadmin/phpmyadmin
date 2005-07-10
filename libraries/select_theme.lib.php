@@ -79,25 +79,31 @@ if ($PMA_ThemeAvailable == TRUE) { // themeManager is available
 
 asort($available_themes_choices);
 
+// Allow different theme per server
+$theme_cookie_name = 'pma_theme';
+if ($GLOBALS['cfg']['ThemePerServer']) {
+    $theme_cookie_name .= '-' . $server;
+}
+
 if (isset($set_theme)) { // if user submit a theme
-    setcookie('pma_theme', $set_theme, time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+    setcookie($theme_cookie_name, $set_theme, time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
 } else { // else check if user have a theme cookie
-    if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])) {
+    if (!isset($_COOKIE[$theme_cookie_name]) || empty($_COOKIE[$theme_cookie_name])) {
         if ($PMA_ThemeDefault == TRUE) {
             if (basename($PHP_SELF) == 'index.php') {
-                setcookie('pma_theme', $cfg['ThemeDefault'], time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+                setcookie($theme_cookie_name, $cfg['ThemeDefault'], time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
             }
             $pmaTheme=$cfg['ThemeDefault'];
         }else{
             if (basename($PHP_SELF) == 'index.php') {
-                setcookie('pma_theme', 'original', time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+                setcookie($theme_cookie_name, 'original', time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
             }
             $pmaTheme='original';
         }
     } else {
-        $pmaTheme=$_COOKIE['pma_theme'];
+        $pmaTheme=$_COOKIE[$theme_cookie_name];
         if (basename($PHP_SELF) == 'index.php') {
-            setcookie('pma_theme', $pmaTheme, time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
+            setcookie($theme_cookie_name, $pmaTheme, time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
         }
     }
 } // end if

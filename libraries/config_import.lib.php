@@ -756,6 +756,9 @@ if (!isset($cfg['ThemePath'])) {
         $cfg['ThemeManager'] = TRUE;
     }
 }
+if (!isset($cfg['ThemePerServer'])){
+    $cfg['ThemePerServer'] = FALSE;
+}
 
 if (!isset($cfg['DefaultQueryTable'])) {
     $cfg['DefaultQueryTable'] = 'SELECT * FROM %t WHERE 1';

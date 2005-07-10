@@ -577,6 +577,7 @@ $cfg['ThemeManager']        = TRUE;          // if you want to use selectable th
 $cfg['ThemeDefault']        = 'original';         // set up default theme, if ThemePath not empty
                                              // you can set up here an valid path to themes or 'original' for
                                              // the original pma-theme
+$cfg['ThemePerServer']      = FALSE;         // allow diferent theme for each configured server
 
 //-----------------------------------------------------------------------------
 

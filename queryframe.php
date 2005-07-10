@@ -52,7 +52,7 @@ echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">"; // r
 <title>phpMyAdmin</title>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
 <base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> />
-<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php?lang=<?php echo $lang; ?>&amp;js_frame=left&amp;num_dbs=0" />
+<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=left&amp;num_dbs=0" />
 <?php
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 ?>
