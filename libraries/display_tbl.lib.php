@@ -577,10 +577,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     if ($is_display['del_lnk'] == 'dr' || $is_display['del_lnk'] == 'kp' ) {
         echo '<form method="post" action="tbl_row_action.php" name="rowsDeleteForm">' . "\n";
         echo PMA_generate_common_hidden_inputs($db, $table, 1);
-        echo '<input type="hidden" name="disp_direction" value="' . $disp_direction . '" />' . "\n";
-        echo '<input type="hidden" name="repeat_cells"   value="' . $repeat_cells   . '" />' . "\n";
-        echo '<input type="hidden" name="goto"           value="sql.php" />' . "\n";
-        echo '<input type="hidden" name="dontlimitchars" value="' . $dontlimitchars . '" />' . "\n";
+        echo '<input type="hidden" name="disp_direction"   value="' . $disp_direction . '" />' . "\n";
+        echo '<input type="hidden" name="repeat_cells"     value="' . $repeat_cells   . '" />' . "\n";
+        echo '<input type="hidden" name="dontlimitchars"   value="' . $dontlimitchars . '" />' . "\n";
+        echo '<input type="hidden" name="pos"              value="' . $pos . '" />' . "\n";
+        echo '<input type="hidden" name="session_max_rows" value="' . $session_max_rows . '" />' . "\n";
+        echo '<input type="hidden" name="goto"             value="sql.php" />' . "\n";
     }
 
     echo '<!-- Results table -->' . "\n"

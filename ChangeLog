@@ -14,6 +14,8 @@ $Source$
       User can now have different theme per server (RFE #1231599).
     * config.inc.php: Add OLD_PASSWORD (bug #1216178).
     * main.php: Correct ALT attribute for image (bug #1232124).
+    * mult_submits.inc.php, libraries/display_tbl.lib.php: Don't forget
+      browsing state while deleting multiple rows (bug #1232624).
 
 2005-07-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1235473 display_tbl.lib.php,
