@@ -69,7 +69,7 @@ function open_querywindow(url) {
     }
 
     if (!querywindow.opener) {
-        querywindow.opener = self;
+        querywindow.opener = blank;
     }
 
     if (window.focus) {
