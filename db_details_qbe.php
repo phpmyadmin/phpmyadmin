@@ -170,7 +170,7 @@ $realwidth = $wid . 'ex';
 
     <!-- Fields row -->
     <tr>
-        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
+        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
             <b><?php echo $strField; ?>:&nbsp;</b>
         </td>
 <?php
@@ -231,7 +231,7 @@ for ($x = 0; $x < $col; $x++) {
 
     <!-- Sort row -->
     <tr>
-        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
+        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
             <b><?php echo $strSort; ?>:&nbsp;</b>
         </td>
 <?php
@@ -296,7 +296,7 @@ for ($x = 0; $x < $col; $x++) {
 
     <!-- Show row -->
     <tr>
-        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
+        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
             <b><?php echo $strShow; ?>:&nbsp;</b>
         </td>
 <?php
@@ -304,7 +304,7 @@ $z = 0;
 for ($x = 0; $x < $col; $x++) {
     if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
-        <td align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+        <td class="tblHeaders" align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
             <input type="checkbox" name="Show[<?php echo $z; ?>]" />
         </td>
         <?php
@@ -322,7 +322,7 @@ for ($x = 0; $x < $col; $x++) {
         $checked     =  '';
     }
     ?>
-        <td align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+        <td class="tblHeaders" align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
             <input type="checkbox" name="Show[<?php echo $z; ?>]"<?php echo $checked; ?> />
         </td>
     <?php
@@ -334,7 +334,7 @@ for ($x = 0; $x < $col; $x++) {
 
     <!-- Criteria row -->
     <tr>
-        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
+        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
             <b><?php echo $strCriteria; ?>:&nbsp;</b>
         </td>
 <?php
@@ -544,7 +544,7 @@ for ($y = 0; $y <= $row; $y++) {
 
     <!-- Modify columns -->
     <tr>
-        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
+        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
             <b><?php echo $strModify; ?>:&nbsp;</b>
         </td>
 <?php
