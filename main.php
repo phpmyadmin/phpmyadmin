@@ -625,7 +625,7 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
        . '    </tr>' . "\n"
        . '    <!-- MySQL Connection Collation -->' . "\n"
        . '    <tr>' .  "\n"
-       .'        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLCharset,'') : $str_normal_list) . "\n"
+       .'        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLConnectionCollation,'') : $str_normal_list) . "\n"
        . '        <td>' . "\n"
        . '            <form method="post" action="index.php" target="_parent">' . "\n"
        . PMA_generate_common_hidden_inputs(NULL, NULL, 4, 'collation_connection')
