@@ -443,7 +443,6 @@ $strNone = 'Nici unul(a)';
 $strNotNumber = 'Acesta nu este un numar!';
 $strNotOK = 'Nu este bine';
 $strNotSet = '<b>%s</b> tabela nu a fost gasita sau nu este setat in %s';
-$strNotValidNumber = 'Nu este un numar valid de linie!';
 $strNull = 'Nul';
 $strNumSearchResultsInTable = '%s rezultat(e) in interiorul tabelei <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> rezultat(e)';
@@ -813,4 +812,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

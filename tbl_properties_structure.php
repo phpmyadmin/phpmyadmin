@@ -551,7 +551,7 @@ if (!$tbl_is_view) {
 ?><br />
 <!-- Add some new fields -->
 <form method="post" action="tbl_addfield.php"
-    onsubmit="return checkFormElementInRange(this, 'num_fields', 1)">
+    onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldAddCount']); ?>', 1)">
     <?php
         echo PMA_generate_common_hidden_inputs($db, $table);
         if ($cfg['PropertiesIconic']) {

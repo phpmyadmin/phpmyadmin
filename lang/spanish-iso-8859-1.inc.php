@@ -471,7 +471,6 @@ $strNone = 'Ninguna';
 $strNotNumber = '¡Ésto no es un número!';
 $strNotOK = 'no recibió el OK';
 $strNotSet = 'La tabla <b>%s</b> no fue hallada o no fue definida en %s';
-$strNotValidNumber = '¡no es un número de fila válido!';
 $strNull = 'Nulo';
 $strNumSearchResultsInTable = '%s resultado(s) en la tabla <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> resultado(s)';
@@ -813,4 +812,9 @@ $strZip = '"comprimido con zip"';
 
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
 
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

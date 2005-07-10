@@ -473,7 +473,6 @@ $strNone = 'aucune';
 $strNotNumber = 'Ce n\'est pas un nombre !';
 $strNotOK = 'en erreur';
 $strNotSet = 'La table <b>%s</b> est absente ou non définie dans %s';
-$strNotValidNumber = ' n\'est pas un nombre valide !';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s occurence(s) dans la table <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total :</b> <i>%s</i> occurence(s)';
@@ -811,4 +810,9 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

@@ -11,7 +11,7 @@
  *
  * @return  boolean  whether a valid number has been submitted or not
  */
-function checkFormElementInRange(theForm, theFieldName, min, max)
+function checkFormElementInRange(theForm, theFieldName, message, min, max)
 {
     var theField         = theForm.elements[theFieldName];
     var val              = parseInt(theField.value);
@@ -33,7 +33,7 @@ function checkFormElementInRange(theForm, theFieldName, min, max)
     // It's a number but it is not between min and max
     else if (val < min || val > max) {
         theField.select();
-        alert(val + errorMsg2);
+        alert(message.replace('%d', val));
         theField.focus();
         return false;
     }

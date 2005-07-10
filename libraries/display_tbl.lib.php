@@ -272,7 +272,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
 </td>
 <td align="center">
     <form action="sql.php" method="post"
-        onsubmit="return (checkFormElementInRange(this, 'session_max_rows', 1) &amp;&amp; checkFormElementInRange(this, 'pos', 0, <?php echo $unlim_num_rows - 1; ?>))">
+        onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidRowCount']); ?>', 1) &amp;&amp; checkFormElementInRange(this, 'pos', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidRowNumber']); ?>', 0, <?php echo $unlim_num_rows - 1; ?>))">
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
         <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
         <input type="hidden" name="goto" value="<?php echo $goto; ?>" />

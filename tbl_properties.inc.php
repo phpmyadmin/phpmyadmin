@@ -699,7 +699,7 @@ echo "\n";
 if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') {
     echo '<div class="tblHeaders" style="width: 30%; text-align: left; padding: 3px;">' . "\n";
     echo '    ' . sprintf($strAddFields,  '<input type="text" name="added_fields" size="2" value="1" onfocus="this.select()" style="vertical-align: middle;" />') . "\n";
-    echo '    &nbsp;<input type="submit" name="submit_num_fields" value="' . $strGo . '" onclick="return checkFormElementInRange(this.form, \'added_fields\', 1)" style="vertical-align: middle;" />' . "\n";
+    echo '    &nbsp;<input type="submit" name="submit_num_fields" value="' . $strGo . '" onclick="return checkFormElementInRange(this.form, \'added_fields\', \'' . str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldAddCount']) . '\', 1)" style="vertical-align: middle;" />' . "\n";
     echo '</div>' . "\n";
     echo "<br />\n";
 }

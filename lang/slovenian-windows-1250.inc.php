@@ -396,7 +396,6 @@ $strNone = 'Brez';
 $strNotNumber = 'To ni število!';
 $strNotOK = 'Ni v redu';
 $strNotSet = 'Tabele <b>%s</b> ni mogoèe najti ali pa ni v %s';
-$strNotValidNumber = ' ni veljavna številka vrstice!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s zadetek(ov) v tabeli <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Skupaj:</b> <i>%s</i> zadetek(ov)';
@@ -810,4 +809,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

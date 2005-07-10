@@ -476,7 +476,6 @@ $strNone = 'Inget';
 $strNotNumber = 'Det är inte ett nummer!';
 $strNotOK = 'Inte OK';
 $strNotSet = '<b>%s</b>-tabellen ej funnen eller ej angiven i %s';
-$strNotValidNumber = ' är inte ett giltigt radnummer!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s träff(ar) i tabell <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totalt:</b> <i>%s</i> träff(ar)';
@@ -814,4 +813,9 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) tas begränsningarna bort.';
 $strZip = '"zippad"';
 
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

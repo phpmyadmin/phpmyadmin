@@ -468,7 +468,6 @@ $strNone = 'Brak';
 $strNotNumber = 'To nie jest liczba!';
 $strNotOK = 'błąd';
 $strNotSet = 'Tabela <b>%s</b> nie została znaleziona lub nie jest ustawiona w %s';
-$strNotValidNumber = ' nie jest poprawnym numerem rekordu!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s trafień wewnątrz tabeli <i>%s</i>';
 $strNumSearchResultsTotal = '<b>W sumie:</b> <i>%s</i> trafień';
@@ -809,4 +808,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

@@ -360,7 +360,6 @@ $strNone = 'Κανένα';
 $strNotNumber = 'Αυτό δεν είναι αριθμός!';
 $strNotOK = 'ΛΑΘΟΣ';
 $strNotSet = 'Ο πίνακας <b>%s</b> δεν βρέθηκε ή δεν ορίστηκε στη %s';  
-$strNotValidNumber = ' δεν είναι υπαρκτός αριθμός Εγγραφής!';
 $strNull = 'Κενό';
 $strNumSearchResultsInTable = '%s αποτελέσματα στον πίνακα <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Σύνολο:</b> <i>%s</i> αποτελέσματα';
@@ -818,4 +817,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

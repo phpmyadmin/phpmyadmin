@@ -632,7 +632,7 @@ if ($num_tables > 0) {
 } // end if
 ?>
     <!-- Create a new table -->
-<form method="post" action="tbl_create.php" onsubmit="return (emptyFormElements(this, 'table') && checkFormElementInRange(this, 'num_fields', 1))">
+<form method="post" action="tbl_create.php" onsubmit="return (emptyFormElements(this, 'table') && checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldCount']); ?>', 1))">
      <table border="0" cellpadding="2" cellspacing="0">
      <tr>
      <td class="tblHeaders" colspan="3" nowrap="nowrap"><?php

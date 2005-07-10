@@ -241,7 +241,6 @@ $strNoTablesFound = '데이터베이스에 테이블이 없습니다.';
 $strNoUsersFound = '사용자가 없습니다.';
 $strNone = '없음';
 $strNotNumber = '은 숫자(번호)가 아닙니다!';
-$strNotValidNumber = '은 올바른 열 번호가 아닙니다!';
 $strNumTables = '테이블 수';
 
 $strOperations = '테이블 작업';
@@ -831,4 +830,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

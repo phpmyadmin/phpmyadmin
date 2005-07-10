@@ -366,7 +366,6 @@ $strNone = 'nema';
 $strNotNumber = 'Ovo nije broj!';
 $strNotOK = 'nije u redu';
 $strNotSet = '<b>%s</b> tabela nije pronađena ili nije postavljena u %s';
-$strNotValidNumber = 'nije odgovarajući broj kolone!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s pogodaka unutar tabele <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Ukupno:</b> <i>%s</i> pogodaka';
@@ -822,4 +821,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

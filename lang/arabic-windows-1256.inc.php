@@ -386,7 +386,6 @@ $strNone = 'áÇÔÆ';
 $strNotNumber = 'åĞÇ áíÓ ÑŞã!';
 $strNotOK = 'áíÓ ÕÇáÍÇğ';
 $strNotSet = 'ÇáÌÏæá <b>%s</b> ÛíÑ ãæÌæÏ Ãæ ãÍÏÏ İí %s';
-$strNotValidNumber = ' åĞÇ áíÓ ÚÏÏ Õİ ÕÍíÍ!';
 $strNull = 'ÎÇáí';
 $strNumSearchResultsInTable = '%s ãØÇÈŞÉ İí ÇáÌÏæá <i>%s</i>';
 $strNumSearchResultsTotal = '<b>ÇáãÌãæÚ:</b> <i>%s</i>ãØÇÈŞÉ';
@@ -816,4 +815,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

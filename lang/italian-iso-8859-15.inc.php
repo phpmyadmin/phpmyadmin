@@ -472,7 +472,6 @@ $strNone = 'Nessuno';
 $strNotNumber = 'Questo non è un numero!';
 $strNotOK = 'non OK';
 $strNotSet = '<b>%s</b> tabella non trovata o non settata in %s';
-$strNotValidNumber = ' non è una riga valida!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s corrisponde/ono nella tabella <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totale:</b> <i>%s</i> corrispondenza/e';
@@ -816,4 +815,9 @@ $strBufferWriteWaits = 'Write waits';  //to translate
 $strBufferWriteWaitsInPercent = 'Write waits in %';  //to translate
 
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

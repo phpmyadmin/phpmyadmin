@@ -191,7 +191,6 @@ $strNoQuery = 'Nema SQL upita!';
 $strNoRights = 'Nemate dovoljno prava za ovo podruèje!';
 $strNoTablesFound = 'Tablica nije pronaðena u bazi.';
 $strNotNumber = 'To nije broj!';
-$strNotValidNumber = ' nije odgovarajuæi broj redaka!';
 $strNoUsersFound = 'Korisnik(ci) nije pronaðen.';
 $strNull = 'Null';
 
@@ -836,4 +835,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

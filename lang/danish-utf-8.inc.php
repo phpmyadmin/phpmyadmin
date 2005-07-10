@@ -473,7 +473,6 @@ $strNone = 'Intet';
 $strNotNumber = 'Dette er ikke et tal!';
 $strNotOK = 'ikke OK';
 $strNotSet = 'Tabel <b>%s</b> findes ikke eller er ikke sat i %s';
-$strNotValidNumber = ' er ikke et gyldigt rækkenummer!';
 $strNull = 'Nulværdi';
 $strNumSearchResultsInTable = '%s hit(s) i tabel <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> hit(s)';
@@ -811,4 +810,9 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen.';
 $strZip = '"zippet"';
 
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

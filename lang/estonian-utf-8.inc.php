@@ -444,7 +444,6 @@ $strNone = 'Pole';
 $strNotNumber = 'See pole number!';
 $strNotOK = 'Ei ole korras';
 $strNotSet = '<b>%s</b> tabelit ei leitud või ei eksisteeri %s';
-$strNotValidNumber = ' pole korrektne reanumber!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s vaste(t) tabelis <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Kokku:</b> <i>%s</i> vaste(t)';
@@ -821,4 +820,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

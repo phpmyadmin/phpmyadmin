@@ -475,7 +475,6 @@ $strNone = '無し';
 $strNotNumber = 'これは数値ではありません。';
 $strNotOK = 'OK ではありません。';
 $strNotSet = '<b>%s</b> テーブルが見つからないか、%s がありません。';
-$strNotValidNumber = ' は行の正しい番号ではありません ';
 $strNull = '空の値(NULL)';
 $strNumSearchResultsInTable = '%s 件が <i>%s</i> テーブルで見つかりました。';
 $strNumSearchResultsTotal = '<b>件数:</b> <i>%s</i> が見つかりました。';
@@ -828,4 +827,9 @@ $strMyISAMMaxExtraSortFileSizeDesc = 'If the temporary file used for fast MyISAM
 
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
 
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

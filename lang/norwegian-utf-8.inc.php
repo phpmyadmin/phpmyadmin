@@ -476,7 +476,6 @@ $strNone = 'Ingen';
 $strNotNumber = 'Dette er ikke ett tall!';
 $strNotOK = 'ikke OK';
 $strNotSet = '<b>%s</b> tabellen ble ikke funnet eller ikke konfigurert i %s';
-$strNotValidNumber = ' er ikke et gyldig radnummer!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s treff i tabell <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totalt:</b> <i>%s</i> treff';
@@ -813,4 +812,9 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrensningen.';
 $strZip = 'Komprimert (zip)';
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

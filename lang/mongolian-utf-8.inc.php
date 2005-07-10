@@ -478,7 +478,6 @@ $strNone = 'Үгүй';
 $strNotNumber = 'Энэ тоо биш!';
 $strNotOK = 'Бэлэн биш';
 $strNotSet = '<b>%s</b> хүснэгт олдсонгүй эсвэл %s-д сонгогдоогүй';
-$strNotValidNumber = ' зөв мөрийн тоо биш!';
 $strNull = 'Хоосон';
 $strNumSearchResultsInTable = '%s олдоц(ууд) хүснэгт <i>%s</i>-д';
 $strNumSearchResultsTotal = '<b>Нийт:</b> <i>%s</i> олдоц(ууд)';
@@ -816,4 +815,9 @@ $strZeroRemovesTheLimit = 'Тэмдэглэл: Тохируулгын сонго
 $strZip = 'zip-ээр шахах';
 
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

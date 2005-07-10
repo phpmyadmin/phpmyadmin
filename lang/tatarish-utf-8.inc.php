@@ -469,7 +469,6 @@ $strNone = 'Yuq';
 $strNotNumber = 'San tügel bu!';
 $strNotOK = 'OK tügel';
 $strNotSet = '<b>%s</b> atlı table yuq, yä ki "%s" tezmäsenä kermi';
-$strNotValidNumber = ' ul kertem sanı tügel!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s kileşü bar <i>%s</i> table\'da';
 $strNumSearchResultsTotal = '<b>Tulayım:</b> <i>%s</i> kileşü';
@@ -814,4 +813,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

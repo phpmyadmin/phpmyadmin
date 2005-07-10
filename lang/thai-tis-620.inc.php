@@ -357,7 +357,6 @@ $strNone = 'ไม่มี';
 $strNotNumber = 'ค่านี้ไม่ใช่ตัวเลข!';
 $strNotOK = 'ไม่ตกลง';
 $strNotSet = 'ไม่พบตาราง <b>%s</b> ใน %s';
-$strNotValidNumber = ' ไม่ใช่หมายเลขแถวที่ถูกต้อง!';
 $strNull = 'ว่างเปล่า (null)';
 $strNumSearchResultsInTable = 'พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>';
 $strNumSearchResultsTotal = '<b>รวม:</b> <i>%s</i> ผลลัพธ์ที่ตรง';
@@ -833,4 +832,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

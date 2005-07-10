@@ -17,6 +17,11 @@ $Source$
     * mult_submits.inc.php, libraries/display_tbl.lib.php: Don't forget
       browsing state while deleting multiple rows (bug #1232624).
     * tbl_row_action.php: Fix undefined variable warning.
+    * db_details_structure.php, db_operations.php, header.inc.php,
+      querywindow.php, tbl_indexes.php, tbl_properties.inc.php,
+      tbl_properties_structure.php, lang/*, libraries/display_tbl.lib.php,
+      libraries/functions.js, libraries/indexes.js: Show better error messages
+      when checking numerical inputs (bug #1207402).
 
 2005-07-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1235473 display_tbl.lib.php,

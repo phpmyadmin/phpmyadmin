@@ -478,7 +478,6 @@ $strNone = '不適用';
 $strNotNumber = '這不是一個數字!';
 $strNotOK = '未能確定';
 $strNotSet = '<b>%s</b> 資料表找不到或還未在 %s 設定';
-$strNotValidNumber = '不是有效的列數!';
 $strNull = 'Null'; //should expressed in English
 $strNumSearchResultsInTable = '%s 項資料符合 - 於資料表 <i>%s</i>';
 $strNumSearchResultsTotal = '<b>總計:</b> <i>%s</i> 項資料符合';
@@ -815,4 +814,9 @@ $strYes = ' 是 ';
 $strZeroRemovesTheLimit = '註: 設定這些選項為 0 (零) 可解除限制.';
 $strZip = '"zipped"';
 
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

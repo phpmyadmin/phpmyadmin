@@ -473,7 +473,6 @@ $strNone = 'Niama';
 $strNotNumber = 'Heta nia lik!';
 $strNotOK = 'nie OK';
 $strNotSet = 'Tablica <b>%s</b> nia znojdzienaja abo nia vyznačanaja ŭ %s';
-$strNotValidNumber = ' nie źjaŭlajecca dapuščalnym numaram radku!';
 $strNull = 'Nul';
 $strNumSearchResultsInTable = '%s supadzieńniaŭ u tablicy <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Ahułam:</b> <i>%s</i> supadzieńniaŭ';
@@ -813,4 +812,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

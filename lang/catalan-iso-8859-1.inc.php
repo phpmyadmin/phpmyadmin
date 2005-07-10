@@ -459,7 +459,6 @@ $strNone = 'Res';
 $strNotNumber = 'Aquest valor no és un número!';
 $strNotOK = 'Incorrecte';
 $strNotSet = 'Taula <b>%s</b> no trobada o no definida a %s';
-$strNotValidNumber = ' no es un número de columna vàlid!';
 $strNull = 'Nul';
 $strNumSearchResultsInTable = '%s resultat(s) a la taula <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> resultat(s)';
@@ -794,4 +793,9 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el limit.';
 $strZip = '"comprimit amb zip"';
 
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

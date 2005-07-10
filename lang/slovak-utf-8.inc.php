@@ -404,7 +404,6 @@ $strNone = 'Žiadny';
 $strNotNumber = 'Toto nie je číslo!';
 $strNotOK = 'chyba';
 $strNotSet = 'Tabuľka <b>%s</b> nebola nájdená alebo nie je nastavená v %s';
-$strNotValidNumber = ' nie je platné číslo riadku!';
 $strNull = 'Nulový';
 $strNumSearchResultsInTable = '%s výskyt(ov)v tabuľke <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Celkovo:</b> <i>%s</i> výskyt(ov)';
@@ -811,4 +810,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

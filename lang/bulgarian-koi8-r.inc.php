@@ -412,7 +412,6 @@ $strNoTablesFound = 'В базата от данни няма таблици.';
 $strNotNumber = 'Това не е число!';
 $strNotOK = 'не е OK';
 $strNotSet = 'таблица  <b>%s</b> не е намерена или не е установена в %s';
-$strNotValidNumber = ' не е валиден номер на ред!';
 $strNoUsersFound = 'Няма потребител(и).';
 $strNoValidateSQL = 'Пропусни Validate SQL';
 $strNull = 'Празно';
@@ -833,4 +832,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

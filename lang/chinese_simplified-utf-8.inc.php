@@ -431,7 +431,6 @@ $strNone = '无';
 $strNotNumber = '这不是一个数字！';
 $strNotOK = '不好';
 $strNotSet = '<b>%s</b> 表找不到或还未在 %s 设定';
-$strNotValidNumber = ' 不是有效的行数！';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s 个匹配项 - 于表 <i>%s</i> 中';
 $strNumSearchResultsTotal = '<b>总计：</b> <i>%s</i> 个匹配项';
@@ -831,4 +830,9 @@ $strGeneratePassword = 'Generate Password';  //to translate
 $strGenerate = 'Generate';  //to translate
 $strCopy = 'Copy';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
+$strInvalidRowNumber = '%d is not valid row number.';  //to translate
+$strInvalidRowCount = 'You have to add at least one row.';  //to translate
+$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
+$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>
