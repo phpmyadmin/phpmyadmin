@@ -808,19 +808,18 @@ else {
                            . '&amp;repeat_cells=' . $repeat_cells
                            . '&amp;printview=1'
                            . '&amp;sql_query=' . urlencode($sql_query);
-                echo '    <!-- Print view -->' . "\n"
-                   . '    <a href="sql.php' . $url_query
-                   . ((isset($dontlimitchars) && $dontlimitchars == '1') ? '&amp;dontlimitchars=1' : '')
-                   . '" target="print_view">'
-                   . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strPrintView . '"/>' : '')
-                   . $strPrintView . '</a>' . "\n";
+                echo '    <!-- Print view -->' . "\n";
+                echo PMA_linkOrButton(
+                    'sql.php' . $url_query . ((isset($dontlimitchars) && $dontlimitchars == '1') ? '&amp;dontlimitchars=1' : ''),
+                    ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strPrintView . '"/>' : '') . $strPrintView,
+                    '', TRUE, TRUE, 'print_view') . "\n";
+
                 if (!$dontlimitchars) {
-                   echo   '    &nbsp;&nbsp;' . "\n"
-                        . '    <a href="sql.php' . $url_query
-                        . '&amp;dontlimitchars=1'
-                        . '" target="print_view">'
-                        . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strPrintViewFull . '" />' : '')
-                        . $strPrintViewFull . '</a>&nbsp;&nbsp;' . "\n";
+                   echo   '    &nbsp;&nbsp;' . "\n";
+                    echo PMA_linkOrButton(
+                        'sql.php' . $url_query . '&amp;dontlimitchars=1',
+                        ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strPrintViewFull . '"/>' : '') . $strPrintViewFull,
+                        '', TRUE, TRUE, 'print_view') . "\n";
                 }
             } // end displays "printable view"
 

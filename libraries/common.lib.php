@@ -2144,12 +2144,15 @@ if (typeof(document.getElementById) != 'undefined'
      *
      * @return string  the results to be echoed or saved in an array
      */
-    function PMA_linkOrButton($url, $message, $js_conf, $allow_button = TRUE)
+    function PMA_linkOrButton($url, $message, $js_conf, $allow_button = TRUE, $strip_img = FALSE, $target = '')
     {
+        if (!empty($target)) {
+            $target = ' target="' . $target . '"';
+        }
         // previously the limit was set to 2047, it seems 1000 is better
         if (strlen($url) <= 1000) {
             $onclick_url        = (empty($js_conf) ? '' : ' onclick="return confirmLink(this, \'' . $js_conf . '\')"');
-            $link_or_button     = '        <a href="' . $url . '"' . $onclick_url . '>' . "\n"
+            $link_or_button     = '        <a href="' . $url . '"' . $onclick_url . $target . '>' . "\n"
                                 . '           ' . $message . '</a>' . "\n";
         }
         elseif ($allow_button) {
@@ -2157,19 +2160,25 @@ if (typeof(document.getElementById) != 'undefined'
             $query_parts        = explode('&', $edit_url_parts['query']);
             $link_or_button     = '        <form action="'
                                 . $edit_url_parts['path']
-                                . '" method="post">' . "\n";
+                                . '" method="post"' . $target . '>' . "\n";
             foreach ($query_parts AS $query_pair) {
                 list($eachvar, $eachval) = explode('=', $query_pair);
                 $link_or_button .= '            <input type="hidden" name="' . str_replace('amp;', '', $eachvar) . '" value="' . htmlspecialchars(urldecode($eachval)) . '" />' . "\n";
             } // end while
 
             if (stristr($message, '<img')) {
-                $link_or_button     .= '            <input type="image" src="' . preg_replace('@^.*src="(.*)".*$@si', '\1', $message) . '" value="'
-                                    . htmlspecialchars(preg_replace('@^.*alt="(.*)".*$@si', '\1', $message)) . '" />' . "\n" . '</form>' . "\n";
+                if ($strip_img) {
+                    $link_or_button     .= '            <input type="submit" value="'
+                                        . preg_replace('@<img[^>]*>@', '', $message) . '" />';
+                } else {
+                    $link_or_button     .= '            <input type="image" src="' . preg_replace('@^.*src="(.*)".*$@si', '\1', $message) . '" value="'
+                                        . htmlspecialchars(preg_replace('@^.*alt="(.*)".*$@si', '\1', $message)) . '" />';
+                }
             } else {
                 $link_or_button     .= '            <input type="submit" value="'
-                                    . htmlspecialchars($message) . '" />' . "\n" . '</form>' . "\n";
+                                    . htmlspecialchars($message) . '" />';
             }
+            $link_or_button         .= "\n" . '</form>' . "\n";
         } else {
             $link_or_button = ' <dfn title="' . $GLOBALS['strNeedPrimaryKey'] . '">?</dfn> ';
         } // end if... else...

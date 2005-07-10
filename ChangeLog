@@ -22,6 +22,8 @@ $Source$
       tbl_properties_structure.php, lang/*, libraries/display_tbl.lib.php,
       libraries/functions.js, libraries/indexes.js: Show better error messages
       when checking numerical inputs (bug #1207402).
+    * sql.php, libraries/common.lib.php: Use post for print view when query is
+      too big (bug #1203692).
 
 2005-07-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1235473 display_tbl.lib.php,
