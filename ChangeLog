@@ -12,6 +12,7 @@ $Source$
       libraries/common.lib.php, libraries/config_import.lib.php,
       libraries/header_meta_style.inc.php, libraries/select_theme.lib.php:
       User can now have different theme per server (RFE #1231599).
+    * config.inc.php: Add OLD_PASSWORD (bug #1216178).
 
 2005-07-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1235473 display_tbl.lib.php,
