@@ -113,7 +113,8 @@ if (!empty($submit_mult)) {
             /**
              * Show result of multi submit operation
              */
-            if (!empty($submit_mult) || isset($mult_btn)) {
+            // sql_query is not set when user does not confirm multi-delete
+            if ((!empty($submit_mult) || isset($mult_btn)) && isset($sql_query)) {
                 $disp_message = $strSuccess;
                 $disp_query = $sql_query;
             }
