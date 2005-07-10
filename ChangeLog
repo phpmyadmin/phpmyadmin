@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-10 Michal ƒåiha≈ô  <michal@cihar.com>
+    * libraries/auth/http.auth.lib.php: Support FastGCI in http auth (patch
+      #1192219)
+
 2005-07-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1235473 display_tbl.lib.php,
       Undefined variable order_img
@@ -34,7 +38,7 @@ $Source$
       instructions, thanks to Isaac Bennetch - ibennetch
 
 2005-06-30 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/hungarian update, thanks to Mih·ly MÈsz·ros <necronix@freemail.hu>
+    * lang/hungarian update, thanks to Mih√°ly M√©sz√°ros <necronix@freemail.hu>
     * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000)
     * lang/chinese_traditional: Updates, thanks to Siu Sun
     * lang/catalan update, thanks to Xavier Navarro (xavin).

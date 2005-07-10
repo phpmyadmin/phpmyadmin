@@ -186,8 +186,7 @@ function PMA_auth_check()
         }
     }
     // Gets authenticated user settings with IIS
-    if (empty($PHP_AUTH_USER) && empty($PHP_AUTH_PW)
-        && function_exists('base64_decode')) {
+    if (empty($PHP_AUTH_USER) && empty($PHP_AUTH_PW)) {
         if (!empty($HTTP_AUTHORIZATION)
             && substr($HTTP_AUTHORIZATION, 0, 6) == 'Basic ') {
             list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', base64_decode(substr($HTTP_AUTHORIZATION, 6)));
@@ -202,6 +201,20 @@ function PMA_auth_check()
             list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', base64_decode(substr(getenv('HTTP_AUTHORIZATION'), 6)));
         }
     } // end IIS
+
+    // Gets authenticated user settings with FastCGI
+    // set FastCGI option '-pass-header Authorization'
+    if (empty($PHP_AUTH_USER) && empty($PHP_AUTH_PW)) {
+        if (!empty($_ENV)
+            && isset($_ENV['Authorization'])
+            && substr($_ENV['Authorization'], 0, 6) == 'Basic ') {
+            list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', base64_decode(substr($_ENV['Authorization'], 6)));
+        }
+        else if (@getenv('Authorization')
+                 && substr(getenv('Authorization'), 0, 6) == 'Basic ') {
+            list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', base64_decode(substr(getenv('Authorization'), 6)));
+        }
+    } // end FastCGI
 
     // User logged out -> ensure the new username is not the same
     if (!empty($old_usr)
