@@ -234,8 +234,10 @@ if ($cfgRelation['commwork']) {
                 <input type="radio" name="what" value="structure" id="radio_copy_structure" style="vertical-align: middle" /><label for="radio_copy_structure"><?php echo $strStrucOnly; ?></label>&nbsp;&nbsp;<br />
                 <input type="radio" name="what" value="data" id="radio_copy_data" checked="checked" style="vertical-align: middle" /><label for="radio_copy_data"><?php echo $strStrucData; ?></label>&nbsp;&nbsp;<br />
                 <input type="radio" name="what" value="dataonly" id="radio_copy_dataonly" style="vertical-align: middle" /><label for="radio_copy_dataonly"><?php echo $strDataOnly; ?></label>&nbsp;&nbsp;<br />
+                
 
                 <input type="checkbox" name="create_database_before_copying" value="1" id="checkbox_create_database_before_copying" style="vertical-align: middle" checked="checked" /><label for="checkbox_create_database_before_copying"><?php echo $strCreateDatabaseBeforeCopying; ?></label><br />
+                <input type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop" style="vertical-align: middle" /><label for="checkbox_drop"><?php echo $strStrucDrop; ?></label>&nbsp;&nbsp;<br />
                 <input type="checkbox" name="auto_increment" value="1" id="checkbox_auto_increment" style="vertical-align: middle" /><label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
                 <input type="checkbox" name="constraints" value="1" id="checkbox_constraints" style="vertical-align: middle" /><label for="checkbox_constraints"><?php echo $strAddConstraints; ?></label><br />
                 <?php

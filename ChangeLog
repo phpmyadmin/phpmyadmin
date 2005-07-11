@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-11 Michal Čihař  <michal@cihar.com>
+    * db_operations.php: Allow adding DROP TABLE when copying database (RFE
+      #1235761).
+
 2005-07-10 Robin Johnson <robbat2@users.sourceforge.net>
     * config.inc.php, Documentation.html, libraries/common.lib.php,
       libraries/config_import.lib.php:
