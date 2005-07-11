@@ -6,12 +6,12 @@ $Id$
 $Source$
 
 2005-07-10 Robin Johnson <robbat2@users.sourceforge.net>
-	* config.inc.php, Documentation.html, libraries/common.lib.php,
-	  libraries/config_import.lib.php:
-	  Document previous foreign-key dropdown work, and also ensure that the
-	  configuration import code works properly with it.
+    * config.inc.php, Documentation.html, libraries/common.lib.php,
+      libraries/config_import.lib.php:
+      Document previous foreign-key dropdown work, and also ensure that the
+      configuration import code works properly with it.
 	
-2005-07-10 Michal ÄihaÅ  <michal@cihar.com>
+2005-07-10 Michal Čihař  <michal@cihar.com>
     * libraries/auth/http.auth.lib.php: Support FastGCI in http auth (patch
       #1192219)
     * Documentation.html, config.inc.php, left.php, queryframe.php,
@@ -60,13 +60,13 @@ $Source$
       instructions, thanks to Isaac Bennetch - ibennetch
 
 2005-06-30 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/hungarian update, thanks to MihÃ¡ly MÃ©szÃ¡ros <necronix@freemail.hu>
+    * lang/hungarian update, thanks to Mihály Mészáros <necronix@freemail.hu>
     * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000)
     * lang/chinese_traditional: Updates, thanks to Siu Sun
     * lang/catalan update, thanks to Xavier Navarro (xavin).
     * lang/lithuanian: Updated, thanks to Vilius Simonaitis - maumas98
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
 
 2005-06-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_table_info.php: bug #1228862, creating a table under 
@@ -76,7 +76,7 @@ $Source$
     * tbl_properties_operations.php: bug #1225635,
       cannot change table's collation under MySQL 5.0.4
 
-2005-06-27 Michal ÄihaÅ  <michal@cihar.com>
+2005-06-27 Michal Čihař  <michal@cihar.com>
     * config.inc.php: Better comments describing multi server setup (patch
       #1226666).
     * db_details_links.php: Place export tab on same place as on table page
@@ -85,7 +85,7 @@ $Source$
     * db_details_structure.php: Make order of icons same as on table view (RFE
       #1047874).
 
-2005-06-24 Michal ÄihaÅ  <michal@cihar.com>
+2005-06-24 Michal Čihař  <michal@cihar.com>
     * tbl_change.php, tbl_properties_links.php, libraries/export/sql.php:
       Remove error reporting.
     * config.inc.php, libraries/common.lib.php,
@@ -113,7 +113,7 @@ $Source$
 	customizing foreign-key dropdown, take #2, now very customizable, incl max
 	item limit.
 
-2005-06-23 Michal ÄihaÅ  <michal@cihar.com>
+2005-06-23 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
 
 2005-06-22 Alexander M. Turek  <me@derrabus.de>
@@ -136,7 +136,7 @@ $Source$
     * lang/norwegian: Update, thanks to Sven-Erik Andersen
     * lang/mongolian update, thanks to Bayarsaikhan Enkhtaivan
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
 
 2005-06-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug 1221602, undefined variable when trying
@@ -161,7 +161,7 @@ $Source$
     * lang/mongolian* update, thanks to Bayarsaikhan Enkhtaivan
     * lang/finnish: update, thanks to Jouni Kahkonen
     * lang/norwegian: Update, thanks to Sven-Erik Andersen
-    * lang/galician: Updates, thanks to XosÃ© Calvo.
+    * lang/galician: Updates, thanks to Xosé Calvo.
     * lang/belarusian, libraries/select_lang.lib.php:
       belarusian is now belarusian_cyrillic; added belarusian_latin,
       thanks to Jaska Zedlik
@@ -171,7 +171,7 @@ $Source$
       feature in case of duplicate entry
 
 2005-06-07 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/tatarish*: updates, thanks to Albert FazlÃ­
+    * lang/tatarish*: updates, thanks to Albert Fazlí
     * config.inc.php: bug #1215950, typo in comment
 
 2005-06-06 Marc Delisle  <lem9@users.sourceforge.net>
@@ -188,7 +188,7 @@ $Source$
     * sql.php: bug #1204951, left frame browse icon alt tag
       not updated on emptying table
 
-2005-06-05 Michal ÄihaÅ  <michal@cihar.com>
+2005-06-05 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
 
 2005-06-04 Marc Delisle  <lem9@users.sourceforge.net>
@@ -203,7 +203,7 @@ $Source$
 2005-06-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/tatar*, /sync_lang.sh, libraries/select_lang.lib.php,
       translators.html, Documentation.html, README:
-      new language (tatar), thanks to Albert FazlÃ­
+      new language (tatar), thanks to Albert Fazlí
 
 2005-06-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: bug #1213761, hint about Hardened PHP
@@ -306,7 +306,7 @@ $Source$
 2005-05-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/mysql_charsets.lib.php: bug #1186983, missing character
       sets and collations (temporary workaround)
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
 
 2005-05-04 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: improvement about PmaAbsoluteUri,
@@ -351,7 +351,7 @@ $Source$
     * libraries/common.lib.php: bug #1179241, wrong escaping of
       apostrophe in generated PHP code
 
-2005-04-25 Michal ÄihaÅ  <michal@cihar.com>
+2005-04-25 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
     * lang/english: Fix typo.
 
@@ -364,7 +364,7 @@ $Source$
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
-    * lang/galician: Updates, thanks to XosÃ© Calvo.
+    * lang/galician: Updates, thanks to Xosé Calvo.
     * new language: belarusian, thanks to Jaska Zedlik <jz53 at zedlik.com>
     * tbl_properties_export.php: bug #1180860, error going from Export
       to Insert tab
@@ -485,7 +485,7 @@ $Source$
       libraries/database_interface.lib.php:
       - Force separate connection for controluser queries;
       - Don't apply collation_connection settings to controluser connections.
-    * lang/galician-*.inc.php: Updates, thanks to XosÃ© Calvo.
+    * lang/galician-*.inc.php: Updates, thanks to Xosé Calvo.
     * lang/chinese_traditional-*.inc.php: Updates, thanks to Siu Sun.
 
 2005-03-22 Marc Delisle  <lem9@users.sourceforge.net>
@@ -515,7 +515,7 @@ $Source$
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
     * lang/brazilian-portuguese: big update, thanks to Airon Luis Pereira
       - thedarkness
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000)
 
 2005-03-18 Alexander M. Turek  <me@derrabus.de>
@@ -524,7 +524,7 @@ $Source$
 2005-03-17 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: bug #1165148, typo in Documentation.html
     * lang/indonesian: Update thanks to Rachim Tamsjadi - tamsy.
-    * lang/galician: Updated, thanks to XosÃ© Calvo.
+    * lang/galician: Updated, thanks to Xosé Calvo.
 
 2005-03-16 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php, tbl_alter.php, tbl_properties.inc.php,
@@ -569,7 +569,7 @@ $Source$
       calling scripts. It's still possible to have the same label more
       than once.
 
-2005-03-07 Michal ÄihaÅ  <michal@cihar.com>
+2005-03-07 Michal Čihař  <michal@cihar.com>
     * db_printview.php, tbl_printview.php, css/phpmyadmin.css.php,
       libraries/header_meta_style.inc.php: Actually use print style in themes,
       also fixes RFE #1120880.
@@ -581,7 +581,7 @@ $Source$
     * themes/*/img/bd_deltbl.png, themes/*/bd_drop.png: Added disabled
       versions of drop icons.
 
-2005-03-06 Michal ÄihaÅ  <michal@cihar.com>
+2005-03-06 Michal Čihař  <michal@cihar.com>
     * export.php, libraries/display_export.lib.php, config.inc.php,
       libraries/config_import.lib.php, libraries/export/htmlexcel.php,
       libraries/export/htmlword.php, lang/*: Added Microsoft Word and Excel
@@ -643,7 +643,7 @@ $Source$
     * header.inc.php: Wrong icon for views.
     * libraries/sqlparser.data.php: Added more missing date / time functions.
 
-2005-03-02 Michal ÄihaÅ  <michal@cihar.com>
+2005-03-02 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php, libraries/display_export.lib.php: Do not offer
       modes not available in current MySQL version, do not fail on error when
       setting SQL_MODE (bug #1155209).
@@ -664,7 +664,7 @@ $Source$
     * libraries/sqlparser.data.php: Added missing MySQL functions STR_TO_DATE
       and GET_FORMAT (bug #1152310).
 
-2005-02-27 Michal ÄihaÅ  <michal@cihar.com>
+2005-02-27 Michal Čihař  <michal@cihar.com>
     * server_binlog.php: MySQL 5 compatibility (bug #1151960).
 
 2005-02-26 Marc Delisle  <lem9@users.sourceforge.net>
@@ -705,7 +705,7 @@ $Source$
     * server_engines.php: Use new CSS class 'disabled' for unavailable
       engines.
 
-2005-02-14 Michal ÄihaÅ  <michal@cihar.com>
+2005-02-14 Michal Čihař  <michal@cihar.com>
     * tbl_printview.php, libraries/tbl_indexes.lib.php: Fix displaying
       indexes for print view, use same function as for normal view (bug
       #1119388).
@@ -732,7 +732,7 @@ $Source$
 2005-02-09 Alexander M. Turek  <me@derrabus.de>
     * lang/italian-*.inc.php: Updates, thanks to Pietro Danesi.
 
-2005-02-08 Michal ÄihaÅ  <michal@cihar.com>
+2005-02-08 Michal Čihař  <michal@cihar.com>
     * export.php: Fix export of SQL for Safari (bug #1113015).
 
 2005-02-07 Marc Delisle  <lem9@users.sourceforge.net>
@@ -756,7 +756,7 @@ $Source$
 2005-02-05 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_relation.php: removed comments handling (pmadb-style) from relation view
 
-2005-02-04 Michal ÄihaÅ  <michal@cihar.com>
+2005-02-04 Michal Čihař  <michal@cihar.com>
     * tbl_change.php: Fix TIMESTAMP editing on MySQL 4.1 (bug #1114120).
 
 2005-02-03 Alexander M. Turek  <me@derrabus.de>
@@ -789,7 +789,7 @@ $Source$
     * libraries/display_tbl.lib.php: the LongOperation message should
       be just for InnoDB
 
-2005-01-27 Michal ÄihaÅ  <michal@cihar.com>
+2005-01-27 Michal Čihař  <michal@cihar.com>
     * read_dump.php: Fix detection of SELECT query to display on multiple
       submits (bug #1110727).
 
@@ -798,7 +798,7 @@ $Source$
     * lang/estonian: Update thanks to Alvar Soome - finsoft.
     ### 2.6.1 released
 
-2005-01-23 Michal ÄihaÅ  <michal@cihar.com>
+2005-01-23 Michal Čihař  <michal@cihar.com>
     * export.php: Back to Content-Type application/x-bzip2 on bzip2 export
       (bug #1106652).
 
@@ -808,7 +808,7 @@ $Source$
 2005-01-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/bookmark.lib.php: bug #1103289: num_rows and MYSQL_USE_RESULT,
       and fix a typo "boommark"
-    * lang/galician: Updated, thanks to XosÃ© Calvo.
+    * lang/galician: Updated, thanks to Xosé Calvo.
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
 
 2005-01-20 Michael Keck  <mkkeck@users.sourceforge.net>
@@ -854,7 +854,7 @@ $Source$
       Add a link by MySQL-Error #1062 - Duplicate entry
       (feature request #1036254)
 
-2005-01-17 Michal ÄihaÅ  <michal@cihar.com>
+2005-01-17 Michal Čihař  <michal@cihar.com>
     * lang/czech: Fix typos (translation #1103785).
 
 2005-01-17 Alexander M. Turek  <me@derrabus.de>
@@ -890,7 +890,7 @@ $Source$
     * libraries/dbi/mysqli.dbi.lib.php: bug #1076213, headers sent
       on invalid login
 
-2005-01-10 Michal ÄihaÅ  <michal@cihar.com>
+2005-01-10 Michal Čihař  <michal@cihar.com>
      * lang/czech: Fix typo (translation #1099459).
 
 2005-01-10 Olivier Mueller <om@omnis.ch>
@@ -902,7 +902,7 @@ $Source$
     * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000)
     * lang/dutch: Updates, thanks to Ivo Teel.
     * lang/indonesian: Update thanks to Rachim Tamsjadi - tamsy.
-    * lang/galician: Updated, thanks to XosÃ© Calvo.
+    * lang/galician: Updated, thanks to Xosé Calvo.
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
     ### 2.6.1-rc2 released
 
@@ -910,7 +910,7 @@ $Source$
     * tbl_addfield.php: bug #1082680, undefined $field_charset when adding
       a FLOAT field in MySQL 4.1.x
 
-2005-01-07 Michal ÄihaÅ  <michal@cihar.com>
+2005-01-07 Michal Čihař  <michal@cihar.com>
     * Documentation.html, tbl_change.php, tbl_properties.inc.php,
       libraries/functions.js, libraries/tbl_change.js,
       libraries/keyhandler.js: Use Option key for Safari for moving (bug
@@ -923,7 +923,7 @@ $Source$
     * tbl_change.php: removed old PHP3-workaround that caused problems
       with field names like '000'
 
-2005-01-05 Michal ÄihaÅ  <michal@cihar.com>
+2005-01-05 Michal Čihař  <michal@cihar.com>
     * tbl_properties_operations.php: Fix changning table parameters if it has
       no auto increment (bug #1096246).
 
@@ -932,26 +932,26 @@ $Source$
       - Updates and small corrections;
       - Synchronized translation with the German MySQL documentation.
 
-2005-01-03 Michal ÄihaÅ  <michal@cihar.com>
+2005-01-03 Michal Čihař  <michal@cihar.com>
     * export.php: Use standardised mime types and use content encoding for
       gzip/bzip2. I hope this will fix double gzip compression as in bug
       #1094649.
 
-2005-01-01 Michal ÄihaÅ  <michal@cihar.com>
+2005-01-01 Michal Čihař  <michal@cihar.com>
     * tbl_alter.php: Don't try to set collation for non text fields (bug
       #1094109).
     * sql.php: Do not forget reloading when launching multiple queries (bug
       #1090818).
 
 2004-12-30 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/norwegian: Update, thanks to Sven-Erik Andersen
     * lang/latvian: Updated, thanks to Sandis Jerics (saaa2002).
 
-2004-12-30 Michal ÄihaÅ  <michal@cihar.com>
+2004-12-30 Michal Čihař  <michal@cihar.com>
     * libraries/fpdf/ufpdf.php: Fix some warnings.
 
-2004-12-29 Michal ÄihaÅ  <michal@cihar.com>
+2004-12-29 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Fix typo.
     * server_databases.php: Use same sort order as in left frame (bug
       #1087244), allow sorting even if not showing stats.
@@ -962,7 +962,7 @@ $Source$
     * Documentation.html: Added info about UFPDF library.
     * lang/czech, lang/english: Improved some texts, also bug #1009667.
 
-2004-12-28 Michal ÄihaÅ  <michal@cihar.com>
+2004-12-28 Michal Čihař  <michal@cihar.com>
     * libraries/tbl_move_copy.php: Fix constraints copying (bug #1085900).
     * config.inc.php, lang/*, libraries/common.lib.php,
       libraries/config_import.lib.php, libraries/display_export.lib.php,
@@ -998,7 +998,7 @@ $Source$
 2004-12-14 Alexander M. Turek  <me@derrabus.de>
     * libraries/sqlparser.data.php: Added keywords NAMES and VIEW.
 
-2004-12-13 Michal ÄihaÅ  <michal@cihar.com>
+2004-12-13 Michal Čihař  <michal@cihar.com>
     * libraries/tbl_change.js: Do not catch Alt and Shift keys (bug #1082315).
     * libraries/export/sql.php: Do not duplicate constraints when exporting
       multiple databases (bug #1084459).
@@ -1009,7 +1009,7 @@ $Source$
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
     * lang/catalan update, thanks to Xavier Navarro (xavin).
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
-    * lang/galician: Updated, thanks to XosÃ© Calvo.
+    * lang/galician: Updated, thanks to Xosé Calvo.
     * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
     * lang/chinese_traditional-*.inc.php: Updates, thanks to Siu Sun.
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
@@ -1046,7 +1046,7 @@ $Source$
     * libraries/auth/cookie.auth.lib.php, lang/*: "No activity" message
       to explain to users why they have to relogin
 
-2004-11-25 Michal ÄihaÅ  <michal@cihar.com>
+2004-11-25 Michal Čihař  <michal@cihar.com>
     * libraries/mcrypt.lib.php: Trim result, because it can be paded with \0s.
 
 2004-11-24 Marc Delisle  <lem9@users.sourceforge.net>
@@ -1077,7 +1077,7 @@ $Source$
     * tbl_indexes.php: bug #1068994, undefined variable
     * libraries/dbg/profiling.php: bug #1068318, call-time pass-by-reference
 
-2004-11-16 Michal ÄihaÅ  <michal@cihar.com>
+2004-11-16 Michal Čihař  <michal@cihar.com>
     * left.php: Possible undefined index (bug #1067199).
     * Documentation.html: Warn about Excel export problems in documentation
       (bug #1063082).
@@ -1092,11 +1092,11 @@ $Source$
     * libraries/display_tbl.lib.php: bug #1065688: display the Full text link
       on the results for PROCEDURE ANALYSE
 
-2004-11-11 Michal ÄihaÅ  <michal@cihar.com>
+2004-11-11 Michal Čihař  <michal@cihar.com>
     * tbl_properties_operations.php: Allow InnoDB text to be included in user
       comment.
 
-2004-11-09 Michal ÄihaÅ  <michal@cihar.com>
+2004-11-09 Michal Čihař  <michal@cihar.com>
     * browse_foreigners.php, server_binlog.php: Truncate text according to
       text length and not byte count.
 
@@ -1130,12 +1130,12 @@ $Source$
       settings. Those can be overriden by a themes layout.inc.php,
       but not neccessarily so.
 
-2004-11-03 Michal ÄihaÅ  <michal@cihar.com>
+2004-11-03 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: More robust PmaAbsoluteUri detection.
     * libraries/sqlparser.lib.php: Escape html special chars in parser bugs.
     * libraries/common.lib.php: HTTP_HOST might be unset (bug #1053310).
 
-2004-11-02 Michal ÄihaÅ  <michal@cihar.com>
+2004-11-02 Michal Čihař  <michal@cihar.com>
     * tbl_indexes.php: Fix index editing.
     * sql.php: Decode table name.
     * lang/czech: Updated.
@@ -1161,7 +1161,7 @@ $Source$
       a simple SHOW GRANTS to fetch current privileges, so we no longer
       need the control user for this check
 
-2004-11-01 Michal ÄihaÅ  <michal@cihar.com>
+2004-11-01 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Comparsion is == and not = (bug #1054758).
 
 2004-10-29 Marc Delisle  <lem9@users.sourceforge.net>
@@ -1184,7 +1184,7 @@ $Source$
 2004-10-26 Alexander M. Turek  <me@derrabus.de>
     * libraries/sqlparser.data.php: Added OFFSET.
 
-2004-10-25 Michal ÄihaÅ  <michal@cihar.com>
+2004-10-25 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Fix URI detection in case REQUEST_URI contains
       full URI (patch #1044123).
     * tbl_properties_structure.php, libraries/display_tbl.lib.php: Fix typo
@@ -1200,7 +1200,7 @@ $Source$
 2004-10-22 Alexander M. Turek
     * lang/english-*.inc.php: Grammar fix.
 
-2004-10-22 Michal ÄihaÅ  <michal@cihar.com>
+2004-10-22 Michal Čihař  <michal@cihar.com>
     * db_details_structure.php: Use "Structure" instead of "Properties" for
       link to table structure.
     * db_operations.php, lang/*: We switch to database here. not table.
@@ -1216,7 +1216,7 @@ $Source$
     * libraries/common.lib.php: feature request #1036254
       Add a link by MySQL-Error #1062 - Duplicate entry
 
-2004-10-21 Michal ÄihaÅ  <michal@cihar.com>
+2004-10-21 Michal Čihař  <michal@cihar.com>
     * [too many files to mention]: Cleanup of message displaying and
       navigation reloading. Messages are now displayed bellow tabs (RFE
       #1005511), navigation is reloaded once in header (I'm not sure whether I
@@ -1238,7 +1238,7 @@ $Source$
     * libraries/common.lib.php: there was already a tip icon in our collection,
       thanks to Michael Keck
 
-2004-10-20 Michal ÄihaÅ  <michal@cihar.com>
+2004-10-20 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
     * tbl_relation.php: Backquote table name (bug #1050441).
     * db_details_qbe.php: Backquote table name.
@@ -1267,7 +1267,7 @@ $Source$
       new light bulb image (temporary)
     * server_privileges.php: bug #916117, PMA_showHint($strEscapeWildcards)
 
-2004-10-19 Michal ÄihaÅ  <michal@cihar.com>
+2004-10-19 Michal Čihař  <michal@cihar.com>
     * export.php: Use just \n for SQL exports (bug #1042521).
     * libraries/read_dump.lib.php: Set correct return value (bug #1048861).
     * sql.php: Fix undefined index.
@@ -1315,17 +1315,17 @@ $Source$
       and count rows correctly (in MySQL 3),
       thanks to Matthias Pigulla (mp@webfactory.de)
     * server_privileges.php: cosmetic: title for Edit privileges
-    * lang/galician: Updated, thanks to XosÃ© Calvo.
+    * lang/galician: Updated, thanks to Xosé Calvo.
     * lang/italian: Updates, thanks to Pietro Danesi
     * lang/norwegian: Update, thanks to Sven-Erik Andersen
 
-2004-10-13 Michal ÄihaÅ  <michal@cihar.com>
+2004-10-13 Michal Čihař  <michal@cihar.com>
     * libraries/fpdf/fpdf.php: Updated to 1.52.
 
 2004-10-13 Alexander M. Turek  <me@derrabus.de>
     * Documentation.html: Mike Beck's e-mail address has changed.
 
-2004-10-13 Michal ÄihaÅ  <michal@cihar.com>
+2004-10-13 Michal Čihař  <michal@cihar.com>
     * lang/sync_lang.sh: Do not overwrite utf-8 files in some cases.
     * lang/czech: Fix some translations.
     * libraries/transformations/text_plain__external.inc.php: Handle better
@@ -1343,7 +1343,7 @@ $Source$
     * lang/sync_lang.sh: Base charset for German is now UTF-8.
     * lang/german-*.inc.php: Updates.
 
-2004-10-12 Michal ÄihaÅ  <michal@cihar.com>
+2004-10-12 Michal Čihař  <michal@cihar.com>
     * sql.php: Don't try to require sql.php with parameters, rather redirect
       to it.
     * libraries/transformations.lib.php: Strip slashes to behave like
@@ -1358,7 +1358,7 @@ $Source$
     * libraries/sqlparser.lib.php, /display_tbl.lib.php: bug #967610, double
       column sort with JOIN
 
-2004-10-11 Michal ÄihaÅ  <michal@cihar.com>
+2004-10-11 Michal Čihař  <michal@cihar.com>
     * tbl_query_box.php: Don't try to replace %t and %f when table name is empty.
     * libraries/export/sql.php: Convert end of line chars we get from MySQL
       (bug #1042521).
@@ -1367,7 +1367,7 @@ $Source$
     * lots of files: Adjusted superfluous spaces, added
       more CSS-ID attributes for better themeability.
 
-2004-10-04 Michal ÄihaÅ  <michal@cihar.com>
+2004-10-04 Michal Čihař  <michal@cihar.com>
     * tbl_query_box.php: Reenabled %f substitution.
 
 2004-10-02 Marc Delisle  <lem9@users.sourceforge.net>
@@ -1383,7 +1383,7 @@ $Source$
       of LIMIT to queries, and bug #1037004, UPDATE statement not showing
     * tbl_properties_operations.php: bug #1035524, cannot add comments to table
 
-2004-09-29 Michal ÄihaÅ  <michal@cihar.com>
+2004-09-29 Michal Čihař  <michal@cihar.com>
     * tbl_addfield.php, tbl_create.php, tbl_properties.inc.php, lang/*: Better
       wording when adding fields (bug #991096).
     * tbl_query_box.php, lang/*: Not translated text (bug #1010656).
@@ -1411,7 +1411,7 @@ $Source$
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
     * lang/catalan update, thanks to Xavier Navarro (xavin).
     * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
 
 2004-09-24 Marc Delisle  <lem9@users.sourceforge.net>
@@ -1422,14 +1422,14 @@ $Source$
     * read_dump.php: bug #1034216 open_basedir and file upload,
       thanks to Dominique Rousseau - domi
 
-2004-09-24 Michal ÄihaÅ  <michal@cihar.com>
+2004-09-24 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Fixed export of '0' string (bug #1033869).
 
 2004-09-23 Marc Delisle  <lem9@users.sourceforge.net>
     * all themes: item_ltr.png and item_rtl.png: new solid arrow
       that looks better, thanks to Efim Shuvikov
 
-2004-09-23 Michal ÄihaÅ  <michal@cihar.com>
+2004-09-23 Michal Čihař  <michal@cihar.com>
     * themes.php, css/phpmyadmin.css.php, libraries/common.lib.php: Do not
       prepend $cfg['ThemePath'] with another './'.
 
@@ -1447,7 +1447,7 @@ $Source$
       no submit button; also, read_dump always tried a PMA_select_db($db)
       even if $db was empty
 
-2004-09-22 Michal ÄihaÅ  <michal@cihar.com>
+2004-09-22 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
     * lang/sync_lang.sh: Default to iconv, as it doesn't break some
       translations as recode does.
@@ -1475,7 +1475,7 @@ $Source$
     * libraries/dbi/mysql.dbi.lib.php: tell the client library to use
       CLIENT_LOCAL_FILES (flag 128), thanks to Matthias Pigulla
 
-2004-09-20 Michal ÄihaÅ  <michal@cihar.com>
+2004-09-20 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Add info about theme generations.
 
 2004-09-19 Alexander M. Turek  <me@derrabus.de>
@@ -1508,7 +1508,7 @@ $Source$
     * left.php: bug #1006514, top left frame does not load in Safari 1.2.3,
       workaround thanks to Ryan Schmidt
 
-2004-09-14 Michal ÄihaÅ  <michal@cihar.com>
+2004-09-14 Michal Čihař  <michal@cihar.com>
     * themes.php, libraries/common.lib.php, libraries/defines.lib.php,
       libraries/select_theme.lib.php, themes/darkblue_orange/info.inc.php,
       themes/original/info.inc.php: Better theme version check (bug #1023029).
@@ -1541,7 +1541,7 @@ $Source$
     * main.php: bug #992211, wrong parameters to
       PMA_generate_common_hidden_inputs(), thanks to Ryan Schmidt
 
-2004-09-07 Michal ÄihaÅ  <michal@cihar.com>
+2004-09-07 Michal Čihař  <michal@cihar.com>
     * calendar.php: Minimal common.lib.php doesn't fix absolute path, so use
       full one (bug #1023444).
 
@@ -1564,7 +1564,7 @@ $Source$
       MySQL 4.1.
     * main.php: Check the privileges of the anonymous user, too.
 
-2004-09-05 Michal ÄihaÅ  <michal@cihar.com>
+2004-09-05 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Add information about theme versions and names.
 
 2004-09-04 Alexander M. Turek  <me@derrabus.de>
@@ -1590,7 +1590,7 @@ $Source$
     * Documentation.html: Typos; added a note about the deprecated MySQL
       versions 4.1.0 and 4.1.1.
 
-2004-09-03 Michal ÄihaÅ  <michal@cihar.com>
+2004-09-03 Michal Čihař  <michal@cihar.com>
     * libraries/string.lib.php: Encoding tis-620 is not multibyte (bug
       #1013787).
     * libraries/display_export.lib.php: Updated texts to fit Excel 2003
@@ -1607,7 +1607,7 @@ $Source$
       cookie is not used. Users have to reenter their username (not a big
       impact IMO)
 
-2004-09-01 Michal ÄihaÅ  <michal@cihar.com>
+2004-09-01 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Fix empty BLOB export (bug #1020052).
 
 2004-08-29 Marc Delisle  <lem9@users.sourceforge.net>
@@ -1629,14 +1629,14 @@ $Source$
     * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000)
     * lang/hebrew, turkish: bug 1016609: <br> tags
 
-2004-08-25 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-25 Michal Čihař  <michal@cihar.com>
     * main.php: Don't show port after verbose name (bug #1013401).
 
-2004-08-23 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-23 Michal Čihař  <michal@cihar.com>
     * scripts/create-release.sh: Support for snapshots outside sourceforge.
     * libraries/export/sql.php: Fix exporting of TIMESTAMP (bug #1013730).
 
-2004-08-22 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-22 Michal Čihař  <michal@cihar.com>
     * sql.php: Don't unset $sql_limit_to_append, we need it later (bug
       #978930, found by Marc).
 
@@ -1664,11 +1664,11 @@ $Source$
 2004-08-19 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*: bug 1009667: do not spell Ms Excel but MS Excel
 
-2004-08-19 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-19 Michal Čihař  <michal@cihar.com>
     * read_dump.php: Fixed one case of reload detection (I forgot to update
       second regexp on 2004-08-16) (bug #1011479).
 
-2004-08-17 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-17 Michal Čihař  <michal@cihar.com>
     * sql.php: Work with $display_query only if set (Marc spotted this out).
     * libraries/display_export.lib.php: No options text should not be bold red
       (bug #1010759).
@@ -1687,7 +1687,7 @@ $Source$
     * all .../theme_right_css.php: bug #1009661, typo,
       thanks to Ryan Schmidt (ryandesign)
 
-2004-08-16 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-16 Michal Čihař  <michal@cihar.com>
     * read_dump.php: Fix handling of comments -- and # (bug #1009494).
     * libraries/relation.lib.php: Fix typo, CONVERT is for MySQL >= 4.1 and
       not for MySQL >= 4.0.
@@ -1701,12 +1701,12 @@ $Source$
     * themes/.../themes_left.css, /themes_right.css: new style for
       better vertical alignment
 
-2004-08-13 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-13 Michal Čihař  <michal@cihar.com>
     * libraries/read_dump.lib.php: Fix possible undefined index (bug
       #1008232).
     * scripts/create-release.sh: Rename config.default to config.default.php.
 
-2004-08-12 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-12 Michal Čihař  <michal@cihar.com>
     * db_details_structure.php: Inconsistency of drop/empty links (bug
       #989705).
     * tbl_addfield.php, tbl_properties.inc.php, tbl_properties_structure.php:
@@ -1725,14 +1725,14 @@ $Source$
     * left.php: Use always natsort and not natcasesort in one case, it caused
       inconsistency (bug #1008120).
 
-2004-08-11 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-11 Michal Čihař  <michal@cihar.com>
     * tbl_replace.php: Do not empty protected values (bug #1006812).
     * libraries/display_tbl.lib.php: Wrong parameters for PMA_DBI_free_result
       (bug #1007287).
     * tbl_indexes.php, libraries/display_tbl.lib.php: Fix grabing indexes with
       MYSQLI_USE_RESULT (bug #1007286).
 
-2004-08-10 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-10 Michal Čihař  <michal@cihar.com>
     * libraries/tbl_change.js: Forcibily use 10 as base for parsed numbers,
       otherwise accidentally octal numbers are expected (part of bug
       #1005865).
@@ -1757,7 +1757,7 @@ $Source$
     * libraries/sqlparser.lib.php: cannot copy a table structure (MySQL 4.1.x)
     ### 2.6.0-rc1 released
 
-2004-08-08 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-08 Michal Čihař  <michal@cihar.com>
     * calendar.php: Include correct stylesheet (bug #1005421).
 
 2004-08-07 Marc Delisle  <lem9@users.sourceforge.net>
@@ -1771,7 +1771,7 @@ $Source$
     * tbl_properties_operations.php: bug 1004523, now display table options
       according to the possibilities of the table types
 
-2004-08-06 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-06 Michal Čihař  <michal@cihar.com>
     * tbl_change.php: Do not free result, we need it later.
     * tbl_relation.php: Some functions do not take parameters (bug #1000021).
 
@@ -1781,8 +1781,8 @@ $Source$
     * updated themes screenshots
     * left.php: bug 998698, db dropdown refresh
     (me)
-    * lang/galician: Updated, thanks to XosÃ© Calvo.
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000)
 
 2004-08-03 Marc Delisle  <lem9@users.sourceforge.net>
@@ -1805,7 +1805,7 @@ $Source$
       the corresponding -UTF-8 version (if it exists); also, now
       the default language is the non-UTF-8 one
 
-2004-08-02 Michal ÄihaÅ  <michal@cihar.com>
+2004-08-02 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Removed unused code.
 
 2004-08-01 Marc Delisle  <lem9@users.sourceforge.net>
@@ -1836,7 +1836,7 @@ $Source$
 2004-07-29 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser*.php: bug 965026, support of GROUP_CONCAT()
 
-2004-07-28 Michal ÄihaÅ  <michal@cihar.com>
+2004-07-28 Michal Čihař  <michal@cihar.com>
     * tbl_properties_structure.php: Allow to create primary key when there was
       none before (bug #996246).
 
@@ -1887,7 +1887,7 @@ $Source$
 2004-07-16 Marc Delisle  <lem9@users.sourceforge.net>
     * index.php: left frame display problems under IE
 
-2004-07-16 Michal ÄihaÅ  <michal@cihar.com>
+2004-07-16 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Remove code for old MySQL version, do not
       store query, better handle various end of lines (probably bug #979635).
 
@@ -1901,7 +1901,7 @@ $Source$
     * server_databases.php: Add database collations to statistics.
     * lang/german-*.inc.php: Grammar.
 
-2004-07-15 Michal ÄihaÅ  <michal@cihar.com>
+2004-07-15 Michal Čihař  <michal@cihar.com>
     * tbl_properties_export.php: Fix export of queries with empty WHERE clause
       (bug #990330).
     * libraries/display_export.lib.php: Display SQL export after saving file
@@ -1923,7 +1923,7 @@ $Source$
       (note: we need to use the PMA_DBI_QUERY_STORE option in a mysqli query
        when we later do a PMA_DBI_num_rows() on the results)
 
-2004-07-13 Michal ÄihaÅ  <michal@cihar.com>
+2004-07-13 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
 
 2004-07-13 Alexander M. Turek  <me@derrabus.de>
@@ -1942,8 +1942,8 @@ $Source$
 
 2004-07-10 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan update, thanks to Xavier Navarro (xavin).
-    * lang/galician: Updated, thanks to XosÃ© Calvo.
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
 
 2004-07-09 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug 981793, cross-window update message when inserting
@@ -1981,7 +1981,7 @@ $Source$
 2004-07-02 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: put Create button on the same line as the input field
 
-2004-07-01 Michal ÄihaÅ  <michal@cihar.com>
+2004-07-01 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
 
 2004-07-01 Marc Delisle  <lem9@users.sourceforge.net>
@@ -2003,7 +2003,7 @@ $Source$
 2004-06-30 Alexander M. Turek  <me@derrabus.de>
     * libraries/common.lib.php: Fix against $_REQUEST['cfg'] exploits.
 
-2004-06-29 Michal ÄihaÅ  <michal@cihar.com>
+2004-06-29 Michal Čihař  <michal@cihar.com>
     * lang/check_lang.sh: Checks for diffstat presence.
 
 2004-06-28 Marc Delisle  <lem9@users.sourceforge.net>
@@ -2011,7 +2011,7 @@ $Source$
     ### 2.6.0-beta2 released
 
 
-2004-06-27 Michal ÄihaÅ  <michal@cihar.com>
+2004-06-27 Michal Čihař  <michal@cihar.com>
     * lang/*: Make all export choices look simmilar ('drop table' -> DROP
       TABLE), removed unused strings (there vere MANY!), fixed some czech
       texts.
@@ -2031,7 +2031,7 @@ $Source$
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
     * main.php: js error when switching theme, thanks to Michael Keck
 
-2004-06-25 Michal ÄihaÅ  <michal@cihar.com>
+2004-06-25 Michal Čihař  <michal@cihar.com>
     * main.php, libraries/select_lang.lib.php: Remember selected charset in
       cookie.
     * libraries/display_export.lib.php: Add back key checking disabling.
@@ -2075,14 +2075,14 @@ $Source$
       number of tables changes, thanks to Michael Keck
     * lang/bulgarian:  Updated, thanks to Stanislav Yordanov (stanprog).
     * lang/indonesian: Update thanks to Rachim Tamsjadi - tamsy.
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     ### 2.6.0-beta1 released
 
 2004-06-24 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/mysqli.dbi.php: Undefined variable if PMA_DBI_getError() is
       called although no error occured.
 
-2004-06-24 Michal ÄihaÅ  <michal@cihar.com>
+2004-06-24 Michal Čihař  <michal@cihar.com>
     * main.php, changelog.php: Add headers to ChangeLog display.
     * scripts/create_tables.sql: Add IF EXISTS.
     * libraries/read_dump.lib.php: Ignore comments for SQL splitting,
@@ -2102,7 +2102,7 @@ $Source$
     * config.inc.php, libraries/common.lib.php, libraries/config_import.lib.php:
       missing parameter for the Refresh link feature
 
-2004-06-22 Michal ÄihaÅ  <michal@cihar.com>
+2004-06-22 Michal Čihař  <michal@cihar.com>
     * libraries/relation.lib.php: Fix possible error on non existant pma db.
 
 2004-06-20 Marc Delisle  <lem9@users.sourceforge.net>
@@ -2140,7 +2140,7 @@ $Source$
       css/phpmyadmin.css.php, themes/original/img + css:
       put original theme under the same structure as darkblue_orange
 
-2004-06-16 Michal ÄihaÅ  <michal@cihar.com>
+2004-06-16 Michal Čihař  <michal@cihar.com>
     * header.inc.php: Use rather _SERVER than GLOBALS, should fix bug #973602.
 
 2004-06-15 Marc Delisle  <lem9@users.sourceforge.net>
@@ -2153,7 +2153,7 @@ $Source$
     * left.php, tbl_properties.inc.php, librairies/common.lib.php:
       missing title tags
 
-2004-06-15 Michal ÄihaÅ  <michal@cihar.com>
+2004-06-15 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
     * config.inc.php, libraries/config_import.lib.php,
       libraries/common.lib.php: Support for SHA1 function (RFE #971703).
@@ -2212,7 +2212,7 @@ $Source$
 2004-06-09 Alexander M. Turek  <me@derrabus.de>
     ### 2.5.7 released from MAINT_2_5 branch.
 
-2004-06-08 Michal ÄihaÅ  <michal@cihar.com>
+2004-06-08 Michal Čihař  <michal@cihar.com>
     * config.inc.php, lang/*, libraries/common.lib.php,
       libraries/config_import.lib.php, libraries/display_export.lib.php,
       libraries/export/sql.php: Add FOREIGN_KEY_CHECKS=0 to export (RFE
@@ -2226,7 +2226,7 @@ $Source$
     * libraries/dbi/mysqli.dbi.lib.php: omit last parameter when calling
       mysqli_connect() to enable the use of default socket
 
-2004-06-07 Michal ÄihaÅ  <michal@cihar.com>
+2004-06-07 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
     * libraries/charset_conversion.lib.php: Do not convert, if charsets are
       same.
@@ -2254,7 +2254,7 @@ $Source$
       <td>. Adjusted CSS to not change visual display of those.
     * (same files): Optimized unneccessary preg_replace.
 
-2004-06-04 Michal ÄihaÅ  <michal@cihar.com>
+2004-06-04 Michal Čihař  <michal@cihar.com>
     * libraries/read_dump.lib.php: Do not strip comments here.
     * libraries/sqlparser.lib.php: Handle correctly all MySQL comments (-- can
       be followed with any control char) (patch #965106).
@@ -2268,7 +2268,7 @@ $Source$
 2004-06-03 Alexander M. Turek  <me@derrabus.de>
     * header.inc.php: Undefined variable.
 
-2004-06-03 Michal ÄihaÅ  <michal@cihar.com>
+2004-06-03 Michal Čihař  <michal@cihar.com>
     * db_details_links.php, header.inc.php, server_links.inc.php,
       tbl_properties_links.php, css/phpmyadmin.css.php: Use classes for
       heading (RFE #965542).
@@ -2296,7 +2296,7 @@ $Source$
       'Server' string
     * pdf_schema.php: bug #915735, dictionary cropped in landscape letter
 
-2004-05-30 Michal ÄihaÅ  <michal@cihar.com>
+2004-05-30 Michal Čihař  <michal@cihar.com>
     * libraries/display_tbl.lib.php: Return back to browsing after editing
       row.
 
@@ -2308,13 +2308,13 @@ $Source$
       the display of part of the changing amount of columns dialog
       when editing a field structure
 
-2004-05-28 Michal ÄihaÅ  <michal@cihar.com>
+2004-05-28 Michal Čihař  <michal@cihar.com>
     * libraries/display_tbl.lib.php: Decrease limit for query truncating (see
       comments in bug #951744).
     * Documentation.html, config.inc.php, tbl_query_box.php: Default query can
       contain field names (RFE #948590, patch #961726).
 
-2004-05-26 Michal ÄihaÅ  <michal@cihar.com>
+2004-05-26 Michal Čihař  <michal@cihar.com>
     * lang/norwegian: Update, thanks to Sven-Erik Andersen - sven-erik.
     * lang/estonian: Update thanks to Alvar Soome - finsoft.
     * lang/indonesian: Update thanks to Rachim Tamsjadi - tamsy.
@@ -2328,7 +2328,7 @@ $Source$
     * translators.html: Linked to Indonesian translator's SF page instead of
       his email address.
 
-2004-05-25 Michal ÄihaÅ  <michal@cihar.com>
+2004-05-25 Michal Čihař  <michal@cihar.com>
     * main.php, libraries/select_lang.lib.php: Use pma_lang cookie instead of
       just lang.
     * libraries/select_lang.lib.php: Fix language dialects detection (based on
@@ -2337,7 +2337,7 @@ $Source$
 2004-05-23 Garvin Hicking <pma@supergarv.de>
     * db_details.php: Fixed broken file upload since redesign-patch.
 
-2004-05-20 Michal ÄihaÅ  <michal@cihar.com>
+2004-05-20 Michal Čihař  <michal@cihar.com>
     * many files: Little code reorganistaion (RFE #957308), removed some
       remaining php3 compatibility code in SQL parser.
 
@@ -2350,7 +2350,7 @@ $Source$
       PMA_foreignDropdown() must be called with no current value for
       the data
 
-2004-05-19 Michal ÄihaÅ  <michal@cihar.com>
+2004-05-19 Michal Čihař  <michal@cihar.com>
     * libraries/auth/cookie.auth.lib.php: Show login form in top frame.
 
 2004-05-16 Alexander M. Turek  <me@derrabus.de>
@@ -2367,11 +2367,11 @@ $Source$
     * Documentation.html: Let's use a hyperlink instead of referring to the
       chapter, as the chaper numbers might change.
 
-2004-05-14 Michal ÄihaÅ  <michal@cihar.com>
+2004-05-14 Michal Čihař  <michal@cihar.com>
     * libraries/auth/cookie.auth.lib.php: Use one cookie set for each server,
       not just one global (patch #952917, bug #687009).
 
-2004-05-13 Michal ÄihaÅ  <michal@cihar.com>
+2004-05-13 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Minor optimalisations.
     * sql.php, tbl_replace.php, libraries/display_tbl.lib.php: Use same code
       for generating INSERT and UPDATE queries (also fixes bug #953250).
@@ -2403,7 +2403,7 @@ $Source$
     * tbl_replace.php, tbl_indexes.php, sql.php, db_details_common.php,
       libraries/db_table_exists.php: use PMA_sendHeaderLocation()
 
-2004-05-11 Michal ÄihaÅ  <michal@cihar.com>
+2004-05-11 Michal Čihař  <michal@cihar.com>
     * libraries/sqlparser.lib.php: Modified pretty printer to display nicer
       queries generated by our db search.
     * db_search.php: Do not generate search query to include all fields, just
@@ -2416,7 +2416,7 @@ $Source$
     * left.php: commit for Garvin: fix for wrong group expanding (group
       name containing foreign characters)
 
-2004-05-10 Michal ÄihaÅ  <michal@cihar.com>
+2004-05-10 Michal Čihař  <michal@cihar.com>
     * libraries/dbi/mysql.dbi.lib.php: Fix PMA_DBI_field_name, fixes also bug
       #951226.
 
@@ -2428,7 +2428,7 @@ $Source$
     * main.php, css/phpmyadmin.css.php: Corrected <form> position
       to XHTML compliance. Introduced "nospace" class.
 
-2004-05-09 Michal ÄihaÅ  <michal@cihar.com>
+2004-05-09 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
     * tbl_properties_operations.php: Fixed documentation link.
 
@@ -2554,7 +2554,7 @@ $Source$
     * lang/estonian: Updated, thanks to Alvar Soome (finsoft).
     * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
     * lang/slovak: Updated, thanks to Lubos Klokner (erkac).
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/slovenian update, thanks to Kositer Uros
     * libraries/common.lib.php: patch #859034, better BLOB comparison
 
@@ -2752,7 +2752,7 @@ $Source$
 2004-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: bug 930445 when PMA_table_info not defined,
       thanks to Philippe Jausions (jausions)
-    * Documentation.html: new faq links and cleanup, thanks to CÃ©dric Corazza
+    * Documentation.html: new faq links and cleanup, thanks to Cédric Corazza
     * tbl_replace.php, libraries/defines.lib.php, /common.lib.php:
       bug 898484, IIS crash: do not use header('Location: ')
 
@@ -3153,14 +3153,14 @@ $Source$
 2004-01-14 Marc Delisle  <lem9@users.sourceforge.net>
     * mult_submits.inc.php: bug 876805, dropping a field with the
       multi-submit mechanism removes all internal relations of a table,
-      patch thanks to Joosep-Georg JÃ¤rvemaa (j-georg)
+      patch thanks to Joosep-Georg Järvemaa (j-georg)
 
 2004-01-13 Robin Johnson <robbat2@users.sourceforge.net>
     * Documentation.html: Slight update to what I've done
 
 2004-01-12 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/portuguese: Updated, thanks to Lopo Pizarro (lopopizarro).
 
 2004-01-09 Alexander M. Turek  <singwhenyourewinning@derrabus.de>
@@ -3532,7 +3532,7 @@ $Source$
 2003-11-19 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/catalan: Updated, thanks to Xavier Navarro (xavin).
     * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
-    * lang/portuguese: Updated, thanks to AntÃ³nio Raposo (cfmsoft).
+    * lang/portuguese: Updated, thanks to António Raposo (cfmsoft).
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
 
 2003-11-19 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -3740,7 +3740,7 @@ $Source$
 2003-10-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php3: bug 821512, Safari 1.0 v85.5 and fonts
     * libraries/functions.js: bug 825665, scratchboard and paper size
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     ### 2.5.4 released
 
 2003-10-17 Marc Delisle  <lem9@users.sourceforge.net>
@@ -4065,11 +4065,11 @@ $Source$
       tbl_properties_operations.php3 instead of tbl_properties.php3.
 
 2003-08-22 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/galician: Updated, thanks to XosÃ© Calvo.
+    * lang/galician: Updated, thanks to Xosé Calvo.
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
     * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
     * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/greek: update, thanks to Kyriakos Xagoraris (theremon)
     * libraries/sqlparser.lib.php3: extract the CONSTRAINTs for FOREIGN KEYs
     * libraries/relation.lib.php3: getForeigners() returns also the constraint
@@ -4163,11 +4163,11 @@ $Source$
 2003-08-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/serbian update, thanks to Mihailo Stefanovic
     * lang/romanian: Updated, thanks to Valics Lehel.
-    * lang/galician: Updated, thanks to XosÃ© Calvo.
+    * lang/galician: Updated, thanks to Xosé Calvo.
     * lang/bulgarian:  Updated, thanks to Stanislav Yordanov (stanprog).
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
     * lang/chinese_gb: Updated, thanks to Wang (fundawang).
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * Documentation.html: bug 782597: FAQ 1.30 about Turck MMCache
 
 2003-08-06 Marc Delisle  <lem9@users.sourceforge.net>
@@ -4374,7 +4374,7 @@ $Source$
       Thanks to andreas_e ;)
 
 2003-07-16 Michal Cihar  <nijel@users.sourceforge.net>
-    * lang/galician: Updated, thanks to XosÃ© Calvo.
+    * lang/galician: Updated, thanks to Xosé Calvo.
 
 2003-07-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/sql.php3: bug 771575: wrong quotes for variable expansion
@@ -4441,7 +4441,7 @@ $Source$
       (bug #768351).
     * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
-    * lang/galician: Updated, thanks to XosÃ© Calvo.
+    * lang/galician: Updated, thanks to Xosé Calvo.
 
 2003-07-09 Garvin Hicking <me@supergarv.de>
     * tbl_query_box.php3: Fix Bug #768652 (sql history tab submittet to
@@ -4474,7 +4474,7 @@ $Source$
     * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
     * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
     * lang/romanian: Updated, thanks to Valics Lehel.
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/slovak: Updated, thanks to Lubos Klokner (erkac).
     * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
 
@@ -4514,7 +4514,7 @@ $Source$
 2003-07-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/config.auth.lib.php3, lang/*.php3:
       $strAccessDeniedExplanation
-    * lang/swedish update, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish update, thanks to Björn T. Hallberg (bth).
     * lang/polish update, thanks to Jakub Wilk (ubanus).
 
 2003-07-05 Michal Cihar  <nijel@users.sourceforge.net>
@@ -4612,7 +4612,7 @@ $Source$
       lang/russian-*.inc.php3, lang/ukrainian-*.inc.php3: Checked all language
       files for incomplete arrays ($byteUnits, $day_of_week and $month).
     * libraries/common.lib.php3: Security fix against bad JS code.
-    * translators.html: Removed LoÃ¯c from list; he is inactive at the moment.
+    * translators.html: Removed Loïc from list; he is inactive at the moment.
     * Documentation.html: Changed my email address.
 
 2003-06-22 Robin Johnson <robbat2@users.sourceforge.net>
@@ -4831,7 +4831,7 @@ $Source$
 
 2003-05-30 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian updates, thanks to Valics Lehel
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/polish: update, thanks to Jakub Wilk
 
 2003-05-30 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -4921,7 +4921,7 @@ $Source$
 
 2003-05-24 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: talk about left frame levels
-    * lang/galician: update, thanks to XosÃ© Calvo
+    * lang/galician: update, thanks to Xosé Calvo
     * lang/turkish: update, thanks to Bora Alioglu
 
 2003-05-24 Garvin Hicking <me@supergarv.de>
@@ -4950,7 +4950,7 @@ $Source$
       libraries/defines_php.lib.php3: Improved GD 2 detection (bugs #736111,
       #741192).
     * lang/sync_lang.sh: Removed dropped farsi translation.
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
     * lang/norwegian: Updated, thanks to Sven-Erik Andersen (sven-erik).
 
@@ -5273,7 +5273,7 @@ $Source$
       when changing it.
     * lang/czech: Updated.
     * lang/indonesian: Updted, thanks to Rachim Tamsjadi (tamsy).
-    * lang/swedish: Updated, thanks to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/italian: Updated, thanks to Pietro Danesi (danone).
     * lang/catalan: Updated, thanks to Xavier Navarro.
     * footer.inc.php3: Fixed for quotes, HTML entities and other weird
@@ -5355,11 +5355,11 @@ $Source$
       to prevent false arrow aligning when using 'same widths'.
 
 2003-04-08 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/galician: update, thanks to XosÃ© Calvo
+    * lang/galician: update, thanks to Xosé Calvo
     * lang/lithuanian: Updated, thanks to Vilius Zigmantas.
     * lang/italian: Updated, thanks to Pietro Danesi.
     * lang/chinese_gb: update, thanks to (fundawang)
-    * lang/swedish: update, thanks to BjÃ¶rn T. Hallberg
+    * lang/swedish: update, thanks to Björn T. Hallberg
     * lang/norwegian: update, thanks to Sven-Erik Andersen
 
 2003-04-07 Michal Cihar  <nijel@users.sourceforge.net>
@@ -5971,7 +5971,7 @@ $Source$
         Files: queryframe.php3, querywindow.php3, header.inc.php3,
         tbl_query_box.php3, common.lib.php3
 
-2003-02-24 Olivier L. MÃ¼ller  <om@omnis.ch>
+2003-02-24 Olivier L. Müller  <om@omnis.ch>
     * libraries/common.lib.php3: if $cfg['PmaAbsoluteUri'] is empty and
       port == 80 or port == 443, do not add ":80" or ":443" anymore to the
       generated URL -> prevents a double password query with some browsers
@@ -5986,7 +5986,7 @@ $Source$
 2003-02-23 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.4.0 released
 
-2003-02-23 Olivier L. MÃ¼ller  <om@omnis.ch>
+2003-02-23 Olivier L. Müller  <om@omnis.ch>
     * docs.css: highlight FAQ questions in blue -> more readble.
 
 2003-02-23 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -6002,13 +6002,13 @@ $Source$
     * lang/thai: update, thanks to Arthit Suriyawongkul
     * tbl_change.php3: do not use enctype="multipart/form-data"
       if !$is_upload (possible solution for bug 689215)
-    * lang/swedish: update, thanks to BjÃ¶rn T. Hallberg
+    * lang/swedish: update, thanks to Björn T. Hallberg
 
 2003-02-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: Coding standards.
     * lang/romanian-*.inc.php3: Updates, thanks to Valics Lehel.
     * lang/spanish-*.inc.php3: Updates, thanks to Dr. med. Daniel Hinostroza C.
-    * lang/galician-*.inc.php3: Updates, thanks to XosÃ© Calvo.
+    * lang/galician-*.inc.php3: Updates, thanks to Xosé Calvo.
     * lang/catalan-*.inc.php3: Updates, thanks to Xavier Navarro.
 
 2003-02-18 Marc Delisle  <lem9@users.sourceforge.net>
@@ -6095,7 +6095,7 @@ $Source$
     * lang/italian update, thanks to Pietro Danesi
     * lang/lithuanian update, thanks to Vilius Zigmantas
     * lang/slovenian update, thanks to Kositer Uros
-    * lang/swedish: update, thanks to BjÃ¶rn T. Hallberg
+    * lang/swedish: update, thanks to Björn T. Hallberg
     * tbl_change.php3: upload field only to BLOBs
     * libraries/defines.lib.php3, libraries/common.lib.php3: adjust Konqueror
       font size
@@ -6128,7 +6128,7 @@ $Source$
     * db_stats.php3: Removed, the file is replaced by server_databases.php3.
     * lang/german-*.inc.php3: Updates.
     * config.inc.php3: Added a note about another possible setting.
-    * lang/galician-*.inc.php3: Updates, thanks to XosÃ© Calvo.
+    * lang/galician-*.inc.php3: Updates, thanks to Xosé Calvo.
     * lang/romanian-*.inc.php3: Updates, thanks to Valics Lehel.
     * translators.html: Fixed a typo.
     * lang/indonesian-*.inc.php3: Updates, thanks to Rachim Tamsjadi (tamsy).
@@ -6147,7 +6147,7 @@ $Source$
     * lang/italian: update, thanks to Pietro Danesi
     * lang/norwegian: update, thanks to Sven-Erik Andersen
     * lang/polish: update, thanks to Jakub Wilk
-    * lang/swedish: update, thanks to BjÃ¶rn T. Hallberg
+    * lang/swedish: update, thanks to Björn T. Hallberg
     * lang/slovak: remove duplicates
     * lang/*, tbl_properties.inc.php3: new $strDefaultValueHelp
 
@@ -6218,7 +6218,7 @@ $Source$
     * lang/catalan: update, thanks to Xavier Navarro
     * lang/dutch update, thanks to Ivo Teel
 
-2003-02-02 Olivier L. MÃ¼ller  <om@omnis.ch>
+2003-02-02 Olivier L. Müller  <om@omnis.ch>
     * tbl_addfield.php3: ignore empty fields on alter table
 
 2003-02-02 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -6242,7 +6242,7 @@ $Source$
       (later when we get enough translations,
        we can use it instead of $strCandLoadMySQL)
     * lang/romanian: update, thanks to Valics Lehel
-    * lang/galician: update, thanks to XosÃ© Calvo
+    * lang/galician: update, thanks to Xosé Calvo
     * lang/lithuanian: update, thanks to Vilius Zigmantas
     * lang/japanese: update, thanks to Yukihiro Kawada
     * lang/*, libraries/dbg/profiling.php3: strDBGMaxTimeMs,
@@ -6312,7 +6312,7 @@ $Source$
     * tbl_relation.php3, bug 659227: in Relation View, cannot enter comments
 
 2003-01-22 Robin Johnson  <robbat2@users.sourceforge.net>
-    * lang/swedish*: Updates, thanks to BjÃ¶rn T. Hallberg (bth)
+    * lang/swedish*: Updates, thanks to Björn T. Hallberg (bth)
     * lang/italian*: Updates, thanks to Pietro Danesi (danone)
     * lang/english*: Resorted and Resynced.
     * lang/farsi*: Added ready for Farsi translation
@@ -6405,7 +6405,7 @@ $Source$
     * lang/catalan-*.inc.php3: Updates, thanks to Xavier Navarro (xavin).
 
 2003-01-14 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/galician: update, thanks to XosÃ© Calvo
+    * lang/galician: update, thanks to Xosé Calvo
     * lang/spanish: update, thanks to Dr. med. Daniel Hinostroza C.
 
 2003-01-14 Michal Cihar  <nijel@users.sourceforge.net>
@@ -6468,7 +6468,7 @@ $Source$
     * libraries/sqlparser.lib.php3, libraries/functions.js,
       sql.php3: - use the parser for confirmation requests
                 - better check before appending LIMIT
-    * lang/galician: update, thanks to XosÃ© Calvo
+    * lang/galician: update, thanks to Xosé Calvo
     * lang/spanish: update, thanks to Dr. med. Daniel Hinostroza C.
     * lang/indonesian: missing semicolon
     * lang/japanese: update, thanks to Yukihiro Kawada
@@ -6526,8 +6526,8 @@ $Source$
 2003-01-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/estonian*, malay*: remove control M
     * lang/romanian: update, thanks to Valics Lehel
-    * lang/galician: update, thanks to XosÃ© Calvo
-    * lang/english: typos fix, thanks to BjÃ¶rn T. Hallberg (bth)
+    * lang/galician: update, thanks to Xosé Calvo
+    * lang/english: typos fix, thanks to Björn T. Hallberg (bth)
 
 2003-01-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german*: Updated.
@@ -6627,7 +6627,7 @@ $Source$
 
 2002-12-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/russian: update, thanks to Nicolay Zakharov
-    * lang/galician: update, thanks to XosÃ© Calvo
+    * lang/galician: update, thanks to Xosé Calvo
 
 2002-12-15 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/get_foreign.lib.php3: bug 646263,
@@ -6671,7 +6671,7 @@ $Source$
       thanks to Valentine for creating the patch #627496.
 
 2002-12-11 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/galician: update, thanks to XosÃ© Calvo
+    * lang/galician: update, thanks to Xosé Calvo
     * libraries/sqlparser.lib.php3: bug 649665 undefined vars with UNION,
       but there is still some work to do about how to split a UNION
     * tbl_properties_options.php3, bug 651522 wrong back-link,
@@ -6693,7 +6693,7 @@ $Source$
 2002-12-09 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/norwegian-*.inc.php3: Updates, thanks again to
       Sven-Erik Andersen (sven-erik).
-    * lang/swedish-*.inc.php3: Updates, thanks again to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish-*.inc.php3: Updates, thanks again to Björn T. Hallberg (bth).
     * lang/spanish-*.inc.php3: Updates, thanks again to
       Dr. med. Daniel Hinostroza C.
 
@@ -6739,7 +6739,7 @@ $Source$
       thanks to Piotr Roszatycki (d3xter)
 
 2002-12-05 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * lang/swedish.inc.php3: Updates, thanks again to BjÃ¶rn T. Hallberg (bth).
+    * lang/swedish.inc.php3: Updates, thanks again to Björn T. Hallberg (bth).
 
 2002-12-05 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3: remove control M
