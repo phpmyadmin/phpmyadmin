@@ -478,6 +478,14 @@ if (!isset($cfg['InsertRows'])) {
     $cfg['InsertRows'] = 2;
 }
 
+if (!isset($cfg['ForeignKeyDropdownOrder'])) {
+    $cfg['ForeignKeyDropdownOrder'] = array( 'content-id', 'id-content');
+}
+
+if (!isset($cfg['ForeignKeyMaxLimit'])) {
+    $cfg['ForeignKeyMaxLimit'] = 100;
+}
+
 if (!isset($cfg['ZipDump'])) {
     if (isset($cfgZipDump)) {
         $cfg['ZipDump'] = $cfgZipDump;

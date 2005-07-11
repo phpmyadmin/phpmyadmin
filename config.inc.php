@@ -275,12 +275,10 @@ $cfg['CharEditing']           = 'input';
                                         //  input - allows limiting of input length
                                         //  textarea - allows newlines in fields
 $cfg['InsertRows']            = 2;      // How many rows can be inserted at one time
-$cfg['ForeignKeyDropdownOrder'] = array(
-'content-id'
-//, 
-//'id-content'
-); // Sort order for items in a foreign-key dropdown box. 
-$cfg['ForeignKeyMaxLimit'] = 100; // If less items than this exist, a dropdown will be used.
+
+$cfg['ForeignKeyDropdownOrder'] =       // Sort order for items in a foreign-key dropdown box. 
+    array( 'content-id', 'id-content'); // 'content' is the referenced data, 'id' is the key value.
+$cfg['ForeignKeyMaxLimit'] = 100;       // A dropdown will be used if fewer items are present
 
 
 // For the export features...

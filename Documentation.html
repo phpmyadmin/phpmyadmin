@@ -1231,6 +1231,26 @@ Defaults to FALSE (drop-down). <br />
         </ul>
         Default is old behavior so input.
         <br /><br />
+        </dd>
+
+    <dt><b>$cfg['InsertRows']</b> integer</dt>
+    <dd>
+        Defines the maximum number of concurrent entries for the Insert page.
+    </dd>
+
+    <dt><b>$cfg['ForeignKeyMaxLimit']</b> integer</dt>
+    <dd>
+    If there are fewer items than this in the set of foreign keys, then a
+    drop-down box of foreign keys is presented, in the style described by the 
+    <b>$cfg['ForeignKeyDropdownOrder']</b> setting.
+    </dd>
+
+    <dt><b>$cfg['ForeignKeyDropdownOrder']</b> array</dt>
+    <dd>
+        For the foreign key drop-down fields, there are several methods of
+        display, offering both the key and value data. The contents of the
+        array should be one or both of the following strings:
+        <i>'content-id'</i>, <i>'id-content'</i>.
     </dd>
 
     <dt>
