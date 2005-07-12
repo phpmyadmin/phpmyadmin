@@ -308,15 +308,13 @@ if (!$save_on_server) {
         }
         header('Content-Type: ' . $mime_type);
         header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-        // lem9 & loic1: IE need specific headers
-        if (PMA_USR_BROWSER_AGENT == 'IE') {
-            header('Content-Disposition: inline; filename="' . $filename . '"');
-            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-            header('Pragma: public');
-        } else {
-            header('Content-Disposition: attachment; filename="' . $filename . '"');
-            header('Pragma: no-cache');
-        }
+        // lem9: Tested behavior of 
+        //       IE 5.50.4807.2300
+        //       IE 6.0.2800.1106 (small glitch, asks twice when I click Open) 
+        //       IE 6.0.2900.2180
+        //       Firefox 1.0.4
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        header('Pragma: no-cache');
     } else {
         // HTML
         $backup_cfgServer = $cfg['Server'];

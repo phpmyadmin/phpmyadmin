@@ -7,6 +7,7 @@ $Source$
 
 2005-07-12 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php: for Insert row and Export, use post when the query is too big
+    * export.php: bug #1116026, export under IE 6 (XP SP2)
 
 2005-07-11 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_relations.php: bug #1227710, unsaved relations lost when changing 
