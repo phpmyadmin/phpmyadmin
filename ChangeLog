@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php: for Insert row and Export, use post when the query is too big
+
 2005-07-11 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_relations.php: bug #1227710, unsaved relations lost when changing 
       field to display

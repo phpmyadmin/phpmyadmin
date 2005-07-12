@@ -790,8 +790,12 @@ else {
                            . '&amp;sql_query=' . urlencode($sql_query)
                            . '&amp;goto=' . urlencode($lnk_goto);
 
-                echo '    <!-- Insert a new row -->' . "\n"
-                   . '    <a href="tbl_change.php' . $url_query . '">' . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_insrow.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strInsertNewRow . '"/>' : '') . $strInsertNewRow . '</a>';
+                echo '    <!-- Insert a new row -->' . "\n";
+                echo PMA_linkOrButton(
+                    'tbl_change.php' . $url_query,
+                    ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_insrow.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strInsertNewRow . '"/>' : '') . $strInsertNewRow,
+                    '', TRUE, TRUE, '') . "\n";
+
                 if ($disp_mode[9] == '1') {
                     echo '&nbsp;&nbsp;';
                 }
@@ -815,7 +819,7 @@ else {
                     '', TRUE, TRUE, 'print_view') . "\n";
 
                 if (!$dontlimitchars) {
-                   echo   '    &nbsp;&nbsp;' . "\n";
+                    echo   '    &nbsp;&nbsp;' . "\n";
                     echo PMA_linkOrButton(
                         'sql.php' . $url_query . '&amp;dontlimitchars=1',
                         ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strPrintViewFull . '"/>' : '') . $strPrintViewFull,
@@ -836,13 +840,12 @@ else {
             } else {
                 $single_table   = '';
             }
-            echo '    <!-- Export -->' . "\n"
-                   . '    &nbsp;&nbsp;<a href="tbl_properties_export.php' . $url_query
-                   . '&amp;unlim_num_rows=' . $unlim_num_rows
-                   . $single_table
-                   . '">'
-                   . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_tblexport.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strExport . '" />' : '')
-                   . $strExport . '</a>' . "\n";
+            echo '    <!-- Export -->' . "\n";
+            echo   '    &nbsp;&nbsp;' . "\n";
+            echo PMA_linkOrButton(
+                'tbl_properties_export.php' . $url_query . '&amp;unlim_num_rows=' . $unlim_num_rows . $single_table,
+                ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_tblexport.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strExport . '" />' : '') . $strExport,
+                '', TRUE, TRUE, '') . "\n";
         }
 
         // Bookmark Support if required
