@@ -75,9 +75,9 @@ unset($cfg);
  * Detects the config file we want to load
  */
 if (file_exists('./config.inc.developer.php')) {
-    $cfgfile_to_load = './config.inc.developer.php';
+    $cfgfile_to_load = 'config.inc.developer.php';
 } else {
-    $cfgfile_to_load = './config.inc.php';
+    $cfgfile_to_load = 'config.inc.php';
 }
 
 /**
@@ -85,9 +85,12 @@ if (file_exists('./config.inc.developer.php')) {
  * versions of phpMyAdmin/php/mysql...
  */
 $old_error_reporting = error_reporting(0);
-include_once($cfgfile_to_load);
-// Include failed
-if (!isset($cfgServers) && !isset($cfg['Servers'])) {
+// We can not use include as it fails on parse error
+$config_fd = fopen($cfgfile_to_load, 'r');
+$result = eval('?>' . fread($config_fd, filesize($cfgfile_to_load)));
+fclose($config_fd);
+// Eval failed
+if ($result === FALSE || (!isset($cfgServers) && !isset($cfg['Servers']))) {
     // Creates fake settings
     $cfg = array('DefaultLang'           => 'en-iso-8859-1',
                     'AllowAnywhereRecoding' => FALSE);
@@ -118,7 +121,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 <h1>phpMyAdmin - <?php echo $strError; ?></h1>
 <p>
 <?php echo $strConfigFileError; ?><br /><br />
-<a href="config.inc.php" target="_blank">config.inc.php</a>
+<a href="<?php echo $cfgfile_to_load; ?>" target="_blank"><?php echo $cfgfile_to_load; ?></a>
 </p>
 </body>
 

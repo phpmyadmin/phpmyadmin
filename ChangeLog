@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-13 Michal Čihař  <michal@cihar.com>
+    * libraries/common.lib.php: Use eval for config file including to catch
+      parse errors (bug #1223319), on error page display config file that
+      actually failed.
+
 2005-07-12 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php: for Insert row and Export, use post when the query is too big
     * export.php: bug #1116026, export under IE 6 (XP SP2)
