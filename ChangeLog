@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: how to enable the charset choice for exported file
+
 2005-07-13 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Use eval for config file including to catch
       parse errors (bug #1223319), on error page display config file that
