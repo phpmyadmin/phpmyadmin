@@ -9,6 +9,9 @@ $Source$
     * libraries/common.lib.php: Use eval for config file including to catch
       parse errors (bug #1223319), on error page display config file that
       actually failed.
+    * main.php, server_databases.php, libraries/check_user_privileges.lib.php,
+      libraries/display_create_database.lib.php: Show box for creating
+      database only if user has privileges to do so (bug #1167892).
 
 2005-07-12 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php: for Insert row and Export, use post when the query is too big

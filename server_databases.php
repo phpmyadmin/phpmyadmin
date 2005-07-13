@@ -398,23 +398,7 @@ if (count($statistics) > 0) {
 /**
  * Create new database.
  */
-?>
-
-<form method="post" action="db_create.php"><b>
-    <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?></b><br />
-    <?php echo PMA_generate_common_hidden_inputs('', '', 5); ?>
-    <input type="hidden" name="reload" value="1" />
-    <input type="text" name="db" value="" maxlength="64" class="textfield" />
-    <?php
-if (PMA_MYSQL_INT_VERSION >= 40101) {
-    require_once('./libraries/mysql_charsets.lib.php');
-    echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', NULL, NULL, TRUE, 5);
-}
-    ?>
-    <input type="submit" value="<?php echo $strCreate; ?>" id="buttonGo" />
-</form>
-
-<?php
+require('./libraries/display_create_database.lib.php');
 
 /**
  * Sends the footer
