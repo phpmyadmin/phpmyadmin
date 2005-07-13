@@ -355,6 +355,11 @@ $strInsertedRows = 'Nombre d\'enregistrements insérés :';
 $strInstructions = 'Instructions';
 $strInternalNotNecessary = '* Si une relation existe dans InnoDB, il n\'est pas nécessaire de la définir dans les relations internes.';
 $strInternalRelations = 'Relations internes';
+$strInvalidColumnCount = 'Le nombre de champs doit être plus grand que zéro.';
+$strInvalidFieldAddCount = 'Vous devez ajouter au moins un champ';
+$strInvalidFieldCount = 'La table doit comporter au moins un champ';
+$strInvalidRowCount = 'Vous devez ajouter au moins un enregistrement.';
+$strInvalidRowNumber = '%d n\'est pas un numéro d\'enregistrement valable.';
 
 $strJapanese = 'japonais';
 $strJumpToDB = 'Aller à la base de données &quot;%s&quot;.';
@@ -608,7 +613,7 @@ $strRoutines = 'Procédures stockées';
 $strRowLength = 'Longueur enr.';
 $strRowSize = ' Taille enr. ';
 $strRows = 'Enregistrements';
-$strRowsFrom = 'ligne(s) à partir de l\'enregistrement n°';
+$strRowsFrom = 'enregistrement(s) à partir de l\'enregistrement n°';
 $strRowsModeFlippedHorizontal = 'horizontal (en-têtes pivotés)';
 $strRowsModeHorizontal = 'horizontal';
 $strRowsModeOptions = 'en mode %s et répéter les en-têtes à chaque groupe de %s';
@@ -810,9 +815,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
-$strInvalidRowNumber = '%d is not valid row number.';  //to translate
-$strInvalidRowCount = 'You have to add at least one row.';  //to translate
-$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
-$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>
