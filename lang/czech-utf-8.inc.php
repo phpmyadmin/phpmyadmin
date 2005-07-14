@@ -363,7 +363,6 @@ $strInUse = 'právě se používá';
 $strInvalidColumnCount = 'Počet sloupců musí být větší než nula.';
 $strInvalidFieldAddCount = 'Musíte přidat alespoň jeden sloupec.';
 $strInvalidFieldCount = 'Tabulka musí mít alespoň jeden sloupec.';
-$strInvalidRowCount = 'Musíte přidat alespoň jeden řádek.';
 $strInvalidRowNumber = '%d není platné číslo řádku.';
 
 $strJapanese = 'Japonština';

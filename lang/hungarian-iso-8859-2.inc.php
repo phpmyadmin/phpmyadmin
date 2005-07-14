@@ -831,7 +831,6 @@ $strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move
 
 $strInvalidFieldCount = 'Table must have at least one field.';  //to translate
 $strInvalidRowNumber = '%d is not valid row number.';  //to translate
-$strInvalidRowCount = 'You have to add at least one row.';  //to translate
 $strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
 $strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 ?>

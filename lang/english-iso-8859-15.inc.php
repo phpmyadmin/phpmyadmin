@@ -356,7 +356,6 @@ $strInUse = 'in use';
 $strInvalidColumnCount = 'Column count has to be larger than zero.';
 $strInvalidFieldAddCount = 'You have to add at least one field.';
 $strInvalidFieldCount = 'Table must have at least one field.';
-$strInvalidRowCount = 'You have to add at least one row.';
 $strInvalidRowNumber = '%d is not valid row number.';
 
 $strJapanese = 'Japanese';

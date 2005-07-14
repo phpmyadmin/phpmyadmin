@@ -358,7 +358,6 @@ $strInternalRelations = 'Relations internes';
 $strInvalidColumnCount = 'Le nombre de champs doit être plus grand que zéro.';
 $strInvalidFieldAddCount = 'Vous devez ajouter au moins un champ';
 $strInvalidFieldCount = 'La table doit comporter au moins un champ';
-$strInvalidRowCount = 'Vous devez ajouter au moins un enregistrement.';
 $strInvalidRowNumber = '%d n\'est pas un numéro d\'enregistrement valable.';
 
 $strJapanese = 'japonais';

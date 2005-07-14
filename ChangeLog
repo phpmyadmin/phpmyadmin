@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/*: removed unused strInvalidRowCount
+
 2005-07-13 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: how to enable the charset choice for exported file
 

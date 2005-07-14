@@ -362,7 +362,6 @@ $strInUse = 'právì se používá';
 $strInvalidColumnCount = 'Poèet sloupcù musí být vìtší než nula.';
 $strInvalidFieldAddCount = 'Musíte pøidat alespoò jeden sloupec.';
 $strInvalidFieldCount = 'Tabulka musí mít alespoò jeden sloupec.';
-$strInvalidRowCount = 'Musíte pøidat alespoò jeden øádek.';
 $strInvalidRowNumber = '%d není platné èíslo øádku.';
 
 $strJapanese = 'Japonština';
