@@ -33,10 +33,11 @@ if (!empty($GLOBALS['cfg']['PmaAbsoluteUri'])) {
 ?>
 <script language="JavaScript" type="text/javascript">
 <!--
-    /* added 2004-06-10 by Michael Keck
+<?php    // added 2004-06-10 by Michael Keck ?>
+    /*
      *       we need this for Backwards-Compatibility and resolving problems
      *       with non DOM browsers, which may have problems with css 2 (like NC 4)
-    */
+     */
     var isDOM      = (typeof(document.getElementsByTagName) != 'undefined'
                       && typeof(document.createElement) != 'undefined')
                    ? 1 : 0;
@@ -47,7 +48,7 @@ if (!empty($GLOBALS['cfg']['PmaAbsoluteUri'])) {
                    ? 1 : 0;
     var capable    = (isDOM || isIE4 || isNS4)
                    ? 1 : 0;
-    // Uggly fix for Opera and Konqueror 2.2 that are half DOM compliant
+    // Ugly fix for Opera and Konqueror 2.2 that are half DOM compliant
     if (capable) {
         if (typeof(window.opera) != 'undefined') {
             var browserName = ' ' + navigator.userAgent.toLowerCase();
