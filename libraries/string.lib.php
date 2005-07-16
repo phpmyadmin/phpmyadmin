@@ -362,7 +362,7 @@ function PMA_STR_isSqlIdentifier($c, $dot_is_valid = FALSE)
  */
 function PMA_STR_binarySearchInArr($str, $arr, $arrsize)
 {
-    // $arr NUST be sorted, due to binary search
+    // $arr MUST be sorted, due to binary search
     $top    = $arrsize - 1;
     $bottom = 0;
     $found  = FALSE;
