@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/string.lib.php: typo
+    * libraries/sqlparser.data.php: bug #1238222, parsing of ISNULL()
+
 2005-07-14 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*: removed unused strInvalidRowCount
 

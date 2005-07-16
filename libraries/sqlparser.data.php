@@ -12,6 +12,10 @@
  *
  * It has been extracted from the lex.h file in the MySQL BK tree
  * (around 4.0.2) as well as the MySQL documentation.
+ *
+ * Note: before adding a value in the arrays, ensure that you respect
+ * proper sorting, especially with underscores. And don't forget to
+ * update the _cnt variable at the end of each array.
  */
 
 $PMA_SQPdata_function_name = array (
@@ -92,8 +96,8 @@ $PMA_SQPdata_function_name = array (
     'INET_NTOA',
     'INSTR',
     'INTERVAL',
-    'IS_FREE_LOCK',
     'ISNULL',
+    'IS_FREE_LOCK',
     'LAST_DAY',
     'LAST_INSERT_ID',
     'LCASE',
@@ -196,7 +200,7 @@ $PMA_SQPdata_function_name = array (
     'YEARWEEK'
 );
 //$PMA_SQPdata_function_name_cnt = count($PMA_SQPdata_function_name);
-$PMA_SQPdata_function_name_cnt = 178;
+$PMA_SQPdata_function_name_cnt = 179;
 
 $PMA_SQPdata_column_attrib = array (
     'AUTO_INCREMENT',
