@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * translators.html: message about French translation will be in French
+
 2005-07-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/string.lib.php: typo
     * libraries/sqlparser.data.php: bug #1238222, parsing of ISNULL()
