@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * ChangeLog: automatic utf-8 encoding modeline, thanks to Michal
+
 2005-07-19 Marc Delisle  <lem9@users.sourceforge.net>
     * translators.html: message about French translation will be in French
 
@@ -6787,7 +6790,7 @@ $Source$
          --- Older ChangeLogs can be found on our project website ---
                      http://www.phpmyadmin.net/old-stuff/ChangeLogs/
 
-# vim: ft=changelog fenc=utf-8
+# vim: ft=changelog fenc=utf-8 encoding=utf-8
 # vim: expandtab ts=4 sw=4 sts=4
 # vim: fde=getline(v\:lnum-1)=~'^\\s*$'&&getline(v\:lnum)=~'\\S'?'>1'\:1&&v\:lnum>8&&getline(v\:lnum)!~'^#'
 # vim: fdn=1 fdm=expr
