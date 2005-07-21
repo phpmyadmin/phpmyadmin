@@ -618,7 +618,7 @@ global $conn_error, $server;
     } else if (isset($GLOBALS['no_activity']) && $GLOBALS['no_activity']) {
         $conn_error = sprintf($GLOBALS['strNoActivity'],$GLOBALS['cfg']['LoginCookieValidity']);
     } else if (PMA_DBI_getError()) {
-        $conn_error = PMA_DBI_getError();
+        $conn_error = PMA_sanitize(PMA_DBI_getError());
     } else if (isset($php_errormsg)) {
         $conn_error = $php_errormsg;
     } else {
