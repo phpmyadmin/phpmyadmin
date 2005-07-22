@@ -134,6 +134,13 @@ if (empty($is_info)) {
 if (PMA_MYSQL_INT_VERSION >= 40101) {
     $db_collation = PMA_getDbCollation($db);
 }
+if (PMA_MYSQL_INT_VERSION < 50002 || (PMA_MYSQL_INT_VERSION >= 50002 && $db != 'information_schema')) {
+    $is_information_schema = FALSE;
+} else {
+    $is_information_schema = TRUE;
+}
+
+if (!$is_information_schema) {
 ?>
 
 <table border="0" cellpadding="2" cellspacing="0">
@@ -148,38 +155,39 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
                    . htmlspecialchars($GLOBALS['db']) . '</a>';
         // else use
         // $strDBLink = htmlspecialchars($db);
-echo '             ' . sprintf($strCreateNewTable, $strDBLink) . ':&nbsp;' . "\n";
-echo '     </td></tr>';
-echo '     <tr bgcolor="'.$cfg['BgcolorOne'].'"><td nowrap="nowrap">';
-echo '             ' . $strName . ':&nbsp;' . "\n";
-echo '     </td>';
-echo '     <td nowrap="nowrap">';
-echo '             ' . '<input type="text" name="table" maxlength="64" size="30" class="textfield" />';
-echo '     </td><td>&nbsp;</td></tr>';
-echo '     <tr bgcolor="'.$cfg['BgcolorOne'].'"><td nowrap="nowrap">';
-echo '             ' . $strFields . ':&nbsp;' . "\n";
-echo '     </td>';
-echo '     <td nowrap="nowrap">';
-echo '             ' . '<input type="text" name="num_fields" size="2" class="textfield" />' . "\n";
-echo '     </td>';
-echo '     <td align="right">';
-echo '             ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
-echo '     </td> </tr>';
-echo '        </form>';
+    echo '             ' . sprintf($strCreateNewTable, $strDBLink) . ':&nbsp;' . "\n";
+    echo '     </td></tr>';
+    echo '     <tr bgcolor="'.$cfg['BgcolorOne'].'"><td nowrap="nowrap">';
+    echo '             ' . $strName . ':&nbsp;' . "\n";
+    echo '     </td>';
+    echo '     <td nowrap="nowrap">';
+    echo '             ' . '<input type="text" name="table" maxlength="64" size="30" class="textfield" />';
+    echo '     </td><td>&nbsp;</td></tr>';
+    echo '     <tr bgcolor="'.$cfg['BgcolorOne'].'"><td nowrap="nowrap">';
+    echo '             ' . $strFields . ':&nbsp;' . "\n";
+    echo '     </td>';
+    echo '     <td nowrap="nowrap">';
+    echo '             ' . '<input type="text" name="num_fields" size="2" class="textfield" />' . "\n";
+    echo '     </td>';
+    echo '     <td align="right">';
+    echo '             ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
+    echo '     </td> </tr>' . "\n";
+    echo '        </form>' . "\n";
+    echo '</table>' . "\n";
 
-echo '<table border="0" cellpadding="2" cellspacing="0">';
-if ($cfgRelation['commwork']) {
+    echo '<table border="0" cellpadding="2" cellspacing="0">';
+    if ($cfgRelation['commwork']) {
 ?>
     <!-- Alter/Enter db-comment -->
         <tr><td colspan="3"><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td></tr>
 
         <tr>
         <td colspan="3" class="tblHeaders"><?php
-    if ($cfg['PropertiesIconic']) {
-        echo '<img src="' . $pmaThemeImage . 'b_comment.png" border="0" width="16" height="16" hspace="2" align="middle" />';
-    }
-    echo $strDBComment;
-    $comment = PMA_getComments($db);
+        if ($cfg['PropertiesIconic']) {
+            echo '<img src="' . $pmaThemeImage . 'b_comment.png" border="0" width="16" height="16" hspace="2" align="middle" />';
+        }
+        echo $strDBComment;
+        $comment = PMA_getComments($db);
         ?></td></tr>
                                 <form method="post" action="db_operations.php">
         <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
@@ -191,7 +199,7 @@ if ($cfgRelation['commwork']) {
          </td></tr>
         </form>
 <?php
-}
+    }
 ?>
     <!-- Rename database -->
         <tr><td colspan="3"><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td></tr>
@@ -255,42 +263,46 @@ if ($cfgRelation['commwork']) {
 
 <?php
 
-if (PMA_MYSQL_INT_VERSION >= 40101) {
+    if (PMA_MYSQL_INT_VERSION >= 40101) {
     // MySQL supports setting default charsets / collations for databases since
     // version 4.1.1.
-    echo '    <!-- Change database charset -->' . "\n"
-       . '    <tr><td colspan="3"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
-       . '    <tr><td colspan="3" class="tblHeaders">';
-    if ($cfg['PropertiesIconic']) {
-        echo '<img src="' . $pmaThemeImage . 's_asci.png" border="0" width="16" height="16" hspace="2" align="middle" />';
+        echo '    <!-- Change database charset -->' . "\n"
+           . '    <tr><td colspan="3"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
+           . '    <tr><td colspan="3" class="tblHeaders">';
+        if ($cfg['PropertiesIconic']) {
+            echo '<img src="' . $pmaThemeImage . 's_asci.png" border="0" width="16" height="16" hspace="2" align="middle" />';
+        }
+        echo '      <label for="select_db_collation">' . $strCollation . '</label>:&nbsp;' . "\n"
+           . '    </td></tr>' . "\n"
+           . '        <form method="post" action="./db_operations.php">' . "\n"
+           . '    <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="2" nowrap="nowrap">'
+           . PMA_generate_common_hidden_inputs($db, $table, 3)
+           . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', 'select_db_collation', $db_collation, FALSE, 3)
+           . '    </td><td align="right">'
+           . '            <input type="submit" name="submitcollation" value="' . $strGo . '" style="vertical-align: middle" />' . "\n"
+           . '    </td></tr>' . "\n"
+           . '        </form>' . "\n"
+           . '         ' . "\n\n";
     }
-    echo '      <label for="select_db_collation">' . $strCollation . '</label>:&nbsp;' . "\n"
-       . '    </td></tr>' . "\n"
-       . '        <form method="post" action="./db_operations.php">' . "\n"
-       . '    <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="2" nowrap="nowrap">'
-       . PMA_generate_common_hidden_inputs($db, $table, 3)
-       . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', 'select_db_collation', $db_collation, FALSE, 3)
-       . '    </td><td align="right">'
-       . '            <input type="submit" name="submitcollation" value="' . $strGo . '" style="vertical-align: middle" />' . "\n"
-       . '    </td></tr>' . "\n"
-       . '        </form>' . "\n"
-       . '         ' . "\n\n";
-}
 
-if ($num_tables > 0
-    && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
-    echo '<tr><td colspan="3"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td></tr>'
-        . '<tr><th colspan="3" class="tblHeadError"><div class="errorhead">' . $strError . '</div></th></tr>'
-        . '<tr><td colspan="3" class="tblError">'
-        . sprintf(wordwrap($strRelationNotWorking,65,'<br />'), '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">',  '</a>')
-        . '</td></tr>';
-} // end if
+    if ($num_tables > 0
+        && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
+        echo '<tr><td colspan="3"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td></tr>'
+            . '<tr><th colspan="3" class="tblHeadError"><div class="errorhead">' . $strError . '</div></th></tr>'
+            . '<tr><td colspan="3" class="tblError">'
+            . sprintf(wordwrap($strRelationNotWorking,65,'<br />'), '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">',  '</a>')
+            . '</td></tr>';
+    } // end if
 ?>
 </table>
+<?php
+} // end if (!$is_information_schema)
+// not sure about leaving the PDF dialog for information_schema
 
+?>
 <form method="post" action="pdf_schema.php">
 <?php
-// is this OK to check for 'class' support?
+
 if ($num_tables > 0) {
     $takeaway = $url_query . '&amp;table=' . urlencode($table);
 }
