@@ -87,7 +87,7 @@ require('./libraries/get_foreign.lib.php');
 <form action="browse_foreigners.php" method="post">
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <input type="hidden" name="field" value="<?php echo urlencode($field); ?>" />
-<input type="hidden" name="field" value="<?php echo isset($fieldkey) ? $fieldkey : ''; ?>" />
+<input type="hidden" name="fieldkey" value="<?php echo isset($fieldkey) ? $fieldkey : ''; ?>" />
 <?php
 if (isset($pk)) {
     $pk_uri = '&amp;pk=' . urlencode($pk);

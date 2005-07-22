@@ -7,13 +7,15 @@ $Source$
 
 2005-07-22 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: table creation should not be possible
-	  in information_schema
-	* db_operations.php: those operations do not make sense on
-	  information_schema
+      in information_schema
+    * db_operations.php: those operations do not make sense on
+      information_schema
+    * browse_foreigners.php: bug #1242805, Show All does not work while
+      browsing foreign values
 
 2005-07-21 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php: bug #1240880, XSS on the
-	  cookie-based login panel
+      cookie-based login panel
 
 2005-07-20 Marc Delisle  <lem9@users.sourceforge.net>
     * ChangeLog: automatic utf-8 encoding modeline, thanks to Michal
