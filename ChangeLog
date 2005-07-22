@@ -12,6 +12,8 @@ $Source$
       information_schema
     * browse_foreigners.php: bug #1242805, Show All does not work while
       browsing foreign values
+    * libraries/relation.lib.php: for the new ForeignKeyDropdownOrder, id and
+      content were reversed (id-content showed content then id)
 
 2005-07-21 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php: bug #1240880, XSS on the

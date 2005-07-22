@@ -825,8 +825,8 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
            $reloption .= ' selected="selected"';
         } // end if
 
-        $reloptions['id-content'][] = $reloption . '>' . $value . '&nbsp;-&nbsp;' . htmlspecialchars($key) .  '</option>' . "\n";
-        $reloptions['content-id'][] = $reloption . '>' . htmlspecialchars($key) .  '&nbsp;-&nbsp;' . $value . '</option>' . "\n";
+        $reloptions['content-id'][] = $reloption . '>' . $value . '&nbsp;-&nbsp;' . htmlspecialchars($key) .  '</option>' . "\n";
+        $reloptions['id-content'][] = $reloption . '>' . htmlspecialchars($key) .  '&nbsp;-&nbsp;' . $value . '</option>' . "\n";
     } // end while
 
     // the list of keys looks better if not sorted by description
