@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_structure.php, tbl_properties.inc.php:
+      bug #1157230, escape special chars in ENUM or SET
+
 2005-07-22 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: table creation should not be possible
       in information_schema

@@ -303,14 +303,13 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $content_cells[$i][$ci] = '';
     }
 
-    $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_length[]" size="8" value="' . str_replace('"', '&quot;', $length) . '" class="textfield" />' . "\n";
-    $ci++;
-
     if (preg_match('@^(set|enum)$@i', $type)) {
         $binary           = 0;
         $unsigned         = 0;
         $zerofill         = 0;
+        $length_to_display = htmlspecialchars($length);
     } else {
+        $length_to_display = $length;
         if (!preg_match('@BINARY[\(]@i', $row['Type']) && PMA_MYSQL_INT_VERSION < 40100) {
             $binary           = stristr($row['Type'], 'binary');
         } else {
@@ -319,6 +318,9 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $unsigned         = stristr($row['Type'], 'unsigned');
         $zerofill         = stristr($row['Type'], 'zerofill');
     }
+
+    $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_length[]" size="8" value="' . str_replace('"', '&quot;', $length_to_display) . '" class="textfield" />' . "\n";
+    $ci++;
 
     if (PMA_MYSQL_INT_VERSION >= 40100) {
         $tmp_collation          = empty($row['Collation']) ? NULL : $row['Collation'];
