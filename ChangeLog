@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-24 Michal Čihař  <michal@cihar.com>
+    * libraries/check_user_privileges.lib.php: Undefined variable (bug
+      #1243885).
+
 2005-07-23 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php, tbl_properties.inc.php:
       bug #1157230, escape special chars in ENUM or SET

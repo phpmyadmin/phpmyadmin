@@ -64,6 +64,10 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
 // $userlink so maybe the SELECT will fail
 
     if (!$is_create_priv) {
+        $res                           = PMA_DBI_query('SELECT USER();');
+        list($mysql_cur_user_and_host) = PMA_DBI_fetch_row($res);
+        $mysql_cur_user                = substr($mysql_cur_user_and_host, 0, strrpos($mysql_cur_user_and_host, '@'));
+
         $local_query = 'SELECT Create_priv, Reload_priv FROM mysql.user WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($mysql_cur_user), 'quoted') . ' OR ' . PMA_convert_using('User') . ' = ' . PMA_convert_using('', 'quoted') . ';';
         $rs_usr      = PMA_DBI_try_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
