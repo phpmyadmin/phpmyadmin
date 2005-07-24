@@ -8,8 +8,10 @@ $Source$
 2005-07-24 Michal Čihař  <michal@cihar.com>
     * libraries/check_user_privileges.lib.php: Undefined variable (bug
       #1243885).
-    * ibraries/config_import.lib.php: Do not override theme properties when
+    * libraries/config_import.lib.php: Do not override theme properties when
       path is not set.
+    * libraries/select_theme.lib.php: Do not attempt to sort themes when
+      themes are disabled (bug #1243883).
 
 2005-07-23 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php, tbl_properties.inc.php:

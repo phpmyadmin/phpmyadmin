@@ -75,9 +75,8 @@ if ($PMA_ThemeAvailable == TRUE) { // themeManager is available
         } // end get themes
     } // end check for themes directory
     closedir($handleThemes);
+    asort($available_themes_choices);
 } // end themeManger
-
-asort($available_themes_choices);
 
 // Allow different theme per server
 $theme_cookie_name = 'pma_theme';
