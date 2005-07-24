@@ -754,16 +754,14 @@ if (!isset($cfg['ReplaceHelpImg'])) {
 
 if (!isset($cfg['ThemePath'])) {
     $cfg['ThemePath'] = './themes';
-    $cfg['ThemeDefault'] = 'original';
-    $cfg['ThemeManager'] = TRUE;
-} else {
-    if (!isset($cfg['ThemeDefault'])){
-        $cfg['ThemeDefault'] = 'original';
-    }
-    if (!isset($cfg['ThemeManager'])){
-        $cfg['ThemeManager'] = TRUE;
-    }
 }
+if (!isset($cfg['ThemeDefault'])){
+    $cfg['ThemeDefault'] = 'original';
+}
+if (!isset($cfg['ThemeManager'])){
+    $cfg['ThemeManager'] = TRUE;
+}
+
 if (!isset($cfg['ThemePerServer'])){
     $cfg['ThemePerServer'] = FALSE;
 }
