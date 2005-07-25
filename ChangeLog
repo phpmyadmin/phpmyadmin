@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php: insert another new row: dropdown choice should be sticky
+
 2005-07-24 Michal Čihař  <michal@cihar.com>
     * libraries/check_user_privileges.lib.php: Undefined variable (bug
       #1243885).

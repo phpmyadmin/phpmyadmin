@@ -864,15 +864,14 @@ if (isset($primary_key)) {
     <?php
 echo "\n";
 
-// Defines whether "insert a new row after the current insert" should be
-// checked or not (keep this choice sticky)
-// but do not check both radios, because Netscape 4.8 would display both checked
+// Defines whether "insert another new row" should be
+// selected or not (keep this choice sticky)
 if (!empty($disp_message)) {
-    $checked_after_insert_new_insert = ' checked="checked"';
-    $checked_after_insert_back = '';
+    $selected_after_insert_new_insert = ' selected="selected"';
+    $selected_after_insert_back = '';
 } else {
-    $checked_after_insert_back = ' checked="checked"';
-    $checked_after_insert_new_insert = '';
+    $selected_after_insert_back = ' selected="selected"';
+    $selected_after_insert_new_insert = '';
 }
 ?>
         </td>
@@ -881,8 +880,8 @@ if (!empty($disp_message)) {
         </td>
         <td valign="middle" nowrap="nowrap">
             <select name="after_insert">
-                <option value="back" ><?php echo $strAfterInsertBack; ?></option>
-                <option value="new_insert"><?php echo $strAfterInsertNewInsert; ?></option>
+                <option value="back" <?php echo $selected_after_insert_back; ?>><?php echo $strAfterInsertBack; ?></option>
+                <option value="new_insert" <?php echo $selected_after_insert_new_insert; ?>><?php echo $strAfterInsertNewInsert; ?></option>
 <?php
 if (isset($primary_key))
 {?>
