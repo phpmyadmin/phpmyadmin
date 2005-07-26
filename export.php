@@ -212,7 +212,7 @@ if ($asfile) {
     // Generate basic dump extension
     if ($type == 'csv') {
         $filename  .= '.csv';
-        $mime_type = 'text/x-comma-separated-values';
+        $mime_type = 'text/comma-separated-values';
     } else if ($type == 'htmlexcel') {
         $filename  .= '.xls';
         $mime_type = 'application/vnd.ms-excel';
