@@ -684,7 +684,8 @@ $cfg['ColumnTypes'] = array(
    'LONGBLOB',
    'LONGTEXT',
    'ENUM',
-   'SET'
+   'SET',
+   'BOOL'
 );
 
 // Attributes
