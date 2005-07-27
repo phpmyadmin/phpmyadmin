@@ -924,6 +924,8 @@ if (!isset($cfg['ColumnTypes'])) {
             'SET'
         );
     }
+} elseif (!isset($cfg['ColumnTypes']['BOOL'])) {
+    $cfg['ColumnTypes'][] = 'BOOL';
 }
 
 if (!isset($cfg['AttributeTypes'])) {

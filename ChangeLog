@@ -8,6 +8,8 @@ $Source$
 2005-07-26 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug #1243908, left panel browse icon alt tag not updated
       after inserting a row
+    * config.inc.php, libraries/config_import.lib.php, /common.lib.php:
+      RFE #1177459, BOOL column type
 
 2005-07-26 Michal Čihař  <michal@cihar.com>
     * export.php: Use actual MIME type for CSV.
