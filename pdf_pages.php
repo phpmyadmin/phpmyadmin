@@ -445,7 +445,7 @@ function resetDrag() {
         echo "\n" . '    <input type="hidden" name="c_table_rows" value="' . ($i + 1) . '" />';
         echo ($cfg['WYSIWYG-PDF'] ? "\n" . '    <input type="hidden" name="showwysiwyg" value="' . ((isset($showwysiwyg) && $showwysiwyg == '1') ? '1' : '0') . '" />' : '');
         echo "\n" . '    <input type="checkbox" name="with_field_names" ' . (isset($with_field_names) ? 'checked="checked"' : ''). ' />' . $strColumnNames . '<br />';
-        echo "\n" . '    <input type="submit" value="' . $strGo . '" />';
+        echo "\n" . '    <input type="submit" value="' . $strSave . '" />';
         echo "\n" . '</form>' . "\n\n";
     } // end if
 
