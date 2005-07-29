@@ -877,7 +877,7 @@ if (!empty($disp_message)) {
 ?>
         </td>
         <td valign="middle">
-            &nbsp;&nbsp;&nbsp;<b><?php echo $strAnd; ?></b>&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;<b><?php echo $strAndThen; ?></b>&nbsp;&nbsp;&nbsp;
         </td>
         <td valign="middle" nowrap="nowrap">
             <select name="after_insert">

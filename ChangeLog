@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-07-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php, lang/*: new message $strAndThen
+
 2005-07-28 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php: Go button renamed to Save because it's really used to save coordinates
 
