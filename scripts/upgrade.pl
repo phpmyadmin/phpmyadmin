@@ -8,8 +8,6 @@
 # 2005-05-08, swix@users.sourceforge.net:
 # - created script
 #
-# TODO: check if current version is not already uptodate
-#       (let's assume the sysadmin still has a brain... :-)
 #
 
 
@@ -23,10 +21,10 @@ my $source_url = "http://www.phpmyadmin.net/latest.txt";
 
 if (!$ARGV[0]) { 
 	print "\n";
-	print "usage: upgrade.pl target_directory\n\n";
-	print "  target_directory will be backuped and replaced\n";
-	print "  by the current version of phpMyAdmin, by keeping your\n";
-	print "  config.inc.php file.\n\n";
+	print "usage: $0 <target_directory>\n\n";
+	print "  The location specified by <target_directory> will be backed up and replaced\n";
+	print "  by the latest stable version of phpMyAdmin.\n";
+	print "  Your config.inc.php file will be preserved.\n\n";
 	exit(0);
 }
 
@@ -88,6 +86,33 @@ if (-d $directory) {
 	exit(0);
 }
 
+#
+# check the installed version
+#
+
+if (open(DEFINES, $targetdirectory .'/libraries/defines.lib.php')) {
+	my $versionStatus = 0;
+	while(my $line = <DEFINES>) {
+
+		next unless $line =~ /'PMA_VERSION',\ '(.*)?'\);$/;
+
+		if ($1 gt $version) {
+			print "Local version newer than latest stable release, not updating.\n";
+			exit(0);
+			
+		} elsif ($1 eq $version) {
+			print "Local version already up to date, not updating\n";
+			exit(0);
+			
+		} else {
+			$versionStatus = 1;
+		}
+	}
+	if (!$versionStatus) {
+		print "Old version could not be identified, not updating\n";
+		exit(0);
+	}
+}
 
 #
 # get file
@@ -110,7 +135,7 @@ if (!-f $filename) {
 }
 
 
-if (!-filename) {
+if (!-f $filename) {
 	print "error: $filename download failed\n";
 	exit(0);
 }
@@ -140,6 +165,7 @@ system("mv $targetdirectory $backupdir");
 system("mv $directory $targetdirectory");
 
 
-print "\ndone!  phpMyAdmin $version installed in $directory\n";
-print "backup of your old installation in $backupdir\n\n";
+print "\ndone!  phpMyAdmin $version installed in $targetdirectory\n";
+print "backup of your old installation in $backupdir\n";
+print "downloaded archive saved as $filename\n\n";
 print "Enjoy! :-)\n\n";

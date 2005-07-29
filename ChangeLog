@@ -7,7 +7,10 @@ $Source$
 
 2005-07-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, lang/*: new message $strAndThen
-	* libraries/dbg/profiling.php: improvements, thanks to Glen Arason
+	* libraries/dbg/profiling.php: patch #1160439, improvements,
+	  thanks to Glen Arason
+	* scripts/upgrade.pl: patch #1198492, current version check,
+	  thanks to Herman van Rink - helmo
 
 2005-07-28 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php: Go button renamed to Save because it's really used to save coordinates
