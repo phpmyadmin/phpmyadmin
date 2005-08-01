@@ -58,6 +58,7 @@ $strAll = 'V¹echno';
 $strAlterOrderBy = 'Zmìnit poøadí tabulky podle';
 $strAnalyzeTable = 'Analyzovat tabulku';
 $strAnd = 'a';
+$strAndThen = 'a poté';
 $strAnIndex = 'K&nbsp;tabulce %s byl pøidán index';
 $strAnyHost = 'Jakýkoliv poèítaè';
 $strAny = 'Jakýkoliv';
@@ -250,7 +251,7 @@ $strEncloseInTransaction = 'Uzavøít pøíkazy v&nbsp;transakci';
 $strEndCut = 'KONEC VÝPISU';
 $strEnd = 'Konec';
 $strEndRaw = 'KONEC VÝPISU';
-$strEngineAvailable = 'Úlo¾i¹tì %s není dostupné na tomto MySQL serveru.';
+$strEngineAvailable = 'Úlo¾i¹tì %s je dostupné na tomto MySQL serveru.';
 $strEngineDisabled = 'Úlo¾i¹tì %s je vypnuté na tomto MySQL serveru.';
 $strEngines = 'Úlo¾i¹tì';
 $strEngineUnsupported = 'Tento MySQL server nepodporuje úlo¾i¹tì %s.';
@@ -817,5 +818,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strAndThen = 'and then';  //to translate
 ?>

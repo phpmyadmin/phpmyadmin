@@ -59,6 +59,7 @@ $strAll = 'Všechno';
 $strAlterOrderBy = 'Změnit pořadí tabulky podle';
 $strAnalyzeTable = 'Analyzovat tabulku';
 $strAnd = 'a';
+$strAndThen = 'a poté';
 $strAnIndex = 'K&nbsp;tabulce %s byl přidán index';
 $strAnyHost = 'Jakýkoliv počítač';
 $strAny = 'Jakýkoliv';
@@ -251,7 +252,7 @@ $strEncloseInTransaction = 'Uzavřít příkazy v&nbsp;transakci';
 $strEndCut = 'KONEC VÝPISU';
 $strEnd = 'Konec';
 $strEndRaw = 'KONEC VÝPISU';
-$strEngineAvailable = 'Úložiště %s není dostupné na tomto MySQL serveru.';
+$strEngineAvailable = 'Úložiště %s je dostupné na tomto MySQL serveru.';
 $strEngineDisabled = 'Úložiště %s je vypnuté na tomto MySQL serveru.';
 $strEngines = 'Úložiště';
 $strEngineUnsupported = 'Tento MySQL server nepodporuje úložiště %s.';
@@ -818,5 +819,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strAndThen = 'and then';  //to translate
 ?>
