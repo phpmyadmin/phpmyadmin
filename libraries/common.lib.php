@@ -635,11 +635,11 @@ if ($is_minimum_common == FALSE) {
 
         // --- Added to solve bug #641765
         // Robbat2 - 12 January 2003, 9:46PM
-        // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
+        // Revised, Robbat2 - 13 January 2003, 2:59PM
         if (!function_exists('PMA_SQP_isError') || PMA_SQP_isError()) {
             $formatted_sql = htmlspecialchars($the_query);
         } else {
-            $formatted_sql = PMA_formatSql(PMA_SQP_parse($the_query), $the_query);
+            $formatted_sql = PMA_formatSql(PMA_SQP_parse(PMA_sanitize($the_query)), $the_query);
         }
         // ---
         echo "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
@@ -655,7 +655,7 @@ if ($is_minimum_common == FALSE) {
         if (!empty($the_query) && !strstr($the_query, 'connect')) {
             // --- Added to solve bug #641765
             // Robbat2 - 12 January 2003, 9:46PM
-            // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
+            // Revised, Robbat2 - 13 January 2003, 2:59PM
             if (function_exists('PMA_SQP_isError') && PMA_SQP_isError()) {
                 echo PMA_SQP_getErrorString();
             }
