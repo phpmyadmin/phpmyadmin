@@ -2936,7 +2936,11 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         set to the default (200) or another low value, you could get this
         error if your table has a high number of columns. Adjust this setting
         accordingly. (Thanks to Klaus Dorninger for the hint).
-        </li>
+	</li>
+	<li>
+	In the <tt>php.ini</tt> directive <tt>arg_separator.input</tt>, a value
+        of &quot;;&quot; will cause this error. Replace it with &quot;&amp;;&quot;.
+	</li>
     </ul>
 
 <a name="faqlimitations"></a><br />
