@@ -1920,7 +1920,7 @@ if (typeof(document.getElementById) != 'undefined'
     </tr>
     <?php
             if (!empty($edit_target)) {
-                echo '<tr><td bgcolor="' . $cfg['BgcolorOne'] . '" align="center">';
+                echo '<tr><td class="tblFooters">';
                 echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
                 echo '</td></tr>' . "\n";
             }

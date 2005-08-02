@@ -14,6 +14,8 @@ $Source$
       also,  $dbstats should contain 0 or 1, not the colspan
     * sql.php: patch #1249451, display improvement for bookmark dialog,
       thanks to Sebastian Mendel
+    * libraries/common.lib.php: patch #1249457, display improvements for Edit
+      Explain etc dialog, thanks to Sebastian Mendel
 
 2005-08-01 Michal Čihař  <michal@cihar.com>
     * lang/czech: Fix bad translation (is was translated to is not :-)),
