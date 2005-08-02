@@ -891,7 +891,8 @@ else {
     <input type="checkbox" name="bkm_all_users" id="bkm_all_users" value="true" /></td>
     <td><label for="bkm_all_users"><?php echo $strBookmarkAllUsers; ?></label></td>
 </tr>
-<tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="2" align="right">
+<tr>
+    <td class="tblFooters" colspan="2" align="right">
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
     </td></tr>
 </table></form>
