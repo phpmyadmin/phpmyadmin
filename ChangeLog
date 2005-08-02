@@ -10,7 +10,7 @@ $Source$
       table width should be limited by template if necessary,
       thanks to Sebastian Mendel - cybot_tm
     * server_databases.php: patch #1249371, correct calculation of colspan,
-      thanks to Sebastian Mendel;
+      and patch #1249414, display improvements, thanks to Sebastian Mendel;
       also,  $dbstats should contain 0 or 1, not the colspan
 
 2005-08-01 Michal Čihař  <michal@cihar.com>
