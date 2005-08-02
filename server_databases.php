@@ -334,9 +334,9 @@ if (count($statistics) > 0) {
            . '        </tr>' . "\n";
     }
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
-        $common_url_query = PMA_generate_common_url() . '&amp;sort_by=' . $sort_by . '&amp;sort_order=' . $sort_order . '&amp;dbstats=' . (empty($dbstats) ? '10' : '3');
+        $common_url_query = PMA_generate_common_url() . '&amp;sort_by=' . $sort_by . '&amp;sort_order=' . $sort_order . '&amp;dbstats=' . (empty($dbstats) ? '0' : '1');
         echo '    <tr>' . "\n"
-           . '        <td colspan="' . (empty($dbstats) ? '10' : '3') . '">' . "\n"
+           . '        <td colspan="' . (!empty($dbstats) ? '10' : '3') . '">' . "\n"
            . '            <img src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n"
            . '            <a href="./server_databases.php?' . $common_url_query . '&amp;checkall=1" onclick="setCheckboxes(\'dbStatsForm\', true); return false;">' . "\n"
            . '                ' . $strCheckAll
