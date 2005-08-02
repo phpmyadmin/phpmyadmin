@@ -5,7 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2005-07-26 Michal Čihař  <michal@cihar.com>
+2005-08-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: patch #1249363, remove unneeded wordwrap(),
+      table width should be limited by template if necessary,
+      thanks to Sebastian Mendel - cybot_tm
+
+2005-08-01 Michal Čihař  <michal@cihar.com>
     * lang/czech: Fix bad translation (is was translated to is not :-)),
       update.
 
