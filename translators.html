@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <title>phpMyAdmin 2.6.4-dev - Official translators</title>
     <link rel="stylesheet" type="text/css" href="docs.css" />
-    <script lanuage="javascript" type="text/javascript">
+    <script language="javascript" type="text/javascript">
     <!--
     function PMA_notice(language) {
         text = 'Thank you for your feedback concerning the '
@@ -20,6 +20,19 @@
              + 'If you have any questions about configuring or using phpMyAdmin,'
              + ' please use our support forum or the users email list.\n\n'
              + 'Every off-topic email will simply be IGNORED.';
+        return window.confirm(text);
+    }
+    function PMA_noticeFR(language) {
+        text = 'Merci pour votre int\ér\êt concernant le fichier traduit en '
+             + language +'.\n'
+             + 'Avant de contacter notre traducteur, sachez que :\n\n'
+             + '    - chaque fichier de langue est inclus dans cette distribution, \n'
+             + '    - le traducteur ne vous enverra aucune traduction, \n'
+             + '    - il y a peu de documentations localis\ées pour le moment, \n'
+             + '    - le traducteur ne fournira aucune assistance par courriel.\n\n'
+             + 'Si vous avez des questions concernant la configuration ou l\'utilisation de phpMyAdmin,\n'
+             + 'veuillez utiliser notre forum d\'aide ou la liste de diffusion des utilisateurs.\n\n'
+             + 'Tout courriel hors de propos sera tout simplement IGNOR\É.';
         return window.confirm(text);
     }
     //-->
@@ -256,7 +269,8 @@
 <tr>
     <td>French</td>
     <td>
-        <a href="mailto:lem9@users.sourceforge.net?subject=[Traduction de phpMyAdmin]&amp;body=Avant de contacter notre traducteur, veuillez noter ceci%3A%0A%0A - Les fichiers de messages pour toutes les langues sont inclus dans la distribution. Le traducteur ne vous fera pas parvenir ces fichiers.%0A - La documentation fran%E7aise est disponible sur le site phpmyadmin.net dans la section Docs.%0A - Le traducteur ne vous donnera pas de soutien par courriel.%0A%0APour toute question concernant la configuration ou l%27utilisation de phpMyAdmin%2C nous avons un forum de discussion en fran%E7ais.%0A%0A-------------------------------------------------------%0A%0ACher traducteur%3A veuillez ignorer ce courriel. Je n'ai pas lu le texte ci-haut et je l%27ai envoy%E9 trop rapidement...">
+        <a href="mailto:lem9@users.sourceforge.net?subject=%5BTraduction de phpMyAdmin%5D&amp;body=Avant%20de%20contacter%20notre traducteur,%20veuillez%20noter%20ceci%20%3A%0A%0A%20-%20Les%20fichiers%20de%20messages%20pour%20toutes%20les%20langues%20sont%20inclus%20dans%20la%20distribution.%20Le%20traducteur%20ne%20vous%20fera%20pas%20parvenir%20ces%20fichiers.%0A%20-%20La%20documentation%20fran%C3%A7aise%20est%20disponible%20sur%20le%20site%20phpmyadmin.net%20dans%20la%20section%20Docs.%0A%20-%20Le%20traducteur%20ne%20vous%20donnera%20pas%20de%20soutien%20par%20courriel.%0A%0APour%20toute%20question%20concernant%20la%20configuration%20ou%20l%27utilisation%20de%20phpMyAdmin%2C%20nous%20avons%20un%20forum%20de%20discussion%20en%20fran%C3%A7ais.%0A%0A-------------------------------------------------------%0A%0ACher%20traducteur%20%3A%20veuillez%20ignorer%20ce%20courriel.%20Je%20n'ai%20pas%20lu%20le%20texte%20ci-dessus%20et%20je%20l%27ai%20envoy%c3%a9%20trop%20rapidement..."
+ onclick="return PMA_noticeFR('fran\çais');">
             Marc Delisle
         </a>
     </td>
@@ -500,8 +514,7 @@
     <td>Tatarish</td>
     <td>
         <a href="mailto:amichauer@gmx.de?subject=[phpMyAdmin translation] Feedback&amp;body=Before you contact our translator, please note%3A%0A%0A - Each language file is included in this distribution. The translator won%27t send you any translations.%0A - There are only a few localized documentations yet.%0A - The translator won%27t provide any type of e-mail support.%0A%0AIf you have any questions about configuring or using phpMyAdmin%2C please use our support forum or the users email list.%0A%0A-------------------------------------------------------%0A%0ADear translator%3A just ignore this mail. I haven%27t read the text above and just submitted the mail as my client displayed it..." onclick="return PMA_notice('Tatarish');">
-            Albert Fazlí
-        </a>
+            Albert Fazl&iacute;        </a>
     </td>
 </tr>
 
