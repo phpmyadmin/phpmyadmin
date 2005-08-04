@@ -17,6 +17,8 @@ $Source$
        $cfg['QueryFrame']
      - always use no_js=1 if $cfg['QueryFrameJS'] == true
       thanks to Sebastian Mendel
+    * Documentation.html: patch #1169308, FAQ 1.17a improved,
+      thanks to Isaac Bennetch
 
 2005-08-02 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: patch #1249363, remove unneeded wordwrap(),
