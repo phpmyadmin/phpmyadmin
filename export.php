@@ -84,6 +84,7 @@ function PMA_exportOutputHandler($line)
                     $write_result = @fwrite($GLOBALS['file_handle'], $dump_buffer);
                     if (!$write_result || ($write_result != strlen($dump_buffer))) {
                         $GLOBALS['message'] = sprintf($GLOBALS['strNoSpace'], htmlspecialchars($save_filename));
+                        $GLOBALS['show_error_header'] = TRUE;
                         return FALSE;
                     }
                 } else {
@@ -105,6 +106,7 @@ function PMA_exportOutputHandler($line)
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
                 if (!$write_result || ($write_result != strlen($line))) {
                     $GLOBALS['message'] = sprintf($GLOBALS['strNoSpace'], htmlspecialchars($save_filename));
+                    $GLOBALS['show_error_header'] = TRUE;
                     return FALSE;
                 }
                 $time_now = time();
@@ -270,12 +272,15 @@ if ($save_on_server) {
     unset($message);
     if (file_exists($save_filename) && empty($onserverover)) {
         $message = sprintf($strFileAlreadyExists, htmlspecialchars($save_filename));
+        $GLOBALS['show_error_header'] = TRUE;
     } else {
         if (is_file($save_filename) && !is_writable($save_filename)) {
             $message = sprintf($strNoPermission, htmlspecialchars($save_filename));
+            $GLOBALS['show_error_header'] = TRUE;
         } else {
             if (!$file_handle = @fopen($save_filename, 'w')) {
                 $message = sprintf($strNoPermission, htmlspecialchars($save_filename));
+                $GLOBALS['show_error_header'] = TRUE;
             }
         }
     }

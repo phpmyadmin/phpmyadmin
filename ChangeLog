@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-08-04 Michal Čihař  <michal@cihar.com>
+    * libraries/common.lib.php, export.php: Show error header on error to make
+      clear that something bad has happened.
+
 2005-08-04 Marc Delisle  <lem9@users.sourceforge.net>
     * queryframe.php: patch #1250899:
      - unified spaces between icons

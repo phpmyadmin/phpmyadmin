@@ -1711,6 +1711,9 @@ if (typeof(document.getElementById) != 'undefined'
 <br />
 <div align="<?php echo $GLOBALS['cell_align_left']; ?>">
     <table border="<?php echo $cfg['Border']; ?>" cellpadding="5" cellspacing="1">
+    <?php if (isset($GLOBALS['show_error_header']) && $GLOBALS['show_error_header']) { ?>
+    <tr><th class="tblHeadError"><div class="errorhead"><?php echo $GLOBALS['strError']; ?></div></th></tr>
+    <?php } ?>
     <tr>
         <th<?php echo ($GLOBALS['theme'] != 'original') ? ' class="tblHeaders"' : ' bgcolor="' . $cfg['ThBgcolor'] . '"'; ?>>
             <b><?php echo $message; ?></b>
