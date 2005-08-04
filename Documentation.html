@@ -255,7 +255,7 @@
     <li>
         <b>Note: starting with phpMyAdmin 2.6.1, configuring the controluser
         to enable HTTP and cookie authentication applies <i>only
-        to MySQL servers older than 4.1.2</i>.</b>
+		to MySQL servers older than 4.1.2</i>.</b> See the <a href="#controluser">controluser</a> directive.
         <br /><br />
         For 'HTTP' and 'cookie' modes, phpMyAdmin needs a controluser that has
         <b>only</b> the <tt>SELECT</tt> privilege on the <i>mysql.user (all
@@ -303,8 +303,8 @@ GRANT SELECT (
 
 GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         </pre>
-        (this of course requires you to have a special DB for phpMyAdmin, the
-        contents will be explained later)<br />
+	(this of course requires that your <a href="#linked-tables">linked-tables infrastructure</a> be set up).
+        <br />
         Of course, the above queries only work if your MySQL version supports
         the GRANT command. This is the case since 3.22.11.
     </li>
@@ -1053,6 +1053,20 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         tables in the left frame (smaller page).
         Only in Non-Lightmode you can use the feature to display nested folders
         using $cfg['LeftFrameTableSeparator']
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['LeftFrameDBTree']</b> boolean</dt>
+    <dd>
+    In light mode, defines whether to display the names of databases (in the
+    selector) using a tree, see also <tt>$cfg['LeftFrameDBSeparator']</tt>.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['LeftFrameDBSeparator']</b> string</dt>
+    <dd>
+    The string used to separate the parts of the database name when showing
+    them in a tree.
         <br /><br />
     </dd>
 
