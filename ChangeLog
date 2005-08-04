@@ -23,6 +23,8 @@ $Source$
       libraries/common.lib.php, /config_import.lib.php:
       patch #1246245, tree subgroups for databases (in selector),
       thanks to Edward Rudd - urkle
+    * db_details.php, tbl_query_box.php: patch #1250935, interface
+      improvements, thanks to Sebastian Mendel
 
 2005-08-02 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: patch #1249363, remove unneeded wordwrap(),

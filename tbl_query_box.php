@@ -198,7 +198,7 @@ if (!isset($is_inside_querywindow) ||
     }
 ?>
             </tr>
-            <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+            <tr class="tblFooters">
                 <td<?php if ($queryframe_tdcolspan != '') { echo ' colspan="2"'; } //echo $queryframe_tdcolspan; ?>>
                     <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" /><label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label>
 <?php
@@ -237,11 +237,6 @@ if ($is_upload && (!isset($is_inside_querywindow) ||
        . ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab == 'full') || !isset($is_inside_querywindow) ? '<i>' . $strOr . '</i>' : '')
        . ' ' . $strLocationTextfile . ':&nbsp;' . "\n";
 ?>
-                </td>
-            </tr>
-            <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-                <td<?php echo $queryframe_thcolspan; ?>>
-                    <b>&nbsp;<?php echo $strLocationTextfile; ?>:&nbsp;</b>
                 </td>
             </tr>
             <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
@@ -382,8 +377,8 @@ if (($is_upload || $is_upload_dir) &&
         echo '    </div>' . "\n";
     } // end if (recoding)
 */
-   if (PMA_MYSQL_INT_VERSION < 40100 && $cfg['AllowAnywhereRecoding'] && $allow_recoding) {
-        echo '    <tr bgcolor="' .$cfg['BgcolorTwo'] . '"><td' . $queryframe_thcolspan . '>' . "\n";
+    echo '    <tr class="tblFooters"><td' . $queryframe_tdcolspan . '>' . "\n";
+    if (PMA_MYSQL_INT_VERSION < 40100 && $cfg['AllowAnywhereRecoding'] && $allow_recoding) {
         $temp_charset = reset($cfg['AvailableCharsets']);
         echo '&nbsp;' . $strCharsetOfFile
              . '&nbsp;<select name="charset_of_file" size="1">' . "\n"
@@ -400,17 +395,12 @@ if (($is_upload || $is_upload_dir) &&
             echo '>' . $temp_charset . '</option>' . "\n";
         }
         echo '        </select>' . "\n" . '    ';
-        echo '    </td>' . "\n";
-        echo '    </tr>' . "\n";
     } // end if (recoding)
     else if (PMA_MYSQL_INT_VERSION >= 40100) {
-        echo '    <tr bgcolor="' .$cfg['BgcolorTwo'] . '"><td' . $queryframe_thcolspan . '>' . "\n"
-           . $strCharsetOfFile . "\n"
-           . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', NULL, 'utf8', FALSE)
-           . '    </td>' . "\n"
-           . '    </tr>' . "\n";
+        echo $strCharsetOfFile . "\n"
+           . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', NULL, 'utf8', FALSE);
     }
-    echo '    <tr bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+    echo '        </td>' . "\n"
        . '        <td align="right"' . $queryframe_thcolspan . '><input type="submit" name="SQL" value="' . $strGo . '" /></td>' . "\n"
        . '    </tr>' . "\n\n";
 }
