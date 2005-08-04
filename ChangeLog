@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-08-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * queryframe.php: patch #1250899:
+     - unified spaces between icons
+     - cleaned html and php code
+     - display of querywindow-icon now follows
+       $cfg['QueryFrame']
+     - always use no_js=1 if $cfg['QueryFrameJS'] == true
+      thanks to Sebastian Mendel
+
 2005-08-02 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: patch #1249363, remove unneeded wordwrap(),
       table width should be limited by template if necessary,
