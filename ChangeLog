@@ -19,6 +19,10 @@ $Source$
       thanks to Sebastian Mendel
     * Documentation.html: patch #1169308, FAQ 1.17a improved,
       thanks to Isaac Bennetch
+    * queryframe.php, footer.inc.php, config.inc.php, Documentation.html,
+      libraries/common.lib.php, /config_import.lib.php:
+      patch #1246245, tree subgroups for databases (in selector),
+      thanks to Edward Rudd - urkle
 
 2005-08-02 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: patch #1249363, remove unneeded wordwrap(),

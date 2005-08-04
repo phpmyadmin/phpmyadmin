@@ -300,7 +300,7 @@ if ($num_dbs > 1) {
                 $i++;
             }
         }
-
+        $parent = '';
         // Gets the tables list per database
         for ($i = 0; $i < $num_dbs; $i++) {
             $db = $dblist[$i];
@@ -360,6 +360,26 @@ if ($num_dbs > 1) {
                 $selected = '';
             } // end if... else...
 
+            if ($cfg['LeftFrameDBTree']) {
+                $parts = explode($cfg['LeftFrameDBSeparator'],$db,2);
+                if (count($parts) == 1) {
+                    if (!empty($parent)) {
+                        echo '      '
+                            . '</optgroup>'."\n";
+                        $parent = '';
+                    }
+                } else {
+                    if ($parent != $parts[0]) {
+                        if (!empty($parent)) {
+                            echo '      '
+                                . '</optgroup>'."\n";
+                        }
+                        echo '      '
+                            . '<optgroup label="'.$parts[0].'">'."\n";
+                        $parent = $parts[0];
+                    }
+                }
+            }
             if (!empty($num_tables)) {
                 echo '            '
                    . '<option value="' . htmlspecialchars($db) . '"' . $selected . '>'

@@ -58,7 +58,8 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.left && parent.frames.queryframe.document.left.lightm_db) {
         selidx = parent.frames.queryframe.document.left.lightm_db.selectedIndex;
         if (parent.frames.queryframe.document.left.lightm_db.options[selidx].value == "<?php echo addslashes($db); ?>" && forceQueryFrameReload == false) {
-            parent.frames.queryframe.document.left.lightm_db.options[selidx].text = "<?php echo addslashes($db) . $num_tables_disp; ?>";
+            parent.frames.queryframe.document.left.lightm_db.options[selidx].text =
+                parent.frames.queryframe.document.left.lightm_db.options[selidx].text.replace(/(.*)\([0-9]+\)/,'$1<?php echo $num_tables_disp;?>');
         } else {
             parent.frames.queryframe.location.reload();
             setTimeout("dbBoxSetup();",2000);

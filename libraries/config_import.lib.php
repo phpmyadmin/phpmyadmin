@@ -308,6 +308,14 @@ if (!isset($cfg['LeftFrameLight'])) {
     }
 }
 
+if (!isset($cfg['LeftFrameDBTree'])) {
+    $cfg['LeftFrameDBTree'] = TRUE;
+}
+
+if (!isset($cfg['LeftFrameDBSeparator'])) {
+    $cfg['LeftFrameDBSeparator'] = '_';
+}
+
 if (!isset($cfg['LeftFrameTableSeparator'])) {
     $cfg['LeftFrameTableSeparator'] = '__';
 }

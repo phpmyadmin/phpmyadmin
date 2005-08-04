@@ -228,6 +228,8 @@ $cfg['AllowArbitraryServer']    = FALSE;  // allow login to any user entered ser
 // Left frame setup
 $cfg['LeftFrameLight']        = TRUE;    // use a select-based menu and display only the
                                          // current tables in the left frame.
+$cfg['LeftFrameDBTree']       = TRUE;    // turn the select-based light menu into a tree
+$cfg['LeftFrameDBSeparator']  = '_';     // the separator to sub-tree the select-based light menu tree
 $cfg['LeftFrameTableSeparator']= '__';   // Which string will be used to generate table prefixes
                                          // to split/nest tables into multiple categories
 $cfg['LeftFrameTableLevel']   = '1';     // How many sublevels should be displayed when splitting
