@@ -2547,15 +2547,16 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     You tried to access MySQL with an old MySQL client library. The version of
     your MySQL client library can be checked in your phpinfo() output.
-    <br />
     In general, it should have at least the same minor version as your server
     - as mentioned in FAQ 1.17.
-    <br />
-    The only way to fix this problem is manually compiling php and its MySQL
-    extension against a current MySQL client library.
-    <br />
-    If you still face this problem, please compile your MySQL client library
-    against the same or a newer MySQL release.
+    <br /><br />
+    This problem is generally caused by using MySQL version 4.1 or newer. MySQL
+    changed the authentication hash and your PHP is trying to use the old method.
+    The proper solution is to use the <a href="http://www.php.net/mysqli">mysqli extension</a>
+    with the proper client library to match your MySQL installation. Your
+    chosen extension is specified in <tt>$cfg['Servers'][$i]['extension']</tt>.
+    More information (and several workarounds) are located in the
+    <a href="http://dev.mysql.com/doc/mysql/en/old-client.html">MySQL Documentation</a>.
 </p>
 
 <h4>
