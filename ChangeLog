@@ -25,6 +25,7 @@ $Source$
       thanks to Edward Rudd - urkle
     * db_details.php, tbl_query_box.php: patch #1250935, interface
       improvements, thanks to Sebastian Mendel
+    * tbl_create.php: bug #1252124, XSS on table creation page
 
 2005-08-02 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: patch #1249363, remove unneeded wordwrap(),
