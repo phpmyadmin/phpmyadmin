@@ -361,25 +361,25 @@ if ($num_dbs > 1) {
             } // end if... else...
 
             if ($cfg['LeftFrameDBTree']) {
-                $parts = explode($cfg['LeftFrameDBSeparator'],$db,2);
-                if (count($parts) == 1) {
-                    if (!empty($parent)) {
-                        echo '      '
-                            . '</optgroup>'."\n";
-                        $parent = '';
-                    }
+                if ($i == 0) {
+                    $parts = explode($cfg['LeftFrameDBSeparator'],$db,2);
                 } else {
+                    $parts = $next_parts;
+                }
+                if ($i == $num_dbs - 1) {
+                    $next_parts = array();
+                } else {
+                    $next_parts = explode($cfg['LeftFrameDBSeparator'],$dblist[$i+1],2);
+                }
+                if (count($parts) > 1 || (count($next_parts) > 1 && $parts[0] == $next_parts[0])) {
                     if ($parent != $parts[0]) {
-                        if (!empty($parent)) {
-                            echo '      '
-                                . '</optgroup>'."\n";
-                        }
                         echo '      '
-                            . '<optgroup label="'.$parts[0].'">'."\n";
+                            . '<optgroup label="'.htmlspecialchars($parts[0]).'">'."\n";
                         $parent = $parts[0];
                     }
                 }
             }
+            
             if (!empty($num_tables)) {
                 echo '            '
                    . '<option value="' . htmlspecialchars($db) . '"' . $selected . '>'
@@ -390,6 +390,13 @@ if ($num_dbs > 1) {
                    . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)) . ' (-)</option>' . "\n";
             } // end if... else...
 
+            if ($cfg['LeftFrameDBTree']) {
+                if (!empty($parent) && (count($next_parts) == 0 || $parent != $next_parts[0])) {
+                    echo '      '
+                        . '</optgroup>'."\n";
+                    $parent = '';
+                }
+            }
         } // end for $i (db list)
         ?>
         </select>

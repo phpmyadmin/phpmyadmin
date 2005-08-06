@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-08-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * queryframe.php: fixes for tree subgroups in databases selector:
+      escaping of special characters, display a db name inside its own
+      group, and proper closing of optgroup, thanks to Ryan Schmidt
+
 2005-08-05 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, readme.php, license.php: 
       bug #965548, displaying README and LICENSE, thanks to Ryan Schmidt
