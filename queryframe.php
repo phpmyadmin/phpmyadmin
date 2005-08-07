@@ -371,12 +371,10 @@ if ($num_dbs > 1) {
                 } else {
                     $next_parts = explode($cfg['LeftFrameDBSeparator'],$dblist[$i+1],2);
                 }
-                if (count($parts) > 1 || (count($next_parts) > 1 && $parts[0] == $next_parts[0])) {
-                    if ($parent != $parts[0]) {
-                        echo '      '
-                            . '<optgroup label="'.htmlspecialchars($parts[0]).'">'."\n";
-                        $parent = $parts[0];
-                    }
+                if (count($next_parts) > 1 && $parts[0] == $next_parts[0] && $parent != $parts[0]) {
+                    echo '      '
+                        . '<optgroup label="'.htmlspecialchars($parts[0]).'">'."\n";
+                    $parent = $parts[0];
                 }
             }
             

@@ -10,6 +10,8 @@ $Source$
       thanks to Ryan Schmidt
     * server_privileges.php: undefined index $GLOBALS[''],
       thanks to Ryan Schmidt
+    * queryframe.php: need at least 2 items to display a group in the
+      database selector, thanks to Ryan Schmidt
 
 2005-08-06 Marc Delisle  <lem9@users.sourceforge.net>
     * queryframe.php: fixes for tree subgroups in databases selector:
