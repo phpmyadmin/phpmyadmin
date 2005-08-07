@@ -8,6 +8,8 @@ $Source$
 2005-08-07 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: Save button for PDF schema coordinates,
       thanks to Ryan Schmidt
+    * server_privileges.php: undefined index $GLOBALS[''],
+      thanks to Ryan Schmidt
 
 2005-08-06 Marc Delisle  <lem9@users.sourceforge.net>
     * queryframe.php: fixes for tree subgroups in databases selector:
