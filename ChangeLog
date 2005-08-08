@@ -15,6 +15,8 @@ $Source$
     * libraries/mysql_charsets.lib.php, /relation_cleanup.lib.php,
       /tbl_move_copy.php: patch #1253461 (code cleanup), 
       thanks to Sebastian Mendel
+    * libraries/sqlparser.lib.php: patch #1253478, variable initialization
+      and code cleanup, thanks to Sebastian Mendel
 
 2005-08-07 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: Save button for PDF schema coordinates,

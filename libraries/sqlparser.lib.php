@@ -715,6 +715,8 @@ if ($is_minimum_common == FALSE) {
         $subresult_empty = $subresult;
         $seek_queryend         = FALSE;
         $seen_end_of_table_ref = FALSE;
+        $number_of_brackets_in_extract = 0;
+        $number_of_brackets_in_group_concat = 0;
 
         // for SELECT EXTRACT(YEAR_MONTH FROM CURDATE())
         // we must not use CURDATE as a table_ref
@@ -1299,6 +1301,8 @@ if ($is_minimum_common == FALSE) {
         $in_from = FALSE;
         $in_group_concat = FALSE;
         $unsorted_query = '';
+        $first_reserved_word = '';
+        $current_identifier = ''; 
 
         for ($i = 0; $i < $size; $i++) {
 //DEBUG echo "trace loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
@@ -1604,61 +1608,61 @@ if ($is_minimum_common == FALSE) {
                 }
 
 
-              // Cases covered:
+                // Cases covered:
 
-              // [ON DELETE {CASCADE | SET NULL | NO ACTION | RESTRICT}]
-              // [ON UPDATE {CASCADE | SET NULL | NO ACTION | RESTRICT}]
+                // [ON DELETE {CASCADE | SET NULL | NO ACTION | RESTRICT}]
+                // [ON UPDATE {CASCADE | SET NULL | NO ACTION | RESTRICT}]
 
-              // but we set ['on_delete'] or ['on_cascade'] to
-              // CASCADE | SET_NULL | NO_ACTION | RESTRICT
+                // but we set ['on_delete'] or ['on_cascade'] to
+                // CASCADE | SET_NULL | NO_ACTION | RESTRICT
 
-              // ON UPDATE CURRENT_TIMESTAMP
+                // ON UPDATE CURRENT_TIMESTAMP
 
-               if ($upper_data == 'ON') {
-                   unset($clause);
-                   if ($arr[$i+1]['type'] == 'alpha_reservedWord') {
-                       $second_upper_data = strtoupper($arr[$i+1]['data']);
-                       if ($second_upper_data == 'DELETE') {
+                if ($upper_data == 'ON') {
+                    if ($arr[$i+1]['type'] == 'alpha_reservedWord') {
+                        $second_upper_data = strtoupper($arr[$i+1]['data']);
+                        if ($second_upper_data == 'DELETE') {
                             $clause = 'on_delete';
-                       }
-                       if ($second_upper_data == 'UPDATE') {
+                        }
+                        if ($second_upper_data == 'UPDATE') {
                             $clause = 'on_update';
-                       }
-                       if (isset($clause)
-                       && ($arr[$i+2]['type'] == 'alpha_reservedWord'
+                        }
+                        if (isset($clause)
+                        && ($arr[$i+2]['type'] == 'alpha_reservedWord'
 
-             // ugly workaround because currently, NO is not
-             // in the list of reserved words in sqlparser.data
-             // (we got a bug report about not being able to use
-             // 'no' as an identifier)
+                // ugly workaround because currently, NO is not
+                // in the list of reserved words in sqlparser.data
+                // (we got a bug report about not being able to use
+                // 'no' as an identifier)
                            || ($arr[$i+2]['type'] == 'alpha_identifier'
                               && strtoupper($arr[$i+2]['data'])=='NO') )
                           ) {
-                          $third_upper_data = strtoupper($arr[$i+2]['data']);
-                          if ($third_upper_data == 'CASCADE'
-                           || $third_upper_data == 'RESTRICT') {
-                              $value = $third_upper_data;
-                          } elseif ($third_upper_data == 'SET'
-                                 || $third_upper_data == 'NO') {
-                              if ($arr[$i+3]['type'] == 'alpha_reservedWord') {
-                                  $value = $third_upper_data . '_' . strtoupper($arr[$i+3]['data']);
-                              }
-                          } elseif ($third_upper_data == 'CURRENT_TIMESTAMP') {
-                              if ($clause == 'on_update' 
-                                  && $in_timestamp_options) {
-                                  $create_table_fields[$current_identifier]['on_update_current_timestamp'] = TRUE;
-                                  $seen_default = FALSE;
-                              }
+                            $third_upper_data = strtoupper($arr[$i+2]['data']);
+                            if ($third_upper_data == 'CASCADE'
+                            || $third_upper_data == 'RESTRICT') {
+                                $value = $third_upper_data;
+                            } elseif ($third_upper_data == 'SET'
+                              || $third_upper_data == 'NO') {
+                                if ($arr[$i+3]['type'] == 'alpha_reservedWord') {
+                                    $value = $third_upper_data . '_' . strtoupper($arr[$i+3]['data']);
+                                }
+                            } elseif ($third_upper_data == 'CURRENT_TIMESTAMP') {
+                                if ($clause == 'on_update' 
+                                && $in_timestamp_options) {
+                                    $create_table_fields[$current_identifier]['on_update_current_timestamp'] = TRUE;
+                                    $seen_default = FALSE;
+                                }
                               
-                          } else {
-                              $value = '';
-                          }
-                          if (!empty($value)) {
-                              $foreign[$foreign_key_number][$clause] = $value;
-                          }
-                       }
-                   }
-               }
+                            } else {
+                                $value = '';
+                            }
+                            if (!empty($value)) {
+                                $foreign[$foreign_key_number][$clause] = $value;
+                            }
+                            unset($clause);
+                        } // endif (isset($clause))
+                    }
+                }
 
             } // end of reserved words analysis
             
