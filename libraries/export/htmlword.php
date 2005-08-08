@@ -280,6 +280,8 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $schema_insert .= '<td class="print">' . htmlspecialchars($row['Null'] == '' ? $GLOBALS['strNo'] : $GLOBALS['strYes']) . '</td>';
         $schema_insert .= '<td class="print">' . htmlspecialchars(isset($row['Default']) ? $row['Default'] : '') . '</td>';
 
+        $field_name = $row['Field'];
+
         if ($do_relation && $have_rel) {
             $schema_insert .= '<td class="print">' . (isset($res_rel[$field_name]) ? htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' (' . $res_rel[$field_name]['foreign_field'] . ')') : '') . '</td>';
         }

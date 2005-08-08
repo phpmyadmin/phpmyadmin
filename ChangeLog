@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-08-08 Michal Čihař  <michal@cihar.com>
+    * libraries/export/htmlword.php: Fix undefined variable when exporting
+      relations (bug #1253457).
+
 2005-08-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysqli.dbi.lib.php: bug #1253453, using mysqli extension
       with MySQL 4.0.x
