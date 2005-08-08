@@ -8,6 +8,9 @@ $Source$
 2005-08-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysqli.dbi.lib.php: bug #1253453, using mysqli extension
       with MySQL 4.0.x
+    * libraries/mysql_charsets.lib.php, /relation_cleanup.lib.php,
+      /tbl_move_copy.php: patch #1253461 (code cleanup), 
+      thanks to Sebastian Mendel
 
 2005-08-07 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: Save button for PDF schema coordinates,

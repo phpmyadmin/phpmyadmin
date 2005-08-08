@@ -286,7 +286,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             $row = PMA_DBI_fetch_row($res);
             PMA_DBI_free_result($res);
             $tokenized = explode(' ', $row[1]);
-            unset($row, $res, $sql_query);
+            unset($row, $res);
 
             for ($i = 1; $i + 3 < count($tokenized); $i++) {
                 if ($tokenized[$i] == 'DEFAULT' && $tokenized[$i + 1] == 'CHARACTER' && $tokenized[$i + 2] == 'SET') {

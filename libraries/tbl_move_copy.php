@@ -220,7 +220,7 @@ function PMA_table_move_copy($source_db, $source_table, $target_db, $target_tabl
                           . ' WHERE db_name  = \'' . PMA_sqlAddslashes($source_db) . '\''
                           . ' AND table_name = \'' . PMA_sqlAddslashes($source_table) . '\'';
             $rmv_rs    = PMA_query_as_cu($remove_query);
-            unset($rmv_query);
+            unset($remove_query);
         }
 
         // garvin: updating bookmarks is not possible since only a single table is moved,
