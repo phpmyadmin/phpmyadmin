@@ -141,21 +141,35 @@ function PMA_mysqli_fetch_array($result, $type = FALSE) {
     } else {
         $ret    = array();
         $num    = mysqli_num_fields($result);
-        $fields = mysqli_fetch_fields($result);
+        if ($num > 0) {
+            $fields = PMA_DBI_get_fields_meta($result);
+        }
         $i = 0;
         for ($i = 0; $i < $num; $i++) {
-            if (!$meta) {
+            if (!isset($fields[$i]->type)) {
                 /* No meta information available -> we guess that it should be converted */
-                if (isset($data[$i])) $ret[$i] = PMA_convert_display_charset($data[$i]);
-                if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = PMA_convert_display_charset($data[$name]);
+                if (isset($data[$i])) {
+                    $ret[$i] = PMA_convert_display_charset($data[$i]);
+                }
+                if (isset($fields[$i]->name) && isset($data[$fields[$i]->name])) {
+                    $ret[PMA_convert_display_charset($fields[$i]->name)] = PMA_convert_display_charset($data[$fields[$i]->name]);
+                }
             } else {
                 /* Meta information available -> check type of field and convert it according to the type */
                 if (stristr($fields[$i]->type, 'BLOB') || stristr($fields[$i]->type, 'BINARY')) {
-                    if (isset($data[$i])) $ret[$i] = $data[$i];
-                    if (isset($data[$fields[$i]->name])) $ret[PMA_convert_display_charset($fields[$i]->name)] = $data[$fields[$i]->name];
+                    if (isset($data[$i])) {
+                        $ret[$i] = $data[$i];
+                    }
+                    if (isset($data[$fields[$i]->name])) {
+                        $ret[PMA_convert_display_charset($fields[$i]->name)] = $data[$fields[$i]->name];
+                    }
                 } else {
-                    if (isset($data[$i])) $ret[$i] = PMA_convert_display_charset($data[$i]);
-                    if (isset($data[$fields[$i]->name])) $ret[PMA_convert_display_charset($fields[$i]->name)] = PMA_convert_display_charset($data[$fields[$i]->name]);
+                    if (isset($data[$i])) {
+                        $ret[$i] = PMA_convert_display_charset($data[$i]);
+                    }
+                    if (isset($data[$fields[$i]->name])) {
+                        $ret[PMA_convert_display_charset($fields[$i]->name)] = PMA_convert_display_charset($data[$fields[$i]->name]);
+                    }
                 }
             }
         }
@@ -293,6 +307,12 @@ function PMA_DBI_get_fields_meta($result) {
     $typeAr[MYSQLI_TYPE_GEOMETRY]    = 'unknown';
 
     $fields = mysqli_fetch_fields($result);
+
+    // this happens sometimes (seen under MySQL 4.0.25)
+    if (!is_array($fields)) {
+        return FALSE; 
+    }
+
     foreach ($fields as $k => $field) {
         $fields[$k]->type = $typeAr[$fields[$k]->type];
         $fields[$k]->flags = PMA_DBI_field_flags($result, $k);
