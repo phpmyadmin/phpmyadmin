@@ -64,7 +64,7 @@
     <li>
         <b>PHP</b>
         <ul>
-            <li>You need PHP 4.1.0 or newer (<a href="#faqphp5">*</a>)</li>
+            <li>You need PHP 4.1.0 or newer (<a href="#faq1_31">*</a>)</li>
             <li>If you want to display inline thumbnails of JPEGs with the
                 original aspect ratio, you also need GD2 support in PHP</li>
             <li>Starting with phpMyAdmin 2.6.1, MIME-based transformations
@@ -2305,8 +2305,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <a name="faqserver"></a><br />
 <h3>[1. Server]</h3>
 
+<a name="faq1_1"></a>
 <h4>
-    [1.1] I'm running PHP 4+ and my server is crashing each time a specific
+    [<a href="#faq1_1">1.1</a>] I'm running PHP 4+ and my server is crashing each time a specific
     action is required or phpMyAdmin sends a blank page or a page full of
     cryptic characters to my browser, what can I do?
 </h4>
@@ -2321,8 +2322,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     MS Internet Explorer. Please upgrade to the release version PHP 4.2.0.
 </p>
 
+<a name="faq1_2"></a>
 <h4>
-    [1.2] My Apache server crashes when using phpMyAdmin.
+    [<a href="#faq1_2">1.2</a>] My Apache server crashes when using phpMyAdmin.
 </h4>
 <p>
     You should first try the latest versions of Apache (and possibly MySQL).
@@ -2333,8 +2335,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     Apache support groups.
 </p>
 
+<a name="faq1_3"></a>
 <h4>
-    [1.3] I'm running phpMyAdmin with "cookie" authentication mode under
+    [<a href="#faq1_3">1.3</a>] I'm running phpMyAdmin with "cookie" authentication mode under
     PHP 4.2.0 or 4.2.1 loaded as an Apache 2+ module but can't enter the
     script: I'm always displayed the login screen.
 </h4>
@@ -2345,8 +2348,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     fix against it because there is no way to code a fix.
 </p>
 
+<a name="faq1_4"></a>
 <h4>
-    [1.4] Using phpMyAdmin on IIS, I'm displayed the error message:
+    [<a href="#faq1_4">1.4</a>] Using phpMyAdmin on IIS, I'm displayed the error message:
     &quot;The specified CGI application misbehaved by not returning a
     complete set of HTTP headers...&quot;.
 </h4>
@@ -2357,8 +2361,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     official PHP bug database.
 </p>
 
+<a name="faq1_5"></a>
 <h4>
-    [1.5] Using phpMyAdmin on IIS, I'm facing crashes and/or many error
+    [<a href="#faq1_5">1.5</a>] Using phpMyAdmin on IIS, I'm facing crashes and/or many error
     messages with the HTTP or advanced authentication mode.
 </h4>
 <p>
@@ -2370,8 +2375,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     Please use instead the cookie authentication mode.
 </p>
 
+<a name="faq1_6"></a>
 <h4>
-    [1.6] I can't use phpMyAdmin on PWS: nothing is displayed!</h4>
+    [<a href="#faq1_6">1.6</a>] I can't use phpMyAdmin on PWS: nothing is displayed!</h4>
 <p>
     This seems to be a PWS bug. Filippo Simoncini found a workaround (at this
     time there is no better fix): remove or comment the <tt>DOCTYPE</tt>
@@ -2380,8 +2386,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <i>libraries/common.lib.php</i>.
 </p>
 
+<a name="faq1_7"></a>
 <h4>
-    [1.7] How can I GZip or Bzip a dump or a CSV export. It does not seem to
+    [<a href="#faq1_7">1.7</a>] How can I GZip or Bzip a dump or a CSV export. It does not seem to
     work.
 </h4>
 <p>
@@ -2395,8 +2402,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     this case you should switch to the release version of PHP 4.2.0.
 </p>
 
+<a name="faq1_8"></a>
 <h4>
-    [1.8] I cannot insert a text file in a table, and I get an error about
+    [<a href="#faq1_8">1.8</a>] I cannot insert a text file in a table, and I get an error about
     safe mode being in effect.
 </h4>
 <p>
@@ -2417,8 +2425,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
    <li>restart Apache</li>
 </ul>
 
+<a name="faq1_9"></a>
 <h4>
-    [1.9] I'm having troubles when uploading files. In general file uploads
+    [<a href="#faq1_9">1.9</a>] I'm having troubles when uploading files. In general file uploads
     don't work on my system and uploaded files have a <tt>Content-Type:</tt>
     header in the first line.
 </h4>
@@ -2441,8 +2450,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     And that fixes the \r\n problem with file uploads!
 </p>
 
+<a name="faq1_10"></a>
 <h4>
-    [1.10] I'm having troubles when uploading files with phpMyAdmin running
+    [<a href="#faq1_10">1.10</a>] I'm having troubles when uploading files with phpMyAdmin running
     on a secure server. My browser is Internet Explorer and I'm using the
     Apache server.
 </h4>
@@ -2453,8 +2463,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     It seems to clear up many problems between Internet Explorer and SSL.
 </p>
 
+<a name="faq1_11"></a>
 <h4>
-    [1.11] I get an 'open_basedir restriction' while uploading a file from
+    [<a href="#faq1_11">1.11</a>] I get an 'open_basedir restriction' while uploading a file from
     the query box.
 </h4>
 <p>
@@ -2466,8 +2477,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     be moved there, and after execution of your SQL commands, removed.
 </p>
 
+<a name="faq1_12"></a>
 <h4>
-    [1.12] I have lost my MySQL root password, what can I do?
+    [<a href="#faq1_12">1.12</a>] I have lost my MySQL root password, what can I do?
 </h4>
 <p>
     The MySQL manual explains how to
@@ -2475,16 +2487,18 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     reset the permissions</a>.
 </p>
 
+<a name="faq1_13"></a>
 <h4>
-    [1.13] I get an error 'No SQL query' when trying to execute a bookmark.
+    [<a href="#faq1_13">1.13</a>] I get an error 'No SQL query' when trying to execute a bookmark.
 </h4>
 <p>
     If PHP does not have read/write access to its <tt>upload_tmp_dir</tt>, it
     cannot access the uploaded query.
 </p>
 
+<a name="faq1_14"></a>
 <h4>
-    [1.14] I get an error 'No SQL query' when trying to submit a query from
+    [<a href="#faq1_14">1.14</a>] I get an error 'No SQL query' when trying to submit a query from
     the convenient text area.
 </h4>
 <p>
@@ -2492,16 +2506,19 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     and try to increase it.
 </p>
 
+<a name="faq1_15"></a>
 <h4>
-    [1.15] I have problems with <i>mysql.user</i> field names.
+    [<a href="#faq1_15">1.15</a>] I have problems with <i>mysql.user</i> field names.
 </h4>
 <p>
     In older MySQL versions, the <tt>User</tt> and <tt>Password</tt> fields
     were named <tt>user</tt> and <tt>password</tt>. Please modify your field
     names to align with current standards.
 </p>
-<h4><a name="faq1_16"></a>
-    [1.16] I cannot upload big dump files (memory, http or timeout problems).
+
+<a name="faq1_16"></a>
+<h4>
+    [<a href="#faq1_16">1.16</a>] I cannot upload big dump files (memory, http or timeout problems).
 </h4>
 <p>
     The first things to check (or ask your host provider to check) are the
@@ -2531,7 +2548,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <a name="faqmysqlversions"></a>
 <h4>
-    [1.17] Which MySQL versions does phpMyAdmin support?
+    [<a href="#faqmysqlversions">1.17</a>] Which MySQL versions does phpMyAdmin support?
 </h4>
 <p>
     All MySQL versions from 3.23.32 till 5.0 (except for 4.1.0 and 4.1.1) are
@@ -2553,8 +2570,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     MySQL&nbsp;5.1 is not yet supported.
 </p>
 
+<a name="faq1_17a"></a>
 <h4>
-    [1.17a] I cannot connect to the MySQL server. It always returns the error
+    [<a href="#faq1_17a">1.17a</a>] I cannot connect to the MySQL server. It always returns the error
     message, &quot;Client does not support authentication protocol requested
     by server; consider upgrading MySQL client&quot;
 </h4>
@@ -2573,8 +2591,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <a href="http://dev.mysql.com/doc/mysql/en/old-client.html">MySQL Documentation</a>.
 </p>
 
+<a name="faq1_18"></a>
 <h4>
-    [1.18] I'm running MySQL&nbsp;&lt;=&nbsp;4.0.1 having
+    [<a href="#faq1_18">1.18</a>] I'm running MySQL&nbsp;&lt;=&nbsp;4.0.1 having
     <tt>lower_case_table_names</tt> set to 1. If I create a new table with a
     capital letter in its name it is changed to lowercase as it should. But
     if I try to DROP this table MySQL is unable to find the corresponding
@@ -2586,8 +2605,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     directive.
 </p>
 
+<a name="faq1_19"></a>
 <h4>
-    [1.19] I can't run the &quot;display relations&quot; feature because the
+    [<a href="#faq1_19">1.19</a>] I can't run the &quot;display relations&quot; feature because the
     script seems not to know the font face I'm using!
 </h4>
 <p>
@@ -2598,9 +2618,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     these files.
 </p>
 
-<a name="faqmysql"></a><br />
+<a name="faqmysql"></a>
 <h4>
-    [1.20] I receive the error &quot;cannot load MySQL extension, please
+    [<a href="#faqmysql">1.20</a>] I receive the error &quot;cannot load MySQL extension, please
     check PHP Configuration&quot;.
 </h4>
 <p>
@@ -2614,25 +2634,28 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     &quot;PHP-MySQL&quot; or something similar.
 </p>
 
+<a name="faq1_21"></a>
 <h4>
-    [1.21] I am running the CGI version of PHP under Unix, and I cannot
+    [<a href="#faq1_21">1.21</a>] I am running the CGI version of PHP under Unix, and I cannot
     login using cookie auth.
 </h4>
 <p>
     In <i>php.ini</i>, set <tt>mysql.max_links</tt> higher than 1.
 </p>
 
+<a name="faq1_22"></a>
 <h4>
-    [1.22] I don't see the &quot;Location of text file&quot; field, so
+    [<a href="#faq1_22">1.22</a>] I don't see the &quot;Location of text file&quot; field, so
     I cannot upload.
 </h4>
 <p>
     This is most likely because in <i>php.ini</i>, your <tt>file_uploads</tt>
     parameter is not set to &quot;on&quot;.
 </p>
-<a name="faq1_23"></a><br />
+
+<a name="faq1_23"></a>
 <h4>
-    [1.23] I'm running MySQL on a Win32 machine. Each time I create a new
+    [<a href="#faq1_23">1.23</a>] I'm running MySQL on a Win32 machine. Each time I create a new
     table the table and field names are changed to lowercase!
 </h4>
 <p>
@@ -2647,8 +2670,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <tt>SHOW VARIABLES LIKE 'lower_case_table_names';</tt>
 </p>
 
+<a name="faq1_24"></a>
 <h4>
-    [1.24] Some characters are being truncated in my queries, or I get
+    [<a href="#faq1_24">1.24</a>] Some characters are being truncated in my queries, or I get
     characters randomly added. I am running PHP 4.2.3.
 </h4>
 <p>
@@ -2656,8 +2680,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <a href="http://bugs.php.net/bug.php?id=19404">PHP 4.2.3 bug</a>.
 </p>
 
+<a name="faq1_25"></a>
 <h4>
-    [1.25] I am running Apache with mod_gzip-1.3.26.1a on Windows XP,
+    [<a href="#faq1_25">1.25</a>] I am running Apache with mod_gzip-1.3.26.1a on Windows XP,
     and I get problems, such as undefined variables when I run a SQL query.
 </h4>
 <p>
@@ -2669,8 +2694,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     PHP scripts. Of course you have to restart Apache.
 </p>
 
+<a name="faq1_26"></a>
 <h4>
-    [1.26] I just installed phpMyAdmin in my document root of IIS but
+    [<a href="#faq1_26">1.26</a>] I just installed phpMyAdmin in my document root of IIS but
     I get the error &quot;No input file specified&quot; when trying to
     run phpMyAdmin.
 </h4>
@@ -2681,8 +2707,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     permissions and it should work.
 </p>
 
+<a name="faq1_27"></a>
 <h4>
-    [1.27] I get empty page when I want to view huge page (eg.
+    [<a href="#faq1_27">1.27</a>] I get empty page when I want to view huge page (eg.
     db_details_structure.php with plenty of tables).
 </h4>
 <p>
@@ -2692,8 +2719,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     fixed in PHP 5.0.0.
 </p>
 
+<a name="faq1_28"></a>
 <h4>
-    [1.28] My MySQL server sometimes refuses queries and returns the message
+    [<a href="#faq1_28">1.28</a>] My MySQL server sometimes refuses queries and returns the message
     'Errorcode: 13'. What does this mean?
 </h4>
 <p>
@@ -2704,9 +2732,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     available starting with MySQL&nbsp;3.23.56 / 4.0.11-gamma.
 </p>
 
-<a name="faq-1-29"></a>
+<a name="faq1_29"></a>
 <h4>
-    [1.29] When I create a table or modify a field, I get an error
+    [<a href="#faq1_29">1.29</a>] When I create a table or modify a field, I get an error
     and the fields are duplicated.
 </h4>
 <p>
@@ -2738,17 +2766,18 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     </tt>
 </p>
 
+<a name="faq1_30"></a>
 <h4>
-    [1.30] I get the error &quot;left.php: Missing hash&quot;.
+    [<a href="#faq1_30">1.30</a>] I get the error &quot;left.php: Missing hash&quot;.
 </h4>
 <p>
     This problem is known to happen when the server is running Turck MMCache
     but upgrading MMCache to version 2.3.21 solves the problem.
 </p>
 
-<a name="faqphp5"></a>
+<a name="faq1_31"></a>
 <h4>
-    [1.31] Does phpMyAdmin support php5?
+    [<a href="#faq1_31">1.31</a>] Does phpMyAdmin support php5?
 </h4>
 <p>
     Yes.
@@ -2757,9 +2786,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     you won't be able to run phpMyAdmin having enabled E_STRICT in your
     error_reporting settings.
 </p>
-<a name="faq1_32"></a><br />
+
+<a name="faq1_32"></a>
 <h4>
-    [1.32] Can I use HTTP authentication with IIS?
+    [<a href="#faq1_32">1.32</a>] Can I use HTTP authentication with IIS?
 </h4>
 <p>
     Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in ISAPI
@@ -2772,11 +2802,20 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         <li>In <tt>Custom Errors</tt>, select the range of <tt>401;1</tt> through <tt>401;5</tt> and click the <tt>Set to Default</tt> button. </li>
     </ol>
 
+<a name="faq1_33"></a>
+<h4>
+    [<a href="#faq1_33">1.33</a>] Is there a problem with the mysqli extension when running PHP 5.0.4 on 64-bit systems?
+</h4>
+<p>
+    Yes. This problem affects phpMyAdmin (&quot;Call to undefined function pma_reloadnavigation&quot;), so upgrade your PHP to the next version.
+</p>
+
 <a name="faqconfig"></a><br />
 <h3>[2. Configuration]</h3>
 
+<a name="faq2_1"></a>
 <h4>
-    [2.1] The error message &quot;Warning: Cannot add header information -
+    [<a href="#faq2_1">2.1</a>] The error message &quot;Warning: Cannot add header information -
     headers already sent by ...&quot; is displayed, what's the problem?
 </h4>
 <p>
@@ -2786,8 +2825,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     tag at the end.
 </p>
 
+<a name="faq2_2"></a>
 <h4>
-    [2.2] phpMyAdmin can't connect to MySQL. What's wrong?
+    [<a href="#faq2_2">2.2</a>] phpMyAdmin can't connect to MySQL. What's wrong?
 </h4>
 <p>
     Either there is an error with your PHP setup or your username/password is
@@ -2796,8 +2836,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     into PHP.
 </p>
 
+<a name="faq2_3"></a>
 <h4>
-    [2.3] The error message &quot;Warning: MySQL Connection Failed: Can't
+    [<a href="#faq2_3">2.3</a>] The error message &quot;Warning: MySQL Connection Failed: Can't
     connect to local MySQL server through socket '/tmp/mysql.sock'
     (111)...&quot; is displayed. What can I do?
 </h4>
@@ -2844,8 +2885,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
          corresponding section of the MySQL documentation</a>.
 </p>
 
+<a name="faq2_4"></a>
 <h4>
-    [2.4] Nothing is displayed by my browser when I try to run phpMyAdmin,
+    [<a href="#faq2_4">2.4</a>] Nothing is displayed by my browser when I try to run phpMyAdmin,
     what can I do?
 </h4>
 <p>
@@ -2856,8 +2898,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     not a so good idea, please upgrade to a plain revision.
 </p>
 
+<a name="faq2_5"></a>
 <h4>
-    [2.5] Each time I want to insert or change a record or drop a database
+    [<a href="#faq2_5">2.5</a>] Each time I want to insert or change a record or drop a database
     or a table, an error 404 (page not found) is displayed or, with HTTP or
     cookie authentication, I'm asked to login again. What's wrong?
 </h4>
@@ -2866,8 +2909,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     in the phpMyAdmin configuration file.
 </p>
 
+<a name="faq2_6"></a>
 <h4>
-    [2.6] I get an &quot;Access denied for user: 'root@localhost' (Using
+    [<a href="#faq2_6">2.6</a>] I get an &quot;Access denied for user: 'root@localhost' (Using
     password: YES)&quot;-error when trying to access a MySQL-Server on a
     host which is port-forwarded for my localhost.
 </h4>
@@ -2883,9 +2927,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     TCP connection.
 </p>
 
-<a name="faqthemes"></a><br />
+<a name="faqthemes"></a>
 <h4>
-    [2.7] Using and creating themes
+    [<a href="#faqthemes">2.7</a>] Using and creating themes
 </h4>
 <p>
     Themes are configured with <tt>$cfg['ThemePath']</tt>,
@@ -2929,9 +2973,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     directory &quot;img&quot; in &quot;your_theme_name&quot;. phpMyAdmin will
     use the default icons and buttons (from the system-theme &quot;original&quot;).
     </p>
-<a name="faqmissingparameters"></a><br />
+
+<a name="faqmissingparameters"></a>
 <h4>
-    [2.8] I get &quot;Missing parameters&quot; errors, what can I do?
+    [<a href="#faqmissingparameters">2.8</a>] I get &quot;Missing parameters&quot; errors, what can I do?
 </h4>
 <p>
     Here are a few points to check:</p>
@@ -2960,9 +3005,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <a name="faqlimitations"></a><br />
 <h3>[3. Known limitations]</h3>
-<a name="login_bug"></a><br />
+
+<a name="login_bug"></a>
 <h4>
-    [3.1] When using HTTP authentication, an user who logged out can not
+    [<a href="#login_bug">3.1</a>] When using HTTP authentication, an user who logged out can not
     relogin in with the same nick.
 </h4>
 <p>
@@ -2972,8 +3018,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     log in again.
 </p>
 
+<a name="faq3_2"></a>
 <h4>
-    [3.2] When dumping a large table in compressed mode, I get a memory
+    [<a href="#faq3_2">3.2</a>] When dumping a large table in compressed mode, I get a memory
     limit error or a time limit error.
 </h4>
 <p>
@@ -2984,16 +3031,18 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     dump, you have to use another way.
 </p>
 
+<a name="faq3_3"></a>
 <h4>
-    [3.3] With InnoDB tables, I lose foreign key relationships when I rename
+    [<a href="#faq3_3">3.3</a>] With InnoDB tables, I lose foreign key relationships when I rename
     or alter a table.
 </h4>
 <p>
     This seems to be a InnoDB bug (fixed in MySQL 3.23.50?).
 </p>
 
+<a name="faq3_4"></a>
 <h4>
-    [3.4] I am unable to import dumps I created with the mysqldump tool
+    [<a href="#faq3_4">3.4</a>] I am unable to import dumps I created with the mysqldump tool
     bundled with the MySQL server distribution.
 </h4>
 <p>
@@ -3022,8 +3071,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     </code>
 </p>
 
+<a name="faq3_5"></a>
 <h4>
-    [3.5] When using nested folders ($cfg['LeftFrameTableSeparator']) there
+    [<a href="#faq3_5">3.5</a>] When using nested folders ($cfg['LeftFrameTableSeparator']) there
      are some multiple hierarchies displayed in a wrong manner?!
 </h4>
 <p>
@@ -3032,9 +3082,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     name. If you have to, think about using another TableSeparator or disabling
     that feature
 </p>
-<a name="faq3_6"></a><br />
+
+<a name="faq3_6"></a>
 <h4>
-    [3.6] What is currently not supported in phpMyAdmin about InnoDB?
+    [<a href="#faq3_6">3.6</a>] What is currently not supported in phpMyAdmin about InnoDB?
 </h4>
 <p>
     In Relation view, being able to choose a table in another database,
@@ -3044,8 +3095,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     In PDF schema editing, automatic layout.
 </p>
 
+<a name="faq3_7"></a>
 <h4>
-    [3.7] I have table with many (100+) fields and when I try to browse table
+    [<a href="#faq3_7">3.7</a>] I have table with many (100+) fields and when I try to browse table
     I get series of errors like &quot;Warning: unable to parse url&quot;. How
     can this be fixed?
 </h4>
@@ -3056,8 +3108,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <br />
 </p>
 
+<a name="faq3_8"></a>
 <h4>
-    [3.8] I cannot use (clickable) HTML-forms in fields where I put a <a href="#transformations">MIME-Transformation</a> onto!
+    [<a href="#faq3_8">3.8</a>] I cannot use (clickable) HTML-forms in fields where I put a <a href="#transformations">MIME-Transformation</a> onto!
 </h4>
 <p>
     Due to a surrounding form-container (for multi-row delete checkboxes), no nested forms can be put inside the table where
@@ -3069,15 +3122,17 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     on the official phpMyAdmin-homepage.
 </p>
 
+<a name="faq3_9"></a>
 <h4>
-    [3.9] I get error messages when using "--sql_mode=ANSI" for the MySQL server
+    [<a href="#faq3_9">3.9</a>] I get error messages when using "--sql_mode=ANSI" for the MySQL server
 </h4>
 <p>
     When MySQL is running in ANSI-compatibility mode, there are some major differences in how SQL is structured (see <a href="http://dev.mysql.com/doc/mysql/en/ANSI_mode.html">http://dev.mysql.com/doc/mysql/en/ANSI_mode.html</a>). Most important of all, the quote-character (") is interpreted as an identifier quote character and not as a string quote character, which makes many internal phpMyAdmin operations into invalid SQL statements. There is no workaround to this behaviour. News to this item will be posted in Bug report <a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=816858&amp;group_id=23067&amp;atid=377408">#816858</a>
 </p>
 
+<a name="faq3_10"></a>
 <h4>
-    [3.10] Homonyms and no primary key: When the results of a SELECT display
+    [<a href="#faq3_10">3.10</a>] Homonyms and no primary key: When the results of a SELECT display
     more that one column with the same value
     (for example <tt>SELECT lastname from employees where firstname like 'A%'</tt> and two &quot;Smith&quot; values are displayed),
     if I click Edit I cannot be sure that I am editing the intended row.
@@ -3087,8 +3142,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     can use it for the Edit and Delete links.
 </p>
 
+<a name="faq3_11"></a>
 <h4>
-    [3.11] The number of records for InnoDB tables is not correct.
+    [<a href="#faq3_11">3.11</a>] The number of records for InnoDB tables is not correct.
 </h4>
 <p>
     phpMyAdmin uses a quick method to get the row count, and this method
@@ -3096,16 +3152,20 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <tt>$cfg['MaxExactCount']</tt> for a way to modify those results, but
     this could have a serious impact on performance.
 </p>
+
+<a name="faq3_12"></a>
 <h4>
-    [3.12] What are the phpMyAdmin limitations for MySQL 3?
+    [<a href="#faq3_12">3.12</a>] What are the phpMyAdmin limitations for MySQL 3?
 </h4>
 <p>
     The number of records in queries containing COUNT and GROUP BY is
     not correctly calculated. Also, sorting results of a query like
     &quot;SELECT * from table GROUP BY&quot; ... is problematic.
 </p>
+
+<a name="faq3_13"></a>
 <h4>
-    [3.13] I get an error when entering <tt>USE</tt> followed by a db name
+    [<a href="#faq3_13">3.13</a>] I get an error when entering <tt>USE</tt> followed by a db name
     containing an hyphen. 
 </h4>
 <p>
@@ -3118,8 +3178,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <a name="faqmultiuser"></a><br />
 <h3>[4. ISPs, multi-user installations ]</h3>
 
+<a name="faq4_1"></a>
 <h4>
-    [4.1] I'm an ISP. Can I setup one central copy of phpMyAdmin or do I
+    [<a href="#faq4_1">4.1</a>] I'm an ISP. Can I setup one central copy of phpMyAdmin or do I
     need to install it for each customer.
 </h4>
 <p>
@@ -3131,9 +3192,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     &quot;Using HTTP authentication&quot;.
 </p>
 
-<a name="faq4_2"></a><br />
+<a name="faq4_2"></a>
 <h4>
-    [4.2] What's the preferred way of making phpMyAdmin secure against evil
+    [<a href="#faq4_2">4.2</a>] What's the preferred way of making phpMyAdmin secure against evil
     access.
 </h4>
 <p>
@@ -3161,8 +3222,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     </li>
 </ul>
 
+<a name="faq4_3"></a>
 <h4>
-    [4.3] I get errors about not being able to include a file in
+    [<a href="#faq4_3">4.3</a>] I get errors about not being able to include a file in
     <i>/lang</i> or in <i>/libraries</i>.
 </h4>
 <p>
@@ -3171,9 +3233,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <tt>open_basedir</tt>, if used, must contain &quot;.&quot; and
     &quot;./lang&quot; to allow normal operation of phpMyAdmin.
 </p>
-<a name="faq4_4"></a><br />
+
+<a name="faq4_4"></a>
 <h4>
-    [4.4] phpMyAdmin always gives &quot;Access denied&quot; when using HTTP
+    [<a href="#faq4_4">4.4</a>] phpMyAdmin always gives &quot;Access denied&quot; when using HTTP
     authentication.
 </h4>
 <p>
@@ -3194,8 +3257,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     </li>
 </ul>
 
+<a name="faq4_5"></a>
 <h4>
-    [4.5] Is it possible to let users create their own databases?
+    [<a href="#faq4_5">4.5</a>] Is it possible to let users create their own databases?
 </h4>
 <p>
     Starting with 2.2.5, in the user management page, you can enter a wildcard
@@ -3205,8 +3269,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     would let a user create/manage his/her database(s).
 </p>
 
+<a name="faq4_6"></a>
 <h4>
-    [4.6] How can I use the Host-based authentication additions?
+    [<a href="#faq4_6">4.6</a>] How can I use the Host-based authentication additions?
 </h4>
 <p>
     If you have existing rules from an old .htaccess file, you can take them
@@ -3232,8 +3297,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);
     </tt>
 </p>
+
+<a name="faq4_7"></a>
 <h4>
-    [4.7] Authentication window is displayed more than once, why?
+    [<a href="#faq4_7">4.7</a>] Authentication window is displayed more than once, why?
 </h4>
 <p>
     This happens if you are using a URL to start phpMyAdmin which is
@@ -3245,8 +3312,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <a name="faqbrowsers"></a><br />
 <h3>[5. Browsers or client OS]</h3>
 
+<a name="faq5_1"></a>
 <h4>
-    [5.1] I get an out of memory error, and my controls are non-functional,
+    [<a href="#faq5_1">5.1</a>] I get an out of memory error, and my controls are non-functional,
     when trying to create a table with more than 14 fields.
 </h4>
 <p>
@@ -3257,8 +3325,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     your table properties and add the other fields.
 </p>
 
+<a name="faq5_2"></a>
 <h4>
-    [5.2] With Xitami 2.5b4, phpMyAdmin won't process form fields.
+    [<a href="#faq5_2">5.2</a>] With Xitami 2.5b4, phpMyAdmin won't process form fields.
 </h4>
 <p>
     This is not a phpMyAdmin problem but a Xitami known bug: you'll face it
@@ -3266,8 +3335,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     Upgrade or downgrade your Xitami server.
 </p>
 
+<a name="faq5_3"></a>
 <h4>
-    [5.3] I have problems dumping tables with Konqueror (phpMyAdmin 2.2.2).
+    [<a href="#faq5_3">5.3</a>] I have problems dumping tables with Konqueror (phpMyAdmin 2.2.2).
 </h4>
 <p>
     With Konqueror 2.1.1: plain dumps, zip and GZip dumps work ok, except that
@@ -3281,8 +3351,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     Testing needs to be done for Konqueror 2.2.2.<br />
 </p>
 
+<a name="faq5_4"></a>
 <h4>
-    [5.4] I can't use the cookie authentication mode because Internet
+    [<a href="#faq5_4">5.4</a>] I can't use the cookie authentication mode because Internet
     Explorer never stores the cookies.
 </h4>
 <p>
@@ -3294,16 +3365,18 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     work!
 </p>
 
+<a name="faq5_5"></a>
 <h4>
-    [5.5] In Internet Explorer 5.0, I get JavaScript errors when browsing my
+    [<a href="#faq5_5">5.5</a>] In Internet Explorer 5.0, I get JavaScript errors when browsing my
     rows.
 </h4>
 <p>
     Upgrade to at least Internet Explorer 5.5 SP2.<br />
 </p>
 
+<a name="faq5_6"></a>
 <h4>
-    [5.6] In Internet Explorer 5.0, 5.5 or 6.0, I get an error (like "Page not found")
+    [<a href="#faq5_6">5.6</a>] In Internet Explorer 5.0, 5.5 or 6.0, I get an error (like "Page not found")
     when trying to modify a row in a table with many fields, or with a text field
 </h4>
 <p>
@@ -3314,8 +3387,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <br />
 </p>
 
+<a name="faq5_7"></a>
 <h4>
-    [5.7] I refresh (reload) my browser, and come back to the welcome
+    [<a href="#faq5_7">5.7</a>] I refresh (reload) my browser, and come back to the welcome
     page.
 </h4>
 <p>
@@ -3323,8 +3397,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     just do this in the right frame.<br />
 </p>
 
+<a name="faq5_8"></a>
 <h4>
-    [5.8] With Mozilla 0.9.7 I have problems sending a query modified in the
+    [<a href="#faq5_8">5.8</a>] With Mozilla 0.9.7 I have problems sending a query modified in the
     query box.
 </h4>
 <p>
@@ -3332,8 +3407,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     Mozilla versions.<br />
 </p>
 
+<a name="faq5_9"></a>
 <h4>
-    [5.9] With Mozilla 0.9.? to 1.0 and Netscape 7.0-PR1 I can't type a
+    [<a href="#faq5_9">5.9</a>] With Mozilla 0.9.? to 1.0 and Netscape 7.0-PR1 I can't type a
     whitespace in the SQL-Query edit area: the page scrolls down.
 </h4>
 <p>
@@ -3341,8 +3417,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <a href="http://bugzilla.mozilla.org/" target="_blank">BugZilla</a>).<br />
 </p>
 
+<a name="faq5_10"></a>
 <h4>
-    [5.10] With Netscape 4.75 I get empty rows between each row of data in a
+    [<a href="#faq5_10">5.10</a>] With Netscape 4.75 I get empty rows between each row of data in a
     CSV exported file.
 </h4>
 <p>
@@ -3351,8 +3428,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     version, we cannot workaround this bug.
 </p>
 
+<a name="faq5_11"></a>
 <h4>
-    [5.11] Extended-ASCII characters like German umlauts are displayed
+    [<a href="#faq5_11">5.11</a>] Extended-ASCII characters like German umlauts are displayed
     wrong.
 </h4>
 <p>
@@ -3362,8 +3440,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     recent versions of the most browsers.
 </p>
 
+<a name="faq5_12"></a>
 <h4>
-    [5.12] Apple OS X: Safari browser changes special characters to
+    [<a href="#faq5_12">5.12</a>] Apple OS X: Safari browser changes special characters to
     &quot;?&quot;.
 </h4>
 <p>
@@ -3371,8 +3450,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     Netscape and Mozilla do not have this problem.
 </p>
 
+<a name="faq5_13"></a>
 <h4>
-    [5.13] With Internet Explorer 5.5 or 6, and HTTP authentication type,
+    [<a href="#faq5_13">5.13</a>] With Internet Explorer 5.5 or 6, and HTTP authentication type,
     I cannot manage two servers: I login to the first one, then the other one,
     but if I switch back to the first, I have to login on each operation.
 </h4>
@@ -3380,8 +3460,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     This is a bug in Internet Explorer, other browsers do not behave this way.
 </p>
 
+<a name="faq5_14"></a>
 <h4>
-    [5.14] Using Opera6, I can manage to get to the authentication, but nothing
+    [<a href="#faq5_14">5.14</a>] Using Opera6, I can manage to get to the authentication, but nothing
     happens after that, only a blank screen.
 </h4>
 <p>
@@ -3389,14 +3470,18 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     is not able to interpret frameset definitiions written by JavaScript. Please upgrade
     to Opera7 at least.
 </p>
+
+<a name="faq5_15"></a>
 <h4>
-    [5.15] I have display problems with Safari.
+    [<a href="#faq5_15">5.15</a>] I have display problems with Safari.
 </h4>
 <p>
     Please upgrade to at least version 1.2.3.
 </p>
+
+<a name="faq5_16"></a>
 <h4>
-    [5.16] With Internet Explorer, I get &quot;Access is denied&quot;
+    [<a href="#faq5_16">5.16</a>] With Internet Explorer, I get &quot;Access is denied&quot;
     Javascript errors. Or I cannot make phpMyAdmin work under Windows.
 </h4>
 <p>
@@ -3417,8 +3502,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
             in the &quot;in&quot; and &quot;out&quot; directions.
         </li>
     </ul>
+
+<a name="faq5_17"></a>
 <h4>
-    [5.17] With Firefox, I cannot delete rows of data or drop a database.
+    [<a href="#faq5_17">5.17</a>] With Firefox, I cannot delete rows of data or drop a database.
 </h4>
 <p> Many users have confirmed that the Tabbrowser Extensions plugin they
     installed in their Firefox is causing the problem.
@@ -3427,8 +3514,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <a name="faqusing"></a><br />
 <h3>[6. Using phpMyAdmin]</h3>
 
+<a name="faq6_1"></a>
 <h4>
-    [6.1] I can't insert new rows into a table / I can't create a table
+    [<a href="#faq6_1">6.1</a>] I can't insert new rows into a table / I can't create a table
     - MySQL brings up a SQL-error.
 </h4>
 <p>
@@ -3445,8 +3533,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     syntax is correct.
 </p>
 
+<a name="faq6_2"></a>
 <h4>
-    [6.2] When I create a table, I click the Index checkbox for 2 fields and
+    [<a href="#faq6_2">6.2</a>] When I create a table, I click the Index checkbox for 2 fields and
     phpMyAdmin generates only one index with those 2 fields.
 </h4>
 <p>
@@ -3456,8 +3545,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     create the other index.
 </p>
 
+<a name="faq6_3"></a>
 <h4>
-    [6.3] How can I insert a null value into my table?
+    [<a href="#faq6_3">6.3</a>] How can I insert a null value into my table?
 </h4>
 <p>
     Since version 2.2.3, you have a checkbox for each field that can be null.
@@ -3467,8 +3557,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     a literal NULL in the field, and not a NULL value (this works in PHP4).
 </p>
 
+<a name="faq6_4"></a>
 <h4>
-    [6.4] How can I backup my database or table?
+    [<a href="#faq6_4">6.4</a>] How can I backup my database or table?
 </h4>
 <p>
     Click on a database or table name in the left frame, the properties will be
@@ -3485,8 +3576,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     this document.
 </p>
 
+<a name="faq6_5"></a>
 <h4>
-    [6.5] How can I restore (upload) my database or table using a dump?
+    [<a href="#faq6_5">6.5</a>] How can I restore (upload) my database or table using a dump?
     How can I run a &quot;.sql&quot; file.
 </h4>
 <p>
@@ -3497,9 +3589,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     For additional help on this subject, look for the word &quot;upload&quot;
     in this document.
 </p>
-<a name="faq6_6"></a><br />
+
+<a name="faq6_6"></a>
 <h4>
-    [6.6] How can I use the relation table in Query-by-example?
+    [<a href="#faq6_6">6.6</a>] How can I use the relation table in Query-by-example?
 </h4>
 <p>
     Here is an example with the tables persons, towns and countries, all
@@ -3566,9 +3659,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </ul>
 <br />
 
-<a name="faqdisplay"></a><br />
+<a name="faqdisplay"></a>
 <h4>
-    [6.7] How can I use the &quot;display field&quot; feature?
+    [<a href="#faqdisplay">6.7</a>] How can I use the &quot;display field&quot; feature?
 </h4>
 <p>
     Starting from the previous example, create the pma_table_info as explained
@@ -3579,9 +3672,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     enables: drop-down list of possible values.
 </p>
 
-<a name="faqpdf"></a><br />
+<a name="faqpdf"></a>
 <h4>
-    [6.8] How can I produce a PDF schema of my database?
+    [<a href="#faqpdf">6.8</a>] How can I produce a PDF schema of my database?
 </h4>
 <p>
     First the configuration variables &quot;relation&quot;,
@@ -3616,17 +3709,18 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         browsers on Windows, do not have this problem.</li>
 </ul>
 
+<a name="faq6_9"></a>
 <h4>
-    [6.9] phpMyAdmin is changing the type of one of my columns!
+    [<a href="#faq6_9">6.9</a>] phpMyAdmin is changing the type of one of my columns!
 </h4>
 <p>
     No, it's MySQL that is doing
     <a href="http://www.mysql.com/doc/S/i/Silent_column_changes.html">silent column type changing</a>.
 </p>
 
-<a name="underscore"></a><br />
+<a name="underscore"></a>
 <h4>
-    [6.10] When creating a privilege, what happens with underscores in
+    [<a href="#underscore">6.10</a>] When creating a privilege, what happens with underscores in
     the database name?
 </h4>
 <p>
@@ -3638,16 +3732,17 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     name will have a real underscore.
 </p>
 
+<a name="faq6_11"></a>
 <h4>
-    [6.11] What is the curious symbol &oslash; in the statistics pages?
+    [<a href="#faq6_11">6.11</a>] What is the curious symbol &oslash; in the statistics pages?
 </h4>
 <p>
     It means &quot;average&quot;.
 </p>
 
-<a name="faqexport"></a><br />
+<a name="faqexport"></a>
 <h4>
-    [6.12] I want to understand some Export options.
+    [<a href="#faqexport">6.12</a>] I want to understand some Export options.
 </h4>
     <p><b>Structure:</b></p>
     <ul>
@@ -3678,8 +3773,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         rather than causing the entire statement to fail.</li>
     </ul>
 
+<a name="faq6_13"></a>
 <h4>
-    [6.13] I would like to create a database with a dot in its name.
+    [<a href="#faq6_13">6.13</a>] I would like to create a database with a dot in its name.
 </h4>
 <p>
     This is a bad idea, because in MySQL the syntax &quot;database.table&quot;
@@ -3688,9 +3784,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     work with it, nor delete it.<br />
 </p>
 
-<a name="faqsqlvalidator"></a><br />
+<a name="faqsqlvalidator"></a>
 <h4>
-    [6.14] How do I set up the SQL Validator?
+    [<a href="#faqsqlvalidator">6.14</a>] How do I set up the SQL Validator?
 </h4>
 <p>
     To use it, you need a very recent version of PHP, 4.3.0 recommended, with
@@ -3710,8 +3806,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     We utilize it as free SOAP service.
 </p>
 
+<a name="faq6_15"></a>
 <h4>
-    [6.15] I want to add a BLOB field and put an index on it, but MySQL
+    [<a href="#faq6_15">6.15</a>] I want to add a BLOB field and put an index on it, but MySQL
     says &quot;BLOB column '...' used in key specification without a key
     length&quot;.
 </h4>
@@ -3724,8 +3821,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <br />
 </p>
 
+<a name="faq6_16"></a>
 <h4>
-    [6.16] How can I simply move in page with plenty editing fields?
+    [<a href="#faq6_16">6.16</a>] How can I simply move in page with plenty editing fields?
 </h4>
 <p>
     You can use Ctrl+arrows (Option+Arrows in Safari) for moving on most pages
@@ -3738,8 +3836,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <br />
 </p>
 
+<a name="faq6_17"></a>
 <h4>
-    [6.17] Transformations: I can't enter my own mimetype! WTF is this feature
+    [<a href="#faq6_17">6.17</a>] Transformations: I can't enter my own mimetype! WTF is this feature
     then useful for?
 </h4>
 <p>
@@ -3755,7 +3854,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <a name="faqbookmark"></a>
 <h4>
-    [6.18] Bookmarks: Where can I store bookmarks? Why can't I see any bookmarks below the query box?
+    [<a href="#faqbookmark">6.18</a>] Bookmarks: Where can I store bookmarks? Why can't I see any bookmarks below the query box?
      What is this variable for?
 </h4>
 <p>
@@ -3793,8 +3892,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     comments.<br />
 </p>
 
+<a name="faq6_19"></a>
 <h4>
-    [6.19] How can I create simple LaTeX document to include exported table?
+    [<a href="#faq6_19">6.19</a>] How can I create simple LaTeX document to include exported table?
 </h4>
 <p>
     You can simply include table in your LaTeX documents, minimal sample
@@ -3810,8 +3910,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 \end{document}          % end of document
 </pre>
 
+<a name="faq6_20"></a>
 <h4>
-    [6.20] In MySQL 4, I see a lot of databases which are not mine, and cannot
+    [<a href="#faq6_20">6.20</a>] In MySQL 4, I see a lot of databases which are not mine, and cannot
     access them.
 </h4>
 <p>
@@ -3825,9 +3926,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     So if your users do not need those privileges, you can remove them and their
     databases list will shorten.
 </p>
-<a name="faq6_21"></a><br />
+
+<a name="faq6_21"></a>
 <h4>
-    [6.21] In edit/insert mode, how can I see a list of possible values for
+    [<a href="#faq6_21">6.21</a>] In edit/insert mode, how can I see a list of possible values for
     a field, based on some foreign table?
 </h4>
 <p>
@@ -3844,17 +3946,20 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     key values and choose one.
 
 </p>
+
+<a name="faq6_22"></a>
 <h4>
-    [6.22] Bookmarks: Can I execute a default bookmark automatically
+    [<a href="#faq6_22">6.22</a>] Bookmarks: Can I execute a default bookmark automatically
     when entering Browse mode for a table?
 </h4>
 <p>
     Yes. If a bookmark has the same label as a table name, it will be
     executed.
 </p>
+
+<a name="faq6_23"></a>
 <h4>
-    <a name="faq6_23"></a>
-    [6.23] Export: I heard phpMyAdmin can export Microsoft Excel files, how
+    [<a href="#faq6_23">6.23</a>] Export: I heard phpMyAdmin can export Microsoft Excel files, how
     can I enable that?
 </h4>
 <p>
@@ -3893,8 +3998,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     mkdir tmp
     chmod o+rwx tmp
 </pre>
+
+<a name="faq6_24"></a>
 <h4>
-    [6.24] Now that phpMyAdmin supports native MySQL 4.1.x column comments,
+    [<a href="#faq6_24">6.24</a>] Now that phpMyAdmin supports native MySQL 4.1.x column comments,
     what happens to my column comments stored in pmadb?
 </h4>
 <p> Automatic migration of a table's pmadb-style column comments to the native
@@ -3903,8 +4010,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <a name="faqproject"></a><br />
 <h3>[7. phpMyAdmin project]</h3>
 
+<a name="faq7_1"></a>
 <h4>
-    [7.1] I have found a bug. How do I inform developers?
+    [<a href="#faq7_1">7.1</a>] I have found a bug. How do I inform developers?
 </h4>
 <p>
     Our Bug Tracker is located at
@@ -3917,8 +4025,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         http://sourceforge.net/projects/phpmyadmin/</a> (and choose Forums)
 </p>
 
+<a name="faq7_2"></a>
 <h4>
-    [7.2] I want to translate the messages to a new language or upgrade an
+    [<a href="#faq7_2">7.2</a>] I want to translate the messages to a new language or upgrade an
     existing language, where do I start?
 </h4>
 <p>
@@ -3941,8 +4050,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <br />
 </p>
 
+<a name="faq7_3"></a>
 <h4>
-    [7.3] I would like to help out with the development of phpMyAdmin. How
+    [<a href="#faq7_3">7.3</a>] I would like to help out with the development of phpMyAdmin. How
     should I proceed?
 </h4>
 <p>
@@ -3974,8 +4084,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <a name="faqsecurity"></a><br />
 <h3>[8. Security ]</h3>
 
+<a name="faq8_1"></a>
 <h4>
-    [8.1] Security alert, dated 2003-06-18.
+    [<a href="#faq8_1">8.1</a>] Security alert, dated 2003-06-18.
 </h4>
 <p>
     Last update of this FAQ: 2003-07-22.
@@ -4028,8 +4139,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <br /><br />
     </li>
 </ul>
+
+<a name="faq8_2"></a>
 <h4>
-    [8.2] Security alert, dated 2004-06-29.
+    [<a href="#faq8_2">8.2</a>] Security alert, dated 2004-06-29.
 </h4>
 <p>
     Last update of this FAQ: 2004-06-30.
@@ -4063,8 +4176,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <br />
     Version 2.5.7-pl1 was released with a fix for this vulnerability.
 </p>
+
+<a name="faq8_3"></a>
 <h4>
-    [8.3] About new security alerts
+    [<a href="#faq8_3">8.3</a>] About new security alerts
 </h4>
 <p>
     Please refer to
