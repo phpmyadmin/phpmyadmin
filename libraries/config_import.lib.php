@@ -423,7 +423,7 @@ if (!isset($cfg['NavigationBarIconic'])) {
         $cfg['NavigationBarIconic'] = $cfgNavigationBarIconic;
         unset($cfgNavigationBarIconic);
     } else {
-        $cfg['NavigationBarIconic'] = TRUE;
+        $cfg['NavigationBarIconic'] = 'both';
     }
 }
 

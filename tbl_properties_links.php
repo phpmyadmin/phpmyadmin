@@ -105,20 +105,6 @@ if (!$cfg['LightTabs']) {
 }
 
 /**
- * Displays table comment
- */
-if (!empty($show_comment) && !isset($avoid_show_comment)) {
-    ?>
-<!-- Table comment -->
-<p><i>
-    <?php echo htmlspecialchars($show_comment) . "\n"; ?>
-</i></p>
-    <?php
-} // end if
-
-echo "\n\n";
-
-/**
  * Displays a message
  */
 if (!empty($message)) {

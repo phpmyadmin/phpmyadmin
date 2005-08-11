@@ -245,37 +245,30 @@ div.tblWarn {
 
 /* Heading */
 
-.serverinfo {
-    font-family: <?php echo $right_font_family; ?>;
-    font-size: <?php echo $font_size; ?>;
-    font-weight: normal;
-    white-space: nowrap;
-    vertical-align: middle;
-    padding: 0px 0px 10px 0px;
-}
-
 img, input, select, button {
     vertical-align: middle;
 }
 
-<?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-.serverinfo a:link, .serverinfo a:active, .serverinfo a:visited {
-    font-family: <?php echo $right_font_family; ?>;
-    font-size: <?php echo $font_size; ?>;
-    font-weight: bolder;
-}
-.serverinfo a img{
-    vertical-align: middle;
-    margin: 0px 1px 0px 2px;
-}
-.serverinfo div{
-    background-image:    url(../themes/original/img/item_ltr.png);
-    background-repeat:   no-repeat;
-    background-position: 50% 50%;
-    width: 20px;
-    height: 16px;
+#serverinfo {
+    font-weight: bold;
+    margin-bottom: 0.5em;
 }
 
+#serverinfo .item {
+    white-space: nowrap;
+}
+
+#span_table_comment {
+    font-weight: normal;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+#serverinfo img {
+    margin: 0 0.1em 0 0.2em;
+}
+
+<?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
 /* disabled text */
 .disabled, .disabled a:link, disabled a:active, .disabled a:visited {
     font-family: <?php echo $right_font_family; ?>;

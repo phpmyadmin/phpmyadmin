@@ -8,6 +8,11 @@ $Source$
 2005-08-11 Marc Delisle  <lem9@users.sourceforge.net>
     * queryframe.php: shorten the path of db subtree items,
       thanks to Edward Rudd - urkle
+    * config.inc.php, header.inc.php, tbl_properties_links.php,
+      themes/*/css/theme_right.css.php, tbl_properties_table_info.php,
+      Documentation.html, libraries/config_import.lib.php: patch #1249528,
+      move table comments to header and enable configuration of header for
+      TRUE/FALSE/'both', thanks to Sebastian Mendel - cybot_tm
 	  
 2005-08-09 Marc Delisle  <lem9@users.sourceforge.net>
     * read_dump.php: add unique numbers to $strFileCouldNotBeRead to

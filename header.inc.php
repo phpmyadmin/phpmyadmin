@@ -159,54 +159,68 @@ if (empty($GLOBALS['is_header_sent'])) {
      */
 
     if (PMA_DISPLAY_HEADING) {
-        echo '<table border="0" cellpadding="0" cellspacing="0" id="serverinfo">' . "\n"
-           . '    <tr>' . "\n";
-        $header_url_qry = '?' . PMA_generate_common_url();
-        $server_info = (!empty($cfg['Server']['verbose'])
-                        ? $cfg['Server']['verbose']
-                        : $server_info = $cfg['Server']['host'] . (empty($cfg['Server']['port'])
-                                                                   ? ''
-                                                                   : ':' . $cfg['Server']['port']
-                                                                  )
+        $server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
+                        ? $GLOBALS['cfg']['Server']['verbose']
+                        : $GLOBALS['cfg']['Server']['host'] . (empty($GLOBALS['cfg']['Server']['port'])
+                                                               ? ''
+                                                               : ':' . $GLOBALS['cfg']['Server']['port']
+                                                              )
                        );
-        echo '        '
-           . '<td class="serverinfo">' . $GLOBALS['strServer'] . ':&nbsp;'
-           . '<a href="' . $GLOBALS['cfg']['DefaultTabServer'] . '?' . PMA_generate_common_url() . '">';
-        if ($GLOBALS['cfg']['MainPageIconic']) {
-            echo '<img src="' . $GLOBALS['pmaThemeImage'] . 's_host.png" width="16" height="16" border="0" alt="' . htmlspecialchars($server_info) . '" />';
+        $item = '<a href="%1$s?%2$s" class="item">';
+        if ( $GLOBALS['cfg']['NavigationBarIconic'] ) {
+            $separator = '        <span class="separator"><img src="' . $GLOBALS['pmaThemeImage'] . 'item_ltr.png" width="5" height="9" alt="-" /></span>' . "\n";
+            $item .= '        <img src="' . $GLOBALS['pmaThemeImage'] . '%5$s" width="16" height="16" alt="" border="0" /> ' . "\n";
+        } else {
+            $separator = '        <span class="separator"> - </span>' . "\n";
         }
-        echo htmlspecialchars($server_info) . '</a>' . "\n"
-           . '</td>' . "\n\n";
 
+        if ( $GLOBALS['cfg']['NavigationBarIconic'] !== true ) {
+            $item .= '%4$s: ';
+        }
+        $item .= '%3$s</a>' . "\n";
+        
+        echo '<div id="serverinfo">' . "\n";
+        printf( $item,
+                $GLOBALS['cfg']['DefaultTabServer'],
+                PMA_generate_common_url(),
+                htmlspecialchars($server_info),
+                $GLOBALS['strServer'],
+                's_host.png' );
+        
         if (!empty($GLOBALS['db'])) {
-            echo '        '
-               . '<td class="serverinfo"><div></div></td>' . "\n" . '            '
-               . '<td class="serverinfo">' . $GLOBALS['strDatabase'] . ':&nbsp;'
-               . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($GLOBALS['db']) . '">';
-            if ($GLOBALS['cfg']['MainPageIconic']) {
-                echo '<img src="' . $GLOBALS['pmaThemeImage'] . 's_db.png" width="16" height="16" border="0" alt="' . htmlspecialchars($GLOBALS['db']) . '" />';
-            }
-            echo htmlspecialchars($GLOBALS['db']) . '</a>' . "\n"
-               . '</td>' . "\n\n";
-
+            
+            echo $separator;
+            printf( $item,
+                    $GLOBALS['cfg']['DefaultTabDatabase'],
+                    PMA_generate_common_url($GLOBALS['db']),
+                    htmlspecialchars($GLOBALS['db']),
+                    $GLOBALS['strDatabase'],
+                    's_db.png' );
+            
             if (!empty($GLOBALS['table'])) {
-                if (PMA_MYSQL_INT_VERSION >= 50000) {
-                    require_once('./tbl_properties_table_info.php');
-                } else {
-                    $tbl_is_view = FALSE;
-                }
-                echo '        '
-                   . '<td class="serverinfo"><div></div></td>' . "\n" . '            '
-                   . '<td class="serverinfo">' . (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? $GLOBALS['strView'] : $GLOBALS['strTable']) . ':&nbsp;'
-                   . '<a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']) . '">';
-                if ($GLOBALS['cfg']['MainPageIconic']) {
-                    echo '<img src="' . $GLOBALS['pmaThemeImage'] . (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png" width="16" height="16" border="0" alt="' . htmlspecialchars($GLOBALS['table']) . '" />';
-                }
-                echo htmlspecialchars($GLOBALS['table']) . '</a>' . "\n"
-                   . '</td>' . "\n\n";
+                require_once('./tbl_properties_table_info.php');
+
+                echo $separator;
+                printf( $item,
+                        $GLOBALS['cfg']['DefaultTabTable'],
+                        PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']),
+                        htmlspecialchars($GLOBALS['table']),
+                        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? $GLOBALS['strView'] : $GLOBALS['strTable']),
+                        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png' );
+                                
+                /**
+                 * Displays table comment
+                 * @uses $show_comment from tbl_properties_table_info.php
+                 * @uses $GLOBALS['avoid_show_comment'] from tbl_relation.php
+                 */
+                if (!empty($show_comment) && !isset($GLOBALS['avoid_show_comment'])) {
+                    echo '<!-- Table comment -->' . "\n"
+                       . '<span class="table_comment" id="span_table_comment">&quot;' .  htmlspecialchars($show_comment) . '&quot</span>' . "\n";
+                } // end if
             }
         }
-        echo '    </tr>' . "\n" . '</table>';
+        echo '</div>';
+        
     }
     /**
      * Sets a variable to remember headers have been sent

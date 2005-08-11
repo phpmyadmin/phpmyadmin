@@ -387,34 +387,25 @@ div.warnhead {
 
 /* Heading for server links*/
 
-.serverinfo {
-    font-family:    Verdana, Arial, Helvetica, sans-serif;
-    font-size:      12px;
-    font-weight:    normal;
-    padding: 0px 0px 10px 0px;
-    margin: 0px;
-    white-space:    nowrap;
-    vertical-align: middle;
-}
-<?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-.serverinfo a:link, .serverinfo a:active, .serverinfo a:visited {
-    font-family:    Verdana, Arial, Helvetica, sans-serif;
-    font-size:      12px;
-    font-weight:    bolder;
-}
-.serverinfo a img{
-    vertical-align: middle;
-    margin: 0px 1px 0px 1px;
+#serverinfo {
+    font-weight: bold;
+    margin-bottom: 0.5em;
 }
 
-.serverinfo div{
-    background-image:    url(../themes/darkblue_orange/img/item_ltr.png);
-    background-repeat:   no-repeat;
-    background-position: 50% 50%;
-    width: 20px;
-    height: 16px;
+#serverinfo .item {
+    white-space: nowrap;
 }
-<?php } ?>
+
+#span_table_comment {
+    font-weight: normal;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+#serverinfo img {
+    margin: 0 0.1em 0 0.1em;
+}
+
 hr{
     color: #666699; background-color: #6666cc; border: 0; height: 1px;
 }

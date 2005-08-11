@@ -256,7 +256,8 @@ $cfg['SuggestDBName']         = TRUE;   // suggest a new DB name if possible (fa
 
 // In browse mode...
 $cfg['ShowBlob']              = FALSE;  // display blob field contents
-$cfg['NavigationBarIconic']   = TRUE;   // do not display text inside navigation bar buttons
+$cfg['NavigationBarIconic']   = 'both'; // Use icons instead of text for the navigation bar buttons
+                                        // and on right panel top menu (server db table) (TRUE|FALSE|'both')
 $cfg['ShowAll']               = FALSE;  // allows to display all the rows
 $cfg['MaxRows']               = 30;     // maximum number of rows to display
 $cfg['Order']                 = 'ASC';  // default for 'ORDER BY' clause (valid
@@ -566,7 +567,7 @@ $cfg['SetHttpHostTitle']    = '';              // if ShowHttpHostTitle=true, ple
                                              // If not set (or empty), the PMA will get your real Host-Adress.
 
 $cfg['ErrorIconic']          = TRUE;    // show some icons for warning, error and information messages (true|false)?
-$cfg['MainPageIconic']       = TRUE;    // show icons in list on main page, on right panel top menu (server db table)  and on menu tabs (true|false)?
+$cfg['MainPageIconic']       = TRUE;    // show icons in list on main page and on menu tabs (true|false)?
 $cfg['ReplaceHelpImg']       = TRUE;    // show help button instead of strDocumentation (true|false)?
 
 // theme manager
