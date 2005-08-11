@@ -68,7 +68,7 @@ echo $strHiddenFields;
 <tr><td class="tblHeaders" colspan="2">
     <?php
            // if you want navigation:
-           $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . $header_url_qry . '&amp;db=' . urlencode($db) . '">'
+           $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url() . '&amp;db=' . urlencode($db) . '">'
                       . htmlspecialchars($db) . '</a>';
            // else use
            // $strDBLink = htmlspecialchars($db);
