@@ -378,18 +378,18 @@ if ($num_dbs > 1) {
                     $parent = $parts[0];
                 }
                 if (count($parts) > 1 && $parent == $parts[0]) {
-                    $db_disp = $parts[1];
+                    $db_disp = $cfg['LeftFrameDBSeparator'] . $parts[1];
                 }
             }
             
             if (!empty($num_tables)) {
                 echo '            '
                    . '<option value="' . htmlspecialchars($db) . '"' . $selected . '>'
-                   . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($cfg['LeftFrameDBSeparator'] . $db_disp)) . ' (' . $num_tables . ')</option>' . "\n";
+                   . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db_disp)) . ' (' . $num_tables . ')</option>' . "\n";
             } else {
                 echo '            '
                    . '<option value="' . htmlspecialchars($db) . '"' . $selected . '>'
-                   . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($cfg['LeftFrameDBSeparator'] . $db_disp)) . ' (-)</option>' . "\n";
+                   . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db_disp)) . ' (-)</option>' . "\n";
             } // end if... else...
 
             if ($cfg['LeftFrameDBTree']) {
