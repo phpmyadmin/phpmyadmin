@@ -214,6 +214,9 @@ if (empty($GLOBALS['is_header_sent'])) {
                  * @uses $GLOBALS['avoid_show_comment'] from tbl_relation.php
                  */
                 if (!empty($show_comment) && !isset($GLOBALS['avoid_show_comment'])) {
+                    if (strstr($show_comment, '; InnoDB free')) {
+                        $show_comment = preg_replace('@; InnoDB free:.*?$@' , '', $show_comment);
+                    }
                     echo '<!-- Table comment -->' . "\n"
                        . '<span class="table_comment" id="span_table_comment">&quot;' .  htmlspecialchars($show_comment) . '&quot</span>' . "\n";
                 } // end if
