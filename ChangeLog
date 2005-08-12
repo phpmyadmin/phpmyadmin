@@ -7,6 +7,7 @@ $Source$
 
 2005-08-12 Marc Delisle  <lem9@users.sourceforge.net>
     * header.inc.php: remove the 'InnoDB free' segment from table comments
+    * footer.inc.php: bug #1257106, display problem in the left frame (IE)
 
 2005-08-11 Marc Delisle  <lem9@users.sourceforge.net>
     * queryframe.php: shorten the path of db subtree items,

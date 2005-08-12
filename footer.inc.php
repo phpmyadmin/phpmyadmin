@@ -24,10 +24,12 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
         $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
         $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
         $common_url_query    = PMA_generate_common_url($db);
+        // if we put a space before the left bracket, it causes a display
+        // problem in IE
         if ($num_tables) {
-            $num_tables_disp = ' (' . $num_tables . ')';
+            $num_tables_disp = '(' . $num_tables . ')';
         } else {
-            $num_tables_disp = ' (-)';
+            $num_tables_disp = '(-)';
         }
     ?>
     var forceQueryFrameReload = false;
