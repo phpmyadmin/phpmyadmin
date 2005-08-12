@@ -14,6 +14,8 @@ $Source$
       move table comments to header and enable configuration of header for
       TRUE/FALSE/'both', thanks to Sebastian Mendel - cybot_tm
     * db_details.php: undefined $header_url_qry
+    * sql.php: bug #1255869, "MySQL returned an empty result set" not
+      displayed in all cases
 	  
 2005-08-09 Marc Delisle  <lem9@users.sourceforge.net>
     * read_dump.php: add unique numbers to $strFileCouldNotBeRead to

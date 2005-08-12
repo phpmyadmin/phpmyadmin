@@ -610,7 +610,6 @@ else {
         } // end if column PMA_* purge
     } // end else "didn't ask to see php code"
 
-
     // No rows returned -> move back to the calling page
     if ($num_rows < 1 || $is_affected) {
         if ($is_delete) {
@@ -624,7 +623,16 @@ else {
             }
         } else if ($is_affected) {
             $message = $strAffectedRows . '&nbsp;' . $num_rows;
-        } else if (!empty($zero_rows)) {
+
+            // Ok, here is an explanation for the !$is_select.
+            // The form generated
+            // by tbl_query_box.php and db_details.php has many submit buttons
+            // on the same form, and some confusion arises from the
+            // fact that $zero_rows is sent for every case. 
+            // The $zero_rows containing $strSuccess and sent with
+            // the form should not have priority over 
+            // errors like $strEmptyResultSet
+        } else if (!empty($zero_rows) && !$is_select) {
             $message = $zero_rows;
         } else if (!empty($GLOBALS['show_as_php'])) {
             $message = $strPhp;
