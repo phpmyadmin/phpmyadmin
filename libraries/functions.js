@@ -45,7 +45,11 @@ function confirmLink(theLink, theSqlQuery)
 
     var is_confirmed = confirm(confirmMsg + ' :\n' + theSqlQuery);
     if (is_confirmed) {
-        theLink.href += '&is_js_confirmed=1';
+    	if ( typeof(theLink.href) != 'undefined' ) {
+            theLink.href += '&is_js_confirmed=1';
+        } else if ( typeof(theLink.form) != 'undefined' ) {
+            theLink.form.action += '?is_js_confirmed=1';
+        }
     }
 
     return is_confirmed;

@@ -1799,13 +1799,14 @@ if (typeof(document.getElementById) != 'undefined'
 
                 $onclick = '';
                 if ($cfg['QueryFrameJS'] && $cfg['QueryFrame']) {
-                    $onclick = 'onclick="focus_querywindow(\'' . urlencode($local_query) . '\'); return false;"';
+                    $onclick = 'focus_querywindow(\'' . urlencode($local_query) . '\'); return false;';
                 }
 
-                $edit_link = '&nbsp;[<a href="'
-                           . $edit_target
+                $edit_link = $edit_target
                            . $url_qpart
-                           . '&amp;sql_query=' . urlencode($local_query) . '&amp;show_query=1#querybox" ' . $onclick . '>' . $GLOBALS['strEdit'] . '</a>]';
+                           . '&amp;sql_query=' . urlencode($local_query)
+                           . '&amp;show_query=1#querybox"';
+                $edit_link = ' [' . PMA_linkOrButton( $edit_link, $GLOBALS['strEdit'], array( 'onclick' => $onclick ) ) . ']';
             } else {
                 $edit_link = '';
             }
@@ -1824,20 +1825,22 @@ if (typeof(document.getElementById) != 'undefined'
                     $explain_link_validate = '';
                 }
 
-                $explain_link = '&nbsp;[<a href="read_dump.php'
+                $explain_link = 'read_dump.php'
                               . $url_qpart
                               . $explain_link_validate
                               . '&amp;sql_query=';
 
                 if (preg_match('@^SELECT[[:space:]]+@i', $local_query)) {
-                    $explain_link .= urlencode('EXPLAIN ' . $local_query) . '">' . $GLOBALS['strExplain'];
+                    $explain_link .= urlencode('EXPLAIN ' . $local_query);
+                    $message = $GLOBALS['strExplain'];
                 } else if (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $local_query)) {
-                    $explain_link .= urlencode(substr($local_query, 8)) . '">' . $GLOBALS['strNoExplain'];
+                    $explain_link .= urlencode(substr($local_query, 8));
+                    $message = $GLOBALS['strNoExplain'];
                 } else {
                     $explain_link = '';
                 }
                 if (!empty($explain_link)) {
-                    $explain_link .= '</a>]';
+                    $explain_link = ' [' . PMA_linkOrButton( $explain_link, $message ) . ']';
                 }
             } else {
                 $explain_link = '';
@@ -1847,25 +1850,28 @@ if (typeof(document.getElementById) != 'undefined'
             // php-code (Mike Beck 2002-05-22)
             if (isset($cfg['SQLQuery']['ShowAsPHP'])
                 && $cfg['SQLQuery']['ShowAsPHP'] == TRUE) {
-                $php_link = '&nbsp;[<a href="read_dump.php'
+                $php_link = 'read_dump.php'
                           . $url_qpart
                           . '&amp;show_query=1'
                           . '&amp;sql_query=' . urlencode($local_query)
                           . '&amp;show_as_php=';
 
                 if (!empty($GLOBALS['show_as_php'])) {
-                    $php_link .= '0">' . $GLOBALS['strNoPhp'];
+                    $php_link .= '0';
+                    $message = $GLOBALS['strNoPhp'];
                 } else {
-                    $php_link .= '1">' . $GLOBALS['strPhp'];
+                    $php_link .= '1';
+                    $message = $GLOBALS['strPhp'];
                 }
-                $php_link .= '</a>]';
+                $php_link = ' [' . PMA_linkOrButton( $php_link, $message ) . ']';
 
                 if (isset($GLOBALS['show_as_php']) && $GLOBALS['show_as_php'] == '1') {
-                    $php_link .= '&nbsp;[<a href="read_dump.php'
-                              . $url_qpart
-                              . '&amp;show_query=1'
-                              . '&amp;sql_query=' . urlencode($local_query)
-                              . '">' . $GLOBALS['strRunQuery'] . '</a>]';
+                    $runquery_link
+                         = 'read_dump.php'
+                         . $url_qpart
+                         . '&amp;show_query=1'
+                         . '&amp;sql_query=' . urlencode($local_query);
+                    $php_link .= ' [' . PMA_linkOrButton( $runquery_link, $GLOBALS['strRunQuery'] ) . ']';
                 }
 
             } else {
@@ -1877,13 +1883,11 @@ if (typeof(document.getElementById) != 'undefined'
                 && $cfg['SQLQuery']['Refresh']
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $local_query)) {
 
-                $refresh_link = '&nbsp;[<a href="read_dump.php'
+                $refresh_link = 'read_dump.php'
                           . $url_qpart
                           . '&amp;show_query=1'
-                          . '&amp;sql_query=' . urlencode($local_query)
-                          . '">';
-                $refresh_link .= $GLOBALS['strRefresh'];
-                $refresh_link .= '</a>]';
+                          . '&amp;sql_query=' . urlencode($local_query);
+                $refresh_link = ' [' . PMA_linkOrButton( $refresh_link, $GLOBALS['strRefresh'] ) . ']';
             } else {
                 $refresh_link = '';
             } //show as php
@@ -1892,17 +1896,19 @@ if (typeof(document.getElementById) != 'undefined'
                 && $cfg['SQLValidator']['use'] == TRUE
                 && isset($cfg['SQLQuery']['Validate'])
                 && $cfg['SQLQuery']['Validate'] == TRUE) {
-                $validate_link = '&nbsp;[<a href="read_dump.php'
+                $validate_link = 'read_dump.php'
                                . $url_qpart
                                . '&amp;show_query=1'
                                . '&amp;sql_query=' . urlencode($local_query)
                                . '&amp;validatequery=';
                 if (!empty($GLOBALS['validatequery'])) {
-                    $validate_link .= '0">' .  $GLOBALS['strNoValidateSQL'] ;
+                    $validate_link .= '0';
+                    $message = $GLOBALS['strNoValidateSQL'] ;
                 } else {
-                    $validate_link .= '1">'. $GLOBALS['strValidateSQL'] ;
+                    $validate_link .= '1';
+                    $message = $GLOBALS['strValidateSQL'] ;
                 }
-                $validate_link .= '</a>]';
+                $validate_link = ' [' . PMA_linkOrButton( $validate_link, $GLOBALS['strRefresh'] ) . ']';
             } else {
                 $validate_link = '';
             } //validator
@@ -2144,52 +2150,96 @@ if (typeof(document.getElementById) != 'undefined'
      *
      * @param  string  the URL
      * @param  string  the link message
-     * @param  string  js confirmation
-     * @param  boolean we set this to FALSE when we are already in a form,
-     *                 to avoid generating nested forms
+     * @param  mixed   $tag_params  string: js confirmation
+     *                              array: additional tag params (f.e. style="")
+     * @param  boolean $new_form    we set this to FALSE when we are already in
+     *                              a  form, to avoid generating nested forms
      *
      * @return string  the results to be echoed or saved in an array
      */
-    function PMA_linkOrButton($url, $message, $js_conf, $allow_button = TRUE, $strip_img = FALSE, $target = '')
+    function PMA_linkOrButton($url, $message, $tag_params = array(), $new_form = TRUE, $strip_img = FALSE, $target = '')
     {
-        if (!empty($target)) {
-            $target = ' target="' . $target . '"';
+        if ( ! is_array( $tag_params ) )
+        {
+            $tmp = $tag_params;
+            $tag_params = array();
+            if ( ! empty( $tmp ) )
+            {
+                $tag_params['onclick'] = 'return confirmLink(this, \'' . $tmp . '\')';
+            }
+            unset( $tmp );
         }
+        if ( ! empty( $target ) ) {
+            $tag_params['target'] = htmlentities( $target );
+        }
+        
+        $tag_params_strings = array();
+        foreach( $tag_params as $par_name => $par_value ) {
+            // htmlentities() only on non javascript
+            $par_value = substr( $par_name,0 ,2 ) == 'on' ? $par_value : htmlentities( $par_value );
+            $tag_params_strings[] = $par_name . '="' . $par_value . '"';
+        }
+        
         // previously the limit was set to 2047, it seems 1000 is better
         if (strlen($url) <= 1000) {
-            $onclick_url        = (empty($js_conf) ? '' : ' onclick="return confirmLink(this, \'' . $js_conf . '\')"');
-            $link_or_button     = '        <a href="' . $url . '"' . $onclick_url . $target . '>' . "\n"
-                                . '           ' . $message . '</a>' . "\n";
+            $ret            = '<a href="' . $url . '" ' . implode( ' ', $tag_params_strings ) . '>' . "\n"
+                            . '    ' . $message . '</a>' . "\n";
         }
-        elseif ($allow_button) {
-            $edit_url_parts     = parse_url($url);
-            $query_parts        = explode('&', $edit_url_parts['query']);
-            $link_or_button     = '        <form action="'
-                                . $edit_url_parts['path']
-                                . '" method="post"' . $target . '>' . "\n";
+        else {
+            // no spaces (linebreaks) at all
+            // or after the hidden fields
+            // IE will display them all
+            
+            // add class=link to submit button
+            if ( empty( $tag_params['class'] ) ) {
+                $tag_params['class'] = 'link';
+            }
+            $url         = str_replace('&amp;', '&', $url);
+            $url_parts   = parse_url($url);
+            $query_parts = explode('&', $url_parts['query']);
+            if ($new_form) {
+                $ret = '<form action="' . $url_parts['path'] . '" class="link"'
+                     . ' method="post"' . $target . ' style="display: inline;">';
+                $subname_open   = '';
+                $subname_close  = '';
+                $submit_name    = '';
+            } else {
+                $query_parts[] = 'redirect=' . $url_parts['path'];
+                if ( empty( $GLOBALS['subform_counter'] ) ) {
+                    $GLOBALS['subform_counter'] = 0;
+                }
+                $GLOBALS['subform_counter']++;
+                $ret            = '';
+                $subname_open   = 'subform[' . $GLOBALS['subform_counter'] . '][';
+                $subname_close  = ']';
+                $submit_name    = ' name="usesubform[' . $GLOBALS['subform_counter'] . ']"';
+            }
             foreach ($query_parts AS $query_pair) {
                 list($eachvar, $eachval) = explode('=', $query_pair);
-                $link_or_button .= '            <input type="hidden" name="' . str_replace('amp;', '', $eachvar) . '" value="' . htmlspecialchars(urldecode($eachval)) . '" />' . "\n";
+                $ret .= '<input type="hidden" name="' . $subname_open . $eachvar . $subname_close . '" value="' . htmlspecialchars(urldecode($eachval)) . '" />';
             } // end while
 
             if (stristr($message, '<img')) {
                 if ($strip_img) {
-                    $link_or_button     .= '            <input type="submit" value="'
-                                        . preg_replace('@<img[^>]*>@', '', $message) . '" />';
+                    $message = trim( strip_tags( $message ) );
+                    $ret .= '<input type="submit"' . $submit_name . ' ' . implode( ' ', $tag_params_strings )
+                          . ' value="' . htmlspecialchars($message) . '" />';
                 } else {
-                    $link_or_button     .= '            <input type="image" src="' . preg_replace('@^.*src="(.*)".*$@si', '\1', $message) . '" value="'
-                                        . htmlspecialchars(preg_replace('@^.*alt="(.*)".*$@si', '\1', $message)) . '" />';
+                    $ret .= '<input type="image"' . $submit_name . ' ' . implode( ' ', $tag_params_strings )
+                          . ' src="' . preg_replace('°^.*\ssrc="([^"]*)".*$°si', '\1', $message) . '"'
+                          . ' value="' . htmlspecialchars(preg_replace('°^.*\salt="([^"]*)".*$°si', '\1', $message)) . '" />';
                 }
             } else {
-                $link_or_button     .= '            <input type="submit" value="'
-                                    . htmlspecialchars($message) . '" />';
+                $message = trim( strip_tags( $message ) );
+                $ret .= '<input type="submit"' . $submit_name . ' ' . implode( ' ', $tag_params_strings )
+                      . ' value="' . htmlspecialchars($message) . '" />';
             }
-            $link_or_button         .= "\n" . '</form>' . "\n";
-        } else {
-            $link_or_button = ' <dfn title="' . $GLOBALS['strNeedPrimaryKey'] . '">?</dfn> ';
+            if ($new_form) {
+                $ret .= '</form>';
+            }
         } // end if... else...
 
-            return $link_or_button;
+            return $ret;
     } // end of the 'PMA_linkOrButton()' function
 
 

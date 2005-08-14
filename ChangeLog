@@ -8,6 +8,9 @@ $Source$
 2005-08-14 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: $goto was not encoded in the form, resulting in a
       problem after editing/saving a row (seen in IE6)
+    * libraries/common.lib.php, /display_tbl.lib.php, /functions.js, /grab_globals.lib.php:
+      patch #1257955 for bug #1248577 (incorrect message "you should define a primary key")
+      and bug #1253125 (request URI too large), thanks to Sebastian Mendel
 
 2005-08-12 Marc Delisle  <lem9@users.sourceforge.net>
     * header.inc.php: remove the 'InnoDB free' segment from table comments

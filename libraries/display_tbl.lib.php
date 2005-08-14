@@ -181,22 +181,24 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
  * @param   integer  the offset for the "previous" page
  * @param   string   the url-encoded query
  *
- * @global  string   the current language
- * @global  string   the currect charset for MySQL
- * @global  integer  the server to use (refers to the number in the
- *                   configuration file)
- * @global  string   the database name
- * @global  string   the table name
- * @global  string   the url to go back in case of errors
- * @global  integer  the total number of rows returned by the sql query
- * @global  integer  the total number of rows returned by the sql query
- *                   without any programmatically appended "LIMIT" clause
- * @global  integer  the current position in results
- * @global  mixed    the maximum number of rows per page ('all' = no limit)
- * @global  string   the display mode (horizontal/vertical/horizontalflipped)
- * @global  integer  the number of row to display between two table headers
- * @global  boolean  whether to limit the number of displayed characters of
- *                   text type fields or not
+ * @global  string   $db             the database name
+ * @global  string   $table          the table name
+ * @global  string   $goto           the url to go back in case of errors
+ * @global  boolean  $dontlimitchars whether to limit the number of displayed
+ *                                   characters  of text type fields or not
+ * @global  integer  $num_rows       the total number of rows returned by the
+ *                                   sql query
+ * @global  integer  $unlim_num_rows the total number of rows returned by the
+ *                                   sql any programmatically appended "LIMIT" clause
+ * @global  integer  $pos            the current position in results
+ * @global  mixed    $session_max_rows the maximum number of rows per page
+ *                                   ('all'  = no limit)
+ * @global  string   $disp_direction the display mode
+ *                                   (horizontal / vertical / horizontalflipped)
+ * @global  integer  $repeat_cells   the number of row to display between two
+ *                                   table headers
+ * @global  boolean  $is_innodb      whether its InnoDB or not
+ * @global  array    $showtable      table definitions
  *
  * @access  private
  *
@@ -204,11 +206,9 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
  */
 function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
 {
-    global $lang, $convcharset, $server, $db, $table;
-    global $goto;
+    global $db, $table, $goto, $dontlimitchars;
     global $num_rows, $unlim_num_rows, $pos, $session_max_rows;
     global $disp_direction, $repeat_cells;
-    global $dontlimitchars;
     global $is_innodb;
     global $showtable;
 
@@ -428,22 +428,22 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
  *
  * @return  boolean  always true
  *
- * @global  string   the current language
- * @global  string   the current charset for MySQL
- * @global  integer  the server to use (refers to the number in the
- *                   configuration file)
- * @global  string   the database name
- * @global  string   the table name
- * @global  string   the sql query
- * @global  string   the url to go back in case of errors
- * @global  integer  the total number of rows returned by the sql query
- * @global  integer  the current position in results
- * @global  integer  the maximum number of rows per page
- * @global  array    informations used with vertical display mode
- * @global  string   the display mode (horizontal/vertical/horizontalflipped)
- * @global  integer  the number of row to display between two table headers
- * @global  boolean  whether to limit the number of displayed characters of
- *                   text type fields or not
+ * @global  string   $db               the database name
+ * @global  string   $table            the table name
+ * @global  string   $goto             the url to go back in case of errors
+ * @global  boolean  $dontlimitchars   whether to limit the number of displayed
+ *                                     characters of text type fields or not
+ * @global  string   $sql_query        the sql query
+ * @global  integer  $num_rows         the total number of rows returned by the
+ *                                     sql query
+ * @global  integer  $pos              the current position in results
+ * @global  integer  $session_max_rows the maximum number of rows per page
+ * @global  array    $vertical_display informations used with vertical display
+ *                                     mode
+ * @global  string   $disp_direction   the display mode
+ *                                     (horizontal/vertical/horizontalflipped)
+ * @global  integer  $repeat_cellsthe  number of row to display between two
+ *                                     table headers
  *
  * @access  private
  *
@@ -451,12 +451,10 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
  */
 function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $analyzed_sql = '')
 {
-    global $lang, $convcharset, $server, $db, $table;
-    global $goto, $text_url;
+    global $db, $table, $goto, $dontlimitchars;
     global $sql_query, $num_rows, $pos, $session_max_rows;
     global $vertical_display, $disp_direction, $repeat_cells, $highlight_columns;
-    global $dontlimitchars;
-
+    
     if ($analyzed_sql == '') {
         $analyzed_sql = array();
     }
@@ -598,7 +596,6 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 <!-- Results table headers -->
 <tr>
         <?php
-        echo "\n";
     }
 
     // 1. Displays the full/partial text button (part 1)...
@@ -621,6 +618,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
               . '&amp;repeat_cells=' . $repeat_cells
               . '&amp;goto=' . $goto
               . '&amp;dontlimitchars=' . (($dontlimitchars) ? 0 : 1);
+    $text_message = '<img src="' . $GLOBALS['pmaThemeImage'] . 's_'.($dontlimitchars ? 'partialtext' : 'fulltext') . '.png" border="0" width="50" height="20" alt="' . ($dontlimitchars ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" title="' . ($dontlimitchars ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" />';
+    $text_link = PMA_linkOrButton( $text_url, $text_message, array(), false );
 
     //     ... before the result table
     if (($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
@@ -629,8 +628,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             ?>
 <th class="td" colspan="<?php echo $fields_cnt; ?>" align="center">
-    <a href="<?php echo $text_url; ?>">
-        <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_'.(($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png'; ?>" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
+    <?php echo $text_link; ?>
 </th>
 </tr>
 
@@ -642,8 +640,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             ?>
 <tr>
 <th class="td" colspan="<?php echo $num_rows + floor($num_rows/$repeat_cells) + 1; ?>" align="center">
-    <a href="<?php echo $text_url; ?>">
-        <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png'; ?>" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
+    <?php echo $text_link; ?>
 </th>
 </tr>
             <?php
@@ -658,15 +655,13 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             echo "\n";
             ?>
 <th class="td" <?php echo $colspan; ?> align="center">
-    <a href="<?php echo $text_url; ?>">
-        <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png'; ?>" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
+    <?php echo $text_link; ?>
 </th>
             <?php
         } // end horizontal/horizontalflipped mode
         else {
             $vertical_display['textbtn'] = '    <th class="td" ' . $rowspan . ' align="center" valign="middle">' . "\n"
-                                         . '        <a href="' . $text_url . '">' . "\n"
-                                         . '            <img src="' . $GLOBALS['pmaThemeImage'] . 's_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png" border="0" width="50" height="20" alt="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" title="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" /></a>' . "\n"
+                                         . '        ' . $text_link . "\n"
                                          . '    </th>' . "\n";
         } // end vertical mode
     }
@@ -691,7 +686,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     // 2.0 If sorting links should be used, checks if the query is a "JOIN"
     //     statement (see 2.1.3)
 
-    // 2.0.1 Prepare Display column comments if enabled ($cfg['ShowBrowseComments']).
+    // 2.0.1 Prepare Display column comments if enabled ($GLOBALS['cfg']['ShowBrowseComments']).
     //       Do not show comments, if using horizontalflipped mode, because of space usage
     if ($GLOBALS['cfg']['ShowBrowseComments'] && $GLOBALS['cfgRelation']['commwork'] && $disp_direction != 'horizontalflipped') {
         $comments_map = array();
@@ -743,13 +738,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         if (isset($comments_map) &&
                 isset($comments_map[$fields_meta[$i]->table]) &&
                 isset($comments_map[$fields_meta[$i]->table][$fields_meta[$i]->name])) {
-            /*$comments_table_wrap_pre = '<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><th>';
-            $comments_table_wrap_post = '</th></tr><tr><th style="font-size: 8pt; font-weight: normal">' . htmlspecialchars($comments_map[$fields_meta[$i]->name]) . '</td></tr></table>';*/
-            $comments_table_wrap_pre = '';
-            $comments_table_wrap_post = '<span class="tblcomment">' . htmlspecialchars($comments_map[$fields_meta[$i]->table][$fields_meta[$i]->name]) . '</span>';
+            $comments = '<span class="tblcomment">' . htmlspecialchars($comments_map[$fields_meta[$i]->table][$fields_meta[$i]->name]) . '</span>';
         } else {
-            $comments_table_wrap_pre = '';
-            $comments_table_wrap_post = '';
+            $comments = '';
         }
 
         // 2.1 Results can be sorted
@@ -797,23 +788,23 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             // 2.1.4 Do define the sorting url
             if (!$is_in_sort) {
                 // loic1: patch #455484 ("Smart" order)
-                $cfg['Order']  = strtoupper($GLOBALS['cfg']['Order']);
-                if ($cfg['Order'] == 'SMART') {
-                    $cfg['Order'] = (preg_match('@time|date@i', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
+                $GLOBALS['cfg']['Order']  = strtoupper($GLOBALS['cfg']['Order']);
+                if ($GLOBALS['cfg']['Order'] == 'SMART') {
+                    $GLOBALS['cfg']['Order'] = (preg_match('@time|date@i', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
                 }
-                $sort_order .= $cfg['Order'];
+                $sort_order .= $GLOBALS['cfg']['Order'];
                 $order_img   = '';
             }
             else if (preg_match('@[[:space:]]ASC$@i', $sort_expression)) {
                 $sort_order .= ' DESC';
-                $order_img   = '&nbsp;<img src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" border="0" width="11" height="9" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" id="soimg' . $i . '" />';
+                $order_img   = ' <img src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" border="0" width="11" height="9" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" id="soimg' . $i . '" />';
             }
             else if (preg_match('@[[:space:]]DESC$@i', $sort_expression)) {
                 $sort_order .= ' ASC';
-                $order_img   = '&nbsp;<img src="' . $GLOBALS['pmaThemeImage'] . 's_desc.png" border="0" width="11" height="9" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" id="soimg' . $i . '" />';
+                $order_img   = ' <img src="' . $GLOBALS['pmaThemeImage'] . 's_desc.png" border="0" width="11" height="9" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" id="soimg' . $i . '" />';
             } else {
                 $sort_order .= ' DESC';
-                $order_img   = '&nbsp;<img src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" border="0" width="11" height="9" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" id="soimg' . $i . '" />';
+                $order_img   = ' <img src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" border="0" width="11" height="9" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" id="soimg' . $i . '" />';
             }
 
             if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@i', $unsorted_sql_query, $regs3)) {
@@ -828,48 +819,41 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                        . '&amp;repeat_cells=' . $repeat_cells
                        . '&amp;dontlimitchars=' . $dontlimitchars
                        . '&amp;sql_query=' . urlencode($sorted_sql_query);
+            $order_url  = 'sql.php?' . $url_query;
 
             // 2.1.5 Displays the sorting url
             // added 20004-06-09: Michael Keck <mail@michaelkeck.de>
             //                    enable sord order swapping for image
-            $order_onmouse = '';
+            $order_link_params = array();
             if (isset($order_img) && $order_img!='') {
                 if (strstr($order_img,'asc')) {
-                    $order_onmouse.= ' onmouseover="if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }"'
-                                   .' onmouseout="if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }"';
+                    $order_link_params['onmouseover'] = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }';
+                    $order_link_params['onmouseout']  = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }';
                 } else if (strstr($order_img,'desc')) {
-                    $order_onmouse.= ' onmouseover="if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }"'
-                                   .' onmouseout="if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }"';
+                    $order_link_params['onmouseover'] = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }';
+                    $order_link_params['onmouseout']  = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }';
                 }
             }
-            $order_link_pre  = '<a href="sql.php?' . $url_query . '" ' . (($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'css') ? 'style="direction: ltr; writing-mode: tb-rl;"' : '') . ' title="' . $GLOBALS['strSort'] . '"' . $order_onmouse . '>';
-            $order_link_post = '</a>';
-            $order_link_content = ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name));
-            $order_link_words = explode(' ', $order_link_content);
-            if (isset($order_link_words[1])) {
-                $order_last_word_index = count($order_link_words)-1;
-                $order_last_word = $order_link_words[$order_last_word_index];
-                unset($order_link_words[$order_last_word_index]);
-                $order_link = $order_link_pre . implode(' ', $order_link_words)
-                            . ' <div class="nowrap">' . $order_last_word . $order_img . '</div>' . $order_link_post . "\n";
-            } else {
-                $order_link = '<div class="nowrap">' . $order_link_pre . $order_link_content . $order_link_post . $order_img . '</div>' . "\n";
+            if ( $disp_direction == 'horizontalflipped'
+              && $GLOBALS['cfg']['HeaderFlipType'] == 'css' ) {
+                $order_link_params['style'] = 'direction: ltr; writing-mode: tb-rl;';
             }
+            $order_link_params['title'] = $GLOBALS['strSort'];
+            $order_link_content = ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name));
+            $order_link = PMA_linkOrButton( $order_url, $order_link_content . $order_img, $order_link_params, false, true );
 
             if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 echo "\n";
                 ?>
 <th <?php echo $column_style; ?> <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>>
-    <?php echo $comments_table_wrap_pre; ?>
     <?php echo $order_link; ?>
-    <?php echo $comments_table_wrap_post; ?>
+    <?php echo $comments; ?>
 </th>
                 <?php
             }
             $vertical_display['desc'][] = '    <th ' . $column_style . '>' . "\n"
-                                        . $comments_table_wrap_pre
                                         . $order_link
-                                        . $comments_table_wrap_post
+                                        . $comments
                                         . '    </th>' . "\n";
         } // end if (2.1)
 
@@ -879,16 +863,14 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo "\n";
                 ?>
 <th <?php echo $column_style; ?> <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>  <?php echo ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'css' ? 'style="direction: ltr; writing-mode: tb-rl;"' : ''); ?>>
-    <?php echo $comments_table_wrap_pre; ?>
     <?php echo ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'fake'? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name)) . "\n"; ?>
-    <?php echo $comments_table_wrap_post; ?>
+    <?php echo $comments; ?>
 </th>
                 <?php
             }
             $vertical_display['desc'][] = '    <th ' . $column_style . '>' . "\n"
-                                        . $comments_table_wrap_pre
                                         . '        ' . htmlspecialchars($fields_meta[$i]->name) . "\n"
-                                        . $comments_table_wrap_post
+                                        . $comments
                                         . '    </th>';
         } // end else (2.2)
     } // end for
@@ -903,15 +885,13 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             echo "\n";
             ?>
 <th class="td" <?php echo $colspan; ?> align="center">
-    <a href="<?php echo $text_url; ?>">
-        <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png'; ?>" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
+    <?php echo $text_link; ?>
 </th>
             <?php
         } // end horizontal/horizontalflipped mode
         else {
             $vertical_display['textbtn'] = '    <th class="td" ' . $rowspan . ' align="center" valign="middle">' . "\n"
-                                         . '        <a href="' . $text_url . '">' . "\n"
-                                         . '            <img src="' . $GLOBALS['pmaThemeImage'] . 's_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png" border="0" width="50" height="20" alt="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" title="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" /></a>' . "\n"
+                                         . '        ' . $text_link . "\n"
                                          . '    </th>' . "\n";
         } // end vertical mode
     }
@@ -957,23 +937,25 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
  *
  * @return  boolean  always true
  *
- * @global  string   the current language
- * @global  string   the current charset for MySQL
- * @global  integer  the server to use (refers to the number in the
- *                   configuration file)
- * @global  string   the database name
- * @global  string   the table name
- * @global  string   the sql query
- * @global  string   the url to go back in case of errors
- * @global  integer  the current position in results
- * @global  integer  the maximum number of rows per page
- * @global  array    the list of fields properties
- * @global  integer  the total number of fields returned by the sql query
- * @global  array    informations used with vertical display mode
- * @global  string   the display mode (horizontal/vertical/horizontalflipped)
- * @global  integer  the number of row to display between two table headers
- * @global  boolean  whether to limit the number of displayed characters of
- *                   text type fields or not
+ * @global  string   $db                the database name
+ * @global  string   $table             the table name
+ * @global  string   $goto              the url to go back in case of errors
+ * @global  boolean  $dontlimitchars    whether to limit the number of displayed
+ *                                      characters of text type fields or not
+ * @global  string   $sql_query         the sql query
+ * @global  integer  $pos               the current position in results
+ * @global  integer  $session_max_rows  the maximum number of rows per page
+ * @global  array    $fields_meta       the list of fields properties
+ * @global  integer  $fields_cnt        the total number of fields returned by
+ *                                      the sql query
+ * @global  array    $vertical_display  informations used with vertical display
+ *                                      mode
+ * @global  string   $disp_direction    the display mode
+ *                                      (horizontal/vertical/horizontalflipped)
+ * @global  integer  $repeat_cells      the number of row to display between two
+ *                                      table headers
+ * @global  array    $highlight_columns collumn names to highlight
+ * @gloabl  array    $row               current row data
  *
  * @access  private
  *
@@ -981,11 +963,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
  */
 function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 {
-    global $lang, $convcharset, $server, $db, $table;
-    global $goto;
+    global $db, $table, $goto, $dontlimitchars;
     global $sql_query, $pos, $session_max_rows, $fields_meta, $fields_cnt;
     global $vertical_display, $disp_direction, $repeat_cells, $highlight_columns;
-    global $dontlimitchars;
     global $row; // mostly because of browser transformations, to make the row-data accessible in a plugin
 
     $url_sql_query          = $sql_query;
@@ -1115,12 +1095,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
             // 1.2.1 Modify link(s)
             if ($is_display['edit_lnk'] == 'ur') { // update row case
-//                    $lnk_goto = 'sql.php'
-//                             . '?' . str_replace('&amp;', '&', $url_query)
-//                              . '&sql_query=' . urlencode($sql_query)
-//                              . '&goto=' . (empty($goto) ? 'tbl_properties.php' : $goto);
-// to reduce the length of the URL, because of some browsers limitations:
-                $lnk_goto = 'sql.php';
+                $lnk_goto = 'sql.php'
+                          . '?' . str_replace('&amp;', '&', $url_query)
+                          . '&sql_query=' . urlencode($sql_query)
+                          . '&goto=' . (empty($goto) ? 'tbl_properties.php' : $goto);
 
                 $edit_url = 'tbl_change.php'
                           . '?' . $url_query
@@ -1351,7 +1329,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             } else if ($GLOBALS['cfg']['ShowBlob'] == FALSE && stristr($meta->type, 'BLOB')) {
                 // loic1 : PMA_mysql_fetch_fields returns BLOB in place of
                 // TEXT fields type, however TEXT fields must be displayed
-                // even if $cfg['ShowBlob'] is false -> get the true type
+                // even if $GLOBALS['cfg']['ShowBlob'] is false -> get the true type
                 // of the fields.
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
                 if (stristr($field_flags, 'BINARY')) {
@@ -1392,7 +1370,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     // loic1: support blanks in the key
                     $relation_id = $row[$i];
 
-                    // nijel: Cut all fields to $cfg['LimitChars']
+                    // nijel: Cut all fields to $GLOBALS['cfg']['LimitChars']
                     if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
                         $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                     }
@@ -1524,7 +1502,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
         if (isset($edit_url)) {
             $vertical_display['edit'][$row_no]   .= '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '"' . $column_style_vertical . '>' . "\n"
-                                                 . PMA_linkOrButton($edit_url, $edit_str, '', FALSE)
+                                                 . PMA_linkOrButton($edit_url, $edit_str, array(), FALSE)
                                                  . $bookmark_go
                                                  .  '    </td>' . "\n";
         } else {
@@ -1557,8 +1535,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
  *
  * @return  boolean  always true
  *
- * @global  array    the information to display
- * @global  integer  the number of row to display between two table headers
+ * @global  array    $vertical_display the information to display
+ * @global  integer  $repeat_cells     the number of row to display between two
+ *                                     table headers
  *
  * @access  private
  *
@@ -1712,27 +1691,30 @@ function PMA_displayVerticalTable()
  * @param   array   the display mode
  * @param   array   the analyzed query
  *
- * @global  string   the current language
- * @global  integer  the server to use (refers to the number in the
- *                   configuration file)
- * @global  array    the current server config
- * @global  string   the database name
- * @global  string   the table name
- * @global  string   the url to go back in case of errors
- * @global  string   the current sql query
- * @global  integer  the total number of rows returned by the sql query
- * @global  integer  the total number of rows returned by the sql query
- *                   without any programmatically appended "LIMIT" clause
- * @global  integer  the current postion of the first record to be
- *                   displayed
- * @global  array    the list of fields properties
- * @global  integer  the total number of fields returned by the sql query
- * @global  array    informations used with vertical display mode
- * @global  string   the display mode (horizontal/vertical/horizontalflipped)
- * @global  integer  the number of row to display between two table headers
- * @global  boolean  whether to limit the number of displayed characters of
- *                   text type fields or not
- * @global  array    the relation settings
+ * @global  string   $db                the database name
+ * @global  string   $table             the table name
+ * @global  string   $goto              the url to go back in case of errors
+ * @global  boolean  $dontlimitchars    whether to limit the number of displayed
+ *                                      characters of text type fields or not
+ * @global  string   $sql_query         the current sql query
+ * @global  integer  $num_rows          the total number of rows returned by the
+ *                                      sql query
+ * @global  integer  $unlim_num_rows    the total number of rows returned by the
+ *                                      sql query without any programmatically
+ *                                      appended "LIMIT" clause
+ * @global  integer  $pos               the current postion of the first record
+ *                                      to be displayed
+ * @global  array    $fields_meta       the list of fields properties
+ * @global  integer  $fields_cnt        the total number of fields returned by
+ *                                      the sql query
+ * @global  array    $vertical_display  informations used with vertical display
+ *                                      mode
+ * @global  string   $disp_direction    the display mode
+ *                                      (horizontal/vertical/horizontalflipped)
+ * @global  integer  $repeat_cells      the number of row to display between two
+ *                                      table headers
+ * @global  array    $highlight_columns collumn names to highlight
+ * @global  array    $cfgRelation       the relation settings
  *
  * @access  private
  *
@@ -1742,11 +1724,9 @@ function PMA_displayVerticalTable()
  */
 function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 {
-    global $lang, $server, $cfg, $db, $table;
-    global $goto, $text_url;
+    global $db, $table, $goto, $dontlimitchars;
     global $sql_query, $num_rows, $unlim_num_rows, $pos, $fields_meta, $fields_cnt;
     global $vertical_display, $disp_direction, $repeat_cells, $highlight_columns;
-    global $dontlimitchars;
     global $cfgRelation;
 
     // 1. ----- Prepares the work -----
@@ -1863,17 +1843,31 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
         $delete_text = $is_display['del_lnk'] == 'dr' ? $GLOBALS['strDelete'] : $GLOBALS['strKill'];
         $propicon = (string)$GLOBALS['cfg']['PropertiesIconic'];
+        
+        $uncheckall_url = 'sql.php?'
+                  . PMA_generate_common_url($db, $table)
+                  . '&amp;sql_query=' . urlencode($sql_query)
+                  . '&amp;pos=' . $pos
+                  . '&amp;session_max_rows=' . $GLOBALS['session_max_rows']
+                  . '&amp;pos=' . $pos
+                  . '&amp;disp_direction=' . $disp_direction
+                  . '&amp;repeat_cells=' . $repeat_cells
+                  . '&amp;goto=' . $goto
+                  . '&amp;dontlimitchars=' . $dontlimitchars;
+        $checkall_url = $uncheckall_url . '&amp;checkall=1';
+        $checkall_params['onclick'] = 'setCheckboxesRange(\'rowsDeleteForm\', true, \'id_rows_to_delete\', 0, ' . $num_rows . '); return false;';
+        $uncheckall_params['onclick'] = 'setCheckboxesRange(\'rowsDeleteForm\', false, \'id_rows_to_delete\', 0, ' . $num_rows . '); return false;';
+        $checkall_link = PMA_linkOrButton( $checkall_url, $GLOBALS['strCheckAll'], $checkall_params, false );
+        $uncheckall_link = PMA_linkOrButton( $uncheckall_url, $GLOBALS['strUncheckAll'], $uncheckall_params, false );
 ?>
         &nbsp;&nbsp;<img src="<?php echo $GLOBALS['pmaThemeImage'] . 'arrow_' . $GLOBALS['text_dir'] . '.png'; ?>" border="0" width="38" height="22" alt="<?php echo $GLOBALS['strWithChecked']; ?>" />
-        <a href="<?php echo $text_url . '&amp;checkall=1'; ?>" onclick="setCheckboxesRange('rowsDeleteForm', true, 'id_rows_to_delete', 0, '<?php echo $num_rows; ?>'); return false;">
-            <?php echo $GLOBALS['strCheckAll']; ?></a>
+        <?php echo $checkall_link; ?>
         &nbsp;/&nbsp;
-        <a href="<?php echo $text_url; ?>" onclick="setCheckboxesRange('rowsDeleteForm', false, 'id_rows_to_delete', 0, '<?php echo $num_rows; ?>'); return false;">
-            <?php echo $GLOBALS['strUncheckAll']; ?></a>
+        <?php echo $uncheckall_link; ?>
 <?php
           echo '&nbsp;&nbsp;<i>' . $GLOBALS['strWithChecked'] . '</i>'. "\n";
 
-        if ($cfg['PropertiesIconic']) {
+        if ($GLOBALS['cfg']['PropertiesIconic']) {
             PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $GLOBALS['strChange'], 'b_edit.png');
             PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_delete', $delete_text, 'b_drop.png');
             if ($analyzed_sql[0]['querytype'] == 'SELECT') {

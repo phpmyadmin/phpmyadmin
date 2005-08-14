@@ -50,13 +50,29 @@ function PMA_gpc_extract($array, &$target, $sanitize = TRUE) {
     return TRUE;
 }
 
+// check if a subform is submitted
+$__redirect = NULL;
+if ( isset( $_POST['usesubform'] ) ) {
+    // if a subform is present and should be used
+    // the rest of the form is deprecated
+    $subform_id = key( $_POST['usesubform'] );
+    $subform    = $_POST['subform'][$subform_id];
+    $_POST      = $subform;
+    if ( isset( $_POST['redirect'] ) 
+      && $_POST['redirect'] != basename( $_SERVER['PHP_SELF'] ) ) {
+        $__redirect = $_POST['redirect'];
+        unset( $_POST['redirect'] );
+    } // end if ( isset( $_POST['redirect'] ) )
+} // end if ( isset( $_POST['usesubform'] ) )
+// end check if a subform is submitted
+
 if (!empty($_GET)) {
     PMA_gpc_extract($_GET, $GLOBALS);
 } // end if
 
 if (!empty($_POST)) {
     PMA_gpc_extract($_POST, $GLOBALS);
-} // end if
+} // end if (!empty($_POST))
 
 if (!empty($_FILES)) {
     foreach ($_FILES AS $name => $value) {
@@ -82,4 +98,8 @@ if (isset($goto) && strpos(' ' . $goto, '/') > 0 && substr($goto, 0, 2) != './')
     unset($goto);
 } // end if
 
+if ( ! empty( $__redirect ) ) {
+    require('./' . $__redirect);
+    exit();
+} // end if ( ! empty( $__redirect ) )
 ?>
