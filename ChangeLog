@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-08-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php: $goto was not encoded in the form, resulting in a
+      problem after editing/saving a row (seen in IE6)
+
 2005-08-12 Marc Delisle  <lem9@users.sourceforge.net>
     * header.inc.php: remove the 'InnoDB free' segment from table comments
     * footer.inc.php: bug #1257106, display problem in the left frame (IE)

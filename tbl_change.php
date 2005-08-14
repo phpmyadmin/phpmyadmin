@@ -174,7 +174,7 @@ document.onkeydown = onKeyDownArrowsHandler;
 <!-- Change table properties form -->
 <form method="post" action="tbl_replace.php" name="insertForm" <?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?>>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-    <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+    <input type="hidden" name="goto" value="<?php echo urlencode($goto); ?>" />
     <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0; ?>" />
     <input type="hidden" name="session_max_rows" value="<?php echo isset($session_max_rows) ? $session_max_rows : ''; ?>" />
     <input type="hidden" name="disp_direction" value="<?php echo isset($disp_direction) ? $disp_direction : ''; ?>" />
