@@ -96,7 +96,7 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
         // 2.2 Statement is a "SHOW..."
         else if ($GLOBALS['is_show']) {
             // 2.2.1 TODO : defines edit/delete links depending on show statement
-            $tmp = preg_match('@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS)@i', $GLOBALS['sql_query'], $which);
+            $tmp = preg_match('@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES|FIELDS)@i', $GLOBALS['sql_query'], $which = array() );
             if (isset($which[1]) && strpos(' ' . strtoupper($which[1]), 'PROCESSLIST') > 0) {
                 $do_display['edit_lnk'] = 'nn'; // no edit link
                 $do_display['del_lnk']  = 'kp'; // "kill process" type edit link
@@ -474,7 +474,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         $sort_expression = trim(str_replace('  ', ' ',$analyzed_sql[0]['order_by_clause']));
 
         // Get rid of ASC|DESC (TODO: analyzer)
-        preg_match('@(.*)([[:space:]]*(ASC|DESC))@si',$sort_expression,$matches);
+        preg_match('@(.*)([[:space:]]*(ASC|DESC))@si',$sort_expression,$matches = array());
         $sort_expression_nodir = isset($matches[1]) ? trim($matches[1]) : $sort_expression;
 
         // sorting by indexes, only if it makes sense (only one table ref)
@@ -753,7 +753,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             //       FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
 
             if (($is_join
-                && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name . '~i', $select_expr, $parts))
+                && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name . '~i', $select_expr, $parts = array()))
                || ( isset($analyzed_sql[0]['select_expr'][$i]['expr'])
                    && isset($analyzed_sql[0]['select_expr'][$i]['column'])
                    && $analyzed_sql[0]['select_expr'][$i]['expr'] !=
@@ -807,7 +807,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 $order_img   = ' <img src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" border="0" width="11" height="9" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" id="soimg' . $i . '" />';
             }
 
-            if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@i', $unsorted_sql_query, $regs3)) {
+            if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@i', $unsorted_sql_query, $regs3 = array())) {
                 $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
             } else {
                 $sorted_sql_query = $unsorted_sql_query . $sort_order;
