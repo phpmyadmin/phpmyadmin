@@ -732,8 +732,10 @@ if ($is_minimum_common == FALSE) {
             $duplicate_sql_query = '';
             if (isset($mysql_error_values[0])) {
                 $tmp_fields = PMA_DBI_get_fields($db, $table, NULL);
-                foreach ($tmp_fields as $tmp_field) {
-                    $duplicate_sql_query .= (($duplicate_sql_query!='') ? ' OR ' : '') . PMA_backquote($tmp_field['Field']) . " LIKE '" . $mysql_error_values[0] . "'";
+                if ($tmp_fields) {
+                    foreach ($tmp_fields as $tmp_field) {
+                        $duplicate_sql_query .= (($duplicate_sql_query!='') ? ' OR ' : '') . PMA_backquote($tmp_field['Field']) . " LIKE '" . $mysql_error_values[0] . "'";
+                    }
                 }
             }
             if ($duplicate_sql_query!='') {
