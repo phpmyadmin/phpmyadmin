@@ -4,12 +4,6 @@
 
 
 /**
- * Counts amount of navigation tabs
- */
-$db_details_links_count_tabs = 0;
-
-
-/**
  * If coming from a Show MySQL link on the home page,
  * put something in $sub_part
  */
@@ -23,79 +17,70 @@ if (empty($sub_part)) {
  */
 // Export link if there is at least one table
 if ($num_tables > 0) {
-    $lnk3 = 'db_details_export.php';
-    $arg3 = $url_query;
-    $lnk4 = 'db_search.php';
-    $arg4 = $url_query;
+    $tab_export['link'] = 'db_details_export.php';
+    $tab_search['link'] = 'db_search.php';
+    $tab_qbe['link']    = 'db_details_qbe.php';
 }
-else {
-    $lnk3 = '';
-    $arg3 = '';
-    $lnk4 = '';
-    $arg4 = '';
-}
+$tab_structure['link'] = 'db_details_structure.php';
+$tab_sql['link']       = 'db_details.php';
+$tab_sql['args']['db_query_force'] = 1;
+$tab_operation['link'] = 'db_operations.php';
+
 // Drop link if allowed
-if (!$cfg['AllowUserDropDatabase']) {
+if (!$GLOBALS['cfg']['AllowUserDropDatabase']) {
     // Check if the user is a Superuser
-    $cfg['AllowUserDropDatabase'] = PMA_DBI_select_db('mysql');
+    $GLOBALS['cfg']['AllowUserDropDatabase'] = PMA_DBI_select_db('mysql');
     PMA_DBI_select_db($db);
 }
 // rabus: Don't even try to drop information_schema. You won't be able to.
 // Believe me. You won't.
-$cfg['AllowUserDropDatabase'] = $cfg['AllowUserDropDatabase'] && !(PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema');
-if ($cfg['AllowUserDropDatabase']) {
-    $lnk5 = 'sql.php';
-    $arg5 = $url_query . '&amp;sql_query='
-          . urlencode('DROP DATABASE ' . PMA_backquote($db))
-          . '&amp;zero_rows='
-          . urlencode(sprintf($strDatabaseHasBeenDropped, htmlspecialchars(PMA_backquote($db))))
-          . '&amp;goto=main.php&amp;back=db_details' . $sub_part . '.php&amp;reload=1&amp;purge=1';
-    $att5 = 'onclick="return confirmLinkDropDB(this, \'DROP DATABASE ' . PMA_jsFormat($db) . '\')"';
-    $class5 = 'Drop';
-}
-else {
-    $lnk5 = '';
-    $class5 = 'Drop';
+$GLOBALS['cfg']['AllowUserDropDatabase'] = $GLOBALS['cfg']['AllowUserDropDatabase'] && !(PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema');
+if ($GLOBALS['cfg']['AllowUserDropDatabase']) {
+    $tab_drop['link'] = 'sql.php';
+    $tab_drop['args']['sql_query']  = 'DROP DATABASE ' . PMA_backquote($db);
+    $tab_drop['args']['zero_rows']  = sprintf($GLOBALS['strDatabaseHasBeenDropped'], htmlspecialchars(PMA_backquote($db)));
+    $tab_drop['args']['goto']       = 'main.php';
+    $tab_drop['args']['back']       = 'db_details' . $sub_part . '.php';
+    $tab_drop['args']['reload']     = 1;
+    $tab_drop['args']['purge']      = 1;
+    $tab_drop['attr'] = 'onclick="return confirmLinkDropDB(this, \'DROP DATABASE ' . PMA_jsFormat($db) . '\')"';
+    $tab_drop['class'] = 'caution';
 }
 
+// text
+$tab_structure['text']  = $GLOBALS['strStructure'];
+$tab_sql['text']        = $GLOBALS['strSQL'];
+$tab_export['text']     = $GLOBALS['strExport'];
+$tab_search['text']     = $GLOBALS['strSearch'];
+$tab_drop['text']       = $GLOBALS['strDrop'];
+$tab_qbe['text']        = $GLOBALS['strQBE'];
+$tab_operation['text']  = $GLOBALS['strOperations'];
+
+// icons
+$tab_structure['icon']  = 'b_props.png';
+$tab_sql['icon']        = 'b_sql.png';
+$tab_export['icon']     = 'b_export.png';
+$tab_search['icon']     = 'b_search.png';
+$tab_drop['icon']       = 'b_deltbl.png';
+$tab_qbe['icon']        = 's_db.png';
+$tab_operation['icon']  = 'b_tblops.png';
 
 /**
  * Displays tab links
  */
-
-if ($cfg['LightTabs']) {
-    echo '&nbsp;';
-} else {
-    echo '<table border="0" cellspacing="0" cellpadding="0" width="100%" id="topmenu">' . "\n"
-       . '    <tr>' . "\n"
-       . '        <td class="nav" align="left" nowrap="nowrap" valign="bottom">'
-       . '            <table border="0" cellpadding="0" cellspacing="0"><tr>'
-       . '                <td nowrap="nowrap"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="2" height="1" border="0" alt="" /></td>'
-       . '                <td class="navSpacer"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td>';
+$tabs = array();
+$tabs[] =& $tab_structure;
+$tabs[] =& $tab_sql;
+$tabs[] =& $tab_search;
+$tabs[] =& $tab_qbe;
+$tabs[] =& $tab_export;
+$tabs[] =& $tab_operation;
+if ($GLOBALS['cfg']['AllowUserDropDatabase']) {
+    $tabs[] =& $tab_drop;
 }
 
-echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_props.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strStructure.'" />' : '') . $strStructure, 'db_details_structure.php', $url_query);
-echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sql.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strSQL.'" />' : '') . $strSQL, 'db_details.php', $url_query . '&amp;db_query_force=1');
-echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_search.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strSearch.'" />' : '') . $strSearch, $lnk4, $arg4);
-echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_db.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strQBE.'" />' : '') . $strQBE, ($num_tables > 0) ? 'db_details_qbe.php' : '', $url_query);
-echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_export.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strExport.'" />' : '') . $strExport, $lnk3, $arg3);
-echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tblops.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strOperations.'" />' : '') . $strOperations,'db_operations.php', $url_query);
-
-// Displays drop link
-if ($lnk5) {
-   echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_deltbl.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strDrop.'" />' : '') . $strDrop, $lnk5, $arg5, $att5, $class5);
-} // end if
-echo "\n";
-
-if (!$cfg['LightTabs']) {
-    echo '                <td nowrap="nowrap"><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  . '" width="2" height="1" border="0" alt="" /></td>'
-       . '            </tr></table>' . "\n"
-       . '        </td>' . "\n"
-       . '    </tr>' . "\n"
-       . '</table>';
-} else {
-    echo '<br />';
-}
+echo PMA_getTabs( $tabs );
+unset( $tabs );
 
 /**
  * Settings for relations stuff

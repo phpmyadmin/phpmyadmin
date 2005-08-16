@@ -15,63 +15,13 @@ PMA_setFontSizes();
 
 $ctype = 'css';
 require_once('./libraries/header_http.inc.php');
-
-if (!isset($js_frame)) {
-    $js_frame = 'left';
-}
-
-if ($js_frame == 'left') {
-/************************************************************************************
- * LEFT FRAME
- ************************************************************************************/
-    // 2004-05-30: Michael Keck (mail@michaelkeck.de)
-    //             Check, if theme_left.css.php exists and include
-    $tmp_file = $GLOBALS['cfg']['ThemePath'] . '/' . $theme . '/css/theme_left.css.php';
-    if (@file_exists($tmp_file)) {
-        include($tmp_file);
-    } // end of include theme_left.css.php
-} elseif ($js_frame == 'print') {
-/************************************************************************************
- * PRINT VIEW
- ************************************************************************************/
-    // 2004-05-30: Michael Keck (mail@michaelkeck.de)
-    //             Check, if theme_print.css.php exists and include
-    $tmp_file = $GLOBALS['cfg']['ThemePath'] . '/' . $theme . '/css/theme_print.css.php';
-    if (@file_exists($tmp_file)) {
-        include($tmp_file);
-    } // end of include theme_print.css.php
-    ?>
-table#serverinfo,td.serverinfo,table.noborder,table.noborder td {
-    border: none;
-}
-    <?php
-} else {
-/************************************************************************************
- * RIGHT FRAME
- ************************************************************************************/
-    // 2004-05-30: Michael Keck (mail@michaelkeck.de)
-    //             Check, if theme_right.css.php exists and include
-    $tmp_file = $GLOBALS['cfg']['ThemePath'] . '/' . $theme . '/css/theme_right.css.php';
-    if (@file_exists($tmp_file)) {
-        include($tmp_file);
-    } // end of include theme_right.css.php
-    echo PMA_SQP_buildCssData();
-}
-
+unset( $ctype );
 ?>
 
 /* Calendar */
-table.calendar {
-    width: 100%;
-}
-
-table.calendar td {
-    text-align: center;
-}
-
-table.calendar td a {
-    display: block;
-}
+table.calendar      { width: 100%; }
+table.calendar td   { text-align: center; }
+table.calendar td a { display: block; }
 
 table.calendar td a:hover {
     background-color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
@@ -85,83 +35,115 @@ table.calendar td.selected {
     background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 
-img.calendar {
-    border: none;
-}
+img.calendar { border: none; }
+form.clock   { text-align: center; }
+/* end Calendar */
 
-form.clock {
-    text-align: center;
-}
+.nowrap    { white-space: nowrap; }
+div.nowrap { margin: 0; padding: 0; }
 
-.nowrap {
-    white-space: nowrap;
-}
+li      { padding-bottom: 1em; }
+li form { display: inline; }
 
-div.nowrap {
-    margin: 0px;
-    padding: 0px;
-}
-
-li {
-    padding-bottom: 1em;
-}
-
-li form {
-    display: inline;
-}
-
-ul.main {
-    margin: 0px;
-    padding-left:2em;
-    padding-right:2em;
-}
-
-/* no longer needed
-ul.main li {
-    list-style-image: url(../images/dot_violet.png);
-    padding-bottom: 0.1em;
-}
-*/
-
-button {
-    /* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
-    display: inline;
-}
-
-/* Tabs */
-
-/* For both light and non light */
-.tab {
-    white-space: nowrap;
-    font-weight: bolder;
-}
-
-/* For non light */
-td.tab {
-    width: 64px;
-    text-align: center;
-    background-color: #dfdfdf;
-}
-
-td.tab a {
-    display: block;
-}
-
-/* For light */
-div.tab { }
-
-/* Highlight active tab */
-td.activetab {
-    background-color: silver;
-}
+/* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
+button { display: inline; }
 
 /* Textarea */
+textarea { overflow: auto; }
 
-textarea {
-    overflow: auto;
+.nospace { margin: 0; padding: 0; }
+
+/* topmenu */
+#topmenu {
+    font-weight: bold;
 }
 
-.nospace {
-    margin: 0px;
-    padding: 0px;
+/* default tab styles */
+.tab, .tabcaution, .tabactive {
+    margin-right: 0.1em;
+    margin-left: 0.1em;
 }
+
+/* disbaled tabs */
+span.tab {
+    color: #666666;
+}
+
+/* disabled drop/empty tabs */
+span.tabcaution {
+    color: #ff6666;
+}
+
+/* enabled drop/empty tabs */
+a.tabcaution {
+    color: #FF0000;
+}
+a.tabcaution:hover {
+    color: #FFFFFF;
+    background-color: #FF0000;
+}
+
+<?php if ( $GLOBALS['cfg']['LightTabs'] ) { ?>
+/* active tab */
+a.tabactive {
+    border-bottom: 0.1em solid black;
+    color: black;
+}
+<?php } else { ?>
+#topmenu {
+    margin-top: 0.5em;
+    border-bottom: 0.1em solid black;
+    padding: 0.1em 0.3em 0.1em 0.3em;
+}
+
+/* default tab styles */
+.tab, .tabcaution, .tabactive {
+    background-color: #E5E5E5;
+    border: 0.1em solid silver;
+    border-bottom: 0.1em solid black;
+    border-radius-topleft: 0.5em;
+    border-radius-topright: 0.5em;
+    -moz-border-radius-topleft: 0.5em;
+    -moz-border-radius-topright: 0.5em;
+    padding: 0.1em 0.2em 0.1em 0.2em;
+}
+
+/* enabled hover/active tabs */
+a.tab:hover, a.tabcaution:hover, .tabactive {
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0.3em 0.3em 0.1em 0.3em;
+}
+a.tab:hover, .tabactive {
+    background-color: #CCCCCC;
+}
+
+/* disabled drop/empty tabs */
+span.tab, span.tabcaution {
+    cursor: url(themes/original/img/error.ico), default;
+}
+<?php } ?>
+/* end topmenu */
+<?php
+
+$_valid_css = array( 'left', 'right', 'print' );
+if ( empty( $_REQUEST['js_frame'] ) || ! in_array( $_REQUEST['js_frame'], $_valid_css ) ) {
+    $js_frame = 'left';
+} else {
+    $js_frame = $_REQUEST['js_frame'];
+}
+unset( $_valid_css );
+
+if ( $js_frame == 'right' ) {
+    echo PMA_SQP_buildCssData();
+}
+
+$_css_file = $GLOBALS['cfg']['ThemePath']
+           . '/' . $GLOBALS['theme']
+           . '/css/theme_' . $js_frame . '.css.php';
+
+if ( file_exists( $_css_file ) ) {
+    include( $_css_file );
+}
+unset( $_css_file );
+?>

@@ -76,34 +76,31 @@ var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '
 if ($cfg['QueryFrameJS'] && !isset($no_js)) {
     $querydisplay_tab = (isset($querydisplay_tab) ? $querydisplay_tab : $cfg['QueryWindowDefTab']);
 
-    if ($cfg['LightTabs']) {
-        echo '&nbsp;';
-    } else {
-    echo '<table border="0" cellspacing="0" cellpadding="0" width="100%">' . "\n"
-       . '    <tr>' . "\n"
-       . '        <td class="nav" align="left" nowrap="nowrap" valign="bottom">'
-       . '            <table border="0" cellpadding="0" cellspacing="0"><tr>'
-       . '                <td nowrap="nowrap"><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  . '" width="2" height="1" border="0" alt="" /></td>'
-       . '                <td class="navSpacer"><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  .'" width="1" height="1" border="0" alt="" /></td>';
-    }
-    echo "\n";
-    echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sql.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strSQL.'" />' : '') . $strSQL, '#', '', ' onclick="javascript:query_tab_commit(\'sql\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'sql' ? TRUE : FALSE));
-    echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_import.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strImportFiles.'" />' : '') . $strImportFiles, '#', '', ' onclick="javascript:query_tab_commit(\'files\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'files' ? TRUE : FALSE));
-    echo PMA_printTab($strQuerySQLHistory, '#', '', ' onclick="javascript:query_tab_commit(\'history\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'history' ? TRUE : FALSE));
+    $tabs = array();
+    $tabs['sql']['icon']   = 'b_sql.png';
+    $tabs['sql']['text']   = $strSQL;
+    $tabs['sql']['link']   = '#';
+    $tabs['sql']['attr']   = 'onclick="javascript:query_tab_commit(\'sql\');return false;"';
+    $tabs['sql']['active'] = (bool) (isset($querydisplay_tab) && $querydisplay_tab == 'sql');
+    $tabs['import']['icon']   = 'b_import.png';
+    $tabs['import']['text']   = $strImportFiles;
+    $tabs['import']['link']   = '#';
+    $tabs['import']['attr']   = 'onclick="javascript:query_tab_commit(\'files\');return false;"';
+    $tabs['import']['active'] = (bool) (isset($querydisplay_tab) && $querydisplay_tab == 'files');
+    $tabs['history']['text']   = $strQuerySQLHistory;
+    $tabs['history']['link']   = '#';
+    $tabs['history']['attr']   = 'onclick="javascript:query_tab_commit(\'history\');return false;"';
+    $tabs['history']['active'] = (bool) (isset($querydisplay_tab) && $querydisplay_tab == 'history');
 
     if ($cfg['QueryWindowDefTab'] == 'full') {
-        echo PMA_printTab($strAll, '#', '', ' onclick="javascript:query_tab_commit(\'full\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'full' ? TRUE : FALSE));
+        $tabs['all']['text']   = $strAll;
+        $tabs['all']['link']   = '#';
+        $tabs['all']['attr']   = 'onclick="javascript:query_tab_commit(\'full\');return false;"';
+        $tabs['all']['active'] = (bool) (isset($querydisplay_tab) && $querydisplay_tab == 'full');
     }
 
-    if (!$cfg['LightTabs']) {
-    echo '                <td nowrap="nowrap"><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  . '" width="2" height="1" border="0" alt="" /></td>'
-       . '            </tr></table>' . "\n"
-       . '        </td>' . "\n"
-       . '    </tr>' . "\n"
-       . '</table>';
-    } else {
-        echo '<br />';
-    }
+    echo PMA_getTabs( $tabs );
+    unset( $tabs );
 } else {
     $querydisplay_tab = 'full';
 }

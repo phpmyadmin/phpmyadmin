@@ -106,14 +106,6 @@ h3{
     font-size:        12px;
     font-weight:      bold;
 }
-a.nav:link, a.nav:visited, a.nav:active{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    color:            #000000;
-}
-a.nav:hover{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    color:            #cc0000;
-}
 a.h1:link, a.h1:active, a.h1:visited{
     font-family:      Verdana, Arial, Helvetica, sans-serif;
     font-size:        18px;
@@ -164,20 +156,6 @@ dfn:hover{
 td.topline{
     font-size:        1px;
 }
-td.tab{
-    border-top:       1px solid #999;
-    border-right:     1px solid #666;
-    border-left:      1px solid #999;
-    border-bottom:    none;
-    border-radius:    2px;
-    -moz-border-radius: 2px;
-}
-table.tabs      {
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: 1px solid #666;
-}
 
 fieldset {
     border:     #666699 solid 1px;
@@ -221,6 +199,80 @@ button.mult_submit {
     font-size:        11px;
     border:           1px dashed #000000;
 }
+
+
+/* topmenu */
+#topmenu {
+    font-weight: bold;
+}
+
+/* default tab styles */
+.tab, .tabcaution, .tabactive {
+    margin-right: 0.1em;
+    margin-left: 0.1em;
+}
+
+/* disbaled tabs */
+span.tab {
+    color: #666666;
+}
+
+/* disabled drop/empty tabs */
+span.tabcaution {
+    color: #ff6666;
+}
+
+/* enabled drop/empty tabs */
+a.tabcaution {
+    color: #FF0000;
+}
+a.tabcaution:hover {
+    color: #FFFFFF;
+    background-color: #FF0000;
+}
+
+<?php if ( $GLOBALS['cfg']['LightTabs'] ) { ?>
+/* active tab */
+a.tabactive {
+    border-bottom: 0.1em solid black;
+    color: black;
+}
+<?php } else { ?>
+#topmenu {
+    margin-top: 0.5em;
+    border-bottom: 0.1em solid black;
+    padding: 0.1em 0.3em 0.1em 0.3em;
+}
+
+/* default tab styles */
+.tab, .tabcaution, .tabactive {
+    background-color: #E5E5E5;
+    border: 0.1em solid silver;
+    border-bottom: 0.1em solid black;
+    border-radius-topleft: 0.5em;
+    border-radius-topright: 0.5em;
+    -moz-border-radius-topleft: 0.5em;
+    -moz-border-radius-topright: 0.5em;
+    padding: 0.1em 0.2em 0.1em 0.2em;
+}
+
+/* enabled hover/active tabs */
+a.tab:hover, a.tabcaution:hover, .tabactive {
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0.3em 0.3em 0.1em 0.3em;
+}
+a.tab:hover, .tabactive {
+    background-color: #CCCCCC;
+}
+
+/* disabled drop/empty tabs */
+span.tab, span.tabcaution {
+    cursor: url(themes/original/img/error.ico), default;
+}
+<?php } ?>
+/* end topmenu */
+
 
 /* Warning showing div with right border and optional icon */
 
@@ -410,71 +462,7 @@ hr{
     color: #666699; background-color: #6666cc; border: 0; height: 1px;
 }
 
-/* navigation */
-.nav{
-    font-family:         Verdana, Arial, Helvetica, sans-serif;
-    color:               #000000;
-    background-color:    #666699;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/darkblue_orange/img/tbl_header.png);
-    background-repeat:   repeat-x;
-    background-position: top;
-    <?php } ?>
-    height:              22px;
-}
 
-.navSpacer{
-    width:            1px;
-    height:           16px;
-    background-color: #ffffff;
-}
-.navNormal {
-    font-family:         Verdana, Arial, Helvetica, sans-serif;
-    font-size:           10px;
-    font-weight:         bold;
-    color:               #000000;
-    background-color:    #666699;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/darkblue_orange/img/tbl_header.png);
-    background-repeat:   repeat-x;
-    background-position: top;
-    <?php } ?>
-    height:              20px;
-    padding: 2px 5px 2px 5px;
-}
-.navDrop {
-    font-family:         Verdana, Arial, Helvetica, sans-serif;
-    font-size:           10px;
-    font-weight:         bold;
-    color:               #000000;
-    background-color:    #cc0000;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-    background-image:    url(../themes/darkblue_orange/img/tbl_error.png);
-    background-repeat:   repeat-x;
-    background-position: top;
-    <?php } ?>
-    height:              20px;
-    padding: 2px 5px 2px 5px;
-}
-.navActive {
-    font-family:         Verdana, Arial, Helvetica, sans-serif;
-    font-size:           10px;
-    font-weight:         bold;
-    color:               #000000;
-    /*background-color:    #FF9900;
-    background-image:    url(../themes/darkblue_orange/img/tbl_th.png);
-    background-repeat:   repeat-x;
-    background-position: top;*/
-    background-color:    #ffffff;
-    height:              16px;
-    padding: 2px 5px 2px 5px;
-}
-.navNormal a:link,.navNormal a:active,.navNormal a:hover,.navNormal a:visited,.navDrop a:link,.navDrop a:active,.navDrop a:visited,.navDrop a:hover {
-    color:               #FFFFFF;
-}
-.navActive a:link,.navActive a:active,.navActive a:visited,.navActive a:hover {
-    color:               #000000;
-}
 img, input, select, button {
     vertical-align: middle;
 }

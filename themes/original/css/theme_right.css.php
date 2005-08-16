@@ -29,9 +29,6 @@ h3              {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 a:link          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
 a:visited       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
 a:hover         {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: underline; color: #FF0000}
-a.nav:link      {font-family: <?php echo $right_font_family; ?>; color: #000000}
-a.nav:visited   {font-family: <?php echo $right_font_family; ?>; color: #000000}
-a.nav:hover     {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
 a.h1:link       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #000000}
 a.h1:active     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #000000}
 a.h1:visited    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #000000}
@@ -45,29 +42,10 @@ a.drop:visited  {font-family: <?php echo $right_font_family; ?>; color: #ff0000}
 a.drop:hover    {font-family: <?php echo $right_font_family; ?>; color: #ffffff; background-color:#ff0000; text-decoration: none}
 dfn             {font-style: normal}
 dfn:hover       {font-style: normal; cursor: help}
-.nav            {font-family: <?php echo $right_font_family; ?>; color: #000000}
 .warning        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
 .tblcomment     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_smallest; ?>; font-weight: normal; color: #000099; }
 td.topline      {font-size: 1px}
-td.tab          {
-    border-top: 1px solid #999;
-    border-right: 1px solid #666;
-    border-left: 1px solid #999;
-    border-bottom: none;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-}
 
-div.tabs        {
-    clear: both;
-}
-
-table.tabs      {
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: 1px solid #666;
-}
 
 fieldset        {
     border:     #686868 solid 1px;
@@ -128,61 +106,79 @@ button.mult_submit {
 
 hr{ color: #666666; background-color: #666666; border: 0; height: 1px; }
 
-/* new styles for navigation */
 
-.nav {
-    font-family: <?php echo $right_font_family; ?>;
-    color: #000000;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: 1px solid #666;
-}
-.navSpacer {
-    width:            5px;
-    height:           16px;
-}
-.navNormal, .navDrop, .navActive {
-    font-family:      <?php echo $right_font_family; ?>;
-    font-size:        <?php echo $font_size; ?>;
-    font-weight:      bold;
-    border-top: 1px solid #999;
-    border-right: 1px solid #666;
-    border-left: 1px solid #999;
-    border-bottom: none;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    padding: 2px 5px 2px 5px;
-}
-.navNormal {
-    color:            #000000;
-    background-color: #E5E5E5;
-}
-.navActive{
-    font-family:      <?php echo $right_font_family; ?>;
-    font-size:        <?php echo $font_size; ?>;
-    font-weight:      bold;
-    color:            #000000;
-    background-color: #CCCCCC;
-}
-.navDrop{
-    color: #000000;
-    background-color: #E5E5E5;
-}
-.navNormal a:link, .navNormal a:active, .navNormal a:visited, .navActive a:link, .navActive a:active, .navActive a:visited{
-    color: #0000FF;
+/* topmenu */
+#topmenu {
+    font-weight: bold;
 }
 
-.navDrop a:link, .navDrop a:active, .navDrop a:visited{
+/* default tab styles */
+.tab, .tabcaution, .tabactive {
+    margin-right: 0.1em;
+    margin-left: 0.1em;
+}
+
+/* disbaled tabs */
+span.tab {
+    color: #666666;
+}
+
+/* disabled drop/empty tabs */
+span.tabcaution {
+    color: #ff6666;
+}
+
+/* enabled drop/empty tabs */
+a.tabcaution {
     color: #FF0000;
 }
-.navDrop a:hover{
+a.tabcaution:hover {
     color: #FFFFFF;
     background-color: #FF0000;
 }
-.navNormal a:hover, .navActive a:hover{
-    color: #FF0000;
+
+<?php if ( $GLOBALS['cfg']['LightTabs'] ) { ?>
+/* active tab */
+a.tabactive {
+    border-bottom: 0.1em solid black;
+    color: black;
 }
+<?php } else { ?>
+#topmenu {
+    margin-top: 0.5em;
+    border-bottom: 0.1em solid black;
+    padding: 0.1em 0.3em 0.1em 0.3em;
+}
+
+/* default tab styles */
+.tab, .tabcaution, .tabactive {
+    background-color: #E5E5E5;
+    border: 0.1em solid silver;
+    border-bottom: 0.1em solid black;
+    border-radius-topleft: 0.5em;
+    border-radius-topright: 0.5em;
+    -moz-border-radius-topleft: 0.5em;
+    -moz-border-radius-topright: 0.5em;
+    padding: 0.1em 0.2em 0.1em 0.2em;
+}
+
+/* enabled hover/active tabs */
+a.tab:hover, a.tabcaution:hover, .tabactive {
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0.3em 0.3em 0.1em 0.3em;
+}
+a.tab:hover, .tabactive {
+    background-color: #CCCCCC;
+}
+
+/* disabled drop/empty tabs */
+span.tab, span.tabcaution {
+    cursor: url(themes/original/img/error.ico), default;
+}
+<?php } ?>
+/* end topmenu */
+
 
 /* Warning showing div with right border and optional icon */
 

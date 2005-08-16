@@ -2033,117 +2033,98 @@ if (typeof(document.getElementById) != 'undefined'
 
 
     /**
-     * Prints out a tab for tabbed navigation.
+     * returns a tab for tabbed navigation.
      * If the variables $link and $args ar left empty, an inactive tab is created
      *
-     * @param   string  the text to be displayed as link
-     * @param   string  main link file, e.g. "test.php"
-     * @param   string  link arguments
-     * @param   string  link attributes
-     * @param   string  include '?' even though no attributes are set. Can be set empty, should be '?'.
-     * @param   boolean force display TAB as active
+     * @param   array   $tab array with all options
      *
-     * @return  string  two table cells, the first beeing a separator, the second the tab itself
+     * @return  string  html code for one tab, a link if valid otherwise a span
      *
      * @access  public
      */
-/* replaced with a newer function
-   2004-05-20 by Michael Keck <mail_at_michaelkeck_dot_de>
-*/
-/*
-    function PMA_printTab($text, $link, $args = '', $attr = '', $class = '', $sep = '?', $active = false) {
-        global $PHP_SELF, $cfg;
-        global $db_details_links_count_tabs;
-
-        if (!empty($class)) {
-            $class = ' class="' . $class . '"';
-            $addclass = ' ' . $class;
-        } else {
-            $addclass = '';
+    function PMA_getTab( $tab )
+    {
+        // default values
+        $defaults = array(
+            'text'   => '',
+            'class'  => '',
+            'active' => false,
+            'link'   => '',
+            'sep'    => '?',
+            'attr'   => '',
+            'args'   => '',
+        );
+        
+        $tab = array_merge( $defaults, $tab );
+        
+        // determine aditional style-class
+        if ( empty( $tab['class'] ) ) {
+            if ($tab['text'] == $GLOBALS['strEmpty'] || $tab['text'] == $GLOBALS['strDrop']) {
+                $tab['class'] = 'caution';
+            }
+            elseif ( isset( $tab['active'] ) && $tab['active']
+                  || isset($GLOBALS['active_page']) && $GLOBALS['active_page'] == $tab['link'] 
+                  || basename($_SERVER['PHP_SELF']) == $tab['link'] )
+            {
+                $tab['class'] = 'active';
+            }
+        }
+        
+        // build the link
+        if ( ! empty( $tab['link'] ) ) {
+            $tab['link'] = htmlentities( $tab['link'] );
+            $tab['link'] = $tab['link'] . $tab['sep'] . ( empty( $GLOBALS['url_query'] ) ? PMA_generate_common_url() : $GLOBALS['url_query'] );
+            if ( ! empty( $tab['args'] ) ) {
+                foreach( $tab['args'] as $param => $value ) {
+                    $tab['link'] .= '&amp;' . urlencode( $param ) . '=' . urlencode( $value );
+                }
+            }
+        }
+        
+        // display icon, even if iconic is disabled but the link-text is missing
+        if ( ( $GLOBALS['cfg']['MainPageIconic'] || empty( $tab['text'] ) )
+            && isset( $tab['icon'] ) ) {
+            $image = '<img src="' . htmlentities( $GLOBALS['pmaThemeImage'] ) . '%1$s" width="16" height="16" border="0" alt="%2$s" />%2$s';
+            $tab['text'] = sprintf( $image, htmlentities( $tab['icon'] ), $tab['text'] );
+        }
+        // check to not display an empty link-text
+        elseif ( empty( $tab['text'] ) ) {
+            $tab['text'] = '?';
+            trigger_error( __FILE__ . '(' . __LINE__ . '): ' . 'empty linktext in function ' . __FUNCTION__ . '()', E_USER_NOTICE );
         }
 
-        if (((!isset($GLOBALS['active_page']) && basename($PHP_SELF) == $link) ||
-                $active ||
-                (isset($GLOBALS['active_page']) && $GLOBALS['active_page'] == $link)
-            ) && ($text != $GLOBALS['strEmpty'] && $text != $GLOBALS['strDrop'])) {
-            $addclass .= ' activetab';
-        }
-
-        $db_details_links_count_tabs++;
-
-        if ($cfg['LightTabs']) {
-            $out = '';
-            if (strlen($link) > 0) {
-                $out .= '<a class="tab" href="' . $link . $sep . $args . '"' . $attr . $class . '>'
-                     .  '' . $text . '</a>';
-            } else {
-                $out .= '<span class="tab">' . $text . '</span>';
-            }
-            $out = '[ ' . $out . ' ]&nbsp;&nbsp;&nbsp;';
+        if ( ! empty( $tab['link'] ) ) {
+            $out = '<a class="tab' . htmlentities( $tab['class'] ) . '" href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
+                 . $tab['text'] . '</a>';
         } else {
-            $out     = "\n" . '        '
-                     . '<td class="tab nowrap' . $addclass . '">'
-                     . "\n" . '            ';
-            if (strlen($link) > 0) {
-                $out .= '<a href="' . $link . $sep . $args . '"' . $attr .  $class . '>'
-                     .  $text . '</a>';
-            } else {
-                $out .= $text;
-            }
-            $out     .= "\n" . '        '
-                     .  '</td>'
-                     .  "\n" . '        '
-                     .  '<td width="8">&nbsp;</td>';
+            $out = '<span class="tab' . htmlentities( $tab['class'] ) . '">' . $tab['text'] . '</span>';
         }
 
         return $out;
     } // end of the 'PMA_printTab()' function
-*/
-// the new one:
-    function PMA_printTab($text, $link, $args = '', $attr = '', $class = '', $sep = '?', $active = false) {
-        global $PHP_SELF, $cfg;
-        global $db_details_links_count_tabs;
-        $addclass = '';
-        if (((!isset($GLOBALS['active_page']) && basename($PHP_SELF) == $link) ||
-                $active ||
-                (isset($GLOBALS['active_page']) && $GLOBALS['active_page'] == $link)
-            ) && ($text != $GLOBALS['strEmpty'] && $text != $GLOBALS['strDrop'])) {
-            $addclass = 'Active';
+    
+    /**
+     * returns html-code for a tab navigation
+     *
+     * @param   array   $tabs one element per tab
+     * @param   string  $tag_id id used for the html-tag
+     * @return  string  html-code for tab-navigation
+     */ 
+    function PMA_getTabs( $tabs, $tag_id = 'topmenu' )
+    {
+        $tab_navigation = '<!-- top menu -->' . "\n";
+        $tab_navigation .= '<div id="' . htmlentities( $tag_id ) . '">' . "\n";
+        
+        foreach ( $tabs as $tab )
+        {
+            $tab_navigation .= PMA_getTab( $tab ) . "\n";
         }
-        if ($text == $GLOBALS['strEmpty'] && $text == $GLOBALS['strDrop']) $addclass = 'Drop';
-        if (empty($class)){
-            if (empty($addclass)) { $addclass = 'Normal'; }
-        } else { $addclass = $class; }
-
-        $db_details_links_count_tabs++;
-
-        if ($cfg['LightTabs']) {
-            $out = '';
-            if (!empty($link)) {
-                $out .= '<a class="tab" href="' . $link . $sep . $args . '"' . $attr . $class . '>'
-                     .  '' . $text . '</a>';
-            } else {
-                $out .= '<span class="tab">' . $text . '</span>';
-            }
-            $out = '[ ' . $out . ' ]&nbsp;&nbsp;&nbsp;';
-        } else {
-            $out     = "\n" . '        '
-                     . '<td class="nav' . $addclass . '" nowrap="nowrap">'
-                     . "\n" . '            ';
-            if (!empty($link)) {
-                $out .= '<a href="' . $link . $sep . $args . '"' . $attr . '>'
-                     .  $text . '</a>';
-            } else {
-                $out .= $text;
-            }
-            $out     .= "\n" . '        '
-                     .  '</td>'
-                     .  "\n" . '        '
-                     .  '<td class="navSpacer"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td>';
-        }
-
-        return $out;
-    } // end of the 'PMA_printTab()' function
+        
+        $tab_navigation .= '</div>' . "\n";
+        $tab_navigation .= '<!-- end top menu -->' . "\n\n";
+        
+        return $tab_navigation;
+    }
 
 
     /**
