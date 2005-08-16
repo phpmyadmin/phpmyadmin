@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-08-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * css/phpmyadmin.css.php, db_details_links.php, querywindow.php,
+      server_links.inc.php, tbl_properties_links.php, libraries/common.lib.php
+      themes/*/css/theme_right.css.php, themes/original/img/error.ico:
+      patch #1252031, CSS for navigation tabs, thanks to Sebastian Mendel
+
 2005-08-15 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1259951, invalid argument for foreach()
 
