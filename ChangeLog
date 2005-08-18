@@ -17,6 +17,7 @@ $Source$
     * lang/catalan update, thanks to Xavier Navarro (xavin).
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza)
     * lang/norwegian: Update, thanks to Sven-Erik Andersen
+    * lang/azerbaijani: update, thanks to Shehriyar Imanov (sheki).
 
 2005-08-16 Marc Delisle  <lem9@users.sourceforge.net>
     * css/phpmyadmin.css.php, db_details_links.php, querywindow.php,
