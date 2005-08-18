@@ -5,6 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-08-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/indonesian: Update thanks to Rachim Tamsjadi - tamsy.
+    * lang/galician: Updates, thanks to Xosé Calvo.
+    * lang/brazilian-portuguese: update, thanks to Airon Luis Pereira
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
+    * lang/bulgarian:  Updated, thanks to Stanislav Yordanov (stanprog).
+    * lang/estonian: Update thanks to Alvar Soome - finsoft.
+    * lang/slovak: update, thanks to Ivan Kuriscak - shylauda69
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/catalan update, thanks to Xavier Navarro (xavin).
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza)
+    * lang/norwegian: Update, thanks to Sven-Erik Andersen
+
 2005-08-16 Marc Delisle  <lem9@users.sourceforge.net>
     * css/phpmyadmin.css.php, db_details_links.php, querywindow.php,
       server_links.inc.php, tbl_properties_links.php, libraries/common.lib.php
