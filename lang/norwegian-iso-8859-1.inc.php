@@ -58,6 +58,7 @@ $strAlterOrderBy = 'Endre tabellrekkefølge ved';
 $strAnIndex = 'En indeks har blitt lagt til %s';
 $strAnalyzeTable = 'Analyser tabell';
 $strAnd = 'og';
+$strAndThen = 'og så';
 $strAny = 'Alle';
 $strAnyHost = 'Alle verter';
 $strAnyUser = 'Alle brukere';
@@ -357,6 +358,10 @@ $strInsertedRows = 'Innsatte rader:';
 $strInstructions = 'Instruksjoner';
 $strInternalNotNecessary = '* En intern relasjon er ikke nødvendig når den også eksisterer i InnoDB.';
 $strInternalRelations = 'Interne relasjoner';
+$strInvalidColumnCount = 'Antall kolonner må være større enn null.';
+$strInvalidFieldAddCount = 'Du må sette inn minst ett felt.';
+$strInvalidFieldCount = 'Tabellen må ha minst ett felt.';
+$strInvalidRowNumber = '%d er ikke et gyldig radnummer.';
 
 $strJapanese = 'japansk';
 $strJumpToDB = 'Hopp til databasen &quot;%s&quot;.';
@@ -741,6 +746,7 @@ $strTraditionalChinese = 'Tradisjonell kinesisk';
 $strTraditionalSpanish = 'Tradisjonell spansk';
 $strTraffic = 'Trafikk';
 $strTransformation_application_octetstream__download = 'Vis en link for å kunne laste ned de binære dataene til et felt. Den første opsjonen er filnavnet til den binære fila. Den andre opsjonen er et potensielt feltnavn i en tabell som inneholder filnavnet. Hvis du velger den andre opsjonen så må den første være satt til en tom strengverdi';
+$strTransformation_application_octetstream__hex = 'Vis dataene i heksadesimal.';
 $strTransformation_image_jpeg__inline = 'Viser et klikkbart tommelfingerbilde; valg: bredde, høyde i piksler (bevarer originale forhold)';
 $strTransformation_image_jpeg__link = 'Viser en link til dette bildet (m.a.o. direkte blob-nedlasting).';
 $strTransformation_image_png__inline = 'Se image/jpeg: inline';
@@ -810,10 +816,4 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrensningen.';
 $strZip = 'Komprimert (zip)';
-$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
-$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
-$strInvalidRowNumber = '%d is not valid row number.';  //to translate
-$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
-$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
-$strAndThen = 'and then';  //to translate
 ?>
