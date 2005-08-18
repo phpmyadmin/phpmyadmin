@@ -1,6 +1,6 @@
 <?php
-/*  $Id$  */
-/* Dansk oversætter AlleyKat kan kontaktes på < phpmyadmin (at) phpbb2.dk > */
+/* $Id$ */
+/* Dansk v 2.92 18/8-2005 00:00:00 - oversætter AlleyKat kan kontaktes på < phpmyadmin (at) phpbb2.dk > */
 
 $charset = 'utf-8';
 $allow_recoding = TRUE;
@@ -56,6 +56,7 @@ $strAlterOrderBy = 'Arranger rækkeorden efter';
 $strAnIndex = 'Der er tilføjet et indeks til %s';
 $strAnalyzeTable = 'Analyser tabel';
 $strAnd = 'Og';
+$strAndThen = "og så";
 $strAny = 'Enhver';
 $strAnyHost = 'Enhver vært';
 $strAnyUser = 'Enhver bruger';
@@ -355,6 +356,10 @@ $strInsertedRows = 'Indsatte rækker:';
 $strInstructions = 'Instruktioner';
 $strInternalNotNecessary = '* En intern relation er ikke nødvendig når den også eksisterer i InnoDB.';
 $strInternalRelations = 'Interne relationer';
+$strInvalidColumnCount = 'Kolonnetælling skal være større end nul.';
+$strInvalidFieldAddCount = 'Du skal tilføje mindst ét felt.';
+$strInvalidFieldCount = 'Tabellen skal indeholde mindst ét felt.';
+$strInvalidRowNumber = '%d er ikke gyldigt rækkenummer.';
 
 $strJapanese = 'Japansk';
 $strJumpToDB = 'Hop til database &quot;%s&quot;.';
@@ -810,9 +815,4 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen.';
 $strZip = '"zippet"';
 
-$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
-$strInvalidRowNumber = '%d is not valid row number.';  //to translate
-$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
-$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
-$strAndThen = 'and then';  //to translate
 ?>
