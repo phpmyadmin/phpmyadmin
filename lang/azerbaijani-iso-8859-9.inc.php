@@ -5,7 +5,6 @@
 // Þehriyar Ýmanov 30 Avqust 2003... Shehi
 
 $charset = 'iso-8859-9';
-$allow_recoding = FALSE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
@@ -198,6 +197,7 @@ $strEndCut = 'END CUT';
 $strEndRaw = 'END RAW';
 $strEnd = 'Son';
 $strEngineDisabled = '%s motoru bu serverde söndürülmüþdür.';
+$strEngines = 'Motorlar';
 $strEngineUnsupported = 'Bu MySQL server %s depolama motorunu desteklememektedir.';
 $strEnglishPrivileges = ' Qeyd: MySQL selahiyyet adlarý ingilis dilinde ifade edilmiþdir ';
 $strEnglish = 'Ýngilis Dili';
@@ -715,7 +715,6 @@ $strDisableForeignChecks = 'Disable foreign key checks';  //to translate
 
 $strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 $strEngineAvailable = '%s bu MySQL serverde quruludur.';  //to translate
-$strEngines = 'Motorlar';  //to translate
 $strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
 $strExecuteBookmarked = 'Execute bookmarked query';  //to translate
 
