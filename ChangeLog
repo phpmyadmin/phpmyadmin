@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-08-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/chinese_traditional: Updates, thanks to Siu Sun.
+
 2005-08-18 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/indonesian: Update thanks to Rachim Tamsjadi - tamsy.
     * lang/galician: Updates, thanks to Xosé Calvo.
