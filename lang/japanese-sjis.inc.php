@@ -18,7 +18,7 @@ $byteUnits = array('バイト', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
 $day_of_week = array('日', '月', '火', '水', '木', '金', '土');
 $month = array('1 月','2 月','3 月','4 月','5 月','6 月','7 月','8 月','9 月','10 月','11 月','12 月');
-// See http://www.php.net/manual/en/function.strftime.php to define the
+// See http://www.php.net/manual/ja/function.strftime.php to define the
 // variable below
 $datefmt = '%Y 年 %B %d 日 %H:%M';
 $timespanfmt = '%s 日 %s 時間 %s 分 %s 秒';
@@ -822,14 +822,14 @@ $strLatchedPages = 'Latched pages';  //to translate
 
 $strMIME_nodescription = 'この変換には有効な説明がありません。<br />Please ask the author, what %s does.';//to translate
 $strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';//to translate
-$strMyISAMDataPointerSizeDesc = 'CREATE TABLE で MyISAMテーブルに使用する MAX_ROWS オプションが指定されない場合のバイト指定のデフォルトポインターサイズです。';  //to translate
+$strMyISAMDataPointerSizeDesc = 'CREATE TABLE で MyISAMテーブルに使用する MAX_ROWS オプションが指定されない場合のバイト指定のデフォルトポインターサイズです。';
 $strMyISAMMaxExtraSortFileSizeDesc = 'If the temporary file used for fast MyISAM index creation would be larger than using the key cache by the amount specified here, prefer the key cache method.';  //to translate
 
-$strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
+$strTransformation_application_octetstream__hex = 'データの 16 進数表示です。';
 
-$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
-$strInvalidRowNumber = '%d is not valid row number.';  //to translate
-$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
-$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
+$strInvalidFieldCount = 'テーブルは少なくともひとつのフィールドが必要です。';
+$strInvalidRowNumber = '%d は正しくない行番号です。';
+$strInvalidColumnCount = 'カラム数は 0 より大きくなければいけません。';
+$strInvalidFieldAddCount = '少なくともひとつのフィールドを追加しなければなりません。';
 $strAndThen = 'and then';  //to translate
 ?>
