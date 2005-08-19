@@ -57,6 +57,7 @@ $strAfterInsertSame = '返回這頁';
 $strAll = '全部';
 $strAllTableSameWidth = '以相同寬度顯示所有資料表?';
 $strAlterOrderBy = '根據欄位內容排序記錄';
+$strAndThen = '然後';
 $strAnIndex = '索引已經新增到 %s';
 $strAnalyzeTable = '分析資料表';
 $strAnd = '與';
@@ -359,6 +360,10 @@ $strInsertedRows = '新增列數:';
 $strInstructions = '指令';
 $strInternalNotNecessary = '* 當內部關聯在 InnoDB 已存在時是無需要的.';
 $strInternalRelations = '內部關聯';
+$strInvalidColumnCount = '欄位數目需要大於零.';
+$strInvalidFieldAddCount = '你最少要加入一個欄位.';
+$strInvalidFieldCount = '資料表最少需要有一個欄位.';
+$strInvalidRowNumber = '%d 不是一個有效的列數數目.';
 
 $strJapanese = '日語';
 $strJumpToDB = '跳到資料庫 &quot;%s&quot;.';
@@ -813,9 +818,4 @@ $strYes = ' 是 ';
 $strZeroRemovesTheLimit = '註: 設定這些選項為 0 (零) 可解除限制.';
 $strZip = '"zipped"';
 
-$strInvalidFieldCount = 'Table must have at least one field.';  //to translate
-$strInvalidRowNumber = '%d is not valid row number.';  //to translate
-$strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
-$strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
-$strAndThen = 'and then';  //to translate
 ?>
