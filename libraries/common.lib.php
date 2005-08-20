@@ -96,37 +96,17 @@ if ($result === FALSE || (!isset($cfgServers) && !isset($cfg['Servers']))) {
                     'AllowAnywhereRecoding' => FALSE);
     // Loads the language file
     require_once('./libraries/select_lang.lib.php');
-    // Sends the Content-Type header
-    header('Content-Type: text/html; charset=' . $charset);
     // Displays the error message
-    ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
-
-<head>
-<title>phpMyAdmin</title>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
-
-<style type="text/css">
-<!--
-body  {font-family: sans-serif; font-size: small; color: #000000; background-color: #F5F5F5}
-h1    {font-family: sans-serif; font-size: large; font-weight: bold}
-//-->
-</style>
-</head>
-
-
-<body bgcolor="#ffffff">
-<h1>phpMyAdmin - <?php echo $strError; ?></h1>
-<p>
-<?php echo $strConfigFileError; ?><br /><br />
-<a href="<?php echo $cfgfile_to_load; ?>" target="_blank"><?php echo $cfgfile_to_load; ?></a>
-</p>
-</body>
-
-</html>
-    <?php
+    // (do not use &amp; for parameters sent by header)
+    header( 'Location: error.php'
+            . '?lang='  . urlencode( $available_languages[$lang][2] )
+            . '&char='  . urlencode( $charset )
+            . '&dir='   . urlencode( $text_dir )
+            . '&type='  . urlencode( $strError )
+            . '&error=' . urlencode( $strConfigFileError . '<br /><br />'
+                                    . '<a href="' . $cfgfile_to_load . '" '
+                                    . 'target="_blank">' . $cfgfile_to_load . '</a>' )
+             );
     exit();
 }
 error_reporting($old_error_reporting);
@@ -1074,35 +1054,14 @@ if ($is_minimum_common == FALSE) {
             } else if (!empty($_SERVER['SERVER_NAME'])) {
                 $url['host'] = $_SERVER['SERVER_NAME'];
             } else {
-                header('Content-Type: text/html; charset=' . $charset);
                 // Displays the error message
-                ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
-
-<head>
-<title>phpMyAdmin</title>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
-
-<style type="text/css">
-<!--
-body  {font-family: sans-serif; font-size: small; color: #000000; background-color: #F5F5F5}
-h1    {font-family: sans-serif; font-size: large; font-weight: bold}
-//-->
-</style>
-</head>
-
-
-<body bgcolor="#ffffff">
-<h1>phpMyAdmin - <?php echo $strError; ?></h1>
-<p>
-<?php echo $strPmaUriError; ?><br /><br />
-</p>
-</body>
-
-</html>
-                <?php
+                header( 'Location: error.php'
+                        . '?lang='  . urlencode( $available_languages[$lang][2] )
+                        . '&char='  . urlencode( $charset )
+                        . '&dir='   . urlencode( $text_dir )
+                        . '&type='  . urlencode( $strError )
+                        . '&error=' . urlencode( $strPmaUriError )
+                         );
                 exit();
             }
 
