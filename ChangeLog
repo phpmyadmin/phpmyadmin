@@ -9,6 +9,8 @@ $Source$
     * libraries/common.lib.php, new error.php: patch #1258978, move common
       code for error pages out of common.lib.php, thanks to Sebastian Mendel
     * lang/german*: bug #1258956, typo
+    * libraries/defines.lib.php, themes/original/info.inc.php, 
+      themes/darkblue_orange/info.inc.php: PMA 2.6.4 needs theme version 3
 
 2005-08-19 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/chinese_traditional: Updates, thanks to Siu Sun.
