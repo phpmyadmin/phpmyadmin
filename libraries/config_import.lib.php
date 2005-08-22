@@ -1145,6 +1145,9 @@ if (!isset($cfg['Export']['compression'])) {
 if (!isset($cfg['Export']['asfile'])) {
     $cfg['Export']['asfile'] = FALSE;
 }
+if (!isset($cfg['Export']['charset'])) {
+    $cfg['Export']['charset'] = '';
+}
 if (!isset($cfg['Export']['onserver'])) {
     $cfg['Export']['onserver'] = FALSE;
 }

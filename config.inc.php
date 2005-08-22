@@ -330,6 +330,7 @@ $cfg['Export']['format']                    = 'sql';  // sql/latex/excel/csv/xml
 $cfg['Export']['compression']               = 'none'; // none/zip/gzip/bzip2
 
 $cfg['Export']['asfile']                    = FALSE;
+$cfg['Export']['charset']                   = '';
 $cfg['Export']['onserver']                  = FALSE;
 $cfg['Export']['onserver_overwrite']        = FALSE;
 $cfg['Export']['remember_file_template']    = TRUE;

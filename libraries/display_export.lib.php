@@ -687,19 +687,14 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                     echo "\n";
 
                     $temp_charset = reset($cfg['AvailableCharsets']);
-                    echo '<select id="select_charset_of_file" name="charset_of_file" size="1">' . "\n"
-                            . '                <option value="' . $temp_charset . '"';
-                    if ($temp_charset == $charset) {
-                        echo ' selected="selected"';
-                    }
-                    echo '>' . $temp_charset . '</option>' . "\n";
-                    while ($temp_charset = next($cfg['AvailableCharsets'])) {
+                    echo '<select id="select_charset_of_file" name="charset_of_file" size="1">' . "\n";
+                    foreach($cfg['AvailableCharsets'] as $key => $temp_charset) {
                         echo '                <option value="' . $temp_charset . '"';
-                        if ($temp_charset == $charset) {
+                        if ((empty($cfg['Export']['charset']) && $temp_charset == $charset) || $temp_charset == $cfg['Export']['charset']) {
                             echo ' selected="selected"';
                         }
                         echo '>' . $temp_charset . '</option>' . "\n";
-                    } // end while
+                    } // end foreach
                     echo '            </select>';
                 } // end if
                 echo "\n";
