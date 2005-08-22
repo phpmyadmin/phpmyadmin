@@ -103,9 +103,7 @@ if ($result === FALSE || (!isset($cfgServers) && !isset($cfg['Servers']))) {
             . '&char='  . urlencode( $charset )
             . '&dir='   . urlencode( $text_dir )
             . '&type='  . urlencode( $strError )
-            . '&error=' . urlencode( $strConfigFileError . '<br /><br />'
-                                    . '<a href="' . $cfgfile_to_load . '" '
-                                    . 'target="_blank">' . $cfgfile_to_load . '</a>' )
+            . '&error=' . urlencode( strtr($strConfigFileError, array('<br />' => '[br]')) . '[br][br]' . '[a@' . $cfgfile_to_load . '@_blank]' . $cfgfile_to_load . '[/a]' )
              );
     exit();
 }
@@ -140,30 +138,8 @@ require_once('./libraries/select_lang.lib.php');
  */
 require_once('./libraries/defines.lib.php');
 
-
-/**
- * Sanitizes $message, taking into account our special codes
- * for formatting
- *
- * @param   string   the message
- *
- * @return  string   the sanitized message
- *
- * @access  public
- */
-function PMA_sanitize($message)
-{
-    $replace_pairs = array(
-        '<'     => '&lt;',
-        '>'     => '&gt;',
-        '[i]'   => '<i>',
-        '[/i]'  => '</i>',
-        '[b]'   => '<b>',
-        '[br]'  => '<br />',
-        '[/b]'  => '</b>',
-    );
-    return strtr($message, $replace_pairs);
-}
+/* Input sanitizing */
+require_once('./libraries/sanitizing.lib.php');
 
 // XSS
 if (isset($convcharset)) {
@@ -1060,7 +1036,7 @@ if ($is_minimum_common == FALSE) {
                         . '&char='  . urlencode( $charset )
                         . '&dir='   . urlencode( $text_dir )
                         . '&type='  . urlencode( $strError )
-                        . '&error=' . urlencode( $strPmaUriError )
+                        . '&error=' . urlencode( strtr($strPmaUriError, array('<tt>' => '[tt]', '</tt>' => '[/tt]')))
                          );
                 exit();
             }

@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-08-22 Michal Čihař  <michal@cihar.com>
+    * error.php, libraries/common.lib.php, libraries/sanitizing.lib.php:
+      Protect against possible XSS (bug #1265740), move input sanitizing to
+      special file.
+
 2005-08-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, new error.php: patch #1258978, move common
       code for error pages out of common.lib.php, thanks to Sebastian Mendel

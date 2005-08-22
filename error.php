@@ -7,18 +7,23 @@
  * phpMyAdmin fatal error display page
  * 
  */
-$lang = isset( $_REQUEST['lang'] ) ? $_REQUEST['lang'] : 'en';
-$dir  = isset( $_REQUEST['dir']  ) ? $_REQUEST['dir']  : 'ltr';
-$char = isset( $_REQUEST['char'] ) ? $_REQUEST['char'] : 'utf-8';
-$type = isset( $_REQUEST['type'] ) ? $_REQUEST['type'] : 'error';
 
-header('Content-Type: text/html; charset=' . $char);
+/* Input sanitizing */
+require_once('./libraries/sanitizing.lib.php');
+
+/* Get variables */
+$lang    = isset( $_REQUEST['lang'] ) ?     htmlspecialchars($_REQUEST['lang'])     : 'en';
+$dir     = isset( $_REQUEST['dir']  ) ?     htmlspecialchars($_REQUEST['dir'])      : 'ltr';
+$charset = isset( $_REQUEST['charset'] ) ?  htmlspecialchars($_REQUEST['charset'])  : 'utf-8';
+$type    = isset( $_REQUEST['type'] ) ?     htmlspecialchars($_REQUEST['type'])     : 'error';
+
+header('Content-Type: text/html; charset=' . $charset);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang; ?>" dir="<?php echo $dir; ?>">
 <head>
     <title>phpMyAdmin</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $char; ?>" />
+    <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
     <style type="text/css">
     <!--
     html {
@@ -52,10 +57,10 @@ header('Content-Type: text/html; charset=' . $char);
 <body>
 <h1>phpMyAdmin - <?php echo $type; ?></h1>
 <p><?php
-if (get_magic_quotes_gpc()) {
-    echo stripslashes($_REQUEST['error']); }
-else {
-    echo $_REQUEST['error'];
-}?></p>
+if (get_magic_quotes_gpc())
+    echo PMA_sanitize(stripslashes($_REQUEST['error']));
+else 
+    echo PMA_sanitize($_REQUEST['error']);
+?></p>
 </body>
 </html>
