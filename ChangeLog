@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-08-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php: bug #1267177, wrong return page
+
 2005-08-23 Michal Čihař  <michal@cihar.com>
     * libraries/database_interface.lib.php: Abide cfg['Lang'] settings even if
       using MySQL > 4.1.x (bug #1266626).

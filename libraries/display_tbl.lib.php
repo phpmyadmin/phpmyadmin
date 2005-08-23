@@ -1095,10 +1095,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
             // 1.2.1 Modify link(s)
             if ($is_display['edit_lnk'] == 'ur') { // update row case
-                $lnk_goto = 'sql.php'
-                          . '?' . str_replace('&amp;', '&', $url_query)
-                          . '&sql_query=' . urlencode($sql_query)
-                          . '&goto=' . (empty($goto) ? 'tbl_properties.php' : $goto);
+                $lnk_goto = 'sql.php';
 
                 $edit_url = 'tbl_change.php'
                           . '?' . $url_query
