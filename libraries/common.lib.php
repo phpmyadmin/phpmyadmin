@@ -998,10 +998,9 @@ if ($is_minimum_common == FALSE) {
      * set properly and, depending on browsers, inserting or updating a
      * record might fail
      */
-    $display_pmaAbsoluteUri_warning = 0;
 
     // Setup a default value to let the people and lazy syadmins work anyway,
-    // but display a big warning on the main.php page.
+    // they'll get an error if the autodetect code doesn't work
     if (empty($cfg['PmaAbsoluteUri'])) {
 
         $url = array();
@@ -1080,15 +1079,11 @@ if ($is_minimum_common == FALSE) {
 
         unset($url);
 
-        // We display the warning by default, but not if it is disabled thru
-        // via the $cfg['PmaAbsoluteUri_DisableWarning'] variable.
-        // This is intended for sysadmins that actually want the default
-        // behaviour of auto-detection due to their setup.
-        // See the mailing list message:
-        // http://sourceforge.net/mailarchive/forum.php?thread_id=859093&forum_id=2141
-        if ($cfg['PmaAbsoluteUri_DisableWarning'] == FALSE) {
-            $display_pmaAbsoluteUri_warning = 1;
-        }
+        // We used to display a warning if PmaAbsoluteUri wasn't set, but now
+        // the autodetect code works well enough that we don't display the
+        // warning at all. The user can still set PmaAbsoluteUri manually.
+        // See https://sourceforge.net/tracker/index.php?func=detail&aid=1257134&group_id=23067&atid=377411
+        
     } else {
         // The URI is specified, however users do often specify this
         // wrongly, so we try to fix this.

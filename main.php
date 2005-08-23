@@ -590,12 +590,9 @@ echo "\n";
 
 <?php
 /**
- * Displays the "empty $cfg['PmaAbsoluteUri'] warning"
- * modified: 2004-05-05 mkkeck
+ * Removed the "empty $cfg['PmaAbsoluteUri']" warning on 2005-08-23
+ * See https://sourceforge.net/tracker/index.php?func=detail&aid=1257134&group_id=23067&atid=377411
  */
-if ($display_pmaAbsoluteUri_warning) {
-    echo '<div class="warning">' . $strPmaUriError . '</div>' . "\n";
-}
 
 /**
  * Warning if using the default MySQL privileged account

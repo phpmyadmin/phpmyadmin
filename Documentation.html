@@ -397,23 +397,15 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <br /><br />
         Starting with version 2.3.0, it is advisable to try leaving this 
         blank. In most cases phpMyAdmin automatically detects the proper 
-        setting. Additional details are in the configuration file. If you 
-        leave it blank, see the notes for 
-        <tt>$cfg['PmaAbsoluteUri_DisableWarning']</tt>; you probably want 
-        to change that to <tt>TRUE</tt>.
+        setting. Additional details are in the configuration file.
         <br /><br />
         Don't forget the slash at the end of your URL. The URL must contain
         characters that are valid for a URL, and on some servers, the path
         is case-sensitive.
         <br /><br />
-    </dd>
-    <dt><b>$cfg['PmaAbsoluteUri_DisableWarning']</b> boolean</dt>
-    <dd>
-    By default, when you leave $cfg['PmaAbsoluteUri'] empty, and the system
-    detects your absolute URI automatically, we display a warning to remind
-    you. If you have tested the automatic detection, and it works perfectly
-    for your setup, then you can set this variable to squelch the warning.
-        <br /><br />
+        If you get an error that this must be set or if the autodetect code
+        fails to detect your path, please post a bug report on our
+        bug tracker so we can improve the code.
     </dd>
 
     <dt><b>$cfg['PmaNoRelation_DisableWarning']</b> boolean</dt>

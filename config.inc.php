@@ -19,7 +19,7 @@ if (!isset($old_error_reporting)) {
 
 
 /**
- * Your phpMyAdmin url
+ * Your phpMyAdmin URL.
  *
  * Complete the variable below with the full url ie
  *    http://www.your_web.net/path_to_your_phpMyAdmin_directory/
@@ -32,19 +32,8 @@ if (!isset($old_error_reporting)) {
  * test to see that the auto-detection code works in your system. A good
  * test is to browse a table, then edit a row and save it.  There will be
  * an error message if phpMyAdmin cannot auto-detect the correct value.
- *
- * If the auto-detection code does work properly, you can set to TRUE the
- * $cfg['PmaAbsoluteUri_DisableWarning'] variable below.
  */
 $cfg['PmaAbsoluteUri'] = '';
-
-
-/**
- * Disable the default warning about $cfg['PmaAbsoluteUri'] not being set
- * You should use this if and ONLY if the PmaAbsoluteUri auto-detection
- * works perfectly.
- */
-$cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
 
 /**
  * Disable the default warning that is displayed on the DB Details Structure page if
