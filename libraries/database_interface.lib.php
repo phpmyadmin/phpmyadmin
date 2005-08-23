@@ -156,8 +156,8 @@ function PMA_DBI_postConnect($link, $is_controluser = FALSE) {
     if (PMA_MYSQL_INT_VERSION >= 40100) {
 
         // If $lang is defined and we are on MySQL >= 4.1.x,
-        // we auto-switch the lang to its UTF-8 version (if it exists)
-        if (!empty($GLOBALS['lang']) && (substr($GLOBALS['lang'], -5) != 'utf-8')) {
+        // we auto-switch the lang to its UTF-8 version (if it exists and user didn't force language)
+        if (!empty($GLOBALS['lang']) && (substr($GLOBALS['lang'], -5) != 'utf-8') && !isset($GLOBALS['cfg']['Lang'])) {
             $lang_utf_8_version = substr($GLOBALS['lang'], 0, strpos($GLOBALS['lang'], '-')) . '-utf-8';
             if (!empty($GLOBALS['available_languages'][$lang_utf_8_version])) {
                 $GLOBALS['lang'] = $lang_utf_8_version;

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-08-23 Michal Čihař  <michal@cihar.com>
+    * libraries/database_interface.lib.php: Abide cfg['Lang'] settings even if
+      using MySQL > 4.1.x (bug #1266626).
+
 2005-08-22 Michal Čihař  <michal@cihar.com>
     * error.php, libraries/common.lib.php, libraries/sanitizing.lib.php:
       Protect against possible XSS (bug #1265740), move input sanitizing to
