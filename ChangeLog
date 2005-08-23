@@ -8,6 +8,8 @@ $Source$
 2005-08-23 Michal Čihař  <michal@cihar.com>
     * libraries/database_interface.lib.php: Abide cfg['Lang'] settings even if
       using MySQL > 4.1.x (bug #1266626).
+    * libraries/display_tbl.lib.php: Do not get TABLES as table name, it's
+      used on some queries by MySQL 5.0.x (bug #1266623).
 
 2005-08-22 Michal Čihař  <michal@cihar.com>
     * error.php, libraries/common.lib.php, libraries/sanitizing.lib.php:

@@ -1778,7 +1778,14 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     // 2.3 Displays the navigation bars
     if (!isset($table) || strlen(trim($table)) == 0) {
-        $table = $fields_meta[0]->table;
+        /* TABLES is returned as table name for queries like SHOW TABLE
+         * STATUS FROM phpmyadmin on MySQL 5.0.x, see bug #1266623 for
+         * more details.  --Nijel */
+        if ($fields_meta[0]->table == 'TABLES') {
+            $table = '';
+        } else {
+            $table = $fields_meta[0]->table;
+        }
     }
     if ($is_display['nav_bar'] == '1') {
         PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_sql_query);
