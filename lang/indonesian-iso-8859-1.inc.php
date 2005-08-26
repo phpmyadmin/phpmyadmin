@@ -52,6 +52,7 @@ $strAllTableSameWidth = 'Tampilkan seluruh tabel dengan lebar yang sama?';
 $strAlterOrderBy = 'Urutkan tabel berdasarkan';
 $strAnalyzeTable = 'Analisa tabel';
 $strAnd = 'dan';
+$strAndThen = 'selanjutnya';
 $strAnIndex = 'Indeks telah ditambahkan pada %s';
 $strAnyHost = 'Setiap host';
 $strAny = 'Setiap';
@@ -811,8 +812,5 @@ $strYes = 'Ya';
 
 $strZeroRemovesTheLimit = 'Perhatian: Perubahan pilihan ini ke posisi 0 (zero) akan menghapus batas yang telah ditentukan.';
 $strZip = 'Dikompress dengan Zip';
-
-// To translate:
-$strAndThen = 'and then';  //to translate
 
 ?>
