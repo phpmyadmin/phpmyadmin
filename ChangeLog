@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-08-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/indonesian: update thanks to Rachim Tamsjadi - tamsy
+    * lang/polish: update thanks to Jakub Wilk - ubanus
+
 2005-08-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1267177, wrong return page
     * main.php, libraries/common.lib.php, Documentation.html,
