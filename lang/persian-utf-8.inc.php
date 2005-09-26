@@ -993,4 +993,5 @@ $strLDI = 'CSV using LOAD DATA';  //to translate
 $strLDILocal = 'Use LOCAL keyword';  //to translate
 $strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate
 $strInvalidLDIImport = 'This plugin does not support compressed imports!';  //to translate
+$strTableAlreadyExists = 'Table %s already exists!';  //to translate
 ?>

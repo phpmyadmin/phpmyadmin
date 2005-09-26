@@ -20,6 +20,8 @@ $Source$
       selected columns (RFE #1275909).
     * libraries/common.lib.php: Do no try to parse empty SQL query (bug
       #1303994).
+    * tbl_create.php, lang/*: Do not allow to create table that already exists
+      (RFE #1255931).
 
 2005-09-25 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: support MySQL 5 privileges 

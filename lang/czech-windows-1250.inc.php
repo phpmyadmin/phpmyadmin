@@ -382,6 +382,7 @@ $strInvalidColumnCount = 'Poèet sloupcù musí být vìtší než nula.';
 $strInvalidCSVInput = 'Chybná CVS data, nepodaøilo se je naèíst!';
 $strInvalidFieldAddCount = 'Musíte pøidat alespoò jeden sloupec.';
 $strInvalidFieldCount = 'Tabulka musí mít alespoò jeden sloupec.';
+$strInvalidLDIImport = 'Tento plugin nepodporuje komprimované soubory!';
 $strInvalidRowNumber = '%d není platné èíslo øádku.';
 
 $strJapanese = 'Japonština';
@@ -408,6 +409,9 @@ $strLaTeX = 'LaTeX';
 $strLaTeXOptions = 'Nastavení exportu do LaTeXu';
 $strLatexStructure = 'Struktura tabulky __TABLE__';
 $strLatvian = 'Lotyština';
+$strLDI = 'CSV pomocí LOAD DATA';
+$strLDIImportOptions = 'Nastavení CSV importu pomocí LOAD DATA';
+$strLDILocal = 'Použít klíèové slovo LOCAL';
 $strLengthSet = 'Délka/Množina*';
 $strLimitNumRows = 'záznamù na stránku';
 $strLineFeed = 'Ukonèení øádkù: \\n';
@@ -838,6 +842,7 @@ $strSwedish = 'Švédština';
 $strSwitchToDatabase = 'Pøepnout na zkopírovanou databázi';
 $strSwitchToTable = 'Pøepnout na zkopírovanou tabulku';
 
+$strTableAlreadyExists = 'Tabulka %s již existuje!';
 $strTableComments = 'Komentáø k&nbsp;tabulce';
 $strTableEmpty = 'Jméno tabulky je prázdné!';
 $strTableHasBeenDropped = 'Tabulka %s byla odstranìna';
@@ -968,8 +973,4 @@ $strShowStatusInnodb_dblwr_pages_writtenDescr = 'The number of doublewrite write
 $strShowStatusInnodb_dblwr_writesDescr = 'The number of doublewrite writes that have been performed and the number of pages that have been written for this purpose.';  //to translate
 $strShowStatusInnodb_log_waitsDescr = 'The number of waits we had because log buffer was too small and we had to wait for it to be flushed before continuing.';  //to translate
 
-$strLDI = 'CSV using LOAD DATA';  //to translate
-$strLDILocal = 'Use LOCAL keyword';  //to translate
-$strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate
-$strInvalidLDIImport = 'This plugin does not support compressed imports!';  //to translate
 ?>

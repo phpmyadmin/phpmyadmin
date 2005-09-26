@@ -856,6 +856,7 @@ $strSwedish = 'Swedish';
 $strSwitchToDatabase = 'Switch to copied database';
 $strSwitchToTable = 'Switch to copied table';
 
+$strTableAlreadyExists = 'Table %s already exists!';
 $strTableComments = 'Table comments';
 $strTableEmpty = 'The table name is empty!';
 $strTableHasBeenDropped = 'Table %s has been dropped';

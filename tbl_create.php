@@ -246,6 +246,10 @@ if ($abort == FALSE) {
     else if (empty($num_fields) || !is_int($num_fields)) {
         PMA_mysqlDie($strFieldsEmpty, '', '', $err_url);
     }
+    // No valid number of fields
+    else if (!(PMA_DBI_get_fields($db, $table) === FALSE)) {
+        PMA_mysqlDie(sprintf($strTableAlreadyExists, htmlspecialchars($table)), '', '', $err_url);
+    }
     // Table name and number of fields are valid -> show the form
     else {
         $action = 'tbl_create.php';
