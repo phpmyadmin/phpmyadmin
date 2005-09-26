@@ -533,3 +533,76 @@ tr.disabled td, td.disabled {
     font-size:        10px;
 }
 
+fieldset {
+    margin-top: 1em;
+}
+
+fieldset.tblFooters {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    text-align: right;
+    float: none;
+    clear: both;
+}
+
+#fieldset_add_user_login div.item {
+    border-bottom: 1px solid silver;
+    padding-bottom: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+#fieldset_add_user_login label {
+    float: left;
+    display: block;
+    width: 10em;
+    max-width: 100%;
+    text-align: right;
+    padding-right: 0.5em;
+}
+
+#fieldset_add_user_login span.options #select_pred_username,
+#fieldset_add_user_login span.options #select_pred_hostname,
+#fieldset_add_user_login span.options #select_pred_password {
+    width: 100%;
+    max-width: 100%;
+}
+
+#fieldset_add_user_login span.options {
+    float: left;
+    display: block;
+    width: 12em;
+    max-width: 100%;
+    padding-right: 0.5em;
+}
+
+#fieldset_add_user_login input {
+    width: 12em;
+    clear: right;
+    max-width: 100%;
+}
+
+#fieldset_add_user_login span.options input {
+    width: auto;
+}
+
+#fieldset_user_priv div.item {
+    float: left;
+    width: 8em;
+    max-width: 100%;
+}
+
+#fieldset_user_priv div.item div.item {
+    float: none;
+}
+
+#fieldset_user_priv div.item label{
+    white-space: nowrap;
+}
+
+#fieldset_user_priv div.item select {
+    width: 100%;
+}
+
+#fieldset_user_global_rights fieldset {
+    float: left;
+}

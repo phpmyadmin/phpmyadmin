@@ -66,12 +66,38 @@ var errorMsg1   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strNotNumber']
 var noDropDbMsg = '<?php echo((!$GLOBALS['cfg']['AllowUserDropDatabase']) ? str_replace('\'', '\\\'', $GLOBALS['strNoDropDatabases']) : ''); ?>';
 var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '\\\'', $GLOBALS['strDoYouReally']) : ''); ?>';
 /**/
+
+<?php
+if ( empty( $querydisplay_tab ) || $querydisplay_tab == 'sql' ) {
+?>
+
+function resize() {
+    if( typeof( self.sizeToContent ) == 'function' ) {
+        self.sizeToContent();
+        self.scrollbars.visible = false;
+        return;
+    }
+    
+    if (document.getElementById && typeof(document.getElementById('querywindowcontainer')) != 'undefined' ) {
+    
+        // get content size
+        var newWidth  = document.getElementById('querywindowcontainer').offsetWidth;
+        var newHeight = document.getElementById('querywindowcontainer').offsetHeight;
+        
+        // set size to contentsize + offsetsize
+        self.resizeTo( newWidth + 50, newHeight + 150 );
+    }
+}
+<?php
+}
+?>
 //-->
 </script>
 <script src="libraries/functions.js" type="text/javascript" language="javascript"></script>
 </head>
 
-<body bgcolor="<?php echo ($cfg['QueryFrameJS'] ? $cfg['LeftBgColor'] : $cfg['RightBgColor']); ?>">
+<body id="bodyquerywindow" onload="resize();" bgcolor="<?php echo ($cfg['QueryFrameJS'] ? $cfg['LeftBgColor'] : $cfg['RightBgColor']); ?>">
+<div id="querywindowcontainer">
 <?php
 if ($cfg['QueryFrameJS'] && !isset($no_js)) {
     $querydisplay_tab = (isset($querydisplay_tab) ? $querydisplay_tab : $cfg['QueryWindowDefTab']);
@@ -242,29 +268,15 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     <input type="hidden" name="auto_commit" value="false" />
     <input type="hidden" name="querydisplay_tab" value="<?php echo $querydisplay_tab; ?>" />
 </form>
-
-<?php
-}
-
-$tmp_querydisplay_tab =  (isset($querydisplay_tab) ? $querydisplay_tab : $cfg['QueryWindowDefTab']);
-if ($tmp_querydisplay_tab == 'sql' || $tmp_querydisplay_tab == $cfg['QueryWindowDefTab']) {
-?>
-<script type="text/jscript" language="javascript">
-<!--
-    if (document.getElementById && typeof(document.getElementById('sqlcontainer'))!='undefined') {
-        var newWidth  = document.getElementById('sqlcontainer').offsetWidth + 40;
-        var newHeight = document.getElementById('sqlcontainer').offsetHeight + 100;
-        self.resizeTo(newWidth, newHeight);
-    }
-//-->
-</script>
 <?php
 }
 ?>
+</div>
 </body>
 </html>
 
 <?php
+
 /**
  * Close MySql connections
  */

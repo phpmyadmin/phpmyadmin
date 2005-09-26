@@ -163,10 +163,11 @@
          running in safe mode, having some scripts with an owner different
          from the owner of other scripts will be a
          problem). See <a href="#faq4_2">FAQ 4.2</a> for suggestions.</li>
-    <li> Open the file <tt>config.inc.php</tt> in your favorite editor and change
-         the values for host, user, password and authentication mode to fit
-         your environment. Here, &quot;host&quot; means the MySQL server.
-         Have a look at
+    <li> Create the file <tt>config.inc.php</tt> in your favorite editor and
+         fill in there values for host, user, password and authentication mode
+         to fit your environment. Look at <tt>config.default.php</tt> how
+         these fields should be defined. Here, &quot;host&quot; means the
+         MySQL server. Have a look at
          <a href="#config">Configuration section</a> for an
          explanation of all values. Please also read the remaining of this
          Installation section for information about authentication modes
@@ -218,12 +219,9 @@
 <h3>Upgrading from an older version</h3>
 <ul>
     <li>
-        You can safely copy your older <i>config.inc.php</i> over a new one, if
-        you can live with default values for possible new parameters (you can
-        check release notes to see what new features were added). This
-        compatibility will stay for long time, current version supports
-        importing config files from 2.2 and maybe even older (nobody has tried
-        that).
+        Just copy <i>config.inc.php</i> from previous installation into a
+        newly unpacked one. Old configuration files will be supported for a
+        very long time.
     </li>
 </ul>
 
@@ -467,8 +465,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 
     <dt><b>$cfg['Servers'][$i]['socket']</b> string</dt>
     <dd>
-        The path to the socket to use. Leave blank for default.<br />
-        To use the socket feature you must run PHP 3.0.10 or more.
+        The path to the socket to use. Leave blank for default.
         <br /><br />
     </dd>
 
@@ -958,6 +955,12 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <dd>
         Whether persistent connections should be used or not (mysql_connect or
         mysql_pconnect).
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['ForceSSL'] </b>boolean</dt>
+    <dd>
+        Whether to force using https while accessing phpMyAdmin.
         <br /><br />
     </dd>
 
@@ -1695,6 +1698,14 @@ Defaults to FALSE (drop-down). <br />
     <dd>
         In this array are defined default parameters for export, names of
         items are similar to texts seen on export page, so you can easily
+        identify what they mean.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['Import'] </b>array</dt>
+    <dd>
+        In this array are defined default parameters for import, names of
+        items are similar to texts seen on import page, so you can easily
         identify what they mean.
         <br /><br />
     </dd>
@@ -2807,7 +2818,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     headers already sent by ...&quot; is displayed, what's the problem?
 </h4>
 <p>
-    Edit your <i>config.inc.php or .php</i> file and ensure there is nothing
+    Edit your <i>config.inc.php</i> file and ensure there is nothing
     (I.E. no blank lines, no spaces, no characters...) neither before the
     <tt>&lt;?php</tt> tag at the beginning, neither after the <tt>?&gt;</tt>
     tag at the end.
@@ -2857,10 +2868,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         (<i>/tmp/mysql.sock</i>, for example).
     </li>
     <li>
-        Then, you need to tell PHP to use this socket.<br />Assuming you are
-        using PHP 3.0.10 or better, you can specify the socket to use when you
-        open the connection. To do this in phpMyAdmin, you need to complete the
-        socket information in the <i>config.inc.php</i>.<br />
+        Then, you need to tell PHP to use this socket.<br /> To do this in
+        phpMyAdmin, you need to complete the  socket information in the
+        <i>config.inc.php</i>.<br />
         For example:
         <tt>$cfg['Servers'][$i]['socket']&nbsp;=&nbsp;'/tmp/mysql.sock';</tt><br /><br />
         Please also make sure that the permissions of this file allow to be readable

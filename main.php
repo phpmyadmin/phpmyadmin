@@ -92,7 +92,7 @@ if ($server > 0) {
 
     $full_string     = str_replace('%pma_s1%', PMA_MYSQL_STR_VERSION, $strMySQLServerProcess);
     $full_string     = str_replace('%pma_s2%', $server_info, $full_string);
-    $full_string     = str_replace('%pma_s3%', $mysql_cur_user_and_host, $full_string);
+    $full_string     = str_replace('%pma_s3%', htmlspecialchars($mysql_cur_user_and_host), $full_string);
 
     echo '<p><b>' . $full_string . '</b></p>' . "\n";
 } // end if
@@ -320,6 +320,15 @@ if ($server > 0) {
         <td>
                 <a href="./server_export.php?<?php echo $common_url_query; ?>">
                     <?php echo $strExport; ?></a>
+        </td>
+    </tr>
+    <tr>
+<?php
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_import.php?'.$common_url_query.'">','b_import.png',$strImport,'</a>') : $str_normal_list);
+?>
+        <td>
+                <a href="./server_import.php?<?php echo $common_url_query; ?>">
+                    <?php echo $strImport; ?></a>
         </td>
     </tr>
         <?php

@@ -7,9 +7,6 @@
  * been defined as startup option and include a core library
  */
 require_once('./libraries/grab_globals.lib.php');
-if (!empty($db)) {
-    $db_start = $db;
-}
 
 
 /**
@@ -156,84 +153,6 @@ function set_focus_to_nav() {
 
 <body id="body_queryFrame" bgcolor="<?php echo $cfg['LeftBgColor']; ?>"<?php echo ((isset($js_frame_onload) && $js_frame_onload!='') ? $js_frame_onload : ''); ?>>
 <div id="qfcontainer">
-<div align="center">
-<?php
-if ($cfg['LeftDisplayLogo']) {
-    echo '<!-- phpMyAdmin logo -->' . "\n";
-    echo '    <a href="http://www.phpmyadmin.net/" target="_blank">';
-    if (@file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
-        echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'logo_left.png" alt="phpMyAdmin" border="0" />';
-    } else if (@file_exists($GLOBALS['pmaThemeImage'] . 'pma_logo2.png')) {
-        echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png" alt="phpMyAdmin" border="0" />';
-    } else {
-        echo 'phpMyAdmin';
-    }
-    echo '</a>' . "\n";
-    echo '    <hr id="hr_first" />' . "\n";
-} // end of display logo
-
-?>
-<!-- Link to the welcome page -->
-<?php
-    echo '    <a class="item" href="main.php?' . PMA_generate_common_url() . '" target="phpmain' . $hash . '">' . "\n"
-       . ($cfg['MainPageIconic']
-            ? '        <img src="' . $pmaThemeImage . 'b_home.png" width="16" height="16" border="0" hspace="2" alt="' . $strHome . '" title="' . $strHome . '"'
-                    .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
-            : '        <b>' . $strHome . '</b>') . "\n"
-        . '    </a>' . "\n";
-    // if we have chosen server
-    if ($server != 0) {
-        // Logout for advanced authentication
-        if ($cfg['Server']['auth_type'] != 'config') {
-            echo ($cfg['MainPageIconic'] ? '' : ' - ');
-            echo '<a class="item" href="index.php?' . PMA_generate_common_url() . '&amp;old_usr=' . urlencode($PHP_AUTH_USER) . '" target="_parent">' . "\n"
-               . ($cfg['MainPageIconic']
-                    ? '<img src="' . $pmaThemeImage . 's_loggoff.png" width="16" height="16" border="0" hspace="2" alt="' . $strLogout . '" title="' . $strLogout . '"'
-                            .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
-                    : '<b>' . $strLogout . '</b>')  . "\n"
-               . '</a>' . "\n";
-        } // end if ($cfg['Server']['auth_type'] != 'config'
-
-        if ($cfg['QueryFrame']) {
-            $anchor = 'querywindow.php?' . PMA_generate_common_url('', '');
-            
-            if ($cfg['MainPageIconic']) {
-                $query_frame_link_text = '<img src="' . $pmaThemeImage . 'b_selboard.png" border="0" hspace="1" width="16" height="16" alt="' . $strQueryFrame . '" title="' . $strQueryFrame . '"'
-                                       .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />';
-            } else {
-                echo '<br />' . "\n";
-                $query_frame_link_text = '<b>' . $strQueryFrame . '</b>';
-            }
-?>
-    <a href="<?php echo $anchor; ?>&amp;no_js=true" target="phpmain<?php echo $hash; ?>" class="item"
-       <?php echo ($cfg['QueryFrameJS'] ? 'onclick="javascript:open_querywindow(\'' . $anchor . '\'); return false;"' : ''); ?>>
-        <?php echo $query_frame_link_text; ?>
-    </a>
-<?php
-        } // end if ($cfg['QueryFrame'])
-    } // end if ($server != 0)
-
-if ($cfg['MainPageIconic']) {
-    echo '    <a href="Documentation.html" target="documentation" class="item">' . "\n"
-       . '        <img src="' . $pmaThemeImage . 'b_docs.png" border="0" hspace="1" width="16" height="16" alt="' . $strPmaDocumentation . '" title="' . $strPmaDocumentation . '"'
-       . ' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />' . "\n"
-       . '    </a>' . "\n";
-    echo '    <a href="' . $cfg['MySQLManualBase'] . '" target="documentation" class="item">' . "\n"
-       . '        <img src="' . $pmaThemeImage . 'b_sqlhelp.png" border="0" hspace="1" width="16" height="16" alt="MySQL - ' . $strDocu . '" title="MySQL - ' . $strDocu . '"'
-       .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />' . "\n"
-       . '    </a>' . "\n";
-}
-?>
-</div>
-<hr id="hr_second" />
-
-<?php
-if ($cfg['LeftDisplayServers']){
-    $show_server_left = TRUE;
-    include('./libraries/select_server.lib.php');
-} // end if LeftDisplayServers
-?>
-<!-- Databases list -->
 <?php
 /**
  * Get the list and number of available databases.
@@ -246,183 +165,17 @@ if ($server > 0) {
     $num_dbs = 0;
 }
 
-// Don't display expansible/collapsible database info if:
-// 1. $server == 0 (no server selected)
-//    This is the case when there are multiple servers and
-//    '$cfg['ServerDefault'] = 0' is set. In that case, we want the welcome
-//    screen to appear with no database info displayed.
-// 2. there is only one database available (ie either only one database exists
-//    or $cfg['Servers']['only_db'] is defined and is not an array)
-//    In this case, the database should not be collapsible/expandable
-if ($num_dbs > 1) {
-    // Light mode -> beginning of the select combo for databases
-    // Note: When javascript is active, the frameset will be changed from
-    // within left.php. With no JS (<noscript>) the whole frameset will
-    // be rebuilt with the new target frame.
-    if ($cfg['LeftFrameLight']) {
-    ?>
-    <table border="0" cellpadding="1" cellspacing="0">
-        <tr>
-            <td align="left" class="heada"><?php echo $strDatabase; ?>:</td>
-        </tr>
-        <tr>
-            <td nowrap="nowrap">
-    <form method="post" action="index.php" name="left" target="_parent" style="margin: 0px; padding: 0px;">
-    <script type="text/javascript" language="javascript">
-    <!--
-        document.left.action="left.php";
-        document.left.target="nav";
-    //-->
-    </script>
-    <?php
-        echo PMA_generate_common_hidden_inputs();
-        echo '        <input type="hidden" name="hash" value="' . $hash . '" />' . "\n";
-        ?>
-        <select name="lightm_db" onchange="remove_focus_select();this.form.submit();">
-        <?php
-        echo '            <option value="">(' . $strDatabases . ') ...</option>' . "\n";
-        $table_list = '';
-        $table_list_header = '';
-        $db_name    = '';
-        $selected_db = 0;
+require 'libraries/left_header.inc.php';
 
-        // natural order for db list; but do not sort if user asked
-        // for a specific order with the 'only_db' mechanism
-
-        // TODO: merge this logic with the one in left.php
-
-        if (!is_array($cfg['Server']['only_db']) && $cfg['NaturalOrder'] && $num_dbs > 0) {
-            $dblist_temp = $dblist;
-            natsort($dblist_temp);
-            $i = 0;
-            foreach ($dblist_temp as $each) {
-                $dblist[$i] = $each;
-                $i++;
-            }
-        }
-        $parent = '';
-        // Gets the tables list per database
-        for ($i = 0; $i < $num_dbs; $i++) {
-            $db = $dblist[$i];
-            $j  = $i + 2;
-            if (!empty($db_start) && $db == $db_start) {
-                $selected_db = $j;
-            }
-            $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
-            $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
-            $common_url_query    = PMA_generate_common_url($db);
-            if ($num_tables) {
-                $num_tables_disp = $num_tables;
-            } else {
-                $num_tables_disp = '-';
-            }
-            // Get additional information about tables for tooltip
-            if ($cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303
-                && $num_tables
-                && (!$cfg['LeftFrameLight'] || $selected_db == $j)) {
-                $tooltip = array();
-                $tooltip_name = array();
-                $result  = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
-                while ($tmp = PMA_DBI_fetch_assoc($result)) {
-                    $tooltip_name[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '');
-                    $tmp['Comment'] = ($cfg['ShowTooltipAliasTB'] && $cfg['ShowTooltipAliasTB'] !== 'nested' ? $tmp['Name'] : $tmp['Comment']);
-                    $tooltip[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '')
-                                           . '(' . (isset($tmp['Rows']) ? $tmp['Rows'] : '0') . ' ' . $strRows . ')';
-                } // end while
-            } // end if
-
-            // garvin: Get comments from PMA comments table
-            $db_tooltip = '';
-            if ($cfg['ShowTooltip'] && $cfgRelation['commwork']) {
-                $tmp_db_tooltip = PMA_getComments($db);
-                if (is_array($tmp_db_tooltip)) {
-                    $db_tooltip = implode(' ', $tmp_db_tooltip);
-                }
-            }
-
-            // Builds the databases' names list
-            if (!empty($db_start) && $db == $db_start) {
-                $table_title = array();
-                $table_array = array();
-                // Gets the list of tables from the current database
-                while (list($table) = PMA_DBI_fetch_row($tables)) {
-                    $table_array[$table] = '';
-                    $url_title  = (!empty($tooltip) && isset($tooltip[$table]))
-                                ? htmlspecialchars($tooltip[$table])
-                                : '';
-                    $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
-                                ? htmlspecialchars($tooltip_name[$table])
-                                : '';
-                    $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
-                } // end while (tables list)
-                $selected = ' selected="selected"';
-            } else {
-                $selected = '';
-            } // end if... else...
-
-            $db_disp = $db;
-            if ($cfg['LeftFrameDBTree']) {
-                if ($i == 0) {
-                    $parts = explode($cfg['LeftFrameDBSeparator'],$db,2);
-                } else {
-                    $parts = $next_parts;
-                }
-                if ($i == $num_dbs - 1) {
-                    $next_parts = array();
-                } else {
-                    $next_parts = explode($cfg['LeftFrameDBSeparator'],$dblist[$i+1],2);
-                }
-                if (count($next_parts) > 1 && $parts[0] == $next_parts[0] && $parent != $parts[0]) {
-                    echo '      '
-                        . '<optgroup label="'.htmlspecialchars($parts[0]).'">'."\n";
-                    $parent = $parts[0];
-                }
-                if (count($parts) > 1 && $parent == $parts[0]) {
-                    $db_disp = $cfg['LeftFrameDBSeparator'] . $parts[1];
-                }
-            }
-            
-            if (!empty($num_tables)) {
-                echo '            '
-                   . '<option value="' . htmlspecialchars($db) . '"' . $selected . '>'
-                   . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db_disp)) . ' (' . $num_tables . ')</option>' . "\n";
-            } else {
-                echo '            '
-                   . '<option value="' . htmlspecialchars($db) . '"' . $selected . '>'
-                   . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db_disp)) . ' (-)</option>' . "\n";
-            } // end if... else...
-
-            if ($cfg['LeftFrameDBTree']) {
-                if (!empty($parent) && (count($next_parts) == 0 || $parent != $next_parts[0])) {
-                    echo '      '
-                        . '</optgroup>'."\n";
-                    $parent = '';
-                }
-            }
-        } // end for $i (db list)
-        ?>
-        </select>
-        <noscript>
-            <input type="submit" name="Go" value="<?php echo $strGo; ?>" />
-        </noscript>
-        </form>
-            </td>
-        </tr>
-    </table>
-    <hr id="hr_third" />
-    <?php
-    } // end if LeftFrameLight
-} // end if num_db > 1
-    ?>
-    <form name="queryframeform" action="queryframe.php" method="get" style="margin:0px; padding:0px; display:none;">
-        <input type="hidden" name="db" value="" />
-        <input type="hidden" name="table" value="" />
-        <input type="hidden" name="framename" value="queryframe" />
-    </form>
-    <form name="hashform" action="queryframe.php" style="margin:0px; padding:0px; display:none;">
-        <input type="hidden" name="hash" value="<?php echo $hash; ?>" />
-    </form>
-    </div>
+?>
+<form name="queryframeform" action="queryframe.php" method="get">
+    <input type="hidden" name="db" value="" />
+    <input type="hidden" name="table" value="" />
+    <input type="hidden" name="framename" value="queryframe" />
+</form>
+<form name="hashform" action="queryframe.php">
+    <input type="hidden" name="hash" value="<?php echo $hash; ?>" />
+</form>
 </body>
 </html>
 

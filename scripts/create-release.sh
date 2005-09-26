@@ -2,6 +2,9 @@
 #
 # $Id$
 #
+# 2005-09-13, lem9@users.sourceforge.net
+# - no longer create a config.default.php from config.inc.php
+#
 # 2005-06-12, lem9@users.sourceforge.net
 # - cvs server name changed to cvs, because cvs1 no longer works from 
 #   shell.sourceforge.net
@@ -183,9 +186,6 @@ find phpMyAdmin \( -name '*.sh' -o -name '*.pl' \) -print0 | xargs -0 chmod 755
 
 # Building Documentation.txt
 lynx --dont_wrap_pre --nolist --dump phpMyAdmin/Documentation.html > phpMyAdmin/Documentation.txt
-
-# Creating a backup config.inc.php
-cp phpMyAdmin/config.inc.php phpMyAdmin/config.default.php
 
 # Renaming directory
 mv phpMyAdmin phpMyAdmin-$target

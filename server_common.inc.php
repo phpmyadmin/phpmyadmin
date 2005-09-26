@@ -10,13 +10,18 @@ require_once('./libraries/common.lib.php');
 
 /**
  * Handles some variables that may have been sent by the calling script
+ * Note: this can be called also from the db panel to get the privileges of
+ *       a db, in which case we want to keep displaying the tabs of
+ *       the Database panel
  */
-unset($db, $table);
+if (empty($viewing_mode)) {
+    unset($db, $table);
+}
 
 /**
  * Set parameters for links
  */
-$url_query = PMA_generate_common_url();
+$url_query = PMA_generate_common_url((!empty($db) ? $db : ''));
 
 /**
  * Defines the urls to return to in case of error in a sql statement

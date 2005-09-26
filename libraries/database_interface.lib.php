@@ -205,4 +205,218 @@ function PMA_DBI_postConnect($link, $is_controluser = FALSE) {
     }
 }
 
+/**
+ * returns a single value from the given result or query,
+ * if the query or the result has more than one row or field
+ * the first field of the first row is returned
+ * 
+ * <code>
+ * $sql = 'SELECT `name` FROM `user` WHERE `id` = 123';
+ * $user_name = PMA_DBI_fetch_value( $sql );
+ * // produces
+ * // $user_name = 'John Doe'
+ * </code>
+ * 
+ * @uses    is_string()
+ * @uses    is_int()
+ * @uses    PMA_DBI_try_query()
+ * @uses    PMA_DBI_num_rows()
+ * @uses    PMA_DBI_fetch_row()
+ * @uses    PMA_DBI_fetch_assoc()
+ * @uses    PMA_DBI_free_result()
+ * @param   string|mysql_result $result query or mysql result
+ * @param   integer             $row_number row to fetch the value from,
+ *                                      starting at 0, with 0 beeing default
+ * @param   integer|string      $field  field to fetch the value from,
+ *                                      starting at 0, with 0 beeing default
+ * @param   resource            $link   mysql link
+ * @param   mixed               $options    
+ * @return  mixed               value of first field in first row from result
+ *                              or false if not found
+ */
+function PMA_DBI_fetch_value( $result, $row_number = 0, $field = 0, $link = NULL, $options = 0 ) {
+    $value = false;
+    
+    if ( is_string( $result ) ) {
+        $result = PMA_DBI_try_query( $result, $link, $options | PMA_DBI_QUERY_STORE );
+    }
+    
+    // return false if result is empty or false
+    // or requested row is larger than rows in result
+    if ( PMA_DBI_num_rows( $result ) < ( $row_number + 1 ) ) {
+        return $value;
+    }
+    
+    // if $field is an integer use non associative mysql fetch function    
+    if ( is_int( $field ) ) {
+        $fetch_function = 'PMA_DBI_fetch_row';
+    } else {
+        $fetch_function = 'PMA_DBI_fetch_assoc';
+    }
+    
+    // get requested row
+    for ( $i = 0; $i <= $row_number; $i++ ) {
+        $row = $fetch_function( $result );
+    }
+    PMA_DBI_free_result( $result );
+    
+    // return requested field
+    if ( isset( $row[$field] ) ) {
+        $value = $row[$field];
+    }
+    unset( $row );
+    
+    return $value;
+}
+
+/**
+ * returns only the first row from the result
+ * 
+ * <code>
+ * $sql = 'SELECT * FROM `user` WHERE `id` = 123';
+ * $user = PMA_DBI_fetch_single_row( $sql );
+ * // produces
+ * // $user = array( 'id' => 123, 'name' => 'John Doe' )
+ * </code>
+ * 
+ * @uses    is_string()
+ * @uses    PMA_DBI_try_query()
+ * @uses    PMA_DBI_num_rows()
+ * @uses    PMA_DBI_fetch_row()
+ * @uses    PMA_DBI_fetch_assoc()
+ * @uses    PMA_DBI_fetch_array()
+ * @uses    PMA_DBI_free_result()
+ * @param   string|mysql_result $result query or mysql result
+ * @param   string              $type   NUM|ASSOC|BOTH
+ *                                      returned array should either numeric
+ *                                      associativ or booth
+ * @param   resource            $link   mysql link
+ * @param   mixed               $options    
+ * @return  array|boolean       first row from result
+ *                              or false if result is empty
+ */
+function PMA_DBI_fetch_single_row( $result, $type = 'ASSOC', $link = NULL, $options = 0 ) {
+    if ( is_string( $result ) ) {
+        $result = PMA_DBI_try_query( $result, $link, $options | PMA_DBI_QUERY_STORE );
+    }
+    
+    // return NULL if result is empty or false
+    if ( ! PMA_DBI_num_rows( $result ) ) {
+        return false;
+    }    
+    
+    switch ( $type ) {
+        case 'NUM' :
+            $fetch_function = 'PMA_DBI_fetch_row';
+            break;
+        case 'ASSOC' :
+            $fetch_function = 'PMA_DBI_fetch_assoc';
+            break;
+        case 'BOTH' :
+        default :
+            $fetch_function = 'PMA_DBI_fetch_array';
+            break;
+    }
+    
+    $row = $fetch_function( $result );
+    PMA_DBI_free_result( $result );
+    return $row;
+}
+
+/**
+ * returns all rows in the resultset in one array
+ * 
+ * <code>
+ * $sql = 'SELECT * FROM `user`';
+ * $users = PMA_DBI_fetch_result( $sql );
+ * // produces
+ * // $users[] = array( 'id' => 123, 'name' => 'John Doe' )
+ * 
+ * $sql = 'SELECT `id`, `name` FROM `user`';
+ * $users = PMA_DBI_fetch_result( $sql, 'id' );
+ * // produces
+ * // $users['123'] = array( 'id' => 123, 'name' => 'John Doe' )
+ *
+ * $sql = 'SELECT `id`, `name` FROM `user`';
+ * $users = PMA_DBI_fetch_result( $sql, 0 );
+ * // produces
+ * // $users['123'] = array( 0 => 123, 1 => 'John Doe' )
+ *
+ * $sql = 'SELECT `id`, `name` FROM `user`';
+ * $users = PMA_DBI_fetch_result( $sql, 'id', 'name' );
+ * // or
+ * $users = PMA_DBI_fetch_result( $sql, 0, 1 );
+ * // produces
+ * // $users['123'] = 'John Doe'
+ * 
+ * $sql = 'SELECT `name` FROM `user`';
+ * $users = PMA_DBI_fetch_result( $sql );
+ * // produces
+ * // $users[] = 'John Doe'
+ * </code>
+ *
+ * @uses    is_string()
+ * @uses    is_int()
+ * @uses    PMA_DBI_try_query()
+ * @uses    PMA_DBI_num_rows()
+ * @uses    PMA_DBI_num_fields()
+ * @uses    PMA_DBI_fetch_row()
+ * @uses    PMA_DBI_fetch_assoc()
+ * @uses    PMA_DBI_free_result()
+ * @param   string|mysql_result $result query or mysql result
+ * @param   string|integer      $key    field-name or offset
+ *                                      used as key for array
+ * @param   string|integer      $value  value-name or offset
+ *                                      used as value for array
+ * @param   resource            $link   mysql link
+ * @param   mixed               $options    
+ * @return  array               resultrows or values indexed by $key
+ */
+function PMA_DBI_fetch_result( $result, $key = NULL, $value = NULL, $link = NULL, $options = 0 )
+{
+    $resultrows = array();
+    
+    if ( is_string( $result ) ) {
+        $result = PMA_DBI_try_query( $result, $link, $options );
+    }
+    
+    // return empty array if result is empty or false
+    if ( ! $result ) {
+        return $resultrows;
+    }
+    
+    $fetch_function = 'PMA_DBI_fetch_assoc';
+    
+    // no nested array if only one field is in result
+    if ( NULL === $key && 1 === PMA_DBI_num_fields( $result ) ) {
+        $value = 0;
+        $fetch_function = 'PMA_DBI_fetch_row';
+    }
+    
+    // if $key is an integer use non associative mysql fetch function    
+    if ( is_int( $key ) ) {
+        $fetch_function = 'PMA_DBI_fetch_row';
+    }
+    
+    if ( NULL === $key && NULL === $value ) {
+        while ( $row = $fetch_function( $result ) ) {
+            $resultrows[] = $row;
+        }
+    } elseif ( NULL === $key ) {
+        while ( $row = $fetch_function( $result ) ) {
+            $resultrows[] = $row[$value];
+        }
+    } elseif ( NULL === $value ) {
+        while ( $row = $fetch_function( $result ) ) {
+            $resultrows[$row[$key]] = $row;
+        }
+    } else {
+        while ( $row = $fetch_function( $result ) ) {
+            $resultrows[$row[$key]] = $row[$value];
+        }
+    }
+    
+    PMA_DBI_free_result( $result );
+    return $resultrows;
+}
 ?>

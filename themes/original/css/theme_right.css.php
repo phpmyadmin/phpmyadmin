@@ -1,5 +1,12 @@
 /* Always enabled stylesheets (right frame) */
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    margin: 0.5em;
+    padding: 0;
     font-family: <?php echo $right_font_family; ?>;
     font-size: <?php echo $font_size; ?>;
     color: #000000;
@@ -200,14 +207,13 @@ div.errorhead {
     border: 1px solid #FF0000;
     background-color: #FFFFCC;
 }
-.tblWarn, div.tblWarn {
+.tblWarn, div.tblWarn, div.warning {
     border: 1px solid #FF0000;
     background-color: #FFFFFF;
 }
-div.tblWarn {
+div.tblWarn, div.warning {
     padding: 5px 5px 5px 5px;
-    margin:  0px 0px 5px 0px;
-    width:   100%;
+    margin:  0.5em 0px 0.5em 0px;
 }
 .tblHeaders {
     background-color: <?php echo $cfg['LeftBgColor']; ?>;
@@ -298,4 +304,78 @@ tr.disabled td, td.disabled {
     padding:          5px;
     font-family:      <?php echo $right_font_family; ?>;
     font-size:        <?php echo $font_size; ?>;
+}
+
+fieldset {
+    margin-top: 1em;
+}
+
+fieldset.tblFooters {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    text-align: right;
+    float: none;
+    clear: both;
+}
+
+#fieldset_add_user_login div.item {
+    border-bottom: 1px solid silver;
+    padding-bottom: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+#fieldset_add_user_login label {
+    float: left;
+    display: block;
+    width: 10em;
+    max-width: 100%;
+    text-align: right;
+    padding-right: 0.5em;
+}
+
+#fieldset_add_user_login span.options #select_pred_username,
+#fieldset_add_user_login span.options #select_pred_hostname,
+#fieldset_add_user_login span.options #select_pred_password {
+    width: 100%;
+    max-width: 100%;
+}
+
+#fieldset_add_user_login span.options {
+    float: left;
+    display: block;
+    width: 12em;
+    max-width: 100%;
+    padding-right: 0.5em;
+}
+
+#fieldset_add_user_login input {
+    width: 12em;
+    clear: right;
+    max-width: 100%;
+}
+
+#fieldset_add_user_login span.options input {
+    width: auto;
+}
+
+#fieldset_user_priv div.item {
+    float: left;
+    width: 8em;
+    max-width: 100%;
+}
+
+#fieldset_user_priv div.item div.item {
+    float: none;
+}
+
+#fieldset_user_priv div.item label{
+    white-space: nowrap;
+}
+
+#fieldset_user_priv div.item select {
+    width: 100%;
+}
+
+#fieldset_user_global_rights fieldset {
+    float: left;
 }

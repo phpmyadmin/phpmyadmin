@@ -1026,7 +1026,7 @@ function Output($name='',$dest='')
 				if(headers_sent())
 					$this->Error('Some data has already been output to browser, can\'t send PDF file');
 				Header('Content-Length: '.strlen($this->buffer));
-				Header('Content-disposition: inline; filename='.$name);
+				Header('Content-disposition: inline; filename="'.$name.'"');
 			}
 			echo $this->buffer;
 			break;
@@ -1041,7 +1041,7 @@ function Output($name='',$dest='')
 			if(headers_sent())
 				$this->Error('Some data has already been output to browser, can\'t send PDF file');
 			Header('Content-Length: '.strlen($this->buffer));
-			Header('Content-disposition: attachment; filename='.$name);
+			Header('Content-disposition: attachment; filename="'.$name.'"');
 			echo $this->buffer;
 			break;
 		case 'F':

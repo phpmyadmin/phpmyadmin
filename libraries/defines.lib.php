@@ -24,11 +24,11 @@ if (!defined('PMA_VERSION')) {
 }
 
 if (!defined('PMA_THEME_VERSION')) {
-    define('PMA_THEME_VERSION', 3);
+    define('PMA_THEME_VERSION', 2);
 }
 
 if (!defined('PMA_THEME_GENERATION')) {
-    define('PMA_THEME_GENERATION', 1);
+    define('PMA_THEME_GENERATION', 2);
 }
 
 // php version

@@ -174,6 +174,9 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
         $row['Field']     = (isset($field_name) && isset($field_name[$i]) ? $field_name[$i] : FALSE);
         $row['Type']      = (isset($field_type) && isset($field_type[$i]) ? $field_type[$i] : FALSE);
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
+            $row['Collation']      = (isset($field_collation) && isset($field_collation[$i]) ? $field_collation[$i] : '');
+        }
         $row['Null']      = (isset($field_null) && isset($field_null[$i]) ? $field_null[$i] : '');
         if (isset($field_type[$i]) && $row['Null'] == '') {
             $submit_null = TRUE;

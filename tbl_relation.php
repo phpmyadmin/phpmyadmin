@@ -546,6 +546,9 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             </select>
         </td>
     </tr>
+        <?php
+    } // end if (displayworks)
+?>
     <tr>
         <td colspan="<?php echo $tbl_type=='INNODB' ? '4' : '2'; ?>" align="center" class="tblFooters">
             <input type="submit" value="<?php echo '  ' . $strSave . '  '; ?>" />
@@ -553,9 +556,8 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     </tr>
     </table>
 </form>
-        <?php
-    } // end if (displayworks)
 
+<?php
 } // end if (we have columns in this table)
 
 

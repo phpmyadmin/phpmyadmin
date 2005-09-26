@@ -235,6 +235,7 @@ $tabindex_for_function = +1000;
 $tabindex_for_null     = +2000;
 $tabindex_for_value    = 0;
 $o_rows   = 0;
+$biggest_max_file_size = 0;
 foreach ($loop_array AS $vrowcount => $vrow) {
     if ($vrow === FALSE) {
         unset($vrow);
@@ -757,7 +758,11 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                    $this_field_max_size = $max_field_sizes[$type];
                 }
                 echo PMA_displayMaximumUploadSize($this_field_max_size) . "\n";
-                echo '                ' . PMA_generateHiddenMaxFileSize($this_field_max_size) . "\n";
+                // do not generate here the MAX_FILE_SIZE, because we should
+                // put only one in the form to accommodate the biggest field
+                if ($this_field_max_size > $biggest_max_file_size) {
+                    $biggest_max_file_size = $this_field_max_size;
+                }
             }
 
             if (!empty($cfg['UploadDir'])) {
@@ -910,6 +915,9 @@ if (isset($primary_key))
         </td>
     </tr>
     </table>
+    <?php if ($biggest_max_file_size > 0) {
+            echo '        ' . PMA_generateHiddenMaxFileSize($biggest_max_file_size) . "\n";
+          } ?>
 
 </form>
 

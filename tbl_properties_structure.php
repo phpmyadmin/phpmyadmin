@@ -61,7 +61,7 @@ if ((!empty($submit_mult) && isset($selected_fld))
 require('./tbl_properties_links.php');
 
 // 2. Gets table keys and retains them
-$result      = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
+$result      = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($table) . ';');
 $primary     = '';
 $ret_keys    = array();
 $pk_array    = array(); // will be use to emphasis prim. keys in the table view
@@ -86,13 +86,10 @@ $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 // the info given by SHOW FULL FIELDS FROM.
 
 if (PMA_MYSQL_INT_VERSION >= 40102) {
-    $show_create_table_query = 'SHOW CREATE TABLE '
-        . PMA_backquote($db) . '.' . PMA_backquote($table);
-    $show_create_table_res = PMA_DBI_query($show_create_table_query);
-    list(,$show_create_table) = PMA_DBI_fetch_row($show_create_table_res);
-    PMA_DBI_free_result($show_create_table_res);
-    unset($show_create_table_res, $show_create_table_query);
-    $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+    $show_create_table = PMA_DBI_fetch_value(
+        'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
+        0, 1 );
+    $analyzed_sql = PMA_SQP_analyze( PMA_SQP_parse( $show_create_table ) );
 }
 
 /**
@@ -107,7 +104,8 @@ $i = 0;
 
 <form method="post" action="tbl_properties_structure.php" name="fieldsForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-<table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
+<table id="tablestructure">
+<thead>
 <tr>
 <?php echo $tbl_is_view ? '' : '    <th id="th' . ++$i . '">&nbsp;</th>' . "\n"; ?>
     <th id="th<?php echo ++$i; ?>">&nbsp;<?php echo $strField; ?>&nbsp;</th>
@@ -119,7 +117,8 @@ $i = 0;
     <th id="th<?php echo ++$i; ?>"><?php echo $strExtra; ?></th>
 <?php echo $tbl_is_view ? '' : '    <th colspan="6" id="th' . ++$i . '">' . $strAction . '</th>' . "\n"; ?>
 </tr>
-
+</thead>
+<tbody>
 <?php
 unset($i);
 $comments_map = array();
@@ -443,31 +442,26 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     unset($field_charset);
 } // end while
 
-echo "\n";
+echo '</tbody>' . "\n"
+    .'</table>' . "\n";
 
 if (!$tbl_is_view) {
 
     $checkall_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db,$table);
     ?>
 
-<tr>
-    <td colspan="<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '14' : '13'; ?>">
-        <table>
-            <tr>
-                <td>
-                    <img src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
-        <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('fieldsForm', true); return false;">
-            <?php echo $strCheckAll; ?></a>
-        &nbsp;/&nbsp;
-        <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('fieldsForm', false); return false;">
-            <?php echo $strUncheckAll; ?></a>
-        &nbsp;&nbsp;&nbsp;
-        <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
-                </td>
-                <td>
-                    <?php
+    <img src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+    <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('fieldsForm', true); return false;">
+        <?php echo $strCheckAll; ?></a>
+    &nbsp;/&nbsp;
+    <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('fieldsForm', false); return false;">
+        <?php echo $strUncheckAll; ?></a>
+    &nbsp;&nbsp;&nbsp;
+    <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
+                <?php
 
     if ($cfg['PropertiesIconic']) {
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', $strBrowse, 'b_browse.png');
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $strChange, 'b_edit.png');
         // Drop button if there is at least two fields
         if ($fields_cnt > 1) {
@@ -497,17 +491,8 @@ if (!$tbl_is_view) {
                . '<input type="submit" name="submit_mult" value="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />' . "\n";
         }
     }
-
-    ?>
-                </td>
-            </tr>
-        </table>
-    </td>
-</tr>
-    <?php
 }
 ?>
-</table>
 </form>
 
 <hr />
@@ -600,18 +585,10 @@ if (!$tbl_is_view) {
     /**
      * Displays indexes
      */
-    ?>
-<!-- Indexes, space usage and row statistics -->
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-    <td valign="top">
-    <?php
+    echo '<div id="tablestatistics">' . "\n";
     define('PMA_IDX_INCLUDED', 1);
     require ('./tbl_indexes.php');
-    ?>
-    </td>
-
-    <?php
+    
     /**
      * Displays Space usage and row statistics
      */
@@ -647,65 +624,63 @@ if (!$tbl_is_view) {
             }
 
             // Displays them
+            $odd_row = false;
             ?>
 
     <!-- Space usage -->
-    <td width="20">&nbsp;</td>
-    <td valign="top">
         <a name="showusage"></a>
-        <table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
-        <tr><td class="tblHeaders" colspan="3"><?php echo $strSpaceUsage . ':&nbsp;' . "\n"; ?></td></tr>
+        <table id="tablespaceusage" class="data">
+        <caption class="tblHeaders"><?php echo $strSpaceUsage; ?></caption>
+        <thead>
         <tr>
             <th><?php echo $strType; ?></th>
-            <th colspan="2" align="center"><?php echo $strUsage; ?></th>
+            <th colspan="2"><?php echo $strUsage; ?></th>
         </tr>
-        <tr>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo $strData; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" align="right" nowrap="nowrap"><?php echo $data_size; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $data_unit; ?></td>
+        </thead>
+        <tbody>
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strData; ?></th>
+            <td class="value"><?php echo $data_size; ?></td>
+            <td class="unit"><?php echo $data_unit; ?></td>
         </tr>
             <?php
             if (isset($index_size)) {
-                echo "\n";
                 ?>
-        <tr>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo $strIndex; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" align="right" nowrap="nowrap"><?php echo $index_size; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $index_unit; ?></td>
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strIndex; ?></th>
+            <td class="value"><?php echo $index_size; ?></td>
+            <td class="unit"><?php echo $index_unit; ?></td>
         </tr>
                 <?php
             }
             if (isset($free_size)) {
-                echo "\n";
                 ?>
-        <tr style="color: #bb0000">
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo $strOverhead; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" align="right" nowrap="nowrap"><?php echo $free_size; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $free_unit; ?></td>
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strOverhead; ?></th>
+            <td class="value"><?php echo $free_size; ?></td>
+            <td class="unit"><?php echo $free_unit; ?></td>
         </tr>
-        <tr>
-            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" style="padding-right: 10px"><?php echo $strEffective; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right" nowrap="nowrap"><?php echo $effect_size; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><?php echo $effect_unit; ?></td>
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strEffective; ?></th>
+            <td class="value"><?php echo $effect_size; ?></td>
+            <td class="unit"><?php echo $effect_unit; ?></td>
         </tr>
                 <?php
             }
             if (isset($tot_size) && $mergetable == FALSE) {
-                echo "\n";
             ?>
-        <tr>
-            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" style="padding-right: 10px"><?php echo $strTotalUC; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right" nowrap="nowrap"><?php echo $tot_size; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><?php echo $tot_unit; ?></td>
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strTotalUC; ?></th>
+            <td class="value"><?php echo $tot_size; ?></td>
+            <td class="unit"><?php echo $tot_unit; ?></td>
         </tr>
                 <?php
             }
             // Optimize link if overhead
             if (isset($free_size) && ($tbl_type == 'MYISAM' || $tbl_type == 'BDB')) {
-                echo "\n";
                 ?>
-        <tr>
-            <td colspan="3" align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <td colspan="3" align="center">
                 <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
                     if ($cfg['PropertiesIconic']) {
                        echo '<img src="' . $pmaThemeImage . 'b_tbloptimize.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $strOptimizeTable. '" />';
@@ -716,31 +691,28 @@ if (!$tbl_is_view) {
         </tr>
                 <?php
             }
-            echo "\n";
             ?>
+        </tbody>
         </table>
-    </td>
 
-    <!-- Rows Statistic -->
-    <td width="20">&nbsp;</td>
-    <td valign="top">
-        <table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
-        <tr><td class="tblHeaders" colspan="2"><?php echo $strRowsStatistic . ':&nbsp;' . "\n"; ?></td></tr>
+        <?php
+        $odd_row = false;
+        ?>
+        <table id="tablerowstats" class="data">
+        <caption class="tblHeaders"><?php echo $strRowsStatistic; ?></caption>
+        <thead>
         <tr>
             <th><?php echo $strStatement; ?></th>
-            <th align="center"><?php echo $strValue; ?></th>
+            <th><?php echo $strValue; ?></th>
         </tr>
+        </thead>
+        <tbody>
             <?php
-            $i = 0;
             if (isset($showtable['Row_format'])) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
                 ?>
-        <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strFormat; ?></td>
-            <td bgcolor="<?php echo $bgcolor; ?>" align="<?php echo $cell_align_left; ?>" nowrap="nowrap">
-                <?php
-                echo '                ';
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strFormat; ?></th>
+            <td class="value"><?php
                 if ($showtable['Row_format'] == 'Fixed') {
                     echo $strFixed;
                 }
@@ -750,129 +722,85 @@ if (!$tbl_is_view) {
                 else {
                     echo $showtable['Row_format'];
                 }
-                echo "\n";
-                ?>
-            </td>
+                ?></td>
         </tr>
                 <?php
             }
             if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($tbl_collation)) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
                 ?>
-        <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strCollation; ?></td>
-            <td bgcolor="<?php echo $bgcolor; ?>" align="<?php echo $cell_align_left; ?>" nowrap="nowrap">
-                <?php
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strCollation; ?></th>
+            <td class="value"><?php
                 echo '<dfn title="' . PMA_getCollationDescr($tbl_collation) . '">' . $tbl_collation . '</dfn>';
-                ?>
-            </td>
+                ?></td>
         </tr>
                 <?php
             }
             if (!$is_innodb && isset($showtable['Rows'])) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
                 ?>
-        <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strRows; ?></td>
-            <td bgcolor="<?php echo $bgcolor; ?>" align="right" nowrap="nowrap">
-                <?php echo number_format($showtable['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
-            </td>
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strRows; ?></th>
+            <td class="value"><?php echo PMA_formatNumber( $showtable['Rows'] ); ?></td>
         </tr>
                 <?php
             }
             if (!$is_innodb && isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
                 ?>
-        <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strRowLength; ?>&nbsp;&oslash;</td>
-            <td bgcolor="<?php echo $bgcolor; ?>" align="right" nowrap="nowrap">
-                <?php echo number_format($showtable['Avg_row_length'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
-            </td>
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strRowLength; ?> &oslash;</th>
+            <td class="value"><?php echo PMA_formatNumber( $showtable['Avg_row_length'] ); ?></td>
         </tr>
                 <?php
             }
             if (!$is_innodb && isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
                 ?>
-        <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strRowSize; ?>&nbsp;&oslash;</td>
-            <td bgcolor="<?php echo $bgcolor; ?>" align="right" nowrap="nowrap">
-                <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
-            </td>
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strRowSize; ?> &oslash;</th>
+            <td class="value"><?php echo $avg_size . ' ' . $avg_unit; ?></td>
         </tr>
                 <?php
             }
             if (isset($showtable['Auto_increment'])) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
                 ?>
-        <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strNext; ?>&nbsp;Autoindex</td>
-            <td bgcolor="<?php echo $bgcolor; ?>" align="right" nowrap="nowrap">
-                <?php echo number_format($showtable['Auto_increment'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
-            </td>
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strNext; ?> Autoindex</th>
+            <td class="value"><?php echo PMA_formatNumber( $showtable['Auto_increment'] ); ?></td>
         </tr>
                 <?php
             }
-            echo "\n";
-
             if (isset($showtable['Create_time'])) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
                 ?>
-        <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strStatCreateTime; ?></td>
-            <td<?php if($theme=='original' || $theme==''){ echo ' style="font-size:' . $font_smaller . '"'; } ?> align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
-                <?php echo PMA_localisedDate(strtotime($showtable['Create_time'])) . "\n"; ?>
-            </td>
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strStatCreateTime; ?></th>
+            <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Create_time'])); ?></td>
         </tr>
                 <?php
             }
-            echo "\n";
-
             if (isset($showtable['Update_time'])) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
                 ?>
-        <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strStatUpdateTime; ?></td>
-            <td<?php if($theme=='original' || $theme==''){ echo ' style="font-size:' . $font_smaller . '"'; } ?> align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
-                <?php echo PMA_localisedDate(strtotime($showtable['Update_time'])) . "\n"; ?>
-            </td>
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strStatUpdateTime; ?></th>
+            <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Update_time'])); ?></td>
         </tr>
                 <?php
             }
-            echo "\n";
-
             if (isset($showtable['Check_time'])) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
                 ?>
-        <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strStatCheckTime; ?></td>
-            <td<?php if($theme=='original' || $theme==''){ echo ' style="font-size:' . $font_smaller . '"'; } ?> align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
-                <?php echo PMA_localisedDate(strtotime($showtable['Check_time'])) . "\n"; ?>
-            </td>
+        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+            <th class="name"><?php echo $strStatCheckTime; ?></th>
+            <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Check_time'])); ?></td>
         </tr>
                 <?php
             }
-            echo "\n";
             ?>
+        </tbody>
         </table>
-    </td>
             <?php
         }
     }
     // END - Calc Table Space
-    echo "\n";
-    ?>
-</tr>
-</table>
-<hr />
-    <?php
+    echo '<div class="clearfloat"></div>' . "\n";
+    echo '</div>' . "\n";
 } // end if (!$tbl_is_view)
 
 /**

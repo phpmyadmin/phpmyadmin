@@ -38,14 +38,14 @@ function PMA_exportFooter() {
 function PMA_exportHeader() {
     global $what;
     global $add_character;
-    global $separator;
+    global $export_separator;
     global $enclosed;
     global $escaped;
 
     // Here we just prepare some values for export
     if ($what == 'excel') {
         $add_character      = "\015\012";
-        $separator          = isset($GLOBALS['excel_edition']) && $GLOBALS['excel_edition'] == 'mac' ? ';' : ',';
+        $export_separator          = isset($GLOBALS['excel_edition']) && $GLOBALS['excel_edition'] == 'mac' ? ';' : ',';
         $enclosed           = '"';
         $escaped            = '"';
         if (isset($GLOBALS['showexcelnames']) && $GLOBALS['showexcelnames'] == 'yes') {
@@ -59,7 +59,7 @@ function PMA_exportHeader() {
             $add_character  = str_replace('\\n', "\012", $add_character);
             $add_character  = str_replace('\\t', "\011", $add_character);
         } // end if
-        $separator          = str_replace('\\t', "\011", $separator);
+        $export_separator          = str_replace('\\t', "\011", $export_separator);
     }
     return TRUE;
 }
@@ -119,7 +119,7 @@ function PMA_exportDBCreate($db) {
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $what;
     global $add_character;
-    global $separator;
+    global $export_separator;
     global $enclosed;
     global $escaped;
 
@@ -138,7 +138,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                                . str_replace($enclosed, $escaped . $enclosed, stripslashes(PMA_DBI_field_name($result, $i)))
                                . $enclosed;
             }
-            $schema_insert     .= $separator;
+            $schema_insert     .= $export_separator;
         } // end for
         $schema_insert  =trim(substr($schema_insert, 0, -1));
         if (!PMA_exportOutputHandler($schema_insert . $add_character)) return FALSE;
@@ -168,9 +168,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                 $schema_insert .= '';
             }
             if ($j < $fields_cnt-1) {
-                $schema_insert .= $separator;
+                $schema_insert .= $export_separator;
             }
         } // end for
+
         if (!PMA_exportOutputHandler($schema_insert . $add_character)) return FALSE;
     } // end while
     PMA_DBI_free_result($result);

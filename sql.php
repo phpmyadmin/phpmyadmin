@@ -43,7 +43,7 @@ if (isset($fields['dbase'])) {
 }
 
 // Now we can check the parameters
-PMA_checkParameters(array('sql_query', 'db'));
+PMA_checkParameters(array('sql_query'));
 
 // instead of doing the test twice
 $is_drop_database = preg_match('@DROP[[:space:]]+DATABASE[[:space:]]+@i', $sql_query);
@@ -363,7 +363,9 @@ else {
         $full_sql_query      = $sql_query;
     } // end if...else
 
-    PMA_DBI_select_db($db);
+    if ( isset( $_REQUEST['db'] ) ) {
+        PMA_DBI_select_db( $_REQUEST['db'] );
+    }
 
     // If the query is a DELETE query with no WHERE clause, get the number of
     // rows that will be deleted (mysql_affected_rows will always return 0 in
@@ -714,14 +716,20 @@ else {
                 require('./tbl_properties_table_info.php');
                 require('./tbl_properties_links.php');
             }
-            else {
+            elseif (!empty($db)) {
                 require('./db_details_common.php');
                 require('./db_details_db_info.php');
             }
+            else {
+                require('./server_common.inc.php');
+                require('./server_links.inc.php');
+            }
         }
 
-        require_once('./libraries/relation.lib.php');
-        $cfgRelation = PMA_getRelationsParam();
+        if (!empty($db)) {
+            require_once('./libraries/relation.lib.php');
+            $cfgRelation = PMA_getRelationsParam();
+        }
 
         // Gets the list of fields properties
         if (isset($result) && $result) {
@@ -858,7 +866,7 @@ else {
 
         // Bookmark Support if required
         if ($disp_mode[7] == '1'
-            && ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table'] && empty($id_bookmark))
+            && ( isset( $cfg['Bookmark'] ) && $cfg['Bookmark']['db'] && $cfg['Bookmark']['table'] && empty($id_bookmark))
             && !empty($sql_query)) {
             echo "\n";
 

@@ -427,7 +427,7 @@ if (!$hide_structure) { ?>
                             <?php echo $strFieldsTerminatedBy; ?>&nbsp;
                         </td>
                         <td>
-                            <input type="text" name="separator" size="2" value="<?php echo $cfg['Export']['csv_separator']; ?>" class="textfield" style="vertical-align: middle" />
+                            <input type="text" name="export_separator" size="2" value="<?php echo $cfg['Export']['csv_separator']; ?>" class="textfield" style="vertical-align: middle" />
                         </td>
                     </tr>
                     <tr>
@@ -725,7 +725,7 @@ if ($is_zip || $is_gzip || $is_bzip) {
     if ($is_bzip) {
         echo "\n"
         ?>
-                <input type="radio" name="compression" value="bzip" id="radio_compression_bzip" onclick="getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportIsActive('compression', 'bzip'); ?> style="vertical-align: middle" /><label for="radio_compression_bzip"><?php echo $strBzip; ?></label>
+                <input type="radio" name="compression" value="bzip" id="radio_compression_bzip" onclick="getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportIsActive('compression', 'bzip2'); ?> style="vertical-align: middle" /><label for="radio_compression_bzip"><?php echo $strBzip; ?></label>
         <?php
     }
 }

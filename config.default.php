@@ -10,15 +10,6 @@
 
 
 /**
- * Sets the php error reporting - Please do not change this line!
- */
-if (!isset($old_error_reporting)) {
-    error_reporting(E_ALL);
-    @ini_set('display_errors', '1');
-}
-
-
-/**
  * Your phpMyAdmin URL.
  *
  * Complete the variable below with the full url ie
@@ -197,6 +188,7 @@ unset($cfg['Servers'][0]);
  */
 $cfg['OBGzip']                  = 'auto'; // use GZIP output buffering if possible (TRUE|FALSE|'auto')
 $cfg['PersistentConnections']   = FALSE;  // use persistent connections to MySQL database
+$cfg['ForceSLL']                = FALSE;  // whether to force using https
 $cfg['ExecTimeLimit']           = 300;    // maximum execution time in seconds (0 for no limit)
 $cfg['SkipLockedTables']        = FALSE;  // mark used tables, make possible to show
                                           // locked tables (since MySQL 3.23.30)
@@ -382,6 +374,29 @@ $cfg['Export']['sql_mime']                  = FALSE;
 $cfg['Export']['sql_header_comment']        = ''; // \n is replaced by new line
 
 /**
+ * Import defaults
+ */
+$cfg['Import']['format'] = 'sql';
+$cfg['Import']['allow_interrupt'] = TRUE;
+$cfg['Import']['skip_queries'] = '0';
+$cfg['Import']['csv_replace'] = FALSE;
+$cfg['Import']['csv_terminated'] = ';';
+$cfg['Import']['csv_enclosed'] = '"';
+$cfg['Import']['csv_enclosed_optionally'] = FALSE;
+$cfg['Import']['csv_escaped'] = '\\';
+$cfg['Import']['csv_new_line'] = 'auto';
+$cfg['Import']['csv_columns'] = '';
+$cfg['Import']['ldi_replace'] = FALSE;
+$cfg['Import']['ldi_terminated'] = ';';
+$cfg['Import']['ldi_enclosed'] = '"';
+$cfg['Import']['ldi_enclosed_optionally'] = FALSE;
+$cfg['Import']['ldi_escaped'] = '\\';
+$cfg['Import']['ldi_new_line'] = 'auto';
+$cfg['Import']['ldi_columns'] = '';
+$cfg['Import']['ldi_local_option'] = 'auto'; // 'auto' for autodetection, TRUE or FALSE for forcing
+
+
+/**
  * Link to the official MySQL documentation.
  * Be sure to include no trailing slash on the path.
  * See http://dev.mysql.com/doc/ for more information
@@ -470,6 +485,7 @@ $cfg['AvailableCharsets'] = array(
     'koi8-r',
     'big5',
     'gb2312',
+    'utf-16',
     'utf-8',
     'utf-7',
     'x-user-defined',
@@ -852,13 +868,4 @@ $cfg['UnaryOperators'] = array(
    'IS NOT NULL' => 1
 );
 
-/**
- * Unset magic_quotes_runtime - do not change!
- */
-set_magic_quotes_runtime(0);
-
-/**
- * File Revision - do not change either!
- */
-$cfg['FileRevision'] = '$Revision$';
 ?>

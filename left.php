@@ -319,74 +319,9 @@ echo "\n";
 </head>
 
 <body bgcolor="<?php echo $cfg['LeftBgColor']; ?>" id="body_leftFrame">
-
 <?php
-if ($cfg['LeftDisplayLogo'] && !$cfg['QueryFrame']) {
-?>
-<!-- phpMyAdmin logo -->
-<?php
-    if (@file_exists($pmaThemeImage . 'logo_left.png')) {
-?>
-    <div align="center">
-        <a href="http://www.phpmyadmin.net" target="_blank"><img src="<?php echo '' . $pmaThemeImage . 'logo_left.png'; ?>" alt="phpMyAdmin" vspace="3" border="0" /></a>
-    </div>
-<?php
-    } else {
-        echo '<div align="center"><a href="http://www.phpmyadmin.net" target="_blank">';
-        echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png' . '" alt="phpMyAdmin" border="0" />';
-        echo '</a></div>' . "\n";
-    }
-    echo '<hr />';
-} // end of display logo
-echo "\n";
-
-if (!$cfg['QueryFrame']) {
-    echo "\n";
-?>
-<!-- Link to the welcome page -->
-    <div id="el1Parent" class="parent nowrap" align="center">
-    <?php
-    if ($cfg['MainPageIconic']) {
-        $str_spacer_links='';
-    } else{
-        $str_spacer_links=' - ';
-    }
-    echo '<a class="item" href="main.php?' . PMA_generate_common_url() . '" target="phpmain' . $hash . '">'
-       . ($cfg['MainPageIconic']
-            ? '<img src="' . $pmaThemeImage . 'b_home.png" width="16" height="16" border="0" hspace="2" alt="' . $strHome . '" title="' . $strHome . '"'
-                .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
-            : '<b>' . $strHome . '</b>')
-       . '</a>';
-    // if we have chosen server show logout for advanced authentication
-    if ($server != 0 && $cfg['Server']['auth_type'] != 'config') {
-        echo $str_spacer_links;
-        echo '<a class="item" href="index.php?' . PMA_generate_common_url() . '&amp;old_usr=' . urlencode($PHP_AUTH_USER) . '" target="_parent">'
-           . ($cfg['MainPageIconic']
-                ? '<img src="' . $pmaThemeImage . 's_loggoff.png" width="16" height="16" border="0" hspace="2" alt="' . $strLogout . '" title="' . $strLogout . '"'
-                    .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
-                : '<b>' . $strLogout . '</b>')
-           . '</a>';
-    } // end if
-    if ($cfg['MainPageIconic']) {
-        echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="2" height="1" border="0" />'
-           . '<a href="Documentation.html" target="documentation" class="item">'
-           . '<img src="' . $pmaThemeImage . 'b_docs.png" border="0" hspace="1" width="16" height="16" alt="' . $strPmaDocumentation . '" title="' . $strPmaDocumentation . '"'
-           .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
-           . '</a>';
-       echo ''
-           . '<a href="' . $cfg['MySQLManualBase'] . '" target="documentation" class="item">'
-           . '<img src="' . $pmaThemeImage . 'b_sqlhelp.png" border="0" hspace="1" width="16" height="16" alt="MySQL - ' . $strDocu . '" title="MySQL - ' . $strDocu . '"'
-           .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
-           . '</a>';
-    }
-?>
-    </div>
-    <hr />
-<?php
-    if ($cfg['LeftDisplayServers']) {
-        $show_server_left = TRUE;
-        include('./libraries/select_server.lib.php');
-    }
+if ( ! $cfg['QueryFrame'] ) {
+    require 'libraries/left_header.inc.php';
 } // end !$cfg['QueryFrame']
 
 ?>
@@ -408,24 +343,6 @@ if ($num_dbs > 1) {
     // within left.php. With no JS (<noscript>) the whole frameset will
     // be rebuilt with the new target frame.
     if ($cfg['LeftFrameLight']) {
-        if (!$cfg['QueryFrame']) {
-        ?>
-    <script type="text/javascript" language="javascript">
-    <!--
-        document.writeln('<form method="post" action="left.php" name="left" target="nav" style="margin: 0px; padding: 0px;">');
-    //-->
-    </script>
-    <noscript>
-        <form method="post" action="index.php" name="left" target="_parent" style="margin: 0px; padding: 0px;">
-    </noscript>
-    <?php
-            echo PMA_generate_common_hidden_inputs();
-            echo '        <input type="hidden" name="hash" value="' . $hash . '" />' . "\n";
-            echo '        <span class="heada"><b>' . $strDatabase . ':</b></span><br />';
-            echo '        <select name="lightm_db" onchange="this.form.submit()">' . "\n";
-            echo '            <option value="">(' . $strDatabases . ') ...</option>' . "\n";
-        } // end !$cfg['QueryFrame']
-
         $table_list = '';
         $table_list_header = '';
         $db_name    = '';
@@ -651,15 +568,6 @@ if ($num_dbs > 1) {
             } else {
                 $selected = '';
             } // end if... else...
-            if (!$cfg['QueryFrame']) {
-                if (!empty($num_tables)) {
-                    echo '            <option value="' . htmlspecialchars($db) . '"' . $selected . '>'
-                       . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)) . ' (' . $num_tables . ')</option>' . "\n";
-                } else {
-                    echo '            <option value="' . htmlspecialchars($db) . '"' . $selected . '>'
-                       . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)) . ' (-)</option>' . "\n";
-                }
-            } // end !$cfg['QueryFrame']
 
         } // end if (light mode)
 
@@ -668,20 +576,13 @@ if ($num_dbs > 1) {
     // Light mode -> end of the select combo for databases and table list for
     // the current database
     if ($cfg['LeftFrameLight']) {
-        if (!$cfg['QueryFrame']) {
-            echo '        </select>' . "\n";
-            echo '        <noscript><input type="submit" name="Go" value="' . $strGo . '" /></noscript>' . "\n";
-            echo '    </form>' . "\n";
-        }
         if (!$table_list) {
             $table_list = '    <div align="center"><b>' . $strSelectADb . '</b></div>' . "\n";
         }
 
         // Displays the current database name and the list of tables it
         // contains
-        if (!$cfg['QueryFrame']) {
-           echo '<hr />';
-        }
+
         echo $table_list_header;
         echo $table_list;
     }

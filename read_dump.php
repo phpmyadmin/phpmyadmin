@@ -22,13 +22,12 @@ if (!isset($db)) {
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if (!isset($goto) || !preg_match('@^(db_details|tbl_properties)(_[a-z]*)?\.php$@i', $goto)) {
+if (!isset($goto) || !preg_match('@^(server|db_details|tbl_properties)(_[a-z]*)?\.php$@i', $goto)) {
     $goto = 'db_details.php';
 }
 $err_url  = $goto
           . '?' . PMA_generate_common_url($db)
           . (preg_match('@^tbl_properties(_[a-z]*)?\.php$@', $goto) ? '&amp;table=' . urlencode($table) : '');
-
 
 /**
  * Set up default values for some variables

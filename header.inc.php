@@ -41,16 +41,16 @@ if (empty($GLOBALS['is_header_sent'])) {
      */
     $title     = '';
     if ($cfg['ShowHttpHostTitle']) {
-        $title .= (empty($GLOBALS['cfg']['SetHttpHostTitle']) && isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $GLOBALS['cfg']['SetHttpHostTitle']) . ' >> ';
+        $title .= (empty($GLOBALS['cfg']['SetHttpHostTitle']) && isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $GLOBALS['cfg']['SetHttpHostTitle']) . ' / ';
     }
     if (!empty($GLOBALS['cfg']['Server']) && isset($GLOBALS['cfg']['Server']['host'])) {
         $title.=str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['host']);
     }
     if (isset($GLOBALS['db'])) {
-        $title .= ' >> ' . str_replace('\'', '\\\'', $GLOBALS['db']);
+        $title .= ' / ' . str_replace('\'', '\\\'', $GLOBALS['db']);
     }
     if (isset($GLOBALS['table'])) {
-        $title .= (empty($title) ? '' : ' ') . ' >> ' . str_replace('\'', '\\\'', $GLOBALS['table']);
+        $title .= (empty($title) ? '' : ' ') . ' / ' . str_replace('\'', '\\\'', $GLOBALS['table']);
     }
     $title .= ' | phpMyAdmin ' . PMA_VERSION;
     ?>
@@ -59,7 +59,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     // Updates the title of the frameset if possible (ns4 does not allow this)
     if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknown'
         && typeof(parent.document.title) == 'string') {
-        parent.document.title = '<?php echo $title; ?>';
+        parent.document.title = '<?php echo PMA_sanitize($title); ?>';
     }
 
     document.write('<style type="text/css">');

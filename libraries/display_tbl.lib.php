@@ -1775,13 +1775,14 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     // 2.3 Displays the navigation bars
     if (!isset($table) || strlen(trim($table)) == 0) {
-        /* TABLES is returned as table name for queries like SHOW TABLE
-         * STATUS FROM phpmyadmin on MySQL 5.0.x, see bug #1266623 for
-         * more details.  --Nijel */
-        if ($fields_meta[0]->table == 'TABLES') {
-            $table = '';
-        } else {
+        if (isset($analyzed_sql[0]['query_type'])
+           && $analyzed_sql[0]['query_type'] == 'SELECT') {
+            // table does not always contain a real table name,
+            // for example in MySQL 5.0.x, the query SHOW STATUS
+            // returns STATUS as a table name
             $table = $fields_meta[0]->table;
+        } else {
+            $table = '';
         }
     }
     if ($is_display['nav_bar'] == '1') {
@@ -1799,7 +1800,6 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     $map = array();
 
     // find tables
-
     $target=array();
     if (isset($analyzed_sql[0]['table_ref']) && is_array($analyzed_sql[0]['table_ref'])) {
         foreach ($analyzed_sql[0]['table_ref'] AS $table_ref_position => $table_ref) {

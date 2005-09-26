@@ -317,9 +317,15 @@ if (!$save_on_server) {
         //       IE 5.50.4807.2300
         //       IE 6.0.2800.1106 (small glitch, asks twice when I click Open) 
         //       IE 6.0.2900.2180
-        //       Firefox 1.0.4
+        //       Firefox 1.0.6
+        // in http and https
         header('Content-Disposition: attachment; filename="' . $filename . '"');
-        header('Pragma: no-cache');
+        if (PMA_USR_BROWSER_AGENT == 'IE') {
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+        } else {
+            header('Pragma: no-cache');
+        }
     } else {
         // HTML
         $backup_cfgServer = $cfg['Server'];

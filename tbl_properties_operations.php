@@ -56,7 +56,7 @@ if (isset($submitoptions)) {
                    . (isset($pack_keys) ? ' pack_keys=1': ' pack_keys=0')
                    . (isset($checksum) ? ' checksum=1': ' checksum=0')
                    . (isset($delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0')
-                   . (!empty($auto_increment) ? ' auto_increment=' . PMA_sqlAddslashes($auto_increment) : '');
+                   . (!empty($new_auto_increment) ? ' auto_increment=' . PMA_sqlAddslashes($new_auto_increment) : '');
     $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;
 }
@@ -385,7 +385,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
                 <input type="checkbox" name="delay_key_write" id="delay_key_write_opt"
                 <?php echo (isset($delay_key_write) && $delay_key_write == 1) ? ' checked="checked"' : ''; ?> style="vertical-align: middle" /><label for="delay_key_write_opt">delay_key_write</label><br />
 
-                <input type="text" name="auto_increment" id="auto_increment_opt" class="textfield"
+                <input type="text" name="new_auto_increment" id="auto_increment_opt" class="textfield"
                 <?php echo (isset($auto_increment) && !empty($auto_increment) ? ' value="' . $auto_increment . '"' : ''); ?> style="width: 30px; vertical-align: middle" />&nbsp;<label for="auto_increment_opt">auto_increment</label>
             </td>
         <?php

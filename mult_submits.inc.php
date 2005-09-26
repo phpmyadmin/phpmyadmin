@@ -100,6 +100,18 @@ if (!empty($submit_mult)
             case $strChange:
                 require('./tbl_alter.php');
                 break;
+            case $strBrowse:
+                $sql_query = '';
+                foreach ($selected AS $idx => $sval) {
+                    if ($sql_query == '') {
+                        $sql_query .= 'SELECT ' . PMA_backquote(urldecode($sval));
+                    } else {
+                        $sql_query .=  ', ' . PMA_backquote(urldecode($sval));
+                    }
+                }
+                $sql_query .= ' FROM ' . PMA_backquote(htmlspecialchars($table));
+                require('./sql.php');
+                break;
         }
     } else {
         $what = 'row_delete';

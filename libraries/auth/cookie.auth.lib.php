@@ -72,7 +72,7 @@ function PMA_auth()
     // Tries to get the username from cookie whatever are the values of the
     // 'register_globals' and the 'variables_order' directives if last login
     // should be recalled, else skip the IE autocomplete feature.
-    if ($cfg['LoginCookieRecall']) {
+    if ($cfg['LoginCookieRecall'] && !empty($GLOBALS['cfg']['blowfish_secret'])) {
         // username
         // do not try to use pma_cookie_username as it was encoded differently
         // in previous versions and would produce an undefined offset in blowfish
@@ -80,8 +80,12 @@ function PMA_auth()
             $default_user = $_COOKIE['pma_cookie_username-' . $server];
         }
         $decrypted_user = isset($default_user) ? PMA_blowfish_decrypt($default_user, $GLOBALS['cfg']['blowfish_secret']) : '';
-        $pos = strrpos($decrypted_user, ':');
-        $default_user = substr($decrypted_user, 0, $pos);
+        if (!empty($decrypted_user)) {
+            $pos = strrpos($decrypted_user, ':');
+            $default_user = substr($decrypted_user, 0, $pos);
+        } else {
+            $default_user = '';
+        }
         // server name
         if (!empty($GLOBALS['pma_cookie_servername'])) {
             $default_server = $GLOBALS['pma_cookie_servername'];
@@ -219,7 +223,7 @@ if (top != self) {
 
     // Displays the warning message and the login form
 
-    if ($GLOBALS['cfg']['blowfish_secret']=='') {
+    if (empty($GLOBALS['cfg']['blowfish_secret'])) {
     ?>
         <tr><td colspan="2" height="5"></td></tr>
         <tr>
@@ -255,14 +259,14 @@ if (top != self) {
     <tr>
         <td align="right" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>"><b><?php echo $GLOBALS['strLogServer']; ?>:&nbsp;</b></td>
         <td align="<?php echo $cell_align; ?>" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>">
-            <input type="text" name="pma_servername" value="<?php echo (isset($default_server) ? $default_server : ''); ?>" size="24" class="textfield" onfocus="this.select()" />
+            <input type="text" name="pma_servername" value="<?php echo (isset($default_server) ? htmlspecialchars($default_server) : ''); ?>" size="24" class="textfield" onfocus="this.select()" />
         </td>
     </tr>
 <?php } ?>
     <tr>
         <td align="right" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>"><b><?php echo $GLOBALS['strLogUsername']; ?>&nbsp;</b></td>
         <td align="<?php echo $cell_align; ?>" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>">
-            <input type="text" name="pma_username" value="<?php echo (isset($default_user) ? $default_user : ''); ?>" size="24" class="textfield" onfocus="this.select()" />
+            <input type="text" name="pma_username" value="<?php echo (isset($default_user) ? htmlspecialchars($default_user) : ''); ?>" size="24" class="textfield" onfocus="this.select()" />
         </td>
     </tr>
     <tr>
@@ -406,7 +410,7 @@ function PMA_auth_check()
     global $from_cookie;
 
     // avoid an error in mcrypt
-    if ($GLOBALS['cfg']['blowfish_secret']=='') {
+    if (empty($GLOBALS['cfg']['blowfish_secret'])) {
         return FALSE;
     }
 
@@ -452,9 +456,13 @@ function PMA_auth_check()
             $from_cookie   = TRUE;
         }
         $decrypted_user = PMA_blowfish_decrypt($PHP_AUTH_USER, $GLOBALS['cfg']['blowfish_secret']);
-        $pos = strrpos($decrypted_user, ':');
-        $PHP_AUTH_USER = substr($decrypted_user, 0, $pos);
-        $decrypted_time = (int)substr($decrypted_user, $pos + 1);
+        if (!empty($decrypted_user)) {
+            $pos = strrpos($decrypted_user, ':');
+            $PHP_AUTH_USER = substr($decrypted_user, 0, $pos);
+            $decrypted_time = (int)substr($decrypted_user, $pos + 1);
+        } else {
+            $decrypted_time = 0;
+        }
 
         // User inactive too long
         if ($decrypted_time > 0 && $decrypted_time < $GLOBALS['current_time'] - $GLOBALS['cfg']['LoginCookieValidity']) {

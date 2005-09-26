@@ -1,9 +1,173 @@
-----------------------
+﻿----------------------
 phpMyAdmin - Changelog
 ----------------------
 
 $Id$
 $Source$
+
+2005-09-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/database_interface.lib.php: fixed bug in PMA_DBI_fetch_*()
+      using PMA_DBI_num_rows() on unbuffered queries
+
+2005-09-26 Michal Čihař  <michal@cihar.com>
+    * libraries/export/sql.php: Fix constraint parsing (bug #1304600).
+    * libraries/display_import.lib.php, libraries/import/csv.php: Rename
+      plugin parameters to allow using same parameter by multiple plugins.
+    * config.default.php, lang/*, libraries/import/ldi.php: Alternate LOAD
+      DATA import plugin for CSV.
+    * libraries/display_import.lib.php: Sort list of import plugins.
+    * mult_submits.inc.php, tbl_properties_structure.php: Support for browsing
+      selected columns (RFE #1275909).
+
+2005-09-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: support MySQL 5 privileges 
+
+2005-09-25 Michal Čihař  <michal@cihar.com>
+    * lang/*: Messages for Sebastian.
+    * lang/czech: Partial update.
+
+2005-09-25 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * left.php, queryframe.php, libraries/common.lib.php,
+      libraries/left_header.inc.php, css/phpmyadmin.css.php:
+      grouping databases (bug #1281262)
+    * server_status.php, libraries/common.lib.php, css/phpmyadmin.css.php:
+      extended server status information with description and warnings,
+      added PMA_formatNumber()
+    * server_privilegs.php: fixed bug table not found
+    * tbl_properties_structure.php, css/phpmyadmin.css.php:
+      made statistic tables floating, moved styles into css
+    * css/phpmyadmin.css.php: set font-size in caption to normal
+
+2005-09-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * querywindow.php, css/phpmyadmin.css.php:
+      resize querywindow to content (bug #1277375)
+
+2005-09-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_links.php, server_privileges.php, server_common.inc.php:
+      bug #1302985, Privileges tab on database
+    * tbl_change.php: bug #1272290, multiple MAX_FILE_SIZE limits BLOB
+      insertion
+
+2005-09-24 Michal Čihař  <michal@cihar.com>
+    * lang/add_message_file.sh: Make it deal with regullar php file, do not
+      mark english text as to translate.
+    * lang/add_message.sh: Do not mark english text as to translate.
+    * *import*, Documentation.html, lang/*, main.php, *links*,
+      css/phpmyadmin.css.php, libraries/unzip.lib.php: New import system,
+      please test it (patch #1288933, RFEs: 618255, 780754, 1017598, 1097670,
+      1274500, 807830).
+    * libraries/import.lib.php, libraries/import/csv.php,
+      libraries/import/sql.php, libraries/import/README: Fix possible data
+      leak when reading large buffer.
+
+2005-09-23 Michal Čihař  <michal@cihar.com>
+    * libraries/auth/cookie.auth.lib.php: Do not pass empty variables as
+      haystack to strpos (bug #1299422).
+    * server_privileges.php: Reload left frame if dropping database (bug
+      #1298678).
+    * libraries/fpdf/fpdf.php: Fix filename for PDF pages containing space in
+      name (bug #1300837).
+
+2005-09-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_export.lib.php, libraries/export/csv.php:
+      bug #1301374, csv on-screen export broken
+
+2005-09-20 Michal Čihař  <michal@cihar.com>
+    * libraries/database_interface.lib.php: Added some useful functions to DBI
+      layer (patch #1286451), thanks to Sebastian Mendel.
+    * Documentation.html, config.default.php, libraries/common.lib.php: Add
+      support for forcing https access to phpMyAdmin (RFE #1111333).
+
+2005-09-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.data.php: patch #1295365, missing function
+      definitions in parser, thanks to Sebastian Mendel
+    * db_details_links.php: patch #1196806, Privileges link on db page
+
+2005-09-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_export.lib.php: bug #1293937 Export compression
+      default: bzip instead of bzip2, thanks to Rene Leonhardt
+    
+2005-09-15 Michal Čihař  <michal@cihar.com>
+    * config.default.php, libraries/common.lib.php: Simplify loading of
+      defaults, why did I write such crap before?
+    * libraries/common.lib.php: Fail if pcre support is missing.
+
+2005-09-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * export.php: bug #1290730, https export under MSIE fails
+
+2005-09-14 Michal Čihař  <michal@cihar.com>
+    * css/phpmyadmin.css.php: Do not wrap tabs (patch #1282247), thanks to
+      Sebastian Mendel.
+    * config.default.php: Do not set blowfish_secret here at all, this needs
+      to be done by user (bug #1290990).
+    * libraries/auth/cookie.auth.lib.php: Fix undefined variable warnings.
+    * libraries/common.lib.php, lang/*: Detect wrong authentication method and
+      warn user using error.php (bug #1290888).
+    * tbl_properties_operations.php: Update auto_increment value (bug
+      #1290413).
+    * read_dump.php, server_links.inc.php, server_sql.php, sql.php, lang/*:
+      Add SQL tab for server (patch #1291084), (RFE #1048090).
+    * Documentation.html: We dropped support for PHP 3 some time ago, so let's
+      drop mentions about it from documentation.
+
+2005-09-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * scripts/create-release.sh: no longer copy config.inc.php to
+      config.default.php to keep a backup of the previous version
+
+2005-09-13 Michal Čihař  <michal@cihar.com>
+    * libraries/common.lib.php: Add support for lang/added_messages.php
+      (mostly as feature for developer, to allow easilly adding messages
+      while working on some features).
+    * .cvsignore, Documentation.html, config.default.php,
+      config.inc.php[removed], libraries/common.lib.php,
+      libraries/config_import.lib.php[removed]: New configuration handling,
+      use config.inc.php for configuration, default values are stored in
+      config.default.php.
+    * config.default.php: Remove non configuration stuff.
+    * lang/.cvsignore: Ignore lang/added_messages.php.
+
+2005-09-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_relation.php: bug #1287611, no Save button in Relation view
+          when pmadb is not defined
+
+2005-09-10 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.6.4 released
+
+2005-09-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php: bug #1283813, SHOW STATUS typed in a
+      query box produces a SHOW CREATE TABLE STATUS under MySQL 5.0.x
+    * lang/mongolian* update, thanks to Bayarsaikhan Enkhtaivan
+
+2005-09-07 Michal Čihař  <michal@cihar.com>
+    * main.php, libraries/auth/cookie.auth.lib.php: XSS on username (bug
+      #1283552)
+    * ChangeLog: Move vim modelines to correctly interpret et after setting
+      file type (otherwise tabs were not expanded as changelog ft sets noet).
+
+2005-09-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
+
+2005-09-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/defines.lib.php, themes/*/info.inc.php: about themes version,
+      phpMyAdmin 2.6.4 needs generation 2, version 1;
+      phpMyAdmin 2.6.5 (currently) needs generation 2, version 2
+    * header.inc.php: XSS on $title, thanks to Christian Wenz
+
+2005-09-05 Michal Čihař  <michal@cihar.com>
+    * libraries/export/sql.php: Do not treat BLOBs as number (bug #1277309).
+
+2005-09-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties.inc.php: bug #1281533, collation not kept while
+      changing table field count
+
+2005-09-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/turkish update, thanks to boralioglu.
+
+2005-08-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/belarusian updates, thanks to Jaska Zedlik
+    ### 2.6.4-rc1 released
+    * server_privileges, themes/*/css/theme_right.css.php: patch #1251692,
+      fieldsets for privileges interface, thanks to Sebastian Mendel
 
 2005-08-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/indonesian: update thanks to Rachim Tamsjadi - tamsy
@@ -7002,7 +7166,7 @@ $Source$
          --- Older ChangeLogs can be found on our project website ---
                      http://www.phpmyadmin.net/old-stuff/ChangeLogs/
 
+# vim: et ts=4 sw=4 sts=4
 # vim: ft=changelog fenc=utf-8 encoding=utf-8
-# vim: expandtab ts=4 sw=4 sts=4
 # vim: fde=getline(v\:lnum-1)=~'^\\s*$'&&getline(v\:lnum)=~'\\S'?'>1'\:1&&v\:lnum>8&&getline(v\:lnum)!~'^#'
 # vim: fdn=1 fdm=expr

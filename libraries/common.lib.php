@@ -72,13 +72,16 @@ if (!isset($pos)) {
 unset($cfg);
 
 /**
- * Detects the config file we want to load
+ * Added messages while developing:
  */
-if (file_exists('./config.inc.developer.php')) {
-    $cfgfile_to_load = 'config.inc.developer.php';
-} else {
-    $cfgfile_to_load = 'config.inc.php';
+if (file_exists('./lang/added_messages.php')) {
+    include('./lang/added_messages.php');
 }
+
+/**
+ * Set default configuration values.
+ */
+include './config.default.php';
 
 /**
  * Parses the configuration file and gets some constants used to define
@@ -86,51 +89,51 @@ if (file_exists('./config.inc.developer.php')) {
  */
 $old_error_reporting = error_reporting(0);
 // We can not use include as it fails on parse error
-$config_fd = fopen($cfgfile_to_load, 'r');
-$result = eval('?>' . fread($config_fd, filesize($cfgfile_to_load)));
-fclose($config_fd);
-// Eval failed
-if ($result === FALSE || (!isset($cfgServers) && !isset($cfg['Servers']))) {
-    // Creates fake settings
-    $cfg = array('DefaultLang'           => 'en-iso-8859-1',
-                    'AllowAnywhereRecoding' => FALSE);
-    // Loads the language file
-    require_once('./libraries/select_lang.lib.php');
-    // Displays the error message
-    // (do not use &amp; for parameters sent by header)
-    header( 'Location: error.php'
-            . '?lang='  . urlencode( $available_languages[$lang][2] )
-            . '&char='  . urlencode( $charset )
-            . '&dir='   . urlencode( $text_dir )
-            . '&type='  . urlencode( $strError )
-            . '&error=' . urlencode( strtr($strConfigFileError, array('<br />' => '[br]')) . '[br][br]' . '[a@' . $cfgfile_to_load . '@_blank]' . $cfgfile_to_load . '[/a]' )
-             );
-    exit();
-}
-error_reporting($old_error_reporting);
-unset($old_error_reporting, $cfgfile_to_load);
-
-/**
- * Includes compatibility code for older config.inc.php revisions
- * if necessary
- */
-if (isset($cfg['FileRevision'])) {
-    // converting revision string into an array
-    //     e.g. "Revision: 2.0" becomes array(2, 0).
-    $cfg['FileRevision'] = str_replace('$' . 'Revision: ', '', $cfg['FileRevision']);
-    $cfg['FileRevision'] = str_replace(' $', '', $cfg['FileRevision']);
-    $cfg['FileRevision'] = explode('.', $cfg['FileRevision']);
-} else {
-    $cfg['FileRevision'] = array(1, 1);
-}
-if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 64)) {
-    require_once('./libraries/config_import.lib.php');
+if (file_exists('./config.inc.php')) {
+    $config_fd = fopen('./config.inc.php', 'r');
+    $result = eval('?>' . fread($config_fd, filesize('./config.inc.php')));
+    fclose($config_fd);
+    // Eval failed
+    if ($result === FALSE || (!isset($cfgServers) && !isset($cfg['Servers']))) {
+        // Creates fake settings
+        $cfg = array('DefaultLang'           => 'en-iso-8859-1',
+                        'AllowAnywhereRecoding' => FALSE);
+        // Loads the language file
+        require_once('./libraries/select_lang.lib.php');
+        // Displays the error message
+        // (do not use &amp; for parameters sent by header)
+        header( 'Location: error.php'
+                . '?lang='  . urlencode( $available_languages[$lang][2] )
+                . '&char='  . urlencode( $charset )
+                . '&dir='   . urlencode( $text_dir )
+                . '&type='  . urlencode( $strError )
+                . '&error=' . urlencode( strtr($strConfigFileError, array('<br />' => '[br]')) . '[br][br]' . '[a@./config.inc.php@_blank]config.inc.php[/a]' )
+                 );
+        exit();
+    }
+    error_reporting($old_error_reporting);
+    unset($old_error_reporting);
 }
 
 /**
  * Includes the language file if it hasn't been included yet
  */
 require_once('./libraries/select_lang.lib.php');
+
+/**
+ * We really need this one!
+ */
+if (!function_exists('preg_replace')) {
+    header( 'Location: error.php'
+        . '?lang='  . urlencode( $available_languages[$lang][2] )
+        . '&char='  . urlencode( $charset )
+        . '&dir='   . urlencode( $text_dir )
+        . '&type='  . urlencode( $strError )
+        . '&error=' . urlencode( strtr(sprintf($strCantLoad, 'pcre'), array('<br />' => '[br]')))
+         );
+    exit();
+}
+
 /**
  * Gets constants that defines the PHP version number.
  * This include must be located physically before any code that needs to
@@ -777,6 +780,132 @@ if ($is_minimum_common == FALSE) {
 }
 
 /**
+ * returns array with dbs grouped with extended infos
+ * 
+ * @uses    $GLOBALS['dblist'] from PMA_availableDatabases()
+ * @uses    $GLOBALS['num_dbs'] from PMA_availableDatabases()
+ * @uses    $GLOBALS['cfgRelation']['commwork']
+ * @uses    $GLOBALS['cfg']['ShowTooltip']
+ * @uses    $GLOBALS['cfg']['LeftFrameDBTree']
+ * @uses    $GLOBALS['cfg']['LeftFrameDBSeparator']
+ * @uses    $GLOBALS['cfg']['ShowTooltipAliasDB']
+ * @uses    PMA_availableDatabases()
+ * @uses    PMA_getTableCount()
+ * @uses    PMA_getComments()
+ * @uses    PMA_availableDatabases()
+ * @return  array   db list
+ */
+function PMA_getDbList() {
+    if ( empty( $GLOBALS['dblist'] ) ) {
+        PMA_availableDatabases();
+    }
+    $dblist     = $GLOBALS['dblist'];
+    $dbgroups   = array();
+    $parts      = array();
+    foreach ( $dblist as $key => $db ) {
+        // garvin: Get comments from PMA comments table
+        $db_tooltip = '';
+        if ( $GLOBALS['cfg']['ShowTooltip']
+          && $GLOBALS['cfgRelation']['commwork'] ) {
+            $_db_tooltip = PMA_getComments( $db );
+            if ( is_array( $_db_tooltip ) ) {
+                $db_tooltip = implode( ' ', $_db_tooltip );
+            }
+        }
+
+        if ( $GLOBALS['cfg']['LeftFrameDBTree']
+            && $GLOBALS['cfg']['LeftFrameDBSeparator']
+            && strstr( $db, $GLOBALS['cfg']['LeftFrameDBSeparator'] ) )
+        {
+            $parts          = explode( $GLOBALS['cfg']['LeftFrameDBSeparator'],
+                              $db, 2 );
+            $group          = $parts[0];
+            $disp_name_cut  = $GLOBALS['cfg']['LeftFrameDBSeparator'] 
+                            . $parts[1];
+        } else {
+            $group          = $db;
+            $disp_name_cut  = $db;
+        }
+        
+        $disp_name  = $db;
+        if ( $db_tooltip && $GLOBALS['cfg']['ShowTooltipAliasDB'] ) {
+            $disp_name      = $db_tooltip;
+            $disp_name_cut  = $db_tooltip;
+            $db_tooltip     = $db;
+        }
+        
+        $dbgroups[$group][$db] = array(
+            'name'          => $db,
+            'disp_name_cut' => $disp_name_cut,
+            'disp_name'     => $disp_name,
+            'comment'       => $db_tooltip,
+            'num_tables'    => PMA_getTableCount( $db ),
+        );
+    } // end foreach ( $dblist as $db )  
+    return $dbgroups;
+}
+
+/**
+ * returns html code for select form element with dbs
+ * 
+ * @return  string  html code select
+ */
+function PMA_getHtmlSelectDb( $selected = '' ) {
+    $dblist = PMA_getDbList();
+    $return = '<select name="lightm_db" id="lightm_db"'
+        .' onchange="remove_focus_select(); this.form.submit();">' . "\n"
+        .'<option value="">(' . $GLOBALS['strDatabases'] . ') ...</option>'
+        ."\n";
+    foreach( $dblist as $group => $dbs ) {
+        if ( count( $dbs ) > 1 ) {
+            $return .= '<optgroup label="' . htmlspecialchars( $group )
+                . '">' . "\n";
+            // wether display db_name cuted by the group part
+            $cut = true;
+        } else {
+            // .. or full
+            $cut = false;
+        }
+        foreach( $dbs as $db ) {
+            $return .= '<option value="' . $db['name'] . '" '
+                .'title="' . $db['comment'] . '"';
+            if ( $db['name'] == $selected ) {
+                $return .= ' selected="selected"';
+            }
+            $return .= '>' . ( $cut ? $db['disp_name_cut'] : $db['disp_name'] ) 
+                .' (' . $db['num_tables'] . ')</option>' . "\n";
+        }
+        if ( count( $dbs ) > 1 ) {
+            $return .= '</optgroup>' . "\n";
+        }
+    }
+    $return .= '</select>';
+    
+    return $return;
+}
+
+/**
+ * returns count of tables in given db
+ * 
+ * @param   string  $db database to count tables for
+ * @return  integer count of tables in $db
+ */
+function PMA_getTableCount( $db ) {
+    $tables = PMA_DBI_try_query(
+        'SHOW TABLES FROM ' . PMA_backquote( $db ) . ';',
+        NULL, PMA_DBI_QUERY_STORE);
+    if ( $tables ) {
+        $num_tables = PMA_DBI_num_rows( $tables );
+        PMA_DBI_free_result( $tables );
+    } else {
+        $num_tables = 0;
+    }
+    
+    return $num_tables;
+}
+
+
+/**
  * Get the complete list of Databases a user can access
  *
  * @param   boolean   whether to include check on failed 'only_db' operations
@@ -1108,6 +1237,13 @@ if ($is_minimum_common == FALSE) {
     $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')) . '/';
     $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
 
+    // 
+    if ($cfg['ForceSLL'] && !$is_https) {
+        header('Location: ' . preg_replace('/^http/', 'https', $cfg['PmaAbsoluteUri']) . (isset($_SERVER['REQUEST_URI']) ? preg_replace('@' . $pma_uri_parts['path'] . '@', '', $_SERVER['REQUEST_URI']) : '' ));
+        exit;
+    }
+    
+
     $dblist       = array();
 
     /**
@@ -1164,6 +1300,16 @@ if ($is_minimum_common == FALSE) {
         // (for a quick check of path disclosure in auth/cookies:)
         $coming_from_common = TRUE;
 
+        if (!file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php')) {
+            header( 'Location: error.php'
+                    . '?lang='  . urlencode( $available_languages[$lang][2] )
+                    . '&char='  . urlencode( $charset )
+                    . '&dir='   . urlencode( $text_dir )
+                    . '&type='  . urlencode( $strError )
+                    . '&error=' . urlencode( $strInvalidAuthMethod . ' ' . $cfg['Server']['auth_type'] )
+                     );
+            exit();
+        }
         require_once('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php');
         if (!PMA_auth_check()) {
             PMA_auth();
@@ -1912,6 +2058,93 @@ if (typeof(document.getElementById) != 'undefined'
         return array($return_value, $unit);
     } // end of the 'PMA_formatByteDown' function
 
+    /**
+     * Formats $value to the given length and appends SI prefixes
+     * $comma is not substracted from the length
+     * <code>
+     * echo PMA_formatNumber( 123456789, 6 );     // 123,457 k
+     * echo PMA_formatNumber( -123456789, 4, 2 ); //    -123.46 M
+     * echo PMA_formatNumber( -0.003, 6 );        //      -3 m
+     * echo PMA_formatNumber( 0.003, 3, 3 );      //       0.003
+     * echo PMA_formatNumber( 0.00003, 3, 2 );    //       0.03 m
+     * echo PMA_formatNumber( 0, 6 );             //       0
+     * </code>
+     * @param   double   $value     the value to format
+     * @param   integer  $length    the max length
+     * @param   integer  $comma     the number of decimals to retain
+     * @param   boolean  $only_down do not reformat numbers below 1
+     *
+     * @return  string   the formatted value and its unit
+     *
+     * @access  public
+     *
+     * @author  staybyte, sebastian mendel
+     * @version 1.0.3 - 2005-09-16
+     */
+    function PMA_formatNumber( $value, $length = 3, $comma = 0, $only_down = false ) {
+        // this units needs no translation, ISO
+        $units = array(
+            -8 => 'y',
+            -7 => 'z',
+            -6 => 'a',
+            -5 => 'f',
+            -4 => 'p',
+            -3 => 'n',
+            -2 => '&micro;',
+            -1 => 'm',
+            0 => ' ',
+            1 => 'k',
+            2 => 'M',
+            3 => 'G',
+            4 => 'T',
+            5 => 'P',
+            6 => 'E',
+            7 => 'Z',
+            8 => 'Y'
+        );
+        
+        // we need at least 3 digits to be displayed
+        if ( 3 > $length + $comma ) {
+            $length = 3 - $comma;
+        }
+        
+        // check for negativ value to retain sign
+        if ( $value < 0 ) {
+            $sign = '-';
+            $value = abs( $value );
+        } else {
+            $sign = '';
+        }
+
+        $dh = pow(10, $comma);
+        $li = pow(10, $length);
+        $unit = $units[0];
+
+        if ( $value >= 1 ) {
+            for ( $d = 8; $d >= 0; $d-- ) {
+                if (isset($units[$d]) && $value >= $li * pow(1000, $d-1)) {
+                    $value = round($value / ( pow(1000, $d) / $dh) ) /$dh;
+                    $unit = $units[$d];
+                    break 1;
+                } // end if
+            } // end for
+        } elseif ( ! $only_down && (float) $value !== 0.0 ) {
+            for ( $d = -8; $d <= 8; $d++ ) {
+                if (isset($units[$d]) && $value <= $li * pow(1000, $d-1)) {
+                    $value = round($value / ( pow(1000, $d) / $dh) ) /$dh;
+                    $unit = $units[$d];
+                    break 1;
+                } // end if
+            } // end for
+        } // end if ( $value >= 1 ) elseif ( ! $only_down && (float) $value !== 0.0 )
+
+        $value = number_format( $value,
+                                $comma,
+                                $GLOBALS['number_decimal_separator'],
+                                $GLOBALS['number_thousands_separator'] );
+
+        return $sign . $value . ' ' . $unit;
+    } // end of the 'PMA_formatNumber' function
 
     /**
      * Extracts ENUM / SET options from a type definition string

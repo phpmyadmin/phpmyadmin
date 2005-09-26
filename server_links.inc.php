@@ -39,6 +39,10 @@ $tabs['databases']['icon'] = 's_db.png';
 $tabs['databases']['link'] = 'server_databases.php';
 $tabs['databases']['text'] = $strDatabases;
 
+$tabs['sql']['icon'] = 'b_sql.png';
+$tabs['sql']['link'] = 'server_sql.php';
+$tabs['sql']['text'] = $strSQL;
+
 if ($cfg['ShowMysqlInfo']) {
     $tabs['status']['icon'] = 's_status.png';
     $tabs['status']['link'] = 'server_status.php';
@@ -76,6 +80,10 @@ $tabs['process']['text'] = $strServerTabProcesslist;
 $tabs['export']['icon'] = 'b_export.png';
 $tabs['export']['link'] = 'server_export.php';
 $tabs['export']['text'] = $strExport;
+
+$tabs['import']['icon'] = 'b_import.png';
+$tabs['import']['link'] = 'server_import.php';
+$tabs['import']['text'] = $strImport;
 
 echo PMA_getTabs( $tabs );
 unset( $tabs );

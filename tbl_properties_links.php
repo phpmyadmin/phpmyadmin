@@ -39,13 +39,17 @@ $tabs['insert']['link'] = 'tbl_change.php';
 $tabs['insert']['text'] = $strInsert;
 
 /**
- * Don't display "Export", "Operations" and "Empty" for views.
+ * Don't display "Export", "Import", "Operations" and "Empty" for views.
  */
 if (!$tbl_is_view) {
     $tabs['export']['icon'] = 'b_tblexport.png';
     $tabs['export']['link'] = 'tbl_properties_export.php';
     $tabs['export']['args']['single_table'] = 'true';
     $tabs['export']['text'] = $strExport;
+    
+    $tabs['import']['icon'] = 'b_tblimport.png';
+    $tabs['import']['link'] = 'tbl_import.php';
+    $tabs['import']['text'] = $strImport;
     
     $tabs['operation']['icon'] = 'b_tblops.png';
     $tabs['operation']['link'] = 'tbl_properties_operations.php';
