@@ -246,7 +246,7 @@ if ($abort == FALSE) {
     else if (empty($num_fields) || !is_int($num_fields)) {
         PMA_mysqlDie($strFieldsEmpty, '', '', $err_url);
     }
-    // No valid number of fields
+    // Does table exist?
     else if (!(PMA_DBI_get_fields($db, $table) === FALSE)) {
         PMA_mysqlDie(sprintf($strTableAlreadyExists, htmlspecialchars($table)), '', '', $err_url);
     }
