@@ -597,6 +597,8 @@ if ($is_minimum_common == FALSE) {
         // Revised, Robbat2 - 13 January 2003, 2:59PM
         if (!function_exists('PMA_SQP_isError') || PMA_SQP_isError()) {
             $formatted_sql = htmlspecialchars($the_query);
+        } elseif (empty($the_query)) {
+            $formatted_sql = '';
         } else {
             $formatted_sql = PMA_formatSql(PMA_SQP_parse(PMA_sanitize($the_query)), $the_query);
         }

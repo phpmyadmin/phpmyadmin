@@ -18,6 +18,8 @@ $Source$
     * libraries/display_import.lib.php: Sort list of import plugins.
     * mult_submits.inc.php, tbl_properties_structure.php: Support for browsing
       selected columns (RFE #1275909).
+    * libraries/common.lib.php: Do no try to parse empty SQL query (bug
+      #1303994).
 
 2005-09-25 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: support MySQL 5 privileges 
