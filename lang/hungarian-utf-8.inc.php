@@ -764,7 +764,6 @@ $strBufferWriteWaits = 'Write waits';  //to translate
 $strBufferWriteWaitsInPercent = 'Write waits in %';  //to translate
 $strBusyPages = 'Busy pages';  //to translate
 
-$strCopy = 'Copy';  //to translate
 $strCopyDatabaseOK = 'Database %s has been copied to %s';  //to translate
 $strCreateDatabaseBeforeCopying = 'CREATE DATABASE másolás el&#337;tt';  //to translate
 
@@ -988,4 +987,5 @@ $strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate
 $strInvalidLDIImport = 'This plugin does not support compressed imports!';  //to translate
 $strTableAlreadyExists = 'Table %s already exists!';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
+$strNumberOfFields = 'Number of fields';  //to translate
 ?>

@@ -357,7 +357,6 @@ $strInUse = 'sedang digunakan';
 $strInvalidColumnCount = 'Perhitungan kolom wajib lebih besar dari nol.';
 $strInvalidFieldAddCount = 'Anda perlu menambahkan sedikitnya satu Field.';
 $strInvalidFieldCount = 'Tabel wajib mengandung sesedikitnya satu Field.';
-$strInvalidRowCount = 'Anda perlu menambahkan sedikitnya satu baris.';
 $strInvalidRowNumber = '%d bukanlah nomor baris yang berlaku.';
 
 $strJapanese = 'Bahasa Jepang';
@@ -966,4 +965,5 @@ $strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate
 $strInvalidLDIImport = 'This plugin does not support compressed imports!';  //to translate
 $strTableAlreadyExists = 'Table %s already exists!';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
+$strNumberOfFields = 'Number of fields';  //to translate
 ?>

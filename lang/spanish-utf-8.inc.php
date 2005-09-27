@@ -752,8 +752,6 @@ $strTransformation_text_plain__formatted = 'Mantiene el formato original del cam
 $strTransformation_text_plain__imagelink = 'Muestra una imagen y un enlace, el campo contiene el nombre del archivo; la primera opción es un prefijo como "http://dominio.com/", la segunda opción es el ancho en píxeles, el tercero es el alto.';
 $strTransformation_text_plain__link = 'Muestra un enlace, el campo contiene el nombre del archivo; la primera opción es un prefijo como "http://dominio.com/", la segunda opción es un título para el enlace.';
 $strTransformation_text_plain__substr = 'Muestra una parte de una cadena de caracteres. La primera opción es el número de caracteres a pasar por alto desde el principio de la cadena de caracteres (Predeterminado: 0). La segunda opción es el número de caracteres a mostrar (Predeterminado: hasta el final de la cadena de caracteres). La tercera opción es la cadena de caracteres a adjuntar y/o anteponer cuando haya truncamiento (Predeterminado: "...").';
-$strTransformation_text_plain__substr = 'Solamente muestra una parte de la cadena de caracteres. La primera opción es un offset para definir en dónde empieza el output de su texto (Predeterminado 0). La segunda opción es un offset para definir cuánto texto es retornado. Si está vacío, regresa todo el texto restante. La tercera opción define cuáles chars se adjuntarán al output cuando se regrese un substring (Predeterminado: ...) .';
-$strTransformation_text_plain__unformatted = 'Muestra el código HTML como entidades HTML. No se muestra formato HTML.';
 $strTruncateQueries = 'Truncar las consultas que ya se han mostrado';
 $strTurkish = 'Turco';
 $strType = 'Tipo';
@@ -968,4 +966,5 @@ $strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate
 $strInvalidLDIImport = 'This plugin does not support compressed imports!';  //to translate
 $strTableAlreadyExists = 'Table %s already exists!';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
+$strNumberOfFields = 'Number of fields';  //to translate
 ?>

@@ -371,7 +371,6 @@ $strNoTablesFound = 'Me\'lumat bazasýnda cedvel yoxdur.';
 $strNotNumber = 'Bu reqem deyildir!';
 $strNotOK = 'Müveffeqiyyetsiz';
 $strNotSet = '<b>%s</b> cedveli %s içerisinde ya <b>tapýlmadý</b> ya da qurulmamýþdýr';
-$strNotValidNumber = ' e\'tibarlý setir nömresi deyildir!';
 $strNoUsersFound = 'Ýstifadeçi(ler) tapýlmadý.';
 $strNoValidateSQL = 'SQL Ýfadesini Yoxlama';
 $strNo = 'Xeyir';
@@ -992,4 +991,5 @@ $strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate
 $strInvalidLDIImport = 'This plugin does not support compressed imports!';  //to translate
 $strTableAlreadyExists = 'Table %s already exists!';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
+$strNumberOfFields = 'Number of fields';  //to translate
 ?>

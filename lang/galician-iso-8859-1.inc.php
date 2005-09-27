@@ -361,7 +361,6 @@ $strInUse = 'en uso';
 $strInvalidColumnCount = 'O número de columnas ten que ser maior de cero';
 $strInvalidFieldAddCount = 'Ten que engadir un campo polo menos';
 $strInvalidFieldCount = 'A tabela ha de ter, polo menos, un campo.';
-$strInvalidRowCount = 'Ten que engadir polo menos unha fileira.';
 $strInvalidRowNumber = '%d non é un número de fileira válido.';
 
 $strJapanese = 'Xaponés';
@@ -973,4 +972,5 @@ $strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate
 $strInvalidLDIImport = 'This plugin does not support compressed imports!';  //to translate
 $strTableAlreadyExists = 'Table %s already exists!';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
+$strNumberOfFields = 'Number of fields';  //to translate
 ?>

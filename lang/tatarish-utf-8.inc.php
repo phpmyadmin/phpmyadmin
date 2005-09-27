@@ -743,7 +743,6 @@ $strTransformation_text_plain__formatted = 'Preserves original formatting of the
 $strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';
 $strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';
 $strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';
-$strTransformation_text_plain__unformatted = 'HTML eçtälege HTML berämleklär aşa kürsätelä. HTML tözeleşe kürsätelmi.';
 $strTruncateQueries = 'Sorawnı Qısqartıp Kürsätäse';
 $strTurkish = 'Törekçä';
 $strType = 'Töre';
@@ -971,4 +970,5 @@ $strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate
 $strInvalidLDIImport = 'This plugin does not support compressed imports!';  //to translate
 $strTableAlreadyExists = 'Table %s already exists!';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
+$strNumberOfFields = 'Number of fields';  //to translate
 ?>

@@ -478,7 +478,6 @@ $strNoThemeSupport = 'Sem suporte a Temas, verifique suas configurações e/ou s
 $strNotNumber = 'Isto não é um número!'; 
 $strNotOK = 'não está OK'; 
 $strNotSet = '<b>%s</b> tabela não encontrada ou não configurada em %s'; 
-$strNotValidNumber = ' não é um número de registro valido!'; 
 $strNoUsersFound = 'Nenhum usuário(s) encontrado.'; 
 $strNoValidateSQL = 'Pular validação SQL'; 
 $strNull = 'Nulo'; 
@@ -819,12 +818,6 @@ $strZip = '"compactado com zip"';
 // To translate:
 $strAndThen = 'and then';  //to translate
 
-$strCopy = 'Copy';  //to translate
-$strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
-
-$strGenerate = 'Generate';  //to translate
-$strGeneratePassword = 'Generate Password';  //to translate
-
 $strInvalidColumnCount = 'Column count has to be larger than zero.';  //to translate
 $strInvalidFieldAddCount = 'You have to add at least one field.';  //to translate
 $strInvalidFieldCount = 'Table must have at least one field.';  //to translate
@@ -985,4 +978,5 @@ $strLDIImportOptions = 'Options for CSV import using LOAD DATA';  //to translate
 $strInvalidLDIImport = 'This plugin does not support compressed imports!';  //to translate
 $strTableAlreadyExists = 'Table %s already exists!';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
+$strNumberOfFields = 'Number of fields';  //to translate
 ?>
