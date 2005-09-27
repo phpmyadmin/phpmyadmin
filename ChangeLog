@@ -30,6 +30,11 @@ $Source$
       list on import tab, prepare generic framework to be used elsewhere (RFE
       #1303145).
     * tbl_change.php: Use file common file listing.
+    * libraries/common.lib.php, libraries/display_import.lib.php,
+      libraries/file_listing.php, libraries/sql_query_form.lib.php: Use common
+      file listing in query window, remove no more used functions. Please note
+      that file import from query windows is currently half rewritten, so
+      compressed imports will not work.
 
 2005-09-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/database_interface.lib.php: fixed bug in PMA_DBI_fetch_*()

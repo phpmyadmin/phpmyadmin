@@ -2527,34 +2527,6 @@ if (typeof(document.getElementById) != 'undefined'
     } // end if
 
     /**
-     * Function to check valid extension of file. It accepts entered
-     * extensions and bz2 and gz if supported.
-     *
-     * @param   string  File name to be tested.
-     * @param   string  Extension that is valid.
-     *
-     * @access  public
-     * @author  Michal Cihar (nijel@users.sourceforge.net)
-     * @return  bool    Whether extension is valid
-     */
-    function PMA_checkFileExtensions($file, $extension) {
-        if (substr($file, -1 * strlen($extension)) == $extension) {
-            return TRUE;
-        }
-        if ($GLOBALS['cfg']['GZipDump'] && @function_exists('gzopen')) {
-            if (substr($file, -3 - strlen($extension)) == $extension . '.gz') {
-                return TRUE;
-            }
-        }
-        if ($GLOBALS['cfg']['BZipDump'] && @function_exists('bzdecompress')) {
-            if (substr($file, -4 - strlen($extension)) == $extension . '.bz2') {
-                return TRUE;
-            }
-        }
-        return FALSE;
-    } // end function
-
-    /**
      * Function to generate unique condition for specified row.
      *
      * @param   resource    handle for current query

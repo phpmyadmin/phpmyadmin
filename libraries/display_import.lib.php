@@ -137,28 +137,12 @@ echo PMA_displayMaximumUploadSize($max_upload_size);
 echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
 
 if (!empty($cfg['UploadDir'])) {
-    if (substr($cfg['UploadDir'], -1) != '/') {
-        $cfg['UploadDir'] .= '/';
-    }
     $extensions = '';
     foreach($import_list as $key => $val) {
         if (!empty($extensions)) $extensions .= '|';
         $extensions .= $val['extension'];
     }
-    $compressions = '';
-    if ($cfg['GZipDump'] && @function_exists('gzopen')) {
-        if (!empty($compressions)) $compressions .= '|';
-        $compressions .= 'gz';
-    }
-    if ($cfg['BZipDump'] && @function_exists('bzopen')) {
-        if (!empty($compressions)) $compressions .= '|';
-        $compressions .= 'bz2';
-    }
-    if ($cfg['ZipDump'] && @function_exists('gzinflate')) {
-        if (!empty($compressions)) $compressions .= '|';
-        $compressions .= 'zip';
-    }
-    $matcher = '@\.(' . $extensions . ')(\.(' .$compressions . '))?$@';
+    $matcher = '@\.(' . $extensions . ')(\.(' . PMA_supportedDecompressions() . '))?$@';
 
     $files = PMA_getFileSelectOptions($cfg['UploadDir'], $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
     

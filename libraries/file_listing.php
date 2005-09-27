@@ -50,3 +50,29 @@ function PMA_getFileSelectOptions($dir, $extensions = '', $active = '') {
     }
     return $result;
 }
+
+/**
+ * Get currently supported decompressions.
+ *
+ * @returns string | separated list of extensions usable in PMA_getDirContent
+ */
+function PMA_supportedDecompressions() {
+    global $cfg;
+    
+    $compressions = '';
+    
+    if ($cfg['GZipDump'] && @function_exists('gzopen')) {
+        if (!empty($compressions)) $compressions .= '|';
+        $compressions .= 'gz';
+    }
+    if ($cfg['BZipDump'] && @function_exists('bzopen')) {
+        if (!empty($compressions)) $compressions .= '|';
+        $compressions .= 'bz2';
+    }
+    if ($cfg['ZipDump'] && @function_exists('gzinflate')) {
+        if (!empty($compressions)) $compressions .= '|';
+        $compressions .= 'zip';
+    }
+
+    return $compressions;
+}

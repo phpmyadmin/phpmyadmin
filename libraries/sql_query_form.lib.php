@@ -11,6 +11,8 @@
  * @usedby  querywindow.php
  */
 
+require_once('./libraries/file_listing.php'); // used for file listing
+
 /**
  * prints the sql query boxes
  * 
@@ -452,46 +454,23 @@ function PMA_sqlQueryFormBookmark( $display_tab = 'full' ) {
  * @uses    $GLOBALS['allow_recoding']
  * @uses    $GLOBALS['charset']
  * @uses    $GLOBALS['max_upload_size']
- * @uses    PMA_checkFileExtensions()
+ * @uses    PMA_supportedDecompressions()
+ * @uses    PMA_getFileSelectOptions()
  * @uses    PMA_displayMaximumUploadSize()
  * @uses    PMA_generateCharsetDropdownBox()
  * @uses    PMA_generateHiddenMaxFileSize()
  * @uses    PMA_MYSQL_INT_VERSION
  * @uses    PMA_CSDROPDOWN_CHARSET
- * @uses    closedir()
- * @uses    count()
- * @uses    function_exists()
- * @uses    htmlspecialchars()
- * @uses    opendir()
- * @uses    readdir()
+ * @uses    empty()
  * @param   string  $display_tab    current tab displayed if in querywindow
  */
 function PMA_sqlQueryFormUpload( $display_tab = 'full' ) {
-    $uploaded_files = array();
-    $errors = array();
-    $is_gzip = ($GLOBALS['cfg']['GZipDump'] && @function_exists('gzopen'));
-    $is_bzip = ($GLOBALS['cfg']['BZipDump'] && @function_exists('bzdecompress'));
-    
-    if ( ! empty( $GLOBALS['cfg']['UploadDir'] ) ) {
-        if ( substr($GLOBALS['cfg']['UploadDir'], -1) != '/' ) {
-            $GLOBALS['cfg']['UploadDir'] .= '/';
-        }
-        if ( $handle = @opendir( $GLOBALS['cfg']['UploadDir'] ) ) {
-            while ( $file = @readdir( $handle ) ) {
-                if ( is_file( $GLOBALS['cfg']['UploadDir'] . $file )
-                    && PMA_checkFileExtensions( $file, '.sql' ) )
-                {
-                    $uploaded_files[] = $file;
-                }
-            } // end while
-            @closedir( $handle );
-        }
-        else {
-            $errors[$GLOBALS['strError']] = 
-                $GLOBALS['strWebServerUploadDirectoryError'];
-        }
-    } // end if (web-server upload directory)
-    
+    $errors = array ();
+
+    $matcher = '@\.sql(\.(' . PMA_supportedDecompressions() . '))?$@'; // we allow only SQL here
+
+    $files = PMA_getFileSelectOptions($GLOBALS['cfg']['UploadDir'], $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
+
     // start output
     echo '<fieldset id="">';
     echo '<legend>';
@@ -501,49 +480,20 @@ function PMA_sqlQueryFormUpload( $display_tab = 'full' ) {
     echo PMA_displayMaximumUploadSize( $GLOBALS['max_upload_size'] );
     // some browsers should respect this :)
     echo PMA_generateHiddenMaxFileSize( $GLOBALS['max_upload_size'] ) . "\n";
-        echo '</div>';
+    echo '</div>';
     
-    if ( $is_bzip || $is_gzip ) {
+    if ($files === FALSE) {
+        $errors[$GLOBALS['strError']] = $GLOBALS['strWebServerUploadDirectoryError'];
+    } elseif (!empty($files)) {
         echo '<div class="formelement">';
-        echo $GLOBALS['strCompression'] . ': ' . "\n"
-            .'<input type="radio" value=""'
-            .' id="radio_sql_file_compression_auto"'
-            .' name="sql_file_compression" checked="checked" />'
-            .'<label for="radio_sql_file_compression_auto">'
-            .$GLOBALS['strAutodetect'] . '</label>' . "\n"
-            .'<input type="radio" id="radio_sql_file_compression_plain"'
-            .' name="sql_file_compression" value="text/plain" />'
-            .'<label for="radio_sql_file_compression_plain">'
-            .$GLOBALS['strNone'] . '</label>' . "\n";
-        if ( $is_gzip ) {
-            echo '<input type="radio" id="radio_sql_file_compression_gzip"' 
-                .' name="sql_file_compression" value="application/x-gzip" />'
-                .'<label for="radio_sql_file_compression_gzip">'
-                .$GLOBALS['strGzip'] . '</label>' . "\n";
-        }
-        if ( $is_bzip ) {
-            echo '<input type="radio" id="radio_sql_file_compression_bzip"'
-                .' name="sql_file_compression" value="application/x-bzip" />'
-                .'<label for="radio_sql_file_compression_bzip">'
-                .$GLOBALS['strBzip'] . '</label>' . "\n";
-        }
-        echo '</div>';
-    } else {
-        echo '<input type="hidden" name="sql_file_compression"'
-            .' value="text/plain" />';
-    }
-    
-    if ( count( $uploaded_files ) > 0 ) {
-        echo '<strong>' . $GLOBALS['strWebServerUploadDirectory']
-            .':</strong>' . "\n";
+        echo '<strong>' . $GLOBALS['strWebServerUploadDirectory'] .':</strong>' . "\n";
         echo '<select size="1" name="sql_localfile">' . "\n";
         echo '<option value="" selected="selected"></option>' . "\n";
-        foreach ( $uploaded_files as $file ) {
-            echo '<option value="' . htmlspecialchars( $file ) . '">' 
-                .htmlspecialchars( $file ) . '</option>' . "\n";
-        }
+        echo $files;
         echo '</select>' . "\n";
+        echo '</div>';
     }
+
     echo '<div class="clearfloat"></div>' . "\n";
     echo '</fieldset>';
 
