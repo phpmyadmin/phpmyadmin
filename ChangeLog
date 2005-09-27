@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-09-27 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Update.
+
 2005-09-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/database_interface.lib.php: fixed bug in PMA_DBI_fetch_*()
       using PMA_DBI_num_rows() on unbuffered queries
