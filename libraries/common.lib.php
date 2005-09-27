@@ -107,7 +107,10 @@ if (file_exists('./config.inc.php')) {
                 . '&char='  . urlencode( $charset )
                 . '&dir='   . urlencode( $text_dir )
                 . '&type='  . urlencode( $strError )
-                . '&error=' . urlencode( strtr($strConfigFileError, array('<br />' => '[br]')) . '[br][br]' . '[a@./config.inc.php@_blank]config.inc.php[/a]' )
+                . '&error=' . urlencode(
+                    strtr( $strConfigFileError, array( '<br />' => '[br]' ) )
+                    . '[br][br]' . '[a@./config.inc.php@_blank]config.inc.php[/a]' )
+                . '&' . SID
                  );
         exit();
     }
@@ -129,7 +132,10 @@ if (!function_exists('preg_replace')) {
         . '&char='  . urlencode( $charset )
         . '&dir='   . urlencode( $text_dir )
         . '&type='  . urlencode( $strError )
-        . '&error=' . urlencode( strtr(sprintf($strCantLoad, 'pcre'), array('<br />' => '[br]')))
+        . '&error=' . urlencode( 
+            strtr( sprintf( $strCantLoad, 'pcre' ),
+                array('<br />' => '[br]') ) )
+        . '&' . SID
          );
     exit();
 }
@@ -1166,7 +1172,10 @@ if ($is_minimum_common == FALSE) {
                         . '&char='  . urlencode( $charset )
                         . '&dir='   . urlencode( $text_dir )
                         . '&type='  . urlencode( $strError )
-                        . '&error=' . urlencode( strtr($strPmaUriError, array('<tt>' => '[tt]', '</tt>' => '[/tt]')))
+                        . '&error=' . urlencode(
+                            strtr( $strPmaUriError,
+                                array( '<tt>' => '[tt]', '</tt>' => '[/tt]' ) ) )
+                        . '&' . SID
                          );
                 exit();
             }
@@ -1241,7 +1250,14 @@ if ($is_minimum_common == FALSE) {
 
     // 
     if ($cfg['ForceSLL'] && !$is_https) {
-        header('Location: ' . preg_replace('/^http/', 'https', $cfg['PmaAbsoluteUri']) . (isset($_SERVER['REQUEST_URI']) ? preg_replace('@' . $pma_uri_parts['path'] . '@', '', $_SERVER['REQUEST_URI']) : '' ));
+        header(
+            'Location: ' . preg_replace(
+                '/^http/', 'https', $cfg['PmaAbsoluteUri'] )
+            . ( isset( $_SERVER['REQUEST_URI'] )
+                ? preg_replace( '@' . $pma_uri_parts['path'] . '@',
+                    '', $_SERVER['REQUEST_URI'] ) 
+                : '' )
+            . '&' . SID );
         exit;
     }
     
@@ -1308,7 +1324,10 @@ if ($is_minimum_common == FALSE) {
                     . '&char='  . urlencode( $charset )
                     . '&dir='   . urlencode( $text_dir )
                     . '&type='  . urlencode( $strError )
-                    . '&error=' . urlencode( $strInvalidAuthMethod . ' ' . $cfg['Server']['auth_type'] )
+                    . '&error=' . urlencode(
+                        $strInvalidAuthMethod . ' ' 
+                        . $cfg['Server']['auth_type'] )
+                    . '&' . SID
                      );
             exit();
         }
@@ -1508,7 +1527,7 @@ if ($is_minimum_common == FALSE) {
              echo '</script></body></html>' . "\n";
 
          } else {
-             header('Location: ' . $uri);
+             header( 'Location: ' . $uri . '&' . SID );
          }
      }
 

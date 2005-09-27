@@ -14,6 +14,9 @@ $Source$
     * libraries/sql_query_form.lib.php: completed function docblocks
     * css/phpmyadmin.css.php:
       partially fixed bug: odd display of navtabs in Gecko-Browsers
+    * libraries/session.inc.php, libraries/grab_globals.lib.php,
+      libraries/common.lib.php, libraries/auth/cookie.auth.lib.php:
+      introducing sessions
 
 2005-09-27 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.

@@ -598,7 +598,8 @@ function PMA_auth_set_user()
             header('Refresh: 0; url=' . $cfg['PmaAbsoluteUri'] . 'index.php?' . PMA_generate_common_url('', '', '&'));
         }
         else {
-            header('Location: ' . $cfg['PmaAbsoluteUri'] . 'index.php?' . PMA_generate_common_url('', '', '&'));
+            header( 'Location: ' . $cfg['PmaAbsoluteUri'] . 'index.php?' 
+                . PMA_generate_common_url('', '', '&') . '&' . SID );
         }
         exit();
     } // end if

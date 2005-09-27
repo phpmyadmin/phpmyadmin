@@ -12,6 +12,8 @@
  * loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
  */
 
+require_once './libraries/session.inc.php';
+
 function PMA_gpc_extract($array, &$target, $sanitize = TRUE) {
     if (!is_array($array)) {
         return FALSE;
