@@ -211,6 +211,11 @@ textarea { overflow: auto; }
     font-weight: bold;
 }
 
+#topmenu img {
+    height: 1em;
+    width: auto;
+}
+
 /* default tab styles */
 .tab, .tabcaution, .tabactive {
     margin-right: 0.1em;
@@ -218,7 +223,7 @@ textarea { overflow: auto; }
     white-space: nowrap;
 }
 
-/* disbaled tabs */
+/* disabled tabs */
 span.tab {
     color: #666666;
 }

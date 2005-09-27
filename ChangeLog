@@ -12,6 +12,8 @@ $Source$
       libraries/sql_query_form.lib.php, replaced table with fieldsets, moved
       styles into css, minor interface changes related to queryboxes
     * libraries/sql_query_form.lib.php: completed function docblocks
+    * css/phpmyadmin.css.php:
+      partially fixed bug: odd display of navtabs in Gecko-Browsers
 
 2005-09-27 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
