@@ -29,6 +29,7 @@ $Source$
     * libraries/display_import.lib.php, libraries/file_listing.php: Sort file
       list on import tab, prepare generic framework to be used elsewhere (RFE
       #1303145).
+    * tbl_change.php: Use file common file listing.
 
 2005-09-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/database_interface.lib.php: fixed bug in PMA_DBI_fetch_*()

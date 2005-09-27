@@ -9,6 +9,7 @@ require_once('./libraries/grab_globals.lib.php');
 $js_to_run = 'tbl_change.js';
 require_once('./header.inc.php');
 require_once('./libraries/relation.lib.php'); // foreign keys
+require_once('./libraries/file_listing.php'); // file listing
 
 
 /**
@@ -766,30 +767,17 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             }
 
             if (!empty($cfg['UploadDir'])) {
-                if (substr($cfg['UploadDir'], -1) != '/') {
-                    $cfg['UploadDir'] .= '/';
-                }
-                if ($handle = @opendir($cfg['UploadDir'])) {
-                    $is_first = 0;
-                    while ($file = @readdir($handle)) {
-                        if (is_file($cfg['UploadDir'] . $file) && !PMA_checkFileExtensions($file, '.sql')) {
-                            if ($is_first == 0) {
-                                echo "<br />\n";
-                                echo '    <i>' . $strOr . '</i>' . ' ' . $strWebServerUploadDirectory . ':<br />' . "\n";
-                                echo '        <select size="1" name="fields_uploadlocal_' . urlencode($field) . $vkey . '">' . "\n";
-                                echo '            <option value="" selected="selected"></option>' . "\n";
-                            } // end if (is_first)
-                            echo '            <option value="' . htmlspecialchars($file) . '">' . htmlspecialchars($file) . '</option>' . "\n";
-                            $is_first++;
-                        } // end if (is_file)
-                    } // end while
-                    if ($is_first > 0) {
-                        echo '        </select>' . "\n";
-                    } // end if (isfirst > 0)
-                    @closedir($handle);
-                } else {
+                $files = PMA_getFileSelectOptions($cfg['UploadDir']);
+                if ($files === FALSE) {
                     echo '        <font color="red">' . $strError . '</font><br />' . "\n";
                     echo '        ' . $strWebServerUploadDirectoryError . "\n";
+                } elseif (!empty($files)) {
+                    echo "<br />\n";
+                    echo '    <i>' . $strOr . '</i>' . ' ' . $strWebServerUploadDirectory . ':<br />' . "\n";
+                    echo '        <select size="1" name="fields_uploadlocal_' . urlencode($field) . $vkey . '">' . "\n";
+                    echo '            <option value="" selected="selected"></option>' . "\n";
+                    echo $files;
+                    echo '        </select>' . "\n";
                 }
             } // end if (web-server upload directory)
 
