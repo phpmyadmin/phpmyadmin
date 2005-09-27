@@ -2,6 +2,8 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+require_once('./libraries/file_listing.php');
+
 /* Scan for plugins */
 $import_list = array();
 $plugins_dir = './libraries/import/';
@@ -156,35 +158,22 @@ if (!empty($cfg['UploadDir'])) {
         if (!empty($compressions)) $compressions .= '|';
         $compressions .= 'zip';
     }
-    if ($handle = @opendir($cfg['UploadDir'])) {
-        $is_first = 0;
-        while ($file = @readdir($handle)) {
-            if (is_file($cfg['UploadDir'] . $file) && eregi('\.(' . $extensions . ')(\.(' .$compressions . '))?$', $file)) {
-                if ($is_first == 0) {
-                    $is_upload_dir = true;
-                    echo "<br />\n";
-                    echo '    <i>' . $strOr . '</i><br/><label for="select_local_import_file">' . $strWebServerUploadDirectory . '</label>&nbsp;: ' . "\n";
-                    echo '    <select style="margin: 5px" size="1" name="local_import_file" onchange="match_file(this.value)" id="select_local_import_file">' . "\n";
-                    echo '        <option value=""></option>' . "\n";
-                } // end if (is_first)
-                echo '        <option value="' . htmlspecialchars($file) . '"';
-                if (isset($timeout_passed) && $timeout_passed && isset($local_import_file) && $local_import_file == $file) {
-                    echo ' selected="selected"';
-                }
-                echo '>' . htmlspecialchars($file) . '</option>' . "\n";
-                $is_first++;
-            } // end if (is_file)
-        } // end while
-        
-        if ($is_first > 0) {
-            echo '    </select>' . "\n";
-        } // end if (isfirst > 0)
-        @closedir($handle);
-    } else {
+    $matcher = '@\.(' . $extensions . ')(\.(' .$compressions . '))?$@';
+
+    $files = PMA_getFileSelectOptions($cfg['UploadDir'], $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
+    
+    if ($files === FALSE) {
         echo '    <div style="margin-bottom: 5px">' . "\n";
         echo '        <font color="red">' . $strError . '</font><br />' . "\n";
         echo '        ' . $strWebServerUploadDirectoryError . "\n";
         echo '    </div>' . "\n";
+    } elseif (!empty($files)) {
+        echo "<br />\n";
+        echo '    <i>' . $strOr . '</i><br/><label for="select_local_import_file">' . $strWebServerUploadDirectory . '</label>&nbsp;: ' . "\n";
+        echo '    <select style="margin: 5px" size="1" name="local_import_file" onchange="match_file(this.value)" id="select_local_import_file">' . "\n";
+        echo '        <option value=""></option>' . "\n";
+        echo $files;
+        echo '    </select>' . "\n";
     }
 } // end if (web-server upload directory)
 
