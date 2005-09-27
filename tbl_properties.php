@@ -6,32 +6,30 @@
 /**
  * Runs common work
  */
-require('./tbl_properties_common.php');
+require './tbl_properties_common.php';
+require_once './libraries/sql_query_form.lib.php';
+
 $err_url   = 'tbl_properties.php' . $err_url;
-$url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
+$goto = 'tbl_properties.php';
+$back = 'tbl_properties.php';
 
 /**
  * Get table information
  */
-require('./tbl_properties_table_info.php');
+require './tbl_properties_table_info.php';
 
 /**
  * Displays top menu links
  */
-require('./tbl_properties_links.php');
+require './tbl_properties_links.php';
 
-?>
-<!-- TABLE WORK -->
-<?php
 /**
  * Query box, bookmark, insert data from textfile
  */
-$goto = 'tbl_properties.php';
-require('./tbl_query_box.php');
+PMA_sqlQueryForm();
 
 /**
  * Displays the footer
  */
-echo "\n";
-require_once('./footer.inc.php');
+require_once './footer.inc.php';
 ?>

@@ -89,9 +89,79 @@ body#bodyquerywindow {
 
 div#querywindowcontainer {
     margin: 0;
-    padding: 0.5em;
-    float: left;
+    padding: 0;
+    width: 100%;
 }
+
+div#querywindowcontainer fieldset {
+    margin-top: 0;
+}
+
+
+/* querybox */
+
+/* Gecko bug */
+div[id=queryfieldscontainer] {
+    border: 1px solid transparent;
+}
+
+
+div#sqlquerycontainer {
+    float: left;
+    width: 69%;
+    /* height: 15em; */
+}
+
+div#tablefieldscontainer  {
+    float: right;
+    width: 29%;
+    /* height: 15em; */
+}
+
+div#tablefieldscontainer select  {
+    width: 100%;
+    /* height: 12em; */
+}
+
+textarea#sqlquery {
+    width: 100%;
+    /* height: 100%; */
+}
+
+div#queryboxcontainer div#bookmarkoptions {
+    margin-top: 0.5em;
+}
+
+fieldset .formelement {
+    line-height: 2.3em;
+    float: left;
+    margin-right: 0.5em;
+    /* IE */
+    white-space: nowrap;
+}
+/* revert for Gecko */
+fieldset div[class=formelement] {
+    white-space: normal;
+}
+
+/* IE */
+fieldset .formelement input,
+fieldset .formelement select {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    height: 1.3em;
+}
+/* revert for Gecko */
+fieldset div[class=formelement] input,
+fieldset div[class=formelement] select {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: auto;
+}
+
+
+/* end querybox */
+
 
 /* Calendar */
 table.calendar      { width: 100%; }
@@ -115,10 +185,10 @@ form.clock   { text-align: center; }
 /* end Calendar */
 
 /* Options, eg. on import page */
-fieldset.options {
+fieldset {
     background-color: <?php echo $cfg['BgcolorOne']; ?>;
 }
-fieldset.options legend {
+fieldset legend {
     background-color: transparent;
 }
 

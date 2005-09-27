@@ -175,9 +175,9 @@ if (!$cfg['AllowUserDropDatabase']
 define('PMA_CHK_DROP', 1);
 
 /**
- * Store a query as a bookmark before executing it?
+ * Store the query as a bookmark before executing it if bookmarklabel was given
  */
-if (isset($SQLbookmark) && $sql_query != '') {
+if ( ! empty( $bkm_label ) && ! empty( $sql_query ) ) {
     require_once('./libraries/bookmark.lib.php');
     $bfields = array(
                  'dbase' => $db,

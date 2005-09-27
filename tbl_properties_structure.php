@@ -5,6 +5,7 @@
 require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/mysql_charsets.lib.php');
+require_once './libraries/sql_query_form.lib.php';
 
 /**
  * Drop multiple fields if required
@@ -807,7 +808,8 @@ if (!$tbl_is_view) {
  * Query box, bookmark, insert data from textfile
  */
 $goto = 'tbl_properties_structure.php';
-require('./tbl_query_box.php');
+PMA_sqlQueryForm();
+
 
 /**
  * Displays the footer

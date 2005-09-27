@@ -17,6 +17,7 @@ if (!empty($db)) {
  * Gets a core script and starts output buffering work
  */
 require_once('./libraries/common.lib.php');
+require_once './libraries/sql_query_form.lib.php';
 require_once('./libraries/ob.lib.php');
 if ($cfg['OBGzip']) {
     $ob_mode = PMA_outBufferModeGet();
@@ -68,24 +69,29 @@ var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '
 /**/
 
 <?php
-if ( empty( $querydisplay_tab ) || $querydisplay_tab == 'sql' ) {
+if ( empty( $querydisplay_tab ) ) {
 ?>
-
 function resize() {
-    if( typeof( self.sizeToContent ) == 'function' ) {
+    
+    // for Gecko
+    if ( typeof( self.sizeToContent ) == 'function' ) {
         self.sizeToContent();
-        self.scrollbars.visible = false;
+        //self.scrollbars.visible = false;
+        // give some more space ... to prevent 'fli(pp/ck)ing'
+        self.resizeBy( 10, 50 );
         return;
     }
     
+    // for IE, Opera
     if (document.getElementById && typeof(document.getElementById('querywindowcontainer')) != 'undefined' ) {
     
         // get content size
         var newWidth  = document.getElementById('querywindowcontainer').offsetWidth;
         var newHeight = document.getElementById('querywindowcontainer').offsetHeight;
         
-        // set size to contentsize + offsetsize
-        self.resizeTo( newWidth + 50, newHeight + 150 );
+        // set size to contentsize
+        // plus some offset for scrollbars, borders, statusbar, menus ...
+        self.resizeTo( newWidth + 45, newHeight + 75 );
     }
 }
 <?php
@@ -99,7 +105,7 @@ function resize() {
 <body id="bodyquerywindow" onload="resize();" bgcolor="<?php echo ($cfg['QueryFrameJS'] ? $cfg['LeftBgColor'] : $cfg['RightBgColor']); ?>">
 <div id="querywindowcontainer">
 <?php
-if ($cfg['QueryFrameJS'] && !isset($no_js)) {
+if ( $cfg['QueryFrameJS'] && !isset($no_js) ) {
     $querydisplay_tab = (isset($querydisplay_tab) ? $querydisplay_tab : $cfg['QueryWindowDefTab']);
 
     $tabs = array();
@@ -107,22 +113,22 @@ if ($cfg['QueryFrameJS'] && !isset($no_js)) {
     $tabs['sql']['text']   = $strSQL;
     $tabs['sql']['link']   = '#';
     $tabs['sql']['attr']   = 'onclick="javascript:query_tab_commit(\'sql\');return false;"';
-    $tabs['sql']['active'] = (bool) (isset($querydisplay_tab) && $querydisplay_tab == 'sql');
+    $tabs['sql']['active'] = (bool) ( $querydisplay_tab == 'sql' );
     $tabs['import']['icon']   = 'b_import.png';
     $tabs['import']['text']   = $strImportFiles;
     $tabs['import']['link']   = '#';
     $tabs['import']['attr']   = 'onclick="javascript:query_tab_commit(\'files\');return false;"';
-    $tabs['import']['active'] = (bool) (isset($querydisplay_tab) && $querydisplay_tab == 'files');
+    $tabs['import']['active'] = (bool) ( $querydisplay_tab == 'files' );
     $tabs['history']['text']   = $strQuerySQLHistory;
     $tabs['history']['link']   = '#';
     $tabs['history']['attr']   = 'onclick="javascript:query_tab_commit(\'history\');return false;"';
-    $tabs['history']['active'] = (bool) (isset($querydisplay_tab) && $querydisplay_tab == 'history');
+    $tabs['history']['active'] = (bool) ( $querydisplay_tab == 'history' );
 
-    if ($cfg['QueryWindowDefTab'] == 'full') {
+    if ( $cfg['QueryWindowDefTab'] == 'full' ) {
         $tabs['all']['text']   = $strAll;
         $tabs['all']['link']   = '#';
         $tabs['all']['attr']   = 'onclick="javascript:query_tab_commit(\'full\');return false;"';
-        $tabs['all']['active'] = (bool) (isset($querydisplay_tab) && $querydisplay_tab == 'full');
+        $tabs['all']['active'] = (bool) ( $querydisplay_tab == 'full' );
     }
 
     echo PMA_getTabs( $tabs );
@@ -131,9 +137,6 @@ if ($cfg['QueryFrameJS'] && !isset($no_js)) {
     $querydisplay_tab = 'full';
 }
 
-?>
-<br />
-<?php
 if ($cfg['PropertiesIconic'] == true) {
     // We need to copy the value or else the == 'both' check will always return true
     $propicon = (string)$cfg['PropertiesIconic'];
@@ -230,8 +233,34 @@ if (!isset($goto)) {
 }
 
 require_once './libraries/bookmark.lib.php';
-$is_inside_querywindow = TRUE;
-require './tbl_query_box.php';
+
+// in case of javascript disabled in queryframe ...
+if ( $GLOBALS['cfg']['QueryFrame'] && ! $GLOBALS['cfg']['QueryFrameJS'] ) {
+    // ... we redirect to appropriate query sql page
+    // works only full if $db and $table is also stored/grabbed from $_COOKIE
+    if ( ! empty( $table ) ) {
+        require 'tbl_properties.php';
+    }
+    elseif ( ! empty( $db ) ) {
+        require 'db_details.php';
+    }
+    else {
+        require 'server_sql.php';
+    }
+    exit;
+}
+
+/**
+ * Defines the query to be displayed in the query textarea
+ */
+if ( ! empty( $show_query ) ) {
+    $query_to_display = $sql_query;
+} else {
+    $query_to_display = '';
+}
+unset( $sql_query );
+
+PMA_sqlQueryForm( $query_to_display, $querydisplay_tab );
 
 // Hidden forms and query frame interaction stuff
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
