@@ -586,4 +586,3 @@ function PMA_sqlQueryFormUpload( $display_tab = 'full' ) {
     }
 }
 ?>
-
