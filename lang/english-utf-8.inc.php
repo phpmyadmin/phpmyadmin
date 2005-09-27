@@ -893,6 +893,7 @@ $strTotalUC = 'Total';
 $strTraditionalChinese = 'Traditional Chinese';
 $strTraditionalSpanish = 'Traditional Spanish';
 $strTraffic = 'Traffic';
+$strTransactionCoordinator = 'Transaction coordinator';
 $strTransformation_application_octetstream__download = 'Displays a link to download the binary data of the field. You can use the first option to specify the filename, or use the second option as the name of a field which contains the filename. If you use the second option, you need to set the first option to the empty string.';
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';
 $strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail. The options are the maximum width and height in pixels. The original aspect ratio is preserved.';

@@ -897,6 +897,7 @@ $strTotalUC = 'Celkem';
 $strTraditionalChinese = 'Tradièní èínština';
 $strTraditionalSpanish = 'Tradièní španìlština';
 $strTraffic = 'Provoz';
+$strTransactionCoordinator = 'Koordinátor transakcí';
 $strTransformation_application_octetstream__download = 'Zobrazí odkaz na stáhnutí dat. První parametr je jméno souboru, druhý jméno sloupce v&nbsp;tabulce obsahující jméno souboru. Pokud zadáte druhý parametr, první musí být prázdný.';
 $strTransformation_application_octetstream__hex = 'Zobrazí data šestnáctkovì.';
 $strTransformation_image_jpeg__inline = 'Zobrazí náhled obrázku s&nbsp;odkazem na obrázek; parametry šíøka a výška v&nbsp;bodech (pomìr stran obrázku zùstane zachován)';
