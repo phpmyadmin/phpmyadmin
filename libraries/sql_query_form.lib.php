@@ -3,9 +3,22 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 /**
  * functions for displaying the sql query form
+ * 
+ * @usedby  server_sql.php
+ * @usedby  db_details.php
+ * @usedby  tbl_properties.php
+ * @usedby  tbl_properties_structure.php
+ * @usedby  querywindow.php
  */
 
 /**
+ * prints the sql query boxes
+ * 
+ * @usedby  server_sql.php
+ * @usedby  db_details.php
+ * @usedby  tbl_properties.php
+ * @usedby  tbl_properties_structure.php
+ * @usedby  querywindow.php
  * @uses    $GLOBALS['table']
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['server']
@@ -152,8 +165,9 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
 }
 
 /**
- * 
- * @param   string      $query      query to display in the textarea
+ * prints querybox fieldset
+ *
+ * @usedby  PMA_sqlQueryForm() 
  * @uses    $GLOBALS['text_dir']
  * @uses    $GLOBALS['cfg']['QueryFrameJS']
  * @uses    $GLOBALS['cfg']['TextareaAutoSelect']
@@ -167,6 +181,8 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
  * @uses    PMA_USR_BROWSER_VER
  * @uses    PMA_availableDatabases()
  * @uses    htmlspecialchars()
+ * @param   string      $query          query to display in the textarea
+ * @param   boolean     $is_querywindow if inside querywindow or not
  */
 function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
     
@@ -336,6 +352,27 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
     echo '</fieldset>' . "\n";
 }
 
+/**
+ * prints bookmark fieldset
+ * 
+ * @usedby  PMA_sqlQueryForm()
+ * @uses    PMA_listBookmarks()
+ * @uses    $GLOBALS['db']
+ * @uses    $GLOBALS['pmaThemeImage']
+ * @uses    $GLOBALS['cfg']['Bookmark']
+ * @uses    $GLOBALS['cfg']['ReplaceHelpImg']
+ * @uses    $GLOBALS['strBookmarkQuery']
+ * @uses    $GLOBALS['strBookmarkView']
+ * @uses    $GLOBALS['strDelete']
+ * @uses    $GLOBALS['strDocu']
+ * @uses    $GLOBALS['strGo']
+ * @uses    $GLOBALS['strOr']
+ * @uses    $GLOBALS['strSubmit']
+ * @uses    $GLOBALS['strVar']
+ * @uses    count()
+ * @uses    htmlspecialchars()
+ * @param   string  $display_tab    current tab displayed if in querywindow
+ */
 function PMA_sqlQueryFormBookmark( $display_tab = 'full' ) {
     $bookmark_list = PMA_listBookmarks( 
         $GLOBALS['db'], $GLOBALS['cfg']['Bookmark'] );
@@ -364,7 +401,7 @@ function PMA_sqlQueryFormBookmark( $display_tab = 'full' ) {
     if ( $GLOBALS['cfg']['ReplaceHelpImg'] ) {
         echo ' <a href="./Documentation.html#faqbookmark"'
             .' target="documentation">'
-            .'<img src="' .$GLOBALS['pmaThemeImage'] . 'b_help.png"'
+            .'<img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png"'
             .' border="0" width="11" height="11" align="middle"'
             .' alt="' . $GLOBALS['strDocu'] . '" /></a> ';
     } else {
@@ -397,6 +434,43 @@ function PMA_sqlQueryFormBookmark( $display_tab = 'full' ) {
     echo '</fieldset>' . "\n";
 }
 
+/**
+ * prints bookmark fieldset
+ * 
+ * @usedby  PMA_sqlQueryForm()
+ * @uses    $GLOBALS['cfg']['GZipDump']
+ * @uses    $GLOBALS['cfg']['BZipDump']
+ * @uses    $GLOBALS['cfg']['UploadDir']
+ * @uses    $GLOBALS['cfg']['AvailableCharsets']
+ * @uses    $GLOBALS['cfg']['AllowAnywhereRecoding']
+ * @uses    $GLOBALS['strAutodetect']
+ * @uses    $GLOBALS['strBzip']
+ * @uses    $GLOBALS['strCharsetOfFile']
+ * @uses    $GLOBALS['strCompression']
+ * @uses    $GLOBALS['strError']
+ * @uses    $GLOBALS['strGo']
+ * @uses    $GLOBALS['strGzip']
+ * @uses    $GLOBALS['strLocationTextfile']
+ * @uses    $GLOBALS['strOr']
+ * @uses    $GLOBALS['strWebServerUploadDirectory']
+ * @uses    $GLOBALS['strWebServerUploadDirectoryError']
+ * @uses    $GLOBALS['allow_recoding']
+ * @uses    $GLOBALS['charset']
+ * @uses    $GLOBALS['max_upload_size']
+ * @uses    PMA_checkFileExtensions()
+ * @uses    PMA_displayMaximumUploadSize()
+ * @uses    PMA_generateCharsetDropdownBox()
+ * @uses    PMA_generateHiddenMaxFileSize()
+ * @uses    PMA_MYSQL_INT_VERSION
+ * @uses    PMA_CSDROPDOWN_CHARSET
+ * @uses    closedir()
+ * @uses    count()
+ * @uses    function_exists()
+ * @uses    htmlspecialchars()
+ * @uses    opendir()
+ * @uses    readdir()
+ * @param   string  $display_tab    current tab displayed if in querywindow
+ */
 function PMA_sqlQueryFormUpload( $display_tab = 'full' ) {
     $uploaded_files = array();
     $errors = array();

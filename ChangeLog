@@ -11,6 +11,7 @@ $Source$
       querywindow.php, read_dump.php: moved all code for queryboxes into
       libraries/sql_query_form.lib.php, replaced table with fieldsets, moved
       styles into css, minor interface changes related to queryboxes
+    * libraries/sql_query_form.lib.php: completed function docblocks
 
 2005-09-27 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
