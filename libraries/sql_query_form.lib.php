@@ -141,7 +141,7 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
     }
     
     // display uploads
-    if ( $display_tab === 'full' || $display_tab === 'files' ) {
+    if ( $display_tab === 'files' ) {
         if ( $GLOBALS['is_upload'] ) {
             PMA_sqlQueryFormUpload( $display_tab );
         }
@@ -366,7 +366,6 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
  * @uses    $GLOBALS['strDelete']
  * @uses    $GLOBALS['strDocu']
  * @uses    $GLOBALS['strGo']
- * @uses    $GLOBALS['strOr']
  * @uses    $GLOBALS['strSubmit']
  * @uses    $GLOBALS['strVar']
  * @uses    count()
@@ -382,9 +381,6 @@ function PMA_sqlQueryFormBookmark( $display_tab = 'full' ) {
     
     echo '<fieldset>';
     echo '<legend>';
-    if ( $display_tab == 'full' ) {
-        echo '<em>' . $GLOBALS['strOr'] . '</em> ';
-    }
     echo $GLOBALS['strBookmarkQuery'] . '</legend>' . "\n";
     echo '<div class="formelement">';
     echo '<select name="id_bookmark">' . "\n";
@@ -451,7 +447,6 @@ function PMA_sqlQueryFormBookmark( $display_tab = 'full' ) {
  * @uses    $GLOBALS['strGo']
  * @uses    $GLOBALS['strGzip']
  * @uses    $GLOBALS['strLocationTextfile']
- * @uses    $GLOBALS['strOr']
  * @uses    $GLOBALS['strWebServerUploadDirectory']
  * @uses    $GLOBALS['strWebServerUploadDirectoryError']
  * @uses    $GLOBALS['allow_recoding']
@@ -500,9 +495,6 @@ function PMA_sqlQueryFormUpload( $display_tab = 'full' ) {
     // start output
     echo '<fieldset id="">';
     echo '<legend>';
-    if ( $display_tab == 'full' ) {
-        echo '<em>' . $GLOBALS['strOr'] . '</em> ';
-    }
     echo $GLOBALS['strLocationTextfile'] . '</legend>';
     echo '<div class="formelement">';
     echo '<input type="file" name="sql_file" class="textfield" /> ';

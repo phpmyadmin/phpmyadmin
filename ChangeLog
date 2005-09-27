@@ -24,6 +24,8 @@ $Source$
     * lang/hebrew, translators.html: New Hebrew translation, thanks to Hadar
       Porat - hpman28.
     * lang/*: Add missing messages, remove duplicates and no longer used.
+    * libraries/sql_query_form.lib.php: Do not use strOr, drop file upload
+      from normal SQL dialogs.
 
 2005-09-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/database_interface.lib.php: fixed bug in PMA_DBI_fetch_*()
