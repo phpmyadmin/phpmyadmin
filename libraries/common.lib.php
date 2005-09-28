@@ -2737,7 +2737,7 @@ if (typeof(document.getElementById) != 'undefined'
     } // end function
 
 
-    function PMA_generateAlterTable($oldcol, $newcol, $full_field_type, $collation, $null, $default, $default_current_timestamp, $extra, $comment='') {
+    function PMA_generateAlterTable($oldcol, $newcol, $full_field_type, $collation, $null, $default, $default_current_timestamp, $extra, $comment='', $default_orig) {
 
         // $default_current_timestamp has priority over $default
         // TODO: on the interface, some js to clear the default value
@@ -2758,7 +2758,7 @@ if (typeof(document.getElementById) != 'undefined'
         if ($default_current_timestamp && strpos(' ' . strtoupper($full_field_type),'TIMESTAMP') == 1) {
             $query .= ' DEFAULT CURRENT_TIMESTAMP';
             // 0 is empty in PHP
-        } elseif (!empty($default) || $default == '0') {
+        } elseif (!empty($default) || $default == '0' || $default != $default_orig) {
             if (strtoupper($default) == 'NULL') {
                 $query .= ' DEFAULT NULL';
             } else {
