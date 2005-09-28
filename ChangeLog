@@ -9,9 +9,10 @@ $Source$
     * tbl_alter.php, libraries/common.lib.php, /relation.lib.php:
       bug #1262250, cannot change ENUM default value to empty
 
-2005-09-27 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+2005-09-28 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/sql_query_form.lib.php: removed unneeded variable,
       dont display bookmark selection fieldset if no bookmark exists
+    * libraries/session.inc.php: introduced PMA_secureSession()
 
 2005-09-27 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/sql_query_form.lib.php, db_details.php, server_sql.php

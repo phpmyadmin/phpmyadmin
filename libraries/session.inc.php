@@ -4,18 +4,17 @@
 /**
  * session handling 
  * 
+ * @TODO    add failover or warn if sessions are not configured properly
+ * @TODO    add an option to use mm-module for session handler
  * @see     http://www.php.net/session
  * @uses    session_name()
  * @uses    session_start()
- * @uses    session_regenerate_id()
- * @uses    session_id()
- * @uses    strip_tags()
  * @uses    ini_set()
  * @uses    version_compare()
  * @uses    PHP_VERSION
  */
 
-// disable starting of sessions before all setings are done
+// disable starting of sessions before all settings are done
 ini_set( 'session.auto_start', false );
 
 // cookies are safer
@@ -45,10 +44,22 @@ if ( version_compare( PHP_VERSION, '5.0.0', 'ge' ) ) {
 session_name( 'phpMyAdmin' );
 session_start();
 
-// prevent session fixation and XSS
-if ( function_exists( 'session_regenerate_id' ) ) {
-    session_regenerate_id( true );
-} else {
-    session_id( strip_tags( session_id() ) );
+/**
+ * trys to secure session from hijacking and fixation
+ * should be called before login and after successfull login
+ * (only required if sensitive information stored in session)
+ * 
+ * @uses    session_regenerate_id() to secure session from fixation
+ * @uses    session_id()            to set new session id
+ * @uses    strip_tags()            to prevent XSS attacks in SID
+ * @uses    function_exists()       for session_regenerate_id()
+ */
+function PMA_secureSession() {
+    // prevent session fixation and XSS
+    if ( function_exists( 'session_regenerate_id' ) ) {
+        session_regenerate_id( true );
+    } else {
+        session_id( strip_tags( session_id() ) );
+    }
 }
 ?>
