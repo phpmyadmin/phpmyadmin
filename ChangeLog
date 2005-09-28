@@ -6,7 +6,8 @@ $Id$
 $Source$
 
 2005-09-27 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libraries/sql_query_form.lib.php: removed unneeded variable
+    * libraries/sql_query_form.lib.php: removed unneeded variable,
+      dont display bookmark selection fieldset if no bookmark exists
 
 2005-09-27 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/sql_query_form.lib.php, db_details.php, server_sql.php
