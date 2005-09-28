@@ -5,7 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2005-09-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+2005-09-27 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/sql_query_form.lib.php: removed unneeded variable
+
+2005-09-27 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/sql_query_form.lib.php, db_details.php, server_sql.php
       tbl_properties.php, tbl_properties_structure.php, sql.php,
       querywindow.php, read_dump.php: moved all code for queryboxes into

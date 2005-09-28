@@ -143,10 +143,8 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
     }
     
     // display uploads
-    if ( $display_tab === 'files' ) {
-        if ( $GLOBALS['is_upload'] ) {
-            PMA_sqlQueryFormUpload( $display_tab );
-        }
+    if ( $display_tab === 'files' && $GLOBALS['is_upload'] ) {
+        PMA_sqlQueryFormUpload();
     }
     
     // Bookmark Support
@@ -154,7 +152,7 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
         if ( ! empty( $GLOBALS['cfg']['Bookmark'] )
           && $GLOBALS['cfg']['Bookmark']['db']
           && $GLOBALS['cfg']['Bookmark']['table'] ) {
-            PMA_sqlQueryFormBookmark( $display_tab );
+            PMA_sqlQueryFormBookmark();
         }
     }
     
@@ -372,9 +370,8 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
  * @uses    $GLOBALS['strVar']
  * @uses    count()
  * @uses    htmlspecialchars()
- * @param   string  $display_tab    current tab displayed if in querywindow
  */
-function PMA_sqlQueryFormBookmark( $display_tab = 'full' ) {
+function PMA_sqlQueryFormBookmark() {
     $bookmark_list = PMA_listBookmarks( 
         $GLOBALS['db'], $GLOBALS['cfg']['Bookmark'] );
     if ( count( $bookmark_list ) < 1 ) {
@@ -462,9 +459,8 @@ function PMA_sqlQueryFormBookmark( $display_tab = 'full' ) {
  * @uses    PMA_MYSQL_INT_VERSION
  * @uses    PMA_CSDROPDOWN_CHARSET
  * @uses    empty()
- * @param   string  $display_tab    current tab displayed if in querywindow
  */
-function PMA_sqlQueryFormUpload( $display_tab = 'full' ) {
+function PMA_sqlQueryFormUpload() {
     $errors = array ();
 
     $matcher = '@\.sql(\.(' . PMA_supportedDecompressions() . '))?$@'; // we allow only SQL here
