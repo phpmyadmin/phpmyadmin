@@ -364,9 +364,7 @@ else {
         $full_sql_query      = $sql_query;
     } // end if...else
 
-    if ( isset( $_REQUEST['db'] ) ) {
-        PMA_DBI_select_db( $_REQUEST['db'] );
-    }
+    PMA_DBI_select_db( $db );
 
     // If the query is a DELETE query with no WHERE clause, get the number of
     // rows that will be deleted (mysql_affected_rows will always return 0 in
