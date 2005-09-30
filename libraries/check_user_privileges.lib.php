@@ -50,7 +50,7 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_db_priv, &$db_to_create, &$is
                      // TODO: collect $db_to_create into an array, to display a drop-down
                      // in the "Create new database" dialog
                      //
-                     // now we don't break, we want all possible databases
+                     // we don't break, we want all possible databases
                      //break;
                 } // end if             
             } // end elseif
@@ -95,6 +95,9 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
             } // end while
             PMA_DBI_free_result($rs_usr);
             unset($rs_usr, $result_usr);
+            if ($is_create_db_priv) {
+                $dbs_where_create_table_allowed[] = '*';
+            }
         } // end if
     } // end if
 
@@ -103,11 +106,13 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
     // the one he just dropped :)
     if (!$is_create_db_priv) {
         $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE ' . PMA_convert_using('Create_priv') . ' = ' . PMA_convert_using('Y', 'quoted') . ' AND (' . PMA_convert_using('User') . ' = ' .PMA_convert_using(PMA_sqlAddslashes($mysql_cur_user), 'quoted') . ' OR ' . PMA_convert_using('User') . ' = ' . PMA_convert_using('', 'quoted') . ');';
+
         $rs_usr      = PMA_DBI_try_query($local_query, $dbh, PMA_DBI_QUERY_STORE);
         if ($rs_usr) {
             $re0     = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
             $re1     = '(^|[^\])(\\\)+';       // escaped wildcards
             while ($row = PMA_DBI_fetch_assoc($rs_usr)) {
+                $dbs_where_create_table_allowed[] = $row['Db'];
                 if (ereg($re0 . '(%|_)', $row['Db'])
                     || (!PMA_DBI_try_query('USE ' . ereg_replace($re1 . '(%|_)', '\\1\\3', $row['Db'])) && substr(PMA_DBI_getError(), 1, 4) != 1044)) {
                     $db_to_create   = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $row['Db']));
@@ -137,14 +142,10 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
             } // end if
         } // end elseif
     } // end if
-    if ($is_create_db_priv) {
-        $dbs_where_create_table_allowed[] = '*';
-    }
 } // end else (MySQL < 4.1.2)
 
 // If disabled, don't show it
 if (!$cfg['SuggestDBName']) {
     $db_to_create = '';
 }
-
 ?>
