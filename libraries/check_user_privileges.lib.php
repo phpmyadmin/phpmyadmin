@@ -137,6 +137,9 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
             } // end if
         } // end elseif
     } // end if
+    if ($is_create_db_priv) {
+        $dbs_where_create_table_allowed[] = '*';
+    }
 } // end else (MySQL < 4.1.2)
 
 // If disabled, don't show it
