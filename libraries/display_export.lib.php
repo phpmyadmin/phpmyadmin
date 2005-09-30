@@ -230,7 +230,7 @@ if (!$hide_structure) { ?>
 
                         &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="if_not_exists" value="1" id="checkbox_dump_if_not_exists" <?php PMA_exportCheckboxCheck('sql_if_not_exists'); ?> style="vertical-align: middle" /><label for="checkbox_dump_if_not_exists"><?php echo $strAddIfNotExists; ?></label><br />
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="auto_increment" value="1" id="checkbox_auto_increment" <?php PMA_exportCheckboxCheck('sql_auto_increment'); ?> style="vertical-align: middle" /><label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment" <?php PMA_exportCheckboxCheck('sql_auto_increment'); ?> style="vertical-align: middle" /><label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
 
                         &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="use_backquotes" value="1" id="checkbox_dump_use_backquotes" <?php PMA_exportCheckboxCheck('sql_backquotes'); ?> style="vertical-align: middle" /><label for="checkbox_dump_use_backquotes"><?php echo $strUseBackquotes; ?></label><br />
 

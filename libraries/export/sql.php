@@ -187,7 +187,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     if ($result != FALSE) {
         if (PMA_DBI_num_rows($result) > 0) {
             $tmpres        = PMA_DBI_fetch_assoc($result);
-            if (isset($GLOBALS['auto_increment']) && !empty($tmpres['Auto_increment'])) {
+            if (isset($GLOBALS['sql_auto_increment']) && !empty($tmpres['Auto_increment'])) {
                 $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
             }
 
