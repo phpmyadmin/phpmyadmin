@@ -13,9 +13,16 @@ $preg_patterns = array('(.*)', '.');
 
 foreach($dbs_where_create_table_allowed as $allowed_db) {
     // '*' indicates a global CREATE priv
-    if ($allowed_db == '*' || preg_match('@' .str_replace($mysql_wildcards, $preg_patterns, $allowed_db) . '@i', $db)) {
+    if ($allowed_db == '*') {
         $is_create_table_priv = TRUE;
         break;
+    }
+    $matches = '';
+    if (preg_match('@' .str_replace($mysql_wildcards, $preg_patterns, $allowed_db) . '@i', $db, $matches)) {
+        if ($matches[0] == $db) {
+            $is_create_table_priv = TRUE;
+            break;
+        }
     }
 }
 if ($is_create_table_priv) {
