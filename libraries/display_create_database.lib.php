@@ -2,11 +2,11 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-// Displays form for creating database (if user has priveleges for that)
+// Displays form for creating database (if user has privileges for that)
 
 require_once('./libraries/check_user_privileges.lib.php');
 
-if ($is_create_priv) {
+if ($is_create_db_priv) {
     // The user is allowed to create a db
     ?>
         <form method="post" action="db_create.php"><b>

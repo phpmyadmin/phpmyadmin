@@ -175,7 +175,7 @@ if ($server > 0) {
 
     // loic1: Displays the MySQL column only if at least one feature has to be
     //        displayed
-    if ($is_superuser || $is_create_priv || $is_process_priv || $is_reload_priv
+    if ($is_superuser || $is_create_db_priv || $is_process_priv || $is_reload_priv
         || $cfg['ShowMysqlInfo'] || $cfg['ShowMysqlVars'] || $cfg['ShowChgPassword']
         || $cfg['Server']['auth_type'] != 'config') {
 ?>

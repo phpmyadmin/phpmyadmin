@@ -632,41 +632,7 @@ if ($num_tables > 0) {
 } // end if
 
 if (PMA_MYSQL_INT_VERSION < 50002 || (PMA_MYSQL_INT_VERSION >= 50002 && $db != 'information_schema')) {
-?>
-    <!-- Create a new table -->
-<form method="post" action="tbl_create.php" onsubmit="return (emptyFormElements(this, 'table') && checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldCount']); ?>', 1))">
-     <table border="0" cellpadding="2" cellspacing="0">
-     <tr>
-     <td class="tblHeaders" colspan="3" nowrap="nowrap"><?php
-        echo PMA_generate_common_hidden_inputs($db);
-        if($cfg['PropertiesIconic']){ echo '<img src="' . $pmaThemeImage . 'b_newtbl.png" border="0" width="16" height="16" hspace="2" align="middle" />'; }
-        // if you want navigation:
-        $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url() . '&amp;db=' . urlencode($GLOBALS['db']) . '">'
-                   . htmlspecialchars($GLOBALS['db']) . '</a>';
-        // else use
-        // $strDBLink = htmlspecialchars($db);
-    echo '             ' . sprintf($strCreateNewTable, $strDBLink) . ':&nbsp;' . "\n";
-    echo '     </td></tr>';
-    echo '     <tr bgcolor="'.$cfg['BgcolorOne'].'"><td nowrap="nowrap">';
-    echo '             ' . $strName . ':&nbsp;' . "\n";
-    echo '     </td>';
-    echo '     <td nowrap="nowrap">';
-    echo '             ' . '<input type="text" name="table" maxlength="64" size="30" class="textfield" />';
-    echo '     </td><td>&nbsp;</td></tr>';
-    echo '     <tr bgcolor="'.$cfg['BgcolorOne'].'"><td nowrap="nowrap">';
-    if (!isset($strNumberOfFields)) {
-        $strNumberOfFields = $strFields;
-    }
-    echo '             ' . $strNumberOfFields . ':&nbsp;' . "\n";
-    echo '     </td>';
-    echo '     <td nowrap="nowrap">';
-    echo '             ' . '<input type="text" name="num_fields" size="2" class="textfield" />' . "\n";
-    echo '     </td>';
-    echo '     <td align="right">';
-    echo '             ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
-    echo '     </td> </tr>';
-    echo '     </table>';
-    echo '</form>';
+    require('./libraries/display_create_table.lib.php');
 } // end if (Create Table dialog)
 
 /**

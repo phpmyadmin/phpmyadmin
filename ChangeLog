@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-09-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php, db_details_structure.php, db_operations.php,
+      libraries/check_user_privileges.php, /display_create_database.lib.php,
+      /display_create_table.lib.php: bug #1307208, detect lack of privileges
+      before showing the "Create new table" dialog. Please test.
+      TODO: detect escaped wildcard privileges
+
 2005-09-30 Michal Čihař  <michal@cihar.com>
     * libraries/display_export.lib.php, libraries/export/sql.php,
       db_operations.php, tbl_properties_operations.php: Fix auto increment
