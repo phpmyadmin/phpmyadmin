@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-01 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Update.
+
 2005-09-30 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php, db_details_structure.php, db_operations.php,
       libraries/check_user_privileges.php, /display_create_database.lib.php,

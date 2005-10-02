@@ -36,7 +36,7 @@ $strAddDeleteRow = 'Přidat nebo odebrat řádek';
 $strAddDropDatabase = 'Přidat DROP DATABASE';
 $strAddedColumnComment = 'Přidán komentář ke sloupci';
 $strAddedColumnRelation = 'Přidána relace pro sloupec';
-$strAddFields = 'Přidat %s položek';
+$strAddFields = 'Přidat %s sloupců';
 $strAddHeaderComment = 'Přidat vlastní komentář do hlavičky (\\n odděluje řádky)';
 $strAddIfNotExists = 'Přidat IF NOT EXISTS';
 $strAddIntoComments = 'Do komentářů přidat';
@@ -512,6 +512,7 @@ $strNotSet = '<b>%s</b> tabulka nenalezena nebo není nastavena v&nbsp;%s';
 $strNoUsersFound = 'Žádný uživatel nenalezen.';
 $strNoValidateSQL = 'Bez kontroly SQL';
 $strNull = 'Nulový';
+$strNumberOfFields = 'Počet sloupců';
 $strNumSearchResultsInTable = '%s odpovídající(ch) záznam(ů) v&nbsp;tabulce <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Celkem:</b> <i>%s</i> odpovídající(ch) záznam(ů)';
 $strNumTables = 'Tabulek';
@@ -972,5 +973,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strNumberOfFields = 'Number of fields';  //to translate
 ?>

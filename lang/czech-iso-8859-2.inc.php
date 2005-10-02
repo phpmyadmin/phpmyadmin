@@ -35,7 +35,7 @@ $strAddDeleteRow = 'Pøidat nebo odebrat øádek';
 $strAddDropDatabase = 'Pøidat DROP DATABASE';
 $strAddedColumnComment = 'Pøidán komentáø ke sloupci';
 $strAddedColumnRelation = 'Pøidána relace pro sloupec';
-$strAddFields = 'Pøidat %s polo¾ek';
+$strAddFields = 'Pøidat %s sloupcù';
 $strAddHeaderComment = 'Pøidat vlastní komentáø do hlavièky (\\n oddìluje øádky)';
 $strAddIfNotExists = 'Pøidat IF NOT EXISTS';
 $strAddIntoComments = 'Do komentáøù pøidat';
@@ -511,6 +511,7 @@ $strNotSet = '<b>%s</b> tabulka nenalezena nebo není nastavena v&nbsp;%s';
 $strNoUsersFound = '®ádný u¾ivatel nenalezen.';
 $strNoValidateSQL = 'Bez kontroly SQL';
 $strNull = 'Nulový';
+$strNumberOfFields = 'Poèet sloupcù';
 $strNumSearchResultsInTable = '%s odpovídající(ch) záznam(ù) v&nbsp;tabulce <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Celkem:</b> <i>%s</i> odpovídající(ch) záznam(ù)';
 $strNumTables = 'Tabulek';
@@ -971,5 +972,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strNumberOfFields = 'Number of fields';  //to translate
 ?>
