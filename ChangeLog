@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-03 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: support for Execute_priv
+
 2005-10-01 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
 

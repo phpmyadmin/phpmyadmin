@@ -66,7 +66,6 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         array('Super_priv', 'SUPER', $GLOBALS['strPrivDescSuper']),
         array('Create_tmp_table_priv', 'CREATE TEMPORARY TABLES', $GLOBALS['strPrivDescCreateTmpTable']),
         array('Lock_tables_priv', 'LOCK TABLES', $GLOBALS['strPrivDescLockTables']),
-        array('Execute_priv', 'EXECUTE', $GLOBALS['strPrivDescExecute']),
         array('Repl_slave_priv', 'REPLICATION SLAVE', $GLOBALS['strPrivDescReplSlave']),
         array('Repl_client_priv', 'REPLICATION CLIENT', $GLOBALS['strPrivDescReplClient']),
         array('Create_view_priv', 'CREATE VIEW', $GLOBALS['strPrivDescCreateView']),
@@ -79,6 +78,12 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         array('Alter_routine_priv', 'ALTER ROUTINE', $GLOBALS['strPrivDescAlterRoutine']),
         array('Create_user_priv', 'CREATE USER', $GLOBALS['strPrivDescCreateUser'])
     );
+    if (PMA_MYSQL_INT_VERSION >= 40002 && PMA_MYSQL_INT_VERSION <50003) {
+        $grants[] = array('Execute_priv', 'EXECUTE', $GLOBALS['strPrivDescExecute']);
+    } else {
+        $grants[] = array('Execute_priv', 'EXECUTE', $GLOBALS['strPrivDescExecute5']);
+    }
+
     if (!empty($row) && isset($row['Table_priv'])) {
         $res = PMA_DBI_query('SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';', $GLOBALS['userlink']);
         $row1 = PMA_DBI_fetch_assoc($res);
@@ -350,6 +355,13 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         if (isset($row['Alter_routine_priv'])) {
             $privTable[1][] = array('Alter_routine', 'ALTER ROUTINE', $GLOBALS['strPrivDescAlterRoutine']);
         }
+        if (isset($row['Execute_priv'])) {
+            if (PMA_MYSQL_INT_VERSION >= 40002 && PMA_MYSQL_INT_VERSION <50003) {
+                $privTable[1][] = array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute']);
+            } else {
+                $privTable[1][] = array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute5']);
+            }
+        }
 
         // a d m i n i s t r a t i o n
         $privTable[2] = array();
@@ -374,9 +386,9 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         }
         $privTable[2][] = array('References', 'REFERENCES', $GLOBALS['strPrivDescReferences']);
         if ($db == '*') {
-            if (isset($row['Execute_priv'])) {
-                $privTable[2][] = array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute']);
-            }
+            //if (isset($row['Execute_priv'])) {
+            //    $privTable[2][] = array('Execute', 'EXECUTE', $GLOBALS['strPrivDescExecute']);
+            //}
             if (isset($row['Repl_client_priv'])) {
                 $privTable[2][] = array('Repl_client', 'REPLICATION CLIENT', $GLOBALS['strPrivDescReplClient']);
             }
