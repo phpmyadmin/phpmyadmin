@@ -188,9 +188,7 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
     
     // enable auto select text in textarea
     if ( $GLOBALS['cfg']['TextareaAutoSelect'] ) {
-        $auto_sel = ' onfocus="if (typeof(document.layers) == \'undefined\' || '
-            .' typeof(textarea_selected) == \'undefined\') {textarea_selected '
-            .'= 1; this.form.elements[\'sql_query\'].select();}"';
+        $auto_sel = ' onfocus="selectContent( this, sql_box_locked, true )"';
     } else {
         $auto_sel = '';
     }

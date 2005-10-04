@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-04 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/functions.js, libraries/sql_query_form.lib.php:
+      fixed JavaScript malfunction in querybox textarea with Opera
+
 2005-10-03 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: support for Execute_priv
 

@@ -1,5 +1,37 @@
 /* $Id$ */
 
+/**
+ * @var sql_box_locked lock for the sqlbox textarea in the querybox/querywindow
+ */
+var sql_box_locked = false;
+
+/**
+ * @var array holds elements which content should only selected once
+ */
+var only_once_elements = new Array();
+
+/**
+ * selects the content of a given object, f.e. a textarea
+ *
+ * @param   object  element     element of which the content will be selected
+ * @param   var     lock        variable which holds the lock for this element
+ *                              or true, if no lock exists
+ * @param   boolean only_once   if true this is only done once
+ *                              f.e. only on first focus
+ */
+function selectContent( element, lock, only_once ) {
+	if ( only_once && only_once_elements[element.name] ) {
+		return;
+	}
+	
+	only_once_elements[element.name] = true;
+	
+	if ( lock  ) {
+		return;
+	}	
+	
+    element.select();
+}
 
 /**
  * Displays an confirmation box before to submit a "DROP DATABASE" query.
@@ -822,6 +854,7 @@ function insertValueQuery() {
     var myListBox = document.sqlform.dummy;
 
     if(myListBox.options.length > 0) {
+    	sql_box_locked = true;
         var chaineAj = "";
         var NbSelect = 0;
         for(var i=0; i<myListBox.options.length; i++) {
@@ -850,6 +883,7 @@ function insertValueQuery() {
         } else {
             myQuery.value += chaineAj;
         }
+    	sql_box_locked = false;
     }
 }
 
