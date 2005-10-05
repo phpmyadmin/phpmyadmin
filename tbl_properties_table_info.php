@@ -37,7 +37,8 @@ if ($table_info_result && PMA_DBI_num_rows($table_info_result) > 0) {
     if (!isset($showtable['Type']) && isset($showtable['Engine'])) {
         $showtable['Type'] =& $showtable['Engine'];
     }
-    if (PMA_MYSQL_INT_VERSION >= 50000 && !isset($showtable['Type']) && isset($showtable['Comment']) && $showtable['Comment'] == 'view') {
+    // MySQL < 5.0.13 returns "view", >= 5.0.13 returns "VIEW"
+    if (PMA_MYSQL_INT_VERSION >= 50000 && !isset($showtable['Type']) && isset($showtable['Comment']) && strtoupper($showtable['Comment']) == 'VIEW') {
         $tbl_is_view     = TRUE;
         $tbl_type        = $strView;
         $show_comment    = NULL;

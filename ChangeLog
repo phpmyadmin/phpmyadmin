@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_structure.php, tbl_properties_table_info.php: detect
+      MySQL 5.0.13 views
+
 2005-10-04 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/functions.js, libraries/sql_query_form.lib.php:
       fixed JavaScript malfunction in querybox textarea with Opera

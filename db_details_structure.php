@@ -192,9 +192,10 @@ else {
         $table         = $sts_data['Name'];
         $table_encoded = urlencode($table);
         $table_name    = htmlspecialchars($table);
+        // MySQL < 5.0.13 returns "view", >= 5.0.13 returns "VIEW"
         $is_view       = (PMA_MYSQL_INT_VERSION >= 50000
                            && !isset($sts_data['Type'])
-                           && $sts_data['Comment'] == 'view');
+                           && strtoupper($sts_data['Comment']) == 'VIEW');
 
         $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$table]))
                    ? htmlspecialchars($tooltip_aliasname[$table])
@@ -440,7 +441,8 @@ else {
                 <?php
                 echo "\n";
             } // end if
-        } else if (PMA_MYSQL_INT_VERSION >= 50000 && $sts_data['Comment'] == 'view') {
+        // MySQL < 5.0.13 returns "view", >= 5.0.13 returns "VIEW"
+        } else if (PMA_MYSQL_INT_VERSION >= 50000 && strtoupper($sts_data['Comment']) == 'VIEW') {
             // rabus: We've found a view
             ?>
                 <td align="right" bgcolor="<?php echo $bgcolor; ?>">
