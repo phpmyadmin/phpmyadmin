@@ -611,7 +611,6 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     $text_url = 'sql.php?'
               . PMA_generate_common_url($db, $table)
               . '&amp;sql_query=' . urlencode($sql_query)
-              . '&amp;pos=' . $pos
               . '&amp;session_max_rows=' . $session_max_rows
               . '&amp;pos=' . $pos
               . '&amp;disp_direction=' . $disp_direction
