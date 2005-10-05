@@ -7,24 +7,66 @@
 require_once('./libraries/check_user_privileges.lib.php');
 
 $is_create_table_priv = FALSE;
-// TODO: escaped wildcard patterns
-$mysql_wildcards = array('%','_');
-$preg_patterns = array('(.*)', '.');
 
 foreach($dbs_where_create_table_allowed as $allowed_db) {
+
+    // if we find the exact db name, we stop here
+    if ($allowed_db == $db) {
+        $is_create_table_priv = TRUE;
+        break;
+    }
+
     // '*' indicates a global CREATE priv
     if ($allowed_db == '*') {
         $is_create_table_priv = TRUE;
         break;
     }
-    $matches = '';
-    if (preg_match('@' .str_replace($mysql_wildcards, $preg_patterns, $allowed_db) . '@i', $db, $matches)) {
-        if ($matches[0] == $db) {
-            $is_create_table_priv = TRUE;
-            break;
+
+    if (ereg('%|_', $allowed_db)) {
+        // take care of wildcards and escaped wildcards,
+        // transforming them into regexp patterns
+        $max_position = strlen($allowed_db) - 1;
+        $i = 0;
+        $pattern = '';
+        while ($i <= $max_position) {
+            if ($allowed_db[$i] == '\\'){
+                if ($i < $max_position - 1 && $allowed_db[$i+1] == '_'){
+                    $chunk = '_';
+                    $i++;
+                } elseif ($i < $max_position - 1 && $allowed_db[$i+1] == '%'){
+                    $chunk = '%';
+                    $i++;
+                } else {
+                    $chunk = $allowed_db[$i];
+                }
+            } elseif ($allowed_db[$i] == '_'){
+                $chunk = '.';
+            } elseif ($allowed_db[$i] == '%'){
+                $chunk = '(.)*';
+            } else {
+                $chunk = $allowed_db[$i];
+            }
+            $pattern .= $chunk;
+            $i++;
+        } // end while
+        unset($i, $max_position, $chunk);
+
+        $matches = '';
+        if (preg_match('@' .$pattern . '@i', $db, $matches)) {
+            if ($matches[0] == $db) {
+                $is_create_table_priv = TRUE;
+                break;
+                //TODO: maybe receive in $allowed_db also the db names
+                // on which we cannot CREATE, and check them
+                // in this foreach, because if a user is allowed to CREATE
+                // on db foo% but forbidden on db foobar, he should not
+                // see the Create table dialog
+            }
         }
     }
-}
+} // end foreach
+unset($i, $max_position, $chunk, $pattern);
+
 if ($is_create_table_priv) {
 ?>
     <!-- Create a new table -->

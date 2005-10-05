@@ -12,6 +12,8 @@ $Source$
       thanks to Vernon Lyon - vlyon
     * libraries/charset_conversion.lib.php: PMA_MYSQL_INT_VERSION is not
       defined at login time but what tested
+    * libraries/display_create_table.lib.php, bug #1311384, Create table 
+      dialog on escaped wildcard privileges
 
 2005-10-04 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/functions.js, libraries/sql_query_form.lib.php:
