@@ -106,59 +106,59 @@ if ($import_file != 'none') {
         $message = $strFileCouldNotBeRead;
         $show_error_header = TRUE;
         $error = TRUE;
-    }
-
-    switch ($compression) {
-        case 'application/bzip2':
-            if ($cfg['BZipDump'] && @function_exists('bzopen')) {
-                $import_handle = @bzopen($import_file, 'r');
-            } else {
-                $message = sprintf($strUnsupportedCompressionDetected, $compression);
-                $show_error_header = TRUE;
-                $error = TRUE;
-            }
-            break;
-        case 'application/gzip':
-            if ($cfg['GZipDump'] && @function_exists('gzopen')) {
-                $import_handle = @gzopen($import_file, 'r');
-            } else {
-                $message = sprintf($strUnsupportedCompressionDetected, $compression);
-                $show_error_header = TRUE;
-                $error = TRUE;
-            }
-            break;
-        case 'application/zip':
-            if ($cfg['GZipDump'] && @function_exists('gzinflate')) {
-                include_once('./libraries/unzip.lib.php');
-                $import_handle = new SimpleUnzip();
-                $import_handle->ReadFile($import_file);
-                if ($import_handle->Count() == 0) {
-                    $message = $strNoFilesFoundInZip;
-                    $show_error_header = TRUE;
-                    $error = TRUE;
-                } elseif ($import_handle->GetError(0) != 0) {
-                    $message = $strErrorInZipFile . ' ' . $import_handle->GetErrorMsg(0);
-                    $show_error_header = TRUE;
-                    $error = TRUE;
+    } else {
+        switch ($compression) {
+            case 'application/bzip2':
+                if ($cfg['BZipDump'] && @function_exists('bzopen')) {
+                    $import_handle = @bzopen($import_file, 'r');
                 } else {
-                    $import_text = $import_handle->GetData(0);
+                    $message = sprintf($strUnsupportedCompressionDetected, $compression);
+                    $show_error_header = TRUE;
+                    $error = TRUE;
                 }
-                // We don't need to store it further
-                $import_handle = '';
-            } else {
+                break;
+            case 'application/gzip':
+                if ($cfg['GZipDump'] && @function_exists('gzopen')) {
+                    $import_handle = @gzopen($import_file, 'r');
+                } else {
+                    $message = sprintf($strUnsupportedCompressionDetected, $compression);
+                    $show_error_header = TRUE;
+                    $error = TRUE;
+                }
+                break;
+            case 'application/zip':
+                if ($cfg['GZipDump'] && @function_exists('gzinflate')) {
+                    include_once('./libraries/unzip.lib.php');
+                    $import_handle = new SimpleUnzip();
+                    $import_handle->ReadFile($import_file);
+                    if ($import_handle->Count() == 0) {
+                        $message = $strNoFilesFoundInZip;
+                        $show_error_header = TRUE;
+                        $error = TRUE;
+                    } elseif ($import_handle->GetError(0) != 0) {
+                        $message = $strErrorInZipFile . ' ' . $import_handle->GetErrorMsg(0);
+                        $show_error_header = TRUE;
+                        $error = TRUE;
+                    } else {
+                        $import_text = $import_handle->GetData(0);
+                    }
+                    // We don't need to store it further
+                    $import_handle = '';
+                } else {
+                    $message = sprintf($strUnsupportedCompressionDetected, $compression);
+                    $show_error_header = TRUE;
+                    $error = TRUE;
+                }
+                break;
+            case 'none':
+                $import_handle = @fopen($import_file, 'r');
+                break;
+            default:
                 $message = sprintf($strUnsupportedCompressionDetected, $compression);
                 $show_error_header = TRUE;
                 $error = TRUE;
-            }
-            break;
-        case 'none':
-            $import_handle = @fopen($import_file, 'r');
-            break;
-        default:
-            $message = sprintf($strUnsupportedCompressionDetected, $compression);
-            $show_error_header = TRUE;
-            $error = TRUE;
-            break;
+                break;
+        }
     }
     if (!$error && $import_handle === FALSE) {
         $message = $strFileCouldNotBeRead;
