@@ -54,6 +54,12 @@ if (isset($import_list)) {
             if ($i == 2147483647) {
                 $i = $oi;
                 if (!$finished) break;
+                // at the end there might be some whitespace...
+                if (trim($buffer) == '') {
+                    $buffer = '';
+                    $len = 0;
+                    break;
+                }
             }
 
             // Grab current character

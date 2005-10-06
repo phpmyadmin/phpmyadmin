@@ -7,6 +7,8 @@ $Source$
 
 2005-10-06 Michal Čihař  <michal@cihar.com>
     * import.php: Correctly report that file could not be read.
+    * libraries/import/sql.php: Fix handling of whitespace at the end of
+      imported file.
 
 2005-10-05 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php, tbl_properties_table_info.php: detect
