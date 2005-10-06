@@ -58,6 +58,7 @@ if (!empty($GLOBALS['cfg']['PmaAbsoluteUri'])) {
 <!--
 var month_names = new Array("<?php echo implode('","', $month); ?>");
 var day_names = new Array("<?php echo implode('","', $day_of_week); ?>");
+var submit_text = "<?php echo $strGo; ?>";
 //-->
 </script>
 </head>

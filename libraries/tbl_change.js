@@ -95,6 +95,7 @@ function openCalendar(params, form, field, type) {
  * Formats number to two digits.
  *
  * @param   int number to format.
+ * @param   string type of number
  */
 function formatNum2(i, valtype) {
     f = (i < 10 ? '0' : '') + i;
@@ -124,11 +125,25 @@ function formatNum2(i, valtype) {
 }
 
 /**
+ * Formats number to two digits.
+ *
+ * @param   int number to format.
+ * @param   int default value
+ * @param   string type of number
+ */
+function formatNum2d(i, default_v, valtype) {
+    i = parseInt(i, 10);
+    if (isNaN(i)) return default_v;
+    return formatNum2(i, valtype)
+}
+
+/**
  * Formats number to four digits.
  *
  * @param   int number to format.
  */
 function formatNum4(i) {
+    i = parseInt(i, 10)
     return (i < 1000 ? i < 100 ? i < 10 ? '000' : '00' : '0' : '') + i;
 }
 
@@ -251,12 +266,13 @@ function initCalendar() {
         dispmonth = 1 + month;
 
         if (window.opener.dateType == 'datetime' || window.opener.dateType == 'date') {
-            actVal = formatNum4(year) + "-" + formatNum2(dispmonth, 'month') + "-" + formatNum2(i, 'day');
+            actVal = "" + formatNum4(year) + "-" + formatNum2(dispmonth, 'month') + "-" + formatNum2(i, 'day');
         } else {
             actVal = "" + formatNum4(year) + formatNum2(dispmonth, 'month') + formatNum2(i, 'day');
         }
         if (i == day) {
             style = ' class="selected"';
+            current_date = actVal;
         } else {
             style = '';
         }
@@ -281,10 +297,15 @@ function initCalendar() {
         }
 
         str = '';
-        str += '<form class="clock">';
-        str += '<input id="hour"    type="text" size="2" maxlength="2" onblur="this.value=formatNum2(this.value, \'hour\')" value="' + formatNum2(hour, 'hour') + '" />:';
-        str += '<input id="minute"  type="text" size="2" maxlength="2" onblur="this.value=formatNum2(this.value, \'minute\')" value="' + formatNum2(minute, 'minute') + '" />:';
-        str += '<input id="second"  type="text" size="2" maxlength="2" onblur="this.value=formatNum2(this.value, \'second\')" value="' + formatNum2(second, 'second') + '" />';
+        init_hour = hour;
+        init_minute = minute;
+        init_second = second;
+        str += '<form method="NONE" class="clock" onsubmit="returnDate(\'' + current_date + '\')">';
+        str += '<input id="hour"    type="text" size="2" maxlength="2" onblur="this.value=formatNum2d(this.value, init_hour, \'hour\'); init_hour = this.value;" value="' + formatNum2(hour, 'hour') + '" />:';
+        str += '<input id="minute"  type="text" size="2" maxlength="2" onblur="this.value=formatNum2d(this.value, init_minute, \'minute\'); init_minute = this.value;" value="' + formatNum2(minute, 'minute') + '" />:';
+        str += '<input id="second"  type="text" size="2" maxlength="2" onblur="this.value=formatNum2d(this.value, init_second, \'second\'); init_second = this.value;" value="' + formatNum2(second, 'second') + '" />';
+        str += '<br />';
+        str += '<input type="submit" value="' + submit_text + '"/>';
         str += '</form>';
 
         cnt.innerHTML = str;

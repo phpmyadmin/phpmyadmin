@@ -9,6 +9,9 @@ $Source$
     * import.php: Correctly report that file could not be read.
     * libraries/import/sql.php: Fix handling of whitespace at the end of
       imported file.
+    * calendar.php, libraries/tbl_change.js: Calendar improvements: add submit
+      button (bug# 1312373) and fix entering time begining with 0 (bug
+      #1312373).
 
 2005-10-05 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php, tbl_properties_table_info.php: detect
