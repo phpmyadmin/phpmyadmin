@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-07 Michal Čihař  <michal@cihar.com>
+    * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
+
 2005-10-06 Michal Čihař  <michal@cihar.com>
     * import.php: Correctly report that file could not be read.
     * libraries/import/sql.php: Fix handling of whitespace at the end of
