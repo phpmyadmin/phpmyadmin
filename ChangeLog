@@ -7,6 +7,7 @@ $Source$
 
 2005-10-07 Michal Čihař  <michal@cihar.com>
     * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
+    * libraries/common.lib.php: Drop some old code.
 
 2005-10-06 Michal Čihař  <michal@cihar.com>
     * import.php: Correctly report that file could not be read.

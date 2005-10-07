@@ -94,7 +94,7 @@ if (file_exists('./config.inc.php')) {
     $result = eval('?>' . fread($config_fd, filesize('./config.inc.php')));
     fclose($config_fd);
     // Eval failed
-    if ($result === FALSE || (!isset($cfgServers) && !isset($cfg['Servers']))) {
+    if ($result === FALSE || !isset($cfg['Servers'])) {
         // Creates fake settings
         $cfg = array('DefaultLang'           => 'en-iso-8859-1',
                         'AllowAnywhereRecoding' => FALSE);
