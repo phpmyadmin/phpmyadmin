@@ -38,10 +38,22 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_db_priv, &$db_to_create, &$is
                 // this array may contain wildcards
                 $dbs_where_create_table_allowed[] = $show_grants_dbname;
                 
+                // before MySQL 4.1.0, we cannot use backquotes around a dbname
+                // for the USE command, so the USE will fail if the dbname contains 
+                // a "-" and we cannot detect if such a db already exists;
+                // since 4.1.0, we need to use backquotes if the dbname contains a "-"
+                // in a USE command
+
+                if (PMA_MYSQL_INT_VERSION > 40100) {
+                    $dbname_to_test = PMA_backquote($show_grants_dbname);
+                } else {
+                    $dbname_to_test = $show_grants_dbname;
+                }
+
                 if ( (ereg($re0 . '%|_', $show_grants_dbname)
                     && !ereg('\\\\%|\\\\_', $show_grants_dbname))
                     // does this db exist?
-                    || (!PMA_DBI_try_query('USE ' . ereg_replace($re1 .'(%|_)', '\\1\\3', $show_grants_dbname)) && substr(PMA_DBI_getError(), 1, 4) != 1044)
+                    || (!PMA_DBI_try_query('USE ' .  ereg_replace($re1 .'(%|_)', '\\1\\3',$dbname_to_test),  NULL, PMA_DBI_QUERY_STORE) && substr(PMA_DBI_getError(), 1, 4) != 1044)
                     ) {
                      $db_to_create = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $show_grants_dbname));
                      $db_to_create = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
@@ -78,12 +90,12 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
 // $userlink so maybe the SELECT will fail
 
     if (!$is_create_db_priv) {
-        $res                           = PMA_DBI_query('SELECT USER();');
+        $res                           = PMA_DBI_query('SELECT USER();', NULL, PMA_DBI_QUERY_STORE);
         list($mysql_cur_user_and_host) = PMA_DBI_fetch_row($res);
         $mysql_cur_user                = substr($mysql_cur_user_and_host, 0, strrpos($mysql_cur_user_and_host, '@'));
 
         $local_query = 'SELECT Create_priv, Reload_priv FROM mysql.user WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($mysql_cur_user), 'quoted') . ' OR ' . PMA_convert_using('User') . ' = ' . PMA_convert_using('', 'quoted') . ';';
-        $rs_usr      = PMA_DBI_try_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+        $rs_usr      = PMA_DBI_try_query($local_query, $dbh, PMA_DBI_QUERY_STORE); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
             while ($result_usr = PMA_DBI_fetch_assoc($rs_usr)) {
                 if (!$is_create_db_priv) {
