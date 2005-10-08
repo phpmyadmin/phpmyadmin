@@ -88,7 +88,12 @@ if (isset($import_list)) {
                 }
                 if (!$endq) break;
                 $i++;
-                continue;
+                // Aren't we at the end?
+                if ($i == $len) {
+                    $i--;
+                } else {
+                    continue;
+                }
             }
 
             // Not enough data to decide
@@ -110,18 +115,32 @@ if (isset($import_list)) {
                 // Skip the rest
                 $i = strpos($buffer, $ch == '/' ? '*/' : "\n", $i);
                 // didn't we hit end of string?
-                if ($i === FALSE) break;
+                if ($i === FALSE) {
+                    if ($finished) {
+                        $i = $len - 1;
+                    } else {
+                        break;
+                    }
+                }
                 // Skip *
                 if ($ch == '/') $i++;
                 // Skip last char
                 $i++;
                 // Next query part will start here 
                 $start_pos = $i;
+                // Aren't we at the end?
+                if ($i == $len) {
+                    $i--;
+                } else {
+                    continue;
+                }
             }
 
             // End of SQL
             if ($ch == ';' || ($finished && ($i == $len - 1))) {
-                $sql .= substr($buffer, $start_pos, $i - $start_pos + 1);
+                if ($start_pos < $len) {
+                    $sql .= substr($buffer, $start_pos, $i - $start_pos + 1);
+                }
                 PMA_importRunQuery($sql, substr($buffer, 0, $i + 1));
                 $buffer = substr($buffer, $i + 1);
                 // Reset parser:
