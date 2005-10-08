@@ -22,6 +22,8 @@ $Source$
       correctly if import plugin not found, commented some code.
     * sql.php, config.default.php: Remove references to read_dump.php.
     * read_dump.php: Remove unused code.
+    * ldi_check.php, ldi_table.php: Remove unused code.
+    * tbl_change.php: Remove references to ldi_*.
 
 2005-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/check_user_privileges.lib.php: bug #1313821, dbname containing a 

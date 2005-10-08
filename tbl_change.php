@@ -50,7 +50,7 @@ if (!empty($disp_message)) {
 if (!isset($goto)) {
     $goto    = 'db_details.php';
 }
-if (!preg_match('@^(db_details|tbl_properties|tbl_select|ldi_table)@', $goto)) {
+if (!preg_match('@^(db_details|tbl_properties|tbl_select)@', $goto)) {
     $err_url = $goto . "?" . PMA_generate_common_url($db) . "&amp;sql_query=" . urlencode($sql_query);
 } else {
     $err_url = $goto . '?'
