@@ -799,7 +799,6 @@ if (!$tbl_is_view) {
         }
     }
     // END - Calc Table Space
-    echo '<div class="clearfloat"></div>' . "\n";
     echo '</div>' . "\n";
 } // end if (!$tbl_is_view)
 
