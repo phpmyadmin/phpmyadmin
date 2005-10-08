@@ -2737,25 +2737,36 @@ if (typeof(document.getElementById) != 'undefined'
     } // end function
 
 
-    function PMA_generateAlterTable($oldcol, $newcol, $full_field_type, $collation, $null, $default, $default_current_timestamp, $extra, $comment='', $default_orig) {
+    function PMA_generateFieldSpec($name, $type, $length, $attribute, $collation, $null, $default, $default_current_timestamp, $extra, $comment='', &$field_primary, $index, $default_orig = FALSE) {
 
         // $default_current_timestamp has priority over $default
         // TODO: on the interface, some js to clear the default value
         // when the default current_timestamp is checked
 
-        $query = PMA_backquote($oldcol) . ' ' . PMA_backquote($newcol) . ' '
-            . $full_field_type;
-        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($collation) && $collation != 'NULL' && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR\(\d+\)|CHAR\(\d+\))$@i', $full_field_type)) {
+        $query = PMA_backquote($name) . ' ' . $type;
+        
+        if ($length != ''
+            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i', $type)) {
+            $query .= '(' . $length . ')';
+        }
+        
+        if ($attribute != '') {
+            $query .= ' ' . $attribute;
+        }
+        
+        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($collation) && $collation != 'NULL' && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR)$@i', $type)) {
             $query .= PMA_generateCharsetQueryPart($collation);
         }
 
-        if (!empty($null)) {
-            $query .= ' NOT NULL';
-        } else {
-            $query .= ' NULL';
+        if (!($null === FALSE)) {
+            if (!empty($null)) {
+                $query .= ' NOT NULL';
+            } else {
+                $query .= ' NULL';
+            }
         }
 
-        if ($default_current_timestamp && strpos(' ' . strtoupper($full_field_type),'TIMESTAMP') == 1) {
+        if ($default_current_timestamp && strpos(' ' . strtoupper($type),'TIMESTAMP') == 1) {
             $query .= ' DEFAULT CURRENT_TIMESTAMP';
             // 0 is empty in PHP
         } elseif (!empty($default) || $default == '0' || $default != $default_orig) {
@@ -2768,11 +2779,27 @@ if (typeof(document.getElementById) != 'undefined'
 
         if (!empty($extra)) {
             $query .= ' ' . $extra;
+            // An auto_increment field must be use as a primary key
+            if ($extra == 'AUTO_INCREMENT' && isset($field_primary)) {
+                $primary_cnt = count($field_primary);
+                for ($j = 0; $j < $primary_cnt && $field_primary[$j] != $index; $j++) {
+                    // void
+                } // end for
+                if (isset($field_primary[$j]) && $field_primary[$j] == $index) {
+                    $query .= ' PRIMARY KEY';
+                    unset($field_primary[$j]);
+                } // end if
+            } // end if (auto_increment)
         }
         if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($comment)) {
             $query .= " COMMENT '" . PMA_sqlAddslashes($comment) . "'";
         }
         return $query;
+    } // end function
+    
+    function PMA_generateAlterTable($oldcol, $newcol, $type, $length, $attribute, $collation, $null, $default, $default_current_timestamp, $extra, $comment='', $default_orig) {
+        $empty_a = array();
+        return PMA_backquote($oldcol) . ' ' . PMA_generateFieldSpec($newcol, $type, $length, $attribute, $collation, $null, $default, $default_current_timestamp, $extra, $comment, $empty_a, -1, $default_orig);
     } // end function
 
 } // end if: minimal common.lib needed?

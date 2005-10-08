@@ -62,34 +62,9 @@ if (isset($submit_num_fields)) {
         if (empty($field_name[$i]) && $field_name[$i] != '0') {
             continue;
         }
-        // TODO: maybe move this logic and the one of PMA_generateAlterTable()
-        // to a central place
 
-        $query = PMA_backquote($field_name[$i]) . ' ' . $field_type[$i];
-        if ($field_length[$i] != ''
-            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i', $field_type[$i])) {
-            $query .= '(' . $field_length[$i] . ')';
-        }
-        if ($field_attribute[$i] != '') {
-            $query .= ' ' . $field_attribute[$i];
-        } else if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($field_collation[$i])) {
-            $query .= PMA_generateCharsetQueryPart($field_collation[$i]);
-        }
-        if (isset($field_default_current_timestamp[$i]) && $field_default_current_timestamp[$i]) {
-            $query .= ' DEFAULT CURRENT_TIMESTAMP';
-        } elseif ($field_default[$i] != '') {
-            if (strtoupper($field_default[$i]) == 'NULL') {
-                $query .= ' DEFAULT NULL';
-            } else {
-                $query .= ' DEFAULT \'' . PMA_sqlAddslashes($field_default[$i]) . '\'';
-            }
-        }
-        if ($field_null[$i] != '') {
-            $query .= ' ' . $field_null[$i];
-        }
-        if ($field_extra[$i] != '') {
-            $query .= ' ' . $field_extra[$i];
-        }
+        $query = PMA_generateFieldSpec($field_name[$i], $field_type[$i], $field_length[$i], $field_attribute[$i], $field_collation[$i], $field_null[$i], $field_default[$i], isset($field_default_current_timestamp[$i]), $field_extra[$i], isset($field_comments[$i]) ? $field_comments[$i] : '', $field_primary, $i);
+        
         $query .= ', ';
         $sql_query .= $query;
         $query_cpy .= "\n" . '  ' . $query;
@@ -202,11 +177,11 @@ if (isset($submit_num_fields)) {
         $cfgRelation = PMA_getRelationsParam();
 
         // garvin: Update comment table, if a comment was set.
-        if (isset($field_comments) && is_array($field_comments) && ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100)) {
+        if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork'] && PMA_MYSQL_INT_VERSION < 40100) {
             foreach ($field_comments AS $fieldindex => $fieldcomment) {
                 // do not try to set a comment if the field name is empty
                 if (!empty($field_name[$fieldindex])) {
-                    PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
+                    PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, '', 'pmadb');
                 }
             }
         }
