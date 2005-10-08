@@ -1112,7 +1112,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             } // end if (1.2.1)
 
             if ($table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db'] && isset($row[1]) && isset($row[0])) {
-                $bookmark_go = '<a href="read_dump.php?'
+                $bookmark_go = '<a href="import.php?'
                                 . PMA_generate_common_url($row[1], '')
                                 . '&amp;id_bookmark=' . $row[0]
                                 . '&amp;action_bookmark=0'

@@ -989,4 +989,5 @@ $strInvalidLDIImport = 'This plugin does not support compressed imports!';  //to
 $strTableAlreadyExists = 'Table %s already exists!';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
 $strNumberOfFields = 'מספר שדות';
+$strShowingBookmark = 'Showing bookmark';  //to translate
 ?>

@@ -11,21 +11,74 @@ require_once('./libraries/grab_globals.lib.php');
 $js_to_run = 'functions.js';
 require_once('./libraries/common.lib.php');
 
+// Are we just executing plain query or sql file? (eg. non import, but query box/window run)
+if (!empty($sql_query)) {
+    // run SQL query
+    $import_text = $sql_query;
+    $import_type = 'query';
+    $what = 'sql';
+    unset($sql_query);
+} elseif (!empty($sql_localfile)) {
+    // run SQL file on server
+    $local_import_file = $sql_localfile;
+    $import_type = 'queryfile';
+    $what = 'sql';
+    unset($sql_localfile);
+} elseif (!empty($sql_file)) {
+    // run uploaded SQL file
+    $import_file = $sql_file;
+    $import_type = 'queryfile';
+    $what = 'sql';
+    unset($sql_file);
+} elseif (!empty($id_bookmark)) {
+    // run bookmark
+    $import_type = 'query';
+    $what = 'sql';
+}
+
+// Check needed parameters
 PMA_checkParameters(array('import_type', 'what'));
+
+// We don't want anything special in what
+$what = PMA_securePath($what);
 
 // Import functions
 require_once('./libraries/import.lib.php');
 
+// Create error and goto url
 if ($import_type == 'table') {
     $err_url = 'tbl_import.php?' . PMA_generate_common_url($db, $table);
+    $goto = 'tbl_import.php';
 } elseif ($import_type == 'database') {
     $err_url = 'db_import.php?' . PMA_generate_common_url($db);
-} else {
+    $goto = 'db_import.php';
+} elseif ($import_type == 'server') {
     $err_url = 'server_import.php?' . PMA_generate_common_url();
+    $goto = 'server_import.php';
+} else {
+    if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
+        if (isset($table) && isset($db)) {
+            $goto = 'tbl_properties_structure.php';
+        } elseif (isset($db)) {
+            $goto = 'db_details_structure.php';
+        } else {
+            $goto = 'server_sql.php';
+        }
+    }
+    if (isset($table) && isset($db)) {
+        $common = PMA_generate_common_url($db, $table);
+    } elseif (isset($db)) {
+        $common = PMA_generate_common_url($db);
+    } else {
+        $common = PMA_generate_common_url();
+    }
+    $err_url  = $goto
+              . '?' . $common
+              . (preg_match('@^tbl_properties(_[a-z]*)?\.php$@', $goto) ? '&amp;table=' . urlencode($table) : '');
 }
 
 
-if ($import_type != 'server') {
+if (isset($db)) {
     PMA_DBI_select_db($db);
 }
 
@@ -50,6 +103,44 @@ $sql_query_disabled = FALSE;
 $go_sql = FALSE;
 $reload = FALSE;
 $executed_queries = 0;
+$run_query = TRUE;
+$charset_conversion = FALSE;
+$reset_charset = FALSE;
+
+// Bookmark Support: get a query back from bookmark if required
+if (!empty($id_bookmark)) {
+    require_once('./libraries/bookmark.lib.php');
+    switch ($action_bookmark) {
+        case 0: // bookmarked query that have to be run
+            $import_text = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark,'id', isset($action_bookmark_all));
+            if (isset($bookmark_variable) && !empty($bookmark_variable)) {
+                $import_text = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '${1}' . PMA_sqlAddslashes($bookmark_variable) . '${2}', $import_text);
+            }
+            break;
+        case 1: // bookmarked query that have to be displayed
+            $import_text = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
+            $run_query = FALSE;
+            break;
+        case 2: // bookmarked query that have to be deleted
+            $import_text = PMA_deleteBookmarks($db, $cfg['Bookmark'], $id_bookmark);
+            $run_query = FALSE;
+            $error = TRUE; // this is kind of hack to skip processing the query
+            break;
+    }
+} // end bookmarks reading
+
+// Store the query as a bookmark before executing it if bookmarklabel was given
+if (!empty($bkm_label) && !empty($import_text)) {
+    require_once('./libraries/bookmark.lib.php');
+    $bfields = array(
+                 'dbase' => $db,
+                 'user'  => $cfg['Bookmark']['user'],
+                 'query' => urlencode($import_text),
+                 'label' => $bkm_label
+    );
+
+    PMA_addBookmarks($bfields, $cfg['Bookmark'], isset($bkm_all_users));
+} // end store bookmarks
 
 // We can not read all at once, otherwise we can run out of memory
 $memory_limit = trim(@ini_get('memory_limit'));
@@ -79,8 +170,9 @@ if (!empty($local_import_file) && !empty($cfg['UploadDir'])) {
     $import_file  = 'none';
 }
 
-// work around open_basedir and other limitations
-if ($import_file != 'none') {
+// Do we have file to import?
+if ($import_file != 'none' && !$error) {
+    // work around open_basedir and other limitations
     $open_basedir = @ini_get('open_basedir');
 
     // If we are on a server with open_basedir, we must move the file
@@ -101,6 +193,7 @@ if ($import_file != 'none') {
         }
     }
     
+    // Handle file compression
     $compression = PMA_detectCompression($import_file);
     if ($compression === FALSE) {
         $message = $strFileCouldNotBeRead;
@@ -165,7 +258,7 @@ if ($import_file != 'none') {
         $show_error_header = TRUE;
         $error = TRUE;
     }
-} else {
+} elseif (!$error) {
     if (!isset($import_text) || empty($import_text)) {
         $message = $strNothingToImport;
         $show_error_header = TRUE;
@@ -174,8 +267,6 @@ if ($import_file != 'none') {
 }
 
 // Convert the file's charset if necessary
-$charset_conversion = FALSE;
-$reset_charset = FALSE;
 if (PMA_MYSQL_INT_VERSION < 40100
     && $cfg['AllowAnywhereRecoding'] && $allow_recoding
     && isset($charset_of_file) && $charset_of_file != $charset) {
@@ -187,7 +278,7 @@ if (PMA_MYSQL_INT_VERSION < 40100
 }
 
 // Something to skip?
-if (isset($skip)) {
+if (!$error && isset($skip)) {
     $original_skip = $skip;
     while ($skip > 0) {
         PMA_importGetNextChunk($skip < $read_limit ? $skip : $read_limit);
@@ -198,24 +289,44 @@ if (isset($skip)) {
 }
 
 if (!$error) {
-    // Do the real import
-    require('./libraries/import/' . PMA_securePath($what) . '.php');
+    // Check for file existance
+    if (!file_exists('./libraries/import/' . $what . '.php')) {
+        $error = TRUE;
+        $message = $strCanNotLoadImportPlugins;
+        $show_error_header = TRUE;
+    } else {
+        // Do the real import
+        require('./libraries/import/' . $what . '.php');
+    }
 }
 
 // Cleanup temporary file
 if ($file_to_unlink != '') {
     unlink($file_to_unlink);
 }
+
 // Reset charset back, if we did some changes
 if ($reset_charset) {
     PMA_DBI_query('SET CHARACTER SET utf8');
     PMA_DBI_query('SET SESSION collation_connection =\'' . $collation_connection . '\'');
 }
 
-if ($finished && !$error) {
-    $message = $strImportFinished;
+// Show correct message
+if (!empty($id_bookmark) && $action_bookmark == 2) {
+    $message = $strBookmarkDeleted;
+    $display_query = $import_text;
+    $error = FALSE; // unset error marker, it was used just to skip processing
+} elseif (!empty($id_bookmark) && $action_bookmark == 1) {
+    $message = $strShowingBookmark;
+} elseif ($finished && !$error) {
+    if ($import_type == 'query') {
+        $message = $strSuccess;
+    } else {
+        $message = $strImportFinished;
+    }
 }
 
+// Did we hit timeout? Tell it user.
 if ($timeout_passed) {
     $message = $strTimeoutPassed;
     if ($offset == 0 || (isset($original_skip) && $original_skip == $offset)) {
@@ -235,16 +346,12 @@ if (isset($my_die)) {
 }
 
 if ($go_sql) {
-    require_once('./sql.php');
-} elseif ($import_type == 'server') {
-    $active_page = 'server_import.php';
-    require_once('./server_import.php');
-} elseif ($import_type == 'database') {
-    $active_page = 'db_import.php';
-    require_once('./db_import.php');
+    // cleanup some variables, otherwise we confuse sql.php
+    unset($pos);
+    require('./sql.php');
 } else {
-    $active_page = 'tbl_import.php';
-    require_once('./tbl_import.php');
+    $active_page = $goto;
+    require('./' . $goto);
 }
 exit();
 ?>

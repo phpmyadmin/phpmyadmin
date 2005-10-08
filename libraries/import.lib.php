@@ -4,6 +4,11 @@
 
 /* Library that provides common import functions that are used by import plugins */
 
+// We need to know something about user
+require_once('./libraries/check_user_privileges.lib.php');
+// We do this check
+define('PMA_CHK_DROP', 1);
+
 /**
  *  Check whether timeout is getting close
  *
@@ -54,7 +59,7 @@ function PMA_detectCompression($filepath) {
  *  @access public
  */
 function PMA_importRunQuery($sql = '', $full = '') {
-    global $import_run_buffer, $go_sql, $complete_query, $display_query, $sql_query, $cfg, $my_die, $error, $reload, $finished, $timeout_passed, $skip_queries, $executed_queries, $max_sql_len, $read_multiply, $cfg, $sql_query_disabled, $db;
+    global $import_run_buffer, $go_sql, $complete_query, $display_query, $sql_query, $cfg, $my_die, $error, $reload, $finished, $timeout_passed, $skip_queries, $executed_queries, $max_sql_len, $read_multiply, $cfg, $sql_query_disabled, $db, $run_query, $is_superuser;
     $read_multiply = 1;
     if (isset($import_run_buffer)) {
         // Should we skip something?
@@ -62,22 +67,33 @@ function PMA_importRunQuery($sql = '', $full = '') {
             $skip_queries--;
         } else {
             if (!empty($import_run_buffer['sql']) && trim($import_run_buffer['sql']) != '') {
+                if (!$cfg['AllowUserDropDatabase']
+                    && !$is_superuser
+                    && preg_match('@DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])) {
+                    $message = $strNoDropDatabases;
+                    $show_error_header = TRUE;
+                    $error = TRUE;
+                    return;
+                }
                 $max_sql_len = max($max_sql_len, strlen($import_run_buffer['sql']));
                 if (!$sql_query_disabled) {
                     $sql_query .= $import_run_buffer['full'];
                 }
                 $executed_queries++;
-                if ($finished && !empty($import_run_buffer['sql']) && preg_match('/^[\s]*(SELECT|SHOW)/i', $import_run_buffer['sql'])) {
+                if ($run_query && $finished && empty($sql) && (
+                        (!empty($import_run_buffer['sql']) && preg_match('/^[\s]*(SELECT|SHOW)/i', $import_run_buffer['sql'])) ||
+                        ($executed_queries == 1)
+                        )) {
                     $go_sql = TRUE;
                     if (!$sql_query_disabled) {
                         $complete_query = $sql_query;
                         $display_query = $sql_query;
                     }
                     $sql_query = $import_run_buffer['sql'];
-                } else {
+                } elseif ($run_query) {
                     $result = PMA_DBI_try_query($import_run_buffer['sql']);
                     $msg = '# ';
-                    if ($result === FALSE) { // readdump failed
+                    if ($result === FALSE) { // execution failed
                         if (!isset($my_die)) {
                             $my_die = array();
                         }

@@ -14,6 +14,14 @@ $Source$
     * libraries/import/sql.php: Fix import of queries containing `, fix import
       of queries not terminated by ;.
     * libraries/sqlparser.lib.php: Do not show error on empty query.
+    * libraries/import.lib.php: Add support for DROP DATABASE checking.
+    * libraries/display_tbl.lib.php, libraries/sql_query_form.lib.php,
+      libraries/common.lib.php: Use import.php.
+    * lang/*: New message for deleting bookmark.
+    * import.php: Add support for bookmarks, support for goto URL, fail
+      correctly if import plugin not found, commented some code.
+    * sql.php, config.default.php: Remove references to read_dump.php.
+    * read_dump.php: Remove unused code.
 
 2005-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/check_user_privileges.lib.php: bug #1313821, dbname containing a 

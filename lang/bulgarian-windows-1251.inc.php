@@ -994,4 +994,5 @@ $strView = 'View';  //to translate
 
 $strWriteRequests = 'Write requests';  //to translate
 
+$strShowingBookmark = 'Showing bookmark';  //to translate
 ?>

@@ -980,4 +980,5 @@ $strTableAlreadyExists = 'Table %s already exists!';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
 $strNumberOfFields = 'Number of fields';  //to translate
 $strCreateDatabaseBeforeCopying = 'CREATE DATABASE before copying';  //to translate
+$strShowingBookmark = 'Showing bookmark';  //to translate
 ?>

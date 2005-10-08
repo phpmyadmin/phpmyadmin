@@ -202,8 +202,8 @@ $cfg['UseDbSearch']             = TRUE;   // whether to enable the "database sea
 $cfg['IgnoreMultiSubmitErrors'] = FALSE;  // if set to true, PMA continues computing multiple-statement queries
                                           // even if one of the queries failed
 $cfg['VerboseMultiSubmit']      = TRUE;   // if set to true, PMA will show the affected rows of EACH statement on
-                                          // multiple-statement queries. See the read_dump.php file for hardcoded
-                                          // defaults on how many queries a statement may contain!
+                                          // multiple-statement queries. See the libraries/import.php file for 
+                                          // hardcoded defaults on how many queries a statement may contain!
 $cfg['AllowArbitraryServer']    = FALSE;  // allow login to any user entered server in cookie based auth
 
 // Left frame setup

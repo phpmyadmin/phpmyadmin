@@ -997,4 +997,5 @@ $strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to tran
 $strPrivDescExecute5 = 'Allows executing stored routines.';  //to translate
 $strEngineUnsupported = 'This MySQL server does not support the %s storage engine.';  //to translate
 $strMyISAMRecoverOptionsDesc = 'The mode for automatic recovery of crashed MyISAM tables, as set via the --myisam-recover server startup option.';  //to translate
+$strShowingBookmark = 'Showing bookmark';  //to translate
 ?>

@@ -967,4 +967,5 @@ $strHTMLWordOptions = 'Microsoft Word 2000 export options';  //to translate
 $strInnoDBBufferPoolSizeDesc = 'The size of the memory buffer InnoDB uses to cache data and indexes of its tables.';  //to translate
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate
 $strInnoDBPages = 'pages';  //to translate
+$strShowingBookmark = 'Showing bookmark';  //to translate
 ?>

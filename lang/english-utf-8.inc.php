@@ -695,6 +695,7 @@ $strShowColor = 'Show color';
 $strShowDatadictAs = 'Data Dictionary Format';
 $strShowFullQueries = 'Show Full Queries';
 $strShowGrid = 'Show grid';
+$strShowingBookmark = 'Showing bookmark';
 $strShowingRecords = 'Showing rows';
 $strShowOpenTables = 'Show open tables';
 $strShowPHPInfo = 'Show PHP information';
