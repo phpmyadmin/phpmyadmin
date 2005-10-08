@@ -574,7 +574,7 @@ $cfg['SetHttpHostTitle']    = '';              // if ShowHttpHostTitle=true, ple
 
 $cfg['ErrorIconic']          = TRUE;    // show some icons for warning, error and information messages (true|false)?
 $cfg['MainPageIconic']       = TRUE;    // show icons in list on main page and on menu tabs (true|false)?
-$cfg['ReplaceHelpImg']       = TRUE;    // show help button instead of strDocumentation (true|false)?
+$cfg['ReplaceHelpImg']       = TRUE;    // show help button instead of strDocu (true|false)?
 
 // theme manager
 $cfg['ThemePath']           = './themes';    // using themes manager please set up here the path to 'themes'
