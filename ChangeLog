@@ -9,6 +9,8 @@ $Source$
     * libraries/display_export.lib.php: Use same formatting for all options.
     * libraries/import/ldi.php: This one does not handle charset conversion.
     * sql.php: Work even if no db set.
+    * server_status.php: Call sql.php directly, we don't need to care about
+      query splitting done im read_dump.
 
 2005-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/check_user_privileges.lib.php: bug #1313821, dbname containing a 

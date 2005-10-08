@@ -259,14 +259,14 @@ $links = array();
 $links['table'][$strFlushTables]
     = $_SERVER['PHP_SELF'] . '?flush=TABLES&amp;' . PMA_generate_common_url();
 $links['table'][$strShowOpenTables]
-    = 'read_dump.php?sql_query=' . urlencode('SHOW OPEN TABLES') . 
+    = 'sql.php?sql_query=' . urlencode('SHOW OPEN TABLES') . 
       '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
 
 $links['repl'][$strShowSlaveHosts]
-    = 'read_dump.php?sql_query=' . urlencode('SHOW SLAVE HOSTS') . 
+    = 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS') . 
       '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
 $links['repl'][$strShowSlaveStatus]
-    = 'read_dump.php?sql_query=' . urlencode('SHOW SLAVE STATUS') . 
+    = 'sql.php?sql_query=' . urlencode('SHOW SLAVE STATUS') . 
       '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
 $links['repl']['MySQL - ' . $strDocu]
     = $cfg['MySQLManualBase'] . '/replication.html';
