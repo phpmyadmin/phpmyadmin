@@ -43,7 +43,7 @@ if ($import_type == 'table') {
             );
     } else {
     /* We do not define function when plugin is just queried for information above */
-        if ($import_file == 'none' || $compression != 'none') {
+        if ($import_file == 'none' || $compression != 'none' || $charset_converion) {
             // We handle only some kind of data!
             $message = $strInvalidLDIImport;
             $show_error_header = TRUE;
