@@ -36,6 +36,15 @@ if (!empty($sql_query)) {
     $what = 'sql';
 }
 
+// If we didn't get any parameters, either user called this directly, or 
+// upload limit has been reached, let's assume the second possibility.
+if ($_POST == array() && $_GET == array()) {
+    require_once('./header.inc.php');
+    $show_error_header = TRUE;
+    PMA_showMessage(sprintf($strUploadLimit, '[a@./Documentation.html#faq1_16@_blank]', '[/a]'));
+    require('./footer.inc.php');
+}
+
 // Check needed parameters
 PMA_checkParameters(array('import_type', 'what'));
 

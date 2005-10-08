@@ -928,6 +928,7 @@ $strUpdateProfileMessage = 'Přístup byl změněn.';
 $strUpdateQuery = 'Aktualizovat dotaz';
 $strUpdComTab = 'Podívejte se prosím do dokumentace, jak aktualizovat tabulku s&nbsp;informacemi o&nbsp;sloupcích (tabulka column_comments)';
 $strUpgrade = 'Měli byste aktualizovat %s na verzi %s nebo vyšší.';
+$strUploadLimit = 'Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si prosím %sdokumentaci%s, jak toto omezení obejít.';
 $strUsage = 'Používá';
 $strUseBackquotes = 'Použít zpětné uvozovky u&nbsp;jmen tabulek a sloupců';
 $strUseHostTable = 'Použít tabulku s&nbsp;počítači';

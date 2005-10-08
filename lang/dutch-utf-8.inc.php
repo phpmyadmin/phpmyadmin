@@ -972,4 +972,5 @@ $strTableAlreadyExists = 'Table %s already exists!';  //to translate
 $strTransactionCoordinator = 'Transaction coordinator';  //to translate
 $strNumberOfFields = 'Number of fields';  //to translate
 $strShowingBookmark = 'Showing bookmark';  //to translate
+$strUploadLimit = 'You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.';  //to translate
 ?>
