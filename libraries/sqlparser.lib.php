@@ -693,6 +693,7 @@ if ($is_minimum_common == FALSE) {
      */
     function PMA_SQP_analyze($arr)
     {
+        if ($arr == array()) return array();
         $result          = array();
         $size            = $arr['len'];
         $subresult       = array(
