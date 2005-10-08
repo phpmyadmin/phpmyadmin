@@ -32,7 +32,10 @@
     } else {
         $result = @PMA_DBI_try_query($sql, $dbh, $options);
     } // end if... else...
-    PMA_DBI_select_db($db, $dbh);
+    // It makes no sense to restore database on control user
+    if ($dbh == $GLOBALS['userlink']) {
+        PMA_DBI_select_db($db, $dbh);
+    }
 
     if ($result) {
         return $result;
@@ -100,7 +103,6 @@ function PMA_getRelationsParam($verbose = FALSE)
     //  example enable relations but not pdf...
     //  I was thinking of checking if they have all required columns but I
     //  fear it might be too slow
-    // PMA_DBI_select_db($cfgRelation['db']);
 
     $tab_query = 'SHOW TABLES FROM ' . PMA_backquote($cfgRelation['db']);
     $tab_rs    = PMA_query_as_cu($tab_query, FALSE, PMA_DBI_QUERY_STORE);

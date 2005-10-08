@@ -55,6 +55,8 @@ $Source$
       list.
     * tbl_*: Use more require_once to avoid acquiring table info several
       times.
+    * libraries/relation.lib.php: Do not try to restore database as control
+      user, it has to fail.
 
 2005-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/check_user_privileges.lib.php: bug #1313821, dbname containing a 
