@@ -458,6 +458,7 @@ function PMA_getComments($db, $table = '') {
                     }
                 }
             }
+            $comment = $native_comment;
         }
 
         // pmadb internal column comments
@@ -505,10 +506,6 @@ function PMA_getComments($db, $table = '') {
 
         PMA_DBI_free_result($com_rs);
         unset($com_rs);
-    } else {
-        if (isset($native_comment)) {
-            $comment = $native_comment;
-        }
     }
 
     if (isset($comment) && is_array($comment)) {

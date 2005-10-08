@@ -49,7 +49,8 @@ $Source$
       see it in the query.
     * tbl_addfield.php, tbl_alter.php, tbl_create.php: Do not try to set
       comment and MIME transformation if field not named.
-
+    * libraries/relation.lib.php: Fix reading native MySQL comments when no
+      phpMyAdmin one defined (bug #1312758).
 
 2005-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/check_user_privileges.lib.php: bug #1313821, dbname containing a 
