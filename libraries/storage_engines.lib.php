@@ -195,11 +195,11 @@ class PMA_StorageEngine {
                 $message = $GLOBALS['strEngineAvailable'];
                 break;
             case PMA_ENGINE_SUPPORT_DISABLED:
-                $message = $GLOBALS['strEngineUnsupported'];
+                $message = $GLOBALS['strEngineDisabled'];
                 break;
             case PMA_ENGINE_SUPPORT_NO:
             default:
-                $message = $GLOBALS['strEngineUnavailable'];
+                $message = $GLOBALS['strEngineUnsupported'];
         }
         return sprintf($message, htmlspecialchars($this->title));
     }
