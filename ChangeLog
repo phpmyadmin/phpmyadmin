@@ -67,6 +67,7 @@ $Source$
     * libraries/import/sql.php: Fix query parsing when there is comment or
       string at the end.
     * import.php: Reenable LIMIT appending (bug #1318624).
+    * sql.php: Fix appending LIMIT when there are comments.
 
 2005-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/check_user_privileges.lib.php: bug #1313821, dbname containing a 

@@ -331,7 +331,7 @@ else {
         && !preg_match('@[[:space:]]LIMIT[[:space:]0-9,-]+$@i', $sql_query)) {
         $sql_limit_to_append = " LIMIT $pos, ".$cfg['MaxRows'] . " ";
 
-        $full_sql_query  = $analyzed_sql[0]['section_before_limit'] . $sql_limit_to_append . $analyzed_sql[0]['section_after_limit']; 
+        $full_sql_query  = $analyzed_sql[0]['section_before_limit'] . "\n" . $sql_limit_to_append . $analyzed_sql[0]['section_after_limit']; 
         // FIXME: pretty printing of this modified query
 
         if (isset($display_query)) {
@@ -341,7 +341,7 @@ else {
 
             if (!empty($analyzed_sql[0]['section_after_limit'])) {
                 $analyzed_display_query = PMA_SQP_analyze(PMA_SQP_parse($display_query));
-                $display_query  = $analyzed_display_query[0]['section_before_limit'] . $sql_limit_to_append . $analyzed_display_query[0]['section_after_limit']; 
+                $display_query  = $analyzed_display_query[0]['section_before_limit'] . "\n" . $sql_limit_to_append . $analyzed_display_query[0]['section_after_limit']; 
             }
         }
 
