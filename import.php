@@ -274,6 +274,8 @@ if (PMA_MYSQL_INT_VERSION < 40100
 } else if (PMA_MYSQL_INT_VERSION >= 40100
     && isset($charset_of_file) && $charset_of_file != 'utf8') {
     PMA_DBI_query('SET NAMES \'' . $charset_of_file . '\'');
+    // We can not show query in this case, it is in different charset
+    $sql_query_disabled = TRUE;
     $reset_charset = TRUE;
 }
 
