@@ -15,8 +15,8 @@ PMA_checkParameters(array('db', 'table'));
 /**
  * Gets tables informations
  */
-require('./tbl_properties_common.php');
-require('./tbl_properties_table_info.php');
+require_once('./tbl_properties_common.php');
+require_once('./tbl_properties_table_info.php');
 /**
  * Displays top menu links
  */

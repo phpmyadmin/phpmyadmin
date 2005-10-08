@@ -14,7 +14,7 @@ $url_query .= '&amp;goto=tbl_properties.php';
 /**
  * Gets tables informations
  */
-require('./tbl_properties_table_info.php');
+require_once('./tbl_properties_table_info.php');
 
 // Note: in tbl_properties_links.php we get and display the table comment.
 // For InnoDB, this comment contains the REFER information but any update
@@ -24,7 +24,7 @@ $avoid_show_comment = TRUE;
 /**
  * Displays top menu links
  */
-require('./tbl_properties_links.php');
+require_once('./tbl_properties_links.php');
 
 require_once('./libraries/relation.lib.php');
 

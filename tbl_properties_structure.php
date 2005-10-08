@@ -35,7 +35,7 @@ if ((!empty($submit_mult) && isset($selected_fld))
 /**
  * Runs common work
  */
-require('./tbl_properties_common.php');
+require_once('./tbl_properties_common.php');
 $url_query .= '&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php';
 
 /**
@@ -45,7 +45,7 @@ $url_query .= '&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_st
 /**
  * Gets tables informations
  */
-require('./tbl_properties_table_info.php');
+require_once('./tbl_properties_table_info.php');
 
 /**
  * Show result of multi submit operation
@@ -58,7 +58,7 @@ if ((!empty($submit_mult) && isset($selected_fld))
 /**
  * Displays top menu links
  */
-require('./tbl_properties_links.php');
+require_once('./tbl_properties_links.php');
 
 // 2. Gets table keys and retains them
 $result      = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($table) . ';');

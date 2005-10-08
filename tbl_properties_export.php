@@ -6,9 +6,9 @@
 /**
  * Gets tables informations and displays top links
  */
-require('./tbl_properties_common.php');
+require_once('./tbl_properties_common.php');
 $url_query .= '&amp;goto=tbl_properties_export.php&amp;back=tbl_properties_export.php';
-require('./tbl_properties_table_info.php');
+require_once('./tbl_properties_table_info.php');
 ?>
 
 <!-- Dump of a table -->

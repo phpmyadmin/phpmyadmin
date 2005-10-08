@@ -6,19 +6,19 @@
 /**
  * Gets tables informations and displays top links
  */
-require('./tbl_properties_common.php');
-require('./tbl_properties_table_info.php');
+require_once('./tbl_properties_common.php');
+require_once('./tbl_properties_table_info.php');
 /**
  * Displays top menu links
  */
-require('./tbl_properties_links.php');
+require_once('./tbl_properties_links.php');
 
 $import_type = 'table';
-require('./libraries/display_import.lib.php');
+require_once('./libraries/display_import.lib.php');
 
 /**
  * Displays the footer
  */
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>
 

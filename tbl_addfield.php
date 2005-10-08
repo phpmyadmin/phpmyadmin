@@ -210,18 +210,18 @@ if ($abort == FALSE) {
     /**
      * Gets tables informations
      */
-    require('./tbl_properties_common.php');
-    require('./tbl_properties_table_info.php');
+    require_once('./tbl_properties_common.php');
+    require_once('./tbl_properties_table_info.php');
     /**
      * Displays top menu links
      */
     $active_page = 'tbl_properties_structure.php';
-    require('./tbl_properties_links.php');
+    require_once('./tbl_properties_links.php');
     /**
      * Display the form
      */
     $action = 'tbl_addfield.php';
-    require('./tbl_properties.inc.php');
+    require_once('./tbl_properties.inc.php');
 
     // Diplays the footer
     echo "\n";

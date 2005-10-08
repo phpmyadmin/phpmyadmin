@@ -35,19 +35,19 @@ if ($cfg['PropertiesIconic'] == true) {
  */
 if (!isset($param) || $param[0] == '') {
     // Gets some core libraries
-    require('./tbl_properties_common.php');
+    require_once('./tbl_properties_common.php');
     //$err_url   = 'tbl_select.php' . $err_url;
     $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
     /**
      * Gets tables informations
      */
-    require('./tbl_properties_table_info.php');
+    require_once('./tbl_properties_table_info.php');
 
     /**
      * Displays top menu links
      */
-    require('./tbl_properties_links.php');
+    require_once('./tbl_properties_links.php');
 
     if (!isset($goto)) {
         $goto = $cfg['DefaultTabTable'];

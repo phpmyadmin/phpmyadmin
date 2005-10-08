@@ -77,12 +77,12 @@ if (isset($submitorderby) && !empty($order_field)) {
 /**
  * Gets tables informations
  */
-require('./tbl_properties_table_info.php');
+require_once('./tbl_properties_table_info.php');
 
 /**
  * Displays top menu links
  */
-require('./tbl_properties_links.php');
+require_once('./tbl_properties_links.php');
 
 /**
  * Get columns names

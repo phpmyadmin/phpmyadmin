@@ -62,7 +62,7 @@ if (!preg_match('@^(db_details|tbl_properties|tbl_select)@', $goto)) {
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require('./libraries/db_table_exists.lib.php');
+require_once('./libraries/db_table_exists.lib.php');
 
 
 /**
@@ -71,7 +71,7 @@ require('./libraries/db_table_exists.lib.php');
 $url_query = PMA_generate_common_url($db, $table)
            . '&amp;goto=tbl_properties.php';
 
-require('./tbl_properties_table_info.php');
+require_once('./tbl_properties_table_info.php');
 
 /* Get comments */
 
@@ -91,7 +91,7 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 /**
  * Displays top menu links
  */
-require('./tbl_properties_links.php');
+require_once('./tbl_properties_links.php');
 
 /**
  * Get the list of the fields of the current table
