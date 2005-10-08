@@ -192,6 +192,14 @@ if (top != self) {
         ?>
 <!-- Language selection -->
 <form method="post" action="index.php" target="_top">
+    <?php
+    if (isset($GLOBALS['db'])) {
+        echo '            <input type="hidden" name="db" value="' . htmlspecialchars($GLOBALS['db']) . '" />' . "\n";
+    }
+    if (isset($GLOBALS['table'])) {
+        echo '            <input type="hidden" name="table" value="' . htmlspecialchars($GLOBALS['table']) . '" />' . "\n";
+    }
+    ?>
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <table border="0" cellpadding="3" cellspacing="0">
         <tr>
@@ -352,6 +360,9 @@ if (top != self) {
     <?php
     if (isset($GLOBALS['db'])) {
         echo '            <input type="hidden" name="db" value="' . htmlspecialchars($GLOBALS['db']) . '" />' . "\n";
+    }
+    if (isset($GLOBALS['table'])) {
+        echo '            <input type="hidden" name="table" value="' . htmlspecialchars($GLOBALS['table']) . '" />' . "\n";
     }
     ?>
             <input type="submit" value="<?php echo $GLOBALS['strLogin']; ?>" id="buttonYes" />
@@ -595,11 +606,15 @@ function PMA_auth_set_user()
             }
         } // end if
         if (!empty($GLOBALS['SERVER_SOFTWARE']) && $GLOBALS['SERVER_SOFTWARE'] == 'Microsoft-IIS/5.0') {
-            header('Refresh: 0; url=' . $cfg['PmaAbsoluteUri'] . 'index.php?' . PMA_generate_common_url('', '', '&'));
+            header('Refresh: 0; url=' . $cfg['PmaAbsoluteUri'] . 'index.php?' . 
+                PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', 
+                   isset($GLOBALS['table']) ? $GLOBALS['table'] : '', 
+                   '&'));
         }
         else {
             header( 'Location: ' . $cfg['PmaAbsoluteUri'] . 'index.php?' 
-                . PMA_generate_common_url('', '', '&') . '&' . SID );
+                . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', 
+                       isset($GLOBALS['table']) ? $GLOBALS['table'] : '', '&') . '&' . SID );
         }
         exit();
     } // end if
