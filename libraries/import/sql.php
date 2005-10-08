@@ -50,7 +50,9 @@ if (isset($import_list)) {
             if ($p5 === FALSE) $p5 = 2147483647;
             $p6 = strpos($buffer, '/*', $i);
             if ($p6 === FALSE) $p6 = 2147483647;
-            $i = min ($p1, $p2, $p3, $p4, $p5, $p6);
+            $p7 = strpos($buffer, '`', $i);
+            if ($p7 === FALSE) $p7 = 2147483647;
+            $i = min ($p1, $p2, $p3, $p4, $p5, $p6, $p7);
             if ($i == 2147483647) {
                 $i = $oi;
                 if (!$finished) break;
@@ -60,6 +62,8 @@ if (isset($import_list)) {
                     $len = 0;
                     break;
                 }
+                // We hit end of query, go there!
+                $i = strlen($buffer) - 1;
             }
 
             // Grab current character
@@ -73,7 +77,7 @@ if (isset($import_list)) {
                     // Find next quote
                     $pos = strpos($buffer, $quote, $i + 1);
                     // No quote? Too short string
-                    if ($pos == FALSE) break;
+                    if ($pos === FALSE) break;
                     // Was not the quote escaped?
                     $j = $pos - 1;
                     while ($buffer[$j] == '\\') $j--;
