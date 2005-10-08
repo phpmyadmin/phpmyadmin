@@ -8,6 +8,7 @@
 require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/tbl_indexes.lib.php');
+require_once('./libraries/check_user_privileges.lib.php');
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -57,14 +58,10 @@ $is_drop_database = preg_match('@DROP[[:space:]]+DATABASE[[:space:]]+@i', $sql_q
  */
 if (!defined('PMA_CHK_DROP')
     && !$cfg['AllowUserDropDatabase']
-    && $is_drop_database) {
-    // Checks if the user is a Superuser
-    // TODO: set a global variable with this information
-    // loic1: optimized query
-    if (!($result = PMA_DBI_select_db('mysql'))) {
-        require_once('./header.inc.php');
-        PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
-    } // end if
+    && $is_drop_database
+    && !$is_superuser) {
+    require_once('./header.inc.php');
+    PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
 } // end if
 
 
