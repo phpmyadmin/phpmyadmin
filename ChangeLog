@@ -8,6 +8,7 @@ $Source$
 2005-10-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: workaround for warnings on session_start()
       displayed on sf.net server
+    * sql.php: remove old code
 
 2005-10-08 Michal Čihař  <michal@cihar.com>
     * libraries/display_export.lib.php: Use same formatting for all options.
