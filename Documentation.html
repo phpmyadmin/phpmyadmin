@@ -2821,10 +2821,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     href="http://httpd.apache.org">Apache</a> web server. First make sure, 
     that you have enabled some features within global configuration. You need
     <code>Options FollowSymLinks</code> and <code>AllowOverride
-    FileInfo</code> enabled for directory where phpMyAdmin is installed. Then
-    you just need to create following <code>.htaccess</code> file in root
-    folder of phpMyAdmin installation (don't forget to change directory name
-    inside of it):
+    FileInfo</code> enabled for directory where phpMyAdmin is installed and
+    you need mod_rewrite to be enabled. Then you just need to create following
+    <code>.htaccess</code> file in root folder of phpMyAdmin installation
+    (don't forget to change directory name inside of it):
 </p>
 
 <pre>
