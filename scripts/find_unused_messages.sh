@@ -19,7 +19,7 @@ echo 'are not necessary a errors!)'
 echo
 
 # filter out known false positives
-diff $tmp1 $tmp2 | awk '/^>/ {print $2}' | grep -Ev '(strEncto|strXkana|strDBLink|strPrivDesc|strPrivDescProcess|strTableListOptions|strMissingParameter|strAttribute)'
+diff $tmp1 $tmp2 | awk '/^>/ {print $2}' | grep -Ev '(strEncto|strXkana|strDBLink|strPrivDesc|strPrivDescProcess|strTableListOptions|strMissingParameter|strAttribute|strDoSelectAll)'
 
 echo
 echo Not used messages present in english language file:
