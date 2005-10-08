@@ -357,8 +357,8 @@ if (isset($my_die)) {
 }
 
 if ($go_sql) {
-    // cleanup some variables, otherwise we confuse sql.php
-    unset($pos);
+    // Set pos to zero to possibly append limit
+    $pos = 0;
     require('./sql.php');
 } else {
     $active_page = $goto;
