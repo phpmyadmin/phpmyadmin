@@ -301,7 +301,7 @@ if (top != self) {
         echo "\n";
         // Displays the MySQL servers choice
         foreach ($cfg['Servers'] AS $key => $val) {
-            if (!empty($val['host']) || $val['auth_type'] == 'arbitrary') {
+            if (!empty($val['host'])) {
                 echo '                <option value="' . $key . '"';
                 if (!empty($server) && ($server == $key)) {
                     echo ' selected="selected"';
@@ -309,8 +309,6 @@ if (top != self) {
                 echo '>';
                 if ($val['verbose'] != '') {
                     echo $val['verbose'];
-                } elseif ($val['auth_type'] == 'arbitrary') {
-                    echo $GLOBALS['strArbitrary'];
                 } else {
                     echo $val['host'];
                     if (!empty($val['port'])) {
