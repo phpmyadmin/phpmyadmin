@@ -41,8 +41,10 @@ if ( version_compare( PHP_VERSION, '5.0.0', 'ge' ) ) {
 }
 
 // start the session
-session_name( 'phpMyAdmin' );
-session_start();
+// on some servers (for example, sourceforge.net), we get a permission error
+// on the session data directory, so I add some "@"
+@session_name( 'phpMyAdmin' );
+@session_start();
 
 /**
  * trys to secure session from hijacking and fixation
