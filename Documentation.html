@@ -2809,6 +2809,31 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     Yes. This problem affects phpMyAdmin (&quot;Call to undefined function pma_reloadnavigation&quot;), so upgrade your PHP to the next version.
 </p>
 
+<a name="faq1_34"></a>
+<h4>
+    [<a href="#faq1_34">1.34</a>] Can I access directly to database or table pages?
+</h4>
+<p>
+    Yes. Out of the box, you can use URLs like 
+    http://server/phpMyAdmin/index.php?db=database&amp;table=table. If you
+    want http://server/phpMyAdmin/database/table URLs, you need to do some
+    configuration. Following lines apply only for <a
+    href="http://httpd.apache.org">Apache</a> web server. First make sure, 
+    that you have enabled some features within global configuration. You need
+    <code>Options FollowSymLinks</code> and <code>AllowOverride
+    FileInfo</code> enabled for directory where phpMyAdmin is installed. Then
+    you just need to create following <code>.htaccess</code> file in root
+    folder of phpMyAdmin installation (don't forget to change directory name
+    inside of it):
+</p>
+
+<pre>
+RewriteEngine On
+RewriteBase /path_to_phpMyAdmin
+RewriteRule ^([a-zA-Z0-9_]*)/([a-zA-Z0-9_]*)$ index.php?db=$1&amp;table=$2 [R]
+RewriteRule ^([a-zA-Z0-9_]*)$ index.php?db=$1 [R]
+</pre>
+
 <a name="faqconfig"></a><br />
 <h3>[2. Configuration]</h3>
 
