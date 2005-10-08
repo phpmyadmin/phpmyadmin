@@ -88,13 +88,6 @@ function PMA_validateSQL($sql)
 
     } // end if
 
-    /*
-    else {
-        // The service is not available so note that properly
-        $str = $GLOBALS['strValidatorDisabled'];
-    } // end if... else...
-    */
-
     // Gives string back to caller
     return $str;
 } // end of the "PMA_validateSQL()" function
