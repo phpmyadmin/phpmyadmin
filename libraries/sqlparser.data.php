@@ -432,6 +432,7 @@ $PMA_SQPdata_reserved_word = array (
     'MAX_QUERIES_PER_HOUR',
     'MAX_ROWS',
     'MAX_UPDATES_PER_HOUR',
+    'MAX_USER_CONNECTIONS',
     'MEDIUM',
     'MERGE',
     'MIN_ROWS',
@@ -562,7 +563,7 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 271;
+$PMA_SQPdata_reserved_word_cnt = 272;
 
 // words forbidden to be used as column or table name,
 // as seen in http://dev.mysql.com/doc/mysql/en/reserved-words.html

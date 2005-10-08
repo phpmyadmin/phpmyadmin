@@ -953,4 +953,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
+$strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';  //to translate
 ?>

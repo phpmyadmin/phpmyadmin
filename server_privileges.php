@@ -454,8 +454,15 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
                . $spaces . '        <div class="item">' . "\n"
                . $spaces . '            <label for="text_max_connections"><tt><dfn title="' . $GLOBALS['strPrivDescMaxConnections'] . '">MAX CONNECTIONS PER HOUR</dfn></tt></label>' . "\n"
                . $spaces . '            <input type="text" class="textfield" name="max_connections" id="text_max_connections" value="' . $row['max_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxConnections'] . '" />' . "\n"
-               . $spaces . '        </div>' . "\n"
-               . $spaces . '    </fieldset>' . "\n";
+               . $spaces . '        </div>' . "\n";
+
+            if (PMA_MYSQL_INT_VERSION >= 50003) {
+                echo $spaces . '        <div class="item">' . "\n"
+                   . $spaces . '            <label for="text_max_user_connections"><tt><dfn title="' . $GLOBALS['strPrivDescMaxUserConnections'] . '">MAX USER_CONNECTIONS</dfn></tt></label>' . "\n"
+                   . $spaces . '            <input type="text" class="textfield" name="max_user_connections" id="text_max_user_connections" value="' . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUserConnections'] . '" />' . "\n"
+                   . $spaces . '        </div>' . "\n";
+            }
+            echo $spaces . '    </fieldset>' . "\n";
            }
     }
     echo $spaces . '</fieldset>' . "\n";
@@ -655,7 +662,8 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             }
             $sql_query = $real_sql_query;
         }
-        if ((isset($Grant_priv) && $Grant_priv == 'Y') || (PMA_MYSQL_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates)))) {
+        // FIXME: similar code appears twice in this script
+        if ((isset($Grant_priv) && $Grant_priv == 'Y') || (PMA_MYSQL_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates) || isset($max_user_connections)))) {
             $real_sql_query .= 'WITH';
             $sql_query .= 'WITH';
             if (isset($Grant_priv) && $Grant_priv == 'Y') {
@@ -674,6 +682,12 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
                 if (isset($max_updates)) {
                     $real_sql_query .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
                     $sql_query .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+                }
+            }
+            if (PMA_MYSQL_INT_VERSION >= 50003) {
+                if (isset($max_user_connections)) {
+                    $real_sql_query .= ' MAX_USER_CONNECTIONS ' . (int)$max_user_connections;
+                    $sql_query .= ' MAX_USER_CONNECTIONS ' . (int)$max_user_connections;
                 }
             }
         }
@@ -786,7 +800,8 @@ if (!empty($update_privs)) {
     }
     $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON ' . $db_and_table . ' TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
 
-    if ((isset($Grant_priv) && $Grant_priv == 'Y') || (empty($dbname) && PMA_MYSQL_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates)))) {
+        // FIXME: similar code appears twice in this script
+    if ((isset($Grant_priv) && $Grant_priv == 'Y') || (empty($dbname) && PMA_MYSQL_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates) || isset($max_user_connections)))) {
         $sql_query2 .= 'WITH';
         if (isset($Grant_priv) && $Grant_priv == 'Y') {
             $sql_query2 .= ' GRANT OPTION';
@@ -800,6 +815,11 @@ if (!empty($update_privs)) {
             }
             if (isset($max_updates)) {
                 $sql_query2 .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+            }
+        }
+        if (PMA_MYSQL_INT_VERSION >= 50003) {
+            if (isset($max_user_connections)) {
+                $sql_query2 .= ' MAX_USER_CONNECTIONS ' . (int)$max_user_connections;
             }
         }
     }

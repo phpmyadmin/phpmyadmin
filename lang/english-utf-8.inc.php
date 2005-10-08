@@ -562,6 +562,7 @@ $strPrivDescLockTables = 'Allows locking tables for the current thread.';
 $strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
 $strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
 $strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.';
+$strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';
 $strPrivDescProcess3 = 'Allows killing processes of other users.';
 $strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.';
 $strPrivDescReferences = 'Has no effect in this MySQL version.';

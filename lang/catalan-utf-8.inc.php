@@ -947,4 +947,5 @@ $strInnoDBPages = 'pages';  //to translate
 $strShowingBookmark = 'Showing bookmark';  //to translate
 $strUploadLimit = 'You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.';  //to translate
 $strDeleteNoUsersSelected = 'No users selected for deleting!';  //to translate
+$strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';  //to translate
 ?>
