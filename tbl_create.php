@@ -179,7 +179,6 @@ if (isset($submit_num_fields)) {
         // garvin: Update comment table, if a comment was set.
         if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork'] && PMA_MYSQL_INT_VERSION < 40100) {
             foreach ($field_comments AS $fieldindex => $fieldcomment) {
-                // do not try to set a comment if the field name is empty
                 if (!empty($field_name[$fieldindex])) {
                     PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, '', 'pmadb');
                 }
@@ -189,7 +188,9 @@ if (isset($submit_num_fields)) {
         // garvin: Update comment table for mime types [MIME]
         if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
             foreach ($field_mimetype AS $fieldindex => $mimetype) {
-                PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
+                if (!empty($field_name[$fieldindex])) {
+                    PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
+                }
             }
         }
 
