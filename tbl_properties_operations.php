@@ -71,7 +71,7 @@ if (isset($submitorderby) && !empty($order_field)) {
         $sql_query .= ' DESC';
     }
     $result      = PMA_DBI_query($sql_query);
-    $message     = $result ? $strSuccess : $strFailed;
+    $message     = $result ? $strSuccess : $strError;
 } // end if
 
 /**
