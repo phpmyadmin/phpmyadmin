@@ -31,6 +31,7 @@ $Source$
       over login, needed for RFE #1278312.
     * Documentation.html: Add example for redirects like
       /phpMyAdmin/database/table (RFE  #1278312).
+    * libraries/import.lib.php: Fix execution of single large queries.
 
 2005-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/check_user_privileges.lib.php: bug #1313821, dbname containing a 

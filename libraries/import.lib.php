@@ -88,6 +88,9 @@ function PMA_importRunQuery($sql = '', $full = '') {
                     if (!$sql_query_disabled) {
                         $complete_query = $sql_query;
                         $display_query = $sql_query;
+                    } else {
+                        $complete_query = '';
+                        $display_query = '';
                     }
                     $sql_query = $import_run_buffer['sql'];
                 } elseif ($run_query) {
@@ -144,16 +147,18 @@ function PMA_importRunQuery($sql = '', $full = '') {
                     }
                 }
             }
-            // check length of query
-            if ($cfg['VerboseMultiSubmit'] && !empty($sql_query)) {
-                if (strlen($sql_query) > 50000 || $executed_queries > 50 || $max_sql_len > 1000) {
-                    $sql_query = '';
-                    $sql_query_disabled = TRUE;
-                }
-            } else {
-                if (strlen($sql_query) > 10000 || $executed_queries > 10 || $max_sql_len > 500) {
-                    $sql_query = '';
-                    $sql_query_disabled = TRUE;
+            // check length of query unless we decided to pass it to sql.php
+            if (!$go_sql) {
+                if ($cfg['VerboseMultiSubmit'] && !empty($sql_query)) {
+                    if (strlen($sql_query) > 50000 || $executed_queries > 50 || $max_sql_len > 1000) {
+                        $sql_query = '';
+                        $sql_query_disabled = TRUE;
+                    }
+                } else {
+                    if (strlen($sql_query) > 10000 || $executed_queries > 10 || $max_sql_len > 500) {
+                        $sql_query = '';
+                        $sql_query_disabled = TRUE;
+                    }
                 }
             }
         } // end do query (no skip)
