@@ -1847,6 +1847,16 @@ if (typeof(document.getElementById) != 'undefined'
                 $query_base = $local_query;
             }
 
+            // Parse SQL if needed
+            if (isset($GLOBALS['parsed_sql']) && $query_base == $GLOBALS['parsed_sql']['raw']) {
+                $parsed_sql = $GLOBALS['parsed_sql'];
+            } else {
+                $parsed_sql = PMA_SQP_parse($query_base);
+            }
+            
+            // Analyze it
+            $analyzed_display_query = PMA_SQP_analyze($parsed_sql);
+
             // Here we append the LIMIT added for navigation, to
             // enable its display. Adding it higher in the code
             // to $local_query would create a problem when
@@ -1857,11 +1867,11 @@ if (typeof(document.getElementById) != 'undefined'
             // FIXME: what would be the best to do when someone
             // hits Refresh: use the current LIMITs ?
 
-            // TODO: use the parser instead of preg_match()
-
-            if (preg_match('@^SELECT[[:space:]]+@i', $query_base)
+            if (isset($analyzed_display_query[0]['queryflags']['select_from'])
              && isset($GLOBALS['sql_limit_to_append'])) {
-                $query_base .= $GLOBALS['sql_limit_to_append'];
+                $query_base  = $analyzed_display_query[0]['section_before_limit'] . "\n" . $GLOBALS['sql_limit_to_append'] . $analyzed_display_query[0]['section_after_limit']; 
+                // Need to reparse query
+                $parsed_sql = PMA_SQP_parse($query_base);
             }
 
             if (!empty($GLOBALS['show_as_php'])) {
@@ -1869,12 +1879,6 @@ if (typeof(document.getElementById) != 'undefined'
             } else if (!empty($GLOBALS['validatequery'])) {
                 $query_base = PMA_validateSQL($query_base);
             } else {
-                // avoid reparsing query:
-                if (isset($GLOBALS['parsed_sql']) && $query_base == $GLOBALS['parsed_sql']['raw']) {
-                    $parsed_sql = $GLOBALS['parsed_sql'];
-                } else {
-                    $parsed_sql = PMA_SQP_parse($query_base);
-                }
                 $query_base = PMA_formatSql($parsed_sql, $query_base);
             }
 
