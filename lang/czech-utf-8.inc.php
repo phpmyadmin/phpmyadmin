@@ -223,6 +223,7 @@ $strDeleteAndFlushDescr = 'Toto je nejčistší řešení, ale načítání opr�
 $strDeleteAndFlush = 'Odstranit uživatele a znovunačíst oprávnění.';
 $strDeleted = 'Řádek byl smazán';
 $strDeletedRows = 'Smazané řádky:';
+$strDeleteNoUsersSelected = 'Musíte vybrat uživatele, které chcete odstranit!';
 $strDelete = 'Smazat';
 $strDeleting = 'Odstraňuji %s';
 $strDelOld = 'Aktuální stránka se odkazuje na tabulky, které již neexistují. Chcete odstranit tyto odkazy?';

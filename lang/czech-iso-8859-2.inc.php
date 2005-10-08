@@ -222,6 +222,7 @@ $strDeleteAndFlushDescr = 'Toto je nejèist¹í øe¹ení, ale naèítání oprávnìní mù¾e
 $strDeleteAndFlush = 'Odstranit u¾ivatele a znovunaèíst oprávnìní.';
 $strDeleted = 'Øádek byl smazán';
 $strDeletedRows = 'Smazané øádky:';
+$strDeleteNoUsersSelected = 'Musíte vybrat u¾ivatele, které chcete odstranit!';
 $strDelete = 'Smazat';
 $strDeleting = 'Odstraòuji %s';
 $strDelOld = 'Aktuální stránka se odkazuje na tabulky, které ji¾ neexistují. Chcete odstranit tyto odkazy?';

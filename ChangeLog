@@ -37,6 +37,8 @@ $Source$
     * libraries/storage_engines.lib.php: Use defined messages.
     * libraries/auth/cookie.auth.lib.php: Removed unused code parts.
     * libraries/sqlvalidator.lib.php: Removed unused code.
+    * server_privileges.php, lang/*: Better show error, define used message
+      strDeleteNoUsersSelected.
 
 2005-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/check_user_privileges.lib.php: bug #1313821, dbname containing a 

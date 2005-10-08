@@ -217,6 +217,7 @@ $strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privilege
 $strDelete = 'Delete';
 $strDeletedRows = 'Deleted rows:';
 $strDeleted = 'The row has been deleted';
+$strDeleteNoUsersSelected = 'No users selected for deleting!';
 $strDeleting = 'Deleting %s';
 $strDelOld = 'The current page has references to tables that no longer exist. Would you like to delete those references?';
 $strDescending = 'Descending';

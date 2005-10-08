@@ -917,7 +917,8 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
     }
     if (empty($change_copy)) {
         if (empty($queries)) {
-            $message = $GLOBALS['strError'] . ': ' . $GLOBALS['strDeleteNoUsersSelected'];
+            $show_error_header = TRUE;
+            $message = $GLOBALS['strDeleteNoUsersSelected'];
         } else {
             if ($mode == 3) {
                 $queries[] = '# ' . $GLOBALS['strReloadingThePrivileges'] . ' ...';

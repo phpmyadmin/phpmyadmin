@@ -999,4 +999,5 @@ $strEngineUnsupported = 'This MySQL server does not support the %s storage engin
 $strMyISAMRecoverOptionsDesc = 'The mode for automatic recovery of crashed MyISAM tables, as set via the --myisam-recover server startup option.';  //to translate
 $strShowingBookmark = 'Showing bookmark';  //to translate
 $strUploadLimit = 'You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.';  //to translate
+$strDeleteNoUsersSelected = 'No users selected for deleting!';  //to translate
 ?>
