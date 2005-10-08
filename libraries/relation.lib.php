@@ -457,8 +457,10 @@ function PMA_getComments($db, $table = '') {
                         $native_comment[$tmp_col] = $field['Comment'];
                     }
                 }
+                if (isset($native_comment)) {
+                    $comment = $native_comment;
+                }
             }
-            $comment = $native_comment;
         }
 
         // pmadb internal column comments
