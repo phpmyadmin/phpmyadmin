@@ -9,7 +9,8 @@ $Source$
     * libraries/session.inc.php: workaround for warnings on session_start()
       displayed on sf.net server
     * sql.php: remove old code
-    * server_privileges.php, lang/*.php: support MAX_USER_CONNECTIONS
+    * server_privileges.php, lang/*.php, libraries/sqlparser.data.php:
+      support MAX_USER_CONNECTIONS
 
 2005-10-08 Michal Čihař  <michal@cihar.com>
     * libraries/display_export.lib.php: Use same formatting for all options.
