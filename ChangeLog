@@ -8,6 +8,7 @@ $Source$
 2005-10-08 Michal Čihař  <michal@cihar.com>
     * libraries/display_export.lib.php: Use same formatting for all options.
     * libraries/import/ldi.php: This one does not handle charset conversion.
+    * sql.php: Work even if no db set.
 
 2005-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/check_user_privileges.lib.php: bug #1313821, dbname containing a 
