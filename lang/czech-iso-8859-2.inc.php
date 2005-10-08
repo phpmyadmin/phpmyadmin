@@ -564,9 +564,10 @@ $strPrivDescGrant = 'Umo¾òuje pøidávat u¾ivatele a oprávnìní bez znovunaèítání t
 $strPrivDescIndex = 'Umo¾òuje vytváøet a ru¹it indexy.';
 $strPrivDescInsert = 'Umo¾òuje vkládat a pøepisovat data.';
 $strPrivDescLockTables = 'Umo¾òuje zamknout tabulku pro aktuální thread.';
-$strPrivDescMaxConnections = 'Omezí poèet nových pøipojení, která mù¾e u¾ivatel vytvoøit za hodinu.';
-$strPrivDescMaxQuestions = 'Omezí, kolik dotazù mù¾e u¾ivatel odeslat serveru za hodinu.';
-$strPrivDescMaxUpdates = 'Omezí, kolik dotazù mìnících nìjakou tabulku nebo databázi mù¾e u¾ivatel spustit za hodinu.';
+$strPrivDescMaxConnections = 'Omezuje poèet nových pøipojení, která mù¾e u¾ivatel vytvoøit za hodinu.';
+$strPrivDescMaxQuestions = 'Omezuje, kolik dotazù mù¾e u¾ivatel odeslat serveru za hodinu.';
+$strPrivDescMaxUpdates = 'Omezuje, kolik dotazù mìnících nìjakou tabulku nebo databázi mù¾e u¾ivatel spustit za hodinu.';
+$strPrivDescMaxUserConnections = 'Omezuje poèet souèasných pøipojení u¾ivatele.';
 $strPrivDescProcess3 = 'Umo¾òuje ukonèit procesy jiným u¾ivatelùm.';
 $strPrivDescProcess4 = 'Umo¾òuje vidìt celé dotazy v&nbsp;seznamu procesù.';
 $strPrivDescReferences = 'Nemá ¾ádný vliv v&nbsp;této verzi MySQL.';
@@ -952,5 +953,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';  //to translate
 ?>

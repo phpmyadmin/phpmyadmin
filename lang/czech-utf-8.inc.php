@@ -565,9 +565,10 @@ $strPrivDescGrant = 'Umožňuje přidávat uživatele a oprávnění bez znovuna
 $strPrivDescIndex = 'Umožňuje vytvářet a rušit indexy.';
 $strPrivDescInsert = 'Umožňuje vkládat a přepisovat data.';
 $strPrivDescLockTables = 'Umožňuje zamknout tabulku pro aktuální thread.';
-$strPrivDescMaxConnections = 'Omezí počet nových připojení, která může uživatel vytvořit za hodinu.';
-$strPrivDescMaxQuestions = 'Omezí, kolik dotazů může uživatel odeslat serveru za hodinu.';
-$strPrivDescMaxUpdates = 'Omezí, kolik dotazů měnících nějakou tabulku nebo databázi může uživatel spustit za hodinu.';
+$strPrivDescMaxConnections = 'Omezuje počet nových připojení, která může uživatel vytvořit za hodinu.';
+$strPrivDescMaxQuestions = 'Omezuje, kolik dotazů může uživatel odeslat serveru za hodinu.';
+$strPrivDescMaxUpdates = 'Omezuje, kolik dotazů měnících nějakou tabulku nebo databázi může uživatel spustit za hodinu.';
+$strPrivDescMaxUserConnections = 'Omezuje počet současných připojení uživatele.';
 $strPrivDescProcess3 = 'Umožňuje ukončit procesy jiným uživatelům.';
 $strPrivDescProcess4 = 'Umožňuje vidět celé dotazy v&nbsp;seznamu procesů.';
 $strPrivDescReferences = 'Nemá žádný vliv v&nbsp;této verzi MySQL.';
@@ -953,5 +954,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';  //to translate
 ?>
