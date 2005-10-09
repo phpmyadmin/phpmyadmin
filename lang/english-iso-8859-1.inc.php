@@ -87,6 +87,7 @@ $strBookmarkCreated = 'Bookmark %s created';
 $strBookmarkDeleted = 'The bookmark has been deleted.';
 $strBookmarkLabel = 'Label';
 $strBookmarkQuery = 'Bookmarked SQL query';
+$strBookmarkReplace = 'Replace existing bookmark of same name';
 $strBookmarkThis = 'Bookmark this SQL query';
 $strBookmarkView = 'View only';
 $strBrowse = 'Browse';

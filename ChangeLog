@@ -26,6 +26,8 @@ $Source$
       remember value of seleted engine (bug #1239580).
     * browse_foreigners.php, libraries/get_foreign.lib.php: Support for
       searching in foreign keys (RFE #871091).
+    * import.php, libraries/sql_query_form.lib.php, lang/*: Ability to replace
+      existing bookmark (RFE #907438).
 
 2005-10-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: workaround for warnings on session_start()

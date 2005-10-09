@@ -94,6 +94,7 @@ $strBookmarkCreated = 'Vytvořen oblíbený dotaz %s';
 $strBookmarkDeleted = 'Položka byla smazána z&nbsp;oblíbených.';
 $strBookmarkLabel = 'Název';
 $strBookmarkQuery = 'Oblíbený SQL dotaz';
+$strBookmarkReplace = 'Přepsat existující oblíbený dotaz stejného jména';
 $strBookmarkThis = 'Přidat tento SQL dotaz do oblíbených';
 $strBookmarkView = 'Zobrazit';
 $strBrowseForeignValues = 'Projít hodnoty cizích klíčů';

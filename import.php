@@ -150,6 +150,16 @@ if (!empty($bkm_label) && !empty($import_text)) {
                  'label' => $bkm_label
     );
 
+    // Should we replace bookmark?
+    if (isset($bkm_replace)) {
+        $bookmarks = PMA_listBookmarks($db, $cfg['Bookmark']);
+        foreach($bookmarks as $key => $val) {
+            if ($val == $bkm_label) {
+                PMA_deleteBookmarks($db, $cfg['Bookmark'], $key);
+            }
+        }
+    }
+
     PMA_addBookmarks($bfields, $cfg['Bookmark'], isset($bkm_all_users));
     
     $bookmark_created = TRUE;

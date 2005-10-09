@@ -318,6 +318,12 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
         <label for="id_bkm_all_users">
             <?php echo $GLOBALS['strBookmarkAllUsers']; ?></label>
         </div>
+        <div class="formelement">
+        <input type="checkbox" name="bkm_replace" id="id_bkm_replace" 
+            value="true" />
+        <label for="id_bkm_replace">
+            <?php echo $GLOBALS['strBookmarkReplace']; ?></label>
+        </div>
         </div>
         <?php
     }

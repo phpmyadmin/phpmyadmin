@@ -975,4 +975,5 @@ $strDeleteNoUsersSelected = 'No users selected for deleting!';  //to translate
 $strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';  //to translate
 $strMaximalQueryLength = 'Maximal length of created query';  //to translate
 $strBookmarkCreated = 'Bookmark %s created';  //to translate
+$strBookmarkReplace = 'Replace existing bookmark of same name';  //to translate
 ?>
