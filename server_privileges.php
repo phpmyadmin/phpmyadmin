@@ -689,22 +689,27 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             }
             if (PMA_MYSQL_INT_VERSION >= 40002) {
                 if (isset($max_questions)) {
-                    $real_sql_query .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
-                    $sql_query .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
+                    // avoid negative values
+                    $max_questions = max(0, (int)$max_questions);
+                    $real_sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
+                    $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
                 }
                 if (isset($max_connections)) {
-                    $real_sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
-                    $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
+                    $max_connections = max(0, (int)$max_connections);
+                    $real_sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
+                    $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
                 }
                 if (isset($max_updates)) {
-                    $real_sql_query .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
-                    $sql_query .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+                    $max_updates = max(0, (int)$max_updates);
+                    $real_sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
+                    $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
                 }
             }
             if (PMA_MYSQL_INT_VERSION >= 50003) {
                 if (isset($max_user_connections)) {
-                    $real_sql_query .= ' MAX_USER_CONNECTIONS ' . (int)$max_user_connections;
-                    $sql_query .= ' MAX_USER_CONNECTIONS ' . (int)$max_user_connections;
+                    $max_user_connections = max(0, (int)$max_user_connections);
+                    $real_sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
+                    $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
                 }
             }
         }
@@ -825,18 +830,22 @@ if (!empty($update_privs)) {
         }
         if (PMA_MYSQL_INT_VERSION >= 40002) {
             if (isset($max_questions)) {
-                $sql_query2 .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
+                $max_questions = max(0, (int)$max_questions);
+                $sql_query2 .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
             }
             if (isset($max_connections)) {
-                $sql_query2 .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
+                $max_connections = max(0, (int)$max_connections);
+                $sql_query2 .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
             }
             if (isset($max_updates)) {
-                $sql_query2 .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+                $max_updates = max(0, (int)$max_updates);
+                $sql_query2 .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
             }
         }
         if (PMA_MYSQL_INT_VERSION >= 50003) {
             if (isset($max_user_connections)) {
-                $sql_query2 .= ' MAX_USER_CONNECTIONS ' . (int)$max_user_connections;
+                $max_user_connections = max(0, (int)$max_user_connections);
+                $sql_query2 .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
             }
         }
     }
