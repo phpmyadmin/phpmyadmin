@@ -115,6 +115,7 @@ $executed_queries = 0;
 $run_query = TRUE;
 $charset_conversion = FALSE;
 $reset_charset = FALSE;
+$bookmark_created = FALSE;
 
 // Bookmark Support: get a query back from bookmark if required
 if (!empty($id_bookmark)) {
@@ -131,7 +132,8 @@ if (!empty($id_bookmark)) {
             $run_query = FALSE;
             break;
         case 2: // bookmarked query that have to be deleted
-            $import_text = PMA_deleteBookmarks($db, $cfg['Bookmark'], $id_bookmark);
+            $import_text = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
+            PMA_deleteBookmarks($db, $cfg['Bookmark'], $id_bookmark);
             $run_query = FALSE;
             $error = TRUE; // this is kind of hack to skip processing the query
             break;
@@ -149,6 +151,8 @@ if (!empty($bkm_label) && !empty($import_text)) {
     );
 
     PMA_addBookmarks($bfields, $cfg['Bookmark'], isset($bkm_all_users));
+    
+    $bookmark_created = TRUE;
 } // end store bookmarks
 
 // We can not read all at once, otherwise we can run out of memory
@@ -329,6 +333,8 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
     $error = FALSE; // unset error marker, it was used just to skip processing
 } elseif (!empty($id_bookmark) && $action_bookmark == 1) {
     $message = $strShowingBookmark;
+} elseif ($bookmark_created) {
+    $special_message = '[br]' . sprintf($strBookmarkCreated, htmlspecialchars($bkm_label));
 } elseif ($finished && !$error) {
     if ($import_type == 'query') {
         $message = $strSuccess;

@@ -961,4 +961,5 @@ $strUploadLimit = 'You probably tried to upload too large file. Please refer to 
 $strDeleteNoUsersSelected = 'No users selected for deleting!';  //to translate
 $strPrivDescMaxUserConnections = 'Limits the number of simultaneous connections the user may have.';  //to translate
 $strMaximalQueryLength = 'Maximal length of created query';  //to translate
+$strBookmarkCreated = 'Bookmark %s created';  //to translate
 ?>

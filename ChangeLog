@@ -9,6 +9,8 @@ $Source$
     * libraries/display_export.lib.php, libraries/export/sql.php, lang/*,
       config.default.php: Add ability to limit maximal size of extended insert
       query, defaults to 50 KB (RFE #1015378).
+    * import.php, libraries/common.lib.php, lang/*: Show message when
+      bookmark has been created (RFE #477472), show deleted bookmark query.
 
 2005-10-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: workaround for warnings on session_start()

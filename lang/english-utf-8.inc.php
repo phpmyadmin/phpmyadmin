@@ -84,6 +84,7 @@ $strBinLogOriginalPosition = 'Original position';
 $strBinLogPosition = 'Position';
 $strBinLogServerId = 'Server ID';
 $strBookmarkAllUsers = 'Let every user access this bookmark';
+$strBookmarkCreated = 'Bookmark %s created';
 $strBookmarkDeleted = 'The bookmark has been deleted.';
 $strBookmarkLabel = 'Label';
 $strBookmarkQuery = 'Bookmarked SQL query';

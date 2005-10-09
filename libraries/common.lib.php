@@ -1815,7 +1815,13 @@ if (typeof(document.getElementById) != 'undefined'
     <?php } ?>
     <tr>
         <th<?php echo ($GLOBALS['theme'] != 'original') ? ' class="tblHeaders"' : ' bgcolor="' . $cfg['ThBgcolor'] . '"'; ?>>
-            <b><?php echo $message; ?></b>
+            <b><?php 
+            echo $message; 
+            if (isset($GLOBALS['special_message'])) {
+                echo PMA_sanitize($GLOBALS['special_message']);
+                unset($GLOBALS['special_message']);
+            }
+            ?></b>
         </th>
     </tr>
         <?php
