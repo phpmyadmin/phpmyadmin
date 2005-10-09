@@ -34,6 +34,12 @@ if ($foreigners && isset($foreigners[$field])) {
         $dispsql         = 'SELECT ' . PMA_backquote($foreign_field)
                          . (($foreign_display == FALSE) ? '' : ', ' . PMA_backquote($foreign_display))
                          . ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table)
+                         . (empty($foreign_filter) ? '' : ' WHERE ' . PMA_backquote($foreign_field)
+                            . ' LIKE "%' . PMA_sqlAddslashes($foreign_filter, TRUE) . '%"'
+                            . (($foreign_display == FALSE) ? '' : ' OR ' . PMA_backquote($foreign_display)
+                                . ' LIKE "%' . PMA_sqlAddslashes($foreign_filter, TRUE) . '%"'
+                                )
+                            )
                          . (($foreign_display == FALSE) ? '' :' ORDER BY ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($foreign_display))
                          . (isset($foreign_limit) ? $foreign_limit : '');
         $disp            = PMA_DBI_query($dispsql);
@@ -46,6 +52,7 @@ if ($foreigners && isset($foreigners[$field])) {
             while ($single_disp_row = @PMA_DBI_fetch_assoc($disp)) {
                 $disp_row[] = $single_disp_row;
             }
+            $the_total   = count($disp_row);
             @PMA_DBI_free_result($disp);
         }
     }

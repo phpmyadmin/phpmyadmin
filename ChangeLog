@@ -24,6 +24,8 @@ $Source$
       #1191792).
     * tbl_properties.inc.php: Remove unused code, show only available engines,
       remember value of seleted engine (bug #1239580).
+    * browse_foreigners.php, libraries/get_foreign.lib.php: Support for
+      searching in foreign keys (RFE #871091).
 
 2005-10-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: workaround for warnings on session_start()

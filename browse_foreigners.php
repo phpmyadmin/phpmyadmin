@@ -99,6 +99,11 @@ if (isset($pk)) {
 }
 ?>
 
+<label for="input_foreign_filter"><?php echo $strSearch . ':'; ?></label>
+<input type="text" name="foreign_filter" id="input_foreign_filter" value="<?php echo isset($foreign_filter) ? htmlspecialchars($foreign_filter) : ''; ?>" />
+<input type="submit" name="submit_foreign_filter" value="<?php echo $strGo;?>" />
+<hr />
+
 <table width="100%">
 <?php
 if ($cfg['ShowAll'] && ($the_total > $per_page)) {
@@ -117,6 +122,7 @@ if ($the_total > $per_page) {
                                    '&amp;'          . PMA_generate_common_url($db, $table)
                                                     . $pk_uri .
                                    '&amp;fieldkey=' . (isset($fieldkey) ? $fieldkey : '') .
+                                   '&amp;foreign_filter=' . (isset($foreign_filter) ? htmlspecialchars($foreign_filter) : '') .
                                    '&amp;',
                   $session_max_rows,
                   $pageNow,
