@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_links.php: invalid js confirmation and operation feedback
+      when dropping a view
+
 2005-10-09 Michal Čihař  <michal@cihar.com>
     * libraries/display_export.lib.php, libraries/export/sql.php, lang/*,
       config.default.php: Add ability to limit maximal size of extended insert

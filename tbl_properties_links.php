@@ -73,9 +73,11 @@ $tabs['drop']['link'] = 'sql.php';
 $tabs['drop']['text'] = $strDrop;
 $tabs['drop']['args']['reload']     = 1;
 $tabs['drop']['args']['purge']      = 1;
-$tabs['drop']['args']['sql_query']  = 'DROP ' . ($tbl_is_view ? 'VIEW' : 'TABLE') . ' ' . PMA_backquote($table);
-$tabs['drop']['args']['zero_rows']  = sprintf($strTableHasBeenDropped, htmlspecialchars($table));
-$tabs['drop']['attr'] = 'onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsFormat($table) . '\')"';
+$drop_command = 'DROP ' . ($tbl_is_view ? 'VIEW' : 'TABLE');
+$tabs['drop']['args']['sql_query']  = $drop_command . ' ' . PMA_backquote($table);
+$tabs['drop']['args']['zero_rows']  = sprintf(($tbl_is_view ? $strViewHasBeenDropped : $strTableHasBeenDropped), htmlspecialchars($table));
+$tabs['drop']['attr'] = 'onclick="return confirmLink(this, \'' . $drop_command . ' ' . PMA_jsFormat($table) . '\')"';
+unset($drop_command);
 $tabs['drop']['class'] = 'caution';
 
 if ($table_info_num_rows > 0 || $tbl_is_view) {
