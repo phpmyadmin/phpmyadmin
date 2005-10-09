@@ -14,6 +14,8 @@ $Source$
     * server_privileges.php: Limit username and hostname to actual limits of
       MySQL (RFE #1178071).
     * config.default.php: Add COMPRESS and UNCOMPRESS functions.
+    * tbl_change.php: Show functions for blobs when upload is enabled (RFE
+      #1191792).
 
 2005-10-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: workaround for warnings on session_start()

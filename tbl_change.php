@@ -443,7 +443,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         //       stored or retrieved" so it does not mean that the contents is
         //       binary
         if ($cfg['ShowFunctionFields']) {
-            if (($cfg['ProtectBinary'] && $is_blob)
+            if (($cfg['ProtectBinary'] && $is_blob && !$is_upload)
                 || ($cfg['ProtectBinary'] == 'all' && $is_binary)) {
                 echo '        <td align="center" bgcolor="'. $bgcolor . '">' . $strBinary . '</td>' . "\n";
             } else if (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
@@ -745,9 +745,11 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             // (displayed whatever value the ProtectBinary has)
 
             if ($is_upload && $is_blob) {
+                echo '<br />';
                 echo '<input type="file" name="fields_upload_' . urlencode($field) . $vkey . '" class="textfield" id="field_' . ($idindex) . '_3" size="10" />&nbsp;';
 
                 // find maximum upload size, based on field type
+                // FIXME: with functions this is not so easy, as you can basically process any data with function like MD5
                 $max_field_sizes = array(
                     'tinyblob'   =>        '256',
                     'blob'       =>      '65536',
