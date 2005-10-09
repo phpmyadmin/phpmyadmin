@@ -723,6 +723,8 @@ if ($cfg['ShowFunctionFields']) {
        'MD5',
        'SHA1',
        'ENCRYPT',
+       'COMPRESS',
+       'UNCOMPRESS',
        'RAND',
        'LAST_INSERT_ID',
        'COUNT',
@@ -783,6 +785,8 @@ if ($cfg['ShowFunctionFields']) {
             'MD5',
             'SHA1',
             'ENCRYPT',
+            'COMPRESS',
+            'UNCOMPRESS',
             'LAST_INSERT_ID',
             'USER',
             'CONCAT'

@@ -13,6 +13,7 @@ $Source$
       bookmark has been created (RFE #477472), show deleted bookmark query.
     * server_privileges.php: Limit username and hostname to actual limits of
       MySQL (RFE #1178071).
+    * config.default.php: Add COMPRESS and UNCOMPRESS functions.
 
 2005-10-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: workaround for warnings on session_start()
