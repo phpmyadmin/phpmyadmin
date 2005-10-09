@@ -252,6 +252,13 @@ function PMA_allowDeny($type)
         'localhost' => '127.0.0.1/8'
     );
 
+    // Provide some useful shortcuts if server gives us address:
+    if (isset($_SERVER['SERVER_ADDR'])) {
+        $shortcuts['localnetA'] = $_SERVER['SERVER_ADDR'] . '/8';
+        $shortcuts['localnetB'] = $_SERVER['SERVER_ADDR'] . '/16';
+        $shortcuts['localnetC'] = $_SERVER['SERVER_ADDR'] . '/24';
+    }
+
     foreach ($rules AS $rule) {
         // extract rule data
         $rule_data = explode(' ', $rule);

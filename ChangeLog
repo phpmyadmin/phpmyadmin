@@ -28,6 +28,8 @@ $Source$
       searching in foreign keys (RFE #871091).
     * import.php, libraries/sql_query_form.lib.php, lang/*: Ability to replace
       existing bookmark (RFE #907438).
+    * Documentation.html, libraries/ip_allow_deny.lib.php: Add more useful
+      shortcuts for IP rules (RFE #1022831).
 
 2005-10-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: workaround for warnings on session_start()

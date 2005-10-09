@@ -907,10 +907,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         If you wish to match all users, it is possible to use a <tt>'%'</tt> as
         a wildcard in the <i>username</i> field.<br />
         There are a few shortcuts you can use in the <i>ipmask</i> field as
-        well:<br />
+        well (please note that those containing SERVER_ADDRESS might not be
+        available on all webservers):<br /><br />
         <tt>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'all' -&gt; 0.0.0.0/0<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'localhost' -&gt; 127.0.0.1/8
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'localhost' -&gt; 127.0.0.1/8<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'localnetA' -&gt; SERVER_ADDRESS/8<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'localnetB' -&gt; SERVER_ADDRESS/16<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'localnetC' -&gt; SERVER_ADDRESS/24
         </tt>
         <br /><br />
 
