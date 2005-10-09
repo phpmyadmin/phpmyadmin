@@ -294,6 +294,9 @@ if (!$hide_structure) { ?>
 
                             &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="extended_ins" value="yes" id="checkbox_dump_extended_ins" <?php PMA_exportCheckboxCheck('sql_extended'); ?> style="vertical-align: middle" /><label for="checkbox_dump_extended_ins"><?php echo $strExtendedInserts; ?></label><br />
 
+                            &nbsp;&nbsp;&nbsp;&nbsp;<label for="input_max_query_size"><?php echo $strMaximalQueryLength; ?>:&nbsp;</label>
+                            <input type="text" name="max_query_size" id="input_max_query_size" value="<?php echo $cfg['Export']['sql_max_query_size'];?>" /><br />
+
                             &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="delayed" value="yes" id="checkbox_dump_delayed" <?php PMA_exportCheckboxCheck('sql_delayed'); ?> style="vertical-align: middle" /><label for="checkbox_dump_delayed"><?php echo $strDelayedInserts; ?></label><br />
 
                             &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_ignore" value="yes" id="checkbox_dump_ignore" <?php PMA_exportCheckboxCheck('sql_ignore'); ?> style="vertical-align: middle" /><label for="checkbox_dump_ignore"><?php echo $strIgnoreInserts; ?></label><br />

@@ -369,6 +369,7 @@ $cfg['Export']['sql_ignore']                = FALSE;
 $cfg['Export']['sql_hex_for_binary']        = TRUE;
 $cfg['Export']['sql_type']                  = 'insert'; // insert/update/replace
 $cfg['Export']['sql_extended']              = FALSE;
+$cfg['Export']['sql_max_query_size']        = 50000;
 $cfg['Export']['sql_comments']              = FALSE;
 $cfg['Export']['sql_mime']                  = FALSE;
 $cfg['Export']['sql_header_comment']        = ''; // \n is replaced by new line

@@ -418,6 +418,7 @@ $strLogUsername = 'Username:';
 $strLongOperation = 'This operation could take a long time. Proceed anyway?';
 
 $strMaxConnects = 'max. concurrent connections';
+$strMaximalQueryLength = 'Maximal length of created query';
 $strMaximumSize = 'Max: %s%s';
 $strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using a multibyte charset. Without the mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';
 $strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause some data to be corrupted!';

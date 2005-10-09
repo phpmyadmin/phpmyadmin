@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-09 Michal Čihař  <michal@cihar.com>
+    * libraries/display_export.lib.php, libraries/export/sql.php, lang/*,
+      config.default.php: Add ability to limit maximal size of extended insert
+      query, defaults to 50 KB (RFE #1015378).
+
 2005-10-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: workaround for warnings on session_start()
       displayed on sf.net server

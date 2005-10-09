@@ -424,6 +424,7 @@ $strLogUsername = 'Jméno:';
 $strLongOperation = 'Tato operace může trvat velmi dlouho. Chcete je přesto provést?';
 
 $strMaxConnects = 'Maximum současných připojení';
+$strMaximalQueryLength = 'Maximální velikost vytvořeného dotazu';
 $strMaximumSize = 'Maximální velikost: %s%s';
 $strMbExtensionMissing = 'Rozšíření mbstring pro PHP nebylo nalezeno a zdá se, že požíváte vícebajtovou znakovou sadu. Bez rozšíření mbstring neumí phpMyAdmin správně rozdělovat řetězce a proto to může mít nečekané následky.';
 $strMbOverloadWarning = 'V&nbsp;nastavení PHP máte zapnuto mbstring.func_overload. Toto nastavení není kompatibilní s&nbsp;phpMyAdminem a může způsobit poškození dat!';

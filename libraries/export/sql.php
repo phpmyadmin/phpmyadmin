@@ -523,16 +523,17 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             if (isset($GLOBALS['showcolumns'])) {
                 $fields        = implode(', ', $field_set);
                 $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $use_backquotes)
-                               . ' (' . $fields . ') VALUES (';
+                               . ' (' . $fields . ') VALUES ';
             } else {
                 $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $use_backquotes)
-                               . ' VALUES (';
+                               . ' VALUES ';
             }
         }
 
         $search       = array("\x00", "\x0a", "\x0d", "\x1a"); //\x08\\x09, not required
         $replace      = array('\0', '\n', '\r', '\Z');
         $current_row  = 0;
+        $query_size   = 0;  
         $separator    = isset($GLOBALS['extended_ins']) ? ',' : ';';
 
         while ($row = PMA_DBI_fetch_row($result)) {
@@ -586,14 +587,21 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 // Extended inserts case
                 if (isset($GLOBALS['extended_ins'])) {
                     if ($current_row == 1) {
-                        $insert_line  = $schema_insert . implode(', ', $values) . ')';
+                        $insert_line  = $schema_insert . '(' . implode(', ', $values) . ')';
                     } else {
                         $insert_line  = '(' . implode(', ', $values) . ')';
+                        if (isset($GLOBALS['max_query_size']) && $GLOBALS['max_query_size'] > 0 && $query_size + strlen($insert_line) > $GLOBALS['max_query_size']) {
+                            if (!PMA_exportOutputHandler(';' . $crlf)) return FALSE;
+                            $query_size = 0;
+                            $current_row = 1;
+                            $insert_line = $schema_insert . $insert_line;
+                        }
                     }
+                    $query_size += strlen($insert_line);
                 }
                 // Other inserts case
                 else {
-                    $insert_line      = $schema_insert . implode(', ', $values) . ')';
+                    $insert_line      = $schema_insert . '(' . implode(', ', $values) . ')';
                 }
             }
             unset($values);
