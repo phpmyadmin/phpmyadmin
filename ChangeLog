@@ -11,6 +11,8 @@ $Source$
       query, defaults to 50 KB (RFE #1015378).
     * import.php, libraries/common.lib.php, lang/*: Show message when
       bookmark has been created (RFE #477472), show deleted bookmark query.
+    * server_privileges.php: Limit username and hostname to actual limits of
+      MySQL (RFE #1178071).
 
 2005-10-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: workaround for warnings on session_start()

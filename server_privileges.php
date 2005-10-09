@@ -491,6 +491,23 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0 )
 {
     $spaces = str_repeat( '    ', $indent);
 
+    // Get user/host name lengths
+    $fields_info = PMA_DBI_get_fields('mysql', 'user');
+    $username_length = 16;
+    $hostname_length = 41;
+    foreach($fields_info as $key => $val) {
+        if ($val['Field'] == 'User') {
+            strtok($val['Type'], '()');
+            $v = strtok('()');
+            if (is_int($v)) $username_length = $v;
+        } elseif ($val['Field'] == 'Host') {
+            strtok($val['Type'], '()');
+            $v = strtok('()');
+            if (is_int($v)) $hostname_length = $v;
+        }
+    }
+    unset($fields_info);
+
     echo $spaces . '<fieldset id="fieldset_add_user_login">' . "\n"
        . $spaces . '<legend>' . $GLOBALS['strLoginInformation'] . '</legend>' . "\n"
        . $spaces . '<div class="item">' . "\n"
@@ -504,7 +521,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0 )
        . $spaces . '        <option value="userdefined"' . ((!isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
        . $spaces . '    </select>' . "\n"
        . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" class="textfield" name="username" class="textfield" title="' . $GLOBALS['strUserName'] . '"' . (empty($GLOBALS['username']) ? '' : ' value="' . (isset($GLOBALS['new_username']) ? $GLOBALS['new_username'] : $GLOBALS['username']) . '"') . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
+       . $spaces . '<input type="text" class="textfield" name="username" maxlength="' . $username_length . '" class="textfield" title="' . $GLOBALS['strUserName'] . '"' . (empty($GLOBALS['username']) ? '' : ' value="' . (isset($GLOBALS['new_username']) ? $GLOBALS['new_username'] : $GLOBALS['username']) . '"') . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
        . $spaces . '</div>' . "\n"
        . $spaces . '<div class="item">' . "\n"
        . $spaces . '<label for="select_pred_hostname">' . "\n"
@@ -552,7 +569,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0 )
        . $spaces . '        <option value="userdefined"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
        . $spaces . '    </select>' . "\n"
        . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" class="textfield" name="hostname" value="' . ( isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '' ) . '" class="textfield" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
+       . $spaces . '<input type="text" class="textfield" name="hostname" maxlength="' . $hostname_length . '" value="' . ( isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '' ) . '" class="textfield" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
        . $spaces . '</div>' . "\n"
        . $spaces . '<div class="item">' . "\n"
        . $spaces . '<label for="select_pred_password">' . "\n"
