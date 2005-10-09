@@ -16,6 +16,8 @@ $Source$
     * config.default.php: Add COMPRESS and UNCOMPRESS functions.
     * tbl_change.php: Show functions for blobs when upload is enabled (RFE
       #1191792).
+    * tbl_properties.inc.php: Remove unused code, show only available engines,
+      remember value of seleted engine (bug #1239580).
 
 2005-10-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php: workaround for warnings on session_start()

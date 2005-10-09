@@ -643,43 +643,11 @@ if ($action == 'tbl_create.php') {
     // BEGIN - Table Type - 2 May 2001 - Robbat2
     // change by staybyte - 11 June 2001
     if ($action == 'tbl_create.php') {
-        // find mysql capability - staybyte - 11. June 2001
-        $result = PMA_DBI_try_query('SHOW VARIABLES LIKE \'have_%\';');
-        if ($result) {
-            while ($tmp = PMA_DBI_fetch_assoc($result)) {
-                if (isset($tmp['Variable_name'])) {
-                    switch ($tmp['Variable_name']) {
-                        case 'have_bdb':
-                            if (isset($tmp['Variable_name']) && $tmp['Value'] == 'YES') {
-                                $tbl_bdb    = TRUE;
-                            }
-                            break;
-                        case 'have_gemini':
-                            if (isset($tmp['Variable_name']) && $tmp['Value'] == 'YES') {
-                                $tbl_gemini = TRUE;
-                            }
-                            break;
-                        case 'have_innodb':
-                            if (isset($tmp['Variable_name']) && $tmp['Value'] == 'YES') {
-                                $tbl_innodb = TRUE;
-                            }
-                            break;
-                        case 'have_isam':
-                            if (isset($tmp['Variable_name']) && $tmp['Value'] == 'YES') {
-                                $tbl_isam   = TRUE;
-                            }
-                            break;
-                    } // end switch
-                } // end if
-            } // end while
-        } // end if
-        PMA_DBI_free_result($result);
-
         echo "\n";
         ?>
         <td width="25">&nbsp;</td>
         <td>
-<?php echo PMA_generateEnginesDropdown('tbl_type', NULL, (isset($tbl_type) ? $tbl_type : NULL), FALSE, 3); ?>
+<?php echo PMA_generateEnginesDropdown('tbl_type', NULL, FALSE, (isset($GLOBALS['tbl_type']) ? $GLOBALS['tbl_type'] : NULL), 3); ?>
         </td>
         <?php
         if (PMA_MYSQL_INT_VERSION >= 40100) {
