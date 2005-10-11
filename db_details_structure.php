@@ -34,48 +34,51 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
 
 
 // Display function
-function pma_TableHeader($alternate = FALSE, $record_count = TRUE) {
+function pma_TableHeader( $is_schema = false ) {
     $cnt = 0; // Let's count the columns...
+    
+    if ( $is_schema ) {
+        $action_colspan = 3;
+    } else {
+        $action_colspan = 6;
+    }
+    
     echo '            <table border="' . $GLOBALS['cfg']['Border'] . '" cellpadding="2" cellspacing="1">' . "\n"
        . '            <tr>' . "\n"
        . '                <td></td>' . "\n"
        . '                <th>' . "\n"
        . '                    &nbsp;' . $GLOBALS['strTable'] . '&nbsp;' . "\n"
        . '                </th>' . "\n"
-       . '                <th colspan="6">' . "\n"
+       . '                <th colspan="' . $action_colspan . '">' . "\n"
        . '                    &nbsp;' . $GLOBALS['strAction'] . '&nbsp;' . "\n"
        . '                </th>' . "\n";
-    $cnt += 3;
-    if ($record_count) {
+    $cnt += 2 + $action_colspan;
+    echo '                <th>' . "\n"
+       . '                    &nbsp;' .  $GLOBALS['strRecords'] . PMA_showHint($GLOBALS['strApproximateCount']) . '&nbsp;' . "\n"
+       . '                </th>' . "\n";
+    $cnt++;
+    if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
         echo '                <th>' . "\n"
-           . '                    &nbsp;' .  $GLOBALS['strRecords'] . PMA_showHint($GLOBALS['strApproximateCount']) . '&nbsp;' . "\n"
+           . '                    &nbsp;' . $GLOBALS['strType'] . '&nbsp;' . "\n"
            . '                </th>' . "\n";
         $cnt++;
-    }
-    if (!$alternate) {
-        if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
             echo '                <th>' . "\n"
-               . '                    &nbsp;' . $GLOBALS['strType'] . '&nbsp;' . "\n"
+               . '                    &nbsp;' . $GLOBALS['strCollation'] . '&nbsp;' . "\n"
                . '                </th>' . "\n";
-	    $cnt++;
-            if (PMA_MYSQL_INT_VERSION >= 40100) {
-                echo '                <th>' . "\n"
-                   . '                    &nbsp;' . $GLOBALS['strCollation'] . '&nbsp;' . "\n"
-                   . '                </th>' . "\n";
-		$cnt++;
-            }
+            $cnt++;
         }
-        if ($GLOBALS['cfg']['ShowStats']) {
-            echo '                <th>' . "\n"
-               . '                    &nbsp;' . $GLOBALS['strSize'] . '&nbsp;' . "\n"
-               . '                </th>' . "\n"
-               . '                <th>' . "\n"
-               . '                    &nbsp;' . $GLOBALS['strOverhead'] . '&nbsp;' . "\n"
-               . '                </th>' . "\n";
-	    $cnt += 2;
-        }
-        echo "\n";
     }
+    if ($GLOBALS['cfg']['ShowStats']) {
+        echo '                <th>' . "\n"
+           . '                    &nbsp;' . $GLOBALS['strSize'] . '&nbsp;' . "\n"
+           . '                </th>' . "\n"
+           . '                <th>' . "\n"
+           . '                    &nbsp;' . $GLOBALS['strOverhead'] . '&nbsp;' . "\n"
+           . '                </th>' . "\n";
+        $cnt += 2;
+    }
+    echo "\n";
     echo '            </tr>' . "\n";
     $GLOBALS['structure_tbl_col_cnt'] = $cnt;
 }
@@ -159,12 +162,13 @@ else {
     }
 
     // rabus: disable statistics for information_schema.
-    if (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema') {
-        $cfg['ShowStats'] = FALSE;
-        pma_TableHeader(FALSE, FALSE);
+    if (PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema') {
+        $cfg['ShowStats'] = false;
+        $table_is_schema = true;
     } else {
-        pma_TableHeader();
+        $table_is_schema = false;
     }
+    pma_TableHeader( $table_is_schema );
 
     $i = $sum_entries = 0;
     (double) $sum_size = 0;
@@ -232,7 +236,7 @@ else {
     <td><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" border="0" width="10" height="1" alt="" /></td>
     <td valign="top">
             <?php
-            pma_TableHeader(FALSE, !(PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema'));
+            pma_TableHeader();
         }
         ?>
             <tr <?php echo $on_mouse; ?>>
@@ -254,7 +258,7 @@ else {
         require_once('./libraries/bookmark.lib.php');
         $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
-        if (!empty($sts_data['Rows']) || $is_view || (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema')) {
+        if ( ! empty( $sts_data['Rows'] ) || $is_view ) {
             echo '<a href="sql.php?' . $tbl_url_query . '&amp;sql_query='
                  . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table)))
                  . '&amp;pos=0">' . $titles['Browse'] . '</a>';
@@ -269,7 +273,7 @@ else {
                             </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
-        if (!empty($sts_data['Rows']) || $is_view || (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema')) {
+        if ( ! empty($sts_data['Rows'] ) || $is_view ) {
             echo '<a href="tbl_select.php?' . $tbl_url_query . '">'
                  . $titles['Search'] . '</a>';
         } else {
@@ -277,70 +281,59 @@ else {
         }
         ?>
                 </td>
-                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
-        if (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema') {
-            // rabus: We cannot insert into information_schema tables!
-            echo $titles['NoInsert'];
-        } else {
+        if ( ! $table_is_schema ) {
             ?>
+                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
                     <a href="tbl_change.php?<?php echo $tbl_url_query; ?>">
                         <?php echo $titles['Insert']; ?></a>
+                </td>
+                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
             <?php
-        }
-        ?>
-                </td>
-                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <?php
-        if (!empty($sts_data['Rows'])) {
-            echo '<a href="sql.php?' . $tbl_url_query
-                 . '&amp;sql_query=';
-            if (PMA_MYSQL_INT_VERSION >= 40000) {
-                echo urlencode('TRUNCATE ' . PMA_backquote($table))
-                     . '&amp;zero_rows='
-                     . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)))
-                     . '" onclick="return confirmLink(this, \'TRUNCATE ';
+            if ( ! empty($sts_data['Rows']) ) {
+                echo '<a href="sql.php?' . $tbl_url_query
+                     . '&amp;sql_query=';
+                if (PMA_MYSQL_INT_VERSION >= 40000) {
+                    echo urlencode('TRUNCATE ' . PMA_backquote($table))
+                         . '&amp;zero_rows='
+                         . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)))
+                         . '" onclick="return confirmLink(this, \'TRUNCATE ';
+                } else {
+                    echo urlencode('DELETE FROM ' . PMA_backquote($table))
+                         . '&amp;zero_rows='
+                         . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)))
+                         . '" onclick="return confirmLink(this, \'DELETE FROM ';
+                }
+                echo PMA_jsFormat($table) . '\')">' . $titles['Empty'] . '</a>';
             } else {
-                echo urlencode('DELETE FROM ' . PMA_backquote($table))
-                     . '&amp;zero_rows='
-                     . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)))
-                     . '" onclick="return confirmLink(this, \'DELETE FROM ';
+                echo $titles['NoEmpty'];
             }
-            echo PMA_jsFormat($table) . '\')">' . $titles['Empty'] . '</a>';
-        } else {
-             echo $titles['NoEmpty'];
-        }
-
-	$drop_query = 'DROP '
-	           . ($is_view ? 'VIEW' : 'TABLE')
-		   . ' ' . PMA_backquote($table);
-        $drop_message = sprintf(($is_view ? $strViewHasBeenDropped : $strTableHasBeenDropped), htmlspecialchars($table));
-        ?>
+            ?>
                 </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <?php
-        // rabus: We cannot drop information_schema tables!
-        if (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema') {
-            echo $titles['NoDrop'];
-        } else {
+            <?php
+            $drop_query = 'DROP '
+                . ($is_view ? 'VIEW' : 'TABLE')
+                . ' ' . PMA_backquote($table);
+            $drop_message = sprintf(($is_view ? $strViewHasBeenDropped : $strTableHasBeenDropped), htmlspecialchars($table));
             ?>
                     <a href="sql.php?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode($drop_query); ?>&amp;zero_rows=<?php echo urlencode($drop_message); ?>"
                         onclick="return confirmLink(this, '<?php echo PMA_jsFormat($drop_query, FALSE); ?>')">
                         <?php echo $titles['Drop']; ?></a>
             <?php
+            unset($drop_query, $drop_message);
         }
         ?>
                 </td>
+                
         <?php
-        unset($drop_query, $drop_message);
-        echo "\n";
 
         // loic1: Patch from Joshua Nye <josh at boxcarmedia.com> to get valid
         //        statistics whatever is the table type
-        if (isset($sts_data['Rows']) || (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema')) {
+        if ( isset( $sts_data['Rows'] ) ) {
             // MyISAM, ISAM or Heap table: Row count, data size and index size
             // is accurate.
-            if (isset($sts_data['Type']) && preg_match('@^(MyISAM|ISAM|HEAP)$@', $sts_data['Type'])) {
+            if (isset($sts_data['Type']) && preg_match('@^(MyISAM|ISAM|HEAP|MEMORY)$@', $sts_data['Type'])) {
                 if ($cfg['ShowStats']) {
                     $tblsize                    =  doubleval($sts_data['Data_length']) + doubleval($sts_data['Index_length']);
                     $sum_size                   += $tblsize;
@@ -398,16 +391,13 @@ else {
                 }
                 $display_rows                   =  'unknown';
             }
-            // Don't display number of rows for information_schema tables.
-            if (!(PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema')) {
-                ?>
-                <td align="right" bgcolor="<?php echo $bgcolor; ?>" <?php echo $click_mouse; ?>>
-                <?php
-                echo "\n" . '        ' . $display_rows . "\n";
-                ?>
-                </td>
-                <?php
-            }
+            ?>
+            <td align="right" bgcolor="<?php echo $bgcolor; ?>" <?php echo $click_mouse; ?>>
+            <?php
+            echo "\n" . '        ' . $display_rows . "\n";
+            ?>
+            </td>
+            <?php
             if (!($cfg['PropertiesNumColumns'] > 1)) {
                 echo '                <td bgcolor="' . $bgcolor . '" nowrap="nowrap" ' . $click_mouse . '>' . "\n"
                    . '                    &nbsp;' . (isset($sts_data['Type']) ? $sts_data['Type'] : '&nbsp;') . '&nbsp;' . "\n"
@@ -419,7 +409,7 @@ else {
                 }
             }
 
-            if ($cfg['ShowStats']) {
+            if ( $cfg['ShowStats']) {
                 echo "\n";
                 ?>
                 <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap" <?php echo $click_mouse; ?>>
@@ -467,7 +457,7 @@ else {
             }
         } else {
             ?>
-                <td colspan="<?php echo ($structure_tbl_col_cnt - 8) ?>" align="center" bgcolor="<?php echo $bgcolor; ?>" <?php echo $click_mouse; ?>>
+                <td colspan="<?php echo ($structure_tbl_col_cnt - ($table_is_schema ? 5 : 8)) ?>" align="center" bgcolor="<?php echo $bgcolor; ?>" <?php echo $click_mouse; ?>>
                     <?php echo $strInUse . "\n"; ?>
                 </td>
             <?php
@@ -489,21 +479,13 @@ else {
                 <th align="center" nowrap="nowrap">
                     &nbsp;<b><?php echo sprintf($strTables, number_format($num_tables, 0, $number_decimal_separator, $number_thousands_separator)); ?></b>&nbsp;
                 </th>
-    <?php
-    if (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema') {
-        ?>
-                <th colspan="6">&nbsp;</th>
-        <?php
-    } else {
-        ?>
-                <th colspan="6" align="center">
+                <th colspan="<?php echo ( $table_is_schema ? 3 : 6 ) ?>" align="center">
                     <b><?php echo $strSum; ?></b>
                 </th>
                 <th align="right" nowrap="nowrap">
                     <b><?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator); ?></b>
                 </th>
         <?php
-    }
     if (!($cfg['PropertiesNumColumns'] > 1)) {
         echo '                <th align="center">' . "\n"
            . '                    <b>--</b>' . "\n"
@@ -633,7 +615,7 @@ if ($num_tables > 0) {
     <?php
 } // end if
 
-if (PMA_MYSQL_INT_VERSION < 50002 || (PMA_MYSQL_INT_VERSION >= 50002 && $db != 'information_schema')) {
+if ( ! $table_is_schema ) {
     require('./libraries/display_create_table.lib.php');
 } // end if (Create Table dialog)
 

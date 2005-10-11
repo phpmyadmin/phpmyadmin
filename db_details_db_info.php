@@ -63,6 +63,11 @@ if ($cfg['SkipLockedTables'] == TRUE) {
             $db_info_result = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . $tbl_group_sql . ';', NULL, PMA_DBI_QUERY_STORE);
             if ($db_info_result != FALSE && PMA_DBI_num_rows($db_info_result) > 0) {
                 while ($tmp = PMA_DBI_fetch_row($db_info_result)) {
+                    if ( NULL === $tmp['Rows'] ) {
+                        $tmp['Rows']   = PMA_countRecords( $GLOBALS['db'],
+                            $tmp['Name'], $return = true, $force_exact = true );
+                    }
+                    
                     if (!isset($sot_cache[$tmp[0]])) {
                         $sts_result  = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\';');
                         $sts_tmp     = PMA_DBI_fetch_assoc($sts_result);
@@ -99,6 +104,11 @@ if (!isset($sot_ready)) {
     $db_info_result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . $tbl_group_sql . ';', NULL, PMA_DBI_QUERY_STORE);
     if ($db_info_result != FALSE && PMA_DBI_num_rows($db_info_result) > 0) {
         while ($sts_tmp = PMA_DBI_fetch_assoc($db_info_result)) {
+            if ( NULL === $sts_tmp['Rows'] ) {
+                $sts_tmp['Rows']   = PMA_countRecords( $GLOBALS['db'],
+                    $sts_tmp['Name'], $return = true, $force_exact = true );
+            }
+            
             if (!isset($sts_tmp['Type']) && isset($sts_tmp['Engine'])) {
                 $sts_tmp['Type'] =& $sts_tmp['Engine'];
             }

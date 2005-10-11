@@ -1,4 +1,4 @@
-﻿﻿----------------------
+﻿﻿﻿----------------------
 phpMyAdmin - Changelog
 ----------------------
 
@@ -19,6 +19,8 @@ $Source$
       no table statistics for information_schema
     * tbl_properties_table_info.php:
       bug #1317655 information_schema browsing
+    * db_details_db_info.php, db_details_structure.php:
+      fixed display table statistics for information_schema
 
 2005-10-09 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php: invalid js confirmation and operation feedback
