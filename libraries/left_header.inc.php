@@ -19,10 +19,10 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
     $logo = 'phpMyAdmin';
     if ( @file_exists( $GLOBALS['pmaThemeImage'] . 'logo_left.png' ) ) {
         $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'logo_left.png" '
-            .'alt="' . $logo . '" />';
+            .'alt="' . $logo . '" id="imgpmalogo" />';
     } elseif ( @file_exists( $GLOBALS['pmaThemeImage'] . 'pma_logo2.png' ) ) {
         $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png" '
-            .'alt="' . $logo . '" />';
+            .'alt="' . $logo . '" id="imgpmalogo" />';
     }
     
     echo '<div id="pmalogo">' . "\n"
@@ -33,7 +33,7 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
 ?>
 <div id="leftframelinks">
 <?php
-    echo '<a href="main.php?' . $query_url . '" target="phpmain' . $hash . '"'
+    echo '<a href="main.php?' . $query_url . '"'
         .' title="' . $strHome . '">'
         .( $GLOBALS['cfg']['MainPageIconic']
             ? '<img src="' . $pmaThemeImage . 'b_home.png" width="16" '
@@ -68,7 +68,6 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
                 $query_frame_link_text = $strQueryFrame;
             }
         echo '<a href="' . $anchor . '&amp;no_js=true"'
-            .' target="phpmain' . $hash . '"'
             .' title="' . $strQueryFrame . '"';
         if ( $GLOBALS['cfg']['QueryFrameJS'] ) {
             echo ' onclick="javascript:open_querywindow(\'' . $anchor . '\');'
@@ -94,22 +93,4 @@ if ( $GLOBALS['cfg']['LeftDisplayServers'] ) {
     $show_server_left = TRUE;
     include('./libraries/select_server.lib.php');
 } // end if LeftDisplayServers
-
-if ( $num_dbs > 1 && $cfg['LeftFrameLight'] ) {
-    ?>
-    <div id="databaseList">
-    <form method="post" action="index.php" name="left" target="_parent"
-        onclick="this.form.target='nav'; this.form.action='left.php'; return true;">
-    <input type="hidden" name="hash" value="<?php echo $hash; ?>" />
-    <label for="lightm_db"><?php echo $strDatabase; ?></label>
-    <?php
-    echo PMA_generate_common_hidden_inputs() . "\n";
-    echo PMA_getHtmlSelectDb( $db ) . "\n";
-    echo '<noscript>' . "\n"
-        .'<input type="submit" name="Go" value="' . $strGo . '" />' . "\n"
-        .'</noscript>' . "\n"
-        .'</form>' . "\n"
-        .'</div>' . "\n";
-
-}
 ?>

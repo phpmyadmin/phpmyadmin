@@ -111,7 +111,7 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
         <form method="post" id="sqlqueryform"
               target="phpmain<?php echo md5( $GLOBALS['cfg']['PmaAbsoluteUri'] ); ?>"
               action="import.php"<?php echo $enctype; ?> name="sqlform"
-              onsubmit="this.target=window.opener.parent.frames[2].name;
+              onsubmit="this.target=window.opener.parent.frames[1].name;
                         return checkSqlQuery(this);" >
         <?php
     } else {

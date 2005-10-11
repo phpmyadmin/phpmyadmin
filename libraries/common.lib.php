@@ -801,6 +801,10 @@ if ($is_minimum_common == FALSE) {
  * @uses    PMA_getTableCount()
  * @uses    PMA_getComments()
  * @uses    PMA_availableDatabases()
+ * @uses    is_array()
+ * @uses    implode()
+ * @uses    strstr()
+ * @uses    explode()
  * @return  array   db list
  */
 function PMA_getDbList() {
@@ -860,8 +864,8 @@ function PMA_getDbList() {
  */
 function PMA_getHtmlSelectDb( $selected = '' ) {
     $dblist = PMA_getDbList();
-    $return = '<select name="lightm_db" id="lightm_db"'
-        .' onchange="remove_focus_select(); this.form.submit();">' . "\n"
+    $return = '<select name="db" id="lightm_db"'
+        .' onchange="this.form.submit();">' . "\n"
         .'<option value="">(' . $GLOBALS['strDatabases'] . ') ...</option>'
         ."\n";
     foreach( $dblist as $group => $dbs ) {
@@ -1549,34 +1553,130 @@ if ($is_minimum_common == FALSE) {
         global $num_dbs;
         global $cfg;
 
-        $num_dbs = count($dblist);
-
         // 1. A list of allowed databases has already been defined by the
         //    authentification process -> gets the available databases list
-        if ($num_dbs) {
-            $true_dblist = array();
-            for ($i = 0; $i < $num_dbs; $i++) {
-                $dblink  = @PMA_DBI_select_db($dblist[$i]);
-                if ($dblink) {
-                    $true_dblist[] = $dblist[$i];
+        if ( count( $dblist ) ) {
+            foreach ( $dblist as $key => $db ) {
+                if ( ! @PMA_DBI_select_db( $db ) ) {
+                    unset( $dblist[$key] );
                 } // end if
             } // end for
-            $dblist      = array();
-            $dblist      = $true_dblist;
-            unset($true_dblist);
-            $num_dbs     = count($dblist);
         } // end if
         // 2. Allowed database list is empty -> gets the list of all databases
         //    on the server
-        else if (!isset($cfg['Server']['only_db']) || $cfg['Server']['only_db'] == '') {
+        elseif ( empty( $cfg['Server']['only_db'] ) ) {
             $dblist = PMA_DBI_get_dblist(); // needed? or PMA_mysqlDie('', 'SHOW DATABASES;', FALSE, $error_url);
-            $num_dbs = count($dblist);
         } // end else
 
+        $num_dbs = count( $dblist );
+        
+        // natural order for db list; but do not sort if user asked
+        // for a specific order with the 'only_db' mechanism
+        if ( ! is_array( $GLOBALS['cfg']['Server']['only_db'] )
+            && $GLOBALS['cfg']['NaturalOrder'] ) {
+            natsort( $dblist );
+        }
+        
         return TRUE;
     } // end of the 'PMA_availableDatabases()' function
 
+    /**
+     * returns array with tables of given db with extended infomation and grouped
+     * 
+     * @uses    $GLOBALS['cfg']['LeftFrameTableSeparator']
+     * @uses    $GLOBALS['cfg']['LeftFrameTableLevel']
+     * @uses    $GLOBALS['cfg']['ShowTooltipAliasTB']
+     * @uses    $GLOBALS['cfg']['NaturalOrder']
+     * @uses    PMA_DBI_fetch_result()
+     * @uses    PMA_backquote()
+     * @uses    count()
+     * @uses    array_merge
+     * @uses    uksort()
+     * @uses    strstr()
+     * @uses    explode()
+     * @param   string  $db     name of db
+     * return   array   (rekursive) grouped table list
+     */
+    function PMA_getTableList( $db ) {
+        $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
+        
+        $tables = PMA_DBI_fetch_result(
+            'SHOW TABLE STATUS FROM ' . PMA_backquote( $db ),
+            'Name' );
+        if ( count( $tables ) < 1 ) {
+            return $tables;
+        }
+        
+        if ( $GLOBALS['cfg']['NaturalOrder'] ) {
+            uksort( $tables, 'strcmp' );
+        }
+        
+        $default = array(
+            'Name'      => '',
+            'Rows'      => 0,
+            'Comment'   => '',
+            'disp_name' => '',
+        );
+        
+        $table_groups = array();
+        
+        foreach ( $tables as $table_name => $table ) {
+            // in $group we save the reference to the place in $table_groups
+            // where to store the table info
+            if ( $GLOBALS['cfg']['LeftFrameDBTree']
+                && $sep && strstr( $table_name, $sep ) )
+            {
+                $parts = explode( $sep, $table_name );
+                                  
+                $group =& $table_groups;
+                $i = 0;
+                $group_name_full = '';
+                while ( $i < count( $parts ) - 1
+                  && $i < $GLOBALS['cfg']['LeftFrameTableLevel'] ) {
+                    $group_name = $parts[$i] . $sep;
+                    $group_name_full .= $group_name;
+                    
+                    if ( ! isset( $group[$group_name] ) ) {
+                        $group[$group_name] = array();
+                        $group[$group_name]['is' . $sep . 'group'] = true;
+                        $group[$group_name]['tab' . $sep . 'count'] = 1;
+                        $group[$group_name]['tab' . $sep . 'group'] = $group_name_full;
+                    } elseif ( ! isset( $group[$group_name]['is' . $sep . 'group'] ) ) {
+                        $table = $group[$group_name];
+                        $group[$group_name] = array();
+                        $group[$group_name][$group_name] = $table;
+                        unset( $table );
+                        $group[$group_name]['is' . $sep . 'group'] = true;
+                        $group[$group_name]['tab' . $sep . 'count'] = 1;
+                        $group[$group_name]['tab' . $sep . 'group'] = $group_name_full;
+                    } else {
+                        $group[$group_name]['tab_count']++;
+                    }
+                    $group =& $group[$group_name];
+                    $i++;
+                }
+            } else {
+                if ( ! isset( $table_groups[$table_name] ) ) {
+                    $table_groups[$table_name] = array();
+                }
+                $group =& $table_groups;
+            }
+            
+        
+            if ( $GLOBALS['cfg']['ShowTooltipAliasTB']
+              && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested' ) {
+                // switch tooltip and name
+                $table['Comment'] = $table['Name'];
+                $table['disp_name'] = $table['Comment'];
+            } else {
+                $table['disp_name'] = $table['Name'];
+            }
+            
+            $group[$table_name] = array_merge( $default, $table );
+        }
 
+        return $table_groups;
+    }
 
     /* ----------------------- Set of misc functions ----------------------- */
 
@@ -1734,8 +1834,8 @@ if ($is_minimum_common == FALSE) {
 <script type="text/javascript" language="javascript1.2">
 <!--
 if (typeof(window.parent) != 'undefined'
-    && typeof(window.parent.frames['nav']) != 'undefined') {
-    window.parent.frames['nav'].goTo('<?php echo $reload_url; ?>&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>);
+    && typeof(window.parent.frames[0]) != 'undefined') {
+    window.parent.frames[0].goTo('<?php echo $reload_url; ?>');
 }
 //-->
 </script>
@@ -1770,18 +1870,18 @@ if (typeof(window.parent) != 'undefined'
                             : $tbl_status['Comment'] . ' ';
                 $tooltip .= '(' . $tbl_status['Rows'] . ' ' . $GLOBALS['strRows'] . ')';
                 PMA_DBI_free_result($result);
-                $md5_tbl = md5($GLOBALS['table']);
+                $uni_tbl = PMA_jsFormat( $GLOBALS['db'] . '.' . $GLOBALS['table'] );
                 echo "\n";
                 ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
 if (typeof(document.getElementById) != 'undefined'
-    && typeof(window.parent.frames['nav']) != 'undefined'
-    && typeof(window.parent.frames['nav'].document) != 'undefined' && typeof(window.parent.frames['nav'].document) != 'unknown'
-    && (window.parent.frames['nav'].document.getElementById('<?php echo 'tbl_' . $md5_tbl; ?>'))
-    && typeof(window.parent.frames['nav'].document.getElementById('<?php echo 'tbl_' . $md5_tbl; ?>')) != 'undefined'
-    && typeof(window.parent.frames['nav'].document.getElementById('<?php echo 'tbl_' . $md5_tbl; ?>').title) == 'string') {
-    window.parent.frames['nav'].document.getElementById('<?php echo 'tbl_' . $md5_tbl; ?>').title = '<?php echo PMA_jsFormat($tooltip, FALSE); ?>';
+    && typeof(window.parent.frames[0]) != 'undefined'
+    && typeof(window.parent.frames[0].document) != 'undefined' && typeof(window.parent.frames[0].document) != 'unknown'
+    && (window.parent.frames[0].document.getElementById('<?php echo $uni_tbl; ?>'))
+    && typeof(window.parent.frames[0].document.getElementById('<?php echo $uni_tbl; ?>')) != 'undefined'
+    && typeof(window.parent.frames[0].document.getElementById('<?php echo $uni_tbl; ?>').title) == 'string') {
+    window.parent.frames[0].document.getElementById('<?php echo $uni_tbl; ?>').title = '<?php echo PMA_jsFormat($tooltip, FALSE); ?>';
 }
 //-->
 </script>

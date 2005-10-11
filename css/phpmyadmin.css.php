@@ -43,7 +43,7 @@ table .name {
 }
 
 div#tablestatistics {
-    border-bottom: 0.1em solid silver;
+    border-bottom: 0.1em solid #669999;
     margin-bottom: 0.5em;
     padding-bottom: 0.5em;
 }
@@ -62,20 +62,21 @@ div#pmalogo,
 div#leftframelinks,
 div#databaseList {
     text-align: center;
-    border-bottom: 0.1em solid silver;
+    border-bottom: 0.1em solid #669999;
     margin-bottom: 0.5em;
     padding-bottom: 0.5em;
 }
 
+div#leftframelinks img {
+    vertical-align: middle;
+}
+
 div#leftframelinks a {
-    margin: 0.1em;
-    padding: 0.2em;
-    border: 0.1em solid <?php echo $cfg['BgcolorTwo']; ?>;
+    padding: 0.1em;
 }
 
 div#leftframelinks a:hover {
-    border-color: gray;
-    background-color: silver;
+    background-color: #669999;
 }
 
 div#databaseList form {
@@ -97,6 +98,46 @@ div#querywindowcontainer fieldset {
     margin-top: 0;
 }
 
+
+body#body_leftFrame {
+    background-color: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
+}
+
+/* leftdatabaselist */
+div#left_tableList ul {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0;
+    padding: 0;
+    background-color: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
+}
+
+div#left_tableList li {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+<?php if ( $GLOBALS['cfg']['LeftPointerEnable'] ) { ?>
+div#left_tableList li:hover {
+    background-color: <?php echo $GLOBALS['cfg']['LeftPointerColor']; ?>;
+}
+<?php } ?>
+
+div#left_tableList img {
+    height: 1em;
+    width: auto;
+    padding: 0;
+    vertical-align: middle;
+}
+
+div#left_tableList ul ul {
+    margin-left: 0em;
+    padding-left: 0.1em;
+    border-left: 0.1em solid #669999;
+    padding-bottom: 0.1em;
+    border-bottom: 0.1em solid #669999;
+}
 
 /* querybox */
 
@@ -186,7 +227,7 @@ form.clock   { text-align: center; }
 
 /* Options, eg. on import page */
 fieldset {
-    background-color: <?php echo $cfg['BgcolorOne']; ?>;
+    background-color: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
 }
 fieldset legend {
     background-color: transparent;
@@ -258,7 +299,7 @@ a.tabactive {
 /* default tab styles */
 .tab, .tabcaution, .tabactive {
     background-color: #E5E5E5;
-    border: 0.1em solid silver;
+    border: 0.1em solid <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
     border-bottom: 0.1em solid black;
     border-radius-topleft: 0.5em;
     border-radius-topright: 0.5em;
@@ -288,13 +329,13 @@ span.tab, span.tabcaution {
 /* odd table rows 1,3,5,7,... */
 table tbody tr.odd td,
 table tbody tr.odd th {
-    background-color: <?php echo $cfg['BgcolorOne']; ?>;
+    background-color: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
 }
 
 /* even table rows 2,4,6,8,... */
 table tbody tr.even td,
 table tbody tr.even th {
-    background-color: <?php echo $cfg['BgcolorTwo']; ?>;
+    background-color: <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
 }
 
 

@@ -1,196 +1,53 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-
+/**
+ * display db and table selection
+ */
 
 /**
  * Gets the variables sent to this script, retains the db name that may have
  * been defined as startup option and include a core library
  */
 require_once('./libraries/grab_globals.lib.php');
-if (isset($lightm_db) && !empty($lightm_db)) {
-// no longer urlencoded because of html entities in the db name
-//    $db = urldecode($lightm_db);
-    $db = $lightm_db;
-}
+
+// free the session file, for the other frames to be loaded
+session_write_close();
 
 if (!empty($db)) {
     $db_start = $db;
+} else {
+    $db_start = '';
 }
 
+$db     = isset( $db )    ? $db    : '';
+$table  = isset( $table ) ? $table : '';
 
 /**
  * Gets a core script and starts output buffering work
  */
 require_once('./libraries/common.lib.php');
 require_once('./libraries/ob.lib.php');
-if ($cfg['OBGzip']) {
+if ($GLOBALS['cfg']['OBGzip']) {
     $ob_mode = PMA_outBufferModeGet();
     if ($ob_mode) {
         PMA_outBufferPre($ob_mode);
     }
 }
 
-// This check had been put here to avoid revealing the full path
-// of the phpMyAdmin directory in case this script is called
-// directly. But some users report a "Missing hash" message and
-// I cannot reproduce it, so let's define $hash to a dummy value
-// and hope some other clue will surface, to sort this bug.
-//PMA_checkParameters(array('hash'));
-if (!isset($hash)) {
-    $hash='';
-}
-
 require_once('./libraries/bookmark.lib.php');
 require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
-function PMA_multimerge(&$stack, &$table) {
-global $list_item, $table_item;
-
-    $key = array_shift($table);
-
-    if (count($table) > 0) {
-        if (!isset($stack[$key])) {
-            $stack[$key] = '';
-        }
-        PMA_multimerge($stack[$key], $table);
-    } else {
-        $stack['pma_name'][]      = $table_item;
-        $stack['pma_list_item'][] = $list_item;
-    }
-}
-
-/* This will take a 1-dimensional array, and shift as many elemnts off
- * the end, until the allowed maximum level is reached */
-function PMA_reduceNest(&$_table) {
-    if ($GLOBALS['cfg']['LeftFrameTableLevel'] > 0) {
-        $elements = count($_table);
-        for ($ti = $elements; $ti > $GLOBALS['cfg']['LeftFrameTableLevel']; $ti--) {
-            unset($_table[$ti]);
-        }
-    }
-}
-
-function PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_level, $val, $childout = true) {
-    $name = $key;
-    //$id = preg_replace('@[^a-z0-9]*@i', '', $baseid . $keyhistory . $key) . $indent;
-    $id = base64_encode($baseid . $keyhistory . $key) . $indent;
-
-    $groupkey = $keyhistory . ($key != $keyhistory ? $GLOBALS['cfg']['LeftFrameTableSeparator'] . $key : '');
-
-    $on_mouse = (($GLOBALS['cfg']['LeftPointerEnable'] == FALSE) ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $id . '\', \'' . $GLOBALS['cfg']['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $id . '\', \'' . $GLOBALS['cfg']['LeftBgColor'] . '\')}"');
-
-    $countarray = $val;
-    if (count($countarray) == 2 && isset($countarray['pma_name']) && isset($countarray['pma_list_item'])) {
-        $counter = count($countarray['pma_name']);
-    } else {
-        unset($countarray['pma_name']);
-        if (count($countarray) > 1) {
-            unset($countarray['pma_list_item']);
-        }
-        $counter = count($countarray);
-    }
-
-    echo "\n";
-    echo str_repeat(' ', $indent * 5) . '<div id="el' . $id . 'Parent" class="parent"' . $on_mouse . '>' . "\n";
-    echo str_repeat(' ', $indent * 6) . '<div class="nowrap"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" border="0" width="' . (($indent - 1) * $indent_level) . '" height="9" alt="" /><a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '&amp;tbl_group=' . htmlspecialchars($groupkey) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', true); return false} else {return true}">';
-    echo '<img name="imEx" id="el' . $id . 'Img" src="' . $GLOBALS['pmaThemeImage'] . 'b_plus.png" border="0" width="9" height="9" alt="+" /></a>' . "\n";
-    echo str_repeat(' ', $indent * 6) . '<a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '&amp;tbl_group=' . htmlspecialchars($groupkey) . '" title="' . htmlspecialchars($name) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', false)}"><span class="heada">' . htmlspecialchars($name) . '<bdo dir="' . $GLOBALS['text_dir'] . '">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(' . $counter . ')</span></a></div>' . "\n";
-    echo str_repeat(' ', $indent * 5) . '</div><!-- class="PMA_nestedSetHeaderParent" -->' . "\n";
-    echo "\n";
-
-    if ($childout) {
-        echo str_repeat(' ', $indent * 5) . '<div id="el' . $id . 'Child" class="child nowrap" ' . $on_mouse . '>' . "\n";
-    }
-}
-
-function PMA_nestedSetHeader($baseid, $tablestack, $keyhistory, $indent, $indent_level, $headerOut, $firstGroup = false, $firstGroupClose = true) {
-    if ($firstGroup) {
-        PMA_nestedSetHeaderParent($baseid, $firstGroup, $keyhistory, $indent, $indent_level, $tablestack);
-        $indent++;
-    }
-
-    foreach ($tablestack AS $key => $val) {
-        if ($key != 'pma_name' && $key != 'pma_list_item') {
-            if ($headerOut) {
-                PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_level, $val);
-            }
-
-            if (isset($val['pma_name']) && isset($val['pma_list_item']) && count($val) == 2) {
-                PMA_nestedSet($baseid, $val, $key, $keyhistory . ($keyhistory != '' ? $GLOBALS['cfg']['LeftFrameTableSeparator'] : '') . $key, false, ($indent + 1));
-            } else {
-                PMA_nestedSet($baseid, $val, $key, $keyhistory . ($keyhistory != '' ? $GLOBALS['cfg']['LeftFrameTableSeparator'] : '') . $key, true, ($indent + 1));
-            }
-
-            if ($headerOut) {
-                echo str_repeat(' ', $indent * 5) . '</div><!-- class="PMA_nestedSetHeader" -->' . "\n";
-            }
-        }
-    }
-
-    if ($firstGroup && $firstGroupClose) {
-        echo str_repeat(' ', $indent * 4) . '</div><!-- class="PMA_nestedSetHeader2" -->' . "\n";
-    } elseif ($firstGroup) {
-        echo str_repeat(' ', $indent * 4) . '<!-- spacer="div omitted" class="PMA_nestedSetHeader2" -->' . "\n";
-    }
-}
-
-function PMA_nestedSet($baseid, $tablestack, $key = '__protected__', $keyhistory = '', $headerOut = false, $indent = 1) {
-
-    if ($keyhistory == '' && $key != '__protected__') {
-        $keyhistory = $key;
-    }
-
-    $indent_level = 9;
-
-    if (isset($tablestack)
-        && isset($tablestack['pma_name'])
-        && isset($tablestack['pma_list_item'])) {
-
-        if (count($tablestack) > 1 && !empty($key) && isset($tablestack['pma_name']) && isset($tablestack['pma_list_item']) && $indent == 1) {
-            PMA_nestedSetHeader($baseid, $tablestack, $keyhistory, ($indent+1), $indent_level, $headerOut, $key, false);
-            $divClose = true;
-            $extra_indent = 1;
-        } else {
-            PMA_nestedSetHeader($baseid, $tablestack, $keyhistory, $indent, $indent_level, $headerOut);
-            $divClose = false;
-            $extra_indent = 0;
-        }
-
-        $on_mouse = (($GLOBALS['cfg']['LeftPointerEnable'] == FALSE) ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $keyhistory . $key . '\', \'' . $GLOBALS['cfg']['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $keyhistory . $key . '\', \'' . $GLOBALS['cfg']['LeftBgColor'] . '\')}"');
-
-        $loops = 0;
-        foreach ($tablestack['pma_name'] AS $tkey => $tval) {
-
-            echo str_repeat(' ', $indent * 5) . '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' .'" border="0" width="' . (($indent+$extra_indent) * $indent_level) . '" height="9" alt="" />';
-            $items = explode("\n", $tablestack['pma_list_item'][$tkey]);
-            foreach ($items AS $ikey => $ival) {
-                echo "\n";
-                echo str_repeat(' ', ($indent * 5)) . $ival;
-            }
-            echo "\n";
-
-            $loops++;
-        }
-
-        if ($divClose) {
-            echo str_repeat(' ', $indent * 5) . '</div><!-- space="putting omitted div" class="PMA_nestedSet2" -->';
-        }
-
-    } elseif (is_array($tablestack)) {
-        PMA_nestedSetHeader($baseid, $tablestack, $keyhistory, (($key == '__protected__' && $indent == 1 )? ($indent-1) : ($indent + 1)), $indent_level, $headerOut,  (($key == '__protected__' && $indent == 1) || ($indent > 1) ? false : $key));
-    }
-
-    return true;
-}
 /**
  * Get the list and number of available databases.
  * Skipped if no server selected: in this case no database should be displayed
  * before the user choose among available ones at the welcome screen.
  */
 if ($server > 0) {
-    PMA_availableDatabases(); // this function is defined in "common.lib.php"
+    // this function is defined in "common.lib.php"
+    // it defines $num_dbs and $dblist
+    PMA_availableDatabases();
 } else {
     $num_dbs = 0;
 }
@@ -205,125 +62,195 @@ require_once('./libraries/header_http.inc.php');
 /**
  * Displays the frame
  */
-// Gets the font sizes to use
-PMA_setFontSizes();
-echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">"; // remove vertical scroll bar bug in ie
+// remove vertical scroll bar bug in ie
+echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xml:lang="<?php echo $available_languages[$lang][2]; ?>"
+    lang="<?php echo $available_languages[$lang][2]; ?>"
+    dir="<?php echo $text_dir; ?>">
 
 <head>
     <title>phpMyAdmin</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
-    <base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> target="phpmain<?php echo $hash; ?>" />
+    <meta http-equiv="Content-Type"
+        content="text/html; charset=<?php echo $charset; ?>" />
+    <base href="<?php echo $GLOBALS['cfg']['PmaAbsoluteUri']; ?>"
+        target="phpmain<?php echo $_SESSION['window_name_hash']; ?>" />
 
     <script type="text/javascript" language="javascript">
     <!--
-    function goTo(targeturl, targetframe) {
-        if (!targetframe) {
-            targetframe = self;
+    var table = '<?php echo $GLOBALS['table']; ?>';
+    var db    = '<?php echo $GLOBALS['db']; ?>';
+    var querywindowurl = 'querywindow.php?<?php
+        echo PMA_generate_common_url('','','&'); ?>';
+    var querywindow = '';
+    
+    // sets current selected table (called from footer.inc.php)
+    function setTable( new_db, new_table ) {
+        if ( new_db != db ) {
+            if ( typeof( document.getElementById( new_db ) ) == 'undefined' ) {
+                goTo('left.php?<?php echo PMA_generate_common_url('','','&');?>&db=' + new_db + '&table=' + new_table);
+                return;
+            }
+            db = new_db;
+        }
+        
+        if ( new_table != table ) {
+            if ( typeof( document.getElementById( new_db + '.' + new_table ) ) == 'undefined' ) {
+                goTo('left.php?<?php echo PMA_generate_common_url('','','&');?>&db=' + new_db + '&table=' + new_table);
+                return;
+            }
+            table = new_table;
+        }
+    }
+    
+    // opens selected db in left and main frame
+    function openDb( db, nomain ) {
+        goTo('left.php?<?php echo PMA_generate_common_url('','','&');?>&db=' + db);
+        if ( !nomain ) {
+            goTo(
+                '<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] . '?' 
+                . PMA_generate_common_url('','','&');?>&db=' + db,
+                window.parent.frames[1] );
+        }
+        
+        return true;
+    }
+    
+    function open_querywindow( url ) {
+        if ( ! url ) {
+            url = querywindowurl + '&db=' + db + '&table=' + table;
+        }
+    
+        if (!querywindow.closed && querywindow.location) {
+            querywindow.focus();
+        } else {
+            querywindow=window.open( url, '',
+                'toolbar=0,location=0,directories=0,status=1,menubar=0,' +
+                'scrollbars=yes,resizable=yes,' +
+                'width=<?php echo $GLOBALS['cfg']['QueryWindowWidth']; ?>,' +
+                'height=<?php echo $GLOBALS['cfg']['QueryWindowHeight']; ?>');
+        }
+    
+        if (!querywindow.opener) {
+            querywindow.opener = blank;
+        }
+    
+        if (window.focus) {
+            querywindow.focus();
+        }
+    
+        return true;
+    }
+    
+    function toggle( id, only_open ) {
+        el = document.getElementById('subel' + id);
+        if ( ! el ) {
+            return false;
+        }
+        
+        img = document.getElementById('el' + id + 'Img');
+        
+        if ( el.style.display == 'none' || only_open ) {
+            el.style.display = '';
+            if ( img ) {
+                img.src = '<?php echo $pmaThemeImage; ?>b_minus.png';
+                img.alt = '-';
+            }
+        } else {
+            el.style.display = 'none';
+            if ( img ) {
+                img.src = '<?php echo $pmaThemeImage; ?>b_plus.png';
+                img.alt = '+';
+            }
+        }
+        return true;
+    }
+
+    function goTo( targeturl, target ) {
+        if ( target == 'main' ) {
+            target = window.parent.frames[1];
+        } else if ( target == 'query' ) {
+            //target = window.parent.frames[1];
+            return open_querywindow( targeturl );
+        } else if ( ! target ) {
+            target = window.parent.frames[0];
         }
 
-        if (targetframe) {
+        if ( target ) {
+            if ( target.location.href == targeturl ) {
+                return true;
+            } else if ( target.location.href == '<?php echo $GLOBALS['cfg']['PmaAbsoluteUri']; ?>' + targeturl ) {
+                return true;
+            }
 <?php if (PMA_USR_BROWSER_AGENT != 'SAFARI') { ?>
-            targetframe.location.replace(targeturl);
+            target.location.replace(targeturl);
 <?php } else { ?>
-            targetframe.location.href = targeturl;
+            target.location.href = targeturl;
 <?php } ?>
         }
 
         return true;
     }
-
-<?php
-if (isset($lightm_db) && !empty($lightm_db)) {
-?>
-    goTo('./<?php echo $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db, '', '&');?>', window.parent.frames['phpmain<?php echo $hash; ?>']);
-<?php
-} elseif (isset($lightm_db)) {
-?>
-    goTo('./main.php?<?php echo PMA_generate_common_url('', '', '&');?>', window.parent.frames['phpmain<?php echo $hash; ?>']);
-<?php
-}
-?>
     //-->
     </script>
-
-<?php
-// Expandable/collapsible databases list is only used if there is more than one
-// database to display
-if (($num_dbs > 1 || !empty($cfg['LeftFrameTableSeparator'])) && !$cfg['LeftFrameLight']) {
-    echo "\n";
-    ?>
-    <!-- Collapsible tables list scripts -->
-    <script type="text/javascript" language="javascript">
-    <!--
-    var imgUrlPlus  = "<?php echo $GLOBALS['pmaThemeImage'] . 'b_plus.png'; ?>";
-    var imgUrlMinus = "<?php echo $GLOBALS['pmaThemeImage'] . 'b_minus.png'; ?>";
-    var isDOM      = (typeof(document.getElementsByTagName) != 'undefined'
-                      && typeof(document.createElement) != 'undefined')
-                   ? 1 : 0;
-    var isIE4      = (typeof(document.all) != 'undefined'
-                      && parseInt(navigator.appVersion) >= 4)
-                   ? 1 : 0;
-    var isNS4      = (typeof(document.layers) != 'undefined')
-                   ? 1 : 0;
-    var capable    = (isDOM || isIE4 || isNS4)
-                   ? 1 : 0;
-    // Uggly fix for Opera and Konqueror 2.2 that are half DOM compliant
-    if (capable) {
-        if (typeof(window.opera) != 'undefined') {
-            var browserName = ' ' + navigator.userAgent.toLowerCase();
-            if ((browserName.indexOf('konqueror 7') == 0)) {
-                capable = 0;
-            }
-        }
-        else if (typeof(navigator.userAgent) != 'undefined') {
-            var browserName = ' ' + navigator.userAgent.toLowerCase();
-            if ((browserName.indexOf('konqueror') > 0) && (browserName.indexOf('konqueror/3') == 0)) {
-                capable = 0;
-            }
-        } // end if... else if...
-    } // end if
-
-    var isServer    = <?php echo ($server > 0) ? 'true' : 'false'; ?>;
-
-    document.writeln('<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=left&amp;js_capable=' + capable + '&amp;js_isDOM=' + isDOM + '&amp;js_isIE4=' + isIE4 + '" />');
-    //-->
-    </script>
-<noscript>
-        <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=left&amp;js_capable=0&amp;js_isDOM=0&amp;js_isIE4=0" />
-</noscript>
-
-    <script src="libraries/left.js" type="text/javascript" language="javascript1.2"></script>
-    <?php
-} // end if ($num_dbs > 1)
-
-else if ($num_dbs == 1) {
-    echo "\n";
-    ?>
-    <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php?js_frame=left&amp;js_capable=0&amp;js_isDOM=0&amp;js_isIE4=0" />
-    <?php
-} // end if ($num_dbs == 1)
-
-else {
-    echo "\n";
-    ?>
-    <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php?js_frame=left&amp;num_dbs=0" />
-    <?php
-} // end if ($num_dbs < 1)
-
-echo "\n";
-?>
+    <link rel="stylesheet" type="text/css"
+        href="./css/phpmyadmin.css.php?js_frame=left" />
 </head>
 
-<body bgcolor="<?php echo $cfg['LeftBgColor']; ?>" id="body_leftFrame">
+<body id="body_leftFrame">
 <?php
-if ( ! $cfg['QueryFrame'] ) {
-    require 'libraries/left_header.inc.php';
-} // end !$cfg['QueryFrame']
+require 'libraries/left_header.inc.php';
 
+if ( $num_dbs === 0 ) {
+    // no database available, so we break here
+    echo '<p>' . $strNoDatabases . '</p></body></html>';
+    
+    /**
+     * Close MySql connections
+     */
+    if (isset($dbh) && $dbh) {
+        @PMA_DBI_close($dbh);
+    }
+    if (isset($userlink) && $userlink) {
+        @PMA_DBI_close($userlink);
+    }
+    
+    /**
+     * Sends bufferized data
+     */
+    if ( $GLOBALS['cfg']['OBGzip'] && isset( $ob_mode ) && $ob_mode ) {
+         PMA_outBufferPost( $ob_mode );
+    }
+    exit();
+} elseif ( $GLOBALS['cfg']['LeftFrameLight'] && $num_dbs > 1 ) {
+    // more than one database available and LeftFrameLight is true
+    // display db selectbox
+
+    $_location = PMA_generate_common_url( '', '' );
+    ?>
+    <div id="databaseList">
+    <form method="post" action="index.php" target="_parent" id="left"
+        onsubmit="
+        <?php /* open database in main window */ ?>
+        goTo( '<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] . '?' 
+                . $_location; ?>&amp;db=' + this.value, 'main' );
+        <?php /* refresh left frame with tables from selected db */ ?>
+        goTo( 'left.php?<?php echo $_location; ?>&amp;db=' + this.value);
+        return false;">
+    <label for="lightm_db"><?php echo $strDatabase; ?></label>
+    <?php
+    echo PMA_generate_common_hidden_inputs() . "\n";
+    echo PMA_getHtmlSelectDb( $db ) . "\n";
+    echo '<noscript>' . "\n"
+        .'<input type="submit" name="Go" value="' . $strGo . '" />' . "\n"
+        .'</noscript>' . "\n"
+        .'</form>' . "\n"
+        .'</div>' . "\n";
+    unset( $_location );
+}
 ?>
 <!-- Databases and tables list -->
 <div id="left_tableList">
@@ -331,502 +258,310 @@ if ( ! $cfg['QueryFrame'] ) {
 // Don't display expansible/collapsible database info if:
 // 1. $server == 0 (no server selected)
 //    This is the case when there are multiple servers and
-//    '$cfg['ServerDefault'] = 0' is set. In that case, we want the welcome
+//    '$GLOBALS['cfg']['ServerDefault'] = 0' is set. In that case, we want the welcome
 //    screen to appear with no database info displayed.
 // 2. there is only one database available (ie either only one database exists
-//    or $cfg['Servers']['only_db'] is defined and is not an array)
+//    or $GLOBALS['cfg']['Servers']['only_db'] is defined and is not an array)
 //    In this case, the database should not be collapsible/expandable
-if ($num_dbs > 1) {
 
-    // Light mode -> beginning of the select combo for databases
-    // Note: When javascript is active, the frameset will be changed from
-    // within left.php. With no JS (<noscript>) the whole frameset will
-    // be rebuilt with the new target frame.
-    if ($cfg['LeftFrameLight']) {
-        $table_list = '';
-        $table_list_header = '';
-        $db_name    = '';
-    } // end FrameLight
+// Light mode -> beginning of the select combo for databases
+// Note: When javascript is active, the frameset will be changed from
+// within left.php. With no JS (<noscript>) the whole frameset will
+// be rebuilt with the new target frame.
 
-    $selected_db = 0;
+$img_plus = '<img id="el%dImg" src="' . $pmaThemeImage . 'b_plus.png"' 
+    .' width="9" height="9" alt="+" />';
+$img_minus = '<img id="el%dImg" src="' . $pmaThemeImage . 'b_minus.png"' 
+    .' width="9" height="9" alt="-" />';
 
-    // natural order for db list; but do not sort if user asked
-    // for a specific order with the 'only_db' mechanism
+$href_left = '<a onclick="if ( toggle(\'%d\') ) return false;"'
+    .' href="left.php?%s" target="_self">';
 
-    if (!is_array($cfg['Server']['only_db']) && $cfg['NaturalOrder'] && $num_dbs > 0) {
-        $dblist_temp = $dblist;
-        natsort($dblist_temp);
-        $i = 0;
-        foreach ($dblist_temp as $each) {
-            $dblist[$i] = $each;
-            $i++;
-        }
+$element_counter = 0;
+
+if ( $GLOBALS['cfg']['LeftFrameLight'] && ! empty( $db ) ) {
+    $common_url_query = PMA_generate_common_url( $db );
+    $table_list = PMA_getTableList( $db );
+    if ( count( $table_list ) > 0 ) {
+        PMA_displayTableList( $table_list, true, '', $db );
+    } else {
+        echo $strNoTablesFound;
     }
+    unset( $table_list );
+} elseif ( $GLOBALS['cfg']['LeftFrameLight'] ) {
+    echo '<p>' . $GLOBALS['strSelectADb'] . '</p>' . "\n";
+} else {
+    $common_url_query = PMA_generate_common_url();
+    PMA_displayDbList( PMA_getDbList() );
+}
 
-    // Gets the tables list per database
-    for ($i = 0; $i < $num_dbs; $i++) {
-        $db = $dblist[$i];
-        $j  = $i + 2;
-        if (!empty($db_start) && $db == $db_start) {
-            $selected_db = $j;
-        }
-        /**
-         * The query below will return a result set with a single field under
-         * MySQL versions before 5.0 and one with two fields under MySQL 5.0
-         * and above. The MySQL 5 result set also includes the table type
-         * ('BASE TABLE', 'VIEW' or 'TEMPORARY').
-         * MySQL 4 does neither know about views nor differ between permanent
-         * and temporary tables, so the table type is irrelevant here.
-         */
-        $tables              = PMA_DBI_try_query('SHOW ' . (PMA_MYSQL_INT_VERSION >= 50000 ? 'FULL ' : '') . 'TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
-        $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
-        $common_url_query    = PMA_generate_common_url($db);
-        if ($num_tables) {
-            $num_tables_disp = $num_tables;
-        } else {
-            $num_tables_disp = '-';
-        }
-
-        // Get additional information about tables for tooltip
-        if ($cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303
-            && $num_tables
-            && (!$cfg['LeftFrameLight'] || $selected_db == $j)) {
-            $tooltip = array();
-            $tooltip_name = array();
-            $result  = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
-            while ($tmp = PMA_DBI_fetch_assoc($result)) {
-                $tooltip_name[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '');
-                $tmp['Comment'] = ($cfg['ShowTooltipAliasTB'] && $cfg['ShowTooltipAliasTB'] !== 'nested' ? $tmp['Name'] : $tmp['Comment']);
-
-                $tooltip[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '')
-                                       . '(' . (isset($tmp['Rows']) ? $tmp['Rows'] : '0') . ' ' . $strRows . ')';
-            } // end while
-        } // end if
-
-        // garvin: Get comments from PMA comments table
-        $db_tooltip = '';
-        if ($cfg['ShowTooltip'] && $cfgRelation['commwork']) {
-            $tmp_db_tooltip = PMA_getComments($db);
-            if (is_array($tmp_db_tooltip)) {
-                $db_tooltip = implode(' ', $tmp_db_tooltip);
+/**
+ * displays collapsable db list
+ * 
+ * @uses    $_REQUEST['dbgroup']
+ * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
+ * @uses    $GLOBALS['strSelectADb']
+ * @uses    strpos()
+ * @uses    urlencode()
+ * @uses    printf()
+ * @uses    htmlspecialchars()
+ * @uses    PMA_generate_common_url()
+ * @uses    PMA_getTableList()
+ * @uses    PMA_displayTableList()
+ * @global  $element_counter
+ * @global  $img_minus
+ * @global  $img_plus
+ * @global  $href_left
+ * @global  $num_dbs
+ * @global  $db_start
+ * @global  $common_url_query
+ * @param   array   $ext_dblist extended db list
+ */
+function PMA_displayDbList( $ext_dblist ) {
+    global $element_counter, $img_minus, $img_plus, $href_left, $num_dbs,
+        $db_start, $common_url_query;
+    
+    $url_dbgroup = '';
+    echo '<ul id="leftdatabaselist">';
+    $close_db_group = false;
+    foreach ( $ext_dblist as $group => $db_group ) {
+        if ( $num_dbs > 1 ) {
+            if ( $close_db_group ) {
+                $url_dbgroup = '';
+                echo '</ul>';
+                echo '</li>';
+                $close_db_group = false;
+            }
+            if ( count( $db_group ) > 1 ) {
+                $close_db_group = true;
+                $url_dbgroup = '&amp;dbgroup=' . urlencode( $group );
+                $common_url_query = PMA_generate_common_url() . $url_dbgroup;
+                $element_counter++;
+                echo '<li class="dbgroup">';
+                if ( ( ! empty( $_REQUEST['dbgroup'] ) && $_REQUEST['dbgroup'] == $group ) 
+                  || $db_start == $group || strpos( $db_start, $group ) === 0 ) {
+                    // display + only if this db(group) is not preselected
+                    printf( $href_left, $element_counter, PMA_generate_common_url() );
+                    printf( $img_minus, $element_counter );
+                } else {
+                    printf( $href_left, $element_counter, $common_url_query );
+                    printf( $img_plus, $element_counter );
+                }
+                echo '</a> ' . $group . "\n";
+                if ( ( ! empty( $_REQUEST['dbgroup'] ) && $_REQUEST['dbgroup'] == $group ) 
+                  || $db_start == $group || strpos( $db_start, $group ) === 0 ) {
+                    echo '<ul id="subel' . $element_counter . '">' . "\n";
+                } else {
+                    echo '<ul id="subel' . $element_counter . '"'
+                        .' style="display: none">' . "\n";
+                }
             }
         }
-
-        // No light mode -> displays the expandible/collapsible db list
-        if ($cfg['LeftFrameLight'] == FALSE) {
-
+        foreach ( $db_group as $db ) {
+            $common_url_query = PMA_generate_common_url( $db['name'] ) . $url_dbgroup;
+    
+            $element_counter++;
             // Displays the database name
-            $on_mouse = (($cfg['LeftPointerEnable'] == FALSE) ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfg['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfg['LeftBgColor'] . '\')}"');
-
-            echo "\n";
-            echo '    <div id="el' . $j . 'Parent" class="parent nowrap"' . $on_mouse . '>';
-
-            if (!empty($num_tables)) {
-                echo "\n";
-            ?>
-            <a class="item" href="<?php echo $cfg['DefaultTabDatabase']; ?>?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', true); return false} else {return true}">
-            <img name="imEx" id="el<?php echo $j; ?>Img" src="<?php echo $pmaThemeImage; ?>b_plus.png" border="0" width="9" height="9" alt="+" /></a>
-            <?php
-            } else {
-                echo "\n";
-            ?>
-            <img name="imEx" src="<?php echo $pmaThemeImage; ?>b_minus.png" border="0" width="9" height="9" alt="-" />
-            <?php
-            }
-            echo "\n";
-            ?>
-            <a class="item" href="<?php echo $cfg['DefaultTabDatabase']; ?>?<?php echo $common_url_query; ?>" title="<?php echo ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db) : htmlspecialchars($db_tooltip)); ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', false)}">
-            <span class="heada"><?php echo ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? '<i>' . htmlspecialchars($db_tooltip) . '</i>' : htmlspecialchars($db)); ?><bdo dir="<?php echo($text_dir); ?>">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a>
-        </div>
-
-        <div id="el<?php echo $j;?>Child" class="child nowrap" style="margin-bottom: 5px"<?php echo $on_mouse; ?>>
-        <?php
-            // Displays the list of tables from the current database
-            $tablestack  = array();
-            $table_array = array();
-            $table_types = array();
-            while (@list($table, $type) = PMA_DBI_fetch_row($tables)) {
-                $table_item = (!empty($tooltip_name) && isset($tooltip_name[$table]) && !empty($tooltip_name[$table]) && $cfg['ShowTooltipAliasTB'] && strtolower($cfg['ShowTooltipAliasTB']) !== 'nested'
-                            ? htmlspecialchars($tooltip_name[$table])
-                            : htmlspecialchars($table));
-                $table_array[$table] = $table_item;
-                $table_types[$table] = empty($type) ? 'BASE TABLE' : $type;
-            }
-
-            if ($cfg['NaturalOrder']) {
-                natsort($table_array);
-            }
-
-            $book_sql_cache = PMA_queryDBBookmarks($db, $cfg['Bookmark'], $table_array);
-            foreach ($table_array as $table => $table_sortkey) {
-                $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
-                           ? htmlspecialchars($tooltip_name[$table])
-                           : '';
-                $url_title = (!empty($tooltip) && isset($tooltip[$table]))
-                           ? htmlspecialchars($tooltip[$table])
-                           : '';
-                $table_item = ($alias != '' && $cfg['ShowTooltipAliasTB'] && strtolower($cfg['ShowTooltipAliasTB']) !== 'nested'
-                            ? $alias
-                            : htmlspecialchars($table));
-                $tablename = ($alias != '' && $cfg['ShowTooltipAliasTB']
-                           ? $alias
-                           : htmlspecialchars($table));
-
-                $book_sql_query = (isset($book_sql_cache[$table]) ? $book_sql_cache[$table] : FALSE);
-
-                $list_item = '<a target="phpmain' . $hash . '" href="sql.php?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '" title="' . $strBrowse . ': ' . $url_title . '">';
-                $list_item .= '<img src="' . $pmaThemeImage . ($table_types[$table] == 'VIEW' ? 's_views' : 'b_sbrowse') . '.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
-                $list_item .= '<bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
-                $list_item .= '<a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">';
-                $list_item .= $table_item . '</a><br />' . "\n";
-
-                // garvin: Check whether to display nested sets
-                if (!empty($cfg['LeftFrameTableSeparator'])) {
-                    $_table = explode($cfg['LeftFrameTableSeparator'],  str_replace('\'', '\\\'', $tablename));
-                    if (is_array($_table)) {
-                        foreach ($_table AS $key => $val) {
-                            if ($val == '') {
-                                $_table[$key] = '__protected__';
-                            }
-                        }
-                        PMA_reduceNest($_table);
-
-                        if (count($_table) == 1) {
-                            array_unshift($_table, '');
-                        }
-                        PMA_multimerge($tablestack, $_table);
-                    } else {
-                        $tablestack['']['pma_name'][] = $table_item;
-                        $tablestack['']['pma_list_item'][] = $list_item;
-                    }
+            echo '<li>' . "\n";
+            
+            if ( $num_dbs > 1 ) {
+                // only with more than one db we need collapse ...
+                if ( $db_start != $db['name'] || $db['num_tables'] < 1 ) {
+                    // display + only if this db is not preselected
+                    // or table count is 0
+                    printf( $href_left, $element_counter, $common_url_query );
+                    printf( $img_plus, $element_counter );
                 } else {
-                    $tablestack['']['pma_name'][] = $table_item;
-                    $tablestack['']['pma_list_item'][] = $list_item;
+                    printf( $href_left, $element_counter,
+                        PMA_generate_common_url() . $url_dbgroup );
+                    printf( $img_minus, $element_counter );
                 }
-            } // end while (tables list)
-
-            PMA_nestedSet($j, $tablestack);
-        ?>
-        </div>
-        <?php
-            echo "\n";
-        }
-
-        // Light mode -> displays the select combo with databases names and the
-        // list of tables contained in the current database
-        else {
-            echo "\n";
-
-            // Builds the databases' names list
-            if (!empty($db_start) && $db == $db_start) {
-                $table_title = array();
-                $table_array = array();
-                // Gets the list of tables from the current database
-                $book_sql_cache = PMA_queryDBBookmarks($db, $cfg['Bookmark'], $table_array);
-                while (@list($table, $type) = PMA_DBI_fetch_row($tables)) {
-                    $table_array[$table] = '';
-                    $url_title  = (!empty($tooltip) && isset($tooltip[$table]))
-                                ? htmlspecialchars($tooltip[$table])
-                                : '';
-                    $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
-                               ? htmlspecialchars($tooltip_name[$table])
-                               : '';
-
-                    $book_sql_query = (isset($book_sql_cache[$table]) ? $book_sql_cache[$table] : FALSE);
-
-                    // natural order or not, use an array for the table list
-
-                    $table_array[$table] .= '    <div class="nowrap"><a target="phpmain' . $hash . '" href="sql.php?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '">' . "\n";
-                    $table_array[$table] .= '              <img src="' . $pmaThemeImage . (!empty($type) && $type == 'VIEW' ? 's_views' : 'b_sbrowse') . '.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" title="' . $strBrowse . ': ' . $url_title . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
-
-                    if (PMA_USR_BROWSER_AGENT == 'IE') {
-                        $table_array[$table] .= '          <span class="tblItem"><a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></span></div>' . "\n";
-                    } else {
-                        $table_array[$table] .= '          <a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></div>' . "\n";
-                    }
-
-                    $table_title[$table] = htmlspecialchars($table);
-
-                } // end while (tables list)
-
-                if (count($table_title) > 0) {
-                    if ($cfg['NaturalOrder'] && $num_tables > 0) {
-                        natsort($table_title);
-                    }
-
-                    foreach ($table_title as $each_key => $each_val) {
-                        $table_list .= ' ' . $table_array[$each_key];
-                    }
-                } else {
-                    $table_list = '    <br /><br />' . "\n"
-                                . '    <div>' . $strNoTablesFound . '</div>' . "\n";
-                }
-                $selected = ' selected="selected"';
-
-                $table_list_header .= '    <a class="item" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabDatabase'] . '?' . $common_url_query . '">' . "\n";
-                $table_list_header .= '        <span class="heada"><b>' . ($db_tooltip != '' && $cfg['ShowTooltipAliasTB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)) . '</b><bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span></a><br />' . "\n\n";
-            } else {
-                $selected = '';
-            } // end if... else...
-
-        } // end if (light mode)
-
-    } // end for $i (db list)
-
-    // Light mode -> end of the select combo for databases and table list for
-    // the current database
-    if ($cfg['LeftFrameLight']) {
-        if (!$table_list) {
-            $table_list = '    <div align="center"><b>' . $strSelectADb . '</b></div>' . "\n";
-        }
-
-        // Displays the current database name and the list of tables it
-        // contains
-
-        echo $table_list_header;
-        echo $table_list;
-    }
-
-    // No light mode -> initialize some js variables for the
-    // expandible/collapsible stuff
-    else {
-    ?>
-
-    <!-- Arrange collapsible/expandable db list at startup -->
-    <script type="text/javascript" language="javascript1.2">
-    <!--
-        if (isNS4) {
-            firstEl  = 'el1Parent';
-            firstInd = nsGetIndex(firstEl);
-            nsShowAll();
-            nsArrangeList();
-        }
-        var expandedDb = '<?php echo (empty($selected_db)) ? '' : 'el' . $selected_db . 'Child'; ?>';
-    //-->
-    </script>
-    <?php
-
-    } // end if... else... (light mode)
-
-} // end if ($server > 1)
-
-
-// Case where only one database has to be displayed
-else if ($num_dbs == 1) {
-    $db                  = $dblist[0];
-    $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
-    $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
-    $common_url_query    = PMA_generate_common_url($db);
-    if ($num_tables) {
-        $num_tables_disp = $num_tables;
-    } else {
-        $num_tables_disp = '-';
-    }
-
-    // Get additional infomation about tables for tooltip
-    if ($cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303
-        && $num_tables) {
-        $tooltip = array();
-        $tooltip_name = array();
-        $result  = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db), NULL, PMA_DBI_QUERY_STORE);
-        while ($tmp = PMA_DBI_fetch_assoc($result)) {
-            $tooltip_name[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '');
-            $tmp['Comment'] = ($cfg['ShowTooltipAliasTB'] && $cfg['ShowTooltipAliasTB'] !== 'nested' ? $tmp['Name'] : $tmp['Comment']);
-
-            $tooltip[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '')
-                                   . '(' . (isset($tmp['Rows']) ? $tmp['Rows'] : '0') . ' ' . $strRows . ')';
-        } // end while
-    } // end if
-
-    // garvin: Get comments from PMA comments table
-    $db_tooltip = '';
-    if ($cfg['ShowTooltip'] && $cfgRelation['commwork']) {
-        $tmp_db_tooltip = PMA_getComments($db);
-        if (is_array($tmp_db_tooltip)) {
-            $db_tooltip = implode(' ', $tmp_db_tooltip);
-        }
-    }
-
-
-    // Displays the database name
-    if (!$cfg['LeftFrameLight']) {
-            $on_mouse = (($cfg['LeftPointerEnable'] == FALSE) ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el2\', \'' . $cfg['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el2\', \'' . $cfg['LeftBgColor'] . '\')}"');
-
-            echo "\n";
-            echo '    <div id="el2Parent" class="parent"' . $on_mouse . '>';
-
-            if (!empty($num_tables)) {
-                echo "\n";
+                echo '</a>';
+                
+                // ... and we need to refresh both frames on db selection
                 ?>
-        <div class="nowrap"><a class="item" href="<?php echo $cfg['DefaultTabDatabase']; ?>?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el2', true); return false} else {return true}">
-            <img name="imEx" id="el2Img" src="<?php echo $pmaThemeImage; ?>b_plus.png" border="0" width="9" height="9" alt="+" /></a>
+                <a class="item"
+                    id="<?php echo $db['name']; ?>"
+                    href="index.php?<?php echo $common_url_query; ?>"
+                    target="_parent" 
+                    title="<?php echo htmlspecialchars( $db['comment'] ); ?>" 
+                    onclick="
+                        if ( ! toggle('<?php echo $element_counter; ?>', true) )
+                            goTo( './left.php?<?php echo $common_url_query; ?>' );
+                        goTo( './<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] 
+                            . '?' . $common_url_query; ?>', 'main' );
+                        return false;">
+                    <?php echo htmlspecialchars( $db['disp_name'] ); ?>
+                    (<?php echo $db['num_tables']; ?>)
+                </a>
                 <?php
             } else {
-                echo "\n";
+                // with only 1 db available we dont need to refresh left frame
+                // on db selection, only phpmain
                 ?>
-        <div class="nowrap"><img name="imEx" src="<?php echo $pmaThemeImage; ?>b_minus.png" border="0" width="9" height="9" alt="-" />
+                <a href="<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] 
+                    . '?' . $common_url_query; ?>"
+                    id="<?php echo $db['name']; ?>"
+                    title="<?php echo htmlspecialchars( $db['comment'] ); ?>">
+                    <?php echo htmlspecialchars( $db['disp_name'] ); ?>
+                    (<?php echo $db['num_tables']; ?>)
+                </a>
                 <?php
             }
-            echo "\n";
-            ?>
-        <a class="item" href="<?php echo $cfg['DefaultTabDatabase']; ?>?<?php echo $common_url_query; ?>" title="<?php echo ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db) : htmlspecialchars($db_tooltip)); ?>" onclick="if (capable) {expandBase('el2', false)}">
-            <span class="heada"><?php echo ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? '<i>' . htmlspecialchars($db_tooltip) . '</i>' : htmlspecialchars($db)); ?><bdo dir="<?php echo($text_dir); ?>">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a></div>
-    </div>
-
-    <div id="el2Child" class="child" style="margin-bottom: 5px"<?php echo $on_mouse; ?>>
-    <?php
-    } else {
-        echo "\n";
-        ?>
-    <div id="el2Parent" class="parent nowrap">
-        <a class="item" href="<?php echo $cfg['DefaultTabDatabase']; ?>?<?php echo $common_url_query; ?>">
-            <span class="heada"><?php echo ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)); ?><bdo dir="<?php echo($text_dir); ?>">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a>
-    </div>
-    <div id="el2Child" class="child nowrap" style="margin-bottom: 5px">
-        <?php
-    }
-
-    // Displays the list of tables from the current database
-    $tablestack = array();
-    $table_array = array();
-    while (list($table) = PMA_DBI_fetch_row($tables)) {
-        $table_item = (!empty($tooltip_name) && isset($tooltip_name[$table]) && !empty($tooltip_name[$table]) && $cfg['ShowTooltipAliasTB'] && strtolower($cfg['ShowTooltipAliasTB']) !== 'nested'
-                    ? htmlspecialchars($tooltip_name[$table])
-                    : htmlspecialchars($table));
-        $table_array[$table] = $table_item;
-    }
-
-    if ($cfg['NaturalOrder']) {
-        natcasesort($table_array);
-    }
-
-    $book_sql_cache = PMA_queryDBBookmarks($db, $cfg['Bookmark'], $table_array);
-    foreach ($table_array as $table => $table_sortkey) {
-        $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
-                   ? htmlspecialchars($tooltip_name[$table])
-                   : '';
-        $url_title = (!empty($tooltip) && isset($tooltip[$table]))
-                   ? htmlspecialchars($tooltip[$table])
-                   : '';
-        $table_item = ($alias != '' && $cfg['ShowTooltipAliasTB'] && strtolower($cfg['ShowTooltipAliasTB']) !== 'nested'
-                    ? $alias
-                    : htmlspecialchars($table));
-        $tablename = ($alias != '' && $cfg['ShowTooltipAliasTB']
-                   ? $alias
-                   : htmlspecialchars($table));
-
-        $book_sql_query = (isset($book_sql_cache[$table]) ? $book_sql_cache[$table] : FALSE);
-
-        if ($cfg['LeftFrameLight']) {
-        echo "\n";
-        ?>
-            <a target="phpmain<?php echo $hash; ?>" href="sql.php?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>" title="<?php echo $strBrowse . ': ' . $url_title; ?>">
-                  <img src="<?php echo $pmaThemeImage . 'b_sbrowse.png'; ?>" width="10" height="10" border="0" alt="<?php echo $strBrowse . ': ' . $url_title; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
-              <a class="tblItem" id="tbl_<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain<?php echo $hash; ?>" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
-                  <?php echo $table_item; ?></a><br />
-        <?php
-        } else {
-            $list_item = '<a target="phpmain' . $hash . '" href="sql.php?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '" title="' . $strBrowse . ': ' . $url_title . '">';
-            $list_item .= '<img src="' . $pmaThemeImage . 'b_sbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
-            $list_item .= '<bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
-            $list_item .= '<a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">';
-            $list_item .= $table_item . '</a><br />';
-
-            // garvin: Check whether to display nested sets
-            if (!empty($cfg['LeftFrameTableSeparator'])) {
-                $_table = explode($cfg['LeftFrameTableSeparator'],  str_replace('\'', '\\\'', $tablename));
-                if (is_array($_table)) {
-                    foreach ($_table AS $key => $val) {
-                        if ($val == '') {
-                            $_table[$key] = '__protected__';
-                        }
-                    }
-                    PMA_reduceNest($_table);
-
-                    if (count($_table) == 1) {
-                        array_unshift($_table, '');
-                    }
-                    PMA_multimerge($tablestack, $_table);
-                } else {
-                    $tablestack['']['pma_name'][] = $table_item;
-                    $tablestack['']['pma_list_item'][] = $list_item;
-                }
-            } else {
-                $tablestack['']['pma_name'][] = $table_item;
-                $tablestack['']['pma_list_item'][] = $list_item;
+            if ( $db['num_tables'] ) {                
+                $tables = PMA_getTableList( $db['name'] );
+                $child_visible =
+                    (bool) ($num_dbs === 1 || $db_start == $db['name']);
+                PMA_displayTableList( $tables, $child_visible, '', $db['name'] );
+            } elseif ( $GLOBALS['cfg']['LeftFrameLight'] ) {
+                // no tables and LeftFrameLight:
+                // display message no tables in selected db
+                echo '<p>' . $GLOBALS['strSelectADb'] . '</p>' . "\n";
             }
-        }
-    } // end for $j (tables list)
-
-    if (!$cfg['LeftFrameLight']) {
-        PMA_nestedSet('1', $tablestack);
-        ?>
-    </div>
-    <!-- Arrange collapsible/expandable db list at startup -->
-    <script type="text/javascript" language="javascript1.2">
-    <!--
-    if (isNS4) {
-      firstEl  = 'el1Parent';
-      firstInd = nsGetIndex(firstEl);
-      nsShowAll();
-      nsArrangeList();
+            echo '</li>' . "\n";
+        } // end foreach db
+    } // end foreach group
+    
+    if ( $close_db_group ) {
+        $url_dbgroup = '';
+        echo '</ul>';
+        echo '</li>';
+        $close_db_group = false;
     }
-    var expandedDb = '<?php echo (empty($selected_db)) ? '' : 'el' . $selected_db . 'Child'; ?>';
-    //-->
-    </script>
-        <?php
+    
+    echo '</ul>' . "\n";
+}
+
+/**
+ * display unordered list of tables
+ * calls itself recursively if table in given list
+ * is a list itself
+ * 
+ * @uses    is_array()
+ * @uses    count()
+ * @uses    urlencode()
+ * @uses    strpos()
+ * @uses    printf()
+ * @uses    htmlspecialchars()
+ * @uses    strlen()
+ * @uses    is_array()
+ * @uses    PMA_displayTableList()
+ * @uses    $_REQUEST['tbl_group']
+ * @uses    $GLOBALS['common_url_query']
+ * @uses    $GLOBALS['table']
+ * @uses    $GLOBALS['pmaThemeImage']
+ * @uses    $GLOBALS['cfg']['LeftFrameTableSeparator']
+ * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
+ * @uses    $GLOBALS['cfg']['DefaultTabTable']
+ * @uses    $GLOBALS['strRows']
+ * @uses    $GLOBALS['strBrowse']
+ * @global  $element_counter
+ * @global  $img_minus
+ * @global  $img_plus
+ * @global  $href_left
+ * @param   array   $tables         array of tables/tablegroups
+ * @param   boolean $visible        wether the list is visible or not
+ * @param   string  $tab_group_full full tab group name
+ * @param   string  $table_db       db of this table
+ */
+function PMA_displayTableList( $tables, $visible = false,
+    $tab_group_full = '', $table_db = '' ) {
+    
+    if ( ! is_array( $tables ) || count( $tables ) === 0 ) {
+        return;
+    }
+    
+    global $element_counter, $img_minus, $img_plus, $href_left;
+    $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
+    
+    if ( $visible ) {
+        echo '<ul id="subel' . $element_counter . '">';
     } else {
-        echo '    </div>';
+        echo '<ul id="subel' . $element_counter . '" style="display: none">';
     }
-
-    echo "\n";
-} // end if ($num_dbs == 1)
-
-
-// Case where no database has to be displayed
-else {
-    echo "\n";
-    echo '<p>' . $strNoDatabases . '</p>';
-} // end if ($num_dbs == 0)
-echo "\n";
-
-// 2004-08-05 added by Michael Keck
-//            reload queryframe if it exists and we delete a database
-//            or select a database from the db_list.
-$my_lightm_db = '';
-if (isset($lightm_db) && $lightm_db!='') {
-    $my_lightm_db = $lightm_db;
-}
-
-if ($cfg['LeftFrameLight'] && $cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
-    if (!isset($table_array) || count($table_array)==0) {
-        $my_url_query = PMA_generate_common_url('', '', '&');
-?>
-<script language="JavaScript" type="text/javascript">
-<!--
-function check_queryframe_reload() {
-    if (typeof(window.parent.frames['queryframe'])!='undefined' && typeof(window.parent.frames['queryframe'].document.forms['left'])!='undefined') {
-        if (window.parent.frames['queryframe'].document.forms['left'].elements['lightm_db'].value!='<?php echo $my_lightm_db; ?>') {
-            window.parent.frames['queryframe'].location.replace('<?php echo 'queryframe.php?' . $my_url_query . '&hash=' . $hash; ?>');
+    foreach( $tables as $group => $table ) {
+        if ( isset( $table['is' . $sep . 'group'] ) ) {
+            $common_url_query = $GLOBALS['common_url_query'] 
+                . '&amp;tbl_group=' . urlencode( $tab_group_full . $group );
+                
+            $element_counter++;
+            echo '<li>' . "\n";
+            if ( $visible && 
+              (( isset( $_REQUEST['tbl_group'] )
+                && ( strpos( $_REQUEST['tbl_group'], $group ) === 0
+                || strpos( $_REQUEST['tbl_group'], $sep . $group ) !== false ) )
+              ||
+              ( isset( $GLOBALS['table'] )
+                && strpos( $GLOBALS['table'], $group ) === 0 ) ) ) {
+                printf( $href_left, $element_counter,
+                    $GLOBALS['common_url_query'] . '&amp;tbl_group=' . $tab_group_full );
+                printf( $img_minus, $element_counter );
+            } else {
+                printf( $href_left, $element_counter, $common_url_query );
+                printf( $img_plus, $element_counter );
+            }
+            echo '</a>';
+            
+            ?>
+            <a href="index.php?<?php echo $common_url_query; ?>"
+                target="_parent" 
+                onclick="
+                    if ( ! toggle('<?php echo $element_counter; ?>', true) )
+                        goTo( './left.php?<?php echo $common_url_query; ?>' );
+                    goTo( './<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] 
+                        . '?' . $common_url_query; ?>', 'main' );
+                    return false;">
+                <?php echo htmlspecialchars( substr( $group, 0, strlen( $group ) - strlen( $sep ) ) ); ?>
+                (<?php echo $table['tab_count']; ?>)
+            </a>
+            <?php
+            
+            unset( $table['is' . $sep . 'group'] );
+            unset( $table['tab' . $sep . 'group'] );
+            unset( $table['tab' . $sep . 'count'] );
+            
+            if ( $visible && 
+              (( isset( $_REQUEST['tbl_group'] )
+                && ( strpos( $_REQUEST['tbl_group'], $group ) === 0
+                || strpos( $_REQUEST['tbl_group'], $sep . $group ) !== false ) )
+              ||
+              ( isset( $GLOBALS['table'] )
+                && strpos( $GLOBALS['table'], $group ) === 0 ) ) ) {
+                PMA_displayTableList( $table, true,
+                    $tab_group_full . $group, $table_db );
+            } else {
+                PMA_displayTableList( $table, false, '', $table_db );
+            }
+            echo '</li>' . "\n";
+        } elseif ( is_array( $table ) ) {
+            $href = $GLOBALS['cfg']['DefaultTabTable'] . '?' 
+                .$GLOBALS['common_url_query'] . '&amp;table=' 
+                .urlencode( $table['Name'] );
+            echo '<li>' . "\n";
+            echo '<a title="' . $GLOBALS['strBrowse'] . ': ' 
+                . htmlspecialchars( $table['Comment'] )
+                .' (' . $table['Rows'] . ' ' . $GLOBALS['strRows'] . ')"'
+                .' id="' . htmlspecialchars( $table_db . '.' . $table['Name'] ) . '"'
+                .' href="sql.php?' . $GLOBALS['common_url_query'] 
+                .'&amp;table=' . urlencode( $table['Name'] )
+                .'&amp;goto=' . $GLOBALS['cfg']['DefaultTabTable']
+                .'&amp;sql_query=' . urlencode('SELECT * FROM `' 
+                . $table['Name'] . '`') . '" '
+                .' >'
+                .'<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sbrowse.png"'
+                .' width="10" height="10" alt="*" /></a>' . "\n"
+                .'<a href="' . $href . '" title="' . $table['Comment']
+                .' (' . $table['Rows'] . ' ' . $GLOBALS['strRows'] . ')">'
+                . htmlspecialchars( $table['disp_name'] ) . '</a>';
+            echo '</li>' . "\n";
         }
     }
-}
-// This is a workaround for the problem in Safari 1.2.3 where the
-// top left frame does not load.
-// If we call this right away it usually prevents the top-left frame from
-// loading in Safari, so call it delayed. -Ryan Schmidt 2004-08-15
-setTimeout('check_queryframe_reload()', 1000);
-
-//-->
-</script>
-<?php
-    }
+    echo '</ul>' . "\n";
 }
 ?>
 </div>
 </body>
 </html>
-
 <?php
 /**
  * Close MySql connections
@@ -838,12 +573,10 @@ if (isset($userlink) && $userlink) {
     @PMA_DBI_close($userlink);
 }
 
-
 /**
  * Sends bufferized data
  */
-if (isset($cfg['OBGzip']) && $cfg['OBGzip']
-    && isset($ob_mode) && $ob_mode) {
-     PMA_outBufferPost($ob_mode);
+if ( $GLOBALS['cfg']['OBGzip'] && isset( $ob_mode ) && $ob_mode ) {
+     PMA_outBufferPost( $ob_mode );
 }
 ?>

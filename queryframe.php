@@ -173,9 +173,6 @@ require 'libraries/left_header.inc.php';
     <input type="hidden" name="table" value="" />
     <input type="hidden" name="framename" value="queryframe" />
 </form>
-<form name="hashform" action="queryframe.php">
-    <input type="hidden" name="hash" value="<?php echo $hash; ?>" />
-</form>
 </body>
 </html>
 

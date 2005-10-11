@@ -15,64 +15,29 @@ require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
 
 // If query window is wanted and open, update with latest selected db/table.
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
-?>
 
+    // $is_drop_database comes from sql.php when we saw a DROP DATABASE
+    // $force_queryframe_reload comes from db_operations.php
+    if ( empty( $is_drop_database ) &&  empty( $force_queryframe_reload ) ) {
+        $force_queryframe_reload = 'false';
+    } else {
+        $force_queryframe_reload = 'true';
+    }
+?>
 <script type="text/javascript">
 <!--
 <?php
     if (!isset($no_history) && !empty($db) && (!isset($error_message) || $error_message == '')) {
-        $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
-        $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
-        $common_url_query    = PMA_generate_common_url($db);
-        // if we put a space before the left bracket, it causes a display
-        // problem in IE
-        if ($num_tables) {
-            $num_tables_disp = '(' . $num_tables . ')';
-        } else {
-            $num_tables_disp = '(-)';
-        }
-    ?>
-    var forceQueryFrameReload = false;
-<?php
-    // $is_drop_database comes from sql.php when we saw a DROP DATABASE
-    // $force_queryframe_reload comes from db_operations.php
-    if ((isset($is_drop_database) && $is_drop_database) || (isset($force_queryframe_reload) && $force_queryframe_reload == TRUE)) {
-?>
-    forceQueryFrameReload = true;
-<?php
-    }
-?>
-    var dbBoxSetupDone = false;
-    function dbBoxSetup() {
-        if (dbBoxSetupDone != true) {
-            if (parent.frames.queryframe && parent.frames.queryframe.document.left && parent.frames.queryframe.document.left.lightm_db) {
-                parent.frames.queryframe.document.left.lightm_db.value = '<?php echo addslashes($db); ?>';
-                dbBoxSetupDone = true;
-            } else {
-                setTimeout("dbBoxSetup();",500);
-            }
-        }
-    }
-    if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.queryframeform) {
-        parent.frames.queryframe.document.queryframeform.db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";
-        parent.frames.queryframe.document.queryframeform.table.value = "<?php echo (isset($table) ? addslashes($table) : ''); ?>";
-    }
-    if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.left && parent.frames.queryframe.document.left.lightm_db) {
-        selidx = parent.frames.queryframe.document.left.lightm_db.selectedIndex;
-        if (parent.frames.queryframe.document.left.lightm_db.options[selidx].value == "<?php echo addslashes($db); ?>" && forceQueryFrameReload == false) {
-            parent.frames.queryframe.document.left.lightm_db.options[selidx].text =
-                parent.frames.queryframe.document.left.lightm_db.options[selidx].text.replace(/(.*)\([0-9]+\)/,'$1<?php echo $num_tables_disp;?>');
-        } else {
-            parent.frames.queryframe.location.reload();
-            setTimeout("dbBoxSetup();",2000);
-        }
-    }
-    <?php
+        $table = isset( $table ) ? $table : '';
+        ?>
+        // sets selection in left frame quick db selectbox to current db
+        parent.frames[0].setTable( '<?php echo $db; ?>', '<?php echo $table; ?>' );
+        <?php
     }
     ?>
 
     function reload_querywindow () {
-        if (parent.frames.queryframe && parent.frames.queryframe.querywindow && !parent.frames.queryframe.querywindow.closed && parent.frames.queryframe.querywindow.location) {
+        if (parent.frames[0] && parent.frames[0].querywindow && !parent.frames[0].querywindow.closed && parent.frames[0].querywindow.location) {
             <?php
             if (!isset($no_history) && (!isset($error_message) || $error_message == '')) {
                 if (isset($LockFromUpdate) && $LockFromUpdate == '1' && isset($sql_query)) {
@@ -82,45 +47,45 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
                         PMA_setHistory((isset($db) ? $db : ''), (isset($table) ? $table : ''), $cfg['Server']['user'], $sql_query);
                     }
                 }
-            ?>
-            if (!parent.frames.queryframe.querywindow.document.sqlform.LockFromUpdate || !parent.frames.queryframe.querywindow.document.sqlform.LockFromUpdate.checked) {
-                parent.frames.queryframe.querywindow.document.querywindow.db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
-                parent.frames.queryframe.querywindow.document.querywindow.query_history_latest_db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
-                parent.frames.queryframe.querywindow.document.querywindow.table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
-                parent.frames.queryframe.querywindow.document.querywindow.query_history_latest_table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
+                ?>
+            if (!parent.frames[0].querywindow.document.sqlform.LockFromUpdate || !parent.frames[0].querywindow.document.sqlform.LockFromUpdate.checked) {
+                parent.frames[0].querywindow.document.querywindow.db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
+                parent.frames[0].querywindow.document.querywindow.query_history_latest_db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
+                parent.frames[0].querywindow.document.querywindow.table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
+                parent.frames[0].querywindow.document.querywindow.query_history_latest_table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
 
-                <?php echo (isset($sql_query) ? 'parent.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = "' . urlencode($sql_query) . '";' : '// no sql query update') . "\n"; ?>
+                <?php echo (isset($sql_query) ? 'parent.frames[0].querywindow.document.querywindow.query_history_latest.value = "' . urlencode($sql_query) . '";' : '// no sql query update') . "\n"; ?>
 
-                parent.frames.queryframe.querywindow.document.querywindow.submit();
+                parent.frames[0].querywindow.document.querywindow.submit();
             }
-            <?php
+                <?php
             } else {
-            ?>
+                ?>
             // no submit, query was invalid
-            <?php
+                <?php
             }
             ?>
         }
     }
 
     function focus_querywindow(sql_query) {
-        if (parent.frames.queryframe && parent.frames.queryframe.querywindow && !parent.frames.queryframe.querywindow.closed && parent.frames.queryframe.querywindow.location) {
-            if (parent.frames.queryframe.querywindow.document.querywindow.querydisplay_tab != 'sql') {
-                parent.frames.queryframe.querywindow.document.querywindow.querydisplay_tab.value = "sql";
-                parent.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = sql_query;
-                parent.frames.queryframe.querywindow.document.querywindow.submit();
-                parent.frames.queryframe.querywindow.focus();
+        if (parent.frames[0] && parent.frames[0].querywindow && !parent.frames[0].querywindow.closed && parent.frames[0].querywindow.location) {
+            if (parent.frames[0].querywindow.document.querywindow.querydisplay_tab != 'sql') {
+                parent.frames[0].querywindow.document.querywindow.querydisplay_tab.value = "sql";
+                parent.frames[0].querywindow.document.querywindow.query_history_latest.value = sql_query;
+                parent.frames[0].querywindow.document.querywindow.submit();
+                parent.frames[0].querywindow.focus();
             } else {
-                parent.frames.queryframe.querywindow.focus();
+                parent.frames[0].querywindow.focus();
             }
 
             return false;
-        } else if (parent.frames.queryframe) {
+        } else if (parent.frames[0]) {
             new_win_url = 'querywindow.php?sql_query=' + sql_query + '&<?php echo PMA_generate_common_url(isset($db) ? addslashes($db) : '', isset($table) ? addslashes($table) : '', '&'); ?>';
-            parent.frames.queryframe.querywindow=window.open(new_win_url, '','toolbar=0,location=0,directories=0,status=1,menubar=0,scrollbars=yes,resizable=yes,width=<?php echo $cfg['QueryWindowWidth']; ?>,height=<?php echo $cfg['QueryWindowHeight']; ?>');
+            parent.frames[0].querywindow=window.open(new_win_url, '','toolbar=0,location=0,directories=0,status=1,menubar=0,scrollbars=yes,resizable=yes,width=<?php echo $cfg['QueryWindowWidth']; ?>,height=<?php echo $cfg['QueryWindowHeight']; ?>');
 
-            if (!parent.frames.queryframe.querywindow.opener) {
-               parent.frames.queryframe.querywindow.opener = parent.frames.queryframe;
+            if (!parent.frames[0].querywindow.opener) {
+               parent.frames[0].querywindow.opener = parent.frames[0];
             }
 
             // reload_querywindow();
@@ -129,19 +94,19 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     }
 
     reload_querywindow();
-<?php
-if (isset($focus_querywindow) && $focus_querywindow == "true") {
-?>
-    if (parent.frames.queryframe && parent.frames.queryframe.querywindow && !parent.frames.queryframe.querywindow.closed && parent.frames.queryframe.querywindow.location) {
-        self.focus();
+    <?php
+    if (isset($focus_querywindow) && $focus_querywindow == "true") {
+        ?>
+        if (parent.frames[0] && parent.frames[0].querywindow && !parent.frames[0].querywindow.closed && parent.frames[0].querywindow.location) {
+            self.focus();
+        }
+        <?php
     }
-<?php
-}
-?>
+    ?>
 
 //-->
 </script>
-<?php
+    <?php
 }
 
 
@@ -154,26 +119,23 @@ if (isset($GLOBALS['dbh']) && $GLOBALS['dbh']) {
 if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
     @PMA_DBI_close($GLOBALS['userlink']);
 }
-?>
 
-<?php include('./config.footer.inc.php'); ?>
+include('./config.footer.inc.php');
+?>
     <script type="text/javascript" language="javascript" src="libraries/tooltip.js"></script>
 </body>
-
 </html>
 <?php
 
 /**
  * Generates profiling data if requested
  */
-if (isset($GLOBALS['cfg']['DBG']['enable'])
-        && $GLOBALS['cfg']['DBG']['enable']
-        && isset($GLOBALS['cfg']['DBG']['profile']['enable'])
-        && $GLOBALS['cfg']['DBG']['profile']['enable']) {
+if ( ! empty( $GLOBALS['cfg']['DBG']['enable'] )
+  && ! empty( $GLOBALS['cfg']['DBG']['profile']['enable'] ) ) {
     //run the basic setup code first
     require_once('./libraries/dbg/setup.php');
     //if the setup ran fine, then do the profiling
-    if (isset($GLOBALS['DBG']) && $GLOBALS['DBG']) {
+    if ( ! empty( $GLOBALS['DBG'] ) ) {
         require_once('./libraries/dbg/profiling.php');
         dbg_dump_profiling_results();
     }
@@ -182,8 +144,8 @@ if (isset($GLOBALS['cfg']['DBG']['enable'])
 /**
  * Sends bufferized data
  */
-if (isset($GLOBALS['cfg']['OBGzip']) && $GLOBALS['cfg']['OBGzip']
-        && isset($GLOBALS['ob_mode']) && $GLOBALS['ob_mode']) {
+if ( ! empty( $GLOBALS['cfg']['OBGzip'] )
+  && ! empty( $GLOBALS['ob_mode'] ) ) {
     PMA_outBufferPost($GLOBALS['ob_mode']);
 }
 
@@ -191,5 +153,4 @@ if (isset($GLOBALS['cfg']['OBGzip']) && $GLOBALS['cfg']['OBGzip']
  * Stops the script execution
  */
 exit;
-
 ?>

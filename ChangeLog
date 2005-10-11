@@ -5,6 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * footer.inc.php, index.php, left.php, queryframe.php, querywindow.php
+      server_databases.php, css/phpmyadmin.css.php, libraries/common.lib.php
+      libraries/left_header.inc.php, libraries/sql_query_form.lib.php
+      themes/darkblue_orange/css/theme_left.css.php
+      themes/original/css/theme_left.css.php:
+      XHTML 1.0 trans. compliance and more semantic XHTML output
+
+CVS-Vorgang erfolgreich abgeschlossen
+
+
+
 2005-10-09 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php: invalid js confirmation and operation feedback
       when dropping a view

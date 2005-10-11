@@ -70,6 +70,7 @@ var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '
 
 <?php
 if ( empty( $querydisplay_tab ) ) {
+    $onload = 'onload="resize();"';
 ?>
 function resize() {
     
@@ -95,6 +96,8 @@ function resize() {
     }
 }
 <?php
+} else {
+    $onload = '';
 }
 ?>
 //-->
@@ -102,7 +105,7 @@ function resize() {
 <script src="libraries/functions.js" type="text/javascript" language="javascript"></script>
 </head>
 
-<body id="bodyquerywindow" onload="resize();" bgcolor="<?php echo ($cfg['QueryFrameJS'] ? $cfg['LeftBgColor'] : $cfg['RightBgColor']); ?>">
+<body id="bodyquerywindow" <?php echo $onload; ?> bgcolor="<?php echo ($cfg['QueryFrameJS'] ? $cfg['LeftBgColor'] : $cfg['RightBgColor']); ?>">
 <div id="querywindowcontainer">
 <?php
 if ( $cfg['QueryFrameJS'] && !isset($no_js) ) {

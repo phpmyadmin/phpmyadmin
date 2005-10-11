@@ -15,20 +15,6 @@ require_once('./libraries/grab_globals.lib.php');
 $js_to_run = 'functions.js';
 require('./server_common.inc.php');
 
-?>
-<script type="text/javascript" language="javascript1.2">
-<!--
-function reload_window(db) {
-    if (typeof(window.parent) != 'undefined'
-        && typeof(window.parent.frames['nav']) != 'undefined') {
-        window.parent.frames['nav'].goTo('./left.php?<?php echo PMA_generate_common_url('','','&');?>&db=' + db + '&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>);
-    }
-}
-//-->
-</script>
-
-<?php
-
 /**
  * Sorts the databases array according to the user's choice
  *
@@ -248,7 +234,7 @@ if (count($statistics) > 0) {
             echo '            </td>' . "\n";
         }
         echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-           . '                <a onclick="reload_window(\'' . urlencode($current['db_name']) . '\'); return true;" href="' . $cfg['DefaultTabDatabase'] . '?' . $url_query . '&amp;db=' . urlencode($current['db_name']) . '" title="' . sprintf($strJumpToDB, htmlspecialchars($current['db_name'])) . '">' . "\n"
+           . '                <a onclick="if ( window.parent.frames[0].openDb(\'' . urlencode($current['db_name']) . '\') ) return false;" href="index.php?' . $url_query . '&amp;db=' . urlencode($current['db_name']) . '" title="' . sprintf($strJumpToDB, htmlspecialchars($current['db_name'])) . '" target="_parent">' . "\n"
            . '                    ' . htmlspecialchars($current['db_name']) . "\n"
            . '                </a>' . "\n"
            . '            </td>' . "\n";
@@ -289,7 +275,7 @@ if (count($statistics) > 0) {
         }
         if ($is_superuser) {
             echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '" align="center">' . "\n"
-               . '                <a onclick="reload_window(\'' . urlencode($current['db_name']) . '\'); return true;" href="./server_privileges.php?' . $url_query . '&amp;checkprivs=' . urlencode($current['db_name']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['db_name'])) . '">'. "\n"
+               . '                <a onclick="window.parent.frames[0].openDb(\'' . urlencode($current['db_name']) . '\', true);" href="./server_privileges.php?' . $url_query . '&amp;checkprivs=' . urlencode($current['db_name']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['db_name'])) . '">'. "\n"
                . '                    ' .($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 's_rights.png" width="16" height="16" hspace="2" border="0" alt=" ' .$strCheckPrivs . '" /> ' : $strCheckPrivs ). "\n"
                . '                </a>' . "\n"
                . '            </td>' . "\n";
