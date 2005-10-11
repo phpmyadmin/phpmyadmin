@@ -260,266 +260,271 @@ foreach ($the_tables AS $key => $table) {
 
 
     <?php
-    /**
-     * Displays indexes
-     */
-    $index_count = (isset($indexes))
-                 ? count($indexes)
-                 : 0;
-    if ($index_count > 0) {
-        echo "\n";
-        ?>
-<br /><br />
 
-<!-- Indexes -->
-&nbsp;<big><?php echo $strIndexes . ':'; ?></big>
-<table bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
-    <tr>
-        <th><?php echo $strKeyname; ?></th>
-        <th><?php echo $strType; ?></th>
-        <th><?php echo $strCardinality; ?></th>
-        <th colspan="2"><?php echo $strField; ?></th>
-    </tr>
-        <?php
-        echo "\n";
-        PMA_show_indexes($table, $indexes, $indexes_info, $indexes_data, true, true);
-        echo "\n";
-        ?>
-</table>
-        <?php
-        echo "\n";
-    } // end display indexes
-
-
-    /**
-     * Displays Space usage and row statistics
-     *
-     * staybyte - 9 June 2001
-     */
-    if ($cfg['ShowStats']) {
-        $nonisam     = FALSE;
-        if (isset($showtable['Type']) && !preg_match('@ISAM|HEAP@i', $showtable['Type'])) {
-            $nonisam = TRUE;
-        }
-        if ($nonisam == FALSE) {
-            // Gets some sizes
-            $mergetable     = FALSE;
-            if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
-                $mergetable = TRUE;
-            }
-            list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length']);
-            if ($mergetable == FALSE) {
-                list($index_size, $index_unit)   = PMA_formatByteDown($showtable['Index_length']);
-            }
-            if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
-                list($free_size, $free_unit)     = PMA_formatByteDown($showtable['Data_free']);
-                list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
-            } else {
-                unset($free_size);
-                unset($free_unit);
-                list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
-            }
-            list($tot_size, $tot_unit)           = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
-            if ($num_rows > 0) {
-                list($avg_size, $avg_unit)       = PMA_formatByteDown(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
-            }
-
-            // Displays them
-            ?>
-<br /><br />
-
-<table border="0" cellspacing="0" cellpadding="0" class="noborder">
-<tr>
-
-    <!-- Space usage -->
-    <td class="print" valign="top">
-        &nbsp;<big><?php echo $strSpaceUsage . ':'; ?></big>
-        <table width="100%" bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
-        <tr>
-            <th><?php echo $strType; ?></th>
-            <th colspan="2" align="center"><?php echo $strUsage; ?></th>
-        </tr>
-        <tr>
-            <td class="print" style="padding-right: 10px"><?php echo $strData; ?></td>
-            <td align="right" class="print" nowrap="nowrap"><?php echo $data_size; ?></td>
-            <td class="print"><?php echo $data_unit; ?></td>
-        </tr>
-            <?php
-            if (isset($index_size)) {
-                echo "\n";
-                ?>
-        <tr>
-            <td class="print" style="padding-right: 10px"><?php echo $strIndex; ?></td>
-            <td align="right" class="print" nowrap="nowrap"><?php echo $index_size; ?></td>
-            <td class="print"><?php echo $index_unit; ?></td>
-        </tr>
-                <?php
-            }
-            if (isset($free_size)) {
-                echo "\n";
-                ?>
-        <tr style="color: #bb0000">
-            <td class="print" style="padding-right: 10px"><?php echo $strOverhead; ?></td>
-            <td align="right" class="print" nowrap="nowrap"><?php echo $free_size; ?></td>
-            <td class="print"><?php echo $free_unit; ?></td>
-        </tr>
-        <tr>
-            <td class="print" style="padding-right: 10px"><?php echo $strEffective; ?></td>
-            <td align="right" class="print" nowrap="nowrap"><?php echo $effect_size; ?></td>
-            <td class="print"><?php echo $effect_unit; ?></td>
-        </tr>
-                <?php
-            }
-            if (isset($tot_size) && $mergetable == FALSE) {
-                echo "\n";
-                ?>
-        <tr>
-            <td class="print" style="padding-right: 10px"><?php echo $strTotalUC; ?></td>
-            <td align="right" class="print" nowrap="nowrap"><?php echo $tot_size; ?></td>
-            <td class="print"><?php echo $tot_unit; ?></td>
-        </tr>
-                <?php
-            }
+    if ( ! $tbl_is_view
+      && ( $db != 'information_schema'
+        || PMA_MYSQL_INT_VERSION < 50002 ) ) {
+    
+        /**
+         * Displays indexes
+         */
+        $index_count = (isset($indexes))
+                     ? count($indexes)
+                     : 0;
+        if ($index_count > 0) {
             echo "\n";
             ?>
-        </table>
-    </td>
-
-    <td width="20" class="print">&nbsp;</td>
-
-    <!-- Rows Statistic -->
-    <td valign="top">
-        &nbsp;<big><?php echo $strRowsStatistic . ':'; ?></big>
-        <table width=100% bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
+    <br /><br />
+    
+    <!-- Indexes -->
+    &nbsp;<big><?php echo $strIndexes . ':'; ?></big>
+    <table bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
         <tr>
-            <th><?php echo $strStatement; ?></th>
-            <th align="center"><?php echo $strValue; ?></th>
+            <th><?php echo $strKeyname; ?></th>
+            <th><?php echo $strType; ?></th>
+            <th><?php echo $strCardinality; ?></th>
+            <th colspan="2"><?php echo $strField; ?></th>
         </tr>
             <?php
-            $i = 0;
-            if (isset($showtable['Row_format'])) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
-                ?>
-        <tr>
-            <td class="print"><?php echo ucfirst($strFormat); ?></td>
-            <td align="<?php echo $cell_align_left; ?>" class="print" nowrap="nowrap">
-                <?php
-                echo '                ';
-                if ($showtable['Row_format'] == 'Fixed') {
-                    echo $strFixed;
-                } else if ($showtable['Row_format'] == 'Dynamic') {
-                    echo $strDynamic;
+            echo "\n";
+            PMA_show_indexes($table, $indexes, $indexes_info, $indexes_data, true, true);
+            echo "\n";
+            ?>
+    </table>
+            <?php
+            echo "\n";
+        } // end display indexes
+    
+    
+        /**
+         * Displays Space usage and row statistics
+         *
+         * staybyte - 9 June 2001
+         */
+        if ($cfg['ShowStats']) {
+            $nonisam     = FALSE;
+            if (isset($showtable['Type']) && !preg_match('@ISAM|HEAP@i', $showtable['Type'])) {
+                $nonisam = TRUE;
+            }
+            if ($nonisam == FALSE) {
+                // Gets some sizes
+                $mergetable     = FALSE;
+                if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
+                    $mergetable = TRUE;
+                }
+                list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length']);
+                if ($mergetable == FALSE) {
+                    list($index_size, $index_unit)   = PMA_formatByteDown($showtable['Index_length']);
+                }
+                if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
+                    list($free_size, $free_unit)     = PMA_formatByteDown($showtable['Data_free']);
+                    list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
                 } else {
-                    echo $showtable['Row_format'];
+                    unset($free_size);
+                    unset($free_unit);
+                    list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
+                }
+                list($tot_size, $tot_unit)           = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
+                if ($num_rows > 0) {
+                    list($avg_size, $avg_unit)       = PMA_formatByteDown(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
+                }
+    
+                // Displays them
+                ?>
+    <br /><br />
+    
+    <table border="0" cellspacing="0" cellpadding="0" class="noborder">
+    <tr>
+    
+        <!-- Space usage -->
+        <td class="print" valign="top">
+            &nbsp;<big><?php echo $strSpaceUsage . ':'; ?></big>
+            <table width="100%" bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
+            <tr>
+                <th><?php echo $strType; ?></th>
+                <th colspan="2" align="center"><?php echo $strUsage; ?></th>
+            </tr>
+            <tr>
+                <td class="print" style="padding-right: 10px"><?php echo $strData; ?></td>
+                <td align="right" class="print" nowrap="nowrap"><?php echo $data_size; ?></td>
+                <td class="print"><?php echo $data_unit; ?></td>
+            </tr>
+                <?php
+                if (isset($index_size)) {
+                    echo "\n";
+                    ?>
+            <tr>
+                <td class="print" style="padding-right: 10px"><?php echo $strIndex; ?></td>
+                <td align="right" class="print" nowrap="nowrap"><?php echo $index_size; ?></td>
+                <td class="print"><?php echo $index_unit; ?></td>
+            </tr>
+                    <?php
+                }
+                if (isset($free_size)) {
+                    echo "\n";
+                    ?>
+            <tr style="color: #bb0000">
+                <td class="print" style="padding-right: 10px"><?php echo $strOverhead; ?></td>
+                <td align="right" class="print" nowrap="nowrap"><?php echo $free_size; ?></td>
+                <td class="print"><?php echo $free_unit; ?></td>
+            </tr>
+            <tr>
+                <td class="print" style="padding-right: 10px"><?php echo $strEffective; ?></td>
+                <td align="right" class="print" nowrap="nowrap"><?php echo $effect_size; ?></td>
+                <td class="print"><?php echo $effect_unit; ?></td>
+            </tr>
+                    <?php
+                }
+                if (isset($tot_size) && $mergetable == FALSE) {
+                    echo "\n";
+                    ?>
+            <tr>
+                <td class="print" style="padding-right: 10px"><?php echo $strTotalUC; ?></td>
+                <td align="right" class="print" nowrap="nowrap"><?php echo $tot_size; ?></td>
+                <td class="print"><?php echo $tot_unit; ?></td>
+            </tr>
+                    <?php
                 }
                 echo "\n";
                 ?>
-            </td>
-        </tr>
+            </table>
+        </td>
+    
+        <td width="20" class="print">&nbsp;</td>
+    
+        <!-- Rows Statistic -->
+        <td valign="top">
+            &nbsp;<big><?php echo $strRowsStatistic . ':'; ?></big>
+            <table width=100% bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
+            <tr>
+                <th><?php echo $strStatement; ?></th>
+                <th align="center"><?php echo $strValue; ?></th>
+            </tr>
                 <?php
-            }
-            if (isset($showtable['Rows'])) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+                $i = 0;
+                if (isset($showtable['Row_format'])) {
+                    $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+                    echo "\n";
+                    ?>
+            <tr>
+                <td class="print"><?php echo ucfirst($strFormat); ?></td>
+                <td align="<?php echo $cell_align_left; ?>" class="print" nowrap="nowrap">
+                    <?php
+                    echo '                ';
+                    if ($showtable['Row_format'] == 'Fixed') {
+                        echo $strFixed;
+                    } else if ($showtable['Row_format'] == 'Dynamic') {
+                        echo $strDynamic;
+                    } else {
+                        echo $showtable['Row_format'];
+                    }
+                    echo "\n";
+                    ?>
+                </td>
+            </tr>
+                    <?php
+                }
+                if (isset($showtable['Rows'])) {
+                    $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+                    echo "\n";
+                ?>
+            <tr>
+                <td class="print"><?php echo ucfirst($strRows); ?></td>
+                <td align="right" class="print" nowrap="nowrap">
+                    <?php echo number_format($showtable['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
+                </td>
+            </tr>
+                    <?php
+                }
+                if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
+                    $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+                    echo "\n";
+                    ?>
+            <tr>
+                <td class="print"><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
+                <td class="print" nowrap="nowrap">
+                    <?php echo number_format($showtable['Avg_row_length'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
+                </td>
+            </tr>
+                    <?php
+                }
+                if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
+                    $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+                    echo "\n";
+                    ?>
+            <tr>
+                <td class="print"><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
+                <td align="right" class="print" nowrap="nowrap">
+                    <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
+                </td>
+            </tr>
+                    <?php
+                }
+                if (isset($showtable['Auto_increment'])) {
+                    $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+                    echo "\n";
+                    ?>
+            <tr>
+                <td class="print"><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
+                <td align="right" class="print" nowrap="nowrap">
+                    <?php echo number_format($showtable['Auto_increment'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
+                </td>
+            </tr>
+                    <?php
+                }
                 echo "\n";
-            ?>
-        <tr>
-            <td class="print"><?php echo ucfirst($strRows); ?></td>
-            <td align="right" class="print" nowrap="nowrap">
-                <?php echo number_format($showtable['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
-            </td>
-        </tr>
-                <?php
-            }
-            if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+    
+                if (isset($showtable['Create_time'])) {
+                    $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+                    echo "\n";
+                    ?>
+            <tr>
+                <td class="print"><?php echo $strStatCreateTime; ?></td>
+                <td align="right" class="print" nowrap="nowrap">
+                    <?php echo PMA_localisedDate(strtotime($showtable['Create_time'])) . "\n"; ?>
+                </td>
+            </tr>
+                    <?php
+                }
+                echo "\n";
+    
+                if (isset($showtable['Update_time'])) {
+                    $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+                    echo "\n";
+                    ?>
+            <tr>
+                <td class="print"><?php echo $strStatUpdateTime; ?></td>
+                <td align="right" class="print" nowrap="nowrap">
+                    <?php echo PMA_localisedDate(strtotime($showtable['Update_time'])) . "\n"; ?>
+                </td>
+            </tr>
+                    <?php
+                }
+                echo "\n";
+    
+                if (isset($showtable['Check_time'])) {
+                    $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+                    echo "\n";
+                    ?>
+            <tr>
+                <td class="print"><?php echo $strStatCheckTime; ?></td>
+                <td align="right" class="print" nowrap="nowrap">
+                    <?php echo PMA_localisedDate(strtotime($showtable['Check_time'])) . "\n"; ?>
+                </td>
+            </tr>
+                    <?php
+                }
                 echo "\n";
                 ?>
-        <tr>
-            <td class="print"><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
-            <td class="print" nowrap="nowrap">
-                <?php echo number_format($showtable['Avg_row_length'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
-            </td>
-        </tr>
+            </table>
+        </td>
+    </tr>
+    </table>
+    
                 <?php
-            }
-            if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
-                ?>
-        <tr>
-            <td class="print"><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
-            <td align="right" class="print" nowrap="nowrap">
-                <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
-            </td>
-        </tr>
-                <?php
-            }
-            if (isset($showtable['Auto_increment'])) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
-                ?>
-        <tr>
-            <td class="print"><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
-            <td align="right" class="print" nowrap="nowrap">
-                <?php echo number_format($showtable['Auto_increment'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
-            </td>
-        </tr>
-                <?php
-            }
-            echo "\n";
-
-            if (isset($showtable['Create_time'])) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
-                ?>
-        <tr>
-            <td class="print"><?php echo $strStatCreateTime; ?></td>
-            <td align="right" class="print" nowrap="nowrap">
-                <?php echo PMA_localisedDate(strtotime($showtable['Create_time'])) . "\n"; ?>
-            </td>
-        </tr>
-                <?php
-            }
-            echo "\n";
-
-            if (isset($showtable['Update_time'])) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
-                ?>
-        <tr>
-            <td class="print"><?php echo $strStatUpdateTime; ?></td>
-            <td align="right" class="print" nowrap="nowrap">
-                <?php echo PMA_localisedDate(strtotime($showtable['Update_time'])) . "\n"; ?>
-            </td>
-        </tr>
-                <?php
-            }
-            echo "\n";
-
-            if (isset($showtable['Check_time'])) {
-                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
-                echo "\n";
-                ?>
-        <tr>
-            <td class="print"><?php echo $strStatCheckTime; ?></td>
-            <td align="right" class="print" nowrap="nowrap">
-                <?php echo PMA_localisedDate(strtotime($showtable['Check_time'])) . "\n"; ?>
-            </td>
-        </tr>
-                <?php
-            }
-            echo "\n";
-            ?>
-        </table>
-    </td>
-</tr>
-</table>
-
-            <?php
-        } // end if ($nonisam == FALSE)
-    } // end if ($cfg['ShowStats'])
-
+            } // end if ($nonisam == FALSE)
+        } // end if ($cfg['ShowStats'])
+    }
     echo "\n";
     if ($multi_tables) {
         unset($ret_keys);

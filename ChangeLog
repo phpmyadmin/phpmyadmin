@@ -1,4 +1,4 @@
-----------------------
+﻿----------------------
 phpMyAdmin - Changelog
 ----------------------
 
@@ -15,6 +15,8 @@ $Source$
       themes/darkblue_orange/css/theme_left.css.php
       themes/original/css/theme_left.css.php:
       XHTML 1.0 trans. compliance and more semantic XHTML output
+    * tbl_printview.php, tbl_properties_structure.php:
+      no table statistics for information_schema
 
 2005-10-09 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php: invalid js confirmation and operation feedback

@@ -580,8 +580,11 @@ if ($fields_cnt > 20) {
 } // end if ($fields_cnt > 20)
 echo "\n\n";
 
-
-if (!$tbl_is_view) {
+// show table statistics only if 
+// this is not a view and not the information_schema (MySQL >= 5.00.02)
+if ( ! $tbl_is_view
+  && ( $db != 'information_schema'
+    || PMA_MYSQL_INT_VERSION < 50002 ) ) {
     /**
      * Displays indexes
      */
