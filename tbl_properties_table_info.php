@@ -54,6 +54,11 @@ if ($table_info_result && PMA_DBI_num_rows($table_info_result) > 0) {
         }
     }
     $tbl_collation       = empty($showtable['Collation']) ? '' : $showtable['Collation'];
+    
+    if ( NULL === $showtable['Rows'] ) {
+        $showtable['Rows']   = PMA_countRecords( $GLOBALS['db'],
+            $showtable['Name'], $return = true, $force_exact = true );
+    }
     $table_info_num_rows = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $auto_increment      = (isset($showtable['Auto_increment']) ? $showtable['Auto_increment'] : '');
 
