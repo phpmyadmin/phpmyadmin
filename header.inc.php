@@ -217,9 +217,33 @@ if (empty($GLOBALS['is_header_sent'])) {
                     if (strstr($show_comment, '; InnoDB free')) {
                         $show_comment = preg_replace('@; InnoDB free:.*?$@' , '', $show_comment);
                     }
-                    echo '<!-- Table comment -->' . "\n"
-                       . '<span class="table_comment" id="span_table_comment">&quot;' .  htmlspecialchars($show_comment) . '&quot</span>' . "\n";
+                    echo '<span class="table_comment" id="span_table_comment">'
+                        .'&quot;' . htmlspecialchars($show_comment)
+                        .'&quot</span>' . "\n";
                 } // end if
+            } else {
+                // no table selected, display database comment if present
+                /**
+                 * Settings for relations stuff
+                 */
+                require_once('./libraries/relation.lib.php');
+                $cfgRelation = PMA_getRelationsParam();
+                
+                // Get additional information about tables for tooltip is done
+                // in db_details_db_info.php only once
+                if ($cfgRelation['commwork']) {
+                    $comment = PMA_getComments( $GLOBALS['db'] );
+                
+                    /**
+                     * Displays table comment
+                     */
+                    if ( is_array( $comment ) ) {
+                        echo '<span class="table_comment"'
+                            .' id="span_table_comment">&quot;'
+                            .htmlspecialchars(implode(' ', $comment))
+                            .'&quot</span>' . "\n";
+                    } // end if
+                }
             }
         }
         echo '</div>';
@@ -230,5 +254,4 @@ if (empty($GLOBALS['is_header_sent'])) {
      */
     $GLOBALS['is_header_sent'] = TRUE;
 }
-
 ?>

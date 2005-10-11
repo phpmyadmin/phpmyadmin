@@ -110,29 +110,6 @@ echo PMA_getTabs( $tabs );
 unset( $tabs );
 
 /**
- * Settings for relations stuff
- */
-require_once('./libraries/relation.lib.php');
-$cfgRelation = PMA_getRelationsParam();
-
-// Get additional information about tables for tooltip is done in db_details_db_info.php only once
-if ($cfgRelation['commwork']) {
-    $comment = PMA_getComments($db);
-
-    /**
-     * Displays table comment
-     */
-    if (is_array($comment)) {
-        ?>
-    <!-- DB comment -->
-    <p id="dbComment"><i>
-        <?php echo htmlspecialchars(implode(' ', $comment)) . "\n"; ?>
-    </i></p>
-        <?php
-    } // end if
-}
-
-/**
  * Displays a message
  */
 if (!empty($message)) {
