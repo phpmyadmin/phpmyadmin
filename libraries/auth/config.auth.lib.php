@@ -152,7 +152,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
     //      is not responding. Work has to be done to merge all code that
     //      starts the page (DOCTYPE and this div) to one place
     ?>
-    <div id="TooltipContainer" name="TooltipContainer" onmouseover="holdTooltip();" onmouseout="swapTooltip('default');"></div>
+    <div id="TooltipContainer" onmouseover="holdTooltip();" onmouseout="swapTooltip('default');"></div>
     <?php
 
     // if we display the "Server not responding" error, do not confuse users

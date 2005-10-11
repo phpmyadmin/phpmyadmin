@@ -1,4 +1,4 @@
-﻿﻿﻿﻿----------------------
+﻿﻿﻿﻿﻿----------------------
 phpMyAdmin - Changelog
 ----------------------
 
@@ -23,6 +23,8 @@ $Source$
       fixed display table statistics for information_schema
     * db_details_links.php, header.inc.php:
       moved database comment into header (serverinfo) after database name
+    * header.inc.php, main.php, libraries/header_meta_style.inc.php:
+      XHTML 1.0 trans. compliance
 
 2005-10-09 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php: invalid js confirmation and operation feedback
