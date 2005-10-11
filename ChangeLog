@@ -1,9 +1,12 @@
-﻿----------------------
+----------------------
 phpMyAdmin - Changelog
 ----------------------
 
 $Id$
 $Source$
+
+2005-10-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/grab_globals.lib.php: bug #1322871, local file inclusion
 
 2005-10-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * footer.inc.php, index.php, left.php, queryframe.php, querywindow.php
@@ -12,10 +15,6 @@ $Source$
       themes/darkblue_orange/css/theme_left.css.php
       themes/original/css/theme_left.css.php:
       XHTML 1.0 trans. compliance and more semantic XHTML output
-
-CVS-Vorgang erfolgreich abgeschlossen
-
-
 
 2005-10-09 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php: invalid js confirmation and operation feedback

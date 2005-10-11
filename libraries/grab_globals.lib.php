@@ -101,7 +101,9 @@ if (isset($goto) && strpos(' ' . $goto, '/') > 0 && substr($goto, 0, 2) != './')
 } // end if
 
 if ( ! empty( $__redirect ) ) {
-    require('./' . $__redirect);
+    // TODO: ensure that PMA_securePath() is defined and available
+    // for this script. Meanwhile we duplicate what this function does:
+    require('./' . preg_replace('@\.\.*@','.',$__redirect));
     exit();
 } // end if ( ! empty( $__redirect ) )
 ?>
