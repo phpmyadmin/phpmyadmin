@@ -35,7 +35,8 @@ ini_set( 'session.bug_compat_42', false );
 ini_set( 'session.bug_compat_warn', true );
 
 // use more secure session ids (with PHP 5)
-if ( version_compare( PHP_VERSION, '5.0.0', 'ge' ) ) {
+if ( version_compare( PHP_VERSION, '5.0.0', 'ge' ) 
+  && substr( PHP_OS, 0 ,3 ) != 'WIN' ) {
     ini_set( 'session.hash_function', 1 );
     ini_set( 'session.hash_bits_per_character', 6 );
 }
