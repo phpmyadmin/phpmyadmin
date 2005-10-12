@@ -615,7 +615,7 @@ if ($num_tables > 0) {
     <?php
 } // end if
 
-if ( ! $table_is_schema ) {
+if ( empty( $table_is_schema ) ) {
     require('./libraries/display_create_table.lib.php');
 } // end if (Create Table dialog)
 
