@@ -144,7 +144,6 @@ div[id=queryfieldscontainer] {
     border: 1px solid transparent;
 }
 
-
 div#sqlquerycontainer {
     float: left;
     width: 69%;
@@ -246,6 +245,12 @@ textarea { overflow: auto; }
 .nospace { margin: 0; padding: 0; }
 
 /* topmenu */
+
+/* Gecko bug */
+#topmenucontainer {
+    border: 1px solid <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
+}
+
 ul#topmenu {
     font-weight: bold;
     list-style-type: none;
