@@ -2440,8 +2440,7 @@ if (typeof(document.getElementById) != 'undefined'
         
         $tab_navigation .=
              '</ul>' . "\n"
-            .'<div class="clearfloat"></div>'
-            .'</div>' . "\n";
+            .'<div style="clear: both;" class="clearfloat"></div></div>' . "\n";
         
         return $tab_navigation;
     }

@@ -11,6 +11,8 @@ $Source$
       themes/original/css/theme_right.css.php:
       use list for navigation tabs RFE #1290423 
     * db_details_structure.php: fixed NOTICE
+    * css/phpmyadmin.css.php, themes/*/css/theme_*.css.php:
+      revert icon size to fixed width and height
 
 2005-10-12 Michal Čihař  <michal@cihar.com>
     * libraries/get_foreign.lib.php: Fix paging.

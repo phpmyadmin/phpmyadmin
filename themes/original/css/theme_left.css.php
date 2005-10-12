@@ -22,12 +22,6 @@ div#databaseList {
     padding-bottom: 0.5em;
 }
 
-div#pmalogo img#imgpmalogo {
-    width: 100%;
-    max-width: 11em;
-    height: auto;
-}
-
 div#leftframelinks img {
     vertical-align: middle;
 }
@@ -78,8 +72,6 @@ div#left_tableList li:hover {
 <?php } ?>
 
 div#left_tableList img {
-    height: 1em;
-    width: auto;
     vertical-align: middle;
 }
 

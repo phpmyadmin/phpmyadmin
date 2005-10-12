@@ -77,8 +77,6 @@ div#left_tableList li:hover {
 <?php } ?>
 
 div#left_tableList img {
-    height: 1em;
-    width: auto;
     vertical-align: middle;
 }
 

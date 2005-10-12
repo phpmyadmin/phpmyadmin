@@ -217,9 +217,7 @@ ul#topmenu li {
 }
 
 #topmenu img {
-    height: 1.3em;
-    width: auto;
-    vertical-align: text-bottom;
+    vertical-align: middle;
     margin-right: 0.1em;
 }
 
