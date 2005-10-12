@@ -37,9 +37,18 @@ table .value {
     font-family: "Courier New", Courier, monospace;
 }
 
+table .unit,
 table .name {
     text-align: left;
     font-weight: normal;
+}
+
+#tabledatabases td {
+    vertical-align: middle;
+}
+
+.icon {
+    vertical-align: middle;
 }
 
 div#tablestatistics {
@@ -340,7 +349,6 @@ span.tab, span.tabcaution {
 }
 <?php } ?>
 /* end topmenu */
-
 
 /* odd table rows 1,3,5,7,... */
 table tbody tr.odd td,
