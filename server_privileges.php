@@ -28,7 +28,7 @@ if (!empty($pred_tablename)) {
 if (!$is_superuser) {
     require('./server_links.inc.php');
     echo '<h2>' . "\n"
-       . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" border="0" hspace="2" align="middle" />' : '')
+       . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" alt="" />' : '')
        . '    ' . $GLOBALS['strPrivileges'] . "\n"
        . '</h2>' . "\n"
        . $GLOBALS['strNoPrivileges'] . "\n";
@@ -1037,7 +1037,7 @@ if (empty($adduser) && empty($checkprivs)) {
     if (!isset($username)) {
         // No username is given --> display the overview
         echo '<h2>' . "\n"
-           . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" border="0" hspace="2" align="middle" />' : '')
+           . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" alt="" />' : '')
            . $GLOBALS['strUserOverview'] . "\n"
            . '</h2>' . "\n";
 
@@ -1116,16 +1116,16 @@ if (empty($adduser) && empty($checkprivs)) {
             uksort($array_initials, "strnatcasecmp");
             reset($array_initials);
 
-            echo '<table cellspacing="5" ><tr>';
+            echo '<table cellspacing="5" style="font-size:' . $font_bigger . '"><tr>';
             foreach ($array_initials as $tmp_initial => $initial_was_found) {
 
                 if ($initial_was_found) {
-                    echo '<td><a href="' . $PHP_SELF . '?' . $GLOBALS['url_query'] . '&amp;initial=' . urlencode($tmp_initial) . '" style="font-size:' . $font_bigger . '">' . $tmp_initial . '</a></td>' . "\n";
+                    echo '<td><a href="' . $PHP_SELF . '?' . $GLOBALS['url_query'] . '&amp;initial=' . urlencode($tmp_initial) . '">' . $tmp_initial . '</a></td>' . "\n";
                 } else {
-                    echo '<td style="font-size:' . $font_bigger . '">' . $tmp_initial . '</td>';
+                    echo '<td>' . $tmp_initial . '</td>';
                 }
             }
-            echo '<td><a href="' . $PHP_SELF . '?' . $GLOBALS['url_query'] . '&amp;showall=1" style="font-size:' . $font_bigger . '">[' . $GLOBALS['strShowAll'] . ']</a></td>' . "\n";
+            echo '<td><a href="' . $PHP_SELF . '?' . $GLOBALS['url_query'] . '&amp;showall=1">[' . $GLOBALS['strShowAll'] . ']</a></td>' . "\n";
             echo '</tr></table>';
 
             /**
@@ -1137,9 +1137,9 @@ if (empty($adduser) && empty($checkprivs)) {
 
                 echo '<form name="usersForm" action="server_privileges.php" method="post">' . "\n"
                    . PMA_generate_common_hidden_inputs('', '', 1)
-                   . '    <table border="0" cellpadding="2" cellspacing="1">' . "\n"
-                   . '        <tr>' . "\n"
-                   . '            <td></td>' . "\n"
+                   . '    <table id="tableuserrights" class="data">' . "\n"
+                   . '    <thead>' . "\n"
+                   . '        <tr><td></td>' . "\n"
                    . '            <th>' . $GLOBALS['strUser'] . '</th>' . "\n"
                    . '            <th>' . $GLOBALS['strHost'] . '</th>' . "\n"
                    . '            <th>' . $GLOBALS['strPassword'] . '</th>' . "\n"
@@ -1147,56 +1147,57 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '            <th>' . $GLOBALS['strGrantOption'] . '</th>' . "\n"
                    . '            ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<td></td>' : '<th>' . $GLOBALS['strAction'] . '</th>') . "\n";
                 echo '        </tr>' . "\n";
-                $useBgcolorOne = TRUE;
+                echo '    </thead>' . "\n";
+                echo '    <tbody>' . "\n";
+                $odd_row = true;
                 for ($i = 0; $row = PMA_DBI_fetch_assoc($res); $i++) {
-                    echo '        <tr>' . "\n"
-                       . '            <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '"><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_' . $i . '" value="' . htmlspecialchars($row['User'] . $user_host_separator . $row['Host']) . '"' . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"') . ' /></td>' . "\n"
-                       . '            <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '"><label for="checkbox_sel_users_' . $i . '">' . (empty($row['User']) ? '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>' : htmlspecialchars($row['User'])) . '</label></td>' . "\n"
-                       . '            <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . htmlspecialchars($row['Host']) . '</td>' . "\n";
+                    echo '        <tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
+                       . '            <td><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_' . $i . '" value="' . str_replace( chr(27), '&#27;', htmlentities($row['User'] . $user_host_separator . $row['Host'] ) ) . '"' . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"') . ' /></td>' . "\n"
+                       . '            <td><label for="checkbox_sel_users_' . $i . '">' . (empty($row['User']) ? '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>' : htmlspecialchars($row['User'])) . '</label></td>' . "\n"
+                       . '            <td>' . htmlspecialchars($row['Host']) . '</td>' . "\n";
                     $privs = PMA_extractPrivInfo($row, TRUE);
-                    echo '            <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . ($row['Password'] == 'Y' ? $GLOBALS['strYes'] : '<span style="color: #FF0000">' . $GLOBALS['strNo'] . '</span>') . '</td>' . "\n"
-                       . '            <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '"><tt>' . "\n"
+                    echo '            <td>' . ($row['Password'] == 'Y' ? $GLOBALS['strYes'] : '<span style="color: #FF0000">' . $GLOBALS['strNo'] . '</span>') . '</td>' . "\n"
+                       . '            <td><tt>' . "\n"
                        . '                ' . join(',' . "\n" . '            ', $privs) . "\n"
-                       . '            </tt></td>' . "\n"
-                       . '            <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . ($row['Grant_priv'] == 'Y' ? $GLOBALS['strYes'] : $GLOBALS['strNo']) . '</td>' . "\n"
-                       . '            <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '" align="center"><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($row['User']) . '&amp;hostname=' . urlencode($row['Host']) . '">';
+                       . '                </tt></td>' . "\n"
+                       . '            <td>' . ($row['Grant_priv'] == 'Y' ? $GLOBALS['strYes'] : $GLOBALS['strNo']) . '</td>' . "\n"
+                       . '            <td align="center"><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($row['User']) . '&amp;hostname=' . urlencode($row['Host']) . '">';
                     if ($GLOBALS['cfg']['PropertiesIconic']) {
-                        echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_usredit.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $GLOBALS['strEditPrivileges'] . '" title="' . $GLOBALS['strEditPrivileges'] . '" />';
+                        echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_usredit.png" width="16" height="16" alt="' . $GLOBALS['strEditPrivileges'] . '" title="' . $GLOBALS['strEditPrivileges'] . '" />';
                     } else {
                         echo $GLOBALS['strEditPrivileges'];
                     }
                     echo '</a></td>' . "\n"
                        . '        </tr>' . "\n";
-                    $useBgcolorOne = !$useBgcolorOne;
+                    $odd_row = ! $odd_row;
                 }
                 @PMA_DBI_free_result($res);
                 unset($res);
                 unset ($row);
-                echo '        <tr>' . "\n"
-                   . '            <td></td>' . "\n"
+                echo '        <tr><td></td>' . "\n"
                    . '            <td colspan="5">' . "\n"
                    . '                <i>' . $GLOBALS['strEnglishPrivileges'] . '</i>' . "\n"
                    . '            </td>' . "\n"
                    . '        </tr>' . "\n"
-                   . '        <tr>' . "\n"
-                   . '            <td colspan="6" valign="bottom">' . "\n"
+                   . '        <tr><td colspan="6" valign="bottom">' . "\n"
                    . '                <img src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" border="0" width="38" height="22" alt="' . $GLOBALS['strWithChecked'] . '" />' . "\n"
                    . '                <a href="./server_privileges.php?' . $GLOBALS['url_query'] .  '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', \'selected_usr\', true); return false;">' . $GLOBALS['strCheckAll'] . '</a>' . "\n"
                    . '                /' . "\n"
                    . '                <a href="server_privileges.php?' . $GLOBALS['url_query'] .  '" onclick="setCheckboxes(\'usersForm\', \'selected_usr\', false); return false;">' . $GLOBALS['strUncheckAll'] . '</a>' . "\n"
                    . '            </td>' . "\n"
                    . '        </tr>' . "\n"
+                   . '    </tbody>' . "\n"
                    . '    </table><br />' . "\n";
                    
                 // add/delete user fieldset
                 echo '    <fieldset id="fieldset_add_user">' . "\n"
                    . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1">' . "\n"
-                   . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" hspace="2" border="0" align="middle" />' . "\n" : '' )
-                   . '            ' . $GLOBALS['strAddUser'] . '</a></b>' . "\n"
+                   . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img class="icon" src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" alt="" />' . "\n" : '' )
+                   . '            ' . $GLOBALS['strAddUser'] . '</a>' . "\n"
                    . '    </fieldset>' . "\n"
                    . '    <fieldset id="fieldset_delete_user">'
                    . '        <legend>' . "\n"
-                   . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img src="' . $pmaThemeImage . 'b_usrdrop.png" width="16" height="16" hspace="2" border="0" align="middle" />' . "\n" : '' )
+                   . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img class="icon" src="' . $pmaThemeImage . 'b_usrdrop.png" width="16" height="16" alt="" />' . "\n" : '' )
                    . '            ' . $GLOBALS['strRemoveSelectedUsers'] . '' . "\n"
                    . '        </legend>' . "\n"
                    . '        <input type="radio" title="' . $GLOBALS['strJustDelete'] . ' ' . $GLOBALS['strJustDeleteDescr'] . '" name="mode" id="radio_mode_1" value="1" checked="checked" />' . "\n"
@@ -1224,8 +1225,8 @@ if (empty($adduser) && empty($checkprivs)) {
                 unset ($row);
                 echo '    <fieldset id="fieldset_add_user">' . "\n"
                    . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1">' . "\n"
-                   . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" hspace="2" border="0" align="middle" />' . "\n" : '' )
-                   . '            ' . $GLOBALS['strAddUser'] . '</a></b>' . "\n"
+                   . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img class="icon" src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" alt="" />' . "\n" : '' )
+                   . '            ' . $GLOBALS['strAddUser'] . '</a>' . "\n"
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
             echo '</form>' . "\n"
@@ -1240,7 +1241,7 @@ if (empty($adduser) && empty($checkprivs)) {
         // A user was selected -> display the user's properties
 
         echo '<h2>' . "\n"
-           . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_usredit.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
+           . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_usredit.png" width="16" height="16" alt="" />' : '' )
            . '    ' . $GLOBALS['strUser'] . ' <i><a class="h2" href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '">\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</a></i>' . "\n";
         if (!empty($dbname)) {
             echo '    - ' . $GLOBALS['strDatabase'] . ' <i><a class="h2" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . urlencode($dbname) . '&amp;reload=1">' . htmlspecialchars($dbname) . '</a></i>' . "\n";
@@ -1275,10 +1276,9 @@ if (empty($adduser) && empty($checkprivs)) {
                . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
                . '<fieldset>' . "\n"
                . '<legend>' . (empty($dbname) ? $GLOBALS['strDbPrivileges'] : $GLOBALS['strTblPrivileges']) . '<legend>' . "\n"
-               . '<table border="0" cellpadding="2" cellspacing="1">' . "\n"
+               . '<table class="data">' . "\n"
                . '<thead>' . "\n"
-               . '<tr>' . "\n"
-               . '    <th>' . (empty($dbname) ? $GLOBALS['strDatabase'] : $GLOBALS['strTable']) . '</th>' . "\n"
+               . '<tr><th>' . (empty($dbname) ? $GLOBALS['strDatabase'] : $GLOBALS['strTable']) . '</th>' . "\n"
                . '    <th>' . $GLOBALS['strPrivileges'] . '</th>' . "\n"
                . '    <th>' . $GLOBALS['strGrantOption'] . '</th>' . "\n"
                . '    <th>' . (empty($dbname) ? $GLOBALS['strTblPrivileges'] : $GLOBALS['strColumnPrivileges']) . '</th>' . "\n"
@@ -1294,43 +1294,41 @@ if (empty($adduser) && empty($checkprivs)) {
             }
             $res = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_STORE);
             if (PMA_DBI_affected_rows() == 0) {
-                echo '<tr>' . "\n"
-                   . '    <td bgcolor="' . $GLOBALS['cfg']['BgcolorOne'] . '" colspan="6"><center><i>' . $GLOBALS['strNone'] . '</i></center></td>' . "\n"
+                echo '<tr class="odd">' . "\n"
+                   . '    <td colspan="6"><center><i>' . $GLOBALS['strNone'] . '</i></center></td>' . "\n"
                    . '</tr>' . "\n";
             } else {
-                $useBgcolorOne = TRUE;
+                $odd_row = true;
                 if (empty($dbname)) {
                     $res2 = PMA_DBI_query('SELECT `Db` FROM `mysql`.`tables_priv`' . $user_host_condition . ' GROUP BY `Db` ORDER BY `Db` ASC;');
                     $row2 = PMA_DBI_fetch_assoc($res2);
                 }
                 $found_rows = array();
                 while ($row = PMA_DBI_fetch_assoc($res)) {
-
                     while (empty($dbname) && $row2 && $row['Db'] > $row2['Db']) {
                         $found_rows[] = $row2['Db'];
-
-                        echo '<tr>' . "\n"
-                           . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . htmlspecialchars($row2['Db']) . '</td>' . "\n"
-                           . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '"><tt>' . "\n"
+                        echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
+                           . '    <td>' . htmlspecialchars($row2['Db']) . '</td>' . "\n"
+                           . '    <td><tt>' . "\n"
                            . '        <dfn title="' . $GLOBALS['strPrivDescUsage'] . '">USAGE</dfn>' . "\n"
                            . '    </tt></td>' . "\n"
-                           . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . $GLOBALS['strNo'] . '</td>' . "\n"
-                           . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . $GLOBALS['strYes'] . '</td>' . "\n"
-                           . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '"><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '">' . $GLOBALS['strEdit'] . '</a></td>' . "\n"
-                           . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '"><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '&amp;revokeall=1">' . $GLOBALS['strRevoke'] . '</a></td>' . "\n"
+                           . '    <td>' . $GLOBALS['strNo'] . '</td>' . "\n"
+                           . '    <td>' . $GLOBALS['strYes'] . '</td>' . "\n"
+                           . '    <td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '">' . $GLOBALS['strEdit'] . '</a></td>' . "\n"
+                           . '    <td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '&amp;revokeall=1">' . $GLOBALS['strRevoke'] . '</a></td>' . "\n"
                            . '</tr>' . "\n";
                         $row2 = PMA_DBI_fetch_assoc($res2);
-                        $useBgcolorOne = !$useBgcolorOne;
+                        $odd_row = ! $odd_row;
                     } // end while
                     $found_rows[] = empty($dbname) ? $row['Db'] : $row['Table_name'];
 
-                    echo '<tr>' . "\n"
-                       . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . htmlspecialchars(empty($dbname) ? $row['Db'] : $row['Table_name']) . '</td>' . "\n"
-                       . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '"><tt>' . "\n"
+                    echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
+                       . '    <td>' . htmlspecialchars(empty($dbname) ? $row['Db'] : $row['Table_name']) . '</td>' . "\n"
+                       . '    <td><tt>' . "\n"
                        . '        ' . join(',' . "\n" . '            ', PMA_extractPrivInfo($row, TRUE)) . "\n"
                        . '        </tt></td>' . "\n"
-                       . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . (((empty($dbname) && $row['Grant_priv'] == 'Y') || (!empty($dbname) && in_array('Grant', explode(',', $row['Table_priv'])))) ? $GLOBALS['strYes'] : $GLOBALS['strNo']) . '</td>' . "\n"
-                       . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">';
+                       . '    <td>' . (((empty($dbname) && $row['Grant_priv'] == 'Y') || (!empty($dbname) && in_array('Grant', explode(',', $row['Table_priv'])))) ? $GLOBALS['strYes'] : $GLOBALS['strNo']) . '</td>' . "\n"
+                       . '    <td>';
                     if ((empty($dbname) && $row2 && $row['Db'] == $row2['Db'])
                         || (!empty($dbname) && $row['Column_priv'])) {
                         echo $GLOBALS['strYes'];
@@ -1341,29 +1339,29 @@ if (empty($adduser) && empty($checkprivs)) {
                         echo $GLOBALS['strNo'];
                     }
                     echo '</td>' . "\n"
-                       . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '"><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . (empty($dbname) ? urlencode($row['Db']) : urlencode($dbname) . '&amp;tablename=' . urlencode($row['Table_name'])) . '">' . $GLOBALS['strEdit'] . '</a></td>' . "\n"
-                       . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '"><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . (empty($dbname) ? urlencode($row['Db']) : urlencode($dbname) . '&amp;tablename=' . urlencode($row['Table_name'])) . '&amp;revokeall=1">' . $GLOBALS['strRevoke'] . '</a></td>' . "\n"
+                       . '    <td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . (empty($dbname) ? urlencode($row['Db']) : urlencode($dbname) . '&amp;tablename=' . urlencode($row['Table_name'])) . '">' . $GLOBALS['strEdit'] . '</a></td>' . "\n"
+                       . '    <td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . (empty($dbname) ? urlencode($row['Db']) : urlencode($dbname) . '&amp;tablename=' . urlencode($row['Table_name'])) . '&amp;revokeall=1">' . $GLOBALS['strRevoke'] . '</a></td>' . "\n"
                        . '</tr>' . "\n";
-                    $useBgcolorOne = !$useBgcolorOne;
+                    $odd_row = ! $odd_row;
                 } // end while
 
 
                 while (empty($dbname) && $row2) {
 
                     $found_rows[] = $row2['Db'];
-                    echo '<tr>' . "\n"
-                       . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . htmlspecialchars($row2['Db']) . '</td>' . "\n"
-                       . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '"><tt>' . "\n"
+                    echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
+                       . '    <td>' . htmlspecialchars($row2['Db']) . '</td>' . "\n"
+                       . '    <td><tt>' . "\n"
                        . '        <dfn title="' . $GLOBALS['strPrivDescUsage'] . '">USAGE</dfn>' . "\n"
                        . '        </tt></td>' . "\n"
-                       . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . $GLOBALS['strNo'] . '</td>' . "\n"
-                       . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . $GLOBALS['strYes'] . '</td>' . "\n"
-                       . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '"><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '">' . $GLOBALS['strEdit'] . '</a></td>' . "\n"
-                       . '    <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '"><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '&amp;revokeall=1">' . $GLOBALS['strRevoke'] . '</a></td>' . "\n"
+                       . '    <td>' . $GLOBALS['strNo'] . '</td>' . "\n"
+                       . '    <td>' . $GLOBALS['strYes'] . '</td>' . "\n"
+                       . '    <td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '">' . $GLOBALS['strEdit'] . '</a></td>' . "\n"
+                       . '    <td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '&amp;revokeall=1">' . $GLOBALS['strRevoke'] . '</a></td>' . "\n"
                        . '</tr>' . "\n";
                     $row2 = PMA_DBI_fetch_assoc($res2);
 
-                    $useBgcolorOne = !$useBgcolorOne;
+                    $odd_row = ! $odd_row;
                 } // end while
                 if (empty($dbname)) {
                     PMA_DBI_free_result($res2);
@@ -1434,20 +1432,20 @@ if (empty($adduser) && empty($checkprivs)) {
                . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
                . '<fieldset id="fieldset_change_password">' . "\n"
                . '    <legend>' . $GLOBALS['strChangePassword'] . '</legnd>' . "\n"
-               . '    <table border="0" cellpadding="2" cellspacing="1">' . "\n"
-               . '    <tr>' . "\n"
-               . '        <td bgcolor="' . $GLOBALS['cfg']['BgcolorOne'] . '"><input type="radio" name="nopass" value="1" id="radio_nopass_1" onclick="pma_pw.value=\'\'; pma_pw2.value=\'\';" /></td>' . "\n"
-               . '        <td bgcolor="' . $GLOBALS['cfg']['BgcolorOne'] . '" colspan="2"><label for="radio_nopass_1">' . $GLOBALS['strNoPassword'] . '</label></td>' . "\n"
+               . '    <table class="data">' . "\n"
+               . '    <tr class="odd">' . "\n"
+               . '        <td><input type="radio" name="nopass" value="1" id="radio_nopass_1" onclick="pma_pw.value=\'\'; pma_pw2.value=\'\';" /></td>' . "\n"
+               . '        <td colspan="2"><label for="radio_nopass_1">' . $GLOBALS['strNoPassword'] . '</label></td>' . "\n"
                . '    </tr>' . "\n"
-               . '    <tr>' . "\n"
-               . '        <td bgcolor="' . $GLOBALS['cfg']['BgcolorTwo'] . '"><input type="radio" name="nopass" value="0" id="radio_nopass_0" onclick="document.getElementById(\'pw_pma_pw\').focus();" /></td>' . "\n"
-               . '        <td bgcolor="' . $GLOBALS['cfg']['BgcolorTwo'] . '"><label for="radio_nopass_0">' . $GLOBALS['strPassword'] . ':</label></td>' . "\n"
-               . '        <td bgcolor="' . $GLOBALS['cfg']['BgcolorTwo'] . '"><input type="password" name="pma_pw" id="pw_pma_pw" class="textfield" onchange="nopass[1].checked = true;" /></td>' . "\n"
+               . '    <tr class="even">' . "\n"
+               . '        <td><input type="radio" name="nopass" value="0" id="radio_nopass_0" onclick="document.getElementById(\'pw_pma_pw\').focus();" /></td>' . "\n"
+               . '        <td><label for="radio_nopass_0">' . $GLOBALS['strPassword'] . ':</label></td>' . "\n"
+               . '        <td><input type="password" name="pma_pw" id="pw_pma_pw" class="textfield" onchange="nopass[1].checked = true;" /></td>' . "\n"
                . '    </tr>' . "\n"
-               . '    <tr>' . "\n"
-               . '        <td bgcolor="' . $GLOBALS['cfg']['BgcolorTwo'] . '"></td>' . "\n"
-               . '        <td bgcolor="' . $GLOBALS['cfg']['BgcolorTwo'] . '"><label for="pw_pma_pw2">' . $GLOBALS['strReType'] . ':</label></td>' . "\n"
-               . '        <td bgcolor="' . $GLOBALS['cfg']['BgcolorTwo'] . '"><input type="password" name="pma_pw2" id="pw_pma_pw2" class="textfield" onchange="nopass[1].checked = true;" /></td>' . "\n"
+               . '    <tr class="odd">' . "\n"
+               . '        <td></td>' . "\n"
+               . '        <td><label for="pw_pma_pw2">' . $GLOBALS['strReType'] . ':</label></td>' . "\n"
+               . '        <td><input type="password" name="pma_pw2" id="pw_pma_pw2" class="textfield" onchange="nopass[1].checked = true;" /></td>' . "\n"
                . '    </tr>' . "\n"
                . '    </table>' . "\n"
                . '    </fieldset>' . "\n"
@@ -1466,16 +1464,13 @@ if (empty($adduser) && empty($checkprivs)) {
                . '        <legend>' . $GLOBALS['strChangeCopyMode'] . '</legend>' . "\n"
                . '        <input type="radio" name="mode" value="4" id="radio_mode_4" checked="checked" /><label for="radio_mode_4">' . "\n"
                . '            ' . $GLOBALS['strChangeCopyModeCopy'] . "\n"
-               . '        </label>' . "\n"
-               . '        <br />' . "\n"
+               . '        </label><br />' . "\n"
                . '        <input type="radio" name="mode" value="1" id="radio_mode_1" /><label for="radio_mode_1">' . "\n"
                . '            ' . $GLOBALS['strChangeCopyModeJustDelete'] . "\n"
-               . '        </label>' . "\n"
-               . '        <br />' . "\n"
+               . '        </label><br />' . "\n"
                . '        <input type="radio" name="mode" value="2" id="radio_mode_2" /><label for="radio_mode_2">' . "\n"
                . '            ' . $GLOBALS['strChangeCopyModeRevoke'] . "\n"
-               . '        </label>' . "\n"
-               . '        <br />' . "\n"
+               . '        </label><br />' . "\n"
                . '        <input type="radio" name="mode" value="3" id="radio_mode_3" /><label for="radio_mode_3">' . "\n"
                . '            ' . $GLOBALS['strChangeCopyModeDeleteAndReload'] . "\n"
                . '        </label>' . "\n"
@@ -1491,7 +1486,7 @@ if (empty($adduser) && empty($checkprivs)) {
     // Add a new user
     $GLOBALS['url_query'] .= '&amp;adduser=1';
     echo '<h2>' . "\n"
-       . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
+       . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" alt="" />' : '' )
        . '    ' . $GLOBALS['strAddUser'] . "\n"
        . '</h2>' . "\n"
        . '<form name="usersForm" action="server_privileges.php" method="post" onsubmit="return checkAddUser(this);">' . "\n"
@@ -1504,35 +1499,22 @@ if (empty($adduser) && empty($checkprivs)) {
        . '</form>' . "\n";
 } else {
     // check the privileges for a particular database.
-    echo '<table border="0" cellpadding="2" cellspacing="1">' . "\n"
+    echo '<table id="tablespecificuserrights" class="data">' . "\n"
        . '<caption class="tblHeaders">' . "\n"
-       . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img src="' . $pmaThemeImage . 'b_usrcheck.png" width="16" height="16" border="0" hspace="2" align="middle" />' . "\n" : '' )
+       . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img class="icon" src="' . $pmaThemeImage . 'b_usrcheck.png" width="16" height="16" alt="" />' . "\n" : '' )
        . '    ' . sprintf($GLOBALS['strUsersHavingAccessToDb'], '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($checkprivs) . '">' .  htmlspecialchars($checkprivs) . '</a>') . "\n"
        . '</caption>' . "\n"
        . '<thead>' . "\n"
-       . '    <tr>' . "\n"
-       . '        <th>' . "\n"
-       . '            ' . $GLOBALS['strUser'] . '' . "\n"
-       . '        </th>' . "\n"
-       . '        <th>' . "\n"
-       . '            ' . $GLOBALS['strHost'] . '' . "\n"
-       . '        </th>' . "\n"
-       . '        <th>' . "\n"
-       . '            ' . $GLOBALS['strType'] . '' . "\n"
-       . '        </th>' . "\n"
-       . '        <th>' . "\n"
-       . '            ' . $GLOBALS['strPrivileges'] . '' . "\n"
-       . '        </th>' . "\n"
-       . '        <th>' . "\n"
-       . '            ' . $GLOBALS['strGrantOption'] . '' . "\n"
-       . '        </th>' . "\n"
-       . '        <th>' . "\n"
-       . '            ' . $GLOBALS['strAction'] . '' . "\n"
-       . '        </th>' . "\n"
+       . '    <tr><th>' . $GLOBALS['strUser'] . '</th>' . "\n"
+       . '        <th>' . $GLOBALS['strHost'] . '</th>' . "\n"
+       . '        <th>' . $GLOBALS['strType'] . '</th>' . "\n"
+       . '        <th>' . $GLOBALS['strPrivileges'] . '</th>' . "\n"
+       . '        <th>' . $GLOBALS['strGrantOption'] . '</th>' . "\n"
+       . '        <th>' . $GLOBALS['strAction'] . '</th>' . "\n"
        . '    </tr>' . "\n"
        . '<t/head>' . "\n"
        . '<tbody>' . "\n";
-    $useBgcolorOne = TRUE;
+    $odd_row = TRUE;
     unset($row);
     unset($row1);
     unset($row2);
@@ -1594,23 +1576,20 @@ if (empty($adduser) && empty($checkprivs)) {
                     $row2 = PMA_DBI_fetch_assoc($res2);
                 }
             }
-            echo '    <tr>' . "\n"
+            echo '    <tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
                . '        <td';
             if (count($current_privileges) > 1) {
                 echo ' rowspan="' . count($current_privileges) . '"';
             }
-            echo ' bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . "\n"
-               . '            ' . (empty($current_user) ? '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>' : htmlspecialchars($current_user)) . "\n"
+            echo '>' . (empty($current_user) ? '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>' : htmlspecialchars($current_user)) . "\n"
                . '        </td>' . "\n"
                . '        <td';
             if (count($current_privileges) > 1) {
                 echo ' rowspan="' . count($current_privileges) . '"';
             }
-            echo ' bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . "\n"
-               . '            ' . htmlspecialchars($current_host) . "\n"
-               . '        </td>' . "\n";
+            echo '>' . htmlspecialchars($current_host) . '</td>' . "\n";
             foreach ($current_privileges as $current) {
-                echo '        <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . "\n"
+                echo '        <td>' . "\n"
                    . '            ';
                 if (!isset($current['Db']) || $current['Db'] == '*') {
                     echo $GLOBALS['strGlobal'];
@@ -1621,15 +1600,15 @@ if (empty($adduser) && empty($checkprivs)) {
                 }
                 echo "\n"
                    . '        </td>' . "\n"
-                   . '        <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . "\n"
+                   . '        <td>' . "\n"
                    . '            <tt>' . "\n"
                    . '                ' . join(',' . "\n" . '                ', PMA_extractPrivInfo($current, TRUE)) . "\n"
                    . '            <tt>' . "\n"
                    . '        </td>' . "\n"
-                   . '        <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . "\n"
+                   . '        <td>' . "\n"
                    . '            ' . ($current['Grant_priv'] == 'Y' ? $GLOBALS['strYes'] : $GLOBALS['strNo']) . "\n"
                    . '        </td>' . "\n"
-                   . '        <td bgcolor="' . ($useBgcolorOne ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']) . '">' . "\n"
+                   . '        <td>' . "\n"
                    . '            <a href="./server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($current_user) . '&amp;hostname=' . urlencode($current_host) . (!isset($current['Db']) || $current['Db'] == '*' ? '' : '&amp;dbname=' . urlencode($current['Db'])) . '">' . "\n"
                    . '                ' . $GLOBALS['strEdit'] . "\n"
                    . '            </a>' . "\n"
@@ -1639,11 +1618,11 @@ if (empty($adduser) && empty($checkprivs)) {
             if (empty($row) && empty($row1) && empty($row2)) {
                 break;
             }
-            $useBgcolorOne = !$useBgcolorOne;
+            $odd_row = ! $odd_row;
         }
     } else {
-        echo '    <tr>' . "\n"
-           . '        <td colspan="6" bgcolor="' . $GLOBALS['cfg']['BgcolorTwo'] . '">' . "\n"
+        echo '    <tr class="odd">' . "\n"
+           . '        <td colspan="6">' . "\n"
            . '            ' . $GLOBALS['strNoUsersFound'] . "\n"
            . '        </td>' . "\n"
            . '    </tr>' . "\n";

@@ -43,6 +43,8 @@ table .name {
     font-weight: normal;
 }
 
+#tableuserrights td,
+#tablespecificuserrights td,
 #tabledatabases td {
     vertical-align: middle;
 }

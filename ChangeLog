@@ -21,10 +21,9 @@ $Source$
       fixed rowcount in left frame for tables in information_schema
     * libraries/sql_query_form.lib.php:
       XHTML compl.
-    * server_databases.php, css/phpmyadmin.css.php:
-      XHTML compl.
-    * server_status.php
-      XHTML compl.
+    * css/phpmyadmin.css.php, server_status.php, server_databases.php
+      server_collations.php, server_engines.php, server_privileges.php
+      server_variables.php: XHTML compl.
 
 2005-10-12 Michal Čihař  <michal@cihar.com>
     * libraries/get_foreign.lib.php: Fix paging.

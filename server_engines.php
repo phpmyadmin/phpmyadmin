@@ -117,7 +117,7 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
      * Displays the sub-page heading
      */
     echo '<h2>' . "\n"
-       . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 'b_engine.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
+       . ($cfg['MainPageIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_engine.png" width="16" height="16" alt="" />' : '' )
        . '    ' . $strStorageEngines . "\n"
        . '</h2>' . "\n";
 
