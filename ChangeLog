@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-12 Michal Čihař  <michal@cihar.com>
+    * libraries/get_foreign.lib.php: Fix paging.
+
 2005-10-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/grab_globals.lib.php: bug #1322871, local file inclusion
 
