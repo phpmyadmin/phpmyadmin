@@ -23,6 +23,8 @@ $Source$
       XHTML compl.
     * server_databases.php, css/phpmyadmin.css.php:
       XHTML compl.
+    * server_status.php
+      XHTML compl.
 
 2005-10-12 Michal Čihař  <michal@cihar.com>
     * libraries/get_foreign.lib.php: Fix paging.

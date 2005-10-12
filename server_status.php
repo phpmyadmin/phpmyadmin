@@ -25,10 +25,10 @@ echo '<a name="_top"></a>' . "\n";
 echo '<div id="serverstatus">' . "\n";
 echo '<h2>' . "\n"
    . ($GLOBALS['cfg']['MainPageIconic']
-   ? '<img src="' . $GLOBALS['pmaThemeImage'] . 
-     's_status.png" width="16" height="16" border="0" hspace="2" align="middle" />'
+   ? '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 
+     's_status.png" width="16" height="16" alt="" />'
    : '' )
-   . '    ' . $strServerStatus . "\n"
+   . $strServerStatus . "\n"
    . '</h2>' . "\n";
 
 
@@ -405,7 +405,7 @@ foreach ( $sections as $section_name => $section ) {
                 * $hour_factor, 3 )
         ); ?></td>
 </tr>
-<tbody>
+</tbody>
 </table>
 
 <table id="serverstatusconnections">
@@ -587,7 +587,7 @@ foreach ( $sections as $section_name => $section ) {
             <?php echo
                 ($GLOBALS['cfg']['MainPageIconic'] 
               ? '<img src="' . $GLOBALS['pmaThemeImage'] . 
-                's_asc.png" width="11" height="9" border="0" hspace="2" align="middle" />'
+                's_asc.png" width="11" height="9" align="middle" alt="" />'
               : '' ); ?>
         </a>
 <?php
@@ -675,7 +675,7 @@ if ( ! empty( $section['title'] ) ) {
         }
         unset( $name, $value );
 ?>
-    <tbody>
+    </tbody>
     </table>
 <?php
     }
