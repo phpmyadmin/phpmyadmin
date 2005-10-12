@@ -1105,7 +1105,8 @@ function PMA_setFontSizes()
     else if ((PMA_USR_OS == 'Mac'
                 && ((PMA_USR_BROWSER_AGENT != 'IE' && PMA_USR_BROWSER_AGENT != 'MOZILLA')
                     || PMA_USR_BROWSER_VER < 5))
-            || PMA_USR_BROWSER_AGENT == 'KONQUEROR') {
+            || PMA_USR_BROWSER_AGENT == 'KONQUEROR'
+            || PMA_USR_BROWSER_AGENT == 'MOZILLA') {
         $font_size     = 'medium';
         $font_biggest  = 'x-large';
         $font_bigger   = 'large';
