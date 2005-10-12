@@ -332,14 +332,14 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
     echo '</fieldset>' . "\n"
         .'</div>' . "\n";
     
-    echo '<fieldset id="" class="tblFooters">' . "\n";
+    echo '<fieldset id="queryboxfooter" class="tblFooters">' . "\n";
     echo '<div class="formelement">' . "\n";
     if ( $is_querywindow ) {
         ?>
         <script type="text/javascript">
-            document.writeln(' <input type="checkbox" name="LockFromUpdate"'
-                + ' value="1" id="checkbox_lock" /> <label for="checkbox_lock">'
-                + '<?php echo $GLOBALS['strQueryWindowLock']; ?></label> ');
+        //<![CDATA[
+            document.writeln(' <input type="checkbox" name="LockFromUpdate" value="1" id="checkbox_lock" /> <label for="checkbox_lock"><?php echo $GLOBALS['strQueryWindowLock']; ?></label> ');
+        //]]>
         </script>
         <?php
     }
@@ -382,7 +382,7 @@ function PMA_sqlQueryFormBookmark() {
         return;
     }
     
-    echo '<fieldset>';
+    echo '<fieldset id="bookmarkoptions">';
     echo '<legend>';
     echo $GLOBALS['strBookmarkQuery'] . '</legend>' . "\n";
     echo '<div class="formelement">';
@@ -400,7 +400,7 @@ function PMA_sqlQueryFormBookmark() {
     if ( $GLOBALS['cfg']['ReplaceHelpImg'] ) {
         echo ' <a href="./Documentation.html#faqbookmark"'
             .' target="documentation">'
-            .'<img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png"'
+            .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png"'
             .' border="0" width="11" height="11" align="middle"'
             .' alt="' . $GLOBALS['strDocu'] . '" /></a> ';
     } else {
@@ -427,7 +427,7 @@ function PMA_sqlQueryFormBookmark() {
     echo '<div class="clearfloat"></div>' . "\n";
     echo '</fieldset>' . "\n";
     
-    echo '<fieldset id="" class="tblFooters">' . "\n";
+    echo '<fieldset id="bookmarkoptionsfooter" class="tblFooters">' . "\n";
     echo '<input type="submit" name="SQL" value="' . $GLOBALS['strGo'] . '" />';
     echo '<div class="clearfloat"></div>' . "\n";
     echo '</fieldset>' . "\n";
