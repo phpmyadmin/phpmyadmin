@@ -2330,10 +2330,23 @@ if (typeof(document.getElementById) != 'undefined'
      * returns a tab for tabbed navigation.
      * If the variables $link and $args ar left empty, an inactive tab is created
      *
-     * @param   array   $tab array with all options
-     *
+     * @uses    array_merge()
+     * basename()
+     * $GLOBALS['strEmpty']
+     * $GLOBALS['strDrop']
+     * $GLOBALS['active_page']
+     * $_SERVER['PHP_SELF']
+     * htmlentities()
+     * PMA_generate_common_url()
+     * $GLOBALS['url_query']
+     * urlencode()
+     * $GLOBALS['cfg']['MainPageIconic']
+     * $GLOBALS['pmaThemeImage']
+     * sprintf()
+     * trigger_error()
+     * E_USER_NOTICE
+     * @param   array   $tab    array with all options
      * @return  string  html code for one tab, a link if valid otherwise a span
-     *
      * @access  public
      */
     function PMA_getTab( $tab )
@@ -2353,12 +2366,14 @@ if (typeof(document.getElementById) != 'undefined'
         
         // determine aditional style-class
         if ( empty( $tab['class'] ) ) {
-            if ($tab['text'] == $GLOBALS['strEmpty'] || $tab['text'] == $GLOBALS['strDrop']) {
+            if ( $tab['text'] == $GLOBALS['strEmpty'] 
+                || $tab['text'] == $GLOBALS['strDrop'] ) {
                 $tab['class'] = 'caution';
             }
             elseif ( isset( $tab['active'] ) && $tab['active']
-                  || isset($GLOBALS['active_page']) && $GLOBALS['active_page'] == $tab['link'] 
-                  || basename($_SERVER['PHP_SELF']) == $tab['link'] )
+                  || isset( $GLOBALS['active_page'] )
+                  && $GLOBALS['active_page'] == $tab['link'] 
+                  || basename( $_SERVER['PHP_SELF'] ) == $tab['link'] )
             {
                 $tab['class'] = 'active';
             }
@@ -2367,10 +2382,13 @@ if (typeof(document.getElementById) != 'undefined'
         // build the link
         if ( ! empty( $tab['link'] ) ) {
             $tab['link'] = htmlentities( $tab['link'] );
-            $tab['link'] = $tab['link'] . $tab['sep'] . ( empty( $GLOBALS['url_query'] ) ? PMA_generate_common_url() : $GLOBALS['url_query'] );
+            $tab['link'] = $tab['link'] . $tab['sep']
+                .( empty( $GLOBALS['url_query'] ) ?
+                    PMA_generate_common_url() : $GLOBALS['url_query'] );
             if ( ! empty( $tab['args'] ) ) {
                 foreach( $tab['args'] as $param => $value ) {
-                    $tab['link'] .= '&amp;' . urlencode( $param ) . '=' . urlencode( $value );
+                    $tab['link'] .= '&amp;' . urlencode( $param ) . '=' 
+                        . urlencode( $value );
                 }
             }
         }
@@ -2378,20 +2396,25 @@ if (typeof(document.getElementById) != 'undefined'
         // display icon, even if iconic is disabled but the link-text is missing
         if ( ( $GLOBALS['cfg']['MainPageIconic'] || empty( $tab['text'] ) )
             && isset( $tab['icon'] ) ) {
-            $image = '<img src="' . htmlentities( $GLOBALS['pmaThemeImage'] ) . '%1$s" width="16" height="16" border="0" alt="%2$s" />%2$s';
+            $image = '<img src="' . htmlentities( $GLOBALS['pmaThemeImage'] )
+                .'%1$s" width="16" height="16" border="0" alt="%2$s" />%2$s';
             $tab['text'] = sprintf( $image, htmlentities( $tab['icon'] ), $tab['text'] );
         }
         // check to not display an empty link-text
         elseif ( empty( $tab['text'] ) ) {
             $tab['text'] = '?';
-            trigger_error( __FILE__ . '(' . __LINE__ . '): ' . 'empty linktext in function ' . __FUNCTION__ . '()', E_USER_NOTICE );
+            trigger_error( __FILE__ . '(' . __LINE__ . '): ' 
+                . 'empty linktext in function ' . __FUNCTION__ . '()',
+                E_USER_NOTICE );
         }
 
         if ( ! empty( $tab['link'] ) ) {
-            $out = '<a class="tab' . htmlentities( $tab['class'] ) . '" href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
-                 . $tab['text'] . '</a>';
+            $out = '<a class="tab' . htmlentities( $tab['class'] ) . '"'
+                .' href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
+                . $tab['text'] . '</a>';
         } else {
-            $out = '<span class="tab' . htmlentities( $tab['class'] ) . '">' . $tab['text'] . '</span>';
+            $out = '<span class="tab' . htmlentities( $tab['class'] ) . '">'
+                . $tab['text'] . '</span>';
         }
 
         return $out;
@@ -2400,22 +2423,25 @@ if (typeof(document.getElementById) != 'undefined'
     /**
      * returns html-code for a tab navigation
      *
-     * @param   array   $tabs one element per tab
+     * @uses    PMA_getTab()
+     * @uses    htmlentities()
+     * @param   array   $tabs   one element per tab
      * @param   string  $tag_id id used for the html-tag
      * @return  string  html-code for tab-navigation
      */ 
-    function PMA_getTabs( $tabs, $tag_id = 'topmenu' )
-    {
-        $tab_navigation = '<!-- top menu -->' . "\n";
-        $tab_navigation .= '<div id="' . htmlentities( $tag_id ) . '">' . "\n";
+    function PMA_getTabs( $tabs, $tag_id = 'topmenu' ) {
+        $tab_navigation =
+             '<div id="' . htmlentities( $tag_id ) . 'container">' . "\n"
+            .'<ul id="' . htmlentities( $tag_id ) . '">' . "\n";
         
-        foreach ( $tabs as $tab )
-        {
-            $tab_navigation .= PMA_getTab( $tab ) . "\n";
+        foreach ( $tabs as $tab ) {
+            $tab_navigation .= '<li>' . PMA_getTab( $tab ) . '</li>' . "\n";
         }
         
-        $tab_navigation .= '</div>' . "\n";
-        $tab_navigation .= '<!-- end top menu -->' . "\n\n";
+        $tab_navigation .=
+             '</ul>' . "\n"
+            .'<div class="clearfloat"></div>'
+            .'</div>' . "\n";
         
         return $tab_navigation;
     }

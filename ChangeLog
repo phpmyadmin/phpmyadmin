@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * css/phpmyadmin.css.php, libraries/common.lib.php,
+      themes/darkblue_orange/css/theme_right.css.php,
+      themes/original/css/theme_right.css.php:
+      use list for navigation tabs RFE #1290423 
+
 2005-10-12 Michal Čihař  <michal@cihar.com>
     * libraries/get_foreign.lib.php: Fix paging.
 

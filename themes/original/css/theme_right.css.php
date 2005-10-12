@@ -113,19 +113,37 @@ button.mult_submit {
 
 hr{ color: #666666; background-color: #666666; border: 0; height: 1px; }
 
-
 /* topmenu */
-#topmenu {
+ul#topmenu {
     font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul#topmenu li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+#topmenu img {
+    height: 1.3em;
+    width: auto;
+    vertical-align: text-bottom;
+    margin-right: 0.1em;
 }
 
 /* default tab styles */
 .tab, .tabcaution, .tabactive {
-    margin-right: 0.1em;
-    margin-left: 0.1em;
+    display: block;
+    margin: 0.2em 0.2em 0 0.2em;
+    padding: 0.2em 0.2em 0 0.2em;
+    white-space: nowrap;
 }
 
-/* disbaled tabs */
+/* disabled tabs */
 span.tab {
     color: #666666;
 }
@@ -147,36 +165,38 @@ a.tabcaution:hover {
 <?php if ( $GLOBALS['cfg']['LightTabs'] ) { ?>
 /* active tab */
 a.tabactive {
-    border-bottom: 0.1em solid black;
     color: black;
 }
 <?php } else { ?>
 #topmenu {
     margin-top: 0.5em;
-    border-bottom: 0.1em solid black;
     padding: 0.1em 0.3em 0.1em 0.3em;
+}
+
+ul#topmenu li {
+    border-bottom: 1pt solid black;
 }
 
 /* default tab styles */
 .tab, .tabcaution, .tabactive {
-    background-color: #E5E5E5;
-    border: 0.1em solid silver;
-    border-bottom: 0.1em solid black;
-    border-radius-topleft: 0.5em;
-    border-radius-topright: 0.5em;
-    -moz-border-radius-topleft: 0.5em;
-    -moz-border-radius-topright: 0.5em;
-    padding: 0.1em 0.2em 0.1em 0.2em;
+    background-color: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
+    border: 1pt solid <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
+    border-bottom: 0;
+    border-radius-topleft: 0.4em;
+    border-radius-topright: 0.4em;
+    -moz-border-radius-topleft: 0.4em;
+    -moz-border-radius-topright: 0.4em;
 }
 
 /* enabled hover/active tabs */
-a.tab:hover, a.tabcaution:hover, .tabactive {
-    margin-right: 0;
-    margin-left: 0;
-    padding: 0.3em 0.3em 0.1em 0.3em;
+a.tab:hover, a.tabcaution:hover, .tabactive, .tabactive:hover {
+    margin: 0;
+    padding: 0.2em 0.4em 0.2em 0.4em;
+    text-decoration: none;
 }
+
 a.tab:hover, .tabactive {
-    background-color: #CCCCCC;
+    background-color: <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
 }
 
 /* disabled drop/empty tabs */
@@ -185,7 +205,6 @@ span.tab, span.tabcaution {
 }
 <?php } ?>
 /* end topmenu */
-
 
 /* Warning showing div with right border and optional icon */
 
