@@ -122,6 +122,7 @@ if ( $cfg['QueryFrameJS'] && !isset($no_js) ) {
     $tabs['import']['link']   = '#';
     $tabs['import']['attr']   = 'onclick="javascript:query_tab_commit(\'files\');return false;"';
     $tabs['import']['active'] = (bool) ( $querydisplay_tab == 'files' );
+    $tabs['history']['icon']   = 'b_bookmark.png';
     $tabs['history']['text']   = $strQuerySQLHistory;
     $tabs['history']['link']   = '#';
     $tabs['history']['attr']   = 'onclick="javascript:query_tab_commit(\'history\');return false;"';
