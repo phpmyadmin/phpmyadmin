@@ -63,6 +63,7 @@ if (!$tbl_is_view) {
         $tabs['empty']['args']['sql_query'] = $ln8_stt . PMA_backquote($table);
         $tabs['empty']['args']['zero_rows'] = sprintf($strTableHasBeenEmptied, htmlspecialchars($table));
         $tabs['empty']['attr']  = 'onclick="return confirmLink(this, \'' . $ln8_stt . PMA_jsFormat($table) . '\')"';
+        $tabs['empty']['args']['goto'] = 'tbl_properties_structure.php';
         $tabs['empty']['class'] = 'caution';
     }
     $tabs['empty']['icon'] = 'b_empty.png';
@@ -75,6 +76,7 @@ $tabs['drop']['args']['reload']     = 1;
 $tabs['drop']['args']['purge']      = 1;
 $drop_command = 'DROP ' . ($tbl_is_view ? 'VIEW' : 'TABLE');
 $tabs['drop']['args']['sql_query']  = $drop_command . ' ' . PMA_backquote($table);
+$tabs['drop']['args']['goto']       = 'db_details_structure.php';
 $tabs['drop']['args']['zero_rows']  = sprintf(($tbl_is_view ? $strViewHasBeenDropped : $strTableHasBeenDropped), htmlspecialchars($table));
 $tabs['drop']['attr'] = 'onclick="return confirmLink(this, \'' . $drop_command . ' ' . PMA_jsFormat($table) . '\')"';
 unset($drop_command);
