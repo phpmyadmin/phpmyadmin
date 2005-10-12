@@ -17,6 +17,8 @@ $Source$
       dont use 6-bit chars on windows
     * css/phpmyadmin.css.php:
       display bug in FF with tabs in querywindow
+    * libraries/common.lib.php:
+      fixed rowcount in left frame for tables in information_schema
 
 2005-10-12 Michal Čihař  <michal@cihar.com>
     * libraries/get_foreign.lib.php: Fix paging.

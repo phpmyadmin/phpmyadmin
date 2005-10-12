@@ -1621,6 +1621,13 @@ if ($is_minimum_common == FALSE) {
         $table_groups = array();
         
         foreach ( $tables as $table_name => $table ) {
+            
+            // check for correct row count
+            if ( NULL === $table['Rows'] ) {
+                $table['Rows'] = PMA_countRecords( $db, $table['Name'],
+                    $return = true, $force_exact = true );
+            }
+            
             // in $group we save the reference to the place in $table_groups
             // where to store the table info
             if ( $GLOBALS['cfg']['LeftFrameDBTree']
@@ -2440,7 +2447,8 @@ if (typeof(document.getElementById) != 'undefined'
         
         $tab_navigation .=
              '</ul>' . "\n"
-            .'<div style="clear: both;" class="clearfloat"></div></div>' . "\n";
+            .'<div class="clearfloat"></div>'
+            .'</div>' . "\n";
         
         return $tab_navigation;
     }
