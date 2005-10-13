@@ -25,6 +25,10 @@ $Source$
       css/phpmyadmin.css.php: XHTML compl.
     * libraries/display_import.lib.php, css/phpmyadmin.css.php:
       JavaScript errors, layout errors
+    * libraries/display_import.lib.php, css/phpmyadmin.css.php:
+      small CSS fixes
+    * libraries/display_export.lib.php, server_export.php:
+      XHTML compliance, introduced fieldsets
 
 2005-10-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css/phpmyadmin.css.php, libraries/common.lib.php,

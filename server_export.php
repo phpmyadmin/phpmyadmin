@@ -54,7 +54,7 @@ $checkall_url = 'server_export.php?'
 
 $multi_values .= '<br />
         <a href="' . $checkall_url . '&amp;selectall=1" onclick="setSelectOptions(\'dump\', \'db_select[]\', true); return false;">' . $strSelectAll . '</a>
-        &nbsp;/&nbsp;
+        /
         <a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'db_select[]\', false); return false;">' . $strUnselectAll . '</a>
         <br /><br />';
 
