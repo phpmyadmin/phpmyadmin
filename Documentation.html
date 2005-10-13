@@ -2834,8 +2834,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <pre>
 RewriteEngine On
 RewriteBase /path_to_phpMyAdmin
-RewriteRule ^([a-zA-Z0-9_]*)/([a-zA-Z0-9_]*)$ index.php?db=$1&amp;table=$2 [R]
-RewriteRule ^([a-zA-Z0-9_]*)$ index.php?db=$1 [R]
+RewriteRule ^([a-zA-Z0-9_]+)/([a-zA-Z0-9_]+)$ index.php?db=$1&amp;table=$2 [R]
+RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
 </pre>
 
 <a name="faqconfig"></a><br />

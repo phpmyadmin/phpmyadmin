@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-13 Michal Čihař  <michal@cihar.com>
+    * Documentation.html: Fix URL rewriting not to match empty parts.
+
 2005-10-13 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * left.php: preselect db if only one db
     * server_privileges.php:
