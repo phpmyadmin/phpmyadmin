@@ -11,6 +11,8 @@ $Source$
       XHTML compl., NOTICE, Icons for Edit/Revoke Links
     * server_processlist.php, libraries/display_import.lib.php,
       css/phpmyadmin.css.php: XHTML compl.
+    * libraries/display_import.lib.php, css/phpmyadmin.css.php:
+      JavaScript errors, layout errors
 
 2005-10-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css/phpmyadmin.css.php, libraries/common.lib.php,

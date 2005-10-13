@@ -181,6 +181,7 @@ div#queryboxcontainer div#bookmarkoptions {
     margin-top: 0.5em;
 }
 
+fieldset .formelementrow,
 fieldset .formelement {
     line-height: 2.4em;
     float: left;
@@ -189,11 +190,14 @@ fieldset .formelement {
     white-space: nowrap;
 }
 /* revert for Gecko */
+fieldset div[class=formelementrow],
 fieldset div[class=formelement] {
     white-space: normal;
 }
 
 /* IE */
+fieldset .formelementrow input,
+fieldset .formelementrow select,
 fieldset .formelement input,
 fieldset .formelement select {
     margin-top: 0.5em;
@@ -201,11 +205,18 @@ fieldset .formelement select {
     height: 1.3em;
 }
 /* revert for Gecko */
+fieldset div[class=formelementrow] input,
+fieldset div[class=formelementrow] select,
 fieldset div[class=formelement] input,
 fieldset div[class=formelement] select {
     margin-top: auto;
     margin-bottom: auto;
     height: auto;
+}
+
+fieldset .formelementrow {
+    clear: left;
+    float: none;
 }
 
 

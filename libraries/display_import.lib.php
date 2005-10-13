@@ -77,10 +77,10 @@ echo '    <input type="hidden" name="import_type" value="' . $import_type . '" /
         <?php 
         foreach($import_list as $key => $val) {
             if (isset($val['options'])) {
-                echo 'getElement("' . $key . '_options").style.display = "none";';
+                echo 'document.getElementById("' . $key . '_options").style.display = "none";';
             }
         }?>
-        getElement("none_options").style.display = 'none';
+        document.getElementById("none_options").style.display = 'none';
     }
 
     function init_options() {
@@ -89,15 +89,15 @@ echo '    <input type="hidden" name="import_type" value="' . $import_type . '" /
         foreach($import_list as $key => $val) {
             echo 'if (document.getElementById("radio_import_' . $key . '").checked) {';
             if (isset($val['options'])) {
-                echo 'getElement("' . $key . '_options").style.display = "block";';
+                echo 'document.getElementById("' . $key . '_options").style.display = "block";';
             } else {
-                echo 'getElement("none_options").style.display = "block";';
+                echo 'document.getElementById("none_options").style.display = "block";';
             }
             echo ' } else ';
         }
         ?>
         {
-            getElement('none_options').style.display = 'block';
+            document.getElementById('none_options').style.display = 'block';
         }
     }
     
@@ -127,6 +127,7 @@ foreach($import_list as $key => $val) {
     <fieldset class="options">
         <legend><?php echo $strFileToImport; ?></legend>
         
+        <div class="formelementrow">
         <div class="formelement">
         <label for="input_import_file"><?php echo $strLocationTextfile; ?></label>
         <input style="margin: 5px" type="file" name="import_file" id="input_import_file" onchange="match_file(this.value);" />
@@ -134,6 +135,7 @@ foreach($import_list as $key => $val) {
 <?php
 echo '<div class="formelement">' . "\n";
 echo PMA_displayMaximumUploadSize($max_upload_size);
+echo '</div>' . "\n";
 echo '</div>' . "\n";
 // some browsers should respect this :)
 echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
@@ -147,14 +149,14 @@ if (!empty($cfg['UploadDir'])) {
     $matcher = '@\.(' . $extensions . ')(\.(' . PMA_supportedDecompressions() . '))?$@';
 
     $files = PMA_getFileSelectOptions($cfg['UploadDir'], $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
-    echo '<div class="formelement">' . "\n";
+    echo '<div class="formelementrow">' . "\n";
     if ($files === FALSE) {
-        echo '    <div style="margin-bottom: 5px">' . "\n";
-        echo '        <font color="red">' . $strError . '</font><br />' . "\n";
+        echo '    <div class="warning">' . "\n";
+        echo '        <strong>' . $strError . '</strong>: ' . "\n";
         echo '        ' . $strWebServerUploadDirectoryError . "\n";
         echo '    </div>' . "\n";
     } elseif (!empty($files)) {
-        echo "<br />\n";
+        echo "\n";
         echo '    <i>' . $strOr . '</i><br/><label for="select_local_import_file">' . $strWebServerUploadDirectory . '</label>&nbsp;: ' . "\n";
         echo '    <select style="margin: 5px" size="1" name="local_import_file" onchange="match_file(this.value)" id="select_local_import_file">' . "\n";
         echo '        <option value=""></option>' . "\n";
@@ -165,7 +167,7 @@ if (!empty($cfg['UploadDir'])) {
 } // end if (web-server upload directory)
 
 // charset of file
-echo '<div class="formelement">' . "\n";
+echo '<div class="formelementrow">' . "\n";
 if (PMA_MYSQL_INT_VERSION < 40100 && $cfg['AllowAnywhereRecoding'] && $allow_recoding) {
     echo '<label for="charset_of_file">' . $strCharsetOfFile . '</label>' . "\n";
     $temp_charset = reset($cfg['AvailableCharsets']);
@@ -199,7 +201,7 @@ if ($cfg['ZipDump'] && @function_exists('gzinflate')) $compressions .= ', zip';
 
 // We don't have show anything about compression, when no supported
 if ($compressions != $strNone) {
-    echo '<div class="formelement">' . "\n";
+    echo '<div class="formelementrow">' . "\n";
     printf( $strCompressionWillBeDetected, $compressions);
     echo '</div>' . "\n";
 }
@@ -211,19 +213,19 @@ echo "\n";
         
         <?php 
         if (isset($timeout_passed) && $timeout_passed) {
-            echo '<div class="formelement">' . "\n";
+            echo '<div class="formelementrow">' . "\n";
             echo '<input type="hidden" name="skip" value="' . $offset . '" />';
             echo sprintf($strTimeoutInfo, $offset) . '';
             echo '</div>' . "\n";
         }
         ?>
-        <div class="formelement">
+        <div class="formelementrow">
         <input type="checkbox" name="allow_interrupt" value="yes"
             id="checkbox_allow_interrupt" <?php echo PMA_importCheckboxCheck('allow_interrupt'); ?>/>
         <label for="checkbox_allow_interrupt"><?php echo $strAllowInterrupt; ?></label><br />
         </div>
         
-        <div class="formelement">
+        <div class="formelementrow">
         <label for="text_skip_queries"><?php echo $strSkipQueries; ?></label>
         <input type="text" name="skip_queries" value="<?php echo PMA_importGetDefault('skip_queries');?>" id="text_skip_queries" />
         </div>
@@ -237,7 +239,7 @@ echo "\n";
 foreach($import_list as $key => $val) {
 ?>
             <!-- <?php echo $key; ?> -->
-            <input type="radio" name="what" value="<?php echo $key; ?>" id="radio_import_<?php echo $key; ?>" onclick="if(this.checked) { hide_them_all(); getElement('<?php echo isset($val['options']) ? $key : 'none';?>_options').style.display = 'block'; }; return true" <?php echo PMA_importIsActive('format', $key); ?>/>
+            <input type="radio" name="what" value="<?php echo $key; ?>" id="radio_import_<?php echo $key; ?>" onclick="if(this.checked) { hide_them_all(); document.getElementById('<?php echo isset($val['options']) ? $key : 'none';?>_options').style.display = 'block'; }; return true" <?php echo PMA_importIsActive('format', $key); ?>/>
             <label for="radio_import_<?php echo $key; ?>"><?php echo PMA_getString($val['text']); ?></label>
             <br /><br />
 <?php
