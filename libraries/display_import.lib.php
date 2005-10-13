@@ -72,7 +72,7 @@ echo '    <input type="hidden" name="import_type" value="' . $import_type . '" /
 ?>
 
     <script type="text/javascript">
-    <!--
+    //<![CDATA[
     function hide_them_all() {
         <?php 
         foreach($import_list as $key => $val) {
@@ -118,21 +118,23 @@ foreach($import_list as $key => $val) {
             }
         }
     }
-    //-->
+    //]]>
     </script>
     
     <h2><?php echo $strImport; ?></h2>
 
     <!-- File name, and some other common options -->
     <fieldset class="options">
-        <legend>
-            <?php echo $strFileToImport; ?>
-        </legend>
+        <legend><?php echo $strFileToImport; ?></legend>
         
+        <div class="formelement">
         <label for="input_import_file"><?php echo $strLocationTextfile; ?></label>
         <input style="margin: 5px" type="file" name="import_file" id="input_import_file" onchange="match_file(this.value);" />
-<?php                
+        </div>
+<?php
+echo '<div class="formelement">' . "\n";
 echo PMA_displayMaximumUploadSize($max_upload_size);
+echo '</div>' . "\n";
 // some browsers should respect this :)
 echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
 
@@ -145,7 +147,7 @@ if (!empty($cfg['UploadDir'])) {
     $matcher = '@\.(' . $extensions . ')(\.(' . PMA_supportedDecompressions() . '))?$@';
 
     $files = PMA_getFileSelectOptions($cfg['UploadDir'], $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
-    
+    echo '<div class="formelement">' . "\n";
     if ($files === FALSE) {
         echo '    <div style="margin-bottom: 5px">' . "\n";
         echo '        <font color="red">' . $strError . '</font><br />' . "\n";
@@ -159,34 +161,34 @@ if (!empty($cfg['UploadDir'])) {
         echo $files;
         echo '    </select>' . "\n";
     }
+    echo '</div>' . "\n";
 } // end if (web-server upload directory)
 
 // charset of file
+echo '<div class="formelement">' . "\n";
 if (PMA_MYSQL_INT_VERSION < 40100 && $cfg['AllowAnywhereRecoding'] && $allow_recoding) {
-    echo '<br /><br /><label for="charset_of_file">' . $strCharsetOfFile . '</label>';
-    echo "\n";
+    echo '<label for="charset_of_file">' . $strCharsetOfFile . '</label>' . "\n";
     $temp_charset = reset($cfg['AvailableCharsets']);
-    echo '&nbsp;' . $strCharsetOfFile . "\n"
-         . '    <select name="charset_of_file" size="1">' . "\n"
-         . '            <option value="' . $temp_charset . '"';
+    echo $strCharsetOfFile . "\n"
+         . '    <select id="charset_of_file" name="charset_of_file" size="1">' . "\n"
+         . '            <option value="' . htmlentities( $temp_charset ) . '"';
     if ($temp_charset == $charset) {
         echo ' selected="selected"';
     }
-    echo '>' . $temp_charset . '</option>' . "\n";
+    echo '>' . htmlentities( $temp_charset ) . '</option>' . "\n";
     while ($temp_charset = next($cfg['AvailableCharsets'])) {
-        echo '            <option value="' . $temp_charset . '"';
+        echo '            <option value="' . htmlentities( $temp_charset ) . '"';
         if ($temp_charset == $charset) {
             echo ' selected="selected"';
         }
-        echo '>' . $temp_charset . '</option>' . "\n";
+        echo '>' . htmlentities( $temp_charset ) . '</option>' . "\n";
     }
     echo '        </select><br />' . "\n" . '    ';
 } elseif (PMA_MYSQL_INT_VERSION >= 40100) {
-    echo '<br /><br /><label for="charset_of_file">' . $strCharsetOfFile . '</label>';
-    echo "\n";
-    echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', NULL, 'utf8', FALSE);
+    echo '<label for="charset_of_file">' . $strCharsetOfFile . '</label>' . "\n";
+    echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', FALSE);
 } // end if (recoding)
-echo "\n";
+echo '</div>' . "\n";
 
 // zip, gzip and bzip2 encode features
 $compressions = $strNone;
@@ -197,25 +199,34 @@ if ($cfg['ZipDump'] && @function_exists('gzinflate')) $compressions .= ', zip';
 
 // We don't have show anything about compression, when no supported
 if ($compressions != $strNone) {
-    printf('<br/>' . $strCompressionWillBeDetected, $compressions);
+    echo '<div class="formelement">' . "\n";
+    printf( $strCompressionWillBeDetected, $compressions);
+    echo '</div>' . "\n";
 }
 echo "\n";
 ?>
     </fieldset>
     <fieldset class="options">
-        <legend>
-            <?php echo $strPartialImport; ?>
-        </legend>
+        <legend><?php echo $strPartialImport; ?></legend>
+        
         <?php 
         if (isset($timeout_passed) && $timeout_passed) {
+            echo '<div class="formelement">' . "\n";
             echo '<input type="hidden" name="skip" value="' . $offset . '" />';
-            echo sprintf($strTimeoutInfo, $offset) . '<br />';
+            echo sprintf($strTimeoutInfo, $offset) . '';
+            echo '</div>' . "\n";
         }
         ?>
-        <input type="checkbox" name="allow_interrupt" value="yes" id="checkbox_allow_interrupt" <?php echo PMA_importCheckboxCheck('allow_interrupt'); ?>/><label for="checkbox_allow_interrupt"><?php echo $strAllowInterrupt; ?></label><br />
-
-        <label for="text_skip_queries" style="float: left; width: 20%;"><?php echo $strSkipQueries; ?></label>
+        <div class="formelement">
+        <input type="checkbox" name="allow_interrupt" value="yes"
+            id="checkbox_allow_interrupt" <?php echo PMA_importCheckboxCheck('allow_interrupt'); ?>/>
+        <label for="checkbox_allow_interrupt"><?php echo $strAllowInterrupt; ?></label><br />
+        </div>
+        
+        <div class="formelement">
+        <label for="text_skip_queries"><?php echo $strSkipQueries; ?></label>
         <input type="text" name="skip_queries" value="<?php echo PMA_importGetDefault('skip_queries');?>" id="text_skip_queries" />
+        </div>
 
     </fieldset>
     <fieldset style="float: left;" class="options">
@@ -271,10 +282,12 @@ if (function_exists('PMA_set_enc_form')) {
 }
 echo "\n";
 ?>
-    <input type="submit" value="<?php echo $strGo; ?>" id="buttonGo" style="clear: both; display: block;"/>
+    <fieldset class="tblFooters">
+        <input type="submit" value="<?php echo $strGo; ?>" id="buttonGo" />
+    </fieldset>
 </form>
 <script type="text/javascript">
-<!--
+//<![CDATA[
     init_options();
-//-->
+//]]>
 </script>

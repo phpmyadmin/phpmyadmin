@@ -31,71 +31,67 @@ require('./server_links.inc.php');
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 's_process.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
-   . '    ' . $strProcesslist . "\n"
+   . ($cfg['MainPageIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 's_process.png" width="16" height="16" alt="" />' : '' )
+   . $strProcesslist . "\n"
    . '</h2>' . "\n";
 
 
 /**
  * Sends the query and buffers the result
  */
-$serverProcesses = array();
-$sql_query = 'SHOW' . (empty($full) ? '' : ' FULL') . ' PROCESSLIST';
-$res = PMA_DBI_query($sql_query);
-while ($row = PMA_DBI_fetch_assoc($res)) {
-    $serverProcesses[] = $row;
-}
-@PMA_DBI_free_result($res);
-unset($res);
-unset($row);
+$sql_query = 'SHOW' . ( empty( $full ) ? '' : ' FULL' ) . ' PROCESSLIST';
+$serverProcesses = PMA_DBI_fetch_result( $sql_query );
 
-PMA_showMessage($GLOBALS['strSuccess']);
+PMA_showMessage( $GLOBALS['strSuccess'] );
 
 
 /**
  * Displays the page
  */
 ?>
-<table border="0" cellpadding="2" cellspacing="1">
-    <tr>
-        <td><a href="./server_processlist.php?<?php echo $url_query . (empty($full) ? '&amp;full=1' : ''); ?>" title="<?php echo empty($full) ? $strShowFullQueries : $strTruncateQueries; ?>"><img src="<?php echo $pmaThemeImage . 's_' . (empty($full) ? 'full' : 'partial'); ?>text.png" width="50" height="20" border="0" alt="<?php echo empty($full) ? $strShowFullQueries : $strTruncateQueries; ?>" /></a></td>
-        <th>&nbsp;<?php echo $strId; ?>&nbsp;</th>
-        <th>&nbsp;<?php echo $strUser; ?>&nbsp;</th>
-        <th>&nbsp;<?php echo $strHost; ?>&nbsp;</th>
-        <th>&nbsp;<?php echo $strDatabase; ?>&nbsp;</th>
-        <th>&nbsp;<?php echo $strCommand; ?>&nbsp;</th>
-        <th>&nbsp;<?php echo $strTime; ?>&nbsp;</th>
-        <th>&nbsp;<?php echo $strStatus; ?>&nbsp;</th>
-        <th>&nbsp;<?php echo $strSQLQuery; ?>&nbsp;</th>
-    </tr>
+<table id="tableprocesslist" class="data">
+<thead>
+<tr><td><a href="./server_processlist.php?<?php echo $url_query . (empty($full) ? '&amp;full=1' : ''); ?>"
+            title="<?php echo empty($full) ? $strShowFullQueries : $strTruncateQueries; ?>">
+        <img src="<?php echo $pmaThemeImage . 's_' . (empty($full) ? 'full' : 'partial'); ?>text.png"
+            width="50" height="20" alt="<?php echo empty($full) ? $strShowFullQueries : $strTruncateQueries; ?>" />
+        </a></td>
+    <th><?php echo $strId; ?></th>
+    <th><?php echo $strUser; ?></th>
+    <th><?php echo $strHost; ?></th>
+    <th><?php echo $strDatabase; ?></th>
+    <th><?php echo $strCommand; ?></th>
+    <th><?php echo $strTime; ?></th>
+    <th><?php echo $strStatus; ?></th>
+    <th><?php echo $strSQLQuery; ?></th>
+</tr>
+</thead>
+<tbody>
 <?php
-$useBgcolorOne = TRUE;
-foreach ($serverProcesses AS $name => $value) {
-?>
-    <tr>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<a href="./server_processlist.php?<?php echo $url_query . '&amp;kill=' . $value['Id']; ?>"><?php echo $strKill; ?></a>&nbsp;</td>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>" align="right">&nbsp;<?php echo $value['Id']; ?>&nbsp;</td>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo $value['User']; ?>&nbsp;</td>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo $value['Host']; ?>&nbsp;</td>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo (empty($value['db']) ? '<i>' . $strNone . '</i>' : $value['db']); ?>&nbsp;</td>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo $value['Command']; ?>&nbsp;</td>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>" align="right">&nbsp;<?php echo $value['Time']; ?>&nbsp;</td>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo (empty($value['State']) ? '---' : $value['State']); ?>&nbsp;</td>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo (empty($value['Info']) ? '---' : PMA_SQP_formatHtml(PMA_SQP_parse($value['Info']))); ?>&nbsp;</td>
-    </tr>
-<?php
-    $useBgcolorOne = !$useBgcolorOne;
+$odd_row = true;
+foreach ( $serverProcesses AS $process ) {
+    ?>
+<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
+    <td><a href="./server_processlist.php?<?php echo $url_query . '&amp;kill=' . $process['Id']; ?>"><?php echo $strKill; ?></a></td>
+    <td class="value"><?php echo $process['Id']; ?></td>
+    <td><?php echo $process['User']; ?></td>
+    <td><?php echo $process['Host']; ?></td>
+    <td><?php echo (empty($process['db']) ? '<i>' . $strNone . '</i>' : $process['db']); ?></td>
+    <td><?php echo $process['Command']; ?></td>
+    <td class="value"><?php echo $process['Time']; ?></td>
+    <td><?php echo (empty($process['State']) ? '---' : $process['State']); ?></td>
+    <td><?php echo (empty($process['Info']) ? '---' : PMA_SQP_formatHtml(PMA_SQP_parse($process['Info']))); ?></td>
+</tr>
+    <?php
+    $odd_row = ! $odd_row;
 }
 ?>
-<?php
-?>
+</tbody>
 </table>
 <?php
-
 
 /**
  * Sends the footer
  */
 require_once('./footer.inc.php');
-
 ?>

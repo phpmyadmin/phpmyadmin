@@ -182,7 +182,7 @@ div#queryboxcontainer div#bookmarkoptions {
 }
 
 fieldset .formelement {
-    line-height: 2.3em;
+    line-height: 2.4em;
     float: left;
     margin-right: 0.5em;
     /* IE */

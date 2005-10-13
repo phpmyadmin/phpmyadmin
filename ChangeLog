@@ -9,6 +9,8 @@ $Source$
     * left.php: preselect db if only one db
     * server_privileges.php:
       XHTML compl., NOTICE, Icons for Edit/Revoke Links
+    * server_processlist.php, libraries/display_import.lib.php,
+      css/phpmyadmin.css.php: XHTML compl.
 
 2005-10-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css/phpmyadmin.css.php, libraries/common.lib.php,
