@@ -2003,7 +2003,7 @@ if (typeof(document.getElementById) != 'undefined'
 
             //if (!isset($GLOBALS['goto'])) {
                 //$edit_target = (isset($GLOBALS['table'])) ? $cfg['DefaultTabTable'] : $cfg['DefaultTabDatabase'];
-            $edit_target = isset($GLOBALS['db']) ? (isset($GLOBALS['table']) ? 'tbl_properties.php' : 'db_details.php') : '';
+            $edit_target = isset($GLOBALS['db']) ? (isset($GLOBALS['table']) ? 'tbl_properties.php' : 'db_details.php') : 'server_sql.php';
             //} else if ($GLOBALS['goto'] != 'main.php') {
             //    $edit_target = $GLOBALS['goto'];
             //} else {
