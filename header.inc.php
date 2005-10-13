@@ -129,6 +129,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     // Reloads the navigation frame via JavaScript if required
     PMA_reloadNavigation();
     ?>
+        <script src="libraries/tooltip.js" type="text/javascript" language="javascript"></script>
         <meta name="OBGZip" content="<?php echo ($cfg['OBGzip'] ? 'true' : 'false'); ?>" />
     </head>
 

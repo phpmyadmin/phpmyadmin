@@ -16,6 +16,8 @@ $Source$
       detection to only place where it is currently used.
     * header.inc.php, css/phpmyadmin.css.php: Define CSS normal way and not
       by writing through JavaScript.
+    * footer.inc.php, header.inc.php: Include JavaScript in header and not in
+      footer.
 
 2005-10-13 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * left.php: preselect db if only one db
