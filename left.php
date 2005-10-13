@@ -14,15 +14,6 @@ require_once('./libraries/grab_globals.lib.php');
 // free the session file, for the other frames to be loaded
 session_write_close();
 
-if (!empty($db)) {
-    $db_start = $db;
-} else {
-    $db_start = '';
-}
-
-$db     = isset( $db )    ? $db    : '';
-$table  = isset( $table ) ? $table : '';
-
 /**
  * Gets a core script and starts output buffering work
  */
@@ -48,9 +39,18 @@ if ($server > 0) {
     // this function is defined in "common.lib.php"
     // it defines $num_dbs and $dblist
     PMA_availableDatabases();
+    
+    if ( empty( $db ) && count( $dblist ) === 1 ) {
+        reset( $dblist );
+        $db = current( $dblist );
+    }
 } else {
     $num_dbs = 0;
 }
+
+$db       = isset( $db )    ? $db    : '';
+$table    = isset( $table ) ? $table : '';
+$db_start = $db;
 
 
 // garvin: For re-usability, moved http-headers
