@@ -57,7 +57,7 @@ if (isset($submit_num_fields)) {
             continue;
         }
 
-        $query .= PMA_generateFieldSpec($field_name[$i], $field_type[$i], $field_length[$i], $field_attribute[$i], $field_collation[$i], $field_null[$i], $field_default[$i], isset($field_default_current_timestamp[$i]), $field_extra[$i], isset($field_comments[$i]) ? $field_comments[$i] : '', $field_primary, $i);
+        $query .= PMA_generateFieldSpec($field_name[$i], $field_type[$i], $field_length[$i], $field_attribute[$i], isset($field_collation[$i]) ? $field_collation[$i] : '', $field_null[$i], $field_default[$i], isset($field_default_current_timestamp[$i]), $field_extra[$i], isset($field_comments[$i]) ? $field_comments[$i] : '', $field_primary, $i);
 
         if ($field_where != 'last') {
             // Only the first field can be added somewhere other than at the end
