@@ -46,6 +46,7 @@ if ($foreigners && isset($foreigners[$field])) {
             $res = PMA_DBI_query('SELECT COUNT(*)' . $f_query_from . $f_query_filter);
             if ($res) {
                 $the_total = PMA_DBI_fetch_value($res);
+                @PMA_DBI_free_result($res);
             } else {
                 $the_total = 0;
             }
