@@ -136,6 +136,7 @@ foreach($import_list as $key => $val) {
 echo '<div class="formelement">' . "\n";
 echo PMA_displayMaximumUploadSize($max_upload_size);
 echo '</div>' . "\n";
+echo '<div class="clearfloat"></div>' . "\n";
 echo '</div>' . "\n";
 // some browsers should respect this :)
 echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";

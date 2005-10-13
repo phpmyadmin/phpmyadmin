@@ -151,6 +151,7 @@ div#left_tableList ul ul {
 /* querybox */
 
 /* Gecko bug */
+div[class=formelementrow],
 div[id=queryfieldscontainer] {
     border: 1px solid transparent;
 }
@@ -180,8 +181,9 @@ textarea#sqlquery {
 div#queryboxcontainer div#bookmarkoptions {
     margin-top: 0.5em;
 }
+/* end querybox */
 
-fieldset .formelementrow,
+
 fieldset .formelement {
     line-height: 2.4em;
     float: left;
@@ -190,23 +192,17 @@ fieldset .formelement {
     white-space: nowrap;
 }
 /* revert for Gecko */
-fieldset div[class=formelementrow],
 fieldset div[class=formelement] {
     white-space: normal;
 }
 
 /* IE */
-fieldset .formelementrow input,
-fieldset .formelementrow select,
 fieldset .formelement input,
 fieldset .formelement select {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    height: 1.3em;
 }
 /* revert for Gecko */
-fieldset div[class=formelementrow] input,
-fieldset div[class=formelementrow] select,
 fieldset div[class=formelement] input,
 fieldset div[class=formelement] select {
     margin-top: auto;
@@ -214,14 +210,9 @@ fieldset div[class=formelement] select {
     height: auto;
 }
 
-fieldset .formelementrow {
-    clear: left;
-    float: none;
+#fieldsetexport #exportoptions {
+    float: left;
 }
-
-
-/* end querybox */
-
 
 /* Calendar */
 table.calendar      { width: 100%; }
