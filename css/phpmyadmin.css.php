@@ -442,6 +442,10 @@ div#serverstatus table.statuslist {
     margin-bottom: 1em;
 }
 /* end serverstatus */
+
+img.lightbulb { 
+    cursor: pointer; 
+}
 <?php
 
 $_valid_css = array( 'left', 'right', 'print' );
