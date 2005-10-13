@@ -7,7 +7,9 @@ $Source$
 
 2005-10-13 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Fix URL rewriting not to match empty parts.
-    * calendar.php: Use common header.
+    * calendar.php, themes.php, libraries/auth/config.auth.lib.php,
+      libraries/auth/cookie.auth.lib.php, libraries/auth/http.auth.lib.php:
+      Use common header.
     * libraries/header_meta_style.inc.php: Add support for defining page
       title.
 
