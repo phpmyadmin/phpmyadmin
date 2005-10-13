@@ -24,7 +24,12 @@ echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][2]; ?>" lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][2]; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
 
 <head>
-<title>phpMyAdmin</title>
+<title><?php 
+    if(!empty($page_title)) 
+        echo htmlspecialchars($page_title); 
+    else 
+        echo 'phpMyAdmin';
+?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
 <?php
 if (!empty($GLOBALS['cfg']['PmaAbsoluteUri'])) {

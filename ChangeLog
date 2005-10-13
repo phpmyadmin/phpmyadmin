@@ -7,6 +7,9 @@ $Source$
 
 2005-10-13 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Fix URL rewriting not to match empty parts.
+    * calendar.php: Use common header.
+    * libraries/header_meta_style.inc.php: Add support for defining page
+      title.
 
 2005-10-13 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * left.php: preselect db if only one db
