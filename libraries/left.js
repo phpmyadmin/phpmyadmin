@@ -36,6 +36,36 @@ var imgClosed    = new Image(9,9);
 imgClosed.src    = imgUrlPlus;
 
 
+/*
+ *       we need this for Backwards-Compatibility and resolving problems
+ *       with non DOM browsers, which may have problems with css 2 (like NC 4)
+ */
+var isDOM      = (typeof(document.getElementsByTagName) != 'undefined'
+                  && typeof(document.createElement) != 'undefined')
+               ? 1 : 0;
+var isIE4      = (typeof(document.all) != 'undefined'
+                  && parseInt(navigator.appVersion) >= 4)
+               ? 1 : 0;
+var isNS4      = (typeof(document.layers) != 'undefined')
+               ? 1 : 0;
+var capable    = (isDOM || isIE4 || isNS4)
+               ? 1 : 0;
+// Ugly fix for Opera and Konqueror 2.2 that are half DOM compliant
+if (capable) {
+    if (typeof(window.opera) != 'undefined') {
+        var browserName = ' ' + navigator.userAgent.toLowerCase();
+        if ((browserName.indexOf('konqueror 7') == 0)) {
+            capable = 0;
+        }
+    } else if (typeof(navigator.userAgent) != 'undefined') {
+        var browserName = ' ' + navigator.userAgent.toLowerCase();
+        if ((browserName.indexOf('konqueror') > 0) && (browserName.indexOf('konqueror/3') == 0)) {
+            capable = 0;
+        }
+    } // end if... else if...
+} // end if
+
+
 /**
  * Do reloads the frame if the window has been resized under Netscape4+
  *

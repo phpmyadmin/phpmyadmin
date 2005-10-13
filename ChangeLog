@@ -12,6 +12,8 @@ $Source$
       Use common header.
     * libraries/header_meta_style.inc.php: Add support for defining page
       title.
+    * libraries/left.js, libraries/header_meta_style.inc.php: Move browser
+      detection to only place where it is currently used.
 
 2005-10-13 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * left.php: preselect db if only one db
