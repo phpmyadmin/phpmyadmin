@@ -7,6 +7,8 @@ $Source$
 
 2005-10-13 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * left.php: preselect db if only one db
+    * server_privileges.php:
+      XHTML compl., NOTICE, Icons for Edit/Revoke Links
 
 2005-10-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css/phpmyadmin.css.php, libraries/common.lib.php,

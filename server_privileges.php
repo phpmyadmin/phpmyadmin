@@ -28,8 +28,8 @@ if (!empty($pred_tablename)) {
 if (!$is_superuser) {
     require('./server_links.inc.php');
     echo '<h2>' . "\n"
-       . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" alt="" />' : '')
-       . '    ' . $GLOBALS['strPrivileges'] . "\n"
+       . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" alt="" />' : '')
+       . $GLOBALS['strPrivileges'] . "\n"
        . '</h2>' . "\n"
        . $GLOBALS['strNoPrivileges'] . "\n";
     require_once('./footer.inc.php');
@@ -283,6 +283,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
 
         // privs that are not attached to a specific column
        
+        echo $spaces . '    <div class="item">' . "\n";
         foreach($row as $current_grant => $current_grant_value) {
             if (in_array(substr($current_grant, 0, (strlen($current_grant) - 5)), array('Select', 'Insert', 'Update', 'References'))) {
                 continue;
@@ -301,8 +302,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
                 $tmp_current_grant = $current_grant;
             }
 
-            echo $spaces . '    <div class="item">' . "\n"
-               . $spaces . '        <div class="item">' . "\n"
+            echo $spaces . '        <div class="item">' . "\n"
                . $spaces . '            <input type="checkbox"' . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"') . ' name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="';
 
             echo (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl']) . '"/>' . "\n";
@@ -406,7 +406,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
            . $spaces . '        ( <a href="./server_privileges.php?' . $GLOBALS['url_query'] .  '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', \'\', true); return false;">' . $GLOBALS['strCheckAll'] . '</a> /' . "\n"
            . $spaces . '        <a href="./server_privileges.php?' . $GLOBALS['url_query'] .  '" onclick="setCheckboxes(\'usersForm\', \'\', false); return false;">' . $GLOBALS['strUncheckAll'] . '</a> )' . "\n"
            . $spaces . '    </legend>' . "\n"
-           . $spaces . '    <p><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small><p>' . "\n"
+           . $spaces . '    <p><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></p>' . "\n"
            . $spaces . '    <fieldset>' . "\n"
            . $spaces . '        <legend>' . $GLOBALS['strData'] . '</legend>' . "\n";
         foreach ( $privTable[0] as $priv )
@@ -521,7 +521,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0 )
        . $spaces . '        <option value="userdefined"' . ((!isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
        . $spaces . '    </select>' . "\n"
        . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" class="textfield" name="username" maxlength="' . $username_length . '" class="textfield" title="' . $GLOBALS['strUserName'] . '"' . (empty($GLOBALS['username']) ? '' : ' value="' . (isset($GLOBALS['new_username']) ? $GLOBALS['new_username'] : $GLOBALS['username']) . '"') . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
+       . $spaces . '<input type="text" class="textfield" name="username" maxlength="' . $username_length . '" title="' . $GLOBALS['strUserName'] . '"' . (empty($GLOBALS['username']) ? '' : ' value="' . (isset($GLOBALS['new_username']) ? $GLOBALS['new_username'] : $GLOBALS['username']) . '"') . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
        . $spaces . '</div>' . "\n"
        . $spaces . '<div class="item">' . "\n"
        . $spaces . '<label for="select_pred_hostname">' . "\n"
@@ -569,7 +569,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0 )
        . $spaces . '        <option value="userdefined"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
        . $spaces . '    </select>' . "\n"
        . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" class="textfield" name="hostname" maxlength="' . $hostname_length . '" value="' . ( isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '' ) . '" class="textfield" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
+       . $spaces . '<input type="text" class="textfield" name="hostname" maxlength="' . $hostname_length . '" value="' . ( isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '' ) . '" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
        . $spaces . '</div>' . "\n"
        . $spaces . '<div class="item">' . "\n"
        . $spaces . '<label for="select_pred_password">' . "\n"
@@ -594,13 +594,13 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0 )
        . $spaces . '</div>' . "\n"
        . $spaces . '<div class="item">' . "\n"
        . $spaces . '<label for="button_generate_password">' . "\n"
-       . $spaces . '    ' . $GLOBALS[''] . $GLOBALS['strGeneratePassword'] . ':' . "\n"
+       . $spaces . '    ' . $GLOBALS['strGeneratePassword'] . ':' . "\n"
        . $spaces . '</label>' . "\n"
        . $spaces . '<span class="options">' . "\n"
-       . $spaces . '    <input type="button" id="button_generate_password" value="' . $GLOBALS['strGenerate'] . '" onClick="suggestPassword(this.form, \'generated_pw\')">' . "\n"
-       . $spaces . '    <input type="button" id="button_copy_password" value="' . $GLOBALS['strCopy'] . '" onClick="suggestPasswordCopy(this.form)">' . "\n"
+       . $spaces . '    <input type="button" id="button_generate_password" value="' . $GLOBALS['strGenerate'] . '" onclick="suggestPassword(this.form, \'generated_pw\')" />' . "\n"
+       . $spaces . '    <input type="button" id="button_copy_password" value="' . $GLOBALS['strCopy'] . '" onclick="suggestPasswordCopy(this.form)" />' . "\n"
        . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" name="generated_pw" id="generated_pw" class="textfield"/>' . "\n"
+       . $spaces . '<input type="text" name="generated_pw" id="generated_pw" class="textfield" />' . "\n"
        . $spaces . '</div>' . "\n"
        . $spaces . '</fieldset>' . "\n";
 } // end of the 'PMA_displayUserAndHostFields()' function
@@ -1031,13 +1031,41 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 
 
 /**
+ * defines some standard links
+ */
+$link_edit = '<a href="server_privileges.php?' . $GLOBALS['url_query']
+    .'&amp;username=%s'
+    .'&amp;hostname=%s'
+    .'&amp;dbname=%s'
+    .'&amp;tablename=%s">';
+if ( $GLOBALS['cfg']['PropertiesIconic'] ) {
+    $link_edit .= '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_usredit.png" width="16" height="16" alt="' . $GLOBALS['strEditPrivileges'] . '" title="' . $GLOBALS['strEditPrivileges'] . '" />';
+} else {
+    $link_edit .= $GLOBALS['strEditPrivileges'];
+}
+$link_edit .= '</a>';
+
+$link_revoke = '<a href="server_privileges.php?' . $GLOBALS['url_query']
+    .'&amp;username=%s'
+    .'&amp;hostname=%s'
+    .'&amp;dbname=%s'
+    .'&amp;tablename=%s'
+    .'&amp;revokeall=1">';
+if ( $GLOBALS['cfg']['PropertiesIconic'] ) {
+    $link_revoke .= '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_usrdrop.png" width="16" height="16" alt="' . $GLOBALS['strRevoke'] . '" title="' . $GLOBALS['strRevoke'] . '" />';
+} else {
+    $link_revoke .= $GLOBALS['strRevoke'];
+}
+$link_revoke .= '</a>';
+
+/**
  * Displays the page
  */
 if (empty($adduser) && empty($checkprivs)) {
     if (!isset($username)) {
         // No username is given --> display the overview
         echo '<h2>' . "\n"
-           . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" alt="" />' : '')
+           . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" alt="" />' : '')
            . $GLOBALS['strUserOverview'] . "\n"
            . '</h2>' . "\n";
 
@@ -1161,13 +1189,10 @@ if (empty($adduser) && empty($checkprivs)) {
                        . '                ' . join(',' . "\n" . '            ', $privs) . "\n"
                        . '                </tt></td>' . "\n"
                        . '            <td>' . ($row['Grant_priv'] == 'Y' ? $GLOBALS['strYes'] : $GLOBALS['strNo']) . '</td>' . "\n"
-                       . '            <td align="center"><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($row['User']) . '&amp;hostname=' . urlencode($row['Host']) . '">';
-                    if ($GLOBALS['cfg']['PropertiesIconic']) {
-                        echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_usredit.png" width="16" height="16" alt="' . $GLOBALS['strEditPrivileges'] . '" title="' . $GLOBALS['strEditPrivileges'] . '" />';
-                    } else {
-                        echo $GLOBALS['strEditPrivileges'];
-                    }
-                    echo '</a></td>' . "\n"
+                       . '            <td align="center">';
+                    printf( $link_edit, urlencode( $row['User'] ),
+                        urlencode( $row['Host'] ), '', ''  );
+                    echo '</td>' . "\n"
                        . '        </tr>' . "\n";
                     $odd_row = ! $odd_row;
                 }
@@ -1242,11 +1267,11 @@ if (empty($adduser) && empty($checkprivs)) {
 
         echo '<h2>' . "\n"
            . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_usredit.png" width="16" height="16" alt="" />' : '' )
-           . '    ' . $GLOBALS['strUser'] . ' <i><a class="h2" href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '">\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</a></i>' . "\n";
+           . $GLOBALS['strUser'] . ' <i><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '">\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</a></i>' . "\n";
         if (!empty($dbname)) {
-            echo '    - ' . $GLOBALS['strDatabase'] . ' <i><a class="h2" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . urlencode($dbname) . '&amp;reload=1">' . htmlspecialchars($dbname) . '</a></i>' . "\n";
+            echo '    - ' . $GLOBALS['strDatabase'] . ' <i><a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . urlencode($dbname) . '&amp;reload=1">' . htmlspecialchars($dbname) . '</a></i>' . "\n";
             if (!empty($tablename)) {
-                echo '    - ' . $GLOBALS['strTable'] . ' <i><a class="h2" href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . urlencode($dbname) . '&amp;table=' . urlencode($tablename) . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>' . "\n";
+                echo '    - ' . $GLOBALS['strTable'] . ' <i><a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query'] . '&amp;db=' . urlencode($dbname) . '&amp;table=' . urlencode($tablename) . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>' . "\n";
             }
         }
         echo ' : ' . $GLOBALS['strEditPrivileges'] . '</h2>' . "\n";
@@ -1275,7 +1300,7 @@ if (empty($adduser) && empty($checkprivs)) {
                . '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
                . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
                . '<fieldset>' . "\n"
-               . '<legend>' . (empty($dbname) ? $GLOBALS['strDbPrivileges'] : $GLOBALS['strTblPrivileges']) . '<legend>' . "\n"
+               . '<legend>' . (empty($dbname) ? $GLOBALS['strDbPrivileges'] : $GLOBALS['strTblPrivileges']) . '</legend>' . "\n"
                . '<table class="data">' . "\n"
                . '<thead>' . "\n"
                . '<tr><th>' . (empty($dbname) ? $GLOBALS['strDatabase'] : $GLOBALS['strTable']) . '</th>' . "\n"
@@ -1314,8 +1339,16 @@ if (empty($adduser) && empty($checkprivs)) {
                            . '    </tt></td>' . "\n"
                            . '    <td>' . $GLOBALS['strNo'] . '</td>' . "\n"
                            . '    <td>' . $GLOBALS['strYes'] . '</td>' . "\n"
-                           . '    <td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '">' . $GLOBALS['strEdit'] . '</a></td>' . "\n"
-                           . '    <td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '&amp;revokeall=1">' . $GLOBALS['strRevoke'] . '</a></td>' . "\n"
+                           . '    <td>';
+                        printf( $link_edit, urlencode( $username ),
+                            urlencode( $hostname ),
+                            urlencode( $row2['Db'] ),
+                            '' );
+                        echo '</td>' . "\n"
+                           . '    <td>';
+                        printf( $link_revoke, urlencode( $username ),
+                            urlencode( $hostname ), urlencode( $row2['Db'] ), '' );
+                        echo '</td>' . "\n"
                            . '</tr>' . "\n";
                         $row2 = PMA_DBI_fetch_assoc($res2);
                         $odd_row = ! $odd_row;
@@ -1339,8 +1372,18 @@ if (empty($adduser) && empty($checkprivs)) {
                         echo $GLOBALS['strNo'];
                     }
                     echo '</td>' . "\n"
-                       . '    <td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . (empty($dbname) ? urlencode($row['Db']) : urlencode($dbname) . '&amp;tablename=' . urlencode($row['Table_name'])) . '">' . $GLOBALS['strEdit'] . '</a></td>' . "\n"
-                       . '    <td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . (empty($dbname) ? urlencode($row['Db']) : urlencode($dbname) . '&amp;tablename=' . urlencode($row['Table_name'])) . '&amp;revokeall=1">' . $GLOBALS['strRevoke'] . '</a></td>' . "\n"
+                       . '    <td>';
+                    printf( $link_edit, urlencode( $username ),
+                        urlencode( $hostname ),
+                        urlencode( empty($dbname) ? $row['Db'] : $dbname ),
+                        urlencode( empty($dbname) ? '' : $row['Table_name'] ) );
+                    echo '</td>' . "\n"
+                       . '    <td>';
+                    printf( $link_revoke, urlencode( $username ),
+                        urlencode( $hostname ),
+                        urlencode( empty( $dbname ) ? $row['Db'] : $dbname ),
+                        urlencode( empty( $dbname ) ? '' : $row['Table_name'] ) );
+                    echo '</td>' . "\n"
                        . '</tr>' . "\n";
                     $odd_row = ! $odd_row;
                 } // end while
@@ -1356,8 +1399,16 @@ if (empty($adduser) && empty($checkprivs)) {
                        . '        </tt></td>' . "\n"
                        . '    <td>' . $GLOBALS['strNo'] . '</td>' . "\n"
                        . '    <td>' . $GLOBALS['strYes'] . '</td>' . "\n"
-                       . '    <td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '">' . $GLOBALS['strEdit'] . '</a></td>' . "\n"
-                       . '    <td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '&amp;revokeall=1">' . $GLOBALS['strRevoke'] . '</a></td>' . "\n"
+                       . '    <td>';
+                    printf( $link_edit, urlencode( $username ),
+                        urlencode( $hostname ),
+                        urlencode( $row2['Db'] ),
+                        '' );
+                    echo '</td>' . "\n"
+                       . '    <td>';
+                    printf( $link_revoke, urlencode( $username ),
+                        urlencode( $hostname ), urlencode( $row2['Db'] ), '' );
+                    echo '</td>' . "\n"
                        . '</tr>' . "\n";
                     $row2 = PMA_DBI_fetch_assoc($res2);
 
@@ -1431,7 +1482,7 @@ if (empty($adduser) && empty($checkprivs)) {
                . '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
                . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
                . '<fieldset id="fieldset_change_password">' . "\n"
-               . '    <legend>' . $GLOBALS['strChangePassword'] . '</legnd>' . "\n"
+               . '    <legend>' . $GLOBALS['strChangePassword'] . '</legend>' . "\n"
                . '    <table class="data">' . "\n"
                . '    <tr class="odd">' . "\n"
                . '        <td><input type="radio" name="nopass" value="1" id="radio_nopass_1" onclick="pma_pw.value=\'\'; pma_pw2.value=\'\';" /></td>' . "\n"
@@ -1448,7 +1499,7 @@ if (empty($adduser) && empty($checkprivs)) {
                . '        <td><input type="password" name="pma_pw2" id="pw_pma_pw2" class="textfield" onchange="nopass[1].checked = true;" /></td>' . "\n"
                . '    </tr>' . "\n"
                . '    </table>' . "\n"
-               . '    </fieldset>' . "\n"
+               . '</fieldset>' . "\n"
                . '<fieldset id="fieldset_change_password_footer" class="tblFooters">' . "\n"
                . '    <input type="submit" name="change_pw" value="' . $GLOBALS['strGo'] . '" />' . "\n"
                . '</fieldset>' . "\n"
@@ -1608,11 +1659,12 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '        <td>' . "\n"
                    . '            ' . ($current['Grant_priv'] == 'Y' ? $GLOBALS['strYes'] : $GLOBALS['strNo']) . "\n"
                    . '        </td>' . "\n"
-                   . '        <td>' . "\n"
-                   . '            <a href="./server_privileges.php?' . $GLOBALS['url_query'] . '&amp;username=' . urlencode($current_user) . '&amp;hostname=' . urlencode($current_host) . (!isset($current['Db']) || $current['Db'] == '*' ? '' : '&amp;dbname=' . urlencode($current['Db'])) . '">' . "\n"
-                   . '                ' . $GLOBALS['strEdit'] . "\n"
-                   . '            </a>' . "\n"
-                   . '        </td>' . "\n"
+                   . '        <td>' . "\n";
+                printf( $link_edit, urlencode( $current_user ),
+                    urlencode( $current_host ),
+                    urlencode( ! isset( $current['Db'] ) || $current['Db'] == '*' ? '' : $current['Db'] ),
+                    '' );
+                echo '</td>' . "\n"
                    . '    </tr>' . "\n";
             }
             if (empty($row) && empty($row1) && empty($row2)) {
