@@ -122,6 +122,7 @@ if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
 
 include('./config.footer.inc.php');
 ?>
+    <script src="libraries/tooltip.js" type="text/javascript" language="javascript"></script>
 </body>
 </html>
 <?php
