@@ -21,6 +21,7 @@ $Source$
       by writing through JavaScript.
     * libraries/get_foreign.lib.php: Free temporary query result.
     * lang/czech: Improve some translations.
+    * sql.php: We need bookmark code to be included everytime.
 
 2005-10-13 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * left.php: preselect db if only one db

@@ -9,6 +9,7 @@ require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/tbl_indexes.lib.php');
 require_once('./libraries/check_user_privileges.lib.php');
+require_once('./libraries/bookmark.lib.php');
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -78,7 +79,6 @@ if (isset($find_real_end) && $find_real_end) {
  * Bookmark add
  */
 if (isset($store_bkm)) {
-    require_once('./libraries/bookmark.lib.php');
     PMA_addBookmarks($fields, $cfg['Bookmark'], (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false));
     PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto);
 } // end if
