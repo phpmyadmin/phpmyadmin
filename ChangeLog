@@ -15,6 +15,7 @@ $Source$
 2005-10-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * lang/*: typo 'unser' -> 'user'
     * lang/german: partial Update
+    * libraries/import.lib.php: uninitialized variables
     
 2005-10-13 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_addfield.php: undefined $field_collation under MySQL 4.0.x

@@ -70,7 +70,7 @@ function PMA_importRunQuery($sql = '', $full = '') {
                 if (!$cfg['AllowUserDropDatabase']
                     && !$is_superuser
                     && preg_match('@DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])) {
-                    $message = $strNoDropDatabases;
+                    $message = $GLOBALS['strNoDropDatabases'];
                     $show_error_header = TRUE;
                     $error = TRUE;
                     return;
@@ -127,7 +127,7 @@ function PMA_importRunQuery($sql = '', $full = '') {
                     }
 
                     // If a 'USE <db>' SQL-clause was found and the query succeeded, set our current $db to the new one
-                    if ($result != FALSE && preg_match('@^[\s]*USE[[:space:]]*([\S]+)@i', $import_run_buffer['sql'], $match)) {
+                    if ($result != FALSE && preg_match('@^[\s]*USE[[:space:]]*([\S]+)@i', $import_run_buffer['sql'], $match = array() )) {
                         $db = trim($match[1]);
                         $reload = TRUE;
                     }
