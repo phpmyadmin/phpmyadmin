@@ -8,6 +8,9 @@ $Source$
 2005-10-14 Michal Čihař  <michal@cihar.com>
     * libraries/sql_query_form.lib.php: Do not attempt to read upload dir when
       not configured.
+    * libraries/sqlparser.lib.php: Do not walk chars for hex and numbers one
+      by one, this boosts performance while inserting huge blobs (bug
+      #1315232).
 
 2005-10-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * lang/*: typo 'unser' -> 'user'
