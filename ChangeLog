@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/dbi/mysqli.dbi.lib.php: problem under MySQL 4.0.x
+
 2005-10-14 Michal Čihař  <michal@cihar.com>
     * libraries/sql_query_form.lib.php: Do not attempt to read upload dir when
       not configured.

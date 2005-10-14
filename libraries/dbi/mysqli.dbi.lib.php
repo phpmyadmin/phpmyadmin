@@ -144,6 +144,11 @@ function PMA_mysqli_fetch_array($result, $type = FALSE) {
         if ($num > 0) {
             $fields = PMA_DBI_get_fields_meta($result);
         }
+        // sometimes, mysqli_fetch_fields() does not return results
+        // (as seen in PHP 5.1.0-dev), so for now, return $data unchanged
+        if (!$fields) {
+            return $data;
+        }
         $i = 0;
         for ($i = 0; $i < $num; $i++) {
             if (!isset($fields[$i]->type)) {
