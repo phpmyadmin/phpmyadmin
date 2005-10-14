@@ -469,7 +469,11 @@ function PMA_sqlQueryFormUpload() {
 
     $matcher = '@\.sql(\.(' . PMA_supportedDecompressions() . '))?$@'; // we allow only SQL here
 
-    $files = PMA_getFileSelectOptions($GLOBALS['cfg']['UploadDir'], $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
+    if (!empty($GLOBALS['cfg']['UploadDir'])) {
+        $files = PMA_getFileSelectOptions($GLOBALS['cfg']['UploadDir'], $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
+    } else {
+        $files = '';
+    }
 
     // start output
     echo '<fieldset id="">';
