@@ -793,7 +793,7 @@ $strNoDetailsForEngine = 'There is no detailed status information available for 
 $strPasswordHashing = 'Password Hashing';  //to translate
 $strPrivDescAlterRoutine = 'Allows altering and dropping stored routines.';  //to translate
 $strPrivDescCreateRoutine = 'Allows creating stored routines.';  //to translate
-$strPrivDescCreateUser = 'Allows creating, dropping and renaming unser accounts.';  //to translate
+$strPrivDescCreateUser = 'Allows creating, dropping and renaming user accounts.';  //to translate
 $strPrivDescExecute5 = 'Allows executing stored routines.';  //to translate
 $strPrivDescShowView = 'Allows performing SHOW CREATE VIEW queries.';  //to translate
 
