@@ -379,74 +379,8 @@ if ($is_minimum_common == FALSE) {
                 continue;
             }
 
-            // Checks for punct
-            if (PMA_STR_strInStr($c, $allpunct_list)) {
-                while (($count2 < $len) && PMA_STR_strInStr(PMA_substr($sql, $count2, 1), $allpunct_list)) {
-                    $count2++;
-                }
-                $l = $count2 - $count1;
-                if ($l == 1) {
-                    $punct_data = $c;
-                } else {
-                    $punct_data = PMA_substr($sql, $count1, $l);
-                }
-
-                // Special case, sometimes, althought two characters are
-                // adjectent directly, they ACTUALLY need to be seperate
-                if ($l == 1) {
-                    $t_suffix         = '';
-                    switch ($punct_data) {
-                        case $punct_queryend:
-                            $t_suffix = '_queryend';
-                            break;
-                        case $punct_qualifier:
-                            $t_suffix = '_qualifier';
-                            break;
-                        case $punct_listsep:
-                            $t_suffix = '_listsep';
-                            break;
-                        default:
-                            break;
-                    }
-                    PMA_SQP_arrayAdd($sql_array, 'punct' . $t_suffix, $punct_data, $arraysize);
-                }
-                else if (PMA_STR_binarySearchInArr($punct_data, $allpunct_list_pair, $allpunct_list_pair_size)) {
-                    // Ok, we have one of the valid combined punct expressions
-                    PMA_SQP_arrayAdd($sql_array, 'punct', $punct_data, $arraysize);
-                }
-                else {
-                    // Bad luck, lets split it up more
-                    $first  = $punct_data[0];
-                    $first2 = $punct_data[0] . $punct_data[1];
-                    $last2  = $punct_data[$l - 2] . $punct_data[$l - 1];
-                    $last   = $punct_data[$l - 1];
-                    if (($first == ',') || ($first == ';') || ($first == '.') || ($first == '*')) {
-                        $count2     = $count1 + 1;
-                        $punct_data = $first;
-                    } else if (($last2 == '/*') || (($last2 == '--') && ($count2 == $len || PMA_substr($sql, $count2, 1) <= ' ') )) {
-                        $count2     -= 2;
-                        $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
-                    } else if (($last == '-') || ($last == '+') || ($last == '!')) {
-                        $count2--;
-                        $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
-                    // TODO: for negation operator, split in 2 tokens ?
-                    // "select x&~1 from t"
-                    // becomes "select x & ~ 1 from t" ?
-
-                    } else if ($last != '~') {
-                        $debugstr =  $GLOBALS['strSQPBugUnknownPunctuation'] . ' @ ' . ($count1+1) . "\n"
-                                  . 'STR: ' . htmlspecialchars($punct_data);
-                        PMA_SQP_throwError($debugstr, $sql);
-                        return $sql;
-                    }
-                    PMA_SQP_arrayAdd($sql_array, 'punct', $punct_data, $arraysize);
-                    continue;
-                } // end if... else if... else
-                continue;
-            }
-
-            // Checks for alpha
-            if (PMA_STR_isSqlIdentifier($c, FALSE) || ($c == '@')) {
+            // Checks for identifier (alpha or numeric)
+            if (PMA_STR_isSqlIdentifier($c, FALSE) || ($c == '@') || ($c == '.' && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1)))) {
                 $count2 ++;
 
                 //TODO: a @ can also be present in expressions like
@@ -456,8 +390,8 @@ if ($is_minimum_common == FALSE) {
 
                 $is_sql_variable         = ($c == '@');
                 $is_digit                = (!$is_sql_variable) && PMA_STR_isDigit($c);
-                $is_hex_digit            = ($is_digit) && ($c == '0') && ($count2 < $len) && (PMA_substr($sql, $count2, 1) == 'x');
-                $is_float_digit          = FALSE;
+                $is_hex_digit            = ($is_digit) && ($c == '.') && ($c == '0') && ($count2 < $len) && (PMA_substr($sql, $count2, 1) == 'x');
+                $is_float_digit          = $c == '.';
                 $is_float_digit_exponent = FALSE;
 
                 // Nijel: Fast skip is especially needed for huge BLOB data:
@@ -535,6 +469,72 @@ if ($is_minimum_common == FALSE) {
                 } // end if... else....
                 PMA_SQP_arrayAdd($sql_array, $type, $str, $arraysize);
 
+                continue;
+            }
+
+            // Checks for punct
+            if (PMA_STR_strInStr($c, $allpunct_list)) {
+                while (($count2 < $len) && PMA_STR_strInStr(PMA_substr($sql, $count2, 1), $allpunct_list)) {
+                    $count2++;
+                }
+                $l = $count2 - $count1;
+                if ($l == 1) {
+                    $punct_data = $c;
+                } else {
+                    $punct_data = PMA_substr($sql, $count1, $l);
+                }
+
+                // Special case, sometimes, althought two characters are
+                // adjectent directly, they ACTUALLY need to be seperate
+                if ($l == 1) {
+                    $t_suffix         = '';
+                    switch ($punct_data) {
+                        case $punct_queryend:
+                            $t_suffix = '_queryend';
+                            break;
+                        case $punct_qualifier:
+                            $t_suffix = '_qualifier';
+                            break;
+                        case $punct_listsep:
+                            $t_suffix = '_listsep';
+                            break;
+                        default:
+                            break;
+                    }
+                    PMA_SQP_arrayAdd($sql_array, 'punct' . $t_suffix, $punct_data, $arraysize);
+                }
+                else if (PMA_STR_binarySearchInArr($punct_data, $allpunct_list_pair, $allpunct_list_pair_size)) {
+                    // Ok, we have one of the valid combined punct expressions
+                    PMA_SQP_arrayAdd($sql_array, 'punct', $punct_data, $arraysize);
+                }
+                else {
+                    // Bad luck, lets split it up more
+                    $first  = $punct_data[0];
+                    $first2 = $punct_data[0] . $punct_data[1];
+                    $last2  = $punct_data[$l - 2] . $punct_data[$l - 1];
+                    $last   = $punct_data[$l - 1];
+                    if (($first == ',') || ($first == ';') || ($first == '.') || ($first == '*')) {
+                        $count2     = $count1 + 1;
+                        $punct_data = $first;
+                    } else if (($last2 == '/*') || (($last2 == '--') && ($count2 == $len || PMA_substr($sql, $count2, 1) <= ' ') )) {
+                        $count2     -= 2;
+                        $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
+                    } else if (($last == '-') || ($last == '+') || ($last == '!')) {
+                        $count2--;
+                        $punct_data = PMA_substr($sql, $count1, $count2 - $count1);
+                    // TODO: for negation operator, split in 2 tokens ?
+                    // "select x&~1 from t"
+                    // becomes "select x & ~ 1 from t" ?
+
+                    } else if ($last != '~') {
+                        $debugstr =  $GLOBALS['strSQPBugUnknownPunctuation'] . ' @ ' . ($count1+1) . "\n"
+                                  . 'STR: ' . htmlspecialchars($punct_data);
+                        PMA_SQP_throwError($debugstr, $sql);
+                        return $sql;
+                    }
+                    PMA_SQP_arrayAdd($sql_array, 'punct', $punct_data, $arraysize);
+                    continue;
+                } // end if... else if... else
                 continue;
             }
 
