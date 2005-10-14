@@ -279,7 +279,7 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
         foreach ( $fields_list as $field ) {
             echo '<option value="' 
                 .PMA_backquote( htmlspecialchars( $field['Field'] ) ) . '"';
-            if ( ! empty( $field['Field'] ) ) {
+            if ( ! empty( $field['Field'] )  && isset($field['Comment']) ) {
                 echo ' title="' . htmlspecialchars( $field['Comment'] ) . '"';
             }
             echo '>' . htmlspecialchars( $field['Field'] ) . '</option>' . "\n";
