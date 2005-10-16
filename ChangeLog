@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_create.php: undefined $field_collation under MySQL < 4.1.x
+
 2005-10-14 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysqli.dbi.lib.php: problem under MySQL 4.0.x
     * libraries/sql_query_form.lib.php: support MySQL < 4.1.x
@@ -24,7 +27,7 @@ $Source$
     * libraries/import.lib.php: uninitialized variables
     
 2005-10-13 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_addfield.php: undefined $field_collation under MySQL 4.0.x
+    * tbl_addfield.php: undefined $field_collation under MySQL < 4.1.x
 
 2005-10-13 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Fix URL rewriting not to match empty parts.
