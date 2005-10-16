@@ -954,4 +954,5 @@ $strShowStatusQcache_hitsDescr = 'The number of cache hits.';  //to translate
 $strShowStatusQcache_insertsDescr = 'The number of queries added to the cache.';  //to translate
 $strShowStatusQcache_lowmem_prunesDescr = 'The number of queries that have been removed from the cache to free up memory for caching new queries. This information can help you tune the query cache size. The query cache uses a least recently used (LRU) strategy to decide which queries to remove from the cache.';  //to translate
 
+$strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
 ?>

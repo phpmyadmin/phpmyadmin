@@ -9,6 +9,8 @@ $Source$
     * db_details_links.php: Disable drop tab on mysql database (RFE #1327514).
     * server_databases.php: Don't allow to check mysql database for dropping
       (RFE #1327514).
+    * lang/*, libraries/transformations/text_plain__sql.inc.php:
+      Transformation for SQL pretty printing (RFE #1327648).
 
 2005-10-16 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_create.php: undefined $field_collation under MySQL < 4.1.x

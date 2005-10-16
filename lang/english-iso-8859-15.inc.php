@@ -886,6 +886,7 @@ $strTransformation_text_plain__external = 'LINUX ONLY: Launches an external appl
 $strTransformation_text_plain__formatted = 'Displays the contents of the field as-is, without running it through htmlspecialchars(). That is, the field is assumed to contain valid HTML.';
 $strTransformation_text_plain__imagelink = 'Displays an image and a link; the field contains the filename. The first option is a URL prefix like "http://www.example.com/". The second and third options are the width and the height in pixels.';
 $strTransformation_text_plain__link = 'Displays a link; the field contains the filename. The first option is a URL prefix like "http://www.example.com/". The second option is a title for the link.';
+$strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';
 $strTransformation_text_plain__substr = 'Displays a part of a string. The first option is the number of characters to skip from the beginning of the string (Default 0). The second option is the number of characters to return (Default: until end of string). The third option is the string to append and/or prepend when truncation occurs (Default: "...").';
 $strTruncateQueries = 'Truncate Shown Queries';
 $strTurkish = 'Turkish';

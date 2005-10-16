@@ -892,6 +892,7 @@ $strTransformation_text_plain__external = 'JEN PRO LINUX: Spustí externí program
 $strTransformation_text_plain__formatted = 'Zachová pùvodní formátování sloupce, tak jak je ulo¾en v&nbsp;databázi.';
 $strTransformation_text_plain__imagelink = 'Zobrazí obrázek a odkaz z&nbsp;pole obsahujícího odkaz na obrázek. První parametr je prefix URL (napøíklad &bdquo;http://mojedomena.cz/&ldquo;), druhý a tøetí urèuje ¹íøku a vý¹ku obrázku.';
 $strTransformation_text_plain__link = 'Zobrazí odkaz z&nbsp;pole obsahujícího odkaz. První parametr je prefix URL (napøíklad &bdquo;http://mojedomena.cz/&ldquo;), druhý text odkazu.';
+$strTransformation_text_plain__sql = 'Zobrazí text jako SQL dotaz se zvýrazòováním syntaxe.';
 $strTransformation_text_plain__substr = 'Zobrazí jen èást textu. První parametr je posun od zaèátku (výchozí je 0) a druhý urèuje délku textu, který se má zobrazit, pokud není uveden, bude zobrazen zbytek textu. Tøetí parametr urèuje, jaký text má být pøidán za zkrácený text (výchozí je ...).';
 $strTruncateQueries = 'Zobrazit zkrácené dotazy';
 $strTurkish = 'Turecky';
