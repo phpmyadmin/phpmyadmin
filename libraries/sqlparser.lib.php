@@ -592,6 +592,11 @@ if ($is_minimum_common == FALSE) {
               $t_suffix = '_identifier';
             } else if (($t_next == 'punct_bracket_open_round')
             && PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_function_name, $PMA_SQPdata_function_name_cnt)) {
+                // FIXME-2005-10-16: in the case of a CREATE TABLE containing a TIMESTAMP,
+                // since TIMESTAMP() is also a function, it's found here and
+                // the token is wrongly marked as alpha_functionName. But we
+                // compensate for this when analysing for timestamp_not_null
+                // later in this script.
               $t_suffix = '_functionName';
             } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_type, $PMA_SQPdata_column_type_cnt))  {
               $t_suffix = '_columnType';
@@ -1703,7 +1708,9 @@ if ($is_minimum_common == FALSE) {
                 }
             }
 
-            if (($arr[$i]['type'] == 'alpha_columnType')) {
+            // note: the "or" part here is a workaround for a bug
+            // (see FIXME-2005-10-16) 
+            if (($arr[$i]['type'] == 'alpha_columnType') || ($arr[$i]['type'] == 'alpha_functionName' && $seen_create_table)) {
                 $upper_data = strtoupper($arr[$i]['data']);
                 if ($seen_create_table && $in_create_table_fields && isset($current_identifier)) {
                     $create_table_fields[$current_identifier]['type'] = $upper_data;

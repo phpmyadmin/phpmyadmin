@@ -84,8 +84,14 @@ $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 // but later, if the analyser returns more information, it
 // could be executed for any MySQL version and replace
 // the info given by SHOW FULL FIELDS FROM.
+//
+// We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
+// SHOW FULL FIELDS says NULL and SHOW CREATE TABLE says NOT NULL (tested 
+// in MySQL 4.0.25). I was able to find that SHOW CREATE TABLE existed
+// at least in MySQL 3.23.51.
 
-if (PMA_MYSQL_INT_VERSION >= 40102) {
+//if (PMA_MYSQL_INT_VERSION >= 40102) {
+if (PMA_MYSQL_INT_VERSION >= 32351) {
     $show_create_table = PMA_DBI_fetch_value(
         'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
         0, 1 );
