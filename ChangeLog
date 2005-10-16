@@ -13,10 +13,9 @@ $Source$
       Transformation for SQL pretty printing (RFE #1327648).
 
 2005-10-16 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_create.php: undefined $field_collation under MySQL < 4.1.x
-    * tbl_properties_structure.php, libraries/sqlparser.lib.php:
+    * tbl_create.php, tbl_alter.php: undefined $field_collation under MySQL < 4.1.x
+    * tbl_properties_structure.php, tbl_alter.php, libraries/sqlparser.lib.php:
       bug #1320470, timestamp is not shown as being NULL under MySQL < 4.1.x
-      (I still have to fix this bug in tbl_alter.php)
 
 2005-10-14 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysqli.dbi.lib.php: problem under MySQL 4.0.x

@@ -90,7 +90,6 @@ $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 // in MySQL 4.0.25). I was able to find that SHOW CREATE TABLE existed
 // at least in MySQL 3.23.51.
 
-//if (PMA_MYSQL_INT_VERSION >= 40102) {
 if (PMA_MYSQL_INT_VERSION >= 32351) {
     $show_create_table = PMA_DBI_fetch_value(
         'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),

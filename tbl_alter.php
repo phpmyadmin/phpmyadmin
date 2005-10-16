@@ -57,7 +57,7 @@ if (isset($do_save_data)) {
             $query .= ', CHANGE ';
         }
 
-        $query .= PMA_generateAlterTable($field_orig[$i], $field_name[$i], $field_type[$i], $field_length[$i], $field_attribute[$i], $field_collation[$i], $field_null[$i], $field_default[$i], isset($field_default_current_timestamp[$i]), $field_extra[$i], (isset($field_comments[$i]) ? $field_comments[$i] : ''), $field_default_orig[$i]);
+        $query .= PMA_generateAlterTable($field_orig[$i], $field_name[$i], $field_type[$i], $field_length[$i], $field_attribute[$i], isset($field_collation[$i]) ? $field_collation[$i] : '', $field_null[$i], $field_default[$i], isset($field_default_current_timestamp[$i]), $field_extra[$i], (isset($field_comments[$i]) ? $field_comments[$i] : ''), $field_default_orig[$i]);
     } // end for
 
     // To allow replication, we first select the db to use and then run queries
@@ -184,7 +184,12 @@ if ($abort == FALSE) {
     // TODO: put this code into a require()
     // or maybe make it part of PMA_DBI_get_fields();
 
-    if (PMA_MYSQL_INT_VERSION >= 40102) {
+    // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
+    // SHOW FULL FIELDS says NULL and SHOW CREATE TABLE says NOT NULL (tested 
+    // in MySQL 4.0.25). I was able to find that SHOW CREATE TABLE existed
+    // at least in MySQL 3.23.51.
+
+    if (PMA_MYSQL_INT_VERSION >= 32351) {
         $show_create_table_query = 'SHOW CREATE TABLE '
             . PMA_backquote($db) . '.' . PMA_backquote($table);
         $show_create_table_res = PMA_DBI_query($show_create_table_query);
