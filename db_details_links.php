@@ -43,14 +43,9 @@ if ($is_superuser) {
 }
 
 // Drop link if allowed
-if (!$GLOBALS['cfg']['AllowUserDropDatabase']) {
-    // Check if the user is a Superuser
-    $GLOBALS['cfg']['AllowUserDropDatabase'] = $is_superuser;
-}
-// rabus: Don't even try to drop information_schema. You won't be able to.
-// Believe me. You won't.
-$GLOBALS['cfg']['AllowUserDropDatabase'] = $GLOBALS['cfg']['AllowUserDropDatabase'] && !(PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema');
-if ($GLOBALS['cfg']['AllowUserDropDatabase']) {
+// rabus: Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
+// nijel: Don't allow to easilly drop mysql database, RFE #1327514.
+if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && !(PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema') && ($db != 'mysql')) {
     $tab_drop['link'] = 'sql.php';
     $tab_drop['args']['sql_query']  = 'DROP DATABASE ' . PMA_backquote($db);
     $tab_drop['args']['zero_rows']  = sprintf($GLOBALS['strDatabaseHasBeenDropped'], htmlspecialchars(PMA_backquote($db)));
@@ -59,6 +54,8 @@ if ($GLOBALS['cfg']['AllowUserDropDatabase']) {
     $tab_drop['args']['reload']     = 1;
     $tab_drop['args']['purge']      = 1;
     $tab_drop['attr'] = 'onclick="return confirmLinkDropDB(this, \'DROP DATABASE ' . PMA_jsFormat($db) . '\')"';
+    $tab_drop['class'] = 'caution';
+} else {
     $tab_drop['class'] = 'caution';
 }
 
@@ -102,7 +99,7 @@ $tabs[] =& $tab_operation;
 if ($is_superuser) {
     $tabs[] =& $tab_privileges;
 }
-if ($GLOBALS['cfg']['AllowUserDropDatabase']) {
+if ($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) {
     $tabs[] =& $tab_drop;
 }
 

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-16 Michal Čihař  <michal@cihar.com>
+    * db_details_links.php: Disable drop tab on mysql database (RFE #1327514).
+
 2005-10-16 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_create.php: undefined $field_collation under MySQL < 4.1.x
     * tbl_properties_structure.php, libraries/sqlparser.lib.php:
