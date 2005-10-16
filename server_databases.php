@@ -222,8 +222,10 @@ if (count($statistics) > 0) {
         echo '        <tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n";
         if ($is_superuser || $cfg['AllowUserDropDatabase']) {
             echo '            <td class="tool">' . "\n";
-            if (PMA_MYSQL_INT_VERSION < 50002 || $current['db_name'] != 'information_schema') {
+            if ($current['db_name'] != 'mysql' && (PMA_MYSQL_INT_VERSION < 50002 || $current['db_name'] != 'information_schema')) {
                 echo '                <input type="checkbox" name="selected_db[]" title="' . htmlspecialchars($current['db_name']) . '" value="' . htmlspecialchars($current['db_name']) . '" ' . (empty($checkall) ? '' : 'checked="checked" ') . '/>' . "\n";
+            } else {
+                echo '                <input type="checkbox" name="selected_db[]" title="' . htmlspecialchars($current['db_name']) . '" value="' . htmlspecialchars($current['db_name']) . '" disabled="disabled"/>' . "\n";
             }
             echo '            </td>' . "\n";
         }
