@@ -700,6 +700,14 @@ $strShowStatusHandler_commitDescr = 'Le nombre de commandes COMMIT internes.';
 $strShowStatusHandler_deleteDescr = 'Le nombre de fois qu\'un enregistrement a été supprimé d\'une table.';
 $strShowStatusHandler_discoverDescr = 'Le serveur MySQL peut demander au moteur de données NDB Cluster s\'il connaît une table portant un certain nom. Ceci est appelé &quot;découverte&quot;. Ce paramètre indique le nombre de fois que des tables ont été découvertes.';
 $strShowStatusHandler_read_firstDescr = 'Le nombre de fois que la première entrée a été lue depuis un index. Si c\'est élevé, ceci suggère que le serveur effectue beaucoup de parcours complets d\'un index; par exemple, SELECT coll FROM foo, en assumant que coll est une colonne indexée.';
+$strShowStatusHandler_read_keyDescr = 'Le nombre de requêtes pour lire un enregistrement via une clé. Si élevé, c\'est une bonne indication que vos tables sont correctement indexées.';
+$strShowStatusHandler_read_nextDescr = 'Le nombre de requêtes de lecture du prochain enregistrement, en ordre de clé. Ceci est augmenté si vous interrogez une colonne indexée avec un critère de fourchette ou si vous parcourez l\'index.';
+$strShowStatusHandler_read_prevDescr = 'Le nombre de requêtes de lecture de l\'enregistrement précédent, en ordre de clé. Utilisé surtout pour optimiser ORDER BY ... DESC';
+$strShowStatusHandler_read_rndDescr = 'Le nombre de requêtes de lecture d\'un enregistrement basée sur une position fixe. Ce nombre est élevé si vous faites de nombreuses requêtes qui nécessitent de trier les résultats. Vous avez probablement un grand nombre de requêtes qui demandent à MySQL de parcourir des tables en entier, ou vous avez des jointures qui n\'utilisent pas correctement les clés.';
+$strShowStatusHandler_read_rnd_nextDescr = 'Le nombre de requêtes de lecture du prochaine enregistrement dans le fichier. Élevé si vous faites plusieurs parcours de tables. Ceci suggère que vos tables ne sont pas correctement indexées ou que vos requêtes ne sont pas écrites de façon à tirer parti des index que vous avez définis.';
+$strShowStatusHandler_rollbackDescr = 'Le nombre d\'énoncés ROLLBACK internes.';
+$strShowStatusHandler_updateDescr = 'Le nombre de requêtes de mise à jour d\'enregistrements.';
+$strShowStatusHandler_writeDescr = 'Le nombre de requêtes d\'insertion d\'enregistrements.';
 $strShowStatusQcache_not_cachedDescr = 'Le nombre de requêtes non en cache (impossible à placer en cache, ou non cachée en raison du paramètre query_cache_type).';
 $strShowStatusQcache_queries_in_cacheDescr = 'Le nombre de requêtes enregistrées dans la cache.';
 $strShowStatusQcache_total_blocksDescr = 'Le nombre total de blocs dans la cache de requêtes.';
@@ -884,14 +892,6 @@ $strZip = '"zippé"';
 
 // To translate:
 
-$strShowStatusHandler_read_keyDescr = 'The number of requests to read a row based on a key. If this is high, it is a good indication that your queries and tables are properly indexed.';  //to translate
-$strShowStatusHandler_read_nextDescr = 'The number of requests to read the next row in key order. This is incremented if you are querying an index column with a range constraint or if you are doing an index scan.';  //to translate
-$strShowStatusHandler_read_prevDescr = 'The number of requests to read the previous row in key order. This read method is mainly used to optimize ORDER BY ... DESC.';  //to translate
-$strShowStatusHandler_read_rndDescr = 'The number of requests to read a row based on a fixed position. This is high if you are doing a lot of queries that require sorting of the result. You probably have a lot of queries that require MySQL to scan whole tables or you have joins that don\'t use keys properly.';  //to translate
-$strShowStatusHandler_read_rnd_nextDescr = 'The number of requests to read the next row in the data file. This is high if you are doing a lot of table scans. Generally this suggests that your tables are not properly indexed or that your queries are not written to take advantage of the indexes you have.';  //to translate
-$strShowStatusHandler_rollbackDescr = 'The number of internal ROLLBACK statements.';  //to translate
-$strShowStatusHandler_updateDescr = 'The number of requests to update a row in a table.';  //to translate
-$strShowStatusHandler_writeDescr = 'The number of requests to insert a row in a table.';  //to translate
 $strShowStatusInnodb_buffer_pool_pages_dataDescr = 'The number of pages containing data (dirty or clean).';  //to translate
 $strShowStatusInnodb_buffer_pool_pages_dirtyDescr = 'The number of pages currently dirty.';  //to translate
 $strShowStatusInnodb_buffer_pool_pages_flushedDescr = 'The number of buffer pool pages that have been requested to be flushed.';  //to translate
@@ -955,4 +955,5 @@ $strShowStatusQcache_insertsDescr = 'The number of queries added to the cache.';
 $strShowStatusQcache_lowmem_prunesDescr = 'The number of queries that have been removed from the cache to free up memory for caching new queries. This information can help you tune the query cache size. The query cache uses a least recently used (LRU) strategy to decide which queries to remove from the cache.';  //to translate
 
 $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
+
 ?>
