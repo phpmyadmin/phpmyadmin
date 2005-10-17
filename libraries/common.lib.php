@@ -829,11 +829,9 @@ function PMA_getDbList() {
             && $GLOBALS['cfg']['LeftFrameDBSeparator']
             && strstr( $db, $GLOBALS['cfg']['LeftFrameDBSeparator'] ) )
         {
-            $parts          = explode( $GLOBALS['cfg']['LeftFrameDBSeparator'],
-                              $db, 2 );
-            $group          = $parts[0];
-            $disp_name_cut  = $GLOBALS['cfg']['LeftFrameDBSeparator'] 
-                            . $parts[1];
+            $pos            = strrpos($db, $GLOBALS['cfg']['LeftFrameDBSeparator']);
+            $group          = substr($db, 0, $pos);
+            $disp_name_cut  = substr($db, $pos);
         } else {
             $group          = $db;
             $disp_name_cut  = $db;
