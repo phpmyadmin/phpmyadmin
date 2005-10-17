@@ -4,7 +4,6 @@
 
 /**
  * displays the pma logo, links and db and server selection in left frame
- * or queryframe
  *
  */
 

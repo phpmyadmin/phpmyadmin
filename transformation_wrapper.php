@@ -56,7 +56,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
 
 // garvin: For re-usability, moved http-headers and stylesheets
 // to a seperate file. It can now be included by header.inc.php,
-// queryframe.php, querywindow.php.
+// querywindow.php.
 
 require_once('./libraries/header_http.inc.php');
 // [MIME]

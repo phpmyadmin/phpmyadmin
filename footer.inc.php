@@ -9,20 +9,6 @@
 
 require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
 
-/**
- * Query window
- */
-
-// If query window is wanted and open, update with latest selected db/table.
-if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
-
-    // $is_drop_database comes from sql.php when we saw a DROP DATABASE
-    // $force_queryframe_reload comes from db_operations.php
-    if ( empty( $is_drop_database ) &&  empty( $force_queryframe_reload ) ) {
-        $force_queryframe_reload = 'false';
-    } else {
-        $force_queryframe_reload = 'true';
-    }
 ?>
 <script type="text/javascript">
 <!--
