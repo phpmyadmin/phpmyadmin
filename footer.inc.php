@@ -9,10 +9,17 @@
 
 require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
 
-?>
+/**
+ * Query window
+ */
+
+// If query window is wanted and open, update with latest selected db/table.
+if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
+    
+    ?>
 <script type="text/javascript">
 <!--
-<?php
+    <?php
     if (!isset($no_history) && !empty($db) && (!isset($error_message) || $error_message == '')) {
         $table = isset( $table ) ? $table : '';
         ?>
