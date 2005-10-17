@@ -134,7 +134,7 @@ function PMA_STR_charIsEscaped($string, $pos, $start = 0)
 
     $p           = $pos - 1;
     $escaped     = FALSE;
-    while (($p >= $start) && ($string[$p] == '\\')) {
+    while (($p >= $start) && (PMA_substr($string, $p, 1) == '\\')) {
         $escaped = !$escaped;
         $p--;
     } // end while
