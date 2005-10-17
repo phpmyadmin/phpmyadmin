@@ -11,6 +11,7 @@ $Source$
       #1325651).
     * libraries/string.lib.php: Fix escaping detection on multi byte strings.
     * libraries/sql_query_form.lib.php: No warning if no db defined.
+    * libraries/sqlparser.lib.php: Avoid warning if analyzing failed.
 
 2005-10-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css/phpmyadmin.css.php: border around tabs bug #1326730

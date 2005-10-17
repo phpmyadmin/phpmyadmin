@@ -1189,7 +1189,7 @@ if ($is_minimum_common == FALSE) {
             // for each table_ref alias, put the true name of the table
             // in the corresponding select expressions
 
-            if (isset($current_table_ref) && ($seen_end_of_table_ref || $i == $size-1)) {
+            if (isset($current_table_ref) && ($seen_end_of_table_ref || $i == $size-1) && $subresult != $subresult_empty) {
                 for ($tr=0; $tr <= $current_table_ref; $tr++) {
                     $alias = $subresult['table_ref'][$tr]['table_alias'];
                     $truename = $subresult['table_ref'][$tr]['table_true_name'];
