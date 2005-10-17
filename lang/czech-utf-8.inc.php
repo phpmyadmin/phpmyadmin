@@ -137,7 +137,7 @@ $strCharsets = 'Znakové sady';
 $strCharset = 'Znaková sada';
 $strCheckAll = 'Zaškrtnout vše';
 $strCheckOverhead = 'Zaškrtnout neoptimální';
-$strCheckPrivsLong = 'Zkontrolovat oprávnění pro databázi &quot;%s&quot;.';
+$strCheckPrivsLong = 'Zkontrolovat oprávnění pro databázi &bdquo;%s&ldquo;.';
 $strCheckPrivs = 'Zkontrolovat oprávnění';
 $strCheckTable = 'Zkontrolovat tabulku';
 $strChoosePage = 'Zvolte stránku, kterou chcete změnit';
@@ -384,7 +384,7 @@ $strInvalidRowNumber = '%d není platné číslo řádku.';
 
 $strJapanese = 'Japonština';
 $strJoins = 'Použité výběry';
-$strJumpToDB = 'Na databázi &quot;%s&quot;.';
+$strJumpToDB = 'Přejít na databázi &bdquo;%s&ldquo;.';
 $strJustDeleteDescr = 'Odstranění uživatelé stále budou mít přístup na server, dokud nebudou znovunačtena oprávnění.';
 $strJustDelete = 'Jen odstranit uživatele z&nbsp;tabulek s&nbsp;oprávněními.';
 
@@ -921,7 +921,7 @@ $strUserName = 'Jméno uživatele';
 $strUserNotFound = 'Zvolený uživatel nebyl nalezen v&nbsp;tabulce oprávnění.';
 $strUserOverview = 'Přehled uživatelů';
 $strUsersDeleted = 'Vybraní uživatelé byli úspěšně odstraněni.';
-$strUsersHavingAccessToDb = 'Uživatelé mající přístup k&nbsp;&quot;%s&quot;';
+$strUsersHavingAccessToDb = 'Uživatelé mající přístup k&nbsp;&bdquo;%s&ldquo;';
 $strUser = 'Uživatel';
 $strUseTabKey = 'Použijte klávesu TAB pro pohyb mezi hodnotami nebo CTRL+šipky po pohyb všemi směry.';
 $strUseTables = 'Použít tabulky';

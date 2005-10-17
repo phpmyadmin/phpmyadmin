@@ -136,7 +136,7 @@ $strCharsets = 'Znakové sady';
 $strCharset = 'Znaková sada';
 $strCheckAll = 'Za¹krtnout v¹e';
 $strCheckOverhead = 'Za¹krtnout neoptimální';
-$strCheckPrivsLong = 'Zkontrolovat oprávnìní pro databázi &quot;%s&quot;.';
+$strCheckPrivsLong = 'Zkontrolovat oprávnìní pro databázi &bdquo;%s&ldquo;.';
 $strCheckPrivs = 'Zkontrolovat oprávnìní';
 $strCheckTable = 'Zkontrolovat tabulku';
 $strChoosePage = 'Zvolte stránku, kterou chcete zmìnit';
@@ -383,7 +383,7 @@ $strInvalidRowNumber = '%d není platné èíslo øádku.';
 
 $strJapanese = 'Japon¹tina';
 $strJoins = 'Pou¾ité výbìry';
-$strJumpToDB = 'Na databázi &quot;%s&quot;.';
+$strJumpToDB = 'Pøejít na databázi &bdquo;%s&ldquo;.';
 $strJustDeleteDescr = 'Odstranìní u¾ivatelé stále budou mít pøístup na server, dokud nebudou znovunaètena oprávnìní.';
 $strJustDelete = 'Jen odstranit u¾ivatele z&nbsp;tabulek s&nbsp;oprávnìními.';
 
@@ -920,7 +920,7 @@ $strUserName = 'Jméno u¾ivatele';
 $strUserNotFound = 'Zvolený u¾ivatel nebyl nalezen v&nbsp;tabulce oprávnìní.';
 $strUserOverview = 'Pøehled u¾ivatelù';
 $strUsersDeleted = 'Vybraní u¾ivatelé byli úspì¹nì odstranìni.';
-$strUsersHavingAccessToDb = 'U¾ivatelé mající pøístup k&nbsp;&quot;%s&quot;';
+$strUsersHavingAccessToDb = 'U¾ivatelé mající pøístup k&nbsp;&bdquo;%s&ldquo;';
 $strUser = 'U¾ivatel';
 $strUseTabKey = 'Pou¾ijte klávesu TAB pro pohyb mezi hodnotami nebo CTRL+¹ipky po pohyb v¹emi smìry.';
 $strUseTables = 'Pou¾ít tabulky';

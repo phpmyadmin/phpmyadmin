@@ -5,7 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2005-10-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+2005-10-17 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Translation fixes.
+
+2005-10-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css/phpmyadmin.css.php: border around tabs bug #1326730
     * libraries/header_meta_style.inc.php, themes/*: removed unused 'js_isDOM'
     
