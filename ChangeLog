@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * css/phpmyadmin.css.php: border around tabs bug #1326730
+    
 2005-10-16 Michal Čihař  <michal@cihar.com>
     * db_details_links.php: Disable drop tab on mysql database (RFE #1327514).
     * server_databases.php: Don't allow to check mysql database for dropping

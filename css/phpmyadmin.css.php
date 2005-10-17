@@ -261,7 +261,7 @@ textarea { overflow: auto; }
 
 /* Gecko bug */
 #topmenucontainer {
-    border: 1px solid <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
+    border: 1px solid <?php echo $GLOBALS['cfg']['RightBgColor']; ?>;
 }
 
 ul#topmenu {
