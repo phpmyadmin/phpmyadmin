@@ -376,8 +376,7 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
  * @uses    htmlspecialchars()
  */
 function PMA_sqlQueryFormBookmark() {
-    $bookmark_list = PMA_listBookmarks( 
-        $GLOBALS['db'], $GLOBALS['cfg']['Bookmark'] );
+    $bookmark_list = PMA_listBookmarks(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', $GLOBALS['cfg']['Bookmark'] );
     if ( ! $bookmark_list || count( $bookmark_list ) < 1 ) {
         return;
     }
