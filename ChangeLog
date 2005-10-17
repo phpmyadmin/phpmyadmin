@@ -9,14 +9,14 @@ $Source$
     * lang/czech: Translation fixes.
     * libraries/common.lib.php: Group databases by rightmost separator (bug
       #1325651).
-    * queryframe.php, db_operations.php, footer.inc.php, header.inc.php,
-      header_printview.inc.php, left.php, querywindow.php,
-      transformation_wrapper.php, left_header.inc.php:
-      removed queryframe.php and references to it
 
 2005-10-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css/phpmyadmin.css.php: border around tabs bug #1326730
     * libraries/header_meta_style.inc.php, themes/*: removed unused 'js_isDOM'
+    * queryframe.php, db_operations.php, footer.inc.php, header.inc.php,
+      header_printview.inc.php, left.php, querywindow.php,
+      transformation_wrapper.php, left_header.inc.php:
+      removed queryframe.php and references to it
     
 2005-10-16 Michal Čihař  <michal@cihar.com>
     * db_details_links.php: Disable drop tab on mysql database (RFE #1327514).
