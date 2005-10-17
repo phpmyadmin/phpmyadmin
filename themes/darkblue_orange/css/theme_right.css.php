@@ -37,11 +37,9 @@ th{
     font-weight:         bold;
     color:               #000000;
     background-color:    #ff9900;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
     background-image:    url(../themes/darkblue_orange/img/tbl_th.png);
     background-repeat:   repeat-x;
     background-position: top;
-   <?php } ?>
     height:              18px;
 }
 th a:link, th a:active, th a:visited{
@@ -298,7 +296,7 @@ span.tab, span.tabcaution {
 div.warning {
     border: 1px solid #cc0000;
 /*
-<?php if($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
+<?php if( $GLOBLAS['cfg']['ErrorIconic'] ) { ?>
 */
     background-image: url(../themes/darkblue_orange/img/s_warn.png);
     background-repeat: no-repeat;
@@ -327,7 +325,7 @@ div.error div.head {
     font-weight: bold;
     color: #ffffff;
 /*
-<?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
+<?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
 */
     background-image: url(../themes/darkblue_orange/img/s_error.png);
     background-repeat: no-repeat;
@@ -377,11 +375,9 @@ div.tblWarn {
     font-weight:         bold;
     color:               #ffffff;
     background-color:    #666699;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
     background-image:    url(../themes/darkblue_orange/img/tbl_header.png);
     background-repeat:   repeat-x;
     background-position: top;
-    <?php } ?>
     height:              18px;
 }
 .tblHeaders a:link, .tblHeaders a:visited, .tblHeaders a:active, .tblFooters a:link, tblFooters a:visited, tblFooters a:active{
@@ -392,11 +388,9 @@ div.tblWarn {
     font-weight:         normal;
     color:               #ffffff;
     background-color:    #666699;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
     background-image:    url(../themes/darkblue_orange/img/tbl_header.png);
     background-repeat:   repeat-x;
     background-position: top;
-    <?php } ?>
 }
 .tblHeaders a:hover, tblFooters a:hover{
     text-decoration: none;
@@ -406,18 +400,16 @@ div.tblWarn {
     font-weight:         bold;
     color:               #ffffff;
     background-color:    #cc0000;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
     background-image:    url(../themes/darkblue_orange/img/tbl_error.png);
     background-repeat:   repeat-x;
     background-position: top;
-    <?php } ?>
     height:              18px;
 }
 div.errorhead {
     font-weight: bold;
     color: #ffffff;
     text-align: left;
-    <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
     background-image: url(../themes/darkblue_orange/img/s_error.png);
     background-repeat: no-repeat;
     background-position: 2px 50%;
@@ -430,18 +422,16 @@ div.errorhead {
     background-color:    #ffcc00;
     font-weight:         bold;
     color:               #000000;
-    <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
     background-image:    url(../themes/darkblue_orange/img/tbl_th.png);
     background-repeat:   repeat-x;
     background-position: top;
-    <?php } ?>
     height:              18px;
 }
 div.warnhead {
     font-weight: bold;
     color: #ffffff;
     text-align: left;
-    <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
     background-image: url(../themes/darkblue_orange/img/s_warn.png);
     background-repeat: no-repeat;
     background-position: 2px 50%;
@@ -502,7 +492,6 @@ tr.disabled td, td.disabled {
     background-color: #cccccc;
 }
 
-<?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
 /* some styles for IDs: */
 #buttonNo{
     color:            #CC0000;
@@ -536,7 +525,7 @@ tr.disabled td, td.disabled {
    font-family: "Courier New", Courier, mono;
    font-size:   11px;
 }
-<?php } ?>
+
 #TooltipContainer {
     position:   absolute;
     z-index:    99;

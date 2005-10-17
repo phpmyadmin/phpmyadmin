@@ -210,7 +210,7 @@ div.errorhead {
     font-weight: bold;
     color: #ffffff;
     text-align: left;
-    <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
     background-image: url(../themes/original/img/s_error.png);
     background-repeat: no-repeat;
     background-position: 5px 50%;
@@ -287,7 +287,7 @@ img, input, select, button {
     margin: 0 0.1em 0 0.2em;
 }
 
-<?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
+
 /* disabled text */
 .disabled, .disabled a:link, disabled a:active, .disabled a:visited {
     font-family: <?php echo $right_font_family; ?>;
@@ -307,7 +307,7 @@ tr.disabled td, td.disabled {
     font-family: "Courier New", Courier, mono;
     font-size:   12px;
 }
-<?php } // end of isDom ?>
+
 #TooltipContainer {
     position:   absolute;
     z-index:    99;

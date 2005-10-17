@@ -7,6 +7,7 @@ $Source$
 
 2005-10-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * css/phpmyadmin.css.php: border around tabs bug #1326730
+    * libraries/header_meta_style.inc.php, themes/*: removed unused 'js_isDOM'
     
 2005-10-16 Michal Čihař  <michal@cihar.com>
     * db_details_links.php: Disable drop tab on mysql database (RFE #1327514).
