@@ -14,90 +14,53 @@ require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
  */
 
 // If query window is wanted and open, update with latest selected db/table.
-if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
+if ( $cfg['QueryFrame'] && $cfg['QueryFrameJS'] ) {
     
     ?>
 <script type="text/javascript">
-<!--
+//<![CDATA[
     <?php
     if (!isset($no_history) && !empty($db) && (!isset($error_message) || $error_message == '')) {
         $table = isset( $table ) ? $table : '';
         ?>
         // sets selection in left frame quick db selectbox to current db
-        parent.frames[0].setTable( '<?php echo $db; ?>', '<?php echo $table; ?>' );
+        window.parent.setTable( '<?php echo $db; ?>', '<?php echo $table; ?>' );
         <?php
     }
     ?>
 
-    function reload_querywindow () {
-        if (parent.frames[0] && parent.frames[0].querywindow && !parent.frames[0].querywindow.closed && parent.frames[0].querywindow.location) {
-            <?php
-            if (!isset($no_history) && (!isset($error_message) || $error_message == '')) {
-                if (isset($LockFromUpdate) && $LockFromUpdate == '1' && isset($sql_query)) {
-                    // When the button 'LockFromUpdate' was selected in the querywindow, it does not submit it's contents to
-                    // itself. So we create a SQL-history entry here.
-                    if ($cfg['QueryHistoryDB'] && $cfgRelation['historywork']) {
-                        PMA_setHistory((isset($db) ? $db : ''), (isset($table) ? $table : ''), $cfg['Server']['user'], $sql_query);
-                    }
-                }
-                ?>
-            if (!parent.frames[0].querywindow.document.sqlform.LockFromUpdate || !parent.frames[0].querywindow.document.sqlform.LockFromUpdate.checked) {
-                parent.frames[0].querywindow.document.querywindow.db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
-                parent.frames[0].querywindow.document.querywindow.query_history_latest_db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
-                parent.frames[0].querywindow.document.querywindow.table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
-                parent.frames[0].querywindow.document.querywindow.query_history_latest_table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
-
-                <?php echo (isset($sql_query) ? 'parent.frames[0].querywindow.document.querywindow.query_history_latest.value = "' . urlencode($sql_query) . '";' : '// no sql query update') . "\n"; ?>
-
-                parent.frames[0].querywindow.document.querywindow.submit();
-            }
-                <?php
-            } else {
-                ?>
-            // no submit, query was invalid
-                <?php
-            }
-            ?>
-        }
-    }
-
-    function focus_querywindow(sql_query) {
-        if (parent.frames[0] && parent.frames[0].querywindow && !parent.frames[0].querywindow.closed && parent.frames[0].querywindow.location) {
-            if (parent.frames[0].querywindow.document.querywindow.querydisplay_tab != 'sql') {
-                parent.frames[0].querywindow.document.querywindow.querydisplay_tab.value = "sql";
-                parent.frames[0].querywindow.document.querywindow.query_history_latest.value = sql_query;
-                parent.frames[0].querywindow.document.querywindow.submit();
-                parent.frames[0].querywindow.focus();
-            } else {
-                parent.frames[0].querywindow.focus();
-            }
-
-            return false;
-        } else if (parent.frames[0]) {
-            new_win_url = 'querywindow.php?sql_query=' + sql_query + '&<?php echo PMA_generate_common_url(isset($db) ? addslashes($db) : '', isset($table) ? addslashes($table) : '', '&'); ?>';
-            parent.frames[0].querywindow=window.open(new_win_url, '','toolbar=0,location=0,directories=0,status=1,menubar=0,scrollbars=yes,resizable=yes,width=<?php echo $cfg['QueryWindowWidth']; ?>,height=<?php echo $cfg['QueryWindowHeight']; ?>');
-
-            if (!parent.frames[0].querywindow.opener) {
-               parent.frames[0].querywindow.opener = parent.frames[0];
-            }
-
-            // reload_querywindow();
-            return false;
-        }
-    }
-
-    reload_querywindow();
     <?php
-    if (isset($focus_querywindow) && $focus_querywindow == "true") {
+    if ( ! isset( $no_history ) && empty( $error_message ) ) {
+        if ( isset( $LockFromUpdate ) && $LockFromUpdate == '1' && isset( $sql_query ) ) {
+            // When the button 'LockFromUpdate' was selected in the querywindow,
+            // it does not submit it's contents to
+            // itself. So we create a SQL-history entry here.
+            if ($cfg['QueryHistoryDB'] && $cfgRelation['historywork']) {
+                PMA_setHistory( ( isset( $db ) ? $db : '' ),
+                    ( isset( $table ) ? $table : '' ),
+                    $cfg['Server']['user'],
+                    $sql_query );
+            }
+        }
         ?>
-        if (parent.frames[0] && parent.frames[0].querywindow && !parent.frames[0].querywindow.closed && parent.frames[0].querywindow.location) {
+        window.parent.reload_querywindow(
+            "<?php echo isset( $db ) ? addslashes( $db ) : '' ?>",
+            "<?php echo isset( $table ) ? addslashes( $table ) : '' ?>",
+            "<?php echo isset( $sql_query ) ? urlencode( $sql_query ) : ''; ?>" );
+        <?php
+    }
+    ?>
+
+    <?php
+    if ( ! empty( $focus_querywindow ) ) {
+        ?>
+        if ( parent.querywindow && !parent.querywindow.closed && parent.querywindow.location) {
             self.focus();
         }
         <?php
     }
     ?>
-
-//-->
+//]]>
 </script>
     <?php
 }
@@ -115,7 +78,8 @@ if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
 
 include('./config.footer.inc.php');
 ?>
-    <script src="libraries/tooltip.js" type="text/javascript" language="javascript"></script>
+    <script src="libraries/tooltip.js" type="text/javascript"
+        language="javascript"></script>
 </body>
 </html>
 <?php

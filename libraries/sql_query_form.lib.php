@@ -111,11 +111,11 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
         <form method="post" id="sqlqueryform"
               target="phpmain<?php echo md5( $GLOBALS['cfg']['PmaAbsoluteUri'] ); ?>"
               action="import.php"<?php echo $enctype; ?> name="sqlform"
-              onsubmit="this.target=window.opener.parent.frames[1].name;
-                        return checkSqlQuery(this);" >
+              onsubmit="this.target=window.opener.frames[1].name;
+                        return checkSqlQuery( this );" >
         <?php
     } else {
-        echo '<form method="post" action="import.php" ' . $enctype 
+        echo '<form method="post" action="import.php" ' . $enctype . ' id="sqlqueryform"'
             .' onsubmit="return checkSqlQuery(this)" name="sqlform">' . "\n";
     }
     

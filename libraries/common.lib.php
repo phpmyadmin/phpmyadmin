@@ -863,7 +863,7 @@ function PMA_getDbList() {
 function PMA_getHtmlSelectDb( $selected = '' ) {
     $dblist = PMA_getDbList();
     $return = '<select name="db" id="lightm_db"'
-        .' onchange="this.form.submit();">' . "\n"
+        .' onchange="window.parent.openDb( this.value );">' . "\n"
         .'<option value="">(' . $GLOBALS['strDatabases'] . ') ...</option>'
         ."\n";
     foreach( $dblist as $group => $dbs ) {
@@ -1838,12 +1838,12 @@ if ($is_minimum_common == FALSE) {
             $reload_url = './left.php?' . PMA_generate_common_url((isset($GLOBALS['db']) ? $GLOBALS['db'] : ''), '', '&');
             ?>
 <script type="text/javascript" language="javascript1.2">
-<!--
+//<![CDATA[
 if (typeof(window.parent) != 'undefined'
     && typeof(window.parent.frames[0]) != 'undefined') {
-    window.parent.frames[0].goTo('<?php echo $reload_url; ?>');
+    window.parent.goTo('<?php echo $reload_url; ?>');
 }
-//-->
+//]]>
 </script>
             <?php
             unset($GLOBALS['reload']);
@@ -1880,7 +1880,7 @@ if (typeof(window.parent) != 'undefined'
                 echo "\n";
                 ?>
 <script type="text/javascript" language="javascript1.2">
-<!--
+//<![CDATA[
 if (typeof(document.getElementById) != 'undefined'
     && typeof(window.parent.frames[0]) != 'undefined'
     && typeof(window.parent.frames[0].document) != 'undefined' && typeof(window.parent.frames[0].document) != 'unknown'
@@ -1889,7 +1889,7 @@ if (typeof(document.getElementById) != 'undefined'
     && typeof(window.parent.frames[0].document.getElementById('<?php echo $uni_tbl; ?>').title) == 'string') {
     window.parent.frames[0].document.getElementById('<?php echo $uni_tbl; ?>').title = '<?php echo PMA_jsFormat($tooltip, FALSE); ?>';
 }
-//-->
+//]]>
 </script>
                 <?php
             } // end if
@@ -2014,7 +2014,7 @@ if (typeof(document.getElementById) != 'undefined'
 
                 $onclick = '';
                 if ($cfg['QueryFrameJS'] && $cfg['QueryFrame']) {
-                    $onclick = 'focus_querywindow(\'' . urlencode($local_query) . '\'); return false;';
+                    $onclick = 'window.parent.focus_querywindow(\'' . urlencode($local_query) . '\'); return false;';
                 }
 
                 $edit_link = $edit_target

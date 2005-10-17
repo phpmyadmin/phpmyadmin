@@ -78,73 +78,10 @@ echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
         content="text/html; charset=<?php echo $charset; ?>" />
     <base href="<?php echo $GLOBALS['cfg']['PmaAbsoluteUri']; ?>"
         target="phpmain<?php echo $_SESSION['window_name_hash']; ?>" />
-
+    <link rel="stylesheet" type="text/css"
+        href="./css/phpmyadmin.css.php?js_frame=left" />
     <script type="text/javascript" language="javascript">
-    <!--
-    var table = '<?php echo $GLOBALS['table']; ?>';
-    var db    = '<?php echo $GLOBALS['db']; ?>';
-    var querywindowurl = 'querywindow.php?<?php
-        echo PMA_generate_common_url('','','&'); ?>';
-    var querywindow = '';
-    
-    // sets current selected table (called from footer.inc.php)
-    function setTable( new_db, new_table ) {
-        if ( new_db != db ) {
-            if ( typeof( document.getElementById( new_db ) ) == 'undefined' ) {
-                goTo('left.php?<?php echo PMA_generate_common_url('','','&');?>&db=' + new_db + '&table=' + new_table);
-                return;
-            }
-            db = new_db;
-        }
-        
-        if ( new_table != table ) {
-            if ( typeof( document.getElementById( new_db + '.' + new_table ) ) == 'undefined' ) {
-                goTo('left.php?<?php echo PMA_generate_common_url('','','&');?>&db=' + new_db + '&table=' + new_table);
-                return;
-            }
-            table = new_table;
-        }
-    }
-    
-    // opens selected db in left and main frame
-    function openDb( db, nomain ) {
-        goTo('left.php?<?php echo PMA_generate_common_url('','','&');?>&db=' + db);
-        if ( !nomain ) {
-            goTo(
-                '<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] . '?' 
-                . PMA_generate_common_url('','','&');?>&db=' + db,
-                window.parent.frames[1] );
-        }
-        
-        return true;
-    }
-    
-    function open_querywindow( url ) {
-        if ( ! url ) {
-            url = querywindowurl + '&db=' + db + '&table=' + table;
-        }
-    
-        if (!querywindow.closed && querywindow.location) {
-            querywindow.focus();
-        } else {
-            querywindow=window.open( url, '',
-                'toolbar=0,location=0,directories=0,status=1,menubar=0,' +
-                'scrollbars=yes,resizable=yes,' +
-                'width=<?php echo $GLOBALS['cfg']['QueryWindowWidth']; ?>,' +
-                'height=<?php echo $GLOBALS['cfg']['QueryWindowHeight']; ?>');
-        }
-    
-        if (!querywindow.opener) {
-            querywindow.opener = blank;
-        }
-    
-        if (window.focus) {
-            querywindow.focus();
-        }
-    
-        return true;
-    }
-    
+    //<![CDATA[
     function toggle( id, only_open ) {
         el = document.getElementById('subel' + id);
         if ( ! el ) {
@@ -156,48 +93,20 @@ echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
         if ( el.style.display == 'none' || only_open ) {
             el.style.display = '';
             if ( img ) {
-                img.src = '<?php echo $pmaThemeImage; ?>b_minus.png';
+                img.src = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_minus.png';
                 img.alt = '-';
             }
         } else {
             el.style.display = 'none';
             if ( img ) {
-                img.src = '<?php echo $pmaThemeImage; ?>b_plus.png';
+                img.src = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_plus.png';
                 img.alt = '+';
             }
         }
         return true;
     }
-
-    function goTo( targeturl, target ) {
-        if ( target == 'main' ) {
-            target = window.parent.frames[1];
-        } else if ( target == 'query' ) {
-            //target = window.parent.frames[1];
-            return open_querywindow( targeturl );
-        } else if ( ! target ) {
-            target = window.parent.frames[0];
-        }
-
-        if ( target ) {
-            if ( target.location.href == targeturl ) {
-                return true;
-            } else if ( target.location.href == '<?php echo $GLOBALS['cfg']['PmaAbsoluteUri']; ?>' + targeturl ) {
-                return true;
-            }
-<?php if (PMA_USR_BROWSER_AGENT != 'SAFARI') { ?>
-            target.location.replace(targeturl);
-<?php } else { ?>
-            target.location.href = targeturl;
-<?php } ?>
-        }
-
-        return true;
-    }
-    //-->
+    //]]>
     </script>
-    <link rel="stylesheet" type="text/css"
-        href="./css/phpmyadmin.css.php?js_frame=left" />
 </head>
 
 <body id="body_leftFrame">
@@ -235,10 +144,10 @@ if ( $num_dbs === 0 ) {
     <form method="post" action="index.php" target="_parent" id="left"
         onsubmit="
         <?php /* open database in main window */ ?>
-        goTo( '<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] . '?' 
+        window.parent.goTo( '<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] . '?' 
                 . $_location; ?>&amp;db=' + this.value, 'main' );
         <?php /* refresh left frame with tables from selected db */ ?>
-        goTo( 'left.php?<?php echo $_location; ?>&amp;db=' + this.value);
+        window.parent.goTo( 'left.php?<?php echo $_location; ?>&amp;db=' + this.value);
         return false;">
     <label for="lightm_db"><?php echo $strDatabase; ?></label>
     <?php
@@ -381,14 +290,14 @@ function PMA_displayDbList( $ext_dblist ) {
                 // ... and we need to refresh both frames on db selection
                 ?>
                 <a class="item"
-                    id="<?php echo $db['name']; ?>"
+                    id="<?php echo htmlspecialchars(  $db['name'] ); ?>"
                     href="index.php?<?php echo $common_url_query; ?>"
                     target="_parent" 
                     title="<?php echo htmlspecialchars( $db['comment'] ); ?>" 
                     onclick="
                         if ( ! toggle('<?php echo $element_counter; ?>', true) )
-                            goTo( './left.php?<?php echo $common_url_query; ?>' );
-                        goTo( './<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] 
+                            window.parent.goTo( './left.php?<?php echo $common_url_query; ?>' );
+                        window.parent.goTo( './<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] 
                             . '?' . $common_url_query; ?>', 'main' );
                         return false;">
                     <?php echo htmlspecialchars( $db['disp_name'] ); ?>
@@ -401,7 +310,7 @@ function PMA_displayDbList( $ext_dblist ) {
                 ?>
                 <a href="<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] 
                     . '?' . $common_url_query; ?>"
-                    id="<?php echo $db['name']; ?>"
+                    id="<?php echo htmlspecialchars( $db['name'] ); ?>"
                     title="<?php echo htmlspecialchars( $db['comment'] ); ?>">
                     <?php echo htmlspecialchars( $db['disp_name'] ); ?>
                     (<?php echo $db['num_tables']; ?>)
@@ -507,8 +416,8 @@ function PMA_displayTableList( $tables, $visible = false,
                 target="_parent" 
                 onclick="
                     if ( ! toggle('<?php echo $element_counter; ?>', true) )
-                        goTo( './left.php?<?php echo $common_url_query; ?>' );
-                    goTo( './<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] 
+                        window.parent.goTo( './left.php?<?php echo $common_url_query; ?>' );
+                    window.parent.goTo( './<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] 
                         . '?' . $common_url_query; ?>', 'main' );
                     return false;">
                 <?php echo htmlspecialchars( substr( $group, 0, strlen( $group ) - strlen( $sep ) ) ); ?>

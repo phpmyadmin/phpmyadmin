@@ -132,11 +132,28 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 <title>phpMyAdmin <?php echo PMA_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
 <meta http-equiv="Content-Type"
     content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
+
+<script type="text/javascript" language="javascript">
+//<![CDATA[
+    // definitions used in querywindow.js
+    var common_query = '<?php echo PMA_generate_common_url('','','&');?>';
+    var opendb_url = '<?php echo $GLOBALS['cfg']['DefaultTabDatabase']; ?>';
+    var safari_browser = <?php echo PMA_USR_BROWSER_AGENT != 'SAFARI' ? 'true' : 'false' ?>;    
+    var querywindow_height = <?php echo $GLOBALS['cfg']['QueryWindowHeight']; ?>;
+    var querywindow_width = <?php echo $GLOBALS['cfg']['QueryWindowWidth']; ?>;
+    var table = '<?php echo $GLOBALS['table']; ?>';
+    var db    = '<?php echo $GLOBALS['db']; ?>';
+    var pma_absolute_uri = '<?php echo $GLOBALS['cfg']['PmaAbsoluteUri']; ?>';
+//]]>
+</script>
+<script src="libraries/querywindow.js" type="text/javascript"
+    language="javascript"></script>
 </head>
 <frameset cols="<?php echo $GLOBALS['cfg']['LeftWidth']; ?>,*" rows="*" id="mainFrameset">
     <frame frameborder="0" id="leftFrame"
         src="left.php?<?php echo $url_query; ?>" 
-        name="nav<?php echo $_SESSION['window_name_hash']; ?>" />
+        name="nav<?php echo $_SESSION['window_name_hash']; ?>"
+        id="framenavigation" />
     <frame frameborder="0" id="rightFrame"
         src="<?php echo $main_target; ?>" 
         name="phpmain<?php echo $_SESSION['window_name_hash']; ?>" />

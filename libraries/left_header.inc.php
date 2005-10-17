@@ -56,7 +56,7 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
         } // end if ($GLOBALS['cfg']['Server']['auth_type'] != 'config'
 
         if ( $GLOBALS['cfg']['QueryFrame'] ) {
-            $anchor = 'querywindow.php?' . PMA_generate_common_url( '', '' );
+            $anchor = 'querywindow.php?' . PMA_generate_common_url( $db, $table );
             
             if ($GLOBALS['cfg']['MainPageIconic']) {
                 $query_frame_link_text = 
@@ -69,7 +69,7 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
         echo '<a href="' . $anchor . '&amp;no_js=true"'
             .' title="' . $strQueryFrame . '"';
         if ( $GLOBALS['cfg']['QueryFrameJS'] ) {
-            echo ' onclick="javascript:open_querywindow(\'' . $anchor . '\');'
+            echo ' onclick="javascript:window.parent.open_querywindow();'
                 .' return false;"';
         }
         echo '>' . $query_frame_link_text . '</a>' . "\n";

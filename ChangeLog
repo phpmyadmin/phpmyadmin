@@ -20,6 +20,11 @@ $Source$
       header_printview.inc.php, left.php, querywindow.php,
       transformation_wrapper.php, left_header.inc.php:
       removed queryframe.php and references to it
+    * index.php, footer.inc.php, left.php, querywindow.php, server_databases.php
+      libraries/common.lib.php, libraries/left_header.inc.php,
+      libraries/sql_query_form.lib.php, libraries/querywindow.js:
+      code cleanup whole querywindow js stuff, moved all in one new js file,
+      now included in index.php, bug #1327055 
     
 2005-10-16 Michal Čihař  <michal@cihar.com>
     * db_details_links.php: Disable drop tab on mysql database (RFE #1327514).
