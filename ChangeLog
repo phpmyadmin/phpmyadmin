@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-18 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * querywindow.php: wrong handling of linebreaks in query: bug #1243888
+    
 2005-10-17 Michal Čihař  <michal@cihar.com>
     * lang/czech: Translation fixes.
     * libraries/common.lib.php: Group databases by rightmost separator (bug
