@@ -26,7 +26,9 @@
  function PMA_query_as_cu($sql, $show_error = TRUE, $options = 0) {
     global $err_url_0, $db, $dbh, $cfgRelation;
 
-    PMA_DBI_select_db($cfgRelation['db'], $dbh);
+    if ($dbh == $GLOBALS['userlink']) {
+        PMA_DBI_select_db($cfgRelation['db'], $dbh);
+    }
     if ($show_error) {
         $result = PMA_DBI_query($sql, $dbh, $options);
     } else {
@@ -67,7 +69,7 @@
  */
 function PMA_getRelationsParam($verbose = FALSE)
 {
-    global $cfg, $server, $err_url_0, $db, $table;
+    global $cfg, $server, $err_url_0, $db, $table, $dbh;
     global $cfgRelation;
 
     $cfgRelation                = array();
@@ -104,6 +106,7 @@ function PMA_getRelationsParam($verbose = FALSE)
     //  I was thinking of checking if they have all required columns but I
     //  fear it might be too slow
 
+    PMA_DBI_select_db($cfgRelation['db'], $dbh);
     $tab_query = 'SHOW TABLES FROM ' . PMA_backquote($cfgRelation['db']);
     $tab_rs    = PMA_query_as_cu($tab_query, FALSE, PMA_DBI_QUERY_STORE);
 
