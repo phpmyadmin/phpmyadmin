@@ -1592,9 +1592,7 @@ if ($is_minimum_common == FALSE) {
     function PMA_getTableList( $db ) {
         $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
         
-        $tables = PMA_DBI_fetch_result(
-            'SHOW TABLE STATUS FROM ' . PMA_backquote( $db ),
-            'Name' );
+        $tables = PMA_DBI_get_tables_full($db);
         if ( count( $tables ) < 1 ) {
             return $tables;
         }

@@ -7,6 +7,7 @@ $Source$
 
 2005-10-18 Michal Čihař  <michal@cihar.com>
     * libraries/relation.lib.php: Do not set database if not needed.
+    * libraries/common.lib.php: Use common infrastructure for getting tables.
 
 2005-10-18 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * querywindow.php: wrong handling of linebreaks in query: bug #1243888
