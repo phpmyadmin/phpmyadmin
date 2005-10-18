@@ -1210,8 +1210,9 @@ if ($is_minimum_common == FALSE) {
         if (!empty($url['port']) && (($url['scheme'] == 'http' && $url['port'] != 80) || ($url['scheme'] == 'https' && $url['port'] != 443))) {
             $cfg['PmaAbsoluteUri'] .= ':' . $url['port'];
         }
-        // And finally path, without script name
-        $path = dirname($url['path']);
+        // And finally path, without script name, the 'a' is there not to
+        // strip our directory, when path is only /pmadir/ without filename
+        $path = dirname($url['path'] . 'a');
         // To work correctly within transformations overview:
         if (defined('PMA_PATH_TO_BASEDIR') && PMA_PATH_TO_BASEDIR == '../../') {
             $path = dirname(dirname($path));
