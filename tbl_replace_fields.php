@@ -62,10 +62,7 @@ if (isset(${'me_fields_upload_' . $encoded_key}) && ${'me_fields_upload_' . $enc
         }
 
     } elseif (!empty(${'me_fields_uploadlocal_' . $encoded_key})) {
-        if (substr($cfg['UploadDir'], -1) != '/') {
-            $cfg['UploadDir'] .= '/';
-        }
-        $file_to_upload = $cfg['UploadDir'] . preg_replace('@\.\.*@', '.', ${'me_fields_uploadlocal_' . $encoded_key});
+        $file_to_upload = PMA_userDir($cfg['UploadDir']) . preg_replace('@\.\.*@', '.', ${'me_fields_uploadlocal_' . $encoded_key});
 
         // A local file will be uploaded.
         $open_basedir = @ini_get('open_basedir');

@@ -12,6 +12,11 @@ $Source$
       Allow to limit list of shown languages (RFE #1328003).
     * libraries/common.lib.php: Fix URL detection when not called from top
       level directory (eg. transformations overview).
+    * Documentation.html, config.default.php, export.php, import.php,
+      tbl_change.php, tbl_replace_fields.php, libraries/common.lib.php,
+      libraries/display_export.lib.php, libraries/display_import.lib.php,
+      libraries/sql_query_form.lib.php: Support for user specific upload and
+      save directories (RFE #1260039).
 
 2005-10-18 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * querywindow.php: wrong handling of linebreaks in query: bug #1243888

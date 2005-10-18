@@ -2933,6 +2933,16 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
         return PMA_backquote($oldcol) . ' ' . PMA_generateFieldSpec($newcol, $type, $length, $attribute, $collation, $null, $default, $default_current_timestamp, $extra, $comment, $empty_a, -1, $default_orig);
     } // end function
 
+    function PMA_userDir($dir) {
+        global $cfg;
+
+        if (substr($dir, -1) != '/') {
+            $dir .= '/';
+        }
+
+        return str_replace('%u', $cfg['Server']['user'], $dir);
+    }
+
 } // end if: minimal common.lib needed?
 
 ?>

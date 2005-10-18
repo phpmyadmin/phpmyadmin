@@ -768,7 +768,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             }
 
             if (!empty($cfg['UploadDir'])) {
-                $files = PMA_getFileSelectOptions($cfg['UploadDir']);
+                $files = PMA_getFileSelectOptions(PMA_userDir($cfg['UploadDir']));
                 if ($files === FALSE) {
                     echo '        <font color="red">' . $strError . '</font><br />' . "\n";
                     echo '        ' . $strWebServerUploadDirectoryError . "\n";

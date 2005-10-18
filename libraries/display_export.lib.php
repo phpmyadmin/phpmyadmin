@@ -754,7 +754,7 @@ function show_checked_option() {
         onclick="document.getElementById('checkbox_dump_asfile').checked = true;"
         <?php PMA_exportCheckboxCheck('onserver'); ?> />
     <label for="checkbox_dump_onserver">
-        <?php echo sprintf($strSaveOnServer, htmlspecialchars($cfg['SaveDir'])); ?>
+        <?php echo sprintf($strSaveOnServer, htmlspecialchars(PMA_userDir($cfg['SaveDir']))); ?>
     </label>,<br />
     <input type="checkbox" name="onserverover" value="saveitover"
         id="checkbox_dump_onserverover"

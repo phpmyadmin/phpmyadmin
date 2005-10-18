@@ -1661,6 +1661,9 @@ Defaults to FALSE (drop-down). <br />
         under a drop-down box when you click the database name, then the SQL
         tab.
         <br /><br />
+        If you want different directory for each user, %u will be replaced
+        with username.
+        <br /><br />
         Please note that the file names must have the suffix &quot;.sql&quot;
         (or &quot;.sql.bz2&quot; or &quot;.sql.gz&quot; if support for
         compressed formats is enabled).
@@ -1688,6 +1691,9 @@ Defaults to FALSE (drop-down). <br />
     <dt><b>$cfg['SaveDir'] </b>string</dt>
     <dd>
         The name of the directory, where dumps can be saved.
+        <br /><br />
+        If you want different directory for each user, %u will be replaced
+        with username.
         <br /><br />
         Please note that the directory has to be writable for user running
         webserver.

@@ -184,11 +184,7 @@ if (!empty($local_import_file) && !empty($cfg['UploadDir'])) {
     // sanitize $local_import_file as it comes from a POST
     $local_import_file = PMA_securePath($local_import_file);
 
-    if (substr($cfg['UploadDir'], -1) != '/') {
-        $cfg['UploadDir'] .= '/';
-    }
-    
-    $import_file  = $cfg['UploadDir'] . $local_import_file;
+    $import_file  = PMA_userDir($cfg['UploadDir']) . $local_import_file;
 } else if (empty($import_file) || !is_uploaded_file($import_file))  {
     $import_file  = 'none';
 }

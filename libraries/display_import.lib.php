@@ -149,7 +149,7 @@ if (!empty($cfg['UploadDir'])) {
     }
     $matcher = '@\.(' . $extensions . ')(\.(' . PMA_supportedDecompressions() . '))?$@';
 
-    $files = PMA_getFileSelectOptions($cfg['UploadDir'], $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
+    $files = PMA_getFileSelectOptions(PMA_userDir($cfg['UploadDir']), $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
     echo '<div class="formelementrow">' . "\n";
     if ($files === FALSE) {
         echo '    <div class="warning">' . "\n";

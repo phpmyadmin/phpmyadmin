@@ -620,10 +620,11 @@ $cfg['SQLQuery']['Refresh']   = TRUE;       // Refresh the results page
  */
 $cfg['UploadDir']             = '';         // Directory for uploaded files that can be executed by
                                             // phpMyAdmin. For example './upload'. Leave empty for
-                                            // no upload directory support
+                                            // no upload directory support. Use %u for username 
+                                            // inclusion.
 $cfg['SaveDir']               = '';         // Directory where phpMyAdmin can save exported data on
                                             // server. For example './save'. Leave empty for no save
-                                            // directory support.
+                                            // directory support. Use %u for username inclusion.
 $cfg['docSQLDir']             = '';         // Directory for docSQL imports, phpMyAdmin can import
                                             // docSQL files from that directory. For example
                                             // './docSQL'. Leave empty for no docSQL import support.
