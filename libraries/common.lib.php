@@ -1211,7 +1211,12 @@ if ($is_minimum_common == FALSE) {
             $cfg['PmaAbsoluteUri'] .= ':' . $url['port'];
         }
         // And finally path, without script name
-        $cfg['PmaAbsoluteUri'] .= substr($url['path'], 0, strrpos($url['path'], '/') + 1);
+        $path = dirname($url['path']);
+        // To work correctly within transformations overview:
+        if (defined('PMA_PATH_TO_BASEDIR') && PMA_PATH_TO_BASEDIR == '../../') {
+            $path = dirname(dirname($path));
+        }
+        $cfg['PmaAbsoluteUri'] .= $path . '/';
 
         unset($url);
 

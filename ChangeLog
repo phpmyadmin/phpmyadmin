@@ -10,6 +10,8 @@ $Source$
     * libraries/common.lib.php: Use common infrastructure for getting tables.
     * Documentation.html, config.default.php, libraries/select_lang.lib.php:
       Allow to limit list of shown languages (RFE #1328003).
+    * libraries/common.lib.php: Fix URL detection when not called from top
+      level directory (eg. transformations overview).
 
 2005-10-18 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * querywindow.php: wrong handling of linebreaks in query: bug #1243888
