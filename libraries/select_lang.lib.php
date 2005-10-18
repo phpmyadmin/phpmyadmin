@@ -174,6 +174,18 @@ $available_languages = array(
     'zh-utf-8'          => array('zh|chinese simplified', 'chinese_simplified-utf-8', 'zh')
 );
 
+// Language filtering support
+if (!empty($GLOBALS['cfg']['FilterLanguages'])) {
+    $new_lang = array();
+    foreach($available_languages as $key => $val) {
+        if (preg_match('@' . $GLOBALS['cfg']['FilterLanguages'] . '@', $key)) {
+            $new_lang[$key] = $val;
+        }
+    }
+    if (count($new_lang) > 0) {
+        $available_languages = $new_lang;
+    }
+}
 
 /**
  * Analyzes some PHP environment variables to find the most probable language

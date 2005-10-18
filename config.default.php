@@ -433,6 +433,10 @@ $cfg['DefaultLang'] = 'en-iso-8859-1';
 //        libraries/select_lang.lib.php
 // $cfg['Lang']     = 'en-iso-8859-1';
 
+// Regullar expression to limit listed languages, eg. '^(cs|en)' for Czech and
+// English only
+$cfg['FilterLanguages'] = '';
+
 // Default charset to use for recoding of MySQL queries, does not take
 // any effect when charsets recoding is switched off by
 // $cfg['AllowAnywhereRecoding'] or in language file
