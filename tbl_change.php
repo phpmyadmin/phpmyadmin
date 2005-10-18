@@ -183,7 +183,6 @@ document.onkeydown = onKeyDownArrowsHandler;
     <input type="hidden" name="dontlimitchars" value="<?php echo (isset($dontlimitchars) ? $dontlimitchars : 0); ?>" />
     <input type="hidden" name="err_url" value="<?php echo urlencode($err_url); ?>" />
     <input type="hidden" name="sql_query" value="<?php echo isset($sql_query) ? urlencode($sql_query) : ''; ?>" />
-    <input type="hidden" name="reload" value="1" />
 <?php
 if (isset($primary_key_array)) {
     foreach ($primary_key_array AS $primary_key) {

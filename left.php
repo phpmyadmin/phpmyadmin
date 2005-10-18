@@ -178,9 +178,9 @@ if ( $num_dbs === 0 ) {
 // within left.php. With no JS (<noscript>) the whole frameset will
 // be rebuilt with the new target frame.
 
-$img_plus = '<img id="el%dImg" src="' . $pmaThemeImage . 'b_plus.png"' 
+$img_plus = '<img class="icon" id="el%dImg" src="' . $pmaThemeImage . 'b_plus.png"' 
     .' width="9" height="9" alt="+" />';
-$img_minus = '<img id="el%dImg" src="' . $pmaThemeImage . 'b_minus.png"' 
+$img_minus = '<img class="icon" id="el%dImg" src="' . $pmaThemeImage . 'b_minus.png"' 
     .' width="9" height="9" alt="-" />';
 
 $href_left = '<a onclick="if ( toggle(\'%d\') ) return false;"'
@@ -450,17 +450,19 @@ function PMA_displayTableList( $tables, $visible = false,
             echo '<a title="' . $GLOBALS['strBrowse'] . ': ' 
                 . htmlspecialchars( $table['Comment'] )
                 .' (' . $table['Rows'] . ' ' . $GLOBALS['strRows'] . ')"'
-                .' id="' . htmlspecialchars( $table_db . '.' . $table['Name'] ) . '"'
+                .' id="browse_' . htmlspecialchars( $table_db . '.' . $table['Name'] ) . '"'
                 .' href="sql.php?' . $GLOBALS['common_url_query'] 
                 .'&amp;table=' . urlencode( $table['Name'] )
                 .'&amp;goto=' . $GLOBALS['cfg']['DefaultTabTable']
                 .'&amp;sql_query=' . urlencode('SELECT * FROM `' 
                 . $table['Name'] . '`') . '" '
                 .' >'
-                .'<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sbrowse.png"'
-                .' width="10" height="10" alt="*" /></a>' . "\n"
+                .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_sbrowse.png"'
+                .' id="icon_' . htmlspecialchars( $table_db . '.' . $table['Name'] ) . '"'
+                .' width="10" height="10" alt="' . $GLOBALS['strBrowse'] . '" /></a>' . "\n"
                 .'<a href="' . $href . '" title="' . $table['Comment']
-                .' (' . $table['Rows'] . ' ' . $GLOBALS['strRows'] . ')">'
+                .' (' . $table['Rows'] . ' ' . $GLOBALS['strRows'] . ')"'
+                .' id="' . htmlspecialchars( $table_db . '.' . $table['Name'] ) . '">'
                 . htmlspecialchars( $table['disp_name'] ) . '</a>';
             echo '</li>' . "\n";
         }

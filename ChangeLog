@@ -7,6 +7,8 @@ $Source$
 
 2005-10-18 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * querywindow.php: wrong handling of linebreaks in query: bug #1243888
+    * left.php, sql.php, tbl_change.php, libraries/common.lib.php,
+      libraries/querywindow.js: update row count in left frame bug #1243908
     
 2005-10-17 Michal Čihař  <michal@cihar.com>
     * lang/czech: Translation fixes.

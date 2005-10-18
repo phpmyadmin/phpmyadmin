@@ -1837,7 +1837,7 @@ if ($is_minimum_common == FALSE) {
             echo "\n";
             $reload_url = './left.php?' . PMA_generate_common_url((isset($GLOBALS['db']) ? $GLOBALS['db'] : ''), '', '&');
             ?>
-<script type="text/javascript" language="javascript1.2">
+<script type="text/javascript">
 //<![CDATA[
 if (typeof(window.parent) != 'undefined'
     && typeof(window.parent.frames[0]) != 'undefined') {
@@ -1876,19 +1876,12 @@ if (typeof(window.parent) != 'undefined'
                             : $tbl_status['Comment'] . ' ';
                 $tooltip .= '(' . $tbl_status['Rows'] . ' ' . $GLOBALS['strRows'] . ')';
                 PMA_DBI_free_result($result);
-                $uni_tbl = PMA_jsFormat( $GLOBALS['db'] . '.' . $GLOBALS['table'] );
+                $uni_tbl = PMA_jsFormat( $GLOBALS['db'] . '.' . $GLOBALS['table'], false );
                 echo "\n";
                 ?>
-<script type="text/javascript" language="javascript1.2">
+<script type="text/javascript">
 //<![CDATA[
-if (typeof(document.getElementById) != 'undefined'
-    && typeof(window.parent.frames[0]) != 'undefined'
-    && typeof(window.parent.frames[0].document) != 'undefined' && typeof(window.parent.frames[0].document) != 'unknown'
-    && (window.parent.frames[0].document.getElementById('<?php echo $uni_tbl; ?>'))
-    && typeof(window.parent.frames[0].document.getElementById('<?php echo $uni_tbl; ?>')) != 'undefined'
-    && typeof(window.parent.frames[0].document.getElementById('<?php echo $uni_tbl; ?>').title) == 'string') {
-    window.parent.frames[0].document.getElementById('<?php echo $uni_tbl; ?>').title = '<?php echo PMA_jsFormat($tooltip, FALSE); ?>';
-}
+window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFormat($tooltip, false); ?>' );
 //]]>
 </script>
                 <?php

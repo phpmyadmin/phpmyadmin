@@ -272,8 +272,7 @@ else {
 
     if ((!isset($reload) || $reload == 0)
         && (preg_match('@^CREATE TABLE[[:space:]]+(.*)@i', $sql_query)
-         || preg_match('@^ALTER TABLE[[:space:]]+(.*)RENAME@i', $sql_query)
-         || preg_match('@^TRUNCATE@i', $sql_query))) {
+         || preg_match('@^ALTER TABLE[[:space:]]+(.*)RENAME@i', $sql_query))) {
         $reload           = 1;
     }
     // Gets the number of rows per page

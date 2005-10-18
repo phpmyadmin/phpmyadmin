@@ -2,6 +2,7 @@ var querywindow = '';
 
 // sets current selected table (called from footer.inc.php)
 function setTable( new_db, new_table ) {
+    //alert('setTable');
     if ( new_db != db || new_table != table ) {
         // table or db has changed
         
@@ -90,6 +91,7 @@ function refreshQuerywindow( url ) {
 }
 
 function goTo( targeturl, target ) {
+    //alert('goto');
     if ( target == 'main' ) {
         target = window.frames[1];
     } else if ( target == 'query' ) {
@@ -118,7 +120,21 @@ function goTo( targeturl, target ) {
 
 // opens selected db in main frame
 function openDb( db ) {
+    //alert('opendb');
     goTo( opendb_url + '?' + common_query + '&db=' + db,
         window.parent.frames[1] );
     return true;
+}
+
+function updateTableTitle( table_link_id, new_title ) {
+    //alert('updateTableTitle');
+    if ( window.parent.frames[0].document.getElementById(table_link_id) ) {
+        var left = window.parent.frames[0].document;
+        left.getElementById(table_link_id).title = new_title;
+        new_title = left.getElementById('icon_' + table_link_id).alt + ': ' + new_title;
+        left.getElementById('browse_' + table_link_id).title = new_title;
+        return true;
+    }
+    
+    return false;
 }
