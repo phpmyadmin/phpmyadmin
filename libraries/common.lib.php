@@ -610,12 +610,7 @@ if ($is_minimum_common == FALSE) {
         }
         // ---
         echo "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
-        echo '    <table border="0" cellpadding="2" cellspacing="1">'
-           . '        <tr>' . "\n"
-           . '            <th class="tblHeadError"><div class="errorhead">' . $GLOBALS['strError'] . '</div></th>' . "\n"
-           . '        </tr>' . "\n"
-           . '        <tr>' . "\n"
-           . '            <td>';
+        echo '    <h1 class="errorhead">' . $GLOBALS['strError'] . '</h1>' . "\n";
         // if the config password is wrong, or the MySQL server does not
         // respond, do not show the query that would reveal the
         // username/password
@@ -624,12 +619,14 @@ if ($is_minimum_common == FALSE) {
             // Robbat2 - 12 January 2003, 9:46PM
             // Revised, Robbat2 - 13 January 2003, 2:59PM
             if (function_exists('PMA_SQP_isError') && PMA_SQP_isError()) {
-                echo PMA_SQP_getErrorString();
+                echo '<div class="error">' . "\n";
+                echo PMA_SQP_getErrorString() . "\n";
+                echo '</div>' . "\n";
             }
             // ---
             // modified to show me the help on sql errors (Michael Keck)
-            echo '<div class="tblWarn"><p>' . "\n";
-            echo '    <b>' . $GLOBALS['strSQLQuery'] . ':</b>' . "\n";
+            echo '<div class="error">' . "\n";
+            echo '    <p><strong>' . $GLOBALS['strSQLQuery'] . ':</strong>' . "\n";
             if (strstr(strtolower($formatted_sql),'select')) { // please show me help to the error on select
                 echo PMA_showMySQLDocu('Reference', 'SELECT');
             }
@@ -649,10 +646,10 @@ if ($is_minimum_common == FALSE) {
                        . ']' . "\n";
                 }
             } // end if
-            echo '</p>' . "\n"
-                    . '<p>' . "\n"
-                    . '    ' . $formatted_sql . "\n"
-                    . '</p></div>' . "\n";
+            echo '    </p>' . "\n"
+                .'    <p>' . "\n"
+                .'        ' . $formatted_sql . "\n"
+                .'    </p></div>' . "\n";
         } // end if
 
         $tmp_mysql_error = ''; // for saving the original $error_message
@@ -662,8 +659,8 @@ if ($is_minimum_common == FALSE) {
             $error_message = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $error_message);
         }
         // modified to show me the help on error-returns (Michael Keck)
-        echo '<div class="tblWarn"><p>' . "\n"
-                . '    <b>' . $GLOBALS['strMySQLSaid'] . '</b>'
+        echo '<div class="error"><p>' . "\n"
+                . '    <strong>' . $GLOBALS['strMySQLSaid'] . '</strong>'
                 . PMA_showMySQLDocu('Error-returns', 'Error-returns')
                 . "\n"
                 . '</p>' . "\n";
@@ -688,47 +685,43 @@ if ($is_minimum_common == FALSE) {
         // 2005-01-17 modified by mkkeck bugfix
         if (substr($error_message, 1, 4) == '1062') {
             // get the duplicate entry
-            $mysql_error_values = array();
-            $mysql_error_words  = explode(' ',$tmp_mysql_error);
-            foreach ($mysql_error_words as $mysql_error_word) {
-                if (strstr($mysql_error_word, "'")) {
-                   $mysql_error_values = explode('-', preg_replace("/'/", "", $mysql_error_word));
-                   break; // exit 'foreach'
-                }
-            }
-            $duplicate_sql_query = '';
-            if (isset($mysql_error_values[0])) {
-                $tmp_fields = PMA_DBI_get_fields($db, $table, NULL);
-                if ($tmp_fields) {
-                    foreach ($tmp_fields as $tmp_field) {
-                        $duplicate_sql_query .= (($duplicate_sql_query!='') ? ' OR ' : '') . PMA_backquote($tmp_field['Field']) . " LIKE '" . $mysql_error_values[0] . "'";
-                    }
-                }
-            }
-            if ($duplicate_sql_query!='') {
-                $duplicate_sql_query = "SELECT * FROM " . PMA_backquote($table) . " WHERE (" . $duplicate_sql_query . ")";
-            } else {
-                $duplicate_sql_query = "SELECT * FROM " . PMA_backquote($table) . "";
-            }
-            echo '        <form method="post" action="import.php" style="padding: 0px; margin: 0px">' ."\n"
-                    . '            <input type="hidden" name="sql_query" value="' . $duplicate_sql_query . '" />' . "\n"
-                    . '            ' . PMA_generate_common_hidden_inputs($db, $table) . "\n"
-                    . '            <input type="submit" name="submit" value="' . $GLOBALS['strBrowse'] . '" />' . "\n"
-                    . '        </form>' . "\n";
+            
+            // get table name
+            preg_match( '°ALTER\sTABLE\s\`([^\`]+)\`°iu', $the_query, $error_table = array() );
+            $error_table = $error_table[1];
+            
+            // get fields
+            preg_match( '°\(([^\)]+)\)°i', $the_query, $error_fields = array() );
+            $error_fields = explode( ',', $error_fields[1] );
+            
+            // duplicate value
+            preg_match( '°\'([^\']+)\'°i', $tmp_mysql_error, $duplicate_value = array() );
+            $duplicate_value = $duplicate_value[1];
+            
+            $sql = '
+                 SELECT *
+                   FROM ' . PMA_backquote( $error_table ) . '
+                  WHERE CONCAT_WS( "-", ' . implode( ', ', $error_fields ) . ' )
+                        = "' . PMA_sqlAddslashes( $duplicate_value ) . '"
+               ORDER BY ' . implode( ', ', $error_fields );
+            unset( $error_table, $error_fields, $duplicate_value );
+               
+            echo '        <form method="post" action="import.php" style="padding: 0; margin: 0">' ."\n"
+                .'            <input type="hidden" name="sql_query" value="' . htmlentities( $sql ) . '" />' . "\n"
+                .'            ' . PMA_generate_common_hidden_inputs($db, $table) . "\n"
+                .'            <input type="submit" name="submit" value="' . $GLOBALS['strBrowse'] . '" />' . "\n"
+                .'        </form>' . "\n";
+            unset( $sql );
         } // end of show duplicate entry
 
         echo '</div>';
+        echo '<fieldset class="tblFooters">';
 
         if (!empty($back_url) && $exit) {
-            $goto_back_url='<a href="' . (strstr($back_url, '?') ? $back_url . '&amp;no_history=true' : $back_url . '?no_history=true') . '">&nbsp;';
-            echo '            </td> ' . "\n"
-               . '        </tr>' . "\n"
-               . '        <tr><td class="tblHeaders" align="center">';
-            echo '[' . $goto_back_url . $GLOBALS['strBack'] . '&nbsp;</a>]';
+            $goto_back_url='<a href="' . (strstr($back_url, '?') ? $back_url . '&amp;no_history=true' : $back_url . '?no_history=true') . '">';
+            echo '[ ' . $goto_back_url . $GLOBALS['strBack'] . '</a> ]';
         }
-        echo '            </td>' . "\n"
-           . '        </tr>' . "\n"
-           . '    </table>' . "\n\n";
+        echo '    </fieldset>' . "\n\n";
         if ($exit) {
             require_once('./footer.inc.php');
         }

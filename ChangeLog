@@ -9,6 +9,8 @@ $Source$
     * querywindow.php: wrong handling of linebreaks in query: bug #1243888
     * left.php, sql.php, tbl_change.php, libraries/common.lib.php,
       libraries/querywindow.js: update row count in left frame bug #1243908
+    * libraries/common.lib.php:
+      bug #1216521: display duplicate rows for failed unique key creation
     
 2005-10-17 Michal Čihař  <michal@cihar.com>
     * lang/czech: Translation fixes.

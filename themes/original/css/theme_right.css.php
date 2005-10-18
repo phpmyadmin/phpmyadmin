@@ -206,7 +206,8 @@ span.tab, span.tabcaution {
 
 /* Warning showing div with right border and optional icon */
 
-div.errorhead {
+.errorhead {
+    background-color: #FF0000;
     font-weight: bold;
     color: #ffffff;
     text-align: left;
@@ -214,12 +215,15 @@ div.errorhead {
     background-image: url(../themes/original/img/s_error.png);
     background-repeat: no-repeat;
     background-position: 5px 50%;
-    padding: 0px 0px 0px 25px;
-    <?php } ?>
-    margin: 0px;
+    padding: 0 0 0 25px;
+    <?php } else {?>
+    padding: 0.2em;
+    <?php }?>
+    margin: 0.5em 0 0 0;
 }
 
 /* tables */
+.error,
 .tblError {
     border: 1px solid #FF0000;
     background-color: #FFFFCC;
