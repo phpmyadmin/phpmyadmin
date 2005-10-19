@@ -60,7 +60,7 @@ function PMA_listBookmarks($db, $cfgBookmark)
 
     // There are some bookmarks -> store them
     // use the unique id as the key
-    if ($result > 0 && PMA_DBI_num_rows($result) > 0) {
+    if ($result && PMA_DBI_num_rows($result) > 0) {
         while ($row = PMA_DBI_fetch_row($result)) {
             $bookmark_list[$row[1]] = $row[0];
         } // end while

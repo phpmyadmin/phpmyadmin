@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/bookmark.lib.php: PHP 5.1.0-dev compatibility
+
 2005-10-18 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * footer.inc.php, index.php, server_databases.php, libraries/querywindow.js:
       fix problem not remembering selected server
