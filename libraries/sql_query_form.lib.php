@@ -215,7 +215,12 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
         $db     = $GLOBALS['db'];
         // if you want navigation:
         $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] 
-            . '?' . PMA_generate_common_url( $db ) . '">'
+            . '?' . PMA_generate_common_url( $db ) . '"';
+        if ( $is_querywindow ) {
+            $strDBLink .= ' target="_self"'
+                . ' onclick="this.target=window.opener.frames[1].name"';
+        }
+        $strDBLink .= '>'
             . htmlspecialchars( $db ) . '</a>';
         // else use
         // $strDBLink = htmlspecialchars( $db );
@@ -235,7 +240,12 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
             . '.' . PMA_backquote( $GLOBALS['table'] ));
         
         $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] 
-            . '?' . PMA_generate_common_url( $db ) . '">'
+            . '?' . PMA_generate_common_url( $db ) . '"';
+        if ( $is_querywindow ) {
+            $strDBLink .= ' target="_self"'
+                . ' onclick="this.target=window.opener.frames[1].name"';
+        }
+        $strDBLink .= '>'
             . htmlspecialchars( $db ) . '</a>';
         // else use
         // $strDBLink = htmlspecialchars( $db );

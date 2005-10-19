@@ -15,6 +15,7 @@ $Source$
       moved not always needed code out of event handler, fixed display with larger font
     * libraries/function.js, css/phpmyadmin.css.php:
       added mark and hover effect to every table of class data
+    * libraries/sql_query_form.lib.php: open db link from querywindow in main frame
     
 2005-10-18 Michal Čihař  <michal@cihar.com>
     * libraries/relation.lib.php: Do not set database if not needed.
