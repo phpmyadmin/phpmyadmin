@@ -6,7 +6,6 @@
   * 2005-01-20 added by Michael Keck (mkkeck)
   */
 
-
 var ttXpos = 0, ttYpos = 0;
 var ttXadd = 10, ttYadd = -10;
 var ttDisplay = 0, ttHoldIt = 0;
@@ -29,10 +28,11 @@ if ( (ttDOM) || (ttIE4) || (ttNS4) ) {
         var myTooltipContainer = document.getElementById('TooltipContainer');
     }
     // mouse-event
-    document.onmousemove = mouseMove;
-    if (ttNS4)
+    if ( ttNS4 ) {
         document.captureEvents(Event.MOUSEMOVE);
-
+    } else {
+        document.onmousemove = mouseMove;
+    }
 }
 
 /**
@@ -79,6 +79,30 @@ function swapTooltip(stat) {
   * show / hide the Tooltip
   */
 function showTooltip(stat) {
+    var plusX=0, plusY=0, docX=0; docY=0;
+    var divHeight = myTooltipContainer.clientHeight;
+    var divWidth  = myTooltipContainer.clientWidth;
+    if (navigator.appName.indexOf("Explorer")!=-1) {
+        if (document.documentElement && document.documentElement.scrollTop) {
+            plusX = document.documentElement.scrollLeft;
+            plusY = document.documentElement.scrollTop;
+            docX = document.documentElement.offsetWidth + plusX;
+            docY = document.documentElement.offsetHeight + plusY;
+        } else {
+            plusX = document.body.scrollLeft;
+            plusY = document.body.scrollTop;
+            docX = document.body.offsetWidth + plusX;
+            docY = document.body.offsetHeight + plusY;
+        }
+    } else {
+        docX = document.body.clientWidth;
+        docY = document.body.clientHeight;
+    }
+    if ((ttXpos + divWidth) > docX)
+        ttXpos = ttXpos - (divWidth + (ttXadd * 2));
+    if ((ttYpos + divHeight) > docY)
+        ttYpos = ttYpos - (divHeight + (ttYadd * 2));
+    
     if (stat==false) {
         if (ttNS4)
             myTooltipContainer.visibility = "hide";
@@ -125,36 +149,14 @@ function pmaTooltip(theText) {
 }
 
 /**
-  * register mouse moves
-  */
+ * register mouse moves
+ */
 function mouseMove(e) {
-    var x=0, y=0, plusX=0, plusY=0, docX=0; docY=0;
-    var divHeight = myTooltipContainer.clientHeight;
-    var divWidth  = myTooltipContainer.clientWidth;
-    if (navigator.appName.indexOf("Explorer")!=-1) {
-        if (document.documentElement && document.documentElement.scrollTop) {
-            plusX = document.documentElement.scrollLeft;
-            plusY = document.documentElement.scrollTop;
-            docX = document.documentElement.offsetWidth + plusX;
-            docY = document.documentElement.offsetHeight + plusY;
-        } else {
-            plusX = document.body.scrollLeft;
-            plusY = document.body.scrollTop;
-            docX = document.body.offsetWidth + plusX;
-            docY = document.body.offsetHeight + plusY;
-        }
-        x = event.x + plusX;
-        y = event.y + plusY;
+    if ( typeof( event ) != 'undefined' ) {
+        ttXpos = event.x;
+        ttYpos = event.y;
     } else {
-        x = e.pageX;
-        y = e.pageY;
-        docX = document.body.clientWidth;
-        docY = document.body.clientHeight;
+        ttXpos = e.pageX;
+        ttYpos = e.pageY;
     }
-    ttXpos = x;
-    ttYpos = y;
-    if ((ttXpos + divWidth) > docX)
-        ttXpos = ttXpos - (divWidth + (ttXadd * 2));
-    if ((ttYpos + divHeight) > docY)
-        ttYpos = ttYpos - (divHeight + (ttYadd * 2));
 }
