@@ -355,15 +355,30 @@ span.tab, span.tabcaution {
 /* end topmenu */
 
 /* odd table rows 1,3,5,7,... */
-table tbody tr.odd td,
-table tbody tr.odd th {
+table tr.odd {
     background-color: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
 }
 
 /* even table rows 2,4,6,8,... */
-table tbody tr.even td,
-table tbody tr.even th {
+table tr.even {
     background-color: <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
+}
+
+/* even table rows 2,4,6,8,... */
+table tr.marked {
+    background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+
+/* even table rows 2,4,6,8,... */
+table.data tbody tr:hover,
+table tr.hover {
+    background-color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+}
+
+table tr.even th,
+table tr.odd th {
+    background-color: inherit;
+    color: inherit;
 }
 
 
@@ -389,6 +404,7 @@ div#serverstatus table caption,
 div#serverstatus table th,
 div#serverstatus table td {
     padding: 0.1em 0.5em 0.1em 0.5em;
+    margin: 0;
     margin: 0.1em;
     vertical-align: top;
 }

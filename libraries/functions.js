@@ -463,6 +463,50 @@ function checkTransmitDump(theForm, theAction)
  */
 var marked_row = new Array;
 
+/**
+ * enables highlight and marking of rows in data tables
+ */
+function tabdataInit() {
+	var tables = document.getElementsByTagName('table');
+	for (var t=0; t<tables.length; t++) {
+		if ( 'data' != tables[t].className ) {
+		    continue;
+		}
+		
+	    var body = tables[t].getElementsByTagName('tbody')
+	    var rows = body[0].getElementsByTagName('tr');
+	    
+		for (var i = 0; i < rows.length; i++) {
+            rows[i].style.cursor = 'pointer';
+		    if ( navigator.appName == 'Microsoft Internet Explorer' ) {
+    			rows[i].onmouseover = function() {
+				    this.className += ' hover';
+    			}
+    			rows[i].onmouseout = function() {
+				    this.className = this.className.replace(' hover', '');
+    			}
+    	    }
+			rows[i].onmousedown = function() {
+			    if ( ! this.id ) {
+			        return;
+                }
+                
+                if ( typeof(marked_row[this.id]) == 'undefined' || !marked_row[this.id] ) {
+                    marked_row[this.id] = true;
+                } else {
+                    marked_row[this.id] = false;
+                }
+                
+                if ( marked_row[this.id] ) {
+				    this.className += ' marked';
+                } else {
+				    this.className = this.className.replace(' marked', '');
+                }
+			}
+		}
+	}
+}
+window.onload=tabdataInit;
 
 /**
  * Sets/unsets the pointer and marker in browse mode
@@ -537,7 +581,7 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
             currentColor += hexChars.charAt(v/16) + hexChars.charAt(v%16);
         }
     }
-
+    
     // 4. Defines the new color
     // 4.1 Current color is the default one
     if (currentColor == ''
