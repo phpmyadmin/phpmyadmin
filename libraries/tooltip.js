@@ -18,15 +18,9 @@ if (ttDOM) { // if DOM-compatible, set the others to false
     ttIE4 = 0;
 }
 
+var myTooltipContainer = null;
+
 if ( (ttDOM) || (ttIE4) || (ttNS4) ) {
-    // reference to TooltipContainer
-    if (ttNS4) {
-        var myTooltipContainer = document.TooltipContainer;
-    } else if (ttIE4) {
-        var myTooltipContainer = document.all('TooltipContainer');
-    } else if (ttDOM) {
-        var myTooltipContainer = document.getElementById('TooltipContainer');
-    }
     // mouse-event
     if ( ttNS4 ) {
         document.captureEvents(Event.MOUSEMOVE);
@@ -134,6 +128,19 @@ function moveTooltip(posX, posY) {
  * @param    string    theText    tooltip content
  */
 function pmaTooltip(theText) {
+    // reference to TooltipContainer
+    if ( null == myTooltipContainer ) {
+        if (ttNS4) {
+            myTooltipContainer = document.TooltipContainer;
+        } else if (ttIE4) {
+            myTooltipContainer = document.all('TooltipContainer');
+        } else if (ttDOM) {
+            myTooltipContainer = document.getElementById('TooltipContainer');
+        } else {
+            return false;
+        }
+    }
+    
     var plusX=0, plusY=0, docX=0; docY=0;
     var divHeight = myTooltipContainer.clientHeight;
     var divWidth  = myTooltipContainer.clientWidth;

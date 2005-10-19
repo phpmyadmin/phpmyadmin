@@ -16,6 +16,8 @@ $Source$
     * libraries/function.js, css/phpmyadmin.css.php:
       added mark and hover effect to every table of class data
     * libraries/sql_query_form.lib.php: open db link from querywindow in main frame
+    * footer.inc.php, header.inc.php, libraries/tooltip.js:
+      moved tooltip javascript include into header
     
 2005-10-18 Michal Čihař  <michal@cihar.com>
     * libraries/relation.lib.php: Do not set database if not needed.
