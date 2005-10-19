@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-18 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * footer.inc.php, index.php, server_databases.php, libraries/querywindow.js:
+      fix problem not remembering selected server
+    
 2005-10-18 Michal Čihař  <michal@cihar.com>
     * libraries/relation.lib.php: Do not set database if not needed.
     * libraries/common.lib.php: Use common infrastructure for getting tables.

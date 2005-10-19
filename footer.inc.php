@@ -14,8 +14,7 @@ require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
  */
 
 // If query window is wanted and open, update with latest selected db/table.
-if ( $cfg['QueryFrame'] && $cfg['QueryFrameJS'] ) {
-    
+if ( $cfg['QueryFrame'] && $cfg['QueryFrameJS'] ) {  
     ?>
 <script type="text/javascript">
 //<![CDATA[
@@ -24,7 +23,7 @@ if ( $cfg['QueryFrame'] && $cfg['QueryFrameJS'] ) {
         $table = isset( $table ) ? $table : '';
         ?>
         // sets selection in left frame quick db selectbox to current db
-        window.parent.setTable( '<?php echo $db; ?>', '<?php echo $table; ?>' );
+        window.parent.setAll( '<?php echo $lang; ?>', '<?php echo $collation_connection; ?>', '<?php echo $server; ?>', '<?php echo $db; ?>', '<?php echo $table; ?>' );
         <?php
     }
     ?>

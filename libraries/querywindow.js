@@ -1,21 +1,80 @@
 var querywindow = '';
 
-// sets current selected table (called from footer.inc.php)
-function setTable( new_db, new_table ) {
-    //alert('setTable');
-    if ( new_db != db || new_table != table ) {
-        // table or db has changed
+/**
+ * sets current selected server, table and db (called from footer.inc.php)
+ */
+function setDb( new_db ) {
+    //alert('setDb(' + new_db + ')');
+    if ( new_db != db ) {
+        // db has changed
+        //alert( new_db + '(' + new_db.length + ') : ' + db );
         
-        //alert( new_table + '(' + new_table.length + ') : ' + table );
-        if ( window.frames[0].document.getElementById( new_db ) == null
-          && window.frames[0].document.getElementById( new_db + '.' + new_table ) == null ) {
-            // table or db is unknown, reload complete left frame
-            goTo('left.php?&db=' + new_db + '&table=' + new_table);
-        }
-        
-        // save new db and table
         db = new_db;
-        table = new_table;
+        
+        if ( window.frames[0].document.getElementById( db ) == null ) {
+            // db is unknown, reload complete left frame
+            refreshLeft();
+            
+        }
+        // TODO: add code to expand db in lightview mode
+        
+        // refresh querywindow
+        refreshQuerywindow();
+    }
+}
+
+function refreshMain( url ) {
+    if ( ! url ) {
+        if ( db ) {
+            url = opendb_url;
+        } else {
+            url = 'main.php';
+        }
+    }
+    goTo( url + '?&server=' + server + 
+        '&db=' + db + 
+        '&table=' + table + 
+        '&lang=' + lang + 
+        '&collation_connection=' + collation_connection,
+        'main' );
+}
+
+function refreshLeft() {
+    goTo('left.php?&server=' + server + 
+        '&db=' + db + 
+        '&table=' + table + 
+        '&lang=' + lang + 
+        '&collation_connection=' + collation_connection
+        );
+}
+
+/**
+ * sets current selected server, table and db (called from footer.inc.php)
+ */
+function setAll( new_lang, new_collation_connection, new_server, new_db, new_table ) {
+    //alert('setAll( ' + new_lang + ', ' + new_collation_connection + ', ' + new_server + ', ' + new_db + ', ' + new_table + ' )');
+    if ( new_server != server || new_lang != lang
+      || new_collation_connection != collation_connection ) {
+        // something important has changed
+        server = new_server;
+        db     = new_db;
+        table  = new_table;
+        collation_connection  = new_collation_connection;
+        lang  = new_lang;
+        refreshLeft();
+    }
+    else if ( new_db != db || new_table != table ) {
+        // save new db and table
+        db     = new_db;
+        table  = new_table;
+        
+        if ( window.frames[0].document.getElementById( db ) == null
+          && window.frames[0].document.getElementById( db + '.' + table ) == null ) {
+            // table or db is unknown, reload complete left frame
+            refreshLeft();
+        }
+
+        // TODO: add code to expand db in lightview mode
         
         // refresh querywindow
         refreshQuerywindow();
@@ -90,6 +149,13 @@ function refreshQuerywindow( url ) {
     }
 }
 
+/**
+ * opens new url in target frame, with default beeing left frame
+ * valid is 'main' and 'querywindow' all others leads to 'left'
+ *
+ * @param    string    targeturl    new url to load
+ * @param    string    target       frame where to load the new url
+ */
 function goTo( targeturl, target ) {
     //alert('goto');
     if ( target == 'main' ) {
@@ -119,10 +185,10 @@ function goTo( targeturl, target ) {
 }
 
 // opens selected db in main frame
-function openDb( db ) {
-    //alert('opendb');
-    goTo( opendb_url + '?' + common_query + '&db=' + db,
-        window.parent.frames[1] );
+function openDb( new_db ) {
+    //alert('opendb(' +  new_db + ')');
+    setDb( new_db );
+    refreshMain( opendb_url );
     return true;
 }
 

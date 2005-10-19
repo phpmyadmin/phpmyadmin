@@ -252,7 +252,7 @@ if (count($statistics) > 0) {
         }
         if ($is_superuser) {
             echo '            <td class="tool">' . "\n"
-               . '                <a onclick="window.parent.setTable(\'' . urlencode($current['db_name']) . '\');" href="./server_privileges.php?' . $url_query . '&amp;checkprivs=' . urlencode($current['db_name']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['db_name'])) . '">'. "\n"
+               . '                <a onclick="window.parent.setDb(\'' . urlencode($current['db_name']) . '\');" href="./server_privileges.php?' . $url_query . '&amp;checkprivs=' . urlencode($current['db_name']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['db_name'])) . '">'. "\n"
                . '                    ' .($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 's_rights.png" width="16" height="16" alt=" ' .$strCheckPrivs . '" /> ' : $strCheckPrivs ). "\n"
                . '                </a>' . "\n"
                . '            </td>' . "\n";
