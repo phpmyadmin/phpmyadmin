@@ -2,9 +2,9 @@
 
 
 /**
-  * Displays the Tooltips (hints), if we have some
-  * 2005-01-20 added by Michael Keck (mkkeck)
-  */
+ * Displays the Tooltips (hints), if we have some
+ * 2005-01-20 added by Michael Keck (mkkeck)
+ */
 
 var ttXpos = 0, ttYpos = 0;
 var ttXadd = 10, ttYadd = -10;
@@ -36,8 +36,10 @@ if ( (ttDOM) || (ttIE4) || (ttNS4) ) {
 }
 
 /**
-  * init the tooltip and write the text into it
-  */
+ * init the tooltip and write the text into it
+ *
+ * @param string theText tooltip content
+ */
 function textTooltip(theText) {
     if	(ttDOM || ttIE4) {                   // document.getEelementById || document.all
         myTooltipContainer.innerHTML = "";  // we should empty it first
@@ -50,9 +52,15 @@ function textTooltip(theText) {
 }    
 
 /**
-  * swap the Tooltip // show and hide
-  */
+ * @var integer 
+ */
 var ttTimerID = 0;
+
+/**
+ * swap the Tooltip // show and hide
+ *
+ * @param boolean stat view status
+ */
 function swapTooltip(stat) {
     if (ttHoldIt!=1) {
         if (stat!='default') {
@@ -76,9 +84,56 @@ function swapTooltip(stat) {
 }
 
 /**
-  * show / hide the Tooltip
-  */
+ * show / hide the Tooltip
+ *
+ * @param boolean stat view status
+ */
 function showTooltip(stat) {
+    if (stat==false) {
+        if (ttNS4)
+            myTooltipContainer.visibility = "hide";
+        else
+            myTooltipContainer.style.visibility = "hidden";
+        ttDisplay = 0;
+    } else {
+        if (ttNS4)
+            myTooltipContainer.visibility = "show";
+        else
+            myTooltipContainer.style.visibility = "visible";
+        ttDisplay = 1;
+    }
+}
+/**
+ * hold it, if we create or move the mouse over the tooltip
+ */
+function holdTooltip() {
+    ttHoldIt = 1;
+    swapTooltip('true');
+    ttHoldIt = 0;
+}
+
+/**
+ * move the tooltip to mouse position
+ *
+ * @param integer posX    horiz. position
+ * @param integer posY    vert. position
+ */
+function moveTooltip(posX, posY) {
+    if (ttDOM || ttIE4) {
+        myTooltipContainer.style.left	=	posX + "px";
+        myTooltipContainer.style.top  =	posY + "px";
+    } else if (ttNS4) {
+        myTooltipContainer.left = posX;
+        myTooltipContainer.top  = posY;
+    }
+}
+
+/**
+ * build the tooltip
+ *
+ * @param    string    theText    tooltip content
+ */
+function pmaTooltip(theText) {
     var plusX=0, plusY=0, docX=0; docY=0;
     var divHeight = myTooltipContainer.clientHeight;
     var divWidth  = myTooltipContainer.clientWidth;
@@ -98,51 +153,15 @@ function showTooltip(stat) {
         docX = document.body.clientWidth;
         docY = document.body.clientHeight;
     }
+    
+    ttXpos = ttXpos + plusX;
+    ttYpos = ttYpos + plusY;
+    
     if ((ttXpos + divWidth) > docX)
         ttXpos = ttXpos - (divWidth + (ttXadd * 2));
     if ((ttYpos + divHeight) > docY)
         ttYpos = ttYpos - (divHeight + (ttYadd * 2));
     
-    if (stat==false) {
-        if (ttNS4)
-            myTooltipContainer.visibility = "hide";
-        else
-            myTooltipContainer.style.visibility = "hidden";
-        ttDisplay = 0;
-    } else {
-        if (ttNS4)
-            myTooltipContainer.visibility = "show";
-        else
-            myTooltipContainer.style.visibility = "visible";
-        ttDisplay = 1;
-    }
-}
-/**
-  * hold it, if we create or move the mouse over the tooltip
-  */
-function holdTooltip() {
-    ttHoldIt = 1;
-    swapTooltip('true');
-    ttHoldIt = 0;
-}
-
-/**
-  * move the tooltip to mouse position
-  */
-function moveTooltip(posX, posY) {
-    if (ttDOM || ttIE4) {
-        myTooltipContainer.style.left	=	posX + "px";
-        myTooltipContainer.style.top  =	posY + "px";
-    } else if (ttNS4) {
-        myTooltipContainer.left = posX;
-        myTooltipContainer.top  = posY;
-    }
-}
-
-/**
-  * build the tooltip
-  */
-function pmaTooltip(theText) {
     textTooltip(theText);
     moveTooltip((ttXpos + ttXadd), (ttYpos + ttYadd));
     holdTooltip();
@@ -150,6 +169,8 @@ function pmaTooltip(theText) {
 
 /**
  * register mouse moves
+ *
+ * @param    event    e
  */
 function mouseMove(e) {
     if ( typeof( event ) != 'undefined' ) {

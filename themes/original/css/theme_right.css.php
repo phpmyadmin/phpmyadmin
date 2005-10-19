@@ -315,14 +315,14 @@ tr.disabled td, td.disabled {
 #TooltipContainer {
     position:   absolute;
     z-index:    99;
-    width:      250px;
-    height:     50px;
-    overflow:   auto;
+    width:      20em;
+    height:     auto;
+    overflow:   visible;
     visibility: hidden;
     background-color: #ffffcc;
     color:            #006600;
-    border:           1px solid #000000;
-    padding:          5px;
+    border:           0.1em solid #000000;
+    padding:          0.5em;
     font-family:      <?php echo $right_font_family; ?>;
     font-size:        <?php echo $font_size; ?>;
 }
