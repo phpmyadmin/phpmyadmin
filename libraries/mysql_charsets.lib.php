@@ -96,6 +96,9 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             case 'english':
                 $descr = $GLOBALS['strEnglish'];
                 break;
+            case 'esperanto':
+                $descr = $GLOBALS['strEsperanto'];
+                break;
             case 'estonian':
                 $descr = $GLOBALS['strEstonian'];
                 break;

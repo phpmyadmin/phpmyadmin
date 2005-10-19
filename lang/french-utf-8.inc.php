@@ -957,4 +957,5 @@ $strShowStatusQcache_lowmem_prunesDescr = 'The number of queries that have been 
 
 $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
 
+$strEsperanto = 'Esperanto';  //to translate
 ?>

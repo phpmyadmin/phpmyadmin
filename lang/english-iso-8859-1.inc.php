@@ -261,6 +261,7 @@ $strEnglishPrivileges = ' Note: MySQL privilege names are expressed in English '
 $strError = 'Error';
 $strErrorInZipFile = 'Error in ZIP archive:';
 $strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';
+$strEsperanto = 'Esperanto';
 $strEstonian = 'Estonian';
 $strExcelEdition = 'Excel edition';
 $strExcelOptions = 'Excel options';

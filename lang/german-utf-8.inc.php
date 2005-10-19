@@ -965,4 +965,5 @@ $strTransactionCoordinator = 'Transaction coordinator';  //to translate
 $strTransformation_application_octetstream__hex = 'Displays hexadecimal representation of data.';  //to translate
 $strUnsupportedCompressionDetected = 'You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.';  //to translate
 $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
+$strEsperanto = 'Esperanto';  //to translate
 ?>
