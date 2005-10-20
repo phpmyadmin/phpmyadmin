@@ -282,7 +282,18 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             // information_schema database: We know it!
             return 'utf8_general_ci';
         }
-        if (PMA_MYSQL_INT_VERSION >= 40101) {
+        if (PMA_MYSQL_INT_VERSION >= 50006) {
+            // Since MySQL 5.0.6, we don't have to parse SHOW CREATE DATABASE anymore.
+            $res = PMA_DBI_query('SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = ' . $db . ' LIMIT 1;');
+            if ($res) {
+                list($db_collation) = PMA_DBI_fetch_row($res);
+                PMA_DBI_free_result($res);
+                return $db_collation;
+            } else {
+                // If we get here, the database does not exist or our MySQL server plays silly games on us...
+                return '';
+            }
+        } else if (PMA_MYSQL_INT_VERSION >= 40101) {
             // MySQL 4.1.0 does not support seperate charset settings
             // for databases.
             $res = PMA_DBI_query('SHOW CREATE DATABASE ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
