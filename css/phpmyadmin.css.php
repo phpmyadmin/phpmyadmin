@@ -33,8 +33,11 @@ caption {
 table .value {
     text-align: right;
     white-space: nowrap;
-    white-space: pre;
     font-family: "Courier New", Courier, monospace;
+}
+/* IE doesnt handles 'pre' right */
+table [class=value] {
+    white-space: pre;
 }
 
 table .unit,

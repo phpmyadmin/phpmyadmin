@@ -17,6 +17,7 @@ $Source$
     * libraries/left.js: dropped
     * libraries/function.js: tuned PMA_merkRowsInit():
       every table with class data now has mark and hover effect
+    * css/phpmyadmin.css.php: nowrap for IE and pre for the rest
 
 2005-10-19 Alexander M. Turek  <me@derrabus.de>
     * lang/*.inc.php, libraries/mysql_charsets.lib.php: Correct description
