@@ -15,6 +15,8 @@ $Source$
     * sql.php, footer.inc.php: refresh left frame on view creation
     * left.php: view icon for views
     * libraries/left.js: dropped
+    * libraries/function.js: tuned PMA_merkRowsInit():
+      every table with class data now has mark and hover effect
 
 2005-10-19 Alexander M. Turek  <me@derrabus.de>
     * lang/*.inc.php, libraries/mysql_charsets.lib.php: Correct description
