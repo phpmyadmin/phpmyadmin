@@ -19,6 +19,9 @@ $Source$
       every table with class data now has mark and hover effect
     * css/phpmyadmin.css.php: nowrap for IE and pre for the rest
     * css/phpmyadmin.css.php, server_status.php: css cleanup
+    * db_details_structure.php, db_details_db_info.php:
+      - XHTML compliance, styling outsourced, row marker outsourced
+      - do not too much if there is no table
 
 2005-10-19 Alexander M. Turek  <me@derrabus.de>
     * lang/*.inc.php, libraries/mysql_charsets.lib.php: Correct description

@@ -36,7 +36,7 @@ $tables = array();
 
 // When used in Nested table group mode, only show tables matching the given groupname
 if (!empty($tbl_group) && !$cfg['ShowTooltipAliasTB']) {
-    $tbl_group_sql = ' LIKE \'' . $tbl_group . '%\'';
+    $tbl_group_sql = ' LIKE "' . PMA_escape_mysql_wildcards( $tbl_group ) . '%"';
 } else {
     $tbl_group_sql = '';
 }
@@ -86,9 +86,9 @@ if ($cfg['SkipLockedTables'] == TRUE) {
                             fillTooltip($tooltip_truename, $tooltip_aliasname, $sts_tmp);
                         }
 
-                        $tables[]    = $sts_tmp;
+                        $tables[$sts_tmp['Name']]    = $sts_tmp;
                     } else { // table in use
-                        $tables[]    = array('Name' => $tmp[0]);
+                        $tables[$tmp[0]]    = array('Name' => $tmp[0]);
                     }
                 }
                 PMA_DBI_free_result($db_info_result);
@@ -120,13 +120,17 @@ if (!isset($sot_ready)) {
                 fillTooltip($tooltip_truename, $tooltip_aliasname, $sts_tmp);
             }
 
-            $tables[] = $sts_tmp;
+            $tables[$sts_tmp['Name']] = $sts_tmp;
         }
     }
     @PMA_DBI_free_result($db_info_result);
     unset($db_info_result);
 }
 $num_tables = (isset($tables) ? count($tables) : 0);
+
+if ( $GLOBALS['cfg']['NaturalOrder'] ) {
+    uksort( $tables, 'strnatcasecmp' );
+}
 
 /**
  * Displays top menu links
