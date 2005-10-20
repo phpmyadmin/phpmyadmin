@@ -6,9 +6,10 @@ $Id$
 $Source$
 
 2005-10-20 Alexander M. Turek  <me@derrabus.de>
-    * libraries/mysql_charsets.lib.php: On MySQL 5.0.6, we don't have to parse
-      SHOW CREATE DATABASE anymore, if we just want to get to know a
-      database's default collation.
+    * libraries/mysql_charsets.lib.php:
+      - On MySQL 5.0.6, we don't have to parse SHOW CREATE DATABASE anymore,
+        if we just want to get to know a database's default collation;
+     - Make use of this fancy new function PMA_DBI_fetch_value().
 
 2005-10-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * sql.php, footer.inc.php: refresh left frame on view creation
