@@ -21,14 +21,18 @@ if ( $cfg['QueryFrame'] && $cfg['QueryFrameJS'] ) {
     <?php
     if (!isset($no_history) && !empty($db) && (!isset($error_message) || $error_message == '')) {
         $table = isset( $table ) ? $table : '';
+        // updates current settings
         ?>
-        // sets selection in left frame quick db selectbox to current db
-        window.parent.setAll( '<?php echo $lang; ?>', '<?php echo $collation_connection; ?>', '<?php echo $server; ?>', '<?php echo $db; ?>', '<?php echo $table; ?>' );
+    window.parent.setAll( '<?php echo $lang; ?>', '<?php echo $collation_connection; ?>', '<?php echo $server; ?>', '<?php echo $db; ?>', '<?php echo $table; ?>' );
         <?php
     }
-    ?>
+    
+    if ( ! empty( $reload ) ) {
+        ?>
+    window.parent.refreshLeft();
+        <?php
+    }
 
-    <?php
     if ( ! isset( $no_history ) && empty( $error_message ) ) {
         if ( isset( $LockFromUpdate ) && $LockFromUpdate == '1' && isset( $sql_query ) ) {
             // When the button 'LockFromUpdate' was selected in the querywindow,
@@ -42,20 +46,18 @@ if ( $cfg['QueryFrame'] && $cfg['QueryFrameJS'] ) {
             }
         }
         ?>
-        window.parent.reload_querywindow(
-            "<?php echo isset( $db ) ? addslashes( $db ) : '' ?>",
-            "<?php echo isset( $table ) ? addslashes( $table ) : '' ?>",
-            "<?php echo isset( $sql_query ) ? urlencode( $sql_query ) : ''; ?>" );
+    window.parent.reload_querywindow(
+        "<?php echo isset( $db ) ? addslashes( $db ) : '' ?>",
+        "<?php echo isset( $table ) ? addslashes( $table ) : '' ?>",
+        "<?php echo isset( $sql_query ) ? urlencode( $sql_query ) : ''; ?>" );
         <?php
     }
-    ?>
 
-    <?php
     if ( ! empty( $focus_querywindow ) ) {
         ?>
-        if ( parent.querywindow && !parent.querywindow.closed && parent.querywindow.location) {
-            self.focus();
-        }
+    if ( parent.querywindow && !parent.querywindow.closed && parent.querywindow.location) {
+        self.focus();
+    }
         <?php
     }
     ?>

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-19 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * sql.php, footer.inc.php: refresh left frame on view creation
+
 2005-10-19 Alexander M. Turek  <me@derrabus.de>
     * lang/*.inc.php, libraries/mysql_charsets.lib.php: Correct description
       for collations utf8_esperanto_ci, ucs2_esperanto_ci.
