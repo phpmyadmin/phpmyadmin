@@ -363,7 +363,7 @@ foreach ( $sections as $section_name => $section ) {
 
 <h3><?php echo $strServerTrafficNotes; ?></h3>
 
-<table id="serverstatustraffic">
+<table id="serverstatustraffic" class="data">
 <thead>
 <tr>
     <th colspan="2"><?php echo $strTraffic; ?></th>
@@ -408,7 +408,7 @@ foreach ( $sections as $section_name => $section ) {
 </tbody>
 </table>
 
-<table id="serverstatusconnections">
+<table id="serverstatusconnections" class="data">
 <thead>
 <tr>
     <th colspan="2"><?php echo $strConnections; ?></th>
@@ -478,7 +478,7 @@ foreach ( $sections as $section_name => $section ) {
             0, $GLOBALS['number_decimal_separator'],
             $GLOBALS['number_thousands_separator'] ) ); ?></h3>
 
-<table id="serverstatusqueriessummary">
+<table id="serverstatusqueriessummary" class="data">
 <thead>
 <tr>
     <th><?php echo $strTotalUC; ?></th>
@@ -524,7 +524,7 @@ foreach ( $sections['com']['vars'] as $name => $value ) {
             echo '    </table>' . "\n";
         }
 ?>
-    <table id="serverstatusqueriesdetails<?php echo $current_table; ?>">
+    <table id="serverstatusqueriesdetails<?php echo $current_table; ?>" class="data">
     <col class="namecol" />
     <col class="valuecol" span="3" />
     <thead>
@@ -578,7 +578,7 @@ unset(
 foreach ( $sections as $section_name => $section ) {
     if ( ! empty( $section['vars'] ) ) {
 ?>
-    <table class="statuslist" id="serverstatussection<?php echo $section_name; ?>">
+    <table class="data" id="serverstatussection<?php echo $section_name; ?>">
     <caption class="tblHeaders">
         <a class="top"
            href="<?php echo $_SERVER['PHP_SELF'] . '?' . 

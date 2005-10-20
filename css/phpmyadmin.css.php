@@ -30,22 +30,6 @@ caption {
     font-size: <?php echo $font_size; ?>;
 }
 
-table .value {
-    text-align: right;
-    white-space: nowrap;
-    font-family: "Courier New", Courier, monospace;
-}
-/* IE doesnt handles 'pre' right */
-table [class=value] {
-    white-space: pre;
-}
-
-table .unit,
-table .name {
-    text-align: left;
-    font-weight: normal;
-}
-
 #tableuserrights td,
 #tablespecificuserrights td,
 #tabledatabases td {
@@ -217,6 +201,7 @@ fieldset div[class=formelement] select {
     float: left;
 }
 
+
 /* Calendar */
 table.calendar      { width: 100%; }
 table.calendar td   { text-align: center; }
@@ -237,6 +222,7 @@ table.calendar td.selected {
 img.calendar { border: none; }
 form.clock   { text-align: center; }
 /* end Calendar */
+
 
 /* Options, eg. on import page */
 fieldset {
@@ -259,6 +245,7 @@ button { display: inline; }
 textarea { overflow: auto; }
 
 .nospace { margin: 0; padding: 0; }
+
 
 /* topmenu */
 
@@ -357,33 +344,56 @@ span.tab, span.tabcaution {
 <?php } ?>
 /* end topmenu */
 
+
+/* data tables */
+table.data caption,
+table.data th,
+table.data td {
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    margin: 0;
+    margin: 0.1em;
+    vertical-align: top;
+}
+
 /* odd table rows 1,3,5,7,... */
+table tr.odd th,
 table tr.odd {
     background-color: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
+    text-align: left;
 }
 
 /* even table rows 2,4,6,8,... */
+table tr.even th,
 table tr.even {
     background-color: <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
+    text-align: left;
 }
 
-/* even table rows 2,4,6,8,... */
+/* marked tbale rows */
+table tr.marked th,
 table tr.marked {
     background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 
-/* even table rows 2,4,6,8,... */
-table.data tbody tr:hover,
+/* hovered table rows */
+table tr.odd:hover,
+table tr.even:hover,
+table tr.odd:hover th,
+table tr.even:hover th,
+table tr.hover th,
 table tr.hover {
     background-color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
 
-table tr.even th,
-table tr.odd th {
-    background-color: inherit;
-    color: inherit;
+table .value {
+    text-align: right;
+    white-space: nowrap;
+    font-family: "Courier New", Courier, monospace;
 }
-
+/* IE doesnt handles 'pre' right */
+table [class=value] {
+    white-space: pre;
+}
 
 .value .attention {
     color: red;
@@ -400,18 +410,6 @@ div#serverstatus table caption a.top {
     float: right;
 }
 
-table.data caption,
-table.data th,
-table.data td,
-div#serverstatus table caption,
-div#serverstatus table th,
-div#serverstatus table td {
-    padding: 0.1em 0.5em 0.1em 0.5em;
-    margin: 0;
-    margin: 0.1em;
-    vertical-align: top;
-}
-
 div#serverstatus div#serverstatusqueriesdetails table,
 div#serverstatus table#serverstatustraffic,
 div#serverstatus table#serverstatusconnections {
@@ -422,11 +420,14 @@ div#serverstatus table#serverstatusconnections {
 .clearfloat {
     clear: both;
 }
-
-div#serverstatus table.statuslist .name {
+div#serverstatussection table {
+    width: 100%;
+    margin-bottom: 1em;
+}
+div#serverstatussection table .name {
     width: 18em;
 }
-div#serverstatus table.statuslist .value {
+div#serverstatussection table .value {
     width: 6em;
 }
 
@@ -446,12 +447,8 @@ div#serverstatus table tbody td.descr a:after,
 div#serverstatus table .tblFooters a:after {
     content: ']';
 }
-
-div#serverstatus table.statuslist {
-    width: 100%;
-    margin-bottom: 1em;
-}
 /* end serverstatus */
+
 
 img.lightbulb { 
     cursor: pointer; 
