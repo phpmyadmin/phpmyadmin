@@ -457,8 +457,13 @@ function PMA_displayTableList( $tables, $visible = false,
                 .'&amp;sql_query=' . urlencode('SELECT * FROM `' 
                 . $table['Name'] . '`') . '" '
                 .' >'
-                .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_sbrowse.png"'
-                .' id="icon_' . htmlspecialchars( $table_db . '.' . $table['Name'] ) . '"'
+                .'<img class="icon"';
+            if ( 'VIEW' === strtoupper( $table['Comment'] ) ) {
+                echo ' src="' . $GLOBALS['pmaThemeImage'] . 's_views.png"';
+            } else {
+                echo ' src="' . $GLOBALS['pmaThemeImage'] . 'b_sbrowse.png"';
+            }
+            echo ' id="icon_' . htmlspecialchars( $table_db . '.' . $table['Name'] ) . '"'
                 .' width="10" height="10" alt="' . $GLOBALS['strBrowse'] . '" /></a>' . "\n"
                 .'<a href="' . $href . '" title="' . $table['Comment']
                 .' (' . $table['Rows'] . ' ' . $GLOBALS['strRows'] . ')"'
