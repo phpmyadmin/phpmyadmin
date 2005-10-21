@@ -10,8 +10,13 @@ $Source$
       - replaced for() with foreach()
       - dont pollute $GLOBALS['table']
     * libraries/mysql_charsets.lib.php:
-      - make use of mysql varaible collation_database
+      - make use of mysql variable collation_database
       - fixed call to PMA_DBI_fetch_value() (return second field, not first)
+    * libraries/database_interface.lib.php:
+      extended function PMA_DBI_get_tables_full():
+       - make use of information_schema
+       - always fill fields for information_schema and show table status
+      
     
 2005-10-20 Marc Delisle  <lem9@users.sourceforge.net>
     * server_databases.php: security fix
