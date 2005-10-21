@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * db_details_export.php:
+      - replaced for() with foreach()
+      - dont pollute $GLOBALS['table']
+    
 2005-10-20 Marc Delisle  <lem9@users.sourceforge.net>
     * server_databases.php: security fix
     * libraries/common.lib.php, /grab_globals.lib.php: security fix
