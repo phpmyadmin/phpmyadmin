@@ -7,6 +7,7 @@ $Source$
 
 2005-10-20 Marc Delisle  <lem9@users.sourceforge.net>
     * server_databases.php: security fix
+    * libraries/common.lib.php, /grab_globals.lib.php: security fix
 
 2005-10-20 Alexander M. Turek  <me@derrabus.de>
     * libraries/mysql_charsets.lib.php:

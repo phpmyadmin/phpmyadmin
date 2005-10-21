@@ -47,6 +47,10 @@
  * - other functions, respecting dependencies
  */
 
+// grab_globals.lib.php should really go before common.lib.php
+// TODO: remove direct calling from elsewhere
+require_once('./libraries/grab_globals.lib.php');
+
 /**
  * Minimum inclusion? (i.e. for the stylesheet builder)
  */

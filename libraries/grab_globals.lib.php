@@ -11,6 +11,12 @@
  *
  * loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
  */
+ 
+// protect against older PHP versions' bug about GLOBALS overwrite
+// (no need to translate this one :) )
+if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
+    die("GLOBALS overwrite attempt");
+}
 
 require_once './libraries/session.inc.php';
 
