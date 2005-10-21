@@ -16,7 +16,7 @@ $Source$
       extended function PMA_DBI_get_tables_full():
        - make use of information_schema
        - always fill fields for information_schema and show table status
-      
+    * db_details_db_info.php: make use of function PMA_DBI_get_tables_full()
     
 2005-10-20 Marc Delisle  <lem9@users.sourceforge.net>
     * server_databases.php: security fix

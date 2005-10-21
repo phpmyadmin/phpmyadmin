@@ -9,7 +9,7 @@ require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db'));
 
-function fillTooltip(&$tooltip_truename, &$tooltip_aliasname, &$tmp) {
+function fillTooltip( &$tooltip_truename, &$tooltip_aliasname, &$tmp ) {
     $tooltip_truename[$tmp['Name']] = ($GLOBALS['cfg']['ShowTooltipAliasTB'] && $GLOBALS['cfg']['ShowTooltipAliasTB'] != 'nested' ? (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']) : $tmp['Name']);
     $tooltip_aliasname[$tmp['Name']] = ($GLOBALS['cfg']['ShowTooltipAliasTB'] && $GLOBALS['cfg']['ShowTooltipAliasTB'] != 'nested'  ? $tmp['Name'] : (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']));
     if (isset($tmp['Create_time']) && !empty($tmp['Create_time'])) {
@@ -41,14 +41,15 @@ if (!empty($tbl_group) && !$cfg['ShowTooltipAliasTB']) {
     $tbl_group_sql = '';
 }
 
-if ($cfg['ShowTooltip']) {
+if ( $cfg['ShowTooltip'] ) {
     $tooltip_truename = array();
     $tooltip_aliasname = array();
 }
 
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
-if ($cfg['SkipLockedTables'] == TRUE) {
+if ( true === $cfg['SkipLockedTables'] ) {
     $db_info_result = PMA_DBI_query('SHOW OPEN TABLES FROM ' . PMA_backquote($db) . ';');
+    
     // Blending out tables in use
     if ($db_info_result != FALSE && PMA_DBI_num_rows($db_info_result) > 0) {
         while ($tmp = PMA_DBI_fetch_row($db_info_result)) {
@@ -63,11 +64,6 @@ if ($cfg['SkipLockedTables'] == TRUE) {
             $db_info_result = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . $tbl_group_sql . ';', NULL, PMA_DBI_QUERY_STORE);
             if ($db_info_result != FALSE && PMA_DBI_num_rows($db_info_result) > 0) {
                 while ($tmp = PMA_DBI_fetch_row($db_info_result)) {
-                    if ( NULL === $tmp['Rows'] ) {
-                        $tmp['Rows']   = PMA_countRecords( $GLOBALS['db'],
-                            $tmp['Name'], $return = true, $force_exact = true );
-                    }
-                    
                     if (!isset($sot_cache[$tmp[0]])) {
                         $sts_result  = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\';');
                         $sts_tmp     = PMA_DBI_fetch_assoc($sts_result);
@@ -92,6 +88,11 @@ if ($cfg['SkipLockedTables'] == TRUE) {
                     }
                 }
                 PMA_DBI_free_result($db_info_result);
+                
+                if ( $GLOBALS['cfg']['NaturalOrder'] ) {
+                    uksort( $tables, 'strnatcasecmp' );
+                }
+
                 $sot_ready = TRUE;
             }
         }
@@ -100,42 +101,31 @@ if ($cfg['SkipLockedTables'] == TRUE) {
         unset($db_info_result);
     }
 }
-if (!isset($sot_ready)) {
-    $db_info_result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . $tbl_group_sql . ';', NULL, PMA_DBI_QUERY_STORE);
-    if ($db_info_result != FALSE && PMA_DBI_num_rows($db_info_result) > 0) {
-        while ($sts_tmp = PMA_DBI_fetch_assoc($db_info_result)) {
-            if ( NULL === $sts_tmp['Rows'] ) {
-                $sts_tmp['Rows']   = PMA_countRecords( $GLOBALS['db'],
-                    $sts_tmp['Name'], $return = true, $force_exact = true );
-            }
-            
-            if (!isset($sts_tmp['Type']) && isset($sts_tmp['Engine'])) {
-                $sts_tmp['Type'] =& $sts_tmp['Engine'];
-            }
-            if (!empty($tbl_group) && $cfg['ShowTooltipAliasTB'] && !preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])) {
-                continue;
-            }
 
-            if ($cfg['ShowTooltip']) {
-                fillTooltip($tooltip_truename, $tooltip_aliasname, $sts_tmp);
-            }
-
-            $tables[$sts_tmp['Name']] = $sts_tmp;
+if ( ! isset( $sot_ready ) ) {
+    if ( ! empty( $tbl_group ) && ! $cfg['ShowTooltipAliasTB'] ) {
+        // only tables for selected group
+        $tables = PMA_DBI_get_tables_full( $db, $tbl_group, true );
+    } elseif ( ! empty( $tbl_group ) && $cfg['ShowTooltipAliasTB'] ) {
+        // only tables for selected group,
+        // but grouping is done on comment ...
+        $tables = PMA_DBI_get_tables_full( $db, $tbl_group, 'comment' );
+    } else {
+        // all tables in db
+        $tables = PMA_DBI_get_tables_full( $db );
+    }
+    
+    if ( $cfg['ShowTooltip'] ) {
+        foreach( $tables as $each_table ) {
+            fillTooltip( $tooltip_truename, $tooltip_aliasname, $each_table );
         }
     }
-    @PMA_DBI_free_result($db_info_result);
-    unset($db_info_result);
 }
-$num_tables = (isset($tables) ? count($tables) : 0);
 
-if ( $GLOBALS['cfg']['NaturalOrder'] ) {
-    uksort( $tables, 'strnatcasecmp' );
-}
+$num_tables = count( $tables );
 
 /**
  * Displays top menu links
  */
-echo '<!-- Top menu links -->' . "\n";
 require('./db_details_links.php');
-
 ?>
