@@ -275,7 +275,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         return $descr;
     }
 
-    function PMA_getDbCollation($db) {
+    function PMA_getDbCollation( $db ) {
         global $userlink;
         if (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema') {
             // We don't have to check the collation of the virtual
@@ -288,20 +288,8 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         } else if (PMA_MYSQL_INT_VERSION >= 40101) {
             // MySQL 4.1.0 does not support seperate charset settings
             // for databases.
-            $tokenized = explode(' ', PMA_DBI_fetch_value('SHOW CREATE DATABASE ' . PMA_backquote($db) . ';'));
-
-            for ($i = 1; $i + 3 < count($tokenized); $i++) {
-                if ($tokenized[$i] == 'DEFAULT' && $tokenized[$i + 1] == 'CHARACTER' && $tokenized[$i + 2] == 'SET') {
-                    // We've found the character set!
-                    if (isset($tokenized[$i + 5]) && $tokenized[$i + 4] == 'COLLATE') {
-                        return $tokenized[$i + 5]; // We found the collation!
-                    } else {
-                        // We did not find the collation, so let's return the
-                        // default collation for the charset we've found.
-                        return $GLOBALS['mysql_default_collations'][$tokenized [$i + 3]];
-                    }
-                }
-            }
+            PMA_DBI_query('USE ' . PMA_backQuote( addslashes( $db ) ) );
+            return PMA_DBI_fetch_value( 'SHOW VARIABLES LIKE "collation_database"', 0, 1 );
         }
         return '';
     }
