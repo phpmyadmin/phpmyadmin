@@ -134,6 +134,8 @@ foreach ($dblist AS $current_db) {
 // avoids 'undefined index' errors
 if (empty($sort_by)) {
     $sort_by = 'db_name';
+} else {
+    $sort_by = PMA_sanitize($sort_by);
 }
 if (empty($sort_order)) {
     if ($sort_by == 'db_name') {
@@ -141,6 +143,8 @@ if (empty($sort_order)) {
     } else {
         $sort_order = 'desc';
     }
+} else {
+    $sort_order = PMA_sanitize($sort_order);
 }
 
 // sorts the array
