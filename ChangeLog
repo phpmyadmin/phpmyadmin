@@ -8,6 +8,7 @@ $Source$
 2005-10-21 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: foreign dropdowns: sort id-content by id 
       and content-id by content
+    * libraries/common.lib.php: bug #1330847, undefined index connect_type
 
 2005-10-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_details_export.php:

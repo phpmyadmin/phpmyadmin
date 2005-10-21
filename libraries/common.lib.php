@@ -1273,9 +1273,10 @@ if ($is_minimum_common == FALSE) {
     /**
      * Gets the valid servers list and parameters
      */
+
     foreach ($cfg['Servers'] AS $key => $val) {
         // Don't use servers with no hostname
-        if ( ($val['connect_type'] == 'tcp') && empty($val['host'])) {
+        if ( isset($val['connect_type']) && ($val['connect_type'] == 'tcp') && empty($val['host'])) {
             unset($cfg['Servers'][$key]);
         }
 
@@ -1284,7 +1285,7 @@ if ($is_minimum_common == FALSE) {
         // and there is nothing in the verbose server name
         // or the host field, then generate a name for the server
         // in the form of "Server 2", localized of course!
-        if ( ($val['connect_type'] == 'socket') && empty($val['host']) && empty($val['verbose']) ) {
+        if ( isset($val['connect_type']) && $val['connect_type'] == 'socket' && empty($val['host']) && empty($val['verbose']) ) {
             $cfg['Servers'][$key]['verbose'] = $GLOBALS['strServer'] . $key;
             $val['verbose']                  = $GLOBALS['strServer'] . $key;
         }
