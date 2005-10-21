@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/relation.lib.php: foreign dropdowns: sort id-content by id 
+      and content-id by content
+
 2005-10-21 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_details_export.php:
       - replaced for() with foreach()

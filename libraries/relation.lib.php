@@ -732,6 +732,76 @@ function PMA_purgeHistory($username) {
     return true;
 } // end of 'PMA_purgeHistory()' function
 
+
+/**
+ * Case insensitive natural sort on keys
+ *
+ * @param   &array   the array to sort 
+ *
+ * @return  bool     TRUE on success (how could it fail? :)
+ *
+ * @access  private
+ */
+
+function PMA_natcaseksort(&$array) {
+    $keys = array_keys($array);
+    natcasesort($keys);
+
+    foreach ($keys as $k) {
+        $new_array[$k] = $array[$k];
+    }
+    $array = $new_array;
+    return TRUE; 
+} // end of 'PMA_natcaseksort' function
+
+
+/**
+ * Prepares the dropdown for one mode 
+ *
+ * @param   array    the keys and values for foreigns
+ * @param   string   the current data of the dropdown
+ * @param   string   the needed mode 
+ *
+ * @global  array    global phpMyAdmin configuration
+ *
+ * @return  array   the <option value=""><option>s
+ *
+ * @access  private
+ */
+function PMA_foreignDropdownBuild($foreign, $data, $mode) {
+    global $cfg;
+
+    $reloptions = array();
+    
+    foreach ($foreign as $key => $value) {
+
+        if (PMA_strlen($value) <= $cfg['LimitChars']) {
+            $vtitle = '';
+            $value  = htmlspecialchars($value);
+        } else {
+            $vtitle  = htmlspecialchars($value);
+            $value  = htmlspecialchars(substr($value, 0, $cfg['LimitChars']) . '...');
+        }
+
+        $reloption = '                <option value="' . htmlspecialchars($key) . '"';
+        if ($vtitle != '') {
+            $reloption .= ' title="' . $vtitle . '"';
+        }
+
+        if ($key == $data) {
+           $reloption .= ' selected="selected"';
+        }
+
+        if ($mode == 'content-id') {
+            $reloptions[] = $reloption . '>' . $value . '&nbsp;-&nbsp;' . htmlspecialchars($key) .  '</option>' . "\n";
+        } else {
+            $reloptions[] = $reloption . '>' . htmlspecialchars($key) .  '&nbsp;-&nbsp;' . $value . '</option>' . "\n";
+        }
+    } // end foreach
+
+    return $reloptions;
+} // end of 'PMA_foreignDropdownBuild' function
+
 /**
  * Outputs dropdown with values of foreign fields
  *
@@ -749,45 +819,48 @@ function PMA_purgeHistory($username) {
 function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $max) {
     global $cfg;
 
-    $ret = '<option value=""></option>' . "\n";
-
-    $reloptions = array('content-id' => array(), 'id-content' => array());
-    
-    foreach ($disp AS $disp_key => $relrow) {
+    // collect the data
+    foreach ($disp as $relrow) {
         $key   = $relrow[$foreign_field];
 
-        // if the display field has been defined for the foreign table
+        // if the display field has been defined for this foreign table
         if ($foreign_display) {
-            if (PMA_strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
-                $value  = htmlspecialchars($relrow[$foreign_display]);
-                $vtitle = '';
-            } else {
-                $vtitle = htmlspecialchars($relrow[$foreign_display]);
-                $value  = htmlspecialchars(substr($vtitle, 0, $cfg['LimitChars']) . '...');
-            }
+            $value  = $relrow[$foreign_display];
         } else {
-            $vtitle = $value = '';
+            $value = '';
         } // end if ($foreign_display)
 
-        $reloption = '<option value="' . htmlspecialchars($key) . '"';
-        if ($vtitle != '') {
-            $reloption .= ' title="' . $vtitle . '"';
-        }
+        $foreign[$key] = $value;
+    } // end foreach
 
-        if ($key == $data) {
-           $reloption .= ' selected="selected"';
-        } // end if
+    // beginning of dropdown
+    $ret = '<option value=""></option>' . "\n";
 
-        $reloptions['content-id'][] = $reloption . '>' . $value . '&nbsp;-&nbsp;' . htmlspecialchars($key) .  '</option>' . "\n";
-        $reloptions['id-content'][] = $reloption . '>' . htmlspecialchars($key) .  '&nbsp;-&nbsp;' . $value . '</option>' . "\n";
-    } // end while
+    // master array for dropdowns
+    $reloptions = array('content-id' => array(), 'id-content' => array());
 
-    // the list of keys looks better if not sorted by description
+    // sort for id-content 
     if ($cfg['NaturalOrder']) {
-        natsort($reloptions['content-id']); }
-    else {
-        asort($reloptions['content-id']);
+        PMA_natcaseksort($foreign);
+    } else {
+        ksort($foreign);
     }
+
+    // build id-content dropdown
+    $reloptions['id-content'] = PMA_foreignDropdownBuild($foreign, $data, 'id-content');
+
+    // sort for content-id
+    if ($cfg['NaturalOrder']) {
+        natcasesort($foreign);
+    } else {
+        asort($foreign);
+    }
+
+    // build content-id dropdown
+    $reloptions['content-id'] = PMA_foreignDropdownBuild($foreign, $data, 'content-id');
+
+
+    // put the dropdown sections in correct order 
 
     $c = count($cfg['ForeignKeyDropdownOrder']);
     if($c == 2) {
@@ -807,8 +880,8 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
         if ($max == -1 || $top_count < $max) {
             $ret .= $str_top;
             if ($top_count > 0) {
-                $ret .= '<option value=""></option>' . "\n";
-                $ret .= '<option value=""></option>' . "\n";
+                $ret .= '                <option value=""></option>' . "\n";
+                $ret .= '                <option value=""></option>' . "\n";
             }
         }
     }
