@@ -93,6 +93,16 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
  */
 require_once('./tbl_properties_links.php');
 
+
+/**
+ * Get the analysis of SHOW CREATE TABLE for this table 
+ */
+$show_create_table = PMA_DBI_fetch_value(
+        'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
+        0, 1 );
+$analyzed_sql = PMA_SQP_analyze( PMA_SQP_parse( $show_create_table ) );
+unset($show_create_table);
+
 /**
  * Get the list of the fields of the current table
  */
@@ -470,15 +480,27 @@ foreach ($loop_array AS $vrowcount => $vrow) {
 
                 $dropdown_built = array();
                 $op_spacing_needed = FALSE;
-
                 // garvin: loop on the dropdown array and print all available options for that field.
                 $cnt_dropdown = count($dropdown);
                 for ($j = 0; $j < $cnt_dropdown; $j++) {
                     // Is current function defined as default?
+                    // For MySQL < 4.1.2, for the first timestamp we set as
+                    // default function the one defined in config (which
+                    // should be NOW() ).
+                    // For MySQL >= 4.1.2, we don't set the default function
+                    // if there is a default value for the timestamp 
+                    // (not including CURRENT_TIMESTAMP)
+                    // and the column does not have the 
+                    // ON UPDATE DEFAULT TIMESTAMP attribute.
+                    
+                    if (PMA_MYSQL_INT_VERSION < 40102 
+                    || (PMA_MYSQL_INT_VERSION >= 40102 
+                       && !($row_table_def['True_Type'] == 'timestamp' && !empty($row_table_def['Default']) &&  !isset($analyzed_sql[0]['create_table_fields'][$field]['on_update_current_timestamp'])))) {
                     $selected = ($first_timestamp && $dropdown[$j] == $cfg['DefaultFunctions']['first_timestamp'])
                                 || (!$first_timestamp && $dropdown[$j] == $default_function)
                               ? ' selected="selected"'
                               : '';
+                }
                     echo '                ';
                     echo '<option' . $selected . '>' . $dropdown[$j] . '</option>' . "\n";
                     $dropdown_built[$dropdown[$j]] = 'TRUE';
@@ -486,7 +508,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 }
 
                 // garvin: For compatibility's sake, do not let out all other functions. Instead
-                // print a seperator (blank) and then show ALL functions which weren't shown
+                // print a separator (blank) and then show ALL functions which weren't shown
                 // yet.
                 $cnt_functions = count($cfg['Functions']);
                 for ($j = 0; $j < $cnt_functions; $j++) {

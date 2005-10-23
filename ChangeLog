@@ -8,6 +8,9 @@ $Source$
 2005-10-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: there is already a function to do this
       sort (thanks to Sebastian)
+    * tbl_change.php: bug #1334627, do not set NOW() as default function
+      when the TIMESTAMP has a default value and does not have the
+      ON UPDATE CURRENT TIMESTAMP attribute (phew! repeat this 3 times)
 
 2005-10-21 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: foreign dropdowns: sort id-content by id 
