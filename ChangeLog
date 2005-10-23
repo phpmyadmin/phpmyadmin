@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/relation.lib.php: there is already a function to do this
+      sort (thanks to Sebastian)
+
 2005-10-21 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: foreign dropdowns: sort id-content by id 
       and content-id by content

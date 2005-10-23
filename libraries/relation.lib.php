@@ -734,28 +734,6 @@ function PMA_purgeHistory($username) {
 
 
 /**
- * Case insensitive natural sort on keys
- *
- * @param   &array   the array to sort 
- *
- * @return  bool     TRUE on success (how could it fail? :)
- *
- * @access  private
- */
-
-function PMA_natcaseksort(&$array) {
-    $keys = array_keys($array);
-    natcasesort($keys);
-
-    foreach ($keys as $k) {
-        $new_array[$k] = $array[$k];
-    }
-    $array = $new_array;
-    return TRUE; 
-} // end of 'PMA_natcaseksort' function
-
-
-/**
  * Prepares the dropdown for one mode 
  *
  * @param   array    the keys and values for foreigns
@@ -841,7 +819,7 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
 
     // sort for id-content 
     if ($cfg['NaturalOrder']) {
-        PMA_natcaseksort($foreign);
+        uksort($foreign, 'strnatcasecmp');
     } else {
         ksort($foreign);
     }
