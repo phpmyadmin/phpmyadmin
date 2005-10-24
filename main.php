@@ -519,15 +519,13 @@ if (isset($available_themes_choices) && $available_themes_choices > 1) {
     <!-- Theme Manager -->
     <tr>
 <?php
-        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,$theme_preview_href,'s_theme.png',(isset($strTheme) ? $strTheme : 'Theme (Style)'),'</a>') : $str_normal_list) . "\n";
+        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,$theme_preview_href,'s_theme.png',$strTheme ,'</a>') : $str_normal_list) . "\n";
 ?>
         <td>
             <form name="setTheme" method="post" action="index.php" target="_parent">
                 <?php
                 echo PMA_generate_common_hidden_inputs('', '', 5);
-                echo $theme_preview_href
-                   . (isset($strTheme) ? $strTheme : 'Theme (Style)')
-                   . '</a>:' . "\n";
+                echo $theme_preview_href . $strTheme . '</a>:' . "\n";
                 ?>
                 <select name="set_theme" dir="ltr" onchange="this.form.submit();" style="vertical-align: middle">
                 <?php
