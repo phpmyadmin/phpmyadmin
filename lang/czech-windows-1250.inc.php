@@ -267,6 +267,7 @@ $strEnglishPrivileges = 'Poznámka: názvy oprávnìní v&nbsp;MySQL jsou uvádìny ang
 $strError = 'Chyba';
 $strErrorInZipFile = 'Chyba v&nbsp;ZIP archívu:';
 $strEscapeWildcards = 'Zástupné znaky _ a % by mìly být escapovány pomocí \, pokud je chcete použít jako znak';
+$strEsperanto = 'Esperanto';
 $strEstonian = 'Estonština';
 $strExcelEdition = 'Verze Excelu';
 $strExcelOptions = 'Nastavení exportu do Excelu';
@@ -957,5 +958,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strEsperanto = 'Esperanto';  //to translate
 ?>

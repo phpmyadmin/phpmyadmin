@@ -9,6 +9,7 @@ $Source$
     * tbl_properties_operations.php: Fix changing table attributes, reread new
       parameters after changing them (bug #1290413).
     * main.php: Remove useless isset.
+    * lang/czech: Update.
 
 2005-10-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: there is already a function to do this
