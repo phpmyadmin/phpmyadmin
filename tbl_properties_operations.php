@@ -53,12 +53,13 @@ if (isset($submitcollation)) {
 }
 if (isset($submitoptions)) {
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table)
-                   . (isset($pack_keys) ? ' pack_keys=1': ' pack_keys=0')
-                   . (isset($checksum) ? ' checksum=1': ' checksum=0')
-                   . (isset($delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0')
+                   . (isset($new_pack_keys) ? ' pack_keys=1': ' pack_keys=0')
+                   . (isset($new_checksum) ? ' checksum=1': ' checksum=0')
+                   . (isset($new_delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0')
                    . (!empty($new_auto_increment) ? ' auto_increment=' . PMA_sqlAddslashes($new_auto_increment) : '');
     $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;
+    require('./tbl_properties_table_info.php');
 }
 
 /**
@@ -374,15 +375,15 @@ for ($i = 0; $i < $num_dbs; $i++) {
         </tr>
         <tr>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-                <input type="checkbox" name="pack_keys" id="pack_keys_opt"
+                <input type="checkbox" name="new_pack_keys" id="pack_keys_opt"
                 <?php echo (isset($pack_keys) && $pack_keys == 1) ? ' checked="checked"' : ''; ?> style="vertical-align: middle" /><label for="pack_keys_opt">pack_keys</label><br />
         <?php
         if ($tbl_type == 'MYISAM') {
         ?>
-                <input type="checkbox" name="checksum" id="checksum_opt"
+                <input type="checkbox" name="new_checksum" id="checksum_opt"
                 <?php echo (isset($checksum) && $checksum == 1) ? ' checked="checked"' : ''; ?> style="vertical-align: middle" /><label for="checksum_opt">checksum</label><br />
 
-                <input type="checkbox" name="delay_key_write" id="delay_key_write_opt"
+                <input type="checkbox" name="new_delay_key_write" id="delay_key_write_opt"
                 <?php echo (isset($delay_key_write) && $delay_key_write == 1) ? ' checked="checked"' : ''; ?> style="vertical-align: middle" /><label for="delay_key_write_opt">delay_key_write</label><br />
 
                 <input type="text" name="new_auto_increment" id="auto_increment_opt" class="textfield"
