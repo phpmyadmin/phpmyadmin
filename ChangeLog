@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-25 Michal Čihař  <michal@cihar.com>
+    * lang/english: "Log in" is correct naming for action (RFE #945440).
+
 2005-10-24 Michal Čihař  <michal@cihar.com>
     * tbl_properties_operations.php: Fix changing table attributes, reread new
       parameters after changing them (bug #1290413).

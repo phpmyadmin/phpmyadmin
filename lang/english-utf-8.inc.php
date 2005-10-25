@@ -107,7 +107,7 @@ $strBzip = '"bzipped"';
 
 $strCalendar = 'Calendar';
 $strCanNotLoadImportPlugins = 'Could not load import plugins, please check your installation!';
-$strCannotLogin = 'Cannot login to MySQL server';
+$strCannotLogin = 'Cannot log in to the MySQL server';
 $strCantLoad = 'cannot load %s extension;<br />please check PHP configuration';
 $strCantLoadRecodeIconv = 'Couldn\'t load the iconv or recode extension needed for charset conversion. Either configure PHP to enable these extensions or disable charset conversion in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';
@@ -413,7 +413,7 @@ $strLithuanian = 'Lithuanian';
 $strLocalhost = 'Local';
 $strLocationTextfile = 'Location of the text file';
 $strLoginInformation = 'Login Information';
-$strLogin = 'Login';
+$strLogin = 'Log in';
 $strLogout = 'Log out';
 $strLogPassword = 'Password:';
 $strLogServer = 'Server';
