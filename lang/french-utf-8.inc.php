@@ -709,6 +709,12 @@ $strShowStatusHandler_read_rnd_nextDescr = 'Le nombre de requêtes de lecture du
 $strShowStatusHandler_rollbackDescr = 'Le nombre d\'énoncés ROLLBACK internes.';
 $strShowStatusHandler_updateDescr = 'Le nombre de requêtes de mise à jour d\'enregistrements.';
 $strShowStatusHandler_writeDescr = 'Le nombre de requêtes d\'insertion d\'enregistrements.';
+$strShowStatusInnodb_buffer_pool_pages_dataDescr = 'Le nombre de pages contenant des données.';
+$strShowStatusInnodb_buffer_pool_pages_dirtyDescr = 'Le nombre de pages contenant des données "dirty"';
+$strShowStatusInnodb_buffer_pool_pages_flushedDescr = 'Le nombre de pages de mémoire-tampon qui ont été effacées.';
+$strShowStatusInnodb_buffer_pool_pages_freeDescr = 'Le nombre de pages libres';
+$strShowStatusInnodb_buffer_pool_pages_latchedDescr = 'Le nombre de pages dans la réserve InnoDB qui sont actuellement en train d\'être lues ou écrites, ou qui ne peuvent être supprimées pour une autre raison.';
+$strShowStatusInnodb_buffer_pool_pages_miscDescr = 'Le nombre de pages occupées car elles ont été déallouées en raison de verrous sur les enregistrements. Cette valeur peut également être calculée comme suit: Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data.';
 $strShowStatusQcache_not_cachedDescr = 'Le nombre de requêtes non en cache (impossible à placer en cache, ou non cachée en raison du paramètre query_cache_type).';
 $strShowStatusQcache_queries_in_cacheDescr = 'Le nombre de requêtes enregistrées dans la cache.';
 $strShowStatusQcache_total_blocksDescr = 'Le nombre total de blocs dans la cache de requêtes.';
@@ -893,12 +899,8 @@ $strZip = '"zippé"';
 
 // To translate:
 
-$strShowStatusInnodb_buffer_pool_pages_dataDescr = 'The number of pages containing data (dirty or clean).';  //to translate
-$strShowStatusInnodb_buffer_pool_pages_dirtyDescr = 'The number of pages currently dirty.';  //to translate
-$strShowStatusInnodb_buffer_pool_pages_flushedDescr = 'The number of buffer pool pages that have been requested to be flushed.';  //to translate
-$strShowStatusInnodb_buffer_pool_pages_freeDescr = 'The number of free pages.';  //to translate
-$strShowStatusInnodb_buffer_pool_pages_latchedDescr = 'The number of latched pages in InnoDB buffer pool. These are pages currently being read or written or that can\'t be flushed or removed for some other reason.';  //to translate
-$strShowStatusInnodb_buffer_pool_pages_miscDescr = 'The number of pages busy because they have been allocated for administrative overhead such as row locks or the adaptive hash index. This value can also be calculated as Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data.';  //to translate
+$strEsperanto = 'Esperanto';  //to translate
+
 $strShowStatusInnodb_buffer_pool_pages_totalDescr = 'Total size of buffer pool, in pages.';  //to translate
 $strShowStatusInnodb_buffer_pool_read_ahead_rndDescr = 'The number of "random" read-aheads InnoDB initiated. This happens when a query is to scan a large portion of a table but in random order.';  //to translate
 $strShowStatusInnodb_buffer_pool_read_ahead_seqDescr = 'The number of sequential read-aheads InnoDB initiated. This happens when InnoDB does a sequential full table scan.';  //to translate
@@ -957,5 +959,4 @@ $strShowStatusQcache_lowmem_prunesDescr = 'The number of queries that have been 
 
 $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
 
-$strEsperanto = 'Esperanto';  //to translate
 ?>
