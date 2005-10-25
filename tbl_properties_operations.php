@@ -52,11 +52,17 @@ if (isset($submitcollation)) {
     unset($tbl_collation);
 }
 if (isset($submitoptions)) {
-    $sql_query     = 'ALTER TABLE ' . PMA_backquote($table)
-                   . (isset($new_pack_keys) ? ' pack_keys=1': ' pack_keys=0')
-                   . (isset($new_checksum) ? ' checksum=1': ' checksum=0')
-                   . (isset($new_delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0')
-                   . (!empty($new_auto_increment) ? ' auto_increment=' . PMA_sqlAddslashes($new_auto_increment) : '');
+    $sql_query     = 'ALTER TABLE ' . PMA_backquote($table);
+    if ($tbl_type == 'MYISAM' || $tbl_type == 'ISAM') {
+        $sql_query .= isset($new_pack_keys) ? ' pack_keys=1': ' pack_keys=0';
+    }
+    if ($tbl_type == 'MYISAM') {
+        $sql_query .= (isset($new_checksum) ? ' checksum=1': ' checksum=0')
+                   . (isset($new_delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0');
+    }
+    if ($tbl_type == 'MYISAM' ||($tbl_type == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50003)) {
+        $sql_query .= !empty($new_auto_increment) ? ' auto_increment=' . PMA_sqlAddslashes($new_auto_increment) : '';
+    }
     $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;
     require('./tbl_properties_table_info.php');
@@ -361,9 +367,10 @@ for ($i = 0; $i < $num_dbs; $i++) {
            . '        <tr><td colspan="2" height="5"></td></tr>' . "\n";
     }
     // PACK_KEYS: MyISAM or ISAM
-    // DELAY_KEY_WRITE, CHECKSUM, AUTO_INCREMENT: MyISAM only
+    // DELAY_KEY_WRITE, CHECKSUM, : MyISAM only
+    // AUTO_INCREMENT: MyISAM and InnoDB since 5.0.3
 
-    if ($tbl_type == 'MYISAM' || $tbl_type == 'ISAM') {
+    if ($tbl_type == 'MYISAM' || $tbl_type == 'ISAM' || ($tbl_type == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50003)) {
     ?>
     <!-- Table options -->
     <form method="post" action="tbl_properties_operations.php">
@@ -375,9 +382,13 @@ for ($i = 0; $i < $num_dbs; $i++) {
         </tr>
         <tr>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+        <?php
+        if ($tbl_type == 'MYISAM' || $tbl_type == 'ISAM') {
+        ?>
                 <input type="checkbox" name="new_pack_keys" id="pack_keys_opt"
                 <?php echo (isset($pack_keys) && $pack_keys == 1) ? ' checked="checked"' : ''; ?> style="vertical-align: middle" /><label for="pack_keys_opt">pack_keys</label><br />
         <?php
+        } // end if (MYISAM|ISAM)
         if ($tbl_type == 'MYISAM') {
         ?>
                 <input type="checkbox" name="new_checksum" id="checksum_opt"
@@ -386,11 +397,15 @@ for ($i = 0; $i < $num_dbs; $i++) {
                 <input type="checkbox" name="new_delay_key_write" id="delay_key_write_opt"
                 <?php echo (isset($delay_key_write) && $delay_key_write == 1) ? ' checked="checked"' : ''; ?> style="vertical-align: middle" /><label for="delay_key_write_opt">delay_key_write</label><br />
 
+        <?php
+        } // end if (MYISAM)
+        if ($tbl_type == 'MYISAM' ||($tbl_type == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50003)) {
+        ?>
                 <input type="text" name="new_auto_increment" id="auto_increment_opt" class="textfield"
                 <?php echo (isset($auto_increment) && !empty($auto_increment) ? ' value="' . $auto_increment . '"' : ''); ?> style="width: 30px; vertical-align: middle" />&nbsp;<label for="auto_increment_opt">auto_increment</label>
             </td>
         <?php
-        } // end if (MYISAM)
+        } // end if (MYISAM|INNODB)
         ?>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right" valign="bottom">
                 <input type="submit" name="submitoptions" value="<?php echo $strGo; ?>" />
