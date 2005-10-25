@@ -26,6 +26,8 @@ require_once('./libraries/storage_engines.lib.php');
 // the calling of relation.lib.php)
 PMA_DBI_select_db($db);
 
+$reread_info = FALSE;
+
 /**
  * Updates table comment, type and options if required
  */
@@ -34,12 +36,14 @@ if (isset($submitcomment)) {
         $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
         $result    = PMA_DBI_query($sql_query);
         $message   = $strSuccess;
+        $reread_info = TRUE;
     }
 }
 if (isset($submittype)) {
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' TYPE = ' . $new_tbl_type;
     $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;
+    $reread_info = TRUE;
 }
 if (isset($submitcollation)) {
     // since something modifies $tbl_collation between the moment it is
@@ -50,6 +54,7 @@ if (isset($submitcollation)) {
     $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;
     unset($tbl_collation);
+    $reread_info = TRUE;
 }
 if (isset($submitoptions)) {
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table);
@@ -65,8 +70,13 @@ if (isset($submitoptions)) {
     }
     $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;
+    $reread_info = TRUE;
+}
+
+if ($reread_info) {
     require('./tbl_properties_table_info.php');
 }
+unset($reread_info);
 
 /**
  * Reordering the table has been requested by the user
