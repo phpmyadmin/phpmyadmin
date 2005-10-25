@@ -65,7 +65,10 @@ if (isset($submitoptions)) {
         $sql_query .= (isset($new_checksum) ? ' checksum=1': ' checksum=0')
                    . (isset($new_delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0');
     }
-    if ($tbl_type == 'MYISAM' ||($tbl_type == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50003)) {
+    // nijel: Here should be version check for InnoDB, however it is supported 
+    // in 5.0.x x>4, 4.1.y y>12 and also works in 4.0.11, so I decided not to 
+    // check for version
+    if ($tbl_type == 'MYISAM' || $tbl_type == 'INNODB') {
         $sql_query .= !empty($new_auto_increment) ? ' auto_increment=' . PMA_sqlAddslashes($new_auto_increment) : '';
     }
     $result        = PMA_DBI_query($sql_query);
@@ -380,7 +383,10 @@ for ($i = 0; $i < $num_dbs; $i++) {
     // DELAY_KEY_WRITE, CHECKSUM, : MyISAM only
     // AUTO_INCREMENT: MyISAM and InnoDB since 5.0.3
 
-    if ($tbl_type == 'MYISAM' || $tbl_type == 'ISAM' || ($tbl_type == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50003)) {
+    // nijel: Here should be version check for InnoDB, however it is supported 
+    // in 5.0.x x>4, 4.1.y y>12 and also works in 4.0.11, so I decided not to 
+    // check for version
+    if ($tbl_type == 'MYISAM' || $tbl_type == 'ISAM' || $tbl_type == 'INNODB') {
     ?>
     <!-- Table options -->
     <form method="post" action="tbl_properties_operations.php">
@@ -409,7 +415,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
 
         <?php
         } // end if (MYISAM)
-        if ($tbl_type == 'MYISAM' ||($tbl_type == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50003)) {
+        if ($tbl_type == 'MYISAM' || $tbl_type == 'INNODB') {
         ?>
                 <input type="text" name="new_auto_increment" id="auto_increment_opt" class="textfield"
                 <?php echo (isset($auto_increment) && !empty($auto_increment) ? ' value="' . $auto_increment . '"' : ''); ?> style="width: 30px; vertical-align: middle" />&nbsp;<label for="auto_increment_opt">auto_increment</label>

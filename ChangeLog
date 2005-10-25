@@ -8,7 +8,7 @@ $Source$
 2005-10-25 Michal Čihař  <michal@cihar.com>
     * lang/english: "Log in" is correct naming for action (RFE #945440).
     * tbl_properties_operations.php: Allow to change auto_increment for
-      InnoDB, supported since MySQL 5.0.3 (bug #1337873).
+      InnoDB (bug #1337873).
     * tbl_properties_operations.php: Reread table information after change, so
       that rendered page contains change, that has been just done.
 
