@@ -614,7 +614,7 @@ if ($is_minimum_common == FALSE) {
         }
         // ---
         echo "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
-        echo '    <h1 class="errorhead">' . $GLOBALS['strError'] . '</h1>' . "\n";
+        echo '    <div class="error"><h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
         // if the config password is wrong, or the MySQL server does not
         // respond, do not show the query that would reveal the
         // username/password
@@ -623,13 +623,11 @@ if ($is_minimum_common == FALSE) {
             // Robbat2 - 12 January 2003, 9:46PM
             // Revised, Robbat2 - 13 January 2003, 2:59PM
             if (function_exists('PMA_SQP_isError') && PMA_SQP_isError()) {
-                echo '<div class="error">' . "\n";
                 echo PMA_SQP_getErrorString() . "\n";
-                echo '</div>' . "\n";
+                echo '<br />' . "\n";
             }
             // ---
             // modified to show me the help on sql errors (Michael Keck)
-            echo '<div class="error">' . "\n";
             echo '    <p><strong>' . $GLOBALS['strSQLQuery'] . ':</strong>' . "\n";
             if (strstr(strtolower($formatted_sql),'select')) { // please show me help to the error on select
                 echo PMA_showMySQLDocu('Reference', 'SELECT');
@@ -653,7 +651,7 @@ if ($is_minimum_common == FALSE) {
             echo '    </p>' . "\n"
                 .'    <p>' . "\n"
                 .'        ' . $formatted_sql . "\n"
-                .'    </p></div>' . "\n";
+                .'    </p>' . "\n";
         } // end if
 
         $tmp_mysql_error = ''; // for saving the original $error_message
@@ -663,7 +661,7 @@ if ($is_minimum_common == FALSE) {
             $error_message = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $error_message);
         }
         // modified to show me the help on error-returns (Michael Keck)
-        echo '<div class="error"><p>' . "\n"
+        echo '<p>' . "\n"
                 . '    <strong>' . $GLOBALS['strMySQLSaid'] . '</strong>'
                 . PMA_showMySQLDocu('Error-returns', 'Error-returns')
                 . "\n"
@@ -1910,10 +1908,10 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
         ?>
 <br />
 <div align="<?php echo $GLOBALS['cell_align_left']; ?>">
-    <table border="<?php echo $cfg['Border']; ?>" cellpadding="5" cellspacing="1">
-    <?php if (isset($GLOBALS['show_error_header']) && $GLOBALS['show_error_header']) { ?>
-    <tr><th class="tblHeadError"><div class="errorhead"><?php echo $GLOBALS['strError']; ?></div></th></tr>
+    <?php if ( ! empty( $GLOBALS['show_error_header'] ) ) { ?>
+    <div class="error"><h1><?php echo $GLOBALS['strError']; ?></h1>
     <?php } ?>
+    <table border="<?php echo $cfg['Border']; ?>" cellpadding="5" cellspacing="1">
     <tr>
         <th<?php echo ($GLOBALS['theme'] != 'original') ? ' class="tblHeaders"' : ' bgcolor="' . $cfg['ThBgcolor'] . '"'; ?>>
             <b><?php 
@@ -2147,6 +2145,9 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
         echo "\n";
         ?>
     </table>
+    <?php if ( ! empty( $GLOBALS['show_error_header'] ) ) { ?>
+    </div>
+    <?php } ?>
 </div><br />
         <?php
     } // end of the 'PMA_showMessage()' function

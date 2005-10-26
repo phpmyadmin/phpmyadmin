@@ -19,8 +19,7 @@
  *
  * @access  public
  */
-function PMA_auth()
-{
+function PMA_auth() {
     global $right_font_family, $font_size, $font_bigger;
 
     header('WWW-Authenticate: Basic realm="phpMyAdmin ' . sprintf($GLOBALS['strRunning'], (empty($GLOBALS['cfg']['Server']['verbose']) ? str_replace('\'', '\\\'',$GLOBALS['cfg']['Server']['host']) : str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['verbose']))) .  '"');
@@ -34,9 +33,7 @@ function PMA_auth()
     require('./libraries/header_meta_style.inc.php');
     ?>
 </head>
-
-<body bgcolor="<?php echo $GLOBALS['cfg']['RightBgColor']; ?>">
-
+<body>
 <?php include('./config.header.inc.php'); ?>
 
 <br /><br />
@@ -44,18 +41,14 @@ function PMA_auth()
     <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION); ?></h1>
 </center>
 <br />
-<div class="warning"><p><?php echo $GLOBALS['strWrongUser']; ?></p></div>
+<div class="warning"><?php echo $GLOBALS['strWrongUser']; ?></div>
 
 <?php include('./config.footer.inc.php'); ?>
 
 </body>
-
 </html>
     <?php
-    echo "\n";
     exit();
-
-    return TRUE;
 } // end of the 'PMA_auth()' function
 
 

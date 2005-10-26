@@ -8,6 +8,14 @@ require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/sqlparser.lib.php');
 
+if ( $GLOBALS['text_dir'] === 'ltr' ) {
+    $right = 'right';
+    $left = 'left';
+} else {
+    $right = 'left';
+    $left = 'right';
+}
+
 // Gets the default font sizes
 // garvin: TODO: Should be optimized to not include the whole common.lib.php bunch
 // but only functions used to determine browser heritage.

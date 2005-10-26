@@ -251,18 +251,15 @@ if (!$is_information_schema) {
            . '        </form>' . "\n"
            . '         ' . "\n\n";
     }
+    
+    echo '</table>';
 
-    if ($num_tables > 0
+    if ( $num_tables > 0
         && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
-        echo '<tr><td colspan="3"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td></tr>'
-            . '<tr><th colspan="3" class="tblHeadError"><div class="errorhead">' . $strError . '</div></th></tr>'
-            . '<tr><td colspan="3" class="tblError">'
-            . sprintf(wordwrap($strRelationNotWorking,65,'<br />'), '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">',  '</a>')
-            . '</td></tr>';
+        echo '<div class="error"><h1>' . $strError . '</h1>'
+            . sprintf( $strRelationNotWorking, '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">',  '</a>')
+            . '</div>';
     } // end if
-?>
-</table>
-<?php
 } // end if (!$is_information_schema)
 // not sure about leaving the PDF dialog for information_schema
 

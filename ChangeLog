@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+	* themes/*/theme_right.css.php, libraries/auth/http.auth.lib.php,
+	  db_operations.php, mult_submits.inc.php, server_privileges.php,
+	  css/phpmyadmin.css.php, libraries/common.lib.php, sql.php,
+	  libraries/auth/cookie.auth.lib.php:
+	  unified message boxes (error, warning, confirmation)
+	
 2005-10-25 Michal Čihař  <michal@cihar.com>
     * lang/english: "Log in" is correct naming for action (RFE #945440).
     * tbl_properties_operations.php: Allow to change auto_increment for

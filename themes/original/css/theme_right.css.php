@@ -49,8 +49,6 @@ a.drop:visited  {font-family: <?php echo $right_font_family; ?>; color: #ff0000}
 a.drop:hover    {font-family: <?php echo $right_font_family; ?>; color: #ffffff; background-color:#ff0000; text-decoration: none}
 dfn             {font-style: normal}
 dfn:hover       {font-style: normal; cursor: help}
-.warning        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
-.tblcomment     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_smallest; ?>; font-weight: normal; color: #000099; }
 td.topline      {font-size: 1px}
 
 
@@ -204,38 +202,89 @@ span.tab, span.tabcaution {
 <?php } ?>
 /* end topmenu */
 
-/* Warning showing div with right border and optional icon */
 
-.errorhead {
-    background-color: #FF0000;
+/* message boxes: warning, error, confirmation */
+.warning {
+    color: #CC0000;
+    background-color: #FFFFCC;
+}
+h1.warning,
+div.warning {
+    margin: 0.5em 0 0.5em 0;
+    border: 0.1em solid #CC0000;
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    background-image: url(../themes/original/img/s_warn.png);
+    background-repeat: no-repeat;
+    background-position: 10px; 50%;
+    padding: 10px 10px 10px 36px;
+    <?php } else {?>
+    padding: 0.5em;
+    <?php }?>
+}
+.warning h1 {
+    border-bottom: 0.1em solid #cc0000;
     font-weight: bold;
-    color: #ffffff;
     text-align: left;
+    margin: 0 0 0.2em 0;
+}
+
+.error {
+    background-color: #FFFFCC;
+    color: #ff0000;
+}
+h1.error,
+div.error {
+    margin: 0.5em 0 0.5em 0;
+    border: 0.1em solid #ff0000;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
     background-image: url(../themes/original/img/s_error.png);
     background-repeat: no-repeat;
-    background-position: 5px 50%;
-    padding: 0 0 0 25px;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 36px;
+        <?php } else {?>
+    background-position: 100% 50%;
+    padding: 10px 36px 10px 10px;
+        <?php }?>
     <?php } else {?>
-    padding: 0.2em;
+    padding: 0.5em;
     <?php }?>
-    margin: 0.5em 0 0 0;
+}
+div.error h1 {
+    border-bottom: 0.1em solid #ff0000;
+    font-weight: bold;
+    text-align: left;
+    margin: 0 0 0.2em 0;
 }
 
-/* tables */
-.error,
-.tblError {
-    border: 1px solid #FF0000;
+
+.confirmation {
     background-color: #FFFFCC;
 }
-.tblWarn, div.tblWarn, div.warning {
-    border: 1px solid #FF0000;
-    background-color: #FFFFFF;
+fieldset.confirmation {
+    border: 0.1em solid #FF0000;
 }
-div.tblWarn, div.warning {
-    padding: 5px 5px 5px 5px;
-    margin:  0.5em 0px 0.5em 0px;
+fieldset.confirmation legend {
+    border-left: 0.1em solid #FF0000;
+    border-right: 0.1em solid #FF0000;
+    font-weight: bold;
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    background-image: url(../themes/original/img/s_really.png);
+    background-repeat: no-repeat;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 5px 50%;
+    padding: 0.2em 0.2em 0.2em 25px;
+        <?php } else {?>
+    background-position: 100% 50%;
+    padding: 0.2em 25px 0.2em 0.2em;
+        <?php }?>
+    <?php }?>
 }
+/* end messageboxes */
+
+
+.tblcomment     {font-size: <?php echo $font_smallest; ?>; font-weight: normal; color: #000099; }
+
 .tblHeaders {
     background-color: <?php echo $cfg['LeftBgColor']; ?>;
     font-weight: bold;
@@ -246,20 +295,19 @@ div.tblWarn, div.warning {
     font-weight: normal;
     color: #000000;
 }
-.tblHeaders a:link, .tblHeaders a:active, .tblHeaders a:visited, .tblFooters a:link, .tblFooters a:active, .tblFooters a:visited {
+.tblHeaders a:link,
+.tblHeaders a:active,
+.tblHeaders a:visited,
+.tblFooters a:link,
+.tblFooters a:active,
+.tblFooters a:visited {
     color: #0000FF;
 }
-.tblHeaders a:hover, .tblFooters a:hover { color: #FF0000; }
-.tblHeadError {
-    background-color: #FF0000;
-    font-weight: bold;
-    color: #FFFFFF;
+.tblHeaders a:hover,
+.tblFooters a:hover {
+    color: #FF0000;
 }
-.tblHeadWarn {
-    background-color: #FFCC00;
-    font-weight: bold;
-    color: #000000;
-}
+
 /* forbidden, no privilegs */
 .noPrivileges{
     color: #FF0000;

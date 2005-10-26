@@ -208,37 +208,15 @@ if (!$cfg['Confirm']
     $do_confirm = isset($analyzed_sql[0]['queryflags']['need_confirm']);
 }
 
-if ($do_confirm) {
+if ( $do_confirm ) {
     $stripped_sql_query = $sql_query;
     require_once('./header.inc.php');
-    echo '<table border="0" cellpadding="3" cellspacing="0">' . "\n";
-    if ($is_drop_database) {
-        echo '    <tr>' . "\n"
-           . '        <td class="tblHeadError">' . "\n";
-        if($cfg['ErrorIconic']){
-            echo '        <img src="' .$pmaThemeImage .'s_warn.png" border="0" hspace="2" vspace="2" align="left" />';
-        }
-        echo $strDropDatabaseStrongWarning . '&nbsp;<br />' . "\n";
-    } else {
-        echo '    <tr>' . "\n"
-           . '        <td class="tblHeadError">' . "\n";
-        if($cfg['ErrorIconic']){
-            echo '        <img src="' .$pmaThemeImage .'s_really.png" border="0" hspace="2" align="middle" />';
-        }
+    if ( $is_drop_database) {
+        echo '<h1 class="warning">' . $strDropDatabaseStrongWarning . '</h1>';
     }
-    echo $strDoYouReally . "\n"
-       . '        </td>' . "\n"
-       . '    </tr>' . "\n"
-       . '    <tr>' . "\n"
-       . '        <td class="tblError">' . "\n"
-       . '            <tt>' . htmlspecialchars($stripped_sql_query) . '</tt>&nbsp;?<br/>' . "\n"
-       . '        </td>' . "\n"
-       . '    </tr>' . "\n"
-       . '    <form action="sql.php" method="post">' . "\n"
-       . '    <tr>' . "\n"
-       . '        <td align="right">' . "\n"
+    echo '<form action="sql.php" method="post">' . "\n"
+        .PMA_generate_common_hidden_inputs($db, (isset($table)?$table:''));
     ?>
-    <?php echo PMA_generate_common_hidden_inputs($db, (isset($table)?$table:'')); ?>
     <input type="hidden" name="sql_query" value="<?php echo urlencode($sql_query); ?>" />
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? PMA_sanitize($zero_rows) : ''; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
@@ -248,15 +226,19 @@ if ($do_confirm) {
     <input type="hidden" name="cpurge" value="<?php echo isset($cpurge) ? PMA_sanitize($cpurge) : ''; ?>" />
     <input type="hidden" name="purgekey" value="<?php echo isset($purgekey) ? PMA_sanitize($purgekey) : ''; ?>" />
     <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? PMA_sanitize($show_query) : ''; ?>" />
+    <?php
+    echo '<fieldset class="confirmation">' . "\n"
+        .'    <legend>' . $strDoYouReally . '</legend>'
+        .'    <tt>' . htmlspecialchars( $stripped_sql_query ) . '</tt>' . "\n"
+        .'</fieldset>' . "\n"
+        .'<fieldset class="tblFooters">' . "\n";
+    ?>
     <input type="submit" name="btnDrop" value="<?php echo $strYes; ?>" id="buttonYes" />
     <input type="submit" name="btnDrop" value="<?php echo $strNo; ?>" id="buttonNo" />
     <?php
-    echo '        </td>' . "\n"
-       . '    </tr>' . "\n"
-       . '    </form>' . "\n"
-       . '</table>';
-    echo "\n";
-} // end if
+    echo '</fieldset>' . "\n"
+       . '</form>' . "\n";
+} // end if $do_confirm
 
 
 /**

@@ -186,30 +186,31 @@ if (top != self) {
     }
     echo "\n\n";
 
+    echo '        </table>' . "\n"
+       . '    </form>' . "\n";
+       
     // Displays the warning message and the login form
 
     if (empty($GLOBALS['cfg']['blowfish_secret'])) {
     ?>
-        <tr><td colspan="2" height="5"></td></tr>
-        <tr>
-            <th colspan="2" align="left" class="tblHeadError">
-                <div class="errorhead"><?php echo $GLOBALS['strError']; ?></div>
-            </th>
-        </tr>
-        <tr>
-            <td class="tblError" colspan="2" align="left"><?php echo $GLOBALS['strSecretRequired']; ?></td>
-        </tr>
+        <div class="error"><h1><?php echo $GLOBALS['strError']; ?></h1>
+            <?php echo $GLOBALS['strSecretRequired']; ?>
+        </div>
 <?php
         include('./config.footer.inc.php');
-        echo '        </table>' . "\n"
-           . '    </form>' . "\n"
-           . '    </body>' . "\n"
+        echo '    </body>' . "\n"
            . '</html>';
         exit();
     }
 ?>
     </table>
 </form>
+<?php
+    if ( !empty($conn_error)) {
+        echo '<div class="error"><h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
+        echo $conn_error . '</div>' . "\n";
+    }
+?>
 <br />
 <!-- Login form -->
 <form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?> target="_top">
@@ -296,11 +297,6 @@ if (top != self) {
         <?php
     } // end if (server choice)
     echo "\n";
-    if (!empty($conn_error)) {
-        echo '<tr><td colspan="2" height="5"></td></tr>';
-        echo '<tr><th colspan="2" align="left" class="tblHeadError"><div class="errorhead">' . $GLOBALS['strError'] . '</div></th></tr>' . "\n";
-        echo '<tr><td colspan="2" align="left" class="tblError">'. $conn_error . '</td></tr>' . "\n";
-    }
     ?>
     <tr>
         <td colspan="2" align="right">

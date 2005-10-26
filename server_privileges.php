@@ -1255,7 +1255,7 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
             echo '</form>' . "\n"
-               . '<div class="tblWarn">' . "\n"
+               . '<div class="warning">' . "\n"
                . '    ' . sprintf($GLOBALS['strFlushPrivilegesNote'], '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1">', '</a>') . "\n"
                . '</div>' . "\n";
          }

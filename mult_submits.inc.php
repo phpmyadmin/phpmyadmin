@@ -17,7 +17,7 @@ if (!empty($submit_mult)
     if (!empty($selected_db)) {
         $selected     = $selected_db;
         $what         = 'drop_db';
-    } else if (!empty($selected_tbl)) {
+    } elseif (!empty($selected_tbl)) {
         if ($submit_mult == $strPrintView) {
             require('./tbl_printview.php');
         } else {
@@ -54,7 +54,7 @@ if (!empty($submit_mult)
                    break;
            } // end switch
         }
-    } else if (!empty($selected_fld)) {
+    } elseif (!empty($selected_fld)) {
         $selected     = $selected_fld;
         switch ($submit_mult) {
             case $strDrop:
@@ -123,7 +123,7 @@ if (!empty($submit_mult)
 /**
  * Displays the confirmation form if required
  */
-if (!empty($submit_mult) && !empty($what)) {
+if ( !empty($submit_mult) && !empty($what)) {
     $js_to_run = 'functions.js';
     unset($message);
     if (!empty($table)) {
@@ -146,22 +146,22 @@ if (!empty($submit_mult) && !empty($what)) {
         switch ($what) {
             case 'row_delete':
                 $full_query .= htmlspecialchars(urldecode($sval))
-                            . ';<br />';
+                    . ';<br />';
                 break;
             case 'drop_db':
                 $full_query .= 'DROP DATABASE '
-                            . PMA_backquote(htmlspecialchars(urldecode($sval)))
-                            . ';<br />';
+                    . PMA_backquote(htmlspecialchars(urldecode($sval)))
+                    . ';<br />';
                 break;
 
             case 'drop_tbl':
-	        $current = urldecode($sval);
-		if (!empty($views) && in_array($current, $views)) {
+    	        $current = urldecode($sval);
+        		if (!empty($views) && in_array($current, $views)) {
                     $full_query_views .= (empty($full_query_views) ? 'DROP VIEW ' : ', ')
-		                       . PMA_backquote(htmlspecialchars($current));
-		} else {
+                        . PMA_backquote(htmlspecialchars($current));
+        		} else {
                     $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
-                                . PMA_backquote(htmlspecialchars($current));
+                        . PMA_backquote(htmlspecialchars($current));
                 }
                 break;
 
@@ -178,16 +178,16 @@ if (!empty($submit_mult) && !empty($what)) {
             case 'primary_fld':
                 if ($full_query == '') {
                     $full_query .= 'ALTER TABLE '
-                                . PMA_backquote(htmlspecialchars($table))
-                                . '<br />&nbsp;&nbsp;DROP PRIMARY KEY,'
-                                . '<br />&nbsp;&nbsp; ADD PRIMARY KEY('
-                                . '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
-                                . PMA_backquote(htmlspecialchars(urldecode($sval)))
-                                . ',';
+                        . PMA_backquote(htmlspecialchars($table))
+                        . '<br />&nbsp;&nbsp;DROP PRIMARY KEY,'
+                        . '<br />&nbsp;&nbsp; ADD PRIMARY KEY('
+                        . '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
+                        . PMA_backquote(htmlspecialchars(urldecode($sval)))
+                        . ',';
                 } else {
                     $full_query .= '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
-                                . PMA_backquote(htmlspecialchars(urldecode($sval)))
-                                . ',';
+                        . PMA_backquote(htmlspecialchars(urldecode($sval)))
+                        . ',';
                 }
                 if ($i == $selected_cnt-1) {
                     $full_query = preg_replace('@,$@', ');<br />', $full_query);
@@ -197,14 +197,14 @@ if (!empty($submit_mult) && !empty($what)) {
             case 'drop_fld':
                 if ($full_query == '') {
                     $full_query .= 'ALTER TABLE '
-                                . PMA_backquote(htmlspecialchars($table))
-                                . '<br />&nbsp;&nbsp;DROP '
-                                . PMA_backquote(htmlspecialchars(urldecode($sval)))
-                                . ',';
+                        . PMA_backquote(htmlspecialchars($table))
+                        . '<br />&nbsp;&nbsp;DROP '
+                        . PMA_backquote(htmlspecialchars(urldecode($sval)))
+                        . ',';
                 } else {
                     $full_query .= '<br />&nbsp;&nbsp;DROP '
-                                . PMA_backquote(htmlspecialchars(urldecode($sval)))
-                                . ',';
+                        . PMA_backquote(htmlspecialchars(urldecode($sval)))
+                        . ',';
                 }
                 if ($i == $selected_cnt-1) {
                     $full_query = preg_replace('@,$@', ';<br />', $full_query);
@@ -215,57 +215,36 @@ if (!empty($submit_mult) && !empty($what)) {
     }
     if ($what == 'drop_tbl') {
         if (!empty($full_query)) {
-	    $full_query .= ';<br />' . "\n";
-	}
-	if (!empty($full_query_views)) {
-	    $full_query .= $full_query_views . ';<br />' . "\n";
-	}
-	unset($full_query_views);
+    	    $full_query .= ';<br />' . "\n";
+    	}
+    	if (!empty($full_query_views)) {
+    	    $full_query .= $full_query_views . ';<br />' . "\n";
+    	}
+    	unset($full_query_views);
     }
 
     // Displays the form
-?>
+    ?>
 <!-- Do it really ? -->
-<table border="0" cellpadding="3" cellspacing="0">
-    <tr>
-        <th class="tblHeadError" align="left">
-            <?php
-    echo ($GLOBALS['cfg']['ErrorIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_really.png" border="0" hspace="2" width="11" height="11" valign="middle" />' : '');
-    echo $strDoYouReally . ':&nbsp;' . "\n";
-            ?>
-        </th>
-    </tr>
-    <tr>
-        <td bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>">
-           <?php
-    echo '<tt>' . $full_query . '</tt>&nbsp;?<br/>' . "\n";
-           ?>
-        </td>
-    </tr>
-    <tr>
-       <td align="right" nowrap="nowrap">
 <form action="<?php echo $action; ?>" method="post">
+<input type="hidden" name="query_type" value="<?php echo $what; ?>" />
     <?php
-    echo "\n";
     if (strpos(' ' . $action, 'db_details') == 1) {
         echo PMA_generate_common_hidden_inputs($db);
-    } else if (strpos(' ' . $action, 'tbl_properties') == 1
+    } elseif (strpos(' ' . $action, 'tbl_properties') == 1
               || $what == 'row_delete') {
         echo PMA_generate_common_hidden_inputs($db,$table);
     } else  {
         echo PMA_generate_common_hidden_inputs();
     }
     foreach ($selected AS $idx => $sval) {
-        echo '    <input type="hidden" name="selected[]" value="' . htmlspecialchars($sval) . '" />' . "\n";
+        echo '<input type="hidden" name="selected[]" value="' . htmlspecialchars($sval) . '" />' . "\n";
     }
     if ($what == 'drop_tbl' && !empty($views)) {
         foreach ($views as $current) {
-	    echo '    <input type="hidden" name="views[]" value="' . htmlspecialchars($current) . '" />' . "\n";
-	}
+           echo '<input type="hidden" name="views[]" value="' . htmlspecialchars($current) . '" />' . "\n";
+       }
     }
-    ?>
-    <input type="hidden" name="query_type" value="<?php echo $what; ?>" />
-    <?php
     if ($what == 'row_delete') {
         echo '<input type="hidden" name="original_sql_query" value="' . htmlspecialchars($original_sql_query) . '" />' . "\n";
         echo '<input type="hidden" name="original_pos" value="' . $original_pos . '" />' . "\n";
@@ -277,15 +256,15 @@ if (!empty($submit_mult) && !empty($what)) {
         echo '<input type="hidden" name="session_max_rows" value="' . $session_max_rows . '" />' . "\n";
     }
     ?>
+<fieldset class="confirmation">
+    <legend><?php echo $strDoYouReally; ?>:</legend>
+    <tt><?php echo $full_query; ?></tt>
+</fieldset>
+<fieldset class="tblFooters">
     <input type="submit" name="mult_btn" value="<?php echo $strYes; ?>" id="buttonYes" />
     <input type="submit" name="mult_btn" value="<?php echo $strNo; ?>" id="buttonNo" />
-</form>
-        </td>
-    </tr>
-</table>
+</fieldset>
     <?php
-    echo"\n";
-
     require_once('./footer.inc.php');
 } // end if
 
@@ -293,7 +272,7 @@ if (!empty($submit_mult) && !empty($what)) {
 /**
  * Executes the query
  */
-else if ($mult_btn == $strYes) {
+elseif ($mult_btn == $strYes) {
 
     if ($query_type == 'drop_db' || $query_type == 'drop_tbl' || $query_type == 'drop_fld') {
         require_once('./libraries/relation_cleanup.lib.php');
@@ -338,9 +317,9 @@ else if ($mult_btn == $strYes) {
 
             case 'drop_tbl':
                 PMA_relationsCleanupTable($db, $selected[$i]);
-		$current = urldecode($selected[$i]);
-		if (!empty($views) && in_array($current, $views)) {
-		    $sql_query_views .= (empty($sql_query_views) ? 'DROP VIEW ' : ', ')
+        		$current = urldecode($selected[$i]);
+        		if (!empty($views) && in_array($current, $views)) {
+        		    $sql_query_views .= (empty($sql_query_views) ? 'DROP VIEW ' : ', ')
 		                      . PMA_backquote($current);
                 } else {
                     $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ')
@@ -440,13 +419,11 @@ else if ($mult_btn == $strYes) {
     } elseif (!$run_parts) {
         PMA_DBI_select_db($db);
         $result = PMA_DBI_query($sql_query);
-	if (!empty($sql_query_views)) {
-	    $sql_query .= ' ' . $sql_query_views . ';';
-	    PMA_DBI_query($sql_query_views);
-	    unset($sql_query_views);
-	}
+    	if (!empty($sql_query_views)) {
+    	    $sql_query .= ' ' . $sql_query_views . ';';
+    	    PMA_DBI_query($sql_query_views);
+    	    unset($sql_query_views);
+    	}
     }
-
 }
-
 ?>
