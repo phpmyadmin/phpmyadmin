@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/french* updates
+
 2005-10-26 Sebastian Mendel <cybot_tm@users.sourceforge.net>
 	* themes/*/theme_right.css.php, libraries/auth/http.auth.lib.php,
 	  db_operations.php, mult_submits.inc.php, server_privileges.php,
