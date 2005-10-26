@@ -11,6 +11,7 @@ $Source$
 	  css/phpmyadmin.css.php, libraries/common.lib.php, sql.php,
 	  libraries/auth/cookie.auth.lib.php:
 	  unified message boxes (error, warning, confirmation)
+	* server_privilegs.php: MySQL 5 requires CREATE USER before GRANT
 	
 2005-10-25 Michal Čihař  <michal@cihar.com>
     * lang/english: "Log in" is correct naming for action (RFE #945440).

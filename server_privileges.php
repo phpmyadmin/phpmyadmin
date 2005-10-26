@@ -665,6 +665,12 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
         $adduser = 1;
     } else {
         PMA_DBI_free_result($res);
+        
+        if ( 50002 <= PMA_MYSQL_INT_VERSION ) {
+            // MySQL 5 requires CREATE USER before any GRANT on this user can done
+            $create_user_real = 'CREATE USER \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
+        }
+        
         $real_sql_query = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
         if ($pred_password != 'none' && $pred_password != 'keep') {
             $pma_pw_hidden = '';
@@ -673,11 +679,21 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             }
             $sql_query = $real_sql_query . ' IDENTIFIED BY \'' . $pma_pw_hidden . '\'';
             $real_sql_query .= ' IDENTIFIED BY \'' . $pma_pw . '\'';
+            if ( isset( $create_user_real ) ) {
+                $create_user_show = $create_user_real . ' IDENTIFIED BY \'' . $pma_pw_hidden . '\'';
+                $create_user_real .= ' IDENTIFIED BY \'' . $pma_pw . '\'';
+            }
         } else {
             if ($pred_password == 'keep' && !empty($password)) {
                 $real_sql_query .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
+                if ( isset( $create_user_real ) ) {
+                    $create_user_real .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
+                }
             }
             $sql_query = $real_sql_query;
+            if ( isset( $create_user_real ) ) {
+                $create_user_show = $create_user_real;
+            }
         }
         // FIXME: similar code appears twice in this script
         if ((isset($Grant_priv) && $Grant_priv == 'Y') || (PMA_MYSQL_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates) || isset($max_user_connections)))) {
@@ -713,17 +729,27 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
                 }
             }
         }
+        if ( isset( $create_user_real ) ) {
+            $create_user_real .= ';';
+            $create_user_show .= ';';
+        }
         $real_sql_query .= ';';
         $sql_query .= ';';
         if (empty($change_copy)) {
+            if ( isset( $create_user_real ) ) {
+                PMA_DBI_try_query($create_user_real) or PMA_mysqlDie(PMA_DBI_getError(), $create_user_show);
+                $sql_query = $create_user_show . $sql_query;
+            }
             PMA_DBI_try_query($real_sql_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
             $message = $GLOBALS['strAddUserMessage'];
         } else {
+            $queries[]             = $create_user_real;
             $queries[]             = $real_sql_query;
             // we put the query containing the hidden password in
             // $queries_for_display, at the same position occupied
             // by the real query in $queries
             $tmp_count = count($queries);
+            $queries_for_display[$tmp_count - 2] = $create_user_show;
             $queries_for_display[$tmp_count - 1] = $sql_query;
         }
         unset($res, $real_sql_query);
@@ -987,9 +1013,8 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
  * Changes / copies a user, part V
  */
 if (!empty($change_copy)) {
-    $tmp_count = -1;
+    $tmp_count = 0;
     foreach ($queries as $sql_query) {
-        $tmp_count++;
         if ($sql_query{0} != '#') {
             PMA_DBI_query($sql_query);
         }
@@ -998,6 +1023,7 @@ if (!empty($change_copy)) {
         if (isset($queries_for_display[$tmp_count])) {
             $queries[$tmp_count] = $queries_for_display[$tmp_count];
         }
+        $tmp_count++;
     }
     $message = $GLOBALS['strSuccess'];
     $sql_query = join("\n", $queries);
