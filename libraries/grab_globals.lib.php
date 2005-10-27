@@ -91,14 +91,19 @@ if (!empty($_FILES)) {
 
 if (!empty($_SERVER)) {
     $server_vars = array('PHP_SELF', 'HTTP_ACCEPT_LANGUAGE', 'HTTP_AUTHORIZATION');
-    foreach ($server_vars as $current) {
-        if (isset($_SERVER[$current])) {
+    foreach ( $server_vars as $current ) {
+        // its not important HOW we detect html tags 
+        // its more important to prevent XSS
+        // so its not important if we result in an invalid string,
+        // its even better than a XSS capable string
+        if ( isset( $_SERVER[$current] ) && false === strpos( $_SERVER[$current], '<' ) ) {
             $$current = $_SERVER[$current];
-        } elseif (!isset($$current)) {
+        // already importet by register_globals?
+        } elseif ( ! isset( $$current ) || false !== strpos( $$current, '<' ) ) {
             $$current = '';
         }
     }
-    unset($server_vars, $current);
+    unset( $server_vars, $current );
 } // end if
 
 // Security fix: disallow accessing serious server files via "?goto="

@@ -27,6 +27,7 @@ $Source$
       - bug #1274032 Field privileges with database names containing underscores
       - use DROP USER
       - use db_name LIKE REPLACE( mysql.db.Db, \_, _ )
+    * libraries/grab_globals.lib.php: [XSS] clean $_SERVER variables
     
 2005-10-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french* updates
