@@ -275,8 +275,18 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         return $descr;
     }
 
+    /**
+     * returns collation of given db
+     * 
+     * @uses    PMA_MYSQL_INT_VERSION
+     * @uses    PMA_DBI_fetch_value()
+     * @uses    PMA_DBI_select_db()
+     * @uses    PMA_sqlAddSlashes()
+     * @uses    $GLOBALS['db']
+     * @param   string  $db     name of db
+     * @return  string  collation of $db
+     */
     function PMA_getDbCollation( $db ) {
-        global $userlink;
         if (PMA_MYSQL_INT_VERSION >= 50000 && $db == 'information_schema') {
             // We don't have to check the collation of the virtual
             // information_schema database: We know it!
@@ -288,8 +298,12 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         } else if (PMA_MYSQL_INT_VERSION >= 40101) {
             // MySQL 4.1.0 does not support seperate charset settings
             // for databases.
-            PMA_DBI_query('USE ' . PMA_backQuote( addslashes( $db ) ) );
-            return PMA_DBI_fetch_value( 'SHOW VARIABLES LIKE "collation_database"', 0, 1 );
+            PMA_DBI_select_db( $db );
+            $return = PMA_DBI_fetch_value( 'SHOW VARIABLES LIKE "collation_database"', 0, 1 );
+            if ( ! empty( $GLOBALS['db'] ) && $db !== $GLOBALS['db'] ) {
+                PMA_DBI_select_db( $GLOBALS['db'] );
+            }
+            return $return;
         }
         return '';
     }
