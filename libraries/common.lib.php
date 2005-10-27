@@ -2194,6 +2194,8 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
     /**
      * Formats $value to the given length and appends SI prefixes
      * $comma is not substracted from the length
+     * with a $length of 0 no truncation occurs, number is only formated
+     * to the current locale
      * <code>
      * echo PMA_formatNumber( 123456789, 6 );     // 123,457 k
      * echo PMA_formatNumber( -123456789, 4, 2 ); //    -123.46 M
@@ -2212,9 +2214,16 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
      * @access  public
      *
      * @author  staybyte, sebastian mendel
-     * @version 1.0.3 - 2005-09-16
+     * @version 1.1.0 - 2005-10-27
      */
     function PMA_formatNumber( $value, $length = 3, $comma = 0, $only_down = false ) {
+        if ( $length === 0 ) {
+            return number_format( $value,
+                                $comma,
+                                $GLOBALS['number_decimal_separator'],
+                                $GLOBALS['number_thousands_separator'] );
+        }
+        
         // this units needs no translation, ISO
         $units = array(
             -8 => 'y',

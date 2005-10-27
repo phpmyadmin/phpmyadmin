@@ -348,7 +348,7 @@ foreach ( $tables as $keyname => $sts_data ) {
             <?php echo $titles['Drop']; ?></a></td>
     <?php } // end if ( ! $table_is_schema ) ?>
     <?php if ( isset( $sts_data['Rows'] ) ) { ?>
-    <td class="value"><?php echo PMA_formatNumber( $display_rows ); ?></td>
+    <td class="value"><?php echo PMA_formatNumber( $display_rows, 0 ); ?></td>
         <?php if (!($cfg['PropertiesNumColumns'] > 1)) { ?>
     <td nowrap="nowrap"><?php echo $sts_data['Type']; ?></td>
             <?php if ( isset( $collation ) ) { ?>
@@ -390,12 +390,12 @@ if ($cfg['ShowStats']) {
 <tbody>
 <tr><td></td>
     <th align="center" nowrap="nowrap">
-        <?php echo sprintf( $strTables, PMA_formatNumber( $num_tables ) ); ?>
+        <?php echo sprintf( $strTables, PMA_formatNumber( $num_tables, 0 ) ); ?>
     </th>
     <th colspan="<?php echo ( $table_is_schema ? 3 : 6 ) ?>" align="center">
         <?php echo $strSum; ?>
     </th>
-    <th class="value"><?php echo PMA_formatNumber( $sum_entries ); ?></th>
+    <th class="value"><?php echo PMA_formatNumber( $sum_entries, 0 ); ?></th>
 <?php
 if (!($cfg['PropertiesNumColumns'] > 1)) {
     echo '                <th align="center">--</th>' . "\n";
