@@ -789,13 +789,17 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             PMA_DBI_try_query($real_sql_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query);
             $message = $GLOBALS['strAddUserMessage'];
         } else {
-            $queries[]             = $create_user_real;
+            if ( isset( $create_user_real ) ) {
+                $queries[]             = $create_user_real;
+            }
             $queries[]             = $real_sql_query;
             // we put the query containing the hidden password in
             // $queries_for_display, at the same position occupied
             // by the real query in $queries
             $tmp_count = count($queries);
-            $queries_for_display[$tmp_count - 2] = $create_user_show;
+            if ( isset( $create_user_real ) ) {
+                $queries_for_display[$tmp_count - 2] = $create_user_show;
+            }
             $queries_for_display[$tmp_count - 1] = $sql_query;
         }
         unset($res, $real_sql_query);
