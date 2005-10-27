@@ -79,7 +79,7 @@ echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
     <base href="<?php echo $GLOBALS['cfg']['PmaAbsoluteUri']; ?>"
         target="phpmain<?php echo $_SESSION['window_name_hash']; ?>" />
     <link rel="stylesheet" type="text/css"
-        href="./css/phpmyadmin.css.php?js_frame=left" />
+        href="./css/phpmyadmin.css.php?<?php echo PMA_generate_common_url( '', '' ); ?>&amp;js_frame=left" />
     <script type="text/javascript" language="javascript">
     //<![CDATA[
     function toggle( id, only_open ) {

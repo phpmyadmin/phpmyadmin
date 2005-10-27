@@ -21,6 +21,8 @@ $Source$
     * css/phpmyadmin.css.php:
       - added style for class selectallarrow
       - added extra space between icons and text
+    * browse_foreigners.php, header_printview.inc.php, left.php:
+      bug #1334963 Per-server themes - left frame colors unthemed
     
 2005-10-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french* updates
