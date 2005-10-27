@@ -29,6 +29,8 @@ $Source$
       - use db_name LIKE REPLACE( mysql.db.Db, \_, _ )
     * libraries/grab_globals.lib.php: [XSS] clean $_SERVER variables
     * left.php, libraries/common.lib.php: format rowcount in left frame
+    * server_privileges.php:
+      bug #688255 Can't edit priv. when different host in db and user
     
 2005-10-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french* updates
