@@ -12,6 +12,12 @@ $Source$
       - preserve selected db
       - make use of PMA_DBI_select_db()
       - documentation
+    * tbl_properties_structure.php:
+      - added browser icon for each field (count unique values)
+      - removed styling
+      - make use of global row highlighting/marking
+      - display 'print table' and row stats for views
+      - no actions for info_schema tables
     
 2005-10-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french* updates

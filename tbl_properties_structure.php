@@ -95,34 +95,101 @@ $show_create_table = PMA_DBI_fetch_value(
 $analyzed_sql = PMA_SQP_analyze( PMA_SQP_parse( $show_create_table ) );
 
 /**
+ * prepare table infos
+ */
+// action titles (image or string)
+$titles = array();
+if ( $cfg['PropertiesIconic'] == true ) {
+    if ( $cfg['PropertiesIconic'] === 'both' ) {
+        $iconic_spacer = '<div class="nowrap">';
+    } else {
+        $iconic_spacer = '';
+    }
+
+    // images replaced 2004-05-08 by mkkeck
+    $titles['Change']        = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_edit.png" alt="' . $strChange . '" title="' . $strChange . '" />';
+    $titles['Drop']          = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" />';
+    $titles['NoDrop']        = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" />';
+    $titles['Primary']       = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" />';
+    $titles['Index']         = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" />';
+    $titles['Unique']        = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" />';
+    $titles['IdxFulltext']   = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />';
+    $titles['NoPrimary']     = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'bd_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" />';
+    $titles['NoIndex']       = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'bd_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" />';
+    $titles['NoUnique']      = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'bd_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" />';
+    $titles['NoIdxFulltext'] = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'bd_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />';
+    $titles['Browse']        = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" />';
+
+    if ( $cfg['PropertiesIconic'] === 'both' ) {
+        $titles['Change']        .= $strChange . '</div>';
+        $titles['Drop']          .= $strDrop . '</div>';
+        $titles['NoDrop']        .= $strDrop . '</div>';
+        $titles['Primary']       .= $strPrimary . '</div>';
+        $titles['Index']         .= $strIndex . '</div>';
+        $titles['Unique']        .= $strUnique . '</div>';
+        $titles['IdxFulltext'  ] .= $strIdxFulltext . '</div>';
+        $titles['NoPrimary']     .= $strPrimary . '</div>';
+        $titles['NoIndex']       .= $strIndex . '</div>';
+        $titles['NoUnique']      .= $strUnique . '</div>';
+        $titles['NoIdxFulltext'] .= $strIdxFulltext . '</div>';
+        $titles['Browse']        .= $strBrowse . '</div>';
+    }
+} else {
+    $titles['Change']        = $strChange;
+    $titles['Drop']          = $strDrop;
+    $titles['NoDrop']        = $strDrop;
+    $titles['Primary']       = $strPrimary;
+    $titles['Index']         = $strIndex;
+    $titles['Unique']        = $strUnique;
+    $titles['IdxFulltext']   = $strIdxFulltext;
+    $titles['NoPrimary']     = $strPrimary;
+    $titles['NoIndex']       = $strIndex;
+    $titles['NoUnique']      = $strUnique;
+    $titles['NoIdxFulltext'] = $strIdxFulltext;
+    $titles['Browse']        = $strBrowse;
+}
+
+if ( PMA_MYSQL_INT_VERSION >= 50002 && $db === 'information_schema' ) {
+    $db_is_information_schema = true;
+} else {
+    $db_is_information_schema = false;
+}
+
+/**
  * Displays the table structure ('show table' works correct since 3.23.03)
  */
-
+/* TABLE INFORMATION */
+// table header
 $i = 0;
-
 ?>
-
-<!-- TABLE INFORMATION -->
-
 <form method="post" action="tbl_properties_structure.php" name="fieldsForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-<table id="tablestructure">
+<table id="tablestructure" class="data">
 <thead>
 <tr>
-<?php echo $tbl_is_view ? '' : '    <th id="th' . ++$i . '">&nbsp;</th>' . "\n"; ?>
-    <th id="th<?php echo ++$i; ?>">&nbsp;<?php echo $strField; ?>&nbsp;</th>
+    <th id="th<?php echo ++$i; ?>"></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo $strField; ?></th>
     <th id="th<?php echo ++$i; ?>"><?php echo $strType; ?></th>
 <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <th id="th' . ++$i . '">' . $strCollation . '</th>' . "\n" : ''; ?>
     <th id="th<?php echo ++$i; ?>"><?php echo $strAttr; ?></th>
     <th id="th<?php echo ++$i; ?>"><?php echo $strNull; ?></th>
     <th id="th<?php echo ++$i; ?>"><?php echo $strDefault; ?></th>
     <th id="th<?php echo ++$i; ?>"><?php echo $strExtra; ?></th>
-<?php echo $tbl_is_view ? '' : '    <th colspan="6" id="th' . ++$i . '">' . $strAction . '</th>' . "\n"; ?>
+<?php if ( $db_is_information_schema || $tbl_is_view ) { ?>
+    <th id="<?php echo ++$i; ?>"><?php echo $strView; ?></th>
+<?php } else { ?>
+    <th colspan="7" id="<?php echo ++$i; ?>"><?php echo $strAction; ?></th>
+<?php } ?>
 </tr>
 </thead>
 <tbody>
 <?php
 unset($i);
+
+
+// table body
+
+// prepare comments
 $comments_map = array();
 $mime_map = array();
 
@@ -131,7 +198,6 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
     require_once('./libraries/transformations.lib.php');
 
     $cfgRelation = PMA_getRelationsParam();
-
 
     if ($cfgRelation['commwork']) {
         $comments_map = PMA_getComments($db, $table);
@@ -142,28 +208,15 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
     }
 }
 
-$i         = 0;
+$rownum    = 0;
 $aryFields = array();
 $checked   = (!empty($checkall) ? ' checked="checked"' : '');
 $save_row  = array();
-
+$odd_row   = true;
 while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     $save_row[] = $row;
-    $i++;
-    $bgcolor          = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
+    $rownum++;
     $aryFields[]      = $row['Field'];
-
-    if ($GLOBALS['cfg']['BrowsePointerEnable'] == TRUE) {
-        $on_mouse = ' onmouseover="setPointer(this, ' . $i . ', \'over\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"'
-                  . ' onmouseout="setPointer(this, ' . $i . ', \'out\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
-    } else {
-        $on_mouse = '';
-    }
-    if ($GLOBALS['cfg']['BrowseMarkerEnable'] == TRUE) {
-        $on_mouse .= ' onmousedown="setPointer(this, ' . $i . ', \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
-    }
-
-    $click_mouse = ' onmousedown="document.getElementById(\'checkbox_row_' . $i . '\').checked = (document.getElementById(\'checkbox_row_' . $i . '\').checked ? false : true);" ';
 
     $type             = $row['Type'];
     // reformat mysql query output - staybyte - 9. June 2001
@@ -190,7 +243,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $type         = preg_replace('@ZEROFILL@i', '', $type);
         $type         = preg_replace('@UNSIGNED@i', '', $type);
         if (empty($type)) {
-            $type     = '&nbsp;';
+            $type     = ' ';
         }
 
         if (!preg_match('@BINARY[\(]@i', $row['Type'])) {
@@ -235,7 +288,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $type_mime = '';
     }
 
-    $attribute     = '&nbsp;';
+    $attribute     = ' ';
     if ($binary) {
         $attribute = 'BINARY';
     }
@@ -282,84 +335,28 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $field_name = '<u>' . $field_name . '</u>';
     }
     echo "\n";
-
-    $titles = array();
-    if ($cfg['PropertiesIconic'] == true) {
-        // We need to copy the value or else the == 'both' check will always return true
-        $propicon = (string)$cfg['PropertiesIconic'];
-
-        if ($propicon == 'both') {
-            $iconic_spacer = '<div class="nowrap">';
-        } else {
-            $iconic_spacer = '';
-        }
-
-        // images replaced 2004-05-08 by mkkeck
-        $titles['Change']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_edit.png" alt="' . $strChange . '" title="' . $strChange . '" border="0" />';
-        $titles['Drop']          = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
-        $titles['NoDrop']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
-        $titles['Primary']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
-        $titles['Index']         = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
-        $titles['Unique']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
-        $titles['IdxFulltext']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
-        $titles['NoPrimary']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'bd_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
-        $titles['NoIndex']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'bd_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
-        $titles['NoUnique']      = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'bd_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
-        $titles['NoIdxFulltext'] = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'bd_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
-
-        if ($propicon == 'both') {
-            $titles['Change']        .= '&nbsp;' . $strChange . '</div>';
-            $titles['Drop']          .= '&nbsp;' . $strDrop . '</div>';
-            $titles['NoDrop']        .= '&nbsp;' . $strDrop . '</div>';
-            $titles['Primary']       .= '&nbsp;' . $strPrimary . '</div>';
-            $titles['Index']         .= '&nbsp;' . $strIndex . '</div>';
-            $titles['Unique']        .= '&nbsp;' . $strUnique . '</div>';
-            $titles['IdxFulltext'  ] .= '&nbsp;' . $strIdxFulltext . '</div>';
-            $titles['NoPrimary']     .= '&nbsp;' . $strPrimary . '</div>';
-            $titles['NoIndex']       .= '&nbsp;' . $strIndex . '</div>';
-            $titles['NoUnique']      .= '&nbsp;' . $strUnique . '</div>';
-            $titles['NoIdxFulltext'] .= '&nbsp;' . $strIdxFulltext . '</div>';
-        }
-    } else {
-        $titles['Change']        = $strChange;
-        $titles['Drop']          = $strDrop;
-        $titles['NoDrop']        = $strDrop;
-        $titles['Primary']       = $strPrimary;
-        $titles['Index']         = $strIndex;
-        $titles['Unique']        = $strUnique;
-        $titles['IdxFulltext']   = $strIdxFulltext;
-        $titles['NoPrimary']     = $strPrimary;
-        $titles['NoIndex']       = $strIndex;
-        $titles['NoUnique']      = $strUnique;
-        $titles['NoIdxFulltext'] = $strIdxFulltext;
-    }
-
     ?>
-<tr <?php echo $on_mouse; ?>>
-    <?php
-    if (!$tbl_is_view) {
-        ?>
-    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <input type="checkbox" name="selected_fld[]" value="<?php echo $field_encoded; ?>" id="checkbox_row_<?php echo $i; ?>" <?php echo $checked; ?> />
+<tr class="<?php echo $odd_row ? 'odd': 'even'; $odd_row = !$odd_row; ?>">
+    <td align="center">
+        <input type="checkbox" name="selected_fld[]" value="<?php echo $field_encoded; ?>" id="checkbox_row_<?php echo $rownum; ?>" <?php echo $checked; ?> />
     </td>
-        <?php
-    }
-    ?>
-    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<label onclick="return (document.getElementById('checkbox_row_<?php echo $i; ?>') ? false : true)" for="checkbox_row_<?php echo $i; ?>"><?php echo $field_name; ?></label>&nbsp;</td>
-    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; echo $type_mime; ?><bdo dir="ltr"></bdo></td>
-<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td bgcolor="' . $bgcolor . '" ' . $click_mouse . '>' . (empty($field_charset) ? '&nbsp;' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>') . '</td>' . "\n" : '' ?>
-    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap" style="font-size: <?php echo $font_smallest; ?>"><?php echo $attribute; ?></td>
-    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == 'YES') ? $strYes : $strNo); ?>&nbsp;</td>
-    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
-    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
-    <?php
-    if (!$tbl_is_view) {
-        ?>
-    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+    <th nowrap="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $field_name; ?></label></th>
+    <td<?php echo $type_nowrap; ?>><?php echo $type; echo $type_mime; ?><bdo dir="ltr"></bdo></td>
+<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td>' . (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>') . '</td>' . "\n" : '' ?>
+    <td nowrap="nowrap" style="font-size: <?php echo $font_smallest; ?>"><?php echo $attribute; ?></td>
+    <td><?php echo (($row['Null'] == 'YES') ? $strYes : $strNo); ?></td>
+    <td nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?></td>
+    <td nowrap="nowrap"><?php echo $row['Extra']; ?></td>
+    <td align="center">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode( 'SELECT COUNT(*) AS `' . $strRows . '`, `' . $row['Field'] . '` FROM `' . $table . '` GROUP BY `' . $row['Field'] . '` ORDER BY `' . $row['Field'] . '`' ); ?>">
+            <?php echo $titles['Browse']; ?></a>
+    </td>
+    <?php if ( ! $tbl_is_view && ! $db_is_information_schema ) { ?>
+    <td align="center">
         <a href="tbl_alter.php?<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>">
             <?php echo $titles['Change']; ?></a>
     </td>
-    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+    <td align="center">
         <?php
         // loic1: Drop field only if there is more than one field in the table
         if ($fields_cnt > 1) {
@@ -375,7 +372,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         echo "\n";
         ?>
     </td>
-    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+    <td align="center">
         <?php
         if ($type == 'text' || $type == 'blob') {
             echo $titles['NoPrimary'] . "\n";
@@ -390,7 +387,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         echo "\n";
         ?>
     </td>
-    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+    <td align="center">
         <?php
         if ($type == 'text' || $type == 'blob') {
             echo $titles['NoIndex'] . "\n";
@@ -404,7 +401,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         echo "\n";
         ?>
     </td>
-    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+    <td align="center">
         <?php
         if ($type == 'text' || $type == 'blob') {
             echo $titles['NoUnique'] . "\n";
@@ -423,7 +420,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'varchar'))) {
             echo "\n";
             ?>
-    <td align="center" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+    <td align="center" nowrap="nowrap">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['IdxFulltext']; ?></a>
     </td>
@@ -431,13 +428,13 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         } else {
             echo "\n";
         ?>
-    <td align="center" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+    <td align="center" nowrap="nowrap">
         <?php echo $titles['NoIdxFulltext'] . "\n"; ?>
     </td>
         <?php
         } // end if... else...
         echo "\n";
-    } // end if (!$tbl_is_view)
+    } // end if ( ! $tbl_is_view && ! $db_is_information_schema )
     ?>
 </tr>
     <?php
@@ -447,23 +444,29 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
 echo '</tbody>' . "\n"
     .'</table>' . "\n";
 
-if (!$tbl_is_view) {
+$checkall_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db,$table);
+?>
 
-    $checkall_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db,$table);
-    ?>
+<img class="selectallarrow" src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>"
+    width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+<a href="<?php echo $checkall_url; ?>&amp;checkall=1"
+    onclick="setCheckboxes('fieldsForm', true); return false;">
+    <?php echo $strCheckAll; ?></a>
+/
+<a href="<?php echo $checkall_url; ?>"
+    onclick="setCheckboxes('fieldsForm', false); return false;">
+    <?php echo $strUncheckAll; ?></a>
 
-    <img src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
-    <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('fieldsForm', true); return false;">
-        <?php echo $strCheckAll; ?></a>
-    &nbsp;/&nbsp;
-    <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('fieldsForm', false); return false;">
-        <?php echo $strUncheckAll; ?></a>
-    &nbsp;&nbsp;&nbsp;
-    <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
-                <?php
+<i><?php echo $strWithChecked; ?></i>
 
+<?php
+if ($cfg['PropertiesIconic']) {
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', $strBrowse, 'b_browse.png');
+} else {
+    echo '<input type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '" />' . "\n";
+}
+if ( ! $tbl_is_view && ! $db_is_information_schema ) {
     if ($cfg['PropertiesIconic']) {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_browse', $strBrowse, 'b_browse.png');
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $strChange, 'b_edit.png');
         // Drop button if there is at least two fields
         if ($fields_cnt > 1) {
@@ -476,96 +479,86 @@ if (!$tbl_is_view) {
             PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', $strIdxFulltext, 'b_ftext.png');
         }
     } else {
-        echo '<input type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '" />' . "\n";
         // Drop button if there is at least two fields
         if ($fields_cnt > 1) {
-            echo '&nbsp;<i>' . $strOr . '</i>&nbsp;' . "\n"
+            echo '<i>' . $strOr . '</i>' . "\n"
                . '<input type="submit" name="submit_mult" value="' . $strDrop . '" title="' . $strDrop . '" />' . "\n";
         }
-        echo '&nbsp;<i>' . $strOr . '</i>&nbsp;' . "\n"
+        echo '<i>' . $strOr . '</i>' . "\n"
            . '<input type="submit" name="submit_mult" value="' . $strPrimary . '" title="' . $strPrimary . '" />' . "\n";
-        echo '&nbsp;<i>' . $strOr . '</i>&nbsp;' . "\n"
+        echo '<i>' . $strOr . '</i>' . "\n"
            . '<input type="submit" name="submit_mult" value="' . $strIndex . '" title="' . $strIndex . '" />' . "\n";
-        echo '&nbsp;<i>' . $strOr . '</i>&nbsp;' . "\n"
+        echo '<i>' . $strOr . '</i>' . "\n"
            . '<input type="submit" name="submit_mult" value="' . $strUnique . '" title="' . $strUnique . '" />' . "\n";
         if ((!empty($tbl_type) && $tbl_type == 'MYISAM')) {
-            echo '&nbsp;<i>' . $strOr . '</i>&nbsp;' . "\n"
+            echo '<i>' . $strOr . '</i>' . "\n"
                . '<input type="submit" name="submit_mult" value="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />' . "\n";
         }
     }
 }
 ?>
 </form>
-
 <hr />
 
+<?php
+/**
+ * Work on the table
+ */
+?>
+<a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
+if ($cfg['PropertiesIconic']) {
+    echo '<img class="icon" src="' . $pmaThemeImage . 'b_print.png" width="16" height="16" alt="' . $strPrintView . '"/>';
+}
+echo $strPrintView;
+?></a>
 
 <?php
-if (!$tbl_is_view) {
-    /**
-     * Work on the table
-     */
-    ?>
-<!-- TABLE WORK -->
-<!-- Printable view of the table -->
-<a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
-    if ($cfg['PropertiesIconic']) {
-        echo '<img src="' . $pmaThemeImage . 'b_print.png" border="0" hspace="2" align="middle" width="16" height="16" alt="' . $strPrintView . '"/>';
-    }
-    echo $strPrintView;
-    ?></a>&nbsp;&nbsp;&nbsp;
-
-    <?php
-    // if internal relations are available, or the table type is INNODB
+    if ( ! $tbl_is_view && ! $db_is_information_schema ) {
+        // if internal relations are available, or the table type is INNODB
     // ($tbl_type comes from tbl_properties_table_info.php)
 
     if ($cfg['Server']['relation'] || $tbl_type=="INNODB") {
         ?>
-<!-- Work on Relations -->
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
-    if ($cfg['PropertiesIconic']) {
-        echo '<img src="' . $pmaThemeImage . 'b_relations.png" border="0" hspace="2" align="middle" width="16" height="16" alt="' . $strRelationView . '"/>';
-    }
-    echo $strRelationView;
-?></a>&nbsp;&nbsp;&nbsp;
+        if ($cfg['PropertiesIconic']) {
+            echo '<img class="icon" src="' . $pmaThemeImage . 'b_relations.png" width="16" height="16" alt="' . $strRelationView . '"/>';
+        }
+        echo $strRelationView;
+        ?></a>
         <?php
     }
     ?>
-<!-- Let MySQL propose the optimal structure -->
 <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
     if ($cfg['PropertiesIconic']) {
-        echo '<img src="' . $pmaThemeImage . 'b_tblanalyse.png" border="0" hspace="2" align="middle" width="16" height="16" alt="' . $strStructPropose . '" />';
+        echo '<img class="icon" src="' . $pmaThemeImage . 'b_tblanalyse.png" width="16" height="16" alt="' . $strStructPropose . '" />';
     }
     echo $strStructPropose;
-?></a><?php
+    ?></a><?php
     echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
-?><br />
-<!-- Add some new fields -->
+    ?><br />
 <form method="post" action="tbl_addfield.php"
     onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldAddCount']); ?>', 1)">
     <?php
-        echo PMA_generate_common_hidden_inputs($db, $table);
-        if ($cfg['PropertiesIconic']) {
-            echo '<img src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $strAddNewField . '"/>';
-        }
-        echo sprintf($strAddFields, '<input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />');
+    echo PMA_generate_common_hidden_inputs($db, $table);
+    if ($cfg['PropertiesIconic']) {
+        echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . $strAddNewField . '"/>';
+    }
+    echo sprintf($strAddFields, '<input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />');
     ?>
-    <input type="radio" name="field_where" id="radio_field_where_last" value="last" checked="checked" /><label for="radio_field_where_last"><?php echo $strAtEndOfTable; ?></label>
-    <input type="radio" name="field_where" id="radio_field_where_first" value="first" /><label for="radio_field_where_first"><?php echo $strAtBeginningOfTable; ?></label>
-    <input type="radio" name="field_where" id="radio_field_where_after" value="after" /><?php
-        $fieldOptions = '</label><select name="after_field" style="vertical-align: middle" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
-        foreach ($aryFields AS $fieldname) {
-            $fieldOptions .= '<option value="' . htmlspecialchars($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
-        }
-        unset($aryFields);
-        $fieldOptions .= '</select><label for="radio_field_where_after">';
-        echo str_replace('<label for="radio_field_where_after"></label>', '', '<label for="radio_field_where_after">' . sprintf($strAfter, $fieldOptions) . '</label>') . "\n";
-        ?>
-    <input type="submit" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
+<input type="radio" name="field_where" id="radio_field_where_last" value="last" checked="checked" /><label for="radio_field_where_last"><?php echo $strAtEndOfTable; ?></label>
+<input type="radio" name="field_where" id="radio_field_where_first" value="first" /><label for="radio_field_where_first"><?php echo $strAtBeginningOfTable; ?></label>
+<input type="radio" name="field_where" id="radio_field_where_after" value="after" /><?php
+    $fieldOptions = '</label><select name="after_field" style="vertical-align: middle" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
+    foreach ($aryFields AS $fieldname) {
+        $fieldOptions .= '<option value="' . htmlspecialchars($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
+    }
+    unset($aryFields);
+    $fieldOptions .= '</select><label for="radio_field_where_after">';
+    echo str_replace('<label for="radio_field_where_after"></label>', '', '<label for="radio_field_where_after">' . sprintf($strAfter, $fieldOptions) . '</label>') . "\n";
+    ?>
+<input type="submit" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
 </form>
-
 <hr />
-
     <?php
 }
 
@@ -574,239 +567,229 @@ if (!$tbl_is_view) {
  * links again
  */
 if ($fields_cnt > 20) {
-    ?>
-<!-- Browse links -->
-    <?php
-    echo "\n";
     require('./tbl_properties_links.php');
 } // end if ($fields_cnt > 20)
 echo "\n\n";
 
-// show table statistics only if 
-// this is not a view and not the information_schema (MySQL >= 5.00.02)
-if ( ! $tbl_is_view
-  && ( $db != 'information_schema'
-    || PMA_MYSQL_INT_VERSION < 50002 ) ) {
-    /**
-     * Displays indexes
-     */
-    echo '<div id="tablestatistics">' . "\n";
+/**
+ * Displays indexes
+ */
+echo '<div id="tablestatistics">' . "\n";
+if ( ! $tbl_is_view && ! $db_is_information_schema ) {
     define('PMA_IDX_INCLUDED', 1);
     require ('./tbl_indexes.php');
-    
-    /**
-     * Displays Space usage and row statistics
-     */
-    // BEGIN - Calc Table Space - staybyte - 9 June 2001
-    // loic1, 22 feb. 2002: updated with patch from
-    //                      Joshua Nye <josh at boxcarmedia.com> to get valid
-    //                      statistics whatever is the table type
-    if ($cfg['ShowStats']) {
-        $nonisam     = FALSE;
-        $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
-        if (isset($showtable['Type']) && !preg_match('@ISAM|HEAP@i', $showtable['Type'])) {
-            $nonisam = TRUE;
-        }
-        if ($nonisam == FALSE || $is_innodb) {
-            // Gets some sizes
-            $mergetable     = FALSE;
-            if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
-                $mergetable = TRUE;
-            }
-            list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length']);
-            if ($mergetable == FALSE) {
-                list($index_size, $index_unit)   = PMA_formatByteDown($showtable['Index_length']);
-            }
-            if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
-                list($free_size, $free_unit)     = PMA_formatByteDown($showtable['Data_free']);
-                list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
-            } else {
-                list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
-            }
-            list($tot_size, $tot_unit)           = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
-            if ($table_info_num_rows > 0) {
-                list($avg_size, $avg_unit)       = PMA_formatByteDown(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
-            }
-
-            // Displays them
-            $odd_row = false;
-            ?>
-
-    <!-- Space usage -->
-        <a name="showusage"></a>
-        <table id="tablespaceusage" class="data">
-        <caption class="tblHeaders"><?php echo $strSpaceUsage; ?></caption>
-        <thead>
-        <tr>
-            <th><?php echo $strType; ?></th>
-            <th colspan="2"><?php echo $strUsage; ?></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strData; ?></th>
-            <td class="value"><?php echo $data_size; ?></td>
-            <td class="unit"><?php echo $data_unit; ?></td>
-        </tr>
-            <?php
-            if (isset($index_size)) {
-                ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strIndex; ?></th>
-            <td class="value"><?php echo $index_size; ?></td>
-            <td class="unit"><?php echo $index_unit; ?></td>
-        </tr>
-                <?php
-            }
-            if (isset($free_size)) {
-                ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strOverhead; ?></th>
-            <td class="value"><?php echo $free_size; ?></td>
-            <td class="unit"><?php echo $free_unit; ?></td>
-        </tr>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strEffective; ?></th>
-            <td class="value"><?php echo $effect_size; ?></td>
-            <td class="unit"><?php echo $effect_unit; ?></td>
-        </tr>
-                <?php
-            }
-            if (isset($tot_size) && $mergetable == FALSE) {
-            ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strTotalUC; ?></th>
-            <td class="value"><?php echo $tot_size; ?></td>
-            <td class="unit"><?php echo $tot_unit; ?></td>
-        </tr>
-                <?php
-            }
-            // Optimize link if overhead
-            if (isset($free_size) && ($tbl_type == 'MYISAM' || $tbl_type == 'BDB')) {
-                ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <td colspan="3" align="center">
-                <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
-                    if ($cfg['PropertiesIconic']) {
-                       echo '<img src="' . $pmaThemeImage . 'b_tbloptimize.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $strOptimizeTable. '" />';
-                    }
-                    echo $strOptimizeTable;
-                ?></a>
-            </td>
-        </tr>
-                <?php
-            }
-            ?>
-        </tbody>
-        </table>
-
-        <?php
-        $odd_row = false;
-        ?>
-        <table id="tablerowstats" class="data">
-        <caption class="tblHeaders"><?php echo $strRowsStatistic; ?></caption>
-        <thead>
-        <tr>
-            <th><?php echo $strStatement; ?></th>
-            <th><?php echo $strValue; ?></th>
-        </tr>
-        </thead>
-        <tbody>
-            <?php
-            if (isset($showtable['Row_format'])) {
-                ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strFormat; ?></th>
-            <td class="value"><?php
-                if ($showtable['Row_format'] == 'Fixed') {
-                    echo $strFixed;
-                }
-                else if ($showtable['Row_format'] == 'Dynamic') {
-                    echo $strDynamic;
-                }
-                else {
-                    echo $showtable['Row_format'];
-                }
-                ?></td>
-        </tr>
-                <?php
-            }
-            if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($tbl_collation)) {
-                ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strCollation; ?></th>
-            <td class="value"><?php
-                echo '<dfn title="' . PMA_getCollationDescr($tbl_collation) . '">' . $tbl_collation . '</dfn>';
-                ?></td>
-        </tr>
-                <?php
-            }
-            if (!$is_innodb && isset($showtable['Rows'])) {
-                ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strRows; ?></th>
-            <td class="value"><?php echo PMA_formatNumber( $showtable['Rows'] ); ?></td>
-        </tr>
-                <?php
-            }
-            if (!$is_innodb && isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
-                ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strRowLength; ?> &oslash;</th>
-            <td class="value"><?php echo PMA_formatNumber( $showtable['Avg_row_length'] ); ?></td>
-        </tr>
-                <?php
-            }
-            if (!$is_innodb && isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
-                ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strRowSize; ?> &oslash;</th>
-            <td class="value"><?php echo $avg_size . ' ' . $avg_unit; ?></td>
-        </tr>
-                <?php
-            }
-            if (isset($showtable['Auto_increment'])) {
-                ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strNext; ?> Autoindex</th>
-            <td class="value"><?php echo PMA_formatNumber( $showtable['Auto_increment'] ); ?></td>
-        </tr>
-                <?php
-            }
-            if (isset($showtable['Create_time'])) {
-                ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strStatCreateTime; ?></th>
-            <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Create_time'])); ?></td>
-        </tr>
-                <?php
-            }
-            if (isset($showtable['Update_time'])) {
-                ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strStatUpdateTime; ?></th>
-            <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Update_time'])); ?></td>
-        </tr>
-                <?php
-            }
-            if (isset($showtable['Check_time'])) {
-                ?>
-        <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-            <th class="name"><?php echo $strStatCheckTime; ?></th>
-            <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Check_time'])); ?></td>
-        </tr>
-                <?php
-            }
-            ?>
-        </tbody>
-        </table>
-            <?php
-        }
+}
+/**
+ * Displays Space usage and row statistics
+ */
+// BEGIN - Calc Table Space - staybyte - 9 June 2001
+// loic1, 22 feb. 2002: updated with patch from
+//                      Joshua Nye <josh at boxcarmedia.com> to get valid
+//                      statistics whatever is the table type
+if ( $cfg['ShowStats'] ) {
+    $nonisam     = FALSE;
+    $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
+    if (isset($showtable['Type']) && !preg_match('@ISAM|HEAP@i', $showtable['Type'])) {
+        $nonisam = TRUE;
     }
-    // END - Calc Table Space
-    echo '<div class="clearfloat"></div>' . "\n";
-    echo '</div>' . "\n";
-} // end if (!$tbl_is_view)
+
+    // Gets some sizes
+    $mergetable     = FALSE;
+    if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
+        $mergetable = TRUE;
+    }
+    list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length']);
+    if ($mergetable == FALSE) {
+        list($index_size, $index_unit)   = PMA_formatByteDown($showtable['Index_length']);
+    }
+    if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
+        list($free_size, $free_unit)     = PMA_formatByteDown($showtable['Data_free']);
+        list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
+    } else {
+        list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
+    }
+    list($tot_size, $tot_unit)           = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
+    if ($table_info_num_rows > 0) {
+        list($avg_size, $avg_unit)       = PMA_formatByteDown(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
+    }
+
+    // Displays them
+    $odd_row = false;
+    ?>
+
+    <a name="showusage"></a>
+    <?php if ( ! $tbl_is_view && ! $db_is_information_schema ) { ?>
+    <table id="tablespaceusage" class="data">
+    <caption class="tblHeaders"><?php echo $strSpaceUsage; ?></caption>
+    <thead>
+    <tr>
+        <th><?php echo $strType; ?></th>
+        <th colspan="2"><?php echo $strUsage; ?></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strData; ?></th>
+        <td class="value"><?php echo $data_size; ?></td>
+        <td class="unit"><?php echo $data_unit; ?></td>
+    </tr>
+        <?php
+        if ( isset( $index_size ) ) {
+            ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strIndex; ?></th>
+        <td class="value"><?php echo $index_size; ?></td>
+        <td class="unit"><?php echo $index_unit; ?></td>
+    </tr>
+            <?php
+        }
+        if ( isset( $free_size ) ) {
+            ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strOverhead; ?></th>
+        <td class="value"><?php echo $free_size; ?></td>
+        <td class="unit"><?php echo $free_unit; ?></td>
+    </tr>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strEffective; ?></th>
+        <td class="value"><?php echo $effect_size; ?></td>
+        <td class="unit"><?php echo $effect_unit; ?></td>
+    </tr>
+            <?php
+        }
+        if ( isset( $tot_size ) && $mergetable == FALSE ) {
+            ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strTotalUC; ?></th>
+        <td class="value"><?php echo $tot_size; ?></td>
+        <td class="unit"><?php echo $tot_unit; ?></td>
+    </tr>
+            <?php
+        }
+        // Optimize link if overhead
+        if (isset($free_size) && ($tbl_type == 'MYISAM' || $tbl_type == 'BDB')) {
+            ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <td colspan="3" align="center">
+            <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
+            if ($cfg['PropertiesIconic']) {
+               echo '<img class="icon" src="' . $pmaThemeImage . 'b_tbloptimize.png" width="16" height="16" alt="' . $strOptimizeTable. '" />';
+            }
+            echo $strOptimizeTable;
+            ?></a>
+        </td>
+    </tr>
+            <?php
+        }
+        ?>
+    </tbody>
+    </table>
+        <?php
+    }
+    $odd_row = false;
+    ?>
+    <table id="tablerowstats" class="data">
+    <caption class="tblHeaders"><?php echo $strRowsStatistic; ?></caption>
+    <thead>
+    <tr>
+        <th><?php echo $strStatement; ?></th>
+        <th><?php echo $strValue; ?></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    if (isset($showtable['Row_format'])) {
+        ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strFormat; ?></th>
+        <td class="value"><?php
+        if ($showtable['Row_format'] == 'Fixed') {
+            echo $strFixed;
+        }
+        else if ($showtable['Row_format'] == 'Dynamic') {
+            echo $strDynamic;
+        }
+        else {
+            echo $showtable['Row_format'];
+        }
+        ?></td>
+    </tr>
+        <?php
+    }
+    if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($tbl_collation)) {
+        ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strCollation; ?></th>
+        <td class="value"><?php
+            echo '<dfn title="' . PMA_getCollationDescr($tbl_collation) . '">' . $tbl_collation . '</dfn>';
+            ?></td>
+    </tr>
+        <?php
+    }
+    if (!$is_innodb && isset($showtable['Rows'])) {
+        ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strRows; ?></th>
+        <td class="value"><?php echo PMA_formatNumber( $showtable['Rows'] ); ?></td>
+    </tr>
+        <?php
+    }
+    if (!$is_innodb && isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
+        ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strRowLength; ?> &oslash;</th>
+        <td class="value"><?php echo PMA_formatNumber( $showtable['Avg_row_length'] ); ?></td>
+    </tr>
+        <?php
+    }
+    if (!$is_innodb && isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
+        ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strRowSize; ?> &oslash;</th>
+        <td class="value"><?php echo $avg_size . ' ' . $avg_unit; ?></td>
+    </tr>
+        <?php
+    }
+    if (isset($showtable['Auto_increment'])) {
+        ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strNext; ?> Autoindex</th>
+        <td class="value"><?php echo PMA_formatNumber( $showtable['Auto_increment'] ); ?></td>
+    </tr>
+        <?php
+    }
+    if (isset($showtable['Create_time'])) {
+        ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strStatCreateTime; ?></th>
+        <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Create_time'])); ?></td>
+    </tr>
+        <?php
+    }
+    if (isset($showtable['Update_time'])) {
+        ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strStatUpdateTime; ?></th>
+        <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Update_time'])); ?></td>
+    </tr>
+        <?php
+    }
+    if (isset($showtable['Check_time'])) {
+        ?>
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+        <th class="name"><?php echo $strStatCheckTime; ?></th>
+        <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Check_time'])); ?></td>
+    </tr>
+        <?php
+    }
+    ?>
+    </tbody>
+    </table>
+    <?php
+}
+// END - Calc Table Space
+echo '<div class="clearfloat"></div>' . "\n";
+echo '</div>' . "\n";
 
 /**
  * Displays the footer
