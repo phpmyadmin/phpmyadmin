@@ -21,7 +21,6 @@ if (!empty($pred_tablename)) {
     unset($pred_tablename);
 }
 
-
 /**
  * Checks if the user is allowed to do what he tries to...
  */
@@ -85,7 +84,9 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
     }
 
     if (!empty($row) && isset($row['Table_priv'])) {
-        $res = PMA_DBI_query('SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';', $GLOBALS['userlink']);
+        $res = PMA_DBI_query(
+            'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
+            $GLOBALS['userlink'] );
         $row1 = PMA_DBI_fetch_assoc($res);
         PMA_DBI_free_result($res);
         $av_grants = explode ('\',\'' , substr($row1['Type'], 5, strlen($row1['Type']) - 7));
@@ -187,11 +188,33 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         $username = $GLOBALS['username'];
         $hostname = $GLOBALS['hostname'];
         if ($db == '*') {
-            $sql_query = 'SELECT * FROM `mysql`.`user` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($hostname, 'quoted') . ';';
+            $sql_query = 
+                 'SELECT * FROM `mysql`.`user`'
+                .' WHERE ' . PMA_convert_using('User')
+                .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted')
+                .' AND ' . PMA_convert_using('Host')
+                .' = ' . PMA_convert_using($hostname, 'quoted') . ';';
         } else if ($table == '*') {
-            $sql_query = 'SELECT * FROM `mysql`.`db` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($hostname, 'quoted') . ' AND ' .  PMA_convert_using('Db') . ' = ' . PMA_convert_using($db, 'quoted') . ';';
+            $sql_query = 
+                'SELECT * FROM `mysql`.`db`'
+                .' WHERE ' . PMA_convert_using('`User`')
+                .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted')
+                .' AND ' . PMA_convert_using('`Host`')
+                .' = ' . PMA_convert_using($hostname, 'quoted')
+                .' AND ' .  PMA_convert_using( $db, 'quoted' )
+                .' LIKE REPLACE( ' . PMA_convert_using( '`Db`' ) . ', \'\\_\', \'_\' );';
         } else {
-            $sql_query = 'SELECT `Table_priv` FROM `mysql`.`tables_priv` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') . ' AND ' .PMA_convert_using('Host') . ' = ' . PMA_convert_using($hostname, 'quoted')  . ' AND ' . PMA_convert_using('Db') . ' = ' . PMA_convert_using($db, 'quoted') . ' AND ' . PMA_convert_using('Table_name') . ' = ' . PMA_convert_using($table, 'quoted') . ';';
+            $sql_query =
+                'SELECT `Table_priv`'
+                .' FROM `mysql`.`tables_priv`'
+                .' WHERE ' . PMA_convert_using('`User`') 
+                .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') 
+                .' AND ' .PMA_convert_using('`Host`') 
+                .' = ' . PMA_convert_using( $hostname, 'quoted' )  
+                .' AND ' .PMA_convert_using('`Db`') 
+                .' = ' . PMA_convert_using( $db, 'quoted' )  
+                .' AND ' . PMA_convert_using('`Table_name`') 
+                .' = ' . PMA_convert_using($table, 'quoted') . ';';
         }
         $res = PMA_DBI_query($sql_query);
         $row = PMA_DBI_fetch_assoc($res);
@@ -218,7 +241,9 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         }
     }
     if (isset($row['Table_priv'])) {
-        $res = PMA_DBI_query('SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';', $GLOBALS['userlink']);
+        $res = PMA_DBI_query(
+            'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
+            $GLOBALS['userlink'] );
         // note: in MySQL 5.0.3 we get "Create View', 'Show view';
         // the View for Create is spelled with uppercase V
         // the view for Show is spelled with lowercase v
@@ -234,9 +259,11 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             $row[$current_grant . '_priv'] = in_array($current_grant, $users_grants) ? 'Y' : 'N';
         }
         unset($row['Table_priv'], $current_grant, $av_grants, $users_grants);
+        
+        // get collumns
         $res = PMA_DBI_try_query('SHOW COLUMNS FROM `' . $db . '`.`' . $table . '`;');
         $columns = array();
-        if ($res) {
+        if ( $res ) {
             while ($row1 = PMA_DBI_fetch_row($res)) {
                 $columns[$row1[0]] = array(
                     'Select' => FALSE,
@@ -250,9 +277,18 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         unset($res, $row1);
     }
     // t a b l e - s p e c i f i c    p r i v i l e g e s
-
-    if (!empty($columns)) {
-        $res = PMA_DBI_QUERY('SELECT `Column_name`, `Column_priv` FROM `mysql`.`columns_priv` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($hostname, 'quoted') . ' AND ' . PMA_convert_using('Db') . ' = ' . PMA_convert_using($db, 'quoted') . ' AND ' . PMA_convert_using('Table_name') . ' = ' . PMA_convert_using($table, 'quoted') . ';');
+    if ( ! empty( $columns ) ) {
+        $res = PMA_DBI_query(
+            'SELECT `Column_name`, `Column_priv`'
+            .' FROM `mysql`.`columns_priv`'
+            .' WHERE ' . PMA_convert_using('`User`') 
+            .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') 
+            .' AND ' . PMA_convert_using('`Host`') 
+            .' = ' . PMA_convert_using($hostname, 'quoted') 
+            .' AND ' . PMA_convert_using('`Db`') 
+            .' = ' . PMA_convert_using($db, 'quoted') 
+            .' AND ' . PMA_convert_using('`Table_name`')
+            .' = ' . PMA_convert_using($table, 'quoted') . ';');
 
         while ($row1 = PMA_DBI_fetch_row($res)) {
             $row1[1] = explode(',', $row1[1]);
@@ -261,9 +297,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             }
         }
         PMA_DBI_free_result($res);
-        unset($res);
-        unset($row1);
-        unset($current);
+        unset( $res, $row1, $current );
         
         echo $spaces . '<input type="hidden" name="grant_count" value="' . count($row) . '" />' . "\n"
            . $spaces . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
@@ -610,7 +644,11 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0 )
  * Changes / copies a user, part I
  */
 if (!empty($change_copy)) {
-    $user_host_condition = ' WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($old_username), 'quoted') . ' AND ' . PMA_convert_using('Host') .  ' = ' . PMA_convert_using($old_hostname, 'quoted') . ';';
+    $user_host_condition = 
+        ' WHERE ' . PMA_convert_using('User') 
+        .' = ' . PMA_convert_using(PMA_sqlAddslashes($old_username), 'quoted') 
+        .' AND ' . PMA_convert_using('Host') 
+        .' = ' . PMA_convert_using($old_hostname, 'quoted') . ';';
     $res = PMA_DBI_query('SELECT * FROM `mysql`.`user` ' . $user_host_condition);
     if (!$res) {
         $message = $GLOBALS['strNoUsersFound'];
@@ -658,7 +696,13 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             unset($row);
             break;
     }
-    $res = PMA_DBI_query('SELECT \'foo\' FROM `mysql`.`user` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($hostname, 'quoted') . ';', NULL, PMA_DBI_QUERY_STORE);
+    $res = PMA_DBI_query(
+        'SELECT \'foo\' FROM `mysql`.`user`'
+        .' WHERE ' . PMA_convert_using('User') 
+        .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') 
+        .' AND ' . PMA_convert_using('Host') 
+        .' = ' . PMA_convert_using($hostname, 'quoted') . ';',
+        NULL, PMA_DBI_QUERY_STORE );
     if (PMA_DBI_num_rows($res) == 1) {
         PMA_DBI_free_result($res);
         $message = sprintf($GLOBALS['strUserAlreadyExists'], '[i]\'' . $username . '\'@\'' . $hostname . '\'[/i]');
@@ -671,7 +715,9 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             $create_user_real = 'CREATE USER \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
         }
         
-        $real_sql_query = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
+        $real_sql_query = 
+            'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \'' 
+            . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
         if ($pred_password != 'none' && $pred_password != 'keep') {
             $pma_pw_hidden = '';
             for ($i = 0; $i < strlen($pma_pw); $i++) {
@@ -761,16 +807,39 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
  * Changes / copies a user, part III
  */
 if (!empty($change_copy)) {
-    $user_host_condition = ' WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($old_username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($old_hostname, 'quoted') . ';';
+    $user_host_condition = 
+        ' WHERE ' . PMA_convert_using('User') 
+        .' = ' . PMA_convert_using(PMA_sqlAddslashes($old_username), 'quoted') 
+        .' AND ' . PMA_convert_using('Host') 
+        .' = ' . PMA_convert_using($old_hostname, 'quoted') . ';';
     $res = PMA_DBI_query('SELECT * FROM `mysql`.`db`' . $user_host_condition );
     while ($row = PMA_DBI_fetch_assoc($res)) {
-        $queries[] = 'GRANT ' . join(', ', PMA_extractPrivInfo($row)) . ' ON `' . $row['Db'] . '`.* TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'' . ($row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION' : '') . ';';
+        $queries[] = 
+            'GRANT ' . join(', ', PMA_extractPrivInfo($row)) 
+            .' ON `' . $row['Db'] . '`.*'
+            .' TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\''
+            . ( $row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION;' : ';' );
     }
     PMA_DBI_free_result($res);
-    $res = PMA_DBI_query('SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`' . $user_host_condition, $GLOBALS['userlink'], PMA_DBI_QUERY_STORE);
+    $res = PMA_DBI_query(
+        'SELECT `Db`, `Table_name`, `Table_priv`'
+        .' FROM `mysql`.`tables_priv`' . $user_host_condition,
+        $GLOBALS['userlink'], PMA_DBI_QUERY_STORE );
     while ($row = PMA_DBI_fetch_assoc($res)) {
 
-        $res2 = PMA_DBI_QUERY('SELECT `Column_name`, `Column_priv` FROM `mysql`.`columns_priv` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($old_username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($old_hostname, 'quoted') . ' AND ' . PMA_convert_using('Db') .  ' = ' . PMA_convert_using($row['Db'], 'quoted') . ' AND ' . PMA_convert_using('Table_name') . ' = ' . PMA_convert_using($row['Table_name'], 'quoted') . ';', NULL, PMA_DBI_QUERY_STORE);
+        $res2 = PMA_DBI_QUERY(
+            'SELECT `Column_name`, `Column_priv`'
+            .' FROM `mysql`.`columns_priv`'
+            .' WHERE ' . PMA_convert_using('User') 
+            .' = ' . PMA_convert_using(PMA_sqlAddslashes($old_username), 'quoted') 
+            .' AND ' . PMA_convert_using('`Host`') 
+            .' = ' . PMA_convert_using($old_hostname, 'quoted') 
+            .' AND ' . PMA_convert_using('`Db`') 
+            .' = ' . PMA_convert_using($row['Db'], 'quoted') 
+            .' AND ' . PMA_convert_using('`Table_name`') 
+            .' = ' . PMA_convert_using($row['Table_name'], 'quoted') 
+            .';',
+            NULL, PMA_DBI_QUERY_STORE );
 
         $tmp_privs1 = PMA_extractPrivInfo($row);
         $tmp_privs2 = array(
@@ -809,7 +878,11 @@ if (!empty($change_copy)) {
             $tmp_privs1[] = 'REFERENCES (`' . join('`, `', $tmp_privs2['References']) . '`)';
         }
         unset($tmp_privs2);
-        $queries[] = 'GRANT ' . join(', ', $tmp_privs1) . ' ON `' . $row['Db'] . '`.`' . $row['Table_name'] . '` TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'' . (in_array('Grant', explode(',', $row['Table_priv'])) ? ' WITH GRANT OPTION' : '') . ';';
+        $queries[] = 
+            'GRANT ' . join(', ', $tmp_privs1) 
+            . ' ON `' . $row['Db'] . '`.`' . $row['Table_name'] 
+            . '` TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'' 
+            . (in_array('Grant', explode(',', $row['Table_priv'])) ? ' WITH GRANT OPTION;' : ';');
     }
 }
 
@@ -831,25 +904,35 @@ if (!empty($update_privs)) {
     if (empty($dbname)) {
         $db_and_table = '*.*';
     } else {
-        if (!empty($tablename)) {
-            $db_and_table = str_replace('\\','',PMA_backquote($dbname))
-                          . '.' . PMA_backquote($tablename);
+        if ( !empty( $tablename ) ) {
+            $db_and_table = PMA_backquote( $dbname ) . '.';
+            $db_and_table .= PMA_backquote( $tablename );
         } else {
-            // do not remove the escaping character when working at db level 
-            $db_and_table = PMA_backquote($dbname)
-                          . '.*'; 
+            $db_and_table = PMA_escape_mysql_wildcards( PMA_backquote( $dbname ) ) . '.';
+            $db_and_table .= '*';
         }
     }
 
 
-    $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
+    $sql_query0 = 
+        'REVOKE ALL PRIVILEGES ON ' . $db_and_table 
+        . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
     if (!isset($Grant_priv) || $Grant_priv != 'Y') {
-        $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
+        $sql_query1 = 
+            'REVOKE GRANT OPTION ON ' . $db_and_table 
+            . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
     }
-    $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON ' . $db_and_table . ' TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
+    $sql_query2 = 
+        'GRANT ' . join(', ', PMA_extractPrivInfo()) 
+        . ' ON ' . $db_and_table 
+        . ' TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
 
         // FIXME: similar code appears twice in this script
-    if ((isset($Grant_priv) && $Grant_priv == 'Y') || (empty($dbname) && PMA_MYSQL_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates) || isset($max_user_connections)))) {
+    if ( ( isset($Grant_priv) && $Grant_priv == 'Y')
+      || ( empty($dbname) && PMA_MYSQL_INT_VERSION >= 40002
+        && ( isset($max_questions) || isset($max_connections) 
+          || isset($max_updates) || isset($max_user_connections))))
+    {
         $sql_query2 .= 'WITH';
         if (isset($Grant_priv) && $Grant_priv == 'Y') {
             $sql_query2 .= ' GRANT OPTION';
@@ -895,8 +978,12 @@ if (!empty($update_privs)) {
  */
 if (!empty($revokeall)) {
     $db_and_table = PMA_backquote($dbname) . '.' . (empty($tablename) ? '*' : PMA_backquote($tablename));
-    $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table . ' FROM \'' . $username . '\'@\'' . $hostname . '\';';
-    $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table . ' FROM \'' . $username . '\'@\'' . $hostname . '\';';
+    $sql_query0 = 
+        'REVOKE ALL PRIVILEGES ON ' . $db_and_table 
+        . ' FROM \'' . $username . '\'@\'' . $hostname . '\';';
+    $sql_query1 = 
+        'REVOKE GRANT OPTION ON ' . $db_and_table 
+        . ' FROM \'' . $username . '\'@\'' . $hostname . '\';';
     PMA_DBI_query($sql_query0);
     if (!PMA_DBI_try_query($sql_query1)) { // this one may fail, too...
         unset($sql_query1);
@@ -951,35 +1038,47 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
     for ($i = 0; isset($selected_usr[$i]); $i++) {
         list($this_user, $this_host) = explode($user_host_separator, $selected_usr[$i]);
         $queries[] = '# ' . sprintf($GLOBALS['strDeleting'], '\'' . $this_user . '\'@\'' . $this_host . '\'') . ' ...';
-        if ($mode == 2) {
-            // The SHOW GRANTS query may fail if the user has not been loaded
-            // into memory
-            $res = PMA_DBI_try_query('SHOW GRANTS FOR \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';');
-            if ($res) {
-                $queries[] = 'REVOKE ALL PRIVILEGES ON *.* FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
-                while ($row = PMA_DBI_fetch_row($res)) {
-                    $this_table = substr($row[0], (strpos($row[0], 'ON') + 3), (strpos($row[0], ' TO ') - strpos($row[0], 'ON') - 3));
-                    if ($this_table != '*.*') {
-                        $queries[] = 'REVOKE ALL PRIVILEGES ON ' . $this_table . ' FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
-
-                        if (strpos($row[0], 'WITH GRANT OPTION')) {
-                            $queries[] = 'REVOKE GRANT OPTION ON ' . $this_table . ' FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
+        if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
+            $queries[] = 'DROP USER \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
+        } else {
+            if ($mode == 2) {
+                // The SHOW GRANTS query may fail if the user has not been loaded
+                // into memory
+                $res = PMA_DBI_try_query('SHOW GRANTS FOR \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';');
+                if ($res) {
+                    $queries[] = 'REVOKE ALL PRIVILEGES ON *.* FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
+                    while ($row = PMA_DBI_fetch_row($res)) {
+                        $this_table = substr($row[0], (strpos($row[0], 'ON') + 3), (strpos($row[0], ' TO ') - strpos($row[0], 'ON') - 3));
+                        if ($this_table != '*.*') {
+                            $queries[] = 'REVOKE ALL PRIVILEGES ON ' . $this_table . ' FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
+    
+                            if (strpos($row[0], 'WITH GRANT OPTION')) {
+                                $queries[] = 'REVOKE GRANT OPTION ON ' . $this_table . ' FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
+                            }
                         }
+                        unset($this_table);
                     }
-                    unset($this_table);
+                    PMA_DBI_free_result($res);
                 }
-                PMA_DBI_free_result($res);
+                unset($res);
             }
-            unset($res);
-        }
-        $queries[] = 'DELETE FROM `mysql`.`user` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($this_user), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($this_host, 'quoted') . ';';
-        if ($mode != 2) {
-            // If we REVOKE the table grants, we should not need to modify the
-            // `mysql`.`db`, `mysql`.`tables_priv` and `mysql`.`columns_priv` tables manually...
-            $user_host_condition = ' WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($this_user), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($this_host, 'quoted') . ';';
-            $queries[] = 'DELETE FROM `mysql`.`db`' . $user_host_condition;
-            $queries[] = 'DELETE FROM `mysql`.`tables_priv`' . $user_host_condition;
-            $queries[] = 'DELETE FROM `mysql`.`columns_priv`' . $user_host_condition;
+            if ( PMA_MYSQL_INT_VERSION >= 40101 ) {
+                $queries[] = 'DROP USER \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
+            } else {
+                $queries[] = 'DELETE FROM `mysql`.`user` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($this_user), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($this_host, 'quoted') . ';';
+            }
+            if ($mode != 2) {
+                // If we REVOKE the table grants, we should not need to modify the
+                // `mysql`.`db`, `mysql`.`tables_priv` and `mysql`.`columns_priv` tables manually...
+                $user_host_condition = 
+                    ' WHERE ' . PMA_convert_using('User') 
+                    . ' = ' . PMA_convert_using(PMA_sqlAddslashes($this_user), 'quoted') 
+                    . ' AND ' . PMA_convert_using('Host') 
+                    . ' = ' . PMA_convert_using($this_host, 'quoted') . ';';
+                $queries[] = 'DELETE FROM `mysql`.`db`' . $user_host_condition;
+                $queries[] = 'DELETE FROM `mysql`.`tables_priv`' . $user_host_condition;
+                $queries[] = 'DELETE FROM `mysql`.`columns_priv`' . $user_host_condition;
+            }
         }
         if (!empty($drop_users_db)) {
             $queries[] = 'DROP DATABASE IF EXISTS ' . PMA_backquote($this_user) . ';';
@@ -1095,7 +1194,24 @@ if (empty($adduser) && empty($checkprivs)) {
            . $GLOBALS['strUserOverview'] . "\n"
            . '</h2>' . "\n";
 
-        $sql_query = 'SELECT `User`, `Host`, IF(`Password` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . '\'\', \'N\', \'Y\') AS \'Password\', `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Index_priv`, `Alter_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv`';
+        $sql_query = 
+            'SELECT `User`,' .
+            '       `Host`,' .
+            '       IF(`Password` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . '\'\', \'N\', \'Y\') AS \'Password\',' .
+            '       `Select_priv`,' .
+            '       `Insert_priv`,' .
+            '       `Update_priv`,' .
+            '       `Delete_priv`,' .
+            '       `Index_priv`,' .
+            '       `Alter_priv`,' .
+            '       `Create_priv`,' .
+            '       `Drop_priv`,' .
+            '       `Grant_priv`,' .
+            '       `References_priv`,' .
+            '       `Reload_priv`,' .
+            '       `Shutdown_priv`,' .
+            '       `Process_priv`,' .
+            '       `File_priv`';
 
         if (PMA_MYSQL_INT_VERSION >= 40002) {
             $sql_query .= ', `Show_db_priv`, `Super_priv`, `Create_tmp_table_priv`, `Lock_tables_priv`, `Execute_priv`, `Repl_slave_priv`, `Repl_client_priv`';
@@ -1337,11 +1453,24 @@ if (empty($adduser) && empty($checkprivs)) {
                . '</tr>' . "\n"
                . '</thead>' . "\n"
                . '<tbody>' . "\n";
-            $user_host_condition = ' WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($hostname, 'quoted');
+            $user_host_condition =
+                ' WHERE ' . PMA_convert_using('User') 
+                . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') 
+                . ' AND ' . PMA_convert_using('Host') 
+                . ' = ' . PMA_convert_using($hostname, 'quoted');
             if (empty($dbname)) {
                 $sql_query = 'SELECT * FROM `mysql`.`db`' . $user_host_condition . ' ORDER BY `Db` ASC;';
             } else {
-                $sql_query = 'SELECT `Table_name`, `Table_priv`, IF(`Column_priv` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . ' \'\', 0, 1) AS \'Column_priv\' FROM `mysql`.`tables_priv`' . $user_host_condition . ' AND ' . PMA_convert_using('Db') .  ' = ' . PMA_convert_using($dbname, 'quoted') . ' ORDER BY `Table_name` ASC;';
+                $sql_query = 
+                    'SELECT `Table_name`,'
+                    .' `Table_priv`,'
+                    .' IF(`Column_priv` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . ' \'\', 0, 1)'
+                    .' AS \'Column_priv\''
+                    .' FROM `mysql`.`tables_priv`' 
+                    . $user_host_condition
+                    .' AND ' . PMA_convert_using('`Db`') 
+                    .' = ' . PMA_convert_using($dbname, 'quoted') 
+                    .' ORDER BY `Table_name` ASC;';
             }
             $res = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_STORE);
             if (PMA_DBI_affected_rows() == 0) {
@@ -1357,9 +1486,10 @@ if (empty($adduser) && empty($checkprivs)) {
                 $found_rows = array();
                 while ($row = PMA_DBI_fetch_assoc($res)) {
                     while (empty($dbname) && $row2 && $row['Db'] > $row2['Db']) {
+                        $row2['Db'] = str_replace( '\\_', '_', $row2['Db'] );
                         $found_rows[] = $row2['Db'];
                         echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
-                           . '    <td>' . htmlspecialchars($row2['Db']) . '</td>' . "\n"
+                           . '    <td>' . htmlspecialchars( $row2['Db'] ) . '</td>' . "\n"
                            . '    <td><tt>' . "\n"
                            . '        <dfn title="' . $GLOBALS['strPrivDescUsage'] . '">USAGE</dfn>' . "\n"
                            . '    </tt></td>' . "\n"
@@ -1379,6 +1509,9 @@ if (empty($adduser) && empty($checkprivs)) {
                         $row2 = PMA_DBI_fetch_assoc($res2);
                         $odd_row = ! $odd_row;
                     } // end while
+                    if ( ! empty( $row['Db'] ) ) {
+                        $row['Db'] = str_replace( '\\_', '_', $row['Db'] );
+                    }
                     $found_rows[] = empty($dbname) ? $row['Db'] : $row['Table_name'];
 
                     echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
@@ -1416,10 +1549,11 @@ if (empty($adduser) && empty($checkprivs)) {
 
 
                 while (empty($dbname) && $row2) {
+                    $row2['Db'] = str_replace( '\\_', '_', $row2['Db'] );
 
                     $found_rows[] = $row2['Db'];
                     echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
-                       . '    <td>' . htmlspecialchars($row2['Db']) . '</td>' . "\n"
+                       . '    <td>' . htmlspecialchars( $row2['Db']) . '</td>' . "\n"
                        . '    <td><tt>' . "\n"
                        . '        <dfn title="' . $GLOBALS['strPrivDescUsage'] . '">USAGE</dfn>' . "\n"
                        . '        </tt></td>' . "\n"
@@ -1456,7 +1590,7 @@ if (empty($adduser) && empty($checkprivs)) {
                 $res = PMA_DBI_query('SHOW DATABASES;');
                 $pred_db_array = array();
                 while ($row = PMA_DBI_fetch_row($res)) {
-                    if (!isset($found_rows) || !in_array(str_replace('_', '\\_', $row[0]), $found_rows)) {
+                    if (!isset($found_rows) || !in_array( $row[0], $found_rows )) {
                         $pred_db_array[] = $row[0];
                     }
                 }
@@ -1467,7 +1601,7 @@ if (empty($adduser) && empty($checkprivs)) {
                     echo '    <select name="pred_dbname" onchange="this.form.submit();">' . "\n"
                        . '        <option value="" selected="selected">' . $GLOBALS['strUseTextField'] . ':</option>' . "\n";
                     foreach ($pred_db_array as $current_db) {
-                        echo '        <option value="' . htmlspecialchars(str_replace('_', '\\_', $current_db)) . '">' . htmlspecialchars($current_db) . '</option>' . "\n";
+                        echo '        <option value="' . htmlspecialchars( $current_db ) . '">' . htmlspecialchars($current_db) . '</option>' . "\n";
                     }
                     echo '    </select>' . "\n";
                 }
@@ -1602,13 +1736,46 @@ if (empty($adduser) && empty($checkprivs)) {
 
         $no = PMA_convert_using('N', 'quoted');
 
-        $list_of_privileges = PMA_convert_using('Select_priv') . ' AS Select_priv, ' . PMA_convert_using('Insert_priv') . ' AS Insert_priv, ' . PMA_convert_using('Update_priv') . ' AS Update_priv, ' . PMA_convert_using('Delete_priv') . ' AS Delete_priv, ' . PMA_convert_using('Create_priv') . ' AS Create_priv, ' . PMA_convert_using('Drop_priv') . ' AS Drop_priv, ' . PMA_convert_using('Grant_priv') . ' AS Grant_priv, '. PMA_convert_using('References_priv') . ' AS References_priv';
+        $list_of_privileges = 
+            PMA_convert_using('Select_priv') . ' AS Select_priv, ' 
+            . PMA_convert_using('Insert_priv') . ' AS Insert_priv, ' 
+            . PMA_convert_using('Update_priv') . ' AS Update_priv, ' 
+            . PMA_convert_using('Delete_priv') . ' AS Delete_priv, ' 
+            . PMA_convert_using('Create_priv') . ' AS Create_priv, ' 
+            . PMA_convert_using('Drop_priv') . ' AS Drop_priv, ' 
+            . PMA_convert_using('Grant_priv') . ' AS Grant_priv, '
+            . PMA_convert_using('References_priv') . ' AS References_priv';
 
-        $list_of_compared_privileges = PMA_convert_using('Select_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Insert_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Update_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Delete_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Create_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Drop_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('Grant_priv') . ' = ' . $no . ' AND ' . PMA_convert_using('References_priv') . ' = ' . $no;
+        $list_of_compared_privileges = 
+            PMA_convert_using('Select_priv') . ' = ' . $no 
+            . ' AND ' . PMA_convert_using('Insert_priv') . ' = ' . $no 
+            . ' AND ' . PMA_convert_using('Update_priv') . ' = ' . $no 
+            . ' AND ' . PMA_convert_using('Delete_priv') . ' = ' . $no 
+            . ' AND ' . PMA_convert_using('Create_priv') . ' = ' . $no 
+            . ' AND ' . PMA_convert_using('Drop_priv') . ' = ' . $no 
+            . ' AND ' . PMA_convert_using('Grant_priv') . ' = ' . $no 
+            . ' AND ' . PMA_convert_using('References_priv') . ' = ' . $no;
 
-        $sql_query = '(SELECT ' . PMA_convert_using('User') . ' AS User,' . PMA_convert_using('Host') . ' AS Host,' . PMA_convert_using('Db') . ' AS Db,' . $list_of_privileges . ' FROM `mysql`.`db` WHERE ' . PMA_convert_using($checkprivs, 'quoted') . ' LIKE ' .  PMA_convert_using('Db') . ' AND NOT (' . $list_of_compared_privileges. ')) UNION (SELECT ' . PMA_convert_using('User') . ' AS User, ' . PMA_convert_using('Host') . ' AS Host, ' . PMA_convert_using('*', 'quoted') . ' AS Db, ' . $list_of_privileges . ' FROM `mysql`.`user` WHERE NOT (' . $list_of_compared_privileges . ')) ORDER BY User ASC, Host ASC, Db ASC;';
+        $sql_query = 
+            '(SELECT ' . PMA_convert_using('`User`') . ' AS `User`, '
+            .   PMA_convert_using('`Host`') . ' AS `Host`, '
+            .   PMA_convert_using('`Db`') . ' AS `Db`, '
+            .   $list_of_privileges
+            .' FROM `mysql`.`db`'
+            .' WHERE ' . PMA_convert_using($checkprivs, 'quoted')
+            .' LIKE REPLACE( ' . PMA_convert_using('Db') . ', \'\\_\', \'_\' )' 
+            .' AND NOT (' . $list_of_compared_privileges. ')) '
+            .'UNION '
+            .'(SELECT ' . PMA_convert_using('`User`') . ' AS `User`, ' 
+            .   PMA_convert_using('`Host`') . ' AS `Host`, ' 
+            .   PMA_convert_using('*', 'quoted') .' AS `Db`, ' 
+            .   $list_of_privileges 
+            .' FROM `mysql`.`user` '
+            .' WHERE NOT (' . $list_of_compared_privileges . ')) '
+            .' ORDER BY `User` ASC,'
+            .'  `Host` ASC,'
+            .'  `Db` ASC;';
         $res = PMA_DBI_query($sql_query);
-
         $row = PMA_DBI_fetch_assoc($res);
         if ($row) {
             $found = TRUE;
@@ -1618,7 +1785,19 @@ if (empty($adduser) && empty($checkprivs)) {
         $sql_query = 'SELECT * FROM `mysql`.`user` WHERE NOT (`Select_priv` = \'N\' AND `Insert_priv` = \'N\' AND `Update_priv` = \'N\' AND `Delete_priv` = \'N\' AND `Create_priv` = \'N\' AND `Drop_priv` = \'N\' AND `Grant_priv` = \'N\' AND `References_priv` = \'N\') ORDER BY `User` ASC, `Host` ASC;';
         $res1 = PMA_DBI_query($sql_query);
         $row1 = PMA_DBI_fetch_assoc($res1);
-        $sql_query = 'SELECT * FROM `mysql`.`db` WHERE \'' . $checkprivs . '\' LIKE `Db` AND NOT (`Select_priv` = \'N\' AND `Insert_priv` = \'N\' AND `Update_priv` = \'N\' AND `Delete_priv` = \'N\' AND `Create_priv` = \'N\' AND `Drop_priv` = \'N\' AND `Grant_priv` = \'N\' AND `References_priv` = \'N\') ORDER BY `User` ASC, `Host` ASC;';
+        $sql_query = 
+            'SELECT * FROM `mysql`.`db`'
+            .' WHERE \'' . $checkprivs . '\''
+            .'   LIKE REPLACE( `Db`, \'\\_\', \'_\' )'
+            .'  AND NOT (`Select_priv` = \'N\''
+            .'   AND `Insert_priv` = \'N\''
+            .'   AND `Update_priv` = \'N\''
+            .'   AND `Delete_priv` = \'N\''
+            .'   AND `Create_priv` = \'N\''
+            .'   AND `Drop_priv` = \'N\''
+            .'   AND `Grant_priv` = \'N\''
+            .'   AND `References_priv` = \'N\')'
+            .' ORDER BY `User` ASC, `Host` ASC;';
         $res2 = PMA_DBI_query($sql_query);
         $row2 = PMA_DBI_fetch_assoc($res2);
         if ($row1 || $row2) {
@@ -1670,7 +1849,7 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '            ';
                 if (!isset($current['Db']) || $current['Db'] == '*') {
                     echo $GLOBALS['strGlobal'];
-                } else if ($current['Db'] == $checkprivs) {
+                } elseif ( str_replace( '\\_', '_', $current['Db'] ) == $checkprivs ) {
                     echo $GLOBALS['strDbSpecific'];
                 } else {
                     echo $GLOBALS['strWildcard'], ': <tt>' . htmlspecialchars($current['Db']) . '</tt>';

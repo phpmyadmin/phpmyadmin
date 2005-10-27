@@ -23,6 +23,10 @@ $Source$
       - added extra space between icons and text
     * browse_foreigners.php, header_printview.inc.php, left.php:
       bug #1334963 Per-server themes - left frame colors unthemed
+    * server_privileges.php:
+      - bug #1274032 Field privileges with database names containing underscores
+      - use DROP USER
+      - use db_name LIKE REPLACE( mysql.db.Db, \_, _ )
     
 2005-10-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french* updates
