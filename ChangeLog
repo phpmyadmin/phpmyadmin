@@ -18,6 +18,9 @@ $Source$
       - make use of global row highlighting/marking
       - display 'print table' and row stats for views
       - no actions for info_schema tables
+    * css/phpmyadmin.css.php:
+      - added style for class selectallarrow
+      - added extra space between icons and text
     
 2005-10-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french* updates

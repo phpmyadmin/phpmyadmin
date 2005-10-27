@@ -44,8 +44,20 @@ caption {
     vertical-align: middle;
 }
 
+/* leave some space between icons and text */
 .icon {
     vertical-align: middle;
+    margin-right: 0.3em;
+    margin-left: 0.3em;
+}
+/* no extra space in table cells */
+td .icon {
+    margin: 0;
+}
+
+.selectallarrow {
+    margin-<?php echo $right; ?>: 0.3em;
+    margin-<?php echo $left; ?>: 0.6em;
 }
 
 div#tablestatistics {
