@@ -2346,7 +2346,7 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
      * $GLOBALS['strEmpty']
      * $GLOBALS['strDrop']
      * $GLOBALS['active_page']
-     * $_SERVER['PHP_SELF']
+     * $GLOBALS['PHP_SELF']
      * htmlentities()
      * PMA_generate_common_url()
      * $GLOBALS['url_query']
@@ -2384,7 +2384,7 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
             elseif ( isset( $tab['active'] ) && $tab['active']
                   || isset( $GLOBALS['active_page'] )
                   && $GLOBALS['active_page'] == $tab['link'] 
-                  || basename( $_SERVER['PHP_SELF'] ) == $tab['link'] )
+                  || basename( $GLOBALS['PHP_SELF'] ) == $tab['link'] )
             {
                 $tab['class'] = 'active';
             }
