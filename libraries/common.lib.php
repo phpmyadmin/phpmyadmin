@@ -1874,7 +1874,7 @@ if (typeof(window.parent) != 'undefined'
                 $tooltip    = (empty($tbl_status['Comment']))
                             ? ''
                             : $tbl_status['Comment'] . ' ';
-                $tooltip .= '(' . $tbl_status['Rows'] . ' ' . $GLOBALS['strRows'] . ')';
+                $tooltip .= '(' . PMA_formatNumber( $tbl_status['Rows'], 0 ) . ' ' . $GLOBALS['strRows'] . ')';
                 PMA_DBI_free_result($result);
                 $uni_tbl = PMA_jsFormat( $GLOBALS['db'] . '.' . $GLOBALS['table'], false );
                 echo "\n";

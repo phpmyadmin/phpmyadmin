@@ -449,7 +449,7 @@ function PMA_displayTableList( $tables, $visible = false,
             echo '<li>' . "\n";
             echo '<a title="' . $GLOBALS['strBrowse'] . ': ' 
                 . htmlspecialchars( $table['Comment'] )
-                .' (' . $table['Rows'] . ' ' . $GLOBALS['strRows'] . ')"'
+                .' (' . PMA_formatNumber( $table['Rows'], 0 ) . ' ' . $GLOBALS['strRows'] . ')"'
                 .' id="browse_' . htmlspecialchars( $table_db . '.' . $table['Name'] ) . '"'
                 .' href="sql.php?' . $GLOBALS['common_url_query'] 
                 .'&amp;table=' . urlencode( $table['Name'] )
@@ -466,7 +466,7 @@ function PMA_displayTableList( $tables, $visible = false,
             echo ' id="icon_' . htmlspecialchars( $table_db . '.' . $table['Name'] ) . '"'
                 .' width="10" height="10" alt="' . $GLOBALS['strBrowse'] . '" /></a>' . "\n"
                 .'<a href="' . $href . '" title="' . $table['Comment']
-                .' (' . $table['Rows'] . ' ' . $GLOBALS['strRows'] . ')"'
+                .' (' . PMA_formatNumber( $table['Rows'], 0 ) . ' ' . $GLOBALS['strRows'] . ')"'
                 .' id="' . htmlspecialchars( $table_db . '.' . $table['Name'] ) . '">'
                 . htmlspecialchars( $table['disp_name'] ) . '</a>';
             echo '</li>' . "\n";
