@@ -128,6 +128,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     xml:lang="<?php echo $lang_iso_code; ?>"
     lang="<?php echo $lang_iso_code; ?>"
     dir="<?php echo $GLOBALS['text_dir']; ?>">
+    <link rel="shortcut icon" href="favicon.ico" type="image/ico" />
 <head>
 <title>phpMyAdmin <?php echo PMA_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
 <meta http-equiv="Content-Type"

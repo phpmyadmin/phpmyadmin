@@ -13,6 +13,7 @@ $Source$
 	   - bug #1144110 Unable to escape "_"
 	   - now every user from every mysql table is displayed
 	   - no table specific rights for db wildcards
+	* index.php, favicon.ico: added favicon.ico
 
 2005-10-27 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php::PMA_formatNumber(), 
