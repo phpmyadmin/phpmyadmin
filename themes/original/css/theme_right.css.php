@@ -429,7 +429,7 @@ fieldset.tblFooters {
 
 #fieldset_user_priv div.item {
     float: left;
-    width: 8em;
+    width: 9em;
     max-width: 100%;
 }
 

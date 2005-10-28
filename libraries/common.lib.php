@@ -433,6 +433,21 @@ if ($is_minimum_common == FALSE) {
         return $name;
     } // end of the 'PMA_escape_mysql_wildcards()' function
 
+    /**
+     * removes slashes before "_" and "%" characters
+     * Note: This function does not unescape backslashes!
+     *
+     * @param   string   $name  the string to escape
+     * @return  string   the escaped string
+     * @access  public
+     */
+    function PMA_unescape_mysql_wildcards( $name )
+    {
+        $name = str_replace('\\_', '_', $name);
+        $name = str_replace('\\%', '%', $name);
+
+        return $name;
+    } // end of the 'PMA_unescape_mysql_wildcards()' function
 
     /**
      * format sql strings
