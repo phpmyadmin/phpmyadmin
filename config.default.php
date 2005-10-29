@@ -403,17 +403,18 @@ $cfg['Import']['ldi_local_option'] = 'auto'; // 'auto' for autodetection, TRUE o
  * See http://dev.mysql.com/doc/ for more information
  * about MySQL manuals and their types.
  */
-$cfg['MySQLManualBase'] = 'http://dev.mysql.com/doc/mysql/en';
+$cfg['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
 
 /**
  * Type of MySQL documentation:
- *   old        - old style used in phpMyAdmin 2.3.0 and sooner
+ *   viewable   - "viewable online", current one used on MySQL website
  *   searchable - "Searchable, with user comments"
  *   chapters   - "HTML, one page per chapter"
  *   big        - "HTML, all on one page"
+ *   old        - old style used in phpMyAdmin 2.3.0 and sooner
  *   none       - do not show documentation links
  */
-$cfg['MySQLManualType'] = 'searchable';
+$cfg['MySQLManualType'] = 'viewable';
 
 
 /**

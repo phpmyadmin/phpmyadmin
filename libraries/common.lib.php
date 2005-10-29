@@ -518,63 +518,43 @@ if ($is_minimum_common == FALSE) {
      *
      * @access  public
      */
-// 2004-05-04: replaced with a modified function from Michael Keck (mkkeck)
-        function PMA_showMySQLDocu($chapter, $link)
-        {
+    function PMA_showMySQLDocu($chapter, $link)
+    {
+        global $cfg;
+        
+        if ($cfg['MySQLManualType'] == 'none' || empty($cfg['MySQLManualBase'])) return '';
 
-            if (!empty($GLOBALS['cfg']['MySQLManualBase'])) {
-                if (!empty($GLOBALS['cfg']['MySQLManualType'])) {
-                    switch ($GLOBALS['cfg']['MySQLManualType']) {
-                        case 'old':
-                            if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
-                            }else{
-                                return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
-                           }
-                        case 'chapters':
-                            if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
-                           } else {
-                               return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
-                        case 'big':
-                            if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
-                            } else {
-                                return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
-                            }
-                        case 'none':
-                            return '';
-                        case 'searchable':
-                        default:
-                            if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
-                            } else {
-                                return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
-                            }
-                    }
-                } else {
-                    // no Type defined, show the old one
-                    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-                        return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
-                    } else {
-                        return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
-                    }
+        switch ($cfg['MySQLManualType']) {
+            case 'old':
+                $url = $cfg['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html';
+                break;
+            case 'chapters':
+                $url = $cfg['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link;
+                break;
+            case 'big':
+                $url = $cfg['MySQLManualBase'] . '#' . $link;
+                break;
+            case 'searchable':
+                $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
+                break;
+            case 'viewable':
+            default:
+                $mysql = '4.1';
+                if (PMA_MYSQL_INT_VERSION > 50100) {
+                    $mysql = '5.1';
+                } elseif (PMA_MYSQL_INT_VERSION > 50000) {
+                    $mysql = '5.0';
                 }
-            } else {
-                // no URL defined
-                if (!empty($GLOBALS['cfg']['ManualBaseShort'])) {
-                    // the old configuration
-                    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-                        return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
-                    } else {
-                        return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
-                   }
-                } else {
-                    return '';
-                }
-            }
+                $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/en/' . $link . '.html';
+                break;
         }
-                 // end of the 'PMA_showDocu()' function
+
+        if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+            return '<a href="' . $url . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
+        }else{
+            return '[<a href="' . $url . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+        }
+    } // end of the 'PMA_showDocu()' function
 
     /**
      * Displays a hint icon, on mouse over show the hint

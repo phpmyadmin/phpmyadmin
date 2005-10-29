@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-29 Michal Čihař  <michal@cihar.com>
+    * Documentation.html, config.default.php, libraries/common.lib.php: Link
+      documentation to version we run (RFE #1334292).
+
 2005-10-29 Olivier Mueller <om@omnis.ch>
     * scripts/upgrade.pl: various fixes (was not handling rc/pl correctely),
       and improvements (--force option, installation summary, backup
