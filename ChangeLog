@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-29 Olivier Mueller <om@omnis.ch>
+    * scripts/upgrade.pl: various fixes (was not handling rc/pl correctely),
+      and improvements (--force option, installation summary, backup
+      directory timestamp)
+      
 2005-10-29 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: clarification on FAQ 6.20
 
