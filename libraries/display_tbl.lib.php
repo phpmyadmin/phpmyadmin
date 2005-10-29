@@ -1767,7 +1767,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         $last_shown_rec = ($GLOBALS['session_max_rows'] == 'all' || $pos_next > $total)
                         ? $total - 1
                         : $pos_next - 1;
-        PMA_showMessage($GLOBALS['strShowingRecords'] . " $pos - $last_shown_rec ($total " . $GLOBALS['strTotal'] . $selectstring . ', ' . sprintf($GLOBALS['strQueryTime'], $GLOBALS['querytime']) . ')');
+        PMA_showMessage($GLOBALS['strShowingRecords'] . " $pos - $last_shown_rec (" . PMA_formatNumber( $total, 0 ) . ' ' . $GLOBALS['strTotal'] . $selectstring . ', ' . sprintf($GLOBALS['strQueryTime'], $GLOBALS['querytime']) . ')');
     } else if (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
         PMA_showMessage($GLOBALS['strSQLQuery']);
     }

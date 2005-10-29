@@ -13,6 +13,8 @@ $Source$
 2005-10-29 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: clarification on FAQ 6.20
     * server_privileges.php: respect the chosen initial
+    * libraries/display_tbl.lib.php: patch 1328902 (adapted), format row count
+      in the Browse header, thanks to Cal Henderson
 
 2005-10-28 Sebastian Mendel <cybot_tm@users.sourceforge.net>
 	* server_privilegs.php, libraries/common.lib.php,
