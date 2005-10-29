@@ -283,7 +283,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     } // end for
     ?>
             </select>
-            <?php echo PMA_showMySQLDocu('Reference', 'ALTER_TABLE') . "\n"; ?>
+            <?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE') . "\n"; ?>
         </td>
     </tr>
 

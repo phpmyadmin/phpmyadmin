@@ -111,7 +111,7 @@ $header_cells = array();
 $content_cells = array();
 
 $header_cells[] = $strField;
-$header_cells[] = $strType . ($GLOBALS['cfg']['ReplaceHelpImg'] ? PMA_showMySQLDocu('Reference', 'Column_types') : '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('Reference', 'Column_types') . '</span>');
+$header_cells[] = $strType . ($GLOBALS['cfg']['ReplaceHelpImg'] ? PMA_showMySQLDocu('SQL-Syntax', 'Column_types') : '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('SQL-Syntax', 'Column_types') . '</span>');
 $header_cells[] = $strLengthSet;
 if (PMA_MYSQL_INT_VERSION >= 40100) {
     $header_cells[] = $strCollation;
@@ -720,4 +720,4 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) 
 </table>
 <br />
 
-<center><?php echo PMA_showMySQLDocu('Reference', 'CREATE_TABLE'); ?></center>
+<center><?php echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TABLE'); ?></center>

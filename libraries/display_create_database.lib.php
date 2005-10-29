@@ -10,7 +10,7 @@ if ($is_create_db_priv) {
     // The user is allowed to create a db
     ?>
         <form method="post" action="db_create.php"><b>
-            <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?></b><br />
+            <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_DATABASE'); ?></b><br />
             <?php echo PMA_generate_common_hidden_inputs('', '', 5); ?>
             <input type="hidden" name="reload" value="1" />
             <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" />
@@ -26,7 +26,7 @@ if ($is_create_db_priv) {
 } else {
     ?>
     <!-- db creation no privileges message -->
-        <b><?php echo $strCreateNewDatabase . ':&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?></b><br />
+        <b><?php echo $strCreateNewDatabase . ':&nbsp;' . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_DATABASE'); ?></b><br />
         <?php
               echo '<span class="noPrivileges">'
                  . ($cfg['ErrorIconic'] ? '<img src="' . $pmaThemeImage . 's_error2.png" width="11" height="11" hspace="2" border="0" align="middle" />' : '')

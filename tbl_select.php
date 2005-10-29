@@ -199,7 +199,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
         <tr>
             <th align="left" class="tblHeaders" colspan="2">
                 <?php echo $strAddSearchConditions; ?>
-                <?php echo PMA_showMySQLDocu('Reference', 'Functions') . "\n"; ?>
+                <?php echo PMA_showMySQLDocu('SQL-Syntax', 'Functions') . "\n"; ?>
             </th>
         </tr>
         <tr>

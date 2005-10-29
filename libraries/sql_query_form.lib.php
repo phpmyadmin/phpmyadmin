@@ -259,7 +259,7 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
                             $GLOBALS['cfg']['DefaultQueryTable'] ) ) );
         }
     }
-    $legend .= ': ' . PMA_showMySQLDocu( 'Reference', 'SELECT' );
+    $legend .= ': ' . PMA_showMySQLDocu( 'SQL-Syntax', 'SELECT' );
 
     if ( count( $fields_list ) ) {
         $sqlquerycontainer_id = 'sqlquerycontainer';
