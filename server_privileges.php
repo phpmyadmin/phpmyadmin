@@ -45,6 +45,26 @@ if (!$is_superuser) {
 }
 
 /**
+ * Generates a condition on the user name 
+ *
+ * @param   string   the user's initial 
+ * @return  string   the generated condition
+ */
+function PMA_RangeOfUsers($initial = '') {
+// strtolower() is used because the User field
+// might be BINARY, so LIKE would be case sensitive
+    if (!empty($initial)) {
+        $ret = " WHERE " . PMA_convert_using('User')
+         . " LIKE " . PMA_convert_using($initial . '%', 'quoted')
+         . " OR ". PMA_convert_using('User')
+         . " LIKE " . PMA_convert_using(strtolower($initial) . '%', 'quoted');
+    } else {
+        $ret = '';
+    }
+    return $ret;
+} // end function
+
+/**
  * Extracts the privilege information of a priv table row
  *
  * @param   array   $row        the row
@@ -1257,14 +1277,7 @@ if (empty($adduser) && empty($checkprivs)) {
  
         $sql_query .= '  FROM `mysql`.`user`';
 
-        // the strtolower() is because sometimes the User field
-        // might be BINARY, so LIKE would be case sensitive
-        if (isset($initial)) {
-            $sql_query .= " WHERE " . PMA_convert_using('User')
-             . " LIKE " . PMA_convert_using($initial . '%', 'quoted')
-             . " OR ". PMA_convert_using('User')
-             . " LIKE " . PMA_convert_using(strtolower($initial) . '%', 'quoted');
-        }
+        $sql_query .= (isset($initial) ? PMA_RangeOfUsers($initial) : '');
 
         $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
         $res = PMA_DBI_try_query($sql_query, NULL, PMA_DBI_QUERY_STORE);
@@ -1302,7 +1315,7 @@ if (empty($adduser) && empty($checkprivs)) {
             $db_rights_sqls = array();
             foreach ( $tables_to_search_for_users as $table_search_in ) {
                 if ( in_array( $table_search_in, $tables ) ) {
-                    $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`' . $table_search_in . '` ';
+                    $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`' . $table_search_in . '` ' . (isset($initial) ? PMA_RangeOfUsers($initial) : '');
                 }
             }
             
@@ -1329,10 +1342,6 @@ if (empty($adduser) && empty($checkprivs)) {
                     $db_rights_row = array_merge( $user_defaults, $db_rights_row );
                     $db_rights[$db_rights_row['User']][$db_rights_row['Host']] =
                         $db_rights_row;
-                    if ( ! empty( $db_rights_row['User'] ) ) {
-                        $letter = strtoupper( $db_rights_row['User']{0} );
-                        $array_initials[$letter] = true;
-                    }
                 }
             } else {
                 foreach ( $db_rights_sqls as $db_rights_sql ) {
@@ -1342,10 +1351,6 @@ if (empty($adduser) && empty($checkprivs)) {
                         $db_rights_row = array_merge( $user_defaults, $db_rights_row );
                         $db_rights[$db_rights_row['User']][$db_rights_row['Host']] =
                             $db_rights_row;
-                        if ( ! empty( $db_rights_row['User'] ) ) {
-                            $letter = strtoupper( $db_rights_row['User']{0} );
-                            $array_initials[$letter] = true;
-                        }
                     }
                 }
             }
@@ -1362,6 +1367,11 @@ if (empty($adduser) && empty($checkprivs)) {
                 if ( ! isset( $array_initials[chr($letter_counter + 64)] ) ) {
                     $array_initials[chr($letter_counter + 64)] = FALSE;
                 }
+            }
+
+            $initials = PMA_DBI_try_query('SELECT DISTINCT UPPER(LEFT(' . PMA_convert_using('User') . ',1)) FROM `user` ORDER BY `User` ASC', NULL, PMA_DBI_QUERY_STORE);
+            while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
+                $array_initials[$tmp_initial] = TRUE;
             }
 
             // Display the initials, which can be any characters, not 
