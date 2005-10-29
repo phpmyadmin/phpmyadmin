@@ -3959,10 +3959,7 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
 <p>
     Upgrading to MySQL 4 usually gives users those global privileges: CREATE
     TEMPORARY TABLES, SHOW DATABASES, LOCK TABLES. Those privileges also
-    enables users to see all the database names, until you upgrade the grant
-    tables
-    <a href="http://dev.mysql.com/doc/mysql/en/Upgrading-grant-tables.html">
-        as described in the MySQL manual</a>.
+    enable users to see all the database names.
     See this <a href="http://bugs.mysql.com/179">bug report</a>.    <br /><br />
     So if your users do not need those privileges, you can remove them and their
     databases list will shorten.
