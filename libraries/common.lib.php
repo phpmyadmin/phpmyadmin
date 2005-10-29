@@ -524,12 +524,13 @@ if ($is_minimum_common == FALSE) {
         
         if ($cfg['MySQLManualType'] == 'none' || empty($cfg['MySQLManualBase'])) return '';
 
+        // Fixup for newly used names:
+        $chapter = str_replace('_', '-', strtolower($chapter));
+        $link = str_replace('_', '-', strtolower($link));
+
         switch ($cfg['MySQLManualType']) {
-            case 'old':
-                $url = $cfg['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html';
-                break;
             case 'chapters':
-                $url = $cfg['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link;
+                $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $link;
                 break;
             case 'big':
                 $url = $cfg['MySQLManualBase'] . '#' . $link;
@@ -554,7 +555,7 @@ if ($is_minimum_common == FALSE) {
         }else{
             return '[<a href="' . $url . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
         }
-    } // end of the 'PMA_showDocu()' function
+    } // end of the 'PMA_showMySQLDocu()' function
 
     /**
      * Displays a hint icon, on mouse over show the hint
@@ -625,7 +626,7 @@ if ($is_minimum_common == FALSE) {
             // modified to show me the help on sql errors (Michael Keck)
             echo '    <p><strong>' . $GLOBALS['strSQLQuery'] . ':</strong>' . "\n";
             if (strstr(strtolower($formatted_sql),'select')) { // please show me help to the error on select
-                echo PMA_showMySQLDocu('Reference', 'SELECT');
+                echo PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
             }
             if ($is_modify_link && isset($db)) {
                 if (isset($table)) {
