@@ -111,7 +111,7 @@ echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
 
 <body id="body_leftFrame">
 <?php
-require 'libraries/left_header.inc.php';
+require './libraries/left_header.inc.php';
 
 if ( $num_dbs === 0 ) {
     // no database available, so we break here

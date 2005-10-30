@@ -242,13 +242,13 @@ if ( $GLOBALS['cfg']['QueryFrame'] && ! $GLOBALS['cfg']['QueryFrameJS'] ) {
     // ... we redirect to appropriate query sql page
     // works only full if $db and $table is also stored/grabbed from $_COOKIE
     if ( ! empty( $table ) ) {
-        require 'tbl_properties.php';
+        require './tbl_properties.php';
     }
     elseif ( ! empty( $db ) ) {
-        require 'db_details.php';
+        require './db_details.php';
     }
     else {
-        require 'server_sql.php';
+        require './server_sql.php';
     }
     exit;
 }

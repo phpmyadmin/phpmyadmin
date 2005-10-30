@@ -14,6 +14,8 @@ $Source$
       name (bug #1180668).
     * libraries/common.lib.php: Do not escape SQL query twice while showing it
       in error message (bug #1336452).
+    * left.php, querywindow.php, tbl_query_box.php: Fix including of files
+      when search path does not contain current directory.
 
 2005-10-29 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.default.php, libraries/common.lib.php: Link
