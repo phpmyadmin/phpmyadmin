@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-30 Michal Čihař  <michal@cihar.com>
+    * lang/slovak: Update, thanks to  Ivan Kuriscak - shylauda69.
+
 2005-10-29 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.default.php, libraries/common.lib.php: Link
       documentation to version we run (RFE #1334292), fix links for chapter
