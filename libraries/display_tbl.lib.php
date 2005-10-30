@@ -752,7 +752,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             //       FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
 
             if (($is_join
-                && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name . '~i', $select_expr, $parts = array()))
+                && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . strtr($fields_meta[$i]->name, array('[' => '\\[', '~' => '\\~', '\\' => '\\\\')) . '~i', $select_expr, $parts = array()))
                || ( isset($analyzed_sql[0]['select_expr'][$i]['expr'])
                    && isset($analyzed_sql[0]['select_expr'][$i]['column'])
                    && $analyzed_sql[0]['select_expr'][$i]['expr'] !=

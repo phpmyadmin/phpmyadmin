@@ -10,6 +10,8 @@ $Source$
     * lang/*: Remove duplicite message.
     * lang/sync_lang.sh: Sync japanese also, it works now (at least for me).
     * lang/japanese: Update, thanks to Tadashi Jokagi - elf2000.
+    * libraries/display_tbl.lib.php: Do not break on special chars in column
+      name (bug #1180668).
 
 2005-10-29 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.default.php, libraries/common.lib.php: Link
