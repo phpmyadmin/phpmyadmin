@@ -81,10 +81,7 @@ if ($GLOBALS['cfg']['MainPageIconic']) {
         .' title="' . $strPmaDocumentation . '" >'
         .'<img src="' . $pmaThemeImage . 'b_docs.png" width="16" height="16"'
         .' alt="' . $strPmaDocumentation . '" /></a>' . "\n";
-    echo '    <a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '"'
-        .' target="documentation" title="MySQL - ' . $strDocu . '">'
-        .'<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sqlhelp.png" width="16"'
-        .' height="16" alt="MySQL - ' . $strDocu . '" /></a>' . "\n";
+    echo '    ' . PMA_showMySQLDocu('', '', TRUE) . "\n";
 }
 echo '</div>' . "\n";
 

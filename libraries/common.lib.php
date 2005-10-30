@@ -511,14 +511,15 @@ if ($is_minimum_common == FALSE) {
     /**
      * Displays a link to the official MySQL documentation
      *
-     * @param   chapter of "HTML, one page per chapter" documentation
-     * @param   contains name of page/anchor that is being linked
+     * @param string  chapter of "HTML, one page per chapter" documentation
+     * @param string  contains name of page/anchor that is being linked
+     * @param bool    whether to use big icon (like in left frame)
      *
      * @return  string  the html link
      *
      * @access  public
      */
-    function PMA_showMySQLDocu($chapter, $link)
+    function PMA_showMySQLDocu($chapter, $link, $big_icon = FALSE)
     {
         global $cfg;
         
@@ -530,16 +531,19 @@ if ($is_minimum_common == FALSE) {
 
         switch ($cfg['MySQLManualType']) {
             case 'chapters':
+                if (empty($chapter)) $chapter = 'index';
                 $url = $cfg['MySQLManualBase'] . '/' . $chapter . '.html#' . $link;
                 break;
             case 'big':
                 $url = $cfg['MySQLManualBase'] . '#' . $link;
                 break;
             case 'searchable':
+                if (empty($link)) $link = 'index';
                 $url = $cfg['MySQLManualBase'] . '/' . $link . '.html';
                 break;
             case 'viewable':
             default:
+                if (empty($link)) $link = 'index';
                 $mysql = '4.1';
                 if (PMA_MYSQL_INT_VERSION > 50100) {
                     $mysql = '5.1';
@@ -550,7 +554,9 @@ if ($is_minimum_common == FALSE) {
                 break;
         }
 
-        if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+        if ($big_icon) {
+            return '<a href="' . $url . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_sqlhelp.png" width="16" height="16" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" /></a>';
+        } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
             return '<a href="' . $url . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
         }else{
             return '[<a href="' . $url . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';

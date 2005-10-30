@@ -16,6 +16,8 @@ $Source$
       in error message (bug #1336452).
     * left.php, querywindow.php, tbl_query_box.php: Fix including of files
       when search path does not contain current directory.
+    * libraries/common.lib.php, libraries/left_header.inc.php: Use common code
+      for generating links to documentation, fixes link to new style docs.
 
 2005-10-29 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.default.php, libraries/common.lib.php: Link
