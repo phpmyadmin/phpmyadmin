@@ -337,7 +337,6 @@ $strIgnoreInserts = 'Ignorer les erreurs de doublons (INSERT IGNORE)';
 $strIgnoringFile = 'Fichier %s ignoré';
 $strImportDocSQL = 'Importer des fichiers docSQL';
 $strImportFiles = 'Importe les fichiers';
-$strImportFinished = 'Importation terminée';
 $strImportFinished = 'Importation terminée avec succès.';
 $strImportFormat = 'Format du fichier d\'importation';
 $strImport = 'Importer';

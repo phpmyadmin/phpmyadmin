@@ -835,7 +835,6 @@ $strTimeoutPassed = 'Script timeout passed, if you want to finish import, please
 $strTimeoutNothingParsed = 'However on last run no data has been parsed, this usually means phpMyAdmin won\'t be able to finish this import unless you increase php time limits.';  //to translate
 $strTimeoutInfo = 'Previous import timed out, after resubmitting will continue from position %d.';  //to translate
 $strUnsupportedCompressionDetected = 'You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.';  //to translate
-$strImportFinished = 'Import has been successfully finished.';  //to translate
 $strNothingToImport = 'You didn\'t enter any data to import!';  //to translate
 $strIgnoreDuplicates = 'Ignore duplicate rows';  //to translate
 $strSkipQueries = 'Number of records(queries) to skip from start';  //to translate

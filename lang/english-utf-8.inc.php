@@ -337,7 +337,6 @@ $strIgnoreInserts = 'Use ignore inserts';
 $strIgnoringFile = 'Ignoring file %s';
 $strImportDocSQL = 'Import docSQL Files';
 $strImportFiles = 'Import files';
-$strImportFinished = 'Import finished';
 $strImportFinished = 'Import has been successfully finished.';
 $strImportFormat = 'Format of imported file';
 $strImport = 'Import';

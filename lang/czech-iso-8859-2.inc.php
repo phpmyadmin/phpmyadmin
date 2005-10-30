@@ -343,7 +343,6 @@ $strIgnoringFile = 'Ignoruji soubor %s';
 $strImportDocSQL = 'Importovat soubory docSQL';
 $strImportFiles = 'Importovat soubory';
 $strImportFinished = 'Import byl úspì¹nì dokonèen.';
-$strImportFinished = 'Import ukonèen';
 $strImportFormat = 'Formát importovaného souboru'; 
 $strImport = 'Import';
 $strIndexes = 'Indexy';

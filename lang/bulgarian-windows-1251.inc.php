@@ -307,7 +307,6 @@ $strIgnore = 'Игнориране';
 $strIgnoringFile = 'Игнориране на файл %s';
 $strImportDocSQL = 'Импортирай docSQL файловете';
 $strImportFiles = 'Импортиране на файлове';
-$strImportFinished = 'Импортирането завърши';
 $strImportFinished = 'Импортирането приключи успешно.';
 $strImportFormat = 'Формат на инпортирания файл';
 $strImport = 'Импортиране';
