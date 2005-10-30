@@ -149,6 +149,7 @@ $strCompatibleHashing = 'Kompatibilné s&nbsp;MySQL&nbsp;4.0';
 $strCompleteInserts = 'Úplné vloženie';
 $strCompression = 'Kompresia';
 $strCompressionWillBeDetected = 'Kompresia importovaného súboru bude rozpoznaná automaticky. Podporované: %s';
+$strConfigFileError = 'phpMyAdmin nebol schopný načítať konfiguračný súbor!<br />Tento problém sa zvyčajne vyskytne ak súbor obsahuje chybu alebo ho php nemohlo nájsť.<br />Zavolajte browserom tento súbor priamo použitím nasledujúceho odkazu na získanie chybových hlášok, ktoré sú ním spôsobené. Väčšinou sa jedná o chýbajúcu úvodzovku alebo bodkočiarku.<br />Ak dostanete iba prázdnu stránku, všetko je v poriadku.';
 $strConfigureTableCoord = 'Prosím skonfigurujte koordináty pre tabuľku %s';
 $strConnectionError = 'Nepodarilo sa pripojiť: chybné nastavenia.';
 $strConnections = 'Spojenia';
@@ -953,9 +954,5 @@ $strYes = 'Áno';
 
 $strZeroRemovesTheLimit = 'Poznámka: Nastavenie týchto parametrov na 0 (nulu) odstráni obmedzenia.';
 $strZip = '"zo zipované"';
-
-// To translate:
-
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.';  //to translate
 
 ?>
