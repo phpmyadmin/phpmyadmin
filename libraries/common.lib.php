@@ -606,7 +606,7 @@ if ($is_minimum_common == FALSE) {
         } elseif (empty($the_query) || trim($the_query) == '') {
             $formatted_sql = '';
         } else {
-            $formatted_sql = PMA_formatSql(PMA_SQP_parse(PMA_sanitize($the_query)), $the_query);
+            $formatted_sql = PMA_formatSql(PMA_SQP_parse($the_query), $the_query);
         }
         // ---
         echo "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";

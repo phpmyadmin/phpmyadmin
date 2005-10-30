@@ -12,6 +12,8 @@ $Source$
     * lang/japanese: Update, thanks to Tadashi Jokagi - elf2000.
     * libraries/display_tbl.lib.php: Do not break on special chars in column
       name (bug #1180668).
+    * libraries/common.lib.php: Do not escape SQL query twice while showing it
+      in error message (bug #1336452).
 
 2005-10-29 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.default.php, libraries/common.lib.php: Link
