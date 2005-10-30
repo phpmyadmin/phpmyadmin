@@ -8,6 +8,7 @@ $Source$
 2005-10-30 Michal Čihař  <michal@cihar.com>
     * lang/slovak: Update, thanks to  Ivan Kuriscak - shylauda69.
     * lang/*: Remove duplicite message.
+    * lang/sync_lang.sh: Sync japanese also, it works now (at least for me).
 
 2005-10-29 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.default.php, libraries/common.lib.php: Link

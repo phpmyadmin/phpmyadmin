@@ -105,7 +105,7 @@ hebrew-iso-8859-8-i
 hungarian-iso-8859-2
 indonesian-iso-8859-1
 italian-iso-8859-1
-japanese-euc
+japanese-utf-8
 korean-euc-kr
 latvian-windows-1257
 lithuanian-windows-1257
@@ -142,7 +142,7 @@ IGNORE_UTF=""
 # translation for that language (usually for those which are not correctly
 # supported by convertor).
 #
-IGNORE_TRANSLATIONS="japanese-sjis
+IGNORE_TRANSLATIONS="
 russian-cp-866"
 
 ##
