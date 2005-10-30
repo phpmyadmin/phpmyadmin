@@ -148,7 +148,6 @@ $strCompatibleHashing = 'KompatibilnÈ s&nbsp;MySQL&nbsp;4.0';
 $strCompleteInserts = '⁄plnÈ vloûenie';
 $strCompression = 'Kompresia';
 $strCompressionWillBeDetected = 'Kompresia importovanÈho s˙boru bude rozpoznan· automaticky. PodporovanÈ: %s';
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.';
 $strConfigureTableCoord = 'ProsÌm skonfigurujte koordin·ty pre tabuæku %s';
 $strConnectionError = 'Nepodarilo sa pripojiù: chybnÈ nastavenia.';
 $strConnections = 'Spojenia';
@@ -953,5 +952,9 @@ $strYes = '¡no';
 
 $strZeroRemovesTheLimit = 'Pozn·mka: Nastavenie t˝chto parametrov na 0 (nulu) odstr·ni obmedzenia.';
 $strZip = '"zo zipovanÈ"';
+
+// To translate:
+
+$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.';  //to translate
 
 ?>
