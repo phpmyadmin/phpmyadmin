@@ -296,11 +296,17 @@ div.warning {
     margin: 0.5em 0 0.5em 0;
     border: 0.1em solid #CC0000;
     width: 90%;
+    
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(../themes/original/img/s_warn.png);
+    background-image: url(../themes/darkblue_orange/img/s_warn.png);
     background-repeat: no-repeat;
-    background-position: 10px; 50%;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 10px 50%;
     padding: 10px 10px 10px 36px;
+        <?php } else {?>
+    background-position: 99% 50%;
+    padding: 10px 5% 10px 10px;
+        <?php }?>
     <?php } else {?>
     padding: 0.5em;
     <?php }?>
@@ -323,14 +329,14 @@ div.error {
     border: 0.1em solid #ff0000;
     width: 90%;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(../themes/original/img/s_error.png);
+    background-image: url(../themes/darkblue_orange/img/s_error.png);
     background-repeat: no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
     background-position: 10px 50%;
     padding: 10px 10px 10px 36px;
         <?php } else {?>
-    background-position: 100% 50%;
-    padding: 10px 36px 10px 10px;
+    background-position: 99% 50%;
+    padding: 10px 5% 10px 10px;
         <?php }?>
     <?php } else {?>
     padding: 0.5em;
@@ -354,13 +360,13 @@ fieldset.confirmation legend {
     border-right: 0.1em solid #FF0000;
     font-weight: bold;
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
-    background-image: url(../themes/original/img/s_really.png);
+    background-image: url(../themes/darkblue_orange/img/s_really.png);
     background-repeat: no-repeat;
         <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
     background-position: 5px 50%;
     padding: 0.2em 0.2em 0.2em 25px;
         <?php } else {?>
-    background-position: 100% 50%;
+    background-position: 98% 50%;
     padding: 0.2em 25px 0.2em 0.2em;
         <?php }?>
     <?php }?>

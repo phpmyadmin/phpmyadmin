@@ -215,8 +215,13 @@ div.warning {
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
     background-image: url(../themes/original/img/s_warn.png);
     background-repeat: no-repeat;
-    background-position: 10px; 50%;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 10px 50%;
     padding: 10px 10px 10px 36px;
+        <?php } else {?>
+    background-position: 99% 50%;
+    padding: 10px 5% 10px 10px;
+        <?php }?>
     <?php } else {?>
     padding: 0.5em;
     <?php }?>
@@ -243,8 +248,8 @@ div.error {
     background-position: 10px 50%;
     padding: 10px 10px 10px 36px;
         <?php } else {?>
-    background-position: 100% 50%;
-    padding: 10px 36px 10px 10px;
+    background-position: 99% 50%;
+    padding: 10px 5% 10px 10px;
         <?php }?>
     <?php } else {?>
     padding: 0.5em;
@@ -275,7 +280,7 @@ fieldset.confirmation legend {
     background-position: 5px 50%;
     padding: 0.2em 0.2em 0.2em 25px;
         <?php } else {?>
-    background-position: 100% 50%;
+    background-position: 97% 50%;
     padding: 0.2em 25px 0.2em 0.2em;
         <?php }?>
     <?php }?>

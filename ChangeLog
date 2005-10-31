@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-31 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+	* themes/*/css/theme_right.css.php:
+	   - use right image path
+	   - fixed icon alignment for rtl languages
+	
 2005-10-31 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: do not display No under the Password column
       if this is not a "real user" definition
