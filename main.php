@@ -111,15 +111,19 @@ if (isset($message)) {
  * Reload mysql (flush privileges)
  */
 if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $result = PMA_DBI_query('FLUSH PRIVILEGES');
-    echo '<p><b>';
+    $sql_query = 'FLUSH PRIVILEGES';
+    $result = PMA_DBI_query($sql_query);
     if ($result != 0) {
-        echo $strMySQLReloaded;
+        $message = $strMySQLReloaded;
     } else {
-        echo $strReloadFailed;
+        $show_error_header = TRUE;
+        $message = $strReloadFailed;
     }
+    PMA_showMessage($message);
+    $show_error_header = FALSE;
     unset($result);
-    echo '</b></p>' . "\n\n";
+    unset($sql_query);
+    unset($message);
 }
 ?>
         </td>
