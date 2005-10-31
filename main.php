@@ -50,18 +50,19 @@ require_once('./header.inc.php');
 /**
  * Displays the welcome message and the server informations
  */
-?> 
-<div id="mainheader">
-<?php if ( @file_exists($pmaThemeImage . 'logo_right.png') ) { ?>
+if ( @file_exists($pmaThemeImage . 'logo_right.png') ) {
+    ?> 
     <img id="pmalogoright" src="<?php echo $pmaThemeImage; ?>logo_right.png"
         alt="phpMyAdmin" />
-<?php } ?>
-    <h1>
+    <?php
+}
+?> 
+<h1>
 <?php
 echo sprintf( $strWelcome,
     '<bdo dir="ltr" xml:lang="en">phpMyAdmin ' . PMA_VERSION . '</bdo>');
 ?> 
-    </h1>
+</h1>
 <?php
 // Don't display server info if $server == 0 (no server selected)
 // loic1: modified in order to have a valid words order whatever is the
@@ -121,9 +122,9 @@ if (($server > 0) && isset($mode) && ($mode == 'reload')) {
     unset($message);
 }
 ?> 
-</div>
-<?php
+<hr class="clearfloat" />
 
+<?php
 /**
  * Displays the MySQL servers choice form
  */
