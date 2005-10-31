@@ -38,6 +38,16 @@ caption {
     font-size: <?php echo $font_size; ?>;
 }
 
+#mainheader {
+    border: 0.1px solid transparent;
+    border-bottom: 0.1em solid gray;
+    margin-bottom: 1em;
+}
+
+#pmalogoright {
+    float: <?php echo $right; ?>;
+}
+
 #tableuserrights td,
 #tablespecificuserrights td,
 #tabledatabases td {

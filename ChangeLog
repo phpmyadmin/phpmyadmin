@@ -9,6 +9,8 @@ $Source$
 	* themes/*/css/theme_right.css.php:
 	   - use right image path
 	   - fixed icon alignment for rtl languages
+	* main.php, phpmyadmin.css.php, libraries/mysql_charsets.lib.php:
+	   - fixed some rtl language issues
 	
 2005-10-31 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: do not display No under the Password column

@@ -325,7 +325,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         $spacer = '';
         for ($i = 1; $i <= $indent; $i++) $spacer .= '    ';
 
-        $return_str  = $spacer . '<select name="' . htmlspecialchars($name) . '"' . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"') . ($submitOnChange ? ' onchange="this.form.submit();"' : '') . '>' . "\n";
+        $return_str  = $spacer . '<select xml:lang="en" dir="ltr" name="' . htmlspecialchars($name) . '"' . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"') . ($submitOnChange ? ' onchange="this.form.submit();"' : '') . '>' . "\n";
         if ($label) {
             $return_str .= $spacer . '    <option value="">' . ($type == PMA_CSDROPDOWN_COLLATION ? $GLOBALS['strCollation'] : $GLOBALS['strCharset']) . '</option>' . "\n";
         }
