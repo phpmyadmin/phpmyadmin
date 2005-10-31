@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-31 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: do not display No under the Password column
+      if this is not a "real user" definition
+
 2005-10-31 Michal Čihař  <michal@cihar.com>
     * libraries/select_lang.lib.php: Simplify code.
     * libraries/common.lib.php: Allow collation change for ENUM and SET

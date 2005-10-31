@@ -1322,7 +1322,7 @@ if (empty($adduser) && empty($checkprivs)) {
             $user_defaults = array(
                 'User'      => '',
                 'Host'      => '%',
-                'Password'  => 'N',
+                'Password'  => '?',
                 'Grant_priv' => 'N',
                 'privs'     => array( 'USAGE' ),
             );
@@ -1427,7 +1427,20 @@ if (empty($adduser) && empty($checkprivs)) {
                            . '            <td><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_' . $i . '" value="' . str_replace( chr(27), '&#27;', htmlentities($host['User'] . $user_host_separator . $host['Host'] ) ) . '"' . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"') . ' /></td>' . "\n"
                            . '            <td><label for="checkbox_sel_users_' . $i . '">' . (empty($host['User']) ? '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>' : htmlspecialchars($host['User'])) . '</label></td>' . "\n"
                            . '            <td>' . htmlspecialchars($host['Host']) . '</td>' . "\n";
-                        echo '            <td>' . ($host['Password'] == 'Y' ? $GLOBALS['strYes'] : '<span style="color: #FF0000">' . $GLOBALS['strNo'] . '</span>') . '</td>' . "\n"
+                        echo '            <td>';
+                        switch ($host['Password']) {
+                            case 'Y':
+                                echo $GLOBALS['strYes'];
+                                break;
+                            case 'N':
+                                echo '<span style="color: #FF0000">' . $GLOBALS['strNo'] . '</span>';
+                                break;
+                            // this happens if this is a definition not coming from mysql.user
+                            default:
+                                echo '--'; // in future version, replace by "not present"
+                                break;
+                        } // end switch
+                        echo '</td>' . "\n"
                            . '            <td><tt>' . "\n"
                            . '                ' . implode( ',' . "\n" . '            ', $host['privs'] ) . "\n"
                            . '                </tt></td>' . "\n"
