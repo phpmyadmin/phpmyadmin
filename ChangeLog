@@ -14,6 +14,9 @@ $Source$
     * libraries/common.lib.php: Allow collation change for ENUM and SET
       columns (bug #1343627).
     * main.php: Use normal message on reload, not just plain text.
+    * themes/darkblue_orange/css/theme_right.css.php,
+      themes/original/css/theme_right.css.php: Fix URL for cursor (bug
+      #1342683).
 
 2005-10-30 Michal Čihař  <michal@cihar.com>
     * lang/slovak: Update, thanks to Ivan Kuriscak - shylauda69.

@@ -197,7 +197,7 @@ a.tab:hover, .tabactive {
 
 /* disabled drop/empty tabs */
 span.tab, span.tabcaution {
-    cursor: url(themes/original/img/error.ico), default;
+    cursor: url(../themes/original/img/error.ico), default;
 }
 <?php } ?>
 /* end topmenu */
