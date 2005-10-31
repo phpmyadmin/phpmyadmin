@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-10-31 Michal Čihař  <michal@cihar.com>
+    * libraries/select_lang.lib.php: Simplify code.
+
 2005-10-30 Michal Čihař  <michal@cihar.com>
     * lang/slovak: Update, thanks to Ivan Kuriscak - shylauda69.
     * lang/*: Remove duplicite message.

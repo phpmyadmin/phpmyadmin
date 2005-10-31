@@ -18,7 +18,7 @@ require_once('./libraries/grab_globals.lib.php');
  * Define the path to the translations directory and get some variables
  * from system arrays if 'register_globals' is set to 'off'
  */
-$lang_path = 'lang/';
+$lang_path = './lang/';
 
 
 /**
@@ -316,5 +316,5 @@ if (!isset($convcharset) || empty($convcharset)) {
 
 // 5. Defines the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php';
-require_once('./' . $lang_file);
+require_once($lang_file);
 ?>
