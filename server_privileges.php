@@ -1557,9 +1557,9 @@ if (empty($adduser) && empty($checkprivs)) {
         PMA_displayPrivTable((empty($dbname) ? '*' : $dbname), ((empty($dbname) || empty($tablename)) ? '*' : $tablename), TRUE, 3);
         echo '</form>' . "\n";
         
-        if ( empty( $tablename ) && ! $dbname_is_wildcard ) {
+        if ( empty( $tablename ) && isset($dbname_is_wildcard) && ! $dbname_is_wildcard ) {
             
-            // na table name was given, display all table specific rights
+            // no table name was given, display all table specific rights
             // but only if $dbname contains no wildcards
             
             // table header

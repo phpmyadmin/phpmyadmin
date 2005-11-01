@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: undefined variable when changing a password
+
 2005-11-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php:
       bug #1342332 Error messages wrongly formatted.
