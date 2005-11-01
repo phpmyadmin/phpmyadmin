@@ -8,6 +8,9 @@ $Source$
 2005-11-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php:
       bug #1342332 Error messages wrongly formatted.
+    * themes/*/css/theme_right.css.php:
+       - fixed some rtl languages issues
+       - added style for notice box (server_export.php)
 
 2005-10-31 Sebastian Mendel <cybot_tm@users.sourceforge.net>
 	* themes/*/css/theme_right.css.php:

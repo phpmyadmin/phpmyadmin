@@ -286,6 +286,35 @@ span.tab, span.tabcaution {
 
 
 /* message boxes: warning, error, confirmation */
+.notice {
+    color: #000000;
+    background-color: #FFFFDD;
+}
+h1.notice,
+div.notice {
+    margin: 0.5em 0 0.5em 0;
+    border: 0.1em solid #FFD700;
+    <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
+    background-image: url(../themes/darkblue_orange/img/s_notice.png);
+    background-repeat: no-repeat;
+        <?php if ( $GLOBALS['text_dir'] === 'ltr' ) {?>
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 36px;
+        <?php } else {?>
+    background-position: 99% 50%;
+    padding: 10px 5% 10px 10px;
+        <?php }?>
+    <?php } else {?>
+    padding: 0.5em;
+    <?php }?>
+}
+.notice h1 {
+    border-bottom: 0.1em solid #FFD700;
+    font-weight: bold;
+    text-align: <?php echo $left; ?>;
+    margin: 0 0 0.2em 0;
+}
+
 .warning {
     color: #CC0000;
     background-color: #FFFFCC;
@@ -314,7 +343,7 @@ div.warning {
 .warning h1 {
     border-bottom: 0.1em solid #cc0000;
     font-weight: bold;
-    text-align: left;
+    text-align: <?php echo $left; ?>;
     margin: 0 0 0.2em 0;
 }
 
@@ -345,7 +374,7 @@ div.error {
 div.error h1 {
     border-bottom: 0.1em solid #ff0000;
     font-weight: bold;
-    text-align: left;
+    text-align: <?php echo $left; ?>;
     margin: 0 0 0.2em 0;
 }
 
