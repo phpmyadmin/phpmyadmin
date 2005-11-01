@@ -1905,37 +1905,33 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
             }
         }
         unset($tbl_status);
-
-        echo "\n";
-        ?>
+        ?> 
 <br />
 <div align="<?php echo $GLOBALS['cell_align_left']; ?>">
-    <?php if ( ! empty( $GLOBALS['show_error_header'] ) ) { ?>
-    <div class="error"><h1><?php echo $GLOBALS['strError']; ?></h1>
-    <?php } ?>
-    <table border="<?php echo $cfg['Border']; ?>" cellpadding="5" cellspacing="1">
-    <tr>
-        <th<?php echo ($GLOBALS['theme'] != 'original') ? ' class="tblHeaders"' : ' bgcolor="' . $cfg['ThBgcolor'] . '"'; ?>>
-            <b><?php 
-            echo $message; 
-            if (isset($GLOBALS['special_message'])) {
-                echo PMA_sanitize($GLOBALS['special_message']);
-                unset($GLOBALS['special_message']);
-            }
-            ?></b>
-        </th>
-    </tr>
         <?php
-        if ($cfg['ShowSQL'] == TRUE && (!empty($GLOBALS['sql_query']) || !empty($GLOBALS['display_query']))) {
+        if ( ! empty( $GLOBALS['show_error_header'] ) ) {
+            ?> 
+    <div class="error">
+        <h1><?php echo $GLOBALS['strError']; ?></h1>
+            <?php
+        }
+
+        echo $message; 
+        if (isset($GLOBALS['special_message'])) {
+            echo PMA_sanitize($GLOBALS['special_message']);
+            unset($GLOBALS['special_message']);
+        }
+        
+        if ( ! empty( $GLOBALS['show_error_header'] ) ) {
+            echo '</div>';
+        }
+
+        if ( $cfg['ShowSQL'] == TRUE
+          && ( !empty($GLOBALS['sql_query']) || !empty($GLOBALS['display_query']) ) ) {
             $local_query = !empty($GLOBALS['display_query']) ? $GLOBALS['display_query'] : (($cfg['SQP']['fmtType'] == 'none' && isset($GLOBALS['unparsed_sql']) && $GLOBALS['unparsed_sql'] != '') ? $GLOBALS['unparsed_sql'] : $GLOBALS['sql_query']);
             // Basic url query part
             $url_qpart = '?' . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
-            echo "\n";
-            ?>
-    <tr>
-        <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-            <?php
-            echo "\n";
+
             // Html format the query to be displayed
             // The nl2br function isn't used because its result isn't a valid
             // xhtml1.0 statement before php4.0.5 ("<br>" and not "<br />")
@@ -2122,34 +2118,26 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
             } else {
                 $validate_link = '';
             } //validator
+            unset($local_query);
 
             // Displays the message
-            echo '            <b>' . $GLOBALS['strSQLQuery'] . ':</b>&nbsp;';
-            echo '<br />' . "\n";
-            echo '            ' . $query_base;
+            echo '<fieldset class="">' . "\n";
+            echo '    <legend>' . $GLOBALS['strSQLQuery'] . ':</legend>';
+            echo '    ' . $query_base;
 
-            unset($local_query);
             //Clean up the end of the PHP
             if (!empty($GLOBALS['show_as_php'])) {
                 echo '\';';
             }
-            echo "\n";
-            ?>
-        </td>
-    </tr>
-    <?php
-            if (!empty($edit_target)) {
-                echo '<tr><td class="tblFooters">';
+            echo '</fieldset>' . "\n";
+            
+            if ( ! empty( $edit_target ) ) {
+                echo '<fieldset class="tblFooters">';
                 echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
-                echo '</td></tr>' . "\n";
+                echo '</fieldset>';
             }
         }
-        echo "\n";
-        ?>
-    </table>
-    <?php if ( ! empty( $GLOBALS['show_error_header'] ) ) { ?>
-    </div>
-    <?php } ?>
+        ?> 
 </div><br />
         <?php
     } // end of the 'PMA_showMessage()' function
