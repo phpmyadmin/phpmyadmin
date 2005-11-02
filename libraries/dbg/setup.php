@@ -10,8 +10,11 @@ if (isset($GLOBALS['cfg']['DBG']['enable']) && $GLOBALS['cfg']['DBG']['enable'])
         PMA_dl('dbg');
     }
     if (!@extension_loaded('dbg')) {
-        echo sprintf($strCantLoad, 'DBG') . '<br />' . "\n"
-            . '<a href="./Documentation.html#faqdbg" target="documentation">' . $GLOBALS['strDocu'] . '</a>' . "\n";
+        echo '<div class="warning">'
+            .sprintf($strCantLoad, 'DBG')
+            .' <a href="./Documentation.html#faqdbg" target="documentation">' 
+            .$GLOBALS['strDocu'] . '</a>'
+            .'</div>';
         require_once('./footer.inc.php');
     }
     $GLOBALS['DBG'] = true;

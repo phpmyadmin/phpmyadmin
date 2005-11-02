@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/dbg/setup.php: display error in error box
+      
 2005-11-01 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: undefined variable when changing a password
 
