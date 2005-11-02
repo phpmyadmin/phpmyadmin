@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-02 Michal Čihař  <michal@cihar.com>
+    * config.default.php: This is not a configuration file.
+
 2005-11-02 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/dbg/setup.php:
       - display error in error box
