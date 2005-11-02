@@ -87,6 +87,12 @@ if (file_exists('./lang/added_messages.php')) {
  */
 include './config.default.php';
 
+// Remember default server config
+$default_server = $cfg['Servers'][1];
+
+// Drop all server, as they have to be configured by user
+unset($cfg['Servers']);
+
 /**
  * Parses the configuration file and gets some constants used to define
  * versions of phpMyAdmin/php/mysql...
@@ -126,6 +132,39 @@ if (file_exists('./config.inc.php')) {
  * Includes the language file if it hasn't been included yet
  */
 require_once('./libraries/select_lang.lib.php');
+
+/**
+ * Servers array fixups.
+ */
+// Do we have some server?
+if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
+    // No server => create one with defaults
+    $cfg['Servers'] = array(1 => $default_server);
+} else {
+    // We have server(s) => apply default config
+    $new_servers = array();
+    foreach($cfg['Servers'] as $key => $val) {
+        if (!is_int($key) || $key < 1) {
+            // Show error
+            header( 'Location: error.php'
+                    . '?lang='  . urlencode( $available_languages[$lang][2] )
+                    . '&char='  . urlencode( $charset )
+                    . '&dir='   . urlencode( $text_dir )
+                    . '&type='  . urlencode( $strError )
+                    . '&error=' . urlencode( 
+// FIXME: We could translate this message, however it's translations freeze right now:
+                        sprintf( 'Invalid server index: "%s"', $key))
+                    . '&' . SID
+                     );
+        }
+        $new_servers[$key] = array_merge($default_server, $val);
+    }
+    $cfg['Servers'] = $new_servers;
+    unset($new_servers);
+}
+
+// Cleanup
+unset($default_server);
 
 /**
  * We really need this one!

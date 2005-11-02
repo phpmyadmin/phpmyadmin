@@ -7,6 +7,9 @@ $Source$
 
 2005-11-02 Michal Čihař  <michal@cihar.com>
     * config.default.php: This is not a configuration file.
+    * config.default.php, Documentation.html, libraries/common.lib.php: Use
+      $cfg['Servers'][1] from config.default.php as defaults for settings in
+      config.inc.php (bug #1330847).
 
 2005-11-02 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/dbg/setup.php:

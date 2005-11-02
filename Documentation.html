@@ -442,8 +442,10 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <tt>$cfg['Servers'][$i]['host']</tt> contains the hostname of the first
         server, the second <tt>$cfg['Servers'][$i]['host']</tt> the hostname of
         the second server, etc.
-        If you have only one server to administer, simply leave free the
-        hostname of the other $cfg['Server']-entries.
+        In configuration defaults file, there is just one section for server
+        definition, howerver you can have as much as you need, just copy that
+        block or needed parts (you don't have to define all settings, just
+        those you need to change).
         <br /><br />
     </dd>
 
