@@ -9,6 +9,8 @@ $Source$
     * libraries/dbg/setup.php:
       - display error in error box
       - fixed 'not defined function'
+    * libraries/dbg/profiling.php:
+      - minor fixes: html output, speed, rtl lang
       
 2005-11-01 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: undefined variable when changing a password

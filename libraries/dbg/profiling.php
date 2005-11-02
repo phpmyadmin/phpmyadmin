@@ -17,60 +17,55 @@ if (isset($GLOBALS['DBG']) && $GLOBALS['DBG']
          * LICENCE: This source file is subject to Mozilla Public License (MPL)
          * AUTHOR: Dmitri Dmitrienko <dd@cron.ru>
          */
-        $dbg_prof_results = ""; // gma added var
-        dbg_get_profiler_results($dbg_prof_results);
+        dbg_get_profiler_results( $dbg_prof_results = '' );
         $cwdlen =  strlen(getcwd()); // gma added var, $cwdlen =  strlen(getcwd());
-        echo '<br /><table width="1000" cellspacing="0" cellpadding="2" style="font:8pt courier">' . "\n" .
-            '<thead>' . "\n";  // gma change "." to ";"
-        $tr = '<tr style="background:#808080; color:#FFFFFF">' . "\n" . // gma added "$tr ="
-            '<td>' . $GLOBALS['strDBGModule'] . '</td>' . "\n" .
-            '<td>' . $GLOBALS['strDBGLine'] . '</td>' . "\n" .
-            '<td>' . $GLOBALS['strDBGHits'] . '</td>' . "\n" .
-            '<td>' . $GLOBALS['strDBGTimePerHitMs'] . '</td>' . "\n" .
-            '<td>' . $GLOBALS['strDBGTotalTimeMs'] . '</td>' . "\n" .
-            '<td>' . $GLOBALS['strDBGMinTimeMs'] . '</td>' . "\n" .
-            '<td>' . $GLOBALS['strDBGMaxTimeMs'] . '</td>' . "\n" .
-            '<td>' . $GLOBALS['strDBGContextID'] . '</td>' . "\n" .
-            '<td>' . $GLOBALS['strDBGContext'] . '</td>' . "\n" .
-            '</tr></thead>' . "\n";  // gma change "." to ";"
-        echo $tr.'<tbody style="vertical-align: top">' . "\n";  $lines = 0; // gma added "echo $tr." and "$lines = 0;"
-        foreach ($dbg_prof_results['line_no'] AS $idx => $line_no) { $lines++; // gma added "$lines++;"
-            $mod_no = $dbg_prof_results['mod_no'][$idx];
-            $mod_name = ""; // gma added var
-            dbg_get_module_name($mod_no, $mod_name);
+        echo '<br /><table xml:lang="en" dir="ltr" width="1000" cellspacing="0" cellpadding="2" style="font:8pt courier">' . "\n" .
+            '<thead>' . "\n";
+        // gma added "$tr ="
+        $tr = '<tr>' . "\n" .
+            '<th>' . $GLOBALS['strDBGModule'] . '</th>' . "\n" .
+            '<th>' . $GLOBALS['strDBGLine'] . '</th>' . "\n" .
+            '<th>' . $GLOBALS['strDBGHits'] . '</th>' . "\n" .
+            '<th>' . $GLOBALS['strDBGTimePerHitMs'] . '</th>' . "\n" .
+            '<th>' . $GLOBALS['strDBGTotalTimeMs'] . '</th>' . "\n" .
+            '<th>' . $GLOBALS['strDBGMinTimeMs'] . '</th>' . "\n" .
+            '<th>' . $GLOBALS['strDBGMaxTimeMs'] . '</th>' . "\n" .
+            '<th>' . $GLOBALS['strDBGContextID'] . '</th>' . "\n" .
+            '<th>' . $GLOBALS['strDBGContext'] . '</th>' . "\n" .
+            '</tr>' . "\n";  // gma change "." to ";"
+        echo $tr.'</thead><tbody style="vertical-align: top">' . "\n";
+        $lines      = 0; // gma added "echo $tr." and "$lines = 0;"
+        $ctx_name   = '';
+        $mod_name   = '';
+        $ctx_id     = '';
+        $odd_row    = true;
+        foreach ( $dbg_prof_results['line_no'] as $idx => $line_no ) {
+            dbg_get_module_name( $dbg_prof_results['mod_no'][$idx], $mod_name );
 
             //if (strpos("!".$mod_name, 'dbg.php') > 0) continue;
 
-            $hit_cnt = $dbg_prof_results['hit_count'][$idx];
-
             $time_sum = $dbg_prof_results['tm_sum'][$idx] * 1000;
-            $time_avg_hit = $time_sum / $hit_cnt;
-            $time_min = $dbg_prof_results['tm_min'][$idx] * 1000;
-            $time_max = $dbg_prof_results['tm_max'][$idx] * 1000;
+            $time_avg_hit = $time_sum / $dbg_prof_results['hit_count'][$idx];
 
-            $time_sum = sprintf('%.3f', $time_sum);
+            $time_sum = sprintf( '%.3f', $time_sum );
             $time_avg_hit = sprintf('%.3f', $time_avg_hit);
-            $time_min = sprintf('%.3f', $time_min);
-            $time_max = sprintf('%.3f', $time_max);
-            $ctx_id = ""; // gma added var
-            dbg_get_source_context($mod_no, $line_no, $ctx_id);
+            $time_min = sprintf( '%.3f', $dbg_prof_results['tm_min'][$idx] * 1000 );
+            $time_max = sprintf( '%.3f', $dbg_prof_results['tm_max'][$idx] * 1000 );
+            dbg_get_source_context( $dbg_prof_results['mod_no'][$idx],
+                $line_no, $ctx_id );
 
-            //use a default context name if needed
-            $ctx_name = ""; // gma added var
-            if (dbg_get_context_name($ctx_id, $ctx_name)
-                    && strcmp($ctx_name,'') == 0) {
+            // use a default context name if needed
+            if ( dbg_get_context_name( $ctx_id, $ctx_name )
+                    && strlen($ctx_name) == 0 ) {
                 $ctx_name = "::main";
             }
 
-            $bk = "#ffffff";
-            if (($idx & 1) == 0)
-                $bk = "#e0e0e0";
-
-            if ($time_avg_hit > $GLOBALS['cfg']['DBG']['profile']['threshold'] ) {
-                echo '<tr style="background:' . $bk . '">' .
-                    '<td>' . substr($mod_name,$cwdlen+1) . '</td>' .  // gma changed "$mod_name" to "substr($mod_name,$cwdlen+1)"
+            if ( $time_avg_hit > $GLOBALS['cfg']['DBG']['profile']['threshold'] ) {
+                echo '<tr class="' . $odd_row ? 'odd' : 'even' . '">' .
+                    // gma changed "$mod_name" to "substr($mod_name,$cwdlen+1)"
+                    '<td>' . substr($mod_name,$cwdlen+1) . '</td>' .
                     '<td>' . $line_no . '</td>' .
-                    '<td>' . $hit_cnt . '</td>' .
+                    '<td>' . $dbg_prof_results['hit_count'][$idx] . '</td>' .
                     '<td>' . $time_avg_hit . '</td>' .
                     '<td>' . $time_sum . '</td>' .
                     '<td>' . $time_min . '</td>' .
@@ -78,17 +73,27 @@ if (isset($GLOBALS['DBG']) && $GLOBALS['DBG']
                     '<td>' . $ctx_id . '</td>' .
                     '<td>' . $ctx_name . '</td>' .
                     '</tr>' . "\n";
-                if($lines == 20) { $lines = 0; echo $tr;}  // gma added line. Repeats the header every x lines.
+                
+                // gma added line. Repeats the header every x lines.
+                if ( $lines === 19 ) {
+                    $odd_row    = true;
+                    $lines      = 0;
+                    echo $tr;
+                } else {
+                    $odd_row    = ! $odd_row;
+                    $lines++;
+                }
             }
         }
-        echo "</tbody></table>";
+        echo '</tbody></table>';
     }
 }
 /*  gma ... Developer Notes
 These two scriptlets can be used as On/Off buttons in your browsers, add to links. 
 ON:
 javascript: document.cookie = 'DBGSESSID=' + escape('1;d=1,p=1') + '; path=/'; document.execCommand('refresh'); 
-or ... javascript: document.cookie = 'DBGSESSID=' + escape('1;d=0,p=1') + '; path=/'; document.execCommand('refresh');
+or ... 
+javascript: document.cookie = 'DBGSESSID=' + escape('1;d=0,p=1') + '; path=/'; document.execCommand('refresh');
 OFF:
 javascript: document.cookie = 'DBGSESSID=' + escape('1;d=0,p=0') + '; path=/'; document.execCommand('refresh');
 */
