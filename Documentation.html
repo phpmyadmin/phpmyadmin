@@ -369,18 +369,22 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 <h2>Configuration</h2>
 
 <p>
-    <span class="important">Warning for Mac users:</span> PHP seems not to like
+    <span class="important">Warning for Mac users:</span> PHP does not seem to like
     Mac end of lines character (&quot;<tt>\r</tt>&quot;). So ensure you choose
     the option that allows to use the *nix end of line character
-    (&quot;<tt>\n</tt>&quot;) in your text editor before registering a script
+    (&quot;<tt>\n</tt>&quot;) in your text editor before saving a script
     you have modified.
 </p>
 
 <p>
     <span class="important">Configuration note:</span>
-    Almost all configurable data is placed in <i>config.inc.php</i>. The
-    parameters which relate to design (like colors) are placed in
-    <tt>themes/themename/layout.inc.php</tt>. You
+    Almost all configurable data is placed in <tt>config.inc.php</tt>. If this file
+    does not exist, please refer to the <a href="#setup">Quick install</a> 
+    section to create one. This file only needs to contain the parameters you want to 
+    change from their default value in <tt>config.default.php</tt>.
+    <br /><br />
+    The parameters which relate to design (like colors)
+     are placed in <tt>themes/themename/layout.inc.php</tt>. You
     might also want to modify <i>config.footer.inc.php</i> and
     <i>config.header.inc.php</i> files to add your site specific code to be
     included on start and end of each page.
@@ -442,9 +446,9 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <tt>$cfg['Servers'][$i]['host']</tt> contains the hostname of the first
         server, the second <tt>$cfg['Servers'][$i]['host']</tt> the hostname of
         the second server, etc.
-        In configuration defaults file, there is just one section for server
-        definition, howerver you can have as much as you need, just copy that
-        block or needed parts (you don't have to define all settings, just
+	In <tt>config.default.php</tt>, there is just one section for server
+	definition, however you can put as many as you need in <tt>config.inc.php</tt>,
+       	just copy that block or needed parts (you don't have to define all settings, just
         those you need to change).
         <br /><br />
     </dd>
