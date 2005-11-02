@@ -70,12 +70,12 @@ unset($i, $max_position, $chunk, $pattern);
 if ($is_create_table_priv) {
 ?>
     <!-- Create a new table -->
-<form method="post" action="tbl_create.php" onsubmit="return (emptyFormElements(this, 'table') && checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldCount']); ?>', 1))">
+<form method="post" action="tbl_create.php" onsubmit="return (emptyFormElements(this, 'table') &amp;&amp; checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldCount']); ?>', 1))">
      <table border="0" cellpadding="2" cellspacing="0">
      <tr>
      <td class="tblHeaders" colspan="3" nowrap="nowrap"><?php
         echo PMA_generate_common_hidden_inputs($db);
-        if($cfg['PropertiesIconic']){ echo '<img src="' . $pmaThemeImage . 'b_newtbl.png" border="0" width="16" height="16" hspace="2" align="middle" />'; }
+        if($cfg['PropertiesIconic']){ echo '<img class="icon" src="' . $pmaThemeImage . 'b_newtbl.png" width="16" height="16" alt="" />'; }
         // if you want navigation:
         $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url() . '&amp;db=' . urlencode($GLOBALS['db']) . '">'
                    . htmlspecialchars($GLOBALS['db']) . '</a>';
@@ -109,7 +109,7 @@ if ($is_create_table_priv) {
      <tr>
      <td class="tblHeaders" colspan="3" nowrap="nowrap"><?php
         if($cfg['PropertiesIconic']) { 
-            echo '<img src="' . $pmaThemeImage . 'b_newtbl.png" border="0" width="16" height="16" hspace="2" align="middle" />' . "\n"; 
+            echo '<img class="icon" src="' . $pmaThemeImage . 'b_newtbl.png" width="16" height="16" alt="" />' . "\n"; 
         }
         $strDBLink = htmlspecialchars($db);
     echo '             ' . sprintf($strCreateNewTable, $strDBLink) . ':&nbsp;' . "\n";
@@ -117,7 +117,7 @@ if ($is_create_table_priv) {
     echo '     <tr>' . "\n";
     echo '     <td>' . "\n";
     echo '<span class="noPrivileges">'
-        . ($cfg['ErrorIconic'] ? '<img src="' . $pmaThemeImage . 's_error2.png" width="11" height="11" hspace="2" border="0" align="middle" />' : '')
+        . ($cfg['ErrorIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 's_error2.png" width="11" height="11" alt="" />' : '')
         . '' . $strNoPrivileges .'</span>' . "\n";
     echo '     </td>' . "\n";
     echo '     </tr>' . "\n";

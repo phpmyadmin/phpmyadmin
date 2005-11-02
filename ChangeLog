@@ -20,6 +20,9 @@ $Source$
     * css/print.css, dbv_datadict.php:
       - replaced $cfg['Bgcolor*'] with classes
       - reduced output size by 40%
+    * libraries/display_create_tbl.php
+      - XHTML compl.
+      - added class icon
       
 2005-11-01 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: undefined variable when changing a password
