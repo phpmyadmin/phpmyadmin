@@ -2809,8 +2809,8 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
      * @author  Garvin Hicking (pma@supergarv.de)
      */
     function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1, $showAll = 200, $sliceStart = 5, $sliceEnd = 5, $percent = 20, $range = 10) {
-        $gotopage = '<br />' . $GLOBALS['strPageNumber']
-                  . '<select name="goToPage" onchange="goToUrl(this, \'' . $url . '\');">' . "\n";
+        $gotopage = $GLOBALS['strPageNumber']
+                  . ' <select name="goToPage" onchange="goToUrl(this, \'' . $url . '\');">' . "\n";
         if ($nbTotalPage < $showAll) {
             $pages = range(1, $nbTotalPage);
         } else {

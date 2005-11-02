@@ -14,6 +14,9 @@ $Source$
     * tbl_realtion.php:
       - fixed html output of table
       - used fieldset for forms
+    * libraries/common.lib.php, browse_foreigners.php:
+      - replaced $cfg['Bgcolor*'] with classes
+      - make use of fieldset
       
 2005-11-01 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: undefined variable when changing a password
