@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-02 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * themes/dakrblue_orange/theme_right.css.php:
+      fixed different font sizes
+    
 2005-11-02 Michal Čihař  <michal@cihar.com>
     * config.default.php: This is not a configuration file.
     * config.default.php, Documentation.html, libraries/common.lib.php: Use

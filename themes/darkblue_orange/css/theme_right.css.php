@@ -2,7 +2,7 @@
  * RIGHT FRAME
  ************************************************************************************/
 /* Always enabled stylesheets (right frame) */
-body{
+body {
     font-family:      Verdana, Arial, Helvetica, sans-serif;
     font-size:        10px;
     color:            #000000;
@@ -13,6 +13,13 @@ body{
     ?>
     background-color: #ffffff;
     margin: 5px;
+}
+
+/* gecko FIX, font size is not correctly assigned to all child elements */
+body * {
+    font-family:      Verdana, Arial, Helvetica, sans-serif;
+    font-size:        10px;
+    background-color: #ffffff;
 }
 
 pre, tt, code{
