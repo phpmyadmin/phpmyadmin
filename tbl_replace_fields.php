@@ -114,7 +114,7 @@ if (!$check_stop) {
 
     if (isset($me_fields_type[$encoded_key])) $type = $me_fields_type[$encoded_key];
     else $type = '';
-    
+
     $f = 'field_' . md5($key);
     $t_fval = (isset($$f) ? $$f : null);
   
@@ -191,7 +191,12 @@ if (!$check_stop) {
 
                     break;
                 default:
-                    $val = "'" . PMA_sqlAddslashes($val) . "'";
+                    // best way to avoid problems in strict mode (works also in non-strict mode)
+                    if (isset($me_auto_increment)  && isset($me_auto_increment[$encoded_key])) {
+                        $val = 'NULL';
+                    } else {
+                        $val = "'" . PMA_sqlAddslashes($val) . "'";
+                    }
                     break;
             }
             break;

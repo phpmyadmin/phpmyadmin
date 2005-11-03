@@ -838,6 +838,11 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 ?>
                 <input type="text" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $jsvkey; ?>')" tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>" id="field_<?php echo ($idindex); ?>_3" />
                 <?php
+                if ($row_table_def['Extra'] == 'auto_increment') {
+                ?>
+<input type="hidden" name="auto_increment<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="1" />
+                <?php
+                } // end if
                 if ($type == 'date' || $type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
                     ?>
                     <script type="text/javascript">
