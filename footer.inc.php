@@ -5,6 +5,9 @@
 /**
  * WARNING: This script has to be included at the very end of your code because
  *          it will stop the script execution!
+ * 
+ * always use $GLOBALS, as this script is also included by functions
+ * 
  */
 
 require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
@@ -14,46 +17,46 @@ require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
  */
 
 // If query window is wanted and open, update with latest selected db/table.
-if ( $cfg['QueryFrame'] && $cfg['QueryFrameJS'] ) {  
+if ( $GLOBALS['cfg']['QueryFrame'] && $GLOBALS['cfg']['QueryFrameJS'] ) {  
     ?>
 <script type="text/javascript">
 //<![CDATA[
     <?php
-    if (!isset($no_history) && !empty($db) && (!isset($error_message) || $error_message == '')) {
-        $table = isset( $table ) ? $table : '';
+    if ( ! isset( $GLOBALS['no_history'] ) && ! empty( $GLOBALS['db'] ) && empty( $GLOBALS['error_message'] ) ) {
+        $table = isset( $GLOBALS['table'] ) ? $GLOBALS['table'] : '';
         // updates current settings
         ?>
-    window.parent.setAll( '<?php echo $lang; ?>', '<?php echo $collation_connection; ?>', '<?php echo $server; ?>', '<?php echo $db; ?>', '<?php echo $table; ?>' );
+    window.parent.setAll( '<?php echo $GLOBALS['lang']; ?>', '<?php echo $GLOBALS['collation_connection']; ?>', '<?php echo $GLOBALS['server']; ?>', '<?php echo $GLOBALS['db']; ?>', '<?php echo $table; ?>' );
         <?php
     }
     
-    if ( ! empty( $reload ) ) {
+    if ( ! empty( $GLOBALS['reload'] ) ) {
         ?>
     window.parent.refreshLeft();
         <?php
     }
 
-    if ( ! isset( $no_history ) && empty( $error_message ) ) {
-        if ( isset( $LockFromUpdate ) && $LockFromUpdate == '1' && isset( $sql_query ) ) {
+    if ( ! isset( $GLOBALS['no_history'] ) && empty( $GLOBALS['error_message'] ) ) {
+        if ( isset( $GLOBALS['LockFromUpdate'] ) && $GLOBALS['LockFromUpdate'] == '1' && isset( $GLOBALS['sql_query'] ) ) {
             // When the button 'LockFromUpdate' was selected in the querywindow,
             // it does not submit it's contents to
             // itself. So we create a SQL-history entry here.
-            if ($cfg['QueryHistoryDB'] && $cfgRelation['historywork']) {
-                PMA_setHistory( ( isset( $db ) ? $db : '' ),
-                    ( isset( $table ) ? $table : '' ),
-                    $cfg['Server']['user'],
-                    $sql_query );
+            if ($GLOBALS['cfg']['QueryHistoryDB'] && $GLOBALS['cfgRelation']['historywork']) {
+                PMA_setHistory( ( isset( $GLOBALS['db'] ) ? $GLOBALS['db'] : '' ),
+                    ( isset( $GLOBALS['table'] ) ? $GLOBALS['table'] : '' ),
+                    $GLOBALS['cfg']['Server']['user'],
+                    $GLOBALS['sql_query'] );
             }
         }
         ?>
     window.parent.reload_querywindow(
-        "<?php echo isset( $db ) ? addslashes( $db ) : '' ?>",
-        "<?php echo isset( $table ) ? addslashes( $table ) : '' ?>",
-        "<?php echo isset( $sql_query ) ? urlencode( $sql_query ) : ''; ?>" );
+        "<?php echo isset( $GLOBALS['db'] ) ? addslashes( $GLOBALS['db'] ) : '' ?>",
+        "<?php echo isset( $GLOBALS['table'] ) ? addslashes( $GLOBALS['table'] ) : '' ?>",
+        "<?php echo isset( $GLOBALS['sql_query'] ) ? urlencode( $GLOBALS['sql_query'] ) : ''; ?>" );
         <?php
     }
 
-    if ( ! empty( $focus_querywindow ) ) {
+    if ( ! empty( $GLOBALS['focus_querywindow'] ) ) {
         ?>
     if ( parent.querywindow && !parent.querywindow.closed && parent.querywindow.location) {
         self.focus();
@@ -70,18 +73,14 @@ if ( $cfg['QueryFrame'] && $cfg['QueryFrameJS'] ) {
 /**
  * Close database connections
  */
-if (isset($GLOBALS['dbh']) && $GLOBALS['dbh']) {
-    @PMA_DBI_close($GLOBALS['dbh']);
+if ( isset( $GLOBALS['dbh'] ) && $GLOBALS['dbh'] ) {
+    @PMA_DBI_close( $GLOBALS['dbh'] );
 }
-if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
-    @PMA_DBI_close($GLOBALS['userlink']);
+if ( isset( $GLOBALS['userlink'] ) && $GLOBALS['userlink'] ) {
+    @PMA_DBI_close( $GLOBALS['userlink'] );
 }
 
 include('./config.footer.inc.php');
-?>
-</body>
-</html>
-<?php
 
 /**
  * Generates profiling data if requested
@@ -97,12 +96,16 @@ if ( ! empty( $GLOBALS['cfg']['DBG']['enable'] )
     }
 }
 
+?>
+</body>
+</html>
+<?php
 /**
  * Sends bufferized data
  */
 if ( ! empty( $GLOBALS['cfg']['OBGzip'] )
   && ! empty( $GLOBALS['ob_mode'] ) ) {
-    PMA_outBufferPost($GLOBALS['ob_mode']);
+    PMA_outBufferPost( $GLOBALS['ob_mode'] );
 }
 
 /**

@@ -1,10 +1,15 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
+/**
+ * holds function for dumping profiling data
+ * 
+ * allways use $GLOBALS here, as this script is included by footer.inc.hp
+ * which can also be included from inside a function
+ */
 
-if (isset($GLOBALS['DBG']) && $GLOBALS['DBG']
-        && isset($GLOBALS['cfg']['DBG']['profile']['enable'])
-        && $GLOBALS['cfg']['DBG']['profile']['enable']) {
+if ( ! empty( $GLOBALS['DBG'] ) 
+  && $GLOBALS['cfg']['DBG']['profile']['enable'] ) {
 
     /**
      * Displays profiling results when called

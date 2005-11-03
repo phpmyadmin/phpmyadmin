@@ -9,9 +9,11 @@ $Source$
     * libraries/common.lib.php: Incorrect message for validate links (bug
       #1346608).
 
-2005-11-02 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+2005-11-03 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/dakrblue_orange/theme_right.css.php, css/phpmyadmin.css.php:
       fixed different font sizes
+    * footer.inc.php, libraries/dbg/*:
+      use $GLOBALS as this scripts can be included from inside a function
     
 2005-11-02 Michal Čihař  <michal@cihar.com>
     * config.default.php: This is not a configuration file.
