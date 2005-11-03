@@ -8,6 +8,7 @@ $Source$
 2005-11-03 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, tbl_replace.php, tbl_replace_fields.php:
       bug #1339184, problems in strict mode inserting auto-increment fields
+    * libraries/header_meta_style.inc.php: favicon on login panel
 
 2005-11-03 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Incorrect message for validate links (bug
