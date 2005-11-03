@@ -310,8 +310,7 @@ function PMA_STR_isSpace($c)
  *
  * @param   string   character to check for
  *
- * @return  boolean  whether the character is an upper alphabetic one or
- *                   not
+ * @return  boolean  whether the character is an accented one or not
  *
  * @see     PMA_STR_numberInRangeInclusive()
  */
