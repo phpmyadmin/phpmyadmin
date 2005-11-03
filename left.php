@@ -6,18 +6,13 @@
  */
 
 /**
- * Gets the variables sent to this script, retains the db name that may have
- * been defined as startup option and include a core library
+ * Gets a core script and starts output buffering work
  */
-require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 
 // free the session file, for the other frames to be loaded
 session_write_close();
 
-/**
- * Gets a core script and starts output buffering work
- */
-require_once('./libraries/common.lib.php');
 require_once('./libraries/ob.lib.php');
 if ($GLOBALS['cfg']['OBGzip']) {
     $ob_mode = PMA_outBufferModeGet();
@@ -160,8 +155,7 @@ if ( $num_dbs === 0 ) {
         .'</div>' . "\n";
     unset( $_location );
 }
-?>
-<!-- Databases and tables list -->
+?> 
 <div id="left_tableList">
 <?php
 // Don't display expansible/collapsible database info if:
@@ -288,7 +282,7 @@ function PMA_displayDbList( $ext_dblist ) {
                 echo '</a>';
                 
                 // ... and we need to refresh both frames on db selection
-                ?>
+                ?> 
                 <a class="item"
                     id="<?php echo htmlspecialchars(  $db['name'] ); ?>"
                     href="index.php?<?php echo $common_url_query; ?>"
@@ -300,20 +294,34 @@ function PMA_displayDbList( $ext_dblist ) {
                         window.parent.goTo( './<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] 
                             . '?' . $common_url_query; ?>', 'main' );
                         return false;">
-                    <?php echo htmlspecialchars( $db['disp_name'] ); ?>
-                    (<?php echo $db['num_tables']; ?>)
+                    <?php
+                    if ( $GLOBALS['text_dir'] === 'rtl' ) {
+                        echo ' <bdo dir="ltr">(' . $db['num_tables'] . ')</bdo> ';
+                    }
+                    echo htmlspecialchars( $db['disp_name'] );
+                    if ( $GLOBALS['text_dir'] === 'ltr' ) {
+                        echo ' <bdo dir="ltr">(' . $db['num_tables'] . ')</bdo> ';
+                    }
+                    ?> 
                 </a>
                 <?php
             } else {
                 // with only 1 db available we dont need to refresh left frame
                 // on db selection, only phpmain
-                ?>
+                ?> 
                 <a href="<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] 
                     . '?' . $common_url_query; ?>"
                     id="<?php echo htmlspecialchars( $db['name'] ); ?>"
                     title="<?php echo htmlspecialchars( $db['comment'] ); ?>">
-                    <?php echo htmlspecialchars( $db['disp_name'] ); ?>
-                    (<?php echo $db['num_tables']; ?>)
+                    <?php
+                    if ( $GLOBALS['text_dir'] === 'rtl' ) {
+                        echo ' <bdo dir="ltr">(' . $db['num_tables'] . ')</bdo> ';
+                    }
+                    echo htmlspecialchars( $db['disp_name'] );
+                    if ( $GLOBALS['text_dir'] === 'ltr' ) {
+                        echo ' <bdo dir="ltr">(' . $db['num_tables'] . ')</bdo> ';
+                    }
+                    ?> 
                 </a>
                 <?php
             }
@@ -410,8 +418,7 @@ function PMA_displayTableList( $tables, $visible = false,
                 printf( $img_plus, $element_counter );
             }
             echo '</a>';
-            
-            ?>
+            ?> 
             <a href="index.php?<?php echo $common_url_query; ?>"
                 target="_parent" 
                 onclick="
@@ -420,8 +427,15 @@ function PMA_displayTableList( $tables, $visible = false,
                     window.parent.goTo( './<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] 
                         . '?' . $common_url_query; ?>', 'main' );
                     return false;">
-                <?php echo htmlspecialchars( substr( $group, 0, strlen( $group ) - strlen( $sep ) ) ); ?>
-                (<?php echo $table['tab_count']; ?>)
+                <?php
+                if ( $GLOBALS['text_dir'] === 'rtl' ) {
+                    echo ' <bdo dir="ltr">(' . $table['tab_count'] . ')</bdo> ';
+                }
+                echo htmlspecialchars( substr( $group, 0, strlen( $group ) - strlen( $sep ) ) );
+                if ( $GLOBALS['text_dir'] === 'ltr' ) {
+                    echo ' <bdo dir="ltr">(' . $table['tab_count'] . ')</bdo> ';
+                }
+                ?> 
             </a>
             <?php
             
@@ -472,9 +486,9 @@ function PMA_displayTableList( $tables, $visible = false,
             echo '</li>' . "\n";
         }
     }
-    echo '</ul>' . "\n";
+    echo '</ul>';
 }
-?>
+?> 
 </div>
 </body>
 </html>

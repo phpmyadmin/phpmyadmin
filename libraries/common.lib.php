@@ -898,9 +898,12 @@ function PMA_getDbList() {
  */
 function PMA_getHtmlSelectDb( $selected = '' ) {
     $dblist = PMA_getDbList();
-    $return = '<select name="db" id="lightm_db"'
+    // TODO: IE can not handle different text directions in select boxes
+    // so, as mostly names will be in english, we set the whole selectbox to LTR
+    // and EN
+    $return = '<select name="db" id="lightm_db" xml:lang="en" dir="ltr"'
         .' onchange="window.parent.openDb( this.value );">' . "\n"
-        .'<option value="">(' . $GLOBALS['strDatabases'] . ') ...</option>'
+        .'<option value="" dir="' . $GLOBALS['text_dir'] . '">(' . $GLOBALS['strDatabases'] . ') ...</option>'
         ."\n";
     foreach( $dblist as $group => $dbs ) {
         if ( count( $dbs ) > 1 ) {
@@ -913,8 +916,8 @@ function PMA_getHtmlSelectDb( $selected = '' ) {
             $cut = false;
         }
         foreach( $dbs as $db ) {
-            $return .= '<option value="' . $db['name'] . '" '
-                .'title="' . $db['comment'] . '"';
+            $return .= '<option value="' . $db['name'] . '"'
+                .' title="' . $db['comment'] . '"';
             if ( $db['name'] == $selected ) {
                 $return .= ' selected="selected"';
             }

@@ -14,6 +14,8 @@ $Source$
       fixed different font sizes
     * footer.inc.php, libraries/dbg/*:
       use $GLOBALS as this scripts can be included from inside a function
+    * left.php, libraries/common.lib.php:
+      fixed some rtl lang issues
     
 2005-11-02 Michal Čihař  <michal@cihar.com>
     * config.default.php: This is not a configuration file.
