@@ -2148,12 +2148,12 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
                                . '&amp;validatequery=';
                 if (!empty($GLOBALS['validatequery'])) {
                     $validate_link .= '0';
-                    $message = $GLOBALS['strNoValidateSQL'] ;
+                    $validate_message = $GLOBALS['strNoValidateSQL'] ;
                 } else {
                     $validate_link .= '1';
-                    $message = $GLOBALS['strValidateSQL'] ;
+                    $validate_message = $GLOBALS['strValidateSQL'] ;
                 }
-                $validate_link = ' [' . PMA_linkOrButton( $validate_link, $GLOBALS['strRefresh'] ) . ']';
+                $validate_link = ' [' . PMA_linkOrButton( $validate_link, $validate_message ) . ']';
             } else {
                 $validate_link = '';
             } //validator
