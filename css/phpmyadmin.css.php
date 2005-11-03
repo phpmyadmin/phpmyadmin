@@ -34,10 +34,6 @@ a img {
     border: 0;
 }
 
-caption {
-    font-size: <?php echo $font_size; ?>;
-}
-
 #mainheader {
     border: 0.1px solid transparent;
     border-bottom: 0.1em solid gray;

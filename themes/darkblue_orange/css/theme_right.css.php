@@ -19,7 +19,6 @@ body {
 body * {
     font-family:      Verdana, Arial, Helvetica, sans-serif;
     font-size:        10px;
-    background-color: #ffffff;
 }
 
 pre, tt, code{

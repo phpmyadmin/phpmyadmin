@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 2005-11-02 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * themes/dakrblue_orange/theme_right.css.php:
+    * themes/dakrblue_orange/theme_right.css.php, css/phpmyadmin.css.php:
       fixed different font sizes
     
 2005-11-02 Michal Čihař  <michal@cihar.com>
