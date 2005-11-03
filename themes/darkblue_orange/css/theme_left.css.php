@@ -2,16 +2,15 @@ body {
     font-family:      Verdana, Arial, Helvetica, sans-serif;
     font-size:        10px;
     background-color: #666699;
+    color:            #ffffff;
     margin: 0;
     padding: 2px 2px 2px 2px;
 }
 
-body#body_leftFrame {
-    background-color: <?php echo $cfg['LeftBgColor']; ?>;
-}
-
-div {
-    color:            #ffffff;
+/* gecko FIX, font size is not correctly assigned to all child elements */
+body * {
+    font-family:      Verdana, Arial, Helvetica, sans-serif;
+    font-size:        10px;
 }
 
 select{
