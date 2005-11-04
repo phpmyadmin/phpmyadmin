@@ -594,9 +594,9 @@ if ($is_minimum_common == FALSE) {
         }
 
         if ($big_icon) {
-            return '<a href="' . $url . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_sqlhelp.png" width="16" height="16" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" /></a>';
+            return '<a href="' . $url . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_sqlhelp.png" width="16" height="16" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" /></a>';
         } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
-            return '<a href="' . $url . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
+            return '<a href="' . $url . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" /></a>';
         }else{
             return '[<a href="' . $url . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
         }
@@ -612,7 +612,7 @@ if ($is_minimum_common == FALSE) {
      function PMA_showHint($hint_message)
      {
          //return '<img class="lightbulb" src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" border="0" alt="' . $hint_message . '" title="' . $hint_message . '" align="middle" onclick="alert(\'' . PMA_jsFormat($hint_message, FALSE) . '\');" />';
-         return '<img class="lightbulb" src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" border="0" alt="Tip" title="Tip" align="middle" onmouseover="pmaTooltip(\'' .  PMA_jsFormat($hint_message, FALSE) . '\'); return false;" onmouseout="swapTooltip(\'default\'); return false;" />';
+         return '<img class="lightbulb" src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" alt="Tip" title="Tip" onmouseover="pmaTooltip(\'' .  PMA_jsFormat($hint_message, FALSE) . '\'); return false;" onmouseout="swapTooltip(\'default\'); return false;" />';
      }
 
     /**
@@ -681,7 +681,7 @@ if ($is_minimum_common == FALSE) {
                 }
                 if ($GLOBALS['cfg']['PropertiesIconic']) {
                     echo $doedit_goto
-                       . '<img src=" '. $GLOBALS['pmaThemeImage'] . 'b_edit.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $GLOBALS['strEdit'] .'" />'
+                       . '<img class="icon" src=" '. $GLOBALS['pmaThemeImage'] . 'b_edit.png" width="16" height="16" alt="' . $GLOBALS['strEdit'] .'" />'
                        . '</a>';
                 } else {
                     echo '    ['
@@ -2439,8 +2439,8 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
         // display icon, even if iconic is disabled but the link-text is missing
         if ( ( $GLOBALS['cfg']['MainPageIconic'] || empty( $tab['text'] ) )
             && isset( $tab['icon'] ) ) {
-            $image = '<img src="' . htmlentities( $GLOBALS['pmaThemeImage'] )
-                .'%1$s" width="16" height="16" border="0" alt="%2$s" />%2$s';
+            $image = '<img class="icon" src="' . htmlentities( $GLOBALS['pmaThemeImage'] )
+                .'%1$s" width="16" height="16" alt="%2$s" />%2$s';
             $tab['text'] = sprintf( $image, htmlentities( $tab['icon'] ), $tab['text'] );
         }
         // check to not display an empty link-text
@@ -2820,7 +2820,7 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
         /* IE has trouble with <button> */
         if (PMA_USR_BROWSER_AGENT != 'IE') {
             echo '<button class="' . $button_class . '" type="submit" name="' . $button_name . '" value="' . $text . '" title="' . $text . '">' . "\n"
-               . '<img src="' . $pmaThemeImage . $image . '" title="' . $text . '" alt="' . $text . '" width="16" height="16" />' . (($propicon == 'both') ? '&nbsp;' . $text : '') . "\n"
+               . '<img class="icon" src="' . $pmaThemeImage . $image . '" title="' . $text . '" alt="' . $text . '" width="16" height="16" />' . (($propicon == 'both') ? '&nbsp;' . $text : '') . "\n"
                . '</button>' . "\n";
         } else {
             echo '<input type="image" name="' . $image_name . '" value="' .$text . '" title="' . $text . '" src="' . $pmaThemeImage . $image . '" />'  . (($propicon == 'both') ? '&nbsp;' . $text : '') . "\n";

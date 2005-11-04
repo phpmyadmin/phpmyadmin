@@ -17,6 +17,8 @@ $Source$
       - removed nowrap, vertical srcolling is really annoying
     * main.php, libraries/check_user_privileges.lib.php:
       - bug #1348189 after droping db some links in main.php are missing
+    * header.inc.php, libraries/common.lib.php:
+      - added class icon to img-tags
 
 2005-11-03 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, tbl_replace.php, tbl_replace_fields.php:

@@ -165,8 +165,8 @@ if (empty($GLOBALS['is_header_sent'])) {
                        );
         $item = '<a href="%1$s?%2$s" class="item">';
         if ( $GLOBALS['cfg']['NavigationBarIconic'] ) {
-            $separator = '        <span class="separator"><img src="' . $GLOBALS['pmaThemeImage'] . 'item_ltr.png" width="5" height="9" alt="-" /></span>' . "\n";
-            $item .= '        <img src="' . $GLOBALS['pmaThemeImage'] . '%5$s" width="16" height="16" alt="" border="0" /> ' . "\n";
+            $separator = '        <span class="separator"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'item_ltr.png" width="5" height="9" alt="-" /></span>' . "\n";
+            $item .= '        <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . '%5$s" width="16" height="16" alt="" /> ' . "\n";
         } else {
             $separator = '        <span class="separator"> - </span>' . "\n";
         }
