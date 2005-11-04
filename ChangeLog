@@ -19,9 +19,11 @@ $Source$
       - bug #1348189 after droping db some links in main.php are missing
     * header.inc.php, libraries/common.lib.php:
       - added class icon to img-tags
-    * header_meta_style.inc.php:
+    * libraries/header_meta_style.inc.php:
       fixed position of link meta tag
-
+    * libraries/select_server.lib.php
+      fixed html output
+      
 2005-11-03 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, tbl_replace.php, tbl_replace_fields.php:
       bug #1339184, problems in strict mode inserting auto-increment fields
