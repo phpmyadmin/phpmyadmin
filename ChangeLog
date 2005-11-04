@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-03 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * db_details_structure.php:
+      fixed display of stats for InnoDB and information_schema
+
 2005-11-03 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, tbl_replace.php, tbl_replace_fields.php:
       bug #1339184, problems in strict mode inserting auto-increment fields

@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 
 /**
@@ -26,11 +25,19 @@ if ( empty( $is_info ) ) {
     require('./db_details_db_info.php');
 }
 
+// rabus: disable statistics for information_schema.
+if ( PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema' ) {
+    $cfg['ShowStats'] = false;
+    $db_is_information_schema = true;
+} else {
+    $db_is_information_schema = false;
+}
+
 // 1. No tables
 if ( $num_tables == 0 ) {
     echo '<p>' . $strNoTablesFound . '</p>' . "\n";
     
-    if ( empty( $table_is_schema ) ) {
+    if ( empty( $db_is_information_schema ) ) {
         require('./libraries/display_create_table.lib.php');
     } // end if (Create Table dialog)
     
@@ -46,24 +53,16 @@ if ( $num_tables == 0 ) {
 
 require_once('./libraries/bookmark.lib.php');
 
-// rabus: disable statistics for information_schema.
-if ( PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema' ) {
-    $cfg['ShowStats'] = false;
-    $table_is_schema = true;
-} else {
-    $table_is_schema = false;
-}
-
 if ( PMA_MYSQL_INT_VERSION >= 40101 ) {
     require_once('./libraries/mysql_charsets.lib.php');
     $db_collation = PMA_getDbCollation( $db );
 }
 
 // Display function
-function PMA_TableHeader( $table_is_schema = false ) {
+function PMA_TableHeader( $db_is_information_schema = false ) {
     $cnt = 0; // Let's count the columns...
     
-    if ( $table_is_schema ) {
+    if ( $db_is_information_schema ) {
         $action_colspan = 3;
     } else {
         $action_colspan = 6;
@@ -147,7 +146,7 @@ if ( true == $cfg['PropertiesIconic'] ) {
 <?php 
 echo PMA_generate_common_hidden_inputs( $db );
 
-PMA_TableHeader( $table_is_schema );
+PMA_TableHeader( $db_is_information_schema );
 
 $i = $sum_entries = 0;
 $sum_size       = (double) 0;
@@ -160,136 +159,128 @@ $row_count      = 0;
 
 $hidden_fields = array();
 $odd_row       = true;
-foreach ( $tables as $keyname => $sts_data ) {
-    $sts_data['Type'] = isset( $sts_data['Type'] ) ? $sts_data['Type'] : '';
+foreach ( $tables as $keyname => $each_table ) {
+    if ( $each_table['TABLE_ROWS'] === NULL ) {
+        $each_table['TABLE_ROWS'] = PMA_countRecords( $db,
+            $each_table['TABLE_NAME'], $return = true, $force_exact = true );
+    }
     
-    $table_encoded = urlencode($sts_data['Name']);
+    $table_encoded = urlencode($each_table['TABLE_NAME']);
     // MySQL < 5.0.13 returns "view", >= 5.0.13 returns "VIEW"
-    $table_is_view     = (PMA_MYSQL_INT_VERSION >= 50000
-                       && empty($sts_data['Type'])
-                       && strtoupper($sts_data['Comment']) == 'VIEW');
+    $table_is_view = ( $each_table['TABLE_TYPE'] === 'VIEW'
+                       || $each_table['TABLE_TYPE'] === 'SYSTEM VIEW' );
 
-    $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$sts_data['Name']]))
-               ? htmlspecialchars($tooltip_aliasname[$sts_data['Name']])
-               :  htmlspecialchars($sts_data['Name']);
-    $truename = (!empty($tooltip_truename) && isset($tooltip_truename[$sts_data['Name']]))
-               ? htmlspecialchars($tooltip_truename[$sts_data['Name']])
-               : htmlspecialchars($sts_data['Name']);
+    $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
+               ? htmlspecialchars($tooltip_aliasname[$each_table['TABLE_NAME']])
+               :  htmlspecialchars($each_table['TABLE_NAME']);
+    $truename = (!empty($tooltip_truename) && isset($tooltip_truename[$each_table['TABLE_NAME']]))
+               ? htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']])
+               : htmlspecialchars($each_table['TABLE_NAME']);
 
     // Sets parameters for links
     $tbl_url_query = $url_query . '&amp;table=' . $table_encoded;
     $i++;
 
     $row_count++;
-
     if ( $table_is_view ) {
         $hidden_fields[] = '<input type="hidden" name="views[]" value="' .  $table_encoded . '" />';
     }
-    
 
-    if ( ! empty( $sts_data['Rows'] ) || $table_is_view ) {
-        $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($sts_data['Name']) . '\'', 'label');
+    if ( $each_table['TABLE_ROWS'] > 0 ) {
+        $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($each_table['TABLE_NAME']) . '\'', 'label');
         $browse_table = '<a href="sql.php?' . $tbl_url_query . '&amp;sql_query='
-             . ( $book_sql_query ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($sts_data['Name'])))
+             . ( $book_sql_query ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($each_table['TABLE_NAME'])))
              . '&amp;pos=0">' . $titles['Browse'] . '</a>';
-    } else {
-        $browse_table = $titles['NoBrowse'];
-    }
-    
-    if ( ! empty($sts_data['Rows'] ) || $table_is_view ) {
         $search_table = '<a href="tbl_select.php?' . $tbl_url_query . '">'
              . $titles['Search'] . '</a>';
     } else {
+        $browse_table = $titles['NoBrowse'];
         $search_table = $titles['NoSearch'];
     }
     
-    if ( ! $table_is_schema ) {
-        if ( ! empty($sts_data['Rows']) ) {
+    if ( ! $db_is_information_schema ) {
+        if ( ! empty($each_table['TABLE_ROWS']) ) {
             $empty_table = '<a href="sql.php?' . $tbl_url_query
                  . '&amp;sql_query=';
             if (PMA_MYSQL_INT_VERSION >= 40000) {
-                $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($sts_data['Name']))
+                $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
                      . '&amp;zero_rows='
-                     . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($sts_data['Name'])))
+                     . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($each_table['TABLE_NAME'])))
                      . '" onclick="return confirmLink(this, \'TRUNCATE ';
             } else {
-                $empty_table .= urlencode('DELETE FROM ' . PMA_backquote($sts_data['Name']))
+                $empty_table .= urlencode('DELETE FROM ' . PMA_backquote($each_table['TABLE_NAME']))
                      . '&amp;zero_rows='
-                     . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($sts_data['Name'])))
+                     . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($each_table['TABLE_NAME'])))
                      . '" onclick="return confirmLink(this, \'DELETE FROM ';
             }
-            $empty_table .= PMA_jsFormat($sts_data['Name']) . '\')">' . $titles['Empty'] . '</a>';
+            $empty_table .= PMA_jsFormat($each_table['TABLE_NAME']) . '\')">' . $titles['Empty'] . '</a>';
         } else {
             $empty_table = $titles['NoEmpty'];
         }
         $drop_query = 'DROP '
             . ( $table_is_view ? 'VIEW' : 'TABLE' )
-            . ' ' . PMA_backquote($sts_data['Name']);
+            . ' ' . PMA_backquote($each_table['TABLE_NAME']);
         $drop_message = sprintf( 
             $table_is_view ? $strViewHasBeenDropped : $strTableHasBeenDropped,
-            htmlspecialchars( $sts_data['Name'] ) );
+            htmlspecialchars( $each_table['TABLE_NAME'] ) );
     }
     
     // loic1: Patch from Joshua Nye <josh at boxcarmedia.com> to get valid
     //        statistics whatever is the table type
-    if ( isset( $sts_data['Rows'] ) ) {
+    if ( isset( $each_table['TABLE_ROWS'] ) ) {
         // MyISAM, ISAM or Heap table: Row count, data size and index size
         // is accurate.
-        if ( preg_match('@^(MyISAM|ISAM|HEAP|MEMORY)$@', $sts_data['Type']) ) {
+        if ( preg_match('@^(MyISAM|ISAM|HEAP|MEMORY)$@', $each_table['ENGINE']) ) {
             if ($cfg['ShowStats']) {
-                $tblsize                    =  doubleval($sts_data['Data_length']) + doubleval($sts_data['Index_length']);
+                $tblsize                    =  doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
                 $sum_size                   += $tblsize;
                 list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
-                if (isset($sts_data['Data_free']) && $sts_data['Data_free'] > 0) {
-                    list($formated_overhead, $overhead_unit)     = PMA_formatByteDown($sts_data['Data_free']);
-                    $overhead_size           += $sts_data['Data_free'];
+                if (isset($each_table['Data_free']) && $each_table['Data_free'] > 0) {
+                    list($formated_overhead, $overhead_unit)     = PMA_formatByteDown($each_table['Data_free']);
+                    $overhead_size           += $each_table['Data_free'];
                 }
             }
-            $sum_entries                    += $sts_data['Rows'];
-            $display_rows                   =  $sts_data['Rows'];
-        } elseif ( $sts_data['Type'] == 'InnoDB' ) {
+            $sum_entries                    += $each_table['TABLE_ROWS'];
+        } elseif ( $each_table['ENGINE'] == 'InnoDB' ) {
             // InnoDB table: Row count is not accurate but data and index
             // sizes are.
             if ($cfg['ShowStats']) {
-                $tblsize                    =  $sts_data['Data_length'] + $sts_data['Index_length'];
+                $tblsize                    =  $each_table['Data_length'] + $each_table['Index_length'];
                 $sum_size                   += $tblsize;
                 list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
             }
             //$display_rows                   =  ' - ';
             // get row count with another method
-            if ($sts_data['Rows'] < $cfg['MaxExactCount']) {
+            if ($each_table['TABLE_ROWS'] < $cfg['MaxExactCount']) {
                 $local_query = 'SELECT COUNT(*) AS count FROM '
                              . PMA_backquote($db) . '.'
-                             . PMA_backquote($sts_data['Name']);
-                $sum_entries += PMA_DBI_fetch_value( $local_query );
+                             . PMA_backquote($each_table['TABLE_NAME']);
+                $each_table['TABLE_ROWS'] = PMA_DBI_fetch_value( $local_query );
+                $sum_entries += $each_table['TABLE_ROWS'];
                 unset( $local_query );
             } else {
-                $row_count   = $sts_data['Rows'];
-                $sum_entries += $sts_data['Rows'];
+                $sum_entries += $each_table['TABLE_ROWS'];
             }
-            $display_rows        = $row_count;
-        } elseif ( preg_match('@^(MRG_MyISAM|BerkeleyDB)$@', $sts_data['Type']) ) {
+        } elseif ( preg_match('@^(MRG_MyISAM|BerkeleyDB)$@', $each_table['ENGINE']) ) {
             // Merge or BerkleyDB table: Only row count is accurate.
             if ($cfg['ShowStats']) {
                 $formated_size =  ' - ';
                 $unit          =  '';
             }
-            $sum_entries       += $sts_data['Rows'];
-            $display_rows      =  $sts_data['Rows'];
+            $sum_entries       += $each_table['TABLE_ROWS'];
         } else {
             // Unknown table type.
             if ($cfg['ShowStats']) {
                 $formated_size =  'unknown';
                 $unit          =  '';
             }
-            $display_rows      =  'unknown';
         }
         
         if (PMA_MYSQL_INT_VERSION >= 40100) {
-            if ( isset( $sts_data['Collation'] ) ) {
+            if ( isset( $each_table['Collation'] ) ) {
                 $collation = '<dfn title="' 
-                    . PMA_getCollationDescr($sts_data['Collation']) . '">' 
-                    . $sts_data['Collation'] . '</dfn>';
+                    . PMA_getCollationDescr($each_table['Collation']) . '">' 
+                    . $each_table['Collation'] . '</dfn>';
             } else {
                 $collation = '---';
             }
@@ -334,7 +325,7 @@ foreach ( $tables as $keyname => $sts_data ) {
         <a href="tbl_properties_structure.php?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Structure']; ?></a></td>
     <td align="center"><?php echo $search_table; ?></td>
-    <?php if ( ! $table_is_schema ) { ?>
+    <?php if ( ! $db_is_information_schema ) { ?>
     <td align="center">
         <a href="tbl_change.php?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Insert']; ?></a></td>
@@ -346,11 +337,11 @@ foreach ( $tables as $keyname => $sts_data ) {
             echo urlencode($drop_message); ?>"
             onclick="return confirmLink(this, '<?php echo PMA_jsFormat($drop_query, FALSE); ?>')">
             <?php echo $titles['Drop']; ?></a></td>
-    <?php } // end if ( ! $table_is_schema ) ?>
-    <?php if ( isset( $sts_data['Rows'] ) ) { ?>
-    <td class="value"><?php echo PMA_formatNumber( $display_rows, 0 ); ?></td>
+    <?php } // end if ( ! $db_is_information_schema ) ?>
+    <?php if ( isset( $each_table['TABLE_ROWS'] ) ) { ?>
+    <td class="value"><?php echo PMA_formatNumber( $each_table['TABLE_ROWS'], 0 ); ?></td>
         <?php if (!($cfg['PropertiesNumColumns'] > 1)) { ?>
-    <td nowrap="nowrap"><?php echo $sts_data['Type']; ?></td>
+    <td nowrap="nowrap"><?php echo $each_table['ENGINE']; ?></td>
             <?php if ( isset( $collation ) ) { ?>
     <td nowrap="nowrap"><?php echo $collation ?></td>
             <?php } ?>
@@ -371,10 +362,10 @@ foreach ( $tables as $keyname => $sts_data ) {
     <td class="value">-</td>
         <?php } ?>
     <?php } else { ?>
-    <td colspan="<?php echo ($structure_tbl_col_cnt - ($table_is_schema ? 5 : 8)) ?>"
+    <td colspan="<?php echo ($structure_tbl_col_cnt - ($db_is_information_schema ? 5 : 8)) ?>"
         align="center">
         <?php echo $strInUse; ?></td>
-    <?php } // end if ( isset( $sts_data['Rows'] ) ) else ?>
+    <?php } // end if ( isset( $each_table['TABLE_ROWS'] ) ) else ?>
 </tr>
     <?php
 } // end foreach
@@ -392,7 +383,7 @@ if ($cfg['ShowStats']) {
     <th align="center" nowrap="nowrap">
         <?php echo sprintf( $strTables, PMA_formatNumber( $num_tables, 0 ) ); ?>
     </th>
-    <th colspan="<?php echo ( $table_is_schema ? 3 : 6 ) ?>" align="center">
+    <th colspan="<?php echo ( $db_is_information_schema ? 3 : 6 ) ?>" align="center">
         <?php echo $strSum; ?>
     </th>
     <th class="value"><?php echo PMA_formatNumber( $sum_entries, 0 ); ?></th>
@@ -496,7 +487,7 @@ if($cfg['PropertiesIconic']){
 echo $strDataDict . '</a>';
 echo '</p>';
 
-if ( empty( $table_is_schema ) ) {
+if ( empty( $db_is_information_schema ) ) {
     require('./libraries/display_create_table.lib.php');
 } // end if (Create Table dialog)
 
