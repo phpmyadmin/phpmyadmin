@@ -9,9 +9,12 @@ $Source$
     * db_details_structure.php: Read InnoDB exact count before rendering icons
       for truncating (bug #1337744).
     
-2005-11-03 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+2005-11-04 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_details_structure.php:
       fixed display of stats for InnoDB and information_schema
+    * main.php:
+      - bug# 1348089 SQL and actions bellow should be same width
+      - removed nowrap, vertical srcolling is really annoying
 
 2005-11-03 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, tbl_replace.php, tbl_replace_fields.php:

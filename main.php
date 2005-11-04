@@ -10,7 +10,6 @@ define('PMA_DISPLAY_HEADING', 0);
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 setcookie('pma_lang', $lang, time() + 60*60*24*30, $cookie_path, '', $is_https);
 if (isset($convcharset)) {
@@ -94,13 +93,15 @@ if ( $server > 0 ) {
 
     echo '    <p><strong>' . $full_string . '</strong></p>' . "\n";
 } // end if $server > 0
+?> 
+<hr class="clearfloat" />
 
-
+<?php
 // Any message to display?
 
-if (isset($message)) {
+if ( ! empty( $message ) ) {
     PMA_showMessage($message);
-    unset($message);
+    unset( $message );
 }
 
 /**
@@ -121,10 +122,7 @@ if (($server > 0) && isset($mode) && ($mode == 'reload')) {
     unset($sql_query);
     unset($message);
 }
-?> 
-<hr class="clearfloat" />
 
-<?php
 /**
  * Displays the MySQL servers choice form
  */
@@ -165,14 +163,12 @@ if ($server > 0) {
         || $cfg['Server']['auth_type'] != 'config') {
         ?> 
 <table cellpadding="3" cellspacing="0">
-<tr><th class="tblHeaders" colspan="2" xml:lang="en" dir="ltr">
-        MySQL</th>
-</tr>
+<tr><th class="tblHeaders" colspan="2" xml:lang="en" dir="ltr">MySQL</th></tr>
 <tr>
         <?php
         echo $str_iconic_list != '' ? sprintf($str_iconic_list,'','b_newdb.png',$strCreateNewDatabase,'') : $str_normal_list;
         ?> 
-    <td valign="top" nowrap="nowrap">
+    <td valign="top">
         <?php require('./libraries/display_create_database.lib.php'); ?> 
     </td>
 </tr>
@@ -322,7 +318,8 @@ if ($server > 0) {
             <?php
             echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="index.php?'.$common_url_query.'&amp;old_usr='.urlencode($PHP_AUTH_USER).'">','s_loggoff.png',$strLogout,'</a>') : $str_normal_list);
             ?> 
-    <td><a href="index.php?<?php echo $common_url_query; ?>&amp;old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent">
+    <td><a href="index.php?<?php echo $common_url_query; ?>&amp;old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>"
+            target="_parent">
             <b><?php echo $strLogout; ?></b></a>
             <?php echo $http_logout; ?> 
     </td>
@@ -347,8 +344,7 @@ if (empty($cfg['Lang'])) {
 <tr><?php
     echo ($str_iconic_list !='' ? sprintf($str_iconic_list,'<a href="./translators.html" target="documentation">','s_lang.png','Language','</a>') : $str_normal_list);
     ?> 
-    <td nowrap="nowrap">
-        <form method="post" action="index.php" target="_parent">
+    <td><form method="post" action="index.php" target="_parent">
         <bdo xml:lang="en" dir="ltr">
             <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
@@ -397,12 +393,12 @@ if ( isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
 <tr><?php
     echo $str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLCharset,'') : $str_normal_list;
     ?> 
-    <td>
-        <form method="post" action="index.php" target="_parent">
+    <td><form method="post" action="index.php" target="_parent">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <?php echo $strMySQLCharset;?>:
-            <select name="convcharset"  xml:lang="en" dir="ltr" onchange="this.form.submit();">
+            <select name="convcharset"  xml:lang="en" dir="ltr"
+                onchange="this.form.submit();">
     <?php
     foreach ($cfg['AvailableCharsets'] AS $id => $tmpcharset) {
         if ($convcharset == $tmpcharset) {
@@ -490,8 +486,8 @@ if (isset($available_themes_choices) && $available_themes_choices > 1) {
 <tr><?php
     echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="Documentation.html" target="documentation">','b_docs.png',$strPmaDocumentation,'</a>') : $str_normal_list);
 ?> 
-    <td nowrap="nowrap">
-        <a href="Documentation.html" target="documentation"><b><?php echo $strPmaDocumentation; ?></b></a>
+    <td><a href="Documentation.html" target="documentation">
+            <b><?php echo $strPmaDocumentation; ?></b></a>
     </td>
 </tr>
 
@@ -501,8 +497,8 @@ if ($is_superuser || $cfg['ShowPhpInfo']) {
     <tr><?php
         echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="phpinfo.php?' . PMA_generate_common_url() . '" target="_blank">','php_sym.png',$strShowPHPInfo,'</a>') : $str_normal_list);
     ?> 
-        <td nowrap="nowrap">
-            <a href="phpinfo.php?<?php echo PMA_generate_common_url(); ?>" target="_blank"><?php echo $strShowPHPInfo; ?></a>
+        <td><a href="phpinfo.php?<?php echo PMA_generate_common_url(); ?>"
+                target="_blank"><?php echo $strShowPHPInfo; ?></a>
         </td>
     </tr>
     <?php
@@ -512,16 +508,17 @@ if ($is_superuser || $cfg['ShowPhpInfo']) {
 <?php
 echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="http://www.phpMyAdmin.net/" target="_blank">','b_home.png',$strHomepageOfficial,'</a>') : $str_normal_list);
 ?> 
-    <td nowrap="nowrap">
-        <a href="http://www.phpMyAdmin.net/" target="_blank"><?php echo $strHomepageOfficial; ?></a>
-   </td>
+    <td><a href="http://www.phpMyAdmin.net/" target="_blank">
+            <?php echo $strHomepageOfficial; ?></a>
+    </td>
 </tr>
 <tr><td></td>
-    <td nowrap="nowrap">
-        <bdo xml:lang="en" dir="ltr">
+    <td><bdo xml:lang="en" dir="ltr">
         [<a href="changelog.php" target="_blank">ChangeLog</a>]
-        &nbsp;&nbsp;&nbsp;[<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_blank">CVS</a>]
-        &nbsp;&nbsp;&nbsp;[<a href="http://sourceforge.net/mail/?group_id=23067" target="_blank">Lists</a>]
+        [<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/"
+            target="_blank">CVS</a>]
+        [<a href="http://sourceforge.net/mail/?group_id=23067"
+            target="_blank">Lists</a>]
         </bdo>
     </td>
 </tr>
