@@ -160,7 +160,7 @@ $row_count      = 0;
 $hidden_fields = array();
 $odd_row       = true;
 foreach ( $tables as $keyname => $each_table ) {
-    if ( $each_table['TABLE_ROWS'] === NULL ) {
+    if ( $each_table['TABLE_ROWS'] === NULL || $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount']) {
         $each_table['TABLE_ROWS'] = PMA_countRecords( $db,
             $each_table['TABLE_NAME'], $return = true, $force_exact = true );
     }
@@ -250,17 +250,7 @@ foreach ( $tables as $keyname => $each_table ) {
                 list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
             }
             //$display_rows                   =  ' - ';
-            // get row count with another method
-            if ($each_table['TABLE_ROWS'] < $cfg['MaxExactCount']) {
-                $local_query = 'SELECT COUNT(*) AS count FROM '
-                             . PMA_backquote($db) . '.'
-                             . PMA_backquote($each_table['TABLE_NAME']);
-                $each_table['TABLE_ROWS'] = PMA_DBI_fetch_value( $local_query );
-                $sum_entries += $each_table['TABLE_ROWS'];
-                unset( $local_query );
-            } else {
-                $sum_entries += $each_table['TABLE_ROWS'];
-            }
+            $sum_entries       += $each_table['TABLE_ROWS'];
         } elseif ( preg_match('@^(MRG_MyISAM|BerkeleyDB)$@', $each_table['ENGINE']) ) {
             // Merge or BerkleyDB table: Only row count is accurate.
             if ($cfg['ShowStats']) {
