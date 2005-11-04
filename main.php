@@ -139,11 +139,12 @@ if (!$cfg['LeftDisplayServers']) {
 /**
  * Displays the mysql server related links
  */
-$is_superuser        = FALSE;
+$is_superuser = false;
 
-if ($server > 0) {
+if ( $server > 0 ) {
 
     require_once('./libraries/check_user_privileges.lib.php');
+    $is_superuser = PMA_isSuperuser();
 
     $common_url_query =  PMA_generate_common_url();
 

@@ -6,6 +6,17 @@
 // ($dbh and $userlink are links to MySQL defined in the "common.lib.php" library)
 // Note: if no controluser is defined, $dbh contains $userlink
 
+/**
+ * returns true (int > 0) if current user is superuser
+ * otherwise 0
+ * 
+ * @return integer  $is_superuser
+ */
+function PMA_isSuperuser() {
+    return PMA_DBI_try_query( 'SELECT COUNT(*) FROM mysql.user',
+        $GLOBALS['userlink'], PMA_DBI_QUERY_STORE );
+}
+
 $is_create_db_priv  = FALSE;
 $is_process_priv = TRUE;
 $is_reload_priv  = FALSE;
@@ -15,7 +26,7 @@ $dbs_where_create_table_allowed = array();
 // We were trying to find if user if superuser with 'USE mysql'
 // but users with the global priv CREATE TEMPORARY TABLES or LOCK TABLES
 // can do a 'USE mysql' (even if they cannot see the tables)
-$is_superuser    = PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', $userlink, PMA_DBI_QUERY_STORE);
+$is_superuser    = PMA_isSuperuser();
 
 function PMA_analyseShowGrant($rs_usr, &$is_create_db_priv, &$db_to_create, &$is_reload_priv, &$dbs_where_create_table_allowed) {
 
