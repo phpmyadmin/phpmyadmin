@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza)
+
 2005-11-04 Michal Čihař  <michal@cihar.com>
     * db_details_structure.php: Read InnoDB exact count before rendering icons
       for truncating (bug #1337744).
