@@ -5,9 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2005-11-04 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+2005-11-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*/css/theme_right.css.php:
       dropped deprecated style classes
+    * server_databases, libraries/databases_interface.lib.php,
+      libraries/mysql_charsets.lib.php:
+      updated database list:
+      - added PMA_getServerCollation()
+        - display server collation in db list footer
+      - added PMA_DBI_get_databases_full()
+        - make use of info_schema on MySQL 5
+        - always display db stats for MySQL 5
+      - fixed html output
+      - replaced " with ' in some queries
     
 2005-11-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza)

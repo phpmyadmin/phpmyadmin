@@ -358,6 +358,16 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         return ' CHARACTER SET ' . $charset . ($charset == $collation ? '' : ' COLLATE ' . $collation);
     }
 
+    /**
+     * returns default server collation from show variables
+     * 
+     * @uses    PMA_DBI_fetch_value()
+     * @return  string  $server_collation
+     */
+    function PMA_getServerCollation() {
+        return PMA_DBI_fetch_value(
+            'SHOW VARIABLES LIKE \'collation_server\'', 0, 1 );
+    }
 }
 
 ?>

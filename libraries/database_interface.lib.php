@@ -26,34 +26,26 @@ function PMA_DBI_query($query, $link = NULL, $options = 0) {
     return $res;
 }
 
-function PMA_DBI_get_dblist($link = NULL) {
-    if (empty($link)) {
-        if (isset($GLOBALS['userlink'])) {
-            $link = $GLOBALS['userlink'];
-        } else {
-            return FALSE;
+/**
+ * returns array with database names
+ * 
+ * @return  array   $databases
+ */
+function PMA_DBI_get_dblist( $link = NULL ) {
+
+    $dbs_array = PMA_DBI_fetch_result( 'SHOW DATABASES;', $link );
+    
+    // Before MySQL 4.0.2, SHOW DATABASES could send the
+    // whole list, so check if we really have access:
+    if ( PMA_MYSQL_INT_VERSION < 40002 ) {
+        foreach ( $dbs_array as $key => $db ) {
+            if ( ! PMA_DBI_select_db( $db, $link ) ) {
+                unset( $dbs_array[$key] );
+            }
         }
+        // re-index values
+        $dbs_array = array_values( $dbs_array );
     }
-    $res = PMA_DBI_try_query('SHOW DATABASES;', $link);
-    $dbs_array = array();
-    while ($row = PMA_DBI_fetch_row($res)) {
-
-       // Before MySQL 4.0.2, SHOW DATABASES could send the
-       // whole list, so check if we really have access:
-       //if (PMA_MYSQL_CLIENT_API < 40002) {
-       // Better check the server version, in case the client API
-       // is more recent than the server version
-
-       if (PMA_MYSQL_INT_VERSION < 40002) {
-           $dblink = @PMA_DBI_select_db($row[0], $link);
-           if (!$dblink) {
-               continue;
-           }
-       }
-       $dbs_array[] = $row[0];
-    }
-    PMA_DBI_free_result($res);
-    unset($res);
 
     return $dbs_array;
 }
@@ -117,13 +109,13 @@ function PMA_DBI_get_tables_full( $database, $table = false,
         // get table information from information_schema
         if ( $table ) {
             if ( true === $tbl_is_group ) {
-                $sql_where_table = 'AND `TABLE_NAME` LIKE "' 
-                    . PMA_escape_mysql_wildcards( addslashes( $table ) ) . '%"';
+                $sql_where_table = 'AND `TABLE_NAME` LIKE \'' 
+                    . PMA_escape_mysql_wildcards( addslashes( $table ) ) . '%\'';
             } elseif ( 'comment' === $tbl_is_group ) {
-                $sql_where_table = 'AND `TABLE_COMMENT` LIKE "' 
-                    . PMA_escape_mysql_wildcards( addslashes( $table ) ) . '%"';
+                $sql_where_table = 'AND `TABLE_COMMENT` LIKE \'' 
+                    . PMA_escape_mysql_wildcards( addslashes( $table ) ) . '%\'';
             } else {
-                $sql_where_table = 'AND `TABLE_NAME` = "' . addslashes( $table ) . '"';
+                $sql_where_table = 'AND `TABLE_NAME` = \'' . addslashes( $table ) . '\'';
             }
         } else {
             $sql_where_table = '';
@@ -131,7 +123,7 @@ function PMA_DBI_get_tables_full( $database, $table = false,
         
         // for PMA bc:
         // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
-        $sql = '                                                 
+        $sql = '
              SELECT *,
                     `TABLE_SCHEMA`       AS `Db`,
                     `TABLE_NAME`         AS `Name`,
@@ -154,7 +146,7 @@ function PMA_DBI_get_tables_full( $database, $table = false,
                     `CREATE_OPTIONS`     AS `Create_options`,
                     `TABLE_COMMENT`      AS `Comment`
                FROM `information_schema`.`TABLES`
-              WHERE `TABLE_SCHEMA` = "' . addslashes( $database ) . '"
+              WHERE `TABLE_SCHEMA` = \'' . addslashes( $database ) . '\'
                 ' . $sql_where_table;
         
         $tables = PMA_DBI_fetch_result( $sql, 'TABLE_NAME', NULL, $link );
@@ -163,7 +155,7 @@ function PMA_DBI_get_tables_full( $database, $table = false,
         if ( true === $tbl_is_group ) {
             $sql = 'SHOW TABLE STATUS FROM ' 
                 . PMA_backquote( addslashes( $database ) ) 
-                .' LIKE "' . PMA_escape_mysql_wildcards( addslashes( $table ) ) . '%"';
+                .' LIKE \'' . PMA_escape_mysql_wildcards( addslashes( $table ) ) . '%\'';
         } else {
             $sql = 'SHOW TABLE STATUS FROM ' 
                 . PMA_backquote( addslashes( $database ) ) . ';';
@@ -227,6 +219,101 @@ function PMA_DBI_get_tables_full( $database, $table = false,
     }
     
     return $tables;
+}
+
+/**
+ * returns array with databases containing extended infos about them
+ * 
+ * @param   string          $databases      database
+ * @param   boolean         $force_stats    retrieve stats also for MySQL < 5
+ * @param   resource        $link           mysql link
+ * @return  array       $databases
+ */
+function PMA_DBI_get_databases_full( $database = NULL, $force_stats = false, $link = NULL ) {
+    if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
+        // get table information from information_schema
+        if ( $database ) {
+            $sql_where_schema = 'WHERE `SCHEMA_NAME` LIKE \'' 
+                . addslashes( $database ) . '\'';
+        } else {
+            $sql_where_schema = '';
+        }
+        
+        // for PMA bc:
+        // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
+        $sql = '
+             SELECT `information_schema`.`SCHEMATA`.*,
+                    COUNT(`information_schema`.`TABLES`.`TABLE_SCHEMA`)
+                        AS `SCHEMA_TABLES`,
+                    SUM(`information_schema`.`TABLES`.`TABLE_ROWS`)
+                        AS `SCHEMA_TABLE_ROWS`,
+                    SUM(`information_schema`.`TABLES`.`DATA_LENGTH`)
+                        AS `SCHEMA_DATA_LENGTH`,
+                    SUM(`information_schema`.`TABLES`.`MAX_DATA_LENGTH`)
+                        AS `SCHEMA_MAX_DATA_LENGTH`,
+                    SUM(`information_schema`.`TABLES`.`INDEX_LENGTH`)
+                        AS `SCHEMA_INDEX_LENGTH`,
+                    SUM(`information_schema`.`TABLES`.`DATA_LENGTH`
+                      + `information_schema`.`TABLES`.`INDEX_LENGTH`)
+                        AS `SCHEMA_LENGTH`,
+                    SUM(`information_schema`.`TABLES`.`DATA_FREE`)
+                        AS `SCHEMA_DATA_FREE`
+               FROM `information_schema`.`SCHEMATA`
+          LEFT JOIN `information_schema`.`TABLES`
+                 ON `information_schema`.`TABLES`.`TABLE_SCHEMA`
+                  = `information_schema`.`SCHEMATA`.`SCHEMA_NAME`
+              ' . $sql_where_schema . '
+           GROUP BY `information_schema`.`SCHEMATA`.`SCHEMA_NAME`';
+        $databases = PMA_DBI_fetch_result( $sql, 'SCHEMA_NAME', NULL, $link );
+        unset( $sql_where_schema, $sql );
+    } else {
+        foreach ( PMA_DBI_get_dblist( $link ) as $database_name ) {
+            // MySQL forward compatibility
+            // so pma could use this array as if every server is of version >5.0
+            $databases[$database_name]['SCHEMA_NAME']      = $database_name;
+            
+            if ( $force_stats ) {
+                require_once 'mysql_charsets.lib.php';
+                
+                $databases[$database_name]['DEFAULT_COLLATION_NAME']
+                    = PMA_getDbCollation( $database_name );
+                
+                // get additonal info about tables
+                $databases[$database_name]['SCHEMA_TABLES']          = 0;
+                $databases[$database_name]['SCHEMA_TABLE_ROWS']      = 0;
+                $databases[$database_name]['SCHEMA_DATA_LENGTH']     = 0;
+                $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH'] = 0;
+                $databases[$database_name]['SCHEMA_INDEX_LENGTH']    = 0;
+                $databases[$database_name]['SCHEMA_LENGTH']          = 0;
+                $databases[$database_name]['SCHEMA_DATA_FREE']       = 0;
+                
+                $res = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote( $database_name ) . ';');
+                while ( $row = PMA_DBI_fetch_assoc( $res ) ) {
+                    $databases[$database_name]['SCHEMA_TABLES']++;
+                    $databases[$database_name]['SCHEMA_TABLE_ROWS']
+                        += $row['Rows'];
+                    $databases[$database_name]['SCHEMA_DATA_LENGTH']
+                        += $row['Data_length'];
+                    $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH']
+                        += $row['Max_data_length'];
+                    $databases[$database_name]['SCHEMA_INDEX_LENGTH']
+                        += $row['Index_length'];
+                    $databases[$database_name]['SCHEMA_DATA_FREE']
+                        += $row['Data_free'];
+                    $databases[$database_name]['SCHEMA_LENGTH']
+                        += $row['Data_length'] + $row['Index_length'];
+                }
+                PMA_DBI_free_result( $res );
+                unset( $res );
+            }
+        }
+    }
+    
+    if ( $GLOBALS['cfg']['NaturalOrder'] ) {
+        uksort( $databases, 'strnatcasecmp' );
+    }
+    
+    return $databases;
 }
 
 function PMA_DBI_get_fields($database, $table, $link = NULL) {
