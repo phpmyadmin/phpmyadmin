@@ -110,49 +110,12 @@ h3{
     font-size:        12px;
     font-weight:      bold;
 }
-a.h1:link, a.h1:active, a.h1:visited{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        18px;
-    font-weight:      bold;
-    color:            #000000;
-}
-a.h1:hover{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        18px;
-    font-weight:      bold;
-    color:            #cc0000;
-}
-a.h2:link, a.h2:active, a.h2:visited{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        13px;
-    font-weight:      bold;
-    color:            #000000;
-}
-a.h2:hover{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        13px;
-    font-weight:      bold;
-    color:            #cc0000;
-}
-a.drop:link, a.drop:visited, a.drop:active{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    color:            #cc0000;
-}
-a.drop:hover{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    color:            #ffffff;
-    background-color: #cc0000;
-    text-decoration:  none;
-}
 dfn{
     font-style:       normal;
 }
 dfn:hover{
     font-style:       normal;
     cursor:           help;
-}
-td.topline{
-    font-size:        1px;
 }
 
 fieldset {
