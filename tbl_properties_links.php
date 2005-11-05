@@ -34,19 +34,22 @@ $tabs['sql']['text'] = $strSQL;
 $tabs['search']['icon'] = 'b_search.png';
 $tabs['search']['text'] = $strSearch;
 
-$tabs['insert']['icon'] = 'b_insrow.png';
-$tabs['insert']['link'] = 'tbl_change.php';
-$tabs['insert']['text'] = $strInsert;
+if ( ! $db_is_information_schema ) {
+    $tabs['insert']['icon'] = 'b_insrow.png';
+    $tabs['insert']['link'] = 'tbl_change.php';
+    $tabs['insert']['text'] = $strInsert;
+}
 
-/**
- * Don't display "Export", "Import", "Operations" and "Empty" for views.
- */
-if (!$tbl_is_view) {
-    $tabs['export']['icon'] = 'b_tblexport.png';
-    $tabs['export']['link'] = 'tbl_properties_export.php';
-    $tabs['export']['args']['single_table'] = 'true';
-    $tabs['export']['text'] = $strExport;
+$tabs['export']['icon'] = 'b_tblexport.png';
+$tabs['export']['link'] = 'tbl_properties_export.php';
+$tabs['export']['args']['single_table'] = 'true';
+$tabs['export']['text'] = $strExport;
     
+/**
+ * Don't display , "Import", "Operations" and "Empty"
+ * for views and information_schema
+ */
+if ( ! $tbl_is_view && ! $db_is_information_schema ) {
     $tabs['import']['icon'] = 'b_tblimport.png';
     $tabs['import']['link'] = 'tbl_import.php';
     $tabs['import']['text'] = $strImport;
@@ -69,18 +72,24 @@ if (!$tbl_is_view) {
     $tabs['empty']['icon'] = 'b_empty.png';
     $tabs['empty']['text'] = $strEmpty;
 }
-$tabs['drop']['icon'] = 'b_deltbl.png';
-$tabs['drop']['link'] = 'sql.php';
-$tabs['drop']['text'] = $strDrop;
-$tabs['drop']['args']['reload']     = 1;
-$tabs['drop']['args']['purge']      = 1;
-$drop_command = 'DROP ' . ($tbl_is_view ? 'VIEW' : 'TABLE');
-$tabs['drop']['args']['sql_query']  = $drop_command . ' ' . PMA_backquote($table);
-$tabs['drop']['args']['goto']       = 'db_details_structure.php';
-$tabs['drop']['args']['zero_rows']  = sprintf(($tbl_is_view ? $strViewHasBeenDropped : $strTableHasBeenDropped), htmlspecialchars($table));
-$tabs['drop']['attr'] = 'onclick="return confirmLink(this, \'' . $drop_command . ' ' . PMA_jsFormat($table) . '\')"';
-unset($drop_command);
-$tabs['drop']['class'] = 'caution';
+
+/**
+ * no drop in information_schema
+ */
+if ( ! $db_is_information_schema ) {
+    $tabs['drop']['icon'] = 'b_deltbl.png';
+    $tabs['drop']['link'] = 'sql.php';
+    $tabs['drop']['text'] = $strDrop;
+    $tabs['drop']['args']['reload']     = 1;
+    $tabs['drop']['args']['purge']      = 1;
+    $drop_command = 'DROP ' . ($tbl_is_view ? 'VIEW' : 'TABLE');
+    $tabs['drop']['args']['sql_query']  = $drop_command . ' ' . PMA_backquote($table);
+    $tabs['drop']['args']['goto']       = 'db_details_structure.php';
+    $tabs['drop']['args']['zero_rows']  = sprintf(($tbl_is_view ? $strViewHasBeenDropped : $strTableHasBeenDropped), htmlspecialchars($table));
+    $tabs['drop']['attr'] = 'onclick="return confirmLink(this, \'' . $drop_command . ' ' . PMA_jsFormat($table) . '\')"';
+    unset($drop_command);
+    $tabs['drop']['class'] = 'caution';
+}
 
 if ($table_info_num_rows > 0 || $tbl_is_view) {
     $tabs['browse']['link'] = 'sql.php';

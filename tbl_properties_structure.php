@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/mysql_charsets.lib.php');
 
@@ -147,12 +146,6 @@ if ( $cfg['PropertiesIconic'] == true ) {
     $titles['NoUnique']      = $strUnique;
     $titles['NoIdxFulltext'] = $strIdxFulltext;
     $titles['Browse']        = $strBrowse;
-}
-
-if ( PMA_MYSQL_INT_VERSION >= 50002 && $db === 'information_schema' ) {
-    $db_is_information_schema = true;
-} else {
-    $db_is_information_schema = false;
 }
 
 /**

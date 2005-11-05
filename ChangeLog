@@ -18,6 +18,10 @@ $Source$
         - always display db stats for MySQL 5
       - fixed html output
       - replaced " with ' in some queries
+    * tbl_properties_structure.php, tbl_properties_common.php
+      tbl_properties_links.php:
+      - no drop, empty, operation, insert, import for information_schema tables
+      - enabled export for views
     
 2005-11-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza)
