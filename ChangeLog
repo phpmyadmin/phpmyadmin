@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/norwegian: Update, thanks to Sven-Erik Andersen
+
 2005-11-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/database_interface.lib.php, 
       libraries/dbi/*.dbi.lib.php:
