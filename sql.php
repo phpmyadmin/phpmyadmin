@@ -5,7 +5,6 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/tbl_indexes.lib.php');
 require_once('./libraries/check_user_privileges.lib.php');
@@ -776,7 +775,7 @@ else {
                 echo '    <!-- Insert a new row -->' . "\n";
                 echo PMA_linkOrButton(
                     'tbl_change.php' . $url_query,
-                    ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_insrow.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strInsertNewRow . '"/>' : '') . $strInsertNewRow,
+                    ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" height="16" width="16" alt="' . $strInsertNewRow . '"/>' : '') . $strInsertNewRow,
                     '', TRUE, TRUE, '') . "\n";
 
                 if ($disp_mode[9] == '1') {
@@ -798,14 +797,14 @@ else {
                 echo '    <!-- Print view -->' . "\n";
                 echo PMA_linkOrButton(
                     'sql.php' . $url_query . ((isset($dontlimitchars) && $dontlimitchars == '1') ? '&amp;dontlimitchars=1' : ''),
-                    ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strPrintView . '"/>' : '') . $strPrintView,
+                    ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_print.png" height="16" width="16" alt="' . $strPrintView . '"/>' : '') . $strPrintView,
                     '', TRUE, TRUE, 'print_view') . "\n";
 
                 if (!$dontlimitchars) {
                     echo   '    &nbsp;&nbsp;' . "\n";
                     echo PMA_linkOrButton(
                         'sql.php' . $url_query . '&amp;dontlimitchars=1',
-                        ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strPrintViewFull . '"/>' : '') . $strPrintViewFull,
+                        ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_print.png" height="16" width="16" alt="' . $strPrintViewFull . '"/>' : '') . $strPrintViewFull,
                         '', TRUE, TRUE, 'print_view') . "\n";
                 }
             } // end displays "printable view"
@@ -827,7 +826,7 @@ else {
             echo   '    &nbsp;&nbsp;' . "\n";
             echo PMA_linkOrButton(
                 'tbl_properties_export.php' . $url_query . '&amp;unlim_num_rows=' . $unlim_num_rows . $single_table,
-                ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_tblexport.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strExport . '" />' : '') . $strExport,
+                ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_tblexport.png" height="16" width="16" alt="' . $strExport . '" />' : '') . $strExport,
                 '', TRUE, TRUE, '') . "\n";
         }
 
@@ -846,39 +845,40 @@ else {
                   . '&amp;dontlimitchars=' . $dontlimitchars
                   . '&amp;sql_query=' . urlencode($sql_query)
                   . '&amp;id_bookmark=1';
-            ?>
-<!-- Bookmark the query -->
-            <?php
-            echo "\n";
+            
             if ($disp_mode[3] == '1') {
-                echo '    <i>' . $strOr . '</i>' . "\n";
-            }else echo '<br /><br />';
-            ?>
+                echo '    <i>' . $strOr . '</i>';
+            } else {
+                echo '<br /><br />';
+            }
+            ?> 
 <form action="sql.php" method="post" onsubmit="return emptyFormElements(this, 'fields[label]');">
-<table border="0" cellpadding="2" cellspacing="0">
-<tr><td class="tblHeaders" colspan="2"><?php
-     echo ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_bookmark.png" border="0" width="16" height="16" hspace="2" align="middle" alt="' . $strBookmarkThis . '" />' : '')
+<?php echo PMA_generate_common_hidden_inputs(); ?>
+<input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+<input type="hidden" name="fields[dbase]" value="<?php echo htmlspecialchars($db); ?>" />
+<input type="hidden" name="fields[user]" value="<?php echo $cfg['Bookmark']['user']; ?>" />
+<input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
+<fieldset>
+    <legend><?php
+     echo ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_bookmark.png" width="16" height="16" alt="' . $strBookmarkThis . '" />' : '')
         . $strBookmarkThis;
-?></td></tr>
-<tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td>
-    <?php echo $strBookmarkLabel; ?>:
-    <?php echo PMA_generate_common_hidden_inputs(); ?>
-    <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-    <input type="hidden" name="fields[dbase]" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="fields[user]" value="<?php echo $cfg['Bookmark']['user']; ?>" />
-    <input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
-        </td><td>
-    <input type="text" name="fields[label]" value="" />
-        </td></tr>
-<tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td align="right" valign="top">
-    <input type="checkbox" name="bkm_all_users" id="bkm_all_users" value="true" /></td>
-    <td><label for="bkm_all_users"><?php echo $strBookmarkAllUsers; ?></label></td>
-</tr>
-<tr>
-    <td class="tblFooters" colspan="2" align="right">
+?> 
+    </legend>
+    
+    <div class="formelement">
+        <label for="fields_label_"><?php echo $strBookmarkLabel; ?>:</label>
+        <input type="text" id="fields_label_" name="fields[label]" value="" />
+    </div>
+    
+    <div class="formelement">
+        <input type="checkbox" name="bkm_all_users" id="bkm_all_users" value="true" />
+        <label for="bkm_all_users"><?php echo $strBookmarkAllUsers; ?></label>
+    </div>
+</fieldset>
+<fieldset class="tblFooters">
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
-    </td></tr>
-</table></form>
+</fieldset>
+</form>
             <?php
         } // end bookmark support
 
@@ -886,7 +886,7 @@ else {
         if (isset($printview) && $printview == '1') {
             echo "\n";
             ?>
-<script type="text/javascript" language="javascript1.2">
+<script type="text/javascript" language="javascript">
 <!--
 // Do print the page
 if (typeof(window.print) != 'undefined') {

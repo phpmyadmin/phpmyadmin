@@ -10,6 +10,7 @@ $Source$
       libraries/dbi/*.dbi.lib.php:
       - added PMA_DBI_convert_message()
       - bug #1344654 Not converted mysql error message to chosen user language
+    * sql.php: use fieldset for 'bookmark this'
     
 2005-11-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*/css/theme_right.css.php:
