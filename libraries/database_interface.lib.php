@@ -27,18 +27,21 @@ function PMA_DBI_query($query, $link = NULL, $options = 0) {
 }
 
 /**
- * converts charset in message, usally from mysql_error(),
+ * converts charset of a mysql message, usally coming from mysql_error(),
  * into PMA charset, usally UTF-8
+ * uses language to charset mapping from mysql/share/errmsg.txt
+ * and charset names to ISO charset from information_schema.CHARACTER_SETS
  * 
  * @uses    $GLOBALS['cfg']['IconvExtraParams']
- * @uses    PMA_DBI_fetch_value()
- * @uses    preg_match()
+ * @uses    $GLOBALS['charset']     as target charset
+ * @uses    PMA_DBI_fetch_value()   to get server_language
+ * @uses    preg_match()            to filter server_language
  * @uses    in_array()
- * @uses    function_exists()
- * @uses    iconv()
- * @uses    libiconv()
- * @uses    recode_string()
- * @uses    mb_convert_encoding()
+ * @uses    function_exists()       to check for a convert function
+ * @uses    iconv()                 to convert message
+ * @uses    libiconv()              to convert message
+ * @uses    recode_string()         to convert message
+ * @uses    mb_convert_encoding()   to convert message
  * @param   string  $message
  * @return  string  $message
  */
@@ -71,23 +74,26 @@ function PMA_DBI_convert_message( $message ) {
         'german'        => 'CP1252', //'latin1',
     );
     
-    if ( $lang = PMA_DBI_fetch_value( 'SHOW VARIABLES LIKE \'language\';', 0, 1 ) ) {
-        if ( preg_match( '&(?:\\\|\\/)([^\\\\\/]*)(?:\\\|\\/)$&i', $lang, $found = array() ) ) {
-            $lang = $found[1];
+    if ( $server_language = PMA_DBI_fetch_value( 'SHOW VARIABLES LIKE \'language\';', 0, 1 ) ) {
+        if ( preg_match( '&(?:\\\|\\/)([^\\\\\/]*)(?:\\\|\\/)$&i', $server_language, $found = array() ) ) {
+            $server_language = $found[1];
         }
     } 
     
-    if ( ! empty( $lang ) && isset( $encodings[$lang] ) ) {
+    if ( ! empty( $server_language ) && isset( $encodings[$server_language] ) ) {
         if ( function_exists( 'iconv' ) ) {
-            $message = iconv($encodings[$lang], 'UTF-8' . $GLOBALS['cfg']['IconvExtraParams'], $message);
+            $message = iconv( $encodings[$server_language],
+                $GLOBALS['charset'] . $GLOBALS['cfg']['IconvExtraParams'], $message);
         } elseif ( function_exists( 'recode_string' ) ) {
-            $message = recode_string($encodings[$lang] . '..'  . 'UTF-8', $message);
+            $message = recode_string( $encodings[$server_language] . '..'  . $GLOBALS['charset'],
+                $message );
         } elseif ( function_exists( 'libiconv' ) ) {
-            $message = libiconv($encodings[$lang], 'UTF-8', $message);
+            $message = libiconv( $encodings[$server_language], $GLOBALS['charset'], $message );
         } elseif ( function_exists( 'mb_convert_encoding' ) ) {
             // do not try unsupported charsets
-            if ( ! in_array( $lang, array( 'ukrainian', 'greek', 'serbian' ) ) ) {
-                $message = mb_convert_encoding( $message, 'UTF-8', $encodings[$lang] );
+            if ( ! in_array( $server_language, array( 'ukrainian', 'greek', 'serbian' ) ) ) {
+                $message = mb_convert_encoding( $message, $GLOBALS['charset'],
+                    $encodings[$server_language] );
             }
         }
     } else {
