@@ -27,6 +27,78 @@ function PMA_DBI_query($query, $link = NULL, $options = 0) {
 }
 
 /**
+ * converts charset in message, usally from mysql_error(),
+ * into PMA charset, usally UTF-8
+ * 
+ * @uses    $GLOBALS['cfg']['IconvExtraParams']
+ * @uses    PMA_DBI_fetch_value()
+ * @uses    preg_match()
+ * @uses    in_array()
+ * @uses    function_exists()
+ * @uses    iconv()
+ * @uses    libiconv()
+ * @uses    recode_string()
+ * @uses    mb_convert_encoding()
+ * @param   string  $message
+ * @return  string  $message
+ */
+function PMA_DBI_convert_message( $message ) {
+    // latin always last!
+    $encodings = array(
+        'japanese'      => 'EUC-JP', //'ujis',
+        'japanese-sjis' => 'Shift-JIS', //'sjis',
+        'korean'        => 'EUC-KR', //'euckr',
+        'russian'       => 'KOI8-R', //'koi8r',
+        'ukrainian'     => 'KOI8-U', //'koi8u',
+        'greek'         => 'ISO-8859-7', //'greek',
+        'serbian'       => 'CP1250', //'cp1250',
+        'estonian'      => 'ISO-8859-13', //'latin7',
+        'slovak'        => 'ISO-8859-2', //'latin2',
+        'czech'         => 'ISO-8859-2', //'latin2',
+        'hungarian'     => 'ISO-8859-2', //'latin2',
+        'polish'        => 'ISO-8859-2', //'latin2',
+        'romanian'      => 'ISO-8859-2', //'latin2',
+        'spanish'       => 'CP1252', //'latin1',
+        'swedish'       => 'CP1252', //'latin1',
+        'italian'       => 'CP1252', //'latin1',
+        'norwegian-ny'  => 'CP1252', //'latin1',
+        'norwegian'     => 'CP1252', //'latin1',
+        'portuguese'    => 'CP1252', //'latin1',
+        'danish'        => 'CP1252', //'latin1',
+        'dutch'         => 'CP1252', //'latin1',
+        'english'       => 'CP1252', //'latin1',
+        'french'        => 'CP1252', //'latin1',
+        'german'        => 'CP1252', //'latin1',
+    );
+    
+    if ( $lang = PMA_DBI_fetch_value( 'SHOW VARIABLES LIKE \'language\';', 0, 1 ) ) {
+        if ( preg_match( '&(?:\\\|\\/)([^\\\\\/]*)(?:\\\|\\/)$&i', $lang, $found = array() ) ) {
+            $lang = $found[1];
+        }
+    } 
+    
+    if ( ! empty( $lang ) && isset( $encodings[$lang] ) ) {
+        if ( function_exists( 'iconv' ) ) {
+            $message = iconv($encodings[$lang], 'UTF-8' . $GLOBALS['cfg']['IconvExtraParams'], $message);
+        } elseif ( function_exists( 'recode_string' ) ) {
+            $message = recode_string($encodings[$lang] . '..'  . 'UTF-8', $message);
+        } elseif ( function_exists( 'libiconv' ) ) {
+            $message = libiconv($encodings[$lang], 'UTF-8', $message);
+        } elseif ( function_exists( 'mb_convert_encoding' ) ) {
+            // do not try unsupported charsets
+            if ( ! in_array( $lang, array( 'ukrainian', 'greek', 'serbian' ) ) ) {
+                $message = mb_convert_encoding( $message, 'UTF-8', $encodings[$lang] );
+            }
+        }
+    } else {
+        // lang not found, try all
+        // what TODO ?
+    }
+    
+    return $message;
+}
+
+/**
  * returns array with database names
  * 
  * @return  array   $databases

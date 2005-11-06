@@ -202,40 +202,59 @@ function PMA_DBI_free_result($result) {
     }
 }
 
-function PMA_DBI_getError($link = NULL) {
-    unset($GLOBALS['errno']);
-    if (empty($link)) {
-        if (isset($GLOBALS['userlink'])) {
-            $link = $GLOBALS['userlink'];
-            // Do not stop now. We still can get the error code
-            // with mysqli_connect_errno()
-//        } else {
-//            return FALSE;
-        }
+/**
+ * returns last error message or false if no errors occured
+ * 
+ * @uses    PMA_MYSQL_INT_VERSION
+ * @uses    PMA_convert_display_charset()
+ * @uses    PMA_DBI_convert_message()
+ * @uses    $GLOBALS['errno']
+ * @uses    $GLOBALS['userlink']
+ * @uses    $GLOBALS['strServerNotResponding']
+ * @uses    $GLOBALS['strSocketProblem']
+ * @uses    mysqli_errno()
+ * @uses    mysqli_error()
+ * @uses    mysqli_connect_errno()
+ * @uses    mysqli_connect_error()
+ * @uses    defined()
+ * @param   resource        $link   mysql link
+ * @return  string|boolean  $error or false
+ */
+function PMA_DBI_getError( $link = NULL ) {
+    unset( $GLOBALS['errno'] );
+    
+    if ( NULL === $link && isset( $GLOBALS['userlink'] ) ) {
+        $link =& $GLOBALS['userlink'];
+        // Do not stop now. We still can get the error code
+        // with mysqli_connect_errno()
+//    } else {
+//        return false;
     }
 
-    if (mysqli_connect_errno()) {
-        $error = mysqli_connect_errno();
-        $error_message = mysqli_connect_error();
-    } elseif ( !empty($link) && mysqli_errno($link)) {
-        $error = mysqli_errno($link);
-        $error_message = mysqli_error($link);
-    } 
-
-    // keep the error number for further check after the call to PMA_DBI_getError()
-    if (!empty($error)) {
-        $GLOBALS['errno'] = $error;
+    if ( NULL !== $link ) {
+        $error_number = mysqli_errno( $link );
+        $error_message = mysqli_error( $link );
     } else {
-        return FALSE;
+        $error_number = mysqli_connect_errno();
+        $error_message = mysqli_connect_error();
     }
+    if ( 0 == $error_number ) {
+        return false;
+    }
+    
+    // keep the error number for further check after the call to PMA_DBI_getError()
+    $GLOBALS['errno'] = $error_number;
 
-
-    if ($error && $error == 2002) {
-        $error = '#' . ((string) $error) . ' - ' . $GLOBALS['strServerNotResponding'] . ' ' . $GLOBALS['strSocketProblem'];
-    } elseif ($error && defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION >= 40100) {
-        $error = '#' . ((string) $error) . ' - ' . $error_message;
-    } elseif ($error) {
-        $error = '#' . ((string) $error) . ' - ' . PMA_convert_display_charset($error_message);
+    if ( ! empty( $error_message ) ) {
+        $error_message = PMA_DBI_convert_message( $error_message );
+    }
+    
+    if ( $error_number == 2002 ) {
+        $error = '#' . ((string) $error_number) . ' - ' . $GLOBALS['strServerNotResponding'] . ' ' . $GLOBALS['strSocketProblem'];
+    } elseif ( defined( 'PMA_MYSQL_INT_VERSION' ) && PMA_MYSQL_INT_VERSION >= 40100 ) {
+        $error = '#' . ((string) $error_number) . ' - ' . $error_message;
+    } else {
+        $error = '#' . ((string) $error_number) . ' - ' . PMA_convert_display_charset($error_message);
     }
     return $error;
 }

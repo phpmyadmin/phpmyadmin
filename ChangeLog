@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/database_interface.lib.php, 
+      libraries/dbi/*.dbi.lib.php:
+      - added PMA_DBI_convert_message()
+      - bug #1344654 Not converted mysql error message to chosen user language
+    
 2005-11-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*/css/theme_right.css.php:
       dropped deprecated style classes
