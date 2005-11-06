@@ -25,14 +25,6 @@ if ( empty( $is_info ) ) {
     require('./db_details_db_info.php');
 }
 
-// rabus: disable statistics for information_schema.
-if ( PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema' ) {
-    $cfg['ShowStats'] = false;
-    $db_is_information_schema = true;
-} else {
-    $db_is_information_schema = false;
-}
-
 // 1. No tables
 if ( $num_tables == 0 ) {
     echo '<p>' . $strNoTablesFound . '</p>' . "\n";

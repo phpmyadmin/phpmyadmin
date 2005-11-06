@@ -5,11 +5,17 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/bookmark.lib.php');
 
 PMA_checkParameters(array('db'));
+
+if ( PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema' ) {
+    $cfg['ShowStats'] = false;
+    $db_is_information_schema = true;
+} else {
+    $db_is_information_schema = false;
+}
 
 /**
  * Defines the urls to return to in case of error in a sql statement
