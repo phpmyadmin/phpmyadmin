@@ -1066,23 +1066,21 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             <?php
             echo "\n";
         }
-
+        
         // 1. Prepares the row (gets primary keys to use)
+        // 1.1 Results from a "SELECT" statement -> builds the
+        //     "primary" key to use in links
+        $uva_condition     = urlencode(PMA_getUvaCondition($dt_result, $fields_cnt, $fields_meta, $row));
+
+        // 1.2 Defines the urls for the modify/delete link(s)
+        $url_query  = PMA_generate_common_url($db, $table)
+                    . '&amp;pos=' . $pos
+                    . '&amp;session_max_rows=' . $session_max_rows
+                    . '&amp;disp_direction=' . $disp_direction
+                    . '&amp;repeat_cells=' . $repeat_cells
+                    . '&amp;dontlimitchars=' . $dontlimitchars;
+
         if ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn') {
-            // 1.1 Results from a "SELECT" statement -> builds the
-            //     "primary" key to use in links
-            if ($is_display['edit_lnk'] == 'ur' /* || $is_display['edit_lnk'] == 'dr' */) {
-                $uva_condition     = urlencode(PMA_getUvaCondition($dt_result, $fields_cnt, $fields_meta, $row));
-            } // end if (1.1)
-
-            // 1.2 Defines the urls for the modify/delete link(s)
-            $url_query  = PMA_generate_common_url($db, $table)
-                        . '&amp;pos=' . $pos
-                        . '&amp;session_max_rows=' . $session_max_rows
-                        . '&amp;disp_direction=' . $disp_direction
-                        . '&amp;repeat_cells=' . $repeat_cells
-                        . '&amp;dontlimitchars=' . $dontlimitchars;
-
             // We need to copy the value or else the == 'both' check will always return true
             $propicon = (string)$GLOBALS['cfg']['PropertiesIconic'];
 
