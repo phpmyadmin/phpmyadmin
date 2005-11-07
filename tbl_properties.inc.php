@@ -11,9 +11,8 @@ PMA_checkParameters(array('db','table','action','num_fields'));
 require_once('./libraries/mysql_charsets.lib.php');
 require_once('./libraries/storage_engines.lib.php');
 
-?>
-<?php if ($cfg['CtrlArrowsMoving']) { ?>
-<!-- Set on key handler for moving using by Ctrl+arrows -->
+if ($cfg['CtrlArrowsMoving']) {
+    ?> 
 <script src="libraries/keyhandler.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript" language="javascript">
 <!--
@@ -21,12 +20,14 @@ var switch_movement = <?php echo $cfg['DefaultPropDisplay'] == 'horizontal' ? '0
 document.onkeydown = onKeyDownArrowsHandler;
 // -->
 </script>
-<?php } 
-    // here, the div_x_7 represents a div id which contains
-    // the default CURRENT TIMESTAMP checkbox and label 
-    // and, field_x_7a represents the checkbox itself
-    
-    if (PMA_MYSQL_INT_VERSION >= 40102) { ?>
+    <?php
+} 
+// here, the div_x_7 represents a div id which contains
+// the default CURRENT TIMESTAMP checkbox and label 
+// and, field_x_7a represents the checkbox itself
+
+if (PMA_MYSQL_INT_VERSION >= 40102) {
+    ?> 
 <script type="text/javascript" language="javascript">
 <!--
 function display_field_options(field_type, i) {
@@ -40,50 +41,48 @@ function display_field_options(field_type, i) {
 }
 // -->
 </script>
-<?php } ?>
+<?php } ?> 
 
 <form method="post" action="<?php echo $action; ?>" onsubmit="return checkTableEditForm(this, <?php echo $num_fields; ?>)" >
 <?php
 echo PMA_generate_common_hidden_inputs($db, $table);
 if ($action == 'tbl_create.php') {
-    ?>
+    ?> 
     <input type="hidden" name="reload" value="1" />
     <?php
 }
-else if ($action == 'tbl_addfield.php') {
-    echo "\n";
-    ?>
+elseif ($action == 'tbl_addfield.php') {
+    ?> 
     <input type="hidden" name="field_where" value="<?php echo $field_where; ?>" />
     <input type="hidden" name="after_field" value="<?php echo $after_field; ?>" />
     <?php
 }
-echo "\n";
 
 if (isset($num_fields)) {
-    ?>
+    ?> 
     <input type="hidden" name="orig_num_fields" value="<?php echo $num_fields; ?>" />
     <?php
 }
 
 if (isset($field_where)) {
-    ?>
+    ?> 
     <input type="hidden" name="orig_field_where" value="<?php echo $field_where; ?>" />
     <?php
 }
 
 if (isset($after_field)) {
-    ?>
+    ?> 
     <input type="hidden" name="orig_after_field" value="<?php echo $after_field; ?>" />
     <?php
 }
 
 if (isset($selected) && is_array($selected)) {
     foreach ($selected AS $o_fld_nr => $o_fld_val) {
-    ?>
+        ?> 
     <input type="hidden" name="selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
-    <?php
+        <?php
         if (!isset($true_selected)) {
-            ?>
+            ?> 
     <input type="hidden" name="true_selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
             <?php
         }
@@ -92,14 +91,14 @@ if (isset($selected) && is_array($selected)) {
 
     if (isset($true_selected) && is_array($true_selected)) {
         foreach ($true_selected AS $o_fld_nr => $o_fld_val) {
-        ?>
+            ?> 
         <input type="hidden" name="true_selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
-        <?php
+            <?php
         }
     }
 
 } elseif (isset($field)) {
-    ?>
+    ?> 
     <input type="hidden" name="orig_field" value="<?php echo urlencode($field); ?>" />
     <input type="hidden" name="true_selected[] value="<?php echo (isset($orig_field) ? $orig_field : urlencode($field)); ?>" />
     <?php
@@ -118,7 +117,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100) {
 }
 $header_cells[] = $strAttr;
 $header_cells[] = $strNull;
-$header_cells[] = $strDefault . '**';
+$header_cells[] = $strDefault . '<sup>2</sup>';
 $header_cells[] = $strExtra;
 
 
@@ -128,11 +127,11 @@ $header_cells[] = $strExtra;
 // key fields, as tbl_addfield does.
 
 if (!$is_backup) {
-    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_primary.png" width="16" height="16" alt="' . $strPrimary . '" title="' . $strPrimary . '" />' : $strPrimary;
-    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_index.png" width="16" height="16" alt="' . $strIndex . '" title="' . $strIndex . '" />' : $strIndex;
-    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_unique.png" width="16" height="16" alt="' . $strUnique . '" title="' . $strUnique . '" />' : $strUnique;
+    $header_cells[] = $cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_primary.png" width="16" height="16" alt="' . $strPrimary . '" title="' . $strPrimary . '" />' : $strPrimary;
+    $header_cells[] = $cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_index.png" width="16" height="16" alt="' . $strIndex . '" title="' . $strIndex . '" />' : $strIndex;
+    $header_cells[] = $cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_unique.png" width="16" height="16" alt="' . $strUnique . '" title="' . $strUnique . '" />' : $strUnique;
     $header_cells[] = '---';
-    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_ftext.png" width="16" height="16" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />' : $strIdxFulltext;
+    $header_cells[] = $cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_ftext.png" width="16" height="16" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />' : $strIdxFulltext;
 }
 
 require_once('./libraries/relation.lib.php');
@@ -153,7 +152,7 @@ if ($cfgRelation['commwork']) {
 
         $header_cells[] = $strMIME_MIMEtype;
         $header_cells[] = $strMIME_transformation;
-        $header_cells[] = $strMIME_transformation_options . '***';
+        $header_cells[] = $strMIME_transformation_options . '<sup>3</sup>';
     }
 }
 
@@ -166,7 +165,7 @@ if (isset($field_fulltext) && is_array($field_fulltext)) {
     }
 }
 
-for ($i = 0 ; $i < $num_fields; $i++) {
+for ( $i = 0 ; $i <= $num_fields; $i++ ) {
     $submit_null = FALSE;
     if (isset($regenerate) && $regenerate == TRUE) {
         // An error happened with previous inputs, so we will restore the data
@@ -220,8 +219,6 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     } elseif (isset($fields_meta)) {
         $row = $fields_meta[$i];
     }
-
-    $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
 
     // Cell index: If certain fields get left out, the counter shouldn't chage.
     $ci = 0;
@@ -545,179 +542,162 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
 } // end for
 
-if ($cfg['DefaultPropDisplay'] == 'horizontal') {
-?>
-    <table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
-    <tr>
-<?php
-    if (is_array($header_cells)) {
-        foreach ($header_cells AS $header_nr => $header_val) {
-?>
-        <th class="tblHeaders"><?php echo $header_val; ?></th>
-<?php
-        }
-    }
-?>
-    </tr>
-<?php
-    if (is_array($content_cells)) {
-        $i = 0;
-        foreach ($content_cells AS $content_nr => $content_row) {
-            $i++;
-            echo "\n" . '<tr>' . "\n";
+if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
+    // last row is for javascript insert
+    $empty_row = array_pop( $content_cells );
+    
+    echo '<table id="table_columns">';
+    if ( $cfg['DefaultPropDisplay'] == 'horizontal' ) {
+        ?> 
+<tr>
+        <?php foreach ( $header_cells as $header_val ) { ?> 
+    <th><?php echo $header_val; ?></th>
+        <?php } ?>
+</tr>
+        <?php
+        
+        $odd_row = true;
+        foreach ( $content_cells as $content_row ) {
+            echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">';
+            $odd_row = ! $odd_row;
 
-            $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
-
-            if (is_array($content_row)) {
-                foreach ($content_row AS $content_row_nr => $content_row_val) {
-?>
-        <td bgcolor="<?php echo $bgcolor; ?>" align="center"><?php echo $content_row_val; ?></td>
-<?php
+            if ( is_array( $content_row ) ) {
+                foreach ($content_row as $content_row_val) {
+                    ?> 
+    <td align="center"><?php echo $content_row_val; ?></td>
+                    <?php
                 }
             }
-
-            echo "\n" . '</tr>' . "\n";
+            echo '</tr>';
         }
-    }
-?>
-    </table>
-    <br />
-<?php
-} else {
-?>
-    <table border="<?php echo $cfg['Border']; ?>">
-<?php
-    if (is_array($header_cells)) {
+    } else {
         $i = 0;
-        foreach ($header_cells AS $header_nr => $header_val) {
-            echo "\n" . '<tr>' . "\n";
-?>
-        <th align="right"><?php echo $header_val; ?></th>
-<?php
-    $cnt_content_cells = count($content_cells);
-    for ($j = 0; $j < $cnt_content_cells; $j++) {
-        if (isset($content_cells[$j][$i]) && $content_cells[$j][$i] != '') {
-            $bgcolor = ($j % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
-    ?>
-        <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $content_cells[$j][$i]; ?></td>
+        $odd_row = true;
+        foreach ( $header_cells as $header_val ) {
+            echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">';
+            $odd_row = ! $odd_row;
+            ?> 
+    <th><?php echo $header_val; ?></th>
+            <?php
+            foreach ( $content_cells as $content_cell ) {
+                if ( isset( $content_cell[$i] ) && $content_cell[$i] != '' ) {
+                    ?> 
+    <td><?php echo $content_cell[$i]; ?></td>
+                    <?php
+                }
+            }
+            echo '</tr>';
+            $i++;
+        }
+    }
+    ?> 
+</table>
+<br />
     <?php
-        }
-    }
-
-    echo "\n" . '</tr>' . "\n";
-    $i++;
-        }
-    }
-?>
-    </table>
-    <br />
-<?php
 }
 
-if ($action == 'tbl_create.php') {
-    echo "\n";
+/**
+ * needs to be finished
+ * 
+ * 
+if ( $cfg['DefaultPropDisplay'] == 'horizontal' ) {
+    $new_field = '';
+    foreach ( $empty_row as $content_row_val ) {
+        $new_field .= '<td align="center">' . $content_row_val . '</td>';
+    }
     ?>
+<script type="text/javascript" language="javascript">
+<!--
+var odd_row = <?php echo $odd_row; ?>;
+
+function addField() {
+    var new_fields = document.getElementById('added_fields').value;
+    var new_field_container = document.getElementById('table_columns');
+    var new_field = '<?php echo preg_replace( '°\s+°', ' ', preg_replace( '°\'°', '\\\'', $new_field ) ); ?>'; 
+    var i = 0;
+    for ( i = 0; i < new_fields; i++ ) {
+        if ( odd_row ) {
+            new_field_container.innerHTML += '<tr class="odd">' + new_field + '</tr>';
+        } else {
+            new_field_container.innerHTML += '<tr class="even">' + new_field + '</tr>';
+        }
+        odd_row = ! odd_row;
+    }
+    
+    return true;
+}
+// -->
+</script>    
+    <?php
+}
+ */
+
+if ($action == 'tbl_create.php') {
+    ?> 
     <table>
     <tr valign="top">
-        <td><?php echo $strTableComments; ?>:&nbsp;</td>
-    <?php
-    if ($action == 'tbl_create.php') {
-        echo "\n";
-        ?>
+        <th><?php echo $strTableComments; ?>:&nbsp;</th>
         <td width="25">&nbsp;</td>
-        <td><?php echo $strTableType; ?>:&nbsp;</td>
-        <?php
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
-            echo '        <td width="25">&nbsp;</td>' . "\n"
-               . '        <td>' . $strCollation . ':&nbsp;</td>' . "\n";
-        }
-    }
-    echo "\n";
-    ?>
-    </tr>
-    <tr>
-        <td>
-            <input type="text" name="comment" size="40" maxlength="80" value="<?php echo (isset($comment) ? $comment : ''); ?>" class="textfield" />
-        </td>
+        <th><?php echo $strTableType; ?>:&nbsp;</th>
     <?php
-    // BEGIN - Table Type - 2 May 2001 - Robbat2
-    // change by staybyte - 11 June 2001
-    if ($action == 'tbl_create.php') {
-        echo "\n";
-        ?>
+    if ( PMA_MYSQL_INT_VERSION >= 40100 ) {
+        echo '        <td width="25">&nbsp;</td>' . "\n"
+           . '        <th>' . $strCollation . ':&nbsp;</th>' . "\n";
+    }
+    ?> 
+    </tr>
+    <tr><td><input type="text" name="comment" size="40" maxlength="80"
+                value="<?php echo (isset($comment) ? $comment : ''); ?>"
+                class="textfield" />
+        </td>
         <td width="25">&nbsp;</td>
         <td>
 <?php echo PMA_generateEnginesDropdown('tbl_type', NULL, FALSE, (isset($GLOBALS['tbl_type']) ? $GLOBALS['tbl_type'] : NULL), 3); ?>
         </td>
         <?php
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
+        if ( PMA_MYSQL_INT_VERSION >= 40100 ) {
             echo '        <td width="25">&nbsp;</td>' . "\n"
                . '        <td>' . "\n"
                . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'tbl_collation', NULL, (isset($tbl_collation) ? $tbl_collation : NULL), FALSE, 3)
                . '        </td>' . "\n";
         }
-    }
-    echo "\n";
-    ?>
-        </tr>
+    ?> 
+    </tr>
     </table>
     <br />
     <?php
-}
-echo "\n";
-// END - Table Type - 2 May 2001 - Robbat2
-?>
+} // end if ($action == 'tbl_create.php')
+?> 
 
-<?php
-if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') {
-    echo '<div class="tblHeaders" style="width: 30%; text-align: left; padding: 3px;">' . "\n";
-    echo '    ' . sprintf($strAddFields,  '<input type="text" name="added_fields" size="2" value="1" onfocus="this.select()" style="vertical-align: middle;" />') . "\n";
-    echo '    &nbsp;<input type="submit" name="submit_num_fields" value="' . $strGo . '" onclick="return checkFormElementInRange(this.form, \'added_fields\', \'' . str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldAddCount']) . '\', 1)" style="vertical-align: middle;" />' . "\n";
-    echo '</div>' . "\n";
-    echo "<br />\n";
-}
-?>
-
-<div class="tblFooters" style="width: 80%; text-align: center; padding: 3px;">
+<fieldset class="tblFooters">
     <input type="submit" name="do_save_data" value="<?php echo $strSave; ?>" />
-</div>
+<?php if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') { ?>
+    <?php echo $GLOBALS['strOr']; ?>
+    <?php echo sprintf( $strAddFields, '<input type="text" id="added_fields" name="added_fields" size="2" value="1" onfocus="this.select()" />' ); ?>
+    <input type="submit" name="submit_num_fields"
+        value="<?php echo $GLOBALS['strGo']; ?>"
+<?php /*        onclick="if ( addField() ) return false;" */ ?>
+        onclick="return checkFormElementInRange(this.form, 'added_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldAddCount']); ?>', 1)"
+        />
+<?php } ?> 
+</fieldset>
 
 </form>
 
-<table>
-<tr>
-    <td valign="top">*&nbsp;</td>
-    <td>
-        <?php echo $strSetEnumVal . "\n"; ?>
-    </td>
-</tr>
-<tr>
-    <td valign="top">**&nbsp;</td>
-    <td>
-        <?php echo $strDefaultValueHelp . "\n"; ?>
-    </td>
-</tr>
-
+<div class="notice">
+    <p> <a name="footnoote_setenumval"><sup>1</sup></a> <?php echo $strSetEnumVal; ?></p>
+    <p> <a name="footnoote_defaultvalue"><sup>2</sup></a> <?php echo $strDefaultValueHelp; ?></p>
 <?php
 if ($cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
-?>
-<tr>
-    <td valign="top" rowspan="2">***&nbsp;</td>
-    <td>
-        <?php echo $strMIME_transformation_options_note  . "\n"; ?>
-    </td>
-</tr>
-
-<tr>
-    <td>
-        <?php echo sprintf($strMIME_transformation_note, '<a href="libraries/transformations/overview.php?' . PMA_generate_common_url($db, $table) . '" target="_blank">', '</a>') . "\n"; ?>
-    </td>
-</tr>
-<?php
+    echo '<p> <a name="footnoote_mime"><sup>3</sup></a> ' . $strMIME_transformation_options_note . '</p>';
+    echo '<p> ';
+    printf( $strMIME_transformation_note,
+            '<a href="libraries/transformations/overview.php?' 
+            . PMA_generate_common_url($db, $table) . '" target="_blank">',
+            '</a>' );
+    echo '</p>';
 }
-?>
-
-</table>
-<br />
+?> 
+</div>
 
 <center><?php echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TABLE'); ?></center>
