@@ -9,6 +9,13 @@ require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db'));
 
+if ( PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema' ) {
+    $cfg['ShowStats'] = false;
+    $db_is_information_schema = true;
+} else {
+    $db_is_information_schema = false;
+}
+
 function fillTooltip( &$tooltip_truename, &$tooltip_aliasname, &$tmp ) {
     $tooltip_truename[$tmp['Name']] = ($GLOBALS['cfg']['ShowTooltipAliasTB'] && $GLOBALS['cfg']['ShowTooltipAliasTB'] != 'nested' ? (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']) : $tmp['Name']);
     $tooltip_aliasname[$tmp['Name']] = ($GLOBALS['cfg']['ShowTooltipAliasTB'] && $GLOBALS['cfg']['ShowTooltipAliasTB'] != 'nested'  ? $tmp['Name'] : (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']));
