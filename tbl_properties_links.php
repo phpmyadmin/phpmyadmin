@@ -34,7 +34,7 @@ $tabs['sql']['text'] = $strSQL;
 $tabs['search']['icon'] = 'b_search.png';
 $tabs['search']['text'] = $strSearch;
 
-if ( ! $db_is_information_schema ) {
+if ( isset($db_is_information_schema) && ! $db_is_information_schema ) {
     $tabs['insert']['icon'] = 'b_insrow.png';
     $tabs['insert']['link'] = 'tbl_change.php';
     $tabs['insert']['text'] = $strInsert;
@@ -49,7 +49,7 @@ $tabs['export']['text'] = $strExport;
  * Don't display , "Import", "Operations" and "Empty"
  * for views and information_schema
  */
-if ( ! $tbl_is_view && ! $db_is_information_schema ) {
+if ( ! $tbl_is_view && isset($db_is_information_schema) && ! $db_is_information_schema ) {
     $tabs['import']['icon'] = 'b_tblimport.png';
     $tabs['import']['link'] = 'tbl_import.php';
     $tabs['import']['text'] = $strImport;
@@ -76,7 +76,7 @@ if ( ! $tbl_is_view && ! $db_is_information_schema ) {
 /**
  * no drop in information_schema
  */
-if ( ! $db_is_information_schema ) {
+if ( isset($db_is_information_schema) && ! $db_is_information_schema ) {
     $tabs['drop']['icon'] = 'b_deltbl.png';
     $tabs['drop']['link'] = 'sql.php';
     $tabs['drop']['text'] = $strDrop;

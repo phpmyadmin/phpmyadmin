@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_links.php: undefined variable $db_is_information_schema
+
 2005-11-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/display_tbl.lib.php:
       bug #985399 MIME-based in print view / need to select the pk
