@@ -363,7 +363,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     <?php
     echo "\n";
     echo '        ' . $strIndexes . ':' . "\n";
-    echo '        ' . PMA_showMySQLDocu('MySQL_Optimisation', 'Optimising_Database_Structure') . "\n";
+    echo '        ' . PMA_showMySQLDocu('optimization', 'optimizing-database-structure') . "\n";
 ?></td></tr><?php
     $edit_link_text = '';
     $drop_link_text = '';

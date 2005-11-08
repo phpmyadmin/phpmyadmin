@@ -10,6 +10,7 @@ $Source$
       header_printview.inc.php, index.php, left.php, translators.html,
       libraries/header_meta_style.inc.php, scripts/decode_bug.php:
       fixed/added favicon
+    * tbl_indexes.php: bug #1350872 Broken Link in Structure Tab
 
 2005-11-07 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php: undefined variable $db_is_information_schema
