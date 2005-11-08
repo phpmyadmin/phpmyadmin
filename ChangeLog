@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * Documentation.html, browse_foreigners.php, error.php,
+      header_printview.inc.php, index.php, left.php, translators.html,
+      libraries/header_meta_style.inc.php, scripts/decode_bug.php:
+      fixed/added favicon
+
 2005-11-07 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php: undefined variable $db_is_information_schema
     ### 2.7.0-beta1 released

@@ -128,12 +128,12 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     xml:lang="<?php echo $lang_iso_code; ?>"
     lang="<?php echo $lang_iso_code; ?>"
     dir="<?php echo $GLOBALS['text_dir']; ?>">
-    <link rel="shortcut icon" href="favicon.ico" type="image/ico" />
 <head>
+<link rel="icon" href="./favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 <title>phpMyAdmin <?php echo PMA_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
 <meta http-equiv="Content-Type"
     content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
-
 <script type="text/javascript" language="javascript">
 //<![CDATA[
     // definitions used in querywindow.js
@@ -156,8 +156,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 <frameset cols="<?php echo $GLOBALS['cfg']['LeftWidth']; ?>,*" rows="*" id="mainFrameset">
     <frame frameborder="0" id="leftFrame"
         src="left.php?<?php echo $url_query; ?>" 
-        name="nav<?php echo $_SESSION['window_name_hash']; ?>"
-        id="framenavigation" />
+        name="nav<?php echo $_SESSION['window_name_hash']; ?>" />
     <frame frameborder="0" id="rightFrame"
         src="<?php echo $main_target; ?>" 
         name="phpmain<?php echo $_SESSION['window_name_hash']; ?>" />

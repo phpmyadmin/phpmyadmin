@@ -68,6 +68,8 @@ echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
     dir="<?php echo $text_dir; ?>">
 
 <head>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <title>phpMyAdmin</title>
     <meta http-equiv="Content-Type"
         content="text/html; charset=<?php echo $charset; ?>" />
