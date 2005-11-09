@@ -124,15 +124,14 @@ if ($cfgRelation['pdfwork']) {
                             if (!in_array($foreign_table, $all_tables)) {
                                 $all_tables[] = $foreign_table;
                             }
-
                         }
                         // now generate the coordinates for the schema,
                         // in a clockwise spiral
 
                         $pos_x = 300;
                         $pos_y = 300;
-                        $delta = 50;
-                        $delta_mult = 1.34;
+                        $delta = 110;
+                        $delta_mult = 1.10;
                         $direction = "right";
                         foreach ($all_tables AS $current_table) {
 

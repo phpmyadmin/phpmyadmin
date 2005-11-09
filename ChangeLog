@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_pages.php: bug #1245891, too large scaling in PDF schema
+
 2005-11-09 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * server_databases.php, mysql_charsets-lib.php:
       bug #1351743 undefined function: pma_getservercollation()
