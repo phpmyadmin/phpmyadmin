@@ -216,7 +216,7 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
             $mime_map[$row['Field']]['transformation_options'] = $field_transformation_options[$i];
         }
 
-    } elseif (isset($fields_meta)) {
+    } elseif (isset($fields_meta) && isset($fields_meta[$i])) {
         $row = $fields_meta[$i];
     }
 
