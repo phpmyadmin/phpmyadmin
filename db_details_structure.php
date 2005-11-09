@@ -366,18 +366,17 @@ if ($cfg['ShowStats']) {
         <?php echo sprintf( $strTables, PMA_formatNumber( $num_tables, 0 ) ); ?>
     </th>
     <th colspan="<?php echo ( $db_is_information_schema ? 3 : 6 ) ?>" align="center">
-        <?php echo $strSum; ?>
-    </th>
+        <?php echo $strSum; ?></th>
     <th class="value"><?php echo PMA_formatNumber( $sum_entries, 0 ); ?></th>
 <?php
 if (!($cfg['PropertiesNumColumns'] > 1)) {
-    echo '                <th align="center">--</th>' . "\n";
+    echo '    <th align="center">'
+        .PMA_DBI_get_default_engine() . '</th>' . "\n";
     if ( ! empty( $db_collation ) ) {
-        echo '                <th align="center">' . "\n"
-           . '                    <dfn title="'
+        echo '    <th align="center">' . "\n"
+           . '        <dfn title="'
            . PMA_getCollationDescr($db_collation) . '">' . $db_collation
-           . '</dfn>' . "\n"
-           . '                </th>' . "\n";
+           . '</dfn></th>';
     }
 }
 
@@ -415,23 +414,23 @@ $checkall_url = 'db_details_structure.php?' . PMA_generate_common_url($db);
 
 <img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>"
     width="38" height="1" alt="" />
-<select name="submit_mult" dir="ltr" onchange="this.form.submit();">
+<select name="submit_mult" onchange="this.form.submit();">
 <?php
-echo '            <option value="' . $strWithChecked . '" selected="selected">'
+echo '    <option value="' . $strWithChecked . '" selected="selected">'
      . $strWithChecked . '</option>' . "\n";
-echo '            <option value="' . $strDrop . '" >'
+echo '    <option value="' . $strDrop . '" >'
      . $strDrop . '</option>' . "\n";
-echo '            <option value="' . $strEmpty . '" >'
+echo '    <option value="' . $strEmpty . '" >'
      . $strEmpty . '</option>' . "\n";
-echo '            <option value="' . $strPrintView . '" >'
+echo '    <option value="' . $strPrintView . '" >'
      . $strPrintView . '</option>' . "\n";
-echo '            <option value="' . $strCheckTable . '" >'
+echo '    <option value="' . $strCheckTable . '" >'
      . $strCheckTable . '</option>' . "\n";
-echo '            <option value="' . $strOptimizeTable . '" >'
+echo '    <option value="' . $strOptimizeTable . '" >'
      . $strOptimizeTable . '</option>' . "\n";
-echo '            <option value="' . $strRepairTable . '" >'
+echo '    <option value="' . $strRepairTable . '" >'
      . $strRepairTable . '</option>' . "\n";
-echo '            <option value="' . $strAnalyzeTable . '" >'
+echo '    <option value="' . $strAnalyzeTable . '" >'
      . $strAnalyzeTable . '</option>' . "\n";
 ?>
 </select>

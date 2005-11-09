@@ -8,7 +8,10 @@ $Source$
 2005-11-09 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * server_databases.php, mysql_charsets-lib.php:
       bug #1351743 undefined function: pma_getservercollation()
-    * db_details_structure.php: fixed display issues
+    * database_interface.lib.php: added PMA_DBI_get_default_engine()
+    * db_details_structure.php:
+      - fixed display issues
+      - display default engine in footer
 
 2005-11-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * Documentation.html, browse_foreigners.php, error.php,
