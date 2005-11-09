@@ -91,7 +91,7 @@ require('./server_links.inc.php');
 echo '<h2>' . "\n"
    . ( $GLOBALS['cfg']['MainPageIconic']
       ? '<img class="icon" src="' . $pmaThemeImage . 's_db.png" width="16"'
-        .' height="16" alt="" />' 
+        .' height="16" alt="" />'
       : '' )
    . ( $dbstats ? $strDatabasesStats : $strDatabases ) . "\n"
    .'</h2>' . "\n";
@@ -122,45 +122,46 @@ if ( $server > 0 ) {
 if ( count($databases) > 0 ) {
     // sorts the array
     usort( $databases, 'PMA_dbCmp' );
-    
+
     // table col order
-    $column_order = array(
-        'DEFAULT_COLLATION_NAME'    => array(
-            'disp_name' => $strCollation,
-            'description_function' => 'PMA_getCollationDescr',
-            'format'    => 'string',
-            'footer'    => PMA_getServerCollation(),
-        ),
-        'SCHEMA_TABLES'             => array(
-            'disp_name' => $strNumTables,
-            'format'    => 'number',
-            'footer'    => 0,
-        ),
-        'SCHEMA_TABLE_ROWS'         => array(
-            'disp_name' => $strRows,
-            'format'    => 'number',
-            'footer'    => 0,
-        ),
-        'SCHEMA_DATA_LENGTH'        => array(
-            'disp_name' => $strData,
-            'format'    => 'byte',
-            'footer'    => 0,
-        ),
-        'SCHEMA_INDEX_LENGTH'       => array(
-            'disp_name' => $strIndexes,
-            'format'    => 'byte',
-            'footer'    => 0,
-        ),
-        'SCHEMA_LENGTH'             => array(
-            'disp_name' => $strTotalUC,
-            'format'    => 'byte',
-            'footer'    => 0,
-        ),
-        'SCHEMA_DATA_FREE'          => array(
-            'disp_name' => $strOverhead,
-            'format'    => 'byte',
-            'footer'    => 0,
-        ),
+    // there is no db specific collation or charset prior 4.1.0
+    if ( PMA_MYSQL_INT_VERSION >= 40100 ) {
+        $column_order['DEFAULT_COLLATION_NAME'] = array(
+                'disp_name' => $strCollation,
+                'description_function' => 'PMA_getCollationDescr',
+                'format'    => 'string',
+                'footer'    => PMA_getServerCollation(),
+            );
+    }
+    $column_order['SCHEMA_TABLES'] = array(
+        'disp_name' => $strNumTables,
+        'format'    => 'number',
+        'footer'    => 0,
+    );
+    $column_order['SCHEMA_TABLE_ROWS'] = array(
+        'disp_name' => $strRows,
+        'format'    => 'number',
+        'footer'    => 0,
+    );
+    $column_order['SCHEMA_DATA_LENGTH'] = array(
+        'disp_name' => $strData,
+        'format'    => 'byte',
+        'footer'    => 0,
+    );
+    $column_order['SCHEMA_INDEX_LENGTH'] = array(
+        'disp_name' => $strIndexes,
+        'format'    => 'byte',
+        'footer'    => 0,
+    );
+    $column_order['SCHEMA_LENGTH'] = array(
+        'disp_name' => $strTotalUC,
+        'format'    => 'byte',
+        'footer'    => 0,
+    );
+    $column_order['SCHEMA_DATA_FREE'] = array(
+        'disp_name' => $strOverhead,
+        'format'    => 'byte',
+        'footer'    => 0,
     );
 
     echo '<form action="./server_databases.php" method="post" name="dbStatsForm">' . "\n"
@@ -203,10 +204,10 @@ if ( count($databases) > 0 ) {
 
     $odd_row = true;
     foreach ( $databases as $key => $current ) {
-        
+
         echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n";
         $odd_row = ! $odd_row;
-        
+
         if ( $is_superuser || $cfg['AllowUserDropDatabase'] ) {
             echo '    <td class="tool">' . "\n";
             if ($current['SCHEMA_NAME'] != 'mysql' && (PMA_MYSQL_INT_VERSION < 50002 || $current['SCHEMA_NAME'] != 'information_schema')) {
@@ -221,7 +222,7 @@ if ( count($databases) > 0 ) {
            . '            ' . htmlspecialchars($current['SCHEMA_NAME']) . "\n"
            . '        </a>' . "\n"
            . '    </td>' . "\n";
-        
+
         foreach ( $column_order as $stat_name => $stat ) {
             if ( array_key_exists( $stat_name, $current ) ) {
                 if ( is_numeric( $stat['footer'] ) ) {
@@ -248,7 +249,7 @@ if ( count($databases) > 0 ) {
                 }
             }
         }
-        
+
         if ($is_superuser) {
             echo '    <td class="tool">' . "\n"
                . '        <a onclick="window.parent.setDb(\'' . urlencode($current['SCHEMA_NAME']) . '\');" href="./server_privileges.php?' . $url_query . '&amp;checkprivs=' . urlencode($current['SCHEMA_NAME']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['SCHEMA_NAME'])) . '">'. "\n"
@@ -258,7 +259,7 @@ if ( count($databases) > 0 ) {
         echo '</tr>' . "\n";
     } // end foreach ( $databases as $key => $current )
     unset( $key, $current, $odd_row );
-    
+
     echo '<tr>' . "\n";
     if ( $is_superuser ) {
         echo '    <th>&nbsp;</th>' . "\n";
@@ -292,7 +293,7 @@ if ( count($databases) > 0 ) {
     }
     echo '</tr>' . "\n";
     unset( $column_order, $stat_name, $stat, $databases );
-    
+
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
         $common_url_query = PMA_generate_common_url() . '&amp;sort_by=' . $sort_by . '&amp;sort_order=' . $sort_order . '&amp;dbstats=' . $dbstats;
         echo '<tr><td colspan="' . $table_columns . '">' . "\n"
@@ -311,7 +312,7 @@ if ( count($databases) > 0 ) {
     echo '</tbody>' . "\n"
         .'</table>' . "\n";
     unset( $table_columns );
-    
+
     if ( $GLOBALS['cfg']['PropertiesIconic'] ) {
         // iconic view
         if ($is_superuser || $cfg['AllowUserDropDatabase']) {

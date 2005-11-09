@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-09 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * server_databases.php, mysql_charsets-lib.php:
+      bug #1351743 undefined function: pma_getservercollation()
+
 2005-11-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * Documentation.html, browse_foreigners.php, error.php,
       header_printview.inc.php, index.php, left.php, translators.html,
@@ -21,17 +25,17 @@ $Source$
       bug #985399 MIME-based in print view / need to select the pk
     * db_details_db_info.php: Undefined variable: db_is_information_schema
     * tbl_properties.inc.php: bug #1305585 Add field(s) -> type ENTER
-      
+
 2005-11-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/norwegian: Update, thanks to Sven-Erik Andersen
 
 2005-11-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libraries/database_interface.lib.php, 
+    * libraries/database_interface.lib.php,
       libraries/dbi/*.dbi.lib.php:
       - added PMA_DBI_convert_message()
       - bug #1344654 Not converted mysql error message to chosen user language
     * sql.php: use fieldset for 'bookmark this'
-    
+
 2005-11-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*/css/theme_right.css.php:
       dropped deprecated style classes
@@ -51,14 +55,14 @@ $Source$
       - enabled export for views
     * db_details_common.php, db_details_structure.php, db_details_links.php:
       - no import, drop, rights, operation for information_schema
-    
+
 2005-11-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza)
 
 2005-11-04 Michal Čihař  <michal@cihar.com>
     * db_details_structure.php: Read InnoDB exact count before rendering icons
       for truncating (bug #1337744).
-    
+
 2005-11-04 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_details_structure.php:
       fixed display of stats for InnoDB and information_schema
@@ -73,7 +77,7 @@ $Source$
       fixed position of link meta tag
     * libraries/select_server.lib.php
       fixed html output
-      
+
 2005-11-03 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, tbl_replace.php, tbl_replace_fields.php:
       bug #1339184, problems in strict mode inserting auto-increment fields
@@ -91,7 +95,7 @@ $Source$
       use $GLOBALS as this scripts can be included from inside a function
     * left.php, libraries/common.lib.php:
       fixed some rtl lang issues
-    
+
 2005-11-02 Michal Čihař  <michal@cihar.com>
     * config.default.php: This is not a configuration file.
     * config.default.php, Documentation.html, libraries/common.lib.php: Use
@@ -116,7 +120,7 @@ $Source$
     * libraries/display_create_tbl.php
       - XHTML compl.
       - added class icon
-      
+
 2005-11-01 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: undefined variable when changing a password
 
@@ -134,7 +138,7 @@ $Source$
 	* main.php, phpmyadmin.css.php, libraries/mysql_charsets.lib.php:
 	   - fixed some rtl language issues
 	* favicon.ico: changed icon
-	
+
 2005-10-31 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: do not display No under the Password column
       if this is not a "real user" definition
@@ -175,7 +179,7 @@ $Source$
     * scripts/upgrade.pl: various fixes (was not handling rc/pl correctely),
       and improvements (--force option, installation summary, backup
       directory timestamp)
-      
+
 2005-10-29 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: clarification on FAQ 6.20
     * server_privileges.php: respect the chosen initial
@@ -193,7 +197,7 @@ $Source$
     * index.php, favicon.ico: added favicon.ico
 
 2005-10-27 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libraries/common.lib.php::PMA_formatNumber(), 
+    * libraries/common.lib.php::PMA_formatNumber(),
       db_details_structure.php: do not truncate rowcount
     * libraries/mysql_charsets.lib.php::PMA_getDbCollation():
       - preserve selected db
@@ -218,7 +222,7 @@ $Source$
     * left.php, libraries/common.lib.php: format rowcount in left frame
     * server_privileges.php:
       bug #688255 Can't edit priv. when different host in db and user
-    
+
 2005-10-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french* updates
 
@@ -229,7 +233,7 @@ $Source$
       libraries/auth/cookie.auth.lib.php:
       unified message boxes (error, warning, confirmation)
     * server_privilegs.php: MySQL 5 requires CREATE USER before GRANT
-    
+
 2005-10-25 Michal Čihař  <michal@cihar.com>
     * lang/english: "Log in" is correct naming for action (RFE #945440).
     * tbl_properties_operations.php: Allow to change auto_increment for
@@ -251,7 +255,7 @@ $Source$
       ON UPDATE CURRENT TIMESTAMP attribute (phew! repeat this 3 times)
 
 2005-10-21 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/relation.lib.php: foreign dropdowns: sort id-content by id 
+    * libraries/relation.lib.php: foreign dropdowns: sort id-content by id
       and content-id by content
     * libraries/common.lib.php: bug #1330847, undefined index connect_type
 
@@ -267,7 +271,7 @@ $Source$
        - make use of information_schema
        - always fill fields for information_schema and show table status
     * db_details_db_info.php: make use of function PMA_DBI_get_tables_full()
-    
+
 2005-10-20 Marc Delisle  <lem9@users.sourceforge.net>
     * server_databases.php: security fix
     * libraries/common.lib.php, /grab_globals.lib.php: security fix
@@ -308,7 +312,7 @@ $Source$
     * libraries/sql_query_form.lib.php: open db link from querywindow in main frame
     * footer.inc.php, header.inc.php, libraries/tooltip.js:
       moved tooltip javascript include into header
-    
+
 2005-10-18 Michal Čihař  <michal@cihar.com>
     * libraries/relation.lib.php: Do not set database if not needed.
     * libraries/common.lib.php: Use common infrastructure for getting tables.
@@ -328,7 +332,7 @@ $Source$
       libraries/querywindow.js: update row count in left frame bug #1243908
     * libraries/common.lib.php:
       bug #1216521: display duplicate rows for failed unique key creation
-    
+
 2005-10-17 Michal Čihař  <michal@cihar.com>
     * lang/czech: Translation fixes.
     * libraries/common.lib.php: Group databases by rightmost separator (bug
@@ -348,8 +352,8 @@ $Source$
       libraries/common.lib.php, libraries/left_header.inc.php,
       libraries/sql_query_form.lib.php, libraries/querywindow.js:
       code cleanup whole querywindow js stuff, moved all in one new js file,
-      now included in index.php, bug #1327055 
-    
+      now included in index.php, bug #1327055
+
 2005-10-16 Michal Čihař  <michal@cihar.com>
     * db_details_links.php: Disable drop tab on mysql database (RFE #1327514).
     * server_databases.php: Don't allow to check mysql database for dropping
@@ -379,7 +383,7 @@ $Source$
     * lang/*: typo 'unser' -> 'user'
     * lang/german: partial Update
     * libraries/import.lib.php: uninitialized variables
-    
+
 2005-10-13 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_addfield.php: undefined $field_collation under MySQL < 4.1.x
 
@@ -416,7 +420,7 @@ $Source$
     * css/phpmyadmin.css.php, libraries/common.lib.php,
       themes/darkblue_orange/css/theme_right.css.php,
       themes/original/css/theme_right.css.php:
-      use list for navigation tabs RFE #1290423 
+      use list for navigation tabs RFE #1290423
     * db_details_structure.php: fixed NOTICE
     * css/phpmyadmin.css.php, themes/*/css/theme_*.css.php:
       revert icon size to fixed width and height
@@ -554,7 +558,7 @@ $Source$
     * lsng/czech: Update.
 
 2005-10-07 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/check_user_privileges.lib.php: bug #1313821, dbname containing a 
+    * libraries/check_user_privileges.lib.php: bug #1313821, dbname containing a
       hyphen was not detected as being already created
 
 2005-10-07 Michal Čihař  <michal@cihar.com>
@@ -576,7 +580,7 @@ $Source$
       thanks to Vernon Lyon - vlyon
     * libraries/charset_conversion.lib.php: PMA_MYSQL_INT_VERSION is not
       defined at login time but what tested
-    * libraries/display_create_table.lib.php, bug #1311384, Create table 
+    * libraries/display_create_table.lib.php, bug #1311384, Create table
       dialog on escaped wildcard privileges
 
 2005-10-04 Sebastian Mendel <cybot_tm@users.sourceforge.net>
@@ -661,7 +665,7 @@ $Source$
       (RFE #1255931).
 
 2005-09-25 Marc Delisle  <lem9@users.sourceforge.net>
-    * server_privileges.php: support MySQL 5 privileges 
+    * server_privileges.php: support MySQL 5 privileges
 
 2005-09-25 Michal Čihař  <michal@cihar.com>
     * lang/*: Messages for Sebastian.
@@ -727,7 +731,7 @@ $Source$
 2005-09-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_export.lib.php: bug #1293937 Export compression
       default: bzip instead of bzip2, thanks to Rene Leonhardt
-    
+
 2005-09-15 Michal Čihař  <michal@cihar.com>
     * config.default.php, libraries/common.lib.php: Simplify loading of
       defaults, why did I write such crap before?
@@ -817,7 +821,7 @@ $Source$
 2005-08-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug #1267177, wrong return page
     * main.php, libraries/common.lib.php, Documentation.html,
-      config.inc.php: patch #1257134, removed code to display the warning if 
+      config.inc.php: patch #1257134, removed code to display the warning if
       PmaAbsoluteUri is not set. A notice will still display if the autodetect
       code is unable to figure out the proper URI. Thanks to Isaac Bennetch
 
@@ -839,7 +843,7 @@ $Source$
     * libraries/common.lib.php, new error.php: patch #1258978, move common
       code for error pages out of common.lib.php, thanks to Sebastian Mendel
     * lang/german*: bug #1258956, typo
-    * libraries/defines.lib.php, themes/original/info.inc.php, 
+    * libraries/defines.lib.php, themes/original/info.inc.php,
       themes/darkblue_orange/info.inc.php: PMA 2.6.4 needs theme version 3
 
 2005-08-19 Marc Delisle  <lem9@users.sourceforge.net>
@@ -894,7 +898,7 @@ $Source$
     * db_details.php: undefined $header_url_qry
     * sql.php: bug #1255869, "MySQL returned an empty result set" not
       displayed in all cases
-      
+
 2005-08-09 Marc Delisle  <lem9@users.sourceforge.net>
     * read_dump.php: add unique numbers to $strFileCouldNotBeRead to
       improve support when someone gets this error
@@ -909,7 +913,7 @@ $Source$
     * libraries/dbi/mysqli.dbi.lib.php: bug #1253453, using mysqli extension
       with MySQL 4.0.x
     * libraries/mysql_charsets.lib.php, /relation_cleanup.lib.php,
-      /tbl_move_copy.php: patch #1253461 (code cleanup), 
+      /tbl_move_copy.php: patch #1253461 (code cleanup),
       thanks to Sebastian Mendel
     * libraries/sqlparser.lib.php: patch #1253478, variable initialization
       and code cleanup, thanks to Sebastian Mendel
@@ -928,7 +932,7 @@ $Source$
       group, and proper closing of optgroup, thanks to Ryan Schmidt
 
 2005-08-05 Marc Delisle  <lem9@users.sourceforge.net>
-    * Documentation.html, readme.php, license.php: 
+    * Documentation.html, readme.php, license.php:
       bug #965548, displaying README and LICENSE, thanks to Ryan Schmidt
 
 2005-08-04 Michal Čihař  <michal@cihar.com>
@@ -1053,7 +1057,7 @@ $Source$
     * export.php: bug #1116026, export under IE 6 (XP SP2)
 
 2005-07-11 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_relations.php: bug #1227710, unsaved relations lost when changing 
+    * tbl_relations.php: bug #1227710, unsaved relations lost when changing
       field to display
 
 2005-07-11 Michal Čihař  <michal@cihar.com>
@@ -1095,7 +1099,7 @@ $Source$
     * db_details_qbe.php: bug #1234616, minor theme text color issue
 
 2005-07-06 Marc Delisle  <lem9@users.sourceforge.net>
-    * db_search.php: bug #1233349, db search in MySQL 5.0.x on fields 
+    * db_search.php: bug #1233349, db search in MySQL 5.0.x on fields
       without a charset
 
 2005-07-04 Marc Delisle  <lem9@users.sourceforge.net>
@@ -1124,7 +1128,7 @@ $Source$
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
 
 2005-06-29 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_properties_table_info.php: bug #1228862, creating a table under 
+    * tbl_properties_table_info.php: bug #1228862, creating a table under
       MySQL 5.x with wrong table type
 
 2005-06-28 Marc Delisle  <lem9@users.sourceforge.net>
