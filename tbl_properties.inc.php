@@ -111,7 +111,7 @@ $content_cells = array();
 
 $header_cells[] = $strField;
 $header_cells[] = $strType . ($GLOBALS['cfg']['ReplaceHelpImg'] ? PMA_showMySQLDocu('SQL-Syntax', 'Column_types') : '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('SQL-Syntax', 'Column_types') . '</span>');
-$header_cells[] = $strLengthSet;
+$header_cells[] = $strLengthSet . '<sup>1</sup>';
 if (PMA_MYSQL_INT_VERSION >= 40100) {
     $header_cells[] = $strCollation;
 }
