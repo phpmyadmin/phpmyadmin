@@ -23,6 +23,10 @@ $Source$
        - db with only table specific rights where not displayed if there was not
          at least one db with db specfic rights
        - javascript errors
+    * function.js, db_details_structure.php, tbl_properties_structure.php,
+      display_tbl.lib.php, server_databases.php:
+       - added js:markAllRows(), js:unMarkAllRows()
+       - check/uncheck all rows now sets mark color for this rows
 
 2005-11-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * Documentation.html, browse_foreigners.php, error.php,

@@ -23,13 +23,13 @@ function selectContent( element, lock, only_once ) {
 	if ( only_once && only_once_elements[element.name] ) {
 		return;
 	}
-	
+
 	only_once_elements[element.name] = true;
-	
+
 	if ( lock  ) {
 		return;
-	}	
-	
+	}
+
     element.select();
 }
 
@@ -89,9 +89,9 @@ function confirmLink(theLink, theSqlQuery)
 
 
 /**
- * Displays an confirmation box before doing some action 
+ * Displays an confirmation box before doing some action
  *
- * @param   object   the message to display 
+ * @param   object   the message to display
  *
  * @return  boolean  whether to run the query or not
  */
@@ -254,7 +254,7 @@ function checkSqlQuery(theForm)
 
 
 /**
- * Check if a form's element is empty 
+ * Check if a form's element is empty
  * should be
  *
  * @param   object   the form
@@ -379,7 +379,7 @@ function checkTableEditForm(theForm, fieldsCnt)
             if (!emptyCheckTheField(theForm, id)) {
                 atLeastOneField = 1;
             }
-        } 
+        }
     }
     if (atLeastOneField == 0) {
         var theField = theForm.elements["field_0_1"];
@@ -490,8 +490,8 @@ function PMA_markRowsInit() {
 		rows[i].onmousedown = function() {
 		    var unique_id;
             var checkbox;
-            
-            var checkbox = this.getElementsByTagName( 'input' )[0];
+
+            checkbox = this.getElementsByTagName( 'input' )[0];
             if ( checkbox && checkbox.type == 'checkbox' ) {
                 unique_id = checkbox.name + checkbox.value;
             } else if ( this.id.length > 0 ) {
@@ -499,24 +499,24 @@ function PMA_markRowsInit() {
             } else {
 		        return;
 		    }
-            
+
             if ( typeof(marked_row[unique_id]) == 'undefined' || !marked_row[unique_id] ) {
                 marked_row[unique_id] = true;
             } else {
                 marked_row[unique_id] = false;
             }
-            
+
             if ( marked_row[unique_id] ) {
 			    this.className += ' marked';
             } else {
 			    this.className = this.className.replace(' marked', '');
             }
-            
+
             if ( checkbox && checkbox.disabled == false ) {
                 checkbox.checked = marked_row[unique_id];
             }
 		}
-		
+
 		// ... and disable label ...
 		var labeltag = rows[i].getElementsByTagName('label')[0];
 		if ( labeltag ) {
@@ -535,6 +535,62 @@ function PMA_markRowsInit() {
 	}
 }
 window.onload=PMA_markRowsInit;
+
+/**
+ * marks all rows and selects its first checkbox inside the given element
+ * the given element is usaly a table or a div containing the table or tables
+ *
+ * @param    container    DOM element
+ */
+function markAllRows( container_id ) {
+	var rows = document.getElementById(container_id).getElementsByTagName('tr');
+    var unique_id;
+    var checkbox;
+
+	for ( var i = 0; i < rows.length; i++ ) {
+
+        checkbox = rows[i].getElementsByTagName( 'input' )[0];
+
+        if ( checkbox && checkbox.type == 'checkbox' ) {
+            unique_id = checkbox.name + checkbox.value;
+            if ( checkbox.disabled == false ) {
+                checkbox.checked = true;
+                if ( typeof(marked_row[unique_id]) == 'undefined' || !marked_row[unique_id] ) {
+                    rows[i].className += ' marked';
+                    marked_row[unique_id] = true;
+                }
+            }
+	    }
+	}
+
+	return true;
+}
+
+/**
+ * marks all rows and selects its first checkbox inside the given element
+ * the given element is usaly a table or a div containing the table or tables
+ *
+ * @param    container    DOM element
+ */
+function unMarkAllRows( container_id ) {
+	var rows = document.getElementById(container_id).getElementsByTagName('tr');
+    var unique_id;
+    var checkbox;
+
+	for ( var i = 0; i < rows.length; i++ ) {
+
+        checkbox = rows[i].getElementsByTagName( 'input' )[0];
+
+        if ( checkbox && checkbox.type == 'checkbox' ) {
+            unique_id = checkbox.name + checkbox.value;
+            checkbox.checked = false;
+            rows[i].className = rows[i].className.replace(' marked', '');
+            marked_row[unique_id] = false;
+        }
+	}
+
+	return true;
+}
 
 /**
  * Sets/unsets the pointer and marker in browse mode
@@ -609,7 +665,7 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
             currentColor += hexChars.charAt(v/16) + hexChars.charAt(v%16);
         }
     }
-    
+
     // 4. Defines the new color
     // 4.1 Current color is the default one
     if (currentColor == ''

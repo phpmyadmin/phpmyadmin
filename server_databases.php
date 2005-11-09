@@ -164,7 +164,7 @@ if ( count($databases) > 0 ) {
         'footer'    => 0,
     );
 
-    echo '<form action="./server_databases.php" method="post" name="dbStatsForm">' . "\n"
+    echo '<form action="./server_databases.php" method="post" name="dbStatsForm" id="dbStatsForm">' . "\n"
        . PMA_generate_common_hidden_inputs('', '', 1)
        . '<input type="hidden" name="dbstats" value="' . $dbstats . '" />' . "\n"
        . '<input type="hidden" name="sort_by" value="' . $sort_by . '" />' . "\n"
@@ -292,26 +292,20 @@ if ( count($databases) > 0 ) {
         echo '    <th>&nbsp;</th>' . "\n";
     }
     echo '</tr>' . "\n";
-    unset( $column_order, $stat_name, $stat, $databases );
+    echo '</tbody>' . "\n"
+        .'</table>' . "\n";
+    unset( $column_order, $stat_name, $stat, $databases, $table_columns );
 
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
         $common_url_query = PMA_generate_common_url() . '&amp;sort_by=' . $sort_by . '&amp;sort_order=' . $sort_order . '&amp;dbstats=' . $dbstats;
-        echo '<tr><td colspan="' . $table_columns . '">' . "\n"
-           . '        <img class="icon" src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n"
-           . '        <a href="./server_databases.php?' . $common_url_query . '&amp;checkall=1" onclick="setCheckboxes(\'dbStatsForm\', true); return false;">' . "\n"
-           . '            ' . $strCheckAll
-           . '        </a> / ' . "\n"
-           . '        <a href="./server_databases.php?' . $common_url_query . '" onclick="setCheckboxes(\'dbStatsForm\', false); return false;">' . "\n"
-           . '            ' . $strUncheckAll
-           . '        </a>' . "\n"
-           . '        <i>' . $strWithChecked . '</i>' . "\n";
+        echo '<img class="selectallarrow" src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n"
+           . '<a href="./server_databases.php?' . $common_url_query . '&amp;checkall=1" onclick="if ( markAllRows(\'tabledatabases\') ) return false;">' . "\n"
+           . '    ' . $strCheckAll . '</a> / ' . "\n"
+           . '<a href="./server_databases.php?' . $common_url_query . '" onclick="if ( unMarkAllRows(\'tabledatabases\') ) return false;">' . "\n"
+           . '    ' . $strUncheckAll . '</a>' . "\n"
+           . '<i>' . $strWithChecked . '</i>' . "\n";
         PMA_buttonOrImage( 'drop_selected_dbs', 'mult_submit', 'drop_selected_dbs', $strDrop, 'b_deltbl.png' );
-        echo '    </td>' . "\n"
-           . '</tr>' . "\n";
     }
-    echo '</tbody>' . "\n"
-        .'</table>' . "\n";
-    unset( $table_columns );
 
     if ( $GLOBALS['cfg']['PropertiesIconic'] ) {
         // iconic view

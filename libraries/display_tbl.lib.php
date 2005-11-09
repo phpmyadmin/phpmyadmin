@@ -454,7 +454,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     global $db, $table, $goto, $dontlimitchars;
     global $sql_query, $num_rows, $pos, $session_max_rows;
     global $vertical_display, $disp_direction, $repeat_cells, $highlight_columns;
-    
+
     if ($analyzed_sql == '') {
         $analyzed_sql = array();
     }
@@ -573,7 +573,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     // Start of form for multi-rows delete
 
     if ($is_display['del_lnk'] == 'dr' || $is_display['del_lnk'] == 'kp' ) {
-        echo '<form method="post" action="tbl_row_action.php" name="rowsDeleteForm">' . "\n";
+        echo '<form method="post" action="tbl_row_action.php" name="rowsDeleteForm" id="rowsDeleteForm">' . "\n";
         echo PMA_generate_common_hidden_inputs($db, $table, 1);
         echo '<input type="hidden" name="disp_direction"   value="' . $disp_direction . '" />' . "\n";
         echo '<input type="hidden" name="repeat_cells"     value="' . $repeat_cells   . '" />' . "\n";
@@ -584,7 +584,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     }
 
     echo '<!-- Results table -->' . "\n"
-       . '<table id="table_results" ';
+       . '<table id="table_results" class="data" ';
     if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
         echo 'border="1" cellpadding="2" cellspacing="0"';
     } else {
@@ -1066,7 +1066,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             <?php
             echo "\n";
         }
-        
+
         // 1. Prepares the row (gets primary keys to use)
         // 1.1 Results from a "SELECT" statement -> builds the
         //     "primary" key to use in links
@@ -1844,7 +1844,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
         $delete_text = $is_display['del_lnk'] == 'dr' ? $GLOBALS['strDelete'] : $GLOBALS['strKill'];
         $propicon = (string)$GLOBALS['cfg']['PropertiesIconic'];
-        
+
         $uncheckall_url = 'sql.php?'
                   . PMA_generate_common_url($db, $table)
                   . '&amp;sql_query=' . urlencode($sql_query)
@@ -1856,8 +1856,8 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
                   . '&amp;goto=' . $goto
                   . '&amp;dontlimitchars=' . $dontlimitchars;
         $checkall_url = $uncheckall_url . '&amp;checkall=1';
-        $checkall_params['onclick'] = 'setCheckboxesRange(\'rowsDeleteForm\', true, \'id_rows_to_delete\', 0, ' . $num_rows . '); return false;';
-        $uncheckall_params['onclick'] = 'setCheckboxesRange(\'rowsDeleteForm\', false, \'id_rows_to_delete\', 0, ' . $num_rows . '); return false;';
+        $checkall_params['onclick'] = 'if ( markAllRows(\'rowsDeleteForm\') ) return false;';
+        $uncheckall_params['onclick'] = 'if ( unMarkAllRows(\'rowsDeleteForm\') ) return false;';
         $checkall_link = PMA_linkOrButton( $checkall_url, $GLOBALS['strCheckAll'], $checkall_params, false );
         $uncheckall_link = PMA_linkOrButton( $uncheckall_url, $GLOBALS['strUncheckAll'], $uncheckall_params, false );
 ?>

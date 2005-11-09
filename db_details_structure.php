@@ -134,7 +134,7 @@ if ( true == $cfg['PropertiesIconic'] ) {
  * Displays the tables list
  */
 ?>
-<form method="post" action="db_details_structure.php" name="tablesForm">
+<form method="post" action="db_details_structure.php" name="tablesForm" id="tablesForm">
 <?php
 echo PMA_generate_common_hidden_inputs( $db );
 
@@ -399,11 +399,11 @@ $checkall_url = 'db_details_structure.php?' . PMA_generate_common_url($db);
 <img class="selectallarrow" src="<?php echo $pmaThemeImage .'arrow_'.$text_dir.'.png'; ?>"
     width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
 <a href="<?php echo $checkall_url; ?>&amp;checkall=1"
-    onclick="setCheckboxes('tablesForm', true); return false;">
+    onclick="if ( markAllRows('tablesForm') ) return false;">
     <?php echo $strCheckAll; ?></a>
 /
 <a href="<?php echo $checkall_url; ?>"
-    onclick="setCheckboxes('tablesForm', false); return false;">
+    onclick="if ( unMarkAllRows('tablesForm') ) return false;">
     <?php echo $strUncheckAll; ?></a>
 <?php if ($overhead_check != '') { ?>
 /

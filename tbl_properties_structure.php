@@ -85,7 +85,7 @@ $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 // the info given by SHOW FULL FIELDS FROM.
 //
 // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
-// SHOW FULL FIELDS says NULL and SHOW CREATE TABLE says NOT NULL (tested 
+// SHOW FULL FIELDS says NULL and SHOW CREATE TABLE says NOT NULL (tested
 // in MySQL 4.0.25).
 
 $show_create_table = PMA_DBI_fetch_value(
@@ -155,7 +155,7 @@ if ( $cfg['PropertiesIconic'] == true ) {
 // table header
 $i = 0;
 ?>
-<form method="post" action="tbl_properties_structure.php" name="fieldsForm">
+<form method="post" action="tbl_properties_structure.php" name="fieldsForm" id="fieldsForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <table id="tablestructure" class="data">
 <thead>
@@ -220,7 +220,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
 
         // for the case ENUM('&#8211;','&ldquo;')
         $type         = htmlspecialchars($type);
-        
+
         $type_nowrap  = '';
 
         $binary       = 0;
@@ -291,14 +291,14 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     if ($zerofill) {
         $attribute = 'UNSIGNED ZEROFILL';
     }
-    
+
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
     if (isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
         $attribute = 'ON UPDATE CURRENT_TIMESTAMP';
     }
 
-    // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the 
+    // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
     if (!empty($analyzed_sql[0]['create_table_fields'][$row['Field']]['type']) && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null']) {
@@ -443,11 +443,11 @@ $checkall_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db,$t
 <img class="selectallarrow" src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>"
     width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
 <a href="<?php echo $checkall_url; ?>&amp;checkall=1"
-    onclick="setCheckboxes('fieldsForm', true); return false;">
+    onclick="if ( markAllRows('fieldsForm') ) return false;">
     <?php echo $strCheckAll; ?></a>
 /
 <a href="<?php echo $checkall_url; ?>"
-    onclick="setCheckboxes('fieldsForm', false); return false;">
+    onclick="if ( unMarkAllRows('fieldsForm') ) return false;">
     <?php echo $strUncheckAll; ?></a>
 
 <i><?php echo $strWithChecked; ?></i>
