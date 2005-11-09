@@ -14,6 +14,9 @@ $Source$
       - display default engine in footer
     * libraries/common.lib.php: added PMA_getDbLink
     * libraries/display_create_table.lib.php: use fieldset
+    * server_privilegs.php:
+      db with only table specific rights where not displayed if there was not at
+      least one db with db specfic rights
 
 2005-11-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * Documentation.html, browse_foreigners.php, error.php,

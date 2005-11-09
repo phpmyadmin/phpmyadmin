@@ -45,9 +45,9 @@ if (!$is_superuser) {
 }
 
 /**
- * Generates a condition on the user name 
+ * Generates a condition on the user name
  *
- * @param   string   the user's initial 
+ * @param   string   the user's initial
  * @return  string   the generated condition
  */
 function PMA_RangeOfUsers($initial = '') {
@@ -170,7 +170,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
 /**
  * Displays on which column(s) a table-specific privilege is granted
  */
-function PMA_display_column_privs($spaces, $columns, $row, $name_for_select, $priv_for_header, $name, $name_for_dfn, $name_for_current) { 
+function PMA_display_column_privs($spaces, $columns, $row, $name_for_select, $priv_for_header, $name, $name_for_dfn, $name_for_current) {
 
         echo $spaces . '    <div class="item" id="div_item_' . $name . '">' . "\n"
            . $spaces . '        <label for="select_' . $name . '_priv">' . "\n"
@@ -217,14 +217,14 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         $username = $GLOBALS['username'];
         $hostname = $GLOBALS['hostname'];
         if ($db == '*') {
-            $sql_query = 
+            $sql_query =
                  'SELECT * FROM `mysql`.`user`'
                 .' WHERE ' . PMA_convert_using('User')
                 .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted')
                 .' AND ' . PMA_convert_using('Host')
                 .' = ' . PMA_convert_using($hostname, 'quoted') . ';';
         } elseif ($table == '*') {
-            $sql_query = 
+            $sql_query =
                 'SELECT * FROM `mysql`.`db`'
                 .' WHERE ' . PMA_convert_using('`User`')
                 .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted')
@@ -236,13 +236,13 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             $sql_query =
                 'SELECT `Table_priv`'
                 .' FROM `mysql`.`tables_priv`'
-                .' WHERE ' . PMA_convert_using('`User`') 
-                .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') 
-                .' AND ' .PMA_convert_using('`Host`') 
-                .' = ' . PMA_convert_using( $hostname, 'quoted' )  
-                .' AND ' .PMA_convert_using('`Db`') 
-                .' = ' . PMA_convert_using( PMA_unescape_mysql_wildcards( $db ), 'quoted' )  
-                .' AND ' . PMA_convert_using('`Table_name`') 
+                .' WHERE ' . PMA_convert_using('`User`')
+                .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted')
+                .' AND ' .PMA_convert_using('`Host`')
+                .' = ' . PMA_convert_using( $hostname, 'quoted' )
+                .' AND ' .PMA_convert_using('`Db`')
+                .' = ' . PMA_convert_using( PMA_unescape_mysql_wildcards( $db ), 'quoted' )
+                .' AND ' . PMA_convert_using('`Table_name`')
                 .' = ' . PMA_convert_using($table, 'quoted') . ';';
         }
         $res = PMA_DBI_query($sql_query);
@@ -277,7 +277,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         // the View for Create is spelled with uppercase V
         // the view for Show is spelled with lowercase v
         // and there is a space between the words
-        
+
         $row1 = PMA_DBI_fetch_assoc($res);
         PMA_DBI_free_result($res);
         $av_grants = explode ('\',\'' , substr($row1['Type'], strpos($row1['Type'], '(') + 2, strpos($row1['Type'], ')') - strpos($row1['Type'], '(') - 3));
@@ -288,7 +288,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             $row[$current_grant . '_priv'] = in_array($current_grant, $users_grants) ? 'Y' : 'N';
         }
         unset($row['Table_priv'], $current_grant, $av_grants, $users_grants);
-        
+
         // get collumns
         $res = PMA_DBI_try_query('SHOW COLUMNS FROM `' . PMA_unescape_mysql_wildcards( $db ) . '`.`' . $table . '`;');
         $columns = array();
@@ -310,12 +310,12 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         $res = PMA_DBI_query(
             'SELECT `Column_name`, `Column_priv`'
             .' FROM `mysql`.`columns_priv`'
-            .' WHERE ' . PMA_convert_using('`User`') 
-            .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') 
-            .' AND ' . PMA_convert_using('`Host`') 
-            .' = ' . PMA_convert_using($hostname, 'quoted') 
-            .' AND ' . PMA_convert_using('`Db`') 
-            .' = ' . PMA_convert_using( PMA_unescape_mysql_wildcards( $db ), 'quoted') 
+            .' WHERE ' . PMA_convert_using('`User`')
+            .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted')
+            .' AND ' . PMA_convert_using('`Host`')
+            .' = ' . PMA_convert_using($hostname, 'quoted')
+            .' AND ' . PMA_convert_using('`Db`')
+            .' = ' . PMA_convert_using( PMA_unescape_mysql_wildcards( $db ), 'quoted')
             .' AND ' . PMA_convert_using('`Table_name`')
             .' = ' . PMA_convert_using($table, 'quoted') . ';');
 
@@ -327,17 +327,17 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         }
         PMA_DBI_free_result($res);
         unset( $res, $row1, $current );
-        
+
         echo $spaces . '<input type="hidden" name="grant_count" value="' . count($row) . '" />' . "\n"
            . $spaces . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
            . $spaces . '<fieldset id="fieldset_user_priv">' . "\n"
            . $spaces . '    <legend>' . $GLOBALS['strTblPrivileges'] . '</legend>' . "\n"
            . $spaces . '    <p><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></p>' . "\n";
 
-           
+
         // privs that are attached to a specific column
         PMA_display_column_privs($spaces, $columns, $row, 'Select_priv', 'SELECT', 'select', $GLOBALS['strPrivDescSelect'], 'Select');
-        
+
         PMA_display_column_privs($spaces, $columns, $row, 'Insert_priv', 'INSERT', 'insert', $GLOBALS['strPrivDescInsert'], 'Insert');
 
         PMA_display_column_privs($spaces, $columns, $row, 'Update_priv', 'UPDATE', 'update', $GLOBALS['strPrivDescUpdate'], 'Update');
@@ -345,7 +345,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         PMA_display_column_privs($spaces, $columns, $row, 'References_priv', 'REFERENCES', 'references', $GLOBALS['strPrivDescReferences'], 'References');
 
         // privs that are not attached to a specific column
-       
+
         echo $spaces . '    <div class="item">' . "\n";
         foreach($row as $current_grant => $current_grant_value) {
             if (in_array(substr($current_grant, 0, (strlen($current_grant) - 5)), array('Select', 'Insert', 'Update', 'References'))) {
@@ -373,7 +373,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             echo $spaces . '            <label for="checkbox_' . $current_grant . '"><tt><dfn title="' . (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl']) . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></tt></label>' . "\n"
                . $spaces . '        </div>' . "\n";
         } // end foreach()
-        
+
         echo $spaces . '    </div>' . "\n";
 
     } else {
@@ -622,7 +622,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0 ) {
             default:
                 $GLOBALS['pred_hostname'] = 'userdefined';
                 break;
-        }        
+        }
     }
     echo $spaces . '        <option value="any"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'any') ? ' selected="selected"' : '') . '>' . $GLOBALS['strAnyHost'] . '</option>' . "\n"
        . $spaces . '        <option value="localhost"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'localhost') ? ' selected="selected"' : '') . '>' . $GLOBALS['strLocalhost'] . '</option>' . "\n";
@@ -679,10 +679,10 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0 ) {
  * Changes / copies a user, part I
  */
 if (!empty($change_copy)) {
-    $user_host_condition = 
-        ' WHERE ' . PMA_convert_using('User') 
-        .' = ' . PMA_convert_using(PMA_sqlAddslashes($old_username), 'quoted') 
-        .' AND ' . PMA_convert_using('Host') 
+    $user_host_condition =
+        ' WHERE ' . PMA_convert_using('User')
+        .' = ' . PMA_convert_using(PMA_sqlAddslashes($old_username), 'quoted')
+        .' AND ' . PMA_convert_using('Host')
         .' = ' . PMA_convert_using($old_hostname, 'quoted') . ';';
     $res = PMA_DBI_query('SELECT * FROM `mysql`.`user` ' . $user_host_condition);
     if (!$res) {
@@ -733,9 +733,9 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
     }
     $res = PMA_DBI_query(
         'SELECT \'foo\' FROM `mysql`.`user`'
-        .' WHERE ' . PMA_convert_using('User') 
-        .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') 
-        .' AND ' . PMA_convert_using('Host') 
+        .' WHERE ' . PMA_convert_using('User')
+        .' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted')
+        .' AND ' . PMA_convert_using('Host')
         .' = ' . PMA_convert_using($hostname, 'quoted') . ';',
         NULL, PMA_DBI_QUERY_STORE );
     if (PMA_DBI_num_rows($res) == 1) {
@@ -744,14 +744,14 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
         $adduser = 1;
     } else {
         PMA_DBI_free_result($res);
-        
+
         if ( 50002 <= PMA_MYSQL_INT_VERSION ) {
             // MySQL 5 requires CREATE USER before any GRANT on this user can done
             $create_user_real = 'CREATE USER \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
         }
-        
-        $real_sql_query = 
-            'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \'' 
+
+        $real_sql_query =
+            'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \''
             . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
         if ($pred_password != 'none' && $pred_password != 'keep') {
             $pma_pw_hidden = '';
@@ -846,15 +846,15 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
  * Changes / copies a user, part III
  */
 if (!empty($change_copy)) {
-    $user_host_condition = 
-        ' WHERE ' . PMA_convert_using('User') 
-        .' = ' . PMA_convert_using(PMA_sqlAddslashes($old_username), 'quoted') 
-        .' AND ' . PMA_convert_using('Host') 
+    $user_host_condition =
+        ' WHERE ' . PMA_convert_using('User')
+        .' = ' . PMA_convert_using(PMA_sqlAddslashes($old_username), 'quoted')
+        .' AND ' . PMA_convert_using('Host')
         .' = ' . PMA_convert_using($old_hostname, 'quoted') . ';';
     $res = PMA_DBI_query('SELECT * FROM `mysql`.`db`' . $user_host_condition );
     while ($row = PMA_DBI_fetch_assoc($res)) {
-        $queries[] = 
-            'GRANT ' . join(', ', PMA_extractPrivInfo($row)) 
+        $queries[] =
+            'GRANT ' . join(', ', PMA_extractPrivInfo($row))
             .' ON `' . $row['Db'] . '`.*'
             .' TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\''
             . ( $row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION;' : ';' );
@@ -869,14 +869,14 @@ if (!empty($change_copy)) {
         $res2 = PMA_DBI_QUERY(
             'SELECT `Column_name`, `Column_priv`'
             .' FROM `mysql`.`columns_priv`'
-            .' WHERE ' . PMA_convert_using('User') 
-            .' = ' . PMA_convert_using(PMA_sqlAddslashes($old_username), 'quoted') 
-            .' AND ' . PMA_convert_using('`Host`') 
-            .' = ' . PMA_convert_using($old_hostname, 'quoted') 
-            .' AND ' . PMA_convert_using('`Db`') 
-            .' = ' . PMA_convert_using($row['Db'], 'quoted') 
-            .' AND ' . PMA_convert_using('`Table_name`') 
-            .' = ' . PMA_convert_using($row['Table_name'], 'quoted') 
+            .' WHERE ' . PMA_convert_using('User')
+            .' = ' . PMA_convert_using(PMA_sqlAddslashes($old_username), 'quoted')
+            .' AND ' . PMA_convert_using('`Host`')
+            .' = ' . PMA_convert_using($old_hostname, 'quoted')
+            .' AND ' . PMA_convert_using('`Db`')
+            .' = ' . PMA_convert_using($row['Db'], 'quoted')
+            .' AND ' . PMA_convert_using('`Table_name`')
+            .' = ' . PMA_convert_using($row['Table_name'], 'quoted')
             .';',
             NULL, PMA_DBI_QUERY_STORE );
 
@@ -917,10 +917,10 @@ if (!empty($change_copy)) {
             $tmp_privs1[] = 'REFERENCES (`' . join('`, `', $tmp_privs2['References']) . '`)';
         }
         unset($tmp_privs2);
-        $queries[] = 
-            'GRANT ' . join(', ', $tmp_privs1) 
-            . ' ON `' . $row['Db'] . '`.`' . $row['Table_name'] 
-            . '` TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'' 
+        $queries[] =
+            'GRANT ' . join(', ', $tmp_privs1)
+            . ' ON `' . $row['Db'] . '`.`' . $row['Table_name']
+            . '` TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\''
             . (in_array('Grant', explode(',', $row['Table_priv'])) ? ' WITH GRANT OPTION;' : ';');
     }
 }
@@ -951,24 +951,24 @@ if (!empty($update_privs)) {
             $db_and_table .= '*';
         }
     }
-    
-    $sql_query0 = 
-        'REVOKE ALL PRIVILEGES ON ' . $db_and_table 
+
+    $sql_query0 =
+        'REVOKE ALL PRIVILEGES ON ' . $db_and_table
         . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
     if (!isset($Grant_priv) || $Grant_priv != 'Y') {
-        $sql_query1 = 
-            'REVOKE GRANT OPTION ON ' . $db_and_table 
+        $sql_query1 =
+            'REVOKE GRANT OPTION ON ' . $db_and_table
             . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
     }
-    $sql_query2 = 
-        'GRANT ' . join(', ', PMA_extractPrivInfo()) 
-        . ' ON ' . $db_and_table 
+    $sql_query2 =
+        'GRANT ' . join(', ', PMA_extractPrivInfo())
+        . ' ON ' . $db_and_table
         . ' TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'';
 
         // FIXME: similar code appears twice in this script
     if ( ( isset($Grant_priv) && $Grant_priv == 'Y')
       || ( empty($dbname) && PMA_MYSQL_INT_VERSION >= 40002
-        && ( isset($max_questions) || isset($max_connections) 
+        && ( isset($max_questions) || isset($max_connections)
           || isset($max_updates) || isset($max_user_connections))))
     {
         $sql_query2 .= 'WITH';
@@ -1015,7 +1015,7 @@ if (!empty($update_privs)) {
  * Revokes Privileges
  */
 if (!empty($revokeall)) {
-    
+
     if (empty($dbname)) {
         $db_and_table = '*.*';
     } else {
@@ -1027,12 +1027,12 @@ if (!empty($revokeall)) {
             $db_and_table .= PMA_backquote( $tablename );
         }
     }
-    
-    $sql_query0 = 
-        'REVOKE ALL PRIVILEGES ON ' . $db_and_table 
+
+    $sql_query0 =
+        'REVOKE ALL PRIVILEGES ON ' . $db_and_table
         . ' FROM \'' . $username . '\'@\'' . $hostname . '\';';
-    $sql_query1 = 
-        'REVOKE GRANT OPTION ON ' . $db_and_table 
+    $sql_query1 =
+        'REVOKE GRANT OPTION ON ' . $db_and_table
         . ' FROM \'' . $username . '\'@\'' . $hostname . '\';';
     PMA_DBI_query($sql_query0);
     if (!PMA_DBI_try_query($sql_query1)) { // this one may fail, too...
@@ -1101,7 +1101,7 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
                         $this_table = substr($row[0], (strpos($row[0], 'ON') + 3), (strpos($row[0], ' TO ') - strpos($row[0], 'ON') - 3));
                         if ($this_table != '*.*') {
                             $queries[] = 'REVOKE ALL PRIVILEGES ON ' . $this_table . ' FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
-    
+
                             if (strpos($row[0], 'WITH GRANT OPTION')) {
                                 $queries[] = 'REVOKE GRANT OPTION ON ' . $this_table . ' FROM \'' . PMA_sqlAddslashes($this_user) . '\'@\'' . $this_host . '\';';
                             }
@@ -1120,10 +1120,10 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
             if ($mode != 2) {
                 // If we REVOKE the table grants, we should not need to modify the
                 // `mysql`.`db`, `mysql`.`tables_priv` and `mysql`.`columns_priv` tables manually...
-                $user_host_condition = 
-                    ' WHERE ' . PMA_convert_using('User') 
-                    . ' = ' . PMA_convert_using(PMA_sqlAddslashes($this_user), 'quoted') 
-                    . ' AND ' . PMA_convert_using('Host') 
+                $user_host_condition =
+                    ' WHERE ' . PMA_convert_using('User')
+                    . ' = ' . PMA_convert_using(PMA_sqlAddslashes($this_user), 'quoted')
+                    . ' AND ' . PMA_convert_using('Host')
                     . ' = ' . PMA_convert_using($this_host, 'quoted') . ';';
                 $queries[] = 'DELETE FROM `mysql`.`db`' . $user_host_condition;
                 $queries[] = 'DELETE FROM `mysql`.`tables_priv`' . $user_host_condition;
@@ -1236,15 +1236,15 @@ $link_revoke .= '</a>';
 /**
  * Displays the page
  */
-if (empty($adduser) && empty($checkprivs)) {
-    if (!isset($username)) {
+if ( empty( $adduser ) && empty( $checkprivs ) ) {
+    if ( ! isset( $username ) ) {
         // No username is given --> display the overview
         echo '<h2>' . "\n"
            . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" alt="" />' : '')
            . $GLOBALS['strUserOverview'] . "\n"
            . '</h2>' . "\n";
 
-        $sql_query = 
+        $sql_query =
             'SELECT `User`,' .
             '       `Host`,' .
             '       IF(`Password` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . '\'\', \'N\', \'Y\') AS \'Password\',' .
@@ -1270,11 +1270,11 @@ if (empty($adduser) && empty($checkprivs)) {
         if (PMA_MYSQL_INT_VERSION >= 50001) {
             $sql_query .= ', `Create_view_priv`, `Show_view_priv`';
         }
- 
+
         if (PMA_MYSQL_INT_VERSION >= 50003) {
             $sql_query .= ', `Create_user_priv`, `Create_routine_priv`, `Alter_routine_priv`';
         }
- 
+
         $sql_query .= '  FROM `mysql`.`user`';
 
         $sql_query .= (isset($initial) ? PMA_RangeOfUsers($initial) : '');
@@ -1282,7 +1282,7 @@ if (empty($adduser) && empty($checkprivs)) {
         $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
         $res = PMA_DBI_try_query($sql_query, NULL, PMA_DBI_QUERY_STORE);
 
-        if (!$res) {
+        if ( ! $res ) {
             // the query failed! This may have two reasons:
             // - the user does not have enough privileges
             // - the privilege tables use a structure of an earlier version.
@@ -1307,18 +1307,18 @@ if (empty($adduser) && empty($checkprivs)) {
 
             // we also want users not in table `user` but in other table
             $tables = PMA_DBI_fetch_result('SHOW TABLES FROM `mysql`;');
-            
+
             $tables_to_search_for_users = array(
                 'user', 'db', 'tables_priv', 'columns_priv', 'procs_priv',
             );
-            
+
             $db_rights_sqls = array();
             foreach ( $tables_to_search_for_users as $table_search_in ) {
                 if ( in_array( $table_search_in, $tables ) ) {
                     $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`' . $table_search_in . '` ' . (isset($initial) ? PMA_RangeOfUsers($initial) : '');
                 }
             }
-            
+
             $user_defaults = array(
                 'User'      => '',
                 'Host'      => '%',
@@ -1326,18 +1326,18 @@ if (empty($adduser) && empty($checkprivs)) {
                 'Grant_priv' => 'N',
                 'privs'     => array( 'USAGE' ),
             );
-            
+
             // for all initials, even non A-Z
             $array_initials = array();
             // for the rights
             $db_rights = array();
-            
+
             if ( PMA_MYSQL_INT_VERSION >= 40000 ) {
                 $db_rights_sql = '(' . implode( ') UNION DISTINCT (', $db_rights_sqls ) . ')'
                     .' ORDER BY `User` ASC, `Host` ASC';
-                
+
                 $db_rights_result = PMA_DBI_query( $db_rights_sql );
-                
+
                 while ( $db_rights_row = PMA_DBI_fetch_assoc( $db_rights_result ) ) {
                     $db_rights_row = array_merge( $user_defaults, $db_rights_row );
                     $db_rights[$db_rights_row['User']][$db_rights_row['Host']] =
@@ -1346,7 +1346,7 @@ if (empty($adduser) && empty($checkprivs)) {
             } else {
                 foreach ( $db_rights_sqls as $db_rights_sql ) {
                     $db_rights_result = PMA_DBI_query( $db_rights_sql );
-                    
+
                     while ( $db_rights_row = PMA_DBI_fetch_assoc( $db_rights_result ) ) {
                         $db_rights_row = array_merge( $user_defaults, $db_rights_row );
                         $db_rights[$db_rights_row['User']][$db_rights_row['Host']] =
@@ -1357,7 +1357,7 @@ if (empty($adduser) && empty($checkprivs)) {
             PMA_DBI_free_result( $db_rights_result );
             unset( $db_rights_sql, $db_rights_sqls, $db_rights_result, $db_rights_row );
             ksort( $db_rights );
-            
+
             /**
              * Displays the initials
              */
@@ -1374,7 +1374,7 @@ if (empty($adduser) && empty($checkprivs)) {
                 $array_initials[$tmp_initial] = TRUE;
             }
 
-            // Display the initials, which can be any characters, not 
+            // Display the initials, which can be any characters, not
             // just letters. For letters A-Z, we add the non-used letters
             // as greyed out.
 
@@ -1392,7 +1392,7 @@ if (empty($adduser) && empty($checkprivs)) {
             echo '</tr></table>';
 
             /**
-            * Display the user overview 
+            * Display the user overview
             * (if less than 50 users, display them immediately)
             */
 
@@ -1404,7 +1404,7 @@ if (empty($adduser) && empty($checkprivs)) {
                 }
                 @PMA_DBI_free_result( $res );
                 unset( $res );
-            
+
                 echo '<form name="usersForm" action="server_privileges.php" method="post">' . "\n"
                    . PMA_generate_common_hidden_inputs('', '', 1)
                    . '    <table id="tableuserrights" class="data">' . "\n"
@@ -1468,7 +1468,7 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '        </tr>' . "\n"
                    . '    </tbody>' . "\n"
                    . '    </table><br />' . "\n";
-                   
+
                 // add/delete user fieldset
                 echo '    <fieldset id="fieldset_add_user">' . "\n"
                    . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1">' . "\n"
@@ -1548,20 +1548,20 @@ if (empty($adduser) && empty($checkprivs)) {
            . PMA_generate_common_hidden_inputs('', '', 3)
            . '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
            . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
-        if (!empty($dbname)) {
+        if ( ! empty( $dbname ) ) {
             echo '<input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '" />' . "\n";
-            if (!empty($tablename)) {
+            if ( ! empty( $tablename ) ) {
                 echo ' <input type="hidden" name="tablename" value="' . htmlspecialchars($tablename) . '" />' . "\n";
             }
         }
         PMA_displayPrivTable((empty($dbname) ? '*' : $dbname), ((empty($dbname) || empty($tablename)) ? '*' : $tablename), TRUE, 3);
         echo '</form>' . "\n";
-        
-        if ( empty( $tablename ) && isset($dbname_is_wildcard) && ! $dbname_is_wildcard ) {
-            
+
+        if ( empty( $tablename ) && empty( $dbname_is_wildcard ) ) {
+
             // no table name was given, display all table specific rights
             // but only if $dbname contains no wildcards
-            
+
             // table header
             echo '<form action="server_privileges.php" method="post">' . "\n"
                . PMA_generate_common_hidden_inputs('', '', 6)
@@ -1579,74 +1579,105 @@ if (empty($adduser) && empty($checkprivs)) {
                . '</tr>' . "\n"
                . '</thead>' . "\n"
                . '<tbody>' . "\n";
+
             $user_host_condition =
-                ' WHERE ' . PMA_convert_using('User') 
-                . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') 
-                . ' AND ' . PMA_convert_using('Host') 
+                ' WHERE ' . PMA_convert_using('`User`')
+                . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted')
+                . ' AND ' . PMA_convert_using('`Host`')
                 . ' = ' . PMA_convert_using($hostname, 'quoted');
-                
+
             // table body
             // get data
-            if (empty($dbname)) {
-                $sql_query = 'SELECT * FROM `mysql`.`db`' . $user_host_condition . ' ORDER BY `Db` ASC;';
+            if ( empty( $dbname ) ) {
+                // we also want privielgs for this user not in table `db` but in other table
+                $tables = PMA_DBI_fetch_result('SHOW TABLES FROM `mysql`;');
+
+                $tables_to_search_for_users = array(
+                    'tables_priv', 'columns_priv',
+                );
+
+                $db_rights_sqls = array();
+                foreach ( $tables_to_search_for_users as $table_search_in ) {
+                    if ( in_array( $table_search_in, $tables ) ) {
+                        $db_rights_sqls[] = '
+                            SELECT DISTINCT `Db`
+                                   FROM `mysql`.`' . $table_search_in . '`
+                                  ' . $user_host_condition;
+                    }
+                }
+
+                $user_defaults = array(
+                    'Db'         => '',
+                    'Grant_priv' => 'N',
+                    'privs'      => array( 'USAGE' ),
+                    'Table_priv' => true,
+                );
+
+                // for the rights
+                $db_rights = array();
+
+                if ( PMA_MYSQL_INT_VERSION >= 40000 ) {
+                    $db_rights_sql = '(' . implode( ') UNION DISTINCT (', $db_rights_sqls ) . ')'
+                        .' ORDER BY `Db` ASC';
+
+                    $db_rights_result = PMA_DBI_query( $db_rights_sql );
+
+                    while ( $db_rights_row = PMA_DBI_fetch_assoc( $db_rights_result ) ) {
+                        $db_rights_row = array_merge( $user_defaults, $db_rights_row );
+                        $db_rights[$db_rights_row['Db']] = $db_rights_row;
+                    }
+                } else {
+                    foreach ( $db_rights_sqls as $db_rights_sql ) {
+                        $db_rights_result = PMA_DBI_query( $db_rights_sql );
+
+                        while ( $db_rights_row = PMA_DBI_fetch_assoc( $db_rights_result ) ) {
+                            $db_rights_row = array_merge( $user_defaults, $db_rights_row );
+                            $db_rights[$db_rights_row['Db']] = $db_rights_row;
+                        }
+                    }
+                }
+                PMA_DBI_free_result( $db_rights_result );
+                unset( $db_rights_sql, $db_rights_sqls, $db_rights_result, $db_rights_row );
+
+                $sql_query = 'SELECT * FROM `mysql`.`db`' . $user_host_condition . ' ORDER BY `Db` ASC';
+                $res = PMA_DBI_query( $sql_query );
+                unset( $sql_query );
+
+                while ( $row = PMA_DBI_fetch_assoc( $res ) ) {
+                    $db_rights[$row['Db']] = $row;
+                    $db_rights[$row['Db']]['can_delete'] = true;
+                }
+                PMA_DBI_free_result( $res );
+                unset( $row, $res );
+
+                ksort( $db_rights );
             } else {
-                $sql_query = 
+                $sql_query =
                     'SELECT `Table_name`,'
                     .' `Table_priv`,'
                     .' IF(`Column_priv` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . ' \'\', 0, 1)'
                     .' AS \'Column_priv\''
-                    .' FROM `mysql`.`tables_priv`' 
+                    .' FROM `mysql`.`tables_priv`'
                     . $user_host_condition
-                    .' AND ' . PMA_convert_using('`Db`') 
-                    .' LIKE ' . PMA_convert_using($dbname, 'quoted') 
+                    .' AND ' . PMA_convert_using('`Db`')
+                    .' LIKE ' . PMA_convert_using($dbname, 'quoted')
                     .' ORDER BY `Table_name` ASC;';
+                $db_rights = PMA_DBI_fetch_result( $sql_query, 'Db', NULL, NULL, PMA_DBI_QUERY_STORE );
             }
-            $res = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_STORE);
-            
+
+
             // display rows
-            if (PMA_DBI_affected_rows() == 0) {
+            if ( count( $db_rights ) < 1 ) {
                 echo '<tr class="odd">' . "\n"
                    . '    <td colspan="6"><center><i>' . $GLOBALS['strNone'] . '</i></center></td>' . "\n"
                    . '</tr>' . "\n";
             } else {
                 $odd_row = true;
-                if (empty($dbname)) {
-                    $res2 = PMA_DBI_query('SELECT `Db` FROM `mysql`.`tables_priv`' . $user_host_condition . ' GROUP BY `Db` ORDER BY `Db` ASC;');
-                    $row2 = PMA_DBI_fetch_assoc($res2);
-                    if ( $row2 ) {
-                        $row2['Db'] = PMA_escape_mysql_wildcards( $row2['Db'] );
-                    }
-                }
                 $found_rows = array();
-                while ($row = PMA_DBI_fetch_assoc($res)) {
-                    while (empty($dbname) && $row2 && $row['Db'] > $row2['Db']) {
-                        $found_rows[] = $row2['Db'];
-                        echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
-                           . '    <td>' . htmlspecialchars( $row2['Db'] ) . '</td>' . "\n"
-                           . '    <td><tt>' . "\n"
-                           . '        <dfn title="' . $GLOBALS['strPrivDescUsage'] . '">USAGE</dfn>' . "\n"
-                           . '    </tt></td>' . "\n"
-                           . '    <td>' . $GLOBALS['strNo'] . '</td>' . "\n"
-                           . '    <td>' . $GLOBALS['strYes'] . '</td>' . "\n"
-                           . '    <td>';
-                        printf( $link_edit, urlencode( $username ),
-                            urlencode( $hostname ),
-                            urlencode( $row2['Db'] ),
-                            '' );
-                        echo '</td>' . "\n"
-                           . '    <td>';
-                        printf( $link_revoke, urlencode( $username ),
-                            urlencode( $hostname ), urlencode( $row2['Db'] ), '' );
-                        echo '</td>' . "\n"
-                           . '</tr>' . "\n";
-                        $row2 = PMA_DBI_fetch_assoc($res2);
-                        if ( $row2 ) {
-                            $row2['Db'] = PMA_escape_mysql_wildcards( $row2['Db'] );
-                        }
-                        $odd_row = ! $odd_row;
-                    } // end while
+                //while ( $row = PMA_DBI_fetch_assoc( $res ) ) {
+                foreach ( $db_rights as $row ) {
                     $found_rows[] = empty($dbname) ? $row['Db'] : $row['Table_name'];
-    
+
                     echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
                        . '    <td>' . htmlspecialchars(empty($dbname) ? $row['Db'] : $row['Table_name']) . '</td>' . "\n"
                        . '    <td><tt>' . "\n"
@@ -1654,15 +1685,8 @@ if (empty($adduser) && empty($checkprivs)) {
                        . '        </tt></td>' . "\n"
                        . '    <td>' . (((empty($dbname) && $row['Grant_priv'] == 'Y') || (!empty($dbname) && in_array('Grant', explode(',', $row['Table_priv'])))) ? $GLOBALS['strYes'] : $GLOBALS['strNo']) . '</td>' . "\n"
                        . '    <td>';
-                    if ((empty($dbname) && $row2 && $row['Db'] == $row2['Db'])
-                        || (!empty($dbname) && $row['Column_priv'])) {
+                    if ( $row['Table_priv'] || $row['Column_priv'] ) {
                         echo $GLOBALS['strYes'];
-                        if (empty($dbname)) {
-                            $row2 = PMA_DBI_fetch_assoc($res2);
-                            if ( $row2 ) {
-                                $row2['Db'] = PMA_escape_mysql_wildcards( $row2['Db'] );
-                            }
-                        }
                     } else {
                         echo $GLOBALS['strNo'];
                     }
@@ -1674,80 +1698,46 @@ if (empty($adduser) && empty($checkprivs)) {
                         urlencode( empty($dbname) ? '' : $row['Table_name'] ) );
                     echo '</td>' . "\n"
                        . '    <td>';
-                    printf( $link_revoke, urlencode( $username ),
-                        urlencode( $hostname ),
-                        urlencode( empty( $dbname ) ? $row['Db'] : $dbname ),
-                        urlencode( empty( $dbname ) ? '' : $row['Table_name'] ) );
-                    echo '</td>' . "\n"
-                       . '</tr>' . "\n";
-                    $odd_row = ! $odd_row;
-                } // end while
-    
-    
-                while (empty($dbname) && $row2) {
-    
-                    $found_rows[] = $row2['Db'];
-                    echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
-                       . '    <td>' . htmlspecialchars( $row2['Db']) . '</td>' . "\n"
-                       . '    <td><tt>' . "\n"
-                       . '        <dfn title="' . $GLOBALS['strPrivDescUsage'] . '">USAGE</dfn>' . "\n"
-                       . '        </tt></td>' . "\n"
-                       . '    <td>' . $GLOBALS['strNo'] . '</td>' . "\n"
-                       . '    <td>' . $GLOBALS['strYes'] . '</td>' . "\n"
-                       . '    <td>';
-                    printf( $link_edit, urlencode( $username ),
-                        urlencode( $hostname ),
-                        urlencode( $row2['Db'] ),
-                        '' );
-                    echo '</td>' . "\n"
-                       . '    <td>';
-                    printf( $link_revoke, urlencode( $username ),
-                        urlencode( $hostname ), urlencode( $row2['Db'] ), '' );
-                    echo '</td>' . "\n"
-                       . '</tr>' . "\n";
-                    $row2 = PMA_DBI_fetch_assoc($res2);
-                    if ( $row2 ) {
-                        $row2['Db'] = PMA_escape_mysql_wildcards( $row2['Db'] );
+                    if ( $row['can_delete'] || $row['Table_name'] ) {
+                        printf( $link_revoke, urlencode( $username ),
+                            urlencode( $hostname ),
+                            urlencode( empty( $dbname ) ? $row['Db'] : $dbname ),
+                            urlencode( empty( $dbname ) ? '' : $row['Table_name'] ) );
                     }
-    
+                    echo '</td>' . "\n"
+                       . '</tr>' . "\n";
                     $odd_row = ! $odd_row;
                 } // end while
-                if (empty($dbname)) {
-                    PMA_DBI_free_result($res2);
-                    unset($res2);
-                    unset($row2);
-                }
             }
-            PMA_DBI_free_result($res);
-            unset($res);
             unset($row);
             echo '</tbody>' . "\n"
                . '</table>' . "\n";
-               
+
             if (empty($dbname)) {
-                
+
                 // no database name was give, display select db
-                
+
                 if ( ! empty( $found_rows ) ) {
-                    $pred_db_array = array_diff( 
+                    $pred_db_array = array_diff(
                         PMA_DBI_fetch_result( 'SHOW DATABASES;' ),
                         $found_rows );
                 } else {
                     $pred_db_array =PMA_DBI_fetch_result( 'SHOW DATABASES;' );
                 }
-                
+
                 echo '    <label for="text_dbname">' . $GLOBALS['strAddPrivilegesOnDb'] . ':</label>' . "\n";
                 if (!empty($pred_db_array)) {
                     echo '    <select name="pred_dbname" onchange="this.form.submit();">' . "\n"
                        . '        <option value="" selected="selected">' . $GLOBALS['strUseTextField'] . ':</option>' . "\n";
                     foreach ($pred_db_array as $current_db) {
                         $current_db = PMA_escape_mysql_wildcards( $current_db );
-                        echo '        <option value="' . htmlspecialchars( $current_db ) . '">' 
+                        echo '        <option value="' . htmlspecialchars( $current_db ) . '">'
                             . htmlspecialchars( $current_db ) . '</option>' . "\n";
                     }
                     echo '    </select>' . "\n";
                 }
-                echo '    <input type="text" id="text_dbname" name="dbname" class="textfield" />' . "\n";
+                echo '    <input type="text" id="text_dbname" name="dbname" class="textfield" />' . "\n"
+                    .PMA_showHint( $GLOBALS['strEscapeWildcards'] );
             } else {
                 echo '    <input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '"/>' . "\n"
                    . '    <label for="text_tablename">' . $GLOBALS['strAddPrivilegesOnTbl'] . ':</label>' . "\n";
@@ -1759,8 +1749,7 @@ if (empty($adduser) && empty($checkprivs)) {
                         }
                     }
                     PMA_DBI_free_result($res);
-                    unset($res);
-                    unset($row);
+                    unset( $res, $row );
                     if (!empty($pred_tbl_array)) {
                         echo '    <select name="pred_tablename" onchange="this.form.submit();">' . "\n"
                            . '        <option value="" selected="selected">' . $GLOBALS['strUseTextField'] . ':</option>' . "\n";
@@ -1774,10 +1763,9 @@ if (empty($adduser) && empty($checkprivs)) {
                 }
                 echo '    <input type="text" id="text_tablename" name="tablename" class="textfield" />' . "\n";
             }
-            echo '    <input type="submit" value="' . $GLOBALS['strGo'] . '" />' . PMA_showHint($GLOBALS['strEscapeWildcards']) . "\n"
-               . '</fieldset>' . "\n";
+            echo '</fieldset>' . "\n";
             echo '<fieldset class="tblFooters">' . "\n"
-               . '    <input type="submit" value="' . $GLOBALS['strGo'] . '" />' . PMA_showHint($GLOBALS['strEscapeWildcards']) . "\n"
+               . '    <input type="submit" value="' . $GLOBALS['strGo'] . '" />'
                . '</fieldset>' . "\n"
                . '</form>' . "\n";
         }
@@ -1882,27 +1870,27 @@ if (empty($adduser) && empty($checkprivs)) {
 
         $no = PMA_convert_using('N', 'quoted');
 
-        $list_of_privileges = 
-            PMA_convert_using('Select_priv') . ' AS Select_priv, ' 
-            . PMA_convert_using('Insert_priv') . ' AS Insert_priv, ' 
-            . PMA_convert_using('Update_priv') . ' AS Update_priv, ' 
-            . PMA_convert_using('Delete_priv') . ' AS Delete_priv, ' 
-            . PMA_convert_using('Create_priv') . ' AS Create_priv, ' 
-            . PMA_convert_using('Drop_priv') . ' AS Drop_priv, ' 
+        $list_of_privileges =
+            PMA_convert_using('Select_priv') . ' AS Select_priv, '
+            . PMA_convert_using('Insert_priv') . ' AS Insert_priv, '
+            . PMA_convert_using('Update_priv') . ' AS Update_priv, '
+            . PMA_convert_using('Delete_priv') . ' AS Delete_priv, '
+            . PMA_convert_using('Create_priv') . ' AS Create_priv, '
+            . PMA_convert_using('Drop_priv') . ' AS Drop_priv, '
             . PMA_convert_using('Grant_priv') . ' AS Grant_priv, '
             . PMA_convert_using('References_priv') . ' AS References_priv';
 
-        $list_of_compared_privileges = 
-            PMA_convert_using('Select_priv') . ' = ' . $no 
-            . ' AND ' . PMA_convert_using('Insert_priv') . ' = ' . $no 
-            . ' AND ' . PMA_convert_using('Update_priv') . ' = ' . $no 
-            . ' AND ' . PMA_convert_using('Delete_priv') . ' = ' . $no 
-            . ' AND ' . PMA_convert_using('Create_priv') . ' = ' . $no 
-            . ' AND ' . PMA_convert_using('Drop_priv') . ' = ' . $no 
-            . ' AND ' . PMA_convert_using('Grant_priv') . ' = ' . $no 
+        $list_of_compared_privileges =
+            PMA_convert_using('Select_priv') . ' = ' . $no
+            . ' AND ' . PMA_convert_using('Insert_priv') . ' = ' . $no
+            . ' AND ' . PMA_convert_using('Update_priv') . ' = ' . $no
+            . ' AND ' . PMA_convert_using('Delete_priv') . ' = ' . $no
+            . ' AND ' . PMA_convert_using('Create_priv') . ' = ' . $no
+            . ' AND ' . PMA_convert_using('Drop_priv') . ' = ' . $no
+            . ' AND ' . PMA_convert_using('Grant_priv') . ' = ' . $no
             . ' AND ' . PMA_convert_using('References_priv') . ' = ' . $no;
 
-        $sql_query = 
+        $sql_query =
             '(SELECT ' . PMA_convert_using('`User`') . ' AS `User`, '
             .   PMA_convert_using('`Host`') . ' AS `Host`, '
             .   PMA_convert_using('`Db`') . ' AS `Db`, '
@@ -1912,10 +1900,10 @@ if (empty($adduser) && empty($checkprivs)) {
             .' LIKE ' . PMA_convert_using('`Db`')
             .' AND NOT (' . $list_of_compared_privileges. ')) '
             .'UNION '
-            .'(SELECT ' . PMA_convert_using('`User`') . ' AS `User`, ' 
-            .   PMA_convert_using('`Host`') . ' AS `Host`, ' 
-            .   PMA_convert_using('*', 'quoted') .' AS `Db`, ' 
-            .   $list_of_privileges 
+            .'(SELECT ' . PMA_convert_using('`User`') . ' AS `User`, '
+            .   PMA_convert_using('`Host`') . ' AS `Host`, '
+            .   PMA_convert_using('*', 'quoted') .' AS `Db`, '
+            .   $list_of_privileges
             .' FROM `mysql`.`user` '
             .' WHERE NOT (' . $list_of_compared_privileges . ')) '
             .' ORDER BY `User` ASC,'
@@ -1931,7 +1919,7 @@ if (empty($adduser) && empty($checkprivs)) {
         $sql_query = 'SELECT * FROM `mysql`.`user` WHERE NOT (`Select_priv` = \'N\' AND `Insert_priv` = \'N\' AND `Update_priv` = \'N\' AND `Delete_priv` = \'N\' AND `Create_priv` = \'N\' AND `Drop_priv` = \'N\' AND `Grant_priv` = \'N\' AND `References_priv` = \'N\') ORDER BY `User` ASC, `Host` ASC;';
         $res1 = PMA_DBI_query($sql_query);
         $row1 = PMA_DBI_fetch_assoc($res1);
-        $sql_query = 
+        $sql_query =
             'SELECT * FROM `mysql`.`db`'
             .' WHERE \'' . $checkprivs . '\''
             .'   LIKE `Db`'
