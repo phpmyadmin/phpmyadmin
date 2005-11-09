@@ -28,11 +28,11 @@ if ( empty( $is_info ) ) {
 // 1. No tables
 if ( $num_tables == 0 ) {
     echo '<p>' . $strNoTablesFound . '</p>' . "\n";
-    
+
     if ( empty( $db_is_information_schema ) ) {
         require('./libraries/display_create_table.lib.php');
     } // end if (Create Table dialog)
-    
+
     /**
      * Displays the footer
      */
@@ -53,13 +53,13 @@ if ( PMA_MYSQL_INT_VERSION >= 40101 ) {
 // Display function
 function PMA_TableHeader( $db_is_information_schema = false ) {
     $cnt = 0; // Let's count the columns...
-    
+
     if ( $db_is_information_schema ) {
         $action_colspan = 3;
     } else {
         $action_colspan = 6;
     }
-    
+
     echo '<table class="data" style="float: left;">' . "\n"
         .'<thead>' . "\n"
         .'<tr><td></td>' . "\n"
@@ -67,7 +67,7 @@ function PMA_TableHeader( $db_is_information_schema = false ) {
         .'    <th colspan="' . $action_colspan . '">' . "\n"
         .'        ' . $GLOBALS['strAction'] . "\n"
         .'    </th>'
-        .'    <th>' . $GLOBALS['strRecords'] 
+        .'    <th>' . $GLOBALS['strRecords']
         .PMA_showHint( $GLOBALS['strApproximateCount'] ) . "\n"
         .'    </th>' . "\n";
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
@@ -135,7 +135,7 @@ if ( true == $cfg['PropertiesIconic'] ) {
  */
 ?>
 <form method="post" action="db_details_structure.php" name="tablesForm">
-<?php 
+<?php
 echo PMA_generate_common_hidden_inputs( $db );
 
 PMA_TableHeader( $db_is_information_schema );
@@ -156,7 +156,7 @@ foreach ( $tables as $keyname => $each_table ) {
         $each_table['TABLE_ROWS'] = PMA_countRecords( $db,
             $each_table['TABLE_NAME'], $return = true, $force_exact = true );
     }
-    
+
     $table_encoded = urlencode($each_table['TABLE_NAME']);
     // MySQL < 5.0.13 returns "view", >= 5.0.13 returns "VIEW"
     $table_is_view = ( $each_table['TABLE_TYPE'] === 'VIEW'
@@ -189,7 +189,7 @@ foreach ( $tables as $keyname => $each_table ) {
         $browse_table = $titles['NoBrowse'];
         $search_table = $titles['NoSearch'];
     }
-    
+
     if ( ! $db_is_information_schema ) {
         if ( ! empty($each_table['TABLE_ROWS']) ) {
             $empty_table = '<a href="sql.php?' . $tbl_url_query
@@ -212,11 +212,11 @@ foreach ( $tables as $keyname => $each_table ) {
         $drop_query = 'DROP '
             . ( $table_is_view ? 'VIEW' : 'TABLE' )
             . ' ' . PMA_backquote($each_table['TABLE_NAME']);
-        $drop_message = sprintf( 
+        $drop_message = sprintf(
             $table_is_view ? $strViewHasBeenDropped : $strTableHasBeenDropped,
             htmlspecialchars( $each_table['TABLE_NAME'] ) );
     }
-    
+
     // loic1: Patch from Joshua Nye <josh at boxcarmedia.com> to get valid
     //        statistics whatever is the table type
     if ( isset( $each_table['TABLE_ROWS'] ) ) {
@@ -257,31 +257,31 @@ foreach ( $tables as $keyname => $each_table ) {
                 $unit          =  '';
             }
         }
-        
+
         if (PMA_MYSQL_INT_VERSION >= 40100) {
             if ( isset( $each_table['Collation'] ) ) {
-                $collation = '<dfn title="' 
-                    . PMA_getCollationDescr($each_table['Collation']) . '">' 
+                $collation = '<dfn title="'
+                    . PMA_getCollationDescr($each_table['Collation']) . '">'
                     . $each_table['Collation'] . '</dfn>';
             } else {
                 $collation = '---';
             }
         }
-        
+
         if ( $cfg['ShowStats']) {
             if (isset($formated_overhead)) {
-                $overhead = '<a href="tbl_properties_structure.php?' 
-                    . $tbl_url_query . '#showusage">' . $formated_overhead 
+                $overhead = '<a href="tbl_properties_structure.php?'
+                    . $tbl_url_query . '#showusage">' . $formated_overhead
                     . ' ' . $overhead_unit . '</a>' . "\n";
                 unset($formated_overhead);
-                $overhead_check .= 
+                $overhead_check .=
                     "document.getElementById('checkbox_tbl_$i').checked = true;";
             } else {
                 $overhead = '-';
             }
         } // end if
     }
-    
+
     if ( $num_columns > 0 && $num_tables > $num_columns
       && ( ($row_count % $num_columns) == 0 )) {
         $row_count = 1;
@@ -313,7 +313,7 @@ foreach ( $tables as $keyname => $each_table ) {
             <?php echo $titles['Insert']; ?></a></td>
     <td align="center"><?php echo $empty_table; ?></td>
     <td align="center">
-        <a href="sql.php?<?php echo $tbl_url_query; 
+        <a href="sql.php?<?php echo $tbl_url_query;
             ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php
             echo urlencode($drop_query); ?>&amp;zero_rows=<?php
             echo urlencode($drop_message); ?>"
@@ -355,7 +355,7 @@ foreach ( $tables as $keyname => $each_table ) {
 // Show Summary
 if ($cfg['ShowStats']) {
     list($sum_formated, $unit) = PMA_formatByteDown($sum_size, 3, 1);
-    list($overhead_formated, $overhead_unit) = 
+    list($overhead_formated, $overhead_unit) =
         PMA_formatByteDown($overhead_size, 3, 1);
 }
 ?>
@@ -374,8 +374,8 @@ if (!($cfg['PropertiesNumColumns'] > 1)) {
     echo '                <th align="center">--</th>' . "\n";
     if ( ! empty( $db_collation ) ) {
         echo '                <th align="center">' . "\n"
-           . '                    <dfn title="' 
-           . PMA_getCollationDescr($db_collation) . '">' . $db_collation 
+           . '                    <dfn title="'
+           . PMA_getCollationDescr($db_collation) . '">' . $db_collation
            . '</dfn>' . "\n"
            . '                </th>' . "\n";
     }
@@ -391,12 +391,13 @@ if ($cfg['ShowStats']) {
 </tr>
 </tbody>
 </table>
-<div class="clearfloat">&nbsp;</div>
+
+<div class="clearfloat">
 <?php
 // Check all tables url
 $checkall_url = 'db_details_structure.php?' . PMA_generate_common_url($db);
 ?>
-<img src="<?php echo $pmaThemeImage .'arrow_'.$text_dir.'.png'; ?>"
+<img class="selectallarrow" src="<?php echo $pmaThemeImage .'arrow_'.$text_dir.'.png'; ?>"
     width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
 <a href="<?php echo $checkall_url; ?>&amp;checkall=1"
     onclick="setCheckboxes('tablesForm', true); return false;">
@@ -443,6 +444,7 @@ echo '            <option value="' . $strAnalyzeTable . '" >'
     <input type="submit" value="<?php echo $strGo; ?>" />
 </noscript>
 <?php echo implode( "\n", $hidden_fields ) . "\n"; ?>
+</div>
 </form>
 <hr />
 
@@ -456,14 +458,14 @@ echo '            <option value="' . $strAnalyzeTable . '" >'
 echo '<p>';
 echo '<a href="db_printview.php?' . $url_query . '">';
 if ( $cfg['PropertiesIconic'] ) {
-     echo '<img class="icon" src="' . $pmaThemeImage 
+     echo '<img class="icon" src="' . $pmaThemeImage
         .'b_print.png" width="16" height="16" alt="" />';
 }
 echo $strPrintView . '</a> ';
 
 echo '<a href="./db_datadict.php?' . $url_query . '">';
 if($cfg['PropertiesIconic']){
-    echo '<img class="icon" src="' . $pmaThemeImage 
+    echo '<img class="icon" src="' . $pmaThemeImage
         .'b_tblanalyse.png" width="16" height="16" alt="" />';
 }
 echo $strDataDict . '</a>';
