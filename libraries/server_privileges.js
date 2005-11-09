@@ -99,19 +99,16 @@ function setCheckboxes(the_form, the_checkboxes, do_check)
  *
  * @return  boolean  always true
  */
-function suggestPassword(the_form)
-{
-  var pwchars = "abcdefhjmnpqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWYXZ.,:";
-  var passwordlength = 16;    // do we want that to be dynamic?  no, keep it simple :)
-  var passwd = '';
+function suggestPassword() {
+    var pwchars = "abcdefhjmnpqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWYXZ.,:";
+    var passwordlength = 16;    // do we want that to be dynamic?  no, keep it simple :)
+    var passwd = document.getElementById('generated_pw');
+    passwd.value = '';
 
-  for (i=0;i<passwordlength;i++)
-  {
-    passwd+=pwchars.charAt(Math.floor(Math.random()*pwchars.length))
-  }
-
-  the_form.generated_pw.value = passwd;
-  return true;
+    for ( i = 0; i < passwordlength; i++ ) {
+        passwd.value += pwchars.charAt( Math.floor( Math.random() * pwchars.length ) )
+    }
+    return passwd.value;
 }
 
 
@@ -122,10 +119,9 @@ function suggestPassword(the_form)
  *
  * @return  boolean  always true
  */
-function suggestPasswordCopy(the_form) 
-{
-  the_form.pma_pw.value = the_form.generated_pw.value;
-  the_form.pma_pw2.value = the_form.generated_pw.value;
-  return true;
+function suggestPasswordCopy() {
+    document.getElementById('text_pma_pw').value = document.getElementById('generated_pw').value;
+    document.getElementById('text_pma_pw2').value = document.getElementById('generated_pw').value;
+    return true;
 }
 

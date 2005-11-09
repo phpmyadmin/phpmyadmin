@@ -508,21 +508,21 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
                . $spaces . '        <p><small><i>' . $GLOBALS['strZeroRemovesTheLimit'] . '</i></small></p>' . "\n"
                . $spaces . '        <div class="item">' . "\n"
                . $spaces . '            <label for="text_max_questions"><tt><dfn title="' . $GLOBALS['strPrivDescMaxQuestions'] . '">MAX QUERIES PER HOUR</dfn></tt></label>' . "\n"
-               . $spaces . '            <input type="text" class="textfield" name="max_questions" id="text_max_questions" value="' . $row['max_questions'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxQuestions'] . '" />' . "\n"
+               . $spaces . '            <input type="text" name="max_questions" id="text_max_questions" value="' . $row['max_questions'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxQuestions'] . '" />' . "\n"
                . $spaces . '        </div>' . "\n"
                . $spaces . '        <div class="item">' . "\n"
                . $spaces . '            <label for="text_max_updates"><tt><dfn title="' . $GLOBALS['strPrivDescMaxUpdates'] . '">MAX UPDATES PER HOUR</dfn></tt></label>' . "\n"
-               . $spaces . '            <input type="text" class="textfield" name="max_updates" id="text_max_updates" value="' . $row['max_updates'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUpdates'] . '" />' . "\n"
+               . $spaces . '            <input type="text" name="max_updates" id="text_max_updates" value="' . $row['max_updates'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUpdates'] . '" />' . "\n"
                . $spaces . '        </div>' . "\n"
                . $spaces . '        <div class="item">' . "\n"
                . $spaces . '            <label for="text_max_connections"><tt><dfn title="' . $GLOBALS['strPrivDescMaxConnections'] . '">MAX CONNECTIONS PER HOUR</dfn></tt></label>' . "\n"
-               . $spaces . '            <input type="text" class="textfield" name="max_connections" id="text_max_connections" value="' . $row['max_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxConnections'] . '" />' . "\n"
+               . $spaces . '            <input type="text" name="max_connections" id="text_max_connections" value="' . $row['max_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxConnections'] . '" />' . "\n"
                . $spaces . '        </div>' . "\n";
 
             if (PMA_MYSQL_INT_VERSION >= 50003) {
                 echo $spaces . '        <div class="item">' . "\n"
                    . $spaces . '            <label for="text_max_user_connections"><tt><dfn title="' . $GLOBALS['strPrivDescMaxUserConnections'] . '">MAX USER_CONNECTIONS</dfn></tt></label>' . "\n"
-                   . $spaces . '            <input type="text" class="textfield" name="max_user_connections" id="text_max_user_connections" value="' . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUserConnections'] . '" />' . "\n"
+                   . $spaces . '            <input type="text" name="max_user_connections" id="text_max_user_connections" value="' . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . $GLOBALS['strPrivDescMaxUserConnections'] . '" />' . "\n"
                    . $spaces . '        </div>' . "\n";
             }
             echo $spaces . '    </fieldset>' . "\n";
@@ -586,7 +586,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0 ) {
        . $spaces . '        <option value="userdefined"' . ((!isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
        . $spaces . '    </select>' . "\n"
        . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" class="textfield" name="username" maxlength="' . $username_length . '" title="' . $GLOBALS['strUserName'] . '"' . (empty($GLOBALS['username']) ? '' : ' value="' . (isset($GLOBALS['new_username']) ? $GLOBALS['new_username'] : $GLOBALS['username']) . '"') . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
+       . $spaces . '<input type="text" name="username" maxlength="' . $username_length . '" title="' . $GLOBALS['strUserName'] . '"' . (empty($GLOBALS['username']) ? '' : ' value="' . (isset($GLOBALS['new_username']) ? $GLOBALS['new_username'] : $GLOBALS['username']) . '"') . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
        . $spaces . '</div>' . "\n"
        . $spaces . '<div class="item">' . "\n"
        . $spaces . '<label for="select_pred_hostname">' . "\n"
@@ -634,7 +634,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0 ) {
        . $spaces . '        <option value="userdefined"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
        . $spaces . '    </select>' . "\n"
        . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" class="textfield" name="hostname" maxlength="' . $hostname_length . '" value="' . ( isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '' ) . '" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
+       . $spaces . '<input type="text" name="hostname" maxlength="' . $hostname_length . '" value="' . ( isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '' ) . '" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
        . $spaces . '</div>' . "\n"
        . $spaces . '<div class="item">' . "\n"
        . $spaces . '<label for="select_pred_password">' . "\n"
@@ -652,24 +652,24 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0 ) {
        . $spaces . '        <option value="userdefined"' . ( isset( $GLOBALS['username'] ) ? '' : ' selected="selected"') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
        . $spaces . '    </select>' . "\n"
        . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="password" name="pma_pw" class="textfield" title="' . $GLOBALS['strPassword'] . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
+       . $spaces . '<input type="password" id="text_pma_pw" name="pma_pw" title="' . $GLOBALS['strPassword'] . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
        . $spaces . '</div>' . "\n"
        . $spaces . '<div class="item">' . "\n"
        . $spaces . '<label for="text_pma_pw2">' . "\n"
        . $spaces . '    ' . $GLOBALS['strReType'] . ':' . "\n"
        . $spaces . '</label>' . "\n"
        . $spaces . '<span class="options">&nbsp;</span>' . "\n"
-       . $spaces . '<input type="password" name="pma_pw2" id="text_pma_pw2" class="textfield" title="' . $GLOBALS['strReType'] . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
+       . $spaces . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="' . $GLOBALS['strReType'] . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
        . $spaces . '</div>' . "\n"
        . $spaces . '<div class="item">' . "\n"
        . $spaces . '<label for="button_generate_password">' . "\n"
        . $spaces . '    ' . $GLOBALS['strGeneratePassword'] . ':' . "\n"
        . $spaces . '</label>' . "\n"
        . $spaces . '<span class="options">' . "\n"
-       . $spaces . '    <input type="button" id="button_generate_password" value="' . $GLOBALS['strGenerate'] . '" onclick="suggestPassword(this.form, \'generated_pw\')" />' . "\n"
+       . $spaces . '    <input type="button" id="button_generate_password" value="' . $GLOBALS['strGenerate'] . '" onclick="suggestPassword()" />' . "\n"
        . $spaces . '    <input type="button" id="button_copy_password" value="' . $GLOBALS['strCopy'] . '" onclick="suggestPasswordCopy(this.form)" />' . "\n"
        . $spaces . '</span>' . "\n"
-       . $spaces . '<input type="text" name="generated_pw" id="generated_pw" class="textfield" />' . "\n"
+       . $spaces . '<input type="text" name="generated_pw" id="generated_pw" />' . "\n"
        . $spaces . '</div>' . "\n"
        . $spaces . '</fieldset>' . "\n";
 } // end of the 'PMA_displayUserAndHostFields()' function
@@ -1736,7 +1736,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                     }
                     echo '    </select>' . "\n";
                 }
-                echo '    <input type="text" id="text_dbname" name="dbname" class="textfield" />' . "\n"
+                echo '    <input type="text" id="text_dbname" name="dbname" />' . "\n"
                     .PMA_showHint( $GLOBALS['strEscapeWildcards'] );
             } else {
                 echo '    <input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '"/>' . "\n"
@@ -1761,7 +1761,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                 } else {
                     unset($res);
                 }
-                echo '    <input type="text" id="text_tablename" name="tablename" class="textfield" />' . "\n";
+                echo '    <input type="text" id="text_tablename" name="tablename" />' . "\n";
             }
             echo '</fieldset>' . "\n";
             echo '<fieldset class="tblFooters">' . "\n"
@@ -1785,12 +1785,12 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                . '    <tr class="even">' . "\n"
                . '        <td><input type="radio" name="nopass" value="0" id="radio_nopass_0" onclick="document.getElementById(\'pw_pma_pw\').focus();" /></td>' . "\n"
                . '        <td><label for="radio_nopass_0">' . $GLOBALS['strPassword'] . ':</label></td>' . "\n"
-               . '        <td><input type="password" name="pma_pw" id="pw_pma_pw" class="textfield" onchange="nopass[1].checked = true;" /></td>' . "\n"
+               . '        <td><input type="password" name="pma_pw" id="pw_pma_pw" onchange="nopass[1].checked = true;" /></td>' . "\n"
                . '    </tr>' . "\n"
                . '    <tr class="odd">' . "\n"
                . '        <td></td>' . "\n"
                . '        <td><label for="pw_pma_pw2">' . $GLOBALS['strReType'] . ':</label></td>' . "\n"
-               . '        <td><input type="password" name="pma_pw2" id="pw_pma_pw2" class="textfield" onchange="nopass[1].checked = true;" /></td>' . "\n"
+               . '        <td><input type="password" name="pma_pw2" id="pw_pma_pw2" onchange="nopass[1].checked = true;" /></td>' . "\n"
                . '    </tr>' . "\n"
                . '    </table>' . "\n"
                . '</fieldset>' . "\n"
