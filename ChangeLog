@@ -12,6 +12,8 @@ $Source$
     * db_details_structure.php:
       - fixed display issues
       - display default engine in footer
+    * libraries/common.lib.php: added PMA_getDbLink
+    * libraries/display_create_table.lib.php: use fieldset
 
 2005-11-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * Documentation.html, browse_foreigners.php, error.php,
