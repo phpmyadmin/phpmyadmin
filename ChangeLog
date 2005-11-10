@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/session.inc.php, Documentation.html: bug #1352479, warn
+      if PHP does not support session
+
 2005-11-10 Michal Čihař  <michal@cihar.com>
     * scripts/create-release.sh: = is correct for comparsion in shell.
 

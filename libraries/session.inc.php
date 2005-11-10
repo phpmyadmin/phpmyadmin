@@ -14,6 +14,27 @@
  * @uses    PHP_VERSION
  */
 
+// verify if PHP supports session, die if it does not
+
+if (!@function_exists('session_name')) {
+
+    $cfg = array('DefaultLang'           => 'en-iso-8859-1',
+                    'AllowAnywhereRecoding' => FALSE);
+    // Loads the language file
+    require_once('./libraries/select_lang.lib.php');
+    // Displays the error message
+    // (do not use &amp; for parameters sent by header)
+    header( 'Location: error.php'
+            . '?lang='  . urlencode( $available_languages[$lang][2] )
+            . '&char='  . urlencode( $charset )
+            . '&dir='   . urlencode( $text_dir )
+            . '&type='  . urlencode( $strError )
+            . '&error=' . urlencode(
+                sprintf($strCantLoad, 'session'))
+             );
+    exit();
+}
+
 // disable starting of sessions before all settings are done
 ini_set( 'session.auto_start', false );
 
