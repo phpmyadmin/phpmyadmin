@@ -1665,7 +1665,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                     .' AND ' . PMA_convert_using('`Db`')
                     .' LIKE ' . PMA_convert_using($dbname, 'quoted')
                     .' ORDER BY `Table_name` ASC;';
-                $db_rights = PMA_DBI_fetch_result( $sql_query, 'Db', NULL, NULL, PMA_DBI_QUERY_STORE );
+                $db_rights = PMA_DBI_fetch_result($sql_query);
             }
 
 
@@ -1688,7 +1688,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                        . '        </tt></td>' . "\n"
                        . '    <td>' . (((empty($dbname) && $row['Grant_priv'] == 'Y') || (!empty($dbname) && in_array('Grant', explode(',', $row['Table_priv'])))) ? $GLOBALS['strYes'] : $GLOBALS['strNo']) . '</td>' . "\n"
                        . '    <td>';
-                    if ((isset($row['Table_priv']) && $row['Table_priv']) || (isset($row['Column_priv']) && $row['Column_priv'])) {
+                    if ($row['Table_priv'] || $row['Column_priv']) {
                         echo $GLOBALS['strYes'];
                     } else {
                         echo $GLOBALS['strNo'];
@@ -1701,7 +1701,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                         urlencode( empty($dbname) ? '' : $row['Table_name'] ) );
                     echo '</td>' . "\n"
                        . '    <td>';
-                    if ( (isset($row['can_delete']) && $row['can_delete']) || (isset($row['Table_name']) && $row['Table_name'])) {
+                    if ($row['can_delete'] || $row['Table_name']) {
                         printf( $link_revoke, urlencode( $username ),
                             urlencode( $hostname ),
                             urlencode( empty( $dbname ) ? $row['Db'] : $dbname ),
