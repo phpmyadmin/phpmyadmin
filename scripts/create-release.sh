@@ -6,7 +6,7 @@
 # - no longer create a config.default.php from config.inc.php
 #
 # 2005-06-12, lem9@users.sourceforge.net
-# - cvs server name changed to cvs, because cvs1 no longer works from 
+# - cvs server name changed to cvs, because cvs1 no longer works from
 #   shell.sourceforge.net
 #
 # 2003-08-23, nijel@users.sourceforge.net:
@@ -69,7 +69,7 @@
 
 cvsserver=${cvsserver:-cvs}
 
-if [ $# == 0 ]
+if [ $# = 0 ]
 then
   echo "Usage: create-release.sh version from_branch"
   echo "  (no spaces allowed!)"
@@ -78,15 +78,15 @@ then
   exit 65
 fi
 
-if [ "$1" == "snapshot" ]
+if [ "$1" = "snapshot" ]
 then
   branch=''
-elif [ "$#" == 2 ]
+elif [ "$#" = 2 ]
 then
   branch="-r $2"
 fi
 
-if [ $1 == "snapshot" ]
+if [ $1 = "snapshot" ]
 then
   mode="snapshot"
   date_snapshot=`date +%Y%m%d-%H%M%S`
@@ -131,7 +131,7 @@ END
  fi
 fi
 
-if [ "$mode" == "snapshot" -a "$2" != "local" ] ; then
+if [ "$mode" = "snapshot" -a "$2" != "local" ] ; then
 # Goto project dir
     cd /home/groups/p/ph/phpmyadmin/htdocs
 
@@ -265,7 +265,7 @@ END
 
 fi
 
-if [ "$mode" == "snapshot" -a "$2" != "local" ] ; then
+if [ "$mode" = "snapshot" -a "$2" != "local" ] ; then
     cd ..
     find cvs -type d -print0 | xargs -0 chmod 775
     find cvs -type f -print0 | xargs -0 chmod 664
