@@ -1425,6 +1425,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                     $index_checkbox++;
                     ksort( $user );
                     foreach ( $user as $host ) {
+                        $index_checkbox++;
                         echo '        <tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n"
                            . '            <td><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_' . $index_checkbox . '" value="' . str_replace( chr(27), '&#27;', htmlentities($host['User'] . $user_host_separator . $host['Host'] ) ) . '"' . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"') . ' /></td>' . "\n"
                            . '            <td><label for="checkbox_sel_users_' . $index_checkbox . '">' . (empty($host['User']) ? '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>' : htmlspecialchars($host['User'])) . '</label></td>' . "\n"
