@@ -1687,7 +1687,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                        . '        </tt></td>' . "\n"
                        . '    <td>' . (((empty($dbname) && $row['Grant_priv'] == 'Y') || (!empty($dbname) && in_array('Grant', explode(',', $row['Table_priv'])))) ? $GLOBALS['strYes'] : $GLOBALS['strNo']) . '</td>' . "\n"
                        . '    <td>';
-                    if ( $row['Table_priv'] || $row['Column_priv'] ) {
+                    if ((isset($row['Table_priv']) && $row['Table_priv']) || (isset($row['Column_priv']) && $row['Column_priv'])) {
                         echo $GLOBALS['strYes'];
                     } else {
                         echo $GLOBALS['strNo'];
@@ -1700,7 +1700,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                         urlencode( empty($dbname) ? '' : $row['Table_name'] ) );
                     echo '</td>' . "\n"
                        . '    <td>';
-                    if ( $row['can_delete'] || $row['Table_name'] ) {
+                    if ( (isset($row['can_delete']) && $row['can_delete']) || (isset($row['Table_name']) && $row['Table_name'])) {
                         printf( $link_revoke, urlencode( $username ),
                             urlencode( $hostname ),
                             urlencode( empty( $dbname ) ? $row['Db'] : $dbname ),

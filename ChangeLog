@@ -9,6 +9,7 @@ $Source$
     * libraries/session.inc.php, Documentation.html: bug #1352479, warn
       if PHP does not support session
     * server_privileges.php: bug #1353435, selecting users to drop is broken
+      and bug #1353437, undefined index while editing a user
 
 2005-11-10 Michal Čihař  <michal@cihar.com>
     * scripts/create-release.sh: = is correct for comparsion in shell.
