@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
+
 2005-11-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php, Documentation.html: bug #1352479, warn
       if PHP does not support session
