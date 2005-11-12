@@ -7,6 +7,7 @@ $Source$
 
 2005-11-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
+    * lang/finnish: update, thanks to Jouni Kahkonen
 
 2005-11-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/session.inc.php, Documentation.html: bug #1352479, warn
