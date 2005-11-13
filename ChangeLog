@@ -19,6 +19,7 @@ $Source$
       - fixed row selection
       - make use of javascript:un/markAllRows()
       - adapted layout like db, table and row lists
+    * lang/german: fixed translation
 
 2005-11-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
