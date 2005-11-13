@@ -12,6 +12,7 @@ $Source$
       - rewrote setCheckboxes()
       libraries/server_privilegs.js
       - removed setCheckboxes()
+      header.inc.php: include functions.js for server_privilegs.php
 
 2005-11-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
