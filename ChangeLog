@@ -7,9 +7,10 @@ $Source$
 
 2005-11-13 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.default.php, main.php, server_links.inc.php,
-    server_variables.php, server_status.php: Drop $cfg['ShowMysqlInfo'] and
-    $cfg['ShowMysqlVars'] and show info in all cases. Drop $is_superuser
-    condition from showing php info.
+      server_variables.php, server_status.php: Drop $cfg['ShowMysqlInfo'] and
+      $cfg['ShowMysqlVars'] and show info in all cases. Drop $is_superuser
+      condition from showing php info.
+    * lang/czech: Small improvements.
 
 2005-11-13 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_details_structure.php: wrong js function call
