@@ -13,6 +13,12 @@ $Source$
       libraries/server_privilegs.js
       - removed setCheckboxes()
       header.inc.php: include functions.js for server_privilegs.php
+      server_privilegs.php
+      - bug #1353437 Table/Column privileges brokeness new in HEAD
+      - fixed proper display fo yes/no for column/table specific rights
+      - fixed row selection
+      - make use of javascript:un/markAllRows()
+      - adapted layout like db, table and row lists
 
 2005-11-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
