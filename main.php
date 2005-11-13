@@ -149,20 +149,13 @@ if ( $server > 0 ) {
     $common_url_query =  PMA_generate_common_url();
 
     if ($is_superuser) {
-        $cfg['ShowMysqlInfo']   = TRUE;
-        $cfg['ShowMysqlVars']   = TRUE;
         $cfg['ShowChgPassword'] = TRUE;
     }
     if ($cfg['Server']['auth_type'] == 'config') {
         $cfg['ShowChgPassword'] = FALSE;
     }
 
-    // loic1: Displays the MySQL column only if at least one feature has to be
-    //        displayed
-    if ($is_superuser || $is_create_db_priv || $is_process_priv || $is_reload_priv
-        || $cfg['ShowMysqlInfo'] || $cfg['ShowMysqlVars'] || $cfg['ShowChgPassword']
-        || $cfg['Server']['auth_type'] != 'config') {
-        ?> 
+    ?> 
 <table cellpadding="3" cellspacing="0">
 <tr><th class="tblHeaders" colspan="2" xml:lang="en" dir="ltr">MySQL</th></tr>
 <tr>
@@ -173,9 +166,6 @@ if ( $server > 0 ) {
         <?php require('./libraries/display_create_database.lib.php'); ?> 
     </td>
 </tr>
-        <?php
-        if ($cfg['ShowMysqlInfo']) {
-            ?> 
 <tr>
             <?php
             echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_status.php?'.$common_url_query.'">','s_status.png',$strMySQLShowStatus,'</a>') : $str_normal_list);
@@ -185,10 +175,6 @@ if ( $server > 0 ) {
         </a>
     </td>
 </tr>
-            <?php
-        } // end if
-        if ($cfg['ShowMysqlVars']) {
-            ?> 
 <tr>        <?php
             echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_variables.php?'.$common_url_query.'">','s_vars.png',$strMySQLShowVars,'</a>') : $str_normal_list);
             ?> 
@@ -197,9 +183,6 @@ if ( $server > 0 ) {
             <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_VARIABLES'); ?> 
     </td>
 </tr>
-            <?php
-        }
-        ?> 
 <tr>    <?php
         echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_processlist.php?'.$common_url_query.'">','s_process.png',$strMySQLShowProcess,'</a>') : $str_normal_list);
         ?> 
@@ -327,12 +310,9 @@ if ( $server > 0 ) {
 </tr>
             <?php
         } // end if
-        ?> 
-</table>
-        <?php
-    } // end if
 } // end of if ($server > 0)
 ?> 
+</table>
 </td>
 <td width="20">&nbsp;</td>
 <td valign="top">
@@ -493,7 +473,7 @@ if (isset($available_themes_choices) && $available_themes_choices > 1) {
 </tr>
 
 <?php
-if ($is_superuser || $cfg['ShowPhpInfo']) {
+if ($cfg['ShowPhpInfo']) {
     ?> 
     <tr><?php
         echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="phpinfo.php?' . PMA_generate_common_url() . '" target="_blank">','php_sym.png',$strShowPHPInfo,'</a>') : $str_normal_list);

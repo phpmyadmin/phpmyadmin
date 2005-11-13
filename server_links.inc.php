@@ -22,15 +22,6 @@ if (!isset($sub_part)) {
 
 
 /**
- * Prepares links
- */
-if ($is_superuser) {
-    $cfg['ShowMysqlInfo'] = TRUE;
-    $cfg['ShowMysqlVars'] = TRUE;
-}
-
-
-/**
  * Displays tab links
  */
 $tabs = array();
@@ -43,16 +34,14 @@ $tabs['sql']['icon'] = 'b_sql.png';
 $tabs['sql']['link'] = 'server_sql.php';
 $tabs['sql']['text'] = $strSQL;
 
-if ($cfg['ShowMysqlInfo']) {
-    $tabs['status']['icon'] = 's_status.png';
-    $tabs['status']['link'] = 'server_status.php';
-    $tabs['status']['text'] = $strStatus;
-}
-if ($cfg['ShowMysqlVars']) {
-    $tabs['vars']['icon'] = 's_vars.png';
-    $tabs['vars']['link'] = 'server_variables.php';
-    $tabs['vars']['text'] = $strServerTabVariables;
-}
+$tabs['status']['icon'] = 's_status.png';
+$tabs['status']['link'] = 'server_status.php';
+$tabs['status']['text'] = $strStatus;
+
+$tabs['vars']['icon'] = 's_vars.png';
+$tabs['vars']['link'] = 'server_variables.php';
+$tabs['vars']['text'] = $strServerTabVariables;
+
 if (PMA_MYSQL_INT_VERSION >= 40100) {
     $tabs['charset']['icon'] = 's_asci.png';
     $tabs['charset']['link'] = 'server_collations.php';

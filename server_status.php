@@ -33,16 +33,6 @@ echo '<h2>' . "\n"
 
 
 /**
- * Checks if the user is allowed to do what he tries to...
- */
-if (!$is_superuser && !$cfg['ShowMysqlInfo']) {
-    echo $strNoPrivileges;
-    require_once('./footer.inc.php');
-    exit;
-}
-
-
-/**
  * flush status variables if requested
  */
 if ( isset( $_REQUEST['flush'] ) ) {
