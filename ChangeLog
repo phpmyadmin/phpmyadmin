@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-13 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * db_details_structure.php: wrong js function call
+
 2005-11-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
     * lang/finnish: update, thanks to Jouni Kahkonen

@@ -407,7 +407,7 @@ $checkall_url = 'db_details_structure.php?' . PMA_generate_common_url($db);
     <?php echo $strUncheckAll; ?></a>
 <?php if ($overhead_check != '') { ?>
 /
-<a href="#" onclick="setCheckboxes('tablesForm', false);
+<a href="#" onclick="unMarkAllRows('tablesForm');
     <?php echo $overhead_check; ?> return false;">
     <?php echo $strCheckOverhead; ?></a>
 <?php } ?>
