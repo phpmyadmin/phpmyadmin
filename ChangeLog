@@ -7,6 +7,9 @@ $Source$
 
 2005-11-13 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_details_structure.php: wrong js function call
+    * libraries/functions.js
+      - removed deprecated function setCheckboxesRange()
+      - rewrote setCheckboxes()
 
 2005-11-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.

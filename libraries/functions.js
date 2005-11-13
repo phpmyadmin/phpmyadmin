@@ -853,61 +853,24 @@ function setVerticalPointer(theRow, theColNum, theAction, theDefaultColor1, theD
  } // end of the 'setVerticalPointer()' function
 
 /**
- * Checks/unchecks all tables
+ * Checks/unchecks all checkbox in given conainer (f.e. a form, fieldset or div)
  *
- * @param   string   the form name
- * @param   boolean  whether to check or to uncheck the element
- *
+ * @param   string   container_id  the container id
+ * @param   boolean  state         new value for checkbox (true or false)
  * @return  boolean  always true
  */
-function setCheckboxes(the_form, do_check)
-{
-    var elts      = (typeof(document.forms[the_form].elements['selected_db[]']) != 'undefined')
-                  ? document.forms[the_form].elements['selected_db[]']
-                  : (typeof(document.forms[the_form].elements['selected_tbl[]']) != 'undefined')
-          ? document.forms[the_form].elements['selected_tbl[]']
-          : document.forms[the_form].elements['selected_fld[]'];
-    var elts_cnt  = (typeof(elts.length) != 'undefined')
-                  ? elts.length
-                  : 0;
+function setCheckboxes( container_id, state ) {
+	var checkboxes = document.getElementById(container_id).getElementsByTagName('input');
 
-    if (elts_cnt) {
-        for (var i = 0; i < elts_cnt; i++) {
-            elts[i].checked = do_check;
-        } // end for
-    } else {
-        elts.checked        = do_check;
-    } // end if... else
+	for ( var i = 0; i < checkboxes.length; i++ ) {
+        if ( checkboxes[i].type == 'checkbox' ) {
+            checkboxes[i].checked = state;
+	    }
+	}
 
-    return true;
+	return true;
 } // end of the 'setCheckboxes()' function
 
-/**
- * Checks/unchecks all rows
- *
- * @param   string   the form name
- * @param   boolean  whether to check or to uncheck the element
- * @param   string   basename of the element
- * @param   integer  min element count
- * @param   integer  max element count
- *
- * @return  boolean  always true
- */
-// modified 2004-05-08 by Michael Keck <mail_at_michaelkeck_dot_de>
-// - set the other checkboxes (if available) too
-function setCheckboxesRange(the_form, do_check, basename, min, max)
-{
-    for (var i = min; i < max; i++) {
-        if (typeof(document.forms[the_form].elements[basename + i]) != 'undefined') {
-            document.forms[the_form].elements[basename + i].checked = do_check;
-        }
-        if (typeof(document.forms[the_form].elements[basename + i + 'r']) != 'undefined') {
-            document.forms[the_form].elements[basename + i + 'r'].checked = do_check;
-        }
-    }
-
-    return true;
-} // end of the 'setCheckboxesRange()' function
 
 // added 2004-05-08 by Michael Keck <mail_at_michaelkeck_dot_de>
 //   copy the checked from left to right or from right to left
