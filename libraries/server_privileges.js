@@ -59,39 +59,6 @@ function checkAddUser(the_form)
 
 
 /**
- * Checks/unchecks all checkboxes
- *
- * @param   string   the form name
- * @param   atring   the name of the array with the checlboxes
- * @param   boolean  whether to check or to uncheck the element
- *
- * @return  boolean  always true
- */
-function setCheckboxes(the_form, the_checkboxes, do_check)
-{
-    var elts      = (the_checkboxes != '')
-                  ? document.forms[the_form].elements[the_checkboxes + '[]']
-                  : document.forms[the_form].elements;
-    var elts_cnt  = (typeof(elts.length) != 'undefined')
-                  ? elts.length
-                  : 0;
-
-    if (elts_cnt) {
-        for (var i = 0; i < elts_cnt; i++) {
-            elts[i].checked = do_check;
-        } // end for
-    } else {
-        elts.checked        = do_check;
-    } // end if... else
-
-    return true;
-} // end of the 'setCheckboxes()' function
-
-
-
-
-
-/**
  * Generate a new password, which may then be copied to the form
  * with suggestPasswordCopy().
  *
@@ -124,4 +91,3 @@ function suggestPasswordCopy() {
     document.getElementById('text_pma_pw2').value = document.getElementById('generated_pw').value;
     return true;
 }
-

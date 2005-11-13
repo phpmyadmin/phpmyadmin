@@ -10,6 +10,8 @@ $Source$
     * libraries/functions.js
       - removed deprecated function setCheckboxesRange()
       - rewrote setCheckboxes()
+      libraries/server_privilegs.js
+      - removed setCheckboxes()
 
 2005-11-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/bulgarian: Update, thanks to Stanislav Yordanov - stanprog.
