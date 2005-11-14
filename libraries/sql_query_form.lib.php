@@ -251,12 +251,17 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
         // $strDBLink = htmlspecialchars( $db );
         $legend = sprintf( $GLOBALS['strRunSQLQuery'], $strDBLink );
         if ( empty( $query ) && count( $fields_list ) ) {
+            $field_names = array();
+            foreach ( $fields_list as $field ) {
+                $field_names[] = PMA_backquote($field['Field']);
+            }
             $query =
                 str_replace( '%d', PMA_backquote( $db ),
                     str_replace( '%t', PMA_backquote( $table ),
                         str_replace( '%f',
-                            implode( ', ', PMA_backquote( $fields_list ) ),
+                            implode( ', ', $field_names ),
                             $GLOBALS['cfg']['DefaultQueryTable'] ) ) );
+            unset($field_names);
         }
     }
     $legend .= ': ' . PMA_showMySQLDocu( 'SQL-Syntax', 'SELECT' );
