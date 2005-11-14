@@ -43,10 +43,10 @@ function textTooltip(theText) {
         layerNS4.write(theText);
         layerNS4.close();
     }
-}    
+}
 
 /**
- * @var integer 
+ * @var integer
  */
 var ttTimerID = 0;
 
@@ -127,7 +127,7 @@ function moveTooltip(posX, posY) {
  *
  * @param    string    theText    tooltip content
  */
-function pmaTooltip(theText) {
+function pmaTooltip( theText ) {
     // reference to TooltipContainer
     if ( null == myTooltipContainer ) {
         if (ttNS4) {
@@ -137,10 +137,14 @@ function pmaTooltip(theText) {
         } else if (ttDOM) {
             myTooltipContainer = document.getElementById('TooltipContainer');
         } else {
-            return false;
+            return;
+        }
+
+        if ( typeof( myTooltipContainer ) == 'undefined' ) {
+            return;
         }
     }
-    
+
     var plusX=0, plusY=0, docX=0; docY=0;
     var divHeight = myTooltipContainer.clientHeight;
     var divWidth  = myTooltipContainer.clientWidth;
@@ -160,15 +164,15 @@ function pmaTooltip(theText) {
         docX = document.body.clientWidth;
         docY = document.body.clientHeight;
     }
-    
+
     ttXpos = ttXpos + plusX;
     ttYpos = ttYpos + plusY;
-    
+
     if ((ttXpos + divWidth) > docX)
         ttXpos = ttXpos - (divWidth + (ttXadd * 2));
     if ((ttYpos + divHeight) > docY)
         ttYpos = ttYpos - (divHeight + (ttYadd * 2));
-    
+
     textTooltip(theText);
     moveTooltip((ttXpos + ttXadd), (ttYpos + ttYadd));
     holdTooltip();

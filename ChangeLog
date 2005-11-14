@@ -8,6 +8,7 @@ $Source$
 2005-11-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/*/css/theme_right.css.php, css/phpmyadmin.css.php:
       bug #1342683 Wrong URL to error.ico
+    * libraries/tooltip.js: no return value, additional check
 
 2005-11-13 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.default.php, main.php, server_links.inc.php,
