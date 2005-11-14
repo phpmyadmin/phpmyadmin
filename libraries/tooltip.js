@@ -145,7 +145,7 @@ function pmaTooltip( theText ) {
         }
     }
 
-    var plusX=0, plusY=0, docX=0; docY=0;
+    var plusX=0, plusY=0, docX=0, docY=0;
     var divHeight = myTooltipContainer.clientHeight;
     var divWidth  = myTooltipContainer.clientWidth;
     if (navigator.appName.indexOf("Explorer")!=-1) {
