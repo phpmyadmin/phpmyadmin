@@ -17,6 +17,11 @@ $Source$
       - undefined variable docY
     * libraries/left_header.inc.php
       - added class icon
+    * display_tbl.lib.php, libraries/display_tbl_links.lib.php:
+      - added class icon to images
+      - fixed select all rows
+      - removed arrow_ltr/rtl.png for vertical display
+      - cleaned up php code and html output
 
 2005-11-13 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.default.php, main.php, server_links.inc.php,
