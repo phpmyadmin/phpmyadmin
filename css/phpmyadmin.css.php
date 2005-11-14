@@ -365,7 +365,7 @@ a.tab:hover, .tabactive {
 
 /* disabled drop/empty tabs */
 span.tab, span.tabcaution {
-    cursor: url(themes/original/img/error.ico), default;
+    cursor: url(themes/original/img/error.ico), url(../themes/original/img/error.ico), default;
 }
 <?php } ?>
 /* end topmenu */
@@ -476,8 +476,8 @@ div#serverstatus table .tblFooters a:after {
 /* end serverstatus */
 
 
-img.lightbulb { 
-    cursor: pointer; 
+img.lightbulb {
+    cursor: pointer;
 }
 <?php
 

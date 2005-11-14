@@ -68,7 +68,7 @@ th.td{
     color: transparent;
     background-color: transparent;
     background-image: none;
-   
+
 }
 td{
     font-family:      Verdana, Arial, Helvetica, sans-serif;
@@ -248,7 +248,7 @@ a.tab:hover, .tabactive {
 
 /* disabled drop/empty tabs */
 span.tab, span.tabcaution {
-    cursor: url(../themes/original/img/error.ico), default;
+    cursor: url(themes/original/img/error.ico), url(../themes/original/img/error.ico), default;
 }
 <?php } ?>
 /* end topmenu */
@@ -294,7 +294,7 @@ div.warning {
     margin: 0.5em 0 0.5em 0;
     border: 0.1em solid #CC0000;
     width: 90%;
-    
+
     <?php if ( $GLOBALS['cfg']['ErrorIconic'] ) { ?>
     background-image: url(../themes/darkblue_orange/img/s_warn.png);
     background-repeat: no-repeat;
