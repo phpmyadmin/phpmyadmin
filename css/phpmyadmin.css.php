@@ -30,6 +30,11 @@ html {
     padding: 0;
 }
 
+form {
+    margin: 0;
+    padding: 0;
+}
+
 a img {
     border: 0;
 }
@@ -101,10 +106,6 @@ div#leftframelinks a {
 
 div#leftframelinks a:hover {
     background-color: #669999;
-}
-
-div#databaseList form {
-    display: inline;
 }
 
 body#bodyquerywindow {
@@ -260,9 +261,6 @@ fieldset legend {
 
 .nowrap    { white-space: nowrap; }
 div.nowrap { margin: 0; padding: 0; }
-
-li      { padding-bottom: 1em; }
-li form { display: inline; }
 
 /* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
 button { display: inline; }

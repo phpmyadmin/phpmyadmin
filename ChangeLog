@@ -22,6 +22,8 @@ $Source$
       - fixed select all rows
       - removed arrow_ltr/rtl.png for vertical display
       - cleaned up php code and html output
+    * css/phpmyadmin.css.php:
+      - removed space arround form elements
 
 2005-11-13 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.default.php, main.php, server_links.inc.php,
