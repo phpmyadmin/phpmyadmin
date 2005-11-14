@@ -176,7 +176,7 @@ if (empty($GLOBALS['is_header_sent'])) {
             $item .= '%4$s: ';
         }
         $item .= '%3$s</a>' . "\n";
-        
+
         echo '<div id="serverinfo">' . "\n";
         printf( $item,
                 $GLOBALS['cfg']['DefaultTabServer'],
@@ -184,9 +184,9 @@ if (empty($GLOBALS['is_header_sent'])) {
                 htmlspecialchars($server_info),
                 $GLOBALS['strServer'],
                 's_host.png' );
-        
+
         if (!empty($GLOBALS['db'])) {
-            
+
             echo $separator;
             printf( $item,
                     $GLOBALS['cfg']['DefaultTabDatabase'],
@@ -194,7 +194,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                     htmlspecialchars($GLOBALS['db']),
                     $GLOBALS['strDatabase'],
                     's_db.png' );
-            
+
             if (!empty($GLOBALS['table'])) {
                 require_once('./tbl_properties_table_info.php');
 
@@ -226,7 +226,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                  */
                 require_once('./libraries/relation.lib.php');
                 $cfgRelation = PMA_getRelationsParam();
-                
+
                 // Get additional information about tables for tooltip is done
                 // in db_details_db_info.php only once
                 if ($cfgRelation['commwork']) {
@@ -245,7 +245,7 @@ if (empty($GLOBALS['is_header_sent'])) {
             }
         }
         echo '</div>';
-        
+
     }
     /**
      * Sets a variable to remember headers have been sent

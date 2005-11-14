@@ -35,9 +35,8 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
     echo '<a href="main.php?' . $query_url . '"'
         .' title="' . $strHome . '">'
         .( $GLOBALS['cfg']['MainPageIconic']
-            ? '<img src="' . $pmaThemeImage . 'b_home.png" width="16" '
-                .' height="16" alt="' . $strHome . '"'
-                .' align="middle" />'
+            ? '<img class="icon" src="' . $pmaThemeImage . 'b_home.png" width="16" '
+                .' height="16" alt="' . $strHome . '" />'
             : $strHome )
         .'</a>' . "\n";
     // if we have chosen server
@@ -49,7 +48,7 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
                 .urlencode($PHP_AUTH_USER) . '" target="_parent"'
                 .' title="' . $strLogout . '" >'
                 .( $GLOBALS['cfg']['MainPageIconic']
-                    ? '<img src="' . $pmaThemeImage . 's_loggoff.png" '
+                    ? '<img class="icon" src="' . $pmaThemeImage . 's_loggoff.png" '
                      .' width="16" height="16" alt="' . $strLogout . '" />'
                     : $strLogout )
                 .'</a>' . "\n";
@@ -60,7 +59,7 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
             
             if ($GLOBALS['cfg']['MainPageIconic']) {
                 $query_frame_link_text = 
-                    '<img src="' . $pmaThemeImage . 'b_selboard.png"'
+                    '<img class="icon" src="' . $pmaThemeImage . 'b_selboard.png"'
                     .' width="16" height="16" alt="' . $strQueryFrame . '" />';
             } else {
                 echo '<br />' . "\n";
@@ -79,7 +78,7 @@ if ( $GLOBALS['cfg']['LeftDisplayLogo'] ) {
 if ($GLOBALS['cfg']['MainPageIconic']) {
     echo '    <a href="Documentation.html" target="documentation"'
         .' title="' . $strPmaDocumentation . '" >'
-        .'<img src="' . $pmaThemeImage . 'b_docs.png" width="16" height="16"'
+        .'<img class="icon" src="' . $pmaThemeImage . 'b_docs.png" width="16" height="16"'
         .' alt="' . $strPmaDocumentation . '" /></a>' . "\n";
     echo '    ' . PMA_showMySQLDocu('', '', TRUE) . "\n";
 }
