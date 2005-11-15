@@ -10,10 +10,10 @@ if ($is_create_db_priv) {
     // The user is allowed to create a db
     ?>
         <form method="post" action="db_create.php"><b>
-            <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_DATABASE'); ?></b><br />
+            <?php echo '<label for="text_create_db">' . $strCreateNewDatabase . '</label>&nbsp;' . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_DATABASE'); ?></b><br />
             <?php echo PMA_generate_common_hidden_inputs('', '', 5); ?>
             <input type="hidden" name="reload" value="1" />
-            <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" />
+            <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" id="text_create_db"/>
             <?php
     if (PMA_MYSQL_INT_VERSION >= 40101) {
         require_once('./libraries/mysql_charsets.lib.php');

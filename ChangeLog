@@ -12,6 +12,8 @@ $Source$
     * libraries/db_table_exists.lib.php, libraries/header_http.inc.php,
       transformation_wrapper.php: Use define rather than variable for
       conditional paths.
+    * libraries/display_create_database.lib.php: Add label for create database
+      input.
 
 2005-11-14 Michal Čihař  <michal@cihar.com>
     * libraries/sql_query_form.lib.php: Fix %f expansion (bug #1355776).
