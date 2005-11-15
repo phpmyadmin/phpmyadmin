@@ -12,7 +12,7 @@ if (!isset($is_db) || !$is_db) {
         $is_db = @PMA_DBI_select_db($db);
     }
     if (empty($db) || !$is_db) {
-        if (!isset($is_transformation_wrapper)) {
+        if (!defined('IS_TRANSFORMATION_WRAPPER')) {
             PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'main.php?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         }
         exit;
@@ -26,7 +26,7 @@ if (!isset($is_table) || !$is_table) {
     if (empty($table)
         || !($is_table && @PMA_DBI_num_rows($is_table))) {
         $redirect = TRUE;
-        if (!isset($is_transformation_wrapper)) {
+        if (!defined('IS_TRANSFORMATION_WRAPPER')) {
             $redirect = TRUE;
             if (!empty($table)) {
                 PMA_DBI_free_result($is_table);

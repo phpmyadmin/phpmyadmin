@@ -9,6 +9,9 @@ $Source$
     * css/phpmyadmin.css.php: Do not use common header file, as there is
       nothing common at all.
     * libraries/header_http.inc.php: Allways send text/html content type.
+    * libraries/db_table_exists.lib.php, libraries/header_http.inc.php,
+      transformation_wrapper.php: Use define rather than variable for
+      conditional paths.
 
 2005-11-14 Michal Čihař  <michal@cihar.com>
     * libraries/sql_query_form.lib.php: Fix %f expansion (bug #1355776).

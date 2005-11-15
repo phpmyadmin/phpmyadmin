@@ -2,7 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-$is_transformation_wrapper = true;
+define('IS_TRANSFORMATION_WRAPPER', true);
 
 /**
  * Get the variables sent or posted to this script and displays the header
