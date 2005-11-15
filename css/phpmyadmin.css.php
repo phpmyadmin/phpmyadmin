@@ -21,9 +21,9 @@ if ( $GLOBALS['text_dir'] === 'ltr' ) {
 // but only functions used to determine browser heritage.
 PMA_setFontSizes();
 
-$ctype = 'css';
-require_once('./libraries/header_http.inc.php');
-unset( $ctype );
+// Send correct type:
+header('Content-Type: text/css; charset=ISO-8859-1');
+
 ?>
 html {
     margin: 0;
