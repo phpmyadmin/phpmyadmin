@@ -8,6 +8,7 @@ $Source$
 2005-11-15 Michal Čihař  <michal@cihar.com>
     * css/phpmyadmin.css.php: Do not use common header file, as there is
       nothing common at all.
+    * libraries/header_http.inc.php: Allways send text/html content type.
 
 2005-11-14 Michal Čihař  <michal@cihar.com>
     * libraries/sql_query_form.lib.php: Fix %f expansion (bug #1355776).
