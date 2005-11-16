@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_links.php: missing menu tabs
+
 2005-11-16 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added missing themes/darkblue_orange/img/error.ico
     * themes/darkblue_orange/css/theme_right.css.php

@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 // Check parameters
 
 require_once('./libraries/common.lib.php');
@@ -34,7 +33,7 @@ $tabs['sql']['text'] = $strSQL;
 $tabs['search']['icon'] = 'b_search.png';
 $tabs['search']['text'] = $strSearch;
 
-if ( isset($db_is_information_schema) && ! $db_is_information_schema ) {
+if ( ! (isset($db_is_information_schema) && $db_is_information_schema) ) {
     $tabs['insert']['icon'] = 'b_insrow.png';
     $tabs['insert']['link'] = 'tbl_change.php';
     $tabs['insert']['text'] = $strInsert;
@@ -49,7 +48,7 @@ $tabs['export']['text'] = $strExport;
  * Don't display , "Import", "Operations" and "Empty"
  * for views and information_schema
  */
-if ( ! $tbl_is_view && isset($db_is_information_schema) && ! $db_is_information_schema ) {
+if ( ! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema )) {
     $tabs['import']['icon'] = 'b_tblimport.png';
     $tabs['import']['link'] = 'tbl_import.php';
     $tabs['import']['text'] = $strImport;
@@ -76,7 +75,7 @@ if ( ! $tbl_is_view && isset($db_is_information_schema) && ! $db_is_information_
 /**
  * no drop in information_schema
  */
-if ( isset($db_is_information_schema) && ! $db_is_information_schema ) {
+if ( ! (isset($db_is_information_schema) && $db_is_information_schema) ) {
     $tabs['drop']['icon'] = 'b_deltbl.png';
     $tabs['drop']['link'] = 'sql.php';
     $tabs['drop']['text'] = $strDrop;
