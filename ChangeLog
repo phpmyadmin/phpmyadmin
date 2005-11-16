@@ -9,6 +9,8 @@ $Source$
     * added missing themes/darkblue_orange/img/error.ico
     * themes/darkblue_orange/css/theme_right.css.php
       - wrong error.ico
+    * themes/*/img/tbl_error.png, themes/original/img/tbl_*
+      - removed
 
 2005-11-15 Michal Čihař  <michal@cihar.com>
     * css/phpmyadmin.css.php: Do not use common header file, as there is
