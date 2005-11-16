@@ -30,7 +30,7 @@ require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
 
-// initilize some variables
+// initialize some variables
 $_sql_history = array();
 $_input_query_history = array();
 
@@ -114,10 +114,10 @@ function resize() {
 </head>
 
 <body id="bodyquerywindow" <?php echo $onload; ?>
-    bgcolor="<?php echo ($GLOBALS['cfg']['QueryFrameJS'] ? $GLOBALS['cfg']['LeftBgColor'] : $GLOBALS['cfg']['RightBgColor']); ?>">
+    bgcolor="<?php echo $GLOBALS['cfg']['LeftBgColor']; ?>">
 <div id="querywindowcontainer">
 <?php
-if ( $GLOBALS['cfg']['QueryFrameJS'] && !isset($no_js) ) {
+if ( !isset($no_js) ) {
     $querydisplay_tab = (isset($querydisplay_tab) ? $querydisplay_tab : $GLOBALS['cfg']['QueryWindowDefTab']);
 
     $tabs = array();
@@ -164,71 +164,68 @@ if ( true == $GLOBALS['cfg']['PropertiesIconic'] ) {
 }
 
 // Hidden forms and query frame interaction stuff
-if ( $GLOBALS['cfg']['QueryFrame'] && $GLOBALS['cfg']['QueryFrameJS'] ) {
 
-    if ( ! empty( $query_history_latest ) && ! empty( $query_history_latest_db ) ) {
-        if ( $GLOBALS['cfg']['QueryHistoryDB'] && $cfgRelation['historywork'] ) {
-            PMA_setHistory((isset($query_history_latest_db) ? $query_history_latest_db : ''),
-                (isset($query_history_latest_table) ? $query_history_latest_table : ''),
-                $GLOBALS['cfg']['Server']['user'],
-                $query_history_latest );
-        }
-
-        $_input_query_history[$query_history_latest] = array(
-            'db'    => $query_history_latest_db,
-            'table' => isset($query_history_latest_table) ? $query_history_latest_table : '',
-        );
-        
-        $_sql_history[$query_history_latest] = array(
-            'db'    =>  $query_history_latest_db,
-            'table' => isset( $query_history_latest_table ) ? $query_history_latest_table : '',
-        );
-        
-        $sql_query = urldecode($query_history_latest);
-        $db = $query_history_latest_db;
-        $table = $query_history_latest_table;
-    } elseif ( ! empty( $query_history_latest ) ) {
-        $sql_query = urldecode($query_history_latest);
-    }
-
-    if (isset($sql_query)) {
-        $show_query = 1;
-    }
-
+if ( ! empty( $query_history_latest ) && ! empty( $query_history_latest_db ) ) {
     if ( $GLOBALS['cfg']['QueryHistoryDB'] && $cfgRelation['historywork'] ) {
+        PMA_setHistory((isset($query_history_latest_db) ? $query_history_latest_db : ''),
+            (isset($query_history_latest_table) ? $query_history_latest_table : ''),
+            $GLOBALS['cfg']['Server']['user'],
+            $query_history_latest );
+    }
 
-        $temp_history = PMA_getHistory( $GLOBALS['cfg']['Server']['user'] );
-        if (is_array($temp_history) && count($temp_history) > 0) {
-            foreach ($temp_history AS $history_nr => $history_array) {
-                if ( ! isset( $_sql_history[$history_array['sqlquery']] ) ) {
-                    $_sql_history[$history_array['sqlquery']] = array(
-                        'db'    => $history_array['db'],
-                        'table' => isset( $history_array['table'] ) ? $history_array['table'] : '',
-                    );
-                }
+    $_input_query_history[$query_history_latest] = array(
+        'db'    => $query_history_latest_db,
+        'table' => isset($query_history_latest_table) ? $query_history_latest_table : '',
+    );
+        
+    $_sql_history[$query_history_latest] = array(
+        'db'    =>  $query_history_latest_db,
+        'table' => isset( $query_history_latest_table ) ? $query_history_latest_table : '',
+    );
+        
+    $sql_query = urldecode($query_history_latest);
+    $db = $query_history_latest_db;
+    $table = $query_history_latest_table;
+} elseif ( ! empty( $query_history_latest ) ) {
+    $sql_query = urldecode($query_history_latest);
+}
+
+if (isset($sql_query)) {
+    $show_query = 1;
+}
+
+if ( $GLOBALS['cfg']['QueryHistoryDB'] && $cfgRelation['historywork'] ) {
+
+    $temp_history = PMA_getHistory( $GLOBALS['cfg']['Server']['user'] );
+    if (is_array($temp_history) && count($temp_history) > 0) {
+        foreach ($temp_history AS $history_nr => $history_array) {
+            if ( ! isset( $_sql_history[$history_array['sqlquery']] ) ) {
+                $_sql_history[$history_array['sqlquery']] = array(
+                    'db'    => $history_array['db'],
+                    'table' => isset( $history_array['table'] ) ? $history_array['table'] : '',
+                );
             }
         }
+    }
 
-    } else {
+} else {
 
-        if (isset($query_history) && is_array($query_history)) {
-            $current_index = count($query_history);
-            foreach ($query_history AS $query_no => $query_sql) {
-                if ( ! isset( $_input_query_history[$query_sql] ) ) {
-                    $_input_query_history[$query_sql] = array(
-                        'db'    => $query_history_db,
-                        'table' => isset($query_history_table) ? $query_history_table : '',
-                    );
-                    $_sql_history[$query_sql] = array(
-                        'db'    => $query_history_db[$query_no],
-                        'table' => isset( $query_history_table[$query_no] ) ? $query_history_table[$query_no] : '',
-                    );
-                } // end if check if this item exists
-            } // end while print history
-        } // end if history exists
-
-    } // end if DB-based history
-}
+    if (isset($query_history) && is_array($query_history)) {
+        $current_index = count($query_history);
+        foreach ($query_history AS $query_no => $query_sql) {
+            if ( ! isset( $_input_query_history[$query_sql] ) ) {
+                $_input_query_history[$query_sql] = array(
+                    'db'    => $query_history_db,
+                    'table' => isset($query_history_table) ? $query_history_table : '',
+                );
+                $_sql_history[$query_sql] = array(
+                    'db'    => $query_history_db[$query_no],
+                    'table' => isset( $query_history_table[$query_no] ) ? $query_history_table[$query_no] : '',
+                );
+            } // end if check if this item exists
+        } // end while print history
+    } // end if history exists
+} // end if DB-based history
 
 $url_query = PMA_generate_common_url(isset($db) ? $db : '', isset($table) ? $table : '');
 if (!isset($goto)) {
@@ -237,8 +234,7 @@ if (!isset($goto)) {
 
 require_once './libraries/bookmark.lib.php';
 
-// in case of javascript disabled in queryframe ...
-if ( $GLOBALS['cfg']['QueryFrame'] && ! $GLOBALS['cfg']['QueryFrameJS'] ) {
+if (isset($no_js) && $no_js) {
     // ... we redirect to appropriate query sql page
     // works only full if $db and $table is also stored/grabbed from $_COOKIE
     if ( ! empty( $table ) ) {
@@ -266,26 +262,25 @@ unset( $sql_query );
 PMA_sqlQueryForm( $query_to_display, $querydisplay_tab );
 
 // Hidden forms and query frame interaction stuff
-if ( $GLOBALS['cfg']['QueryFrame'] && $GLOBALS['cfg']['QueryFrameJS'] ) {
-    if (isset($auto_commit) && $auto_commit == 'true') {
-    ?>
+if (isset($auto_commit) && $auto_commit == 'true') {
+?>
         <script type="text/javascript" language="javascript">
         //<![CDATA[
         query_auto_commit();
         //]]>
         </script>
-    <?php
-    }
+<?php
+}
 
-    if ( count( $_sql_history ) > 0
-      && ( $querydisplay_tab == 'history' || $querydisplay_tab == 'full' ) ) {
-        $tab = isset($querydisplay_tab) && $querydisplay_tab != 'full' ? 'sql' : 'full';
-        echo $strQuerySQLHistory . ':<br />' . "\n"
-            .'<ul>';
-        foreach ( $_sql_history as $sql => $query ) {
-            echo '<li>' . "\n";
-            // edit link
-            echo '<a href="#" onclick="'
+if ( count( $_sql_history ) > 0
+  && ( $querydisplay_tab == 'history' || $querydisplay_tab == 'full' ) ) {
+    $tab = isset($querydisplay_tab) && $querydisplay_tab != 'full' ? 'sql' : 'full';
+    echo $strQuerySQLHistory . ':<br />' . "\n"
+        .'<ul>';
+    foreach ( $_sql_history as $sql => $query ) {
+        echo '<li>' . "\n";
+        // edit link
+        echo '<a href="#" onclick="'
                .' document.getElementById(\'hiddenqueryform\').'
                .'querydisplay_tab.value = \'' . $tab . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
@@ -307,7 +302,7 @@ if ( $GLOBALS['cfg']['QueryFrame'] && $GLOBALS['cfg']['QueryFrameJS'] ) {
                .' document.getElementById(\'hiddenqueryform\').submit();'
                .' return false;">' . $titles['Change'] . '</a>';
             // execute link
-            echo '<a href="#" onclick="'
+        echo '<a href="#" onclick="'
                .' document.getElementById(\'hiddenqueryform\').'
                .'querydisplay_tab.value = \'' . $tab . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
@@ -330,25 +325,25 @@ if ( $GLOBALS['cfg']['QueryFrame'] && $GLOBALS['cfg']['QueryFrameJS'] ) {
                .' return false;">[' . htmlspecialchars( $query['db'] ) . '] ' 
                . urldecode( $sql ) . '</a>' . "\n";
             
-            echo '</li>' . "\n";
-        }
-        unset( $tab, $_sql_history, $sql, $query );
-        echo '</ul>' . "\n";
+        echo '</li>' . "\n";
     }
-    ?>
+    unset( $tab, $_sql_history, $sql, $query );
+    echo '</ul>' . "\n";
+}
+?>
 <form action="querywindow.php" method="post" name="querywindow" id="hiddenqueryform">
-    <?php
-    echo PMA_generate_common_hidden_inputs('', '') . "\n";
-    foreach ( $_input_query_history as $sql => $history ) {
-        echo '<input type="hidden" name="query_history[]" value="'
-            . $sql . '" />' . "\n";
-        echo '<input type="hidden" name="query_history_db[]" value="'
-            . htmlspecialchars( $history['db'] ) . '" />' . "\n";
-        echo '<input type="hidden" name="query_history_table[]" value="'
-            . htmlspecialchars( $history['table'] ) . '" />' . "\n";
-    }
-    unset( $_input_query_history, $sql, $history );
-    ?>
+<?php
+echo PMA_generate_common_hidden_inputs('', '') . "\n";
+foreach ( $_input_query_history as $sql => $history ) {
+    echo '<input type="hidden" name="query_history[]" value="'
+        . $sql . '" />' . "\n";
+    echo '<input type="hidden" name="query_history_db[]" value="'
+        . htmlspecialchars( $history['db'] ) . '" />' . "\n";
+    echo '<input type="hidden" name="query_history_table[]" value="'
+        . htmlspecialchars( $history['table'] ) . '" />' . "\n";
+}
+unset( $_input_query_history, $sql, $history );
+?>
     <input type="hidden" name="db" value="<?php echo (empty($db) ? '' : htmlspecialchars($db)); ?>" />
     <input type="hidden" name="table" value="<?php echo (empty($table) ? '' : htmlspecialchars($table)); ?>" />
 
@@ -362,7 +357,6 @@ if ( $GLOBALS['cfg']['QueryFrame'] && $GLOBALS['cfg']['QueryFrameJS'] ) {
     <input type="hidden" name="querydisplay_tab" value="<?php echo $querydisplay_tab; ?>" />
 </form>
     <?php
-}
 ?>
 </div>
 </body>

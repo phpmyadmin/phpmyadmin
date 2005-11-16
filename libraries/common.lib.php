@@ -2045,9 +2045,10 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
                 && ($cfg['SQLQuery']['Edit'] == TRUE )
                 && (!empty($edit_target))) {
 
-                $onclick = '';
-                if ($cfg['QueryFrameJS'] && $cfg['QueryFrame']) {
+                if ($cfg['EditInWindow'] == TRUE) {
                     $onclick = 'window.parent.focus_querywindow(\'' . urlencode($local_query) . '\'); return false;';
+                } else {
+                    $onclick = '';
                 }
 
                 $edit_link = $edit_target

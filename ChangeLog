@@ -7,6 +7,10 @@ $Source$
 
 2005-11-16 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php: missing menu tabs
+    * Documentation.html, config.default.php, footer.inc.php,
+      querywindow.php, tbl_query_box.php, libraries/common.lib.php,
+      libraries/left_header.inc.php, libraries/sql_query_form.lib.php:
+      new Query Window behavior
 
 2005-11-16 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added missing themes/darkblue_orange/img/error.ico

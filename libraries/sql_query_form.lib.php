@@ -29,8 +29,6 @@ require_once('./libraries/file_listing.php'); // used for file listing
  * @uses    $GLOBALS['sql_query']           from grab_globals.lib.php
  * @uses    $GLOBALS['cfg']['DefaultQueryTable']
  * @uses    $GLOBALS['cfg']['DefaultQueryDatabase']
- * @uses    $GLOBALS['cfg']['QueryFrame']
- * @uses    $GLOBALS['cfg']['QueryFrameJS']
  * @uses    $GLOBALS['cfg']['Servers']
  * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
  * @uses    $GLOBALS['cfg']['DefaultQueryDatabase']
@@ -73,11 +71,6 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
         $query = empty( $GLOBALS['sql_query'] ) ? '' : $GLOBALS['sql_query'];
     }
     
-    // we dont need to check booth variables each time
-    if ( false == $GLOBALS['cfg']['QueryFrame'] ) {
-        $GLOBALS['cfg']['QueryFrameJS'] = false;
-    }
-    
     // set enctype to multipart for file uploads
     if ( $GLOBALS['is_upload'] ) {
         $enctype = ' enctype="multipart/form-data"';
@@ -106,7 +99,7 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
     
     
     // start output
-    if ( $GLOBALS['cfg']['QueryFrameJS'] && $is_querywindow ) {
+    if ( $is_querywindow ) {
         ?>
         <form method="post" id="sqlqueryform"
               target="phpmain<?php echo md5( $GLOBALS['cfg']['PmaAbsoluteUri'] ); ?>"
@@ -169,7 +162,6 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
  *
  * @usedby  PMA_sqlQueryForm() 
  * @uses    $GLOBALS['text_dir']
- * @uses    $GLOBALS['cfg']['QueryFrameJS']
  * @uses    $GLOBALS['cfg']['TextareaAutoSelect']
  * @uses    $GLOBALS['cfg']['TextareaCols']
  * @uses    $GLOBALS['cfg']['TextareaRows']
@@ -194,7 +186,7 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
     }
     
     // enable locking if inside query window
-    if ( $GLOBALS['cfg']['QueryFrameJS'] && $is_querywindow ) {
+    if ( $is_querywindow ) {
         $locking = ' onkeypress="document.sqlform.elements[\'LockFromUpdate\'].'
             .'checked = true;"';
     } else {

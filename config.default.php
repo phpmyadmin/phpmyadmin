@@ -480,9 +480,7 @@ $cfg['ShowBrowseComments']  = TRUE;         // shows stored relation-comments in
 $cfg['ShowPropertyComments']= TRUE;         // shows stored relation-comments in 'table property' mode.
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
-$cfg['QueryFrame']          = TRUE;         // displays a link or icon in the left frame to open the querybox, and activates the querybox when clicking on [Edit] on the results page.
-$cfg['QueryFrameJS']        = TRUE;         // whether to use JavaScript functions for opening a new window for SQL commands.
-                                            // if set to 'false', the target of the querybox is always the right frame.
+$cfg['EditInWindow']        = TRUE;         // Set to TRUE if Edit link should open the query to edit in the query window (assuming Javascript is enabled), and to FALSE if we should edit in the right panel 
 $cfg['QueryWindowWidth']    = 550;          // Width of Query window
 $cfg['QueryWindowHeight']   = 310;          // Height of Query window
 $cfg['QueryHistoryDB']      = FALSE;         // Set to TRUE if you want DB-based query history.

@@ -15,18 +15,11 @@ require_once('./libraries/common.lib.php');
 require_once('./libraries/bookmark.lib.php');
 require_once './libraries/sql_query_form.lib.php';
 
-// we dont need to check booth variables each time
-if ( false == $cfg['QueryFrame'] ) {
-    $cfg['QueryFrameJS'] = false;
-}
-
 if ( empty( $querydisplay_tab ) ) {
     $querydisplay_tab = '';
 }
 
-// in case of javascript disabled in queryframe ...
-if ( $GLOBALS['cfg']['QueryFrame'] && ! $GLOBALS['cfg']['QueryFrameJS'] 
-  && $is_inside_querywindow ) {
+if ( $is_inside_querywindow ) {
     // ... we redirect to appropriate query sql page
     // works only full if $db and $table is also stored/grabbed from $_COOKIE
     if ( ! empty( $table ) ) {

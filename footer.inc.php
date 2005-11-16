@@ -16,8 +16,7 @@ require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
  * Query window
  */
 
-// If query window is wanted and open, update with latest selected db/table.
-if ( $GLOBALS['cfg']['QueryFrame'] && $GLOBALS['cfg']['QueryFrameJS'] ) {  
+// If query window is open, update with latest selected db/table.
     ?>
 <script type="text/javascript">
 //<![CDATA[
@@ -67,7 +66,6 @@ if ( $GLOBALS['cfg']['QueryFrame'] && $GLOBALS['cfg']['QueryFrameJS'] ) {
 //]]>
 </script>
     <?php
-}
 
 
 /**

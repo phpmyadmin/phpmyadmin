@@ -838,8 +838,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         you want to have on hold. On every login, this list gets cut to the maximum amount.
         <br /><br />
 
-        The query history is only available if you use the JavaScript-based query window,
-        see <b>$cfg['QueryFrame']</b>.
+	The query history is only available if JavaScript is enabled in your 
+	browser.
         <br /><br />
 
         To allow the usage of this functionality:
@@ -1739,8 +1739,7 @@ Defaults to FALSE (drop-down). <br />
     <br /><br />
     </dd>
 
-    <dt><b>$cfg['QueryFrame'] </b>boolean<br />
-        <b>$cfg['QueryFrameJS'] </b>boolean<br />
+    <dt><b>$cfg['EditInWindow'] </b>boolean<br />
         <b>$cfg['QueryWindowWidth'] </b>integer<br />
         <b>$cfg['QueryWindowHeight'] </b>integer<br />
         <b>$cfg['QueryHistoryDB'] </b>boolean<br />
@@ -1748,19 +1747,23 @@ Defaults to FALSE (drop-down). <br />
         <b>$cfg['QueryHistoryMax'] </b>integer
     </dt>
     <dd>
-        All those variables affect the query box feature. When
-        $cfg['QueryFrame'] is set to true, a link or icon is displayed
-        on the left panel. Clicking on it opens the query box, a direct
-        interface to enter SQL queries.
+    All those variables affect the query window feature. A <tt>SQL</tt> link 
+    or icon is always displayed on the left panel. If JavaScript is enabled in 
+    your browser, a click on this opens a distinct query window, which is
+    a direct interface to enter SQL queries. Otherwise, the right panel 
+    changes to display a query box. 
         <br /><br />
-        When $cfg['QueryFrameJS'] is set to true, clicking on that link opens
-        the query box, a new custom sized browser window
-        ($cfg['QueryWindowWidth'], $cfg['QueryWindowWidth'] - both integers
-        for the size in pixels).
-        Also, a click on [Edit] from the results page (in the &quot;Showing
-        Rows&quot; section) opens the query box and puts the current query
-        inside it.  If set to false, clicking on the link only opens the SQL
-        input in the main frame.
+        The size of this query window can be customized with 
+	<tt>$cfg['QueryWindowWidth']</tt> and <tt>$cfg['QueryWindowWidth']</tt>
+	- both integers for the size in pixels. Note that normally, those
+	parameters will be modified in <tt>layout.inc.php</tt> for the
+	theme you are using.
+        <br /><br />
+	If <tt>$cfg['EditInWindow']</tt> is set to true, a click on [Edit] 
+	from the results page (in the &quot;Showing Rows&quot; section) 
+	opens the query window and puts the current query
+        inside it.  If set to false, clicking on the link puts the SQL
+        query in the right panel's query box.
         <br /><br />
         The usage of the JavaScript query window is recommended if you have a
         JavaScript enabled browser. Basic functions are used to exchange quite
