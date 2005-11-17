@@ -52,9 +52,13 @@
 require_once('./libraries/grab_globals.lib.php');
 
 /**
+ * @var array   $GLOBALS['PMA_errors']  holds errors
+ */
+$GLOBALS['PMA_errors'] = array();
+
+/**
  * Minimum inclusion? (i.e. for the stylesheet builder)
  */
-
 if (!isset($is_minimum_common)) {
     $is_minimum_common = FALSE;
 }
