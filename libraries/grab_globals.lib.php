@@ -74,15 +74,19 @@ function PMA_gpc_extract($array, &$target, $sanitize = TRUE) {
         return FALSE;
     }
 
-    $valid_variables = preg_replace( $GLOBALS['import_blacklist'], '',
-        array_keys( $array ) );
-    $valid_variables = array_unique( $valid_variables );
+    if ( $sanitize ) {
+        $valid_variables = preg_replace( $GLOBALS['import_blacklist'], '',
+            array_keys( $array ) );
+        $valid_variables = array_unique( $valid_variables );
+    } else {
+        $valid_variables = array_keys( $array );
+    }
 
     $is_magic_quotes = get_magic_quotes_gpc();
 
     foreach ( $valid_variables as $key ) {
 
-        if ( empty( $key ) ) {
+        if ( strlen( $key ) === 0 ) {
             continue;
         }
 
@@ -100,6 +104,7 @@ function PMA_gpc_extract($array, &$target, $sanitize = TRUE) {
     }
     return TRUE;
 }
+
 
 // check if a subform is submitted
 $__redirect = NULL;
