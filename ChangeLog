@@ -5,6 +5,17 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/grab_globals.lib.php: just to be sure:
+      - clean/empty $GLOBALS with $variables_whitelist
+      - unset some vars after use
+      - check all superglobals that could be imported by register_globals=on
+        for GLOBALS key (not only _REQUEST and _FILES )
+      - added $import_blacklist
+      - rewrote PMA_gpc_extract()
+        - use $import_blacklist
+        - documentation
+
 2005-11-16 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php: missing menu tabs
     * Documentation.html, config.default.php, footer.inc.php,
