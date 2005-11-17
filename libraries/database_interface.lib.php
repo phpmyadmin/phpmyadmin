@@ -13,9 +13,70 @@ define('PMA_DBI_GETVAR_SESSION', 1);
 define('PMA_DBI_GETVAR_GLOBAL', 2);
 
 /**
+ * Loads the mysql extensions if it is not loaded yet
+ *
+ * @param   string  $extension  mysql extension to load
+ */
+function PMA_DBI_checkAndLoadMysqlExtension( $extension = 'mysql' ) {
+    if ( ! function_exists( $extension . '_connect' ) ) {
+        PMA_dl( $extension );
+        // check whether mysql is available
+        if ( ! function_exists( $extension . '_connect' ) ) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+/**
+ * check for requested extension
+ */
+if ( ! PMA_DBI_checkAndLoadMysqlExtension( $GLOBALS['cfg']['Server']['extension'] ) ) {
+
+    // if it fails try alternative extension ...
+    // and display an error ...
+
+    // TODO 2.7.1: add different messages for alternativ extension
+    // and complete fail (no alternativ extension too)
+    $GLOBALS['PMA_errors'][] =
+        sprintf( PMA_sanitize( $GLOBALS['strCantLoad'] ),
+            $GLOBALS['cfg']['Server']['extension'] )
+        .' - <a href="./Documentation.html#faqmysql" target="documentation">'
+        .$GLOBALS['strDocu'] . '</a>';
+
+    if ( $GLOBALS['cfg']['Server']['extension'] === 'mysql' ) {
+        $alternativ_extension = 'mysqli';
+    } else {
+        $alternativ_extension = 'mysql';
+    }
+
+    if ( ! PMA_DBI_checkAndLoadMysqlExtension( $alternativ_extension ) ) {
+        // if alternativ fails too ...
+        header( 'Location: error.php'
+                . '?lang='  . urlencode( $available_languages[$lang][2] )
+                . '&char='  . urlencode( $charset )
+                . '&dir='   . urlencode( $text_dir )
+                . '&type='  . urlencode( $strError )
+                . '&error=' . urlencode(
+                    sprintf( $GLOBALS['strCantLoad'],
+                        $GLOBALS['cfg']['Server']['extension'] )
+                    .' - [a@./Documentation.html#faqmysql@documentation]'
+                    .$GLOBALS['strDocu'] . '[/a]' )
+                . '&' . SID
+                 );
+        exit();
+    }
+
+    $GLOBALS['cfg']['Server']['extension'] = $alternativ_extension;
+    unset( $alternativ_extension );
+}
+
+/**
  * Including The DBI Plugin
  */
-require_once('./libraries/dbi/' . $cfg['Server']['extension'] . '.dbi.lib.php');
+require_once('./libraries/dbi/' . $GLOBALS['cfg']['Server']['extension'] . '.dbi.lib.php');
 
 /**
  * Common Functions
@@ -747,4 +808,5 @@ function PMA_DBI_get_default_engine() {
         return PMA_DBI_fetch_value( 'SHOW VARIABLES LIKE \'table_type\';', 0, 1 );
     }
 }
+
 ?>

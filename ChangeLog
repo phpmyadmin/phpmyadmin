@@ -23,6 +23,11 @@ $Source$
       - commented out some never used variables
     * main.php, libraries/common.lib.php, libraries/dbi/*:
       - added $GLOBALS['PMA_errors'] array
+    * libraries/database_interface.lib.php, libraries/dbi/*:
+      fall back to alternative mysql extension if selected fails and switch to
+      error.php if this fails too
+       - moved loading of extension out of libraries/dbi/* into
+         libraries/database_interface.lib.php
 
 2005-11-16 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php: missing menu tabs
