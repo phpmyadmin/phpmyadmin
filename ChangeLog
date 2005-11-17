@@ -7,6 +7,8 @@ $Source$
 
 2005-11-17 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: patch #1353283, thanks to Isaac Bennetch
+    * lang/finnish: update, thanks to Jouni Kahkonen
+    * lang/belarusian updates, thanks to Jaska Zedlik
 
 2005-11-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/grab_globals.lib.php: just to be sure:
