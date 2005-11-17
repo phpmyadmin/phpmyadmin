@@ -19,9 +19,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
     sort($mysql_charsets, SORT_STRING);
 
     $mysql_collations = array_flip($mysql_charsets);
-    $mysql_default_collations = $mysql_collations_flat = $mysql_collations_available = array();
-    // never used
-    //$mysql_charsets_available = array;
+    $mysql_default_collations = $mysql_collations_flat = $mysql_charsets_available = $mysql_collations_available = array();
 
     $res = PMA_DBI_query('SHOW COLLATION;');
     while ($row = PMA_DBI_fetch_assoc($res)) {
@@ -36,8 +34,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
         }
         //$mysql_collations_available[$row['Collation']] = !isset($row['Compiled']) || $row['Compiled'] == 'Yes';
         $mysql_collations_available[$row['Collation']] = TRUE;
-        // never used
-        //$mysql_charsets_available[$row['Charset']] = !empty($mysql_charsets_available[$row['Charset']]) || !empty($mysql_collations_available[$row['Collation']]);
+        $mysql_charsets_available[$row['Charset']] = !empty($mysql_charsets_available[$row['Charset']]) || !empty($mysql_collations_available[$row['Collation']]);
     }
     @PMA_DBI_free_result( $res );
     unset( $res, $row );
