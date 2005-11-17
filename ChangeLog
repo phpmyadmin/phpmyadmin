@@ -29,6 +29,7 @@ $Source$
        - moved loading of extension out of libraries/dbi/* into
          libraries/database_interface.lib.php
     * libraries/sanitizing.lib.php: dont use deprecated tags
+    * lang/german-*: fixed $strCantLoad
 
 2005-11-16 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php: missing menu tabs
