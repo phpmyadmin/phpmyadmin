@@ -12,6 +12,7 @@ $Source$
       - check all superglobals that could be imported by register_globals=on
         for GLOBALS key (not only _REQUEST and _FILES )
       - added $import_blacklist
+        - added variables starting with pma_, numeric or containing spaces
       - rewrote PMA_gpc_extract()
         - use $import_blacklist
         - documentation

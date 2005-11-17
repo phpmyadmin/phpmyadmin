@@ -48,12 +48,13 @@ require_once './libraries/session.inc.php';
  *                              from superglobals
  */
 $import_blacklist = array(
-    '/^cfg$/',      // PMA configuration
-    '/^GLOBALS$/',  // the global scope
-    '/^str.*$/',    // PMA strings
-    '/^_.*$/',      // PMA does not use variables starting with _ from extern
-    '/^.*\s+.*$/',  // no whitespaces anywhere
-    '/^[0-9]+.*$/', // numeric variable names
+    '/^cfg$/i',      // PMA configuration
+    '/^GLOBALS$/i',  // the global scope
+    '/^str.*$/i',    // PMA strings
+    '/^_.*$/i',      // PMA does not use variables starting with _ from extern
+    '/^.*\s+.*$/i',  // no whitespaces anywhere
+    '/^[0-9]+.*$/i', // numeric variable names
+    '/^PMA_.*$/i',   // other PMA variables
 );
 
 /**
