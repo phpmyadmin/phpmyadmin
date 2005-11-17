@@ -102,7 +102,9 @@ $old_error_reporting = error_reporting(0);
 if (file_exists('./config.inc.php')) {
     $config_fd = fopen('./config.inc.php', 'r');
     $result = eval('?>' . fread($config_fd, filesize('./config.inc.php')));
-    fclose($config_fd);
+    fclose( $config_fd );
+    unset( $config_fd );
+
     // Eval failed
     if ($result === FALSE || !isset($cfg['Servers'])) {
         // Creates fake settings
@@ -125,7 +127,7 @@ if (file_exists('./config.inc.php')) {
         exit();
     }
     error_reporting($old_error_reporting);
-    unset($old_error_reporting);
+    unset( $old_error_reporting, $result );
 }
 
 /**
@@ -160,7 +162,7 @@ if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
         $new_servers[$key] = array_merge($default_server, $val);
     }
     $cfg['Servers'] = $new_servers;
-    unset($new_servers);
+    unset( $new_servers, $key, $val );
 }
 
 // Cleanup
@@ -391,6 +393,7 @@ $tmp_layout_file = $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/layout.inc.ph
 if (@file_exists($tmp_layout_file)) {
     include($tmp_layout_file);
 }
+unset( $tmp_layout_file );
 if (!is_dir($pmaThemeImage)) {
     $pmaThemeImage = $cfg['ThemePath'] . '/original/img/';
 }
@@ -1332,6 +1335,7 @@ if ($is_minimum_common == FALSE) {
             $val['verbose']                  = $GLOBALS['strServer'] . $key;
         }
     }
+    unset( $key, $val );
 
     if (empty($server) || !isset($cfg['Servers'][$server]) || !is_array($cfg['Servers'][$server])) {
         $server = $cfg['ServerDefault'];
@@ -1492,7 +1496,7 @@ if ($is_minimum_common == FALSE) {
                 if ($dblist[$i] == '*' && $dblist_asterisk_bool == FALSE) {
                     $dblist_asterisk_bool = TRUE;
                     $dblist_full = PMA_safe_db_list(FALSE, $dbh, FALSE, $rs, $userlink, $cfg, $dblist);
-                    foreach ($dblist_full AS $dbl_key => $dbl_val) {
+                    foreach ($dblist_full as $dbl_val) {
                         if (!in_array($dbl_val, $dblist)) {
                             $true_dblist[] = $dbl_val;
                         }
@@ -1530,7 +1534,7 @@ if ($is_minimum_common == FALSE) {
                 } // end if... else...
             } // end for
             $dblist       = $true_dblist;
-            unset($true_dblist);
+            unset( $true_dblist, $i, $dbl_val );
             $only_db_check = TRUE;
         } // end if
 

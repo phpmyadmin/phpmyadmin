@@ -15,6 +15,10 @@ $Source$
       - rewrote PMA_gpc_extract()
         - use $import_blacklist
         - documentation
+    * libraries/common.lib.php, libraries/mysql_charsets.lib.php,
+      libraries/select_lang.php: keep the global space clean
+      - unset variables after use
+      - commented out some never used variables
 
 2005-11-16 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php: missing menu tabs

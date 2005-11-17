@@ -32,7 +32,7 @@ $lang_path = './lang/';
  *    These values contains:
  *    - the "official" ISO language code and, if required, the dialect code
  *      also ('bu' for Bulgarian, 'fr([-_][[:alpha:]]{2})?' for all French
- *      dialects, 'zh[-_]tw' for Chinese traditional...), the dialect has to 
+ *      dialects, 'zh[-_]tw' for Chinese traditional...), the dialect has to
  *      be specified as first;
  *    - the '|' character (it means 'OR');
  *    - the full language name.
@@ -185,6 +185,7 @@ if (!empty($GLOBALS['cfg']['FilterLanguages'])) {
     if (count($new_lang) > 0) {
         $available_languages = $new_lang;
     }
+    unset( $key, $val, $new_lang );
 }
 
 /**
@@ -316,5 +317,6 @@ if (!isset($convcharset) || empty($convcharset)) {
 
 // 5. Defines the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php';
-require_once($lang_file);
+require_once( $lang_file );
+unset( $lang_file, $lang_path );
 ?>
