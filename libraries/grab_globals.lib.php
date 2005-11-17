@@ -31,7 +31,6 @@ foreach ( get_defined_vars() as $key => $value ) {
 }
 unset( $key, $value );
 
-
 // protect against older PHP versions' bug about GLOBALS overwrite
 // (no need to translate this one :) )
 // but what if script.php?GLOABLS[admin]=1&GLOBALS[_REQUEST]=1 ???
@@ -54,7 +53,7 @@ $import_blacklist = array(
     '/^_.*$/i',      // PMA does not use variables starting with _ from extern
     '/^.*\s+.*$/i',  // no whitespaces anywhere
     '/^[0-9]+.*$/i', // numeric variable names
-    '/^PMA_.*$/i',   // other PMA variables
+    //'/^PMA_.*$/i',   // other PMA variables
 );
 
 /**

@@ -13,6 +13,7 @@ $Source$
         for GLOBALS key (not only _REQUEST and _FILES )
       - added $import_blacklist
         - added variables starting with pma_, numeric or containing spaces
+        - *REVERT* do not prevent import pma_*
       - rewrote PMA_gpc_extract()
         - use $import_blacklist
         - documentation
