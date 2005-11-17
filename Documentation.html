@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <!-- $Id$ -->
 <!--
@@ -174,12 +173,11 @@
          explanation of all values. Please also read the remaining of this
          Installation section for information about authentication modes
          and the linked-tables infrastructure.</li>
-    <li> It is recommended that you protect the directory in which you
-         installed phpMyAdmin (unless it's on a closed intranet, or you wish to
-         use HTTP or cookie authentication), for example with HTTP-AUTH (in a
-         <i>.htaccess</i> file). See the
-         <a href="#faqmultiuser">multi-user sub-section of the FAQ</a>
-         for additional information, especially <a href="#faq4_4">FAQ 4.4</a>.</li>
+    <li> If you are using the config auth_type, it is suggested that you protect the
+         phpMyAdmin installation directory, for example with HTTP&#8211;AUTH in a
+         <i>.htaccess</i> file. See the <a href="#faqmultiuser">
+         multi&#8211;user sub&#8211;section</a> of this FAQ for additional
+         information, especially <a href="$faq4_4">FAQ 4.4</a>.</li>
     <li> Open the file
          <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/index.php</i>
          in your browser. phpMyAdmin should now display a welcome screen
@@ -219,13 +217,12 @@
  </p>
 
 <h3>Upgrading from an older version</h3>
-<ul>
-    <li>
+<p>
         Just copy <i>config.inc.php</i> from previous installation into a
-        newly unpacked one. Old configuration files will be supported for a
-        very long time.
-    </li>
-</ul>
+        newly unpacked one. If your previous phpMyAdmin version was 2.3.0 or
+        older, some tweaking may be required because, as of 2.7.0, using those
+        old config files is no longer supported.
+</p>
 
 <h3>Using authentication modes</h3>
 <ul>
@@ -238,8 +235,7 @@
         bit buggy in this area!<br />
         Even in a <b>single-user environment</b>, you might prefer to use
         HTTP or cookie mode so that your user/password pair are not in clear
-        in the configuration file.<br /><br /></li>
-
+        in the configuration file.<br /><br /></li> 
     <li>HTTP and cookie authentication modes are more secure: the MySQL
         login information does not need to be set in the phpMyAdmin
         configuration file
@@ -346,15 +342,16 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         with the same username.</li>
     <li>If you want to login to arbitrary server see
     <tt><a href="#AllowArbitraryServer">$cfg['AllowArbitraryServer']</a></tt> directive.</li>
-    <li>See also the <a href="#require">requirements</a> section for a way
-        to improve the interface speed while using this mode.</li>
-</ul>
-
+    <li>As mentioned in the <a href="#require">requirements</a> section, having the 
+        <tt>mcrypt</tt> extension will speed up access considerably, but is not required.</li>
+</ul> 
 <h4>'config' authentication mode</h4>
 <ul>
     <li>This mode is the less secure one because it requires you to fill the
         <tt><a href="#servers_user">$cfg['Servers'][$i]['user']</a></tt> and
-        <tt><a href="#servers_user">$cfg['Servers'][$i]['password']</a></tt> fields.<br />
+        <tt><a href="#servers_user">$cfg['Servers'][$i]['password']</a></tt> fields
+        (and as a result, anyone who can read your config.inc.php can discover your 
+        username and password).<br />
         But you don't need to setup a &quot;controluser&quot; here:
         using the <tt><a href="#servers_only_db">$cfg['Servers'][$i]['only_db']</a></tt> might be enough.</li>
     <li>In the <a href="#faqmultiuser">ISP FAQ</a> section, there is an entry explaining how to protect
@@ -386,7 +383,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     change from their corresponding default value in <tt>config.default.php</tt>.
     <br /><br />
     The parameters which relate to design (like colors)
-     are placed in <tt>themes/themename/layout.inc.php</tt>. You
+    are placed in <tt>themes/themename/layout.inc.php</tt>. You
     might also want to modify <i>config.footer.inc.php</i> and
     <i>config.header.inc.php</i> files to add your site specific code to be
     included on start and end of each page.
@@ -398,19 +395,17 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Sets here the complete URL (with full path) to your phpMyAdmin 
         installation's directory.
         E.g. <tt>http://www.your_web.net/path_to_your_phpMyAdmin_directory/</tt>.
+        Note also that the URL on some web servers are case&#8211;sensitive.
+        Don&#8217;t forget the trailing slash at the end.
         <br /><br />
         Starting with version 2.3.0, it is advisable to try leaving this 
         blank. In most cases phpMyAdmin automatically detects the proper 
         setting. Users of port forwarding will need to set PmaAbsoluteUri (<a
-        href="https://sourceforge.net/tracker/index.php&amp;func=detail&amp;aid=1340187&amp;group_id=23067&amp;atid=377409">more info</a>). Additional details are in the configuration file.
-        <br /><br />
-        Don't forget the slash at the end of your URL. The URL must contain
-        characters that are valid for a URL, and on some servers, the path
-        is case-sensitive.
-        <br /><br />
-        If you get an error that this must be set or if the autodetect code
-        fails to detect your path, please post a bug report on our
-        bug tracker so we can improve the code.
+        href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=1340187&amp;group_id=23067&amp;atid=377409">more info</a>). 
+        A good test is to browse a table, edit a row and save it. There should
+        be an error message if phpMyAdmin is having trouble auto&#8211;detecting        the correct value. If you get an error that this must be set or if 
+        the autodetect code fails to detect your path, please post a bug 
+        report on our bug tracker so we can improve the code.
     </dd>
 
     <dt><b>$cfg['PmaNoRelation_DisableWarning']</b> boolean</dt>
@@ -425,7 +420,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         been disabled.<br />
         If you do not want to use those features set this variable to
         <tt>TRUE</tt> to stop this message from appearing.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['blowfish_secret']</b> string</dt>
@@ -452,13 +446,11 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         definition, however you can put as many as you need in
         <tt>config.inc.php</tt>, copy that block or needed parts (you don't
         have to define all settings, just those you need to change).
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Servers'][$i]['host']</b> string</dt>
     <dd>
         The hostname or IP address of your $i-th MySQL-server. E.g. localhost.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Servers'][$i]['port']</b> string</dt>
@@ -469,13 +461,11 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         to connect to a port different from the default port, use
         &quot;127.0.0.1&quot; or the real hostname in
         $cfg['Servers'][$i]['host'].
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Servers'][$i]['socket']</b> string</dt>
     <dd>
         The path to the socket to use. Leave blank for default.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Servers'][$i]['connect_type']</b> string</dt>
@@ -487,7 +477,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <br /><br />
         To use the socket mode, your MySQL server must be on the same machine
         as the Web server.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Servers'][$i]['extension']</b> string</dt>
@@ -504,7 +493,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         running MySQL 4.1.x.
         <br />
         Note: phpMyAdmin's MySQL 4.1 support is experimental!
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Servers'][$i]['compress']</b> boolean</dt>
@@ -512,7 +500,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Whether to use a compressed protocol for the MySQL server connection
         or not (experimental).<br />
         This feature requires PHP&nbsp;&gt;=&nbsp;4.3.0.
-        <br /><br />
     </dd>
 
     <dt>
@@ -550,7 +537,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <br /><br />
         In phpMyAdmin versions before 2.2.5, those were called
         &quot;stduser/stdpass&quot;.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Servers'][$i]['auth_type']</b> string
@@ -558,7 +544,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <dd>
         Whether config or cookie or http authentication should be used for this
         server.
-
         <ul>
             <li>
                 'config' authentication
@@ -570,7 +555,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
                 'cookie' authentication mode
                 (<tt>$auth_type&nbsp;=&nbsp;'cookie'</tt>) as introduced in
                 2.2.3 allows you to log in as any valid MySQL user with the
-                help of cookies. Log name and password are stored in
+                help of cookies. Username and password are stored in
                 cookies during the session and password is deleted when it
                 ends. This can also allow you to login in arbitrary server if
                 <tt><a href="#AllowArbitraryServer">$cfg['AllowArbitraryServer']</a></tt> enabled.
@@ -584,7 +569,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 
         Please see the <a href="#setup">install section</a> on &quot;Using authentication modes&quot;
         for more information.
-        <br /><br />
     </dd>
     <dt>
 <a name="servers_user"></a><br />
@@ -592,13 +576,15 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <b>$cfg['Servers'][$i]['password']</b> string
     </dt>
     <dd>
-        The user/password-pair which phpMyAdmin will use to connect to this
-        MySQL-server. This user/password pair is not needed when HTTP or
-        cookie authentication is used, and should be empty.<br /><br />
+        When using auth_type = 'config', this is the user/password-pair
+        which phpMyAdmin will use to connect to the
+        MySQL server. This user/password pair is not needed when HTTP or
+        cookie authentication is used and should be empty.
     </dd>
     <dt>
 <a name="servers_only_db"></a><br />
-<b>$cfg['Servers'][$i]['only_db']</b> string or array</dt>
+      <b>$cfg['Servers'][$i]['only_db']</b> string or array
+    </dt>
     <dd>
         If set to a (an array of) database name(s), only this (these) database(s)
         will be shown to the user. Since phpMyAdmin 2.2.1, this/these
@@ -631,7 +617,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         this string will be displayed instead of the hostname in the pull-down
         menu on the main page. This can be useful if you want to show only
         certain databases on your system, for example.
-        <br /><br />
     </dd>
 
     <dt>
@@ -651,7 +636,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <tt>$cfg['Servers'][$i]['pmadb']</tt>. For a multi-user installation,
         set this parameter to the name of your central database containing
         the linked-tables infrastructure.
-        <br /><br />
     </dd>
 
     <dt>
@@ -727,7 +711,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         </ul><br />
         Please note that in the current version, <tt>master_db</tt>
         must be the same as <tt>foreign_db</tt>.  Those fields have been put in
-        future development of the cross-db relations.<br /><br />
+        future development of the cross-db relations.
     </dd>
 
     <dt>
@@ -755,7 +739,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
             </li>
         </ul><br />
         Usage tip: <a href="#faqdisplay">Display field</a>.
-        <br /><br />
     </dd>
     <dt>
         <a name="table_coords"></a><br />
@@ -781,7 +764,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
             </li>
         </ul><br />
         Usage tips: <a href="#faqpdf">PDF output</a>.
-        <br /><br />
     </dd>
 
     <dt>
@@ -821,7 +803,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
                 and remember that the Variable in <i>config.inc.php</i> has been renamed
                 from <br /><tt>$cfg['Servers'][$i]['column_comments']</tt> to <tt>$cfg['Servers'][$i]['column_info']</tt>
             </li>
-        </ul><br />
+        </ul>
     </dd>
 
     <dt>
@@ -849,7 +831,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
                 put the table name in
                 <tt>$cfg['Servers'][$i]['history']</tt>
             </li>
-        </ul><br />
+        </ul>
     </dd>
 
     <dt>
@@ -865,14 +847,12 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         should offer a performance increase.<br /><br />
 
         Recommended to set to FALSE, when you are sure, your table structure is up to date.
-        <br /><br />
     </dd>
     <dt>
         <b>$cfg['Servers'][$i]['AllowRoot']</b> boolean
     </dt>
     <dd>
         Whether to allow root access, This is just simplification of rules below.
-        <br /><br />
     </dd>
     <dt>
 <a name="servers_allowdeny_order"></a><br />
@@ -899,7 +879,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         rules. This is the <b>most</b> secure means of using Allow/Deny rules,
         and was available in Apache by specifying allow and deny rules without
         setting any order.
-        <br /><br />
     </dd>
     <dt>
 <a name="servers_allowdeny_rules"></a><br />
@@ -939,7 +918,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <tt>xxx.xxx.xxx.xxx/nn</tt>     (CIDR, Classless Inter-Domain Routing type IP addresses)<br />
         But the following does not work:<br />
         <tt>xxx.xxx.xxx.xx[yyy-zzz]</tt> (partial IP address range)
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['ServerDefault']</b> integer</dt>
@@ -950,7 +928,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         list of servers without logging in.<br />
         If you have only one server configured, <tt>$cfg['ServerDefault']</tt>
         MUST be set to that server.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['OBGzip'] </b>string/boolean</dt>
@@ -961,20 +938,17 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         phpMyAdmin tries to enable output buffering and will automatically disable
         it, if your browser has some problems with buffering. IE6 with a certain patch
         is known to cause data corruption having enabled buffering.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['PersistentConnections'] </b>boolean</dt>
     <dd>
         Whether persistent connections should be used or not (mysql_connect or
         mysql_pconnect).
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['ForceSSL'] </b>boolean</dt>
     <dd>
         Whether to force using https while accessing phpMyAdmin.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['ExecTimeLimit'] </b>integer [number of seconds]</dt>
@@ -983,21 +957,18 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         to zero, no time limit is imposed.<br />
         This setting is used while importing/exporting dump files but has no
         effect when PHP is running in safe mode.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['SkipLockedTables'] </b>boolean</dt>
     <dd>
         Mark used tables and make it possible to show databases with locked
         tables (since 3.23.30).
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['ShowSQL'] </b>boolean</dt>
     <dd>
         Defines whether SQL-queries generated by phpMyAdmin should be displayed
         or not.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['AllowUserDropDatabase'] </b>boolean</dt>
@@ -1007,34 +978,29 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Database&quot; will not be shown, and even a &quot;DROP DATABASE
         mydatabase&quot; will be rejected. Quite practical for ISP's with many
         customers.
-        <br /><br />
   </dd>
 
     <dt><b>$cfg['Confirm'] </b>boolean</dt>
     <dd>
         Whether a warning (&quot;Are your really sure...&quot;) should be
         displayed when you're about to lose data.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['LoginCookieRecall'] </b>boolean</dt>
     <dd>
         Define whether the previous login should be recalled or not in cookie
         authentication mode.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['UseDbSearch'] </b>boolean</dt>
     <dd>
         Define whether the "search string inside database" is enabled or not.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['IgnoreMultiSubmitErrors'] </b>boolean</dt>
     <dd>
         Define whether phpMyAdmin will continue executing a multi-query
         statement if one of the queries fails. Default is to abort execution.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['VerboseMultiSubmit'] </b>boolean</dt>
@@ -1042,7 +1008,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Define whether phpMyAdmin will output the results of each query of a
         multi-query statement embedded into the SQL output as inline comments.
         Defaults to <tt>TRUE</tt>.
-        <br /><br />
     </dd>
     <dt>
 <a name="AllowArbitraryServer"></a><br />
@@ -1061,47 +1026,41 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         tables in the left frame (smaller page).
         Only in Non-Lightmode you can use the feature to display nested folders
         using $cfg['LeftFrameTableSeparator']
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['LeftFrameDBTree']</b> boolean</dt>
     <dd>
     In light mode, defines whether to display the names of databases (in the
     selector) using a tree, see also <tt>$cfg['LeftFrameDBSeparator']</tt>.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['LeftFrameDBSeparator']</b> string</dt>
     <dd>
-    The string used to separate the parts of the database name when showing
-    them in a tree.
-        <br /><br />
+      The string used to separate the parts of the database name when showing
+      them in a tree.
     </dd>
 
     <dt><b>$cfg['LeftFrameTableSeparator']</b> string</dt>
     <dd>
         Defines a string to be used to nest table spaces. Defaults to '__'.
         This means if you have tables like 'first__second__third' this will be
-        shown as a three-level hierarchie like: first &gt; second &gt; third.
+        shown as a three-level hierarchy like: first &gt; second &gt; third.
         If set to FALSE or empty, the feature is disabled.  NOTE: You shall
         not use this Separator in a table name at the beginning or end of a
         table name, or multiple times after another without any other
         characters in between.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['LeftFrameTableLevel']</b> string</dt>
     <dd>
         Defines how many sublevels should be displayed when splitting
         up tables by the above Separator.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['ShowTooltip'] </b>boolean</dt>
     <dd>
         Defines whether to display table comment as tool-tip in left frame or
         not.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['ShowTooltipAliasDB'] </b>boolean</dt>
@@ -1111,7 +1070,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         'user0001' and add the comment 'MyName' on it, you will see the name
         'MyName' used consequently in the left frame and the tool-tip shows
         the real name of the DB.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['ShowTooltipAliasTB'] </b>boolean/string</dt>
@@ -1126,18 +1084,15 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
     <dt><b>$cfg['LeftDisplayLogo'] </b>boolean</dt>
     <dd>Defines whether to display the phpMyAdmin logo at the top of the left frame or not.
-Defaults to <tt>TRUE</tt>. <br />
-    <br />
+      Defaults to <tt>TRUE</tt>.
     </dd>
     <dt><b>$cfg['LeftDisplayServers'] </b>boolean</dt>
     <dd>Defines whether to display a server choice at the top of the left frame or not.
-Defaults to FALSE. <br />
-    <br />
+      Defaults to FALSE.
     </dd>
     <dt><b>$cfg['DisplayServersList'] </b>boolean</dt>
     <dd>Defines whether to display this server choice as links instead of in a drop-down.
-Defaults to FALSE (drop-down). <br />
-    <br />
+      Defaults to FALSE (drop-down). 
     </dd>
     <dt><b>$cfg['ShowStats'] </b>boolean</dt>
     <dd>
@@ -1145,7 +1100,6 @@ Defaults to FALSE (drop-down). <br />
         and tables or not.<br />
         Note that statistics requires at least MySQL 3.23.3 and that, at this
         date, MySQL doesn't return such information for Berkeley DB tables.
-        <br /><br />
     </dd>
 
     <dt>
@@ -1168,41 +1122,35 @@ Defaults to FALSE (drop-down). <br />
         effect with &quot;config&quot; authentication mode: because of the
         hard coded password value in the configuration file, end users can't
         be allowed to change their passwords.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['SuggestDBName']</b> boolean</dt>
     <dd>
         Defines whether to suggest a database name on the
         &quot;Create Database&quot; form or to keep the textfield empty.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['ShowBlob'] </b>boolean</dt>
     <dd>
         Defines whether <tt>BLOB</tt> fields are shown when browsing a table's
         content or not.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['NavigationBarIconic'] </b>string</dt>
     <dd>
     Defines whether navigation bar buttons and the right panel top menu contain text or symbols only. A value of TRUE displays icons, FALSE displays text and 'both' displays both icons and text.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['ShowAll'] </b>boolean</dt>
     <dd>
         Defines whether an user should be displayed a
         &quot;show all (records)&quot; button in browse mode or not.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['MaxRows'] </b>integer</dt>
     <dd>
         Number of rows displayed when browsing a result set. If the result set
         contains more rows, Previous/Next links will be shown.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Order'] </b>string [<tt>DESC</tt>|<tt>ASC</tt>|<tt>SMART</tt>]</dt>
@@ -1211,27 +1159,25 @@ Defaults to FALSE (drop-down). <br />
         in descending (<tt>DESC</tt>) order or in a &quot;smart&quot;
         (<tt>SMART</tt>) order - I.E. descending order for fields of type TIME,
         DATE, DATETIME &amp; TIMESTAMP, ascending order else- by default.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['ProtectBinary'] </b>boolean or string</dt>
     <dd>
         Defines whether <tt>BLOB</tt> or <tt>BINARY</tt> fields are protected
-        from edition when browsing a table's content or not.
+        from editing when browsing a table's content or not.
         Valid values are:<br />
-        - <tt>FALSE</tt> to allow edition of all fields;<br />
-        - <tt>blob</tt> to allow edition of all fields except <tt>BLOBS</tt>;
-          <br />
-        - <tt>all</tt> to disallow edition of all <tt>BINARY</tt> or
-          <tt>BLOB</tt> fields.
-        <br /><br />
+        <ul>
+          <li><tt>FALSE</tt> to allow editing of all fields;</li>
+          <li><tt>'blob'</tt> to allow editing of all fields except <tt>BLOBS</tt>;</li>
+          <li><tt>'all'</tt> to disallow editing of all <tt>BINARY</tt> or
+          <tt>BLOB</tt> fields.</li>
+        </ul>
     </dd>
 
     <dt><b>$cfg['ShowFunctionFields'] </b>boolean</dt>
     <dd>
         Defines whether MySQL functions fields should be displayed or not in
         edit/insert mode.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['CharEditing'] </b>string</dt>
@@ -1249,8 +1195,7 @@ Defaults to FALSE (drop-down). <br />
             </li>
         </ul>
         Default is old behavior so input.
-        <br /><br />
-        </dd>
+    </dd>
 
     <dt><b>$cfg['InsertRows']</b> integer</dt>
     <dd>
@@ -1280,7 +1225,6 @@ Defaults to FALSE (drop-down). <br />
     <dd>
         Defines whether to allow the use of zip/GZip/BZip2 compression when
         creating a dump file or not.
-        <br /><br />
     </dd>
 
     <dt>
@@ -1292,23 +1236,19 @@ Defaults to FALSE (drop-down). <br />
         create larger dumps, that won't fit otherwise in memory due to php
         memory limit. Produced files contain more GZip/BZip2 headers, but all
         normal programs handle this correctly.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['LightTabs'] </b>string</dt>
     <dd>
-        If set to True, do use less graphically intense tabs on the top of the
+        If set to True, use less graphically intense tabs on the top of the
         mainframe.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['PropertiesIconic'] </b>string</dt>
     <dd>
-        If set to True, will display icons instead of text for db and table
-        properties links (like 'Browse', 'Select', 'Insert', ...).<br />
-        Can be set to 'both' if you want icons AND text.<br />
-        When set to False, will only show text.
-        <br /><br />
+        If set to <tt>TRUE</tt>, will display icons instead of text for db and table
+        properties links (like 'Browse', 'Select', 'Insert', ...).<br /> Can be set to <tt>'both'</tt> if you want icons AND text.<br />
+        When set to <tt>FALSE</tt>, will only show text.
     </dd>
 
     <dt><b>$cfg['PropertiesNumColumns'] </b>integer</dt>
@@ -1317,7 +1257,6 @@ Defaults to FALSE (drop-down). <br />
         database property view?  Default is 1 column. When setting this to a
         value larger than 1, the type of the database will be omitted for more
         display space.
-        <br /><br />
     </dd>
 
 
@@ -1328,7 +1267,6 @@ Defaults to FALSE (drop-down). <br />
         &quot;server_databases.php&quot;, &quot;server_status.php&quot;,
         &quot;server_variables.php&quot;, &quot;server_privileges.php&quot;
         or &quot;server_processlist.php&quot;.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['DefaultTabDatabase'] </b>string</dt>
@@ -1336,7 +1274,6 @@ Defaults to FALSE (drop-down). <br />
         Defines the tab displayed by default on database view. Possible
         values: &quot;db_details_structure.php&quot;,
         &quot;db_details.php&quot; or &quot;db_search.php&quot;.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['DefaultTabTable'] </b>string</dt>
@@ -1345,7 +1282,6 @@ Defaults to FALSE (drop-down). <br />
         values: &quot;tbl_properties_structure.php&quot;,
         &quot;tbl_properties.php&quot;, &quot;tbl_select.php&quot; or
         &quot;tbl_change.php&quot;.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['MySQLManualBase']</b> string</dt>
@@ -1356,7 +1292,6 @@ Defaults to FALSE (drop-down). <br />
         <br />
         See <a href="http://dev.mysql.com/doc/">MySQL Documentation page</a>
         for more information about MySQL manuals and their types.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['MySQLManualType']</b> string</dt>
@@ -1369,7 +1304,6 @@ Defaults to FALSE (drop-down). <br />
             <li>big - &quot;HTML, all on one page&quot;</li>
             <li>none - do not show documentation links</li>
         </ul>
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['DefaultLang'] </b>string</dt>
@@ -1378,14 +1312,12 @@ Defaults to FALSE (drop-down). <br />
         user-defined.<br />
         See the <i>select_lang.lib.php</i> script to know the valid values for
         this setting.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Lang'] </b>string</dt>
     <dd>
         Force: always use this language (must be defined in the
         <i>select_lang.lib.php</i> script).
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['FilterLanguages'] </b>string</dt>
@@ -1393,7 +1325,6 @@ Defaults to FALSE (drop-down). <br />
         Limit list of available languages to those matching the given regular
         expression. For example if you want only Czech and English, you should
         set filter to <code>'^(cs|en)'</code>.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['DefaultCharset'] </b>string</dt>
@@ -1404,7 +1335,6 @@ Defaults to FALSE (drop-down). <br />
         You can give here any character set which is in
         <tt>$cfg['AvailableCharsets']</tt> array and this is just default
         choice, user can select any of them.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['AllowAnywhereRecoding'] </b>boolean</dt>
@@ -1416,7 +1346,6 @@ Defaults to FALSE (drop-down). <br />
         <br /><br />
         Setting this to <tt>TRUE</tt> also activates a pull-down menu 
         in the Export page, to choose the character set when exporting a file.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['RecodingEngine'] </b>string</dt>
@@ -1431,7 +1360,6 @@ Defaults to FALSE (drop-down). <br />
             <li>recode - use recode_string function</li>
         </ul>
         Default is auto.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['IconvExtraParams'] </b>string</dt>
@@ -1439,7 +1367,6 @@ Defaults to FALSE (drop-down). <br />
         Specify some parameters for iconv used in charset conversion. See
         <a href="http://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html">iconv
         documentation</a> for details.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['AvailableCharsets'] </b>array</dt>
@@ -1448,7 +1375,6 @@ Defaults to FALSE (drop-down). <br />
         supported by recode/iconv) or remove these which you don't use.
         Character sets will be shown in same order as here listed, so if you
         frequently use some of these move them to the top.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['GD2Available'] </b>string</dt>
@@ -1466,13 +1392,11 @@ Defaults to FALSE (drop-down). <br />
             <li>no - GD 2 function cannot be used</li>
         </ul>
         Default is auto.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['LeftWidth'] </b>integer</dt>
     <dd>
         Left frame width in pixel. See <tt>themes/themename/layout.inc.php</tt>.
-        <br /><br />
     </dd>
 
     <dt>
@@ -1482,7 +1406,6 @@ Defaults to FALSE (drop-down). <br />
     <dd>
         The background colors (HTML) used for both the frames.
         See <tt>themes/themename/layout.inc.php</tt>.
-        <br /><br />
     </dd>
 
     <dt>
@@ -1497,37 +1420,31 @@ Defaults to FALSE (drop-down). <br />
     <dd>
         The color (HTML) used for the pointer in the left frame (does not work
         with Netscape 4). See <tt>themes/themename/layout.inc.php</tt>.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['LeftPointerEnable'] </b>boolean</dt>
     <dd>
         A value of <tt>TRUE</tt> activates the left pointer (when LeftFrameLight is <tt>FALSE</tt>).
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Border'] </b>integer</dt>
     <dd>
         The size of a table's border. See <tt>themes/themename/layout.inc.php</tt>.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['ThBgcolor'] </b>string [HTML color]</dt>
     <dd>
         The color (HTML) used for table headers. See <tt>themes/themename/layout.inc.php</tt>.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['BgcolorOne'] </b>string [HTML color]</dt>
     <dd>
         The color (HTML) #1 for table rows. See <tt>themes/themename/layout.inc.php</tt>.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['BgcolorTwo'] </b>string [HTML color]</dt>
     <dd>
         The color (HTML) #2 for table rows. See <tt>themes/themename/layout.inc.php</tt>.
-        <br /><br />
     </dd>
 
     <dt>
@@ -1541,19 +1458,16 @@ Defaults to FALSE (drop-down). <br />
         and the latter lets you visually mark/unmark rows by clicking on
         them.<br />
         See <tt>themes/themename/layout.inc.php</tt>.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['BrowsePointerEnable'] </b>boolean</dt>
     <dd>
         Whether to activate the browse pointer or not.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['BrowseMarkerEnable'] </b>boolean</dt>
     <dd>
         Whether to activate the browse marker or not.
-        <br /><br />
     </dd>
 
     <dt>
@@ -1568,32 +1482,28 @@ Defaults to FALSE (drop-down). <br />
         SQL textareas inside the query window.<br />
         The Char* values are used for CHAR and VARCHAR editing (if configured
         via $cfg['CharEditing']).
-        <br /><br />
     </dd>
 
     <dt>
-        <b>$cfg['LongtextDoubleTextarea'] </b>boolean<br />
+        <b>$cfg['LongtextDoubleTextarea'] </b>boolean
     </dt>
     <dd>
         Defines whether textarea for LONGTEXT fields should have double size.
-        <br /><br />
     </dd>
 
     <dt>
-        <b>$cfg['TextareaAutoSelect'] </b>boolean<br />
+        <b>$cfg['TextareaAutoSelect'] </b>boolean
     </dt>
     <dd>
         Defines if the whole textarea of the query box will be selected on
         click.
-        <br /><br />
     </dd>
     <dt>
 <a name="CtrlArrowsMoving"></a><br />
-        <b>$cfg['CtrlArrowsMoving'] </b>boolean<br />
+        <b>$cfg['CtrlArrowsMoving'] </b>boolean
     </dt>
     <dd>
-        Enable Ctrl+Arrows (Option+Arrows in Safari) moving between fields when editing?
-        <br /><br />
+        Enable Ctrl+Arrows (Option+Arrows in Safari) moving between fields when editing.
     </dd>
 
     <dt><b>$cfg['LimitChars'] </b>integer</dt>
@@ -1601,11 +1511,10 @@ Defaults to FALSE (drop-down). <br />
         Maximal number of Chars showed in any non-numeric
         field on browse view. Can be turned off by a toggle button on the
         browse page.
-        <br /><br />
     </dd>
 
     <dt>
-        <b>$cfg['ModifyDeleteAtLeft'] </b>boolean<br />
+        <b>$cfg['ModifyDeleteAtLeft'] </b>boolean
         <b>$cfg['ModifyDeleteAtRight'] </b>boolean
     </dt>
     <dd>
@@ -1614,10 +1523,9 @@ Defaults to FALSE (drop-down). <br />
         left and at the right).
         &quot;Left&quot; and &quot;right&quot; are parsed as &quot;top&quot;
         and &quot;bottom&quot; with vertical display mode.
-        <br /><br />
     </dd>
 
-    <dt><b>$cfg['DefaultDisplay'] </b>string<br />
+    <dt><b>$cfg['DefaultDisplay'] </b>string
         <b>$cfg['HeaderFlipType'] </b>string
     </dt>
     <dd>
@@ -1632,7 +1540,6 @@ Defaults to FALSE (drop-down). <br />
         the rotation of the header for horizontalflipped is done via CSS. If
         set to 'faked' PHP does the transformation for you, but of course this
         does not look as good as CSS.
-        <br /><br />
     </dd>
     <dt>
 
@@ -1644,11 +1551,10 @@ Defaults to FALSE (drop-down). <br />
         'vertical' you can have each field lined up vertically beneath each
         other. You can save up a lot of place on the horizontal direction and
         no longer have to scroll.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['ShowBrowseComments'] </b>boolean<br />
-        <b>$cfg['ShowPropertyComments'] </b>boolean<br />
+        <b>$cfg['ShowPropertyComments'] </b>boolean
     </dt>
     <dd>
         By setting the corresponding variable to <tt>TRUE</tt> you can enable the
@@ -1656,12 +1562,11 @@ Defaults to FALSE (drop-down). <br />
         mode, the comments are show inside the header. In property mode,
         comments are displayed using a CSS-formatted dashed-line below the
         name of the field. The comment is shown as a tool-tip for that field.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['UploadDir'] </b>string</dt>
     <dd>
-        The name of the directory, where SQL files have been uploaded by other
+        The name of the directory where SQL files have been uploaded by other
         means than phpMyAdmin (for example, ftp).  Those files are available
         under a drop-down box when you click the database name, then the SQL
         tab.
@@ -1680,22 +1585,20 @@ Defaults to FALSE (drop-down). <br />
         be owned by the same user as the owner of the phpMyAdmin scripts.
         <br /><br />
         See also <a href="#faq1_16">FAQ 1.16</a> for alternatives.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['docSQLDir'] </b>string</dt>
     <dd>
-        The name of the directory, where docSQL files can be uploaded for
+        The name of the directory where docSQL files can be uploaded for
         import into phpMyAdmin.
         <br /><br />
         Please note that if PHP is running in safe mode, this directory must
         be owned by the same user as the owner of the phpMyAdmin scripts.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['SaveDir'] </b>string</dt>
     <dd>
-        The name of the directory, where dumps can be saved.
+        The name of the directory where dumps can be saved.
         <br /><br />
         If you want different directory for each user, %u will be replaced
         with username.
@@ -1705,7 +1608,6 @@ Defaults to FALSE (drop-down). <br />
         <br /><br />
         Please note that if PHP is running in safe mode, this directory must
         be owned by the same user as the owner of the phpMyAdmin scripts.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['TempDir'] </b>string</dt>
@@ -1714,7 +1616,6 @@ Defaults to FALSE (drop-down). <br />
         <br /><br />
         This is needed for native MS Excel export, see <a href="#faq6_23">FAQ
         6.23</a>
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Export'] </b>array</dt>
@@ -1722,7 +1623,6 @@ Defaults to FALSE (drop-down). <br />
         In this array are defined default parameters for export, names of
         items are similar to texts seen on export page, so you can easily
         identify what they mean.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Import'] </b>array</dt>
@@ -1730,13 +1630,11 @@ Defaults to FALSE (drop-down). <br />
         In this array are defined default parameters for import, names of
         items are similar to texts seen on import page, so you can easily
         identify what they mean.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['RepeatCells'] </b>integer</dt>
     <dd>
         Repeat the headers every X cells, or 0 to deactivate.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['EditInWindow'] </b>boolean<br />
@@ -1796,13 +1694,11 @@ Defaults to FALSE (drop-down). <br />
         Using the variable $cfg['QueryWindowDefTab'] you can specify the
         default tab to be used when opening the query window. It can be set to
         either 'sql', 'files', 'history' or 'full'.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['BrowseMIME'] </b>boolean</dt>
     <dd>
         Enable <a href="#transformations">MIME-transformations</a>.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['MaxExactCount'] </b>integer</dt>
@@ -1812,7 +1708,6 @@ Defaults to FALSE (drop-down). <br />
     value, <code>SELECT COUNT</code> will be used, otherwise only value
     returned by <code>SHOW TABLE STATUS</code>. This has currently an impact
     only on InnoDB tables.
-    <br /><br />
     </dd>
 
     <dt><a name="wysiwyg"></a>
@@ -1844,7 +1739,6 @@ Defaults to FALSE (drop-down). <br />
         get this control to work. The basic Drag&amp;Drop script functionality
         was kindly borrowed from www.youngpup.net and is underlying so
         specific license.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['NaturalOrder'] </b>boolean</dt>
@@ -1852,73 +1746,63 @@ Defaults to FALSE (drop-down). <br />
         Sorts database and table names according to natural order (for example,
         t1, t2, t10). Currently implemented in the left panel (Light mode)
         and in Database view, for the table list.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['ShowHttpHostTitle'] </b>boolean</dt>
     <dd>
         Shows the HTTP host name in window's title bar.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['SetHttpHostTitle'] </b>string</dt>
     <dd>
         If <tt>$cfg['ShowHttpHostTitle']</tt> is <tt>TRUE</tt>, it shows the real
         HTTP host name, unless an alternate name is set here.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['ErrorIconic'] </b>boolean</dt>
     <dd>
         Uses icons for warnings, errors and informations.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['MainPageIconic'] </b>boolean</dt>
     <dd>
         Uses icons on main page in lists and menu tabs.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['ReplaceHelpImg'] </b>boolean</dt>
     <dd>
         Shows a help button instead of the &quot;Documentation&quot; message.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['ThemePath'] </b>string</dt>
     <dd>
         If theme manager is active, use this as the path of the subdirectory
         containing all the themes.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['ThemeManager'] </b>boolean</dt>
     <dd>
         Enables user-selectable themes. See <a href="#faqthemes">FAQ 2.7</a>.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['ThemeDefault'] </b>string</dt>
     <dd>
         The default theme (a subdirectory under <tt>cfg['ThemePath']</tt>).
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['ThemePerServer'] </b>boolean</dt>
     <dd>
         Whether to allow different theme for each server.
-    <br /><br />
     </dd>
 
-    <dt><b>$cfg['DefaultQueryTable']</b> string</dt>
-    <dt><b>$cfg['DefaultQueryDatabase']</b> string</dt>
+    <dt><b>$cfg['DefaultQueryTable']</b> string<br />
+        <b>$cfg['DefaultQueryDatabase']</b> string
+    </dt>
     <dd>
         Default queries that will be displayed in query boxes when user didn't
         specify any. Use %d for database name, %t for table name and %f for a
         comma separated list of field names. Note that %t and %f are only
         applicable to $cfg['DefaultQueryTable'].
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['SQP']['fmtType']</b> string [<tt>html</tt>|<tt>none</tt>]</dt>
@@ -1926,7 +1810,6 @@ Defaults to FALSE (drop-down). <br />
         The main use of the new SQL Parser is to pretty-print SQL queries. By
         default we use HTML to format the query, but you can disable this by
         setting this variable to <tt>'none'</tt>.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['SQP']['fmtInd']</b> float<br />
@@ -1938,7 +1821,6 @@ Defaults to FALSE (drop-down). <br />
     <br />Related in purpose is <tt>$cfg['SQP']['fmtIndUnit']</tt> which
     specifies the units of the indent amount that you specified. This is
     used via stylesheets.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['SQP']['fmtColor']</b> array of string tuples</dt>
@@ -1976,7 +1858,7 @@ Defaults to FALSE (drop-down). <br />
         <li><b>quote_double</b> Double quotes <tt>"</tt></li>
         <li><b>quote_single</b> Single quotes <tt>'</tt></li>
         <li><b>quote_backtick</b> Backtick quotes <tt>`</tt></li>
-    </ul><br />
+    </ul>
     </dd>
 
     <dt><b>$cfg['SQLValidator']['use']</b> boolean</dt>
@@ -1987,7 +1869,6 @@ Defaults to FALSE (drop-down). <br />
     <br />
     For help in setting up your system to use the service, see the
     <a href="#faqsqlvalidator">FAQ #6.14</a>.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['SQLValidator']['username']</b> string<br />
@@ -1997,7 +1878,6 @@ Defaults to FALSE (drop-down). <br />
     and any password, so we use those by default. Instead, if
     you have an account with them, you can put your login details
     here, and it will be used in place of the anonymous login.
-    <br /><br />
     </dd>
 
     <dt><b>$cfg['DBG']['enable']</b> boolean</dt>
@@ -2034,28 +1914,24 @@ Defaults to FALSE (drop-down). <br />
     <dd>
         All possible types of a MySQL column. In most cases you don't need to
         edit this.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['AttributeTypes'] </b>array</dt>
     <dd>
         Possible attributes for fields. In most cases you don't need to edit
         this.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['Functions'] </b>array</dt>
     <dd>
         A list of functions MySQL supports. In most cases you don't need to
         edit this.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['RestrictColumnTypes'] </b>array</dt>
     <dd>
         Mapping of column types to meta types used for preferring displayed
         functions. In most cases you don't need to edit this.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['RestrictFunctions'] </b>array</dt>
@@ -2063,23 +1939,20 @@ Defaults to FALSE (drop-down). <br />
         Functions preferred for column meta types as defined in
         <code>$cfg['RestrictColumnTypes']</code>. In most cases you don't need
         to edit this.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['DefaultFunctions'] </b>array</dt>
     <dd>
-        Functions selected by default when insering/changing row, Functions
+        Functions selected by default when inserting/changing row, Functions
         are defined for meta types from
         <code>$cfg['RestrictColumnTypes']</code> and for
         <code>first_timestamp</code>, which is used for first timestamp column
         in table.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['NumOperators'] </b>array</dt>
     <dd>
         Operators available for search operations on numeric and date fields.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['TextOperators'] </b>array</dt>
@@ -2088,20 +1961,17 @@ Defaults to FALSE (drop-down). <br />
         Note that we put <code>LIKE</code> by default instead of
         <code>LIKE %...%</code>, to avoid unintended performance problems
         in case of huge tables.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['EnumOperators'] </b>array</dt>
     <dd>
         Operators available for search operations on enum fields.
-        <br /><br />
     </dd>
 
     <dt><b>$cfg['NullOperators'] </b>array</dt>
     <dd>
-        Additionnal operators available for search operations when the
+        Additional operators available for search operations when the
         field can be null.
-        <br /><br />
     </dd>
 
 </dl>
@@ -2119,7 +1989,7 @@ Defaults to FALSE (drop-down). <br />
 <a name="transformationsintro"></a><br />
 <h3>[1. Introduction]</h3>
 
-<p>To enable transformations, you have to setup the column_info table and the proper
+<p>To enable transformations, you have to setup the <tt>column_info</tt> table and the proper
 directives. Please see the <a href="#config">Configuration section</a> on how to do so.</p>
 <br />
 
@@ -2138,7 +2008,7 @@ want the output stored in.</p><br />
 consult your <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/libraries/transformations/overview.php</i>
 installation.</p>
 
-<p><br />For a tutorial on how to effectively use transformations, see our <a href="http://www.phpmyadmin.net/home_page/docs.php">Link section</a> on the official phpMyAdmin-homepage.</p>
+<p><br />For a tutorial on how to effectively use transformations, see our <a href="http://www.phpmyadmin.net/home_page/docs.php">Link section</a> on the official phpMyAdmin homepage.</p>
 
 <a name="transformationshowto"></a><br />
 <h3>[2. Usage]</h3>
@@ -2358,7 +2228,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     You should first try the latest versions of Apache (and possibly MySQL).
     <br />
-    See also the other FAQ entry about PHP bugs with output buffering.
+    See also the <a href="$faq1_1">FAQ 1.1</a> entry about PHP bugs with output buffering.
     <br />
     If your server keeps crashing, please ask for help in the various
     Apache support groups.
@@ -2413,7 +2283,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <a name="faq1_7"></a>
 <h4>
-    [<a href="#faq1_7">1.7</a>] How can I GZip or Bzip a dump or a CSV export. It does not seem to
+    [<a href="#faq1_7">1.7</a>] How can I GZip or Bzip a dump or a CSV export? It does not seem to
     work.
 </h4>
 <p>
@@ -2545,6 +2415,10 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <h4>
     [<a href="#faq1_16">1.16</a>] I cannot upload big dump files (memory, http or timeout problems).
 </h4>
+<p> Starting with version 2.7.0, the import engine has been re&#8211;written and these
+    problems should not occur. If possible, upgrade your phpMyAdmin to the latest version
+    to take advantage of the new import features.
+</p>
 <p>
     The first things to check (or ask your host provider to check) are the
     values of <tt>upload_max_filesize</tt>, <tt>memory_limit</tt> and
@@ -3012,7 +2886,7 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
     <p>
     In theme directory there is file <tt>info.inc.php</tt> which contains
     theme verbose name, theme generation and theme version. These versions and
-    generations are enumerated from 1 and do not have any direct dependance on
+    generations are enumerated from 1 and do not have any direct dependence on
     phpMyAdmin version. Themes within same generation should be backwards
     compatible - theme with version 2 should work in phpMyAdmin requiring
     version 1. Themes with different generation are incompatible.
@@ -3252,7 +3126,7 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
     sufficient to use the directory protection bundled with your webserver
     (with Apache you can use <i>.htaccess</i> files, for example).<br />
     If other people have telnet access to your server, you should use
-    phpMyAdmin's HTTP authentication feature.
+    phpMyAdmin's HTTP or cookie authentication features.
     <br /><br />
     Suggestions:
 </p>
@@ -3516,7 +3390,7 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
 </h4>
 <p>
     Having $cfg['QueryFrameJS'] set to <tt>TRUE</tt>, this leads to a bug in Opera6, because it
-    is not able to interpret frameset definitiions written by JavaScript. Please upgrade
+    is not able to interpret frameset definitions written by JavaScript. Please upgrade
     to Opera7 at least.
 </p>
 
@@ -3628,12 +3502,17 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
 <a name="faq6_5"></a>
 <h4>
     [<a href="#faq6_5">6.5</a>] How can I restore (upload) my database or table using a dump?
-    How can I run a &quot;.sql&quot; file.
+    How can I run a &quot;.sql&quot; file?
 </h4>
 <p>
     Click on a database name in the left frame, the properties will be
-    local displayed.  Then in the &quot;Run SQL query&quot; section, type in
-    your dump filename, or use the Browse button. Then click Go.
+    displayed. Select &quot;Import&quot; from the list
+    of tabs in the right&#8211;hand frame (or &quot;SQL&quot; if your phpMyAdmin
+    version is older than 2.7.0). In the &quot;Location of the text file&quot; section, type in
+    the path to your dump filename, or use the Browse button. Then click Go.
+    <br /><br />
+    With version 2.7.0, the import engine has been re&#8211;written, if possible it is suggested
+    that you upgrade to take advantage of the new features.
     <br /><br />
     For additional help on this subject, look for the word &quot;upload&quot;
     in this document.
@@ -3717,7 +3596,7 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
     in the configuration section, then browse your persons table,
     and move the mouse over a town code or country code.
     <br /><br />
-    See also <a href="#faq6_21">FAQ 6.21</a> for an additionnal feature that &quot;display field&quot;
+    See also <a href="#faq6_21">FAQ 6.21</a> for an additional feature that &quot;display field&quot;
     enables: drop-down list of possible values.
 </p>
 
@@ -3932,7 +3811,7 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
     <code>SELECT Name, Address FROM addresses WHERE 1 AND Name LIKE '%phpMyAdmin%'</code>
     <br />
     <br />
-    You can use multiple occurences of <b>/*[VARIABLE]*/</b> in a single query.<br />
+    You can use multiple occurrences of <b>/*[VARIABLE]*/</b> in a single query.<br />
     <b>NOTE THE ABSENCE OF SPACES</b> inside the &quot;/**/&quot; construct. Any spaces inserted there
     will be later also inserted as spaces in your query and may lead to unexpected results especially when
     using the variable expansion inside of a &quot;LIKE ''&quot; expression.<br />
@@ -4009,7 +3888,7 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
     can I enable that?
 </h4>
 <p>
-    Current version does support direct export ot Microsoft Excel and Word
+    Current version does support direct export to Microsoft Excel and Word
     versions 2000 and newer. If you need export older versions, you can use
     CSV suitable for Microsoft Excel, which works out of the box or you can
     try native <b>experimental</b> MS Excel exporter. <b>This export has
@@ -4142,7 +4021,7 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
     <br /><br />
 
     The team regrets that the author did not communicate with us before
-    sending this alert. However, here is our current reply to the points mentionned:
+    sending this alert. However, here is our current reply to the points mentioned:
 </p>
 
 <ul>
