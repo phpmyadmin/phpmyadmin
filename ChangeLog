@@ -29,6 +29,8 @@ $Source$
     * libraries/function.js::pdfPaperSize()
       - function does not always return a vlaue
       - undeclared variables
+    * libraries/display_export.lib.php
+      - use superscript tag for comment
 
 2005-11-17 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: patch #1353283, thanks to Isaac Bennetch

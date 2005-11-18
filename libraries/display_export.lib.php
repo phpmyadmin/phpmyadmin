@@ -766,7 +766,9 @@ function show_checked_option() {
     <br />
     <?php } ?>
 
-    <label for="filename_template"><?php echo $strFileNameTemplate; ?></label>:
+    <label for="filename_template">
+        <?php echo $strFileNameTemplate; ?>
+        <sup>(1)</sup></label>:
     <input type="text" name="filename_template" id="filename_template"
     <?php
         echo ' value="';
@@ -789,15 +791,16 @@ function show_checked_option() {
                 echo $GLOBALS['cfg']['Export']['file_template_server'];
             }
         }
-        echo '" ';
-    ?> />
+        echo '" />';
+    ?>
+    
     (
     <input type="checkbox" name="remember_template"
         id="checkbox_remember_template"
         <?php PMA_exportCheckboxCheck('remember_file_template'); ?> />
     <label for="checkbox_remember_template">
         <?php echo $strFileNameTemplateRemember; ?></label>
-    )*
+    )
 
     <div class="formelementrow">
     <?php
@@ -875,7 +878,7 @@ if ( $is_zip || $is_gzip || $is_bzip ) { ?>
 </form>
 
 <div class="notice">
-    <?php echo sprintf($strFileNameTemplateHelp,
+    <sup id="FileNameTemplateHelp" name="FileNameTemplateHelp">(1)</sup> <?php echo sprintf($strFileNameTemplateHelp,
         '<a href="http://www.php.net/strftime" target="documentation" title="' 
-        . $strDocu . '">', '</a>') . "\n"; ?>
+        . $strDocu . '">', '</a>'); ?> 
 </div>
