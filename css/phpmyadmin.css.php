@@ -4,7 +4,6 @@
 
 chdir('..');
 $is_minimum_common = TRUE;
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/sqlparser.lib.php');
 

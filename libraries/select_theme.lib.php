@@ -31,7 +31,6 @@
 /**
  * We need some elements of the superglobal $_SERVER array.
  */
-require_once('./libraries/grab_globals.lib.php');
 global $PHP_SELF;
 /**
  * theme manager

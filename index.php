@@ -4,7 +4,6 @@
 /**
  * forms frameset
  * 
- * @uses    libraries/grab_globals.lib.php  import variables
  * @uses    libraries/common.lib.php        global fnctions
  * @uses    libraries/select_theme.lib.php  theme manager
  * @uses    libraries/relation.lib.php      table relations

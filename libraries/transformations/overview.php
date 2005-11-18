@@ -16,7 +16,6 @@ define('PMA_DISPLAY_HEADING', 0);
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./header.inc.php');
 require_once('./libraries/relation.lib.php');

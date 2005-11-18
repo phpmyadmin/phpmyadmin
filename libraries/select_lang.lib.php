@@ -7,13 +7,6 @@
  * phpMyAdmin Language Loading File
  */
 
-
-/**
- * We need some elements of the superglobal $_SERVER array.
- */
-require_once('./libraries/grab_globals.lib.php');
-
-
 /**
  * Define the path to the translations directory and get some variables
  * from system arrays if 'register_globals' is set to 'off'
