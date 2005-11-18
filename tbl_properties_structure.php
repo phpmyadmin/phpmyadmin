@@ -723,7 +723,7 @@ if ( $cfg['ShowStats'] ) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
         <th class="name"><?php echo $strRows; ?></th>
-        <td class="value"><?php echo PMA_formatNumber( $showtable['Rows'] ); ?></td>
+        <td class="value"><?php echo PMA_formatNumber( $showtable['Rows'], 0 ); ?></td>
     </tr>
         <?php
     }
@@ -731,7 +731,7 @@ if ( $cfg['ShowStats'] ) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
         <th class="name"><?php echo $strRowLength; ?> &oslash;</th>
-        <td class="value"><?php echo PMA_formatNumber( $showtable['Avg_row_length'] ); ?></td>
+        <td class="value"><?php echo PMA_formatNumber( $showtable['Avg_row_length'], 0 ); ?></td>
     </tr>
         <?php
     }
@@ -747,7 +747,7 @@ if ( $cfg['ShowStats'] ) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
         <th class="name"><?php echo $strNext; ?> Autoindex</th>
-        <td class="value"><?php echo PMA_formatNumber( $showtable['Auto_increment'] ); ?></td>
+        <td class="value"><?php echo PMA_formatNumber( $showtable['Auto_increment'], 0 ); ?></td>
     </tr>
         <?php
     }
