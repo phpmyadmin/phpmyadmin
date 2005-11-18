@@ -33,27 +33,157 @@ html {
 form {
     margin: 0;
     padding: 0;
+    display: inline;
 }
 
 a img {
     border: 0;
 }
 
+/* main page */
+#maincontainer {
+    background-image: url(../themes/original/img/logo_right.png);
+    background-position: <?php echo $right; ?> bottom;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid silver;
+}
+
+#mysqlmaininformation,
+#pmamaininformation {
+    float: <?php echo $left; ?>;
+}
+
+#mysqlmaininformation {
+    margin-<?php echo $right; ?>: 1em;
+    padding-<?php echo $right; ?>: 1em;
+    border-<?php echo $right; ?>: 0.1em solid silver;
+}
+
+#maincontainer ul {
+    list-style-image: url(../themes/original/img/item_<?php echo $GLOBALS['text_dir']; ?>.png);
+    vertical-align: middle;
+}
+
+#maincontainer li {
+    margin-bottom: 0.3em;
+}
+/* END main page */
+
+
+<?php if ( $GLOBALS['cfg']['MainPageIconic'] ) { ?>
+/* iconic view for ul items */
+li#li_create_database {
+    list-style-image: url(../themes/original/img/b_newdb.png);
+}
+
+li#li_select_lang {
+    list-style-image: url(../themes/original/img/s_lang.png);
+}
+
+li#li_select_mysql_collation,
+li#li_select_mysql_charset {
+    list-style-image: url(../themes/original/img/s_asci.png);
+}
+
+li#li_select_theme{
+    list-style-image: url(../themes/original/img/s_theme.png);
+}
+
+li#li_server_info{
+    list-style-image: url(../themes/original/img/s_host.png);
+}
+
+li#li_user_info{
+    list-style-image: url(../themes/original/img/s_rights.png);
+}
+
+li#li_mysql_status{
+    list-style-image: url(../themes/original/img/s_status.png);
+}
+
+li#li_mysql_variables{
+    list-style-image: url(../themes/original/img/s_vars.png);
+}
+
+li#li_mysql_processes{
+    list-style-image: url(../themes/original/img/s_process.png);
+}
+
+li#li_mysql_collations{
+    list-style-image: url(../themes/original/img/s_asci.png);
+}
+
+li#li_mysql_engines{
+    list-style-image: url(../themes/original/img/b_engine.png);
+}
+
+li#li_mysql_binlogs {
+    list-style-image: url(../themes/original/img/s_tbl.png);
+}
+
+li#li_mysql_databases {
+    list-style-image: url(../themes/original/img/s_db.png);
+}
+
+li#li_export {
+    list-style-image: url(../themes/original/img/b_export.png);
+}
+
+li#li_import {
+    list-style-image: url(../themes/original/img/b_import.png);
+}
+
+li#li_change_password {
+    list-style-image: url(../themes/original/img/s_passwd.png);
+}
+
+li#li_log_out {
+    list-style-image: url(../themes/original/img/s_loggoff.png);
+}
+
+li#li_pma_docs {
+    list-style-image: url(../themes/original/img/b_docs.png);
+}
+
+li#li_phpinfo {
+    list-style-image: url(../themes/original/img/php_sym.png);
+}
+
+li#li_pma_homepage {
+    list-style-image: url(../themes/original/img/b_home.png);
+}
+
+li#li_mysql_privilegs{
+    list-style-image: url(../themes/original/img/s_rights.png);
+}
+
+li#li_switch_dbstats {
+    list-style-image: url(../themes/original/img/b_dbstatistics.png);
+}
+/* END iconic view for ul items */
+<?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
+
+
+/* @deprecated */
 #mainheader {
     border: 0.1px solid transparent;
     border-bottom: 0.1em solid gray;
     margin-bottom: 1em;
 }
-
+/* @deprecated */
 #pmalogoright {
     float: <?php echo $right; ?>;
 }
 
+
+/* server privileges */
 #tableuserrights td,
 #tablespecificuserrights td,
 #tabledatabases td {
     vertical-align: middle;
 }
+/* END server privileges */
+
 
 /* leave some space between icons and text */
 .icon {
@@ -87,6 +217,12 @@ div#tablestatistics table caption {
     margin-right: 0.5em;
 }
 
+
+/* left frame content */
+body#body_leftFrame {
+    background-color: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
+}
+
 div#pmalogo,
 div#leftframelinks,
 div#databaseList {
@@ -96,36 +232,14 @@ div#databaseList {
     padding-bottom: 0.5em;
 }
 
-div#leftframelinks img {
+div#leftframelinks .icon {
     vertical-align: middle;
-}
-
-div#leftframelinks a {
-    padding: 0.1em;
+    padding: 0;
+    margin: 0;
 }
 
 div#leftframelinks a:hover {
     background-color: #669999;
-}
-
-body#bodyquerywindow {
-    margin: 0;
-    padding: 0;
-}
-
-div#querywindowcontainer {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-div#querywindowcontainer fieldset {
-    margin-top: 0;
-}
-
-
-body#body_leftFrame {
-    background-color: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
 }
 
 /* leftdatabaselist */
@@ -161,6 +275,26 @@ div#left_tableList ul ul {
     padding-bottom: 0.1em;
     border-bottom: 0.1em solid #669999;
 }
+/* END left frame content */
+
+
+/* querywindow */
+body#bodyquerywindow {
+    margin: 0;
+    padding: 0;
+}
+
+div#querywindowcontainer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+div#querywindowcontainer fieldset {
+    margin-top: 0;
+}
+/* END querywindow */
+
 
 /* querybox */
 
