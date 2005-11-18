@@ -2,19 +2,12 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
-/**
- * Checks if the left frame has to be reloaded
- */
-require_once('./libraries/grab_globals.lib.php');
-
-
 /**
  * Does the common work
  */
-$js_to_run = 'functions.js';
-require('./server_common.inc.php');
+require_once('./libraries/common.lib.php');
 
+$js_to_run = 'functions.js';
 
 /**
  * Displays the links

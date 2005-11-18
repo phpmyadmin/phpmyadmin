@@ -5,7 +5,6 @@
 /**
  * Get the variables sent or posted to this script and a core script
  */
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/zip.lib.php');
 

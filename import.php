@@ -7,9 +7,8 @@
 /**
  * Get the variables sent or posted to this script and a core script
  */
-require_once('./libraries/grab_globals.lib.php');
-$js_to_run = 'functions.js';
 require_once('./libraries/common.lib.php');
+$js_to_run = 'functions.js';
 
 // Are we just executing plain query or sql file? (eg. non import, but query box/window run)
 if (!empty($sql_query)) {

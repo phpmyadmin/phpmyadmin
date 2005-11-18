@@ -10,7 +10,6 @@
  */
 
 // Check parameters
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/bookmark.lib.php');
 require_once './libraries/sql_query_form.lib.php';

@@ -2,16 +2,14 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+require_once('./libraries/common.lib.php');
 
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
-require_once('./libraries/grab_globals.lib.php');
 $print_view = TRUE;
 require_once('./header.inc.php');
 
-// Check parameters
-require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db'));
 

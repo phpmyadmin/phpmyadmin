@@ -2,6 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+require_once('./libraries/common.lib.php');
 
 /**
  * If coming from a Show MySQL link on the home page,

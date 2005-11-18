@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/header_http.inc.php');
 $page_title = $strCalendar;

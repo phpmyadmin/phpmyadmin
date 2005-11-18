@@ -5,7 +5,8 @@
 /**
  * Get some core libraries
  */
-require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
+
 $js_to_run = 'functions.js';
 require_once('./header.inc.php');
 

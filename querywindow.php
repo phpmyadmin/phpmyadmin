@@ -2,12 +2,12 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+require_once('./libraries/common.lib.php');
 
 /**
  * Gets the variables sent to this script, retains the db name that may have
  * been defined as startup option and include a core library
  */
-require_once('./libraries/grab_globals.lib.php');
 if (!empty($db)) {
     $db_start = $db;
 }
@@ -16,7 +16,6 @@ if (!empty($db)) {
 /**
  * Gets a core script and starts output buffering work
  */
-require_once('./libraries/common.lib.php');
 require_once './libraries/sql_query_form.lib.php';
 require_once('./libraries/ob.lib.php');
 if ( $GLOBALS['cfg']['OBGzip'] ) {

@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/mysql_charsets.lib.php');
 

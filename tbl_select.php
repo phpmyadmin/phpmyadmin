@@ -6,7 +6,6 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/relation.lib.php'); // foreign keys
 require_once('./libraries/mysql_charsets.lib.php');

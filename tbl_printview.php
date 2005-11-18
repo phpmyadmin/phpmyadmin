@@ -1,13 +1,13 @@
 <?php
 /* $Id$ */
 
+require_once('./libraries/common.lib.php');
 
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
 $print_view = TRUE;
 if (!isset($selected_tbl)) {
-    require_once('./libraries/grab_globals.lib.php');
     require_once('./header.inc.php');
 }
 

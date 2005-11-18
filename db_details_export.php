@@ -13,6 +13,8 @@
 /**
  * Gets some core libraries
  */
+require_once('./libraries/common.lib.php');
+
 $sub_part  = '_export';
 require_once('./db_details_common.php');
 $url_query .= '&amp;goto=db_details_export.php';

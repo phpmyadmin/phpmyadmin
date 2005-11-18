@@ -38,7 +38,6 @@
 /**
  * Gets core libraries and defines some variables
  */
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 /**
  * Includes the ThemeManager if it hasn't been included yet

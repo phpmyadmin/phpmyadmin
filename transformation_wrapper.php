@@ -5,11 +5,6 @@
 define('IS_TRANSFORMATION_WRAPPER', true);
 
 /**
- * Get the variables sent or posted to this script and displays the header
- */
-require_once('./libraries/grab_globals.lib.php');
-
-/**
  * Gets a core script and starts output buffering work
  */
 require_once('./libraries/common.lib.php');

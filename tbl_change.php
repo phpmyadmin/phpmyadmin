@@ -5,7 +5,8 @@
 /**
  * Get the variables sent or posted to this script and displays the header
  */
-require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
+
 $js_to_run = 'tbl_change.js';
 require_once('./header.inc.php');
 require_once('./libraries/relation.lib.php'); // foreign keys

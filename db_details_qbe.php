@@ -2,12 +2,10 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Get the values of the variables posted or sent to this script and display
  * the headers
  */
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/relation.lib.php');
 

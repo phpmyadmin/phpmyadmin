@@ -5,7 +5,6 @@
 /**
  * Gets some core libraries
  */
-require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 
 /**

@@ -6,6 +6,8 @@
  *  + reset status vriales
  */
 
+require_once('./libraries/common.lib.php');
+
 /**
  * Does the common work
  */

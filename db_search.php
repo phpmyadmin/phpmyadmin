@@ -5,6 +5,7 @@
  * Credits for this script goes to Thomas Chaumeny <chaume92 at aol.com>
  */
 
+require_once('./libraries/common.lib.php');
 
 /**
  * Gets some core libraries and send headers
