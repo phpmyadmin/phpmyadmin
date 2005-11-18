@@ -23,7 +23,8 @@ $Source$
     * fixed minimum_common for css files
     * header.inc.php: missing ; after &quot
     * libraries/function.js::pdfPaperSize()
-      - javascript warning: function does not always return a vlaue
+      - function does not always return a vlaue
+      - undeclared variables
 
 2005-11-17 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: patch #1353283, thanks to Isaac Bennetch

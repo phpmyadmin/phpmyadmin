@@ -357,11 +357,12 @@ function checkTableEditForm(theForm, fieldsCnt)
     // on the form but has not completed at least one field name
 
     var atLeastOneField = 0;
+    var i, elm, elm2, elm3, val, id;
 
     for (i=0; i<fieldsCnt; i++)
     {
-        var id = "field_" + i + "_2";
-        var elm = getElement(id);
+        id = "field_" + i + "_2";
+        elm = getElement(id);
         if (elm.value == 'VARCHAR' || elm.value == 'CHAR') {
             elm2 = getElement("field_" + i + "_3");
             val = parseInt(elm2.value);
@@ -375,7 +376,7 @@ function checkTableEditForm(theForm, fieldsCnt)
         }
 
         if (atLeastOneField == 0) {
-            var id = "field_" + i + "_1";
+            id = "field_" + i + "_1";
             if (!emptyCheckTheField(theForm, id)) {
                 atLeastOneField = 1;
             }
