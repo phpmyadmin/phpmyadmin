@@ -207,7 +207,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                         htmlspecialchars($GLOBALS['table']),
                         (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? $GLOBALS['strView'] : $GLOBALS['strTable']),
                         (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png' );
-                
+
                 /**
                  * Displays table comment
                  * @uses $show_comment from tbl_properties_table_info.php
@@ -233,7 +233,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                 // in db_details_db_info.php only once
                 if ($cfgRelation['commwork']) {
                     $comment = PMA_getComments( $GLOBALS['db'] );
-                    
+
                     /**
                      * Displays table comment
                      */
@@ -241,7 +241,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                         echo '<span class="table_comment"'
                             .' id="span_table_comment">&quot;'
                             .htmlspecialchars(implode(' ', $comment))
-                            .'&quot</span>' . "\n";
+                            .'&quot;</span>' . "\n";
                     } // end if
                 }
             }
