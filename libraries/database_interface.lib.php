@@ -369,6 +369,10 @@ function PMA_DBI_get_tables_full( $database, $table = false,
  * @return  array       $databases
  */
 function PMA_DBI_get_databases_full( $database = NULL, $force_stats = false, $link = NULL ) {
+    
+    // initialize to avoid errors when there are no databases
+    $databases = array();
+    
     if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
         // get table information from information_schema
         if ( $database ) {

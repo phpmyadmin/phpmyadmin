@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/database_interface.lib.php: initialize in case there are
+      no databases (MySQL < 5.0)
+
 2005-11-18 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * server_databases.php:
       - require_once common.lib.php BEFORE ANYTHING else
