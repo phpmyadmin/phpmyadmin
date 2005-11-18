@@ -1063,8 +1063,8 @@ function dragPlace(no, axis, value) {
 }
 
 /**
-  * Returns paper sizes for a given format
-  */
+ * Returns paper sizes for a given format
+ */
 function pdfPaperSize(format, axis) {
     switch (format.toUpperCase()) {
         case '4A0':
@@ -1215,4 +1215,6 @@ function pdfPaperSize(format, axis) {
             if (axis == 'x') return 612.00; else return 936.00;
             break;
     } // end switch
+
+    return 0;
 }
