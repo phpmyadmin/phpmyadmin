@@ -5,9 +5,12 @@ body{
     color:             #000000;
     background-color:  #ffffff;
 }
+body * {
+    font-family:      inherit;
+    font-size:        inherit;
+}
 h1{
-    font-family:       Verdana, Arial, Helvetica, sans-serif;
-    font-size:         16px;
+    font-size:         160%;
     font-weight:       bold;
     color:             #000000;
 }
@@ -19,8 +22,6 @@ table{
     border-spacing:    0;
 }
 th{
-    font-family:       Verdana, Arial, Helvetica, sans-serif;
-    font-size:         10px;
     font-weight:       bold;
     color:             #000000;
     background-color:  #e5e5e5;
@@ -30,8 +31,6 @@ th{
     padding:           2px;
 }
 td{
-    font-family:       Verdana, Arial, Helvetica, sans-serif;
-    font-size:         10px;
     color:             #000000;
     background-color:  #ffffff;
     border-width:      1px;

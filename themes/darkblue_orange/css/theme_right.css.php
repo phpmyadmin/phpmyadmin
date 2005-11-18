@@ -17,29 +17,23 @@ body {
 
 /* gecko FIX, font size is not correctly assigned to all child elements */
 body * {
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
+    font-family:      inherit;
+    font-size:        inherit;
 }
 
 pre, tt, code{
-    font-size:        11px;
+    font-size:        110%;
 }
 a:link, a:visited, a:active{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
     text-decoration:  none;
     color:            #333399;
 
 }
 a:hover{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
     text-decoration:  underline;
     color:            #cc0000;
 }
 th{
-    font-family:         Verdana, Arial, Helvetica, sans-serif;
-    font-size:           10px;
     font-weight:         bold;
     color:               #000000;
     background-color:    #ff9900;
@@ -58,8 +52,6 @@ th a:hover{
     text-decoration:  none;
 }
 .tblcomment{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
     font-weight:      normal;
     color:            #000099;
 }
@@ -70,44 +62,29 @@ th.td{
     background-image: none;
 
 }
-td{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
-}
 form{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
     padding:          0px 0px 0px 0px;
     margin:           0px 0px 0px 0px;
-}
-select, textarea, input {
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
 }
 select, textarea{
     color:            #000000;
     background-color: #FFFFFF;
 }
 input.textfield{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
     color:            #000000;
     /*background-color: #FFFFFF;*/
 }
 
 h1{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        18px;
+    font-size:        180%;
     font-weight:      bold;
 }
 h2{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        13px;
+    font-size:        130%;
     font-weight:      bold;
 }
 h3{
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        12px;
+    font-size:        120%;
     font-weight:      bold;
 }
 dfn{
@@ -126,8 +103,6 @@ fieldset fieldset {
     margin:     0.8em;
 }
 legend {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    size:        10px;
     color:       #666699;
     font-weight: bold;
     background-color: #ffffff;
@@ -157,7 +132,7 @@ button.mult_submit {
     visibility:       inherit;
     cursor:           move;
     position:         absolute;
-    font-size:        11px;
+    font-size:        110%;
     border:           1px dashed #000000;
 }
 
@@ -372,10 +347,10 @@ fieldset.confirmation legend {
 /* end messageboxes */
 
 
-.print{font-family:arial;font-size:8pt;}
+.print{font-size:8pt;}
 
 /* MySQL Parser */
-.syntax {font-family: sans-serif; font-size: 10px;}
+.syntax {}
 .syntax_comment            { padding-left: 4pt; padding-right: 4pt;}
 .syntax_digit              {}
 .syntax_digit_hex          {}
@@ -458,13 +433,9 @@ img, input, select, button {
 
 /* disabled text */
 .disabled, .disabled a:link, disabled a:active, .disabled a:visited {
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
     color:            #666666;
 }
 .disabled a:hover {
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
     color:            #666666;
     text-decoration:  none;
 }
@@ -475,19 +446,16 @@ tr.disabled td, td.disabled {
 /* some styles for IDs: */
 #buttonNo{
     color:            #CC0000;
-    font-size:        10px;
     font-weight:      bold;
     padding:          0px 10px 0px 10px;
 }
 #buttonYes{
     color:            #006600;
-    font-size:        10px;
     font-weight:      bold;
     padding:          0px 10px 0px 10px;
 }
 #buttonGo{
     color:            #006600;
-    font-size:        10px;
     font-weight:      bold;
     padding:          0px 10px 0px 10px;
 }
@@ -503,7 +471,7 @@ tr.disabled td, td.disabled {
    width: 95%;
    height: 95%;
    font-family: "Courier New", Courier, mono;
-   font-size:   11px;
+   font-size:   110%;
 }
 
 #TooltipContainer {
@@ -517,8 +485,6 @@ tr.disabled td, td.disabled {
     color:            #006600;
     border:           0.1em solid #000000;
     padding:          0.5em;
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
 }
 
 fieldset {

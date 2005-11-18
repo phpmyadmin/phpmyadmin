@@ -9,8 +9,8 @@ body {
 
 /* gecko FIX, font size is not correctly assigned to all child elements */
 body * {
-    font-family:      Verdana, Arial, Helvetica, sans-serif;
-    font-size:        10px;
+    font-family:      inherit;
+    font-size:        inherit;
 }
 
 select{
@@ -50,7 +50,6 @@ div#left_tableList {
     list-style-position: outside;
     margin: 0;
     padding: 0;
-    font-size: 10px;
 }
 
 div#left_tableList a {
