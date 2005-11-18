@@ -34,12 +34,7 @@
 /**
  * Minimum inclusion? (i.e. for the stylesheet builder)
  */
-
-if (!isset($is_minimum_common)) {
-    $is_minimum_common = FALSE;
-}
-
-if ($is_minimum_common == FALSE) {
+if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     /**
      * Include the string library as we use it heavily
      */
@@ -206,7 +201,7 @@ if ($is_minimum_common == FALSE) {
         global $PMA_SQPdata_column_attrib, $PMA_SQPdata_reserved_word, $PMA_SQPdata_column_type, $PMA_SQPdata_function_name,
                $PMA_SQPdata_column_attrib_cnt, $PMA_SQPdata_reserved_word_cnt, $PMA_SQPdata_column_type_cnt, $PMA_SQPdata_function_name_cnt;
         global $mysql_charsets, $mysql_collations_flat, $mysql_charsets_count, $mysql_collations_count;
-        global $PMA_SQPdata_forbidden_word, $PMA_SQPdata_forbidden_word_cnt; 
+        global $PMA_SQPdata_forbidden_word, $PMA_SQPdata_forbidden_word_cnt;
 
         // rabus: Convert all line feeds to Unix style
         $sql = str_replace("\r\n", "\n", $sql);
@@ -779,7 +774,7 @@ if ($is_minimum_common == FALSE) {
  * ['queryflags']['distinct'] = 1;     for a DISTINCT
  * ['queryflags']['union'] = 1;        for a UNION
  * ['queryflags']['join'] = 1;         for a JOIN
- * ['queryflags']['offset'] = 1;       for the presence of OFFSET 
+ * ['queryflags']['offset'] = 1;       for the presence of OFFSET
  *
  * query clauses
  * -------------
@@ -829,7 +824,7 @@ if ($is_minimum_common == FALSE) {
  *
  * section_before_limit, section_after_limit
  * -----------------------------------------
- * 
+ *
  * Marks the point of the query where we can insert a LIMIT clause;
  * so the section_before_limit will contain the left part before
  * a possible LIMIT clause
@@ -1008,7 +1003,7 @@ if ($is_minimum_common == FALSE) {
                     case 'alpha_reservedWord':
                         // this is not a real reservedWord, because
                         // it's not present in the list of forbidden words,
-                        // for example "storage" which can be used as 
+                        // for example "storage" which can be used as
                         // an identifier
                         //
                         // TODO: avoid the pretty printing in color
@@ -1316,7 +1311,7 @@ if ($is_minimum_common == FALSE) {
         $in_group_concat = FALSE;
         $unsorted_query = '';
         $first_reserved_word = '';
-        $current_identifier = ''; 
+        $current_identifier = '';
 
         for ($i = 0; $i < $size; $i++) {
 //DEBUG echo "trace loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
@@ -1558,7 +1553,7 @@ if ($is_minimum_common == FALSE) {
         // (for now, identifiers are assumed to be backquoted)
 
         // If we find that we are dealing with a CREATE TABLE query,
-        // we look for the next punct_bracket_open_round, which 
+        // we look for the next punct_bracket_open_round, which
         // introduces the fields list. Then, when we find a
         // quote_backtick, it must be a field, so we put it into
         // the create_table_fields array. Even if this field is
@@ -1583,7 +1578,7 @@ if ($is_minimum_common == FALSE) {
                 $upper_data = strtoupper($arr[$i]['data']);
 
                 if ($upper_data == 'NOT' && $in_timestamp_options) {
-                    $create_table_fields[$current_identifier]['timestamp_not_null'] = TRUE; 
+                    $create_table_fields[$current_identifier]['timestamp_not_null'] = TRUE;
 
                 }
 
@@ -1661,12 +1656,12 @@ if ($is_minimum_common == FALSE) {
                                     $value = $third_upper_data . '_' . strtoupper($arr[$i+3]['data']);
                                 }
                             } elseif ($third_upper_data == 'CURRENT_TIMESTAMP') {
-                                if ($clause == 'on_update' 
+                                if ($clause == 'on_update'
                                 && $in_timestamp_options) {
                                     $create_table_fields[$current_identifier]['on_update_current_timestamp'] = TRUE;
                                     $seen_default = FALSE;
                                 }
-                              
+
                             } else {
                                 $value = '';
                             }
@@ -1679,7 +1674,7 @@ if ($is_minimum_common == FALSE) {
                 }
 
             } // end of reserved words analysis
-            
+
 
             if ($arr[$i]['type'] == 'punct_bracket_open_round') {
                 $brackets_level++;
@@ -1688,7 +1683,7 @@ if ($is_minimum_common == FALSE) {
                 }
             }
 
-            
+
             if ($arr[$i]['type'] == 'punct_bracket_close_round') {
                 $brackets_level--;
                 if ($seen_references) {
@@ -1709,7 +1704,7 @@ if ($is_minimum_common == FALSE) {
             }
 
             // note: the "or" part here is a workaround for a bug
-            // (see FIXME-2005-10-16) 
+            // (see FIXME-2005-10-16)
             if (($arr[$i]['type'] == 'alpha_columnType') || ($arr[$i]['type'] == 'alpha_functionName' && $seen_create_table)) {
                 $upper_data = strtoupper($arr[$i]['data']);
                 if ($seen_create_table && $in_create_table_fields && isset($current_identifier)) {
@@ -1722,7 +1717,7 @@ if ($is_minimum_common == FALSE) {
                 }
             }
 
-            
+
             if ($arr[$i]['type'] == 'quote_backtick' || $arr[$i]['type'] == 'alpha_identifier') {
 
                 if ($arr[$i]['type'] == 'quote_backtick') {
@@ -1735,7 +1730,7 @@ if ($is_minimum_common == FALSE) {
                 if ($seen_create_table && $in_create_table_fields) {
                     $current_identifier = $identifier;
                     // warning: we set this one even for non TIMESTAMP type
-                    $create_table_fields[$current_identifier]['timestamp_not_null'] = FALSE; 
+                    $create_table_fields[$current_identifier]['timestamp_not_null'] = FALSE;
                 }
 
                 if ($seen_constraint) {
@@ -2303,7 +2298,7 @@ function PMA_SQP_buildCssData()
     return $css_string;
 } // end of the "PMA_SQP_buildCssData()" function
 
-if ($is_minimum_common == FALSE) {
+if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     /**
      * Gets SQL queries with no format
      *

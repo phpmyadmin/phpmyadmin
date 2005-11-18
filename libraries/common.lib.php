@@ -56,13 +56,6 @@ require_once('./libraries/grab_globals.lib.php');
 $GLOBALS['PMA_errors'] = array();
 
 /**
- * Minimum inclusion? (i.e. for the stylesheet builder)
- */
-if (!isset($is_minimum_common)) {
-    $is_minimum_common = FALSE;
-}
-
-/**
  * Avoids undefined variables
  */
 if (!isset($use_backquotes)) {
@@ -203,7 +196,7 @@ if (isset($convcharset)) {
     $convcharset = PMA_sanitize($convcharset);
 }
 
-if ($is_minimum_common == FALSE) {
+if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     /**
      * Define $is_upload
      */
@@ -412,7 +405,7 @@ if (isset($_COOKIE) && !empty($_COOKIE['pma_collation_connection']) && empty($_P
 }
 
 
-if ($is_minimum_common == FALSE) {
+if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     /**
      * Include URL/hidden inputs generating.
      */
@@ -1177,7 +1170,7 @@ function PMA_setFontSizes()
 } // end of the 'PMA_setFontSizes()' function
 
 
-if ($is_minimum_common == FALSE) {
+if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     /**
      * $cfg['PmaAbsoluteUri'] is a required directive else cookies won't be
      * set properly and, depending on browsers, inserting or updating a

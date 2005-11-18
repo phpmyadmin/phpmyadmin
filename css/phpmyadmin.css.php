@@ -3,7 +3,7 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 chdir('..');
-$is_minimum_common = TRUE;
+define( 'PMA_MINIMUM_COMMON', TRUE );
 require_once('./libraries/common.lib.php');
 require_once('./libraries/sqlparser.lib.php');
 
