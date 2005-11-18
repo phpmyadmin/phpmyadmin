@@ -5,6 +5,9 @@
 /**
  * Does the common work
  */
+require_once('./libraries/common.lib.php');
+
+
 $js_to_run = 'functions.js';
 require('./server_common.inc.php');
 
@@ -95,16 +98,6 @@ echo '<h2>' . "\n"
       : '' )
    . ( $dbstats ? $strDatabasesStats : $strDatabases ) . "\n"
    .'</h2>' . "\n";
-
-
-/**
- * Checks if the user is allowed to do what he tries to...
- */
-if ( $dbstats && ! $is_superuser ) {
-    echo $strNoPrivileges . "\n";
-    require_once('./footer.inc.php');
-}
-
 
 /**
  * Gets the databases list
@@ -261,7 +254,7 @@ if ( count($databases) > 0 ) {
     unset( $key, $current, $odd_row );
 
     echo '<tr>' . "\n";
-    if ( $is_superuser ) {
+    if ( $is_superuser || $cfg['AllowUserDropDatabase'] ) {
         echo '    <th>&nbsp;</th>' . "\n";
     }
     echo '    <th>' . $strTotalUC . ': ' . count( $databases ) . '</th>' . "\n";
@@ -307,91 +300,34 @@ if ( count($databases) > 0 ) {
         PMA_buttonOrImage( 'drop_selected_dbs', 'mult_submit', 'drop_selected_dbs', $strDrop, 'b_deltbl.png' );
     }
 
-    if ( $GLOBALS['cfg']['PropertiesIconic'] ) {
-        // iconic view
-        if ($is_superuser || $cfg['AllowUserDropDatabase']) {
-            echo '<table cellpadding="2" cellspacing="0">' . "\n";
-            if ( $is_superuser && ! $dbstats && PMA_MYSQL_INT_VERSION < 50002 ) {
-                echo '<tr><td><a href="./server_databases.php?' . $url_query . '&amp;dbstats=1" title="' . $strDatabasesStatsEnable . '">' . "\n"
-                   . '            <img class="icon" src="' .$pmaThemeImage . 'b_dbstatistics.png" width="16" height="16" alt="" />' . "\n"
-                   . '        </a>' . "\n"
-                   . '    </td>' . "\n"
-                   . '    <td><strong>' . "\n"
-                   . '        <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1" title="' . $strDatabasesStatsEnable . '">' . "\n"
-                   . '            ' . $strDatabasesStatsEnable . "\n"
-                   . '        </a>' . "\n"
-                   . '        </strong>' . "\n"
-                   . '    </td></tr><tr><td></td><td>' . "\n"
-                   . '    ' . $strDatabasesStatsHeavyTraffic . "\n"
-                   . '    <br />&nbsp;</td></tr>' . "\n";
-            } elseif ( $is_superuser && $dbstats ) {
-                echo '<tr><td><a href="./server_databases.php?' . $url_query . '" title="' . $strDatabasesStatsDisable . '">' . "\n"
-                   . '            <img class="icon" src="' .$pmaThemeImage . 'b_dbstatistics.png" width="16" height="16" alt="" />' . "\n"
-                   . '        </a>' . "\n"
-                   . '    </td><td>' . "\n"
-                   . '    <strong>' . "\n"
-                   . '        <a href="./server_databases.php?' . $url_query . '" title="' . $strDatabasesStatsDisable . '">' . "\n"
-                   . '            ' . $strDatabasesStatsDisable . "\n"
-                   . '        </a>' . "\n"
-                   . '    </strong>' . "\n"
-                   . '    </td></tr><tr><td colspan="2">&nbsp;</td></tr>' . "\n";
-            }
-            echo '</table>' . "\n";
+    if ( PMA_MYSQL_INT_VERSION < 50002 ) {
+        echo '<ul><li id="li_switch_dbstats"><strong>' . "\n";
+        if ( empty( $dbstats ) ) {
+            echo '        <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1"'
+                .' title="' . $strDatabasesStatsEnable . '">' . "\n"
+                .'            ' . $strDatabasesStatsEnable;
+        } else {
+            echo '        <a href="./server_databases.php?' . $url_query . '"'
+                .' title="' . $strDatabasesStatsDisable . '">' . "\n"
+                .'            ' . $strDatabasesStatsDisable;
         }
-    } else {
-        // classic view
-        if ($is_superuser || $cfg['AllowUserDropDatabase']) {
-            echo '<ul>' . "\n";
-            if ( $is_superuser && ! $dbstats && PMA_MYSQL_INT_VERSION < 50002  ) {
-                echo '    <li><strong>' . "\n"
-                   . '            <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1" title="' . $strDatabasesStatsEnable . '">' . "\n"
-                   . '                ' . $strDatabasesStatsEnable . "\n"
-                   . '            </a>' . "\n"
-                   . '        </strong><br />' . "\n"
-                   . '        ' . $strDatabasesStatsHeavyTraffic . '</li>' . "\n";
-            } elseif ( $is_superuser && $dbstats ) {
-                echo '    <li><strong>' . "\n"
-                   . '            <a href="./server_databases.php?' . $url_query . '" title="' . $strDatabasesStatsDisable . '">' . "\n"
-                   . '                ' . $strDatabasesStatsDisable . "\n"
-                   . '            </a>' . "\n"
-                   . '        </strong>' . "\n"
-                   . '        <br /></li>' . "\n";
-            }
-            echo '</ul>' . "\n";
-        }
+        echo '</a></strong><br />' . "\n"
+            .'        <div class="warning">'
+            . $strDatabasesStatsHeavyTraffic . '</div></li>' . "\n"
+            .'</ul>' . "\n";
     }
-    echo '</form>' . "\n";
+    echo '</form>';
 } else {
-    echo $strNoDatabases . "\n";
+    echo $strNoDatabases;
 }
 
 /**
  * Create new database.
  */
-if ( $GLOBALS['cfg']['PropertiesIconic'] )
-{
-    echo '<table cellpadding="2" cellspacing="0">' . "\n";
-    echo '<tr><td style="vertical-align: baseline;">' . "\n"
-       . '        <img class="icon" src="' .$pmaThemeImage . 'b_newdb.png" width="16" height="16" alt="" />' . "\n"
-       . '    </td>' . "\n"
-       . '    <td>' . "\n";
-}
-else
-{
-    echo '<ul><li>' . "\n";
-}
-
+echo '<ul><li id="li_create_database">' . "\n";
 require('./libraries/display_create_database.lib.php');
-
-if ( $GLOBALS['cfg']['PropertiesIconic'] )
-{
-    echo '    </td></tr></table>' . "\n";
-}
-else
-{
-    echo '    </li>' . "\n";
-    echo '</ul>' . "\n";
-}
+echo '    </li>' . "\n";
+echo '</ul>' . "\n";
 
 /**
  * Sends the footer

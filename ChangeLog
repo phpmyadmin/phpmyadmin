@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-18 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * server_databases.php:
+      - require_once common.lib.php BEFORE ANYTHING else
+      - unified style, removed tables
+      - removed superuser check for dbstats
+
 2005-11-17 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: patch #1353283, thanks to Isaac Bennetch
     * lang/finnish: update, thanks to Jouni Kahkonen
