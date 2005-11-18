@@ -14,6 +14,7 @@ $Source$
       - small improvements
     * themes/darkblue_orange/css/*
       - fixed font sizes
+    * lang/english-*: small improvements
 
 2005-11-17 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: patch #1353283, thanks to Isaac Bennetch
