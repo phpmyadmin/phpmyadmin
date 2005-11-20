@@ -79,7 +79,7 @@ if ($PMA_ThemeAvailable == TRUE) { // themeManager is available
 
 // Allow different theme per server
 $theme_cookie_name = 'pma_theme';
-if ($GLOBALS['cfg']['ThemePerServer']) {
+if ( isset( $server ) && $GLOBALS['cfg']['ThemePerServer'] ) {
     $theme_cookie_name .= '-' . $server;
 }
 

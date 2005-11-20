@@ -7,7 +7,9 @@ $Source$
 
 2005-11-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php::PMA_showMySQLDocu()
-      - prevent undefined constants (if server connection fails)
+      - undefined constant (if server connection fails)
+    * libraries/select_theme.lib.php
+      - undefined variable (if server connection fails)
 
 2005-11-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/database_interface.lib.php: initialize in case there are
