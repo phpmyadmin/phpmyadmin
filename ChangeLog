@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-21 Michal Čihař  <michal@cihar.com>
+    * libraries/import/sql.php: Fix query splitting in some cases (reported by
+      Marc).
+
 2005-11-20 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.7.0-rc1 released
     * many files: $dbh becomes $controllink for better contrast with $userlink

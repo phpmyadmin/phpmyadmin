@@ -89,7 +89,7 @@ if (isset($import_list)) {
                 if (!$endq) break;
                 $i++;
                 // Aren't we at the end?
-                if ($i == $len) {
+                if ($finished && $i == $len) {
                     $i--;
                 } else {
                     continue;
