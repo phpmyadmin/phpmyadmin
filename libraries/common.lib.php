@@ -583,9 +583,12 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             default:
                 if (empty($link)) $link = 'index';
                 $mysql = '4.1';
-                if (PMA_MYSQL_INT_VERSION > 50100) {
+                if ( ! defined( 'PMA_MYSQL_INT_VERSION' )
+                  || PMA_MYSQL_INT_VERSION < 50000 ) {
+                    $mysql = '4.1';
+                } elseif (PMA_MYSQL_INT_VERSION >= 50100) {
                     $mysql = '5.1';
-                } elseif (PMA_MYSQL_INT_VERSION > 50000) {
+                } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
                     $mysql = '5.0';
                 }
                 $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/en/' . $link . '.html';
@@ -727,33 +730,88 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         // 2005-01-17 modified by mkkeck bugfix
         if (substr($error_message, 1, 4) == '1062') {
             // get the duplicate entry
-
+            
+            $no_duplicate_view = false;
+            
             // get table name
-            preg_match( '°ALTER\sTABLE\s\`([^\`]+)\`°iu', $the_query, $error_table = array() );
-            $error_table = $error_table[1];
-
-            // get fields
-            preg_match( '°\(([^\)]+)\)°i', $the_query, $error_fields = array() );
-            $error_fields = explode( ',', $error_fields[1] );
-
-            // duplicate value
-            preg_match( '°\'([^\']+)\'°i', $tmp_mysql_error, $duplicate_value = array() );
-            $duplicate_value = $duplicate_value[1];
-
-            $sql = '
-                 SELECT *
-                   FROM ' . PMA_backquote( $error_table ) . '
-                  WHERE CONCAT_WS( "-", ' . implode( ', ', $error_fields ) . ' )
-                        = "' . PMA_sqlAddslashes( $duplicate_value ) . '"
-               ORDER BY ' . implode( ', ', $error_fields );
-            unset( $error_table, $error_fields, $duplicate_value );
-
-            echo '        <form method="post" action="import.php" style="padding: 0; margin: 0">' ."\n"
-                .'            <input type="hidden" name="sql_query" value="' . htmlentities( $sql ) . '" />' . "\n"
-                .'            ' . PMA_generate_common_hidden_inputs($db, $table) . "\n"
-                .'            <input type="submit" name="submit" value="' . $GLOBALS['strBrowse'] . '" />' . "\n"
-                .'        </form>' . "\n";
-            unset( $sql );
+            if ( preg_match( 'ï¿½(ALTER|UPDATE|INSERT|CREATE)[^\`]*\s\`([^\`]+)\`ï¿½iu', $the_query, $error_table = array() ) ) {
+                $error_statement = $error_table[1];
+                $error_table = $error_table[2];
+                
+                // duplicate value
+                preg_match( 'ï¿½\'([^\']+)\'ï¿½i', $tmp_mysql_error, $duplicate_value = array() );
+                $duplicate_value = $duplicate_value[1];
+                
+                // get fields from statement
+                if ( $error_statement === 'UPDATE' ) {
+                    preg_match_all( 'ï¿½(?:SET|,)\s*(?:\`)?([^\`]*)(?:\`)?\s*=\s*(\'|\"|\`)?([^\\2]*\\2|[^\s]+)ï¿½i', $the_query, $founds = array() );
+                    print_r( $founds );
+                    $error_fields = $founds[1];
+                    foreach ( $founds[2] as $value ) {
+                        if ( substr( $value, 0, 1 ) !== "'"
+                          && substr( $value, 0, 1 ) !== '"'
+                          && ! is_numeric( $value ) )
+                        {
+                            // value is a field name or function
+                            // TODO hanlde fieldname or function here
+                            $no_duplicate_view = true;
+                        } else {
+                            $duplicate_value = trim( $value ) . '-';
+                        }
+                    }
+                    unset( $founds );
+                }
+                
+                if ( $error_statement !== 'ALTER' ) {
+                    // no alter statement
+                    // we need the fields in the affected index
+                    // and the statement
+                    
+                    $index_fields = array();
+                
+                    // get fields from index
+                    require_once './libraries/tbl_indexes.lib.php';
+                    
+                    // get affected index number
+                    preg_match( 'ï¿½\s([0-9]+)(?:\s|$)ï¿½', $error_message, $index_number = array() );
+                    $index_number = $index_number[1];
+                    
+                    // get indexes
+                    if (!defined('PMA_IDX_INCLUDED')) {
+                        $ret_keys = PMA_get_indexes( $error_table, 'db_details.php?' . PMA_generate_common_url( $db ) );
+                    }
+                    
+                    PMA_extract_indexes( $ret_keys, $indexes = array(),
+                        $indexes_info = array(), $indexes_data = array() );
+                    
+                    $array_keys = array_keys($indexes_data);
+                    foreach ( $indexes_data[$array_keys[$index_number]] as $index_part ) {
+                        foreach ( $index_part as $col_name ) {
+                            $index_fields[] = '`' . $col_name . '`';
+                        }
+                    }
+                    
+                    $error_fields = array_intersect( $error_fields, $index_fields );
+                    
+                    unset( $array_keys, $index_number, $indexes_data,
+                        $indexes_info, $indexes, $ret_keys, $index_fields );
+                }
+                
+                $sql = '
+                     SELECT *
+                       FROM ' . PMA_backquote( $error_table ) . '
+                      WHERE CONCAT_WS( \'-\', ' . implode( ', ', $error_fields ) . ' )
+                            = \'' . PMA_sqlAddslashes( $duplicate_value ) . '\'
+                   ORDER BY ' . implode( ', ', $error_fields );
+                unset( $error_table, $error_fields, $duplicate_value );
+                
+                echo '        <form method="post" action="import.php" style="padding: 0; margin: 0">' ."\n"
+                    .'            <input type="hidden" name="sql_query" value="' . htmlentities( $sql ) . '" />' . "\n"
+                    .'            ' . PMA_generate_common_hidden_inputs($db, $table) . "\n"
+                    .'            <input type="submit" name="submit" value="' . $GLOBALS['strBrowse'] . '" />' . "\n"
+                    .'        </form>' . "\n";
+                unset( $sql );
+            }
         } // end of show duplicate entry
 
         echo '</div>';
@@ -1921,8 +1979,7 @@ if (typeof(window.parent) != 'undefined'
                 $tooltip .= '(' . PMA_formatNumber( $tbl_status['Rows'], 0 ) . ' ' . $GLOBALS['strRows'] . ')';
                 PMA_DBI_free_result($result);
                 $uni_tbl = PMA_jsFormat( $GLOBALS['db'] . '.' . $GLOBALS['table'], false );
-                echo "\n";
-                ?>
+                ?> 
 <script type="text/javascript">
 //<![CDATA[
 window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFormat($tooltip, false); ?>' );
@@ -1930,7 +1987,7 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
 </script>
                 <?php
             } // end if
-        } // end if... else if
+        } // end if
 
         // Checks if the table needs to be repaired after a TRUNCATE query.
         if (isset($GLOBALS['table']) && isset($GLOBALS['sql_query'])
@@ -2172,6 +2229,18 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
             if (!empty($GLOBALS['show_as_php'])) {
                 echo '\';';
             }
+            
+            $warnings = PMA_DBI_get_warnings();
+            if ( count( $warnings ) > 0 ) {
+                echo '    <strong>' . $GLOBALS['strMySQLSaid'] . '</strong>'
+                    .PMA_showMySQLDocu('Error-returns', 'Error-returns');
+                foreach ( $warnings as $warning ) {
+                    echo '<div class="' . $warning['Level'] . '">'
+                        .'#' . $warning['Code'] . ' - ' . $warning['Message']
+                        .'</div>';
+                }
+            }
+            
             echo '</fieldset>' . "\n";
 
             if ( ! empty( $edit_target ) ) {
@@ -2573,8 +2642,8 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
                           . ' value="' . htmlspecialchars($message) . '" />';
                 } else {
                     $ret .= '<input type="image"' . $submit_name . ' ' . implode( ' ', $tag_params_strings )
-                          . ' src="' . preg_replace('°^.*\ssrc="([^"]*)".*$°si', '\1', $message) . '"'
-                          . ' value="' . htmlspecialchars(preg_replace('°^.*\salt="([^"]*)".*$°si', '\1', $message)) . '" />';
+                          . ' src="' . preg_replace('ï¿½^.*\ssrc="([^"]*)".*$ï¿½si', '\1', $message) . '"'
+                          . ' value="' . htmlspecialchars(preg_replace('ï¿½^.*\salt="([^"]*)".*$ï¿½si', '\1', $message)) . '" />';
                 }
             } else {
                 $message = trim( strip_tags( $message ) );
