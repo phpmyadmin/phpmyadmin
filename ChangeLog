@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-20 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.7.0-rc1 released
+
 2005-11-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php::PMA_showMySQLDocu()
       - undefined constant (if server connection fails)
