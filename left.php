@@ -117,8 +117,8 @@ if ( $num_dbs === 0 ) {
     /**
      * Close MySql connections
      */
-    if (isset($dbh) && $dbh) {
-        @PMA_DBI_close($dbh);
+    if (isset($controllink) && $controllink) {
+        @PMA_DBI_close($controllink);
     }
     if (isset($userlink) && $userlink) {
         @PMA_DBI_close($userlink);
@@ -498,8 +498,8 @@ function PMA_displayTableList( $tables, $visible = false,
 /**
  * Close MySql connections
  */
-if (isset($dbh) && $dbh) {
-    @PMA_DBI_close($dbh);
+if (isset($controllink) && $controllink) {
+    @PMA_DBI_close($controllink);
 }
 if (isset($userlink) && $userlink) {
     @PMA_DBI_close($userlink);

@@ -366,8 +366,8 @@ unset( $_input_query_history, $sql, $history );
 /**
  * Close MySql connections
  */
-if (isset($dbh) && $dbh) {
-    PMA_DBI_close($dbh);
+if (isset($controllink) && $controllink) {
+    PMA_DBI_close($controllink);
 }
 if (isset($userlink) && $userlink) {
     PMA_DBI_close($userlink);

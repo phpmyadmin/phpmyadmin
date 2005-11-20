@@ -293,8 +293,8 @@ if (isset($disp_row) && is_array($disp_row)) {
 /**
  * Close MySql connections
  */
-if (isset($dbh) && $dbh) {
-    @PMA_DBI_close($dbh);
+if (isset($controllink) && $controllink) {
+    @PMA_DBI_close($controllink);
 }
 if (isset($userlink) && $userlink) {
     @PMA_DBI_close($userlink);

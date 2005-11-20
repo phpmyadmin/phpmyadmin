@@ -898,7 +898,7 @@ if (isset($Field) && count($Field) > 0) {
          */
         function PMA_getRelatives($from) {
             global $tab_left, $tab_know, $fromclause;
-            global $dbh, $db, $cfgRelation;
+            global $controllink, $db, $cfgRelation;
 
             if ($from == 'master') {
                 $to    = 'foreign';
@@ -914,9 +914,9 @@ if (isset($Field) && count($Field) > 0) {
                        . ' AND ' . $to   . '_db   = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND ' . $from . '_table IN ' . $in_know
                        . ' AND ' . $to   . '_table IN ' . $in_left;
-            PMA_DBI_select_db($cfgRelation['db'], $dbh);
-            $relations = @PMA_DBI_query($rel_query, $dbh);
-            PMA_DBI_select_db($db, $dbh);
+            PMA_DBI_select_db($cfgRelation['db'], $controllink);
+            $relations = @PMA_DBI_query($rel_query, $controllink);
+            PMA_DBI_select_db($db, $controllink);
             while ($row = PMA_DBI_fetch_assoc($relations)) {
                 $found_table                = $row[$to . '_table'];
                 if (isset($tab_left[$found_table])) {

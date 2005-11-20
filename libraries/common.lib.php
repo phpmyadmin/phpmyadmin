@@ -971,7 +971,7 @@ function PMA_getTableCount( $db ) {
  *
  * @access  private
  */
-function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cfg, $dblist) {
+function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userlink, $cfg, $dblist) {
     if ($only_db_check == FALSE) {
         // try to get the available dbs list
         // use userlink by default
@@ -984,7 +984,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
             $auth_query   = 'SELECT User, Select_priv '
                           . 'FROM mysql.user '
                           . 'WHERE User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
-            $rs           = PMA_DBI_try_query($auth_query, $dbh);
+            $rs           = PMA_DBI_try_query($auth_query, $controllink);
         } // end
     }
 
@@ -1009,7 +1009,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
             // 1. get allowed dbs from the "mysql.db" table
             // lem9: User can be blank (anonymous user)
             $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\' OR User = \'\')';
-            $rs          = PMA_DBI_try_query($local_query, $dbh);
+            $rs          = PMA_DBI_try_query($local_query, $controllink);
             if ($rs && @PMA_DBI_num_rows($rs)) {
                 // Will use as associative array of the following 2 code
                 // lines:
@@ -1033,7 +1033,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
                     }
                 } // end while
                 PMA_DBI_free_result($rs);
-                $uva_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['dbh']);
+                $uva_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['controllink']);
                 // loic1: all databases cases - part 2
                 if (isset($uva_mydbs['%'])) {
                     while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
@@ -1069,7 +1069,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
 
             // 2. get allowed dbs from the "mysql.tables_priv" table
             $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
-            $rs          = PMA_DBI_try_query($local_query, $dbh);
+            $rs          = PMA_DBI_try_query($local_query, $controllink);
             if ($rs && @PMA_DBI_num_rows($rs)) {
                 while ($row = PMA_DBI_fetch_assoc($rs)) {
                     if (PMA_isInto($row['Db'], $dblist) == -1) {
@@ -1454,9 +1454,9 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         // must be open after this one so it would be default one for all the
         // scripts)
         if ($cfg['Server']['controluser'] != '') {
-            $dbh = PMA_DBI_connect($cfg['Server']['controluser'], $cfg['Server']['controlpass'], TRUE);
+            $controllink = PMA_DBI_connect($cfg['Server']['controluser'], $cfg['Server']['controlpass'], TRUE);
         } else {
-            $dbh = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password'], TRUE);
+            $controllink = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password'], TRUE);
         } // end if ... else
 
         // Pass #1 of DB-Config to read in master level DB-Config will go here
@@ -1494,7 +1494,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 // The current position
                 if ($dblist[$i] == '*' && $dblist_asterisk_bool == FALSE) {
                     $dblist_asterisk_bool = TRUE;
-                    $dblist_full = PMA_safe_db_list(FALSE, $dbh, FALSE, $rs, $userlink, $cfg, $dblist);
+                    $dblist_full = PMA_safe_db_list(FALSE, $controllink, FALSE, $rs, $userlink, $cfg, $dblist);
                     foreach ($dblist_full as $dbl_val) {
                         if (!in_array($dbl_val, $dblist)) {
                             $true_dblist[] = $dbl_val;
@@ -1510,17 +1510,17 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
                     // here, a PMA_DBI_query() could fail silently
                     // if SHOW DATABASES is disabled
-                    $rs          = PMA_DBI_try_query($local_query, $dbh);
+                    $rs          = PMA_DBI_try_query($local_query, $controllink);
 
                     if ($i == 0
-                        && (substr(PMA_DBI_getError($dbh), 1, 4) == 1045)) {
+                        && (substr(PMA_DBI_getError($controllink), 1, 4) == 1045)) {
                         // "SHOW DATABASES" statement is disabled
                         $true_dblist[] = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
                         $is_show_dbs   = FALSE;
                     }
                     // Debug
-                    // else if (PMA_DBI_getError($dbh)) {
-                    //    PMA_mysqlDie(PMA_DBI_getError($dbh), $local_query, FALSE);
+                    // else if (PMA_DBI_getError($controllink)) {
+                    //    PMA_mysqlDie(PMA_DBI_getError($controllink), $local_query, FALSE);
                     // }
                     while ($row = @PMA_DBI_fetch_row($rs)) {
                         $true_dblist[] = $row[0];
@@ -1543,7 +1543,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         } // end if (!$dblist_cnt)
 
         if (isset($dblist_full) && !count($dblist_full)) {
-            $dblist = PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cfg, $dblist);
+            $dblist = PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userlink, $cfg, $dblist);
         }
 
     } // end server connecting

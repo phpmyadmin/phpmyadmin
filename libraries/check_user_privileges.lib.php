@@ -3,8 +3,8 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 // Get user's global privileges and some db-specific privileges
-// ($dbh and $userlink are links to MySQL defined in the "common.lib.php" library)
-// Note: if no controluser is defined, $dbh contains $userlink
+// ($controllink and $userlink are links to MySQL defined in the "common.lib.php" library)
+// Note: if no controluser is defined, $controllink contains $userlink
 
 /**
  * returns true (int > 0) if current user is superuser
@@ -97,7 +97,7 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
 } else {
 
 // Before MySQL 4.1.2, we first try to find a priv in mysql.user. Hopefuly
-// the controluser is correctly defined; but here, $dbh could contain
+// the controluser is correctly defined; but here, $controllink could contain
 // $userlink so maybe the SELECT will fail
 
     if (!$is_create_db_priv) {
@@ -106,7 +106,7 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
         $mysql_cur_user                = substr($mysql_cur_user_and_host, 0, strrpos($mysql_cur_user_and_host, '@'));
 
         $local_query = 'SELECT Create_priv, Reload_priv FROM mysql.user WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($mysql_cur_user), 'quoted') . ' OR ' . PMA_convert_using('User') . ' = ' . PMA_convert_using('', 'quoted') . ';';
-        $rs_usr      = PMA_DBI_try_query($local_query, $dbh, PMA_DBI_QUERY_STORE); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+        $rs_usr      = PMA_DBI_try_query($local_query, $controllink, PMA_DBI_QUERY_STORE); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
             while ($result_usr = PMA_DBI_fetch_assoc($rs_usr)) {
                 if (!$is_create_db_priv) {
@@ -130,7 +130,7 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
     if (!$is_create_db_priv) {
         $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE ' . PMA_convert_using('Create_priv') . ' = ' . PMA_convert_using('Y', 'quoted') . ' AND (' . PMA_convert_using('User') . ' = ' .PMA_convert_using(PMA_sqlAddslashes($mysql_cur_user), 'quoted') . ' OR ' . PMA_convert_using('User') . ' = ' . PMA_convert_using('', 'quoted') . ');';
 
-        $rs_usr      = PMA_DBI_try_query($local_query, $dbh, PMA_DBI_QUERY_STORE);
+        $rs_usr      = PMA_DBI_try_query($local_query, $controllink, PMA_DBI_QUERY_STORE);
         if ($rs_usr) {
             $re0     = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
             $re1     = '(^|[^\])(\\\)+';       // escaped wildcards
@@ -151,11 +151,11 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
             // Finally, let's try to get the user's privileges by using SHOW
             // GRANTS...
             // Maybe we'll find a little CREATE priv there :)
-            $rs_usr      = PMA_DBI_try_query('SHOW GRANTS FOR ' . $mysql_cur_user_and_host . ';', $dbh, PMA_DBI_QUERY_STORE);
+            $rs_usr      = PMA_DBI_try_query('SHOW GRANTS FOR ' . $mysql_cur_user_and_host . ';', $controllink, PMA_DBI_QUERY_STORE);
             if (!$rs_usr) {
                 // OK, now we'd have to guess the user's hostname, but we
                 // only try out the 'username'@'%' case.
-                $rs_usr      = PMA_DBI_try_query('SHOW GRANTS FOR ' . $mysql_cur_user . ';', $dbh, PMA_DBI_QUERY_STORE);
+                $rs_usr      = PMA_DBI_try_query('SHOW GRANTS FOR ' . $mysql_cur_user . ';', $controllink, PMA_DBI_QUERY_STORE);
             }
             unset($local_query);
             if ($rs_usr) {

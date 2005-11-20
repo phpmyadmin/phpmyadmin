@@ -85,7 +85,7 @@ if ($cfgRelation['pdfwork']) {
 
                 if (isset($autolayout)) {
                     // save the page number
-                    $pdf_page_number = PMA_DBI_insert_id((isset($dbh)?$dbh:''));
+                    $pdf_page_number = PMA_DBI_insert_id((isset($controllink)?$controllink:''));
 
                     // get the tables that have relations, by descending
                     // number of links

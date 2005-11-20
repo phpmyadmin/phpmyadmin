@@ -24,19 +24,19 @@
  * @author  Mike Beck <mikebeck@users.sourceforge.net>
  */
  function PMA_query_as_cu($sql, $show_error = TRUE, $options = 0) {
-    global $err_url_0, $db, $dbh, $cfgRelation;
+    global $err_url_0, $db, $controllink, $cfgRelation;
 
-    if ($dbh == $GLOBALS['userlink']) {
-        PMA_DBI_select_db($cfgRelation['db'], $dbh);
+    if ($controllink == $GLOBALS['userlink']) {
+        PMA_DBI_select_db($cfgRelation['db'], $controllink);
     }
     if ($show_error) {
-        $result = PMA_DBI_query($sql, $dbh, $options);
+        $result = PMA_DBI_query($sql, $controllink, $options);
     } else {
-        $result = @PMA_DBI_try_query($sql, $dbh, $options);
+        $result = @PMA_DBI_try_query($sql, $controllink, $options);
     } // end if... else...
     // It makes no sense to restore database on control user
-    if ($dbh == $GLOBALS['userlink']) {
-        PMA_DBI_select_db($db, $dbh);
+    if ($controllink == $GLOBALS['userlink']) {
+        PMA_DBI_select_db($db, $controllink);
     }
 
     if ($result) {
@@ -69,7 +69,7 @@
  */
 function PMA_getRelationsParam($verbose = FALSE)
 {
-    global $cfg, $server, $err_url_0, $db, $table, $dbh;
+    global $cfg, $server, $err_url_0, $db, $table, $controllink;
     global $cfgRelation;
 
     $cfgRelation                = array();
@@ -106,7 +106,7 @@ function PMA_getRelationsParam($verbose = FALSE)
     //  I was thinking of checking if they have all required columns but I
     //  fear it might be too slow
 
-    PMA_DBI_select_db($cfgRelation['db'], $dbh);
+    PMA_DBI_select_db($cfgRelation['db'], $controllink);
     $tab_query = 'SHOW TABLES FROM ' . PMA_backquote($cfgRelation['db']);
     $tab_rs    = PMA_query_as_cu($tab_query, FALSE, PMA_DBI_QUERY_STORE);
 

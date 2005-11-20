@@ -71,8 +71,8 @@ require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
 /**
  * Close database connections
  */
-if ( isset( $GLOBALS['dbh'] ) && $GLOBALS['dbh'] ) {
-    @PMA_DBI_close( $GLOBALS['dbh'] );
+if ( isset( $GLOBALS['controllink'] ) && $GLOBALS['controllink'] ) {
+    @PMA_DBI_close( $GLOBALS['controllink'] );
 }
 if ( isset( $GLOBALS['userlink'] ) && $GLOBALS['userlink'] ) {
     @PMA_DBI_close( $GLOBALS['userlink'] );
