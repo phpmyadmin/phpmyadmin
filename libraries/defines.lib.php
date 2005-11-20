@@ -20,7 +20,7 @@
  */
 // phpMyAdmin release
 if (!defined('PMA_VERSION')) {
-    define('PMA_VERSION', '2.7.0-rc1');
+    define('PMA_VERSION', '2.7.1-dev');
 }
 
 if (!defined('PMA_THEME_VERSION')) {
