@@ -580,14 +580,15 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             case 'viewable':
             default:
                 if (empty($link)) $link = 'index';
-                $mysql = '4.1';
-                if ( ! defined( 'PMA_MYSQL_INT_VERSION' )
-                  || PMA_MYSQL_INT_VERSION < 50000 ) {
-                    $mysql = '4.1';
-                } elseif (PMA_MYSQL_INT_VERSION >= 50100) {
-                    $mysql = '5.1';
-                } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
-                    $mysql = '5.0';
+                $mysql = '5.0';
+                if (defined( 'PMA_MYSQL_INT_VERSION')) {
+                    if (PMA_MYSQL_INT_VERSION < 50000) {
+                        $mysql = '4.1';
+                    } elseif (PMA_MYSQL_INT_VERSION >= 50100) {
+                        $mysql = '5.1';
+                    } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
+                        $mysql = '5.0';
+                    }
                 }
                 $url = $cfg['MySQLManualBase'] . '/' . $mysql . '/en/' . $link . '.html';
                 break;
