@@ -15,6 +15,7 @@ $Source$
     * main.php, libraries/select_server.lib.php,
       libraries/auth/cookie.auth.lib.php: Escape verbose server name (bug
       #1362671).
+    * index.php: Avoid XSS on HTTP_HOST.
 
 2005-11-20 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.7.0-rc1 released

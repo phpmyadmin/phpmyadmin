@@ -129,7 +129,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 <head>
 <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-<title>phpMyAdmin <?php echo PMA_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
+<title>phpMyAdmin <?php echo PMA_VERSION; ?> - <?php echo htmlspecialchars($HTTP_HOST); ?></title>
 <meta http-equiv="Content-Type"
     content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
 <script type="text/javascript" language="javascript">
