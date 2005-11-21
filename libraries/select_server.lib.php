@@ -45,12 +45,12 @@ if (count($cfg['Servers']) > 1) {
 
             if ($cfg['DisplayServersList']){
                 if ($selected && !$show_server_left) {
-                    echo '&raquo; <b>' . $label . '</b><br />';
+                    echo '&raquo; <b>' . htmlspecialchars($label) . '</b><br />';
                 }else{
-                    echo '&raquo; <a class="item" href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . $label . '</a><br />';
+                    echo '&raquo; <a class="item" href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . htmlspecialchars($label) . '</a><br />';
                 }
             } else {
-                echo '            <option value="' . $key . '" ' . ($selected ? ' selected="selected"' : '') . '>' . $label . '</option>' . "\n";
+                echo '            <option value="' . $key . '" ' . ($selected ? ' selected="selected"' : '') . '>' . htmlspecialchars($label) . '</option>' . "\n";
             }
 
         } // end if (!empty($val['host']))

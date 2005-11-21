@@ -12,6 +12,9 @@ $Source$
       ignored for 2.7.0 release.
     * libraries/common.lib.php: Make code more redable, default to MySQL 5.0
       documentation as it is latest stable version.
+    * main.php, libraries/select_server.lib.php,
+      libraries/auth/cookie.auth.lib.php: Escape verbose server name (bug
+      #1362671).
 
 2005-11-20 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.7.0-rc1 released

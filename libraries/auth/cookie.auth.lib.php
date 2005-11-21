@@ -266,9 +266,9 @@ if (top != self) {
                 }
                 echo '>';
                 if ($val['verbose'] != '') {
-                    echo $val['verbose'];
+                    echo htmlspecialchars($val['verbose']);
                 } else {
-                    echo $val['host'];
+                    echo htmlspecialchars($val['host']);
                     if (!empty($val['port'])) {
                         echo ':' . $val['port'];
                     }

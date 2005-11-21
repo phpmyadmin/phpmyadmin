@@ -88,7 +88,7 @@ if ( $server > 0 ) {
     unset($res, $row);
 
     $full_string     = str_replace('%pma_s1%', '<bdo dir="ltr" xml:lang="en">' . PMA_MYSQL_STR_VERSION . '</bdo>', $strMySQLServerProcess);
-    $full_string     = str_replace('%pma_s2%', $server_info, $full_string);
+    $full_string     = str_replace('%pma_s2%', htmlspecialchars($server_info), $full_string);
     $full_string     = str_replace('%pma_s3%', htmlspecialchars($mysql_cur_user_and_host), $full_string);
 
     echo '    <p><strong>' . $full_string . '</strong></p>' . "\n";
