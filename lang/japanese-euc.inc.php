@@ -967,4 +967,5 @@ $strTimeoutPassed = 'Script timeout passed, if you want to finish import, please
 
 $strUnsupportedCompressionDetected = 'You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.';  //to translate
 
+$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 ?>

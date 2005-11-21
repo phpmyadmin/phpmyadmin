@@ -380,6 +380,7 @@ $strInvalidFieldAddCount = 'Musíte pøidat alespoò jeden sloupec.';
 $strInvalidFieldCount = 'Tabulka musí mít alespoò jeden sloupec.';
 $strInvalidLDIImport = 'Tento plugin nepodporuje komprimované soubory!';
 $strInvalidRowNumber = '%d není platné èíslo øádku.';
+$strInvalidServerIndex = 'Chybný index serveru: "%s"';
 
 $strJapanese = 'Japonština';
 $strJoins = 'Použité výbìry';
@@ -479,8 +480,8 @@ $strNoDropDatabases = 'Pøíkaz &bdquo;DROP DATABASE&ldquo; je vypnutý.';
 $strNoExplain = 'Bez vysvìtlení (EXPLAIN) SQL';
 $strNoFilesFoundInZip = 'V&nbsp;ZIP archívu nebyly nalezeny žádné soubory!';
 $strNoFrames = 'phpMyAdmin se lépe používá v&nbsp;prohlížeèi podporujícím rámy (&bdquo;FRAME&ldquo;).';
-$strNoIndex = 'Tabulka nemá žádný index!';
 $strNoIndexPartsDefined = 'Nebyla zadána žádná èást indexu!';
+$strNoIndex = 'Tabulka nemá žádný index!';
 $strNoModification = 'Žádná zmìna';
 $strNo = 'Ne';
 $strNone = 'Žádná';

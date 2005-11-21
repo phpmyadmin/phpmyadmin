@@ -953,4 +953,5 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 ?>

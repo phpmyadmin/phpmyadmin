@@ -965,4 +965,5 @@ $strBookmarkCreated = 'Bookmark %s created';  //to translate
 $strBookmarkReplace = 'Replace existing bookmark of same name';  //to translate
 $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
 $strEsperanto = 'Esperanto';  //to translate
+$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 ?>

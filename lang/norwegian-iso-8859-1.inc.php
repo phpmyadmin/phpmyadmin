@@ -956,4 +956,5 @@ $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrensn
 $strZip = 'Komprimert (zip)';
 
 //to translate
+$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 ?>

@@ -149,9 +149,7 @@ if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
                     . '&char='  . urlencode( $charset )
                     . '&dir='   . urlencode( $text_dir )
                     . '&type='  . urlencode( $strError )
-                    . '&error=' . urlencode(
-// FIXME: We could translate this message, however it's translations freeze right now:
-                        sprintf( 'Invalid server index: "%s"', $key))
+                    . '&error=' . urlencode( sprintf( $strInvalidServerIndex, $key))
                     . '&' . SID
                      );
         }

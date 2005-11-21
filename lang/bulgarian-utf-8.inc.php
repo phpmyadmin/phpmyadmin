@@ -979,4 +979,5 @@ $strView = 'View';  //to translate
 
 $strWriteRequests = 'Write requests';  //to translate
 
+$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 ?>

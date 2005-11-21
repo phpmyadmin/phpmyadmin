@@ -374,6 +374,7 @@ $strInvalidFieldAddCount = 'You have to add at least one field.';
 $strInvalidFieldCount = 'Table must have at least one field.';
 $strInvalidLDIImport = 'This plugin does not support compressed imports!';
 $strInvalidRowNumber = '%d is not valid row number.';
+$strInvalidServerIndex = 'Invalid server index: "%s"';
 
 $strJapanese = 'Japanese';
 $strJoins = 'Joins';

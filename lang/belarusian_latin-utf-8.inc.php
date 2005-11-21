@@ -957,4 +957,5 @@ $strYes = 'Tak';
 $strZeroRemovesTheLimit = 'Zaŭvaha: Paznačeńnie hetych opcyjaŭ jak 0 (nul) zdymaje abmiežavańnie.';
 $strZip = 'archivavany ŭ zip';
 
+$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 ?>

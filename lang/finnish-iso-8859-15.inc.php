@@ -961,4 +961,5 @@ $strYes = 'Kyllä';
 $strZeroRemovesTheLimit = 'Huom: Näiden valintojen asettaminen nollaksi (0) poistaa raja-arvon.';
 $strZip = '"zip-pakattu"';
 
+$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 ?>

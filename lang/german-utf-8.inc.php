@@ -980,4 +980,5 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 
 $strUploadLimit = 'Möglicherweise wurde eine zu große Datei hochgeladen. Bitte schauen Sie in die %sDokumentation%s zur Lösung diese Problems.';  //recently translated
 
+$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 ?>

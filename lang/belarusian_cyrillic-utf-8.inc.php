@@ -958,4 +958,5 @@ $strYes = 'Так';
 $strZeroRemovesTheLimit = 'Заўвага: Пазначэньне гэтых опцыяў як 0 (нуль) здымае абмежаваньне.';
 $strZip = 'архіваваны ў zip';
 
+$strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 ?>
