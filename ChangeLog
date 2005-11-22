@@ -10,6 +10,13 @@ $Source$
     * phpinfo.php:
       - respect only $GLOBALS['cfg']['ShowPhpInfo']
       - minimum include
+    * libraries/common.lib.php
+      - merged two server array checks
+      - dont exit if user config loading failed
+      - dont exit with invalid server index
+      - use file_get_contents() or file() if not present
+      - removed wrong error message
+      - check if $cfg['ServerDefault'] is in $cfg['Servers'] before usning it
 
 2005-11-21 Michal Čihař  <michal@cihar.com>
     * libraries/import/sql.php: Fix query splitting in some cases (reported by

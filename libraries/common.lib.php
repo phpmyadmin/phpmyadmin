@@ -93,43 +93,34 @@ unset($cfg['Servers']);
  * Parses the configuration file and gets some constants used to define
  * versions of phpMyAdmin/php/mysql...
  */
-$old_error_reporting = error_reporting(0);
+$success_apply_user_config = false;
 // We can not use include as it fails on parse error
-if (file_exists('./config.inc.php')) {
-    $config_fd = fopen('./config.inc.php', 'r');
-    $result = eval('?>' . fread($config_fd, filesize('./config.inc.php')));
-    fclose( $config_fd );
-    unset( $config_fd );
-
-    // Eval failed
-    if ($result === FALSE || !isset($cfg['Servers'])) {
-        // Creates fake settings
-        $cfg = array('DefaultLang'           => 'en-iso-8859-1',
-                        'AllowAnywhereRecoding' => FALSE);
-        // Loads the language file
-        require_once('./libraries/select_lang.lib.php');
-        // Displays the error message
-        // (do not use &amp; for parameters sent by header)
-        header( 'Location: error.php'
-                . '?lang='  . urlencode( $available_languages[$lang][2] )
-                . '&char='  . urlencode( $charset )
-                . '&dir='   . urlencode( $text_dir )
-                . '&type='  . urlencode( $strError )
-                . '&error=' . urlencode(
-                    strtr( $strConfigFileError, array( '<br />' => '[br]' ) )
-                    . '[br][br]' . '[a@./config.inc.php@_blank]config.inc.php[/a]' )
-                . '&' . SID
-                 );
-        exit();
+$config_file = './config.inc.php';
+if ( file_exists( $config_file ) ) {
+    $old_error_reporting = error_reporting( 0 );
+    if ( function_exists( 'file_get_contents' ) ) {
+        $success_apply_user_config = eval( '?>' . file_get_contents( $config_file ) );
+    } else {
+        $success_apply_user_config =
+            eval( '?>' . implode( '\n', file( $config_file ) ) );
     }
-    error_reporting($old_error_reporting);
-    unset( $old_error_reporting, $result );
+    error_reporting( $old_error_reporting );
+    unset( $old_error_reporting );
 }
 
 /**
  * Includes the language file if it hasn't been included yet
  */
 require_once('./libraries/select_lang.lib.php');
+
+if ( $success_apply_user_config === FALSE ) {
+    require_once('./libraries/select_lang.lib.php');
+    // Displays the error message
+    $GLOBALS['PMA_errors'][] = $strConfigFileError
+        .'<br /><br />'
+        .'<a href="./config.inc.php" taregt="_blank">config.inc.php</a>';
+}
+unset( $success_apply_user_config );
 
 /**
  * Servers array fixups.
@@ -141,22 +132,34 @@ if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
 } else {
     // We have server(s) => apply default config
     $new_servers = array();
-    foreach($cfg['Servers'] as $key => $val) {
-        if (!is_int($key) || $key < 1) {
-            // Show error
-            header( 'Location: error.php'
-                    . '?lang='  . urlencode( $available_languages[$lang][2] )
-                    . '&char='  . urlencode( $charset )
-                    . '&dir='   . urlencode( $text_dir )
-                    . '&type='  . urlencode( $strError )
-                    . '&error=' . urlencode( sprintf( $strInvalidServerIndex, $key))
-                    . '&' . SID
-                     );
+
+    foreach($cfg['Servers'] as $server_index => $each_server ) {
+        if (!is_int($server_index) || $server_index < 1) {
+            $GLOBALS['PMA_errors'][] = sprintf( $strInvalidServerIndex, $server_index);
+            continue;
         }
-        $new_servers[$key] = array_merge($default_server, $val);
+
+        $each_server = array_merge($default_server, $each_server);
+
+        // Don't use servers with no hostname
+        if ( $each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
+            $GLOBALS['PMA_errors'][] = sprintf( $strInvalidServerHostname, $server_index);
+            continue;
+        }
+
+        // Final solution to bug #582890
+        // If we are using a socket connection
+        // and there is nothing in the verbose server name
+        // or the host field, then generate a name for the server
+        // in the form of "Server 2", localized of course!
+        if ( $each_server['connect_type'] == 'socket' && empty($each_server['host']) && empty($each_server['verbose']) ) {
+            $each_server['verbose'] = $GLOBALS['strServer'] . $server_index;
+        }
+
+        $new_servers[$server_index] = $each_server;
     }
     $cfg['Servers'] = $new_servers;
-    unset( $new_servers, $key, $val );
+    unset( $new_servers, $server_index, $each_server );
 }
 
 // Cleanup
@@ -1314,33 +1317,6 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     $dblist       = array();
 
     /**
-     * Gets the valid servers list and parameters
-     */
-
-    foreach ($cfg['Servers'] AS $key => $val) {
-        // Don't use servers with no hostname
-        if ( isset($val['connect_type']) && ($val['connect_type'] == 'tcp') && empty($val['host'])) {
-            unset($cfg['Servers'][$key]);
-        }
-
-        // Final solution to bug #582890
-        // If we are using a socket connection
-        // and there is nothing in the verbose server name
-        // or the host field, then generate a name for the server
-        // in the form of "Server 2", localized of course!
-        if ( isset($val['connect_type']) && $val['connect_type'] == 'socket' && empty($val['host']) && empty($val['verbose']) ) {
-            $cfg['Servers'][$key]['verbose'] = $GLOBALS['strServer'] . $key;
-            $val['verbose']                  = $GLOBALS['strServer'] . $key;
-        }
-    }
-    unset( $key, $val );
-
-    if (empty($server) || !isset($cfg['Servers'][$server]) || !is_array($cfg['Servers'][$server])) {
-        $server = $cfg['ServerDefault'];
-    }
-
-
-    /**
      * If no server is selected, make sure that $cfg['Server'] is empty (so
      * that nothing will work), and skip server authentication.
      * We do NOT exit here, but continue on without logging into any server.
@@ -1348,15 +1324,20 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
      * present a choice of servers in the case that there are multiple servers
      * and '$cfg['ServerDefault'] = 0' is set.
      */
-    if ($server == 0) {
-        $cfg['Server'] = array();
+    if ( ! empty( $server ) && ! empty( $cfg['Servers'][$server] ) ) {
+        $cfg['Server'] = $cfg['Servers'][$server];
+    } else {
+        if ( ! empty( $cfg['Servers'][$cfg['ServerDefault']] ) ) {
+            $server = $cfg['ServerDefault'];
+            $cfg['Server'] = $cfg['Servers'][$server];
+        } else {
+            $server = 0;
+            $cfg['Server'] = array();
+        }
     }
 
-    /**
-     * Otherwise, set up $cfg['Server'] and do the usual login stuff.
-     */
-    else if (isset($cfg['Servers'][$server])) {
-        $cfg['Server'] = $cfg['Servers'][$server];
+
+    if ( ! empty( $cfg['Server'] ) ) {
 
         /**
          * Loads the proper database interface for this server
@@ -1546,12 +1527,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         }
 
     } // end server connecting
-    /**
-     * Missing server hostname
-     */
-    else {
-        echo $strHostEmpty;
-    }
+
 
     /**
      * Send HTTP header, taking IIS limits into account
