@@ -7,6 +7,9 @@ $Source$
 
 2005-11-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes
+    * phpinfo.php:
+      - respect only $GLOBALS['cfg']['ShowPhpInfo']
+      - minimum include
 
 2005-11-21 Michal Čihař  <michal@cihar.com>
     * libraries/import/sql.php: Fix query splitting in some cases (reported by

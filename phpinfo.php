@@ -6,14 +6,14 @@
 /**
  * Gets core libraries and defines some variables
  */
+define( 'PMA_MINIMUM_COMMON', true );
 require_once('./libraries/common.lib.php');
 
 
 /**
  * Displays PHP information
  */
-$is_superuser = @PMA_DBI_try_query('USE mysql', $userlink);
-if ($is_superuser || $cfg['ShowPhpInfo']) {
+if ( $GLOBALS['cfg']['ShowPhpInfo'] ) {
     phpinfo();
 }
 ?>
