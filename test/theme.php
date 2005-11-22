@@ -3,7 +3,7 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 /**
  * theme test
- * 
+ *
  * @uses    libraries/common.lib.php        global fnctions
  * @uses    libraries/select_theme.lib.php  theme manager
  */
@@ -31,20 +31,27 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     lang="<?php echo $lang_iso_code; ?>"
     dir="<?php echo $GLOBALS['text_dir']; ?>">
 <head>
-    <title>phpMyAdmin <?php echo PMA_VERSION; ?> - <?php echo $HTTP_HOST; ?> - Theme Test</title>
+    <title>phpMyAdmin <?php echo PMA_VERSION; ?> -
+        <?php echo htmlspecialchars( $HTTP_HOST ); ?> - Theme Test</title>
     <meta http-equiv="Content-Type"
         content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
-    <link rel="stylesheet" type="text/css" href="../css/phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=<?php echo isset($print_view) ? 'print' : 'right'; ?>" />
-    <link rel="stylesheet" type="text/css" href="../css/print.css?<?php echo PMA_generate_common_url(); ?>" media="print" />
-    <script src="../libraries/functions.js" type="text/javascript" language="javascript"></script>
+    <link rel="stylesheet" type="text/css"
+        href="../css/phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right" />
+    <link rel="stylesheet" type="text/css" media="print"
+        href="../css/print.css?<?php echo PMA_generate_common_url(); ?>" />
+    <script src="../libraries/functions.js" type="text/javascript"
+        language="javascript"></script>
 </head>
 <body>
 <?php
 
 
-$separator = '        <span class="separator"><img class="icon" src=../"' . $GLOBALS['pmaThemeImage'] . 'item_ltr.png" width="5" height="9" alt="-" /></span>' . "\n";
+$separator = '<span class="separator">'
+    .'<img class="icon" src=../"' . $GLOBALS['pmaThemeImage'] . 'item_ltr.png"'
+    .' width="5" height="9" alt="-" /></span>' . "\n";
 $item = '<a href="%1$s?%2$s" class="item">'
-    .'        <img class="icon" src="../' . $GLOBALS['pmaThemeImage'] . '%5$s" width="16" height="16" alt="" /> ' . "\n"
+    .' <img class="icon" src="../' . $GLOBALS['pmaThemeImage'] . '%5$s"'
+    .' width="16" height="16" alt="" /> ' . "\n"
     .'%4$s: %3$s</a>' . "\n";
 
 echo '<div id="serverinfo">' . "\n";
@@ -68,8 +75,12 @@ printf( $item,
         $GLOBALS['cfg']['DefaultTabTable'],
         '',
         'Table',
-        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? $GLOBALS['strView'] : $GLOBALS['strTable']),
-        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png' );
+        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']
+            ? $GLOBALS['strView']
+            : $GLOBALS['strTable']),
+        (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']
+            ? 'b_views'
+            : 's_tbl') . '.png' );
 
 echo '<span class="table_comment" id="span_table_comment">'
     .'&quot;Table comment&quot</span>' . "\n";
@@ -135,17 +146,17 @@ echo PMA_getTabs( $tabs );
 unset( $tabs );
 
 if ( @file_exists( $pmaThemeImage . 'logo_right.png') ) {
-    ?> 
+    ?>
     <img id="pmalogoright" src="../<?php echo $pmaThemeImage; ?>logo_right.png"
         alt="phpMyAdmin" />
     <?php
 }
-?> 
+?>
 <h1>
 <?php
 echo sprintf( $strWelcome,
     '<bdo dir="ltr" xml:lang="en">phpMyAdmin ' . PMA_VERSION . '</bdo>');
-?> 
+?>
 </h1>
 
 <hr class="clearfloat" />
@@ -163,7 +174,7 @@ foreach ($available_themes_choices AS $cur_theme) {
     if ( $cur_theme == $theme ) {
         echo ' selected="selected"';
     }
-    echo '>' . htmlspecialchars( $available_themes_choices_names[$cur_theme] ) 
+    echo '>' . htmlspecialchars( $available_themes_choices_names[$cur_theme] )
         . '</option>' . "\n";
 }
 ?>
@@ -235,39 +246,55 @@ foreach ($available_themes_choices AS $cur_theme) {
     </tfoot>
     <tbody>
         <tr class="odd">
-            <td><input type="checkbox" id="checkbox_1" name="checkbox_1" value="1" /></td>
+            <td><input type="checkbox" id="checkbox_1" name="checkbox_1"
+                    value="1" /></td>
             <th><label for="checkbox_1">th label</label</th>
             <td class="value">td.value</td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png" width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png" width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png" width="16" height="16" alt="drop" /></td>
+            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+                    width="16" height="16" alt="drop" /></td>
+            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+                    width="16" height="16" alt="drop" /></td>
+            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+                    width="16" height="16" alt="drop" /></td>
             <td>table.data tbody tr.odd td</td>
         </tr>
         <tr class="even">
-            <td><input type="checkbox" id="checkbox_2" name="checkbox_2" value="1" /></td>
+            <td><input type="checkbox" id="checkbox_2" name="checkbox_2"
+                    value="1" /></td>
             <th><label for="checkbox_2">th label</label</th>
             <td class="value">td.value</td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png" width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png" width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png" width="16" height="16" alt="drop" /></td>
+            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+                    width="16" height="16" alt="drop" /></td>
+            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+                    width="16" height="16" alt="drop" /></td>
+            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+                    width="16" height="16" alt="drop" /></td>
             <td>table.data tbody tr.even td</td>
         </tr>
         <tr class="odd">
-            <td><input type="checkbox" id="checkbox_3" name="checkbox_3" value="1" /></td>
+            <td><input type="checkbox" id="checkbox_3" name="checkbox_3"
+                    value="1" /></td>
             <th><label for="checkbox_3">th label</label</th>
             <td class="value">td.value</td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png" width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png" width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png" width="16" height="16" alt="drop" /></td>
+            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+                    width="16" height="16" alt="drop" /></td>
+            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+                    width="16" height="16" alt="drop" /></td>
+            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+                    width="16" height="16" alt="drop" /></td>
             <td>table.data tbody tr.odd td</td>
         </tr>
         <tr class="even">
-            <td><input type="checkbox" id="checkbox_4" name="checkbox_4" value="1" /></td>
+            <td><input type="checkbox" id="checkbox_4" name="checkbox_4"
+                    value="1" /></td>
             <th><label for="checkbox_4">th label</label</th>
             <td class="value">td.value</td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png" width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png" width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../themes/original/img/bd_drop.png" width="16" height="16" alt="drop" /></td>
+            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+                    width="16" height="16" alt="drop" /></td>
+            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+                    width="16" height="16" alt="drop" /></td>
+            <td><img class="icon" src="../themes/original/img/bd_drop.png"
+                    width="16" height="16" alt="drop" /></td>
             <td>table.data tbody tr.even td</td>
         </tr>
     </tbody>
