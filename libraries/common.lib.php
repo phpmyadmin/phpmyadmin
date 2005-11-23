@@ -102,6 +102,10 @@ if ( file_exists( $config_file ) ) {
     }
     error_reporting( $old_error_reporting );
     unset( $old_error_reporting );
+} else {
+    // Do not complain about missing config file
+    // FIXME: maybe we should issue warning in this case?
+    $success_apply_user_config = true;
 }
 
 /**
@@ -114,7 +118,7 @@ if ( $success_apply_user_config === FALSE ) {
     // Displays the error message
     $GLOBALS['PMA_errors'][] = $strConfigFileError
         .'<br /><br />'
-        .'<a href="./config.inc.php" taregt="_blank">config.inc.php</a>';
+        .'<a href="./config.inc.php" target="_blank">config.inc.php</a>';
 }
 unset( $success_apply_user_config );
 

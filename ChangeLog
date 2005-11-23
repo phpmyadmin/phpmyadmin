@@ -42,6 +42,8 @@ $Source$
       libraries/select_server.lib.php, libraries/auth/cookie.auth.lib.php:
       Functionalised server selection and use it in cookie auth (RFE
       #1362727).
+    * libraries/common.lib.php: Do not complain if config file is not present,
+      as we can still work in this case (bug #1364647).
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes
