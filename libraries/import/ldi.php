@@ -33,7 +33,6 @@ if ($import_type == 'table') {
                 array('type' => 'bool', 'name' => 'ignore', 'text' => 'strIgnoreDuplicates'),
                 array('type' => 'text', 'name' => 'terminated', 'text' => 'strFieldsTerminatedBy', 'size' => 2, 'len' => 1),
                 array('type' => 'text', 'name' => 'enclosed', 'text' => 'strFieldsEnclosedBy', 'size' => 2, 'len' => 1),
-                array('type' => 'bool', 'name' => 'enclosed_optionally', 'text' => 'strEnclosingOptional'),
                 array('type' => 'text', 'name' => 'escaped', 'text' => 'strFieldsEscapedBy', 'size' => 2, 'len' => 1),
                 array('type' => 'text', 'name' => 'new_line', 'text' => 'strLinesTerminatedBy', 'size' => 2),
                 array('type' => 'text', 'name' => 'columns', 'text' => 'strColumnNames'),
@@ -65,9 +64,6 @@ if ($import_type == 'table') {
                 $sql .= ' FIELDS TERMINATED BY \'' . PMA_sqlAddslashes($ldi_terminated) . '\'';
             }
             if (strlen($ldi_enclosed) > 0) {
-                if (isset($ldi_enclosed_optionally)){
-                    $sql .= ' OPTIONALLY';
-                }
                 $sql .= ' ENCLOSED BY \'' . PMA_sqlAddslashes($ldi_enclosed) . '\'';
             }
             if (strlen($ldi_escaped) > 0) {

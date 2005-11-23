@@ -14,7 +14,6 @@ if ($import_type == 'table') {
                 array('type' => 'bool', 'name' => 'ignore', 'text' => 'strIgnoreDuplicates'),
                 array('type' => 'text', 'name' => 'terminated', 'text' => 'strFieldsTerminatedBy', 'size' => 2, 'len' => 1),
                 array('type' => 'text', 'name' => 'enclosed', 'text' => 'strFieldsEnclosedBy', 'size' => 2, 'len' => 1),
-                array('type' => 'bool', 'name' => 'enclosed_optionally', 'text' => 'strEnclosingOptional'),
                 array('type' => 'text', 'name' => 'escaped', 'text' => 'strFieldsEscapedBy', 'size' => 2, 'len' => 1),
                 array('type' => 'text', 'name' => 'new_line', 'text' => 'strLinesTerminatedBy', 'size' => 2),
                 array('type' => 'text', 'name' => 'columns', 'text' => 'strColumnNames'),
@@ -93,10 +92,20 @@ if ($import_type == 'table') {
             $values = array();
             // Grab some SQL queries out of it
             $i = 0;
+            $lasti = -1;
             $finish = FALSE;
             $ch = $buffer[$i];
             while ($i < $len) {
+                // Deadlock protection
+                if ($lasti == $i) {
+                    $message = $strInvalidCSVInput;
+                    $show_error_header = TRUE;
+                    $error = TRUE;
+                    break;
+                }
+                $lasti = $i;
 
+                // Grab empty field
                 if ($ch == $csv_terminated) {
                     $values[] = '';
                     if ($i == $len - 1) break;
@@ -105,28 +114,19 @@ if ($import_type == 'table') {
                     continue;
                 }
 
-                // Grab one field
-                if ($ch == $csv_enclosed || isset($csv_enclosed_optionally)) {
-                    if ($ch == $csv_enclosed) {
-                        $need_end = TRUE;
-                        if ($i == $len - 1) break;
-                        $i++;
-                        $ch = $buffer[$i];
-                    } else {
-                        $need_end = FALSE;
-                    }
-                    $fail = FALSE;
-                    $value = '';
-                    while(($need_end && $ch != $csv_enclosed) || (!$need_end && !($ch == $csv_terminated || $ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))))) {
-                        if ($ch == $csv_escaped) {
-                            if ($i == $len - 1) {
-                                $fail = TRUE;
-                                break;
-                            }
-                            $i++;
-                            $ch = $buffer[$i];
-                        }
-                        $value .= $ch;
+                // Grab one field 
+                if ($ch == $csv_enclosed) {
+                    $need_end = TRUE;
+                    if ($i == $len - 1) break;
+                    $i++;
+                    $ch = $buffer[$i];
+                } else {
+                    $need_end = FALSE;
+                }
+                $fail = FALSE;
+                $value = '';
+                while(($need_end && $ch != $csv_enclosed) || (!$need_end && !($ch == $csv_terminated || $ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))))) {
+                    if ($ch == $csv_escaped) {
                         if ($i == $len - 1) {
                             $fail = TRUE;
                             break;
@@ -134,21 +134,31 @@ if ($import_type == 'table') {
                         $i++;
                         $ch = $buffer[$i];
                     }
-                    if ($fail) break;
-                    $values[] = $value;
-                    if ($ch == $csv_enclosed) {
-                        if ($i == $len - 1) break;
-                        $i++;
-                        $ch = $buffer[$i];
+                    $value .= $ch;
+                    if ($i == $len - 1) {
+                        $fail = TRUE;
+                        break;
                     }
-                    if ($ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))) {
-                        $finish = TRUE;
-                    }
-                    if ($ch == $csv_terminated) {
-                        if ($i == $len - 1) break;
-                        $i++;
-                        $ch = $buffer[$i];
-                    }
+                    $i++;
+                    $ch = $buffer[$i];
+                }
+                if ($fail) break;
+                $values[] = $value;
+                // Need to strip trailing enclosing char?
+                if ($need_end && $ch == $csv_enclosed) {
+                    if ($i == $len - 1) break;
+                    $i++;
+                    $ch = $buffer[$i];
+                }
+                // Are we at the end?
+                if ($ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))) {
+                    $finish = TRUE;
+                }
+                // Go to next char
+                if ($ch == $csv_terminated) {
+                    if ($i == $len - 1) break;
+                    $i++;
+                    $ch = $buffer[$i];
                 }
 
                 // End of line
@@ -189,16 +199,16 @@ if ($import_type == 'table') {
                     $buffer = substr($buffer, $i + 1);
                     $len = strlen($buffer);
                     $i = 0;
-                    $ch = $buffer[$i];
+                    $lasti = -1;
+                    $ch = $buffer[0];
                 }
             } // End of parser loop
         } // End of import loop
         PMA_importRunQuery();
-        if (count($values) != 0) {
+        if (count($values) != 0 && !$error) {
             $message = $strInvalidCSVInput;
             $show_error_header = TRUE;
             $error = TRUE;
-            break;
         }
         // Commit any possible data in buffers
         

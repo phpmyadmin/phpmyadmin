@@ -80,7 +80,7 @@ function PMA_importRunQuery($sql = '', $full = '') {
                     $sql_query .= $import_run_buffer['full'];
                 }
                 $executed_queries++;
-                if ($run_query && $finished && empty($sql) && (
+                if ($run_query && $finished && empty($sql) && !$error && (
                         (!empty($import_run_buffer['sql']) && preg_match('/^[\s]*(SELECT|SHOW)/i', $import_run_buffer['sql'])) ||
                         ($executed_queries == 1)
                         )) {
