@@ -609,7 +609,7 @@ body.loginform a.logo {
 }
 
 form.login label {
-    float: left; 
+    float: left;
     width: 10em;
     font-weight: bolder;
 }
@@ -631,6 +631,21 @@ img.lightbulb {
 #bodyquerywindow {
     background-color:   <?php echo $cfg['LeftBgColor']; ?>;
 }
+
+#bodythemes {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+#bodythemes img {
+    border: 0.1em solid black;
+}
+
+#bodythemes a:hover img {
+    border: 0.1em solid red;
+}
+
 <?php
 
 $_valid_css = array( 'left', 'right', 'print' );

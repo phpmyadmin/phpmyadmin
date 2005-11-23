@@ -396,8 +396,8 @@ if ( isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
 if (isset($available_themes_choices) && $available_themes_choices > 1) {
     $theme_selected = FALSE;
     $theme_preview_path= './themes.php';
-    $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" onclick="'
-                        . "window.open('" . $theme_preview_path . "','themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes');"
+    $theme_preview_href = '<a href="' . $theme_preview_path . '" onclick="'
+                        . "window.open('" . $theme_preview_path . "','themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes'); return false;"
                         . '">';
     ?>
     <tr>
