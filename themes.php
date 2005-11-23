@@ -9,8 +9,6 @@ require_once('./libraries/select_theme.lib.php');
 /* set language and charset */
 require_once('./libraries/header_http.inc.php');
 
-/* Gets the font sizes to use */
-PMA_setFontSizes();
 /* HTML header */
 $page_title = 'phpMyAdmin - ' . $strTheme;
 require('./libraries/header_meta_style.inc.php');

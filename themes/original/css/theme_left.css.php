@@ -1,6 +1,5 @@
 body, input, select {
     font-family: <?php echo $left_font_family; ?>;
-    font-size: <?php echo $font_size; ?>;
     color: #000000
 }
 
@@ -46,7 +45,7 @@ div#left_tableList {
     list-style-position: outside;
     margin: 0;
     padding: 0;
-    font-size: <?php echo $font_smaller; ?>;
+    font-size: 80%;
 }
 
 div#left_tableList a {

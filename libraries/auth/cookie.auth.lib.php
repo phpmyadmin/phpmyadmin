@@ -13,9 +13,6 @@ if (!isset($coming_from_common)) {
    exit;
 }
 
-// Gets the default font sizes
-PMA_setFontSizes();
-
 // timestamp for login timeout
 $current_time  = time();
 
@@ -63,10 +60,7 @@ function PMA_cookie_cmp(&$a, $b)
  */
 function PMA_auth()
 {
-    global $right_font_family, $font_size, $font_bigger;
-    global $cfg, $available_languages;
-    global $lang, $server, $convcharset;
-    global $conn_error;
+    global $cfg, $lang, $server, $convcharset, $conn_error;
 
     // Tries to get the username from cookie whatever are the values of the
     // 'register_globals' and the 'variables_order' directives if last login
@@ -515,14 +509,14 @@ function PMA_auth_set_user()
             }
         } // end if
         if (!empty($GLOBALS['SERVER_SOFTWARE']) && $GLOBALS['SERVER_SOFTWARE'] == 'Microsoft-IIS/5.0') {
-            header('Refresh: 0; url=' . $cfg['PmaAbsoluteUri'] . 'index.php?' . 
-                PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', 
-                   isset($GLOBALS['table']) ? $GLOBALS['table'] : '', 
+            header('Refresh: 0; url=' . $cfg['PmaAbsoluteUri'] . 'index.php?' .
+                PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '',
+                   isset($GLOBALS['table']) ? $GLOBALS['table'] : '',
                    '&'));
         }
         else {
-            header( 'Location: ' . $cfg['PmaAbsoluteUri'] . 'index.php?' 
-                . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', 
+            header( 'Location: ' . $cfg['PmaAbsoluteUri'] . 'index.php?'
+                . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '',
                        isset($GLOBALS['table']) ? $GLOBALS['table'] : '', '&') . '&' . SID );
         }
         exit();

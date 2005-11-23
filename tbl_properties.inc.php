@@ -12,7 +12,7 @@ require_once('./libraries/mysql_charsets.lib.php');
 require_once('./libraries/storage_engines.lib.php');
 
 if ($cfg['CtrlArrowsMoving']) {
-    ?> 
+    ?>
 <script src="libraries/keyhandler.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript" language="javascript">
 <!--
@@ -21,13 +21,13 @@ document.onkeydown = onKeyDownArrowsHandler;
 // -->
 </script>
     <?php
-} 
+}
 // here, the div_x_7 represents a div id which contains
-// the default CURRENT TIMESTAMP checkbox and label 
+// the default CURRENT TIMESTAMP checkbox and label
 // and, field_x_7a represents the checkbox itself
 
 if (PMA_MYSQL_INT_VERSION >= 40102) {
-    ?> 
+    ?>
 <script type="text/javascript" language="javascript">
 <!--
 function display_field_options(field_type, i) {
@@ -41,48 +41,48 @@ function display_field_options(field_type, i) {
 }
 // -->
 </script>
-<?php } ?> 
+<?php } ?>
 
 <form method="post" action="<?php echo $action; ?>" onsubmit="return checkTableEditForm(this, <?php echo $num_fields; ?>)" >
 <?php
 echo PMA_generate_common_hidden_inputs($db, $table);
 if ($action == 'tbl_create.php') {
-    ?> 
+    ?>
     <input type="hidden" name="reload" value="1" />
     <?php
 }
 elseif ($action == 'tbl_addfield.php') {
-    ?> 
+    ?>
     <input type="hidden" name="field_where" value="<?php echo $field_where; ?>" />
     <input type="hidden" name="after_field" value="<?php echo $after_field; ?>" />
     <?php
 }
 
 if (isset($num_fields)) {
-    ?> 
+    ?>
     <input type="hidden" name="orig_num_fields" value="<?php echo $num_fields; ?>" />
     <?php
 }
 
 if (isset($field_where)) {
-    ?> 
+    ?>
     <input type="hidden" name="orig_field_where" value="<?php echo $field_where; ?>" />
     <?php
 }
 
 if (isset($after_field)) {
-    ?> 
+    ?>
     <input type="hidden" name="orig_after_field" value="<?php echo $after_field; ?>" />
     <?php
 }
 
 if (isset($selected) && is_array($selected)) {
     foreach ($selected AS $o_fld_nr => $o_fld_val) {
-        ?> 
+        ?>
     <input type="hidden" name="selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
         <?php
         if (!isset($true_selected)) {
-            ?> 
+            ?>
     <input type="hidden" name="true_selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
             <?php
         }
@@ -91,14 +91,14 @@ if (isset($selected) && is_array($selected)) {
 
     if (isset($true_selected) && is_array($true_selected)) {
         foreach ($true_selected AS $o_fld_nr => $o_fld_val) {
-            ?> 
+            ?>
         <input type="hidden" name="true_selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
             <?php
         }
     }
 
 } elseif (isset($field)) {
-    ?> 
+    ?>
     <input type="hidden" name="orig_field" value="<?php echo urlencode($field); ?>" />
     <input type="hidden" name="true_selected[] value="<?php echo (isset($orig_field) ? $orig_field : urlencode($field)); ?>" />
     <?php
@@ -197,9 +197,9 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
 
         $submit_length    = (isset($field_length) && isset($field_length[$i]) ? $field_length[$i] : FALSE);
         $submit_attribute = (isset($field_attribute) && isset($field_attribute[$i]) ? $field_attribute[$i] : FALSE);
-        
+
         $submit_default_current_timestamp = (isset($field_default_current_timestamp) && isset($field_default_current_timestamp[$i]) ? TRUE : FALSE);
-        
+
         if (isset($field_comments) && isset($field_comments[$i])) {
             $comments_map[$row['Field']] = $field_comments[$i];
         }
@@ -329,7 +329,7 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
         $ci++;
     }
 
-    $content_cells[$i][$ci] = '<select style="font-size: ' . $font_smallest . ';" name="field_attribute[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">' . "\n";
+    $content_cells[$i][$ci] = '<select style="font-size: 70%;" name="field_attribute[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">' . "\n";
 
     $attribute     = '';
     if ($binary) {
@@ -361,9 +361,9 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
     }
     if ((isset($row['Field']) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp']))
      || (isset($submit_default_current_timestamp) && $submit_default_current_timestamp)  ) {
-        $default_current_timestamp = TRUE; 
+        $default_current_timestamp = TRUE;
     } else {
-        $default_current_timestamp = FALSE; 
+        $default_current_timestamp = FALSE;
     }
 
     // Dynamically add ON UPDATE CURRENT_TIMESTAMP to the possible attributes
@@ -414,7 +414,7 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
     }
 
     // for a TIMESTAMP, do not show CURRENT_TIMESTAMP as a default value
-    if (PMA_MYSQL_INT_VERSION >= 40102 
+    if (PMA_MYSQL_INT_VERSION >= 40102
         && $type_upper == 'TIMESTAMP'
         && $default_current_timestamp
         && isset($row)
@@ -434,7 +434,7 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
         if ($default_current_timestamp) {
             $content_cells[$i][$ci] .= ' checked="checked" ';
         }
-        $content_cells[$i][$ci] .= ' /><label for="field_' . $i . '_' . ($ci - $ci_offset) . 'a" style="font-size: ' . $font_smallest . ';">CURRENT_TIMESTAMP</label></div>'; 
+        $content_cells[$i][$ci] .= ' /><label for="field_' . $i . '_' . ($ci - $ci_offset) . 'a" style="font-size: 70%;">CURRENT_TIMESTAMP</label></div>';
     }
     $ci++;
 
@@ -545,17 +545,17 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
 if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
     // last row is for javascript insert
     $empty_row = array_pop( $content_cells );
-    
+
     echo '<table id="table_columns">';
     if ( $cfg['DefaultPropDisplay'] == 'horizontal' ) {
-        ?> 
+        ?>
 <tr>
-        <?php foreach ( $header_cells as $header_val ) { ?> 
+        <?php foreach ( $header_cells as $header_val ) { ?>
     <th><?php echo $header_val; ?></th>
         <?php } ?>
 </tr>
         <?php
-        
+
         $odd_row = true;
         foreach ( $content_cells as $content_row ) {
             echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">';
@@ -563,7 +563,7 @@ if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
 
             if ( is_array( $content_row ) ) {
                 foreach ($content_row as $content_row_val) {
-                    ?> 
+                    ?>
     <td align="center"><?php echo $content_row_val; ?></td>
                     <?php
                 }
@@ -576,12 +576,12 @@ if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
         foreach ( $header_cells as $header_val ) {
             echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">';
             $odd_row = ! $odd_row;
-            ?> 
+            ?>
     <th><?php echo $header_val; ?></th>
             <?php
             foreach ( $content_cells as $content_cell ) {
                 if ( isset( $content_cell[$i] ) && $content_cell[$i] != '' ) {
-                    ?> 
+                    ?>
     <td><?php echo $content_cell[$i]; ?></td>
                     <?php
                 }
@@ -590,7 +590,7 @@ if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
             $i++;
         }
     }
-    ?> 
+    ?>
 </table>
 <br />
     <?php
@@ -598,8 +598,8 @@ if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
 
 /**
  * needs to be finished
- * 
- * 
+ *
+ *
 if ( $cfg['DefaultPropDisplay'] == 'horizontal' ) {
     $new_field = '';
     foreach ( $empty_row as $content_row_val ) {
@@ -613,7 +613,7 @@ var odd_row = <?php echo $odd_row; ?>;
 function addField() {
     var new_fields = document.getElementById('added_fields').value;
     var new_field_container = document.getElementById('table_columns');
-    var new_field = '<?php echo preg_replace( '°\s+°', ' ', preg_replace( '°\'°', '\\\'', $new_field ) ); ?>'; 
+    var new_field = '<?php echo preg_replace( '°\s+°', ' ', preg_replace( '°\'°', '\\\'', $new_field ) ); ?>';
     var i = 0;
     for ( i = 0; i < new_fields; i++ ) {
         if ( odd_row ) {
@@ -623,17 +623,17 @@ function addField() {
         }
         odd_row = ! odd_row;
     }
-    
+
     return true;
 }
 // -->
-</script>    
+</script>
     <?php
 }
  */
 
 if ($action == 'tbl_create.php') {
-    ?> 
+    ?>
     <table>
     <tr valign="top">
         <th><?php echo $strTableComments; ?>:&nbsp;</th>
@@ -644,7 +644,7 @@ if ($action == 'tbl_create.php') {
         echo '        <td width="25">&nbsp;</td>' . "\n"
            . '        <th>' . $strCollation . ':&nbsp;</th>' . "\n";
     }
-    ?> 
+    ?>
     </tr>
     <tr><td><input type="text" name="comment" size="40" maxlength="80"
                 value="<?php echo (isset($comment) ? $comment : ''); ?>"
@@ -661,13 +661,13 @@ if ($action == 'tbl_create.php') {
                . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'tbl_collation', NULL, (isset($tbl_collation) ? $tbl_collation : NULL), FALSE, 3)
                . '        </td>' . "\n";
         }
-    ?> 
+    ?>
     </tr>
     </table>
     <br />
     <?php
 } // end if ($action == 'tbl_create.php')
-?> 
+?>
 
 <fieldset class="tblFooters">
     <input type="submit" name="do_save_data" value="<?php echo $strSave; ?>" />
@@ -679,7 +679,7 @@ if ($action == 'tbl_create.php') {
 <?php /*        onclick="if ( addField() ) return false;" */ ?>
         onclick="return checkFormElementInRange(this.form, 'added_fields', '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidFieldAddCount']); ?>', 1)"
         />
-<?php } ?> 
+<?php } ?>
 </fieldset>
 
 </form>
@@ -692,12 +692,12 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) 
     echo '<p> <a name="footnoote_mime"><sup>3</sup></a> ' . $strMIME_transformation_options_note . '</p>';
     echo '<p> ';
     printf( $strMIME_transformation_note,
-            '<a href="libraries/transformations/overview.php?' 
+            '<a href="libraries/transformations/overview.php?'
             . PMA_generate_common_url($db, $table) . '" target="_blank">',
             '</a>' );
     echo '</p>';
 }
-?> 
+?>
 </div>
 
 <center><?php echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TABLE'); ?></center>

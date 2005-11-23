@@ -25,9 +25,6 @@ $field = urldecode($field);
 /**
  * Displays the frame
  */
-// Gets the font sizes to use
-PMA_setFontSizes();
-
 $per_page = 200;
 require_once('./libraries/relation.lib.php'); // foreign keys
 require_once('./libraries/transformations.lib.php'); // Transformations
@@ -49,7 +46,7 @@ require('./libraries/get_foreign.lib.php');
 
 if (isset($pk)) {
     $pk_uri = '&amp;pk=' . urlencode($pk);
-    ?> 
+    ?>
 <input type="hidden" name="pk" value="<?php echo urlencode($pk); ?>" />
     <?php
 } else {
@@ -65,11 +62,11 @@ if (isset($disp_row) && is_array($disp_row)) {
     if ( $cfg['ShowAll'] && ($count > $per_page) ) {
         $showall = '<input type="submit" name="foreign_navig" value="' . $strShowAll . '" />';
     }
-    
+
     $session_max_rows = $per_page;
     $pageNow = @floor($pos / $session_max_rows) + 1;
     $nbTotalPage = @ceil($count / $session_max_rows);
-    
+
     if ( $count > $per_page ) {
         $gotopage = PMA_pageselector(
                       'browse_foreigners.php?field='    . urlencode($field) .
@@ -87,9 +84,9 @@ if (isset($disp_row) && is_array($disp_row)) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-    xml:lang="<?php echo $available_languages[$lang][2]; ?>" 
-    lang="<?php echo $available_languages[$lang][2]; ?>" 
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xml:lang="<?php echo $available_languages[$lang][2]; ?>"
+    lang="<?php echo $available_languages[$lang][2]; ?>"
     dir="<?php echo $text_dir; ?>">
 
 <head>
@@ -105,19 +102,19 @@ if (isset($disp_row) && is_array($disp_row)) {
     function formupdate( field, key ) {
         if (opener && opener.document && opener.document.insertForm) {
             var field = 'field_' + field;
-            
-            <?php if ( isset( $pk ) ) { ?> 
+
+            <?php if ( isset( $pk ) ) { ?>
             var element_name = field + '[multi_edit][<?php echo urlencode( $pk ); ?>][]';
-            <?php } else { ?> 
+            <?php } else { ?>
             var element_name = field + '[]';
-            <?php } ?> 
-            
-            <?php if ( isset( $fieldkey ) ) { ?> 
+            <?php } ?>
+
+            <?php if ( isset( $fieldkey ) ) { ?>
             var element_name_alt = field + '[<?php echo $fieldkey; ?>]';
-            <?php } else { ?> 
+            <?php } else { ?>
             var element_name_alt = field + '[0]';
-            <?php } ?> 
-            
+            <?php } ?>
+
             if (opener.document.insertForm.elements[element_name]) {
                 // Edit/Insert form
                 opener.document.insertForm.elements[element_name].value = key;
@@ -141,22 +138,22 @@ if (isset($disp_row) && is_array($disp_row)) {
 
 <form action="browse_foreigners.php" method="post">
 <fieldset>
-<?php echo PMA_generate_common_hidden_inputs( $db, $table ); ?> 
+<?php echo PMA_generate_common_hidden_inputs( $db, $table ); ?>
 <input type="hidden" name="field" value="<?php echo urlencode($field); ?>" />
 <input type="hidden" name="fieldkey" value="<?php echo isset($fieldkey) ? $fieldkey : ''; ?>" />
-<?php if ( isset( $pk ) ) { ?> 
+<?php if ( isset( $pk ) ) { ?>
 <input type="hidden" name="pk" value="<?php echo urlencode($pk); ?>" />
-<?php } ?> 
+<?php } ?>
 <span class="formelement">
     <label for="input_foreign_filter"><?php echo $strSearch . ':'; ?></label>
     <input type="text" name="foreign_filter" id="input_foreign_filter" value="<?php echo isset($foreign_filter) ? htmlspecialchars($foreign_filter) : ''; ?>" />
     <input type="submit" name="submit_foreign_filter" value="<?php echo $strGo;?>" />
 </span>
 <span class="formelement">
-    <?php echo $gotopage; ?> 
+    <?php echo $gotopage; ?>
 </span>
 <span class="formelement">
-    <?php echo $showall; ?> 
+    <?php echo $showall; ?>
 </span>
 </fieldset>
 </form>
@@ -171,7 +168,7 @@ if (isset($disp_row) && is_array($disp_row)) {
         <th>' . $strDescription . '</th>
         <th>' . $strKeyname . '</th>
     </tr>';
-    
+
     echo '<thead>' . $header . '</thead>' . "\n"
         .'<tfoot>' . $header . '</tfoot>' . "\n"
         .'<tbody>' . "\n";
@@ -187,9 +184,9 @@ if (isset($disp_row) && is_array($disp_row)) {
 
         $keys[] = $relrow[$foreign_field];
     }
-    
+
     asort( $keys );
-    
+
     $hcount = 0;
     $odd_row = true;
     $val_ordered_current_row = 0;
@@ -207,12 +204,12 @@ if (isset($disp_row) && is_array($disp_row)) {
 
         $key_ordered_current_key = $keys[$key_ordered_current_row];
         $key_ordered_current_val = $values[$key_ordered_current_row];
-        
+
         $val_ordered_current_key = $keys[$val_ordered_current_row];
         $val_ordered_current_val = $values[$val_ordered_current_row];
-        
+
         $val_ordered_current_row++;
-        
+
         if (PMA_strlen( $val_ordered_current_val ) <= $cfg['LimitChars']) {
             $val_ordered_current_val = htmlspecialchars($val_ordered_current_val);
             $val_ordered_current_val_title = '';
@@ -233,29 +230,29 @@ if (isset($disp_row) && is_array($disp_row)) {
                 htmlspecialchars( PMA_substr( $key_ordered_current_val, 0,
                     $cfg['LimitChars'] ) . '...' );
         }
-        
+
         if ( ! empty( $data ) ) {
             $val_ordered_current_equals_data = $val_ordered_current_key == $data;
             $key_ordered_current_equals_data = $key_ordered_current_key == $data;
         }
 
-        ?> 
+        ?>
     <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
         <td nowrap="nowrap">
         <?php
-        echo ($key_ordered_current_equals_data ? '<b>' : '') 
-            .'<a href="#" title="' . $strUseThisValue 
+        echo ($key_ordered_current_equals_data ? '<b>' : '')
+            .'<a href="#" title="' . $strUseThisValue
             . ($key_ordered_current_val_title != '' ? ': ' . $key_ordered_current_val_title : '') . '"'
-            .' onclick="formupdate(\'' . md5($field) . '\', \'' 
-            . htmlspecialchars($key_ordered_current_key) . '\'); return false;">' 
+            .' onclick="formupdate(\'' . md5($field) . '\', \''
+            . htmlspecialchars($key_ordered_current_key) . '\'); return false;">'
             .htmlspecialchars($key_ordered_current_key) . '</a>' . ($key_ordered_current_equals_data ? '</b>' : '');
         ?></td>
         <td>
         <?php
         echo ($key_ordered_current_equals_data ? '<b>' : '')
-            . '<a href="#" title="' . $strUseThisValue . ($key_ordered_current_val_title != '' ? ': ' 
-            . $key_ordered_current_val_title : '') . '" onclick="formupdate(\'' 
-            . md5($field) . '\', \'' . htmlspecialchars($key_ordered_current_key) . '\'); return false;">' 
+            . '<a href="#" title="' . $strUseThisValue . ($key_ordered_current_val_title != '' ? ': '
+            . $key_ordered_current_val_title : '') . '" onclick="formupdate(\''
+            . md5($field) . '\', \'' . htmlspecialchars($key_ordered_current_key) . '\'); return false;">'
             . $key_ordered_current_val . '</a>' . ($key_ordered_current_equals_data ? '</b>' : '');
         ?></td>
         <td width="20%">
@@ -264,25 +261,25 @@ if (isset($disp_row) && is_array($disp_row)) {
 
         <td>
         <?php
-        echo ($val_ordered_current_equals_data ? '<b>' : '') 
-            . '<a href="#" title="' . $strUseThisValue .  ($val_ordered_current_val_title != '' ? ': ' 
-            . $val_ordered_current_val_title : '') . '" onclick="formupdate(\'' . md5($field) 
-            . '\', \'' . htmlspecialchars($val_ordered_current_key) . '\'); return false;">' 
+        echo ($val_ordered_current_equals_data ? '<b>' : '')
+            . '<a href="#" title="' . $strUseThisValue .  ($val_ordered_current_val_title != '' ? ': '
+            . $val_ordered_current_val_title : '') . '" onclick="formupdate(\'' . md5($field)
+            . '\', \'' . htmlspecialchars($val_ordered_current_key) . '\'); return false;">'
             . $val_ordered_current_val . '</a>' . ($val_ordered_current_equals_data ? '</b>' : '');
         ?></td>
         <td nowrap="nowrap">
         <?php
-        echo ($val_ordered_current_equals_data ? '<b>' : '') . '<a href="#" title="' 
-        . $strUseThisValue .  ($val_ordered_current_val_title != '' ? ': ' . $val_ordered_current_val_title : '') 
-        . '" onclick="formupdate(\'' . md5($field) . '\', \'' 
-        . htmlspecialchars($val_ordered_current_key) . '\'); return false;">' . htmlspecialchars($val_ordered_current_key) 
+        echo ($val_ordered_current_equals_data ? '<b>' : '') . '<a href="#" title="'
+        . $strUseThisValue .  ($val_ordered_current_val_title != '' ? ': ' . $val_ordered_current_val_title : '')
+        . '" onclick="formupdate(\'' . md5($field) . '\', \''
+        . htmlspecialchars($val_ordered_current_key) . '\'); return false;">' . htmlspecialchars($val_ordered_current_key)
         . '</a>' . ($val_ordered_current_equals_data ? '</b>' : '');
         ?></td>
     </tr>
         <?php
     } // end while
 }
-?> 
+?>
 </tbody>
 </table>
 
@@ -308,4 +305,4 @@ if (isset($cfg['OBGzip']) && $cfg['OBGzip']
     && isset($ob_mode) && $ob_mode) {
      PMA_outBufferPost($ob_mode);
 }
-?> 
+?>

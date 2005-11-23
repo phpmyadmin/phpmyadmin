@@ -20,7 +20,6 @@
  * @access  public
  */
 function PMA_auth() {
-    global $right_font_family, $font_size, $font_bigger;
 
     header('WWW-Authenticate: Basic realm="phpMyAdmin ' . sprintf($GLOBALS['strRunning'], (empty($GLOBALS['cfg']['Server']['verbose']) ? str_replace('\'', '\\\'',$GLOBALS['cfg']['Server']['host']) : str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['verbose']))) .  '"');
     header('HTTP/1.0 401 Unauthorized');

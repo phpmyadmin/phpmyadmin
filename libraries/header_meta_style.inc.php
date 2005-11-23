@@ -5,8 +5,6 @@
 /**
  * Sends the beginning of the html page then returns to the calling script
  */
-// Gets the font sizes to use
-PMA_setFontSizes();
 // Defines the cell alignment values depending on text direction
 if ($GLOBALS['text_dir'] == 'ltr') {
     $GLOBALS['cell_align_left']  = 'left';
@@ -25,10 +23,10 @@ echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
 <head>
 <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-<title><?php 
-    if(!empty($page_title)) 
-        echo htmlspecialchars($page_title); 
-    else 
+<title><?php
+    if(!empty($page_title))
+        echo htmlspecialchars($page_title);
+    else
         echo 'phpMyAdmin';
 ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />

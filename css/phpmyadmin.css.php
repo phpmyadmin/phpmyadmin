@@ -15,11 +15,6 @@ if ( $GLOBALS['text_dir'] === 'ltr' ) {
     $left = 'right';
 }
 
-// Gets the default font sizes
-// garvin: TODO: Should be optimized to not include the whole common.lib.php bunch
-// but only functions used to determine browser heritage.
-PMA_setFontSizes();
-
 // Send correct type:
 header('Content-Type: text/css; charset=ISO-8859-1');
 

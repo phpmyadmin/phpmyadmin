@@ -40,12 +40,9 @@ $options_array = array('CASCADE' => 'CASCADE', 'SET_NULL' => 'SET NULL', 'NO_ACT
  * @access  public
  */
 function PMA_generate_dropdown($dropdown_question,$radio_name,$choices,$selected_value) {
-    global $font_smallest;
 
     echo $dropdown_question . '&nbsp;&nbsp;';
 
-    //echo '<select name="' . $radio_name . '" style="font-size: ' . $font_smallest . '">' . "\n";
-    //echo '<option value="nix" style="font-size: ' . $font_smallest . '" >--</option>' . "\n";
     echo '<select name="' . $radio_name . '">' . "\n";
     echo '<option value="nix">--</option>' . "\n";
 
@@ -54,7 +51,6 @@ function PMA_generate_dropdown($dropdown_question,$radio_name,$choices,$selected
         if ($selected_value == $one_value) {
             echo ' selected="selected" ';
         }
-        //echo ' style="font-size: ' . $font_smallest . '">'
         echo '>' . $one_label . '</option>' . "\n";
     }
     echo '</select>' . "\n";
@@ -369,10 +365,10 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         $save_row[] = $row;
     }
     $saved_row_cnt  = count($save_row);
-    ?> 
+    ?>
     <fieldset>
     <legend><?php echo $strLinksTo; ?></legend>
-    
+
     <table>
     <tr><th></th>
     <?php
@@ -390,19 +386,19 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         }
         echo '</th>';
     }
-    ?> 
+    ?>
     </tr>
     <?php
     $odd_row = true;
     for ($i = 0; $i < $saved_row_cnt; $i++) {
         $myfield = $save_row[$i]['Field'];
-        ?> 
+        ?>
     <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
         <td align="center">
             <b><?php echo $save_row[$i]['Field']; ?></b></td>
         <?php
-        if ($cfgRelation['relwork']) { 
-            ?> 
+        if ($cfgRelation['relwork']) {
+            ?>
         <td><select name="destination[<?php echo htmlspecialchars($save_row[$i]['Field']); ?>]">
             <?php
             // PMA internal relations
@@ -433,7 +429,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
                     .' selected="selected"'
                     .'>' . $foreign_field . '</option>'. "\n";
             }
-            ?> 
+            ?>
             </select>
         </td>
             <?php
@@ -442,7 +438,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         if ($tbl_type=='INNODB') {
             echo '<td>';
             if (!empty($save_row[$i]['Key'])) {
-                ?> 
+                ?>
             <span class="formelement">
             <select name="destination_innodb[<?php echo htmlspecialchars($save_row[$i]['Field']); ?>]">
                 <?php
@@ -474,7 +470,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
                     echo '>' . $foreign_field . '</option>' . "\n";
                 }
 
-                ?> 
+                ?>
             </select>
             </span>
             <span class="formelement">
@@ -497,18 +493,18 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             } // end if (a key exists)
             echo '        </td>';
         } // end if (InnoDB)
-        ?> 
+        ?>
     </tr>
         <?php
     } // end for
-    
+
     echo '    </table>' . "\n";
     echo '</fieldset>' . "\n";
-    
+
     if ($cfgRelation['displaywork']) {
         // Get "display_field" infos
         $disp = PMA_getDisplayField($db, $table);
-        ?> 
+        ?>
     <fieldset>
         <label><?php echo $strChangeDisplay . ': '; ?></label>
         <select name="display_field" style="vertical-align: middle">
@@ -521,12 +517,12 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             }
             echo '>' . htmlspecialchars($row['Field']) . '</option>'. "\n";
         } // end while
-        ?> 
+        ?>
         </select>
     </fieldset>
         <?php
     } // end if (displayworks)
-    ?> 
+    ?>
     <fieldset class="tblFooters">
         <input type="submit" value="<?php echo $strSave; ?>" />
     </fieldset>

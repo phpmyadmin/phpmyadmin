@@ -217,8 +217,8 @@ else {
                 if (isset($sts_data['Create_time']) && !empty($sts_data['Create_time'])) {
                     ?>
                     <tr>
-                        <td style="font-size: <?php echo $font_smaller; ?>" align="right"><?php echo $strStatCreateTime . ': '; ?></td>
-                        <td style="font-size: <?php echo $font_smaller; ?>" align="right"><?php echo PMA_localisedDate(strtotime($sts_data['Create_time'])); ?></td>
+                        <td style="font-size: 80%" align="right"><?php echo $strStatCreateTime . ': '; ?></td>
+                        <td style="font-size: 80%" align="right"><?php echo PMA_localisedDate(strtotime($sts_data['Create_time'])); ?></td>
                     </tr>
                     <?php
                 }
@@ -226,8 +226,8 @@ else {
                 if (isset($sts_data['Update_time']) && !empty($sts_data['Update_time'])) {
                     ?>
                     <tr>
-                        <td style="font-size: <?php echo $font_smaller; ?>" align="right"><?php echo $strStatUpdateTime . ': '; ?></td>
-                        <td style="font-size: <?php echo $font_smaller; ?>" align="right"><?php echo PMA_localisedDate(strtotime($sts_data['Update_time'])); ?></td>
+                        <td style="font-size: 80%" align="right"><?php echo $strStatUpdateTime . ': '; ?></td>
+                        <td style="font-size: 80%" align="right"><?php echo PMA_localisedDate(strtotime($sts_data['Update_time'])); ?></td>
                     </tr>
                     <?php
                 }
@@ -235,8 +235,8 @@ else {
                 if (isset($sts_data['Check_time']) && !empty($sts_data['Check_time'])) {
                     ?>
                     <tr>
-                        <td style="font-size: <?php echo $font_smaller; ?>" align="right"><?php echo $strStatCheckTime . ': '; ?></td>
-                        <td style="font-size: <?php echo $font_smaller; ?>" align="right"><?php echo PMA_localisedDate(strtotime($sts_data['Check_time'])); ?></td>
+                        <td style="font-size: 80%" align="right"><?php echo $strStatCheckTime . ': '; ?></td>
+                        <td style="font-size: 80%" align="right"><?php echo PMA_localisedDate(strtotime($sts_data['Check_time'])); ?></td>
                     </tr>
                     <?php
                 }

@@ -28,8 +28,6 @@ require_once('./libraries/header_http.inc.php');
 /**
  * Sends the beginning of the html page then returns to the calling script
  */
-// Gets the font sizes to use
-PMA_setFontSizes();
 // Defines the cell alignment values depending on text direction
 if ($text_dir == 'ltr') {
     $cell_align_left  = 'left';

@@ -44,7 +44,7 @@ function PMA_auth_check()
 function PMA_auth_set_user()
 {
     return TRUE;
-} // end of the 'PMA_auth_set_user()' function 
+} // end of the 'PMA_auth_set_user()' function
 
 
 /**
@@ -68,7 +68,7 @@ function PMA_auth_set_user()
 function PMA_auth_fails()
 {
     global $php_errormsg, $cfg;
-    global $right_font_family, $font_size, $font_bigger;
+
     if (PMA_DBI_getError()) {
         $conn_error = PMA_DBI_getError();
     } else if (isset($php_errormsg)) {
@@ -109,7 +109,7 @@ function PMA_auth_fails()
     <?php
 
     // if we display the "Server not responding" error, do not confuse users
-    // by telling them they have a settings problem 
+    // by telling them they have a settings problem
     // (note: it's true that they could have a badly typed host name, but
     //  anyway the current $strAccessDeniedExplanation tells that the server
     //  rejected the connection, which is not really what happened)

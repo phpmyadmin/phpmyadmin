@@ -1382,7 +1382,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
 
             uksort( $array_initials, "strnatcasecmp" );
 
-            echo '<table cellspacing="5" style="font-size:' . $font_bigger . '"><tr>';
+            echo '<table cellspacing="5"><tr>';
             foreach ($array_initials as $tmp_initial => $initial_was_found) {
                 if ($initial_was_found) {
                     echo '<td><a href="' . $PHP_SELF . '?' . $GLOBALS['url_query'] . '&amp;initial=' . urlencode($tmp_initial) . '">' . $tmp_initial . '</a></td>' . "\n";
@@ -1593,11 +1593,11 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
 
             // table body
             // get data
-            
+
             // we also want privielgs for this user not in table `db` but in other table
             $tables = PMA_DBI_fetch_result('SHOW TABLES FROM `mysql`;');
             if ( empty( $dbname ) ) {
-                
+
                 // no db name given, so we want all privs for the given user
 
                 $tables_to_search_for_users = array(
@@ -1668,16 +1668,16 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                 }
                 PMA_DBI_free_result( $res );
                 unset( $row, $res );
-                
+
             } else {
-                
+
                 // db name was given,
                 // so we want all user specific rights for this db
-                
+
                 $user_host_condition .=
                     ' AND ' . PMA_convert_using('`Db`')
                     .' LIKE ' . PMA_convert_using( $dbname, 'quoted' );
-                
+
                 $tables_to_search_for_users = array(
                     'columns_priv',
                 );
@@ -1724,7 +1724,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                 }
                 PMA_DBI_free_result( $db_rights_result );
                 unset( $db_rights_sql, $db_rights_sqls, $db_rights_result, $db_rights_row );
-                
+
                 $sql_query =
                     'SELECT `Table_name`,'
                     .' `Table_priv`,'

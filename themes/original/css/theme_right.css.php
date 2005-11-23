@@ -8,7 +8,6 @@ body {
     margin: 0.5em;
     padding: 0;
     font-family: <?php echo $right_font_family; ?>;
-    font-size: <?php echo $font_size; ?>;
     color: #000000;
     <?php
     if ($GLOBALS['cfg']['RightBgImage'] == '') {
@@ -22,20 +21,19 @@ body {
     background-color: <?php echo $GLOBALS['cfg']['RightBgColor'] . "\n"; ?>
 }
 
-pre, tt         {font-size: <?php echo $font_size; ?>}
-th              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #000000; background-color: <?php echo $GLOBALS['cfg']['ThBgcolor']; ?>}
-td              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
-form            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; padding: 0px; margin: 0px;}
-input           {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
-input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
-select          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
-textarea        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
-h1              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold}
-h2              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold}
-h3              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold}
-a:link          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
-a:visited       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
-a:hover         {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: underline; color: #FF0000}
+th              {font-family: <?php echo $right_font_family; ?>;  font-weight: bold; color: #000000; background-color: <?php echo $GLOBALS['cfg']['ThBgcolor']; ?>}
+td              {font-family: <?php echo $right_font_family; ?>; }
+form            {font-family: <?php echo $right_font_family; ?>;  padding: 0px; margin: 0px;}
+input           {font-family: <?php echo $right_font_family; ?>; }
+input.textfield {font-family: <?php echo $right_font_family; ?>;  color: #000000; background-color: #FFFFFF}
+select          {font-family: <?php echo $right_font_family; ?>;  color: #000000; background-color: #FFFFFF}
+textarea        {font-family: <?php echo $right_font_family; ?>;  color: #000000; background-color: #FFFFFF}
+h1              {font-family: <?php echo $right_font_family; ?>; font-size: 140%; font-weight: bold}
+h2              {font-family: <?php echo $right_font_family; ?>; font-size: 120%; font-weight: bold}
+h3              {font-family: <?php echo $right_font_family; ?>;  font-weight: bold}
+a:link          {font-family: <?php echo $right_font_family; ?>;  text-decoration: none; color: #0000FF}
+a:visited       {font-family: <?php echo $right_font_family; ?>;  text-decoration: none; color: #0000FF}
+a:hover         {font-family: <?php echo $right_font_family; ?>;  text-decoration: underline; color: #FF0000}
 dfn             {font-style: normal}
 dfn:hover       {font-style: normal; cursor: help}
 
@@ -71,14 +69,14 @@ button.mult_submit {
     visibility:       inherit;
     cursor:           move;
     position:         absolute;
-    font-size:        <?php echo $font_smaller; ?>;
+    font-size:        80%;
     border:           1px dashed #000000;
 }
 
 .print{font-family:arial;font-size:8pt;}
 
 /* MySQL Parser */
-.syntax {font-family: sans-serif; font-size: <?php echo $font_smaller; ?>;}
+.syntax {font-family: sans-serif; font-size: 80%;}
 .syntax_comment            { padding-left: 4pt; padding-right: 4pt;}
 .syntax_digit              {}
 .syntax_digit_hex          {}
@@ -304,7 +302,7 @@ fieldset.confirmation legend {
 /* end messageboxes */
 
 
-.tblcomment     {font-size: <?php echo $font_smallest; ?>; font-weight: normal; color: #000099; }
+.tblcomment     {font-size: 70%; font-weight: normal; color: #000099; }
 
 .tblHeaders {
     background-color: <?php echo $cfg['LeftBgColor']; ?>;
@@ -364,7 +362,6 @@ img, input, select, button {
 /* disabled text */
 .disabled, .disabled a:link, disabled a:active, .disabled a:visited {
     font-family: <?php echo $right_font_family; ?>;
-    font-size:   <?php echo $font_size; ?>;
     color:       #666666;
 }
 .disabled a:hover {
@@ -393,7 +390,6 @@ tr.disabled td, td.disabled {
     border:           0.1em solid #000000;
     padding:          0.5em;
     font-family:      <?php echo $right_font_family; ?>;
-    font-size:        <?php echo $font_size; ?>;
 }
 
 fieldset {
