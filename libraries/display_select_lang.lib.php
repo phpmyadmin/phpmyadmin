@@ -1,4 +1,8 @@
 <?php
+/*
+ * Code for displaying language selection
+ * $Id$
+ */
 
 /**
  * Sorts available languages by their true english names
