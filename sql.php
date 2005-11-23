@@ -45,7 +45,14 @@ if (isset($fields['dbase'])) {
 
 // Default to browse if no query set an we have table (needed for browsing from DefaultTabTable)
 if (!isset($sql_query) && isset($table) && isset($db)) {
-    $sql_query = 'SELECT * FROM ' . PMA_backquote($table);
+    require_once('./libraries/bookmark.lib.php');
+    $book_sql_query = PMA_queryBookmarks($db, $GLOBALS['cfg']['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
+    if (!empty($book_sql_query)) {
+        $sql_query = $book_sql_query;
+    } else {
+        $sql_query = 'SELECT * FROM ' . PMA_backquote($table);
+    }
+    unset($book_sql_query);
 } else {
     // Now we can check the parameters
     PMA_checkParameters(array('sql_query'));
