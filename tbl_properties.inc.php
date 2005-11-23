@@ -13,7 +13,7 @@ require_once('./libraries/storage_engines.lib.php');
 
 if ($cfg['CtrlArrowsMoving']) {
     ?>
-<script src="libraries/keyhandler.js" type="text/javascript" language="javascript"></script>
+<script src="./js/keyhandler.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript" language="javascript">
 <!--
 var switch_movement = <?php echo $cfg['DefaultPropDisplay'] == 'horizontal' ? '0' : '1'; ?>;

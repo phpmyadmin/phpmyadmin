@@ -95,7 +95,7 @@ if (isset($disp_row) && is_array($disp_row)) {
     <base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> />
     <link rel="stylesheet" type="text/css"
         href="./css/phpmyadmin.css.php?<?php echo PMA_generate_common_url( '', '' ); ?>&amp;js_frame=right" />
-    <script src="libraries/functions.js" type="text/javascript" language="javascript"></script>
+    <script src="./js/functions.js" type="text/javascript" language="javascript"></script>
     <script type="text/javascript" language="javascript">
     //<![CDATA[
     self.focus();

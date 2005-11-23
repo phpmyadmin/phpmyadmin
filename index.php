@@ -148,7 +148,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     var pma_absolute_uri = '<?php echo $GLOBALS['cfg']['PmaAbsoluteUri']; ?>';
 //]]>
 </script>
-<script src="libraries/querywindow.js" type="text/javascript"
+<script src="./js/querywindow.js" type="text/javascript"
     language="javascript"></script>
 </head>
 <frameset cols="<?php echo $GLOBALS['cfg']['LeftWidth']; ?>,*" rows="*" id="mainFrameset">

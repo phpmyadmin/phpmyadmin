@@ -39,7 +39,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
         href="../css/phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right" />
     <link rel="stylesheet" type="text/css" media="print"
         href="../css/print.css?<?php echo PMA_generate_common_url(); ?>" />
-    <script src="../libraries/functions.js" type="text/javascript"
+    <script src="../js/functions.js" type="text/javascript"
         language="javascript"></script>
 </head>
 <body>
@@ -161,7 +161,7 @@ echo sprintf( $strWelcome,
 
 <hr class="clearfloat" />
 
-<form method="post" action="theme_test.php" target="_parent">
+<form method="post" action="theme.php" target="_parent">
 <fieldset>
     <legend><?php echo $strTheme; ?></legend>
 <?php

@@ -6,7 +6,7 @@
 // - bugfix for select all checkboxes
 // - copy right to left (or left to right) if user click on a check box
 // - reversed the right modify links: 1. drop, 2. edit, 3. checkbox
-// - also changes made in libraries/functions.js
+// - also changes made in js/functions.js
 
 if ( $doWriteModifyAt == 'left' ){
 

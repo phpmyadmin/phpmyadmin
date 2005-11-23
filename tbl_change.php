@@ -174,7 +174,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
 
 <?php if ($cfg['CtrlArrowsMoving']) { ?>
 <!-- Set on key handler for moving using by Ctrl+arrows -->
-<script src="libraries/keyhandler.js" type="text/javascript" language="javascript"></script>
+<script src="./js/keyhandler.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript" language="javascript">
 <!--
 var switch_movement = 0;

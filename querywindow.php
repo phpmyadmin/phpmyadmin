@@ -109,7 +109,7 @@ function resize() {
 ?>
 //]]>
 </script>
-<script src="libraries/functions.js" type="text/javascript" language="javascript"></script>
+<script src="./js/functions.js" type="text/javascript" language="javascript"></script>
 </head>
 
 <body id="bodyquerywindow" <?php echo $onload; ?> >

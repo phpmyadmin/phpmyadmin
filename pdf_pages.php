@@ -303,7 +303,7 @@ if ($cfg['WYSIWYG-PDF']) {
         $with_field_names = TRUE;
     }
 ?>
-<script type="text/javascript" src="./libraries/dom-drag.js"></script>
+<script type="text/javascript" src="./js/dom-drag.js"></script>
 <form method="post" action="pdf_pages.php" name="dragdrop">
 <input type="button" name="dragdrop" value="<?php echo $strToggleScratchboard; ?>" onclick="ToggleDragDrop('pdflayout');" />
  <input type="button" name="dragdropreset" value="<?php echo $strReset; ?>" onclick="resetDrag();" />

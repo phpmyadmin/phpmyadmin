@@ -58,6 +58,11 @@ $Source$
     * Documentation.html, tbl_properties.inc.php,
       transformation_overview.php, libraries/transformations/overview.php
       (deleted): Move transformation overview out of libraries folder.
+    * js/*.js, libraries/*.js (deleted), browse_foreigners.php, calendar.php,
+      header.inc.php, index.php, pdf_pages.php, querywindow.php,
+      tbl_change.php, tbl_properties.inc.php,
+      libraries/display_tbl_links.lib.php, test/theme.php: Move javascript
+      stuff out of libraries folder.
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes

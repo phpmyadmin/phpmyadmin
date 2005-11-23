@@ -6,7 +6,7 @@ require_once('./libraries/header_http.inc.php');
 $page_title = $strCalendar;
 require('./libraries/header_meta_style.inc.php');
 ?>
-<script type="text/javascript" src="./libraries/tbl_change.js"></script>
+<script type="text/javascript" src="./js/tbl_change.js"></script>
 <script type="text/javascript">
 <!--
 var month_names = new Array("<?php echo implode('","', $month); ?>");
