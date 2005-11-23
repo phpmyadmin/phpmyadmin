@@ -144,7 +144,7 @@ echo sprintf( $GLOBALS['strWelcome'],
     if (empty($cfg['Lang'])) {
         echo "\n";
         require_once('./libraries/display_select_lang.lib.php');
-        PMA_select_language();
+        PMA_select_language(TRUE);
     }
     echo "\n\n";
 

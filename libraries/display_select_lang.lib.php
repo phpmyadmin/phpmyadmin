@@ -12,7 +12,7 @@
  * @return  the sorted array
  * @access  private
  */
-function PMA_language_cmp( &$a, $b ) {
+function PMA_language_cmp( &$a, &$b ) {
     return (strcmp($a[1], $b[1]));
 } // end of the 'PMA_language_cmp()' function
 
@@ -21,7 +21,7 @@ function PMA_language_cmp( &$a, $b ) {
  *
  * @access  public
  */
-function PMA_select_language() {
+function PMA_select_language($use_fieldset = FALSE) {
     global $cfg, $lang;
 ?>
 <form method="post" action="index.php" target="_parent">
@@ -42,12 +42,25 @@ function PMA_select_language() {
     if (isset($GLOBALS['server'])) {
         echo '            <input type="hidden" name="server" value="' . ((int)$GLOBALS['server']) . '" />' . "\n";
     }
+    if ($use_fieldset) {
+        echo '<fieldset>';
+        echo '<legend>';
+    }
     ?>
             Language <a href="./translators.html" target="documentation"><?php
             if ( $cfg['ReplaceHelpImg'] ) {
                 echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_info.png" width="11" height="11" alt="Info" />';
             } else { echo '(*)'; }
-?></a>: <select name="lang" onchange="this.form.submit();">
+?></a>
+    <?php
+    if ($use_fieldset) {
+        echo '</legend>';
+    } else {
+        echo ':';
+    }
+    ?>
+    <select name="lang" onchange="this.form.submit();">
+
     <?php
 
     uasort($GLOBALS['available_languages'], 'PMA_language_cmp');
@@ -77,8 +90,25 @@ function PMA_select_language() {
     }
     ?>
                 </select>
+    <?php
+    if ($use_fieldset) {
+        echo '</fieldset>';
+    }
+    ?>
+                <noscript>
+    <?php
+    if ($use_fieldset) {
+        echo '<fieldset class="tblFooters">';
+    }
+    ?>
+                <input type="submit" value="Go" />
+    <?php
+    if ($use_fieldset) {
+        echo '</fieldset>';
+    }
+    ?>
+                </noscript>
             </bdo>
-                <noscript><input type="submit" value="Go" /></noscript>
             </form>
 <?php
 } // End of function PMA_select_language

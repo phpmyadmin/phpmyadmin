@@ -32,6 +32,8 @@ $Source$
     * css/phpmyadmin.css.php, libraries/auth/cookie.auth.lib.php: Use
       fieldsets on login form (RFE #1364546), use notice box for cookie
       information.
+    * libraries/display_select_lang.lib.php,
+      libraries/auth/cookie.auth.lib.php: Use fieldset for language selection.
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes
