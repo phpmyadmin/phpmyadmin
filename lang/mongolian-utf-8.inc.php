@@ -276,7 +276,6 @@ $strFieldsTerminatedBy = 'Талбарыг төгсгөсөн';
 $strFileAlreadyExists = 'Файл %s нь сервэр дээр байна, нэрээ соль эсвэл давхарлах сонголтыг шалга.';
 $strFileCouldNotBeRead = 'Файл уншигдахгүй байна';
 $strFileNameTemplate = 'Файлын нэрийн загвар';
-$strFileNameTemplateHelp = 'ӨС-ын нэрд хэрэглэх __DB__, хүснэгтийн нэрийн __TABLE__ ба дурын %s strftime%s цагийн сонголт, Бусад бичвэр хамгаалагдсан.';
 $strFileNameTemplateRemember = 'загварыг санах';
 $strFixed = 'Засагдсан';
 $strFlushPrivilegesNote = 'Тэмдэглэл: phpMyAdmin нь MySQL-ийн онцгой эрхийн хүснэгтээс хэрэглэгчдийн онцгой эрхийг авна. Хэрэв тэд гараар өөрчлөгдсөн бол эдгээр хүснэгтийн агуулга нь сервэрт хэрэглэгдэж буйгаас өөр байна. Энэ тохиолдолд %sдахин дуудаж үргэлжлүүлнэ үү.';
@@ -957,4 +956,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

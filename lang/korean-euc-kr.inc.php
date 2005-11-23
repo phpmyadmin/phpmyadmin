@@ -148,7 +148,6 @@ $strFieldsEscapedBy = '필드 특수문자(escape) 처리';
 $strFieldsTerminatedBy = '필드 구분자 ';
 $strFileCouldNotBeRead = '파일을 읽을 수 없습니다';
 $strFileNameTemplate = '파일명 템플릿';
-$strFileNameTemplateHelp = '데이터베이스 이름에 __DB__ 를, 테이블명에 __TABLE__ 을, 시간 표기에 %sany strftime%s 옵션을 사용하며, 확장자는 자동으로 추가됩니다. 그밖의 텍스트는 보존됩니다.';
 $strFileNameTemplateRemember = '템플릿 기억';
 $strFlushTable = '테이블 닫기(캐시 삭제)';
 $strFunction = '함수';
@@ -974,4 +973,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

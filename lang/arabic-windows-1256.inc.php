@@ -233,7 +233,6 @@ $strFieldsTerminatedBy = 'ÍÞá ãÝÕæá ÈÜ';
 $strFileAlreadyExists = 'ÇáãÝ %s ãæÌæÏ ÇÕáÇð Úáì ÇáÎÇÏã. ÛíÑ ÇáÇÓã Ãæ ÍÏÏ ÎíÇÑ ÇáÊÓÌíá Úáì ÇáãáÝ ÇáãæÌæÏ.';
 $strFileCouldNotBeRead = 'áã íãßä ÞÑÇÁÉ ÇáãáÝ';
 $strFileNameTemplate = 'ÞÇáÈ ÅÓã ÇáãáÝ';
-$strFileNameTemplateHelp = 'ÇÓÊÎÏã __DB__ áÅÓã ÞÇÚÏÉ ÇáÈíÇäÇÊ¡ __TABLE__ áÅÓã ÇáÌÏæá æ %sany strftime%s áÎíÇÑÇÊ ÊÍÏíÏ ÇáæÞÊ¡ æÓæÝ íÊã ÅÖÇÝÉ ÇáÇãÊÏÇÏ. ÓæÝ íÊã ÇáÇÍÊÝÇÙ ÈÃí äÕ ÂÎÑ.';
 $strFileNameTemplateRemember = 'ÊÐßÑ ÇáÞÇáÈ';
 $strFixed = 'ãËÈÊ';
 $strFlushPrivilegesNote = 'ãáÇÍÙÉ: íÞÑÃ phpMyAdmin ÕáÇÍíÇÊ ÇáãÓÊÎÏãíä ãä ÌÏÇæá ÇáÕáÇÍíÇÊ ãä ÎÇÏã MySQL ãÈÇÔÑÉð. ãÍÊæíÇÊ åÐå ÇáÌÏÇæá ÞÏ ÊÎÊáÝ Úä ÇáÕáÇÍíÇÊ ÇáÊí íÓÊÎÏãåÇ ÇáÎÇÏã ÅÐÇ ãÇ Êãø ÇáÊÚÏíá ÚáíåÇ íÏæíøÇð. Ýí åÐå ÇáÍÇáÉ¡ Úáíß %s ÈÅÚÇÏÉ ÞÑÇÁÉ ÇáÕáÇÍíÇÊ %s ÞÈá Ãä Êßãá.';
@@ -959,4 +958,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

@@ -218,7 +218,6 @@ $strFieldsTerminatedBy = 'Поля розділені';
 $strFileAlreadyExists = 'Файл %s існує на сервері, прошу змінити назву файлу, або відмітити опцію заміни існуючих файлів.';
 $strFileCouldNotBeRead = 'Неможливо прочитати файл';
 $strFileNameTemplate = 'Шаблон назви файлу';
-$strFileNameTemplateHelp = 'Використати __DB__ як назву бази даних, __TABLE__ як назву таблиці і %sдовільні strftime%s опції для визначення часової мітки, розширення будуть додані автоматично. Будь-який інший текст буде збережено.';
 $strFileNameTemplateRemember = 'запам\'ятати шаблон';
 $strFixed = 'фіксований';
 $strFlushPrivilegesNote = 'Примітка: phpMyAdmin отримує права користувачів безпосередньо з таблиці прав MySQL. Зміст цієї таблиці може відрізнятися від прав, які використовуються сервером, якщо в цю таблицю вносилися зміни вручну. У цьому випадку Вам необхідно %sперезавантажити права%s перед продовженням.';
@@ -957,4 +956,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

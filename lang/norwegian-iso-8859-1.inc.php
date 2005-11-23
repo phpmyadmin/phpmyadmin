@@ -284,7 +284,6 @@ $strFieldsTerminatedBy = 'Felter avsluttet med';
 $strFileAlreadyExists = 'Fila %s eksisterer alt på serveren, endre navnet eller merk av for overskriving av fil.';
 $strFileCouldNotBeRead = 'Fila kunne ikke leses';
 $strFileNameTemplate = 'Filnavnsmal';
-$strFileNameTemplateHelp = 'Bruk __DB__ for databasenavn, __TABLE__ for tabellnavn og %svalgfrie strftime%s valg for tidsspesifikasjon, tilleggene vil bli \'automagisk\' lagt til.. All annen tekst vil bli bevart.';
 $strFileNameTemplateRemember = 'husk malen';
 $strFileToImport = 'Fil for importering';
 $strFixed = 'statisk';
@@ -956,4 +955,8 @@ $strZip = 'Komprimert (zip)';
 //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

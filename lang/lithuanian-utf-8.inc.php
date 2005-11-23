@@ -261,7 +261,6 @@ $strFieldsTerminatedBy = 'Laukų pabaigos žymė';
 $strFileAlreadyExists = 'Byla pavadinimu %s jau yra darbinėje stotyje, pakeiskite norimą pavadinimą arba pasirinkite nustatymą leidžiantį perrašyti esančias bylas.';
 $strFileCouldNotBeRead = 'Negalima perskaityti bylos';
 $strFileNameTemplate = 'Failo pavadinimo šablonas';
-$strFileNameTemplateHelp = 'Naudokite __DB__ duombazės pavadinimui, __TABLE__ lentelės pavadinimui ir funkcijos %sstrftime%s nustatymus laiko formatui. Išplėtimas bus pridedamas automatiškai. Kitas tekstas bus atvaizduotas kaip įvesta.';
 $strFileNameTemplateRemember = 'atsiminti šabloną';
 $strFixed = 'fiksuotas';
 $strFlushPrivilegesNote = 'Pastaba: phpMyAdmin gauna vartotojų teises tiesiai iš MySQL privilegijų lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo parinkčių bylose nurodytų teisių. Todėl %sperkraukite teises%s, jeigu norite tęsti. ';
@@ -964,4 +963,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

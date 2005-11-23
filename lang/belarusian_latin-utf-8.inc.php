@@ -286,7 +286,6 @@ $strFieldsTerminatedBy = 'Pali padzielenyja';
 $strFileAlreadyExists = 'Fajł %s užo isnuje na servery, źmianicie imia fajła abo praviercie opcyju pierazapisu.';
 $strFileCouldNotBeRead = 'Niemahčyma pračytać fajł';
 $strFileNameTemplate = 'Šablon nazvy fajła';
-$strFileNameTemplateHelp = 'Vykarystoŭvajcie __DB__ dla nazvy bazy dadzienych, __TABLE__ dla nazvy tablicy i %slubyja strftime%s opcyi dla vyznačeńnia mietki času, pašyreńnie budzie dadadzienaje aŭtamatyčna. Luby inšy tekst budzie zachavany.';
 $strFileNameTemplateRemember = 'zapomnić šablon';
 $strFileToImport = 'Jimpartavać fajł';
 $strFixed = 'fiksavany';
@@ -957,4 +956,8 @@ $strZip = 'archivavany ŭ zip';
 
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

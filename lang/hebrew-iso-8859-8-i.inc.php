@@ -259,7 +259,6 @@ $strFieldsTerminatedBy = 'סיום שדות ע"י';
 $strFileAlreadyExists = 'קובץ %s כבר קיים על השרת, שנה שם קובץ או בדוק אופציית כתיבה-על.';
 $strFileCouldNotBeRead = 'נכשל בקריאת הקובץ';
 $strFileNameTemplate = 'תבנית שם קובץ';
-$strFileNameTemplateHelp = 'השתמש ב- __DB__ עבור שמות מאגרי נתונים, __TABLE__ עבור שמות טבלאות ו-  %sכל אופציות strftime%s לפירוט זמנים, תוספת תתווסף באופן אוטומטי. טקסט אחר ישומר.';
 $strFileNameTemplateRemember = 'זכור תבנית';
 $strFixed = 'תוקן';
 $strFlushPrivilegesNote = 'הערה: phpMyAdmin מקבל הרשאות משתמש ישירות מטבלאות הרשאות של MySQL. התוכן של הטבלאות האלו יכול להיות שונה מההרשאות שהשרת משתמש בהן, אם הן שונו באופן ידני. במקרה זה, אתה צריך לבצע %sטעינה מחדש של הרשאות%s לפני שאתה ממשיך.';
@@ -973,4 +972,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

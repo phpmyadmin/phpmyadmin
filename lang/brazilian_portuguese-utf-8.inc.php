@@ -277,7 +277,6 @@ $strFieldsEscapedBy = 'Campos contornados por';
 $strFieldsTerminatedBy = 'Campos terminados por'; 
 $strFileAlreadyExists = 'O arquivo %s já existe no servidor, mude o nome do arquivo ou verifique sua opção de sobrescrever.'; 
 $strFileCouldNotBeRead = 'O arquivo não pode ser lido'; 
-$strFileNameTemplateHelp = 'Usar __DB__ para nome de Banco de Dados, __TABLE__ para nome de tabelas e quaisquer opções %sstrftime%s para especificar data/hora, a extensão será "automagicamente" adicionada. Qualquer outro texto será preservado.'; 
 $strFileNameTemplate = 'Nome do arquivo do modelo'; 
 $strFileNameTemplateRemember = 'lembrar modelo'; 
 $strFixed = 'fixo'; 
@@ -964,4 +963,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

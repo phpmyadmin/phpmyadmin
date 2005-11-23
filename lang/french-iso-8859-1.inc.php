@@ -280,7 +280,6 @@ $strFieldsEscapedBy = 'Caractère spécial';
 $strFieldsTerminatedBy = 'Champs terminés par';
 $strFileAlreadyExists = 'Le fichier %s existe déjà sur le serveur, veuillez changer le nom, ou cocher l\'option Écraser';
 $strFileCouldNotBeRead = 'Le fichier n\'a pu être lu';
-$strFileNameTemplateHelp = 'Utilisez __DB__ comme nom de base, __TABLE__ comme nom de table et %stoute option valide de strftime%s comme indicateur de date/heure, le suffixe sera ajouté automatiquement. Tout autre texte sera préservé.';
 $strFileNameTemplate = 'Modèle de nom de fichier';
 $strFileNameTemplateRemember = 'se souvenir du modèle';
 $strFileToImport = 'Fichier à importer';
@@ -952,4 +951,8 @@ $strZip = '"zippé"';
 
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

@@ -289,7 +289,6 @@ $strFields = 'Sarakkeet';
 $strFieldsTerminatedBy = 'Sarakkeiden erotinmerkki';
 $strFileAlreadyExists = 'Tiedosto %s on jo olemassa palvelimella, vaihda tiedostonime‰ tai tarkista korvaus-asetuksen tila.'; 
 $strFileCouldNotBeRead = 'Tiedostoa ei voida lukea'; 
-$strFileNameTemplateHelp = 'K‰yt‰ __DB__ tietokannan nimen‰, __TABLE__ taulun nimen‰ ja %smit‰ tahansa strftime%s -valintaa aikam‰‰rittelylle; laajennukset lis‰t‰‰n automaattisesti. Kaikki muu teksti pysyy sellaisenaan.<p>&nbsp;</p>';
 $strFileNameTemplateRemember = 'muista pohja';
 $strFileNameTemplate = 'Tiedostonimen pohja';
 $strFileToImport = 'Tuotava tiedosto';
@@ -961,4 +960,8 @@ $strZip = '"zip-pakattu"';
 
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

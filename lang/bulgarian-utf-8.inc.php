@@ -263,7 +263,6 @@ $strFields = 'Полета';
 $strField = 'Поле';
 $strFileAlreadyExists = 'Файлът %s вече съществува на сървъра, сменете името на файла или включете опцията за препокриване.';
 $strFileCouldNotBeRead = 'Файлът не може да бъде прочетен';
-$strFileNameTemplateHelp = 'Използвайте __DB__ за име на базата от данни, __TABLE__ за име на таблицата и опциите на %sstrftime%s за указване на формата на времето, като разширението ще бъде добавено автоматично. Всеки друг текст ще бъде запазен.';
 $strFileNameTemplateRemember = 'запомняне на шаблона';
 $strFileNameTemplate = 'Шаблон на файловото име';
 $strFileToImport = 'Файл за импортиране';
@@ -979,4 +978,8 @@ $strWriteRequests = 'Write requests';  //to translate
 
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

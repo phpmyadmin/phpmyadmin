@@ -218,7 +218,6 @@ $strFieldsTerminatedBy = 'Πεδία που τελειώνουν σε';
 $strFileAlreadyExists = 'Το αρχείο %s υπάρχει ήδη στον διακομιστή. Επιλέξτε διαφορετικό όνομα αρχείου ή ενεργοποιήστε την επιλογή αντικατάστασης.';  
 $strFileCouldNotBeRead = 'Δεν ήταν δυνατή η ανάγνωση του αρχείου';  
 $strFileNameTemplate = 'Μορφή ονόματος αρχείου';
-$strFileNameTemplateHelp = 'Χρησιμοποιήστε __DB__ για όνομα βάσης, __TABLE__ για όνομα πεδίου και %sοποιαδήποτε επιλογή strftime%s για ορισμό ώρας. Η επέκταση θα προστεθεί αυτόματα. Οποιοδήποτε άλλο κείμενο θα διατηρηθεί.';
 $strFileNameTemplateRemember = 'αποθήκευση μορφής';
 $strFixed = 'προκαθορισμένου μήκους';
 $strFlushPrivilegesNote = 'Σημείωση: Το phpMyAdmin διαβάζει τα προνόμια των χρηστών απ\' ευθείεας από τους πίνακες προνομίων της MySQL. Το περιεχόμενο αυτών των πινάκων μπορεί να διαφέρει από τα προνόμια που χρησιμοποιεί ο διακομιστής εάν έχουν γίνει αλλαγές χειροκίνητα. Σε αυτήν την περίπτωση, θα πρέπει να %sεπαναφορτώσετε τα προνόμια%s πριν συνεχίσετε.'; 
@@ -961,4 +960,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

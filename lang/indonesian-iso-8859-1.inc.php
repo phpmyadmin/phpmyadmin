@@ -269,7 +269,6 @@ $strFields = 'Field';
 $strFieldsTerminatedBy = 'Fields diputus oleh';
 $strFileAlreadyExists = 'File %s sudah ada pada server. Gantikan nama file atau periksa pilihan Overwrite.';
 $strFileCouldNotBeRead = 'Gagal membaca File';
-$strFileNameTemplateHelp = 'Gunakan__DB__sebagai nama Database,__TABLE__sebagai nama tabel dan %sany strftime%s sebagai spesifikasi waktu. Ekstensi akan ditambahkan secara otomatis. Teks lainnya akan dipertahankan.';
 $strFileNameTemplate = 'Konvensi nama file';
 $strFileNameTemplateRemember = 'ingat konvensi';
 $strFixed = 'telah diperbaiki';
@@ -951,4 +950,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

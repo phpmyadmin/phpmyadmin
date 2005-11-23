@@ -256,7 +256,6 @@ $strFieldsTerminatedBy = 'Velden beëindigd door';
 $strFileAlreadyExists = 'Bestaand %s bestaat al op de server, verander de bestandsnaam of controleer overschrijf opties.';
 $strFileCouldNotBeRead = 'Bestand kon niet worden gelezen';
 $strFileNameTemplate = 'File naam template';
-$strFileNameTemplateHelp = 'Gebruik __DB__ voor de database naam, __TABLE__ voor tabel naam en %salle strftime%s opties voor tijd specificaties, extensies zullen automatisch worden bijgevoegd. Elke andere tekst zal worden bewaard.';
 $strFileNameTemplateRemember = 'Onthoud template';
 $strFixed = 'vast';
 $strFlushPrivilegesNote = 'Opmerking: phpMyAdmin krijgt de rechten voor de gebruikers uit de MySQL privileges tabel. De content van deze tabel kan verschillen met de rechten van de server als er handmatig aanpassingen zijn aangebracht. Mocht dit het geval zijn dan moet men %sde privilege tabel vernieuwen%s voordat men verder gaat.';
@@ -955,4 +954,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

@@ -220,7 +220,6 @@ $strFieldsTerminatedBy = 'Sahelerin yox edildiyi (terminate) işare';
 $strFileAlreadyExists = '%s faylı serverda onsuz da mövcuddur, ya faylın adını deyişdir ya da üzerine yazma variantlarını.';
 $strFileCouldNotBeRead = 'Fayl oxuna bilmir';
 $strFileNameTemplate = 'Fayl adı nomenklaturası';
-$strFileNameTemplateHelp = '__DB__ ifadesini me\'lumat bazası adı, __TABLE__ ifadesini de cedvel adı ve %sher hansı strftime%s variantlarını da zaman ifadeleri üçün istifade edin; fayl uzantısı avtomatik olaraq elave edilecekdir. Diger metnler olduğu kimi saxlanacaqdır.';
 $strFileNameTemplateRemember = 'nomenklaturanı unutma';
 $strFixed = 'fixed';
 $strFlushPrivilegesNote = 'Qeyd: phpMyAdmin istifadeçi selahiyyetlerini birbaşa MySQL-in selahiyyetler cedvellerinden almaqdadır. Eger elle nizamlamalar edilmişse, bu cedvellerin içerisindekiler webserver-in istifade etdiklerinden ferqli ola biler. Bu halda, davam etmeden evvel, selahiyyetleri yeniden yüklemelisiniz.';
@@ -978,4 +977,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

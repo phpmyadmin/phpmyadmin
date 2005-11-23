@@ -256,7 +256,6 @@ $strFieldsTerminatedBy = 'Mez&#337; vége';
 $strFileAlreadyExists = '%s fájl már létezik a szerveren, változtassa meg a fájlnevet, vagy állítsa be a felülírás opciót!';  
 $strFileCouldNotBeRead = 'A fájl nem olvasható';  
 $strFileNameTemplate = 'Átmeneti fájlnév';
-$strFileNameTemplateHelp = 'Használja a __DB__ formulát az adatbázis nevekhez, a __TABLE__ formulát a táblanevekhez és %segy strftime%s formulát az id&#337;-meghatározáshoz, a kiterjesztést automatikusan hozzáadja. A többi szöveget meg&#337;rzi.';
 $strFileNameTemplateRemember = 'emlékezzen az átmeneti névre';
 $strFixed = 'rögzített';
 $strFlushPrivilegesNote = 'Megjegyzés: a phpMyAdmin a felhasználói privilégiumokat közvetlenül a MySQL privilégium táblákból veszi. Ezen táblák tartalma eltérhet a szerver privilégiumoktól, ha ezt kézzel beállítottuk. Ebben az esetben érdemes %sújra betölteni a privilégiumokat%s a folytatás el&#337;tt.'; 
@@ -973,4 +972,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

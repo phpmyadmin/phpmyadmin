@@ -284,7 +284,6 @@ $strFields = 'Fält';
 $strFieldsTerminatedBy = 'Fälten avslutas med';
 $strFileAlreadyExists = 'Filen %s finns redan på servern. Ändra filnamnet eller kryssa i skriv över-alternativet.';
 $strFileCouldNotBeRead = 'Filen kunde inte läsas';
-$strFileNameTemplateHelp = 'Använd __DB__ för databasnamn, __TABLE__ för tabellnamn och %sstrftime%s-alternativ för specificering av tid. Filändelse läggs till automagiskt. All annan text kommer att bevaras.';
 $strFileNameTemplate = 'Mall för filnamn';
 $strFileNameTemplateRemember = 'kom ihåg mall';
 $strFileToImport = 'Fil att importera';
@@ -960,4 +959,8 @@ $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review you
 
 $strShowStatusInnodb_dblwr_writesDescr = 'The number of doublewrite writes that have been performed and the number of pages that have been written for this purpose.'; //to translate
 
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

@@ -238,7 +238,6 @@ $strFieldsTerminatedBy = 'Polja zakljuèena z';
 $strFileAlreadyExists = 'Datoteka %s že obstaja na strežniku, spremenite ime novi ali prepišite obstojeèo datoteko.';
 $strFileCouldNotBeRead = 'Ne morem prebrati datoteke';
 $strFileNameTemplate = 'Predloga datoteke';
-$strFileNameTemplateHelp = 'Uporabi __DB__ za ime zbirke podatkov, __TABLE__ za ime tabele in možnosti %sany strftime%s za navedbo èasa, pripone pa bodo dodane samodejno. Ostalo besedilo ostane nespremenjeno.';
 $strFileNameTemplateRemember = 'Shrani predlogo';
 $strFixed = 'fiksno';
 $strFlushPrivilegesNote = 'Obvestilo: phpMyAdmin dobi podatke o uporabnikovih privilegijih iz MySQL tabel privilegijev. Vsebina teh tabel se lahko razlikuje od privilegijev, ki jih uporablja strežnik, èe so bile tabele roèno spremenjene. V tem primeru morate, preden nadaljujete, osvežiti privilegije.';
@@ -953,4 +952,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

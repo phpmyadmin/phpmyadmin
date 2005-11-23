@@ -260,7 +260,6 @@ $strFieldsTerminatedBy = 'Laukø pabaigos þymë';
 $strFileAlreadyExists = 'Byla pavadinimu %s jau yra darbinëje stotyje, pakeiskite norimà pavadinimà arba pasirinkite nustatymà leidþiantá perraðyti esanèias bylas.';
 $strFileCouldNotBeRead = 'Negalima perskaityti bylos';
 $strFileNameTemplate = 'Failo pavadinimo ðablonas';
-$strFileNameTemplateHelp = 'Naudokite __DB__ duombazës pavadinimui, __TABLE__ lentelës pavadinimui ir funkcijos %sstrftime%s nustatymus laiko formatui. Iðplëtimas bus pridedamas automatiðkai. Kitas tekstas bus atvaizduotas kaip ávesta.';
 $strFileNameTemplateRemember = 'atsiminti ðablonà';
 $strFixed = 'fiksuotas';
 $strFlushPrivilegesNote = 'Pastaba: phpMyAdmin gauna vartotojø teises tiesiai ið MySQL privilegijø lentelës. Ðiose lentelëse nurodytos teisës gali skirtis nuo parinkèiø bylose nurodytø teisiø. Todël %sperkraukite teises%s, jeigu norite tæsti. ';
@@ -963,4 +962,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

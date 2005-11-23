@@ -257,7 +257,6 @@ $strFieldsTerminatedBy = 'Lauki atdalīti ar';
 $strFileAlreadyExists = 'Fails %s jau eksistē uz servera. Lūdzu nomainiet faila nosaukumu vai atzīmējiet failu pārrakstīšanas opciju.';
 $strFileCouldNotBeRead = 'Nevar nolasīt failu';
 $strFileNameTemplate = 'Faila nosaukuma šablons';
-$strFileNameTemplateHelp = 'Lietojiet __DB__ datubāzes nosaukumam, __TABLE__ tabulas nosaukumam un funkcijas %sstrftime%s opcijas laika norādīsanai, faila paplašinājums tiks automātiski pievienots. Jebkāds cits teksts tiks atstāts bez izmaiņām.';
 $strFileNameTemplateRemember = 'atcerēties šablonu';
 $strFixed = 'fiksēts';
 $strFlushPrivilegesNote = 'Piezīme: phpMyAdmin saņem lietotāju privilēģijas pa taisno no MySQL privilēģiju tabilām. Šo tabulu saturs var atšķirties no privilēģijām, ko lieto serveris, ja tur tika veikti labojumi. Šajā gadījumā ir nepieciešams %spārlādēt privilēģijas%s pirms Jūs turpināt.';
@@ -961,4 +960,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

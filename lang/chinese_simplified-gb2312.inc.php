@@ -258,7 +258,6 @@ $strFieldsTerminatedBy = '分隔字段的字符';
 $strFileAlreadyExists = '文件 %s 已经存在于服务器上，请更改文件名或者选中覆盖选项。';
 $strFileCouldNotBeRead = '文件无法读取';
 $strFileNameTemplate = '文件名模板';
-$strFileNameTemplateHelp = '使用 __DB__ 代表数据库名，__TABLE__ 代表表名，使用%s任何 strftime%s 选项指定时间，扩展名会自动添加。任何其它文本都会被保留。';
 $strFileNameTemplateRemember = '记住模板';
 $strFixed = '固定';
 $strFlushPrivilegesNote = '注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%s。';
@@ -973,4 +972,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

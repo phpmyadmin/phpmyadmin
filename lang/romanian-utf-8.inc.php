@@ -259,7 +259,6 @@ $strFieldsTerminatedBy = 'Campuri terminate de';
 $strFileAlreadyExists = 'Fisierul %s exista deja pe server, schimba denumirea fisierului sau bifeaza optiunea de suprascriere.';
 $strFileCouldNotBeRead = 'Fisierul nu poate fi citit';
 $strFileNameTemplate = 'Sablon nume fisier';
-$strFileNameTemplateHelp = 'Utilizati  __DB__ pentru denumirea bazei de date, __TABLE__  pentru denumirea tabelelor si optiuni %sany strftime%s pentru specifitii de timp, extensiile se vor adauga automat. Orice alt text va fi pastrat.';
 $strFileNameTemplateRemember = 'tine minte template';
 $strFixed = 'fixat';
 $strFlushPrivilegesNote = 'Nota: phpMyAdmin foloseste privilegiile utilizatorilor direct din tabela de privilegii din MySQL. Continutul acestei tabele poate diferi de cel original. In acest caz, reincarca de aici inainte de a continua %sreincarcarea drepturilor%s.';
@@ -957,4 +956,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

@@ -294,7 +294,6 @@ $strFieldsTerminatedBy = 'Alan sonu karakteri';
 $strFileAlreadyExists = '%s dosyasý zaten serverda mevcut, dosya adýný deðiþtirin veya üzerine yaz seçeneðini seçin! ';
 $strFileCouldNotBeRead = 'Dosya okunamadý';
 $strFileNameTemplate = 'Dosya ismi þablonu';
-$strFileNameTemplateHelp = 'Veritabaný ismi için __DB__ , tablo ismi için __TABLE__ ve  zaman bildirimi için %sherhangi bir strftime%s deðeri kullanýn,uzantý otomatik olarak eklenecek,herhangi diðer bir metin korunacaktýr.';
 $strFileNameTemplateRemember = 'þablonu hatýrla';
 $strFixed = 'Sabit';
 $strFlushPrivilegesNote = 'Not: phpMyAdmin kullanýcýlarýn yetkilerini direkt olarak MySQL\'ün yetki tablolarýndan alýr.Bu tablolarýn içerikleri eðer elle  deðiþiklik yapýlmýþsa sunucunun kullandýðý yetkilerden farklý olabilir.Bu durumda devam etmeden önce %syetkileri yeniden yüklemeniz gerekir%s .';
@@ -981,4 +980,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

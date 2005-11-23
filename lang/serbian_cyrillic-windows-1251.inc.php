@@ -275,7 +275,6 @@ $strFields = 'Поља';
 $strFieldsTerminatedBy = 'Поља раздвојена са';
 $strFileAlreadyExists = 'Датотека %s већ постоји на серверу, промените име датотеке или укључите опцију преписивања.';
 $strFileCouldNotBeRead = 'Датотеку није могуће прочитати';
-$strFileNameTemplateHelp = 'Користи __DB__ за име базе, __TABLE__ за име табеле  и %sбило коју strftime%s опцију за спецификацију времена, и екстензија ће аутоматски бити додата. Сав остали текст биће сачуван.';
 $strFileNameTemplate = 'Шаблон имена датотеке';
 $strFileNameTemplateRemember = 'запамти шаблон';
 $strFixed = 'сређено';
@@ -957,4 +956,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

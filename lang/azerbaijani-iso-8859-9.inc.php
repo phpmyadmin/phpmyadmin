@@ -219,7 +219,6 @@ $strFieldsTerminatedBy = 'Sahelerin yox edildiyi (terminate) iþare';
 $strFileAlreadyExists = '%s faylý serverda onsuz da mövcuddur, ya faylýn adýný deyiþdir ya da üzerine yazma variantlarýný.';
 $strFileCouldNotBeRead = 'Fayl oxuna bilmir';
 $strFileNameTemplate = 'Fayl adý nomenklaturasý';
-$strFileNameTemplateHelp = '__DB__ ifadesini me\'lumat bazasý adý, __TABLE__ ifadesini de cedvel adý ve %sher hansý strftime%s variantlarýný da zaman ifadeleri üçün istifade edin; fayl uzantýsý avtomatik olaraq elave edilecekdir. Diger metnler olduðu kimi saxlanacaqdýr.';
 $strFileNameTemplateRemember = 'nomenklaturaný unutma';
 $strFixed = 'fixed';
 $strFlushPrivilegesNote = 'Qeyd: phpMyAdmin istifadeçi selahiyyetlerini birbaþa MySQL-in selahiyyetler cedvellerinden almaqdadýr. Eger elle nizamlamalar edilmiþse, bu cedvellerin içerisindekiler webserver-in istifade etdiklerinden ferqli ola biler. Bu halda, davam etmeden evvel, selahiyyetleri yeniden yüklemelisiniz.';
@@ -977,4 +976,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

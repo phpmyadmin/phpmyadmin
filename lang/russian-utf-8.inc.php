@@ -247,7 +247,6 @@ $strFieldsTerminatedBy = 'Поля разделены';
 $strFileAlreadyExists = 'Файл %s уже существует на сервере, измените имя или воспользуйтесь опцией перезаписи.';
 $strFileCouldNotBeRead = 'Файл не может быть прочитан';
 $strFileNameTemplate = 'Шаблон имени файла';
-$strFileNameTemplateHelp = 'Используйте __DB__ для имени БД, __TABLE__ для имени таблицы и %s любые strftime%s опции для задания времени, расширение будет добавлено автомаически. Любой другой текст будет сохранён.';
 $strFileNameTemplateRemember = 'запомнить шаблон';
 $strFixed = 'фиксированный';
 $strFlushPrivilegesNote = 'Замечание: phpMyAdmin получает пользовательские привилегии прямо из таблиц привилегий MySQL. Содержимое этих таблиц может отличаться от от привилегий, которые использует сервер, если изменения были внесены вручную. В этом случае вы должны %sперезагрузить привилегии%s перед продолжением работы.';
@@ -961,4 +960,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

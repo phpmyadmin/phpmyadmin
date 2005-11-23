@@ -268,7 +268,6 @@ $strFieldsTerminatedBy = 'Alan arasýnda bilge';
 $strFileAlreadyExists = 'File %s already exists on server, change filename or check overwrite option.';
 $strFileCouldNotBeRead = 'File could not be read';
 $strFileNameTemplate = 'Birem isemeneñ qalýbý';
-$strFileNameTemplateHelp = 'Biremlek adýn __DB__ itep, table adýn __TABLE__ itep kertäse. %sstrftime%s öçen köyläwlär üzennän yökläner. Baþqa mätennär berketelgän.';
 $strFileNameTemplateRemember = 'qalýpný yatla';
 $strFixed = 'berketelgän';
 $strFlushPrivilegesNote = 'Bel: phpMyAdmin bu qullanuçý xoquqlarýn MySQL\'nýñ eçke table eçennän ala. Server qullana torðan xoquqlar qul belän üzgärtelgän bulsa, bu table eçtälege alardan ayýrýla ala. Andí çaqlarda, dawam itü aldýnnan, %sxoquqlarný yañadan yöklärgä%s kiräk.';
@@ -955,4 +954,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

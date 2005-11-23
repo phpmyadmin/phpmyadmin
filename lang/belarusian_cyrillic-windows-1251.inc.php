@@ -285,7 +285,6 @@ $strFields = 'Палі';
 $strFieldsTerminatedBy = 'Палі падзеленыя';
 $strFileAlreadyExists = 'Файл %s ужо існуе на сэрвэры, зьмяніце імя файла або праверце опцыю перазапісу.';
 $strFileCouldNotBeRead = 'Немагчыма прачытаць файл';
-$strFileNameTemplateHelp = 'Выкарыстоўвайце __DB__ для назвы базы дадзеных, __TABLE__ для назвы табліцы і %sлюбыя strftime%s опцыі для вызначэньня меткі часу, пашырэньне будзе дададзенае аўтаматычна. Любы іншы тэкст будзе захаваны.';
 $strFileNameTemplate = 'Шаблён назвы файла';
 $strFileNameTemplateRemember = 'запомніць шаблён';
 $strFileToImport = 'Імпартаваць файл';
@@ -957,4 +956,8 @@ $strZip = 'архіваваны ў zip';
 
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

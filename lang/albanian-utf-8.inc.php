@@ -244,7 +244,6 @@ $strFieldsTerminatedBy = 'Fushë që mbaron me';
 $strFileAlreadyExists = 'File %s ekziston në server: të lutem, ndrysho emrin e file ose zgjidh opcionin "Mbishkruaj".';
 $strFileCouldNotBeRead = 'File nuk mund të lexohet';
 $strFileNameTemplate = 'Emri i file template';
-$strFileNameTemplateHelp = 'Përdor __DB__ për emrin e databazës, __TABLE__ si emër për tabelën dhe %sany strftime%s opcione për specifikat e kohës, prapashtesa do të shtohet automatikisht. Çdo tekst tjetër do të konservohet.';
 $strFileNameTemplateRemember = 'kujto template';
 $strFixed = 'fiks';
 $strFlushPrivilegesNote = 'Shënim: phpMyAdmin lexon të drejtat e përdoruesve direkt nga tabela e privilegjeve të MySQL. Përmbajtja e kësaj tabele mund të ndryshojë prej të drejtave të përdorura nga serveri nëse janë kryer ndryshime manuale. Në këtë rast, duhet të %srifreskoni të drejtat%s para se të vazhdoni.';
@@ -957,4 +956,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

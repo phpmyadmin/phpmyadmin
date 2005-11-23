@@ -280,7 +280,6 @@ $strFieldsEscapedBy = 'Caracter de escape';
 $strFieldsTerminatedBy = 'Campos terminados en';
 $strFileAlreadyExists = 'El archivo %s ya existe en el servidor, cambie el nombre del archivo o revise la opción de sobreescritura.';
 $strFileCouldNotBeRead = 'No fue posible leer el archivo';
-$strFileNameTemplateHelp = 'Use __DB__ para conservar el nombre de la base de datos, __TABLE__ para usar el nombre de la tabla y las opciones %sany strftime%s para especificaciones de tiempo; la extensión (.sql, .cvs, etc.) se añadirá automáticamente. Cualquier otro texto será conservado.';
 $strFileNameTemplate = 'Plantilla del nombre del archivo';
 $strFileNameTemplateRemember = 'recordar la plantilla';
 $strFileToImport = 'Archivo a importar';
@@ -952,4 +951,8 @@ $strZip = '"comprimido con zip"';
 
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

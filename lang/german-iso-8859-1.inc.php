@@ -279,7 +279,6 @@ $strFieldsTerminatedBy = 'Felder getrennt mit';
 $strFileAlreadyExists = 'Die Datei %s besteht bereits auf dem Server. Bitte ändern Sie den Dateinamen oder wählen Sie die Überschreibungs-Option.';
 $strFileCouldNotBeRead = 'Die Datei konnte nicht gelesen werden';
 $strFileNameTemplate = 'Dateinamenskonvention';
-$strFileNameTemplateHelp = 'Benutzen Sie __DB__ für den Datenbanknamen, __TABLE__ für den Tabellennamen und %sbeliebige strftime-Optionen%s zur Angabe von Datumsvariablen. Die Erweiterung wird automatisch hinzugefügt. Jeglicher anderer Text wird beibehalten.';
 $strFileNameTemplateRemember = 'Konvention merken';
 $strFixed = 'starr';
 $strFlushPrivilegesNote = 'Anmerkung: phpMyAdmin liest die Benutzerprofile direkt aus den entsprechenden MySQL-Tabellen aus. Der Inhalt dieser Tabellen kann sich von den Benutzprofilen, die MySQL z.Zt. verwendet, unterscheiden, wenn manuelle Änderungen vorgenommen wurden. In diesem Fall sollten Sie  %sdie Benutzerprofile neu laden%s bevor Sie fortfahren.';
@@ -979,4 +978,8 @@ $strUploadLimit = 'Möglicherweise wurde eine zu große Datei hochgeladen. Bitte s
 
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

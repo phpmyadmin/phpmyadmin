@@ -283,7 +283,6 @@ $strFields = 'Polia';
 $strFieldsTerminatedBy = 'Polia ukončené';
 $strFileAlreadyExists = 'Súbor %s už existuje na servery, zmente názov súboru alebo zvolte prepísanie súboru.';
 $strFileCouldNotBeRead = 'Súbor sa nedá prečítať';
-$strFileNameTemplateHelp = 'Použite __DB__ ako názov databázy, __TABLE__ ako názov tabuľky a akékoľvek parametre pre %sfunkciu strftime%s pre vloženie dát. Prípona súboru bude pridaná automaticky podľa typu. Akýkoľvek iný text zostane zachovaný.';
 $strFileNameTemplateRemember = 'zapamätať si vzor';
 $strFileNameTemplate = 'Vzor pre názov súboru';
 $strFileToImport = 'Súbor na importovanie';
@@ -955,4 +954,8 @@ $strZip = '"zo zipované"';
 
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

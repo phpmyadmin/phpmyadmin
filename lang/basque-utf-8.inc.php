@@ -225,7 +225,6 @@ $strFieldsTerminatedBy = 'Eremuak honekin bukatuak:';
 $strFileAlreadyExists = '%s fitxategia aurretik bazegoen zerbitzarian, izena aldatu edo aukeratu gainean idazteko hobespena.';
 $strFileCouldNotBeRead = 'Ezinezkoa fitxategia irakurtzea';
 $strFileNameTemplate = 'Txantiloi-fitxategiaren izena';
-$strFileNameTemplateHelp = 'Erabili __DB__ datu-basearen izenarentzat, __TABLE__ taularen izenarentzat eta %sany strftime%s aukerak dataren espezifikazioentzat, luzapena automatikoki txertatuko da. Bestelako testuak mantenduko dira.';
 $strFileNameTemplateRemember = 'txantiloia gogoratu';
 $strFixed = 'finkoa';
 $strFlushPrivilegesNote = 'Oharra: phpMyAdmin-ek erabiltzaileen pribilegioak\' zuzenean MySQL-ren pribilegioen taulatik\' eskuratzen ditu. Taula hauen edukiak, tartean eskuz aldaketarik egon bada, zerbitzariak erabiltzen dituenak ez bezelakoak izan daitezke. Kasu honetan, jarraitu aurretik %spribilegioak berkargatu%s beharko zenituzke.';
@@ -959,4 +958,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

@@ -256,7 +256,6 @@ $strFieldsTerminatedBy = 'Lauki atdalîti ar';
 $strFileAlreadyExists = 'Fails %s jau eksistç uz servera. Lûdzu nomainiet faila nosaukumu vai atzîmçjiet failu pârrakstîðanas opciju.';
 $strFileCouldNotBeRead = 'Nevar nolasît failu';
 $strFileNameTemplate = 'Faila nosaukuma ðablons';
-$strFileNameTemplateHelp = 'Lietojiet __DB__ datubâzes nosaukumam, __TABLE__ tabulas nosaukumam un funkcijas %sstrftime%s opcijas laika norâdîsanai, faila paplaðinâjums tiks automâtiski pievienots. Jebkâds cits teksts tiks atstâts bez izmaiòâm.';
 $strFileNameTemplateRemember = 'atcerçties ðablonu';
 $strFixed = 'fiksçts';
 $strFlushPrivilegesNote = 'Piezîme: phpMyAdmin saòem lietotâju privilçìijas pa taisno no MySQL privilçìiju tabilâm. Ðo tabulu saturs var atðíirties no privilçìijâm, ko lieto serveris, ja tur tika veikti labojumi. Ðajâ gadîjumâ ir nepiecieðams %spârlâdçt privilçìijas%s pirms Jûs turpinât.';
@@ -960,4 +959,8 @@ $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax high
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>

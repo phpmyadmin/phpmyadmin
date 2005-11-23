@@ -285,7 +285,6 @@ $strFieldsTerminatedBy = 'フィールド区切り記号';
 $strFileAlreadyExists = 'ファイル %s は既にサーバーに存在しします。ファイル名を変更するか、上書きオプションを確認してください。';
 $strFileCouldNotBeRead = 'ファイルを読めません。';
 $strFileNameTemplate = 'ファイル名のテンプレート';
-$strFileNameTemplateHelp = '__DB__ をデータベース名に、__TABLE__ をテーブル名に、そして%s任意の strftime 関数%s オプションを時間仕様に、拡張として自動的に追加されるでしょう。他のテキストも保存されるでしょう。';
 $strFileNameTemplateRemember = 'テンプレートを覚える';
 $strFileToImport = 'ファイルをインポートする';
 $strFixed = '固定';
@@ -968,4 +967,8 @@ $strUnsupportedCompressionDetected = 'You attempted to load file with unsupporte
 
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
 $strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
+$strFileNameTemplateDescriptionTable = 'table name';  //to translate
+$strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
+$strFileNameTemplateDescriptionServer = 'server name';  //to translate
+$strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 ?>
