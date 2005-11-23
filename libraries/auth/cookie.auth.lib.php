@@ -140,6 +140,13 @@ echo sprintf( $GLOBALS['strWelcome'],
 ?>
 </h1>
     <?php
+
+    // Show error message
+    if ( !empty($conn_error)) {
+        echo '<div class="error"><h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
+        echo $conn_error . '</div>' . "\n";
+    }
+    
     // Displays the languages form
     if (empty($cfg['Lang'])) {
         echo "\n";
@@ -160,11 +167,6 @@ echo sprintf( $GLOBALS['strWelcome'],
         echo '    </body>' . "\n"
            . '</html>';
         exit();
-    }
-
-    if ( !empty($conn_error)) {
-        echo '<div class="error"><h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
-        echo $conn_error . '</div>' . "\n";
     }
 ?>
 <br />
