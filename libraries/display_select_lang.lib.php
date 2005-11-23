@@ -49,13 +49,26 @@ function PMA_select_language() {
     uasort($GLOBALS['available_languages'], 'PMA_language_cmp');
     foreach ($GLOBALS['available_languages'] AS $id => $tmplang) {
         $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
+
+        // Include native name if non empty
+        if (!empty($tmplang[3])) {
+            $lang_name = htmlentities($tmplang[3], ENT_COMPAT, 'UTF-8') . ' - ' . $lang_name;
+        }
+
+        // Include charset if it makes sense
+        if (!defined('PMA_REMOVED_NON_UTF_8')) {
+            $lang_name .= ' (' . substr($id, strpos($id, '-') + 1) . ')';
+        }
+        
+        //Is current one active?
         if ($lang == $id) {
             $selected = ' selected="selected"';
         } else {
             $selected = '';
         }
+
         echo '                        ';
-        echo '<option value="' . $id . '"' . $selected . '>' . $lang_name . ' (' . $id . ')</option>' . "\n";
+        echo '<option value="' . $id . '"' . $selected . '>' . $lang_name . '</option>' . "\n";
     }
     ?>
                 </select>
