@@ -64,6 +64,7 @@ $Source$
       libraries/display_tbl_links.lib.php, test/theme.php: Move javascript
       stuff out of libraries folder.
     * libraries/.htaccess: Deny access to libraries folder over HTTP.
+    * Documentation.html: Recommend disabling access to libraries folder.
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes

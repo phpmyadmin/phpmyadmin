@@ -183,6 +183,12 @@
          in your browser. phpMyAdmin should now display a welcome screen
          and your databases, or a login dialog if using HTTP or cookie
          authentication mode.</li>
+    <li> You should deny access to libraries subfolder in your webserver
+         configuration. For Apache you can use supplied .htaccess file in that
+         folder, for other webservers, you should configure this yourself.
+         Such configuration prevents from possible path expossure and cross
+         side scripting vulnerabilities that might happen to be found in that
+         code.</li>
 </ol>
 <a name="linked-tables"></a>
 <h3>Linked-tables infrastructure</h3>
