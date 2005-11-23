@@ -29,6 +29,8 @@ $Source$
     * libraries/auth/cookie.auth.lib.php: Try to load mcrypt extension.
     * Documentation.html, config.default.php, libraries/common.lib.php:
       Configurable default connection collation (RFE #1025969).
+    * css/phpmyadmin.css.php, libraries/auth/cookie.auth.lib.php: Use
+      fieldsets on login form (RFE #1364546).
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes

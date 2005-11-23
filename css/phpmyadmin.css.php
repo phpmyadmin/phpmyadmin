@@ -601,6 +601,18 @@ div#serverstatus table .tblFooters a:after {
 }
 /* end serverstatus */
 
+/* body.loginform form,*/
+body.loginform h1,
+body.loginform a.logo {
+    display: block;
+    text-align: center;
+}
+
+form.login label {
+    float: left; 
+    width: 10em;
+    font-weight: bolder;
+}
 
 img.lightbulb {
     cursor: pointer;
