@@ -362,6 +362,9 @@ $cfg['PDFDefaultPageSize']  = 'A4';
 // Default language to use, if not browser-defined or user-defined
 $cfg['DefaultLang'] = 'en-iso-8859-1';
 
+// Default connection collation (used for MySQL >= 4.1)
+$cfg['DefaultConnectionCollation'] = 'utf8_unicode_ci';
+
 // Force: always use this language - must be defined in
 //        libraries/select_lang.lib.php
 // $cfg['Lang']     = 'en-iso-8859-1';

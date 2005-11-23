@@ -19,6 +19,8 @@ $Source$
     * libraries/display_select_lang.lib.php, libraries/select_lang.lib.php:
       Show native names of languages (RFE #1342726).
     * libraries/auth/cookie.auth.lib.php: Try to load mcrypt extension.
+    * Documentation.html, config.default.php, libraries/common.lib.php:
+      Configurable default connection collation (RFE #1025969).
 
 2005-11-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes

@@ -1314,6 +1314,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         this setting.
     </dd>
 
+    <dt><b>$cfg['DefaultConnectionCollation'] </b>string</dt>
+    <dd>
+        Defines the default connection collation to use, if not
+        user-defined.<br />
+        See the <a href="http://dev.mysql.com/doc/mysql/en/charset-charsets.html">MySQL
+        documentation</a> for list of possible values.    
+    </dd>
+
     <dt><b>$cfg['Lang'] </b>string</dt>
     <dd>
         Force: always use this language (must be defined in the

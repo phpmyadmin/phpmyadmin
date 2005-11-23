@@ -404,7 +404,9 @@ if (!is_dir($pmaThemeImage)) {
 if (isset($_COOKIE) && !empty($_COOKIE['pma_collation_connection']) && empty($_POST['collation_connection'])) {
     $collation_connection = $_COOKIE['pma_collation_connection'];
 }
-
+if (!isset($collation_connection)) {
+    $collation_connection = $GLOBALS['cfg']['DefaultConnectionCollation'];
+}
 
 if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     /**
