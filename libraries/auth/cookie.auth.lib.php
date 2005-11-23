@@ -172,7 +172,6 @@ echo sprintf( $GLOBALS['strWelcome'],
 <form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?> target="_top" class="login">
     <fieldset>
         <legend><?php echo $GLOBALS['strLogin']; ?></legend>
-        <p><?php echo '(' . $GLOBALS['strCookiesRequired'] . ')'; ?></p>
 
 <?php if ($GLOBALS['cfg']['AllowArbitraryServer']) { ?>
         <div class="item">
@@ -259,6 +258,8 @@ echo sprintf( $GLOBALS['strWelcome'],
     ?>
     </fieldset>
 </form>
+
+<div class="notice"><?php echo $GLOBALS['strCookiesRequired']; ?></div>
 
 <script type="text/javascript" language="javascript">
 <!--
