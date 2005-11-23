@@ -50,6 +50,7 @@ $Source$
       as we can still work in this case (bug #1364647).
     * lang/*: Added missing $strInvalidServerHostname.
     * libraries/auth/cookie.auth.lib.php: Move error message on top of page.
+    * lang/swedish: Update, thanks to Bjorn T. Hallberg - bjornth.
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes
