@@ -18,6 +18,7 @@ $Source$
       form.
     * libraries/display_select_lang.lib.php, libraries/select_lang.lib.php:
       Show native names of languages (RFE #1342726).
+    * libraries/auth/cookie.auth.lib.php: Try to load mcrypt extension.
 
 2005-11-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes
