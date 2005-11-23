@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 2005-11-23 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libraries/display_select_lang.lib.php: correct lang definition
+    * *REVERTED* libraries/display_select_lang.lib.php: correct lang definition
     * themes/original/*, libraries/auth/*.auth.lib.php, server_privilegs.php,
       db_printview.php, tbl_properties_structure.php, tbl_properties.inc.php,
       tbl_relation.php, browse_foreigners.php, css/phpmyadmin.css.php,
