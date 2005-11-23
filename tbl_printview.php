@@ -231,7 +231,7 @@ foreach ($the_tables AS $key => $table) {
         }
         echo '&nbsp;</td>' . "\n";
     }
-    if ($cfgRelation['commwork']) {
+    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
         echo '    <td class="print">';
         $comments = PMA_getComments($db, $table);
         if (isset($comments[$field_name])) {

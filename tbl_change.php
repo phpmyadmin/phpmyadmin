@@ -84,7 +84,7 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 
     $cfgRelation = PMA_getRelationsParam();
 
-    if ($cfgRelation['commwork']) {
+    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
         $comments_map = PMA_getComments($db, $table);
     }
 }

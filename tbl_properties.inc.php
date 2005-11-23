@@ -142,7 +142,7 @@ $comments_map = array();
 $mime_map = array();
 $available_mime = array();
 
-if ($cfgRelation['commwork']) {
+if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
     $comments_map = PMA_getComments($db, $table);
     $header_cells[] = $strComments;
 
@@ -502,7 +502,7 @@ for ( $i = 0 ; $i <= $num_fields; $i++ ) {
     } // end if ($action ==...)
 
     // garvin: comments
-    if ($cfgRelation['commwork']) {
+    if ($cfgRelation['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) {
         $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_comments[]" size="12" value="' . (isset($row) && isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : '') . '" class="textfield" />';
         $ci++;
     }

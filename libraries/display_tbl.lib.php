@@ -664,7 +664,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
     // 2.0.1 Prepare Display column comments if enabled ($GLOBALS['cfg']['ShowBrowseComments']).
     //       Do not show comments, if using horizontalflipped mode, because of space usage
-    if ($GLOBALS['cfg']['ShowBrowseComments'] && $GLOBALS['cfgRelation']['commwork'] && $disp_direction != 'horizontalflipped') {
+    if ($GLOBALS['cfg']['ShowBrowseComments'] && ($GLOBALS['cfgRelation']['commwork'] || PMA_MYSQL_INT_VERSION >= 40100) && $disp_direction != 'horizontalflipped') {
         $comments_map = array();
         foreach ($analyzed_sql[0]['table_ref'] as $tbl) {
 

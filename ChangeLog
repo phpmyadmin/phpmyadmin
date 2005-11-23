@@ -78,6 +78,10 @@ $Source$
       default (RFE #1228013).
     * db_details_structure.php, left.php, tbl_properties_links.php: Do not
       pass default query to sql.php as it is not needed right now.
+    * tbl_change.php, tbl_printview.php, tbl_properties.inc.php,
+      tbl_properties_structure.php, libraries/display_tbl.lib.php,
+      libraries/export/htmlword.php, libraries/export/latex.php: Use native
+      MySQL comments when applicable (RFE #1362923).
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes
