@@ -646,6 +646,9 @@ img.lightbulb {
     border: 0.1em solid red;
 }
 
+#fieldset_select_fields {
+    float: left;
+}
 <?php
 
 $_valid_css = array( 'left', 'right', 'print' );
