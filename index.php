@@ -112,6 +112,10 @@ if ( empty( $GLOBALS['db'] ) ) {
     $main_target = $GLOBALS['cfg']['DefaultTabTable'];
 }
 
+if (!empty($GLOBALS['target']) && preg_match('@[a-z_]+\.php@', $GLOBALS['target']) && $GLOBALS['target'] != 'index.php') {
+    $main_target = $GLOBALS['target'];
+}
+
 $main_target .= '?' . $url_query;
 
 $lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][2];

@@ -67,6 +67,8 @@ $Source$
     * Documentation.html: Recommend disabling access to libraries folder.
     * libraries/display_export.lib.php, lang/*: Better description for
       filename format (RFE #1362423).
+    * Documentation.html, index.php: Add target parameter to index.php to
+      allow direct jump to any script.
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes

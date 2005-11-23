@@ -2730,10 +2730,11 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     Yes. Out of the box, you can use URLs like 
-    http://server/phpMyAdmin/index.php?db=database&amp;table=table. If you
-    want http://server/phpMyAdmin/database/table URLs, you need to do some
-    configuration. Following lines apply only for <a
-    href="http://httpd.apache.org">Apache</a> web server. First make sure, 
+    http://server/phpMyAdmin/index.php?db=database&amp;table=table&amp;target=script.
+    Table and script parts are optional. If you want
+    http://server/phpMyAdmin/database[/table][/script] URLs, you need to do
+    some configuration. Following lines apply only for <a
+    href="http://httpd.apache.org">Apache</a> web server. First make sure,
     that you have enabled some features within global configuration. You need
     <code>Options FollowSymLinks</code> and <code>AllowOverride
     FileInfo</code> enabled for directory where phpMyAdmin is installed and
@@ -2745,6 +2746,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <pre>
 RewriteEngine On
 RewriteBase /path_to_phpMyAdmin
+RewriteRule ^([a-zA-Z0-9_]+)/([a-zA-Z0-9_]+)/([a-z_]+\.php)$ index.php?db=$1&amp;table=$2&amp;target=$3 [R]
+RewriteRule ^([a-zA-Z0-9_]+)/([a-z_]+\.php)$ index.php?db=$1&amp;target=$2 [R]
 RewriteRule ^([a-zA-Z0-9_]+)/([a-zA-Z0-9_]+)$ index.php?db=$1&amp;table=$2 [R]
 RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
 </pre>
