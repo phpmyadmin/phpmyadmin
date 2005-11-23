@@ -966,4 +966,5 @@ $strFileNameTemplateDescriptionTable = 'table name';  //to translate
 $strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
 $strFileNameTemplateDescriptionServer = 'server name';  //to translate
 $strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
+$strDuplicateFrameset = 'Duplicate current frameset';  //to translate
 ?>

@@ -2564,18 +2564,26 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
      * @param   boolean Stop the execution?
      *                  (Set this manually to FALSE in the calling script
      *                   until you know all needed parameters to check).
+     * @param   boolean Whether to include this list in checking for special params.
+     * @global  string  path to current script
+     * @global  boolean flag whether any special variable was required
      *
      * @access  public
      * @author  Marc Delisle (lem9@users.sourceforge.net)
      */
-    function PMA_checkParameters($params, $die = TRUE) {
-        global $PHP_SELF;
+    function PMA_checkParameters($params, $die = TRUE, $request = TRUE) {
+        global $PHP_SELF, $checked_special;
+
+        if (!isset($checked_special)) $checked_special = FALSE;
 
         $reported_script_name = basename($PHP_SELF);
         $found_error = FALSE;
         $error_message = '';
 
         foreach ($params AS $param) {
+            
+            if ($request && $param != 'db' && $param != 'table') $checked_special = TRUE;
+            
             if (!isset($GLOBALS[$param])) {
                 $error_message .= $reported_script_name . ': Missing parameter: ' . $param . ' <a href="./Documentation.html#faqmissingparameters" target="documentation"> (FAQ 2.8)</a><br />';
                 $found_error = TRUE;

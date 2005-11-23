@@ -71,6 +71,9 @@ $Source$
       allow direct jump to any script.
     * libraries/auth/cookie.auth.lib.php: Remember selected page when login
       time outs.
+    * footer.inc.php, server_links.inc.php, css/phpmyadmin.css.php, lang/*,
+      libraries/common.lib.php: Add link for duplicating current frameset (RFE
+      #1165206).
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes

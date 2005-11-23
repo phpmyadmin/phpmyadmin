@@ -648,6 +648,12 @@ form.login label {
 #fieldset_select_fields {
     float: left;
 }
+
+#selflink {
+    float: right;
+    clear: both;
+}
+
 <?php
 
 $_valid_css = array( 'left', 'right', 'print' );
