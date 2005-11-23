@@ -44,7 +44,7 @@
     } else {
         return FALSE;
     }
- } // end of the "PMA_query_as_cu()" function 
+ } // end of the "PMA_query_as_cu()" function
 
 
 /**
@@ -324,7 +324,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
                 // The parser looks for a CONSTRAINT clause just before
                 // the FOREIGN KEY clause. It finds it (as output from
                 // SHOW CREATE TABLE) in MySQL 4.0.13, but not in older
-                // versions like 3.23.58. 
+                // versions like 3.23.58.
                 // In those cases, the FOREIGN KEY parsing will put numbers
                 // like -1, 0, 1... instead of the constraint number.
 
@@ -496,7 +496,7 @@ function PMA_getComments($db, $table = '') {
             if (strlen($row['comment']) > 0) {
                 $comment[$col] = $row['comment'];
                 // if this version supports native comments and this function
-                // was called with a table parameter 
+                // was called with a table parameter
                 if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($table)) {
                     // if native comment found, use it instead of pmadb
                     if (!empty($native_comment[$col])) {
@@ -570,8 +570,8 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
         return TRUE;
     }
 
-    // $mode == 'pmadb' section: 
-    
+    // $mode == 'pmadb' section:
+
     $cols = array(
         'db_name'     => 'db_name    ',
         'table_name'  => 'table_name ',
@@ -734,11 +734,11 @@ function PMA_purgeHistory($username) {
 
 
 /**
- * Prepares the dropdown for one mode 
+ * Prepares the dropdown for one mode
  *
  * @param   array    the keys and values for foreigns
  * @param   string   the current data of the dropdown
- * @param   string   the needed mode 
+ * @param   string   the needed mode
  *
  * @global  array    global phpMyAdmin configuration
  *
@@ -750,7 +750,7 @@ function PMA_foreignDropdownBuild($foreign, $data, $mode) {
     global $cfg;
 
     $reloptions = array();
-    
+
     foreach ($foreign as $key => $value) {
 
         if (PMA_strlen($value) <= $cfg['LimitChars']) {
@@ -797,6 +797,8 @@ function PMA_foreignDropdownBuild($foreign, $data, $mode) {
 function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $max) {
     global $cfg;
 
+    $foreign = array();
+
     // collect the data
     foreach ($disp as $relrow) {
         $key   = $relrow[$foreign_field];
@@ -817,7 +819,7 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
     // master array for dropdowns
     $reloptions = array('content-id' => array(), 'id-content' => array());
 
-    // sort for id-content 
+    // sort for id-content
     if ($cfg['NaturalOrder']) {
         uksort($foreign, 'strnatcasecmp');
     } else {
@@ -838,7 +840,7 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
     $reloptions['content-id'] = PMA_foreignDropdownBuild($foreign, $data, 'content-id');
 
 
-    // put the dropdown sections in correct order 
+    // put the dropdown sections in correct order
 
     $c = count($cfg['ForeignKeyDropdownOrder']);
     if($c == 2) {

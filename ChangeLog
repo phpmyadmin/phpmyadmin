@@ -19,6 +19,7 @@ $Source$
     * themes.php, css/phpmyadmin.css.php:
       - moved styles into css
       - no need for javascript
+    * relation.lib.php: uninitialized variable
 
 2005-11-23 Michal Čihař  <michal@cihar.com>
     * config.default.php, libraries/import/csv.php, libraries/import/ldi.php:
