@@ -55,6 +55,9 @@ $Source$
     * libraries/auth/cookie.auth.lib.php: Move error message on top of page.
     * lang/swedish: Update, thanks to Bjorn T. Hallberg - bjornth.
     * header.inc.php: Remove unused code.
+    * Documentation.html, tbl_properties.inc.php,
+      transformation_overview.php, libraries/transformations/overview.php
+      (deleted): Move transformation overview out of libraries folder.
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes

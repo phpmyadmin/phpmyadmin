@@ -3,12 +3,6 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 /**
- * Change to basedir for including/requiring other fields
- */
-chdir('../../');
-define('PMA_PATH_TO_BASEDIR', '../../'); // rabus: required for the CSS link tag.
-
-/**
  * Don't display the page heading
  */
 define('PMA_DISPLAY_HEADING', 0);

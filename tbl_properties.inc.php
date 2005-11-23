@@ -692,7 +692,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) 
     echo '<p> <a name="footnoote_mime"><sup>3</sup></a> ' . $strMIME_transformation_options_note . '</p>';
     echo '<p> ';
     printf( $strMIME_transformation_note,
-            '<a href="libraries/transformations/overview.php?'
+            '<a href="transformation_overview.php?'
             . PMA_generate_common_url($db, $table) . '" target="_blank">',
             '</a>' );
     echo '</p>';
