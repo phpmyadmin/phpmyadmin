@@ -146,49 +146,11 @@ if (top != self) {
     // Displays the languages form
     if (empty($cfg['Lang'])) {
         echo "\n";
-        ?>
-<!-- Language selection -->
-<form method="post" action="index.php" target="_top">
-    <?php
-    if (isset($GLOBALS['db'])) {
-        echo '            <input type="hidden" name="db" value="' . htmlspecialchars($GLOBALS['db']) . '" />' . "\n";
-    }
-    if (isset($GLOBALS['table'])) {
-        echo '            <input type="hidden" name="table" value="' . htmlspecialchars($GLOBALS['table']) . '" />' . "\n";
-    }
-    ?>
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <table border="0" cellpadding="3" cellspacing="0">
-        <tr>
-            <td><b>Language:&nbsp;</b></td>
-            <td>
-    <select name="lang" dir="ltr" onchange="this.form.submit();">
-        <?php
-        echo "\n";
-
-        uasort($available_languages, 'PMA_cookie_cmp');
-        foreach ($available_languages AS $id => $tmplang) {
-            $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
-            if ($lang == $id) {
-                $selected = ' selected="selected"';
-            } else {
-                $selected = '';
-            }
-            echo '        ';
-            echo '<option value="' . $id . '"' . $selected . '>' . $lang_name . ' (' . $id . ')</option>' . "\n";
-        } // end while
-        ?>
-    </select>
-    <input type="submit" value="<?php echo $GLOBALS['strGo']; ?>" />
-            </td>
-        </tr>
-        <?php
+        require_once('./libraries/display_select_lang.lib.php');
+        PMA_select_language();
     }
     echo "\n\n";
 
-    echo '        </table>' . "\n"
-       . '    </form>' . "\n";
-       
     // Displays the warning message and the login form
 
     if (empty($GLOBALS['cfg']['blowfish_secret'])) {
@@ -202,10 +164,7 @@ if (top != self) {
            . '</html>';
         exit();
     }
-?>
-    </table>
-</form>
-<?php
+
     if ( !empty($conn_error)) {
         echo '<div class="error"><h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
         echo $conn_error . '</div>' . "\n";

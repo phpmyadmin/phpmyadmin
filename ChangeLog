@@ -13,6 +13,9 @@ $Source$
     * libraries/import/csv.php: Make enclosing behaviour same as in MySQL LOAD
       DATA (bug #1363532).
     * lang/*: Remove unused messages.
+    * main.php, libraries/display_select_lang.lib.php,
+      libraries/auth/cookie.auth.lib.php: Common code for language selection
+      form.
 
 2005-11-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes

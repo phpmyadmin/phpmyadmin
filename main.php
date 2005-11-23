@@ -321,49 +321,12 @@ if ( $server > 0 ) {
 <?php
 // Displays language selection combo
 if (empty($cfg['Lang'])) {
+    require_once('./libraries/display_select_lang.lib.php');
     ?>
 <tr><?php
     echo ($str_iconic_list !='' ? sprintf($str_iconic_list,'<a href="./translators.html" target="documentation">','s_lang.png','Language','</a>') : $str_normal_list);
     ?>
-    <td><form method="post" action="index.php" target="_parent">
-        <bdo xml:lang="en" dir="ltr">
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            Language <a href="./translators.html" target="documentation"><?php
-            if ( $cfg['ReplaceHelpImg'] ) {
-                echo '<img class="icon" src="' . $pmaThemeImage . 'b_info.png" width="11" height="11" alt="Info" />';
-            } else { echo '(*)'; }
-?></a>: <select name="lang" onchange="this.form.submit();">
-    <?php
-    /**
-     * Sorts available languages by their true names
-     *
-     * @param   array   the array to be sorted
-     * @param   mixed   a required parameter
-     * @return  the sorted array
-     * @access  private
-     */
-    function PMA_cmp( &$a, $b ) {
-        return (strcmp($a[1], $b[1]));
-    } // end of the 'PMA_cmp()' function
-
-    uasort($available_languages, 'PMA_cmp');
-    foreach ($available_languages AS $id => $tmplang) {
-        $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
-        if ($lang == $id) {
-            $selected = ' selected="selected"';
-        } else {
-            $selected = '';
-        }
-        echo '                        ';
-        echo '<option value="' . $id . '"' . $selected . '>' . $lang_name . ' (' . $id . ')</option>' . "\n";
-    }
-    ?>
-                </select>
-            </bdo>
-                <noscript><input type="submit" value="<?php echo $strGo;?>" /></noscript>
-            </form>
-        </td>
+    <td><?php PMA_select_language(); ?></td>
     </tr>
     <?php
 }
