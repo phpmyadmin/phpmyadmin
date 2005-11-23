@@ -219,6 +219,9 @@ echo sprintf( $GLOBALS['strWelcome'],
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
         <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <?php
+    if (isset($GLOBALS['target'])) {
+        echo '            <input type="hidden" name="target" value="' . htmlspecialchars($GLOBALS['target']) . '" />' . "\n";
+    }
     if (isset($GLOBALS['db'])) {
         echo '            <input type="hidden" name="db" value="' . htmlspecialchars($GLOBALS['db']) . '" />' . "\n";
     }
@@ -464,16 +467,16 @@ function PMA_auth_set_user()
                 $GLOBALS['SERVER_SOFTWARE'] = $_SERVER['SERVER_SOFTWARE'];
             }
         } // end if
+        $redirect_url = $cfg['PmaAbsoluteUri'] . 'index.php?'
+                . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '',
+                       isset($GLOBALS['table']) ? $GLOBALS['table'] : '', '&') 
+                . (!empty($GLOBALS['target']) ? '&target=' . urlencode($GLOBALS['target']) : '')
+                . '&' . SID;
         if (!empty($GLOBALS['SERVER_SOFTWARE']) && $GLOBALS['SERVER_SOFTWARE'] == 'Microsoft-IIS/5.0') {
-            header('Refresh: 0; url=' . $cfg['PmaAbsoluteUri'] . 'index.php?' .
-                PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '',
-                   isset($GLOBALS['table']) ? $GLOBALS['table'] : '',
-                   '&'));
+            header('Refresh: 0; url=' . $redirect_url);
         }
         else {
-            header( 'Location: ' . $cfg['PmaAbsoluteUri'] . 'index.php?'
-                . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '',
-                       isset($GLOBALS['table']) ? $GLOBALS['table'] : '', '&') . '&' . SID );
+            header('Location: ' . $redirect_url);
         }
         exit();
     } // end if
@@ -500,6 +503,10 @@ global $conn_error, $server;
         $conn_error = $GLOBALS['strAccessDenied'];
     } else if (isset($GLOBALS['no_activity']) && $GLOBALS['no_activity']) {
         $conn_error = sprintf($GLOBALS['strNoActivity'],$GLOBALS['cfg']['LoginCookieValidity']);
+        // Remember where we got timeout to return on same place
+        if (isset($_SERVER['SCRIPT_NAME'])) {
+            $GLOBALS['target'] = basename($_SERVER['SCRIPT_NAME']);
+        }
     } else if (PMA_DBI_getError()) {
         $conn_error = PMA_sanitize(PMA_DBI_getError());
     } else if (isset($php_errormsg)) {

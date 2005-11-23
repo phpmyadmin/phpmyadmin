@@ -69,6 +69,8 @@ $Source$
       filename format (RFE #1362423).
     * Documentation.html, index.php: Add target parameter to index.php to
       allow direct jump to any script.
+    * libraries/auth/cookie.auth.lib.php: Remember selected page when login
+      time outs.
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes
