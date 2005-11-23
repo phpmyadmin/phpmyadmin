@@ -51,6 +51,7 @@ $Source$
     * lang/*: Added missing $strInvalidServerHostname.
     * libraries/auth/cookie.auth.lib.php: Move error message on top of page.
     * lang/swedish: Update, thanks to Bjorn T. Hallberg - bjornth.
+    * header.inc.php: Remove unused code.
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes
