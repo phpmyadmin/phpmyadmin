@@ -87,7 +87,7 @@ function PMA_auth_fails()
     ?>
 </head>
 
-<body bgcolor="<?php echo $cfg['RightBgColor']; ?>">
+<body>
 <br /><br />
 <center>
     <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION); ?></h1>

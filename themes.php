@@ -29,7 +29,7 @@ require('./libraries/header_meta_style.inc.php');
 </script>
 </head>
 
-<body bgcolor="<?php echo $cfg['RightBgColor']; ?>">
+<body>
     <table border="0" align="center" cellpadding="3" cellspacing="1">
         <tr>
             <th class="tblHeaders"><b>phpMyAdmin - <?php echo $strTheme; ?></b></th>

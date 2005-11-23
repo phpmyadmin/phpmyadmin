@@ -80,7 +80,7 @@ if ( empty( $querydisplay_tab ) ) {
     $onload = 'onload="resize();"';
 ?>
 function resize() {
-    
+
     // for Gecko
     if ( typeof( self.sizeToContent ) == 'function' ) {
         self.sizeToContent();
@@ -89,14 +89,14 @@ function resize() {
         self.resizeBy( 10, 50 );
         return;
     }
-    
+
     // for IE, Opera
     if (document.getElementById && typeof(document.getElementById('querywindowcontainer')) != 'undefined' ) {
-    
+
         // get content size
         var newWidth  = document.getElementById('querywindowcontainer').offsetWidth;
         var newHeight = document.getElementById('querywindowcontainer').offsetHeight;
-        
+
         // set size to contentsize
         // plus some offset for scrollbars, borders, statusbar, menus ...
         self.resizeTo( newWidth + 45, newHeight + 75 );
@@ -112,8 +112,7 @@ function resize() {
 <script src="libraries/functions.js" type="text/javascript" language="javascript"></script>
 </head>
 
-<body id="bodyquerywindow" <?php echo $onload; ?>
-    bgcolor="<?php echo $GLOBALS['cfg']['LeftBgColor']; ?>">
+<body id="bodyquerywindow" <?php echo $onload; ?> >
 <div id="querywindowcontainer">
 <?php
 if ( !isset($no_js) ) {
@@ -150,7 +149,7 @@ if ( !isset($no_js) ) {
 }
 
 if ( true == $GLOBALS['cfg']['PropertiesIconic'] ) {
-    $titles['Change'] = 
+    $titles['Change'] =
          '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
         . 'b_edit.png" alt="' . $strChange . '" title="' . $strChange
         . '" />';
@@ -176,12 +175,12 @@ if ( ! empty( $query_history_latest ) && ! empty( $query_history_latest_db ) ) {
         'db'    => $query_history_latest_db,
         'table' => isset($query_history_latest_table) ? $query_history_latest_table : '',
     );
-        
+
     $_sql_history[$query_history_latest] = array(
         'db'    =>  $query_history_latest_db,
         'table' => isset( $query_history_latest_table ) ? $query_history_latest_table : '',
     );
-        
+
     $sql_query = urldecode($query_history_latest);
     $db = $query_history_latest_db;
     $table = $query_history_latest_table;
@@ -284,19 +283,19 @@ if ( count( $_sql_history ) > 0
                .'querydisplay_tab.value = \'' . $tab . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
                .'query_history_latest.value = \''
-                . preg_replace('/(\r|\n)+/i', '\\n', 
+                . preg_replace('/(\r|\n)+/i', '\\n',
                     htmlentities( $sql, ENT_QUOTES ) ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
                .'auto_commit.value = \'false\';'
                .' document.getElementById(\'hiddenqueryform\').'
                .'db.value = \'' . htmlspecialchars( $query['db'] ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
-               .'query_history_latest_db.value = \'' 
+               .'query_history_latest_db.value = \''
                . htmlspecialchars( $query['db'] ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
                .'table.value = \'' . htmlspecialchars( $query['table'] ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
-               .'query_history_latest_table.value = \'' 
+               .'query_history_latest_table.value = \''
                . htmlspecialchars( $query['table'] ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').submit();'
                .' return false;">' . $titles['Change'] . '</a>';
@@ -306,24 +305,24 @@ if ( count( $_sql_history ) > 0
                .'querydisplay_tab.value = \'' . $tab . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
                .'query_history_latest.value = \''
-                . preg_replace('/(\r|\n)+/i', '\\r\\n', 
+                . preg_replace('/(\r|\n)+/i', '\\r\\n',
                     htmlentities( $sql, ENT_QUOTES ) ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
                .'auto_commit.value = \'true\';'
                .' document.getElementById(\'hiddenqueryform\').'
                .'db.value = \'' . htmlspecialchars( $query['db'] ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
-               .'query_history_latest_db.value = \'' 
+               .'query_history_latest_db.value = \''
                . htmlspecialchars( $query['db'] ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
                .'table.value = \'' . htmlspecialchars( $query['table'] ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').'
-               .'query_history_latest_table.value = \'' 
+               .'query_history_latest_table.value = \''
                . htmlspecialchars( $query['table'] ) . '\';'
                .' document.getElementById(\'hiddenqueryform\').submit();'
-               .' return false;">[' . htmlspecialchars( $query['db'] ) . '] ' 
+               .' return false;">[' . htmlspecialchars( $query['db'] ) . '] '
                . urldecode( $sql ) . '</a>' . "\n";
-            
+
         echo '</li>' . "\n";
     }
     unset( $tab, $_sql_history, $sql, $query );

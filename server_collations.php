@@ -20,7 +20,7 @@ require('./server_links.inc.php');
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 's_asci.png" alt="" />' : '') 
+   . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 's_asci.png" alt="" />' : '')
    . '' . $strCharsetsAndCollations . "\n"
    . '</h2>' . "\n";
 
@@ -77,10 +77,10 @@ foreach ($mysql_charsets as $current_charset) {
     }
     $i++;
     echo '            <tr>' . "\n"
-       . '                <td colspan="2" bgcolor="' . $cfg['ThBgcolor'] . '" align="right">' . "\n"
+       . '                <th colspan="2" align="right">' . "\n"
        . '                    &nbsp;<b>' . htmlspecialchars($current_charset) . '</b>' . "\n"
        . (empty($mysql_charsets_descriptions[$current_charset]) ? '' : '                    (<i>' . htmlspecialchars($mysql_charsets_descriptions[$current_charset]) . '</i>)&nbsp;' . "\n")
-       . '                </td>' . "\n"
+       . '                </th>' . "\n"
        . '            </tr>' . "\n";
     $useBgcolorOne = TRUE;
     foreach ($mysql_collations[$current_charset] as $current_collation) {

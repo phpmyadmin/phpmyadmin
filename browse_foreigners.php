@@ -134,19 +134,21 @@ if (isset($disp_row) && is_array($disp_row)) {
     </script>
 </head>
 
-<body bgcolor="<?php echo $cfg['LeftBgColor']; ?>" style="margin-left: 5px; margin-top: 5px; margin-right: 5px; margin-bottom: 0px">
+<body id="body_browse_foreigners">
 
 <form action="browse_foreigners.php" method="post">
 <fieldset>
 <?php echo PMA_generate_common_hidden_inputs( $db, $table ); ?>
 <input type="hidden" name="field" value="<?php echo urlencode($field); ?>" />
-<input type="hidden" name="fieldkey" value="<?php echo isset($fieldkey) ? $fieldkey : ''; ?>" />
+<input type="hidden" name="fieldkey"
+    value="<?php echo isset($fieldkey) ? $fieldkey : ''; ?>" />
 <?php if ( isset( $pk ) ) { ?>
 <input type="hidden" name="pk" value="<?php echo urlencode($pk); ?>" />
 <?php } ?>
 <span class="formelement">
     <label for="input_foreign_filter"><?php echo $strSearch . ':'; ?></label>
-    <input type="text" name="foreign_filter" id="input_foreign_filter" value="<?php echo isset($foreign_filter) ? htmlspecialchars($foreign_filter) : ''; ?>" />
+    <input type="text" name="foreign_filter" id="input_foreign_filter"
+        value="<?php echo isset($foreign_filter) ? htmlspecialchars($foreign_filter) : ''; ?>" />
     <input type="submit" name="submit_foreign_filter" value="<?php echo $strGo;?>" />
 </span>
 <span class="formelement">

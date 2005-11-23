@@ -120,7 +120,7 @@ if (top != self) {
 </script>
 </head>
 
-<body class="loginform" bgcolor="<?php echo $cfg['RightBgColor']; ?>">
+<body class="loginform">
 
 <?php include('./config.header.inc.php'); ?>
 

@@ -617,6 +617,20 @@ form.login label {
 img.lightbulb {
     cursor: pointer;
 }
+
+
+/********************/
+/* NEW in PMA 2.7.1 */
+/********************/
+
+#body_browse_foreigners {
+    background-color:   <?php echo $cfg['LeftBgColor']; ?>;
+    margin:             5px 5px 0 5px;
+}
+
+#bodyquerywindow {
+    background-color:   <?php echo $cfg['LeftBgColor']; ?>;
+}
 <?php
 
 $_valid_css = array( 'left', 'right', 'print' );

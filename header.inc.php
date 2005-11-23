@@ -137,15 +137,7 @@ if (empty($GLOBALS['is_header_sent'])) {
         <meta name="OBGZip" content="<?php echo ($cfg['OBGzip'] ? 'true' : 'false'); ?>" />
     </head>
 
-
-    <?php
-    if ($GLOBALS['cfg']['RightBgImage'] != '') {
-        $bkg_img = ' background="' . $GLOBALS['cfg']['RightBgImage'] . '"';
-    } else {
-        $bkg_img = '';
-    }
-    ?>
-    <body bgcolor="<?php echo $GLOBALS['cfg']['RightBgColor'] . '"' . $bkg_img; ?>>
+    <body>
     <div id="TooltipContainer" onmouseover="holdTooltip();" onmouseout="swapTooltip('default');"></div>
     <?php
     include('./config.header.inc.php');

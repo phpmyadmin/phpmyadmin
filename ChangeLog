@@ -12,6 +12,10 @@ $Source$
       tbl_relation.php, browse_foreigners.php, css/phpmyadmin.css.php,
       header_printview.inc.php, header_meta_style.inc.php, themes.php:
       - drop PMA_setFontSizes()
+    * browse_foreigners.php, css/phpmyadmin.css.php, querywindow.php, themes.php
+      header.inc.php, libraries/auth/config.auth.lib.php, db_details_qbe.php
+      libraries/auth/cookie.auth.lib.php, server_collations.php
+      - moved styles into css
 
 2005-11-23 Michal Čihař  <michal@cihar.com>
     * config.default.php, libraries/import/csv.php, libraries/import/ldi.php:

@@ -168,7 +168,7 @@ $realwidth = $wid . 'ex';
 
     <!-- Fields row -->
     <tr>
-        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
+        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>">
             <b><?php echo $strField; ?>:&nbsp;</b>
         </td>
 <?php
@@ -229,7 +229,7 @@ for ($x = 0; $x < $col; $x++) {
 
     <!-- Sort row -->
     <tr>
-        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
+        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>">
             <b><?php echo $strSort; ?>:&nbsp;</b>
         </td>
 <?php
@@ -294,7 +294,7 @@ for ($x = 0; $x < $col; $x++) {
 
     <!-- Show row -->
     <tr>
-        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
+        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>">
             <b><?php echo $strShow; ?>:&nbsp;</b>
         </td>
 <?php
@@ -332,7 +332,7 @@ for ($x = 0; $x < $col; $x++) {
 
     <!-- Criteria row -->
     <tr>
-        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
+        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>">
             <b><?php echo $strCriteria; ?>:&nbsp;</b>
         </td>
 <?php
@@ -542,7 +542,7 @@ for ($y = 0; $y <= $row; $y++) {
 
     <!-- Modify columns -->
     <tr>
-        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
+        <td class="tblHeaders" align="<?php echo $cell_align_right; ?>">
             <b><?php echo $strModify; ?>:&nbsp;</b>
         </td>
 <?php
