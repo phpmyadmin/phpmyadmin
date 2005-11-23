@@ -12,7 +12,6 @@ PMA_checkParameters(array('db', 'table'));
  * Prepares links
  */
 require_once('./libraries/bookmark.lib.php');
-$book_sql_query = PMA_queryBookmarks($db, $GLOBALS['cfg']['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
 /**
  * Displays links
@@ -92,7 +91,6 @@ if ( ! (isset($db_is_information_schema) && $db_is_information_schema) ) {
 
 if ($table_info_num_rows > 0 || $tbl_is_view) {
     $tabs['browse']['link'] = 'sql.php';
-    $tabs['browse']['args']['sql_query'] = isset($book_sql_query) && $book_sql_query != FALSE ? $book_sql_query : 'SELECT * FROM ' . PMA_backquote($table);
     $tabs['browse']['args']['pos'] = 0;
     $tabs['search']['link'] = 'tbl_select.php';
 }

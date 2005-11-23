@@ -76,6 +76,8 @@ $Source$
       #1165206).
     * config.default.php, sql.php, Documentation.html: Allow browse page to be
       default (RFE #1228013).
+    * db_details_structure.php, left.php, tbl_properties_links.php: Do not
+      pass default query to sql.php as it is not needed right now.
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes

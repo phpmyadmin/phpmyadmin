@@ -179,12 +179,8 @@ foreach ( $tables as $keyname => $each_table ) {
     }
 
     if ( $each_table['TABLE_ROWS'] > 0 ) {
-        $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($each_table['TABLE_NAME']) . '\'', 'label');
-        $browse_table = '<a href="sql.php?' . $tbl_url_query . '&amp;sql_query='
-             . ( $book_sql_query ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($each_table['TABLE_NAME'])))
-             . '&amp;pos=0">' . $titles['Browse'] . '</a>';
-        $search_table = '<a href="tbl_select.php?' . $tbl_url_query . '">'
-             . $titles['Search'] . '</a>';
+        $browse_table = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">' . $titles['Browse'] . '</a>';
+        $search_table = '<a href="tbl_select.php?' . $tbl_url_query . '">' . $titles['Search'] . '</a>';
     } else {
         $browse_table = $titles['NoBrowse'];
         $search_table = $titles['NoSearch'];

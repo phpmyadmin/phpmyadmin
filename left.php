@@ -470,9 +470,7 @@ function PMA_displayTableList( $tables, $visible = false,
                 .' href="sql.php?' . $GLOBALS['common_url_query'] 
                 .'&amp;table=' . urlencode( $table['Name'] )
                 .'&amp;goto=' . $GLOBALS['cfg']['DefaultTabTable']
-                .'&amp;sql_query=' . urlencode('SELECT * FROM `' 
-                . $table['Name'] . '`') . '" '
-                .' >'
+                . '" >'
                 .'<img class="icon"';
             if ( 'VIEW' === strtoupper( $table['Comment'] ) ) {
                 echo ' src="' . $GLOBALS['pmaThemeImage'] . 's_views.png"';
