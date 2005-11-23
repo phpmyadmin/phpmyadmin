@@ -12,6 +12,7 @@ $Source$
       case of single SQL query is being executed.
     * libraries/import/csv.php: Make enclosing behaviour same as in MySQL LOAD
       DATA (bug #1363532).
+    * lang/*: Remove unused messages.
 
 2005-11-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes

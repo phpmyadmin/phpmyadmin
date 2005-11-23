@@ -217,7 +217,6 @@ $strDocu = 'Документация';
 $strDoYouReally = 'Действително ли желаете да изпълните заявката';
 $strDropDatabaseStrongWarning = 'Вие ще УНИЩОЖИТЕ цялата база от данни!';
 $strDrop = 'Унищожаване';
-$strDropSelectedDatabases = 'Изтриване на избраните бази от данни';
 $strDropUsersDb = 'Изтриване на базите от данни които имат имена като тези на потребителите.';
 $strDumpingData = 'Дъмп (схема) на данните в таблицата';
 $strDumpSaved = 'Схемата(дъмп) беше записана във файл %s.';
@@ -796,7 +795,6 @@ $strDataPages = 'Pages containing data';  //to translate
 $strDeleteNoUsersSelected = 'No users selected for deleting!';  //to translate
 $strDirtyPages = 'Dirty pages';  //to translate
 
-$strEnclosingOptional = 'Enclosing of fields is optional';  //to translate
 $strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
 
 $strFlushQueryCache = 'Flush query cache';  //to translate

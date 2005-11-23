@@ -234,7 +234,6 @@ $strDocu = 'Dokumentation';
 $strDoYouReally = 'Möchten Sie wirklich diese Abfrage ausführen ';
 $strDropDatabaseStrongWarning = 'Sie sind dabei eine komplette Datenbank zu ZERSTÖREN!';
 $strDrop = 'Löschen';
-$strDropSelectedDatabases = 'Ausgewählte Datenbanken löschen';
 $strDropUsersDb = 'Die gleichnamigen Datenbanken löschen.';
 $strDumpingData = 'Daten für Tabelle';
 $strDumpSaved = 'Dump (Schema) wurde in Datei %s gespeichert.';
@@ -803,7 +802,6 @@ $strCSVImportOptions = 'CSV Optionen';  //recently translated
 
 $strDeleteNoUsersSelected = 'Keine Benutzer zum Löschen ausgewählt!';  //recently translated
 
-$strEnclosingOptional = 'Enclosing of fields is optional';  //to translate
 $strErrorInZipFile = 'Fehler im ZIP-Archive:';  //recently translated
 
 $strFileToImport = 'Datei zum Importieren';  //recently translated

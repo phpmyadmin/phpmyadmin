@@ -107,7 +107,6 @@ $strDisplayPDF = 'PDF schema दिखाओ';
 $strDoYouReally = 'क्या आप सचमुच चाहते है की';
 $strDocu = 'डोक्युमेंटेशन';
 $strDrop = ' ड्रोप';
-$strDropSelectedDatabases = 'चुने हुऎ डाटाबेसों को ड्रोप करें';  
 $strDropUsersDb = 'Drop the databases that have the same names as the users.'; 
 
 $strEdit = 'एडिट';
@@ -831,7 +830,6 @@ $strImportFormat = 'Format of imported file';  //to translate
 $strFileToImport = 'File to import';  //to translate
 $strCompressionWillBeDetected = 'Imported file compression will be automatically detected from: %s';  //to translate
 $strCanNotLoadImportPlugins = 'Could not load import plugins, please check your installation!';  //to translate
-$strEnclosingOptional = 'Enclosing of fields is optional';  //to translate
 $strCSVImportOptions = 'CSV options';  //to translate
 $strPartialImport = 'Partial import';  //to translate
 $strAllowInterrupt = 'Allow interrupt of import in case script detects it is close to time limit. This might be good way to import large files, however it can break transactions.';  //to translate

@@ -458,7 +458,6 @@ $strDescription = 'Description'; //to translate
 $strDictionary = 'dictionary'; //to translate
 $strDisableForeignChecks = 'Disable foreign key checks';  //to translate
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
-$strDropSelectedDatabases = 'Drop Selected Databases'; //to translate
 $strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 $strDumpSaved = 'Dump has been saved to file %s.'; //to translate
 
@@ -828,7 +827,6 @@ $strImportFormat = 'Format of imported file';  //to translate
 $strFileToImport = 'File to import';  //to translate
 $strCompressionWillBeDetected = 'Imported file compression will be automatically detected from: %s';  //to translate
 $strCanNotLoadImportPlugins = 'Could not load import plugins, please check your installation!';  //to translate
-$strEnclosingOptional = 'Enclosing of fields is optional';  //to translate
 $strCSVImportOptions = 'CSV options';  //to translate
 $strPartialImport = 'Partial import';  //to translate
 $strAllowInterrupt = 'Allow interrupt of import in case script detects it is close to time limit. This might be good way to import large files, however it can break transactions.';  //to translate

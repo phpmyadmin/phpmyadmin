@@ -236,7 +236,6 @@ $strDocu = 'ヘルプ';
 $strDoYouReally = '本当に実行しても良いですか？ --> ';
 $strDropDatabaseStrongWarning = '完全にデータベースを破壊するでしょう!';
 $strDrop = '削除';
-$strDropSelectedDatabases = '選択されたデータベースの削除する';
 $strDropUsersDb = 'ユーザーと同じ名前を持つデータベースを削除する';
 $strDumpingData = 'テーブルのダンプデータ';
 $strDumpSaved = 'ダンプをファイル %s に保存しました。';
@@ -907,7 +906,6 @@ $strZip = '"zip 方式"';
 $strAllowInterrupt = 'Allow interrupt of import in case script detects it is close to time limit. This might be good way to import large files, however it can break transactions.';  //to translate
 $strAndThen = 'and then';  //to translate
 
-$strEnclosingOptional = 'Enclosing of fields is optional';  //to translate
 
 $strLatchedPages = 'Latched pages';  //to translate
 
