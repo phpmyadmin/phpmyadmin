@@ -80,8 +80,11 @@ if ($GLOBALS['cfg']['MainPageIconic']) {
 }
 echo '</div>' . "\n";
 
-if ( $GLOBALS['cfg']['LeftDisplayServers'] ) {
-    $show_server_left = TRUE;
+/**
+ * Displays the MySQL servers choice form
+ */
+if ( $GLOBALS['cfg']['LeftDisplayServers'] && count($cfg['Servers']) > 1 ) {
     include('./libraries/select_server.lib.php');
+    PMA_select_server(TRUE, TRUE);
 } // end if LeftDisplayServers
 ?>

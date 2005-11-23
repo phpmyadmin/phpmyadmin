@@ -126,9 +126,9 @@ if (($server > 0) && isset($mode) && ($mode == 'reload')) {
 /**
  * Displays the MySQL servers choice form
  */
-if (!$cfg['LeftDisplayServers']) {
-    $show_server_left = FALSE;
+if (!$cfg['LeftDisplayServers'] && count($cfg['Servers']) > 1) {
     include('./libraries/select_server.lib.php');
+    PMA_select_server(TRUE, FALSE);
 }
 
 // nested table needed

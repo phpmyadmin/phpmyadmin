@@ -201,40 +201,8 @@ echo sprintf( $GLOBALS['strWelcome'],
             ?>
             >
         <?php
-        echo "\n";
-        // Displays the MySQL servers choice
-        foreach ($cfg['Servers'] AS $key => $val) {
-            if (!empty($val['host'])) {
-                echo '                <option value="' . $key . '"';
-                if (!empty($server) && ($server == $key)) {
-                    echo ' selected="selected"';
-                }
-                echo '>';
-                if ($val['verbose'] != '') {
-                    echo htmlspecialchars($val['verbose']);
-                } else {
-                    echo htmlspecialchars($val['host']);
-                    if (!empty($val['port'])) {
-                        echo ':' . $val['port'];
-                    }
-                    // loic1: skip this because it's not a so good idea to
-                    //        display sockets used to everybody
-                    // if (!empty($val['socket']) && PMA_PHP_INT_VERSION >= 30010) {
-                    //     echo ':' . $val['socket'];
-                    // }
-                }
-                // loic1: if 'only_db' is an array and there is more than one
-                //        value, displaying such informations may not be a so
-                //        good idea
-                if (!empty($val['only_db'])) {
-                    echo ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
-                }
-                if (!empty($val['user']) && ($val['auth_type'] == 'basic')) {
-                    echo '  (' . $val['user'] . ')';
-                }
-                echo '&nbsp;</option>' . "\n";
-            } // end if (!empty($val['host']))
-        } // end while
+        require_once('./libraries/select_server.lib.php');
+        PMA_select_server(FALSE, FALSE);
         ?>
             </select>
         </div>

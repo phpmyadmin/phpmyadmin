@@ -4,20 +4,30 @@
  * $Id$
  */
 
-if (count($cfg['Servers']) > 1) {
-    if ($show_server_left) {
-        echo '<div class="heada">' . $strServer . ':</div>';
-    } else {
-        ?> 
-<fieldset>
-<legend><?php echo $strServerChoice; ?></legend>
-        <?php
+function PMA_select_server($form, $left) {
+    global $cfg, $lang, $convcharset;
+   
+    // Show as list?
+    $list = $cfg['DisplayServersList'];
+    if (!$form) {
+        $list = FALSE;
     }
-    if (!$cfg['DisplayServersList']) {
-        ?> 
-    <form method="post" action="index.php" target="_parent">
-        <select name="server" onchange="this.form.submit();">
-        <?php
+   
+    if ($form) {
+        if ($left) {
+            echo '<div class="heada">' . $GLOBALS['strServer']. ':</div>';
+        } else {
+            ?> 
+    <fieldset>
+    <legend><?php echo $GLOBALS['strServerChoice']; ?></legend>
+            <?php
+        }
+        if (!$list) {
+            ?> 
+        <form method="post" action="index.php" target="_parent">
+            <select name="server" onchange="this.form.submit();">
+            <?php
+        }
     }
     foreach ($cfg['Servers'] AS $key => $val) {
         if (!empty($val['host'])) {
@@ -43,8 +53,8 @@ if (count($cfg['Servers']) > 1) {
                 $label .= '  (' . $val['user'] . ')';
             }
 
-            if ($cfg['DisplayServersList']){
-                if ($selected && !$show_server_left) {
+            if ($list){
+                if ($selected && !$left) {
                     echo '&raquo; <b>' . htmlspecialchars($label) . '</b><br />';
                 }else{
                     echo '&raquo; <a class="item" href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . htmlspecialchars($label) . '</a><br />';
@@ -56,23 +66,25 @@ if (count($cfg['Servers']) > 1) {
         } // end if (!empty($val['host']))
     } // end while
 
-    if ( ! $cfg['DisplayServersList'] ) {
+    if ($form) {
+        if ( ! $list ) {
         ?> 
         </select>
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
         <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
         <noscript>
-        <input type="submit" value="<?php echo $strGo; ?>" />
+        <input type="submit" value="<?php echo $GLOBALS['strGo']; ?>" />
         </noscript>
     </form>
         <?php
     }
-    if (!$show_server_left) {
+        if (!$left) {
         ?> 
 </fieldset>
         <?php
-    } else {
-        echo '<hr />';
+        } else {
+            echo '<hr />';
+        }
     }
 }
 ?> 

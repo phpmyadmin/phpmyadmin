@@ -38,6 +38,10 @@ $Source$
       information.
     * libraries/display_select_lang.lib.php,
       libraries/auth/cookie.auth.lib.php: Use fieldset for language selection.
+    * main.php, libraries/left_header.inc.php,
+      libraries/select_server.lib.php, libraries/auth/cookie.auth.lib.php:
+      Functionalised server selection and use it in cookie auth (RFE
+      #1362727).
 
 2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes
