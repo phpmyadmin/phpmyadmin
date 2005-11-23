@@ -52,14 +52,15 @@ function PMA_select_language() {
 
         // Include native name if non empty
         if (!empty($tmplang[3])) {
-            $lang_name = htmlentities($tmplang[3], ENT_COMPAT, 'UTF-8') . ' - ' . $lang_name;
+            $lang_name = '<bdo dir="ltr" lang="' . $tmplang[2] . '">'
+                . htmlentities($tmplang[3], ENT_COMPAT, 'UTF-8') . '</bdo> - ' . $lang_name;
         }
 
         // Include charset if it makes sense
         if (!defined('PMA_REMOVED_NON_UTF_8')) {
             $lang_name .= ' (' . substr($id, strpos($id, '-') + 1) . ')';
         }
-        
+
         //Is current one active?
         if ($lang == $id) {
             $selected = ' selected="selected"';
@@ -73,7 +74,7 @@ function PMA_select_language() {
     ?>
                 </select>
             </bdo>
-                <noscript><input type="submit" value="<?php echo $GLOBALS['strGo'];?>" /></noscript>
+                <noscript><input type="submit" value="Go" /></noscript>
             </form>
 <?php
 } // End of function PMA_select_language

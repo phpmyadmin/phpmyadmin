@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-23 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/display_select_lang.lib.php: correct lang definition
+
 2005-11-23 Michal Čihař  <michal@cihar.com>
     * config.default.php, libraries/import/csv.php, libraries/import/ldi.php:
       Drop optional escaping as this should not have any real functionality.
@@ -22,7 +25,7 @@ $Source$
     * Documentation.html, config.default.php, libraries/common.lib.php:
       Configurable default connection collation (RFE #1025969).
 
-2005-11-20 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+2005-11-22 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * added test/theme.php: for testing themes
     * phpinfo.php:
       - respect only $GLOBALS['cfg']['ShowPhpInfo']
