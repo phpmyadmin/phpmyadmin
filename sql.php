@@ -43,8 +43,13 @@ if (isset($fields['dbase'])) {
     $db = $fields['dbase'];
 }
 
-// Now we can check the parameters
-PMA_checkParameters(array('sql_query'));
+// Default to browse if no query set an we have table (needed for browsing from DefaultTabTable)
+if (!isset($sql_query) && isset($table) && isset($db)) {
+    $sql_query = 'SELECT * FROM ' . PMA_backquote($table);
+} else {
+    // Now we can check the parameters
+    PMA_checkParameters(array('sql_query'));
+}
 
 // instead of doing the test twice
 $is_drop_database = preg_match('@DROP[[:space:]]+DATABASE[[:space:]]+@i', $sql_query);

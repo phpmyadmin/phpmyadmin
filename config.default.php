@@ -233,8 +233,9 @@ $cfg['DefaultTabTable']       = 'tbl_properties_structure.php';
                                    // Possible values:
                                    // 'tbl_properties_structure.php' = fields list
                                    // 'tbl_properties.php' = sql form
-                                   // 'tbl_select.php = select page
-                                   // 'tbl_change.php = insert row page
+                                   // 'tbl_select.php' = select page
+                                   // 'tbl_change.php' = insert row page
+                                   // 'sql.php' = browse page
 
 /**
  * Export defaults
