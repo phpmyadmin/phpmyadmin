@@ -956,4 +956,5 @@ $strZeroRemovesTheLimit = 'Заўвага: Пазначэньне гэтых опцыяў як 0 (нуль) здымае 
 $strZip = 'архіваваны ў zip';
 
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
+$strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
 ?>

@@ -372,6 +372,7 @@ $strInvalidFieldAddCount = 'You have to add at least one field.';
 $strInvalidFieldCount = 'Table must have at least one field.';
 $strInvalidLDIImport = 'This plugin does not support compressed imports!';
 $strInvalidRowNumber = '%d is not valid row number.';
+$strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';
 $strInvalidServerIndex = 'Invalid server index: "%s"';
 
 $strJapanese = 'Japanese';

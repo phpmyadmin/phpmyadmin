@@ -960,4 +960,5 @@ $strZeroRemovesTheLimit = 'Huom: Näiden valintojen asettaminen nollaksi (0) pois
 $strZip = '"zip-pakattu"';
 
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
+$strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
 ?>

@@ -978,4 +978,5 @@ $strBookmarkReplace = 'Replace existing bookmark of same name';  //to translate
 $strTransformation_text_plain__sql = 'Formats text as SQL query with syntax highlighting.';  //to translate
 $strEsperanto = 'Esperanto';  //to translate
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
+$strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
 ?>

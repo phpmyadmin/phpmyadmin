@@ -378,6 +378,7 @@ $strInvalidFieldAddCount = 'Musíte pøidat alespoò jeden sloupec.';
 $strInvalidFieldCount = 'Tabulka musí mít alespoò jeden sloupec.';
 $strInvalidLDIImport = 'Tento plugin nepodporuje komprimované soubory!';
 $strInvalidRowNumber = '%d není platné èíslo øádku.';
+$strInvalidServerHostname = 'Chybné jméno serveru pro server %1$s. Prosím zkontrolujte nastavení.';
 $strInvalidServerIndex = 'Chybný index serveru: "%s"';
 
 $strJapanese = 'Japonština';

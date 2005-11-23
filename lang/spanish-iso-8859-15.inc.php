@@ -950,4 +950,5 @@ $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 
 $strZip = '"comprimido con zip"';
 
 $strInvalidServerIndex = 'Invalid server index: "%s"';  //to translate
+$strInvalidServerHostname = 'Invalid hostname for server %1$s. Please review your configuration.';  //to translate
 ?>
