@@ -601,7 +601,15 @@ div#serverstatus table .tblFooters a:after {
 }
 /* end serverstatus */
 
-/* body.loginform form,*/
+img.lightbulb {
+    cursor: pointer;
+}
+
+
+/********************/
+/* NEW in PMA 2.7.1 */
+/********************/
+
 body.loginform h1,
 body.loginform a.logo {
     display: block;
@@ -613,15 +621,6 @@ form.login label {
     width: 10em;
     font-weight: bolder;
 }
-
-img.lightbulb {
-    cursor: pointer;
-}
-
-
-/********************/
-/* NEW in PMA 2.7.1 */
-/********************/
 
 #body_browse_foreigners {
     background-color:   <?php echo $cfg['LeftBgColor']; ?>;
