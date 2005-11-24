@@ -2,6 +2,10 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
+    die("GLOBALS overwrite attempt");
+}
+
 /**
  * Sends http headers
  */

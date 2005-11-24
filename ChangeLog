@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-24 Michal Čihař  <michal@cihar.com>
+    * libraries/header_http.inc.php, libraries/header_meta_style.inc.php: Fix
+      XSS on some libraries (CVE-2005-3665).
+
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/original/*, css/phpmyadmin.css.php:
       - updated theme
