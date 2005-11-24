@@ -119,12 +119,12 @@ if ($cfgRelation['commwork'] && isset($db_comment) && $db_comment == 'true') {
  * because there is no table in the database ($is_info is TRUE)
  */
 if (empty($is_info)) {
-    require('./db_details_common.php');
+    require('./libraries/db_details_common.inc.php');
     $url_query .= '&amp;goto=db_operations.php';
 
     // Gets the database structure
     $sub_part = '_structure';
-    require('./db_details_db_info.php');
+    require('./libraries/db_details_db_info.inc.php');
     echo "\n";
 }
 

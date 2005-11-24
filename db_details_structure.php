@@ -17,12 +17,12 @@ if ( empty( $is_info ) ) {
         require('./libraries/mult_submits.inc.php');
         $message = $strSuccess;
     }
-    require('./db_details_common.php');
+    require('./libraries/db_details_common.inc.php');
     $url_query .= '&amp;goto=db_details_structure.php';
 
     // Gets the database structure
     $sub_part = '_structure';
-    require('./db_details_db_info.php');
+    require('./libraries/db_details_db_info.inc.php');
 }
 
 // 1. No tables

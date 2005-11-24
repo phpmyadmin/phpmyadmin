@@ -132,8 +132,8 @@ if ( !empty($submit_mult) && !empty($what)) {
         require('./tbl_properties_table_info.php');
     }
     elseif (!empty($db)) {
-        require('./db_details_common.php');
-        require('./db_details_db_info.php');
+        require('./libraries/db_details_common.inc.php');
+        require('./libraries/db_details_db_info.inc.php');
     }
     // Builds the query
     $full_query     = '';

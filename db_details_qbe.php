@@ -27,9 +27,9 @@ if (isset($submit_sql) && preg_match('@^SELECT@i', $encoded_sql_query)) {
     exit();
 } else {
     $sub_part  = '_qbe';
-    require('./db_details_common.php');
+    require('./libraries/db_details_common.inc.php');
     $url_query .= '&amp;goto=db_details_qbe.php';
-    require('./db_details_db_info.php');
+    require('./libraries/db_details_db_info.inc.php');
 }
 
 if (isset($submit_sql) && !preg_match('@^SELECT@i', $encoded_sql_query)) {

@@ -7,8 +7,8 @@ require_once('./libraries/common.lib.php');
 /**
  * Gets tables informations and displays top links
  */
-require('./db_details_common.php');
-require('./db_details_db_info.php');
+require('./libraries/db_details_common.inc.php');
+require('./libraries/db_details_db_info.inc.php');
 
 $import_type = 'database';
 require('./libraries/display_import.lib.php');

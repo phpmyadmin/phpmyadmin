@@ -6,7 +6,7 @@
  * Gets some core libraries
  */
 require_once('./libraries/common.lib.php');
-require_once('./db_details_common.php');
+require_once('./libraries/db_details_common.inc.php');
 
 
 /**

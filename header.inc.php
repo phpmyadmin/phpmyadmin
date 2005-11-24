@@ -207,7 +207,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                 $cfgRelation = PMA_getRelationsParam();
 
                 // Get additional information about tables for tooltip is done
-                // in db_details_db_info.php only once
+                // in libraries/db_details_db_info.inc.php only once
                 if ($cfgRelation['commwork']) {
                     $comment = PMA_getComments( $GLOBALS['db'] );
 

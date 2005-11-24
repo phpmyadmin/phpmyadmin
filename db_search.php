@@ -10,7 +10,7 @@ require_once('./libraries/common.lib.php');
 /**
  * Gets some core libraries and send headers
  */
-require('./db_details_common.php');
+require('./libraries/db_details_common.inc.php');
 // If config variable $cfg['Usedbsearch'] is on FALSE : exit.
 if (!$cfg['UseDbSearch']) {
     PMA_mysqlDie($strAccessDenied, '', FALSE, $err_url);
@@ -29,7 +29,7 @@ $num_tables = count($tables);
  * Displays top links
  */
 $sub_part = '';
-require('./db_details_links.php');
+require('./libraries/db_details_links.inc.php');
 
 
 /**

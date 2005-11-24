@@ -4,10 +4,10 @@
 /**
  * dumps a database
  *
- * @uses    db_details_common.php
- * @uses    db_details_db_info.php
+ * @uses    libraries/db_details_common.inc.php
+ * @uses    libraries/db_details_db_info.inc.php
  * @uses    libraries/display_export.lib.php
- * @uses    $tables     from db_details_db_info.php
+ * @uses    $tables     from libraries/db_details_db_info.inc.php
  */
 
 /**
@@ -16,9 +16,9 @@
 require_once('./libraries/common.lib.php');
 
 $sub_part  = '_export';
-require_once('./db_details_common.php');
+require_once('./libraries/db_details_common.inc.php');
 $url_query .= '&amp;goto=db_details_export.php';
-require_once('./db_details_db_info.php');
+require_once('./libraries/db_details_db_info.inc.php');
 
 /**
  * Displays the form

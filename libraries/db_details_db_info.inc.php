@@ -134,5 +134,5 @@ $num_tables = count( $tables );
 /**
  * Displays top menu links
  */
-require('./db_details_links.php');
+require('./libraries/db_details_links.inc.php');
 ?>
