@@ -20,20 +20,6 @@ if (isset($convcharset)) {
  * Includes the ThemeManager
  */
 require_once('./libraries/select_theme.lib.php');
-// Defines the "item" image depending on text direction
-
-$item_img = $GLOBALS['pmaThemeImage'] . 'item_' . $GLOBALS['text_dir'] . '.png';
-
-// Defines for MainPageIconic
-$str_iconic_list    = '';
-$str_normal_list    = '<td valign="top" width="16">'
-    .'<img class="icon" src="'.$item_img.'" alt="*" /></td>';
-if ( $cfg['MainPageIconic'] ) {
-    $str_iconic_list = '<td width="16" valign="top" >%1$s'
-                      .'<img class="icon" src="' . $pmaThemeImage . '%2$s" '
-                      .' width="16" height="16" alt="%3$s" />'
-                      .'%4$s</td>';
-}
 
 // Handles some variables that may have been sent by the calling script
 if (isset($db)) {
@@ -45,82 +31,10 @@ if (isset($table)) {
 $show_query = '1';
 require_once('./libraries/header.inc.php');
 
-
-/**
- * Displays the welcome message and the server informations
- */
-if ( @file_exists($pmaThemeImage . 'logo_right.png') ) {
-    ?>
-    <img id="pmalogoright" src="<?php echo $pmaThemeImage; ?>logo_right.png"
-        alt="phpMyAdmin" />
-    <?php
-}
-?>
-<h1>
-<?php
-echo sprintf( $strWelcome,
-    '<bdo dir="ltr" xml:lang="en">phpMyAdmin ' . PMA_VERSION . '</bdo>');
-?>
-</h1>
-<?php
-// Don't display server info if $server == 0 (no server selected)
-// loic1: modified in order to have a valid words order whatever is the
-//        language used
-if ( $server > 0 ) {
-    // robbat2: Use the verbose name of the server instead of the hostname
-    //          if a value is set
-    if (!empty($cfg['Server']['verbose'])) {
-        $server_info = $cfg['Server']['verbose'];
-    } else {
-        $server_info = $cfg['Server']['host'];
-        $server_info .= (empty($cfg['Server']['port']) ? '' : ':' . $cfg['Server']['port']);
-    }
-    // loic1: skip this because it's not a so good idea to display sockets
-    //        used to everybody
-    // if (!empty($cfg['Server']['socket']) && PMA_PHP_INT_VERSION >= 30010) {
-    //     $server_info .= ':' . $cfg['Server']['socket'];
-    // }
-    $res                           = PMA_DBI_query('SELECT USER();');
-    list($mysql_cur_user_and_host) = PMA_DBI_fetch_row($res);
-    $mysql_cur_user                = substr($mysql_cur_user_and_host, 0, strrpos($mysql_cur_user_and_host, '@'));
-
-    PMA_DBI_free_result($res);
-    unset($res, $row);
-
-    $full_string     = str_replace('%pma_s1%', '<bdo dir="ltr" xml:lang="en">' . PMA_MYSQL_STR_VERSION . '</bdo>', $strMySQLServerProcess);
-    $full_string     = str_replace('%pma_s2%', htmlspecialchars($server_info), $full_string);
-    $full_string     = str_replace('%pma_s3%', htmlspecialchars($mysql_cur_user_and_host), $full_string);
-
-    echo '    <p><strong>' . $full_string . '</strong></p>' . "\n";
-} // end if $server > 0
-?>
-<hr class="clearfloat" />
-
-<?php
 // Any message to display?
-
 if ( ! empty( $message ) ) {
-    PMA_showMessage($message);
+    PMA_showMessage( $message );
     unset( $message );
-}
-
-/**
- * Reload mysql (flush privileges)
- */
-if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $sql_query = 'FLUSH PRIVILEGES';
-    $result = PMA_DBI_query($sql_query);
-    if ($result != 0) {
-        $message = $strMySQLReloaded;
-    } else {
-        $show_error_header = TRUE;
-        $message = $strReloadFailed;
-    }
-    PMA_showMessage($message);
-    $show_error_header = FALSE;
-    unset($result);
-    unset($sql_query);
-    unset($message);
 }
 
 /**
@@ -131,218 +45,202 @@ if (!$cfg['LeftDisplayServers'] && count($cfg['Servers']) > 1) {
     PMA_select_server(TRUE, FALSE);
 }
 
-// nested table needed
-?>
-<table>
-<tr><td valign="top">
-<?php
+$common_url_query =  PMA_generate_common_url( '', '' );
+
+// this div is required for containing divs can be 50%
+echo '<div id="maincontainer">' . "\n";
+
 /**
  * Displays the mysql server related links
  */
-$is_superuser = false;
-
 if ( $server > 0 ) {
 
     require_once('./libraries/check_user_privileges.lib.php');
-    $is_superuser = PMA_isSuperuser();
+    $cfg['ShowChgPassword'] = $is_superuser = PMA_isSuperuser();
 
-    $common_url_query =  PMA_generate_common_url();
 
-    if ($is_superuser) {
-        $cfg['ShowChgPassword'] = TRUE;
-    }
     if ($cfg['Server']['auth_type'] == 'config') {
         $cfg['ShowChgPassword'] = FALSE;
     }
 
     ?>
-<table cellpadding="3" cellspacing="0">
-<tr><th class="tblHeaders" colspan="2" xml:lang="en" dir="ltr">MySQL</th></tr>
-<tr>
-        <?php
-        echo $str_iconic_list != '' ? sprintf($str_iconic_list,'','b_newdb.png',$strCreateNewDatabase,'') : $str_normal_list;
-        ?>
-    <td valign="top">
-        <?php require('./libraries/display_create_database.lib.php'); ?>
-    </td>
-</tr>
-<tr>
-            <?php
-            echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_status.php?'.$common_url_query.'">','s_status.png',$strMySQLShowStatus,'</a>') : $str_normal_list);
-            ?>
-    <td><a href="./server_status.php?<?php echo $common_url_query; ?>">
-            <?php echo $strMySQLShowStatus; ?>
-        </a>
-    </td>
-</tr>
-<tr>        <?php
-            echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_variables.php?'.$common_url_query.'">','s_vars.png',$strMySQLShowVars,'</a>') : $str_normal_list);
-            ?>
-    <td><a href="./server_variables.php?<?php echo $common_url_query; ?>">
-            <?php echo $strMySQLShowVars;?></a>
-            <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_VARIABLES'); ?>
-    </td>
-</tr>
-<tr>    <?php
-        echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_processlist.php?'.$common_url_query.'">','s_process.png',$strMySQLShowProcess,'</a>') : $str_normal_list);
-        ?>
-    <td><a href="./server_processlist.php?<?php echo $common_url_query; ?>">
-            <?php echo $strMySQLShowProcess; ?></a>
-        <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_PROCESSLIST'); ?>
-    </td>
-</tr>
-        <?php
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
-            ?>
-<tr>        <?php
-            echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_collations.php?'.$common_url_query.'">','s_asci.png',$strCharsetsAndCollations,'</a>') : $str_normal_list);
-            ?>
-    <td><a href="./server_collations.php?<?php echo $common_url_query; ?>">
-            <?php echo $strCharsetsAndCollations; ?></a>
-    </td>
-</tr>
-            <?php
-        }
-        ?>
-<tr>    <?php
-        echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_engines.php?'.$common_url_query.'">','b_engine.png',$strStorageEngines,'</a>') : $str_normal_list);
-        ?>
-    <td><a href="./server_engines.php?<?php echo $common_url_query; ?>">
-            <?php echo $strStorageEngines; ?></a>
-    </td>
-</tr>
-        <?php
-        if ($is_reload_priv) {
-            echo "\n";
-            ?>
-<tr>        <?php
-            echo ($str_iconic_list!='' ? sprintf($str_iconic_list,'<a href="main.php?'.$common_url_query.'&amp;mode=reload">','s_reload.png',$strReloadMySQL,'</a>') : $str_normal_list);
-            ?>
-    <td><a href="main.php?<?php echo $common_url_query; ?>&amp;mode=reload">
-            <?php echo $strReloadMySQL; ?></a>
-        <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'FLUSH') . "\n"; ?>
-    </td>
-</tr>
-            <?php
-        }
-        if ($is_superuser) {
-            ?>
-<tr>        <?php
-            echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_privileges.php?'.$common_url_query.'">','s_rights.png',$strPrivileges,'</a>') : $str_normal_list);
-            ?>
-    <td><a href="server_privileges.php?<?php echo $common_url_query; ?>">
-            <?php echo $strPrivileges; ?></a>
-    </td>
-</tr>
-            <?php
-        }
-        $binlogs = PMA_DBI_try_query('SHOW MASTER LOGS', NULL, PMA_DBI_QUERY_STORE);
-        if ($binlogs) {
-            if (PMA_DBI_num_rows($binlogs) > 0) {
-                ?>
-<tr>            <?php
-                echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_binlog.php?'.$common_url_query.'">','s_tbl.png',$strBinaryLog,'</a>') : $str_normal_list);
-                ?>
-    <td><a href="server_binlog.php?<?php echo $common_url_query; ?>">
-            <?php echo $strBinaryLog; ?></a>
-    </td>
-</tr>
-                <?php
-            }
-            PMA_DBI_free_result($binlogs);
-        }
-        unset($binlogs);
-        ?>
-<tr>    <?php
-        echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_databases.php?'.$common_url_query.'">','s_db.png',$strDatabases,'</a>') : $str_normal_list);
-        ?>
-    <td><a href="./server_databases.php?<?php echo $common_url_query; ?>">
-            <?php echo $strDatabases; ?></a>
-    </td>
-</tr>
-<tr>
-        <?php
-        echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_export.php?'.$common_url_query.'">','b_export.png',$strExport,'</a>') : $str_normal_list);
-        ?>
-    <td><a href="./server_export.php?<?php echo $common_url_query; ?>">
-            <?php echo $strExport; ?></a>
-    </td>
-</tr>
-<tr>
-        <?php
-        echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_import.php?'.$common_url_query.'">','b_import.png',$strImport,'</a>') : $str_normal_list);
-        ?>
-    <td><a href="./server_import.php?<?php echo $common_url_query; ?>">
-            <?php echo $strImport; ?></a>
-    </td>
-</tr>
-        <?php
-        // Change password (needs another message)
-        if ($cfg['ShowChgPassword']) {
-            ?>
-<tr>
-            <?php
-            echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="user_password.php?'.$common_url_query.'">','s_passwd.png',$strChangePassword,'</a>') : $str_normal_list);
-            ?>
-    <td><a href="user_password.php?<?php echo $common_url_query; ?>">
-            <?php echo ($strChangePassword); ?></a>
-    </td>
-</tr>
-            <?php
-        } // end if
-
-        // Logout for advanced authentication
-        if ($cfg['Server']['auth_type'] != 'config') {
-            $http_logout = ($cfg['Server']['auth_type'] == 'http')
-                         ? '<a href="./Documentation.html#login_bug" target="documentation">'
-                            . ($cfg['ReplaceHelpImg'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_info.png" width="11" height="11" alt="Info" />' : '(*)') . '</a>'
-                         : '';
-            ?>
-<tr>
-            <?php
-            echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="index.php?'.$common_url_query.'&amp;old_usr='.urlencode($PHP_AUTH_USER).'">','s_loggoff.png',$strLogout,'</a>') : $str_normal_list);
-            ?>
-    <td><a href="index.php?<?php echo $common_url_query; ?>&amp;old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>"
-            target="_parent">
-            <b><?php echo $strLogout; ?></b></a>
-            <?php echo $http_logout; ?>
-    </td>
-</tr>
-            <?php
-        } // end if
-} // end of if ($server > 0)
-?>
-</table>
-</td>
-<td width="20">&nbsp;</td>
-<td valign="top">
-<table border="0" cellpadding="3" cellspacing="0">
-<tr><th class="tblHeaders" colspan="2" xml:lang="en" dir="ltr">phpMyAdmin</th></tr>
-<?php
-// Displays language selection combo
-if (empty($cfg['Lang'])) {
-    require_once('./libraries/display_select_lang.lib.php');
-    ?>
-<tr><?php
-    echo ($str_iconic_list !='' ? sprintf($str_iconic_list,'<a href="./translators.html" target="documentation">','s_lang.png','Language','</a>') : $str_normal_list);
-    ?>
-    <td><?php PMA_select_language(); ?></td>
-    </tr>
+    <div id="mysqlmaininformation">
     <?php
-}
+    // robbat2: Use the verbose name of the server instead of the hostname
+    //          if a value is set
+    $server_info = '';
+    if (!empty($cfg['Server']['verbose'])) {
+        $server_info .= $cfg['Server']['verbose'];
+        $server_info .= ' (';
+    }
+    $server_info .= PMA_DBI_get_host_info();
 
-if ( isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
-    && $server != 0 && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
-    ?>
-<tr><?php
-    echo $str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLCharset,'') : $str_normal_list;
-    ?>
-    <td><form method="post" action="index.php" target="_parent">
+    if (!empty($cfg['Server']['verbose'])) {
+        $server_info .= ')';
+    }
+    // loic1: skip this because it's not a so good idea to display sockets
+    //        used to everybody
+    // if (!empty($cfg['Server']['socket']) && PMA_PHP_INT_VERSION >= 30010) {
+    //     $server_info .= ':' . $cfg['Server']['socket'];
+    // }
+    $mysql_cur_user_and_host = PMA_DBI_fetch_value('SELECT USER();');
+
+    echo '<h1 xml:lang="en" dir="ltr">MySQL - ' . PMA_MYSQL_STR_VERSION
+        .'</h1>' . "\n";
+
+    echo '<ul>' . "\n";
+
+    PMA_printListItem( $strProtocolVersion . ': ' . PMA_DBI_get_proto_info()
+        , 'li_mysql_proto' );
+    PMA_printListItem( $strServer . ': ' . $server_info, 'li_server_info' );
+    PMA_printListItem( $strUser . ': ' . htmlspecialchars( $mysql_cur_user_and_host ),
+        'li_user_info' );
+
+    if ( $cfg['AllowAnywhereRecoding'] && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
+        echo '<li id="li_select_mysql_charset">';
+        ?>
+            <form method="post" action="index.php" target="_parent">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <?php echo $strMySQLCharset;?>:
             <select name="convcharset"  xml:lang="en" dir="ltr"
                 onchange="this.form.submit();">
+        <?php
+        foreach ($cfg['AvailableCharsets'] as $tmpcharset) {
+            if ($convcharset == $tmpcharset) {
+                $selected = ' selected="selected"';
+            } else {
+                $selected = '';
+            }
+            echo '            '
+               . '<option value="' . $tmpcharset . '"' . $selected . '>' . $tmpcharset . '</option>' . "\n";
+        }
+        ?>
+            </select>
+            <noscript><input type="submit" value="<?php echo $strGo;?>" /></noscript>
+            </form>
+        </li>
+        <?php
+    } elseif ( PMA_MYSQL_INT_VERSION >= 40100 ) {
+        echo '    <li id="li_select_mysql_charset">';
+        echo '        ' . $strMySQLCharset . ': '
+           . '        <strong xml:lang="en" dir="ltr">'
+           . '           ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
+           . '           (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
+           . '        </strong>' . "\n"
+           . '    </li>' . "\n"
+           . '    <li id="li_select_mysql_collation">';
+        echo '        <form method="post" action="index.php" target="_parent">' . "\n"
+           . PMA_generate_common_hidden_inputs(NULL, NULL, 4, 'collation_connection')
+           . '            <label for="select_collation_connection">' . "\n"
+           . '                ' . $strMySQLConnectionCollation . ': ' . "\n"
+           . '            </label>' . "\n"
+           . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, TRUE, 4, TRUE)
+           . '            <noscript><input type="submit" value="' . $strGo . '" /></noscript>' . "\n"
+           // put the doc link in the form so that it appears on the same line
+           . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . "\n"
+           . '        </form>' . "\n"
+           . '    </li>' . "\n";
+    }
+
+    echo '<li id="li_create_database">';
+    require('./libraries/display_create_database.lib.php');
+    echo '</li>' . "\n";
+
+    PMA_printListItem( $strMySQLShowStatus, 'li_mysql_status',
+        './server_status.php?' . $common_url_query );
+    PMA_printListItem( $strMySQLShowVars, 'li_mysql_variables',
+        './server_variables.php?' . $common_url_query, 'show-variables' );
+    PMA_printListItem( $strMySQLShowProcess, 'li_mysql_processes',
+        './server_processlist.php?' . $common_url_query, 'show-processlist' );
+
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
+        PMA_printListItem( $strCharsetsAndCollations, 'li_mysql_collations',
+            './server_collations.php?' . $common_url_query );
+    }
+
+    PMA_printListItem( $strStorageEngines, 'li_mysql_engines',
+        './server_engines.php?' . $common_url_query );
+
+    PMA_printListItem( $strReloadMySQL, 'li_flush_privileges',
+        './server_privileges.php?flush_privileges=1&amp;' . $common_url_query,
+        'flush' );
+
+    if ($is_superuser) {
+        PMA_printListItem( $strPrivileges, 'li_mysql_privilegs',
+            './server_privileges.php?' . $common_url_query );
+    }
+
+    $binlogs = PMA_DBI_try_query('SHOW MASTER LOGS', NULL, PMA_DBI_QUERY_STORE);
+    if ( $binlogs ) {
+        if (PMA_DBI_num_rows($binlogs) > 0) {
+            PMA_printListItem( $strBinaryLog, 'li_mysql_binlogs',
+                './server_binlog.php?' . $common_url_query );
+        }
+        PMA_DBI_free_result($binlogs);
+    }
+    unset( $binlogs );
+
+    PMA_printListItem( $strDatabases, 'li_mysql_databases',
+        './server_databases.php?' . $common_url_query );
+    PMA_printListItem( $strExport, 'li_export',
+        './server_export.php?' . $common_url_query );
+    PMA_printListItem( $strImport, 'li_import',
+        './server_import.php?' . $common_url_query );
+
+    // Change password (TODO ? needs another message)
+    if ($cfg['ShowChgPassword']) {
+        PMA_printListItem( $strChangePassword, 'li_change_password',
+            './user_password.php?' . $common_url_query );
+    } // end if
+
+    // Logout for advanced authentication
+    if ($cfg['Server']['auth_type'] != 'config') {
+        $http_logout = ($cfg['Server']['auth_type'] == 'http')
+                     ? '<a href="./Documentation.html#login_bug" target="documentation">'
+                        . ($cfg['ReplaceHelpImg'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_info.png" width="11" height="11" alt="Info" />' : '(*)') . '</a>'
+                     : '';
+        PMA_printListItem( '<strong>' . $strLogout . '</strong> ' . $http_logout,
+            'li_log_out',
+            './user_password.php?' . $common_url_query . '&amp;old_usr=' . urlencode($PHP_AUTH_USER) );
+    } // end if
+
+    echo '</ul>';
+} // end of if ($server > 0)
+?>
+</div>
+<div id="pmamaininformation">
+<?php
+
+echo '<h1 xml:lang="en" dir="ltr">phpMyAdmin - ' . PMA_VERSION . '</h1>'
+    . "\n";
+
+echo '<ul>' . "\n";
+
+PMA_printListItem( $strMysqlClientVersion . ': ' . PMA_DBI_get_client_info(),
+    'li_mysql_client_version' );
+PMA_printListItem( $strUsedPhpExtension . ': ' . $GLOBALS['cfg']['Server']['extension'],
+    'li_used_php_extension' );
+
+// Displays language selection combo
+if (empty($cfg['Lang'])) {
+    echo '<li id="li_select_lang">';
+    require_once('./libraries/display_select_lang.lib.php');
+    PMA_select_language();
+    echo '</li>';
+}
+
+
+if ( isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
+    && $server != 0 && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
+    echo '<li id="li_select_charset">';
+    ?>
+    <form method="post" action="index.php" target="_parent">
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <?php echo $strMySQLCharset;?>:
+    <select name="convcharset"  xml:lang="en" dir="ltr"
+        onchange="this.form.submit();">
     <?php
     foreach ($cfg['AvailableCharsets'] AS $id => $tmpcharset) {
         if ($convcharset == $tmpcharset) {
@@ -350,44 +248,15 @@ if ( isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
         } else {
             $selected = '';
         }
-        echo '                        '
+        echo '        '
            . '<option value="' . $tmpcharset . '"' . $selected . '>' . $tmpcharset . '</option>' . "\n";
     }
     ?>
-            </select>
-            <noscript><input type="submit" value="<?php echo $strGo;?>" /></noscript>
-        </form>
-    </td>
-</tr>
+    </select>
+    <noscript><input type="submit" value="<?php echo $strGo;?>" /></noscript>
+    </form>
+    </li>
     <?php
-} elseif ($server != 0 && PMA_MYSQL_INT_VERSION >= 40100) {
-    echo '    <!-- Charset Info -->' . "\n"
-       . '    <tr>' .  "\n"
-       .'        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLCharset,'') : $str_normal_list) . "\n"
-       . '        <td>' . "\n"
-       . '            ' . $strMySQLCharset . ': '
-       . '            <strong xml:lang="en" dir="ltr">'
-       . '               ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
-       . '               (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
-       . '            </strong>' . "\n"
-       . '        </td>' . "\n"
-       . '    </tr>' . "\n"
-       . '    <!-- MySQL Connection Collation -->' . "\n"
-       . '    <tr>' .  "\n"
-       .'        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLConnectionCollation,'') : $str_normal_list) . "\n"
-       . '        <td>' . "\n"
-       . '            <form method="post" action="index.php" target="_parent">' . "\n"
-       . PMA_generate_common_hidden_inputs(NULL, NULL, 4, 'collation_connection')
-       . '                <label for="select_collation_connection">' . "\n"
-       . '                    ' . $strMySQLConnectionCollation . ': ' . "\n"
-       . '                </label>' . "\n"
-       . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, TRUE, 4, TRUE)
-       . '                <noscript><input type="submit" value="' . $strGo . '" /></noscript>' . "\n"
-       // put the doc link in the form so that it appears on the same line
-       . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . "\n"
-       . '            </form>' . "\n"
-       . '        </td>' . "\n"
-       . '    </tr>' . "\n";
 }
 
 // added by Michael Keck <mail_at_michaelkeck_dot_de>
@@ -396,17 +265,14 @@ if ( isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
 if (isset($available_themes_choices) && $available_themes_choices > 1) {
     $theme_selected = FALSE;
     $theme_preview_path= './themes.php';
-    $theme_preview_href = '<a href="' . $theme_preview_path . '" onclick="'
-                        . "window.open('" . $theme_preview_path . "','themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes'); return false;"
+    $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" onclick="'
+                        . "window.open('" . $theme_preview_path . "','themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes');"
                         . '">';
+    echo '<li id="li_select_theme">';
     ?>
-    <tr>
+        <form name="setTheme" method="post" action="index.php" target="_parent">
     <?php
-    echo ($str_iconic_list != '' ? sprintf($str_iconic_list,$theme_preview_href,'s_theme.png',$strTheme ,'</a>') : $str_normal_list) . "\n";
-    ?>
-    <td><form name="setTheme" method="post" action="index.php" target="_parent">
-    <?php
-    echo PMA_generate_common_hidden_inputs( '', '', 5 );
+    echo PMA_generate_common_hidden_inputs( '', '', 3 );
     echo $theme_preview_href . $strTheme . '</a>:' . "\n";
     ?>
             <select name="set_theme" xml:lang="en" dir="ltr" onchange="this.form.submit();" >
@@ -422,57 +288,36 @@ if (isset($available_themes_choices) && $available_themes_choices > 1) {
             </select>
             <noscript><input type="submit" value="<?php echo $strGo;?>" /></noscript>
         </form>
-    </td>
-</tr>
+    </li>
     <?php
 }
-?>
-<tr><?php
-    echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="Documentation.html" target="documentation">','b_docs.png',$strPmaDocumentation,'</a>') : $str_normal_list);
-?>
-    <td><a href="Documentation.html" target="documentation">
-            <b><?php echo $strPmaDocumentation; ?></b></a>
-    </td>
-</tr>
+PMA_printListItem( $strPmaDocumentation, 'li_pma_docs', 'Documentation.html' );
 
-<?php
-if ($cfg['ShowPhpInfo']) {
-    ?>
-    <tr><?php
-        echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="phpinfo.php?' . PMA_generate_common_url() . '" target="_blank">','php_sym.png',$strShowPHPInfo,'</a>') : $str_normal_list);
-    ?>
-        <td><a href="phpinfo.php?<?php echo PMA_generate_common_url(); ?>"
-                target="_blank"><?php echo $strShowPHPInfo; ?></a>
-        </td>
-    </tr>
-    <?php
+if ( $cfg['ShowPhpInfo'] ) {
+    PMA_printListItem( $strShowPHPInfo, 'li_phpinfo', './phpinfo.php?' . $common_url_query );
 }
+
+PMA_printListItem( $strHomepageOfficial, 'li_pma_homepage', 'http://www.phpMyAdmin.net/' );
 ?>
-<tr>
-<?php
-echo ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="http://www.phpMyAdmin.net/" target="_blank">','b_home.png',$strHomepageOfficial,'</a>') : $str_normal_list);
-?>
-    <td><a href="http://www.phpMyAdmin.net/" target="_blank">
-            <?php echo $strHomepageOfficial; ?></a>
-    </td>
-</tr>
-<tr><td></td>
-    <td><bdo xml:lang="en" dir="ltr">
+    <li><bdo xml:lang="en" dir="ltr">
         [<a href="changelog.php" target="_blank">ChangeLog</a>]
         [<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/"
             target="_blank">CVS</a>]
         [<a href="http://sourceforge.net/mail/?group_id=23067"
             target="_blank">Lists</a>]
         </bdo>
-    </td>
-</tr>
-</table>
-
-</td>
-</tr>
-</table>
-
-<hr />
+    </li>
+    </ul>
+</div>
+<?php
+/**
+ * BUG: MSIE needs two <br /> here, otherwise it will not extend the outer div to the
+ * full height of the inner divs
+ */
+?>
+<br class="clearfloat" />
+<br class="clearfloat" />
+</div>
 
 <?php
 if ( ! empty( $GLOBALS['PMA_errors'] ) && is_array( $GLOBALS['PMA_errors'] ) ) {
@@ -539,6 +384,31 @@ if (PMA_PHP_INT_VERSION < 40100) {
 if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
     echo '<div class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.32') . '</div>' . "\n";
 }
+
+/**
+ * prints list item for main page
+ *
+ * @param   string  $name   dsiplayed text
+ * @param   string  $id     id, used for css styles
+ * @param   string  $url    make item as link with $url as target
+ */
+function PMA_printListItem( $name, $id = NULL, $url = NULL, $mysql_help_page = NULL ) {
+    echo '<li id="' . $id . '">';
+    if ( NULL !== $url ) {
+        echo '<a href="' . $url . '">';
+    }
+
+    echo $name;
+
+    if ( NULL !== $url ) {
+        echo '</a>' . "\n";
+    }
+    if ( NULL !== $mysql_help_page ) {
+        echo PMA_showMySQLDocu( '', $mysql_help_page );
+    }
+    echo '</li>';
+}
+
 /**
  * Displays the footer
  */

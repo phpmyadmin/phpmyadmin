@@ -25,6 +25,9 @@ $Source$
       - added version, to include only needed styles
     * libraries/dbi/*: added PMA_DBI_get_client_info(), PMA_DBI_get_proto_info()
       PMA_DBI_get_host_info()
+    * main.php, css/phpmyadmin.css.php:
+      - replaced table layout
+      - added some more infos
 
 2005-11-23 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * *REVERTED* libraries/display_select_lang.lib.php: correct lang definition

@@ -522,12 +522,7 @@ form.login label {
 #mysqlmaininformation,
 #pmamaininformation {
     float: <?php echo $left; ?>;
-}
-
-#mysqlmaininformation {
-    margin-<?php echo $right; ?>: 1em;
-    padding-<?php echo $right; ?>: 1em;
-    border-<?php echo $right; ?>: 0.1em solid silver;
+    width: 49%;
 }
 
 #maincontainer ul {
@@ -565,7 +560,7 @@ li#li_server_info{
 }
 
 li#li_user_info{
-    list-style-image: url(../themes/original/img/s_rights.png);
+    /* list-style-image: url(../themes/original/img/s_rights.png); */
 }
 
 li#li_mysql_status{
@@ -631,6 +626,10 @@ li#li_mysql_privilegs{
 li#li_switch_dbstats {
     list-style-image: url(../themes/original/img/b_dbstatistics.png);
 }
+
+li#li_flush_privileges {
+    list-style-image: url(../themes/original/img/s_reload.png);
+}
 /* END iconic view for ul items */
 <?php } /* end if $GLOBALS['cfg']['MainPageIconic'] */ ?>
 
@@ -669,7 +668,7 @@ li#li_switch_dbstats {
 
     <?php
 } // end styles 2.7.1
-    
+
 $_valid_css = array( 'left', 'right', 'print' );
 if ( empty( $_REQUEST['js_frame'] ) || ! in_array( $_REQUEST['js_frame'], $_valid_css ) ) {
     $js_frame = 'left';
