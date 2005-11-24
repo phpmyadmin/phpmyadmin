@@ -11,10 +11,6 @@ define('PMA_DISPLAY_HEADING', 0);
  * Gets some core libraries and displays a top message if required
  */
 require_once('./libraries/common.lib.php');
-setcookie('pma_lang', $lang, time() + 60*60*24*30, $cookie_path, '', $is_https);
-if (isset($convcharset)) {
-    setcookie('pma_charset', $convcharset, time() + 60*60*24*30, $cookie_path, '', $is_https);
-}
 
 /**
  * Includes the ThemeManager
@@ -64,6 +60,7 @@ if ( $server > 0 ) {
     }
 
     ?>
+
     <div id="mysqlmaininformation">
     <?php
     // robbat2: Use the verbose name of the server instead of the hostname

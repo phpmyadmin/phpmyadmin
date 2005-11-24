@@ -35,6 +35,7 @@ $Source$
     * libraries/url_generating.lib.php:
       - dont add variables already in cookie (reduces html output up to 30%)
       - can pass all url variables as array to function
+    * main.php, index.php: moved setting of cookies into index.php
 
 2005-11-23 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * *REVERTED* libraries/display_select_lang.lib.php: correct lang definition

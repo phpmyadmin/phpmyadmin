@@ -3,7 +3,7 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 /**
  * forms frameset
- * 
+ *
  * @uses    libraries/common.lib.php        global fnctions
  * @uses    libraries/select_theme.lib.php  theme manager
  * @uses    libraries/relation.lib.php      table relations
@@ -38,6 +38,12 @@
  * Gets core libraries and defines some variables
  */
 require_once('./libraries/common.lib.php');
+
+setcookie('pma_lang', $lang, time() + 60*60*24*30, $cookie_path, '', $is_https);
+if (isset($convcharset)) {
+    setcookie('pma_charset', $convcharset, time() + 60*60*24*30, $cookie_path, '', $is_https);
+}
+
 /**
  * Includes the ThemeManager if it hasn't been included yet
  */
@@ -141,7 +147,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     // definitions used in querywindow.js
     var common_query = '<?php echo PMA_generate_common_url('','','&');?>';
     var opendb_url = '<?php echo $GLOBALS['cfg']['DefaultTabDatabase']; ?>';
-    var safari_browser = <?php echo PMA_USR_BROWSER_AGENT != 'SAFARI' ? 'true' : 'false' ?>;    
+    var safari_browser = <?php echo PMA_USR_BROWSER_AGENT != 'SAFARI' ? 'true' : 'false' ?>;
     var querywindow_height = <?php echo $GLOBALS['cfg']['QueryWindowHeight']; ?>;
     var querywindow_width = <?php echo $GLOBALS['cfg']['QueryWindowWidth']; ?>;
     var collation_connection = '<?php echo $GLOBALS['collation_connection']; ?>';
@@ -157,10 +163,10 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 </head>
 <frameset cols="<?php echo $GLOBALS['cfg']['LeftWidth']; ?>,*" rows="*" id="mainFrameset">
     <frame frameborder="0" id="leftFrame"
-        src="left.php?<?php echo $url_query; ?>" 
+        src="left.php?<?php echo $url_query; ?>"
         name="nav<?php echo $_SESSION['window_name_hash']; ?>" />
     <frame frameborder="0" id="rightFrame"
-        src="<?php echo $main_target; ?>" 
+        src="<?php echo $main_target; ?>"
         name="phpmain<?php echo $_SESSION['window_name_hash']; ?>" />
     <noframes>
         <body>
