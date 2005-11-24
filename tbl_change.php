@@ -72,7 +72,7 @@ require_once('./libraries/db_table_exists.lib.php');
 $url_query = PMA_generate_common_url($db, $table)
            . '&amp;goto=tbl_properties.php';
 
-require_once('./tbl_properties_table_info.php');
+require_once('./libraries/tbl_properties_table_info.inc.php');
 
 /* Get comments */
 
@@ -92,7 +92,7 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 /**
  * Displays top menu links
  */
-require_once('./tbl_properties_links.php');
+require_once('./libraries/tbl_properties_links.inc.php');
 
 
 /**

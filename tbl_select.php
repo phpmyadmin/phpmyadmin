@@ -35,12 +35,12 @@ if (!isset($param) || $param[0] == '') {
     /**
      * Gets tables informations
      */
-    require_once('./tbl_properties_table_info.php');
+    require_once('./libraries/tbl_properties_table_info.inc.php');
 
     /**
      * Displays top menu links
      */
-    require_once('./tbl_properties_links.php');
+    require_once('./libraries/tbl_properties_links.inc.php');
 
     if (!isset($goto)) {
         $goto = $GLOBALS['cfg']['DefaultTabTable'];

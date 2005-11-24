@@ -79,7 +79,7 @@ if (isset($submitoptions)) {
 }
 
 if ($reread_info) {
-    require('./tbl_properties_table_info.php');
+    require('./libraries/tbl_properties_table_info.inc.php');
 }
 unset($reread_info);
 
@@ -99,12 +99,12 @@ if (isset($submitorderby) && !empty($order_field)) {
 /**
  * Gets tables informations
  */
-require_once('./tbl_properties_table_info.php');
+require_once('./libraries/tbl_properties_table_info.inc.php');
 
 /**
  * Displays top menu links
  */
-require_once('./tbl_properties_links.php');
+require_once('./libraries/tbl_properties_links.inc.php');
 
 /**
  * Get columns names

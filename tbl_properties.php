@@ -17,12 +17,12 @@ $back = 'tbl_properties.php';
 /**
  * Get table information
  */
-require_once('./tbl_properties_table_info.php');
+require_once('./libraries/tbl_properties_table_info.inc.php');
 
 /**
  * Displays top menu links
  */
-require_once('./tbl_properties_links.php');
+require_once('./libraries/tbl_properties_links.inc.php');
 
 /**
  * Query box, bookmark, insert data from textfile

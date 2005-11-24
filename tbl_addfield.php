@@ -192,7 +192,7 @@ if (isset($submit_num_fields)) {
         PMA_mysqlDie('', '', '', $err_url, FALSE);
         // garvin: An error happened while inserting/updating a table definition.
         // to prevent total loss of that data, we embed the form once again.
-        // The variable $regenerate will be used to restore data in tbl_properties.inc.php
+        // The variable $regenerate will be used to restore data in libraries/tbl_properties.inc.php
         $num_fields = $orig_num_fields;
         if (isset($orig_after_field)) {
             $after_field = $orig_after_field;
@@ -212,17 +212,17 @@ if ($abort == FALSE) {
      * Gets tables informations
      */
     require_once('./tbl_properties_common.php');
-    require_once('./tbl_properties_table_info.php');
+    require_once('./libraries/tbl_properties_table_info.inc.php');
     /**
      * Displays top menu links
      */
     $active_page = 'tbl_properties_structure.php';
-    require_once('./tbl_properties_links.php');
+    require_once('./libraries/tbl_properties_links.inc.php');
     /**
      * Display the form
      */
     $action = 'tbl_addfield.php';
-    require_once('./tbl_properties.inc.php');
+    require_once('./libraries/tbl_properties.inc.php');
 
     // Diplays the footer
     echo "\n";

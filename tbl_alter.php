@@ -17,13 +17,13 @@ PMA_checkParameters(array('db', 'table'));
  * Gets tables informations
  */
 require_once('./tbl_properties_common.php');
-require_once('./tbl_properties_table_info.php');
+require_once('./libraries/tbl_properties_table_info.inc.php');
 /**
  * Displays top menu links
  */
 $active_page = 'tbl_properties_structure.php';
 // I don't see the need to display the links here, they will be displayed later
-//require('./tbl_properties_links.php');
+//require('./libraries/tbl_properties_links.inc.php');
 
 
 /**
@@ -142,7 +142,7 @@ if (isset($do_save_data)) {
         PMA_mysqlDie('', '', '', $err_url, FALSE);
         // garvin: An error happened while inserting/updating a table definition.
         // to prevent total loss of that data, we embed the form once again.
-        // The variable $regenerate will be used to restore data in tbl_properties.inc.php
+        // The variable $regenerate will be used to restore data in libraries/tbl_properties.inc.php
         if (isset($orig_field)) {
                 $field = $orig_field;
         }
@@ -194,7 +194,7 @@ if ($abort == FALSE) {
         0, 1 );
     $analyzed_sql = PMA_SQP_analyze( PMA_SQP_parse( $show_create_table ) );
 
-    require('./tbl_properties.inc.php');
+    require('./libraries/tbl_properties.inc.php');
 }
 
 

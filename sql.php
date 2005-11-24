@@ -691,8 +691,8 @@ else {
             if (!empty($table)) {
                 require('./tbl_properties_common.php');
                 $url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
-                require('./tbl_properties_table_info.php');
-                require('./tbl_properties_links.php');
+                require('./libraries/tbl_properties_table_info.inc.php');
+                require('./libraries/tbl_properties_links.inc.php');
             }
             elseif (!empty($db)) {
                 require('./libraries/db_details_common.inc.php');

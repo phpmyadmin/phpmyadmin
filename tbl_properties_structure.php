@@ -44,7 +44,7 @@ $url_query .= '&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_st
 /**
  * Gets tables informations
  */
-require_once('./tbl_properties_table_info.php');
+require_once('./libraries/tbl_properties_table_info.inc.php');
 
 /**
  * Show result of multi submit operation
@@ -57,7 +57,7 @@ if ((!empty($submit_mult) && isset($selected_fld))
 /**
  * Displays top menu links
  */
-require_once('./tbl_properties_links.php');
+require_once('./libraries/tbl_properties_links.inc.php');
 
 // 2. Gets table keys and retains them
 $result      = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($table) . ';');
@@ -508,7 +508,7 @@ echo $strPrintView;
 <?php
     if ( ! $tbl_is_view && ! $db_is_information_schema ) {
         // if internal relations are available, or the table type is INNODB
-    // ($tbl_type comes from tbl_properties_table_info.php)
+    // ($tbl_type comes from libraries/tbl_properties_table_info.inc.php)
 
     if ($cfg['Server']['relation'] || $tbl_type=="INNODB") {
         ?>
@@ -560,7 +560,7 @@ echo $strPrintView;
  * links again
  */
 if ($fields_cnt > 20) {
-    require('./tbl_properties_links.php');
+    require('./libraries/tbl_properties_links.inc.php');
 } // end if ($fields_cnt > 20)
 echo "\n\n";
 

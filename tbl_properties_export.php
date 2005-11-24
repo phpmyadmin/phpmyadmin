@@ -9,7 +9,7 @@ require_once('./libraries/common.lib.php');
  */
 require_once('./tbl_properties_common.php');
 $url_query .= '&amp;goto=tbl_properties_export.php&amp;back=tbl_properties_export.php';
-require_once('./tbl_properties_table_info.php');
+require_once('./libraries/tbl_properties_table_info.inc.php');
 ?>
 
 <!-- Dump of a table -->
@@ -104,7 +104,7 @@ if (isset($sql_query)) {
 /**
  * Displays top menu links
  */
-require('./tbl_properties_links.php');
+require('./libraries/tbl_properties_links.inc.php');
 
 $export_type = 'table';
 require_once('./libraries/display_export.lib.php');
