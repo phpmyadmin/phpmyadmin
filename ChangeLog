@@ -12,6 +12,8 @@ $Source$
       libraries folder.
     * Documentation.html: Up to date information about relation stuff.
     * tbl_query_box.php: Remove unused file.
+    * libraries/tbl_properties.inc.php: Disable clicking events on table
+      creation (bug #1358896).
 
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/original/*, css/phpmyadmin.css.php:
