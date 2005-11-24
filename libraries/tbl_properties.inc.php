@@ -574,7 +574,7 @@ if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
         $i = 0;
         $odd_row = true;
         foreach ( $header_cells as $header_val ) {
-            echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">';
+            echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . ' noclick">';
             $odd_row = ! $odd_row;
             ?>
     <th><?php echo $header_val; ?></th>
