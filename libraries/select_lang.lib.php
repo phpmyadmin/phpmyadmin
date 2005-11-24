@@ -2,17 +2,113 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * phpMyAdmin Language Loading File
  */
 
 /**
- * Define the path to the translations directory and get some variables
- * from system arrays if 'register_globals' is set to 'off'
+ * trys to find the language to use
+ *
+ * @uses    $GLOBALS['cfg']['lang']
+ * @uses    $GLOBALS['cfg']['DefaultLang']
+ * @uses    $_REQUEST['lang']
+ * @uses    $_COOKIE['pma_lang']
+ * @uses    $_SERVER['HTTP_ACCEPT_LANGUAGE']
+ * @uses    $_SERVER['HTTP_USER_AGENT']
+ * @uses    PMA_langSet()
+ * @uses    PMA_langDetect()
+ * @uses    explode()
+ * @return  bool    success if valid lang is found, otherwise false
  */
-$lang_path = './lang/';
+function PMA_langCheck() {
+    // check forced language
+    if ( PMA_langSet($GLOBALS['cfg']['Lang']) ) {
+        return true;
+    }
 
+    // check previous set language
+    if ( PMA_langSet($_REQUEST['lang']) ) {
+        return true;
+    }
+    if ( PMA_langSet( $_COOKIE['pma_lang'] ) ) {
+        return true;
+    }
+
+    // try to findout user's language by checking its HTTP_ACCEPT_LANGUAGE variable
+    if ( ! empty($_SERVER['HTTP_ACCEPT_LANGUAGE']) ) {
+        foreach ( explode( ',', $_SERVER['HTTP_ACCEPT_LANGUAGE'] ) as $lang ) {
+            if ( PMA_langDetect( $lang, 1 ) ) {
+                return true;
+            }
+        }
+    }
+
+    // try to findout user's language by checking its HTTP_USER_AGENT variable
+    if ( PMA_langDetect($_SERVER['HTTP_USER_AGENT'], 2) ) {
+        return true;
+    }
+
+    // Didn't catch any valid lang : we use the default settings
+    if ( PMA_langSet($GLOBALS['cfg']['DefaultLang']) ) {
+        return true;
+    }
+
+    return false;
+}
+
+/**
+ * checks given lang and sets it if valid
+ * returns true on success, otherwise flase
+ *
+ * @global  $available_languages to check given lang
+ * @global  $lang   to set it
+ * @param   string  $lang   langauge to set
+ * @return  bool    success
+ */
+function PMA_langSet( $lang ) {
+    if ( !empty( $lang )
+      && !empty( $GLOBALS['available_languages'][$lang] ) ) {
+        $GLOBALS['lang'] = $lang;
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Analyzes some PHP environment variables to find the most probable language
+ * that should be used
+ *
+ * @param   string   string to analyze
+ * @param   integer  type of the PHP environment variable which value is $str
+ *
+ * @return  bool    true on success, otherwise false
+ *
+ * @global  $available_languages
+ *
+ * @access  private
+ */
+function PMA_langDetect( $str, $envType ) {
+    if ( empty( $str ) )                            return false;
+    if ( empty( $GLOBALS['available_languages'] ) ) return false;
+
+    foreach ($GLOBALS['available_languages'] as $lang => $value) {
+        // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
+        //             2 for the 'HTTP_USER_AGENT' one
+        $expr = $value[0];
+        if (strpos($expr, '[-_]') === FALSE) {
+            $expr = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $expr);
+        }
+        if (($envType == 1 && eregi('^(' . $expr . ')(;q=[0-9]\\.[0-9])?$', $str))
+            || ($envType == 2 && eregi('(\(|\[|;[[:space:]])(' . $expr . ')(;|\]|\))', $str))) {
+            if ( PMA_langSet( $lang ) ) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+} // end of the 'PMA_langDetect()' function
 
 /**
  * All the supported languages have to be listed in the array below.
@@ -181,66 +277,6 @@ if (!empty($GLOBALS['cfg']['FilterLanguages'])) {
     unset( $key, $val, $new_lang );
 }
 
-/**
- * Analyzes some PHP environment variables to find the most probable language
- * that should be used
- *
- * @param   string   string to analyze
- * @param   integer  type of the PHP environment variable which value is $str
- *
- * @global  array    the list of available translations
- * @global  string   the retained translation keyword
- *
- * @access  private
- */
-function PMA_langDetect($str = '', $envType = '')
-{
-    global $available_languages;
-    global $lang;
-
-    foreach ($available_languages AS $key => $value) {
-        // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
-        //             2 for the 'HTTP_USER_AGENT' one
-        $expr = $value[0];
-        if (strpos($expr, '[-_]') === FALSE) {
-            $expr = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $expr);
-        }
-        if (($envType == 1 && eregi('^(' . $expr . ')(;q=[0-9]\\.[0-9])?$', $str))
-            || ($envType == 2 && eregi('(\(|\[|;[[:space:]])(' . $expr . ')(;|\]|\))', $str))) {
-            $lang     = $key;
-            break;
-        }
-    }
-} // end of the 'PMA_langDetect()' function
-
-
-if (!isset($lang)) {
-    if (isset($_GET) && !empty($_GET['lang'])) {
-        $lang = $_GET['lang'];
-    }
-    else if (isset($_POST) && !empty($_POST['lang'])) {
-        $lang = $_POST['lang'];
-    }
-    else if (isset($_COOKIE) && !empty($_COOKIE['pma_lang'])) {
-        $lang = $_COOKIE['pma_lang'];
-    }
-}
-
-
-/**
- * Do the work!
- */
-
-// compatibility with config.inc.php <= v1.80
-if (!isset($cfg['Lang']) && isset($cfgLang)) {
-    $cfg['Lang']        = $cfgLang;
-    unset($cfgLang);
-}
-if (!isset($cfg['DefaultLang']) && isset($cfgDefaultLang)) {
-    $cfg['DefaultLang'] = $cfgDefaultLang;
-    unset($cfgLang);
-}
-
 // MySQL charsets map
 $mysql_charset_map = array(
     'big5'         => 'big5',
@@ -268,48 +304,53 @@ $mysql_charset_map = array(
     'windows-1257' => 'cp1257',
 );
 
-// Lang forced
-if (!empty($cfg['Lang'])) {
-    $lang = $cfg['Lang'];
-}
+/**
+ * Do the work!
+ */
 
-// If '$lang' is defined, ensure this is a valid translation
-if (!empty($lang) && empty($available_languages[$lang])) {
-    $lang = '';
-}
-
-// Language is not defined yet :
-// 1. try to findout user's language by checking its HTTP_ACCEPT_LANGUAGE
-//    variable
-if (empty($lang) && !empty($HTTP_ACCEPT_LANGUAGE)) {
-    $accepted    = explode(',', $HTTP_ACCEPT_LANGUAGE);
-    $acceptedCnt = count($accepted);
-    for ($i = 0; $i < $acceptedCnt && empty($lang); $i++) {
-        PMA_langDetect($accepted[$i], 1);
-    }
-}
-// 2. try to findout user's language by checking its HTTP_USER_AGENT variable
-if (empty($lang) && !empty($HTTP_USER_AGENT)) {
-    PMA_langDetect($HTTP_USER_AGENT, 2);
-}
-
-// 3. Didn't catch any valid lang : we use the default settings
-if (empty($lang)) {
-    $lang = $cfg['DefaultLang'];
-}
-
-// 4. Checks whether charset recoding should be allowed or not
+// Checks whether charset recoding should be allowed or not
 $allow_recoding = FALSE; // Default fallback value
-if (!isset($convcharset) || empty($convcharset)) {
+if ( empty($convcharset) ) {
     if (isset($_COOKIE['pma_charset'])) {
         $convcharset = $_COOKIE['pma_charset'];
     } else {
-        $convcharset = $cfg['DefaultCharset'];
+        $convcharset = $GLOBALS['cfg']['DefaultCharset'];
     }
 }
 
-// 5. Defines the associated filename and load the translation
-$lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php';
-require_once( $lang_file );
-unset( $lang_file, $lang_path );
+if ( ! PMA_langCheck() ) {
+    // language detection failed
+    $GLOBALS['lang'] = '';
+}
+
+/**
+ * Define the path to the translations directory
+ */
+$lang_path = './lang/';
+
+// Defines the associated filename and load the translation
+$lang_file = './' . $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';
+
+if ( file_exists( $lang_file ) ) {
+    require_once( $lang_file );
+} else {
+    // language file not found
+    // fallback language
+    if ( $line = __LINE__ && ! PMA_langSet( $selectlang = 'en-iso-8859-1' ) ) {
+        // if even hard coded lang fails
+        trigger_error( 'ERROR: check hard coded language in ' . __FILE__ . ' on line #' . $line . ', unknown ISO-code', E_USER_WARNING );
+        header( 'Location: error.php?file=' . urlencode( __FILE__ ) . '&line=' . urlencode( __LINE__ ) . '&error=' . urlencode( 'invalid language ISO code: ' . $lang_file ) );
+        exit;
+    }
+    $lang_file = './' . $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';
+    if ( ! file_exists( $lang_file ) ) {
+        // if even hard coded lang fails to load
+        trigger_error( 'ERROR: check hard coded language in ' . __FILE__ . ' on line #' . $line . ', file not found', E_USER_WARNING );
+        header( 'Location: error.php?file=' . urlencode( __FILE__ ) . '&line=' . urlencode( __LINE__ ) . '&error=' . urlencode( 'could not find language file: ' . $lang_file ) );
+        exit;
+    }
+    require_once( $lang_file );
+    $GLOBALS['PMA_errors'][] = $strLanguageFileNotFound;
+}
+unset( $lang_file, $lang_path, $strLanguageFileNotFound );
 ?>
