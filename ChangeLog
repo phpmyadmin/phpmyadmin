@@ -28,6 +28,7 @@ $Source$
     * main.php, css/phpmyadmin.css.php:
       - replaced table layout
       - added some more infos
+    * themes/original/css/theme_left.cs..php: fixed font size
 
 2005-11-23 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * *REVERTED* libraries/display_select_lang.lib.php: correct lang definition

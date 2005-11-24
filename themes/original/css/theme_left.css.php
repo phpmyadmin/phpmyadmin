@@ -72,6 +72,10 @@ div#left_tableList ul {
     background-color: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
 }
 
+div#left_tableList ul ul {
+    font-size: 100%;
+}
+
 div#left_tableList a {
     color: #333399;
     text-decoration: none;
