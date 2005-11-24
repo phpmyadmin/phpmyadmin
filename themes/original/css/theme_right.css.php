@@ -1,9 +1,4 @@
 /* Always enabled stylesheets (right frame) */
-html {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     margin: 0.5em;
     padding: 0;
@@ -21,9 +16,65 @@ body {
     background-color: <?php echo $GLOBALS['cfg']['RightBgColor'] . "\n"; ?>
 }
 
+
+/* querywindow */
+body#bodyquerywindow {
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    background-color: <?php echo $GLOBALS['cfg']['RightBgColor'] . "\n"; ?>
+}
+
+div#querywindowcontainer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+div#querywindowcontainer fieldset {
+    margin-top: 0;
+}
+/* END querywindow */
+
+
+/* querybox */
+
+div#sqlquerycontainer {
+    float: left;
+    width: 69%;
+    /* height: 15em; */
+}
+
+div#tablefieldscontainer  {
+    float: right;
+    width: 29%;
+    /* height: 15em; */
+}
+
+div#tablefieldscontainer select  {
+    width: 100%;
+    /* height: 12em; */
+}
+
+textarea#sqlquery {
+    width: 100%;
+    /* height: 100%; */
+}
+
+div#queryboxcontainer div#bookmarkoptions {
+    margin-top: 0.5em;
+}
+/* end querybox */
+
+
 th              {font-family: <?php echo $right_font_family; ?>;  font-weight: bold; color: #000000; background-color: <?php echo $GLOBALS['cfg']['ThBgcolor']; ?>}
 td              {font-family: <?php echo $right_font_family; ?>; }
-form            {font-family: <?php echo $right_font_family; ?>;  padding: 0px; margin: 0px;}
+form {
+    font-family: <?php echo $right_font_family; ?>;
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
 input           {font-family: <?php echo $right_font_family; ?>; }
 input.textfield {font-family: <?php echo $right_font_family; ?>;  color: #000000; background-color: #FFFFFF}
 select          {font-family: <?php echo $right_font_family; ?>;  color: #000000; background-color: #FFFFFF}
@@ -37,18 +88,141 @@ a:hover         {font-family: <?php echo $right_font_family; ?>;  text-decoratio
 dfn             {font-style: normal}
 dfn:hover       {font-style: normal; cursor: help}
 
+a img {
+    border: 0;
+}
+
+hr {
+    color: #666666;
+    background-color: #666666;
+    border: 0;
+    height: 1px;
+}
+
+
 fieldset        {
+    margin-top: 1em;
     border:     #686868 solid 1px;
     padding:    0.5em;
+    background-color: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
 }
 fieldset fieldset {
     margin:     0.8em;
+}
+fieldset.tblFooters {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    text-align: right;
+    float: none;
+    clear: both;
+}
+fieldset .formelement {
+    line-height: 2.4em;
+    float: left;
+    margin-right: 0.5em;
+    /* IE */
+    white-space: nowrap;
+}
+/* revert for Gecko */
+fieldset div[class=formelement] {
+    white-space: normal;
+}
+fieldset legend {
+    background-color: transparent;
+}
+
+/* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
+button { display: inline; }
+
+/* Textarea */
+textarea { overflow: auto; }
+
+
+/* IE */
+fieldset .formelement input,
+fieldset .formelement select {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+/* revert for Gecko */
+fieldset div[class=formelement] input,
+fieldset div[class=formelement] select {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: auto;
 }
 
 button.mult_submit {
     border: none;
     background-color: transparent;
 }
+
+
+/* data tables */
+table caption,
+table th,
+table td {
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    margin: 0;
+    margin: 0.1em;
+    vertical-align: top;
+}
+
+/* odd table rows 1,3,5,7,... */
+table tr.odd th,
+table tr.odd {
+    background-color: <?php echo $GLOBALS['cfg']['BgcolorOne']; ?>;
+    text-align: left;
+}
+
+/* even table rows 2,4,6,8,... */
+table tr.even th,
+table tr.even {
+    background-color: <?php echo $GLOBALS['cfg']['BgcolorTwo']; ?>;
+    text-align: left;
+}
+
+/* marked tbale rows */
+table tr.marked th,
+table tr.marked {
+    background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+
+/* hovered table rows */
+table tr.odd:hover,
+table tr.even:hover,
+table tr.odd:hover th,
+table tr.even:hover th,
+table tr.hover th,
+table tr.hover {
+    background-color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+}
+
+table .value {
+    text-align: right;
+    white-space: nowrap;
+}
+/* IE doesnt handles 'pre' right */
+table [class=value] {
+    white-space: pre;
+}
+
+.value {
+    font-family: "Courier New", Courier, monospace;
+}
+.value .attention {
+    color: red;
+    font-weight: bold;
+}
+.value .allfine {
+    color: green;
+}
+
+
+img.lightbulb {
+    cursor: pointer;
+}
+
 
 .pdflayout {
     overflow:         hidden;
@@ -94,7 +268,23 @@ button.mult_submit {
 .syntax_quote              {white-space: pre;}
 .syntax_quote_backtick     {}
 
-hr{ color: #666666; background-color: #666666; border: 0; height: 1px; }
+
+/* leave some space between icons and text */
+.icon {
+    vertical-align: middle;
+    margin-right: 0.3em;
+    margin-left: 0.3em;
+}
+/* no extra space in table cells */
+td .icon {
+    margin: 0;
+}
+
+.selectallarrow {
+    margin-<?php echo $right; ?>: 0.3em;
+    margin-<?php echo $left; ?>: 0.6em;
+}
+
 
 /* topmenu */
 ul#topmenu {
@@ -186,6 +376,61 @@ span.tab, span.tabcaution {
 }
 <?php } ?>
 /* end topmenu */
+
+
+#fieldsetexport #exportoptions {
+    float: left;
+}
+
+
+/* Calendar */
+table.calendar      { width: 100%; }
+table.calendar td   { text-align: center; }
+table.calendar td a { display: block; }
+
+table.calendar td a:hover {
+    background-color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+}
+
+table.calendar th {
+    background-color: <?php echo $GLOBALS['cfg']['ThBgcolor']; ?>;
+}
+
+table.calendar td.selected {
+    background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+
+img.calendar { border: none; }
+form.clock   { text-align: center; }
+/* end Calendar */
+
+
+/* table stats */
+div#tablestatistics {
+    border-bottom: 0.1em solid #669999;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+div#tablestatistics table {
+    float: left;
+    margin-bottom: 0.5em;
+    margin-right: 0.5em;
+}
+
+div#tablestatistics table caption {
+    margin-right: 0.5em;
+}
+/* END tabel stats */
+
+
+/* server privileges */
+#tableuserrights td,
+#tablespecificuserrights td,
+#tabledatabases td {
+    vertical-align: middle;
+}
+/* END server privileges */
 
 
 /* message boxes: warning, error, confirmation */
@@ -392,18 +637,8 @@ tr.disabled td, td.disabled {
     font-family:      <?php echo $right_font_family; ?>;
 }
 
-fieldset {
-    margin-top: 1em;
-}
 
-fieldset.tblFooters {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-    text-align: right;
-    float: none;
-    clear: both;
-}
-
+/* user privileges */
 #fieldset_add_user_login div.item {
     border-bottom: 1px solid silver;
     padding-bottom: 0.3em;
@@ -465,3 +700,49 @@ fieldset.tblFooters {
 #fieldset_user_global_rights fieldset {
     float: left;
 }
+/* END user privileges */
+
+
+/* serverstatus */
+div#serverstatus table caption a.top {
+    float: right;
+}
+
+div#serverstatus div#serverstatusqueriesdetails table,
+div#serverstatus table#serverstatustraffic,
+div#serverstatus table#serverstatusconnections {
+    float: left;
+}
+
+#serverstatussection,
+.clearfloat {
+    clear: both;
+}
+div#serverstatussection table {
+    width: 100%;
+    margin-bottom: 1em;
+}
+div#serverstatussection table .name {
+    width: 18em;
+}
+div#serverstatussection table .value {
+    width: 6em;
+}
+
+div#serverstatus table tbody td.descr a,
+div#serverstatus table .tblFooters a {
+    white-space: nowrap;
+}
+div#serverstatus div#statuslinks a:before,
+div#serverstatus div#sectionlinks a:before,
+div#serverstatus table tbody td.descr a:before,
+div#serverstatus table .tblFooters a:before {
+    content: '[';
+}
+div#serverstatus div#statuslinks a:after,
+div#serverstatus div#sectionlinks a:after,
+div#serverstatus table tbody td.descr a:after,
+div#serverstatus table .tblFooters a:after {
+    content: ']';
+}
+/* end serverstatus */

@@ -7,9 +7,34 @@ body#body_leftFrame {
     background-color: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
 }
 
+a img {
+    border: 0;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
 select {
     background-color: #ffffff;
     color: #000000;
+}
+
+/* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
+button { display: inline; }
+
+
+/* leave some space between icons and text */
+.icon {
+    vertical-align: middle;
+    margin-right: 0.3em;
+    margin-left: 0.3em;
+}
+
+img.lightbulb {
+    cursor: pointer;
 }
 
 div#pmalogo,
@@ -21,8 +46,10 @@ div#databaseList {
     padding-bottom: 0.5em;
 }
 
-div#leftframelinks img {
+div#leftframelinks .icon {
     vertical-align: middle;
+    padding: 0;
+    margin: 0;
 }
 
 div#leftframelinks a {
@@ -35,17 +62,14 @@ div#leftframelinks a:hover {
     background-color: #669999;
 }
 
-div#databaseList form {
-    display: inline;
-}
-
 /* leftdatabaselist */
-div#left_tableList {
+div#left_tableList ul {
     list-style-type: none;
     list-style-position: outside;
     margin: 0;
     padding: 0;
     font-size: 80%;
+    background-color: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
 }
 
 div#left_tableList a {
@@ -71,6 +95,7 @@ div#left_tableList li:hover {
 <?php } ?>
 
 div#left_tableList img {
+    padding: 0;
     vertical-align: middle;
 }
 

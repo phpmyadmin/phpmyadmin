@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * themes/original/*, css/phpmyadmin.css.php:
+      - updated theme
+      - added version, to include only needed styles
+
 2005-11-23 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * *REVERTED* libraries/display_select_lang.lib.php: correct lang definition
     * themes/original/*, libraries/auth/*.auth.lib.php, server_privilegs.php,
