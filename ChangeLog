@@ -16,6 +16,7 @@ $Source$
       creation (bug #1358896).
     * js/functions.js: Better support for noclickable rows (see above).
     * lang/swedish: Update, thanks to Björn T. Hallberg - bjornth.
+    * lang/japanese: Update, thanks to Tadashi Jokagi - elf2000.
 
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/original/*, css/phpmyadmin.css.php:

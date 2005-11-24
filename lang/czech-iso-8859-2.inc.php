@@ -243,6 +243,7 @@ $strDropUsersDb = 'Odstranit databáze se stejnými jmény jako u¾ivatelé.';
 $strDumpingData = 'Vypisuji data pro tabulku';
 $strDumpSaved = 'Výpis byl ulo¾en do souboru %s.';
 $strDumpXRows = 'Vypsat %s øádkù od %s.';
+$strDuplicateFrameset = 'Otevøít toto rozlo¾ení v&nbsp;novém oknì';
 $strDynamic = 'dynamický';
 
 $strEditPDFPages = 'Upravit PDF stránky';
@@ -960,5 +961,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strDuplicateFrameset = 'Duplicate current frameset';  //to translate
 ?>
