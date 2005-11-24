@@ -473,7 +473,7 @@ function PMA_markRowsInit() {
 	var rows = document.getElementsByTagName('tr');
 	for ( var i = 0; i < rows.length; i++ ) {
 	    // ... with the class 'odd' or 'even' ...
-		if ( 'odd' != rows[i].className && 'even' != rows[i].className ) {
+		if ( 'odd' != rows[i].className.substr(0,3) && 'even' != rows[i].className.substr(0,4) ) {
 		    continue;
 		}
 	    // ... add event listeners ...
@@ -487,6 +487,10 @@ function PMA_markRowsInit() {
 			    this.className = this.className.replace( ' hover', '' );
 			}
 	    }
+        // Do not set click events if not wanted
+        if (rows[i].className.search(/noclick/) != -1) {
+            continue;
+        }
         // ... and to mark the row on click ...
 		rows[i].onmousedown = function() {
 		    var unique_id;

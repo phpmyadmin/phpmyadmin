@@ -14,6 +14,7 @@ $Source$
     * tbl_query_box.php: Remove unused file.
     * libraries/tbl_properties.inc.php: Disable clicking events on table
       creation (bug #1358896).
+    * js/functions.js: Better support for noclickable rows (see above).
 
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/original/*, css/phpmyadmin.css.php:
