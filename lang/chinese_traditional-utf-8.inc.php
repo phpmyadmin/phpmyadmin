@@ -963,6 +963,6 @@ $strFileNameTemplateDescriptionServer = 'server name';  //to translate
 $strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally folloving transformations will happen: %3$s. Other text will be kept as is.';  //to translate
 $strDuplicateFrameset = 'Duplicate current frameset';  //to translate
 $strProtocolVersion = 'Protocol version';  //to translate
-$strMySQLClientVersion = 'MySQL client version';  //to translate
 $strUsedPhpExtension = 'Used PHP extensions';  //to translate
+$strMysqlClientVersion = 'MySQL client version';  //to translate
 ?>
