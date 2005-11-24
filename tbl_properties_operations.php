@@ -596,5 +596,5 @@ if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
  * Displays the footer
  */
 echo "\n";
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 ?>

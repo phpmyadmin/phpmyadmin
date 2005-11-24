@@ -42,7 +42,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
 
     // Displays headers (if needed)
     $js_to_run = ((isset($index) && isset($do_save_data)) ? 'functions.js' : 'indexes.js');
-    require_once('./header.inc.php');
+    require_once('./libraries/header.inc.php');
 } // end if
 
 
@@ -422,6 +422,6 @@ else if (!defined('PMA_IDX_INCLUDED')
 echo "\n";
 
 if (!defined('PMA_IDX_INCLUDED')){
-    require_once('./footer.inc.php');
+    require_once('./libraries/footer.inc.php');
 }
 ?>

@@ -16,6 +16,6 @@ require('./libraries/display_import.lib.php');
 /**
  * Displays the footer
  */
-require('./footer.inc.php');
+require('./libraries/footer.inc.php');
 ?>
 

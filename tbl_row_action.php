@@ -11,7 +11,7 @@ if ((!isset($rows_to_delete) || !is_array($rows_to_delete)) && !isset($mult_btn)
     $disp_message = $strNoRowsSelected;
     $disp_query = '';
     require('./sql.php');
-    require_once('./footer.inc.php');
+    require_once('./libraries/footer.inc.php');
 }
 
 /**
@@ -63,7 +63,7 @@ if ($submit_mult == 'row_delete' || $submit_mult == 'row_export') {
     $js_to_run = 'functions.js';
 }
 
-require_once('./header.inc.php');
+require_once('./libraries/header.inc.php');
 
 if (!empty($submit_mult)) {
     switch($submit_mult) {
@@ -141,7 +141,7 @@ if (!empty($submit_mult)) {
             /**
              * Displays the footer
              */
-            require_once('./footer.inc.php');
+            require_once('./libraries/footer.inc.php');
         break;
     }
 }

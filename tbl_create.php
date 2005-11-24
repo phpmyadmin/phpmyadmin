@@ -13,7 +13,7 @@ if (isset($table)) {
     $table = PMA_sanitize($table);
 }
 
-require_once('./header.inc.php');
+require_once('./libraries/header.inc.php');
 
 // Check parameters
 PMA_checkParameters(array('db', 'table'));
@@ -231,7 +231,7 @@ if ($abort == FALSE) {
         require('./libraries/tbl_properties.inc.php');
         // Displays the footer
         echo "\n";
-        require_once('./footer.inc.php');
+        require_once('./libraries/footer.inc.php');
    }
 }
 

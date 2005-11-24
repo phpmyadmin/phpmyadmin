@@ -282,7 +282,7 @@ if ($save_on_server) {
     }
     if (isset($message)) {
         $js_to_run = 'functions.js';
-        require_once('./header.inc.php');
+        require_once('./libraries/header.inc.php');
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
             require('./server_export.php');
@@ -325,7 +325,7 @@ if (!$save_on_server) {
     } else {
         // HTML
         $backup_cfgServer = $cfg['Server'];
-        require_once('./header.inc.php');
+        require_once('./libraries/header.inc.php');
         $cfg['Server'] = $backup_cfgServer;
         unset($backup_cfgServer);
         echo "\n" . '<div align="' . $cell_align_left . '">' . "\n";
@@ -346,7 +346,7 @@ if ($export_type == 'database') {
     if ($num_tables == 0) {
         $message = $strNoTablesFound;
         $js_to_run = 'functions.js';
-        require_once('./header.inc.php');
+        require_once('./libraries/header.inc.php');
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
             require('./server_export.php');
@@ -487,7 +487,7 @@ if (!PMA_exportFooter()) break;
 
 if ($save_on_server && isset($message)) {
     $js_to_run = 'functions.js';
-    require_once('./header.inc.php');
+    require_once('./libraries/header.inc.php');
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
         require('./server_export.php');
@@ -524,9 +524,9 @@ if (!empty($asfile)) {
         if (@function_exists('bzcompress')) {
             $dump_buffer = bzcompress($dump_buffer);
             if ($dump_buffer === -8) {
-                require_once('./header.inc.php');
+                require_once('./libraries/header.inc.php');
                 echo sprintf($strBzError, '<a href="http://bugs.php.net/bug.php?id=17300" target="_blank">17300</a>');
-                require_once('./footer.inc.php');
+                require_once('./libraries/footer.inc.php');
             }
         }
     }
@@ -549,7 +549,7 @@ if (!empty($asfile)) {
         }
 
         $js_to_run = 'functions.js';
-        require_once('./header.inc.php');
+        require_once('./libraries/header.inc.php');
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
             require_once('./server_export.php');
@@ -598,6 +598,6 @@ else {
 //-->
 </script>
 <?php
-    require_once('./footer.inc.php');
+    require_once('./libraries/footer.inc.php');
 } // end if
 ?>

@@ -8,7 +8,7 @@
 require_once('./libraries/common.lib.php');
 
 $js_to_run = 'functions.js';
-require_once('./header.inc.php');
+require_once('./libraries/header.inc.php');
 
 // Check parameters
 PMA_checkParameters(array('db', 'table'));
@@ -226,7 +226,7 @@ if ($abort == FALSE) {
 
     // Diplays the footer
     echo "\n";
-    require_once('./footer.inc.php');
+    require_once('./libraries/footer.inc.php');
 }
 
 ?>

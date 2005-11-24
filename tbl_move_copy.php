@@ -51,7 +51,7 @@ if (isset($new_name) && trim($new_name) != '') {
             }
         }
     }
-    require_once('./header.inc.php');
+    require_once('./libraries/header.inc.php');
 } // end is target table name
 
 
@@ -59,7 +59,7 @@ if (isset($new_name) && trim($new_name) != '') {
  * No new name for the table!
  */
 else {
-    require_once('./header.inc.php');
+    require_once('./libraries/header.inc.php');
     PMA_mysqlDie($strTableEmpty, '', '', $err_url);
 }
 

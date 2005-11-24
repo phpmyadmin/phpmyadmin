@@ -30,7 +30,7 @@ $err_url = 'main.php' . $url_query;
 /**
  * Displays the headers
  */
-require_once('./header.inc.php');
+require_once('./libraries/header.inc.php');
 
 /**
  * Checks for superuser privileges

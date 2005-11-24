@@ -12,7 +12,7 @@ PMA_checkParameters(array('db', 'table'));
 
 /**
  * Defining global variables, in case this script is included by a function.
- * This is necessary because this script can be included by header.inc.php.
+ * This is necessary because this script can be included by libraries/header.inc.php.
  */
 global $showtable, $tbl_is_view, $tbl_type, $show_comment, $tbl_collation,
        $table_info_num_rows, $auto_increment;

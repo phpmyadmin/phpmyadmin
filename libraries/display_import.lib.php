@@ -22,7 +22,7 @@ if (empty($import_list)) {
     $GLOBALS['show_error_header'] = TRUE;
     PMA_showMessage($strCanNotLoadImportPlugins);
     unset($GLOBALS['show_error_header']);
-    require('./footer.inc.php');
+    require('./libraries/footer.inc.php');
 }
 
 function PMA_getString($name) {

@@ -43,7 +43,7 @@ if (!$is_superuser) {
        . $GLOBALS['strPrivileges'] . "\n"
        . '</h2>' . "\n"
        . $GLOBALS['strNoPrivileges'] . "\n";
-    require_once('./footer.inc.php');
+    require_once('./libraries/footer.inc.php');
 }
 
 /**
@@ -1547,7 +1547,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
         if ( $user_does_not_exists ) {
             echo $GLOBALS['strUserNotFound'];
             PMA_displayLoginInformationFields();
-            //require_once('./footer.inc.php');
+            //require_once('./libraries/footer.inc.php');
         }
         echo '<form name="usersForm" id="usersForm" action="server_privileges.php" method="post">' . "\n"
            . PMA_generate_common_hidden_inputs('', '', 3)
@@ -2109,6 +2109,6 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
  * Displays the footer
  */
 echo "\n\n";
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 
 ?>

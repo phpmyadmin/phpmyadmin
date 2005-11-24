@@ -29,7 +29,7 @@ if (isset($new_name) && trim($new_name) != '' && strpos($new_name,'.') === FALSE
         exit();
     }
 
-    require_once('./header.inc.php');
+    require_once('./libraries/header.inc.php');
     PMA_DBI_select_db($db);
     $sql_query = 'ALTER TABLE ' . PMA_backquote($old_name) . ' RENAME ' . PMA_backquote($new_name) . ';';
     $result    = PMA_DBI_query($sql_query);
@@ -93,7 +93,7 @@ if (isset($new_name) && trim($new_name) != '' && strpos($new_name,'.') === FALSE
  * No new name for the table!
  */
 else {
-    require_once('./header.inc.php');
+    require_once('./libraries/header.inc.php');
     if (strpos($new_name,'.') === FALSE) {
         PMA_mysqlDie($strTableEmpty, '', '', $err_url);
     } else {

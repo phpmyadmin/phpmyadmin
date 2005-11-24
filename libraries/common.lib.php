@@ -640,7 +640,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     {
         global $cfg, $table, $db, $sql_query;
 
-        require_once('./header.inc.php');
+        require_once('./libraries/header.inc.php');
 
         if (!$error_message) {
             $error_message = PMA_DBI_getError();
@@ -772,7 +772,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         }
         echo '    </fieldset>' . "\n\n";
         if ($exit) {
-            require_once('./footer.inc.php');
+            require_once('./libraries/footer.inc.php');
         }
     } // end of the 'PMA_mysqlDie()' function
 

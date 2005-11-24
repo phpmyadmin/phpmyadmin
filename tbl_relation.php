@@ -539,5 +539,5 @@ if ( $tbl_type === 'INNODB' && PMA_MYSQL_INT_VERSION < 40013 ) {
 /**
  * Displays the footer
  */
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 ?>

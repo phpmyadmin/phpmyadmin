@@ -2292,9 +2292,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     This seems to be a PWS bug. Filippo Simoncini found a workaround (at this
     time there is no better fix): remove or comment the <tt>DOCTYPE</tt>
-    declarations (2 lines) from the scripts <i>header.inc.php</i>,
-    <i>header_printview.inc.php</i>, <i>index.php</i>, <i>left.php</i> and
-    <i>libraries/common.lib.php</i>.
+    declarations (2 lines) from the scripts <i>libraries/header.inc.php</i>,
+    <i>libraries/header_printview.inc.php</i>, <i>index.php</i>,
+    <i>left.php</i> and <i>libraries/common.lib.php</i>.
 </p>
 
 <a name="faq1_7"></a>
@@ -4147,7 +4147,7 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
 </p>
 <ul>
     <li>
-        All files include <i>header.inc.php</i> (layout),
+        All files include <i>libraries/header.inc.php</i> (layout),.
         <i>libraries/common.lib.php</i> (common functions) and
         <i>config.inc.php</i>.
         <br />

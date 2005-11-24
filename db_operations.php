@@ -407,5 +407,5 @@ if (($cfgRelation['pdfwork'] && $num_tables > 0) ||
  * Displays the footer
  */
 echo "\n";
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 ?>

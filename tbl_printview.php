@@ -8,7 +8,7 @@ require_once('./libraries/common.lib.php');
  */
 $print_view = TRUE;
 if (!isset($selected_tbl)) {
-    require_once('./header.inc.php');
+    require_once('./libraries/header.inc.php');
 }
 
 // Check parameters
@@ -56,7 +56,7 @@ $multi_tables     = (count($the_tables) > 1);
 
 if ($multi_tables) {
     if (empty($GLOBALS['is_header_sent'])) {
-        require_once('./header.inc.php');
+        require_once('./libraries/header.inc.php');
     }
     $tbl_list     = '';
     foreach ($the_tables AS $key => $table) {
@@ -557,5 +557,5 @@ function printPage()
 <?php
 echo '<br /><br />&nbsp;<input type="button" class="print_ignore" style="width: 100px; height: 25px" id="print" value="' . $strPrint . '" onclick="printPage()" />' . "\n";
 
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 ?>

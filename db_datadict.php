@@ -8,7 +8,7 @@
 require_once('./libraries/common.lib.php');
 
 if (!isset($selected_tbl)) {
-    require_once('./header.inc.php');
+    require_once('./libraries/header.inc.php');
 }
 
 
@@ -295,5 +295,5 @@ function printPage()
 <?php
 echo '<br /><br /><input type="button" id="print" value="' . $strPrint . '" onclick="printPage()" />';
 
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 ?>

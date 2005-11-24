@@ -43,7 +43,7 @@ if (isset($table)) {
     unset($table);
 }
 $show_query = '1';
-require_once('./header.inc.php');
+require_once('./libraries/header.inc.php');
 
 
 /**
@@ -542,5 +542,5 @@ if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
 /**
  * Displays the footer
  */
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 ?>

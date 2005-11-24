@@ -223,6 +223,6 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
 /**
  * Sends the footer
  */
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 
 ?>

@@ -72,7 +72,7 @@ if (!defined('PMA_CHK_DROP')
     && !$cfg['AllowUserDropDatabase']
     && $is_drop_database
     && !$is_superuser) {
-    require_once('./header.inc.php');
+    require_once('./libraries/header.inc.php');
     PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
 } // end if
 
@@ -221,7 +221,7 @@ if (!$cfg['Confirm']
 
 if ( $do_confirm ) {
     $stripped_sql_query = $sql_query;
-    require_once('./header.inc.php');
+    require_once('./libraries/header.inc.php');
     if ( $is_drop_database) {
         echo '<h1 class="warning">' . $strDropDatabaseStrongWarning . '</h1>';
     }
@@ -382,7 +382,7 @@ else {
 
         // Displays an error message if required and stop parsing the script
         if ($error        = PMA_DBI_getError()) {
-            require_once('./header.inc.php');
+            require_once('./libraries/header.inc.php');
             $full_err_url = (preg_match('@^(db_details|tbl_properties)@', $err_url))
                           ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
                           : $err_url;
@@ -666,7 +666,7 @@ else {
                 $js_to_run = 'functions.js';
             }
             if ($goto != 'main.php') {
-                require_once('./header.inc.php');
+                require_once('./libraries/header.inc.php');
             }
             $active_page = $goto;
             require('./' . $goto);
@@ -684,7 +684,7 @@ else {
             unset($show_query);
         }
         if (isset($printview) && $printview == '1') {
-            require_once('./header_printview.inc.php');
+            require_once('./libraries/header_printview.inc.php');
         } else {
             $js_to_run = 'functions.js';
             unset($message);
@@ -916,5 +916,5 @@ echo "\n\n";
 /**
  * Displays the footer
  */
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 ?>

@@ -110,6 +110,6 @@ foreach ($serverVars as $name => $value) {
 /**
  * Sends the footer
  */
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 
 ?>

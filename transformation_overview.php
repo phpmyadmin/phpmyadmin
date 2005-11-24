@@ -11,7 +11,7 @@ define('PMA_DISPLAY_HEADING', 0);
  * Gets some core libraries and displays a top message if required
  */
 require_once('./libraries/common.lib.php');
-require_once('./header.inc.php');
+require_once('./libraries/header.inc.php');
 require_once('./libraries/relation.lib.php');
 require_once('./libraries/transformations.lib.php');
 $cfgRelation = PMA_getRelationsParam();
@@ -65,6 +65,6 @@ foreach ($types['transformation'] AS $key => $transform) {
  * Displays the footer
  */
 echo "\n";
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 
 ?>

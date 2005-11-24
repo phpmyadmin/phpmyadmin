@@ -14,7 +14,7 @@ require_once('./libraries/common.lib.php');
  * the headers
  */
 require_once('./libraries/read_dump.lib.php');
-require_once('./header.inc.php');
+require_once('./libraries/header.inc.php');
 
 // Check parameters
 PMA_checkParameters(array('db'));
@@ -291,6 +291,6 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
  * Displays the footer
  */
 echo "\n";
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 
 ?>

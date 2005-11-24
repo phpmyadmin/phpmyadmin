@@ -275,7 +275,7 @@ class PMA_PDF extends PMA_FPDF
         global $server, $lang, $convcharset, $db;
         global $charset, $text_dir, $strRunning, $strDatabase;
 
-        require_once('./header.inc.php');
+        require_once('./libraries/header.inc.php');
 
         echo '<p><b>PDF - '. $GLOBALS['strError'] . '</b></p>' . "\n";
         if (!empty($error_message)) {
@@ -289,7 +289,7 @@ class PMA_PDF extends PMA_FPDF
              . '">' . $GLOBALS['strBack'] . '</a>';
         echo "\n";
 
-        require_once('./footer.inc.php');
+        require_once('./libraries/footer.inc.php');
     } // end of the "PMA_PDF_die()" function 
 
 

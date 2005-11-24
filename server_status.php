@@ -682,5 +682,5 @@ unset( $section_name, $section, $sections, $server_status, $odd_row, $alerts );
 /**
  * Sends the footer
  */
-require_once './footer.inc.php';
+require_once './libraries/footer.inc.php';
 ?>

@@ -35,7 +35,7 @@ require_once('./libraries/db_table_exists.lib.php');
  * Displays headers
  */
 $js_to_run = 'functions.js';
-require_once('./header.inc.php');
+require_once('./libraries/header.inc.php');
 
 
 /**

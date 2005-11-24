@@ -58,5 +58,5 @@ require_once('./libraries/display_export.lib.php');
 /**
  * Displays the footer
  */
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 ?>

@@ -28,7 +28,7 @@ $export_page_title = $strViewDumpDB;
 // exit if no tables in db found
 if ( $num_tables < 1 ) {
     echo $strDatabaseNoTable;
-    require('./footer.inc.php');
+    require('./libraries/footer.inc.php');
     exit;
 } // end if
 
@@ -69,5 +69,5 @@ require_once('./libraries/display_export.lib.php');
 /**
  * Displays the footer
  */
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 ?>

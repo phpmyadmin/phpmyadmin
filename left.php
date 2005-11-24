@@ -49,7 +49,7 @@ $db_start = $db;
 
 
 // garvin: For re-usability, moved http-headers
-// to a seperate file. It can now be included by header.inc.php,
+// to a seperate file. It can now be included by libraries/header.inc.php,
 // querywindow.php.
 
 require_once('./libraries/header_http.inc.php');

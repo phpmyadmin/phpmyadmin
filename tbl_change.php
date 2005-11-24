@@ -8,7 +8,7 @@
 require_once('./libraries/common.lib.php');
 
 $js_to_run = 'tbl_change.js';
-require_once('./header.inc.php');
+require_once('./libraries/header.inc.php');
 require_once('./libraries/relation.lib.php'); // foreign keys
 require_once('./libraries/file_listing.php'); // file listing
 
@@ -146,7 +146,7 @@ if (isset($primary_key)) {
                 unset($sql_query_cpy);
             }
             echo "\n";
-            require_once('./footer.inc.php');
+            require_once('./libraries/footer.inc.php');
         } // end if (no record returned)
     }
 } else {
@@ -944,5 +944,5 @@ if (isset($primary_key))
  * Displays the footer
  */
 echo "\n";
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 ?>

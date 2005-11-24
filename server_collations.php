@@ -30,7 +30,7 @@ echo '<h2>' . "\n"
  */
 if (PMA_MYSQL_INT_VERSION < 40100) {
     // TODO: Some nice Message :-)
-    require_once('./footer.inc.php');
+    require_once('./libraries/footer.inc.php');
 }
 
 
@@ -102,6 +102,6 @@ echo '            </table>' . "\n"
    . '    </tr>' . "\n"
    . '</table>' . "\n";
 
-require_once('./footer.inc.php');
+require_once('./libraries/footer.inc.php');
 
 ?>

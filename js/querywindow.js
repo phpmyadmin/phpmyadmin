@@ -1,7 +1,7 @@
 var querywindow = '';
 
 /**
- * sets current selected server, table and db (called from footer.inc.php)
+ * sets current selected server, table and db (called from libraries/footer.inc.php)
  */
 function setDb( new_db ) {
     //alert('setDb(' + new_db + ')');
@@ -49,7 +49,7 @@ function refreshLeft() {
 }
 
 /**
- * sets current selected server, table and db (called from footer.inc.php)
+ * sets current selected server, table and db (called from libraries/footer.inc.php)
  */
 function setAll( new_lang, new_collation_connection, new_server, new_db, new_table ) {
     //alert('setAll( ' + new_lang + ', ' + new_collation_connection + ', ' + new_server + ', ' + new_db + ', ' + new_table + ' )');

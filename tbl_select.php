@@ -301,7 +301,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
 </fieldset>
 </form>
     <?php
-    require_once('./footer.inc.php');
+    require_once('./libraries/footer.inc.php');
 }
 
 

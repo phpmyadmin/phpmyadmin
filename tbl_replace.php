@@ -204,7 +204,7 @@ if (empty($valuelist) && empty($query)) {
     $message = $strNoModification;
     if ($is_gotofile) {
         $js_to_run = 'functions.js';
-        require_once('./header.inc.php');
+        require_once('./libraries/header.inc.php');
         require('./' . PMA_securePath($goto));
     } else {
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . '&disp_query=');
@@ -257,7 +257,7 @@ if ($is_gotofile) {
     }
     $js_to_run = 'functions.js';
     $active_page = $goto;
-    require_once('./header.inc.php');
+    require_once('./libraries/header.inc.php');
     require('./' . PMA_securePath($goto));
 } else {
     // I don't understand this one:
