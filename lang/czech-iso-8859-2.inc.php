@@ -962,6 +962,6 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '&bdquo;zazipováno&ldquo;';
 
 $strProtocolVersion = 'Protocol version';  //to translate
-$strUsedPhpExtension = 'Used PHP extensions';  //to translate
 $strMysqlClientVersion = 'MySQL client version';  //to translate
+$strUsedPhpExtensions = 'Used PHP extensions';  //to translate
 ?>

@@ -219,7 +219,7 @@ echo '<ul>' . "\n";
 
 PMA_printListItem( $strMysqlClientVersion . ': ' . PMA_DBI_get_client_info(),
     'li_mysql_client_version' );
-PMA_printListItem( $strUsedPhpExtension . ': ' . $GLOBALS['cfg']['Server']['extension'],
+PMA_printListItem( $strUsedPhpExtensions . ': ' . $GLOBALS['cfg']['Server']['extension'],
     'li_used_php_extension' );
 
 // Displays language selection combo
