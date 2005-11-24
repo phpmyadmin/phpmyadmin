@@ -153,6 +153,51 @@ function PMA_DBI_free_result($result) {
 }
 
 /**
+ * Returns a string representing the type of connection used
+ * @uses    mysql_get_host_info()
+ * @uses    $GLOBALS['userlink']    as default for $link
+ * @param   resource        $link   mysql link
+ * @return  string          type of connection used
+ */
+function PMA_DBI_get_host_info( $link = NULL ) {
+    if ( NULL === $link ) {
+        if ( isset( $GLOBALS['userlink'] ) ) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return false;
+        }
+    }
+    return mysql_get_host_info( $link );
+}
+
+/**
+ * Returns the version of the MySQL protocol used
+ * @uses    mysql_get_proto_info()
+ * @uses    $GLOBALS['userlink']    as default for $link
+ * @param   resource        $link   mysql link
+ * @return  integer         version of the MySQL protocol used
+ */
+function PMA_DBI_get_proto_info( $link = NULL ) {
+    if ( NULL === $link ) {
+        if ( isset( $GLOBALS['userlink'] ) ) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return false;
+        }
+    }
+    return mysql_get_proto_info( $link );
+}
+
+/**
+ * returns a string that represents the client library version
+ * @uses    mysql_get_client_info()
+ * @return  string          MySQL client library version
+ */
+function PMA_DBI_get_client_info() {
+    return mysql_get_client_info();
+}
+
+/**
  * returns last error message or false if no errors occured
  *
  * @uses    PMA_MYSQL_INT_VERSION
