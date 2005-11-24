@@ -558,7 +558,7 @@ if ( is_array( $content_cells ) && is_array( $header_cells ) ) {
 
         $odd_row = true;
         foreach ( $content_cells as $content_row ) {
-            echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">';
+            echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . ' noclick">';
             $odd_row = ! $odd_row;
 
             if ( is_array( $content_row ) ) {
