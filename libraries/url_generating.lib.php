@@ -11,6 +11,7 @@
 /**
  * Generates text with hidden inputs.
  *
+ * @see     PMA_generate_common_url()
  * @param   string   optional database name
  * @param   string   optional table name
  * @param   int      indenting level
@@ -28,38 +29,91 @@
  *
  * @author  nijel
  */
-function PMA_generate_common_hidden_inputs ($db = '', $table = '', $indent = 0, $skip = array())
+function PMA_generate_common_hidden_inputs( $db = '', $table = '', $indent = 0, $skip = array() )
 {
-    global $lang, $convcharset, $collation_connection, $server;
-    global $cfg, $allow_recoding;
-    
-    if (!is_array($skip)) {
-        $skip = array($skip);
+    if ( is_array( $db ) ) {
+        $params  =& $db;
+        $_indent = empty( $table ) ? $indent : $table;
+        $_skip   = empty( $indent ) ? $skip : $indent;
+        $indent  =& $_indent;
+        $skip    =& $_skip;
+    } else {
+        $params = array();
+        if ( ! empty( $db ) ) {
+            $params['db'] = $db;
+        }
+        if ( ! empty( $table ) ) {
+            $params['table'] = $table;
+        }
     }
 
-    $spaces = '';
-    for ($i = 0; $i < $indent; $i++) {
-        $spaces .= '    ';
+    if ( ! empty( $GLOBALS['server'] )
+    &&  $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault'] ) {
+        $params['server'] = $GLOBALS['server'];
+    }
+    if ( empty( $_COOKIE['pma_lang'] )
+    && ! empty( $GLOBALS['lang'] ) ) {
+        $params['lang'] = $GLOBALS['lang'];
+    }
+    if ( empty( $_COOKIE['pma_charset'] )
+    && ! empty( $GLOBALS['convcharset'] ) ) {
+        $params['convcharset'] = $GLOBALS['convcharset'];
+    }
+    if ( empty( $_COOKIE['pma_collation_connection'] )
+    && ! empty( $GLOBALS['collation_connection'] ) ) {
+        $params['collation_connection'] = $GLOBALS['collation_connection'];
     }
 
-    $result = $spaces . '<input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
-            . $spaces . '<input type="hidden" name="server" value="' . $server . '" />' . "\n";
-    if (!in_array('convcharset', $skip) && isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)
-        $result .= $spaces . '<input type="hidden" name="convcharset" value="' . $convcharset . '" />'  . "\n";
-    if (!in_array('collation_connection', $skip) && isset($collation_connection))
-        $result .= $spaces . '<input type="hidden" name="collation_connection" value="' . $collation_connection . '" />'  . "\n";
-    if (!in_array('db', $skip) && !empty($db))
-        $result .= $spaces . '<input type="hidden" name="db" value="'.htmlspecialchars($db).'" />' . "\n";
-    if (!in_array('table', $skip) && !empty($table))
-        $result .= $spaces . '<input type="hidden" name="table" value="'.htmlspecialchars($table).'" />' . "\n";
-    return $result;
+    if ( ! is_array($skip) ) {
+        if ( isset( $params[$skip] ) ) unset( $params[$skip] );
+    } else {
+        foreach( $skip as $skipping ) {
+            if ( isset( $params[$skipping] ) ) unset( $params[$skipping] );
+        }
+    }
+
+    $spaces = str_repeat( '    ', $indent );
+
+    $return = '';
+    foreach( $params as $key => $val ) {
+        $return .= $spaces . '<input type="hidden" name="' . htmlentities( $key ) . '" value="' . htmlentities( $val ) . '" />' . "\n";
+    }
+
+    return $return;
 }
 
 /**
  * Generates text with URL parameters.
  *
- * @param   string   optional database name
- * @param   string   optional table name
+ * <code>
+ * // note the ?
+ * echo 'script.php?' . PMA_generate_common_url( 'mysql', 'rights' );
+ * // produces with cookies enabled:
+ * // script.php?db=mysql&amp;table=rights
+ * // with cookies disabled:
+ * // script.php?server=1&amp;lang=en-utf-8&amp;db=mysql&amp;table=rights
+ *
+ * $params['myparam'] = 'myvalue';
+ * $params['db']      = 'mysql';
+ * $params['table']   = 'rights';
+ * // note the missing ?
+ * echo 'script.php' . PMA_generate_common_url( $params );
+ * // produces with cookies enabled:
+ * // script.php?myparam=myvalue&amp;db=mysql&amp;table=rights
+ * // with cookies disabled:
+ * // script.php?server=1&amp;lang=en-utf-8&amp;myparam=myvalue&amp;db=mysql&amp;table=rights
+ *
+ * // note the missing ?
+ * echo 'script.php' . PMA_generate_common_url();
+ * // produces with cookies enabled:
+ * // script.php
+ * // with cookies disabled:
+ * // script.php?server=1&amp;lang=en-utf-8
+ * </code>
+ *
+ * @param   mixed    assoc. array with url params or optional string with database name
+ *                   if first param is an array there is also an ? prefixed to the url
+ * @param   string   optional table name only if first param is array
  * @param   string   character to use instead of '&amp;' for deviding
  *                   multiple URL parameters from each other
  *
@@ -67,7 +121,7 @@ function PMA_generate_common_hidden_inputs ($db = '', $table = '', $indent = 0, 
  *
  * @global  string   the current language
  * @global  string   the current conversion charset
-  * @global  string   the current connection collation
+ * @global  string   the current connection collation
  * @global  string   the current server
  * @global  array    the configuration array
  * @global  boolean  whether recoding is allowed or not
@@ -76,22 +130,51 @@ function PMA_generate_common_hidden_inputs ($db = '', $table = '', $indent = 0, 
  *
  * @author  nijel
  */
-function PMA_generate_common_url ($db = '', $table = '', $amp = '&amp;')
+function PMA_generate_common_url ($db = '', $table = '', $delim = '&amp;')
 {
-    global $lang, $convcharset, $collation_connection, $server;
-    global $cfg, $allow_recoding;
+    if ( is_array( $db ) ) {
+        $params =& $db;
+        $delim  = empty( $table ) ? $delim : $table;
+        $questionmark = '?';
+    } else {
+        $params = array();
+        if ( ! empty( $db ) ) {
+            $params['db'] = $db;
+        }
+        if ( ! empty( $table ) ) {
+            $params['table'] = $table;
+        }
+        $questionmark = '';
+    }
 
-    $result = 'lang=' . $lang
-       . $amp . 'server=' . $server;
-    if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)
-        $result .= $amp . 'convcharset=' . urlencode($convcharset);
-    if (isset($collation_connection))
-        $result .= $amp . 'collation_connection=' . urlencode($collation_connection);
-    if (!empty($db))
-        $result .= $amp . 'db='.urlencode($db);
-    if (!empty($table))
-        $result .= $amp . 'table='.urlencode($table);
-    return $result;
+    if ( $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
+    && ! empty( $GLOBALS['server'] ) ) {
+        $params['server'] = $GLOBALS['server'];
+    }
+
+    if ( empty( $_COOKIE['pma_lang'] )
+    && ! empty( $GLOBALS['lang'] ) ) {
+        $params['lang'] = $GLOBALS['lang'];
+    }
+    if ( empty( $_COOKIE['pma_charset'] )
+    && ! empty( $GLOBALS['convcharset'] ) ) {
+        $params['convcharset'] = $GLOBALS['convcharset'];
+    }
+    if ( empty( $_COOKIE['pma_collation_connection'] )
+    && ! empty( $GLOBALS['collation_connection'] ) ) {
+        $params['collation_connection'] = $GLOBALS['collation_connection'];
+    }
+
+    $param_strings = array();
+    foreach( $params as $key => $val ) {
+        $param_strings[] = urlencode( $key ) . '=' . urlencode( $val );
+    }
+
+    if ( empty( $param_strings ) ) {
+        return '';
+    }
+
+    return htmlentities( $questionmark . implode( $delim, $param_strings ) );
 }
 
 ?>

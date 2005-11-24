@@ -32,6 +32,9 @@ $Source$
       - replaced table layout
       - added some more infos
     * themes/original/css/theme_left.cs..php: fixed font size
+    * libraries/url_generating.lib.php:
+      - dont add variables already in cookie (reduces html output up to 30%)
+      - can pass all url variables as array to function
 
 2005-11-23 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * *REVERTED* libraries/display_select_lang.lib.php: correct lang definition
