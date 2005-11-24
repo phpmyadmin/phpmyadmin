@@ -14,7 +14,7 @@ if ( empty( $is_info ) ) {
        || isset($mult_btn)) {
         $action = 'db_details_structure.php';
         $err_url = 'db_details_structure.php?'. PMA_generate_common_url($db);
-        require('./mult_submits.inc.php');
+        require('./libraries/mult_submits.inc.php');
         $message = $strSuccess;
     }
     require('./db_details_common.php');

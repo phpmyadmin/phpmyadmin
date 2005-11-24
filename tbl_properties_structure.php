@@ -28,7 +28,7 @@ if ((!empty($submit_mult) && isset($selected_fld))
     || isset($mult_btn)) {
     $action = 'tbl_properties_structure.php';
     $err_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db, $table);
-    require('./mult_submits.inc.php');
+    require('./libraries/mult_submits.inc.php');
 }
 
 /**

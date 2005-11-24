@@ -104,7 +104,7 @@ if (!empty($submit_mult)) {
                 $original_url_query = $url_query;
                 $original_pos       = $pos;
             }
-            require('./mult_submits.inc.php');
+            require('./libraries/mult_submits.inc.php');
             $url_query = PMA_generate_common_url($db, $table)
                        . '&amp;goto=tbl_properties.php';
 

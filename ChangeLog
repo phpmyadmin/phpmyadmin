@@ -8,6 +8,12 @@ $Source$
 2005-11-24 Michal Čihař  <michal@cihar.com>
     * libraries/header_http.inc.php, libraries/header_meta_style.inc.php: Fix
       XSS on some libraries (CVE-2005-3665).
+    * db_details_structure.php, mult_submits.inc.php (deleted),
+      server_databases.php,
+      tbl_properties_structure.phptbl_properties_structure.php,
+      tbl_row_action.php, libraries/mult_submits.inc.php: Move
+      mult_submits.inc.php to libraries folder as it does not require direct
+      access.
 
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/original/*, css/phpmyadmin.css.php:

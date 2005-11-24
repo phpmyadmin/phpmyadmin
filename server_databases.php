@@ -73,7 +73,7 @@ if ((!empty($drop_selected_dbs) || isset($query_type)) && ($is_superuser || $cfg
         $action = 'server_databases.php';
         $submit_mult = 'drop_db' ;
         $err_url = 'server_databases.php?' . PMA_generate_common_url();
-        require('./mult_submits.inc.php');
+        require('./libraries/mult_submits.inc.php');
         if ($mult_btn == $strYes) {
             $message = sprintf($strDatabasesDropped, count($selected));
         } else {
