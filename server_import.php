@@ -7,13 +7,13 @@ require_once('./libraries/common.lib.php');
 /**
  * Does the common work
  */
-require('./server_common.inc.php');
+require('./libraries/server_common.inc.php');
 
 
 /**
  * Displays the links
  */
-require('./server_links.inc.php');
+require('./libraries/server_links.inc.php');
 
 $import_type = 'server';
 require('./libraries/display_import.lib.php');

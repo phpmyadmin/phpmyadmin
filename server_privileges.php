@@ -8,7 +8,7 @@ require_once('./libraries/common.lib.php');
  * Does the common work
  */
 $js_to_run = 'server_privileges.js';
-require('./server_common.inc.php');
+require('./libraries/server_common.inc.php');
 
 
 /**
@@ -37,7 +37,7 @@ if ( isset( $dbname ) ) {
  * Checks if the user is allowed to do what he tries to...
  */
 if (!$is_superuser) {
-    require('./server_links.inc.php');
+    require('./libraries/server_links.inc.php');
     echo '<h2>' . "\n"
        . ($GLOBALS['cfg']['MainPageIconic'] ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'b_usrlist.png" alt="" />' : '')
        . $GLOBALS['strPrivileges'] . "\n"
@@ -1203,7 +1203,7 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
      require('./db_details_db_info.php');
      echo "\n";
 } else {
-    require('./server_links.inc.php');
+    require('./libraries/server_links.inc.php');
 }
 
 

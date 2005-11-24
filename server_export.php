@@ -12,7 +12,7 @@ $js_to_run = 'functions.js';
 /**
  * Displays the links
  */
-require('./server_links.inc.php');
+require('./libraries/server_links.inc.php');
 
 /**
  * Gets the databases list - if it has not been built yet

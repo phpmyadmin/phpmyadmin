@@ -9,7 +9,7 @@ require_once('./libraries/common.lib.php');
 
 
 $js_to_run = 'functions.js';
-require('./server_common.inc.php');
+require('./libraries/server_common.inc.php');
 
 /**
  * Sorts the databases array according to the user's choice
@@ -85,7 +85,7 @@ if ((!empty($drop_selected_dbs) || isset($query_type)) && ($is_superuser || $cfg
 /**
  * Displays the links
  */
-require('./server_links.inc.php');
+require('./libraries/server_links.inc.php');
 
 
 /**

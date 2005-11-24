@@ -699,8 +699,8 @@ else {
                 require('./db_details_db_info.php');
             }
             else {
-                require('./server_common.inc.php');
-                require('./server_links.inc.php');
+                require('./libraries/server_common.inc.php');
+                require('./libraries/server_links.inc.php');
             }
         }
 

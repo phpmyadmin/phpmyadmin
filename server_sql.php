@@ -8,14 +8,14 @@ require_once('./libraries/common.lib.php');
  * Does the common work
  */
 $js_to_run = 'functions.js';
-require_once './server_common.inc.php';
+require_once './libraries/server_common.inc.php';
 require_once './libraries/sql_query_form.lib.php';
 
 
 /**
  * Displays the links
  */
-require './server_links.inc.php';
+require './libraries/server_links.inc.php';
 
 
 /**

@@ -7,7 +7,7 @@ require_once('./libraries/common.lib.php');
 /**
  * Does the common work
  */
-require_once('./server_common.inc.php');
+require_once('./libraries/server_common.inc.php');
 
 
 /**
@@ -25,7 +25,7 @@ if (!empty($kill)) {
 /**
  * Displays the links
  */
-require('./server_links.inc.php');
+require('./libraries/server_links.inc.php');
 
 
 /**

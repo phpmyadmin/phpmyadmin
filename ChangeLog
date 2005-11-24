@@ -14,6 +14,9 @@ $Source$
       tbl_row_action.php, libraries/mult_submits.inc.php: Move
       mult_submits.inc.php to libraries folder as it does not require direct
       access.
+    * server_*, sql.php, libraries/server_common.inc.php,
+      libraries/server_links.inc.php: Move server_{links,common}.inc.php to
+      libraries folder as it does not require direct access.
 
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/original/*, css/phpmyadmin.css.php:
