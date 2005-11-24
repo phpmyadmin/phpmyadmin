@@ -10,6 +10,7 @@ $Source$
       XSS on some libraries (CVE-2005-3665).
     * *.php, libraries/*.php: Move scritps that don't need direct access to
       libraries folder.
+    * Documentation.html: Up to date information about relation stuff.
 
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * themes/original/*, css/phpmyadmin.css.php:
