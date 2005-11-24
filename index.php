@@ -147,7 +147,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     // definitions used in querywindow.js
     var common_query = '<?php echo PMA_generate_common_url('','','&');?>';
     var opendb_url = '<?php echo $GLOBALS['cfg']['DefaultTabDatabase']; ?>';
-    var safari_browser = <?php echo PMA_USR_BROWSER_AGENT != 'SAFARI' ? 'true' : 'false' ?>;
+    var safari_browser = <?php echo PMA_USR_BROWSER_AGENT == 'SAFARI' ? 'true' : 'false' ?>;
     var querywindow_height = <?php echo $GLOBALS['cfg']['QueryWindowHeight']; ?>;
     var querywindow_width = <?php echo $GLOBALS['cfg']['QueryWindowWidth']; ?>;
     var collation_connection = '<?php echo $GLOBALS['collation_connection']; ?>';

@@ -37,6 +37,7 @@ $Source$
       - can pass all url variables as array to function
     * main.php, index.php: moved setting of cookies into index.php
     * libraries/select_lang.lib.php: made code more reliable
+    * index.php: wrong check for safari
 
 2005-11-23 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * *REVERTED* libraries/display_select_lang.lib.php: correct lang definition
