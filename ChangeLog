@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * js/querywindow.js: bug #1365503, "do not overwrite this query"
+
 2005-11-24 Michal Čihař  <michal@cihar.com>
     * libraries/header_http.inc.php, libraries/header_meta_style.inc.php: Fix
       XSS on some libraries (CVE-2005-3665).

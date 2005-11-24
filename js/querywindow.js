@@ -144,8 +144,12 @@ function open_querywindow( url ) {
 }
 
 function refreshQuerywindow( url ) {
+
     if ( ! querywindow.closed && querywindow.location ) {
-        open_querywindow( url )
+        if ( ! querywindow.document.sqlform.LockFromUpdate
+          || ! querywindow.document.sqlform.LockFromUpdate.checked ) {
+            open_querywindow( url )
+        }
     }
 }
 
