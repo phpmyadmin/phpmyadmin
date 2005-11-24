@@ -147,7 +147,7 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
         $key         = urldecode($encoded_key);
         $fieldlist   .= PMA_backquote($key) . ', ';
 
-        require('./tbl_replace_fields.php');
+        require('./libraries/tbl_replace_fields.inc.php');
 
         if (empty($me_funcs[$encoded_key])) {
             $cur_value = $val . ', ';
