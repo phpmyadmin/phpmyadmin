@@ -967,4 +967,7 @@ $strShowStatusTable_locks_waitedDescr = 'The number of times that a table lock c
 $strTimeoutInfo = 'Previous import timed out, after resubmitting will continue from position %d.';  //to translate
 $strTimeoutNothingParsed = 'However on last run no data has been parsed, this usually means phpMyAdmin won\'t be able to finish this import unless you increase php time limits.';  //to translate
 
+$strProtocolVersion = 'Protocol version';  //to translate
+$strMySQLClientVersion = 'MySQL client version';  //to translate
+$strUsedPhpExtension = 'Used PHP extensions';  //to translate
 ?>

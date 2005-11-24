@@ -961,4 +961,7 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
+$strProtocolVersion = 'Protocol version';  //to translate
+$strMySQLClientVersion = 'MySQL client version';  //to translate
+$strUsedPhpExtension = 'Used PHP extensions';  //to translate
 ?>
