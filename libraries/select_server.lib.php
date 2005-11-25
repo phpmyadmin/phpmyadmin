@@ -5,7 +5,7 @@
  */
 
 function PMA_select_server($form, $left) {
-    global $cfg, $lang, $convcharset;
+    global $server, $cfg, $lang, $convcharset;
    
     // Show as list?
     $list = $cfg['DisplayServersList'];
