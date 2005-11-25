@@ -1,10 +1,9 @@
-body, input, select {
+/******************************************************************************/
+/* general tags */
+body {
     font-family: <?php echo $left_font_family; ?>;
-    color: #000000
-}
-
-body#body_leftFrame {
-    background-color: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
+    background-color: #D0DCE0;
+    color: #000000;
 }
 
 a img {
@@ -22,9 +21,16 @@ select {
     color: #000000;
 }
 
-/* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
-button { display: inline; }
 
+/* buttons in some browsers (eg. Konqueror) are block elements,
+   this breaks design */
+button {
+    display: inline;
+}
+
+
+/******************************************************************************/
+/* classes */
 
 /* leave some space between icons and text */
 .icon {
@@ -37,6 +43,10 @@ img.lightbulb {
     cursor: pointer;
 }
 
+
+/******************************************************************************/
+/* specific elements */
+
 div#pmalogo,
 div#leftframelinks,
 div#databaseList {
@@ -47,7 +57,6 @@ div#databaseList {
 }
 
 div#leftframelinks .icon {
-    vertical-align: middle;
     padding: 0;
     margin: 0;
 }
@@ -69,7 +78,7 @@ div#left_tableList ul {
     margin: 0;
     padding: 0;
     font-size: 80%;
-    background-color: <?php echo $GLOBALS['cfg']['LeftBgColor']; ?>;
+    background-color: #D0DCE0;
 }
 
 div#left_tableList ul ul {
@@ -94,7 +103,7 @@ div#left_tableList li {
 
 <?php if ( $GLOBALS['cfg']['LeftPointerEnable'] ) { ?>
 div#left_tableList li:hover {
-    background-color: <?php echo $GLOBALS['cfg']['LeftPointerColor']; ?>;
+    background-color: #CCFFCC;
 }
 <?php } ?>
 

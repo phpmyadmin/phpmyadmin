@@ -16,6 +16,7 @@ $Source$
       - respect arg_separator.input from php.ini
     * libraries/auth/cookie.auth.lib.php: use PMA_sendHeaderLocation()
       and new functionality of PMA_generate_common_url()
+    * themes/original: revised
 
 2005-11-25 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.footer.inc.php(deleted),
