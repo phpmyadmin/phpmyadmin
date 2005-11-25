@@ -22,12 +22,12 @@
  */
 function PMA_langCheck() {
     // check forced language
-    if ( PMA_langSet($GLOBALS['cfg']['Lang']) ) {
+    if ( isset($GLOBALS['cfg']['Lang']) && PMA_langSet($GLOBALS['cfg']['Lang']) ) {
         return true;
     }
 
     // check previous set language
-    if ( PMA_langSet($_REQUEST['lang']) ) {
+    if ( isset($_REQUEST['lang']) && PMA_langSet($_REQUEST['lang']) ) {
         return true;
     }
     if ( PMA_langSet( $_COOKIE['pma_lang'] ) ) {
