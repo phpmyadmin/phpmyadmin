@@ -22,7 +22,7 @@ if (isset($_POST['action'])) {
     $action = '';
 }
 
-if (isset($_POST['cfg'])) {
+if (isset($_POST['cfg']) && $action != 'clear' ) {
     $cfg = unserialize(remove_slashes($_POST['cfg']));
 } else {
     $cfg = array();
@@ -197,6 +197,7 @@ function get_cfg_string() {
     unset($c['Servers']);
 
     foreach($c as $key => $val) {
+        // FIXME: more intelligent array output
         $ret .= "\$cfg['$key'] = " . var_export($val, TRUE) . ";\n";
     }
     
@@ -493,6 +494,7 @@ switch ($action) {
             }
         }
         break;
+    case 'clear': // Actual clearing is done at top
     case 'main':
     case '':
         $show_info = TRUE;
@@ -520,6 +522,7 @@ if (!$fail_dir) {
     show_action('save', 'Save current configuration');
     show_action('load', 'Load saved configuration');
 }
+show_action('clear', 'Clear current configuration');
 
 echo '<hr class="separator" />';
 
