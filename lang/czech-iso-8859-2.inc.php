@@ -243,7 +243,6 @@ $strDropUsersDb = 'Odstranit databáze se stejnými jmény jako u¾ivatelé.';
 $strDumpingData = 'Vypisuji data pro tabulku';
 $strDumpSaved = 'Výpis byl ulo¾en do souboru %s.';
 $strDumpXRows = 'Vypsat %s øádkù od %s.';
-$strDuplicateFrameset = 'Otevøít toto rozlo¾ení v&nbsp;novém oknì';
 $strDynamic = 'dynamický';
 
 $strEditPDFPages = 'Upravit PDF stránky';
@@ -964,4 +963,5 @@ $strZip = '&bdquo;zazipováno&ldquo;';
 $strProtocolVersion = 'Protocol version';  //to translate
 $strMysqlClientVersion = 'MySQL client version';  //to translate
 $strUsedPhpExtensions = 'Used PHP extensions';  //to translate
+$strOpenNewWindow = 'Open new phpMyAdmin window';  //to translate
 ?>

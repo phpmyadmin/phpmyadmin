@@ -245,7 +245,6 @@ $strDrop = '削除';
 $strDumpingData = 'テーブルのダンプデータ';
 $strDumpSaved = 'ダンプをファイル %s に保存しました。';
 $strDumpXRows = '%s 列をダンプします。開始列は %s です。';
-$strDuplicateFrameset = '現在のフレームを複製する';
 $strDynamic = 'ダイナミック';
 
 $strEditPDFPages = 'PDF の編集 ページ';
@@ -975,4 +974,5 @@ $strTimeoutNothingParsed = 'However on last run no data has been parsed, this us
 $strProtocolVersion = 'Protocol version';  //to translate
 $strMysqlClientVersion = 'MySQL client version';  //to translate
 $strUsedPhpExtensions = 'Used PHP extensions';  //to translate
+$strOpenNewWindow = 'Open new phpMyAdmin window';  //to translate
 ?>

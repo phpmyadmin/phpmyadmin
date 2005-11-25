@@ -957,7 +957,6 @@ $strZip = '"zippad"';
 
 // To translate:
 
-$strDuplicateFrameset = 'Duplicate current frameset';  //to translate
 
 $strFileNameTemplateDescriptionDatabase = 'database name';  //to translate
 $strFileNameTemplateDescriptionServer = 'server name';  //to translate
@@ -967,4 +966,5 @@ $strFileNameTemplateDescription = 'This value is interpreted using %1$sstrftime%
 $strProtocolVersion = 'Protocol version';  //to translate
 $strMysqlClientVersion = 'MySQL client version';  //to translate
 $strUsedPhpExtensions = 'Used PHP extensions';  //to translate
+$strOpenNewWindow = 'Open new phpMyAdmin window';  //to translate
 ?>
