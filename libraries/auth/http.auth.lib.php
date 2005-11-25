@@ -33,7 +33,7 @@ function PMA_auth() {
     ?>
 </head>
 <body>
-<?php include('./config.header.inc.php'); ?>
+<?php require('./libraries/header_custom.inc.php'); ?>
 
 <br /><br />
 <center>
@@ -42,7 +42,7 @@ function PMA_auth() {
 <br />
 <div class="warning"><?php echo $GLOBALS['strWrongUser']; ?></div>
 
-<?php include('./config.footer.inc.php'); ?>
+<?php require('./libraries/footer_custom.inc.php'); ?>
 
 </body>
 </html>

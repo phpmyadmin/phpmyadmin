@@ -122,7 +122,7 @@ if (top != self) {
 
 <body class="loginform">
 
-<?php include('./config.header.inc.php'); ?>
+<?php require('./libraries/header_custom.inc.php'); ?>
 
 <a href="http://www.phpmyadmin.net" target="_blank" class="logo"><?php
     $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_right.png';
@@ -163,7 +163,7 @@ echo sprintf( $GLOBALS['strWelcome'],
             <?php echo $GLOBALS['strSecretRequired']; ?>
         </div>
 <?php
-        include('./config.footer.inc.php');
+        require('./libraries/footer_custom.inc.php');
         echo '    </body>' . "\n"
            . '</html>';
         exit();
@@ -246,7 +246,7 @@ if (uname.value == '') {
 //-->
 </script>
 
-<?php include('./config.footer.inc.php'); ?>
+<?php require('./libraries/footer_custom.inc.php'); ?>
 
 </body>
 

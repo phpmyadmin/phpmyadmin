@@ -6,8 +6,13 @@ $Id$
 $Source$
 
 2005-11-25 Michal Čihař  <michal@cihar.com>
-    * libraries/common.lib.php, libraries/footer.inc.php,
-      libraries/header.inc.php: Header and footer per themes (RFE #984152).
+    * Documentation.html, config.footer.inc.php(deleted),
+      config.header.inc.php(deleted), libraries/common.lib.php,
+      libraries/footer.inc.php, libraries/footer_custom.inc.php,
+      libraries/header.inc.php, libraries/header_custom.inc.php,
+      libraries/auth/cookie.auth.lib.php, libraries/auth/http.auth.lib.php:
+      Header and footer per themes (RFE #984152),
+      config.{header,footer}.inc.php files are now optional.
     * libraries/select_lang.lib.php: Fix undefined indexes.
 
 2005-11-24 Marc Delisle  <lem9@users.sourceforge.net>

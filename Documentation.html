@@ -390,7 +390,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <br /><br />
     The parameters which relate to design (like colors)
     are placed in <tt>themes/themename/layout.inc.php</tt>. You
-    might also want to modify <i>config.footer.inc.php</i> and
+    might also want to create <i>config.footer.inc.php</i> and
     <i>config.header.inc.php</i> files to add your site specific code to be
     included on start and end of each page.
 </p>
@@ -2899,6 +2899,8 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
         <li>edit <tt>layout.inc.php</tt> in &quot;your_theme_name&quot;</li>
         <li>edit <tt>info.inc.php</tt> in &quot;your_theme_name&quot; to
         contain your chosen theme name, that will be visible in user interface</li>
+        <li>optionally you can add header.inc.php and footer.inc.php files
+        that will be included in header and footer of each page</li>
         <li>make a new screenshot of your theme and save it under &quot;your_theme_name/screen.png&quot;</li>
     </ul>
     <br />
