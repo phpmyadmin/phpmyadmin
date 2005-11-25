@@ -17,6 +17,7 @@ $Source$
     * */.cvsignore: Ignore custom headers and temporary files from Vim.
     * libraries/footer.inc.php, lang/*: Better message for new window, thanks
       to Sebastian and Marc.
+    * libraries/auth/cookie.auth.lib.php: Do not create URLs like index.php?&.
 
 2005-11-24 Marc Delisle  <lem9@users.sourceforge.net>
     * js/querywindow.js: bug #1365503, "do not overwrite this query"

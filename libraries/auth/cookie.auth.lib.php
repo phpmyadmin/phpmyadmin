@@ -467,17 +467,45 @@ function PMA_auth_set_user()
                 $GLOBALS['SERVER_SOFTWARE'] = $_SERVER['SERVER_SOFTWARE'];
             }
         } // end if
-        $redirect_url = $cfg['PmaAbsoluteUri'] . 'index.php?'
-                . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '',
-                       isset($GLOBALS['table']) ? $GLOBALS['table'] : '', '&') 
-                . (!empty($GLOBALS['target']) ? '&target=' . urlencode($GLOBALS['target']) : '')
-                . '&' . SID;
+
+        // URL where to go:
+        $redirect_url = $cfg['PmaAbsoluteUri'] . 'index.php';
+        $separator = '?';
+        
+        // any parameters to pass?
+        $params = PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '',
+                       isset($GLOBALS['table']) ? $GLOBALS['table'] : '', '&');
+        if (!empty($params)) {
+            $redirect_url .= $separator . $params;
+            $separator = '&';
+        }
+        unset($params);
+
+        // any target to pass?
+        if (!empty($GLOBALS['target'])) {
+            $redirect_url .= $separator . 'target=' . urlencode($GLOBALS['target']).
+            $separator = '&';
+        }
+
+        // any seesion id to pass?
+        $sid = '' . SID;
+        if (!empty($sid)) {
+            $redirect_url .= $separator . $sid;
+            $separator = '&';
+        }
+        unset($sid);
+        
+        // cleanup
+        unset($separtor);
+
+        // And finally redirect
         if (!empty($GLOBALS['SERVER_SOFTWARE']) && $GLOBALS['SERVER_SOFTWARE'] == 'Microsoft-IIS/5.0') {
             header('Refresh: 0; url=' . $redirect_url);
         }
         else {
             header('Location: ' . $redirect_url);
         }
+
         exit();
     } // end if
 
