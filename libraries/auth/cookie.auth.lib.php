@@ -146,7 +146,7 @@ echo sprintf( $GLOBALS['strWelcome'],
         echo '<div class="error"><h1>' . $GLOBALS['strError'] . '</h1>' . "\n";
         echo $conn_error . '</div>' . "\n";
     }
-    
+
     // Displays the languages form
     if (empty($cfg['Lang'])) {
         echo "\n";
@@ -459,53 +459,23 @@ function PMA_auth_set_user()
             }
         }
 
-        // loic1: workaround against a IIS 5.0 bug
-        // lem9: here, PMA_sendHeaderLocation() has not yet been defined,
-        //       so use the workaround
-        if (empty($GLOBALS['SERVER_SOFTWARE'])) {
-            if (isset($_SERVER) && !empty($_SERVER['SERVER_SOFTWARE'])) {
-                $GLOBALS['SERVER_SOFTWARE'] = $_SERVER['SERVER_SOFTWARE'];
-            }
-        } // end if
-
         // URL where to go:
         $redirect_url = $cfg['PmaAbsoluteUri'] . 'index.php';
-        $separator = '?';
-        
+
         // any parameters to pass?
-        $params = PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '',
-                       isset($GLOBALS['table']) ? $GLOBALS['table'] : '', '&');
-        if (!empty($params)) {
-            $redirect_url .= $separator . $params;
-            $separator = '&';
+        $url_params = array();
+        if ( ! empty($GLOBALS['target']) ) {
+            $url_params['db'] = $GLOBALS['db'];
         }
-        unset($params);
-
+        if ( ! empty($GLOBALS['target']) ) {
+            $url_params['table'] = $GLOBALS['table'];
+        }
         // any target to pass?
-        if (!empty($GLOBALS['target'])) {
-            $redirect_url .= $separator . 'target=' . urlencode($GLOBALS['target']).
-            $separator = '&';
+        if ( ! empty($GLOBALS['target']) ) {
+            $url_params['target'] = $GLOBALS['target'];
         }
 
-        // any seesion id to pass?
-        $sid = '' . SID;
-        if (!empty($sid)) {
-            $redirect_url .= $separator . $sid;
-            $separator = '&';
-        }
-        unset($sid);
-        
-        // cleanup
-        unset($separtor);
-
-        // And finally redirect
-        if (!empty($GLOBALS['SERVER_SOFTWARE']) && $GLOBALS['SERVER_SOFTWARE'] == 'Microsoft-IIS/5.0') {
-            header('Refresh: 0; url=' . $redirect_url);
-        }
-        else {
-            header('Location: ' . $redirect_url);
-        }
-
+        PMA_sendHeaderLocation( $redirect_url . PMA_generate_common_url( $url_params, '&' ) );
         exit();
     } // end if
 
