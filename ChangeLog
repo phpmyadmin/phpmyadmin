@@ -38,6 +38,8 @@ $Source$
     * libraries/footer.inc.php, lang/*: Better message for new window, thanks
       to Sebastian and Marc.
     * libraries/auth/cookie.auth.lib.php: Do not create URLs like index.php?&.
+    * scripts/setup.php, Documentation.html, .cvsignore: Setup script (RFE
+      #601016).
 
 2005-11-24 Marc Delisle  <lem9@users.sourceforge.net>
     * js/querywindow.js: bug #1365503, "do not overwrite this query"

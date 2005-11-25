@@ -22,6 +22,7 @@
     <a href="#require">Requirements</a> &nbsp;-&nbsp;
     <a href="#intro">Introduction</a> &nbsp;-&nbsp;
     <a href="#setup">Installation</a> &nbsp;-&nbsp;
+    <a href="#setup_script">Setup script</a> &nbsp;-&nbsp;
     <a href="#config">Configuration</a>
     <br />
     <a href="#transformations">Transformations</a> &nbsp;-&nbsp;
@@ -164,17 +165,22 @@
          running in safe mode, having some scripts with an owner different
          from the owner of other scripts will be a
          problem). See <a href="#faq4_2">FAQ 4.2</a> for suggestions.</li>
-    <li> Create the file <tt>config.inc.php</tt> in your favorite editor and
-         fill in there values for host, user, password and authentication mode
-         to fit your environment. Look at <tt>config.default.php</tt> how
-         these fields should be defined. Here, &quot;host&quot; means the
-         MySQL server. Have a look at
-         <a href="#config">Configuration section</a> for an
+    <li> Create the file <tt>config.inc.php</tt>. You can use setup script
+         provided in distribution (<a
+         href="scripts/setup.php">scripts/setup.php</a>) to create basics of
+         config file. See <a href="#setup_script">Setup</a> chapter for
+         details. If you don't like setup or want to fine tune resulting
+         configuration, open (or create in case of starting from scratch)
+         <tt>config.inc.php</tt> in your favorite editor and fill in there
+         values for host, user, password and authentication mode to fit your
+         environment. Look at <tt>config.default.php</tt> how these fields
+         should be defined. Here, &quot;host&quot; means the MySQL server.
+         Have a look at <a href="#config">Configuration section</a> for an
          explanation of all values. Please also read the remaining of this
-         Installation section for information about authentication modes
-         and the linked-tables infrastructure.</li>
-    <li> If you are using the config auth_type, it is suggested that you protect the
-         phpMyAdmin installation directory, for example with HTTP&#8211;AUTH in a
+         Installation section for information about authentication modes and
+         the linked-tables infrastructure.</li> <li> If you are using the
+         config auth_type, it is suggested that you protect the phpMyAdmin
+         installation directory, for example with HTTP&#8211;AUTH in a
          <i>.htaccess</i> file. See the <a href="#faqmultiuser">
          multi&#8211;user sub&#8211;section</a> of this FAQ for additional
          information, especially <a href="$faq4_4">FAQ 4.4</a>.</li>
@@ -190,6 +196,25 @@
          side scripting vulnerabilities that might happen to be found in that
          code.</li>
 </ol>
+<a name="setup_script"></a>
+<h3>Setup script usage</h3>
+ <p>
+    Since 2.7.1 phpMyAdmin comes with setup script that can help you with
+    creating configuration. Script is located in scripts folder: <a
+    href="scripts/setup.php">scripts/setup.php</a>. It's usage is quite
+    simple. In case you want just donwload configuration, you don't have to
+    preform any additional actions. For saving file on webserver, or loading
+    previous configuration you have to create <code>config</code> directory in
+    phpMyAdmins top level directory and make it writable to web server. For
+    loading previous configuration, place it there (and make sure it has write
+    permissions for webserver). Then you can open <code>setup.php</code> in
+    your browser and perform setup.
+ </p>
+ <p>
+    Please note that it doesn not allow to configure everything, so for some
+    additional features you still need to manually edit configuration file.
+ </p>
+
 <a name="linked-tables"></a>
 <h3>Linked-tables infrastructure</h3>
  <p>
