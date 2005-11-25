@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/url_generating.lib.php: do not htmlentities on whole string
+
 2005-11-25 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.footer.inc.php(deleted),
       config.header.inc.php(deleted), libraries/common.lib.php,

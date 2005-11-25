@@ -174,7 +174,7 @@ function PMA_generate_common_url ($db = '', $table = '', $delim = '&amp;')
         return '';
     }
 
-    return htmlentities( $questionmark . implode( $delim, $param_strings ) );
+    return $questionmark . implode( $delim, $param_strings );
 }
 
 ?>
