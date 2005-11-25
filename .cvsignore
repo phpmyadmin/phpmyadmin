@@ -1,5 +1,8 @@
 config.inc.php
+config.header.inc.php
+config.footer.inc.php
 phpmyadmin.wpj
+*.swp
 upload
 save
 .htaccess

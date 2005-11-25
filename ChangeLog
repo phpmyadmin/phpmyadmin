@@ -14,6 +14,7 @@ $Source$
       Header and footer per themes (RFE #984152),
       config.{header,footer}.inc.php files are now optional.
     * libraries/select_lang.lib.php: Fix undefined indexes.
+    * */.cvsignore: Ignore custom headers and temporary files from Vim.
 
 2005-11-24 Marc Delisle  <lem9@users.sourceforge.net>
     * js/querywindow.js: bug #1365503, "do not overwrite this query"
