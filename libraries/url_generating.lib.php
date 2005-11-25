@@ -147,6 +147,24 @@ function PMA_generate_common_url ($db = '', $table = '', $delim = '&amp;')
         $questionmark = '';
     }
 
+    // use seperators defined by php, but prefer ';'
+    // as recommended by W3C
+    $php_arg_separator_input = ini_get( 'arg_separator.input' );
+    if ( strpos( $php_arg_separator_input, ';' ) !== false ) {
+        $separator = ';';
+    } elseif ( strlen( $php_arg_separator_input ) > 0 ) {
+        $separator = $php_arg_separator_input{0};
+    } else {
+        $separator = '&';
+    }
+
+    // check wether to htmlentity the separator or not
+    if ( $delim === '&amp;' ) {
+        $delim = htmlentities( $separator );
+    } else {
+        $delim = $separator;
+    }
+
     if ( $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
     && ! empty( $GLOBALS['server'] ) ) {
         $params['server'] = $GLOBALS['server'];
