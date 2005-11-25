@@ -1118,8 +1118,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             echo '</script></body></html>' . "\n";
 
         } else {
-            $uri .= '?h=y';
-            if ( true  || SID ) {
+            if ( SID ) {
                 if ( strpos( $uri, '?' ) === false ) {
                     header( 'Location: ' . $uri . '?' . SID );
                 } else {
@@ -1133,7 +1132,6 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     } else {
                         $separator = '&';
                     }
-                    exit;
                     header( 'Location: ' . $uri . $separator . SID );
                 }
             } else {
