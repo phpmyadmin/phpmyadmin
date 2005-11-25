@@ -30,7 +30,7 @@ function PMA_langCheck() {
     if ( isset($_REQUEST['lang']) && PMA_langSet($_REQUEST['lang']) ) {
         return true;
     }
-    if ( PMA_langSet( $_COOKIE['pma_lang'] ) ) {
+    if ( isset($_COOKIE['pma_lang']) && PMA_langSet( $_COOKIE['pma_lang'] ) ) {
         return true;
     }
 

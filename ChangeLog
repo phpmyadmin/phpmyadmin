@@ -8,6 +8,8 @@ $Source$
 2005-11-25 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: move server choice into MySQL container
     * libraries/select_server.lib.php: show currently selected server
+    * libraries/select_lang.lib.php: undefined pma_lang the first time (cookie
+      does not exist)
 
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/url_generating.lib.php:
