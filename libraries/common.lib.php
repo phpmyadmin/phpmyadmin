@@ -1091,6 +1091,58 @@ function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userl
 
 
 if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
+
+
+    /**
+     * Send HTTP header, taking IIS limits into account
+     *                   ( 600 seems ok)
+     *
+     * @param   string   the header to send
+     *
+     * @return  boolean  always true
+     */
+    function PMA_sendHeaderLocation($uri)
+    {
+        if (PMA_IS_IIS && strlen($uri) > 600) {
+
+            echo '<html><head><title>- - -</title>' . "\n";
+            echo '<meta http-equiv="expires" content="0">' . "\n";
+            echo '<meta http-equiv="Pragma" content="no-cache">' . "\n";
+            echo '<meta http-equiv="Cache-Control" content="no-cache">' . "\n";
+            echo '<meta http-equiv="Refresh" content="0;url=' .$uri . '">' . "\n";
+            echo '<script language="JavaScript">' . "\n";
+            echo 'setTimeout ("window.location = unescape(\'"' . $uri . '"\')",2000); </script>' . "\n";
+            echo '</head>' . "\n";
+            echo '<body> <script language="JavaScript">' . "\n";
+            echo 'document.write (\'<p><a href="' . $uri . '">' . $GLOBALS['strGo'] . '</a></p>\');' . "\n";
+            echo '</script></body></html>' . "\n";
+
+        } else {
+            $uri .= '?h=y';
+            if ( true  || SID ) {
+                if ( strpos( $uri, '?' ) === false ) {
+                    header( 'Location: ' . $uri . '?' . SID );
+                } else {
+                    // use seperators defined by php, but prefer ';'
+                    // as recommended by W3C
+                    $php_arg_separator_input = ini_get( 'arg_separator.input' );
+                    if ( strpos( $php_arg_separator_input, ';' ) !== false ) {
+                        $separator = ';';
+                    } elseif ( strlen( $php_arg_separator_input ) > 0 ) {
+                        $separator = $php_arg_separator_input{0};
+                    } else {
+                        $separator = '&';
+                    }
+                    exit;
+                    header( 'Location: ' . $uri . $separator . SID );
+                }
+            } else {
+                header( 'Location: ' . $uri );
+            }
+        }
+    }
+
+
     /**
      * $cfg['PmaAbsoluteUri'] is a required directive else cookies won't be
      * set properly and, depending on browsers, inserting or updating a
@@ -1442,36 +1494,6 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         }
 
     } // end server connecting
-
-
-    /**
-     * Send HTTP header, taking IIS limits into account
-     *                   ( 600 seems ok)
-     *
-     * @param   string   the header to send
-     *
-     * @return  boolean  always true
-     */
-     function PMA_sendHeaderLocation($uri)
-     {
-         if (PMA_IS_IIS && strlen($uri) > 600) {
-
-             echo '<html><head><title>- - -</title>' . "\n";
-             echo '<meta http-equiv="expires" content="0">' . "\n";
-             echo '<meta http-equiv="Pragma" content="no-cache">' . "\n";
-             echo '<meta http-equiv="Cache-Control" content="no-cache">' . "\n";
-             echo '<meta http-equiv="Refresh" content="0;url=' .$uri . '">' . "\n";
-             echo '<script language="JavaScript">' . "\n";
-             echo 'setTimeout ("window.location = unescape(\'"' . $uri . '"\')",2000); </script>' . "\n";
-             echo '</head>' . "\n";
-             echo '<body> <script language="JavaScript">' . "\n";
-             echo 'document.write (\'<p><a href="' . $uri . '">' . $GLOBALS['strGo'] . '</a></p>\');' . "\n";
-             echo '</script></body></html>' . "\n";
-
-         } else {
-             header( 'Location: ' . $uri . '&' . SID );
-         }
-     }
 
 
     /**
@@ -2582,9 +2604,9 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
         $error_message = '';
 
         foreach ($params AS $param) {
-            
+
             if ($request && $param != 'db' && $param != 'table') $checked_special = TRUE;
-            
+
             if (!isset($GLOBALS[$param])) {
                 $error_message .= $reported_script_name . ': Missing parameter: ' . $param . ' <a href="./Documentation.html#faqmissingparameters" target="documentation"> (FAQ 2.8)</a><br />';
                 $found_error = TRUE;
@@ -2918,4 +2940,5 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
     }
 
 } // end if: minimal common.lib needed?
+
 ?>

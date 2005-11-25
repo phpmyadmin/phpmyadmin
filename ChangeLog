@@ -7,6 +7,11 @@ $Source$
 
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/url_generating.lib.php: do not htmlentities on whole string
+    * libraries/common.lib.php:
+      - make PMA_sendHeaderLocation() earlier available
+      - add SID only if set
+      - check for url params already exist or not (wether & . SID or ? . SID)
+      - respect arg_separator.input from php.ini
 
 2005-11-25 Michal Čihař  <michal@cihar.com>
     * Documentation.html, config.footer.inc.php(deleted),
