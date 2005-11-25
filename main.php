@@ -33,14 +33,6 @@ if ( ! empty( $message ) ) {
     unset( $message );
 }
 
-/**
- * Displays the MySQL servers choice form
- */
-if (!$cfg['LeftDisplayServers'] && count($cfg['Servers']) > 1) {
-    include('./libraries/select_server.lib.php');
-    PMA_select_server(TRUE, FALSE);
-}
-
 $common_url_query =  PMA_generate_common_url( '', '' );
 
 // this div is required for containing divs can be 50%
@@ -84,6 +76,14 @@ if ( $server > 0 ) {
 
     echo '<h1 xml:lang="en" dir="ltr">MySQL - ' . PMA_MYSQL_STR_VERSION
         .'</h1>' . "\n";
+
+    /**
+     * Displays the MySQL servers choice form
+     */
+    if (!$cfg['LeftDisplayServers'] && count($cfg['Servers']) > 1) {
+        include('./libraries/select_server.lib.php');
+        PMA_select_server(TRUE, FALSE);
+    }
 
     echo '<ul>' . "\n";
 

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php: move server choice into MySQL container
+
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/url_generating.lib.php:
       - do not htmlentities on whole string
