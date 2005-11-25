@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-25 Michal Čihař  <michal@cihar.com>
+    * libraries/common.lib.php, libraries/footer.inc.php,
+      libraries/header.inc.php: Header and footer per themes (RFE #984152).
+
 2005-11-24 Marc Delisle  <lem9@users.sourceforge.net>
     * js/querywindow.js: bug #1365503, "do not overwrite this query"
 

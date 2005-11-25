@@ -125,7 +125,16 @@ if (empty($GLOBALS['is_header_sent'])) {
     <body>
     <div id="TooltipContainer" onmouseover="holdTooltip();" onmouseout="swapTooltip('default');"></div>
     <?php
-    include('./config.header.inc.php');
+
+    // Include theme header
+    if (file_exists($pmaThemePath . 'header.inc.php')) {
+        require($pmaThemePath . 'header.inc.php');
+    }
+   
+    // Include site header
+    if (file_exists('./config.header.inc.php')) {
+        require('./config.header.inc.php');
+    }
 
     if (!defined('PMA_DISPLAY_HEADING')) {
         define('PMA_DISPLAY_HEADING', 1);

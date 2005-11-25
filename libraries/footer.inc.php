@@ -89,7 +89,15 @@ if ( isset( $GLOBALS['userlink'] ) && $GLOBALS['userlink'] ) {
     @PMA_DBI_close( $GLOBALS['userlink'] );
 }
 
-include('./config.footer.inc.php');
+// Include site footer
+if (file_exists('./config.footer.inc.php')) {
+    require('./config.footer.inc.php');
+}
+
+// Include theme footer
+if (file_exists($pmaThemePath . 'footer.inc.php')) {
+    require($pmaThemePath . 'footer.inc.php');
+}
 
 /**
  * Generates profiling data if requested

@@ -385,8 +385,9 @@ if (!isset($theme_name, $theme_generation, $theme_version)) {
     $GLOBALS['theme'] = 'original'; // too old version
 }
 
-$pmaThemeImage  = $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/img/';
-$tmp_layout_file = $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/layout.inc.php';
+$pmaThemePath       = $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/';
+$pmaThemeImage      = $pmaThemePath . 'img/';
+$tmp_layout_file    = $pmaThemePath . 'layout.inc.php';
 if (@file_exists($tmp_layout_file)) {
     include($tmp_layout_file);
 }
