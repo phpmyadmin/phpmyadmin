@@ -8,9 +8,4 @@
 if (file_exists('./config.footer.inc.php')) {
     require('./config.footer.inc.php');
 }
-
-// Include theme footer
-if (file_exists($GLOBALS['pmaThemePath'] . 'footer.inc.php')) {
-    require($GLOBALS['pmaThemePath'] . 'footer.inc.php');
-}
 ?>

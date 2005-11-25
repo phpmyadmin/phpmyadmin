@@ -11,7 +11,7 @@ $Source$
       libraries/footer.inc.php, libraries/footer_custom.inc.php,
       libraries/header.inc.php, libraries/header_custom.inc.php,
       libraries/auth/cookie.auth.lib.php, libraries/auth/http.auth.lib.php:
-      Header and footer per themes (RFE #984152),
+      Header and footer per themes (RFE #984152) [this part removed later],
       config.{header,footer}.inc.php files are now optional.
     * libraries/select_lang.lib.php: Fix undefined indexes.
     * */.cvsignore: Ignore custom headers and temporary files from Vim.
