@@ -54,9 +54,6 @@ $GLOBALS['PMA_errors'] = array();
 /**
  * Avoids undefined variables
  */
-if (!isset($use_backquotes)) {
-    $use_backquotes   = 0;
-}
 if (!isset($pos)) {
     $pos              = 0;
 }

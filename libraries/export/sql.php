@@ -11,6 +11,13 @@
 $GLOBALS['comment_marker'] = '-- ';
 
 /**
+ * Avoids undefined variables, use NULL so isset() returns false
+ */
+if ( ! isset( $use_backquotes ) ) {
+    $use_backquotes = NULL;
+}
+
+/**
  * Outputs comment
  *
  * @param   string      Text of comment
