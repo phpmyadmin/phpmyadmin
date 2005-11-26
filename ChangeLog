@@ -7,9 +7,12 @@ $Source$
 
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/grab_globals.lib.php: allow scripts to bypass importing vars
-    * libraries/common.lib.php, libraries/export/sql.php: define variables only
-      where needed, and use NULL to define them, as some places test only for
-      isset and not for content
+    * libraries/common.lib.php, libraries/export/sql.php,
+      libraries/display_tbl.lib.php, libraries/mult_submits.inc.php, sql.php,
+      tbl_replace.php, tbl_row_action.php:
+      define variables only where needed, and use NULL to define them
+      if some places test only for isset and not for content
+    
     
 2005-11-25 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: move server choice into MySQL container

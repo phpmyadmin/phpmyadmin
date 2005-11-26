@@ -85,6 +85,12 @@ if (isset($find_real_end) && $find_real_end) {
     $unlim_num_rows = PMA_countRecords($db, $table, TRUE, TRUE);
     $pos = @((ceil($unlim_num_rows / $session_max_rows) - 1) * $session_max_rows);
 }
+/**
+ * Avoids undefined variables
+ */
+elseif (!isset($pos)) {
+    $pos = 0;
+}
 
 /**
  * Bookmark add

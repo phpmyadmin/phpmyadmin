@@ -5,6 +5,13 @@ require_once('./libraries/common.lib.php');
 require_once('./libraries/mysql_charsets.lib.php');
 
 /**
+ * Avoids undefined variables
+ */
+if (!isset($pos)) {
+    $pos = 0;
+}
+
+/**
  * No rows were selected => show again the query and tell that user.
  */
 if ((!isset($rows_to_delete) || !is_array($rows_to_delete)) && !isset($mult_btn)) {

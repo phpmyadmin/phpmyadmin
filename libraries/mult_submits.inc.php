@@ -252,7 +252,7 @@ if ( !empty($submit_mult) && !empty($what)) {
         echo '<input type="hidden" name="disp_direction"   value="' . $disp_direction . '" />' . "\n";
         echo '<input type="hidden" name="repeat_cells"     value="' . $repeat_cells   . '" />' . "\n";
         echo '<input type="hidden" name="dontlimitchars"   value="' . $dontlimitchars . '" />' . "\n";
-        echo '<input type="hidden" name="pos"              value="' . $pos . '" />' . "\n";
+        echo '<input type="hidden" name="pos"              value="' . ( isset( $pos ) ? $pos : 0 ) . '" />' . "\n";
         echo '<input type="hidden" name="session_max_rows" value="' . $session_max_rows . '" />' . "\n";
     }
     ?>

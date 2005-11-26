@@ -22,6 +22,9 @@ if (isset($sql_query)) {
 if (!isset($dontlimitchars)) {
     $dontlimitchars = 0;
 }
+if (!isset($pos)) {
+    $pos = 0;
+}
 $is_gotofile = FALSE;
 if (isset($after_insert) && $after_insert == 'new_insert') {
     $goto = 'tbl_change.php?'

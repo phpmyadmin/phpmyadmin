@@ -7,6 +7,13 @@
  */
 
 /**
+ * Avoids undefined variables
+ */
+if (!isset($pos)) {
+    $pos = 0;
+}
+
+/**
  * Defines the display mode to use for the results of a sql query
  *
  * It uses a synthetic string that contains all the required informations.
