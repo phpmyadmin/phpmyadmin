@@ -184,19 +184,16 @@ if ( $__redirect || ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
 
 } else {
     
-    echo $goto . "-<br />\n";
-    echo $_REQUEST['goto'] . "-<br />\n";
-    echo $_GET['goto'] . "-<br />\n";
-    echo $_POST['goto'] . "-<br />\n";
-    
     // Security fix: disallow accessing serious server files via "?goto="
     if ( isset( $_REQUEST['goto'] )
       && strpos( $_REQUEST['goto'], '\\' ) !== false
       && strpos( $_REQUEST['goto'], '/' ) !== false ) {
-        unset( $_REQUEST['goto'], $_GET['goto'], $_POST['goto'] );
+        unset( $_REQUEST['goto'], $_GET['goto'], $_POST['goto'],
+            $_COOKIE['goto'] );
     } // end if
-    echo $_REQUEST['goto'] . "-<br />\n";
-    echo $_GET['goto'] . "-<br />\n";
-    echo $_POST['goto'] . "-<br />\n";
+    
+    array_walk( $_SERVER, 'strip_tags' );
+    array_walk( $_ENV, 'strip_tags' );
+    
 }
 ?>
