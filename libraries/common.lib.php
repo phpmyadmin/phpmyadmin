@@ -51,12 +51,6 @@ require_once('./libraries/grab_globals.lib.php');
  */
 $GLOBALS['PMA_errors'] = array();
 
-/**
- * Avoids undefined variables
- */
-if (!isset($pos)) {
-    $pos              = 0;
-}
 
 /**
  * 2004-06-30 rabus: Ensure, that $cfg variables are not set somwhere else
