@@ -391,6 +391,8 @@ $strKill = 'Kill';
 $strKorean = 'Korean';
 
 $strLandscape = 'Landscape';
+$strLanguageFileNotFound = 'Language file "%1$s" not found.';
+$strLanguageUnknown = 'Unknown language: %1$s.';
 $strLatchedPages = 'Latched pages';
 $strLatexCaption = 'Table caption';
 $strLatexContent = 'Content of table __TABLE__';
