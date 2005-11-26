@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/grab_globals.lib.php: allow scripts to bypass importing vars
+    
 2005-11-25 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: move server choice into MySQL container
     * libraries/select_server.lib.php: show currently selected server
