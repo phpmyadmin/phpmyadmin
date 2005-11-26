@@ -3,9 +3,11 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 /**
  * displays status variables with descriptions and some hints an optmizing
- *  + reset status vriales
+ *  + reset status variables
  */
-
+if ( ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
+    define( 'PMA_NO_VARIABLES_IMPORT', true );
+}
 require_once('./libraries/common.lib.php');
 
 /**
