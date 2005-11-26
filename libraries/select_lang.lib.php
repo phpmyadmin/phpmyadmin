@@ -22,15 +22,15 @@
  */
 function PMA_langCheck() {
     // check forced language
-    if ( isset($GLOBALS['cfg']['Lang']) && PMA_langSet($GLOBALS['cfg']['Lang']) ) {
+    if ( PMA_langSet( $GLOBALS['cfg']['Lang'] ) ) {
         return true;
     }
 
     // check previous set language
-    if ( isset($_REQUEST['lang']) && PMA_langSet($_REQUEST['lang']) ) {
+    if ( PMA_langSet( $_REQUEST['lang'] ) ) {
         return true;
     }
-    if ( isset($_COOKIE['pma_lang']) && PMA_langSet( $_COOKIE['pma_lang'] ) ) {
+    if ( PMA_langSet( $_COOKIE['pma_lang'] ) ) {
         return true;
     }
 
@@ -60,16 +60,22 @@ function PMA_langCheck() {
  * checks given lang and sets it if valid
  * returns true on success, otherwise flase
  *
- * @global  $available_languages to check given lang
- * @global  $lang   to set it
+ * @uses    $GLOBALS['strLanguageUnknown']  if $lang unknown
+ * @uses    $GLOBALS['available_languages'] to check $lang
+ * @uses    $GLOBALS['lang']                to set it
+ * @uses    $GLOBALS['PMA_errors']          if $lang unknown
  * @param   string  $lang   langauge to set
  * @return  bool    success
  */
-function PMA_langSet( $lang ) {
-    if ( !empty( $lang )
-      && !empty( $GLOBALS['available_languages'][$lang] ) ) {
-        $GLOBALS['lang'] = $lang;
-        return true;
+function PMA_langSet( &$lang ) {
+    if ( ! empty( $lang ) ) {
+        if ( ! empty( $GLOBALS['available_languages'][$lang] ) ) {
+            $GLOBALS['lang'] = $lang;
+            return true;
+        } else {
+            $GLOBALS['PMA_errors'][] = sprintf( 
+                $GLOBALS['strLanguageUnknown'], $lang );
+        }
     } else {
         return false;
     }
@@ -88,7 +94,7 @@ function PMA_langSet( $lang ) {
  *
  * @access  private
  */
-function PMA_langDetect( $str, $envType ) {
+function PMA_langDetect( &$str, $envType ) {
     if ( empty( $str ) )                            return false;
     if ( empty( $GLOBALS['available_languages'] ) ) return false;
 
@@ -329,20 +335,22 @@ if ( ! PMA_langCheck() ) {
 $lang_path = './lang/';
 
 // Defines the associated filename and load the translation
-$lang_file = './' . $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';
+$lang_file = $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';
 
 if ( file_exists( $lang_file ) ) {
     require_once( $lang_file );
 } else {
     // language file not found
+    $GLOBALS['PMA_errors'][] = sprintf( $strLanguageFileNotFound, $lang_file );
+    
     // fallback language
-    if ( $line = __LINE__ && ! PMA_langSet( $selectlang = 'en-iso-8859-1' ) ) {
+    if ( $line = __LINE__ && ! PMA_langSet( $selectlang = 'en-utf-8' ) ) {
         // if even hard coded lang fails
         trigger_error( 'ERROR: check hard coded language in ' . __FILE__ . ' on line #' . $line . ', unknown ISO-code', E_USER_WARNING );
         header( 'Location: error.php?file=' . urlencode( __FILE__ ) . '&line=' . urlencode( __LINE__ ) . '&error=' . urlencode( 'invalid language ISO code: ' . $lang_file ) );
         exit;
     }
-    $lang_file = './' . $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';
+    $lang_file = $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';
     if ( ! file_exists( $lang_file ) ) {
         // if even hard coded lang fails to load
         trigger_error( 'ERROR: check hard coded language in ' . __FILE__ . ' on line #' . $line . ', file not found', E_USER_WARNING );
@@ -350,7 +358,6 @@ if ( file_exists( $lang_file ) ) {
         exit;
     }
     require_once( $lang_file );
-    $GLOBALS['PMA_errors'][] = $strLanguageFileNotFound;
 }
 unset( $lang_file, $lang_path, $strLanguageFileNotFound );
 ?>

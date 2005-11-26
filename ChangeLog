@@ -12,7 +12,11 @@ $Source$
       tbl_replace.php, tbl_row_action.php:
       define variables only where needed, and use NULL to define them
       if some places test only for isset and not for content
-    
+    * libraries/select_lang.lib.php:
+      - fixed unchecked variables as it was originaly in my mind
+      - added error message if requested lang could not be set
+      - set fallback to en-utf-8
+      - minore fixes
     
 2005-11-25 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: move server choice into MySQL container
