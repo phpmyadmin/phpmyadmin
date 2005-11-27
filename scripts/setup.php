@@ -2,10 +2,21 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-// phpMyAdmin simple setup script by Michal Čihař <michal@cihar.com>
+// phpMyAdmin setup script by Michal Čihař <michal@cihar.com>
 
-$script_info = 'phpMyAdmin simple setup script by Michal Čihař <michal@cihar.com>';
+// Grab phpMyAdmin version and PMA_dl function
+$cfg['GD2Available'] = 'auto';
+require('../libraries/defines.lib.php');
+unset($cfg);
+
+// Script information
+$script_info = 'phpMyAdmin ' . PMA_VERSION . ' setup script by Michal Čihař <michal@cihar.com>';
 $script_version = '$Id$';
+
+// Grab configuration defaults
+require('../config.default.php');
+$default_cfg = $cfg;
+unset($cfg);
 
 function remove_slashes($val) {
     if (get_magic_quotes_gpc()) {
@@ -31,8 +42,17 @@ if (!isset($cfg['Servers']) || !is_array($cfg['Servers'])) {
     $cfg['Servers'] = array();
 }
 
+$now = gmdate('D, d M Y H:i:s') . ' GMT';
+
 // whether to show html header?
 if ($action != 'download') {
+
+header('Expires: ' . $now); // rfc2616 - Section 14.21
+header('Last-Modified: ' . $now);
+header('Cache-Control: no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0'); // HTTP/1.1
+header('Pragma: no-cache'); // HTTP/1.0
+// Define the charset to be used
+header('Content-Type: text/html; charset=utf-8');
 
 // this needs to be echoed otherwise php with short tags complains
 echo '<?xml version="1.0" encoding="utf-8"?>' . "\n"; 
@@ -43,7 +63,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
 <head>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <title>phpMyAdmin setup</title>
+    <title>phpMyAdmin <?php echo PMA_VERSION; ?> setup</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <script type="text/javascript" language="javascript">
@@ -64,11 +84,11 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
     div.notice {
         margin: 0.5em 0 0.5em 0;
         border: 0.1em solid #FFD700;
-            background-image: url(../themes/original/img/s_notice.png);
+        background-image: url(../themes/original/img/s_notice.png);
         background-repeat: no-repeat;
-                background-position: 10px 50%;
+        background-position: 10px 50%;
         padding: 10px 10px 10px 36px;
-                }
+    }
     div.notice h1 {
         border-bottom: 0.1em solid #FFD700;
         font-weight: bold;
@@ -85,11 +105,11 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
     div.warning {
         margin: 0.5em 0 0.5em 0;
         border: 0.1em solid #CC0000;
-            background-image: url(../themes/original/img/s_warn.png);
+        background-image: url(../themes/original/img/s_warn.png);
         background-repeat: no-repeat;
-                background-position: 10px 50%;
+        background-position: 10px 50%;
         padding: 10px 10px 10px 36px;
-                }
+    }
     div.warning h1 {
         border-bottom: 0.1em solid #cc0000;
         font-weight: bold;
@@ -106,11 +126,11 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
     div.error {
         margin: 0.5em 0 0.5em 0;
         border: 0.1em solid #ff0000;
-            background-image: url(../themes/original/img/s_error.png);
+        background-image: url(../themes/original/img/s_error.png);
         background-repeat: no-repeat;
-                background-position: 10px 50%;
+        background-position: 10px 50%;
         padding: 10px 10px 10px 36px;
-                }
+    }
     div.error h1 {
         border-bottom: 0.1em solid #ff0000;
         font-weight: bold;
@@ -119,27 +139,79 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
         margin: 0 0 0.2em 0;
     }
 
-    form.action {
+    fieldset.toolbar form.action {
         display: block;
+        width: auto;
+        clear: none;
         float: left;
         margin: 0;
         padding: 0;
-        border: 1px solid black;
+        border-right: 1px solid black;
     }
-    form.action input {
-        margin: 0.3em;
+    fieldset.toolbar form.action input, fieldset.toolbar form.action select {
+        margin: 0.7em;
         padding: 0.1em;
     }
-    hr.separator {
+
+    fieldset.toolbar {
+        display: block;
+        width: 100%;
+        background-color: #dddddd;
+        padding: 0;
+    }
+    fieldset.optbox {
+        padding: 0;
+        background-color: #FFFFDD;
+    }
+    div.buttons, div.opts, fieldset.optbox p, fieldset.overview div.row {
         clear: both;
+        padding: 0.5em;
+        margin: 0;
+        background-color: white;
+    }
+    div.opts, fieldset.optbox p, fieldset.overview div.row {
+        border-bottom: 1px dotted black;
+    }
+    fieldset.overview {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+    fieldset.optbox p {
+        background-color: #FFFFDD;
+    }
+    div.buttons {
+        background-color: #dddddd;
+    }
+    div.buttons input {
+        margin: 0 1em 0 1em;
+    }
+    div.buttons form {
+        display: inline;
         margin: 0;
         padding: 0;
+    }
+    input.save {
+        color: green;
+        font-weight: bolder;
+    }
+    input.cancel {
+        color: red;
+        font-weight: bolder;
+    }
+    div.desc, label.desc, fieldset.overview div.desc {
+        float: left;
+        width: 25em;
+        max-width: 60%;
+    }
+    code:before, code:after {
+        content: '"';
     }
     </style>
 </head>
 
 <body>
-<h1>phpMyAdmin setup</h1>
+<h1>phpMyAdmin <?php echo PMA_VERSION; ?> setup</h1>
 <?php
 } // end show html header
 
@@ -155,20 +227,30 @@ function message($type, $text, $title = '') {
     echo '</div>' . "\n";
 }
 
-function show_hidden_cfg() {
+function get_hidden_cfg() {
     global $cfg;
     
-    echo '<input type="hidden" name="cfg" value="' . htmlspecialchars(serialize($cfg)) . '" />';
+    return '<input type="hidden" name="cfg" value="' . htmlspecialchars(serialize($cfg)) . '" />' . "\n";
+}
+
+function show_hidden_cfg() {
+    echo get_hidden_cfg();
+}
+
+function get_action($name, $title, $added = '') {
+    $ret = '';
+    $ret .= '<form class="action" method="POST">';
+    $ret .= '<input type="hidden" name="action" value="' . $name . '" />';
+    $ret .= $added;
+    $ret .= '<input type="submit" value="' . $title . '" />';
+    $ret .= get_hidden_cfg();
+    $ret .= '</form>';
+    $ret .= "\n";
+    return $ret;
 }
 
 function show_action($name, $title, $added = '') {
-    echo '<form class="action" method="POST">';
-    echo '<input type="hidden" name="action" value="' . $name . '" />';
-    echo $added;
-    echo '<input type="submit" value="' . $title . '" />';
-    show_hidden_cfg();
-    echo '</form>';
-    echo "\n";
+    echo get_action($name, $title, $added);
 }
 
 function footer() {
@@ -176,33 +258,102 @@ function footer() {
     exit;
 }
 
+function get_server_auth($val) {
+    global $default_cfg;
+    
+    if (isset($val['auth_type'])) {
+        $auth = $val['auth_type'];
+    } else {
+        $auth = $default_cfg['Servers'][1]['auth_type'];
+    }
+    $ret = $auth;
+    if ($auth == 'config') {
+        if (isset($val['user'])) {
+            $ret .= ':' . $val['user'];
+        } else {
+            $ret .= ':' . $default_cfg['Servers'][1]['user'];
+        }
+    }
+    return $ret;
+}
+
+function get_server_name($val, $id = FALSE) {
+    if (!empty($val['verbose'])) {
+        $ret = htmlspecialchars($val['verbose']);
+    } else {
+        $ret = htmlspecialchars($val['host']);
+    }
+    $ret .= ' (' . get_server_auth($val) . ')';
+    if ($id !== FALSE) {
+        $ret .= ' [' . ($id + 1) . ']' ;
+    }
+    return $ret;
+}
+
 function get_cfg_string() {
-    global $cfg, $script_info, $script_version;
+    global $cfg, $script_info, $script_version, $now;
 
     $c = $cfg;
-    $ret = "<?php\n/*\n * Generated configuration file\n * Generated by: $script_info\n * Version: $script_version\n * Date: " . gmdate('D, d M Y H:i:s') . " GMT\n */\n\n";
+    $ret = "<?php\n/*\n * Generated configuration file\n * Generated by: $script_info\n * Version: $script_version\n * Date: " . $now . "\n */\n\n";
 
     if (count($c['Servers']) > 0) {
-        $ret .= "/* Servers configuration */\n\$i = 0;\n\n";
-        $cnt = 1;
-        foreach($c['Servers'] as $srv) {
-            $ret .= "/* Server $cnt */\n\$i++;\n";
+        $ret .= "/* Servers configuration */\n\$i = 0;\n";
+        foreach($c['Servers'] as $cnt => $srv) {
+            $ret .= "\n/* Server " . get_server_name($srv, $cnt) . " */\n\$i++;\n";
             foreach($srv as $key => $val) {
-                $ret .= "\$cfg['Servers'][\$i][$key] = '$val';\n";
+                $ret .= "\$cfg['Servers'][\$i]['$key'] = '$val';\n";
             }
-            $cnt++;
         }
-        $ret .= "/* End of servers configration */\n\n";
+        $ret .= "\n/* End of servers configration */\n\n";
     }
     unset($c['Servers']);
 
     foreach($c as $key => $val) {
-        // FIXME: more intelligent array output
-        $ret .= "\$cfg['$key'] = " . var_export($val, TRUE) . ";\n";
+        if (is_array($val)) {
+            $ret .= "\n";
+            foreach($val as $k => $v) {
+                if (!isset($type)) {
+                    if (is_string($k)) {
+                        $type = 'string';
+                    } elseif (is_int($k)) {
+                        $type = 'int';
+                        $ret .= "\$cfg['$key'] = array(\n";
+                    } else {
+                        // Something unknown...
+                        $ret .= "\$cfg['$key'] = " . var_export($val, TRUE) . ";\n";
+                        break;
+                    }
+                }
+                if ($type == 'string') {
+                    $ret .= "\$cfg['$key']['$k'] = " . var_export($v, TRUE) . ";\n";
+                } elseif ($type == 'int') {
+                    $ret .= "    " . var_export($v, TRUE) . ";\n";
+                }
+            }
+            if ($type == 'int') {
+                $ret .= ");\n";
+            }
+            $ret .= "\n";
+            unset($type);
+        } else {
+            $ret .= "\$cfg['$key'] = " . var_export($val, TRUE) . ";\n";
+        }
     }
     
     $ret .= "?>\n";
     return $ret;
+}
+
+function compress_servers() {
+    global $cfg;
+
+    $ns = array();
+    foreach ($cfg['Servers'] as $val) {
+        if (!empty($val['host'])) {
+            $ns[] = $val;
+        }
+    }
+    $cfg['Servers'] = $ns;
 }
 
 function grab_values($list) {
@@ -215,16 +366,71 @@ function grab_values($list) {
             case 'bool':
                 $res[$v[0]] = isset($_POST[$v[0]]);
                 break;
+            case 'serialized':
+                if (isset($_POST[$v[0]]) && strlen($_POST[$v[0]]) > 0) {
+                    $res[$v[0]] = unserialize(remove_slashes($_POST[$v[0]]));
+                }
+                break;
+            case 'int':
+                if (isset($_POST[$v[0]]) && strlen($_POST[$v[0]]) > 0) {
+                    $res[$v[0]] = (int)remove_slashes($_POST[$v[0]]);
+                }
+                break;
+            case 'tristate':
+                if (isset($_POST[$v[0]]) && strlen($_POST[$v[0]]) > 0) {
+                    $cur = remove_slashes($_POST[$v[0]]);
+                    if ($cur == 'TRUE') {
+                        $res[$v[0]] = TRUE;
+                    } else if ($cur == 'FALSE') {
+                        $res[$v[0]] = FALSE;
+                    } else {
+                        $res[$v[0]] = $cur;
+                    }
+                }
+                break;
             default:
-                $res[$v[0]] = remove_slashes($_POST[$v[0]]);
+                if (isset($_POST[$v[0]]) && strlen($_POST[$v[0]]) > 0) {
+                    $res[$v[0]] = remove_slashes($_POST[$v[0]]);
+                }
                 break;
         }
     }
     return $res;
 }
 
-function show_config_form($list, $defaults = array(), $save = 'Add') {
+function show_overview($legend, $list, $buttons = '') {
+    echo '<fieldset class="overview">' . "\n";
+    echo '<legend>' . $legend . '</legend>' . "\n";
     foreach($list as $val) {
+        echo '<div class="row">';
+        echo '<div class="desc">';
+        echo $val[0];
+        echo '</div>';
+        echo '<div class="data">';
+        echo $val[1];
+        echo '</div>';
+        echo '</div>' . "\n";
+    }
+    if (!empty($buttons)) {
+        echo '<div class="buttons">';
+        echo '<div class="desc">Actions:</div>';
+        echo $buttons;
+        echo '</div>' . "\n";
+    }
+    echo '</fieldset>' . "\n";
+    echo "\n";
+}
+
+function show_config_form($list, $legend, $help, $defaults = array(), $save = '') {
+    global $default_cfg;
+    
+    if (empty($save)) $save = 'Update';
+    
+    echo '<fieldset class="optbox">' . "\n";
+    echo '<legend>' . $legend . '</legend>' . "\n";
+    echo '<p>' . $help . '</p>' . "\n";
+    foreach($list as $val) {
+        echo '<div class="opts">';
         $type = 'text';
         if (isset($val[3])) {
             if (is_array($val[3])) $type = 'select';
@@ -234,40 +440,189 @@ function show_config_form($list, $defaults = array(), $save = 'Add') {
         switch ($type) {
             case 'text':
             case 'password':
-                echo '<label for="text_' . $val[1] . '" style="float: left; width: 30em;" title="' . $val[2] . '">' . $val[0] . ':</label>';
-                echo '<input type="' . $type . '" name="' . $val[1] . '" id="text_' . $val[1] . '" title="' . $val[2] . '"';
+                echo '<label for="text_' . $val[1] . '" class="desc" title="' . $val[2] . '">' . $val[0] . ':</label>';
+                echo '<input type="' . $type . '" name="' . $val[1] . '" id="text_' . $val[1] . '" title="' . $val[2] . '" size="50"';
                 if (isset($defaults[$val[1]])) {
                     echo ' value="' . htmlspecialchars($defaults[$val[1]]) . '"';
+                } else if (isset($default_cfg[$val[1]])) {
+                    echo ' value="' . htmlspecialchars($default_cfg[$val[1]]) . '"';
                 }
                 echo ' />';
                 break;
             case 'check':
                 echo '<input type="checkbox" name="' . $val[1] . '" value="something" id="checkbox_' . $val[1] . '" title="' . $val[2] . '"';
-                if (isset($defaults[$val[1]]) && $defaults[$val[1]]) {
-                    echo ' checked="checked"';
+                if (isset($defaults[$val[1]])) {
+                    if ($defaults[$val[1]]) {
+                        echo ' checked="checked"';
+                    }
+                } else if (isset($default_cfg[$val[1]])) {
+                    if ($default_cfg[$val[1]]) {
+                        echo ' checked="checked"';
+                    }
                 }
                 echo ' />';
                 echo '<label for="checkbox_' . $val[1] . '" title="' . $val[2] . '">' . $val[0] . '</label>';
                 break;
             case 'select':
-                echo '<label for="select_' . $val[1] . '" style="float: left; width: 30em;" title="' . $val[2] . '">' . $val[0] . ':</label>';
+                echo '<label for="select_' . $val[1] . '" class="desc" title="' . $val[2] . '">' . $val[0] . ':</label>';
                 echo '<select name="' . $val[1] . '" id="select_' . $val[1] . '" ' . ' title="' . $val[2] . '">';
                 foreach ($val[3] as $opt) {
                     echo '<option value="' . $opt . '"';
-                    if (isset($defaults[$val[1]]) && $defaults[$val[1]] == $opt) {
-                        echo ' selected="selected"';
+                    if (isset($defaults[$val[1]])) {
+                        if (is_bool($defaults[$val[1]])) {
+                            if (($defaults[$val[1]] && $opt == 'TRUE') || (!$defaults[$val[1]] && $opt == 'FALSE')) {
+                                echo ' selected="selected"';
+                            }
+                        } else {
+                            if ($defaults[$val[1]] == $opt) {
+                                echo ' selected="selected"';
+                            }
+                        }
+                    } else if (isset($default_cfg[$val[1]])) {
+                        if (is_bool($default_cfg[$val[1]])) {
+                            if (($default_cfg[$val[1]] && $opt == 'TRUE') || (!$default_cfg[$val[1]] && $opt == 'FALSE')) {
+                                echo ' selected="selected"';
+                            }
+                        } else {
+                            if ($default_cfg[$val[1]] == $opt) {
+                                echo ' selected="selected"';
+                            }
+                        }
                     }
                     echo '>' . $opt . '</option>';
                 }
                 echo '</select>';
                 break;
         }
-        echo '<br />' . "\n";
+        echo '</div>' . "\n";
     }
-    echo '<div style="float: left; width: 30em;">Actions:</div>';
-    echo '<input type="submit" name="submit_save" value="' . $save .'" />';
-    echo '<input type="submit" name="submit_ignore" value="Cancel" />';
+    echo '<div class="buttons">';
+    echo '<div class="desc">Actions:</div>';
+    echo '<input type="submit" name="submit_save" value="' . $save .'" class="save" />';
+    echo '<input type="submit" name="submit_ignore" value="Cancel" class="cancel" />';
+    echo '</div>' . "\n";
+    echo '</fieldset>' . "\n";
     echo "\n";
+}
+
+function show_security_form($defaults = array()) {
+    ?>
+<form method="post">
+    <input type="hidden" name="action" value="feat_security_real" />
+    <?php 
+        show_hidden_cfg(); 
+        show_config_form(array(
+            array('Blowfish secret', 'blowfish_secret', 'Secret passhrase used for encrypting cookies'),
+            array('Force SSL connection', 'ForceSSL', 'Whether to force using secured connetion while using phpMyAdmin', FALSE),
+            array('Show phpinfo output', 'ShowPHPInfo', 'Whether to allow users to see phpinfo() output', FALSE),
+            array('Show password change form', 'ShowChgPassword', 'Whether to show form for changing password, this does not limit ability to execute same command directly', FALSE),
+            array('Allow login to any MySQL server', 'AllowArbitraryServer', 'If enabled user can enter any MySQL server in login form for cookie auth.', FALSE),
+            array('Recall user name', 'LoginCookieRecall', 'Whether to recall user name while using cookie auth.', TRUE),
+            array('Login cookie validity', 'LoginCookieValidity', 'How long is login valid without performing any action.'),
+            ), 
+            'Configure security features', 
+            'Please note that phpMyAdmin is just user inteface and it\'s features do not limit MySQL.',
+            $defaults);
+    ?>
+</form>
+    <?php
+}
+
+function show_manual_form($defaults = array()) {
+    ?>
+<form method="post">
+    <input type="hidden" name="action" value="feat_manual_real" />
+    <?php 
+        show_hidden_cfg(); 
+        show_config_form(array(
+            array('Type of MySQL documentation', 'MySQLManualType', 'These types are same as listed on MySQL download page', array('viewable', 'chapters', 'big', 'none')),
+            array('Base URL of MySQL documentation', 'MySQLManualBase', 'Where is MySQL documentation placed, this is usually top level directory.'),
+            ), 
+            'Configure MySQL manual links', 
+            'If you have local copy of MySQL documentation, you might want to use it in documentation links. Othervise use <code>viewable</code> type and <code>http://dev.mysql.com/doc/refman</code> as manual base URL.',
+            $defaults);
+    ?>
+</form>
+    <?php
+}
+
+function show_charset_form($defaults = array()) {
+    global $default_cfg;
+    ?>
+<form method="post">
+    <input type="hidden" name="action" value="feat_charset_real" />
+    <?php 
+        show_hidden_cfg(); 
+        show_config_form(array(
+            array('Allow charset conversion', 'AllowAnywhereRecoding', 'If you want to use such functions.', FALSE),
+            array('Default charset', 'DefaultCharset', 'Default charset for conversion.', $default_cfg['AvailableCharsets']),
+            array('Recoding engine', 'RecodingEngine', 'PHP can contain iconv and/or recode, select which one to use or keep autodetection.', array('auto', 'iconv', 'recode')),
+            array('Extra params for iconv', 'IconvExtraParams', 'Iconv can get some extra parameters for conversion see man iconv_open.'),
+            ), 
+            'Configure charset conversions', 
+            'phpMyAdmin can preform charset conversions so that you can import and export in any charset you want.',
+            $defaults);
+    ?>
+</form>
+    <?php
+}
+
+function show_extensions_form($defaults = array()) {
+    global $default_cfg;
+    ?>
+<form method="post">
+    <input type="hidden" name="action" value="feat_extensions_real" />
+    <?php 
+        show_hidden_cfg(); 
+        show_config_form(array(
+            array('GD 2 is available', 'GD2Available', 'Whether you have GD 2 or newer installed', array('auto', 'yes', 'no')),
+            ), 
+            'Configure extensions', 
+            'phpMyAdmin can use several extensions, however here are configured only those that didn\'t fit elsewhere. MySQL extension is configured within server, charset conversion one on separate charsets page.',
+            $defaults);
+    ?>
+</form>
+    <?php
+}
+
+function show_relation_form($defaults = array()) {
+    global $default_cfg;
+    ?>
+<form method="post">
+    <input type="hidden" name="action" value="feat_relation_real" />
+    <?php 
+        show_hidden_cfg(); 
+        show_config_form(array(
+            array('Parmanent query history', 'QueryHistoryDB', 'Store history into database.', FALSE),
+            array('Maximal history size', 'QueryHistoryMax', 'How many queries are kept in history.'),
+            array('Use MIME transformations', 'BrowseMIME', 'Use MIME transformations while browsing.', TRUE),
+            array('PDF default page size', 'PDFDefaultPageSize', 'Default page size for PDF, you can change this while creating page.', $default_cfg['PDFPageSizes']),
+            ), 
+            'Configure MIME/relation/history', 
+            'phpMyAdmin can provide additional featrues like MIME transformation, internal relations, permanent history and PDF pages generating. You have to configure database and tables that will store such information on server page. Behaviour of those functions is configured here.',
+            $defaults);
+    ?>
+</form>
+    <?php
+}
+
+function show_upload_form($defaults = array()) {
+    ?>
+<form method="post">
+    <input type="hidden" name="action" value="feat_upload_real" />
+    <?php 
+        show_hidden_cfg(); 
+        show_config_form(array(
+            array('Upload directory', 'UploadDir', 'Directory on server where you can upload files for import'),
+            array('Save directory', 'SaveDir', 'Directory where exports can be saved on server'),
+            array('Directory with docSQL', 'docSQLDir', 'Directory on server where you can place docSQL files for import'),
+            ), 
+            'Configure upload/save directories', 
+            'Enter directories, either absolute path or relative to phpMyAdmin top level directory.',
+            $defaults);
+    ?>
+</form>
+    <?php
 }
 
 function show_server_form($defaults = array(), $number = FALSE) {
@@ -279,6 +634,12 @@ function show_server_form($defaults = array(), $number = FALSE) {
         if (!($number === FALSE)) {
             echo '<input type="hidden" name="server" value="' . $number . '" />';
         }
+        $hi = array ('bookmarktable', 'relation', 'table_info', 'table_coords', 'pdf_pages', 'column_info', 'history', 'AllowDeny');
+        foreach($hi as $k) {
+            if (isset($defaults[$k])) {
+                echo '<input type="hidden" name="' . $k . '" value="' . htmlspecialchars(serialize($defaults[$k])) . '" />';
+            }
+        }
         show_config_form(array(
             array('Server hostname', 'host', 'Hostname where MySQL server is running'),
             array('Server port', 'port', 'Port on which MySQL server is listening, leave empty if don\'t know'),
@@ -286,28 +647,154 @@ function show_server_form($defaults = array(), $number = FALSE) {
             array('Connection type', 'connect_type', 'How to connect to server, keep tcp if don\'t know', array('tcp', 'socket')),
             array('PHP extension to use', 'extension', 'What PHP extension to use, use mysqli if supported', array('mysql', 'mysqli')),
             array('Compress connection', 'compress', 'Whether to compress connection to MySQL server', FALSE),
-            array('phpMyAdmin control user', 'controluser', 'User which phpMyAdmin can use for various actions'),
-            array('phpMyAdmin control user password', 'controlpass', 'Password for user which phpMyAdmin can use for various actions', 'password'),
             array('Authentication type', 'auth_type', 'Authentication method to use', array('cookie', 'http', 'config')),
             array('User for config auth', 'user', 'Leave empty if not using config auth'),
             array('Password for config auth', 'password', 'Leave empty if not using config auth', 'password'),
             array('Only database to show', 'only_db', 'Limit listing of databases in left frame to this one'),
             array('Verbose name of this server', 'verbose', 'Name to display in server selection'),
-            array('phpMyAdmin database for advanced features', 'pmadb', 'phpMyAdmin will allow much more when you enable this'),
-            ), $defaults, $number === FALSE ? 'Add' : 'Save');
+            array('phpMyAdmin control user', 'controluser', 'User which phpMyAdmin can use for various actions'),
+            array('phpMyAdmin control user password', 'controlpass', 'Password for user which phpMyAdmin can use for various actions', 'password'),
+            array('phpMyAdmin database for advanced features', 'pmadb', 'phpMyAdmin will allow much more when you enable this. Table names are filled in automatically.'),
+            ), 
+            'Configure server', 
+            ($number === FALSE) ? 'Enter new server connection parameters.' : 'Editing server ' . get_server_name($defaults, $number),
+            $defaults, $number === FALSE ? 'Add' : '');
     ?>
 </form>
     <?php
 }
 
-function get_server_name($val) {
-    if (!empty($val['verbose'])) {
-        $ret = htmlspecialchars($val['verbose']);
-    } else {
-        $ret = htmlspecialchars($val['host']);
-    }
-    $ret .= ' (' . $val['auth_type'] . ')';
-    return $ret;
+function show_left_form($defaults = array()) {
+    ?>
+<form method="post">
+    <input type="hidden" name="action" value="lay_left_real" />
+    <?php 
+        show_hidden_cfg(); 
+        show_config_form(array(
+            array('Use light version', 'LeftFrameLight', 'Disable this if you want to see all databases at one time.', TRUE),
+            array('Display databases in tree', 'LeftFrameDBTree', 'Whether to display databases in tree (determined by separator defined lower)', TRUE),
+            array('Databases tree separator', 'LeftFrameDBSeparator', 'String that separates databases into different tree level'),
+            array('Table tree separator', 'LeftFrameTableSeparator', 'String that separates tables into different tree level'),
+            array('Maximum table tree nesting', 'LeftFrameTableLevel', 'Maximum number of childs in table tree'),
+            array('Show logo', 'LeftDisplayLogo', 'Whether to show logo in left frame', TRUE),
+            array('Display servers selection', 'LeftDisplayServers', 'Whether to show server selection in left frame', FALSE),
+            array('Enable pointer highlighting', 'LeftPointerEnable', 'Whether you want to highlight server under mouse', TRUE),
+            ), 
+            'Configure left frame', 
+            'Choose how do you like left frame.',
+            $defaults);
+    ?>
+</form>
+    <?php
+}
+
+function show_tabs_form($defaults = array()) {
+    ?>
+<form method="post">
+    <input type="hidden" name="action" value="lay_tabs_real" />
+    <?php 
+        show_hidden_cfg(); 
+        show_config_form(array(
+            array('Default tab for server', 'DefaultTabServer', 'Tab that is displayed when entering server', array('main.php', 'server_databases.php', 'server_status.php', 'server_variables.php', 'server_privileges.php', 'server_processlist.php')),
+            array('Default tab for database', 'DefaultTabDatabase', 'Tab that is displayed when entering database', array('db_details_structure.php', 'db_details.php', 'db_search.php', 'db_operations.php')),
+            array('Default tab for table', 'DefaultTabTable', 'Tab that is displayed when entering table', array('tbl_properties_structure.php', 'sql.php', 'tbl_properties.php', 'tbl_select.php', 'tbl_change.php')),
+            array('Use lighter tabs', 'LightTab', 'If you want simpler tabs enable this', FALSE),
+            ), 
+            'Configure tabs', 
+            'Choose how you want tabs to work.',
+            $defaults);
+    ?>
+</form>
+    <?php
+}
+
+function show_icons_form($defaults = array()) {
+    ?>
+<form method="post">
+    <input type="hidden" name="action" value="lay_icons_real" />
+    <?php 
+        show_hidden_cfg(); 
+        show_config_form(array(
+            array('Icons on errors', 'ErrorIconic', 'Whether to use icons in error messages.', TRUE),
+            array('Icons on main page', 'MainPageIconic', 'Whether to use icons on main page.', TRUE),
+            array('Icons as help links', 'ReplaceHelpImg', 'Whether to use icons as help links.', TRUE),
+            array('Navigation with icons', 'NavigationBarIconic', 'Whether to display navigation (eg. tabs) with icons.', array('TRUE', 'FALSE', 'both')),
+            array('Properties pages with icons', 'PropertiesIconic', 'Whether to display properties (eg. table lists and structure) with icons.', array('TRUE', 'FALSE', 'both')),
+            ), 
+            'Configure icons', 
+            'Select whether you prefer text or icons. Both means that text and icons will be displayed.',
+            $defaults);
+    ?>
+</form>
+    <?php
+}
+
+function show_browse_form($defaults = array()) {
+    ?>
+<form method="post">
+    <input type="hidden" name="action" value="lay_browse_real" />
+    <?php 
+        show_hidden_cfg(); 
+        show_config_form(array(
+            array('Display of values', 'DefaultDisplay', 'How to list values while browsing', array('horizontal', 'vertical', 'horizontalflipped')),
+            array('Hightlight pointer', 'BrowsePointerEnable', 'Whether to highlight row under mouse.', TRUE),
+            array('Use row marker', 'BrowseMarkerEnable', 'Whether to highlight selected row.', TRUE),
+            array('Action buttons on left', 'ModifyDeleteAtLeft', 'Show action buttons on left side of listing?', TRUE),
+            array('Action buttons on right', 'ModifyDeleteAtRight', 'Show action buttons on right side of listing?', FALSE),
+            array('Repeat heading', 'RepeatCells', 'After how many rows heading should be repeated.'),
+            ), 
+            'Configure browsing', 
+            'Select desired browsing look and feel.',
+            $defaults);
+    ?>
+</form>
+    <?php
+}
+
+function show_edit_form($defaults = array()) {
+    ?>
+<form method="post">
+    <input type="hidden" name="action" value="lay_edit_real" />
+    <?php 
+        show_hidden_cfg(); 
+        show_config_form(array(
+            array('Display of properties editation', 'DefaultPropDisplay', 'How to list properties (table structure or values) while editing', array('horizontal', 'vertical')),
+            array('Number of inserted rows', 'InsertRows', 'How many rows can be inserted at once'),
+            array('Move using Ctrl+arrows', 'CtrlArrowsMoving', 'Whether to enable moving using Ctrl+Arrows', TRUE),
+            array('Autoselect text in textarea', 'TextareaAutoSelect', 'Whether to automatically select text in textarea on focus.', TRUE),
+            array('Textarea columns', 'TextareaCols', 'Number of columns in textarea while editing TEXT fields'),
+            array('Textarea rows', 'TextareaRows', 'Number of rows in textarea while editing TEXT fields'),
+            array('Double textarea for LONGTEXT', 'LongtextDoubleTextarea', 'Whether to double textarea size for LONGTEXT fields', TRUE),
+            array('Edit CHAR fields in textarea', 'CharEditing', 'Whether to edit CHAR fields in textaread', array('input', 'textarea')),
+            array('CHAR textarea columns', 'CharTextareaCols', 'Number of columns in textarea while editing CHAR fields (must be enabled above)'),
+            array('CHAR textarea rows', 'CharTextareaRows', 'Number of rows in textarea while editing CHAR fields (must be enabled above)'),
+            ), 
+            'Configure editing', 
+            'Select desired editing look and feel.',
+            $defaults);
+    ?>
+</form>
+    <?php
+}
+
+function show_window_form($defaults = array()) {
+    ?>
+<form method="post">
+    <input type="hidden" name="action" value="lay_window_real" />
+    <?php 
+        show_hidden_cfg(); 
+        show_config_form(array(
+            array('Edit SQL in window', 'EditInWindow', 'Whether edit links will edit in query window.', TRUE),
+            array('Query window height', 'QueryWindowHeight', 'Height of query window'),
+            array('Query window width', 'QueryWindowWidth', 'Width of query window'),
+            array('Default tab', 'QueryWindowDefTab', 'Default tab on query window', array('sql', 'files', 'history', 'full')),
+            ), 
+            'Configure query window', 
+            'Select desired query window look and feel.',
+            $defaults);
+    ?>
+</form>
+    <?php
 }
 
 function get_server_selection() {
@@ -315,7 +802,7 @@ function get_server_selection() {
     if (count($cfg['Servers']) == 0) return ''; 
     $ret = '<select name="server">';
     foreach ($cfg['Servers'] as $key => $val) {
-        $ret .= '<option value="' . $key . '">' . get_server_name($val) . '</option>';
+        $ret .= '<option value="' . $key . '">' . get_server_name($val, $key) . '</option>';
     }
     $ret .= '</select>';
     return $ret;
@@ -335,20 +822,12 @@ if ($action != 'download') {
     }
 }
 
-if (empty($action)) {
-    message('notice', 'You want to configure phpMyAdmin using web interface. Please note that this only allows basic setup, please read <a href="../Documentation.html">documentation</a> to see full description of all configuration directives.', 'Welcome');
-
-    if (empty($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) == 'off') {
-        message('warning', 'You are not using secure connection, all data (including sensitive ones, like passwords) are transfered unencrypted!');
-    }
-}
-
 $show_info = FALSE;
 
 switch ($action) {
     case 'download':
         header('Content-Type: text/plain');
-        header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+        header('Expires: ' . $now);
         header('Content-Disposition: attachment; filename="config.inc.php"');
         header('Pragma: no-cache');
 
@@ -357,7 +836,7 @@ switch ($action) {
         break;
     case 'display':
         echo '<form method="none"><textarea name="config" cols="50" rows="20" id="textconfig" wrap="off">' . "\n";
-        echo htmlentities(get_cfg_string());
+        echo htmlspecialchars(get_cfg_string());
         echo '</textarea></form>' . "\n";
         ?>
 <script language="javascript" type="text/javascript">
@@ -383,11 +862,21 @@ switch ($action) {
         <?php
         break;
     case 'save':
-        $config = fopen('../config/config.inc.php', 'w');
-        // FIXME: check errors
-        fwrite($config, get_cfg_string());
+        $config = @fopen('../config/config.inc.php', 'w');
+        if ($config === FALSE) {
+            message('error', 'Could not open config file for writing! Bad permissions?');
+            break;
+        }
+        $s = get_cfg_string();
+        $r = fwrite($config, $s);
+        if (!$r || $r != strlen($s)) {
+            message('error', 'Could not write to config file! Not enough space?');
+            break;
+        } else {
+            message('notice', 'Configration saved to file config/config.inc.php in phpMyAdmin top level directory, copy it to top level one and delete directory config to use it.', 'File saved');
+        }
+        unset($r, $s);
         fclose($config);
-        message('notice', 'Configration saved to file config/config.inc.php in phpMyAdmin top level directory, copy it to top level one and delete directory config to use it.', 'File saved');
         break;
     case 'load':
         $bck_cfg = $cfg;
@@ -412,6 +901,7 @@ switch ($action) {
                 $cfg = $bck_cfg;
             } else {
                 message('notice', 'Configuration loaded');
+                compress_servers();
             }
         } else {
             message('error', 'Configuration file not found!');
@@ -419,25 +909,16 @@ switch ($action) {
         }
         $show_info = TRUE;
         break;
+
     case 'addserver_real':
         if (isset($_POST['submit_save'])) {
-            $new_server = grab_values('host;port;socket;connect_type;compress:bool;controluser;controlpass;auth_type;user;password;only_db;verbose;pmadb');
-            // Just use defaults, should be okay for most users
-            if (!empty($new_server['pma_db'])) {
-                $new_server['bookmarktable'] = 'pma_bookmark';
-                $new_server['relation']      = 'pma_relation';
-                $new_server['table_info']    = 'pma_table_info';
-                $new_server['table_coords']  = 'pma_table_coords';
-                $new_server['pdf_pages']     = 'pma_pdf_pages';
-                $new_server['column_info']   = 'pma_column_info';
-                $new_server['history']       = 'pma_history';
-            }
+            $new_server = grab_values('host;port;socket;connect_type;compress:bool;controluser;controlpass;auth_type;user;password;only_db;verbose;pmadb;bookmarktable:serialized;relation:serialized;table_info:serialized;table_coords:serialized;pdf_pages:serialized;column_info:serialized;history:serialized;AllowDeny:serialized');
             $err = FALSE;
             if (empty($new_server['host'])) {
                 message('error', 'Empty hostname!');
                 $err = TRUE;
             }
-            if ($new_server['socket'] && empty($new_server['socket'])) {
+            if ($new_server['connect_type'] == 'socket' && empty($new_server['socket'])) {
                 message('error', 'Empty socket with socket connection seleted!');
                 $err = TRUE;
             }
@@ -445,101 +926,540 @@ switch ($action) {
                 message('error', 'Empty username while using config authentication method!');
                 $err = TRUE;
             }
+            if (!empty($new_server['pmadb'])) {
+                // Just use defaults, should be okay for most users
+                $pmadb = array();
+                $pmadb['bookmarktable'] = 'pma_bookmark';
+                $pmadb['relation']      = 'pma_relation';
+                $pmadb['table_info']    = 'pma_table_info';
+                $pmadb['table_coords']  = 'pma_table_coords';
+                $pmadb['pdf_pages']     = 'pma_pdf_pages';
+                $pmadb['column_info']   = 'pma_column_info';
+                $pmadb['history']       = 'pma_history';
+                
+                $new_server = array_merge($pmadb, $new_server);
+                unset($pmadb);
+                if (empty($new_server['controluser'])) {
+                    message('error', 'Empty phpMyAdmin control user while using pmadb!');
+                    $err = TRUE;
+                }
+                if (empty($new_server['controlpass'])) {
+                    message('error', 'Empty phpMyAdmin control user password while using pmadb!');
+                    $err = TRUE;
+                }
+            } else {
+                message('warning', 'You didn\'t set phpMyAdmin database, so you can not use all phpMyAdmin features.');
+            }
             if ($new_server['auth_type'] == 'config') {
                 message('warning', 'Remember to protect your installation while using config authentication method!');
+            } else {
+                // Not needed:
+                unset($new_server['user']);
+                unset($new_server['password']);
             }
             if ($err) {
                 show_server_form($new_server, isset($_POST['server']) ? $_POST['server'] : FALSE);
             } else {
                 if (isset($_POST['server'])) {
                     $cfg['Servers'][$_POST['server']] = $new_server;
-                    message('notice', 'Changed server number ' . $_POST['server']);
+                    message('notice', 'Changed server ' . get_server_name($new_server, $_POST['server']));
                 } else {
                     $cfg['Servers'][] = $new_server;
                     message('notice', 'New server added');
                 }
                 $show_info = TRUE;
+                if ($new_server['auth_type'] == 'cookie' && empty($cfg['blowfish_secret'])) {
+                    message('notice', 'You did not have configured blowfish secret and you want to use cookie authentication so I generated blowfish secret for you. It is used to encrypt cookies.', 'Blowfist secret generated');
+                    // FIXME: Find better way:
+                    $cfg['blowfish_secret'] = '' . rand();
+                }
             }
+            unset($new_server);
         } else {
-            message('notice', 'Adding of server canceled');
             $show_info = TRUE;
         }
         break;
     case 'addserver':
         if (count($cfg['Servers']) == 0) {
-            show_server_form(array('host' => 'localhost', 'auth_type' => 'config', 'user' => 'root'));
+            // First server will use defaults as in config.default.php
+            $defaults = $default_cfg['Servers'][1];
         } else {
-            show_server_form();
+            $defaults = array();
         }
+
+        // Guess MySQL extension to use, prefer mysqli
+        if (!function_exists('mysql_get_client_info')) {
+            PMA_dl('mysql');
+        }
+        if (!function_exists('mysqli_get_client_info')) {
+            PMA_dl('mysqli');
+        }
+        if (function_exists('mysqli_get_client_info')) {
+            $defaults['extension'] = 'mysqli';
+        } else if (function_exists('mysql_get_client_info')) {
+            $defaults['extension'] = 'mysql';
+        } else {
+            message('warning', 'Could not load neither mysql nor mysqli extension, you might not be able to use phpMyAdmin!');
+        }
+        if (isset($defaults['extension'])) {
+            message('notice', 'Autodetected MySQL extension to use: ' . $defaults['extension']);
+        }
+
+        // Display form
+        show_server_form($defaults);
         break;
     case 'editserver':
-        message('notice', 'Editing server number ' . $_POST['server']);
+        if (!isset($_POST['server'])) footer();
         show_server_form($cfg['Servers'][$_POST['server']], $_POST['server']);
         break;
     case 'deleteserver':
-        message('notice', 'Deleted server number ' . $_POST['server']);
+        if (!isset($_POST['server'])) footer();
+        message('notice', 'Deleted server ' . get_server_name($cfg['Servers'][$_POST['server']], $_POST['server']));
         unset($cfg['Servers'][$_POST['server']]);
-        // FIXME: compress array here (maybe not needed)
+        compress_servers();
         $show_info = TRUE;
         break;
     case 'servers':
         if (count($cfg['Servers']) == 0) {
             message('notice', 'No servers defined, so none can not be shown');
         } else {
-            foreach($cfg['Servers'] as $srv) {
-                // FIXME: more human friendly output
-                echo '<pre>';
-                print_r($srv);
-                echo '</pre>';
+            foreach($cfg['Servers'] as $i => $srv) {
+                $data = array();
+                if (!empty($srv['verbose'])) {
+                    $data[] = array('Verbose name', $srv['verbose']);
+                }
+                $data[] = array('Host', $srv['host']);
+                $data[] = array('MySQL extension', isset($srv['extension']) ? $srv['extension'] : $default_cfg['Servers'][1]['extension']);
+                $data[] = array('Authentication type', get_server_auth($srv));
+                $data[] = array('phpMyAdmin advanced features', empty($srv['pmadb']) || empty($srv['controluser']) || empty($srv['controlpass']) ? 'disabled' : 'enabled, db: ' . $srv['pmadb'] . ', user: ' . $srv['controluser']);
+                $buttons =
+                    get_action('deleteserver', 'Delete', '<input type="hidden" name="server" value="' . $i . '" />') .
+                    get_action('editserver', 'Edit', '<input type="hidden" name="server" value="' . $i . '" />');
+                show_overview('Server ' . get_server_name($srv, $i), $data, $buttons);
             }
         }
         break;
-    case 'clear': // Actual clearing is done at top
+
+    case 'feat_upload_real':
+        if (isset($_POST['submit_save'])) {
+            $dirs = grab_values('UploadDir;SaveDir;docSQLDir');
+            chdir('..'); // to allow checking directories
+            $err = FALSE;
+            if (!empty($dirs['UploadDir']) && !is_dir($dirs['UploadDir'])) {
+                message('error', 'Upload directory ' . htmlspecialchars($dirs['UploadDir']) . ' does not exist!');
+                $err = TRUE;
+            }
+            if (!empty($dirs['SaveDir']) && !is_dir($dirs['SaveDir'])) {
+                message('error', 'Save directory ' . htmlspecialchars($dirs['SaveDir']) . ' does not exist!');
+                $err = TRUE;
+            }
+            if (!empty($dirs['docSQLDir']) && !is_dir($dirs['docSQLDir'])) {
+                message('error', 'docSQL directory ' . htmlspecialchars($dirs['docSQLDir']) . ' does not exist!');
+                $err = TRUE;
+            }
+            if ($err) {
+                show_upload_form($dirs);
+            } else {
+                $cfg = array_merge($cfg, $dirs);
+                message('notice', 'Configuration changed');
+                $show_info = TRUE;
+            }
+        } else {
+            $show_info = TRUE;
+        }
+        break;
+    case 'feat_upload':
+        show_upload_form($cfg);
+        break;
+
+    case 'feat_security_real':
+        if (isset($_POST['submit_save'])) {
+            $vals = grab_values('blowfish_secret;ForceSSL:bool;ShowPHPInfo:bool;ShowChgPassword:bool;AllowArbitraryServer:bool;LoginCookieRecall:book;LoginCookieValidity:int');
+            $err = FALSE;
+            if (empty($vals['blowfish_secret'])) {
+                message('warning', 'Blowfish secret is empty, you will not be able to use cookie authentication.');
+            }
+            if ($vals['AllowArbitraryServer']) {
+                message('warning', 'Arbitrary server connection might be dangerous as it might allow access to internal servers that are not reachable from outside.');
+            }
+            if (isset($vals['LoginCookieValidity']) && $vals['LoginCookieValidity'] < 1) {
+                message('error', 'Invalid cookie validity time');
+                $err = TRUE;
+            }
+            if ($err) {
+                show_security_form($vals);
+            } else {
+                $cfg = array_merge($cfg, $vals);
+                message('notice', 'Configuration changed');
+                $show_info = TRUE;
+            }
+        } else {
+            $show_info = TRUE;
+        }
+        break;
+    case 'feat_security':
+        show_security_form($cfg);
+        break;
+
+    case 'feat_manual_real':
+        if (isset($_POST['submit_save'])) {
+            $vals = grab_values('MySQLManualBase;MySQLManualType');
+            $err = FALSE;
+            if ($vals['MySQLManualType'] != 'none' && empty($vals['MySQLManualBase'])) {
+                message('error', 'You need to set manual base URL or choone none type.');
+                $err = TRUE;
+            }
+            if ($err) {
+                show_manual_form($vals);
+            } else {
+                $cfg = array_merge($cfg, $vals);
+                message('notice', 'Configuration changed');
+                $show_info = TRUE;
+            }
+        } else {
+            $show_info = TRUE;
+        }
+        break;
+    case 'feat_manual':
+        show_manual_form($cfg);
+        break;
+
+    case 'feat_charset_real':
+        if (isset($_POST['submit_save'])) {
+            $vals = grab_values('AllowAnywhereRecoding:bool;DefaultCharset;RecodingEngine;IconvExtraParams');
+            $err = FALSE;
+            if ($err) {
+                show_charset_form($vals);
+            } else {
+                $cfg = array_merge($cfg, $vals);
+                message('notice', 'Configuration changed');
+                $show_info = TRUE;
+            }
+        } else {
+            $show_info = TRUE;
+        }
+        break;
+    case 'feat_charset':
+        $d = $cfg;
+        if (!isset($d['RecodingEngine'])) {
+            if (@extension_loaded('iconv')) {
+                $d['RecodingEngine']         = 'iconv';
+            } else if (@extension_loaded('recode')) {
+                $d['RecodingEngine']         = 'recode';
+            } else {
+                PMA_dl('iconv');
+                if (!@extension_loaded('iconv')) {
+                    PMA_dl('recode');
+                    if (!@extension_loaded('recode')) {
+                        message('warning', 'Could not load neither recode nor iconv so charset conversion will most likely not work.');
+                    } else {
+                        $d['RecodingEngine'] = 'recode';
+                    }
+                } else {
+                    $d['RecodingEngine']     = 'iconv';
+                }
+            }
+            if (isset($d['RecodingEngine'])) {
+                message('notice', 'Autodetected recoding engine: ' . $d['RecodingEngine']);
+            }
+        }
+        show_charset_form($d);
+        unset($d);
+        break;
+
+    case 'feat_extensions_real':
+        if (isset($_POST['submit_save'])) {
+            $vals = grab_values('GD2Available');
+            $err = FALSE;
+            if ($err) {
+                show_extensions_form($vals);
+            } else {
+                $cfg = array_merge($cfg, $vals);
+                message('notice', 'Configuration changed');
+                $show_info = TRUE;
+            }
+        } else {
+            $show_info = TRUE;
+        }
+        break;
+    case 'feat_extensions':
+        $d = $cfg;
+        if (!isset($d['GD2Available'])) {
+            if (PMA_IS_GD2 == 1) {
+                message('notice', 'GD 2 or newer found.');
+                $d['GD2Available'] = 'yes';
+            } else {
+                message('warning', 'GD 2 or newer is not present.');
+                $d['GD2Available'] = 'no';
+            }
+        }
+        show_extensions_form($d);
+        unset($d);
+        break;
+
+    case 'feat_relation_real':
+        if (isset($_POST['submit_save'])) {
+            $vals = grab_values('QueryHistoryDB:bool;QueryHistoryMax:int;BrowseMIME:bool;PDFDefaultPageSize');
+            $err = FALSE;
+            if (isset($vals['QueryHistoryMax']) && $vals['QueryHistoryMax'] < 1) {
+                message('error', 'Invalid value for query maximal history size!');
+                $err = TRUE;
+            }
+            if ($err) {
+                show_relation_form($vals);
+            } else {
+                $cfg = array_merge($cfg, $vals);
+                message('notice', 'Configuration changed');
+                $show_info = TRUE;
+            }
+        } else {
+            $show_info = TRUE;
+        }
+        break;
+    case 'feat_relation':
+        show_relation_form($cfg);
+        break;
+
+    case 'lay_left_real':
+        if (isset($_POST['submit_save'])) {
+            $vals = grab_values('LeftFrameLight:bool;LeftFrameDBTree:bool;LeftFrameDBSeparator;LeftFrameTableSeparator;LeftFrameTableLevel:int;LeftDisplayLogo:bool;LeftDusplayServers:bool;LeftPointerEnable:bool');
+            $err = FALSE;
+            if (isset($vals['LeftFrameTableLevel']) && $vals['LeftFrameTableLevel'] < 1) {
+                message('error', 'Invalid value for maximum table nesting level!');
+                $err = TRUE;
+            }
+            if ($err) {
+                show_left_form($vals);
+            } else {
+                $cfg = array_merge($cfg, $vals);
+                message('notice', 'Configuration changed');
+                $show_info = TRUE;
+            }
+        } else {
+            $show_info = TRUE;
+        }
+        break;
+    case 'lay_left':
+        show_left_form($cfg);
+        break;
+
+    case 'lay_tabs_real':
+        if (isset($_POST['submit_save'])) {
+            $vals = grab_values('DefaultTabServer;DefaultTabDatabase;DefaultTabTable;LightTabs:bool');
+            $err = FALSE;
+            if ($err) {
+                show_tabs_form($vals);
+            } else {
+                $cfg = array_merge($cfg, $vals);
+                message('notice', 'Configuration changed');
+                $show_info = TRUE;
+            }
+        } else {
+            $show_info = TRUE;
+        }
+        break;
+    case 'lay_tabs':
+        show_tabs_form($cfg);
+        break;
+
+    case 'lay_icons_real':
+        if (isset($_POST['submit_save'])) {
+            $vals = grab_values('ErrorIconic:bool;MainPageIconic:bool;ReplaceHelpImg:bool;NavigationBarIconic:tristate;PropertiesIconic:tristate');
+            $err = FALSE;
+            if ($err) {
+                show_icons_form($vals);
+            } else {
+                $cfg = array_merge($cfg, $vals);
+                message('notice', 'Configuration changed');
+                $show_info = TRUE;
+            }
+        } else {
+            $show_info = TRUE;
+        }
+        break;
+    case 'lay_icons':
+        show_icons_form($cfg);
+        break;
+
+    case 'lay_browse_real':
+        if (isset($_POST['submit_save'])) {
+            $vals = grab_values('BrowsePointerEnable:bool;BrowseMarkerEnable:bool;ModifyDeleteAtRight:bool;ModifyDeleteAtLeft:bool;RepeatCells:int;DefaultDisplay');
+            $err = FALSE;
+            if (isset($vals['RepeatCells']) && $vals['RepeatCells'] < 1) {
+                message('error', 'Invalid value for header repeating!');
+                $err = TRUE;
+            }
+            if (!$vals['ModifyDeleteAtLeft'] && !$vals['ModifyDeleteAtRight']) {
+                message('error', 'No action buttons enabled!');
+                $err = TRUE;
+            }
+            if ($err) {
+                show_browse_form($vals);
+            } else {
+                $cfg = array_merge($cfg, $vals);
+                message('notice', 'Configuration changed');
+                $show_info = TRUE;
+            }
+        } else {
+            $show_info = TRUE;
+        }
+        break;
+    case 'lay_browse':
+        show_browse_form($cfg);
+        break;
+
+    case 'lay_edit_real':
+        if (isset($_POST['submit_save'])) {
+            $vals = grab_values('TextareaCols:int;TextareaRows:int;LongtextDoubleTextarea:bool;TextareaAutoSelect:bool;CharEditing;CharTextareaCols:int;CharTextareaRows:int;CtrlArrowsMoving:bool;DefaultPropDisplay;InsertRows:int');
+            $err = FALSE;
+            if (isset($vals['TextareaCols']) && $vals['TextareaCols'] < 1) {
+                message('error', 'Invalid value for textarea columns!');
+                $err = TRUE;
+            }
+            if (isset($vals['TextareaRows']) && $vals['TextareaRows'] < 1) {
+                message('error', 'Invalid value for textarea rows!');
+                $err = TRUE;
+            }
+            if (isset($vals['CharTextareaCols']) && $vals['CharTextareaCols'] < 1) {
+                message('error', 'Invalid value for CHAR textarea columns!');
+                $err = TRUE;
+            }
+            if (isset($vals['CharTextareaRows']) && $vals['CharTextareaRows'] < 1) {
+                message('error', 'Invalid value for CHAR textarea rows!');
+                $err = TRUE;
+            }
+            if (isset($vals['InsertRows']) && $vals['InsertRows'] < 1) {
+                message('error', 'Invalid value for inserted rows count!');
+                $err = TRUE;
+            }
+            if ($err) {
+                show_edit_form($vals);
+            } else {
+                $cfg = array_merge($cfg, $vals);
+                message('notice', 'Configuration changed');
+                $show_info = TRUE;
+            }
+        } else {
+            $show_info = TRUE;
+        }
+        break;
+    case 'lay_edit':
+        show_edit_form($cfg);
+        break;
+
+    case 'lay_window_real':
+        if (isset($_POST['submit_save'])) {
+            $vals = grab_values('EditInWindow:bool;QueryWindowHeight:int;QueryWindowWidth:int;QueryWindowDefTab');
+            $err = FALSE;
+            if (isset($vals['QueryWindowWidth']) && $vals['QueryWindowWidth'] < 1) {
+                message('error', 'Invalid value for query window width!');
+                $err = TRUE;
+            }
+            if (isset($vals['QueryWindowHeight']) && $vals['QueryWindowHeight'] < 1) {
+                message('error', 'Invalid value for query window height');
+                $err = TRUE;
+            }
+            if ($err) {
+                show_window_form($vals);
+            } else {
+                $cfg = array_merge($cfg, $vals);
+                message('notice', 'Configuration changed');
+                $show_info = TRUE;
+            }
+        } else {
+            $show_info = TRUE;
+        }
+        break;
+    case 'lay_window':
+        show_window_form($cfg);
+        break;
+
+    case 'clear': // Actual clearing is done on beginning of this script
     case 'main':
-    case '':
         $show_info = TRUE;
+        break;
+
+    case '':
+        message('notice', 'You want to configure phpMyAdmin using web interface. Please note that this only allows basic setup, please read <a href="../Documentation.html">documentation</a> to see full description of all configuration directives.', 'Welcome');
+
+        if (empty($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) == 'off') {
+            if (empty($_SERVER['REQUEST_URI']) || empty($_SERVER['HTTP_HOST'])) {
+                $redir = '';
+            } else {
+                $redir = ' If your server is also configured to accept HTTPS request follow <a href="https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '">this link</a> to use secure connection.';
+            }
+            message('warning', 'You are not using secure connection, all data (including sensitive, like passwords) are transfered unencrypted!' . $redir, 'Not secure connection');
+        }
         break;
 }
 
 if ($show_info) {
-    echo '<p>Current configuration overview:</p>' . "\n";
-    echo '<p>You have defined ' . count($cfg['Servers']) . ' servers:';
-    $sep = ' ';
-    foreach ($cfg['Servers'] as $val) {
-        echo $sep;
-        $sep = ', ';
-        echo get_server_name($val);
+    $servers = 'none';
+    $servers_text = 'Servers';
+    if (count($cfg['Servers']) == 0) {
+        message('warning', 'No servers defined, you probably want to add one.');
+    } else {
+        $servers = '';
+        $servers_text = 'Servers (' . count($cfg['Servers']) . ')';
+
+        $sep = '';
+        foreach ($cfg['Servers'] as $key => $val) {
+            $servers .= $sep;
+            $sep = ', ';
+            $servers .= get_server_name($val, $key);
+        }
+        unset($sep);
     }
-    unset($sep);
-    echo '</p>' . "\n";
+    show_overview('Current configuration overview',
+        array(
+            array($servers_text, $servers),
+            array('SQL files upload', empty($cfg['UploadDir']) ? 'disabled' : 'enabled'),
+            array('Exported files on server', empty($cfg['SaveDir']) ? 'disabled' : 'enabled'),
+            array('Charset conversion', isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] ? 'enabled' : 'disabled'),
+        ));
+    unset($servers_text, $servers);
 }
 
 echo '<p>Available global actions (please note that these will delete any changes you could have done above):</p>';
 
-show_action('display', 'Display current configuration');
-show_action('download', 'Download current configuration');
-if (!$fail_dir) {
-    show_action('save', 'Save current configuration');
-    show_action('load', 'Load saved configuration');
-}
-show_action('clear', 'Clear current configuration');
-
-echo '<hr class="separator" />';
-
-show_action('addserver', 'Add server configuration');
+echo '<fieldset class="toolbar"><legend>Servers</legend>' . "\n";
+show_action('addserver', 'Add');
 $servers = get_server_selection();
 if (!empty($servers)) {
-    show_action('deleteserver', 'Delete this server', $servers);
-    show_action('editserver', 'Edit this server', $servers);
+    show_action('servers', 'List');
+    show_action('deleteserver', 'Delete', $servers);
+    show_action('editserver', 'Edit', $servers);
 }
+echo '</fieldset>' . "\n\n";
 
-echo '<hr class="separator" />';
+echo '<fieldset class="toolbar"><legend>Layout</legend>' . "\n";
+show_action('lay_left', 'Left frame');
+show_action('lay_tabs', 'Tabs');
+show_action('lay_icons', 'Icons');
+show_action('lay_browse', 'Browsing');
+show_action('lay_edit', 'Editing');
+show_action('lay_window', 'Query window');
+echo '</fieldset>' . "\n\n";
 
-show_action('main', 'Display overview');
-show_action('servers', 'Display servers');
+echo '<fieldset class="toolbar"><legend>Features</legend>' . "\n";
+show_action('feat_upload', 'Upload/Download');
+show_action('feat_security', 'Security');
+show_action('feat_manual', 'MySQL manual');
+show_action('feat_charset', 'Charsets');
+show_action('feat_extensions', 'Extensions');
+show_action('feat_relation', 'MIME/Relation/History');
+echo '</fieldset>' . "\n\n";
 
-
-echo '</p>';
+echo '<fieldset class="toolbar"><legend>Configuration</legend>' . "\n";
+show_action('main', 'Overview');
+show_action('display', 'Display');
+show_action('download', 'Download');
+if (!$fail_dir) {
+    show_action('save', 'Save');
+    show_action('load', 'Load');
+}
+show_action('clear', 'Clear');
+echo '</fieldset>' . "\n\n";
 
 footer();
 ?>
