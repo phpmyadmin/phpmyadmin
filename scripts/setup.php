@@ -970,8 +970,7 @@ switch ($action) {
                 $show_info = TRUE;
                 if ($new_server['auth_type'] == 'cookie' && empty($cfg['blowfish_secret'])) {
                     message('notice', 'You did not have configured blowfish secret and you want to use cookie authentication so I generated blowfish secret for you. It is used to encrypt cookies.', 'Blowfist secret generated');
-                    // FIXME: Find better way:
-                    $cfg['blowfish_secret'] = '' . rand();
+                    $cfg['blowfish_secret'] = uniqid('', TRUE);
                 }
             }
             unset($new_server);
