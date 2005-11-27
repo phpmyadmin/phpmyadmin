@@ -1087,9 +1087,6 @@ class PMA_RT
     {
         global $pdf, $db, $cfgRelation, $with_doc;
 
-        // Font face depends on the current language
-        $this->ff        = str_replace('"', '', substr($GLOBALS['right_font_family'], 0, strpos($GLOBALS['right_font_family'], ',')));
-
         $this->same_wide = $all_tab_same_wide;
 
         // Initializes a new document
@@ -1106,14 +1103,14 @@ class PMA_RT
             $this->ff = 'FreeSans';
             $pdf->AddFont('FreeSans','','FreeSans.php');
             $pdf->AddFont('FreeSans','B','FreeSansBold.php');
-            $pdf->SetFont('FreeSans', '', 14);
-        } else { 
+        } else if ($GLOBALS['charset'] == 'utf-8') {
             // fonts added to phpMyAdmin and considered non-standard by fpdf
             // (Note: those tahoma fonts are iso-8859-2 based)
-            if ($this->ff == 'tahoma') {
-                $pdf->AddFont('tahoma','','tahoma.php');
-                $pdf->AddFont('tahoma','B','tahomab.php');
-            }
+            $this->ff == 'tahoma';
+            $pdf->AddFont('tahoma','','tahoma.php');
+            $pdf->AddFont('tahoma','B','tahomab.php');
+        } else {
+            $this->ff == 'helvetica';
         }
         $pdf->SetFont($this->ff, '', 14);
         $pdf->SetAutoPageBreak('auto');
