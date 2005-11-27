@@ -397,6 +397,8 @@ $strKill = 'Ukonèit';
 $strKorean = 'Korejština';
 
 $strLandscape = 'Na šíøku';
+$strLanguageFileNotFound = 'Jazykovı soubor "%1$s" nebyl nalezen.';
+$strLanguageUnknown = 'Neznámı jazyk: %1$s.';
 $strLatchedPages = 'Zamèenıch stránek';
 $strLatexCaption = 'Titulek tabulky';
 $strLatexContent = 'Obsah tabulky __TABLE__';
@@ -463,6 +465,7 @@ $strMyISAMRepairThreads = 'Threadù pro opravování';
 $strMyISAMSortBufferSizeDesc = 'Pamì, která je alokována pøi øazení MyISAM indexù bìhem jejich vytváøení nebo opravování.';
 $strMyISAMSortBufferSize = 'Velikost pamìti pro øazení';
 $strMySQLCharset = 'Znaková sada v&nbsp;MySQL';
+$strMysqlClientVersion = 'Verze MySQL klienta';
 $strMySQLConnectionCollation = 'Porovnávání pro toto pøipojení k&nbsp;MySQL';
 $strMySQLReloaded = 'MySQL znovu naèteno.';
 $strMySQLSaid = 'MySQL hlásí: ';
@@ -510,6 +513,7 @@ $strNumSearchResultsTotal = '<b>Celkem:</b> <i>%s</i> odpovídající(ch) záznam(ù)
 $strNumTables = 'Tabulek';
 
 $strOK = 'OK';
+$strOpenNewWindow = 'Otevøít nové okno phpMyAdmina';
 $strOperations = 'Úpravy';
 $strOperator = 'Operátor';
 $strOptimizeTable = 'Optimalizovat tabulku';
@@ -590,6 +594,7 @@ $strPrivDescUsage = 'ádná oprávnìní.';
 $strPrivileges = 'Oprávnìní';
 $strPrivilegesReloaded = 'Oprávnìní byla znovunaètena úspìšnì.';
 $strProcesslist = 'Seznam procesù';
+$strProtocolVersion = 'Verze protokolu';
 $strPutColNames = 'Pøidat jména sloupcù na první øádek';
 
 $strQBEDel = 'smazat';
@@ -916,6 +921,7 @@ $strUpgrade = 'Mìli byste aktualizovat %s na verzi %s nebo vyšší.';
 $strUploadLimit = 'Pravdìpodobnì jste se pokusili nahrát pøíliš velkı soubor. Pøeètìte si prosím %sdokumentaci%s, jak toto omezení obejít.';
 $strUsage = 'Pouívá';
 $strUseBackquotes = 'Pouít zpìtné uvozovky u&nbsp;jmen tabulek a sloupcù';
+$strUsedPhpExtensions = 'Pouitá rozšíøení PHP';
 $strUseHostTable = 'Pouít tabulku s&nbsp;poèítaèi';
 $strUserAlreadyExists = 'Uivatel %s ji existuje!';
 $strUserEmpty = 'Jméno uivatele je prázdné!';
@@ -960,10 +966,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strProtocolVersion = 'Protocol version';  //to translate
-$strMysqlClientVersion = 'MySQL client version';  //to translate
-$strUsedPhpExtensions = 'Used PHP extensions';  //to translate
-$strOpenNewWindow = 'Open new phpMyAdmin window';  //to translate
-$strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
-$strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
 ?>

@@ -9,6 +9,7 @@ $Source$
     * Documentation.html, scripts/setup.php: Many new features to setup
       script.
     * pdf_schema.php: Do not use right_font_family.
+    * lang/czech: Update.
 
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/grab_globals.lib.php: allow scripts to bypass importing vars
