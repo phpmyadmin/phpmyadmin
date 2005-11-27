@@ -11,6 +11,8 @@ $Source$
     * pdf_schema.php: Do not use right_font_family.
     * lang/czech: Update.
     * libraries/auth/cookie.auth.lib.php: Fix undefined indexes.
+    * libraries/display_select_lang.lib.php, libraries/select_lang.lib.php:
+      Store HTML entities rather than relying on php functions to create them.
 
 2005-11-24 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/grab_globals.lib.php: allow scripts to bypass importing vars

@@ -68,7 +68,7 @@ function PMA_select_language($use_fieldset = FALSE) {
 
         // Include native name if non empty
         if (!empty($tmplang[3])) {
-            $lang_name = htmlentities($tmplang[3], ENT_COMPAT, 'UTF-8') . ' - '
+            $lang_name = $tmplang[3] . ' - '
                 . $lang_name;
         }
 
