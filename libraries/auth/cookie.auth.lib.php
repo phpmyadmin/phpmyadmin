@@ -464,14 +464,14 @@ function PMA_auth_set_user()
 
         // any parameters to pass?
         $url_params = array();
-        if ( ! empty($GLOBALS['target']) ) {
+        if ( ! empty($GLOBALS['db']) ) {
             $url_params['db'] = $GLOBALS['db'];
         }
-        if ( ! empty($GLOBALS['target']) ) {
+        if ( ! empty($GLOBALS['table']) ) {
             $url_params['table'] = $GLOBALS['table'];
         }
         // any target to pass?
-        if ( ! empty($GLOBALS['target']) ) {
+        if ( ! empty($GLOBALS['target']) && $GLOBALS['target'] != 'index.php' ) {
             $url_params['target'] = $GLOBALS['target'];
         }
 
