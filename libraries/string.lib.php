@@ -17,7 +17,7 @@
 /* Try to load mbstring, unless we're using buggy php version */
 if (PMA_PHP_INT_VERSION != 40203) {
     if (!@extension_loaded('mbstring')) {
-        //PMA_dl('mbstring');
+        PMA_dl('mbstring');
     }
 }
 

@@ -16,6 +16,7 @@ $Source$
     * Documentation.html: Add anchors to configuration directives.
     * libraries/sqlparser.lib.php: Do not use functions not supported by older
       PHP (bug #1367782).
+    * libraries/string.lib.php: This line should not be commented out.
 
 2005-11-28 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/Theme.class.php, libraries/Theme_Manager.class.php:
