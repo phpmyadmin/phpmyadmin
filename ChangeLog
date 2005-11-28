@@ -12,7 +12,11 @@ $Source$
 2005-11-28 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/Theme.class.php, libraries/Theme_Manager.class.php:
       new classes for handling themes
-    
+    * libraries/select_lang.lib.php:
+      - revised
+      - added check for lang directory (./lang/)
+      - check files for languages
+
 2005-11-27 Michal Čihař  <michal@cihar.com>
     * Documentation.html, scripts/setup.php: Many new features to setup
       script.
@@ -34,7 +38,7 @@ $Source$
       - added error message if requested lang could not be set
       - set fallback to en-utf-8
       - minore fixes
-    
+
 2005-11-25 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: move server choice into MySQL container
     * libraries/select_server.lib.php: show currently selected server

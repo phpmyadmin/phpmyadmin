@@ -11,6 +11,9 @@
  *
  * @uses    $GLOBALS['cfg']['lang']
  * @uses    $GLOBALS['cfg']['DefaultLang']
+ * @uses    $GLOBALS['lang_failed_cfg']
+ * @uses    $GLOBALS['lang_failed_cookie']
+ * @uses    $GLOBALS['lang_failed_request']
  * @uses    $_REQUEST['lang']
  * @uses    $_COOKIE['pma_lang']
  * @uses    $_SERVER['HTTP_ACCEPT_LANGUAGE']
@@ -22,16 +25,30 @@
  */
 function PMA_langCheck() {
     // check forced language
-    if ( PMA_langSet( $GLOBALS['cfg']['Lang'] ) ) {
-        return true;
+    if ( ! empty( $GLOBALS['cfg']['Lang'] ) ) {
+        if ( PMA_langSet( $GLOBALS['cfg']['Lang'] ) ) {
+            return true;
+        } else {
+            $GLOBALS['lang_failed_cfg'] = $GLOBALS['cfg']['Lang'];
+        }
+    }
+
+    // check user requested language
+    if ( ! empty( $_REQUEST['lang'] ) ) {
+        if ( PMA_langSet( $_REQUEST['lang'] ) ) {
+            return true;
+        } else {
+            $GLOBALS['lang_failed_request'] = $_REQUEST['lang'];
+        }
     }
 
     // check previous set language
-    if ( PMA_langSet( $_REQUEST['lang'] ) ) {
-        return true;
-    }
-    if ( PMA_langSet( $_COOKIE['pma_lang'] ) ) {
-        return true;
+    if ( ! empty( $_COOKIE['pma_lang'] ) ) {
+        if ( PMA_langSet( $_COOKIE['pma_lang'] ) ) {
+            return true;
+        } else {
+            $GLOBALS['lang_failed_cookie'] = $_COOKIE['pma_lang'];
+        }
     }
 
     // try to findout user's language by checking its HTTP_ACCEPT_LANGUAGE variable
@@ -60,25 +77,17 @@ function PMA_langCheck() {
  * checks given lang and sets it if valid
  * returns true on success, otherwise flase
  *
- * @uses    $GLOBALS['strLanguageUnknown']  if $lang unknown
  * @uses    $GLOBALS['available_languages'] to check $lang
  * @uses    $GLOBALS['lang']                to set it
- * @uses    $GLOBALS['PMA_errors']          if $lang unknown
- * @param   string  $lang   langauge to set
+ * @param   string  $lang   language to set
  * @return  bool    success
  */
 function PMA_langSet( &$lang ) {
-    if ( ! empty( $lang ) ) {
-        if ( ! empty( $GLOBALS['available_languages'][$lang] ) ) {
-            $GLOBALS['lang'] = $lang;
-            return true;
-        } else {
-            $GLOBALS['PMA_errors'][] = sprintf( 
-                $GLOBALS['strLanguageUnknown'], $lang );
-        }
-    } else {
+    if ( empty( $lang ) || empty( $GLOBALS['available_languages'][$lang] ) ) {
         return false;
     }
+    $GLOBALS['lang'] = $lang;
+    return true;
 }
 
 /**
@@ -115,6 +124,45 @@ function PMA_langDetect( &$str, $envType ) {
 
     return false;
 } // end of the 'PMA_langDetect()' function
+
+/**
+ * @var string  path to the translations directory
+ */
+$lang_path = './lang/';
+
+/**
+ * first check for lang dir exists
+ */
+if ( ! is_dir( $lang_path ) ) {
+    // language directory not found
+    trigger_error( 'phpMyAdmin-ERROR: path not found: '
+        . $lang_path . ', check your language directory.',
+        E_USER_WARNING );
+    // and tell the user
+    header( 'Location: error.php?file=' . urlencode( __FILE__ )
+        . '&line=' . urlencode( __LINE__ ) . '&error='
+        . urlencode( 'path to languages is invalid: ' . $lang_path ) );
+    // stop execution
+    exit;
+}
+
+/**
+ * @var string  interface language
+ */
+$GLOBALS['lang'] = '';
+/**
+ * @var boolean wether loading lang from cfg failed
+ */
+$lang_failed_cfg = false;
+/**
+ * @var boolean wether loading lang from cookie failed
+ */
+$lang_failed_cookie = false;
+/**
+ * @var boolean wether loading lang from user request failed
+ */
+$lang_failed_request = false;
+
 
 /**
  * All the supported languages have to be listed in the array below.
@@ -271,7 +319,7 @@ $available_languages = array(
 );
 
 // Language filtering support
-if (!empty($GLOBALS['cfg']['FilterLanguages'])) {
+if ( ! empty( $GLOBALS['cfg']['FilterLanguages'] ) ) {
     $new_lang = array();
     foreach($available_languages as $key => $val) {
         if (preg_match('@' . $GLOBALS['cfg']['FilterLanguages'] . '@', $key)) {
@@ -283,6 +331,16 @@ if (!empty($GLOBALS['cfg']['FilterLanguages'])) {
     }
     unset( $key, $val, $new_lang );
 }
+
+/**
+ * check for language files
+ */
+foreach ( $available_languages as $each_lang_key => $each_lang ) {
+    if ( ! file_exists( $lang_path . $each_lang[1] . '.inc.php' ) ) {
+        unset( $available_languages[$each_lang_key] );
+    }
+}
+unset( $each_lang_key, $each_lang );
 
 // MySQL charsets map
 $mysql_charset_map = array(
@@ -314,7 +372,6 @@ $mysql_charset_map = array(
 /**
  * Do the work!
  */
-
 // Checks whether charset recoding should be allowed or not
 $allow_recoding = FALSE; // Default fallback value
 if ( empty($convcharset) ) {
@@ -326,39 +383,36 @@ if ( empty($convcharset) ) {
 }
 
 if ( ! PMA_langCheck() ) {
-    // language detection failed
-    $GLOBALS['lang'] = '';
+    // fallback language
+    $fall_back_lang = 'en-utf-8'; $line = __LINE__;
+    if ( ! PMA_langSet( $fall_back_lang ) ) {
+        trigger_error( 'phpMyAdmin-ERROR: invalid lang code: '
+            . __FILE__ . '#' . $line . ', check hard coded fall back language.',
+            E_USER_WARNING );
+        // stop execution
+        // and tell the user that his choosen language is invalid
+        header( 'Location: error.php?file=' . urlencode( __FILE__ )
+            . '&line=' . urlencode( __LINE__ ) . '&error='
+            . urlencode( 'Could not load any language, please check your language settings and folder' ) );
+        exit;
+    }
 }
-
-/**
- * Define the path to the translations directory
- */
-$lang_path = './lang/';
 
 // Defines the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';
+require_once( $lang_file );
 
-if ( file_exists( $lang_file ) ) {
-    require_once( $lang_file );
-} else {
-    // language file not found
-    $GLOBALS['PMA_errors'][] = sprintf( $strLanguageFileNotFound, $lang_file );
-    
-    // fallback language
-    if ( $line = __LINE__ && ! PMA_langSet( $selectlang = 'en-utf-8' ) ) {
-        // if even hard coded lang fails
-        trigger_error( 'ERROR: check hard coded language in ' . __FILE__ . ' on line #' . $line . ', unknown ISO-code', E_USER_WARNING );
-        header( 'Location: error.php?file=' . urlencode( __FILE__ ) . '&line=' . urlencode( __LINE__ ) . '&error=' . urlencode( 'invalid language ISO code: ' . $lang_file ) );
-        exit;
-    }
-    $lang_file = $lang_path . $available_languages[$GLOBALS['lang']][1] . '.inc.php';
-    if ( ! file_exists( $lang_file ) ) {
-        // if even hard coded lang fails to load
-        trigger_error( 'ERROR: check hard coded language in ' . __FILE__ . ' on line #' . $line . ', file not found', E_USER_WARNING );
-        header( 'Location: error.php?file=' . urlencode( __FILE__ ) . '&line=' . urlencode( __LINE__ ) . '&error=' . urlencode( 'could not find language file: ' . $lang_file ) );
-        exit;
-    }
-    require_once( $lang_file );
+// now, that we have loaded the language strings we can send the errors
+if ( $lang_failed_cfg ) {
+    $GLOBALS['PMA_errors'][] = sprintf( $strLanguageUnknown, $lang_failed_cfg );
 }
-unset( $lang_file, $lang_path, $strLanguageFileNotFound );
+if ( $lang_failed_cookie ) {
+    $GLOBALS['PMA_errors'][] = sprintf( $strLanguageUnknown, $lang_failed_cookie );
+}
+if ( $lang_failed_request ) {
+    $GLOBALS['PMA_errors'][] = sprintf( $strLanguageUnknown, $lang_failed_request );
+}
+
+unset( $lang_file, $lang_path, $strLanguageFileNotFound, $line, $fall_back_lang,
+    $lang_failed_cfg, $lang_failed_cookie, $lang_failed_request, $strLanguageUnknown );
 ?>
