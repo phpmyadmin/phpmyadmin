@@ -234,6 +234,14 @@ echo sprintf( $GLOBALS['strWelcome'],
 
 <div class="notice"><?php echo $GLOBALS['strCookiesRequired']; ?></div>
 
+<?php
+if ( ! empty( $GLOBALS['PMA_errors'] ) && is_array( $GLOBALS['PMA_errors'] ) ) {
+    foreach( $GLOBALS['PMA_errors'] as $error ) {
+        echo '<div class="error">' . $error . '</div>' . "\n";
+    }
+}
+?>
+
 <script type="text/javascript" language="javascript">
 <!--
 var uname = document.forms['login_form'].elements['pma_username'];

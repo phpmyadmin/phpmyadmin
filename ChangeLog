@@ -8,6 +8,7 @@ $Source$
 2005-11-28 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php: Don't allow loading of configuration if there is no
       write permission on config.
+    * libraries/auth/cookie.auth.lib.php: Display PMA_errors on login form.
 
 2005-11-28 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/Theme.class.php, libraries/Theme_Manager.class.php:
