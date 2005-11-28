@@ -1402,6 +1402,12 @@ switch ($action) {
         break;
     case 'feat_extensions':
         $d = $cfg;
+        if (!@extension_loaded('mbstring')) {
+            PMA_dl('mbstring');
+        }
+        if (!@extension_loaded('mbstring')) {
+            message('warning', 'Could not load <code>mbstring</code> extension, which is required for work with multibyte strings like UTF-8 ones. Please consider installing it.');
+        }
         if (!isset($d['GD2Available'])) {
             if (PMA_IS_GD2 == 1) {
                 message('notice', 'GD 2 or newer found.');
@@ -1624,6 +1630,10 @@ switch ($action) {
 
     case '':
         message('notice', 'You want to configure phpMyAdmin using web interface. Please note that this only allows basic setup, please read <a href="../Documentation.html">documentation</a> to see full description of all configuration directives.', 'Welcome');
+
+        if (PMA_PHP_INT_VERSION < 40100) {
+            message('warning', 'Please upgrade to PHP 4.1.0, it is required for phpMyAdmin.');
+        }
 
         if (empty($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) == 'off') {
             if (empty($_SERVER['REQUEST_URI']) || empty($_SERVER['HTTP_HOST'])) {

@@ -9,9 +9,12 @@ $Source$
     * lang/italian: update, thanks to Luca Rebellato
 
 2005-11-28 Michal Čihař  <michal@cihar.com>
-    * scripts/setup.php: Don't allow loading of configuration if there is no
-      write permission on config, add links to documentation, document all
-      functions.
+    * scripts/setup.php: 
+        - Don't allow loading of configuration if there is no write permission
+          on config.
+        - Add links to documentation.
+        - Document all functions.
+        - Warn about missing mbstring and old PHP version.
     * libraries/auth/cookie.auth.lib.php: Display PMA_errors on login form.
     * Documentation.html: Add anchors to configuration directives.
     * libraries/sqlparser.lib.php: Do not use functions not supported by older
