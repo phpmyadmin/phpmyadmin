@@ -10,7 +10,7 @@ $Source$
 
 2005-11-28 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php: Don't allow loading of configuration if there is no
-      write permission on config.
+      write permission on config, document all functions.
     * libraries/auth/cookie.auth.lib.php: Display PMA_errors on login form.
     * Documentation.html: Add anchors to configuration directives.
     * scripts/setup.php: Add links to documentation.
