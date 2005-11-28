@@ -15,6 +15,7 @@ $Source$
         - Add links to documentation.
         - Document all functions.
         - Warn about missing mbstring and old PHP version.
+        - Display all warnings in one place.
     * libraries/auth/cookie.auth.lib.php: Display PMA_errors on login form.
     * Documentation.html: Add anchors to configuration directives.
     * libraries/sqlparser.lib.php: Do not use functions not supported by older

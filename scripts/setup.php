@@ -1029,10 +1029,6 @@ if ($action != 'download') {
     $config = @fopen('../config/config.inc.php', 'a');
     $fail_dir = $fail_dir || ($config === FALSE);
     @fclose($config);
-
-    if ($fail_dir) {
-        message('warning', 'Please create web server writable folder config in phpMyAdmin toplevel directory as described in <a href="../Documentation.html">documentation</a>. Otherwise you will be only able to download or display it.', 'Can not write configuration');
-    }
 }
 
 /**
@@ -1629,10 +1625,14 @@ switch ($action) {
         break;
 
     case '':
-        message('notice', 'You want to configure phpMyAdmin using web interface. Please note that this only allows basic setup, please read <a href="../Documentation.html">documentation</a> to see full description of all configuration directives.', 'Welcome');
+        message('notice', 'You want to configure phpMyAdmin using web interface. Please note that this only allows basic setup, please read <a href="../Documentation.html#config">documentation</a> to see full description of all configuration directives.', 'Welcome');
 
         if (PMA_PHP_INT_VERSION < 40100) {
-            message('warning', 'Please upgrade to PHP 4.1.0, it is required for phpMyAdmin.');
+            message('warning', 'Please upgrade to PHP 4.1.0, it is required for phpMyAdmin.', 'Too old PHP');
+        }
+
+        if ($fail_dir) {
+            message('warning', 'Please create web server writable folder config in phpMyAdmin toplevel directory as described in <a href="../Documentation.html#setup_script">documentation</a>. Otherwise you will be only able to download or display it.', 'Can not write configuration');
         }
 
         if (empty($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) == 'off') {
