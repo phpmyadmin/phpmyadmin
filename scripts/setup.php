@@ -879,6 +879,10 @@ switch ($action) {
         fclose($config);
         break;
     case 'load':
+        if ($fail_dir) {
+            message('error', 'Reading of configuration disabled because of permissions.');
+            break;
+        } 
         $bck_cfg = $cfg;
         unset($cfg);
         $config_file = '../config/config.inc.php';
