@@ -22,6 +22,8 @@ $Source$
       - revised
       - added check for lang directory (./lang/)
       - check files for languages
+    * libraries/common.lib.php: moved all function to top, to make this as
+      early as possible available
 
 2005-11-27 Michal Čihař  <michal@cihar.com>
     * Documentation.html, scripts/setup.php: Many new features to setup

@@ -10,202 +10,320 @@
 /**
  * Order of sections for common.lib.php:
  *
- * some functions need the constants of libraries/defines.lib.php
- * and defines_mysql.lib.php
- *
  * the include of libraries/defines_mysql.lib.php must be after the connection
  * to db to get the MySql version
  *
- * the PMA_sqlAddslashes() function must be before the connection to db
- *
- * the authentication libraries must be before the connection to db but
- * after the PMA_isInto() function
- *
- * the PMA_mysqlDie() function must be before the connection to db but
- * after mysql extension has been loaded
- *
- * the PMA_mysqlDie() function needs the PMA_format_sql() Function
+ * the authentication libraries must be before the connection to db
  *
  * ... so the required order is:
  *
- * - parsing of the configuration file
- * - load of the libraries/defines.lib.php library
- * - load of mysql extension (if necessary)
- * - definition of PMA_sqlAddslashes()
- * - definition of PMA_format_sql()
- * - definition of PMA_mysqlDie()
- * - definition of PMA_isInto()
- * - loading of an authentication library
+ * #0031 definition of functions        LABEL_definition_of_functions
+ * #2300 parsing of the config file     label_parsing_config_file
+ * #2331 loading language file          label_loading_language_file
+ * - load of the libraries/defines.lib.php library label_defines
+ * - load of mysql extension (if necessary) label_loading_mysql
+ * - loading of an authentication library label_
  * - db connection
  * - authentication work
  * - load of the libraries/defines_mysql.lib.php library to get the MySQL
  *   release number
- * - other functions, respecting dependencies
  */
 
-// grab_globals.lib.php should really go before common.lib.php
-require_once('./libraries/grab_globals.lib.php');
+
+/******************************************************************************/
+/* definition of functions         label_definition_of_functions              */
+/**
+ * Removes insecure parts in a path; used before include() or
+ * require() when a part of the path comes from an insecure source
+ * like a cookie or form.
+ *
+ * @param    string  The path to check
+ *
+ * @return   string  The secured path
+ *
+ * @access  public
+ * @author  Marc Delisle (lem9@users.sourceforge.net)
+ */
+function PMA_securePath($path) {
+
+    // change .. to .
+    $path = preg_replace('@\.\.*@','.',$path);
+
+    return $path;
+} // end function
 
 /**
- * @var array   $GLOBALS['PMA_errors']  holds errors
+ * returns array with dbs grouped with extended infos
+ *
+ * @uses    $GLOBALS['dblist'] from PMA_availableDatabases()
+ * @uses    $GLOBALS['num_dbs'] from PMA_availableDatabases()
+ * @uses    $GLOBALS['cfgRelation']['commwork']
+ * @uses    $GLOBALS['cfg']['ShowTooltip']
+ * @uses    $GLOBALS['cfg']['LeftFrameDBTree']
+ * @uses    $GLOBALS['cfg']['LeftFrameDBSeparator']
+ * @uses    $GLOBALS['cfg']['ShowTooltipAliasDB']
+ * @uses    PMA_availableDatabases()
+ * @uses    PMA_getTableCount()
+ * @uses    PMA_getComments()
+ * @uses    PMA_availableDatabases()
+ * @uses    is_array()
+ * @uses    implode()
+ * @uses    strstr()
+ * @uses    explode()
+ * @return  array   db list
  */
-$GLOBALS['PMA_errors'] = array();
+function PMA_getDbList() {
+    if ( empty( $GLOBALS['dblist'] ) ) {
+        PMA_availableDatabases();
+    }
+    $dblist     = $GLOBALS['dblist'];
+    $dbgroups   = array();
+    $parts      = array();
+    foreach ( $dblist as $key => $db ) {
+        // garvin: Get comments from PMA comments table
+        $db_tooltip = '';
+        if ( $GLOBALS['cfg']['ShowTooltip']
+          && $GLOBALS['cfgRelation']['commwork'] ) {
+            $_db_tooltip = PMA_getComments( $db );
+            if ( is_array( $_db_tooltip ) ) {
+                $db_tooltip = implode( ' ', $_db_tooltip );
+            }
+        }
 
+        if ( $GLOBALS['cfg']['LeftFrameDBTree']
+            && $GLOBALS['cfg']['LeftFrameDBSeparator']
+            && strstr( $db, $GLOBALS['cfg']['LeftFrameDBSeparator'] ) )
+        {
+            $pos            = strrpos($db, $GLOBALS['cfg']['LeftFrameDBSeparator']);
+            $group          = substr($db, 0, $pos);
+            $disp_name_cut  = substr($db, $pos);
+        } else {
+            $group          = $db;
+            $disp_name_cut  = $db;
+        }
 
-/**
- * 2004-06-30 rabus: Ensure, that $cfg variables are not set somwhere else
- * before including the config file.
- */
-unset($cfg);
+        $disp_name  = $db;
+        if ( $db_tooltip && $GLOBALS['cfg']['ShowTooltipAliasDB'] ) {
+            $disp_name      = $db_tooltip;
+            $disp_name_cut  = $db_tooltip;
+            $db_tooltip     = $db;
+        }
 
-/**
- * Added messages while developing:
- */
-if (file_exists('./lang/added_messages.php')) {
-    include('./lang/added_messages.php');
+        $dbgroups[$group][$db] = array(
+            'name'          => $db,
+            'disp_name_cut' => $disp_name_cut,
+            'disp_name'     => $disp_name,
+            'comment'       => $db_tooltip,
+            'num_tables'    => PMA_getTableCount( $db ),
+        );
+    } // end foreach ( $dblist as $db )
+    return $dbgroups;
 }
 
 /**
- * Set default configuration values.
+ * returns html code for select form element with dbs
+ *
+ * @return  string  html code select
  */
-include './config.default.php';
+function PMA_getHtmlSelectDb( $selected = '' ) {
+    $dblist = PMA_getDbList();
+    // TODO: IE can not handle different text directions in select boxes
+    // so, as mostly names will be in english, we set the whole selectbox to LTR
+    // and EN
+    $return = '<select name="db" id="lightm_db" xml:lang="en" dir="ltr"'
+        .' onchange="window.parent.openDb( this.value );">' . "\n"
+        .'<option value="" dir="' . $GLOBALS['text_dir'] . '">(' . $GLOBALS['strDatabases'] . ') ...</option>'
+        ."\n";
+    foreach( $dblist as $group => $dbs ) {
+        if ( count( $dbs ) > 1 ) {
+            $return .= '<optgroup label="' . htmlspecialchars( $group )
+                . '">' . "\n";
+            // wether display db_name cuted by the group part
+            $cut = true;
+        } else {
+            // .. or full
+            $cut = false;
+        }
+        foreach( $dbs as $db ) {
+            $return .= '<option value="' . $db['name'] . '"'
+                .' title="' . $db['comment'] . '"';
+            if ( $db['name'] == $selected ) {
+                $return .= ' selected="selected"';
+            }
+            $return .= '>' . ( $cut ? $db['disp_name_cut'] : $db['disp_name'] )
+                .' (' . $db['num_tables'] . ')</option>' . "\n";
+        }
+        if ( count( $dbs ) > 1 ) {
+            $return .= '</optgroup>' . "\n";
+        }
+    }
+    $return .= '</select>';
 
-// Remember default server config
-$default_server = $cfg['Servers'][1];
-
-// Drop all server, as they have to be configured by user
-unset($cfg['Servers']);
+    return $return;
+}
 
 /**
- * Parses the configuration file and gets some constants used to define
- * versions of phpMyAdmin/php/mysql...
+ * returns count of tables in given db
+ *
+ * @param   string  $db database to count tables for
+ * @return  integer count of tables in $db
  */
-$success_apply_user_config = false;
-// We can not use include as it fails on parse error
-$config_file = './config.inc.php';
-if ( file_exists( $config_file ) ) {
-    $old_error_reporting = error_reporting( 0 );
-    if ( function_exists( 'file_get_contents' ) ) {
-        $success_apply_user_config = eval( '?>' . file_get_contents( $config_file ) );
+function PMA_getTableCount( $db ) {
+    $tables = PMA_DBI_try_query(
+        'SHOW TABLES FROM ' . PMA_backquote( $db ) . ';',
+        NULL, PMA_DBI_QUERY_STORE);
+    if ( $tables ) {
+        $num_tables = PMA_DBI_num_rows( $tables );
+        PMA_DBI_free_result( $tables );
     } else {
-        $success_apply_user_config =
-            eval( '?>' . implode( '\n', file( $config_file ) ) );
+        $num_tables = 0;
     }
-    error_reporting( $old_error_reporting );
-    unset( $old_error_reporting );
-} else {
-    // Do not complain about missing config file
-    // FIXME: maybe we should issue warning in this case?
-    $success_apply_user_config = true;
+
+    return $num_tables;
 }
 
-/**
- * Includes the language file if it hasn't been included yet
- */
-require_once('./libraries/select_lang.lib.php');
-
-if ( $success_apply_user_config === FALSE ) {
-    require_once('./libraries/select_lang.lib.php');
-    // Displays the error message
-    $GLOBALS['PMA_errors'][] = $strConfigFileError
-        .'<br /><br />'
-        .'<a href="./config.inc.php" target="_blank">config.inc.php</a>';
-}
-unset( $success_apply_user_config );
 
 /**
- * Servers array fixups.
+ * Get the complete list of Databases a user can access
+ *
+ * @param   boolean   whether to include check on failed 'only_db' operations
+ * @param   resource  database handle (superuser)
+ * @param   integer   amount of databases inside the 'only_db' container
+ * @param   resource  possible resource from a failed previous query
+ * @param   resource  database handle (user)
+ * @param   array     configuration
+ * @param   array     previous list of databases
+ *
+ * @return  array     all databases a user has access to
+ *
+ * @access  private
  */
-// Do we have some server?
-if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
-    // No server => create one with defaults
-    $cfg['Servers'] = array(1 => $default_server);
-} else {
-    // We have server(s) => apply default config
-    $new_servers = array();
+function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userlink, $cfg, $dblist) {
+    if ($only_db_check == FALSE) {
+        // try to get the available dbs list
+        // use userlink by default
+        $dblist = PMA_DBI_get_dblist();
+        $dblist_cnt   = count($dblist);
 
-    foreach($cfg['Servers'] as $server_index => $each_server ) {
-        if (!is_int($server_index) || $server_index < 1) {
-            $GLOBALS['PMA_errors'][] = sprintf( $strInvalidServerIndex, $server_index);
-            continue;
-        }
-
-        $each_server = array_merge($default_server, $each_server);
-
-        // Don't use servers with no hostname
-        if ( $each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
-            $GLOBALS['PMA_errors'][] = sprintf( $strInvalidServerHostname, $server_index);
-            continue;
-        }
-
-        // Final solution to bug #582890
-        // If we are using a socket connection
-        // and there is nothing in the verbose server name
-        // or the host field, then generate a name for the server
-        // in the form of "Server 2", localized of course!
-        if ( $each_server['connect_type'] == 'socket' && empty($each_server['host']) && empty($each_server['verbose']) ) {
-            $each_server['verbose'] = $GLOBALS['strServer'] . $server_index;
-        }
-
-        $new_servers[$server_index] = $each_server;
+        // did not work so check for available databases in the "mysql" db;
+        // I don't think we can fall here now...
+        if (!$dblist_cnt) {
+            $auth_query   = 'SELECT User, Select_priv '
+                          . 'FROM mysql.user '
+                          . 'WHERE User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
+            $rs           = PMA_DBI_try_query($auth_query, $controllink);
+        } // end
     }
-    $cfg['Servers'] = $new_servers;
-    unset( $new_servers, $server_index, $each_server );
+
+    // Access to "mysql" db allowed and dblist still empty -> gets the
+    // usable db list
+    if ( ! $dblist_cnt && ($rs && @PMA_DBI_num_rows($rs)) ) {
+        $row = PMA_DBI_fetch_assoc($rs);
+        PMA_DBI_free_result($rs);
+        // Correction uva 19991215
+        // Previous code assumed database "mysql" admin table "db" column
+        // "db" contains literal name of user database, and works if so.
+        // Mysql usage generally (and uva usage specifically) allows this
+        // column to contain regular expressions (we have all databases
+        // owned by a given student/faculty/staff beginning with user i.d.
+        // and governed by default by a single set of privileges with
+        // regular expression as key). This breaks previous code.
+        // This maintenance is to fix code to work correctly for regular
+        // expressions.
+        if ($row['Select_priv'] != 'Y') {
+
+            // 1. get allowed dbs from the "mysql.db" table
+            // lem9: User can be blank (anonymous user)
+            $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\' OR User = \'\')';
+            $rs          = PMA_DBI_try_query($local_query, $controllink);
+            if ($rs && @PMA_DBI_num_rows($rs)) {
+                // Will use as associative array of the following 2 code
+                // lines:
+                //   the 1st is the only line intact from before
+                //     correction,
+                //   the 2nd replaces $dblist[] = $row['Db'];
+                $uva_mydbs = array();
+                // Code following those 2 lines in correction continues
+                // populating $dblist[], as previous code did. But it is
+                // now populated with actual database names instead of
+                // with regular expressions.
+                while ($row = PMA_DBI_fetch_assoc($rs)) {
+                    // loic1: all databases cases - part 1
+                    if (empty($row['Db']) || $row['Db'] == '%') {
+                        $uva_mydbs['%'] = 1;
+                        break;
+                    }
+                    // loic1: avoid multiple entries for dbs
+                    if (!isset($uva_mydbs[$row['Db']])) {
+                        $uva_mydbs[$row['Db']] = 1;
+                    }
+                } // end while
+                PMA_DBI_free_result($rs);
+                $uva_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['controllink']);
+                // loic1: all databases cases - part 2
+                if (isset($uva_mydbs['%'])) {
+                    while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
+                        $dblist[] = $uva_row[0];
+                    } // end while
+                } // end if
+                else {
+                    while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
+                        $uva_db = $uva_row[0];
+                        if (isset($uva_mydbs[$uva_db]) && $uva_mydbs[$uva_db] == 1) {
+                            $dblist[]           = $uva_db;
+                            $uva_mydbs[$uva_db] = 0;
+                        } else if (!isset($dblist[$uva_db])) {
+                            foreach ($uva_mydbs AS $uva_matchpattern => $uva_value) {
+                                // loic1: fixed bad regexp
+                                // TODO: db names may contain characters
+                                //       that are regexp instructions
+                                $re        = '(^|(\\\\\\\\)+|[^\])';
+                                $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
+                                // Fixed db name matching
+                                // 2000-08-28 -- Benjamin Gandon
+                                if (ereg('^' . $uva_regex . '$', $uva_db)) {
+                                    $dblist[] = $uva_db;
+                                    break;
+                                }
+                            } // end while
+                        } // end if ... else if....
+                    } // end while
+                } // end else
+                PMA_DBI_free_result($uva_alldbs);
+                unset($uva_mydbs);
+            } // end if
+
+            // 2. get allowed dbs from the "mysql.tables_priv" table
+            $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
+            $rs          = PMA_DBI_try_query($local_query, $controllink);
+            if ($rs && @PMA_DBI_num_rows($rs)) {
+                while ($row = PMA_DBI_fetch_assoc($rs)) {
+                    if (PMA_isInto($row['Db'], $dblist) == -1) {
+                        $dblist[] = $row['Db'];
+                    }
+                } // end while
+                PMA_DBI_free_result($rs);
+            } // end if
+        } // end if
+    } // end building available dbs from the "mysql" db
+
+    return $dblist;
 }
 
-// Cleanup
-unset($default_server);
 
 /**
- * We really need this one!
+ * include here only libraries which contain only function definitions
+ * no code im main()!
  */
-if (!function_exists('preg_replace')) {
-    header( 'Location: error.php'
-        . '?lang='  . urlencode( $available_languages[$lang][2] )
-        . '&char='  . urlencode( $charset )
-        . '&dir='   . urlencode( $text_dir )
-        . '&type='  . urlencode( $strError )
-        . '&error=' . urlencode(
-            strtr( sprintf( $strCantLoad, 'pcre' ),
-                array('<br />' => '[br]') ) )
-        . '&' . SID
-         );
-    exit();
-}
-
-/**
- * Gets constants that defines the PHP version number.
- * This include must be located physically before any code that needs to
- * reference the constants, else PHP 3.0.16 won't be happy.
- */
-require_once('./libraries/defines.lib.php');
-
 /* Input sanitizing */
 require_once('./libraries/sanitizing.lib.php');
 
-// XSS
-if (isset($convcharset)) {
-    $convcharset = PMA_sanitize($convcharset);
-}
+
 
 if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     /**
-     * Define $is_upload
+     * @TODO    add documentation
      */
-
-      $is_upload = TRUE;
-      if (strtolower(@ini_get('file_uploads')) == 'off'
-             || @ini_get('file_uploads') == 0) {
-          $is_upload = FALSE;
-      }
-
-    /**
-     * Maximum upload size as limited by PHP
-     * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
-     *
-     * this section generates $max_upload_size in bytes
-     */
-
     function get_real_size($size=0) {
     /// Converts numbers like 10M into bytes
         if (!$size) {
@@ -228,25 +346,6 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         }
         return $size;
     } // end function
-
-
-    if (!$filesize = ini_get('upload_max_filesize')) {
-        $filesize = "5M";
-    }
-    $max_upload_size = get_real_size($filesize);
-
-    if ($postsize = ini_get('post_max_size')) {
-        $postsize = get_real_size($postsize);
-        if ($postsize < $max_upload_size) {
-            $max_upload_size = $postsize;
-        }
-    }
-    unset($filesize);
-    unset($postsize);
-
-    /**
-     * other functions for maximum upload work
-     */
 
     /**
      * Displays the maximum size for an upload
@@ -275,136 +374,6 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
      function PMA_generateHiddenMaxFileSize($max_size){
          return '<input type="hidden" name="MAX_FILE_SIZE" value="' .$max_size . '" />';
      }
-
-    /**
-     * Charset conversion.
-     */
-    require_once('./libraries/charset_conversion.lib.php');
-
-    /**
-     * String handling
-     */
-    require_once('./libraries/string.lib.php');
-}
-
-/**
- * Removes insecure parts in a path; used before include() or
- * require() when a part of the path comes from an insecure source
- * like a cookie or form.
- *
- * @param    string  The path to check
- *
- * @return   string  The secured path
- *
- * @access  public
- * @author  Marc Delisle (lem9@users.sourceforge.net)
- */
-function PMA_securePath($path) {
-
-    // change .. to .
-    $path = preg_replace('@\.\.*@','.',$path);
-
-    return $path;
-} // end function
-
-// If zlib output compression is set in the php configuration file, no
-// output buffering should be run
-if (@ini_get('zlib.output_compression')) {
-    $cfg['OBGzip'] = FALSE;
-}
-
-// disable output-buffering (if set to 'auto') for IE6, else enable it.
-if (strtolower($cfg['OBGzip']) == 'auto') {
-    if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER < 7) {
-        $cfg['OBGzip'] = FALSE;
-    } else {
-        $cfg['OBGzip'] = TRUE;
-    }
-}
-
-
-/* Theme Manager
- * 2004-05-20 Michael Keck (mail_at_michaelkeck_dot_de)
- *            This little script checks if there're themes available
- *            and if the directory $ThemePath/$theme/img/ exists
- *            If not, it will use default images
-*/
-// Allow different theme per server
-$theme_cookie_name = 'pma_theme';
-if ($GLOBALS['cfg']['ThemePerServer'] && isset($server)) {
-    $theme_cookie_name .= '-' . $server;
-}
-//echo $theme_cookie_name;
-// Theme Manager
-if (!$cfg['ThemeManager'] || !isset($_COOKIE[$theme_cookie_name]) || empty($_COOKIE[$theme_cookie_name])){
-    $GLOBALS['theme'] = $cfg['ThemeDefault'];
-    $ThemeDefaultOk = FALSE;
-    if ($cfg['ThemePath']!='' && $cfg['ThemePath'] != FALSE) {
-        $tmp_theme_mainpath = $cfg['ThemePath'];
-        $tmp_theme_fullpath = $cfg['ThemePath'] . '/' .$cfg['ThemeDefault'];
-        if (@is_dir($tmp_theme_mainpath)) {
-            if (isset($cfg['ThemeDefault']) && @is_dir($tmp_theme_fullpath)) {
-                $ThemeDefaultOk = TRUE;
-            }
-        }
-    }
-    if ($ThemeDefaultOk == TRUE){
-        $GLOBALS['theme'] = $cfg['ThemeDefault'];
-    } else {
-        $GLOBALS['theme'] = 'original';
-    }
-} else {
-    // if we just changed theme, we must take the new one so that
-    // index.php takes the correct one for height computing
-    if (isset($_POST['set_theme'])) {
-        $GLOBALS['theme'] = PMA_securePath($_POST['set_theme']);
-    } else {
-        $GLOBALS['theme'] = PMA_securePath($_COOKIE[$theme_cookie_name]);
-    }
-}
-
-// check for theme requires/name
-unset($theme_name, $theme_generation, $theme_version);
-@include($cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/info.inc.php');
-
-// did it set correctly?
-if (!isset($theme_name, $theme_generation, $theme_version)) {
-    $GLOBALS['theme'] = 'original'; // invalid theme
-} elseif ($theme_generation != PMA_THEME_GENERATION) {
-    $GLOBALS['theme'] = 'original'; // different generation
-} elseif ($theme_version < PMA_THEME_VERSION) {
-    $GLOBALS['theme'] = 'original'; // too old version
-}
-
-$pmaThemePath       = $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/';
-$pmaThemeImage      = $pmaThemePath . 'img/';
-$tmp_layout_file    = $pmaThemePath . 'layout.inc.php';
-if (@file_exists($tmp_layout_file)) {
-    include($tmp_layout_file);
-}
-unset( $tmp_layout_file );
-if (!is_dir($pmaThemeImage)) {
-    $pmaThemeImage = $cfg['ThemePath'] . '/original/img/';
-}
-// end theme manager
-
-/**
- * collation_connection
- */
- // (could be improved by executing it after the MySQL connection only if
- //  PMA_MYSQL_INT_VERSION >= 40100 )
-if (isset($_COOKIE) && !empty($_COOKIE['pma_collation_connection']) && empty($_POST['collation_connection'])) {
-    $collation_connection = $_COOKIE['pma_collation_connection'];
-}
-if (!isset($collation_connection)) {
-    $collation_connection = $GLOBALS['cfg']['DefaultConnectionCollation'];
-}
-
-if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
-    /**
-     * Include URL/hidden inputs generating.
-     */
-    require_once('./libraries/url_generating.lib.php');
 
     /**
      * Add slashes before "'" and "\" characters so a value containing them can
@@ -819,271 +788,6 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         return $converted_string;
     } // end function
 
-}
-
-/**
- * returns array with dbs grouped with extended infos
- *
- * @uses    $GLOBALS['dblist'] from PMA_availableDatabases()
- * @uses    $GLOBALS['num_dbs'] from PMA_availableDatabases()
- * @uses    $GLOBALS['cfgRelation']['commwork']
- * @uses    $GLOBALS['cfg']['ShowTooltip']
- * @uses    $GLOBALS['cfg']['LeftFrameDBTree']
- * @uses    $GLOBALS['cfg']['LeftFrameDBSeparator']
- * @uses    $GLOBALS['cfg']['ShowTooltipAliasDB']
- * @uses    PMA_availableDatabases()
- * @uses    PMA_getTableCount()
- * @uses    PMA_getComments()
- * @uses    PMA_availableDatabases()
- * @uses    is_array()
- * @uses    implode()
- * @uses    strstr()
- * @uses    explode()
- * @return  array   db list
- */
-function PMA_getDbList() {
-    if ( empty( $GLOBALS['dblist'] ) ) {
-        PMA_availableDatabases();
-    }
-    $dblist     = $GLOBALS['dblist'];
-    $dbgroups   = array();
-    $parts      = array();
-    foreach ( $dblist as $key => $db ) {
-        // garvin: Get comments from PMA comments table
-        $db_tooltip = '';
-        if ( $GLOBALS['cfg']['ShowTooltip']
-          && $GLOBALS['cfgRelation']['commwork'] ) {
-            $_db_tooltip = PMA_getComments( $db );
-            if ( is_array( $_db_tooltip ) ) {
-                $db_tooltip = implode( ' ', $_db_tooltip );
-            }
-        }
-
-        if ( $GLOBALS['cfg']['LeftFrameDBTree']
-            && $GLOBALS['cfg']['LeftFrameDBSeparator']
-            && strstr( $db, $GLOBALS['cfg']['LeftFrameDBSeparator'] ) )
-        {
-            $pos            = strrpos($db, $GLOBALS['cfg']['LeftFrameDBSeparator']);
-            $group          = substr($db, 0, $pos);
-            $disp_name_cut  = substr($db, $pos);
-        } else {
-            $group          = $db;
-            $disp_name_cut  = $db;
-        }
-
-        $disp_name  = $db;
-        if ( $db_tooltip && $GLOBALS['cfg']['ShowTooltipAliasDB'] ) {
-            $disp_name      = $db_tooltip;
-            $disp_name_cut  = $db_tooltip;
-            $db_tooltip     = $db;
-        }
-
-        $dbgroups[$group][$db] = array(
-            'name'          => $db,
-            'disp_name_cut' => $disp_name_cut,
-            'disp_name'     => $disp_name,
-            'comment'       => $db_tooltip,
-            'num_tables'    => PMA_getTableCount( $db ),
-        );
-    } // end foreach ( $dblist as $db )
-    return $dbgroups;
-}
-
-/**
- * returns html code for select form element with dbs
- *
- * @return  string  html code select
- */
-function PMA_getHtmlSelectDb( $selected = '' ) {
-    $dblist = PMA_getDbList();
-    // TODO: IE can not handle different text directions in select boxes
-    // so, as mostly names will be in english, we set the whole selectbox to LTR
-    // and EN
-    $return = '<select name="db" id="lightm_db" xml:lang="en" dir="ltr"'
-        .' onchange="window.parent.openDb( this.value );">' . "\n"
-        .'<option value="" dir="' . $GLOBALS['text_dir'] . '">(' . $GLOBALS['strDatabases'] . ') ...</option>'
-        ."\n";
-    foreach( $dblist as $group => $dbs ) {
-        if ( count( $dbs ) > 1 ) {
-            $return .= '<optgroup label="' . htmlspecialchars( $group )
-                . '">' . "\n";
-            // wether display db_name cuted by the group part
-            $cut = true;
-        } else {
-            // .. or full
-            $cut = false;
-        }
-        foreach( $dbs as $db ) {
-            $return .= '<option value="' . $db['name'] . '"'
-                .' title="' . $db['comment'] . '"';
-            if ( $db['name'] == $selected ) {
-                $return .= ' selected="selected"';
-            }
-            $return .= '>' . ( $cut ? $db['disp_name_cut'] : $db['disp_name'] )
-                .' (' . $db['num_tables'] . ')</option>' . "\n";
-        }
-        if ( count( $dbs ) > 1 ) {
-            $return .= '</optgroup>' . "\n";
-        }
-    }
-    $return .= '</select>';
-
-    return $return;
-}
-
-/**
- * returns count of tables in given db
- *
- * @param   string  $db database to count tables for
- * @return  integer count of tables in $db
- */
-function PMA_getTableCount( $db ) {
-    $tables = PMA_DBI_try_query(
-        'SHOW TABLES FROM ' . PMA_backquote( $db ) . ';',
-        NULL, PMA_DBI_QUERY_STORE);
-    if ( $tables ) {
-        $num_tables = PMA_DBI_num_rows( $tables );
-        PMA_DBI_free_result( $tables );
-    } else {
-        $num_tables = 0;
-    }
-
-    return $num_tables;
-}
-
-
-/**
- * Get the complete list of Databases a user can access
- *
- * @param   boolean   whether to include check on failed 'only_db' operations
- * @param   resource  database handle (superuser)
- * @param   integer   amount of databases inside the 'only_db' container
- * @param   resource  possible resource from a failed previous query
- * @param   resource  database handle (user)
- * @param   array     configuration
- * @param   array     previous list of databases
- *
- * @return  array     all databases a user has access to
- *
- * @access  private
- */
-function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userlink, $cfg, $dblist) {
-    if ($only_db_check == FALSE) {
-        // try to get the available dbs list
-        // use userlink by default
-        $dblist = PMA_DBI_get_dblist();
-        $dblist_cnt   = count($dblist);
-
-        // did not work so check for available databases in the "mysql" db;
-        // I don't think we can fall here now...
-        if (!$dblist_cnt) {
-            $auth_query   = 'SELECT User, Select_priv '
-                          . 'FROM mysql.user '
-                          . 'WHERE User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
-            $rs           = PMA_DBI_try_query($auth_query, $controllink);
-        } // end
-    }
-
-    // Access to "mysql" db allowed and dblist still empty -> gets the
-    // usable db list
-    if (!$dblist_cnt
-        && ($rs && @PMA_DBI_num_rows($rs))) {
-        $row = PMA_DBI_fetch_assoc($rs);
-        PMA_DBI_free_result($rs);
-        // Correction uva 19991215
-        // Previous code assumed database "mysql" admin table "db" column
-        // "db" contains literal name of user database, and works if so.
-        // Mysql usage generally (and uva usage specifically) allows this
-        // column to contain regular expressions (we have all databases
-        // owned by a given student/faculty/staff beginning with user i.d.
-        // and governed by default by a single set of privileges with
-        // regular expression as key). This breaks previous code.
-        // This maintenance is to fix code to work correctly for regular
-        // expressions.
-        if ($row['Select_priv'] != 'Y') {
-
-            // 1. get allowed dbs from the "mysql.db" table
-            // lem9: User can be blank (anonymous user)
-            $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\' OR User = \'\')';
-            $rs          = PMA_DBI_try_query($local_query, $controllink);
-            if ($rs && @PMA_DBI_num_rows($rs)) {
-                // Will use as associative array of the following 2 code
-                // lines:
-                //   the 1st is the only line intact from before
-                //     correction,
-                //   the 2nd replaces $dblist[] = $row['Db'];
-                $uva_mydbs = array();
-                // Code following those 2 lines in correction continues
-                // populating $dblist[], as previous code did. But it is
-                // now populated with actual database names instead of
-                // with regular expressions.
-                while ($row = PMA_DBI_fetch_assoc($rs)) {
-                    // loic1: all databases cases - part 1
-                    if (empty($row['Db']) || $row['Db'] == '%') {
-                        $uva_mydbs['%'] = 1;
-                        break;
-                    }
-                    // loic1: avoid multiple entries for dbs
-                    if (!isset($uva_mydbs[$row['Db']])) {
-                        $uva_mydbs[$row['Db']] = 1;
-                    }
-                } // end while
-                PMA_DBI_free_result($rs);
-                $uva_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['controllink']);
-                // loic1: all databases cases - part 2
-                if (isset($uva_mydbs['%'])) {
-                    while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
-                        $dblist[] = $uva_row[0];
-                    } // end while
-                } // end if
-                else {
-                    while ($uva_row = PMA_DBI_fetch_row($uva_alldbs)) {
-                        $uva_db = $uva_row[0];
-                        if (isset($uva_mydbs[$uva_db]) && $uva_mydbs[$uva_db] == 1) {
-                            $dblist[]           = $uva_db;
-                            $uva_mydbs[$uva_db] = 0;
-                        } else if (!isset($dblist[$uva_db])) {
-                            foreach ($uva_mydbs AS $uva_matchpattern => $uva_value) {
-                                // loic1: fixed bad regexp
-                                // TODO: db names may contain characters
-                                //       that are regexp instructions
-                                $re        = '(^|(\\\\\\\\)+|[^\])';
-                                $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
-                                // Fixed db name matching
-                                // 2000-08-28 -- Benjamin Gandon
-                                if (ereg('^' . $uva_regex . '$', $uva_db)) {
-                                    $dblist[] = $uva_db;
-                                    break;
-                                }
-                            } // end while
-                        } // end if ... else if....
-                    } // end while
-                } // end else
-                PMA_DBI_free_result($uva_alldbs);
-                unset($uva_mydbs);
-            } // end if
-
-            // 2. get allowed dbs from the "mysql.tables_priv" table
-            $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
-            $rs          = PMA_DBI_try_query($local_query, $controllink);
-            if ($rs && @PMA_DBI_num_rows($rs)) {
-                while ($row = PMA_DBI_fetch_assoc($rs)) {
-                    if (PMA_isInto($row['Db'], $dblist) == -1) {
-                        $dblist[] = $row['Db'];
-                    }
-                } // end while
-                PMA_DBI_free_result($rs);
-            } // end if
-        } // end if
-    } // end building available dbs from the "mysql" db
-
-    return $dblist;
-}
-
-
-if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
-
-
     /**
      * Send HTTP header, taking IIS limits into account
      *                   ( 600 seems ok)
@@ -1130,360 +834,6 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             }
         }
     }
-
-
-    /**
-     * $cfg['PmaAbsoluteUri'] is a required directive else cookies won't be
-     * set properly and, depending on browsers, inserting or updating a
-     * record might fail
-     */
-
-    // Setup a default value to let the people and lazy syadmins work anyway,
-    // they'll get an error if the autodetect code doesn't work
-    if (empty($cfg['PmaAbsoluteUri'])) {
-
-        $url = array();
-
-        // At first we try to parse REQUEST_URI, it might contain full URI
-        if (!empty($_SERVER['REQUEST_URI'])) {
-            $url = parse_url($_SERVER['REQUEST_URI']);
-        }
-
-        // If we don't have scheme, we didn't have full URL so we need to dig deeper
-        if (empty($url['scheme'])) {
-            // Scheme
-            if (!empty($_SERVER['HTTP_SCHEME'])) {
-                $url['scheme'] = $_SERVER['HTTP_SCHEME'];
-            } else {
-                $url['scheme'] = (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') ? 'https' : 'http';
-            }
-
-            // Host and port
-            if (!empty($_SERVER['HTTP_HOST'])) {
-                if (strpos($_SERVER['HTTP_HOST'], ':') > 0) {
-                    list($url['host'], $url['port']) = explode(':', $_SERVER['HTTP_HOST']);
-                } else {
-                    $url['host'] = $_SERVER['HTTP_HOST'];
-                }
-            } else if (!empty($_SERVER['SERVER_NAME'])) {
-                $url['host'] = $_SERVER['SERVER_NAME'];
-            } else {
-                // Displays the error message
-                header( 'Location: error.php'
-                        . '?lang='  . urlencode( $available_languages[$lang][2] )
-                        . '&char='  . urlencode( $charset )
-                        . '&dir='   . urlencode( $text_dir )
-                        . '&type='  . urlencode( $strError )
-                        . '&error=' . urlencode(
-                            strtr( $strPmaUriError,
-                                array( '<tt>' => '[tt]', '</tt>' => '[/tt]' ) ) )
-                        . '&' . SID
-                         );
-                exit();
-            }
-
-            // If we didn't set port yet...
-            if (empty($url['port']) && !empty($_SERVER['SERVER_PORT'])) {
-                $url['port'] = $_SERVER['SERVER_PORT'];
-            }
-
-            // And finally the path could be already set from REQUEST_URI
-            if (empty($url['path'])) {
-                if (!empty($_SERVER['PATH_INFO'])) {
-                    $path = parse_url($_SERVER['PATH_INFO']);
-                } else {
-                    // PHP_SELF in CGI often points to cgi executable, so use it as last choice
-                    $path = parse_url($_SERVER['PHP_SELF']);
-                }
-                $url['path'] = $path['path'];
-                unset($path);
-            }
-        }
-
-        // Make url from parts we have
-        $cfg['PmaAbsoluteUri'] = $url['scheme'] . '://';
-        // Was there user information?
-        if (!empty($url['user'])) {
-            $cfg['PmaAbsoluteUri'] .= $url['user'];
-            if (!empty($url['pass'])) {
-                $cfg['PmaAbsoluteUri'] .= ':' . $url['pass'];
-            }
-            $cfg['PmaAbsoluteUri'] .= '@';
-        }
-        // Add hostname
-        $cfg['PmaAbsoluteUri'] .= $url['host'];
-        // Add port, if it not the default one
-        if (!empty($url['port']) && (($url['scheme'] == 'http' && $url['port'] != 80) || ($url['scheme'] == 'https' && $url['port'] != 443))) {
-            $cfg['PmaAbsoluteUri'] .= ':' . $url['port'];
-        }
-        // And finally path, without script name, the 'a' is there not to
-        // strip our directory, when path is only /pmadir/ without filename
-        $path = dirname($url['path'] . 'a');
-        // To work correctly within transformations overview:
-        if (defined('PMA_PATH_TO_BASEDIR') && PMA_PATH_TO_BASEDIR == '../../') {
-            $path = dirname(dirname($path));
-        }
-        $cfg['PmaAbsoluteUri'] .= $path . '/';
-
-        unset($url);
-
-        // We used to display a warning if PmaAbsoluteUri wasn't set, but now
-        // the autodetect code works well enough that we don't display the
-        // warning at all. The user can still set PmaAbsoluteUri manually.
-        // See https://sourceforge.net/tracker/index.php?func=detail&aid=1257134&group_id=23067&atid=377411
-
-    } else {
-        // The URI is specified, however users do often specify this
-        // wrongly, so we try to fix this.
-
-        // Adds a trailing slash et the end of the phpMyAdmin uri if it
-        // does not exist.
-        if (substr($cfg['PmaAbsoluteUri'], -1) != '/') {
-            $cfg['PmaAbsoluteUri'] .= '/';
-        }
-
-        // If URI doesn't start with http:// or https://, we will add
-        // this.
-        if (substr($cfg['PmaAbsoluteUri'], 0, 7) != 'http://' && substr($cfg['PmaAbsoluteUri'], 0, 8) != 'https://') {
-            $cfg['PmaAbsoluteUri']          = ((!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') ? 'https' : 'http') . ':'
-                                            . (substr($cfg['PmaAbsoluteUri'], 0, 2) == '//' ? '' : '//')
-                                            . $cfg['PmaAbsoluteUri'];
-        }
-    }
-
-    // some variables used mostly for cookies:
-    $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
-    $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')) . '/';
-    $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
-
-    //
-    if ($cfg['ForceSLL'] && !$is_https) {
-        header(
-            'Location: ' . preg_replace(
-                '/^http/', 'https', $cfg['PmaAbsoluteUri'] )
-            . ( isset( $_SERVER['REQUEST_URI'] )
-                ? preg_replace( '@' . $pma_uri_parts['path'] . '@',
-                    '', $_SERVER['REQUEST_URI'] )
-                : '' )
-            . '&' . SID );
-        exit;
-    }
-
-
-    $dblist       = array();
-
-    /**
-     * If no server is selected, make sure that $cfg['Server'] is empty (so
-     * that nothing will work), and skip server authentication.
-     * We do NOT exit here, but continue on without logging into any server.
-     * This way, the welcome page will still come up (with no server info) and
-     * present a choice of servers in the case that there are multiple servers
-     * and '$cfg['ServerDefault'] = 0' is set.
-     */
-    if ( ! empty( $server ) && ! empty( $cfg['Servers'][$server] ) ) {
-        $cfg['Server'] = $cfg['Servers'][$server];
-    } else {
-        if ( ! empty( $cfg['Servers'][$cfg['ServerDefault']] ) ) {
-            $server = $cfg['ServerDefault'];
-            $cfg['Server'] = $cfg['Servers'][$server];
-        } else {
-            $server = 0;
-            $cfg['Server'] = array();
-        }
-    }
-
-
-    if ( ! empty( $cfg['Server'] ) ) {
-
-        /**
-         * Loads the proper database interface for this server
-         */
-        require_once('./libraries/database_interface.lib.php');
-
-        // Gets the authentication library that fits the $cfg['Server'] settings
-        // and run authentication
-
-        // (for a quick check of path disclosure in auth/cookies:)
-        $coming_from_common = TRUE;
-
-        if (!file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php')) {
-            header( 'Location: error.php'
-                    . '?lang='  . urlencode( $available_languages[$lang][2] )
-                    . '&char='  . urlencode( $charset )
-                    . '&dir='   . urlencode( $text_dir )
-                    . '&type='  . urlencode( $strError )
-                    . '&error=' . urlencode(
-                        $strInvalidAuthMethod . ' '
-                        . $cfg['Server']['auth_type'] )
-                    . '&' . SID
-                     );
-            exit();
-        }
-        require_once('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php');
-        if (!PMA_auth_check()) {
-            PMA_auth();
-        } else {
-            PMA_auth_set_user();
-        }
-
-        // Check IP-based Allow/Deny rules as soon as possible to reject the
-        // user
-        // Based on mod_access in Apache:
-        // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
-        // Look at: "static int check_dir_access(request_rec *r)"
-        // Robbat2 - May 10, 2002
-        if (isset($cfg['Server']['AllowDeny']) && isset($cfg['Server']['AllowDeny']['order'])) {
-            require_once('./libraries/ip_allow_deny.lib.php');
-
-            $allowDeny_forbidden         = FALSE; // default
-            if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
-                $allowDeny_forbidden     = TRUE;
-                if (PMA_allowDeny('allow')) {
-                    $allowDeny_forbidden = FALSE;
-                }
-                if (PMA_allowDeny('deny')) {
-                    $allowDeny_forbidden = TRUE;
-                }
-            } else if ($cfg['Server']['AllowDeny']['order'] == 'deny,allow') {
-                if (PMA_allowDeny('deny')) {
-                    $allowDeny_forbidden = TRUE;
-                }
-                if (PMA_allowDeny('allow')) {
-                    $allowDeny_forbidden = FALSE;
-                }
-            } else if ($cfg['Server']['AllowDeny']['order'] == 'explicit') {
-                if (PMA_allowDeny('allow')
-                    && !PMA_allowDeny('deny')) {
-                    $allowDeny_forbidden = FALSE;
-                } else {
-                    $allowDeny_forbidden = TRUE;
-                }
-            } // end if... else if... else if
-
-            // Ejects the user if banished
-            if ($allowDeny_forbidden) {
-               PMA_auth_fails();
-            }
-            unset($allowDeny_forbidden); //Clean up after you!
-        } // end if
-
-        // is root allowed?
-        if (!$cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
-            $allowDeny_forbidden = TRUE;
-            PMA_auth_fails();
-            unset($allowDeny_forbidden); //Clean up after you!
-        }
-
-        // The user can work with only some databases
-        if (isset($cfg['Server']['only_db']) && $cfg['Server']['only_db'] != '') {
-            if (is_array($cfg['Server']['only_db'])) {
-                $dblist   = $cfg['Server']['only_db'];
-            } else {
-                $dblist[] = $cfg['Server']['only_db'];
-            }
-        } // end if
-
-        $bkp_track_err = @ini_set('track_errors', 1);
-
-        // Try to connect MySQL with the control user profile (will be used to
-        // get the privileges list for the current user but the true user link
-        // must be open after this one so it would be default one for all the
-        // scripts)
-        if ($cfg['Server']['controluser'] != '') {
-            $controllink = PMA_DBI_connect($cfg['Server']['controluser'], $cfg['Server']['controlpass'], TRUE);
-        } else {
-            $controllink = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password'], TRUE);
-        } // end if ... else
-
-        // Pass #1 of DB-Config to read in master level DB-Config will go here
-        // Robbat2 - May 11, 2002
-
-        // Connects to the server (validates user's login)
-        $userlink = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password'], FALSE);
-
-        // Pass #2 of DB-Config to read in user level DB-Config will go here
-        // Robbat2 - May 11, 2002
-
-        @ini_set('track_errors', $bkp_track_err);
-        unset($bkp_track_err);
-
-        /**
-         * SQL Parser code
-         */
-        require_once('./libraries/sqlparser.lib.php');
-
-        /**
-         * SQL Validator interface code
-         */
-        require_once('./libraries/sqlvalidator.lib.php');
-
-        // if 'only_db' is set for the current user, there is no need to check for
-        // available databases in the "mysql" db
-        $dblist_cnt = count($dblist);
-        if ($dblist_cnt) {
-            $true_dblist  = array();
-            $is_show_dbs  = TRUE;
-
-            $dblist_asterisk_bool = FALSE;
-            for ($i = 0; $i < $dblist_cnt; $i++) {
-
-                // The current position
-                if ($dblist[$i] == '*' && $dblist_asterisk_bool == FALSE) {
-                    $dblist_asterisk_bool = TRUE;
-                    $dblist_full = PMA_safe_db_list(FALSE, $controllink, FALSE, $rs, $userlink, $cfg, $dblist);
-                    foreach ($dblist_full as $dbl_val) {
-                        if (!in_array($dbl_val, $dblist)) {
-                            $true_dblist[] = $dbl_val;
-                        }
-                    }
-
-                    continue;
-                } elseif ($dblist[$i] == '*') {
-                    // We don't want more than one asterisk inside our 'only_db'.
-                    continue;
-                }
-                if ($is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i])) {
-                    $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
-                    // here, a PMA_DBI_query() could fail silently
-                    // if SHOW DATABASES is disabled
-                    $rs          = PMA_DBI_try_query($local_query, $controllink);
-
-                    if ($i == 0
-                        && (substr(PMA_DBI_getError($controllink), 1, 4) == 1045)) {
-                        // "SHOW DATABASES" statement is disabled
-                        $true_dblist[] = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
-                        $is_show_dbs   = FALSE;
-                    }
-                    // Debug
-                    // else if (PMA_DBI_getError($controllink)) {
-                    //    PMA_mysqlDie(PMA_DBI_getError($controllink), $local_query, FALSE);
-                    // }
-                    while ($row = @PMA_DBI_fetch_row($rs)) {
-                        $true_dblist[] = $row[0];
-                    } // end while
-                    if ($rs) {
-                        PMA_DBI_free_result($rs);
-                    }
-                } else {
-                    $true_dblist[]     = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
-                } // end if... else...
-            } // end for
-            $dblist       = $true_dblist;
-            unset( $true_dblist, $i, $dbl_val );
-            $only_db_check = TRUE;
-        } // end if
-
-        // 'only_db' is empty for the current user...
-        else {
-            $only_db_check = FALSE;
-        } // end if (!$dblist_cnt)
-
-        if (isset($dblist_full) && !count($dblist_full)) {
-            $dblist = PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userlink, $cfg, $dblist);
-        }
-
-    } // end server connecting
-
 
     /**
      * Get the list and number of available databases.
@@ -2610,14 +1960,6 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
         }
     } // end function
 
-    // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
-    if (@function_exists('mb_convert_encoding')
-        && strpos(' ' . $lang, 'ja-')
-        && file_exists('./libraries/kanji-encoding.lib.php')) {
-        require_once('./libraries/kanji-encoding.lib.php');
-        define('PMA_MULTIBYTE_ENCODING', 1);
-    } // end if
-
     /**
      * Function to generate unique condition for specified row.
      *
@@ -2828,7 +2170,9 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
         return $gotopage;
     } // end function
 
-
+    /**
+     * @TODO    add documentation
+     */
     function PMA_generateFieldSpec($name, $type, $length, $attribute, $collation, $null, $default, $default_current_timestamp, $extra, $comment='', &$field_primary, $index, $default_orig = FALSE) {
 
         // $default_current_timestamp has priority over $default
@@ -2889,11 +2233,17 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
         return $query;
     } // end function
 
+    /**
+     * @TODO    add documentation
+     */
     function PMA_generateAlterTable($oldcol, $newcol, $type, $length, $attribute, $collation, $null, $default, $default_current_timestamp, $extra, $comment='', $default_orig) {
         $empty_a = array();
         return PMA_backquote($oldcol) . ' ' . PMA_generateFieldSpec($newcol, $type, $length, $attribute, $collation, $null, $default, $default_current_timestamp, $extra, $comment, $empty_a, -1, $default_orig);
     } // end function
 
+    /**
+     * @TODO    add documentation
+     */
     function PMA_userDir($dir) {
         global $cfg;
 
@@ -2928,6 +2278,674 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
             .htmlspecialchars( $database ) . '</a>';
     }
 
-} // end if: minimal common.lib needed?
+
+
+    /**
+     * include here only libraries which contain only function definitions
+     * no code im main()!
+     */
+    /**
+     * Include URL/hidden inputs generating.
+     */
+    require_once('./libraries/url_generating.lib.php');
+
+}
+
+
+/******************************************************************************/
+/* start procedural code                       label_start_procedural         */
+
+// grab_globals.lib.php should really go before common.lib.php
+require_once('./libraries/grab_globals.lib.php');
+
+/**
+ * @var array   $GLOBALS['PMA_errors']  holds errors
+ */
+$GLOBALS['PMA_errors'] = array();
+
+
+/******************************************************************************/
+/* parsing config file                         label_parsing_config_file      */
+
+/**
+ * 2004-06-30 rabus: Ensure, that $cfg variables are not set somwhere else
+ * before including the config file.
+ */
+unset($cfg);
+
+/**
+ * Set default configuration values.
+ */
+include './config.default.php';
+
+// Remember default server config
+$default_server = $cfg['Servers'][1];
+
+// Drop all server, as they have to be configured by user
+unset($cfg['Servers']);
+
+/**
+ * Parses the configuration file and gets some constants used to define
+ * versions of phpMyAdmin/php/mysql...
+ */
+$success_apply_user_config = false;
+// We can not use include as it fails on parse error
+$config_file = './config.inc.php';
+if ( file_exists( $config_file ) ) {
+    $old_error_reporting = error_reporting( 0 );
+    if ( function_exists( 'file_get_contents' ) ) {
+        $success_apply_user_config = eval( '?>' . file_get_contents( $config_file ) );
+    } else {
+        $success_apply_user_config =
+            eval( '?>' . implode( '\n', file( $config_file ) ) );
+    }
+    error_reporting( $old_error_reporting );
+    unset( $old_error_reporting );
+} else {
+    // Do not complain about missing config file
+    // FIXME: maybe we should issue warning in this case?
+    $success_apply_user_config = true;
+}
+
+
+/******************************************************************************/
+/* loading language file                       label_loading_language_file    */
+
+/**
+ * Added messages while developing:
+ */
+if (file_exists('./lang/added_messages.php')) {
+    include('./lang/added_messages.php');
+}
+
+/**
+ * Includes the language file if it hasn't been included yet
+ */
+require_once('./libraries/select_lang.lib.php');
+
+/**
+ * We really need this one!
+ */
+if (!function_exists('preg_replace')) {
+    header( 'Location: error.php'
+        . '?lang='  . urlencode( $available_languages[$lang][2] )
+        . '&char='  . urlencode( $charset )
+        . '&dir='   . urlencode( $text_dir )
+        . '&type='  . urlencode( $strError )
+        . '&error=' . urlencode(
+            strtr( sprintf( $strCantLoad, 'pcre' ),
+                array('<br />' => '[br]') ) )
+        . '&' . SID
+         );
+    exit();
+}
+
+
+if ( $success_apply_user_config === FALSE ) {
+    require_once('./libraries/select_lang.lib.php');
+    // Displays the error message
+    $GLOBALS['PMA_errors'][] = $strConfigFileError
+        .'<br /><br />'
+        .'<a href="./config.inc.php" target="_blank">config.inc.php</a>';
+}
+unset( $success_apply_user_config );
+
+/**
+ * Servers array fixups.
+ */
+// Do we have some server?
+if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
+    // No server => create one with defaults
+    $cfg['Servers'] = array(1 => $default_server);
+} else {
+    // We have server(s) => apply default config
+    $new_servers = array();
+
+    foreach($cfg['Servers'] as $server_index => $each_server ) {
+        if (!is_int($server_index) || $server_index < 1) {
+            $GLOBALS['PMA_errors'][] = sprintf( $strInvalidServerIndex, $server_index);
+            continue;
+        }
+
+        $each_server = array_merge($default_server, $each_server);
+
+        // Don't use servers with no hostname
+        if ( $each_server['connect_type'] == 'tcp' && empty($each_server['host'])) {
+            $GLOBALS['PMA_errors'][] = sprintf( $strInvalidServerHostname, $server_index);
+            continue;
+        }
+
+        // Final solution to bug #582890
+        // If we are using a socket connection
+        // and there is nothing in the verbose server name
+        // or the host field, then generate a name for the server
+        // in the form of "Server 2", localized of course!
+        if ( $each_server['connect_type'] == 'socket' && empty($each_server['host']) && empty($each_server['verbose']) ) {
+            $each_server['verbose'] = $GLOBALS['strServer'] . $server_index;
+        }
+
+        $new_servers[$server_index] = $each_server;
+    }
+    $cfg['Servers'] = $new_servers;
+    unset( $new_servers, $server_index, $each_server );
+}
+
+// Cleanup
+unset($default_server);
+
+/**
+ * Gets constants that defines the PHP version number.
+ * This include must be located physically before any code that needs to
+ * reference the constants, else PHP 3.0.16 won't be happy.
+ */
+require_once('./libraries/defines.lib.php');
+
+// XSS
+if (isset($convcharset)) {
+    $convcharset = PMA_sanitize($convcharset);
+}
+
+if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
+    /**
+     * Define $is_upload
+     */
+
+    $is_upload = TRUE;
+    if (strtolower(@ini_get('file_uploads')) == 'off'
+           || @ini_get('file_uploads') == 0) {
+        $is_upload = FALSE;
+    }
+
+    /**
+     * Maximum upload size as limited by PHP
+     * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
+     *
+     * this section generates $max_upload_size in bytes
+     */
+    if (!$filesize = ini_get('upload_max_filesize')) {
+        $filesize = "5M";
+    }
+    $max_upload_size = get_real_size($filesize);
+
+    if ($postsize = ini_get('post_max_size')) {
+        $postsize = get_real_size($postsize);
+        if ($postsize < $max_upload_size) {
+            $max_upload_size = $postsize;
+        }
+    }
+    unset( $filesize, $postsize );
+
+    /**
+     * other functions for maximum upload work
+     */
+
+    /**
+     * Charset conversion.
+     */
+    require_once('./libraries/charset_conversion.lib.php');
+
+    /**
+     * String handling
+     */
+    require_once('./libraries/string.lib.php');
+}
+
+// If zlib output compression is set in the php configuration file, no
+// output buffering should be run
+if (@ini_get('zlib.output_compression')) {
+    $cfg['OBGzip'] = FALSE;
+}
+
+// disable output-buffering (if set to 'auto') for IE6, else enable it.
+if (strtolower($cfg['OBGzip']) == 'auto') {
+    if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER < 7) {
+        $cfg['OBGzip'] = FALSE;
+    } else {
+        $cfg['OBGzip'] = TRUE;
+    }
+}
+
+
+/* Theme Manager
+ * 2004-05-20 Michael Keck (mail_at_michaelkeck_dot_de)
+ *            This little script checks if there're themes available
+ *            and if the directory $ThemePath/$theme/img/ exists
+ *            If not, it will use default images
+*/
+// Allow different theme per server
+$theme_cookie_name = 'pma_theme';
+if ($GLOBALS['cfg']['ThemePerServer'] && isset($server)) {
+    $theme_cookie_name .= '-' . $server;
+}
+//echo $theme_cookie_name;
+// Theme Manager
+if (!$cfg['ThemeManager'] || !isset($_COOKIE[$theme_cookie_name]) || empty($_COOKIE[$theme_cookie_name])){
+    $GLOBALS['theme'] = $cfg['ThemeDefault'];
+    $ThemeDefaultOk = FALSE;
+    if ($cfg['ThemePath']!='' && $cfg['ThemePath'] != FALSE) {
+        $tmp_theme_mainpath = $cfg['ThemePath'];
+        $tmp_theme_fullpath = $cfg['ThemePath'] . '/' .$cfg['ThemeDefault'];
+        if (@is_dir($tmp_theme_mainpath)) {
+            if (isset($cfg['ThemeDefault']) && @is_dir($tmp_theme_fullpath)) {
+                $ThemeDefaultOk = TRUE;
+            }
+        }
+    }
+    if ($ThemeDefaultOk == TRUE){
+        $GLOBALS['theme'] = $cfg['ThemeDefault'];
+    } else {
+        $GLOBALS['theme'] = 'original';
+    }
+} else {
+    // if we just changed theme, we must take the new one so that
+    // index.php takes the correct one for height computing
+    if (isset($_POST['set_theme'])) {
+        $GLOBALS['theme'] = PMA_securePath($_POST['set_theme']);
+    } else {
+        $GLOBALS['theme'] = PMA_securePath($_COOKIE[$theme_cookie_name]);
+    }
+}
+
+// check for theme requires/name
+unset($theme_name, $theme_generation, $theme_version);
+@include($cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/info.inc.php');
+
+// did it set correctly?
+if (!isset($theme_name, $theme_generation, $theme_version)) {
+    $GLOBALS['theme'] = 'original'; // invalid theme
+} elseif ($theme_generation != PMA_THEME_GENERATION) {
+    $GLOBALS['theme'] = 'original'; // different generation
+} elseif ($theme_version < PMA_THEME_VERSION) {
+    $GLOBALS['theme'] = 'original'; // too old version
+}
+
+$pmaThemePath       = $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/';
+$pmaThemeImage      = $pmaThemePath . 'img/';
+$tmp_layout_file    = $pmaThemePath . 'layout.inc.php';
+if (@file_exists($tmp_layout_file)) {
+    include($tmp_layout_file);
+}
+unset( $tmp_layout_file );
+if (!is_dir($pmaThemeImage)) {
+    $pmaThemeImage = $cfg['ThemePath'] . '/original/img/';
+}
+// end theme manager
+
+/**
+ * collation_connection
+ */
+ // (could be improved by executing it after the MySQL connection only if
+ //  PMA_MYSQL_INT_VERSION >= 40100 )
+if (isset($_COOKIE) && !empty($_COOKIE['pma_collation_connection']) && empty($_POST['collation_connection'])) {
+    $collation_connection = $_COOKIE['pma_collation_connection'];
+}
+if (!isset($collation_connection)) {
+    $collation_connection = $GLOBALS['cfg']['DefaultConnectionCollation'];
+}
+
+if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
+    /**
+     * $cfg['PmaAbsoluteUri'] is a required directive else cookies won't be
+     * set properly and, depending on browsers, inserting or updating a
+     * record might fail
+     */
+
+    // Setup a default value to let the people and lazy syadmins work anyway,
+    // they'll get an error if the autodetect code doesn't work
+    if (empty($cfg['PmaAbsoluteUri'])) {
+
+        $url = array();
+
+        // At first we try to parse REQUEST_URI, it might contain full URI
+        if (!empty($_SERVER['REQUEST_URI'])) {
+            $url = parse_url($_SERVER['REQUEST_URI']);
+        }
+
+        // If we don't have scheme, we didn't have full URL so we need to dig deeper
+        if (empty($url['scheme'])) {
+            // Scheme
+            if (!empty($_SERVER['HTTP_SCHEME'])) {
+                $url['scheme'] = $_SERVER['HTTP_SCHEME'];
+            } else {
+                $url['scheme'] = (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') ? 'https' : 'http';
+            }
+
+            // Host and port
+            if (!empty($_SERVER['HTTP_HOST'])) {
+                if (strpos($_SERVER['HTTP_HOST'], ':') > 0) {
+                    list($url['host'], $url['port']) = explode(':', $_SERVER['HTTP_HOST']);
+                } else {
+                    $url['host'] = $_SERVER['HTTP_HOST'];
+                }
+            } else if (!empty($_SERVER['SERVER_NAME'])) {
+                $url['host'] = $_SERVER['SERVER_NAME'];
+            } else {
+                // Displays the error message
+                header( 'Location: error.php'
+                        . '?lang='  . urlencode( $available_languages[$lang][2] )
+                        . '&char='  . urlencode( $charset )
+                        . '&dir='   . urlencode( $text_dir )
+                        . '&type='  . urlencode( $strError )
+                        . '&error=' . urlencode(
+                            strtr( $strPmaUriError,
+                                array( '<tt>' => '[tt]', '</tt>' => '[/tt]' ) ) )
+                        . '&' . SID
+                         );
+                exit();
+            }
+
+            // If we didn't set port yet...
+            if (empty($url['port']) && !empty($_SERVER['SERVER_PORT'])) {
+                $url['port'] = $_SERVER['SERVER_PORT'];
+            }
+
+            // And finally the path could be already set from REQUEST_URI
+            if (empty($url['path'])) {
+                if (!empty($_SERVER['PATH_INFO'])) {
+                    $path = parse_url($_SERVER['PATH_INFO']);
+                } else {
+                    // PHP_SELF in CGI often points to cgi executable, so use it as last choice
+                    $path = parse_url($_SERVER['PHP_SELF']);
+                }
+                $url['path'] = $path['path'];
+                unset($path);
+            }
+        }
+
+        // Make url from parts we have
+        $cfg['PmaAbsoluteUri'] = $url['scheme'] . '://';
+        // Was there user information?
+        if (!empty($url['user'])) {
+            $cfg['PmaAbsoluteUri'] .= $url['user'];
+            if (!empty($url['pass'])) {
+                $cfg['PmaAbsoluteUri'] .= ':' . $url['pass'];
+            }
+            $cfg['PmaAbsoluteUri'] .= '@';
+        }
+        // Add hostname
+        $cfg['PmaAbsoluteUri'] .= $url['host'];
+        // Add port, if it not the default one
+        if (!empty($url['port']) && (($url['scheme'] == 'http' && $url['port'] != 80) || ($url['scheme'] == 'https' && $url['port'] != 443))) {
+            $cfg['PmaAbsoluteUri'] .= ':' . $url['port'];
+        }
+        // And finally path, without script name, the 'a' is there not to
+        // strip our directory, when path is only /pmadir/ without filename
+        $path = dirname($url['path'] . 'a');
+        // To work correctly within transformations overview:
+        if (defined('PMA_PATH_TO_BASEDIR') && PMA_PATH_TO_BASEDIR == '../../') {
+            $path = dirname(dirname($path));
+        }
+        $cfg['PmaAbsoluteUri'] .= $path . '/';
+
+        unset($url);
+
+        // We used to display a warning if PmaAbsoluteUri wasn't set, but now
+        // the autodetect code works well enough that we don't display the
+        // warning at all. The user can still set PmaAbsoluteUri manually.
+        // See https://sourceforge.net/tracker/index.php?func=detail&aid=1257134&group_id=23067&atid=377411
+
+    } else {
+        // The URI is specified, however users do often specify this
+        // wrongly, so we try to fix this.
+
+        // Adds a trailing slash et the end of the phpMyAdmin uri if it
+        // does not exist.
+        if (substr($cfg['PmaAbsoluteUri'], -1) != '/') {
+            $cfg['PmaAbsoluteUri'] .= '/';
+        }
+
+        // If URI doesn't start with http:// or https://, we will add
+        // this.
+        if (substr($cfg['PmaAbsoluteUri'], 0, 7) != 'http://' && substr($cfg['PmaAbsoluteUri'], 0, 8) != 'https://') {
+            $cfg['PmaAbsoluteUri']          = ((!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') ? 'https' : 'http') . ':'
+                                            . (substr($cfg['PmaAbsoluteUri'], 0, 2) == '//' ? '' : '//')
+                                            . $cfg['PmaAbsoluteUri'];
+        }
+    }
+
+    // some variables used mostly for cookies:
+    $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
+    $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')) . '/';
+    $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
+
+    //
+    if ($cfg['ForceSLL'] && !$is_https) {
+        header(
+            'Location: ' . preg_replace(
+                '/^http/', 'https', $cfg['PmaAbsoluteUri'] )
+            . ( isset( $_SERVER['REQUEST_URI'] )
+                ? preg_replace( '@' . $pma_uri_parts['path'] . '@',
+                    '', $_SERVER['REQUEST_URI'] )
+                : '' )
+            . '&' . SID );
+        exit;
+    }
+
+
+    $dblist       = array();
+
+    /**
+     * If no server is selected, make sure that $cfg['Server'] is empty (so
+     * that nothing will work), and skip server authentication.
+     * We do NOT exit here, but continue on without logging into any server.
+     * This way, the welcome page will still come up (with no server info) and
+     * present a choice of servers in the case that there are multiple servers
+     * and '$cfg['ServerDefault'] = 0' is set.
+     */
+    if ( ! empty( $server ) && ! empty( $cfg['Servers'][$server] ) ) {
+        $cfg['Server'] = $cfg['Servers'][$server];
+    } else {
+        if ( ! empty( $cfg['Servers'][$cfg['ServerDefault']] ) ) {
+            $server = $cfg['ServerDefault'];
+            $cfg['Server'] = $cfg['Servers'][$server];
+        } else {
+            $server = 0;
+            $cfg['Server'] = array();
+        }
+    }
+
+
+    if ( ! empty( $cfg['Server'] ) ) {
+
+        /**
+         * Loads the proper database interface for this server
+         */
+        require_once('./libraries/database_interface.lib.php');
+
+        // Gets the authentication library that fits the $cfg['Server'] settings
+        // and run authentication
+
+        // (for a quick check of path disclosure in auth/cookies:)
+        $coming_from_common = TRUE;
+
+        if (!file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php')) {
+            header( 'Location: error.php'
+                    . '?lang='  . urlencode( $available_languages[$lang][2] )
+                    . '&char='  . urlencode( $charset )
+                    . '&dir='   . urlencode( $text_dir )
+                    . '&type='  . urlencode( $strError )
+                    . '&error=' . urlencode(
+                        $strInvalidAuthMethod . ' '
+                        . $cfg['Server']['auth_type'] )
+                    . '&' . SID
+                     );
+            exit();
+        }
+        require_once('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php');
+        if (!PMA_auth_check()) {
+            PMA_auth();
+        } else {
+            PMA_auth_set_user();
+        }
+
+        // Check IP-based Allow/Deny rules as soon as possible to reject the
+        // user
+        // Based on mod_access in Apache:
+        // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
+        // Look at: "static int check_dir_access(request_rec *r)"
+        // Robbat2 - May 10, 2002
+        if (isset($cfg['Server']['AllowDeny']) && isset($cfg['Server']['AllowDeny']['order'])) {
+            require_once('./libraries/ip_allow_deny.lib.php');
+
+            $allowDeny_forbidden         = FALSE; // default
+            if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
+                $allowDeny_forbidden     = TRUE;
+                if (PMA_allowDeny('allow')) {
+                    $allowDeny_forbidden = FALSE;
+                }
+                if (PMA_allowDeny('deny')) {
+                    $allowDeny_forbidden = TRUE;
+                }
+            } else if ($cfg['Server']['AllowDeny']['order'] == 'deny,allow') {
+                if (PMA_allowDeny('deny')) {
+                    $allowDeny_forbidden = TRUE;
+                }
+                if (PMA_allowDeny('allow')) {
+                    $allowDeny_forbidden = FALSE;
+                }
+            } else if ($cfg['Server']['AllowDeny']['order'] == 'explicit') {
+                if (PMA_allowDeny('allow')
+                    && !PMA_allowDeny('deny')) {
+                    $allowDeny_forbidden = FALSE;
+                } else {
+                    $allowDeny_forbidden = TRUE;
+                }
+            } // end if... else if... else if
+
+            // Ejects the user if banished
+            if ($allowDeny_forbidden) {
+               PMA_auth_fails();
+            }
+            unset($allowDeny_forbidden); //Clean up after you!
+        } // end if
+
+        // is root allowed?
+        if (!$cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
+            $allowDeny_forbidden = TRUE;
+            PMA_auth_fails();
+            unset($allowDeny_forbidden); //Clean up after you!
+        }
+
+        // The user can work with only some databases
+        if (isset($cfg['Server']['only_db']) && $cfg['Server']['only_db'] != '') {
+            if (is_array($cfg['Server']['only_db'])) {
+                $dblist   = $cfg['Server']['only_db'];
+            } else {
+                $dblist[] = $cfg['Server']['only_db'];
+            }
+        } // end if
+
+        $bkp_track_err = @ini_set('track_errors', 1);
+
+        // Try to connect MySQL with the control user profile (will be used to
+        // get the privileges list for the current user but the true user link
+        // must be open after this one so it would be default one for all the
+        // scripts)
+        if ($cfg['Server']['controluser'] != '') {
+            $controllink = PMA_DBI_connect($cfg['Server']['controluser'], $cfg['Server']['controlpass'], TRUE);
+        } else {
+            $controllink = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password'], TRUE);
+        } // end if ... else
+
+        // Pass #1 of DB-Config to read in master level DB-Config will go here
+        // Robbat2 - May 11, 2002
+
+        // Connects to the server (validates user's login)
+        $userlink = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password'], FALSE);
+
+        // Pass #2 of DB-Config to read in user level DB-Config will go here
+        // Robbat2 - May 11, 2002
+
+        @ini_set('track_errors', $bkp_track_err);
+        unset($bkp_track_err);
+
+        /**
+         * SQL Parser code
+         */
+        require_once('./libraries/sqlparser.lib.php');
+
+        /**
+         * SQL Validator interface code
+         */
+        require_once('./libraries/sqlvalidator.lib.php');
+
+        // if 'only_db' is set for the current user, there is no need to check for
+        // available databases in the "mysql" db
+        $dblist_cnt = count($dblist);
+        if ($dblist_cnt) {
+            $true_dblist  = array();
+            $is_show_dbs  = TRUE;
+
+            $dblist_asterisk_bool = FALSE;
+            for ($i = 0; $i < $dblist_cnt; $i++) {
+
+                // The current position
+                if ($dblist[$i] == '*' && $dblist_asterisk_bool == FALSE) {
+                    $dblist_asterisk_bool = TRUE;
+                    $dblist_full = PMA_safe_db_list(FALSE, $controllink, FALSE, $rs, $userlink, $cfg, $dblist);
+                    foreach ($dblist_full as $dbl_val) {
+                        if (!in_array($dbl_val, $dblist)) {
+                            $true_dblist[] = $dbl_val;
+                        }
+                    }
+
+                    continue;
+                } elseif ($dblist[$i] == '*') {
+                    // We don't want more than one asterisk inside our 'only_db'.
+                    continue;
+                }
+                if ($is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i])) {
+                    $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
+                    // here, a PMA_DBI_query() could fail silently
+                    // if SHOW DATABASES is disabled
+                    $rs          = PMA_DBI_try_query($local_query, $controllink);
+
+                    if ($i == 0
+                        && (substr(PMA_DBI_getError($controllink), 1, 4) == 1045)) {
+                        // "SHOW DATABASES" statement is disabled
+                        $true_dblist[] = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
+                        $is_show_dbs   = FALSE;
+                    }
+                    // Debug
+                    // else if (PMA_DBI_getError($controllink)) {
+                    //    PMA_mysqlDie(PMA_DBI_getError($controllink), $local_query, FALSE);
+                    // }
+                    while ($row = @PMA_DBI_fetch_row($rs)) {
+                        $true_dblist[] = $row[0];
+                    } // end while
+                    if ($rs) {
+                        PMA_DBI_free_result($rs);
+                    }
+                } else {
+                    $true_dblist[]     = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
+                } // end if... else...
+            } // end for
+            $dblist       = $true_dblist;
+            unset( $true_dblist, $i, $dbl_val );
+            $only_db_check = TRUE;
+        } // end if
+
+        // 'only_db' is empty for the current user...
+        else {
+            $only_db_check = FALSE;
+        } // end if (!$dblist_cnt)
+
+        if (isset($dblist_full) && !count($dblist_full)) {
+            $dblist = PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userlink, $cfg, $dblist);
+        }
+        unset( $only_db_check, $dblist_full );
+
+    } // end server connecting
+
+
+    // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
+    if (@function_exists('mb_convert_encoding')
+        && strpos(' ' . $lang, 'ja-')
+        && file_exists('./libraries/kanji-encoding.lib.php')) {
+        require_once('./libraries/kanji-encoding.lib.php');
+        define('PMA_MULTIBYTE_ENCODING', 1);
+    } // end if
+
+} // end if ! defined( 'PMA_MINIMUM_COMMON' )
 
 ?>
