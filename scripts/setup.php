@@ -4,6 +4,10 @@
 
 // phpMyAdmin setup script by Michal Čihař <michal@cihar.com>
 
+// TODO: 
+// - links to documentation
+// - document functions
+
 // Grab phpMyAdmin version and PMA_dl function
 $cfg['GD2Available'] = 'auto';
 require('../libraries/defines.lib.php');
@@ -201,11 +205,17 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
     }
     div.desc, label.desc, fieldset.overview div.desc {
         float: left;
-        width: 25em;
+        width: 27em;
         max-width: 60%;
     }
     code:before, code:after {
         content: '"';
+    }
+    a.doc {
+        margin: 0 1em 0 1em;
+    }
+    a.doc img {
+        border: none;
     }
     </style>
 </head>
@@ -215,6 +225,9 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
 <?php
 } // end show html header
 
+function get_cfg_doc($anchor) {
+    return '<a href="../Documentation.html#cfg_' . $anchor . '" target="pma_doc" class="doc"><img class="icon" src="../themes/original/img/b_help.png" width="11" height="11" alt="Documentation" title="Documentation" /></a>';
+}
 
 function message($type, $text, $title = '') {
     echo '<div class="' . $type . '">' . "\n";
@@ -421,7 +434,7 @@ function show_overview($legend, $list, $buttons = '') {
     echo "\n";
 }
 
-function show_config_form($list, $legend, $help, $defaults = array(), $save = '') {
+function show_config_form($list, $legend, $help, $defaults = array(), $save = '', $prefix = '') {
     global $default_cfg;
     
     if (empty($save)) $save = 'Update';
@@ -440,7 +453,7 @@ function show_config_form($list, $legend, $help, $defaults = array(), $save = ''
         switch ($type) {
             case 'text':
             case 'password':
-                echo '<label for="text_' . $val[1] . '" class="desc" title="' . $val[2] . '">' . $val[0] . ':</label>';
+                echo '<label for="text_' . $val[1] . '" class="desc" title="' . $val[2] . '">' . $val[0] . get_cfg_doc($prefix . $val[1]) . '</label>';
                 echo '<input type="' . $type . '" name="' . $val[1] . '" id="text_' . $val[1] . '" title="' . $val[2] . '" size="50"';
                 if (isset($defaults[$val[1]])) {
                     echo ' value="' . htmlspecialchars($defaults[$val[1]]) . '"';
@@ -461,10 +474,10 @@ function show_config_form($list, $legend, $help, $defaults = array(), $save = ''
                     }
                 }
                 echo ' />';
-                echo '<label for="checkbox_' . $val[1] . '" title="' . $val[2] . '">' . $val[0] . '</label>';
+                echo '<label for="checkbox_' . $val[1] . '" title="' . $val[2] . '">' . $val[0] . get_cfg_doc($prefix . $val[1]) . '</label>';
                 break;
             case 'select':
-                echo '<label for="select_' . $val[1] . '" class="desc" title="' . $val[2] . '">' . $val[0] . ':</label>';
+                echo '<label for="select_' . $val[1] . '" class="desc" title="' . $val[2] . '">' . $val[0] . get_cfg_doc($prefix . $val[1]) . '</label>';
                 echo '<select name="' . $val[1] . '" id="select_' . $val[1] . '" ' . ' title="' . $val[2] . '">';
                 foreach ($val[3] as $opt) {
                     echo '<option value="' . $opt . '"';
@@ -658,7 +671,7 @@ function show_server_form($defaults = array(), $number = FALSE) {
             ), 
             'Configure server', 
             ($number === FALSE) ? 'Enter new server connection parameters.' : 'Editing server ' . get_server_name($defaults, $number),
-            $defaults, $number === FALSE ? 'Add' : '');
+            $defaults, $number === FALSE ? 'Add' : '', 'Servers_');
     ?>
 </form>
     <?php
