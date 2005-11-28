@@ -425,7 +425,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 </p>
 
 <dl>
-    <dt><b>$cfg['PmaAbsoluteUri']</b> string</dt>
+    <dt><b><a name="cfg_PmaAbsoluteUri"></a>$cfg[PmaAbsoluteUri]</b> string</dt>
     <dd>
         Sets here the complete URL (with full path) to your phpMyAdmin 
         installation's directory.
@@ -443,7 +443,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         report on our bug tracker so we can improve the code.
     </dd>
 
-    <dt><b>$cfg['PmaNoRelation_DisableWarning']</b> boolean</dt>
+    <dt><b><a name="cfg_PmaNoRelation_DisableWarning"></a>$cfg[PmaNoRelation_DisableWarning]</b> boolean</dt>
     <dd>
         Starting with version 2.3.0 phpMyAdmin offers a lot of features to work
         with master / foreign - tables (see
@@ -457,7 +457,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <tt>TRUE</tt> to stop this message from appearing.
     </dd>
 
-    <dt><b>$cfg['blowfish_secret']</b> string</dt>
+    <dt><b><a name="cfg_blowfish_secret"></a>$cfg[blowfish_secret]</b> string</dt>
     <dd>
         Starting with version 2.5.2, the 'cookie' auth_type uses blowfish
         algorithm to encrypt the password.
@@ -468,7 +468,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         number of characters for this parameter seems to be 46.
   </dd>
 
-    <dt><b>$cfg['Servers']</b> array</dt>
+    <dt><b><a name="cfg_Servers"></a>$cfg[Servers]</b> array</dt>
     <dd>
         Since version 1.4.2, phpMyAdmin supports the administration of multiple
         MySQL servers.
@@ -483,12 +483,12 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         have to define all settings, just those you need to change).
     </dd>
 
-    <dt><b>$cfg['Servers'][$i]['host']</b> string</dt>
+    <dt><b><a name="cfg_Servers_host"></a>$cfg['Servers'][$i]['host']</b> string</dt>
     <dd>
         The hostname or IP address of your $i-th MySQL-server. E.g. localhost.
     </dd>
 
-    <dt><b>$cfg['Servers'][$i]['port']</b> string</dt>
+    <dt><b><a name="cfg_Servers_port"></a>$cfg['Servers'][$i]['port']</b> string</dt>
     <dd>
         The port-number of your $i-th MySQL-server. Default is 3306 (leave
         blank). If you use &quot;localhost&quot; as the hostname, MySQL
@@ -498,12 +498,12 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         $cfg['Servers'][$i]['host'].
     </dd>
 
-    <dt><b>$cfg['Servers'][$i]['socket']</b> string</dt>
+    <dt><b><a name="cfg_Servers_socket"></a>$cfg['Servers'][$i]['socket']</b> string</dt>
     <dd>
         The path to the socket to use. Leave blank for default.
     </dd>
 
-    <dt><b>$cfg['Servers'][$i]['connect_type']</b> string</dt>
+    <dt><b><a name="cfg_Servers_connect_type"></a>$cfg['Servers'][$i]['connect_type']</b> string</dt>
     <dd>
         What type connection to use with the MySQL server. Your options are
         <tt>'socket'</tt> &amp; <tt>'tcp'</tt>. It defaults to 'tcp' as that
@@ -514,7 +514,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         as the Web server.
     </dd>
 
-    <dt><b>$cfg['Servers'][$i]['extension']</b> string</dt>
+    <dt><b><a name="cfg_Servers_extension"></a>$cfg['Servers'][$i]['extension']</b> string</dt>
     <dd>
         What php MySQL extension to use for the connection. Valid options are:
         <br /><br />
@@ -530,7 +530,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Note: phpMyAdmin's MySQL 4.1 support is experimental!
     </dd>
 
-    <dt><b>$cfg['Servers'][$i]['compress']</b> boolean</dt>
+    <dt><b><a name="cfg_Servers_compress"></a>$cfg['Servers'][$i]['compress']</b> boolean</dt>
     <dd>
         Whether to use a compressed protocol for the MySQL server connection
         or not (experimental).<br />
@@ -539,8 +539,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 
     <dt>
 <a name="controluser"></a><br />
-        <b>$cfg['Servers'][$i]['controluser']</b> string<br />
-        <b>$cfg['Servers'][$i]['controlpass']</b> string
+        <b><a name="cfg_Servers_controluser"></a>$cfg['Servers'][$i]['controluser']</b> string<br />
+        <b><a name="cfg_Servers_controlpass"></a>$cfg['Servers'][$i]['controlpass']</b> string
     </dt>
     <dd>
         <i>Note: starting with phpMyAdmin 2.6.1, configuring the controluser
@@ -574,7 +574,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         &quot;stduser/stdpass&quot;.
     </dd>
 
-    <dt><b>$cfg['Servers'][$i]['auth_type']</b> string
+    <dt><b><a name="cfg_Servers_auth_type"></a>$cfg['Servers'][$i]['auth_type']</b> string
     <tt>['http'|'cookie'|'config']</tt></dt>
     <dd>
         Whether config or cookie or http authentication should be used for this
@@ -607,8 +607,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
     <dt>
 <a name="servers_user"></a><br />
-        <b>$cfg['Servers'][$i]['user']</b> string<br />
-        <b>$cfg['Servers'][$i]['password']</b> string
+        <b><a name="cfg_Servers_user"></a>$cfg['Servers'][$i]['user']</b> string<br />
+        <b><a name="cfg_Servers_password"></a>$cfg['Servers'][$i]['password']</b> string
     </dt>
     <dd>
         When using auth_type = 'config', this is the user/password-pair
@@ -618,7 +618,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
     <dt>
 <a name="servers_only_db"></a><br />
-      <b>$cfg['Servers'][$i]['only_db']</b> string or array
+      <b><a name="cfg_Servers_only_db"></a>$cfg['Servers'][$i]['only_db']</b> string or array
     </dt>
     <dd>
         If set to a (an array of) database name(s), only this (these) database(s)
@@ -646,7 +646,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         order.
     </dd>
 
-    <dt><b>$cfg['Servers'][$i]['verbose']</b> string</dt>
+    <dt><b><a name="cfg_Servers_verbose"></a>$cfg['Servers'][$i]['verbose']</b> string</dt>
     <dd>
         Only useful when using phpMyAdmin with multiple server entries. If set,
         this string will be displayed instead of the hostname in the pull-down
@@ -656,7 +656,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 
     <dt>
         <a name="pmadb"></a><br />
-        <b>$cfg['Servers'][$i]['pmadb']</b> string
+        <b><a name="cfg_Servers_pmadb"></a>$cfg['Servers'][$i]['pmadb']</b> string
     </dt>
     <dd>
         The name of the database containing the linked-tables infrastructure.
@@ -675,7 +675,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 
     <dt>
         <a name="bookmark"></a><br />
-        <b>$cfg['Servers'][$i]['bookmarktable']</b> string
+        <b><a name="cfg_Servers_bookmarktable"></a>$cfg['Servers'][$i]['bookmarktable']</b> string
     </dt>
     <dd>
         Since release 2.2.0 phpMyAdmin allows to bookmark queries. This can be
@@ -691,7 +691,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 
     <dt>
         <a name="relation"></a><br />
-        <b>$cfg['Servers'][$i]['relation']</b> string
+        <b><a name="cfg_Servers_relation"></a>$cfg['Servers'][$i]['relation']</b> string
     </dt>
     <dd>
         Since release 2.2.4 you can describe, in a special 'relation' table,
@@ -751,7 +751,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 
     <dt>
         <a name="table_info"></a><br />
-        <b>$cfg['Servers'][$i]['table_info']</b> string
+        <b><a name="cfg_Servers_table_info"></a>$cfg['Servers'][$i]['table_info']</b> string
     </dt>
     <dd>
         Since release 2.3.0 you can describe, in a special 'table_info'
@@ -777,8 +777,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
     <dt>
         <a name="table_coords"></a><br />
-        <b>$cfg['Servers'][$i]['table_coords']</b> string<br />
-        <b>$cfg['Servers'][$i]['pdf_pages']</b> string
+        <b><a name="cfg_Servers_table_coords"></a>$cfg['Servers'][$i]['table_coords']</b> string<br />
+        <b><a name="cfg_Servers_pdf_pages"></a>$cfg['Servers'][$i]['pdf_pages']</b> string
     </dt>
     <dd>
         Since release 2.3.0 you can have phpMyAdmin create PDF pages showing
@@ -803,7 +803,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 
     <dt>
         <a name="col_com"></a><br />
-        <b>$cfg['Servers'][$i]['column_info']</b> string
+        <b><a name="cfg_Servers_column_info"></a>$cfg['Servers'][$i]['column_info']</b> string
     </dt>
     <dd>
         <!-- This part requires a content update! -->
@@ -843,7 +843,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 
     <dt>
         <a name="history"></a><br />
-        <b>$cfg['Servers'][$i]['history']</b> string
+        <b><a name="cfg_Servers_history"></a>$cfg['Servers'][$i]['history']</b> string
     </dt>
     <dd>
         Since release 2.5.0 you can store your SQL history, which means all queries you
@@ -851,7 +851,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         based history, you can use the JavaScript-based history. Using that, all your
         history items are deleted when closing the window.<br /><br />
 
-        Using <b>$cfg['QueryHistoryMax']</b> you can specify an amount of history items
+        Using <b><a name="cfg_QueryHistoryMax"></a>$cfg[QueryHistoryMax]</b> you can specify an amount of history items
         you want to have on hold. On every login, this list gets cut to the maximum amount.
         <br /><br />
 
@@ -870,7 +870,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
-        <b>$cfg['Servers'][$i]['verbose_check']</b> boolean
+        <b><a name="cfg_Servers_verbose_check"></a>$cfg['Servers'][$i]['verbose_check']</b> boolean
     </dt>
     <dd>
         Because release 2.5.0 introduced the new MIME-transformation support, the
@@ -884,14 +884,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Recommended to set to FALSE, when you are sure, your table structure is up to date.
     </dd>
     <dt>
-        <b>$cfg['Servers'][$i]['AllowRoot']</b> boolean
+        <b><a name="cfg_Servers_AllowRoot"></a>$cfg['Servers'][$i]['AllowRoot']</b> boolean
     </dt>
     <dd>
         Whether to allow root access, This is just simplification of rules below.
     </dd>
     <dt>
 <a name="servers_allowdeny_order"></a><br />
-        <b>$cfg['Servers'][$i]['AllowDeny']['order']</b> string
+        <b><a name="cfg_Servers_AllowDeny"></a>$cfg['Servers'][$i]['AllowDeny']['order']</b> string
     </dt>
     <dd>
         If your rule order is empty, then IP authentication is disabled.
@@ -917,7 +917,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
     <dt>
 <a name="servers_allowdeny_rules"></a><br />
-        <b>$cfg['Servers'][$i]['AllowDeny']['rules']</b> array of strings
+        <b><a name="cfg_Servers_AllowDeny"></a>$cfg['Servers'][$i]['AllowDeny']['rules']</b> array of strings
     </dt>
     <dd>
         The general format for the rules is as such:<br />
@@ -955,7 +955,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <tt>xxx.xxx.xxx.xx[yyy-zzz]</tt> (partial IP address range)
     </dd>
 
-    <dt><b>$cfg['ServerDefault']</b> integer</dt>
+    <dt><b><a name="cfg_ServerDefault"></a>$cfg[ServerDefault]</b> integer</dt>
     <dd>
         If you have more than one server configured, you can set
         <tt>$cfg['ServerDefault']</tt> to any one of them to autoconnect to
@@ -965,7 +965,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         MUST be set to that server.
     </dd>
 
-    <dt><b>$cfg['OBGzip'] </b>string/boolean</dt>
+    <dt><b><a name="cfg_OBGzip"></a>$cfg[OBGzip] </b>string/boolean</dt>
     <dd>
         Defines whether to use GZip output buffering for increased
         speed in HTTP transfers.<br />
@@ -975,18 +975,18 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         is known to cause data corruption having enabled buffering.
     </dd>
 
-    <dt><b>$cfg['PersistentConnections'] </b>boolean</dt>
+    <dt><b><a name="cfg_PersistentConnections"></a>$cfg[PersistentConnections] </b>boolean</dt>
     <dd>
         Whether persistent connections should be used or not (mysql_connect or
         mysql_pconnect).
     </dd>
 
-    <dt><b>$cfg['ForceSSL'] </b>boolean</dt>
+    <dt><b><a name="cfg_ForceSSL"></a>$cfg[ForceSSL] </b>boolean</dt>
     <dd>
         Whether to force using https while accessing phpMyAdmin.
     </dd>
 
-    <dt><b>$cfg['ExecTimeLimit'] </b>integer [number of seconds]</dt>
+    <dt><b><a name="cfg_ExecTimeLimit"></a>$cfg[ExecTimeLimit] </b>integer [number of seconds]</dt>
     <dd>
         Set the number of seconds a script is allowed to run. If seconds is set
         to zero, no time limit is imposed.<br />
@@ -994,19 +994,19 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         effect when PHP is running in safe mode.
     </dd>
 
-    <dt><b>$cfg['SkipLockedTables'] </b>boolean</dt>
+    <dt><b><a name="cfg_SkipLockedTables"></a>$cfg[SkipLockedTables] </b>boolean</dt>
     <dd>
         Mark used tables and make it possible to show databases with locked
         tables (since 3.23.30).
     </dd>
 
-    <dt><b>$cfg['ShowSQL'] </b>boolean</dt>
+    <dt><b><a name="cfg_ShowSQL"></a>$cfg[ShowSQL] </b>boolean</dt>
     <dd>
         Defines whether SQL-queries generated by phpMyAdmin should be displayed
         or not.
     </dd>
 
-    <dt><b>$cfg['AllowUserDropDatabase'] </b>boolean</dt>
+    <dt><b><a name="cfg_AllowUserDropDatabase"></a>$cfg[AllowUserDropDatabase] </b>boolean</dt>
     <dd>
         Defines whether normal users (non-administrator) are allowed to
         delete their own database or not. If set as FALSE, the link &quot;Drop
@@ -1015,30 +1015,30 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         customers.
   </dd>
 
-    <dt><b>$cfg['Confirm'] </b>boolean</dt>
+    <dt><b><a name="cfg_Confirm"></a>$cfg[Confirm] </b>boolean</dt>
     <dd>
         Whether a warning (&quot;Are your really sure...&quot;) should be
         displayed when you're about to lose data.
     </dd>
 
-    <dt><b>$cfg['LoginCookieRecall'] </b>boolean</dt>
+    <dt><b><a name="cfg_LoginCookieRecall"></a>$cfg[LoginCookieRecall] </b>boolean</dt>
     <dd>
         Define whether the previous login should be recalled or not in cookie
         authentication mode.
     </dd>
 
-    <dt><b>$cfg['UseDbSearch'] </b>boolean</dt>
+    <dt><b><a name="cfg_UseDbSearch"></a>$cfg[UseDbSearch] </b>boolean</dt>
     <dd>
         Define whether the "search string inside database" is enabled or not.
     </dd>
 
-    <dt><b>$cfg['IgnoreMultiSubmitErrors'] </b>boolean</dt>
+    <dt><b><a name="cfg_IgnoreMultiSubmitErrors"></a>$cfg[IgnoreMultiSubmitErrors] </b>boolean</dt>
     <dd>
         Define whether phpMyAdmin will continue executing a multi-query
         statement if one of the queries fails. Default is to abort execution.
     </dd>
 
-    <dt><b>$cfg['VerboseMultiSubmit'] </b>boolean</dt>
+    <dt><b><a name="cfg_VerboseMultiSubmit"></a>$cfg[VerboseMultiSubmit] </b>boolean</dt>
     <dd>
         Define whether phpMyAdmin will output the results of each query of a
         multi-query statement embedded into the SQL output as inline comments.
@@ -1046,7 +1046,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
     <dt>
 <a name="AllowArbitraryServer"></a><br />
-<b>$cfg['AllowArbitraryServer'] </b>boolean</dt>
+<b><a name="cfg_AllowArbitraryServer"></a>$cfg[AllowArbitraryServer] </b>boolean</dt>
     <dd>
         If enabled allows you to login to arbitrary server using cookie auth.
         <br /><br />
@@ -1055,7 +1055,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <br /><br />
     </dd>
 
-    <dt><b>$cfg['LeftFrameLight']</b> boolean</dt>
+    <dt><b><a name="cfg_LeftFrameLight"></a>$cfg[LeftFrameLight]</b> boolean</dt>
     <dd>
         Defines whether to use select-based menu and display only the current
         tables in the left frame (smaller page).
@@ -1063,19 +1063,19 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         using $cfg['LeftFrameTableSeparator']
     </dd>
 
-    <dt><b>$cfg['LeftFrameDBTree']</b> boolean</dt>
+    <dt><b><a name="cfg_LeftFrameDBTree"></a>$cfg[LeftFrameDBTree]</b> boolean</dt>
     <dd>
     In light mode, defines whether to display the names of databases (in the
     selector) using a tree, see also <tt>$cfg['LeftFrameDBSeparator']</tt>.
     </dd>
 
-    <dt><b>$cfg['LeftFrameDBSeparator']</b> string</dt>
+    <dt><b><a name="cfg_LeftFrameDBSeparator"></a>$cfg[LeftFrameDBSeparator]</b> string</dt>
     <dd>
       The string used to separate the parts of the database name when showing
       them in a tree.
     </dd>
 
-    <dt><b>$cfg['LeftFrameTableSeparator']</b> string</dt>
+    <dt><b><a name="cfg_LeftFrameTableSeparator"></a>$cfg[LeftFrameTableSeparator]</b> string</dt>
     <dd>
         Defines a string to be used to nest table spaces. Defaults to '__'.
         This means if you have tables like 'first__second__third' this will be
@@ -1086,19 +1086,19 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         characters in between.
     </dd>
 
-    <dt><b>$cfg['LeftFrameTableLevel']</b> string</dt>
+    <dt><b><a name="cfg_LeftFrameTableLevel"></a>$cfg[LeftFrameTableLevel]</b> string</dt>
     <dd>
         Defines how many sublevels should be displayed when splitting
         up tables by the above Separator.
     </dd>
 
-    <dt><b>$cfg['ShowTooltip'] </b>boolean</dt>
+    <dt><b><a name="cfg_ShowTooltip"></a>$cfg[ShowTooltip] </b>boolean</dt>
     <dd>
         Defines whether to display table comment as tool-tip in left frame or
         not.
     </dd>
 
-    <dt><b>$cfg['ShowTooltipAliasDB'] </b>boolean</dt>
+    <dt><b><a name="cfg_ShowTooltipAliasDB"></a>$cfg[ShowTooltipAliasDB] </b>boolean</dt>
     <dd>
         If tool-tips are enabled and a DB comment is set, this will flip the
         comment and the real name. That means, if you have a table called
@@ -1107,7 +1107,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         the real name of the DB.
     </dd>
 
-    <dt><b>$cfg['ShowTooltipAliasTB'] </b>boolean/string</dt>
+    <dt><b><a name="cfg_ShowTooltipAliasTB"></a>$cfg[ShowTooltipAliasTB] </b>boolean/string</dt>
     <dd>
         Same as $cfg['ShowTooltipAliasDB'], except this works for table names.
 
@@ -1117,19 +1117,19 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         stays the real tablename.
         <br /><br />
     </dd>
-    <dt><b>$cfg['LeftDisplayLogo'] </b>boolean</dt>
+    <dt><b><a name="cfg_LeftDisplayLogo"></a>$cfg[LeftDisplayLogo] </b>boolean</dt>
     <dd>Defines whether to display the phpMyAdmin logo at the top of the left frame or not.
       Defaults to <tt>TRUE</tt>.
     </dd>
-    <dt><b>$cfg['LeftDisplayServers'] </b>boolean</dt>
+    <dt><b><a name="cfg_LeftDisplayServers"></a>$cfg[LeftDisplayServers] </b>boolean</dt>
     <dd>Defines whether to display a server choice at the top of the left frame or not.
       Defaults to FALSE.
     </dd>
-    <dt><b>$cfg['DisplayServersList'] </b>boolean</dt>
+    <dt><b><a name="cfg_DisplayServersList"></a>$cfg[DisplayServersList] </b>boolean</dt>
     <dd>Defines whether to display this server choice as links instead of in a drop-down.
       Defaults to FALSE (drop-down). 
     </dd>
-    <dt><b>$cfg['ShowStats'] </b>boolean</dt>
+    <dt><b><a name="cfg_ShowStats"></a>$cfg[ShowStats] </b>boolean</dt>
     <dd>
         Defines whether to display space usage and statistics about databases
         and tables or not.<br />
@@ -1138,8 +1138,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
-        <b>$cfg['ShowPhpInfo'] </b>boolean<br />
-        <b>$cfg['ShowChgPassword'] </b>boolean
+        <b><a name="cfg_ShowPhpInfo"></a>$cfg[ShowPhpInfo] </b>boolean<br />
+        <b><a name="cfg_ShowChgPassword"></a>$cfg[ShowChgPassword] </b>boolean
     </dt>
     <dd>
         Defines whether to display the &quot;PHP information&quot; and
@@ -1159,36 +1159,36 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         be allowed to change their passwords.
     </dd>
 
-    <dt><b>$cfg['SuggestDBName']</b> boolean</dt>
+    <dt><b><a name="cfg_SuggestDBName"></a>$cfg[SuggestDBName]</b> boolean</dt>
     <dd>
         Defines whether to suggest a database name on the
         &quot;Create Database&quot; form or to keep the textfield empty.
     </dd>
 
-    <dt><b>$cfg['ShowBlob'] </b>boolean</dt>
+    <dt><b><a name="cfg_ShowBlob"></a>$cfg[ShowBlob] </b>boolean</dt>
     <dd>
         Defines whether <tt>BLOB</tt> fields are shown when browsing a table's
         content or not.
     </dd>
 
-    <dt><b>$cfg['NavigationBarIconic'] </b>string</dt>
+    <dt><b><a name="cfg_NavigationBarIconic"></a>$cfg[NavigationBarIconic] </b>string</dt>
     <dd>
     Defines whether navigation bar buttons and the right panel top menu contain text or symbols only. A value of TRUE displays icons, FALSE displays text and 'both' displays both icons and text.
     </dd>
 
-    <dt><b>$cfg['ShowAll'] </b>boolean</dt>
+    <dt><b><a name="cfg_ShowAll"></a>$cfg[ShowAll] </b>boolean</dt>
     <dd>
         Defines whether an user should be displayed a
         &quot;show all (records)&quot; button in browse mode or not.
     </dd>
 
-    <dt><b>$cfg['MaxRows'] </b>integer</dt>
+    <dt><b><a name="cfg_MaxRows"></a>$cfg[MaxRows] </b>integer</dt>
     <dd>
         Number of rows displayed when browsing a result set. If the result set
         contains more rows, Previous/Next links will be shown.
     </dd>
 
-    <dt><b>$cfg['Order'] </b>string [<tt>DESC</tt>|<tt>ASC</tt>|<tt>SMART</tt>]</dt>
+    <dt><b><a name="cfg_Order"></a>$cfg[Order] </b>string [<tt>DESC</tt>|<tt>ASC</tt>|<tt>SMART</tt>]</dt>
     <dd>
         Defines whether fields are displayed in ascending (<tt>ASC</tt>) order,
         in descending (<tt>DESC</tt>) order or in a &quot;smart&quot;
@@ -1196,7 +1196,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         DATE, DATETIME &amp; TIMESTAMP, ascending order else- by default.
     </dd>
 
-    <dt><b>$cfg['ProtectBinary'] </b>boolean or string</dt>
+    <dt><b><a name="cfg_ProtectBinary"></a>$cfg[ProtectBinary] </b>boolean or string</dt>
     <dd>
         Defines whether <tt>BLOB</tt> or <tt>BINARY</tt> fields are protected
         from editing when browsing a table's content or not.
@@ -1209,13 +1209,13 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         </ul>
     </dd>
 
-    <dt><b>$cfg['ShowFunctionFields'] </b>boolean</dt>
+    <dt><b><a name="cfg_ShowFunctionFields"></a>$cfg[ShowFunctionFields] </b>boolean</dt>
     <dd>
         Defines whether MySQL functions fields should be displayed or not in
         edit/insert mode.
     </dd>
 
-    <dt><b>$cfg['CharEditing'] </b>string</dt>
+    <dt><b><a name="cfg_CharEditing"></a>$cfg[CharEditing] </b>string</dt>
     <dd>
         Defines which type of editing controls should be used for CHAR and
         VARCHAR fields. Possible values are:
@@ -1232,19 +1232,19 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Default is old behavior so input.
     </dd>
 
-    <dt><b>$cfg['InsertRows']</b> integer</dt>
+    <dt><b><a name="cfg_InsertRows"></a>$cfg[InsertRows]</b> integer</dt>
     <dd>
         Defines the maximum number of concurrent entries for the Insert page.
     </dd>
 
-    <dt><b>$cfg['ForeignKeyMaxLimit']</b> integer</dt>
+    <dt><b><a name="cfg_ForeignKeyMaxLimit"></a>$cfg[ForeignKeyMaxLimit]</b> integer</dt>
     <dd>
     If there are fewer items than this in the set of foreign keys, then a
     drop-down box of foreign keys is presented, in the style described by the 
-    <b>$cfg['ForeignKeyDropdownOrder']</b> setting.
+    <b><a name="cfg_ForeignKeyDropdownOrder"></a>$cfg[ForeignKeyDropdownOrder]</b> setting.
     </dd>
 
-    <dt><b>$cfg['ForeignKeyDropdownOrder']</b> array</dt>
+    <dt><b><a name="cfg_ForeignKeyDropdownOrder"></a>$cfg[ForeignKeyDropdownOrder]</b> array</dt>
     <dd>
         For the foreign key drop-down fields, there are several methods of
         display, offering both the key and value data. The contents of the
@@ -1253,9 +1253,9 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
-        <b>$cfg['ZipDump'] </b>boolean<br />
-        <b>$cfg['GZipDump'] </b>boolean<br />
-        <b>$cfg['BZipDump'] </b>boolean
+        <b><a name="cfg_ZipDump"></a>$cfg[ZipDump] </b>boolean<br />
+        <b><a name="cfg_GZipDump"></a>$cfg[GZipDump] </b>boolean<br />
+        <b><a name="cfg_BZipDump"></a>$cfg[BZipDump] </b>boolean
     </dt>
     <dd>
         Defines whether to allow the use of zip/GZip/BZip2 compression when
@@ -1263,7 +1263,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
-        <b>$cfg['CompressOnFly'] </b>boolean<br />
+        <b><a name="cfg_CompressOnFly"></a>$cfg[CompressOnFly] </b>boolean<br />
     </dt>
     <dd>
         Defines whether to allow on the fly compression for GZip/BZip2
@@ -1273,20 +1273,20 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         normal programs handle this correctly.
     </dd>
 
-    <dt><b>$cfg['LightTabs'] </b>string</dt>
+    <dt><b><a name="cfg_LightTabs"></a>$cfg[LightTabs] </b>string</dt>
     <dd>
         If set to True, use less graphically intense tabs on the top of the
         mainframe.
     </dd>
 
-    <dt><b>$cfg['PropertiesIconic'] </b>string</dt>
+    <dt><b><a name="cfg_PropertiesIconic"></a>$cfg[PropertiesIconic] </b>string</dt>
     <dd>
         If set to <tt>TRUE</tt>, will display icons instead of text for db and table
         properties links (like 'Browse', 'Select', 'Insert', ...).<br /> Can be set to <tt>'both'</tt> if you want icons AND text.<br />
         When set to <tt>FALSE</tt>, will only show text.
     </dd>
 
-    <dt><b>$cfg['PropertiesNumColumns'] </b>integer</dt>
+    <dt><b><a name="cfg_PropertiesNumColumns"></a>$cfg[PropertiesNumColumns] </b>integer</dt>
     <dd>
         How many columns will be utilized to display the tables on the
         database property view?  Default is 1 column. When setting this to a
@@ -1295,7 +1295,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
 
-    <dt><b>$cfg['DefaultTabServer'] </b>string</dt>
+    <dt><b><a name="cfg_DefaultTabServer"></a>$cfg[DefaultTabServer] </b>string</dt>
     <dd>
         Defines the tab displayed by default on server view. Possible
         values: &quot;main.php&quot; (recommended for multi-user setups),
@@ -1304,14 +1304,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         or &quot;server_processlist.php&quot;.
     </dd>
 
-    <dt><b>$cfg['DefaultTabDatabase'] </b>string</dt>
+    <dt><b><a name="cfg_DefaultTabDatabase"></a>$cfg[DefaultTabDatabase] </b>string</dt>
     <dd>
         Defines the tab displayed by default on database view. Possible
         values: &quot;db_details_structure.php&quot;,
         &quot;db_details.php&quot; or &quot;db_search.php&quot;.
     </dd>
 
-    <dt><b>$cfg['DefaultTabTable'] </b>string</dt>
+    <dt><b><a name="cfg_DefaultTabTable"></a>$cfg[DefaultTabTable] </b>string</dt>
     <dd>
         Defines the tab displayed by default on table view. Possible
         values: &quot;tbl_properties_structure.php&quot;,
@@ -1319,7 +1319,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         &quot;tbl_change.php&quot; or &quot;sql.php&quot;.
     </dd>
 
-    <dt><b>$cfg['MySQLManualBase']</b> string</dt>
+    <dt><b><a name="cfg_MySQLManualBase"></a>$cfg[MySQLManualBase]</b> string</dt>
     <dd>
         If set to an URL which points to the MySQL documentation (type depends
         on <tt>$cfg['MySQLManualType']</tt>), appropriate help links are
@@ -1329,7 +1329,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         for more information about MySQL manuals and their types.
     </dd>
 
-    <dt><b>$cfg['MySQLManualType']</b> string</dt>
+    <dt><b><a name="cfg_MySQLManualType"></a>$cfg[MySQLManualType]</b> string</dt>
     <dd>
          Type of MySQL documentation:
          <ul>
@@ -1341,7 +1341,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         </ul>
     </dd>
 
-    <dt><b>$cfg['DefaultLang'] </b>string</dt>
+    <dt><b><a name="cfg_DefaultLang"></a>$cfg[DefaultLang] </b>string</dt>
     <dd>
         Defines the default language to use, if not browser-defined or
         user-defined.<br />
@@ -1349,7 +1349,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         this setting.
     </dd>
 
-    <dt><b>$cfg['DefaultConnectionCollation'] </b>string</dt>
+    <dt><b><a name="cfg_DefaultConnectionCollation"></a>$cfg[DefaultConnectionCollation] </b>string</dt>
     <dd>
         Defines the default connection collation to use, if not
         user-defined.<br />
@@ -1357,20 +1357,20 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         documentation</a> for list of possible values.    
     </dd>
 
-    <dt><b>$cfg['Lang'] </b>string</dt>
+    <dt><b><a name="cfg_Lang"></a>$cfg[Lang] </b>string</dt>
     <dd>
         Force: always use this language (must be defined in the
         <i>select_lang.lib.php</i> script).
     </dd>
 
-    <dt><b>$cfg['FilterLanguages'] </b>string</dt>
+    <dt><b><a name="cfg_FilterLanguages"></a>$cfg[FilterLanguages] </b>string</dt>
     <dd>
         Limit list of available languages to those matching the given regular
         expression. For example if you want only Czech and English, you should
         set filter to <code>'^(cs|en)'</code>.
     </dd>
 
-    <dt><b>$cfg['DefaultCharset'] </b>string</dt>
+    <dt><b><a name="cfg_DefaultCharset"></a>$cfg[DefaultCharset] </b>string</dt>
     <dd>
         Default character set to use for recoding of MySQL queries. This must be
         enabled and it's described by <tt>$cfg['AllowAnywhereRecoding']</tt>
@@ -1380,7 +1380,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         choice, user can select any of them.
     </dd>
 
-    <dt><b>$cfg['AllowAnywhereRecoding'] </b>boolean</dt>
+    <dt><b><a name="cfg_AllowAnywhereRecoding"></a>$cfg[AllowAnywhereRecoding] </b>boolean</dt>
     <dd>
         Allow character set recoding of MySQL queries. You need recode or iconv
         support (compiled in or module) in PHP to allow MySQL queries recoding
@@ -1391,7 +1391,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         in the Export page, to choose the character set when exporting a file.
     </dd>
 
-    <dt><b>$cfg['RecodingEngine'] </b>string</dt>
+    <dt><b><a name="cfg_RecodingEngine"></a>$cfg[RecodingEngine] </b>string</dt>
     <dd>
         You can select here which functions will be used for character set
         conversion.
@@ -1405,14 +1405,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Default is auto.
     </dd>
 
-    <dt><b>$cfg['IconvExtraParams'] </b>string</dt>
+    <dt><b><a name="cfg_IconvExtraParams"></a>$cfg[IconvExtraParams] </b>string</dt>
     <dd>
         Specify some parameters for iconv used in charset conversion. See
         <a href="http://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html">iconv
         documentation</a> for details.
     </dd>
 
-    <dt><b>$cfg['AvailableCharsets'] </b>array</dt>
+    <dt><b><a name="cfg_AvailableCharsets"></a>$cfg[AvailableCharsets] </b>array</dt>
     <dd>
         Available character sets for MySQL conversion. You can add your own (any of
         supported by recode/iconv) or remove these which you don't use.
@@ -1420,7 +1420,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         frequently use some of these move them to the top.
     </dd>
 
-    <dt><b>$cfg['GD2Available'] </b>string</dt>
+    <dt><b><a name="cfg_GD2Available"></a>$cfg[GD2Available] </b>string</dt>
     <dd>
         Specifies whether GD &gt;= 2 is available. If yes it can be used for
         MIME transformations.<br />
@@ -1437,14 +1437,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Default is auto.
     </dd>
 
-    <dt><b>$cfg['LeftWidth'] </b>integer</dt>
+    <dt><b><a name="cfg_LeftWidth"></a>$cfg[LeftWidth] </b>integer</dt>
     <dd>
         Left frame width in pixel. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
     <dt>
-        <b>$cfg['LeftBgColor'] </b>string [HTML color]<br />
-        <b>$cfg['RightBgColor'] </b>string [HTML color]
+        <b><a name="cfg_LeftBgColor"></a>$cfg[LeftBgColor] </b>string [HTML color]<br />
+        <b><a name="cfg_RightBgColor"></a>$cfg[RightBgColor] </b>string [HTML color]
     </dt>
     <dd>
         The background colors (HTML) used for both the frames.
@@ -1452,47 +1452,47 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
-        <b>$cfg['RightBgImage'] </b>string
+        <b><a name="cfg_RightBgImage"></a>$cfg[RightBgImage] </b>string
     </dt>
     <dd>
         The URI of the background image used for the right frame. It must be
         an absolute URI. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt><b>$cfg['LeftPointerColor'] </b>string [HTML color]</dt>
+    <dt><b><a name="cfg_LeftPointerColor"></a>$cfg[LeftPointerColor] </b>string [HTML color]</dt>
     <dd>
         The color (HTML) used for the pointer in the left frame (does not work
         with Netscape 4). See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt><b>$cfg['LeftPointerEnable'] </b>boolean</dt>
+    <dt><b><a name="cfg_LeftPointerEnable"></a>$cfg[LeftPointerEnable] </b>boolean</dt>
     <dd>
         A value of <tt>TRUE</tt> activates the left pointer (when LeftFrameLight is <tt>FALSE</tt>).
     </dd>
 
-    <dt><b>$cfg['Border'] </b>integer</dt>
+    <dt><b><a name="cfg_Border"></a>$cfg[Border] </b>integer</dt>
     <dd>
         The size of a table's border. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt><b>$cfg['ThBgcolor'] </b>string [HTML color]</dt>
+    <dt><b><a name="cfg_ThBgcolor"></a>$cfg[ThBgcolor] </b>string [HTML color]</dt>
     <dd>
         The color (HTML) used for table headers. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt><b>$cfg['BgcolorOne'] </b>string [HTML color]</dt>
+    <dt><b><a name="cfg_BgcolorOne"></a>$cfg[BgcolorOne] </b>string [HTML color]</dt>
     <dd>
         The color (HTML) #1 for table rows. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt><b>$cfg['BgcolorTwo'] </b>string [HTML color]</dt>
+    <dt><b><a name="cfg_BgcolorTwo"></a>$cfg[BgcolorTwo] </b>string [HTML color]</dt>
     <dd>
         The color (HTML) #2 for table rows. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
     <dt>
-        <b>$cfg['BrowsePointerColor'] </b>string [HTML color]<br />
-        <b>$cfg['BrowseMarkerColor'] </b>string [HTML color]
+        <b><a name="cfg_BrowsePointerColor"></a>$cfg[BrowsePointerColor] </b>string [HTML color]<br />
+        <b><a name="cfg_BrowseMarkerColor"></a>$cfg[BrowseMarkerColor] </b>string [HTML color]
     </dt>
     <dd>
         The colors (HTML) uses for the pointer and the marker in browse mode
@@ -1503,21 +1503,21 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
-    <dt><b>$cfg['BrowsePointerEnable'] </b>boolean</dt>
+    <dt><b><a name="cfg_BrowsePointerEnable"></a>$cfg[BrowsePointerEnable] </b>boolean</dt>
     <dd>
         Whether to activate the browse pointer or not.
     </dd>
 
-    <dt><b>$cfg['BrowseMarkerEnable'] </b>boolean</dt>
+    <dt><b><a name="cfg_BrowseMarkerEnable"></a>$cfg[BrowseMarkerEnable] </b>boolean</dt>
     <dd>
         Whether to activate the browse marker or not.
     </dd>
 
     <dt>
-        <b>$cfg['TextareaCols'] </b>integer<br />
-        <b>$cfg['TextareaRows'] </b>integer<br />
-        <b>$cfg['CharTextareaCols'] </b>integer<br />
-        <b>$cfg['CharTextareaRows'] </b>integer
+        <b><a name="cfg_TextareaCols"></a>$cfg[TextareaCols] </b>integer<br />
+        <b><a name="cfg_TextareaRows"></a>$cfg[TextareaRows] </b>integer<br />
+        <b><a name="cfg_CharTextareaCols"></a>$cfg[CharTextareaCols] </b>integer<br />
+        <b><a name="cfg_CharTextareaRows"></a>$cfg[CharTextareaRows] </b>integer
     </dt>
     <dd>
         Number of columns and rows for the textareas.<br />
@@ -1528,14 +1528,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
-        <b>$cfg['LongtextDoubleTextarea'] </b>boolean
+        <b><a name="cfg_LongtextDoubleTextarea"></a>$cfg[LongtextDoubleTextarea] </b>boolean
     </dt>
     <dd>
         Defines whether textarea for LONGTEXT fields should have double size.
     </dd>
 
     <dt>
-        <b>$cfg['TextareaAutoSelect'] </b>boolean
+        <b><a name="cfg_TextareaAutoSelect"></a>$cfg[TextareaAutoSelect] </b>boolean
     </dt>
     <dd>
         Defines if the whole textarea of the query box will be selected on
@@ -1543,13 +1543,13 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
     <dt>
 <a name="CtrlArrowsMoving"></a><br />
-        <b>$cfg['CtrlArrowsMoving'] </b>boolean
+        <b><a name="cfg_CtrlArrowsMoving"></a>$cfg[CtrlArrowsMoving] </b>boolean
     </dt>
     <dd>
         Enable Ctrl+Arrows (Option+Arrows in Safari) moving between fields when editing.
     </dd>
 
-    <dt><b>$cfg['LimitChars'] </b>integer</dt>
+    <dt><b><a name="cfg_LimitChars"></a>$cfg[LimitChars] </b>integer</dt>
     <dd>
         Maximal number of Chars showed in any non-numeric
         field on browse view. Can be turned off by a toggle button on the
@@ -1557,8 +1557,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
-        <b>$cfg['ModifyDeleteAtLeft'] </b>boolean
-        <b>$cfg['ModifyDeleteAtRight'] </b>boolean
+        <b><a name="cfg_ModifyDeleteAtLeft"></a>$cfg[ModifyDeleteAtLeft] </b>boolean
+        <b><a name="cfg_ModifyDeleteAtRight"></a>$cfg[ModifyDeleteAtRight] </b>boolean
     </dt>
     <dd>
         Defines the place where modify and delete links would be put when
@@ -1568,8 +1568,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         and &quot;bottom&quot; with vertical display mode.
     </dd>
 
-    <dt><b>$cfg['DefaultDisplay'] </b>string
-        <b>$cfg['HeaderFlipType'] </b>string
+    <dt><b><a name="cfg_DefaultDisplay"></a>$cfg[DefaultDisplay] </b>string
+        <b><a name="cfg_HeaderFlipType"></a>$cfg[HeaderFlipType] </b>string
     </dt>
     <dd>
         There are 3 display modes: horizontal, horizontalflipped and vertical.
@@ -1587,7 +1587,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <dt>
 
 <a name="DefaultPropDisplay"></a><br />
-<b>$cfg['DefaultPropDisplay'] </b>string</dt>
+<b><a name="cfg_DefaultPropDisplay"></a>$cfg[DefaultPropDisplay] </b>string</dt>
     <dd>
         When editing/creating new columns in a table all fields normally get
         lined up one field a line. (default: 'horizontal'). If you set this to
@@ -1596,8 +1596,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         no longer have to scroll.
     </dd>
 
-    <dt><b>$cfg['ShowBrowseComments'] </b>boolean<br />
-        <b>$cfg['ShowPropertyComments'] </b>boolean
+    <dt><b><a name="cfg_ShowBrowseComments"></a>$cfg[ShowBrowseComments] </b>boolean<br />
+        <b><a name="cfg_ShowPropertyComments"></a>$cfg[ShowPropertyComments] </b>boolean
     </dt>
     <dd>
         By setting the corresponding variable to <tt>TRUE</tt> you can enable the
@@ -1607,7 +1607,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         name of the field. The comment is shown as a tool-tip for that field.
     </dd>
 
-    <dt><b>$cfg['UploadDir'] </b>string</dt>
+    <dt><b><a name="cfg_UploadDir"></a>$cfg[UploadDir] </b>string</dt>
     <dd>
         The name of the directory where SQL files have been uploaded by other
         means than phpMyAdmin (for example, ftp).  Those files are available
@@ -1630,7 +1630,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         See also <a href="#faq1_16">FAQ 1.16</a> for alternatives.
     </dd>
 
-    <dt><b>$cfg['docSQLDir'] </b>string</dt>
+    <dt><b><a name="cfg_docSQLDir"></a>$cfg[docSQLDir] </b>string</dt>
     <dd>
         The name of the directory where docSQL files can be uploaded for
         import into phpMyAdmin.
@@ -1639,7 +1639,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         be owned by the same user as the owner of the phpMyAdmin scripts.
     </dd>
 
-    <dt><b>$cfg['SaveDir'] </b>string</dt>
+    <dt><b><a name="cfg_SaveDir"></a>$cfg[SaveDir] </b>string</dt>
     <dd>
         The name of the directory where dumps can be saved.
         <br /><br />
@@ -1653,7 +1653,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         be owned by the same user as the owner of the phpMyAdmin scripts.
     </dd>
 
-    <dt><b>$cfg['TempDir'] </b>string</dt>
+    <dt><b><a name="cfg_TempDir"></a>$cfg[TempDir] </b>string</dt>
     <dd>
         The name of the directory, where temporary files can be stored.
         <br /><br />
@@ -1661,31 +1661,31 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         6.23</a>
     </dd>
 
-    <dt><b>$cfg['Export'] </b>array</dt>
+    <dt><b><a name="cfg_Export"></a>$cfg[Export] </b>array</dt>
     <dd>
         In this array are defined default parameters for export, names of
         items are similar to texts seen on export page, so you can easily
         identify what they mean.
     </dd>
 
-    <dt><b>$cfg['Import'] </b>array</dt>
+    <dt><b><a name="cfg_Import"></a>$cfg[Import] </b>array</dt>
     <dd>
         In this array are defined default parameters for import, names of
         items are similar to texts seen on import page, so you can easily
         identify what they mean.
     </dd>
 
-    <dt><b>$cfg['RepeatCells'] </b>integer</dt>
+    <dt><b><a name="cfg_RepeatCells"></a>$cfg[RepeatCells] </b>integer</dt>
     <dd>
         Repeat the headers every X cells, or 0 to deactivate.
     </dd>
 
-    <dt><b>$cfg['EditInWindow'] </b>boolean<br />
-        <b>$cfg['QueryWindowWidth'] </b>integer<br />
-        <b>$cfg['QueryWindowHeight'] </b>integer<br />
-        <b>$cfg['QueryHistoryDB'] </b>boolean<br />
-        <b>$cfg['QueryWindowDefTab'] </b>string<br />
-        <b>$cfg['QueryHistoryMax'] </b>integer
+    <dt><b><a name="cfg_EditInWindow"></a>$cfg[EditInWindow] </b>boolean<br />
+        <b><a name="cfg_QueryWindowWidth"></a>$cfg[QueryWindowWidth] </b>integer<br />
+        <b><a name="cfg_QueryWindowHeight"></a>$cfg[QueryWindowHeight] </b>integer<br />
+        <b><a name="cfg_QueryHistoryDB"></a>$cfg[QueryHistoryDB] </b>boolean<br />
+        <b><a name="cfg_QueryWindowDefTab"></a>$cfg[QueryWindowDefTab] </b>string<br />
+        <b><a name="cfg_QueryHistoryMax"></a>$cfg[QueryHistoryMax] </b>integer
     </dt>
     <dd>
     All those variables affect the query window feature. A <tt>SQL</tt> link 
@@ -1739,12 +1739,12 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         either 'sql', 'files', 'history' or 'full'.
     </dd>
 
-    <dt><b>$cfg['BrowseMIME'] </b>boolean</dt>
+    <dt><b><a name="cfg_BrowseMIME"></a>$cfg[BrowseMIME] </b>boolean</dt>
     <dd>
         Enable <a href="#transformations">MIME-transformations</a>.
     </dd>
 
-    <dt><b>$cfg['MaxExactCount'] </b>integer</dt>
+    <dt><b><a name="cfg_MaxExactCount"></a>$cfg[MaxExactCount] </b>integer</dt>
     <dd>
         Determines for how large tables phpMyAdmin should get exact row count by
     <code>SELECT COUNT</code>. If approximate row count is smaller than this
@@ -1754,7 +1754,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt><a name="wysiwyg"></a>
-    <b>$cfg['WYSIWYG-PDF'] </b>boolean</dt>
+    <b><a name="cfg_WYSIWYG-PDF"></a>$cfg[WYSIWYG-PDF] </b>boolean</dt>
     <dd>
         Utilizes a WYSIWYG editing control to easily place elements of a PDF
         page.  By clicking on the button 'toggle scratchboard' on the page
@@ -1784,62 +1784,62 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         specific license.
     </dd>
 
-    <dt><b>$cfg['NaturalOrder'] </b>boolean</dt>
+    <dt><b><a name="cfg_NaturalOrder"></a>$cfg[NaturalOrder] </b>boolean</dt>
     <dd>
         Sorts database and table names according to natural order (for example,
         t1, t2, t10). Currently implemented in the left panel (Light mode)
         and in Database view, for the table list.
     </dd>
 
-    <dt><b>$cfg['ShowHttpHostTitle'] </b>boolean</dt>
+    <dt><b><a name="cfg_ShowHttpHostTitle"></a>$cfg[ShowHttpHostTitle] </b>boolean</dt>
     <dd>
         Shows the HTTP host name in window's title bar.
     </dd>
 
-    <dt><b>$cfg['SetHttpHostTitle'] </b>string</dt>
+    <dt><b><a name="cfg_SetHttpHostTitle"></a>$cfg[SetHttpHostTitle] </b>string</dt>
     <dd>
         If <tt>$cfg['ShowHttpHostTitle']</tt> is <tt>TRUE</tt>, it shows the real
         HTTP host name, unless an alternate name is set here.
     </dd>
 
-    <dt><b>$cfg['ErrorIconic'] </b>boolean</dt>
+    <dt><b><a name="cfg_ErrorIconic"></a>$cfg[ErrorIconic] </b>boolean</dt>
     <dd>
         Uses icons for warnings, errors and informations.
     </dd>
 
-    <dt><b>$cfg['MainPageIconic'] </b>boolean</dt>
+    <dt><b><a name="cfg_MainPageIconic"></a>$cfg[MainPageIconic] </b>boolean</dt>
     <dd>
         Uses icons on main page in lists and menu tabs.
     </dd>
 
-    <dt><b>$cfg['ReplaceHelpImg'] </b>boolean</dt>
+    <dt><b><a name="cfg_ReplaceHelpImg"></a>$cfg[ReplaceHelpImg] </b>boolean</dt>
     <dd>
         Shows a help button instead of the &quot;Documentation&quot; message.
     </dd>
 
-    <dt><b>$cfg['ThemePath'] </b>string</dt>
+    <dt><b><a name="cfg_ThemePath"></a>$cfg[ThemePath] </b>string</dt>
     <dd>
         If theme manager is active, use this as the path of the subdirectory
         containing all the themes.
     </dd>
 
-    <dt><b>$cfg['ThemeManager'] </b>boolean</dt>
+    <dt><b><a name="cfg_ThemeManager"></a>$cfg[ThemeManager] </b>boolean</dt>
     <dd>
         Enables user-selectable themes. See <a href="#faqthemes">FAQ 2.7</a>.
     </dd>
 
-    <dt><b>$cfg['ThemeDefault'] </b>string</dt>
+    <dt><b><a name="cfg_ThemeDefault"></a>$cfg[ThemeDefault] </b>string</dt>
     <dd>
         The default theme (a subdirectory under <tt>cfg['ThemePath']</tt>).
     </dd>
 
-    <dt><b>$cfg['ThemePerServer'] </b>boolean</dt>
+    <dt><b><a name="cfg_ThemePerServer"></a>$cfg[ThemePerServer] </b>boolean</dt>
     <dd>
         Whether to allow different theme for each server.
     </dd>
 
-    <dt><b>$cfg['DefaultQueryTable']</b> string<br />
-        <b>$cfg['DefaultQueryDatabase']</b> string
+    <dt><b><a name="cfg_DefaultQueryTable"></a>$cfg[DefaultQueryTable]</b> string<br />
+        <b><a name="cfg_DefaultQueryDatabase"></a>$cfg[DefaultQueryDatabase]</b> string
     </dt>
     <dd>
         Default queries that will be displayed in query boxes when user didn't
@@ -1848,15 +1848,15 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         applicable to $cfg['DefaultQueryTable'].
     </dd>
 
-    <dt><b>$cfg['SQP']['fmtType']</b> string [<tt>html</tt>|<tt>none</tt>]</dt>
+    <dt><b><a name="cfg_SQP"></a>$cfg[SQP]['fmtType']</b> string [<tt>html</tt>|<tt>none</tt>]</dt>
     <dd>
         The main use of the new SQL Parser is to pretty-print SQL queries. By
         default we use HTML to format the query, but you can disable this by
         setting this variable to <tt>'none'</tt>.
     </dd>
 
-    <dt><b>$cfg['SQP']['fmtInd']</b> float<br />
-    <b>$cfg['SQP']['fmtIndUnit']</b> string [<tt>em</tt>|<tt>px</tt>|<tt>pt</tt>|<tt>ex</tt>]</dt>
+    <dt><b><a name="cfg_SQP"></a>$cfg[SQP]['fmtInd']</b> float<br />
+    <b><a name="cfg_SQP"></a>$cfg[SQP]['fmtIndUnit']</b> string [<tt>em</tt>|<tt>px</tt>|<tt>pt</tt>|<tt>ex</tt>]</dt>
     <dd>
     For the pretty-printing of SQL queries, under some cases the part of a
     query inside a bracket is indented. By changing
@@ -1866,7 +1866,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     used via stylesheets.
     </dd>
 
-    <dt><b>$cfg['SQP']['fmtColor']</b> array of string tuples</dt>
+    <dt><b><a name="cfg_SQP"></a>$cfg[SQP]['fmtColor']</b> array of string tuples</dt>
     <dd>
     This array is used to define the colours for each type of element of
     the pretty-printed SQL queries. The tuple format is<br />
@@ -1904,7 +1904,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </ul>
     </dd>
 
-    <dt><b>$cfg['SQLValidator']['use']</b> boolean</dt>
+    <dt><b><a name="cfg_SQLValidator"></a>$cfg[SQLValidator]['use']</b> boolean</dt>
     <dd>
     phpMyAdmin now supports use of the <a href="http://developer.mimer.com/validator/index.htm">Mimer SQL Validator</a> service,
     as originally published on
@@ -1914,8 +1914,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <a href="#faqsqlvalidator">FAQ #6.14</a>.
     </dd>
 
-    <dt><b>$cfg['SQLValidator']['username']</b> string<br />
-    <b>$cfg['SQLValidator']['password']</b> string</dt>
+    <dt><b><a name="cfg_SQLValidator"></a>$cfg[SQLValidator]['username']</b> string<br />
+    <b><a name="cfg_SQLValidator"></a>$cfg[SQLValidator]['password']</b> string</dt>
     <dd>
     The SOAP service allows you to login with <tt>anonymous</tt>
     and any password, so we use those by default. Instead, if
@@ -1923,7 +1923,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     here, and it will be used in place of the anonymous login.
     </dd>
 
-    <dt><b>$cfg['DBG']['enable']</b> boolean</dt>
+    <dt><b><a name="cfg_DBG"></a>$cfg[DBG]['enable']</b> boolean</dt>
     <dd>
     <b>DEVELOPERS ONLY!</b><br />
     Enable the DBG extension for debugging phpMyAdmin. Required for profiling
@@ -1933,7 +1933,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <a href="#developersdbg">Developers</a> section.
     </dd>
 
-    <dt><b>$cfg['DBG']['profile']['enable']</b> boolean</dt>
+    <dt><b><a name="cfg_DBG"></a>$cfg[DBG]['profile']['enable']</b> boolean</dt>
     <dd>
     <b>DEVELOPERS ONLY!</b><br />
     Enable profiling support for phpMyAdmin. This will append a chunk of data
@@ -1943,7 +1943,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     complete successfully.
     </dd>
 
-    <dt><b>$cfg['DBG']['profile']['threshold']</b> float (units in milliseconds)</dt>
+    <dt><b><a name="cfg_DBG"></a>$cfg[DBG]['profile']['threshold']</b> float (units in milliseconds)</dt>
     <dd>
     <b>DEVELOPERS ONLY!</b><br />
     When profiling data is displayed, this variable controls the threshold of
@@ -1953,38 +1953,38 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     to edit this.
     </dd>
 
-    <dt><b>$cfg['ColumnTypes'] </b>array</dt>
+    <dt><b><a name="cfg_ColumnTypes"></a>$cfg[ColumnTypes] </b>array</dt>
     <dd>
         All possible types of a MySQL column. In most cases you don't need to
         edit this.
     </dd>
 
-    <dt><b>$cfg['AttributeTypes'] </b>array</dt>
+    <dt><b><a name="cfg_AttributeTypes"></a>$cfg[AttributeTypes] </b>array</dt>
     <dd>
         Possible attributes for fields. In most cases you don't need to edit
         this.
     </dd>
 
-    <dt><b>$cfg['Functions'] </b>array</dt>
+    <dt><b><a name="cfg_Functions"></a>$cfg[Functions] </b>array</dt>
     <dd>
         A list of functions MySQL supports. In most cases you don't need to
         edit this.
     </dd>
 
-    <dt><b>$cfg['RestrictColumnTypes'] </b>array</dt>
+    <dt><b><a name="cfg_RestrictColumnTypes"></a>$cfg[RestrictColumnTypes] </b>array</dt>
     <dd>
         Mapping of column types to meta types used for preferring displayed
         functions. In most cases you don't need to edit this.
     </dd>
 
-    <dt><b>$cfg['RestrictFunctions'] </b>array</dt>
+    <dt><b><a name="cfg_RestrictFunctions"></a>$cfg[RestrictFunctions] </b>array</dt>
     <dd>
         Functions preferred for column meta types as defined in
         <code>$cfg['RestrictColumnTypes']</code>. In most cases you don't need
         to edit this.
     </dd>
 
-    <dt><b>$cfg['DefaultFunctions'] </b>array</dt>
+    <dt><b><a name="cfg_DefaultFunctions"></a>$cfg[DefaultFunctions] </b>array</dt>
     <dd>
         Functions selected by default when inserting/changing row, Functions
         are defined for meta types from
@@ -1993,12 +1993,12 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         in table.
     </dd>
 
-    <dt><b>$cfg['NumOperators'] </b>array</dt>
+    <dt><b><a name="cfg_NumOperators"></a>$cfg[NumOperators] </b>array</dt>
     <dd>
         Operators available for search operations on numeric and date fields.
     </dd>
 
-    <dt><b>$cfg['TextOperators'] </b>array</dt>
+    <dt><b><a name="cfg_TextOperators"></a>$cfg[TextOperators] </b>array</dt>
     <dd>
         Operators available for search operations on character fields.
         Note that we put <code>LIKE</code> by default instead of
@@ -2006,12 +2006,12 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         in case of huge tables.
     </dd>
 
-    <dt><b>$cfg['EnumOperators'] </b>array</dt>
+    <dt><b><a name="cfg_EnumOperators"></a>$cfg[EnumOperators] </b>array</dt>
     <dd>
         Operators available for search operations on enum fields.
     </dd>
 
-    <dt><b>$cfg['NullOperators'] </b>array</dt>
+    <dt><b><a name="cfg_NullOperators"></a>$cfg[NullOperators] </b>array</dt>
     <dd>
         Additional operators available for search operations when the
         field can be null.
