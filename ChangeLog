@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-28 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/Theme.class.php, libraries/Theme_Manager.class.php:
+      new classes for handling themes
+    
 2005-11-27 Michal Čihař  <michal@cihar.com>
     * Documentation.html, scripts/setup.php: Many new features to setup
       script.
