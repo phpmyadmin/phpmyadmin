@@ -139,8 +139,7 @@ if ( ! is_dir( $lang_path ) ) {
         . $lang_path . ', check your language directory.',
         E_USER_WARNING );
     // and tell the user
-    header( 'Location: error.php?file=' . urlencode( __FILE__ )
-        . '&line=' . urlencode( __LINE__ ) . '&error='
+    PMA_sendHeaderLocation( 'error.php?error='
         . urlencode( 'path to languages is invalid: ' . $lang_path ) );
     // stop execution
     exit;
@@ -391,8 +390,7 @@ if ( ! PMA_langCheck() ) {
             E_USER_WARNING );
         // stop execution
         // and tell the user that his choosen language is invalid
-        header( 'Location: error.php?file=' . urlencode( __FILE__ )
-            . '&line=' . urlencode( __LINE__ ) . '&error='
+        PMA_sendHeaderLocation( 'error.php?error='
             . urlencode( 'Could not load any language, please check your language settings and folder' ) );
         exit;
     }
