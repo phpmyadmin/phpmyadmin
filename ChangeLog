@@ -15,7 +15,7 @@ $Source$
     * libraries/auth/cookie.auth.lib.php: Display PMA_errors on login form.
     * Documentation.html: Add anchors to configuration directives.
     * libraries/sqlparser.lib.php: Do not use functions not supported by older
-      PHP.
+      PHP (bug #1367782).
 
 2005-11-28 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/Theme.class.php, libraries/Theme_Manager.class.php:
