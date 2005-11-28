@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/italian: update, thanks to Luca Rebellato
+
 2005-11-28 Michal Čihař  <michal@cihar.com>
     * scripts/setup.php: Don't allow loading of configuration if there is no
       write permission on config.
