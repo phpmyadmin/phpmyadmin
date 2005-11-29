@@ -57,6 +57,8 @@ class PMA_Config {
         if ( $this->source_mtime !== filemtime( $this->getSource() ) ) {
             $this->load( $this->getSource() );
         }
+
+        $this->checkCollationConnection();
     }
 
     /**
@@ -106,6 +108,35 @@ class PMA_Config {
 
         if ( $this->error_config_file ) {
             $this->source_mtime = filemtime( $this->getSource() );
+        }
+
+        /**
+         * @TODO check validity of $_COOKIE['pma_collation_connection']
+         */
+        if ( ! empty( $_COOKIE['pma_collation_connection'] ) ) {
+            $this->set( 'collation_connection',
+                strip_tags( $_COOKIE['pma_collation_connection'] ) );
+        } else {
+            $this->set( 'collation_connection',
+                $this->get( $_COOKIE['DefaultConnectionCollation'] ) );
+        }
+
+        $this->checkCollationConnection();
+
+        // If zlib output compression is set in the php configuration file, no
+        // output buffering should be run
+        if ( @ini_get('zlib.output_compression') ) {
+            $this->set( 'OBGzip', false );
+        }
+
+        // disable output-buffering (if set to 'auto') for IE6, else enable it.
+        if ( strtolower( $cfg['OBGzip'] ) == 'auto' ) {
+            if ( PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6
+              && PMA_USR_BROWSER_VER < 7 ) {
+                $this->set( 'OBGzip', false );
+            } else {
+                $this->set( 'OBGzip', true );
+            }
         }
     }
 
@@ -280,6 +311,19 @@ class PMA_Config {
         }
 
         $this->set( 'PmaAbsoluteUri', $pma_absolute_uri );
+    }
+
+    /**
+     * check selected collation_connection
+     * @TODO check validity of $_REQUEST['collation_connection']
+     */
+    function checkCollationConnection() {
+        // (could be improved by executing it after the MySQL connection only if
+        //  PMA_MYSQL_INT_VERSION >= 40100 )
+        if ( ! empty( $_REQUEST['collation_connection'] ) ) {
+            $this->set( 'collation_connection',
+                strip_tags( $_REQUEST['collation_connection'] ) );
+        }
     }
 
     /**
