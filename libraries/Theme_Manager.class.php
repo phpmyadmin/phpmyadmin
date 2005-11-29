@@ -238,5 +238,18 @@ class PMA_Theme_Manager {
 
 
     }
+
+    /**
+     * prints out preview for every theme
+     *
+     * @uses    $this->themes
+     * @uses    PMA_Theme::printPreview()
+     */
+    function printPreviews() {
+        foreach ( $this->themes as $each_theme ) {
+
+            $each_theme->printPreview();
+        } // end 'open themes'
+    }
 }
 ?>
