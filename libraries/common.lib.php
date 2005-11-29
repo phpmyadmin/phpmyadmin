@@ -2278,6 +2278,56 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
             .htmlspecialchars( $database ) . '</a>';
     }
 
+    /**
+     * removes cookie
+     *
+     * @uses    $GLOBALS['cookie_path']
+     * @uses    $GLOBALS['is_https']
+     * @uses    setcookie()
+     * @uses    time()
+     * @param   string  $cookie     name of cookie to remove
+     * @return  boolean result of setcookie()
+     */
+    function PMA_removeCookie( $cookie ) {
+        return setcookie( $cookie, '', time() - 3600,
+            $GLOBALS['cookie_path'], '', $GLOBALS['is_https'] );
+    }
+
+    /**
+     * sets cookie if value is different from current cokkie value,
+     * or removes if value is equal to default
+     *
+     * @uses    $GLOBALS['cookie_path']
+     * @uses    $GLOBALS['is_https']
+     * @uses    $_COOKIE
+     * @uses    PMA_removeCookie()
+     * @uses    setcookie()
+     * @uses    time()
+     * @param   string  $cookie     name of cookie to remove
+     * @param   mixed   $value      new cookie value
+     * @param   string  $default    default value
+     * @return  boolean result of setcookie()
+     */
+    function PMA_setCookie( $cookie, &$value, $default = NULL ) {
+        if ( ! empty( $value ) && NULL !== $default && $value === $default ) {
+            // remove cookie, default value is used
+            return PMA_removeCookie( $cookie );
+        }
+
+        if ( empty( $value ) && isset( $_COOKIE[$cookie] ) ) {
+            // remove cookie, value is empty
+            return PMA_removeCookie( $cookie );
+        }
+
+        if ( empty( $_COOKIE[$cookie] ) || $_COOKIE[$cookie] !== $value ) {
+            // set cookie with new value
+            return setcookie( $cookie, $value, time() + 60*60*24*30,
+                $GLOBALS['cookie_path'], '', $GLOBALS['is_https'] );
+        }
+
+        // cookie has already $value as value
+        return true;
+    }
 
 
     /**
@@ -2945,6 +2995,20 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         require_once('./libraries/kanji-encoding.lib.php');
         define('PMA_MULTIBYTE_ENCODING', 1);
     } // end if
+
+    /**
+     * save settings in cookies
+     */
+    PMA_setCookie( 'pma_lang', $GLOBALS['lang'] );
+    PMA_setCookie( 'pma_charset', $GLOBALS['convcharset'] );
+    PMA_setCookie( 'pma_collation_connection', $GLOBALS['collation_connection'] );
+
+    // Allow different theme per server
+    $theme_cookie_name = 'pma_theme';
+    if ( isset( $server ) && $GLOBALS['cfg']['ThemePerServer'] ) {
+        $theme_cookie_name .= '-' . $server;
+    }
+    PMA_setCookie( $theme_cookie_name, $GLOBALS['pmaTheme'] );
 
 } // end if ! defined( 'PMA_MINIMUM_COMMON' )
 
