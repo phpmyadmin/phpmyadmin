@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2005-11-28 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+2005-11-29 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php
       - added PMA_setCookie() and PMA_removeCookie()
     * index.php, libraries/common.lib.php:
@@ -13,7 +13,16 @@ $Source$
     * index.php
       - revised the parameter passing code
       - make use of new functionality of PMA_generate_common_url()
-    * css/phpmyAdmin.css.php: removed some unused deprecated elements
+    * css/phpmyAdmin.css.php:
+      - removed some unused deprecated elements
+    * libraries/Theme.class.php, libraries/Theme_Manager.class.php:
+      - added some functionality
+      - added PMA_Theme_Manager::printPreviews() and PMA_Theme::printPreview()
+    * main.php, css/phpmyAdmin.css.php, libraries/common.lib.php,
+      index.php, libraries/auth/config.auth.lib.php,
+      libraries/auth/cookie.auth.lib.php, themes.php, test/theme.php:
+      - make use of new PMA_Theme and PMA_Theme_Manager classes
+      - remove libraries/select_theme.lib.php
 
 2005-11-28 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/italian: update, thanks to Luca Rebellato
