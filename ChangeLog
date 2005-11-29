@@ -23,6 +23,8 @@ $Source$
       libraries/auth/cookie.auth.lib.php, themes.php, test/theme.php:
       - make use of new PMA_Theme and PMA_Theme_Manager classes
       - remove libraries/select_theme.lib.php
+    * libraries/Config.class.php:
+      new class for handling config
 
 2005-11-28 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/italian: update, thanks to Luca Rebellato
