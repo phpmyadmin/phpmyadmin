@@ -875,6 +875,7 @@ $strTblPrivileges = 'Oprávnění pro jednotlivé tabulky';
 $strTempData = 'Dočasná data';
 $strTextAreaLength = 'Tento sloupec možná nepůjde <br />(kvůli délce) upravit ';
 $strThai = 'Thajština';
+$strThemeNoPreviewAvailable = 'Náhled není k&nbsp;dispozici.';
 $strTheme = 'Vzhled';
 $strThisHost = 'Tento počítač';
 $strThisNotDirectory = 'Nebyl zadán adresář';
@@ -967,5 +968,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strThemeNoPreviewAvailable = 'No preview available.';  //to translate
 ?>
