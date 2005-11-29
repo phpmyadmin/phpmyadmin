@@ -10,6 +10,8 @@ $Source$
       as last byte.
     * lang/japanese: Update, thanks to Tadashi Jokagi - elf2000.
     * lang/czech: Update.
+    * scripts/setup.php: Added check for latest version and links to homepage
+      and donations page.
 
 2005-11-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, libraries/tbl_replace_fields.inc.php:

@@ -236,6 +236,48 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
 } // end show html header
 
 /**
+ * Calculates numerical equivalent of phpMyAdmin version string
+ *
+ * @param   string  version
+ *
+ * @return  mixed   FALSE on failure, integer on success
+ */
+function version_to_int($version) {
+    if (!preg_match('/^(\d+)\.(\d+)\.(\d+)(-(pl|rc|dev|beta|alpha)(\d+)?)?$/', $version, $matches)) {
+        return FALSE;
+    }
+    if (!empty($matches[5])) {
+        switch ($matches[5]) {
+            case 'pl':
+                $added = 60;
+                break;
+            case 'rc':
+                $added = 30;
+                break;
+            case 'beta':
+                $added = 20;
+                break;
+            case 'alpha':
+                $added = 10;
+                break;
+            case 'dev':
+                $added = 0;
+                break;
+            default:
+                message('notice', 'Unknown version part: ' . htmlspecialchars($matches[5]));
+                $added = 0;
+                break;
+        }
+    } else {
+        $added = 50; // for final
+    }
+    if (!empty($matches[6])) {
+        $added = $added + $matches[6];
+    }
+    return $matches[1] * 1000000 + $matches[2] * 10000 + $matches[3] * 100 + $added;
+}
+
+/**
  * Returns link to documentation of some configuration directive
  *
  * @param   string  confguration directive name
@@ -293,6 +335,27 @@ function get_action($name, $title, $added = '') {
     $ret .= $added;
     $ret .= '<input type="submit" value="' . $title . '" />';
     $ret .= get_hidden_cfg();
+    $ret .= '</form>';
+    $ret .= "\n";
+    return $ret;
+}
+
+/**
+ * Creates form for going to some url
+ *
+ * @param   string  URL where to go
+ * @param   string  form title
+ * @param   string  optional array of parameters
+ *
+ * @return  string  HTML with form
+ */
+function get_url_action($url, $title, $params = array()) {
+    $ret = '';
+    $ret .= '<form class="action" method="GET" action="' . $url . '" target="_blank">';
+    foreach($params as $key => $val) {
+        $ret .= '<input type="hidden" name="' . $key . '" value="' . $val . '" />';
+    }
+    $ret .= '<input type="submit" value="' . $title . '" />';
     $ret .= '</form>';
     $ret .= "\n";
     return $ret;
@@ -1618,6 +1681,54 @@ switch ($action) {
         show_blah_form($cfg);
         break;
 */
+    case 'versioncheck': // Check for latest available version
+        PMA_dl('curl');
+        $url = 'http://phpmyadmin.net/home_page/version.php';
+        $version = '';
+        $f = @fopen($url, 'r');
+        if ($f === FALSE) {
+            if (!function_exists('curl_init')) {
+                message('error', 'Neither URL wrappers nor CURL are available. Version check is not possible.');
+                break;
+            }
+        } else {
+            $version = fread($f, 20);
+            fclose($f);
+        }
+        if (empty($version) && function_exists('curl_init')) {
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_HEADER, FALSE);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $version = curl_exec($ch);
+            curl_close($ch);
+        }
+        if (empty($version)) {
+            message('error', 'Reading of version failed. Maybe you\'re offline or server does not respond.');
+            break;
+        }
+
+        $version_upstream = version_to_int($version);
+        if ($version_upstream === FALSE) {
+            message('error', 'Got invalid version string from server.');
+            break;
+        }
+
+        $version_local = version_to_int(PMA_VERSION);
+        if ($version_local === FALSE) {
+            message('error', 'Unparsable version string.');
+            break;
+        }
+
+        if ($version_upstream > $version_local) {
+            message('notice', 'New version of phpMyAdmin is available, you should consider upgrade. New version is ' . htmlspecialchars($version));
+        } else {
+            if ($version_local % 100 == 0) {
+                message('notice', 'You are using CVS version, run <code>cvs update</code> :-)');
+            } else {
+                message('notice', 'No newer stable version is available.');
+            }
+        }
+        break;
 
     case 'clear': // Actual clearing is done on beginning of this script
     case 'main':
@@ -1714,6 +1825,12 @@ if (!$fail_dir) {
     echo get_action('load', 'Load');
 }
 echo get_action('clear', 'Clear');
+echo '</fieldset>' . "\n\n";
+
+echo '<fieldset class="toolbar"><legend>Other actions</legend>' . "\n";
+echo get_action('versioncheck', 'Check for latest version');
+echo get_url_action('http://www.phpmyadmin.net/', 'Go to homepage');
+echo get_url_action('https://sourceforge.net/donate/index.php', 'Donate to phpMyAdmin', array('group_id' => 23067));
 echo '</fieldset>' . "\n\n";
 
 footer();
