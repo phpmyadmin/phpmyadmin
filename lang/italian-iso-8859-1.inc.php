@@ -974,4 +974,5 @@ $strProtocolVersion = 'Protocol version';  //to translate
 
 $strUsedPhpExtensions = 'Used PHP extensions';  //to translate
 
+$strThemeNoPreviewAvailable = 'No preview available.';  //to translate
 ?>

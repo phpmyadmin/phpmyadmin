@@ -869,6 +869,7 @@ $strTblPrivileges = 'Table-specific privileges';
 $strTempData = 'Temporary data';
 $strTextAreaLength = ' Because of its length,<br /> this field might not be editable ';
 $strThai = 'Thai';
+$strThemeNoPreviewAvailable = 'No preview available.';
 $strTheme = 'Theme / Style';
 $strThisHost = 'This Host';
 $strThisNotDirectory = 'This was not a directory';
