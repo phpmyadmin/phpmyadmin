@@ -13,6 +13,7 @@ $Source$
     * index.php
       - revised the parameter passing code
       - make use of new functionality of PMA_generate_common_url()
+    * css/phpmyAdmin.css.php: removed some unused deprecated elements
 
 2005-11-28 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/italian: update, thanks to Luca Rebellato

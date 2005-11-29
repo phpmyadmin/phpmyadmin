@@ -20,22 +20,10 @@ header('Content-Type: text/css; charset=ISO-8859-1');
 
 ?>
 /* @deprecated */
-#mainheader {
-    border: 0.1px solid transparent;
-    border-bottom: 0.1em solid gray;
-    margin-bottom: 1em;
-}
-#pmalogoright {
-    float: <?php echo $right; ?>;
-}
 .nowrap {
     white-space: nowrap;
 }
 div.nowrap {
-    margin: 0;
-    padding: 0;
-}
-.nospace {
     margin: 0;
     padding: 0;
 }
