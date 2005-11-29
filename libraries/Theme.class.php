@@ -7,31 +7,36 @@ class PMA_Theme {
      * @var string version
      */
     var $version = '0.0.0.0';
-    
+
     /**
      * @var string name
      */
     var $name = '';
-    
+
     /**
      * @var string id
      */
     var $id = '';
-    
+
     /**
      * @var string
      */
     var $path = '';
-    
+
     /**
      * @var string
      */
     var $img_path = '';
-    
+
+    /**
+     * @var array   valid css types
+     */
+    var $types = array( 'left', 'right', 'print' );
+
     /**
      * returns theme object loaded from given folder
      * or false if theme is invalid
-     * 
+     *
      * @static
      * @param   string  path to theme
      * @return  object  PMA_Theme
@@ -40,16 +45,16 @@ class PMA_Theme {
         if ( ! file_exists( $folder . '/info.inc.php' ) ) {
             return false;
         }
-        
+
         @include( $folder . '/info.inc.php' );
 
         // did it set correctly?
         if ( ! isset( $theme_name ) ) {
             return false;
         }
-        
+
         $theme = new PMA_Theme();
-        
+
         $theme->setPath( $folder );
 
         if ( isset( $theme_full_version ) ) {
@@ -58,38 +63,80 @@ class PMA_Theme {
             $theme->setVersion( $theme_generation . '.' . $theme_version );
         }
         $theme->setName( $theme_name );
-        
+
         if ( is_dir( $theme->getPath() . 'img/' ) ) {
             $theme->setImgPath( $theme->getPath() . 'img/' );
         } elseif ( is_dir( $GLOBALS['cfg']['ThemePath'] . '/original/img/' ) ) {
             $theme->setImgPath( $GLOBALS['cfg']['ThemePath'] . '/original/img/' );
         } else {
-            $GLOBALS['PMA_errors'][] = 
+            $GLOBALS['PMA_errors'][] =
                 sprintf( $GLOBALS['strThemeNoValidImgPath'], $theme_name );
             trigger_error(
                 sprintf( $GLOBALS['strThemeNoValidImgPath'], $theme_name ),
                 E_USER_WARNING );
         }
-        
+
         return $theme;
     }
-    
+
+    /**
+     * returns path to theme
+     * @uses    $this->$path    as return value
+     * @return  string  $path   path to theme
+     */
     function getPath() {
         return $this->path;
     }
-    
+
+    /**
+     * returns layout file
+     *
+     * @return  string  layout file
+     */
+    function getLayoutFile() {
+        return $this->getPath() . '/layout.inc.php';
+    }
+
+    /**
+     * set path to theme
+     * @uses    $this->$path    to set it
+     * @param   string  $path   path to theme
+     */
     function setPath( $path ) {
         $this->path = trim( $path );
     }
 
     /**
      * sets version
+     * @uses    $this->version
      * @param   string new version
      */
     function setVersion( $version ) {
         $this->version = trim( $version );
     }
-    
+
+    /**
+     * returns version
+     * @uses    $this->version
+     * @return  string  version
+     */
+    function getVersion() {
+        return $this->version;
+    }
+
+    /**
+     * checks theme version agaisnt $version
+     * returns true if theme version is equal or higher to $version
+     *
+     * @uses    version_compare()
+     * @uses    $this->getVersion()
+     * @param   string  $version    version to compare to
+     * @return  boolean
+     */
+    function checkVersion( $version ) {
+        return version_compare( $this->getVersion(), $version, 'lt' );
+    }
+
     /**
      * sets name
      * @param   string  $name   new name
@@ -128,6 +175,41 @@ class PMA_Theme {
 
     function getImgPath() {
         return $this->img_path;
+    }
+
+    /**
+     * load css (send to stdout, normaly the browser)
+     *
+     * @uses    $this->getPath()
+     * @uses    $this->types
+     * @uses    PMA_SQP_buildCssData()
+     * @uses    file_exists()
+     * @uses    in_array()
+     * @param   string  $type   left, right or print
+     */
+    function loadCss( &$type ) {
+        if ( empty( $type ) || ! in_array( $type, $this->types ) ) {
+            $type = 'left';
+        }
+
+        if ( $type == 'right' ) {
+            echo PMA_SQP_buildCssData();
+        }
+
+        $_css_file = $this->getPath()
+                   . '/css/theme_' . $type . '.css.php';
+
+        if ( file_exists( $_css_file ) ) {
+            if ( $GLOBALS['text_dir'] === 'ltr' ) {
+                $right = 'right';
+                $left = 'left';
+            } else {
+                $right = 'left';
+                $left = 'right';
+            }
+
+            include( $_css_file );
+        }
     }
 }
 
