@@ -11,6 +11,8 @@
 # Written by Michal Cihar <nijel at users.sourceforge.net>
 ##
 # Changes:
+# 2005-11-29
+#   * hack for multibyte chars, so that \'; at the end will not fool PHP
 # 2004-09-22
 #   * default to iconv, as it doesn't break things as recode does
 # 2004-09-03
@@ -220,34 +222,20 @@ for base in $BASE_TRANSLATIONS ; do
             is_utf=yes
             $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed -e "s/$replace_charset/$charset/" -e '/\$charset/a\
 $allow_recoding = TRUE;' > $TEMPFILE
-            if [ -s $TEMPFILE ] ; then
-                cat $TEMPFILE > $file
-                echo done
-            else
-                FAILED="$FAILED $file"
-                echo FAILED
-            fi
         elif [ $src_charset = 'utf-8' ] ; then
             is_utf=yes
             # if we convert from utf-8, we should remove allow_recoding
             $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| grep -v allow_recoding | sed "s/$replace_charset/$charset/" > $TEMPFILE
-            if [ -s $TEMPFILE ] ; then
-                cat $TEMPFILE > $file
-                echo done
-            else
-                FAILED="$FAILED $file"
-                echo FAILED
-            fi
         else
             # just convert
             $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed "s/$replace_charset/$charset/" > $TEMPFILE
-            if [ -s $TEMPFILE ] ; then
-                cat $TEMPFILE > $file
-                echo done
-            else
-                FAILED="$FAILED $file"
-                echo FAILED
-            fi
+        fi
+        if [ -s $TEMPFILE ] ; then
+            sed "s/\\\\';[[:space:]]*$/\\ ';/" $TEMPFILE > $file
+            echo done
+        else
+            FAILED="$FAILED $file"
+            echo FAILED
         fi
     done
 
