@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php, libraries/tbl_replace_fields.inc.php:
+      bug #1367549, handling of CURRENT_TIMESTAMP
+
 2005-11-29 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php
       - added PMA_setCookie() and PMA_removeCookie()

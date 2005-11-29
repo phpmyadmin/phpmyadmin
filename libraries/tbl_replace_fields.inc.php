@@ -201,7 +201,9 @@ if (!$check_stop) {
             }
             break;
         default:
-            $val = "'" . PMA_sqlAddslashes($val) . "'";
+            if (!($type == 'timestamp' && $val == 'CURRENT_TIMESTAMP')) {
+                $val = "'" . PMA_sqlAddslashes($val) . "'";
+            }
             break;
     } // end switch
 

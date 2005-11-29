@@ -844,6 +844,11 @@ foreach ($loop_array AS $vrowcount => $vrow) {
 <input type="hidden" name="auto_increment<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="1" />
                 <?php
                 } // end if
+                if (substr($type, 0, 9) == 'timestamp') {
+                ?>
+                <input type="hidden" name="fields_type<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="timestamp" />
+                <?php
+                }
                 if ($type == 'date' || $type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
                     ?>
                     <script type="text/javascript">
