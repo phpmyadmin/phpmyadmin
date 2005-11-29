@@ -4,7 +4,6 @@ require_once('./libraries/common.lib.php');
 
 /* Theme Select */
 $path_to_themes = $cfg['ThemePath'] . '/';
-require_once('./libraries/select_theme.lib.php');
 
 /* set language and charset */
 require_once('./libraries/header_http.inc.php');

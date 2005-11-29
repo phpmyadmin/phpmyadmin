@@ -5,7 +5,6 @@
  * forms frameset
  *
  * @uses    libraries/common.lib.php        global fnctions
- * @uses    libraries/select_theme.lib.php  theme manager
  * @uses    libraries/relation.lib.php      table relations
  * @uses    $_SESSION['window_name_hash']   to set it
  * @uses    $GLOBALS['strNoFrames']
@@ -40,7 +39,6 @@ require_once('./libraries/common.lib.php');
 /**
  * Includes the ThemeManager if it hasn't been included yet
  */
-require_once('./libraries/select_theme.lib.php');
 require_once('./libraries/relation.lib.php');
 
 // hash for the window names, against window hijacking

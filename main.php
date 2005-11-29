@@ -12,11 +12,6 @@ define('PMA_DISPLAY_HEADING', 0);
  */
 require_once('./libraries/common.lib.php');
 
-/**
- * Includes the ThemeManager
- */
-require_once('./libraries/select_theme.lib.php');
-
 // Handles some variables that may have been sent by the calling script
 if (isset($db)) {
     unset($db);
@@ -259,34 +254,10 @@ if ( isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
 // added by Michael Keck <mail_at_michaelkeck_dot_de>
 // ThemeManager if available
 
-if (isset($available_themes_choices) && $available_themes_choices > 1) {
-    $theme_selected = FALSE;
-    $theme_preview_path= './themes.php';
-    $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" onclick="'
-                        . "window.open('" . $theme_preview_path . "','themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes');"
-                        . '">';
+if ( $GLOBALS['cfg']['ThemeManager'] ) {
     echo '<li id="li_select_theme">';
-    ?>
-        <form name="setTheme" method="post" action="index.php" target="_parent">
-    <?php
-    echo PMA_generate_common_hidden_inputs( '', '', 3 );
-    echo $theme_preview_href . $strTheme . '</a>:' . "\n";
-    ?>
-            <select name="set_theme" xml:lang="en" dir="ltr" onchange="this.form.submit();" >
-    <?php
-    foreach ($available_themes_choices AS $cur_theme) {
-        echo '<option value="' . $cur_theme . '"';
-        if ($cur_theme == $theme) {
-            echo ' selected="selected"';
-        }
-        echo '>' . htmlspecialchars($available_themes_choices_names[$cur_theme]) . '</option>';
-    }
-    ?>
-            </select>
-            <noscript><input type="submit" value="<?php echo $strGo;?>" /></noscript>
-        </form>
-    </li>
-    <?php
+    echo $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
+    echo '</li>';
 }
 PMA_printListItem( $strPmaDocumentation, 'li_pma_docs', 'Documentation.html' );
 

@@ -101,8 +101,6 @@ function PMA_auth()
 
     // Defines the charset to be used
     header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
-
-    require_once('./libraries/select_theme.lib.php');
     // Defines the "item" image depending on text direction
     $item_img = $GLOBALS['pmaThemeImage'] . 'item_ltr.png';
 

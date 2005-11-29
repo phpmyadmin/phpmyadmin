@@ -317,6 +317,8 @@ function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userl
  */
 /* Input sanitizing */
 require_once('./libraries/sanitizing.lib.php');
+require_once('./libraries/Theme.class.php');
+require_once('./libraries/Theme_Manager.class.php');
 
 
 
@@ -2556,70 +2558,32 @@ if (strtolower($cfg['OBGzip']) == 'auto') {
 }
 
 
-/* Theme Manager
- * 2004-05-20 Michael Keck (mail_at_michaelkeck_dot_de)
- *            This little script checks if there're themes available
- *            and if the directory $ThemePath/$theme/img/ exists
- *            If not, it will use default images
-*/
-// Allow different theme per server
-$theme_cookie_name = 'pma_theme';
-if ($GLOBALS['cfg']['ThemePerServer'] && isset($server)) {
-    $theme_cookie_name .= '-' . $server;
-}
-//echo $theme_cookie_name;
-// Theme Manager
-if (!$cfg['ThemeManager'] || !isset($_COOKIE[$theme_cookie_name]) || empty($_COOKIE[$theme_cookie_name])){
-    $GLOBALS['theme'] = $cfg['ThemeDefault'];
-    $ThemeDefaultOk = FALSE;
-    if ($cfg['ThemePath']!='' && $cfg['ThemePath'] != FALSE) {
-        $tmp_theme_mainpath = $cfg['ThemePath'];
-        $tmp_theme_fullpath = $cfg['ThemePath'] . '/' .$cfg['ThemeDefault'];
-        if (@is_dir($tmp_theme_mainpath)) {
-            if (isset($cfg['ThemeDefault']) && @is_dir($tmp_theme_fullpath)) {
-                $ThemeDefaultOk = TRUE;
-            }
-        }
-    }
-    if ($ThemeDefaultOk == TRUE){
-        $GLOBALS['theme'] = $cfg['ThemeDefault'];
-    } else {
-        $GLOBALS['theme'] = 'original';
-    }
-} else {
-    // if we just changed theme, we must take the new one so that
-    // index.php takes the correct one for height computing
-    if (isset($_POST['set_theme'])) {
-        $GLOBALS['theme'] = PMA_securePath($_POST['set_theme']);
-    } else {
-        $GLOBALS['theme'] = PMA_securePath($_COOKIE[$theme_cookie_name]);
-    }
+/**
+ * themes
+ */
+if ( ! isset( $_SESSION['PMA_Theme_Manager'] ) ) {
+    $_SESSION['PMA_Theme_Manager'] = new PMA_Theme_Manager;
 }
 
-// check for theme requires/name
-unset($theme_name, $theme_generation, $theme_version);
-@include($cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/info.inc.php');
-
-// did it set correctly?
-if (!isset($theme_name, $theme_generation, $theme_version)) {
-    $GLOBALS['theme'] = 'original'; // invalid theme
-} elseif ($theme_generation != PMA_THEME_GENERATION) {
-    $GLOBALS['theme'] = 'original'; // different generation
-} elseif ($theme_version < PMA_THEME_VERSION) {
-    $GLOBALS['theme'] = 'original'; // too old version
+if ( isset( $_REQUEST['set_theme'] ) ) {
+    // if user submit a theme
+    $_SESSION['PMA_Theme_Manager']->setActiveTheme( $_REQUEST['set_theme'] );
 }
 
-$pmaThemePath       = $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/';
-$pmaThemeImage      = $pmaThemePath . 'img/';
-$tmp_layout_file    = $pmaThemePath . 'layout.inc.php';
-if (@file_exists($tmp_layout_file)) {
-    include($tmp_layout_file);
+$_SESSION['PMA_Theme'] = $_SESSION['PMA_Theme_Manager']->theme;
+
+// BC
+$GLOBALS['theme']           = $_SESSION['PMA_Theme']->getName();
+$GLOBALS['pmaThemePath']    = $_SESSION['PMA_Theme']->getPath();
+$GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
+
+/**
+ * load layout file if exists
+ */
+if ( @file_exists( $GLOBALS['pmaThemePath'] . '/layout.inc.php' ) ) {
+    include( $GLOBALS['pmaThemePath'] . '/layout.inc.php' );
 }
-unset( $tmp_layout_file );
-if (!is_dir($pmaThemeImage)) {
-    $pmaThemeImage = $cfg['ThemePath'] . '/original/img/';
-}
-// end theme manager
+
 
 /**
  * collation_connection
@@ -3003,6 +2967,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     PMA_setCookie( 'pma_charset', $GLOBALS['convcharset'] );
     PMA_setCookie( 'pma_collation_connection', $GLOBALS['collation_connection'] );
 
+    $_SESSION['PMA_Theme_Manager']->setThemeCookie();
     // Allow different theme per server
     $theme_cookie_name = 'pma_theme';
     if ( isset( $server ) && $GLOBALS['cfg']['ThemePerServer'] ) {

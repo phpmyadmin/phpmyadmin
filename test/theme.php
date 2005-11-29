@@ -5,7 +5,6 @@
  * theme test
  *
  * @uses    libraries/common.lib.php        global fnctions
- * @uses    libraries/select_theme.lib.php  theme manager
  */
 
 chdir( '..' );
@@ -14,10 +13,6 @@ chdir( '..' );
  * Gets core libraries and defines some variables
  */
 require_once('./libraries/common.lib.php');
-/**
- * Includes the ThemeManager if it hasn't been included yet
- */
-require_once('./libraries/select_theme.lib.php');
 
 $lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][2];
 
@@ -165,20 +160,8 @@ echo sprintf( $strWelcome,
 <fieldset>
     <legend><?php echo $strTheme; ?></legend>
 <?php
-echo PMA_generate_common_hidden_inputs( '', '' );
+    echo $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox( false );
 ?>
-<select name="set_theme" onchange="this.form.submit();">
-<?php
-foreach ($available_themes_choices AS $cur_theme) {
-    echo '<option value="' . $cur_theme . '"';
-    if ( $cur_theme == $theme ) {
-        echo ' selected="selected"';
-    }
-    echo '>' . htmlspecialchars( $available_themes_choices_names[$cur_theme] )
-        . '</option>' . "\n";
-}
-?>
-</select>
 <noscript><input type="submit" value="Go" style="vertical-align: middle" /></noscript>
 </fieldset>
 </form>

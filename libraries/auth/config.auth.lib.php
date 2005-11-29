@@ -79,8 +79,6 @@ function PMA_auth_fails()
 
     // Defines the charset to be used
     header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
-    // Defines the theme to be used
-    require_once('./libraries/select_theme.lib.php');
     /* HTML header */
     $page_title = $GLOBALS['strAccessDenied'];
     require('./libraries/header_meta_style.inc.php');

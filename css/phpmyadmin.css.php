@@ -29,8 +29,7 @@ div.nowrap {
 }
 
 <?php
-if ( ! isset( $theme_full_version )
-    || version_compare( $theme_full_version, '2.7.0', 'lt' ) ) {
+if ( $_SESSION['PMA_Theme']->checkVersion( '2.7.0' ) ) {
     ?>
 
 form {
@@ -478,8 +477,7 @@ img.lightbulb {
     <?php
 } // end styles 2.7.0
 
-if ( ! isset( $theme_full_version )
-    || version_compare( $theme_full_version, '2.7.1', 'lt' ) ) {
+if ( $_SESSION['PMA_Theme']->checkVersion( '2.7.1' ) ) {
     ?>
 
 /********************/
@@ -657,24 +655,6 @@ li#li_flush_privileges {
     <?php
 } // end styles 2.7.1
 
-$_valid_css = array( 'left', 'right', 'print' );
-if ( empty( $_REQUEST['js_frame'] ) || ! in_array( $_REQUEST['js_frame'], $_valid_css ) ) {
-    $js_frame = 'left';
-} else {
-    $js_frame = $_REQUEST['js_frame'];
-}
-unset( $_valid_css );
 
-if ( $js_frame == 'right' ) {
-    echo PMA_SQP_buildCssData();
-}
-
-$_css_file = $GLOBALS['cfg']['ThemePath']
-           . '/' . $GLOBALS['theme']
-           . '/css/theme_' . $js_frame . '.css.php';
-
-if ( file_exists( $_css_file ) ) {
-    include( $_css_file );
-}
-unset( $_css_file );
+$_SESSION['PMA_Theme']->loadCss( $_REQUEST['js_frame'] );
 ?>
