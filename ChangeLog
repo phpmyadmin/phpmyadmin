@@ -5,11 +5,20 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-28 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/common.lib.php
+      - added PMA_setCookie() and PMA_removeCookie()
+    * index.php, libraries/common.lib.php:
+      - moved setting of cookies from index.php into common.lib.php
+    * index.php
+      - revised the parameter passing code
+      - make use of new functionality of PMA_generate_common_url()
+
 2005-11-28 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/italian: update, thanks to Luca Rebellato
 
 2005-11-28 Michal Čihař  <michal@cihar.com>
-    * scripts/setup.php: 
+    * scripts/setup.php:
         - Don't allow loading of configuration if there is no write permission
           on config.
         - Add links to documentation.
