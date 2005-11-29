@@ -231,7 +231,7 @@ $allow_recoding = TRUE;' > $TEMPFILE
             $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed "s/$replace_charset/$charset/" > $TEMPFILE
         fi
         if [ -s $TEMPFILE ] ; then
-            sed "s/\\\\';[[:space:]]*$/\\\\ ';/" $TEMPFILE > $file
+            sed "s/\\\\';[[:space:]]*$/\\\\\\\\';/" $TEMPFILE > $file
             echo done
         else
             FAILED="$FAILED $file"
