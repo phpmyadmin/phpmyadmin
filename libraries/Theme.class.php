@@ -211,6 +211,44 @@ class PMA_Theme {
             include( $_css_file );
         }
     }
+
+    /**
+     * prints out the preview for this theme
+     *
+     * @uses    $this->getName()
+     * @uses    $this->getVersion()
+     * @uses    $this->getId()
+     * @uses    $this->getPath()
+     * @uses    $GLOBALS['strThemeNoPreviewAvailable']
+     * @uses    $GLOBALS['strTakeIt']
+     * @uses    PMA_generate_common_url()
+     * @uses    addslashes()
+     * @uses    file_exists()
+     * @uses    htmlspecialchars()
+     */
+    function printPreview() {
+        echo '<div class="theme_preview">';
+        echo '<h2>' . htmlspecialchars( $this->getName() )
+            .' (' . htmlspecialchars( $this->getVersion() ) . ')</h2>'
+            .'<p>'
+            .'<a target="_top" href="index.php'
+            .PMA_generate_common_url( array( 'set_theme' => $this->getId() ) ) . '"'
+            .' onclick="takeThis(\'' . addslashes( $this->getId() ) . '\');'
+            .' return false;">';
+        if ( @file_exists( $this->getPath() . '/screen.png' ) ) {
+            // if screen exists then output
+
+            echo '<img src="' . $this->getPath() . '/screen.png" border="1"'
+                .' alt="' . htmlspecialchars( $this->getName() ) . '"'
+                .' title="' . htmlspecialchars( $this->getName() ) . '" /><br />';
+        } else {
+            echo $GLOBALS['strThemeNoPreviewAvailable'];
+        }
+
+        echo '[ <strong>' . $GLOBALS['strTakeIt'] . '</strong> ]</a>'
+            .'</p>'
+            .'</div>';
+    }
 }
 
 ?>
