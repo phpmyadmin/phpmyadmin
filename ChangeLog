@@ -8,6 +8,9 @@ $Source$
 2005-11-30 Michal Čihař  <michal@cihar.com>
     * lang/*: Messages for Sebastian.
     * libraries/Config.class.php: Actually load configuration.
+    * Documentation.html, config.default.php (deleted),
+      libraries/Config.class.php, libraries/config.default.php: Move
+      config.default.php to librarires (bug #1365759).
 
 2005-11-30 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/Config.class.php:

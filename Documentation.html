@@ -173,12 +173,12 @@
          configuration, open (or create in case of starting from scratch)
          <tt>config.inc.php</tt> in your favorite editor and fill in there
          values for host, user, password and authentication mode to fit your
-         environment. Look at <tt>config.default.php</tt> how these fields
-         should be defined. Here, &quot;host&quot; means the MySQL server.
-         Have a look at <a href="#config">Configuration section</a> for an
-         explanation of all values. Please also read the remaining of this
-         Installation section for information about authentication modes and
-         the linked-tables infrastructure.</li> <li> If you are using the
+         environment. Look at <tt>libraries/config.default.php</tt> how these
+         fields should be defined. Here, &quot;host&quot; means the MySQL
+         server.  Have a look at <a href="#config">Configuration section</a>
+         for an explanation of all values. Please also read the remaining of
+         this Installation section for information about authentication modes
+         and the linked-tables infrastructure.</li> <li> If you are using the
          config auth_type, it is suggested that you protect the phpMyAdmin
          installation directory, for example with HTTP&#8211;AUTH in a
          <i>.htaccess</i> file. See the <a href="#faqmultiuser">
@@ -415,7 +415,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     Almost all configurable data is placed in <tt>config.inc.php</tt>. If this file
     does not exist, please refer to the <a href="#setup">Quick install</a> 
     section to create one. This file only needs to contain the parameters you want to 
-    change from their corresponding default value in <tt>config.default.php</tt>.
+    change from their corresponding default value in
+    <tt>libraries/config.default.php</tt>.
     <br /><br />
     The parameters which relate to design (like colors)
     are placed in <tt>themes/themename/layout.inc.php</tt>. You
@@ -477,8 +478,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <tt>$cfg['Servers'][$i]['host']</tt> contains the hostname of the first
         server, the second <tt>$cfg['Servers'][$i]['host']</tt> the hostname of
         the second server, etc.
-        In <tt>config.default.php</tt>, there is only one section for server
-        definition, however you can put as many as you need in
+        In <tt>libraries/config.default.php</tt>, there is only one section
+        for server definition, however you can put as many as you need in
         <tt>config.inc.php</tt>, copy that block or needed parts (you don't
         have to define all settings, just those you need to change).
     </dd>

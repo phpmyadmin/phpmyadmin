@@ -7,7 +7,7 @@ class PMA_Config {
     /**
      * @var string  default config source
      */
-    var $default_source = './config.default.php';
+    var $default_source = './libraries/config.default.php';
 
     /**
      * @var array   configuration settings
