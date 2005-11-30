@@ -11,6 +11,7 @@ $Source$
     * Documentation.html, config.default.php (deleted),
       libraries/Config.class.php, libraries/config.default.php: Move
       config.default.php to librarires (bug #1365759).
+    * scripts/setup.php: Adapted to new Config class, fix code generation.
 
 2005-11-30 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/Config.class.php:

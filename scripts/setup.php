@@ -9,17 +9,13 @@ define( 'PMA_MINIMUM_COMMON', TRUE );
 chdir('..');
 require_once('./libraries/common.lib.php');
 
-// Script information
-$script_info = 'phpMyAdmin ' . PMA_VERSION . ' setup script by Michal Čihař <michal@cihar.com>';
-$script_version = '$Id$';
-
-
 // Grab configuration defaults
 $PMA_Config = new PMA_Config();
-$PMA_Config->enableBc();
-$default_cfg = $cfg;
-unset( $cfg );
-chdir('scripts');
+
+// Script information
+$script_info = 'phpMyAdmin ' . $PMA_Config->get('PMA_VERSION') . ' setup script by Michal Čihař <michal@cihar.com>';
+$script_version = '$Id$';
+
 
 /**
  * Removes slashes from string if needed (eg. magic quotes are enabled)
@@ -43,17 +39,17 @@ if (isset($_POST['action'])) {
     $action = '';
 }
 
-if (isset($_POST['cfg']) && $action != 'clear' ) {
+if (isset($_POST['configuration']) && $action != 'clear' ) {
     // Grab previous configuration, if it should not be cleared
-    $cfg = unserialize(remove_slashes($_POST['cfg']));
+    $configuration = unserialize(remove_slashes($_POST['configuration']));
 } else {
     // Start with empty configuration
-    $cfg = array();
+    $configuration = array();
 }
 
 // We rely on Servers array to exist, so create it here
-if (!isset($cfg['Servers']) || !is_array($cfg['Servers'])) {
-    $cfg['Servers'] = array();
+if (!isset($configuration['Servers']) || !is_array($configuration['Servers'])) {
+    $configuration['Servers'] = array();
 }
 
 // Used later
@@ -80,7 +76,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
 <head>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <title>phpMyAdmin <?php echo PMA_VERSION; ?> setup</title>
+    <title>phpMyAdmin <?php echo $PMA_Config->get('PMA_VERSION'); ?> setup</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <script type="text/javascript" language="javascript">
@@ -234,7 +230,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
 </head>
 
 <body>
-<h1>phpMyAdmin <?php echo PMA_VERSION; ?> setup</h1>
+<h1>phpMyAdmin <?php echo $PMA_Config->get('PMA_VERSION'); ?> setup</h1>
 <?php
 } // end show html header
 
@@ -317,9 +313,9 @@ function message($type, $text, $title = '') {
  * @return string   HTML with hidden inputs
  */
 function get_hidden_cfg() {
-    global $cfg;
+    global $configuration;
 
-    return '<input type="hidden" name="cfg" value="' . htmlspecialchars(serialize($cfg)) . '" />' . "\n";
+    return '<input type="hidden" name="configuration" value="' . htmlspecialchars(serialize($configuration)) . '" />' . "\n";
 }
 
 /**
@@ -382,19 +378,19 @@ function footer() {
  * @return  string  authentication method description
  */
 function get_server_auth($val) {
-    global $default_cfg;
+    global $PMA_Config;
 
     if (isset($val['auth_type'])) {
         $auth = $val['auth_type'];
     } else {
-        $auth = $default_cfg['Servers'][1]['auth_type'];
+        $auth = $PMA_Config->default_server['auth_type'];
     }
     $ret = $auth;
     if ($auth == 'config') {
         if (isset($val['user'])) {
             $ret .= ':' . $val['user'];
         } else {
-            $ret .= ':' . $default_cfg['Servers'][1]['user'];
+            $ret .= ':' . $PMA_Config->default_server['user'];
         }
     }
     return $ret;
@@ -422,6 +418,48 @@ function get_server_name($val, $id = FALSE) {
 }
 
 /**
+ * Creates configuration code for one variable
+ *
+ * @param   string  variable name
+ * @param   mixed   configuration
+ *
+ * @return  string  PHP code containing configuration
+ */
+function get_cfg_val($name, $val) {
+    $ret = '';
+    if (is_array($val)) {
+        $ret .= "\n";
+        foreach($val as $k => $v) {
+            if (!isset($type)) {
+                if (is_string($k)) {
+                    $type = 'string';
+                } elseif (is_int($k)) {
+                    $type = 'int';
+                    $ret .= $name . " = array(\n";
+                } else {
+                    // Something unknown...
+                    $ret .= $name. ' = ' . var_export($val, TRUE) . ";\n";
+                    break;
+                }
+            }
+            if ($type == 'string') {
+                $ret .= $name. "['$k'] = " . var_export($v, TRUE) . ";\n";
+            } elseif ($type == 'int') {
+                $ret .= "    " . var_export($v, TRUE) . ";\n";
+            }
+        }
+        if ($type == 'int') {
+            $ret .= ");\n";
+        }
+        $ret .= "\n";
+        unset($type);
+    } else {
+        $ret .= $name . ' = ' . var_export($val, TRUE) . ";\n";
+    }
+    return $ret;
+}
+
+/**
  * Creates configuration PHP code
  *
  * @param   array   configuration
@@ -439,7 +477,7 @@ function get_cfg_string($cfg) {
         foreach($c['Servers'] as $cnt => $srv) {
             $ret .= "\n/* Server " . get_server_name($srv, $cnt) . " */\n\$i++;\n";
             foreach($srv as $key => $val) {
-                $ret .= "\$cfg['Servers'][\$i]['$key'] = '$val';\n";
+                $ret .= get_cfg_val("\$cfg['Servers'][\$i]['$key']", $val);
             }
         }
         $ret .= "\n/* End of servers configration */\n\n";
@@ -447,35 +485,7 @@ function get_cfg_string($cfg) {
     unset($c['Servers']);
 
     foreach($c as $key => $val) {
-        if (is_array($val)) {
-            $ret .= "\n";
-            foreach($val as $k => $v) {
-                if (!isset($type)) {
-                    if (is_string($k)) {
-                        $type = 'string';
-                    } elseif (is_int($k)) {
-                        $type = 'int';
-                        $ret .= "\$cfg['$key'] = array(\n";
-                    } else {
-                        // Something unknown...
-                        $ret .= "\$cfg['$key'] = " . var_export($val, TRUE) . ";\n";
-                        break;
-                    }
-                }
-                if ($type == 'string') {
-                    $ret .= "\$cfg['$key']['$k'] = " . var_export($v, TRUE) . ";\n";
-                } elseif ($type == 'int') {
-                    $ret .= "    " . var_export($v, TRUE) . ";\n";
-                }
-            }
-            if ($type == 'int') {
-                $ret .= ");\n";
-            }
-            $ret .= "\n";
-            unset($type);
-        } else {
-            $ret .= "\$cfg['$key'] = " . var_export($val, TRUE) . ";\n";
-        }
+        $ret .= get_cfg_val("\$cfg['$key']", $val);
     }
 
     $ret .= "?>\n";
@@ -588,7 +598,7 @@ function show_overview($title, $list, $buttons = '') {
 }
 
 /**
- * Displays configration, fallback defaults are taken from global $default_cfg
+ * Displays configration, fallback defaults are taken from global $PMA_Config
  *
  * @param   array   list of values to display (each element is array of two or
  *                  three values - desription, name and optional type
@@ -604,7 +614,7 @@ function show_overview($title, $list, $buttons = '') {
  * @return  nothing
  */
 function show_config_form($list, $legend, $help, $defaults = array(), $save = '', $prefix = '') {
-    global $default_cfg;
+    global $PMA_Config;
 
     if (empty($save)) $save = 'Update';
 
@@ -626,8 +636,8 @@ function show_config_form($list, $legend, $help, $defaults = array(), $save = ''
                 echo '<input type="' . $type . '" name="' . $val[1] . '" id="text_' . $val[1] . '" title="' . $val[2] . '" size="50"';
                 if (isset($defaults[$val[1]])) {
                     echo ' value="' . htmlspecialchars($defaults[$val[1]]) . '"';
-                } else if (isset($default_cfg[$val[1]])) {
-                    echo ' value="' . htmlspecialchars($default_cfg[$val[1]]) . '"';
+                } else {
+                    echo ' value="' . htmlspecialchars($PMA_Config->get($val[1])) . '"';
                 }
                 echo ' />';
                 break;
@@ -637,8 +647,8 @@ function show_config_form($list, $legend, $help, $defaults = array(), $save = ''
                     if ($defaults[$val[1]]) {
                         echo ' checked="checked"';
                     }
-                } else if (isset($default_cfg[$val[1]])) {
-                    if ($default_cfg[$val[1]]) {
+                } else {
+                    if ($PMA_Config->get($val[1])) {
                         echo ' checked="checked"';
                     }
                 }
@@ -660,16 +670,18 @@ function show_config_form($list, $legend, $help, $defaults = array(), $save = ''
                                 echo ' selected="selected"';
                             }
                         }
-                    } else if (isset($default_cfg[$val[1]])) {
-                        if (is_bool($default_cfg[$val[1]])) {
-                            if (($default_cfg[$val[1]] && $opt == 'TRUE') || (!$default_cfg[$val[1]] && $opt == 'FALSE')) {
+                    } else {
+                        $def_val = $PMA_Config->get($val[1]);
+                        if (is_bool($val)) {
+                            if (($def_val && $opt == 'TRUE') || (!$def_val && $opt == 'FALSE')) {
                                 echo ' selected="selected"';
                             }
                         } else {
-                            if ($default_cfg[$val[1]] == $opt) {
+                            if ($def_val == $opt) {
                                 echo ' selected="selected"';
                             }
                         }
+                        unset($def_val);
                     }
                     echo '>' . $opt . '</option>';
                 }
@@ -750,7 +762,7 @@ function show_manual_form($defaults = array()) {
  * @return  nothing
  */
 function show_charset_form($defaults = array()) {
-    global $default_cfg;
+    global $PMA_Config;
     ?>
 <form method="post">
     <input type="hidden" name="action" value="feat_charset_real" />
@@ -758,7 +770,7 @@ function show_charset_form($defaults = array()) {
         echo get_hidden_cfg();
         show_config_form(array(
             array('Allow charset conversion', 'AllowAnywhereRecoding', 'If you want to use such functions.', FALSE),
-            array('Default charset', 'DefaultCharset', 'Default charset for conversion.', $default_cfg['AvailableCharsets']),
+            array('Default charset', 'DefaultCharset', 'Default charset for conversion.', $PMA_Config->get('AvailableCharsets')),
             array('Recoding engine', 'RecodingEngine', 'PHP can contain iconv and/or recode, select which one to use or keep autodetection.', array('auto', 'iconv', 'recode')),
             array('Extra params for iconv', 'IconvExtraParams', 'Iconv can get some extra parameters for conversion see man iconv_open.'),
             ),
@@ -778,7 +790,6 @@ function show_charset_form($defaults = array()) {
  * @return  nothing
  */
 function show_extensions_form($defaults = array()) {
-    global $default_cfg;
     ?>
 <form method="post">
     <input type="hidden" name="action" value="feat_extensions_real" />
@@ -803,7 +814,7 @@ function show_extensions_form($defaults = array()) {
  * @return  nothing
  */
 function show_relation_form($defaults = array()) {
-    global $default_cfg;
+    global $PMA_Config;
     ?>
 <form method="post">
     <input type="hidden" name="action" value="feat_relation_real" />
@@ -813,7 +824,7 @@ function show_relation_form($defaults = array()) {
             array('Parmanent query history', 'QueryHistoryDB', 'Store history into database.', FALSE),
             array('Maximal history size', 'QueryHistoryMax', 'How many queries are kept in history.'),
             array('Use MIME transformations', 'BrowseMIME', 'Use MIME transformations while browsing.', TRUE),
-            array('PDF default page size', 'PDFDefaultPageSize', 'Default page size for PDF, you can change this while creating page.', $default_cfg['PDFPageSizes']),
+            array('PDF default page size', 'PDFDefaultPageSize', 'Default page size for PDF, you can change this while creating page.', $PMA_Config->get('PDFPageSizes')),
             ),
             'Configure MIME/relation/history',
             'phpMyAdmin can provide additional featrues like MIME transformation, internal relations, permanent history and PDF pages generating. You have to configure database and tables that will store such information on server page. Behaviour of those functions is configured here.',
@@ -867,7 +878,7 @@ function show_server_form($defaults = array(), $number = FALSE) {
         }
         $hi = array ('bookmarktable', 'relation', 'table_info', 'table_coords', 'pdf_pages', 'column_info', 'history', 'AllowDeny');
         foreach($hi as $k) {
-            if (isset($defaults[$k])) {
+            if (isset($defaults[$k]) && (!is_string($defaults[$k]) || strlen($defaults[$k]) > 0)) {
                 echo '<input type="hidden" name="' . $k . '" value="' . htmlspecialchars(serialize($defaults[$k])) . '" />';
             }
         }
@@ -1087,12 +1098,46 @@ function get_server_selection($cfg) {
     return $ret;
 }
 
+/**
+ * Loads configuration from file
+ *
+ * @param   string  filename
+ *
+ * @return  mixed   FALSE on failure, new config array on success
+ */
+function load_config($config_file) {
+    if ( file_exists( $config_file ) ) {
+        $success_apply_user_config = FALSE;
+        $old_error_reporting = error_reporting( 0 );
+        if ( function_exists( 'file_get_contents' ) ) {
+            $success_apply_user_config = eval( '?>' . file_get_contents( $config_file ) );
+        } else {
+            $success_apply_user_config =
+                eval( '?>' . implode( '\n', file( $config_file ) ) );
+        }
+        error_reporting( $old_error_reporting );
+        unset( $old_error_reporting );
+        if ($success_apply_user_config === FALSE) {
+            message('error', 'Error while parsing configuraton file!');
+        } elseif (count($cfg) == 0 || (isset($cfg['Servers']) && count($cfg) == 1 || count($cfg['Servers']) == 0)) {
+            message('error', 'Config file seems to contain no configuration!');
+        } else {
+            message('notice', 'Configuration loaded');
+            compress_servers($cfg);
+            return $cfg;
+        }
+    } else {
+        message('error', 'Configuration file not found!');
+    }
+    return FALSE;
+}
+
 if ($action != 'download') {
     // Check whether we can write to configuration
     $fail_dir = FALSE;
-    $fail_dir = $fail_dir || !is_dir('../config/');
-    $fail_dir = $fail_dir || !is_writable('../config/config.inc.php');
-    $config = @fopen('../config/config.inc.php', 'a');
+    $fail_dir = $fail_dir || !is_dir('./config/');
+    $fail_dir = $fail_dir || !is_writable('./config/config.inc.php');
+    $config = @fopen('./config/config.inc.php', 'a');
     $fail_dir = $fail_dir || ($config === FALSE);
     @fclose($config);
 }
@@ -1108,12 +1153,12 @@ switch ($action) {
         header('Content-Type: text/plain');
         header('Content-Disposition: attachment; filename="config.inc.php"');
 
-        echo get_cfg_string($cfg);
+        echo get_cfg_string($configuration);
         exit;
         break;
     case 'display':
         echo '<form method="none"><textarea name="config" cols="50" rows="20" id="textconfig" wrap="off">' . "\n";
-        echo htmlspecialchars(get_cfg_string($cfg));
+        echo htmlspecialchars(get_cfg_string($configuration));
         echo '</textarea></form>' . "\n";
         ?>
 <script language="javascript" type="text/javascript">
@@ -1139,12 +1184,12 @@ switch ($action) {
         <?php
         break;
     case 'save':
-        $config = @fopen('../config/config.inc.php', 'w');
+        $config = @fopen('./config/config.inc.php', 'w');
         if ($config === FALSE) {
             message('error', 'Could not open config file for writing! Bad permissions?');
             break;
         }
-        $s = get_cfg_string($cfg);
+        $s = get_cfg_string($configuration);
         $r = fwrite($config, $s);
         if (!$r || $r != strlen($s)) {
             message('error', 'Could not write to config file! Not enough space?');
@@ -1160,33 +1205,9 @@ switch ($action) {
             message('error', 'Reading of configuration disabled because of permissions.');
             break;
         }
-        $bck_cfg = $cfg;
-        unset($cfg);
-        $config_file = '../config/config.inc.php';
-        if ( file_exists( $config_file ) ) {
-            $success_apply_user_config = FALSE;
-            $old_error_reporting = error_reporting( 0 );
-            if ( function_exists( 'file_get_contents' ) ) {
-                $success_apply_user_config = eval( '?>' . file_get_contents( $config_file ) );
-            } else {
-                $success_apply_user_config =
-                    eval( '?>' . implode( '\n', file( $config_file ) ) );
-            }
-            error_reporting( $old_error_reporting );
-            unset( $old_error_reporting );
-            if ($success_apply_user_config === FALSE) {
-                message('error', 'Error while parsing configuraton file!');
-                $cfg = $bck_cfg;
-            } elseif (count($cfg) == 0 || (isset($cfg['Servers']) && count($cfg) == 1 || count($cfg['Servers']) == 0)) {
-                message('error', 'Config file seems to contain no configuration!');
-                $cfg = $bck_cfg;
-            } else {
-                message('notice', 'Configuration loaded');
-                compress_servers($cfg);
-            }
-        } else {
-            message('error', 'Configuration file not found!');
-            $cfg = $bck_cfg;
+        $new_cfg = load_config('./config/config.inc.php');
+        if (!($new_cfg === FALSE)) {
+            $configuration = $new_cfg;
         }
         $show_info = TRUE;
         break;
@@ -1242,16 +1263,16 @@ switch ($action) {
                 show_server_form($new_server, isset($_POST['server']) ? $_POST['server'] : FALSE);
             } else {
                 if (isset($_POST['server'])) {
-                    $cfg['Servers'][$_POST['server']] = $new_server;
+                    $configuration['Servers'][$_POST['server']] = $new_server;
                     message('notice', 'Changed server ' . get_server_name($new_server, $_POST['server']));
                 } else {
-                    $cfg['Servers'][] = $new_server;
+                    $configuration['Servers'][] = $new_server;
                     message('notice', 'New server added');
                 }
                 $show_info = TRUE;
-                if ($new_server['auth_type'] == 'cookie' && empty($cfg['blowfish_secret'])) {
+                if ($new_server['auth_type'] == 'cookie' && empty($configuration['blowfish_secret'])) {
                     message('notice', 'You did not have configured blowfish secret and you want to use cookie authentication so I generated blowfish secret for you. It is used to encrypt cookies.', 'Blowfist secret generated');
-                    $cfg['blowfish_secret'] = uniqid('', TRUE);
+                    $configuration['blowfish_secret'] = uniqid('', TRUE);
                 }
             }
             unset($new_server);
@@ -1260,9 +1281,10 @@ switch ($action) {
         }
         break;
     case 'addserver':
-        if (count($cfg['Servers']) == 0) {
+        if (count($configuration['Servers']) == 0) {
             // First server will use defaults as in config.default.php
-            $defaults = $default_cfg['Servers'][1];
+            $defaults = $PMA_Config->default_server;
+            unset($defaults['AllowDeny']); // Ignore this for now
         } else {
             $defaults = array();
         }
@@ -1290,26 +1312,26 @@ switch ($action) {
         break;
     case 'editserver':
         if (!isset($_POST['server'])) footer();
-        show_server_form($cfg['Servers'][$_POST['server']], $_POST['server']);
+        show_server_form($configuration['Servers'][$_POST['server']], $_POST['server']);
         break;
     case 'deleteserver':
         if (!isset($_POST['server'])) footer();
-        message('notice', 'Deleted server ' . get_server_name($cfg['Servers'][$_POST['server']], $_POST['server']));
-        unset($cfg['Servers'][$_POST['server']]);
-        compress_servers($cfg);
+        message('notice', 'Deleted server ' . get_server_name($configuration['Servers'][$_POST['server']], $_POST['server']));
+        unset($configuration['Servers'][$_POST['server']]);
+        compress_servers($configuration);
         $show_info = TRUE;
         break;
     case 'servers':
-        if (count($cfg['Servers']) == 0) {
+        if (count($configuration['Servers']) == 0) {
             message('notice', 'No servers defined, so none can not be shown');
         } else {
-            foreach($cfg['Servers'] as $i => $srv) {
+            foreach($configuration['Servers'] as $i => $srv) {
                 $data = array();
                 if (!empty($srv['verbose'])) {
                     $data[] = array('Verbose name', $srv['verbose']);
                 }
                 $data[] = array('Host', $srv['host']);
-                $data[] = array('MySQL extension', isset($srv['extension']) ? $srv['extension'] : $default_cfg['Servers'][1]['extension']);
+                $data[] = array('MySQL extension', isset($srv['extension']) ? $srv['extension'] : $PMA_Config->default_server['extension']);
                 $data[] = array('Authentication type', get_server_auth($srv));
                 $data[] = array('phpMyAdmin advanced features', empty($srv['pmadb']) || empty($srv['controluser']) || empty($srv['controlpass']) ? 'disabled' : 'enabled, db: ' . $srv['pmadb'] . ', user: ' . $srv['controluser']);
                 $buttons =
@@ -1323,7 +1345,6 @@ switch ($action) {
     case 'feat_upload_real':
         if (isset($_POST['submit_save'])) {
             $dirs = grab_values('UploadDir;SaveDir;docSQLDir');
-            chdir('..'); // to allow checking directories
             $err = FALSE;
             if (!empty($dirs['UploadDir']) && !is_dir($dirs['UploadDir'])) {
                 message('error', 'Upload directory ' . htmlspecialchars($dirs['UploadDir']) . ' does not exist!');
@@ -1340,7 +1361,7 @@ switch ($action) {
             if ($err) {
                 show_upload_form($dirs);
             } else {
-                $cfg = array_merge($cfg, $dirs);
+                $configuration = array_merge($configuration, $dirs);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1349,7 +1370,7 @@ switch ($action) {
         }
         break;
     case 'feat_upload':
-        show_upload_form($cfg);
+        show_upload_form($configuration);
         break;
 
     case 'feat_security_real':
@@ -1369,7 +1390,7 @@ switch ($action) {
             if ($err) {
                 show_security_form($vals);
             } else {
-                $cfg = array_merge($cfg, $vals);
+                $configuration = array_merge($configuration, $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1378,7 +1399,7 @@ switch ($action) {
         }
         break;
     case 'feat_security':
-        show_security_form($cfg);
+        show_security_form($configuration);
         break;
 
     case 'feat_manual_real':
@@ -1392,7 +1413,7 @@ switch ($action) {
             if ($err) {
                 show_manual_form($vals);
             } else {
-                $cfg = array_merge($cfg, $vals);
+                $configuration = array_merge($configuration, $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1401,7 +1422,7 @@ switch ($action) {
         }
         break;
     case 'feat_manual':
-        show_manual_form($cfg);
+        show_manual_form($configuration);
         break;
 
     case 'feat_charset_real':
@@ -1411,7 +1432,7 @@ switch ($action) {
             if ($err) {
                 show_charset_form($vals);
             } else {
-                $cfg = array_merge($cfg, $vals);
+                $configuration = array_merge($configuration, $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1420,7 +1441,7 @@ switch ($action) {
         }
         break;
     case 'feat_charset':
-        $d = $cfg;
+        $d = $configuration;
         if (!isset($d['RecodingEngine'])) {
             if (@extension_loaded('iconv')) {
                 $d['RecodingEngine']         = 'iconv';
@@ -1454,7 +1475,7 @@ switch ($action) {
             if ($err) {
                 show_extensions_form($vals);
             } else {
-                $cfg = array_merge($cfg, $vals);
+                $configuration = array_merge($configuration, $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1463,7 +1484,7 @@ switch ($action) {
         }
         break;
     case 'feat_extensions':
-        $d = $cfg;
+        $d = $configuration;
         if (!@extension_loaded('mbstring')) {
             PMA_dl('mbstring');
         }
@@ -1494,7 +1515,7 @@ switch ($action) {
             if ($err) {
                 show_relation_form($vals);
             } else {
-                $cfg = array_merge($cfg, $vals);
+                $configuration = array_merge($configuration, $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1503,7 +1524,7 @@ switch ($action) {
         }
         break;
     case 'feat_relation':
-        show_relation_form($cfg);
+        show_relation_form($configuration);
         break;
 
     case 'lay_left_real':
@@ -1517,7 +1538,7 @@ switch ($action) {
             if ($err) {
                 show_left_form($vals);
             } else {
-                $cfg = array_merge($cfg, $vals);
+                $configuration = array_merge($configuration, $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1526,7 +1547,7 @@ switch ($action) {
         }
         break;
     case 'lay_left':
-        show_left_form($cfg);
+        show_left_form($configuration);
         break;
 
     case 'lay_tabs_real':
@@ -1536,7 +1557,7 @@ switch ($action) {
             if ($err) {
                 show_tabs_form($vals);
             } else {
-                $cfg = array_merge($cfg, $vals);
+                $configuration = array_merge($configuration, $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1545,7 +1566,7 @@ switch ($action) {
         }
         break;
     case 'lay_tabs':
-        show_tabs_form($cfg);
+        show_tabs_form($configuration);
         break;
 
     case 'lay_icons_real':
@@ -1555,7 +1576,7 @@ switch ($action) {
             if ($err) {
                 show_icons_form($vals);
             } else {
-                $cfg = array_merge($cfg, $vals);
+                $configuration = array_merge($configuration, $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1564,7 +1585,7 @@ switch ($action) {
         }
         break;
     case 'lay_icons':
-        show_icons_form($cfg);
+        show_icons_form($configuration);
         break;
 
     case 'lay_browse_real':
@@ -1582,7 +1603,7 @@ switch ($action) {
             if ($err) {
                 show_browse_form($vals);
             } else {
-                $cfg = array_merge($cfg, $vals);
+                $configuration = array_merge($configuration, $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1591,7 +1612,7 @@ switch ($action) {
         }
         break;
     case 'lay_browse':
-        show_browse_form($cfg);
+        show_browse_form($configuration);
         break;
 
     case 'lay_edit_real':
@@ -1621,7 +1642,7 @@ switch ($action) {
             if ($err) {
                 show_edit_form($vals);
             } else {
-                $cfg = array_merge($cfg, $vals);
+                $configuration = array_merge($configuration, $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1630,7 +1651,7 @@ switch ($action) {
         }
         break;
     case 'lay_edit':
-        show_edit_form($cfg);
+        show_edit_form($configuration);
         break;
 
     case 'lay_window_real':
@@ -1648,7 +1669,7 @@ switch ($action) {
             if ($err) {
                 show_window_form($vals);
             } else {
-                $cfg = array_merge($cfg, $vals);
+                $configuration = array_merge($configuration, $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1657,7 +1678,7 @@ switch ($action) {
         }
         break;
     case 'lay_window':
-        show_window_form($cfg);
+        show_window_form($configuration);
         break;
 
 /* Template for new actions:
@@ -1672,7 +1693,7 @@ switch ($action) {
             if ($err) {
                 show_blah_form($vals);
             } else {
-                $cfg = array_merge($cfg, $vals);
+                $configuration = array_merge($configuration, $vals);
                 message('notice', 'Configuration changed');
                 $show_info = TRUE;
             }
@@ -1681,7 +1702,7 @@ switch ($action) {
         }
         break;
     case 'blah':
-        show_blah_form($cfg);
+        show_blah_form($configuration);
         break;
 */
     case 'versioncheck': // Check for latest available version
@@ -1764,14 +1785,14 @@ switch ($action) {
 if ($show_info) {
     $servers = 'none';
     $servers_text = 'Servers';
-    if (count($cfg['Servers']) == 0) {
+    if (count($configuration['Servers']) == 0) {
         message('warning', 'No servers defined, you probably want to add one.');
     } else {
         $servers = '';
-        $servers_text = 'Servers (' . count($cfg['Servers']) . ')';
+        $servers_text = 'Servers (' . count($configuration['Servers']) . ')';
 
         $sep = '';
-        foreach ($cfg['Servers'] as $key => $val) {
+        foreach ($configuration['Servers'] as $key => $val) {
             $servers .= $sep;
             $sep = ', ';
             $servers .= get_server_name($val, $key);
@@ -1781,9 +1802,9 @@ if ($show_info) {
     show_overview('Current configuration overview',
         array(
             array($servers_text, $servers),
-            array('SQL files upload', empty($cfg['UploadDir']) ? 'disabled' : 'enabled'),
-            array('Exported files on server', empty($cfg['SaveDir']) ? 'disabled' : 'enabled'),
-            array('Charset conversion', isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] ? 'enabled' : 'disabled'),
+            array('SQL files upload', empty($configuration['UploadDir']) ? 'disabled' : 'enabled'),
+            array('Exported files on server', empty($configuration['SaveDir']) ? 'disabled' : 'enabled'),
+            array('Charset conversion', isset($configuration['AllowAnywhereRecoding']) && $configuration['AllowAnywhereRecoding'] ? 'enabled' : 'disabled'),
         ));
     unset($servers_text, $servers);
 }
@@ -1793,7 +1814,7 @@ echo '<p>Available global actions (please note that these will delete any change
 
 echo '<fieldset class="toolbar"><legend>Servers</legend>' . "\n";
 echo get_action('addserver', 'Add');
-$servers = get_server_selection($cfg);
+$servers = get_server_selection($configuration);
 if (!empty($servers)) {
     echo get_action('servers', 'List');
     echo get_action('deleteserver', 'Delete', $servers);
