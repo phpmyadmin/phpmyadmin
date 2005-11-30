@@ -1,22 +1,25 @@
-<?php 
+<?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
 // phpMyAdmin setup script by Michal Čihař <michal@cihar.com>
 
 // Grab phpMyAdmin version and PMA_dl function
-$cfg['GD2Available'] = 'auto';
-require('../libraries/defines.lib.php');
-unset($cfg);
+define( 'PMA_MINIMUM_COMMON', TRUE );
+chdir('..');
+require_once('./libraries/common.lib.php');
 
 // Script information
 $script_info = 'phpMyAdmin ' . PMA_VERSION . ' setup script by Michal Čihař <michal@cihar.com>';
 $script_version = '$Id$';
 
+
 // Grab configuration defaults
-require('../config.default.php');
+$PMA_Config = new PMA_Config();
+$PMA_Config->enableBc();
 $default_cfg = $cfg;
-unset($cfg);
+unset( $cfg );
+chdir('scripts');
 
 /**
  * Removes slashes from string if needed (eg. magic quotes are enabled)
@@ -69,7 +72,7 @@ if ($action != 'download') {
 header('Content-Type: text/html; charset=utf-8');
 
 // this needs to be echoed otherwise php with short tags complains
-echo '<?xml version="1.0" encoding="utf-8"?>' . "\n"; 
+echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -315,7 +318,7 @@ function message($type, $text, $title = '') {
  */
 function get_hidden_cfg() {
     global $cfg;
-    
+
     return '<input type="hidden" name="cfg" value="' . htmlspecialchars(serialize($cfg)) . '" />' . "\n";
 }
 
@@ -380,7 +383,7 @@ function footer() {
  */
 function get_server_auth($val) {
     global $default_cfg;
-    
+
     if (isset($val['auth_type'])) {
         $auth = $val['auth_type'];
     } else {
@@ -419,7 +422,7 @@ function get_server_name($val, $id = FALSE) {
 }
 
 /**
- * Creates configuration PHP code 
+ * Creates configuration PHP code
  *
  * @param   array   configuration
  *
@@ -474,7 +477,7 @@ function get_cfg_string($cfg) {
             $ret .= "\$cfg['$key'] = " . var_export($val, TRUE) . ";\n";
         }
     }
-    
+
     $ret .= "?>\n";
     return $ret;
 }
@@ -499,7 +502,7 @@ function compress_servers(&$cfg) {
 /**
  * Grabs values from POST
  *
- * @param   string   list of values to grab, values are separated by ";", 
+ * @param   string   list of values to grab, values are separated by ";",
  *                   each can have defined type separated by ":", if no type
  *                   is defined, string is assumed. Possible types: bool -
  *                   boolean value, serialized - serialized value, int -
@@ -602,9 +605,9 @@ function show_overview($title, $list, $buttons = '') {
  */
 function show_config_form($list, $legend, $help, $defaults = array(), $save = '', $prefix = '') {
     global $default_cfg;
-    
+
     if (empty($save)) $save = 'Update';
-    
+
     echo '<fieldset class="optbox">' . "\n";
     echo '<legend>' . $legend . '</legend>' . "\n";
     echo '<p>' . $help . '</p>' . "\n";
@@ -695,8 +698,8 @@ function show_security_form($defaults = array()) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="feat_security_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         show_config_form(array(
             array('Blowfish secret', 'blowfish_secret', 'Secret passhrase used for encrypting cookies'),
             array('Force SSL connection', 'ForceSSL', 'Whether to force using secured connetion while using phpMyAdmin', FALSE),
@@ -705,8 +708,8 @@ function show_security_form($defaults = array()) {
             array('Allow login to any MySQL server', 'AllowArbitraryServer', 'If enabled user can enter any MySQL server in login form for cookie auth.', FALSE),
             array('Recall user name', 'LoginCookieRecall', 'Whether to recall user name while using cookie auth.', TRUE),
             array('Login cookie validity', 'LoginCookieValidity', 'How long is login valid without performing any action.'),
-            ), 
-            'Configure security features', 
+            ),
+            'Configure security features',
             'Please note that phpMyAdmin is just user inteface and it\'s features do not limit MySQL.',
             $defaults);
     ?>
@@ -725,13 +728,13 @@ function show_manual_form($defaults = array()) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="feat_manual_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         show_config_form(array(
             array('Type of MySQL documentation', 'MySQLManualType', 'These types are same as listed on MySQL download page', array('viewable', 'chapters', 'big', 'none')),
             array('Base URL of MySQL documentation', 'MySQLManualBase', 'Where is MySQL documentation placed, this is usually top level directory.'),
-            ), 
-            'Configure MySQL manual links', 
+            ),
+            'Configure MySQL manual links',
             'If you have local copy of MySQL documentation, you might want to use it in documentation links. Othervise use <code>viewable</code> type and <code>http://dev.mysql.com/doc/refman</code> as manual base URL.',
             $defaults);
     ?>
@@ -751,15 +754,15 @@ function show_charset_form($defaults = array()) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="feat_charset_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         show_config_form(array(
             array('Allow charset conversion', 'AllowAnywhereRecoding', 'If you want to use such functions.', FALSE),
             array('Default charset', 'DefaultCharset', 'Default charset for conversion.', $default_cfg['AvailableCharsets']),
             array('Recoding engine', 'RecodingEngine', 'PHP can contain iconv and/or recode, select which one to use or keep autodetection.', array('auto', 'iconv', 'recode')),
             array('Extra params for iconv', 'IconvExtraParams', 'Iconv can get some extra parameters for conversion see man iconv_open.'),
-            ), 
-            'Configure charset conversions', 
+            ),
+            'Configure charset conversions',
             'phpMyAdmin can preform charset conversions so that you can import and export in any charset you want.',
             $defaults);
     ?>
@@ -779,12 +782,12 @@ function show_extensions_form($defaults = array()) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="feat_extensions_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         show_config_form(array(
             array('GD 2 is available', 'GD2Available', 'Whether you have GD 2 or newer installed', array('auto', 'yes', 'no')),
-            ), 
-            'Configure extensions', 
+            ),
+            'Configure extensions',
             'phpMyAdmin can use several extensions, however here are configured only those that didn\'t fit elsewhere. MySQL extension is configured within server, charset conversion one on separate charsets page.',
             $defaults);
     ?>
@@ -804,15 +807,15 @@ function show_relation_form($defaults = array()) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="feat_relation_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         show_config_form(array(
             array('Parmanent query history', 'QueryHistoryDB', 'Store history into database.', FALSE),
             array('Maximal history size', 'QueryHistoryMax', 'How many queries are kept in history.'),
             array('Use MIME transformations', 'BrowseMIME', 'Use MIME transformations while browsing.', TRUE),
             array('PDF default page size', 'PDFDefaultPageSize', 'Default page size for PDF, you can change this while creating page.', $default_cfg['PDFPageSizes']),
-            ), 
-            'Configure MIME/relation/history', 
+            ),
+            'Configure MIME/relation/history',
             'phpMyAdmin can provide additional featrues like MIME transformation, internal relations, permanent history and PDF pages generating. You have to configure database and tables that will store such information on server page. Behaviour of those functions is configured here.',
             $defaults);
     ?>
@@ -831,14 +834,14 @@ function show_upload_form($defaults = array()) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="feat_upload_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         show_config_form(array(
             array('Upload directory', 'UploadDir', 'Directory on server where you can upload files for import'),
             array('Save directory', 'SaveDir', 'Directory where exports can be saved on server'),
             array('Directory with docSQL', 'docSQLDir', 'Directory on server where you can place docSQL files for import'),
-            ), 
-            'Configure upload/save directories', 
+            ),
+            'Configure upload/save directories',
             'Enter directories, either absolute path or relative to phpMyAdmin top level directory.',
             $defaults);
     ?>
@@ -857,8 +860,8 @@ function show_server_form($defaults = array(), $number = FALSE) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="addserver_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         if (!($number === FALSE)) {
             echo '<input type="hidden" name="server" value="' . $number . '" />';
         }
@@ -883,8 +886,8 @@ function show_server_form($defaults = array(), $number = FALSE) {
             array('phpMyAdmin control user', 'controluser', 'User which phpMyAdmin can use for various actions'),
             array('phpMyAdmin control user password', 'controlpass', 'Password for user which phpMyAdmin can use for various actions', 'password'),
             array('phpMyAdmin database for advanced features', 'pmadb', 'phpMyAdmin will allow much more when you enable this. Table names are filled in automatically.'),
-            ), 
-            'Configure server', 
+            ),
+            'Configure server',
             ($number === FALSE) ? 'Enter new server connection parameters.' : 'Editing server ' . get_server_name($defaults, $number),
             $defaults, $number === FALSE ? 'Add' : '', 'Servers_');
     ?>
@@ -903,8 +906,8 @@ function show_left_form($defaults = array()) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="lay_left_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         show_config_form(array(
             array('Use light version', 'LeftFrameLight', 'Disable this if you want to see all databases at one time.', TRUE),
             array('Display databases in tree', 'LeftFrameDBTree', 'Whether to display databases in tree (determined by separator defined lower)', TRUE),
@@ -914,8 +917,8 @@ function show_left_form($defaults = array()) {
             array('Show logo', 'LeftDisplayLogo', 'Whether to show logo in left frame', TRUE),
             array('Display servers selection', 'LeftDisplayServers', 'Whether to show server selection in left frame', FALSE),
             array('Enable pointer highlighting', 'LeftPointerEnable', 'Whether you want to highlight server under mouse', TRUE),
-            ), 
-            'Configure left frame', 
+            ),
+            'Configure left frame',
             'Choose how do you like left frame.',
             $defaults);
     ?>
@@ -934,15 +937,15 @@ function show_tabs_form($defaults = array()) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="lay_tabs_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         show_config_form(array(
             array('Default tab for server', 'DefaultTabServer', 'Tab that is displayed when entering server', array('main.php', 'server_databases.php', 'server_status.php', 'server_variables.php', 'server_privileges.php', 'server_processlist.php')),
             array('Default tab for database', 'DefaultTabDatabase', 'Tab that is displayed when entering database', array('db_details_structure.php', 'db_details.php', 'db_search.php', 'db_operations.php')),
             array('Default tab for table', 'DefaultTabTable', 'Tab that is displayed when entering table', array('tbl_properties_structure.php', 'sql.php', 'tbl_properties.php', 'tbl_select.php', 'tbl_change.php')),
             array('Use lighter tabs', 'LightTab', 'If you want simpler tabs enable this', FALSE),
-            ), 
-            'Configure tabs', 
+            ),
+            'Configure tabs',
             'Choose how you want tabs to work.',
             $defaults);
     ?>
@@ -961,16 +964,16 @@ function show_icons_form($defaults = array()) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="lay_icons_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         show_config_form(array(
             array('Icons on errors', 'ErrorIconic', 'Whether to use icons in error messages.', TRUE),
             array('Icons on main page', 'MainPageIconic', 'Whether to use icons on main page.', TRUE),
             array('Icons as help links', 'ReplaceHelpImg', 'Whether to use icons as help links.', TRUE),
             array('Navigation with icons', 'NavigationBarIconic', 'Whether to display navigation (eg. tabs) with icons.', array('TRUE', 'FALSE', 'both')),
             array('Properties pages with icons', 'PropertiesIconic', 'Whether to display properties (eg. table lists and structure) with icons.', array('TRUE', 'FALSE', 'both')),
-            ), 
-            'Configure icons', 
+            ),
+            'Configure icons',
             'Select whether you prefer text or icons. Both means that text and icons will be displayed.',
             $defaults);
     ?>
@@ -989,8 +992,8 @@ function show_browse_form($defaults = array()) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="lay_browse_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         show_config_form(array(
             array('Display of values', 'DefaultDisplay', 'How to list values while browsing', array('horizontal', 'vertical', 'horizontalflipped')),
             array('Hightlight pointer', 'BrowsePointerEnable', 'Whether to highlight row under mouse.', TRUE),
@@ -998,8 +1001,8 @@ function show_browse_form($defaults = array()) {
             array('Action buttons on left', 'ModifyDeleteAtLeft', 'Show action buttons on left side of listing?', TRUE),
             array('Action buttons on right', 'ModifyDeleteAtRight', 'Show action buttons on right side of listing?', FALSE),
             array('Repeat heading', 'RepeatCells', 'After how many rows heading should be repeated.'),
-            ), 
-            'Configure browsing', 
+            ),
+            'Configure browsing',
             'Select desired browsing look and feel.',
             $defaults);
     ?>
@@ -1018,8 +1021,8 @@ function show_edit_form($defaults = array()) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="lay_edit_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         show_config_form(array(
             array('Display of properties editation', 'DefaultPropDisplay', 'How to list properties (table structure or values) while editing', array('horizontal', 'vertical')),
             array('Number of inserted rows', 'InsertRows', 'How many rows can be inserted at once'),
@@ -1031,8 +1034,8 @@ function show_edit_form($defaults = array()) {
             array('Edit CHAR fields in textarea', 'CharEditing', 'Whether to edit CHAR fields in textaread', array('input', 'textarea')),
             array('CHAR textarea columns', 'CharTextareaCols', 'Number of columns in textarea while editing CHAR fields (must be enabled above)'),
             array('CHAR textarea rows', 'CharTextareaRows', 'Number of rows in textarea while editing CHAR fields (must be enabled above)'),
-            ), 
-            'Configure editing', 
+            ),
+            'Configure editing',
             'Select desired editing look and feel.',
             $defaults);
     ?>
@@ -1051,15 +1054,15 @@ function show_window_form($defaults = array()) {
     ?>
 <form method="post">
     <input type="hidden" name="action" value="lay_window_real" />
-    <?php 
-        echo get_hidden_cfg(); 
+    <?php
+        echo get_hidden_cfg();
         show_config_form(array(
             array('Edit SQL in window', 'EditInWindow', 'Whether edit links will edit in query window.', TRUE),
             array('Query window height', 'QueryWindowHeight', 'Height of query window'),
             array('Query window width', 'QueryWindowWidth', 'Width of query window'),
             array('Default tab', 'QueryWindowDefTab', 'Default tab on query window', array('sql', 'files', 'history', 'full')),
-            ), 
-            'Configure query window', 
+            ),
+            'Configure query window',
             'Select desired query window look and feel.',
             $defaults);
     ?>
@@ -1075,7 +1078,7 @@ function show_window_form($defaults = array()) {
  * @return  string  HTML for server selection
  */
 function get_server_selection($cfg) {
-    if (count($cfg['Servers']) == 0) return ''; 
+    if (count($cfg['Servers']) == 0) return '';
     $ret = '<select name="server">';
     foreach ($cfg['Servers'] as $key => $val) {
         $ret .= '<option value="' . $key . '">' . get_server_name($val, $key) . '</option>';
@@ -1156,7 +1159,7 @@ switch ($action) {
         if ($fail_dir) {
             message('error', 'Reading of configuration disabled because of permissions.');
             break;
-        } 
+        }
         $bck_cfg = $cfg;
         unset($cfg);
         $config_file = '../config/config.inc.php';
@@ -1214,7 +1217,7 @@ switch ($action) {
                 $pmadb['pdf_pages']     = 'pma_pdf_pages';
                 $pmadb['column_info']   = 'pma_column_info';
                 $pmadb['history']       = 'pma_history';
-                
+
                 $new_server = array_merge($pmadb, $new_server);
                 unset($pmadb);
                 if (empty($new_server['controluser'])) {
@@ -1657,7 +1660,7 @@ switch ($action) {
         show_window_form($cfg);
         break;
 
-/* Template for new actions: 
+/* Template for new actions:
     case 'blah_real':
         if (isset($_POST['submit_save'])) {
             $vals = grab_values('value1:bool;value2');
@@ -1713,7 +1716,7 @@ switch ($action) {
             break;
         }
 
-        $version_local = version_to_int(PMA_VERSION);
+        $version_local = version_to_int( $GLOBALS['PMA_Config']->get('PMA_VERSION') );
         if ($version_local === FALSE) {
             message('error', 'Unparsable version string.');
             break;
@@ -1738,7 +1741,7 @@ switch ($action) {
     case '':
         message('notice', 'You want to configure phpMyAdmin using web interface. Please note that this only allows basic setup, please read <a href="../Documentation.html#config">documentation</a> to see full description of all configuration directives.', 'Welcome');
 
-        if (PMA_PHP_INT_VERSION < 40100) {
+        if ( $GLOBALS['PMA_Config']->get( 'PMA_PHP_INT_VERSION' ) < 40100) {
             message('warning', 'Please upgrade to PHP 4.1.0, it is required for phpMyAdmin.', 'Too old PHP');
         }
 
