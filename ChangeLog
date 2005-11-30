@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-30 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/Config.class.php: merged code from common.inc.php and
+      defines.lib.php
+    * libraries/common.inc.php:
+      - make use of new PMA_Config class
+      - merged PMA_dl() from libraries/defines.lib.php
+    * libraries/defines.lib.php: removed
+
 2005-11-29 Michal Čihař  <michal@cihar.com>
     * lang/sync_lang.sh: Add workaround for multibyte chars that can contain \
       as last byte.
