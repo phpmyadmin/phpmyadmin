@@ -108,8 +108,8 @@ then
 
 Please ensure you have:
   1. incremented rc count or version in CVS :
-     - in libraries/defines.lib.php the line
-          " define('PMA_VERSION', '$1'); "
+     - in libraries/Config.class.php PMA_Config::__constructor() the line
+          " $this->set( 'PMA_VERSION', '2.7.1-dev' ); "
      - in Documentation.html the 2 lines
           " <title>phpMyAdmin $1 - Documentation</title> "
           " <h1>phpMyAdmin $1 Documentation</h1> "
@@ -249,8 +249,8 @@ Todo now:
         phpmyadmin-news@lists.sourceforge.net
         phpmyadmin-users@lists.sourceforge.net
  8. increment rc count or version in CVS :
-        - in libraries/defines.lib.php the line
-              " define('PHPMYADMIN_VERSION', '2.2.2-rc1'); "
+        - in libraries/Config.class.php PMA_Config::__constructor() the line
+              " $this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html the 2 lines
               " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "
               " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
