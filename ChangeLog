@@ -13,8 +13,9 @@ $Source$
       - make use of new PMA_Config class
       - merged PMA_dl() from libraries/defines.lib.php
     * libraries/defines.lib.php: removed
-    * scripts/setup.php: use class PMA_Config
+    * scripts/setup.php, scripts/upgrade.pl: use class PMA_Config
     * scripts/create-release.sh: removed references to defines.lib.php
+
 
 2005-11-29 Michal Čihař  <michal@cihar.com>
     * lang/sync_lang.sh: Add workaround for multibyte chars that can contain \
