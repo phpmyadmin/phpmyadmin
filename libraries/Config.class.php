@@ -45,16 +45,212 @@ class PMA_Config {
     var $default_server = array();
 
     /**
+     * @var boolean wether init is done or mot
+     * set this to false to force some initial checks
+     * like checking for required functions
+     */
+    var $done = false;
+
+    /**
      * constructor
      *
      * @param   string  source to read config from
      */
     function __construct( $source ) {
+
+        // functions need to refresh in case of config file changed goes in
+        // PMA_Config::load()
         $this->load( $source );
+
+        // other settings, independant from config file, comes here
+        $this->set( 'PMA_VERSION', '2.7.1-dev' );
+        /**
+         * @deprecated
+         */
+        $this->set( 'PMA_THEME_VERSION', 2 );
+        /**
+         * @deprecated
+         */
+        $this->set( 'PMA_THEME_GENERATION', 2 );
+
+        $this->checkPhpVersion();
+        $this->checkWebServerOs();
+        $this->checkWebServer();
+        $this->checkGd2();
+        $this->checkClient();
+        $this->checkUpload();
+        $this->checkUploadSize();
+        $this->checkOutputCompression();
+    }
+
+    function checkOutputCompression() {
+        // If zlib output compression is set in the php configuration file, no
+        // output buffering should be run
+        if ( @ini_get('zlib.output_compression') ) {
+            $this->set( 'OBGzip', false );
+        }
+
+        // disable output-buffering (if set to 'auto') for IE6, else enable it.
+        if ( strtolower( $this->get( 'OBGzip' ) ) == 'auto' ) {
+            if ( $this->get( 'PMA_USR_BROWSER_AGENT' ) == 'IE'
+              && $this->get( 'PMA_USR_BROWSER_VER' ) >= 6
+              && $this->get( 'PMA_USR_BROWSER_VER' ) < 7 ) {
+                $this->set( 'OBGzip', false );
+            } else {
+                $this->set( 'OBGzip', true );
+            }
+        }
+    }
+
+    /**
+     * Determines platform (OS), browser and version of the user
+     * Based on a phpBuilder article:
+     * @see http://www.phpbuilder.net/columns/tim20000821.php
+     */
+    function checkClient() {
+        if (!empty($_SERVER['HTTP_USER_AGENT'])) {
+            $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
+        } elseif (!isset($HTTP_USER_AGENT)) {
+            $HTTP_USER_AGENT = '';
+        }
+
+        // 1. Platform
+        if (strstr($HTTP_USER_AGENT, 'Win')) {
+            $this->set('PMA_USR_OS', 'Win');
+        } elseif (strstr($HTTP_USER_AGENT, 'Mac')) {
+            $this->set('PMA_USR_OS', 'Mac');
+        } elseif (strstr($HTTP_USER_AGENT, 'Linux')) {
+            $this->set('PMA_USR_OS', 'Linux');
+        } elseif (strstr($HTTP_USER_AGENT, 'Unix')) {
+            $this->set('PMA_USR_OS', 'Unix');
+        } elseif (strstr($HTTP_USER_AGENT, 'OS/2')) {
+            $this->set('PMA_USR_OS', 'OS/2');
+        } else {
+            $this->set('PMA_USR_OS', 'Other');
+        }
+
+        // 2. browser and version
+        // (must check everything else before Mozilla)
+
+        if (preg_match('@Opera(/| )([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+            $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
+            $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
+        } elseif (preg_match('@MSIE ([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
+            $this->set('PMA_USR_BROWSER_AGENT', 'IE');
+        } elseif (preg_match('@OmniWeb/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
+            $this->set('PMA_USR_BROWSER_AGENT', 'OMNIWEB');
+        //} else if (ereg('Konqueror/([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)) {
+        // Konqueror 2.2.2 says Konqueror/2.2.2
+        // Konqueror 3.0.3 says Konqueror/3
+        } elseif (preg_match('@(Konqueror/)(.*)(;)@', $HTTP_USER_AGENT, $log_version)) {
+            $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
+            $this->set('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
+        } elseif (preg_match('@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)
+                   && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)) {
+            $this->set('PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]);
+            $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
+        } elseif (preg_match('@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
+            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
+            $this->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
+        } else {
+            $this->set('PMA_USR_BROWSER_VER', 0);
+            $this->set('PMA_USR_BROWSER_AGENT', 'OTHER');
+        }
+    }
+
+    /**
+     * Whether GD2 is present
+     */
+    function checkGd2() {
+        if ( $this->get( 'GD2Available' ) == 'yes' ) {
+            $this->set('PMA_IS_GD2', 1);
+        } elseif ( $this->get( 'GD2Available' ) == 'no' ) {
+            $this->set('PMA_IS_GD2', 0);
+        } else {
+            if (!@extension_loaded('gd')) {
+                PMA_dl('gd');
+            }
+            if (!@function_exists('imagecreatetruecolor')) {
+                $this->set('PMA_IS_GD2', 0);
+            } else {
+                if (@function_exists('gd_info')) {
+                    $gd_nfo = gd_info();
+                    if (strstr($gd_nfo["GD Version"], '2.')) {
+                        $this->set('PMA_IS_GD2', 1);
+                    } else {
+                        $this->set('PMA_IS_GD2', 0);
+                    }
+                } else {
+                    /* We must do hard way... */
+                    ob_start();
+                    phpinfo(INFO_MODULES); /* Only modules */
+                    $a = strip_tags(ob_get_contents());
+                    ob_end_clean();
+                    /* Get GD version string from phpinfo output */
+                    if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
+                        if (strstr($v, '2.')) {
+                            $this->set('PMA_IS_GD2', 1);
+                        } else {
+                            $this->set('PMA_IS_GD2', 0);
+                        }
+                    } else {
+                        $this->set('PMA_IS_GD2', 0);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Whether the Web server php is running on is IIS
+     */
+    function checkWebServer() {
+        if ( isset( $_SERVER['SERVER_SOFTWARE'] )
+          && stristr( $_SERVER['SERVER_SOFTWARE'], 'Microsoft/IIS' ) ) {
+            $this->set( 'PMA_IS_IIS', 1 );
+        } else {
+            $this->set( 'PMA_IS_IIS', 0 );
+        }
+    }
+
+    /**
+     * Whether the os php is running on is windows or not
+     */
+    function checkWebServerOs() {
+        if ( defined('PHP_OS') && stristr( PHP_OS, 'win' ) ) {
+            $this->set( 'PMA_IS_WINDOWS', 1 );
+        } else {
+            $this->set( 'PMA_IS_WINDOWS', 0 );
+        }
+    }
+
+    function checkPhpVersion() {
+        $match = array();
+        if ( ! preg_match( '@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
+                phpversion(), $match ) ) {
+            $result = preg_match('@([0-9]{1,2}).([0-9]{1,2})@',
+                phpversion(), $match );
+        }
+        if ( isset( $match ) && ! empty( $match[1] ) ) {
+            if ( ! isset( $match[2] ) ) {
+                $match[2] = 0;
+            }
+            if ( ! isset( $match[3] ) ) {
+                $match[3] = 0;
+            }
+            $this->set( 'PMA_PHP_INT_VERSION',
+                (int) sprintf( '%d%02d%02d', $match[1], $match[2], $match[3] ) );
+        } else {
+            $this->set( 'PMA_PHP_INT_VERSION', 0 );
+        }
+        $this->set( 'PMA_PHP_STR_VERSION', phpversion() );
     }
 
     function __wakeup() {
-        if ( $this->source_mtime !== filemtime( $this->getSource() ) ) {
+        if ( $this->source_mtime !== filemtime( $this->getSource() )
+          || $this->error_config_file || $this->error_config_default_file ) {
             $this->load( $this->getSource() );
         }
 
@@ -67,7 +263,7 @@ class PMA_Config {
      * @uses    file_exists()
      * @uses    $this->default_source
      * @uses    $this->error_config_default_file
-     * @uses    $this->cfg
+     * @uses    $this->settings
      * @return  boolean     success
      */
     function loadDefaults() {
@@ -81,15 +277,22 @@ class PMA_Config {
         $this->default_server = $cfg['Servers'][1];
         unset( $cfg['Servers'] );
 
-        $this->cfg = $cfg;
+        $this->settings = array_merge( $this->settings, $cfg );
         return true;
     }
 
+    /**
+     * loads configuration from $source, usally the config file
+     * should be called on object creation and from __wakeup if config file
+     * has changed
+     *
+     * @param   string $source  config file
+     */
     function load( $source ) {
 
         $this->loadDefaults();
 
-        if ( $this->setSource( $source ) ) {
+        if ( ! $this->setSource( $source ) ) {
             return false;
         }
 
@@ -98,15 +301,18 @@ class PMA_Config {
          */
         $old_error_reporting = error_reporting( 0 );
         if ( function_exists( 'file_get_contents' ) ) {
-            $this->error_config_file =
-                eval( '?>' . file_get_contents( $this->setSource() ) );
+            $eval_result =
+                eval( '?>' . file_get_contents( $this->getSource() ) );
         } else {
-            $this->error_config_file =
-                eval( '?>' . implode( '\n', file( $this->setSource() ) ) );
+            $eval_result =
+                eval( '?>' . implode( '\n', file( $this->getSource() ) ) );
         }
         error_reporting( $old_error_reporting );
 
-        if ( $this->error_config_file ) {
+        if ( $eval_result === false ) {
+            $this->error_config_file = true;
+        } else  {
+            $this->error_config_file = false;
             $this->source_mtime = filemtime( $this->getSource() );
         }
 
@@ -118,26 +324,11 @@ class PMA_Config {
                 strip_tags( $_COOKIE['pma_collation_connection'] ) );
         } else {
             $this->set( 'collation_connection',
-                $this->get( $_COOKIE['DefaultConnectionCollation'] ) );
+                $this->get( 'DefaultConnectionCollation' ) );
         }
 
         $this->checkCollationConnection();
-
-        // If zlib output compression is set in the php configuration file, no
-        // output buffering should be run
-        if ( @ini_get('zlib.output_compression') ) {
-            $this->set( 'OBGzip', false );
-        }
-
-        // disable output-buffering (if set to 'auto') for IE6, else enable it.
-        if ( strtolower( $cfg['OBGzip'] ) == 'auto' ) {
-            if ( PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6
-              && PMA_USR_BROWSER_VER < 7 ) {
-                $this->set( 'OBGzip', false );
-            } else {
-                $this->set( 'OBGzip', true );
-            }
-        }
+        //$this->checkPmaAbsoluteUri();
     }
 
     /**
@@ -164,12 +355,11 @@ class PMA_Config {
         if ( isset( $this->settings[$setting] ) ) {
             return $this->settings[$setting];
         }
-
         return NULL;
     }
 
     function set( $setting, $value ) {
-        $this->cfg[$setting] = $value;
+        $this->settings[$setting] = $value;
     }
 
     /**
@@ -199,8 +389,7 @@ class PMA_Config {
         // Setup a default value to let the people and lazy syadmins work anyway,
         // they'll get an error if the autodetect code doesn't work
         $pma_absolute_uri = $this->get('PmaAbsoluteUri');
-        if ( strlen( $pma_absolute_uri ) < 0 ) {
-
+        if ( strlen( $pma_absolute_uri ) < 1 ) {
             $url = array();
 
             // At first we try to parse REQUEST_URI, it might contain full URI
@@ -323,6 +512,96 @@ class PMA_Config {
         if ( ! empty( $_REQUEST['collation_connection'] ) ) {
             $this->set( 'collation_connection',
                 strip_tags( $_REQUEST['collation_connection'] ) );
+        }
+    }
+
+    /**
+     * checks if upload is enabled
+     *
+     */
+    function checkUpload() {
+        $this->set( 'enbale_upload', true );
+        if ( strtolower( @ini_get( 'file_uploads' ) ) == 'off'
+          || @ini_get( 'file_uploads' ) == 0 ) {
+            $this->set( 'enbale_upload', false );
+        }
+    }
+
+    /**
+     * Maximum upload size as limited by PHP
+     * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
+     *
+     * this section generates $max_upload_size in bytes
+     */
+    function checkUploadSize() {
+        if ( ! $filesize = ini_get( 'upload_max_filesize' ) ) {
+            $filesize = "5M";
+        }
+
+        if ( $postsize = ini_get( 'post_max_size' ) ) {
+            $this->set( 'max_upload_size',
+                min( get_real_size( $filesize ), get_real_size( $postsize ) ) );
+        } else {
+            $this->set( 'max_upload_size', get_real_size( $filesize ) );
+        }
+    }
+
+    /**
+     * check for https
+     */
+    function checkIsHttps() {
+        // some variables used mostly for cookies:
+        $pma_uri_parts = parse_url( $this->get( 'PmaAbsoluteUri' ) );
+        if ( isset( $pma_uri_parts['scheme'] )
+          && $pma_uri_parts['scheme'] == 'https' ) {
+            $this->set( 'is_https', true );
+        } else {
+            $this->set( 'is_https', false );
+        }
+    }
+
+    /**
+     * detect correct cookie path
+     */
+    function checkCookiePath() {
+        // some variables used mostly for cookies:
+        $pma_uri_parts = parse_url( $this->get( 'PmaAbsoluteUri' ) );
+        $cookie_path   = substr( $pma_uri_parts['path'], 0,
+            strrpos( $pma_uri_parts['path'], '/' ) ) . '/';
+        $this->set( 'cookie_path', $cookie_path );
+    }
+
+    /**
+     * enables backward compatibility
+     */
+    function enableBc() {
+
+        $GLOBALS['cfg']             =& $this->settings;
+        $GLOBALS['default_server']  =& $this->default_server;
+        $GLOBALS['collation_connection'] = $this->get( 'collation_connection' );
+        $GLOBALS['is_upload']       = $this->get( 'enable_upload' );
+        $GLOBALS['max_upload_size'] = $this->get( 'max_upload_size' );
+        $GLOBALS['cookie_path']     = $this->get( 'cookie_path' );
+        $GLOBALS['is_https']        = $this->get( 'is_https' );
+
+        $defines = array(
+            'PMA_VERSION',
+            'PMA_THEME_VERSION',
+            'PMA_THEME_GENERATION',
+            'PMA_PHP_STR_VERSION',
+            'PMA_PHP_INT_VERSION',
+            'PMA_IS_WINDOWS',
+            'PMA_IS_IIS',
+            'PMA_IS_GD2',
+            'PMA_USR_OS',
+            'PMA_USR_BROWSER_VER',
+            'PMA_USR_BROWSER_AGENT',
+             );
+
+        foreach ( $defines as $define ) {
+            if ( ! defined( $define ) ) {
+                define( $define, $this->get( $define ) );
+            }
         }
     }
 
