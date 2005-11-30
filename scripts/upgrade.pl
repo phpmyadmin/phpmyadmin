@@ -2,8 +2,8 @@
 #
 # $Id$
 #
-# upgrade.pl - automatic phpmyadmin upgrader 
-# 
+# upgrade.pl - automatic phpmyadmin upgrader
+#
 #
 # 2005-05-08, swix@users.sourceforge.net:
 # - created script
@@ -20,7 +20,7 @@ my $source_url = "http://www.phpmyadmin.net/latest.txt";
 # usage
 #
 
-if (!$ARGV[0] || (($ARGV[0] eq "--force") && !$ARGV[1])) { 
+if (!$ARGV[0] || (($ARGV[0] eq "--force") && !$ARGV[1])) {
 	print "\n";
 	print "usage: $0 [--force] <target_directory>\n\n";
 	print "  The location specified by <target_directory> will be backed up and replaced\n";
@@ -32,12 +32,12 @@ if (!$ARGV[0] || (($ARGV[0] eq "--force") && !$ARGV[1])) {
 my $forced;
 my $targetdirectory;
 
-if ($ARGV[0] eq "--force") { 
+if ($ARGV[0] eq "--force") {
 	$forced = 1;
-	$targetdirectory = $ARGV[1]; 
+	$targetdirectory = $ARGV[1];
 } else {
 	$forced = 0;
-	$targetdirectory = $ARGV[0];  
+	$targetdirectory = $ARGV[0];
 }
 
 if ($targetdirectory =~ /^(.*)\/$/) {
@@ -56,7 +56,7 @@ if (!-f "$targetdirectory/config.inc.php") {
 }
 
 
-# 
+#
 # get current release information
 #
 
@@ -103,7 +103,7 @@ if (-d $directory) {
 # check the installed version
 #
 
-if (open(DEFINES, $targetdirectory .'/libraries/defines.lib.php')) {
+if (open(DEFINES, $targetdirectory .'/libraries/Config.class.php')) {
 	my $versionStatus = 0;
 	$installedversion = "unknownversion";
 
@@ -127,11 +127,11 @@ if (open(DEFINES, $targetdirectory .'/libraries/defines.lib.php')) {
 		if ($converted_installedversion gt $converted_version && !$forced) {
 			print "Local version ($installedversion) newer than latest stable release ($version), not updating.  (use \"--force\")\n";
 			exit(0);
-			
+
 		} elsif ($installedversion eq $version && !$forced) {
 			print "Local version ($version) already up to date, not updating  (you can use \"--force\")\n";
 			exit(0);
-			
+
 		} else {
 			$versionStatus = 1;
 		}
@@ -142,9 +142,9 @@ if (open(DEFINES, $targetdirectory .'/libraries/defines.lib.php')) {
 	}
 }
 
-# 
+#
 # ask for confirmation
-# 
+#
 
 print "\n";
 print "phpMyAdmin upgrade summary:\n";
@@ -192,7 +192,7 @@ if (!-f $filename) {
 
 #
 # setup
-# 
+#
 
 print "installing...\n";
 
