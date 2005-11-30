@@ -56,7 +56,7 @@ class PMA_Config {
      *
      * @param   string  source to read config from
      */
-    function __construct( $source ) {
+    function __construct( $source = NULL ) {
 
         // functions need to refresh in case of config file changed goes in
         // PMA_Config::load()
@@ -288,11 +288,11 @@ class PMA_Config {
      *
      * @param   string $source  config file
      */
-    function load( $source ) {
+    function load( $source = NULL ) {
 
         $this->loadDefaults();
 
-        if ( ! $this->setSource( $source ) ) {
+        if ( ! $source || ! $this->setSource( $source ) ) {
             return false;
         }
 
