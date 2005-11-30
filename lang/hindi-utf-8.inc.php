@@ -994,4 +994,5 @@ $strOpenNewWindow = 'Open new phpMyAdmin window';  //to translate
 $strLanguageUnknown = 'Unknown language: %1$s.';  //to translate
 $strLanguageFileNotFound = 'Language file "%1$s" not found.';  //to translate
 $strThemeNoPreviewAvailable = 'No preview available.';  //to translate
+$strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
 ?>

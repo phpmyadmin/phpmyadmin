@@ -145,6 +145,7 @@ $strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';
 $strCompleteInserts = 'Complete inserts';
 $strCompression = 'Compression';
 $strCompressionWillBeDetected = 'Imported file compression will be automatically detected from: %s';
+$strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';
 $strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if PHP finds a parse error in it or PHP cannot find the file.<br />Please call the configuration file directly using the link below and read the PHP error message(s) that you receive. In most cases a quote or a semicolon is missing somewhere.<br />If you receive a blank page, everything is fine.';
 $strConfigureTableCoord = 'Please configure the coordinates for table %s';
 $strConnectionError = 'Cannot connect: invalid settings.';

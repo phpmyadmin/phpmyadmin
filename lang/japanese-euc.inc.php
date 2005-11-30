@@ -975,4 +975,5 @@ $strThemeNoPreviewAvailable = 'No preview available.';  //to translate
 $strTimeoutInfo = 'Previous import timed out, after resubmitting will continue from position %d.';  //to translate
 $strTimeoutNothingParsed = 'However on last run no data has been parsed, this usually means phpMyAdmin won\'t be able to finish this import unless you increase php time limits.';  //to translate
 
+$strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
 ?>

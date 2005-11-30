@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-11-30 Michal Čihař  <michal@cihar.com>
+    * lang/*: Messages for Sebastian.
+
 2005-11-30 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/Config.class.php:
       - merged code from common.inc.php and defines.lib.php

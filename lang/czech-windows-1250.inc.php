@@ -967,4 +967,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
+$strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
 ?>
