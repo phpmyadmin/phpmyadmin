@@ -20,7 +20,6 @@
  * #0031 definition of functions        LABEL_definition_of_functions
  * #2300 parsing of the config file     label_parsing_config_file
  * #2331 loading language file          label_loading_language_file
- * - load of the libraries/defines.lib.php library label_defines
  * - load of mysql extension (if necessary) label_loading_mysql
  * - loading of an authentication library label_
  * - db connection
@@ -2459,13 +2458,6 @@ require_once('./libraries/grab_globals.lib.php');
  */
 $GLOBALS['PMA_errors'] = array();
 
-
-/**
- * Gets constants that defines the PHP version number.
- * This include must be located physically before any code that needs to
- * reference the constants, else PHP 3.0.16 won't be happy.
- */
-require_once('./libraries/defines.lib.php');
 
 /******************************************************************************/
 /* parsing config file                         label_parsing_config_file      */
