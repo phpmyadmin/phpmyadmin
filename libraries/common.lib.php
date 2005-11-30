@@ -310,6 +310,96 @@ function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userl
     return $dblist;
 }
 
+/**
+ * Converts numbers like 10M into bytes
+ *
+ * @param   string  $size
+ * @return  integer $size
+ */
+function get_real_size( $size = 0 ) {
+    if ( ! $size ) {
+        return 0;
+    }
+    $scan['MB'] = 1048576;
+    $scan['Mb'] = 1048576;
+    $scan['M']  = 1048576;
+    $scan['m']  = 1048576;
+    $scan['KB'] =    1024;
+    $scan['Kb'] =    1024;
+    $scan['K']  =    1024;
+    $scan['k']  =    1024;
+
+    while ( list( $key ) = each( $scan ) ) {
+        if ( ( strlen( $size ) > strlen( $key ) )
+          && ( substr( $size, strlen( $size ) - strlen( $key ) ) == $key ) ) {
+            $size = substr($size, 0, strlen($size) - strlen($key)) * $scan[$key];
+            break;
+        }
+    }
+    return $size;
+} // end function get_real_size()
+
+/**
+ * loads php module
+ *
+ * @uses    PHP_OS
+ * @uses    extension_loaded()
+ * @uses    ini_get()
+ * @uses    function_exists()
+ * @uses    ob_start()
+ * @uses    phpinfo()
+ * @uses    strip_tags()
+ * @uses    ob_get_contents()
+ * @uses    ob_end_clean()
+ * @uses    preg_match()
+ * @uses    strtoupper()
+ * @uses    substr()
+ * @uses    dl()
+ * @param   string  $module name if module to load
+ * @return  boolean success loading module
+ */
+function PMA_dl( $module ) {
+
+    static $dl_allowed = NULL;
+
+    if ( extension_loaded( $module ) ) {
+        return true;
+    }
+
+    if ( NULL === $dl_allowed ) {
+        if ( ! @ini_get('safe_mode')
+          && @ini_get('enable_dl')
+          && @function_exists('dl') ) {
+            ob_start();
+            phpinfo(INFO_GENERAL); /* Only general info */
+            $a = strip_tags(ob_get_contents());
+            ob_end_clean();
+            if (preg_match('@Thread Safety[[:space:]]*enabled@', $a)) {
+                if (preg_match('@Server API[[:space:]]*\(CGI\|CLI\)@', $a)) {
+                    $dl_allowed = TRUE;
+                } else {
+                    $dl_allowed = FALSE;
+                }
+            } else {
+                $dl_allowed = TRUE;
+            }
+        } else {
+            $dl_allowed = FALSE;
+        }
+    }
+
+    if ( ! $dl_allowed ) {
+        return false;
+    }
+
+    if ( strtoupper( substr( PHP_OS, 0, 3 ) ) === 'WIN' ) {
+        $module_file = 'php_' . $module . '.dll';
+    } else {
+        $module_file = $module . '.so';
+    }
+
+    return @dl( $module_file );
+}
 
 /**
  * include here only libraries which contain only function definitions
@@ -319,36 +409,11 @@ function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userl
 require_once('./libraries/sanitizing.lib.php');
 require_once('./libraries/Theme.class.php');
 require_once('./libraries/Theme_Manager.class.php');
+require_once('./libraries/Config.class.php');
 
 
 
 if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
-    /**
-     * @TODO    add documentation
-     */
-    function get_real_size($size=0) {
-    /// Converts numbers like 10M into bytes
-        if (!$size) {
-            return 0;
-        }
-        $scan['MB'] = 1048576;
-        $scan['Mb'] = 1048576;
-        $scan['M'] = 1048576;
-        $scan['m'] = 1048576;
-        $scan['KB'] = 1024;
-        $scan['Kb'] = 1024;
-        $scan['K'] = 1024;
-        $scan['k'] = 1024;
-
-        while (list($key) = each($scan)) {
-            if ((strlen($size)>strlen($key))&&(substr($size, strlen($size) - strlen($key))==$key)) {
-                $size = substr($size, 0, strlen($size) - strlen($key)) * $scan[$key];
-                break;
-            }
-        }
-        return $size;
-    } // end function
-
     /**
      * Displays the maximum size for an upload
      *
@@ -791,14 +856,12 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     } // end function
 
     /**
-     * Send HTTP header, taking IIS limits into account
-     *                   ( 600 seems ok)
+     * Send HTTP header, taking IIS limits into account ( 600 seems ok)
      *
-     * @param   string   the header to send
-     *
+     * @param   string   $uri the header to send
      * @return  boolean  always true
      */
-    function PMA_sendHeaderLocation($uri)
+    function PMA_sendHeaderLocation( $uri )
     {
         if (PMA_IS_IIS && strlen($uri) > 600) {
 
@@ -1760,7 +1823,8 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
      *
      * @return string  the results to be echoed or saved in an array
      */
-    function PMA_linkOrButton($url, $message, $tag_params = array(), $new_form = TRUE, $strip_img = FALSE, $target = '')
+    function PMA_linkOrButton($url, $message, $tag_params = array(),
+        $new_form = TRUE, $strip_img = FALSE, $target = '')
     {
         if ( ! is_array( $tag_params ) )
         {
@@ -1779,14 +1843,17 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
         $tag_params_strings = array();
         foreach( $tag_params as $par_name => $par_value ) {
             // htmlentities() only on non javascript
-            $par_value = substr( $par_name,0 ,2 ) == 'on' ? $par_value : htmlentities( $par_value );
+            $par_value = substr( $par_name,0 ,2 ) == 'on'
+                ? $par_value
+                : htmlentities( $par_value );
             $tag_params_strings[] = $par_name . '="' . $par_value . '"';
         }
 
         // previously the limit was set to 2047, it seems 1000 is better
         if (strlen($url) <= 1000) {
-            $ret            = '<a href="' . $url . '" ' . implode( ' ', $tag_params_strings ) . '>' . "\n"
-                            . '    ' . $message . '</a>' . "\n";
+            $ret = '<a href="' . $url . '" '
+                . implode( ' ', $tag_params_strings ) . '>' . "\n"
+                . '    ' . $message . '</a>' . "\n";
         }
         else {
             // no spaces (linebreaks) at all
@@ -1819,23 +1886,32 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
             }
             foreach ($query_parts AS $query_pair) {
                 list($eachvar, $eachval) = explode('=', $query_pair);
-                $ret .= '<input type="hidden" name="' . $subname_open . $eachvar . $subname_close . '" value="' . htmlspecialchars(urldecode($eachval)) . '" />';
+                $ret .= '<input type="hidden" name="' . $subname_open . $eachvar
+                    . $subname_close . '" value="'
+                    . htmlspecialchars(urldecode($eachval)) . '" />';
             } // end while
 
             if (stristr($message, '<img')) {
                 if ($strip_img) {
                     $message = trim( strip_tags( $message ) );
-                    $ret .= '<input type="submit"' . $submit_name . ' ' . implode( ' ', $tag_params_strings )
-                          . ' value="' . htmlspecialchars($message) . '" />';
+                    $ret .= '<input type="submit"' . $submit_name . ' '
+                        . implode( ' ', $tag_params_strings )
+                        . ' value="' . htmlspecialchars($message) . '" />';
                 } else {
-                    $ret .= '<input type="image"' . $submit_name . ' ' . implode( ' ', $tag_params_strings )
-                          . ' src="' . preg_replace('°^.*\ssrc="([^"]*)".*$°si', '\1', $message) . '"'
-                          . ' value="' . htmlspecialchars(preg_replace('°^.*\salt="([^"]*)".*$°si', '\1', $message)) . '" />';
+                    $ret .= '<input type="image"' . $submit_name . ' '
+                        . implode( ' ', $tag_params_strings )
+                        . ' src="' . preg_replace(
+                            '°^.*\ssrc="([^"]*)".*$°si', '\1', $message ) . '"'
+                        . ' value="' . htmlspecialchars(
+                            preg_replace( '°^.*\salt="([^"]*)".*$°si', '\1',
+                                $message) )
+                        . '" />';
                 }
             } else {
                 $message = trim( strip_tags( $message ) );
-                $ret .= '<input type="submit"' . $submit_name . ' ' . implode( ' ', $tag_params_strings )
-                      . ' value="' . htmlspecialchars($message) . '" />';
+                $ret .= '<input type="submit"' . $submit_name . ' '
+                    . implode( ' ', $tag_params_strings )
+                    . ' value="' . htmlspecialchars($message) . '" />';
             }
             if ($new_form) {
                 $ret .= '</form>';
@@ -1872,9 +1948,11 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
     }
 
     /**
-     * Takes a string and outputs each character on a line for itself. Used mainly for horizontalflipped display mode.
+     * Takes a string and outputs each character on a line for itself. Used
+     * mainly for horizontalflipped display mode.
      * Takes care of special html-characters.
-     * Fulfills todo-item http://sourceforge.net/tracker/index.php?func=detail&aid=544361&group_id=23067&atid=377411
+     * Fulfills todo-item
+     * http://sf.net/tracker/?func=detail&aid=544361&group_id=23067&atid=377411
      *
      * @param   string   The string
      * @param   string   The Separator (defaults to "<br />\n")
@@ -2070,17 +2148,26 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
      * @access  public
      * @author  Michal Cihar (michal@cihar.com)
      */
-    function PMA_buttonOrImage($button_name, $button_class, $image_name, $text, $image) {
+    function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
+        $image) {
         global $pmaThemeImage, $propicon;
 
         /* Opera has trouble with <input type="image"> */
         /* IE has trouble with <button> */
         if (PMA_USR_BROWSER_AGENT != 'IE') {
-            echo '<button class="' . $button_class . '" type="submit" name="' . $button_name . '" value="' . $text . '" title="' . $text . '">' . "\n"
-               . '<img class="icon" src="' . $pmaThemeImage . $image . '" title="' . $text . '" alt="' . $text . '" width="16" height="16" />' . (($propicon == 'both') ? '&nbsp;' . $text : '') . "\n"
-               . '</button>' . "\n";
+            echo '<button class="' . $button_class . '" type="submit"'
+                .' name="' . $button_name . '" value="' . $text . '"'
+                .' title="' . $text . '">' . "\n"
+                .'<img class="icon" src="' . $pmaThemeImage . $image . '"'
+                .' title="' . $text . '" alt="' . $text . '" width="16"'
+                .' height="16" />'
+                .($propicon == 'both' ? '&nbsp;' . $text : '') . "\n"
+                .'</button>' . "\n";
         } else {
-            echo '<input type="image" name="' . $image_name . '" value="' .$text . '" title="' . $text . '" src="' . $pmaThemeImage . $image . '" />'  . (($propicon == 'both') ? '&nbsp;' . $text : '') . "\n";
+            echo '<input type="image" name="' . $image_name . '" value="'
+                . $text . '" title="' . $text . '" src="' . $pmaThemeImage
+                . $image . '" />'
+                . ($propicon == 'both' ? '&nbsp;' . $text : '') . "\n";
         }
     } // end function
 
@@ -2107,9 +2194,12 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
      * @access  public
      * @author  Garvin Hicking (pma@supergarv.de)
      */
-    function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1, $showAll = 200, $sliceStart = 5, $sliceEnd = 5, $percent = 20, $range = 10) {
+    function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1,
+        $showAll = 200, $sliceStart = 5, $sliceEnd = 5, $percent = 20,
+        $range = 10) {
         $gotopage = $GLOBALS['strPageNumber']
-                  . ' <select name="goToPage" onchange="goToUrl(this, \'' . $url . '\');">' . "\n";
+                  . ' <select name="goToPage" onchange="goToUrl(this, \''
+                  . $url . '\');">' . "\n";
         if ($nbTotalPage < $showAll) {
             $pages = range(1, $nbTotalPage);
         } else {
@@ -2125,20 +2215,25 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
                 $pages[] = $i;
             }
 
-            // garvin: Based on the number of results we add the specified $percent percentate to each page number,
-            // so that we have a representing page number every now and then to immideately jump to specific pages.
-            // As soon as we get near our currently chosen page ($pageNow - $range), every page number will be
+            // garvin: Based on the number of results we add the specified
+            // $percent percentate to each page number,
+            // so that we have a representing page number every now and then to
+            // immideately jump to specific pages.
+            // As soon as we get near our currently chosen page ($pageNow -
+            // $range), every page number will be
             // shown.
             $i = $sliceStart;
             $x = $nbTotalPage - $sliceEnd;
             $met_boundary = false;
             while($i <= $x) {
                 if ($i >= ($pageNow - $range) && $i <= ($pageNow + $range)) {
-                    // If our pageselector comes near the current page, we use 1 counter increments
+                    // If our pageselector comes near the current page, we use 1
+                    // counter increments
                     $i++;
                     $met_boundary = true;
                 } else {
-                    // We add the percentate increment to our current page to hop to the next one in range
+                    // We add the percentate increment to our current page to
+                    // hop to the next one in range
                     $i = $i + floor($nbTotalPage / $percent);
 
                     // Make sure that we do not cross our boundaries.
@@ -2175,7 +2270,9 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
     /**
      * @TODO    add documentation
      */
-    function PMA_generateFieldSpec($name, $type, $length, $attribute, $collation, $null, $default, $default_current_timestamp, $extra, $comment='', &$field_primary, $index, $default_orig = FALSE) {
+    function PMA_generateFieldSpec($name, $type, $length, $attribute,
+        $collation, $null, $default, $default_current_timestamp, $extra,
+        $comment='', &$field_primary, $index, $default_orig = FALSE) {
 
         // $default_current_timestamp has priority over $default
         // TODO: on the interface, some js to clear the default value
@@ -2192,7 +2289,9 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
             $query .= ' ' . $attribute;
         }
 
-        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($collation) && $collation != 'NULL' && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i', $type)) {
+        if ( PMA_MYSQL_INT_VERSION >= 40100 && !empty($collation)
+          && $collation != 'NULL'
+          && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i', $type)) {
             $query .= PMA_generateCharsetQueryPart($collation);
         }
 
@@ -2238,9 +2337,14 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
     /**
      * @TODO    add documentation
      */
-    function PMA_generateAlterTable($oldcol, $newcol, $type, $length, $attribute, $collation, $null, $default, $default_current_timestamp, $extra, $comment='', $default_orig) {
+    function PMA_generateAlterTable( $oldcol, $newcol, $type, $length,
+        $attribute, $collation, $null, $default, $default_current_timestamp,
+        $extra, $comment='', $default_orig ) {
         $empty_a = array();
-        return PMA_backquote($oldcol) . ' ' . PMA_generateFieldSpec($newcol, $type, $length, $attribute, $collation, $null, $default, $default_current_timestamp, $extra, $comment, $empty_a, -1, $default_orig);
+        return PMA_backquote($oldcol) . ' '
+            . PMA_generateFieldSpec( $newcol, $type, $length, $attribute,
+                $collation, $null, $default, $default_current_timestamp, $extra,
+                $comment, $empty_a, -1, $default_orig );
     } // end function
 
     /**
@@ -2356,49 +2460,46 @@ require_once('./libraries/grab_globals.lib.php');
 $GLOBALS['PMA_errors'] = array();
 
 
+/**
+ * Gets constants that defines the PHP version number.
+ * This include must be located physically before any code that needs to
+ * reference the constants, else PHP 3.0.16 won't be happy.
+ */
+require_once('./libraries/defines.lib.php');
+
 /******************************************************************************/
 /* parsing config file                         label_parsing_config_file      */
 
-/**
- * 2004-06-30 rabus: Ensure, that $cfg variables are not set somwhere else
- * before including the config file.
- */
-unset($cfg);
-
-/**
- * Set default configuration values.
- */
-include './config.default.php';
-
-// Remember default server config
-$default_server = $cfg['Servers'][1];
-
-// Drop all server, as they have to be configured by user
-unset($cfg['Servers']);
-
-/**
- * Parses the configuration file and gets some constants used to define
- * versions of phpMyAdmin/php/mysql...
- */
-$success_apply_user_config = false;
-// We can not use include as it fails on parse error
-$config_file = './config.inc.php';
-if ( file_exists( $config_file ) ) {
-    $old_error_reporting = error_reporting( 0 );
-    if ( function_exists( 'file_get_contents' ) ) {
-        $success_apply_user_config = eval( '?>' . file_get_contents( $config_file ) );
-    } else {
-        $success_apply_user_config =
-            eval( '?>' . implode( '\n', file( $config_file ) ) );
+if ( empty( $_SESSION['PMA_Config'] ) ) {
+    /**
+     * We really need this one!
+     */
+    if (!function_exists('preg_replace')) {
+        header( 'Location: error.php'
+            . '?lang='  . urlencode( $available_languages[$lang][2] )
+            . '&char='  . urlencode( $charset )
+            . '&dir='   . urlencode( $text_dir )
+            . '&type='  . urlencode( $strError )
+            . '&error=' . urlencode(
+                strtr( sprintf( $strCantLoad, 'pcre' ),
+                    array('<br />' => '[br]') ) )
+            . '&' . SID
+             );
+        exit();
     }
-    error_reporting( $old_error_reporting );
-    unset( $old_error_reporting );
-} else {
-    // Do not complain about missing config file
-    // FIXME: maybe we should issue warning in this case?
-    $success_apply_user_config = true;
+
+    $_SESSION['PMA_Config'] = new PMA_Config( './config.inc.php' );
+
+} elseif ( version_compare( phpversion(), '5', 'lt' ) ) {
+    $_SESSION['PMA_Config']->__wakeup();
 }
 
+if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
+    $_SESSION['PMA_Config']->checkPmaAbsoluteUri();
+}
+
+// BC
+$_SESSION['PMA_Config']->enableBc();
 
 /******************************************************************************/
 /* loading language file                       label_loading_language_file    */
@@ -2415,32 +2516,23 @@ if (file_exists('./lang/added_messages.php')) {
  */
 require_once('./libraries/select_lang.lib.php');
 
+
 /**
- * We really need this one!
+ * check for errors occured while loading config
  */
-if (!function_exists('preg_replace')) {
-    header( 'Location: error.php'
-        . '?lang='  . urlencode( $available_languages[$lang][2] )
-        . '&char='  . urlencode( $charset )
-        . '&dir='   . urlencode( $text_dir )
-        . '&type='  . urlencode( $strError )
-        . '&error=' . urlencode(
-            strtr( sprintf( $strCantLoad, 'pcre' ),
-                array('<br />' => '[br]') ) )
-        . '&' . SID
-         );
-    exit();
-}
-
-
-if ( $success_apply_user_config === FALSE ) {
-    require_once('./libraries/select_lang.lib.php');
-    // Displays the error message
+if ( $_SESSION['PMA_Config']->error_config_file ) {
     $GLOBALS['PMA_errors'][] = $strConfigFileError
         .'<br /><br />'
-        .'<a href="./config.inc.php" target="_blank">config.inc.php</a>';
+        .'<a href="' . $_SESSION['PMA_Config']->getSource() . '"'
+        .' target="_blank">' . $_SESSION['PMA_Config']->getSource() . '</a>';
 }
-unset( $success_apply_user_config );
+if ( $_SESSION['PMA_Config']->error_config_default_file ) {
+    $GLOBALS['PMA_errors'][] = sprintf( $strConfigDefaultFileError,
+        $_SESSION['PMA_Config']->default_source );
+}
+if ( $_SESSION['PMA_Config']->error_pma_uri ) {
+    $GLOBALS['PMA_errors'][] = sprintf( $strPmaUriError );
+}
 
 /**
  * Servers array fixups.
@@ -2485,78 +2577,11 @@ if (!isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
 // Cleanup
 unset($default_server);
 
-/**
- * Gets constants that defines the PHP version number.
- * This include must be located physically before any code that needs to
- * reference the constants, else PHP 3.0.16 won't be happy.
- */
-require_once('./libraries/defines.lib.php');
 
 // XSS
 if (isset($convcharset)) {
     $convcharset = PMA_sanitize($convcharset);
 }
-
-if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
-    /**
-     * Define $is_upload
-     */
-
-    $is_upload = TRUE;
-    if (strtolower(@ini_get('file_uploads')) == 'off'
-           || @ini_get('file_uploads') == 0) {
-        $is_upload = FALSE;
-    }
-
-    /**
-     * Maximum upload size as limited by PHP
-     * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
-     *
-     * this section generates $max_upload_size in bytes
-     */
-    if (!$filesize = ini_get('upload_max_filesize')) {
-        $filesize = "5M";
-    }
-    $max_upload_size = get_real_size($filesize);
-
-    if ($postsize = ini_get('post_max_size')) {
-        $postsize = get_real_size($postsize);
-        if ($postsize < $max_upload_size) {
-            $max_upload_size = $postsize;
-        }
-    }
-    unset( $filesize, $postsize );
-
-    /**
-     * other functions for maximum upload work
-     */
-
-    /**
-     * Charset conversion.
-     */
-    require_once('./libraries/charset_conversion.lib.php');
-
-    /**
-     * String handling
-     */
-    require_once('./libraries/string.lib.php');
-}
-
-// If zlib output compression is set in the php configuration file, no
-// output buffering should be run
-if (@ini_get('zlib.output_compression')) {
-    $cfg['OBGzip'] = FALSE;
-}
-
-// disable output-buffering (if set to 'auto') for IE6, else enable it.
-if (strtolower($cfg['OBGzip']) == 'auto') {
-    if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER < 7) {
-        $cfg['OBGzip'] = FALSE;
-    } else {
-        $cfg['OBGzip'] = TRUE;
-    }
-}
-
 
 /**
  * themes
@@ -2584,158 +2609,32 @@ if ( @file_exists( $GLOBALS['pmaThemePath'] . '/layout.inc.php' ) ) {
     include( $GLOBALS['pmaThemePath'] . '/layout.inc.php' );
 }
 
-
-/**
- * collation_connection
- */
- // (could be improved by executing it after the MySQL connection only if
- //  PMA_MYSQL_INT_VERSION >= 40100 )
-if (isset($_COOKIE) && !empty($_COOKIE['pma_collation_connection']) && empty($_POST['collation_connection'])) {
-    $collation_connection = $_COOKIE['pma_collation_connection'];
-}
-if (!isset($collation_connection)) {
-    $collation_connection = $GLOBALS['cfg']['DefaultConnectionCollation'];
-}
-
 if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     /**
-     * $cfg['PmaAbsoluteUri'] is a required directive else cookies won't be
-     * set properly and, depending on browsers, inserting or updating a
-     * record might fail
+     * Charset conversion.
      */
+    require_once('./libraries/charset_conversion.lib.php');
 
-    // Setup a default value to let the people and lazy syadmins work anyway,
-    // they'll get an error if the autodetect code doesn't work
-    if (empty($cfg['PmaAbsoluteUri'])) {
+    /**
+     * String handling
+     */
+    require_once('./libraries/string.lib.php');
 
-        $url = array();
-
-        // At first we try to parse REQUEST_URI, it might contain full URI
-        if (!empty($_SERVER['REQUEST_URI'])) {
-            $url = parse_url($_SERVER['REQUEST_URI']);
-        }
-
-        // If we don't have scheme, we didn't have full URL so we need to dig deeper
-        if (empty($url['scheme'])) {
-            // Scheme
-            if (!empty($_SERVER['HTTP_SCHEME'])) {
-                $url['scheme'] = $_SERVER['HTTP_SCHEME'];
-            } else {
-                $url['scheme'] = (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') ? 'https' : 'http';
-            }
-
-            // Host and port
-            if (!empty($_SERVER['HTTP_HOST'])) {
-                if (strpos($_SERVER['HTTP_HOST'], ':') > 0) {
-                    list($url['host'], $url['port']) = explode(':', $_SERVER['HTTP_HOST']);
-                } else {
-                    $url['host'] = $_SERVER['HTTP_HOST'];
-                }
-            } else if (!empty($_SERVER['SERVER_NAME'])) {
-                $url['host'] = $_SERVER['SERVER_NAME'];
-            } else {
-                // Displays the error message
-                header( 'Location: error.php'
-                        . '?lang='  . urlencode( $available_languages[$lang][2] )
-                        . '&char='  . urlencode( $charset )
-                        . '&dir='   . urlencode( $text_dir )
-                        . '&type='  . urlencode( $strError )
-                        . '&error=' . urlencode(
-                            strtr( $strPmaUriError,
-                                array( '<tt>' => '[tt]', '</tt>' => '[/tt]' ) ) )
-                        . '&' . SID
-                         );
-                exit();
-            }
-
-            // If we didn't set port yet...
-            if (empty($url['port']) && !empty($_SERVER['SERVER_PORT'])) {
-                $url['port'] = $_SERVER['SERVER_PORT'];
-            }
-
-            // And finally the path could be already set from REQUEST_URI
-            if (empty($url['path'])) {
-                if (!empty($_SERVER['PATH_INFO'])) {
-                    $path = parse_url($_SERVER['PATH_INFO']);
-                } else {
-                    // PHP_SELF in CGI often points to cgi executable, so use it as last choice
-                    $path = parse_url($_SERVER['PHP_SELF']);
-                }
-                $url['path'] = $path['path'];
-                unset($path);
-            }
-        }
-
-        // Make url from parts we have
-        $cfg['PmaAbsoluteUri'] = $url['scheme'] . '://';
-        // Was there user information?
-        if (!empty($url['user'])) {
-            $cfg['PmaAbsoluteUri'] .= $url['user'];
-            if (!empty($url['pass'])) {
-                $cfg['PmaAbsoluteUri'] .= ':' . $url['pass'];
-            }
-            $cfg['PmaAbsoluteUri'] .= '@';
-        }
-        // Add hostname
-        $cfg['PmaAbsoluteUri'] .= $url['host'];
-        // Add port, if it not the default one
-        if (!empty($url['port']) && (($url['scheme'] == 'http' && $url['port'] != 80) || ($url['scheme'] == 'https' && $url['port'] != 443))) {
-            $cfg['PmaAbsoluteUri'] .= ':' . $url['port'];
-        }
-        // And finally path, without script name, the 'a' is there not to
-        // strip our directory, when path is only /pmadir/ without filename
-        $path = dirname($url['path'] . 'a');
-        // To work correctly within transformations overview:
-        if (defined('PMA_PATH_TO_BASEDIR') && PMA_PATH_TO_BASEDIR == '../../') {
-            $path = dirname(dirname($path));
-        }
-        $cfg['PmaAbsoluteUri'] .= $path . '/';
-
-        unset($url);
-
-        // We used to display a warning if PmaAbsoluteUri wasn't set, but now
-        // the autodetect code works well enough that we don't display the
-        // warning at all. The user can still set PmaAbsoluteUri manually.
-        // See https://sourceforge.net/tracker/index.php?func=detail&aid=1257134&group_id=23067&atid=377411
-
-    } else {
-        // The URI is specified, however users do often specify this
-        // wrongly, so we try to fix this.
-
-        // Adds a trailing slash et the end of the phpMyAdmin uri if it
-        // does not exist.
-        if (substr($cfg['PmaAbsoluteUri'], -1) != '/') {
-            $cfg['PmaAbsoluteUri'] .= '/';
-        }
-
-        // If URI doesn't start with http:// or https://, we will add
-        // this.
-        if (substr($cfg['PmaAbsoluteUri'], 0, 7) != 'http://' && substr($cfg['PmaAbsoluteUri'], 0, 8) != 'https://') {
-            $cfg['PmaAbsoluteUri']          = ((!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') ? 'https' : 'http') . ':'
-                                            . (substr($cfg['PmaAbsoluteUri'], 0, 2) == '//' ? '' : '//')
-                                            . $cfg['PmaAbsoluteUri'];
-        }
-    }
-
-    // some variables used mostly for cookies:
-    $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
-    $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')) . '/';
-    $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
-
-    //
-    if ($cfg['ForceSLL'] && !$is_https) {
-        header(
-            'Location: ' . preg_replace(
-                '/^http/', 'https', $cfg['PmaAbsoluteUri'] )
-            . ( isset( $_SERVER['REQUEST_URI'] )
-                ? preg_replace( '@' . $pma_uri_parts['path'] . '@',
-                    '', $_SERVER['REQUEST_URI'] )
-                : '' )
-            . '&' . SID );
+    /**
+     * check https connection
+     */
+    if ( $_SESSION['PMA_Config']->get( 'ForceSLL' )
+      && ! $_SESSION['PMA_Config']->get( 'is_https' ) ) {
+        PMA_sendHeaderLocation(
+            preg_replace( '/^http/', 'https',
+                $_SESSION['PMA_Config']->get( 'PmaAbsoluteUri' ) )
+            . PMA_generate_common_url( $_GET ) );
         exit;
     }
 
-
+    /**
+     * @var array database list
+     */
     $dblist       = array();
 
     /**
@@ -2856,16 +2755,19 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         // must be open after this one so it would be default one for all the
         // scripts)
         if ($cfg['Server']['controluser'] != '') {
-            $controllink = PMA_DBI_connect($cfg['Server']['controluser'], $cfg['Server']['controlpass'], TRUE);
+            $controllink = PMA_DBI_connect( $cfg['Server']['controluser'],
+                $cfg['Server']['controlpass'], TRUE );
         } else {
-            $controllink = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password'], TRUE);
+            $controllink = PMA_DBI_connect( $cfg['Server']['user'],
+                $cfg['Server']['password'], TRUE );
         } // end if ... else
 
         // Pass #1 of DB-Config to read in master level DB-Config will go here
         // Robbat2 - May 11, 2002
 
         // Connects to the server (validates user's login)
-        $userlink = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password'], FALSE);
+        $userlink = PMA_DBI_connect( $cfg['Server']['user'],
+            $cfg['Server']['password'], FALSE );
 
         // Pass #2 of DB-Config to read in user level DB-Config will go here
         // Robbat2 - May 11, 2002
@@ -2896,7 +2798,8 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 // The current position
                 if ($dblist[$i] == '*' && $dblist_asterisk_bool == FALSE) {
                     $dblist_asterisk_bool = TRUE;
-                    $dblist_full = PMA_safe_db_list(FALSE, $controllink, FALSE, $rs, $userlink, $cfg, $dblist);
+                    $dblist_full = PMA_safe_db_list(FALSE, $controllink, FALSE,
+                        $rs, $userlink, $cfg, $dblist);
                     foreach ($dblist_full as $dbl_val) {
                         if (!in_array($dbl_val, $dblist)) {
                             $true_dblist[] = $dbl_val;
@@ -2931,7 +2834,8 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                         PMA_DBI_free_result($rs);
                     }
                 } else {
-                    $true_dblist[]     = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
+                    $true_dblist[] = str_replace('\\_', '_',
+                        str_replace('\\%', '%', $dblist[$i]));
                 } // end if... else...
             } // end for
             $dblist       = $true_dblist;
@@ -2945,7 +2849,8 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         } // end if (!$dblist_cnt)
 
         if (isset($dblist_full) && !count($dblist_full)) {
-            $dblist = PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userlink, $cfg, $dblist);
+            $dblist = PMA_safe_db_list($only_db_check, $controllink,
+                $dblist_cnt, $rs, $userlink, $cfg, $dblist);
         }
         unset( $only_db_check, $dblist_full );
 
@@ -2961,20 +2866,16 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     } // end if
 
     /**
-     * save settings in cookies
+     * save some settings in cookies
      */
     PMA_setCookie( 'pma_lang', $GLOBALS['lang'] );
     PMA_setCookie( 'pma_charset', $GLOBALS['convcharset'] );
     PMA_setCookie( 'pma_collation_connection', $GLOBALS['collation_connection'] );
 
     $_SESSION['PMA_Theme_Manager']->setThemeCookie();
-    // Allow different theme per server
-    $theme_cookie_name = 'pma_theme';
-    if ( isset( $server ) && $GLOBALS['cfg']['ThemePerServer'] ) {
-        $theme_cookie_name .= '-' . $server;
-    }
-    PMA_setCookie( $theme_cookie_name, $GLOBALS['pmaTheme'] );
 
 } // end if ! defined( 'PMA_MINIMUM_COMMON' )
+
+$_SESSION['PMA_Config']->done = true;
 
 ?>
