@@ -329,6 +329,8 @@ class PMA_Config {
 
         $this->checkCollationConnection();
         //$this->checkPmaAbsoluteUri();
+        $this->settings = array_merge( $this->settings, $cfg );
+        return true;
     }
 
     /**
