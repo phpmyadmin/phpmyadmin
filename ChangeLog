@@ -8,6 +8,8 @@ $Source$
 2005-12-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php, Theme.class.php:
       missing '/' in img path (bug #1370437)
+    * libraries/Config.class.php:
+      no error for missing config file (bug #1370269)
 
 2005-11-30 Michal Čihař  <michal@cihar.com>
     * lang/*: Messages for Sebastian.

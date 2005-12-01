@@ -339,9 +339,13 @@ class PMA_Config {
      */
     function setSource( $source ) {
         if ( ! file_exists( $source ) ) {
+            // do not trigger error here
+            // https://sf.net/tracker/?func=detail&aid=1370269&group_id=23067&atid=377408
+            /*
             trigger_error(
                 'phpMyAdmin-ERROR: unkown configuration source: ' . $source,
                 E_USER_WARNING );
+            */
             return false;
         }
         $this->source = trim( $source );
