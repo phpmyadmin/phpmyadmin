@@ -36,8 +36,8 @@ if (!@function_exists('session_name')) {
 }
 
 // session cookie settings
-session_set_cookie_params( 0, $GLOBALS['cookie_path'],
-    '', $GLOBALS['is_https'] );
+session_set_cookie_params( 0, PMA_Config::getCookiePath(),
+    '', PMA_Config::isHttps() );
 
 // disable starting of sessions before all settings are done
 ini_set( 'session.auto_start', false );

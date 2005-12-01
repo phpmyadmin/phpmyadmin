@@ -556,25 +556,86 @@ class PMA_Config {
      * check for https
      */
     function checkIsHttps() {
-        // some variables used mostly for cookies:
-        $pma_uri_parts = parse_url( $this->get( 'PmaAbsoluteUri' ) );
-        if ( isset( $pma_uri_parts['scheme'] )
-          && $pma_uri_parts['scheme'] == 'https' ) {
-            $this->set( 'is_https', true );
-        } else {
-            $this->set( 'is_https', false );
+        $this->set( 'is_https', PMA_Config::isHttps() );
+    }
+
+    /**
+     * @static
+     */
+    function isHttps() {
+        static $is_https = NULL;
+
+        if ( NULL !== $is_https ) {
+            return $is_https;
         }
+
+        $url = array();
+
+        // At first we try to parse REQUEST_URI, it might contain full URI
+        if ( ! empty($_SERVER['REQUEST_URI'] ) ) {
+            $url = parse_url( $_SERVER['REQUEST_URI'] );
+        }
+
+        // If we don't have scheme, we didn't have full URL so we need to
+        // dig deeper
+        if ( empty( $url['scheme'] ) ) {
+            // Scheme
+            if ( ! empty( $_SERVER['HTTP_SCHEME'] ) ) {
+                $url['scheme'] = $_SERVER['HTTP_SCHEME'];
+            } else {
+                $url['scheme'] =
+                    !empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off'
+                        ? 'https'
+                        : 'http';
+            }
+        }
+
+        if ( isset( $url['scheme'] )
+          && $url['scheme'] == 'https' ) {
+            $is_https = true;
+        } else {
+            $is_https = false;
+        }
+
+        return $is_https;
     }
 
     /**
      * detect correct cookie path
      */
     function checkCookiePath() {
-        // some variables used mostly for cookies:
-        $pma_uri_parts = parse_url( $this->get( 'PmaAbsoluteUri' ) );
-        $cookie_path   = substr( $pma_uri_parts['path'], 0,
-            strrpos( $pma_uri_parts['path'], '/' ) ) . '/';
-        $this->set( 'cookie_path', $cookie_path );
+        $this->set( 'cookie_path', PMA_Config::getCookiePath() );
+    }
+
+    /**
+     * @static
+     */
+    function getCookiePath() {
+        static $cookie_path = NULL;
+
+        if ( NULL !== $cookie_path ) {
+            return $cookie_path;
+        }
+
+        if ( ! empty($_SERVER['REQUEST_URI'] ) ) {
+            $url = parse_url( $_SERVER['REQUEST_URI'] );
+        }
+
+        // If we don't have path
+        if ( empty( $url['path'] ) ) {
+            if (!empty($_SERVER['PATH_INFO'])) {
+                $url = parse_url($_SERVER['PATH_INFO']);
+            } else {
+                // PHP_SELF in CGI often points to cgi executable, so use it
+                // as last choice
+                $url = parse_url($_SERVER['PHP_SELF']);
+            }
+        }
+
+        $cookie_path   = substr( $url['path'], 0,
+            strrpos( $url['path'], '/' ) ) . '/';
+
+        return $cookie_path;
     }
 
     /**
