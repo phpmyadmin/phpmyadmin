@@ -85,7 +85,9 @@ class PMA_Theme {
 
         $theme->setPath( $folder );
 
-        $theme->loadInfo();
+        if ( ! $theme->loadInfo() ) {
+            return false;
+        }
 
         $theme->checkImgPath();
 
