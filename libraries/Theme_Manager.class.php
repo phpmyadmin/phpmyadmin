@@ -70,6 +70,10 @@ class PMA_Theme_Manager {
         }
     }
 
+    function __wakeup() {
+        $this->loadThemes( $this->themes_path );
+    }
+
     function setActiveTheme( $theme = NULL ) {
         if ( ! $this->checkTheme( $theme ) ) {
             $GLOBALS['PMA_errors'][] = sprintf( $GLOBALS['strThemeNotFound'],
@@ -157,27 +161,41 @@ class PMA_Theme_Manager {
 
     /**
      * read all themes
+     *
+     * @param   string  $folder themes folders
      */
     function loadThemes( $folder ) {
-        $this->themes = array();
-
         if ( $handleThemes = opendir( $folder ) ) {
             // check for themes directory
-            while (FALSE !== ($PMA_Theme = readdir($handleThemes))) {
+            while ( FALSE !== ($PMA_Theme = readdir($handleThemes)) ) {
+                if ( array_key_exists( $PMA_Theme, $this->themes ) ) {
+                    $new_themes[$PMA_Theme] = $this->themes[$PMA_Theme];
+                    continue;
+                }
                 $new_theme = PMA_Theme::load( $folder . '/' . $PMA_Theme );
                 if ( $new_theme ) {
                     $new_theme->setId( $PMA_Theme );
-                    $this->themes[$PMA_Theme] = $new_theme;
+                    $new_themes[$PMA_Theme] = $new_theme;
                 }
             } // end get themes
             closedir( $handleThemes );
         } else {
+            trigger_error(
+                'phpMyAdmin-ERROR: can not open themes folder: ' . $folder,
+                E_USER_WARNING );
             return false;
         } // end check for themes directory
+
+        $this->themes = $new_themes;
 
         ksort( $this->themes );
     }
 
+    /**
+     * checks if given theme name is a known theme
+     *
+     * @param   string  $theme  name fo theme to check for
+     */
     function checkTheme( $theme ) {
         if ( ! array_key_exists( $theme, $this->themes ) ) {
             return false;
@@ -186,6 +204,11 @@ class PMA_Theme_Manager {
         return true;
     }
 
+    /**
+     * returns HTML selectbox, with or without form enclsoed
+     *
+     * @param   boolean $form   wether enclosed by from tags or not
+     */
     function getHtmlSelectBox( $form = true ) {
         $select_box = '';
 

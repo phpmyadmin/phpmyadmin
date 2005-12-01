@@ -11,6 +11,7 @@ $Source$
     * libraries/Config.class.php:
       no error for missing config file (bug #1370269)
     * libraries/session.inc.php: session cookie path (bug #1370294)
+    * libraries/Theme_Manager.class.php: update theme list on wakeup
 
 2005-11-30 Michal Čihař  <michal@cihar.com>
     * lang/*: Messages for Sebastian.
