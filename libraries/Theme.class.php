@@ -34,6 +34,44 @@ class PMA_Theme {
     var $types = array( 'left', 'right', 'print' );
 
     /**
+     * @var integer last modification time for info file
+     */
+    var $mtime_info = 0;
+
+    function __wakeup() {
+        $this->loadInfo();
+        $this->checkImgPath();
+    }
+
+    function loadInfo() {
+        if ( ! file_exists( $this->getPath() . '/info.inc.php' ) ) {
+            return false;
+        }
+
+        if ( $this->mtime_info === filemtime( $this->getPath() . '/info.inc.php' ) ) {
+            return true;
+        }
+
+        @include( $this->getPath() . '/info.inc.php' );
+
+        // did it set correctly?
+        if ( ! isset( $theme_name ) ) {
+            return false;
+        }
+
+        $this->mtime_info = filemtime( $this->getPath() . '/info.inc.php' );
+
+        if ( isset( $theme_full_version ) ) {
+            $this->setVersion( $theme_full_version );
+        } elseif ( isset( $theme_generation, $theme_version ) ) {
+            $this->setVersion( $theme_generation . '.' . $theme_version );
+        }
+        $this->setName( $theme_name );
+
+        return true;
+    }
+
+    /**
      * returns theme object loaded from given folder
      * or false if theme is invalid
      *
@@ -42,41 +80,33 @@ class PMA_Theme {
      * @return  object  PMA_Theme
      */
     function load( $folder ) {
-        if ( ! file_exists( $folder . '/info.inc.php' ) ) {
-            return false;
-        }
-
-        @include( $folder . '/info.inc.php' );
-
-        // did it set correctly?
-        if ( ! isset( $theme_name ) ) {
-            return false;
-        }
 
         $theme = new PMA_Theme();
 
         $theme->setPath( $folder );
 
-        if ( isset( $theme_full_version ) ) {
-            $theme->setVersion( $theme_full_version );
-        } elseif ( isset( $theme_generation, $theme_version ) ) {
-            $theme->setVersion( $theme_generation . '.' . $theme_version );
-        }
-        $theme->setName( $theme_name );
+        $theme->loadInfo();
 
-        if ( is_dir( $theme->getPath() . 'img/' ) ) {
-            $theme->setImgPath( $theme->getPath() . 'img/' );
-        } elseif ( is_dir( $GLOBALS['cfg']['ThemePath'] . '/original/img/' ) ) {
-            $theme->setImgPath( $GLOBALS['cfg']['ThemePath'] . '/original/img/' );
-        } else {
-            $GLOBALS['PMA_errors'][] =
-                sprintf( $GLOBALS['strThemeNoValidImgPath'], $theme_name );
-            trigger_error(
-                sprintf( $GLOBALS['strThemeNoValidImgPath'], $theme_name ),
-                E_USER_WARNING );
-        }
+        $theme->checkImgPath();
 
         return $theme;
+    }
+
+    function checkImgPath() {
+        if ( is_dir( $this->getPath() . '/img/' ) ) {
+            $this->setImgPath( $this->getPath() . '/img/' );
+            return true;
+        } elseif ( is_dir( $GLOBALS['cfg']['ThemePath'] . '/original/img/' ) ) {
+            $this->setImgPath( $GLOBALS['cfg']['ThemePath'] . '/original/img/' );
+            return true;
+        } else {
+            $GLOBALS['PMA_errors'][] =
+                sprintf( $GLOBALS['strThemeNoValidImgPath'], $this->getName() );
+            trigger_error(
+                sprintf( $GLOBALS['strThemeNoValidImgPath'], $this->getName() ),
+                E_USER_WARNING );
+            return false;
+        }
     }
 
     /**

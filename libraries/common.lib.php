@@ -2588,6 +2588,9 @@ if ( isset( $_REQUEST['set_theme'] ) ) {
 }
 
 $_SESSION['PMA_Theme'] = $_SESSION['PMA_Theme_Manager']->theme;
+if ( version_compare( phpversion(), '5', 'lt' ) ) {
+    $_SESSION['PMA_Theme']->__wakeup();
+}
 
 // BC
 $GLOBALS['theme']           = $_SESSION['PMA_Theme']->getName();
@@ -2597,8 +2600,8 @@ $GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
 /**
  * load layout file if exists
  */
-if ( @file_exists( $GLOBALS['pmaThemePath'] . '/layout.inc.php' ) ) {
-    include( $GLOBALS['pmaThemePath'] . '/layout.inc.php' );
+if ( @file_exists( $_SESSION['PMA_Theme']->getLayoutFile() ) ) {
+    include( $_SESSION['PMA_Theme']->getLayoutFile() );
 }
 
 if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
