@@ -2,8 +2,8 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 /**
- * session handling 
- * 
+ * session handling
+ *
  * @TODO    add failover or warn if sessions are not configured properly
  * @TODO    add an option to use mm-module for session handler
  * @see     http://www.php.net/session
@@ -35,6 +35,10 @@ if (!@function_exists('session_name')) {
     exit();
 }
 
+// session cookie settings
+session_set_cookie_params( 0, $GLOBALS['cookie_path'],
+    '', $GLOBALS['is_https'] );
+
 // disable starting of sessions before all settings are done
 ini_set( 'session.auto_start', false );
 
@@ -56,7 +60,7 @@ ini_set( 'session.bug_compat_42', false );
 ini_set( 'session.bug_compat_warn', true );
 
 // use more secure session ids (with PHP 5)
-if ( version_compare( PHP_VERSION, '5.0.0', 'ge' ) 
+if ( version_compare( PHP_VERSION, '5.0.0', 'ge' )
   && substr( PHP_OS, 0 ,3 ) != 'WIN' ) {
     ini_set( 'session.hash_function', 1 );
     ini_set( 'session.hash_bits_per_character', 6 );
@@ -72,7 +76,7 @@ if ( version_compare( PHP_VERSION, '5.0.0', 'ge' )
  * trys to secure session from hijacking and fixation
  * should be called before login and after successfull login
  * (only required if sensitive information stored in session)
- * 
+ *
  * @uses    session_regenerate_id() to secure session from fixation
  * @uses    session_id()            to set new session id
  * @uses    strip_tags()            to prevent XSS attacks in SID

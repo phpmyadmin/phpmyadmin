@@ -10,6 +10,7 @@ $Source$
       missing '/' in img path (bug #1370437)
     * libraries/Config.class.php:
       no error for missing config file (bug #1370269)
+    * libraries/session.inc.php: session cookie path (bug #1370294)
 
 2005-11-30 Michal Čihař  <michal@cihar.com>
     * lang/*: Messages for Sebastian.
