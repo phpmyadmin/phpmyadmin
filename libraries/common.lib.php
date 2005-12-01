@@ -2585,6 +2585,8 @@ if ( ! isset( $_SESSION['PMA_Theme_Manager'] ) ) {
 if ( isset( $_REQUEST['set_theme'] ) ) {
     // if user submit a theme
     $_SESSION['PMA_Theme_Manager']->setActiveTheme( $_REQUEST['set_theme'] );
+} elseif ( version_compare( phpversion(), '5', 'lt' ) ) {
+    $_SESSION['PMA_Theme_Manager']->__wakeup();
 }
 
 $_SESSION['PMA_Theme'] = $_SESSION['PMA_Theme_Manager']->theme;
