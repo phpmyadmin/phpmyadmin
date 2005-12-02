@@ -14,6 +14,7 @@ $Source$
       thanks to Matt "Cyber Dog"
     * libraries/tbl_indexes.lib.php, tbl_properties_structure.php,
       tbl_indexes.php: revised XHTML output
+    * themes/original/css/theme_left|right_css.php: use $GLOBALS
 
 
 2005-12-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>

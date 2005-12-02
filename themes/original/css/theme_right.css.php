@@ -3,7 +3,7 @@
 body {
     margin:             0.5em;
     padding:            0;
-    font-family:        <?php echo $right_font_family; ?>;
+    font-family:        <?php echo $GLOBALS['right_font_family']; ?>;
     color:              #000000;
     background-image:   url(../themes/original/img/vertical_line.png);
     background-repeat:  repeat-y;

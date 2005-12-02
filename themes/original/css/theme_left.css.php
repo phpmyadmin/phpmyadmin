@@ -1,7 +1,7 @@
 /******************************************************************************/
 /* general tags */
 body {
-    font-family:        <?php echo $left_font_family; ?>;
+    font-family:        <?php echo $GLOBALS['left_font_family']; ?>;
     background-color:   #D0DCE0;
     color:              #000000;
 }
