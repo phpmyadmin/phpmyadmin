@@ -334,7 +334,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         <input type="checkbox" name="selected_fld[]" value="<?php echo $field_encoded; ?>" id="checkbox_row_<?php echo $rownum; ?>" <?php echo $checked; ?> />
     </td>
     <th nowrap="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $field_name; ?></label></th>
-    <td<?php echo $type_nowrap; ?>><?php echo $type; echo $type_mime; ?><bdo dir="ltr"></bdo></td>
+    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" xml:lang="en"><?php echo $type; echo $type_mime; ?></bdo></td>
 <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td>' . (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>') . '</td>' . "\n" : '' ?>
     <td nowrap="nowrap" style="font-size: 70%"><?php echo $attribute; ?></td>
     <td><?php echo (($row['Null'] == 'YES') ? $strYes : $strNo); ?></td>
