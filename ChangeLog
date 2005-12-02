@@ -8,8 +8,13 @@ $Source$
 2005-12-02 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/header.inc.php: missing ; for html entity,
       thanks to Matt "Cyber Dog"
-    * tbl_properties_structure.php: fixed bdo tag
+    * tbl_properties_structure.php: fixed bdo tag and id names
       thanks to Matt "Cyber Dog"
+    * libraries/tbl_indexes.lib.php: fixed missing quote
+      thanks to Matt "Cyber Dog"
+    * libraries/tbl_indexes.lib.php, tbl_properties_structure.php,
+      tbl_indexes.php: revised XHTML output
+
 
 2005-12-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php, Theme.class.php:
