@@ -106,18 +106,42 @@ if ( $cfg['PropertiesIconic'] == true ) {
     }
 
     // images replaced 2004-05-08 by mkkeck
-    $titles['Change']        = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_edit.png" alt="' . $strChange . '" title="' . $strChange . '" />';
-    $titles['Drop']          = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" />';
-    $titles['NoDrop']        = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" />';
-    $titles['Primary']       = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" />';
-    $titles['Index']         = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" />';
-    $titles['Unique']        = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" />';
-    $titles['IdxFulltext']   = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />';
-    $titles['NoPrimary']     = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'bd_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" />';
-    $titles['NoIndex']       = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'bd_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" />';
-    $titles['NoUnique']      = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'bd_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" />';
-    $titles['NoIdxFulltext'] = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'bd_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />';
-    $titles['Browse']        = $iconic_spacer . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" />';
+    $titles['Change']        = $iconic_spacer
+        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+        . 'b_edit.png" alt="' . $strChange . '" title="' . $strChange . '" />';
+    $titles['Drop']          = $iconic_spacer
+        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+        . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" />';
+    $titles['NoDrop']        = $iconic_spacer
+        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+        . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" />';
+    $titles['Primary']       = $iconic_spacer
+        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+        . 'b_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" />';
+    $titles['Index']         = $iconic_spacer
+        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+        . 'b_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" />';
+    $titles['Unique']        = $iconic_spacer
+        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+        . 'b_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" />';
+    $titles['IdxFulltext']   = $iconic_spacer
+        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+        . 'b_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />';
+    $titles['NoPrimary']     = $iconic_spacer
+        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+        . 'bd_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" />';
+    $titles['NoIndex']       = $iconic_spacer
+        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+        . 'bd_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" />';
+    $titles['NoUnique']      = $iconic_spacer
+        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+        . 'bd_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" />';
+    $titles['NoIdxFulltext'] = $iconic_spacer
+        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+        . 'bd_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />';
+    $titles['Browse']        = $iconic_spacer
+        . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
+        . 'b_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" />';
 
     if ( $cfg['PropertiesIconic'] === 'both' ) {
         $titles['Change']        .= $strChange . '</div>';
@@ -169,9 +193,9 @@ $i = 0;
     <th id="th<?php echo ++$i; ?>"><?php echo $strDefault; ?></th>
     <th id="th<?php echo ++$i; ?>"><?php echo $strExtra; ?></th>
 <?php if ( $db_is_information_schema || $tbl_is_view ) { ?>
-    <th id="<?php echo ++$i; ?>"><?php echo $strView; ?></th>
+    <th id="th<?php echo ++$i; ?>"><?php echo $strView; ?></th>
 <?php } else { ?>
-    <th colspan="7" id="<?php echo ++$i; ?>"><?php echo $strAction; ?></th>
+    <th colspan="7" id="th<?php echo ++$i; ?>"><?php echo $strAction; ?></th>
 <?php } ?>
 </tr>
 </thead>
@@ -572,6 +596,7 @@ if ( ! $tbl_is_view && ! $db_is_information_schema ) {
     define('PMA_IDX_INCLUDED', 1);
     require ('./tbl_indexes.php');
 }
+
 /**
  * Displays Space usage and row statistics
  */
@@ -638,7 +663,7 @@ if ( $cfg['ShowStats'] ) {
         }
         if ( isset( $free_size ) ) {
             ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?> warning">
         <th class="name"><?php echo $strOverhead; ?></th>
         <td class="value"><?php echo $free_size; ?></td>
         <td class="unit"><?php echo $free_unit; ?></td>
@@ -662,7 +687,7 @@ if ( $cfg['ShowStats'] ) {
         // Optimize link if overhead
         if (isset($free_size) && ($tbl_type == 'MYISAM' || $tbl_type == 'BDB')) {
             ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
+    <tr class="tblFooters">
         <td colspan="3" align="center">
             <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
             if ($cfg['PropertiesIconic']) {
