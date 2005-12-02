@@ -198,7 +198,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                     }
                     echo '<span class="table_comment" id="span_table_comment">'
                         .'&quot;' . htmlspecialchars($show_comment)
-                        .'&quot</span>' . "\n";
+                        .'&quot;</span>' . "\n";
                 } // end if
             } else {
                 // no table selected, display database comment if present
