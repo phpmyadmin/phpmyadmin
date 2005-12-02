@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-02 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/header.inc.php: missing ; for html entity,
+      thanks to Matt "Cyber Dog"
+    * tbl_properties_structure.php: fixed bdo tag
+      thanks to Matt "Cyber Dog"
+
 2005-12-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php, Theme.class.php:
       missing '/' in img path (bug #1370437)
