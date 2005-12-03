@@ -977,4 +977,7 @@ $strUsedPhpExtensions = 'Used PHP extensions';  //to translate
 
 $strThemeNoPreviewAvailable = 'No preview available.';  //to translate
 $strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
+$strPDF = 'PDF';  //to translate
+$strPDFOptions = 'PDF options';  //to translate
+$strPDFReportTitle = 'Report title';  //to translate
 ?>

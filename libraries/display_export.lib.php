@@ -66,6 +66,7 @@ function hide_them_all() {
     document.getElementById("latex_options").style.display = 'none';
     document.getElementById("htmlexcel_options").style.display = 'none';
     document.getElementById("htmlword_options").style.display = 'none';
+    document.getElementById("pdf_options").style.display = 'none';
 <?php if ($xls) { ?>
     document.getElementById("xls_options").style.display = 'none';
 <?php } ?>
@@ -81,6 +82,8 @@ function show_checked_option() {
         document.getElementById('latex_options').style.display = 'block';
     } else if (document.getElementById('radio_dump_htmlexcel').checked) {
         document.getElementById('htmlexcel_options').style.display = 'block';
+    } else if (document.getElementById('radio_dump_pdf').checked) {
+        document.getElementById('pdf_options').style.display = 'block';
     } else if (document.getElementById('radio_dump_htmlword').checked) {
         document.getElementById('htmlword_options').style.display = 'block';
 <?php if ($xls) { ?>
@@ -147,6 +150,17 @@ function show_checked_option() {
                 }; return true"
             <?php PMA_exportIsActive('format', 'latex'); ?> />
         <label for="radio_dump_latex"><?php echo $strLaTeX; ?></label>
+    </div>
+<?php /* PDF  */ ?>
+    <div class="formelementrow">
+        <input type="radio" name="what" value="pdf" id="radio_dump_pdf"
+            onclick="
+                if (this.checked) {
+                    hide_them_all();
+                    document.getElementById('pdf_options').style.display = 'block';
+                }; return true"
+            <?php PMA_exportIsActive('format', 'pdf'); ?> />
+        <label for="radio_dump_pdf"><?php echo $strPDF; ?></label>
     </div>
 <?php /* HTML Excel */ ?>
     <div class="formelementrow">
@@ -714,6 +728,19 @@ function show_checked_option() {
     </div>
 </fieldset>
 <?php } /* end if ( $xls ) */ ?>
+
+<?php /* PDF options */ ?>
+<fieldset id="pdf_options">
+    <input type="hidden" name="pdf_data" value="pdf_data" />
+    <legend><?php echo $strPDFOptions; ?></legend>
+    
+    <div class="formelementrow">
+        <label for="pdf_report_title"><?php echo $strPDFReportTitle; ?></label>
+        <input type="text" name="pdf_report_title" size="50"
+            value="<?php echo $cfg['Export']['pdf_report_title']; ?>"
+            id="pdf_report_title" />
+    </div>
+</fieldset>
 
 <fieldset id="none_options">
     <legend><?php echo $strXML; ?></legend>

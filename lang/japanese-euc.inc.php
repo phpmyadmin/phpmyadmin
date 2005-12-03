@@ -976,4 +976,7 @@ $strTimeoutInfo = 'Previous import timed out, after resubmitting will continue f
 $strTimeoutNothingParsed = 'However on last run no data has been parsed, this usually means phpMyAdmin won\'t be able to finish this import unless you increase php time limits.';  //to translate
 
 $strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"';  //to translate
+$strPDF = 'PDF';  //to translate
+$strPDFOptions = 'PDF options';  //to translate
+$strPDFReportTitle = 'Report title';  //to translate
 ?>

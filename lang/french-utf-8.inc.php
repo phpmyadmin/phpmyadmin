@@ -964,4 +964,7 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strPDF = 'PDF';  //to translate
+$strPDFOptions = 'PDF options';  //to translate
+$strPDFReportTitle = 'Report title';  //to translate
 ?>

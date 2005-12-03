@@ -229,6 +229,9 @@ if ($asfile) {
     } else if ($type == 'latex') {
         $filename  .= '.tex';
         $mime_type = 'application/x-tex';
+    } else if ($type == 'pdf') {
+        $filename  .= '.pdf';
+        $mime_type = 'application/pdf';
     } else {
         $filename  .= '.sql';
         // text/x-sql is correct MIME type, however safari ignores further

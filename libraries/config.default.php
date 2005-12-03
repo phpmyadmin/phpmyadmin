@@ -308,6 +308,10 @@ $cfg['Export']['sql_comments']              = FALSE;
 $cfg['Export']['sql_mime']                  = FALSE;
 $cfg['Export']['sql_header_comment']        = ''; // \n is replaced by new line
 
+$cfg['Export']['pdf_structure']             = FALSE;
+$cfg['Export']['pdf_data']                  = TRUE;
+$cfg['Export']['pdf_report_title']          = '';
+
 /**
  * Import defaults
  */
