@@ -303,7 +303,7 @@ if ($cfg['WYSIWYG-PDF']) {
         $with_field_names = TRUE;
     }
 ?>
-<script type="text/javascript" src="./js/dom-drag.js"></script>
+<script type="text/javascript" language="javascript" src="./js/dom-drag.js"></script>
 <form method="post" action="pdf_pages.php" name="dragdrop">
 <input type="button" name="dragdrop" value="<?php echo $strToggleScratchboard; ?>" onclick="ToggleDragDrop('pdflayout');" />
  <input type="button" name="dragdropreset" value="<?php echo $strReset; ?>" onclick="resetDrag();" />
@@ -344,8 +344,8 @@ foreach ($array_sh_page AS $key => $temp_sh_page) {
 }
 ?>
 </div>
-<script type="text/javascript">
-<!--
+<script type="text/javascript" language="javascript">
+//<![CDATA[
 function init() {
     refreshLayout();
     myid = getElement('pdflayout');
@@ -355,7 +355,7 @@ function init() {
 function resetDrag() {
     <?php echo $reset_draginit; ?>
 }
-// -->
+//]]>
 </script>
 <?php
 } // end if WYSIWYG-PDF
@@ -517,10 +517,10 @@ function resetDrag() {
 <?php
         if ((isset($showwysiwyg) && $showwysiwyg == '1')) {
 ?>
-<script type="text/javascript">
-<!--
+<script type="text/javascript" language="javascript">
+//<![CDATA[
 ToggleDragDrop('pdflayout');
-// -->
+//]]>
 </script>
 <?php
         }

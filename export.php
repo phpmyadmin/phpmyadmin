@@ -580,8 +580,9 @@ else {
        . '    </form>' . "\n";
     echo '</div>' . "\n";
     echo "\n";
-?><script language="JavaScript" type="text/javascript">
-<!--
+?>
+<script type="text/javascript" language="javascript">
+//<![CDATA[
     var bodyWidth=null; var bodyHeight=null;
     if (document.getElementById('textSQLDUMP')) {
         bodyWidth  = self.innerWidth;
@@ -598,7 +599,7 @@ else {
         document.getElementById('textSQLDUMP').style.width=(bodyWidth-50) + 'px';
         document.getElementById('textSQLDUMP').style.height=(bodyHeight-100) + 'px';
     }
-//-->
+//]]>
 </script>
 <?php
     require_once('./libraries/footer.inc.php');

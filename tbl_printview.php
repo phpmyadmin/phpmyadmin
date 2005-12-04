@@ -543,8 +543,8 @@ foreach ($the_tables AS $key => $table) {
  */
 echo "\n";
 ?>
-<script type="text/javascript" language="javascript1.2">
-<!--
+<script type="text/javascript" language="javascript">
+//<![CDATA[
 function printPage()
 {
     // Do print the page
@@ -552,7 +552,7 @@ function printPage()
         window.print();
     }
 }
-//-->
+//]]>
 </script>
 <?php
 echo '<br /><br />&nbsp;<input type="button" class="print_ignore" style="width: 100px; height: 25px" id="print" value="' . $strPrint . '" onclick="printPage()" />' . "\n";

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-05 Michal Čihař  <michal@cihar.com>
+    * many files: Use same script tag, use CDATA for scripts (RFE #995065).
+
 2005-12-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan update, thanks to Xavier Navarro (xavin).
     * server_privileges.php: do not use UNION DISTINCT, as it's not allowed

@@ -1161,8 +1161,8 @@ switch ($action) {
         echo htmlspecialchars(get_cfg_string($configuration));
         echo '</textarea></form>' . "\n";
         ?>
-<script language="javascript" type="text/javascript">
-<!--
+<script type="text/javascript" language="javascript">
+//<![CDATA[
     var bodyWidth=null; var bodyHeight=null;
     if (document.getElementById('textconfig')) {
         bodyWidth  = self.innerWidth;
@@ -1179,7 +1179,7 @@ switch ($action) {
         document.getElementById('textconfig').style.width=(bodyWidth-50) + 'px';
         document.getElementById('textconfig').style.height=(bodyHeight-100) + 'px';
     }
-//-->
+//]]>
 </script>
         <?php
         break;

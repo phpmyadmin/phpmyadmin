@@ -12,7 +12,7 @@ require_once('./libraries/header_http.inc.php');
 $page_title = 'phpMyAdmin - ' . $strTheme;
 require('./libraries/header_meta_style.inc.php');
 ?>
-<script language="JavaScript" type="text/javascript">
+<script type="text/javascript" language="javascript">
 // <![CDATA[
 function takeThis(what){
     if (window.opener && window.opener.document.forms['setTheme'].elements['set_theme']) {

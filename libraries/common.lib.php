@@ -869,11 +869,16 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             echo '<meta http-equiv="Pragma" content="no-cache">' . "\n";
             echo '<meta http-equiv="Cache-Control" content="no-cache">' . "\n";
             echo '<meta http-equiv="Refresh" content="0;url=' .$uri . '">' . "\n";
-            echo '<script language="JavaScript">' . "\n";
+            echo '<script type="text/javascript" language="javascript">' . "\n";
+            echo '//<![CDATA[' . "\n";
             echo 'setTimeout ("window.location = unescape(\'"' . $uri . '"\')",2000); </script>' . "\n";
+            echo '//]]>' . "\n";
             echo '</head>' . "\n";
-            echo '<body> <script language="JavaScript">' . "\n";
+            echo '<body>' . "\n";
+            echo '<script type="text/javascript" language="javascript">' . "\n";
+            echo '//<![CDATA[' . "\n";
             echo 'document.write (\'<p><a href="' . $uri . '">' . $GLOBALS['strGo'] . '</a></p>\');' . "\n";
+            echo '//]]>' . "\n";
             echo '</script></body></html>' . "\n";
 
         } else {
@@ -1199,7 +1204,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             echo "\n";
             $reload_url = './left.php?' . PMA_generate_common_url((isset($GLOBALS['db']) ? $GLOBALS['db'] : ''), '', '&');
             ?>
-<script type="text/javascript">
+<script type="text/javascript" language="javascript">
 //<![CDATA[
 if (typeof(window.parent) != 'undefined'
     && typeof(window.parent.frames[0]) != 'undefined') {
@@ -1241,7 +1246,7 @@ if (typeof(window.parent) != 'undefined'
                 $uni_tbl = PMA_jsFormat( $GLOBALS['db'] . '.' . $GLOBALS['table'], false );
                 echo "\n";
                 ?>
-<script type="text/javascript">
+<script type="text/javascript" language="javascript">
 //<![CDATA[
 window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFormat($tooltip, false); ?>' );
 //]]>

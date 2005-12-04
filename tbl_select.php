@@ -92,7 +92,7 @@ if (!isset($param) || $param[0] == '') {
     //$foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
     $foreigners  = PMA_getForeigners($db, $table);
     ?>
-<script language="JavaScript" type="text/javascript">
+<script type="text/javascript" language="javascript">
 // <![CDATA[
 function PMA_tbl_select_operator(f, index, multiple) {
     switch (f.elements["func[" + index + "]"].options[f.elements["func[" + index + "]"].selectedIndex].value) {

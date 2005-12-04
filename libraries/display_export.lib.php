@@ -58,8 +58,8 @@ if (isset($sql_query)) {
 }
 ?>
 
-<script type="text/javascript">
-<!--
+<script type="text/javascript" language="javascript">
+//<![CDATA[
 function hide_them_all() {
     document.getElementById("csv_options").style.display = 'none';
     document.getElementById("excel_options").style.display = 'none';
@@ -114,7 +114,7 @@ function show_checked_option() {
         }
     }
 }
-//-->
+//]]>
 </script>
 
 <fieldset id="fieldsetexport">
@@ -748,10 +748,10 @@ function show_checked_option() {
     <input type="hidden" name="xml_data" value="xml_data" />
 </fieldset>
 
-<script type="text/javascript">
-<!--
+<script type="text/javascript" language="javascript">
+//<![CDATA[
     show_checked_option();
-//-->
+//]]>
 </script>
 
 <?php if ( ! empty( $table ) && ! isset( $num_tables ) ) { ?>

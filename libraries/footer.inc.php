@@ -18,7 +18,7 @@ require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
 
 // If query window is open, update with latest selected db/table.
     ?>
-<script type="text/javascript">
+<script type="text/javascript" language="javascript">
 //<![CDATA[
     <?php
     if ( ! isset( $GLOBALS['no_history'] ) && ! empty( $GLOBALS['db'] ) && empty( $GLOBALS['error_message'] ) ) {

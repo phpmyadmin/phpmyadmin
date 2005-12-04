@@ -71,7 +71,7 @@ if ($import_type == 'server') {
 echo '    <input type="hidden" name="import_type" value="' . $import_type . '" />';
 ?>
 
-    <script type="text/javascript">
+    <script type="text/javascript" language="javascript">
     //<![CDATA[
     function hide_them_all() {
         <?php 
@@ -289,7 +289,7 @@ echo "\n";
         <input type="submit" value="<?php echo $strGo; ?>" id="buttonGo" />
     </fieldset>
 </form>
-<script type="text/javascript">
+<script type="text/javascript" language="javascript">
 //<![CDATA[
     init_options();
 //]]>
