@@ -7,6 +7,8 @@ $Source$
 
 2005-12-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan update, thanks to Xavier Navarro (xavin).
+    * server_privileges.php: do not use UNION DISTINCT, as it's not allowed
+      before MySQL 4.0.17, and because "it does nothing" (cf manual)
 
 2005-12-04 Michal Čihař  <michal@cihar.com>
     * pdf_schema.php: Bad copy and paste, here should be iso-8859-2 (thanks

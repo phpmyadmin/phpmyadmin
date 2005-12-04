@@ -1334,8 +1334,10 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
             // for the rights
             $db_rights = array();
 
+            // do not use UNION DISTINCT, as it's not allowed before 
+            // MySQL 4.0.17, and because "it does nothing" (cf manual)
             if ( PMA_MYSQL_INT_VERSION >= 40000 ) {
-                $db_rights_sql = '(' . implode( ') UNION DISTINCT (', $db_rights_sqls ) . ')'
+                $db_rights_sql = '(' . implode( ') UNION (', $db_rights_sqls ) . ')'
                     .' ORDER BY `User` ASC, `Host` ASC';
 
                 $db_rights_result = PMA_DBI_query( $db_rights_sql );
@@ -1625,7 +1627,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                 $db_rights = array();
 
                 if ( PMA_MYSQL_INT_VERSION >= 40000 ) {
-                    $db_rights_sql = '(' . implode( ') UNION DISTINCT (', $db_rights_sqls ) . ')'
+                    $db_rights_sql = '(' . implode( ') UNION (', $db_rights_sqls ) . ')'
                         .' ORDER BY `Db` ASC';
 
                     $db_rights_result = PMA_DBI_query( $db_rights_sql );
@@ -1703,7 +1705,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                 $db_rights = array();
 
                 if ( PMA_MYSQL_INT_VERSION >= 40000 ) {
-                    $db_rights_sql = '(' . implode( ') UNION DISTINCT (', $db_rights_sqls ) . ')'
+                    $db_rights_sql = '(' . implode( ') UNION (', $db_rights_sqls ) . ')'
                         .' ORDER BY `Table_name` ASC';
 
                     $db_rights_result = PMA_DBI_query( $db_rights_sql );
