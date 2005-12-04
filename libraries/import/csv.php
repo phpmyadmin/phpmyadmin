@@ -12,9 +12,9 @@ if ($import_type == 'table') {
             'options' => array(
                 array('type' => 'bool', 'name' => 'replace', 'text' => 'strReplaceTable'),
                 array('type' => 'bool', 'name' => 'ignore', 'text' => 'strIgnoreDuplicates'),
-                array('type' => 'text', 'name' => 'terminated', 'text' => 'strFieldsTerminatedBy', 'size' => 2, 'len' => 1),
-                array('type' => 'text', 'name' => 'enclosed', 'text' => 'strFieldsEnclosedBy', 'size' => 2, 'len' => 1),
-                array('type' => 'text', 'name' => 'escaped', 'text' => 'strFieldsEscapedBy', 'size' => 2, 'len' => 1),
+                array('type' => 'text', 'name' => 'terminated', 'text' => 'strFieldsTerminatedBy', 'size' => 2, 'len' => 2),
+                array('type' => 'text', 'name' => 'enclosed', 'text' => 'strFieldsEnclosedBy', 'size' => 2, 'len' => 2),
+                array('type' => 'text', 'name' => 'escaped', 'text' => 'strFieldsEscapedBy', 'size' => 2, 'len' => 2),
                 array('type' => 'text', 'name' => 'new_line', 'text' => 'strLinesTerminatedBy', 'size' => 2),
                 array('type' => 'text', 'name' => 'columns', 'text' => 'strColumnNames'),
                 ),
@@ -22,6 +22,34 @@ if ($import_type == 'table') {
             );
     } else {
     /* We do not define function when plugin is just queried for information above */
+        $replacements = array(
+            '\\n'   => "\n",
+            '\\t'   => "\t",
+            '\\r'   => "\r",
+            );
+        $csv_terminated = strtr($csv_terminated, $replacements);
+        $csv_enclosed = strtr($csv_enclosed,  $replacements);
+        $csv_escaped = strtr($csv_escaped, $replacements);
+        $csv_new_line = strtr($csv_new_line, $replacements);
+
+        if (strlen($csv_terminated) != 1) {
+            $message = sprintf($strInvalidCSVParameter, $strFieldsTerminatedBy);
+            $show_error_header = TRUE;
+            $error = TRUE;
+        } elseif (strlen($csv_enclosed) != 1) {
+            $message = sprintf($strInvalidCSVParameter, $strFieldsEnclosedBy);
+            $show_error_header = TRUE;
+            $error = TRUE;
+        } elseif (strlen($csv_escaped) != 1) {
+            $message = sprintf($strInvalidCSVParameter, $strFieldsEscapedBy);
+            $show_error_header = TRUE;
+            $error = TRUE;
+        } elseif (strlen($csv_new_line) != 1) {
+            $message = sprintf($strInvalidCSVParameter, $strLinesTerminatedBy);
+            $show_error_header = TRUE;
+            $error = TRUE;
+        }
+
         $buffer = '';
         if (isset($csv_replace)) {
             $sql_template = 'REPLACE';
@@ -204,14 +232,15 @@ if ($import_type == 'table') {
                 }
             } // End of parser loop
         } // End of import loop
+
+        // Commit any possible data in buffers
         PMA_importRunQuery();
+        
         if (count($values) != 0 && !$error) {
             $message = $strInvalidCSVInput;
             $show_error_header = TRUE;
             $error = TRUE;
         }
-        // Commit any possible data in buffers
-        
     }
 }
 ?>

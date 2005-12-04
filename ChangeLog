@@ -13,6 +13,8 @@ $Source$
 2005-12-04 Michal Čihař  <michal@cihar.com>
     * pdf_schema.php: Bad copy and paste, here should be iso-8859-2 (thanks
       Marc!).
+    * libraries/import/csv.php: Fix use of escaped chars (bug #1371249).
+    * lang/czech: Update.
 
 2005-12-03 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php, libraries/config.default.php, libraries/export/pdf.php,

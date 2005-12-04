@@ -967,4 +967,5 @@ $strZip = '"zippé"';
 $strPDF = 'PDF';  //to translate
 $strPDFOptions = 'PDF options';  //to translate
 $strPDFReportTitle = 'Report title';  //to translate
+$strInvalidCSVParameter = 'Invalid parameter for CSV import: %s';  //to translate
 ?>

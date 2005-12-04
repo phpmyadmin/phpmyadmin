@@ -987,4 +987,5 @@ $strConfigDefaultFileError = 'Could not load default configuration from: "%1$s"'
 $strPDF = 'PDF';  //to translate
 $strPDFOptions = 'PDF options';  //to translate
 $strPDFReportTitle = 'Report title';  //to translate
+$strInvalidCSVParameter = 'Invalid parameter for CSV import: %s';  //to translate
 ?>

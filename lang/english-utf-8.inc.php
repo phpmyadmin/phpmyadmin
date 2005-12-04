@@ -373,6 +373,7 @@ $strInvalidAuthMethod = 'Invalid authentication method set in configuration:';
 $strInvalidColumnCount = 'Column count has to be larger than zero.';
 $strInvalidColumn = 'Invalid column (%s) specified!';
 $strInvalidCSVInput = 'Invalid CSV input, could not parse!';
+$strInvalidCSVParameter = 'Invalid parameter for CSV import: %s';
 $strInvalidFieldAddCount = 'You have to add at least one field.';
 $strInvalidFieldCount = 'Table must have at least one field.';
 $strInvalidLDIImport = 'This plugin does not support compressed imports!';
