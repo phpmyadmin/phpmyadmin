@@ -1103,7 +1103,7 @@ class PMA_RT
             $this->ff = 'FreeSans';
             $pdf->AddFont('FreeSans','','FreeSans.php');
             $pdf->AddFont('FreeSans','B','FreeSansBold.php');
-        } else if ($GLOBALS['charset'] == 'utf-8') {
+        } else if ($GLOBALS['charset'] == 'iso-8859-2') {
             // fonts added to phpMyAdmin and considered non-standard by fpdf
             // (Note: those tahoma fonts are iso-8859-2 based)
             $this->ff == 'tahoma';

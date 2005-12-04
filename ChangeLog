@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-04 Michal Čihař  <michal@cihar.com>
+    * pdf_schema.php: Bad copy and paste, here should be iso-8859-2 (thanks
+      Marc!).
+
 2005-12-03 Marc Delisle  <lem9@users.sourceforge.net>
     * export.php, libraries/config.default.php, libraries/export/pdf.php,
       libraries/display_export.php, lang/*.php: experimental PDF export
