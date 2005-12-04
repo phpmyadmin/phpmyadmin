@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/catalan update, thanks to Xavier Navarro (xavin).
+
 2005-12-04 Michal Čihař  <michal@cihar.com>
     * pdf_schema.php: Bad copy and paste, here should be iso-8859-2 (thanks
       Marc!).
