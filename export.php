@@ -8,7 +8,7 @@
 require_once('./libraries/common.lib.php');
 require_once('./libraries/zip.lib.php');
 
-PMA_checkParameters(array('what'));
+PMA_checkParameters(array('what', 'export_type'));
 
 // What type of export are we doing?
 if ($what == 'excel') {
@@ -23,10 +23,12 @@ require('./libraries/export/' . PMA_securePath($type) . '.php');
 // Generate error url
 if ($export_type == 'server') {
     $err_url = 'server_export.php?' . PMA_generate_common_url();
-} elseif ($export_type == 'database') {
+} elseif ($export_type == 'database' && !empty($db)) {
     $err_url = 'db_details_export.php?' . PMA_generate_common_url($db);
-} else {
+} elseif ($export_type == 'table' && !empty($db) && !empty($table)) {
     $err_url = 'tbl_properties_export.php?' . PMA_generate_common_url($db, $table);
+} else {
+    die('Bad parameters!');
 }
 
 /**

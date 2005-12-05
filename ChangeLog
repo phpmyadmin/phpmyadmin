@@ -7,6 +7,7 @@ $Source$
 
 2005-12-05 Michal Čihař  <michal@cihar.com>
     * many files: Use same script tag, use CDATA for scripts (RFE #995065).
+    * export.php: Check for correct parameters.
 
 2005-12-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan update, thanks to Xavier Navarro (xavin).
