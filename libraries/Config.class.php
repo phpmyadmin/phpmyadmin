@@ -249,7 +249,7 @@ class PMA_Config {
     }
 
     function __wakeup() {
-        if ( true || $this->source_mtime !== filemtime( $this->getSource() )
+        if ( $this->source_mtime !== filemtime( $this->getSource() )
           || $this->error_config_file || $this->error_config_default_file ) {
             $this->load( $this->getSource() );
         }
