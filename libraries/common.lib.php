@@ -401,6 +401,55 @@ function PMA_dl( $module ) {
 }
 
 /**
+ * merges array recursive like array_merge_recursive() but keyed-values are
+ * always overwritten.
+ *
+ * array PMA_array_merge_recursive( array array1 [, array array2 [, array ...]] )
+ *
+ * @see     http://php.net/array_merge
+ * @see     http://php.net/array_merge_recursive
+ * @uses    func_num_args()
+ * @uses    func_get_arg()
+ * @uses    is_array()
+ * @uses    call_user_func_array()
+ * @param   array   array to merge
+ * @param   array   array to merge
+ * @param   array   ...
+ * @return  array   merged array
+ */
+function PMA_array_merge_recursive() {
+    switch( func_num_args() ) {
+        case 0 :
+            return false;
+            break;
+        case 1 :
+            return func_get_arg(0);
+            break;
+        case 2 :
+            $args = func_get_args();
+            if ( ! is_array($args[0]) || ! is_array($args[1]) ) {
+                return $args[1];
+            }
+            foreach ( $args[1] AS $key2 => $value2 ) {
+                if ( isset( $args[0][$key2] ) ) {
+                    $args[0][$key2] = PMA_array_merge_recursive($args[0][$key2],
+                        $value2);
+                } else {
+                    $args[0][$key2] = $value2;
+                }
+            }
+            return $args[0];
+            break;
+        default :
+            $args = func_get_args();
+            $args[1] = PMA_array_merge_recursive($args[0], $args[1]);
+            array_shift($args);
+            return call_user_func_array('PMA_array_merge_recursive', $args);
+            break;
+    }
+}
+
+/**
  * include here only libraries which contain only function definitions
  * no code im main()!
  */

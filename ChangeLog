@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/common.lib.php: added PMA_array_merge_recursive()
+
 2005-12-05 Michal Čihař  <michal@cihar.com>
     * many files: Use same script tag, use CDATA for scripts (RFE #995065).
     * export.php: Check for correct parameters.
@@ -36,7 +39,6 @@ $Source$
       tbl_indexes.php: revised XHTML output
     * themes/original/css/theme_left|right_css.php: use $GLOBALS
 
-
 2005-12-01 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php, Theme.class.php:
       missing '/' in img path (bug #1370437)
@@ -63,7 +65,6 @@ $Source$
     * libraries/defines.lib.php: removed
     * scripts/setup.php, scripts/upgrade.pl: use class PMA_Config
     * scripts/create-release.sh: removed references to defines.lib.php
-
 
 2005-11-29 Michal Čihař  <michal@cihar.com>
     * lang/sync_lang.sh: Add workaround for multibyte chars that can contain \
