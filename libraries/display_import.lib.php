@@ -128,19 +128,15 @@ foreach($import_list as $key => $val) {
         <legend><?php echo $strFileToImport; ?></legend>
         
         <div class="formelementrow">
-        <div class="formelement">
         <label for="input_import_file"><?php echo $strLocationTextfile; ?></label>
         <input style="margin: 5px" type="file" name="import_file" id="input_import_file" onchange="match_file(this.value);" />
-        </div>
+        <?php 
+        echo PMA_displayMaximumUploadSize($max_upload_size) . "\n"; 
+        // some browsers should respect this :)
+        echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+        ?>
+        <div>
 <?php
-echo '<div class="formelement">' . "\n";
-echo PMA_displayMaximumUploadSize($max_upload_size);
-echo '</div>' . "\n";
-echo '<div class="clearfloat"></div>' . "\n";
-echo '</div>' . "\n";
-// some browsers should respect this :)
-echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
-
 if (!empty($cfg['UploadDir'])) {
     $extensions = '';
     foreach($import_list as $key => $val) {
@@ -169,7 +165,7 @@ if (!empty($cfg['UploadDir'])) {
 
 // charset of file
 echo '<div class="formelementrow">' . "\n";
-if (PMA_MYSQL_INT_VERSION < 40100 && $cfg['AllowAnywhereRecoding'] && $allow_recoding) {
+if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
     echo '<label for="charset_of_file">' . $strCharsetOfFile . '</label>' . "\n";
     $temp_charset = reset($cfg['AvailableCharsets']);
     echo $strCharsetOfFile . "\n"

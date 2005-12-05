@@ -20,6 +20,9 @@ $Source$
       Fix import of some CSV files (bug #1373731), provide better error
       messages.
     * lang/czech: Update.
+    * import.php, libraries/display_import.lib.php: Fix import layout (bug
+      #1370416), prefer recoding of strings over changing MySQL charset as in
+      this case we can show resulting queries.
 
 2005-12-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan update, thanks to Xavier Navarro (xavin).

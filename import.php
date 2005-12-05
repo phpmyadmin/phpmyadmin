@@ -285,8 +285,7 @@ if ($import_file != 'none' && !$error) {
 }
 
 // Convert the file's charset if necessary
-if (PMA_MYSQL_INT_VERSION < 40100
-    && $cfg['AllowAnywhereRecoding'] && $allow_recoding
+if ($cfg['AllowAnywhereRecoding'] && $allow_recoding
     && isset($charset_of_file) && $charset_of_file != $charset) {
     $charset_conversion = TRUE;
 } else if (PMA_MYSQL_INT_VERSION >= 40100
