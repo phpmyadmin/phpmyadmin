@@ -62,7 +62,14 @@ class PMA_Config {
         // PMA_Config::load()
         $this->load( $source );
 
-        // other settings, independant from config file, comes here
+        // other settings, independant from config file, comes in
+        $this->checkSystem();
+    }
+
+    /**
+     * sets system and application settings
+     */
+    function checkSystem() {
         $this->set( 'PMA_VERSION', '2.7.1-dev' );
         /**
          * @deprecated
@@ -83,6 +90,9 @@ class PMA_Config {
         $this->checkOutputCompression();
     }
 
+    /**
+     * wether to use gzip output compression or not
+     */
     function checkOutputCompression() {
         // If zlib output compression is set in the php configuration file, no
         // output buffering should be run
@@ -226,6 +236,9 @@ class PMA_Config {
         }
     }
 
+    /**
+     * detects PHP version
+     */
     function checkPhpVersion() {
         $match = array();
         if ( ! preg_match( '@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
@@ -248,10 +261,15 @@ class PMA_Config {
         $this->set( 'PMA_PHP_STR_VERSION', phpversion() );
     }
 
+    /**
+     * re-init object after loadiong from session file
+     * checks config file for changes and relaods if neccessary
+     */
     function __wakeup() {
         if ( $this->source_mtime !== filemtime( $this->getSource() )
           || $this->error_config_file || $this->error_config_default_file ) {
             $this->load( $this->getSource() );
+            $this->checkSystem();
         }
 
         $this->checkCollationConnection();
@@ -295,6 +313,8 @@ class PMA_Config {
         if ( ! $source || ! $this->setSource( $source ) ) {
             return false;
         }
+
+        $cfg = array();
 
         /**
          * Parses the configuration file
@@ -364,6 +384,13 @@ class PMA_Config {
         return NULL;
     }
 
+    /**
+     * sets configuration variable
+     *
+     * @uses    $this->settings
+     * @param   string  $setting    configuration option
+     * @param   string  $value      new value for configuration option
+     */
     function set( $setting, $value ) {
         $this->settings[$setting] = $value;
     }
