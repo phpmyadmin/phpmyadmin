@@ -7,6 +7,7 @@ $Source$
 
 2005-12-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php: added PMA_array_merge_recursive()
+    * libraries/Config.class.php: make use of PMA_array_merge_recursive()
 
 2005-12-05 Michal Čihař  <michal@cihar.com>
     * many files: Use same script tag, use CDATA for scripts (RFE #995065).

@@ -249,7 +249,7 @@ class PMA_Config {
     }
 
     function __wakeup() {
-        if ( $this->source_mtime !== filemtime( $this->getSource() )
+        if ( true || $this->source_mtime !== filemtime( $this->getSource() )
           || $this->error_config_file || $this->error_config_default_file ) {
             $this->load( $this->getSource() );
         }
@@ -277,7 +277,7 @@ class PMA_Config {
         $this->default_server = $cfg['Servers'][1];
         unset( $cfg['Servers'] );
 
-        $this->settings = array_merge( $this->settings, $cfg );
+        $this->settings = PMA_array_merge_recursive( $this->settings, $cfg );
         return true;
     }
 
@@ -329,7 +329,7 @@ class PMA_Config {
 
         $this->checkCollationConnection();
         //$this->checkPmaAbsoluteUri();
-        $this->settings = array_merge( $this->settings, $cfg );
+        $this->settings = PMA_array_merge_recursive( $this->settings, $cfg );
         return true;
     }
 
