@@ -810,13 +810,11 @@ $strFlushTables = 'Leeren des gesamten Tabellencaches ("FLUSH")';  //recently tr
 $strHandler = 'Handler';  //recently translated
 
 $strIgnoreDuplicates = 'Ignoriere doppelte Zeilen';  //recently translated
-$strImportFinished = 'Der Import wurde erfolgreich beendet.';  //recently translated
 $strImportFormat = 'Dateiformat';  //recently translated
 $strImport = 'Importieren';  //recently translated
 $strInvalidAuthMethod = 'Invalid authentication method set in configuration:';  //to translate
 $strInvalidColumnCount = 'Die Spaltenanzahl muss größer als 0 sein.';  //recently translated
 $strInvalidColumn = 'Ungültige Spalte (%s) angegeben!';  //recently translated
-$strInvalidCSVInput = 'Ungültige CSV Daten, verarbeitung nicht möglich!';  //recently translated
 $strInvalidFieldCount = 'Die Tabelle muss mindestens ein Feld haben.';  //recently translated
 $strInvalidLDIImport = 'Dieses Plugin unterstützt keine Komprimierung!';  //recently translated
 $strInvalidRowNumber = '%d ist keine gültige Zeilennummer.';  //recently translated
@@ -995,4 +993,7 @@ $strPDF = 'PDF';  //to translate
 $strPDFOptions = 'PDF options';  //to translate
 $strPDFReportTitle = 'Report title';  //to translate
 $strInvalidCSVParameter = 'Invalid parameter for CSV import: %s';  //to translate
+$strInvalidCSVFieldCount = 'Invalid field count in CSV input on line %d.';  //to translate
+$strInvalidCSVFormat = 'Invalid format of CSV input on line %d.';  //to translate
+$strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
 ?>

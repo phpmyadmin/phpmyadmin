@@ -345,7 +345,6 @@ $strIgnoreInserts = 'Použít IGNORE';
 $strIgnoringFile = 'Ignoruji soubor %s';
 $strImportDocSQL = 'Importovat soubory docSQL';
 $strImportFiles = 'Importovat soubory';
-$strImportFinished = 'Import byl úspěšně dokončen.';
 $strImportFormat = 'Formát importovaného souboru'; 
 $strImport = 'Import';
 $strIndexes = 'Indexy';
@@ -378,7 +377,6 @@ $strInUse = 'právě se používá';
 $strInvalidAuthMethod = 'V konfiguraci máte špatnou autentizační metodu:';
 $strInvalidColumn = 'Byl zadán chybný sloupec (%s)!';
 $strInvalidColumnCount = 'Počet sloupců musí být větší než nula.';
-$strInvalidCSVInput = 'Chybná CVS data, nepodařilo se je načíst!';
 $strInvalidCSVParameter = 'Neznámý parametr pro import CSV: %s';
 $strInvalidFieldAddCount = 'Musíte přidat alespoň jeden sloupec.';
 $strInvalidFieldCount = 'Tabulka musí mít alespoň jeden sloupec.';
@@ -973,4 +971,7 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
+$strInvalidCSVFieldCount = 'Invalid field count in CSV input on line %d.';  //to translate
+$strInvalidCSVFormat = 'Invalid format of CSV input on line %d.';  //to translate
+$strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
 ?>

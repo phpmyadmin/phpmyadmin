@@ -16,6 +16,9 @@ $Source$
 2005-12-05 Michal Čihař  <michal@cihar.com>
     * many files: Use same script tag, use CDATA for scripts (RFE #995065).
     * export.php: Check for correct parameters.
+    * import.php, lang/*, libraries/import/csv.php, libraries/import/ldi.php:
+      Fix import of some CSV files (bug #1373731), provide better error
+      messages.
 
 2005-12-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan update, thanks to Xavier Navarro (xavin).

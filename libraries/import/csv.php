@@ -44,7 +44,7 @@ if ($import_type == 'table') {
             $message = sprintf($strInvalidCSVParameter, $strFieldsEscapedBy);
             $show_error_header = TRUE;
             $error = TRUE;
-        } elseif (strlen($csv_new_line) != 1) {
+        } elseif (strlen($csv_new_line) != 1 && $csv_new_line != 'auto') { 
             $message = sprintf($strInvalidCSVParameter, $strLinesTerminatedBy);
             $show_error_header = TRUE;
             $error = TRUE;
@@ -96,7 +96,14 @@ if ($import_type == 'table') {
         $required_fields = count($fields);
 
         $sql_template .= ' VALUES (';
+
+        // Defaults for parser
+        $i = 0;
+        $len = 0;
+        $line = 1;
+        $lasti = -1;
         $values = array();
+        $csv_finish = FALSE;
 
         while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
             $data = PMA_importGetNextChunk();
@@ -110,100 +117,100 @@ if ($import_type == 'table') {
                 // Append new data to buffer
                 $buffer .= $data;
                 // Do not parse string when we're not at the end and don't have new line inside
-                if (($csv_new_line == 'auto' && strpos($buffer, "\n") === FALSE)
+                if (($csv_new_line == 'auto' && strpos($buffer, "\r") === FALSE && strpos($buffer, "\n") === FALSE)
                     || ($csv_new_line != 'auto' && strpos($buffer, $csv_new_line) === FALSE)) continue;
-                
             }
+
             // Current length of our buffer
             $len = strlen($buffer);
-            // Defaults for parser
-            $values = array();
-            // Grab some SQL queries out of it
-            $i = 0;
-            $lasti = -1;
-            $finish = FALSE;
+            // Currently parsed char
             $ch = $buffer[$i];
             while ($i < $len) {
                 // Deadlock protection
                 if ($lasti == $i) {
-                    $message = $strInvalidCSVInput;
+                    $message = sprintf($strInvalidCSVFormat, $line);
                     $show_error_header = TRUE;
                     $error = TRUE;
                     break;
                 }
                 $lasti = $i;
 
-                // Grab empty field
-                if ($ch == $csv_terminated) {
-                    $values[] = '';
-                    if ($i == $len - 1) break;
-                    $i++;
-                    $ch = $buffer[$i];
-                    continue;
-                }
+                // This can happen with auto EOL and \r at the end of buffer
+                if (!$csv_finish) {
+                    // Grab empty field
+                    if ($ch == $csv_terminated) {
+                        $values[] = '';
+                        if ($i == $len - 1) break;
+                        $i++;
+                        $ch = $buffer[$i];
+                        continue;
+                    }
 
-                // Grab one field 
-                if ($ch == $csv_enclosed) {
-                    $need_end = TRUE;
-                    if ($i == $len - 1) break;
-                    $i++;
-                    $ch = $buffer[$i];
-                } else {
-                    $need_end = FALSE;
-                }
-                $fail = FALSE;
-                $value = '';
-                while(($need_end && $ch != $csv_enclosed) || (!$need_end && !($ch == $csv_terminated || $ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))))) {
-                    if ($ch == $csv_escaped) {
+                    // Grab one field 
+                    if ($ch == $csv_enclosed) {
+                        $need_end = TRUE;
+                        if ($i == $len - 1) break;
+                        $i++;
+                        $ch = $buffer[$i];
+                    } else {
+                        $need_end = FALSE;
+                    }
+                    $fail = FALSE;
+                    $value = '';
+                    while(($need_end && $ch != $csv_enclosed) || (!$need_end && !($ch == $csv_terminated || $ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))))) {
+                        if ($ch == $csv_escaped) {
+                            if ($i == $len - 1) {
+                                $fail = TRUE;
+                                break;
+                            }
+                            $i++;
+                            $ch = $buffer[$i];
+                        }
+                        $value .= $ch;
                         if ($i == $len - 1) {
-                            $fail = TRUE;
+                            if (!$finished) {
+                                $fail = TRUE;
+                            }
                             break;
                         }
                         $i++;
                         $ch = $buffer[$i];
                     }
-                    $value .= $ch;
-                    if ($i == $len - 1) {
-                        $fail = TRUE;
-                        break;
+                    if ($fail) break;
+                    $values[] = $value;
+                    // Need to strip trailing enclosing char?
+                    if ($need_end && $ch == $csv_enclosed) {
+                        if ($i == $len - 1) break;
+                        $i++;
+                        $ch = $buffer[$i];
                     }
-                    $i++;
-                    $ch = $buffer[$i];
-                }
-                if ($fail) break;
-                $values[] = $value;
-                // Need to strip trailing enclosing char?
-                if ($need_end && $ch == $csv_enclosed) {
-                    if ($i == $len - 1) break;
-                    $i++;
-                    $ch = $buffer[$i];
-                }
-                // Are we at the end?
-                if ($ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))) {
-                    $finish = TRUE;
-                }
-                // Go to next char
-                if ($ch == $csv_terminated) {
-                    if ($i == $len - 1) break;
-                    $i++;
-                    $ch = $buffer[$i];
+                    // Are we at the end?
+                    if ($ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n")) || ($finished && $i == $len - 1)) {
+                        $csv_finish = TRUE;
+                    }
+                    // Go to next char
+                    if ($ch == $csv_terminated) {
+                        if ($i == $len - 1) break;
+                        $i++;
+                        $ch = $buffer[$i];
+                    }
                 }
 
                 // End of line
-                if ($finish || $ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))) {
-                    if ($csv_new_line == 'auto' && $ch == "\r") {
+                if ($csv_finish || $ch == $csv_new_line || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))) {
+                    if ($csv_new_line == 'auto' && $ch == "\r") { // Handle "\r\n"
                         if ($i >= ($len - 2) && !$finished) break; // We need more data to decide new line
                         if ($buffer[$i + 1] == "\n") {
                             $i++;
                         }
                     }
                     // We didn't parse value till the end of line, so there was empty one
-                    if (!$finish) {
+                    if (!$csv_finish) {
                         $values[] = '';
                     }
                     // Do we have correct count of values?
                     if (count($values) != $required_fields) {
-                        $message = $strInvalidCSVInput;
+                        $message = sprintf($strInvalidCSVFieldCount, $line);
                         $show_error_header = TRUE;
                         $error = TRUE;
                         break;
@@ -222,7 +229,8 @@ if ($import_type == 'table') {
 
                     // FIXME: maybe we could add original line to verbose SQL in comment
                     PMA_importRunQuery($sql, $sql);
-                    $finish = FALSE;
+                    $line++;
+                    $csv_finish = FALSE;
                     $values = array();
                     $buffer = substr($buffer, $i + 1);
                     $len = strlen($buffer);
@@ -237,7 +245,7 @@ if ($import_type == 'table') {
         PMA_importRunQuery();
         
         if (count($values) != 0 && !$error) {
-            $message = $strInvalidCSVInput;
+            $message = sprintf($strInvalidCSVFormat, $line);
             $show_error_header = TRUE;
             $error = TRUE;
         }

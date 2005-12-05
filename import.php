@@ -344,7 +344,7 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
     if ($import_type == 'query') {
         $message = $strSuccess;
     } else {
-        $message = $strImportFinished;
+        $message = sprintf($strImportSuccessfullyFinished, $executed_queries);
     }
 }
 
