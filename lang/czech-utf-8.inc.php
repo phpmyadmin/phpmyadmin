@@ -347,6 +347,7 @@ $strImportDocSQL = 'Importovat soubory docSQL';
 $strImportFiles = 'Importovat soubory';
 $strImportFormat = 'Formát importovaného souboru'; 
 $strImport = 'Import';
+$strImportSuccessfullyFinished = 'Import byl úspěšně dokončen, bylo provedeno %d dotazů.';
 $strIndexes = 'Indexy';
 $strIndexHasBeenDropped = 'Index %s byl odstraněn';
 $strIndex = 'Index';
@@ -377,6 +378,8 @@ $strInUse = 'právě se používá';
 $strInvalidAuthMethod = 'V konfiguraci máte špatnou autentizační metodu:';
 $strInvalidColumn = 'Byl zadán chybný sloupec (%s)!';
 $strInvalidColumnCount = 'Počet sloupců musí být větší než nula.';
+$strInvalidCSVFieldCount = 'Chybný počet položek v&nbsp;CSV datech na řádku %d.';
+$strInvalidCSVFormat = 'Chybný formát CSV dat na řádku %d.';
 $strInvalidCSVParameter = 'Neznámý parametr pro import CSV: %s';
 $strInvalidFieldAddCount = 'Musíte přidat alespoň jeden sloupec.';
 $strInvalidFieldCount = 'Tabulka musí mít alespoň jeden sloupec.';
@@ -971,7 +974,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strInvalidCSVFieldCount = 'Invalid field count in CSV input on line %d.';  //to translate
-$strInvalidCSVFormat = 'Invalid format of CSV input on line %d.';  //to translate
-$strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
 ?>

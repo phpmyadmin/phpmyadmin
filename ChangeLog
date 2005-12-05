@@ -19,6 +19,7 @@ $Source$
     * import.php, lang/*, libraries/import/csv.php, libraries/import/ldi.php:
       Fix import of some CSV files (bug #1373731), provide better error
       messages.
+    * lang/czech: Update.
 
 2005-12-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan update, thanks to Xavier Navarro (xavin).
