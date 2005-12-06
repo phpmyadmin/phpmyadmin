@@ -1786,10 +1786,10 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
                 || $tab['text'] == $GLOBALS['strDrop'] ) {
                 $tab['class'] = 'caution';
             }
-            elseif ( isset( $tab['active'] ) && $tab['active']
-                  || isset( $GLOBALS['active_page'] )
-                  && $GLOBALS['active_page'] == $tab['link']
-                  || basename( $GLOBALS['PHP_SELF'] ) == $tab['link'] )
+            elseif ( ! empty( $tab['active'] )
+              || ( isset( $GLOBALS['active_page'] )
+                   && $GLOBALS['active_page'] == $tab['link'] )
+              || basename( $_SERVER['PHP_SELF'] ) == $tab['link'] )
             {
                 $tab['class'] = 'active';
             }
