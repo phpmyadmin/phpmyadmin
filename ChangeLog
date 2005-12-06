@@ -20,10 +20,17 @@ $Source$
       - revised (style, code, xhtml output)
       - use variable name as title if title is empty
       - make use of PMA_formatNumber() for non byte numeric values
+      - set PMA_NO_VARIABLES_IMPORT
     * libraries/storage_engines.lib.php: revised
       - added PHP 5 constructor
       - added comments
       - PEAR coding standard
+    * libraries/engines/innodb.lib.php:
+      - revised (style, code, xhtml output)
+      - added more status variables
+      - PEAR coding standard
+      - make use of PMA_formatNumber()
+      - added comments
     * libraries/grab_globals.lib.php: protect $import_blacklist from overwriting
 
 2005-12-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
