@@ -24,6 +24,7 @@ $Source$
       - added PHP 5 constructor
       - added comments
       - PEAR coding standard
+    * libraries/grab_globals.lib.php: protect $import_blacklist from overwriting
 
 2005-12-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php: added PMA_array_merge_recursive()

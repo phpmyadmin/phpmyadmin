@@ -74,7 +74,7 @@ if ( $__redirect || ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
     /**
      * copy values from one array to another, usally from a superglobal into $GLOBALS
      *
-     * @uses    $GLOBALS['import_blacklist']
+     * @uses    $GLOBALS['_import_blacklist']
      * @uses    preg_replace()
      * @uses    array_keys()
      * @uses    array_unique()
@@ -82,34 +82,34 @@ if ( $__redirect || ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
      * @uses    stripslashes()
      * @param   array   $array      values from
      * @param   array   $target     values to
-     * @param   boolean $sanitize   prevent importing key names in $import_blacklist
+     * @param   boolean $sanitize   prevent importing key names in $_import_blacklist
      */
     function PMA_gpc_extract($array, &$target, $sanitize = TRUE) {
         if (!is_array($array)) {
             return FALSE;
         }
-    
+
         if ( $sanitize ) {
-            $valid_variables = preg_replace( $GLOBALS['import_blacklist'], '',
+            $valid_variables = preg_replace( $GLOBALS['_import_blacklist'], '',
                 array_keys( $array ) );
             $valid_variables = array_unique( $valid_variables );
         } else {
             $valid_variables = array_keys( $array );
         }
-    
+
         $is_magic_quotes = get_magic_quotes_gpc();
-    
+
         foreach ( $valid_variables as $key ) {
-    
+
             if ( strlen( $key ) === 0 ) {
                 continue;
             }
-    
+
             if ( is_array( $array[$key] ) ) {
                 // there could be a variable coming from a cookie of
                 // another application, with the same name as this array
                 unset($target[$key]);
-    
+
                 PMA_gpc_extract($array[$key], $target[$key], FALSE);
             } elseif ($is_magic_quotes) {
                 $target[$key] = stripslashes($array[$key]);
@@ -119,13 +119,13 @@ if ( $__redirect || ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
         }
         return TRUE;
     }
-    
-    
+
+
     /**
-     * @var array $import_blacklist variable names that should NEVER be imported
+     * @var array $_import_blacklist variable names that should NEVER be imported
      *                              from superglobals
      */
-    $import_blacklist = array(
+    $_import_blacklist = array(
         '/^cfg$/i',      // PMA configuration
         '/^GLOBALS$/i',  // the global scope
         '/^str.*$/i',    // PMA strings
@@ -134,15 +134,15 @@ if ( $__redirect || ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
         '/^[0-9]+.*$/i', // numeric variable names
         //'/^PMA_.*$/i',   // other PMA variables
     );
-    
+
     if (!empty($_GET)) {
         PMA_gpc_extract($_GET, $GLOBALS);
     } // end if
-    
+
     if (!empty($_POST)) {
         PMA_gpc_extract($_POST, $GLOBALS);
     } // end if (!empty($_POST))
-    
+
     if (!empty($_FILES)) {
         foreach ($_FILES AS $name => $value) {
             $$name = $value['tmp_name'];
@@ -150,7 +150,7 @@ if ( $__redirect || ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
         }
         unset( $name, $value );
     } // end if
-    
+
     if (!empty($_SERVER)) {
         $server_vars = array('PHP_SELF', 'HTTP_ACCEPT_LANGUAGE', 'HTTP_AUTHORIZATION');
         foreach ( $server_vars as $current ) {
@@ -167,14 +167,14 @@ if ( $__redirect || ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
         }
         unset( $server_vars, $current );
     } // end if
-    
+
     // Security fix: disallow accessing serious server files via "?goto="
     if (isset($goto) && strpos(' ' . $goto, '/') > 0 && substr($goto, 0, 2) != './') {
         unset($goto);
     } // end if
-    
-    unset( $import_blacklist );
-    
+
+    unset( $_import_blacklist );
+
     if ( ! empty( $__redirect ) ) {
         // TODO: ensure that PMA_securePath() is defined and available
         // for this script. Meanwhile we duplicate what this function does:
@@ -183,7 +183,7 @@ if ( $__redirect || ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
     } // end if ( ! empty( $__redirect ) )
 
 } else {
-    
+
     // Security fix: disallow accessing serious server files via "?goto="
     if ( isset( $_REQUEST['goto'] )
       && strpos( $_REQUEST['goto'], '\\' ) !== false
@@ -191,9 +191,9 @@ if ( $__redirect || ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
         unset( $_REQUEST['goto'], $_GET['goto'], $_POST['goto'],
             $_COOKIE['goto'] );
     } // end if
-    
+
     array_walk( $_SERVER, 'strip_tags' );
     array_walk( $_ENV, 'strip_tags' );
-    
+
 }
 ?>
