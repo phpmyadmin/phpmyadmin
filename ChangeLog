@@ -14,8 +14,9 @@ $Source$
       should be ForceSSL and not ForceSLL (bug #1374452).
 
 2005-12-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libraries/common.lib.php: wrong quote
-      thanks to Matt "Cyber Dog" LaPlante
+    * libraries/common.lib.php:
+      - wrong quote, thanks to Matt "Cyber Dog" LaPlante
+      - PMA_getTab(): use $_SERVER['PHP_SELF']
     * libraries/display_import.lib.php: missing '/' for closing div tag
     * libraries/display_export.lib.php: no name attribute for sup tag
     * server_engines.php:
