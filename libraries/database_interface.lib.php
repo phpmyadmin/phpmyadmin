@@ -572,12 +572,10 @@ function PMA_DBI_postConnect($link, $is_controluser = FALSE) {
             $charset_connection   = PMA_DBI_get_variable('character_set_connection', PMA_DBI_GETVAR_SESSION, $link);
         }
 
-        // Add some field types to the list
-        // (we pass twice here; feel free to code something better :)
-        if (!defined('PMA_ADDED_FIELD_TYPES')) {
+        // Add some field types to the list, this needs to be done once per session!
+        if ($GLOBALS['cfg']['ColumnTypes'][count($GLOBALS['cfg']['ColumnTypes']) - 1] != 'VARBINARY') {
             $GLOBALS['cfg']['ColumnTypes'][] = 'BINARY';
             $GLOBALS['cfg']['ColumnTypes'][] = 'VARBINARY';
-            define('PMA_ADDED_FIELD_TYPES',1);
         }
 
     } else {

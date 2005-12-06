@@ -8,6 +8,8 @@ $Source$
 2005-12-06 Michal Čihař  <michal@cihar.com>
     * libraries/config.default.php: Modify default export configuration (RFE
       #1373891).
+    * libraries/database_interface.lib.php: Do not add BINARY types multiple
+      times (bug #1374457).
 
 2005-12-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php: wrong quote
