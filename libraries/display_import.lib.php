@@ -60,7 +60,7 @@ function PMA_importIsActive($what, $val) {
 ?>
 
 <form action="import.php" method="post" enctype="multipart/form-data" name="import">
-<?php 
+<?php
 if ($import_type == 'server') {
     echo PMA_generate_common_hidden_inputs('', '', 1);
 } elseif ($import_type == 'database') {
@@ -74,7 +74,7 @@ echo '    <input type="hidden" name="import_type" value="' . $import_type . '" /
     <script type="text/javascript" language="javascript">
     //<![CDATA[
     function hide_them_all() {
-        <?php 
+        <?php
         foreach($import_list as $key => $val) {
             if (isset($val['options'])) {
                 echo 'document.getElementById("' . $key . '_options").style.display = "none";';
@@ -85,7 +85,7 @@ echo '    <input type="hidden" name="import_type" value="' . $import_type . '" /
 
     function init_options() {
         hide_them_all();
-        <?php 
+        <?php
         foreach($import_list as $key => $val) {
             echo 'if (document.getElementById("radio_import_' . $key . '").checked) {';
             if (isset($val['options'])) {
@@ -100,7 +100,7 @@ echo '    <input type="hidden" name="import_type" value="' . $import_type . '" /
             document.getElementById('none_options').style.display = 'block';
         }
     }
-    
+
     function match_file(fname) {
         farr = fname.toLowerCase().split('.');
         if (farr.length != 0) {
@@ -120,22 +120,22 @@ foreach($import_list as $key => $val) {
     }
     //]]>
     </script>
-    
+
     <h2><?php echo $strImport; ?></h2>
 
     <!-- File name, and some other common options -->
     <fieldset class="options">
         <legend><?php echo $strFileToImport; ?></legend>
-        
+
         <div class="formelementrow">
         <label for="input_import_file"><?php echo $strLocationTextfile; ?></label>
         <input style="margin: 5px" type="file" name="import_file" id="input_import_file" onchange="match_file(this.value);" />
-        <?php 
-        echo PMA_displayMaximumUploadSize($max_upload_size) . "\n"; 
+        <?php
+        echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
         // some browsers should respect this :)
         echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
         ?>
-        <div>
+        </div>
 <?php
 if (!empty($cfg['UploadDir'])) {
     $extensions = '';
@@ -207,8 +207,8 @@ echo "\n";
     </fieldset>
     <fieldset class="options">
         <legend><?php echo $strPartialImport; ?></legend>
-        
-        <?php 
+
+        <?php
         if (isset($timeout_passed) && $timeout_passed) {
             echo '<div class="formelementrow">' . "\n";
             echo '<input type="hidden" name="skip" value="' . $offset . '" />';
@@ -221,7 +221,7 @@ echo "\n";
             id="checkbox_allow_interrupt" <?php echo PMA_importCheckboxCheck('allow_interrupt'); ?>/>
         <label for="checkbox_allow_interrupt"><?php echo $strAllowInterrupt; ?></label><br />
         </div>
-        
+
         <div class="formelementrow">
         <label for="text_skip_queries"><?php echo $strSkipQueries; ?></label>
         <input type="text" name="skip_queries" value="<?php echo PMA_importGetDefault('skip_queries');?>" id="text_skip_queries" />
@@ -264,12 +264,12 @@ foreach($import_list as $key => $val) {
             }
             echo '<br />';
         }
-        
+
         echo '</fieldset>';
     }
 }
 
-    
+
 ?>
     <fieldset id="none_options" class="options">
         <legend><?php echo $strNoOptions; ?></legend>
