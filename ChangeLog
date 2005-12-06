@@ -15,6 +15,10 @@ $Source$
     * libraries/display_import.lib.php: missing '/' for closing div tag
     * libraries/display_export.lib.php: no name attribute for sup tag
     * server_engines.php: revised (style, code, xhtml output)
+    * libraries/storage_engines.lib.php: revised
+      - added PHP 5 constructor
+      - added comments
+      - PEAR coding standard
 
 2005-12-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php: added PMA_array_merge_recursive()
