@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/common.lib.php: wrong quote
+      thanks to Matt "Cyber Dog" LaPlante
+
 2005-12-05 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php: added PMA_array_merge_recursive()
     * libraries/Config.class.php:

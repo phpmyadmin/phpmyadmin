@@ -1426,7 +1426,7 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
                 $edit_link = $edit_target
                            . $url_qpart
                            . '&amp;sql_query=' . urlencode($local_query)
-                           . '&amp;show_query=1#querybox"';
+                           . '&amp;show_query=1#querybox';
                 $edit_link = ' [' . PMA_linkOrButton( $edit_link, $GLOBALS['strEdit'], array( 'onclick' => $onclick ) ) . ']';
             } else {
                 $edit_link = '';
