@@ -122,13 +122,13 @@ function show_checked_option() {
 
 <fieldset id="exportoptions">
 <legend><?php echo $strExport; ?></legend>
-    
+
     <?php if ( ! empty( $multi_values ) ) { ?>
     <div class="formelementrow">
         <?php echo $multi_values; ?>
     </div>
     <?php } ?>
-        
+
 <?php if ( ! $hide_sql ) { /* SQL */ ?>
     <div class="formelementrow">
         <input type="radio" name="what" value="sql" id="radio_dump_sql"
@@ -234,7 +234,7 @@ function show_checked_option() {
 <?php } ?>
 
 </fieldset>
-    
+
 <?php if ( ! $hide_sql ) { /* SQL options */ ?>
 <fieldset id="sql_options">
     <legend>
@@ -244,7 +244,7 @@ function show_checked_option() {
     echo ( $cfg['ReplaceHelpImg'] ? '' : '(' )
        . $goto_documentation
        . ( $cfg['ReplaceHelpImg'] ?
-             '<img class="icon" src="' . $pmaThemeImage . 'b_help.png" alt="' 
+             '<img class="icon" src="' . $pmaThemeImage . 'b_help.png" alt="'
              .$strDocu . '" width="11" height="11" />'
            : $strDocu )
        . '</a>' . ($cfg['ReplaceHelpImg'] ? '' : ')');
@@ -255,7 +255,7 @@ function show_checked_option() {
         <input type="text" name="header_comment" size="30"
             value="<?php echo $cfg['Export']['sql_header_comment']; ?>" />
     </div>
-        
+
     <div class="formelementrow">
         <input type="checkbox" name="use_transaction" value="yes"
             id="checkbox_use_transaction"
@@ -263,7 +263,7 @@ function show_checked_option() {
         <label for="checkbox_use_transaction">
             <?php echo $strEncloseInTransaction; ?></label>
     </div>
-        
+
     <div class="formelementrow">
         <input type="checkbox" name="disable_fk" value="yes"
             id="checkbox_disable_fk"
@@ -291,8 +291,8 @@ function show_checked_option() {
             }
         }
         foreach ($compats as $x) {
-            echo '<option value="' . $x . '"' 
-                . ($cfg['Export']['sql_compat'] == $x ? ' selected="selected"' : '' ) 
+            echo '<option value="' . $x . '"'
+                . ($cfg['Export']['sql_compat'] == $x ? ' selected="selected"' : '' )
                 . '>' . $x . '</option>' . "\n";
         }
         ?>
@@ -349,7 +349,7 @@ function show_checked_option() {
         <b><?php echo $strAddIntoComments; ?>:</b><br />
 
         <input type="checkbox" name="sql_dates" value="yes"
-            id="checkbox_sql_dates" 
+            id="checkbox_sql_dates"
             <?php PMA_exportCheckboxCheck('sql_dates'); ?> />
         <label for="checkbox_sql_dates">
             <?php echo $strCreationDates; ?></label><br />
@@ -364,7 +364,7 @@ function show_checked_option() {
             <?php PMA_exportCheckboxCheck('sql_comments'); ?> />
         <label for="checkbox_sql_use_comments"><?php echo $strComments; ?></label><br />
 <?php } if ($cfgRelation['mimework']) { ?>
-        <input type="checkbox" name="sql_mime" value="yes" 
+        <input type="checkbox" name="sql_mime" value="yes"
             id="checkbox_sql_use_mime"
             <?php PMA_exportCheckboxCheck('sql_mime'); ?> />
         <label for="checkbox_sql_use_mime"><?php echo $strMIME_MIMEtype; ?></label><br />
@@ -444,7 +444,7 @@ function show_checked_option() {
         <label for="checkbox_latex_show_caption">
             <?php echo $strLatexIncludeCaption; ?></label>
     </div>
-    
+
 <?php if ( ! $hide_structure ) { /* LaTeX structure */ ?>
     <fieldset>
         <legend>
@@ -458,7 +458,7 @@ function show_checked_option() {
             <label for="checkbox_latex_structure">
                 <?php echo $strStructure; ?></label>
         </legend>
-        
+
         <table>
         <tr><td><label for="latex_structure_caption">
                     <?php echo $strLatexCaption; ?></label></td>
@@ -561,7 +561,7 @@ function show_checked_option() {
 <fieldset id="csv_options">
     <input type="hidden" name="csv_data" value="csv_data" />
     <legend><?php echo $strCSVOptions; ?></legend>
-    
+
     <table>
     <tr><td><label for="export_separator">
                 <?php echo $strFieldsTerminatedBy; ?></label></td>
@@ -593,14 +593,14 @@ function show_checked_option() {
     </tr>
     <tr><td><label for="csv_replace_null">
                 <?php echo $strReplaceNULLBy; ?></label></td>
-        <td><input type="text" name="csv_replace_null" size="20" 
+        <td><input type="text" name="csv_replace_null" size="20"
                 id="csv_replace_null"
                 value="<?php echo $cfg['Export']['csv_null']; ?>" />
         </td>
     </tr>
     </table>
-    <input type="checkbox" name="showcsvnames" value="yes" 
-        id="checkbox_dump_showcsvnames" 
+    <input type="checkbox" name="showcsvnames" value="yes"
+        id="checkbox_dump_showcsvnames"
         <?php PMA_exportCheckboxCheck('csv_columns'); ?>  />
     <label for="checkbox_dump_showcsvnames">
         <?php echo $strPutColNames; ?></label>
@@ -610,7 +610,7 @@ function show_checked_option() {
 <fieldset id="excel_options">
     <input type="hidden" name="excel_data" value="excel_data" />
     <legend><?php echo $strExcelOptions; ?></legend>
-    
+
     <table>
     <tr><td><label for="excel_replace_null">
                 <?php echo $strReplaceNULLBy; ?></label>
@@ -631,9 +631,9 @@ function show_checked_option() {
         </td>
     </tr>
     </table>
-    
+
     <input type="checkbox" name="showexcelnames" value="yes"
-        id="checkbox_dump_showexcelnames" 
+        id="checkbox_dump_showexcelnames"
         <?php PMA_exportCheckboxCheck('excel_columns'); ?> />
     <label for="checkbox_dump_showexcelnames">
         <?php echo $strPutColNames; ?></label>
@@ -643,14 +643,14 @@ function show_checked_option() {
 <fieldset id="htmlexcel_options">
     <input type="hidden" name="htmlexcel_data" value="htmlexcel_data" />
     <legend><?php echo $strHTMLExcelOptions; ?></legend>
-    
+
     <div class="formelementrow">
         <label for="htmlexcel_replace_null"><?php echo $strReplaceNULLBy; ?></label>
         <input type="text" name="htmlexcel_replace_null" size="20"
             value="<?php echo $cfg['Export']['htmlexcel_null']; ?>"
             id="htmlexcel_replace_null" />
     </div>
-    
+
     <div class="formelementrow">
         <input type="checkbox" name="htmlexcel_shownames" value="yes"
             id="checkbox_dump_htmlexcel_shownames"
@@ -663,7 +663,7 @@ function show_checked_option() {
 <?php /* HTML Word options */ ?>
 <fieldset id="htmlword_options">
     <legend><?php echo $strHTMLWordOptions; ?></legend>
-    
+
     <div class="formelementrow">
         <input type="checkbox" name="htmlword_structure" value="structure"
             id="checkbox_htmlword_structure"
@@ -675,7 +675,7 @@ function show_checked_option() {
         <label for="checkbox_htmlword_structure">
             <?php echo $strStructure; ?></label>
     </div>
-    
+
     <fieldset>
         <legend>
             <input type="checkbox" name="htmlword_data" value="data"
@@ -688,18 +688,18 @@ function show_checked_option() {
             <label for="checkbox_htmlword_data">
                 <?php echo $strData; ?></label>
         </legend>
-        
+
         <div class="formelementrow">
             <label for="htmlword_replace_null">
                 <?php echo $strReplaceNULLBy; ?></label>
             <input id="htmlword_replace_null" type="text" size="20"
-                name="htmlword_replace_null" 
+                name="htmlword_replace_null"
                 value="<?php echo $cfg['Export']['htmlword_null']; ?>" />
         </div>
-    
+
         <div class="formelementrow">
             <input type="checkbox" name="htmlword_shownames" value="yes"
-                id="checkbox_dump_htmlword_shownames" 
+                id="checkbox_dump_htmlword_shownames"
                 <?php PMA_exportCheckboxCheck('htmlword_columns'); ?> />
             <label for="checkbox_dump_htmlword_shownames">
                 <?php echo $strPutColNames; ?></label>
@@ -711,14 +711,14 @@ function show_checked_option() {
 <fieldset id="xls_options">
     <input type="hidden" name="xls_data" value="xls_data" />
     <legend><?php echo $strExcelOptions; ?></legend>
-    
+
     <div class="formelementrow">
         <label for="xls_replace_null"><?php echo $strReplaceNULLBy; ?></label>
         <input type="text" name="xls_replace_null" size="20"
             value="<?php echo $cfg['Export']['xls_null']; ?>"
             id="xls_replace_null" />
     </div>
-    
+
     <div class="formelementrow">
         <input type="checkbox" name="xls_shownames" value="yes"
             id="checkbox_dump_xls_shownames"
@@ -733,7 +733,7 @@ function show_checked_option() {
 <fieldset id="pdf_options">
     <input type="hidden" name="pdf_data" value="pdf_data" />
     <legend><?php echo $strPDFOptions; ?></legend>
-    
+
     <div class="formelementrow">
         <label for="pdf_report_title"><?php echo $strPDFReportTitle; ?></label>
         <input type="text" name="pdf_report_title" size="50"
@@ -758,7 +758,7 @@ function show_checked_option() {
     <div class="formelementrow">
         <?php
         echo sprintf( $strDumpXRows,
-            '<input type="text" name="limit_to" size="5" value="' 
+            '<input type="text" name="limit_to" size="5" value="'
             . ( isset( $unlim_num_rows ) ? $unlim_num_rows : PMA_countRecords( $db, $table, TRUE ) )
             . '" onfocus="this.select()" />',
             '<input type="text" name="limit_from" value="0" size="5"'
@@ -820,7 +820,7 @@ function show_checked_option() {
         }
         echo '" />';
     ?>
-    
+
     (
     <input type="checkbox" name="remember_template"
         id="checkbox_remember_template"
@@ -833,7 +833,7 @@ function show_checked_option() {
     <?php
     // charset of file
     if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
-        echo '        <label for="select_charset_of_file">' 
+        echo '        <label for="select_charset_of_file">'
             . $strCharsetOfFile . '</label>' . "\n";
 
         $temp_charset = reset($cfg['AvailableCharsets']);
@@ -859,7 +859,7 @@ $is_bzip = ( $cfg['BZipDump'] && @function_exists('bzcompress') );
 
 if ( $is_zip || $is_gzip || $is_bzip ) { ?>
     <div class="formelementrow">
-        <?php echo $strCompression; ?>: 
+        <?php echo $strCompression; ?>:
         <input type="radio" name="compression" value="none"
             id="radio_compression_none"
             onclick="document.getElementById('checkbox_dump_asfile').checked = true;"
@@ -905,8 +905,8 @@ if ( $is_zip || $is_gzip || $is_bzip ) { ?>
 </form>
 
 <div class="notice">
-    <sup id="FileNameTemplateHelp" name="FileNameTemplateHelp">(1)</sup> 
-    <?php 
+    <sup id="FileNameTemplateHelp">(1)</sup>
+    <?php
     $trans = '__SERVER__/' . $strFileNameTemplateDescriptionServer;
     if ($export_type == 'database' || $export_type == 'table') {
         $trans .= ', __DB__/' . $strFileNameTemplateDescriptionDatabase;
@@ -915,6 +915,6 @@ if ( $is_zip || $is_gzip || $is_bzip ) { ?>
         $trans .= ', __TABLE__/' . $strFileNameTemplateDescriptionTable;
     }
     echo sprintf($strFileNameTemplateDescription,
-        '<a href="http://www.php.net/strftime" target="documentation" title="' 
-        . $strDocu . '">', '</a>', $trans); ?> 
+        '<a href="http://www.php.net/strftime" target="documentation" title="'
+        . $strDocu . '">', '</a>', $trans); ?>
 </div>
