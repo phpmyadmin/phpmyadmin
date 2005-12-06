@@ -476,6 +476,10 @@ function PMA_auth_set_user()
         if ( ! empty($GLOBALS['table']) ) {
             $url_params['table'] = $GLOBALS['table'];
         }
+        // Language change from the login panel needs to be remembered
+        if ( ! empty($GLOBALS['lang']) ) {
+            $url_params['lang'] = $GLOBALS['lang'];
+        }
         // any target to pass?
         if ( ! empty($GLOBALS['target']) && $GLOBALS['target'] != 'index.php' ) {
             $url_params['target'] = $GLOBALS['target'];
