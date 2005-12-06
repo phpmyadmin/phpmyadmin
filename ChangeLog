@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-06 Michal Čihař  <michal@cihar.com>
+    * libraries/config.default.php: Modify default export configuration (RFE
+      #1373891).
+
 2005-12-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php: wrong quote
       thanks to Matt "Cyber Dog" LaPlante
