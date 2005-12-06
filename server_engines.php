@@ -5,6 +5,10 @@
  * display list of server enignes and additonal information about them
  */
 
+if ( ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
+    define( 'PMA_NO_VARIABLES_IMPORT', true );
+}
+
 /**
  * requirements
  */
@@ -207,7 +211,7 @@ if ( empty($_REQUEST['engine'])
             echo '    <strong>' . $strServerTabVariables . '</strong>' . "\n";
         } else {
             echo '    <a href="./server_engines.php'
-                . PMA_generate_common_url(array( 'engine' => $engine )) . '">'
+                . PMA_generate_common_url(array( 'engine' => $_REQUEST['engine'] )) . '">'
                 . $strServerTabVariables . '</a>' . "\n";
         }
         foreach ($infoPages as $current => $label) {
@@ -217,7 +221,7 @@ if ( empty($_REQUEST['engine'])
             } else {
                 echo '    <a href="./server_engines.php'
                     . PMA_generate_common_url(
-                        array( 'engine' => $engine, 'page' => $current ))
+                        array( 'engine' => $_REQUEST['engine'], 'page' => $current ))
                     . '">' . htmlspecialchars($label) . '</a>' . "\n";
             }
         }
