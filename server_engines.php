@@ -88,7 +88,9 @@ function PMA_generateEngineDetails($variables, $like = null) {
             $dt_table .= '        ' . PMA_showHint($details['desc']) . "\n";
         }
         $dt_table     .= '    </td>' . "\n"
-    	               . '    <th>' . htmlspecialchars($details['title']) . "\n"
+    	               . '    <th>'
+                       . htmlspecialchars( empty($details['title'])
+                            ? $var : $details['title'] ) . "\n"
                        . '    </th>' . "\n"
                        . '    <td class="value">';
         switch ($details['type']) {
@@ -97,8 +99,11 @@ function PMA_generateEngineDetails($variables, $like = null) {
                 $dt_table .= $parsed_size[0] . '&nbsp;' . $parsed_size[1];
                 unset($parsed_size);
             break;
+            case PMA_ENGINE_DETAILS_TYPE_NUMERIC:
+                $dt_table .= PMA_formatNumber($mysql_vars[$var]) . ' ';
+            break;
             default:
-                $dt_table .= htmlspecialchars($mysql_vars[$var]);
+                $dt_table .= htmlspecialchars($mysql_vars[$var]) . '   ';
         }
         $dt_table     .= '</td>' . "\n"
                       . '</tr>' . "\n";
