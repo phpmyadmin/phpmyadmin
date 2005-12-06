@@ -14,7 +14,10 @@ $Source$
       thanks to Matt "Cyber Dog" LaPlante
     * libraries/display_import.lib.php: missing '/' for closing div tag
     * libraries/display_export.lib.php: no name attribute for sup tag
-    * server_engines.php: revised (style, code, xhtml output)
+    * server_engines.php:
+      - revised (style, code, xhtml output)
+      - use variable name as title if title is empty
+      - make use of PMA_formatNumber() for non byte numeric values
     * libraries/storage_engines.lib.php: revised
       - added PHP 5 constructor
       - added comments
