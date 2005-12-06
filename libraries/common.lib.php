@@ -2674,7 +2674,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
     /**
      * check https connection
      */
-    if ( $_SESSION['PMA_Config']->get( 'ForceSLL' )
+    if ( $_SESSION['PMA_Config']->get( 'ForceSSL' )
       && ! $_SESSION['PMA_Config']->get( 'is_https' ) ) {
         PMA_sendHeaderLocation(
             preg_replace( '/^http/', 'https',

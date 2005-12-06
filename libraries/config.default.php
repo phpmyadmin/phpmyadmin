@@ -123,7 +123,7 @@ $cfg['ServerDefault'] = 1;              // Default server (0 = no default server
  */
 $cfg['OBGzip']                  = 'auto'; // use GZIP output buffering if possible (TRUE|FALSE|'auto')
 $cfg['PersistentConnections']   = FALSE;  // use persistent connections to MySQL database
-$cfg['ForceSLL']                = FALSE;  // whether to force using https
+$cfg['ForceSSL']                = FALSE;  // whether to force using https
 $cfg['ExecTimeLimit']           = 300;    // maximum execution time in seconds (0 for no limit)
 $cfg['SkipLockedTables']        = FALSE;  // mark used tables, make possible to show
                                           // locked tables (since MySQL 3.23.30)

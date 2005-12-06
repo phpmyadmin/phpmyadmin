@@ -10,6 +10,8 @@ $Source$
       #1373891).
     * libraries/database_interface.lib.php: Do not add BINARY types multiple
       times (bug #1374457).
+    * libraries/common.lib.php, libraries/config.default.php: Variable name
+      should be ForceSSL and not ForceSLL (bug #1374452).
 
 2005-12-06 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.lib.php: wrong quote
