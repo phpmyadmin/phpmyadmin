@@ -65,63 +65,90 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
 /**
  * Function for generating the storage engine selection
  *
- * @param   string   The name of the select form element
- * @param   string   The ID of the form field
- * @param   boolean  Should unavailable storage engines be offered?
- * @param   string   The selected engine
- * @param   int      The indentation level
- *
- * @global  array    The storage engines
- *
- * @return  string
- *
  * @author  rabus
+ * @uses    $GLOBALS['mysql_storage_engines']
+ * @param   string  $name       The name of the select form element
+ * @param   string  $id         The ID of the form field
+ * @param   boolean $offerUnavailableEngines
+ *                              Should unavailable storage engines be offered?
+ * @param   string  $selected   The selected engine
+ * @param   int     $indent     The indentation level
+ * @return  string  html selectbox
  */
-function PMA_generateEnginesDropdown($name = 'engine', $id = NULL, $offerUnavailableEngines = FALSE, $selected = NULL, $indent = 0) {
-    global $mysql_storage_engines;
-    $selected = strtolower($selected);
-    $spaces = '';
-    for ($i = 0; $i < $indent; $i++) $spaces .= '    ';
-    $output  = $spaces . '<select name="' . $name . '"' . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
-    foreach ($mysql_storage_engines as $key => $details) {
-        if (!$offerUnavailableEngines && ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED')) {
-	    continue;
-	}
+function PMA_generateEnginesDropdown($name = 'engine', $id = null,
+  $offerUnavailableEngines = false, $selected = null, $indent = 0)
+{
+    $selected   = strtolower($selected);
+    $spaces     = str_repeat( '    ', $indent );
+    $output     = $spaces . '<select name="' . $name . '"'
+        . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
+
+    foreach ($GLOBALS['mysql_storage_engines'] as $key => $details) {
+        if (!$offerUnavailableEngines
+          && ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED')) {
+            continue;
+        }
         $output .= $spaces . '    <option value="' . htmlspecialchars($key). '"'
-	         . (empty($details['Comment']) ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
-		 . ($key == $selected || (empty($selected) && $details['Support'] == 'DEFAULT') ? ' selected="selected"' : '') . '>' . "\n"
-	         . $spaces . '        ' . htmlspecialchars($details['Engine']) . "\n"
-		 . $spaces . '    </option>' . "\n";
+            . (empty($details['Comment'])
+                ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
+            . ($key == $selected || (empty($selected) && $details['Support'] == 'DEFAULT')
+                ? ' selected="selected"' : '') . '>' . "\n"
+            . $spaces . '        ' . htmlspecialchars($details['Engine']) . "\n"
+            . $spaces . '    </option>' . "\n";
     }
     $output .= $spaces . '</select>' . "\n";
     return $output;
 }
 
 /**
- * Abstract Storage Engine Class
+ * defines
  */
 define('PMA_ENGINE_SUPPORT_NO', 0);
 define('PMA_ENGINE_SUPPORT_DISABLED', 1);
 define('PMA_ENGINE_SUPPORT_YES', 2);
 define('PMA_ENGINE_SUPPORT_DEFAULT', 3);
-class PMA_StorageEngine {
+
+/**
+ * Abstract Storage Engine Class
+ */
+class PMA_StorageEngine
+{
+    /**
+     * @var string engine name
+     */
     var $engine  = 'dummy';
+
+    /**
+     * @var string engine title/description
+     */
     var $title   = 'PMA Dummy Engine Class';
+
+    /**
+     * @var string engine lang description
+     */
     var $comment = 'If you read this text inside phpMyAdmin, something went wrong...';
+
+    /**
+     * @var integer engine supported by current server
+     */
     var $support = PMA_ENGINE_SUPPORT_NO;
 
     /**
-     * public static final PMA_StorageEngine getEngine ()
+     * public static final PMA_StorageEngine getEngine()
      *
      * Loads the corresponding engine plugin, if available.
      *
-     * @param   String    The engine ID
-     *
-     * @return  Object    The engine plugin
+     * @uses    str_replace()
+     * @uses    file_exists()
+     * @uses    PMA_StorageEngine
+     * @param   string  $engine   The engine ID
+     * @return  object  The engine plugin
      */
-    function getEngine ($engine) {
+    function getEngine($engine)
+    {
         $engine = str_replace('/', '', str_replace('.', '', $engine));
-        if (file_exists('./libraries/engines/' . $engine . '.lib.php') && include_once('./libraries/engines/' . $engine . '.lib.php')) {
+        if (file_exists('./libraries/engines/' . $engine . '.lib.php')
+          && include_once('./libraries/engines/' . $engine . '.lib.php')) {
             $class_name = 'PMA_StorageEngine_' . $engine;
             $engine_object = new $class_name($engine);
         } else {
@@ -133,16 +160,27 @@ class PMA_StorageEngine {
     /**
      * Constructor
      *
-     * @param    String    The engine ID
+     * @uses    $GLOBALS['mysql_storage_engines']
+     * @uses    PMA_ENGINE_SUPPORT_DEFAULT
+     * @uses    PMA_ENGINE_SUPPORT_YES
+     * @uses    PMA_ENGINE_SUPPORT_DISABLED
+     * @uses    PMA_ENGINE_SUPPORT_NO
+     * @uses    $this->engine
+     * @uses    $this->title
+     * @uses    $this->comment
+     * @uses    $this->support
+     * @param   string  $engine The engine ID
      */
-    function PMA_StorageEngine ($engine) {
-        global $mysql_storage_engines;
-
-        if (!empty($mysql_storage_engines[$engine])) {
+    function __construct($engine)
+    {
+        if (!empty($GLOBALS['mysql_storage_engines'][$engine])) {
             $this->engine  = $engine;
-            $this->title   = $mysql_storage_engines[$engine]['Engine'];
-            $this->comment = (isset($mysql_storage_engines[$engine]['Comment']) ? $mysql_storage_engines[$engine]['Comment'] : '');
-            switch ($mysql_storage_engines[$engine]['Support']) {
+            $this->title   = $GLOBALS['mysql_storage_engines'][$engine]['Engine'];
+            $this->comment =
+                (isset($GLOBALS['mysql_storage_engines'][$engine]['Comment'])
+                    ? $GLOBALS['mysql_storage_engines'][$engine]['Comment']
+                    : '');
+            switch ($GLOBALS['mysql_storage_engines'][$engine]['Support']) {
                 case 'DEFAULT':
                     $this->support = PMA_ENGINE_SUPPORT_DEFAULT;
                     break;
@@ -160,33 +198,60 @@ class PMA_StorageEngine {
     }
 
     /**
-     * public String getTitle ()
+     * old PHP 4 style constructor
+     * @deprecated
+     * @see     PMA_StorageEngine::__construct()
+     * @uses    PMA_StorageEngine::__construct()
+     * @param   string  $engine engine name
+     */
+    function PMA_StorageEngine($engine)
+    {
+        $this->__construct();
+    }
+
+    /**
+     * public String getTitle()
      *
      * Reveals the engine's title
-     *
-     * @return   String   The title
+     * @uses    $this->title
+     * @return  string   The title
      */
-    function getTitle () {
+    function getTitle()
+    {
         return $this->title;
     }
 
     /**
-     * public String getComment ()
+     * public String getComment()
      *
      * Fetches the server's comment about this engine
-     *
-     * @return   String   The comment
+     * @uses    $this->comment
+     * @return  string   The comment
      */
-    function getComment () {
+    function getComment()
+    {
         return $this->comment;
     }
 
     /**
-     * public String getSupportInformationMessage ()
+     * public String getSupportInformationMessage()
      *
-     * @return   String   The localized message.
+     * @uses    $GLOBALS['strDefaultEngine']
+     * @uses    $GLOBALS['strEngineAvailable']
+     * @uses    $GLOBALS['strEngineDisabled']
+     * @uses    $GLOBALS['strEngineUnsupported']
+     * @uses    $GLOBALS['strEngineUnsupported']
+     * @uses    PMA_ENGINE_SUPPORT_DEFAULT
+     * @uses    PMA_ENGINE_SUPPORT_YES
+     * @uses    PMA_ENGINE_SUPPORT_DISABLED
+     * @uses    PMA_ENGINE_SUPPORT_NO
+     * @uses    $this->support
+     * @uses    $this->title
+     * @uses    sprintf
+     * @return  string   The localized message.
      */
-    function getSupportInformationMessage () {
+    function getSupportInformationMessage()
+    {
         switch ($this->support) {
             case PMA_ENGINE_SUPPORT_DEFAULT:
                 $message = $GLOBALS['strDefaultEngine'];
@@ -205,48 +270,58 @@ class PMA_StorageEngine {
     }
 
     /**
-     * public String[][] getVariables ()
+     * public string[][] getVariables()
      *
      * Generates a list of MySQL variables that provide information about this
      * engine. This function should be overridden when extending this class
      * for a particular engine.
      *
+     * @abstract
      * @return   Array   The list of variables.
      */
-    function getVariables () {
+    function getVariables()
+    {
         return array();
     }
 
     /**
-     * public String getVariablesLikePattern ()
+     * public string getVariablesLikePattern()
+     *
+     * @abstract
+     * @return  string  SQL query LIKE pattern
      */
-    function getVariablesLikePattern () {
-        return FALSE;
+    function getVariablesLikePattern()
+    {
+        return false;
     }
 
     /**
-     * public String[] getInfoPages ()
+     * public String[] getInfoPages()
      *
      * Returns a list of available information pages with labels
      *
-     * @return   Array    The list
+     * @abstract
+     * @return  array    The list
      */
-    function getInfoPages () {
+    function getInfoPages()
+    {
         return array();
     }
 
     /**
-     * public String getPage ()
+     * public String getPage()
      *
      * Generates the requested information page
      *
-     * @param    String    The page ID
+     * @abstract
+     * @param   string  $id The page ID
      *
-     * @return   String    The page
-     *           boolean   or FALSE on error.
+     * @return  string      The page
+     *          boolean     or false on error.
      */
-    function getPage($id) {
-        return FALSE;
+    function getPage($id)
+    {
+        return false;
     }
 }
 
