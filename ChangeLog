@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: bug #1374236, sorting order
+
 2005-12-06 Michal Čihař  <michal@cihar.com>
     * libraries/config.default.php: Modify default export configuration (RFE
       #1373891).

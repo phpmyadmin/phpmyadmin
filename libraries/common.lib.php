@@ -1023,7 +1023,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
         }
 
         if ( $GLOBALS['cfg']['NaturalOrder'] ) {
-            uksort( $tables, 'strcmp' );
+            uksort( $tables, 'strnatcasecmp' );
         }
 
         $default = array(
