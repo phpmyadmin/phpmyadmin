@@ -16,6 +16,17 @@ $Source$
       - added PMA_StorageEngine::getMysqlHelpPage()
     * server_engines.php:
       - display link to mysql manual for specific engine
+    * css/phpmyadmin.css.php, libraries/engines/innodb.lib.php:
+      arrange innodb buffer pool tables side by side
+    * css/phpmyadmin.css.php, server_collations.php:
+      - use style classes
+      - PMA_NO_VARIABLES_IMPORT
+    * server_variables.php:
+      - use style classes
+      - format numbers
+      - display only global variables that differs from local/session
+      - use PMA_DBI_fetch_result()
+      - PMA_NO_VARIABLES_IMPORT
 
 2005-12-06 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1374236, sorting order
