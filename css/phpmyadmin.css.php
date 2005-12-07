@@ -648,12 +648,21 @@ li#li_flush_privileges {
 }
 
 #selflink {
-    float: right;
     clear: both;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    border-top: 0.1em solid silver;
+    text-align: <?php echo $right; ?>;
 }
 
 #table_innodb_bufferpool_usage,
 #table_innodb_bufferpool_activity {
+    float: <?php echo $left; ?>;
+}
+
+#div_mysql_charset_collations table {
     float: <?php echo $left; ?>;
 }
     <?php
