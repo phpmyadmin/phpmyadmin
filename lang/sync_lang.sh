@@ -11,6 +11,8 @@
 # Written by Michal Cihar <nijel at users.sourceforge.net>
 ##
 # Changes:
+# 2005-12-08
+#   * less verbose output to allow quick overview
 # 2005-11-29
 #   * hack for multibyte chars, so that \'; at the end will not fool PHP
 # 2004-09-22
@@ -187,7 +189,7 @@ for base in $BASE_TRANSLATIONS ; do
     if [ $src_charset = 'iso-8859-8-i' ] ; then
         src_charset=iso-8859-8
     fi
-    echo "$base [charset $src_charset]"
+    echo -n "$base [charset $src_charset]"
 
     # do we already have utf-8 translation?
     if [ $src_charset = 'utf-8' ] ; then
@@ -212,11 +214,11 @@ for base in $BASE_TRANSLATIONS ; do
 
         # check whether we need to update translation
         if [ ! "$base.inc.php" -nt "$file" -a "$FORCE" -eq 0 -a -s "$file" ] ; then
-            echo " $file is not needed to update"
+            echo -n " ($file:ok)"
             continue
         fi
 
-        echo -n " to $charset..."
+        echo -n " ($file:to $charset:"
         if [ $charset = 'utf-8' ] ; then
             # if we convert to utf-8, we should add allow_recoding
             is_utf=yes
@@ -232,10 +234,10 @@ $allow_recoding = TRUE;' > $TEMPFILE
         fi
         if [ -s $TEMPFILE ] ; then
             sed "s/\\\\';[[:space:]]*$/\\\\\\\\';/" $TEMPFILE > $file
-            echo done
+            echo -n 'done)'
         else
             FAILED="$FAILED $file"
-            echo FAILED
+            echo -n 'FAILED)'
         fi
     done
 
@@ -246,23 +248,24 @@ $allow_recoding = TRUE;' > $TEMPFILE
             true
         else
             # we should create utf-8 translation
-            echo -n " creating utf-8 translation ... "
             charset=utf-8
             file=$lang-$charset.inc.php
+            echo -n " [$file:$charset:"
             $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| sed -e "s/$replace_charset/$charset/" -e '/\$charset/a\
 $allow_recoding = TRUE;' > $TEMPFILE
             if [ -s $TEMPFILE ] ; then
                 cat $TEMPFILE > $file
-                echo done
+                echo -n 'done)'
             else
                 FAILED="$FAILED $file"
-                echo FAILED
+                echo -n 'FAILED)'
             fi
         fi
     fi
-    echo "$lang processing finished."
-    echo "-------------------------------------------------------------------"
+    echo
 done
+
+echo "-------------------------------------------------------------------"
 
 if [ -z "$FAILED" ] ; then
     echo "Everything seems to went okay"
