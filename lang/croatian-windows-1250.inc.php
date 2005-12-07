@@ -163,9 +163,7 @@ $strModify = 'Promijeni';
 $strModifyIndexTopic = 'Promijeni kljuè';
 $strMoveTable = 'Preimenuj tablicu u (baza<b>.</b>tablica):';
 $strMoveTableOK = 'Tablica %s se sada zove %s.';
-$strMySQLReloaded = 'MySQL je ponovno pokrenut (<i>reload</i>).';
 $strMySQLSaid = 'MySQL poruka: ';
-$strMySQLServerProcess = 'MySQL %pma_s1% pokrenut na %pma_s2%, prijavljen kao %pma_s3%';
 $strMySQLShowProcess = 'Prikaži listu procesa';
 $strMySQLShowStatus = 'Prikaži MySQL runtime informacije';
 $strMySQLShowVars = 'Prikaži MySQL sistemske varijable';
@@ -215,7 +213,6 @@ $strQueryOnDb = 'SQL upit na bazi <b>%s</b>:';
 
 $strRecords = 'Reci';
 $strReferentialIntegrity = 'Provjeri ispravnost veza:';
-$strReloadFailed = 'ponovno pokretanje MySQL-a nije uspjelo.';
 $strReloadMySQL = 'Ponovo pokreni MySQL (<i>reload</i>)';
 $strRenameTable = 'Promijeni ime tablice u ';
 $strRenameTableOK = 'Tablici %s promjenjeno ime u %s';
@@ -995,4 +992,8 @@ $strInvalidCSVParameter = 'Invalid parameter for CSV import: %s';  //to translat
 $strInvalidCSVFieldCount = 'Invalid field count in CSV input on line %d.';  //to translate
 $strInvalidCSVFormat = 'Invalid format of CSV input on line %d.';  //to translate
 $strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
+$strThemeNotFound = 'Theme %s not found!';  //to translate
+$strThemeDefaultNotFound = 'Default theme %s not found!';  //to translate
+$strThemeNoValidImgPath = 'No valid image path for theme %s found!';  //to translate
+$strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
 ?>

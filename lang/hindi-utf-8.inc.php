@@ -159,7 +159,6 @@ $strLogout = 'लोग औट';
 
 $strMoveTable = ' टेबल को (database<b>.</b>table) में  मूव करें:';
 $strMoveTableOK = ' %s टेबल को %s में मूव कर दिया.';
-$strMySQLServerProcess = 'MySQL %pma_s1%  %pma_s3% से %pma_s2% पर चल रहा है';
 $strMySQLShowProcess = 'प्रोसेस दिखाओ';
 $strMySQLShowStatus = 'MySQL के runtime जानकारी  दिखाओ';
 $strMySQLShowVars = 'MySQL के  system variables दिखाओ';
@@ -468,7 +467,6 @@ $strModifyIndexTopic = 'Modify an index'; //to translate
 $strMoveTableSameNames = 'Can\'t move table to same one!';  //to translate
 $strMultilingual = 'multilingual';  //to translate
 $strMySQLCharset = 'MySQL charset'; //to translate
-$strMySQLReloaded = 'MySQL reloaded.'; //to translate
 $strMySQLSaid = 'MySQL said: '; //to translate
 
 $strNoDescription = 'no Description'; //to translate
@@ -565,7 +563,6 @@ $strRelationNotWorking = 'The additional Features for working with linked Tables
 $strRelationView = 'Relation view'; //to translate
 $strRelationalSchema = 'Relational schema';  //to translate
 $strRelations = 'Relations';  //to translate
-$strReloadFailed = 'MySQL reload failed.'; //to translate
 $strReloadMySQL = 'Reload MySQL'; //to translate
 $strReloadingThePrivileges = 'Reloading the privileges'; //to translate
 $strRemoveSelectedUsers = 'Remove selected users'; //to translate
@@ -1000,4 +997,8 @@ $strInvalidCSVParameter = 'Invalid parameter for CSV import: %s';  //to translat
 $strInvalidCSVFieldCount = 'Invalid field count in CSV input on line %d.';  //to translate
 $strInvalidCSVFormat = 'Invalid format of CSV input on line %d.';  //to translate
 $strImportSuccessfullyFinished = 'Import has been successfully finished, %d queries executed.';  //to translate
+$strThemeNotFound = 'Theme %s not found!';  //to translate
+$strThemeDefaultNotFound = 'Default theme %s not found!';  //to translate
+$strThemeNoValidImgPath = 'No valid image path for theme %s found!';  //to translate
+$strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
 ?>

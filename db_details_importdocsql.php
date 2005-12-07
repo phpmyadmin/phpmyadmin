@@ -97,7 +97,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
                         echo "\n";
                     } // end inf[2] exists
                 }
-                echo '<p><font color="green">' . $GLOBALS['strImportFinished'] . '</font></p>' . "\n";
+                echo '<p><font color="green">' . sprintf($GLOBALS['strImportSuccessfullyFinished'], count($lines)) . '</font></p>' . "\n";
             } else {
                 echo '<p><font color="red">' . $GLOBALS['strFileCouldNotBeRead'] . '</font></p>' . "\n";
             }
