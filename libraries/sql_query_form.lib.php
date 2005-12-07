@@ -101,10 +101,11 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
     // start output
     if ( $is_querywindow ) {
         ?>
-        <form method="post" id="sqlqueryform"
-              target="phpmain<?php echo md5( $GLOBALS['cfg']['PmaAbsoluteUri'] ); ?>"
+        <form method="post" id="sqlqueryform" target="frame_content"
               action="import.php"<?php echo $enctype; ?> name="sqlform"
-              onsubmit="this.target=window.opener.frames[1].name;
+              onsubmit="save_name = window.opener.parent.frames[1].name;
+                        window.opener.parent.frames[1].name = save_name + '<?php echo time(); ?>';
+                        this.target = window.opener.parent.frames[1].name;
                         return checkSqlQuery( this );" >
         <?php
     } else {

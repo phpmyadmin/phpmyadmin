@@ -6,7 +6,6 @@
  *
  * @uses    libraries/common.lib.php        global fnctions
  * @uses    libraries/relation.lib.php      table relations
- * @uses    $_SESSION['window_name_hash']   to set it
  * @uses    $GLOBALS['strNoFrames']
  * @uses    $GLOBALS['cfg']['QueryHistoryDB']
  * @uses    $GLOBALS['cfg']['Server']['user']
@@ -40,9 +39,6 @@ require_once('./libraries/common.lib.php');
  * Includes the ThemeManager if it hasn't been included yet
  */
 require_once('./libraries/relation.lib.php');
-
-// hash for the window names, against window hijacking
-$_SESSION['window_name_hash'] = time();
 
 // free the session file, for the other frames to be loaded
 session_write_close();
@@ -143,12 +139,12 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 </script>
 </head>
 <frameset cols="<?php echo $GLOBALS['cfg']['LeftWidth']; ?>,*" rows="*" id="mainFrameset">
-    <frame frameborder="0" id="leftFrame"
+    <frame frameborder="0" id="frame_navigation"
         src="left.php<?php echo $url_query; ?>"
-        name="nav<?php echo $_SESSION['window_name_hash']; ?>" />
-    <frame frameborder="0" id="rightFrame"
+        name="frame_navigation" />
+    <frame frameborder="0" id="frame_content"
         src="<?php echo $main_target; ?>"
-        name="phpmain<?php echo $_SESSION['window_name_hash']; ?>" />
+        name="frame_content" />
     <noframes>
         <body>
             <p><?php echo $GLOBALS['strNoFrames']; ?></p>
