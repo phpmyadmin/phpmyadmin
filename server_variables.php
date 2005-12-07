@@ -2,6 +2,9 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+if ( ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
+    define( 'PMA_NO_VARIABLES_IMPORT', true );
+}
 require_once('./libraries/common.lib.php');
 
 /**
@@ -29,80 +32,78 @@ echo '<h2>' . "\n"
  * Sends the queries and buffers the results
  */
 if (PMA_MYSQL_INT_VERSION >= 40003) {
-    $res = PMA_DBI_query('SHOW SESSION VARIABLES;');
-    while ($row = PMA_DBI_fetch_row($res)) {
-        $serverVars[$row[0]] = $row[1];
-    }
-    PMA_DBI_free_result($res);
-    unset($res, $row);
-    $res = PMA_DBI_query('SHOW GLOBAL VARIABLES;');
-    while ($row = PMA_DBI_fetch_row($res)) {
-        $serverVarsGlobal[$row[0]] = $row[1];
-    }
-    PMA_DBI_free_result($res);
-    unset($res, $row);
+    $serverVars = PMA_DBI_fetch_result('SHOW SESSION VARIABLES;', 0, 1);
+    $serverVarsGlobal = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
 } else {
-    $res = PMA_DBI_query('SHOW VARIABLES;');
-    while ($row = PMA_DBI_fetch_row($res)) {
-        $serverVars[$row[0]] = $row[1];
-    }
-    PMA_DBI_free_result($res);
-    unset($res, $row);
+    $serverVars = PMA_DBI_fetch_result('SHOW VARIABLES;', 0, 1);
 }
-unset($res);
-unset($row);
 
 
 /**
  * Displays the page
  */
 ?>
-<table border="0" cellpadding="2" cellspacing="1" width="90%">
-    <tr>
-        <th>&nbsp;<?php echo $strVar; ?>&nbsp;</th>
+<table class="data">
+<thead>
+<tr><th><?php echo $strVar; ?></th>
+    <th>
 <?php
-echo '        <th>&nbsp;';
 if (PMA_MYSQL_INT_VERSION >= 40003) {
-    echo $strSessionValue . '&nbsp;</th>' . "\n"
-       . '        <th>&nbsp;' . $strGlobalValue;
+    echo $strSessionValue . ' / ' . $strGlobalValue;
 } else {
     echo $strValue;
 }
-echo '&nbsp;</th>' . "\n";
 ?>
-    </tr>
+    </th>
+</tr>
+</thead>
+<tbody>
 <?php
+$odd_row = true;
 $useBgcolorOne = TRUE;
-$on_mouse='';
 foreach ($serverVars as $name => $value) {
-        if ($GLOBALS['cfg']['BrowsePointerEnable'] == TRUE) {
-            $on_mouse = ' onmouseover="this.style.backgroundColor=\'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\';"'
-                      . ' onmouseout="this.style.backgroundColor=\'' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '\';"';
-        } else {
-            $on_mouse = '';
-        }
-?>
-    <tr bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>"<?php echo $on_mouse; ?>>
-        <td nowrap="nowrap" valign="top">
-            <b><?php echo htmlspecialchars(str_replace('_', ' ', $name)) . "\n"; ?></b>
-        </td>
-        <td>
-            <?php echo htmlspecialchars($value) . "\n"; ?>
-        </td>
-<?php
-    if (PMA_MYSQL_INT_VERSION >= 40003) {
-?>
-        <td>
-            <?php echo htmlspecialchars($serverVarsGlobal[$name]) . "\n"; ?>
-        </td>
-<?php
+    ?>
+<tr class="<?php
+    echo $odd_row ? 'odd' : 'even';
+    if (PMA_MYSQL_INT_VERSION >= 40003
+      && $serverVarsGlobal[$name] !== $value ) {
+        echo ' marked';
     }
-    $useBgcolorOne = !$useBgcolorOne;
-?>
-    </tr>
-<?php
+    ?>">
+    <th nowrap="nowrap">
+        <?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?></th>
+    <td class="value"><?php
+    if ( is_numeric($value) ) {
+        echo PMA_formatNumber($value, 0);
+        $is_numeric = true;
+    } else {
+        echo htmlspecialchars($value);
+        $is_numeric = false;
+    }
+    ?></td>
+    <?php
+    if (PMA_MYSQL_INT_VERSION >= 40003
+      && $serverVarsGlobal[$name] !== $value ) {
+        ?>
+</tr>
+<tr class="<?php
+    echo $odd_row ? 'odd' : 'even';
+    ?> marked">
+    <td>(<?php echo $strGlobalValue; ?>)</td>
+    <td class="value"><?php
+    if ( $is_numeric ) {
+        echo PMA_formatNumber($serverVarsGlobal[$name], 0);
+    } else {
+        echo htmlspecialchars($serverVarsGlobal[$name]);
+    }
+    ?></td>
+    <?php } ?>
+</tr>
+    <?php
+    $odd_row = !$odd_row;
 }
 ?>
+</tbody>
 </table>
 <?php
 
