@@ -5,6 +5,9 @@
 /**
  * requirements
  */
+if ( ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
+    define( 'PMA_NO_VARIABLES_IMPORT', true );
+}
 require_once('./libraries/common.lib.php');
 
 /**
