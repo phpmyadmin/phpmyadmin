@@ -1,7 +1,9 @@
 var querywindow = '';
 
 /**
- * sets current selected server, table and db (called from libraries/footer.inc.php)
+ * sets current selected db
+ *
+ * @param	string	db name
  */
 function setDb( new_db ) {
     //alert('setDb(' + new_db + ')');
@@ -24,7 +26,9 @@ function setDb( new_db ) {
 }
 
 /**
- * sets current selected server, table and db (called from libraries/footer.inc.php)
+ * sets current selected table (called from left.php)
+ *
+ * @param	string	table name
  */
 function setTable( new_table ) {
     //alert('setTable(' + new_table + ')');
