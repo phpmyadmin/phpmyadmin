@@ -5,6 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-07 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/Config.class.php: clear old config values
+    * libraries/engines/myisam.lib.php:
+      - PEAR coding standard
+      - added comments
+      - added more status variables
+    * libraries/storage_engines.lib.php, libraries/engines/innodb.lib.php:
+      - added PMA_StorageEngine::getMysqlHelpPage()
+    * server_engines.php:
+      - display link to mysql manual for specific engine
+    * libraries/engines/memory.lib.php: new
+
 2005-12-06 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1374236, sorting order
     * libraries/auth/cookie.auth.lib.php: bug #1374753, Language change on
@@ -669,12 +681,12 @@ $Source$
        - added style for notice box (server_export.php)
 
 2005-10-31 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-	* themes/*/css/theme_right.css.php:
-	   - use right image path
-	   - fixed icon alignment for rtl languages
-	* main.php, phpmyadmin.css.php, libraries/mysql_charsets.lib.php:
-	   - fixed some rtl language issues
-	* favicon.ico: changed icon
+    * themes/*/css/theme_right.css.php:
+       - use right image path
+       - fixed icon alignment for rtl languages
+    * main.php, phpmyadmin.css.php, libraries/mysql_charsets.lib.php:
+       - fixed some rtl language issues
+    * favicon.ico: changed icon
 
 2005-10-31 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: do not display No under the Password column
