@@ -31,6 +31,9 @@ $Source$
       - added setTable()
       - set empty table on db change (bug #1375387)
     * left.php: removed unsused javascript event
+    * index.php, left.php, libraries/sql_query_form.lib.php:
+      syncronize id and name attribute for frame tags but keep IE sending
+      querywindow form to the correct window (bug #1374757, #1364470, #1297985)
 
 2005-12-06 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1374236, sorting order
