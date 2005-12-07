@@ -7,8 +7,9 @@ $Source$
 
 2005-12-07 Michal Čihař  <michal@cihar.com>
     * lang/*: Unused messages cleanup, add missing ones.
-    * lang/czech: Update.
     * lang/sync_lang.sh: Less verbose output to allow quick overview.
+    * lang/czech: Update.
+    * lang/galician: Update, thanks to Xose Calvo - xosecalvo.
 
 2005-12-07 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/Config.class.php: clear old config values
