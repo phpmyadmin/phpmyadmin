@@ -652,6 +652,10 @@ li#li_flush_privileges {
     clear: both;
 }
 
+#table_innodb_bufferpool_usage,
+#table_innodb_bufferpool_activity {
+    float: <?php echo $left; ?>;
+}
     <?php
 } // end styles 2.7.1
 

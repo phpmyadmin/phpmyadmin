@@ -242,7 +242,6 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
                 . '        </tr>' . "\n"
                 . '    </tbody>' . "\n"
                 . '</table>' . "\n\n"
-                . '<br />' . "\n\n"
                 . '<table class="data" id="table_innodb_bufferpool_activity">' . "\n"
                 . '    <caption class="tblHeaders">' . "\n"
                 . '        ' . $GLOBALS['strBufferPoolActivity'] . "\n"
