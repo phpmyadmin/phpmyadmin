@@ -285,6 +285,17 @@ class PMA_StorageEngine
     }
 
     /**
+     * returns string with filename for the MySQL helppage
+     * about this storage engne
+     *
+     * @return  string  mysql helppage filename
+     */
+    function getMysqlHelpPage()
+    {
+        return $this->engine . '-storage-engine';
+    }
+
+    /**
      * public string getVariablesLikePattern()
      *
      * @abstract
