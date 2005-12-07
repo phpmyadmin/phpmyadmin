@@ -23,6 +23,29 @@ function setDb( new_db ) {
     }
 }
 
+/**
+ * sets current selected server, table and db (called from libraries/footer.inc.php)
+ */
+function setTable( new_table ) {
+    //alert('setTable(' + new_table + ')');
+    if ( new_table != table ) {
+        // table has changed
+        //alert( new_table + '(' + new_table.length + ') : ' + table );
+        
+        table = new_table;
+        
+        if ( window.frames[0].document.getElementById( db + '.' + table ) == null ) {
+            // table is unknown, reload complete left frame
+            refreshLeft();
+            
+        }
+        // TODO: add code to expand table in lightview mode
+        
+        // refresh querywindow
+        refreshQuerywindow();
+    }
+}
+
 function refreshMain( url ) {
     if ( ! url ) {
         if ( db ) {
@@ -192,6 +215,7 @@ function goTo( targeturl, target ) {
 function openDb( new_db ) {
     //alert('opendb(' +  new_db + ')');
     setDb( new_db );
+    setTable( '' );
     refreshMain( opendb_url );
     return true;
 }
