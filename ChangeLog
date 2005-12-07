@@ -27,6 +27,10 @@ $Source$
       - display only global variables that differs from local/session
       - use PMA_DBI_fetch_result()
       - PMA_NO_VARIABLES_IMPORT
+    * js/querywindows.js:
+      - added setTable()
+      - set empty table on db change (bug #1375387)
+    * left.php: removed unsused javascript event
 
 2005-12-06 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1374236, sorting order
