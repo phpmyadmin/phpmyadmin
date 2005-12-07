@@ -134,18 +134,10 @@ if ( $num_dbs === 0 ) {
 } elseif ( $GLOBALS['cfg']['LeftFrameLight'] && $num_dbs > 1 ) {
     // more than one database available and LeftFrameLight is true
     // display db selectbox
-
-    $_location = PMA_generate_common_url( '', '' );
     ?>
+    
     <div id="databaseList">
-    <form method="post" action="index.php" target="_parent" id="left"
-        onsubmit="
-        <?php /* open database in main window */ ?>
-        window.parent.goTo( '<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] . '?' 
-                . $_location; ?>&amp;db=' + this.value, 'main' );
-        <?php /* refresh left frame with tables from selected db */ ?>
-        window.parent.goTo( 'left.php?<?php echo $_location; ?>&amp;db=' + this.value);
-        return false;">
+    <form method="post" action="index.php" target="_parent" id="left">
     <label for="lightm_db"><?php echo $strDatabase; ?></label>
     <?php
     echo PMA_generate_common_hidden_inputs() . "\n";
@@ -155,9 +147,9 @@ if ( $num_dbs === 0 ) {
         .'</noscript>' . "\n"
         .'</form>' . "\n"
         .'</div>' . "\n";
-    unset( $_location );
 }
 ?> 
+
 <div id="left_tableList">
 <?php
 // Don't display expansible/collapsible database info if:
