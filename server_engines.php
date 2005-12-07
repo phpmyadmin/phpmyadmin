@@ -92,7 +92,7 @@ function PMA_generateEngineDetails($variables, $like = null) {
             $dt_table .= '        ' . PMA_showHint($details['desc']) . "\n";
         }
         $dt_table     .= '    </td>' . "\n"
-    	               . '    <th>'
+                       . '    <th>'
                        . htmlspecialchars( empty($details['title'])
                             ? $var : $details['title'] ) . "\n"
                        . '    </th>' . "\n"
@@ -195,6 +195,7 @@ if ( empty($_REQUEST['engine'])
             ? '<img class="icon" src="' . $pmaThemeImage . 'b_engine.png"'
                 .' width="16" height="16" alt="" />' : '' )
        . '    ' . htmlspecialchars($engine_plugin->getTitle()) . "\n"
+       . '    ' . PMA_showMySQLDocu( '', $engine_plugin->getMysqlHelpPage() ) . "\n"
        . '</h2>' . "\n\n";
     if (PMA_MYSQL_INT_VERSION >= 40102) {
         echo '<p>' . "\n"
@@ -230,7 +231,7 @@ if ( empty($_REQUEST['engine'])
            . '</p>' . "\n\n";
     }
     unset($infoPages, $page_output);
-	if (!empty($_REQUEST['page'])) {
+    if (!empty($_REQUEST['page'])) {
         $page_output = $engine_plugin->getPage($_REQUEST['page']);
     }
     if (!empty($page_output)) {
