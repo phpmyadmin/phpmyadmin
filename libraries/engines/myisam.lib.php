@@ -28,7 +28,7 @@ class PMA_StorageEngine_myisam extends PMA_StorageEngine
                 'desc'  => $GLOBALS['strMyISAMMaxSortFileSizeDesc'],
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
             ),
-                'myisam_max_extra_sort_file_size' => array(
+            'myisam_max_extra_sort_file_size' => array(
                 'title' => $GLOBALS['strMyISAMMaxExtraSortFileSize'],
                 'desc'  => $GLOBALS['strMyISAMMaxExtraSortFileSizeDesc'],
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
@@ -45,17 +45,14 @@ class PMA_StorageEngine_myisam extends PMA_StorageEngine
             ),
             'myisam_stats_method' => array(
             ),
+            'delay_key_write' => array(
+            ),
+            'bulk_insert_buffer_size' => array(
+                'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
+            ),
+            'skip_external_locking' => array(
+            ),
         );
-    }
-
-    /**
-     * returns SQL query LIKE pattern
-     *
-     * @return  string  LIKE pattern
-     */
-    function getVariablesLikePattern()
-    {
-        return 'myisam\\_%';
     }
 }
 
