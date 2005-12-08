@@ -12,7 +12,8 @@ $Source$
     * tbl_select.php, libraries/display_tbl.lib.php,
       tbl_properties_operations.php, tbl_indexes.php: Fix XHTML.
     * tbl_properties_export.php: Fix output before headers.
-    * Documentation.html: Add commands how to setup config dir.
+    * Documentation.html: Add commands how to setup config dir, note about
+      changing permissions.
     * scripts/setup.php: Show Save and Load buttons disabled if saving not
       available.
 
