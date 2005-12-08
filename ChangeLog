@@ -11,6 +11,11 @@ $Source$
       moved table related output after possible table changes
     * libraries/tbl_properties_table_info.inc.php:
       added some comments and made some code more readable
+    * tbl_properties_operations.php:
+      complete revise (xhtml output, fieldsets, forms merged)
+    * tbl_rename.php: removed, deprecated by function PMA_table_rename()
+    * db_search.php, libraries/common.lib.php, libraries/tbl_move_copy.php,
+      pdf_schema.php: removed PMA_isInto(), deprecated by in_array()
 
 2005-12-07 Michal Čihař  <michal@cihar.com>
     * lang/*: Unused messages cleanup, add missing ones.
