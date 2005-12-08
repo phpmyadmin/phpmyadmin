@@ -1200,7 +1200,7 @@ switch ($action) {
             message('error', 'Could not write to config file! Not enough space?');
             break;
         } else {
-            message('notice', 'Configration saved to file config/config.inc.php in phpMyAdmin top level directory, copy it to top level one and delete directory config to use it.', 'File saved');
+            message('notice', 'Configuration saved to file config/config.inc.php in phpMyAdmin top level directory, copy it to top level one and delete directory config to use it.', 'File saved');
         }
         unset($r, $s);
         fclose($config);
