@@ -85,7 +85,7 @@ if (isset($submit_search)) {
         for ($i = 0; $i < $search_wds_cnt; $i++) {
             // Eliminates empty values
             // In MySQL 4.1, if a field has no collation we get NULL in Charset
-            // but in MySQL 5.0.x we get '' 
+            // but in MySQL 5.0.x we get ''
             if (!empty($search_words[$i])) {
                 for ($j = 0; $j < $tblfields_cnt; $j++) {
                     if (PMA_MYSQL_INT_VERSION >= 40100 && $tblfields[$j]['Charset'] != $charset_connection && $tblfields[$j]['Charset'] != 'NULL' && $tblfields[$j]['Charset'] != '') {
@@ -323,9 +323,9 @@ if ($num_tables > 1) {
         if (!empty($unselectall)) {
             $is_selected = '';
         }
-        else if ((isset($table_select) && PMA_isInto($tables[$i], $table_select) != -1)
-                || (!empty($selectall))
-                || (isset($onetable) && $onetable == $tables[$i])) {
+        elseif ( ( isset($table_select) && in_array($tables[$i], $table_select) )
+              || ! empty($selectall)
+              || ( isset($onetable) && $onetable == $tables[$i]) ) {
             $is_selected = ' selected="selected"';
         }
         else {

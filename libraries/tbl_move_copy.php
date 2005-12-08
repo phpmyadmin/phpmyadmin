@@ -91,8 +91,8 @@ function PMA_table_move_copy($source_db, $source_table, $target_db, $target_tabl
     $GLOBALS['asfile']         = 1;
 
     // Ensure the target is valid
-    if (count($dblist) > 0 &&
-        (PMA_isInto($source_db, $dblist) == -1 || PMA_isInto($target_db, $dblist) == -1)) {
+    if ( count($dblist) > 0 &&
+      ( ! in_array($source_db, $dblist) || ! in_array($target_db, $dblist) )) {
         exit();
     }
 

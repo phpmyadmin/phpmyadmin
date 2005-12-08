@@ -297,7 +297,7 @@ function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userl
             $rs          = PMA_DBI_try_query($local_query, $controllink);
             if ($rs && @PMA_DBI_num_rows($rs)) {
                 while ($row = PMA_DBI_fetch_assoc($rs)) {
-                    if (PMA_isInto($row['Db'], $dblist) == -1) {
+                    if ( ! in_array($row['Db'], $dblist) ) {
                         $dblist[] = $row['Db'];
                     }
                 } // end while
@@ -812,15 +812,15 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             // get the duplicate entry
 
             // get table name
-            preg_match( '°ALTER\sTABLE\s\`([^\`]+)\`°iu', $the_query, $error_table = array() );
+            preg_match( 'ï¿½ALTER\sTABLE\s\`([^\`]+)\`ï¿½iu', $the_query, $error_table = array() );
             $error_table = $error_table[1];
 
             // get fields
-            preg_match( '°\(([^\)]+)\)°i', $the_query, $error_fields = array() );
+            preg_match( 'ï¿½\(([^\)]+)\)ï¿½i', $the_query, $error_fields = array() );
             $error_fields = explode( ',', $error_fields[1] );
 
             // duplicate value
-            preg_match( '°\'([^\']+)\'°i', $tmp_mysql_error, $duplicate_value = array() );
+            preg_match( 'ï¿½\'([^\']+)\'ï¿½i', $tmp_mysql_error, $duplicate_value = array() );
             $duplicate_value = $duplicate_value[1];
 
             $sql = '
@@ -851,29 +851,6 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
             require_once('./libraries/footer.inc.php');
         }
     } // end of the 'PMA_mysqlDie()' function
-
-
-    /**
-     * Defines whether a string exists inside an array or not
-     *
-     * @param   string   string to search for
-     * @param   mixed    array to search into
-     *
-     * @return  integer  the rank of the $toFind string in the array or '-1' if
-     *                   it hasn't been found
-     *
-     * @access  public
-     */
-    function PMA_isInto($toFind = '', &$in)
-    {
-        $max = count($in);
-        for ($i = 0; $i < $max && ($toFind != $in[$i]); $i++) {
-            // void();
-        }
-
-        return ($i < $max) ? $i : -1;
-    }  // end of the 'PMA_isInto()' function
-
 
     /**
      * Returns a string formatted with CONVERT ... USING
@@ -1954,9 +1931,9 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
                     $ret .= '<input type="image"' . $submit_name . ' '
                         . implode( ' ', $tag_params_strings )
                         . ' src="' . preg_replace(
-                            '°^.*\ssrc="([^"]*)".*$°si', '\1', $message ) . '"'
+                            'ï¿½^.*\ssrc="([^"]*)".*$ï¿½si', '\1', $message ) . '"'
                         . ' value="' . htmlspecialchars(
-                            preg_replace( '°^.*\salt="([^"]*)".*$°si', '\1',
+                            preg_replace( 'ï¿½^.*\salt="([^"]*)".*$ï¿½si', '\1',
                                 $message) )
                         . '" />';
                 }

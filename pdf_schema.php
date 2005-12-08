@@ -290,7 +290,7 @@ class PMA_PDF extends PMA_FPDF
         echo "\n";
 
         require_once('./libraries/footer.inc.php');
-    } // end of the "PMA_PDF_die()" function 
+    } // end of the "PMA_PDF_die()" function
 
 
     /**
@@ -645,7 +645,7 @@ class PMA_RT_Table
             // loic1 : PHP3 fix
             // if (in_array($field, $this->primary)) {
             if ($setcolor) {
-                if (PMA_isInto($field, $this->primary) != -1) {
+                if ( in_array($field, $this->primary) ) {
                     $pdf->SetFillColor(215, 121, 123);
                 }
                 if ($field == $this->displayfield) {
@@ -1200,7 +1200,7 @@ class PMA_RT
                     // (do not use array_search() because we would have to
                     // to do a === FALSE and this is not PHP3 compatible)
 
-                    if (PMA_isInto($rel['foreign_table'], $alltables)> -1) {
+                    if ( in_array($rel['foreign_table'], $alltables) ) {
                         $this->PMA_RT_addRelation($one_table , $master_field, $rel['foreign_table'], $rel['foreign_field']);
                     }
 
