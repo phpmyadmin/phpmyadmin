@@ -293,9 +293,9 @@
         <br /><br /></li>
 
     <li>
-        <b>Note: starting with phpMyAdmin 2.6.1, configuring the controluser
-        to enable HTTP and cookie authentication applies <i>only
-		to MySQL servers older than 4.1.2</i>.</b> See the <a href="#controluser">controluser</a> directive.
+        Note: starting with phpMyAdmin 2.6.1, this section is only applicable if
+        your MySQL server is older than 4.1.2, 
+        or is running with <tt>--skip-show-database</tt>.
         <br /><br />
         For 'HTTP' and 'cookie' modes, phpMyAdmin needs a controluser that has
         <b>only</b> the <tt>SELECT</tt> privilege on the <i>mysql.user (all
@@ -553,14 +553,11 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <b><a name="cfg_Servers_controlpass"></a>$cfg['Servers'][$i]['controlpass']</b> string
     </dt>
     <dd>
-        <i>Note: starting with phpMyAdmin 2.6.1, configuring the controluser
-        to enable HTTP and cookie authentication applies only
-        to MySQL servers older than 4.1.2.</i>
-        <br /><br />
         This special account is used for 2 distinct purposes: to make possible
         all relational features
         (see <a href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>) and, for a
-        MySQL server older than 4.1.2, to enable a multi-user installation
+        MySQL server older than 4.1.2 or running with
+        <tt>--skip-show-database</tt>, to enable a multi-user installation
         (http or cookie authentication mode).
         <br /><br />
         When using HTTP or cookie authentication modes (or 'config'
@@ -574,11 +571,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <br />
         Please see the <a href="#setup">install section</a> on
         &quot;Using authentication modes&quot; for more information.
-        <br /><br />
-        Note that if you try login to phpMyAdmin with this
-        &quot;controluser&quot;, you could get some errors, depending the exact
-        privileges you gave to the &quot;controluser&quot;. phpMyAdmin does not
-        support a direct login with the &quot;controluser&quot;.
         <br /><br />
         In phpMyAdmin versions before 2.2.5, those were called
         &quot;stduser/stdpass&quot;.
