@@ -123,6 +123,9 @@ function PMA_exportDBCreate($db) {
     }
     $create_query .= ';' . $crlf;
     if (!PMA_exportOutputHandler($create_query)) return FALSE;
+    if (isset($GLOBALS['use_backquotes']) && PMA_MYSQL_INT_VERSION >= 40100 && isset($GLOBALS['sql_compat']) && $GLOBALS['sql_compat'] == 'NONE') {
+        return PMA_exportOutputHandler('USE ' . PMA_backquote($db) . ';' . $crlf);
+    }
     return PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
 }
 
