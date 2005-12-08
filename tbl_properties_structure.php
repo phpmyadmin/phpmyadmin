@@ -34,7 +34,7 @@ if ((!empty($submit_mult) && isset($selected_fld))
 /**
  * Runs common work
  */
-require_once('./tbl_properties_common.php');
+require_once('./libraries/tbl_properties_common.php');
 $url_query .= '&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php';
 
 /**

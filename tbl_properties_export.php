@@ -7,7 +7,7 @@ require_once('./libraries/common.lib.php');
 /**
  * Gets tables informations and displays top links
  */
-require_once('./tbl_properties_common.php');
+require_once('./libraries/tbl_properties_common.php');
 $url_query .= '&amp;goto=tbl_properties_export.php&amp;back=tbl_properties_export.php';
 require_once('./libraries/tbl_properties_table_info.inc.php');
 ?>

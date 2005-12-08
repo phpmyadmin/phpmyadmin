@@ -7,7 +7,7 @@ require_once('./libraries/common.lib.php');
 /**
  * Runs common work
  */
-require('./tbl_properties_common.php');
+require('./libraries/tbl_properties_common.php');
 require_once('./libraries/sql_query_form.lib.php');
 
 $err_url   = 'tbl_properties.php' . $err_url;

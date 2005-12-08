@@ -16,6 +16,10 @@ $Source$
     * tbl_rename.php: removed, deprecated by function PMA_table_rename()
     * db_search.php, libraries/common.lib.php, libraries/tbl_move_copy.php,
       pdf_schema.php: removed PMA_isInto(), deprecated by in_array()
+    * libraries\mult_submits.inc.php, sql.php, tbl_addfield.php, tbl_alter.php,
+      tbl_import.php, tbl_properties.php, tbl_properties_structure.php,
+      tbl_properties_operations.php, tbl_properties_export.php, tbl_select.php
+      tbl_relation.php: moved tbl_properties_common.php into libraries
 
 2005-12-07 Michal Čihař  <michal@cihar.com>
     * lang/*: Unused messages cleanup, add missing ones.

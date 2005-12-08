@@ -6,7 +6,7 @@
  * Gets some core libraries
  */
 require_once('./libraries/common.lib.php');
-require_once('./tbl_properties_common.php');
+require_once('./libraries/tbl_properties_common.php');
 $url_query .= '&amp;goto=tbl_properties.php';
 
 

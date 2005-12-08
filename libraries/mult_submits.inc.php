@@ -127,7 +127,7 @@ if ( !empty($submit_mult) && !empty($what)) {
     $js_to_run = 'functions.js';
     unset($message);
     if (!empty($table)) {
-        require('./tbl_properties_common.php');
+        require('./libraries/tbl_properties_common.php');
         $url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
         require('./libraries/tbl_properties_table_info.inc.php');
     }

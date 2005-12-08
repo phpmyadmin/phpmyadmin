@@ -28,7 +28,7 @@ if ( $GLOBALS['cfg']['PropertiesIconic'] == true ) {
  */
 if (!isset($param) || $param[0] == '') {
     // Gets some core libraries
-    require_once('./tbl_properties_common.php');
+    require_once('./libraries/tbl_properties_common.php');
     //$err_url   = 'tbl_select.php' . $err_url;
     $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
