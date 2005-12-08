@@ -204,8 +204,11 @@ function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $userlink, 
         $dblist = PMA_DBI_get_dblist();
         $dblist_cnt   = count($dblist);
 
-        // did not work so check for available databases in the "mysql" db;
-        // I don't think we can fall here now...
+        // PMA_DBI_get_dblist() relies on the ability to run "SHOW DATABASES".
+        // On servers started with --skip-show-database, this is not possible
+        // so we have here a fallback method, which relies on the controluser
+        // being able to access the "mysql" db, as explained in the doc.
+
         if (!$dblist_cnt) {
             $auth_query   = 'SELECT User, Select_priv '
                           . 'FROM mysql.user '
