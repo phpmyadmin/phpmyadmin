@@ -13,6 +13,28 @@ PMA_checkParameters(array('db', 'table'));
  */
 require_once('./libraries/bookmark.lib.php');
 
+
+/**
+ * Set parameters for links
+ */
+$url_query = PMA_generate_common_url($db, $table);
+$url_params = array(
+    'db' => $db,
+    'table' => $table,
+);
+
+/**
+ * Defines the urls to return to in case of error in a sql statement
+ */
+$err_url_0 = $cfg['DefaultTabDatabase'] . PMA_generate_common_url( array( 'db' => $db, ) );
+$err_url   = $cfg['DefaultTabTable'] . PMA_generate_common_url( $url_params );
+
+/**
+ * Displays headers
+ */
+$js_to_run = 'functions.js';
+require_once('./libraries/header.inc.php');
+
 /**
  * Displays links
  */
@@ -42,7 +64,7 @@ $tabs['export']['icon'] = 'b_tblexport.png';
 $tabs['export']['link'] = 'tbl_properties_export.php';
 $tabs['export']['args']['single_table'] = 'true';
 $tabs['export']['text'] = $strExport;
-    
+
 /**
  * Don't display , "Import", "Operations" and "Empty"
  * for views and information_schema
@@ -51,11 +73,11 @@ if ( ! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information
     $tabs['import']['icon'] = 'b_tblimport.png';
     $tabs['import']['link'] = 'tbl_import.php';
     $tabs['import']['text'] = $strImport;
-    
+
     $tabs['operation']['icon'] = 'b_tblops.png';
     $tabs['operation']['link'] = 'tbl_properties_operations.php';
     $tabs['operation']['text'] = $strOperations;
-    
+
     if ($table_info_num_rows > 0) {
         $ln8_stt = (PMA_MYSQL_INT_VERSION >= 40000)
                  ? 'TRUNCATE TABLE '

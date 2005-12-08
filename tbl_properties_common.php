@@ -19,28 +19,8 @@ if ( PMA_MYSQL_INT_VERSION >= 50002 && $db === 'information_schema' ) {
 }
 
 /**
- * Defines the urls to return to in case of error in a sql statement
- */
-$err_url_0 = $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db);
-$err_url   = $cfg['DefaultTabTable'] . '?' . PMA_generate_common_url($db, $table);
-
-
-/**
  * Ensures the database and the table exist (else move to the "parent" script)
  */
 require_once('./libraries/db_table_exists.lib.php');
-
-
-/**
- * Displays headers
- */
-$js_to_run = 'functions.js';
-require_once('./libraries/header.inc.php');
-
-
-/**
- * Set parameters for links
- */
-$url_query = PMA_generate_common_url($db, $table);
 
 ?>
