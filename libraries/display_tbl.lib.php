@@ -372,7 +372,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
    </td>
    <td>
         <?php //<form> for keep the form alignment of button < and << ?>
-        <form>
+        <form action="none">
         <?php echo PMA_pageselector(
                      'sql.php?sql_query='        . $encoded_query .
                         '&amp;session_max_rows=' . $session_max_rows .

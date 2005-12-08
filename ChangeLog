@@ -9,7 +9,8 @@ $Source$
     * tbl_change.php: Fix XHTML and thus action selection behavior (bug
       #1376391).
     * lang/czech: Fix typo.
-    * tbl_select.php: Fix XHTML.
+    * tbl_select.php, libraries/display_tbl.lib.php,
+      tbl_properties_operations.php, tbl_indexes.php: Fix XHTML.
     * tbl_properties_export.php: Fix output before headers.
 
 2005-12-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>

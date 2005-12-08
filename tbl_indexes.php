@@ -398,6 +398,9 @@ else if (!defined('PMA_IDX_INCLUDED')
         onsubmit="return checkFormElementInRange(this, 'idx_num_fields',
             '<?php echo str_replace('\'', '\\\'', $GLOBALS['strInvalidColumnCount']); ?>',
             1)">
+    <?php
+    echo PMA_generate_common_hidden_inputs( $db, $table );
+    ?>
     <table id="table_indexes" class="data">
         <caption class="tblHeaders">
         <?php
@@ -408,7 +411,6 @@ else if (!defined('PMA_IDX_INCLUDED')
 
         </caption>
     <?php
-    echo PMA_generate_common_hidden_inputs( $db, $table );
 
     if ( count($ret_keys) > 0) {
         $edit_link_text = '';
