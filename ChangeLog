@@ -9,6 +9,8 @@ $Source$
     * libraries/tbl_move_copy.php: added PMA_table_rename()
     * tbl_properties_common.php, libraries/tbl_properties_links.inc.php:
       moved table related output after possible table changes
+    * libraries/tbl_properties_table_info.inc.php:
+      added some comments and made some code more readable
 
 2005-12-07 Michal Čihař  <michal@cihar.com>
     * lang/*: Unused messages cleanup, add missing ones.
