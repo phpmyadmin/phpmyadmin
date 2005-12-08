@@ -197,7 +197,7 @@ function PMA_getTableCount( $db ) {
  *
  * @access  private
  */
-function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $rs, $userlink, $cfg, $dblist) {
+function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $userlink, $cfg, $dblist) {
     if ($only_db_check == FALSE) {
         // try to get the available dbs list
         // use userlink by default
@@ -2832,7 +2832,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                 if ($dblist[$i] == '*' && $dblist_asterisk_bool == FALSE) {
                     $dblist_asterisk_bool = TRUE;
                     $dblist_full = PMA_safe_db_list(FALSE, $controllink, FALSE,
-                        $rs, $userlink, $cfg, $dblist);
+                        $userlink, $cfg, $dblist);
                     foreach ($dblist_full as $dbl_val) {
                         if (!in_array($dbl_val, $dblist)) {
                             $true_dblist[] = $dbl_val;
@@ -2883,7 +2883,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
 
         if (isset($dblist_full) && !count($dblist_full)) {
             $dblist = PMA_safe_db_list($only_db_check, $controllink,
-                $dblist_cnt, $rs, $userlink, $cfg, $dblist);
+                $dblist_cnt, $userlink, $cfg, $dblist);
         }
         unset( $only_db_check, $dblist_full );
 

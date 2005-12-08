@@ -7,6 +7,7 @@ $Source$
 
 2005-12-08 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/setup.php: Typos 
+    * libraries/common.lib.php: unneeded parameter in PMA_safe_db_list()
 
 2005-12-08 Michal Čihař  <michal@cihar.com>
     * tbl_change.php: Fix XHTML and thus action selection behavior (bug
