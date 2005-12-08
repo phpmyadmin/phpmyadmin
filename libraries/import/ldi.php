@@ -4,13 +4,13 @@
 
 /* CSV import plugin for phpMyAdmin */
 
-if ($import_type == 'table') {
-    if (isset($import_list)) {
-        if ($cfg['Import']['ldi_local_option'] == 'auto') {
-            $cfg['Import']['ldi_local_option'] = FALSE;
+if ($plugin_param == 'table') {
+    if (isset($plugin_list)) {
+        if ($GLOBALS['cfg']['Import']['ldi_local_option'] == 'auto') {
+            $GLOBALS['cfg']['Import']['ldi_local_option'] = FALSE;
 
             if (PMA_MYSQL_INT_VERSION < 32349) {
-                    $cfg['Import']['ldi_local_option'] = TRUE;
+                    $GLOBALS['cfg']['Import']['ldi_local_option'] = TRUE;
             }
 
             if (PMA_MYSQL_INT_VERSION > 40003) {
@@ -18,14 +18,14 @@ if ($import_type == 'table') {
                 if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
                     $tmp = PMA_DBI_fetch_row($result);
                     if ($tmp[1] == 'ON') {
-                        $cfg['Import']['ldi_local_option'] = TRUE;
+                        $GLOBALS['cfg']['Import']['ldi_local_option'] = TRUE;
                     }
                 }
                 PMA_DBI_free_result($result);
                 unset($result);
             }
         }
-        $import_list['ldi'] = array(
+        $plugin_list['ldi'] = array(
             'text' => 'strLDI',
             'extension' => 'ldi', // This is nonsense, however we want to default to our parser for csv
             'options' => array(

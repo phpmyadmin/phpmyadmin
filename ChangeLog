@@ -29,6 +29,10 @@ $Source$
       array (bug #1370414).
     * libraries/sql_query_form.lib.php: Require bookmark code when we use it.
     * libraries/export/sql.php: Backquote database name (RFE#1376336).
+    * libraries/plugin_interface.lib.php, import.php,
+      libraries/display_import.lib.php, libraries/import/*: Generic plugin
+      infrastructure and use it in import (needed for RFE#1325937), work in
+      progress.
 
 2005-12-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/tbl_move_copy.php: added PMA_table_rename()

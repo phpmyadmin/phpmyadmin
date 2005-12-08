@@ -4,10 +4,11 @@
 
 /* SQL import plugin for phpMyAdmin */
 
-if (isset($import_list)) {
-    $import_list['sql'] = array(
+if (isset($plugin_list)) {
+    $plugin_list['sql'] = array(
         'text' => 'strSQL',
         'extension' => 'sql',
+        'options_text' => 'strSQLImportOptions',
         );
 } else {
 /* We do not define function when plugin is just queried for information above */

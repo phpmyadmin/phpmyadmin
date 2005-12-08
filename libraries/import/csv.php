@@ -4,9 +4,9 @@
 
 /* CSV import plugin for phpMyAdmin */
 
-if ($import_type == 'table') {
-    if (isset($import_list)) {
-        $import_list['csv'] = array(
+if ($plugin_param == 'table') {
+    if (isset($plugin_list)) {
+        $plugin_list['csv'] = array(
             'text' => 'strCSV',
             'extension' => 'csv',
             'options' => array(

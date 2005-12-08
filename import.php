@@ -15,24 +15,24 @@ if (!empty($sql_query)) {
     // run SQL query
     $import_text = $sql_query;
     $import_type = 'query';
-    $what = 'sql';
+    $format = 'sql';
     unset($sql_query);
 } elseif (!empty($sql_localfile)) {
     // run SQL file on server
     $local_import_file = $sql_localfile;
     $import_type = 'queryfile';
-    $what = 'sql';
+    $format = 'sql';
     unset($sql_localfile);
 } elseif (!empty($sql_file)) {
     // run uploaded SQL file
     $import_file = $sql_file;
     $import_type = 'queryfile';
-    $what = 'sql';
+    $format = 'sql';
     unset($sql_file);
 } elseif (!empty($id_bookmark)) {
     // run bookmark
     $import_type = 'query';
-    $what = 'sql';
+    $format = 'sql';
 }
 
 // If we didn't get any parameters, either user called this directly, or 
@@ -45,10 +45,10 @@ if ($_POST == array() && $_GET == array()) {
 }
 
 // Check needed parameters
-PMA_checkParameters(array('import_type', 'what'));
+PMA_checkParameters(array('import_type', 'format'));
 
-// We don't want anything special in what
-$what = PMA_securePath($what);
+// We don't want anything special in format
+$format = PMA_securePath($format);
 
 // Import functions
 require_once('./libraries/import.lib.php');
@@ -286,8 +286,10 @@ if ($import_file != 'none' && !$error) {
 
 // Convert the file's charset if necessary
 if ($cfg['AllowAnywhereRecoding'] && $allow_recoding
-    && isset($charset_of_file) && $charset_of_file != $charset) {
-    $charset_conversion = TRUE;
+    && isset($charset_of_file)) {
+    if ($charset_of_file != $charset) {
+        $charset_conversion = TRUE;
+    }
 } else if (PMA_MYSQL_INT_VERSION >= 40100
     && isset($charset_of_file) && $charset_of_file != 'utf8') {
     PMA_DBI_query('SET NAMES \'' . $charset_of_file . '\'');
@@ -309,13 +311,13 @@ if (!$error && isset($skip)) {
 
 if (!$error) {
     // Check for file existance
-    if (!file_exists('./libraries/import/' . $what . '.php')) {
+    if (!file_exists('./libraries/import/' . $format . '.php')) {
         $error = TRUE;
         $message = $strCanNotLoadImportPlugins;
         $show_error_header = TRUE;
     } else {
         // Do the real import
-        require('./libraries/import/' . $what . '.php');
+        require('./libraries/import/' . $format . '.php');
     }
 }
 

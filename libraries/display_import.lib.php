@@ -3,19 +3,10 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 require_once('./libraries/file_listing.php');
+require_once('./libraries/plugin_interface.lib.php');
 
 /* Scan for plugins */
-$import_list = array();
-$plugins_dir = './libraries/import/';
-if ($handle = @opendir($plugins_dir)) {
-    $is_first = 0;
-    while ($file = @readdir($handle)) {
-        if (is_file($plugins_dir . $file) && eregi('\.php$', $file)) {
-            include($plugins_dir . $file);
-        }
-    }
-}
-ksort($import_list);
+$import_list = PMA_getPlugins('./libraries/import/', $import_type);
 
 /* Fail if we didn't find any plugin */
 if (empty($import_list)) {
@@ -24,39 +15,6 @@ if (empty($import_list)) {
     unset($GLOBALS['show_error_header']);
     require('./libraries/footer.inc.php');
 }
-
-function PMA_getString($name) {
-    return isset($GLOBALS[$name]) ? $GLOBALS[$name] : $name;
-}
-
-function PMA_importCheckboxCheck($opt) {
-    if ((isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($GLOBALS[$opt])) ||
-        (isset($GLOBALS['cfg']['Import'][$opt]) && $GLOBALS['cfg']['Import'][$opt])) {
-        return ' checked="checked"';
-    }
-    return '';
-}
-
-function PMA_importGetDefault($opt) {
-    if (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($GLOBALS[$opt])) {
-        return htmlspecialchars($GLOBALS[$opt]);
-    } elseif (isset($GLOBALS['cfg']['Import'][$opt])) {
-        return htmlspecialchars($GLOBALS['cfg']['Import'][$opt]);
-    }
-    return '';
-}
-
-function PMA_importIsActive($what, $val) {
-    if (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($GLOBALS['what'])) {
-        if ($GLOBALS['what'] == $val) {
-            return ' checked="checked"';
-        }
-    } elseif (isset($GLOBALS['cfg']['Import'][$what]) &&  $GLOBALS['cfg']['Import'][$what] == $val) {
-        return ' checked="checked"';
-    }
-    return '';
-}
-
 ?>
 
 <form action="import.php" method="post" enctype="multipart/form-data" name="import">
@@ -69,57 +27,8 @@ if ($import_type == 'server') {
     echo PMA_generate_common_hidden_inputs($db, $table, 1);
 }
 echo '    <input type="hidden" name="import_type" value="' . $import_type . '" />';
+echo PMA_pluginGetJavascript($import_list);
 ?>
-
-    <script type="text/javascript" language="javascript">
-    //<![CDATA[
-    function hide_them_all() {
-        <?php
-        foreach($import_list as $key => $val) {
-            if (isset($val['options'])) {
-                echo 'document.getElementById("' . $key . '_options").style.display = "none";';
-            }
-        }?>
-        document.getElementById("none_options").style.display = 'none';
-    }
-
-    function init_options() {
-        hide_them_all();
-        <?php
-        foreach($import_list as $key => $val) {
-            echo 'if (document.getElementById("radio_import_' . $key . '").checked) {';
-            if (isset($val['options'])) {
-                echo 'document.getElementById("' . $key . '_options").style.display = "block";';
-            } else {
-                echo 'document.getElementById("none_options").style.display = "block";';
-            }
-            echo ' } else ';
-        }
-        ?>
-        {
-            document.getElementById('none_options').style.display = 'block';
-        }
-    }
-
-    function match_file(fname) {
-        farr = fname.toLowerCase().split('.');
-        if (farr.length != 0) {
-            len = farr.length
-            if (farr[len - 1] == 'gz' || farr[len - 1] == 'bz2' || farr[len -1] == 'zip') len--;
-            switch (farr[len - 1]) {
-<?php
-foreach($import_list as $key => $val) {
-    echo 'case "' . $val['extension'] . '" :';
-    echo 'document.getElementById("radio_import_' . $key . '").checked = true;';
-    echo 'init_options();';
-    echo 'break;';
-}
-?>
-            }
-        }
-    }
-    //]]>
-    </script>
 
     <h2><?php echo $strImport; ?></h2>
 
@@ -218,13 +127,13 @@ echo "\n";
         ?>
         <div class="formelementrow">
         <input type="checkbox" name="allow_interrupt" value="yes"
-            id="checkbox_allow_interrupt" <?php echo PMA_importCheckboxCheck('allow_interrupt'); ?>/>
+            id="checkbox_allow_interrupt" <?php echo PMA_pluginCheckboxCheck('Import', 'allow_interrupt'); ?>/>
         <label for="checkbox_allow_interrupt"><?php echo $strAllowInterrupt; ?></label><br />
         </div>
 
         <div class="formelementrow">
         <label for="text_skip_queries"><?php echo $strSkipQueries; ?></label>
-        <input type="text" name="skip_queries" value="<?php echo PMA_importGetDefault('skip_queries');?>" id="text_skip_queries" />
+        <input type="text" name="skip_queries" value="<?php echo PMA_pluginGetDefault('Import', 'skip_queries');?>" id="text_skip_queries" />
         </div>
 
     </fieldset>
@@ -233,48 +142,13 @@ echo "\n";
 <?php
 // Let's show format options now
 
-foreach($import_list as $key => $val) {
-?>
-            <!-- <?php echo $key; ?> -->
-            <input type="radio" name="what" value="<?php echo $key; ?>" id="radio_import_<?php echo $key; ?>" onclick="if(this.checked) { hide_them_all(); document.getElementById('<?php echo isset($val['options']) ? $key : 'none';?>_options').style.display = 'block'; }; return true" <?php echo PMA_importIsActive('format', $key); ?>/>
-            <label for="radio_import_<?php echo $key; ?>"><?php echo PMA_getString($val['text']); ?></label>
-            <br /><br />
-<?php
-}
+echo PMA_pluginGetChoice('Import', 'format', $import_list);
 ?>
     </fieldset>
 <?php
 
-// Options for imports that support them
-foreach($import_list as $key => $val) {
-    if (isset($val['options'])) {
-        echo '<fieldset id="' . $key . '_options" class="options">';
-        echo '<legend>' . PMA_getString($val['options_text']) . '</legend>';
+echo PMA_pluginGetOptions('Import', $import_list);
 
-        foreach($val['options'] as $id => $opt) {
-            if ($opt['type'] == 'bool') {
-                echo '<input type="checkbox" name="' . $key . '_' . $opt['name'] . '" value="something" id="checkbox_' . $key . '_' . $opt['name'] . '" ' . PMA_importCheckboxCheck($key . '_' . $opt['name']) .'/>';
-                echo '<label for="checkbox_' . $key . '_' . $opt['name'] . '">' . PMA_getString($opt['text']) . '</label>';
-            } elseif ($opt['type'] == 'text') {
-                echo '<label for="text_' . $key . '_' . $opt['name'] . '" style="float: left; width: 20%;">' . PMA_getString($opt['text']) . '</label>';
-                echo '<input type="text" name="' . $key . '_' . $opt['name'] . '" value="' . PMA_importGetDefault($key . '_' . $opt['name']) . '" id="text_' . $key . '_' . $opt['name'] . '" ' . (isset($opt['size']) ? 'size="' . $opt['size'] . '"' : '' )  . (isset($opt['len']) ? 'maxlength="' . $opt['len'] . '"' : '' ) . '/>';
-            } else {
-                /* This should be seen only by plugin writers, so I do not thing this needs translation. */
-                echo 'UNKNOWN OPTION IN IMPORT PLUGIN ' . $key . '!';
-            }
-            echo '<br />';
-        }
-
-        echo '</fieldset>';
-    }
-}
-
-
-?>
-    <fieldset id="none_options" class="options">
-        <legend><?php echo $strNoOptions; ?></legend>
-    </fieldset>
-<?php
 // Encoding setting form appended by Y.Kawada
 if (function_exists('PMA_set_enc_form')) {
     echo PMA_set_enc_form('            ');
