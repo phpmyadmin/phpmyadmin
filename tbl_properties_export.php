@@ -10,10 +10,9 @@ require_once('./libraries/common.lib.php');
 require_once('./libraries/tbl_properties_common.php');
 $url_query .= '&amp;goto=tbl_properties_export.php&amp;back=tbl_properties_export.php';
 require_once('./libraries/tbl_properties_table_info.inc.php');
-?>
 
-<!-- Dump of a table -->
-<?php
+// Dump of a table
+
 $export_page_title = $strViewDump;
 
 // When we have some query, we need to remove LIMIT from that and possibly
