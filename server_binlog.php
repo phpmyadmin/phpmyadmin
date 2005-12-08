@@ -20,7 +20,7 @@ require('./libraries/server_links.inc.php');
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 's_process.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
+   . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 's_process.png" width="16" height="16" border="0" hspace="2" align="middle" alt="" />' : '' )
    . '    ' . $strBinaryLog . "\n"
    . '</h2>' . "\n";
 
@@ -30,16 +30,20 @@ if (!isset($log)) $log = '';
  * Display log selector.
  */
 if (count($binary_logs) > 1) {
-    echo '<p><form action="server_binlog.php" method="get">';
+    echo '<form action="server_binlog.php" method="get">';
     echo PMA_generate_common_hidden_inputs();
-    echo $strSelectBinaryLog . ': ';
-    echo '<select name="log">';
+    echo '<fieldset><legend>';
+    echo $strSelectBinaryLog;
+    echo '</legend><select name="log">';
     foreach($binary_logs as $name) {
         echo '<option value="' . $name . '"' . ($name == $log ? ' selected="selected"' : '') . '>' . $name . '</option>';
     }
     echo '</select>';
+    echo '</fieldset>';
+    echo '<fieldset class="tblFooters">';
     echo '<input type="submit" value="' . $strGo . '" />';
-    echo '</form><br /></p>';
+    echo '</fieldset>';
+    echo '</form>';
 }
 
 
