@@ -13,7 +13,8 @@ $Source$
       #1376391).
     * lang/czech: Fix typo.
     * tbl_select.php, libraries/display_tbl.lib.php,
-      tbl_properties_operations.php, tbl_indexes.php: Fix XHTML.
+      tbl_properties_operations.php, tbl_indexes.php, db_operations.php,
+      server_privileges.php: Fix XHTML.
     * tbl_properties_export.php: Fix output before headers.
     * Documentation.html: Add commands how to setup config dir, note about
       changing permissions.

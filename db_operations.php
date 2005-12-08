@@ -172,7 +172,7 @@ if (!$is_information_schema) {
         <?php
         if ($cfg['PropertiesIconic']) {
             echo '<img class="icon" src="' . $pmaThemeImage . 'b_comment.png"'
-                .' border="0" width="16" height="16" hspace="2" align="middle" />';
+                .' alt="" border="0" width="16" height="16" hspace="2" align="middle" />';
         }
         echo $strDBComment;
         $comment = PMA_getComments($db);
@@ -202,7 +202,7 @@ if (!$is_information_schema) {
     <?php
     if ($cfg['PropertiesIconic']) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
-            .' width="16" height="16" />';
+            .' alt="" width="16" height="16" />';
     }
     echo $strDBRename . ':';
     ?>
@@ -232,7 +232,7 @@ if (!$is_information_schema) {
     <?php
     if ($cfg['PropertiesIconic']) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
-            .' width="16" height="16" />';
+            .' alt="" width="16" height="16" />';
     }
     echo $strDBCopy . ':';
     ?>
@@ -290,11 +290,11 @@ if (!$is_information_schema) {
     // version 4.1.1.
         echo '<form method="post" action="./db_operations.php">' . "\n"
            . PMA_generate_common_hidden_inputs($db, $table)
-           . '<fieldset' . "\n"
+           . '<fieldset>' . "\n"
            . '    <legend>';
         if ($cfg['PropertiesIconic']) {
             echo '<img class="icon" src="' . $pmaThemeImage . 's_asci.png"'
-                .' width="16" height="16" />';
+                .' alt="" width="16" height="16" />';
         }
         echo '    <label for="select_db_collation">' . $strCollation . ':</label>' . "\n"
            . '    </legend>' . "\n"
@@ -316,11 +316,8 @@ if (!$is_information_schema) {
     } // end if
 } // end if (!$is_information_schema)
 
-// not sure about leaving the PDF dialog for information_schema
-?>
-<form method="post" action="pdf_schema.php">
-<?php
 
+// not sure about leaving the PDF dialog for information_schema
 if ($num_tables > 0) {
     $takeaway = $url_query . '&amp;table=' . urlencode($table);
 }
@@ -328,7 +325,6 @@ if ($num_tables > 0) {
 if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     <!-- Work on PDF Pages -->
 
-    <!-- PDF schema -->
     <?php
     // We only show this if we find something in the new pdf_pages table
 
@@ -337,13 +333,15 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     $test_rs    = PMA_query_as_cu($test_query, NULL, PMA_DBI_QUERY_STORE);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) { ?>
+    <!-- PDF schema -->
+    <form method="post" action="pdf_schema.php">
     <fieldset>
         <legend>
         <?php
         echo PMA_generate_common_hidden_inputs($db);
         if ($cfg['PropertiesIconic']) {
             echo '<img class="icon" src="' . $pmaThemeImage . 'b_view.png"'
-                .' width="16" height="16" />';
+                .' alt="" width="16" height="16" />';
         }
         echo $strDisplayPDF;
         ?>:
@@ -406,7 +404,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
         echo '<a href="pdf_pages.php?' . $takeaway . '">';
         if ($cfg['PropertiesIconic']) {
             echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
-                .' width="16" height="16" />';
+                .' alt="" width="16" height="16" />';
         }
         echo $strEditPDFPages . '</a>';
     ?>
@@ -425,7 +423,7 @@ if ( $num_tables > 0
         .'<li><a href="db_details_importdocsql.php?' . $takeaway . '">' . "\n";
     if ($cfg['PropertiesIconic']) {
         echo '<img class="icon" src="' . $pmaThemeImage . 'b_docsql.png"'
-            .' width="16" height="16" />';
+            .' alt="" width="16" height="16" />';
     }
     echo $strImportDocSQL . '</a></li>' . "\n"
         .'</ul>';

@@ -1941,7 +1941,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
        . '        <th>' . $GLOBALS['strGrantOption'] . '</th>' . "\n"
        . '        <th>' . $GLOBALS['strAction'] . '</th>' . "\n"
        . '    </tr>' . "\n"
-       . '<t/head>' . "\n"
+       . '</thead>' . "\n"
        . '<tbody>' . "\n";
     $odd_row = TRUE;
     unset($row);
@@ -2077,7 +2077,7 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                    . '        <td>' . "\n"
                    . '            <tt>' . "\n"
                    . '                ' . join(',' . "\n" . '                ', PMA_extractPrivInfo($current, TRUE)) . "\n"
-                   . '            <tt>' . "\n"
+                   . '            </tt>' . "\n"
                    . '        </td>' . "\n"
                    . '        <td>' . "\n"
                    . '            ' . ($current['Grant_priv'] == 'Y' ? $GLOBALS['strYes'] : $GLOBALS['strNo']) . "\n"
