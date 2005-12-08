@@ -8,10 +8,6 @@ require_once('./libraries/common.lib.php');
  * Runs common work
  */
 require('./tbl_properties_common.php');
-//$err_url   = 'tbl_properties_operations.php' . $err_url;
-$url_query .= '&amp;goto=tbl_properties_operations.php&amp;back=tbl_properties_operations.php';
-$url_params['goto'] = 'tbl_properties_operations.php';
-$url_params['back'] = 'tbl_properties_operations.php';
 
 /**
  * Gets relation settings
@@ -35,7 +31,6 @@ PMA_DBI_select_db($GLOBALS['db']);
 
 require_once('./libraries/tbl_move_copy.php');
 require('./libraries/tbl_properties_table_info.inc.php');
-
 
 $reread_info = false;
 $errors = array();
@@ -138,6 +133,12 @@ unset( $reread_info );
  * Displays top menu links
  */
 require_once('./libraries/tbl_properties_links.inc.php');
+
+if ( ! isset( $url_params ) ) {
+    $url_params = array();
+}
+$url_params['goto'] = 'tbl_properties_operations.php';
+$url_params['back'] = 'tbl_properties_operations.php';
 
 /**
  * Get columns names

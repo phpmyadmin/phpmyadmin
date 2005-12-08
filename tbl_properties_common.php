@@ -18,6 +18,8 @@ if ( PMA_MYSQL_INT_VERSION >= 50002 && $db === 'information_schema' ) {
     $db_is_information_schema = false;
 }
 
+$url_query = PMA_generate_common_url($db, $table);
+
 /**
  * Ensures the database and the table exist (else move to the "parent" script)
  */

@@ -18,10 +18,12 @@ require_once('./libraries/bookmark.lib.php');
  * Set parameters for links
  */
 $url_query = PMA_generate_common_url($db, $table);
-$url_params = array(
-    'db' => $db,
-    'table' => $table,
-);
+
+if ( ! isset( $url_params ) ) {
+    $url_params = array();
+}
+$url_params['db']    = $db;
+$url_params['table'] = $table;
 
 /**
  * Defines the urls to return to in case of error in a sql statement
