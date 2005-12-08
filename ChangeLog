@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/tbl_move_copy.php: added PMA_table_rename()
+    * tbl_properties_common.php, libraries/tbl_properties_links.inc.php:
+      moved table related output after possible table changes
+
 2005-12-07 Michal Čihař  <michal@cihar.com>
     * lang/*: Unused messages cleanup, add missing ones.
     * lang/sync_lang.sh: Less verbose output to allow quick overview.
