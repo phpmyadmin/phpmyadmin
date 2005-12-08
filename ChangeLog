@@ -13,6 +13,8 @@ $Source$
       tbl_properties_operations.php, tbl_indexes.php: Fix XHTML.
     * tbl_properties_export.php: Fix output before headers.
     * Documentation.html: Add commands how to setup config dir.
+    * scripts/setup.php: Show Save and Load buttons disabled if saving not
+      available.
 
 2005-12-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/tbl_move_copy.php: added PMA_table_rename()

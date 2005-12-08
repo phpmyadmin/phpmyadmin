@@ -327,12 +327,16 @@ function get_hidden_cfg() {
  *
  * @return  string  HTML with form
  */
-function get_action($name, $title, $added = '') {
+function get_action($name, $title, $added = '', $enabled = TRUE) {
     $ret = '';
     $ret .= '<form class="action" method="POST">';
     $ret .= '<input type="hidden" name="action" value="' . $name . '" />';
     $ret .= $added;
-    $ret .= '<input type="submit" value="' . $title . '" />';
+    $ret .= '<input type="submit" value="' . $title . '"';
+    if (!$enabled) {
+        $ret .= ' disabled="disabled"';
+    }
+    $ret .= ' />';
     $ret .= get_hidden_cfg();
     $ret .= '</form>';
     $ret .= "\n";
@@ -1844,10 +1848,8 @@ echo '<fieldset class="toolbar"><legend>Configuration</legend>' . "\n";
 echo get_action('main', 'Overview');
 echo get_action('display', 'Display');
 echo get_action('download', 'Download');
-if (!$fail_dir) {
-    echo get_action('save', 'Save');
-    echo get_action('load', 'Load');
-}
+echo get_action('save', 'Save', '', !$fail_dir);
+echo get_action('load', 'Load', '', !$fail_dir);
 echo get_action('clear', 'Clear');
 echo '</fieldset>' . "\n\n";
 
