@@ -120,7 +120,7 @@ function PMA_auth_fails()
     } else {
         if (!isset($GLOBALS['errno']) || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002) && $GLOBALS['errno'] != 2003) {
             // Check whether user has configured something
-            if ($_SESSION['PMA_Config']->source_mtime != 0) {
+            if ($_SESSION['PMA_Config']->source_mtime == 0) {
                 echo '<p>' . sprintf($GLOBALS['strAccessDeniedCreateConfig'], '<a href="scripts/setup.php">', '</a>') . '</p>' . "\n";
             } else {
                 echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
