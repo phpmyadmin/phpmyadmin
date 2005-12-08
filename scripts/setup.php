@@ -1772,7 +1772,7 @@ switch ($action) {
         }
 
         if ($fail_dir) {
-            message('warning', 'Please create web server writable folder config in phpMyAdmin toplevel directory as described in <a href="../Documentation.html#setup_script">documentation</a>. Otherwise you will be only able to download or display it.', 'Can not write configuration');
+            message('warning', 'Please create web server writable folder config in phpMyAdmin toplevel directory as described in <a href="../Documentation.html#setup_script">documentation</a>. Otherwise you will be only able to download or display it.', 'Can not load or save configuration');
         }
 
         if (empty($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) == 'off') {
