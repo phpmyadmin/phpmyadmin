@@ -48,7 +48,7 @@ function PMA_duplicate_table_info($work, $pma_table, $get_fields, $where_fields,
         $table_copy_query = 'SELECT ' . implode(', ', $select_parts)
                           . ' FROM ' . PMA_backquote($cfgRelation[$pma_table])
                           . ' WHERE ' . implode(' AND ', $where_parts);
-        
+
         // must use PMA_DBI_QUERY_STORE here, since we execute another
         // query inside the loop
         $table_copy_rs    = PMA_query_as_cu($table_copy_query, TRUE, PMA_DBI_QUERY_STORE);
@@ -167,7 +167,7 @@ function PMA_table_move_copy($source_db, $source_table, $target_db, $target_tabl
 
             for ($j = $i; $j < $cnt; $j++) {
                 if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
-		&& strtoupper($parsed_sql[$j]['data']) == 'CONSTRAINT') {
+        && strtoupper($parsed_sql[$j]['data']) == 'CONSTRAINT') {
                     if ($parsed_sql[$j+1]['type'] == 'quote_backtick') {
                         $parsed_sql[$j+1]['data'] = '';
                     }
@@ -366,5 +366,82 @@ function PMA_table_move_copy($source_db, $source_table, $target_db, $target_tabl
         }
     }
 
+}
+
+/**
+ * renames table
+ *
+ * @param   string  old tbale name
+ * @param   string  new table name
+ * @return  boolean success
+ */
+function PMA_table_rename( $old_name, $new_name )
+{
+    // Ensure the target is valid
+    if ( count($GLOBLAS['dblist']) > 0
+      && ! in_array($GLOBALS['db'], $GLOBLAS['dblist']) ) {
+        return false;
+    }
+
+    PMA_DBI_select_db($GLOBALS['db']);
+
+    $sql_query = '
+        ALTER TABLE ' . PMA_backquote($old_name) . '
+        RENAME ' . PMA_backquote($new_name) . ';';
+    if ( ! PMA_DBI_query($sql_query) ) {
+        return false;
+    }
+
+    // garvin: Move old entries from comments to new table
+    require_once('./libraries/relation.lib.php');
+    $cfgRelation = PMA_getRelationsParam();
+    if ( $cfgRelation['commwork'] ) {
+        $remove_query = '
+            UPDATE ' . PMA_backquote($cfgRelation['column_info']) . '
+               SET table_name = \'' . PMA_sqlAddslashes($new_name) . '\'
+             WHERE db_name  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
+               AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
+        PMA_query_as_cu($remove_query);
+        unset($remove_query);
+    }
+
+    if ( $cfgRelation['displaywork'] ) {
+        $table_query = '
+            UPDATE ' . PMA_backquote($cfgRelation['table_info']) . '
+               SET table_name = \'' . PMA_sqlAddslashes($new_name) . '\'
+             WHERE db_name  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
+               AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
+        PMA_query_as_cu($table_query);
+        unset($table_query);
+    }
+
+    if ( $cfgRelation['relwork'] ) {
+        $table_query = '
+            UPDATE ' . PMA_backquote($cfgRelation['relation']) . '
+            SET     foreign_table = \'' . PMA_sqlAddslashes($new_name) . '\'
+            WHERE foreign_db  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
+            AND foreign_table = \'' . PMA_sqlAddslashes($old_name) . '\'';
+        PMA_query_as_cu($table_query);
+
+        $table_query = '
+            UPDATE ' . PMA_backquote($cfgRelation['relation']) . '
+               SET     master_table = \'' . PMA_sqlAddslashes($new_name) . '\'
+             WHERE master_db  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
+               AND master_table = \'' . PMA_sqlAddslashes($old_name) . '\'';
+        PMA_query_as_cu($table_query);
+        unset($table_query);
+    }
+
+    if ( $cfgRelation['pdfwork'] ) {
+        $table_query = '
+            UPDATE ' . PMA_backquote($cfgRelation['table_coords']) . '
+               SET table_name = \'' . PMA_sqlAddslashes($new_name) . '\'
+             WHERE db_name  = \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\'
+               AND table_name = \'' . PMA_sqlAddslashes($old_name) . '\'';
+        PMA_query_as_cu($table_query);
+        unset($table_query);
+    }
+
+    return true;
 }
 ?>
