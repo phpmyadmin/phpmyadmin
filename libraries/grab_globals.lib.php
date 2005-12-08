@@ -192,8 +192,21 @@ if ( $__redirect || ! defined( 'PMA_NO_VARIABLES_IMPORT' ) ) {
             $_COOKIE['goto'] );
     } // end if
 
-    array_walk( $_SERVER, 'strip_tags' );
-    array_walk( $_ENV, 'strip_tags' );
+    /**
+     * Recursive wrapper around strip_tags to process also arrays.
+     *
+     * @param   mixed   array or string to strip tags
+     */
+    function array_strip_tags(&$item) {
+        if (is_array($item)) {
+            array_walk($item, 'array_strip_tags');
+        } else {
+            strip_tags($item);
+        }
+    }
+
+    array_walk( $_SERVER, 'array_strip_tags' );
+    array_walk( $_ENV, 'array_strip_tags' );
 
 }
 ?>
