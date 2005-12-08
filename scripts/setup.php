@@ -485,7 +485,7 @@ function get_cfg_string($cfg) {
                 $ret .= get_cfg_val("\$cfg['Servers'][\$i]['$key']", $val);
             }
         }
-        $ret .= "\n/* End of servers configration */\n\n";
+        $ret .= "\n/* End of servers configuration */\n\n";
     }
     unset($c['Servers']);
 
@@ -603,7 +603,7 @@ function show_overview($title, $list, $buttons = '') {
 }
 
 /**
- * Displays configration, fallback defaults are taken from global $PMA_Config
+ * Displays configuration, fallback defaults are taken from global $PMA_Config
  *
  * @param   array   list of values to display (each element is array of two or
  *                  three values - desription, name and optional type
