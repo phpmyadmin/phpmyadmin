@@ -69,12 +69,13 @@ function PMA_auth_fails()
 {
     global $php_errormsg, $cfg;
 
-    if (PMA_DBI_getError()) {
-        $conn_error = PMA_DBI_getError();
-    } else if (isset($php_errormsg)) {
-        $conn_error = $php_errormsg;
-    } else {
-        $conn_error = $GLOBALS['strConnectionError'];
+    $conn_error = PMA_DBI_getError();
+    if (!$conn_error) {
+        if (isset($php_errormsg)) {
+            $conn_error = $php_errormsg;
+        } else {
+            $conn_error = $GLOBALS['strConnectionError'];
+        }
     }
 
     // Defines the charset to be used
@@ -118,7 +119,12 @@ function PMA_auth_fails()
         echo '<p>' . $GLOBALS['strAccessDenied'] . '</p>' . "\n";
     } else {
         if (!isset($GLOBALS['errno']) || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002) && $GLOBALS['errno'] != 2003) {
-            echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
+            // Check whether user has configured something
+            if ($_SESSION['PMA_Config']->source_mtime != 0) {
+                echo '<p>' . sprintf($GLOBALS['strAccessDeniedCreateConfig'], '<a href="scripts/setup.php">', '</a>') . '</p>' . "\n";
+            } else {
+                echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
+            }
         }
         PMA_mysqlDie($conn_error, '');
     }

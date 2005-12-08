@@ -25,6 +25,7 @@ $timespanfmt = '%s dnù, %s hodin, %s minut a %s sekund';
 
 $strAbortedClients = 'Pøerušené';
 $strAbsolutePathToDocSqlDir = 'docSQL adresáø';
+$strAccessDeniedCreateConfig = 'Pravdìpodobná pøíèina je, že nemáte vytvoøený konfiguraèní soubor. Pro jeho vytvoøení by se vám mohl hodit %1$snastavovací skript%2$s.';
 $strAccessDeniedExplanation = 'phpMyAdmin se pokusil pøipojit k&nbsp;MySQL serveru, a ten odmítl pøipojení. Zkontrolujte jméno serveru, uživatelské jméno a heslo v&nbsp;souboru config.inc.php a ujistìte se, že jsou totožné s&nbsp;tìmi, které máte od administrátora MySQL serveru.';
 $strAccessDenied = 'Pøístup odepøen';
 $strAction = 'Akce';

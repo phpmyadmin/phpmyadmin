@@ -21,6 +21,8 @@ $Source$
       available.
     * libraries/Config.class.php: Refuse to load config file with world
       writable permissions, refuse to work with existing config dir.
+    * lang/*, libraries/auth/config.auth.lib.php: Suggest to run setup script
+      if auth with default values fails.
 
 2005-12-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/tbl_move_copy.php: added PMA_table_rename()
