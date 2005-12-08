@@ -881,15 +881,15 @@ foreach ($loop_array AS $vrowcount => $vrow) {
     <table border="0" cellpadding="5" cellspacing="0">
     <tr>
         <td valign="middle" nowrap="nowrap">
-            <select name="submit_type">
+            <select name="submit_type" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>">
 <?php
 if (isset($primary_key)) {
     ?>
-                <option value="<?php echo $strSave; ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>"><?php echo $strSave; ?></option>
+                <option value="<?php echo $strSave; ?>"><?php echo $strSave; ?></option>
     <?php
 }
     ?>
-                <option value="<?php echo $strInsertAsNewRow; ?>" tabindex="<?php echo ($tabindex + $tabindex_for_value + 2); ?>"><?php echo $strInsertAsNewRow; ?></option>
+                <option value="<?php echo $strInsertAsNewRow; ?>"><?php echo $strInsertAsNewRow; ?></option>
             </select>
     <?php
 echo "\n";
