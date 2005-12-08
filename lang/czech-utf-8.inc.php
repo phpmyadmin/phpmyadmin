@@ -830,6 +830,7 @@ $strSpanish = 'Španělština';
 $strSplitWordsWithSpace = 'Slova jsou oddělena mezerou (&bdquo; &ldquo;).';
 $strSQLExportCompatibility = 'Kompatibilita SQL exportu';
 $strSQLExportType = 'Typ vytvořených dotazů';
+$strSQLImportOptions = 'Nastavení SQL importu';
 $strSQLOptions = 'Nastavení SQL exportu';
 $strSQLParserBugMessage = 'Je možné, že jste našli chybu v&nbsp;SQL parseru. Prosím prozkoumejte podrobně SQL dotaz, především jestli jsou správně uvozovky a jestli nejsou proházené. Další možnost selhání je pokud nahráváte soubor s&nbsp;binárními daty nezapsanými v&nbsp;uvozovkách. Můžete také vyzkoušet příkazovou řádku MySQL. Níže uvedený výstup z&nbsp;MySQL serveru (pokud je nějaký) Vám také může pomoci při zkoumání problému. Pokud stále máte problémy nebo pokud SQL parser ohlásí chybu u&nbsp;dotazu, který na příkazové řádce funguje, prosím pokuste se zredukovat dotaz na co nejmenší, ve kterém se problém ještě vyskytne, a ohlaste chybu na stránkách phpMyAdmina spolu se sekcí VÝPIS uvedenou níže:';
 $strSQLParserUserError = 'Pravděpodobně máte v&nbsp;SQL dotazu chybu. Níže uvedený výstup MySQL serveru (pokud je nějaký) Vám také může pomoci při zkoumání problému';
