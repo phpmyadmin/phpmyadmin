@@ -371,6 +371,7 @@ function get_url_action($url, $title, $params = array()) {
  */
 function footer() {
     echo '</body>';
+    echo '</html>';
     exit;
 }
 
@@ -497,7 +498,7 @@ function get_cfg_string($cfg) {
 }
 
 /**
- * Comresses server configuration to be indexed from 0 and contain no gaps
+ * Compresses server configuration to be indexed from 0 and contain no gaps
  *
  * @param   array   configuration
  *
@@ -717,16 +718,16 @@ function show_security_form($defaults = array()) {
     <?php
         echo get_hidden_cfg();
         show_config_form(array(
-            array('Blowfish secret', 'blowfish_secret', 'Secret passhrase used for encrypting cookies'),
-            array('Force SSL connection', 'ForceSSL', 'Whether to force using secured connetion while using phpMyAdmin', FALSE),
+            array('Blowfish secret', 'blowfish_secret', 'Secret passphrase used for encrypting cookies'),
+            array('Force SSL connection', 'ForceSSL', 'Whether to force using secured connection while using phpMyAdmin', FALSE),
             array('Show phpinfo output', 'ShowPHPInfo', 'Whether to allow users to see phpinfo() output', FALSE),
-            array('Show password change form', 'ShowChgPassword', 'Whether to show form for changing password, this does not limit ability to execute same command directly', FALSE),
+            array('Show password change form', 'ShowChgPassword', 'Whether to show form for changing password, this does not limit ability to execute the same command directly', FALSE),
             array('Allow login to any MySQL server', 'AllowArbitraryServer', 'If enabled user can enter any MySQL server in login form for cookie auth.', FALSE),
             array('Recall user name', 'LoginCookieRecall', 'Whether to recall user name while using cookie auth.', TRUE),
             array('Login cookie validity', 'LoginCookieValidity', 'How long is login valid without performing any action.'),
             ),
             'Configure security features',
-            'Please note that phpMyAdmin is just user inteface and it\'s features do not limit MySQL.',
+            'Please note that phpMyAdmin is just a user interface and it\'s features do not limit MySQL.',
             $defaults);
     ?>
 </form>
@@ -751,7 +752,7 @@ function show_manual_form($defaults = array()) {
             array('Base URL of MySQL documentation', 'MySQLManualBase', 'Where is MySQL documentation placed, this is usually top level directory.'),
             ),
             'Configure MySQL manual links',
-            'If you have local copy of MySQL documentation, you might want to use it in documentation links. Othervise use <code>viewable</code> type and <code>http://dev.mysql.com/doc/refman</code> as manual base URL.',
+            'If you have local copy of MySQL documentation, you might want to use it in documentation links. Otherwise use <code>viewable</code> type and <code>http://dev.mysql.com/doc/refman</code> as manual base URL.',
             $defaults);
     ?>
 </form>
@@ -779,7 +780,7 @@ function show_charset_form($defaults = array()) {
             array('Extra params for iconv', 'IconvExtraParams', 'Iconv can get some extra parameters for conversion see man iconv_open.'),
             ),
             'Configure charset conversions',
-            'phpMyAdmin can preform charset conversions so that you can import and export in any charset you want.',
+            'phpMyAdmin can perform charset conversions so that you can import and export in any charset you want.',
             $defaults);
     ?>
 </form>
@@ -825,7 +826,7 @@ function show_relation_form($defaults = array()) {
     <?php
         echo get_hidden_cfg();
         show_config_form(array(
-            array('Parmanent query history', 'QueryHistoryDB', 'Store history into database.', FALSE),
+            array('Permanent query history', 'QueryHistoryDB', 'Store history into database.', FALSE),
             array('Maximal history size', 'QueryHistoryMax', 'How many queries are kept in history.'),
             array('Use MIME transformations', 'BrowseMIME', 'Use MIME transformations while browsing.', TRUE),
             array('PDF default page size', 'PDFDefaultPageSize', 'Default page size for PDF, you can change this while creating page.', $PMA_Config->get('PDFPageSizes')),
@@ -889,7 +890,7 @@ function show_server_form($defaults = array(), $number = FALSE) {
         show_config_form(array(
             array('Server hostname', 'host', 'Hostname where MySQL server is running'),
             array('Server port', 'port', 'Port on which MySQL server is listening, leave empty if don\'t know'),
-            array('Server socked', 'socket', 'Socket on which MySQL server is listening, leave empty if don\'t know'),
+            array('Server socket', 'socket', 'Socket on which MySQL server is listening, leave empty if don\'t know'),
             array('Connection type', 'connect_type', 'How to connect to server, keep tcp if don\'t know', array('tcp', 'socket')),
             array('PHP extension to use', 'extension', 'What PHP extension to use, use mysqli if supported', array('mysql', 'mysqli')),
             array('Compress connection', 'compress', 'Whether to compress connection to MySQL server', FALSE),
@@ -1039,7 +1040,7 @@ function show_edit_form($defaults = array()) {
     <?php
         echo get_hidden_cfg();
         show_config_form(array(
-            array('Display of properties editation', 'DefaultPropDisplay', 'How to list properties (table structure or values) while editing', array('horizontal', 'vertical')),
+            array('Display of properties while editing', 'DefaultPropDisplay', 'How to list properties (table structure or values) while editing', array('horizontal', 'vertical')),
             array('Number of inserted rows', 'InsertRows', 'How many rows can be inserted at once'),
             array('Move using Ctrl+arrows', 'CtrlArrowsMoving', 'Whether to enable moving using Ctrl+Arrows', TRUE),
             array('Autoselect text in textarea', 'TextareaAutoSelect', 'Whether to automatically select text in textarea on focus.', TRUE),
@@ -1122,7 +1123,7 @@ function load_config($config_file) {
         error_reporting( $old_error_reporting );
         unset( $old_error_reporting );
         if ($success_apply_user_config === FALSE) {
-            message('error', 'Error while parsing configuraton file!');
+            message('error', 'Error while parsing configuration file!');
         } elseif (count($cfg) == 0 || (isset($cfg['Servers']) && count($cfg) == 1 || count($cfg['Servers']) == 0)) {
             message('error', 'Config file seems to contain no configuration!');
         } else {
@@ -1275,7 +1276,7 @@ switch ($action) {
                 }
                 $show_info = TRUE;
                 if ($new_server['auth_type'] == 'cookie' && empty($configuration['blowfish_secret'])) {
-                    message('notice', 'You did not have configured blowfish secret and you want to use cookie authentication so I generated blowfish secret for you. It is used to encrypt cookies.', 'Blowfist secret generated');
+                    message('notice', 'You did not have configured blowfish secret and you want to use cookie authentication so I generated blowfish secret for you. It is used to encrypt cookies.', 'Blowfish secret generated');
                     $configuration['blowfish_secret'] = uniqid('', TRUE);
                 }
             }
@@ -1327,7 +1328,7 @@ switch ($action) {
         break;
     case 'servers':
         if (count($configuration['Servers']) == 0) {
-            message('notice', 'No servers defined, so none can not be shown');
+            message('notice', 'No servers defined, so none can be shown');
         } else {
             foreach($configuration['Servers'] as $i => $srv) {
                 $data = array();
