@@ -2489,6 +2489,11 @@ require_once('./libraries/grab_globals.lib.php');
  */
 $GLOBALS['PMA_errors'] = array();
 
+/**
+ * @var array   $GLOBALS['url_params']  holds params to be passed to next page
+ */
+$GLOBALS['url_params'] = array();
+
 
 /******************************************************************************/
 /* parsing config file                         label_parsing_config_file      */

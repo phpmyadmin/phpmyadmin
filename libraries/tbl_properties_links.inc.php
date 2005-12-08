@@ -19,9 +19,6 @@ require_once('./libraries/bookmark.lib.php');
  */
 $url_query = PMA_generate_common_url($db, $table);
 
-if ( ! isset( $url_params ) ) {
-    $url_params = array();
-}
 $url_params['db']    = $db;
 $url_params['table'] = $table;
 

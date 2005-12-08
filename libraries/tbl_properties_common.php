@@ -24,9 +24,6 @@ if ( PMA_MYSQL_INT_VERSION >= 50002 && $db === 'information_schema' ) {
  */
 $url_query = PMA_generate_common_url($db, $table);
 
-if ( ! isset( $url_params ) ) {
-    $url_params = array();
-}
 $url_params['db']    = $db;
 $url_params['table'] = $table;
 

@@ -134,9 +134,6 @@ unset( $reread_info );
  */
 require_once('./libraries/tbl_properties_links.inc.php');
 
-if ( ! isset( $url_params ) ) {
-    $url_params = array();
-}
 $url_params['goto'] = 'tbl_properties_operations.php';
 $url_params['back'] = 'tbl_properties_operations.php';
 
