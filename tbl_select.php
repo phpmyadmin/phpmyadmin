@@ -122,7 +122,7 @@ while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
 <fieldset id="fieldset_select_fields">
     <legend><?php echo $strSelectFields; ?></legend>
     <select name="param[]" size="<?php echo min($fields_cnt, 10); ?>"
-        multiple="multiple" align="left">
+        multiple="multiple">
     <?php
     // Displays the list of the fields
     foreach ( $fields_list as $each_field ) {

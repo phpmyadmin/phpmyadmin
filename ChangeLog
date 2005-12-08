@@ -9,6 +9,7 @@ $Source$
     * tbl_change.php: Fix XHTML and thus action selection behavior (bug
       #1376391).
     * lang/czech: Fix typo.
+    * tbl_select.php: Fix XHTML.
 
 2005-12-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/tbl_move_copy.php: added PMA_table_rename()
