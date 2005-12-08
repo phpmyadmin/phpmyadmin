@@ -26,6 +26,7 @@ $Source$
       if auth with default values fails.
     * libraries/grab_globals.lib.php: Do not choke on arrays in $_SERVER 
       array (bug #1370414).
+    * libraries/sql_query_form.lib.php: Require bookmark code when we use it.
 
 2005-12-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/tbl_move_copy.php: added PMA_table_rename()

@@ -12,6 +12,7 @@
  */
 
 require_once('./libraries/file_listing.php'); // used for file listing
+require_once('./libraries/bookmark.lib.php'); // used for file listing
 
 /**
  * prints the sql query boxes
