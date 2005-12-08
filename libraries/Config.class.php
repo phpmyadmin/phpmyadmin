@@ -381,6 +381,18 @@ class PMA_Config
             */
             return false;
         }
+
+        // Check for permissions (on platforms that support it):
+        $perms = @stat($source);
+        if (!($perms === FALSE) && ($perms['mode'] & 2)) {
+            die('Wrong permissions on configuration file, should not be world writable!');
+        }
+
+        // Refuse to work while there still might be some world writable dir:
+        if (is_dir('./config')) {
+            die('Remove config directory before using phpMyAdmin!');
+        }
+        
         $this->source = trim($source);
         return true;
     }

@@ -19,6 +19,8 @@ $Source$
       changing permissions.
     * scripts/setup.php: Show Save and Load buttons disabled if saving not
       available.
+    * libraries/Config.class.php: Refuse to load config file with world
+      writable permissions, refuse to work with existing config dir.
 
 2005-12-08 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/tbl_move_copy.php: added PMA_table_rename()
