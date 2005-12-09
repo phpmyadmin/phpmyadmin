@@ -117,9 +117,9 @@ function PMA_auth_check()
     }
 
     // Decode possibly encoded information (used by IIS/CGI/FastCGI)
-    if (empty($PHP_AUTH_PW) && substr($PHP_AUTH_USER, 0, 6) == 'Basic ') {
-        $usr_pass = base64_decode(substr($PMA_AUTH_USER, 6));
-        if (!empty($usr_pass) && !(strpos($usr_pass, ':') === FALSE)) {
+    if (strcmp(substr($PHP_AUTH_USER, 0, 6), 'Basic ') == 0) {
+        $usr_pass = base64_decode(substr($PHP_AUTH_USER, 6));
+        if (!empty($usr_pass) && strpos($usr_pass, ':') !== FALSE) {
             list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', $usr_pass);
         }
         unset($usr_pass);
