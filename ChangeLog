@@ -5,8 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-09 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/dbi:
+      PMA_DBI_free_result() now accepts more than one resource to be freed
+
 2005-12-08 Marc Delisle  <lem9@users.sourceforge.net>
-    * scripts/setup.php: Typos 
+    * scripts/setup.php: Typos
     * libraries/common.lib.php: unneeded parameter in PMA_safe_db_list()
 
 2005-12-08 Michal Čihař  <michal@cihar.com>
@@ -25,7 +29,7 @@ $Source$
       writable permissions, refuse to work with existing config dir.
     * lang/*, libraries/auth/config.auth.lib.php: Suggest to run setup script
       if auth with default values fails.
-    * libraries/grab_globals.lib.php: Do not choke on arrays in $_SERVER 
+    * libraries/grab_globals.lib.php: Do not choke on arrays in $_SERVER
       array (bug #1370414).
     * libraries/sql_query_form.lib.php: Require bookmark code when we use it.
     * libraries/export/sql.php: Backquote database name (RFE#1376336).

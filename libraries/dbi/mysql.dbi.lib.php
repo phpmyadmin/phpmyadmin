@@ -144,11 +144,17 @@ function PMA_DBI_fetch_row($result) {
     return PMA_mysql_fetch_array($result, MYSQL_NUM);
 }
 
-function PMA_DBI_free_result($result) {
-    if (!is_bool($result)) {
-        return mysql_free_result($result);
-    } else {
-        return 0;
+/**
+ * Frees the memory associated with the results
+ *
+ * @param result    $result,...     one or more mysql result resources
+ */
+function PMA_DBI_free_result() {
+    foreach ( func_get_args() as $result ) {
+        if ( is_resource($result)
+          && get_resource_type($result) === 'mysql result' ) {
+            mysqli_free_result($result);
+        }
     }
 }
 
