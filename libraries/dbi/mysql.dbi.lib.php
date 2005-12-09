@@ -153,7 +153,7 @@ function PMA_DBI_free_result() {
     foreach ( func_get_args() as $result ) {
         if ( is_resource($result)
           && get_resource_type($result) === 'mysql result' ) {
-            mysqli_free_result($result);
+            mysql_free_result($result);
         }
     }
 }

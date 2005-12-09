@@ -11,6 +11,7 @@ $Source$
     * Documentation.html: Clarify http auth description.
     * scripts/setup.php: Show available version information even when using
       CVS version.
+    * libraries/dbi/mysql.dbi.lib.php: This is mysql extension.
 
 2005-12-09 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/dbi:
