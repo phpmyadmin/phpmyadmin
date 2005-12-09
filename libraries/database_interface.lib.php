@@ -601,6 +601,9 @@ function PMA_DBI_get_fields($database, $table, $link = null)
         'SHOW FULL COLUMNS
         FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
         null, null, $link);
+    if ( ! is_array($fields) || count($fields) < 1 ) {
+        return false;
+    }
     return $fields;
 }
 
