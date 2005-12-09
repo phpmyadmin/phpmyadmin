@@ -16,6 +16,13 @@ $Source$
 2005-12-09 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/dbi:
       PMA_DBI_free_result() now accepts more than one resource to be freed
+    * libraries/database_interface.lib.php:
+      - some comments, PEAR coding standard
+      - PMA_DBI_get_tables(), PMA_DBI_get_fields(): use PMA_DBI_fetch_result();
+      - added PMA_DBI_get_columns_full()
+      - PMA_DBI_fetch_result() now accepts an array as $key parameter
+        for multidimensional arrays (returns: $result[key1][key2][key3] = $row)
+      - PMA_DBI_get_variable(): use PMA_DBI_fetch_value()
 
 2005-12-08 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/setup.php: Typos
