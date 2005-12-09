@@ -1749,10 +1749,10 @@ switch ($action) {
         }
 
         if ($version_upstream > $version_local) {
-            message('notice', 'New version of phpMyAdmin is available, you should consider upgrade. New version is ' . htmlspecialchars($version));
+            message('notice', 'New version of phpMyAdmin is available, you should consider upgrade. New version is ' . htmlspecialchars($version) . '.');
         } else {
             if ($version_local % 100 == 0) {
-                message('notice', 'You are using CVS version, run <code>cvs update</code> :-)');
+                message('notice', 'You are using CVS version, run <code>cvs update</code> :-). However latest released version is ' . htmlspecialchars($version) . '.');
             } else {
                 message('notice', 'No newer stable version is available.');
             }

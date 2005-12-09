@@ -9,6 +9,8 @@ $Source$
     * libraries/auth/http.auth.lib.php: Simplify code, use getenv, support for
       CGI (inspired by patch #1375495).
     * Documentation.html: Clarify http auth description.
+    * scripts/setup.php: Show available version information even when using
+      CVS version.
 
 2005-12-09 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/dbi:
