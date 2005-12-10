@@ -241,8 +241,8 @@ Todo now:
  3. add files to SF files page (cut and paste changelog since last release)
  4. add SF news item to phpMyAdmin project
  5. update web page:
-        - add MD5s and file sizes to /home/groups/p/ph/phpmyadmin/htdocs/home_page/files.inc.php
-        - add release to /home/groups/p/ph/phpmyadmin/htdocs/home_page/config.inc.php
+        - add MD5s and file sizes to /home/groups/p/ph/phpmyadmin/htdocs/home_page/includes/list_files.inc.php
+        - add release to /home/groups/p/ph/phpmyadmin/htdocs/home_page/includes/list_release.inc.php
  6. announce release on freshmeat (http://freshmeat.net/projects/phpmyadmin/)
  7. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
@@ -259,7 +259,9 @@ Todo now:
  9. add a group for bug tracking this new version, at
     https://sourceforge.net/tracker/admin/index.php?group_id=23067&atid=377408&add_group=1
 
-10. the end :-)
+10. update the file latest.txt on phpmyadmin.net's web site
+
+11. the end :-)
 
 END
 
