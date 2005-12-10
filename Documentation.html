@@ -548,7 +548,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
-<a name="controluser"></a><br />
+<a name="controluser"></a>
         <b><a name="cfg_Servers_controluser"></a>$cfg['Servers'][$i]['controluser']</b> string<br />
         <b><a name="cfg_Servers_controlpass"></a>$cfg['Servers'][$i]['controlpass']</b> string
     </dt>
@@ -608,7 +608,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         for more information.
     </dd>
     <dt>
-<a name="servers_user"></a><br />
+<a name="servers_user"></a>
         <b><a name="cfg_Servers_user"></a>$cfg['Servers'][$i]['user']</b> string<br />
         <b><a name="cfg_Servers_password"></a>$cfg['Servers'][$i]['password']</b> string
     </dt>
@@ -619,7 +619,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         cookie authentication is used and should be empty.
     </dd>
     <dt>
-<a name="servers_only_db"></a><br />
+<a name="servers_only_db"></a>
       <b><a name="cfg_Servers_only_db"></a>$cfg['Servers'][$i]['only_db']</b> string or array
     </dt>
     <dd>
@@ -657,7 +657,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
-        <a name="pmadb"></a><br />
+        <a name="pmadb"></a>
         <b><a name="cfg_Servers_pmadb"></a>$cfg['Servers'][$i]['pmadb']</b> string
     </dt>
     <dd>
@@ -676,7 +676,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
-        <a name="bookmark"></a><br />
+        <a name="bookmark"></a>
         <b><a name="cfg_Servers_bookmarktable"></a>$cfg['Servers'][$i]['bookmarktable']</b> string
     </dt>
     <dd>
@@ -688,11 +688,11 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
             <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
             <li>enter the table name in
                 <tt>$cfg['Servers'][$i]['bookmarktable']</tt></li>
-        </ul><br />
+        </ul>
     </dd>
 
     <dt>
-        <a name="relation"></a><br />
+        <a name="relation"></a>
         <b><a name="cfg_Servers_relation"></a>$cfg['Servers'][$i]['relation']</b> string
     </dt>
     <dd>
@@ -728,7 +728,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
               table_coords table).
            </li>
         </ul>
-        <br />
 
         The keys can be numeric or character.
         <br /><br />
@@ -745,14 +744,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
                 tables where you want to use this feature, click
                 &quot;Structure/Relation view/&quot; and choose foreign fields.
             </li>
-        </ul><br />
+        </ul>
         Please note that in the current version, <tt>master_db</tt>
         must be the same as <tt>foreign_db</tt>.  Those fields have been put in
         future development of the cross-db relations.
     </dd>
 
     <dt>
-        <a name="table_info"></a><br />
+        <a name="table_info"></a>
         <b><a name="cfg_Servers_table_info"></a>$cfg['Servers'][$i]['table_info']</b> string
     </dt>
     <dd>
@@ -774,11 +773,11 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
                 click &quot;Structure/Relation view/Choose field to display&quot;
                 to choose the field.
             </li>
-        </ul><br />
+        </ul>
         Usage tip: <a href="#faqdisplay">Display field</a>.
     </dd>
     <dt>
-        <a name="table_coords"></a><br />
+        <a name="table_coords"></a>
         <b><a name="cfg_Servers_table_coords"></a>$cfg['Servers'][$i]['table_coords']</b> string<br />
         <b><a name="cfg_Servers_pdf_pages"></a>$cfg['Servers'][$i]['pdf_pages']</b> string
     </dt>
@@ -799,12 +798,12 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
                 <tt>$cfg['Servers'][$i]['table_coords']</tt> and
                 <tt>$cfg['Servers'][$i]['pdf_pages']</tt>
             </li>
-        </ul><br />
+        </ul>
         Usage tips: <a href="#faqpdf">PDF output</a>.
     </dd>
 
     <dt>
-        <a name="col_com"></a><br />
+        <a name="col_com"></a>
         <b><a name="cfg_Servers_column_info"></a>$cfg['Servers'][$i]['column_info']</b> string
     </dt>
     <dd>
@@ -844,7 +843,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
-        <a name="history"></a><br />
+        <a name="history"></a>
         <b><a name="cfg_Servers_history"></a>$cfg['Servers'][$i]['history']</b> string
     </dt>
     <dd>
@@ -892,8 +891,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Whether to allow root access, This is just simplification of rules below.
     </dd>
     <dt>
-<a name="servers_allowdeny_order"></a><br />
-        <b><a name="cfg_Servers_AllowDeny"></a>$cfg['Servers'][$i]['AllowDeny']['order']</b> string
+<a name="servers_allowdeny_order"></a>
+        <b><a name="cfg_Servers_AllowDeny_order"></a>$cfg['Servers'][$i]['AllowDeny']['order']</b> string
     </dt>
     <dd>
         If your rule order is empty, then IP authentication is disabled.
@@ -918,8 +917,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         setting any order.
     </dd>
     <dt>
-<a name="servers_allowdeny_rules"></a><br />
-        <b><a name="cfg_Servers_AllowDeny"></a>$cfg['Servers'][$i]['AllowDeny']['rules']</b> array of strings
+<a name="servers_allowdeny_rules"></a>
+        <b><a name="cfg_Servers_AllowDeny_rules"></a>$cfg['Servers'][$i]['AllowDeny']['rules']</b> array of strings
     </dt>
     <dd>
         The general format for the rules is as such:<br />
@@ -1047,7 +1046,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Defaults to <tt>TRUE</tt>.
     </dd>
     <dt>
-<a name="AllowArbitraryServer"></a><br />
+<a name="AllowArbitraryServer"></a>
 <b><a name="cfg_AllowArbitraryServer"></a>$cfg[AllowArbitraryServer] </b>boolean</dt>
     <dd>
         If enabled allows you to login to arbitrary server using cookie auth.
@@ -1202,7 +1201,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <dd>
         Defines whether <tt>BLOB</tt> or <tt>BINARY</tt> fields are protected
         from editing when browsing a table's content or not.
-        Valid values are:<br />
+        Valid values are:
         <ul>
           <li><tt>FALSE</tt> to allow editing of all fields;</li>
           <li><tt>'blob'</tt> to allow editing of all fields except <tt>BLOBS</tt>;</li>
@@ -1243,7 +1242,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <dd>
     If there are fewer items than this in the set of foreign keys, then a
     drop-down box of foreign keys is presented, in the style described by the 
-    <b><a name="cfg_ForeignKeyDropdownOrder"></a>$cfg[ForeignKeyDropdownOrder]</b> setting.
+    <b>$cfg[ForeignKeyDropdownOrder]</b> setting.
     </dd>
 
     <dt><b><a name="cfg_ForeignKeyDropdownOrder"></a>$cfg[ForeignKeyDropdownOrder]</b> array</dt>
@@ -1397,7 +1396,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <dd>
         You can select here which functions will be used for character set
         conversion.
-        Possible values are:<br />
+        Possible values are:
         <ul>
             <li>auto   - automatically use available one (first is tested
                 iconv, then recode)</li>
@@ -1426,7 +1425,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <dd>
         Specifies whether GD &gt;= 2 is available. If yes it can be used for
         MIME transformations.<br />
-        Possible values are:<br />
+        Possible values are:
         <ul>
             <li>
                 auto   - automatically detect, this is a bit expensive
@@ -1544,7 +1543,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         click.
     </dd>
     <dt>
-<a name="CtrlArrowsMoving"></a><br />
+<a name="CtrlArrowsMoving"></a>
         <b><a name="cfg_CtrlArrowsMoving"></a>$cfg[CtrlArrowsMoving] </b>boolean
     </dt>
     <dd>
@@ -1588,7 +1587,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
     <dt>
 
-<a name="DefaultPropDisplay"></a><br />
+<a name="DefaultPropDisplay"></a>
 <b><a name="cfg_DefaultPropDisplay"></a>$cfg[DefaultPropDisplay] </b>string</dt>
     <dd>
         When editing/creating new columns in a table all fields normally get
@@ -1850,14 +1849,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         applicable to $cfg['DefaultQueryTable'].
     </dd>
 
-    <dt><b><a name="cfg_SQP"></a>$cfg[SQP]['fmtType']</b> string [<tt>html</tt>|<tt>none</tt>]</dt>
+    <dt><b><a name="cfg_SQP_fmtType"></a>$cfg[SQP]['fmtType']</b> string [<tt>html</tt>|<tt>none</tt>]</dt>
     <dd>
         The main use of the new SQL Parser is to pretty-print SQL queries. By
         default we use HTML to format the query, but you can disable this by
         setting this variable to <tt>'none'</tt>.
     </dd>
 
-    <dt><b><a name="cfg_SQP"></a>$cfg[SQP]['fmtInd']</b> float<br />
+    <dt><b><a name="cfg_SQP_fmtInd"></a>$cfg[SQP]['fmtInd']</b> float<br />
     <b><a name="cfg_SQP"></a>$cfg[SQP]['fmtIndUnit']</b> string [<tt>em</tt>|<tt>px</tt>|<tt>pt</tt>|<tt>ex</tt>]</dt>
     <dd>
     For the pretty-printing of SQL queries, under some cases the part of a
@@ -1868,7 +1867,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     used via stylesheets.
     </dd>
 
-    <dt><b><a name="cfg_SQP"></a>$cfg[SQP]['fmtColor']</b> array of string tuples</dt>
+    <dt><b><a name="cfg_SQP_fmtColor"></a>$cfg[SQP]['fmtColor']</b> array of string tuples</dt>
     <dd>
     This array is used to define the colours for each type of element of
     the pretty-printed SQL queries. The tuple format is<br />
@@ -1876,7 +1875,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     If you specify an empty string for the color of a class, it is ignored
     in creating the stylesheet.
     You should not alter the class names, only the colour strings.<br />
-    <b>Class name key:</b><br />
+    <b>Class name key:</b>
     <ul>
         <li><b>comment</b> Applies to all comment sub-classes</li>
         <li><b>comment_mysql</b> Comments as <tt>"#...\n"</tt></li>
@@ -1925,7 +1924,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     here, and it will be used in place of the anonymous login.
     </dd>
 
-    <dt><b><a name="cfg_DBG"></a>$cfg[DBG]['enable']</b> boolean</dt>
+    <dt><b><a name="cfg_DBG_enable"></a>$cfg[DBG]['enable']</b> boolean</dt>
     <dd>
     <b>DEVELOPERS ONLY!</b><br />
     Enable the DBG extension for debugging phpMyAdmin. Required for profiling
@@ -1935,7 +1934,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <a href="#developersdbg">Developers</a> section.
     </dd>
 
-    <dt><b><a name="cfg_DBG"></a>$cfg[DBG]['profile']['enable']</b> boolean</dt>
+    <dt><b><a name="cfg_DBG_profile_enable"></a>$cfg[DBG]['profile']['enable']</b> boolean</dt>
     <dd>
     <b>DEVELOPERS ONLY!</b><br />
     Enable profiling support for phpMyAdmin. This will append a chunk of data
@@ -1945,7 +1944,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     complete successfully.
     </dd>
 
-    <dt><b><a name="cfg_DBG"></a>$cfg[DBG]['profile']['threshold']</b> float (units in milliseconds)</dt>
+    <dt><b><a name="cfg_DBG_profile_threshold"></a>$cfg[DBG]['profile']['threshold']</b> float (units in milliseconds)</dt>
     <dd>
     <b>DEVELOPERS ONLY!</b><br />
     When profiling data is displayed, this variable controls the threshold of
@@ -2064,7 +2063,6 @@ clicking on the 'Structure' link for a table). There click on
 &quot;Change&quot; (or change icon) and there you will see three new fields at
 the end of the line. They are called 'MIME-type', 'Browser transformation' and
 'Transformation options'.</p>
-<br />
 
 <ul>
 <li>The field 'MIME-type' is a dropdown field. You have the options to leave that field
@@ -2932,7 +2930,7 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
         contain your chosen theme name, that will be visible in user interface</li>
         <li>make a new screenshot of your theme and save it under &quot;your_theme_name/screen.png&quot;</li>
     </ul>
-    <br />
+
     <p>
     In theme directory there is file <tt>info.inc.php</tt> which contains
     theme verbose name, theme generation and theme version. These versions and
@@ -3635,7 +3633,7 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
         the correct joins have been generated</li>
     <li>Click &quot;Submit query&quot;</li>
 </ul>
-<br />
+
 
 <a name="faqdisplay"></a>
 <h4>

@@ -7,6 +7,8 @@ $Source$
 
 2005-12-10 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php, lang/*: new $strBrowseDistinctValues
+    * Documentation.html: anchors and formatting cleanup,
+      thanks to Cédric Corazza
 
 2005-12-09 Michal Čihař  <michal@cihar.com>
     * libraries/auth/http.auth.lib.php: Simplify code, use getenv, support for
