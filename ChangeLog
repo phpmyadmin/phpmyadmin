@@ -9,6 +9,8 @@ $Source$
     * tbl_properties_structure.php, lang/*: new $strBrowseDistinctValues
     * Documentation.html: anchors and formatting cleanup,
       thanks to Cédric Corazza
+    * libraries/relation.lib.php: bug #1370785, error browsing a table under 
+      PHP 4 when no controluser is defined but a pmadb is defined
 
 2005-12-09 Michal Čihař  <michal@cihar.com>
     * libraries/auth/http.auth.lib.php: Simplify code, use getenv, support for

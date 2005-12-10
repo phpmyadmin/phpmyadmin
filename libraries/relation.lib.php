@@ -26,7 +26,12 @@
  function PMA_query_as_cu($sql, $show_error = TRUE, $options = 0) {
     global $err_url_0, $db, $controllink, $cfgRelation;
 
-    if ($controllink == $GLOBALS['userlink']) {
+    // Comparing resource ids works on PHP 5 because, when no controluser
+    // is defined, connecting with the same user for controllink does
+    // not create a new connection. However a new connection is created
+    // on PHP 4, so we cannot directly compare resource ids.
+
+    if ($controllink == $GLOBALS['userlink'] || PMA_MYSQL_INT_VERSION < 50000) {
         PMA_DBI_select_db($cfgRelation['db'], $controllink);
     }
     if ($show_error) {
@@ -35,7 +40,7 @@
         $result = @PMA_DBI_try_query($sql, $controllink, $options);
     } // end if... else...
     // It makes no sense to restore database on control user
-    if ($controllink == $GLOBALS['userlink']) {
+    if ($controllink == $GLOBALS['userlink'] || PMA_MYSQL_INT_VERSION < 50000) {
         PMA_DBI_select_db($db, $controllink);
     }
 
