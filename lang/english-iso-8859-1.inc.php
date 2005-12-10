@@ -92,6 +92,7 @@ $strBookmarkReplace = 'Replace existing bookmark of same name';
 $strBookmarkThis = 'Bookmark this SQL query';
 $strBookmarkView = 'View only';
 $strBrowse = 'Browse';
+$strBrowseDistinctValues = 'Browse distinct values';
 $strBrowseForeignValues = 'Browse foreign values';
 $strBufferPoolActivity = 'Buffer Pool Activity';
 $strBufferPool = 'Buffer Pool';

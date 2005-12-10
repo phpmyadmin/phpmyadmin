@@ -981,4 +981,5 @@ $strThemePathNotFound = 'Theme path not found for theme %s!';  //to translate
 
 $strAccessDeniedCreateConfig = 'Probably reason of this is that you did not create configuration file. You might want to use %1$ssetup script%2$s to create one.';  //to translate
 $strSQLImportOptions = 'SQL options';  //to translate
+$strBrowseDistinctValues = 'Browse distinct values';  //to translate
 ?>

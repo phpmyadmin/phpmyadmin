@@ -139,37 +139,37 @@ if ( $cfg['PropertiesIconic'] == true ) {
     $titles['NoIdxFulltext'] = $iconic_spacer
         . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
         . 'bd_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />';
-    $titles['Browse']        = $iconic_spacer
+    $titles['BrowseDistinctValues']        = $iconic_spacer
         . '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'b_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" />';
+        . 'b_browse.png" alt="' . $strBrowseDistinctValues . '" title="' . $strBrowseDistinctValues . '" />';
 
     if ( $cfg['PropertiesIconic'] === 'both' ) {
-        $titles['Change']        .= $strChange . '</div>';
-        $titles['Drop']          .= $strDrop . '</div>';
-        $titles['NoDrop']        .= $strDrop . '</div>';
-        $titles['Primary']       .= $strPrimary . '</div>';
-        $titles['Index']         .= $strIndex . '</div>';
-        $titles['Unique']        .= $strUnique . '</div>';
-        $titles['IdxFulltext'  ] .= $strIdxFulltext . '</div>';
-        $titles['NoPrimary']     .= $strPrimary . '</div>';
-        $titles['NoIndex']       .= $strIndex . '</div>';
-        $titles['NoUnique']      .= $strUnique . '</div>';
-        $titles['NoIdxFulltext'] .= $strIdxFulltext . '</div>';
-        $titles['Browse']        .= $strBrowse . '</div>';
+        $titles['Change']               .= $strChange . '</div>';
+        $titles['Drop']                 .= $strDrop . '</div>';
+        $titles['NoDrop']               .= $strDrop . '</div>';
+        $titles['Primary']              .= $strPrimary . '</div>';
+        $titles['Index']                .= $strIndex . '</div>';
+        $titles['Unique']               .= $strUnique . '</div>';
+        $titles['IdxFulltext'  ]        .= $strIdxFulltext . '</div>';
+        $titles['NoPrimary']            .= $strPrimary . '</div>';
+        $titles['NoIndex']              .= $strIndex . '</div>';
+        $titles['NoUnique']             .= $strUnique . '</div>';
+        $titles['NoIdxFulltext']        .= $strIdxFulltext . '</div>';
+        $titles['BrowseDistinctValues'] .= $strBrowseDistinctValues . '</div>';
     }
 } else {
-    $titles['Change']        = $strChange;
-    $titles['Drop']          = $strDrop;
-    $titles['NoDrop']        = $strDrop;
-    $titles['Primary']       = $strPrimary;
-    $titles['Index']         = $strIndex;
-    $titles['Unique']        = $strUnique;
-    $titles['IdxFulltext']   = $strIdxFulltext;
-    $titles['NoPrimary']     = $strPrimary;
-    $titles['NoIndex']       = $strIndex;
-    $titles['NoUnique']      = $strUnique;
-    $titles['NoIdxFulltext'] = $strIdxFulltext;
-    $titles['Browse']        = $strBrowse;
+    $titles['Change']               = $strChange;
+    $titles['Drop']                 = $strDrop;
+    $titles['NoDrop']               = $strDrop;
+    $titles['Primary']              = $strPrimary;
+    $titles['Index']                = $strIndex;
+    $titles['Unique']               = $strUnique;
+    $titles['IdxFulltext']          = $strIdxFulltext;
+    $titles['NoPrimary']            = $strPrimary;
+    $titles['NoIndex']              = $strIndex;
+    $titles['NoUnique']             = $strUnique;
+    $titles['NoIdxFulltext']        = $strIdxFulltext;
+    $titles['BrowseDistinctValues'] = $strBrowseDistinctValues;
 }
 
 /**
@@ -366,7 +366,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     <td nowrap="nowrap"><?php echo $row['Extra']; ?></td>
     <td align="center">
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode( 'SELECT COUNT(*) AS `' . $strRows . '`, `' . $row['Field'] . '` FROM `' . $table . '` GROUP BY `' . $row['Field'] . '` ORDER BY `' . $row['Field'] . '`' ); ?>">
-            <?php echo $titles['Browse']; ?></a>
+            <?php echo $titles['BrowseDistinctValues']; ?></a>
     </td>
     <?php if ( ! $tbl_is_view && ! $db_is_information_schema ) { ?>
     <td align="center">
