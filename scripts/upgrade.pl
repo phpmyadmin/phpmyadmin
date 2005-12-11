@@ -13,7 +13,7 @@
 #
 
 use strict;
-my $source_url = "http://www.phpmyadmin.net/latest.txt";
+my $source_url = "http://phpmyadmin.net/home_page/version.php";
 
 
 #

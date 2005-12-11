@@ -259,9 +259,7 @@ Todo now:
  9. add a group for bug tracking this new version, at
     https://sourceforge.net/tracker/admin/index.php?group_id=23067&atid=377408&add_group=1
 
-10. update the file latest.txt on phpmyadmin.net's web site
-
-11. the end :-)
+10. the end :-)
 
 END
 
