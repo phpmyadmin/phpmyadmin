@@ -14,23 +14,23 @@ require_once('./libraries/bookmark.lib.php');
  * Defines the url to return to in case of error in a sql statement
  */
 // Security checkings
-if (!empty($_REQUEST['goto'])) {
-    $is_gotofile     = preg_replace('@^([^?]+).*$@s', '\\1', $_REQUEST['goto']);
+if (!empty($goto)) {
+    $is_gotofile     = preg_replace('@^([^?]+).*$@s', '\\1', $goto);
     if (!@file_exists('./' . $is_gotofile)) {
-        unset($_REQUEST['goto']);
+        unset($goto);
     } else {
-        $is_gotofile = ($is_gotofile == $_REQUEST['goto']);
+        $is_gotofile = ($is_gotofile == $goto);
     }
 } // end if (security checkings)
 
-if (empty($_REQUEST['goto'])) {
-    $_REQUEST['goto'] = (empty($table)) ? $cfg['DefaultTabDatabase'] : $cfg['DefaultTabTable'];
+if (empty($goto)) {
+    $goto = (empty($table)) ? $cfg['DefaultTabDatabase'] : $cfg['DefaultTabTable'];
     $is_gotofile  = TRUE;
 } // end if
 if (!isset($err_url)) {
-    $err_url = (!empty($back) ? $back : $_REQUEST['goto'])
+    $err_url = (!empty($back) ? $back : $goto)
              . '?' . PMA_generate_common_url(isset($db) ? $db : '')
-             . ((strpos(' ' . $_REQUEST['goto'], 'db_details') != 1 && isset($table)) ? '&amp;table=' . urlencode($table) : '');
+             . ((strpos(' ' . $goto, 'db_details') != 1 && isset($table)) ? '&amp;table=' . urlencode($table) : '');
 } // end if
 
 // Coming from a bookmark dialog
@@ -97,7 +97,7 @@ elseif (!isset($pos)) {
  */
 if (isset($store_bkm)) {
     PMA_addBookmarks($fields, $cfg['Bookmark'], (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false));
-    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $_REQUEST['goto']);
+    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto);
 } // end if
 
 
@@ -172,9 +172,9 @@ if ($is_select) {
 /**
  * Sets or modifies the $goto variable if required
  */
-if ($_REQUEST['goto'] == 'sql.php') {
+if ($goto == 'sql.php') {
     $is_gotofile = FALSE;
-    $_REQUEST['goto'] = 'sql.php?'
+    $goto = 'sql.php?'
           . PMA_generate_common_url($db, $table)
           . '&amp;pos=' . $pos
           . '&amp;sql_query=' . urlencode($sql_query);
@@ -186,16 +186,16 @@ if ($_REQUEST['goto'] == 'sql.php') {
  */
 if (isset($btnDrop) && $btnDrop == $strNo) {
     if (!empty($back)) {
-        $_REQUEST['goto'] = $back;
+        $goto = $back;
     }
     if ($is_gotofile) {
-        if (strpos(' ' . $_REQUEST['goto'], 'db_details') == 1 && !empty($table)) {
+        if (strpos(' ' . $goto, 'db_details') == 1 && !empty($table)) {
             unset($table);
         }
-        $active_page = $_REQUEST['goto'];
-        require('./' . PMA_securePath($_REQUEST['goto']));
+        $active_page = $goto;
+        require('./' . PMA_securePath($goto));
     } else {
-        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $_REQUEST['goto']));
+        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto));
     }
     exit();
 } // end if
@@ -236,7 +236,7 @@ if ( $do_confirm ) {
     ?>
     <input type="hidden" name="sql_query" value="<?php echo urlencode($sql_query); ?>" />
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? PMA_sanitize($zero_rows) : ''; ?>" />
-    <input type="hidden" name="goto" value="<?php echo $_REQUEST['goto']; ?>" />
+    <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="back" value="<?php echo isset($back) ? PMA_sanitize($back) : ''; ?>" />
     <input type="hidden" name="reload" value="<?php echo isset($reload) ? PMA_sanitize($reload) : 0; ?>" />
     <input type="hidden" name="purge" value="<?php echo isset($purge) ? PMA_sanitize($purge) : ''; ?>" />
@@ -631,7 +631,7 @@ else {
         $message .= ' ' . (isset($GLOBALS['querytime']) ? '(' . sprintf($strQueryTime, $GLOBALS['querytime']) . ')' : '');
 
         if ($is_gotofile) {
-            $_REQUEST['goto'] = PMA_securePath($_REQUEST['goto']);
+            $goto = PMA_securePath($goto);
             // Checks for a valid target script
             if (isset($table) && $table == '') {
                 unset($table);
@@ -640,45 +640,45 @@ else {
                 unset($db);
             }
             $is_db = $is_table = FALSE;
-            if (strpos(' ' . $_REQUEST['goto'], 'tbl_properties') == 1) {
+            if (strpos(' ' . $goto, 'tbl_properties') == 1) {
                 if (!isset($table)) {
-                    $_REQUEST['goto']     = 'db_details.php';
+                    $goto = 'db_details.php';
                 } else {
                     $is_table = @PMA_DBI_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';', NULL, PMA_DBI_QUERY_STORE);
                     if (!($is_table && @PMA_DBI_num_rows($is_table))) {
-                        $_REQUEST['goto'] = 'db_details.php';
+                        $goto = 'db_details.php';
                         unset($table);
                     }
                     @PMA_DBI_free_result($is_table);
                 } // end if... else...
             }
-            if (strpos(' ' . $_REQUEST['goto'], 'db_details') == 1) {
+            if (strpos(' ' . $goto, 'db_details') == 1) {
                 if (isset($table)) {
                     unset($table);
                 }
                 if (!isset($db)) {
-                    $_REQUEST['goto']     = 'main.php';
+                    $goto = 'main.php';
                 } else {
                     $is_db    = @PMA_DBI_select_db($db);
                     if (!$is_db) {
-                        $_REQUEST['goto'] = 'main.php';
+                        $goto = 'main.php';
                         unset($db);
                     }
                 } // end if... else...
             }
             // Loads to target script
-            if (strpos(' ' . $_REQUEST['goto'], 'db_details') == 1
-                || strpos(' ' . $_REQUEST['goto'], 'tbl_properties') == 1) {
+            if (strpos(' ' . $goto, 'db_details') == 1
+                || strpos(' ' . $goto, 'tbl_properties') == 1) {
                 $js_to_run = 'functions.js';
             }
-            if ($_REQUEST['goto'] != 'main.php') {
+            if ($goto != 'main.php') {
                 require_once('./libraries/header.inc.php');
             }
-            $active_page = $_REQUEST['goto'];
-            require('./' . $_REQUEST['goto']);
+            $active_page = $goto;
+            require('./' . $goto);
         } // end if file_exist
         else {
-            PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $_REQUEST['goto']) . '&message=' . urlencode($message));
+            PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message));
         } // end else
         exit();
     } // end no rows returned
@@ -859,7 +859,7 @@ else {
             && !empty($sql_query)) {
             echo "\n";
 
-            $_REQUEST['goto'] = 'sql.php?'
+            $goto = 'sql.php?'
                   . PMA_generate_common_url($db, $table)
                   . '&amp;pos=' . $pos
                   . '&amp;session_max_rows=' . $session_max_rows
@@ -877,7 +877,7 @@ else {
             ?>
 <form action="sql.php" method="post" onsubmit="return emptyFormElements(this, 'fields[label]');">
 <?php echo PMA_generate_common_hidden_inputs(); ?>
-<input type="hidden" name="goto" value="<?php echo $_REQUEST['goto']; ?>" />
+<input type="hidden" name="goto" value="<?php echo $goto; ?>" />
 <input type="hidden" name="fields[dbase]" value="<?php echo htmlspecialchars($db); ?>" />
 <input type="hidden" name="fields[user]" value="<?php echo $cfg['Bookmark']['user']; ?>" />
 <input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
