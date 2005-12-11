@@ -73,8 +73,7 @@ echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
     <title>phpMyAdmin</title>
     <meta http-equiv="Content-Type"
         content="text/html; charset=<?php echo $charset; ?>" />
-    <base href="<?php echo $GLOBALS['cfg']['PmaAbsoluteUri']; ?>"
-        target="frame_content" />
+    <base target="frame_content" />
     <link rel="stylesheet" type="text/css"
         href="./css/phpmyadmin.css.php?<?php echo PMA_generate_common_url( '', '' ); ?>&amp;js_frame=left" />
     <script type="text/javascript" language="javascript">
