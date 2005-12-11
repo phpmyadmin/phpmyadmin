@@ -4,7 +4,7 @@
 
 /**
  * Misc stuff and functions used by almost all the scripts.
- * Among other things, it contains the advanced authentification work.
+ * Among other things, it contains the advanced authentication work.
  */
 
 /**
@@ -2483,6 +2483,43 @@ window.parent.updateTableTitle( '<?php echo $uni_tbl; ?>', '<?php echo PMA_jsFor
 
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
+
+/**
+ * just to be sure there was no import (registering) before here
+ * we empty the global space
+ */
+$variables_whitelist = array (
+    'GLOBALS',
+    '_SERVER',
+    '_GET',
+    '_POST',
+    '_REQUEST',
+    '_FILES',
+    '_ENV',
+    '_COOKIE',
+    '_SESSION',
+);
+
+foreach ( get_defined_vars() as $key => $value ) {
+    if ( ! in_array( $key, $variables_whitelist )  ) {
+        unset( $$key );
+    }
+}
+unset( $key, $value );
+
+
+/**
+ * protect against older PHP versions' bug about GLOBALS overwrite
+ * (no need to localize this message :) )
+ * but what if script.php?GLOBALS[admin]=1&GLOBALS[_REQUEST]=1 ???
+ */
+if ( isset( $_REQUEST['GLOBALS'] ) || isset( $_FILES['GLOBALS'] )
+  || isset( $_SERVER['GLOBALS'] ) || isset( $_COOKIE['GLOBALS'] )
+  || isset( $_ENV['GLOBALS'] ) ) {
+    die( 'GLOBALS overwrite attempt' );
+}
+
+require_once './libraries/session.inc.php';
 
 // grab_globals.lib.php should really go before common.lib.php
 require_once('./libraries/grab_globals.lib.php');

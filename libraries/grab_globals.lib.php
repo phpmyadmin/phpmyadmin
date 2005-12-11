@@ -13,45 +13,6 @@
  */
 
 /**
- * just to be sure there was no import (registering) before here
- * we empty the global space
- */
-$variables_whitelist = array (
-    'GLOBALS',
-    '_SERVER',
-    '_GET',
-    '_POST',
-    '_REQUEST',
-    '_FILES',
-    '_ENV',
-    '_COOKIE',
-    '_SESSION',
-);
-
-foreach ( get_defined_vars() as $key => $value ) {
-    if ( ! in_array( $key, $variables_whitelist )  ) {
-        unset( $$key );
-    }
-}
-unset( $key, $value );
-
-
-/**
- * protect against older PHP versions' bug about GLOBALS overwrite
- * (no need to translate this one :) )
- * but what if script.php?GLOBALS[admin]=1&GLOBALS[_REQUEST]=1 ???
- */
-if ( isset( $_REQUEST['GLOBALS'] ) || isset( $_FILES['GLOBALS'] )
-  || isset( $_SERVER['GLOBALS'] ) || isset( $_COOKIE['GLOBALS'] )
-  || isset( $_ENV['GLOBALS'] ) ) {
-    die( 'GLOBALS overwrite attempt' );
-}
-
-
-require_once './libraries/session.inc.php';
-
-
-/**
  * check if a subform is submitted
  */
 $__redirect = NULL;
