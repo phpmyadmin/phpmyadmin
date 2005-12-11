@@ -602,7 +602,7 @@ a.tab:hover,
 /* disabled drop/empty tabs */
 span.tab,
 span.tabcaution {
-    cursor:             url(themes/darkblue_orange/img/error.ico), url(../themes/darkblue_orange/img/error.ico), default;
+    cursor:             url(../themes/darkblue_orange/img/error.ico), default;
 }
 <?php } ?>
 /* end topmenu */
