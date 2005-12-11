@@ -98,6 +98,7 @@ $strBookmarkQuery = 'Oblíbený SQL dotaz';
 $strBookmarkReplace = 'Přepsat existující oblíbený dotaz stejného jména';
 $strBookmarkThis = 'Přidat tento SQL dotaz do oblíbených';
 $strBookmarkView = 'Zobrazit';
+$strBrowseDistinctValues = 'Procházet odlišné hodnoty';
 $strBrowseForeignValues = 'Projít hodnoty cizích klíčů';
 $strBrowse = 'Projít';
 $strBufferPoolActivity = 'Aktivita vyrovnávací paměti';
@@ -977,5 +978,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '&bdquo;zazipováno&ldquo;';
 
-$strBrowseDistinctValues = 'Browse distinct values';  //to translate
 ?>

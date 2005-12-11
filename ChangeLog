@@ -11,6 +11,7 @@ $Source$
       manual steps.
     * browse_foreigners.php, left.php, libraries/header_meta_style.inc.php:
       Drop <base href=".." />, it should not be needed at all.
+    * lang/czech: Update.
 
 2005-12-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/database_interface.lib.php::PMA_DBI_get_columns_full():
