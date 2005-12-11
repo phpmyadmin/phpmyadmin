@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-11 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/database_interface.lib.php::PMA_DBI_get_columns_full():
+      - forgot debug code
+      - correct result for non MySQL 5
+      
 2005-12-10 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php, lang/*: new $strBrowseDistinctValues
     * Documentation.html: anchors and formatting cleanup,

@@ -475,7 +475,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 {
     $columns = array();
 
-    if ( false and PMA_MYSQL_INT_VERSION >= 50002 ) {
+    if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
         $sql_wheres = array();
         $array_keys = array();
 
@@ -543,36 +543,35 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 
         $ordinal_position = 1;
         foreach ( $columns as $column_name => $each_column ) {
-            $each_column =& $columns[$column_name];
 
             // MySQL forward compatibility
             // so pma could use this array as if every server is of version >5.0
-            $each_column['COLUMN_NAME']                 =& $each_column['Field'];
-            $each_column['COLUMN_TYPE']                 =& $each_column['Type'];
-            $each_column['COLLATION_NAME']              =& $each_column['Collation'];
-            $each_column['IS_NULLABLE']                 =& $each_column['Null'];
-            $each_column['COLUMN_KEY']                  =& $each_column['Key'];
-            $each_column['COLUMN_DEFAULT']              =& $each_column['Default'];
-            $each_column['EXTRA']                       =& $each_column['Extra'];
-            $each_column['PRIVILEGES']                  =& $each_column['Privileges'];
-            $each_column['COLUMN_COMMENT']              =& $each_column['Comment'];
+            $columns[$column_name]['COLUMN_NAME']                 =& $columns[$column_name]['Field'];
+            $columns[$column_name]['COLUMN_TYPE']                 =& $columns[$column_name]['Type'];
+            $columns[$column_name]['COLLATION_NAME']              =& $columns[$column_name]['Collation'];
+            $columns[$column_name]['IS_NULLABLE']                 =& $columns[$column_name]['Null'];
+            $columns[$column_name]['COLUMN_KEY']                  =& $columns[$column_name]['Key'];
+            $columns[$column_name]['COLUMN_DEFAULT']              =& $columns[$column_name]['Default'];
+            $columns[$column_name]['EXTRA']                       =& $columns[$column_name]['Extra'];
+            $columns[$column_name]['PRIVILEGES']                  =& $columns[$column_name]['Privileges'];
+            $columns[$column_name]['COLUMN_COMMENT']              =& $columns[$column_name]['Comment'];
 
-            $each_column['TABLE_CATALOG']               = null;
-            $each_column['TABLE_SCHEMA']                = $database;
-            $each_column['TABLE_NAME']                  = $table;
-            $each_column['ORDINAL_POSITION']            = $ordinal_position;
-            $each_column['DATA_TYPE']                   =
-                substr($each_column['COLUMN_TYPE'], 0,
-                    strpos($each_column['COLUMN_TYPE'], '('));
+            $columns[$column_name]['TABLE_CATALOG']               = null;
+            $columns[$column_name]['TABLE_SCHEMA']                = $database;
+            $columns[$column_name]['TABLE_NAME']                  = $table;
+            $columns[$column_name]['ORDINAL_POSITION']            = $ordinal_position;
+            $columns[$column_name]['DATA_TYPE']                   =
+                substr($columns[$column_name]['COLUMN_TYPE'], 0,
+                    strpos($columns[$column_name]['COLUMN_TYPE'], '('));
             // @TODO guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
-            $each_column['CHARACTER_MAXIMUM_LENGTH']    = null;
+            $columns[$column_name]['CHARACTER_MAXIMUM_LENGTH']    = null;
             // @TODO guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH
-            $each_column['CHARACTER_OCTET_LENGTH']      = null;
-            $each_column['NUMERIC_PRECISION']           = null;
-            $each_column['NUMERIC_SCALE']               = null;
-            $each_column['CHARACTER_SET_NAME']          =
-                substr($each_column['COLLATION_NAME'], 0,
-                    strpos($each_column['COLLATION_NAME'], '_'));
+            $columns[$column_name]['CHARACTER_OCTET_LENGTH']      = null;
+            $columns[$column_name]['NUMERIC_PRECISION']           = null;
+            $columns[$column_name]['NUMERIC_SCALE']               = null;
+            $columns[$column_name]['CHARACTER_SET_NAME']          =
+                substr($columns[$column_name]['COLLATION_NAME'], 0,
+                    strpos($columns[$column_name]['COLLATION_NAME'], '_'));
 
             $ordinal_position++;
         }
