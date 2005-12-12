@@ -10,9 +10,13 @@ $Source$
       preprare removal of grab_globals:
        - moved stuff from grab_globals into common.inc.php
        - check/init global required variables like: $lang, $server, $db, $table,
-         $convcharset, $goto
+         $convcharset, $goto, $back, $sql_query
        - introduced $goto-whitelist
        - PEAR coding standard
+    * libraries/common.inc.php, libraries/auth/cookie.auth.lib.php,
+      libraries/auth/http.auth.lib.php, libraries/grab_globals.lib.php,
+      libraries/relation.lib.php, scripts/setup.php:
+       - check magic_quotes only once in common.inc.php
 
 2005-12-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/tbl_properties_links.inc.php: bug #1375752,
