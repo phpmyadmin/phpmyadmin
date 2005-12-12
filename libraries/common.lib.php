@@ -3100,7 +3100,7 @@ if ( ! defined('PMA_MINIMUM_COMMON') ) {
             $only_db_check = false;
         } // end if (!$dblist_cnt)
 
-        if (isset($dblist_full) && !count($dblist_full)) {
+        if ( isset($dblist_full) && !count($dblist_full) ) {
             $dblist = PMA_safe_db_list($only_db_check, $controllink,
                 $dblist_cnt, $userlink, $cfg, $dblist);
         }
@@ -3110,9 +3110,9 @@ if ( ! defined('PMA_MINIMUM_COMMON') ) {
 
 
     // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
-    if (@function_exists('mb_convert_encoding')
+    if ( @function_exists('mb_convert_encoding')
         && strpos(' ' . $lang, 'ja-')
-        && file_exists('./libraries/kanji-encoding.lib.php')) {
+        && file_exists('./libraries/kanji-encoding.lib.php') ) {
         require_once './libraries/kanji-encoding.lib.php';
         define('PMA_MULTIBYTE_ENCODING', 1);
     } // end if
@@ -3128,12 +3128,9 @@ if ( ! defined('PMA_MINIMUM_COMMON') ) {
 
 } // end if ! defined('PMA_MINIMUM_COMMON' )
 
-$_SESSION['PMA_Config']->done = true;
-
-if ( ! empty( $__redirect ) ) {
-    // TODO: check against the $goto-whitelist
-    require PMA_securePath($__redirect);
+if ( ! empty( $__redirect ) && in_array($__redirect, $goto_whitelist) ) {
+    require $__redirect;
     exit();
-} // end if ( ! empty( $__redirect ) )
+}
 
 ?>
