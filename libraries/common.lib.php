@@ -2923,21 +2923,21 @@ if ( ! defined('PMA_MINIMUM_COMMON') ) {
         // (for a quick check of path disclosure in auth/cookies:)
         $coming_from_common = true;
 
-        if (!file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php')) {
+        if ( ! file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php') ) {
             header('Location: error.php'
-                    . '?lang='  . urlencode($available_languages[$lang][2] )
-                    . '&char='  . urlencode($charset )
-                    . '&dir='   . urlencode($text_dir )
-                    . '&type='  . urlencode($strError )
+                    . '?lang='  . urlencode($available_languages[$lang][2])
+                    . '&char='  . urlencode($charset)
+                    . '&dir='   . urlencode($text_dir)
+                    . '&type='  . urlencode($strError)
                     . '&error=' . urlencode(
                         $strInvalidAuthMethod . ' '
-                        . $cfg['Server']['auth_type'] )
+                        . $cfg['Server']['auth_type'])
                     . '&' . SID
                      );
             exit();
         }
         require_once './libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php';
-        if (!PMA_auth_check()) {
+        if ( ! PMA_auth_check() ) {
             PMA_auth();
         } else {
             PMA_auth_set_user();
@@ -2949,28 +2949,30 @@ if ( ! defined('PMA_MINIMUM_COMMON') ) {
         // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
         // Look at: "static int check_dir_access(request_rec *r)"
         // Robbat2 - May 10, 2002
-        if (isset($cfg['Server']['AllowDeny']) && isset($cfg['Server']['AllowDeny']['order'])) {
+        if ( isset( $cfg['Server']['AllowDeny'] )
+          && isset( $cfg['Server']['AllowDeny']['order'] ) ) {
+
             require_once './libraries/ip_allow_deny.lib.php';
 
             $allowDeny_forbidden         = false; // default
-            if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
+            if ( $cfg['Server']['AllowDeny']['order'] == 'allow,deny' ) {
                 $allowDeny_forbidden     = true;
-                if (PMA_allowDeny('allow')) {
+                if ( PMA_allowDeny('allow') ) {
                     $allowDeny_forbidden = false;
                 }
-                if (PMA_allowDeny('deny')) {
+                if ( PMA_allowDeny('deny') ) {
                     $allowDeny_forbidden = true;
                 }
-            } elseif ($cfg['Server']['AllowDeny']['order'] == 'deny,allow') {
-                if (PMA_allowDeny('deny')) {
+            } elseif ( $cfg['Server']['AllowDeny']['order'] == 'deny,allow' ) {
+                if ( PMA_allowDeny('deny' ) ) {
                     $allowDeny_forbidden = true;
                 }
-                if (PMA_allowDeny('allow')) {
+                if ( PMA_allowDeny('allow') ) {
                     $allowDeny_forbidden = false;
                 }
-            } elseif ($cfg['Server']['AllowDeny']['order'] == 'explicit') {
-                if (PMA_allowDeny('allow')
-                    && !PMA_allowDeny('deny')) {
+            } elseif ( $cfg['Server']['AllowDeny']['order'] == 'explicit' ) {
+                if ( PMA_allowDeny('allow')
+                  && ! PMA_allowDeny('deny') ) {
                     $allowDeny_forbidden = false;
                 } else {
                     $allowDeny_forbidden = true;
@@ -2978,22 +2980,22 @@ if ( ! defined('PMA_MINIMUM_COMMON') ) {
             } // end if ... elseif ... elseif
 
             // Ejects the user if banished
-            if ($allowDeny_forbidden) {
+            if ( $allowDeny_forbidden ) {
                PMA_auth_fails();
             }
             unset($allowDeny_forbidden); //Clean up after you!
         } // end if
 
         // is root allowed?
-        if (!$cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
+        if ( ! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root' ) {
             $allowDeny_forbidden = true;
             PMA_auth_fails();
-            unset($allowDeny_forbidden); //Clean up after you!
+            unset( $allowDeny_forbidden ); //Clean up after you!
         }
 
         // The user can work with only some databases
-        if (isset($cfg['Server']['only_db']) && $cfg['Server']['only_db'] != '') {
-            if (is_array($cfg['Server']['only_db'])) {
+        if ( isset( $cfg['Server']['only_db'] ) && $cfg['Server']['only_db'] != '' ) {
+            if ( is_array($cfg['Server']['only_db']) ) {
                 $dblist   = $cfg['Server']['only_db'];
             } else {
                 $dblist[] = $cfg['Server']['only_db'];
@@ -3006,12 +3008,12 @@ if ( ! defined('PMA_MINIMUM_COMMON') ) {
         // get the privileges list for the current user but the true user link
         // must be open after this one so it would be default one for all the
         // scripts)
-        if ($cfg['Server']['controluser'] != '') {
+        if ( $cfg['Server']['controluser'] != '' ) {
             $controllink = PMA_DBI_connect($cfg['Server']['controluser'],
-                $cfg['Server']['controlpass'], true );
+                $cfg['Server']['controlpass'], true);
         } else {
             $controllink = PMA_DBI_connect($cfg['Server']['user'],
-                $cfg['Server']['password'], true );
+                $cfg['Server']['password'], true);
         } // end if ... else
 
         // Pass #1 of DB-Config to read in master level DB-Config will go here
@@ -3019,13 +3021,13 @@ if ( ! defined('PMA_MINIMUM_COMMON') ) {
 
         // Connects to the server (validates user's login)
         $userlink = PMA_DBI_connect($cfg['Server']['user'],
-            $cfg['Server']['password'], false );
+            $cfg['Server']['password'], false);
 
         // Pass #2 of DB-Config to read in user level DB-Config will go here
         // Robbat2 - May 11, 2002
 
         @ini_set('track_errors', $bkp_track_err);
-        unset($bkp_track_err);
+        unset( $bkp_track_err );
 
         /**
          * SQL Parser code
@@ -3040,37 +3042,37 @@ if ( ! defined('PMA_MINIMUM_COMMON') ) {
         // if 'only_db' is set for the current user, there is no need to check for
         // available databases in the "mysql" db
         $dblist_cnt = count($dblist);
-        if ($dblist_cnt) {
+        if ( $dblist_cnt ) {
             $true_dblist  = array();
             $is_show_dbs  = true;
 
             $dblist_asterisk_bool = false;
-            for ($i = 0; $i < $dblist_cnt; $i++) {
+            for ( $i = 0; $i < $dblist_cnt; $i++ ) {
 
                 // The current position
-                if ($dblist[$i] == '*' && $dblist_asterisk_bool == false) {
+                if ( $dblist[$i] == '*' && $dblist_asterisk_bool == false ) {
                     $dblist_asterisk_bool = true;
                     $dblist_full = PMA_safe_db_list(false, $controllink, false,
                         $userlink, $cfg, $dblist);
                     foreach ( $dblist_full as $dbl_val ) {
-                        if (!in_array($dbl_val, $dblist)) {
+                        if ( ! in_array($dbl_val, $dblist) ) {
                             $true_dblist[] = $dbl_val;
                         }
                     }
 
                     continue;
-                } elseif ($dblist[$i] == '*') {
+                } elseif ( $dblist[$i] == '*' ) {
                     // We don't want more than one asterisk inside our 'only_db'.
                     continue;
                 }
-                if ($is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i])) {
+                if ( $is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i]) ) {
                     $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
                     // here, a PMA_DBI_query() could fail silently
                     // if SHOW DATABASES is disabled
                     $rs          = PMA_DBI_try_query($local_query, $controllink);
 
                     if ( $i == 0
-                        && (substr(PMA_DBI_getError($controllink), 1, 4) == 1045)) {
+                      && ( substr(PMA_DBI_getError($controllink), 1, 4) == 1045 ) ) {
                         // "SHOW DATABASES" statement is disabled
                         $true_dblist[] = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
                         $is_show_dbs   = false;
@@ -3100,7 +3102,7 @@ if ( ! defined('PMA_MINIMUM_COMMON') ) {
             $only_db_check = false;
         } // end if (!$dblist_cnt)
 
-        if ( isset($dblist_full) && !count($dblist_full) ) {
+        if ( isset( $dblist_full ) && ! count($dblist_full) ) {
             $dblist = PMA_safe_db_list($only_db_check, $controllink,
                 $dblist_cnt, $userlink, $cfg, $dblist);
         }
@@ -3120,9 +3122,9 @@ if ( ! defined('PMA_MINIMUM_COMMON') ) {
     /**
      * save some settings in cookies
      */
-    PMA_setCookie('pma_lang', $GLOBALS['lang'] );
-    PMA_setCookie('pma_charset', $GLOBALS['convcharset'] );
-    PMA_setCookie('pma_collation_connection', $GLOBALS['collation_connection'] );
+    PMA_setCookie('pma_lang', $GLOBALS['lang']);
+    PMA_setCookie('pma_charset', $GLOBALS['convcharset']);
+    PMA_setCookie('pma_collation_connection', $GLOBALS['collation_connection']);
 
     $_SESSION['PMA_Theme_Manager']->setThemeCookie();
 
