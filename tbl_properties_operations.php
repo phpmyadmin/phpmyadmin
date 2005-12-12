@@ -152,9 +152,10 @@ unset( $local_query );
  */
 ?>
 <!-- Order the table -->
+<div id="div_table_order">
 <form method="post" action="tbl_properties_operations.php">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
-<fieldset>
+<fieldset id="fieldset_table_order">
     <legend><?php echo $strAlterOrderBy; ?></legend>
     <select name="order_field">
 <?php
@@ -172,14 +173,16 @@ unset($columns);
     <input type="submit" name="submitorderby" value="<?php echo $strGo; ?>" />
 </fieldset>
 </form>
+</div>
 
 <!-- Move table -->
+<div id="div_table_rename">
 <form method="post" action="tbl_move_copy.php"
     onsubmit="return emptyFormElements(this, 'new_name')">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
 <input type="hidden" name="what" value="data" />
-<fieldset>
+<fieldset id="fieldset_table_rename">
     <legend><?php echo $strMoveTable; ?></legend>
     <select name="target_db">
 <?php
@@ -199,66 +202,7 @@ foreach ( $dblist as $each_db ) {
     <input type="submit" name="submit_move" value="<?php echo $strGo; ?>" />
 </fieldset>
 </form>
-
-<!-- Copy table -->
-<form method="post" action="tbl_move_copy.php"
-    onsubmit="return emptyFormElements(this, 'new_name')">
-<?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
-<input type="hidden" name="reload" value="1" />
-<fieldset>
-    <legend><?php echo $strCopyTable; ?></legend>
-    <select name="target_db">
-<?php
-foreach ( $dblist as $each_db ) {
-    echo '        ';
-    echo '<option value="' . htmlspecialchars($each_db) . '"';
-    if ( $each_db === $GLOBALS['db'] ) {
-        echo ' selected="selected"';
-    }
-    echo '>' . htmlspecialchars($each_db) . '</option>';
-    echo "\n";
-} // end foreach $dblist
-?>
-    </select>
-    &nbsp;<b>.</b>&nbsp;
-    <input type="text" size="20" name="new_name" onfocus="this.select()" /><br />
-
-    <input type="radio" name="what" value="structure" id="radio_copy_structure" />
-    <label for="radio_copy_structure"><?php echo $strStrucOnly; ?></label><br />
-    <input type="radio" name="what" value="data" id="radio_copy_data" checked="checked" />
-    <label for="radio_copy_data"><?php echo $strStrucData; ?></label><br />
-    <input type="radio" name="what" value="dataonly" id="radio_copy_dataonly" />
-    <label for="radio_copy_dataonly"><?php echo $strDataOnly; ?></label><br />
-
-    <input type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop" />
-    <label for="checkbox_drop"><?php echo $strStrucDrop; ?></label><br />
-    <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment" />
-    <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
-    <?php
-        // display "Add constraints" choice only if there are
-        // foreign keys
-        if (PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'innodb')) {
-        ?>
-    <input type="checkbox" name="constraints" value="1" id="checkbox_constraints" />
-    <label for="checkbox_constraints"><?php echo $strAddConstraints; ?></label><br />
-        <?php
-        } // endif
-        if ( isset( $_COOKIE['pma_switch_to_new'] )
-          && $_COOKIE['pma_switch_to_new'] == 'true' ) {
-            $pma_switch_to_new = 'true';
-        }
-    ?>
-    <input type="checkbox" name="switch_to_new" value="true"
-        id="checkbox_switch"<?php echo
-            isset( $pma_switch_to_new ) && $pma_switch_to_new == 'true'
-            ? ' checked="checked"'
-            : ''; ?> />
-    <label for="checkbox_switch"><?php echo $strSwitchToTable; ?></label>
-</fieldset>
-<fieldset class="tblFooters">
-    <input type="submit" name="submit_copy" value="<?php echo $strGo; ?>" />
-</fieldset>
-</form>
+</div>
 
 <?php
 if (strstr($show_comment, '; InnoDB free') === false) {
@@ -284,6 +228,7 @@ if (strstr($show_comment, '; InnoDB free') === false) {
 ?>
 
 <!-- Table options -->
+<div id="div_table_options">
 <form method="post" action="tbl_properties_operations.php">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
@@ -378,6 +323,71 @@ if ( isset( $auto_increment ) && strlen($auto_increment) > 0
         <input type="submit" name="submitoptions" value="<?php echo $strGo; ?>" />
 </fieldset>
 </form>
+</div>
+
+<!-- Copy table -->
+<div id="div_table_copy">
+<form method="post" action="tbl_move_copy.php"
+    onsubmit="return emptyFormElements(this, 'new_name')">
+<?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
+<input type="hidden" name="reload" value="1" />
+<fieldset>
+    <legend><?php echo $strCopyTable; ?></legend>
+    <select name="target_db">
+<?php
+foreach ( $dblist as $each_db ) {
+    echo '        ';
+    echo '<option value="' . htmlspecialchars($each_db) . '"';
+    if ( $each_db === $GLOBALS['db'] ) {
+        echo ' selected="selected"';
+    }
+    echo '>' . htmlspecialchars($each_db) . '</option>';
+    echo "\n";
+} // end foreach $dblist
+?>
+    </select>
+    &nbsp;<b>.</b>&nbsp;
+    <input type="text" size="20" name="new_name" onfocus="this.select()" /><br />
+
+    <input type="radio" name="what" value="structure" id="radio_copy_structure" />
+    <label for="radio_copy_structure"><?php echo $strStrucOnly; ?></label><br />
+    <input type="radio" name="what" value="data" id="radio_copy_data" checked="checked" />
+    <label for="radio_copy_data"><?php echo $strStrucData; ?></label><br />
+    <input type="radio" name="what" value="dataonly" id="radio_copy_dataonly" />
+    <label for="radio_copy_dataonly"><?php echo $strDataOnly; ?></label><br />
+
+    <input type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop" />
+    <label for="checkbox_drop"><?php echo $strStrucDrop; ?></label><br />
+    <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment" />
+    <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
+    <?php
+        // display "Add constraints" choice only if there are
+        // foreign keys
+        if (PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'innodb')) {
+        ?>
+    <input type="checkbox" name="constraints" value="1" id="checkbox_constraints" />
+    <label for="checkbox_constraints"><?php echo $strAddConstraints; ?></label><br />
+        <?php
+        } // endif
+        if ( isset( $_COOKIE['pma_switch_to_new'] )
+          && $_COOKIE['pma_switch_to_new'] == 'true' ) {
+            $pma_switch_to_new = 'true';
+        }
+    ?>
+    <input type="checkbox" name="switch_to_new" value="true"
+        id="checkbox_switch"<?php echo
+            isset( $pma_switch_to_new ) && $pma_switch_to_new == 'true'
+            ? ' checked="checked"'
+            : ''; ?> />
+    <label for="checkbox_switch"><?php echo $strSwitchToTable; ?></label>
+</fieldset>
+<fieldset class="tblFooters">
+    <input type="submit" name="submit_copy" value="<?php echo $strGo; ?>" />
+</fieldset>
+</form>
+</div>
+
+<br class="clearfloat"/>
 
 <h1><?php echo $strTableMaintenance; ?></h1>
 

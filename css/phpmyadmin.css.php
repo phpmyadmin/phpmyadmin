@@ -665,6 +665,27 @@ li#li_flush_privileges {
 #div_mysql_charset_collations table {
     float: <?php echo $left; ?>;
 }
+
+#div_table_order {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#div_table_rename {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#div_table_copy {
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#div_table_options {
+    clear: both;
+    min-width: 48%;
+    float: <?php echo $left; ?>;
+}
     <?php
 } // end styles 2.7.1
 
