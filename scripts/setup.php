@@ -1697,7 +1697,7 @@ switch ($action) {
     case 'versioncheck': // Check for latest available version
         PMA_dl('curl');
         $url = 'http://phpmyadmin.net/home_page/version.php';
-        $version = '';
+        $data = '';
         $f = @fopen($url, 'r');
         if ($f === FALSE) {
             if (!function_exists('curl_init')) {
@@ -1705,19 +1705,28 @@ switch ($action) {
                 break;
             }
         } else {
-            $version = fread($f, 20);
+            $data = fread($f, 20);
             fclose($f);
         }
-        if (empty($version) && function_exists('curl_init')) {
+        if (empty($data) && function_exists('curl_init')) {
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_HEADER, FALSE);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            $version = curl_exec($ch);
+            $data = curl_exec($ch);
             curl_close($ch);
         }
-        if (empty($version)) {
+        if (empty($data)) {
             message('error', 'Reading of version failed. Maybe you\'re offline or server does not respond.');
             break;
+        }
+
+        /* Format: version\ndate\n(download\n)* */
+        $data_list = split("\n", $data);
+
+        if (count($data_list) > 0) {
+            $version = $data_list[0];
+        } else {
+            $version = '';
         }
 
         $version_upstream = version_to_int($version);

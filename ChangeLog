@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-12 Michal Čihař  <michal@cihar.com>
+    * scripts/setup.php: Use same format of version file as in upgrade.pl.
+
 2005-12-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/common.inc.php, libraries/grab_globals.inc.php:
       preprare removal of grab_globals:
