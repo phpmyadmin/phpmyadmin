@@ -232,7 +232,10 @@ cat <<END
 Todo now:
 ---------
  1. tag the cvs tree with the new revision number for a plain release or a
-    release candidate
+    release candidate:
+    version 2.7.0 gets two tags: RELEASE_2_7_0 and STABLE 
+    version 2.7.1-rc1 gets RELEASE_2_7_1RC1 and TESTING
+
  2. upload the files to SF:
         ftp upload.sourceforge.net
         cd incoming
