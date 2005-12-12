@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-12 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/common.inc.php, libraries/grab_globals.inc.php:
+      preprare removal of grab_globals:
+       - moved stuff from grab_globals into common.inc.php
+       - check/init global required variables like: $lang, $server, $db, $table,
+         $convcharset, $goto
+       - introduced $goto-whitelist
+       - PEAR coding standard
+
 2005-12-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/tbl_properties_links.inc.php: bug #1375752,
       wrong page after insert (losing many URL parameters)
