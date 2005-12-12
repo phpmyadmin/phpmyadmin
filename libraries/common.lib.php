@@ -421,7 +421,7 @@ function PMA_dl($module)
  * merges array recursive like array_merge_recursive() but keyed-values are
  * always overwritten.
  *
- * array PMA_array_merge_recursive(array array1 [, array array2 [, array ...]])
+ * array PMA_array_merge_recursive(array $array1[, array $array2[, array ...]])
  *
  * @see     http://php.net/array_merge
  * @see     http://php.net/array_merge_recursive
@@ -464,6 +464,23 @@ function PMA_array_merge_recursive()
             array_shift($args);
             return call_user_func_array('PMA_array_merge_recursive', $args);
             break;
+    }
+}
+
+/**
+ * calls $function vor every element in $array recursively
+ *
+ * @param   array   $array      array to walk
+ * @param   string  $function   function to call for every array element
+ */
+function PMA_arrayWalkRecursive(&$array, $function)
+{
+    foreach ($array as $key => $value) {
+        if (is_array($value)) {
+            PMA_arrayWalkRecursive($array[$key], $function);
+        } else {
+            $array[$key] = $function($value);
+        }
     }
 }
 
@@ -2567,6 +2584,12 @@ if (isset($_POST['usesubform'])) {
 } // end if (isset($_POST['usesubform']))
 // end check if a subform is submitted
 
+if (get_magic_quotes_gpc()) {
+    PMA_arrayWalkRecursive($_GET, 'stripslashes');
+    PMA_arrayWalkRecursive($_POST, 'stripslashes');
+    PMA_arrayWalkRecursive($_COOKIE, 'stripslashes');
+    PMA_arrayWalkRecursive($_REQUEST, 'stripslashes');
+}
 
 require_once './libraries/session.inc.php';
 
@@ -2678,6 +2701,15 @@ if (isset($_REQUEST['goto']) && in_array($_REQUEST['goto'], $goto_whitelist)) {
 }
 
 /**
+ * @var string $back returning page
+ */
+if (isset($_REQUEST['back']) && in_array($_REQUEST['back'], $goto_whitelist)) {
+    $GLOBALS['back'] = $_REQUEST['back'];
+} else {
+    unset($_REQUEST['back'], $_GET['back'], $_POST['back'], $_COOKIE['back']);
+}
+
+/**
  * @var string $convcharset
  * @see also select_lang.lib.php
  */
@@ -2707,6 +2739,13 @@ if (isset($_REQUEST['table'])) {
     $GLOBALS['url_params']['table'] = $GLOBALS['table'];
 } else {
     $GLOBALS['table'] = '';
+}
+
+/**
+ * @var string $sql_query sql query to be executed
+ */
+if (isset($_REQUEST['sql_query'])) {
+    $GLOBALS['sql_query'] = $_REQUEST['sql_query'];
 }
 
 //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup

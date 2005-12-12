@@ -135,10 +135,6 @@ function PMA_auth_check()
     if (empty($PHP_AUTH_USER)) {
         return FALSE;
     } else {
-        if (get_magic_quotes_gpc()) {
-            $PHP_AUTH_USER = stripslashes($PHP_AUTH_USER);
-            $PHP_AUTH_PW   = stripslashes($PHP_AUTH_PW);
-        }
         return TRUE;
     }
 } // end of the 'PMA_auth_check()' function

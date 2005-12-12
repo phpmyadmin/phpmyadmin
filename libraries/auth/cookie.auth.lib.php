@@ -86,9 +86,6 @@ function PMA_auth()
         else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_servername-' . $server])) {
             $default_server = $_COOKIE['pma_cookie_servername-' . $server];
         }
-        if (isset($default_server) && get_magic_quotes_gpc()) {
-            $default_server = stripslashes($default_server);
-        }
 
         $autocomplete     = '';
     }

@@ -16,22 +16,6 @@ $PMA_Config = new PMA_Config();
 $script_info = 'phpMyAdmin ' . $PMA_Config->get('PMA_VERSION') . ' setup script by Michal Čihař <michal@cihar.com>';
 $script_version = '$Id$';
 
-
-/**
- * Removes slashes from string if needed (eg. magic quotes are enabled)
- *
- * @param   string  prossibly escaped string
- *
- * @return  string  unsescaped string
- */
-function remove_slashes($val) {
-    if (get_magic_quotes_gpc()) {
-        return stripslashes($val);
-    }
-    return $val;
-}
-
-
 // Grab action
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
@@ -41,7 +25,7 @@ if (isset($_POST['action'])) {
 
 if (isset($_POST['configuration']) && $action != 'clear' ) {
     // Grab previous configuration, if it should not be cleared
-    $configuration = unserialize(remove_slashes($_POST['configuration']));
+    $configuration = unserialize($_POST['configuration']);
 } else {
     // Start with empty configuration
     $configuration = array();
@@ -538,17 +522,17 @@ function grab_values($list) {
                 break;
             case 'serialized':
                 if (isset($_POST[$v[0]]) && strlen($_POST[$v[0]]) > 0) {
-                    $res[$v[0]] = unserialize(remove_slashes($_POST[$v[0]]));
+                    $res[$v[0]] = unserialize($_POST[$v[0]]);
                 }
                 break;
             case 'int':
                 if (isset($_POST[$v[0]]) && strlen($_POST[$v[0]]) > 0) {
-                    $res[$v[0]] = (int)remove_slashes($_POST[$v[0]]);
+                    $res[$v[0]] = (int)$_POST[$v[0]];
                 }
                 break;
             case 'tristate':
                 if (isset($_POST[$v[0]]) && strlen($_POST[$v[0]]) > 0) {
-                    $cur = remove_slashes($_POST[$v[0]]);
+                    $cur = $_POST[$v[0]];
                     if ($cur == 'TRUE') {
                         $res[$v[0]] = TRUE;
                     } else if ($cur == 'FALSE') {
@@ -561,7 +545,7 @@ function grab_values($list) {
             case 'string':
             default:
                 if (isset($_POST[$v[0]]) && strlen($_POST[$v[0]]) > 0) {
-                    $res[$v[0]] = remove_slashes($_POST[$v[0]]);
+                    $res[$v[0]] = $_POST[$v[0]];
                 }
                 break;
         }

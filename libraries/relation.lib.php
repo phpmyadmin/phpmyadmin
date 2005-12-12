@@ -537,7 +537,7 @@ function PMA_getComments($db, $table = '') {
  * @access  public
  */
 function PMA_handleSlashes($val) {
-  return (get_magic_quotes_gpc() ? str_replace('\\"', '"', $val) : PMA_sqlAddslashes($val));
+  return PMA_sqlAddslashes($val);
 } // end of the "PMA_handleSlashes()" function
 
 /**

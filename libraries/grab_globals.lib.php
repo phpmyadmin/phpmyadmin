@@ -19,7 +19,6 @@
  * @uses    preg_replace()
  * @uses    array_keys()
  * @uses    array_unique()
- * @uses    get_magic_quotes_gpc()  to check wether stripslashes or not
  * @uses    stripslashes()
  * @param   array   $array      values from
  * @param   array   $target     values to
@@ -39,8 +38,6 @@ function PMA_gpc_extract($array, &$target, $sanitize = true)
         $valid_variables = array_keys($array);
     }
 
-    $is_magic_quotes = get_magic_quotes_gpc();
-
     foreach ( $valid_variables as $key ) {
 
         if ( strlen($key) === 0 ) {
@@ -53,8 +50,6 @@ function PMA_gpc_extract($array, &$target, $sanitize = true)
             unset( $target[$key] );
 
             PMA_gpc_extract($array[$key], $target[$key], false);
-        } elseif ( $is_magic_quotes ) {
-            $target[$key] = stripslashes($array[$key]);
         } else {
             $target[$key] = $array[$key];
         }
@@ -69,14 +64,16 @@ function PMA_gpc_extract($array, &$target, $sanitize = true)
  */
 $_import_blacklist = array(
     '/^cfg$/i',         // PMA configuration
+    '/^server$/i',      // selected server
     '/^db$/i',          // page to display
     '/^table$/i',       // page to display
     '/^goto$/i',        // page to display
+    '/^back$/i',        // the page go back
     '/^lang$/i',        // selected language
-    '/^server$/i',      // selected server
     '/^convcharset$/i', // PMA convert charset
     '/^collation_connection$/i', //
     '/^set_theme$/i',   //
+    '/^sql_query$/i',   // the query to be executed
     '/^GLOBALS$/i',     // the global scope
     '/^str.*$/i',       // PMA localized strings
     '/^_.*$/i',         // PMA does not use variables starting with _ from extern
