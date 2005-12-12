@@ -19,6 +19,7 @@ $Source$
        - check magic_quotes only once in common.inc.php
     * css/phpmyadmin.css.php, tbl_properties_operations.php:
       styled table operations dialog
+    * db_search.php: revised
 
 2005-12-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/tbl_properties_links.inc.php: bug #1375752,

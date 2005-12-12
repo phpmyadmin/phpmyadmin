@@ -16,14 +16,12 @@ if (!$cfg['UseDbSearch']) {
     PMA_mysqlDie($strAccessDenied, '', FALSE, $err_url);
 } // end if
 $url_query .= '&amp;goto=db_search.php';
-
+$url_params['goto'] = 'db_search.php';
 
 /**
  * Get the list of tables from the current database
  */
-$tables     = PMA_DBI_get_tables($db);
-$num_tables = count($tables);
-
+$tables     = PMA_DBI_get_tables($GLOBALS['db']);
 
 /**
  * Displays top links
@@ -35,7 +33,7 @@ require('./libraries/db_details_links.inc.php');
 /**
  * 1. Main search form has been submitted
  */
-if (isset($submit_search)) {
+if (isset($_REQUEST['submit_search'])) {
 
     /**
      * Builds the SQL search query
@@ -127,139 +125,87 @@ if (isset($submit_search)) {
     /**
      * Displays the results
      */
-    if (!empty($search_str) && !empty($search_option)) {
+    if (!empty($_REQUEST['search_str']) && !empty($_REQUEST['search_option'])) {
 
-        $original_search_str = $search_str;
-        $search_str          = PMA_sqlAddslashes($search_str, TRUE);
+        $original_search_str = $_REQUEST['search_str'];
+        $search_str          = PMA_sqlAddslashes($_REQUEST['search_str'], TRUE);
 
         // Get the true string to display as option's comment
-        switch ($search_option) {
+        switch ($_REQUEST['search_option']) {
             case 1:
                 $option_str = ' (' . $strSearchOption1 . ')';
+                $search_option = 1;
                 break;
             case 2:
                 $option_str = ' (' . $strSearchOption2 . ')';
+                $search_option = 2;
                 break;
             case 3:
                 $option_str = ' (' . $strSearchOption3 . ')';
+                $search_option = 3;
                 break;
             case 4:
                 $option_str = ' (' . $strSearchOption4 . ')';
+                $search_option = 4;
                 break;
         } // end switch
 
-        // If $table is defined or if there is only one table in $table_select
-        // set $onetable to the table's name (display is different if there is
-        // only one table).
-        //
-        // Recall:
-        //  $tables is an array with all tables in database $db
-        //  $num_tables is the size of $tables
-        if (isset($table)) {
-            $onetable           = $table;
-        }
-        else if (isset($table_select)) {
-            $num_selectedtables = count($table_select);
-            if ($num_selectedtables == 1) {
-                $onetable       = $table_select[0];
-            }
-        }
-        else if ($num_tables == 1) {
-            $onetable           = $tables[0];
-        }
-        else {
-            for ($i = 0; $i < $num_tables; $i++) {
-                $table_select[] = $tables[$i];
-            }
-            $num_selectedtables = $num_tables;
-        } // end if... else if... else
-        ?>
-<br />
+        $this_url_params = array(
+            'db'    => $GLOBALS['db'],
+            'goto'  => 'db_details.php',
+            'pos'   => 0,
+            'is_js_confirmed' => 0,
+        );
 
-        <?php
-        $url_sql_query = PMA_generate_common_url($db)
-                   . '&amp;goto=db_details.php'
-                   . '&amp;pos=0'
-                   . '&amp;is_js_confirmed=0';
+        // Displays search string
+        echo '<br />' . "\n"
+            .'<table class="data">' . "\n"
+            .'<caption class="tblHeaders">' . "\n"
+            .sprintf($strSearchResultsFor,
+                htmlspecialchars($original_search_str), $option_str) . "\n"
+            .'</caption>' . "\n";
 
-        // Only one table defined in an variable $onetable
-        if (isset($onetable)) {
-            // Displays search string
-            echo '    ' . sprintf($strSearchResultsFor, htmlspecialchars($original_search_str), $option_str) . "\n";
-            echo '    <br />' . "\n";
+        $num_search_result_total = 0;
+        $odd_row = true;
 
+        foreach ( $_REQUEST['table_select'] as $each_table ) {
             // Gets the SQL statements
-            $newsearchsqls = PMA_getSearchSqls($onetable, $search_str, $search_option);
+            $newsearchsqls = PMA_getSearchSqls($each_table,
+                $search_str, $search_option);
 
             // Executes the "COUNT" statement
-            $res                     = PMA_DBI_query($newsearchsqls['select_count']);
-            $res_cnt                 = PMA_DBI_fetch_assoc($res);
-            $res_cnt                 = $res_cnt['count'];
-            PMA_DBI_free_result($res);
-            $num_search_result_total = $res_cnt;
+            $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
+            $num_search_result_total += $res_cnt;
 
-            echo '    <!-- Search results in table ' . $onetable . ' (' . $res_cnt . ') -->' . "\n"
-                 . '    <br />' . "\n"
-                 . '    <table><tr><td>' . sprintf($strNumSearchResultsInTable, $res_cnt, htmlspecialchars($onetable)) . "</td>\n";
+            echo '<tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">'
+                .'<td>' . sprintf($strNumSearchResultsInTable, $res_cnt,
+                    htmlspecialchars($each_table)) . "</td>\n";
 
             if ($res_cnt > 0) {
-                   echo '<td>' . PMA_linkOrButton('sql.php?' . $url_sql_query
-                    . '&amp;sql_query=' .urlencode($newsearchsqls['select_fields']),
-                    $strBrowse, '') .  "</td>\n";
+                $this_url_params['sql_query'] = $newsearchsqls['select_fields'];
+                echo '<td>' . PMA_linkOrButton(
+                        'sql.php' . PMA_generate_common_url($this_url_params),
+                        $strBrowse, '') .  "</td>\n";
 
-                   echo '<td>' . PMA_linkOrButton('sql.php?' . $url_sql_query
-                    . '&amp;sql_query=' .urlencode($newsearchsqls['delete']),
-                    $strDelete, $newsearchsqls['delete']) .  "</td>\n";
+                $this_url_params['sql_query'] = $newsearchsqls['delete'];
+                echo '<td>' . PMA_linkOrButton(
+                        'sql.php' . PMA_generate_common_url($this_url_params),
+                        $strDelete, $newsearchsqls['delete']) .  "</td>\n";
 
-            } // end if
-            echo '</tr></table>' . "\n";
-        } // end only one table
+            } else {
+                echo '<td>&nbsp;</td>' . "\n"
+                    .'<td>&nbsp;</td>' . "\n";
+            }// end if else
+            $odd_row = ! $odd_row;
+            echo '</tr>' . "\n";
+        } // end for
 
-        // Several tables defined in the array $table_select
-        else if (isset($table_select)) {
-            // Displays search string
-            echo '    ' . sprintf($strSearchResultsFor, htmlspecialchars($original_search_str), $option_str) . "\n";
-            echo '    <ul>' . "\n";
+        echo '</table>' . "\n";
 
-            $num_search_result_total = 0;
-            for ($i = 0; $i < $num_selectedtables; $i++) {
-                // Gets the SQL statements
-                $newsearchsqls = PMA_getSearchSqls($table_select[$i], $search_str, $search_option);
-
-                // Executes the "COUNT" statement
-                $res           = PMA_DBI_query($newsearchsqls['select_count']);
-                $res_cnt       = PMA_DBI_fetch_assoc($res);
-                $res_cnt       = $res_cnt['count'];
-                PMA_DBI_free_result($res);
-                unset($res);
-                $num_search_result_total += $res_cnt;
-
-                echo '        <!-- Search results in table ' . $table_select[$i] . ' (' . $res_cnt . ') -->' . "\n"
-                     . '        <li>' . "\n"
-                     . '            <table><tr><td>' . sprintf($strNumSearchResultsInTable, $res_cnt, htmlspecialchars($table_select[$i])) . "</td>\n";
-
-                if ($res_cnt > 0) {
-                   echo '<td>' . PMA_linkOrButton('sql.php?' . $url_sql_query
-                    . '&amp;sql_query=' .urlencode($newsearchsqls['select_fields']),
-                    $strBrowse, '') .  "</td>\n";
-
-                   echo '<td>' . PMA_linkOrButton('sql.php?' . $url_sql_query
-                    . '&amp;sql_query=' .urlencode($newsearchsqls['delete']),
-                    $strDelete, $newsearchsqls['delete']) .  "</td>\n";
-
-                } // end if
-
-                echo '        </tr></table></li>' . "\n";
-            } // end for
-
-            echo '    </ul>' . "\n";
-            echo '    <p>' . sprintf($strNumSearchResultsTotal, $num_search_result_total) . '</p>' . "\n";
-        } // end several tables
-
-        echo "\n";
-        ?>
-<hr width="100%">
-        <?php
+        if ( count($_REQUEST['table_select']) > 1 ) {
+            echo '<p>' . sprintf($strNumSearchResultsTotal,
+                $num_search_result_total) . '</p>' . "\n";
+        }
     } // end if (!empty($search_str) && !empty($search_option))
 
 } // end 1.
@@ -276,87 +222,77 @@ if (empty($search_option)) {
     $search_option = 1;
 }
 ?>
-<!-- Display search form -->
 <a name="db_search"></a>
 <form method="post" action="db_search.php" name="db_search">
-    <?php echo PMA_generate_common_hidden_inputs($db); ?>
+<?php echo PMA_generate_common_hidden_inputs($GLOBALS['db']); ?>
+<fieldset>
+    <legend><?php echo $strSearchFormTitle; ?></legend>
 
-    <table border="0" cellpadding="3" cellspacing="0">
-    <tr>
-        <th class="tblHeaders" align="center" colspan="2"><?php echo $strSearchFormTitle; ?></th>
+    <table class="formlayout">
+    <tr><td><?php echo $strSearchNeedle; ?></td>
+        <td><input type="text" name="search_str" size="60"
+                value="<?php echo $searched; ?>" /></td>
     </tr>
-    <tr><td colspan="2"></td></tr>
-    <tr>
-        <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-            <?php echo $strSearchNeedle; ?>&nbsp;<br />
-        </td>
-        <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-            <input type="text" name="search_str" size="60" value="<?php echo $searched; ?>" />
-        </td>
-    </tr>
-    <tr><td colspan="2"></td></tr><tr>
-        <td align="right" valign="top" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-            <?php echo $strSearchType; ?>&nbsp;
-        </td>
-        <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-            <input type="radio" id="search_option_1" name="search_option" value="1"<?php if ($search_option == 1) echo ' checked="checked"'; ?> /><label for="search_option_1"><?php echo $strSearchOption1; ?></label>&nbsp;*<br />
-            <input type="radio" id="search_option_2" name="search_option" value="2"<?php if ($search_option == 2) echo ' checked="checked"'; ?> /><label for="search_option_2"><?php echo $strSearchOption2; ?></label>&nbsp;*<br />
-            <input type="radio" id="search_option_3" name="search_option" value="3"<?php if ($search_option == 3) echo ' checked="checked"'; ?> /><label for="search_option_3"><?php echo $strSearchOption3; ?></label><br />
-            <input type="radio" id="search_option_4" name="search_option" value="4"<?php if ($search_option == 4) echo ' checked="checked"'; ?> /><label for="search_option_4"><?php echo $strSearchOption4; ?></label><?php echo PMA_showMySQLDocu('Regexp', 'Regexp'); ?><br />
+    <tr><td align="right" valign="top">
+            <?php echo $strSearchType; ?></td>
+        <td><input type="radio" id="search_option_1" name="search_option"
+                value="1"<?php if ($search_option == 1) echo ' checked="checked"'; ?> />
+            <label for="search_option_1">
+                <?php echo $strSearchOption1; ?></label><sup>1</sup><br />
+            <input type="radio" id="search_option_2" name="search_option"
+                value="2"<?php if ($search_option == 2) echo ' checked="checked"'; ?> />
+            <label for="search_option_2">
+                <?php echo $strSearchOption2; ?></label><sup>1</sup><br />
+            <input type="radio" id="search_option_3" name="search_option"
+                value="3"<?php if ($search_option == 3) echo ' checked="checked"'; ?> />
+            <label for="search_option_3">
+                <?php echo $strSearchOption3; ?></label><br />
+            <input type="radio" id="search_option_4" name="search_option"
+                value="4"<?php if ($search_option == 4) echo ' checked="checked"'; ?> />
+            <label for="search_option_4">
+                <?php echo $strSearchOption4; ?></label>
+            <?php echo PMA_showMySQLDocu('Regexp', 'Regexp'); ?><br />
             <br />
-            *&nbsp;<?php echo $strSplitWordsWithSpace . "\n"; ?>
-        </td>
+            <sup>1</sup><?php echo $strSplitWordsWithSpace; ?></td>
     </tr>
-    <tr><td colspan="2"></td></tr>
-    <tr>
-        <td align="right" valign="top" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-            <?php echo $strSearchInTables; ?>&nbsp;
-        </td>
-        <td rowspan="2" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+    <tr><td align="right" valign="top">
+            <?php echo $strSearchInTables; ?></td>
+        <td rowspan="2">
 <?php
-$strDoSelectAll='&nbsp;';
-if ($num_tables > 1) {
-    $i = 0;
+echo '            <select name="table_select[]" size="6"  multiple="multiple">' . "\n";
+foreach ( $tables as $each_table ) {
+    if ( isset($_REQUEST['unselectall'])) {
+        $is_selected = '';
+    } elseif ( ! isset($_REQUEST['table_select'])
+          || in_array($each_table, $_REQUEST['table_select'])
+          || isset($_REQUEST['selectall']) ) {
+        $is_selected = ' selected="selected"';
+    } else {
+        $is_selected = '';
+    }
 
-    echo '            <select name="table_select[]" size="6"  multiple="multiple">' . "\n";
-    while ($i < $num_tables) {
-        if (!empty($unselectall)) {
-            $is_selected = '';
-        }
-        elseif ( ( isset($table_select) && in_array($tables[$i], $table_select) )
-              || ! empty($selectall)
-              || ( isset($onetable) && $onetable == $tables[$i]) ) {
-            $is_selected = ' selected="selected"';
-        }
-        else {
-            $is_selected = '';
-        }
-
-        echo '                <option value="' . htmlspecialchars($tables[$i]) . '"' . $is_selected . '>' . htmlspecialchars($tables[$i]) . '</option>' . "\n";
-        $i++;
-    } // end while
-    echo '            </select>' . "\n";
-    $strDoSelectAll = '<a href="db_search.php?' . $url_query . '&amp;selectall=1#db_search"'
-                    . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', true); return false;">' . $strSelectAll . '</a>'
-                    . '&nbsp;/&nbsp;'
-                    . '<a href="db_search.php?' . $url_query . '&amp;unselectall=1#db_search"'
-                    . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', false); return false;">' . $strUnselectAll . '</a>';
-}
-else {
-    echo "\n";
-    echo '            ' . htmlspecialchars($tables[0]) . "\n";
-    echo '            <input type="hidden" name="table" value="' . htmlspecialchars($tables[0]) . '" />' . "\n";
-} // end if... else...
-
-echo"\n";
+    echo '                <option value="' . htmlspecialchars($each_table) . '"'
+        . $is_selected . '>'
+        . htmlspecialchars($each_table) . '</option>' . "\n";
+} // end while
+echo '            </select>' . "\n";
+$strDoSelectAll = '<a href="db_search.php?' . $url_query . '&amp;selectall=1#db_search"'
+                . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', true); return false;">' . $strSelectAll . '</a>'
+                . '&nbsp;/&nbsp;'
+                . '<a href="db_search.php?' . $url_query . '&amp;unselectall=1#db_search"'
+                . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', false); return false;">' . $strUnselectAll . '</a>';
 ?>
         </td>
-    </tr><tr><td align="right" valign="bottom" bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><?php echo $strDoSelectAll; ?></td></tr>
-    <tr><td colspan="2"></td>
-    </tr><tr>
-        <td colspan="2" align="right" class="tblHeaders"><input type="submit" name="submit_search" value="<?php echo $strGo; ?>" id="buttonGo" /></td>
+    </tr>
+    <tr><td align="right" valign="bottom">
+            <?php echo $strDoSelectAll; ?></td></tr>
     </tr>
     </table>
+</fieldset>
+<fieldset class="tblFooters">
+    <input type="submit" name="submit_search" value="<?php echo $strGo; ?>"
+        id="buttonGo" />
+</fieldset>
 </form>
 
 
