@@ -178,7 +178,7 @@ if ( ! empty( $query_history_latest ) && ! empty( $query_history_latest_db ) ) {
 
     $_sql_history[$query_history_latest] = array(
         'db'    =>  $query_history_latest_db,
-        'table' => isset( $query_history_latest_table ) ? $query_history_latest_table : '',
+        'table' => isset($query_history_latest_table) ? $query_history_latest_table : '',
     );
 
     $sql_query = urldecode($query_history_latest);
@@ -213,8 +213,8 @@ if ( $GLOBALS['cfg']['QueryHistoryDB'] && $cfgRelation['historywork'] ) {
         foreach ($query_history AS $query_no => $query_sql) {
             if ( ! isset( $_input_query_history[$query_sql] ) ) {
                 $_input_query_history[$query_sql] = array(
-                    'db'    => $query_history_db,
-                    'table' => isset($query_history_table) ? $query_history_table : '',
+                    'db'    => $query_history_db[$query_no],
+                    'table' => isset($query_history_table[$query_no]) ? $query_history_table[$query_no] : '',
                 );
                 $_sql_history[$query_sql] = array(
                     'db'    => $query_history_db[$query_no],
