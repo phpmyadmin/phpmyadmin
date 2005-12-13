@@ -1972,9 +1972,9 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
                     $ret .= '<input type="image"' . $submit_name . ' '
                         . implode(' ', $tag_params_strings)
                         . ' src="' . preg_replace(
-                            '�^.*\ssrc="([^"]*)".*$�si', '\1', $message) . '"'
+                            '/^.*\ssrc="([^"]*)".*$/si', '\1', $message) . '"'
                         . ' value="' . htmlspecialchars(
-                            preg_replace('�^.*\salt="([^"]*)".*$�si', '\1',
+                            preg_replace('/^.*\salt="([^"]*)".*$/si', '\1',
                                 $message))
                         . '" />';
                 }

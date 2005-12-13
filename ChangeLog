@@ -23,6 +23,7 @@ $Source$
     * css/phpmyadmin.css.php, tbl_properties_operations.php:
       styled table operations dialog
     * db_search.php: revised
+    * libraries/common.inc.php: fixed high ascii char
 
 2005-12-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/tbl_properties_links.inc.php: bug #1375752,
