@@ -6,7 +6,9 @@ $Id$
 $Source$
 
 2005-12-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
-    * libraries/Config.class.php: added check is_readable for user config file
+    * libraries/Config.class.php:
+      - added check is_readable for user config file
+      - check config file also on wakeup (bug #1376522)
 
 2005-12-14 Michal Čihař  <michal@cihar.com>
     * libraries/config.default.php, Documentation.html: Transliterate invalid

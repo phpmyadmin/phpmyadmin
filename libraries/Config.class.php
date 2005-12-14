@@ -56,7 +56,7 @@ class PMA_Config
      *
      * @param   string  source to read config from
      */
-    function __construct($source = NULL)
+    function __construct($source = null)
     {
         $this->settings = array();
 
@@ -308,6 +308,9 @@ class PMA_Config
         unset( $cfg['Servers'] );
 
         $this->settings = PMA_array_merge_recursive($this->settings, $cfg);
+
+        $this->error_config_default_file = false;
+
         return true;
     }
 
@@ -318,11 +321,15 @@ class PMA_Config
      *
      * @param   string $source  config file
      */
-    function load($source = NULL)
+    function load($source = null)
     {
         $this->loadDefaults();
 
-        if ( ! $source || ! $this->setSource($source) ) {
+        if ( null !== $source ) {
+            $this->setSource($source);
+        }
+
+        if ( ! $this->checkConfigSource() ) {
             return false;
         }
 
@@ -371,7 +378,28 @@ class PMA_Config
      */
     function setSource($source)
     {
-        if ( ! file_exists($source) ) {
+        $this->source = trim($source);
+    }
+
+    /**
+     * checks if the config folder still exists and terminates app if true
+     */
+    function checkConfigFolder()
+    {
+        // Refuse to work while there still might be some world writable dir:
+        if (is_dir('./config')) {
+            die('Remove "./config" directory before using phpMyAdmin!');
+        }
+    }
+
+    /**
+     * check config source
+     *
+     * @return  boolean wether source is valid or not
+     */
+    function checkConfigSource()
+    {
+        if ( ! file_exists($this->getSource()) ) {
             // do not trigger error here
             // https://sf.net/tracker/?func=detail&aid=1370269&group_id=23067&atid=377408
             /*
@@ -379,25 +407,22 @@ class PMA_Config
                 'phpMyAdmin-ERROR: unkown configuration source: ' . $source,
                 E_USER_WARNING);
             */
+            $this->source_mtime = 0;
             return false;
         }
 
-        if ( ! is_readable($source) ) {
-            die('Existing configuration file (' . $source . ') is not readable.');
+        if ( ! is_readable($this->getSource()) ) {
+            $this->source_mtime = 0;
+            die('Existing configuration file (' . $this->getSource() . ') is not readable.');
         }
 
         // Check for permissions (on platforms that support it):
-        $perms = @stat($source);
-        if (!($perms === FALSE) && ($perms['mode'] & 2)) {
+        $perms = @stat($this->getSource());
+        if (!($perms === false) && ($perms['mode'] & 2)) {
+            $this->source_mtime = 0;
             die('Wrong permissions on configuration file, should not be world writable!');
         }
 
-        // Refuse to work while there still might be some world writable dir:
-        if (is_dir('./config')) {
-            die('Remove "./config" directory before using phpMyAdmin!');
-        }
-
-        $this->source = trim($source);
         return true;
     }
 
@@ -411,7 +436,7 @@ class PMA_Config
         if ( isset( $this->settings[$setting] ) ) {
             return $this->settings[$setting];
         }
-        return NULL;
+        return null;
     }
 
     /**
@@ -628,9 +653,9 @@ class PMA_Config
      */
     function isHttps()
     {
-        static $is_https = NULL;
+        static $is_https = null;
 
-        if ( NULL !== $is_https ) {
+        if ( null !== $is_https ) {
             return $is_https;
         }
 
@@ -678,9 +703,9 @@ class PMA_Config
      */
     function getCookiePath()
     {
-        static $cookie_path = NULL;
+        static $cookie_path = null;
 
-        if ( NULL !== $cookie_path ) {
+        if ( null !== $cookie_path ) {
             return $cookie_path;
         }
 
