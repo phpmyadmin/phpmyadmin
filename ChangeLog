@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/Config.class.php: added check is_readable for user config file
+
 2005-12-14 Michal Čihař  <michal@cihar.com>
     * libraries/config.default.php, Documentation.html: Transliterate invalid
       chars by default (RFE #1380255).

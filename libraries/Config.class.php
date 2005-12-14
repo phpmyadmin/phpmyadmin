@@ -382,6 +382,10 @@ class PMA_Config
             return false;
         }
 
+        if ( ! is_readable($source) ) {
+            die('Existing configuration file (' . $source . ') is not readable.');
+        }
+
         // Check for permissions (on platforms that support it):
         $perms = @stat($source);
         if (!($perms === FALSE) && ($perms['mode'] & 2)) {
@@ -390,9 +394,9 @@ class PMA_Config
 
         // Refuse to work while there still might be some world writable dir:
         if (is_dir('./config')) {
-            die('Remove config directory before using phpMyAdmin!');
+            die('Remove "./config" directory before using phpMyAdmin!');
         }
-        
+
         $this->source = trim($source);
         return true;
     }
