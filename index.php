@@ -138,13 +138,28 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 <script src="./js/querywindow.js" type="text/javascript" language="javascript">
 </script>
 </head>
-<frameset cols="<?php echo $GLOBALS['cfg']['LeftWidth']; ?>,*" rows="*" id="mainFrameset">
+<frameset cols="<?php 
+if ($GLOBALS['text_dir'] === 'rtl') {
+    echo '*,';
+}
+echo $GLOBALS['cfg']['LeftWidth'];
+if ($GLOBALS['text_dir'] === 'ltr') {
+    echo ',*';
+}
+?>" rows="*" id="mainFrameset">
+    <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     <frame frameborder="0" id="frame_navigation"
         src="left.php<?php echo $url_query; ?>"
         name="frame_navigation" />
+    <?php } ?>
     <frame frameborder="0" id="frame_content"
         src="<?php echo $main_target; ?>"
         name="frame_content" />
+    <?php if ($GLOBALS['text_dir'] === 'rtl') { ?>
+    <frame frameborder="0" id="frame_navigation"
+        src="left.php<?php echo $url_query; ?>"
+        name="frame_navigation" />
+    <?php } ?>
     <noframes>
         <body>
             <p><?php echo $GLOBALS['strNoFrames']; ?></p>
