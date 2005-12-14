@@ -9,7 +9,8 @@ $Source$
     * libraries/config.default.php, Documentation.html: Transliterate invalid
       chars by default (RFE #1380255).
     * left.php: Resurrect database link in light frame (bug #1373804).
-    * index.php: Move navigation frame to right for rtl languages.
+    * index.php, js/querywindow.js: Move navigation frame to right for rtl
+      languages.
 
 2005-12-13 Michal Čihař  <michal@cihar.com>
     * querywindow.php: Fix query history displaying (bug #1374639).

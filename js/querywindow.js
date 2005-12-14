@@ -190,12 +190,20 @@ function refreshQuerywindow( url ) {
 function goTo( targeturl, target ) {
     //alert('goto');
     if ( target == 'main' ) {
-        target = window.frames[1];
+        if (text_dir == 'ltr') {
+            target = window.frames[1];
+        } else {
+            target = window.frames[0];
+        }
     } else if ( target == 'query' ) {
         target = querywindow;
         //return open_querywindow( targeturl );
     } else if ( ! target ) {
-        target = window.frames[0];
+        if (text_dir == 'ltr') {
+            target = window.frames[0];
+        } else {
+            target = window.frames[1];
+        }
     }
 
     if ( target ) {

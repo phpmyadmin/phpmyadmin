@@ -132,6 +132,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
     var server = '<?php echo $GLOBALS['server']; ?>';
     var table = '<?php echo $GLOBALS['table']; ?>';
     var db    = '<?php echo $GLOBALS['db']; ?>';
+    var text_dir = '<?php echo $GLOBALS['text_dir']; ?>';
     var pma_absolute_uri = '<?php echo $GLOBALS['cfg']['PmaAbsoluteUri']; ?>';
 // ]]>
 </script>
