@@ -177,6 +177,37 @@ $element_counter = 0;
 
 if ( $GLOBALS['cfg']['LeftFrameLight'] && ! empty( $db ) ) {
     $common_url_query = PMA_generate_common_url( $db );
+
+    $db_tooltip = '';
+    if ($GLOBALS['cfg']['ShowTooltip']
+      && $GLOBALS['cfgRelation']['commwork']) {
+        $_db_tooltip = PMA_getComments($db);
+        if (is_array($_db_tooltip)) {
+            $db_tooltip = implode(' ', $_db_tooltip);
+        }
+    }
+
+    $disp_name  = $db;
+    if ($db_tooltip && $GLOBALS['cfg']['ShowTooltipAliasDB']) {
+        $disp_name      = $db_tooltip;
+        $disp_name_cut  = $db_tooltip;
+        $db_tooltip     = $db;
+    }
+
+    ?> 
+    <p><a class="item"
+        href="<?php echo $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $common_url_query; ?>"
+        title="<?php echo htmlspecialchars($db_tooltip); ?>" >
+    <?php
+    if ($GLOBALS['text_dir'] === 'rtl') {
+        echo ' <bdo dir="ltr">(' . PMA_getTableCount($db) . ')</bdo> ';
+    }
+    echo htmlspecialchars( $disp_name );
+    if ($GLOBALS['text_dir'] === 'ltr') {
+        echo ' <bdo dir="ltr">(' . PMA_getTableCount($db) . ')</bdo> ';
+    }
+    echo '</a></p>';
+
     $table_list = PMA_getTableList( $db );
     if ( count( $table_list ) > 0 ) {
         PMA_displayTableList( $table_list, true, '', $db );
