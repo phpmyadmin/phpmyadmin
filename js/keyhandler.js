@@ -8,7 +8,7 @@ function onKeyDownArrowsHandler(e) {
     var o = (e.srcElement||e.target);
     if (!o) return;
     if (o.tagName != "TEXTAREA" && o.tagName != "INPUT" && o.tagName != "SELECT") return;
-    if (navigator.userAgent.toLowerCase().indexOf('aplewebkit/') != -1) {
+    if (navigator.userAgent.toLowerCase().indexOf('applewebkit/') != -1) {
         if (e.ctrlKey || e.shiftKey || !e.altKey) return;
     } else {
         if (!e.ctrlKey || e.shiftKey || e.altKey) return;
