@@ -9,6 +9,8 @@ $Source$
     * libraries/Config.class.php:
       - added check is_readable for user config file
       - check config file also on wakeup (bug #1376522)
+    * libraries/Config.class.php, libraries/common.lib.php:
+      fixed handling of https and $cfg['ForceSSL'] (bug #1379491)
 
 2005-12-14 Michal Čihař  <michal@cihar.com>
     * libraries/config.default.php, Documentation.html: Transliterate invalid

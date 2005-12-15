@@ -66,6 +66,8 @@ class PMA_Config
 
         // other settings, independant from config file, comes in
         $this->checkSystem();
+
+        $this->checkIsHttps();
     }
 
     /**
@@ -282,6 +284,11 @@ class PMA_Config
             $this->load($this->getSource());
             $this->checkSystem();
         }
+
+        // check for https needs to be done everytime,
+        // as https and http uses same session so this info can not be stored
+        // in session
+        $this->checkIsHttps();
 
         $this->checkCollationConnection();
     }
@@ -653,11 +660,7 @@ class PMA_Config
      */
     function isHttps()
     {
-        static $is_https = null;
-
-        if ( null !== $is_https ) {
-            return $is_https;
-        }
+        $is_https = false;
 
         $url = array();
 

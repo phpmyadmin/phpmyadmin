@@ -2788,6 +2788,20 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 // BC
 $_SESSION['PMA_Config']->enableBc();
 
+
+/**
+ * check https connection
+ */
+if ($_SESSION['PMA_Config']->get('ForceSSL')
+  && !$_SESSION['PMA_Config']->get('is_https')) {
+    PMA_sendHeaderLocation(
+        preg_replace('/^http/', 'https',
+            $_SESSION['PMA_Config']->get('PmaAbsoluteUri'))
+        . PMA_generate_common_url($_GET));
+    exit;
+}
+
+
 /******************************************************************************/
 /* loading language file                       LABEL_loading_language_file    */
 
@@ -2908,18 +2922,6 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      * String handling
      */
     require_once './libraries/string.lib.php';
-
-    /**
-     * check https connection
-     */
-    if ($_SESSION['PMA_Config']->get('ForceSSL')
-      && !$_SESSION['PMA_Config']->get('is_https')) {
-        PMA_sendHeaderLocation(
-            preg_replace('/^http/', 'https',
-                $_SESSION['PMA_Config']->get('PmaAbsoluteUri'))
-            . PMA_generate_common_url($_GET));
-        exit;
-    }
 
     /**
      * @var array database list
