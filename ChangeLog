@@ -11,6 +11,7 @@ $Source$
       - check config file also on wakeup (bug #1376522)
     * libraries/Config.class.php, libraries/common.lib.php:
       fixed handling of https and $cfg['ForceSSL'] (bug #1379491)
+    * left.php: fixed undeclared javascript variables
 
 2005-12-14 Michal Čihař  <michal@cihar.com>
     * libraries/config.default.php, Documentation.html: Transliterate invalid
