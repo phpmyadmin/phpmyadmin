@@ -20,15 +20,15 @@ var only_once_elements = new Array();
  *                              f.e. only on first focus
  */
 function selectContent( element, lock, only_once ) {
-	if ( only_once && only_once_elements[element.name] ) {
-		return;
-	}
+    if ( only_once && only_once_elements[element.name] ) {
+        return;
+    }
 
-	only_once_elements[element.name] = true;
+    only_once_elements[element.name] = true;
 
-	if ( lock  ) {
-		return;
-	}
+    if ( lock  ) {
+        return;
+    }
 
     element.select();
 }
@@ -77,7 +77,7 @@ function confirmLink(theLink, theSqlQuery)
 
     var is_confirmed = confirm(confirmMsg + ' :\n' + theSqlQuery);
     if (is_confirmed) {
-    	if ( typeof(theLink.href) != 'undefined' ) {
+        if ( typeof(theLink.href) != 'undefined' ) {
             theLink.href += '&is_js_confirmed=1';
         } else if ( typeof(theLink.form) != 'undefined' ) {
             theLink.form.action += '?is_js_confirmed=1';
@@ -292,7 +292,7 @@ function emptyCheckTheField(theForm, theFieldName)
 function emptyFormElements(theForm, theFieldName)
 {
     var theField = theForm.elements[theFieldName];
-    isEmpty = emptyCheckTheField(theForm, theFieldName);
+    var isEmpty = emptyCheckTheField(theForm, theFieldName);
 
     if (isEmpty) {
         theForm.reset();
@@ -470,30 +470,30 @@ var marked_row = new Array;
  */
 function PMA_markRowsInit() {
     // for every table row ...
-	var rows = document.getElementsByTagName('tr');
-	for ( var i = 0; i < rows.length; i++ ) {
-	    // ... with the class 'odd' or 'even' ...
-		if ( 'odd' != rows[i].className.substr(0,3) && 'even' != rows[i].className.substr(0,4) ) {
-		    continue;
-		}
-	    // ... add event listeners ...
+    var rows = document.getElementsByTagName('tr');
+    for ( var i = 0; i < rows.length; i++ ) {
+        // ... with the class 'odd' or 'even' ...
+        if ( 'odd' != rows[i].className.substr(0,3) && 'even' != rows[i].className.substr(0,4) ) {
+            continue;
+        }
+        // ... add event listeners ...
         // ... to highlight the row on mouseover ...
-	    if ( navigator.appName == 'Microsoft Internet Explorer' ) {
-	        // but only for IE, other browsers are handled by :hover in css
-			rows[i].onmouseover = function() {
-			    this.className += ' hover';
-			}
-			rows[i].onmouseout = function() {
-			    this.className = this.className.replace( ' hover', '' );
-			}
-	    }
+        if ( navigator.appName == 'Microsoft Internet Explorer' ) {
+            // but only for IE, other browsers are handled by :hover in css
+            rows[i].onmouseover = function() {
+                this.className += ' hover';
+            }
+            rows[i].onmouseout = function() {
+                this.className = this.className.replace( ' hover', '' );
+            }
+        }
         // Do not set click events if not wanted
         if (rows[i].className.search(/noclick/) != -1) {
             continue;
         }
         // ... and to mark the row on click ...
-		rows[i].onmousedown = function() {
-		    var unique_id;
+        rows[i].onmousedown = function() {
+            var unique_id;
             var checkbox;
 
             checkbox = this.getElementsByTagName( 'input' )[0];
@@ -502,8 +502,8 @@ function PMA_markRowsInit() {
             } else if ( this.id.length > 0 ) {
                 unique_id = this.id;
             } else {
-		        return;
-		    }
+                return;
+            }
 
             if ( typeof(marked_row[unique_id]) == 'undefined' || !marked_row[unique_id] ) {
                 marked_row[unique_id] = true;
@@ -512,32 +512,32 @@ function PMA_markRowsInit() {
             }
 
             if ( marked_row[unique_id] ) {
-			    this.className += ' marked';
+                this.className += ' marked';
             } else {
-			    this.className = this.className.replace(' marked', '');
+                this.className = this.className.replace(' marked', '');
             }
 
             if ( checkbox && checkbox.disabled == false ) {
                 checkbox.checked = marked_row[unique_id];
             }
-		}
+        }
 
-		// ... and disable label ...
-		var labeltag = rows[i].getElementsByTagName('label')[0];
-		if ( labeltag ) {
-		    labeltag.onclick = function() {
-		        return false;
-		    }
-	    }
-	    // .. and checkbox clicks
-		var checkbox = rows[i].getElementsByTagName('input')[0];
-		if ( checkbox ) {
-		    checkbox.onclick = function() {
-		        // opera does not recognize return false;
-		        this.checked = ! this.checked;
-		    }
-	    }
-	}
+        // ... and disable label ...
+        var labeltag = rows[i].getElementsByTagName('label')[0];
+        if ( labeltag ) {
+            labeltag.onclick = function() {
+                return false;
+            }
+        }
+        // .. and checkbox clicks
+        var checkbox = rows[i].getElementsByTagName('input')[0];
+        if ( checkbox ) {
+            checkbox.onclick = function() {
+                // opera does not recognize return false;
+                this.checked = ! this.checked;
+            }
+        }
+    }
 }
 window.onload=PMA_markRowsInit;
 
@@ -548,11 +548,11 @@ window.onload=PMA_markRowsInit;
  * @param    container    DOM element
  */
 function markAllRows( container_id ) {
-	var rows = document.getElementById(container_id).getElementsByTagName('tr');
+    var rows = document.getElementById(container_id).getElementsByTagName('tr');
     var unique_id;
     var checkbox;
 
-	for ( var i = 0; i < rows.length; i++ ) {
+    for ( var i = 0; i < rows.length; i++ ) {
 
         checkbox = rows[i].getElementsByTagName( 'input' )[0];
 
@@ -565,10 +565,10 @@ function markAllRows( container_id ) {
                     marked_row[unique_id] = true;
                 }
             }
-	    }
-	}
+        }
+    }
 
-	return true;
+    return true;
 }
 
 /**
@@ -578,11 +578,11 @@ function markAllRows( container_id ) {
  * @param    container    DOM element
  */
 function unMarkAllRows( container_id ) {
-	var rows = document.getElementById(container_id).getElementsByTagName('tr');
+    var rows = document.getElementById(container_id).getElementsByTagName('tr');
     var unique_id;
     var checkbox;
 
-	for ( var i = 0; i < rows.length; i++ ) {
+    for ( var i = 0; i < rows.length; i++ ) {
 
         checkbox = rows[i].getElementsByTagName( 'input' )[0];
 
@@ -592,9 +592,9 @@ function unMarkAllRows( container_id ) {
             rows[i].className = rows[i].className.replace(' marked', '');
             marked_row[unique_id] = false;
         }
-	}
+    }
 
-	return true;
+    return true;
 }
 
 /**
@@ -865,15 +865,15 @@ function setVerticalPointer(theRow, theColNum, theAction, theDefaultColor1, theD
  * @return  boolean  always true
  */
 function setCheckboxes( container_id, state ) {
-	var checkboxes = document.getElementById(container_id).getElementsByTagName('input');
+    var checkboxes = document.getElementById(container_id).getElementsByTagName('input');
 
-	for ( var i = 0; i < checkboxes.length; i++ ) {
+    for ( var i = 0; i < checkboxes.length; i++ ) {
         if ( checkboxes[i].type == 'checkbox' ) {
             checkboxes[i].checked = state;
-	    }
-	}
+        }
+    }
 
-	return true;
+    return true;
 } // end of the 'setCheckboxes()' function
 
 
@@ -950,7 +950,7 @@ function insertValueQuery() {
     var myListBox = document.sqlform.dummy;
 
     if(myListBox.options.length > 0) {
-    	sql_box_locked = true;
+        sql_box_locked = true;
         var chaineAj = "";
         var NbSelect = 0;
         for(var i=0; i<myListBox.options.length; i++) {
@@ -979,7 +979,7 @@ function insertValueQuery() {
         } else {
             myQuery.value += chaineAj;
         }
-    	sql_box_locked = false;
+        sql_box_locked = false;
     }
 }
 
