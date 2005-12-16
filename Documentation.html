@@ -648,6 +648,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         order.
     </dd>
 
+    <dt>
+      <b><a name="cfg_Servers_hide_db"></a>$cfg['Servers'][$i]['hide_db']</b> string
+    </dt>
+    <dd>
+        Regullar expression for hiding some databases. This only hides them
+        from listing, but user is still able to access them.
+    </dd>
+
     <dt><b><a name="cfg_Servers_verbose"></a>$cfg['Servers'][$i]['verbose']</b> string</dt>
     <dd>
         Only useful when using phpMyAdmin with multiple server entries. If set,

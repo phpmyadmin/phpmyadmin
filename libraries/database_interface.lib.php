@@ -176,9 +176,9 @@ function PMA_DBI_get_dblist($link = null)
 
     // Before MySQL 4.0.2, SHOW DATABASES could send the
     // whole list, so check if we really have access:
-    if ( PMA_MYSQL_INT_VERSION < 40002 ) {
-        foreach ( $dbs_array as $key => $db ) {
-            if ( ! PMA_DBI_select_db( $db, $link ) ) {
+    if (PMA_MYSQL_INT_VERSION < 40002 || !empty($GLOBALS['cfg']['Server']['hide_db'])) {
+        foreach ($dbs_array as $key => $db) {
+            if (!@PMA_DBI_select_db($db, $link) || (!empty($GLOBALS['cfg']['Server']['hide_db']) && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db))) {
                 unset( $dbs_array[$key] );
             }
         }

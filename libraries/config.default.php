@@ -75,6 +75,7 @@ $cfg['Servers'][$i]['password']      = '';          // MySQL password (only need
 $cfg['Servers'][$i]['only_db']       = '';          // If set to a db-name, only
                                                     // this db is displayed in left frame
                                                     // It may also be an array of db-names, where sorting order is relevant.
+$cfg['Servers'][$i]['hide_db']       = '';          // Database name to be hidden from listings
 $cfg['Servers'][$i]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
 
 $cfg['Servers'][$i]['pmadb']         = '';          // Database used for Relation, Bookmark and PDF Features

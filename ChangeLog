@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-16 Michal Čihař  <michal@cihar.com>
+    * Documentation.html, libraries/common.lib.php,
+      libraries/config.default.php, libraries/database_interface.lib.php: Add
+      support for hiding databases (RFE #1372865).
+
 2005-12-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/Config.class.php:
       - added check is_readable for user config file

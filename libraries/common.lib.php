@@ -988,7 +988,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
         //    authentification process -> gets the available databases list
         if (count($dblist)) {
             foreach ($dblist as $key => $db) {
-                if (!@PMA_DBI_select_db($db)) {
+                if (!@PMA_DBI_select_db($db, $link) || (!empty($GLOBALS['cfg']['Server']['hide_db']) && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db))) {
                     unset($dblist[$key]);
                 } // end if
             } // end for
