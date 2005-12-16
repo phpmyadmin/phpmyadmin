@@ -9,6 +9,8 @@ $Source$
     * Documentation.html, libraries/common.lib.php,
       libraries/config.default.php, libraries/database_interface.lib.php: Add
       support for hiding databases (RFE #1372865).
+    * Documentation.html, export.php, import.php,
+      libraries/config.default.php: Configurable memory limit (RFE #1373904).
 
 2005-12-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/Config.class.php:

@@ -91,6 +91,10 @@ if (isset($db)) {
 }
 
 @set_time_limit($cfg['ExecTimeLimit']);
+if (!empty($cfg['MemoryLimit'])) {
+    @ini_set('memory_limit', $cfg['MemoryLimit']);
+}
+
 $timestamp = time();
 if (isset($allow_interrupt)) {
     $maximum_time = ini_get('max_execution_time');

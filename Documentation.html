@@ -66,7 +66,7 @@
     <li>
         <b>PHP</b>
         <ul>
-		<li>You need PHP 4.1.0 or newer, with <tt>session</tt> support (<a href="#faq1_31">*</a>)</li>
+                <li>You need PHP 4.1.0 or newer, with <tt>session</tt> support (<a href="#faq1_31">*</a>)</li>
             <li>If you want to display inline thumbnails of JPEGs with the
                 original aspect ratio, you also need GD2 support in PHP</li>
             <li>Starting with phpMyAdmin 2.6.1, MIME-based transformations
@@ -343,7 +343,7 @@ GRANT SELECT (
 
 GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         </pre>
-	(this of course requires that your <a href="#linked-tables">linked-tables infrastructure</a> be set up).
+        (this of course requires that your <a href="#linked-tables">linked-tables infrastructure</a> be set up).
         <br />
         Of course, the above queries only work if your MySQL version supports
         the GRANT command. This is the case since 3.22.11.
@@ -864,8 +864,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         you want to have on hold. On every login, this list gets cut to the maximum amount.
         <br /><br />
 
-	The query history is only available if JavaScript is enabled in your 
-	browser.
+        The query history is only available if JavaScript is enabled in your 
+        browser.
         <br /><br />
 
         To allow the usage of this functionality:
@@ -1001,6 +1001,15 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         to zero, no time limit is imposed.<br />
         This setting is used while importing/exporting dump files but has no
         effect when PHP is running in safe mode.
+    </dd>
+
+    <dt><b><a name="cfg_MemoryLimit"></a>$cfg[MemoryLimit] </b>integer [number of bytes]</dt>
+    <dd>
+        Set the number of bytes a script is allowed to allocate. If number set
+        to zero, no limit is imposed.<br />
+        This setting is used while importing/exporting dump files but has no
+        effect when PHP is running in safe mode.<br />
+        You can also use any string as in php.ini, eg. '16M'.
     </dd>
 
     <dt><b><a name="cfg_SkipLockedTables"></a>$cfg[SkipLockedTables] </b>boolean</dt>
@@ -1705,14 +1714,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     changes to display a query box. 
         <br /><br />
         The size of this query window can be customized with 
-	<tt>$cfg['QueryWindowWidth']</tt> and <tt>$cfg['QueryWindowWidth']</tt>
-	- both integers for the size in pixels. Note that normally, those
-	parameters will be modified in <tt>layout.inc.php</tt> for the
-	theme you are using.
+        <tt>$cfg['QueryWindowWidth']</tt> and <tt>$cfg['QueryWindowWidth']</tt>
+        - both integers for the size in pixels. Note that normally, those
+        parameters will be modified in <tt>layout.inc.php</tt> for the
+        theme you are using.
         <br /><br />
-	If <tt>$cfg['EditInWindow']</tt> is set to true, a click on [Edit] 
-	from the results page (in the &quot;Showing Rows&quot; section) 
-	opens the query window and puts the current query
+        If <tt>$cfg['EditInWindow']</tt> is set to true, a click on [Edit] 
+        from the results page (in the &quot;Showing Rows&quot; section) 
+        opens the query window and puts the current query
         inside it.  If set to false, clicking on the link puts the SQL
         query in the right panel's query box.
         <br /><br />
@@ -2976,11 +2985,11 @@ RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
         set to the default (200) or another low value, you could get this
         error if your table has a high number of columns. Adjust this setting
         accordingly. (Thanks to Klaus Dorninger for the hint).
-	</li>
-	<li>
-	In the <tt>php.ini</tt> directive <tt>arg_separator.input</tt>, a value
+        </li>
+        <li>
+        In the <tt>php.ini</tt> directive <tt>arg_separator.input</tt>, a value
         of &quot;;&quot; will cause this error. Replace it with &quot;&amp;;&quot;.
-	</li>
+        </li>
     </ul>
 
 <a name="faqlimitations"></a><br />

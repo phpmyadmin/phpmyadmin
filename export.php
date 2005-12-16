@@ -35,6 +35,9 @@ if ($export_type == 'server') {
  * Increase time limit for script execution and initializes some variables
  */
 @set_time_limit($cfg['ExecTimeLimit']);
+if (!empty($cfg['MemoryLimit'])) {
+    @ini_set('memory_limit', $cfg['MemoryLimit']);
+}
 
 // Start with empty buffer
 $dump_buffer = '';

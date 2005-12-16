@@ -126,6 +126,7 @@ $cfg['OBGzip']                  = 'auto'; // use GZIP output buffering if possib
 $cfg['PersistentConnections']   = FALSE;  // use persistent connections to MySQL database
 $cfg['ForceSSL']                = FALSE;  // whether to force using https
 $cfg['ExecTimeLimit']           = 300;    // maximum execution time in seconds (0 for no limit)
+$cfg['MemoryLimit']             = 0;      // maximum alocated bytes (0 for no limit)
 $cfg['SkipLockedTables']        = FALSE;  // mark used tables, make possible to show
                                           // locked tables (since MySQL 3.23.30)
 $cfg['ShowSQL']                 = TRUE;   // show SQL queries as run
