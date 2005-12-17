@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/url_generating.lib.php: problem with accented table names
+
 2005-12-16 Michal Čihař  <michal@cihar.com>
     * Documentation.html, libraries/common.lib.php,
       libraries/config.default.php, libraries/database_interface.lib.php: Add

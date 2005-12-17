@@ -76,7 +76,7 @@ function PMA_generate_common_hidden_inputs( $db = '', $table = '', $indent = 0, 
 
     $return = '';
     foreach( $params as $key => $val ) {
-        $return .= $spaces . '<input type="hidden" name="' . htmlentities( $key ) . '" value="' . htmlentities( $val ) . '" />' . "\n";
+        $return .= $spaces . '<input type="hidden" name="' . htmlspecialchars( $key ) . '" value="' . htmlspecialchars( $val ) . '" />' . "\n";
     }
 
     return $return;
