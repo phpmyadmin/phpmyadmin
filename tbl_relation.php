@@ -89,7 +89,7 @@ if (isset($destination) && $cfgRelation['relwork']) {
         if ($foreign_string != 'nix') {
             list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
             if (!isset($existrel[$master_field])) {
-                $upd_query  = 'INSERT INTO ' . PMA_backquote($cfgRelation['relation'])
+                $upd_query  = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                             . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
                             . ' values('
                             . '\'' . PMA_sqlAddslashes($db) . '\', '
@@ -99,7 +99,7 @@ if (isset($destination) && $cfgRelation['relwork']) {
                             . '\'' . PMA_sqlAddslashes($foreign_table) . '\','
                             . '\'' . PMA_sqlAddslashes($foreign_field) . '\')';
             } elseif ($existrel[$master_field]['foreign_db'] . '.' .$existrel[$master_field]['foreign_table'] . '.' . $existrel[$master_field]['foreign_field'] != $foreign_string) {
-                $upd_query  = 'UPDATE ' . PMA_backquote($cfgRelation['relation']) . ' SET'
+                $upd_query  = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation']) . ' SET'
                             . ' foreign_db       = \'' . PMA_sqlAddslashes($foreign_db) . '\', '
                             . ' foreign_table    = \'' . PMA_sqlAddslashes($foreign_table) . '\', '
                             . ' foreign_field    = \'' . PMA_sqlAddslashes($foreign_field) . '\' '
@@ -108,7 +108,7 @@ if (isset($destination) && $cfgRelation['relwork']) {
                             . ' AND master_field = \'' . PMA_sqlAddslashes($master_field) . '\'';
             } // end if... else....
         } elseif (isset($existrel[$master_field])) {
-            $upd_query      = 'DELETE FROM ' . PMA_backquote($cfgRelation['relation'])
+            $upd_query      = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                             . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
                             . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
                             . ' AND master_field = \'' . PMA_sqlAddslashes($master_field) . '\'';
@@ -220,17 +220,17 @@ if ($cfgRelation['displaywork']
 
     if ($disp) {
         if ($display_field != '') {
-            $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_info'])
+            $upd_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
                        . ' SET display_field = \'' . PMA_sqlAddslashes($display_field) . '\''
                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
         } else {
-            $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_info'])
+            $upd_query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                        . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
         }
     } elseif ($display_field != '') {
-        $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['table_info'])
+        $upd_query = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
                    . '(db_name, table_name, display_field) '
                    . ' VALUES('
                    . '\'' . PMA_sqlAddslashes($db) . '\','

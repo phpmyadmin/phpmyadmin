@@ -287,10 +287,14 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
     global $cfgRelation, $err_url_0;
 
     if ($cfgRelation['relwork'] && ($source == 'both' || $source == 'internal')) {
-        $rel_query          = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
-                            . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                            . ' WHERE master_db =  \'' . PMA_sqlAddslashes($db) . '\' '
-                            . ' AND   master_table = \'' . PMA_sqlAddslashes($table) . '\' ';
+        $rel_query = '
+             SELECT master_field,
+                    foreign_db,
+                    foreign_table,
+                    foreign_field
+               FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation']) . '
+              WHERE master_db =  \'' . PMA_sqlAddslashes($db) . '\'
+                AND master_table = \'' . PMA_sqlAddslashes($table) . '\' ';
         if (!empty($column)) {
             $rel_query .= ' AND   master_field = \'' . PMA_sqlAddslashes($column) . '\'';
         }
@@ -406,9 +410,11 @@ function PMA_getDisplayField($db, $table) {
      */
     if (trim(@$cfgRelation['table_info']) != '') {
 
-        $disp_query = 'SELECT display_field FROM ' . PMA_backquote($cfgRelation['table_info'])
-                    . ' WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\''
-                    . ' AND   table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+        $disp_query = '
+             SELECT display_field
+               FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['table_info']) . '
+              WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\'
+                AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
 
         $disp_res   = PMA_query_as_cu($disp_query);
         $row        = ($disp_res ? PMA_DBI_fetch_assoc($disp_res) : '');
@@ -477,17 +483,22 @@ function PMA_getComments($db, $table = '') {
         // (this function can be called even if $cfgRelation['commwork'] is
         // FALSE, to get native column comments, so recheck here)
         if ($cfgRelation['commwork']) {
-            $com_qry = 'SELECT column_name, comment FROM ' . PMA_backquote($cfgRelation['db']) . '.' .PMA_backquote($cfgRelation['column_info'])
-                     . ' WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\''
-                     . ' AND   table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+            $com_qry = '
+                 SELECT column_name,
+                        comment
+                   FROM ' . PMA_backquote($cfgRelation['db']) . '.' .PMA_backquote($cfgRelation['column_info']) . '
+                  WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\'
+                    AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
             $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
         }
     } else {
         // pmadb internal db comments
-        $com_qry = 'SELECT ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
-                 . ' WHERE db_name     = \'' . PMA_sqlAddslashes($db) . '\''
-                 . ' AND   table_name  = \'\''
-                 . ' AND   column_name = \'(db_comment)\'';
+        $com_qry = '
+             SELECT ' . PMA_backquote('comment') . '
+               FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']) . '
+              WHERE db_name     = \'' . PMA_sqlAddslashes($db) . '\'
+                AND table_name  = \'\'
+                AND column_name = \'(db_comment)\'';
         $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
     }
 
@@ -584,18 +595,25 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
     );
 
     if ($removekey != '' AND $removekey != $col) {
-        $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
-                      . ' WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\''
-                      . ' AND   ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\''
-                      . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($removekey) . '\'';
+        $remove_query = '
+             DELETE FROM
+                    ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']) . '
+              WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\'
+                AND ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\'
+                AND ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($removekey) . '\'';
         PMA_query_as_cu($remove_query);
         unset($remove_query);
     }
 
-    $test_qry = 'SELECT ' . PMA_backquote('comment') . ', mimetype, transformation, transformation_options FROM ' . PMA_backquote($cfgRelation['column_info'])
-              . ' WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\''
-              . ' AND   ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\''
-              . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($col) . '\'';
+    $test_qry = '
+         SELECT ' . PMA_backquote('comment') . ',
+                mimetype,
+                transformation,
+                transformation_options
+           FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']) . '
+          WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\'
+            AND ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\'
+            AND ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($col) . '\'';
     $test_rs   = PMA_query_as_cu($test_qry, TRUE, PMA_DBI_QUERY_STORE);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
@@ -603,25 +621,30 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
         PMA_DBI_free_result($test_rs);
 
         if (strlen($comment) > 0 || strlen($row['mimetype']) > 0 || strlen($row['transformation']) > 0 || strlen($row['transformation_options']) > 0) {
-            $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
-                       . ' SET ' . PMA_backquote('comment') . ' = \'' . PMA_sqlAddslashes($comment) . '\''
-                       . ' WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\''
-                       . ' AND   ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\''
-                       . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddSlashes($col) . '\'';
+            $upd_query = '
+                 UPDATE ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']) . '
+                    SET ' . PMA_backquote('comment') . ' = \'' . PMA_sqlAddslashes($comment) . '\'
+                  WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\'
+                    AND ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\'
+                    AND ' . $cols['column_name'] . ' = \'' . PMA_sqlAddSlashes($col) . '\'';
         } else {
-            $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
-                       . ' WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\''
-                       . ' AND   ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\''
-                       . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($col) . '\'';
+            $upd_query = '
+                 DELETE FROM 
+                        ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']) . '
+                  WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\'
+                    AND ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\'
+                    AND ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($col) . '\'';
         }
     } else if (strlen($comment) > 0) {
-        $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_info'])
-                   . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ') '
-                   . ' VALUES('
-                   . '\'' . PMA_sqlAddslashes($db) . '\','
-                   . '\'' . PMA_sqlAddslashes($table) . '\','
-                   . '\'' . PMA_sqlAddslashes($col) . '\','
-                   . '\'' . PMA_sqlAddslashes($comment) . '\')';
+        $upd_query = '
+             INSERT INTO
+                    ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']) . '
+                    (db_name, table_name, column_name, ' . PMA_backquote('comment') . ')
+             VALUES (
+                   \'' . PMA_sqlAddslashes($db) . '\',
+                   \'' . PMA_sqlAddslashes($table) . '\',
+                   \'' . PMA_sqlAddslashes($col) . '\',
+                   \'' . PMA_sqlAddslashes($comment) . '\')';
     }
 
     if (isset($upd_query)){
@@ -650,18 +673,20 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
 function PMA_setHistory($db, $table, $username, $sqlquery) {
     global $cfgRelation;
 
-    $hist_rs    = PMA_query_as_cu('INSERT INTO ' . PMA_backquote($cfgRelation['history']) . ' ('
-                . PMA_backquote('username') . ','
-                . PMA_backquote('db') . ','
-                . PMA_backquote('table') . ','
-                . PMA_backquote('timevalue') . ','
-                . PMA_backquote('sqlquery')
-                . ') VALUES ('
-                . '\'' . PMA_sqlAddslashes($username) . '\','
-                . '\'' . PMA_sqlAddslashes($db) . '\','
-                . '\'' . PMA_sqlAddslashes($table) . '\','
-                . 'NOW(),'
-                . '\'' . PMA_sqlAddslashes($sqlquery) . '\')');
+    $hist_rs = PMA_query_as_cu('
+         INSERT INTO
+                ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['history']) . '
+              ( ' . PMA_backquote('username') . ',
+                ' . PMA_backquote('db') . ',
+                ' . PMA_backquote('table') . ',
+                ' . PMA_backquote('timevalue') . ',
+                ' . PMA_backquote('sqlquery') . ' )
+         VALUES 
+              ( \'' . PMA_sqlAddslashes($username) . '\',
+                \'' . PMA_sqlAddslashes($db) . '\',
+                \'' . PMA_sqlAddslashes($table) . '\',
+                NOW(),
+                \'' . PMA_sqlAddslashes($sqlquery) . '\' )');
     return true;
 } // end of 'PMA_setHistory()' function
 
@@ -679,13 +704,13 @@ function PMA_setHistory($db, $table, $username, $sqlquery) {
 function PMA_getHistory($username) {
     global $cfgRelation;
 
-    $hist_query = 'SELECT '
-                . PMA_backquote('db') . ','
-                . PMA_backquote('table') . ','
-                . PMA_backquote('sqlquery')
-                . ' FROM ' . PMA_backquote($cfgRelation['history'])
-                . ' WHERE username = \'' . PMA_sqlAddslashes($username) . '\''
-                . ' ORDER BY id DESC';
+    $hist_query = '
+         SELECT ' . PMA_backquote('db') . ',
+                ' . PMA_backquote('table') . ',
+                ' . PMA_backquote('sqlquery') . '
+           FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['history']) . '
+          WHERE username = \'' . PMA_sqlAddslashes($username) . '\'
+       ORDER BY id DESC';
 
     $hist_rs = PMA_query_as_cu($hist_query);
     unset($hist_query);
@@ -719,9 +744,11 @@ function PMA_getHistory($username) {
 function PMA_purgeHistory($username) {
     global $cfgRelation, $cfg;
 
-    $purge_query = 'SELECT timevalue FROM ' . PMA_backquote($cfgRelation['history'])
-                 . ' WHERE username = \'' . PMA_sqlAddSlashes($username) . '\''
-                 . ' ORDER BY timevalue DESC LIMIT ' . $cfg['QueryHistoryMax'] . ', 1';
+    $purge_query = '
+         SELECT timevalue
+           FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['history']) . '
+          WHERE username = \'' . PMA_sqlAddSlashes($username) . '\'
+       ORDER BY timevalue DESC LIMIT ' . $cfg['QueryHistoryMax'] . ', 1';
     $purge_rs = PMA_query_as_cu($purge_query);
     $i = 0;
     $row = PMA_DBI_fetch_row($purge_rs);
@@ -731,7 +758,10 @@ function PMA_purgeHistory($username) {
         $maxtime = $row[0];
         // quotes added around $maxtime to prevent a difficult to
         // reproduce problem
-        $remove_rs = PMA_query_as_cu('DELETE FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE timevalue <= "' . $maxtime . '"');
+        $remove_rs = PMA_query_as_cu('
+             DELETE FROM 
+                    ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['history']) . '
+              WHERE timevalue <= \'' . $maxtime . '\'');
     }
 
     return true;

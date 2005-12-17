@@ -94,7 +94,7 @@ if (isset($do_save_data)) {
             foreach ($field_orig AS $fieldindex => $fieldcontent) {
                 if ($field_name[$fieldindex] != $fieldcontent) {
                     if ($cfgRelation['displaywork']) {
-                        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_info'])
+                        $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
                                       . ' SET     display_field = \'' . PMA_sqlAddslashes($field_name[$fieldindex]) . '\''
                                       . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                                       . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
@@ -105,7 +105,7 @@ if (isset($do_save_data)) {
                     }
 
                     if ($cfgRelation['relwork']) {
-                        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['relation'])
+                        $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                                       . ' SET     master_field = \'' . PMA_sqlAddslashes($field_name[$fieldindex]) . '\''
                                       . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
                                       . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
@@ -114,7 +114,7 @@ if (isset($do_save_data)) {
                         unset($table_query);
                         unset($tb_rs);
 
-                        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['relation'])
+                        $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
                                       . ' SET     foreign_field = \'' . PMA_sqlAddslashes($field_name[$fieldindex]) . '\''
                                       . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\''
                                       . ' AND foreign_table = \'' . PMA_sqlAddslashes($table) . '\''

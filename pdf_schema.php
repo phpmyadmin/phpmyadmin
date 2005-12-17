@@ -316,7 +316,7 @@ class PMA_PDF extends PMA_FPDF
 
     global $cfgRelation,$db,$pdf_page_number,$with_doc;
     if ($with_doc){
-        $test_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
+        $test_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                     . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                     . ' AND page_nr = \'' . $pdf_page_number . '\'';
         $test_rs    = PMA_query_as_cu($test_query);
@@ -709,7 +709,7 @@ class PMA_RT_Table
 
         //x and y
         $sql    = 'SELECT x, y FROM '
-                . PMA_backquote($cfgRelation['table_coords'])
+                . PMA_backquote($GLOBALS['cfgRelation']['db']) . PMA_backquote($cfgRelation['table_coords'])
                 .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                 .   ' AND   table_name = \'' . PMA_sqlAddslashes($table_name) . '\''
                 .   ' AND   pdf_page_number = ' . $pdf_page_number;
@@ -1046,7 +1046,7 @@ class PMA_RT
         $pdf->SetLineWidth(0.2);
         $pdf->SetDisplayMode('fullpage');
         //  Get the name of this pdfpage to use as filename (Mike Beck)
-        $_name_sql  = 'SELECT page_descr FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
+        $_name_sql  = 'SELECT page_descr FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                   .   ' WHERE page_nr = ' . $pdf_page_number;
         $_name_rs   = PMA_query_as_cu($_name_sql);
         if ($_name_rs) {
@@ -1116,7 +1116,7 @@ class PMA_RT
         $pdf->SetAutoPageBreak('auto');
 
         // Gets tables on this page
-        $tab_sql  = 'SELECT table_name FROM ' . PMA_backquote($cfgRelation['table_coords'])
+        $tab_sql  = 'SELECT table_name FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
                   .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                   .   ' AND pdf_page_number = ' . $which_rel;
         $tab_rs   = PMA_query_as_cu($tab_sql, NULL, PMA_DBI_QUERY_STORE);
@@ -1176,7 +1176,7 @@ class PMA_RT
         $pdf->PMA_PDF_setFontSizeScale(14);
 
 
-//        $sql    = 'SELECT * FROM ' . PMA_backquote($cfgRelation['relation'])
+//        $sql    = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
 //                .   ' WHERE master_db   = \'' . PMA_sqlAddslashes($db) . '\' '
 //                .   ' AND foreign_db    = \'' . PMA_sqlAddslashes($db) . '\' '
 //                .   ' AND master_table  IN (' . $intable . ')'

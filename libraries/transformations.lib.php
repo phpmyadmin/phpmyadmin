@@ -95,7 +95,7 @@ function PMA_getAvailableMIMEtypes() {
 function PMA_getMIME($db, $table, $strict = false) {
     global $cfgRelation;
 
-    $com_qry  = 'SELECT column_name, mimetype, transformation, transformation_options FROM ' . PMA_backquote($cfgRelation['column_info'])
+    $com_qry  = 'SELECT column_name, mimetype, transformation, transformation_options FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
               . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
               . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
               . ' AND (mimetype != \'\'' . (!$strict ? ' OR transformation != \'\' OR transformation_options != \'\'' : '') . ')';
@@ -137,7 +137,7 @@ function PMA_getMIME($db, $table, $strict = false) {
 function PMA_setMIME($db, $table, $key, $mimetype, $transformation, $transformation_options, $forcedelete = false) {
     global $cfgRelation;
 
-    $test_qry  = 'SELECT mimetype, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_info'])
+    $test_qry  = 'SELECT mimetype, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
                 . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                 . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                 . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
@@ -149,7 +149,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation, $transformat
         unset($test_rs);
 
         if (!$forcedelete && (strlen($mimetype) > 0 || strlen($transformation) > 0 || strlen($transformation_options) > 0 || strlen($row['comment']) > 0)) {
-            $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
+            $upd_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
                    . ' SET mimetype = \'' . PMA_sqlAddslashes($mimetype) . '\','
                    . '     transformation = \'' . PMA_sqlAddslashes($transformation) . '\','
                    . '     transformation_options = \'' . PMA_sqlAddslashes($transformation_options) . '\''
@@ -157,13 +157,13 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation, $transformat
                    . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                    . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
         } else {
-            $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
+            $upd_query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
                    . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
                    . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                    . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
         }
     } else if (strlen($mimetype) > 0 || strlen($transformation) > 0 || strlen($transformation_options) > 0) {
-        $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_info'])
+        $upd_query = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
                    . ' (db_name, table_name, column_name, mimetype, transformation, transformation_options) '
                    . ' VALUES('
                    . '\'' . PMA_sqlAddslashes($db) . '\','

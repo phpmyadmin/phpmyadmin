@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * db_details_importdocsql.php, db_operations.php,
+      libraries\relation.lib.php, libraries\relation_cleanup.lib.php
+      libraries\tbl_move_copy.php, libraries\transformations.lib.php
+      pdf_pages.php, pdf_schema.php, tbl_alter.php, tbl_relation.php:
+      added database name to relation querys
+
 2005-12-17 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/url_generating.lib.php: problem with accented table names
 

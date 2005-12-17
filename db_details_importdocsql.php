@@ -64,13 +64,15 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
                     //echo '<p>' . $line . '</p>';
                     $inf     = explode('|',$line);
                     if (!empty($inf[1]) && strlen(trim($inf[1])) > 0) {
-                        $qry = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['column_info'])
-                                . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ') '
-                                . ' VALUES('
-                                . '\'' . PMA_sqlAddslashes($GLOBALS['db']) . '\','
-                                . '\'' . PMA_sqlAddslashes(trim($tab)) . '\','
-                                . '\'' . PMA_sqlAddslashes(trim($inf[0])) . '\','
-                                . '\'' . PMA_sqlAddslashes(trim($inf[1])) . '\')';
+                        $qry = '
+                             INSERT INTO
+                                    ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
+                                  ( db_name, table_name, column_name, ' . PMA_backquote('comment') . ' )
+                             VALUES (
+                                    \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\',
+                                    \'' . PMA_sqlAddslashes(trim($tab)) . '\',
+                                    \'' . PMA_sqlAddslashes(trim($inf[0])) . '\',
+                                    \'' . PMA_sqlAddslashes(trim($inf[1])) . '\')';
                         if (PMA_query_as_cu($qry)) {
                             echo '<p>' . $GLOBALS['strAddedColumnComment'] . ' ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . '</p>';
                         } else {
@@ -80,15 +82,17 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
                     } // end inf[1] exists
                     if (!empty($inf[2]) && strlen(trim($inf[2])) > 0) {
                         $for = explode('->', $inf[2]);
-                        $qry = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['relation'])
-                                . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
-                                . ' VALUES('
-                                . '\'' . PMA_sqlAddslashes($GLOBALS['db']) . '\', '
-                                . '\'' . PMA_sqlAddslashes(trim($tab)) . '\', '
-                                . '\'' . PMA_sqlAddslashes(trim($inf[0])) . '\', '
-                                . '\'' . PMA_sqlAddslashes($GLOBALS['db']) . '\', '
-                                . '\'' . PMA_sqlAddslashes(trim($for[0])) . '\','
-                                . '\'' . PMA_sqlAddslashes(trim($for[1])) . '\')';
+                        $qry = '
+                             INSERT INTO 
+                                    ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['relation']) . '
+                                  ( master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)
+                             VALUES (
+                                    \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\',
+                                    \'' . PMA_sqlAddslashes(trim($tab)) . '\',
+                                    \'' . PMA_sqlAddslashes(trim($inf[0])) . '\',
+                                    \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\',
+                                    \'' . PMA_sqlAddslashes(trim($for[0])) . '\',
+                                    \'' . PMA_sqlAddslashes(trim($for[1])) . '\')';
                         if (PMA_query_as_cu($qry)) {
                             echo '<p>' . $GLOBALS['strAddedColumnRelation'] . ' ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . ' to ' . htmlspecialchars($inf[2]) . '</p>';
                         } else {
