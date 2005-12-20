@@ -6,7 +6,21 @@
 
 require_once('./libraries/check_user_privileges.lib.php');
 
-$is_create_table_priv = FALSE;
+// for MySQL >= 4.1.0, we should be able to detect if user has a CREATE
+// privilege by looking at SHOW GRANTS output;
+// for < 4.1.0, it could be more difficult because the logic tries to
+// detect the current host and it might be expressed in many ways; also
+// on a shared server, the user might be unable to define a controluser 
+// that has the proper rights to the "mysql" db;
+// so we give up and assume that user has the right to create a table
+//
+// Note: in this case we could even skip the following "foreach" logic
+
+if (PMA_MYSQL_INT_VERSION >= 40100) {
+    $is_create_table_priv = false;
+} else {
+    $is_create_table_priv = true;
+}
 
 foreach( $dbs_where_create_table_allowed as $allowed_db ) {
 
