@@ -10,6 +10,8 @@ $Source$
       the creation of a bookmark
     * libraries/display_create_table.lib.php: bug #1376314, detection of
       privileges to create a table (fix for MySQL 4.0.x case)
+    * tbl_change.php, tbl_replace.php, libraries/tbl_replace_fields.inc.php:
+      bug #1385974, cannot un-null a value
 
 2005-12-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * db_details_importdocsql.php, db_operations.php,

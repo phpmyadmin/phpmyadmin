@@ -543,6 +543,13 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
         if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary))
             && $row_table_def['Null'] == 'YES') {
+
+            echo '            <input type="hidden" name="fields_null_prev' . $vkey . '[' . urlencode($field) . ']"';
+            if ($real_null_value && !$first_timestamp) {
+                echo ' checked="checked"';
+            }
+            echo ' />' . "\n";
+
             echo '            <input type="checkbox" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
                  . ' name="fields_null' . $vkey . '[' . urlencode($field) . ']"';
             if ($real_null_value && !$first_timestamp) {

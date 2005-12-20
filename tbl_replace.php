@@ -137,6 +137,7 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
     $me_funcs       = isset($funcs['multi_edit'])       && isset($funcs['multi_edit'][$enc_primary_key])       ? $funcs['multi_edit'][$enc_primary_key]       : null;
     $me_fields_type = isset($fields_type['multi_edit']) && isset($fields_type['multi_edit'][$enc_primary_key]) ? $fields_type['multi_edit'][$enc_primary_key] : null;
     $me_fields_null = isset($fields_null['multi_edit']) && isset($fields_null['multi_edit'][$enc_primary_key]) ? $fields_null['multi_edit'][$enc_primary_key] : null;
+    $me_fields_null_prev = isset($fields_null_prev['multi_edit']) && isset($fields_null_prev['multi_edit'][$enc_primary_key]) ? $fields_null_prev['multi_edit'][$enc_primary_key] : null;
     $me_auto_increment  = isset($auto_increment['multi_edit']) && isset($auto_increment['multi_edit'][$enc_primary_key])       ? $auto_increment['multi_edit'][$enc_primary_key]       : null;
 
     if ($using_key && isset($me_fields_type) && is_array($me_fields_type) && isset($primary_key)) {
@@ -165,13 +166,14 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
         if ($is_insert) {
             // insert, no need to add column
             $valuelist .= $cur_value;
+        } else if (isset($me_fields_null_prev) && isset($me_fields_null_prev[$encoded_key]) && !isset($me_fields_null[$encoded_key])) {
+            $valuelist .= PMA_backquote($key) . ' = ' . $cur_value;
         } else if (empty($me_funcs[$encoded_key])
             && isset($me_fields_prev) && isset($me_fields_prev[$encoded_key])
             && ("'" . PMA_sqlAddslashes(urldecode($me_fields_prev[$encoded_key])) . "'" == $val)) {
             // No change for this column and no MySQL function is used -> next column
             continue;
-        }
-        else if (!empty($val)) {
+        } else if (!empty($val)) {
             $valuelist .= PMA_backquote($key) . ' = ' . $cur_value;
         }
     } // end while
