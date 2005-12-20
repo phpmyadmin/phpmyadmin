@@ -2692,7 +2692,7 @@ if (!in_array($__redirect, $goto_whitelist)) {
  * @var string  $goto   holds page that should be displayed
  */
 // Security fix: disallow accessing serious server files via "?goto="
-if (isset($_REQUEST['goto']) && in_array($_REQUEST['goto'], $goto_whitelist)) {
+if (isset($_REQUEST['goto']) && in_array(substr($_REQUEST['goto'], 0, strpos($_REQUEST['goto'] . '?', '?')), $goto_whitelist)) {
     $GLOBALS['goto'] = $_REQUEST['goto'];
     $GLOBALS['url_params']['goto'] = $goto;
 } else {
