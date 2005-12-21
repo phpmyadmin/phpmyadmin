@@ -7,6 +7,7 @@ $Source$
 
 2005-12-21 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat
+    * lang/hungarian update, thanks to Mihály Mészáros <necronix@freemail.hu>
 
 2005-12-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: does not return to correct page after
