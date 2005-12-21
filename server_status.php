@@ -360,7 +360,7 @@ foreach ( $sections as $section_name => $section ) {
 <table id="serverstatustraffic" class="data">
 <thead>
 <tr>
-    <th colspan="2"><?php echo $strTraffic; ?></th>
+    <th colspan="2"><?php echo $strTraffic . '&nbsp;' . PMA_showHint($strStatisticsOverrun); ?></th>
     <th>&oslash; <?php echo $strPerHour; ?></th>
 </tr>
 </thead>

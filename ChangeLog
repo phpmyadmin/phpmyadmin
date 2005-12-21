@@ -11,6 +11,8 @@ $Source$
     * tbl_properties_operations.php, libraries/tbl_properties.inc.php:
       bug #1349262, mismatch between PMA and MySQL about Storage Engine
       and table type
+    * server_status.php, lang/*: bug #1348249, add a warning hint about
+      the possibility of some counters being overrun (stats from MySQL server)
 
 2005-12-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: does not return to correct page after

@@ -838,6 +838,7 @@ $strSQPBugUnknownPunctuation = 'Unknown Punctuation String';
 $strStatCheckTime = 'Last check';
 $strStatCreateTime = 'Creation';
 $strStatement = 'Statements';
+$strStatisticsOverrun = 'On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.';
 $strStatUpdateTime = 'Last update';
 $strStatus = 'Status';
 $strStorageEngines = 'Storage Engines';
