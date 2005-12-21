@@ -251,9 +251,9 @@ if (strstr($show_comment, '; InnoDB free') === false) {
         </td>
     </tr>
 
-    <!-- Table type -->
-    <tr><td><?php echo $strTableType; ?>
-            <?php echo PMA_showMySQLDocu('Table_types', 'Table_types'); ?>
+    <!-- Storage engine -->
+    <tr><td><?php echo $strStorageEngine; ?>
+            <?php echo PMA_showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
         </td>
         <td><?php echo PMA_generateEnginesDropdown('new_tbl_type', null, false, $tbl_type, 4); ?>
         </td>

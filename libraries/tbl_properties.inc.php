@@ -638,7 +638,8 @@ if ($action == 'tbl_create.php') {
     <tr valign="top">
         <th><?php echo $strTableComments; ?>:&nbsp;</th>
         <td width="25">&nbsp;</td>
-        <th><?php echo $strTableType; ?>:&nbsp;</th>
+    <th><?php echo $strStorageEngine; ?>:&nbsp;<?php echo PMA_showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
+        </th>
     <?php
     if ( PMA_MYSQL_INT_VERSION >= 40100 ) {
         echo '        <td width="25">&nbsp;</td>' . "\n"
