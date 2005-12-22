@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php, libraries/common.lib.php: bug #1381856,
+      Cannot edit a table having 40 columns
+
 2005-12-21 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat
     * lang/hungarian update, thanks to Mihály Mészáros <necronix@freemail.hu>

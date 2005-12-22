@@ -3,9 +3,37 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 /**
- * Get the variables sent or posted to this script and displays the header
+ * Gets the variables sent or posted to this script and displays the header
  */
 require_once('./libraries/common.lib.php');
+
+/**
+ * Sets global variables. 
+ * Here it's better to use a if, instead of the '?' operator
+ * to avoid setting a variable to '' when it's not present in $_REQUEST
+ */
+if (isset($_REQUEST['pos'])) {
+    $pos =  $_REQUEST['pos'];
+}
+if (isset($_REQUEST['session_max_rows'])) {
+    $session_max_rows = $_REQUEST['session_max_rows'];
+}
+if (isset($_REQUEST['disp_direction'])) {
+    $disp_direction = $_REQUEST['disp_direction'];
+}
+if (isset($_REQUEST['repeat_cells'])) {
+    $repeat_cells = $_REQUEST['repeat_cells'];
+}
+if (isset($_REQUEST['dontlimitchars'])) {
+    $dontlimitchars = $_REQUEST['dontlimitchars'];
+}
+if (isset($_REQUEST['primary_key'])) {
+    $primary_key = $_REQUEST['primary_key'];
+}
+if (isset($_REQUEST['sql_query'])) {
+    $sql_query = $_REQUEST['sql_query'];
+}
+
 
 $js_to_run = 'tbl_change.js';
 require_once('./libraries/header.inc.php');

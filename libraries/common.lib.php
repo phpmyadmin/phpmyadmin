@@ -2575,6 +2575,7 @@ if (isset($_POST['usesubform'])) {
     $subform_id = key($_POST['usesubform']);
     $subform    = $_POST['subform'][$subform_id];
     $_POST      = $subform;
+    $_REQUEST   = $subform;
     if (isset($_POST['redirect'])
       && $_POST['redirect'] != basename($_SERVER['PHP_SELF'])) {
         $__redirect = $_POST['redirect'];
