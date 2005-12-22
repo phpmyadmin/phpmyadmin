@@ -215,7 +215,8 @@ if (!$check_stop) {
         $val = 'NULL';
     }
 
-    if (isset($me_fields_null_prev)  && isset($me_fields_null_prev[$encoded_key]) && !isset($me_fields_null[$encoded_key])) {
+    // The Null checkbox was unchecked for this field
+    if (empty($val) && isset($me_fields_null_prev)  && isset($me_fields_null_prev[$encoded_key]) && !isset($me_fields_null[$encoded_key])) {
         $val = "''"; 
     }
 }  // end else (field value in the form)

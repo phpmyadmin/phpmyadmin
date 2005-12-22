@@ -10,6 +10,8 @@ $Source$
       Cannot edit a table having 40 columns
     * libraries/common.lib.php: bug #1388116, cannot pass TRUE by reference 
       to PMA_setCookie, thanks to Isaac Bennetch
+    * libraries/tbl_replace_fields.inc.php: recent fix introduced a bug:
+      cannot change a value for a nullable field
 
 2005-12-21 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat
