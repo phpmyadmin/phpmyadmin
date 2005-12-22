@@ -2492,7 +2492,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
      * @param   string  $default    default value
      * @return  boolean result of setcookie()
      */
-    function PMA_setCookie($cookie, &$value, $default = null)
+    function PMA_setCookie($cookie, $value, $default = null)
     {
         if (!empty($value) && null !== $default && $value === $default) {
             // remove cookie, default value is used
