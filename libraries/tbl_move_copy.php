@@ -378,8 +378,8 @@ function PMA_table_move_copy($source_db, $source_table, $target_db, $target_tabl
 function PMA_table_rename( $old_name, $new_name )
 {
     // Ensure the target is valid
-    if ( count($GLOBLAS['dblist']) > 0
-      && ! in_array($GLOBALS['db'], $GLOBLAS['dblist']) ) {
+    if ( count($GLOBALS['dblist']) > 0
+      && ! in_array($GLOBALS['db'], $GLOBALS['dblist']) ) {
         return false;
     }
 
