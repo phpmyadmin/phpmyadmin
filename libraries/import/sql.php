@@ -139,22 +139,31 @@ if (isset($plugin_list)) {
 
             // End of SQL
             if ($ch == ';' || ($finished && ($i == $len - 1))) {
+                $tmp_sql = $sql;
                 if ($start_pos < $len) {
-                    $sql .= substr($buffer, $start_pos, $i - $start_pos + 1);
+                    $tmp_sql .= substr($buffer, $start_pos, $i - $start_pos + 1);
                 }
-                PMA_importRunQuery($sql, substr($buffer, 0, $i + 1));
-                $buffer = substr($buffer, $i + 1);
-                // Reset parser:
-                $len = strlen($buffer);
-                $sql = '';
-                $i = 0;
-                $start_pos = 0;
-                // Any chance we will get a complete query?
-                if ((strpos($buffer, ';') === FALSE) && !$finished) break;
+                // Do not try to execute empty SQL
+                if (!preg_match('/^([\s]*;)*$/', trim($tmp_sql))) {
+                    $sql = $tmp_sql;
+                    PMA_importRunQuery($sql, substr($buffer, 0, $i + 1));
+                    $buffer = substr($buffer, $i + 1);
+                    // Reset parser:
+                    $len = strlen($buffer);
+                    $sql = '';
+                    $i = 0;
+                    $start_pos = 0;
+                    // Any chance we will get a complete query?
+                    if ((strpos($buffer, ';') === FALSE) && !$finished) break;
+                } else {
+                    $i++;
+                    $start_pos = $i;
+                }
             }
         } // End of parser loop
     } // End of import loop
     // Commit any possible data in buffers
+    PMA_importRunQuery('', substr($buffer, 0, $len));
     PMA_importRunQuery();
 }
 ?>

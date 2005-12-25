@@ -168,7 +168,7 @@ function PMA_importRunQuery($sql = '', $full = '') {
     if (!empty($sql) || !empty($full)) {
         $import_run_buffer = array('sql' => $sql, 'full' => $full);
     } else {
-        unset($import_run_buffer);
+        unset($GLOBALS['import_run_buffer']);
     }
 }
 

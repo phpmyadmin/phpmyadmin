@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-25 Michal Čihař  <michal@cihar.com>
+    * libraries/import.lib.php, libraries/import/sql.php: Handle correctly
+      dumps with commented out commands (eg. from mysqldump).
+
 2005-12-22 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, libraries/common.lib.php: bug #1381856,
       Cannot edit a table having 40 columns
