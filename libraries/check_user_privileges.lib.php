@@ -36,6 +36,9 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_db_priv, &$db_to_create, &$is
         $show_grants_dbname = substr($row[0], strpos($row[0], ' ON ') + 4,(strpos($row[0], '.', strpos($row[0], ' ON ')) - strpos($row[0], ' ON ') - 4));
         $show_grants_dbname = ereg_replace('^`(.*)`','\\1',  $show_grants_dbname);
         $show_grants_str    = substr($row[0],6,(strpos($row[0],' ON ')-6));
+        if ($show_grants_str == 'RELOAD') {
+            $is_reload_priv = true;
+        }
         if (($show_grants_str == 'ALL') || ($show_grants_str == 'ALL PRIVILEGES') || ($show_grants_str == 'CREATE') || strpos($show_grants_str, 'CREATE')) {
             if ($show_grants_dbname == '*') {
                 // a global CREATE privilege

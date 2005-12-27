@@ -39,8 +39,10 @@ echo '<div id="maincontainer">' . "\n";
 if ( $server > 0 ) {
 
     require_once('./libraries/check_user_privileges.lib.php');
-    $cfg['ShowChgPassword'] = $is_superuser = PMA_isSuperuser();
-
+    // why this? a non-priv user should be able to change his
+    // password if the configuration permits
+    //$cfg['ShowChgPassword'] = $is_superuser = PMA_isSuperuser();
+    $is_superuser = PMA_isSuperuser();
 
     if ($cfg['Server']['auth_type'] == 'config') {
         $cfg['ShowChgPassword'] = FALSE;
@@ -154,9 +156,10 @@ if ( $server > 0 ) {
     PMA_printListItem( $strStorageEngines, 'li_mysql_engines',
         './server_engines.php?' . $common_url_query );
 
-    PMA_printListItem( $strReloadMySQL, 'li_flush_privileges',
-        './server_privileges.php?flush_privileges=1&amp;' . $common_url_query,
-        'flush' );
+    if ($is_reload_priv) {
+        PMA_printListItem( $strReloadMySQL, 'li_flush_privileges',
+            './server_privileges.php?flush_privileges=1&amp;' . $common_url_query, 'flush' );
+    }
 
     if ($is_superuser) {
         PMA_printListItem( $strPrivileges, 'li_mysql_privilegs',

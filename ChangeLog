@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php, libraries/check_user_privileges.lib.php: 
+      - reenable a non-privileged user to change his password
+      - display the Reload MySQL link only if user has proper rights
+
 2005-12-25 Michal Čihař  <michal@cihar.com>
     * libraries/import.lib.php, libraries/import/sql.php: Handle correctly
       dumps with commented out commands (eg. from mysqldump).
