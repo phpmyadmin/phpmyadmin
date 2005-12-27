@@ -17,9 +17,9 @@ function PMA_isSuperuser() {
         $GLOBALS['userlink'], PMA_DBI_QUERY_STORE );
 }
 
-$is_create_db_priv  = FALSE;
-$is_process_priv = TRUE;
-$is_reload_priv  = FALSE;
+$is_create_db_priv  = false;
+$is_process_priv = true;
+$is_reload_priv  = false;
 $db_to_create    = '';
 $dbs_where_create_table_allowed = array();
 
@@ -42,8 +42,8 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_db_priv, &$db_to_create, &$is
         if (($show_grants_str == 'ALL') || ($show_grants_str == 'ALL PRIVILEGES') || ($show_grants_str == 'CREATE') || strpos($show_grants_str, 'CREATE')) {
             if ($show_grants_dbname == '*') {
                 // a global CREATE privilege
-                $is_create_db_priv = TRUE;
-                $is_reload_priv = TRUE;
+                $is_create_db_priv = true;
+                $is_reload_priv = true;
                 $db_to_create   = '';
                 $dbs_where_create_table_allowed[] = '*';
                 break;
@@ -71,7 +71,7 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_db_priv, &$db_to_create, &$is
                     ) {
                      $db_to_create = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $show_grants_dbname));
                      $db_to_create = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
-                     $is_create_db_priv     = TRUE;
+                     $is_create_db_priv     = true;
 
                      // TODO: collect $db_to_create into an array, to display a drop-down
                      // in the "Create new database" dialog
@@ -109,7 +109,7 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
         $mysql_cur_user                = substr($mysql_cur_user_and_host, 0, strrpos($mysql_cur_user_and_host, '@'));
 
         $local_query = 'SELECT Create_priv, Reload_priv FROM mysql.user WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($mysql_cur_user), 'quoted') . ' OR ' . PMA_convert_using('User') . ' = ' . PMA_convert_using('', 'quoted') . ';';
-        $rs_usr      = PMA_DBI_try_query($local_query, $controllink, PMA_DBI_QUERY_STORE); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+        $rs_usr      = PMA_DBI_try_query($local_query, $controllink, PMA_DBI_QUERY_STORE); // Debug: or PMA_mysqlDie('', $local_query, false);
         if ($rs_usr) {
             while ($result_usr = PMA_DBI_fetch_assoc($rs_usr)) {
                 if (!$is_create_db_priv) {
@@ -143,7 +143,7 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
                     || (!PMA_DBI_try_query('USE ' . ereg_replace($re1 . '(%|_)', '\\1\\3', $row['Db'])) && substr(PMA_DBI_getError(), 1, 4) != 1044)) {
                     $db_to_create   = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $row['Db']));
                     $db_to_create   = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
-                    $is_create_db_priv = TRUE;
+                    $is_create_db_priv = true;
                     break;
                 } // end if
             } // end while
