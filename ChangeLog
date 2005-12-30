@@ -7,6 +7,7 @@ $Source$
 
 2005-12-30 Marc Delisle  <lem9@users.sourceforge.net>
     * server_databases.php: bug #1388135, IE and dropping databases
+    * librairies/mult_submits.inc.php: strong warning for DROP DATABASE
 
 2005-12-27 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php, libraries/check_user_privileges.lib.php: 

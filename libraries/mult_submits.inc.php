@@ -257,7 +257,7 @@ if ( !empty($submit_mult) && !empty($what)) {
     }
     ?>
 <fieldset class="confirmation">
-    <legend><?php echo $strDoYouReally; ?>:</legend>
+    <legend><?php echo ($what == 'drop_db' ? $strDropDatabaseStrongWarning . '&nbsp;' : '') . $strDoYouReally; ?>:</legend>
     <tt><?php echo $full_query; ?></tt>
 </fieldset>
 <fieldset class="tblFooters">
