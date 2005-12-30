@@ -620,10 +620,10 @@ class PMA_Config
      */
     function checkUpload()
     {
-        $this->set('enbale_upload', true);
+        $this->set('enable_upload', true);
         if ( strtolower(@ini_get('file_uploads')) == 'off'
           || @ini_get('file_uploads') == 0 ) {
-            $this->set('enbale_upload', false);
+            $this->set('enable_upload', false);
         }
     }
 

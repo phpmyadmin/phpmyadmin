@@ -10,6 +10,8 @@ $Source$
     * librairies/mult_submits.inc.php: strong warning for DROP DATABASE
     * tbl_printview.php: bug #1389165, Print view shows all columns as Null Yes 
       (MySQL 5.x)
+    * libraries/Config.class.php: patch #1392181, typo,
+      thanks to Luis Mirabal - normannormal
 
 2005-12-27 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php, libraries/check_user_privileges.lib.php: 
