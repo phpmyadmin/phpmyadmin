@@ -66,6 +66,14 @@ $dbstats = empty( $dbstats ) ? 0 : 1;
 /**
  * Drops multiple databases
  */
+
+// workaround for IE behavior (it returns some coordinates based on where
+// the mouse was on the Drop image):
+
+if (isset($drop_selected_dbs_x)) {
+    $drop_selected_dbs = 'Drop';
+}
+
 if ((!empty($drop_selected_dbs) || isset($query_type)) && ($is_superuser || $cfg['AllowUserDropDatabase'])) {
     if (empty($selected_db) && ! (isset($query_type) && !empty($selected))) {
         $message = $strNoDatabasesSelected;
