@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-12-31 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: bug #1388167, deleting a row in a table 
+      without a primary key, handle correctly is_js_confirmed
+
 2005-12-30 Marc Delisle  <lem9@users.sourceforge.net>
     * server_databases.php: bug #1388135, IE and dropping databases
     * librairies/mult_submits.inc.php: strong warning for DROP DATABASE

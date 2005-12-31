@@ -3173,6 +3173,10 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 } // end if !defined('PMA_MINIMUM_COMMON')
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
+    // to handle bug #1388167
+    if (isset($_GET['is_js_confirmed'])) {
+        $is_js_confirmed = 1;
+    }
     require $__redirect;
     exit();
 }
