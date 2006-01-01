@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/transformations.lib.php: remove some PHP3 compatibility code
+
 2005-12-31 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug #1388167, deleting a row in a table 
       without a primary key, handle correctly is_js_confirmed
