@@ -103,6 +103,7 @@ echo sprintf( $strCreateNewTable, PMA_getDbLink() );
         <?php echo $strNumberOfFields; ?>:
         <input type="text" name="num_fields" size="2" />
     </div>
+    <div class="clearfloat"></div>
 </fieldset>
 <fieldset class="tblFooters">
     <input type="submit" value="<?php echo $strGo; ?>" />
