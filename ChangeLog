@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-01 Michal Čihař  <michal@cihar.com>
+    * libraries/Config.class.php: Do not check permissions on Windows, it
+      seems to be broken anyway.
+
 2006-01-01 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/transformations.lib.php: remove some PHP3 compatibility code
 

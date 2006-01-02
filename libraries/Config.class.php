@@ -424,10 +424,14 @@ class PMA_Config
         }
 
         // Check for permissions (on platforms that support it):
-        $perms = @stat($this->getSource());
-        if (!($perms === false) && ($perms['mode'] & 2)) {
-            $this->source_mtime = 0;
-            die('Wrong permissions on configuration file, should not be world writable!');
+        $perms = @fileperms($this->getSource());
+        if (!($perms === false) && ($perms & 2)) {
+            // This check is normally done after loading configuration
+            $this->checkWebServerOs();
+            if ($this->get('PMA_IS_WINDOWS') == 0) {
+                $this->source_mtime = 0;
+                die('Wrong permissions on configuration file, should not be world writable!');
+            }
         }
 
         return true;
