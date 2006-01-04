@@ -1486,8 +1486,14 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                    . '        <legend>' . "\n"
                    . ($GLOBALS['cfg']['PropertiesIconic'] ? '            <img class="icon" src="' . $pmaThemeImage . 'b_usrdrop.png" width="16" height="16" alt="" />' . "\n" : '' )
                    . '            ' . $GLOBALS['strRemoveSelectedUsers'] . '' . "\n"
-                   . '        </legend>' . "\n"
-                   . '        <input type="radio" title="' . $GLOBALS['strJustDelete'] . ' ' . $GLOBALS['strJustDeleteDescr'] . '" name="mode" id="radio_mode_1" value="1" checked="checked" />' . "\n"
+                   . '        </legend>' . "\n";
+                   
+                // before MySQL 4.1.1, we offer some choices for the delete
+                // mode, but for 4.1.1+, it will be done with REVOKEing the 
+                // privileges then a DROP USER (even no REVOKE at all
+                // for MySQL 5), so no need to offer so many options
+                if (PMA_MYSQL_INT_VERSION < 40101) {
+                   echo '        <input type="radio" title="' . $GLOBALS['strJustDelete'] . ' ' . $GLOBALS['strJustDeleteDescr'] . '" name="mode" id="radio_mode_1" value="1" checked="checked" />' . "\n"
                    . '        <label for="radio_mode_1" title="' . $GLOBALS['strJustDelete'] . ' ' . $GLOBALS['strJustDeleteDescr'] . '">' . "\n"
                    . '            ' . $GLOBALS['strJustDelete'] . "\n"
                    . '        </label><br />' . "\n"
@@ -1498,8 +1504,13 @@ if ( empty( $adduser ) && empty( $checkprivs ) ) {
                    . '        <input type="radio" title="' . $GLOBALS['strDeleteAndFlush'] . ' ' . $GLOBALS['strDeleteAndFlushDescr'] . '" name="mode" id="radio_mode_3" value="3" />' . "\n"
                    . '        <label for="radio_mode_3" title="' . $GLOBALS['strDeleteAndFlush'] . ' ' . $GLOBALS['strDeleteAndFlushDescr'] . '">' . "\n"
                    . '            ' . $GLOBALS['strDeleteAndFlush'] . "\n"
-                   . '        </label><br />' . "\n"
-                   . '        <input type="checkbox" title="' . $GLOBALS['strDropUsersDb'] . '" name="drop_users_db" id="checkbox_drop_users_db" />' . "\n"
+                   . '        </label><br />' . "\n";
+                 } else {
+                     echo '        <input type="hidden" name="mode" value="2" />' . "\n"
+                     . '( ' . $GLOBALS['strRevokeAndDelete'] . ' )<br />' . "\n";
+                 }    
+
+                 echo '        <input type="checkbox" title="' . $GLOBALS['strDropUsersDb'] . '" name="drop_users_db" id="checkbox_drop_users_db" />' . "\n"
                    . '        <label for="checkbox_drop_users_db" title="' . $GLOBALS['strDropUsersDb'] . '">' . "\n"
                    . '            ' . $GLOBALS['strDropUsersDb'] . "\n"
                    . '        </label>' . "\n"

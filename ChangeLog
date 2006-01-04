@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: since we use DROP USER, some options to
+      remove a user did not work under MySQL 4.1.x (only mode 2 worked),
+      so I remove them from the dialog. Thanks to Ken Stanley for
+      the bug report.
+
 2006-01-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_create_table.lib.php: bug #1389868, 
       Safari's rendering of "Create table" fieldset, thanks to Ryan Schmidt
