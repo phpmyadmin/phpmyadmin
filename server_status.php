@@ -266,7 +266,7 @@ $links['repl']['MySQL - ' . $strDocu]
     = $cfg['MySQLManualBase'] . '/replication.html';
 
 $links['qcache'][$strFlushQueryCache]
-    = $PHP_SELF . '?flush=QUERY CACHE&amp;' . 
+    = $PHP_SELF . '?flush=' . urlencode('QUERY CACHE') . '&amp;' . 
       PMA_generate_common_url();
 $links['qcache']['MySQL - ' . $strDocu]
     = $cfg['MySQLManualBase'] . '/query-cache.html';

@@ -10,6 +10,8 @@ $Source$
       remove a user did not work under MySQL 4.1.x (only mode 2 worked),
       so I remove them from the dialog. Thanks to Ken Stanley for
       the bug report.
+    * server_status.php: patch #1395031, not proper URL encoding,
+      adapted from proposed solution by Matt LaPlante, thanks
 
 2006-01-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_create_table.lib.php: bug #1389868, 
