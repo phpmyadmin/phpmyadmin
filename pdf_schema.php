@@ -1467,7 +1467,7 @@ function PMA_RT_DOC($alltables ){
                 $strAttribute = 'UNSIGNED ZEROFILL';
             }
             if (!isset($row['Default'])) {
-                if ($row['Null'] != '') {
+                if ($row['Null'] != '' && $row['Null'] != 'NO') {
                     $row['Default'] = 'NULL';
                 }
             }
