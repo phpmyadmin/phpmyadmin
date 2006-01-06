@@ -1479,7 +1479,7 @@ function PMA_RT_DOC($alltables ){
             $pdf_row = array($field_name ,
                             $type ,
                             $strAttribute ,
-                            ($row['Null'] == '') ? $GLOBALS['strNo'] : $GLOBALS['strYes'],
+                            ($row['Null'] == '' || $row['Null'] == 'NO') ? $GLOBALS['strNo'] : $GLOBALS['strYes'],
                             ((isset($row['Default'])) ?  $row['Default'] : ''),
                             $row['Extra']  ,
                             ((isset($res_rel[$field_name])) ? $res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] : ''),

@@ -216,7 +216,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
             $strAttribute = 'UNSIGNED ZEROFILL';
         }
         if (!isset($row['Default'])) {
-            if ($row['Null'] != '') {
+            if ($row['Null'] != '' && $row['Null'] != 'NO') {
                 $row['Default'] = '<i>NULL</i>';
             }
         } else {
