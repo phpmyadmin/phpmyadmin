@@ -709,7 +709,7 @@ class PMA_RT_Table
 
         //x and y
         $sql    = 'SELECT x, y FROM '
-                . PMA_backquote($GLOBALS['cfgRelation']['db']) . PMA_backquote($cfgRelation['table_coords'])
+                . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
                 .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                 .   ' AND   table_name = \'' . PMA_sqlAddslashes($table_name) . '\''
                 .   ' AND   pdf_page_number = ' . $pdf_page_number;

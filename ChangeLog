@@ -8,6 +8,7 @@ $Source$
 2006-01-06 Marc Delisle  <lem9@users.sourceforge.net>
     * db_datadict.php, pdf_schema.php: bug #1389165, data dict shows all 
       columns as Null Yes
+    * pdf_schema.php: display PDF schema did not work (missing dot)
 
 2006-01-04 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: since we use DROP USER, some options to
