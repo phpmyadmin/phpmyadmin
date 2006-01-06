@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_datadict.php: bug #1389165, data dict shows all columns as Null Yes
+
 2006-01-04 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: since we use DROP USER, some options to
       remove a user did not work under MySQL 4.1.x (only mode 2 worked),

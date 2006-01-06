@@ -236,7 +236,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     </td>
     <td<?php echo $type_nowrap; ?> xml:lang="en" dir="ltr"><?php echo $type; ?></td>
 <?php /*    <td<?php echo $type_nowrap; ?>><?php echo $strAttribute; ?></td>*/ ?>
-    <td><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?></td>
+    <td><?php echo (($row['Null'] == '' || $row['Null'] == 'NO') ? $strNo : $strYes); ?></td>
     <td nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?></td>
 <?php /*    <td<?php echo $type_nowrap; ?>><?php echo $row['Extra']; ?></td>*/ ?>
         <?php
