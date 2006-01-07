@@ -12,6 +12,8 @@ $Source$
       PMA_linkOrButton link is part of the link, thanks to Ryan Schmidt
     * server_privileges.php: bug #1398018, Safari fieldset float issue in
       privileges screens, thanks to Ryan Schmidt
+    * libraries/Config.class.php: bug #1398931, incorrect detection of
+      PmaAbsoluteUri in vhost situations, thanks to Ryan Schmidt
 
 2006-01-06 Marc Delisle  <lem9@users.sourceforge.net>
     * db_datadict.php, pdf_schema.php: bug #1389165, data dict shows all 

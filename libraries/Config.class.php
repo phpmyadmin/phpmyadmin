@@ -570,7 +570,11 @@ class PMA_Config
             if (defined('PMA_PATH_TO_BASEDIR') && PMA_PATH_TO_BASEDIR == '../../') {
                 $path = dirname(dirname($path));
             }
-            $pma_absolute_uri .= $path . '/';
+            // in vhost situations, there could be already an ending slash
+            if (substr($path, -1) != '/') {
+                $path .= '/';
+            }
+            $pma_absolute_uri .= $path;
 
             // We used to display a warning if PmaAbsoluteUri wasn't set, but now
             // the autodetect code works well enough that we don't display the
