@@ -897,6 +897,8 @@ else {
         <input type="checkbox" name="bkm_all_users" id="bkm_all_users" value="true" />
         <label for="bkm_all_users"><?php echo $strBookmarkAllUsers; ?></label>
     </div>
+    
+    <div class="clearfloat"></div>
 </fieldset>
 <fieldset class="tblFooters">
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
