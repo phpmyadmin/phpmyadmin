@@ -1922,9 +1922,10 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
 
         // previously the limit was set to 2047, it seems 1000 is better
         if (strlen($url) <= 1000) {
-            $ret = '<a href="' . $url . '" '
-                . implode(' ', $tag_params_strings) . '>' . "\n"
-                . '    ' . $message . '</a>' . "\n";
+            // no whitespace within an <a> else Safari will make it part of the link
+            $ret = "\n" . '<a href="' . $url . '" '
+                . implode(' ', $tag_params_strings) . '>'
+                . $message . '</a>' . "\n";
         }
         else {
             // no spaces (linebreaks) at all

@@ -8,6 +8,8 @@ $Source$
 2006-01-07 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php: bug #1395590 Safari Bookmark query fieldset float problem,
       thanks to Ryan Schmidt
+    * libraries/common.lib.php: bug #1397749, Safari: space before
+      PMA_linkOrButton link is part of the link, thanks to Ryan Schmidt
 
 2006-01-06 Marc Delisle  <lem9@users.sourceforge.net>
     * db_datadict.php, pdf_schema.php: bug #1389165, data dict shows all 
