@@ -377,6 +377,8 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         } // end foreach()
 
         echo $spaces . '    </div>' . "\n";
+        // for Safari 2.0.2
+        echo $spaces . '    <div class="clearfloat"></div>' . "\n";
 
     } else {
 
@@ -529,6 +531,8 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             }
             echo $spaces . '    </fieldset>' . "\n";
            }
+        // for Safari 2.0.2
+        echo $spaces . '    <div class="clearfloat"></div>' . "\n";
     }
     echo $spaces . '</fieldset>' . "\n";
     if ($submit) {

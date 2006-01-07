@@ -10,6 +10,8 @@ $Source$
       thanks to Ryan Schmidt
     * libraries/common.lib.php: bug #1397749, Safari: space before
       PMA_linkOrButton link is part of the link, thanks to Ryan Schmidt
+    * server_privileges.php: bug #1398018, Safari fieldset float issue in
+      privileges screens, thanks to Ryan Schmidt
 
 2006-01-06 Marc Delisle  <lem9@users.sourceforge.net>
     * db_datadict.php, pdf_schema.php: bug #1389165, data dict shows all 
