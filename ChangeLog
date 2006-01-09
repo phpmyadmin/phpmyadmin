@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-09 Michal Čihař  <michal@cihar.com>
+    * import.php: Work on 10MB chunks if no memory limit is set (bug
+      #1399477).
+
 2006-01-07 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php: bug #1395590 Safari Bookmark query fieldset float problem,
       thanks to Ryan Schmidt

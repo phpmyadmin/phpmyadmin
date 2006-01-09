@@ -171,7 +171,13 @@ if (!empty($bkm_label) && !empty($import_text)) {
 // We can not read all at once, otherwise we can run out of memory
 $memory_limit = trim(@ini_get('memory_limit'));
 // 2 MB as default
-if (empty($memory_limit)) $memory_limit = 2 * 1024 * 1024;
+if (empty($memory_limit)) {
+    $memory_limit = 2 * 1024 * 1024;
+}
+// In case no memory limit we work on 10MB chunks
+if ($memory_limit = -1) {
+    $memory_limit = 10 * 1024 * 1024;
+}
 
 // Calculate value of the limit
 if (strtolower(substr($memory_limit, -1)) == 'm') $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
