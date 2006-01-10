@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php: bug #1394479, problem detecting ending 
+      semi-colon, generates a SHOW KEYS FROM no table name
+
 2006-01-09 Michal Čihař  <michal@cihar.com>
     * import.php: Work on 10MB chunks if no memory limit is set (bug
       #1399477).

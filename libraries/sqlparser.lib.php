@@ -911,7 +911,9 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
 
             // TODO: when we find a UNION, should we split
             // in another subresult?
-            if ($arr[$i]['type'] == 'punct_queryend') {
+            // Note: do not split if this is a punct_queryend for the
+            // first and only query
+            if ($arr[$i]['type'] == 'punct_queryend' && ($i + 1 != $size)) {
                 $result[]  = $subresult;
                 $subresult = $subresult_empty;
                 continue;
