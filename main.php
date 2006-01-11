@@ -212,10 +212,12 @@ echo '<h1 xml:lang="en" dir="ltr">phpMyAdmin - ' . PMA_VERSION . '</h1>'
 
 echo '<ul>' . "\n";
 
-PMA_printListItem( $strMysqlClientVersion . ': ' . PMA_DBI_get_client_info(),
-    'li_mysql_client_version' );
-PMA_printListItem( $strUsedPhpExtensions . ': ' . $GLOBALS['cfg']['Server']['extension'],
-    'li_used_php_extension' );
+if ( $server > 0 ) {
+    PMA_printListItem( $strMysqlClientVersion . ': ' . PMA_DBI_get_client_info(),
+        'li_mysql_client_version' );
+    PMA_printListItem( $strUsedPhpExtensions . ': ' . $GLOBALS['cfg']['Server']['extension'],
+        'li_used_php_extension' );
+}
 
 // Displays language selection combo
 if (empty($cfg['Lang'])) {
