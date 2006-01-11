@@ -10,6 +10,8 @@ $Source$
     * main.php, libraries/left_header.inc.php,
       libraries/select_server.lib.php: Show server selection if no server set
       and we have one server configuration (bug #1399880).
+    * libraries/import/sql.php: Fix hang on unclosed quoted string (bug
+      #1402270).
 
 2006-01-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug #1394479, problem detecting ending 

@@ -78,7 +78,14 @@ if (isset($plugin_list)) {
                     // Find next quote
                     $pos = strpos($buffer, $quote, $i + 1);
                     // No quote? Too short string
-                    if ($pos === FALSE) break;
+                    if ($pos === FALSE) {
+                        // We hit end of string => unclosed quote, but we handle it as end of query
+                        if ($finished) {
+                            $endq = TRUE;
+                            $i = $len - 1;
+                        }
+                        break;
+                    }
                     // Was not the quote escaped?
                     $j = $pos - 1;
                     while ($buffer[$j] == '\\') $j--;
