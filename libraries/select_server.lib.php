@@ -72,9 +72,18 @@ function PMA_select_server($form, $left) {
         </select>
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
         <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-        <noscript>
+	<?php
+	// Show submit button if we have just one server (this happens with no default)
+	if (count($cfg['Servers']) > 1) {
+		echo '<noscript>';
+	}
+	?>
         <input type="submit" value="<?php echo $GLOBALS['strGo']; ?>" />
-        </noscript>
+	<?php
+	if (count($cfg['Servers']) > 1) {
+		echo '</noscript>';
+	}
+	?>
     </form>
         <?php
     }

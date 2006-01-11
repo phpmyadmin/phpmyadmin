@@ -47,11 +47,12 @@ if ( $server > 0 ) {
     if ($cfg['Server']['auth_type'] == 'config') {
         $cfg['ShowChgPassword'] = FALSE;
     }
-
+}
     ?>
 
     <div id="mysqlmaininformation">
     <?php
+if ( $server > 0 ) {
     // robbat2: Use the verbose name of the server instead of the hostname
     //          if a value is set
     $server_info = '';
@@ -73,15 +74,20 @@ if ( $server > 0 ) {
 
     echo '<h1 xml:lang="en" dir="ltr">MySQL - ' . PMA_MYSQL_STR_VERSION
         .'</h1>' . "\n";
+} else {
+    // Case when no server selected
+    echo '<h1 xml:lang="en" dir="ltr">MySQL</h1>' . "\n";
+}
 
-    /**
-     * Displays the MySQL servers choice form
-     */
-    if (!$cfg['LeftDisplayServers'] && count($cfg['Servers']) > 1) {
-        include('./libraries/select_server.lib.php');
-        PMA_select_server(TRUE, FALSE);
-    }
+/**
+ * Displays the MySQL servers choice form
+ */
+if (!$cfg['LeftDisplayServers'] && (count($cfg['Servers']) > 1 || $server == 0 && count($cfg['Servers']) == 1)) {
+    include('./libraries/select_server.lib.php');
+    PMA_select_server(TRUE, FALSE);
+}
 
+if ( $server > 0 ) {
     echo '<ul>' . "\n";
 
     PMA_printListItem( $strProtocolVersion . ': ' . PMA_DBI_get_proto_info()

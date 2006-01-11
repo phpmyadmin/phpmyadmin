@@ -7,6 +7,9 @@ $Source$
 
 2006-01-11 Michal Čihař  <michal@cihar.com>
     * main.php: Do not fail if no server is defined.
+    * main.php, libraries/left_header.inc.php,
+      libraries/select_server.lib.php: Show server selection if no server set
+      and we have one server configuration (bug #1399880).
 
 2006-01-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug #1394479, problem detecting ending 

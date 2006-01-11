@@ -83,7 +83,7 @@ echo '</div>' . "\n";
 /**
  * Displays the MySQL servers choice form
  */
-if ( $GLOBALS['cfg']['LeftDisplayServers'] && count($cfg['Servers']) > 1 ) {
+if ($GLOBALS['cfg']['LeftDisplayServers'] && (count($GLOBALS['cfg']['Servers']) > 1 || $server == 0 && count($GLOBALS['cfg']['Servers']) == 1)) {
     include('./libraries/select_server.lib.php');
     PMA_select_server(TRUE, TRUE);
 } // end if LeftDisplayServers
