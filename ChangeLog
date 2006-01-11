@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php, libraries/sqlparser.lib.php: other fixes for bug #1394479
+
 2006-01-11 Michal Čihař  <michal@cihar.com>
     * main.php: Do not fail if no server is defined.
     * main.php, libraries/left_header.inc.php,

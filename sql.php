@@ -337,7 +337,7 @@ else {
             // a section_after_limit, we now have to analyze $display_query
             // to display it correctly
 
-            if (!empty($analyzed_sql[0]['section_after_limit'])) {
+            if (!empty($analyzed_sql[0]['section_after_limit']) && trim($analyzed_sql[0]['section_after_limit']) != ';') {
                 $analyzed_display_query = PMA_SQP_analyze(PMA_SQP_parse($display_query));
                 $display_query  = $analyzed_display_query[0]['section_before_limit'] . "\n" . $sql_limit_to_append . $analyzed_display_query[0]['section_after_limit'];
             }

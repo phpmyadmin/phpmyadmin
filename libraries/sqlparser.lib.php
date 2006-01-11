@@ -1541,7 +1541,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
            // clear $upper_data for next iteration
            $upper_data='';
 
-           if ($collect_section_before_limit) {
+           if ($collect_section_before_limit  && $arr[$i]['type'] != 'punct_queryend') {
                $section_before_limit .= $arr[$i]['data'] . $sep;
            } else {
                $section_after_limit .= $arr[$i]['data'] . $sep;
