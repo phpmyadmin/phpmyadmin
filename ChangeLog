@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: typo, thanks to Cédric Corazza
+
 2006-01-11 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php, libraries/sqlparser.lib.php: other fixes for bug #1394479
 
