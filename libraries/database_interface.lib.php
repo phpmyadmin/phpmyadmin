@@ -136,7 +136,8 @@ function PMA_DBI_convert_message( $message ) {
     );
 
     if ( $server_language = PMA_DBI_fetch_value( 'SHOW VARIABLES LIKE \'language\';', 0, 1 ) ) {
-        if ( preg_match( '&(?:\\\|\\/)([^\\\\\/]*)(?:\\\|\\/)$&i', $server_language, $found = array() ) ) {
+        $found = array();
+        if ( preg_match( '&(?:\\\|\\/)([^\\\\\/]*)(?:\\\|\\/)$&i', $server_language, $found )) {
             $server_language = $found[1];
         }
     }

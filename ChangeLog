@@ -9,6 +9,7 @@ $Source$
     * Documentation.html: typo, thanks to Cédric Corazza
     * libraries/common.lib.php: remove high-ascii characters, and an
       assignment syntax that does not work on PHP 5.1.2
+    * libraries/database_interface.lib.php: PHP 5.1.2 compatibility
 
 2006-01-11 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php, libraries/sqlparser.lib.php: other fixes for bug #1394479
