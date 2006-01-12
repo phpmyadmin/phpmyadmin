@@ -849,15 +849,21 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             // get the duplicate entry
 
             // get table name
-            preg_match('�ALTER\sTABLE\s\`([^\`]+)\`�iu', $the_query, $error_table = array());
+            // TODO: what would be the best delimiter, while avoiding
+            // special characters that can become high-ascii after editing,
+            // depending upon which editor is used by the developer?
+            $error_table = array();
+            preg_match('@ALTER\sTABLE\s\`([^\`]+)\`@iu', $the_query, $error_table);
             $error_table = $error_table[1];
 
             // get fields
-            preg_match('�\(([^\)]+)\)�i', $the_query, $error_fields = array());
+            $error_fields = array();
+            preg_match('@\(([^\)]+)\)@i', $the_query, $error_fields);
             $error_fields = explode(',', $error_fields[1]);
 
             // duplicate value
-            preg_match('�\'([^\']+)\'�i', $tmp_mysql_error, $duplicate_value = array());
+            $duplicate_value = array();
+            preg_match('@\'([^\']+)\'@i', $tmp_mysql_error, $duplicate_value);
             $duplicate_value = $duplicate_value[1];
 
             $sql = '
