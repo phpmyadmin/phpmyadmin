@@ -1100,7 +1100,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
                         $group[$group_name]['tab' . $sep . 'count'] = 1;
                         $group[$group_name]['tab' . $sep . 'group'] = $group_name_full;
                     } else {
-                        $group[$group_name]['tab_count']++;
+                        $group[$group_name]['tab' . $sep . 'count']++;
                     }
                     $group =& $group[$group_name];
                     $i++;

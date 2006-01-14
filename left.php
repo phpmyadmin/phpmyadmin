@@ -463,11 +463,11 @@ function PMA_displayTableList($tables, $visible = false,
                     return false;">
                 <?php
                 if ( $GLOBALS['text_dir'] === 'rtl' ) {
-                    echo ' <bdo dir="ltr">(' . $table['tab_count'] . ')</bdo> ';
+                    echo ' <bdo dir="ltr">(' . $table['tab' . $sep . 'count'] . ')</bdo> ';
                 }
                 echo htmlspecialchars( substr( $group, 0, strlen( $group ) - strlen( $sep ) ) );
                 if ( $GLOBALS['text_dir'] === 'ltr' ) {
-                    echo ' <bdo dir="ltr">(' . $table['tab_count'] . ')</bdo> ';
+                    echo ' <bdo dir="ltr">(' . $table['tab' . $sep . 'count'] . ')</bdo> ';
                 }
                 ?>
             </a>

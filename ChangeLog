@@ -16,6 +16,8 @@ $Source$
     * libraries/common.lib.php:
       removed aditional check for table row count for left frame tree
       (bug #1397061 Left frame not loaded correct on MySQL error)
+    * libraries/common.lib.php, left.php:
+      bug #1392924 undefined index: tab_count
 
 2006-01-12 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: typo, thanks to Cédric Corazza
