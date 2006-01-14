@@ -233,18 +233,14 @@ function PMA_DBI_get_tables($database, $link = null)
  * @param   resource        $link           mysql link
  * @return  array           list of tbales in given db(s)
  */
-function PMA_DBI_get_tables_full( $database, $table = false,
-    $tbl_is_group = false, $link = null )
+function PMA_DBI_get_tables_full($database, $table = false,
+    $tbl_is_group = false, $link = null)
 {
     // prepare and check parameters
-    if ( empty( $database ) ) {
-        return false;
-    } elseif ( false !== strpos( '`', $database ) ) {
-        // found ` in name
-        return false;
-    } elseif ( false !== strpos( '\\', $database ) ) {
-        // found \ in name
-        return false;
+    if ( ! is_array($database) ) {
+        $databases = array(addslashes($database));
+    } else {
+        $databases =& array_map($database, 'addslashes');
     }
 
     if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
@@ -252,12 +248,12 @@ function PMA_DBI_get_tables_full( $database, $table = false,
         if ( $table ) {
             if ( true === $tbl_is_group ) {
                 $sql_where_table = 'AND `TABLE_NAME` LIKE \''
-                    . PMA_escape_mysql_wildcards( addslashes( $table ) ) . '%\'';
+                    . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
             } elseif ( 'comment' === $tbl_is_group ) {
                 $sql_where_table = 'AND `TABLE_COMMENT` LIKE \''
-                    . PMA_escape_mysql_wildcards( addslashes( $table ) ) . '%\'';
+                    . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
             } else {
-                $sql_where_table = 'AND `TABLE_NAME` = \'' . addslashes( $table ) . '\'';
+                $sql_where_table = 'AND `TABLE_NAME` = \'' . addslashes($table) . '\'';
             }
         } else {
             $sql_where_table = '';
@@ -288,79 +284,90 @@ function PMA_DBI_get_tables_full( $database, $table = false,
                     `CREATE_OPTIONS`     AS `Create_options`,
                     `TABLE_COMMENT`      AS `Comment`
                FROM `information_schema`.`TABLES`
-              WHERE `TABLE_SCHEMA` = \'' . addslashes( $database ) . '\'
+              WHERE `TABLE_SCHEMA` IN (\'' . implode("', '", $databases) . '\')
                 ' . $sql_where_table;
 
-        $tables = PMA_DBI_fetch_result( $sql, 'TABLE_NAME', null, $link );
+        $tables = PMA_DBI_fetch_result($sql, array('TABLE_SCHEMA','TABLE_NAME'),
+            null, $link);
         unset( $sql_where_table, $sql );
     } else {
-        if ( true === $tbl_is_group ) {
-            $sql = 'SHOW TABLE STATUS FROM '
-                . PMA_backquote( addslashes( $database ) )
-                .' LIKE \'' . PMA_escape_mysql_wildcards( addslashes( $table ) ) . '%\'';
-        } else {
-            $sql = 'SHOW TABLE STATUS FROM '
-                . PMA_backquote( addslashes( $database ) ) . ';';
-        }
-        $tables = PMA_DBI_fetch_result( $sql, 'Name', null, $link );
-        foreach ( $tables as $table_name => $each_table ) {
-
-
-            if ( 'comment' === $tbl_is_group
-              && 0 === strpos( $each_table['Comment'], $table ) )
-            {
-                // remove table from list
-                unset( $tables[$table_name] );
-                continue;
-            }
-
-            if ( ! isset( $tables[$table_name]['Type'] )
-              && isset( $tables[$table_name]['Engine'] ) ) {
-                // pma BC, same parts of PMA still uses 'Type'
-                $tables[$table_name]['Type'] =& $tables[$table_name]['Engine'];
-            } elseif ( ! isset( $tables[$table_name]['Engine'] )
-              && isset( $tables[$table_name]['Type'] ) ) {
-                // old MySQL reports Type, newer MySQL reports Engine
-                $tables[$table_name]['Engine'] =& $tables[$table_name]['Type'];
-            }
-
-            // MySQL forward compatibility
-            // so pma could use this array as if every server is of version >5.0
-            $tables[$table_name]['TABLE_SCHEMA']      = $database;
-            $tables[$table_name]['TABLE_NAME']        =& $tables[$table_name]['Name'];
-            $tables[$table_name]['ENGINE']            =& $tables[$table_name]['Engine'];
-            $tables[$table_name]['VERSION']           =& $tables[$table_name]['Version'];
-            $tables[$table_name]['ROW_FORMAT']        =& $tables[$table_name]['Row_format'];
-            $tables[$table_name]['TABLE_ROWS']        =& $tables[$table_name]['Rows'];
-            $tables[$table_name]['AVG_ROW_LENGTH']    =& $tables[$table_name]['Avg_row_length'];
-            $tables[$table_name]['DATA_LENGTH']       =& $tables[$table_name]['Data_length'];
-            $tables[$table_name]['MAX_DATA_LENGTH']   =& $tables[$table_name]['Max_data_length'];
-            $tables[$table_name]['INDEX_LENGTH']      =& $tables[$table_name]['Index_length'];
-            $tables[$table_name]['DATA_FREE']         =& $tables[$table_name]['Data_free'];
-            $tables[$table_name]['AUTO_INCREMENT']    =& $tables[$table_name]['Auto_increment'];
-            $tables[$table_name]['CREATE_TIME']       =& $tables[$table_name]['Create_time'];
-            $tables[$table_name]['UPDATE_TIME']       =& $tables[$table_name]['Update_time'];
-            $tables[$table_name]['CHECK_TIME']        =& $tables[$table_name]['Check_time'];
-            $tables[$table_name]['TABLE_COLLATION']   =& $tables[$table_name]['Collation'];
-            $tables[$table_name]['CHECKSUM']          =& $tables[$table_name]['Checksum'];
-            $tables[$table_name]['CREATE_OPTIONS']    =& $tables[$table_name]['Create_options'];
-            $tables[$table_name]['TABLE_COMMENT']     =& $tables[$table_name]['Comment'];
-
-            if ( strtoupper( $tables[$table_name]['Comment'] ) === 'VIEW' ) {
-                $tables[$table_name]['TABLE_TYPE'] = 'VIEW';
+        foreach ( $databases as $each_database ) {
+            if ( true === $tbl_is_group ) {
+                $sql = 'SHOW TABLE STATUS FROM '
+                    . PMA_backquote($each_database)
+                    .' LIKE \'' . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
             } else {
-                // TODO difference between 'TEMPORARY' and 'BASE TABLE'
-                // but how to detect?
-                $tables[$table_name]['TABLE_TYPE'] = 'BASE TABLE';
+                $sql = 'SHOW TABLE STATUS FROM '
+                    . PMA_backquote($each_database) . ';';
             }
+            $each_tables = PMA_DBI_fetch_result($sql, 'Name', null, $link);
+            foreach ( $each_tables as $table_name => $each_table ) {
+                if ( 'comment' === $tbl_is_group
+                  && 0 === strpos($each_table['Comment'], $table) )
+                {
+                    // remove table from list
+                    unset( $each_tables[$table_name] );
+                    continue;
+                }
+    
+                if ( ! isset( $each_tables[$table_name]['Type'] )
+                  && isset( $each_tables[$table_name]['Engine'] ) ) {
+                    // pma BC, same parts of PMA still uses 'Type'
+                    $each_tables[$table_name]['Type']
+                        =& $each_tables[$table_name]['Engine'];
+                } elseif ( ! isset( $each_tables[$table_name]['Engine'] )
+                  && isset( $each_tables[$table_name]['Type'] ) ) {
+                    // old MySQL reports Type, newer MySQL reports Engine
+                    $each_tables[$table_name]['Engine']
+                        =& $each_tables[$table_name]['Type'];
+                }
+    
+                // MySQL forward compatibility
+                // so pma could use this array as if every server is of version >5.0
+                $each_tables[$table_name]['TABLE_SCHEMA']      = $each_database;
+                $each_tables[$table_name]['TABLE_NAME']        =& $each_tables[$table_name]['Name'];
+                $each_tables[$table_name]['ENGINE']            =& $each_tables[$table_name]['Engine'];
+                $each_tables[$table_name]['VERSION']           =& $each_tables[$table_name]['Version'];
+                $each_tables[$table_name]['ROW_FORMAT']        =& $each_tables[$table_name]['Row_format'];
+                $each_tables[$table_name]['TABLE_ROWS']        =& $each_tables[$table_name]['Rows'];
+                $each_tables[$table_name]['AVG_ROW_LENGTH']    =& $each_tables[$table_name]['Avg_row_length'];
+                $each_tables[$table_name]['DATA_LENGTH']       =& $each_tables[$table_name]['Data_length'];
+                $each_tables[$table_name]['MAX_DATA_LENGTH']   =& $each_tables[$table_name]['Max_data_length'];
+                $each_tables[$table_name]['INDEX_LENGTH']      =& $each_tables[$table_name]['Index_length'];
+                $each_tables[$table_name]['DATA_FREE']         =& $each_tables[$table_name]['Data_free'];
+                $each_tables[$table_name]['AUTO_INCREMENT']    =& $each_tables[$table_name]['Auto_increment'];
+                $each_tables[$table_name]['CREATE_TIME']       =& $each_tables[$table_name]['Create_time'];
+                $each_tables[$table_name]['UPDATE_TIME']       =& $each_tables[$table_name]['Update_time'];
+                $each_tables[$table_name]['CHECK_TIME']        =& $each_tables[$table_name]['Check_time'];
+                $each_tables[$table_name]['TABLE_COLLATION']   =& $each_tables[$table_name]['Collation'];
+                $each_tables[$table_name]['CHECKSUM']          =& $each_tables[$table_name]['Checksum'];
+                $each_tables[$table_name]['CREATE_OPTIONS']    =& $each_tables[$table_name]['Create_options'];
+                $each_tables[$table_name]['TABLE_COMMENT']     =& $each_tables[$table_name]['Comment'];
+    
+                if ( strtoupper( $each_tables[$table_name]['Comment'] ) === 'VIEW' ) {
+                    $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
+                } else {
+                    // TODO difference between 'TEMPORARY' and 'BASE TABLE'
+                    // but how to detect?
+                    $each_tables[$table_name]['TABLE_TYPE'] = 'BASE TABLE';
+                }
+            }
+            
+            $tables[$each_database] = $each_tables;
         }
     }
 
     if ( $GLOBALS['cfg']['NaturalOrder'] ) {
-        uksort( $tables, 'strnatcasecmp' );
+        foreach ( $tables as $key => $val ) {
+            uksort($tables[$key], 'strnatcasecmp');
+        }
     }
 
-    return $tables;
+    if ( ! is_array($database) ) {
+        return $tables[$database];
+    } else {
+        return $tables;
+    }
 }
 
 /**

@@ -7,6 +7,8 @@ $Source$
 
 2006-01-14 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/sql_query_form.lib.php: undefined js variable
+    * libraries/database_interface.lib.php: PMA_DBI_get_tables_full() first parameter
+      now also accepts an array of database names not only a single name
 
 2006-01-12 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: typo, thanks to Cédric Corazza
