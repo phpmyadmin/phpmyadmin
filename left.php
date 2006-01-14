@@ -58,7 +58,7 @@ require_once('./libraries/header_http.inc.php');
  * Displays the frame
  */
 // remove vertical scroll bar bug in ie
-echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
+echo '<?xml version="1.0" encoding="' . $GLOBALS['charset'] . '"?>';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -133,6 +133,11 @@ if ( $num_dbs === 0 ) {
 } elseif ( $GLOBALS['cfg']['LeftFrameLight'] && $num_dbs > 1 ) {
     // more than one database available and LeftFrameLight is true
     // display db selectbox
+    //
+    // Light mode -> beginning of the select combo for databases
+    // Note: When javascript is active, the frameset will be changed from
+    // within left.php. With no JS (<noscript>) the whole frameset will
+    // be rebuilt with the new target frame.
     ?>
 
     <div id="databaseList">
@@ -160,11 +165,6 @@ if ( $num_dbs === 0 ) {
 //    or $GLOBALS['cfg']['Servers']['only_db'] is defined and is not an array)
 //    In this case, the database should not be collapsible/expandable
 
-// Light mode -> beginning of the select combo for databases
-// Note: When javascript is active, the frameset will be changed from
-// within left.php. With no JS (<noscript>) the whole frameset will
-// be rebuilt with the new target frame.
-
 $img_plus = '<img class="icon" id="el%dImg" src="' . $pmaThemeImage . 'b_plus.png"'
     .' width="9" height="9" alt="+" />';
 $img_minus = '<img class="icon" id="el%dImg" src="' . $pmaThemeImage . 'b_minus.png"'
@@ -176,6 +176,8 @@ $href_left = '<a onclick="if ( toggle(\'%d\') ) return false;"'
 $element_counter = 0;
 
 if ( $GLOBALS['cfg']['LeftFrameLight'] && ! empty( $db ) ) {
+    // show selected databasename as link to DefaultTabDatabase-page
+    // with table count in ()
     $common_url_query = PMA_generate_common_url( $db );
 
     $db_tooltip = '';
@@ -219,7 +221,7 @@ if ( $GLOBALS['cfg']['LeftFrameLight'] && ! empty( $db ) ) {
     echo '<p>' . $GLOBALS['strSelectADb'] . '</p>' . "\n";
 } else {
     $common_url_query = PMA_generate_common_url();
-    PMA_displayDbList( PMA_getDbList() );
+    PMA_displayDbList(PMA_getDbList());
 }
 
 /**
@@ -247,6 +249,10 @@ if ( $GLOBALS['cfg']['LeftFrameLight'] && ! empty( $db ) ) {
 function PMA_displayDbList( $ext_dblist ) {
     global $element_counter, $img_minus, $img_plus, $href_left, $num_dbs,
         $db_start, $common_url_query;
+
+    // get table list, for all databases
+    // doing this in one step takes advantage of a single query with information_schema!
+    $tables_full = PMA_DBI_get_tables_full($GLOBALS['dblist']);
 
     $url_dbgroup = '';
     echo '<ul id="leftdatabaselist">';
@@ -350,10 +356,14 @@ function PMA_displayDbList( $ext_dblist ) {
                 <?php
             }
             if ( $db['num_tables'] ) {
-                $tables = PMA_getTableList( $db['name'] );
+                if ( isset( $tables_full[$db['name']] ) ) {
+                    $tables = PMA_getTableList($db['name'], $tables_full[$db['name']]);
+                } else {
+                    $tables = PMA_getTableList($db['name']);
+                }
                 $child_visible =
                     (bool) ($num_dbs === 1 || $db_start == $db['name']);
-                PMA_displayTableList( $tables, $child_visible, '', $db['name'] );
+                PMA_displayTableList($tables, $child_visible, '', $db['name']);
             } elseif ( $GLOBALS['cfg']['LeftFrameLight'] ) {
                 // no tables and LeftFrameLight:
                 // display message no tables in selected db
@@ -405,9 +415,9 @@ function PMA_displayDbList( $ext_dblist ) {
  * @param   string  $tab_group_full full tab group name
  * @param   string  $table_db       db of this table
  */
-function PMA_displayTableList( $tables, $visible = false,
-    $tab_group_full = '', $table_db = '' ) {
-
+function PMA_displayTableList($tables, $visible = false,
+    $tab_group_full = '', $table_db = '')
+{
     if ( ! is_array( $tables ) || count( $tables ) === 0 ) {
         return;
     }
