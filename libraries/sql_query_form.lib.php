@@ -81,12 +81,11 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
     
     $table  = '';
     $db     = '';
-    if ( empty( $GLOBALS['db'] ) ) {
+    if ( ! isset( $GLOBALS['db'] ) || ! strlen($GLOBALS['db']) ) {
         // prepare for server related
         $goto   = empty( $GLOBALS['goto'] ) ? 
                     'server_sql.php' : $GLOBALS['goto'];
-    }
-    elseif ( empty( $GLOBALS['table'] ) ) {
+    } elseif ( ! isset( $GLOBALS['table'] ) || ! strlen($GLOBALS['table']) ) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         $goto   = empty( $GLOBALS['goto'] ) ? 
@@ -198,13 +197,12 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
     $table          = '';
     $db             = '';
     $fields_list    = array();
-    if ( empty( $GLOBALS['db'] ) ) {
+    if ( ! isset( $GLOBALS['db'] ) || ! strlen($GLOBALS['db']) ) {
         // prepare for server related
         $legend = sprintf( $GLOBALS['strRunSQLQueryOnServer'],
             htmlspecialchars(
                 $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host'] ) );
-    }
-    elseif ( empty( $GLOBALS['table'] ) ) {
+    } elseif ( ! isset( $GLOBALS['table'] ) || ! strlen($GLOBALS['table']) ) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         // if you want navigation:
@@ -288,7 +286,7 @@ function PMA_sqlQueryFormInsert( $query = '', $is_querywindow = false ) {
         foreach ( $fields_list as $field ) {
             echo '<option value="' 
                 .PMA_backquote( htmlspecialchars( $field['Field'] ) ) . '"';
-            if ( ! empty( $field['Field'] )  && isset($field['Comment']) ) {
+            if ( isset( $field['Field'] ) && strlen($field['Field']) && isset($field['Comment']) ) {
                 echo ' title="' . htmlspecialchars( $field['Comment'] ) . '"';
             }
             echo '>' . htmlspecialchars( $field['Field'] ) . '</option>' . "\n";

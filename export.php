@@ -23,9 +23,9 @@ require('./libraries/export/' . PMA_securePath($type) . '.php');
 // Generate error url
 if ($export_type == 'server') {
     $err_url = 'server_export.php?' . PMA_generate_common_url();
-} elseif ($export_type == 'database' && !empty($db)) {
+} elseif ($export_type == 'database' && isset($db) && strlen($db)) {
     $err_url = 'db_details_export.php?' . PMA_generate_common_url($db);
-} elseif ($export_type == 'table' && !empty($db) && !empty($table)) {
+} elseif ($export_type == 'table' && isset($db) && strlen($db) && isset($table) && strlen($table)) {
     $err_url = 'tbl_properties_export.php?' . PMA_generate_common_url($db, $table);
 } else {
     die('Bad parameters!');

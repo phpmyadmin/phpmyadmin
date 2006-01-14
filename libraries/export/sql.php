@@ -560,7 +560,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 // a binary field
                 // Note: with mysqli, under MySQL 4.1.3, we get the flag
                 // "binary" for those field types (I don't know why)
-                } else if (stristr($field_flags[$j], 'BINARY')
+                } elseif (stristr($field_flags[$j], 'BINARY')
                         && isset($GLOBALS['hexforbinary'])
                         && $fields_meta[$j]->type != 'datetime'
                         && $fields_meta[$j]->type != 'date'

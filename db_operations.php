@@ -33,7 +33,7 @@ if (isset($db) &&
         $move = FALSE;
     }
 
-    if (!isset($newname) || empty($newname)) {
+    if (!isset($newname) || !strlen($newname)) {
         $message = $strDatabaseEmpty;
     } else {
         if ($move ||

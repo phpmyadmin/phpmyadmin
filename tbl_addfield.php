@@ -93,12 +93,12 @@ if (isset($submit_num_fields)) {
             $primary_cnt = count($field_primary);
             for ($i = 0; $i < $primary_cnt; $i++) {
                 $j       = $field_primary[$i];
-                if (!empty($field_name[$j])) {
+                if (isset($field_name[$j]) && strlen($field_name[$j])) {
                     $primary .= PMA_backquote($field_name[$j]) . ', ';
                 }
             } // end for
             $primary     = preg_replace('@, $@', '', $primary);
-            if (!empty($primary)) {
+            if (strlen($primary)) {
                 $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD PRIMARY KEY (' . $primary . ');';
                 $result         = PMA_DBI_query($sql_query);
                 $sql_query_cpy  .= "\n" . $sql_query . ';';
@@ -111,12 +111,12 @@ if (isset($submit_num_fields)) {
             $index_cnt = count($field_index);
             for ($i = 0; $i < $index_cnt; $i++) {
                 $j     = $field_index[$i];
-                if (!empty($field_name[$j])) {
+                if (isset($field_name[$j]) && strlen($field_name[$j])) {
                     $index .= PMA_backquote($field_name[$j]) . ', ';
                 }
             } // end for
             $index     = preg_replace('@, $@', '', $index);
-            if (!empty($index)) {
+            if (strlen($index)) {
                 $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX (' . $index . ')';
                 $result         = PMA_DBI_query($sql_query);
                 $sql_query_cpy  .= "\n" . $sql_query . ';';
@@ -129,12 +129,12 @@ if (isset($submit_num_fields)) {
             $unique_cnt = count($field_unique);
             for ($i = 0; $i < $unique_cnt; $i++) {
                 $j      = $field_unique[$i];
-                if (!empty($field_name[$j])) {
+                if (isset($field_name[$j]) && strlen($field_name[$j])) {
                     $unique .= PMA_backquote($field_name[$j]) . ', ';
                 }
             } // end for
             $unique = preg_replace('@, $@', '', $unique);
-            if (!empty($unique)) {
+            if (strlen($unique)) {
                 $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE (' . $unique . ')';
                 $result         = PMA_DBI_query($sql_query);
                 $sql_query_cpy  .= "\n" . $sql_query . ';';
@@ -151,7 +151,7 @@ if (isset($submit_num_fields)) {
                 $fulltext .= PMA_backquote($field_name[$j]) . ', ';
             } // end for
             $fulltext = preg_replace('@, $@', '', $fulltext);
-            if (!empty($fulltext)) {
+            if (strlen($fulltext)) {
                 $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT (' . $fulltext . ')';
                 $result         = PMA_DBI_query($sql_query);
                 $sql_query_cpy  .= "\n" . $sql_query . ';';
@@ -167,7 +167,7 @@ if (isset($submit_num_fields)) {
         // garvin: Update comment table, if a comment was set.
         if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork'] && PMA_MYSQL_INT_VERSION < 40100) {
             foreach ($field_comments AS $fieldindex => $fieldcomment) {
-                if (!empty($field_name[$fieldindex])) {
+                if (isset($field_name[$fieldindex]) && strlen($field_name[$fieldindex])) {
                     PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, '', 'pmadb');
                 }
             }
@@ -176,7 +176,7 @@ if (isset($submit_num_fields)) {
         // garvin: Update comment table for mime types [MIME]
         if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
             foreach ($field_mimetype AS $fieldindex => $mimetype) {
-                if (!empty($field_name[$fieldindex])) {
+                if (isset($field_name[$fieldindex]) && strlen($field_name[$fieldindex])) {
                     PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
                 }
             }

@@ -215,7 +215,8 @@ function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data, $di
                     echo '        <tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n";
                 }
 
-                if (!empty($indexes_data[$index_name][$seq_index]['Sub_part'])) {
+                if ( isset($indexes_data[$index_name][$seq_index]['Sub_part'])
+                  && strlen($indexes_data[$index_name][$seq_index]['Sub_part']) ) {
                     echo '            <td>' . $col_name . '</td>' . "\n";
                     echo '            <td align="right">' . "\n"
                        . '                ' . $indexes_data[$index_name][$seq_index]['Sub_part'] . "\n"

@@ -30,7 +30,7 @@ if (!isset($pos)) {
  *     the "display printable view" option.
  *     Of course '0'/'1' means the feature won't/will be enabled.
  *
- * @param   string   the synthetic value for display_mode (see §1 a few
+ * @param   string   the synthetic value for display_mode (see ï¿½1 a few
  *                   lines above for explanations)
  * @param   integer  the total number of rows returned by the sql query
  *                   without any programmatically appended "LIMIT" clause
@@ -157,7 +157,7 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
         $the_total = $unlim_num_rows;
     }
     else if (($do_display['nav_bar'] == '1' || $do_display['sort_lnk'] == '1')
-             && (!empty($db) && !empty($table))) {
+             && (isset($db) && strlen($db) && !empty($table))) {
         $the_total   = PMA_countRecords($db, $table, TRUE);
     }
 
@@ -741,7 +741,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                    && isset($analyzed_sql[0]['select_expr'][$i]['column'])
                    && $analyzed_sql[0]['select_expr'][$i]['expr'] !=
                    $analyzed_sql[0]['select_expr'][$i]['column']
-                  && !empty($fields_meta[$i]->table)) ) {
+                  && isset($fields_meta[$i]->table) && strlen($fields_meta[$i]->table)) ) {
                 $sort_tbl = PMA_backquote($fields_meta[$i]->table) . ' . ';
             } else {
                 $sort_tbl = '';
@@ -1229,7 +1229,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
                         foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
                             $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
-                            if (!empty($alias)) {
+                            if (isset($alias) && strlen($alias)) {
                                 $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
                                 if ($alias == $meta->name) {
                                     $meta->name = $true_column;
@@ -1240,7 +1240,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                     if (isset($map[$meta->name])) {
                         // Field to display from the foreign table?
-                        if (!empty($map[$meta->name][2])) {
+                        if (isset($map[$meta->name][2]) && strlen($map[$meta->name][2])) {
                             $dispsql     = 'SELECT ' . PMA_backquote($map[$meta->name][2])
                                          . ' FROM ' . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
                                          . ' WHERE ' . PMA_backquote($map[$meta->name][1])
@@ -1355,7 +1355,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
                         foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
                             $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
-                            if (!empty($alias)) {
+                            if (isset($alias) && strlen($alias)) {
                                 $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
                                 if ($alias == $meta->name) {
                                     $meta->name = $true_column;
@@ -1366,7 +1366,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                     if (isset($map[$meta->name])) {
                         // Field to display from the foreign table?
-                        if (!empty($map[$meta->name][2])) {
+                        if (isset($map[$meta->name][2]) && strlen($map[$meta->name][2])) {
                             $dispsql     = 'SELECT ' . PMA_backquote($map[$meta->name][2])
                                          . ' FROM ' . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
                                          . ' WHERE ' . PMA_backquote($map[$meta->name][1])
@@ -1756,7 +1756,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     $tabs    = '(\'' . join('\',\'', $target) . '\')';
 
     if ($cfgRelation['displaywork']) {
-        if (empty($table)) {
+        if (! isset($table) || ! strlen($table)) {
             $exist_rel = FALSE;
         } else {
             $exist_rel = PMA_getForeigners($db, $table, '', 'both');

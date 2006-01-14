@@ -79,9 +79,9 @@ foreach( $drops as $each_drop ) {
 }
 unset( $drops, $each_drop );
 
-if ( empty( $GLOBALS['db'] ) ) {
+if ( ! isset($GLOBALS['db']) || ! strlen($GLOBALS['db']) ) {
     $main_target = $GLOBALS['cfg']['DefaultTabServer'];
-} elseif ( empty( $GLOBALS['table'] ) ) {
+} elseif ( ! isset($GLOBALS['table']) || ! strlen($GLOBALS['table']) ) {
     $_GET['db'] = $GLOBALS['db'];
     $main_target = $GLOBALS['cfg']['DefaultTabDatabase'];
 } else {

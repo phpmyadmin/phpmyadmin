@@ -21,10 +21,10 @@ $index_types_cnt   = count($index_types);
  */
 if (!defined('PMA_IDX_INCLUDED')) {
     // Not a valid db name -> back to the welcome page
-    if ( !empty($db) ) {
+    if ( isset($db) && strlen($db) ) {
         $is_db = PMA_DBI_select_db($db);
     }
-    if ( empty($db) || !$is_db ) {
+    if ( !isset($db) || !strlen($db) || !$is_db ) {
         $uri_params = array( 'reload' => '1' );
         if ( isset($message) ) {
             $uri_params['message'] = $message;
@@ -34,11 +34,11 @@ if (!defined('PMA_IDX_INCLUDED')) {
         exit;
     }
     // Not a valid table name -> back to the default db_details sub-page
-    if ( !empty($table) ) {
+    if ( isset($table) && strlen($table) ) {
         $is_table = PMA_DBI_query('SHOW TABLES LIKE \''
             . PMA_sqlAddslashes($table, TRUE) . '\'', NULL, PMA_DBI_QUERY_STORE);
     }
-    if ( empty($table)
+    if ( ! isset($table) || ! strlen($table)
       || !( $is_table && PMA_DBI_num_rows($is_table) ) ) {
         $uri_params = array( 'reload' => '1', 'db' => $db );
         if ( isset($message) ) {

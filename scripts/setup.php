@@ -1217,7 +1217,7 @@ switch ($action) {
                 message('error', 'Empty username while using config authentication method!');
                 $err = TRUE;
             }
-            if (!empty($new_server['pmadb'])) {
+            if ( isset($new_server['pmadb']) && strlen($new_server['pmadb'])) {
                 // Just use defaults, should be okay for most users
                 $pmadb = array();
                 $pmadb['bookmarktable'] = 'pma_bookmark';

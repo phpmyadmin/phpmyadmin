@@ -70,7 +70,7 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
             $goto .= '&primary_key[]=' . urlencode(PMA_getUvaCondition($res, count($row), $meta, $row));
         }
     }
-} else if ($goto == 'sql.php') {
+} elseif ($goto == 'sql.php') {
     $goto = 'sql.php?'
           . PMA_generate_common_url($db, $table, '&')
           . '&pos=' . $pos
@@ -79,11 +79,11 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&repeat_cells=' . $repeat_cells
           . '&dontlimitchars=' . $dontlimitchars
           . '&sql_query=' . urlencode($sql_query);
-} else if (!empty($goto)) {
+} elseif (!empty($goto)) {
     // Security checkings
     $is_gotofile     = preg_replace('@^([^?]+).*$@', '\\1', $goto);
     if (!@file_exists('./' . $is_gotofile)) {
-        $goto        = (empty($table)) ? 'db_details.php' : 'tbl_properties.php';
+        $goto        = (! isset($table) || ! strlen($table)) ? 'db_details.php' : 'tbl_properties.php';
         $is_gotofile = TRUE;
     } else {
         $is_gotofile = ($is_gotofile == $goto);
@@ -261,7 +261,7 @@ if ($total_affected_rows != 0) {
 $message .= $last_message;
 
 if ($is_gotofile) {
-    if ($goto == 'db_details.php' && !empty($table)) {
+    if ($goto == 'db_details.php' && isset($table)) {
         unset($table);
     }
     $js_to_run = 'functions.js';

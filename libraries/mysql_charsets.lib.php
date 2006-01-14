@@ -122,7 +122,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             // for databases.
             PMA_DBI_select_db( $db );
             $return = PMA_DBI_fetch_value( 'SHOW VARIABLES LIKE "collation_database"', 0, 1 );
-            if ( ! empty( $GLOBALS['db'] ) && $db !== $GLOBALS['db'] ) {
+            if ( isset( $GLOBALS['db'] ) && $db !== $GLOBALS['db'] ) {
                 PMA_DBI_select_db( $GLOBALS['db'] );
             }
             return $return;

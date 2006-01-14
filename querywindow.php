@@ -8,7 +8,7 @@ require_once('./libraries/common.lib.php');
  * Gets the variables sent to this script, retains the db name that may have
  * been defined as startup option and include a core library
  */
-if (!empty($db)) {
+if (isset($db) && strlen($db)) {
     $db_start = $db;
 }
 
@@ -235,13 +235,11 @@ require_once './libraries/bookmark.lib.php';
 if (isset($no_js) && $no_js) {
     // ... we redirect to appropriate query sql page
     // works only full if $db and $table is also stored/grabbed from $_COOKIE
-    if ( ! empty( $table ) ) {
+    if ( isset( $table ) && strlen($table) ) {
         require './tbl_properties.php';
-    }
-    elseif ( ! empty( $db ) ) {
+    } elseif ( isset($db) && strlen($db) ) {
         require './db_details.php';
-    }
-    else {
+    } else {
         require './server_sql.php';
     }
     exit;
@@ -342,8 +340,8 @@ foreach ( $_input_query_history as $sql => $history ) {
 }
 unset( $_input_query_history, $sql, $history );
 ?>
-    <input type="hidden" name="db" value="<?php echo (empty($db) ? '' : htmlspecialchars($db)); ?>" />
-    <input type="hidden" name="table" value="<?php echo (empty($table) ? '' : htmlspecialchars($table)); ?>" />
+    <input type="hidden" name="db" value="<?php echo (! isset($db) ? '' : htmlspecialchars($db)); ?>" />
+    <input type="hidden" name="table" value="<?php echo (! isset($table) ? '' : htmlspecialchars($table)); ?>" />
 
     <input type="hidden" name="query_history_latest" value="" />
     <input type="hidden" name="query_history_latest_db" value="" />

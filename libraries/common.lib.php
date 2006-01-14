@@ -264,7 +264,7 @@ function PMA_safe_db_list($only_db_check, $controllink, $dblist_cnt, $userlink,
                 // with regular expressions.
                 while ($row = PMA_DBI_fetch_assoc($rs)) {
                     // loic1: all databases cases - part 1
-                    if (empty($row['Db']) || $row['Db'] == '%') {
+                    if ( !isset($row['Db']) || ! strlen($row['Db']) || $row['Db'] == '%') {
                         $uva_mydbs['%'] = 1;
                         break;
                     }
@@ -1151,7 +1151,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
     {
         // '0' is also empty for php :-(
         if ($do_it
-            && (!empty($a_name) || $a_name == '0') && $a_name != '*') {
+            && strlen($a_name) && $a_name != '*') {
 
             if (is_array($a_name)) {
                  $result = array();
@@ -1312,7 +1312,7 @@ if (typeof(window.parent) != 'undefined'
         $message = PMA_sanitize($message);
 
         // Corrects the tooltip text via JS if required
-        if (!empty($GLOBALS['table']) && $cfg['ShowTooltip']) {
+        if ( isset($GLOBALS['table']) && strlen($GLOBALS['table']) && $cfg['ShowTooltip']) {
             $result = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], true) . '\'');
             if ($result) {
                 $tbl_status = PMA_DBI_fetch_assoc($result);
@@ -2152,7 +2152,7 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
             if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
                 foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
                     $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
-                    if (!empty($alias)) {
+                    if (strlen($alias)) {
                         $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
                         if ($alias == $meta->name) {
                             $column_for_condition = $true_column;
@@ -2463,8 +2463,8 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
      */
     function PMA_getDbLink($database = null)
     {
-        if (empty($database)) {
-            if (empty($GLOBALS['db'])) {
+        if (!strlen($database)) {
+            if (!strlen($GLOBALS['db'])) {
                 return '';
             }
             $database = $GLOBALS['db'];
@@ -2508,17 +2508,17 @@ window.parent.updateTableTitle('<?php echo $uni_tbl; ?>', '<?php echo PMA_jsForm
      */
     function PMA_setCookie($cookie, $value, $default = null)
     {
-        if (!empty($value) && null !== $default && $value === $default) {
+        if (strlen($value) && null !== $default && $value === $default) {
             // remove cookie, default value is used
             return PMA_removeCookie($cookie);
         }
 
-        if (empty($value) && isset($_COOKIE[$cookie])) {
+        if (! strlen($value) && isset($_COOKIE[$cookie])) {
             // remove cookie, value is empty
             return PMA_removeCookie($cookie);
         }
 
-        if (empty($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
+        if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
             // set cookie with new value
             return setcookie($cookie, $value, time() + 60*60*24*30,
                 $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);

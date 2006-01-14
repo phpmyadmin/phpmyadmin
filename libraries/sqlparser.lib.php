@@ -1094,7 +1094,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                   'column' => ''
                  );
 
-                if (!empty($alias_for_select_expr)) {
+                if (isset($alias_for_select_expr) && strlen($alias_for_select_expr)) {
                     // we had found an alias for this select expression
                     $subresult['select_expr'][$current_select_expr]['alias'] = $alias_for_select_expr;
                     unset($alias_for_select_expr);
@@ -1156,7 +1156,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                   'table_alias'     => '',
                   'table_true_name' => ''
                  );
-                if (!empty($alias_for_table_ref)) {
+                if (isset($alias_for_table_ref) && strlen($alias_for_table_ref)) {
                     $subresult['table_ref'][$current_table_ref]['table_alias'] = $alias_for_table_ref;
                     unset($alias_for_table_ref);
                 }
@@ -1193,7 +1193,7 @@ if ( ! defined( 'PMA_MINIMUM_COMMON' ) ) {
                     $alias = $subresult['table_ref'][$tr]['table_alias'];
                     $truename = $subresult['table_ref'][$tr]['table_true_name'];
                     for ($se=0; $se <= $current_select_expr; $se++) {
-                        if (!empty($alias) && $subresult['select_expr'][$se]['table_true_name']
+                        if (isset($alias) && strlen($alias) && $subresult['select_expr'][$se]['table_true_name']
                            == $alias) {
                             $subresult['select_expr'][$se]['table_true_name']
                              = $truename;

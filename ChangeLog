@@ -21,6 +21,21 @@ $Source$
     * libraries/display_export.lib.php, css/phpmyadmin.css.php,
       themes/*/css/theme_right.css.php:
       'fixed' layout of export screen for buggy safari and opera
+    * db_operations.php, export.php, index.php, left.php,
+      libraries\auth\cookie.auth.lib.php, libraries\common.lib.php,
+      libraries\db_details_common.inc.php, libraries\db_table_exists.lib.php,
+      libraries\display_export.lib.php, libraries\display_tbl.lib.php,
+      libraries\export\sql.php, libraries\footer.inc.php,
+      libraries\header.inc.php, libraries\left_header.inc.php,
+      libraries\mult_submits.inc.php, libraries\mysql_charsets.lib.php,
+      libraries\relation.lib.php, libraries\server_common.inc.php,
+      libraries\sql_query_form.lib.php, libraries\sqlparser.lib.php,
+      libraries\tbl_indexes.lib.php, libraries\tbl_move_copy.php,
+      libraries\url_generating.lib.php, querywindow.php, scripts\setup.php,
+      server_databases.php, server_privileges.php, server_processlist.php,
+      sql.php, tbl_addfield.php, tbl_alter.php, tbl_change.php, tbl_create.php,
+      tbl_indexes.php, tbl_replace.php:
+      allow 0 as name for database, table collumn, alias and index
 
 2006-01-12 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: typo, thanks to Cédric Corazza

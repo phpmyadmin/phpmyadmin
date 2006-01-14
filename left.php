@@ -35,7 +35,7 @@ if ($server > 0) {
     // it defines $num_dbs and $dblist
     PMA_availableDatabases();
 
-    if ( empty( $db ) && count( $dblist ) === 1 ) {
+    if ( ( ! isset($db) || ! strlen($db) ) && count( $dblist ) === 1 ) {
         reset( $dblist );
         $db = current( $dblist );
     }
@@ -175,7 +175,7 @@ $href_left = '<a onclick="if ( toggle(\'%d\') ) return false;"'
 
 $element_counter = 0;
 
-if ( $GLOBALS['cfg']['LeftFrameLight'] && ! empty( $db ) ) {
+if ( $GLOBALS['cfg']['LeftFrameLight'] && isset($db) && strlen($db) ) {
     // show selected databasename as link to DefaultTabDatabase-page
     // with table count in ()
     $common_url_query = PMA_generate_common_url( $db );

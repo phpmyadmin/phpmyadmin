@@ -78,13 +78,13 @@ if (isset($submit_num_fields)) {
     $primary_cnt = (isset($field_primary) ? count($field_primary) : 0);
     for ($i = 0; $i < $primary_cnt; $i++) {
         $j = $field_primary[$i];
-        if (!empty($field_name[$j])) {
+        if (isset($field_name[$j]) && strlen($field_name[$j])) {
             $primary .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
     unset($primary_cnt);
     $primary = preg_replace('@, $@', '', $primary);
-    if (!empty($primary)) {
+    if (strlen($primary)) {
         $sql_query .= ', PRIMARY KEY (' . $primary . ')';
         $query_cpy .= ',' . "\n" . '  PRIMARY KEY (' . $primary . ')';
     }
@@ -95,13 +95,13 @@ if (isset($submit_num_fields)) {
     $index_cnt = (isset($field_index) ? count($field_index) : 0);
     for ($i = 0;$i < $index_cnt; $i++) {
         $j = $field_index[$i];
-        if (!empty($field_name[$j])) {
+        if (isset($field_name[$j]) && strlen($field_name[$j])) {
             $index .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
     unset($index_cnt);
     $index = preg_replace('@, $@', '', $index);
-    if (!empty($index)) {
+    if (strlen($index)) {
         $sql_query .= ', INDEX (' . $index . ')';
         $query_cpy .= ',' . "\n" . '  INDEX (' . $index . ')';
     }
@@ -112,13 +112,13 @@ if (isset($submit_num_fields)) {
     $unique_cnt = (isset($field_unique) ? count($field_unique) : 0);
     for ($i = 0; $i < $unique_cnt; $i++) {
         $j = $field_unique[$i];
-        if (!empty($field_name[$j])) {
+        if (isset($field_name[$j]) && strlen($field_name[$j])) {
            $unique .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
     unset($unique_cnt);
     $unique = preg_replace('@, $@', '', $unique);
-    if (!empty($unique)) {
+    if (strlen($unique)) {
         $sql_query .= ', UNIQUE (' . $unique . ')';
         $query_cpy .= ',' . "\n" . '  UNIQUE (' . $unique . ')';
     }
@@ -129,13 +129,13 @@ if (isset($submit_num_fields)) {
     $fulltext_cnt = (isset($field_fulltext) ? count($field_fulltext) : 0);
     for ($i = 0; $i < $fulltext_cnt; $i++) {
         $j = $field_fulltext[$i];
-        if (!empty($field_name[$j])) {
+        if (isset($field_name[$j]) && strlen($field_name[$j])) {
            $fulltext .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
 
     $fulltext = preg_replace('@, $@', '', $fulltext);
-    if (!empty($fulltext)) {
+    if (strlen($fulltext)) {
         $sql_query .= ', FULLTEXT (' . $fulltext . ')';
         $query_cpy .= ',' . "\n" . '  FULLTEXT (' . $fulltext . ')';
     }
@@ -178,7 +178,7 @@ if (isset($submit_num_fields)) {
         // garvin: Update comment table, if a comment was set.
         if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork'] && PMA_MYSQL_INT_VERSION < 40100) {
             foreach ($field_comments AS $fieldindex => $fieldcomment) {
-                if (!empty($field_name[$fieldindex])) {
+                if (isset($field_name[$fieldindex]) && strlen($field_name[$fieldindex])) {
                     PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, '', 'pmadb');
                 }
             }
@@ -187,7 +187,7 @@ if (isset($submit_num_fields)) {
         // garvin: Update comment table for mime types [MIME]
         if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
             foreach ($field_mimetype AS $fieldindex => $mimetype) {
-                if (!empty($field_name[$fieldindex])) {
+                if (isset($field_name[$fieldindex]) && strlen($field_name[$fieldindex])) {
                     PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
                 }
             }
@@ -218,11 +218,11 @@ if ($abort == FALSE) {
         PMA_mysqlDie($strTableEmpty, '', '', $err_url);
     }
     // No valid number of fields
-    else if (empty($num_fields) || !is_int($num_fields)) {
+    elseif (empty($num_fields) || !is_int($num_fields)) {
         PMA_mysqlDie($strFieldsEmpty, '', '', $err_url);
     }
     // Does table exist?
-    else if (!(PMA_DBI_get_fields($db, $table) === FALSE)) {
+    elseif (!(PMA_DBI_get_fields($db, $table) === FALSE)) {
         PMA_mysqlDie(sprintf($strTableAlreadyExists, htmlspecialchars($table)), '', '', $err_url);
     }
     // Table name and number of fields are valid -> show the form

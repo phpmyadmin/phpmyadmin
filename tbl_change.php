@@ -376,7 +376,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 }
             }
             // UPDATE case with an empty and not NULL value under PHP4
-            else if (empty($vrow[$rowfield]) && is_null($vrow[$rowfield])) {
+            elseif (empty($vrow[$rowfield]) && is_null($vrow[$rowfield])) {
                 $vrow[$rowfield] = date('Y-m-d H:i:s', time());
             } // end if... else if...
         }

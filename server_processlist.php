@@ -77,7 +77,7 @@ foreach ( $serverProcesses AS $process ) {
     <td class="value"><?php echo $process['Id']; ?></td>
     <td><?php echo $process['User']; ?></td>
     <td><?php echo $process['Host']; ?></td>
-    <td><?php echo (empty($process['db']) ? '<i>' . $strNone . '</i>' : $process['db']); ?></td>
+    <td><?php echo (( ! isset( $process['db'] ) || ! strlen($process['db']) ) ? '<i>' . $strNone . '</i>' : $process['db']); ?></td>
     <td><?php echo $process['Command']; ?></td>
     <td class="value"><?php echo $process['Time']; ?></td>
     <td><?php echo (empty($process['State']) ? '---' : $process['State']); ?></td>

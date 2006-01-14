@@ -24,7 +24,7 @@ if (!empty($goto)) {
 } // end if (security checkings)
 
 if (empty($goto)) {
-    $goto = (empty($table)) ? $cfg['DefaultTabDatabase'] : $cfg['DefaultTabTable'];
+    $goto = (! isset($table) || ! strlen($table)) ? $cfg['DefaultTabDatabase'] : $cfg['DefaultTabTable'];
     $is_gotofile  = TRUE;
 } // end if
 if (!isset($err_url)) {
@@ -156,11 +156,10 @@ if ($is_select) {
     if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name'])) {
         $table = $analyzed_sql[0]['table_ref'][0]['table_true_name'];
     }
-    if (isset($analyzed_sql[0]['table_ref'][0]['db'])
-       && !empty($analyzed_sql[0]['table_ref'][0]['db'])) {
+    if ( isset($analyzed_sql[0]['table_ref'][0]['db'])
+      && strlen($analyzed_sql[0]['table_ref'][0]['db']) ) {
         $db    = $analyzed_sql[0]['table_ref'][0]['db'];
-    }
-    else {
+    } else {
         $db = $prev_db;
     }
     // Nijel: don't change reload, if we already decided to reload in import
@@ -189,7 +188,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
         $goto = $back;
     }
     if ($is_gotofile) {
-        if (strpos(' ' . $goto, 'db_details') == 1 && !empty($table)) {
+        if (strpos(' ' . $goto, 'db_details') == 1 && isset($table) && strlen($table) ) {
             unset($table);
         }
         $active_page = $goto;
@@ -577,9 +576,9 @@ else {
         if (isset($purge) && $purge == '1') {
             require_once('./libraries/relation_cleanup.lib.php');
 
-            if (isset($table) && isset($db) && !empty($table) && !empty($db)) {
+            if (isset($table) && isset($db) && strlen($table) && strlen($db)) {
                 PMA_relationsCleanupTable($db, $table);
-            } elseif (isset($db) && !empty($db)) {
+            } elseif (isset($db) && strlen($db)) {
                 PMA_relationsCleanupDatabase($db);
             } else {
                 // garvin: VOID. No DB/Table gets deleted.
@@ -589,7 +588,7 @@ else {
         // garvin: If a column gets dropped, do relation magic.
         if (isset($cpurge) && $cpurge == '1' && isset($purgekey)
             && isset($db) && isset($table)
-            && !empty($db) && !empty($table) && !empty($purgekey)) {
+            && strlen($db) && strlen($table) && !empty($purgekey)) {
             require_once('./libraries/relation_cleanup.lib.php');
             PMA_relationsCleanupColumn($db, $table, $purgekey);
 
@@ -694,23 +693,21 @@ else {
         } else {
             $js_to_run = 'functions.js';
             unset($message);
-            if (!empty($table)) {
+            if (isset($table) && strlen($table)) {
                 require('./libraries/tbl_properties_common.php');
                 $url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
                 require('./libraries/tbl_properties_table_info.inc.php');
                 require('./libraries/tbl_properties_links.inc.php');
-            }
-            elseif (!empty($db)) {
+            } elseif (isset($db) && strlen($db)) {
                 require('./libraries/db_details_common.inc.php');
                 require('./libraries/db_details_db_info.inc.php');
-            }
-            else {
+            } else {
                 require('./libraries/server_common.inc.php');
                 require('./libraries/server_links.inc.php');
             }
         }
 
-        if (!empty($db)) {
+        if (isset($db) && strlen($db)) {
             require_once('./libraries/relation.lib.php');
             $cfgRelation = PMA_getRelationsParam();
         }

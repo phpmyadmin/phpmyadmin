@@ -39,10 +39,10 @@ function PMA_generate_common_hidden_inputs( $db = '', $table = '', $indent = 0, 
         $skip    =& $_skip;
     } else {
         $params = array();
-        if ( ! empty( $db ) ) {
+        if ( isset($db) && strlen($db) ) {
             $params['db'] = $db;
         }
-        if ( ! empty( $table ) ) {
+        if ( isset($table) && strlen($table) ) {
             $params['table'] = $table;
         }
     }
@@ -138,10 +138,10 @@ function PMA_generate_common_url ($db = '', $table = '', $delim = '&amp;')
         $questionmark = '?';
     } else {
         $params = array();
-        if ( ! empty( $db ) ) {
+        if ( isset($db) && strlen($db) ) {
             $params['db'] = $db;
         }
-        if ( ! empty( $table ) ) {
+        if ( isset($table) && strlen($table) ) {
             $params['table'] = $table;
         }
         $questionmark = '';

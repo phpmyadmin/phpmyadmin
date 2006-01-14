@@ -36,7 +36,7 @@ function PMA_exportIsActive($what, $val) {
 <?php
 $hide_structure = false;
 $hide_sql       = false;
-$hide_xml       = empty($db);
+$hide_xml       = (bool) (isset($db) && strlen($db));
 if ($export_type == 'server') {
     echo PMA_generate_common_hidden_inputs('', '', 1);
 } elseif ($export_type == 'database') {
@@ -769,7 +769,7 @@ function show_checked_option() {
 //]]>
 </script>
 
-<?php if ( ! empty( $table ) && ! isset( $num_tables ) ) { ?>
+<?php if ( isset($table) && strlen($table) && ! isset( $num_tables ) ) { ?>
     <div class="formelementrow">
         <?php
         echo sprintf( $strDumpXRows,

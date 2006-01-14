@@ -8,16 +8,16 @@
  */
 if (!empty($submit_mult)
     && ($submit_mult != $strWithChecked)
-    && (  !empty($selected_db)
-       || !empty($selected_tbl)
-       || !empty($selected_fld)
+    && (  ( isset($selected_db) && strlen($selected_db) )
+       || ( isset($selected_tbl) && strlen($selected_tbl) )
+       || ( isset($selected_fld) && strlen($selected_fld) )
        || !empty($rows_to_delete)
          )) {
 
-    if (!empty($selected_db)) {
+    if (isset($selected_db) && strlen($selected_db)) {
         $selected     = $selected_db;
         $what         = 'drop_db';
-    } elseif (!empty($selected_tbl)) {
+    } elseif (isset($selected_tbl) && strlen($selected_tbl)) {
         if ($submit_mult == $strPrintView) {
             require('./tbl_printview.php');
         } else {
@@ -54,7 +54,7 @@ if (!empty($submit_mult)
                    break;
            } // end switch
         }
-    } elseif (!empty($selected_fld)) {
+    } elseif (isset($selected_fld) && strlen($selected_fld)) {
         $selected     = $selected_fld;
         switch ($submit_mult) {
             case $strDrop:
@@ -126,12 +126,11 @@ if (!empty($submit_mult)
 if ( !empty($submit_mult) && !empty($what)) {
     $js_to_run = 'functions.js';
     unset($message);
-    if (!empty($table)) {
+    if (isset($table) && strlen($table)) {
         require('./libraries/tbl_properties_common.php');
         $url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
         require('./libraries/tbl_properties_table_info.inc.php');
-    }
-    elseif (!empty($db)) {
+    } elseif (isset($db) && strlen($db)) {
         require('./libraries/db_details_common.inc.php');
         require('./libraries/db_details_db_info.inc.php');
     }
@@ -155,11 +154,11 @@ if ( !empty($submit_mult) && !empty($what)) {
                 break;
 
             case 'drop_tbl':
-    	        $current = urldecode($sval);
-        		if (!empty($views) && in_array($current, $views)) {
+                $current = urldecode($sval);
+                if (!empty($views) && in_array($current, $views)) {
                     $full_query_views .= (empty($full_query_views) ? 'DROP VIEW ' : ', ')
                         . PMA_backquote(htmlspecialchars($current));
-        		} else {
+                } else {
                     $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
                         . PMA_backquote(htmlspecialchars($current));
                 }
@@ -215,12 +214,12 @@ if ( !empty($submit_mult) && !empty($what)) {
     }
     if ($what == 'drop_tbl') {
         if (!empty($full_query)) {
-    	    $full_query .= ';<br />' . "\n";
-    	}
-    	if (!empty($full_query_views)) {
-    	    $full_query .= $full_query_views . ';<br />' . "\n";
-    	}
-    	unset($full_query_views);
+            $full_query .= ';<br />' . "\n";
+        }
+        if (!empty($full_query_views)) {
+            $full_query .= $full_query_views . ';<br />' . "\n";
+        }
+        unset($full_query_views);
     }
 
     // Displays the form
@@ -317,10 +316,10 @@ elseif ($mult_btn == $strYes) {
 
             case 'drop_tbl':
                 PMA_relationsCleanupTable($db, $selected[$i]);
-        		$current = urldecode($selected[$i]);
-        		if (!empty($views) && in_array($current, $views)) {
-        		    $sql_query_views .= (empty($sql_query_views) ? 'DROP VIEW ' : ', ')
-		                      . PMA_backquote($current);
+                $current = urldecode($selected[$i]);
+                if (!empty($views) && in_array($current, $views)) {
+                    $sql_query_views .= (empty($sql_query_views) ? 'DROP VIEW ' : ', ')
+                              . PMA_backquote($current);
                 } else {
                     $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ')
                                . PMA_backquote($current);
@@ -407,9 +406,9 @@ elseif ($mult_btn == $strYes) {
 
     if ($query_type == 'drop_tbl') {
         if (!empty($sql_query)) {
-	    $sql_query .= ';';
-	} else if (!empty($sql_query_views)) {
-	    $sql_query = $sql_query_views . ';';
+        $sql_query .= ';';
+    } elseif (!empty($sql_query_views)) {
+        $sql_query = $sql_query_views . ';';
             unset($sql_query_views);
         }
     }
@@ -419,11 +418,11 @@ elseif ($mult_btn == $strYes) {
     } elseif (!$run_parts) {
         PMA_DBI_select_db($db);
         $result = PMA_DBI_query($sql_query);
-    	if (!empty($sql_query_views)) {
-    	    $sql_query .= ' ' . $sql_query_views . ';';
-    	    PMA_DBI_query($sql_query_views);
-    	    unset($sql_query_views);
-    	}
+        if (!empty($sql_query_views)) {
+            $sql_query .= ' ' . $sql_query_views . ';';
+            PMA_DBI_query($sql_query_views);
+            unset($sql_query_views);
+        }
     }
 }
 ?>

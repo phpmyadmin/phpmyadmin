@@ -21,7 +21,7 @@ require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
 <script type="text/javascript" language="javascript">
 //<![CDATA[
     <?php
-    if ( ! isset( $GLOBALS['no_history'] ) && ! empty( $GLOBALS['db'] ) && empty( $GLOBALS['error_message'] ) ) {
+    if ( ! isset( $GLOBALS['no_history'] ) && isset( $GLOBALS['db'] ) && strlen($GLOBALS['db']) && empty( $GLOBALS['error_message'] ) ) {
         $table = isset( $GLOBALS['table'] ) ? $GLOBALS['table'] : '';
         // updates current settings
         ?>
