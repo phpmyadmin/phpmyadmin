@@ -13,6 +13,9 @@ $Source$
       added second parameter to pass tables (if already fetched from db)
     * left.php: make use of new functionality in PMA_getTableList() and
       PMA_DBI_get_tables_full(): reduce db server traffic (MySQL >=5.0)
+    * libraries/common.lib.php:
+      removed aditional check for table row count for left frame tree
+      (bug #1397061 Left frame not loaded correct on MySQL error)
 
 2006-01-12 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: typo, thanks to Cédric Corazza
