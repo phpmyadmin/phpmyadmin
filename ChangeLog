@@ -9,6 +9,8 @@ $Source$
     * libraries/sql_query_form.lib.php: undefined js variable
     * libraries/database_interface.lib.php: PMA_DBI_get_tables_full() first parameter
       now also accepts an array of database names not only a single name
+    * libraries/common.lib.php: PMA_getTableList():
+      added second parameter to pass tables (if already fetched from db)
 
 2006-01-12 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: typo, thanks to Cédric Corazza

@@ -1034,17 +1034,19 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      * @param   string  $db     name of db
      * return   array   (rekursive) grouped table list
      */
-    function PMA_getTableList($db)
+    function PMA_getTableList($db, $tables = null)
     {
         $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
 
-        $tables = PMA_DBI_get_tables_full($db);
+        if ( null === $tables ) {
+            $tables = PMA_DBI_get_tables_full($db);
+            if ($GLOBALS['cfg']['NaturalOrder']) {
+                uksort($tables, 'strnatcasecmp');
+            }
+        }
+        
         if (count($tables) < 1) {
             return $tables;
-        }
-
-        if ($GLOBALS['cfg']['NaturalOrder']) {
-            uksort($tables, 'strnatcasecmp');
         }
 
         $default = array(
@@ -1052,7 +1054,7 @@ if (!defined('PMA_MINIMUM_COMMON')) {
             'Rows'      => 0,
             'Comment'   => '',
             'disp_name' => '',
-       );
+        );
 
         $table_groups = array();
 
