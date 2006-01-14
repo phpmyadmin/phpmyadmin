@@ -104,7 +104,7 @@ function PMA_sqlQueryForm( $query = true, $display_tab = false ) {
         ?>
         <form method="post" id="sqlqueryform" target="frame_content"
               action="import.php"<?php echo $enctype; ?> name="sqlform"
-              onsubmit="save_name = window.opener.parent.frames[1].name;
+              onsubmit="var save_name = window.opener.parent.frames[1].name;
                         window.opener.parent.frames[1].name = save_name + '<?php echo time(); ?>';
                         this.target = window.opener.parent.frames[1].name;
                         return checkSqlQuery( this );" >
