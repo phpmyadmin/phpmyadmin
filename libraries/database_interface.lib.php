@@ -240,9 +240,9 @@ function PMA_DBI_get_tables_full($database, $table = false,
     if ( ! is_array($database) ) {
         $databases = array(addslashes($database));
     } else {
-        $databases =& array_map($database, 'addslashes');
+        $databases = array_map('addslashes', $database);
     }
-
+    
     if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
         // get table information from information_schema
         if ( $table ) {
@@ -286,7 +286,6 @@ function PMA_DBI_get_tables_full($database, $table = false,
                FROM `information_schema`.`TABLES`
               WHERE `TABLE_SCHEMA` IN (\'' . implode("', '", $databases) . '\')
                 ' . $sql_where_table;
-
         $tables = PMA_DBI_fetch_result($sql, array('TABLE_SCHEMA','TABLE_NAME'),
             null, $link);
         unset( $sql_where_table, $sql );
