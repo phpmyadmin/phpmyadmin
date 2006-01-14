@@ -607,12 +607,6 @@ span.tabcaution {
 <?php } ?>
 /* end topmenu */
 
-
-#fieldsetexport #exportoptions {
-    float: left;
-}
-
-
 /* Calendar */
 table.calendar {
     width:              100%;

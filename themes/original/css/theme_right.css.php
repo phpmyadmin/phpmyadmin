@@ -573,11 +573,6 @@ span.tabcaution {
 /* end topmenu */
 
 
-#fieldsetexport #exportoptions {
-    float: left;
-}
-
-
 /* Calendar */
 table.calendar {
     width:              100%;

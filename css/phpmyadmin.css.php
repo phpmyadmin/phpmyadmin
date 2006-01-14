@@ -225,11 +225,6 @@ fieldset div[class=formelement] select {
     height: auto;
 }
 
-#fieldsetexport #exportoptions {
-    float: left;
-}
-
-
 /* Calendar */
 table.calendar      { width: 100%; }
 table.calendar td   { text-align: center; }
@@ -684,6 +679,14 @@ li#li_flush_privileges {
 #div_table_options {
     clear: both;
     min-width: 48%;
+    float: <?php echo $left; ?>;
+}
+
+#qbe_div_table_list {
+    float: <?php echo $left; ?>;
+}
+
+#qbe_div_sql_query {
     float: <?php echo $left; ?>;
 }
     <?php

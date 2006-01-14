@@ -120,6 +120,15 @@ function show_checked_option() {
 <fieldset id="fieldsetexport">
 <legend><?php echo $export_page_title; ?></legend>
 
+<?php
+/* 
+ * this table is needed to fix rendering in Opera <= 9 and Safari <= 2
+ * normaly just the two fieldset would have float: left
+ */
+?>
+<table><tr><td>
+
+<div id="div_container_exportoptions">
 <fieldset id="exportoptions">
 <legend><?php echo $strExport; ?></legend>
 
@@ -234,7 +243,11 @@ function show_checked_option() {
 <?php } ?>
 
 </fieldset>
+</div>
 
+</td><td>
+
+<div id="div_container_sub_exportoptions">
 <?php if ( ! $hide_sql ) { /* SQL options */ ?>
 <fieldset id="sql_options">
     <legend>
@@ -251,7 +264,7 @@ function show_checked_option() {
     ?>
     </legend>
     <div class="formelementrow">
-        <?php echo $strAddHeaderComment; ?>:
+        <?php echo $strAddHeaderComment; ?>:<br />
         <input type="text" name="header_comment" size="30"
             value="<?php echo $cfg['Export']['sql_header_comment']; ?>" />
     </div>
@@ -747,6 +760,8 @@ function show_checked_option() {
     <?php echo $strNoOptions; ?>
     <input type="hidden" name="xml_data" value="xml_data" />
 </fieldset>
+
+</td></tr></table>
 
 <script type="text/javascript" language="javascript">
 //<![CDATA[
