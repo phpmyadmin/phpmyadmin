@@ -158,7 +158,7 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
             if (!$rs_usr) {
                 // OK, now we'd have to guess the user's hostname, but we
                 // only try out the 'username'@'%' case.
-                $rs_usr      = PMA_DBI_try_query('SHOW GRANTS FOR ' . $mysql_cur_user . ';', $controllink, PMA_DBI_QUERY_STORE);
+                $rs_usr      = PMA_DBI_try_query('SHOW GRANTS FOR ' . PMA_convert_using(PMA_sqlAddslashes($mysql_cur_user), 'quoted') . ';', $controllink, PMA_DBI_QUERY_STORE);
             }
             unset($local_query);
             if ($rs_usr) {
