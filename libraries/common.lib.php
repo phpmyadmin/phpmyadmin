@@ -991,10 +991,10 @@ if (!defined('PMA_MINIMUM_COMMON')) {
         global $cfg;
 
         // 1. A list of allowed databases has already been defined by the
-        //    authentification process -> gets the available databases list
+        //    authentication process -> gets the available databases list
         if (count($dblist)) {
             foreach ($dblist as $key => $db) {
-                if (!@PMA_DBI_select_db($db, $link) || (!empty($GLOBALS['cfg']['Server']['hide_db']) && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db))) {
+                if (!@PMA_DBI_select_db($db) || (!empty($GLOBALS['cfg']['Server']['hide_db']) && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db))) {
                     unset($dblist[$key]);
                 } // end if
             } // end for
