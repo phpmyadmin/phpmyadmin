@@ -973,7 +973,7 @@ if (!empty($update_privs)) {
 
         // FIXME: similar code appears twice in this script
     if ( ( isset($Grant_priv) && $Grant_priv == 'Y')
-      || ( ( ! isset($dbname) || ! strle($dbname) ) && PMA_MYSQL_INT_VERSION >= 40002
+      || ( ( ! isset($dbname) || ! strlen($dbname) ) && PMA_MYSQL_INT_VERSION >= 40002
         && ( isset($max_questions) || isset($max_connections)
           || isset($max_updates) || isset($max_user_connections))))
     {
