@@ -135,20 +135,23 @@ echo "\n";
         <label for="text_skip_queries"><?php echo $strSkipQueries; ?></label>
         <input type="text" name="skip_queries" value="<?php echo PMA_pluginGetDefault('Import', 'skip_queries');?>" id="text_skip_queries" />
         </div>
-
     </fieldset>
-    <fieldset style="float: left;" class="options">
+
+    <fieldset class="options">
         <legend><?php echo $strImportFormat; ?></legend>
 <?php
 // Let's show format options now
-
+echo '<div style="float: left;">';
 echo PMA_pluginGetChoice('Import', 'format', $import_list);
+echo '</div>';
+
+echo '<div style="float: left;">';
+echo PMA_pluginGetOptions('Import', $import_list);
+echo '</div>';
 ?>
+        <div class="clearfloat"></div>
     </fieldset>
 <?php
-
-echo PMA_pluginGetOptions('Import', $import_list);
-
 // Encoding setting form appended by Y.Kawada
 if (function_exists('PMA_set_enc_form')) {
     echo PMA_set_enc_form('            ');

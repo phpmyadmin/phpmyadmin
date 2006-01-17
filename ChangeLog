@@ -8,6 +8,8 @@ $Source$
 2006-01-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
     * libraries/database_interface.lib.php:
       fixed bug: undefined index with empty database in db structure view
+    * libraries/display_import.lib.php:
+      fixed bug: display issues with Opera (and Safari?)
 
 2006-01-16 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: typo
