@@ -10,6 +10,11 @@ $Source$
       fixed bug: undefined index with empty database in db structure view
     * libraries/display_import.lib.php:
       fixed bug: display issues with Opera (and Safari?)
+    * libraries/plugin_interface.lib.php:
+      - fixed bug: display issues with Opera (and Safari?)
+      - added source documentation
+      - PEAR coding standard
+      - clarified some variable names
 
 2006-01-16 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: typo
