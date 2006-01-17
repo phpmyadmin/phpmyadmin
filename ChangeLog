@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2006-01-17 Sebastian Mendel <cybot_tm@users.sourceforge.net>
+    * libraries/database_interface.lib.php:
+      fixed bug: undefined index with empty database in db structure view
+
 2006-01-16 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: typo
     * libraries/check_user_privileges.lib.php: bug #1406499,
@@ -63,7 +67,7 @@ $Source$
       #1402270).
 
 2006-01-10 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/sqlparser.lib.php: bug #1394479, problem detecting ending 
+    * libraries/sqlparser.lib.php: bug #1394479, problem detecting ending
       semi-colon, generates a SHOW KEYS FROM no table name
 
 2006-01-09 Michal Čihař  <michal@cihar.com>
@@ -81,7 +85,7 @@ $Source$
       PmaAbsoluteUri in vhost situations, thanks to Ryan Schmidt
 
 2006-01-06 Marc Delisle  <lem9@users.sourceforge.net>
-    * db_datadict.php, pdf_schema.php: bug #1389165, data dict shows all 
+    * db_datadict.php, pdf_schema.php: bug #1389165, data dict shows all
       columns as Null Yes
     * pdf_schema.php: display PDF schema did not work (missing dot)
 
@@ -94,7 +98,7 @@ $Source$
       adapted from proposed solution by Matt LaPlante, thanks
 
 2006-01-02 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/display_create_table.lib.php: bug #1389868, 
+    * libraries/display_create_table.lib.php: bug #1389868,
       Safari's rendering of "Create table" fieldset, thanks to Ryan Schmidt
 
 2006-01-01 Michal Čihař  <michal@cihar.com>
@@ -105,19 +109,19 @@ $Source$
     * libraries/transformations.lib.php: remove some PHP3 compatibility code
 
 2005-12-31 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/common.lib.php: bug #1388167, deleting a row in a table 
+    * libraries/common.lib.php: bug #1388167, deleting a row in a table
       without a primary key, handle correctly is_js_confirmed
 
 2005-12-30 Marc Delisle  <lem9@users.sourceforge.net>
     * server_databases.php: bug #1388135, IE and dropping databases
     * librairies/mult_submits.inc.php: strong warning for DROP DATABASE
-    * tbl_printview.php: bug #1389165, Print view shows all columns as Null Yes 
+    * tbl_printview.php: bug #1389165, Print view shows all columns as Null Yes
       (MySQL 5.x)
     * libraries/Config.class.php: patch #1392181, typo,
       thanks to Luis Mirabal - normannormal
 
 2005-12-27 Marc Delisle  <lem9@users.sourceforge.net>
-    * main.php, libraries/check_user_privileges.lib.php: 
+    * main.php, libraries/check_user_privileges.lib.php:
       - reenable a non-privileged user to change his password
       - display the Reload MySQL link only if user has proper rights
     * Documentation.html: bug #1389582, unclosed code tag,
@@ -130,7 +134,7 @@ $Source$
 2005-12-22 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, libraries/common.lib.php: bug #1381856,
       Cannot edit a table having 40 columns
-    * libraries/common.lib.php: bug #1388116, cannot pass TRUE by reference 
+    * libraries/common.lib.php: bug #1388116, cannot pass TRUE by reference
       to PMA_setCookie, thanks to Isaac Bennetch
     * libraries/tbl_replace_fields.inc.php: recent fix introduced a bug:
       cannot change a value for a nullable field

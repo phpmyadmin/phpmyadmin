@@ -242,7 +242,9 @@ function PMA_DBI_get_tables_full($database, $table = false,
     } else {
         $databases = array_map('addslashes', $database);
     }
-    
+
+    $tables = array();
+
     if ( PMA_MYSQL_INT_VERSION >= 50002 ) {
         // get table information from information_schema
         if ( $table ) {
@@ -308,7 +310,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
                     unset( $each_tables[$table_name] );
                     continue;
                 }
-    
+
                 if ( ! isset( $each_tables[$table_name]['Type'] )
                   && isset( $each_tables[$table_name]['Engine'] ) ) {
                     // pma BC, same parts of PMA still uses 'Type'
@@ -320,7 +322,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
                     $each_tables[$table_name]['Engine']
                         =& $each_tables[$table_name]['Type'];
                 }
-    
+
                 // MySQL forward compatibility
                 // so pma could use this array as if every server is of version >5.0
                 $each_tables[$table_name]['TABLE_SCHEMA']      = $each_database;
@@ -342,7 +344,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
                 $each_tables[$table_name]['CHECKSUM']          =& $each_tables[$table_name]['Checksum'];
                 $each_tables[$table_name]['CREATE_OPTIONS']    =& $each_tables[$table_name]['Create_options'];
                 $each_tables[$table_name]['TABLE_COMMENT']     =& $each_tables[$table_name]['Comment'];
-    
+
                 if ( strtoupper( $each_tables[$table_name]['Comment'] ) === 'VIEW' ) {
                     $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
                 } else {
@@ -351,7 +353,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
                     $each_tables[$table_name]['TABLE_TYPE'] = 'BASE TABLE';
                 }
             }
-            
+
             $tables[$each_database] = $each_tables;
         }
     }
@@ -362,7 +364,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
         }
     }
 
-    if ( ! is_array($database) ) {
+    if ( ! is_array($database) && isset($tables[$database]) ) {
         return $tables[$database];
     } else {
         return $tables;
